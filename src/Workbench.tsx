@@ -652,19 +652,31 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
             <p>切换国家或军种继续查看。</p>
           </div>
         )}
+        <footer className="footnote">
+          <div className="footnote-intro">
+            <p>
+              从上往下沿箭头研发；折叠组可以展开。AB / RB / SB
+              切换后显示当前模式权重。配件与载具分别计价，出击队列和购物车本地保存。
+            </p>
+            <CreatorFooter />
+          </div>
+          <div>
+            <span>{tree?.edges.length || 0} 条官方分支连线</span>
+            {selected && <button onClick={() => setSelected(null)}>清除路线高亮</button>}
+            <span>
+              {loadedCountry?.key === currentKey
+                ? cacheLabel(loadedCountry.cache)
+                : "选定国家后读取资料"}
+              {!remembered ? " · 无法记住选择" : ""} · 数据以游戏内为准
+            </span>
+          </div>
+        </footer>
         {unit && (
-          <aside className="detail" aria-label="载具详情">
-            <button
-              className="detail-close"
-              aria-label="关闭详情"
-              onClick={() => setSelected(null)}
-            >
-              ×
-            </button>
-            <div className="detail-kicker">
-              {unit.side === "research" ? "研发路线" : P.kinds[unit.kind]}
-            </div>
-            <h2>
+          <Modal
+            className="vehicle-detail-dialog"
+            close={() => setSelected(null)}
+            subtitle={unit.side === "research" ? "研发路线" : P.kinds[unit.kind]}
+            title={
               <a
                 className="detail-title-link"
                 href={`https://wiki.warthunder.com/unit/${encodeURIComponent(unit.id)}`}
@@ -673,96 +685,80 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
               >
                 {unit.name} <span aria-hidden="true">↗</span>
               </a>
-            </h2>
-            <button
-              className="detail-image"
-              onClick={() => setModal("image")}
-              aria-label={`放大查看 ${unit.name} 官方图片`}
-            >
-              <VehicleImage key={unit.id} unit={unit} />
-              <span className="detail-image-hint">点击放大 ⛶</span>
-            </button>
-            <div className="detail-actions">
+            }
+          >
+            <article className="detail" aria-label="载具详情">
               <button
-                className="quiet-button calc-open"
-                disabled={unit.side !== "research"}
-                title={unit.side !== "research" ? "独立获取载具不接入常规研发路线" : undefined}
-                onClick={() => setModal("vehicle")}
+                className="detail-image"
+                onClick={() => setModal("image")}
+                aria-label={`放大查看 ${unit.name} 官方图片`}
               >
-                研发载具
+                <VehicleImage key={unit.id} unit={unit} />
+                <span className="detail-image-hint">点击放大 ⛶</span>
               </button>
-              <button className="quiet-button calc-open" onClick={openParts}>
-                研发配件
-              </button>
-            </div>
-            <div className="detail-facts">
-              <span>{P.countries[country] || "选择国家"}</span>
-              <span>Rank {unit.rank}</span>
-              <span>
-                {modes[mode]} {mode.toUpperCase()} {rating(unit, mode)}
-              </span>
-            </div>
-            {(unit.side === "research" || unit.kind === "squadron") && (
-              <div className="research-cost">
-                <span>{unit.kind === "squadron" ? "联队研发点" : "基础研发点"}</span>
-                <strong>{rpText(unit)}</strong>
+              <div className="detail-actions">
+                <button
+                  className="quiet-button calc-open"
+                  disabled={unit.side !== "research"}
+                  title={unit.side !== "research" ? "独立获取载具不接入常规研发路线" : undefined}
+                  onClick={() => setModal("vehicle")}
+                >
+                  研发载具
+                </button>
+                <button className="quiet-button calc-open" onClick={openParts}>
+                  研发配件
+                </button>
               </div>
-            )}
-            {unit.side === "research" ? (
-              <>
-                <h3>必要前置路线</h3>
-                <ol className="research-path">
-                  {path.map((id) => {
-                    const previous = indexed.units.get(id);
-                    return previous ? (
-                      <li key={id}>
-                        {previous.name}
-                        <small>
-                          {rpText(previous)} · Rank {previous.rank}
-                        </small>
-                      </li>
-                    ) : null;
-                  })}
-                </ol>
-                <p>沿真实前置关系展开，不代表已满足等级购车数量。速算面板会补齐等级门槛。</p>
-              </>
-            ) : (
-              <p>独立获取载具，不接入常规研发路线。礼包与市场链接是否在售以商城为准。</p>
-            )}
-            <div className="detail-links">
-              {unit.store && (
-                <a href={unit.store} target="_blank" rel="noreferrer">
-                  官方礼包 ↗
-                </a>
+              <div className="detail-facts">
+                <span>{P.countries[country] || "选择国家"}</span>
+                <span>Rank {unit.rank}</span>
+                <span>
+                  {modes[mode]} {mode.toUpperCase()} {rating(unit, mode)}
+                </span>
+              </div>
+              {(unit.side === "research" || unit.kind === "squadron") && (
+                <div className="research-cost">
+                  <span>{unit.kind === "squadron" ? "联队研发点" : "基础研发点"}</span>
+                  <strong>{rpText(unit)}</strong>
+                </div>
               )}
-              {unit.market && (
-                <a href={unit.market} target="_blank" rel="noreferrer">
-                  市场 ↗
-                </a>
+              {unit.side === "research" ? (
+                <>
+                  <h3>必要前置路线</h3>
+                  <ol className="research-path">
+                    {path.map((id) => {
+                      const previous = indexed.units.get(id);
+                      return previous ? (
+                        <li key={id}>
+                          {previous.name}
+                          <small>
+                            {rpText(previous)} · Rank {previous.rank}
+                          </small>
+                        </li>
+                      ) : null;
+                    })}
+                  </ol>
+                  <p>沿真实前置关系展开，不代表已满足等级购车数量。速算面板会补齐等级门槛。</p>
+                </>
+              ) : (
+                <p>独立获取载具，不接入常规研发路线。礼包与市场链接是否在售以商城为准。</p>
               )}
-            </div>
-          </aside>
+              <div className="detail-links">
+                {unit.store && (
+                  <a href={unit.store} target="_blank" rel="noreferrer">
+                    官方礼包 ↗
+                  </a>
+                )}
+                {unit.market && (
+                  <a href={unit.market} target="_blank" rel="noreferrer">
+                    市场 ↗
+                  </a>
+                )}
+              </div>
+            </article>
+          </Modal>
         )}
       </main>
-      <footer className="footnote">
-        <div className="footnote-intro">
-          <p>
-            从上往下沿箭头研发；折叠组可以展开。AB / RB / SB
-            切换后显示当前模式权重。配件与载具分别计价，出击队列和购物车本地保存。
-          </p>
-          <CreatorFooter />
-        </div>
-        <div>
-          <span>{tree?.edges.length || 0} 条官方分支连线</span>
-          {selected && <button onClick={() => setSelected(null)}>清除路线高亮</button>}
-          <span>
-            {loadedCountry?.key === currentKey
-              ? cacheLabel(loadedCountry.cache)
-              : "选定国家后读取资料"}
-            {!remembered ? " · 无法记住选择" : ""} · 数据以游戏内为准
-          </span>
-        </div>
-      </footer>
       {cartError && (
         <p role="alert" className="cart-error">
           {cartError}

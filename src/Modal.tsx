@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useId, useRef } from "react";
 import type { ReactNode } from "react";
 export function Modal({
   title,
@@ -7,13 +7,14 @@ export function Modal({
   children,
   className = "",
 }: {
-  title: string;
+  title: ReactNode;
   subtitle?: string;
   close: () => void;
   children: ReactNode;
   className?: string;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
+  const titleId = useId();
   useEffect(() => {
     const dialog = ref.current;
     if (!dialog) return;
@@ -21,10 +22,15 @@ export function Modal({
     return () => dialog.close();
   }, []);
   return (
-    <dialog ref={ref} className={`calculator ${className}`} aria-label={title} onCancel={close}>
+    <dialog
+      ref={ref}
+      className={`calculator ${className}`}
+      aria-labelledby={titleId}
+      onCancel={close}
+    >
       <header className="calc-header">
         <div>
-          <h2>{title}</h2>
+          <h2 id={titleId}>{title}</h2>
           <p>{subtitle}</p>
         </div>
         <button className="quiet-button" onClick={close}>

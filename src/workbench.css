@@ -364,6 +364,7 @@ select {
 }
 .canvas-space {
   position: relative;
+  margin-inline: auto;
 }
 .canvas {
   position: relative;
@@ -1443,6 +1444,9 @@ select {
   border-color: var(--wt-strong-line);
 }
 .calculator {
+  position: fixed;
+  inset: 0;
+  margin: auto;
   width: min(1460px, calc(100vw - 32px));
   height: min(930px, calc(100dvh - 32px));
   max-width: none;

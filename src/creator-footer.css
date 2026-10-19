@@ -101,3 +101,10 @@
     padding-inline: 12px;
   }
 }
+
+/* The explanatory footer is ordinary scroll content after the entire tree. */
+.viewport > .footnote {
+  position: static;
+  margin-top: 12px;
+  padding: 10px 12px;
+}

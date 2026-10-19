@@ -81,3 +81,12 @@
   Loading is indeterminate while native import runs; never fake byte progress.
 - `scripts/check-build.mjs` verifies all ten emitted JS payload hashes and blocks
   standalone JSON output. It runs after build and before static publication.
+
+- Center `.canvas-space` horizontally with auto inline margins whenever it fits
+  the scroll viewport; retain accessible overflow for wider or zoomed trees.
+- All native `.calculator` dialogs explicitly use fixed inset zero and auto
+  margins, independent of Tailwind resets. Content-sized variants use fit-content.
+- Vehicle details use the shared centered Modal, with a larger responsive layout
+  and the title as the official Wiki link. Keep nested image/quote dialogs usable.
+- The research explanatory footer lives after the canvas inside `.viewport`,
+  so it appears at the end of the tree scroll rather than remaining on screen.
