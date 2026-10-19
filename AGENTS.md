@@ -90,3 +90,10 @@
   and the title as the official Wiki link. Keep nested image/quote dialogs usable.
 - The research explanatory footer lives after the canvas inside `.viewport`,
   so it appears at the end of the tree scroll rather than remaining on screen.
+
+- The lineup page defaults to saved lineup summaries, not the vehicle picker.
+  Each saved lineup has a share action next to its title; display the code and
+  attempt clipboard copy. Keep rank/category/type filters inside configuration.
+- New and edited lineups use local drafts. Persist only on explicit save;
+  cancellation must preserve existing saved entries. Confirmed imports return
+  to the saved list. Keep legacy lineup keys, IDs, share slots and codebook stable.

@@ -1,3 +1,9 @@
+import {
+  LineupSummary,
+  LineupSummaryRatings,
+  LineupRatingsView,
+  LineupRulesNotes,
+} from "./LineupOverview";
 import { CreatorFooter } from "./components/CreatorFooter";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { CatalogIndex, CountryPayload, Mode } from "./models";
@@ -58,7 +64,7 @@ export function Lineups({
       <header className="lineup-page-header">
         <div>
           <h1>出击队列</h1>
-          <p>按国家保存多个队列 · 长按拖动乘员槽位</p>
+          <p>按国家管理已保存队列 · 分享与导入队列</p>
         </div>
         <a className="quiet-button" href="#/tree">
           ← 返回研发树
@@ -220,7 +226,11 @@ function CountryLineups({
     (v): v is Lineup[] => validLineups(v, rules.maxSlots),
   );
   const [selectedId, setSelectedId] = useState(saved[0]?.id || "");
-  const selected = saved.find((row) => row.id === selectedId) || saved[0];
+  const [draft, setDraft] = useState<Lineup | null>(null);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [shareOpen, setShareOpen] = useState(false);
+  const heading = useRef<HTMLHeadingElement>(null);
+  const selected = draft || saved.find((row) => row.id === selectedId) || saved[0];
   const [activeSlot, setActiveSlot] = useState(0);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState(
@@ -269,8 +279,8 @@ function CountryLineups({
   }, [selected, country, payload.lineupCodes, rules]);
   const ratings = selected ? lineupRatings(selected, units, rules) : [];
   function update(patch: Partial<Lineup>) {
-    if (!selected) return;
-    save(saved.map((row) => (row.id === selected.id ? { ...row, ...patch } : row)));
+    if (!draft) return;
+    setDraft({ ...draft, ...patch });
     setMessage("");
   }
   function create(
@@ -278,6 +288,7 @@ function CountryLineups({
     name?: string,
     type?: BattleType,
     activeAircraft?: string | null,
+    configure = true,
   ) {
     const firstAircraft = slots.find((id) => id && units.get(id)?.category === "aviation") || null;
     const lineup: Lineup = {
@@ -287,14 +298,86 @@ function CountryLineups({
       battleType: type || (slots.some(Boolean) ? inferBattle(slots, units) : defaultBattle),
       activeAircraft: activeAircraft === undefined ? firstAircraft : activeAircraft,
     };
-    save([...saved, lineup]);
+    if (configure) {
+      setDraft(lineup);
+      setEditingId(null);
+    } else {
+      save([...saved, lineup]);
+      setDraft(null);
+      setEditingId(null);
+    }
     setSelectedId(lineup.id);
     setCategory(
       lineup.battleType === "air" ? "aviation" : lineup.battleType === "ground" ? "ground" : "all",
     );
     setActiveSlot(0);
+    setSearch("");
+    setRank("all");
+    setKind("all");
     setDeleting("");
     setMessage("");
+  }
+  function focusHeading() {
+    requestAnimationFrame(() => heading.current?.focus());
+  }
+  function returnToList() {
+    setDraft(null);
+    setEditingId(null);
+    setDeleting("");
+    setMessage("");
+    focusHeading();
+  }
+  function edit(row: Lineup) {
+    setDraft({ ...row, slots: [...row.slots] });
+    setEditingId(row.id);
+    setSelectedId(row.id);
+    setActiveSlot(0);
+    setCategory(
+      row.battleType === "air" ? "aviation" : row.battleType === "ground" ? "ground" : "all",
+    );
+    setSearch("");
+    setMessage("");
+    focusHeading();
+  }
+  function saveDraft() {
+    if (!draft || !draft.slots.some(Boolean)) return;
+    const next = { ...draft, name: draft.name.trim() || "未命名队列" };
+    if (!validLineups([next], rules.maxSlots)) {
+      setMessage("队列配置不完整或载具有重复，请检查槽位。");
+      return;
+    }
+    save(editingId ? saved.map((row) => (row.id === editingId ? next : row)) : [...saved, next]);
+    setSelectedId(next.id);
+    returnToList();
+  }
+  async function copyCode(code: string) {
+    if (!code) return;
+    setCopying(true);
+    try {
+      await navigator.clipboard.writeText(code);
+      setMessage("分享码已复制。");
+    } catch {
+      if (shareCode.current) {
+        const range = document.createRange();
+        range.selectNodeContents(shareCode.current);
+        const selection = window.getSelection();
+        selection?.removeAllRanges();
+        selection?.addRange(range);
+      }
+      setMessage("浏览器未允许复制，请选中分享码手动复制。");
+    } finally {
+      setCopying(false);
+    }
+  }
+  function shareLineup(row: Lineup) {
+    setSelectedId(row.id);
+    setShareOpen(true);
+    setMessage("");
+    try {
+      void copyCode(encodeLineup(country, row.slots, payload.lineupCodes, rules));
+    } catch (cause) {
+      setMessage(cause instanceof Error ? cause.message : "无法导出分享码。");
+    }
   }
   function place(id: string | null) {
     if (!selected) return;
@@ -364,7 +447,13 @@ function CountryLineups({
                 <button
                   className="quiet-button calc-open"
                   onClick={() => {
-                    create(preview.slots!, `导入队列 ${saved.length + 1}`);
+                    create(
+                      preview.slots!,
+                      `导入队列 ${saved.length + 1}`,
+                      undefined,
+                      undefined,
+                      false,
+                    );
                     dismissImport();
                   }}
                 >
@@ -375,48 +464,169 @@ function CountryLineups({
           </div>
         </Modal>
       )}
-      <div className="lineup-workspace">
-        <aside className="lineup-sidebar" aria-label="已保存的出击队列">
-          <div className="lineup-section-heading">
-            <h3>
-              我的队列 <small>{saved.length}</small>
-            </h3>
-            <button className="quiet-button" onClick={() => create()}>
-              ＋ 新建
-            </button>
-          </div>
-          <div className="lineup-presets">
-            {saved.map((row) => (
+      {shareOpen && selected && (
+        <Modal
+          className="lineup-import-dialog"
+          title={`分享队列 · ${selected.name}`}
+          subtitle="24 位分享码，区分大小写；保留空槽位与顺序。"
+          close={() => setShareOpen(false)}
+        >
+          <div className="lineup-share">
+            <div className="lineup-share-row">
+              <code ref={shareCode} aria-label="当前队列分享码">
+                {share.code}
+              </code>
               <button
-                className="lineup-preset"
-                key={row.id}
-                aria-pressed={selected?.id === row.id}
-                onClick={() => {
-                  setSelectedId(row.id);
-                  setDeleting("");
-                  setMessage("");
-                }}
+                className="quiet-button calc-open"
+                disabled={!share.code || copying}
+                onClick={() => void copyCode(share.code)}
               >
-                <strong>{row.name || "未命名队列"}</strong>
-                <small>
-                  {battleNames[row.battleType]} · {row.slots.filter(Boolean).length} /{" "}
-                  {rules.maxSlots} 辆
-                </small>
+                {copying ? "正在复制…" : "复制分享码"}
               </button>
-            ))}
+            </div>
+            <p className="lineup-feedback" role={share.error ? "alert" : "status"}>
+              {share.error || message}
+            </p>
+            <p className="calc-note">
+              分享码只包含国家和载具槽位，不包含队列名称、战斗类型和空战 RB 出击选择。
+            </p>
           </div>
-          {!saved.length && <p className="calc-note">尚无队列。新建一个，或从分享码导入。</p>}
-        </aside>
-        {!selected ? (
-          <div className="lineup-empty">
-            <h3>配置你的出击队列</h3>
-            <p>每个国家可以保存多个队列，每队最多 {rules.maxSlots} 辆。</p>
-            <button className="quiet-button calc-open" onClick={() => create()}>
-              新建队列
+        </Modal>
+      )}
+      {deleting && saved.some((row) => row.id === deleting) && (
+        <Modal
+          className="lineup-import-dialog"
+          title="删除队列"
+          subtitle={`确定删除“${saved.find((row) => row.id === deleting)?.name || "未命名队列"}”？`}
+          close={() => setDeleting("")}
+        >
+          <div className="lineup-delete">
+            <button className="quiet-button" onClick={() => setDeleting("")}>
+              保留队列
+            </button>
+            <button
+              className="quiet-button"
+              onClick={() => {
+                save(saved.filter((row) => row.id !== deleting));
+                if (draft?.id === deleting) returnToList();
+                setDeleting("");
+              }}
+            >
+              确认删除
             </button>
           </div>
-        ) : (
+        </Modal>
+      )}
+      <div className="lineup-workspace">
+        {!draft && (
+          <section className="lineup-saved" aria-label="已保存的出击队列">
+            <div className="lineup-section-heading">
+              <h3 ref={heading} tabIndex={-1}>
+                我的队列{" "}
+                <small>
+                  {catalog.countries[country]} · {saved.length} 个
+                </small>
+              </h3>
+              <div className="lineup-saved-actions">
+                <label className="lineup-inline-label">
+                  载具权重
+                  <select value={mode} onChange={(e) => setMode(e.target.value as Mode)}>
+                    {Object.entries(modes).map(([id, name]) => (
+                      <option key={id} value={id}>
+                        {name} {id.toUpperCase()}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <button
+                  className="quiet-button calc-open"
+                  onClick={() => {
+                    create();
+                    focusHeading();
+                  }}
+                >
+                  ＋ 新建队列
+                </button>
+              </div>
+            </div>
+            <div className="lineup-saved-list">
+              {saved.map((row) => (
+                <article className="lineup-saved-row" key={row.id}>
+                  <div className="lineup-section-heading">
+                    <div>
+                      <h3>{row.name || "未命名队列"}</h3>
+                      <p className="calc-note">
+                        {battleNames[row.battleType]} · {row.slots.filter(Boolean).length} /{" "}
+                        {rules.maxSlots} 辆
+                      </p>
+                    </div>
+                    <div className="lineup-saved-actions">
+                      <button
+                        className="quiet-button calc-open"
+                        aria-label={`分享 ${row.name}`}
+                        disabled={copying}
+                        onClick={() => shareLineup(row)}
+                      >
+                        分享
+                      </button>
+                      <button
+                        className="quiet-button"
+                        aria-label={`编辑 ${row.name}`}
+                        onClick={() => edit(row)}
+                      >
+                        编辑
+                      </button>
+                      <button
+                        className="quiet-button"
+                        aria-label={`删除 ${row.name}`}
+                        onClick={() => setDeleting(row.id)}
+                      >
+                        删除
+                      </button>
+                    </div>
+                  </div>
+                  <LineupSummaryRatings lineup={row} units={units} rules={rules} />
+                  <LineupSummary lineup={row} units={units} mode={mode} catalog={catalog} />
+                </article>
+              ))}
+            </div>
+            {!saved.length && (
+              <div className="lineup-empty">
+                <h3>还没有保存的队列</h3>
+                <p>点击新建配置载具，保存后会显示在这里；也可以从分享码导入。</p>
+                <button
+                  className="quiet-button calc-open"
+                  onClick={() => {
+                    create();
+                    focusHeading();
+                  }}
+                >
+                  新建队列
+                </button>
+              </div>
+            )}
+          </section>
+        )}
+        {draft && selected && (
           <section className="lineup-editor" aria-label="队列配置">
+            <div className="lineup-editor-navigation">
+              <h3 ref={heading} tabIndex={-1}>
+                {editingId ? "编辑队列" : "新建队列"}
+              </h3>
+              <div className="lineup-saved-actions">
+                <button className="quiet-button" onClick={returnToList}>
+                  取消，返回列表
+                </button>
+                <button
+                  className="quiet-button calc-open"
+                  disabled={!draft.slots.some(Boolean)}
+                  onClick={saveDraft}
+                >
+                  保存队列
+                </button>
+              </div>
+            </div>
+            <p className="calc-note">配置完成后保存。取消会保留之前保存的队列。</p>
             <div className="lineup-editor-heading">
               <label className="calc-field">
                 队列名称
@@ -455,27 +665,14 @@ function CountryLineups({
               >
                 复制队列
               </button>
-              <button className="quiet-button" onClick={() => setDeleting(selected.id)}>
+              <button
+                className="quiet-button"
+                disabled={!editingId}
+                onClick={() => setDeleting(selected.id)}
+              >
                 删除
               </button>
             </div>
-            {deleting === selected.id && (
-              <div className="lineup-delete" role="alert">
-                <span>删除“{selected.name || "未命名队列"}”？</span>
-                <button
-                  className="quiet-button"
-                  onClick={() => {
-                    save(saved.filter((row) => row.id !== selected.id));
-                    setDeleting("");
-                  }}
-                >
-                  确认删除
-                </button>
-                <button className="quiet-button" onClick={() => setDeleting("")}>
-                  保留队列
-                </button>
-              </div>
-            )}
             <div className="lineup-configure">
               <section className="lineup-roster" aria-label="乘员槽位">
                 <div className="lineup-section-heading">
@@ -533,23 +730,7 @@ function CountryLineups({
                   }}
                 />
               </section>
-              <div className="lineup-ratings" aria-label="不同模式的队列权重">
-                {ratings.map((value) => (
-                  <div key={value.mode} className="lineup-rating">
-                    <span>
-                      {modes[value.mode]} {value.mode.toUpperCase()}
-                    </span>
-                    <strong>{value.label}</strong>
-                    <p>{value.note}</p>
-                    {value.excluded.length > 0 && (
-                      <details>
-                        <summary>{value.excluded.length} 辆不参与此模式计算</summary>
-                        <p>{value.excluded.map((id) => units.get(id)?.name || id).join("、")}</p>
-                      </details>
-                    )}
-                  </div>
-                ))}
-              </div>
+              <LineupRatingsView ratings={ratings} units={units} />
 
               <section className="lineup-picker" aria-label="载具选择">
                 <h3>为槽位 {activeSlot + 1} 选择载具</h3>
@@ -675,24 +856,7 @@ function CountryLineups({
                 <button
                   className="quiet-button calc-open"
                   disabled={!share.code || copying}
-                  onClick={async () => {
-                    setCopying(true);
-                    try {
-                      await navigator.clipboard.writeText(share.code);
-                      setMessage("分享码已复制。");
-                    } catch {
-                      if (shareCode.current) {
-                        const range = document.createRange();
-                        range.selectNodeContents(shareCode.current);
-                        const selection = window.getSelection();
-                        selection?.removeAllRanges();
-                        selection?.addRange(range);
-                      }
-                      setMessage("浏览器未允许复制，已选中分享码，请手动复制。");
-                    } finally {
-                      setCopying(false);
-                    }
-                  }}
+                  onClick={() => void copyCode(share.code)}
                 >
                   {copying ? "正在复制…" : "复制分享码"}
                 </button>
@@ -708,29 +872,7 @@ function CountryLineups({
                 {share.error || message}
               </p>
             </section>
-            <details className="lineup-rule-notes">
-              <summary>权重规则与来源</summary>
-              <p>
-                空战 AB 取前三架，A/2+B/4+C/4；两架取 (A+B)/2，单架取自身。B/C 与 A
-                的计算差距最多两档，按最近 BR 档位取整，正中间向上，最终最多比 A 低一档。
-              </p>
-              <p>
-                陆战 RB 的飞机采用陆战专用权重；陆战 AB
-                的机库飞机不计入。海战的飞机不得超过最高舰艇一档，超限飞机不可出击。SB
-                不据此生成普通匹配权重。
-              </p>
-              <p>这是机库队列估算；损坏、锁定、临时活动和未解锁槽位等账号状态请以游戏为准。</p>
-              {rules.sources.map((source, i) => (
-                <a key={source.url} href={source.url} target="_blank" rel="noreferrer">
-                  {i === 0
-                    ? "官方 Wiki 匹配规则"
-                    : i === 1
-                      ? "官方空战权重与取整说明"
-                      : "官方乘员槽位说明"}{" "}
-                  ↗
-                </a>
-              ))}
-            </details>
+            <LineupRulesNotes rules={rules} />
           </section>
         )}
       </div>
