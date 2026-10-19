@@ -1,4 +1,4 @@
-import { CreatorFooter } from "./components/CreatorFooter";
+import { CreatorLink } from "./components/CreatorLink";
 import { Component, createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { useRouterState } from "@tanstack/react-router";
 import type { ReactNode } from "react";
@@ -452,16 +452,19 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
             出击队列
           </a>
         </nav>
-        <div className="edition">
-          <span className="snapshot-dot" />
-          <span>官方 Wiki · {P.checkedAt.slice(0, 10)}</span>
-          <a
-            href={`${P.sources[category].url}?v=t&t_c=${country}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            官方原树 ↗
-          </a>
+        <div className="masthead-meta">
+          <CreatorLink />
+          <div className="edition">
+            <span className="snapshot-dot" />
+            <span>官方 Wiki · {P.checkedAt.slice(0, 10)}</span>
+            <a
+              href={`${P.sources[category].url}?v=t&t_c=${country}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              官方原树 ↗
+            </a>
+          </div>
         </div>
       </header>
       <section className="controls">
@@ -658,7 +661,6 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
               从上往下沿箭头研发；折叠组可以展开。AB / RB / SB
               切换后显示当前模式权重。配件与载具分别计价，出击队列和购物车本地保存。
             </p>
-            <CreatorFooter />
           </div>
           <div>
             <span>{tree?.edges.length || 0} 条官方分支连线</span>

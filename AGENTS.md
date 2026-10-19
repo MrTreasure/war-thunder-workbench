@@ -58,9 +58,9 @@
   Preserve TanStack history state when synchronizing legacy outer query params.
 - `src/styles.css` is the template/Tailwind entry, `src/workbench.css` contains
   existing workbench rules. Keep legacy localStorage/OPFS and RP behavior.
-- Place `CreatorFooter` inline at the right of the existing research-tree
-  explanatory row, and in the lineup help row. Use the supplied QMuse logo and
-  invite link. Never add a separate full-width footer beneath the application.
+- Place `CreatorLink` in the top-right header of both research-tree and lineup
+  pages. Use the supplied QMuse logo and invite link; do not duplicate it in the
+  explanatory row or a separate footer. Keep it responsive without horizontal overflow.
 - Keep `.qmuse/project.json` managed by qmuse-cli; update the bound application
   with `qmuse-cli import .`, never manually change its platform binding.
   Generated bootstrap/manifest, `src/generated/country-modules.ts` and all ten

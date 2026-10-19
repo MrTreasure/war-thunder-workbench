@@ -1,8 +1,8 @@
 import { Button } from "./ui/button";
-export function CreatorFooter() {
+export function CreatorLink() {
   return (
-    <div className="creator-footer" aria-label="创作自己的工具">
-      <Button asChild variant="ghost" className="creator-footer-link">
+    <div className="creator-promo" aria-label="创作自己的工具">
+      <Button asChild variant="ghost" className="creator-promo-link">
         <a
           href="https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB"
           target="_blank"
@@ -16,7 +16,7 @@ export function CreatorFooter() {
             loading="lazy"
           />
           <span>点击创作自己的工具页面，支持AI应用</span>
-          <span className="creator-footer-arrow" aria-hidden="true">
+          <span className="creator-promo-arrow" aria-hidden="true">
             ↗
           </span>
         </a>

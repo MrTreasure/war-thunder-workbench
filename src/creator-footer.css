@@ -13,14 +13,14 @@
   flex: 1;
   min-width: 0;
 }
-.creator-footer {
+.creator-promo {
   display: flex;
   justify-content: flex-end;
   flex: none;
   padding: 0;
   color: var(--wt-muted);
 }
-.creator-footer .creator-footer-link {
+.creator-promo .creator-promo-link {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -35,7 +35,7 @@
   font: 11px/1.7 var(--wt-sans);
   white-space: normal;
 }
-.creator-footer-link img {
+.creator-promo-link img {
   width: 20px;
   height: 20px;
   object-fit: contain;
@@ -43,22 +43,22 @@
   border-radius: 4px;
   flex: none;
 }
-.creator-footer-link > span {
+.creator-promo-link > span {
   overflow-wrap: anywhere;
   text-align: center;
 }
-.creator-footer-arrow {
+.creator-promo-arrow {
   color: var(--wt-gold);
 }
-.creator-footer .creator-footer-link:focus-visible {
+.creator-promo .creator-promo-link:focus-visible {
   outline: 2px solid var(--wt-gold);
   outline-offset: 2px;
 }
-.creator-footer .creator-footer-link:active {
+.creator-promo .creator-promo-link:active {
   background: var(--wt-raised);
 }
 @media (hover: hover) {
-  .creator-footer .creator-footer-link:hover {
+  .creator-promo .creator-promo-link:hover {
     background: var(--wt-surface);
     color: var(--wt-ink);
   }
@@ -91,10 +91,10 @@
   .lineup-helpbar {
     flex-wrap: wrap;
   }
-  .creator-footer {
+  .creator-promo {
     margin-left: auto;
   }
-  .creator-footer .creator-footer-link {
+  .creator-promo .creator-promo-link {
     min-height: 44px;
   }
   .lineup-helpbar {
@@ -107,4 +107,38 @@
   position: static;
   margin-top: 12px;
   padding: 10px 12px;
+}
+
+/* The creator link belongs to the page header's right edge. */
+.masthead-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  margin-left: auto;
+  min-width: 0;
+  max-width: 100%;
+}
+.masthead-meta .edition {
+  margin-left: 0;
+}
+.lineup-page-header {
+  flex-wrap: wrap;
+}
+.lineup-header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin-left: auto;
+  min-width: 0;
+}
+.creator-promo {
+  max-width: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  .creator-promo-link {
+    transition: none;
+  }
 }

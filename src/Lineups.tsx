@@ -4,7 +4,7 @@ import {
   LineupRatingsView,
   LineupRulesNotes,
 } from "./LineupOverview";
-import { CreatorFooter } from "./components/CreatorFooter";
+import { CreatorLink } from "./components/CreatorLink";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { CatalogIndex, CountryPayload, Mode } from "./models";
 import type { DownloadProgress } from "./data-loader";
@@ -66,9 +66,12 @@ export function Lineups({
           <h1>出击队列</h1>
           <p>按国家管理已保存队列 · 分享与导入队列</p>
         </div>
-        <a className="quiet-button" href="#/tree">
-          ← 返回研发树
-        </a>
+        <div className="lineup-header-actions">
+          <a className="quiet-button" href="#/tree">
+            ← 返回研发树
+          </a>
+          <CreatorLink />
+        </div>
       </header>
       <div className="lineup-entry">
         <label className="calc-field">
@@ -99,7 +102,6 @@ export function Lineups({
       </div>
       <div className="lineup-helpbar">
         <p className="calc-note">按国家配置出击队列，队列与分享码保留槽位顺序。</p>
-        <CreatorFooter />
       </div>
       {importOpen && (
         <Modal
