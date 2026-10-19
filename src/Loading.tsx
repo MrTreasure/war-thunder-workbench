@@ -32,9 +32,9 @@ export function WarThunderLoading({
         <p className="wt-loading-copy">{error || "科技树 · 配件研发 · 研发清单"}</p>
         <progress
           className="wt-loading-progress"
-          value={percent}
+          value={progress.total ? percent : undefined}
           max={100}
-          aria-label="实际数据下载进度"
+          aria-label={progress.total ? "资料读取进度" : "正在加载国家资料"}
         />
         <div className="wt-loading-status">
           <span>

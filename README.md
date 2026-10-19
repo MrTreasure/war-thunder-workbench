@@ -24,7 +24,7 @@
 | 迁移前旧项目，不在这里继续开发 | `/vol1/1000/deploy/data/MrTreasure/war-thunder-trees` |
 | 管理控制台，是另一个项目 | `/vol1/1000/deploy/data/MrTreasure/admin-console` |
 
-当前项目已建立独立 Git 仓库，预览基线标记为 `v1.0.0-preview.1`。
+当前项目已建立独立 Git 仓库，预览基线标记为 `v1.0.0-preview.2`。
 后续先交付构建预览与 Git 版本，用户明确确认后再执行 QMuse 导入。
 不要直接编辑正式目录、`dist/` 或 Muse 兼容目录来代替源码修改。
 
@@ -48,11 +48,11 @@
 - 数据缓存优先 OPFS，不支持或写入失败降级 localStorage；两者不可写仍可在页面内存中使用。
   内容 hash、长度、结构检查失败会重新下载。配额淘汰只清理自己的数据缓存，不清购物车与进度。
 - 战雷炭灰、红色操作、金色高级载具风格；官方 Logo、背景、ICO、载具图、国旗全部使用官方在线链接。
-  字体继续同源提供，符合现有 CSP。加载画面使用官方素材和真实字节进度。
+  字体继续同源提供，符合现有 CSP。加载画面使用官方素材；国家 JS 模块加载期间显示不定进度。
 
-最近一次发布备份为 `react-20261019-212625`，发布记录在该备份的 `publication.json`；
-HTML SHA256 为 `0f1d584df69cdcb0d44b8cc684846509f1ca965c8787e253a264b49afb8404c3`，
-共 20 个构建文件（10 个国家 JSON、7 个路由/应用 JS、CSS、HTML、字体）。该版已通过数据检查、TypeScript、
+最近一次发布备份为 `react-20261019-213732`，发布记录在该备份的 `publication.json`；
+HTML SHA256 为 `5c125c8c71f09aab0107efc0bda8b13b4ea6c4cf14534fe5ed216139773b9d25`，
+共 20 个构建文件（10 个国家 JS 模块、7 个路由/应用 JS、CSS、HTML、字体）。该版已通过数据检查、TypeScript、
 Oxlint、格式检查和构建，正式静态目录全部 20 个文件与构建 SHA256 一致。
 本次预览的外网资源核对结果随构建产物交付记录保存。
 旧 hash 资源继续保留，UI 由用户手动验收。这里的 hash 是交接快照，后续发布会正常改变。
@@ -162,23 +162,38 @@ Oxlint、格式检查和构建，正式静态目录全部 20 个文件与构建 
   不额外读取数据。原始 RP、未知成本、预设队列、分享码和所有历史本地存储键不变。
 - 模板样式入口为 `src/styles.css`，旧基础规则放入 `src/workbench.css`；选用模板 Button、Badge、
   Separator、工具函数与移动端 hook，后续组件可继续复用。未增加云数据库或改变账号持久化方式。
-- 模板根路由保留官方 Query Provider；下一层 `_workbench` 布局承载共享状态与页脚，适配平台导入器。
-- 共享布局页面底部添加“点击创作自己的工具页面，支持AI应用”，原始 Logo 和邀请地址均按用户指定，
-  新标签页打开并设置 `noopener noreferrer`。研发树、出击队列及加载状态都可访问该入口。
+- 模板根路由保留官方 Query Provider；下一层 `_workbench` 布局承载共享状态，适配平台导入器。
+- 研发树原有说明栏右侧及出击队列说明行添加“点击创作自己的工具页面，支持AI应用”，原始 Logo 和邀请地址均按用户指定，
+  新标签页打开并设置 `noopener noreferrer`。研发树、出击队列及加载状态都可访问该入口，不在应用最底部新增整条页脚。
 - 模板来源和模板 Skill 已保留；模板建议的 npm/cnpm 命令在本项目统一替换为 pnpm。
 - QMuse 已绑定应用 `8645013411493394`，地址 https://qmuse.cn/app/8645013411493394 。
   后续执行 `pnpm run import:qmuse` 更新同一应用，不手工修改绑定文件；原 Muse 静态地址继续兼容。
-  `.gitignore` 放行运行所需的索引及十国 JSON，排除依赖、构建、私有总目录与本地平台记录。
+  `.gitignore` 放行运行所需的索引及十国 TS 运输模块，排除依赖、构建、私有总目录与本地平台记录。
 
 ### 当前预览与确认流程
 
 - 本地构建预览：https://render.mrtreasure.cc/muse/war-thunder-trees/index.html#/tree
 - 出击队列预览：https://render.mrtreasure.cc/muse/war-thunder-trees/index.html#/lineups
-- Git 预览版本：`v1.0.0-preview.1`，包含模板重构、页脚、完整规范源数据与所需运行数据包。
+- Git 预览版本：`v1.0.0-preview.2`，包含模板重构、页脚、完整规范源数据与所需运行数据包。
 - 上一轮 QMuse 导入已经完成：应用 `8645013411493394`、版本 `89600402`、任务
   `import_d7d29de4-2376-45a4-8480-366117cdc847`，READY 且门禁无未完成项。
   该次操作早于用户要求“先预览、再确认导入”；后续导入须等用户明确确认。
 - 不运行浏览器自动化；页面、移动端拖动与页脚视觉交互由用户手动预览。
+
+### 文字样式与 JS 数据运输修复（2026-10-19）
+
+- 工作台与模板此前共用了 `--muted`、`--accent` 等变量，模板的暗色背景值覆盖了辅助文字色。
+  工作台变量已整体改用 `--wt-*`，并给布局显式设置正文色、背景色与字体。模板变量保留原义。
+- 不再使用 `BASE_URL + data/*.json`。各国规范 JSON 在构建时生成独立的动态 JS 模块，
+  导出原始 JSON 文本，选择国家后才加载；URL 由模块系统相对实际部署的 JS 位置解析。
+  内容仍逐国合并，初始页面不请求车辆数据，同国内切换军种与配件没有新请求。
+- 发布产物不包含独立 JSON；完整规范 JSON 留在私有 `data/generated/countries/`，
+  OPFS / localStorage 缓存键、原文 SHA256、字节数与账号数据不变。原有有效缓存继续可用。
+- 创作入口移入截图指定的说明栏右侧；出击队列同样使用说明行，不另加应用最底部整条页脚。
+- 字体改成 Vite 管理的相对静态资产，避免在 QMuse 宿主页上寻找错误的 `/branding/` 根路径。
+- `scripts/check-build.mjs` 直接读取十个构建后的 JS 模块并核对原文哈希和国家，
+  检查没有 JSON 文件、首页没有预加载国家模块。类型、Lint、源数据与构建门禁一并运行。
+- 当前修复交付为 `v1.0.0-preview.2`；QMuse 的上一次已导入版本尚未包含此修复，待用户确认后更新。
 
 ### 主要代码入口
 
@@ -271,11 +286,12 @@ pnpm run refresh:localization # 名称新增/变化后更新原版中文映射�
 `src/models.ts` 定义前端类型，`scripts/check-data.mjs` 执行一致性检查。
 `prepare-data.mjs` 将完整 catalog 写入仅用于构建检查的 `data/generated/catalog.json`，
 不会将全十国完整车辆表发布到浏览器。公开数据按国家合并为带内容 hash 的
-`public/data/country-{country}.{hash}.json`，共 10 个文件。每个包含该国全部四类军种的科技树
+`src/generated/countries/country-{country}.{hash}.ts` 生成 JS 运输模块，构建输出十个独立的
+`assets/country-{country}.{hash}.{build-hash}.js`。每个包含该国全部四类军种的科技树
 （不存在的树为 `null`）和全部配件，不再按军种或配件拆文件。
 `src/generated/bootstrap.json` 只有国家、军种、国旗、来源和可用性等导航元数据；
 `src/generated/manifest.json` 使用 schemaVersion 3，每个国家直接对应文件描述，包含逻辑 key、
-文件路径、SHA256 和 UTF-8 字节数；国家 JSON 的 schemaVersion 为 2，包含 `country`、
+JS 模块源标识、规范 JSON 的 SHA256 和 UTF-8 字节数；国家 JSON 的 schemaVersion 为 2，包含 `country`、
 `checkedAt`、`trees`（军种到树的映射）、`modifications`（载具 ID 到配件的映射）和
 `lineupCodes`（该国两位载具码到 ID 的稳定映射）。
 构建与发布检查十国文件的 hash、字节数、全部军种与配件归属，避免漏车。
@@ -338,15 +354,16 @@ pnpm run refresh:localization # 名称新增/变化后更新原版中文映射�
 Logo、壁纸、ICO、国旗和载具图片均由浏览器直接读取官方在线地址，不经过本站图片代理，
 也不从本站加载图片副本。Logo 使用 CSS 调整深色背景下的显示颜色，保留原版 SVG。
 图标使用 `https://warthunder.com/i/favicons/favicon.ico`。
-字体仍在 `public/branding/` 同源提供，与本站现有字体 CSP 一致。
+字体规范文件在 `src/assets/RobotoCondensed-Bold.ttf`，随 Vite 打包并使用相对 URL，保持同源读取。
 来源、内容 hash 与交付方式记录于 `data/branding.json`；
 `pnpm run refresh:branding` 使用 curl 检查在线素材并更新本地字体，
 `scripts/flags.py` 检查国旗在线地址后写回 URL，不嵌入图片数据。
 
 启动画面在 HTML 中直接显示官方 Logo 与壁纸。首次访问显示国家选择，不请求任何载具或配件
-JSON。选择国家后一次读取该国全部军种与配件。
-切换国家会取消前一国家未完成的请求；同国内切换军种、打开或关闭配件面板不触发新请求。
-进度按 manifest 的实际 UTF-8 字节数与响应流的已读字节计算，不用定时器伪造进度。
+资料模块。选择国家后按需导入一份包含该国全部军种与配件的 JS 模块。
+切换国家会忽略前一模块的加载结果；原生动态 import 已发起的网络请求不能强制中止。
+同国内切换军种、打开或关闭配件面板不触发新请求。
+模块加载期间显示不定进度，不伪造网络字节。完成后核对规范 JSON 的 UTF-8 字节数、SHA256 与结构。
 脚本读取失败、数据不完整或解析失败会给出重试入口；本地购物车不受重试影响。
 开发服务器保持关闭，正式预览仍使用原 Muse 地址。
 

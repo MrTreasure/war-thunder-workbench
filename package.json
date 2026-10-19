@@ -8,7 +8,7 @@
     "dev": "node scripts/prepare-data.mjs && vite --host 0.0.0.0 --port 5178 --strictPort",
     "typecheck": "tsr generate && tsc --noEmit",
     "lint": "oxlint src vite.config.ts --deny-warnings",
-    "build": "node scripts/prepare-data.mjs && node scripts/check-data.mjs && tsr generate && tsc --noEmit && vite build",
+    "build": "node scripts/prepare-data.mjs && node scripts/check-data.mjs && tsr generate && tsc --noEmit && vite build && node scripts/check-build.mjs",
     "preview": "vite preview --host 0.0.0.0 --port 4178",
     "refresh": "node scripts/refresh.mjs",
     "publish": "python3 scripts/publish.py",

@@ -23,7 +23,8 @@
 - Prefer OPFS for verified JSON caches and fall back to localStorage. Cache quota
   eviction may only remove `wt-data-cache-v1:*` entries, never carts or profiles.
 - Keep source JSON canonical. `data/generated/catalog.json` is a private build
-  validation output; publish only the hashed country files (one file per country).
+  validation output; publish one hashed lazy JS module per country. Canonical
+  data and verified cache bodies remain JSON; never publish standalone JSON files.
 - Images and the favicon must use their original official HTTPS URLs, not local
   copies or embedded flag data. Keep the font same-origin under the existing CSP.
 - `pnpm run refresh` updates JSON; it must not publish. Build and publish only
@@ -36,7 +37,7 @@
   characters plus eleven two-character vehicle slots, with `00` for empties.
 - `data/lineup-codebook.json` is append-only. Never sort IDs and regenerate codes,
   renumber existing entries, reuse retired entries, or change established prefixes.
-  Publish each country's registry inside its existing country JSON only.
+  Publish each country's registry inside its existing country module only.
 - Queue BR uses context-specific aircraft ratings (`trb` for Ground RB), excludes
   aircraft from Ground AB, and filters over-limit aircraft in Naval AB/RB. Ground
   SB uses event lists and Air SB room ranges; do not invent a numeric SB queue BR.
@@ -57,12 +58,14 @@
   Preserve TanStack history state when synchronizing legacy outer query params.
 - `src/styles.css` is the template/Tailwind entry, `src/workbench.css` contains
   existing workbench rules. Keep legacy localStorage/OPFS and RP behavior.
-- The shared root includes `CreatorFooter`, using the user-supplied QMuse logo
-  and invite link. Show it on the research tree and lineup pages.
+- Place `CreatorFooter` inline at the right of the existing research-tree
+  explanatory row, and in the lineup help row. Use the supplied QMuse logo and
+  invite link. Never add a separate full-width footer beneath the application.
 - Keep `.qmuse/project.json` managed by qmuse-cli; update the bound application
   with `qmuse-cli import .`, never manually change its platform binding.
-  Generated bootstrap/manifest and all ten `public/data/` country files must
-  be included in the source upload. Private `data/generated/` stays excluded.
+  Generated bootstrap/manifest, `src/generated/country-modules.ts` and all ten
+  `src/generated/countries/*.ts` transport modules must be included in uploads.
+  Private `data/generated/` stays excluded. Do not assemble paths using BASE_URL.
 - Run `pnpm run check` and `pnpm run build` before QMuse import. Use pnpm even
   where the template's upstream documentation suggests another package manager.
 - Before adding QMuse cloud persistence/auth/schema/services, read the bundled
@@ -70,3 +73,11 @@
 
 - Current delivery flow: build a reviewable preview and create a Git version first.
   Do not run further QMuse imports until the user explicitly confirms the preview.
+
+- All workbench CSS custom properties use `--wt-*` to avoid template/Tailwind
+  `--muted` and `--accent` collisions. The bundled font uses a relative asset URL.
+- Country modules dynamically import canonical JSON text only after selection.
+  Keep SHA256, byte-length and schema checks before caching/using that text.
+  Loading is indeterminate while native import runs; never fake byte progress.
+- `scripts/check-build.mjs` verifies all ten emitted JS payload hashes and blocks
+  standalone JSON output. It runs after build and before static publication.

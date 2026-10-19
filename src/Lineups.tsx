@@ -1,3 +1,4 @@
+import { CreatorFooter } from "./components/CreatorFooter";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { CatalogIndex, CountryPayload, Mode } from "./models";
 import type { DownloadProgress } from "./data-loader";
@@ -89,6 +90,10 @@ export function Lineups({
             导入队列
           </button>
         </div>
+      </div>
+      <div className="lineup-helpbar">
+        <p className="calc-note">按国家配置出击队列，队列与分享码保留槽位顺序。</p>
+        <CreatorFooter />
       </div>
       {importOpen && (
         <Modal

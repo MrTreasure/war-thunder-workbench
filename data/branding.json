@@ -20,7 +20,7 @@
     },
     {
       "id": "font",
-      "path": "public/branding/RobotoCondensed-Bold.ttf",
+      "path": "src/assets/RobotoCondensed-Bold.ttf",
       "source": "https://warthunder.com/assets/fonts/RobotoCondensed/bold.ttf",
       "sourcePage": "https://warthunder.com/css/fonts.css",
       "transform": "Original font file",

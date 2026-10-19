@@ -1,3 +1,4 @@
+import { countryModules } from "./generated/country-modules";
 export interface DataFile {
   key: string;
   file: string;
@@ -13,30 +14,20 @@ export async function downloadText(
   signal?: AbortSignal,
   progress?: (value: DownloadProgress) => void,
 ): Promise<string> {
-  const response = await fetch(`${import.meta.env.BASE_URL}${entry.file}`, { signal });
-  if (!response.ok) throw Error(`数据读取失败 (${response.status})`);
-  const reader = response.body?.getReader();
-  if (!reader) {
-    const text = await response.text();
-    if (new TextEncoder().encode(text).byteLength !== entry.bytes)
-      throw Error("数据下载不完整，请重试");
-    return text;
-  }
-  const decoder = new TextDecoder();
-  let received = 0;
-  const pieces: string[] = [];
-  for (;;) {
-    const result = await reader.read();
-    if (result.done) break;
-    received += result.value.byteLength;
-    pieces.push(decoder.decode(result.value, { stream: true }));
-    progress?.({ received, total: entry.bytes });
-  }
-  pieces.push(decoder.decode());
-  if (received !== entry.bytes) throw Error("数据下载不完整，请重试");
-  return pieces.join("");
+  signal?.throwIfAborted();
+  const load = countryModules[entry.key];
+  if (!load) throw Error("没有找到该国资料模块，请刷新应用。");
+  progress?.({ received: 0, total: 0 });
+  // Native dynamic import resolves against the deployed JS chunk URL, rather
+  // than the surrounding QMuse page path. No module is requested before selection.
+  const module = await load();
+  signal?.throwIfAborted();
+  const text = module.default;
+  if (typeof text !== "string" || new TextEncoder().encode(text).byteLength !== entry.bytes)
+    throw Error("资料模块不完整，请刷新后重试。");
+  return text;
 }
 export const downloadLabel = (progress: DownloadProgress) =>
   progress.total > 0
     ? `${(progress.received / 1024 / 1024).toFixed(2)} / ${(progress.total / 1024 / 1024).toFixed(2)} MB`
-    : "准备读取数据";
+    : "正在载入国家资料模块";

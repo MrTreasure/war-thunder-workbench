@@ -1,3 +1,4 @@
+import { CreatorFooter } from "./components/CreatorFooter";
 import { Component, createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { useRouterState } from "@tanstack/react-router";
 import type { ReactNode } from "react";
@@ -371,11 +372,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       country={country}
       payload={loadedCountry?.key === currentKey ? loadedCountry.value : null}
       {...{ chooseCountry, mode, setMode }}
-      progress={
-        countryProgress?.key === currentKey
-          ? countryProgress
-          : { received: 0, total: countryEntry?.bytes || 0 }
-      }
+      progress={countryProgress?.key === currentKey ? countryProgress : { received: 0, total: 0 }}
       error={countryError?.key === currentKey ? countryError.message : undefined}
       retry={() => {
         setCountryError(null);
@@ -630,9 +627,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
             compact
             title={`载入${P.countries[country]}全部载具资料`}
             progress={
-              countryProgress?.key === currentKey
-                ? countryProgress
-                : { received: 0, total: countryEntry.bytes }
+              countryProgress?.key === currentKey ? countryProgress : { received: 0, total: 0 }
             }
             error={countryError?.key === currentKey ? countryError.message : undefined}
             retry={
@@ -750,10 +745,13 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
         )}
       </main>
       <footer className="footnote">
-        <p>
-          从上往下沿箭头研发；折叠组可以展开。AB / RB / SB
-          切换后显示当前模式权重。配件与载具分别计价，出击队列和购物车本地保存。
-        </p>
+        <div className="footnote-intro">
+          <p>
+            从上往下沿箭头研发；折叠组可以展开。AB / RB / SB
+            切换后显示当前模式权重。配件与载具分别计价，出击队列和购物车本地保存。
+          </p>
+          <CreatorFooter />
+        </div>
         <div>
           <span>{tree?.edges.length || 0} 条官方分支连线</span>
           {selected && <button onClick={() => setSelected(null)}>清除路线高亮</button>}

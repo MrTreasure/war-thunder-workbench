@@ -166,14 +166,21 @@ assert.equal(missing, 0, `${missing} vehicles have not had modification data che
 assert.equal(manifest.schemaVersion, 3);
 assert.deepEqual(Object.keys(manifest.countries).sort(), Object.keys(catalog.countries).sort());
 assert.deepEqual(
-  (await readdir(resolve(root, "public/data"))).sort(),
+  (await readdir(resolve(root, "src/generated/countries"))).sort(),
   Object.values(manifest.countries)
-    .map((entry) => entry.file.slice("data/".length))
+    .map((entry) => entry.file.replace(/\.js$/, ".ts"))
     .sort(),
 );
 for (const [country, entry] of Object.entries(manifest.countries)) {
   assert.equal(entry.key, `country-${country}`);
-  const raw = await readFile(resolve(root, "public", entry.file));
+  const raw = await readFile(
+    resolve(root, "data/generated/countries", entry.file.replace(/\.js$/, ".json")),
+  );
+  const module = await readFile(
+    resolve(root, "src/generated/countries", entry.file.replace(/\.js$/, ".ts")),
+    "utf8",
+  );
+  assert.equal(module, `export default ${JSON.stringify(raw.toString("utf8"))};\n`);
   assert.equal(raw.byteLength, entry.bytes);
   assert.equal(createHash("sha256").update(raw).digest("hex"), entry.sha256);
   const payload = JSON.parse(raw);

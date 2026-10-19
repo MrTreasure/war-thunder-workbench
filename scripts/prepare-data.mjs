@@ -88,7 +88,9 @@ for (const countries of Object.values(catalog.trees))
       }
   }
 await rm(resolve(root, "public/data"), { recursive: true, force: true });
-await mkdir(resolve(root, "public/data"), { recursive: true });
+await rm(resolve(root, "src/generated/countries"), { recursive: true, force: true });
+await mkdir(resolve(root, "src/generated/countries"), { recursive: true });
+await mkdir(resolve(root, "data/generated/countries"), { recursive: true });
 await mkdir(resolve(root, "src/generated"), { recursive: true });
 await mkdir(resolve(root, "data/generated"), { recursive: true });
 // The complete snapshot is for build-time checks only; it is never published.
@@ -106,11 +108,19 @@ const bootstrap = {
   ),
 };
 const manifest = { schemaVersion: 3, countries: {} };
+const countryModules = [];
 async function emit(key, body) {
   const content = JSON.stringify(body) + "\n",
     sha256 = createHash("sha256").update(content).digest("hex");
-  const file = `data/${key}.${sha256.slice(0, 16)}.json`;
-  await writeFile(resolve(root, "public", file), content);
+  const stem = `${key}.${sha256.slice(0, 16)}`;
+  const file = `${stem}.js`;
+  // JSON remains the canonical/cache representation; only JS transport is published.
+  await writeFile(resolve(root, "data/generated/countries", `${stem}.json`), content);
+  await writeFile(
+    resolve(root, "src/generated/countries", `${stem}.ts`),
+    `export default ${JSON.stringify(content)};\n`,
+  );
+  countryModules.push(`${JSON.stringify(key)}: () => import("./countries/${stem}")`);
   return { key, file, sha256, bytes: Buffer.byteLength(content) };
 }
 for (const country of Object.keys(catalog.countries)) {
@@ -139,6 +149,10 @@ await writeFile(
   JSON.stringify(manifest, null, 2) + "\n",
 );
 await writeFile(resolve(root, "src/generated/bootstrap.json"), JSON.stringify(bootstrap) + "\n");
+await writeFile(
+  resolve(root, "src/generated/country-modules.ts"),
+  `// Generated: load only the selected country's transport module.\nexport const countryModules: Record<string, () => Promise<{ default: string }>> = {\n${countryModules.join(",\n")}\n};\n`,
+);
 console.log(
   `Prepared ${catalog.audit.length} national trees in one file per country (all categories and modifications); no full catalog is published.`,
 );

@@ -1,5 +1,9 @@
 /* finesse · component: creator footer · register=product · tokens: inherited */
 .workbench-layout {
+  color: var(--wt-body);
+  background: var(--wt-page);
+  font-family: var(--wt-sans);
+  color-scheme: dark;
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
@@ -11,32 +15,31 @@
 }
 .creator-footer {
   display: flex;
-  justify-content: center;
-  padding: 12px 16px;
-  border-top: 1px solid var(--line);
-  background: var(--page);
-  color: var(--muted);
+  justify-content: flex-end;
+  flex: none;
+  padding: 0;
+  color: var(--wt-muted);
 }
 .creator-footer .creator-footer-link {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 8px 12px;
+  gap: 6px;
   height: auto;
-  min-height: 44px;
+  min-height: 32px;
   max-width: 100%;
-  padding: 8px 12px;
+  padding: 4px 6px;
   border-radius: 2px;
-  color: var(--muted);
+  color: var(--wt-muted);
   text-decoration: none;
-  font: 12px/1.7 var(--sans);
+  font: 11px/1.7 var(--wt-sans);
   white-space: normal;
 }
 .creator-footer-link img {
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
-  background: var(--ink);
+  background: var(--wt-ink);
   border-radius: 4px;
   flex: none;
 }
@@ -45,25 +48,56 @@
   text-align: center;
 }
 .creator-footer-arrow {
-  color: var(--gold);
+  color: var(--wt-gold);
 }
 .creator-footer .creator-footer-link:focus-visible {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--wt-gold);
   outline-offset: 2px;
 }
 .creator-footer .creator-footer-link:active {
-  background: var(--raised);
+  background: var(--wt-raised);
 }
 @media (hover: hover) {
   .creator-footer .creator-footer-link:hover {
-    background: var(--surface);
-    color: var(--ink);
+    background: var(--wt-surface);
+    color: var(--wt-ink);
   }
 }
 .route-message {
   max-width: 640px;
   margin: 10vh auto;
   padding: 24px;
-  color: var(--ink);
+  color: var(--wt-ink);
   line-height: 1.8;
+}
+
+.footnote > .footnote-intro,
+.lineup-helpbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+.footnote-intro > p,
+.lineup-helpbar > p {
+  margin: 0;
+  min-width: 0;
+}
+.lineup-helpbar {
+  padding: 0 24px 12px;
+}
+@media (max-width: 800px) {
+  .footnote > .footnote-intro,
+  .lineup-helpbar {
+    flex-wrap: wrap;
+  }
+  .creator-footer {
+    margin-left: auto;
+  }
+  .creator-footer .creator-footer-link {
+    min-height: 44px;
+  }
+  .lineup-helpbar {
+    padding-inline: 12px;
+  }
 }

@@ -15,10 +15,7 @@ if b'/assets/' not in content or b'id="root"' not in content:raise RuntimeError(
 # Ensure dist contains the current generated data, not an older successful build.
 manifest=json.loads((root/'src/generated/manifest.json').read_text())
 if manifest['schemaVersion']!=3:raise RuntimeError('Expected country data manifest v3')
-rows=list(manifest['countries'].values())
-for row in rows:
- data=(dist/row['file']).read_bytes()
- if hashlib.sha256(data).hexdigest()!=row['sha256']:raise RuntimeError('Data changed after build; rebuild first')
+subprocess.run(['node','scripts/check-build.mjs'],cwd=root,check=True)
 backup.mkdir(parents=True,mode=0o700)
 for path,name in [(destination/'index.html','published-index.html'),(destination/'index.html.gz','published-index.html.gz'),(workspace/'build.py','muse-build.py'),(workspace/'index.html','muse-index.html')]:
  if path.exists():shutil.copy2(path,backup/name)
