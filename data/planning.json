@@ -1,0 +1,298 @@
+{
+  "source": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/master/char.vromfs.bin_u/config/rank.blkx",
+  "sourceLabel": "游戏配置公开镜像（非官方 API）",
+  "sha256": "5a1320caa8d0b5655a52799d6a87c066957d9dd9fccd9a1a755ae5c6406aa9fc",
+  "checkedAt": "2026-10-19T09:26:33.347203+00:00",
+  "gates": {
+    "ground": {
+      "usa": {
+        "I": 6,
+        "II": 6,
+        "III": 6,
+        "IV": 6,
+        "V": 5,
+        "VI": 5,
+        "VII": 5
+      },
+      "germany": {
+        "I": 6,
+        "II": 6,
+        "III": 6,
+        "IV": 6,
+        "V": 5,
+        "VI": 5,
+        "VII": 5
+      },
+      "ussr": {
+        "I": 6,
+        "II": 6,
+        "III": 6,
+        "IV": 6,
+        "V": 5,
+        "VI": 5,
+        "VII": 5
+      },
+      "britain": {
+        "I": 6,
+        "II": 6,
+        "III": 6,
+        "IV": 6,
+        "V": 5,
+        "VI": 5,
+        "VII": 5
+      },
+      "japan": {
+        "I": 6,
+        "II": 6,
+        "III": 6,
+        "IV": 6,
+        "V": 5,
+        "VI": 5,
+        "VII": 5
+      },
+      "china": {
+        "I": 6,
+        "II": 6,
+        "III": 6,
+        "IV": 6,
+        "V": 5,
+        "VI": 5,
+        "VII": 5
+      },
+      "italy": {
+        "I": 6,
+        "II": 6,
+        "III": 6,
+        "IV": 6,
+        "V": 5,
+        "VI": 5,
+        "VII": 5
+      },
+      "france": {
+        "I": 6,
+        "II": 6,
+        "III": 6,
+        "IV": 6,
+        "V": 5,
+        "VI": 5,
+        "VII": 5
+      },
+      "sweden": {
+        "I": 6,
+        "II": 6,
+        "III": 6,
+        "IV": 6,
+        "V": 5,
+        "VI": 5,
+        "VII": 5
+      },
+      "israel": {
+        "IV": 6,
+        "V": 5,
+        "VI": 5,
+        "VII": 5
+      }
+    },
+    "aviation": {
+      "usa": {
+        "I": 6,
+        "II": 6,
+        "III": 6,
+        "IV": 6,
+        "V": 5,
+        "VI": 5,
+        "VII": 5,
+        "VIII": 3
+      },
+      "germany": {
+        "I": 6,
+        "II": 6,
+        "III": 6,
+        "IV": 6,
+        "V": 5,
+        "VI": 5,
+        "VII": 5,
+        "VIII": 3
+      },
+      "ussr": {
+        "I": 6,
+        "II": 6,
+        "III": 6,
+        "IV": 6,
+        "V": 5,
+        "VI": 5,
+        "VII": 5,
+        "VIII": 3
+      },
+      "britain": {
+        "I": 6,
+        "II": 6,
+        "III": 6,
+        "IV": 6,
+        "V": 5,
+        "VI": 5,
+        "VII": 5,
+        "VIII": 3
+      },
+      "japan": {
+        "I": 6,
+        "II": 6,
+        "III": 6,
+        "IV": 6,
+        "V": 5,
+        "VI": 5,
+        "VII": 5,
+        "VIII": 3
+      },
+      "china": {
+        "I": 6,
+        "II": 6,
+        "III": 6,
+        "IV": 5,
+        "V": 5,
+        "VI": 5,
+        "VII": 5,
+        "VIII": 3
+      },
+      "italy": {
+        "I": 6,
+        "II": 6,
+        "III": 6,
+        "IV": 6,
+        "V": 5,
+        "VI": 5,
+        "VII": 5,
+        "VIII": 3
+      },
+      "france": {
+        "I": 6,
+        "II": 6,
+        "III": 6,
+        "IV": 6,
+        "V": 5,
+        "VI": 5,
+        "VII": 5,
+        "VIII": 3
+      },
+      "sweden": {
+        "I": 6,
+        "II": 6,
+        "III": 6,
+        "IV": 3,
+        "V": 5,
+        "VI": 4,
+        "VII": 5,
+        "VIII": 3
+      },
+      "israel": {
+        "IV": 6,
+        "V": 4,
+        "VI": 5,
+        "VII": 5,
+        "VIII": 3
+      }
+    },
+    "ships": {
+      "usa": {
+        "I": 3,
+        "II": 5,
+        "III": 6,
+        "IV": 6,
+        "V": 5,
+        "VI": 5
+      },
+      "germany": {
+        "I": 5,
+        "II": 4,
+        "III": 5,
+        "IV": 5,
+        "V": 5,
+        "VI": 4
+      },
+      "ussr": {
+        "I": 4,
+        "II": 4,
+        "III": 6,
+        "IV": 3,
+        "V": 4,
+        "VI": 4
+      },
+      "britain": {
+        "I": 4,
+        "II": 6,
+        "III": 5,
+        "IV": 6,
+        "V": 5,
+        "VI": 5
+      },
+      "japan": {
+        "I": 3,
+        "II": 6,
+        "III": 6,
+        "IV": 5,
+        "V": 5,
+        "VI": 5
+      },
+      "italy": {
+        "I": 5,
+        "II": 4,
+        "III": 5,
+        "IV": 4,
+        "V": 5,
+        "VI": 2
+      },
+      "france": {
+        "I": 5,
+        "II": 6,
+        "III": 4,
+        "IV": 5,
+        "V": 4,
+        "VI": 1
+      }
+    },
+    "boats": {
+      "usa": {
+        "I": 4,
+        "II": 4,
+        "III": 5,
+        "IV": 5
+      },
+      "germany": {
+        "I": 2,
+        "II": 5,
+        "III": 5,
+        "IV": 6
+      },
+      "ussr": {
+        "I": 5,
+        "II": 6,
+        "III": 5,
+        "IV": 6
+      },
+      "britain": {
+        "I": 6,
+        "II": 5,
+        "III": 6,
+        "IV": 5
+      },
+      "japan": {
+        "I": 4,
+        "II": 6,
+        "III": 6,
+        "IV": 3
+      },
+      "italy": {
+        "I": 4,
+        "II": 4,
+        "III": 3,
+        "IV": 4
+      },
+      "france": {
+        "I": 4,
+        "II": 3,
+        "III": 4,
+        "IV": 3
+      }
+    }
+  }
+}

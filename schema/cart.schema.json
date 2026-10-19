@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Exported research cart v1",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "exportedAt",
+    "items"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "exportedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "items": {
+      "type": "array",
+      "maxItems": 500,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "createdAt",
+          "dataVersion",
+          "details",
+          "fingerprint",
+          "kind",
+          "lines"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "dataVersion": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          },
+          "fingerprint": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "vehicle",
+              "modifications"
+            ]
+          },
+          "lines": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "key",
+                "unitId",
+                "name",
+                "country",
+                "category",
+                "basis",
+                "rp",
+                "rateCents",
+                "remainingBefore",
+                "kind"
+              ],
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "unitId": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "basis": {
+                  "type": "string"
+                },
+                "rp": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "rateCents": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "remainingBefore": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "kind": {
+                  "enum": [
+                    "vehicle",
+                    "modifications"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

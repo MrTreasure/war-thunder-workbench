@@ -1,0 +1,15 @@
+import { execFileSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
+const cwd = fileURLToPath(new URL("../", import.meta.url));
+const run = (command, args) => execFileSync(command, args, { cwd, stdio: "inherit" });
+run(process.execPath, ["scripts/trees.mjs", "--refresh", "--data-only"]);
+run("python3", ["scripts/flags.py"]);
+run("python3", ["scripts/purchases.py"]);
+run("python3", ["scripts/research.py"]);
+run("python3", ["scripts/planning.py"]);
+run("python3", ["scripts/modifications.py"]);
+run("python3", ["scripts/localization.py"]);
+run(process.execPath, ["scripts/lineup-codebook.mjs"]);
+run(process.execPath, ["scripts/prepare-data.mjs"]);
+run(process.execPath, ["scripts/check-data.mjs"]);
+console.log("All JSON data refreshed. Run pnpm run release to build and publish.");

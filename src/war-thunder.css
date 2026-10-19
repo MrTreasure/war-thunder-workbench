@@ -1,0 +1,893 @@
+/* finesse · product · War Thunder hangar: charcoal metal, service red, premium gold */
+@font-face {
+  font-family: WTCondensed;
+  src: url("/branding/RobotoCondensed-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  color-scheme: dark;
+  --page: #171c22;
+  --surface: #22282f;
+  --panel: #30373e;
+  --raised: #3c454e;
+  --ink: #efede5;
+  --body: #cfd1cf;
+  --muted: #a1a7aa;
+  --line: rgba(187, 199, 207, 0.14);
+  --strong-line: rgba(187, 199, 207, 0.28);
+  --accent: #e0bd79;
+  --accent-soft: rgba(224, 189, 121, 0.12);
+  --accent-ink: #2f261a;
+  --gold: #e4c477;
+  --gold-soft: rgba(164, 123, 50, 0.1);
+  --gold-line: rgba(218, 181, 106, 0.35);
+  --wire: #8196a4;
+  --shadow: 0 14px 48px rgba(6, 12, 19, 0.55);
+  --service-red: #b33f32;
+  --service-red-hover: #cb4b3b;
+  --logo-filter: brightness(0) invert(0.94);
+}
+.wt-brand-logo,
+.wt-loading-logo,
+.nation-landing-copy > img {
+  filter: var(--logo-filter);
+}
+.app-shell {
+  background: var(--page);
+  padding-inline: 12px;
+}
+.masthead {
+  min-height: 50px;
+  padding: 5px 0;
+  gap: 14px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 8px;
+}
+.identity {
+  gap: 12px;
+}
+.wt-brand-logo {
+  display: block;
+  width: 84px;
+  height: 40px;
+  object-fit: contain;
+}
+.wt-brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.wt-brand-copy h1 {
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.wt-brand-copy > span {
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+.edition {
+  font-size: 9px;
+}
+.snapshot-dot {
+  background: var(--gold);
+  border-radius: 0;
+  width: 4px;
+  height: 4px;
+}
+.control-row {
+  gap: 12px;
+}
+.category-tabs button {
+  border-radius: 2px;
+  padding: 7px 11px;
+  border: 1px solid transparent;
+  letter-spacing: 0.4px;
+}
+.category-tabs button[aria-pressed="true"] {
+  background: var(--panel);
+  border-color: var(--strong-line);
+  box-shadow: inset 0 -2px var(--service-red);
+}
+.category-tabs button:hover {
+  background: var(--raised);
+}
+.controls {
+  border-radius: 2px 2px 0 0;
+  background: var(--surface);
+}
+.utility-row {
+  padding: 7px 9px;
+  gap: 8px;
+}
+.search {
+  border-radius: 2px;
+  background: #1c2229;
+}
+.search-wrap {
+  max-width: 280px;
+}
+.search input {
+  font-size: 11px;
+}
+select,
+.quiet-button,
+.zoom-control,
+.country-trigger {
+  border-radius: 2px;
+}
+.quiet-button {
+  background: linear-gradient(180deg, #363f47, #2b333b);
+  border-color: var(--strong-line);
+  color: var(--ink);
+  letter-spacing: 0.3px;
+}
+.quiet-button:hover {
+  background: var(--raised);
+  color: var(--ink);
+  border-color: #87929a;
+}
+.quiet-button:active:not(:disabled) {
+  background: #232b33;
+}
+.calc-open {
+  background: var(--service-red);
+  border-color: #c25a48;
+  color: #f2ece1;
+  font-weight: 600;
+}
+.calc-open:hover {
+  background: var(--service-red-hover);
+  border-color: #e37862;
+  color: #f6efe4;
+}
+.cart-button {
+  background: var(--accent-soft);
+  border-color: var(--gold-line);
+  color: var(--gold);
+}
+.cart-badge {
+  border-radius: 1px;
+  background: rgba(222, 185, 113, 0.16);
+}
+.zoom-control {
+  background: #242c34;
+}
+.tree-status {
+  padding: 8px 10px;
+  background: #242c34;
+}
+.tree-status strong {
+  font-size: 11px;
+  letter-spacing: 0.4px;
+}
+.legend {
+  font-size: 9px;
+}
+.viewport {
+  border-radius: 0 0 2px 2px;
+  background: #191f26;
+  scrollbar-color: #65727c #252d35;
+}
+.column-panel {
+  background: #222a32;
+  border-radius: 2px;
+  border-color: rgba(180, 196, 207, 0.13);
+}
+.column-panel.is-special {
+  background: rgba(103, 84, 45, 0.13);
+  border-color: var(--gold-line);
+}
+.panel-heading {
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.panel-heading small {
+  letter-spacing: 0;
+  font-size: 9px;
+}
+.rank-label {
+  color: #84929c;
+}
+.rank-label b {
+  font-family: WTCondensed, var(--sans);
+  font-weight: 700;
+  font-size: 27px;
+  color: #b7c0c5;
+}
+.rank-note {
+  color: #9aa7af;
+}
+.vehicle-card {
+  border-radius: 2px;
+  background: linear-gradient(155deg, #394550, #29333d);
+  border-color: #52616d;
+  padding-top: 7px;
+  box-shadow: inset 0 1px rgba(222, 231, 237, 0.06);
+}
+.vehicle-card:hover {
+  background: #435360;
+  border-color: #a4b5bf;
+}
+.vehicle-card img {
+  opacity: 1;
+  filter: drop-shadow(0 2px 2px rgba(8, 13, 18, 0.45));
+}
+.unit-role {
+  color: #aebbc3 !important;
+  font-size: 8px !important;
+}
+.vehicle-card .unit-name {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+}
+.battle-rating {
+  border-radius: 1px;
+  background: rgba(15, 22, 30, 0.24);
+  border-color: rgba(179, 197, 210, 0.17);
+}
+.battle-rating.is-active {
+  border-color: rgba(218, 183, 111, 0.48);
+  background: rgba(130, 101, 46, 0.2);
+}
+.unit-rp {
+  font-size: 9px;
+  color: #dac490;
+}
+.node.is-special .vehicle-card {
+  background: linear-gradient(150deg, #403c31, #2d2d29);
+  border-color: #776341;
+}
+.node.is-special .vehicle-card:hover {
+  background: #494333;
+}
+.node.is-route .vehicle-card {
+  border-color: #dfbd78;
+  box-shadow: 0 0 0 1px rgba(223, 189, 120, 0.12);
+}
+.node.is-selected > .vehicle-card,
+.node .vehicle-card.is-selected {
+  background: #43505b;
+  border-color: #ebc983;
+  box-shadow: 0 0 0 1px rgba(235, 201, 131, 0.2);
+}
+.node.is-group > .vehicle-card {
+  border-radius: 2px 2px 0 0;
+}
+.folder-toggle {
+  border-radius: 0 0 2px 2px;
+  background: #262f38;
+  color: #bdc6cb;
+  border-color: #52616d;
+}
+.folder-members {
+  border-radius: 0 0 2px 2px;
+  background: #202831;
+}
+.edge {
+  stroke-width: 1.2;
+  opacity: 0.8;
+}
+.edge.is-route {
+  stroke-width: 1.8;
+}
+.node.is-muted {
+  opacity: 0.32;
+}
+.country-trigger {
+  background: #2c353e;
+  font-size: 11px;
+  min-height: 31px;
+  border-color: #53616b;
+}
+.country-trigger:hover,
+.country-dropdown[open] > .country-trigger {
+  background: #3a454e;
+  border-color: #8e9aa2;
+}
+.country-options {
+  border-radius: 2px;
+  background: #29323b;
+  box-shadow: var(--shadow);
+}
+.country-option {
+  border-radius: 1px;
+  font-size: 11px;
+}
+.country-option:hover,
+.country-option[aria-pressed="true"] {
+  background: #41474a;
+  color: var(--gold);
+}
+.search-results {
+  border-radius: 2px;
+  background: #2b343d;
+}
+.search-results button {
+  border-radius: 1px;
+}
+.footnote {
+  color: #98a3ab;
+  font-size: 9px;
+}
+.detail {
+  border-radius: 3px;
+  background: #29323b;
+  border-color: #68757e;
+  box-shadow: var(--shadow);
+}
+.detail h2 {
+  font-size: 22px;
+  letter-spacing: 0.2px;
+}
+.detail-kicker {
+  color: var(--gold);
+  letter-spacing: 1.5px;
+}
+.detail-close {
+  border-radius: 1px;
+  background: #414b54;
+}
+.detail-facts span,
+.research-cost,
+.detail-links a {
+  border-radius: 2px;
+}
+.research-cost {
+  background: #343b3e;
+  border-color: var(--gold-line);
+}
+.detail-links a:hover {
+  color: var(--gold);
+}
+.calculator {
+  border-radius: 3px;
+  background: #1d242c;
+  border-color: #6b777f;
+  box-shadow: var(--shadow);
+}
+.calculator::backdrop {
+  background: rgba(8, 13, 19, 0.82);
+}
+.calc-header {
+  padding: 14px 20px;
+  background: #2a333c;
+  border-bottom: 1px solid #57636c;
+}
+.calc-header h2 {
+  font-size: 17px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.calc-header p {
+  color: #b0bac0;
+}
+.calc-inputs {
+  background: #232c35;
+  border-color: #4b5660;
+}
+.calc-output {
+  background: #1d252e;
+}
+.calculator input:not([type="checkbox"]),
+.calculator select {
+  border-radius: 2px;
+  background: #1b242d;
+  border-color: #52616c;
+  color: #e2e3dd;
+}
+.calc-rules,
+.calc-status,
+.calc-tabs button,
+.cart-item {
+  border-radius: 2px;
+}
+.calc-tabs [aria-pressed="true"] {
+  background: #434746;
+  border-color: var(--gold-line);
+  color: var(--gold);
+}
+.calc-status {
+  background: rgba(109, 128, 140, 0.13);
+  border: 1px solid rgba(146, 171, 187, 0.2);
+  padding: 10px 12px;
+  color: #c8d0d5;
+}
+.calc-status.has-error {
+  background: rgba(169, 110, 52, 0.12);
+  border-color: rgba(212, 161, 87, 0.3);
+  color: #e5c28b;
+}
+.calc-metrics strong {
+  color: #e5c88a;
+  font-family: WTCondensed, var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+.calc-metrics > div:last-child strong {
+  color: #efede4;
+}
+.calc-owned-rank h4 {
+  background: #232c35;
+  color: #c5b080;
+}
+.calc-owned-row:hover {
+  background: #333e48;
+}
+.calc-unit-label small {
+  color: #9eacb5;
+}
+.calc-gate-row.is-header,
+.calc-route-row.is-header {
+  background: #2b353f;
+  color: #b9c4ca;
+}
+.calc-purpose {
+  color: #b4bec4;
+}
+.cart-content {
+  background: #1d252e;
+}
+.cart-item {
+  background: #29333d;
+  border-color: #4c5b66;
+}
+.cart-item-title > strong {
+  color: var(--gold);
+}
+.calc-formula {
+  color: #a6b1b8;
+}
+.calc-note {
+  color: #a9b4bc;
+}
+.calculator input:invalid {
+  border-color: #db9866;
+}
+.calculator button:disabled {
+  filter: saturate(0.35);
+}
+.calculator button:active:not(:disabled) {
+  background: #343b41;
+}
+.quiet-button.calc-open:active:not(:disabled) {
+  background: #8a2e26;
+}
+.nation-landing {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px 5%;
+  gap: 28px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(16, 23, 31, 0.94),
+      rgba(16, 23, 31, 0.72) 65%,
+      rgba(16, 23, 31, 0.4)
+    ),
+    url("https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_patria_bmp_3_logo_056f2963433ebf4ac1b945004888e57f.jpg")
+      center/cover;
+}
+.nation-landing-copy {
+  max-width: 640px;
+}
+.nation-landing-copy > img {
+  display: block;
+  width: 125px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+.nation-landing-copy h2 {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+.nation-landing-copy p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--body);
+  margin: 0;
+}
+.nation-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(120px, 1fr));
+  gap: 10px;
+  max-width: 1100px;
+}
+.nation-choice {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  align-items: center;
+  gap: 5px 12px;
+  text-align: left;
+  padding: 16px 14px;
+  min-width: 0;
+  border: 1px solid #53606b;
+  border-radius: 2px;
+  background: rgba(40, 52, 63, 0.9);
+  color: var(--ink);
+}
+.nation-choice > img {
+  width: 42px;
+  height: 28px;
+  object-fit: contain;
+  grid-row: span 2;
+}
+.nation-choice > span {
+  font-size: 13px;
+  font-weight: 600;
+}
+.nation-choice > small {
+  font-size: 9px;
+  color: var(--muted);
+}
+.nation-choice:hover {
+  background: #434c52;
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.nation-choice:active {
+  background: #4c3a31;
+}
+.viewport > .wt-loading-compact {
+  height: 100%;
+  min-height: 300px;
+}
+.viewport > .wt-loading-compact .wt-loading-content {
+  width: min(440px, 65%);
+}
+
+/* finesse · component: vehicle quote workspace · register=product
+ * Inherit hangar tokens; progressive disclosure, fixed receipt and one scroll per column. */
+.vehicle-calculator {
+  width: min(1320px, calc(100vw - 32px));
+  height: min(880px, calc(100dvh - 32px));
+}
+.vehicle-calculator[open] {
+  display: flex;
+  flex-direction: column;
+}
+.vehicle-calculator > .calc-header {
+  flex: none;
+}
+.vehicle-workbench {
+  height: auto;
+  flex: 1;
+  grid-template-columns: minmax(280px, 310px) minmax(0, 1fr);
+  overflow: hidden;
+}
+.vehicle-config {
+  padding: 18px;
+  gap: 18px;
+}
+.vehicle-form-section {
+  display: grid;
+  gap: 12px;
+  flex: none;
+}
+.vehicle-form-section h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+}
+.vehicle-calculator .calc-field {
+  font-size: 12px;
+}
+.vehicle-calculator input:not([type="checkbox"]),
+.vehicle-calculator select {
+  height: 36px;
+}
+.vehicle-ready {
+  width: 100%;
+  min-height: 34px;
+  color: var(--accent);
+  border-color: var(--gold-line);
+  white-space: normal;
+  line-height: 1.5;
+}
+.vehicle-disclosure {
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  flex: none;
+}
+.vehicle-disclosure > summary {
+  padding: 11px 10px;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.vehicle-disclosure > summary > span {
+  display: block;
+  padding-left: 14px;
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 3px;
+}
+.vehicle-disclosure[open] > summary {
+  border-bottom: 1px solid var(--line);
+}
+.vehicle-inventory,
+.vehicle-advanced {
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+}
+.vehicle-calculator .calc-list-tools {
+  grid-template-columns: minmax(0, 1fr);
+}
+.vehicle-config .calc-collection {
+  min-height: 0;
+  overflow: visible;
+}
+.vehicle-config .calc-owned-rank h4 {
+  position: static;
+}
+.vehicle-config .calc-owned-row > select {
+  width: 72px;
+}
+.vehicle-gate-settings h4 {
+  font-size: 12px;
+  margin: 8px 0;
+}
+.vehicle-reset {
+  display: grid;
+  gap: 10px;
+  margin-top: auto;
+  flex: none;
+}
+.vehicle-reset > button {
+  justify-self: start;
+  font-size: 10px;
+  color: var(--muted);
+}
+.vehicle-output {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+.vehicle-receipt {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px 16px;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--strong-line);
+  background: var(--surface);
+  flex: none;
+}
+.vehicle-receipt .calc-metrics {
+  grid-column: 1 / -1;
+  padding: 0;
+  border: 0;
+  gap: 20px;
+}
+.vehicle-receipt .calc-metrics strong {
+  font-size: 27px;
+}
+.vehicle-receipt-actions {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  max-width: 240px;
+}
+.vehicle-receipt-actions button {
+  min-height: 34px;
+}
+.vehicle-receipt .calc-formula {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: center;
+  margin: 0;
+  font-size: 10px;
+}
+.vehicle-feedback {
+  grid-column: 1 / -1;
+  color: var(--accent);
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.vehicle-results {
+  min-height: 0;
+  overflow: auto;
+  padding: 0 20px 18px;
+}
+.vehicle-explanation {
+  padding: 12px;
+  margin-top: 14px;
+  border: 1px solid var(--gold-line);
+  background: var(--gold-soft);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.vehicle-explanation strong {
+  color: var(--gold);
+  font-weight: 500;
+}
+.vehicle-explanation p {
+  margin: 5px 0 0;
+  color: var(--body);
+}
+.vehicle-list-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 18px 0 12px;
+}
+.vehicle-list-heading h3 {
+  margin: 0;
+  font-size: 13px;
+}
+.vehicle-list-heading p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+.vehicle-list-heading > button {
+  font-size: 10px;
+}
+.vehicle-route-row {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) minmax(75px, 0.3fr);
+  align-items: center;
+  gap: 10px;
+  padding: 10px 6px;
+  border-bottom: 1px solid var(--line);
+}
+.vehicle-route-list.is-editing .vehicle-route-row {
+  grid-template-columns: 34px minmax(100px, 1fr) minmax(90px, 0.4fr) minmax(74px, 0.35fr);
+}
+.vehicle-route-row > strong {
+  font:
+    700 16px WTCondensed,
+    var(--mono);
+  text-align: right;
+  color: var(--ink);
+}
+.vehicle-route-row > :last-child {
+  text-align: right;
+}
+.vehicle-route-row.is-header {
+  padding-block: 9px;
+  background: var(--panel);
+  font-size: 10px;
+  color: var(--muted);
+}
+.vehicle-route-row.is-target {
+  background: var(--accent-soft);
+}
+.vehicle-route-row.is-target .calc-unit-label > span,
+.vehicle-route-row.is-target > strong {
+  color: var(--accent);
+}
+.vehicle-gate-check {
+  margin-top: 18px;
+}
+.vehicle-gate-check .calc-gate-row {
+  margin-inline: 8px;
+}
+.vehicle-method-note {
+  margin-top: 14px;
+}
+.vehicle-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--ink);
+  background: var(--accent-soft);
+}
+.vehicle-empty p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.vehicle-calculator :is(input, select, button, summary):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.vehicle-calculator :is(input, select):disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.vehicle-calculator [aria-invalid="true"] {
+  border-color: var(--gold);
+  background: var(--gold-soft);
+}
+@media (hover: hover) {
+  .vehicle-disclosure > summary:hover,
+  .vehicle-route-row:not(.is-header):hover {
+    background: var(--accent-soft);
+  }
+}
+
+/* Shared controls: reserve a separate inset arrow area on every native select. */
+select,
+.calculator select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-inline: 10px 34px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position:
+    right 17px center,
+    right 12px center;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+select option,
+select optgroup {
+  background: var(--panel);
+  color: var(--ink);
+}
+.quiet-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 32px;
+  max-width: 100%;
+  line-height: 1.4;
+}
+.country-trigger {
+  min-height: 32px;
+  padding-inline: 10px 12px;
+}
+.country-chevron {
+  width: 12px;
+  flex: none;
+  text-align: center;
+}
+button:disabled,
+select:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+:is(button, select, .country-trigger):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.battle-ratings {
+  grid-template-columns: minmax(0, 1fr);
+}
+.battle-rating {
+  padding: 4px 6px;
+}
+.battle-rating .rating-mode {
+  font-size: 9px;
+}
+.battle-rating strong {
+  font-size: 11px;
+}
+.vehicle-calculator .vehicle-list-tools {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.vehicle-inventory-search {
+  grid-column: 1 / -1;
+}
+@media (hover: hover) {
+  select:not(:disabled):hover {
+    background-color: var(--raised);
+    border-color: var(--wire);
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "maxSlots": 11,
+  "alphabet": "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+  "emptyCode": "00",
+  "countryCodes": {
+    "usa": "US",
+    "germany": "DE",
+    "ussr": "SU",
+    "britain": "GB",
+    "japan": "JP",
+    "china": "CN",
+    "italy": "IT",
+    "france": "FR",
+    "sweden": "SE",
+    "israel": "IL"
+  },
+  "airArcadeGapSteps": 2,
+  "airArcadeMaxReductionSteps": 1,
+  "navalAircraftMaxExtraSteps": 1,
+  "airArcadeRounding": "nearest_step_ties_up",
+  "sources": [
+    {
+      "url": "https://wiki.warthunder.com/mechanics/matchmaking",
+      "checkedAt": "2026-10-19T12:16:34.832254+00:00",
+      "sha256": "f05b77f6df29d482906cd2f3dce3d14894f7d1c23c60b27aa4e519cc63dec575"
+    },
+    {
+      "url": "https://warthunder.com/en/news/3831--en",
+      "note": "Rounding to closest BR step, ties upward; single/two aircraft formulas follow current Wiki."
+    },
+    {
+      "url": "https://warthunder.com/en/news/9897-development-community-update-no10-starting-the-year-off-en",
+      "note": "Maximum 11 crew slots; also confirmed by Ninth Wave changelog 2026-03-18."
+    }
+  ],
+  "notes": [
+    "BR is stored as integer one-third steps above 1.0. Use exact steps, not rounded one-decimal labels.",
+    "Ground RB aircraft use trb, Ground SB aircraft use tsb; ground AB ignores crew aircraft.",
+    "Naval aircraft use their AB/RB rating; aircraft above one step over the highest vessel are excluded.",
+    "SB ground uses event vehicle lists; air SB uses room Required/Allowed BR ranges. No synthetic queue SB matchmaking BR.",
+    "Sharing stores country and ordered vehicles only; name, battle type and Air RB selected aircraft are local settings. Import infers type and selects the first eligible aircraft."
+  ]
+}

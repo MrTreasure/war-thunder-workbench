@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "countries": {
+    "usa": "美国",
+    "germany": "德国",
+    "ussr": "苏联",
+    "britain": "英国",
+    "japan": "日本",
+    "china": "中国",
+    "italy": "意大利",
+    "france": "法国",
+    "sweden": "瑞典",
+    "israel": "以色列"
+  },
+  "categories": {
+    "ground": "陆军",
+    "aviation": "航空",
+    "ships": "远洋舰队",
+    "boats": "近海舰队"
+  },
+  "rankConfigKinds": {
+    "ground": "Tank",
+    "aviation": "Aircraft",
+    "ships": "Ship",
+    "boats": "Boat"
+  },
+  "flagSourceTemplate": "https://wiki.warthunder.com/static/country_svg/country_{country}.svg",
+  "vehicleImageTemplate": "https://static.encyclopedia.warthunder.com/images/{id}.png",
+  "vehicleThumbnailTemplate": "https://static.encyclopedia.warthunder.com/slots/{id}.png",
+  "vehicleImageSource": {
+    "url": "https://wiki.warthunder.com/unit/cn_ztz_99a",
+    "checkedAt": "2026-10-19T12:16:34.831019+00:00",
+    "sha256": "76e0b95e862c6a133d1b67e7c179655eba3a9a5452b4f1910641b3588a1baa2d"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-19T10:56:14.028082+00:00",
+  "assets": [
+    {
+      "id": "logo",
+      "source": "https://warthunder.com/assets/img/svg/logo-wt.svg",
+      "sourcePage": "https://warthunder.com/en/media/presskit/",
+      "transform": "Original remote image; dark-background logo contrast handled by CSS",
+      "sourceSha256": "8c3f7ebf829174244c2ab8df4c928560fedb9a1d31a4be4b1725115c3af8f408",
+      "delivery": "remote"
+    },
+    {
+      "id": "background",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_patria_bmp_3_logo_056f2963433ebf4ac1b945004888e57f.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "transform": "Original remote image",
+      "sourceSha256": "d002b2177bedca205242f03577314ec5286e8f54a5880082b5b9d995071b07c9",
+      "delivery": "remote"
+    },
+    {
+      "id": "font",
+      "path": "public/branding/RobotoCondensed-Bold.ttf",
+      "source": "https://warthunder.com/assets/fonts/RobotoCondensed/bold.ttf",
+      "sourcePage": "https://warthunder.com/css/fonts.css",
+      "transform": "Original font file",
+      "sourceSha256": "d1ab7a9092d779eb7eb97f3f7d4563c857e86572fb829c42f2972a8e232ec67d",
+      "sha256": "d1ab7a9092d779eb7eb97f3f7d4563c857e86572fb829c42f2972a8e232ec67d",
+      "delivery": "local"
+    },
+    {
+      "id": "favicon",
+      "delivery": "remote",
+      "source": "https://warthunder.com/i/favicons/favicon.ico",
+      "sourcePage": "https://warthunder.com/",
+      "transform": "Original remote icon",
+      "sourceSha256": "1ca035b94fc1216f36d794d58e97ca9b4c72dfa6b04e1f6d8bcc5a03cf8abd5b"
+    },
+    {
+      "id": "cover",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_logo_eng_a98e2d250b72a68a4c6073f0d30db010.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "title": "War Thunder: Sky Odyssey",
+      "width": 1920,
+      "height": 1080,
+      "delivery": "remote",
+      "transform": "Original remote image, no crop",
+      "sourceSha256": "4ef2012f8a0f95ff9cf69f58388c93be625134757c82f5d299e460219d2ee07c",
+      "checkedAt": "2026-10-19T13:07:19.406906+00:00"
+    }
+  ]
+}

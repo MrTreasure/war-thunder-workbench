@@ -1,0 +1,243 @@
+import { readFile, readdir } from "node:fs/promises";
+import { resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
+const root = fileURLToPath(new URL("../", import.meta.url));
+const read = async (path) => JSON.parse(await readFile(resolve(root, path), "utf8"));
+const manifest = await read("src/generated/manifest.json");
+const catalog = await read("data/generated/catalog.json"),
+  mods = await read("data/modifications.json");
+const settings = await read("data/catalog-settings.json");
+const localization = await read("data/localization.json");
+const lineupRules = await read("data/lineup-rules.json");
+const codebook = await read("data/lineup-codebook.json");
+assert.equal(codebook.schemaVersion, 1);
+assert.equal(lineupRules.schemaVersion, 1);
+assert.equal(lineupRules.maxSlots, 11);
+assert.equal(lineupRules.emptyCode, "00");
+assert.equal(
+  lineupRules.alphabet,
+  "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+);
+assert.equal(lineupRules.airArcadeRounding, "nearest_step_ties_up");
+assert.equal(lineupRules.airArcadeGapSteps, 2);
+assert.equal(lineupRules.airArcadeMaxReductionSteps, 1);
+assert.equal(lineupRules.navalAircraftMaxExtraSteps, 1);
+assert.deepEqual(catalog.lineup, lineupRules);
+assert.deepEqual(Object.keys(codebook.countries).sort(), Object.keys(catalog.countries).sort());
+assert.deepEqual(
+  Object.keys(lineupRules.countryCodes).sort(),
+  Object.keys(catalog.countries).sort(),
+);
+assert.equal(
+  new Set(Object.values(lineupRules.countryCodes)).size,
+  Object.keys(catalog.countries).length,
+);
+for (const code of Object.values(lineupRules.countryCodes)) assert.match(code, /^[0-9A-Za-z]{2}$/);
+for (const source of lineupRules.sources)
+  assert(["wiki.warthunder.com", "warthunder.com"].includes(new URL(source.url).hostname));
+assert.equal(new URL(settings.vehicleImageTemplate).hostname, "static.encyclopedia.warthunder.com");
+assert.equal(
+  new URL(settings.vehicleThumbnailTemplate).hostname,
+  "static.encyclopedia.warthunder.com",
+);
+assert.equal(localization.language, "zh-CN");
+assert.equal(localization.column, "<Chinese>");
+assert.match(localization.commit, /^[a-f0-9]{40}$/);
+assert(Number.isFinite(Date.parse(localization.checkedAt)));
+for (const source of Object.values(localization.sources)) {
+  assert(source.url.includes(`/${localization.commit}/lang.vromfs.bin_u/lang/`));
+  assert(source.url.startsWith("https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/"));
+  assert.match(source.sha256, /^[a-f0-9]{64}$/);
+  assert(source.bytes > 1000000);
+}
+function checkName(value, proof, nameEn) {
+  assert(proof, `Missing localization mapping: ${nameEn}`);
+  assert.equal(proof.nameEn, nameEn);
+  assert.equal(value.nameEn, nameEn);
+  assert.equal(value.nameZhCN, proof.nameZhCN);
+  assert.equal(value.name, proof.nameZhCN || nameEn);
+  if (proof.nameZhCN) {
+    const entry = localization.entries[proof.entry];
+    assert(entry, `Missing game language entry: ${proof.entry}`);
+    let expected = entry.chineseRaw;
+    for (const parameter of proof.parameters) {
+      assert.match(parameter, /^\d+(?:\.\d+)?$/);
+      expected = expected.replace("%s", parameter);
+    }
+    assert.equal(expected.replaceAll("\u200b", "").replaceAll("\ufeff", "").trim(), value.nameZhCN);
+    assert.equal(value.localizationKey, proof.entry);
+  } else assert(proof.missing);
+}
+assert.deepEqual(
+  localization.coverage.vehicleMissing.sort(),
+  Object.entries(localization.vehicles)
+    .filter(([, value]) => !value.nameZhCN)
+    .map(([id]) => id)
+    .sort(),
+);
+assert.deepEqual(
+  localization.coverage.modificationMissing.sort(),
+  Object.entries(localization.modifications)
+    .filter(([, value]) => !value.nameZhCN)
+    .map(([id]) => id)
+    .sort(),
+);
+for (const country of Object.keys(catalog.countries))
+  assert.equal(catalog.flags[country], settings.flagSourceTemplate.replace("{country}", country));
+const ids = new Set();
+let trees = 0;
+for (const [category, countries] of Object.entries(catalog.trees))
+  for (const [country, tree] of Object.entries(countries)) {
+    if (!tree) continue;
+    trees++;
+    const aliases = new Map(),
+      units = new Set();
+    for (const rank of tree.ranks)
+      for (const node of [...rank.research, ...rank.special]) {
+        assert(node.members.length > 0);
+        aliases.set(node.id, node.members[0].id);
+        for (const unit of node.members) {
+          assert(!units.has(unit.id));
+          units.add(unit.id);
+          ids.add(unit.id);
+          aliases.set(unit.id, node.id);
+          assert.equal(unit.rank, rank.rank);
+          checkName(unit, localization.vehicles[unit.id], unit.nameEn);
+          assert.equal(
+            unit.imageUrl,
+            settings.vehicleImageTemplate.replace("{id}", encodeURIComponent(unit.id)),
+          );
+          assert.equal(
+            unit.thumbnailUrl,
+            settings.vehicleThumbnailTemplate.replace("{id}", encodeURIComponent(unit.id)),
+          );
+          for (const br of Object.values(unit.br)) assert(Number.isSafeInteger(br) && br >= 0);
+          if (unit.rp !== undefined) assert(Number.isSafeInteger(unit.rp) && unit.rp >= 0);
+        }
+      }
+    for (const rank of tree.ranks)
+      for (const node of rank.research) {
+        if (node.req) assert(aliases.has(node.req), `Missing node predecessor ${node.req}`);
+        for (const unit of node.members)
+          if (unit.req) assert(aliases.has(unit.req), `Missing unit predecessor ${unit.req}`);
+      }
+    assert.equal(units.size, tree.counts.total);
+    assert(catalog.planning.gates[category][country]);
+    assert(catalog.flags[country]);
+  }
+let missing = 0,
+  withTotal = 0,
+  completeItems = 0;
+for (const id of ids) {
+  const row = mods[id];
+  if (!row) {
+    missing++;
+    continue;
+  }
+  assert.equal(row.unitId, id);
+  assert.equal(typeof row.allUnlockedByDefault, "boolean");
+  assert.equal(row.source, "https://wiki.warthunder.com/unit/" + id);
+  if (row.totalRp !== null) {
+    assert(Number.isSafeInteger(row.totalRp) && row.totalRp >= 0);
+    withTotal++;
+  }
+  assert(["verified", "unavailable"].includes(row.status));
+  const keys = new Set();
+  for (const item of row.items) {
+    assert(!keys.has(item.id));
+    keys.add(item.id);
+    assert.equal(typeof item.name, "string");
+    if (item.rp !== null) assert(Number.isSafeInteger(item.rp) && item.rp >= 0);
+  }
+  if (row.itemCostsComplete) {
+    assert.equal(row.itemSumRp, row.totalRp);
+    assert(row.items.every((item) => item.rp !== null));
+    assert.equal(
+      row.items.reduce((sum, item) => sum + item.rp, 0),
+      row.totalRp,
+    );
+    completeItems++;
+  }
+}
+assert.equal(missing, 0, `${missing} vehicles have not had modification data checked`);
+// Each country file contains every category and exactly the union of its modifications.
+assert.equal(manifest.schemaVersion, 3);
+assert.deepEqual(Object.keys(manifest.countries).sort(), Object.keys(catalog.countries).sort());
+assert.deepEqual(
+  (await readdir(resolve(root, "public/data"))).sort(),
+  Object.values(manifest.countries)
+    .map((entry) => entry.file.slice("data/".length))
+    .sort(),
+);
+for (const [country, entry] of Object.entries(manifest.countries)) {
+  assert.equal(entry.key, `country-${country}`);
+  const raw = await readFile(resolve(root, "public", entry.file));
+  assert.equal(raw.byteLength, entry.bytes);
+  assert.equal(createHash("sha256").update(raw).digest("hex"), entry.sha256);
+  const payload = JSON.parse(raw);
+  assert.equal(payload.schemaVersion, 2);
+  assert.equal(payload.country, country);
+  assert.equal(payload.checkedAt, catalog.checkedAt);
+  assert.deepEqual(payload.lineupCodes, codebook.countries[country]);
+  assert.equal(
+    new Set(Object.values(payload.lineupCodes)).size,
+    Object.keys(payload.lineupCodes).length,
+  );
+  for (const [code, id] of Object.entries(payload.lineupCodes)) {
+    assert.match(code, /^[0-9A-Za-z]{2}$/);
+    assert.notEqual(code, lineupRules.emptyCode);
+    assert.equal(typeof id, "string");
+  }
+  assert.deepEqual(Object.keys(payload.trees).sort(), Object.keys(catalog.categories).sort());
+  const unitIds = new Set();
+  for (const category of Object.keys(catalog.categories)) {
+    const expected = catalog.trees[category][country];
+    assert.deepEqual(payload.trees[category], expected);
+    if (!expected) continue;
+    for (const rank of expected.ranks)
+      for (const node of [...rank.research, ...rank.special])
+        for (const unit of node.members) unitIds.add(unit.id);
+  }
+  assert.deepEqual(Object.keys(payload.modifications).sort(), [...unitIds].sort());
+  const registered = new Set(Object.values(payload.lineupCodes));
+  for (const id of unitIds)
+    assert(
+      registered.has(id),
+      `Missing stable vehicle code for ${country}/${id}; run pnpm run refresh:lineup-codes`,
+    );
+  for (const id of registered)
+    if (ids.has(id)) assert(unitIds.has(id), `Wrong country in lineup registry: ${country}/${id}`);
+  for (const [id, row] of Object.entries(payload.modifications)) {
+    const original = mods[id];
+    const { items, ...metadata } = row;
+    const { items: originalItems, ...originalMetadata } = original;
+    assert.deepEqual(metadata, originalMetadata);
+    assert.equal(items.length, originalItems.length);
+    items.forEach((item, index) => {
+      const source = originalItems[index];
+      checkName(item, localization.modifications[source.id + "\t" + source.name], source.name);
+      const { name, nameEn, nameZhCN, localizationKey, ...costFields } = item;
+      const { name: originalName, ...originalCostFields } = source;
+      assert.deepEqual(costFields, originalCostFields);
+    });
+  }
+}
+console.log(
+  JSON.stringify({
+    countryFiles: Object.keys(manifest.countries).length,
+    lineupVehicleCodes: Object.values(codebook.countries).reduce(
+      (sum, rows) => sum + Object.keys(rows).length,
+      0,
+    ),
+    trees,
+    localizedVehicles: Object.values(localization.vehicles).filter((value) => value.nameZhCN)
+      .length,
+    missingModificationNames: localization.coverage.modificationMissing.length,
+    vehicles: ids.size,
+    modificationTotals: withTotal,
+    completeItemCosts: completeItems,
+    unavailableTotals: ids.size - withTotal,
+  }),
+);

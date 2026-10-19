@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "War Thunder modification data",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "required": [
+      "unitId",
+      "totalRp",
+      "itemSumRp",
+      "itemCostsComplete",
+      "allUnlockedByDefault",
+      "status",
+      "source",
+      "checkedAt",
+      "sha256",
+      "items"
+    ],
+    "properties": {
+      "unitId": {
+        "type": "string"
+      },
+      "totalRp": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "minimum": 0
+      },
+      "itemSumRp": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "itemCostsComplete": {
+        "type": "boolean"
+      },
+      "allUnlockedByDefault": {
+        "type": "boolean"
+      },
+      "status": {
+        "enum": [
+          "verified",
+          "unavailable"
+        ]
+      },
+      "source": {
+        "type": "string",
+        "format": "uri"
+      },
+      "checkedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "sha256": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      },
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "id",
+            "name",
+            "rp"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "rp": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "rpBasis": {
+              "type": "string"
+            },
+            "nameEn": {
+              "type": "string"
+            },
+            "nameZhCN": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "localizationKey": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

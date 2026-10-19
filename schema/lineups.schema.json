@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Country-scoped local sortie lineups v1",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "name",
+      "slots",
+      "battleType",
+      "activeAircraft"
+    ],
+    "properties": {
+      "id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "name": {
+        "type": "string",
+        "maxLength": 80
+      },
+      "slots": {
+        "type": "array",
+        "minItems": 11,
+        "maxItems": 11,
+        "items": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "battleType": {
+        "enum": [
+          "air",
+          "ground",
+          "naval"
+        ]
+      },
+      "activeAircraft": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    }
+  }
+}

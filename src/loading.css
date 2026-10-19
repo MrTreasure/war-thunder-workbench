@@ -1,0 +1,142 @@
+.wt-loading {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+  color: #eeebe3;
+  background: #151a20
+    url("https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_patria_bmp_3_logo_056f2963433ebf4ac1b945004888e57f.jpg")
+    center center/cover no-repeat;
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+}
+.wt-loading:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(13, 18, 24, 0.95),
+      rgba(13, 18, 24, 0.7) 38%,
+      rgba(13, 18, 24, 0.12) 76%
+    ),
+    linear-gradient(0deg, rgba(13, 18, 24, 0.75), transparent 45%);
+}
+.wt-loading-content {
+  width: min(440px, 70%);
+  margin-left: 8%;
+  padding: 48px 0 64px;
+}
+.wt-loading-logo {
+  display: block;
+  width: 208px;
+  height: 100px;
+  object-fit: contain;
+  object-position: left center;
+  margin-bottom: 32px;
+}
+.wt-loading-caption {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #e1bc77;
+  margin-bottom: 12px;
+}
+.wt-loading h1 {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 0 0 12px;
+  line-height: 1.4;
+  white-space: normal;
+}
+.wt-loading-copy {
+  font-size: 12px;
+  color: #b5b8ba;
+  line-height: 1.7;
+  margin: 0 0 30px;
+}
+.wt-loading-progress {
+  display: block;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border: 0;
+  background: #454a4e;
+  border-radius: 0;
+}
+.wt-loading-progress::-webkit-progress-bar {
+  background: #454a4e;
+}
+.wt-loading-progress::-webkit-progress-value {
+  background: #ce4a38;
+}
+.wt-loading-progress::-moz-progress-bar {
+  background: #ce4a38;
+}
+.wt-loading-status {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 12px;
+  color: #c2c4c4;
+  font:
+    11px/1.5 Consolas,
+    "Microsoft YaHei",
+    monospace;
+  font-variant-numeric: tabular-nums;
+}
+.wt-loading-version {
+  position: absolute;
+  bottom: 28px;
+  left: 8%;
+  font:
+    10px Consolas,
+    monospace;
+  letter-spacing: 2px;
+  color: #b4b6b4;
+}
+.wt-loading-retry {
+  margin-top: 24px;
+  padding: 9px 20px;
+  border: 1px solid #ac4739;
+  border-radius: 2px;
+  background: #81342b;
+  color: #f0ebe1;
+  font:
+    12px "Segoe UI",
+    "Microsoft YaHei",
+    sans-serif;
+  cursor: pointer;
+}
+.wt-loading-retry:hover {
+  background: #aa4033;
+}
+.wt-loading-retry:focus-visible {
+  outline: 2px solid #e1bc77;
+  outline-offset: 4px;
+}
+.wt-loading-compact {
+  min-height: 0;
+  height: calc(100% - 75px);
+  background-position: center;
+}
+.wt-loading-compact .wt-loading-content {
+  padding-block: 30px;
+}
+.wt-loading-compact .wt-loading-logo {
+  width: 167px;
+  height: 80px;
+  margin-bottom: 22px;
+}
+.wt-loading-compact h1 {
+  font-size: 22px;
+}
+.wt-loading noscript {
+  display: block;
+  margin-top: 20px;
+  color: #e1bc77;
+  font-size: 12px;
+}

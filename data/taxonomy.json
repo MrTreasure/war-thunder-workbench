@@ -1,0 +1,39 @@
+{
+  "roles": {
+    "medium_tank": "中型坦克",
+    "light_tank": "轻型坦克",
+    "heavy_tank": "重型坦克",
+    "tank_destroyer": "坦克歼击车",
+    "spaa": "自行防空",
+    "fighter": "战斗机",
+    "bomber": "轰炸机",
+    "assault": "攻击机",
+    "stormovik": "攻击机",
+    "naval_aircraft": "舰载机",
+    "destroyer": "驱逐舰",
+    "light_cruiser": "轻巡洋舰",
+    "heavy_cruiser": "重巡洋舰",
+    "battlecruiser": "战列巡洋舰",
+    "battleship": "战列舰",
+    "boat": "近海舰艇",
+    "torpedo_boat": "鱼雷艇",
+    "gun_boat": "炮艇",
+    "frigate": "护卫舰"
+  },
+  "kinds": {
+    "gold": "金币车",
+    "pack": "礼包车",
+    "premium": "其他高级载具",
+    "squadron": "联队载具",
+    "market": "市场载具",
+    "special": "活动 / 特殊载具"
+  },
+  "lineupKinds": {
+    "research": "常规载具",
+    "special": "特殊载具",
+    "pack": "礼包载具",
+    "premium": "精英载具",
+    "squadron": "联队载具",
+    "market": "市场载具"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Published War Thunder catalog v1",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "countries",
+    "categories",
+    "trees",
+    "flags",
+    "planning",
+    "sources",
+    "checkedAt"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "trees": {
+      "type": "object"
+    },
+    "planning": {
+      "type": "object"
+    },
+    "countries": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "categories": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "vehicle": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "rank",
+        "side",
+        "br",
+        "premium",
+        "kind"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "rank": {
+          "type": "string"
+        },
+        "req": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rp": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "premium": {
+          "type": "boolean"
+        },
+        "side": {
+          "enum": [
+            "research",
+            "special"
+          ]
+        },
+        "br": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          }
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "nameZhCN": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "localizationKey": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "thumbnailUrl": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>出击队列控件状态 · 本地预览</title>
+<link rel="stylesheet" href="../src/workbench.css"><link rel="stylesheet" href="../src/war-thunder.css"><link rel="stylesheet" href="../src/lineups.css">
+<style>main{max-width:680px;margin:32px auto;padding:16px}section{padding:12px 0}h1{font-size:20px}p{color:var(--muted);font-size:12px}h2{font-size:13px;margin:0 0 8px}.lineup-candidate{border:1px solid var(--line)}</style>
+<main><h1>出击队列控件状态</h1><p>供手动检查的本地预览，不发布到 Muse。真实交互与数据请在正式页面验收。</p>
+<section><h2>默认</h2><button class="lineup-candidate"><span><strong>选择载具</strong><small>为空槽位配置载具</small></span><b>＋</b></button></section>
+<section><h2>悬停</h2><button class="lineup-candidate is-hover"><span><strong>选择载具</strong><small>使用已有界面颜色</small></span><b>＋</b></button></section>
+<section><h2>键盘焦点</h2><button class="lineup-candidate is-focus"><span><strong>选择载具</strong><small>立即显示焦点轮廓</small></span><b>＋</b></button></section>
+<section><h2>按下</h2><button class="lineup-candidate is-active"><span><strong>选择载具</strong><small>按下反馈</small></span><b>＋</b></button></section>
+<section><h2>禁用</h2><button class="lineup-candidate is-disabled" disabled><span><strong>已配置</strong><small>同一载具不能重复占位</small></span><b>已配置</b></button></section>
+<section><h2>加载</h2><button class="lineup-candidate is-loading" disabled><span><strong>正在载入国家资料…</strong><small>正式界面使用真实字节进度</small></span></button></section>
+<section><h2>错误</h2><button class="lineup-candidate is-error"><span><strong>检查分享码</strong><small>长度应为 24 位，保留原始大小写</small></span></button></section>
+<section><h2>成功</h2><button class="lineup-candidate is-success"><span><strong>分享码已复制</strong><small>真实界面以文本状态提示</small></span></button></section>
+<section><h2>载具类型</h2><div class="lineup-vehicle-tags"><span class="lineup-kind-tag is-kind-research">常规载具</span><span class="lineup-kind-tag is-kind-special">特殊载具</span><span class="lineup-kind-tag is-kind-pack">礼包载具</span><span class="lineup-kind-tag is-kind-premium">精英载具</span><span class="lineup-kind-tag is-kind-squadron">联队载具</span><span class="lineup-kind-tag is-kind-market">市场载具</span></div><p>礼包与市场精英载具同时显示精英标签。手柄按住即可拖动，卡片主体长按后拖动。</p></section></main></html>
