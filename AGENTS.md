@@ -170,3 +170,5 @@
   collection script serializes pagination/article API calls at >=7s (8s default),
   reuses snapshots for 6h, stops on captcha/login/HTTP rate limits and pauses
   body checks for 24h after a verification challenge; never retry around it.
+- Before resuming archive body checks, read `docs/guide-collection-checkpoint.md`
+  and the persisted `articleRetryAfter`; update the checkpoint after continuation.
