@@ -111,3 +111,9 @@
   build and existing `pnpm run publish` flow when preview deployment is requested.
   A LAN Vite URL or an image gallery does not satisfy this preview requirement.
   QMuse import still requires explicit confirmation.
+
+- Preview performance: HTML stays `no-store`; hashed JS/CSS/font/country assets
+  use `deploy/nginx-war-thunder-assets.inc` for immutable caching and precompressed
+  gzip delivery, including proxied requests. Preserve old hashes on publication.
+- Keep the lightweight file-route adapters eager with `codeSplitGroupings: []`
+  to avoid a serial startup waterfall. Country payload imports must remain lazy.
