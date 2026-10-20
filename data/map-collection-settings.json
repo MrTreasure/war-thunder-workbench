@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "collections": [
+    {
+      "id": "68e72d7da691814c5ddadc2e",
+      "source": "https://web.xiaoheihe.cn/bbs/content_collection/collection_detail?is_share=1&obj_id=68e72d7da691814c5ddadc2e",
+      "author": "木炉",
+      "authorId": "54777188",
+      "edition": "archive",
+      "description": "旧版走线、开线经验与活动记录，按原帖日期和地图版本参考；旧图点位编号独立保留。"
+    }
+  ],
+  "categoryLabels": {
+    "routes": "走线图解",
+    "learning": "玩法与开线",
+    "events": "旧活动记录",
+    "other": "其他资料"
+  },
+  "categoryRules": [
+    { "category": "events", "terms": ["周年", "圣诞", "春节", "银狮回收", "物资箱", "促销", "折扣"] },
+    { "category": "routes", "terms": ["走线", "图解"] },
+    { "category": "learning", "terms": ["开线", "新手", "告诫", "指南", "推荐", "空战", "炸弹", "海战", "哈立德", "标题党"] }
+  ]
+}

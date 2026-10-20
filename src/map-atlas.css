@@ -173,6 +173,102 @@
 .atlas-reading {
   min-width: 0;
 }
+.atlas-archives {
+  margin-top: 24px;
+  min-width: 0;
+}
+.atlas-archives > h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--wt-ink);
+}
+.atlas-archives > p {
+  margin-top: 8px;
+  color: var(--wt-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.atlas-archive-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.atlas-archive-intro p {
+  min-width: 0;
+}
+.atlas-archive-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(140px, 180px);
+  gap: 10px;
+  margin-block: 16px 10px;
+}
+.atlas-archive-controls label {
+  display: block;
+  min-width: 0;
+}
+.atlas-archive-controls :is(input, select) {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--wt-strong-line);
+  border-radius: 3px;
+  background: var(--wt-page);
+  color: var(--wt-ink);
+  font: 16px/1.5 var(--wt-sans);
+}
+.atlas-archive-controls input::placeholder {
+  color: var(--wt-muted);
+}
+.atlas-archive-count {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 12px;
+  color: var(--wt-muted);
+  font-size: 11px;
+}
+.atlas-archive-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 24px;
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+.atlas-archive-entry {
+  min-width: 0;
+  padding: 12px 0;
+  border-top: 1px solid var(--wt-line);
+}
+.atlas-archive-entry > a {
+  display: block;
+  min-height: 44px;
+  padding-block: 6px;
+  color: var(--wt-ink);
+  font-size: 13px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+.atlas-archive-entry > a > span {
+  color: var(--wt-gold);
+  white-space: nowrap;
+}
+.atlas-archive-entry > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  color: var(--wt-muted);
+  font-size: 10px;
+}
+@media (hover: hover) {
+  .atlas-archive-entry > a:hover {
+    color: var(--wt-gold);
+  }
+}
 .atlas-briefing {
   padding: 24px;
   background: var(--wt-surface);

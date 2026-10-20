@@ -21,16 +21,27 @@
 - 对 8 篇带编辑记录的文章读取正文并保存核对依据。原摘要日期、原帖编辑日期、合集核对时间分别记录；没有旧正文快照，不把编辑时间当作逐字内容变更证明。
 - 总论、重制说明与两篇旧版资料保留独立入口，旧图编号不混入新版。
 
+### 补充的旧版合集
+
+2026-10-21 补充木炉的[战雷全家桶2025](https://web.xiaoheihe.cn/bbs/content_collection/collection_detail?is_share=1&obj_id=68e72d7da691814c5ddadc2e)。通过四页目录完整核对 66 条：按标题分为 46 篇走线图解、5 篇玩法与开线、10 篇旧活动记录、5 篇其他资料。
+
+页面的“更多攻略”可搜索和筛选全部旧版目录；同名地图在当前攻略下提供旧版原帖入口。分类依据标题，不表示这些旧资料已适配当前版本，也不将相近名称的地图变体合并。
+
+目录核对与正文核对分开显示。目前 1 篇正文通过核对，其余保留原帖入口。文章站点要求验证码后已暂停正文访问，并设置 24 小时正文冷却；不会为了补齐标记而重试或绕过验证。首轮收录记为首次快照，不把 66 篇旧文章标成刚发布。
+
 ## 提取与更新
 
-数据位于 `data/map-atlas.json`，提取脚本为 `scripts/extract-map-atlas.mjs`。脚本使用 Playwright 访问原静态页、作者合集，并从页面实际返回的公开内容中提取数据，不模拟登录。
+新版数据位于 `data/map-atlas.json`。补充合集配置位于 `data/map-collection-settings.json`，目录与逐篇核对记录位于 `data/map-collections.json`。脚本使用 Playwright 访问原静态页、作者合集，并从页面实际返回的公开内容中提取数据，不模拟登录。
 
 ```bash
 pnpm exec playwright install chromium # 首次准备浏览器
 pnpm run refresh:guides
+pnpm run refresh:collections          # 只核对补充合集
 ```
 
 默认单页串行访问，间隔 7 秒，最短允许 6 秒；6 小时内复用已核对快照。最多滚动补取 3 次，每次最多检查 8 篇有编辑记录的文章；可通过 `--article-checks=0` 只核对合集条目。遇到访问限制停止相应核对，失败或不完整的合集不覆盖原数据，不批量抓取高清图。
+
+`refresh:guides` 同时更新补充合集，各合集分别复用 6 小时快照。补充脚本为 `scripts/extract-map-collections.mjs`，页面和分页/文章接口均串行，默认间隔 8 秒、最短 7 秒，最多补取 8 次。验证码、登录要求或访问限流会停止后续访问；正文冷却期间即使手动核对目录，也不会重新访问正文。
 
 ```bash
 pnpm run refresh:guides --force --interval=10000
@@ -39,7 +50,7 @@ pnpm run refresh:guides --force --article-checks=0
 
 `--force` 仅用于主动核对，不用于循环请求。浏览器已有安装但路径不同时，可通过 `WT_PLAYWRIGHT_EXECUTABLE` 指定。维护环境可用 `--origin=http://127.0.0.1:17843` 读取同一 Nginx 源站；浏览器仍保留原公开地址与内容，用于公网代理较慢时提取自有页面，不改变合集访问方式。
 
-原始页面与文章快照仅存于已忽略的 `artifacts/atlas-extraction/`。公开数据只保留摘要、来源、标题、时间、字数与正文哈希，不发布原帖全文、账号资料或临时请求签名。`newEntries` 指原静态页尚未引用的合集条目；相邻两次核对之间的发表和编辑记录另存。
+原始页面与文章快照仅存于已忽略的 `artifacts/atlas-extraction/` 与 `artifacts/atlas-collections/`。公开数据只保留摘要、来源、作者公开标识、标题、时间、字数与正文哈希，不发布原帖全文、评论或临时请求签名。`newEntries` 指原静态页尚未引用的合集条目；相邻两次核对之间的发表和编辑记录另存。
 
 刷新只更新数据，不构建、不发布。后续运行 `pnpm run check`、`pnpm run build`；攻略资料通过单独的延迟加载 JS 模块发布，不输出独立 JSON，不影响按国家加载载具资料。
 

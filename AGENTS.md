@@ -163,3 +163,10 @@
   page; full images load only on explicit open, with byte/hash checks and isolated
   `wt-map-atlas-v1` OPFS caching. Clearing map images must never touch vehicle
   caches, profiles, carts, lineup storage or the share registry.
+- Additional author collections use `data/map-collection-settings.json` and
+  `data/map-collections.json`. Keep archive articles separate from current
+  guide notes and image numbering. Preserve complete per-collection directories,
+  timestamps, category labels and individual body verification status. The
+  collection script serializes pagination/article API calls at >=7s (8s default),
+  reuses snapshots for 6h, stops on captcha/login/HTTP rate limits and pauses
+  body checks for 24h after a verification challenge; never retry around it.

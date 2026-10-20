@@ -4,6 +4,7 @@ import atlas from "../data/map-atlas.json";
 import { Route } from "./routes/_workbench.maps";
 import { MapImageViewer } from "./MapImageViewer";
 import { clearMapImages } from "./map-image-cache";
+import { AtlasArchives, RelatedArchiveGuides } from "./AtlasArchives";
 
 const images = new Map(atlas.images.map((image) => [image.id, image]));
 const normal = (value: string) =>
@@ -222,6 +223,7 @@ export function MapAtlas() {
               {updated && <span>原帖编辑 {updated.slice(0, 10)}</span>}
             </div>
           </section>
+          <RelatedArchiveGuides guideId={guide.id} />
           <details className="atlas-details">
             <summary>
               合集更新核对{" "}
@@ -264,6 +266,7 @@ export function MapAtlas() {
               ))}
             </div>
           </details>
+          <AtlasArchives />
           <footer className="atlas-footer">
             <p>{atlas.scope}</p>
             <p>{atlas.attribution}</p>

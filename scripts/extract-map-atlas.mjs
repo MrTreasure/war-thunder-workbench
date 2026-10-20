@@ -6,6 +6,7 @@ import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { get as httpGet } from "node:http";
 import { get as httpsGet } from "node:https";
+import { refreshMapCollections } from "./extract-map-collections.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const args = new Map(process.argv.slice(2).map((a) => a.replace(/^--/, "").split(/=(.*)/s)));
@@ -29,6 +30,7 @@ if (
   Date.now() - Date.parse(previous.collection.checkedAt) < 6 * 3600_000
 ) {
   console.log("Recent verified snapshot retained; use --force to check again after the cooldown.");
+  await refreshMapCollections(args);
   process.exit(0);
 }
 const hash = (text) => createHash("sha256").update(text).digest("hex");
@@ -101,6 +103,7 @@ await context.route("**/*", async (route) => {
   return route.continue();
 });
 const page = await context.newPage();
+let stopAdditionalVisits = false;
 try {
   await visit(page, source);
   await page.locator("#new-guides h3").first().waitFor({ timeout: 30000 });
@@ -197,6 +200,8 @@ try {
         if ([401, 403, 429].includes(response.status()))
           throw Error(`Collection access limited: ${response.status()}`);
         const data = await response.json();
+        if (["show_captcha", "need_login", "need_verify", "login_required"].includes(data.status))
+          throw Error(`Collection access limited: ${data.status}`);
         if (data.status !== "ok") throw Error("Collection returned an unsuccessful response");
         records.push({ path: url.pathname, data });
       })().catch((error) => collectionErrors.push(error)),
@@ -287,6 +292,8 @@ try {
       const response = await responsePromise;
       if (response.status() !== 200) throw Error(`Article HTTP ${response.status()}`);
       const body = await response.json();
+      if (["show_captcha", "need_login", "need_verify", "login_required"].includes(body.status))
+        throw Error(`Article access limited: ${body.status}`);
       const link = body.result?.link;
       if (
         body.status !== "ok" ||
@@ -310,7 +317,10 @@ try {
       console.log("Article verified", entry.title);
     } catch (error) {
       articleCheckErrors.push({ id: entry.id, source: entry.source, error: error.message });
-      if (/401|403|429/.test(error.message)) break;
+      if (/401|403|429|access limited/.test(error.message)) {
+        stopAdditionalVisits = true;
+        break;
+      }
     }
   }
   const collection = {
@@ -362,3 +372,4 @@ try {
 } finally {
   await browser.close();
 }
+if (!stopAdditionalVisits) await refreshMapCollections(args);

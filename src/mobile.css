@@ -6,6 +6,21 @@
     padding: 20px max(12px, env(safe-area-inset-right, 0px)) 24px
       max(12px, env(safe-area-inset-left, 0px));
   }
+  .atlas-archive-intro {
+    align-items: flex-start;
+  }
+  .atlas-archive-intro .atlas-source-link {
+    min-height: 44px;
+  }
+  .atlas-archive-controls {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .atlas-archive-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .atlas-archive-entry > a {
+    font-size: 14px;
+  }
   .atlas-heading {
     margin-bottom: 16px;
     gap: 8px;

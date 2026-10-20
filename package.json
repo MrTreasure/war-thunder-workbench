@@ -21,6 +21,7 @@
     "refresh:lineup-codes": "node scripts/lineup-codebook.mjs",
     "refresh:prices": "node scripts/store-prices.mjs",
     "refresh:guides": "node scripts/extract-map-atlas.mjs",
+    "refresh:collections": "node scripts/extract-map-collections.mjs",
     "check": "tsr generate && pnpm run typecheck && pnpm run lint && pnpm run check:data",
     "import:qmuse": "pnpm run check && pnpm run build && qmuse-cli import . --no-open"
   },

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 const atlas = JSON.parse(
   await readFile(new URL("../data/map-atlas.json", import.meta.url), "utf8"),
 );
@@ -77,11 +78,65 @@ for (const resource of atlas.resources) {
   publicSource(resource.source);
 }
 assert(guides.size >= 12);
+const archive = JSON.parse(
+  await readFile(new URL("../data/map-collections.json", import.meta.url), "utf8"),
+);
+const settings = JSON.parse(
+  await readFile(new URL("../data/map-collection-settings.json", import.meta.url), "utf8"),
+);
+assert.equal(archive.schemaVersion, 1);
+assert.deepEqual(archive.categoryLabels, settings.categoryLabels);
+assert.deepEqual(
+  archive.collections.map((c) => c.id).sort(),
+  settings.collections.map((c) => c.id).sort(),
+);
+for (const collection of archive.collections) {
+  const expected = settings.collections.find((c) => c.id === collection.id);
+  assert.equal(collection.source, expected.source);
+  assert.equal(collection.author, expected.author);
+  assert.equal(collection.authorId, expected.authorId);
+  assert.equal(collection.edition, "archive");
+  assert.equal(new URL(collection.source).searchParams.get("obj_id"), collection.id);
+  assert.equal(collection.complete, true);
+  assert.equal(collection.count, collection.entries.length);
+  validDate(collection.checkedAt);
+  validDate(collection.collectionUpdatedAt);
+  assert.equal(
+    createHash("sha256").update(JSON.stringify(collection.entries)).digest("hex"),
+    collection.sha256,
+  );
+  const entries = new Map();
+  for (const entry of collection.entries) {
+    assert(!entries.has(entry.id));
+    entries.set(entry.id, entry);
+    publicSource(entry.source);
+    assert(entry.title);
+    assert.equal(entry.id, new URL(entry.source).pathname.split("/").at(-1));
+    validDate(entry.publishedAt);
+    validDate(entry.updatedAt);
+    assert(Object.hasOwn(archive.categoryLabels, entry.category));
+    for (const id of entry.relatedGuideIds) assert(guides.has(id));
+  }
+  for (const [id, check] of Object.entries(collection.articleChecks)) {
+    assert(entries.has(id));
+    assert.equal(check.source, entries.get(id).source);
+    assert.match(check.articleId, /^\d+$/);
+    assert.match(check.bodySha256, /^[a-f0-9]{64}$/);
+    assert(check.characters >= 40);
+    validDate(check.checkedAt);
+    validDate(check.updatedAt);
+  }
+  for (const error of collection.articleCheckErrors) assert(entries.has(error.id));
+  if (collection.articleRetryAfter) validDate(collection.articleRetryAfter);
+  assert([null, "verification_required"].includes(collection.articleChecksStoppedReason));
+}
 console.log(
   JSON.stringify({
     mapGuides: guides.size,
     atlasImages: images.size,
     checkedCollectionEntries: atlas.collection.count,
     newCollectionEntries: atlas.collection.newEntries.length,
+    archiveCollections: archive.collections.length,
+    archiveEntries: archive.collections.reduce((sum, c) => sum + c.count, 0),
   }),
 );

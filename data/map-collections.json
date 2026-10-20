@@ -1,0 +1,695 @@
+{
+  "schemaVersion": 1,
+  "categoryLabels": {
+    "routes": "走线图解",
+    "learning": "玩法与开线",
+    "events": "旧活动记录",
+    "other": "其他资料"
+  },
+  "collections": [
+    {
+      "id": "68e72d7da691814c5ddadc2e",
+      "source": "https://web.xiaoheihe.cn/bbs/content_collection/collection_detail?is_share=1&obj_id=68e72d7da691814c5ddadc2e",
+      "author": "木炉",
+      "authorId": "54777188",
+      "edition": "archive",
+      "description": "旧版走线、开线经验与活动记录，按原帖日期和地图版本参考；旧图点位编号独立保留。",
+      "title": "战雷全家桶2025",
+      "count": 66,
+      "complete": true,
+      "checkedAt": "2026-10-20T15:58:41.730Z",
+      "collectionUpdatedAt": "2026-10-16T11:35:27.000Z",
+      "entries": [
+        {
+          "id": "f365714d0dac",
+          "title": "53篇走线和攻略！为战雷萌新阜南提供一站式服务！",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/f365714d0dac",
+          "publishedAt": "2025-12-24T17:33:10.000Z",
+          "updatedAt": "2026-01-07T19:23:13.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "518c70fedf57",
+          "title": "陆历排名前0.5%老黑奴对阜南的告诫",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/518c70fedf57",
+          "publishedAt": "2025-10-09T17:06:43.000Z",
+          "updatedAt": "2025-10-20T17:20:22.000Z",
+          "category": "learning",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "694f719274ba",
+          "title": "保持克制！是时候规划四月银狮物资箱了(附图集与价格表)",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/694f719274ba",
+          "publishedAt": "2026-02-22T15:34:21.000Z",
+          "updatedAt": "2026-03-08T12:21:23.000Z",
+          "category": "events",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "6457714ce48a",
+          "title": "更适合轻/中体质的山野荒城走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/6457714ce48a",
+          "publishedAt": "2025-12-24T15:09:22.000Z",
+          "updatedAt": "2026-01-11T07:26:38.000Z",
+          "category": "routes",
+          "relatedGuideIds": [
+            "d9c5729fc9ee"
+          ]
+        },
+        {
+          "id": "b1fd714cd82e",
+          "title": "更适合轻/中坦体质的谢韦尔斯克走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/b1fd714cd82e",
+          "publishedAt": "2025-12-24T14:21:58.000Z",
+          "updatedAt": "2025-12-24T17:43:30.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "531b714ccc4f",
+          "title": "更适合轻/中坦体质的沃洛科拉姆斯克走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/531b714ccc4f",
+          "publishedAt": "2025-12-24T13:36:05.000Z",
+          "updatedAt": "2025-12-25T09:46:14.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "297b714b6651",
+          "title": "更适合轻/中坦体质的布雷斯劳走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/297b714b6651",
+          "publishedAt": "2025-12-23T06:52:59.000Z",
+          "updatedAt": "2025-12-23T23:03:51.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "68e27145e21b",
+          "title": "一刻也没有为银狮哀悼，接下来登场的是圣诞促销！攻略推荐",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/68e27145e21b",
+          "publishedAt": "2025-12-18T10:23:25.000Z",
+          "updatedAt": "2025-12-31T07:22:43.000Z",
+          "category": "events",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "07e5713fd43c",
+          "title": "战争雷霆年终圣诞活动正式揭晓！",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/07e5713fd43c",
+          "publishedAt": "2025-12-12T15:41:11.000Z",
+          "updatedAt": "2025-12-25T08:45:16.000Z",
+          "category": "events",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "8025713c51f8",
+          "title": "你们这里谁是轮椅？苏系轮椅队列推荐",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/8025713c51f8",
+          "publishedAt": "2025-12-09T03:33:39.000Z",
+          "updatedAt": "2026-07-16T01:55:07.000Z",
+          "category": "learning",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "ef76713b8553",
+          "title": "还有一周！战雷圣诞银狮回收计划前瞻",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/ef76713b8553",
+          "publishedAt": "2025-12-08T06:54:16.000Z",
+          "updatedAt": "2025-12-22T03:44:19.000Z",
+          "category": "events",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "146f71111245",
+          "title": "战雷深夜食堂:来唠唠我是怎么开线的",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/146f71111245",
+          "publishedAt": "2025-10-27T16:38:12.000Z",
+          "updatedAt": "2025-11-03T23:40:17.000Z",
+          "category": "learning",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "f9e971716646",
+          "title": "同时玩完哈立德和标题党后，我破防了",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/f9e971716646",
+          "publishedAt": "2026-01-18T17:01:41.000Z",
+          "updatedAt": "2026-02-01T05:05:57.000Z",
+          "category": "learning",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "61c27138222d",
+          "title": "海战新手如何在活动中快速打分",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/61c27138222d",
+          "publishedAt": "2025-12-04T15:55:53.000Z",
+          "updatedAt": "2025-12-18T15:38:40.000Z",
+          "category": "learning",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "776e71689db5",
+          "title": "别说话！继续肝！春节银狮回收计划前瞻预测",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/776e71689db5",
+          "publishedAt": "2026-01-10T17:34:32.000Z",
+          "updatedAt": "2026-01-31T14:54:56.000Z",
+          "category": "events",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "5d3d711faf4c",
+          "title": "周年庆已经过去，亿万阜南必须打空战(二)",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/5d3d711faf4c",
+          "publishedAt": "2025-11-10T14:02:43.000Z",
+          "updatedAt": "2025-12-25T12:29:21.000Z",
+          "category": "events",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "1aad718bc2be",
+          "title": "战争雷霆突尼斯沙漠走线:图解重制版",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/1aad718bc2be",
+          "publishedAt": "2026-02-15T14:38:48.000Z",
+          "updatedAt": "2026-03-02T02:06:37.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "c1eb7110d5a6",
+          "title": "周年庆已经开始，亿万阜南必须搬炸弹(一)",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/c1eb7110d5a6",
+          "publishedAt": "2025-10-27T12:25:34.000Z",
+          "updatedAt": "2025-12-25T12:18:04.000Z",
+          "category": "events",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "28b171841c06",
+          "title": "战争雷霆喀尔巴阡山走线:图解重制版",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/28b171841c06",
+          "publishedAt": "2026-02-08T14:46:05.000Z",
+          "updatedAt": "2026-02-12T15:26:07.000Z",
+          "category": "routes",
+          "relatedGuideIds": [
+            "78e272a21ece"
+          ]
+        },
+        {
+          "id": "d2c271267f10",
+          "title": "阜南走线怎么走出自己的水平和风格？",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/d2c271267f10",
+          "publishedAt": "2025-11-17T07:10:48.000Z",
+          "updatedAt": "2025-12-02T03:33:56.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "40d6717e0363",
+          "title": "战争雷霆阿拉曼沙漠走线点位:图解重制版",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/40d6717e0363",
+          "publishedAt": "2026-02-01T13:25:01.000Z",
+          "updatedAt": "2026-02-07T09:38:49.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "f39271166a7a",
+          "title": "把眼光放远，周年庆过后阜南该干啥？",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/f39271166a7a",
+          "publishedAt": "2025-11-02T06:00:50.000Z",
+          "updatedAt": "2025-11-17T08:15:46.000Z",
+          "category": "events",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "b768717107db",
+          "title": "战争雷霆货运港口走线:图解重制版",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/b768717107db",
+          "publishedAt": "2026-01-18T11:25:11.000Z",
+          "updatedAt": "2026-01-29T05:24:56.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "361070ff2624",
+          "title": "关于阜南大学习中，有争议的点",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/361070ff2624",
+          "publishedAt": "2025-10-10T03:47:04.000Z",
+          "updatedAt": "2025-10-17T03:03:22.000Z",
+          "category": "other",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "e7307106d504",
+          "title": "关于战雷周年庆氪金你必须知道的知识",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/e7307106d504",
+          "publishedAt": "2025-10-17T16:50:53.000Z",
+          "updatedAt": "2025-10-29T19:54:03.000Z",
+          "category": "events",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "271c710527f9",
+          "title": "下周的战雷周年庆，阜南该怎么开线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/271c710527f9",
+          "publishedAt": "2025-10-16T01:50:18.000Z",
+          "updatedAt": "2025-10-29T08:57:56.000Z",
+          "category": "events",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "fcb3710169e7",
+          "title": "全服陆历前0.5%的老黑奴的战斗心得",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/fcb3710169e7",
+          "publishedAt": "2025-10-12T06:46:42.000Z",
+          "updatedAt": "2025-10-26T22:55:17.000Z",
+          "category": "other",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "366c714dcc42",
+          "title": "买了瑞士F18礼包机还没快速入门？我来帮你！",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/366c714dcc42",
+          "publishedAt": "2025-12-25T12:19:34.000Z",
+          "updatedAt": "2026-01-06T14:23:36.000Z",
+          "category": "other",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "3ca8714db2a4",
+          "title": "战争雷霆富尔达走线:图解重制版",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/3ca8714db2a4",
+          "publishedAt": "2025-12-25T10:28:09.000Z",
+          "updatedAt": "2026-01-07T20:46:58.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "215c714dad85",
+          "title": "战争雷霆芬兰走线:图解重置版",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/215c714dad85",
+          "publishedAt": "2025-12-25T10:07:28.000Z",
+          "updatedAt": "2026-01-07T04:44:30.000Z",
+          "category": "routes",
+          "relatedGuideIds": [
+            "d56d729bfc40"
+          ]
+        },
+        {
+          "id": "a95c714df2c9",
+          "title": "装弹机装弹时间大改！中系苏系迎来史诗级加强",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/a95c714df2c9",
+          "publishedAt": "2025-12-25T14:20:50.000Z",
+          "updatedAt": "2025-12-26T08:00:48.000Z",
+          "category": "other",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "2150718bdc0b",
+          "title": "玩战雷2000小时，我终于顿悟了宇宙的真谛",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/2150718bdc0b",
+          "publishedAt": "2026-02-15T16:12:09.000Z",
+          "updatedAt": "2026-02-17T12:50:22.000Z",
+          "category": "other",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "3cf770fe1007",
+          "title": "更适合轻/中坦体质的喀尔巴阡山走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/3cf770fe1007",
+          "publishedAt": "2025-10-09T00:59:12.000Z",
+          "updatedAt": "2025-10-22T05:49:57.000Z",
+          "category": "routes",
+          "relatedGuideIds": [
+            "78e272a21ece"
+          ]
+        },
+        {
+          "id": "3b71712e6929",
+          "title": "更适合轻/中坦体质的阿提卡走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/3b71712e6929",
+          "publishedAt": "2025-11-24T06:45:51.000Z",
+          "updatedAt": "2025-12-04T10:26:13.000Z",
+          "category": "routes",
+          "relatedGuideIds": [
+            "98de7299d113"
+          ]
+        },
+        {
+          "id": "7465711f38e7",
+          "title": "更适合轻/中坦体质的北荷兰省走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/7465711f38e7",
+          "publishedAt": "2025-11-10T06:28:02.000Z",
+          "updatedAt": "2025-11-26T09:23:58.000Z",
+          "category": "routes",
+          "relatedGuideIds": [
+            "7971729b0440"
+          ]
+        },
+        {
+          "id": "3762711f098f",
+          "title": "更适合轻/中坦体质的西奈沙漠上部走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/3762711f098f",
+          "publishedAt": "2025-11-10T03:04:54.000Z",
+          "updatedAt": "2025-11-26T09:25:56.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "f405711c0470",
+          "title": "更适合轻/中坦体质的货运港口走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/f405711c0470",
+          "publishedAt": "2025-11-07T10:21:21.000Z",
+          "updatedAt": "2025-11-26T09:24:32.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "aee17118c942",
+          "title": "更适合轻/中坦体质的波兰镜湖走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/aee17118c942",
+          "publishedAt": "2025-11-04T11:31:04.000Z",
+          "updatedAt": "2025-11-26T09:24:58.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "5c88711782ba",
+          "title": "更适合轻/中坦体质的马奇诺防线走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/5c88711782ba",
+          "publishedAt": "2025-11-03T06:14:58.000Z",
+          "updatedAt": "2025-11-15T08:07:33.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "e3727111b93e",
+          "title": "更适合轻/中坦体质的许特根森林走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/e3727111b93e",
+          "publishedAt": "2025-10-28T11:18:45.000Z",
+          "updatedAt": "2025-11-06T11:22:27.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "f24b710a7e5b",
+          "title": "更适合轻/中坦体质的诺曼底海滩走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/f24b710a7e5b",
+          "publishedAt": "2025-10-21T11:53:48.000Z",
+          "updatedAt": "2025-10-25T10:56:11.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "ba67710a7c12",
+          "title": "更适合轻/中坦体质的库尔斯克走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/ba67710a7c12",
+          "publishedAt": "2025-10-21T11:41:21.000Z",
+          "updatedAt": "2025-11-03T01:40:38.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "7856710686d1",
+          "title": "更适合轻/中坦体质的瑞典走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/7856710686d1",
+          "publishedAt": "2025-10-17T11:17:51.000Z",
+          "updatedAt": "2025-10-21T07:03:39.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "c6417104a700",
+          "title": "更适合轻/中坦体质的航天港走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/c6417104a700",
+          "publishedAt": "2025-10-15T11:46:39.000Z",
+          "updatedAt": "2025-10-17T07:55:56.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "281571023ebd",
+          "title": "更适合轻/中坦体质的莫兹多克走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/281571023ebd",
+          "publishedAt": "2025-10-13T01:14:29.000Z",
+          "updatedAt": "2025-12-25T09:16:54.000Z",
+          "category": "routes",
+          "relatedGuideIds": [
+            "1c8272a683ab"
+          ]
+        },
+        {
+          "id": "3d7170ff65cd",
+          "title": "更适合轻/中坦体质的阿拉曼上点走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/3d7170ff65cd",
+          "publishedAt": "2025-10-10T09:12:59.000Z",
+          "updatedAt": "2025-10-16T10:22:11.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "fbb470fe2cbf",
+          "title": "更适合轻/中坦体质的芬兰走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/fbb470fe2cbf",
+          "publishedAt": "2025-10-09T03:33:33.000Z",
+          "updatedAt": "2026-01-21T00:06:36.000Z",
+          "category": "routes",
+          "relatedGuideIds": [
+            "d56d729bfc40"
+          ]
+        },
+        {
+          "id": "e8f2713b3a17",
+          "title": "更适合轻/中坦体质的咸海走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/e8f2713b3a17",
+          "publishedAt": "2025-12-08T00:16:39.000Z",
+          "updatedAt": "2025-12-08T14:34:16.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "dd0671267b7f",
+          "title": "更适合轻/中坦体质的黄金矿场走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/dd0671267b7f",
+          "publishedAt": "2025-11-17T06:54:29.000Z",
+          "updatedAt": "2025-11-27T00:54:06.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "1770711c080d",
+          "title": "更适合轻/中坦体质的意大利走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/1770711c080d",
+          "publishedAt": "2025-11-07T10:38:41.000Z",
+          "updatedAt": "2025-11-26T09:24:22.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "fc8a71198f06",
+          "title": "更适合轻/中坦体质的佛兰德斯走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/fc8a71198f06",
+          "publishedAt": "2025-11-05T06:55:12.000Z",
+          "updatedAt": "2025-11-26T09:24:40.000Z",
+          "category": "routes",
+          "relatedGuideIds": [
+            "74fc729b00be"
+          ]
+        },
+        {
+          "id": "086871198b95",
+          "title": "更适合轻/中坦体质的日本走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/086871198b95",
+          "publishedAt": "2025-11-05T06:36:19.000Z",
+          "updatedAt": "2025-11-26T09:24:48.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "9c037116686c",
+          "title": "更适合轻/中坦体质的2271号测试基地走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/9c037116686c",
+          "publishedAt": "2025-11-02T05:49:17.000Z",
+          "updatedAt": "2025-11-07T04:10:09.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "59f5711002a2",
+          "title": "更适合轻/中坦体质的废弃工厂走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/59f5711002a2",
+          "publishedAt": "2025-10-26T15:59:26.000Z",
+          "updatedAt": "2025-11-06T12:49:36.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "27307104a9eb",
+          "title": "更适合轻/中坦体质的日耀之城走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/27307104a9eb",
+          "publishedAt": "2025-10-15T12:01:36.000Z",
+          "updatedAt": "2025-10-17T17:15:38.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "08f071018165",
+          "title": "更适合轻/中坦体质的阿拉曼下点走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/08f071018165",
+          "publishedAt": "2025-10-12T08:38:33.000Z",
+          "updatedAt": "2025-10-16T10:21:34.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "33d170ff228d",
+          "title": "更适合轻/中坦体质的美国沙漠小镇走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/33d170ff228d",
+          "publishedAt": "2025-10-10T03:27:10.000Z",
+          "updatedAt": "2025-10-21T11:30:28.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "96ab711665df",
+          "title": "更适合轻/中坦体质的中东走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/96ab711665df",
+          "publishedAt": "2025-11-02T05:36:18.000Z",
+          "updatedAt": "2025-11-13T09:07:40.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "0bf8710a8073",
+          "title": "更适合轻/中坦体质的西奈沙漠下部走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/0bf8710a8073",
+          "publishedAt": "2025-10-21T12:05:07.000Z",
+          "updatedAt": "2025-11-10T02:57:08.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "c41871017e2e",
+          "title": "更适合轻/中坦体质的莱茵河畔走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/c41871017e2e",
+          "publishedAt": "2025-10-12T08:24:23.000Z",
+          "updatedAt": "2025-10-17T17:22:57.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "3bb27134906a",
+          "title": "更适合轻/中坦体质的朝鲜走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/3bb27134906a",
+          "publishedAt": "2025-12-01T00:22:20.000Z",
+          "updatedAt": "2025-12-15T03:35:57.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "a4d7710a79e6",
+          "title": "更适合轻/中坦体质的越南走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/a4d7710a79e6",
+          "publishedAt": "2025-10-21T11:29:04.000Z",
+          "updatedAt": "2025-12-25T09:17:36.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "776d71017737",
+          "title": "更适合轻/中坦体质的富尔达走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/776d71017737",
+          "publishedAt": "2025-10-12T07:54:24.000Z",
+          "updatedAt": "2025-10-22T22:51:10.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "0fc371068989",
+          "title": "更适合轻/中坦体质的新罗西斯克走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/0fc371068989",
+          "publishedAt": "2025-10-17T11:28:22.000Z",
+          "updatedAt": "2025-10-18T13:46:46.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "7f47710241b5",
+          "title": "更适合轻/中坦体质的极北之地走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/7f47710241b5",
+          "publishedAt": "2025-10-13T01:31:59.000Z",
+          "updatedAt": "2025-12-25T09:16:37.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        },
+        {
+          "id": "3413710173b0",
+          "title": "更适合轻/中坦体质的突尼斯沙漠走线",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/3413710173b0",
+          "publishedAt": "2025-10-12T07:34:28.000Z",
+          "updatedAt": "2025-12-25T09:17:50.000Z",
+          "category": "routes",
+          "relatedGuideIds": []
+        }
+      ],
+      "articleChecks": {
+        "f365714d0dac": {
+          "articleId": "171399887",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/f365714d0dac",
+          "checkedAt": "2026-10-20T15:57:45.832Z",
+          "updatedAt": "2026-01-07T19:23:13.000Z",
+          "bodySha256": "8e45f194f8c57d6c36273f563c8cc9757a9b92ee8fbff0937f14f740df066477",
+          "characters": 600,
+          "bodyFormat": 1
+        }
+      },
+      "articleCheckErrors": [
+        {
+          "id": "6457714ce48a",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/6457714ce48a",
+          "error": "Article verification required: show_captcha; no retry"
+        },
+        {
+          "id": "b1fd714cd82e",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/b1fd714cd82e",
+          "error": "Article identity or content not verified"
+        },
+        {
+          "id": "531b714ccc4f",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/531b714ccc4f",
+          "error": "Article identity or content not verified"
+        },
+        {
+          "id": "297b714b6651",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/297b714b6651",
+          "error": "Article identity or content not verified"
+        },
+        {
+          "id": "1aad718bc2be",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/1aad718bc2be",
+          "error": "Article identity or content not verified"
+        },
+        {
+          "id": "28b171841c06",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/28b171841c06",
+          "error": "Article identity or content not verified"
+        },
+        {
+          "id": "d2c271267f10",
+          "source": "https://www.xiaoheihe.cn/app/bbs/link/d2c271267f10",
+          "error": "Article identity or content not verified"
+        }
+      ],
+      "sha256": "99612156b858e695e7457dce71a9866a02854595fe83504e1b5048886bb62e6a",
+      "changes": {
+        "initial": true,
+        "added": [],
+        "edited": [],
+        "removed": []
+      },
+      "articleChecksStoppedReason": "verification_required",
+      "articleRetryAfter": "2026-10-21T16:02:15.359591Z"
+    }
+  ]
+}
