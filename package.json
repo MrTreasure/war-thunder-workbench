@@ -51,5 +51,6 @@
     "vite-tsconfig-paths": "6.0.2",
     "@types/node": "22.16.5",
     "@tanstack/router-plugin": "1.168.23"
-  }
+  },
+  "license": "MIT"
 }
