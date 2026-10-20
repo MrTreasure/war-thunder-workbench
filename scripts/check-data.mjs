@@ -66,6 +66,19 @@ for (const source of Object.values(localization.sources)) {
   assert.match(source.sha256, /^[a-f0-9]{64}$/);
   assert(source.bytes > 1000000);
 }
+assert.equal(localization.coverage.categories, Object.keys(settings.categories).length);
+for (const [category, key] of Object.entries(settings.categoryLocalizationKeys)) {
+  const proof = localization.categories[category];
+  assert.equal(proof.entry, `menu:${key}`);
+  const entry = localization.entries[proof.entry];
+  assert.equal(proof.nameEn, entry.english);
+  assert.equal(proof.method, "game_menu_key");
+  assert.equal(
+    proof.nameZhCN,
+    entry.chineseRaw.replaceAll("\u200b", "").replaceAll("\ufeff", "").trim(),
+  );
+  assert.equal(catalog.categories[category], proof.nameZhCN);
+}
 function checkName(value, proof, nameEn) {
   assert(proof, `Missing localization mapping: ${nameEn}`);
   assert.equal(proof.nameEn, nameEn);

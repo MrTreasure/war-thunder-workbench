@@ -67,6 +67,10 @@
 - Place `CreatorLink` in the top-right header of both research-tree and lineup
   pages. Use the supplied QMuse logo and invite link; do not duplicate it in the
   explanatory row or a separate footer. Keep it responsive without horizontal overflow.
+- Both pages share `PageNavigation` for 科技树 / 出击队列. Keep this navigation
+  outside the tree's collapsible filter panel on every screen size. Categories
+  are filters, not page links. Use menu.csv's mainmenu/* Simplified Chinese
+  entries for category labels, with localization provenance in canonical JSON.
 - Keep `.qmuse/project.json` managed by qmuse-cli; update the bound application
   with `qmuse-cli import .`, never manually change its platform binding.
   Generated bootstrap/manifest, `src/generated/country-modules.ts` and all ten

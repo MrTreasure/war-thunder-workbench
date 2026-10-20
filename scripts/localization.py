@@ -15,7 +15,7 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO = 'gszabi99/War-Thunder-Datamine'
-FILES = ['units', 'units_modifications', 'units_weaponry']
+FILES = ['units', 'units_modifications', 'units_weaponry', 'menu']
 
 def request(url):
     with urlopen(Request(url, headers={'User-Agent': 'WT-Workbench-localization/1.0'}), timeout=60) as response:
@@ -64,6 +64,13 @@ def main():
         entry_key = f'{file}:{key}'
         entries[entry_key] = source
         return {'nameEn': name_en, 'nameZhCN': clean(raw), 'entry': entry_key, 'method': method, 'parameters': params}
+    settings = json.loads((ROOT / 'data/catalog-settings.json').read_text())
+    categories = {}
+    for category, key in settings['categoryLocalizationKeys'].items():
+        proof = record('menu', key, tables['menu'][key]['english'], 'game_menu_key')
+        if not proof or proof['nameZhCN'] != settings['categories'][category]:
+            raise ValueError(f'Category name does not match the game menu: {category}')
+        categories[category] = proof
     lower = {}
     for key in tables['units']:
         lower.setdefault(key.lower(), []).append(key)
@@ -150,7 +157,7 @@ def main():
                 modifications[key] = modification_name(item['id'], item['name'])
     missing_vehicles = [key for key, value in vehicles.items() if not value['nameZhCN']]
     missing_mods = [key for key, value in modifications.items() if not value['nameZhCN']]
-    output = {'schemaVersion': 1, 'language': 'zh-CN', 'column': '<Chinese>', 'sourceLabel': 'Game localization files preserved by community datamine (not an official API)', 'commit': commit, 'checkedAt': datetime.now(timezone.utc).isoformat(), 'normalization': 'Remove U+200B and U+FEFF; trim surrounding whitespace. Original Chinese preserved in entries. Substitute only verified numeric game template parameters.', 'sources': sources, 'entries': entries, 'vehicles': vehicles, 'groups': groups, 'modifications': modifications, 'coverage': {'vehicles': len(vehicles), 'vehicleMissing': missing_vehicles, 'modificationNames': len(modifications), 'modificationMissing': missing_mods}}
+    output = {'schemaVersion': 1, 'language': 'zh-CN', 'column': '<Chinese>', 'sourceLabel': 'Game localization files preserved by community datamine (not an official API)', 'commit': commit, 'checkedAt': datetime.now(timezone.utc).isoformat(), 'normalization': 'Remove U+200B and U+FEFF; trim surrounding whitespace. Original Chinese preserved in entries. Substitute only verified numeric game template parameters.', 'sources': sources, 'entries': entries, 'categories': categories, 'vehicles': vehicles, 'groups': groups, 'modifications': modifications, 'coverage': {'categories': len(categories), 'vehicles': len(vehicles), 'vehicleMissing': missing_vehicles, 'modificationNames': len(modifications), 'modificationMissing': missing_mods}}
     path = ROOT / 'data/localization.json'
     temp = path.with_suffix('.json.next')
     temp.write_text(json.dumps(output, ensure_ascii=False, indent=2) + '\n')

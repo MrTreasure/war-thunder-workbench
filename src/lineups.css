@@ -1,12 +1,5 @@
 /* finesse · component: sortie page and horizontal crew strip · register=product
  * Inherit hangar tokens. Pointer long-press, keyboard reorder, horizontal scroll. */
-.lineup-open {
-  white-space: nowrap;
-  min-height: 44px;
-  border-color: var(--wt-gold-line);
-  color: var(--wt-gold);
-  text-decoration: none;
-}
 .lineup-page {
   min-height: 100dvh;
   width: 100%;

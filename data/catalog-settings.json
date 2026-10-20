@@ -14,10 +14,10 @@
   },
   "categories": {
     "ground": "陆军",
-    "aviation": "航空",
+    "aviation": "空军",
     "helicopters": "直升机",
-    "ships": "远洋舰队",
-    "boats": "近海舰队"
+    "ships": "远洋海军",
+    "boats": "近岸海军"
   },
   "rankConfigKinds": {
     "ground": "Tank",
@@ -33,5 +33,12 @@
     "url": "https://wiki.warthunder.com/unit/cn_ztz_99a",
     "checkedAt": "2026-10-19T12:16:34.831019+00:00",
     "sha256": "76e0b95e862c6a133d1b67e7c179655eba3a9a5452b4f1910641b3588a1baa2d"
+  },
+  "categoryLocalizationKeys": {
+    "ground": "mainmenu/army",
+    "aviation": "mainmenu/aviation",
+    "helicopters": "mainmenu/helicopters",
+    "ships": "mainmenu/ships",
+    "boats": "mainmenu/boats"
   }
 }

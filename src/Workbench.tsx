@@ -1,4 +1,5 @@
 import { CreatorLink } from "./components/CreatorLink";
+import { PageNavigation } from "./components/PageNavigation";
 import { Component, createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { useRouterState } from "@tanstack/react-router";
 import type { ReactNode } from "react";
@@ -413,6 +414,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
             </div>
           </div>
 
+          <PageNavigation page="tree" />
           <div className="masthead-meta">
             <CreatorLink />
             <div className="edition">
@@ -503,9 +505,6 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                 </button>
               ))}
             </div>
-            <a className="quiet-button lineup-open" href="#/lineups">
-              出击队列
-            </a>
           </nav>
           <section className="controls">
             <div className="utility-row">

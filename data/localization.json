@@ -4,7 +4,7 @@
   "column": "<Chinese>",
   "sourceLabel": "Game localization files preserved by community datamine (not an official API)",
   "commit": "6142de74d1e9a7125f0fd7e6517d4af7411db29e",
-  "checkedAt": "2026-10-20T09:17:03.864677+00:00",
+  "checkedAt": "2026-10-20T09:41:33.043678+00:00",
   "normalization": "Remove U+200B and U+FEFF; trim surrounding whitespace. Original Chinese preserved in entries. Substitute only verified numeric game template parameters.",
   "sources": {
     "units": {
@@ -24,9 +24,35 @@
       "sha256": "a446dbac593abe8ea4ddeab9330f7e1aaa622c83cf2872feecbfc61cbe64954a",
       "gitBlob": "74d2da70abc4d505bb794ec0c8c941c82908cf5e",
       "bytes": 3860613
+    },
+    "menu": {
+      "url": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/6142de74d1e9a7125f0fd7e6517d4af7411db29e/lang.vromfs.bin_u/lang/menu.csv",
+      "sha256": "258fe26812a1810dca03f2951bf6dd86d1f73e06cf0acbf4abd0b155d1b98bc0",
+      "gitBlob": "3ed96f420f68ad16e531e090a0d2157c59f0eb96",
+      "bytes": 6209143
     }
   },
   "entries": {
+    "menu:mainmenu/army": {
+      "english": "Army",
+      "chineseRaw": "陆​军"
+    },
+    "menu:mainmenu/aviation": {
+      "english": "Aviation",
+      "chineseRaw": "空​军"
+    },
+    "menu:mainmenu/helicopters": {
+      "english": "Helicopters",
+      "chineseRaw": "直​升​机"
+    },
+    "menu:mainmenu/ships": {
+      "english": "Bluewater fleet",
+      "chineseRaw": "远​洋​海​军"
+    },
+    "menu:mainmenu/boats": {
+      "english": "Coastal fleet",
+      "chineseRaw": "近​岸​海​军"
+    },
     "units:us_m2a4_shop": {
       "english": "M2A4",
       "chineseRaw": "M2A4"
@@ -21286,6 +21312,43 @@
     "units_modifications:modification/il_gatr": {
       "english": "GATR",
       "chineseRaw": "GATR"
+    }
+  },
+  "categories": {
+    "ground": {
+      "nameEn": "Army",
+      "nameZhCN": "陆军",
+      "entry": "menu:mainmenu/army",
+      "method": "game_menu_key",
+      "parameters": []
+    },
+    "aviation": {
+      "nameEn": "Aviation",
+      "nameZhCN": "空军",
+      "entry": "menu:mainmenu/aviation",
+      "method": "game_menu_key",
+      "parameters": []
+    },
+    "helicopters": {
+      "nameEn": "Helicopters",
+      "nameZhCN": "直升机",
+      "entry": "menu:mainmenu/helicopters",
+      "method": "game_menu_key",
+      "parameters": []
+    },
+    "ships": {
+      "nameEn": "Bluewater fleet",
+      "nameZhCN": "远洋海军",
+      "entry": "menu:mainmenu/ships",
+      "method": "game_menu_key",
+      "parameters": []
+    },
+    "boats": {
+      "nameEn": "Coastal fleet",
+      "nameZhCN": "近岸海军",
+      "entry": "menu:mainmenu/boats",
+      "method": "game_menu_key",
+      "parameters": []
     }
   },
   "vehicles": {
@@ -61454,6 +61517,7 @@
     }
   },
   "coverage": {
+    "categories": 5,
     "vehicles": 3236,
     "vehicleMissing": [],
     "modificationNames": 2041,

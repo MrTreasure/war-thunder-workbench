@@ -5,6 +5,7 @@ import {
   LineupRulesNotes,
 } from "./LineupOverview";
 import { CreatorLink } from "./components/CreatorLink";
+import { PageNavigation } from "./components/PageNavigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { CatalogIndex, CountryPayload, Mode } from "./models";
 import type { DownloadProgress } from "./data-loader";
@@ -66,10 +67,8 @@ export function Lineups({
           <h1>出击队列</h1>
           <p>按国家管理已保存队列 · 分享与导入队列</p>
         </div>
+        <PageNavigation page="lineups" />
         <div className="lineup-header-actions">
-          <a className="quiet-button" href="#/tree">
-            ← 返回研发树
-          </a>
           <CreatorLink />
         </div>
       </header>
@@ -294,7 +293,8 @@ function CountryLineups({
   ) {
     const firstAircraft = slots.find((id) => id && units.get(id)?.category === "aviation") || null;
     const lineup: Lineup = {
-      id: globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+      id:
+        globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}`,
       name: name || `队列 ${saved.length + 1}`,
       slots,
       battleType: type || (slots.some(Boolean) ? inferBattle(slots, units) : defaultBattle),
