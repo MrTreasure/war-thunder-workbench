@@ -1804,5 +1804,63 @@
     "market": "https://trade.gaijin.net/market/1067/id50369_glaive_france?from=wiki",
     "source": "https://wiki.warthunder.com/unit/fr_trident_class_glaive_p671",
     "checkedAt": "2026-10-19T09:14:46.106335+00:00"
+  },
+  "h_34": {
+    "market": "https://trade.gaijin.net/market/1067/H-34 (USA)?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/h_34",
+    "checkedAt": "2026-10-20T09:16:57.585147+00:00"
+  },
+  "uh_1c_xm_30": {
+    "source": "https://wiki.warthunder.com/unit/uh_1c_xm_30",
+    "checkedAt": "2026-10-20T09:16:57.589481+00:00"
+  },
+  "ah_64a_greece_usa": {
+    "store": "https://store.gaijin.net/story.php?id=11587",
+    "source": "https://wiki.warthunder.com/unit/ah_64a_greece_usa",
+    "checkedAt": "2026-10-20T09:16:57.618614+00:00"
+  },
+  "ah_64a_peten": {
+    "source": "https://wiki.warthunder.com/unit/ah_64a_peten",
+    "checkedAt": "2026-10-20T09:16:57.619760+00:00"
+  },
+  "rah_66": {
+    "store": "https://store.gaijin.net/story.php?id=14488",
+    "source": "https://wiki.warthunder.com/unit/rah_66",
+    "checkedAt": "2026-10-20T09:16:57.638301+00:00"
+  },
+  "bo_105cb2": {
+    "source": "https://wiki.warthunder.com/unit/bo_105cb2",
+    "checkedAt": "2026-10-20T09:16:57.642990+00:00"
+  },
+  "tiger_had_spain": {
+    "store": "https://store.gaijin.net/story.php?id=14166",
+    "source": "https://wiki.warthunder.com/unit/tiger_had_spain",
+    "checkedAt": "2026-10-20T09:16:57.655094+00:00"
+  },
+  "ka_50": {
+    "store": "https://store.gaijin.net/story.php?id=6999",
+    "source": "https://wiki.warthunder.com/unit/ka_50",
+    "checkedAt": "2026-10-20T09:16:57.672229+00:00"
+  },
+  "mi_24d": {
+    "source": "https://wiki.warthunder.com/unit/mi_24d",
+    "checkedAt": "2026-10-20T09:16:57.673903+00:00"
+  },
+  "ah_64d_lightweight_japan": {
+    "store": "https://store.gaijin.net/story.php?id=15161",
+    "source": "https://wiki.warthunder.com/unit/ah_64d_lightweight_japan",
+    "checkedAt": "2026-10-20T09:16:57.689513+00:00"
+  },
+  "a_129_a": {
+    "source": "https://wiki.warthunder.com/unit/a_129_a",
+    "checkedAt": "2026-10-20T09:16:57.707576+00:00"
+  },
+  "ah_1s": {
+    "source": "https://wiki.warthunder.com/unit/ah_1s",
+    "checkedAt": "2026-10-20T09:16:57.713945+00:00"
+  },
+  "iar_316b": {
+    "source": "https://wiki.warthunder.com/unit/iar_316b",
+    "checkedAt": "2026-10-20T09:16:57.717820+00:00"
   }
 }

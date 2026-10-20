@@ -10,6 +10,8 @@
     "assault": "攻击机",
     "stormovik": "攻击机",
     "naval_aircraft": "舰载机",
+    "attack_helicopter": "攻击直升机",
+    "utility_helicopter": "通用直升机",
     "destroyer": "驱逐舰",
     "light_cruiser": "轻巡洋舰",
     "heavy_cruiser": "重巡洋舰",
@@ -19,6 +21,12 @@
     "torpedo_boat": "鱼雷艇",
     "gun_boat": "炮艇",
     "frigate": "护卫舰"
+  },
+  "categoryRoles": {
+    "helicopters": {
+      "assault": "attack_helicopter",
+      "bomber": "utility_helicopter"
+    }
   },
   "kinds": {
     "gold": "金币车",

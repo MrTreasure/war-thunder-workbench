@@ -13,8 +13,14 @@ ROOT = Path(__file__).resolve().parents[1]
 data = json.loads((ROOT / 'data/trees.json').read_text())
 path = ROOT / 'data/purchases.json'
 evidence = json.loads(path.read_text()) if path.exists() else {}
+category = next((v.split('=', 1)[1] for v in sys.argv if v.startswith('--category=')), None)
+source_dir = next((Path(v.split('=', 1)[1]) for v in sys.argv if v.startswith('--source-dir=')), None)
+if category and category not in data['trees']:
+    raise ValueError('Unknown category: ' + category)
 pending = {}
-for trees in data['trees'].values():
+for kind, trees in data['trees'].items():
+    if category and category != kind:
+        continue
     for tree in trees.values():
         if not tree:
             continue
@@ -46,14 +52,18 @@ def read_purchase(uid):
     source = 'https://wiki.warthunder.com/unit/' + uid
     try:
         request = Request(source, headers={'User-Agent': 'MrTreasure-WT-Tree/1.0 (public Wiki reference)'})
-        with urlopen(request, timeout=20) as response:
-            html = response.read().decode('utf-8')
+        if source_dir:
+            html = (source_dir / (uid + '.html')).read_text()
+        else:
+            with urlopen(request, timeout=20) as response:
+                html = response.read().decode('utf-8')
         parser = PurchaseLinks()
         parser.feed(html)
         if 'game-unit' not in html:
             raise RuntimeError('Missing vehicle data')
         result = {**parser.links, 'source': source, 'checkedAt': datetime.now(timezone.utc).isoformat()}
-        time.sleep(.25)
+        if not source_dir:
+            time.sleep(.25)
         return uid, result
     except Exception as error:
         return uid, {'error': type(error).__name__, 'source': source}

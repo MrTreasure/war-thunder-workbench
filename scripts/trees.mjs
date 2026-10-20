@@ -9,6 +9,12 @@ const root = fileURLToPath(new URL("../", import.meta.url));
 const { countries, categories } = JSON.parse(
   await readFile(resolve(root, "data/catalog-settings.json"), "utf8"),
 );
+const { categoryRoles = {} } = JSON.parse(
+  await readFile(resolve(root, "data/taxonomy.json"), "utf8"),
+);
+const selectedCategory = process.argv.find((value) => value.startsWith("--category="))?.slice(11);
+if (selectedCategory && !Object.hasOwn(categories, selectedCategory))
+  throw Error(`Unknown category: ${selectedCategory}`);
 const sourceDir = process.argv
   .find((value) => value.startsWith("--source-dir="))
   ?.split("=")
@@ -31,15 +37,19 @@ try {
 }
 
 async function snapshot() {
+  const previous = selectedCategory
+    ? JSON.parse(await readFile(resolve(root, "data/trees.json"), "utf8"))
+    : null;
   const payload = {
     countries,
     categories,
     checkedAt: new Date().toISOString(),
-    sources: {},
-    trees: {},
-    audit: [],
+    sources: previous?.sources || {},
+    trees: previous?.trees || {},
+    audit: previous?.audit.filter((row) => row.category !== selectedCategory) || [],
   };
   for (const category of Object.keys(categories)) {
+    if (selectedCategory && category !== selectedCategory) continue;
     const url = `https://wiki.warthunder.com/${category}`;
     const html = sourceDir
       ? await readFile(resolve(sourceDir, `${category}.html`), "utf8")
@@ -57,7 +67,11 @@ async function snapshot() {
         row,
       ]),
     );
-    payload.sources[category] = { url, sha256: createHash("sha256").update(html).digest("hex") };
+    payload.sources[category] = {
+      url,
+      sha256: createHash("sha256").update(html).digest("hex"),
+      checkedAt: payload.checkedAt,
+    };
     payload.trees[category] = {};
     for (const country of Object.keys(countries)) {
       const instance = document.querySelector(
@@ -96,7 +110,7 @@ async function snapshot() {
           req: element.getAttribute("data-unit-req") || null,
           premium,
           kind,
-          role: row[0]?.[0] || null,
+          role: categoryRoles[category]?.[row[0]?.[0]] || row[0]?.[0] || null,
           br: data?.[4] || {},
           price: price[2] === "g" ? price[0] : null,
           store: verified?.store || null,

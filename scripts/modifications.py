@@ -13,6 +13,10 @@ PATH=ROOT/'data/modifications.json'
 cache=json.loads(PATH.read_text()) if PATH.exists() else {}
 trees=json.loads((ROOT/'data/trees.json').read_text())
 units={u['id']:u for ts in trees['trees'].values() for tree in ts.values() if tree for rank in tree['ranks'] for node in rank['research']+rank['special'] for u in node['members']}
+category=next((v.split('=',1)[1] for v in sys.argv if v.startswith('--category=')),None)
+source_dir=next((Path(v.split('=',1)[1]) for v in sys.argv if v.startswith('--source-dir=')),None)
+if category and category not in trees['trees']:raise ValueError('Unknown category: '+category)
+scope={u['id'] for tree in trees['trees'].get(category,{}).values() if tree for rank in tree['ranks'] for node in rank['research']+rank['special'] for u in node['members']} if category else set(units)
 stop=threading.Event()
 class Text(HTMLParser):
  def __init__(self):super().__init__();self.parts=[]
@@ -59,8 +63,12 @@ def fetch(uid):
  if stop.is_set():return uid,None,'rate limited: not attempted'
  try:
   req=Request('https://wiki.warthunder.com/unit/'+uid,headers={'User-Agent':'MrTreasure-WT-Workbench/1.0 (public Wiki reference)'})
-  with urlopen(req,timeout=25) as r:html=r.read().decode('utf-8')
-  result=normalize(extract(html,uid),units[uid]);time.sleep(.2);return uid,result,None
+  if source_dir:html=(source_dir/(uid+'.html')).read_text()
+  else:
+   with urlopen(req,timeout=25) as r:html=r.read().decode('utf-8')
+  result=normalize(extract(html,uid),units[uid])
+  if not source_dir:time.sleep(.2)
+  return uid,result,None
  except Exception as e:
   if getattr(e,'code',None)==429:stop.set()
   return uid,None,str(e)
@@ -73,7 +81,7 @@ def main():
  if '--normalize-only' in sys.argv:
   temp=PATH.with_suffix('.json.next');temp.write_text(json.dumps(cache,ensure_ascii=False,separators=(',',':'))+'\n');temp.replace(PATH);print('Normalized cached modification records');return
  selected=next((v.split('=',1)[1] for v in sys.argv if v.startswith('--unit=')),None)
- pending=[uid for uid in units if (not selected or uid==selected) and ('--force'in sys.argv or not fresh(cache.get(uid,{})))]
+ pending=[uid for uid in units if uid in scope and (not selected or uid==selected) and ('--force'in sys.argv or not fresh(cache.get(uid,{})))]
  errors=[]
  with ThreadPoolExecutor(max_workers=4) as executor:
   futures=[executor.submit(fetch,uid) for uid in pending]

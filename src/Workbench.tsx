@@ -376,7 +376,13 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   const lineupsPage = (
     <Lineups
       catalog={bootstrap}
-      defaultBattle={category === "aviation" ? "air" : category === "ground" ? "ground" : "naval"}
+      defaultBattle={
+        category === "aviation"
+          ? "air"
+          : category === "ground" || category === "helicopters"
+            ? "ground"
+            : "naval"
+      }
       country={country}
       payload={loadedCountry?.key === currentKey ? loadedCountry.value : null}
       {...{ chooseCountry, mode, setMode }}

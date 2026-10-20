@@ -9,8 +9,12 @@ ROOT=Path(__file__).resolve().parents[1]
 path=ROOT/'data/research.json'
 cache=json.loads(path.read_text()) if path.exists() else {}
 tree=json.loads((ROOT/'data/trees.json').read_text())
+category=next((v.split('=',1)[1] for v in sys.argv if v.startswith('--category=')),None)
+source_dir=next((Path(v.split('=',1)[1]) for v in sys.argv if v.startswith('--source-dir=')),None)
+if category and category not in tree['trees']:raise ValueError('Unknown category: '+category)
 units={}
-for trees in tree['trees'].values():
+for kind,trees in tree['trees'].items():
+ if category and category!=kind:continue
  for t in trees.values():
   if not t:continue
   for rank in t['ranks']:
@@ -50,14 +54,17 @@ def read(uid):
  try:
   parser=HeaderResearch();decoder=codecs.getincrementaldecoder('utf-8')();length=0
   request=Request(source,headers={'User-Agent':'MrTreasure-WT-Tree/1.0 (public Wiki reference)'})
-  with urlopen(request,timeout=20) as response:
-   while length<180000 and parser.result is None:
-    chunk=response.read(8192)
-    if not chunk:break
-    length+=len(chunk);parser.feed(decoder.decode(chunk))
+  if source_dir:
+   parser.feed((source_dir/(uid+'.html')).read_text())
+  else:
+   with urlopen(request,timeout=20) as response:
+    while length<180000 and parser.result is None:
+     chunk=response.read(8192)
+     if not chunk:break
+     length+=len(chunk);parser.feed(decoder.decode(chunk))
   if parser.result is None:raise ValueError('Research field unavailable')
   kind='squadron' if units[uid]['kind']=='squadron' else 'vehicle'
-  time.sleep(.2)
+  if not source_dir:time.sleep(.2)
   return uid,{**parser.result,'kind':kind,'source':source,'checkedAt':datetime.now(timezone.utc).isoformat()}
  except Exception as error:
   if getattr(error,'code',None)==429:stop.set()

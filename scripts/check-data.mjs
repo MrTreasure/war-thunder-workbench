@@ -12,6 +12,20 @@ const settings = await read("data/catalog-settings.json");
 const localization = await read("data/localization.json");
 const lineupRules = await read("data/lineup-rules.json");
 const codebook = await read("data/lineup-codebook.json");
+assert.deepEqual(
+  catalog.categories,
+  settings.categories,
+  "Catalog categories must match collection settings",
+);
+assert.deepEqual(Object.keys(catalog.trees).sort(), Object.keys(settings.categories).sort());
+for (const category of Object.keys(settings.categories)) {
+  assert.deepEqual(
+    Object.keys(catalog.trees[category]).sort(),
+    Object.keys(settings.countries).sort(),
+  );
+  assert.equal(catalog.sources[category].url, `https://wiki.warthunder.com/${category}`);
+  assert.match(catalog.sources[category].sha256, /^[a-f0-9]{64}$/);
+}
 assert.equal(codebook.schemaVersion, 1);
 assert.equal(lineupRules.schemaVersion, 1);
 assert.equal(lineupRules.maxSlots, 11);

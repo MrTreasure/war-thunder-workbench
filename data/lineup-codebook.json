@@ -445,7 +445,26 @@
       "6x": "us_tucumcari_pgh2",
       "6y": "us_xm1_chrysler",
       "6z": "us_xm1_gm",
-      "7A": "yp-38"
+      "7A": "yp-38",
+      "7B": "ah_1f",
+      "7C": "ah_1g",
+      "7D": "ah_1w",
+      "7E": "ah_1z",
+      "7F": "ah_56a",
+      "7G": "ah_64a",
+      "7H": "ah_64a_greece_usa",
+      "7I": "ah_64a_peten",
+      "7J": "ah_64d",
+      "7K": "ah_64e",
+      "7L": "ah_6m",
+      "7M": "h_34",
+      "7N": "mh_60l_dap",
+      "7O": "oh_58d",
+      "7P": "rah_66",
+      "7Q": "uh_1b",
+      "7R": "uh_1c",
+      "7S": "uh_1c_xm_30",
+      "7T": "yah_64"
     },
     "germany": {
       "10": "fa_18c_switzerland",
@@ -895,7 +914,19 @@
       "7B": "tornado_ids_de_wtd61",
       "7C": "us_m4a2_1944_germ",
       "7D": "wellington_mk1c_luftwaffe",
-      "7E": "yak-1b_luftwaffe"
+      "7E": "yak-1b_luftwaffe",
+      "7F": "bo_105cb2",
+      "7G": "bo_105pah1",
+      "7H": "bo_105pah1_a1",
+      "7I": "h145m",
+      "7J": "mi_24d_german",
+      "7K": "mi_24p_german",
+      "7L": "mi_24p_german_hfs80",
+      "7M": "mi_8tb",
+      "7N": "sa_313b",
+      "7O": "tiger_had_spain",
+      "7P": "tiger_uht",
+      "7Q": "uh_1d"
     },
     "ussr": {
       "10": "la_174",
@@ -968,6 +999,8 @@
       "77": "ussr_zis_12_94km_1945",
       "78": "ussr_zis_30",
       "79": "ussr_zis_43",
+      "80": "mi_8amtsh_vn",
+      "81": "mi_8tv",
       "01": "a_20g_30_ussr",
       "02": "ar_2",
       "03": "b_25j_30_vvs_ussr",
@@ -1379,7 +1412,20 @@
       "7j": "yak_130_early",
       "7k": "yak_141",
       "7l": "yak_1_litvyak",
-      "7m": "yak_2_kabb"
+      "7m": "yak_2_kabb",
+      "7n": "ka_29",
+      "7o": "ka_50",
+      "7p": "ka_52",
+      "7q": "mi_24a",
+      "7r": "mi_24d",
+      "7s": "mi_24p",
+      "7t": "mi_24v",
+      "7u": "mi_28n",
+      "7v": "mi_28nm",
+      "7w": "mi_35m",
+      "7x": "mi_35p",
+      "7y": "mi_4av",
+      "7z": "mi_8amtsh"
     },
     "britain": {
       "10": "hp52_hampden_tbmk1",
@@ -1786,7 +1832,17 @@
       "6U": "whirlwind_mk1",
       "6V": "whirlwind_p9",
       "6W": "wirraway",
-      "6X": "wyvern_s4"
+      "6X": "wyvern_s4",
+      "6Y": "ah_2_rooivalk",
+      "6Z": "ah_64e_britain",
+      "6a": "ah_mk1",
+      "6b": "aw_159",
+      "6c": "g_lynx",
+      "6d": "lynx_ah_mk1",
+      "6e": "scout_ah_mk1",
+      "6f": "super_hind_mk3",
+      "6g": "wasp_has_mk1",
+      "6h": "wessex_mk5"
     },
     "japan": {
       "10": "g8n1",
@@ -1834,6 +1890,11 @@
       "52": "su_30mkm",
       "53": "t2",
       "54": "t2_early",
+      "55": "ah_1s",
+      "56": "ah_1s_early",
+      "57": "ah_1s_late",
+      "58": "ah_64d_japan",
+      "59": "ah_64d_lightweight_japan",
       "01": "a5m4",
       "02": "a5m4_hagiri",
       "03": "a6m2_mod11",
@@ -2102,7 +2163,10 @@
       "4w": "p1y1_mod11",
       "4x": "r2y2_kai",
       "4y": "r2y2_v1",
-      "4z": "r2y2_v2"
+      "4z": "r2y2_v2",
+      "5A": "ah_64e_indonesia",
+      "5B": "mi_35p_indonesia",
+      "5C": "uh_1b_japan"
     },
     "china": {
       "10": "cn_t_26_no531",
@@ -2128,6 +2192,13 @@
       "30": "tu_4_china",
       "31": "v_11g",
       "32": "v_12d",
+      "33": "ah_1w_china",
+      "34": "ah_64e_china",
+      "35": "mi_35m_pakistan",
+      "36": "oh_58d_china",
+      "37": "sa_342l_china",
+      "38": "z_10",
+      "39": "z_10a",
       "01": "a6m2_zero_china",
       "02": "a_29_hudson",
       "03": "a_5c",
@@ -2292,7 +2363,13 @@
       "2w": "quing_6",
       "2x": "sb_2m_103u_china",
       "2y": "su_30mkk",
-      "2z": "tu-2_postwar_china"
+      "2z": "tu-2_postwar_china",
+      "3A": "z_10me",
+      "3B": "z_11wa",
+      "3C": "z_19",
+      "3D": "z_19e",
+      "3E": "z_9w",
+      "3F": "z_9wa"
     },
     "italy": {
       "10": "it_alano_9851",
@@ -2577,7 +2654,16 @@
       "4W": "wm_23",
       "4X": "yak-9p_hungary",
       "4Y": "z_1007_bis_serie3",
-      "4Z": "z_1007_bis_serie5"
+      "4Z": "z_1007_bis_serie5",
+      "4a": "a_109_eoa2",
+      "4b": "a_129_a",
+      "4c": "a_129_cbt",
+      "4d": "a_129_d",
+      "4e": "ab_205a_1",
+      "4f": "mi_24d_hungary",
+      "4g": "mi_24p_hungary",
+      "4h": "mi_24v_hungary",
+      "4i": "t_129_atak"
     },
     "france": {
       "10": "fr_amx_30_roland",
@@ -2861,7 +2947,19 @@
       "4V": "vb_10c1",
       "4W": "vg_33",
       "4X": "yak-3_france",
-      "4Y": "yak-9t_france"
+      "4Y": "yak-9t_france",
+      "4Z": "ah_64d_netherlands",
+      "4a": "ah_64e_netherlands",
+      "4b": "h_34_france",
+      "4c": "iar_316b",
+      "4d": "sa_313b_france",
+      "4e": "sa_316b",
+      "4f": "sa_341f",
+      "4g": "sa_342m",
+      "4h": "tiger_hac_france",
+      "4i": "tiger_had_block2_france",
+      "4j": "tiger_had_france",
+      "4k": "tiger_hap_france"
     },
     "sweden": {
       "10": "saab_ja37",
@@ -3035,7 +3133,13 @@
       "2j": "sw_zsu_57_2",
       "2k": "vampire_fb52_finland",
       "2l": "vampire_fb5_j28b",
-      "2m": "vl_myrsky_2_late"
+      "2m": "vl_myrsky_2_late",
+      "2n": "ahs",
+      "2o": "hkp2",
+      "2p": "hkp3c",
+      "2q": "hkp9a_cb2",
+      "2r": "hkp9a_cb3_fc",
+      "2s": "mi_28a_sweden"
     },
     "israel": {
       "10": "il_merkava_mk_3c",
@@ -3143,7 +3247,15 @@
       "1f": "spitfire_lf_mk9c_cw_greece",
       "1g": "spitfire_lf_mk9e_iaf",
       "1h": "spitfire_lf_mk9e_weisman",
-      "1i": "spitfire_mk9c_iaf"
+      "1i": "spitfire_mk9c_iaf",
+      "1j": "ah_1f_iaf",
+      "1k": "ah_1g_iaf",
+      "1l": "ah_1q_iaf",
+      "1m": "ah_60_iaf",
+      "1n": "ah_64a_iaf",
+      "1o": "ah_64a_peten_iaf",
+      "1p": "ah_64d_i_saraph",
+      "1q": "md_500_tow_late"
     }
   }
 }

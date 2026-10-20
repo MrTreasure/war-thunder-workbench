@@ -15,12 +15,14 @@
   "categories": {
     "ground": "陆军",
     "aviation": "航空",
+    "helicopters": "直升机",
     "ships": "远洋舰队",
     "boats": "近海舰队"
   },
   "rankConfigKinds": {
     "ground": "Tank",
     "aviation": "Aircraft",
+    "helicopters": "Helicopter",
     "ships": "Ship",
     "boats": "Boat"
   },

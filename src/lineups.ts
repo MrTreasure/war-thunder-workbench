@@ -102,7 +102,7 @@ export function inferBattle(
   units: Map<string, LineupVehicle>,
 ): BattleType {
   const categories = slots.map((id) => (id ? units.get(id)?.category : null));
-  return categories.includes("ground")
+  return categories.some((category) => category === "ground" || category === "helicopters")
     ? "ground"
     : categories.some((c) => c === "ships" || c === "boats")
       ? "naval"
@@ -180,7 +180,8 @@ export function lineupRatings(
       lineup.battleType === "air"
         ? unit.category === "aviation"
         : lineup.battleType === "ground"
-          ? unit.category === "ground" || (mode === "rb" && unit.category === "aviation")
+          ? unit.category === "ground" ||
+            (mode === "rb" && ["aviation", "helicopters"].includes(unit.category))
           : ["ships", "boats", "aviation"].includes(unit.category),
     );
     const excluded = selected.filter((u) => !relevant.includes(u)).map((u) => u.id);
@@ -195,7 +196,9 @@ export function lineupRatings(
       return result(
         null,
         "缺少主战载具",
-        "请配置与当前战斗类型对应的飞机、地面载具或舰艇。",
+        lineup.battleType === "ground" && selected.some((u) => u.category === "helicopters")
+          ? "此处估算陆战混合队列，请加入地面载具；直升机 PVE 等独立玩法不在此处估算。"
+          : "请配置与当前战斗类型对应的飞机、地面载具或舰艇。",
         excluded,
       );
     let usable = relevant;
@@ -235,8 +238,8 @@ export function lineupRatings(
         ? "前三架加权；两架取均值，单架取自身；最多下调一档。"
         : lineup.battleType === "ground"
           ? mode === "ab"
-            ? "仅地面载具取最高权重，机库飞机不参与陆战 AB。"
-            : "地面载具与飞机取最高权重，飞机使用陆战 RB 权重。"
+            ? "仅地面载具取最高权重，机库固定翼飞机和直升机不参与陆战 AB。"
+            : "地面载具、固定翼飞机与直升机取最高权重；固定翼采用陆战 RB 权重，直升机采用 RB 权重。"
           : "可用舰艇与飞机取最高权重；超过最高舰艇一档的飞机不计入且不可出击。",
       excluded,
     );

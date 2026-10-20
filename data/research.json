@@ -15552,5 +15552,621 @@
     "kind": "vehicle",
     "source": "https://wiki.warthunder.com/unit/fr_frigate_corse_class_brestois",
     "checkedAt": "2026-10-19T09:21:03.199863+00:00"
+  },
+  "ah_1g": {
+    "rp": 0,
+    "free": true,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_1g",
+    "checkedAt": "2026-10-20T09:16:56.320992+00:00"
+  },
+  "uh_1c": {
+    "rp": 150000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/uh_1c",
+    "checkedAt": "2026-10-20T09:16:56.337552+00:00"
+  },
+  "uh_1b": {
+    "rp": 99000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/uh_1b",
+    "checkedAt": "2026-10-20T09:16:56.338045+00:00"
+  },
+  "ah_1f": {
+    "rp": 370000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_1f",
+    "checkedAt": "2026-10-20T09:16:56.358648+00:00"
+  },
+  "ah_1w": {
+    "rp": 380000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_1w",
+    "checkedAt": "2026-10-20T09:16:56.389455+00:00"
+  },
+  "oh_58d": {
+    "rp": 380000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/oh_58d",
+    "checkedAt": "2026-10-20T09:16:56.394327+00:00"
+  },
+  "ah_6m": {
+    "rp": 370000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_6m",
+    "checkedAt": "2026-10-20T09:16:56.395558+00:00"
+  },
+  "yah_64": {
+    "rp": 480000,
+    "free": false,
+    "kind": "squadron",
+    "source": "https://wiki.warthunder.com/unit/yah_64",
+    "checkedAt": "2026-10-20T09:16:56.411924+00:00"
+  },
+  "ah_64a": {
+    "rp": 390000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_64a",
+    "checkedAt": "2026-10-20T09:16:56.429700+00:00"
+  },
+  "ah_64d": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_64d",
+    "checkedAt": "2026-10-20T09:16:56.444493+00:00"
+  },
+  "mh_60l_dap": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/mh_60l_dap",
+    "checkedAt": "2026-10-20T09:16:56.446743+00:00"
+  },
+  "sa_313b": {
+    "rp": 0,
+    "free": true,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/sa_313b",
+    "checkedAt": "2026-10-20T09:16:56.471212+00:00"
+  },
+  "ah_64e": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_64e",
+    "checkedAt": "2026-10-20T09:16:56.476112+00:00"
+  },
+  "ah_56a": {
+    "rp": 520000,
+    "free": false,
+    "kind": "squadron",
+    "source": "https://wiki.warthunder.com/unit/ah_56a",
+    "checkedAt": "2026-10-20T09:16:56.507692+00:00"
+  },
+  "mi_8tb": {
+    "rp": 150000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/mi_8tb",
+    "checkedAt": "2026-10-20T09:16:56.523072+00:00"
+  },
+  "uh_1d": {
+    "rp": 150000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/uh_1d",
+    "checkedAt": "2026-10-20T09:16:56.532710+00:00"
+  },
+  "ah_1z": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_1z",
+    "checkedAt": "2026-10-20T09:16:56.534370+00:00"
+  },
+  "bo_105pah1_a1": {
+    "rp": 370000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/bo_105pah1_a1",
+    "checkedAt": "2026-10-20T09:16:56.557334+00:00"
+  },
+  "mi_24d_german": {
+    "rp": 360000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/mi_24d_german",
+    "checkedAt": "2026-10-20T09:16:56.572030+00:00"
+  },
+  "bo_105pah1": {
+    "rp": 360000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/bo_105pah1",
+    "checkedAt": "2026-10-20T09:16:56.595547+00:00"
+  },
+  "h145m": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/h145m",
+    "checkedAt": "2026-10-20T09:16:56.616549+00:00"
+  },
+  "mi_4av": {
+    "rp": 0,
+    "free": true,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/mi_4av",
+    "checkedAt": "2026-10-20T09:16:56.622535+00:00"
+  },
+  "tiger_uht": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/tiger_uht",
+    "checkedAt": "2026-10-20T09:16:56.624730+00:00"
+  },
+  "mi_24p_german": {
+    "rp": 380000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/mi_24p_german",
+    "checkedAt": "2026-10-20T09:16:56.644494+00:00"
+  },
+  "mi_8tv": {
+    "rp": 150000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/mi_8tv",
+    "checkedAt": "2026-10-20T09:16:56.661999+00:00"
+  },
+  "mi_24v": {
+    "rp": 360000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/mi_24v",
+    "checkedAt": "2026-10-20T09:16:56.666611+00:00"
+  },
+  "mi_24a": {
+    "rp": 150000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/mi_24a",
+    "checkedAt": "2026-10-20T09:16:56.672851+00:00"
+  },
+  "mi_24p": {
+    "rp": 370000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/mi_24p",
+    "checkedAt": "2026-10-20T09:16:56.692895+00:00"
+  },
+  "mi_8amtsh": {
+    "rp": 360000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/mi_8amtsh",
+    "checkedAt": "2026-10-20T09:16:56.710382+00:00"
+  },
+  "ka_29": {
+    "rp": 380000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ka_29",
+    "checkedAt": "2026-10-20T09:16:56.721806+00:00"
+  },
+  "mi_35m": {
+    "rp": 390000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/mi_35m",
+    "checkedAt": "2026-10-20T09:16:56.724827+00:00"
+  },
+  "mi_28n": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/mi_28n",
+    "checkedAt": "2026-10-20T09:16:56.742262+00:00"
+  },
+  "ka_52": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ka_52",
+    "checkedAt": "2026-10-20T09:16:56.761318+00:00"
+  },
+  "mi_35p": {
+    "rp": 540000,
+    "free": false,
+    "kind": "squadron",
+    "source": "https://wiki.warthunder.com/unit/mi_35p",
+    "checkedAt": "2026-10-20T09:16:56.763914+00:00"
+  },
+  "mi_8amtsh_vn": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/mi_8amtsh_vn",
+    "checkedAt": "2026-10-20T09:16:56.794228+00:00"
+  },
+  "scout_ah_mk1": {
+    "rp": 0,
+    "free": true,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/scout_ah_mk1",
+    "checkedAt": "2026-10-20T09:16:56.802894+00:00"
+  },
+  "mi_28nm": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/mi_28nm",
+    "checkedAt": "2026-10-20T09:16:56.803791+00:00"
+  },
+  "wasp_has_mk1": {
+    "rp": 150000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/wasp_has_mk1",
+    "checkedAt": "2026-10-20T09:16:56.823107+00:00"
+  },
+  "wessex_mk5": {
+    "rp": 360000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/wessex_mk5",
+    "checkedAt": "2026-10-20T09:16:56.829551+00:00"
+  },
+  "lynx_ah_mk1": {
+    "rp": 380000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/lynx_ah_mk1",
+    "checkedAt": "2026-10-20T09:16:56.835388+00:00"
+  },
+  "super_hind_mk3": {
+    "rp": 360000,
+    "free": false,
+    "kind": "squadron",
+    "source": "https://wiki.warthunder.com/unit/super_hind_mk3",
+    "checkedAt": "2026-10-20T09:16:56.868658+00:00"
+  },
+  "uh_1b_japan": {
+    "rp": 0,
+    "free": true,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/uh_1b_japan",
+    "checkedAt": "2026-10-20T09:16:56.883534+00:00"
+  },
+  "ah_mk1": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_mk1",
+    "checkedAt": "2026-10-20T09:16:56.894823+00:00"
+  },
+  "aw_159": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/aw_159",
+    "checkedAt": "2026-10-20T09:16:56.899307+00:00"
+  },
+  "ah_64e_britain": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_64e_britain",
+    "checkedAt": "2026-10-20T09:16:56.902262+00:00"
+  },
+  "mi_35p_indonesia": {
+    "rp": 370000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/mi_35p_indonesia",
+    "checkedAt": "2026-10-20T09:16:56.932123+00:00"
+  },
+  "ah_1s_late": {
+    "rp": 380000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_1s_late",
+    "checkedAt": "2026-10-20T09:16:56.934821+00:00"
+  },
+  "ah_1s_early": {
+    "rp": 360000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_1s_early",
+    "checkedAt": "2026-10-20T09:16:56.953963+00:00"
+  },
+  "z_11wa": {
+    "rp": 0,
+    "free": true,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/z_11wa",
+    "checkedAt": "2026-10-20T09:16:56.964024+00:00"
+  },
+  "ah_64d_japan": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_64d_japan",
+    "checkedAt": "2026-10-20T09:16:56.969755+00:00"
+  },
+  "z_9w": {
+    "rp": 360000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/z_9w",
+    "checkedAt": "2026-10-20T09:16:56.979969+00:00"
+  },
+  "ah_64e_indonesia": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_64e_indonesia",
+    "checkedAt": "2026-10-20T09:16:57.013691+00:00"
+  },
+  "z_9wa": {
+    "rp": 380000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/z_9wa",
+    "checkedAt": "2026-10-20T09:16:57.015266+00:00"
+  },
+  "oh_58d_china": {
+    "rp": 380000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/oh_58d_china",
+    "checkedAt": "2026-10-20T09:16:57.015877+00:00"
+  },
+  "sa_342l_china": {
+    "rp": 150000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/sa_342l_china",
+    "checkedAt": "2026-10-20T09:16:57.030360+00:00"
+  },
+  "ah_1w_china": {
+    "rp": 390000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_1w_china",
+    "checkedAt": "2026-10-20T09:16:57.039769+00:00"
+  },
+  "ah_64e_china": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_64e_china",
+    "checkedAt": "2026-10-20T09:16:57.053673+00:00"
+  },
+  "z_10": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/z_10",
+    "checkedAt": "2026-10-20T09:16:57.082295+00:00"
+  },
+  "ab_205a_1": {
+    "rp": 0,
+    "free": true,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ab_205a_1",
+    "checkedAt": "2026-10-20T09:16:57.100911+00:00"
+  },
+  "z_10me": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/z_10me",
+    "checkedAt": "2026-10-20T09:16:57.103338+00:00"
+  },
+  "z_19": {
+    "rp": 390000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/z_19",
+    "checkedAt": "2026-10-20T09:16:57.114301+00:00"
+  },
+  "mi_24d_hungary": {
+    "rp": 150000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/mi_24d_hungary",
+    "checkedAt": "2026-10-20T09:16:57.126745+00:00"
+  },
+  "a_109_eoa2": {
+    "rp": 380000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/a_109_eoa2",
+    "checkedAt": "2026-10-20T09:16:57.131150+00:00"
+  },
+  "z_10a": {
+    "rp": 520000,
+    "free": false,
+    "kind": "squadron",
+    "source": "https://wiki.warthunder.com/unit/z_10a",
+    "checkedAt": "2026-10-20T09:16:57.139505+00:00"
+  },
+  "mi_24v_hungary": {
+    "rp": 390000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/mi_24v_hungary",
+    "checkedAt": "2026-10-20T09:16:57.159166+00:00"
+  },
+  "a_129_cbt": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/a_129_cbt",
+    "checkedAt": "2026-10-20T09:16:57.173072+00:00"
+  },
+  "sa_316b": {
+    "rp": 150000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/sa_316b",
+    "checkedAt": "2026-10-20T09:16:57.191239+00:00"
+  },
+  "a_129_d": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/a_129_d",
+    "checkedAt": "2026-10-20T09:16:57.194852+00:00"
+  },
+  "h_34_france": {
+    "rp": 0,
+    "free": true,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/h_34_france",
+    "checkedAt": "2026-10-20T09:16:57.198802+00:00"
+  },
+  "tiger_had_france": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/tiger_had_france",
+    "checkedAt": "2026-10-20T09:16:57.217262+00:00"
+  },
+  "sa_342m": {
+    "rp": 380000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/sa_342m",
+    "checkedAt": "2026-10-20T09:16:57.228590+00:00"
+  },
+  "sa_313b_france": {
+    "rp": 150000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/sa_313b_france",
+    "checkedAt": "2026-10-20T09:16:57.239364+00:00"
+  },
+  "tiger_hac_france": {
+    "rp": 200000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/tiger_hac_france",
+    "checkedAt": "2026-10-20T09:16:57.262838+00:00"
+  },
+  "sa_341f": {
+    "rp": 370000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/sa_341f",
+    "checkedAt": "2026-10-20T09:16:57.270636+00:00"
+  },
+  "hkp3c": {
+    "rp": 0,
+    "free": true,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/hkp3c",
+    "checkedAt": "2026-10-20T09:16:57.279944+00:00"
+  },
+  "ah_64e_netherlands": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_64e_netherlands",
+    "checkedAt": "2026-10-20T09:16:57.292754+00:00"
+  },
+  "hkp2": {
+    "rp": 150000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/hkp2",
+    "checkedAt": "2026-10-20T09:16:57.308921+00:00"
+  },
+  "hkp9a_cb2": {
+    "rp": 360000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/hkp9a_cb2",
+    "checkedAt": "2026-10-20T09:16:57.330874+00:00"
+  },
+  "tiger_had_block2_france": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/tiger_had_block2_france",
+    "checkedAt": "2026-10-20T09:16:57.333406+00:00"
+  },
+  "ahs": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ahs",
+    "checkedAt": "2026-10-20T09:16:57.337028+00:00"
+  },
+  "hkp9a_cb3_fc": {
+    "rp": 370000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/hkp9a_cb3_fc",
+    "checkedAt": "2026-10-20T09:16:57.341158+00:00"
+  },
+  "ah_1q_iaf": {
+    "rp": 360000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_1q_iaf",
+    "checkedAt": "2026-10-20T09:16:57.379939+00:00"
+  },
+  "ah_1g_iaf": {
+    "rp": 0,
+    "free": true,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_1g_iaf",
+    "checkedAt": "2026-10-20T09:16:57.389781+00:00"
+  },
+  "md_500_tow_late": {
+    "rp": 150000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/md_500_tow_late",
+    "checkedAt": "2026-10-20T09:16:57.393804+00:00"
+  },
+  "ah_1f_iaf": {
+    "rp": 380000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_1f_iaf",
+    "checkedAt": "2026-10-20T09:16:57.396275+00:00"
+  },
+  "ah_60_iaf": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_60_iaf",
+    "checkedAt": "2026-10-20T09:16:57.427462+00:00"
+  },
+  "ah_64d_i_saraph": {
+    "rp": 400000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_64d_i_saraph",
+    "checkedAt": "2026-10-20T09:16:57.430390+00:00"
+  },
+  "ah_64a_iaf": {
+    "rp": 390000,
+    "free": false,
+    "kind": "vehicle",
+    "source": "https://wiki.warthunder.com/unit/ah_64a_iaf",
+    "checkedAt": "2026-10-20T09:16:57.436847+00:00"
   }
 }

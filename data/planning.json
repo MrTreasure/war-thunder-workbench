@@ -2,7 +2,7 @@
   "source": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/master/char.vromfs.bin_u/config/rank.blkx",
   "sourceLabel": "游戏配置公开镜像（非官方 API）",
   "sha256": "5a1320caa8d0b5655a52799d6a87c066957d9dd9fccd9a1a755ae5c6406aa9fc",
-  "checkedAt": "2026-10-19T09:26:33.347203+00:00",
+  "checkedAt": "2026-10-20T09:16:00.143223+00:00",
   "gates": {
     "ground": {
       "usa": {
@@ -190,6 +190,48 @@
         "VI": 5,
         "VII": 5,
         "VIII": 3
+      }
+    },
+    "helicopters": {
+      "usa": {
+        "V": 1,
+        "VI": 1
+      },
+      "germany": {
+        "V": 1,
+        "VI": 1
+      },
+      "ussr": {
+        "V": 1,
+        "VI": 1
+      },
+      "britain": {
+        "V": 1,
+        "VI": 1
+      },
+      "japan": {
+        "V": 1,
+        "VI": 1
+      },
+      "china": {
+        "V": 1,
+        "VI": 1
+      },
+      "italy": {
+        "V": 1,
+        "VI": 1
+      },
+      "france": {
+        "V": 1,
+        "VI": 1
+      },
+      "sweden": {
+        "V": 1,
+        "VI": 1
+      },
+      "israel": {
+        "V": 1,
+        "VI": 1
       }
     },
     "ships": {

@@ -20,6 +20,9 @@
 - Initial rendering must not fetch vehicle or modification data. Load only the
   selected country file, including all categories and modifications. Switching
   categories or opening modifications must not fetch additional data.
+- Include all five categories: ground, aviation, helicopters, ships and boats.
+  Helicopters use their own tree and Helicopter rank gates; keep their game
+  Simplified Chinese names and append their share codes without renumbering.
 - Prefer OPFS for verified JSON caches and fall back to localStorage. Cache quota
   eviction may only remove `wt-data-cache-v1:*` entries, never carts or profiles.
 - Keep source JSON canonical. `data/generated/catalog.json` is a private build
@@ -41,6 +44,9 @@
 - Queue BR uses context-specific aircraft ratings (`trb` for Ground RB), excludes
   aircraft from Ground AB, and filters over-limit aircraft in Naval AB/RB. Ground
   SB uses event lists and Air SB room ranges; do not invent a numeric SB queue BR.
+- Ground RB mixed lineups include helicopters using their RB rating. Ground AB,
+  fixed-wing Air and Naval calculations exclude helicopters. Do not infer
+  helicopter PVE/event matchmaking from a Ground lineup rating.
 
 - Lineups have a dedicated `#/lineups` page under the existing Muse entry; `#/tree`
   returns to the research tree. Keep deep links, refresh and back/forward working.

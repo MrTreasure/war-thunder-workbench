@@ -4,7 +4,7 @@
   "column": "<Chinese>",
   "sourceLabel": "Game localization files preserved by community datamine (not an official API)",
   "commit": "6142de74d1e9a7125f0fd7e6517d4af7411db29e",
-  "checkedAt": "2026-10-19T11:16:54.753485+00:00",
+  "checkedAt": "2026-10-20T09:17:03.864677+00:00",
   "normalization": "Remove U+200B and U+FEFF; trim surrounding whitespace. Original Chinese preserved in entries. Substitute only verified numeric game template parameters.",
   "sources": {
     "units": {
@@ -14111,6 +14111,458 @@
       "english": "Le Brestois",
       "chineseRaw": "布​雷​斯​特"
     },
+    "units:ah_1g_shop": {
+      "english": "AH-1G",
+      "chineseRaw": "AH-1G"
+    },
+    "units:uh_1b_shop": {
+      "english": "UH-1B",
+      "chineseRaw": "UH-1B"
+    },
+    "units:uh_1c_shop": {
+      "english": "UH-1C",
+      "chineseRaw": "UH-1C"
+    },
+    "units:h_34_shop": {
+      "english": "H-34",
+      "chineseRaw": "H-34"
+    },
+    "units:uh_1c_xm_30_shop": {
+      "english": "UH-1C XM-30",
+      "chineseRaw": "UH-1C/XM30"
+    },
+    "units:ah_6m_shop": {
+      "english": "AH-6M",
+      "chineseRaw": "AH-6M"
+    },
+    "units:ah_1f_shop": {
+      "english": "AH-1F",
+      "chineseRaw": "AH-1F"
+    },
+    "units:oh_58d_shop": {
+      "english": "OH-58D",
+      "chineseRaw": "OH-58D"
+    },
+    "units:ah_64a_shop": {
+      "english": "AH-64A",
+      "chineseRaw": "AH-64A"
+    },
+    "units:ah_1w_shop": {
+      "english": "AH-1W",
+      "chineseRaw": "AH-1W"
+    },
+    "units:rah_66_shop": {
+      "english": "RAH-66",
+      "chineseRaw": "RAH-66"
+    },
+    "units:ah_56a_shop": {
+      "english": "AH-56A",
+      "chineseRaw": "AH-56A"
+    },
+    "units:ah_64a_greece_usa_shop": {
+      "english": "▃AH-64A (GR)",
+      "chineseRaw": "▃​AH-64A (希​腊)"
+    },
+    "units:yah_64_shop": {
+      "english": "YAH-64",
+      "chineseRaw": "YAH-64"
+    },
+    "units:ah_64a_peten_shop": {
+      "english": "▃AH-64A Peten",
+      "chineseRaw": "▃​AH-64A"
+    },
+    "units:mh_60l_dap_shop": {
+      "english": "MH-60L DAP",
+      "chineseRaw": "MH-60L DAP"
+    },
+    "units:ah_64d_shop": {
+      "english": "AH-64D",
+      "chineseRaw": "AH-64D"
+    },
+    "units:ah_1z_shop": {
+      "english": "AH-1Z",
+      "chineseRaw": "AH-1Z"
+    },
+    "units:ah_64e_shop": {
+      "english": "AH-64E",
+      "chineseRaw": "AH-64E"
+    },
+    "units:sa_313b_shop": {
+      "english": "◄SA 313B Alouette II",
+      "chineseRaw": "◄​SA 313B 云​雀 II"
+    },
+    "units:mi_8tb_shop": {
+      "english": "◊Mi-8TB",
+      "chineseRaw": "◊​米​-8TB"
+    },
+    "units:uh_1d_shop": {
+      "english": "◄UH-1D",
+      "chineseRaw": "◄​UH-1D"
+    },
+    "units:bo_105cb2_shop": {
+      "english": "BO 105 CB-2",
+      "chineseRaw": "Bo 105 CB-2"
+    },
+    "units:mi_24d_german_shop": {
+      "english": "◊Mi-24D",
+      "chineseRaw": "◊​米​-24D"
+    },
+    "units:bo_105pah1_shop": {
+      "english": "BO 105 PAH-1",
+      "chineseRaw": "Bo 105 PAH-1"
+    },
+    "units:mi_24p_german_shop": {
+      "english": "◊Mi-24P",
+      "chineseRaw": "◊​米​-24P"
+    },
+    "units:bo_105pah1_a1_shop": {
+      "english": "BO 105 PAH-1A1",
+      "chineseRaw": "Bo 105 PAH-1A1"
+    },
+    "units:mi_24p_german_hfs80_shop": {
+      "english": "◄Mi-24P HFS 80",
+      "chineseRaw": "◄​米​-24P (陆​航​第 80 中​队)"
+    },
+    "units:h145m_shop": {
+      "english": "H145M",
+      "chineseRaw": "H145M"
+    },
+    "units:tiger_uht_shop": {
+      "english": "EC-665 Tiger UHT",
+      "chineseRaw": "EC-665 虎 UHT"
+    },
+    "units:tiger_had_spain_shop": {
+      "english": "▄Tigre HAD-E",
+      "chineseRaw": "◄​虎 HAD-E"
+    },
+    "units:mi_4av_shop": {
+      "english": "Mi-4AV",
+      "chineseRaw": "米​-4AV"
+    },
+    "units:mi_8tv_shop": {
+      "english": "Mi-8TV",
+      "chineseRaw": "米​-8TV"
+    },
+    "units:mi_24a_shop": {
+      "english": "Mi-24A",
+      "chineseRaw": "米​-24A"
+    },
+    "units:mi_24d_shop": {
+      "english": "▂Mi-24D",
+      "chineseRaw": "米​-24D"
+    },
+    "units:mi_24v_shop": {
+      "english": "Mi-24V",
+      "chineseRaw": "米​-24V"
+    },
+    "units:mi_8amtsh_shop": {
+      "english": "Mi-8AMTSh",
+      "chineseRaw": "米​-8AMTSh"
+    },
+    "units:mi_24p_shop": {
+      "english": "Mi-24P",
+      "chineseRaw": "米​-24P"
+    },
+    "units:mi_35m_shop": {
+      "english": "Mi-35M",
+      "chineseRaw": "米​-35M"
+    },
+    "units:ka_29_shop": {
+      "english": "Ka-29",
+      "chineseRaw": "卡​-29"
+    },
+    "units:ka_50_shop": {
+      "english": "Ka-50",
+      "chineseRaw": "卡​-50"
+    },
+    "units:mi_8amtsh_vn_shop": {
+      "english": "Mi-8AMTSh-VN",
+      "chineseRaw": "米​-8AMTSh-VN"
+    },
+    "units:mi_28n_shop": {
+      "english": "Mi-28N",
+      "chineseRaw": "米​-28N"
+    },
+    "units:ka_52_shop": {
+      "english": "Ka-52",
+      "chineseRaw": "卡​-52"
+    },
+    "units:mi_28nm_shop": {
+      "english": "Mi-28NM",
+      "chineseRaw": "米​-28NM"
+    },
+    "units:mi_35p_shop": {
+      "english": "Mi-35P",
+      "chineseRaw": "米​-35P"
+    },
+    "units:scout_ah_mk1_shop": {
+      "english": "Scout AH.Mk.1",
+      "chineseRaw": "侦​察​兵 AH.Mk.1"
+    },
+    "units:wasp_has_mk1_shop": {
+      "english": "Wasp HAS.Mk.1",
+      "chineseRaw": "黄​蜂 HAS.Mk.1"
+    },
+    "units:wessex_mk5_shop": {
+      "english": "Wessex HU Mk.5",
+      "chineseRaw": "威​赛​克​斯 HU Mk 5"
+    },
+    "units:lynx_ah_mk1_shop": {
+      "english": "Lynx AH.Mk.1",
+      "chineseRaw": "山​猫 AH.Mk.1"
+    },
+    "units:super_hind_mk3_shop": {
+      "english": "Superhind",
+      "chineseRaw": "超​级​雌​鹿"
+    },
+    "units:g_lynx_shop": {
+      "english": "G-LYNX",
+      "chineseRaw": "G-​山​猫"
+    },
+    "units:ah_2_rooivalk_shop": {
+      "english": "Rooivalk Mk1F CSH",
+      "chineseRaw": "石​茶​隼 Mk 1F CSH"
+    },
+    "units:ah_mk1_shop": {
+      "english": "AH Mk.1 Apache",
+      "chineseRaw": "AH Mk.1"
+    },
+    "units:aw_159_shop": {
+      "english": "Wildcat HMA2",
+      "chineseRaw": "野​猫 HMA2"
+    },
+    "units:ah_64e_britain_shop": {
+      "english": "AH Mk.2 Apache",
+      "chineseRaw": "AH Mk.2 阿​帕​奇"
+    },
+    "units:uh_1b_japan_shop": {
+      "english": "▅UH-1B",
+      "chineseRaw": "▅​UH-1B"
+    },
+    "units:ah_1s_early_shop": {
+      "english": "▅AH-1E",
+      "chineseRaw": "AH-1E"
+    },
+    "units:ah_1s_late_shop": {
+      "english": "AH-1S",
+      "chineseRaw": "AH-1S"
+    },
+    "units:mi_35p_indonesia_shop": {
+      "english": "◥Mi-35",
+      "chineseRaw": "◥​米​-35"
+    },
+    "units:ah_1s_shop": {
+      "english": "AH-1S Kisarazu",
+      "chineseRaw": "AH-1S 木​更​津"
+    },
+    "units:ah_64d_japan_shop": {
+      "english": "AH-64DJP",
+      "chineseRaw": "AH-64DJP"
+    },
+    "units:ah_64e_indonesia_shop": {
+      "english": "◥AH-64E",
+      "chineseRaw": "◥​AH-64E"
+    },
+    "units:ah_64d_lightweight_japan_shop": {
+      "english": "AH-64DJP (AT)",
+      "chineseRaw": "AH-64DJP (AT)"
+    },
+    "units:z_11wa_shop": {
+      "english": "Z-11WA",
+      "chineseRaw": "直​-11WA"
+    },
+    "units:sa_342l_china_shop": {
+      "english": "SA.342L Gazelle",
+      "chineseRaw": "SA.342L"
+    },
+    "units:z_9w_shop": {
+      "english": "Z-9W",
+      "chineseRaw": "直​-9W"
+    },
+    "units:oh_58d_china_shop": {
+      "english": "␗OH-58D",
+      "chineseRaw": "␗​OH-58D"
+    },
+    "units:z_9wa_shop": {
+      "english": "Z-9WA",
+      "chineseRaw": "直​-9WA"
+    },
+    "units:ah_1w_china_shop": {
+      "english": "␗AH-1W",
+      "chineseRaw": "␗​AH-1W"
+    },
+    "units:z_19_shop": {
+      "english": "Z-19",
+      "chineseRaw": "直​-19"
+    },
+    "units:mi_35m_pakistan_shop": {
+      "english": "▄Mi-35M",
+      "chineseRaw": "▄​米​-35M"
+    },
+    "units:z_19e_shop": {
+      "english": "Z-19E",
+      "chineseRaw": "直​-19E"
+    },
+    "units:z_10_shop": {
+      "english": "Z-10",
+      "chineseRaw": "直​-10"
+    },
+    "units:ah_64e_china_shop": {
+      "english": "␗AH-64E",
+      "chineseRaw": "␗​AH-64E"
+    },
+    "units:z_10me_shop": {
+      "english": "Z-10ME",
+      "chineseRaw": "直​-10ME"
+    },
+    "units:z_10a_shop": {
+      "english": "Z-10A",
+      "chineseRaw": "直​-10A"
+    },
+    "units:ab_205a_1_shop": {
+      "english": "AB 205 A-1",
+      "chineseRaw": "AB205A-1"
+    },
+    "units:mi_24d_hungary_shop": {
+      "english": "◔Mi-24D",
+      "chineseRaw": "◔​米​-24D"
+    },
+    "units:a_109_eoa2_shop": {
+      "english": "A.109EOA-2",
+      "chineseRaw": "A109 EOA-2"
+    },
+    "units:mi_24v_hungary_shop": {
+      "english": "◔Mi-24V",
+      "chineseRaw": "◔​米​-24V"
+    },
+    "units:t_129_atak_shop": {
+      "english": "T129",
+      "chineseRaw": "T129"
+    },
+    "units:mi_24p_hungary_shop": {
+      "english": "◔Mi-24P",
+      "chineseRaw": "◔​米​-24P"
+    },
+    "units:a_129_a_shop": {
+      "english": "A-129 International (p)",
+      "chineseRaw": "A129 国​际​型 (P)"
+    },
+    "units:a_129_cbt_shop": {
+      "english": "A129CBT",
+      "chineseRaw": "A129CBT"
+    },
+    "units:a_129_d_shop": {
+      "english": "AH-129D",
+      "chineseRaw": "AH-129D"
+    },
+    "units:h_34_france_shop": {
+      "english": "▄H-34",
+      "chineseRaw": "▄​H-34"
+    },
+    "units:sa_313b_france_shop": {
+      "english": "SA 313B Alouette II",
+      "chineseRaw": "SA 313B"
+    },
+    "units:sa_316b_shop": {
+      "english": "SA 316B Alouette III",
+      "chineseRaw": "SA 316B"
+    },
+    "units:iar_316b_shop": {
+      "english": "IAR 316B",
+      "chineseRaw": "IAR 316B"
+    },
+    "units:sa_341f_shop": {
+      "english": "SA.341F Gazelle",
+      "chineseRaw": "SA.341F"
+    },
+    "units:sa_342m_shop": {
+      "english": "SA.342M Gazelle",
+      "chineseRaw": "SA.342M"
+    },
+    "units:tiger_hap_france_shop": {
+      "english": "EC-665 Tiger HAP",
+      "chineseRaw": "EC-665 虎 HAP"
+    },
+    "units:tiger_had_france_shop": {
+      "english": "EC-665 Tiger HAD",
+      "chineseRaw": "虎 HAD"
+    },
+    "units:tiger_hac_france_shop": {
+      "english": "EC-665 Tiger HAC",
+      "chineseRaw": "虎 HAC"
+    },
+    "units:shop/group/tiger_group": {
+      "english": "Tiger HAD/Tiger HAC",
+      "chineseRaw": "虎 HAD/HAC"
+    },
+    "units:ah_64e_netherlands_shop": {
+      "english": "◘AH-64E",
+      "chineseRaw": "◘​AH-64E"
+    },
+    "units:tiger_had_block2_france_shop": {
+      "english": "Tiger HAD Block 2",
+      "chineseRaw": "虎 HAD Block 2"
+    },
+    "units:ah_64d_netherlands_shop": {
+      "english": "◘AH-64D",
+      "chineseRaw": "◘​AH-64D"
+    },
+    "units:hkp3c_shop": {
+      "english": "HKP3C",
+      "chineseRaw": "HKP 3C"
+    },
+    "units:hkp2_shop": {
+      "english": "HKP2",
+      "chineseRaw": "HKP 2"
+    },
+    "units:hkp9a_cb2_shop": {
+      "english": "HKP9A",
+      "chineseRaw": "HKP 9A"
+    },
+    "units:hkp9a_cb3_fc_shop": {
+      "english": "HKP9A (FC)",
+      "chineseRaw": "HKP 9A (FC)"
+    },
+    "units:mi_28a_sweden_shop": {
+      "english": "Mi-28A",
+      "chineseRaw": "米​-28A"
+    },
+    "units:ahs_shop": {
+      "english": "AHS",
+      "chineseRaw": "AHS"
+    },
+    "units:ah_1g_iaf_shop": {
+      "english": "Tzefa A",
+      "chineseRaw": "蝰​蛇 A"
+    },
+    "units:md_500_tow_late_shop": {
+      "english": "Lahatut",
+      "chineseRaw": "杂​技"
+    },
+    "units:ah_1q_iaf_shop": {
+      "english": "Tzefa B",
+      "chineseRaw": "蝰​蛇 B"
+    },
+    "units:ah_1f_iaf_shop": {
+      "english": "Tzefa D/E",
+      "chineseRaw": "蝰​蛇 D/E"
+    },
+    "units:ah_64a_iaf_shop": {
+      "english": "Peten",
+      "chineseRaw": "眼​镜​蛇"
+    },
+    "units:ah_64a_peten_iaf_shop": {
+      "english": "AH-64A Peten",
+      "chineseRaw": "​AH-64A 眼​镜​蛇"
+    },
+    "units:ah_64d_i_saraph_shop": {
+      "english": "Saraph",
+      "chineseRaw": "穴​蝰"
+    },
+    "units:ah_60_iaf_shop": {
+      "english": "AH-60",
+      "chineseRaw": "​AH-60"
+    },
     "units_modifications:modification/new_tank_tracks": {
       "english": "Tracks",
       "chineseRaw": "履​带"
@@ -20490,6 +20942,350 @@
     "units_modifications:modification/65mm_50_navy_ap_ammo_pack": {
       "english": "65 mm M1902 SAP",
       "chineseRaw": "M1902 半​穿​甲​弹"
+    },
+    "units_modifications:modification/new_compressor_heli": {
+      "english": "Compressor",
+      "chineseRaw": "压​缩​机"
+    },
+    "units_modifications:modification/cd_98_main_rotor": {
+      "english": "Replacing helicopter blades",
+      "chineseRaw": "更​换​旋​翼​桨​叶"
+    },
+    "units_modifications:modification/heli_flak_jacket": {
+      "english": "Flak jacket",
+      "chineseRaw": "防​破​片​衣"
+    },
+    "units_modifications:modification/heli_structure": {
+      "english": "Helicopter frame",
+      "chineseRaw": "机​体​翻​新"
+    },
+    "units_modifications:modification/new_heli_cover": {
+      "english": "Cover",
+      "chineseRaw": "蒙​皮"
+    },
+    "units_modifications:modification/uh_1c_xm18": {
+      "english": "M18A1 gun pod",
+      "chineseRaw": "M18A1 吊​舱"
+    },
+    "units_modifications:modification/ah_1_m200_2": {
+      "english": "M200A1",
+      "chineseRaw": "M200A1 挂​架"
+    },
+    "units_modifications:modification/ah_1g_M129": {
+      "english": "M129",
+      "chineseRaw": "M129"
+    },
+    "units_modifications:modification/ah_1g_xm35": {
+      "english": "XM-35 gun pod",
+      "chineseRaw": "XM35 吊​舱"
+    },
+    "units_modifications:modification/uh_1_xm159": {
+      "english": "XM159",
+      "chineseRaw": "XM159"
+    },
+    "units_modifications:modification/ah_AGM_22": {
+      "english": "M156 AGM",
+      "chineseRaw": "M156 AGM 挂​架"
+    },
+    "units_modifications:modification/ah_1g_M75": {
+      "english": "M75",
+      "chineseRaw": "M75"
+    },
+    "units_modifications:modification/uh_1c_xm21": {
+      "english": "XM-21 gun pod",
+      "chineseRaw": "XM21 吊​舱"
+    },
+    "units_modifications:modification/ah_1_TOW": {
+      "english": "TOW",
+      "chineseRaw": "TOW"
+    },
+    "units_modifications:modification/heli_night_vision_system": {
+      "english": "NVD",
+      "chineseRaw": "夜​视​仪"
+    },
+    "units_modifications:modification/us_gau_19": {
+      "english": "GP-19 gun pod",
+      "chineseRaw": "GP-19 吊​舱"
+    },
+    "units_modifications:modification/us_agm_114k": {
+      "english": "AGM-114K",
+      "chineseRaw": "AGM-114K"
+    },
+    "units_modifications:modification/ah_1_m261_hydra_70": {
+      "english": "M261 LWL",
+      "chineseRaw": "M261 轻​型​发​射​器"
+    },
+    "units_modifications:modification/heli_counterMeasures": {
+      "english": "IRCM",
+      "chineseRaw": "红​外​干​扰​系​统"
+    },
+    "units_modifications:modification/ah_1_TOW2": {
+      "english": "TOW-2",
+      "chineseRaw": "TOW-2"
+    },
+    "units_modifications:modification/new_compressor_mi_4": {
+      "english": "Compressor",
+      "chineseRaw": "压​缩​机"
+    },
+    "units_modifications:modification/heli_flak_jacket_and_armor": {
+      "english": "Flak jacket",
+      "chineseRaw": "防​破​片​衣"
+    },
+    "units_modifications:modification/us_cannon_lr30": {
+      "english": "LR30 cannon",
+      "chineseRaw": "LR30 机​炮"
+    },
+    "units_modifications:modification/stinger_aam": {
+      "english": "AIM-92 Stinger",
+      "chineseRaw": "AIM-92"
+    },
+    "units_modifications:modification/ah_1_AGM_114_8": {
+      "english": "AGM-114",
+      "chineseRaw": "AGM-114"
+    },
+    "units_modifications:modification/ah_1_AGM_114_16": {
+      "english": "AGM-114 2",
+      "chineseRaw": "AGM-114×2"
+    },
+    "units_modifications:modification/us_gpu_2a": {
+      "english": "GPU-2/A. gun pod",
+      "chineseRaw": "GPU-2/A 吊​舱"
+    },
+    "units_modifications:modification/AMASE_heli_false_thermal_targets": {
+      "english": "AMASE",
+      "chineseRaw": "AMASE"
+    },
+    "units_modifications:modification/us_agm_179": {
+      "english": "AGM-179 (SAL)",
+      "chineseRaw": "AGM-179 (半​主​动​激​光)"
+    },
+    "units_modifications:modification/us_agm_179_ir": {
+      "english": "AGM-179 (IR)",
+      "chineseRaw": "AGM-179 (红​外)"
+    },
+    "units_modifications:modification/atgm_spike_nlos": {
+      "english": "Spike NLOS",
+      "chineseRaw": "长​钉 NLOS"
+    },
+    "units_modifications:modification/mi_8_su_9M14": {
+      "english": "9М14",
+      "chineseRaw": "9​М​14 婴​儿"
+    },
+    "units_modifications:modification/uh_1d_lr68": {
+      "english": "IL.68.22.I",
+      "chineseRaw": "IL.68.22.I"
+    },
+    "units_modifications:modification/fn_hmp400_lcc": {
+      "english": "FN HMP400 LCC / LTC.",
+      "chineseRaw": "FN HMP400 LCC / LTC"
+    },
+    "units_modifications:modification/fn_rmp_lc": {
+      "english": "FN RMP LC / LTC",
+      "chineseRaw": "FN RMP LC / LTC"
+    },
+    "units_modifications:modification/heli_screen_exhaust_device": {
+      "english": "HIRSS",
+      "chineseRaw": "悬​停​红​外​抑​制​系​统"
+    },
+    "units_modifications:modification/su_guv_8700": {
+      "english": "GUV-8700 gun pod",
+      "chineseRaw": "GUV-8700 吊​舱"
+    },
+    "units_modifications:modification/mi_24_su_9M114": {
+      "english": "RP-2-149TK",
+      "chineseRaw": "RP-2-149TK 挂​架"
+    },
+    "units_modifications:modification/mi_24_r_60_2": {
+      "english": "R-60 2",
+      "chineseRaw": "R-60×2"
+    },
+    "units_modifications:modification/tiger_hmp400_lcc": {
+      "english": "FN HMP400 LCC",
+      "chineseRaw": "FN HMP400 LCC"
+    },
+    "units_modifications:modification/tiger_rmp_lc": {
+      "english": "FN RMP LC",
+      "chineseRaw": "FN RMP LC"
+    },
+    "units_modifications:modification/fr_fz275": {
+      "english": "FZ275",
+      "chineseRaw": "FZ275"
+    },
+    "units_modifications:modification/atgm_spike_x4": {
+      "english": "Spike ER /4",
+      "chineseRaw": "长​钉 ER×4"
+    },
+    "units_modifications:modification/tiger_atgw3": {
+      "english": "PARS 3 LR",
+      "chineseRaw": "PARS 3 LR"
+    },
+    "units_modifications:modification/heli_atam_mistral": {
+      "english": "ATAM",
+      "chineseRaw": "西​北​风 ATAM"
+    },
+    "units_modifications:modification/mi_24_su_9M114_2": {
+      "english": "RP-2-149TK/2",
+      "chineseRaw": "RP-2-149TK×2 挂​架"
+    },
+    "units_modifications:modification/mi_35_9M39": {
+      "english": "9M39",
+      "chineseRaw": "9M39"
+    },
+    "units_modifications:modification/mi_35_9M114_8": {
+      "english": "APU-8/4-U 8 Shturm",
+      "chineseRaw": "APU-8/4-U×8 蚕​茧"
+    },
+    "units_modifications:modification/mi_35_9M120_4": {
+      "english": "APU-8/4-U 4 Ataka",
+      "chineseRaw": "APU-8/4-U×4 攻​击"
+    },
+    "units_modifications:modification/ka_29_2a42": {
+      "english": "2A42",
+      "chineseRaw": "2A42 机​炮"
+    },
+    "units_modifications:modification/ka_52_9m120_6": {
+      "english": "APU-6",
+      "chineseRaw": "APU-6 挂​架"
+    },
+    "units_modifications:modification/mi_35_9M120_8": {
+      "english": "APU-8/4-U 8 Ataka",
+      "chineseRaw": "APU-8/4-U×8 攻​击"
+    },
+    "units_modifications:modification/mi_8_9M336": {
+      "english": "9M336",
+      "chineseRaw": "9M336"
+    },
+    "units_modifications:modification/mi_28nm_9M123": {
+      "english": "9M123M",
+      "chineseRaw": "9M123M"
+    },
+    "units_modifications:modification/su_lmur": {
+      "english": "LMUR",
+      "chineseRaw": "LMUR"
+    },
+    "units_modifications:modification/as_12_atgm": {
+      "english": "AS.12",
+      "chineseRaw": "AS.12"
+    },
+    "units_modifications:modification/sa_zt_35_ingwe": {
+      "english": "ZT3A2 Ingwe",
+      "chineseRaw": "ZT3A2 豹"
+    },
+    "units_modifications:modification/atgm_mokopa": {
+      "english": "ZT-6 Mokopa",
+      "chineseRaw": "ZT-6 黑​曼​巴"
+    },
+    "units_modifications:modification/uk_martlet": {
+      "english": "Martlet",
+      "chineseRaw": "岩​燕"
+    },
+    "units_modifications:modification/ah_mk1_starstreak": {
+      "english": "ATASK",
+      "chineseRaw": "空​对​空​星​痕"
+    },
+    "units_modifications:modification/ah_1_TOW2_2": {
+      "english": "TOW-2 4",
+      "chineseRaw": "TOW-2×4"
+    },
+    "units_modifications:modification/cn_hf7d": {
+      "english": "HF-7D",
+      "chineseRaw": "火​发​-7D"
+    },
+    "units_modifications:modification/cn_hj8_c": {
+      "english": "HJ-8C",
+      "chineseRaw": "红​箭​-8C"
+    },
+    "units_modifications:modification/cn_ty_90": {
+      "english": "TY-90",
+      "chineseRaw": "天​燕​-90"
+    },
+    "units_modifications:modification/cn_hj8_e": {
+      "english": "HJ-8E",
+      "chineseRaw": "红​箭​-8E"
+    },
+    "units_modifications:modification/sa_heli_hot": {
+      "english": "HOT",
+      "chineseRaw": "HOT"
+    },
+    "units_modifications:modification/cn_akd_9": {
+      "english": "AKD-9",
+      "chineseRaw": "AKD-9"
+    },
+    "units_modifications:modification/cn_ba_9": {
+      "english": "BA-9",
+      "chineseRaw": "蓝​箭​-9"
+    },
+    "units_modifications:modification/cn_hj8_h": {
+      "english": "HJ-8H",
+      "chineseRaw": "红​箭​-8H"
+    },
+    "units_modifications:modification/cn_akd_10": {
+      "english": "AKD-10",
+      "chineseRaw": "AKD-10"
+    },
+    "units_modifications:modification/cn_cm_502kg": {
+      "english": "CM-502KG",
+      "chineseRaw": "CM-502KG"
+    },
+    "units_modifications:modification/cn_ba_11": {
+      "english": "BA-11A",
+      "chineseRaw": "蓝​箭​-11A"
+    },
+    "units_modifications:modification/fn_hmp400": {
+      "english": "FN HMP400 LCC",
+      "chineseRaw": "FN HMP400 LCC"
+    },
+    "units_modifications:modification/fn_rmp": {
+      "english": "FN RMP LC",
+      "chineseRaw": "FN RMP LC"
+    },
+    "units_modifications:modification/tr_fz49": {
+      "english": "FZ49",
+      "chineseRaw": "FZ49"
+    },
+    "units_modifications:modification/tr_cirit_x4": {
+      "english": "CIRIT",
+      "chineseRaw": "CIRIT"
+    },
+    "units_modifications:modification/tr_umtas_x4": {
+      "english": "UMTAS",
+      "chineseRaw": "UMTAS"
+    },
+    "units_modifications:modification/a_129_hl_19_70": {
+      "english": "HL-19-70",
+      "chineseRaw": "HL-19-70"
+    },
+    "units_modifications:modification/atgm_spike_x2": {
+      "english": "Spike ER",
+      "chineseRaw": "长​钉 ER"
+    },
+    "units_modifications:modification/fr_50kg_type_61c": {
+      "english": "Type 61C",
+      "chineseRaw": "61C 型"
+    },
+    "units_modifications:modification/sa_heli_hot_2": {
+      "english": "HOT-2",
+      "chineseRaw": "HOT-2"
+    },
+    "units_modifications:modification/tiger_tel12": {
+      "english": "TELSON 12",
+      "chineseRaw": "TELSON 12"
+    },
+    "units_modifications:modification/tiger_hot3": {
+      "english": "HOT-3",
+      "chineseRaw": "HOT-3"
+    },
+    "units_modifications:modification/tiger_trigat_lr": {
+      "english": "TRIGAT-LR",
+      "chineseRaw": "TRIGAT-LR"
+    },
+    "units_modifications:modification/ffv_uni_pod": {
+      "english": "FFV UNI-pod",
+      "chineseRaw": "FFV UNI-POD"
+    },
+    "units_modifications:modification/il_gatr": {
+      "english": "GATR",
+      "chineseRaw": "GATR"
     }
   },
   "vehicles": {
@@ -42360,6 +43156,790 @@
       "entry": "units:fr_frigate_corse_class_brestois_shop",
       "method": "vehicle_id_case_insensitive",
       "parameters": []
+    },
+    "ah_1g": {
+      "nameEn": "AH-1G",
+      "nameZhCN": "AH-1G",
+      "entry": "units:ah_1g_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "uh_1b": {
+      "nameEn": "UH-1B",
+      "nameZhCN": "UH-1B",
+      "entry": "units:uh_1b_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "uh_1c": {
+      "nameEn": "UH-1C",
+      "nameZhCN": "UH-1C",
+      "entry": "units:uh_1c_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "h_34": {
+      "nameEn": "H-34",
+      "nameZhCN": "H-34",
+      "entry": "units:h_34_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "uh_1c_xm_30": {
+      "nameEn": "UH-1C XM-30",
+      "nameZhCN": "UH-1C/XM30",
+      "entry": "units:uh_1c_xm_30_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_6m": {
+      "nameEn": "AH-6M",
+      "nameZhCN": "AH-6M",
+      "entry": "units:ah_6m_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_1f": {
+      "nameEn": "AH-1F",
+      "nameZhCN": "AH-1F",
+      "entry": "units:ah_1f_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "oh_58d": {
+      "nameEn": "OH-58D",
+      "nameZhCN": "OH-58D",
+      "entry": "units:oh_58d_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_64a": {
+      "nameEn": "AH-64A",
+      "nameZhCN": "AH-64A",
+      "entry": "units:ah_64a_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_1w": {
+      "nameEn": "AH-1W",
+      "nameZhCN": "AH-1W",
+      "entry": "units:ah_1w_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "rah_66": {
+      "nameEn": "RAH-66",
+      "nameZhCN": "RAH-66",
+      "entry": "units:rah_66_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_56a": {
+      "nameEn": "AH-56A",
+      "nameZhCN": "AH-56A",
+      "entry": "units:ah_56a_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_64a_greece_usa": {
+      "nameEn": "▃AH-64A (GR)",
+      "nameZhCN": "▃AH-64A (希腊)",
+      "entry": "units:ah_64a_greece_usa_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "yah_64": {
+      "nameEn": "YAH-64",
+      "nameZhCN": "YAH-64",
+      "entry": "units:yah_64_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_64a_peten": {
+      "nameEn": "▃AH-64A Peten",
+      "nameZhCN": "▃AH-64A",
+      "entry": "units:ah_64a_peten_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mh_60l_dap": {
+      "nameEn": "MH-60L DAP",
+      "nameZhCN": "MH-60L DAP",
+      "entry": "units:mh_60l_dap_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_64d": {
+      "nameEn": "AH-64D",
+      "nameZhCN": "AH-64D",
+      "entry": "units:ah_64d_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_1z": {
+      "nameEn": "AH-1Z",
+      "nameZhCN": "AH-1Z",
+      "entry": "units:ah_1z_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_64e": {
+      "nameEn": "AH-64E",
+      "nameZhCN": "AH-64E",
+      "entry": "units:ah_64e_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "sa_313b": {
+      "nameEn": "◄SA 313B Alouette II",
+      "nameZhCN": "◄SA 313B 云雀 II",
+      "entry": "units:sa_313b_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_8tb": {
+      "nameEn": "◊Mi-8TB",
+      "nameZhCN": "◊米-8TB",
+      "entry": "units:mi_8tb_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "uh_1d": {
+      "nameEn": "◄UH-1D",
+      "nameZhCN": "◄UH-1D",
+      "entry": "units:uh_1d_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "bo_105cb2": {
+      "nameEn": "BO 105 CB-2",
+      "nameZhCN": "Bo 105 CB-2",
+      "entry": "units:bo_105cb2_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_24d_german": {
+      "nameEn": "◊Mi-24D",
+      "nameZhCN": "◊米-24D",
+      "entry": "units:mi_24d_german_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "bo_105pah1": {
+      "nameEn": "BO 105 PAH-1",
+      "nameZhCN": "Bo 105 PAH-1",
+      "entry": "units:bo_105pah1_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_24p_german": {
+      "nameEn": "◊Mi-24P",
+      "nameZhCN": "◊米-24P",
+      "entry": "units:mi_24p_german_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "bo_105pah1_a1": {
+      "nameEn": "BO 105 PAH-1A1",
+      "nameZhCN": "Bo 105 PAH-1A1",
+      "entry": "units:bo_105pah1_a1_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_24p_german_hfs80": {
+      "nameEn": "◄Mi-24P HFS 80",
+      "nameZhCN": "◄米-24P (陆航第 80 中队)",
+      "entry": "units:mi_24p_german_hfs80_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "h145m": {
+      "nameEn": "H145M",
+      "nameZhCN": "H145M",
+      "entry": "units:h145m_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "tiger_uht": {
+      "nameEn": "EC-665 Tiger UHT",
+      "nameZhCN": "EC-665 虎 UHT",
+      "entry": "units:tiger_uht_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "tiger_had_spain": {
+      "nameEn": "▄Tigre HAD-E",
+      "nameZhCN": "◄虎 HAD-E",
+      "entry": "units:tiger_had_spain_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_4av": {
+      "nameEn": "Mi-4AV",
+      "nameZhCN": "米-4AV",
+      "entry": "units:mi_4av_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_8tv": {
+      "nameEn": "Mi-8TV",
+      "nameZhCN": "米-8TV",
+      "entry": "units:mi_8tv_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_24a": {
+      "nameEn": "Mi-24A",
+      "nameZhCN": "米-24A",
+      "entry": "units:mi_24a_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_24d": {
+      "nameEn": "▂Mi-24D",
+      "nameZhCN": "米-24D",
+      "entry": "units:mi_24d_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_24v": {
+      "nameEn": "Mi-24V",
+      "nameZhCN": "米-24V",
+      "entry": "units:mi_24v_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_8amtsh": {
+      "nameEn": "Mi-8AMTSh",
+      "nameZhCN": "米-8AMTSh",
+      "entry": "units:mi_8amtsh_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_24p": {
+      "nameEn": "Mi-24P",
+      "nameZhCN": "米-24P",
+      "entry": "units:mi_24p_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_35m": {
+      "nameEn": "Mi-35M",
+      "nameZhCN": "米-35M",
+      "entry": "units:mi_35m_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ka_29": {
+      "nameEn": "Ka-29",
+      "nameZhCN": "卡-29",
+      "entry": "units:ka_29_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ka_50": {
+      "nameEn": "Ka-50",
+      "nameZhCN": "卡-50",
+      "entry": "units:ka_50_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_8amtsh_vn": {
+      "nameEn": "Mi-8AMTSh-VN",
+      "nameZhCN": "米-8AMTSh-VN",
+      "entry": "units:mi_8amtsh_vn_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_28n": {
+      "nameEn": "Mi-28N",
+      "nameZhCN": "米-28N",
+      "entry": "units:mi_28n_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ka_52": {
+      "nameEn": "Ka-52",
+      "nameZhCN": "卡-52",
+      "entry": "units:ka_52_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_28nm": {
+      "nameEn": "Mi-28NM",
+      "nameZhCN": "米-28NM",
+      "entry": "units:mi_28nm_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_35p": {
+      "nameEn": "Mi-35P",
+      "nameZhCN": "米-35P",
+      "entry": "units:mi_35p_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "scout_ah_mk1": {
+      "nameEn": "Scout AH.Mk.1",
+      "nameZhCN": "侦察兵 AH.Mk.1",
+      "entry": "units:scout_ah_mk1_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "wasp_has_mk1": {
+      "nameEn": "Wasp HAS.Mk.1",
+      "nameZhCN": "黄蜂 HAS.Mk.1",
+      "entry": "units:wasp_has_mk1_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "wessex_mk5": {
+      "nameEn": "Wessex HU Mk.5",
+      "nameZhCN": "威赛克斯 HU Mk 5",
+      "entry": "units:wessex_mk5_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "lynx_ah_mk1": {
+      "nameEn": "Lynx AH.Mk.1",
+      "nameZhCN": "山猫 AH.Mk.1",
+      "entry": "units:lynx_ah_mk1_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "super_hind_mk3": {
+      "nameEn": "Superhind",
+      "nameZhCN": "超级雌鹿",
+      "entry": "units:super_hind_mk3_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "g_lynx": {
+      "nameEn": "G-LYNX",
+      "nameZhCN": "G-山猫",
+      "entry": "units:g_lynx_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_2_rooivalk": {
+      "nameEn": "Rooivalk Mk1F CSH",
+      "nameZhCN": "石茶隼 Mk 1F CSH",
+      "entry": "units:ah_2_rooivalk_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_mk1": {
+      "nameEn": "AH Mk.1 Apache",
+      "nameZhCN": "AH Mk.1",
+      "entry": "units:ah_mk1_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "aw_159": {
+      "nameEn": "Wildcat HMA2",
+      "nameZhCN": "野猫 HMA2",
+      "entry": "units:aw_159_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_64e_britain": {
+      "nameEn": "AH Mk.2 Apache",
+      "nameZhCN": "AH Mk.2 阿帕奇",
+      "entry": "units:ah_64e_britain_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "uh_1b_japan": {
+      "nameEn": "▅UH-1B",
+      "nameZhCN": "▅UH-1B",
+      "entry": "units:uh_1b_japan_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_1s_early": {
+      "nameEn": "▅AH-1E",
+      "nameZhCN": "AH-1E",
+      "entry": "units:ah_1s_early_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_1s_late": {
+      "nameEn": "AH-1S",
+      "nameZhCN": "AH-1S",
+      "entry": "units:ah_1s_late_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_35p_indonesia": {
+      "nameEn": "◥Mi-35",
+      "nameZhCN": "◥米-35",
+      "entry": "units:mi_35p_indonesia_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_1s": {
+      "nameEn": "AH-1S Kisarazu",
+      "nameZhCN": "AH-1S 木更津",
+      "entry": "units:ah_1s_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_64d_japan": {
+      "nameEn": "AH-64DJP",
+      "nameZhCN": "AH-64DJP",
+      "entry": "units:ah_64d_japan_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_64e_indonesia": {
+      "nameEn": "◥AH-64E",
+      "nameZhCN": "◥AH-64E",
+      "entry": "units:ah_64e_indonesia_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_64d_lightweight_japan": {
+      "nameEn": "AH-64DJP (AT)",
+      "nameZhCN": "AH-64DJP (AT)",
+      "entry": "units:ah_64d_lightweight_japan_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "z_11wa": {
+      "nameEn": "Z-11WA",
+      "nameZhCN": "直-11WA",
+      "entry": "units:z_11wa_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "sa_342l_china": {
+      "nameEn": "SA.342L Gazelle",
+      "nameZhCN": "SA.342L",
+      "entry": "units:sa_342l_china_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "z_9w": {
+      "nameEn": "Z-9W",
+      "nameZhCN": "直-9W",
+      "entry": "units:z_9w_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "oh_58d_china": {
+      "nameEn": "␗OH-58D",
+      "nameZhCN": "␗OH-58D",
+      "entry": "units:oh_58d_china_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "z_9wa": {
+      "nameEn": "Z-9WA",
+      "nameZhCN": "直-9WA",
+      "entry": "units:z_9wa_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_1w_china": {
+      "nameEn": "␗AH-1W",
+      "nameZhCN": "␗AH-1W",
+      "entry": "units:ah_1w_china_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "z_19": {
+      "nameEn": "Z-19",
+      "nameZhCN": "直-19",
+      "entry": "units:z_19_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_35m_pakistan": {
+      "nameEn": "▄Mi-35M",
+      "nameZhCN": "▄米-35M",
+      "entry": "units:mi_35m_pakistan_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "z_19e": {
+      "nameEn": "Z-19E",
+      "nameZhCN": "直-19E",
+      "entry": "units:z_19e_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "z_10": {
+      "nameEn": "Z-10",
+      "nameZhCN": "直-10",
+      "entry": "units:z_10_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_64e_china": {
+      "nameEn": "␗AH-64E",
+      "nameZhCN": "␗AH-64E",
+      "entry": "units:ah_64e_china_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "z_10me": {
+      "nameEn": "Z-10ME",
+      "nameZhCN": "直-10ME",
+      "entry": "units:z_10me_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "z_10a": {
+      "nameEn": "Z-10A",
+      "nameZhCN": "直-10A",
+      "entry": "units:z_10a_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ab_205a_1": {
+      "nameEn": "AB 205 A-1",
+      "nameZhCN": "AB205A-1",
+      "entry": "units:ab_205a_1_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_24d_hungary": {
+      "nameEn": "◔Mi-24D",
+      "nameZhCN": "◔米-24D",
+      "entry": "units:mi_24d_hungary_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "a_109_eoa2": {
+      "nameEn": "A.109EOA-2",
+      "nameZhCN": "A109 EOA-2",
+      "entry": "units:a_109_eoa2_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_24v_hungary": {
+      "nameEn": "◔Mi-24V",
+      "nameZhCN": "◔米-24V",
+      "entry": "units:mi_24v_hungary_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "t_129_atak": {
+      "nameEn": "T129",
+      "nameZhCN": "T129",
+      "entry": "units:t_129_atak_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_24p_hungary": {
+      "nameEn": "◔Mi-24P",
+      "nameZhCN": "◔米-24P",
+      "entry": "units:mi_24p_hungary_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "a_129_a": {
+      "nameEn": "A-129 International (p)",
+      "nameZhCN": "A129 国际型 (P)",
+      "entry": "units:a_129_a_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "a_129_cbt": {
+      "nameEn": "A129CBT",
+      "nameZhCN": "A129CBT",
+      "entry": "units:a_129_cbt_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "a_129_d": {
+      "nameEn": "AH-129D",
+      "nameZhCN": "AH-129D",
+      "entry": "units:a_129_d_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "h_34_france": {
+      "nameEn": "▄H-34",
+      "nameZhCN": "▄H-34",
+      "entry": "units:h_34_france_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "sa_313b_france": {
+      "nameEn": "SA 313B Alouette II",
+      "nameZhCN": "SA 313B",
+      "entry": "units:sa_313b_france_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "sa_316b": {
+      "nameEn": "SA 316B Alouette III",
+      "nameZhCN": "SA 316B",
+      "entry": "units:sa_316b_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "iar_316b": {
+      "nameEn": "IAR 316B",
+      "nameZhCN": "IAR 316B",
+      "entry": "units:iar_316b_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "sa_341f": {
+      "nameEn": "SA.341F Gazelle",
+      "nameZhCN": "SA.341F",
+      "entry": "units:sa_341f_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "sa_342m": {
+      "nameEn": "SA.342M Gazelle",
+      "nameZhCN": "SA.342M",
+      "entry": "units:sa_342m_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "tiger_hap_france": {
+      "nameEn": "EC-665 Tiger HAP",
+      "nameZhCN": "EC-665 虎 HAP",
+      "entry": "units:tiger_hap_france_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "tiger_had_france": {
+      "nameEn": "EC-665 Tiger HAD",
+      "nameZhCN": "虎 HAD",
+      "entry": "units:tiger_had_france_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "tiger_hac_france": {
+      "nameEn": "EC-665 Tiger HAC",
+      "nameZhCN": "虎 HAC",
+      "entry": "units:tiger_hac_france_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_64e_netherlands": {
+      "nameEn": "◘AH-64E",
+      "nameZhCN": "◘AH-64E",
+      "entry": "units:ah_64e_netherlands_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "tiger_had_block2_france": {
+      "nameEn": "Tiger HAD Block 2",
+      "nameZhCN": "虎 HAD Block 2",
+      "entry": "units:tiger_had_block2_france_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_64d_netherlands": {
+      "nameEn": "◘AH-64D",
+      "nameZhCN": "◘AH-64D",
+      "entry": "units:ah_64d_netherlands_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "hkp3c": {
+      "nameEn": "HKP3C",
+      "nameZhCN": "HKP 3C",
+      "entry": "units:hkp3c_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "hkp2": {
+      "nameEn": "HKP2",
+      "nameZhCN": "HKP 2",
+      "entry": "units:hkp2_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "hkp9a_cb2": {
+      "nameEn": "HKP9A",
+      "nameZhCN": "HKP 9A",
+      "entry": "units:hkp9a_cb2_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "hkp9a_cb3_fc": {
+      "nameEn": "HKP9A (FC)",
+      "nameZhCN": "HKP 9A (FC)",
+      "entry": "units:hkp9a_cb3_fc_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "mi_28a_sweden": {
+      "nameEn": "Mi-28A",
+      "nameZhCN": "米-28A",
+      "entry": "units:mi_28a_sweden_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ahs": {
+      "nameEn": "AHS",
+      "nameZhCN": "AHS",
+      "entry": "units:ahs_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_1g_iaf": {
+      "nameEn": "Tzefa A",
+      "nameZhCN": "蝰蛇 A",
+      "entry": "units:ah_1g_iaf_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "md_500_tow_late": {
+      "nameEn": "Lahatut",
+      "nameZhCN": "杂技",
+      "entry": "units:md_500_tow_late_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_1q_iaf": {
+      "nameEn": "Tzefa B",
+      "nameZhCN": "蝰蛇 B",
+      "entry": "units:ah_1q_iaf_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_1f_iaf": {
+      "nameEn": "Tzefa D/E",
+      "nameZhCN": "蝰蛇 D/E",
+      "entry": "units:ah_1f_iaf_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_64a_iaf": {
+      "nameEn": "Peten",
+      "nameZhCN": "眼镜蛇",
+      "entry": "units:ah_64a_iaf_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_64a_peten_iaf": {
+      "nameEn": "AH-64A Peten",
+      "nameZhCN": "AH-64A 眼镜蛇",
+      "entry": "units:ah_64a_peten_iaf_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_64d_i_saraph": {
+      "nameEn": "Saraph",
+      "nameZhCN": "穴蝰",
+      "entry": "units:ah_64d_i_saraph_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
+    },
+    "ah_60_iaf": {
+      "nameEn": "AH-60",
+      "nameZhCN": "AH-60",
+      "entry": "units:ah_60_iaf_shop",
+      "method": "vehicle_id_case_insensitive",
+      "parameters": []
     }
   },
   "groups": {
@@ -45139,6 +46719,13 @@
       "nameEn": "VTB-8/11/14",
       "nameZhCN": "VTB-8/11/14",
       "entry": "units:shop/group/fr_vtb_group",
+      "method": "group_id_case_insensitive",
+      "parameters": []
+    },
+    "tiger_group": {
+      "nameEn": "Tiger HAD/Tiger HAC",
+      "nameZhCN": "虎 HAD/HAC",
+      "entry": "units:shop/group/tiger_group",
       "method": "group_id_case_insensitive",
       "parameters": []
     }
@@ -59064,12 +60651,812 @@
       "entry": "units_modifications:modification/65mm_50_navy_ap_ammo_pack",
       "method": "modification_id",
       "parameters": []
+    },
+    "new_compressor_heli\tCompressor": {
+      "nameEn": "Compressor",
+      "nameZhCN": "压缩机",
+      "entry": "units_modifications:modification/new_compressor_heli",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "cd_98_main_rotor\tReplacing helicopter blades": {
+      "nameEn": "Replacing helicopter blades",
+      "nameZhCN": "更换旋翼桨叶",
+      "entry": "units_modifications:modification/cd_98_main_rotor",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "heli_flak_jacket\tFlak jacket": {
+      "nameEn": "Flak jacket",
+      "nameZhCN": "防破片衣",
+      "entry": "units_modifications:modification/heli_flak_jacket",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "heli_structure\tHelicopter frame": {
+      "nameEn": "Helicopter frame",
+      "nameZhCN": "机体翻新",
+      "entry": "units_modifications:modification/heli_structure",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "new_heli_cover\tCover": {
+      "nameEn": "Cover",
+      "nameZhCN": "蒙皮",
+      "entry": "units_modifications:modification/new_heli_cover",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "uh_1c_xm18\tM18A1 gun pod": {
+      "nameEn": "M18A1 gun pod",
+      "nameZhCN": "M18A1 吊舱",
+      "entry": "units_modifications:modification/uh_1c_xm18",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "ah_1_m200_2\tM200A1": {
+      "nameEn": "M200A1",
+      "nameZhCN": "M200A1 挂架",
+      "entry": "units_modifications:modification/ah_1_m200_2",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "ah_1g_M129\tM129": {
+      "nameEn": "M129",
+      "nameZhCN": "M129",
+      "entry": "units_modifications:modification/ah_1g_M129",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "ah_1g_xm35\tXM-35 gun pod": {
+      "nameEn": "XM-35 gun pod",
+      "nameZhCN": "XM35 吊舱",
+      "entry": "units_modifications:modification/ah_1g_xm35",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "grenade_launcher_M129_new_gun\tNew 40 mm cannons": {
+      "nameEn": "New 40 mm cannons",
+      "nameZhCN": "40 毫米前射机炮翻新",
+      "entry": "units_modifications:modification/_new_gun/cannon",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "40"
+      ]
+    },
+    "ah_1g_xm35_belt_pack\tOffensive 20 mm belts": {
+      "nameEn": "Offensive 20 mm belts",
+      "nameZhCN": "20 毫米前射武器弹链",
+      "entry": "units_modifications:modification/_belt_pack",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "20"
+      ]
+    },
+    "uh_1_xm159\tXM159": {
+      "nameEn": "XM159",
+      "nameZhCN": "XM159",
+      "entry": "units_modifications:modification/uh_1_xm159",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "ah_AGM_22\tM156 AGM": {
+      "nameEn": "M156 AGM",
+      "nameZhCN": "M156 AGM 挂架",
+      "entry": "units_modifications:modification/ah_AGM_22",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "ah_1g_M75\tM75": {
+      "nameEn": "M75",
+      "nameZhCN": "M75",
+      "entry": "units_modifications:modification/ah_1g_M75",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "uh_1c_xm21\tXM-21 gun pod": {
+      "nameEn": "XM-21 gun pod",
+      "nameZhCN": "XM21 吊舱",
+      "entry": "units_modifications:modification/uh_1c_xm21",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "grenade_launcher_M75_new_gun\tNew 40 mm cannons": {
+      "nameEn": "New 40 mm cannons",
+      "nameZhCN": "40 毫米前射机炮翻新",
+      "entry": "units_modifications:modification/_new_gun/cannon",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "40"
+      ]
+    },
+    "ah_1_TOW\tTOW": {
+      "nameEn": "TOW",
+      "nameZhCN": "TOW",
+      "entry": "units_modifications:modification/ah_1_TOW",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "heli_night_vision_system\tNVD": {
+      "nameEn": "NVD",
+      "nameZhCN": "夜视仪",
+      "entry": "units_modifications:modification/heli_night_vision_system",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "us_gau_19\tGP-19 gun pod": {
+      "nameEn": "GP-19 gun pod",
+      "nameZhCN": "GP-19 吊舱",
+      "entry": "units_modifications:modification/us_gau_19",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "GAU_19_belt_pack\tOffensive 12.7 mm belts": {
+      "nameEn": "Offensive 12.7 mm belts",
+      "nameZhCN": "12.7 毫米前射武器弹链",
+      "entry": "units_modifications:modification/_belt_pack",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "12.7"
+      ]
+    },
+    "us_agm_114k\tAGM-114K": {
+      "nameEn": "AGM-114K",
+      "nameZhCN": "AGM-114K",
+      "entry": "units_modifications:modification/us_agm_114k",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "GAU_19_new_gun\tNew 12.7 mm MGs": {
+      "nameEn": "New 12.7 mm MGs",
+      "nameZhCN": "12.7 毫米前射机枪翻新",
+      "entry": "units_modifications:modification/_new_gun",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "12.7"
+      ]
+    },
+    "ah_1_m261_hydra_70\tM261 LWL": {
+      "nameEn": "M261 LWL",
+      "nameZhCN": "M261 轻型发射器",
+      "entry": "units_modifications:modification/ah_1_m261_hydra_70",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "heli_counterMeasures\tIRCM": {
+      "nameEn": "IRCM",
+      "nameZhCN": "红外干扰系统",
+      "entry": "units_modifications:modification/heli_counterMeasures",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "ah_1_TOW2\tTOW-2": {
+      "nameEn": "TOW-2",
+      "nameZhCN": "TOW-2",
+      "entry": "units_modifications:modification/ah_1_TOW2",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "new_compressor_mi_4\tCompressor": {
+      "nameEn": "Compressor",
+      "nameZhCN": "压缩机",
+      "entry": "units_modifications:modification/new_compressor_mi_4",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "heli_flak_jacket_and_armor\tFlak jacket": {
+      "nameEn": "Flak jacket",
+      "nameZhCN": "防破片衣",
+      "entry": "units_modifications:modification/heli_flak_jacket_and_armor",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "us_cannon_lr30\tLR30 cannon": {
+      "nameEn": "LR30 cannon",
+      "nameZhCN": "LR30 机炮",
+      "entry": "units_modifications:modification/us_cannon_lr30",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "stinger_aam\tAIM-92 Stinger": {
+      "nameEn": "AIM-92 Stinger",
+      "nameZhCN": "AIM-92",
+      "entry": "units_modifications:modification/stinger_aam",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "ah_1_AGM_114_8\tAGM-114": {
+      "nameEn": "AGM-114",
+      "nameZhCN": "AGM-114",
+      "entry": "units_modifications:modification/ah_1_AGM_114_8",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "ah_1_AGM_114_16\tAGM-114 2": {
+      "nameEn": "AGM-114 2",
+      "nameZhCN": "AGM-114×2",
+      "entry": "units_modifications:modification/ah_1_AGM_114_16",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "us_gpu_2a\tGPU-2/A. gun pod": {
+      "nameEn": "GPU-2/A. gun pod",
+      "nameZhCN": "GPU-2/A 吊舱",
+      "entry": "units_modifications:modification/us_gpu_2a",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "AMASE_heli_false_thermal_targets\tAMASE": {
+      "nameEn": "AMASE",
+      "nameZhCN": "AMASE",
+      "entry": "units_modifications:modification/AMASE_heli_false_thermal_targets",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "us_agm_179\tAGM-179 (SAL)": {
+      "nameEn": "AGM-179 (SAL)",
+      "nameZhCN": "AGM-179 (半主动激光)",
+      "entry": "units_modifications:modification/us_agm_179",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "us_agm_179_ir\tAGM-179 (IR)": {
+      "nameEn": "AGM-179 (IR)",
+      "nameZhCN": "AGM-179 (红外)",
+      "entry": "units_modifications:modification/us_agm_179_ir",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "atgm_spike_nlos\tSpike NLOS": {
+      "nameEn": "Spike NLOS",
+      "nameZhCN": "长钉 NLOS",
+      "entry": "units_modifications:modification/atgm_spike_nlos",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "YaK-B_belt_pack\tOffensive 12.7 mm belts": {
+      "nameEn": "Offensive 12.7 mm belts",
+      "nameZhCN": "12.7 毫米前射武器弹链",
+      "entry": "units_modifications:modification/_belt_pack",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "12.7"
+      ]
+    },
+    "mi_8_su_9M14\t9М14": {
+      "nameEn": "9М14",
+      "nameZhCN": "9М14 婴儿",
+      "entry": "units_modifications:modification/mi_8_su_9M14",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "YaK-B_new_gun\tNew 12.7 mm MGs": {
+      "nameEn": "New 12.7 mm MGs",
+      "nameZhCN": "12.7 毫米前射机枪翻新",
+      "entry": "units_modifications:modification/_new_gun",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "12.7"
+      ]
+    },
+    "uh_1d_lr68\tIL.68.22.I": {
+      "nameEn": "IL.68.22.I",
+      "nameZhCN": "IL.68.22.I",
+      "entry": "units_modifications:modification/uh_1d_lr68",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "fn_hmp400_lcc\tFN HMP400 LCC / LTC.": {
+      "nameEn": "FN HMP400 LCC / LTC.",
+      "nameZhCN": "FN HMP400 LCC / LTC",
+      "entry": "units_modifications:modification/fn_hmp400_lcc",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "fn_rmp_lc\tFN RMP LC / LTC": {
+      "nameEn": "FN RMP LC / LTC",
+      "nameZhCN": "FN RMP LC / LTC",
+      "entry": "units_modifications:modification/fn_rmp_lc",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "heli_screen_exhaust_device\tHIRSS": {
+      "nameEn": "HIRSS",
+      "nameZhCN": "悬停红外抑制系统",
+      "entry": "units_modifications:modification/heli_screen_exhaust_device",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "su_guv_8700\tGUV-8700 gun pod": {
+      "nameEn": "GUV-8700 gun pod",
+      "nameZhCN": "GUV-8700 吊舱",
+      "entry": "units_modifications:modification/su_guv_8700",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "mi_24_su_9M114\tRP-2-149TK": {
+      "nameEn": "RP-2-149TK",
+      "nameZhCN": "RP-2-149TK 挂架",
+      "entry": "units_modifications:modification/mi_24_su_9M114",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "mi_24_r_60_2\tR-60 2": {
+      "nameEn": "R-60 2",
+      "nameZhCN": "R-60×2",
+      "entry": "units_modifications:modification/mi_24_r_60_2",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "gunGShG_new_gun\tNew 7.62 mm MGs": {
+      "nameEn": "New 7.62 mm MGs",
+      "nameZhCN": "7.62 毫米前射机枪翻新",
+      "entry": "units_modifications:modification/_new_gun",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "7.62"
+      ]
+    },
+    "tiger_hmp400_lcc\tFN HMP400 LCC": {
+      "nameEn": "FN HMP400 LCC",
+      "nameZhCN": "FN HMP400 LCC",
+      "entry": "units_modifications:modification/tiger_hmp400_lcc",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "tiger_rmp_lc\tFN RMP LC": {
+      "nameEn": "FN RMP LC",
+      "nameZhCN": "FN RMP LC",
+      "entry": "units_modifications:modification/tiger_rmp_lc",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "fr_fz275\tFZ275": {
+      "nameEn": "FZ275",
+      "nameZhCN": "FZ275",
+      "entry": "units_modifications:modification/fr_fz275",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "atgm_spike_x4\tSpike ER /4": {
+      "nameEn": "Spike ER /4",
+      "nameZhCN": "长钉 ER×4",
+      "entry": "units_modifications:modification/atgm_spike_x4",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "tiger_atgw3\tPARS 3 LR": {
+      "nameEn": "PARS 3 LR",
+      "nameZhCN": "PARS 3 LR",
+      "entry": "units_modifications:modification/tiger_atgw3",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "heli_atam_mistral\tATAM": {
+      "nameEn": "ATAM",
+      "nameZhCN": "西北风 ATAM",
+      "entry": "units_modifications:modification/heli_atam_mistral",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "pkt_new_gun\tNew 7.62 mm MGs": {
+      "nameEn": "New 7.62 mm MGs",
+      "nameZhCN": "7.62 毫米前射机枪翻新",
+      "entry": "units_modifications:modification/_new_gun",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "7.62"
+      ]
+    },
+    "mi_24_su_9M114_2\tRP-2-149TK/2": {
+      "nameEn": "RP-2-149TK/2",
+      "nameZhCN": "RP-2-149TK×2 挂架",
+      "entry": "units_modifications:modification/mi_24_su_9M114_2",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "mi_35_9M39\t9M39": {
+      "nameEn": "9M39",
+      "nameZhCN": "9M39",
+      "entry": "units_modifications:modification/mi_35_9M39",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "mi_35_9M114_8\tAPU-8/4-U 8 Shturm": {
+      "nameEn": "APU-8/4-U 8 Shturm",
+      "nameZhCN": "APU-8/4-U×8 蚕茧",
+      "entry": "units_modifications:modification/mi_35_9M114_8",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "mi_35_9M120_4\tAPU-8/4-U 4 Ataka": {
+      "nameEn": "APU-8/4-U 4 Ataka",
+      "nameZhCN": "APU-8/4-U×4 攻击",
+      "entry": "units_modifications:modification/mi_35_9M120_4",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "2A42_belt_pack\tOffensive 30 mm belts": {
+      "nameEn": "Offensive 30 mm belts",
+      "nameZhCN": "30 毫米前射武器弹链",
+      "entry": "units_modifications:modification/_belt_pack",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "30"
+      ]
+    },
+    "2A42_new_gun\tNew 30 mm cannons": {
+      "nameEn": "New 30 mm cannons",
+      "nameZhCN": "30 毫米前射机炮翻新",
+      "entry": "units_modifications:modification/_new_gun/cannon",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "30"
+      ]
+    },
+    "ka_29_2a42\t2A42": {
+      "nameEn": "2A42",
+      "nameZhCN": "2A42 机炮",
+      "entry": "units_modifications:modification/ka_29_2a42",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "ka_52_9m120_6\tAPU-6": {
+      "nameEn": "APU-6",
+      "nameZhCN": "APU-6 挂架",
+      "entry": "units_modifications:modification/ka_52_9m120_6",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "mi_35_9M120_8\tAPU-8/4-U 8 Ataka": {
+      "nameEn": "APU-8/4-U 8 Ataka",
+      "nameZhCN": "APU-8/4-U×8 攻击",
+      "entry": "units_modifications:modification/mi_35_9M120_8",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "kord_belt_pack\tOffensive 12.7 mm belts": {
+      "nameEn": "Offensive 12.7 mm belts",
+      "nameZhCN": "12.7 毫米前射武器弹链",
+      "entry": "units_modifications:modification/_belt_pack",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "12.7"
+      ]
+    },
+    "kord_new_gun\tNew 12.7 mm MGs": {
+      "nameEn": "New 12.7 mm MGs",
+      "nameZhCN": "12.7 毫米前射机枪翻新",
+      "entry": "units_modifications:modification/_new_gun",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "12.7"
+      ]
+    },
+    "mi_8_9M336\t9M336": {
+      "nameEn": "9M336",
+      "nameZhCN": "9M336",
+      "entry": "units_modifications:modification/mi_8_9M336",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "mi_28nm_9M123\t9M123M": {
+      "nameEn": "9M123M",
+      "nameZhCN": "9M123M",
+      "entry": "units_modifications:modification/mi_28nm_9M123",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "su_lmur\tLMUR": {
+      "nameEn": "LMUR",
+      "nameZhCN": "LMUR",
+      "entry": "units_modifications:modification/su_lmur",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "L8A1_new_gun\tNew 7.62 mm MGs": {
+      "nameEn": "New 7.62 mm MGs",
+      "nameZhCN": "7.62 毫米前射机枪翻新",
+      "entry": "units_modifications:modification/_new_gun",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "7.62"
+      ]
+    },
+    "as_12_atgm\tAS.12": {
+      "nameEn": "AS.12",
+      "nameZhCN": "AS.12",
+      "entry": "units_modifications:modification/as_12_atgm",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "GI_2_belt_pack\tOffensive 20 mm belts": {
+      "nameEn": "Offensive 20 mm belts",
+      "nameZhCN": "20 毫米前射武器弹链",
+      "entry": "units_modifications:modification/_belt_pack",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "20"
+      ]
+    },
+    "GI_2_new_gun\tNew 20 mm cannons": {
+      "nameEn": "New 20 mm cannons",
+      "nameZhCN": "20 毫米前射机炮翻新",
+      "entry": "units_modifications:modification/_new_gun/cannon",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "20"
+      ]
+    },
+    "sa_zt_35_ingwe\tZT3A2 Ingwe": {
+      "nameEn": "ZT3A2 Ingwe",
+      "nameZhCN": "ZT3A2 豹",
+      "entry": "units_modifications:modification/sa_zt_35_ingwe",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "Oerlikon_KAD_belt_pack\tOffensive 20 mm belts": {
+      "nameEn": "Offensive 20 mm belts",
+      "nameZhCN": "20 毫米前射武器弹链",
+      "entry": "units_modifications:modification/_belt_pack",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "20"
+      ]
+    },
+    "Oerlikon_KAD_new_gun\tNew 20 mm cannons": {
+      "nameEn": "New 20 mm cannons",
+      "nameZhCN": "20 毫米前射机炮翻新",
+      "entry": "units_modifications:modification/_new_gun/cannon",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "20"
+      ]
+    },
+    "atgm_mokopa\tZT-6 Mokopa": {
+      "nameEn": "ZT-6 Mokopa",
+      "nameZhCN": "ZT-6 黑曼巴",
+      "entry": "units_modifications:modification/atgm_mokopa",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "uk_martlet\tMartlet": {
+      "nameEn": "Martlet",
+      "nameZhCN": "岩燕",
+      "entry": "units_modifications:modification/uk_martlet",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "ah_mk1_starstreak\tATASK": {
+      "nameEn": "ATASK",
+      "nameZhCN": "空对空星痕",
+      "entry": "units_modifications:modification/ah_mk1_starstreak",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "ah_1_TOW2_2\tTOW-2 4": {
+      "nameEn": "TOW-2 4",
+      "nameZhCN": "TOW-2×4",
+      "entry": "units_modifications:modification/ah_1_TOW2_2",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "qjk_99_belt_pack\tOffensive 12.7 mm belts": {
+      "nameEn": "Offensive 12.7 mm belts",
+      "nameZhCN": "12.7 毫米前射武器弹链",
+      "entry": "units_modifications:modification/_belt_pack",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "12.7"
+      ]
+    },
+    "cn_hf7d\tHF-7D": {
+      "nameEn": "HF-7D",
+      "nameZhCN": "火发-7D",
+      "entry": "units_modifications:modification/cn_hf7d",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "qjk_99_new_gun\tNew 12.7 mm MGs": {
+      "nameEn": "New 12.7 mm MGs",
+      "nameZhCN": "12.7 毫米前射机枪翻新",
+      "entry": "units_modifications:modification/_new_gun",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "12.7"
+      ]
+    },
+    "cn_hj8_c\tHJ-8C": {
+      "nameEn": "HJ-8C",
+      "nameZhCN": "红箭-8C",
+      "entry": "units_modifications:modification/cn_hj8_c",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "cn_ty_90\tTY-90": {
+      "nameEn": "TY-90",
+      "nameZhCN": "天燕-90",
+      "entry": "units_modifications:modification/cn_ty_90",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "cn_hj8_e\tHJ-8E": {
+      "nameEn": "HJ-8E",
+      "nameZhCN": "红箭-8E",
+      "entry": "units_modifications:modification/cn_hj8_e",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "sa_heli_hot\tHOT": {
+      "nameEn": "HOT",
+      "nameZhCN": "HOT",
+      "entry": "units_modifications:modification/sa_heli_hot",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "cn_akd_9\tAKD-9": {
+      "nameEn": "AKD-9",
+      "nameZhCN": "AKD-9",
+      "entry": "units_modifications:modification/cn_akd_9",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "cn_ba_9\tBA-9": {
+      "nameEn": "BA-9",
+      "nameZhCN": "蓝箭-9",
+      "entry": "units_modifications:modification/cn_ba_9",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "cn_hj8_h\tHJ-8H": {
+      "nameEn": "HJ-8H",
+      "nameZhCN": "红箭-8H",
+      "entry": "units_modifications:modification/cn_hj8_h",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "type_23l_belt_pack\tOffensive 23 mm belts": {
+      "nameEn": "Offensive 23 mm belts",
+      "nameZhCN": "23 毫米前射武器弹链",
+      "entry": "units_modifications:modification/_belt_pack",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "23"
+      ]
+    },
+    "type_23l_new_gun\tNew 23 mm cannons": {
+      "nameEn": "New 23 mm cannons",
+      "nameZhCN": "23 毫米前射机炮翻新",
+      "entry": "units_modifications:modification/_new_gun/cannon",
+      "method": "game_template_and_modification_kind",
+      "parameters": [
+        "23"
+      ]
+    },
+    "cn_akd_10\tAKD-10": {
+      "nameEn": "AKD-10",
+      "nameZhCN": "AKD-10",
+      "entry": "units_modifications:modification/cn_akd_10",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "cn_cm_502kg\tCM-502KG": {
+      "nameEn": "CM-502KG",
+      "nameZhCN": "CM-502KG",
+      "entry": "units_modifications:modification/cn_cm_502kg",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "cn_ba_11\tBA-11A": {
+      "nameEn": "BA-11A",
+      "nameZhCN": "蓝箭-11A",
+      "entry": "units_modifications:modification/cn_ba_11",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "fn_hmp400\tFN HMP400 LCC": {
+      "nameEn": "FN HMP400 LCC",
+      "nameZhCN": "FN HMP400 LCC",
+      "entry": "units_modifications:modification/fn_hmp400",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "fn_rmp\tFN RMP LC": {
+      "nameEn": "FN RMP LC",
+      "nameZhCN": "FN RMP LC",
+      "entry": "units_modifications:modification/fn_rmp",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "tr_fz49\tFZ49": {
+      "nameEn": "FZ49",
+      "nameZhCN": "FZ49",
+      "entry": "units_modifications:modification/tr_fz49",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "tr_cirit_x4\tCIRIT": {
+      "nameEn": "CIRIT",
+      "nameZhCN": "CIRIT",
+      "entry": "units_modifications:modification/tr_cirit_x4",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "tr_umtas_x4\tUMTAS": {
+      "nameEn": "UMTAS",
+      "nameZhCN": "UMTAS",
+      "entry": "units_modifications:modification/tr_umtas_x4",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "a_129_hl_19_70\tHL-19-70": {
+      "nameEn": "HL-19-70",
+      "nameZhCN": "HL-19-70",
+      "entry": "units_modifications:modification/a_129_hl_19_70",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "atgm_spike_x2\tSpike ER": {
+      "nameEn": "Spike ER",
+      "nameZhCN": "长钉 ER",
+      "entry": "units_modifications:modification/atgm_spike_x2",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "fr_50kg_type_61c\tType 61C": {
+      "nameEn": "Type 61C",
+      "nameZhCN": "61C 型",
+      "entry": "units_modifications:modification/fr_50kg_type_61c",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "sa_heli_hot_2\tHOT-2": {
+      "nameEn": "HOT-2",
+      "nameZhCN": "HOT-2",
+      "entry": "units_modifications:modification/sa_heli_hot_2",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "tiger_tel12\tTELSON 12": {
+      "nameEn": "TELSON 12",
+      "nameZhCN": "TELSON 12",
+      "entry": "units_modifications:modification/tiger_tel12",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "tiger_hot3\tHOT-3": {
+      "nameEn": "HOT-3",
+      "nameZhCN": "HOT-3",
+      "entry": "units_modifications:modification/tiger_hot3",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "tiger_trigat_lr\tTRIGAT-LR": {
+      "nameEn": "TRIGAT-LR",
+      "nameZhCN": "TRIGAT-LR",
+      "entry": "units_modifications:modification/tiger_trigat_lr",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "ffv_uni_pod\tFFV UNI-pod": {
+      "nameEn": "FFV UNI-pod",
+      "nameZhCN": "FFV UNI-POD",
+      "entry": "units_modifications:modification/ffv_uni_pod",
+      "method": "modification_id",
+      "parameters": []
+    },
+    "il_gatr\tGATR": {
+      "nameEn": "GATR",
+      "nameZhCN": "GATR",
+      "entry": "units_modifications:modification/il_gatr",
+      "method": "modification_id",
+      "parameters": []
     }
   },
   "coverage": {
-    "vehicles": 3124,
+    "vehicles": 3236,
     "vehicleMissing": [],
-    "modificationNames": 1933,
+    "modificationNames": 2041,
     "modificationMissing": [
       "12mm_usa_M2HB_API_ammo_pack\t.50 API",
       "12mm_usa_M2HB_AP_ammo_pack\t.50 AP",
