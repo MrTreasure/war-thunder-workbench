@@ -12,6 +12,9 @@ assert(
   "Published build must not contain JSON files",
 );
 const html = await readFile(resolve(dist, "index.html"), "utf8");
+const atlasModules = files.filter((file) => /^assets\/MapAtlas\.[^/]+\.js$/.test(file));
+assert.equal(atlasModules.length, 1, "Expected one lazy guide page module");
+assert(!html.includes(atlasModules[0]), "Hidden guide page must not be preloaded");
 const published = [];
 for (const [country, entry] of Object.entries(manifest.countries)) {
   const prefix = entry.file.replace(/\.js$/, ".");

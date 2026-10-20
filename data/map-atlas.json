@@ -1,0 +1,1518 @@
+{
+  "schemaVersion": 1,
+  "extractedAt": "2026-10-20T15:42:53.052Z",
+  "source": {
+    "url": "https://render.mrtreasure.cc/muse/wt-map-atlas/index.html",
+    "checkedAt": "2026-10-20T15:42:53.052Z",
+    "sha256": "2b601d205849158d1e4dcb5d8296541cafdaf2ced780a94e5490eb0a5cf7a521",
+    "guidesSha256": "92dc1f5ed5a48f83bd32a816ec4cc28997ee5109a8e30e787f2b38cf23b8f022",
+    "imagesSha256": "cc0d8b957233bb20a99e5e115037a04a96c85b03c938a83d8c76e334383203da"
+  },
+  "collection": {
+    "source": "https://web.xiaoheihe.cn/bbs/content_collection/collection_detail?is_share=1&obj_id=6ac7558cdc61889e0977988d",
+    "author": "木炉",
+    "title": "战雷攻略2026",
+    "checkedAt": "2026-10-20T15:43:56.872Z",
+    "count": 15,
+    "complete": true,
+    "articleChecks": {
+      "1bf672aa2f44": {
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/1bf672aa2f44",
+        "checkedAt": "2026-10-20T15:43:08.256Z",
+        "updatedAt": "2026-10-20T14:45:59.000Z",
+        "bodySha256": "ff62c7b9848783a695c463ed1b914f7bbcc38513465ae470d3e299b050904300",
+        "characters": 2756,
+        "bodyFormat": 1
+      },
+      "6e07729cb5a7": {
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/6e07729cb5a7",
+        "checkedAt": "2026-10-20T15:43:14.906Z",
+        "updatedAt": "2026-10-19T17:22:41.000Z",
+        "bodySha256": "f0246c1d9fc68c0c9cb0e3cecedce15b326b4fa9c95d0f464d853703334a178f",
+        "characters": 1765,
+        "bodyFormat": 1
+      },
+      "1c8272a683ab": {
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/1c8272a683ab",
+        "checkedAt": "2026-10-20T15:43:21.846Z",
+        "updatedAt": "2026-10-20T11:12:08.000Z",
+        "bodySha256": "fcb59ef9543a46025d8c2e95b18ab4ba2fcbeb873e88bcce1ce38ca2372cffb2",
+        "characters": 773,
+        "bodyFormat": 1
+      },
+      "3dad72a68a75": {
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/3dad72a68a75",
+        "checkedAt": "2026-10-20T15:43:28.918Z",
+        "updatedAt": "2026-10-20T11:32:22.000Z",
+        "bodySha256": "3a8c6daaff79e79d91917ace3a9ce2c042fd17f34f95503f6932149b85310835",
+        "characters": 547,
+        "bodyFormat": 1
+      },
+      "78e272a21ece": {
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/78e272a21ece",
+        "checkedAt": "2026-10-20T15:43:35.855Z",
+        "updatedAt": "2026-10-18T11:06:58.000Z",
+        "bodySha256": "429fc69a524d435919adee975f3dc423736a050b56485cb86c2b8a521d4e15bb",
+        "characters": 692,
+        "bodyFormat": 1
+      },
+      "0ac6729e41a6": {
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/0ac6729e41a6",
+        "checkedAt": "2026-10-20T15:43:42.889Z",
+        "updatedAt": "2026-10-20T02:56:52.000Z",
+        "bodySha256": "8712c191ec9def00cb46c863cdd8d86086a6e499ddf8a1071f8cd94d23786131",
+        "characters": 740,
+        "bodyFormat": 1
+      },
+      "d56d729bfc40": {
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/d56d729bfc40",
+        "checkedAt": "2026-10-20T15:43:49.874Z",
+        "updatedAt": "2026-10-20T03:41:59.000Z",
+        "bodySha256": "3cbf22c89e58302b3da978ee4c1d73daa66861b0c86bb01b15c9f32f5dcb0531",
+        "characters": 1080,
+        "bodyFormat": 1
+      },
+      "7971729b0440": {
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/7971729b0440",
+        "checkedAt": "2026-10-20T15:43:56.872Z",
+        "updatedAt": "2026-10-18T10:23:41.000Z",
+        "bodySha256": "20d2c48b83f5f6061a6c65d25c53237e2164ebbb5d0d8d5e471cdf70b3d021e0",
+        "characters": 757,
+        "bodyFormat": 1
+      }
+    },
+    "articleCheckErrors": [],
+    "entries": [
+      {
+        "id": "1bf672aa2f44",
+        "title": "就在下周！战雷周年庆开线氪金指南",
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/1bf672aa2f44",
+        "publishedAt": "2026-10-18T06:53:02.000Z",
+        "updatedAt": "2026-10-20T14:45:59.000Z",
+        "isMapGuide": false,
+        "includedInSource": false
+      },
+      {
+        "id": "146e7299c4f4",
+        "title": "时隔半年，以4K画质重置战雷走线！",
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/146e7299c4f4",
+        "publishedAt": "2026-10-08T08:01:01.000Z",
+        "updatedAt": "2026-10-10T13:35:04.000Z",
+        "isMapGuide": false,
+        "includedInSource": true
+      },
+      {
+        "id": "6e07729cb5a7",
+        "title": "想让阜南也能看懂的走线对战思路总结",
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/6e07729cb5a7",
+        "publishedAt": "2026-10-10T17:19:31.000Z",
+        "updatedAt": "2026-10-19T17:22:41.000Z",
+        "isMapGuide": false,
+        "includedInSource": true
+      },
+      {
+        "id": "1c8272a683ab",
+        "title": "阜南大学习–莫兹多克走线思路讲解",
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/1c8272a683ab",
+        "publishedAt": "2026-10-16T08:55:15.000Z",
+        "updatedAt": "2026-10-20T11:12:08.000Z",
+        "isMapGuide": true,
+        "includedInSource": true
+      },
+      {
+        "id": "98de7299d113",
+        "title": "阜南大学习–阿提卡走线思路讲解",
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/98de7299d113",
+        "publishedAt": "2026-10-08T08:31:59.000Z",
+        "updatedAt": "2026-10-16T09:18:22.000Z",
+        "isMapGuide": true,
+        "includedInSource": true
+      },
+      {
+        "id": "3dad72a68a75",
+        "title": "阜南大学习–小突尼斯走线思路讲解",
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/3dad72a68a75",
+        "publishedAt": "2026-10-16T09:13:15.000Z",
+        "updatedAt": "2026-10-20T11:32:22.000Z",
+        "isMapGuide": true,
+        "includedInSource": true
+      },
+      {
+        "id": "78e272a21ece",
+        "title": "阜南大学习–喀尔巴阡山走线思路讲解",
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/78e272a21ece",
+        "publishedAt": "2026-10-15T05:49:19.000Z",
+        "updatedAt": "2026-10-18T11:06:58.000Z",
+        "isMapGuide": true,
+        "includedInSource": true
+      },
+      {
+        "id": "e36872a2235d",
+        "title": "阜南大学习–大东欧走线思路讲解",
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/e36872a2235d",
+        "publishedAt": "2026-10-15T06:06:51.000Z",
+        "updatedAt": "2026-10-16T13:10:12.000Z",
+        "isMapGuide": true,
+        "includedInSource": true
+      },
+      {
+        "id": "d9c5729fc9ee",
+        "title": "阜南大学习–山野荒城走线思路讲解",
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/d9c5729fc9ee",
+        "publishedAt": "2026-10-13T10:05:04.000Z",
+        "updatedAt": "2026-10-16T09:18:30.000Z",
+        "isMapGuide": true,
+        "includedInSource": true
+      },
+      {
+        "id": "0ac6729e41a6",
+        "title": "阜南大学习–日曜之城走线思路讲解",
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/0ac6729e41a6",
+        "publishedAt": "2026-10-12T03:53:05.000Z",
+        "updatedAt": "2026-10-20T02:56:52.000Z",
+        "isMapGuide": true,
+        "includedInSource": true
+      },
+      {
+        "id": "ca99729bfa2e",
+        "title": "阜南大学习–第二次阿拉曼下点走线思路讲解",
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/ca99729bfa2e",
+        "publishedAt": "2026-10-10T05:57:30.000Z",
+        "updatedAt": "2026-10-16T09:19:26.000Z",
+        "isMapGuide": true,
+        "includedInSource": true
+      },
+      {
+        "id": "d56d729bfc40",
+        "title": "阜南大学习–芬兰走线思路讲解",
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/d56d729bfc40",
+        "publishedAt": "2026-10-10T06:35:29.000Z",
+        "updatedAt": "2026-10-20T03:41:59.000Z",
+        "isMapGuide": true,
+        "includedInSource": true
+      },
+      {
+        "id": "cf277299d83b",
+        "title": "阜南大学习–小东欧走线思路讲解",
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/cf277299d83b",
+        "publishedAt": "2026-10-08T09:23:39.000Z",
+        "updatedAt": "2026-10-14T03:10:18.000Z",
+        "isMapGuide": true,
+        "includedInSource": true
+      },
+      {
+        "id": "7971729b0440",
+        "title": "阜南大学习–北荷兰省走线思路讲解",
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/7971729b0440",
+        "publishedAt": "2026-10-09T09:40:01.000Z",
+        "updatedAt": "2026-10-18T10:23:41.000Z",
+        "isMapGuide": true,
+        "includedInSource": true
+      },
+      {
+        "id": "74fc729b00be",
+        "title": "阜南大学习–佛兰德斯走线思路讲解",
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/74fc729b00be",
+        "publishedAt": "2026-10-09T09:13:15.000Z",
+        "updatedAt": "2026-10-16T09:19:35.000Z",
+        "isMapGuide": true,
+        "includedInSource": true
+      }
+    ],
+    "newEntries": [
+      {
+        "id": "1bf672aa2f44",
+        "title": "就在下周！战雷周年庆开线氪金指南",
+        "source": "https://www.xiaoheihe.cn/app/bbs/link/1bf672aa2f44",
+        "publishedAt": "2026-10-18T06:53:02.000Z",
+        "updatedAt": "2026-10-20T14:45:59.000Z",
+        "isMapGuide": false,
+        "includedInSource": false
+      }
+    ],
+    "publishedAfterSnapshot": [],
+    "editedAfterSnapshot": [],
+    "sha256": "ca2eb8dde7616fc1fdbaff493b2da6195d2b5a7a591665e18a59e2460915c4dc"
+  },
+  "guides": [
+    {
+      "id": "ca99729bfa2e",
+      "name": "第二次阿拉曼",
+      "source": "https://www.xiaoheihe.cn/app/bbs/link/ca99729bfa2e",
+      "overview": "下点版本 · A 点高坡是争夺核心，少掩体、以远距离交战为主。",
+      "mode": "作者以冷战及以上陆战历史为主；本文图示含 ABC 三点。不适配所有权重、模式或地图变体。",
+      "verifiedAt": "2026-10-16",
+      "variants": [
+        {
+          "id": "2f7b882a570e3a",
+          "side": "左侧出生",
+          "imageId": "2f7b882a570e3a",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "一号位反斜坡起手，观察对方右半场出门路线；留意对面狙台的对狙。"
+            },
+            {
+              "label": "转点条件",
+              "text": "己方明显占优才考虑二号反斜坡；若 A 点失守，先评估反攻，而非继续原地架枪。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "反攻 A 点需要穿越沙丘，对方防守更有利；不能把作者的低风险评价视为保证。"
+            }
+          ]
+        },
+        {
+          "id": "319fc3b8127181",
+          "side": "右侧出生",
+          "imageId": "319fc3b8127181",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "绕地图下方进入 A 点，威胁沙丘后方的狙台，并观察中路与去 C 的路线。"
+            },
+            {
+              "label": "转点条件",
+              "text": "A 点站稳后再绕至一号反斜坡；该推进以占住 A 点为前提。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "警惕地图左侧的大绕后；A 点帐篷可被炮弹打穿，不是可靠硬掩体。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d9c5729fc9ee",
+      "name": "山野荒城",
+      "source": "https://www.xiaoheihe.cn/app/bbs/link/d9c5729fc9ee",
+      "overview": "多死角巷战图 · 作者避开 B 点绞肉，以中路大房为战术支点。",
+      "mode": "作者以冷战及以上陆战历史为主；本文图示含 ABC 三点。不适配所有权重、模式或地图变体。",
+      "verifiedAt": "2026-10-16",
+      "variants": [
+        {
+          "id": "93968d450d8cb0",
+          "side": "左侧出生",
+          "imageId": "93968d450d8cb0",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "抢中路大房下方一号点；爬坡前检查二号点附近小路，对方可更快到大房侧。"
+            },
+            {
+              "label": "转点条件",
+              "text": "中路受控且 AB 至少一处在己方手中，再向二号小房区推进，观察下方复活点出门。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "对方若已爬上大房坡，不要硬顶互架；退远并监视中路大道的复仇车辆。"
+            }
+          ]
+        },
+        {
+          "id": "55ec7992f30d14",
+          "side": "右侧出生",
+          "imageId": "55ec7992f30d14",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "利用先到大房右侧的时间窗，爬侧坡观察冲 B 路线；同时防后方及 A 点方向来车。"
+            },
+            {
+              "label": "转点条件",
+              "text": "中路占优后转二号树林凹槽；A 方向也打出优势，才继续三号小房区。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "各点隔断重，其他方向崩盘会带来多向渗透；不能只盯着当前射界。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cf277299d83b",
+      "name": "小东欧",
+      "source": "https://www.xiaoheihe.cn/app/bbs/link/cf277299d83b",
+      "overview": "河流分隔战场 · 作者优先 B 半区，避开 AC 的复杂房区与林地。",
+      "mode": "作者以冷战及以上陆战历史为主；本文图示含 ABC 三点。不适配所有权重、模式或地图变体。",
+      "verifiedAt": "2026-10-16",
+      "variants": [
+        {
+          "id": "d7fc1a2b874dc6",
+          "side": "左侧出生",
+          "imageId": "d7fc1a2b874dc6",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "出门在小路路沿观察对方向地图上方绕侧的车辆，再向 B 移动。"
+            },
+            {
+              "label": "转点条件",
+              "text": "二号坡下观察，必要时右转巷子躲避；根据 AC 战况决定占 B 或转三、四号位。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "AC 敌人多时占点会吸引火力；三号拐角和四号伸缩位不是无条件安全点。"
+            }
+          ]
+        },
+        {
+          "id": "0cce071cd9cd0a",
+          "side": "右侧出生",
+          "imageId": "0cce071cd9cd0a",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "一号油罐区反斜起手，观察开阔过点与右侧房区。"
+            },
+            {
+              "label": "转点条件",
+              "text": "二号位观察 A 点，三号凹形房区听 B 动静；确认对岸空档，再转四号位。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "A 点可能反架二号位；向外拉身位观察更远路线会增加暴露。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "78e272a21ece",
+      "name": "喀尔巴阡山",
+      "source": "https://www.xiaoheihe.cn/app/bbs/link/78e272a21ece",
+      "overview": "野战高差图 · A 高 C 低，山上控制与中路、C 点互相联动。",
+      "mode": "作者以冷战及以上陆战历史为主；本文图示含 ABC 三点。不适配所有权重、模式或地图变体。",
+      "verifiedAt": "2026-10-16",
+      "variants": [
+        {
+          "id": "ab58687dda0dcf",
+          "side": "下方出生",
+          "imageId": "ab58687dda0dcf",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "可选一号石头后控中路；或抢二号位截上山路线，也可进入 A 点借掩体防守。"
+            },
+            {
+              "label": "转点条件",
+              "text": "控制山上及中路后，才考虑三号位；作者提及围墙缺口能观察复活点出门路线。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "抢二号要防地图上方反斜绕侧；在 A 点内要留意 C 点方向。"
+            }
+          ]
+        },
+        {
+          "id": "0fd40eac34127c",
+          "side": "上方出生",
+          "imageId": "0fd40eac34127c",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "绕 C 点下方反斜至二号位，拦截出 C 路口，不与先到的对方硬抢山。"
+            },
+            {
+              "label": "转点条件",
+              "text": "C 方向稳定后转一号斜坡，联动观察 A 山、中路和上路。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "地图下方远绕可偷背；控制暴露身位并听近处车辆，避免只看远处。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d56d729bfc40",
+      "name": "芬兰",
+      "source": "https://www.xiaoheihe.cn/app/bbs/link/d56d729bfc40",
+      "overview": "三点隔断明显 · 上方控 BC 高台，下方依速度选择 A 侧穿插。",
+      "mode": "作者以冷战及以上陆战历史为主；本文图示含 ABC 三点。不适配所有权重、模式或地图变体。",
+      "verifiedAt": "2026-10-16",
+      "variants": [
+        {
+          "id": "3b27d14649c7c1",
+          "side": "下方出生",
+          "imageId": "3b27d14649c7c1",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "出生位置好且车快可抢二号位；慢车先一号位架中路，再转三号石头控 A 进点。"
+            },
+            {
+              "label": "转点条件",
+              "text": "A 点有支援或已控制，再向四号位绕 B 背后；保持距离，不要贴进 B 丢掉侧击优势。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "去四号的路会暴露给两个狙台；发现有人优先后撤，在 A 等其前压，不硬穿。"
+            }
+          ]
+        },
+        {
+          "id": "c1d15924d0e6d4",
+          "side": "上方出生",
+          "imageId": "c1d15924d0e6d4",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "抢 BC 之间高台一号位，观察中路与 B 到 A 小道。"
+            },
+            {
+              "label": "转点条件",
+              "text": "中路打出优势后再转二号有树反斜，切断对方中路出门。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "留意 C 点侧面狙台，利用高台控制身位；作者允许一号位保守留守，不必强推。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0ac6729e41a6",
+      "name": "日曜之城",
+      "source": "https://www.xiaoheihe.cn/app/bbs/link/0ac6729e41a6",
+      "overview": "城区桥梁争夺 · 三座桥是制高点，中桥是主线。",
+      "mode": "作者以冷战及以上陆战历史为主；本文图示含 ABC 三点。不适配所有权重、模式或地图变体。",
+      "verifiedAt": "2026-10-16",
+      "variants": [
+        {
+          "id": "0742facd03b1ec",
+          "side": "下方出生",
+          "imageId": "0742facd03b1ec",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "快车抢一号平台，上台时就贴左侧楼梯，而非上台后再横移。"
+            },
+            {
+              "label": "转点条件",
+              "text": "C 丢转二号、B 丢转三号；局势安全才转四号桥，全线被抢则留守反前压。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "桥上前压缺队友保护时易被绕后；慢车不要照搬快压节奏。"
+            }
+          ]
+        },
+        {
+          "id": "044ac4d3bc75a6",
+          "side": "上方出生",
+          "imageId": "044ac4d3bc75a6",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "先到一号桥下，车体与桥平行，借桥遮住车体观察中路。"
+            },
+            {
+              "label": "转点条件",
+              "text": "先确认 B 附近安全，再转二号中桥；上桥后靠己方一侧减少暴露。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "上桥过程会被 B 周围发现；家门桥被抢也会造成出门压力，不只看当前点。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "98de7299d113",
+      "name": "阿提卡",
+      "source": "https://www.xiaoheihe.cn/app/bbs/link/98de7299d113",
+      "overview": "多坡狙图 · 作者重视 AB 间路口，而不推荐双方直接去 C。",
+      "mode": "作者以冷战及以上陆战历史为主；本文图示含 ABC 三点。不适配所有权重、模式或地图变体。",
+      "verifiedAt": "2026-10-16",
+      "variants": [
+        {
+          "id": "c4a70e55014442",
+          "side": "下方出生",
+          "imageId": "c4a70e55014442",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "一号位观察对方进 C 的两条路线；中路占优后再争 B。"
+            },
+            {
+              "label": "转点条件",
+              "text": "左转进 B 可借树和下坡遮蔽；再到二号凹槽联动观察 C 出门与 A 狙台。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "B 正面常规伸缩位会威胁进点；不把凹槽的隐蔽性当作绝对安全。"
+            }
+          ]
+        },
+        {
+          "id": "b87252e2a4ccb2",
+          "side": "上方出生",
+          "imageId": "b87252e2a4ccb2",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "一号位先抓 A 方向过点的短窗口，然后推进二号凹槽。"
+            },
+            {
+              "label": "转点条件",
+              "text": "三号位可观察 B 背身及 C 转中路；再往四号石台前要复查 C 与中路小路。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "三号转移暴露给对方狙台；二号久架收益下降且容易被针对。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "74fc729b00be",
+      "name": "佛兰德斯",
+      "source": "https://www.xiaoheihe.cn/app/bbs/link/74fc729b00be",
+      "overview": "B 点与水池是要害 · 上方不建议优先 C，下方偏向左侧复活抢 AB。",
+      "mode": "作者以冷战及以上陆战历史为主；本文图示含 ABC 三点。不适配所有权重、模式或地图变体。",
+      "verifiedAt": "2026-10-16",
+      "variants": [
+        {
+          "id": "d01fec6d5e35b7",
+          "side": "下方出生",
+          "imageId": "d01fec6d5e35b7",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "一号水池侧坡观察 C 过点与 A 战壕缺口，但要防 B 左侧来枪。"
+            },
+            {
+              "label": "转点条件",
+              "text": "争下 B 后转二号坡；正面难进可借 A 战壕绕行，再考虑三号土坡。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "二号高车体可能露头，爬到坡顶更危险；三号防复仇与左侧出门来枪，必要时退坡下。"
+            }
+          ]
+        },
+        {
+          "id": "3301ec78dc3923",
+          "side": "上方出生",
+          "imageId": "3301ec78dc3923",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "直冲 B 房区，利用先到优势；即使对方先占点仍可依房区反击。"
+            },
+            {
+              "label": "转点条件",
+              "text": "一号弹坑反斜观察右侧出门；二号水池高点观察左侧出门路线。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "B 点火车能被炮弹穿透；二号对 A 封锁不完整，需要持续看 A 战况。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e36872a2235d",
+      "name": "大东欧",
+      "source": "https://www.xiaoheihe.cn/app/bbs/link/e36872a2235d",
+      "overview": "平原、树林与房区混合 · 作者偏向 A 的开阔反斜，减少复杂近战。",
+      "mode": "作者以冷战及以上陆战历史为主；本文图示含 ABC 三点。不适配所有权重、模式或地图变体。",
+      "verifiedAt": "2026-10-16",
+      "variants": [
+        {
+          "id": "e37f476bc3e038",
+          "side": "左侧出生",
+          "imageId": "e37f476bc3e038",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "优先冲 A，途中观察是否有对方同样直冲；作者认为己方到点更快。"
+            },
+            {
+              "label": "转点条件",
+              "text": "A 方向稳定后转一号位观察上方复活点出门及 BC 山坡；BC 大劣势时再评估三号反斜。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "树林和房区信息难收集；不要把作者的先到优势等同于必胜。"
+            }
+          ]
+        },
+        {
+          "id": "a42463627efe1a",
+          "side": "右侧出生",
+          "imageId": "a42463627efe1a",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "一号位先观察 AB，压制 A 方向后再去 A，不直接裸冲。"
+            },
+            {
+              "label": "转点条件",
+              "text": "转二号小路路沿，观察 A 点出门车辆翻坡的时机。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "后续没有固定编号链，需按各点局势调整；不能把二号位机械延伸成全场最优路线。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7971729b0440",
+      "name": "北荷兰省",
+      "source": "https://www.xiaoheihe.cn/app/bbs/link/7971729b0440",
+      "overview": "划河分区的房区图 · 双方优先右侧复活，重心放在 BC 之间空地。",
+      "mode": "作者以冷战及以上陆战历史为主；本文图示含 ABC 三点。不适配所有权重、模式或地图变体。",
+      "verifiedAt": "2026-10-16",
+      "variants": [
+        {
+          "id": "2ced3800bb87a9",
+          "side": "上方出生",
+          "imageId": "2ced3800bb87a9",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "一号坡侧观察远侧绕行与 C；二号照看中路/B，或三号看 C 进点。"
+            },
+            {
+              "label": "转点条件",
+              "text": "四号大房听路口、观察 C 进点，五号小房区再控出门；六号仅优势后期考虑。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "七号虽能看两边复活点，队友压制不足会被夹击；前推不能跳过局势判断。"
+            }
+          ]
+        },
+        {
+          "id": "e160a6b78ec06b",
+          "side": "下方出生",
+          "imageId": "e160a6b78ec06b",
+          "notes": [
+            {
+              "label": "开局选择",
+              "text": "一号围墙小房区起手；围墙可打破，依房屋小身位观察绕 C 外侧与进点路线。"
+            },
+            {
+              "label": "转点条件",
+              "text": "队友强压 C 且 B 无人时可占 B，否则推进 C 侧小房区；再考虑三号坡。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "四号桥位应等队友形成压制才去，否则易两面夹击；BC 正面失守会很难维持。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3dad72a68a75",
+      "name": "小突尼斯",
+      "source": "https://www.xiaoheihe.cn/app/bbs/link/3dad72a68a75",
+      "overview": "已整理走线摘要，标注图请对照作者原帖。",
+      "mode": "主要面向作者所玩的冷战及以上陆战历史；请在原帖核对地图变体与编号。",
+      "verifiedAt": "2026-10-16",
+      "variants": [
+        {
+          "id": "3dad72a68a75-0",
+          "side": "上方出生",
+          "imageId": "55223ef00bafc2",
+          "notes": [
+            {
+              "label": "走线思路",
+              "text": "作者以 AB 为重心，先利用一号石头遮车体观察中路；中路受控后转 B 右下斜坡侧击 A，之后才评估三号高台。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "三点隔断多，各点可能各打各的；原作者对高台优势的评价不是生存保证。"
+            }
+          ]
+        },
+        {
+          "id": "3dad72a68a75-1",
+          "side": "下方出生",
+          "imageId": "55223ef00bafc2",
+          "notes": [
+            {
+              "label": "走线思路",
+              "text": "一号土坡观察左路与 A 高台，受压就退回斜坡；向二号位推进时留意对方出门车辆，条件允许再转三号高台联动中路。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "三点隔断多，各点可能各打各的；原作者对高台优势的评价不是生存保证。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1c8272a683ab",
+      "name": "莫兹多克",
+      "source": "https://www.xiaoheihe.cn/app/bbs/link/1c8272a683ab",
+      "overview": "已整理走线摘要，标注图请对照作者原帖。",
+      "mode": "主要面向作者所玩的冷战及以上陆战历史；请在原帖核对地图变体与编号。",
+      "verifiedAt": "2026-10-16",
+      "variants": [
+        {
+          "id": "1c8272a683ab-0",
+          "side": "下方出生",
+          "imageId": "b3890ff170e72e",
+          "notes": [
+            {
+              "label": "走线思路",
+              "text": "作者建议用 B 下方反斜观察绕侧与卖头目标；向 B 上方二号凹地前推会暴露在对方火力下，不宜久留。丢 B 后可评估河道绕侧，而非硬冲正面。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "作者认为上方优势较大，下方需争取早期侧翼突破；首波失败应评估后撤，不能机械追求压家。"
+            }
+          ]
+        },
+        {
+          "id": "1c8272a683ab-1",
+          "side": "上方出生",
+          "imageId": "b3890ff170e72e",
+          "notes": [
+            {
+              "label": "走线思路",
+              "text": "可选择 C 点反斜观察，或 B 上方反斜控制 A 点出口；局势允许再转 B 下方坡坎，同时防远侧绕后和空袭。"
+            },
+            {
+              "label": "风险与取舍",
+              "text": "作者认为上方优势较大，下方需争取早期侧翼突破；首波失败应评估后撤，不能机械追求压家。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "images": [
+    {
+      "id": "94db37adead62d",
+      "name": "谢韦尔斯克",
+      "kind": "原图",
+      "file": "谢韦尔斯克.png",
+      "path": "原图/谢韦尔斯克.png",
+      "size": 29218773,
+      "sha256": "f20f8f2caa2e884f5b1c1f8540f8c72ff4bf291b91f880c2aab091f3877d0b02",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/94db37adead62d.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/94db37adead62d.jpg?rev=20261016"
+    },
+    {
+      "id": "55223ef00bafc2",
+      "name": "小突尼斯",
+      "kind": "原图",
+      "file": "小突尼斯.png",
+      "path": "原图/小突尼斯.png",
+      "size": 25855091,
+      "sha256": "bbc4f99eed61e2cc588a00b1ab245cc665846cc9605d188bba569cec2b22d1dc",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/55223ef00bafc2.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/55223ef00bafc2.jpg?rev=20261016"
+    },
+    {
+      "id": "9cb30e2e23edfe",
+      "name": "布雷斯劳",
+      "kind": "原图",
+      "file": "布雷斯劳.png",
+      "path": "原图/布雷斯劳.png",
+      "size": 27657953,
+      "sha256": "b32e01df354d463bb9ce48ac7bfbd6c054dd7ebea32c97de65cac19c45c56150",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/9cb30e2e23edfe.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/9cb30e2e23edfe.jpg?rev=20261016"
+    },
+    {
+      "id": "b3890ff170e72e",
+      "name": "莫兹多克",
+      "kind": "原图",
+      "file": "莫兹多克.png",
+      "path": "原图/莫兹多克.png",
+      "size": 25522758,
+      "sha256": "a767102ec7a1fc4e84a89470e44e7732def643d014d7050103f1369390fb79be",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/b3890ff170e72e.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/b3890ff170e72e.jpg?rev=20261016"
+    },
+    {
+      "id": "543d8997328e14",
+      "name": "山野荒城",
+      "kind": "原图",
+      "file": "山野荒城.png",
+      "path": "原图/山野荒城.png",
+      "size": 30390456,
+      "sha256": "cbac93c48373f688f19efce424f5ca7bf2edf6f68085f7bc67765a795cc8876b",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/543d8997328e14.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/543d8997328e14.jpg?rev=20261016"
+    },
+    {
+      "id": "99b88b53d6c9d7",
+      "name": "大突尼斯",
+      "kind": "原图",
+      "file": "大突尼斯.png",
+      "path": "原图/大突尼斯.png",
+      "size": 24355568,
+      "sha256": "1c185b203960afa184dc7093b0ceffb45640285850db545bad6b6f9f4c980845",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/99b88b53d6c9d7.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/99b88b53d6c9d7.jpg?rev=20261016"
+    },
+    {
+      "id": "9cf055f21ce94c",
+      "name": "阿登",
+      "kind": "原图",
+      "file": "阿登.png",
+      "path": "原图/阿登.png",
+      "size": 27564114,
+      "sha256": "e223988fd145728c74b4936a6b20921004e8becd1aaf39b0539d368b8d51776d",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/9cf055f21ce94c.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/9cf055f21ce94c.jpg?rev=20261016"
+    },
+    {
+      "id": "9f55461c04e282",
+      "name": "芬兰",
+      "kind": "原图",
+      "file": "芬兰.png",
+      "path": "原图/芬兰.png",
+      "size": 25539366,
+      "sha256": "bc346ba03c85d8054994651f5246e4f7222264642e95d1eaac3f86eb26a32477",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/9f55461c04e282.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/9f55461c04e282.jpg?rev=20261016"
+    },
+    {
+      "id": "ac54204124bb65",
+      "name": "内极北之地",
+      "kind": "原图",
+      "file": "内极北之地.png",
+      "path": "原图/内极北之地.png",
+      "size": 30288689,
+      "sha256": "270166a5f6d1b3c0ad4e86d5170adb3e96df51cd11846e0b54c86fdf523e4ef3",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/ac54204124bb65.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/ac54204124bb65.jpg?rev=20261016"
+    },
+    {
+      "id": "8007b7f5578b6a",
+      "name": "日本",
+      "kind": "原图",
+      "file": "日本.png",
+      "path": "原图/日本.png",
+      "size": 24436925,
+      "sha256": "1810d39451cb14f0280e303244084ba98b524a30ad1c59494e78bcdddc5f1078",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/8007b7f5578b6a.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/8007b7f5578b6a.jpg?rev=20261016"
+    },
+    {
+      "id": "4766550c990f55",
+      "name": "废弃工厂",
+      "kind": "原图",
+      "file": "废弃工厂.png",
+      "path": "原图/废弃工厂.png",
+      "size": 25928301,
+      "sha256": "ca3de1cbc478335fcae3679dc2a8c40dc1adcfce8bb211d351cc183678a39be1",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/4766550c990f55.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/4766550c990f55.jpg?rev=20261016"
+    },
+    {
+      "id": "e026a43e6e2f16",
+      "name": "莱茵河畔",
+      "kind": "原图",
+      "file": "莱茵河畔.png",
+      "path": "原图/莱茵河畔.png",
+      "size": 26135225,
+      "sha256": "6d33f3902356aadddd899364adbc68434da3535bddfccfbbabf1dbd7fcec3224",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/e026a43e6e2f16.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/e026a43e6e2f16.jpg?rev=20261016"
+    },
+    {
+      "id": "68fc6430eab87c",
+      "name": "喀尔巴阡山",
+      "kind": "原图",
+      "file": "喀尔巴阡山.png",
+      "path": "原图/喀尔巴阡山.png",
+      "size": 27238726,
+      "sha256": "f7858e47fa143bb4c8089be0c700452c1057e5c488a4fffed7683d874e53c854",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/68fc6430eab87c.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/68fc6430eab87c.jpg?rev=20261016"
+    },
+    {
+      "id": "df381720b0451c",
+      "name": "瑞典",
+      "kind": "原图",
+      "file": "瑞典.png",
+      "path": "原图/瑞典.png",
+      "size": 28480080,
+      "sha256": "8c831f434d4b5d77b7ec9d11f9a277eb8330c036ae9ce2887417ee82708069b9",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/df381720b0451c.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/df381720b0451c.jpg?rev=20261016"
+    },
+    {
+      "id": "e6e9113b6420ac",
+      "name": "大东欧",
+      "kind": "原图",
+      "file": "大东欧.png",
+      "path": "原图/大东欧.png",
+      "size": 26715800,
+      "sha256": "14853e9d9f1354f01b1feb0a3a93b502783e3c9a01d12a6ad46b892394c1d494",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/e6e9113b6420ac.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/e6e9113b6420ac.jpg?rev=20261016"
+    },
+    {
+      "id": "02deb44b391727",
+      "name": "大富尔达",
+      "kind": "原图",
+      "file": "大富尔达.png",
+      "path": "原图/大富尔达.png",
+      "size": 19112661,
+      "sha256": "e22eb1fd6ae74f70510c6d13444e546cfe8600772d1b0b34af8d983ef6dd79d7",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/02deb44b391727.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/02deb44b391727.jpg?rev=20261016"
+    },
+    {
+      "id": "b8bc0dc790e95e",
+      "name": "美国沙漠小镇",
+      "kind": "原图",
+      "file": "美国沙漠小镇.png",
+      "path": "原图/美国沙漠小镇.png",
+      "size": 28340743,
+      "sha256": "f8de164bfa014ce9cc8d893e83d93ddae232b1280ec0885cc9033b49ce2d40ff",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/b8bc0dc790e95e.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/b8bc0dc790e95e.jpg?rev=20261016"
+    },
+    {
+      "id": "2137e10173d4a6",
+      "name": "伊比利亚古堡",
+      "kind": "原图",
+      "file": "伊比利亚古堡.png",
+      "path": "原图/伊比利亚古堡.png",
+      "size": 28377444,
+      "sha256": "bbdad9218e15a4691218eaf38f6249a8bac1734aeccd18c51245187f4371785f",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/2137e10173d4a6.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/2137e10173d4a6.jpg?rev=20261016"
+    },
+    {
+      "id": "d01b2770bcbcd6",
+      "name": "西奈半岛上",
+      "kind": "原图",
+      "file": "西奈半岛上.png",
+      "path": "原图/西奈半岛上.png",
+      "size": 26815097,
+      "sha256": "8774e1cf6aade5e5d454a580f9679aaa0b669ffde5a205a046eaca512e69003e",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/d01b2770bcbcd6.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/d01b2770bcbcd6.jpg?rev=20261016"
+    },
+    {
+      "id": "ed8bdf65201a6f",
+      "name": "阿提卡",
+      "kind": "原图",
+      "file": "阿提卡.png",
+      "path": "原图/阿提卡.png",
+      "size": 27736275,
+      "sha256": "ba187b0643ead34f80d24f35812ec856376a306d06899eef2b4fac7f9eddc33b",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/ed8bdf65201a6f.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/ed8bdf65201a6f.jpg?rev=20261016"
+    },
+    {
+      "id": "062b0023b111bb",
+      "name": "小东欧",
+      "kind": "原图",
+      "file": "小东欧.png",
+      "path": "原图/小东欧.png",
+      "size": 27012659,
+      "sha256": "1cc05b91585012c7f160ceaa1ba7f038151e5e0e03d6f8707227aef6b7bb8cd4",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/062b0023b111bb.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/062b0023b111bb.jpg?rev=20261016"
+    },
+    {
+      "id": "0da632afd9de9b",
+      "name": "货运港口",
+      "kind": "原图",
+      "file": "货运港口.png",
+      "path": "原图/货运港口.png",
+      "size": 24848761,
+      "sha256": "de6f088d601c7ac090236daa867867a6b91d1f13fe74d7674715325596990129",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/0da632afd9de9b.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/0da632afd9de9b.jpg?rev=20261016"
+    },
+    {
+      "id": "00b23df42879f5",
+      "name": "诺曼底内",
+      "kind": "原图",
+      "file": "诺曼底内.png",
+      "path": "原图/诺曼底内.png",
+      "size": 26016953,
+      "sha256": "7360d33b80cd8e5a918eb0bc8f5c42433cc835f346caae57bb33dab6f6d126e2",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/00b23df42879f5.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/00b23df42879f5.jpg?rev=20261016"
+    },
+    {
+      "id": "260be4245371ef",
+      "name": "西奈半岛下",
+      "kind": "原图",
+      "file": "西奈半岛下.png",
+      "path": "原图/西奈半岛下.png",
+      "size": 23775885,
+      "sha256": "3e0d140a43aa47eb84ac83a1d91236b97133183d604dbc4c6e49f788736d89df",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/260be4245371ef.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/260be4245371ef.jpg?rev=20261016"
+    },
+    {
+      "id": "3736b9be6e94e6",
+      "name": "波兰镜湖",
+      "kind": "原图",
+      "file": "波兰镜湖.png",
+      "path": "原图/波兰镜湖.png",
+      "size": 25178718,
+      "sha256": "03ad2762f5163e13333ad1742ffac19cc9b0f0242482e51d98fa0985bd576c79",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/3736b9be6e94e6.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/3736b9be6e94e6.jpg?rev=20261016"
+    },
+    {
+      "id": "07e40c5499e3d4",
+      "name": "马奇诺防线",
+      "kind": "原图",
+      "file": "马奇诺防线.png",
+      "path": "原图/马奇诺防线.png",
+      "size": 24646597,
+      "sha256": "c826b0df789ca42aa02ae37a098d15358e246f27102638e03120eeff300e651e",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/07e40c5499e3d4.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/07e40c5499e3d4.jpg?rev=20261016"
+    },
+    {
+      "id": "e434ceaf5b6832",
+      "name": "意大利坎帕",
+      "kind": "原图",
+      "file": "意大利坎帕.png",
+      "path": "原图/意大利坎帕.png",
+      "size": 25185547,
+      "sha256": "4a1dc875bf7b8b4fe1d2c5e99d57a9a6ba16261ba7ca9ed487b1994763899c7d",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/e434ceaf5b6832.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/e434ceaf5b6832.jpg?rev=20261016"
+    },
+    {
+      "id": "4e9e49e93c26c6",
+      "name": "越南",
+      "kind": "原图",
+      "file": "越南.png",
+      "path": "原图/越南.png",
+      "size": 26028878,
+      "sha256": "b12836e64457cc239928da90249ae1cd027aead1c4245438c9a8d12a4c33ed31",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/4e9e49e93c26c6.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/4e9e49e93c26c6.jpg?rev=20261016"
+    },
+    {
+      "id": "c8ade7afe444df",
+      "name": "中东",
+      "kind": "原图",
+      "file": "中东.png",
+      "path": "原图/中东.png",
+      "size": 22843006,
+      "sha256": "898a0a61179d099f80199cd23184174a4fe76e7efac1534aaacdad7099626594",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/c8ade7afe444df.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/c8ade7afe444df.jpg?rev=20261016"
+    },
+    {
+      "id": "5e5a4d296330ac",
+      "name": "日曜之城",
+      "kind": "原图",
+      "file": "日曜之城.png",
+      "path": "原图/日曜之城.png",
+      "size": 27991380,
+      "sha256": "305406a36e331ec7282cb16231a16ac78c5d5c2a48815195a79316cfe5ab1849",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/5e5a4d296330ac.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/5e5a4d296330ac.jpg?rev=20261016"
+    },
+    {
+      "id": "aa7cd45d62f596",
+      "name": "外极北之地",
+      "kind": "原图",
+      "file": "外极北之地.png",
+      "path": "原图/外极北之地.png",
+      "size": 28428147,
+      "sha256": "dfb80c1536b50844fbdc75952bb65a5c3891186375c365a728faf8118eaf7d25",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/aa7cd45d62f596.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/aa7cd45d62f596.jpg?rev=20261016"
+    },
+    {
+      "id": "9cd0d25fde2728",
+      "name": "佛兰德斯",
+      "kind": "原图",
+      "file": "佛兰德斯.png",
+      "path": "原图/佛兰德斯.png",
+      "size": 25425647,
+      "sha256": "57dda05b80a83ff8a795a8bb481f50b4cb194ce625962492b787d7b34ef20176",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/9cd0d25fde2728.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/9cd0d25fde2728.jpg?rev=20261016"
+    },
+    {
+      "id": "35fe44447d9cff",
+      "name": "黄金矿场",
+      "kind": "原图",
+      "file": "黄金矿场.png",
+      "path": "原图/黄金矿场.png",
+      "size": 30670700,
+      "sha256": "98d309d197c9ecfb9d6d50fa89376c2cf3b02a9e7db195512fed8607a927bddf",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/35fe44447d9cff.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/35fe44447d9cff.jpg?rev=20261016"
+    },
+    {
+      "id": "971d50f20c2154",
+      "name": "小富尔达",
+      "kind": "原图",
+      "file": "小富尔达.png",
+      "path": "原图/小富尔达.png",
+      "size": 20332489,
+      "sha256": "c11289e123f0198cc691da04a364c7094c5b7ac30759c1625e6fc7a1457de819",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/971d50f20c2154.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/971d50f20c2154.jpg?rev=20261016"
+    },
+    {
+      "id": "924e4330c652aa",
+      "name": "2271号测试基地",
+      "kind": "原图",
+      "file": "2271号测试基地.png",
+      "path": "原图/2271号测试基地.png",
+      "size": 29074712,
+      "sha256": "1b5c0f2417e92a125dad4980d6afa3827b7edced2c2a1abf98a1398a9b531f05",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/924e4330c652aa.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/924e4330c652aa.jpg?rev=20261016"
+    },
+    {
+      "id": "8bc1b7e2a4ca71",
+      "name": "航天港",
+      "kind": "原图",
+      "file": "航天港.png",
+      "path": "原图/航天港.png",
+      "size": 28537443,
+      "sha256": "fa0e6bbf7ec716352bc2c0d85e68e75d4064221dea928c7c2b75a2616275fbba",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/8bc1b7e2a4ca71.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/8bc1b7e2a4ca71.jpg?rev=20261016"
+    },
+    {
+      "id": "2793699a56baec",
+      "name": "库尔斯克",
+      "kind": "原图",
+      "file": "库尔斯克.png",
+      "path": "原图/库尔斯克.png",
+      "size": 26646611,
+      "sha256": "7ad6699d66ca52a284a06cb956c5d6f1fe1ccde20d23eb50d449769c8ea7f38e",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/2793699a56baec.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/2793699a56baec.jpg?rev=20261016"
+    },
+    {
+      "id": "afd04b32a03b41",
+      "name": "北荷兰省",
+      "kind": "原图",
+      "file": "北荷兰省.png",
+      "path": "原图/北荷兰省.png",
+      "size": 26728170,
+      "sha256": "99e1813e88bfda547c5ffca77cbd9539b309c4b16946684ed61ee5973fa4ef97",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/afd04b32a03b41.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/afd04b32a03b41.jpg?rev=20261016"
+    },
+    {
+      "id": "cf31fa14e71fd2",
+      "name": "阿拉斯加",
+      "kind": "原图",
+      "file": "阿拉斯加.png",
+      "path": "原图/阿拉斯加.png",
+      "size": 25788036,
+      "sha256": "3f271b6bdf617fadd7553151134d3ecf1c2fac1890fd39ffa7cea89f87d116a6",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/cf31fa14e71fd2.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/cf31fa14e71fd2.jpg?rev=20261016"
+    },
+    {
+      "id": "f13c48042ab343",
+      "name": "咸海",
+      "kind": "原图",
+      "file": "咸海.png",
+      "path": "原图/咸海.png",
+      "size": 27958824,
+      "sha256": "4123cd9c28f7cb019079e7c2e4af644e193f11c769817c0ac3bfce001668046e",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/f13c48042ab343.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/f13c48042ab343.jpg?rev=20261016"
+    },
+    {
+      "id": "d4b843f2fe6e4e",
+      "name": "诺曼底外",
+      "kind": "原图",
+      "file": "诺曼底外.png",
+      "path": "原图/诺曼底外.png",
+      "size": 26840166,
+      "sha256": "6cce397e85a0e5eef58b5b1947969945c24166f39761174c2665245b48829395",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/d4b843f2fe6e4e.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/d4b843f2fe6e4e.jpg?rev=20261016"
+    },
+    {
+      "id": "dcd1bec16824fd",
+      "name": "许特根森林",
+      "kind": "原图",
+      "file": "许特根森林.png",
+      "path": "原图/许特根森林.png",
+      "size": 26859080,
+      "sha256": "fd2e43daf0fe363c9168985d08761447ee5f85a3b2f2b0df8bf6238924b510db",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/dcd1bec16824fd.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/dcd1bec16824fd.jpg?rev=20261016"
+    },
+    {
+      "id": "795bf88d71fe9f",
+      "name": "第二次阿拉曼下",
+      "kind": "原图",
+      "file": "第二次阿拉曼下.png",
+      "path": "原图/第二次阿拉曼下.png",
+      "size": 26777219,
+      "sha256": "1588a6357f8aed3863d88ec9b4cab0dbb48123c52de1528bb756075d34366e6f",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/795bf88d71fe9f.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/795bf88d71fe9f.jpg?rev=20261016"
+    },
+    {
+      "id": "2f7b882a570e3a",
+      "name": "第二次阿拉曼",
+      "kind": "走线图",
+      "file": "第二次阿拉曼下_202610101332_29415.png",
+      "path": "走线图/第二次阿拉曼/第二次阿拉曼下_202610101332_29415.png",
+      "size": 36604357,
+      "sha256": "f43f57030f3bd3dd3908f4a7f009fdeba98328fc450c3ab77cf3fc2db89f32f6",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/2f7b882a570e3a.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/2f7b882a570e3a.jpg?rev=20261016"
+    },
+    {
+      "id": "319fc3b8127181",
+      "name": "第二次阿拉曼",
+      "kind": "走线图",
+      "file": "第二次阿拉曼下_202610101335_53658.png",
+      "path": "走线图/第二次阿拉曼/第二次阿拉曼下_202610101335_53658.png",
+      "size": 36698346,
+      "sha256": "ed9f949c5098d72d847d67e7c962b1cef442be76a2dd5ab6b27992aaf52c53e1",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/319fc3b8127181.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/319fc3b8127181.jpg?rev=20261016"
+    },
+    {
+      "id": "93968d450d8cb0",
+      "name": "山野荒城",
+      "kind": "走线图",
+      "file": "山野荒城_202610121043_45848.png",
+      "path": "走线图/山野荒城/山野荒城_202610121043_45848.png",
+      "size": 39795949,
+      "sha256": "686d33d4e7fb45bde038160e1a5a116dd08b24308981e33648b82d05501e05fa",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/93968d450d8cb0.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/93968d450d8cb0.jpg?rev=20261016"
+    },
+    {
+      "id": "55ec7992f30d14",
+      "name": "山野荒城",
+      "kind": "走线图",
+      "file": "山野荒城_202610121044_13905.png",
+      "path": "走线图/山野荒城/山野荒城_202610121044_13905.png",
+      "size": 39834983,
+      "sha256": "37f6f7b4054ae5b9c3dcffa4bc1868068f2fdf12831aa144fab676fcd2a30fdc",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/55ec7992f30d14.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/55ec7992f30d14.jpg?rev=20261016"
+    },
+    {
+      "id": "d7fc1a2b874dc6",
+      "name": "小东欧",
+      "kind": "走线图",
+      "file": "小东欧_202610081658_30970.png",
+      "path": "走线图/小东欧/小东欧_202610081658_30970.png",
+      "size": 37439181,
+      "sha256": "64692034c8b5db7e8366ee5c2f9b85f765de6f3dc4e936156bb4fd409a4ae4df",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/d7fc1a2b874dc6.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/d7fc1a2b874dc6.jpg?rev=20261016"
+    },
+    {
+      "id": "0cce071cd9cd0a",
+      "name": "小东欧",
+      "kind": "走线图",
+      "file": "小东欧_202610081649_11120.png",
+      "path": "走线图/小东欧/小东欧_202610081649_11120.png",
+      "size": 37467328,
+      "sha256": "2df4092edb84fc0d17205ee4108f0610ac0c14fd85b8b3e4ecb5f9aac1bfde1a",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/0cce071cd9cd0a.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/0cce071cd9cd0a.jpg?rev=20261016"
+    },
+    {
+      "id": "ab58687dda0dcf",
+      "name": "喀尔巴阡山",
+      "kind": "走线图",
+      "file": "喀尔巴阡山_202610151049_06204.png",
+      "path": "走线图/喀尔巴阡山/喀尔巴阡山_202610151049_06204.png",
+      "size": 38008833,
+      "sha256": "819c5cf4f81b42e41f3108d2862a64ef94e406c26528929757d3db633a7fd50e",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/ab58687dda0dcf.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/ab58687dda0dcf.jpg?rev=20261016"
+    },
+    {
+      "id": "0fd40eac34127c",
+      "name": "喀尔巴阡山",
+      "kind": "走线图",
+      "file": "喀尔巴阡山_202610151048_50096.png",
+      "path": "走线图/喀尔巴阡山/喀尔巴阡山_202610151048_50096.png",
+      "size": 37827123,
+      "sha256": "1228969c01e23505f5e842c5d27a70150a9f7d3f709515f9ba482957c48debe5",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/0fd40eac34127c.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/0fd40eac34127c.jpg?rev=20261016"
+    },
+    {
+      "id": "3b27d14649c7c1",
+      "name": "芬兰",
+      "kind": "走线图",
+      "file": "芬兰_202610101326_31355.png",
+      "path": "走线图/芬兰/芬兰_202610101326_31355.png",
+      "size": 36299743,
+      "sha256": "415c76b1acd35918c90c42c07175f4271996ff1d8e0fbb630e32655f10fda4f4",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/3b27d14649c7c1.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/3b27d14649c7c1.jpg?rev=20261016"
+    },
+    {
+      "id": "c1d15924d0e6d4",
+      "name": "芬兰",
+      "kind": "走线图",
+      "file": "芬兰_202610101326_13841.png",
+      "path": "走线图/芬兰/芬兰_202610101326_13841.png",
+      "size": 36171841,
+      "sha256": "7f4b3036b3ea76c3f4ac18b10ff840e91c64bcd952b4940f69588dae6e1cab53",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/c1d15924d0e6d4.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/c1d15924d0e6d4.jpg?rev=20261016"
+    },
+    {
+      "id": "0742facd03b1ec",
+      "name": "日曜之城",
+      "kind": "走线图",
+      "file": "日耀之城_202610121101_27846.png",
+      "path": "走线图/日曜之城/日耀之城_202610121101_27846.png",
+      "size": 38484369,
+      "sha256": "5e9b5445ee6b37eab1fc3dd997cff4fc092e22c6ad145b95f6ab2768cdd0110c",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/0742facd03b1ec.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/0742facd03b1ec.jpg?rev=20261016"
+    },
+    {
+      "id": "044ac4d3bc75a6",
+      "name": "日曜之城",
+      "kind": "走线图",
+      "file": "日耀之城_202610121101_45071.png",
+      "path": "走线图/日曜之城/日耀之城_202610121101_45071.png",
+      "size": 38470429,
+      "sha256": "c205feaecfc6e01b8bab9fd1a6fa4a982af0f75440b7d62316de5a93de4e9e6d",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/044ac4d3bc75a6.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/044ac4d3bc75a6.jpg?rev=20261016"
+    },
+    {
+      "id": "c4a70e55014442",
+      "name": "阿提卡",
+      "kind": "走线图",
+      "file": "阿提卡_202610081532_50900.png",
+      "path": "走线图/阿提卡/阿提卡_202610081532_50900.png",
+      "size": 38033069,
+      "sha256": "763873162854a5b376bfbe997977ffdc28c4d801575b5cc1b97ea88f8e2c50d0",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/c4a70e55014442.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/c4a70e55014442.jpg?rev=20261016"
+    },
+    {
+      "id": "b87252e2a4ccb2",
+      "name": "阿提卡",
+      "kind": "走线图",
+      "file": "阿提卡_202610081534_00780.png",
+      "path": "走线图/阿提卡/阿提卡_202610081534_00780.png",
+      "size": 37950917,
+      "sha256": "977b1a88ecf5247cecf69463bf605fc0c620afb34308f93374e278b48a4cfeb6",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/b87252e2a4ccb2.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/b87252e2a4ccb2.jpg?rev=20261016"
+    },
+    {
+      "id": "d01fec6d5e35b7",
+      "name": "佛兰德斯",
+      "kind": "走线图",
+      "file": "佛兰德斯_202610091641_25646.png",
+      "path": "走线图/佛兰德斯/佛兰德斯_202610091641_25646.png",
+      "size": 36301132,
+      "sha256": "8825bd08594e22d8708e896672487b15ae392d7f6e5642ea1b5e8fc94a0e312a",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/d01fec6d5e35b7.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/d01fec6d5e35b7.jpg?rev=20261016"
+    },
+    {
+      "id": "3301ec78dc3923",
+      "name": "佛兰德斯",
+      "kind": "走线图",
+      "file": "佛兰德斯_202610091650_06761.png",
+      "path": "走线图/佛兰德斯/佛兰德斯_202610091650_06761.png",
+      "size": 36329210,
+      "sha256": "eaedb2a9ae4d960c2c6500e29a56ec19bc0f6d780f35017bca30995d6a914add",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/3301ec78dc3923.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/3301ec78dc3923.jpg?rev=20261016"
+    },
+    {
+      "id": "e37f476bc3e038",
+      "name": "大东欧",
+      "kind": "走线图",
+      "file": "大东欧_202610151022_46134.png",
+      "path": "走线图/大东欧/大东欧_202610151022_46134.png",
+      "size": 37194770,
+      "sha256": "07d05b21447c27f79cd02db728a400d09e71ff7fd2599b711c12b1d0618dee48",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/e37f476bc3e038.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/e37f476bc3e038.jpg?rev=20261016"
+    },
+    {
+      "id": "a42463627efe1a",
+      "name": "大东欧",
+      "kind": "走线图",
+      "file": "大东欧_202610151023_03304.png",
+      "path": "走线图/大东欧/大东欧_202610151023_03304.png",
+      "size": 37180066,
+      "sha256": "3c34535d2e7ac75e787f8b7048e45764f5a36c0590d69a0470f6295ba8b209ae",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/a42463627efe1a.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/a42463627efe1a.jpg?rev=20261016"
+    },
+    {
+      "id": "2ced3800bb87a9",
+      "name": "北荷兰省",
+      "kind": "走线图",
+      "file": "北荷兰省_202610091728_25740.png",
+      "path": "走线图/北荷兰省/北荷兰省_202610091728_25740.png",
+      "size": 37596759,
+      "sha256": "b7d2265d4b4068fe81d2f84e993568d4f92cf5d5bd6620dfc2cd1b0689b30a5e",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/2ced3800bb87a9.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/2ced3800bb87a9.jpg?rev=20261016"
+    },
+    {
+      "id": "e160a6b78ec06b",
+      "name": "北荷兰省",
+      "kind": "走线图",
+      "file": "北荷兰省_202610091626_26543.png",
+      "path": "走线图/北荷兰省/北荷兰省_202610091626_26543.png",
+      "size": 37640761,
+      "sha256": "d9b0934df2af5967dbcfb8debde0b30f03064081fefa076825f2a297aeeb1dc7",
+      "image": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/e160a6b78ec06b.png?rev=20261016",
+      "thumb": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/thumbs/e160a6b78ec06b.jpg?rev=20261016"
+    }
+  ],
+  "resources": [
+    {
+      "title": "走线总论",
+      "source": "https://www.xiaoheihe.cn/app/bbs/link/6e07729cb5a7",
+      "context": "走线总论 ↗ · 重制说明 ↗"
+    },
+    {
+      "title": "重制说明",
+      "source": "https://www.xiaoheihe.cn/app/bbs/link/146e7299c4f4",
+      "context": "走线总论 ↗ · 重制说明 ↗"
+    },
+    {
+      "title": "旧版喀尔巴阡山图解",
+      "source": "https://www.xiaoheihe.cn/app/bbs/link/175008041",
+      "context": "旧版喀尔巴阡山图解 ↗也已读取：下方以中路观察后上山为思路，上方从 C 侧背坡推进再观察山上。新版对应帖已有更完整说明，本页优先采用新版，不混用旧编号或“特殊点位”保证。"
+    },
+    {
+      "title": "《突尼斯沙漠走线：图解重制版》",
+      "source": "https://www.xiaoheihe.cn/app/bbs/link/175509473",
+      "context": "已从作者主页核对另有旧版图解系列。《突尼斯沙漠走线：图解重制版》 ↗正文已读取，核心是河边先收集中路信息，再依据战况选择 B 侧支援或石台观察；上方可利用石台观察河道后再评估推进。它与新版“小突尼斯”不能仅因名称相近就合并，编号和地图变体均按旧帖图片；未混入本页新版两侧走线。"
+    }
+  ],
+  "attribution": "非官方玩家资料整理。攻略摘要依据木炉原帖，走线标注归原作者，游戏素材归原权利人。",
+  "scope": "主要面向冷战及以上陆战历史。走线取决于地图变体、车辆和实时敌情，请结合原帖判断。"
+}

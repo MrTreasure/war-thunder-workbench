@@ -1,4 +1,6 @@
-export function PageNavigation({ page }: { page: "tree" | "lineups" }) {
+import { guidesEnabled } from "../features";
+export function PageNavigation({ page }: { page: "tree" | "lineups" | "maps" }) {
+  const enabled = guidesEnabled();
   return (
     <>
       <nav className="page-navigation" aria-label="工具页面">
@@ -8,6 +10,11 @@ export function PageNavigation({ page }: { page: "tree" | "lineups" }) {
         <a href="#/lineups" aria-current={page === "lineups" ? "page" : undefined}>
           出击队列
         </a>
+        {enabled && (
+          <a href="#/maps" aria-current={page === "maps" ? "page" : undefined}>
+            走线攻略
+          </a>
+        )}
       </nav>
       <nav className="mobile-page-navigation" aria-label="工具页面">
         <select
@@ -15,12 +22,16 @@ export function PageNavigation({ page }: { page: "tree" | "lineups" }) {
           value={page}
           onChange={(event) => {
             const next = event.target.value;
-            if ((next === "tree" || next === "lineups") && next !== page)
+            if (
+              (next === "tree" || next === "lineups" || (enabled && next === "maps")) &&
+              next !== page
+            )
               location.hash = `/${next}`;
           }}
         >
           <option value="tree">科技树</option>
           <option value="lineups">出击队列</option>
+          {enabled && <option value="maps">走线攻略</option>}
         </select>
       </nav>
     </>

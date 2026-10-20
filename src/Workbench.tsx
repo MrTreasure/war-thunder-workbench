@@ -16,6 +16,7 @@ import { dataCache, cacheLabel } from "./data-cache";
 import type { CacheBackend } from "./data-cache";
 import { initialSelection, rememberSelection } from "./selection";
 import { object } from "./validation";
+import { workbenchPage } from "./features";
 import manifestData from "./generated/manifest.json";
 const manifest: DataManifest = { ...manifestData, schemaVersion: 3 };
 import { readJson } from "./storage";
@@ -56,11 +57,15 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   const [category, setCategory] = useState(initial.category);
   const [remembered, setRemembered] = useState(true);
   const page = useRouterState({
-    select: (state) => (state.location.pathname === "/lineups" ? "lineups" : "tree"),
+    select: (state) => workbenchPage(state.location.pathname),
   });
   useEffect(() => {
     document.title =
-      page === "lineups" ? "出击队列 · War Thunder 研发工作台" : "War Thunder 研发工作台";
+      page === "maps"
+        ? "走线攻略 · War Thunder 研发工作台"
+        : page === "lineups"
+          ? "出击队列 · War Thunder 研发工作台"
+          : "War Thunder 研发工作台";
   }, [page]);
   const currentKey = country;
   const countryEntry = manifest.countries[country] || null;
@@ -96,7 +101,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
     [bootstrap, loadedCountry, currentKey, country],
   );
   useEffect(() => {
-    if (!country || !countryEntry) return;
+    if (page === "maps" || !country || !countryEntry) return;
     const controller = new AbortController();
     const valid = (value: unknown): value is CountryPayload => {
       if (
@@ -136,7 +141,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
           });
       });
     return () => controller.abort();
-  }, [country, currentKey, countryEntry, countryRetry, bootstrap]);
+  }, [country, currentKey, countryEntry, countryRetry, bootstrap, page]);
   function chooseCountry(value: string) {
     if (value !== country) {
       setCountryError(null);
@@ -225,7 +230,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   }, [country, category, mode]);
   useEffect(() => {
     const key = (e: KeyboardEvent) => {
-      if (modal || page === "lineups") return;
+      if (modal || page !== "tree") return;
       if (
         e.key === "/" &&
         !["INPUT", "TEXTAREA", "SELECT"].includes((e.target as HTMLElement).tagName)

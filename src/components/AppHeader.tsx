@@ -1,10 +1,11 @@
 import { useRouterState } from "@tanstack/react-router";
 import { CreatorLink } from "./CreatorLink";
 import { PageNavigation } from "./PageNavigation";
+import { workbenchPage } from "../features";
 
 export function AppHeader() {
   const page = useRouterState({
-    select: (state) => (state.location.pathname === "/lineups" ? "lineups" : "tree"),
+    select: (state) => workbenchPage(state.location.pathname),
   });
   return (
     <header className="app-header">

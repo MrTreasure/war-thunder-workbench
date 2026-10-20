@@ -20,6 +20,7 @@
     "refresh:localization": "python3 scripts/localization.py",
     "refresh:lineup-codes": "node scripts/lineup-codebook.mjs",
     "refresh:prices": "node scripts/store-prices.mjs",
+    "refresh:guides": "node scripts/extract-map-atlas.mjs",
     "check": "tsr generate && pnpm run typecheck && pnpm run lint && pnpm run check:data",
     "import:qmuse": "pnpm run check && pnpm run build && qmuse-cli import . --no-open"
   },
@@ -51,7 +52,8 @@
     "@tanstack/router-cli": "1.167.21",
     "vite-tsconfig-paths": "6.0.2",
     "@types/node": "22.16.5",
-    "@tanstack/router-plugin": "1.168.23"
+    "@tanstack/router-plugin": "1.168.23",
+    "playwright": "1.64.1"
   },
   "license": "MIT"
 }

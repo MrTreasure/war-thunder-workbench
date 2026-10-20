@@ -156,6 +156,8 @@ pnpm run preview      # http://localhost:4178
 
 可分别运行 `pnpm run typecheck`、`pnpm run lint`、`pnpm run check:data`。页面入口为 `#/tree` 与 `#/lineups`；国家、军种和模式可通过外层查询参数指定，例如 `?country=china&category=ground&mode=rb#/tree`。
 
+默认隐藏的攻略页、入口参数及资料提取方式见[攻略页维护说明](docs/route-guides.md)。
+
 ### 部署
 
 `pnpm run build` 输出静态文件到 `dist/`，可部署到支持相对静态资源路径的站点。上传全部构建资源后再切换 HTML，并保留旧哈希资源供已打开的页面继续使用。国家资料随哈希 JS 模块发布，**不发布独立 JSON 文件**。

@@ -143,3 +143,23 @@
   gzip delivery, including proxied requests. Preserve old hashes on publication.
 - Keep the lightweight file-route adapters eager with `codeSplitGroupings: []`
   to avoid a serial startup waterfall. Country payload imports must remain lazy.
+
+- The redesigned route guide page is hidden by default. Only the exact outer
+  query flag `guides=1` enables `#/maps` and its navigation entry; reject direct
+  access without it. A root visit with this flag opens the guide page. Keep
+  normal tree/lineup navigation unchanged and preserve the outer query flag.
+- Guide summaries, CDN image metadata, sources and collection audit live in
+  `data/map-atlas.json`; load them with the guide component only after entry.
+  Publish them as JS, never a separate JSON file. Opening guides must not load
+  a remembered country's vehicle payload.
+- `pnpm run refresh:guides` uses Playwright to extract the original atlas and
+  inspect the public author collection. Visits are serial, at least 6 seconds
+  apart (7 seconds by default), with a 6-hour snapshot cooldown, bounded scrolling
+  and no automatic bulk article/image downloads. Preserve prior data on failed
+  or incomplete collection responses. Keep raw page/article captures in ignored
+  `artifacts/`, not published data. Preserve summary verification dates separately
+  from collection checks and article edits.
+- Map images retain their supplied HTTPS CDN URLs. Thumbnails load in the guide
+  page; full images load only on explicit open, with byte/hash checks and isolated
+  `wt-map-atlas-v1` OPFS caching. Clearing map images must never touch vehicle
+  caches, profiles, carts, lineup storage or the share registry.
