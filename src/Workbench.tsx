@@ -62,7 +62,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     document.title =
       page === "maps"
-        ? "走线攻略 · War Thunder 研发工作台"
+        ? "陆战地图 · War Thunder 研发工作台"
         : page === "lineups"
           ? "出击队列 · War Thunder 研发工作台"
           : "War Thunder 研发工作台";

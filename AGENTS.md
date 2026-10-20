@@ -172,3 +172,13 @@
   body checks for 24h after a verification challenge; never retry around it.
 - Before resuming archive body checks, read `docs/guide-collection-checkpoint.md`
   and the persisted `articleRetryAfter`; update the checkpoint after continuation.
+
+- Hidden `?guides=1#/maps` now displays the ground-map atlas. Canonical map metadata
+  lives in `data/ground-maps.json`; keep the page lazy and do not load country data.
+  User-provided map imagery is an exception to the official-image rule: host it on
+  the existing R2 `wt-map-atlas` bucket under `ground-maps/v1/` with hashed names.
+  Keep raw exports and contour-coordinate JSON out of Git and QMuse uploads.
+- Ground-map base, contour SVG and briefing points share the original normalized
+  coordinate system. Mission cropping changes only the shared viewBox. Reference
+  grids are not verified runtime grids; world Y is not verified sea-level height.
+  Guide links must disclose layout/version differences; preserve old guide data.

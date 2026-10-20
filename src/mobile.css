@@ -876,3 +876,126 @@
     position: static;
   }
 }
+
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .ground-page {
+    padding: 20px 12px 32px;
+  }
+  .ground-heading {
+    display: block;
+    margin-bottom: 18px;
+  }
+  .ground-heading h1 {
+    font-size: 25px;
+  }
+  .ground-heading p {
+    font-size: 13px;
+  }
+  .ground-count {
+    margin-top: 12px;
+  }
+  .ground-count strong {
+    font-size: 23px;
+  }
+  .ground-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .ground-card-caption {
+    padding: 10px;
+  }
+  .ground-card-caption strong {
+    font-size: 14px;
+    overflow-wrap: anywhere;
+  }
+  .ground-card-caption > span,
+  .ground-card-caption small {
+    font-size: 11px;
+  }
+  .ground-guide-badge {
+    font-size: 10px;
+    right: 5px;
+    bottom: 5px;
+    padding: 3px 5px;
+  }
+  .ground-searchbar {
+    gap: 8px;
+  }
+  .ground-searchbar label {
+    flex-basis: 100%;
+    max-width: none;
+  }
+  .ground-searchbar > span {
+    font-size: 11px;
+  }
+  .ground-searchbar button {
+    font-size: 12px;
+    padding-inline: 10px;
+  }
+  .calculator.ground-dialog {
+    width: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    max-width: 100%;
+    border-radius: 0;
+  }
+  .ground-dialog .calc-header {
+    padding: 12px;
+  }
+  .ground-dialog .calc-header h2 {
+    font-size: 20px;
+  }
+  .ground-detail-body {
+    padding: 0 10px 24px;
+  }
+  .ground-controls {
+    gap: 10px;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  }
+  .ground-controls label:first-child {
+    grid-column: auto;
+  }
+  .ground-controls select {
+    max-width: none;
+  }
+  .ground-layer-toggles {
+    grid-column: 1/-1;
+    margin: 0;
+    gap: 6px;
+  }
+  .ground-layer-toggles button {
+    flex: 1;
+    padding: 8px;
+    font-size: 12px;
+  }
+  .ground-stage {
+    height: min(64dvh, calc(100vw - 22px));
+    min-height: 0;
+  }
+  .ground-zoom {
+    bottom: 8px;
+    right: 8px;
+  }
+  .ground-zoom button {
+    padding-inline: 10px;
+  }
+  .ground-related > div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ground-related a {
+    font-size: 13px;
+  }
+  .ground-map-meta {
+    gap: 10px;
+    font-size: 11px;
+  }
+  .ground-related a span {
+    overflow-wrap: anywhere;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ground-card {
+    transition: none;
+  }
+}

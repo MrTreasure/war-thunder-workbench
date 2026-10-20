@@ -12,7 +12,7 @@ export function PageNavigation({ page }: { page: "tree" | "lineups" | "maps" }) 
         </a>
         {enabled && (
           <a href="#/maps" aria-current={page === "maps" ? "page" : undefined}>
-            走线攻略
+            陆战地图
           </a>
         )}
       </nav>
@@ -31,7 +31,7 @@ export function PageNavigation({ page }: { page: "tree" | "lineups" | "maps" }) 
         >
           <option value="tree">科技树</option>
           <option value="lineups">出击队列</option>
-          {enabled && <option value="maps">走线攻略</option>}
+          {enabled && <option value="maps">陆战地图</option>}
         </select>
       </nav>
     </>

@@ -1,309 +1,432 @@
-import { useRef, useState } from "react";
+/* Interactive SVG map owns arrow-key pan and Home reset; native HTML has no map widget. */
+/* oxlint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex */
+import { useId, useRef, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import atlas from "../data/map-atlas.json";
+import atlas from "../data/ground-maps.json";
 import { Route } from "./routes/_workbench.maps";
-import { MapImageViewer } from "./MapImageViewer";
-import { clearMapImages } from "./map-image-cache";
-import { AtlasArchives, RelatedArchiveGuides } from "./AtlasArchives";
+import { Modal } from "./Modal";
 
-const images = new Map(atlas.images.map((image) => [image.id, image]));
-const normal = (value: string) =>
-  value.normalize("NFKC").toLowerCase().replaceAll("日耀", "日曜").trim();
+type GroundMap = (typeof atlas.maps)[number];
+const normalize = (s: string) =>
+  s.normalize("NFKC").toLowerCase().replaceAll("日曜", "日耀").replaceAll("马奇诺", "马其诺");
 export function MapAtlas() {
   const search = Route.useSearch();
   const navigate = useNavigate({ from: "/maps" });
   const [query, setQuery] = useState("");
-  const [filter, setFilter] = useState("all");
-  const [directoryOpen, setDirectoryOpen] = useState(false);
-  const [viewer, setViewer] = useState(false);
-  const [cacheStatus, setCacheStatus] = useState("");
-  const [clearing, setClearing] = useState(false);
-  const heading = useRef<HTMLHeadingElement>(null);
-  const guide = atlas.guides.find((g) => g.id === search.map) || atlas.guides[0];
-  const variant = guide.variants.find((v) => v.id === search.side) || guide.variants[0];
-  const image = images.get(variant.imageId || "");
-  const annotated = (g: typeof guide) =>
-    g.variants.some((v) => images.get(v.imageId || "")?.kind === "走线图");
-  const matches = atlas.guides.filter(
-    (g) =>
-      normal(g.name + g.overview).includes(normal(query)) &&
-      (filter === "all" || (filter === "routes" ? annotated(g) : !annotated(g))),
+  const [onlyGuides, setOnlyGuides] = useState(false);
+  const selected = atlas.maps.find(
+    (m) => m.id === search.map || m.legacyGuideIds.includes(search.map || ""),
   );
-  const updated = atlas.collection.entries.find((entry) => entry.id === guide.id)?.updatedAt;
-  const chooseSide = (id: string) =>
-    void navigate({ search: { map: guide.id, side: id }, replace: true, resetScroll: false });
-  const sideTabs = () =>
-    guide.variants.map((v) => (
-      <button key={v.id} aria-pressed={v.id === variant.id} onClick={() => chooseSide(v.id)}>
-        {v.side}
-      </button>
-    ));
+  const cards = atlas.maps
+    .flatMap((map) => map.thumbnails.map((thumb) => ({ map, thumb })))
+    .filter(
+      ({ map, thumb }) =>
+        normalize(
+          [map.name, map.english, map.id, thumb.name, ...map.guides.map((g) => g.title)].join(" "),
+        ).includes(normalize(query)) &&
+        (!onlyGuides || map.guides.length),
+    );
   return (
-    <main className="atlas-page" aria-label="走线攻略">
-      <div className="atlas-heading">
+    <main className="ground-page" aria-label="陆战地图">
+      <header className="ground-heading">
         <div>
-          <h1>走线攻略</h1>
-          <p>选地图、分出生侧，先读开局，再看转点。</p>
+          <h1>陆战地图</h1>
+          <p>从地图读懂战场，选择布局查看地形与点位。</p>
         </div>
-        <a
-          className="atlas-source-link"
-          href={atlas.collection.source}
-          target="_blank"
-          rel="noreferrer"
-        >
-          木炉合集 ↗
-        </a>
+        <div className="ground-count">
+          <strong>{atlas.maps.length}</strong> 张地图{" "}
+          <span> / {atlas.maps.reduce((n, m) => n + m.layouts.length, 0)} 种任务布局</span>
+        </div>
+      </header>
+      <div className="ground-searchbar">
+        <label>
+          <span className="sr-only">搜索地图</span>
+          <input
+            type="search"
+            placeholder="搜索地图名称、英文名或攻略"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+        </label>
+        <button aria-pressed={onlyGuides} onClick={() => setOnlyGuides((v) => !v)}>
+          仅看有关联攻略
+        </button>
+        <span>{cards.length} 个三点占领布局</span>
       </div>
-      <div className="atlas-layout">
-        <aside className="atlas-directory" aria-label="地图目录" data-expanded={directoryOpen}>
-          <div className="atlas-directory-heading">
-            <strong>地图目录</strong>
-            <span>{atlas.guides.length} 张</span>
-          </div>
+      <section className="ground-gallery" aria-label="地图列表">
+        {cards.map(({ map, thumb }) => (
           <button
-            className="atlas-directory-toggle"
-            aria-expanded={directoryOpen}
-            aria-controls="atlas-directory-content"
-            onClick={() => setDirectoryOpen((v) => !v)}
+            className="ground-card"
+            key={thumb.layoutId}
+            onClick={() => void navigate({ search: { map: map.id, side: thumb.layoutId } })}
           >
-            <span>
-              切换地图 <strong>{guide.name}</strong>
-            </span>
-            <span>{directoryOpen ? "收起 ∧" : "展开 ∨"}</span>
-          </button>
-          <div id="atlas-directory-content" className="atlas-directory-content">
-            <label className="atlas-search">
-              <span className="sr-only">搜索地图</span>
-              <input
-                type="search"
-                placeholder="搜索地图"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
+            <div className="ground-card-image">
+              <img
+                src={thumb.image.url}
+                alt={`${map.name} ${thumb.name} 点位缩略图`}
+                width={thumb.width}
+                height={thumb.height}
+                loading="lazy"
+                decoding="async"
               />
-            </label>
-            <fieldset className="atlas-filter" aria-label="攻略类型">
-              {[
-                ["all", "全部"],
-                ["routes", "走线图"],
-                ["pending", "待补图"],
-              ].map(([id, label]) => (
-                <button key={id} aria-pressed={filter === id} onClick={() => setFilter(id)}>
-                  {label}
-                </button>
-              ))}
-            </fieldset>
-            <div className="atlas-map-list">
-              {matches.map((g) => {
-                const thumbnail = images.get(g.variants[0].imageId || "");
-                return (
-                  <button
-                    key={g.id}
-                    className="atlas-map-item"
-                    aria-current={g.id === guide.id ? "true" : undefined}
-                    onClick={() => {
-                      setViewer(false);
-                      setDirectoryOpen(false);
-                      void navigate({ search: { map: g.id, side: undefined } });
-                      requestAnimationFrame(() => heading.current?.focus({ preventScroll: true }));
-                    }}
-                  >
-                    {thumbnail && (
-                      <img src={thumbnail.thumb} alt="" loading="lazy" width={64} height={48} />
-                    )}
-                    <span>
-                      <strong>{g.name}</strong>
-                      <small>
-                        {annotated(g)
-                          ? `${g.variants.length} 个出生侧 · 走线图`
-                          : "已整理摘要 · 待补标注图"}
-                      </small>
-                    </span>
-                  </button>
-                );
-              })}
-              {!matches.length && (
-                <div className="atlas-empty">
-                  <p>没有匹配的地图</p>
-                  <button
-                    onClick={() => {
-                      setQuery("");
-                      setFilter("all");
-                    }}
-                  >
-                    清除筛选
-                  </button>
-                </div>
+              {map.guides.length > 0 && (
+                <span className="ground-guide-badge">攻略 {map.guides.length}</span>
               )}
             </div>
-          </div>
-        </aside>
-        <div className="atlas-reading">
-          <section className="atlas-briefing" aria-labelledby="atlas-map-title">
-            <header className="atlas-briefing-heading">
-              <div>
-                <span className="atlas-map-type">
-                  {image?.kind === "走线图" ? "走线标注图" : "攻略摘要 · 标注图待补"}
-                </span>
-                <h2 id="atlas-map-title" ref={heading} tabIndex={-1}>
-                  {guide.name}
-                </h2>
-              </div>
-              <a href={guide.source} className="atlas-source-link" target="_blank" rel="noreferrer">
-                阅读原帖 ↗
-              </a>
-            </header>
-            <p className="atlas-overview">{guide.overview}</p>
-            <div className="atlas-side-bar">
-              <span>出生侧</span>
-              <fieldset className="atlas-side-tabs" aria-label="出生侧">
-                {sideTabs()}
-              </fieldset>
+            <div className="ground-card-caption">
+              <strong>{map.name}</strong>
+              <span>{thumb.name}</span>
+              <small>
+                {map.layouts.length} 种任务布局 <b aria-hidden="true">↗</b>
+              </small>
             </div>
-            <div className="atlas-brief-grid">
-              <div className="atlas-visual-column">
-                {image ? (
-                  <figure className="atlas-figure">
-                    <button
-                      className="atlas-map-preview"
-                      onClick={() => setViewer(true)}
-                      aria-label={`放大${guide.name}${variant.side}${image.kind}`}
-                    >
-                      <img
-                        key={image.id}
-                        src={image.thumb}
-                        alt={`${guide.name} · ${variant.side}${image.kind}`}
-                        width={800}
-                        height={600}
-                      />
-                      <span>⛶ 打开高清{image.kind}</span>
-                    </button>
-                    <figcaption>
-                      {image.kind === "原图"
-                        ? "当前展示地图底图。走线编号和标注请在作者原帖查看。"
-                        : `图上编号与下方说明对应 · ${variant.side}`}
-                    </figcaption>
-                  </figure>
-                ) : (
-                  <p className="atlas-empty">这张地图暂未收录图片，请阅读原帖。</p>
-                )}
-                {image?.kind === "走线图" && (
-                  <ul className="atlas-legend" aria-label="走线图图例">
-                    {[
-                      ["red", "红", "走线路线"],
-                      ["green", "绿", "对方路线 / 防线"],
-                      ["yellow", "黄", "打击方向"],
-                      ["white", "白", "高概率受击方向"],
-                      ["blue", "蓝", "标记指示"],
-                    ].map(([color, label, text]) => (
-                      <li key={color}>
-                        <i className={`atlas-key-${color}`} />
-                        <span>
-                          {label}：{text}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-              <article className="atlas-notes" aria-label={`${variant.side}走线说明`}>
-                <h3>{variant.side}怎么走</h3>
-                <dl>
-                  {variant.notes.map((note) => (
-                    <div key={note.label}>
-                      <dt>{note.label}</dt>
-                      <dd>{note.text}</dd>
-                    </div>
-                  ))}
-                </dl>
-                <p className="atlas-scope">{guide.mode}</p>
-              </article>
-            </div>
-            <div className="atlas-verified">
-              <span>摘要核对 {guide.verifiedAt}</span>
-              {updated && <span>原帖编辑 {updated.slice(0, 10)}</span>}
-            </div>
-          </section>
-          <RelatedArchiveGuides guideId={guide.id} />
-          <details className="atlas-details">
-            <summary>
-              合集更新核对{" "}
-              <span>
-                {atlas.collection.checkedAt.slice(0, 10)} · {atlas.collection.count} 篇
-              </span>
-            </summary>
-            <div>
-              <p>
-                合集已完整核对，现有 {atlas.guides.length}{" "}
-                篇地图攻略。编辑时间来自合集记录，摘要日期与原帖编辑日期分别展示。
-              </p>
-              {atlas.collection.newEntries.map((entry) => (
-                <p key={entry.id}>
-                  <a href={entry.source} target="_blank" rel="noreferrer">
-                    {entry.title} ↗
-                  </a>
-                  <small> · {entry.publishedAt.slice(0, 10)} · 合集补充文章</small>
-                </p>
-              ))}
-              <p>
-                小突尼斯、莫兹多克已收录摘要，高清标注图仍待补充。未核实的点位和地图变体不补写。
-              </p>
-            </div>
-          </details>
-          <details className="atlas-details">
-            <summary>
-              总论与旧版资料 <span>按各自原图阅读</span>
-            </summary>
-            <div>
-              {atlas.resources.map((resource) => (
-                <section key={resource.source}>
-                  <h3>
-                    <a href={resource.source} target="_blank" rel="noreferrer">
-                      {resource.title} ↗
-                    </a>
-                  </h3>
-                  <p>{resource.context}</p>
-                </section>
-              ))}
-            </div>
-          </details>
-          <AtlasArchives />
-          <footer className="atlas-footer">
-            <p>{atlas.scope}</p>
-            <p>{atlas.attribution}</p>
-            <div>
-              <span>高清图仅在点开时读取，可在本机保存以便下次查看。</span>
-              <button
-                disabled={clearing}
-                onClick={async () => {
-                  setClearing(true);
-                  setCacheStatus("");
-                  try {
-                    await clearMapImages();
-                    setCacheStatus("地图缓存已清理");
-                  } catch {
-                    setCacheStatus("暂时无法清理，请稍后重试");
-                  } finally {
-                    setClearing(false);
-                  }
-                }}
-              >
-                {clearing ? "正在清理…" : "清理地图缓存"}
-              </button>
-            </div>
-            <output>{cacheStatus}</output>
-          </footer>
+          </button>
+        ))}
+      </section>
+      {!cards.length && (
+        <div className="ground-empty">
+          <h2>没有找到这张地图</h2>
+          <p>试试地图简称或英文名称。</p>
+          <button
+            onClick={() => {
+              setQuery("");
+              setOnlyGuides(false);
+            }}
+          >
+            显示全部地图
+          </button>
         </div>
-      </div>
-      {viewer && image && (
-        <MapImageViewer
-          key={image.id}
-          image={image}
-          side={variant.side}
-          close={() => setViewer(false)}
-        >
-          {sideTabs()}
-        </MapImageViewer>
+      )}
+      <p className="ground-source-note">
+        列表展示导出资料中的三点占领布局；详情可切换全部已收录任务。点位为简报参考位置，关联攻略请结合原帖的地图版本阅读。
+      </p>
+      {selected && (
+        <GroundDetail
+          key={selected.id}
+          map={selected}
+          layoutId={search.side}
+          choose={(id) =>
+            void navigate({
+              search: { map: selected.id, side: id },
+              replace: true,
+              resetScroll: false,
+            })
+          }
+          close={() =>
+            void navigate({ search: { map: undefined, side: undefined }, resetScroll: false })
+          }
+        />
       )}
     </main>
+  );
+}
+function GroundDetail({
+  map,
+  layoutId,
+  choose,
+  close,
+}: {
+  map: GroundMap;
+  layoutId?: string;
+  choose: (id: string) => void;
+  close: () => void;
+}) {
+  const layout = map.layouts.find((l) => l.id === layoutId) || map.layouts[0];
+  const [contours, setContours] = useState(true),
+    [points, setPoints] = useState(true),
+    [grid, setGrid] = useState(false),
+    [cropped, setCropped] = useState(true),
+    [team, setTeam] = useState(1);
+  const [zoom, setZoom] = useState(1),
+    [offset, setOffset] = useState({ x: 0, y: 0 });
+  const [failed, setFailed] = useState(false),
+    [loaded, setLoaded] = useState(false);
+  const clipId = useId();
+  const svg = useRef<SVGSVGElement>(null);
+  const drag = useRef<{ x: number; y: number; ox: number; oy: number } | null>(null);
+  const reset = () => {
+    setZoom(1);
+    setOffset({ x: 0, y: 0 });
+  };
+  const crop = cropped && layout.crop ? layout.crop : [0, 0, 1, 1];
+  const baseW = (crop[2] - crop[0]) * 1000,
+    baseH = (crop[3] - crop[1]) * 1000;
+  const w = baseW / zoom,
+    h = baseH / zoom;
+  const x = crop[0] * 1000 + (baseW - w) / 2 + offset.x,
+    y = crop[1] * 1000 + (baseH - h) / 2 + offset.y;
+  const [x0, z0] = map.bounds[0],
+    [x1, z1] = map.bounds[1];
+  const origin = map.grid.default_reference.origin_xz_m,
+    step = map.grid.default_reference.step_xz_m;
+  const gridLines = [];
+  if (grid) {
+    for (let i = 0; i < 100; i++) {
+      const gx = ((origin[0] + i * step[0] - x0) / (x1 - x0)) * 1000,
+        gz = ((origin[1] + i * step[1] - z0) / (z1 - z0)) * 1000;
+      if (gx <= 1000 && gx >= 0)
+        gridLines.push(
+          <g key={`x${i}`}>
+            <path d={`M${gx} 0V1000`} />
+            <text x={gx + 3} y={y + 18 / zoom}>
+              {i + 1}
+            </text>
+          </g>,
+        );
+      if (gz <= 1000 && gz >= 0)
+        gridLines.push(
+          <g key={`z${i}`}>
+            <path d={`M0 ${gz}H1000`} />
+            <text x={x + 4 / zoom} y={gz + 15 / zoom}>
+              {i < 26
+                ? String.fromCharCode(65 + i)
+                : String.fromCharCode(64 + Math.floor(i / 26)) + String.fromCharCode(65 + (i % 26))}
+            </text>
+          </g>,
+        );
+    }
+  }
+  return (
+    <Modal className="ground-dialog" title={map.name} subtitle={map.english} close={close}>
+      <div className="ground-detail-body">
+        <div className="ground-controls">
+          <label>
+            任务布局
+            <select
+              value={layout.id}
+              onChange={(e) => {
+                reset();
+                choose(e.target.value);
+              }}
+            >
+              {map.layouts.map((l) => (
+                <option key={l.id} value={l.id}>
+                  {map.thumbnails.find((t) => t.layoutId === l.id)?.name || l.name}
+                  {map.layouts.filter((v) => v.name === l.name).length > 1 &&
+                  !map.thumbnails.some((t) => t.layoutId === l.id)
+                    ? ` · 布局 ${map.layouts.filter((v) => v.name === l.name).findIndex((v) => v.id === l.id) + 1}`
+                    : ""}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            己方出生侧
+            <select value={team} onChange={(e) => setTeam(Number(e.target.value))}>
+              <option value={1}>队伍 1</option>
+              <option value={2}>队伍 2</option>
+            </select>
+          </label>
+          <div className="ground-layer-toggles">
+            {[
+              ["等高线", contours, setContours],
+              ["点位", points, setPoints],
+              ["参考网格", grid, setGrid],
+              ["布局范围", cropped, setCropped],
+            ].map(([name, value, set]) => (
+              <button
+                key={name as string}
+                aria-pressed={value as boolean}
+                onClick={() => {
+                  reset();
+                  (set as (v: boolean) => void)(!value);
+                }}
+              >
+                {name as string}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="ground-stage" data-zoomed={zoom > 1}>
+          <svg
+            ref={svg}
+            role="application"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              const delta = 40 / zoom;
+              if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) {
+                e.preventDefault();
+                setOffset((o) => ({
+                  x: o.x + (e.key === "ArrowLeft" ? -delta : e.key === "ArrowRight" ? delta : 0),
+                  y: o.y + (e.key === "ArrowUp" ? -delta : e.key === "ArrowDown" ? delta : 0),
+                }));
+              }
+              if (e.key === "Home") {
+                e.preventDefault();
+                reset();
+              }
+            }}
+            viewBox={`${x} ${y} ${w} ${h}`}
+            aria-label={`${map.name} ${layout.name}，可拖动查看，使用下方按钮缩放`}
+            preserveAspectRatio="xMidYMid meet"
+            onPointerDown={(e) => {
+              if (e.button !== 0) return;
+              svg.current?.setPointerCapture(e.pointerId);
+              drag.current = { x: e.clientX, y: e.clientY, ox: offset.x, oy: offset.y };
+            }}
+            onPointerMove={(e) => {
+              const d = drag.current;
+              if (!d) return;
+              const rect = svg.current!.getBoundingClientRect();
+              const scale = Math.min(rect.width / w, rect.height / h);
+              setOffset({
+                x: d.ox - (e.clientX - d.x) / scale,
+                y: d.oy - (e.clientY - d.y) / scale,
+              });
+            }}
+            onPointerUp={() => {
+              drag.current = null;
+            }}
+            onPointerCancel={() => {
+              drag.current = null;
+            }}
+          >
+            <defs>
+              <clipPath id={clipId}>
+                <rect x={x} y={y} width={w} height={h} />
+              </clipPath>
+            </defs>
+            <g clipPath={`url(#${clipId})`}>
+              <image
+                href={map.base.url}
+                x={0}
+                y={0}
+                width={1000}
+                height={1000}
+                preserveAspectRatio="none"
+                onLoad={() => setLoaded(true)}
+                onError={() => setFailed(true)}
+              />
+              {contours && (
+                <image
+                  href={map.contourImage.url}
+                  x={0}
+                  y={0}
+                  width={1000}
+                  height={1000}
+                  preserveAspectRatio="none"
+                  opacity={0.8}
+                  onError={() => setFailed(true)}
+                />
+              )}
+              {grid && (
+                <g
+                  className="ground-grid-lines"
+                  style={{ fontSize: 16 / zoom, strokeWidth: 1 / zoom }}
+                >
+                  {gridLines}
+                </g>
+              )}
+              {points &&
+                layout.marks.map((mark, i) => {
+                  const size = w * (mark.kind === "spawn" ? 0.047 : 0.029);
+                  const key =
+                    mark.kind === "spawn"
+                      ? mark.team === team
+                        ? "spawn_ally"
+                        : "spawn_enemy"
+                      : `capture_${mark.label.toLowerCase()}`;
+                  const icon = atlas.icons[key as keyof typeof atlas.icons];
+                  return icon ? (
+                    <image
+                      key={i}
+                      href={icon.url}
+                      x={mark.x * 1000 - size / 2}
+                      y={mark.y * 1000 - size / 2}
+                      width={size}
+                      height={size}
+                    >
+                      <title>
+                        {mark.label}
+                        {mark.team ? ` · 队伍 ${mark.team}` : ""}
+                      </title>
+                    </image>
+                  ) : (
+                    <text
+                      key={i}
+                      x={mark.x * 1000}
+                      y={mark.y * 1000}
+                      fill="#efede5"
+                      textAnchor="middle"
+                      fontSize={size}
+                    >
+                      {mark.label}
+                    </text>
+                  );
+                })}
+            </g>
+          </svg>
+          {!loaded && !failed && <p className="ground-map-status">正在加载高清地图…</p>}
+          {failed && (
+            <p className="ground-map-status" role="alert">
+              图层加载失败，请关闭后重试。
+              <a href={map.base.url} target="_blank" rel="noreferrer">
+                打开原图 ↗
+              </a>
+            </p>
+          )}
+          <div className="ground-zoom">
+            <button
+              aria-label="缩小地图"
+              disabled={zoom <= 1}
+              onClick={() => setZoom((z) => Math.max(1, z / 1.5))}
+            >
+              −
+            </button>
+            <span>{Math.round(zoom * 100)}%</span>
+            <button
+              aria-label="放大地图"
+              disabled={zoom >= 8}
+              onClick={() => setZoom((z) => Math.min(8, z * 1.5))}
+            >
+              ＋
+            </button>
+            <button onClick={reset}>复位</button>
+          </div>
+        </div>
+        <div className="ground-map-meta">
+          <span>
+            <i className="ground-ally" /> 己方出生点
+          </span>
+          <span>
+            <i className="ground-enemy" /> 敌方出生点
+          </span>
+          <span>◇ 占领点</span>
+          <span>等高距 5 m · 主等高距 25 m</span>
+        </div>
+        <details className="ground-notes">
+          <summary>地形与坐标说明</summary>
+          <p>
+            地形高度 {map.contours.height_range_m.map((n) => n.toFixed(1)).join(" ~ ")}{" "}
+            m，为世界坐标
+            Y，并非已校准海拔。等高线仅表示地形，不包含建筑、桥梁或通行性判断。点位为任务简报参考位置，并非精确出生范围。
+          </p>
+          <p>
+            参考网格使用地图文件中的间距，字母自上向下、数字自左向右；未与实际对局校准，切换布局不会重置编号。原始地形采样间距{" "}
+            {map.contours.native_sample_m} m。
+          </p>
+        </details>
+        <section className="ground-related">
+          <h3>
+            关联攻略 <span>{map.guides.length}</span>
+          </h3>
+          {map.guides.length ? (
+            <>
+              <p>同一地图的不同布局、季节及更新版本可能有差异，以原帖为准。</p>
+              <div>
+                {map.guides.map((g) => (
+                  <a key={g.source} href={g.source} target="_blank" rel="noreferrer">
+                    <span>{g.title}</span>
+                    <small>{g.edition} · 原帖 ↗</small>
+                  </a>
+                ))}
+              </div>
+            </>
+          ) : (
+            <p>暂未收录这张地图的关联攻略。</p>
+          )}
+        </section>
+      </div>
+    </Modal>
   );
 }

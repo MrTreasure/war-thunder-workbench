@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import "./check-map-atlas.mjs";
+import "./check-ground-maps.mjs";
 const root = fileURLToPath(new URL("../", import.meta.url));
 const read = async (path) => JSON.parse(await readFile(resolve(root, path), "utf8"));
 const manifest = await read("src/generated/manifest.json");
