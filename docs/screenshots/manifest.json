@@ -1,0 +1,127 @@
+{
+  "capturedAt": "2026-10-20",
+  "source": "https://render.qmuse.pub/p/muse/8645013411493394",
+  "method": "Playwright CLI / Chromium，线上页面实际交互，独立浏览器上下文。",
+  "dataCheckedAt": "2026-10-19",
+  "screenshots": [
+    {
+      "file": "cart.png",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 100591,
+      "sha256": "9bd51e6e2818c5129534754305f2d630053bacc9609ce40f2a7bb0675d5c0980"
+    },
+    {
+      "file": "home.png",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 1277256,
+      "sha256": "1f63b9e1c17fe1c47c4383a7e40f7b6e384bfe1eb04786478f99210ec26981e9"
+    },
+    {
+      "file": "lineup-china-117.png",
+      "width": 1600,
+      "height": 1300,
+      "bytes": 232471,
+      "sha256": "324004fadce252c5d8556fc85d81c9c92545e4fd35d787702432b0965d925105"
+    },
+    {
+      "file": "lineup-germany-57.png",
+      "width": 1600,
+      "height": 1300,
+      "bytes": 241507,
+      "sha256": "2125284520b6d77c577eca7226ad101e59b8fd5c007c5897db551df1bec7be48"
+    },
+    {
+      "file": "lineup-germany-67.png",
+      "width": 1600,
+      "height": 1300,
+      "bytes": 242073,
+      "sha256": "40ca84ccfcb4e9e8fd231fbe8e4e54f24e3ffce1b8ec2f8be75b3b8c4a457253"
+    },
+    {
+      "file": "lineup-share.png",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 116092,
+      "sha256": "bcef4578be60d89b479870461aabffd5e486ab182e16fe5c1c0d1a11f523a86e"
+    },
+    {
+      "file": "lineup-usa-70.png",
+      "width": 1600,
+      "height": 1300,
+      "bytes": 216717,
+      "sha256": "b81a19ab564a18fcc980e364df0841a0c4186989e284d1332854cc43bd4bb10b"
+    },
+    {
+      "file": "lineup-usa-top.png",
+      "width": 1600,
+      "height": 1300,
+      "bytes": 196169,
+      "sha256": "3cd5eb541585b9d6ecc857b42a912e12b95d3405f1a45661b360ac37c2337de8"
+    },
+    {
+      "file": "lineups-china.png",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 85464,
+      "sha256": "325d50c4a5b857eb983644421e2ac4cc551dae3093bb23f638aefeda2b08010e"
+    },
+    {
+      "file": "lineups-germany.png",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 136530,
+      "sha256": "46e24950b0c93603403f7b03813c1c66e8a0491ea0ceb5fa7bf93a8a34b34b1f"
+    },
+    {
+      "file": "lineups-usa.png",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 133095,
+      "sha256": "299fc496c7fc62431787d147dc4ba2e524cd481631b47b8e73158474a7886a18"
+    },
+    {
+      "file": "modifications.png",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 131201,
+      "sha256": "bb95d52aebeff4e7dbc42e0ea28a3b6089f8f411e1f5c45e7521f76dd8e6ede8"
+    },
+    {
+      "file": "tree.png",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 348613,
+      "sha256": "467d82a1844622ba217330edbddbae0bef6c0c0c74ed1a9f368179bb7cb18890"
+    },
+    {
+      "file": "vehicle-detail.png",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 206868,
+      "sha256": "b30ce5edba3233370d7a0deae6b5e3bd2ca23dcf3dc812346237e0d2dfbf7880"
+    },
+    {
+      "file": "vehicle-filters.png",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 169161,
+      "sha256": "c5598f4df493903640d429ebc086369fa510afd1a17b3a512967c13fc3a28110"
+    },
+    {
+      "file": "vehicle-rank-vii.png",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 165726,
+      "sha256": "c1dfbbdd2b2389d79878002c433cb819eda91613ee1fcb0b8cb7bc65b9392651"
+    },
+    {
+      "file": "vehicle-rank-viii.png",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 156114,
+      "sha256": "c3f9a63c446b4e229aa7c0118e899ee0f771b44d93e79ee75438615455d88215"
+    }
+  ]
+}

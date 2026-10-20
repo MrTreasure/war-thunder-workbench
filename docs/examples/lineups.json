@@ -1,0 +1,212 @@
+{
+  "capturedAt": "2026-10-20",
+  "dataCheckedAt": "2026-10-19",
+  "note": "README 演示队列；非最优配队建议。分享码不包含名称与战斗类型。",
+  "lineups": [
+    {
+      "country": "china",
+      "name": "中国 · 11.7 坦克队列",
+      "slug": "china-117",
+      "battleType": "ground",
+      "rb": 11.7,
+      "rankFilter": "VII",
+      "shareCode": "CN0f1c1M1e1R0E0000000000",
+      "vehicles": [
+        {
+          "id": "cn_mbt2000",
+          "name": "MBT2000",
+          "rb": 11.7
+        },
+        {
+          "id": "cn_ztz_96b",
+          "name": "ZTZ96B",
+          "rb": 11.7
+        },
+        {
+          "id": "cn_vt_5",
+          "name": "VT5",
+          "rb": 11.7
+        },
+        {
+          "id": "cn_ztz_99_w",
+          "name": "ZTZ99 (III 类)",
+          "rb": 11.0
+        },
+        {
+          "id": "cn_zbd_04a",
+          "name": "ZBD04A",
+          "rb": 10.0
+        },
+        {
+          "id": "cn_hq_17",
+          "name": "红旗-17",
+          "rb": 11.7
+        }
+      ]
+    },
+    {
+      "country": "germany",
+      "name": "德国 · 5.7 坦克队列",
+      "slug": "germany-57",
+      "battleType": "ground",
+      "rb": 5.7,
+      "rankFilter": "III",
+      "shareCode": "DE4M4D3f5W3W2P0000000000",
+      "vehicles": [
+        {
+          "id": "germ_pzkpfw_vi_ausf_h1_tiger",
+          "name": "虎式坦克 H1 型",
+          "rb": 5.7
+        },
+        {
+          "id": "germ_pzkpfw_v_ausf_d_panther",
+          "name": "豹式坦克 D 型",
+          "rb": 5.3
+        },
+        {
+          "id": "germ_pz_iv_l70",
+          "name": "四号坦克/70 (V)",
+          "rb": 5.7
+        },
+        {
+          "id": "germ_waffentrager_krupp_steyr",
+          "name": "PaK 43 武器运载车",
+          "rb": 5.7
+        },
+        {
+          "id": "germ_panzerjager_nashorn",
+          "name": "犀牛",
+          "rb": 5.3
+        },
+        {
+          "id": "germ_flakpanzer_iv_ostwind_2",
+          "name": "东风 II",
+          "rb": 5.3
+        }
+      ]
+    },
+    {
+      "country": "germany",
+      "name": "德国 · 6.7 坦克队列",
+      "slug": "germany-67",
+      "battleType": "ground",
+      "rb": 6.7,
+      "rankFilter": "IV",
+      "shareCode": "DE4H3a3Y2s4E2N0000000000",
+      "vehicles": [
+        {
+          "id": "germ_pzkpfw_vi_ausf_b_tiger_iih",
+          "name": "虎王",
+          "rb": 6.7
+        },
+        {
+          "id": "germ_panzerjager_tiger_p_ferdinand",
+          "name": "斐迪南",
+          "rb": 6.7
+        },
+        {
+          "id": "germ_panzerjager_tiger",
+          "name": "猎虎",
+          "rb": 6.7
+        },
+        {
+          "id": "germ_le_kpz_m41",
+          "name": "leKPz M41",
+          "rb": 6.7
+        },
+        {
+          "id": "germ_pzkpfw_v_ausf_f_panther",
+          "name": "豹式坦克 F 型",
+          "rb": 6.0
+        },
+        {
+          "id": "germ_flakpanzer_iv_kugelblitz",
+          "name": "球形闪电",
+          "rb": 6.7
+        }
+      ]
+    },
+    {
+      "country": "usa",
+      "name": "美国 · 7.0 坦克队列",
+      "slug": "usa-70",
+      "battleType": "ground",
+      "rb": 7,
+      "rankFilter": "IV",
+      "shareCode": "US5S6u6v6n6h5l0000000000",
+      "vehicles": [
+        {
+          "id": "us_m46_patton",
+          "name": "M46",
+          "rb": 7.0
+        },
+        {
+          "id": "us_t92",
+          "name": "T92",
+          "rb": 7.0
+        },
+        {
+          "id": "us_t95",
+          "name": "T95",
+          "rb": 7.0
+        },
+        {
+          "id": "us_t34",
+          "name": "T34",
+          "rb": 6.7
+        },
+        {
+          "id": "us_t26e5",
+          "name": "T26E5",
+          "rb": 6.7
+        },
+        {
+          "id": "us_m50_ontos",
+          "name": "M50",
+          "rb": 6.7
+        }
+      ]
+    },
+    {
+      "country": "usa",
+      "name": "美国 · 顶级房 12.7",
+      "slug": "usa-top",
+      "battleType": "ground",
+      "rb": 12.7,
+      "rankFilter": "VIII",
+      "shareCode": "US545352554T6G0000000000",
+      "vehicles": [
+        {
+          "id": "us_m1a2_sep3_abrams",
+          "name": "M1A2 SEPv3",
+          "rb": 12.7
+        },
+        {
+          "id": "us_m1a2_sep2_abrams_trophy",
+          "name": "M1A2/战利品-HV",
+          "rb": 12.7
+        },
+        {
+          "id": "us_m1a2_sep2_abrams",
+          "name": "M1A2 SEPv2",
+          "rb": 12.7
+        },
+        {
+          "id": "us_m1a2_sep_abrams",
+          "name": "M1A2 SEP",
+          "rb": 12.7
+        },
+        {
+          "id": "us_hstv_l",
+          "name": "HSTV-L",
+          "rb": 12.0
+        },
+        {
+          "id": "us_nasams_fcs",
+          "name": "▃NASAMS 3 雷达车",
+          "rb": 12.7
+        }
+      ]
+    }
+  ]
+}

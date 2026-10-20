@@ -1,0 +1,211 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>README 预览 · War Thunder 研发工作台</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f6f8fa;color:#1f2328;font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif}.bar{background:#24292f;color:#fff;padding:14px max(24px,calc((100vw - 1100px)/2));font-size:14px}.bar a{color:#fff;float:right}main{max-width:1100px;margin:32px auto 64px;padding:42px 48px;border:1px solid #d0d7de;border-radius:8px;background:#fff}h1{font-size:32px;margin-top:0}h1,h2{padding-bottom:.3em;border-bottom:1px solid #d8dee4}h2{font-size:24px;margin-top:40px}h3{font-size:20px;margin-top:30px}h4{font-size:17px}a{color:#0969da;text-decoration:none}a:hover{text-decoration:underline}img{display:block;width:auto;max-width:100%;height:auto;border:1px solid #d0d7de;border-radius:5px;margin:20px auto 30px}blockquote{border-left:4px solid #d0d7de;padding:0 16px;color:#656d76;margin-left:0}pre{padding:18px;background:#f6f8fa;overflow:auto;border-radius:6px;font-size:14px;line-height:1.55}code{font-family:ui-monospace,monospace;background:#eff1f3;padding:2px 5px;border-radius:4px}pre code{padding:0;background:none}table{display:block;border-collapse:collapse;width:100%;overflow:auto;font-size:14px;margin:20px 0}td,th{border:1px solid #d0d7de;padding:8px 12px;text-align:left}tr:nth-child(2n){background:#f6f8fa}li{margin:5px 0}h2,h3,h4{scroll-margin-top:20px}@media(max-width:700px){main{padding:24px 18px;margin:0;border:0;border-radius:0}h1{font-size:27px}.bar{padding:12px 18px;font-size:12px}}</style><div class="bar">README · GitHub 排版预览<a href="../README.md">查看 Markdown 源文</a></div><main><h1 id="war-thunder-研发工作台">War Thunder 研发工作台</h1>
+<p>一个面向《战争雷霆》玩家的中文研发与配队工具：查看科技树、规划载具与配件研发、估算研发点与费用，以及管理和分享出击队列。</p>
+<p><strong><a href="https://render.qmuse.pub/p/muse/8645013411493394">在线体验 →</a></strong> · <a href="#功能预览">功能预览</a> · <a href="#本地运行">本地运行</a> · <a href="#数据与计算">数据与计算</a> · <a href="#参与贡献">参与贡献</a></p>
+<p><img alt="中国陆军科技树" src="screenshots/tree.png" /></p>
+<blockquote>
+<p>本项目是玩家自制的非官方工具，与 Gaijin 无隶属关系。数据是带核对时间的快照，实际载具、研发点、分房权重与解锁要求以游戏内为准。</p>
+</blockquote>
+<h2 id="能做什么">能做什么</h2>
+<ul>
+<li><strong>看科技树</strong>：十个国家、陆军 / 航空 / 远洋舰队 / 近海舰队，保留前置关系与折叠组，区分常规和特殊载具。</li>
+<li><strong>算载具研发</strong>：结合已有载具、目标前置、等级门槛与补研偏好生成待研清单，支持手动设置计价起点。</li>
+<li><strong>算配件研发</strong>：独立计算单车配件成本，扣除已完成配件与其余已投入 RP。</li>
+<li><strong>管出击队列</strong>：按国家保存多个队列，11 个有序槽位，展示各模式权重，支持拖动排序和分享码导入导出。</li>
+<li><strong>汇总报价</strong>：自填每万 RP 单价，将载具和配件报价加入本地购物车，共享载具前置去重。</li>
+<li><strong>保存在本地</strong>：研发进度、队列与购物车留在当前浏览器，无需登录，不连接游戏账号。</li>
+</ul>
+<h2 id="功能预览">功能预览</h2>
+<p>以下截图由 Playwright 在<a href="https://render.qmuse.pub/p/muse/8645013411493394">线上应用</a>实拍，截图日期为 <strong>2026-10-20</strong>，所用数据核对日期为 <strong>2026-10-19</strong>。截图中的账号进度、单价与队列均为演示设置，不代表真实账号或官方报价。</p>
+<h3 id="1-首页先选择国家">1. 首页：先选择国家</h3>
+<p>首次打开时展示国家入口，不提前下载载具与配件资料。选择国家后，一次加载该国全部军种、载具、配件与分享码字典；同国内切换军种无需再加载另一份数据。再次访问会恢复上次选择。</p>
+<p><img alt="未选择国家的首页" src="screenshots/home.png" /></p>
+<h3 id="2-科技树保留研发关系">2. 科技树：保留研发关系</h3>
+<p>沿箭头查看前置载具，展开折叠组，搜索中文或英文型号并定位路线。AB / RB / SB 切换后，卡片展示对应模式的权重。金币、礼包、联队、活动等独立获取载具与常规研发分区展示；支持缩放与全屏。</p>
+<p><img alt="科技树与常规、特殊载具分区" src="screenshots/tree.png" /></p>
+<p>点击载具可查看大图和研发资料，标题直达官方 Wiki，两个入口分别进入载具研发与配件研发。</p>
+<p><img alt="载具详情与大图" src="screenshots/vehicle-detail.png" /></p>
+<h3 id="3-载具研发按账号进度生成清单">3. 载具研发：按账号进度生成清单</h3>
+<p>选择目标、填写已有载具和单价后，工具计算目标、必要前置与等级补位。已有记录、目标已投入 RP、数量门槛和手工核对项共同构成报价依据；未知 RP 会提示核对，不直接视为零。</p>
+<h4 id="不同等级的计价起点">不同等级的计价起点</h4>
+<p>“已开放等级 / 计价起点”用于表达账号已经走到哪一级。低于起点的载具不计价，同级及以上的必要前置、数量门槛仍参与计算；这一设置不会把低级载具写成真实已拥有。</p>
+<p>以下以 <strong>ZTZ99A</strong> 为目标、每万 RP <strong>¥12.50</strong> 为演示单价，其他已有记录保持为空：</p>
+<table>
+<thead>
+<tr>
+<th>设置</th>
+<th>演示结果</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>从 Rank VIII 计价</td>
+<td>810,000 RP / ¥1,012.50</td>
+<td>包含同级前置 WZ1001(E)/长炮和目标</td>
+</tr>
+<tr>
+<td>从 Rank VII 计价</td>
+<td>2,065,000 RP / ¥2,581.25</td>
+<td>继续计入 VII 级必要前置与补位</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="从 Rank VIII 开始计价" src="screenshots/vehicle-rank-viii.png" /></p>
+<p><img alt="从 Rank VII 开始计价" src="screenshots/vehicle-rank-vii.png" /></p>
+<h4 id="自定义筛选与补研偏好">自定义筛选与补研偏好</h4>
+<p>在“其他已有载具与补研偏好”中，型号搜索、Rank 等级和载具类型可以组合使用。“已有载具”记录已购买或领取的车辆；“补研选择”可指定、排除或自动选择补位车辆。筛选只改变列表展示，不会清除其他等级的记录。</p>
+<p>下图组合使用 <strong>ZTZ 搜索 + 常规研发 + Rank VII</strong>，同时保留右侧完整计算结果。</p>
+<p><img alt="自定义筛选与逐车补研策略" src="screenshots/vehicle-filters.png" /></p>
+<h3 id="4-配件研发单车成本单独计算">4. 配件研发：单车成本单独计算</h3>
+<p>配件面板使用独立单价。勾选已完成配件后扣除对应成本，再扣除未勾选配件中已投入的 RP，显示剩余研发量与金额。下图以 ZTZ99A、每万 RP ¥10.00、另投入 5,000 RP 为例。</p>
+<p>完整总成本和逐项求和核对通过时，才启用逐项扣除；缺失数据可手动核对。高级载具默认已解锁配件，与 Wiki 记录的原始完整配件成本分别处理。</p>
+<p><img alt="配件研发、完成项与剩余 RP" src="screenshots/modifications.png" /></p>
+<h3 id="5-出击队列保存配置与分享">5. 出击队列：保存、配置与分享</h3>
+<p>出击队列有独立页面，默认展示当前国家已保存的队列。新建或编辑时进入配置，点击“保存队列”才写入；取消保留原先的保存结果。每条队列标题旁都有分享入口。</p>
+<p><img alt="德国已保存的两组出击队列" src="screenshots/lineups-germany.png" /></p>
+<h4 id="横向槽位与筛选">横向槽位与筛选</h4>
+<p>乘员槽位始终横向排列，可横向滚动。拖动柄按住即可排序，卡片支持长按拖动，键盘可用 <code>Alt + ← / →</code> 调整顺序。选车支持军种、Rank、获取类型和型号搜索，区分常规、精英、礼包、联队、市场及其他特殊载具。</p>
+<p>以下五组都是 <strong>陆战 RB 演示队列</strong>。队列可包含防空与轻型车辆；此处用于展示配置和权重计算，不是最优配队建议。美国“顶级房”在本次数据快照中为 <strong>12.7</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>国家</th>
+<th>队列</th>
+<th>主要演示载具</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>中国</td>
+<td>11.7</td>
+<td>MBT2000、ZTZ96B、VT5、ZTZ99 (III 类)、ZBD04A、红旗-17</td>
+</tr>
+<tr>
+<td>德国</td>
+<td>5.7</td>
+<td>虎式 H1、豹式 D、四号坦克/70 (V)、PaK 43 武器运载车、犀牛、东风 II</td>
+</tr>
+<tr>
+<td>德国</td>
+<td>6.7</td>
+<td>虎王、斐迪南、猎虎、leKPz M41、豹式 F、球形闪电</td>
+</tr>
+<tr>
+<td>美国</td>
+<td>7.0</td>
+<td>M46、T92、T95、T34、T26E5、M50</td>
+</tr>
+<tr>
+<td>美国</td>
+<td>顶级房 12.7</td>
+<td>M1A2 SEPv3、M1A2/战利品-HV、M1A2 SEPv2、M1A2 SEP、HSTV-L、NASAMS 3 雷达车</td>
+</tr>
+</tbody>
+</table>
+<p><strong>中国 · 11.7</strong>：展示常规、礼包与联队车辆混合配置，以及 Rank VII 筛选。</p>
+<p><img alt="中国 11.7 出击队列配置" src="screenshots/lineup-china-117.png" /></p>
+<p><strong>德国 · 5.7</strong>：以虎式 H1 与豹式 D 为核心，搭配坦歼和防空。</p>
+<p><img alt="德国 5.7 出击队列配置" src="screenshots/lineup-germany-57.png" /></p>
+<p><strong>德国 · 6.7</strong>：展示重坦、坦歼、轻坦与防空的六车槽位。</p>
+<p><img alt="德国 6.7 出击队列配置" src="screenshots/lineup-germany-67.png" /></p>
+<p><strong>美国 · 7.0</strong>：演示 M46、T92、T95 与较低权重车辆组合。</p>
+<p><img alt="美国 7.0 出击队列配置" src="screenshots/lineup-usa-70.png" /></p>
+<p><strong>美国 · 顶级房 12.7</strong>：展示多辆 M1A2 与轻坦、防空系统的队列。</p>
+<p><img alt="美国顶级房出击队列配置" src="screenshots/lineup-usa-top.png" /></p>
+<p><img alt="美国已保存的 7.0 与顶级房队列" src="screenshots/lineups-usa.png" /></p>
+<h4 id="权重规则与分享码">权重规则与分享码</h4>
+<p>配置后同时展示 AB / RB / SB 的适用结果：陆战 RB 的飞机使用陆战专属权重，陆战 AB 不将飞机算入队列；陆战 SB 提示按活动名单核对，不编造一个数值分房权重。空战和海战按各自规则计算，规则来源可在页面展开查看。</p>
+<p>分享时展示可选中文字并尝试复制；导入通过弹窗进行，无需常驻输入框。</p>
+<p><img alt="队列分享弹窗" src="screenshots/lineup-share.png" /></p>
+<p>分享码固定 <strong>24 位，区分大小写</strong>：前两位是国家码，其后 11 组各两位对应有序槽位，<code>00</code> 表示空位。分享码包含国家与载具顺序，不含队列名称、战斗类型和空战 RB 出击飞机选择；导入后请核对这些设置。</p>
+<p><a href="examples/lineups.json">示例队列、车辆 ID 与可导入分享码</a>保存在仓库中，可用于复现截图。</p>
+<h3 id="6-购物车合并研发报价">6. 购物车：合并研发报价</h3>
+<p>将载具与配件计算结果加入购物车，可以统一查看待研量和费用。同一国家、军种的共享载具前置会去重；单价冲突时暂停最终报价并提示核对。支持导出报价快照和复制清单。</p>
+<p><img alt="购物车与报价汇总" src="screenshots/cart.png" /></p>
+<p>金额按 <code>待研 RP ÷ 10,000 × 自填单价</code> 计算，使用整数分与 BigInt，最终四舍五入到分，不按整万 RP 向上取整。不含购车银狮、金币或乘员训练费用。</p>
+<h2 id="本地运行">本地运行</h2>
+<p>需要 Node.js <strong>22.12+</strong>（或符合 Vite 8 要求的更新版本）、<strong>pnpm 12.3.4</strong>。刷新数据还需要 Python 3 与 curl。依赖版本已固定，请保留 <code>pnpm-lock.yaml</code>。</p>
+<pre><code class="language-bash">pnpm install --frozen-lockfile
+pnpm dev
+</code></pre>
+<p>开发地址为 <code>http://localhost:5178</code>。开发命令会先从仓库的规范 JSON 生成国家模块，不要求先联网刷新游戏数据。</p>
+<pre><code class="language-bash">pnpm run check        # 类型、Lint 与数据一致性
+pnpm run build        # 构建并检查产物与十国数据哈希
+pnpm run preview      # http://localhost:4178
+</code></pre>
+<p>可分别运行 <code>pnpm run typecheck</code>、<code>pnpm run lint</code>、<code>pnpm run check:data</code>。页面入口为 <code>#/tree</code> 与 <code>#/lineups</code>；国家、军种和模式可通过外层查询参数指定，例如 <code>?country=china&amp;category=ground&amp;mode=rb#/tree</code>。</p>
+<h3 id="部署">部署</h3>
+<p><code>pnpm run build</code> 输出静态文件到 <code>dist/</code>，可部署到支持相对静态资源路径的站点。上传全部构建资源后再切换 HTML，并保留旧哈希资源供已打开的页面继续使用。国家资料随哈希 JS 模块发布，<strong>不发布独立 JSON 文件</strong>。</p>
+<p>本仓库采用 QMuse 模板，Vite 插件统一由 <code>@qmuse/vite-config</code> 配置。使用 QMuse 时，应绑定自己的应用，再通过 qmuse-cli 导入；<code>.qmuse/</code> 为本地平台配置，不纳入 Git。<code>publish</code> / <code>release</code> 脚本是原维护环境的专用发布流程，不能直接作为通用部署命令使用。</p>
+<h2 id="数据与计算">数据与计算</h2>
+<h3 id="数据来源">数据来源</h3>
+<ul>
+<li>科技树、载具资料、图片、RP 与配件成本：<a href="https://wiki.warthunder.com/">War Thunder Wiki</a>。</li>
+<li>简体中文名称与等级门槛：公开的原版游戏文件镜像 <a href="https://github.com/gszabi99/War-Thunder-Datamine">War-Thunder-Datamine</a>。本地 JSON 保留固定版本、原文、哈希与核对时间；它不是官方 API。</li>
+<li>分房规则：来源记录在 <a href="../data/lineup-rules.json">data/lineup-rules.json</a>。</li>
+<li>Logo、国旗与壁纸使用原始官方 HTTPS 地址；图片可用性取决于对应站点。来源记录在 <a href="../data/branding.json">data/branding.json</a> 与 <a href="../data/flags.json">data/flags.json</a>。</li>
+</ul>
+<p>当前快照包含 <strong>10 国、34 棵可用科技树、3,124 条载具记录</strong>；缺少对应军种的国家显示空状态。无法可靠匹配的少量配件名称保留英文，不使用臆测翻译。</p>
+<h3 id="数据组织与更新">数据组织与更新</h3>
+<table>
+<thead>
+<tr>
+<th>路径</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data/trees.json</code>、<code>research.json</code>、<code>planning.json</code></td>
+<td>科技树、研发点与等级门槛</td>
+</tr>
+<tr>
+<td><code>data/modifications.json</code></td>
+<td>配件总成本、逐项成本与核对依据</td>
+</tr>
+<tr>
+<td><code>data/localization.json</code></td>
+<td>原版简体中文映射与来源</td>
+</tr>
+<tr>
+<td><code>data/lineup-rules.json</code>、<code>lineup-codebook.json</code></td>
+<td>分房规则与稳定分享编码</td>
+</tr>
+<tr>
+<td><code>src/routes/</code></td>
+<td>TanStack 文件路由</td>
+</tr>
+<tr>
+<td><code>src/Workbench.tsx</code></td>
+<td>共享状态与国家资料加载</td>
+</tr>
+<tr>
+<td><code>src/generated/</code></td>
+<td>生成的导航清单与国家 JS 运输模块</td>
+</tr>
+<tr>
+<td><code>scripts/</code>、<code>schema/</code></td>
+<td>采集、构建、校验与数据结构</td>
+</tr>
+<tr>
+<td><code>docs/screenshots/</code>、<code>docs/examples/</code></td>
+<td>README 实拍截图与演示队列</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-bash">pnpm run refresh               # 联网刷新规范 JSON，不发布
+pnpm run refresh:localization  # 单独更新中文映射
+pnpm run check
+pnpm run build
+</code></pre>
+<p>刷新失败保留此前的核对数据与时间，不把失败请求标记成新快照。RP 未知与零成本有明确区别；配件逐项成本须核对完整总额。等级自动补位提供有效方案，不承诺全局最省。</p>
+<p>分享编码字典只追加，不能重排、重编号或复用退休编码，以保证旧分享码稳定。</p>
+<h3 id="本地存储">本地存储</h3>
+<p>研发账号进度、配件进度、购物车与队列使用各自独立的本地存储键。资料缓存优先 OPFS，失败时回退 localStorage，使用前核对 SHA256、字节数与结构。缓存淘汰只清理资料缓存，不清理个人进度或队列。</p>
+<p>这些数据不自动跨浏览器、设备或域名同步，也不会从游戏账号自动读取；清除站点数据会移除本地记录，请按需导出购物车或保存队列分享码。</p>
+<h2 id="参与贡献">参与贡献</h2>
+<p>欢迎提交功能建议、数据问题与修复。反馈数据问题时，请附上国家、军种、载具名称、模式、游戏版本和可核对来源；界面问题请附截图与屏幕尺寸。</p>
+<p>提交代码前运行 <code>pnpm run check</code> 与 <code>pnpm run build</code>。载具数据和来源应维护在 <code>data/*.json</code>，不要写进 JSX；同时保留已有存储格式与分享码兼容性。开发约定见 <a href="../AGENTS.md">AGENTS.md</a>。</p>
+<h2 id="许可与致谢">许可与致谢</h2>
+<p>代码的开源许可证将在正式公开前确认；当前预览尚未授予额外许可。War Thunder 名称、商标、游戏图片及第三方数据归各自权利人所有，不因本仓库公开而改变其授权条件。</p>
+<p>感谢 War Thunder Wiki、游戏文件镜像维护者，以及 QMuse 开发模板与托管服务。</p></main></html>
