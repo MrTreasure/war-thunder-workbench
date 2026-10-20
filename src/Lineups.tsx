@@ -4,8 +4,6 @@ import {
   LineupRatingsView,
   LineupRulesNotes,
 } from "./LineupOverview";
-import { CreatorLink } from "./components/CreatorLink";
-import { PageNavigation } from "./components/PageNavigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { CatalogIndex, CountryPayload, Mode } from "./models";
 import type { DownloadProgress } from "./data-loader";
@@ -61,19 +59,9 @@ export function Lineups({
   const [pending, setPending] = useState<{ country: string; code: string } | null>(null);
   const [importError, setImportError] = useState("");
   return (
-    <main className="lineup-page">
-      <header className="lineup-page-header">
-        <div className="lineup-page-header-inner">
-          <div className="lineup-page-title">
-            <h1>出击队列</h1>
-          </div>
-          <PageNavigation page="lineups" />
-          <div className="lineup-header-actions">
-            <CreatorLink />
-          </div>
-        </div>
-      </header>
+    <main className="lineup-page" aria-label="出击队列">
       <div className="lineup-content">
+        <h2 className="sr-only">出击队列</h2>
         <section className="lineup-toolbar" aria-label="国家与卡片权重">
           <label className="calc-field lineup-country-field">
             国家

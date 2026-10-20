@@ -38,10 +38,6 @@
     color: var(--wt-ink);
   }
 }
-.lineup-page-header-inner {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-}
-.lineup-page-header-inner > .page-navigation {
-  justify-self: start;
+.mobile-page-navigation {
+  display: none;
 }

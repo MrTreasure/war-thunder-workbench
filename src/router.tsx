@@ -11,6 +11,7 @@ export const getRouter = () => {
     history: hashHistory,
     context: { queryClient },
     scrollRestoration: true,
+    scrollToTopSelectors: ["#workbench-content"],
     defaultPreloadStaleTime: 0,
   });
 

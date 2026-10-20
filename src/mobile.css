@@ -2,42 +2,18 @@
  * C=collapsible-tools+single-column-dialogs · D=disclosure-feedback · E=matte · SOUL=7 SPECTACLE=1 DENSITY=7 */
 /* One set of controls serves both layouts; CSS controls visibility at the breakpoint. */
 .workbench-header {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 8px 14px;
-  padding-top: 5px;
+  display: block;
+  padding-top: 8px;
   flex: none;
   min-width: 0;
 }
-.workbench-header > .masthead,
 .tool-panel {
-  display: contents;
-}
-.workbench-header .identity {
-  grid-column: 1;
-  grid-row: 1;
-  min-width: 0;
-}
-.workbench-header .masthead-meta {
-  grid-column: 3;
-  grid-row: 1;
-}
-.workbench-header .page-navigation {
-  grid-column: 2;
-  grid-row: 1;
-  justify-self: start;
+  display: block;
 }
 .tool-panel > .control-row {
-  grid-column: 1 / -1;
-  grid-row: 2;
   flex-wrap: wrap;
   padding: 4px 0;
   border: 0;
-}
-.tool-panel > .controls {
-  grid-column: 1 / -1;
-  grid-row: 3;
 }
 .mobile-tools-toggle,
 .mobile-tools-done,
@@ -45,81 +21,14 @@
 .creator-promo-short {
   display: none;
 }
-@media (min-width: 801px) and (max-width: 1150px) {
-  .workbench-header {
-    grid-template-columns: minmax(0, 1fr) auto;
-  }
-  .workbench-header .masthead-meta {
-    grid-column: 2;
-  }
-  .workbench-header .page-navigation {
-    grid-column: 1 / -1;
-    grid-row: 2;
-  }
-  .tool-panel > .control-row {
-    grid-column: 1 / -1;
-    grid-row: 3;
-  }
-  .tool-panel > .controls {
-    grid-row: 4;
-  }
-}
 @media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
   .app-shell {
-    min-height: 0;
-    height: 100dvh;
-    padding: env(safe-area-inset-top, 0px) max(8px, env(safe-area-inset-right, 0px))
-      env(safe-area-inset-bottom, 0px) max(8px, env(safe-area-inset-left, 0px));
+    padding: 0 max(8px, env(safe-area-inset-right, 0px)) env(safe-area-inset-bottom, 0px)
+      max(8px, env(safe-area-inset-left, 0px));
   }
   .workbench-header {
     display: block;
     padding: 0;
-  }
-  .workbench-header > .masthead {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 4px 8px;
-    min-height: 58px;
-    padding: 7px 0;
-    margin: 0;
-    border: 0;
-  }
-  .workbench-header .identity {
-    gap: 8px;
-  }
-  .workbench-header .masthead-meta {
-    grid-column: 2;
-    grid-row: 1;
-  }
-  .workbench-header .page-navigation,
-  .lineup-page-header-inner > .page-navigation {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    width: 100%;
-    justify-self: stretch;
-  }
-  .page-navigation > a {
-    flex: 1;
-    min-width: 0;
-    padding-inline: 10px;
-    font-size: 14px;
-  }
-  .wt-brand-logo {
-    width: 58px;
-    height: 32px;
-    flex: none;
-  }
-  .wt-brand-copy h1 {
-    font-size: 14px;
-    letter-spacing: 0;
-    white-space: nowrap;
-  }
-  .wt-brand-copy > span {
-    font-size: 10px;
-    letter-spacing: 0;
-  }
-  .masthead-meta .edition {
-    display: none;
   }
   .creator-promo .creator-promo-link {
     flex-wrap: nowrap;
@@ -186,7 +95,7 @@
   }
   .tool-panel {
     display: none;
-    max-height: min(560px, calc(100dvh - 264px));
+    max-height: min(560px, calc(100dvh - 220px));
     overflow-y: auto;
     overscroll-behavior: contain;
     border: 1px solid var(--wt-strong-line);
@@ -595,34 +504,8 @@
   }
 
   .lineup-page {
-    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
-      max(20px, env(safe-area-inset-bottom, 0px)) env(safe-area-inset-left, 0px);
-  }
-  .lineup-page-header {
-    position: static;
-    padding: 0;
-  }
-  .lineup-page-header-inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 8px;
-    padding: 8px 12px;
-  }
-  .lineup-page-title {
-    min-width: 0;
-  }
-  .lineup-page-header h1 {
-    font-size: 18px;
-  }
-  .lineup-page-header p {
-    display: none;
-  }
-  .lineup-header-actions {
-    display: contents;
-  }
-  .lineup-header-actions .creator-promo {
-    grid-row: 1;
-    grid-column: 2;
+    padding: 0 env(safe-area-inset-right, 0px) max(20px, env(safe-area-inset-bottom, 0px))
+      env(safe-area-inset-left, 0px);
   }
   .lineup-page :is(input:not([type="radio"]), select) {
     font-size: 16px;

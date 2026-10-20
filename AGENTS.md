@@ -71,6 +71,12 @@
   outside the tree's collapsible filter panel on every screen size. Categories
   are filters, not page links. Use menu.csv's mainmenu/* Simplified Chinese
   entries for category labels, with localization provenance in canonical JSON.
+- Render `AppHeader` once in the shared `_workbench` route, outside the Outlet.
+  Its identity, dimensions and creator link stay identical across pages. Desktop
+  shows page links; mobile uses a native page select in the top header. Keep
+  the shared content scroll frame and its TanStack scroll restoration ID stable.
+  `app-header.css` owns shell/header geometry; page shells inherit the remaining
+  height rather than adding another 100dvh. Wiki provenance stays in tree content.
 - Keep `.qmuse/project.json` managed by qmuse-cli; update the bound application
   with `qmuse-cli import .`, never manually change its platform binding.
   Generated bootstrap/manifest, `src/generated/country-modules.ts` and all ten

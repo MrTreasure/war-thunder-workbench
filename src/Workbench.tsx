@@ -1,5 +1,3 @@
-import { CreatorLink } from "./components/CreatorLink";
-import { PageNavigation } from "./components/PageNavigation";
 import { Component, createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { useRouterState } from "@tanstack/react-router";
 import type { ReactNode } from "react";
@@ -398,38 +396,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   );
   const treePage = (
     <div className={`app-shell ${fallbackFull ? "fullscreen-fallback" : ""}`}>
-      <header className="workbench-header">
-        <div className="masthead">
-          <div className="identity">
-            <img
-              className="wt-brand-logo"
-              src="https://warthunder.com/assets/img/svg/logo-wt.svg"
-              alt="War Thunder"
-              width={94}
-              height={45}
-            />
-            <div className="wt-brand-copy">
-              <h1>载具研发树</h1>
-              <span>个人研发工具</span>
-            </div>
-          </div>
-
-          <PageNavigation page="tree" />
-          <div className="masthead-meta">
-            <CreatorLink />
-            <div className="edition">
-              <span className="snapshot-dot" />
-              <span>官方 Wiki · {P.checkedAt.slice(0, 10)}</span>
-              <a
-                href={`${P.sources[category].url}?v=t&t_c=${country}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                官方原树 ↗
-              </a>
-            </div>
-          </div>
-        </div>
+      <section className="workbench-header" aria-label="科技树筛选与操作">
         <button
           ref={mobileToolsToggle}
           className="mobile-tools-toggle"
@@ -630,7 +597,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
             收起并查看科技树
           </button>
         </div>
-      </header>
+      </section>
       <div className="tree-status">
         <div>
           <strong>
@@ -727,6 +694,16 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
               从上往下沿箭头研发；折叠组可以展开。AB / RB / SB
               切换后显示当前模式权重。配件与载具分别计价，出击队列和购物车本地保存。
             </p>
+            <span className="tree-source">
+              官方 Wiki · {P.checkedAt.slice(0, 10)}
+              <a
+                href={`${P.sources[category].url}?v=t&t_c=${country}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                官方原树 ↗
+              </a>
+            </span>
           </div>
           <div>
             <span>{tree?.edges.length || 0} 条官方分支连线</span>

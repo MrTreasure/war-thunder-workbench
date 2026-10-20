@@ -109,31 +109,6 @@
   padding: 10px 12px;
 }
 
-/* The creator link belongs to the page header's right edge. */
-.masthead-meta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 2px;
-  margin-left: auto;
-  min-width: 0;
-  max-width: 100%;
-}
-.masthead-meta .edition {
-  margin-left: 0;
-}
-.lineup-page-header {
-  flex-wrap: wrap;
-}
-.lineup-header-actions {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  gap: 8px 12px;
-  margin-left: auto;
-  min-width: 0;
-}
 .creator-promo {
   max-width: 100%;
 }

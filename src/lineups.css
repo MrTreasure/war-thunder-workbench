@@ -1,27 +1,10 @@
 /* finesse · component: sortie page and horizontal crew strip · register=product
  * Inherit hangar tokens. Pointer long-press, keyboard reorder, horizontal scroll. */
 .lineup-page {
-  min-height: 100dvh;
   width: 100%;
   padding-bottom: 24px;
   background: var(--wt-page);
   color: var(--wt-ink);
-}
-.lineup-page-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  padding: 0;
-  border-bottom: 1px solid var(--wt-strong-line);
-  background: var(--wt-surface);
-}
-.lineup-page-header-inner {
-  width: 100%;
-  max-width: 1560px;
-  margin-inline: auto;
-  align-items: center;
-  gap: 16px;
-  padding: 14px 24px;
 }
 .lineup-content {
   width: 100%;
@@ -72,19 +55,6 @@
 .lineup-import-action {
   align-self: end;
   white-space: nowrap;
-}
-.lineup-page-header h1 {
-  font-size: 20px;
-  letter-spacing: 0.5px;
-}
-.lineup-page-header p {
-  margin: 7px 0 0;
-  font-size: 11px;
-  color: var(--wt-muted);
-}
-.lineup-page-header a {
-  flex: none;
-  text-decoration: none;
 }
 .lineup-page :is(button, input:not([type="radio"]), select, .quiet-button) {
   min-height: 44px;
@@ -659,16 +629,6 @@
   }
 }
 @media (max-width: 650px) {
-  .lineup-page-header {
-    padding: 0;
-  }
-  .lineup-page-header h1 {
-    font-size: 17px;
-  }
-  .lineup-page-header p {
-    max-width: 160px;
-    line-height: 1.6;
-  }
   .lineup-entry {
     grid-template-columns: minmax(0, 1fr);
     padding: 12px;
