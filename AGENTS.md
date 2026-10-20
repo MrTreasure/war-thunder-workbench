@@ -107,6 +107,11 @@
 - New and edited lineups use local drafts. Persist only on explicit save;
   cancellation must preserve existing saved entries. Confirmed imports return
   to the saved list. Keep legacy lineup keys, IDs, share slots and codebook stable.
+- Keep lineup header and content aligned in a centered 1560px container. Country,
+  card BR mode and import share one compact toolbar; empty saved lists have one
+  create action. Saved cards keep sharing beside the title and editing/deletion
+  below the crew strip. Mobile picker filters collapse independently of page
+  navigation, with their active settings visible and search always available.
 
 - Mobile layout overrides live in `src/mobile.css`, imported after all workbench styles.
   Tree controls share one DOM and collapse behind an accessible toggle at <=800px

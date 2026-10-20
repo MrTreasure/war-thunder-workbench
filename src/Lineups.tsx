@@ -63,32 +63,46 @@ export function Lineups({
   return (
     <main className="lineup-page">
       <header className="lineup-page-header">
-        <div>
-          <h1>出击队列</h1>
-          <p>按国家管理已保存队列 · 分享与导入队列</p>
-        </div>
-        <PageNavigation page="lineups" />
-        <div className="lineup-header-actions">
-          <CreatorLink />
+        <div className="lineup-page-header-inner">
+          <div className="lineup-page-title">
+            <h1>出击队列</h1>
+          </div>
+          <PageNavigation page="lineups" />
+          <div className="lineup-header-actions">
+            <CreatorLink />
+          </div>
         </div>
       </header>
-      <div className="lineup-entry">
-        <label className="calc-field">
-          国家
-          <select value={country} onChange={(e) => chooseCountry(e.target.value)}>
-            <option value="" disabled>
-              选择国家
-            </option>
-            {Object.entries(catalog.countries).map(([id, name]) => (
-              <option key={id} value={id}>
-                {name}
-              </option>
-            ))}
-          </select>
-        </label>
-        <div className="lineup-entry-actions">
+      <div className="lineup-content">
+        <section className="lineup-toolbar" aria-label="国家与卡片权重">
+          <label className="calc-field lineup-country-field">
+            国家
+            <span className={`lineup-country-select ${country ? "has-flag" : ""}`}>
+              {country && <img src={catalog.flags[country]} alt="" width={24} height={18} />}
+              <select value={country} onChange={(e) => chooseCountry(e.target.value)}>
+                <option value="" disabled>
+                  选择国家
+                </option>
+                {Object.entries(catalog.countries).map(([id, name]) => (
+                  <option key={id} value={id}>
+                    {name}
+                  </option>
+                ))}
+              </select>
+            </span>
+          </label>
+          <label className="calc-field lineup-mode-field">
+            卡片权重
+            <select value={mode} onChange={(e) => setMode(e.target.value as Mode)}>
+              {Object.entries(modes).map(([id, name]) => (
+                <option key={id} value={id}>
+                  {name} {id.toUpperCase()}
+                </option>
+              ))}
+            </select>
+          </label>
           <button
-            className="quiet-button"
+            className="quiet-button lineup-import-action"
             onClick={() => {
               setImportError("");
               setPending(null);
@@ -97,105 +111,102 @@ export function Lineups({
           >
             导入队列
           </button>
-        </div>
-      </div>
-      <div className="lineup-helpbar">
-        <p className="calc-note">按国家配置出击队列，队列与分享码保留槽位顺序。</p>
-      </div>
-      {importOpen && (
-        <Modal
-          className="lineup-import-dialog"
-          title="导入出击队列"
-          subtitle="粘贴分享码后预览，确认后保存为新队列。区分大小写。"
-          close={() => setImportOpen(false)}
-        >
-          <form
-            className="lineup-import"
-            onSubmit={(event) => {
-              event.preventDefault();
-              try {
-                const target = shareCountry(importText, catalog.lineup);
-                setPending({ country: target, code: importText.trim() });
-                setImportError("");
-                setImportOpen(false);
-                if (target !== country) chooseCountry(target);
-              } catch (cause) {
-                setImportError(cause instanceof Error ? cause.message : "分享码读取失败。");
-                setPending(null);
-              }
-            }}
+        </section>
+        {importOpen && (
+          <Modal
+            className="lineup-import-dialog"
+            title="导入出击队列"
+            subtitle="粘贴分享码后预览，确认后保存为新队列。区分大小写。"
+            close={() => setImportOpen(false)}
           >
-            <label className="calc-field">
-              导入分享码（区分大小写）
-              <input
-                ref={importInput}
-                autoComplete="off"
-                value={importText}
-                onChange={(e) => {
-                  setImportText(e.target.value);
+            <form
+              className="lineup-import"
+              onSubmit={(event) => {
+                event.preventDefault();
+                try {
+                  const target = shareCountry(importText, catalog.lineup);
+                  setPending({ country: target, code: importText.trim() });
                   setImportError("");
-                }}
-                autoCapitalize="none"
-                autoCorrect="off"
-                spellCheck={false}
-                placeholder={`${2 + catalog.lineup.maxSlots * 2} 位分享码，含空槽位`}
-                aria-invalid={Boolean(importError)}
-                aria-describedby={importError ? "lineup-import-error" : undefined}
-              />
-            </label>
-            <button type="submit" className="quiet-button" disabled={!importText.trim()}>
-              预览导入
-            </button>
-          </form>
-          {importError && (
-            <p className="lineup-feedback is-error" role="alert" id="lineup-import-error">
-              {importError}
-            </p>
-          )}
-        </Modal>
-      )}
-      {pending && (!payload || payload.country !== pending.country) && (
-        <Modal
-          className="lineup-import-dialog"
-          title="导入出击队列"
-          subtitle={`读取${catalog.countries[pending.country]}资料后预览`}
-          close={() => setPending(null)}
-        >
+                  setImportOpen(false);
+                  if (target !== country) chooseCountry(target);
+                } catch (cause) {
+                  setImportError(cause instanceof Error ? cause.message : "分享码读取失败。");
+                  setPending(null);
+                }
+              }}
+            >
+              <label className="calc-field">
+                导入分享码（区分大小写）
+                <input
+                  ref={importInput}
+                  autoComplete="off"
+                  value={importText}
+                  onChange={(e) => {
+                    setImportText(e.target.value);
+                    setImportError("");
+                  }}
+                  autoCapitalize="none"
+                  autoCorrect="off"
+                  spellCheck={false}
+                  placeholder={`${2 + catalog.lineup.maxSlots * 2} 位分享码，含空槽位`}
+                  aria-invalid={Boolean(importError)}
+                  aria-describedby={importError ? "lineup-import-error" : undefined}
+                />
+              </label>
+              <button type="submit" className="quiet-button" disabled={!importText.trim()}>
+                预览导入
+              </button>
+            </form>
+            {importError && (
+              <p className="lineup-feedback is-error" role="alert" id="lineup-import-error">
+                {importError}
+              </p>
+            )}
+          </Modal>
+        )}
+        {pending && (!payload || payload.country !== pending.country) && (
+          <Modal
+            className="lineup-import-dialog"
+            title="导入出击队列"
+            subtitle={`读取${catalog.countries[pending.country]}资料后预览`}
+            close={() => setPending(null)}
+          >
+            <WarThunderLoading
+              compact
+              title="载入队列资料"
+              progress={progress}
+              error={error}
+              retry={error ? retry : undefined}
+            />
+          </Modal>
+        )}
+        {!country ? (
+          <div className="lineup-empty">
+            <h3>先选择一个国家</h3>
+            <p>也可以点击“导入队列”，使用分享码自动选择国家。</p>
+          </div>
+        ) : !payload || payload.country !== country ? (
           <WarThunderLoading
             compact
-            title="载入队列资料"
+            title={`载入${catalog.countries[country]}全部载具资料`}
             progress={progress}
             error={error}
             retry={error ? retry : undefined}
           />
-        </Modal>
-      )}
-      {!country ? (
-        <div className="lineup-empty">
-          <h3>先选择一个国家</h3>
-          <p>也可以点击“导入队列”，使用分享码自动选择国家。</p>
-        </div>
-      ) : !payload || payload.country !== country ? (
-        <WarThunderLoading
-          compact
-          title={`载入${catalog.countries[country]}全部载具资料`}
-          progress={progress}
-          error={error}
-          retry={error ? retry : undefined}
-        />
-      ) : (
-        <CountryLineups
-          key={country}
-          {...{ catalog, country, payload, mode, setMode, defaultBattle }}
-          imported={pending?.country === country ? pending.code : null}
-          dismissImport={() => setPending(null)}
-          editImport={() => {
-            setPending(null);
-            setImportError("");
-            setImportOpen(true);
-          }}
-        />
-      )}
+        ) : (
+          <CountryLineups
+            key={country}
+            {...{ catalog, country, payload, mode, defaultBattle }}
+            imported={pending?.country === country ? pending.code : null}
+            dismissImport={() => setPending(null)}
+            editImport={() => {
+              setPending(null);
+              setImportError("");
+              setImportOpen(true);
+            }}
+          />
+        )}
+      </div>
     </main>
   );
 }
@@ -204,7 +215,6 @@ function CountryLineups({
   country,
   payload,
   mode,
-  setMode,
   imported,
   dismissImport,
   editImport,
@@ -214,7 +224,6 @@ function CountryLineups({
   country: string;
   payload: CountryPayload;
   mode: Mode;
-  setMode: (mode: Mode) => void;
   defaultBattle: BattleType;
   imported: string | null;
   dismissImport: () => void;
@@ -239,6 +248,7 @@ function CountryLineups({
   );
   const [rank, setRank] = useState("all");
   const [kind, setKind] = useState("all");
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const [deleting, setDeleting] = useState("");
   const [message, setMessage] = useState("");
   const [copying, setCopying] = useState(false);
@@ -316,6 +326,7 @@ function CountryLineups({
     setSearch("");
     setRank("all");
     setKind("all");
+    setFiltersOpen(false);
     setDeleting("");
     setMessage("");
   }
@@ -338,6 +349,7 @@ function CountryLineups({
       row.battleType === "air" ? "aviation" : row.battleType === "ground" ? "ground" : "all",
     );
     setSearch("");
+    setFiltersOpen(false);
     setMessage("");
     focusHeading();
   }
@@ -522,24 +534,11 @@ function CountryLineups({
       <div className="lineup-workspace">
         {!draft && (
           <section className="lineup-saved" aria-label="已保存的出击队列">
-            <div className="lineup-section-heading">
+            <div className="lineup-section-heading lineup-list-heading">
               <h3 ref={heading} tabIndex={-1}>
-                我的队列{" "}
-                <small>
-                  {catalog.countries[country]} · {saved.length} 个
-                </small>
+                我的队列 <small>{saved.length} 个</small>
               </h3>
-              <div className="lineup-saved-actions">
-                <label className="lineup-inline-label">
-                  载具权重
-                  <select value={mode} onChange={(e) => setMode(e.target.value as Mode)}>
-                    {Object.entries(modes).map(([id, name]) => (
-                      <option key={id} value={id}>
-                        {name} {id.toUpperCase()}
-                      </option>
-                    ))}
-                  </select>
-                </label>
+              {saved.length > 0 && (
                 <button
                   className="quiet-button calc-open"
                   onClick={() => {
@@ -549,12 +548,12 @@ function CountryLineups({
                 >
                   ＋ 新建队列
                 </button>
-              </div>
+              )}
             </div>
             <div className="lineup-saved-list">
               {saved.map((row) => (
                 <article className="lineup-saved-row" key={row.id}>
-                  <div className="lineup-section-heading">
+                  <div className="lineup-card-heading">
                     <div>
                       <h3>{row.name || "未命名队列"}</h3>
                       <p className="calc-note">
@@ -562,40 +561,40 @@ function CountryLineups({
                         {rules.maxSlots} 辆
                       </p>
                     </div>
-                    <div className="lineup-saved-actions">
-                      <button
-                        className="quiet-button calc-open"
-                        aria-label={`分享 ${row.name}`}
-                        disabled={copying}
-                        onClick={() => shareLineup(row)}
-                      >
-                        分享
-                      </button>
-                      <button
-                        className="quiet-button"
-                        aria-label={`编辑 ${row.name}`}
-                        onClick={() => edit(row)}
-                      >
-                        编辑
-                      </button>
-                      <button
-                        className="quiet-button"
-                        aria-label={`删除 ${row.name}`}
-                        onClick={() => setDeleting(row.id)}
-                      >
-                        删除
-                      </button>
-                    </div>
+                    <button
+                      className="quiet-button lineup-card-share"
+                      aria-label={`分享 ${row.name}`}
+                      disabled={copying}
+                      onClick={() => shareLineup(row)}
+                    >
+                      分享
+                    </button>
                   </div>
                   <LineupSummaryRatings lineup={row} units={units} rules={rules} />
                   <LineupSummary lineup={row} units={units} mode={mode} catalog={catalog} />
+                  <footer className="lineup-card-actions">
+                    <button
+                      className="quiet-button"
+                      aria-label={`编辑 ${row.name}`}
+                      onClick={() => edit(row)}
+                    >
+                      编辑队列
+                    </button>
+                    <button
+                      className="quiet-button"
+                      aria-label={`删除 ${row.name}`}
+                      onClick={() => setDeleting(row.id)}
+                    >
+                      删除
+                    </button>
+                  </footer>
                 </article>
               ))}
             </div>
             {!saved.length && (
-              <div className="lineup-empty">
+              <div className="lineup-empty lineup-saved-empty">
                 <h3>还没有保存的队列</h3>
-                <p>点击新建配置载具，保存后会显示在这里；也可以从分享码导入。</p>
+                <p>选择载具并保存，你的{catalog.countries[country]}常用阵容会显示在这里。</p>
                 <button
                   className="quiet-button calc-open"
                   onClick={() => {
@@ -603,7 +602,7 @@ function CountryLineups({
                     focusHeading();
                   }}
                 >
-                  新建队列
+                  ＋ 新建队列
                 </button>
               </div>
             )}
@@ -628,7 +627,7 @@ function CountryLineups({
                 </button>
               </div>
             </div>
-            <p className="calc-note">配置完成后保存。取消会保留之前保存的队列。</p>
+            <p className="calc-note">保存后生效，取消不会覆盖已保存的队列。</p>
             <div className="lineup-editor-heading">
               <label className="calc-field">
                 队列名称
@@ -654,26 +653,31 @@ function CountryLineups({
                   ))}
                 </select>
               </label>
-              <button
-                className="quiet-button"
-                onClick={() =>
-                  create(
-                    [...selected.slots],
-                    `${selected.name.slice(0, 74)} 副本`,
-                    selected.battleType,
-                    selected.activeAircraft,
-                  )
-                }
-              >
-                复制队列
-              </button>
-              <button
-                className="quiet-button"
-                disabled={!editingId}
-                onClick={() => setDeleting(selected.id)}
-              >
-                删除
-              </button>
+              <details key={selected.id} className="lineup-editor-more">
+                <summary>更多操作</summary>
+                <div>
+                  <button
+                    className="quiet-button"
+                    onClick={() =>
+                      create(
+                        [...selected.slots],
+                        `${selected.name.slice(0, 74)} 副本`,
+                        selected.battleType,
+                        selected.activeAircraft,
+                      )
+                    }
+                  >
+                    复制队列
+                  </button>
+                  <button
+                    className="quiet-button"
+                    disabled={!editingId}
+                    onClick={() => setDeleting(selected.id)}
+                  >
+                    删除
+                  </button>
+                </div>
+              </details>
             </div>
             <div className="lineup-configure">
               <section className="lineup-roster" aria-label="乘员槽位">
@@ -684,16 +688,6 @@ function CountryLineups({
                       {selected.slots.filter(Boolean).length} / {rules.maxSlots}
                     </small>
                   </h3>
-                  <label className="lineup-inline-label">
-                    查看权重
-                    <select value={mode} onChange={(e) => setMode(e.target.value as Mode)}>
-                      {Object.entries(modes).map(([id, label]) => (
-                        <option key={id} value={id}>
-                          {label} {id.toUpperCase()}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
                 </div>
                 <p className="calc-note">
                   点击槽位后在下方选车；拖动柄按住即可排序，卡片长按后拖动、短划横向浏览；Alt + ← /
@@ -756,7 +750,7 @@ function CountryLineups({
                 >
                   清空当前槽位
                 </button>
-                <label className="calc-field">
+                <label className="calc-field lineup-picker-search">
                   搜索型号
                   <input
                     type="search"
@@ -765,39 +759,59 @@ function CountryLineups({
                     placeholder="中文、英文或载具 ID"
                   />
                 </label>
-                <label className="calc-field">
-                  军种
-                  <select value={category} onChange={(e) => setCategory(e.target.value)}>
-                    <option value="all">全部军种</option>
-                    {Object.entries(catalog.categories).map(([id, label]) => (
-                      <option key={id} value={id}>
-                        {label}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <label className="calc-field">
-                  等级
-                  <select value={rank} onChange={(e) => setRank(e.target.value)}>
-                    <option value="all">全部 Rank</option>
-                    {ranks.map((value) => (
-                      <option key={value} value={value}>
-                        Rank {value}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <label className="calc-field">
-                  载具类型
-                  <select value={kind} onChange={(e) => setKind(e.target.value)}>
-                    <option value="all">全部类型</option>
-                    {Object.entries(catalog.lineupKinds).map(([id, label]) => (
-                      <option key={id} value={id}>
-                        {label}
-                      </option>
-                    ))}
-                  </select>
-                </label>
+                <button
+                  className="quiet-button lineup-picker-filter-toggle"
+                  aria-expanded={filtersOpen}
+                  aria-controls="lineup-vehicle-filters"
+                  onClick={() => setFiltersOpen(!filtersOpen)}
+                >
+                  <span>筛选载具</span>
+                  <small>
+                    {category === "all" ? "全部军种" : catalog.categories[category]} ·{" "}
+                    {rank === "all" ? "全部等级" : `Rank ${rank}`} ·{" "}
+                    {kind === "all" ? "全部类型" : catalog.lineupKinds[kind]}
+                  </small>
+                  <span aria-hidden="true">{filtersOpen ? "⌃" : "⌄"}</span>
+                </button>
+                <div
+                  className="lineup-picker-filter-fields"
+                  id="lineup-vehicle-filters"
+                  data-expanded={filtersOpen}
+                >
+                  <label className="calc-field">
+                    军种
+                    <select value={category} onChange={(e) => setCategory(e.target.value)}>
+                      <option value="all">全部军种</option>
+                      {Object.entries(catalog.categories).map(([id, label]) => (
+                        <option key={id} value={id}>
+                          {label}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <label className="calc-field">
+                    等级
+                    <select value={rank} onChange={(e) => setRank(e.target.value)}>
+                      <option value="all">全部 Rank</option>
+                      {ranks.map((value) => (
+                        <option key={value} value={value}>
+                          Rank {value}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <label className="calc-field">
+                    载具类型
+                    <select value={kind} onChange={(e) => setKind(e.target.value)}>
+                      <option value="all">全部类型</option>
+                      {Object.entries(catalog.lineupKinds).map(([id, label]) => (
+                        <option key={id} value={id}>
+                          {label}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </div>
                 <p className="calc-note">
                   {candidates.length} 辆匹配
                   {candidates.length > 100 ? "，显示前 100 辆，请搜索缩小范围" : ""}
