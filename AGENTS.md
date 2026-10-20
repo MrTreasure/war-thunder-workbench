@@ -105,3 +105,9 @@
 - Mobile calculators use one vertical scroller and a reachable close button;
   inputs are at least 16px and common action targets at least 44px. Keep lineup
   crew strips nonwrapping and preserve draft/save/share behavior.
+
+- User-facing previews mean the actual built app served by the existing Nginx
+  URL `https://render.mrtreasure.cc/muse/war-thunder-trees/`. Use the checked
+  build and existing `pnpm run publish` flow when preview deployment is requested.
+  A LAN Vite URL or an image gallery does not satisfy this preview requirement.
+  QMuse import still requires explicit confirmation.

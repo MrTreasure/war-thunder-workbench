@@ -1,6 +1,8 @@
 # 移动端适配预览
 
-先运行 `pnpm run build`，再运行 `pnpm run preview`。浏览器打开 `http://localhost:4178/#/tree`；同一局域网的手机可将 localhost 换成运行项目的电脑地址。
+预览地址：[打开移动端交互预览](https://render.mrtreasure.cc/muse/war-thunder-trees/?preview=mobile-7ded969#/tree)。
+
+通过现有 Nginx 服务展示完整构建产物，手机可直接访问。先运行 `pnpm run build`，通过检查后执行 `pnpm run publish`，将产物更新到原有预览路径；入口自动备份，旧哈希资源保留。QMuse 导入另行确认。
 
 ## 本次调整
 
@@ -24,7 +26,3 @@
 7. 手机键盘打开、横屏、浏览器地址栏收起后，输入框与关闭按钮仍可操作。
 
 已完成代码、类型、数据与构建检查，并检查了 320、375、414、768px 下的页面宽度、筛选展开收起和主要弹窗；真实手机的触摸与键盘体验仍可按上表验收。
-
-## 离线效果预览
-
-本地交付文件 `artifacts/mobile-preview/移动端预览.html` 内置 15 个界面，可离线查看并点击放大。`artifacts/mobile-preview/移动端预览.png` 为重点界面概览；`artifacts/war-thunder-mobile-static.zip` 包含完整静态网站及离线预览。交付文件不进入应用构建。
