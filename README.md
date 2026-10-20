@@ -36,6 +36,8 @@
 
 点击载具可查看大图和研发资料，标题直达官方 Wiki，两个入口分别进入载具研发与配件研发。
 
+礼包载具在卡片、详情和队列选车列表显示官方商店的人民币价格，详情附商品名称与价格核对日期。价格为整包售价，包含商店列出的附赠内容；多车组合包不拆分单车价格，实际支付以商店结算为准。商品页不存在或查不到人民币报价时显示“暂无报价”，不填零价。
+
 ![载具详情与大图](docs/screenshots/vehicle-detail.png)
 
 ### 3. 载具研发：按账号进度生成清单
@@ -165,6 +167,7 @@ pnpm run preview      # http://localhost:4178
 ### 数据来源
 
 - 科技树、载具资料、图片、RP 与配件成本：[War Thunder Wiki](https://wiki.warthunder.com/)。
+- 礼包人民币价格：[Gaijin 官方商店](https://store.gaijin.net/catalog.php?category=WarThunder&skin_lang=zh)，直接采集人民币标价，不使用汇率换算。价格核对结果与来源保存在 `data/store-prices.json`，可运行 `pnpm run refresh:prices` 更新。
 - 简体中文名称与等级门槛：公开的原版游戏文件镜像 [War-Thunder-Datamine](https://github.com/gszabi99/War-Thunder-Datamine)。本地 JSON 保留固定版本、原文、哈希与核对时间；它不是官方 API。
 - 分房规则：来源记录在 [data/lineup-rules.json](data/lineup-rules.json)。
 - Logo、国旗与壁纸使用原始官方 HTTPS 地址；图片可用性取决于对应站点。来源记录在 [data/branding.json](data/branding.json) 与 [data/flags.json](data/flags.json)。

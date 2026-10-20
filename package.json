@@ -19,6 +19,7 @@
     "refresh:branding": "python3 scripts/branding.py",
     "refresh:localization": "python3 scripts/localization.py",
     "refresh:lineup-codes": "node scripts/lineup-codebook.mjs",
+    "refresh:prices": "node scripts/store-prices.mjs",
     "check": "tsr generate && pnpm run typecheck && pnpm run lint && pnpm run check:data",
     "import:qmuse": "pnpm run check && pnpm run build && qmuse-cli import . --no-open"
   },

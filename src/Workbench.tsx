@@ -9,6 +9,7 @@ import { ModificationCalculator } from "./Modifications";
 import { Cart } from "./Cart";
 import { Lineups } from "./Lineups";
 import { VehicleImage } from "./VehicleImage";
+import { PackPriceDetails } from "./PackPrice";
 import { Modal } from "./Modal";
 import { WarThunderLoading } from "./Loading";
 import { dataCache, cacheLabel } from "./data-cache";
@@ -767,6 +768,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                   <strong>{rpText(unit)}</strong>
                 </div>
               )}
+              <PackPriceDetails unit={unit} />
               {unit.side === "research" ? (
                 <>
                   <h3>必要前置路线</h3>

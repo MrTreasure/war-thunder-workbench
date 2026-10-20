@@ -12,6 +12,38 @@ const settings = await read("data/catalog-settings.json");
 const localization = await read("data/localization.json");
 const lineupRules = await read("data/lineup-rules.json");
 const codebook = await read("data/lineup-codebook.json");
+const storePrices = await read("data/store-prices.json");
+const purchases = await read("data/purchases.json");
+const priceReport = await read("data/store-prices-report.json");
+assert.equal(storePrices.schemaVersion, 1);
+assert.equal(priceReport.errors.length, 0, "Resolve store price refresh errors before publishing");
+for (const purchase of Object.values(purchases)) {
+  if (!purchase.store) continue;
+  const id = new URL(purchase.store).searchParams.get("id");
+  const price = storePrices.products[id];
+  assert(price, `Missing store price record for ${id}`);
+  assert.equal(price.productId, id);
+  assert.equal(price.currency, "CNY");
+  assert.equal(price.source, `https://store.gaijin.net/story.php?id=${id}&skin_lang=zh`);
+  assert.equal(new URL(price.finalUrl).hostname, "store.gaijin.net");
+  assert.equal(new URL(price.finalUrl).protocol, "https:");
+  assert.match(price.sha256, /^[a-f0-9]{64}$/);
+  assert(Number.isFinite(Date.parse(price.checkedAt)));
+  if (price.status === "priced") {
+    assert(typeof price.title === "string" && price.title.length > 0);
+    assert(Number.isSafeInteger(price.amountCents) && price.amountCents > 0);
+    assert(
+      Number.isSafeInteger(price.regularAmountCents) &&
+        price.regularAmountCents >= price.amountCents,
+    );
+    assert.equal(price.reason, undefined);
+  } else {
+    assert.equal(price.status, "unavailable");
+    assert.equal(price.amountCents, null);
+    assert.equal(price.regularAmountCents, null);
+    assert(["not_listed", "no_cny_price"].includes(price.reason));
+  }
+}
 assert.deepEqual(
   catalog.categories,
   settings.categories,
@@ -142,6 +174,11 @@ for (const [category, countries] of Object.entries(catalog.trees))
           );
           for (const br of Object.values(unit.br)) assert(Number.isSafeInteger(br) && br >= 0);
           if (unit.rp !== undefined) assert(Number.isSafeInteger(unit.rp) && unit.rp >= 0);
+          if (unit.kind === "pack") {
+            assert(unit.store);
+            const id = new URL(unit.store).searchParams.get("id");
+            assert.deepEqual(unit.packPrice, storePrices.products[id]);
+          } else assert.equal(unit.packPrice, undefined);
         }
       }
     for (const rank of tree.ranks)

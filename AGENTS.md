@@ -9,6 +9,11 @@
   do not use browser automation unless the user requests it.
 - All vehicle-specific data, prices, prerequisites, ranks, BR, flags,
   modification costs and provenance belong in `data/*.json`, not JSX.
+- Pack prices use verified official CNY amounts in integer cents from
+  `data/store-prices.json`, joined through existing purchase links. Keep GE
+  prices separate. Display the whole pack price and its check date, not an
+  inferred single-vehicle price. Missing quotes remain null, never zero.
+  Refresh failures preserve prior price records and their provenance timestamps.
 - Never infer unknown RP as zero. Zero can be derived for a missing item
   only if known nonnegative costs already sum to the verified official total;
   record that derivation in `rpBasis`.

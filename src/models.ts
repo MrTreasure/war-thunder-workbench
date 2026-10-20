@@ -1,4 +1,17 @@
 export type Mode = "ab" | "rb" | "sb";
+export interface PackPrice {
+  productId: string;
+  title: string | null;
+  currency: "CNY";
+  amountCents: number | null;
+  regularAmountCents: number | null;
+  status: "priced" | "unavailable";
+  reason?: "not_listed" | "no_cny_price";
+  source: string;
+  finalUrl: string;
+  checkedAt: string;
+  sha256: string;
+}
 export interface Vehicle {
   id: string;
   name: string;
@@ -13,6 +26,7 @@ export interface Vehicle {
   imageUrl: string;
   thumbnailUrl: string;
   price: number | null;
+  packPrice?: PackPrice;
   store: string | null;
   market: string | null;
   side: "research" | "special";

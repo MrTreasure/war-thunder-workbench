@@ -3,63 +3,63 @@
   "countries": {
     "usa": {
       "key": "country-usa",
-      "file": "country-usa.dc1db07533af1c7d.js",
-      "sha256": "dc1db07533af1c7d85e3e15576d87549ebc2e637cf220d21d84ae7ae127eaaf4",
-      "bytes": 1839171
+      "file": "country-usa.e9eebe0730f5b4d4.js",
+      "sha256": "e9eebe0730f5b4d4b1343f3654f83a297b833725c3a568809119dc9d45ff0b49",
+      "bytes": 1847523
     },
     "germany": {
       "key": "country-germany",
-      "file": "country-germany.c9eeb4e1a930dd87.js",
-      "sha256": "c9eeb4e1a930dd8742856ac09ec124db7161bf30efdc8f4dc2170edda9956f55",
-      "bytes": 1823047
+      "file": "country-germany.e03addcda1333544.js",
+      "sha256": "e03addcda1333544b1376bf4d7473c1d56d81c7fffa505a4c4160ef5987b2a41",
+      "bytes": 1830660
     },
     "ussr": {
       "key": "country-ussr",
-      "file": "country-ussr.d7eeae9821a2130d.js",
-      "sha256": "d7eeae9821a2130d60b71f5a1b360b9e06d4f40430dfdb3895c509c8c243a602",
-      "bytes": 1942746
+      "file": "country-ussr.c80ede9924aa3baf.js",
+      "sha256": "c80ede9924aa3baf8480c59affaffac665b89c7e807559d3ca1bb68518acc09e",
+      "bytes": 1950220
     },
     "britain": {
       "key": "country-britain",
-      "file": "country-britain.f0c075e76bf71aca.js",
-      "sha256": "f0c075e76bf71aca9e361a127704194f654d2c2c90b649828bd427e487fcc27e",
-      "bytes": 1674518
+      "file": "country-britain.98195be0a5c7b84b.js",
+      "sha256": "98195be0a5c7b84b552337e41e0fbd7b8bcab1308e41609a0764312a76a95b6a",
+      "bytes": 1678139
     },
     "japan": {
       "key": "country-japan",
-      "file": "country-japan.0828ea092aaa2234.js",
-      "sha256": "0828ea092aaa223454d9248fd629d7a7b0d24dfd94837ec11e06c6d20246755f",
-      "bytes": 1258747
+      "file": "country-japan.3de06203c1216a1a.js",
+      "sha256": "3de06203c1216a1a89df7163f5262cd1331fb7d42a9582b7220136ef2e924168",
+      "bytes": 1261543
     },
     "china": {
       "key": "country-china",
-      "file": "country-china.1e5a646d6172f7b5.js",
-      "sha256": "1e5a646d6172f7b59b00c0aeb82aa4a203bd9113863978b5d2583455c90155e7",
-      "bytes": 785463
+      "file": "country-china.c40ba5400c513af0.js",
+      "sha256": "c40ba5400c513af08f92e9a75731c78859602a519d9e0a6961959f93068e23be",
+      "bytes": 787447
     },
     "italy": {
       "key": "country-italy",
-      "file": "country-italy.5e7c8dcc7b8bb441.js",
-      "sha256": "5e7c8dcc7b8bb4410aa8b75b15057fd5b2b052195e05351e40c09795c168c3b1",
-      "bytes": 1170681
+      "file": "country-italy.29331f05c2f84b42.js",
+      "sha256": "29331f05c2f84b428f5eea96db07da33dbc722a03bf036f3e521e338ddf6a7c7",
+      "bytes": 1171487
     },
     "france": {
       "key": "country-france",
-      "file": "country-france.32ad9d46bc367e16.js",
-      "sha256": "32ad9d46bc367e16d7c805a3fed6e34a9bfebd183c3b447ae537a0d75e4c2dd0",
-      "bytes": 1156413
+      "file": "country-france.80216eb7eb879b97.js",
+      "sha256": "80216eb7eb879b972bff8e2d497e002dcbfb0de58ec4bfd9f7442c138773bf50",
+      "bytes": 1158799
     },
     "sweden": {
       "key": "country-sweden",
-      "file": "country-sweden.5639c787217faf49.js",
-      "sha256": "5639c787217faf495ab4d1518c95eccf372d70076ffdd9e6e5fc93b973ccb9cb",
-      "bytes": 679559
+      "file": "country-sweden.f80a134439dca273.js",
+      "sha256": "f80a134439dca2730f4fcd91c3831c46ddcb2b28bf64c08ccc813c1ae109b9f5",
+      "bytes": 681612
     },
     "israel": {
       "key": "country-israel",
-      "file": "country-israel.8f4050f0a5fe8021.js",
-      "sha256": "8f4050f0a5fe80212b9e5701c1b5817fdb6a288a852ce345038537d77466bb4d",
-      "bytes": 476533
+      "file": "country-israel.a6ad1a9b15b73e6b.js",
+      "sha256": "a6ad1a9b15b73e6b8706def5e6e92c7ead199f6e96b56cd85767410f3cb01057",
+      "bytes": 477352
     }
   }
 }

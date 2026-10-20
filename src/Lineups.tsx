@@ -8,6 +8,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { CatalogIndex, CountryPayload, Mode } from "./models";
 import type { DownloadProgress } from "./data-loader";
 import { LineupRoster } from "./LineupRoster";
+import { packPriceLabel } from "./PackPrice";
 import { Modal } from "./Modal";
 import { rankNumber } from "./planner";
 import { WarThunderLoading } from "./Loading";
@@ -819,7 +820,9 @@ function CountryLineups({
                           <strong>{unit.name}</strong>
                           <span className="lineup-vehicle-tags">
                             <span className={`lineup-kind-tag is-kind-${lineupVehicleKind(unit)}`}>
-                              {catalog.lineupKinds[lineupVehicleKind(unit)]}
+                              {unit.kind === "pack"
+                                ? packPriceLabel(unit)
+                                : catalog.lineupKinds[lineupVehicleKind(unit)]}
                             </span>
                             {unit.premium && ["pack", "market"].includes(unit.kind) && (
                               <span className="lineup-kind-tag is-kind-premium">

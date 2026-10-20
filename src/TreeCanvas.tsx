@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef } from "react";
 import type { CSSProperties } from "react";
 import type { Catalog, Mode, Tree, TreeNode, Vehicle } from "./models";
 import { format } from "./quotes";
+import { packPriceLabel } from "./PackPrice";
 export const modes: Record<Mode, string> = { ab: "街机", rb: "历史", sb: "全真" };
 export const rating = (unit: Vehicle, mode: Mode) =>
   typeof unit.br[mode] === "number" && unit.br[mode]! >= 0
@@ -99,7 +100,9 @@ export function VehicleCard({
             ? rpText(unit)
             : unit.kind === "gold" && unit.price !== null
               ? `${format(unit.price)} GE`
-              : catalog.kinds[unit.kind]}
+              : unit.kind === "pack"
+                ? packPriceLabel(unit)
+                : catalog.kinds[unit.kind]}
         </span>
       </span>
       <span className="battle-ratings">

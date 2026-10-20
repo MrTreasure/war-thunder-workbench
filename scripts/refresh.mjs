@@ -5,6 +5,7 @@ const run = (command, args) => execFileSync(command, args, { cwd, stdio: "inheri
 run(process.execPath, ["scripts/trees.mjs", "--refresh", "--data-only"]);
 run("python3", ["scripts/flags.py"]);
 run("python3", ["scripts/purchases.py"]);
+run(process.execPath, ["scripts/store-prices.mjs"]);
 run("python3", ["scripts/research.py"]);
 run("python3", ["scripts/planning.py"]);
 run("python3", ["scripts/modifications.py"]);

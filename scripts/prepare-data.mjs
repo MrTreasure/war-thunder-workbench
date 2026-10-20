@@ -24,6 +24,7 @@ const localization = await json("localization.json");
 const settings = await json("catalog-settings.json");
 const lineup = await json("lineup-rules.json");
 const lineupCodebook = await json("lineup-codebook.json");
+const storePrices = await json("store-prices.json");
 const localized = (value, proof) => {
   value.nameEn = value.name;
   value.nameZhCN = proof?.nameZhCN || null;
@@ -74,6 +75,12 @@ for (const [category, values] of Object.entries(catalog.trees))
                   ? "market"
                   : "special";
             }
+          }
+          if (unit.kind === "pack" && unit.store) {
+            const productId = new URL(unit.store).searchParams.get("id");
+            const price = storePrices.products[productId];
+            if (!price) throw Error(`Missing pack price check: ${unit.id}/${productId}`);
+            unit.packPrice = price;
           }
         }
   }
