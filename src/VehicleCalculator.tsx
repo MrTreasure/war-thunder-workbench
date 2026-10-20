@@ -70,7 +70,7 @@ export function VehicleCalculator({
       gates: { ...gates, ...overrides },
       unlocked: integer(old.unlocked) && old.unlocked <= 10 ? old.unlocked : 0,
       progress: integer(old.progress) ? old.progress : 0,
-      price: typeof old.price === "string" && old.price.trim() ? old.price : "3",
+      price: typeof old.price === "string" ? old.price : "",
     };
   });
   const [state, save, error] = useStored<Profile>(profileKey, migrated, valid, () => {

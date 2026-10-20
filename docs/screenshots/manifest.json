@@ -7,8 +7,8 @@
       "file": "cart.png",
       "width": 1600,
       "height": 1000,
-      "bytes": 100591,
-      "sha256": "9bd51e6e2818c5129534754305f2d630053bacc9609ce40f2a7bb0675d5c0980"
+      "bytes": 98298,
+      "sha256": "f16205b8e0260283ce291f763aeb6d02873f1c207abb58d216baee74e9af5a6c"
     },
     {
       "file": "home.png",
@@ -84,8 +84,8 @@
       "file": "modifications.png",
       "width": 1600,
       "height": 1000,
-      "bytes": 131201,
-      "sha256": "bb95d52aebeff4e7dbc42e0ea28a3b6089f8f411e1f5c45e7521f76dd8e6ede8"
+      "bytes": 125162,
+      "sha256": "9f4e51db0a31578ec31629252352ba7ab2c9ad22f32d42aae63eeea9c5809c59"
     },
     {
       "file": "tree.png",
@@ -105,22 +105,22 @@
       "file": "vehicle-filters.png",
       "width": 1600,
       "height": 1000,
-      "bytes": 169161,
-      "sha256": "c5598f4df493903640d429ebc086369fa510afd1a17b3a512967c13fc3a28110"
+      "bytes": 171281,
+      "sha256": "7ab4e9412d37d67ca9816078e2b6452fb098c80af25c4b1e48d3ddd5af726642"
     },
     {
       "file": "vehicle-rank-vii.png",
       "width": 1600,
       "height": 1000,
-      "bytes": 165726,
-      "sha256": "c1dfbbdd2b2389d79878002c433cb819eda91613ee1fcb0b8cb7bc65b9392651"
+      "bytes": 167436,
+      "sha256": "8dc45642876564ac90fc52ebc7d8d7354b0463b4eab7c089c361d89d524373ff"
     },
     {
       "file": "vehicle-rank-viii.png",
       "width": 1600,
       "height": 1000,
-      "bytes": 156114,
-      "sha256": "c3f9a63c446b4e229aa7c0118e899ee0f771b44d93e79ee75438615455d88215"
+      "bytes": 157608,
+      "sha256": "92ca52d5dbe4c8dc1bc2b419d5dd048153251085a2f7fbd2e3af670ac1fa44a7"
     }
   ]
 }
