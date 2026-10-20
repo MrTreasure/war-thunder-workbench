@@ -156,6 +156,8 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   const [expanded, setExpanded] = useState(new Set<string>());
   const [query, setQuery] = useState("");
   const [showResults, setShowResults] = useState(false);
+  const [mobileToolsOpen, setMobileToolsOpen] = useState(false);
+  const mobileToolsToggle = useRef<HTMLButtonElement>(null);
   const [filter, setFilter] = useState("all");
   const [zoom, setZoom] = useState(1);
   const [locate, setLocate] = useState(0);
@@ -163,6 +165,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     function restoreRoute() {
       setModal(null);
+      setMobileToolsOpen(false);
       const next = initialSelection(bootstrap.countries, bootstrap.categories, location.search);
       setCountry(next.country);
       setCategory(next.category);
@@ -228,9 +231,13 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
         !["INPUT", "TEXTAREA", "SELECT"].includes((e.target as HTMLElement).tagName)
       ) {
         e.preventDefault();
-        search.current?.focus();
+        setMobileToolsOpen(true);
+        requestAnimationFrame(() => search.current?.focus());
       }
       if (e.key === "Escape") {
+        if (mobileToolsOpen && mobileToolsToggle.current?.offsetParent)
+          mobileToolsToggle.current.focus();
+        setMobileToolsOpen(false);
         setSelected(null);
         setShowResults(false);
         setFallbackFull(false);
@@ -250,7 +257,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       document.removeEventListener("click", click);
       document.removeEventListener("fullscreenchange", fullscreen);
     };
-  }, [modal, page]);
+  }, [modal, page, mobileToolsOpen]);
   const countryKeys = (event: import("react").KeyboardEvent) => {
     const picker = countryPicker.current;
     if (!picker) return;
@@ -292,6 +299,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       setExpanded((previous) => new Set([...previous, node.id]));
     setShowResults(false);
     if (find) {
+      setMobileToolsOpen(false);
       setFilter("all");
       setLocate((previous) => previous + 1);
     }
@@ -383,80 +391,220 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   );
   const treePage = (
     <div className={`app-shell ${fallbackFull ? "fullscreen-fallback" : ""}`}>
-      <header className="masthead">
-        <div className="identity">
-          <img
-            className="wt-brand-logo"
-            src="https://warthunder.com/assets/img/svg/logo-wt.svg"
-            alt="War Thunder"
-            width={94}
-            height={45}
-          />
-          <div className="wt-brand-copy">
-            <h1>载具研发树</h1>
-            <span>个人研发工具</span>
+      <header className="workbench-header">
+        <div className="masthead">
+          <div className="identity">
+            <img
+              className="wt-brand-logo"
+              src="https://warthunder.com/assets/img/svg/logo-wt.svg"
+              alt="War Thunder"
+              width={94}
+              height={45}
+            />
+            <div className="wt-brand-copy">
+              <h1>载具研发树</h1>
+              <span>个人研发工具</span>
+            </div>
+          </div>
+
+          <div className="masthead-meta">
+            <CreatorLink />
+            <div className="edition">
+              <span className="snapshot-dot" />
+              <span>官方 Wiki · {P.checkedAt.slice(0, 10)}</span>
+              <a
+                href={`${P.sources[category].url}?v=t&t_c=${country}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                官方原树 ↗
+              </a>
+            </div>
           </div>
         </div>
-        <nav className="control-row" aria-label="国家与军种">
-          <div className="nation-picker">
-            <details className="country-dropdown" ref={countryPicker}>
-              <summary
-                onKeyDown={countryKeys}
-                className="country-trigger"
-                aria-label={`选择国家：${P.countries[country] || "未选择"}`}
-              >
-                {country && <img className="country-flag" alt="" src={P.flags[country]} />}
-                <span>{P.countries[country] || "选择国家"}</span>
-                <span className="country-chevron">⌄</span>
-              </summary>
-              <div className="country-options">
-                {Object.entries(P.countries).map(([id, name]) => (
-                  <button
-                    className="country-option"
-                    onKeyDown={countryKeys}
-                    key={id}
-                    aria-pressed={country === id}
-                    onClick={() => {
-                      reset();
-                      chooseCountry(id);
-                      if (countryPicker.current) {
-                        countryPicker.current.open = false;
-                        countryPicker.current.querySelector("summary")?.focus();
-                      }
+        <button
+          ref={mobileToolsToggle}
+          className="mobile-tools-toggle"
+          aria-expanded={mobileToolsOpen}
+          aria-controls="tree-tools"
+          onClick={() => {
+            setMobileToolsOpen(!mobileToolsOpen);
+            setShowResults(false);
+            if (countryPicker.current) countryPicker.current.open = false;
+          }}
+        >
+          <span>
+            <strong>筛选与操作</strong>
+            <small>
+              {P.countries[country] || "选择国家"} · {P.categories[category]} · {mode.toUpperCase()}
+              {query ? ` · 搜索：${query}` : filter !== "all" ? " · 已筛选" : ""}
+            </small>
+          </span>
+          <span className="mobile-tools-label">{mobileToolsOpen ? "收起" : "展开"}</span>
+          <span className="mobile-tools-chevron" aria-hidden="true">
+            ⌄
+          </span>
+        </button>
+        <div className="tool-panel" id="tree-tools" data-expanded={mobileToolsOpen}>
+          <nav className="control-row" aria-label="国家与军种">
+            <div className="nation-picker">
+              <details className="country-dropdown" ref={countryPicker}>
+                <summary
+                  onKeyDown={countryKeys}
+                  className="country-trigger"
+                  aria-label={`选择国家：${P.countries[country] || "未选择"}`}
+                >
+                  {country && <img className="country-flag" alt="" src={P.flags[country]} />}
+                  <span>{P.countries[country] || "选择国家"}</span>
+                  <span className="country-chevron">⌄</span>
+                </summary>
+                <div className="country-options">
+                  {Object.entries(P.countries).map(([id, name]) => (
+                    <button
+                      className="country-option"
+                      onKeyDown={countryKeys}
+                      key={id}
+                      aria-pressed={country === id}
+                      onClick={() => {
+                        reset();
+                        chooseCountry(id);
+                        if (countryPicker.current) {
+                          countryPicker.current.open = false;
+                          countryPicker.current.querySelector("summary")?.focus();
+                        }
+                      }}
+                    >
+                      <img className="country-flag" alt="" src={P.flags[id]} />
+                      <span>{name}</span>
+                      <span className="country-selected">{country === id ? "✓" : ""}</span>
+                    </button>
+                  ))}
+                </div>
+              </details>
+            </div>
+            <div className="control-divider" />
+            <div className="category-tabs">
+              {Object.entries(P.categories).map(([id, name]) => (
+                <button
+                  aria-pressed={category === id}
+                  key={id}
+                  onClick={() => {
+                    reset();
+                    chooseCategory(id);
+                  }}
+                >
+                  {name}
+                </button>
+              ))}
+            </div>
+            <a className="quiet-button lineup-open" href="#/lineups">
+              出击队列
+            </a>
+          </nav>
+          <section className="controls">
+            <div className="utility-row">
+              <div className="search-wrap" ref={searchWrap}>
+                <label className="search">
+                  <input
+                    aria-label="搜索载具"
+                    ref={search}
+                    type="search"
+                    placeholder="搜索载具 / 定位路线"
+                    value={query}
+                    onChange={(e) => {
+                      setQuery(e.target.value);
+                      setShowResults(true);
                     }}
-                  >
-                    <img className="country-flag" alt="" src={P.flags[id]} />
-                    <span>{name}</span>
-                    <span className="country-selected">{country === id ? "✓" : ""}</span>
-                  </button>
-                ))}
+                    onFocus={() => setShowResults(Boolean(query))}
+                  />
+                  <kbd>/</kbd>
+                </label>
+                {showResults && query && (
+                  <div className="search-results">
+                    {matches.slice(0, 9).map((unit) => (
+                      <button key={unit.id} onClick={() => select(unit.id, true)}>
+                        <span>{unit.name}</span>
+                        <small>Rank {unit.rank}</small>
+                      </button>
+                    ))}
+                    <p>{matches.length} 个匹配；点击定位并高亮路线。</p>
+                  </div>
+                )}
               </div>
-            </details>
-          </div>
-          <div className="control-divider" />
-          <div className="category-tabs">
-            {Object.entries(P.categories).map(([id, name]) => (
-              <button
-                aria-pressed={category === id}
-                key={id}
-                onClick={() => {
-                  reset();
-                  chooseCategory(id);
-                }}
-              >
-                {name}
+              <label className="compact-field">
+                高亮权重
+                <select value={mode} onChange={(e) => setMode(e.target.value as Mode)}>
+                  {(Object.entries(modes) as [Mode, string][]).map(([id, name]) => (
+                    <option value={id} key={id}>
+                      {name} {id.toUpperCase()}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="compact-field">
+                右侧载具
+                <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+                  <option value="all">全部特殊载具</option>
+                  <option value="premium">高级载具</option>
+                  <option value="gold">金币车</option>
+                  <option value="pack">礼包车</option>
+                  <option value="squadron">联队载具</option>
+                  <option value="other">活动 / 其他</option>
+                </select>
+              </label>
+              <button className="quiet-button calc-open" disabled={!tree} onClick={openParts}>
+                研发配件
               </button>
-            ))}
-          </div>
-          <a className="quiet-button lineup-open" href="#/lineups">
-            出击队列
-          </a>
-        </nav>
-        <div className="masthead-meta">
-          <CreatorLink />
-          <div className="edition">
-            <span className="snapshot-dot" />
-            <span>官方 Wiki · {P.checkedAt.slice(0, 10)}</span>
+              <button
+                className="quiet-button calc-open"
+                disabled={!tree}
+                onClick={() => setModal("vehicle")}
+              >
+                研发载具
+              </button>
+              <button className="quiet-button cart-button" onClick={() => setModal("cart")}>
+                购物车{" "}
+                <span className="cart-badge" key={pulse}>
+                  {cart.length}
+                </span>
+              </button>
+              <button
+                className="quiet-button"
+                disabled={!tree}
+                onClick={() =>
+                  setExpanded(allOpen ? new Set() : new Set(groups.map((node) => node.id)))
+                }
+              >
+                {allOpen ? "收起折叠组" : "展开折叠组"}
+              </button>
+              <div className="zoom-control">
+                <button
+                  aria-label="缩小"
+                  disabled={zoom <= 0.5}
+                  onClick={() =>
+                    setZoom((value) => Math.max(0.5, Math.round((value - 0.1) * 10) / 10))
+                  }
+                >
+                  −
+                </button>
+                <output>{Math.round(zoom * 100)}%</output>
+                <button
+                  aria-label="放大"
+                  disabled={zoom >= 1.4}
+                  onClick={() =>
+                    setZoom((value) => Math.min(1.4, Math.round((value + 0.1) * 10) / 10))
+                  }
+                >
+                  ＋
+                </button>
+              </div>
+              <button className="quiet-button" onClick={() => void fullscreen()}>
+                {full || fallbackFull ? "退出全屏" : "⛶ 全屏"}
+              </button>
+            </div>
+          </section>
+          <div className="mobile-tools-source">
+            <span>资料更新 · {P.checkedAt.slice(0, 10)}</span>
             <a
               href={`${P.sources[category].url}?v=t&t_c=${country}`}
               target="_blank"
@@ -465,106 +613,19 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
               官方原树 ↗
             </a>
           </div>
+          <button
+            className="quiet-button mobile-tools-done"
+            onClick={() => {
+              setMobileToolsOpen(false);
+              setShowResults(false);
+              if (countryPicker.current) countryPicker.current.open = false;
+              mobileToolsToggle.current?.focus();
+            }}
+          >
+            收起并查看科技树
+          </button>
         </div>
       </header>
-      <section className="controls">
-        <div className="utility-row">
-          <div className="search-wrap" ref={searchWrap}>
-            <label className="search">
-              <input
-                aria-label="搜索载具"
-                ref={search}
-                type="search"
-                placeholder="搜索载具 / 定位路线"
-                value={query}
-                onChange={(e) => {
-                  setQuery(e.target.value);
-                  setShowResults(true);
-                }}
-                onFocus={() => setShowResults(Boolean(query))}
-              />
-              <kbd>/</kbd>
-            </label>
-            {showResults && query && (
-              <div className="search-results">
-                {matches.slice(0, 9).map((unit) => (
-                  <button key={unit.id} onClick={() => select(unit.id, true)}>
-                    <span>{unit.name}</span>
-                    <small>Rank {unit.rank}</small>
-                  </button>
-                ))}
-                <p>{matches.length} 个匹配；点击定位并高亮路线。</p>
-              </div>
-            )}
-          </div>
-          <label className="compact-field">
-            高亮权重
-            <select value={mode} onChange={(e) => setMode(e.target.value as Mode)}>
-              {(Object.entries(modes) as [Mode, string][]).map(([id, name]) => (
-                <option value={id} key={id}>
-                  {name} {id.toUpperCase()}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label className="compact-field">
-            右侧载具
-            <select value={filter} onChange={(e) => setFilter(e.target.value)}>
-              <option value="all">全部特殊载具</option>
-              <option value="premium">高级载具</option>
-              <option value="gold">金币车</option>
-              <option value="pack">礼包车</option>
-              <option value="squadron">联队载具</option>
-              <option value="other">活动 / 其他</option>
-            </select>
-          </label>
-          <button className="quiet-button calc-open" disabled={!tree} onClick={openParts}>
-            研发配件
-          </button>
-          <button
-            className="quiet-button calc-open"
-            disabled={!tree}
-            onClick={() => setModal("vehicle")}
-          >
-            研发载具
-          </button>
-          <button className="quiet-button cart-button" onClick={() => setModal("cart")}>
-            购物车{" "}
-            <span className="cart-badge" key={pulse}>
-              {cart.length}
-            </span>
-          </button>
-          <button
-            className="quiet-button"
-            disabled={!tree}
-            onClick={() =>
-              setExpanded(allOpen ? new Set() : new Set(groups.map((node) => node.id)))
-            }
-          >
-            {allOpen ? "收起折叠组" : "展开折叠组"}
-          </button>
-          <div className="zoom-control">
-            <button
-              aria-label="缩小"
-              disabled={zoom <= 0.5}
-              onClick={() => setZoom((value) => Math.max(0.5, Math.round((value - 0.1) * 10) / 10))}
-            >
-              −
-            </button>
-            <output>{Math.round(zoom * 100)}%</output>
-            <button
-              aria-label="放大"
-              disabled={zoom >= 1.4}
-              onClick={() => setZoom((value) => Math.min(1.4, Math.round((value + 0.1) * 10) / 10))}
-            >
-              ＋
-            </button>
-          </div>
-          <button className="quiet-button" onClick={() => void fullscreen()}>
-            {full || fallbackFull ? "退出全屏" : "⛶ 全屏"}
-          </button>
-        </div>
-      </section>
       <div className="tree-status">
         <div>
           <strong>

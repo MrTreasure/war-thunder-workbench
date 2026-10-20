@@ -97,3 +97,11 @@
 - New and edited lineups use local drafts. Persist only on explicit save;
   cancellation must preserve existing saved entries. Confirmed imports return
   to the saved list. Keep legacy lineup keys, IDs, share slots and codebook stable.
+
+- Mobile layout overrides live in `src/mobile.css`, imported after all workbench styles.
+  Tree controls share one DOM and collapse behind an accessible toggle at <=800px
+  (<=1100px on coarse pointers). Keep the selected country/category/mode visible
+  in the collapsed summary, and preserve search/Escape focus behavior.
+- Mobile calculators use one vertical scroller and a reachable close button;
+  inputs are at least 16px and common action targets at least 44px. Keep lineup
+  crew strips nonwrapping and preserve draft/save/share behavior.

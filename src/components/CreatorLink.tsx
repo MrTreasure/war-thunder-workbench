@@ -5,6 +5,7 @@ export function CreatorLink() {
       <Button asChild variant="ghost" className="creator-promo-link">
         <a
           href="https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB"
+          aria-label="点击创作自己的工具页面，支持AI应用"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -15,7 +16,10 @@ export function CreatorLink() {
             height={20}
             loading="lazy"
           />
-          <span>点击创作自己的工具页面，支持AI应用</span>
+          <span className="creator-promo-text">点击创作自己的工具页面，支持AI应用</span>
+          <span className="creator-promo-short" aria-hidden="true">
+            创作工具
+          </span>
           <span className="creator-promo-arrow" aria-hidden="true">
             ↗
           </span>

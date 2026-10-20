@@ -294,7 +294,7 @@ function CountryLineups({
   ) {
     const firstAircraft = slots.find((id) => id && units.get(id)?.category === "aviation") || null;
     const lineup: Lineup = {
-      id: crypto.randomUUID(),
+      id: globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}`,
       name: name || `队列 ${saved.length + 1}`,
       slots,
       battleType: type || (slots.some(Boolean) ? inferBattle(slots, units) : defaultBattle),

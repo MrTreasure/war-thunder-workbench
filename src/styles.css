@@ -5,6 +5,7 @@
 @import "./war-thunder.css";
 @import "./lineups.css";
 @import "./creator-footer.css";
+@import "./mobile.css";
 @source "../src";
 
 @custom-variant dark (&:is(.dark *));
