@@ -23,8 +23,8 @@
 }
 @media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
   .app-shell {
-    padding: 0 max(8px, env(safe-area-inset-right, 0px)) env(safe-area-inset-bottom, 0px)
-      max(8px, env(safe-area-inset-left, 0px));
+    padding: 0 env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px)
+      env(safe-area-inset-left, 0px);
   }
   .workbench-header {
     display: block;

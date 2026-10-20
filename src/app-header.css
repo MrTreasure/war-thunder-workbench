@@ -112,14 +112,14 @@
     --wt-app-header-height: calc(60px + env(safe-area-inset-top, 0px));
   }
   .app-header-inner {
-    grid-template-columns: 40px minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 144px) minmax(0, 1fr);
     gap: 8px;
     padding-inline: max(12px, env(safe-area-inset-left, 0px))
       max(12px, env(safe-area-inset-right, 0px));
   }
   .app-identity > img {
-    width: 40px;
-    height: 28px;
+    width: 44px;
+    height: 32px;
   }
   .app-brand-copy,
   .app-header .page-navigation {
@@ -127,21 +127,45 @@
   }
   .app-header .mobile-page-navigation {
     display: block;
+    position: relative;
+    justify-self: center;
     width: 100%;
-    max-width: 160px;
     min-width: 0;
   }
+  .mobile-page-navigation::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: calc(50% - 5px);
+    width: 7px;
+    height: 7px;
+    border-right: 1.5px solid var(--wt-muted);
+    border-bottom: 1.5px solid var(--wt-muted);
+    transform: rotate(45deg);
+    pointer-events: none;
+  }
   .mobile-page-navigation select {
+    appearance: none;
+    -webkit-appearance: none;
     width: 100%;
     min-width: 0;
     min-height: 44px;
-    padding: 8px 32px 8px 12px;
-    border: 1px solid var(--wt-strong-line);
+    padding: 8px 24px;
+    border: 0;
     border-radius: 2px;
-    background-color: var(--wt-panel);
+    background: transparent;
     color: var(--wt-ink);
-    font: 16px/1.3 var(--wt-sans);
+    font: 600 16px/1.3 var(--wt-sans);
+    text-align: center;
+    text-align-last: center;
     cursor: pointer;
+  }
+  .mobile-page-navigation option {
+    background: var(--wt-surface);
+    color: var(--wt-ink);
+  }
+  .mobile-page-navigation select:active {
+    background: var(--wt-accent-soft);
   }
   .mobile-page-navigation select:focus-visible {
     outline: 2px solid var(--wt-gold);
@@ -163,5 +187,19 @@
   }
   .workbench-content {
     scrollbar-gutter: auto;
+  }
+}
+@media (hover: hover) and (max-width: 800px),
+  (hover: hover) and (max-width: 1100px) and (pointer: coarse) {
+  .mobile-page-navigation select:hover {
+    background: var(--wt-accent-soft);
+  }
+}
+@media (max-width: 360px) {
+  .app-header .creator-promo-short {
+    display: none;
+  }
+  .app-header .creator-promo-link {
+    min-width: 44px;
   }
 }

@@ -11,6 +11,7 @@ export function AppHeader() {
       <div className="app-header-inner">
         <div className="app-identity">
           <img
+            className="wt-brand-logo"
             src="https://warthunder.com/assets/img/svg/logo-wt.svg"
             alt="War Thunder"
             width={94}
