@@ -98,12 +98,13 @@ function PartsForm({
     `wt-mod-v1:${category}:${country}:${unit.id}`,
     {
       included: data?.allUnlockedByDefault ?? unit.premium,
-      price: "",
+      price: "4",
       progress: "0",
       total: "",
       completed: [],
     },
     valid,
+    (saved) => ({ ...saved, price: saved.price.trim() ? saved.price : "4" }),
   );
   const [message, setMessage] = useState("");
   const base = state.included
