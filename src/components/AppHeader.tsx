@@ -24,7 +24,10 @@ export function AppHeader() {
           </div>
         </div>
         <PageNavigation page={page} />
-        <CreatorLink />
+        <div className="app-header-actions">
+          <div id="wt-header-account" className="wt-header-account-slot" />
+          <CreatorLink />
+        </div>
       </div>
     </header>
   );

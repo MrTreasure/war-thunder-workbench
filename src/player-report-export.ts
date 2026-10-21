@@ -1,3 +1,5 @@
+import { localReportImage, reportChartData, reportSummary } from "./player-report-design";
+import type { ReportTheme } from "./player-report-design";
 import fontUrl from "./assets/RobotoCondensed-Bold.ttf?url";
 import {
   reportImage,
@@ -15,17 +17,20 @@ export async function downloadStatsReport(
   report: StatsReport,
   background: Background,
   armyBase: string,
+  theme: ReportTheme,
   signal: AbortSignal,
 ) {
   const p = report.payload;
   const [terrain, logo, avatar, ...vehicles] = await Promise.all([
-    reportImage("background", background.id, signal),
+    background.local
+      ? localReportImage(background.source, signal)
+      : reportImage("background", background.id, signal),
     reportImage("logo", "wt", signal),
     p.player.avatarKey ? reportImage("avatar", p.player.avatarKey, signal) : Promise.resolve(null),
     ...p.top5.map((v) => reportImage("vehicle", v.id, signal)),
   ]);
   const armies = await Promise.all(
-    p.branches.map(async (branch) => {
+    (p.career?.branches || p.branches).map(async (branch) => {
       const response = await fetch(statsArmyIcon(armyBase, branch.id), {
         credentials: "omit",
         signal: AbortSignal.any([signal, AbortSignal.timeout(30000)]),
@@ -51,10 +56,14 @@ export async function downloadStatsReport(
   canvas.height = 2280;
   const ctx = canvas.getContext("2d");
   if (!ctx) throw new Error("浏览器无法创建战报图片。");
-  const gold = "#dfc589",
-    white = "#eeeade",
-    muted = "#bec6bb",
-    ink = "#202924";
+  const gold = theme.accent,
+    white = theme.ink,
+    muted = theme.muted,
+    ink = theme.base;
+  const chart = reportChartData(p);
+  const branches = p.career?.branches || p.branches;
+  const vehicleStart = 1180;
+  const speechY = vehicleStart + p.top5.length * 190 + 72;
   const speech =
     report.review?.speech ||
     "此预览尚未生成 AI 致辞。返回页面点击生成，即可根据以上五辆载具的真实战绩领取一份授勋致辞。";
@@ -67,7 +76,7 @@ export async function downloadStatsReport(
       measuredLine = letter === "\n" ? "" : letter;
     } else measuredLine += letter;
   }
-  canvas.height = Math.max(2280, 1765 + lineCount * 49 + 200);
+  canvas.height = Math.max(2280, speechY + 90 + lineCount * 49 + 220);
   ctx.fillStyle = ink;
   ctx.fillRect(0, 0, 1080, canvas.height);
   function cover(img: HTMLImageElement, x: number, y: number, w: number, h: number) {
@@ -101,7 +110,7 @@ export async function downloadStatsReport(
     ctx!.fillText(value, x, y);
   }
   function line(y: number) {
-    ctx!.strokeStyle = "#a4b49b55";
+    ctx!.strokeStyle = theme.line;
     ctx!.lineWidth = 1.5;
     ctx!.beginPath();
     ctx!.moveTo(64, y);
@@ -128,8 +137,8 @@ export async function downloadStatsReport(
   cover(terrain, 0, 0, 1080, 700);
   ctx.globalAlpha = 1;
   const fade = ctx.createLinearGradient(0, 0, 0, 720);
-  fade.addColorStop(0, "#16231b33");
-  fade.addColorStop(0.7, "#202924dd");
+  fade.addColorStop(0, ink + "33");
+  fade.addColorStop(0.7, ink + "dd");
   fade.addColorStop(1, ink);
   ctx.fillStyle = fade;
   ctx.fillRect(0, 0, 1080, 760);
@@ -143,36 +152,108 @@ export async function downloadStatsReport(
     cover(avatar, 64, 204, 132, 132);
     ctx.restore();
   } else {
-    ctx.fillStyle = "#35443a";
+    ctx.fillStyle = theme.panel;
     ctx.fillRect(64, 204, 132, 132);
     text(Array.from(p.player.nickname)[0], 100, 295, 65, gold, 700);
   }
-  text("战地嘉奖 · " + statsReportScopeLabel(p), 225, 231, 25, gold);
-  text(p.player.nickname, 225, 301, 64, white, 700);
+  text("战地嘉奖 · " + statsReportScopeLabel(p), 225, 219, 23, gold);
+  text(p.player.nickname, 225, 283, 58, white, 700);
   text(
     "等级 " + n(p.player.level) + (p.player.clanTag ? " · " + p.player.clanTag : ""),
     225,
-    345,
+    323,
     25,
     muted,
   );
-  const columns = [
-    { value: n(p.totals.efficiency), label: "Top 5 参考效率" },
-    ...p.branches.map((b) => ({
-      value: r(statsBranchKd(b)),
-      label: b.label + statsBranchTarget(b.id) + " K/D",
-    })),
-  ];
-  const cell = 952 / columns.length;
-  columns.forEach((v, i) => {
-    text(v.value, 64 + i * cell, 470, i === 0 ? 84 : 64, gold, 700);
-    if (i > 0) fit(armies[i - 1], 64 + i * cell, 493, 26, 26);
-    text(v.label, 64 + i * cell + (i > 0 ? 32 : 0), 515, 25, muted);
+  ctx.font = "700 45px WTReport,sans-serif";
+  const heading = report.review?.title || "向你的坚持致敬";
+  text(
+    heading,
+    64,
+    416,
+    Math.min(45, (45 * 952) / Math.max(952, ctx.measureText(heading).width)),
+    white,
+    700,
+  );
+  text(
+    p.career ? "生涯总览 · 该模式全部国家与兵种" : "所列载具汇总 · 含同场多车，非总对局",
+    64,
+    470,
+    23,
+    muted,
+  );
+  line(492);
+  reportSummary(p).forEach((item, i) => {
+    text(item.value, 64 + i * 238, 562, 55, gold, 700);
+    text(item.label, 64 + i * 238, 599, 24, muted);
   });
-  line(545);
-  text("功勋载具 · 最常出击 TOP 5", 64, 598, 30, gold, 700);
+  branches.forEach((branch, i) => {
+    const x = 64 + i * 317;
+    fit(armies[i], x, 626, 28, 28);
+    text(
+      branch.label + statsBranchTarget(branch.id) + " K/D " + r(statsBranchKd(branch)),
+      x + 36,
+      649,
+      22,
+      muted,
+    );
+  });
+  ctx.fillStyle = theme.panel;
+  ctx.fillRect(64, 690, 952, 366);
+  text("载具参考效率", 88, 734, 25, gold, 700);
+  text("载具击毁构成", 668, 734, 25, gold, 700);
+  chart.values.forEach((v, i) => {
+    const y = 778 + i * 47;
+    text(
+      v.rank + " " + (v.label.length > 16 ? v.label.slice(0, 15) + "…" : v.label),
+      88,
+      y,
+      21,
+      muted,
+    );
+    ctx.fillStyle = theme.line;
+    ctx.fillRect(88, y + 10, 450, 5);
+    if (v.value != null) {
+      ctx.fillStyle = gold;
+      ctx.fillRect(88, y + 10, (450 * Math.max(0, Math.min(1000, v.value))) / 1000, 5);
+    }
+    text(n(v.value), 554, y + 15, 22, white, 700);
+  });
+  text("0", 88, 1040, 18, muted);
+  text("500", 296, 1040, 18, muted);
+  text("1000", 504, 1040, 18, muted);
+  const colors = [theme.accent, theme.secondary, theme.tertiary];
+  ctx.lineWidth = 17;
+  ctx.strokeStyle = theme.line;
+  ctx.beginPath();
+  ctx.arc(825, 837, 76, 0, Math.PI * 2);
+  ctx.stroke();
+  chart.segments.forEach((seg, i) => {
+    if (seg.value != null && seg.value > 0) {
+      ctx.strokeStyle = colors[i];
+      ctx.beginPath();
+      ctx.arc(825, 837, 76, seg.start, seg.end);
+      ctx.stroke();
+    }
+  });
+  ctx.save();
+  ctx.textAlign = "center";
+  text(chart.hasKnown ? n(chart.total) : "—", 825, 838, 35, white, 700);
+  text("已知击毁", 825, 869, 20, muted);
+  ctx.restore();
+  chart.segments.forEach((seg, i) => {
+    const y = 963 + i * 30;
+    ctx.fillStyle = colors[i];
+    ctx.fillRect(680, y - 11, 10, 10);
+    text(seg.label, 702, y, 20, muted);
+    ctx.save();
+    ctx.textAlign = "right";
+    text(n(seg.value), 990, y, 21, white);
+    ctx.restore();
+  });
+  text("功勋载具 · TOP " + p.top5.length, 64, 1137, 30, gold, 700);
   p.top5.forEach((v, i) => {
-    const y = 640 + i * 190;
+    const y = vehicleStart + i * 190;
     text(String(i + 1).padStart(2, "0"), 64, y + 65, 36, gold, 700);
     fit(vehicles[i], 115, y, 220, 145);
     ctx.font = "700 35px WTReport, sans-serif";
@@ -207,22 +288,12 @@ export async function downloadStatsReport(
     text("累计获得银狮  " + n(v.silverLions), 365, y + 156, 27, gold);
     line(y + 180);
   });
-  const speechY = 1645;
-  text("司令授勋致辞", 64, speechY, 28, gold, 700);
-  text(report.review?.title || "你的嘉奖，等待签发。", 64, speechY + 62, 40, white, 700);
-  wrap(
-    report.review?.speech ||
-      "此预览尚未生成 AI 致辞。返回页面点击生成，即可根据以上五辆载具的真实战绩领取一份授勋致辞。",
-    64,
-    speechY + 120,
-    952,
-    31,
-    49,
-  );
+  text("司令的话", 64, speechY, 28, gold, 700);
+  wrap(report.review?.speech || "", 64, speechY + 65, 952, 31, 49);
   const footer = canvas.height - 130;
   line(footer);
   text("资料采集 " + statsDate(p.fetchedAt), 64, footer + 41, 22, muted);
-  text("本工具参考指数 · 仅所列五车 · 未返回项目留空", 64, footer + 75, 21, muted);
+  text("效率为本工具参考指数 · 构成图仅含所列载具已知击毁", 64, footer + 75, 21, muted);
   text("银狮为累计获得统计，非余额或净收入 · 虚构授勋情景", 64, footer + 106, 20, muted);
   if (signal.aborted) return;
   const blob = await new Promise<Blob>((resolve, reject) =>

@@ -77,6 +77,7 @@ export type Background = {
   source: string;
   thumbnail: string;
   sourcePage: string;
+  local?: boolean;
 };
 export type StatsConfig = {
   assets: { backgrounds: Background[]; avatarBase: string; armyBase: string };
@@ -97,6 +98,8 @@ export type ReportScope = {
   categoryLabel: string;
 };
 export type ReportPayload = {
+  career?: PlayerMode;
+  recentMatches?: { available: boolean; notice: string; source?: string };
   scope?: ReportScope;
   player: Pick<PlayerProfile, "uid" | "nickname" | "level" | "avatar" | "avatarKey" | "clanTag">;
   fetchedAt: string;
@@ -287,3 +290,13 @@ export const statsReportScopeLabel = (payload: ReportPayload) =>
   (payload.scope?.countryLabel || "全部国家") +
   " · " +
   (payload.scope?.categoryLabel || "全部兵种");
+
+const LAST_NICKNAME = "wt-stats-last-nickname-v1";
+export const lastStatsNickname = () => stored(LAST_NICKNAME).slice(0, 64);
+export function rememberStatsNickname(value: string) {
+  try {
+    localStorage.setItem(LAST_NICKNAME, value.trim().slice(0, 64));
+  } catch {
+    /* Query remains available when local storage is disabled. */
+  }
+}

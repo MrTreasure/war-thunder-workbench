@@ -1,4 +1,13 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { PlayerReport } from "./PlayerReport";
+import {
+  defaultReportTheme,
+  imageReportTheme,
+  uploadReportBackground,
+  localReportImage,
+} from "./player-report-design";
+import type { ReportTheme } from "./player-report-design";
 import { useSearch } from "@tanstack/react-router";
 import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
@@ -16,6 +25,9 @@ import {
   statsBranchTarget,
   statsArmyIcon,
   statsReportScopeLabel,
+  lastStatsNickname,
+  rememberStatsNickname,
+  reportImage,
   statsCategoryNames,
 } from "./player-stats-api";
 import type {
@@ -76,7 +88,7 @@ export function PlayerStats() {
   const route = useSearch({ from: "/_workbench/stats" });
   const [config, setConfig] = useState<StatsConfig | null>(null),
     [session, setSession] = useState<StatsSession | null>(null);
-  const [nickname, setNickname] = useState(route.player || ""),
+  const [nickname, setNickname] = useState(route.player || lastStatsNickname()),
     [candidates, setCandidates] = useState<PlayerCandidate[]>([]),
     [queryId, setQueryId] = useState("");
   const [profile, setProfile] = useState<PlayerProfile | null>(null),
@@ -93,9 +105,6 @@ export function PlayerStats() {
     [bgFilter, setBgFilter] = useState("all");
   const [reportCountry, setReportCountry] = useState("all"),
     [reportCategory, setReportCategory] = useState("all"),
-    [previewBusy, setPreviewBusy] = useState(false),
-    [previewError, setPreviewError] = useState(""),
-    [previewRetry, setPreviewRetry] = useState(0),
     [viewingHistory, setViewingHistory] = useState(false);
   function changeReportFilter(value: string, field: "country" | "category") {
     if (field === "country") setReportCountry(value);
@@ -103,7 +112,46 @@ export function PlayerStats() {
     setViewingHistory(false);
     setReport(null);
     setBackground("auto");
-    setPreviewError("");
+  }
+  const [customBackground, setCustomBackground] = useState<Background | null>(null),
+    [reportTheme, setReportTheme] = useState<ReportTheme>(defaultReportTheme),
+    [colorBusy, setColorBusy] = useState(false),
+    [uploadBusy, setUploadBusy] = useState(false),
+    [backgroundError, setBackgroundError] = useState(""),
+    [headerHost, setHeaderHost] = useState<HTMLElement | null>(null);
+  const uploadInput = useRef<HTMLInputElement>(null),
+    uploadState = useRef({ url: "", version: 0 });
+  useEffect(() => {
+    setHeaderHost(document.getElementById("wt-header-account"));
+    const resource = uploadState.current;
+    return () => {
+      resource.version++;
+      if (resource.url) URL.revokeObjectURL(resource.url);
+    };
+  }, []);
+  async function uploadBackground(file: File) {
+    const version = ++uploadState.current.version;
+    setUploadBusy(true);
+    setBackgroundError("");
+    try {
+      const result = await uploadReportBackground(file);
+      if (version !== uploadState.current.version) {
+        URL.revokeObjectURL(result.background.source);
+        return;
+      }
+      if (uploadState.current.url) URL.revokeObjectURL(uploadState.current.url);
+      uploadState.current.url = result.background.source;
+      setCustomBackground(result.background);
+      setReportTheme(result.theme);
+      setBackground("custom");
+    } catch (failure) {
+      if (version === uploadState.current.version)
+        setBackgroundError(
+          failure instanceof Error ? failure.message : "图片读取失败，请重新选择。",
+        );
+    } finally {
+      if (version === uploadState.current.version) setUploadBusy(false);
+    }
   }
   const [showRules, setShowRules] = useState(false),
     [history, setHistory] = useState<StatsReport[] | null>(null),
@@ -126,6 +174,8 @@ export function PlayerStats() {
   }
   function loadProfile(p: PlayerProfile) {
     setProfile(p);
+    setNickname(p.nickname);
+    rememberStatsNickname(p.nickname);
     setMode([...p.modes].sort((a, b) => (b.battles || 0) - (a.battles || 0))[0]?.id || "rb");
     setSearch("");
     setCategory("all");
@@ -136,11 +186,12 @@ export function PlayerStats() {
     setViewingHistory(false);
     setBackground("auto");
     setCandidates([]);
-    setNotice(p.cached ? "已命中缓存，本次不扣查询次数。" : "已取得官方公开资料，并保存查询记录。");
+    setNotice("");
   }
   async function performSearch(nick: string, exact: boolean) {
     const value = nick.trim();
     if (value.length < 2) return;
+    rememberStatsNickname(value);
     const id = ++generation.current,
       c = controller();
     setBusy(true);
@@ -249,48 +300,6 @@ export function PlayerStats() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
-    const c = new AbortController();
-    if (!profile || tab !== "report" || viewingHistory || !profile.modes.some((m) => m.id === mode))
-      return;
-    const matches = (current: StatsReport) =>
-      current.payload.mode === mode &&
-      current.payload.player.uid === profile.uid &&
-      (current.payload.scope?.country || "all") === reportCountry &&
-      (current.payload.scope?.category || "all") === reportCategory;
-    setPreviewBusy(true);
-    setPreviewError("");
-    setReport((current) =>
-      current && matches(current) && current.status !== "preview" ? current : null,
-    );
-    void statsRequest<StatsReport>(
-      "reports/preview",
-      {
-        snapshotId: profile.snapshotId,
-        mode,
-        country: reportCountry,
-        category: reportCategory,
-        requestId: "preview_" + crypto.randomUUID(),
-      },
-      c.signal,
-    )
-      .then((value) => {
-        if (!c.signal.aborted)
-          setReport((current) =>
-            current && matches(current) && current.status !== "preview" ? current : value,
-          );
-      })
-      .catch((failure) => {
-        if (!c.signal.aborted)
-          setPreviewError(
-            failure instanceof Error ? failure.message : "暂时无法预览战报，请稍后重试。",
-          );
-      })
-      .finally(() => {
-        if (!c.signal.aborted) setPreviewBusy(false);
-      });
-    return () => c.abort();
-  }, [profile, mode, tab, reportCountry, reportCategory, viewingHistory, previewRetry]);
-  useEffect(() => {
     if (!report || !["queued", "running"].includes(report.status)) return;
     const c = new AbortController();
     const timeout = setTimeout(() => {
@@ -371,7 +380,7 @@ export function PlayerStats() {
     }
   }
   async function generate() {
-    if (!profile || !report || viewingHistory || previewBusy) return;
+    if (!profile || viewingHistory || !eligible.length) return;
     const c = controller();
     setBusy(true);
     setError("");
@@ -400,10 +409,8 @@ export function PlayerStats() {
     }
   }
   async function save() {
-    if (!report || !config) return;
-    const selected = config.assets.backgrounds.find(
-      (b) => b.id === (background === "auto" ? report.payload.suggestedBackground : background),
-    );
+    if (!report || report.status !== "ready" || !config) return;
+    const selected = bg;
     if (!selected) return;
     const c = new AbortController();
     exportController.current = c;
@@ -411,7 +418,7 @@ export function PlayerStats() {
     setError("");
     try {
       const { downloadStatsReport } = await import("./player-report-export");
-      await downloadStatsReport(report, selected, config.assets.armyBase, c.signal);
+      await downloadStatsReport(report, selected, config.assets.armyBase, reportTheme, c.signal);
     } catch (failure) {
       if (!c.signal.aborted)
         setError(failure instanceof Error ? failure.message : "保存失败，请重试。");
@@ -429,15 +436,79 @@ export function PlayerStats() {
         (!search || (v.name + " " + v.id).toLowerCase().includes(search.toLowerCase())),
     )
     .sort((a, b) => (b.battles || 0) - (a.battles || 0));
+  const eligible = (profile?.vehicles || []).filter(
+    (v) =>
+      v.mode === mode &&
+      (reportCountry === "all" || v.country === reportCountry) &&
+      (reportCategory === "all" || v.category === reportCategory),
+  );
   const bg =
-    report && config
-      ? config.assets.backgrounds.find(
-          (b) => b.id === (background === "auto" ? report.payload.suggestedBackground : background),
-        )
-      : undefined;
+    background === "custom"
+      ? customBackground || undefined
+      : config?.assets.backgrounds.find(
+          (b) =>
+            b.id ===
+            (background === "auto"
+              ? report?.payload.suggestedBackground ||
+                config.assets.backgrounds.find(
+                  (item) =>
+                    reportCategory === "all" ||
+                    item.category ===
+                      (reportCategory === "boats"
+                        ? "ships"
+                        : reportCategory === "helicopters"
+                          ? "aviation"
+                          : reportCategory),
+                )?.id
+              : background),
+        );
+  const canReadBackground = !!session;
+  useEffect(() => {
+    if (!bg || !canReadBackground || tab !== "report") return;
+    const c = new AbortController();
+    setBackgroundError("");
+    setColorBusy(true);
+    void (
+      bg.local ? localReportImage(bg.source, c.signal) : reportImage("background", bg.id, c.signal)
+    )
+      .then((image) => {
+        if (!c.signal.aborted) setReportTheme(imageReportTheme(image));
+      })
+      .catch(() => {
+        if (!c.signal.aborted) {
+          setReportTheme(defaultReportTheme);
+          setBackgroundError("暂时无法提取这张背景的颜色，可重选背景后再试。");
+        }
+      })
+      .finally(() => {
+        if (!c.signal.aborted) setColorBusy(false);
+      });
+    return () => c.abort();
+  }, [bg, tab, canReadBackground]);
   const hours = Math.max(2, Math.round((config?.settings.cacheTtlSeconds || 7200) / 3600));
   return (
     <div className="wt-record-page">
+      {headerHost &&
+        createPortal(
+          <div className="wt-header-account">
+            {session?.user && (
+              <span
+                className="wt-header-account-name"
+                title={session.user.displayName || session.user.email}
+              >
+                {session.user.displayName || session.user.email}
+              </span>
+            )}
+            <button
+              className="wt-header-login"
+              disabled={!session}
+              onClick={() => void (session?.user ? logout() : login())}
+            >
+              {session?.user ? "退出" : "登录"}
+            </button>
+          </div>,
+          headerHost,
+        )}
       <header className="wt-record-page-title">
         <div>
           <h1>生涯战绩与个人战报</h1>
@@ -450,7 +521,6 @@ export function PlayerStats() {
                 {session.user.displayName || session.user.email || "已登录"}
                 <small>每日查询与战报不限次</small>
               </span>
-              <button onClick={() => void logout()}>退出登录</button>
             </>
           ) : (
             <>
@@ -471,9 +541,6 @@ export function PlayerStats() {
                   : "—"}{" "}
                 次<small>每日零点重置 · 缓存命中不扣次</small>
               </span>
-              <button onClick={() => void login()} disabled={!session}>
-                登录
-              </button>
             </>
           )}
         </div>
@@ -567,8 +634,10 @@ export function PlayerStats() {
               </p>
             </div>
             <div className="wt-record-source">
-              <b>{profile.cached ? "缓存资料" : "官方助手"}</b>
-              <span>采集于 {statsDate(profile.fetchedAt)}</span>
+              <span>
+                采集于 {statsDate(profile.fetchedAt)} ·{" "}
+                {profile.cached ? "已命中缓存，本次不扣查询次数" : "官方助手资料"}
+              </span>
             </div>
           </section>
           <div className="wt-record-tabs" aria-label="战绩视图">
@@ -759,7 +828,7 @@ export function PlayerStats() {
             <div className="wt-record-report-layout">
               <aside className="wt-record-panel wt-report-controls">
                 <h2>你的授勋战报</h2>
-                <p>先选国家和兵种，再从该范围按战斗场次选择 Top 5。</p>
+                <p>先配置范围与背景，点击生成后一起制作战报和司令致辞。</p>
                 <div className="wt-report-filters" aria-label="战报载具筛选">
                   <label>
                     <span>国家</span>
@@ -803,16 +872,22 @@ export function PlayerStats() {
                   </label>
                 </div>
                 <p className="wt-record-fine">
-                  筛选预览不扣次数。重新生成其他范围的 AI 致辞，会使用一次战报额度。
+                  筛选和选图不扣次数。点击生成时使用一次战报额度，生成失败会退回。
                 </p>
                 {viewingHistory && (
-                  <p className="wt-record-fine">正在查看已存战报。调整筛选可返回当前玩家的预览。</p>
+                  <p className="wt-record-fine">
+                    正在查看已存战报。调整筛选可为当前玩家配置新战报。
+                  </p>
                 )}
                 <div className="wt-record-heading">
                   <h3>战雷官方背景</h3>
                   <span>{config?.assets.backgrounds.length || 0} 张</span>
                 </div>
-                <button aria-pressed={background === "auto"} onClick={() => setBackground("auto")}>
+                <button
+                  disabled={exportBusy}
+                  aria-pressed={background === "auto"}
+                  onClick={() => setBackground("auto")}
+                >
                   自动匹配军种与年代
                 </button>
                 <GameSelect aria-label="背景类别" value={bgFilter} onValueChange={setBgFilter}>
@@ -828,6 +903,7 @@ export function PlayerStats() {
                     .map((b) => (
                       <button
                         key={b.id}
+                        disabled={exportBusy}
                         aria-pressed={bg?.id === b.id && background !== "auto"}
                         onClick={() => setBackground(b.id)}
                       >
@@ -836,41 +912,82 @@ export function PlayerStats() {
                       </button>
                     ))}
                 </div>
-                {bg && (
+                {bg && !bg.local && (
                   <a href={bg.sourcePage} target="_blank" rel="noreferrer">
                     查看此背景的官方来源 ↗
                   </a>
                 )}
+                <div className="wt-custom-background">
+                  <input
+                    ref={uploadInput}
+                    disabled={exportBusy || uploadBusy}
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp"
+                    className="sr-only"
+                    aria-label="上传自己的战报背景"
+                    onChange={(event) => {
+                      const file = event.currentTarget.files?.[0];
+                      event.currentTarget.value = "";
+                      if (file) void uploadBackground(file);
+                    }}
+                  />
+                  <button
+                    disabled={uploadBusy || exportBusy}
+                    onClick={() => uploadInput.current?.click()}
+                  >
+                    {uploadBusy ? "正在读取图片…" : "上传自己的背景"}
+                  </button>
+                  {customBackground && (
+                    <button
+                      className="wt-custom-background-choice"
+                      disabled={exportBusy}
+                      aria-pressed={background === "custom"}
+                      onClick={() => setBackground("custom")}
+                    >
+                      <img src={customBackground.source} alt="自选背景缩略图" />
+                      <span>{customBackground.title}</span>
+                    </button>
+                  )}
+                  <small>JPG / PNG / WebP，最大 12 MB。只在本次页面使用，不上传服务器。</small>
+                  <div className="wt-report-palette" aria-label="从背景提取的战报配色">
+                    {[
+                      reportTheme.base,
+                      reportTheme.accent,
+                      reportTheme.secondary,
+                      reportTheme.ink,
+                    ].map((color, i) => (
+                      <i key={i} style={{ backgroundColor: color }} />
+                    ))}
+                    <span>{colorBusy ? "正在读取背景颜色…" : "随背景自动配色"}</span>
+                  </div>
+                  {backgroundError && (
+                    <p className="wt-record-fine" role="alert">
+                      {backgroundError}
+                    </p>
+                  )}
+                </div>
                 <div className="wt-report-voice">
                   <b>司令授勋致辞</b>
-                  <p>庄严、克制地回顾你的出击成绩。使用虚构授勋场景，不代表获得游戏勋章。</p>
+                  <p>结合生涯与常用载具，写给你本人。少报数字，多说一句真正值得记住的话。</p>
                 </div>
                 <button
                   className="wt-record-primary"
                   disabled={
                     busy ||
-                    previewBusy ||
-                    !!previewError ||
                     viewingHistory ||
-                    !report ||
-                    ["queued", "running"].includes(report.status)
+                    !eligible.length ||
+                    (!!report && ["queued", "running"].includes(report.status))
                   }
                   onClick={() => void generate()}
                 >
                   {report?.status === "queued" || report?.status === "running"
-                    ? "正在撰写授勋致辞…"
+                    ? "正在制作战报与致辞…"
                     : report?.status === "ready"
-                      ? "查看已生成战报"
-                      : "生成授勋战报"}
+                      ? "生成同范围战报"
+                      : "生成我的战报"}
                 </button>
                 <button
-                  disabled={
-                    !report ||
-                    previewBusy ||
-                    exportBusy ||
-                    report.status === "queued" ||
-                    report.status === "running"
-                  }
+                  disabled={!report || exportBusy || colorBusy || report.status !== "ready"}
                   onClick={() => void save()}
                 >
                   {exportBusy ? "正在保存图片…" : "保存战报图片"}
@@ -898,24 +1015,51 @@ export function PlayerStats() {
                       ? "已生成"
                       : report?.status === "running"
                         ? "正在生成"
-                        : "战报预览"}
+                        : "待生成"}
                   </span>
                   <span>{bg?.title}</span>
                 </div>
-                {previewBusy && !viewingHistory && (
-                  <output className="wt-report-empty">正在筛选载具并准备预览…</output>
-                )}
-                {!previewBusy && previewError && !viewingHistory && (
-                  <div className="wt-report-empty">
-                    <output>{previewError}</output>
-                    <button onClick={() => setPreviewRetry((value) => value + 1)}>重新预览</button>
+                {!report && (
+                  <div className="wt-report-idle">
+                    <span>你的战地档案</span>
+                    <h2>选好，再签发。</h2>
+                    <p>
+                      {statsModeNames[mode]} ·{" "}
+                      {reportCountry === "all"
+                        ? "全部国家"
+                        : profile.countries.find((c) => c.id === reportCountry)?.name}{" "}
+                      · {reportCategory === "all" ? "全部兵种" : statsCategoryNames[reportCategory]}
+                    </p>
+                    <strong>{eligible.length} 辆有出击记录的载具</strong>
+                    <p>
+                      {eligible.length
+                        ? "生成后展示生涯总览与该范围最常用的五辆载具。"
+                        : "这个范围暂时没有出击记录，请调整筛选。"}
+                    </p>
+                    <small>点击“生成我的战报”，等待数据与致辞一起完成。</small>
                   </div>
                 )}
-                {report && (
-                  <ReportPoster
+                {report && ["queued", "running"].includes(report.status) && (
+                  <div className="wt-report-idle" aria-live="polite">
+                    <span>正在制作</span>
+                    <h2>档案已送达，嘉奖正在签发。</h2>
+                    <p>已选定统计范围，正在结合你的生涯与常用载具撰写致辞。</p>
+                    <progress aria-label="正在制作战报" />
+                    <small>完成后，整份战报会一起出现。</small>
+                  </div>
+                )}
+                {report?.status === "failed" && (
+                  <div className="wt-report-idle">
+                    <h2>这份嘉奖还没完成</h2>
+                    <p>本次生成额度已退回，请稍后重新生成。</p>
+                  </div>
+                )}
+                {report?.status === "ready" && (
+                  <PlayerReport
                     report={report}
                     background={bg}
                     armyBase={config?.assets.armyBase || ""}
+                    theme={reportTheme}
                   />
                 )}
               </div>
@@ -957,7 +1101,6 @@ export function PlayerStats() {
                 className="wt-report-history"
                 onClick={() => {
                   setViewingHistory(true);
-                  setPreviewBusy(false);
                   setReportCountry(item.payload.scope?.country || "all");
                   setReportCategory(item.payload.scope?.category || "all");
                   setReport(item);
@@ -984,128 +1127,5 @@ export function PlayerStats() {
         </Modal>
       )}
     </div>
-  );
-}
-function ReportPoster({
-  report,
-  background,
-  armyBase,
-}: {
-  report: StatsReport;
-  background: Background | undefined;
-  armyBase: string;
-}) {
-  const p = report.payload;
-  return (
-    <article
-      className="wt-report-poster"
-      style={
-        {
-          "--wt-report-bg": background ? `url("${background.source}")` : undefined,
-        } as React.CSSProperties
-      }
-    >
-      <div className="wt-poster-top">
-        <img src="https://warthunder.com/assets/img/svg/logo-wt.svg" alt="War Thunder" />
-        <span>{statsModeNames[p.mode]} · TOP 5</span>
-      </div>
-      <header className="wt-poster-identity">
-        <Avatar url={p.player.avatar} name={p.player.nickname} />
-        <div>
-          <p>战地嘉奖 · {statsReportScopeLabel(p)}</p>
-          <h2>{p.player.nickname}</h2>
-          <span>
-            等级 {num(p.player.level)} · {p.player.clanTag || "勇敢出击，留下记录"}
-          </span>
-        </div>
-      </header>
-      <div className="wt-poster-metrics">
-        <div className="wt-poster-efficiency">
-          <strong>{num(p.totals.efficiency)}</strong>
-          <span>Top 5 参考效率</span>
-        </div>
-        {p.branches.map((b) => (
-          <div key={b.id}>
-            <strong>{ratio(statsBranchKd(b))}</strong>
-            <span>
-              <img className="wt-branch-icon" src={statsArmyIcon(armyBase, b.id)} alt="" />
-              {b.label}
-              {statsBranchTarget(b.id)} K/D
-            </span>
-          </div>
-        ))}
-      </div>
-      <div className="wt-poster-section-title">
-        <h3>功勋载具 · 最常出击 TOP 5</h3>
-        <span>按战斗场次</span>
-      </div>
-      {p.top5.map((v, i) => (
-        <section className="wt-poster-vehicle" key={v.id}>
-          <span className="wt-poster-place">{String(i + 1).padStart(2, "0")}</span>
-          <img src={v.image} alt={v.name} loading="lazy" />
-          <div>
-            <h3>{v.name}</h3>
-            <div className="wt-poster-vehicle-values">
-              <span>
-                <b>{num(v.battles)}</b> 场
-              </span>
-              <span>
-                <b>{v.winRate == null ? "—" : v.winRate.toFixed(2) + "%"}</b> 胜率
-              </span>
-              <span>
-                <b>{num(v.efficiency)}</b> 效率{v.smallSample ? " · 小样本" : ""}
-              </span>
-            </div>
-            <div className="wt-poster-vehicle-values">
-              <span>
-                对空 K/D <b>{ratio(v.airKd)}</b>
-              </span>
-              <span>
-                对地 K/D <b>{ratio(v.groundKd)}</b>
-              </span>
-              {(v.navalKd != null || v.category === "ships" || v.category === "boats") && (
-                <span>
-                  对海 K/D <b>{ratio(v.navalKd)}</b>
-                </span>
-              )}
-            </div>
-            <p className="wt-poster-silver">
-              累计获得银狮 <b>{num(v.silverLions)}</b>
-            </p>
-          </div>
-        </section>
-      ))}
-      <section className="wt-poster-speech">
-        <span>司令授勋致辞</span>
-        {report.status === "ready" && report.review ? (
-          <>
-            <h3>{report.review.title}</h3>
-            <p>{report.review.speech}</p>
-          </>
-        ) : (
-          <>
-            <h3>
-              {report.status === "failed"
-                ? "致辞暂未完成"
-                : report.status === "preview"
-                  ? "你的嘉奖，等待签发。"
-                  : "司令正在签发嘉奖。"}
-            </h3>
-            <p>
-              {report.status === "failed"
-                ? "生成未完成，本次生成次数已退回。稍后可重新生成。"
-                : report.status === "preview"
-                  ? "点击生成，AI 将根据以上五辆载具的真实战绩，写下一段属于你的授勋致辞。"
-                  : "战报数据已就绪，正在根据 Top 5 战绩撰写致辞。"}
-            </p>
-          </>
-        )}
-      </section>
-      <footer className="wt-poster-bottom">
-        <span>资料采集 {statsDate(p.fetchedAt)}</span>
-        <span>本工具参考指数 · 仅所列五车 · 未返回项目留空</span>
-        <span>银狮为累计获得统计，非余额或净收入 · 虚构授勋情景</span>
-      </footer>
-    </article>
   );
 }

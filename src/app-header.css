@@ -203,3 +203,84 @@
     min-width: 44px;
   }
 }
+
+.app-header-actions {
+  grid-column: 3;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  min-width: 0;
+}
+.wt-header-account {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.wt-header-account-name {
+  max-width: 84px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.wt-header-login {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--wt-ink);
+  padding: 0 4px;
+  min-height: 44px;
+  min-width: 44px;
+  font: 500 13px/1 var(--wt-sans);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-color: var(--wt-muted);
+  cursor: pointer;
+}
+.wt-header-login:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 1px;
+}
+.wt-header-login:active {
+  opacity: 0.7;
+}
+.wt-header-login:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+@media (hover: hover) {
+  .wt-header-login:hover {
+    color: var(--wt-gold);
+    text-decoration-color: currentColor;
+  }
+}
+@media (max-width: 1280px) {
+  .app-header-actions .creator-promo-text,
+  .app-header-actions .creator-promo-arrow {
+    display: none;
+  }
+  .app-header-actions .creator-promo-short {
+    display: inline;
+  }
+}
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .app-header-inner {
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+  }
+  .app-header-actions {
+    gap: 4px;
+  }
+  .wt-header-account-name {
+    display: none;
+  }
+  .app-header-actions:has(.wt-header-account) .creator-promo-short {
+    display: none;
+  }
+  .app-header-actions:has(.wt-header-account) .creator-promo-link {
+    min-width: 44px;
+  }
+}
