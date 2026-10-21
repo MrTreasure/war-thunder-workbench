@@ -1,6 +1,6 @@
 import rules from "../data/player-stats-rules.json";
 export function StatsDataNotes() {
-  const { smoothing: s, weights } = rules.efficiency;
+  const { smoothing: s, coefficients: a, minimumBattles, maximum } = rules.efficiency;
   return (
     <div className="wt-data-notes">
       <p className="wt-data-intro">
@@ -8,22 +8,22 @@ export function StatsDataNotes() {
       </p>
       <section className="wt-data-note">
         <div className="wt-data-note-heading">
-          <h3>参考效率</h3>
+          <h3>效率评分</h3>
           <span>0–{rules.efficiency.maximum}</span>
         </div>
         <p>
-          综合击毁、出击和胜率，帮助比较你自己的记录。它不是官方评分，也不是全服排名；不足 50
-          场会标注“小样本”。
+          综合击毁表现、场均产出与胜率，通过场次平滑减少少量记录的波动。它不是官方评级或全服排名；不足{" "}
+          {minimumBattles} 场记 0 分。
         </p>
         <div className="wt-efficiency-weights">
           <span>
-            <b>{weights.kd * 100}%</b> 击毁 / 死亡
+            <b>K/D</b> 击毁表现
           </span>
           <span>
-            <b>{weights.kr * 100}%</b> 击毁 / 出击
+            <b>K/B</b> 场均产出
           </span>
           <span>
-            <b>{weights.winRate * 100}%</b> 胜率
+            <b>W/B</b> 胜率
           </span>
         </div>
         <details className="wt-data-formula">
@@ -31,30 +31,25 @@ export function StatsDataNotes() {
           <dl>
             <div>
               <dt>平滑 K/D</dt>
-              <dd>
-                (K + {s}) / (D + {s})
-              </dd>
+              <dd>K / (D + c)</dd>
             </div>
             <div>
-              <dt>平滑 K/R</dt>
-              <dd>
-                (K + {s}) / (R + {s})
-              </dd>
+              <dt>平滑场均击毁 kb</dt>
+              <dd>K / (B + c)</dd>
             </div>
             <div>
               <dt>平滑胜率 wr</dt>
-              <dd>
-                (W + {s / 2}) / (B + {s})
-              </dd>
+              <dd>(W + 0.5c) / (B + c)</dd>
             </div>
           </dl>
+          <p>c = {s}；ln 为自然对数，wr 使用 0–1 小数。</p>
           <code>
-            {rules.efficiency.maximum} × ({weights.kd} × kd/(1+kd) + {weights.kr} × kr/(1+kr) +{" "}
-            {weights.winRate} × wr)
+            z = {a.logKd} × ln(kd) + {a.logKillsPerBattle} × ln(kb) + {a.winRate} × wr {a.intercept}
           </code>
+          <code>效率 = round({maximum} / (1 + exp(−z)))</code>
           <p>
-            结果四舍五入。K 为已返回的击毁合计，D 为死亡，R 为出击，W 为胜场，B
-            为场次；缺失关键项时不计算效率。
+            结果四舍五入。K 为已返回的击毁合计，D 为死亡，W 为胜场，B 为场次。不足 {minimumBattles}{" "}
+            场或已知击毁合计为 0 时记 0 分；缺失关键计数时显示“—”。未返回的击毁类别保持未知。
           </p>
         </details>
       </section>

@@ -13,7 +13,7 @@ import {
   statsBranchTarget,
   statsReportScopeLabel,
 } from "./player-stats-api";
-import { reportChartData, reportSummary } from "./player-report-design";
+import { reportChartData, reportSummary, reportEfficiencyMaximum } from "./player-report-design";
 import type { ReportTheme } from "./player-report-design";
 export function PlayerReport({
   report,
@@ -28,7 +28,8 @@ export function PlayerReport({
 }) {
   const p = report.payload,
     chart = reportChartData(p),
-    colors = [theme.accent, theme.secondary, theme.tertiary];
+    colors = [theme.accent, theme.secondary, theme.tertiary],
+    efficiencyMaximum = reportEfficiencyMaximum(p);
   const branches = p.career?.branches || p.branches;
   const voice = reportStyle(p.analysis?.style);
   return (
@@ -101,14 +102,18 @@ export function PlayerReport({
       <section className="wt-poster-charts" aria-label="所列载具统计图">
         <figure className="wt-efficiency-chart">
           <figcaption>
-            载具参考效率 <span>0–1000</span>
+            载具效率评分 <span>0–{efficiencyMaximum}</span>
           </figcaption>
           <ol className="wt-efficiency-bars">
             {chart.values.map((v) => (
               <li key={v.id} title={v.label}>
                 <span className="wt-chart-vehicle-name">{v.label}</span>
                 <span className="wt-chart-bar" aria-hidden="true">
-                  <i style={{ width: `${Math.max(0, Math.min(1000, v.value || 0)) / 10}%` }} />
+                  <i
+                    style={{
+                      width: `${(100 * Math.max(0, Math.min(efficiencyMaximum, v.value || 0))) / efficiencyMaximum}%`,
+                    }}
+                  />
                 </span>
                 <b>{n(v.value)}</b>
               </li>
@@ -145,7 +150,7 @@ export function PlayerReport({
           </ul>
         </figure>
         <table className="sr-only">
-          <caption>图表对应数值：所列载具参考效率与已返回的目标击毁构成</caption>
+          <caption>图表对应数值：所列载具效率评分与已返回的目标击毁构成</caption>
           <thead>
             <tr>
               <th scope="col">项目</th>
@@ -155,7 +160,7 @@ export function PlayerReport({
           <tbody>
             {chart.values.map((v) => (
               <tr key={v.id}>
-                <th scope="row">{v.label}参考效率</th>
+                <th scope="row">{v.label}效率评分</th>
                 <td>{n(v.value)}</td>
               </tr>
             ))}
@@ -180,7 +185,7 @@ export function PlayerReport({
             <div className="wt-poster-vehicle-title">
               <h3>{v.name}</h3>
               <span>
-                <b>{n(v.efficiency)}</b> 效率{v.smallSample ? " · 小样本" : ""}
+                <b>{n(v.efficiency)}</b> 效率{v.smallSample ? " · 场次不足" : ""}
               </span>
             </div>
             <div className="wt-poster-vehicle-values">
@@ -196,11 +201,12 @@ export function PlayerReport({
               <span>
                 对地 <b>{r(v.groundKd)}</b>
               </span>
-              {(v.navalKd != null || v.category === "ships" || v.category === "boats") && (
-                <span>
-                  对海 <b>{r(v.navalKd)}</b>
-                </span>
-              )}
+              {v.category !== "ground" &&
+                (v.navalKd != null || v.category === "ships" || v.category === "boats") && (
+                  <span>
+                    对海 <b>{r(v.navalKd)}</b>
+                  </span>
+                )}
               <span className="wt-poster-silver" title="累计获得银狮，非净收入">
                 <span className="wt-silver-amount">
                   <img src={statsSilverIcon} alt="累计银狮" />
@@ -218,7 +224,7 @@ export function PlayerReport({
       </section>
       <footer className="wt-poster-bottom">
         <span>资料采集 {statsDate(p.fetchedAt)}</span>
-        <span>效率为本工具参考指数 · 构成图仅含所列载具的已知击毁 · 单车对空/地/海数字为 K/D</span>
+        <span>效率按公开公式计算 · 构成图仅含所列载具的已知击毁 · 单车对空/地/海数字为 K/D</span>
         <span>银狮为累计获得，非余额或净收入 · AI 点评仅供参考</span>
       </footer>
     </article>

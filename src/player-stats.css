@@ -264,6 +264,15 @@
   font-weight: 400;
   color: var(--wt-record-gold);
 }
+.wt-record-source .wt-record-refresh {
+  align-self: flex-end;
+  min-height: 44px;
+  padding: 4px 0;
+  font-size: 12px;
+}
+.wt-record-source small {
+  font-size: 11px;
+}
 .wt-record-tabs {
   display: flex;
   align-items: center;

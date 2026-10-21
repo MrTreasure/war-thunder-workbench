@@ -1,5 +1,9 @@
 import type { Background, ReportPayload } from "./player-stats-api";
 import { statsNumber, statsRatio } from "./player-stats-api";
+import statsRules from "../data/player-stats-rules.json";
+export function reportEfficiencyMaximum(payload: ReportPayload) {
+  return payload.efficiencyVersion === statsRules.version ? statsRules.efficiency.maximum : 1000;
+}
 export type ReportTheme = {
   base: string;
   panel: string;
@@ -140,7 +144,7 @@ export function reportSummary(p: ReportPayload) {
   return [
     { label: p.career ? "战斗场次" : "单车场次合计", value: statsNumber(row.battles) },
     { label: "综合 K/D", value: statsRatio(row.kd) },
-    { label: "参考效率", value: statsNumber(row.efficiency) },
+    { label: "效率评分", value: statsNumber(row.efficiency) },
     { label: "胜率", value: win == null ? "—" : win.toFixed(2) + "%" },
   ];
 }
@@ -151,11 +155,14 @@ export function reportChartData(p: ReportPayload) {
     rank: String(i + 1).padStart(2, "0"),
     value: v.efficiency,
   }));
+  const groundOnly =
+    p.scope?.category === "ground" ||
+    (p.top5.length > 0 && p.top5.every((v) => v.category === "ground"));
   const segments = [
     { key: "air", label: "空中目标", value: p.totals.airKills },
     { key: "ground", label: "地面目标", value: p.totals.groundKills },
     { key: "naval", label: "海上目标", value: p.totals.navalKills },
-  ];
+  ].filter((segment) => !groundOnly || segment.key !== "naval");
   const total = segments.reduce((sum, v) => sum + (v.value ?? 0), 0);
   let start = -Math.PI / 2;
   return {

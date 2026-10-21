@@ -68,7 +68,15 @@ function Avatar({ url, name }: { url: string | null; name: string }) {
     </span>
   );
 }
-function VehicleRow({ vehicle: v, countryName }: { vehicle: PlayerVehicle; countryName: string }) {
+function VehicleRow({
+  vehicle: v,
+  countryName,
+  showNaval,
+}: {
+  vehicle: PlayerVehicle;
+  countryName: string;
+  showNaval: boolean;
+}) {
   return (
     <tr>
       <td aria-label={v.name}>
@@ -87,11 +95,11 @@ function VehicleRow({ vehicle: v, countryName }: { vehicle: PlayerVehicle; count
       <td>{v.winRate == null ? "—" : v.winRate.toFixed(2) + "%"}</td>
       <td>{ratio(v.airKd)}</td>
       <td>{ratio(v.groundKd)}</td>
-      <td>{ratio(v.navalKd)}</td>
+      {showNaval && <td>{v.category === "ground" ? "—" : ratio(v.navalKd)}</td>}
       <td>{ratio(v.kd)}</td>
       <td>
         <b className="wt-gold">{num(v.efficiency)}</b>
-        {v.smallSample && <small className="wt-record-small">小样本</small>}
+        {v.smallSample && <small className="wt-record-small">场次不足</small>}
       </td>
       <td className="wt-silver">
         <span className="wt-silver-amount">
@@ -274,6 +282,41 @@ export function PlayerStats() {
     } finally {
       requests.current.delete(c);
       if (!c.signal.aborted) {
+        setBusy(false);
+        void refreshSession();
+      }
+    }
+  }
+  async function forceRefresh() {
+    if (!profile || busy) return;
+    const id = ++generation.current,
+      c = controller();
+    setBusy(true);
+    setError("");
+    setNotice("");
+    try {
+      const value = await statsRequest<PlayerProfile>(
+        "players/refresh",
+        {
+          snapshotId: profile.snapshotId,
+          requestId: "refresh_" + crypto.randomUUID(),
+        },
+        c.signal,
+      );
+      if (c.signal.aborted || id !== generation.current) return;
+      setProfile(value);
+      setNickname(value.nickname);
+      rememberStatsNickname(value.nickname);
+      if (!value.modes.some((m) => m.id === mode)) setMode(value.modes[0]?.id || "rb");
+      setReport(null);
+      setViewingHistory(false);
+      setNotice("已重新获取官方资料。");
+    } catch (failure) {
+      if (!c.signal.aborted && id === generation.current)
+        setError(failure instanceof Error ? failure.message : "刷新失败，原资料仍可查看。");
+    } finally {
+      requests.current.delete(c);
+      if (!c.signal.aborted && id === generation.current) {
         setBusy(false);
         void refreshSession();
       }
@@ -642,6 +685,17 @@ export function PlayerStats() {
                 采集于 {statsDate(profile.fetchedAt)} ·{" "}
                 {profile.cached ? "已命中缓存，本次不扣查询次数" : "官方助手资料"}
               </span>
+              <button
+                className="wt-record-link wt-record-refresh"
+                title="重新获取官方资料，按一次新查询计入额度；同一玩家每分钟可刷新一次"
+                disabled={
+                  busy || exportBusy || (!!report && ["queued", "running"].includes(report.status))
+                }
+                onClick={() => void forceRefresh()}
+              >
+                {busy ? "正在获取…" : "强制刷新"}
+              </button>
+              <small>强制刷新计入新查询次数</small>
             </div>
           </section>
           <div className="wt-record-tabs" aria-label="战绩视图">
@@ -682,7 +736,7 @@ export function PlayerStats() {
                 {[
                   ["战斗场次", num(active.battles)],
                   ["胜率", active.winRate == null ? "—" : active.winRate.toFixed(2) + "%"],
-                  ["参考效率", num(active.efficiency)],
+                  ["效率评分", num(active.efficiency)],
                   ["综合 K/D", ratio(active.kd)],
                   ["空中目标击毁", num(active.airKills)],
                   ["地面目标击毁", num(active.groundKills)],
@@ -690,7 +744,7 @@ export function PlayerStats() {
                   <div key={label}>
                     <span>{label}</span>
                     <strong>{value}</strong>
-                    {label === "参考效率" && (
+                    {label === "效率评分" && (
                       <button className="wt-record-link" onClick={() => setShowRules(true)}>
                         查看计算规则
                       </button>
@@ -801,9 +855,9 @@ export function PlayerStats() {
                           "胜率",
                           "对空 K/D",
                           "对地 K/D",
-                          "对海 K/D",
+                          ...(category === "ground" ? [] : ["对海 K/D"]),
                           "综合 K/D",
-                          "参考效率",
+                          "效率评分",
                           "累计获得银狮",
                         ].map((label) => (
                           <th key={label} scope="col">
@@ -817,6 +871,7 @@ export function PlayerStats() {
                         <VehicleRow
                           key={v.id}
                           vehicle={v}
+                          showNaval={category !== "ground"}
                           countryName={
                             profile.countries.find((c) => c.id === v.country)?.name ||
                             statsCategoryNames[v.category || ""] ||

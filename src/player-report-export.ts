@@ -1,6 +1,11 @@
 import { reportStyle } from "./player-report-style";
 import { stampExportWatermark } from "./export-watermark";
-import { localReportImage, reportChartData, reportSummary } from "./player-report-design";
+import {
+  localReportImage,
+  reportChartData,
+  reportSummary,
+  reportEfficiencyMaximum,
+} from "./player-report-design";
 import type { ReportTheme } from "./player-report-design";
 import fontUrl from "./assets/RobotoCondensed-Bold.ttf?url";
 import {
@@ -24,6 +29,7 @@ export async function downloadStatsReport(
   signal: AbortSignal,
 ) {
   const p = report.payload;
+  const efficiencyMaximum = reportEfficiencyMaximum(p);
   const voice = reportStyle(p.analysis?.style);
   const silver = await reportImage("currency", "sl", signal);
   const [terrain, logo, avatar, ...vehicles] = await Promise.all([
@@ -205,8 +211,8 @@ export async function downloadStatsReport(
     );
   });
   line(544);
-  text("载具参考效率", 64, 580, 23, gold, 700);
-  text("0–1000", 505, 580, 18, muted);
+  text("载具效率评分", 64, 580, 23, gold, 700);
+  text("0–" + efficiencyMaximum, 505, 580, 18, muted);
   text("载具击毁构成", 666, 580, 23, gold, 700);
   ctx.save();
   ctx.textAlign = "right";
@@ -219,7 +225,12 @@ export async function downloadStatsReport(
     ctx.fillRect(276, y - 8, 244, 5);
     if (v.value != null) {
       ctx.fillStyle = gold;
-      ctx.fillRect(276, y - 8, (244 * Math.max(0, Math.min(1000, v.value))) / 1000, 5);
+      ctx.fillRect(
+        276,
+        y - 8,
+        (244 * Math.max(0, Math.min(efficiencyMaximum, v.value))) / efficiencyMaximum,
+        5,
+      );
     }
     ctx.save();
     ctx.textAlign = "right";
@@ -255,7 +266,7 @@ export async function downloadStatsReport(
     text(shorten(v.name, 485, 29, 700), 292, y + 27, 29, white, 700);
     ctx.save();
     ctx.textAlign = "right";
-    text(n(v.efficiency) + " 效率" + (v.smallSample ? " · 小样本" : ""), 1016, y + 27, 23, gold);
+    text(n(v.efficiency) + " 效率" + (v.smallSample ? " · 场次不足" : ""), 1016, y + 27, 23, gold);
     ctx.restore();
     const stats =
       n(v.battles) +
@@ -265,7 +276,8 @@ export async function downloadStatsReport(
       r(v.airKd) +
       " / 地 " +
       r(v.groundKd) +
-      (v.navalKd != null || v.category === "ships" || v.category === "boats"
+      (v.category !== "ground" &&
+      (v.navalKd != null || v.category === "ships" || v.category === "boats")
         ? " / 海 " + r(v.navalKd)
         : "") +
       " K/D";
@@ -279,7 +291,7 @@ export async function downloadStatsReport(
   const footer = canvas.height - 118;
   line(footer);
   text("资料采集 " + statsDate(p.fetchedAt), 64, footer + 34, 20, muted);
-  text("效率为本工具参考指数 · 构成图仅含所列载具已知击毁", 64, footer + 66, 19, muted);
+  text("效率按公开公式计算 · 构成图仅含所列载具已知击毁", 64, footer + 66, 19, muted);
   text("银狮为累计获得，非净收入 · AI 点评仅供参考", 64, footer + 96, 19, muted);
   if (signal.aborted) return;
   await stampExportWatermark(canvas, signal);

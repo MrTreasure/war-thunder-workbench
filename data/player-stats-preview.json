@@ -21250,7 +21250,7 @@
     "armyBase": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/gameuiskin/"
   },
   "metricNotes": {
-    "efficiency": "算法待确认，预览不显示分值",
+    "efficiency": "效率按公开公式计算",
     "missing": "未返回的值显示为 —，不填零",
     "reportSort": "同一模式按场次、出击数、稳定载具 ID 排序，取前五辆"
   },
