@@ -1,4 +1,5 @@
 import settings from "./config/player-stats.json";
+import reportAssets from "../data/player-report-assets.json";
 export type Ratio = number | "∞" | null;
 export type Metrics = {
   knownKills: number | null;
@@ -85,11 +86,18 @@ export type StatsConfig = {
   settings: { cacheTtlSeconds: number; queryLimit: number; reportLimit: number };
 };
 export type StatsSession = {
-  user: { id: string; displayName?: string; email?: string } | null;
+  user: {
+    id: string;
+    displayName?: string;
+    email?: string;
+    isSuperAdmin?: boolean;
+    applicationRole?: "user" | "admin";
+  } | null;
+  role: "guest" | "user" | "superadmin";
   unlimited: boolean;
   query: { used: number; reserved: number };
   report: { used: number; reserved: number };
-  limits: { queryLimit: number; reportLimit: number; cacheTtlSeconds: number };
+  limits: { queryLimit: number | null; reportLimit: number | null; cacheTtlSeconds: number };
 };
 export type ReportScope = {
   country: string;
@@ -180,6 +188,14 @@ export const statsCategoryNames: Record<string, string> = {
 };
 export const statsNumber = (value: number | null | undefined) =>
   value == null ? "—" : value.toLocaleString("zh-CN");
+/** Group by 万, retaining the exact integer rather than rounding income. */
+export const statsSilver = (value: number | null | undefined) =>
+  value == null || !Number.isSafeInteger(value)
+    ? "—"
+    : BigInt(value)
+        .toString()
+        .replace(/\B(?=(\d{4})+(?!\d))/g, ",");
+export const statsSilverIcon = reportAssets.silverLionsIcon;
 export const statsRatio = (value: Ratio | undefined) =>
   typeof value === "number" ? value.toFixed(2) : value === "∞" ? "∞" : "—";
 export const statsDate = (value: string) =>

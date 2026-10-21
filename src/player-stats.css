@@ -549,6 +549,19 @@
 .wt-silver {
   color: #d2dadb;
 }
+.wt-silver-amount {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.wt-silver-amount > img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex: none;
+}
 .wt-record-more {
   display: block;
   margin: 16px auto;

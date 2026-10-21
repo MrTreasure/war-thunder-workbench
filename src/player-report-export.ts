@@ -5,6 +5,7 @@ import fontUrl from "./assets/RobotoCondensed-Bold.ttf?url";
 import {
   reportImage,
   statsNumber as n,
+  statsSilver,
   statsRatio as r,
   statsDate,
   statsModeNames,
@@ -22,6 +23,7 @@ export async function downloadStatsReport(
   signal: AbortSignal,
 ) {
   const p = report.payload;
+  const silver = await reportImage("currency", "sl", signal);
   const [terrain, logo, avatar, ...vehicles] = await Promise.all([
     background.local
       ? localReportImage(background.source, signal)
@@ -286,7 +288,9 @@ export async function downloadStatsReport(
       26,
       muted,
     );
-    text("累计获得银狮  " + n(v.silverLions), 365, y + 156, 27, gold);
+    text("累计获得银狮", 365, y + 156, 27, gold);
+    fit(silver, 545, y + 131, 30, 30);
+    text(statsSilver(v.silverLions), 586, y + 156, 27, gold);
     line(y + 180);
   });
   text("司令的话", 64, speechY, 28, gold, 700);

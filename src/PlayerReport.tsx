@@ -2,6 +2,8 @@ import type { CSSProperties } from "react";
 import type { Background, StatsReport } from "./player-stats-api";
 import {
   statsNumber as n,
+  statsSilver,
+  statsSilverIcon,
   statsRatio as r,
   statsModeNames,
   statsDate,
@@ -228,7 +230,11 @@ export function PlayerReport({
               )}
             </div>
             <p className="wt-poster-silver">
-              累计获得银狮 <b>{n(v.silverLions)}</b>
+              累计获得银狮{" "}
+              <span className="wt-silver-amount">
+                <img src={statsSilverIcon} alt="银狮" />
+                <b>{statsSilver(v.silverLions)}</b>
+              </span>
             </p>
           </div>
         </section>

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { PlayerReport } from "./PlayerReport";
+import { StatsAccountMenu } from "./components/StatsAccountMenu";
 import {
   defaultReportTheme,
   imageReportTheme,
@@ -18,6 +19,8 @@ import {
   setStatsToken,
   loginChallenge,
   statsNumber as num,
+  statsSilver,
+  statsSilverIcon,
   statsRatio as ratio,
   statsDate,
   statsModeNames,
@@ -30,6 +33,13 @@ import {
   reportImage,
   statsCategoryNames,
 } from "./player-stats-api";
+function quotaLabel(session: StatsSession | null, kind: "query" | "report") {
+  if (!session) return "—";
+  const limit = session.limits[kind === "query" ? "queryLimit" : "reportLimit"];
+  return limit == null
+    ? "不限次"
+    : `${Math.max(0, limit - session[kind].used - session[kind].reserved)} 次`;
+}
 import type {
   PlayerCandidate,
   PlayerProfile,
@@ -80,7 +90,12 @@ function VehicleRow({ vehicle: v, countryName }: { vehicle: PlayerVehicle; count
         <b className="wt-gold">{num(v.efficiency)}</b>
         {v.smallSample && <small className="wt-record-small">小样本</small>}
       </td>
-      <td className="wt-silver">{num(v.silverLions)}</td>
+      <td className="wt-silver">
+        <span className="wt-silver-amount">
+          <img src={statsSilverIcon} alt="银狮" />
+          {statsSilver(v.silverLions)}
+        </span>
+      </td>
     </tr>
   );
 }
@@ -377,6 +392,7 @@ export function PlayerStats() {
       setSession(await statsRequest<StatsSession>("session"));
     } catch (failure) {
       setError(failure instanceof Error ? failure.message : "退出失败。");
+      throw failure;
     }
   }
   async function generate() {
@@ -491,21 +507,16 @@ export function PlayerStats() {
       {headerHost &&
         createPortal(
           <div className="wt-header-account">
-            {session?.user && (
-              <span
-                className="wt-header-account-name"
-                title={session.user.displayName || session.user.email}
-              >
-                {session.user.displayName || session.user.email}
-              </span>
+            {session?.user ? (
+              <StatsAccountMenu
+                name={session.user.displayName || session.user.email || "已登录"}
+                onLogout={logout}
+              />
+            ) : (
+              <button className="wt-header-login" disabled={!session} onClick={() => void login()}>
+                登录
+              </button>
             )}
-            <button
-              className="wt-header-login"
-              disabled={!session}
-              onClick={() => void (session?.user ? logout() : login())}
-            >
-              {session?.user ? "退出" : "登录"}
-            </button>
           </div>,
           headerHost,
         )}
@@ -515,34 +526,14 @@ export function PlayerStats() {
           <p>查阅出击记录，领取属于你的授勋致辞。</p>
         </div>
         <div className="wt-record-account">
-          {session?.user ? (
-            <>
-              <span>
-                {session.user.displayName || session.user.email || "已登录"}
-                <small>每日查询与战报不限次</small>
-              </span>
-            </>
-          ) : (
-            <>
-              <span>
-                游客 · 新查询{" "}
-                {session
-                  ? Math.max(
-                      0,
-                      session.limits.queryLimit - session.query.used - session.query.reserved,
-                    )
-                  : "—"}{" "}
-                次 / 战报{" "}
-                {session
-                  ? Math.max(
-                      0,
-                      session.limits.reportLimit - session.report.used - session.report.reserved,
-                    )
-                  : "—"}{" "}
-                次<small>每日零点重置 · 缓存命中不扣次</small>
-              </span>
-            </>
-          )}
+          <span>
+            {session?.role === "superadmin" ? "超管" : session?.user ? "普通用户" : "游客"}
+            {" · 新查询 "}
+            {quotaLabel(session, "query")}
+            {" / 战报 "}
+            {quotaLabel(session, "report")}
+            <small>每日零点重置 · 缓存命中不扣次</small>
+          </span>
         </div>
       </header>
       <form

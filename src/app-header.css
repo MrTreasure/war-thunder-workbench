@@ -219,6 +219,68 @@
   gap: 8px;
   min-width: 0;
 }
+/* finesse · component: account actions · tokens: inherited */
+.wt-account-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 152px;
+}
+.wt-account-trigger > span:first-child {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.wt-account-popover {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  width: min(220px, calc(100vw - 16px));
+  padding: 8px;
+  color: var(--wt-ink);
+  background: var(--wt-panel);
+  border: 1px solid var(--wt-line);
+  border-radius: 4px;
+  box-shadow: 0 8px 28px color-mix(in srgb, var(--wt-panel) 75%, transparent);
+  font: 13px/1.5 var(--wt-sans);
+}
+.wt-account-popover p {
+  margin: 4px 8px 8px;
+  color: var(--wt-muted);
+  overflow-wrap: anywhere;
+}
+.wt-account-popover button {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background: transparent;
+  color: var(--wt-ink);
+  text-align: left;
+  padding: 8px;
+  cursor: pointer;
+  font: inherit;
+}
+.wt-account-popover button:focus-visible {
+  outline: 2px solid var(--wt-gold);
+}
+.wt-account-popover button:active {
+  background: var(--wt-accent-soft);
+}
+.wt-account-popover button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+.wt-account-popover small {
+  display: block;
+  color: var(--wt-muted);
+  margin: 6px 8px;
+}
+@media (hover: hover) {
+  .wt-account-popover button:hover {
+    background: var(--wt-accent-soft);
+  }
+}
 .wt-header-account-name {
   max-width: 84px;
   overflow: hidden;
@@ -273,6 +335,9 @@
   }
   .app-header-actions {
     gap: 4px;
+  }
+  .wt-account-trigger {
+    max-width: 86px;
   }
   .wt-header-account-name {
     display: none;

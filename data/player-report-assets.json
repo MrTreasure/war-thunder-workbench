@@ -304,5 +304,11 @@
   ],
   "avatarBase": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatars/",
   "avatarSource": "Original game images.vromfs.bin, commit ea96f3af75afe1d858f80ac13f212db218bc69ca",
-  "armyBase": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/gameuiskin/"
+  "armyBase": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/gameuiskin/",
+  "silverLionsIcon": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/gameuiskin/warpoints.png",
+  "silverLionsIconProvenance": {
+    "source": "War Thunder game UI asset: warpoints.png",
+    "assetCommit": "ea96f3af75afe1d858f80ac13f212db218bc69ca",
+    "verifiedAt": "2026-10-21"
+  }
 }
