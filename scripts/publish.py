@@ -23,9 +23,12 @@ def atomic(path,data,mode=0o644):
  path.parent.mkdir(parents=True,exist_ok=True,mode=0o755)
  temp=path.with_name(path.name+'.next');temp.write_bytes(data);temp.chmod(mode);os.replace(temp,path)
 destination.mkdir(parents=True,exist_ok=True,mode=0o755);destination.chmod(0o755)
-for file in dist.rglob('*'):
+for file in sorted(dist.rglob('*'),key=lambda path:(path.suffix.lower()=='.html',str(path))):
  if not file.is_file() or file.name=='index.html':continue
- target=destination/file.relative_to(dist);atomic(target,file.read_bytes());atomic(target.with_name(target.name+'.gz'),gzip.compress(file.read_bytes(),mtime=0))
+ target=destination/file.relative_to(dist)
+ if file.suffix.lower()=='.html' and target.exists():
+  saved=backup/'entries'/file.relative_to(dist);saved.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(target,saved)
+ atomic(target,file.read_bytes());atomic(target.with_name(target.name+'.gz'),gzip.compress(file.read_bytes(),mtime=0))
  atomic(workspace/file.relative_to(dist),file.read_bytes())
 atomic(destination/'index.html.gz',gzip.compress(content,mtime=0));atomic(destination/'index.html',content)
 # Keep Muse's compatibility entry pointed at the new canonical React project.
