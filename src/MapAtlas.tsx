@@ -271,10 +271,69 @@ function GroundDetail({
         );
     }
   }
+  const mapControls = (
+    <div className="ground-controls">
+      <label>
+        <span>布局</span>
+        <select
+          aria-label="任务布局"
+          value={layout.id}
+          onChange={(e) => {
+            reset();
+            editorRef.current?.finish();
+            choose(e.target.value);
+          }}
+        >
+          {map.layouts.map((l) => (
+            <option key={l.id} value={l.id}>
+              {map.thumbnails.find((t) => t.layoutId === l.id)?.name || l.name}
+              {map.layouts.filter((v) => v.name === l.name).length > 1 &&
+              !map.thumbnails.some((t) => t.layoutId === l.id)
+                ? ` · 布局 ${map.layouts.filter((v) => v.name === l.name).findIndex((v) => v.id === l.id) + 1}`
+                : ""}
+            </option>
+          ))}
+        </select>
+      </label>
+      <label>
+        <span>己方</span>
+        <select
+          aria-label="己方出生侧"
+          value={team}
+          onChange={(e) => {
+            editorRef.current?.finish();
+            chooseTeam(Number(e.target.value) as 1 | 2);
+          }}
+        >
+          <option value={1}>队伍 1</option>
+          <option value={2}>队伍 2</option>
+        </select>
+      </label>
+      <div className="ground-layer-toggles">
+        {[
+          ["等高线", contours, setContours],
+          ["点位", points, setPoints],
+          ["参考网格", grid, setGrid],
+          ["布局范围", cropped, setCropped],
+        ].map(([name, value, set]) => (
+          <button
+            key={name as string}
+            aria-pressed={value as boolean}
+            onClick={() => {
+              reset();
+              (set as (v: boolean) => void)(!value);
+            }}
+          >
+            {name as string}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
   return (
-    <section className="ground-detail" aria-label="地图与任务布局">
+    <section className="ground-detail" data-editing={editing} aria-label="地图与任务布局">
       <div className="ground-detail-body">
-        <div className="ground-workspace">
+        <div className="ground-workspace" data-editing={editing}>
           <div className="ground-detail-toolbar">
             <div className="ground-map-identity">
               {back}
@@ -283,63 +342,7 @@ function GroundDetail({
                 <small>{map.english}</small>
               </h1>
             </div>
-            <div className="ground-controls">
-              <label>
-                <span>布局</span>
-                <select
-                  aria-label="任务布局"
-                  value={layout.id}
-                  onChange={(e) => {
-                    reset();
-                    editorRef.current?.finish();
-                    choose(e.target.value);
-                  }}
-                >
-                  {map.layouts.map((l) => (
-                    <option key={l.id} value={l.id}>
-                      {map.thumbnails.find((t) => t.layoutId === l.id)?.name || l.name}
-                      {map.layouts.filter((v) => v.name === l.name).length > 1 &&
-                      !map.thumbnails.some((t) => t.layoutId === l.id)
-                        ? ` · 布局 ${map.layouts.filter((v) => v.name === l.name).findIndex((v) => v.id === l.id) + 1}`
-                        : ""}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <label>
-                <span>己方</span>
-                <select
-                  aria-label="己方出生侧"
-                  value={team}
-                  onChange={(e) => {
-                    editorRef.current?.finish();
-                    chooseTeam(Number(e.target.value) as 1 | 2);
-                  }}
-                >
-                  <option value={1}>队伍 1</option>
-                  <option value={2}>队伍 2</option>
-                </select>
-              </label>
-              <div className="ground-layer-toggles">
-                {[
-                  ["等高线", contours, setContours],
-                  ["点位", points, setPoints],
-                  ["参考网格", grid, setGrid],
-                  ["布局范围", cropped, setCropped],
-                ].map(([name, value, set]) => (
-                  <button
-                    key={name as string}
-                    aria-pressed={value as boolean}
-                    onClick={() => {
-                      reset();
-                      (set as (v: boolean) => void)(!value);
-                    }}
-                  >
-                    {name as string}
-                  </button>
-                ))}
-              </div>
-            </div>
+            {mapControls}
             <button
               className="ground-edit-toggle"
               aria-pressed={editing}
@@ -505,6 +508,13 @@ function GroundDetail({
               key={`${map.id}:${layout.id}:${team}`}
               ref={editorRef}
               active={editing}
+              close={() => {
+                setEditing(false);
+                requestAnimationFrame(() =>
+                  document.querySelector<HTMLButtonElement>(".ground-edit-toggle")?.focus(),
+                );
+              }}
+              mapControls={mapControls}
               context={{ mapId: map.id, layoutId: layout.id, team }}
               mapName={map.name}
               svg={svg}

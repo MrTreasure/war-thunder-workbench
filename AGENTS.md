@@ -210,6 +210,15 @@
 - PNG export must use CORS-approved Image loads and report errors rather than
   silently omitting failed layers. Keep cancellation, 2K/4K options, source
   fallbacks and the original map/annotation coordinate projection aligned.
-- Run `pnpm run check:map-editor` with the routine verification gate. Keep editor
-  tools floating within the map only while editing; preserve the compact page
-  toolbar, the independent detail route and mobile map area.
+- Run `pnpm run check:map-editor` with the routine verification gate. Editing is
+  immersive: hide the application header and reserve separate grid tracks for
+  tools, properties and status. Never float opaque tool panels over the map.
+  On mobile, tools and a scrollable properties area occupy rows below the canvas.
+- Lines/arrows complete on drag release (or a start/end click pair) and become
+  selected immediately. Drag endpoints to edit, drag hollow midpoint handles to
+  insert bends; support deleting bends and keyboard/numeric point editing. Do not
+  restore the multi-click route plus distant confirmation workflow. Preserve
+  project version 1 and existing path geometry; one completed drag is one undo.
+- Editor palette defaults live in `data/map-editor-palette.json`; keep original
+  game asset colors and existing theme colors identified separately. Selection
+  handles use screen-sized targets, independent of map zoom and viewport size.
