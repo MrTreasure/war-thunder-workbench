@@ -121,6 +121,66 @@
       "height": 1000,
       "bytes": 157608,
       "sha256": "92ca52d5dbe4c8dc1bc2b419d5dd048153251085a2f7fbd2e3af670ac1fa44a7"
+    },
+    {
+      "file": "ground-maps.png",
+      "width": 1600,
+      "height": 1050,
+      "bytes": 1126259,
+      "sha256": "9b9274933f56e4f37e94d30c21407fe5b05c8c8c4fd69e5030aebedc4e7b3bbb",
+      "capturedAt": "2026-10-21",
+      "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?guides=1#/maps",
+      "note": "陆战地图"
+    },
+    {
+      "file": "ground-map-detail.png",
+      "width": 1600,
+      "height": 1050,
+      "bytes": 1322007,
+      "sha256": "c89c5a83fddde0bffdaa52dd33e4a9ffe0a21e1025af653f2e10725cc301bdab",
+      "capturedAt": "2026-10-21",
+      "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?guides=1#/maps",
+      "note": "陆战地图"
+    },
+    {
+      "file": "tactical-drawing.png",
+      "width": 1600,
+      "height": 1050,
+      "bytes": 1437315,
+      "sha256": "82bb2774986f09bb61b19222a6f87fab621efd1391835a7519996eac1c253d18",
+      "capturedAt": "2026-10-21",
+      "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?guides=1#/maps",
+      "note": "路线、阵线和位置标记为绘制示例"
+    },
+    {
+      "file": "tactical-lines.png",
+      "width": 1600,
+      "height": 1050,
+      "bytes": 1498056,
+      "sha256": "f9bd4f0bb90fec9b442c10acdc1735ef35fbedfc462af1813eb4b7e75b87ac64",
+      "capturedAt": "2026-10-21",
+      "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?guides=1#/maps",
+      "note": "路线、阵线和位置标记为绘制示例"
+    },
+    {
+      "file": "tactical-markers.png",
+      "width": 1600,
+      "height": 1050,
+      "bytes": 1464573,
+      "sha256": "09907c96979b8fdafd9f664996a614cdbef3dc91c6e69fb527dca6788fe0c9c9",
+      "capturedAt": "2026-10-21",
+      "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?guides=1#/maps",
+      "note": "路线、阵线和位置标记为绘制示例"
+    },
+    {
+      "file": "tactical-game-icons.png",
+      "width": 1600,
+      "height": 1050,
+      "bytes": 1457483,
+      "sha256": "52e33eb71c2c3295625980d57d61ebd842af1479eefcf4b96692bceffbc3687b",
+      "capturedAt": "2026-10-21",
+      "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?guides=1#/maps",
+      "note": "路线、阵线和位置标记为绘制示例"
     }
   ]
 }

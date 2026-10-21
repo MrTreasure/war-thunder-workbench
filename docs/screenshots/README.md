@@ -18,3 +18,20 @@
 | `lineups-china.png` / `lineups-germany.png` / `lineups-usa.png` | 已保存队列列表 |
 | `lineup-share.png` | 美国顶级队列分享弹窗 |
 | `cart.png` | 载具与配件两项报价合并 |
+
+## 陆战地图与走线绘制
+
+[打开陆战地图](https://render.mrtreasure.cc/muse/war-thunder-trees/?guides=1#/maps)
+
+以下图片中的路线、阵线和位置标记为绘制示例，不作为实战路线推荐。
+
+| 文件 | 内容 |
+| --- | --- |
+| `ground-maps.png` | 陆战地图列表、搜索与点位缩略图 |
+| `ground-map-detail.png` | 阿拉曼大图、等高线和任务点位 |
+| `tactical-drawing.png` | 进攻路线、绿色防御阵线、狙击点、危险区域和文字说明 |
+| `tactical-lines.png` | 军事战术线型选择与绘图示例 |
+| `tactical-markers.png` | 战术符号选择与位置标记 |
+| `tactical-game-icons.png` | 战雷原生图标选择 |
+
+[小红书文案与配图顺序](../xiaohongshu.md)
