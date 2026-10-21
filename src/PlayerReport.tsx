@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { reportStyle } from "./player-report-style";
 import type { Background, StatsReport } from "./player-stats-api";
 import {
   statsNumber as n,
@@ -29,6 +30,7 @@ export function PlayerReport({
     chart = reportChartData(p),
     colors = [theme.accent, theme.secondary, theme.tertiary];
   const branches = p.career?.branches || p.branches;
+  const voice = reportStyle(p.analysis?.style);
   return (
     <article
       className="wt-report-poster"
@@ -48,10 +50,12 @@ export function PlayerReport({
       </div>
       <div className="wt-poster-top">
         <img src="https://warthunder.com/assets/img/svg/logo-wt.svg" alt="War Thunder" />
-        <span>{statsModeNames[p.mode]} · 生涯嘉奖</span>
+        <span>
+          {statsModeNames[p.mode]} · {voice.label}
+        </span>
       </div>
-      <div className="wt-poster-eyebrow">出击有迹 · 每一程都算数</div>
-      <h2 className="wt-poster-headline">{report.review?.title || "向你的坚持致敬"}</h2>
+      <div className="wt-poster-eyebrow">{voice.kicker}</div>
+      <h2 className="wt-poster-headline">{report.review?.title || "你的战地记录"}</h2>
       <header className="wt-poster-identity">
         <span className="wt-player-avatar">
           <span aria-hidden="true">{Array.from(p.player.nickname)[0]}</span>
@@ -95,77 +99,46 @@ export function PlayerReport({
         ))}
       </div>
       <section className="wt-poster-charts" aria-label="所列载具统计图">
-        <figure>
+        <figure className="wt-efficiency-chart">
           <figcaption>
-            载具参考效率 <span>0—1000</span>
+            载具参考效率 <span>0–1000</span>
           </figcaption>
-          <svg viewBox="0 0 300 205" aria-hidden="true">
-            {chart.values.map((v, i) => (
-              <g key={v.id}>
-                <text x="0" y={19 + i * 36} className="wt-chart-label">
-                  {v.rank} {v.label.length > 15 ? v.label.slice(0, 14) + "…" : v.label}
-                </text>
-                <rect x="0" y={24 + i * 36} width="250" height="5" rx="2" fill={theme.line} />
-                {v.value != null && (
-                  <rect
-                    x="0"
-                    y={24 + i * 36}
-                    width={(250 * Math.max(0, Math.min(1000, v.value))) / 1000}
-                    height="5"
-                    rx="2"
-                    fill={theme.accent}
-                  />
-                )}
-                <text x="298" y={28 + i * 36} textAnchor="end" className="wt-chart-value">
-                  {n(v.value)}
-                </text>
-              </g>
+          <ol className="wt-efficiency-bars">
+            {chart.values.map((v) => (
+              <li key={v.id} title={v.label}>
+                <span className="wt-chart-vehicle-name">{v.label}</span>
+                <span className="wt-chart-bar" aria-hidden="true">
+                  <i style={{ width: `${Math.max(0, Math.min(1000, v.value || 0)) / 10}%` }} />
+                </span>
+                <b>{n(v.value)}</b>
+              </li>
             ))}
-            <text x="0" y="204" className="wt-chart-axis">
-              0
-            </text>
-            <text x="125" y="204" textAnchor="middle" className="wt-chart-axis">
-              500
-            </text>
-            <text x="250" y="204" textAnchor="end" className="wt-chart-axis">
-              1000
-            </text>
-          </svg>
+          </ol>
         </figure>
-        <figure>
-          <figcaption>载具击毁构成</figcaption>
-          <svg viewBox="0 0 200 170" aria-hidden="true">
-            <circle cx="100" cy="78" r="57" fill="none" stroke={theme.line} strokeWidth="12" />
-            {chart.segments.map(
-              (seg, i) =>
-                seg.value != null &&
-                seg.value > 0 && (
-                  <circle
-                    key={seg.key}
-                    cx="100"
-                    cy="78"
-                    r="57"
-                    fill="none"
-                    stroke={colors[i]}
-                    strokeWidth="12"
-                    strokeDasharray={(seg.end - seg.start) * 57 + " " + Math.PI * 114}
-                    strokeDashoffset={-(seg.start + Math.PI / 2) * 57}
-                    transform="rotate(-90 100 78)"
-                  />
-                ),
-            )}
-            <text x="100" y="78" textAnchor="middle" className="wt-chart-total">
-              {chart.hasKnown ? n(chart.total) : "—"}
-            </text>
-            <text x="100" y="101" textAnchor="middle" className="wt-chart-label">
-              已知击毁
-            </text>
-          </svg>
+        <figure className="wt-kills-chart">
+          <figcaption>
+            载具击毁构成{" "}
+            <span>
+              <b>{chart.hasKnown ? n(chart.total) : "—"}</b> 已知击毁
+            </span>
+          </figcaption>
+          <div className="wt-kills-composition" aria-hidden="true">
+            {chart.total > 0 &&
+              chart.segments.map((seg, i) => (
+                <i
+                  key={seg.key}
+                  style={{
+                    width: `${((seg.value || 0) / chart.total) * 100}%`,
+                    backgroundColor: colors[i],
+                  }}
+                />
+              ))}
+          </div>
           <ul className="wt-chart-legend">
             {chart.segments.map((v, i) => (
               <li key={v.key}>
                 <i style={{ backgroundColor: colors[i] }} />
-                {v.label}
+                <span>{v.label}</span>
                 <b>{n(v.value)}</b>
               </li>
             ))}
@@ -196,15 +169,20 @@ export function PlayerReport({
         </table>
       </section>
       <div className="wt-poster-section-title">
-        <h3>功勋载具 · TOP {p.top5.length}</h3>
+        <h3>常用载具 · TOP {p.top5.length}</h3>
         <span>{statsReportScopeLabel(p)}</span>
       </div>
       {p.top5.map((v, i) => (
         <section className="wt-poster-vehicle" key={v.id}>
           <span className="wt-poster-place">{String(i + 1).padStart(2, "0")}</span>
           <img src={v.image} alt={v.name} loading="lazy" />
-          <div>
-            <h3>{v.name}</h3>
+          <div className="wt-poster-vehicle-info">
+            <div className="wt-poster-vehicle-title">
+              <h3>{v.name}</h3>
+              <span>
+                <b>{n(v.efficiency)}</b> 效率{v.smallSample ? " · 小样本" : ""}
+              </span>
+            </div>
             <div className="wt-poster-vehicle-values">
               <span>
                 <b>{n(v.battles)}</b> 场
@@ -213,41 +191,35 @@ export function PlayerReport({
                 <b>{v.winRate == null ? "—" : v.winRate.toFixed(2) + "%"}</b> 胜率
               </span>
               <span>
-                <b>{n(v.efficiency)}</b> 效率{v.smallSample ? " · 小样本" : ""}
-              </span>
-            </div>
-            <div className="wt-poster-vehicle-values">
-              <span>
-                对空 K/D <b>{r(v.airKd)}</b>
+                对空 <b>{r(v.airKd)}</b>
               </span>
               <span>
-                对地 K/D <b>{r(v.groundKd)}</b>
+                对地 <b>{r(v.groundKd)}</b>
               </span>
               {(v.navalKd != null || v.category === "ships" || v.category === "boats") && (
                 <span>
-                  对海 K/D <b>{r(v.navalKd)}</b>
+                  对海 <b>{r(v.navalKd)}</b>
                 </span>
               )}
-            </div>
-            <p className="wt-poster-silver">
-              累计获得银狮{" "}
-              <span className="wt-silver-amount">
-                <img src={statsSilverIcon} alt="银狮" />
-                <b>{statsSilver(v.silverLions)}</b>
+              <span className="wt-poster-silver" title="累计获得银狮，非净收入">
+                <span className="wt-silver-amount">
+                  <img src={statsSilverIcon} alt="累计银狮" />
+                  <b>{statsSilver(v.silverLions)}</b>
+                </span>
               </span>
-            </p>
+            </div>
           </div>
         </section>
       ))}
       <section className="wt-poster-speech">
-        <span>司令的话</span>
+        <span>{voice.sectionTitle}</span>
         <p>{report.review?.speech}</p>
-        <small>致每一位仍在出击的战士</small>
+        <small>{voice.signoff}</small>
       </section>
       <footer className="wt-poster-bottom">
         <span>资料采集 {statsDate(p.fetchedAt)}</span>
-        <span>效率为本工具参考指数 · 构成图只统计所列载具已返回的击毁 · 未返回留空</span>
-        <span>银狮为累计获得，非余额或净收入 · 文学授勋情景，非游戏勋章</span>
+        <span>效率为本工具参考指数 · 构成图仅含所列载具的已知击毁 · 单车对空/地/海数字为 K/D</span>
+        <span>银狮为累计获得，非余额或净收入 · AI 点评仅供参考</span>
       </footer>
     </article>
   );

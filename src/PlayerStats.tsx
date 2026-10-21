@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { PlayerReport } from "./PlayerReport";
 import { StatsAccountMenu } from "./components/StatsAccountMenu";
+import { reportStyle, reportStyles, type ReportStyle } from "./player-report-style";
+import { StatsDataNotes } from "./StatsDataNotes";
 import {
   defaultReportTheme,
   imageReportTheme,
@@ -121,6 +123,14 @@ export function PlayerStats() {
   const [reportCountry, setReportCountry] = useState("all"),
     [reportCategory, setReportCategory] = useState("all"),
     [viewingHistory, setViewingHistory] = useState(false);
+  const [analysisStyle, setAnalysisStyle] = useState<ReportStyle>("commander"),
+    [customStyle, setCustomStyle] = useState("");
+  function changeStyle(value: ReportStyle, preference = customStyle) {
+    setAnalysisStyle(value);
+    setCustomStyle(preference);
+    setViewingHistory(false);
+    setReport(null);
+  }
   function changeReportFilter(value: string, field: "country" | "category") {
     if (field === "country") setReportCountry(value);
     else setReportCategory(value);
@@ -408,6 +418,8 @@ export function PlayerStats() {
           mode,
           country: reportCountry,
           category: reportCategory,
+          style: analysisStyle,
+          customStyle: analysisStyle === "custom" ? customStyle : "",
           requestId: "report_" + crypto.randomUUID(),
         },
         c.signal,
@@ -523,7 +535,7 @@ export function PlayerStats() {
       <header className="wt-record-page-title">
         <div>
           <h1>生涯战绩与个人战报</h1>
-          <p>查阅出击记录，领取属于你的授勋致辞。</p>
+          <p>查看生涯记录，选一种风格写下你的战报。</p>
         </div>
         <div className="wt-record-account">
           <span>
@@ -636,7 +648,7 @@ export function PlayerStats() {
               生涯总览
             </button>
             <button aria-pressed={tab === "report"} onClick={() => setTab("report")}>
-              授勋战报 <small>TOP 5</small>
+              个人战报 <small>TOP 5</small>
             </button>
             <div className="wt-record-modes">
               {profile.modes.map((m) => (
@@ -818,8 +830,8 @@ export function PlayerStats() {
           ) : (
             <div className="wt-record-report-layout">
               <aside className="wt-record-panel wt-report-controls">
-                <h2>你的授勋战报</h2>
-                <p>先配置范围与背景，点击生成后一起制作战报和司令致辞。</p>
+                <h2>定制你的战报</h2>
+                <p>选好范围、点评风格与背景，再一起生成。</p>
                 <div className="wt-report-filters" aria-label="战报载具筛选">
                   <label>
                     <span>国家</span>
@@ -861,6 +873,48 @@ export function PlayerStats() {
                       ))}
                     </GameSelect>
                   </label>
+                </div>
+                <div className="wt-report-voice">
+                  <label htmlFor="report-style">AI 点评风格</label>
+                  <GameSelect
+                    id="report-style"
+                    value={analysisStyle}
+                    disabled={
+                      busy ||
+                      exportBusy ||
+                      (!!report && ["queued", "running"].includes(report.status))
+                    }
+                    onValueChange={(value) => changeStyle(value as ReportStyle)}
+                  >
+                    {reportStyles.map((style) => (
+                      <option value={style.id} key={style.id}>
+                        {style.label}
+                      </option>
+                    ))}
+                  </GameSelect>
+                  <p>{reportStyle(analysisStyle).description}</p>
+                  {analysisStyle === "custom" && (
+                    <div className="wt-report-custom-style">
+                      <label htmlFor="report-style-preference">想怎么说</label>
+                      <textarea
+                        id="report-style-preference"
+                        maxLength={160}
+                        rows={3}
+                        value={customStyle}
+                        disabled={
+                          busy ||
+                          exportBusy ||
+                          (!!report && ["queued", "running"].includes(report.status))
+                        }
+                        aria-describedby="report-style-hint"
+                        placeholder="例如：像战雷老玩家闲聊，先讲强项，再用一句冷幽默提醒短板。"
+                        onChange={(event) => changeStyle("custom", event.target.value)}
+                      />
+                      <small id="report-style-hint">
+                        只描述语气和分析角度，请勿填写隐私。<span>{customStyle.length}/160</span>
+                      </small>
+                    </div>
+                  )}
                 </div>
                 <p className="wt-record-fine">
                   筛选和选图不扣次数。点击生成时使用一次战报额度，生成失败会退回。
@@ -957,24 +1011,21 @@ export function PlayerStats() {
                     </p>
                   )}
                 </div>
-                <div className="wt-report-voice">
-                  <b>司令授勋致辞</b>
-                  <p>结合生涯与常用载具，写给你本人。少报数字，多说一句真正值得记住的话。</p>
-                </div>
                 <button
                   className="wt-record-primary"
                   disabled={
                     busy ||
                     viewingHistory ||
                     !eligible.length ||
+                    (analysisStyle === "custom" && !customStyle.trim()) ||
                     (!!report && ["queued", "running"].includes(report.status))
                   }
                   onClick={() => void generate()}
                 >
                   {report?.status === "queued" || report?.status === "running"
-                    ? "正在制作战报与致辞…"
+                    ? "正在生成战报与点评…"
                     : report?.status === "ready"
-                      ? "生成同范围战报"
+                      ? "取用相同配置战报"
                       : "生成我的战报"}
                 </button>
                 <button
@@ -996,7 +1047,7 @@ export function PlayerStats() {
                   我的战报
                 </button>
                 <p className="wt-record-fine">
-                  更换背景和重复保存不扣次数。已生成的同一份战报可以直接取用。
+                  更换背景和重复保存不扣次；更换分析风格或自定义内容会生成新战报。
                 </p>
               </aside>
               <div className="wt-report-stage">
@@ -1027,21 +1078,23 @@ export function PlayerStats() {
                         ? "生成后展示生涯总览与该范围最常用的五辆载具。"
                         : "这个范围暂时没有出击记录，请调整筛选。"}
                     </p>
-                    <small>点击“生成我的战报”，等待数据与致辞一起完成。</small>
+                    <small>
+                      {reportStyle(analysisStyle).label} · 点击生成后，数据与点评一起完成。
+                    </small>
                   </div>
                 )}
                 {report && ["queued", "running"].includes(report.status) && (
                   <div className="wt-report-idle" aria-live="polite">
                     <span>正在制作</span>
-                    <h2>档案已送达，嘉奖正在签发。</h2>
-                    <p>已选定统计范围，正在结合你的生涯与常用载具撰写致辞。</p>
+                    <h2>正在写你的{reportStyle(report.payload.analysis?.style).label}</h2>
+                    <p>结合真实生涯与常用载具完成点评，请稍候。</p>
                     <progress aria-label="正在制作战报" />
                     <small>完成后，整份战报会一起出现。</small>
                   </div>
                 )}
                 {report?.status === "failed" && (
                   <div className="wt-report-idle">
-                    <h2>这份嘉奖还没完成</h2>
+                    <h2>这份战报还没完成</h2>
                     <p>本次生成额度已退回，请稍后重新生成。</p>
                   </div>
                 )}
@@ -1065,22 +1118,13 @@ export function PlayerStats() {
         </>
       )}
       {showRules && (
-        <Modal title="指标与数据说明" close={() => setShowRules(false)} className="wt-record-rules">
-          <h3>参考效率</h3>
-          <p>{config?.rules.efficiency.description}</p>
-          <p>{config?.rules.efficiency.notice}</p>
-          <h3>K/D 分开计算</h3>
-          <p>
-            陆军使用地面目标击毁与陆军载具死亡，航空使用空中目标击毁与航空载具死亡，海军使用海上目标击毁与海军载具死亡；只配对同一军种已返回的记录。单车对空
-            K/D = 空中目标击毁 /
-            该车死亡；对地、对海同理。综合只合计已返回的击毁类别；无死亡记录时不推测分母。
-          </p>
-          <h3>六维雷达</h3>
-          <p>{config?.rules.radar.notice}</p>
-          <h3>银狮收入</h3>
-          <p>
-            助手单车累计获得量，不等于当前余额或净收入。部分记录未返回该栏，保持空值。出击记录不是完整车库。
-          </p>
+        <Modal
+          title="读懂你的战绩"
+          subtitle="先看统计范围，再看数字。"
+          close={() => setShowRules(false)}
+          className="wt-record-rules wt-data-notes-dialog"
+        >
+          <StatsDataNotes />
         </Modal>
       )}
       {history && (
@@ -1094,6 +1138,8 @@ export function PlayerStats() {
                   setViewingHistory(true);
                   setReportCountry(item.payload.scope?.country || "all");
                   setReportCategory(item.payload.scope?.category || "all");
+                  setAnalysisStyle(item.payload.analysis?.style || "commander");
+                  setCustomStyle(item.payload.analysis?.customStyle || "");
                   setReport(item);
                   setTab("report");
                   setBackground("auto");
@@ -1103,6 +1149,7 @@ export function PlayerStats() {
                 <b>{item.payload.player.nickname}</b>
                 <span>
                   {statsModeNames[item.payload.mode]} · {statsReportScopeLabel(item.payload)} ·{" "}
+                  {reportStyle(item.payload.analysis?.style).label} ·{" "}
                   {item.status === "ready"
                     ? "已生成"
                     : item.status === "failed"

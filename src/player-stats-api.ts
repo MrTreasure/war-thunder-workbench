@@ -1,5 +1,6 @@
 import settings from "./config/player-stats.json";
 import reportAssets from "../data/player-report-assets.json";
+import type { ReportStyle } from "./player-report-style";
 export type Ratio = number | "∞" | null;
 export type Metrics = {
   knownKills: number | null;
@@ -106,6 +107,7 @@ export type ReportScope = {
   categoryLabel: string;
 };
 export type ReportPayload = {
+  analysis?: { style: ReportStyle; label: string; customStyle?: string };
   career?: PlayerMode;
   recentMatches?: { available: boolean; notice: string; source?: string };
   scope?: ReportScope;

@@ -1,3 +1,4 @@
+import { reportStyle } from "./player-report-style";
 import { stampExportWatermark } from "./export-watermark";
 import { localReportImage, reportChartData, reportSummary } from "./player-report-design";
 import type { ReportTheme } from "./player-report-design";
@@ -23,6 +24,7 @@ export async function downloadStatsReport(
   signal: AbortSignal,
 ) {
   const p = report.payload;
+  const voice = reportStyle(p.analysis?.style);
   const silver = await reportImage("currency", "sl", signal);
   const [terrain, logo, avatar, ...vehicles] = await Promise.all([
     background.local
@@ -56,7 +58,7 @@ export async function downloadStatsReport(
   if (signal.aborted) return;
   const canvas = document.createElement("canvas");
   canvas.width = 1080;
-  canvas.height = 2280;
+  canvas.height = 1900;
   const ctx = canvas.getContext("2d");
   if (!ctx) throw new Error("浏览器无法创建战报图片。");
   const gold = theme.accent,
@@ -65,12 +67,11 @@ export async function downloadStatsReport(
     ink = theme.base;
   const chart = reportChartData(p);
   const branches = p.career?.branches || p.branches;
-  const vehicleStart = 1180;
-  const speechY = vehicleStart + p.top5.length * 190 + 72;
-  const speech =
-    report.review?.speech ||
-    "此预览尚未生成 AI 致辞。返回页面点击生成，即可根据以上五辆载具的真实战绩领取一份授勋致辞。";
-  ctx.font = "31px sans-serif";
+  const vehicleStart = 790;
+  const vehicleHeight = 118;
+  const speechY = vehicleStart + p.top5.length * vehicleHeight + 42;
+  const speech = report.review?.speech || "请生成战报后再保存。";
+  ctx.font = "28px sans-serif";
   let measuredLine = "",
     lineCount = 1;
   for (const letter of Array.from(speech)) {
@@ -79,7 +80,7 @@ export async function downloadStatsReport(
       measuredLine = letter === "\n" ? "" : letter;
     } else measuredLine += letter;
   }
-  canvas.height = Math.max(2280, speechY + 90 + lineCount * 49 + 220);
+  canvas.height = Math.max(1300, speechY + 52 + lineCount * 43 + 165);
   ctx.fillStyle = ink;
   ctx.fillRect(0, 0, 1080, canvas.height);
   function cover(img: HTMLImageElement, x: number, y: number, w: number, h: number) {
@@ -136,170 +137,150 @@ export async function downloadStatsReport(
     }
     return y;
   }
+  function shorten(value: string, maxWidth: number, size: number, weight = 400) {
+    ctx!.font = `${weight} ${size}px ${weight === 700 ? "WTReport," : ""} sans-serif`;
+    if (ctx!.measureText(value).width <= maxWidth) return value;
+    const letters = Array.from(value);
+    while (letters.length && ctx!.measureText(letters.join("") + "…").width > maxWidth)
+      letters.pop();
+    return letters.join("") + "…";
+  }
   ctx.globalAlpha = 0.65;
-  cover(terrain, 0, 0, 1080, 700);
+  cover(terrain, 0, 0, 1080, 560);
   ctx.globalAlpha = 1;
-  const fade = ctx.createLinearGradient(0, 0, 0, 720);
+  const fade = ctx.createLinearGradient(0, 0, 0, 590);
   fade.addColorStop(0, ink + "33");
   fade.addColorStop(0.7, ink + "dd");
   fade.addColorStop(1, ink);
   ctx.fillStyle = fade;
-  ctx.fillRect(0, 0, 1080, 760);
-  fit(logo, 64, 52, 220, 100);
-  text(statsModeNames[p.mode] + " · TOP 5", 680, 115, 27, gold);
+  ctx.fillRect(0, 0, 1080, 630);
+  fit(logo, 64, 35, 180, 75);
+  ctx.save();
+  ctx.textAlign = "right";
+  text(statsModeNames[p.mode] + " · " + voice.label, 1016, 83, 25, gold);
+  ctx.restore();
   if (avatar) {
     ctx.save();
     ctx.beginPath();
-    ctx.arc(130, 270, 66, 0, Math.PI * 2);
+    ctx.arc(113, 190, 49, 0, Math.PI * 2);
     ctx.clip();
-    cover(avatar, 64, 204, 132, 132);
+    cover(avatar, 64, 141, 98, 98);
     ctx.restore();
   } else {
     ctx.fillStyle = theme.panel;
-    ctx.fillRect(64, 204, 132, 132);
-    text(Array.from(p.player.nickname)[0], 100, 295, 65, gold, 700);
+    ctx.fillRect(64, 141, 98, 98);
+    text(Array.from(p.player.nickname)[0], 86, 212, 48, gold, 700);
   }
-  text("战地嘉奖 · " + statsReportScopeLabel(p), 225, 219, 23, gold);
-  text(p.player.nickname, 225, 283, 58, white, 700);
+  text(shorten(p.player.nickname, 815, 49, 700), 188, 188, 49, white, 700);
   text(
     "等级 " + n(p.player.level) + (p.player.clanTag ? " · " + p.player.clanTag : ""),
-    225,
-    323,
-    25,
+    188,
+    226,
+    24,
     muted,
   );
-  ctx.font = "700 45px WTReport,sans-serif";
-  const heading = report.review?.title || "向你的坚持致敬";
-  text(
-    heading,
-    64,
-    416,
-    Math.min(45, (45 * 952) / Math.max(952, ctx.measureText(heading).width)),
-    white,
-    700,
-  );
+  text(voice.kicker + " · " + statsReportScopeLabel(p), 64, 282, 22, gold);
+  text(shorten(report.review?.title || "你的战地记录", 952, 43, 700), 64, 335, 43, white, 700);
   text(
     p.career ? "生涯总览 · 该模式全部国家与兵种" : "所列载具汇总 · 含同场多车，非总对局",
     64,
-    470,
-    23,
+    377,
+    22,
     muted,
   );
-  line(492);
+  line(392);
   reportSummary(p).forEach((item, i) => {
-    text(item.value, 64 + i * 238, 562, 55, gold, 700);
-    text(item.label, 64 + i * 238, 599, 24, muted);
+    text(item.value, 64 + i * 238, 447, 47, gold, 700);
+    text(item.label, 64 + i * 238, 479, 22, muted);
   });
   branches.forEach((branch, i) => {
     const x = 64 + i * 317;
-    fit(armies[i], x, 626, 28, 28);
+    fit(armies[i], x, 501, 26, 26);
     text(
       branch.label + statsBranchTarget(branch.id) + " K/D " + r(statsBranchKd(branch)),
-      x + 36,
-      649,
-      22,
-      muted,
-    );
-  });
-  ctx.fillStyle = theme.panel;
-  ctx.fillRect(64, 690, 952, 366);
-  text("载具参考效率", 88, 734, 25, gold, 700);
-  text("载具击毁构成", 668, 734, 25, gold, 700);
-  chart.values.forEach((v, i) => {
-    const y = 778 + i * 47;
-    text(
-      v.rank + " " + (v.label.length > 16 ? v.label.slice(0, 15) + "…" : v.label),
-      88,
-      y,
+      x + 34,
+      522,
       21,
       muted,
     );
+  });
+  line(544);
+  text("载具参考效率", 64, 580, 23, gold, 700);
+  text("0–1000", 505, 580, 18, muted);
+  text("载具击毁构成", 666, 580, 23, gold, 700);
+  ctx.save();
+  ctx.textAlign = "right";
+  text(chart.hasKnown ? n(chart.total) : "—", 1016, 580, 28, white, 700);
+  ctx.restore();
+  chart.values.forEach((v, i) => {
+    const y = 619 + i * 26;
+    text(shorten(v.label, 192, 20), 64, y, 20, muted);
     ctx.fillStyle = theme.line;
-    ctx.fillRect(88, y + 10, 450, 5);
+    ctx.fillRect(276, y - 8, 244, 5);
     if (v.value != null) {
       ctx.fillStyle = gold;
-      ctx.fillRect(88, y + 10, (450 * Math.max(0, Math.min(1000, v.value))) / 1000, 5);
+      ctx.fillRect(276, y - 8, (244 * Math.max(0, Math.min(1000, v.value))) / 1000, 5);
     }
-    text(n(v.value), 554, y + 15, 22, white, 700);
-  });
-  text("0", 88, 1040, 18, muted);
-  text("500", 296, 1040, 18, muted);
-  text("1000", 504, 1040, 18, muted);
-  const colors = [theme.accent, theme.secondary, theme.tertiary];
-  ctx.lineWidth = 17;
-  ctx.strokeStyle = theme.line;
-  ctx.beginPath();
-  ctx.arc(825, 837, 76, 0, Math.PI * 2);
-  ctx.stroke();
-  chart.segments.forEach((seg, i) => {
-    if (seg.value != null && seg.value > 0) {
-      ctx.strokeStyle = colors[i];
-      ctx.beginPath();
-      ctx.arc(825, 837, 76, seg.start, seg.end);
-      ctx.stroke();
-    }
-  });
-  ctx.save();
-  ctx.textAlign = "center";
-  text(chart.hasKnown ? n(chart.total) : "—", 825, 838, 35, white, 700);
-  text("已知击毁", 825, 869, 20, muted);
-  ctx.restore();
-  chart.segments.forEach((seg, i) => {
-    const y = 963 + i * 30;
-    ctx.fillStyle = colors[i];
-    ctx.fillRect(680, y - 11, 10, 10);
-    text(seg.label, 702, y, 20, muted);
     ctx.save();
     ctx.textAlign = "right";
-    text(n(seg.value), 990, y, 21, white);
+    text(n(v.value), 572, y, 22, white, 700);
     ctx.restore();
   });
-  text("功勋载具 · TOP " + p.top5.length, 64, 1137, 30, gold, 700);
-  p.top5.forEach((v, i) => {
-    const y = vehicleStart + i * 190;
-    text(String(i + 1).padStart(2, "0"), 64, y + 65, 36, gold, 700);
-    fit(vehicles[i], 115, y, 220, 145);
-    ctx.font = "700 35px WTReport, sans-serif";
-    const nameSize = Math.min(35, (35 * 640) / Math.max(640, ctx.measureText(v.name).width));
-    text(v.name, 365, y + 36, nameSize, white, 700);
-    text(
-      n(v.battles) +
-        " 场     " +
-        (v.winRate == null ? "—" : v.winRate.toFixed(2) + "%") +
-        " 胜率     " +
-        n(v.efficiency) +
-        " 效率",
-      365,
-      y + 78,
-      27,
-      muted,
-    );
-    text(
-      "空 " +
-        r(v.airKd) +
-        " / 地 " +
-        r(v.groundKd) +
-        (v.navalKd != null || v.category === "ships" || v.category === "boats"
-          ? " / 海 " + r(v.navalKd)
-          : "") +
-        " K/D",
-      365,
-      y + 118,
-      26,
-      muted,
-    );
-    text("累计获得银狮", 365, y + 156, 27, gold);
-    fit(silver, 545, y + 131, 30, 30);
-    text(statsSilver(v.silverLions), 586, y + 156, 27, gold);
-    line(y + 180);
+  const colors = [theme.accent, theme.secondary, theme.tertiary];
+  ctx.fillStyle = theme.line;
+  ctx.fillRect(666, 613, 350, 10);
+  let offset = 0;
+  chart.segments.forEach((seg, i) => {
+    const width = chart.total > 0 ? ((seg.value || 0) / chart.total) * 350 : 0;
+    if (width > 0) {
+      ctx.fillStyle = colors[i];
+      ctx.fillRect(666 + offset, 613, width, 10);
+    }
+    offset += width;
+    const y = 655 + i * 29;
+    ctx.fillStyle = colors[i];
+    ctx.fillRect(666, y - 11, 8, 8);
+    text(seg.label, 686, y, 21, muted);
+    ctx.save();
+    ctx.textAlign = "right";
+    text(n(seg.value), 1016, y, 22, white);
+    ctx.restore();
   });
-  text("司令的话", 64, speechY, 28, gold, 700);
-  wrap(report.review?.speech || "", 64, speechY + 65, 952, 31, 49);
-  const footer = canvas.height - 130;
+  line(744);
+  text("常用载具 · TOP " + p.top5.length, 64, 777, 25, gold, 700);
+  p.top5.forEach((v, i) => {
+    const y = vehicleStart + i * vehicleHeight;
+    text(String(i + 1).padStart(2, "0"), 64, y + 48, 29, gold, 700);
+    fit(vehicles[i], 107, y + 4, 160, 94);
+    text(shorten(v.name, 485, 29, 700), 292, y + 27, 29, white, 700);
+    ctx.save();
+    ctx.textAlign = "right";
+    text(n(v.efficiency) + " 效率" + (v.smallSample ? " · 小样本" : ""), 1016, y + 27, 23, gold);
+    ctx.restore();
+    const stats =
+      n(v.battles) +
+      " 场 · " +
+      (v.winRate == null ? "—" : v.winRate.toFixed(2) + "%") +
+      " 胜率 · 空 " +
+      r(v.airKd) +
+      " / 地 " +
+      r(v.groundKd) +
+      (v.navalKd != null || v.category === "ships" || v.category === "boats"
+        ? " / 海 " + r(v.navalKd)
+        : "") +
+      " K/D";
+    text(shorten(stats, 724, 23), 292, y + 61, 23, muted);
+    fit(silver, 292, y + 77, 24, 24);
+    text("累计银狮  " + statsSilver(v.silverLions), 326, y + 97, 23, muted);
+    line(y + vehicleHeight - 5);
+  });
+  text(voice.sectionTitle, 64, speechY, 25, gold, 700);
+  wrap(speech, 64, speechY + 52, 952, 28, 43);
+  const footer = canvas.height - 118;
   line(footer);
-  text("资料采集 " + statsDate(p.fetchedAt), 64, footer + 41, 22, muted);
-  text("效率为本工具参考指数 · 构成图仅含所列载具已知击毁", 64, footer + 75, 21, muted);
-  text("银狮为累计获得统计，非余额或净收入 · 虚构授勋情景", 64, footer + 106, 20, muted);
+  text("资料采集 " + statsDate(p.fetchedAt), 64, footer + 34, 20, muted);
+  text("效率为本工具参考指数 · 构成图仅含所列载具已知击毁", 64, footer + 66, 19, muted);
+  text("银狮为累计获得，非净收入 · AI 点评仅供参考", 64, footer + 96, 19, muted);
   if (signal.aborted) return;
   await stampExportWatermark(canvas, signal);
   const blob = await new Promise<Blob>((resolve, reject) =>
@@ -313,7 +294,12 @@ export async function downloadStatsReport(
     anchor = document.createElement("a");
   anchor.href = url;
   anchor.download =
-    p.player.nickname.replace(/[^\p{L}\p{N}_-]/gu, "_") + "_" + p.mode + "_授勋战报.png";
+    p.player.nickname.replace(/[^\p{L}\p{N}_-]/gu, "_") +
+    "_" +
+    p.mode +
+    "_" +
+    voice.label +
+    "_战报.png";
   anchor.click();
   setTimeout(() => URL.revokeObjectURL(url), 30000);
 }

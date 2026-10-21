@@ -27,6 +27,7 @@ for (const [name, value] of Object.entries({
   "vehicle-labels.json": labels,
   "report-assets.json": await read("data/player-report-assets.json"),
   "stats-rules.json": await read("data/player-stats-rules.json"),
+  "report-styles.json": await read("data/player-report-styles.json"),
 }))
   await writeFile(new URL(name, output), JSON.stringify(value));
 console.log("Prepared stats service metadata:", Object.keys(labels).length, "vehicles");
