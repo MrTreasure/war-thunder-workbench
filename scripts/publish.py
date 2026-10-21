@@ -6,7 +6,7 @@ from datetime import datetime
 import shutil,os,json,hashlib,gzip,subprocess
 root=Path(__file__).resolve().parents[1]
 dist=root/'dist'
-destination=Path('/vol1/1000/nginx/public/resume/muse/war-thunder-trees')
+destination=Path('/vol1/1000/appdata/nginx/public/resume/muse/war-thunder-trees')
 workspace=Path('/home/Treasure/.picoclaw/workspace/war-thunder-tree')
 backup=Path('/vol1/1000/appdata/war-thunder-trees/backups')/('react-'+datetime.now().strftime('%Y%m%d-%H%M%S'))
 subprocess.run(['node','scripts/check-data.mjs'],cwd=root,check=True)
