@@ -1,7 +1,7 @@
 # 陆战地图
 
-预览入口：<https://render.mrtreasure.cc/muse/war-thunder-trees/?guides=1#/maps>。
-默认页面不显示入口，只有外层查询字符串 `guides=1` 才启用陆战地图导航与路由。
+预览入口：<https://render.mrtreasure.cc/muse/war-thunder-trees/#/maps>。
+顶部导航和手机页面切换菜单直接展示“陆战地图”，无需额外参数。旧的 `?guides=1` 入口仍可使用。
 
 ## 资料和功能
 
@@ -23,7 +23,7 @@
 
 ## 独立详情页
 
-点击卡片打开 `#/maps/地图ID?side=布局ID`。详情页与列表共用顶部导航，支持直接访问、刷新、前进/后退和返回列表；列表搜索与仅看有关联攻略的筛选保存在路由中。旧 `#/maps?map=...&side=...` 链接自动跳转。未知地图提供返回列表入口，没有外层 `guides=1` 时依旧返回科技树。
+点击卡片打开 `#/maps/地图ID?side=布局ID`。详情页与列表共用顶部导航，支持直接访问、刷新、前进/后退和返回列表；列表搜索与仅看有关联攻略的筛选保存在路由中。旧 `#/maps?map=...&side=...` 链接自动跳转。未知地图提供返回列表入口，列表和详情均可直接打开，无需额外参数。
 
 ## 重新准备
 
@@ -38,7 +38,7 @@ python scripts/archive-ground-map-assets.py --repo '<oss-files 本地工作目�
 
 归档脚本不读取密钥、不推送。原 R2 上传脚本仅在显式追加 `--upload` 时读取密码本 `cloudflare.r2_admin`。资产提交确认上传后再固定版本链接并构建，禁止发布尚未推送的图片版本。
 
-规范数据在 `data/ground-maps.json`，仅由隐藏地图页面的懒加载 JS 携带。常规 `pnpm run check` 检查地图数量、任务布局、坐标投影、缩略图关联、资源哈希和图床版本；`pnpm run build` 保持原有国家数据与禁止独立 JSON 的检查。预览仍通过 `pnpm run publish`，QMuse 等待用户确认。
+规范数据在 `data/ground-maps.json`，仅由地图页面的懒加载 JS 携带。常规 `pnpm run check` 检查地图数量、任务布局、坐标投影、缩略图关联、资源哈希和图床版本；`pnpm run build` 保持原有国家数据与禁止独立 JSON 的检查。预览仍通过 `pnpm run publish`，QMuse 等待用户确认。
 
 ## 本次验收记录
 
@@ -46,7 +46,7 @@ python scripts/archive-ground-map-assets.py --repo '<oss-files 本地工作目�
 - 193 个 R2 图片公网地址全部返回成功；底图与等高线在实际地图详情正常叠加。
 - 公网预览返回 200，内容与当前构建一致，HTML 为 `no-store`；公网浏览器可显示全部 77 个卡片。
 - 原版本已核对 320 / 375 / 414 / 768 像素列表无横向溢出；本次详情改为普通独立页面，使用返回列表链接。
-- 隐藏开关关闭时不加载地图模块；地图页面不加载国家载具数据。
+- 只有进入地图页面才加载地图模块；地图页面不加载国家载具数据。
 - 等高线 gzip 对象合计约 78.1 MiB，原始约 224.5 MiB；实际传输取决于浏览器协商与边缘缓存。
 
 ## Git 图床与独立详情修订
@@ -89,7 +89,7 @@ python scripts/archive-ground-map-assets.py --repo '<oss-files 本地工作目�
 
 “导出图片”将当前地图视窗中的底图、可见等高线、网格、任务点位和自定义标注合成为 2K 或 4K PNG，隐藏标注及编辑控件不进入图片。图层图片通过允许跨域使用的 Image 加载后绘入 Canvas；遇到跨域拒绝或网络失败会尝试备用源并明确提示，导出过程中可以取消。PNG 是预览视窗的分享图片，编辑文件保留全部标注及完整地图坐标。
 
-原生图标归档版本：`afd8e14f043cec070122fc1f600ba3932f4dded3`。原文件仍保留在原哈希路径，玩家坦克的兼容版本另存于新哈希路径，来源与修正记录在 `data/map-editor-icons.json`。准备脚本为 `scripts/prepare-map-editor-icons.py`。战术符号保存在 `data/map-editor-symbols.json`，SVG 显示与 PNG 导出共用相同图形定义，编辑文件仅引用允许的标记 ID。它们随隐藏页面懒加载 JS 发布。
+原生图标归档版本：`afd8e14f043cec070122fc1f600ba3932f4dded3`。原文件仍保留在原哈希路径，玩家坦克的兼容版本另存于新哈希路径，来源与修正记录在 `data/map-editor-icons.json`。准备脚本为 `scripts/prepare-map-editor-icons.py`。战术符号保存在 `data/map-editor-symbols.json`，SVG 显示与 PNG 导出共用相同图形定义，编辑文件仅引用允许的标记 ID。它们随地图页面懒加载 JS 发布。
 
 导入确认弹窗按内容收缩、居中展示，内容过长时内部滚动；一键清除不再弹出确认框，可用撤销恢复。
 

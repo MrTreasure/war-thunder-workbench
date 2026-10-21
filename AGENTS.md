@@ -72,7 +72,7 @@
 - Place `CreatorLink` in the top-right header of both research-tree and lineup
   pages. Use the supplied QMuse logo and invite link; do not duplicate it in the
   explanatory row or a separate footer. Keep it responsive without horizontal overflow.
-- Both pages share `PageNavigation` for 科技树 / 出击队列. Keep this navigation
+- All pages share `PageNavigation` for 科技树 / 出击队列 / 陆战地图. Keep this navigation
   outside the tree's collapsible filter panel on every screen size. Categories
   are filters, not page links. Use menu.csv's mainmenu/* Simplified Chinese
   entries for category labels, with localization provenance in canonical JSON.
@@ -144,10 +144,10 @@
 - Keep the lightweight file-route adapters eager with `codeSplitGroupings: []`
   to avoid a serial startup waterfall. Country payload imports must remain lazy.
 
-- The redesigned route guide page is hidden by default. Only the exact outer
-  query flag `guides=1` enables `#/maps` and its navigation entry; reject direct
-  access without it. A root visit with this flag opens the guide page. Keep
-  normal tree/lineup navigation unchanged and preserve the outer query flag.
+- Ground maps are public in desktop navigation and the mobile page dropdown.
+  Allow direct access to `#/maps` and `#/maps/$mapId` without any outer query
+  flag. Keep old root `?guides=1` links opening maps for compatibility; the
+  normal root continues to open the research tree.
 - Guide summaries, CDN image metadata, sources and collection audit live in
   `data/map-atlas.json`; load them with the guide component only after entry.
   Publish them as JS, never a separate JSON file. Opening guides must not load
@@ -173,7 +173,7 @@
 - Before resuming archive body checks, read `docs/guide-collection-checkpoint.md`
   and the persisted `articleRetryAfter`; update the checkpoint after continuation.
 
-- Hidden `?guides=1#/maps` now displays the ground-map atlas. Canonical map metadata
+- Public `#/maps` displays the ground-map atlas. Canonical map metadata
   lives in `data/ground-maps.json`; keep the page lazy and do not load country data.
   User-provided map imagery is an exception to the official-image rule: archive it in
   the existing GitHub `MrTreasure/oss-files` image repository, pin full commit IDs
@@ -184,8 +184,8 @@
   grids are not verified runtime grids; world Y is not verified sea-level height.
   Guide links must disclose layout/version differences; preserve old guide data.
 
-- Ground-map details use the independent `#/maps/$mapId` route, with the same hidden
-  outer `guides=1` gate. Preserve old `#/maps?map=...&side=...` links by redirecting.
+- Ground-map details use the public independent `#/maps/$mapId` route, without an
+  outer query gate. Preserve old `#/maps?map=...&side=...` links by redirecting.
   Treat all `/maps/` paths as maps in the shared header/provider so they never
   start loading vehicle data. Keep list query/guide filters in route search for
   back/forward and return links. Ground-map details must not use a modal dialog.

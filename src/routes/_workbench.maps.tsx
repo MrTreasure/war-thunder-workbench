@@ -1,11 +1,7 @@
-import { createFileRoute, lazyRouteComponent, redirect } from "@tanstack/react-router";
-import { guidesEnabled } from "../features";
+import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/_workbench/maps")({
   codeSplitGroupings: [],
-  beforeLoad: () => {
-    if (!guidesEnabled()) throw redirect({ to: "/tree", replace: true });
-  },
   validateSearch: (
     search: Record<string, unknown>,
   ): { map?: string; side?: string; q?: string; hasGuides?: boolean } => ({

@@ -2,7 +2,7 @@
 
 给《战争雷霆》玩家做的一个中文小工具：查科技树、算研发、搭队列，也能看陆战地图、画自己的战术走线。
 
-**[在线体验 →](https://render.qmuse.pub/p/muse/8645013411493394)** · **[陆战地图与走线绘制 →](https://render.mrtreasure.cc/muse/war-thunder-trees/?guides=1#/maps)** · [功能介绍](#功能介绍)
+**[在线体验 →](https://render.qmuse.pub/p/muse/8645013411493394)** · **[陆战地图与走线绘制 →](https://render.mrtreasure.cc/muse/war-thunder-trees/#/maps)** · [功能介绍](#功能介绍)
 
 ![中国陆军科技树](docs/screenshots/tree.png)
 
@@ -111,7 +111,7 @@
 
 ### 6. 陆战地图：开打前，先把地形看明白
 
-**[打开陆战地图 →](https://render.mrtreasure.cc/muse/war-thunder-trees/?guides=1#/maps)**
+**[打开陆战地图 →](https://render.mrtreasure.cc/muse/war-thunder-trees/#/maps)**
 
 目前整理了 **55 张陆战地图、309 种任务布局**。可以按中文名或英文名搜索，列表直接展示占领点缩略图；想看相关攻略，也可以只筛选有攻略的地图。
 
