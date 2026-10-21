@@ -23,6 +23,7 @@ import {
   statsNumber as num,
   statsSilver,
   statsSilverIcon,
+  statsGoldenEaglesIcon,
   statsRatio as ratio,
   statsDate,
   statsModeNames,
@@ -699,7 +700,7 @@ export function PlayerStats() {
               </div>
               <div className="wt-record-overview">
                 <div className="wt-record-career">
-                  <section className="wt-record-panel">
+                  <section className="wt-record-panel wt-record-branch-panel">
                     <div className="wt-record-heading">
                       <h2>分军种 K/D</h2>
                       <span>陆军对地 · 航空对空 · 海军对海</span>
@@ -707,38 +708,48 @@ export function PlayerStats() {
                     <div className="wt-record-branch-grid">
                       {active.branches.map((b) => (
                         <div key={b.id}>
-                          <h3>
-                            <img
-                              className="wt-branch-icon"
-                              src={statsArmyIcon(config?.assets.armyBase || "", b.id)}
-                              alt=""
-                            />
-                            {b.label}
-                          </h3>
-                          <strong>{ratio(statsBranchKd(b))}</strong>
-                          <p>{statsBranchTarget(b.id)}目标击毁 / 对应载具死亡</p>
-                          <small>{b.vehicleCount} 辆有出击记录的载具</small>
+                          <div className="wt-record-branch-summary">
+                            <h3>
+                              <img
+                                className="wt-branch-icon"
+                                src={statsArmyIcon(config?.assets.armyBase || "", b.id)}
+                                alt=""
+                              />
+                              {b.label}
+                            </h3>
+                            <strong>{ratio(statsBranchKd(b))}</strong>
+                          </div>
+                          <small>
+                            {statsBranchTarget(b.id)} K/D · {b.vehicleCount} 辆已出击
+                          </small>
                         </div>
                       ))}
                     </div>
                     <p className="wt-record-fine">
-                      按对应军种的单车记录分别汇总，不混用其他军种的死亡数；击毁只合计已返回的类别。
+                      目标击毁 ÷ 对应军种载具死亡；仅汇总已返回的记录。
                     </p>
                   </section>
-                  <section className="wt-record-panel">
+                  <section className="wt-record-panel wt-record-country-panel">
                     <div className="wt-record-heading">
                       <h2>各国拥有载具</h2>
-                      <span>官方公开数量</span>
+                      <span>拥有 / 精英 · 官方公开数量</span>
                     </div>
                     <div className="wt-record-countries">
                       {profile.countries
                         .filter((c) => c.owned != null && c.owned > 0)
                         .map((c) => (
                           <div key={c.id}>
-                            <img src={c.flag} alt="" />
+                            <img className="wt-record-country-flag" src={c.flag} alt="" />
                             <span>{c.name}</span>
                             <b>{num(c.owned)}</b>
-                            <small>精英 {num(c.elite)}</small>
+                            <small
+                              className="wt-country-elite"
+                              title={`精英载具 ${num(c.elite)} 辆`}
+                            >
+                              <img src={statsGoldenEaglesIcon} alt="" />
+                              <span>精英</span>
+                              <strong>{num(c.elite)}</strong>
+                            </small>
                           </div>
                         ))}
                     </div>

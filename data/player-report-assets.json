@@ -310,5 +310,13 @@
     "source": "War Thunder game UI asset: warpoints.png",
     "assetCommit": "ea96f3af75afe1d858f80ac13f212db218bc69ca",
     "verifiedAt": "2026-10-21"
+  },
+  "goldenEaglesIcon": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/gameuiskin/item_type_eagles.svg",
+  "goldenEaglesIconProvenance": {
+    "source": "War Thunder game UI asset: item_type_eagles.svg",
+    "assetCommit": "ea96f3af75afe1d858f80ac13f212db218bc69ca",
+    "verifiedAt": "2026-10-21",
+    "accentColor": "#fdc85d",
+    "colorBasis": "Original SVG fill"
   }
 }

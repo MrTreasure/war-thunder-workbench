@@ -1631,3 +1631,54 @@
     flex-direction: column;
   }
 }
+
+/* Compact career ledger; the radar stacks naturally on a narrow screen. */
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-record-overview {
+    gap: 12px;
+  }
+  .wt-record-career {
+    gap: 12px;
+  }
+  .wt-record-overview .wt-record-panel {
+    padding: 14px;
+  }
+  .wt-record-overview .wt-record-heading {
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    margin-bottom: 10px;
+  }
+  .wt-record-branch-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 116px), 1fr));
+    gap: 10px 16px;
+  }
+  .wt-record-branch-summary {
+    gap: 8px;
+  }
+  .wt-record-branch-summary strong {
+    font-size: 27px;
+  }
+  .wt-record-branch-grid small {
+    font-size: 10px;
+  }
+  .wt-record-countries {
+    gap: 0 14px;
+  }
+  .wt-radar > svg {
+    max-width: 310px;
+  }
+}
+@media (max-width: 600px) {
+  .wt-record-countries > div {
+    grid-template-columns: 22px minmax(0, 1fr) auto;
+    gap: 2px 6px;
+    padding: 6px 0;
+  }
+  .wt-record-countries .wt-country-elite {
+    grid-column: 2/-1;
+    justify-content: flex-start;
+  }
+  .wt-record-countries > div > b {
+    font-size: 17px;
+  }
+}

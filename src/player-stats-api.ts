@@ -198,6 +198,7 @@ export const statsSilver = (value: number | null | undefined) =>
         .toString()
         .replace(/\B(?=(\d{4})+(?!\d))/g, ",");
 export const statsSilverIcon = reportAssets.silverLionsIcon;
+export const statsGoldenEaglesIcon = reportAssets.goldenEaglesIcon;
 export const statsRatio = (value: Ratio | undefined) =>
   typeof value === "number" ? value.toFixed(2) : value === "∞" ? "∞" : "—";
 export const statsDate = (value: string) =>
