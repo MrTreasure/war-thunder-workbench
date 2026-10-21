@@ -3,6 +3,7 @@ import {
   arrowPoints,
   pathData,
   routeDash,
+  routeBodyData,
   routeDecorations,
   shapeBounds,
   shapePath,
@@ -14,6 +15,8 @@ export type MapExportScene = {
   base: GroundImageAsset;
   contourImage: GroundImageAsset;
   view: { x: number; y: number; w: number; h: number };
+  mapFrame: { x: number; y: number; w: number; h: number };
+  markerScale: number;
   contours: boolean;
   points: boolean;
   grid: boolean;
@@ -158,6 +161,10 @@ export async function renderMapPng(
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.setTransform(scale, 0, 0, scale, -x * scale, -y * scale);
   ctx.imageSmoothingQuality = "high";
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(scene.mapFrame.x, scene.mapFrame.y, scene.mapFrame.w, scene.mapFrame.h);
+  ctx.clip();
   ctx.drawImage(images.get(scene.base.url)!, 0, 0, 1000, 1000);
   if (scene.contours) {
     ctx.globalAlpha = 0.8;
@@ -183,7 +190,7 @@ export async function renderMapPng(
         drawText(
           ctx,
           String(i + 1),
-          { x: (gx + 3) / 1000, y: (y + 3 / scene.zoom) / 1000 },
+          { x: (gx + 3) / 1000, y: (scene.mapFrame.y + 3 / scene.zoom) / 1000 },
           16 / scene.zoom,
           "#f7edcb",
         );
@@ -200,7 +207,7 @@ export async function renderMapPng(
         drawText(
           ctx,
           label,
-          { x: (x + 4 / scene.zoom) / 1000, y: gz / 1000 },
+          { x: (scene.mapFrame.x + 4 / scene.zoom) / 1000, y: gz / 1000 },
           16 / scene.zoom,
           "#f7edcb",
         );
@@ -210,7 +217,7 @@ export async function renderMapPng(
   }
   if (scene.points)
     for (const mark of scene.marks) {
-      const size = w * (mark.kind === "spawn" ? 0.047 : 0.029),
+      const size = scene.markerScale * (mark.kind === "spawn" ? 0.047 : 0.029),
         asset = scene.builtinIcons[iconKey(mark, scene.team)];
       if (asset)
         contain(
@@ -222,37 +229,39 @@ export async function renderMapPng(
         );
       else drawText(ctx, mark.label, { x: mark.x, y: mark.y }, size, "#efede5", 0, "center");
     }
+  ctx.restore(); // Only terrain and original mission marks are clipped to the map layer.
   for (const item of items) {
     if (item.hidden) continue;
     if (item.kind === "path") {
       ctx.save();
-      const route = new Path2D(pathData(item.points, item.curve));
+      const route = new Path2D(routeBodyData(item));
       ctx.strokeStyle = item.color;
       ctx.lineWidth = item.width * 1000;
       ctx.lineCap = "round";
-      ctx.lineJoin = "round";
+      ctx.lineJoin = item.lineStyle === "defense" ? "miter" : "round";
       ctx.setLineDash(routeDash(item));
+      ctx.strokeStyle = "#10191fb3";
+      ctx.lineWidth = item.width * 1000 + 1.8;
+      ctx.stroke(route);
+      ctx.strokeStyle = item.color;
+      ctx.lineWidth = item.width * 1000;
       ctx.stroke(route);
       ctx.setLineDash([]);
-      ctx.lineWidth = item.width * 700;
+      ctx.lineWidth = item.width * 1000;
       for (const points of routeDecorations(item)) {
         const decoration = new Path2D(pathData(points));
-        if (item.lineStyle === "defense") {
-          ctx.fillStyle = item.color;
-          ctx.fill(decoration);
-        }
         ctx.stroke(decoration);
       }
       const triangle = arrowPoints(item);
       if (triangle.length) {
         ctx.setLineDash([]);
-        ctx.beginPath();
-        triangle.forEach((p, i) =>
-          i ? ctx.lineTo(p.x * 1000, p.y * 1000) : ctx.moveTo(p.x * 1000, p.y * 1000),
-        );
-        ctx.closePath();
-        ctx.fillStyle = item.color;
-        ctx.fill();
+        if (item.arrowHead === "open")
+          ctx.stroke(new Path2D(pathData([triangle[1], triangle[0], triangle[2]])));
+        else {
+          const path = new Path2D(pathData(triangle) + " Z");
+          ctx.fillStyle = item.color;
+          ctx.fill(path);
+        }
       }
       ctx.restore();
     } else if (item.kind === "shape") {
@@ -264,18 +273,20 @@ export async function renderMapPng(
       ctx.fill(path);
       ctx.globalAlpha = 1;
       if (item.hatch) {
+        const tile = document.createElement("canvas");
+        tile.width = 12;
+        tile.height = 12;
+        const paint = tile.getContext("2d");
+        if (!paint) throw new Error("无法绘制区域填充");
+        paint.strokeStyle = item.color;
+        paint.lineWidth = 1.2;
+        paint.stroke(new Path2D("M-3 3L3 -3M0 12L12 0M9 15L15 9"));
+        const hatch = ctx.createPattern(tile, "repeat");
+        if (!hatch) throw new Error("无法绘制区域填充");
         ctx.save();
-        ctx.clip(path);
-        ctx.strokeStyle = item.color;
-        ctx.lineWidth = 1.2;
         ctx.globalAlpha = 0.65;
-        ctx.beginPath();
-        // Same 12-world-unit diagonal pattern as the editor's SVG.
-        for (let diagonal = 0; diagonal <= 2000; diagonal += 12) {
-          ctx.moveTo(diagonal, 0);
-          ctx.lineTo(0, diagonal);
-        }
-        ctx.stroke();
+        ctx.fillStyle = hatch;
+        ctx.fill(path);
         ctx.restore();
       }
       ctx.strokeStyle = item.color;

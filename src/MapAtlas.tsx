@@ -1,6 +1,6 @@
 /* Interactive SVG map owns arrow-key pan and Home reset; native HTML has no map widget. */
 /* oxlint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex */
-import { useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { GroundThumbnail, GroundSvgImage, rotateAsset } from "./map-assets";
 import { MapEditor, editorIconAssets } from "./MapEditor";
@@ -222,6 +222,18 @@ function GroundDetail({
   };
   const clipId = useId();
   const [svg, setSvg] = useState<SVGSVGElement | null>(null);
+  const [aspect, setAspect] = useState(1);
+  useEffect(() => {
+    if (!svg) return;
+    const measure = () => {
+      const rect = svg.getBoundingClientRect();
+      if (rect.width > 0 && rect.height > 0) setAspect(rect.width / rect.height);
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(svg);
+    return () => observer.disconnect();
+  }, [svg]);
   const [editorHost, setEditorHost] = useState<SVGGElement | null>(null);
   const [editing, setEditing] = useState(false);
   const editorRef = useRef<MapEditorHandle>(null);
@@ -235,7 +247,14 @@ function GroundDetail({
     setOffset({ x: 0, y: 0 });
   };
   const crop = cropped && layout.crop ? layout.crop : [0, 0, 1, 1];
-  const { x, y, w, h, originX, originY } = mapView(crop, zoom, offset);
+  const { x, y, w, h, originX, originY } = mapView(crop, zoom, offset, aspect);
+  const mapFrame = {
+    x: crop[0] * 1000,
+    y: crop[1] * 1000,
+    w: (crop[2] - crop[0]) * 1000,
+    h: (crop[3] - crop[1]) * 1000,
+  };
+  const markerScale = mapFrame.w / zoom;
   const [x0, z0] = map.bounds[0],
     [x1, z1] = map.bounds[1];
   const origin = map.grid.default_reference.origin_xz_m,
@@ -249,7 +268,7 @@ function GroundDetail({
         gridLines.push(
           <g key={`x${i}`}>
             <path d={`M${gx} 0V1000`} />
-            <text x={gx + 3} y={y + 18 / zoom}>
+            <text x={gx + 3} y={mapFrame.y + 18 / zoom}>
               {i + 1}
             </text>
           </g>,
@@ -258,7 +277,7 @@ function GroundDetail({
         gridLines.push(
           <g key={`z${i}`}>
             <path d={`M0 ${gz}H1000`} />
-            <text x={x + 4 / zoom} y={gz + 15 / zoom}>
+            <text x={mapFrame.x + 4 / zoom} y={gz + 15 / zoom}>
               {i < 26
                 ? String.fromCharCode(65 + i)
                 : String.fromCharCode(64 + Math.floor(i / 26)) + String.fromCharCode(65 + (i % 26))}
@@ -399,7 +418,7 @@ function GroundDetail({
             >
               <defs>
                 <clipPath id={clipId}>
-                  <rect x={x} y={y} width={w} height={h} />
+                  <rect x={mapFrame.x} y={mapFrame.y} width={mapFrame.w} height={mapFrame.h} />
                 </clipPath>
               </defs>
               <g clipPath={`url(#${clipId})`}>
@@ -438,7 +457,7 @@ function GroundDetail({
                 )}
                 {points &&
                   layout.marks.map((mark, i) => {
-                    const size = w * (mark.kind === "spawn" ? 0.047 : 0.029);
+                    const size = markerScale * (mark.kind === "spawn" ? 0.047 : 0.029);
                     const key =
                       mark.kind === "spawn"
                         ? mark.team === team
@@ -474,8 +493,8 @@ function GroundDetail({
                       </text>
                     );
                   })}
-                <g ref={setEditorHost} />
               </g>
+              <g ref={setEditorHost} />
             </svg>
             {(!loaded || (contours && !contourLoaded)) && !failed && (
               <p className="ground-map-status">
@@ -516,6 +535,7 @@ function GroundDetail({
               svg={svg}
               host={editorHost}
               viewWidth={w}
+              view={{ x, y, w, h }}
               pan={startPan}
               knownContext={(c: EditorContext) =>
                 atlas.maps.some(
@@ -534,6 +554,8 @@ function GroundDetail({
                     base: rotateAsset(map.base, sourceChoice),
                     contourImage: rotateAsset(map.contourImage, sourceChoice),
                     view: { x, y, w, h },
+                    mapFrame,
+                    markerScale,
                     contours,
                     points,
                     grid,

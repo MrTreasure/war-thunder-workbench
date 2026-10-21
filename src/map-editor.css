@@ -507,3 +507,34 @@
   cursor: inherit;
   touch-action: auto;
 }
+.map-editor-actions .map-editor-clear {
+  color: #f2a79f;
+}
+.map-editor-tactical-presets {
+  display: grid;
+  gap: 7px;
+}
+.map-editor-tactical-presets button {
+  display: grid;
+  min-width: 0;
+  justify-items: start;
+  gap: 4px;
+  padding: 10px;
+  text-align: left;
+}
+.map-editor-tactical-presets strong {
+  font-size: 12px;
+}
+.map-editor-tactical-presets small {
+  font-size: 11px;
+  color: var(--wt-muted);
+  white-space: normal;
+}
+.map-editor-tactical-presets svg.map-editor-line-preview {
+  display: block;
+  width: 100%;
+  height: 40px;
+  overflow: visible;
+  cursor: inherit;
+  touch-action: auto;
+}

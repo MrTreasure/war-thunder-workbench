@@ -1,12 +1,113 @@
 {
-  "description": "地图战术示意线预设，便于说明走线与区域用途，不宣称符合某一军标。",
+  "description": "参考军用战术图形线型的攻略绘图预设。绿色防御线为项目默认配色，支持改色；不宣称整套军标认证。",
+  "sources": [
+    {
+      "title": "Mission Command mil-sym-ts",
+      "url": "https://github.com/missioncommand/mil-sym-ts",
+      "basis": "MIL-STD-2525 / APP-6 多点战术图形开源实现"
+    },
+    {
+      "title": "FORTL / FLOT / ATDITCH line types",
+      "url": "https://github.com/missioncommand/mil-sym-ts/blob/development/src/main/ts/armyc2/c5isr/JavaLineArray/TacticalLines.ts",
+      "basis": "区分工事线、前沿线、反坦克壕线及进攻方向"
+    },
+    {
+      "title": "FORTL rendering reference",
+      "url": "https://github.com/missioncommand/mil-sym-ts/blob/development/src/main/ts/armyc2/c5isr/JavaLineArray/arraysupport.ts",
+      "basis": "工事线折齿结构；项目独立实现弧长放置与绘制"
+    }
+  ],
   "presets": [
-    { "id": "route", "name": "普通路线", "style": "solid", "arrow": false },
-    { "id": "advance", "name": "进攻方向", "style": "solid", "arrow": true },
-    { "id": "retreat", "name": "撤退路线", "style": "dashed", "arrow": true },
-    { "id": "supply", "name": "补给路线", "style": "dashdot", "arrow": true },
-    { "id": "sight", "name": "观察 / 射界线", "style": "dotted", "arrow": false },
-    { "id": "defense", "name": "防御阵线", "style": "defense", "arrow": false },
-    { "id": "barrier", "name": "障碍 / 封锁线", "style": "barrier", "arrow": false }
-  ]
+    {
+      "id": "defense",
+      "name": "绿色防御阵线",
+      "detail": "折齿工事线 · 支持翻转朝向",
+      "style": "defense",
+      "arrow": false,
+      "arrowHead": "open",
+      "color": "#24ff2a"
+    },
+    {
+      "id": "front",
+      "name": "前沿阵线",
+      "detail": "连续弧齿 · 与工事线区分",
+      "style": "front",
+      "arrow": false,
+      "arrowHead": "open",
+      "color": "#70b9ff"
+    },
+    {
+      "id": "advance",
+      "name": "进攻轴线",
+      "detail": "中空宽箭头 · 表示推进轴向",
+      "style": "advance",
+      "arrow": true,
+      "arrowHead": "open",
+      "color": "#ff3020"
+    },
+    {
+      "id": "attack",
+      "name": "进攻方向",
+      "detail": "细线开口箭头",
+      "style": "solid",
+      "arrow": true,
+      "arrowHead": "open",
+      "color": "#ff3020"
+    },
+    {
+      "id": "retreat",
+      "name": "撤退路线",
+      "detail": "虚线方向箭头",
+      "style": "dashed",
+      "arrow": true,
+      "arrowHead": "open",
+      "color": "#e4c477"
+    },
+    {
+      "id": "antitank",
+      "name": "反坦克壕线",
+      "detail": "单侧三角齿 · 支持翻转朝向",
+      "style": "antitank",
+      "arrow": false,
+      "arrowHead": "open",
+      "color": "#ff3020"
+    },
+    {
+      "id": "barrier",
+      "name": "障碍 / 封锁线",
+      "detail": "连续交叉记号",
+      "style": "barrier",
+      "arrow": false,
+      "arrowHead": "open",
+      "color": "#ff3020"
+    },
+    {
+      "id": "supply",
+      "name": "补给路线",
+      "detail": "点划线箭头",
+      "style": "dashdot",
+      "arrow": true,
+      "arrowHead": "open",
+      "color": "#70b9ff"
+    },
+    {
+      "id": "sight",
+      "name": "观察 / 射界线",
+      "detail": "细点线",
+      "style": "dotted",
+      "arrow": false,
+      "arrowHead": "open",
+      "color": "#dcdcdc"
+    },
+    {
+      "id": "route",
+      "name": "普通路线",
+      "detail": "连续实线",
+      "style": "solid",
+      "arrow": false,
+      "arrowHead": "filled",
+      "color": "#e4c477"
+    }
+  ],
+  "checkedAt": "2026-10-21"
 }

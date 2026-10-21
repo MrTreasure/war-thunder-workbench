@@ -180,7 +180,7 @@
   in raw/CDN URLs and keep the existing R2 addresses as fallback sources.
   Keep raw exports and contour-coordinate JSON out of Git and QMuse uploads.
 - Ground-map base, contour SVG and briefing points share the original normalized
-  coordinate system. Mission cropping changes only the shared viewBox. Reference
+  coordinate system. Mission cropping clips the map layer only; it must never clip custom annotations. Reference
   grids are not verified runtime grids; world Y is not verified sea-level height.
   Guide links must disclose layout/version differences; preserve old guide data.
 
@@ -226,10 +226,16 @@
   game asset colors and existing theme colors identified separately. Selection
   handles use screen-sized targets, independent of map zoom and viewport size.
 
-- Preserve the selected map/layout aspect ratio, centered with SVG `meet` sizing.
-  Empty space around the map is allowed; never expand/crop it to force canvas fill.
-  Clamp panning to map bounds. Keep SVG, pointer projection and PNG export on the
-  same `{x,y,w,h}`. Tools and inspectors reserve space outside the map.
+- The map is one layer on a larger drawing canvas. The map/layout frame alone
+  clips terrain, contours and native marks; the annotation host must be a sibling
+  outside that clip. Draw and select over the entire canvas, including blank areas.
+  Canvas coordinates may extend beyond map-relative 0–1 (bounded finite -32–32).
+  Pan/zoom changes the canvas camera, not annotation coordinates. The map retains
+  its aspect ratio and never stretches to fill the viewport. PNG export shares
+  the camera, map-only clip and outside-map annotation positions.
+- Main editor toolbar has one-click clear of all custom annotations in the current
+  context, including hidden/locked entries, with undo. Do not require a confirmation
+  dialog for this reversible action; do not remove the map or native mission data.
 - Map annotations include optional smooth-curve and tactical line styles plus
   rectangle/ellipse/polygon areas. Keep legacy version-1 paths importable.
   Shared geometry in `map-editor-model.ts` drives SVG and Canvas export, including
@@ -243,3 +249,9 @@
 - Map editor confirmation/import dialogs use content height, centered fixed inset
   and bounded vertical scrolling on desktop and mobile; never inherit the full
   research calculator height.
+
+- Military line presets carry their research sources in `data/map-editor-lines.json`.
+  FORTL-inspired defense uses rectangular teeth with default ally green; distinguish
+  scalloped front lines, triangular antitank teeth, obstacles and hollow advance
+  arrows. Share body/decoration geometry across live SVG, picker previews and PNG.
+  Preserve legacy paths; validate new style/head/flip fields and finite extended coordinates.

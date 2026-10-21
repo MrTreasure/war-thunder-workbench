@@ -8,7 +8,18 @@ export type RouteAnnotation = Base & {
   dashed: boolean;
   arrow: boolean;
   curve?: boolean;
-  lineStyle?: "solid" | "dashed" | "dotted" | "dashdot" | "defense" | "barrier";
+  lineStyle?:
+    | "solid"
+    | "dashed"
+    | "dotted"
+    | "dashdot"
+    | "defense"
+    | "barrier"
+    | "front"
+    | "antitank"
+    | "advance";
+  arrowHead?: "filled" | "open";
+  flip?: boolean;
 };
 export type ShapeAnnotation = Base & {
   kind: "shape";
@@ -37,6 +48,10 @@ export type TextAnnotation = Base & {
 };
 export type Annotation = RouteAnnotation | IconAnnotation | TextAnnotation | ShapeAnnotation;
 export type MapProject = EditorContext & { version: 1; updatedAt: string; items: Annotation[] };
+// Coordinates stay relative to the full map; the drawing canvas extends beyond its edges.
+export const CANVAS_MIN = -32;
+export const CANVAS_MAX = 32;
+export const canvasCoordinate = (n: number) => clamp(n, CANVAS_MIN, CANVAS_MAX);
 export const MAX_ITEMS = 500;
 export const MAX_FILE_BYTES = 4 * 1024 * 1024;
 export const draftKey = (context: EditorContext) =>
@@ -46,9 +61,17 @@ export const sameContext = (a: EditorContext, b: EditorContext) =>
 export const clamp = (n: number, min = 0, max = 1) => Math.max(min, Math.min(max, n));
 export function moveAnnotation(item: Annotation, dx: number, dy: number): Annotation {
   const points = item.kind === "path" || item.kind === "shape" ? item.points : [item.point];
-  dx = clamp(dx, -Math.min(...points.map((p) => p.x)), 1 - Math.max(...points.map((p) => p.x)));
-  dy = clamp(dy, -Math.min(...points.map((p) => p.y)), 1 - Math.max(...points.map((p) => p.y)));
-  const move = (p: MapPoint) => ({ x: clamp(p.x + dx), y: clamp(p.y + dy) });
+  dx = clamp(
+    dx,
+    CANVAS_MIN - Math.min(...points.map((p) => p.x)),
+    CANVAS_MAX - Math.max(...points.map((p) => p.x)),
+  );
+  dy = clamp(
+    dy,
+    CANVAS_MIN - Math.min(...points.map((p) => p.y)),
+    CANVAS_MAX - Math.max(...points.map((p) => p.y)),
+  );
+  const move = (p: MapPoint) => ({ x: canvasCoordinate(p.x + dx), y: canvasCoordinate(p.y + dy) });
   return item.kind === "path" || item.kind === "shape"
     ? { ...item, points: points.map(move) }
     : { ...item, point: move(item.point) };
@@ -61,8 +84,14 @@ export function curveControls(points: MapPoint[], index: number): [MapPoint, Map
     previous = points[index - 1] || a,
     next = points[index + 2] || b;
   return [
-    { x: clamp(a.x + (b.x - previous.x) / 6), y: clamp(a.y + (b.y - previous.y) / 6) },
-    { x: clamp(b.x - (next.x - a.x) / 6), y: clamp(b.y - (next.y - a.y) / 6) },
+    {
+      x: canvasCoordinate(a.x + (b.x - previous.x) / 6),
+      y: canvasCoordinate(a.y + (b.y - previous.y) / 6),
+    },
+    {
+      x: canvasCoordinate(b.x - (next.x - a.x) / 6),
+      y: canvasCoordinate(b.y - (next.y - a.y) / 6),
+    },
   ];
 }
 export function routePoint(item: RouteAnnotation, index: number, t: number): MapPoint {
@@ -91,7 +120,10 @@ export function bendPoints(start: MapPoint, end: MapPoint): MapPoint[] {
     dy = end.y - start.y;
   return [
     start,
-    { x: clamp((start.x + end.x) / 2 - dy * 0.2), y: clamp((start.y + end.y) / 2 + dx * 0.2) },
+    {
+      x: canvasCoordinate((start.x + end.x) / 2 - dy * 0.2),
+      y: canvasCoordinate((start.y + end.y) / 2 + dx * 0.2),
+    },
     end,
   ];
 }
@@ -108,44 +140,106 @@ export function routeDash(item: RouteAnnotation): number[] {
       return [];
   }
 }
-/** Decorations are tactical sketch aids, not certified military symbology. */
-export function routeDecorations(item: RouteAnnotation): MapPoint[][] {
-  if (item.lineStyle !== "defense" && item.lineStyle !== "barrier") return [];
-  const samples: MapPoint[] = [item.points[0]];
+/** Arc-length placement keeps military glyph spacing continuous through vertices. */
+function measureRoute(item: RouteAnnotation) {
+  const points: MapPoint[] = [item.points[0]],
+    lengths = [0];
   for (let i = 0; i < item.points.length - 1; i++) {
-    const steps = item.curve ? 20 : 1;
-    for (let k = 1; k <= steps; k++) samples.push(routePoint(item, i, k / steps));
+    const steps = item.curve ? 24 : 1;
+    for (let k = 1; k <= steps; k++) {
+      const p = routePoint(item, i, k / steps),
+        a = points.at(-1)!;
+      points.push(p);
+      lengths.push(lengths.at(-1)! + Math.hypot(p.x - a.x, p.y - a.y));
+    }
   }
-  const spacing = Math.max(0.018, item.width * 8),
-    size = Math.max(0.006, item.width * 2.2);
-  const result: MapPoint[][] = [];
-  let walked = 0,
-    target = spacing / 2;
-  for (let i = 1; i < samples.length; i++) {
-    const a = samples[i - 1],
-      b = samples[i],
+  const length = lengths.at(-1)!;
+  const at = (distance: number, side = 0): MapPoint => {
+    const d = clamp(distance, 0, length);
+    let low = 1,
+      high = points.length - 1;
+    while (low < high) {
+      const middle = Math.floor((low + high) / 2);
+      if (lengths[middle] < d) low = middle + 1;
+      else high = middle;
+    }
+    const a = points[Math.max(0, low - 1)],
+      b = points[low] || a,
       dx = b.x - a.x,
       dy = b.y - a.y,
-      length = Math.hypot(dx, dy);
-    if (length < 1e-9) continue;
-    while (target <= walked + length && result.length < 500) {
-      const t = (target - walked) / length,
-        x = a.x + dx * t,
-        y = a.y + dy * t,
-        ux = dx / length,
-        uy = dy / length;
-      const at = (along: number, side: number) => ({
-        x: x + ux * along - uy * side,
-        y: y + uy * along + ux * side,
-      });
-      if (item.lineStyle === "defense") result.push([at(-size, 0), at(0, size * 1.6), at(size, 0)]);
-      else {
-        result.push([at(-size, -size), at(size, size)]);
-        result.push([at(-size, size), at(size, -size)]);
-      }
-      target += spacing;
+      segment = Math.hypot(dx, dy),
+      t = segment ? clamp((d - lengths[Math.max(0, low - 1)]) / segment) : 0;
+    return {
+      x: a.x + dx * t - (segment ? dy / segment : 0) * side,
+      y: a.y + dy * t + (segment ? dx / segment : 1) * side,
+    };
+  };
+  return { length, at };
+}
+/** Independently drawn planning graphics, informed by FORTL/FLOT/ATDITCH conventions. */
+export function routeBodyData(item: RouteAnnotation): string {
+  if (!["defense", "front", "advance"].includes(item.lineStyle || ""))
+    return pathData(item.points, item.curve);
+  const { length, at } = measureRoute(item);
+  if (length < 0.00001) return pathData(item.points, item.curve);
+  const sign = item.flip ? -1 : 1;
+  if (item.lineStyle === "advance") {
+    const half = Math.min(Math.max(0.006, item.width * 2.8), length * 0.13),
+      head = Math.min(Math.max(0.028, item.width * 11), length * 0.42),
+      shoulder = half * 2,
+      end = length - head,
+      steps = Math.min(250, Math.max(2, Math.ceil(end / 0.008))),
+      left: MapPoint[] = [],
+      right: MapPoint[] = [];
+    for (let i = 0; i <= steps; i++) {
+      const d = (end * i) / steps;
+      left.push(at(d, half));
+      right.push(at(d, -half));
     }
-    walked += length;
+    return (
+      pathData([...left, at(end, shoulder), at(length), at(end, -shoulder), ...right.reverse()]) +
+      " Z"
+    );
+  }
+  const count = Math.min(350, Math.max(1, Math.floor(length / Math.max(0.025, item.width * 10)))),
+    step = length / count,
+    height = Math.min(Math.max(0.006, item.width * 2.6), step * 0.4) * sign,
+    points: MapPoint[] = [at(0)];
+  for (let i = 0; i < count; i++) {
+    const d = i * step;
+    if (item.lineStyle === "defense") {
+      points.push(
+        at(d + step * 0.4),
+        at(d + step * 0.4, height),
+        at(d + step * 0.85, height),
+        at(d + step * 0.85),
+        at(d + step),
+      );
+    } else {
+      for (let k = 1; k <= 12; k++) {
+        const angle = (Math.PI * k) / 12;
+        points.push(
+          at(d + (step * (1 - Math.cos(angle))) / 2, Math.sin(angle) * step * 0.5 * sign),
+        );
+      }
+    }
+  }
+  return pathData(points);
+}
+export function routeDecorations(item: RouteAnnotation): MapPoint[][] {
+  if (item.lineStyle !== "antitank" && item.lineStyle !== "barrier") return [];
+  const { length, at } = measureRoute(item),
+    spacing = Math.max(0.022, item.width * 9, length / 250),
+    size = Math.max(0.005, item.width * 2),
+    sign = item.flip ? -1 : 1,
+    result: MapPoint[][] = [];
+  for (let d = spacing / 2; d < length; d += spacing) {
+    if (item.lineStyle === "antitank")
+      result.push([at(d - size), at(d, size * 1.7 * sign), at(d + size)]);
+    else {
+      result.push([at(d - size, -size), at(d + size, size)]);
+      result.push([at(d - size, size), at(d + size, -size)]);
+    }
   }
   return result;
 }
@@ -168,23 +262,25 @@ export function shapePath(item: ShapeAnnotation): string {
   }
   return pathData(shapeCorners({ x, y }, { x: x + w, y: y + h })) + " Z";
 }
-/** Keep the requested layout intact; SVG meet centers it in the available canvas. */
-export function mapView(crop: number[], zoom: number, offset: MapPoint) {
-  const w = ((crop[2] - crop[0]) * 1000) / zoom,
-    h = ((crop[3] - crop[1]) * 1000) / zoom,
-    originX = (crop[0] + crop[2]) * 500 - w / 2,
+/** Map is one layer on a larger canvas; extra view width never stretches the map. */
+export function mapView(crop: number[], zoom: number, offset: MapPoint, aspect = 1) {
+  const baseW = (crop[2] - crop[0]) * 1000,
+    baseH = (crop[3] - crop[1]) * 1000;
+  const h = (Math.max(baseH, baseW / aspect) * 1.16) / zoom,
+    w = h * aspect;
+  const originX = (crop[0] + crop[2]) * 500 - w / 2,
     originY = (crop[1] + crop[3]) * 500 - h / 2;
   return {
     w,
     h,
-    x: clamp(originX + offset.x, 0, 1000 - w),
-    y: clamp(originY + offset.y, 0, 1000 - h),
+    x: originX + clamp(offset.x, -30000, 30000),
+    y: originY + clamp(offset.y, -30000, 30000),
     originX,
     originY,
   };
 }
 export function arrowPoints(item: RouteAnnotation): MapPoint[] {
-  if (!item.arrow || item.points.length < 2) return [];
+  if (!item.arrow || item.lineStyle === "advance" || item.points.length < 2) return [];
   const b = item.points.at(-1)!;
   const lastControl = item.curve ? curveControls(item.points, item.points.length - 2)[1] : null;
   const a =
@@ -193,7 +289,7 @@ export function arrowPoints(item: RouteAnnotation): MapPoint[] {
       : [...item.points].reverse().find((p) => Math.hypot(b.x - p.x, b.y - p.y) > 0.00001);
   if (!a) return [];
   const angle = Math.atan2(b.y - a.y, b.x - a.x),
-    length = item.width * 4;
+    length = item.width * (item.arrowHead === "open" ? 6 : 4);
   return [
     b,
     {
@@ -270,7 +366,7 @@ function record(value: unknown): Record<string, unknown> {
 }
 function point(value: unknown): MapPoint {
   const p = record(value);
-  return { x: number(p.x, 0, 1), y: number(p.y, 0, 1) };
+  return { x: number(p.x, CANVAS_MIN, CANVAS_MAX), y: number(p.y, CANVAS_MIN, CANVAS_MAX) };
 }
 function text(value: unknown, max: number) {
   requireValue(value, typeof value === "string" && value.length <= max, "文字内容过长或格式错误");
@@ -280,10 +376,24 @@ function flag(value: unknown) {
   requireValue(value, typeof value === "boolean", "标注开关格式错误");
   return value as boolean;
 }
+function arrowHead(value: unknown): "filled" | "open" {
+  requireValue(value, value === "filled" || value === "open", "未知箭头样式");
+  return value as "filled" | "open";
+}
 function lineStyle(value: unknown): NonNullable<RouteAnnotation["lineStyle"]> {
   requireValue(
     value,
-    ["solid", "dashed", "dotted", "dashdot", "defense", "barrier"].includes(value as string),
+    [
+      "solid",
+      "dashed",
+      "dotted",
+      "dashdot",
+      "defense",
+      "barrier",
+      "front",
+      "antitank",
+      "advance",
+    ].includes(value as string),
     "未知线条样式",
   );
   return value as NonNullable<RouteAnnotation["lineStyle"]>;
@@ -339,6 +449,8 @@ export function parseProject(
         dashed: flag(a.dashed),
         arrow: flag(a.arrow),
         ...(a.curve === undefined ? {} : { curve: flag(a.curve) }),
+        ...(a.flip === undefined ? {} : { flip: flag(a.flip) }),
+        ...(a.arrowHead === undefined ? {} : { arrowHead: arrowHead(a.arrowHead) }),
         ...(a.lineStyle === undefined ? {} : { lineStyle: lineStyle(a.lineStyle) }),
       };
     }

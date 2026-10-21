@@ -7,6 +7,9 @@ import {
   routePoint,
   pathData,
   routeDash,
+  routeBodyData,
+  CANVAS_MIN,
+  CANVAS_MAX,
   routeDecorations,
   shapeCorners,
   shapeBounds,
@@ -76,7 +79,8 @@ assert.notDeepEqual(routePoint(curve, 0, 0.5), {
 });
 for (const p of curveControls(curve.points, 0))
   assert(p.x >= 0 && p.x <= 1 && p.y >= 0 && p.y <= 1);
-assert(routeDecorations(curve).length > 0);
+assert.notEqual(routeBodyData(curve), pathData(curve.points, true));
+assert(routeDecorations({ ...curve, lineStyle: "antitank" }).length > 0);
 assert.equal(routeDecorations({ ...curve, lineStyle: "solid" }).length, 0);
 assert(routeDecorations({ ...curve, lineStyle: "barrier" }).length > 0);
 assert.deepEqual(routeDash({ ...path, lineStyle: "solid", dashed: true }), []);
@@ -97,10 +101,10 @@ assert.match(
   shapePath({ ...area, shape: "ellipse", points: [area.points[0], area.points[2]] }),
   /a/,
 );
-const movedArea = moveAnnotation(area, 1, -1),
+const movedArea = moveAnnotation(area, 100, -100),
   bounds = shapeBounds(movedArea);
-assert(Math.abs(bounds.x + bounds.w - 1) < 1e-10);
-assert.equal(bounds.y, 0);
+assert(Math.abs(bounds.x + bounds.w - CANVAS_MAX) < 1e-10);
+assert(Math.abs(bounds.y - CANVAS_MIN) < 1e-10);
 assert.deepEqual(area.points[0], { x: 0.2, y: 0.3 });
 assert.deepEqual(parseProject(makeProject(context, [curve, area]), iconIds, known).items, [
   curve,
@@ -120,24 +124,44 @@ for (const invalidArea of [
 ])
   assert.throws(() => parseProject(makeProject(context, [invalidArea]), iconIds, known));
 for (const aspect of [0.4, 1, 1.7, 3.5])
-  for (const zoom of [1, 2, 8])
-    for (const offset of [
-      { x: 0, y: 0 },
-      { x: -2000, y: 2000 },
-    ]) {
-      const view = mapView([0.2, 0.2, 0.725, 0.725], zoom, offset);
-      assert(Math.abs(view.w - 525 / zoom) < 1e-8);
-      assert(Math.abs(view.h - 525 / zoom) < 1e-8);
-      // Wide or tall canvases must not change the selected layout or crop its edges.
-      const displayScale = Math.min((aspect * 1000) / view.w, 1000 / view.h);
-      assert(view.w * displayScale <= aspect * 1000 + 1e-8 && view.h * displayScale <= 1000 + 1e-8);
-      assert(
-        view.x >= 0 &&
-          view.y >= 0 &&
-          view.x + view.w <= 1000 + 1e-8 &&
-          view.y + view.h <= 1000 + 1e-8,
-      );
-    }
+  for (const zoom of [1, 2, 8]) {
+    const view = mapView([0.2, 0.2, 0.725, 0.725], zoom, { x: 0, y: 0 }, aspect);
+    assert(Math.abs(view.w / view.h - aspect) < 1e-8);
+    assert(Math.abs(view.x + view.w / 2 - 462.5) < 1e-8);
+    assert(Math.abs(view.y + view.h / 2 - 462.5) < 1e-8);
+    if (zoom === 1)
+      assert(view.x < 200 && view.y < 200 && view.x + view.w > 725 && view.y + view.h > 725);
+  }
+const freePan = mapView([0, 0, 1, 1], 1, { x: -1800, y: 2200 }, 1.8);
+assert(freePan.x < -1000 && freePan.y > 1000);
+const outsideRoute = {
+  ...curve,
+  id: "outside",
+  points: [
+    { x: -0.2, y: 0.3 },
+    { x: 0.4, y: -0.2 },
+    { x: 1.3, y: 0.9 },
+  ],
+};
+assert.deepEqual(parseProject(makeProject(context, [outsideRoute]), iconIds, known).items, [
+  outsideRoute,
+]);
+assert(moveAnnotation(outsideRoute, -0.2, 0).points[0].x < -0.2);
+for (const style of ["defense", "front", "antitank", "advance"]) {
+  const route = { ...outsideRoute, lineStyle: style, arrowHead: "open", flip: true };
+  assert.deepEqual(parseProject(makeProject(context, [route]), iconIds, known).items, [route]);
+  assert(!routeBodyData(route).includes("NaN"));
+  assert.notEqual(
+    routeBodyData({ ...curve, lineStyle: "defense" }),
+    routeBodyData({ ...curve, lineStyle: "front" }),
+  );
+}
+assert.notEqual(routeBodyData({ ...curve, flip: true }), routeBodyData(curve));
+assert.match(routeBodyData({ ...curve, lineStyle: "advance" }), /Z$/);
+assert.equal(arrowPoints({ ...curve, lineStyle: "advance" }).length, 0);
+assert.throws(() =>
+  parseProject(makeProject(context, [{ ...outsideRoute, arrowHead: "script" }]), iconIds, known),
+);
 const icon = {
   ...base,
   id: "icon-1",
@@ -176,8 +200,8 @@ const text = {
 const project = makeProject(context, [path, icon, text]);
 assert.deepEqual(parseProject(JSON.parse(JSON.stringify(project)), iconIds, known), project);
 const moved = moveAnnotation(path, 1, -1);
-assert.equal(moved.points[1].x, 1);
-assert.equal(moved.points[0].y, 0);
+assert.equal(moved.points[1].x, 1.8);
+assert.equal(moved.points[0].y, -0.7);
 assert(Math.abs(moved.points[1].x - moved.points[0].x - 0.6) < 1e-10);
 assert.deepEqual(path.points, [
   { x: 0.2, y: 0.3 },
@@ -237,7 +261,7 @@ reject([
   {
     ...path,
     points: [
-      { x: -0.1, y: 0 },
+      { x: CANVAS_MIN - 1, y: 0 },
       { x: 1, y: 1 },
     ],
   },
@@ -256,6 +280,10 @@ const sanitized = parseProject(
   known,
 );
 assert(!("href" in sanitized.items[0]));
+const beforeClear = [path, { ...icon, hidden: true, locked: true }, area];
+const cleared = reduceHistory(createHistory(beforeClear), { type: "commit", items: [] });
+assert.deepEqual(cleared.present, []);
+assert.deepEqual(reduceHistory(cleared, { type: "undo" }).present, beforeClear);
 const store = new Map([
   ["wt-lineups-v1:china", "KEEP"],
   ["wt-planner-v1:cart", "KEEP"],
@@ -278,5 +306,5 @@ globalThis.localStorage.setItem = () => {
 };
 assert.throws(() => writeProject(project));
 console.log(
-  "Map editor verified: centered layout viewport, tactical symbols, curves, tactical lines, shapes, import validation, immutable movement, undo/redo, scoped persistence and 79 original icon records",
+  "Map editor verified: independent map/canvas layers, outside-map coordinates, tactical lines, clear/undo, symbols, curves, shapes, import validation, immutable movement, undo/redo, scoped persistence and 79 original icon records",
 );

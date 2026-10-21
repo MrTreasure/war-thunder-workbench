@@ -17,8 +17,12 @@ import {
 import { downloadBlob } from "./map-editor-export";
 import {
   annotationName,
+  canvasCoordinate,
+  CANVAS_MIN,
+  CANVAS_MAX,
   bendPoints,
   routeDash,
+  routeBodyData,
   routeDecorations,
   routePoint,
   shapeBounds,
@@ -66,7 +70,9 @@ type Tool =
   | "text"
   | "shape"
   | "danger"
-  | "sniper";
+  | "sniper"
+  | "tactical"
+  | "defense";
 type Props = {
   ref?: Ref<MapEditorHandle>;
   active: boolean;
@@ -75,6 +81,7 @@ type Props = {
   host: SVGGElement | null;
   svg: SVGSVGElement | null;
   viewWidth: number;
+  view: { x: number; y: number; w: number; h: number };
   close: () => void;
   mapControls: ReactNode;
   pan: (e: PointerEvent<SVGGElement>) => void;
@@ -104,6 +111,7 @@ type Gesture =
   | { kind: "pen" };
 const defaults = {
   arrow: false,
+  arrowHead: "filled" as "filled" | "open",
   lineStyle: "solid" as NonNullable<RouteAnnotation["lineStyle"]>,
   color: "#e4c477",
   width: 0.003,
@@ -120,6 +128,7 @@ export function MapEditor({
   host,
   svg,
   viewWidth,
+  view,
   close,
   mapControls,
   pan,
@@ -161,11 +170,12 @@ export function MapEditor({
   const [preview, setPreview] = useState<Annotation[] | null>(null);
   const [selectedPoint, setSelectedPoint] = useState<number | null>(null);
   const gesture = useRef<Gesture | null>(null);
-  const [panel, setPanel] = useState<"style" | "icons" | "layers" | "files" | "map" | null>(null),
+  const [panel, setPanel] = useState<
+      "style" | "icons" | "layers" | "files" | "map" | "lines" | null
+    >(null),
     [notice, setNotice] = useState(initial.message),
     [storageError, setStorageError] = useState(false);
   const [incoming, setIncoming] = useState<MapProject | null>(null),
-    [clearConfirm, setClearConfirm] = useState(false),
     [busy, setBusy] = useState<string | null>(null),
     [resolution, setResolution] = useState(2048);
   const abort = useRef<AbortController | null>(null),
@@ -257,6 +267,14 @@ export function MapEditor({
     apply(historyRef.current.present.filter((a) => a.id !== selected.id));
     setSelectedId(null);
   }
+  function clearAll() {
+    cancelGesture();
+    apply([]);
+    setSelectedId(null);
+    setSelectedPoint(null);
+    setTool("select");
+    setNotice("已清除当前画布全部自定义标记");
+  }
   function duplicate() {
     if (!selected) return;
     add({ ...moveAnnotation(selected, 0.015, 0.015), id: id(), locked: false });
@@ -272,6 +290,26 @@ export function MapEditor({
   function chooseTool(next: Tool) {
     finish();
     setReplaceIcon(false);
+    if (next === "tactical") {
+      setTool("route");
+      setSelectedId(null);
+      setSelectedPoint(null);
+      setPanel("lines");
+      return;
+    }
+    if (next === "defense") {
+      setTool("route");
+      setSelectedId(null);
+      setSelectedPoint(null);
+      setSettings((s) => ({
+        ...s,
+        lineStyle: "defense",
+        color: "#24ff2a",
+        arrow: false,
+        dashed: false,
+      }));
+      return;
+    }
     setTool(next);
     if (next === "danger") setSettings((s) => ({ ...s, color: "#ff3020" }));
     setSelectedId(null);
@@ -289,9 +327,23 @@ export function MapEditor({
     const preset = lineCatalog.presets.find((p) => p.id === presetId);
     if (!preset) return;
     const lineStyle = preset.style as NonNullable<RouteAnnotation["lineStyle"]>;
-    setSettings((s) => ({ ...s, arrow: preset.arrow, lineStyle, dashed: lineStyle === "dashed" }));
+    const arrowHead = preset.arrowHead as "filled" | "open";
+    setSettings((s) => ({
+      ...s,
+      arrow: preset.arrow,
+      arrowHead,
+      color: preset.color,
+      lineStyle,
+      dashed: lineStyle === "dashed",
+    }));
     if (selected?.kind === "path")
-      patch({ lineStyle, dashed: lineStyle === "dashed", arrow: preset.arrow });
+      patch({
+        lineStyle,
+        color: preset.color,
+        arrowHead,
+        dashed: lineStyle === "dashed",
+        arrow: preset.arrow,
+      });
     else if (tool !== "curve") setTool(preset.arrow ? "arrow" : "route");
   }
   function resizePending(stroke: GeometryAnnotation, end: MapPoint): GeometryAnnotation {
@@ -312,7 +364,7 @@ export function MapEditor({
     const matrix = svg?.getScreenCTM();
     if (!matrix) return null;
     const p = new DOMPoint(e.clientX, e.clientY).matrixTransform(matrix.inverse());
-    return { x: clamp(p.x / 1000), y: clamp(p.y / 1000) };
+    return { x: canvasCoordinate(p.x / 1000), y: canvasCoordinate(p.y / 1000) };
   }
   function pointerDown(e: PointerEvent<SVGGElement>) {
     if (!active || e.button !== 0) return;
@@ -447,6 +499,7 @@ export function MapEditor({
         arrow: tool === "arrow" || (tool === "curve" && settings.arrow),
         curve: tool === "curve",
         lineStyle: settings.lineStyle,
+        arrowHead: settings.arrowHead,
       });
     }
     gesture.current = { kind: "line", start: point, second: !!stroke, moved: false };
@@ -622,10 +675,12 @@ export function MapEditor({
           points: selected.points.map((v, i) =>
             i === selectedPoint
               ? {
-                  x: clamp(
+                  x: canvasCoordinate(
                     p.x + (e.key === "ArrowLeft" ? -step : e.key === "ArrowRight" ? step : 0),
                   ),
-                  y: clamp(p.y + (e.key === "ArrowUp" ? -step : e.key === "ArrowDown" ? step : 0)),
+                  y: canvasCoordinate(
+                    p.y + (e.key === "ArrowUp" ? -step : e.key === "ArrowDown" ? step : 0),
+                  ),
                 }
               : v,
           ),
@@ -798,7 +853,14 @@ export function MapEditor({
         }}
       >
         {active && (
-          <rect x={0} y={0} width={1000} height={1000} fill="transparent" data-editor-ui="true" />
+          <rect
+            x={view.x}
+            y={view.y}
+            width={view.w}
+            height={view.h}
+            fill="transparent"
+            data-editor-ui="true"
+          />
         )}
         {visible
           .filter((a) => !a.hidden)
@@ -845,6 +907,8 @@ export function MapEditor({
             [
               ["select", "选择", "↖"],
               ["pan", "平移", "✥"],
+              ["tactical", "战术线", "⌁"],
+              ["defense", "防线", "⊓"],
               ["arrow", "箭头", "↗"],
               ["route", "线条", "╱"],
               ["curve", "曲线", "∿"],
@@ -859,7 +923,13 @@ export function MapEditor({
             <button
               key={value}
               title={label}
-              aria-pressed={tool === value}
+              aria-pressed={
+                value === "tactical"
+                  ? panel === "lines"
+                  : value === "defense"
+                    ? tool === "route" && settings.lineStyle === "defense"
+                    : tool === value && (value !== "route" || settings.lineStyle !== "defense")
+              }
               onClick={() => chooseTool(value)}
             >
               <span aria-hidden="true">{glyph}</span>
@@ -902,6 +972,14 @@ export function MapEditor({
             }}
           >
             ↷
+          </button>
+          <button
+            className="map-editor-clear"
+            disabled={!history.present.length && !pending}
+            title="清除当前画布全部自定义标注，包括隐藏和锁定标注；可撤销"
+            onClick={clearAll}
+          >
+            清除标记
           </button>
           <fieldset className="map-editor-quick-colors" aria-label="常用标注颜色">
             {palette.colors.map((color) => (
@@ -957,21 +1035,72 @@ export function MapEditor({
               <strong>
                 {panel === "icons"
                   ? "地图标记"
-                  : panel === "layers"
-                    ? "标注图层"
-                    : panel === "files"
-                      ? "导入与导出"
-                      : panel === "map"
-                        ? "底图与布局"
-                        : selected
-                          ? annotationName(selected)
-                          : "绘制样式"}
+                  : panel === "lines"
+                    ? "军事战术线"
+                    : panel === "layers"
+                      ? "标注图层"
+                      : panel === "files"
+                        ? "导入与导出"
+                        : panel === "map"
+                          ? "底图与布局"
+                          : selected
+                            ? annotationName(selected)
+                            : "绘制样式"}
               </strong>
               <button aria-label="收起编辑面板" onClick={() => setPanel(null)}>
                 ×
               </button>
             </header>
-            {panel === "files" ? (
+            {panel === "lines" ? (
+              <>
+                <p>选择线型后拖动绘制；选中现有线条时直接替换样式。</p>
+                <div className="map-editor-tactical-presets">
+                  {lineCatalog.presets.map((preset) => (
+                    <button
+                      key={preset.id}
+                      disabled={selected?.locked}
+                      aria-pressed={
+                        selected?.kind === "path"
+                          ? selected.lineStyle === preset.style &&
+                            selected.color.toLowerCase() === preset.color
+                          : settings.lineStyle === preset.style &&
+                            settings.color.toLowerCase() === preset.color
+                      }
+                      onClick={() => chooseLinePreset(preset.id)}
+                    >
+                      <svg
+                        className="map-editor-line-preview"
+                        viewBox="0 -30 1000 200"
+                        aria-hidden="true"
+                      >
+                        <RouteInk
+                          item={{
+                            id: "preview",
+                            kind: "path",
+                            hidden: false,
+                            locked: false,
+                            color: preset.color,
+                            width: 0.008,
+                            points: [
+                              { x: 0.04, y: 0.08 },
+                              { x: 0.48, y: 0.065 },
+                              { x: 0.95, y: 0.08 },
+                            ],
+                            dashed: preset.style === "dashed",
+                            arrow: preset.arrow,
+                            arrowHead: preset.arrowHead as "filled" | "open",
+                            lineStyle: preset.style as NonNullable<RouteAnnotation["lineStyle"]>,
+                            curve: true,
+                          }}
+                        />
+                      </svg>
+                      <strong>{preset.name}</strong>
+                      <small>{preset.detail}</small>
+                    </button>
+                  ))}
+                </div>
+              </>
+            ) : panel === "files" ? (
               <div className="map-editor-fields">
                 <p>每次修改自动保存到当前浏览器。导出编辑文件可在其他设备继续修改。</p>
                 <button
@@ -1138,7 +1267,7 @@ export function MapEditor({
                     </li>
                   ))}
                 </ol>
-                <button disabled={!history.present.length} onClick={() => setClearConfirm(true)}>
+                <button disabled={!history.present.length} onClick={clearAll}>
                   清空标注
                 </button>
               </>
@@ -1300,21 +1429,14 @@ export function MapEditor({
                             <option value="dashed">虚线</option>
                             <option value="dotted">点线 / 射界</option>
                             <option value="dashdot">点划线 / 补给</option>
-                            <option value="defense">锯齿 / 防御阵线</option>
+                            <option value="defense">折齿 / 工事防御线</option>
+                            <option value="front">弧齿 / 前沿阵线</option>
+                            <option value="antitank">三角齿 / 反坦克壕线</option>
+                            <option value="advance">中空宽箭头 / 进攻轴线</option>
                             <option value="barrier">交叉 / 障碍封锁线</option>
                           </select>
                         </label>
-                        <div className="map-editor-line-presets" aria-label="战术线预设">
-                          {lineCatalog.presets.map((preset) => (
-                            <button
-                              key={preset.id}
-                              disabled={selected?.locked}
-                              onClick={() => chooseLinePreset(preset.id)}
-                            >
-                              {preset.name}
-                            </button>
-                          ))}
-                        </div>
+                        <button onClick={() => setPanel("lines")}>查看全部战术线型</button>
                         {selected?.kind === "path" && (
                           <label className="map-editor-check">
                             <input
@@ -1336,6 +1458,34 @@ export function MapEditor({
                       </>
                     )}
                     {selected?.kind === "path" && (
+                      <>
+                        {["defense", "front", "antitank"].includes(selected.lineStyle || "") && (
+                          <label className="map-editor-check">
+                            <input
+                              type="checkbox"
+                              checked={!!selected.flip}
+                              disabled={selected.locked}
+                              onChange={(e) => patch({ flip: e.target.checked })}
+                            />
+                            翻转阵线朝向
+                          </label>
+                        )}
+                        {selected.arrow && selected.lineStyle !== "advance" && (
+                          <label>
+                            箭头形式
+                            <select
+                              value={selected.arrowHead || "filled"}
+                              disabled={selected.locked}
+                              onChange={(e) => patch({ arrowHead: e.target.value })}
+                            >
+                              <option value="open">军事方向箭头（开口）</option>
+                              <option value="filled">实心箭头</option>
+                            </select>
+                          </label>
+                        )}
+                      </>
+                    )}
+                    {selected?.kind === "path" && selected.lineStyle !== "advance" && (
                       <label className="map-editor-check">
                         <input
                           type="checkbox"
@@ -1491,8 +1641,8 @@ export function MapEditor({
                           {axis.toUpperCase()} %
                           <input
                             type="number"
-                            min={0}
-                            max={100}
+                            min={CANVAS_MIN * 100}
+                            max={CANVAS_MAX * 100}
                             step={0.1}
                             value={Number(
                               (
@@ -1512,7 +1662,10 @@ export function MapEditor({
                                   {
                                     points: selected.points.map((p, i) =>
                                       i === selectedPoint
-                                        ? { ...p, [axis]: clamp(Number(e.target.value) / 100) }
+                                        ? {
+                                            ...p,
+                                            [axis]: canvasCoordinate(Number(e.target.value) / 100),
+                                          }
                                         : p,
                                     ),
                                   },
@@ -1521,7 +1674,8 @@ export function MapEditor({
                                 return;
                               }
                               const delta =
-                                clamp(Number(e.target.value) / 100) - anchorPoint(selected)[axis];
+                                canvasCoordinate(Number(e.target.value) / 100) -
+                                anchorPoint(selected)[axis];
                               apply(
                                 historyRef.current.present.map((a) =>
                                   a.id === selected.id
@@ -1607,28 +1761,6 @@ export function MapEditor({
           </div>
         </Modal>
       )}
-      {clearConfirm && (
-        <Modal
-          title="清空当前标注？"
-          close={() => setClearConfirm(false)}
-          className="map-editor-import-dialog"
-        >
-          <p>仅清空当前地图、布局和队伍的标注，可用撤销恢复。</p>
-          <div className="map-editor-dialog-actions">
-            <button onClick={() => setClearConfirm(false)}>取消</button>
-            <button
-              onClick={() => {
-                cancelGesture();
-                apply([]);
-                setSelectedId(null);
-                setClearConfirm(false);
-              }}
-            >
-              清空
-            </button>
-          </div>
-        </Modal>
-      )}
     </>
   );
 }
@@ -1709,6 +1841,44 @@ function LineHandles({
     </g>
   );
 }
+function RouteInk({ item }: { item: RouteAnnotation }) {
+  const triangle = arrowPoints(item),
+    d = routeBodyData(item),
+    dash = routeDash(item).join(" ") || undefined;
+  return (
+    <g
+      pointerEvents="none"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin={item.lineStyle === "defense" ? "miter" : "round"}
+    >
+      <path
+        d={d}
+        stroke="#10191f"
+        strokeOpacity={0.7}
+        strokeWidth={item.width * 1000 + 1.8}
+        strokeDasharray={dash}
+      />
+      <path d={d} stroke={item.color} strokeWidth={item.width * 1000} strokeDasharray={dash} />
+      {routeDecorations(item).map((points, i) => (
+        <path key={i} d={pathData(points)} stroke={item.color} strokeWidth={item.width * 1000} />
+      ))}
+      {triangle.length > 0 &&
+        (item.arrowHead === "open" ? (
+          <path
+            d={pathData([triangle[1], triangle[0], triangle[2]])}
+            stroke={item.color}
+            strokeWidth={item.width * 1000}
+          />
+        ) : (
+          <polygon
+            points={triangle.map((p) => `${p.x * 1000},${p.y * 1000}`).join(" ")}
+            fill={item.color}
+          />
+        ))}
+    </g>
+  );
+}
 function AnnotationShape({
   item,
   selected,
@@ -1731,11 +1901,10 @@ function AnnotationShape({
       />
     ) : null;
   if (item.kind === "path") {
-    const triangle = arrowPoints(item);
     return (
       <g data-annotation-id={item.id}>
         <path
-          d={pathData(item.points, item.curve)}
+          d={routeBodyData(item)}
           fill="none"
           stroke="transparent"
           strokeWidth={Math.max(item.width * 1000, hitWidth)}
@@ -1744,29 +1913,11 @@ function AnnotationShape({
         <path
           d={pathData(item.points, item.curve)}
           fill="none"
-          stroke={item.color}
-          strokeWidth={item.width * 1000}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeDasharray={routeDash(item).join(" ") || undefined}
-          pointerEvents="none"
+          stroke="transparent"
+          strokeWidth={Math.max(item.width * 1000, hitWidth)}
+          pointerEvents="stroke"
         />
-        {routeDecorations(item).map((points, i) => (
-          <path
-            key={`decoration-${i}`}
-            d={pathData(points)}
-            fill={item.lineStyle === "defense" ? item.color : "none"}
-            stroke={item.color}
-            strokeWidth={item.width * 700}
-            pointerEvents="none"
-          />
-        ))}
-        {triangle.length > 0 && (
-          <polygon
-            points={triangle.map((p) => `${p.x * 1000},${p.y * 1000}`).join(" ")}
-            fill={item.color}
-          />
-        )}
+        <RouteInk item={item} />
       </g>
     );
   }
