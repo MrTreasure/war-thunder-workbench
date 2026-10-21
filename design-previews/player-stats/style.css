@@ -1011,7 +1011,7 @@ dialog .dialog-close {
     display: none;
   }
   .header-actions button {
-    min-height: 36px;
+    min-height: 44px;
   }
   .page-heading {
     display: block;
@@ -1117,7 +1117,7 @@ dialog .dialog-close {
     gap: 10px;
   }
   .segmented button {
-    min-height: 38px;
+    min-height: 44px;
     padding: 4px 16px;
   }
   .stats-grid {
@@ -1250,6 +1250,12 @@ dialog .dialog-close {
   }
   .report-settings > button {
     padding-inline: 8px;
+  }
+}
+@media (max-width: 800px) {
+  dialog .dialog-close {
+    width: 44px;
+    min-height: 44px;
   }
 }
 @media (max-width: 360px) {
