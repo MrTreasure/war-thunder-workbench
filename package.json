@@ -22,8 +22,9 @@
     "refresh:prices": "node scripts/store-prices.mjs",
     "refresh:guides": "node scripts/extract-map-atlas.mjs",
     "refresh:collections": "node scripts/extract-map-collections.mjs",
-    "check": "tsr generate && pnpm run typecheck && pnpm run lint && pnpm run check:data",
-    "import:qmuse": "pnpm run check && pnpm run build && qmuse-cli import . --no-open"
+    "check": "tsr generate && pnpm run typecheck && pnpm run lint && pnpm run check:data && pnpm run check:map-editor",
+    "import:qmuse": "pnpm run check && pnpm run build && qmuse-cli import . --no-open",
+    "check:map-editor": "node --experimental-strip-types scripts/check-map-editor.mjs"
   },
   "dependencies": {
     "@noble/hashes": "2.4.0",

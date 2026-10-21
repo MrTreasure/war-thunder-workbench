@@ -1,7 +1,12 @@
 /* Interactive SVG map owns arrow-key pan and Home reset; native HTML has no map widget. */
 /* oxlint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex */
 import { useId, useRef, useState } from "react";
-import type { ImgHTMLAttributes, ReactNode, SVGProps } from "react";
+import type { ReactNode } from "react";
+import { GroundThumbnail, GroundSvgImage, rotateAsset } from "./map-assets";
+import { MapEditor, editorIconAssets } from "./MapEditor";
+import type { MapEditorHandle } from "./MapEditor";
+import type { EditorContext, MapProject } from "./map-editor-model";
+import { renderMapPng } from "./map-editor-export";
 import { Link, Navigate, useNavigate } from "@tanstack/react-router";
 import atlas from "../data/ground-maps.json";
 import { Route } from "./routes/_workbench.maps";
@@ -150,6 +155,22 @@ export function GroundMapPage() {
         back={back}
         map={map}
         layoutId={search.side}
+        team={search.team || 1}
+        chooseTeam={(team) =>
+          void navigate({
+            params: { mapId },
+            search: { ...search, team: team === 2 ? 2 : undefined },
+            replace: true,
+            resetScroll: false,
+          })
+        }
+        openProject={(project) =>
+          void navigate({
+            params: { mapId: project.mapId },
+            search: { ...search, side: project.layoutId, team: project.team === 2 ? 2 : undefined },
+            resetScroll: true,
+          })
+        }
         choose={(side) =>
           void navigate({
             params: { mapId },
@@ -166,19 +187,24 @@ function GroundDetail({
   back,
   map,
   layoutId,
+  team,
+  chooseTeam,
+  openProject,
   choose,
 }: {
   back: ReactNode;
   map: GroundMap;
   layoutId?: string;
+  team: 1 | 2;
+  chooseTeam: (team: 1 | 2) => void;
+  openProject: (project: MapProject) => void;
   choose: (id: string) => void;
 }) {
   const layout = map.layouts.find((l) => l.id === layoutId) || map.layouts[0];
   const [contours, setContours] = useState(true),
     [points, setPoints] = useState(true),
     [grid, setGrid] = useState(false),
-    [cropped, setCropped] = useState(true),
-    [team, setTeam] = useState(1);
+    [cropped, setCropped] = useState(true);
   const [zoom, setZoom] = useState(1),
     [offset, setOffset] = useState({ x: 0, y: 0 });
   const [failed, setFailed] = useState(false),
@@ -194,7 +220,14 @@ function GroundDetail({
     setRetryVersion((v) => v + 1);
   };
   const clipId = useId();
-  const svg = useRef<SVGSVGElement>(null);
+  const [svg, setSvg] = useState<SVGSVGElement | null>(null);
+  const [editorHost, setEditorHost] = useState<SVGGElement | null>(null);
+  const [editing, setEditing] = useState(false);
+  const editorRef = useRef<MapEditorHandle>(null);
+  const startPan = (e: { pointerId: number; clientX: number; clientY: number }) => {
+    svg?.setPointerCapture(e.pointerId);
+    drag.current = { x: e.clientX, y: e.clientY, ox: offset.x, oy: offset.y };
+  };
   const drag = useRef<{ x: number; y: number; ox: number; oy: number } | null>(null);
   const reset = () => {
     setZoom(1);
@@ -258,6 +291,7 @@ function GroundDetail({
                   value={layout.id}
                   onChange={(e) => {
                     reset();
+                    editorRef.current?.finish();
                     choose(e.target.value);
                   }}
                 >
@@ -277,7 +311,10 @@ function GroundDetail({
                 <select
                   aria-label="己方出生侧"
                   value={team}
-                  onChange={(e) => setTeam(Number(e.target.value))}
+                  onChange={(e) => {
+                    editorRef.current?.finish();
+                    chooseTeam(Number(e.target.value) as 1 | 2);
+                  }}
                 >
                   <option value={1}>队伍 1</option>
                   <option value={2}>队伍 2</option>
@@ -303,16 +340,27 @@ function GroundDetail({
                 ))}
               </div>
             </div>
+            <button
+              className="ground-edit-toggle"
+              aria-pressed={editing}
+              onClick={() => {
+                if (editing) editorRef.current?.finish();
+                setEditing((v) => !v);
+              }}
+            >
+              {editing ? "完成编辑" : "编辑走线"}
+            </button>
             <a className="ground-original" href={map.base.url} target="_blank" rel="noreferrer">
               原图 ↗
             </a>
           </div>
-          <div className="ground-stage" data-zoomed={zoom > 1}>
+          <div className="ground-stage" data-zoomed={zoom > 1} data-editing={editing}>
             <svg
-              ref={svg}
+              ref={setSvg}
               role="application"
               tabIndex={0}
               onKeyDown={(e) => {
+                if (editing) return;
                 const delta = 40 / zoom;
                 if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) {
                   e.preventDefault();
@@ -331,13 +379,12 @@ function GroundDetail({
               preserveAspectRatio="xMidYMid meet"
               onPointerDown={(e) => {
                 if (e.button !== 0) return;
-                svg.current?.setPointerCapture(e.pointerId);
-                drag.current = { x: e.clientX, y: e.clientY, ox: offset.x, oy: offset.y };
+                startPan(e);
               }}
               onPointerMove={(e) => {
                 const d = drag.current;
                 if (!d) return;
-                const rect = svg.current!.getBoundingClientRect();
+                const rect = svg!.getBoundingClientRect();
                 const scale = Math.min(rect.width / w, rect.height / h);
                 setOffset({
                   x: d.ox - (e.clientX - d.x) / scale,
@@ -428,6 +475,7 @@ function GroundDetail({
                       </text>
                     );
                   })}
+                <g ref={setEditorHost} />
               </g>
             </svg>
             {(!loaded || (contours && !contourLoaded)) && !failed && (
@@ -453,6 +501,51 @@ function GroundDetail({
                 </a>
               </p>
             )}
+            <MapEditor
+              key={`${map.id}:${layout.id}:${team}`}
+              ref={editorRef}
+              active={editing}
+              context={{ mapId: map.id, layoutId: layout.id, team }}
+              mapName={map.name}
+              svg={svg}
+              host={editorHost}
+              viewWidth={w}
+              pan={startPan}
+              knownContext={(c: EditorContext) =>
+                atlas.maps.some(
+                  (m) => m.id === c.mapId && m.layouts.some((l) => l.id === c.layoutId),
+                )
+              }
+              openProject={openProject}
+              describeContext={(c) => {
+                const m = atlas.maps.find((v) => v.id === c.mapId);
+                const l = m?.layouts.find((v) => v.id === c.layoutId);
+                return `${m?.name || "地图"} · ${l?.name || "任务布局"} · 队伍 ${c.team}`;
+              }}
+              exportImage={(items, resolution, signal, progress) =>
+                renderMapPng(
+                  {
+                    base: rotateAsset(map.base, sourceChoice),
+                    contourImage: rotateAsset(map.contourImage, sourceChoice),
+                    view: { x, y, w, h },
+                    contours,
+                    points,
+                    grid,
+                    team,
+                    zoom,
+                    bounds: map.bounds,
+                    reference: map.grid.default_reference,
+                    marks: layout.marks,
+                    builtinIcons: atlas.icons,
+                    editorIcons: editorIconAssets,
+                  },
+                  items,
+                  resolution,
+                  signal,
+                  progress,
+                )
+              }
+            />
             <div className="ground-zoom">
               <button
                 aria-label="缩小地图"
@@ -518,55 +611,4 @@ function GroundDetail({
       </div>
     </section>
   );
-}
-
-// Keep primary images in GitHub, with independent alternatives for failed connections.
-type GroundImageAsset = { url: string; rawUrl?: string; fallbackUrl?: string };
-const assetSources = (asset: GroundImageAsset) => [
-  ...new Set([asset.url, asset.rawUrl, asset.fallbackUrl].filter((s): s is string => !!s)),
-];
-function GroundThumbnail({
-  asset,
-  alt,
-  ...props
-}: { asset: GroundImageAsset } & ImgHTMLAttributes<HTMLImageElement>) {
-  const [source, setSource] = useState(0);
-  const sources = assetSources(asset);
-  return (
-    <img
-      {...props}
-      alt={alt || "地图点位缩略图"}
-      src={sources[source]}
-      onError={() => {
-        if (source + 1 < sources.length) setSource(source + 1);
-      }}
-    />
-  );
-}
-function GroundSvgImage({
-  asset,
-  onFailure,
-  ...props
-}: { asset: GroundImageAsset; onFailure?: () => void } & SVGProps<SVGImageElement>) {
-  const [source, setSource] = useState(0);
-  const sources = assetSources(asset);
-  return (
-    <image
-      {...props}
-      href={sources[source]}
-      onError={() => {
-        if (source + 1 < sources.length) setSource(source + 1);
-        else onFailure?.();
-      }}
-    />
-  );
-}
-
-function rotateAsset(asset: GroundImageAsset, choice: number): GroundImageAsset {
-  const sources = assetSources(asset);
-  return {
-    url: sources[choice % sources.length],
-    rawUrl: sources[(choice + 1) % sources.length],
-    fallbackUrl: sources[(choice + 2) % sources.length],
-  };
 }

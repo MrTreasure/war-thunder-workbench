@@ -1,0 +1,877 @@
+{
+  "schemaVersion": 1,
+  "source": "用户提供的游戏原版SVG图标，2026-10-21",
+  "repository": "https://github.com/MrTreasure/oss-files",
+  "commit": "bb4a644c511cf2139b8fd2f9413439fc9ebe1978",
+  "icons": [
+    {
+      "id": "army_tank",
+      "label": "坦克",
+      "group": "单位与队伍",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/44d5cdcf2bd8078601a170be.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/44d5cdcf2bd8078601a170be.svg",
+        "sha256": "44d5cdcf2bd8078601a170be8ee8b70e3c97b405343408ab92deb7ac4d209f0b",
+        "bytes": 565
+      }
+    },
+    {
+      "id": "basezone_small_mark_a",
+      "label": "基地 A",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/72224d07e818481c6ae477b2.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/72224d07e818481c6ae477b2.svg",
+        "sha256": "72224d07e818481c6ae477b2df7096dd6843251c770037d7471b23ed440e694a",
+        "bytes": 1472
+      }
+    },
+    {
+      "id": "basezone_small_mark_b",
+      "label": "基地 B",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/4265534144373e5ee513c8d1.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/4265534144373e5ee513c8d1.svg",
+        "sha256": "4265534144373e5ee513c8d153c36fb8876f5ee77f8f8bbda585d05530befa94",
+        "bytes": 2202
+      }
+    },
+    {
+      "id": "basezone_small_mark_c",
+      "label": "基地 C",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/c0ae19dbbb7ab8d57ef4a9d6.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/c0ae19dbbb7ab8d57ef4a9d6.svg",
+        "sha256": "c0ae19dbbb7ab8d57ef4a9d6d6e919baa514e8ac1a6a4903368dba5ac1047bdd",
+        "bytes": 2264
+      }
+    },
+    {
+      "id": "basezone_small_mark_d",
+      "label": "基地 D",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/472504f324db8219f3e69111.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/472504f324db8219f3e69111.svg",
+        "sha256": "472504f324db8219f3e6911171a5f699065efa251fdf702d91dad7ffe35d1fff",
+        "bytes": 1360
+      }
+    },
+    {
+      "id": "basezone_small_mark_e",
+      "label": "基地 E",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/e672cbbaf30945b4b5d1cb46.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/e672cbbaf30945b4b5d1cb46.svg",
+        "sha256": "e672cbbaf30945b4b5d1cb4642310f24d8356e2db12f5f9746e84a11c1aaa216",
+        "bytes": 1612
+      }
+    },
+    {
+      "id": "basezone_small_mark_f",
+      "label": "基地 F",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/20f74936253436a56b9a0543.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/20f74936253436a56b9a0543.svg",
+        "sha256": "20f74936253436a56b9a0543818b9662ba46aa39d084b272430c2ac8680267c4",
+        "bytes": 1541
+      }
+    },
+    {
+      "id": "basezone_small_mark_g",
+      "label": "基地 G",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/e3a894f7218ea880319231e2.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/e3a894f7218ea880319231e2.svg",
+        "sha256": "e3a894f7218ea880319231e2ed98409374639eae1c1c57f3b49e611ed199ac6c",
+        "bytes": 2330
+      }
+    },
+    {
+      "id": "basezone_small_mark_h",
+      "label": "基地 H",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/effb0c92e53b39ca6a26e00c.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/effb0c92e53b39ca6a26e00c.svg",
+        "sha256": "effb0c92e53b39ca6a26e00ca050b7a05c705dcf5f2d25a70bad043d69b69eee",
+        "bytes": 1823
+      }
+    },
+    {
+      "id": "basezone_small_mark_i",
+      "label": "基地 I",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/22fb419ccd5863fb537e15bd.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/22fb419ccd5863fb537e15bd.svg",
+        "sha256": "22fb419ccd5863fb537e15bdd320882bf175731d47615c29018249a945da9d35",
+        "bytes": 1032
+      }
+    },
+    {
+      "id": "basezone_small_mark_j",
+      "label": "基地 J",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/5ef6d67453af2617f09d255c.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/5ef6d67453af2617f09d255c.svg",
+        "sha256": "5ef6d67453af2617f09d255c18705f67e0f8175504a992e179db938e8037d0bd",
+        "bytes": 2290
+      }
+    },
+    {
+      "id": "basezone_small_mark_k",
+      "label": "基地 K",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/12aed788c3bbd3025c9ee745.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/12aed788c3bbd3025c9ee745.svg",
+        "sha256": "12aed788c3bbd3025c9ee74512eb636ecbc0deb5b9f8116cefb53ac69a84b121",
+        "bytes": 1863
+      }
+    },
+    {
+      "id": "basezone_small_mark_l",
+      "label": "基地 L",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/3da0f5a1e49b7f31e46e3d6c.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/3da0f5a1e49b7f31e46e3d6c.svg",
+        "sha256": "3da0f5a1e49b7f31e46e3d6c16159ccaffaed6896fc8b0fda561db3d48c4d5aa",
+        "bytes": 1206
+      }
+    },
+    {
+      "id": "basezone_small_mark_m",
+      "label": "基地 M",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/bca4ce57e32fb8c2d71f77c1.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/bca4ce57e32fb8c2d71f77c1.svg",
+        "sha256": "bca4ce57e32fb8c2d71f77c12dba5bde0acb0580a6535f71f88ea11875ff972d",
+        "bytes": 2150
+      }
+    },
+    {
+      "id": "basezone_small_mark_n",
+      "label": "基地 N",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/69c3108cdf526d460a0c2271.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/69c3108cdf526d460a0c2271.svg",
+        "sha256": "69c3108cdf526d460a0c2271c8e35e09c6a6464de9bda80760021ed5dbc0592c",
+        "bytes": 2046
+      }
+    },
+    {
+      "id": "basezone_small_mark_no_bg_a",
+      "label": "基地 A（无底色）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/fc4aa5297443d7518b564cca.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/fc4aa5297443d7518b564cca.svg",
+        "sha256": "fc4aa5297443d7518b564cca4929f1afa41601eed77cb7612e9b775336eb5e10",
+        "bytes": 881
+      }
+    },
+    {
+      "id": "basezone_small_mark_no_bg_b",
+      "label": "基地 B（无底色）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/ca48bdf74e211fb30fe6b91c.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/ca48bdf74e211fb30fe6b91c.svg",
+        "sha256": "ca48bdf74e211fb30fe6b91c06790f60966ae935e37eae70dadf8691f5ed6931",
+        "bytes": 1181
+      }
+    },
+    {
+      "id": "basezone_small_mark_no_bg_c",
+      "label": "基地 C（无底色）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/f5c95ec2707c259d3c182920.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/f5c95ec2707c259d3c182920.svg",
+        "sha256": "f5c95ec2707c259d3c182920553ea2b6bd7057f688b7f1bb09563050d82accc0",
+        "bytes": 1329
+      }
+    },
+    {
+      "id": "basezone_small_mark_no_bg_d",
+      "label": "基地 D（无底色）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/45c0df09074da6399733ab9e.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/45c0df09074da6399733ab9e.svg",
+        "sha256": "45c0df09074da6399733ab9e59982096a710ef9a8b03584ae2e23883d3aa270b",
+        "bytes": 800
+      }
+    },
+    {
+      "id": "basezone_small_mark_no_bg_e",
+      "label": "基地 E（无底色）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/bb4356424fa969e27b1d92e2.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/bb4356424fa969e27b1d92e2.svg",
+        "sha256": "bb4356424fa969e27b1d92e22e4a919e9017c7366ae49e1702731c54fa952292",
+        "bytes": 915
+      }
+    },
+    {
+      "id": "basezone_small_mark_no_bg_f",
+      "label": "基地 F（无底色）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/352d61923e35feb7e7d44e06.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/352d61923e35feb7e7d44e06.svg",
+        "sha256": "352d61923e35feb7e7d44e0627458e3a152f4d09f0abdf7ceb0d653e072c173f",
+        "bytes": 865
+      }
+    },
+    {
+      "id": "basezone_small_mark_no_bg_g",
+      "label": "基地 G（无底色）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/99871e00232e215e56537550.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/99871e00232e215e56537550.svg",
+        "sha256": "99871e00232e215e565375504741f743cb59d5ce77e654201b9aa972883f13c6",
+        "bytes": 1346
+      }
+    },
+    {
+      "id": "basezone_small_mark_no_bg_h",
+      "label": "基地 H（无底色）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/bfd6a6c9ded0228723d8121f.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/bfd6a6c9ded0228723d8121f.svg",
+        "sha256": "bfd6a6c9ded0228723d8121f2fb0f2ee0416237fbcd38f9cfdfe36f1e24ad63a",
+        "bytes": 996
+      }
+    },
+    {
+      "id": "basezone_small_mark_no_bg_i",
+      "label": "基地 I（无底色）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/f19e58875627a58c9dca9133.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/f19e58875627a58c9dca9133.svg",
+        "sha256": "f19e58875627a58c9dca91334550d445ebc71b8970e858bfd57e171b53095bce",
+        "bytes": 625
+      }
+    },
+    {
+      "id": "basezone_small_mark_no_bg_j",
+      "label": "基地 J（无底色）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/dfad15d0f0b299e0a31b303b.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/dfad15d0f0b299e0a31b303b.svg",
+        "sha256": "dfad15d0f0b299e0a31b303be629a88db5fb9943b9f4a03dcfa5c701f9314d18",
+        "bytes": 990
+      }
+    },
+    {
+      "id": "basezone_small_mark_no_bg_k",
+      "label": "基地 K（无底色）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/1fd7657f8266a7c5036dadcb.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/1fd7657f8266a7c5036dadcb.svg",
+        "sha256": "1fd7657f8266a7c5036dadcba9eec1f5cd93e35789cee62ed36ede3faeb435dd",
+        "bytes": 1062
+      }
+    },
+    {
+      "id": "basezone_small_mark_no_bg_l",
+      "label": "基地 L（无底色）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/49dc31eda440202db0c4b9a1.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/49dc31eda440202db0c4b9a1.svg",
+        "sha256": "49dc31eda440202db0c4b9a1b5d8b9c6e72337de56db142dd3db0458f0277c2c",
+        "bytes": 722
+      }
+    },
+    {
+      "id": "basezone_small_mark_no_bg_m",
+      "label": "基地 M（无底色）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/2451c74db17a814ca21baeb0.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/2451c74db17a814ca21baeb0.svg",
+        "sha256": "2451c74db17a814ca21baeb0454c9733a10c6177e2a808e3474197210d25be3d",
+        "bytes": 1175
+      }
+    },
+    {
+      "id": "basezone_small_mark_no_bg_n",
+      "label": "基地 N（无底色）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/af15f9c2129a8c3a42a78410.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/af15f9c2129a8c3a42a78410.svg",
+        "sha256": "af15f9c2129a8c3a42a78410dddbd61be41a477513ee2214c9281f8fa34dc200",
+        "bytes": 1204
+      }
+    },
+    {
+      "id": "basezone_small_mark_no_bg_o",
+      "label": "基地 O（无底色）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/b5b95b5c6e2027a13b54c2a9.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/b5b95b5c6e2027a13b54c2a9.svg",
+        "sha256": "b5b95b5c6e2027a13b54c2a9c78838039f237cc70cb42ac973a524db2d6b6c9c",
+        "bytes": 1040
+      }
+    },
+    {
+      "id": "basezone_small_mark_no_bg_p",
+      "label": "基地 P（无底色）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/6caecc73b4b305df22cb8c67.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/6caecc73b4b305df22cb8c67.svg",
+        "sha256": "6caecc73b4b305df22cb8c67cdeeba258ed0d88882b9da46051e0e5825ce89bc",
+        "bytes": 947
+      }
+    },
+    {
+      "id": "basezone_small_mark_o",
+      "label": "基地 O",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/625c7d1a3a9a8044940a34fd.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/625c7d1a3a9a8044940a34fd.svg",
+        "sha256": "625c7d1a3a9a8044940a34fdb7712ebfea5b29c78b7256981237a9c65e839dfb",
+        "bytes": 1740
+      }
+    },
+    {
+      "id": "basezone_small_mark_p",
+      "label": "基地 P",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/10bf5372747eeefe156027cc.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/10bf5372747eeefe156027cc.svg",
+        "sha256": "10bf5372747eeefe156027cc5da0a4ebcf7d2cdac1a2c497a1ce2ffa40a82f56",
+        "bytes": 1673
+      }
+    },
+    {
+      "id": "basezone_small_nuclear_escalate",
+      "label": "核武器",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/0ea479b904611aa43d3e4a4e.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/0ea479b904611aa43d3e4a4e.svg",
+        "sha256": "0ea479b904611aa43d3e4a4ec240018cc2a6a57ac0a193bfee8bf6f2a91f9a5e",
+        "bytes": 1100
+      }
+    },
+    {
+      "id": "basezone_small_rhombus",
+      "label": "菱形",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/5fcd31e9147abb4c7dac2586.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/5fcd31e9147abb4c7dac2586.svg",
+        "sha256": "5fcd31e9147abb4c7dac2586edbc2ef4ea04e056d60701ebe10cb363319368cf",
+        "bytes": 412
+      }
+    },
+    {
+      "id": "basezone_small_side_allies",
+      "label": "同盟",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/c17fd72abeab4cd7abffa4a0.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/c17fd72abeab4cd7abffa4a0.svg",
+        "sha256": "c17fd72abeab4cd7abffa4a0ff7e3aef4314e231dfa749f0a4396a498e42d59c",
+        "bytes": 1315
+      }
+    },
+    {
+      "id": "basezone_small_side_axis",
+      "label": "轴心",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/f66fc02d96837b6fdbbd3c2b.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/f66fc02d96837b6fdbbd3c2b.svg",
+        "sha256": "f66fc02d96837b6fdbbd3c2b413c2d4ef4ad916419cac4801265bc922804cb2e",
+        "bytes": 1302
+      }
+    },
+    {
+      "id": "capturezone_small",
+      "label": "占领区",
+      "group": "占领点",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/5d7c7c52f599ebc50782fc08.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/5d7c7c52f599ebc50782fc08.svg",
+        "sha256": "5d7c7c52f599ebc50782fc08420cb13e8946f14b5695aab1259147ca537b7e67",
+        "bytes": 1126
+      }
+    },
+    {
+      "id": "capturezone_small_mark_a",
+      "label": "占领点 A",
+      "group": "占领点",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/77d635dbb0d07de9e661cb33.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/77d635dbb0d07de9e661cb33.svg",
+        "sha256": "77d635dbb0d07de9e661cb336828eff06771fae43622198e49c254a73fd26770",
+        "bytes": 2240
+      }
+    },
+    {
+      "id": "capturezone_small_mark_b",
+      "label": "占领点 B",
+      "group": "占领点",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/1b53ed9c1dd16ec06fa37455.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/1b53ed9c1dd16ec06fa37455.svg",
+        "sha256": "1b53ed9c1dd16ec06fa37455523cf9d89fabe41f9aa397e7f0268fc8b4f46550",
+        "bytes": 3019
+      }
+    },
+    {
+      "id": "capturezone_small_mark_c",
+      "label": "占领点 C",
+      "group": "占领点",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/dcd1633fed54b4113e8089e2.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/dcd1633fed54b4113e8089e2.svg",
+        "sha256": "dcd1633fed54b4113e8089e26e3993d9ce8e31da123c937cea84eea82b051389",
+        "bytes": 3082
+      }
+    },
+    {
+      "id": "capturezone_small_mark_d",
+      "label": "占领点 D",
+      "group": "占领点",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/556c89d298d2d12e401f5362.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/556c89d298d2d12e401f5362.svg",
+        "sha256": "556c89d298d2d12e401f536278702fbe4be28cdbc08b73c3afa3d54bbe6d6f86",
+        "bytes": 2151
+      }
+    },
+    {
+      "id": "capturezone_small_mark_e",
+      "label": "占领点 E",
+      "group": "占领点",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/66fe15cea3916ab5ef15ea54.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/66fe15cea3916ab5ef15ea54.svg",
+        "sha256": "66fe15cea3916ab5ef15ea54c548276cae7f5304900ff3734714c8b4cd205f36",
+        "bytes": 2412
+      }
+    },
+    {
+      "id": "capturezone_small_mark_f",
+      "label": "占领点 F",
+      "group": "占领点",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/ec1c6bdf7c39ea6b143db02b.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/ec1c6bdf7c39ea6b143db02b.svg",
+        "sha256": "ec1c6bdf7c39ea6b143db02bc08baf30d5ae6933f2c37ce090b836fe5c4d278d",
+        "bytes": 2325
+      }
+    },
+    {
+      "id": "capturezone_small_mark_g",
+      "label": "占领点 G",
+      "group": "占领点",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/88c205318a6bb84d7e16373d.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/88c205318a6bb84d7e16373d.svg",
+        "sha256": "88c205318a6bb84d7e16373d078b6d7b90c7eda41b4b0174c5b0831d22dd3a3c",
+        "bytes": 3208
+      }
+    },
+    {
+      "id": "capturezone_small_mark_h",
+      "label": "占领点 H",
+      "group": "占领点",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/84a764976debd107765ab8f3.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/84a764976debd107765ab8f3.svg",
+        "sha256": "84a764976debd107765ab8f3eda1bb3a1cdd2211e93a383aa1e08e7a2e6d3093",
+        "bytes": 2603
+      }
+    },
+    {
+      "id": "capturezone_small_mark_i",
+      "label": "占领点 I",
+      "group": "占领点",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/e471af168f49f339d48e1465.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/e471af168f49f339d48e1465.svg",
+        "sha256": "e471af168f49f339d48e146595f6bbabc000fdab9d4bef97f18da60508602eea",
+        "bytes": 1865
+      }
+    },
+    {
+      "id": "capturezone_small_mark_j",
+      "label": "占领点 J",
+      "group": "占领点",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/d7a57cd0aff0f7e10e03a19b.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/d7a57cd0aff0f7e10e03a19b.svg",
+        "sha256": "d7a57cd0aff0f7e10e03a19bff4d2f65cbba3e5b8d8bcf61c1e06d7334b59f4c",
+        "bytes": 3043
+      }
+    },
+    {
+      "id": "capturezone_small_mark_k",
+      "label": "占领点 K",
+      "group": "占领点",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/892d4c52b1e3e98d6279b101.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/892d4c52b1e3e98d6279b101.svg",
+        "sha256": "892d4c52b1e3e98d6279b10122eb8df431ecc7de2040a4fe7ffad3bda2b834b9",
+        "bytes": 2669
+      }
+    },
+    {
+      "id": "capturezone_small_mark_l",
+      "label": "占领点 L",
+      "group": "占领点",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/be2982f41cbf760fc17af82a.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/be2982f41cbf760fc17af82a.svg",
+        "sha256": "be2982f41cbf760fc17af82a17d5e467e0cb006e3169ebf2bfa1f50256c8c989",
+        "bytes": 1985
+      }
+    },
+    {
+      "id": "capturezone_small_mark_m",
+      "label": "占领点 M",
+      "group": "占领点",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/686280e719f03ddc37ec2754.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/686280e719f03ddc37ec2754.svg",
+        "sha256": "686280e719f03ddc37ec2754b80759faaf44828198e282281f6f1053efc1f241",
+        "bytes": 2925
+      }
+    },
+    {
+      "id": "capturezone_small_mark_n",
+      "label": "占领点 N",
+      "group": "占领点",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/ee00966514b7be2e4b680ae9.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/ee00966514b7be2e4b680ae9.svg",
+        "sha256": "ee00966514b7be2e4b680ae930eec92f3f1657885a668a20b66fae1c3edc723e",
+        "bytes": 2824
+      }
+    },
+    {
+      "id": "capturezone_small_mark_o",
+      "label": "占领点 O",
+      "group": "占领点",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/7b622180f9bb917eb0c64cab.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/7b622180f9bb917eb0c64cab.svg",
+        "sha256": "7b622180f9bb917eb0c64cab99d719a7076bdf65718bb7ea7f2b2af18d649c54",
+        "bytes": 2541
+      }
+    },
+    {
+      "id": "capturezone_small_mark_p",
+      "label": "占领点 P",
+      "group": "占领点",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/a8b1486af930fd45adc88c4f.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/a8b1486af930fd45adc88c4f.svg",
+        "sha256": "a8b1486af930fd45adc88c4f8f3d94fcad7a1f78870ef4f17ce9dc3d63e5c620",
+        "bytes": 2461
+      }
+    },
+    {
+      "id": "map_player_tank_hull",
+      "label": "玩家坦克",
+      "group": "单位与队伍",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/fb470666a635fe861d8b1bd3.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/fb470666a635fe861d8b1bd3.svg",
+        "sha256": "fb470666a635fe861d8b1bd36d949552bd314555c6613ff74ea078b44fefe914",
+        "bytes": 556
+      }
+    },
+    {
+      "id": "mp_basezone_mark_a",
+      "label": "基地 A（任务）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/f67f3f7991a1d7ec6664161b.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/f67f3f7991a1d7ec6664161b.svg",
+        "sha256": "f67f3f7991a1d7ec6664161b6905cd231818e286d108e5f8dac3a9c3f18ef13a",
+        "bytes": 1211
+      }
+    },
+    {
+      "id": "mp_basezone_mark_b",
+      "label": "基地 B（任务）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/e46bc176de6cdbe36098120f.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/e46bc176de6cdbe36098120f.svg",
+        "sha256": "e46bc176de6cdbe36098120f5da54f47a38eae3e0f63bc923bb67506a57e4f86",
+        "bytes": 1844
+      }
+    },
+    {
+      "id": "mp_basezone_mark_c",
+      "label": "基地 C（任务）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/545f1772a898d4f2e29a703c.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/545f1772a898d4f2e29a703c.svg",
+        "sha256": "545f1772a898d4f2e29a703c4757e2813badf85697f6ba80eba1144c324a1c26",
+        "bytes": 1994
+      }
+    },
+    {
+      "id": "mp_basezone_mark_d",
+      "label": "基地 D（任务）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/cd1649e29a4360c8199b2fa9.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/cd1649e29a4360c8199b2fa9.svg",
+        "sha256": "cd1649e29a4360c8199b2fa9ce2942eac0acfd5832e19f2e131690a099aad187",
+        "bytes": 1076
+      }
+    },
+    {
+      "id": "mp_basezone_mark_e",
+      "label": "基地 E（任务）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/0473728c809df08e13863d6a.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/0473728c809df08e13863d6a.svg",
+        "sha256": "0473728c809df08e13863d6a93342d864f166bdea847549015470807adbb4bfc",
+        "bytes": 1335
+      }
+    },
+    {
+      "id": "mp_basezone_mark_f",
+      "label": "基地 F（任务）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/b25efb14a68b8f7adf53b5b7.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/b25efb14a68b8f7adf53b5b7.svg",
+        "sha256": "b25efb14a68b8f7adf53b5b7acc5fb8250c7954de4e920d72431eadf72c90bb6",
+        "bytes": 1251
+      }
+    },
+    {
+      "id": "mp_basezone_mark_g",
+      "label": "基地 G（任务）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/fcdfc3d0f93ca9358863b291.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/fcdfc3d0f93ca9358863b291.svg",
+        "sha256": "fcdfc3d0f93ca9358863b291d21bb42c5f97127e0f112b04ba42be72fdeeca08",
+        "bytes": 1567
+      }
+    },
+    {
+      "id": "mp_basezone_mark_h",
+      "label": "基地 H（任务）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/fb59b0cb9673c39b036201b1.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/fb59b0cb9673c39b036201b1.svg",
+        "sha256": "fb59b0cb9673c39b036201b127615b675c15aaf57a9f76f754fa639a33366c19",
+        "bytes": 1164
+      }
+    },
+    {
+      "id": "mp_basezone_mark_i",
+      "label": "基地 I（任务）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/ce455d4fa9927176ba0a46a8.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/ce455d4fa9927176ba0a46a8.svg",
+        "sha256": "ce455d4fa9927176ba0a46a8df10e31c5a50d6944b1a1146f64149085081bbd8",
+        "bytes": 739
+      }
+    },
+    {
+      "id": "mp_basezone_mark_j",
+      "label": "基地 J（任务）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/6fa5076db46ea3f032965394.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/6fa5076db46ea3f032965394.svg",
+        "sha256": "6fa5076db46ea3f032965394a4929b2f1cab58ab73f05722afb5afe2a8fb00a8",
+        "bytes": 1107
+      }
+    },
+    {
+      "id": "mp_basezone_mark_k",
+      "label": "基地 K（任务）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/b1c4b4c3b9466167da9e436a.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/b1c4b4c3b9466167da9e436a.svg",
+        "sha256": "b1c4b4c3b9466167da9e436a68a2e3cbd610f0fcfb363cf7b0829ba3c2ab9b46",
+        "bytes": 1206
+      }
+    },
+    {
+      "id": "mp_basezone_mark_l",
+      "label": "基地 L（任务）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/ccc674d20943a884a9ef6b20.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/ccc674d20943a884a9ef6b20.svg",
+        "sha256": "ccc674d20943a884a9ef6b208d07425c0cd9ad6a9fd55af40bf7041520e029d7",
+        "bytes": 3139
+      }
+    },
+    {
+      "id": "mp_basezone_mark_m",
+      "label": "基地 M（任务）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/c608071488b136c99f07e645.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/c608071488b136c99f07e645.svg",
+        "sha256": "c608071488b136c99f07e64505da439c255e97923633b4a0a1d82f0b5f78a5a8",
+        "bytes": 1330
+      }
+    },
+    {
+      "id": "mp_basezone_mark_n",
+      "label": "基地 N（任务）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/0d7e92f1a7f292e627b2ff1e.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/0d7e92f1a7f292e627b2ff1e.svg",
+        "sha256": "0d7e92f1a7f292e627b2ff1e5963ec0398242f9ae57fa1b85ada8be9386958d4",
+        "bytes": 1325
+      }
+    },
+    {
+      "id": "mp_basezone_mark_o",
+      "label": "基地 O（任务）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/0de0a1e80098ab3f37754742.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/0de0a1e80098ab3f37754742.svg",
+        "sha256": "0de0a1e80098ab3f37754742d89f130755c8eb7ed0d435e4e48df8ceb0bcea04",
+        "bytes": 1163
+      }
+    },
+    {
+      "id": "mp_basezone_mark_p",
+      "label": "基地 P（任务）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/372e15db99e022e5eaddc365.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/372e15db99e022e5eaddc365.svg",
+        "sha256": "372e15db99e022e5eaddc36580be067d69f84c5d728efc79f83e59a7b6d24b72",
+        "bytes": 1051
+      }
+    },
+    {
+      "id": "mp_basezone_stroke",
+      "label": "基地（任务）",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/5004a8cc7084bcf24979e4bb.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/5004a8cc7084bcf24979e4bb.svg",
+        "sha256": "5004a8cc7084bcf24979e4bbf17a91f6274201b9c4ec7597143352eaa5a5c0fc",
+        "bytes": 169
+      }
+    },
+    {
+      "id": "objective_tank",
+      "label": "坦克目标",
+      "group": "单位与队伍",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/0df690b23984c0392d99bc7e.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/0df690b23984c0392d99bc7e.svg",
+        "sha256": "0df690b23984c0392d99bc7ec33c679028a470034ab01f5169c596b319515ea2",
+        "bytes": 280
+      }
+    },
+    {
+      "id": "objective_tank_outline",
+      "label": "坦克目标（轮廓）",
+      "group": "单位与队伍",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/c2a1bd38b7e2aa826657ccae.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/c2a1bd38b7e2aa826657ccae.svg",
+        "sha256": "c2a1bd38b7e2aa826657ccae3bfaca54930843211b3f67f9f74aea3506a1da3a",
+        "bytes": 323
+      }
+    },
+    {
+      "id": "respawnbase_highlight",
+      "label": "基地",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/7953cad1eef46406732dcfe2.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/7953cad1eef46406732dcfe2.svg",
+        "sha256": "7953cad1eef46406732dcfe249b931a012ff780a5138e1e0319bdacff417cd9e",
+        "bytes": 741
+      }
+    },
+    {
+      "id": "respawnbase_ready_map",
+      "label": "基地",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/a16dca3893e39c9eff3f103a.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/a16dca3893e39c9eff3f103a.svg",
+        "sha256": "a16dca3893e39c9eff3f103a6a3d2a1c425528b7a471caa2736ce993485687c6",
+        "bytes": 1154
+      }
+    },
+    {
+      "id": "respawnbase_select",
+      "label": "基地",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/2510edb474d621984235bc16.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/2510edb474d621984235bc16.svg",
+        "sha256": "2510edb474d621984235bc169e93ecc5bdd26485834fa5c5c12edadb7b3ea0f9",
+        "bytes": 741
+      }
+    },
+    {
+      "id": "respawnbase_timer_map",
+      "label": "基地",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/f3d102f3bd47d75eab6015ff.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/f3d102f3bd47d75eab6015ff.svg",
+        "sha256": "f3d102f3bd47d75eab6015ff23d7243acfce2ea8ec4c1018695620f64a423a92",
+        "bytes": 1224
+      }
+    },
+    {
+      "id": "respawnbase_timer_ui",
+      "label": "基地",
+      "group": "基地",
+      "asset": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/36e537711d9883a26ef87869.svg",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/bb4a644c511cf2139b8fd2f9413439fc9ebe1978/war-thunder/map-editor/v1/36e537711d9883a26ef87869.svg",
+        "sha256": "36e537711d9883a26ef87869a85a6eeb0dfa8da8d0afe0771c8684be7c6ba059",
+        "bytes": 877
+      }
+    }
+  ]
+}

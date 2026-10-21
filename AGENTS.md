@@ -193,3 +193,23 @@
   Desktop `.ground-workspace` fills the viewport below the persistent app header;
   the map takes the remaining grid row with no fixed 780px height cap. Keep
   legends and related guides after the workspace in the normal page scroller.
+
+- Ground-map route editing uses SVG annotations and Canvas PNG export. Keep
+  annotation coordinates in full-map normalized UV space, independent of crop,
+  pan and zoom. Original mission marks and contours remain read-only layers.
+- Editor drafts use isolated `wt-map-editor-v1:<map>:<layout>:<team>` keys. Never
+  evict them with data caches or touch carts, lineups or research state. Finish
+  pending strokes before changing layout/team; preserve undo/redo per context.
+- `data/map-editor-icons.json` is the allowlisted registry of original game SVG
+  icons, archived unchanged in the existing `oss-files` image repository. Keep
+  asset commits pinned and stable icon IDs for saved drafts. Never import image
+  URLs, HTML or executable content from user project files.
+- Editable `.wtmap.json` downloads are user-generated documents, not published
+  standalone JSON assets. Validate schema, map/layout/team, IDs, finite geometry,
+  text and point limits before importing; confirm replacement of a target draft.
+- PNG export must use CORS-approved Image loads and report errors rather than
+  silently omitting failed layers. Keep cancellation, 2K/4K options, source
+  fallbacks and the original map/annotation coordinate projection aligned.
+- Run `pnpm run check:map-editor` with the routine verification gate. Keep editor
+  tools floating within the map only while editing; preserve the compact page
+  toolbar, the independent detail route and mobile map area.
