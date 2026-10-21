@@ -1,0 +1,955 @@
+{
+  "schemaVersion": 1,
+  "kind": "static-design-preview",
+  "source": "Gaijin Companion public profile",
+  "players": [
+    {
+      "uid": "241034055",
+      "name": "ArthurDaynee",
+      "level": 21,
+      "title": "Tankman",
+      "capturedAt": "2026-10-21T09:27:57.117051+00:00",
+      "countries": [
+        {
+          "id": "britain",
+          "name": "英国",
+          "owned": 7,
+          "elite": null,
+          "flag": "https://wiki.warthunder.com/static/country_svg/country_britain.svg"
+        },
+        {
+          "id": "germany",
+          "name": "德国",
+          "owned": 37,
+          "elite": 7,
+          "flag": "https://wiki.warthunder.com/static/country_svg/country_germany.svg"
+        },
+        {
+          "id": "japan",
+          "name": "日本",
+          "owned": 8,
+          "elite": null,
+          "flag": "https://wiki.warthunder.com/static/country_svg/country_japan.svg"
+        },
+        {
+          "id": "ussr",
+          "name": "苏联",
+          "owned": 7,
+          "elite": null,
+          "flag": "https://wiki.warthunder.com/static/country_svg/country_ussr.svg"
+        },
+        {
+          "id": "usa",
+          "name": "美国",
+          "owned": 7,
+          "elite": null,
+          "flag": "https://wiki.warthunder.com/static/country_svg/country_usa.svg"
+        },
+        {
+          "id": "italy",
+          "name": "意大利",
+          "owned": 6,
+          "elite": null,
+          "flag": "https://wiki.warthunder.com/static/country_svg/country_italy.svg"
+        },
+        {
+          "id": "china",
+          "name": "中国",
+          "owned": 42,
+          "elite": 2,
+          "flag": "https://wiki.warthunder.com/static/country_svg/country_china.svg"
+        },
+        {
+          "id": "france",
+          "name": "法国",
+          "owned": 7,
+          "elite": null,
+          "flag": "https://wiki.warthunder.com/static/country_svg/country_france.svg"
+        },
+        {
+          "id": "sweden",
+          "name": "瑞典",
+          "owned": 4,
+          "elite": null,
+          "flag": "https://wiki.warthunder.com/static/country_svg/country_sweden.svg"
+        }
+      ],
+      "modes": {
+        "ab": {
+          "wins": 94,
+          "battles": 175,
+          "sorties": 371,
+          "groundKills": 535,
+          "airKills": 104,
+          "deaths": 272.0,
+          "branches": [
+            {
+              "name": "重型坦克",
+              "icon": "army_tank",
+              "seconds": 50796
+            },
+            {
+              "name": "中型坦克",
+              "icon": "army_tank",
+              "seconds": 8141
+            },
+            {
+              "name": "防空车",
+              "icon": "army_tank",
+              "seconds": 5217
+            },
+            {
+              "name": "战斗机",
+              "icon": "army_fighter",
+              "seconds": 5731
+            },
+            {
+              "name": "轰炸机",
+              "icon": "army_bomber",
+              "seconds": 8135
+            }
+          ]
+        },
+        "rb": {
+          "wins": 59,
+          "battles": 128,
+          "sorties": 175,
+          "groundKills": 57,
+          "airKills": 56,
+          "deaths": 143.0,
+          "branches": [
+            {
+              "name": "重型坦克",
+              "icon": "army_tank",
+              "seconds": 6057
+            },
+            {
+              "name": "中型坦克",
+              "icon": "army_tank",
+              "seconds": 10125
+            },
+            {
+              "name": "防空车",
+              "icon": "army_tank",
+              "seconds": 1816
+            },
+            {
+              "name": "战斗机",
+              "icon": "army_fighter",
+              "seconds": 24520
+            }
+          ]
+        },
+        "sb": {
+          "wins": null,
+          "battles": null,
+          "sorties": null,
+          "groundKills": null,
+          "airKills": null,
+          "deaths": -2.0,
+          "branches": []
+        }
+      },
+      "vehicles": [
+        {
+          "id": "germ_pzkpfw_III_ausf_E",
+          "name": "三号坦克 E 型",
+          "mode": "ab",
+          "country": "germany",
+          "category": "ground",
+          "rank": "I",
+          "br": {
+            "ab": 1.0,
+            "rb": 1.0,
+            "sb": 1.0
+          },
+          "wins": 1,
+          "battles": 1,
+          "deaths": null,
+          "sorties": 1,
+          "airKills": null,
+          "groundKills": 6,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/germ_pzkpfw_iii_ausf_e.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/germ_pzkpfw_iii_ausf_e.png"
+        },
+        {
+          "id": "germ_pzkpfw_35t",
+          "name": "35(t) 坦克",
+          "mode": "ab",
+          "country": "germany",
+          "category": "ground",
+          "rank": "I",
+          "br": {
+            "ab": 1.0,
+            "rb": 1.0,
+            "sb": 1.0
+          },
+          "wins": null,
+          "battles": null,
+          "deaths": null,
+          "sorties": null,
+          "airKills": null,
+          "groundKills": null,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/germ_pzkpfw_35t.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/germ_pzkpfw_35t.png"
+        },
+        {
+          "id": "germ_pzkpfw_VI_ausf_h1_tiger_east",
+          "name": "东线虎",
+          "mode": "ab",
+          "country": "germany",
+          "category": "ground",
+          "rank": "III",
+          "br": {
+            "ab": 5.7,
+            "rb": 5.7,
+            "sb": 5.7
+          },
+          "wins": 48,
+          "battles": 84,
+          "deaths": 69,
+          "sorties": 85,
+          "airKills": 6,
+          "groundKills": 166,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/germ_pzkpfw_vi_ausf_h1_tiger_east.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/germ_pzkpfw_vi_ausf_h1_tiger_east.png"
+        },
+        {
+          "id": "germ_pzkpfw_VI_ausf_h1_tiger_west",
+          "name": "西线虎",
+          "mode": "ab",
+          "country": "germany",
+          "category": "ground",
+          "rank": "III",
+          "br": {
+            "ab": 5.7,
+            "rb": 5.7,
+            "sb": 5.7
+          },
+          "wins": 39,
+          "battles": 74,
+          "deaths": 54,
+          "sorties": 74,
+          "airKills": 6,
+          "groundKills": 129,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/germ_pzkpfw_vi_ausf_h1_tiger_west.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/germ_pzkpfw_vi_ausf_h1_tiger_west.png"
+        },
+        {
+          "id": "germ_pzkpfw_II_ausf_C_DAK",
+          "name": "二号坦克 C 型 (非洲军团)",
+          "mode": "ab",
+          "country": "germany",
+          "category": "ground",
+          "rank": "I",
+          "br": {
+            "ab": 1.3,
+            "rb": 1.3,
+            "sb": 1.3
+          },
+          "wins": null,
+          "battles": null,
+          "deaths": null,
+          "sorties": null,
+          "airKills": null,
+          "groundKills": null,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/germ_pzkpfw_ii_ausf_c_dak.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/germ_pzkpfw_ii_ausf_c_dak.png"
+        },
+        {
+          "id": "germ_flakpanzer_IV_Ostwind_2_net",
+          "name": "东风 II (东线)",
+          "mode": "ab",
+          "country": "germany",
+          "category": "ground",
+          "rank": "III",
+          "br": {
+            "ab": 5.7,
+            "rb": 5.3,
+            "sb": 5.3
+          },
+          "wins": 7,
+          "battles": 28,
+          "deaths": 12,
+          "sorties": 28,
+          "airKills": 37,
+          "groundKills": 7,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/germ_flakpanzer_iv_ostwind_2_net.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/germ_flakpanzer_iv_ostwind_2_net.png"
+        },
+        {
+          "id": "germ_pzkpfw_V_ausf_d_panther",
+          "name": "豹式坦克 D 型",
+          "mode": "ab",
+          "country": "germany",
+          "category": "ground",
+          "rank": "III",
+          "br": {
+            "ab": 5.7,
+            "rb": 5.3,
+            "sb": 5.3
+          },
+          "wins": 8,
+          "battles": 21,
+          "deaths": 16,
+          "sorties": 21,
+          "airKills": 1,
+          "groundKills": 8,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/germ_pzkpfw_v_ausf_d_panther.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/germ_pzkpfw_v_ausf_d_panther.png"
+        },
+        {
+          "id": "germ_pzkpfw_VI_ausf_b_tiger_IIh",
+          "name": "虎王",
+          "mode": "ab",
+          "country": "germany",
+          "category": "ground",
+          "rank": "IV",
+          "br": {
+            "ab": 7.0,
+            "rb": 6.7,
+            "sb": 6.7
+          },
+          "wins": 16,
+          "battles": 40,
+          "deaths": 42,
+          "sorties": 46,
+          "airKills": 2,
+          "groundKills": 63,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/germ_pzkpfw_vi_ausf_b_tiger_iih.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/germ_pzkpfw_vi_ausf_b_tiger_iih.png"
+        },
+        {
+          "id": "germ_pzkpfw_VI_ausf_b_tiger_IIp",
+          "name": "虎王预生产型",
+          "mode": "ab",
+          "country": "germany",
+          "category": "ground",
+          "rank": "IV",
+          "br": {
+            "ab": 6.3,
+            "rb": 6.3,
+            "sb": 6.3
+          },
+          "wins": 14,
+          "battles": 34,
+          "deaths": 20,
+          "sorties": 34,
+          "airKills": 4,
+          "groundKills": 55,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/germ_pzkpfw_vi_ausf_b_tiger_iip.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/germ_pzkpfw_vi_ausf_b_tiger_iip.png"
+        },
+        {
+          "id": "cn_ztz_96b",
+          "name": "ZTZ96B",
+          "mode": "ab",
+          "country": "china",
+          "category": "ground",
+          "rank": "VII",
+          "br": {
+            "ab": 11.7,
+            "rb": 11.7,
+            "sb": 11.7
+          },
+          "wins": 9,
+          "battles": 22,
+          "deaths": 23,
+          "sorties": 27,
+          "airKills": null,
+          "groundKills": 11,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/cn_ztz_96b.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/cn_ztz_96b.png"
+        },
+        {
+          "id": "cn_t_26_1940",
+          "name": "␗T-26",
+          "mode": "ab",
+          "country": "china",
+          "category": "ground",
+          "rank": "I",
+          "br": {
+            "ab": 1.0,
+            "rb": 1.0,
+            "sb": 1.0
+          },
+          "wins": null,
+          "battles": null,
+          "deaths": null,
+          "sorties": null,
+          "airKills": null,
+          "groundKills": null,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/cn_t_26_1940.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/cn_t_26_1940.png"
+        },
+        {
+          "id": "he51c1",
+          "name": "He 51 C-1",
+          "mode": "ab",
+          "country": "germany",
+          "category": "aviation",
+          "rank": "I",
+          "br": {
+            "ab": 1.0,
+            "rb": 1.0,
+            "trb": 1.0,
+            "sb": 1.0,
+            "tsb": 1.0
+          },
+          "wins": 2,
+          "battles": 2,
+          "deaths": 1,
+          "sorties": 2,
+          "airKills": 9,
+          "groundKills": null,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/he51c1.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/he51c1.png"
+        },
+        {
+          "id": "he51b1",
+          "name": "He 51 B-1",
+          "mode": "ab",
+          "country": "germany",
+          "category": "aviation",
+          "rank": "I",
+          "br": {
+            "ab": 1.0,
+            "rb": 1.0,
+            "trb": 1.0,
+            "sb": 1.0,
+            "tsb": 1.0
+          },
+          "wins": 3,
+          "battles": 3,
+          "deaths": 1,
+          "sorties": 3,
+          "airKills": 11,
+          "groundKills": 1,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/he51b1.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/he51b1.png"
+        },
+        {
+          "id": "bf-109b_2",
+          "name": "Bf 109 B-1",
+          "mode": "ab",
+          "country": "germany",
+          "category": "aviation",
+          "rank": "I",
+          "br": {
+            "ab": 1.7,
+            "rb": 1.3,
+            "trb": 1.3,
+            "sb": 1.3,
+            "tsb": 1.3
+          },
+          "wins": 8,
+          "battles": 12,
+          "deaths": 10,
+          "sorties": 12,
+          "airKills": 13,
+          "groundKills": null,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/bf-109b_2.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/bf-109b_2.png"
+        },
+        {
+          "id": "he_112v_5",
+          "name": "He 112 V-5",
+          "mode": "ab",
+          "country": "germany",
+          "category": "aviation",
+          "rank": "I",
+          "br": {
+            "ab": 1.3,
+            "rb": 1.3,
+            "trb": 1.3,
+            "sb": 1.7,
+            "tsb": 1.7
+          },
+          "wins": 5,
+          "battles": 7,
+          "deaths": 5,
+          "sorties": 7,
+          "airKills": 5,
+          "groundKills": null,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/he_112v_5.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/he_112v_5.png"
+        },
+        {
+          "id": "do_17e_1",
+          "name": "Do 17 E-1",
+          "mode": "ab",
+          "country": "germany",
+          "category": "aviation",
+          "rank": "I",
+          "br": {
+            "ab": 1.0,
+            "rb": 1.0,
+            "trb": 1.0,
+            "sb": 1.3,
+            "tsb": 1.3
+          },
+          "wins": 4,
+          "battles": 6,
+          "deaths": 2,
+          "sorties": 6,
+          "airKills": 3,
+          "groundKills": 40,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/do_17e_1.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/do_17e_1.png"
+        },
+        {
+          "id": "cn_sdkfz_222_early",
+          "name": "␗Sd.Kfz.222",
+          "mode": "ab",
+          "country": "china",
+          "category": "ground",
+          "rank": "I",
+          "br": {
+            "ab": 1.3,
+            "rb": 1.3,
+            "sb": 1.3
+          },
+          "wins": null,
+          "battles": null,
+          "deaths": null,
+          "sorties": null,
+          "airKills": null,
+          "groundKills": null,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/cn_sdkfz_222_early.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/cn_sdkfz_222_early.png"
+        },
+        {
+          "id": "fw_200c_1",
+          "name": "Fw 200 C-1",
+          "mode": "ab",
+          "country": "germany",
+          "category": "aviation",
+          "rank": "II",
+          "br": {
+            "ab": 2.3,
+            "rb": 2.0,
+            "trb": 2.0,
+            "sb": 3.0,
+            "tsb": 3.0
+          },
+          "wins": 6,
+          "battles": 10,
+          "deaths": 8,
+          "sorties": 10,
+          "airKills": 3,
+          "groundKills": 30,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/fw_200c_1.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/fw_200c_1.png"
+        },
+        {
+          "id": "he_112b_0",
+          "name": "He 112 B-0",
+          "mode": "ab",
+          "country": "germany",
+          "category": "aviation",
+          "rank": "II",
+          "br": {
+            "ab": 2.3,
+            "rb": 2.0,
+            "trb": 2.0,
+            "sb": 2.3,
+            "tsb": 2.3
+          },
+          "wins": 4,
+          "battles": 8,
+          "deaths": 3,
+          "sorties": 8,
+          "airKills": 4,
+          "groundKills": null,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/he_112b_0.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/he_112b_0.png"
+        },
+        {
+          "id": "ju-88a-1",
+          "name": "Ju 88 A-1",
+          "mode": "ab",
+          "country": "germany",
+          "category": "aviation",
+          "rank": "II",
+          "br": {
+            "ab": 2.7,
+            "rb": 2.0,
+            "trb": 2.0,
+            "sb": 2.7,
+            "tsb": 2.7
+          },
+          "wins": 3,
+          "battles": 5,
+          "deaths": 4,
+          "sorties": 5,
+          "airKills": null,
+          "groundKills": 19,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/ju-88a-1.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/ju-88a-1.png"
+        },
+        {
+          "id": "he-111h-6",
+          "name": "He 111 H-6",
+          "mode": "ab",
+          "country": "germany",
+          "category": "aviation",
+          "rank": "II",
+          "br": {
+            "ab": 2.7,
+            "rb": 2.7,
+            "trb": 2.7,
+            "sb": 2.7,
+            "tsb": 2.7
+          },
+          "wins": 1,
+          "battles": 2,
+          "deaths": 2,
+          "sorties": 2,
+          "airKills": null,
+          "groundKills": null,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/he-111h-6.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/he-111h-6.png"
+        },
+        {
+          "id": "germ_pzkpfw_VI_ausf_h1_tiger_east",
+          "name": "东线虎",
+          "mode": "rb",
+          "country": "germany",
+          "category": "ground",
+          "rank": "III",
+          "br": {
+            "ab": 5.7,
+            "rb": 5.7,
+            "sb": 5.7
+          },
+          "wins": 4,
+          "battles": 19,
+          "deaths": 16,
+          "sorties": 19,
+          "airKills": null,
+          "groundKills": 10,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/germ_pzkpfw_vi_ausf_h1_tiger_east.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/germ_pzkpfw_vi_ausf_h1_tiger_east.png"
+        },
+        {
+          "id": "germ_pzkpfw_VI_ausf_h1_tiger_west",
+          "name": "西线虎",
+          "mode": "rb",
+          "country": "germany",
+          "category": "ground",
+          "rank": "III",
+          "br": {
+            "ab": 5.7,
+            "rb": 5.7,
+            "sb": 5.7
+          },
+          "wins": 1,
+          "battles": 14,
+          "deaths": 13,
+          "sorties": 14,
+          "airKills": null,
+          "groundKills": 8,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/germ_pzkpfw_vi_ausf_h1_tiger_west.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/germ_pzkpfw_vi_ausf_h1_tiger_west.png"
+        },
+        {
+          "id": "germ_pzkpfw_II_ausf_C_DAK",
+          "name": "二号坦克 C 型 (非洲军团)",
+          "mode": "rb",
+          "country": "germany",
+          "category": "ground",
+          "rank": "I",
+          "br": {
+            "ab": 1.3,
+            "rb": 1.3,
+            "sb": 1.3
+          },
+          "wins": null,
+          "battles": 1,
+          "deaths": 1,
+          "sorties": 1,
+          "airKills": null,
+          "groundKills": null,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/germ_pzkpfw_ii_ausf_c_dak.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/germ_pzkpfw_ii_ausf_c_dak.png"
+        },
+        {
+          "id": "germ_flakpanzer_IV_Ostwind_2_net",
+          "name": "东风 II (东线)",
+          "mode": "rb",
+          "country": "germany",
+          "category": "ground",
+          "rank": "III",
+          "br": {
+            "ab": 5.7,
+            "rb": 5.3,
+            "sb": 5.3
+          },
+          "wins": 2,
+          "battles": 11,
+          "deaths": 9,
+          "sorties": 11,
+          "airKills": 3,
+          "groundKills": 3,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/germ_flakpanzer_iv_ostwind_2_net.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/germ_flakpanzer_iv_ostwind_2_net.png"
+        },
+        {
+          "id": "germ_pzkpfw_V_ausf_d_panther",
+          "name": "豹式坦克 D 型",
+          "mode": "rb",
+          "country": "germany",
+          "category": "ground",
+          "rank": "III",
+          "br": {
+            "ab": 5.7,
+            "rb": 5.3,
+            "sb": 5.3
+          },
+          "wins": 3,
+          "battles": 14,
+          "deaths": 11,
+          "sorties": 14,
+          "airKills": 1,
+          "groundKills": 10,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/germ_pzkpfw_v_ausf_d_panther.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/germ_pzkpfw_v_ausf_d_panther.png"
+        },
+        {
+          "id": "cn_ztz_96b",
+          "name": "ZTZ96B",
+          "mode": "rb",
+          "country": "china",
+          "category": "ground",
+          "rank": "VII",
+          "br": {
+            "ab": 11.7,
+            "rb": 11.7,
+            "sb": 11.7
+          },
+          "wins": 15,
+          "battles": 31,
+          "deaths": 34,
+          "sorties": 36,
+          "airKills": null,
+          "groundKills": 18,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/cn_ztz_96b.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/cn_ztz_96b.png"
+        },
+        {
+          "id": "su_30mkk",
+          "name": "␗苏-30MKK",
+          "mode": "rb",
+          "country": "china",
+          "category": "aviation",
+          "rank": "VIII",
+          "br": {
+            "ab": 13.3,
+            "rb": 13.3,
+            "trb": 12.3,
+            "sb": 13.3,
+            "tsb": 12.3
+          },
+          "wins": 40,
+          "battles": 78,
+          "deaths": 58,
+          "sorties": 78,
+          "airKills": 52,
+          "groundKills": 8,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/su_30mkk.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/su_30mkk.png"
+        },
+        {
+          "id": "cn_sdkfz_222_early",
+          "name": "␗Sd.Kfz.222",
+          "mode": "rb",
+          "country": "china",
+          "category": "ground",
+          "rank": "I",
+          "br": {
+            "ab": 1.3,
+            "rb": 1.3,
+            "sb": 1.3
+          },
+          "wins": 1,
+          "battles": 1,
+          "deaths": 1,
+          "sorties": 1,
+          "airKills": null,
+          "groundKills": null,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/cn_sdkfz_222_early.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/cn_sdkfz_222_early.png"
+        },
+        {
+          "id": "bf-109b_2",
+          "name": "Bf 109 B-1",
+          "mode": "rb",
+          "country": "germany",
+          "category": "aviation",
+          "rank": "I",
+          "br": {
+            "ab": 1.7,
+            "rb": 1.3,
+            "trb": 1.3,
+            "sb": 1.3,
+            "tsb": 1.3
+          },
+          "wins": null,
+          "battles": null,
+          "deaths": null,
+          "sorties": null,
+          "airKills": null,
+          "groundKills": null,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/bf-109b_2.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/bf-109b_2.png"
+        },
+        {
+          "id": "he_112v_5",
+          "name": "He 112 V-5",
+          "mode": "rb",
+          "country": "germany",
+          "category": "aviation",
+          "rank": "I",
+          "br": {
+            "ab": 1.3,
+            "rb": 1.3,
+            "trb": 1.3,
+            "sb": 1.7,
+            "tsb": 1.7
+          },
+          "wins": null,
+          "battles": null,
+          "deaths": null,
+          "sorties": null,
+          "airKills": null,
+          "groundKills": null,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/he_112v_5.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/he_112v_5.png"
+        },
+        {
+          "id": "fw_200c_1",
+          "name": "Fw 200 C-1",
+          "mode": "rb",
+          "country": "germany",
+          "category": "aviation",
+          "rank": "II",
+          "br": {
+            "ab": 2.3,
+            "rb": 2.0,
+            "trb": 2.0,
+            "sb": 3.0,
+            "tsb": 3.0
+          },
+          "wins": null,
+          "battles": null,
+          "deaths": null,
+          "sorties": null,
+          "airKills": null,
+          "groundKills": null,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/fw_200c_1.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/fw_200c_1.png"
+        },
+        {
+          "id": "cn_m42_duster",
+          "name": "␗M42",
+          "mode": "rb",
+          "country": "china",
+          "category": "ground",
+          "rank": "III",
+          "br": {
+            "ab": 4.3,
+            "rb": 4.0,
+            "sb": 4.0
+          },
+          "wins": 1,
+          "battles": 1,
+          "deaths": null,
+          "sorties": 1,
+          "airKills": null,
+          "groundKills": null,
+          "seaKills": null,
+          "image": "https://static.encyclopedia.warthunder.com/images/cn_m42_duster.png",
+          "thumbnail": "https://static.encyclopedia.warthunder.com/slots/cn_m42_duster.png"
+        }
+      ],
+      "provenance": {
+        "source": "Gaijin Companion eaw_Profile.jzx_getPublic",
+        "rawSnapshotSha256": "f1e64333077abc297449229bd4f202a3f06b8abbe3d5c3056f83ca2fd9c59adf",
+        "vehicleMetadata": "data/trees.json",
+        "names": "data/localization.json",
+        "vehicleIdJoin": "Case-insensitive exact match against canonical tree IDs; original statistics ID retained",
+        "missingValues": "null; never inferred as zero"
+      }
+    }
+  ],
+  "lookup": {
+    "name": "Starfall",
+    "status": "unconfirmed",
+    "note": "尚未确认到满级且近期活跃的目标账号，暂不使用同名玩家代替。"
+  },
+  "assets": {
+    "logo": "https://warthunder.com/assets/img/svg/logo-wt.svg",
+    "ground": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_patria_bmp_3_logo_056f2963433ebf4ac1b945004888e57f.jpg",
+    "aviation": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_logo_eng_a98e2d250b72a68a4c6073f0d30db010.jpg",
+    "armyBase": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/gameuiskin/"
+  },
+  "metricNotes": {
+    "efficiency": "算法待确认，预览不显示分值",
+    "missing": "未返回的值显示为 —，不填零",
+    "reportSort": "同一模式按场次、出击数、稳定载具 ID 排序，取前五辆"
+  },
+  "sampleReviews": {
+    "ab": {
+      "review": {
+        "title": "虎式是你的主力，防空也有存在感。",
+        "text": "这五辆常用载具中，东线虎与西线虎的战斗场次最多，胜率分别为 57.14% 和 52.70%；东线虎的空陆 K/D 为 2.49。东风 II 在 28 场中记录了 37 次空中目标击毁。两辆虎王的胜率均为 40% 左右，样本仍少于两辆虎式，值得继续观察。这份评价只看所列五辆车，不能据此判断具体对局中的走线或团队表现。"
+      },
+      "encourage": {
+        "title": "两辆虎式，撑起了你的常用阵容。",
+        "text": "东线虎和西线虎分别打出了 57.14% 与 52.70% 的胜率，东线虎的空陆 K/D 达到 2.49。东风 II 的 37 次空中目标击毁也值得记上一笔。两辆虎王还在积累场次，别急着用较少的记录给自己下结论。这只是这五辆常用载具的回顾，继续出击，留下更多属于你的记录。"
+      }
+    },
+    "rb": {
+      "review": {
+        "title": "空中主力突出，地面样本仍在积累。",
+        "text": "这五辆常用载具中，苏-30MKK 以 78 场排在首位，记录了 52 次空中目标击毁，胜率为 51.28%。ZTZ96B 为 31 场，胜率为 48.39%；其余三辆德系坦克各有 14 至 19 场。几辆车的样本差异较大，暂时不宜作强弱定论。这些记录无法还原占点、走线或实际配合，后续评价应继续围绕可验证的数据。"
+      },
+      "encourage": {
+        "title": "苏-30MKK，已经成为你的熟面孔。",
+        "text": "78 场、40 胜、52 次空中目标击毁，苏-30MKK 是这五辆常用载具中最常出击的一辆。ZTZ96B 的 31 场也正在积累经验；几辆德系坦克场次较少，结果还有很大的变化空间。继续记录自己的出击，再回头看这五辆载具，会比凭几场输赢判断自己更有帮助。"
+      }
+    }
+  }
+}
