@@ -1,30 +1,128 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="color-scheme" content="dark"><meta name="robots" content="noindex">
-<title>战绩与战报 · 战雷工具设计预览</title>
-<link rel="icon" href="https://warthunder.com/i/favicons/favicon.ico">
-<link rel="stylesheet" href="./style.css">
-<script type="module" src="./app.js"></script>
-</head>
-<body>
-<header class="app-header">
-<a class="brand" href="../../#/tree" aria-label="返回科技树"><img src="https://warthunder.com/assets/img/svg/logo-wt.svg" alt="War Thunder" width="112" height="38"><span>个人研发工具</span></a>
-<nav aria-label="应用页面"><a href="../../#/tree">科技树</a><a href="../../#/lineups">出击队列</a><a href="../../#/maps">陆战地图</a><span aria-current="page">战绩查询</span></nav>
-<select id="mobile-page" class="mobile-page" aria-label="切换页面"><option value="tree">科技树</option><option value="lineups">出击队列</option><option value="maps">陆战地图</option><option value="stats" selected>战绩查询</option></select>
-<div class="header-actions"><span class="preview-tag">设计预览</span><button type="button" id="login">登录</button></div>
-</header>
-<main>
-<div class="page-heading"><div><p class="eyebrow">玩家档案</p><h1>每一次出击，都有迹可循。</h1><p class="muted">查看生涯记录，生成属于你的战雷战报。</p></div><p class="quota">游客每日可查询 <b>5</b> 次 / 生成战报 <b>1</b> 次<br><span>登录后不限每日次数 · 此处为样式展示</span></p></div>
-<div class="page-tabs" role="tablist" aria-label="战绩功能"><button role="tab" id="overview-tab" aria-selected="true" aria-controls="overview">生涯总览</button><button role="tab" id="report-tab" aria-selected="false" aria-controls="report" tabindex="-1">生成战报 <span>TOP 5</span></button></div>
-<section class="query-bar" aria-label="选择玩家"><label for="player">预览玩家</label><select id="player"></select><span id="lookup-status" class="muted"></span><span class="snapshot-label">真实资料样本</span></section>
-<section id="overview" role="tabpanel" aria-labelledby="overview-tab"><div id="overview-content"></div></section>
-<section id="report" role="tabpanel" aria-labelledby="report-tab" hidden>
-<div class="report-layout"><aside class="report-settings panel"><h2>生成你的战报</h2><p class="muted">同一模式，选取战斗场次最多的五辆载具。</p><label for="report-mode">战斗模式</label><select id="report-mode"><option value="ab">街机战斗 AB</option><option value="rb">历史战斗 RB</option><option value="sb">全真战斗 SB</option></select><fieldset><legend>画面主题</legend><div class="theme-options"><button type="button" data-theme="auto" aria-pressed="true">自动匹配<span>跟随常用军种</span></button><button type="button" data-theme="ground" aria-pressed="false">钢铁前线<span>陆战背景</span></button><button type="button" data-theme="aviation" aria-pressed="false">长空之上<span>航空背景</span></button></div></fieldset><label for="tone">评价风格</label><select id="tone"><option value="review">战术复盘</option><option value="encourage">鼓励一下</option></select><div class="notice"><b>先看样式，再接入生成</b><p>战绩来自实际查询。当前评价是示例文案；登录、额度与图片生成将在确认设计后接入。</p></div><button type="button" class="primary" id="preview-report">更新战报预览</button><button type="button" id="download-info">保存图片</button><p class="fine">换背景、查看已有战报和重复保存不消耗生成次数。</p></aside><div class="poster-stage"><div class="poster-caption"><span>竖版战报预览</span><span id="theme-caption"></span></div><article id="poster" class="poster" aria-label="玩家战报"></article></div></div>
-</section>
-<footer class="page-footer"><span>资料来自战雷官方公开查询 · <span id="capture-time"></span></span><span>静态设计预览 · 不会发起新的战绩查询</span></footer>
-</main>
-<dialog id="info-dialog"><button type="button" class="dialog-close" aria-label="关闭">×</button><h2 id="dialog-title"></h2><p id="dialog-copy"></p><button type="button" class="primary dialog-done">知道了</button></dialog>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="robots" content="noindex" />
+    <title>战绩与战报 · 战雷工具设计预览</title>
+    <link rel="icon" href="https://warthunder.com/i/favicons/favicon.ico" />
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="../../#/tree" aria-label="返回科技树"
+        ><img
+          src="https://warthunder.com/assets/img/svg/logo-wt.svg"
+          alt="War Thunder"
+          width="112"
+          height="38"
+        /><span>个人研发工具</span></a
+      >
+      <nav aria-label="应用页面">
+        <a href="../../#/tree">科技树</a><a href="../../#/lineups">出击队列</a
+        ><a href="../../#/maps">陆战地图</a><span aria-current="page">战绩查询</span>
+      </nav>
+      <select id="mobile-page" class="mobile-page" aria-label="切换页面">
+        <option value="tree">科技树</option>
+        <option value="lineups">出击队列</option>
+        <option value="maps">陆战地图</option>
+        <option value="stats" selected>战绩查询</option>
+      </select>
+      <div class="header-actions">
+        <span class="preview-tag">设计预览</span><button type="button" id="login">登录</button>
+      </div>
+    </header>
+    <main>
+      <div class="page-heading">
+        <div>
+          <p class="eyebrow">玩家档案</p>
+          <h1>每一次出击，都有迹可循。</h1>
+          <p class="muted">查看生涯记录，生成属于你的战雷战报。</p>
+        </div>
+        <p class="quota">
+          游客每日新查询 <b>5</b> 次 / 生成战报 <b>1</b> 次<br /><span
+            >缓存至少 1 小时，命中不扣次 · 登录后不限每日次数</span
+          >
+        </p>
+      </div>
+      <div class="page-tabs" role="tablist" aria-label="战绩功能">
+        <button role="tab" id="overview-tab" aria-selected="true" aria-controls="overview">
+          生涯总览</button
+        ><button
+          role="tab"
+          id="report-tab"
+          aria-selected="false"
+          aria-controls="report"
+          tabindex="-1"
+        >
+          生成战报 <span>TOP 5</span>
+        </button>
+      </div>
+      <section class="query-bar" aria-label="选择玩家">
+        <label for="player">预览玩家</label
+        ><select id="player"></select
+        ><span id="lookup-status" class="muted"></span
+        ><span class="snapshot-label">真实资料样本</span>
+      </section>
+      <section id="overview" role="tabpanel" aria-labelledby="overview-tab">
+        <div id="overview-content"></div>
+      </section>
+      <section id="report" role="tabpanel" aria-labelledby="report-tab" hidden>
+        <div class="report-layout">
+          <aside class="report-settings panel">
+            <h2>生成你的战报</h2>
+            <p class="muted">同一模式，选取战斗场次最多的五辆载具。</p>
+            <label for="report-mode">战斗模式</label
+            ><select id="report-mode">
+              <option value="ab">街机战斗 AB</option>
+              <option value="rb">历史战斗 RB</option>
+              <option value="sb">全真战斗 SB</option>
+            </select>
+            <fieldset>
+              <legend>画面主题</legend>
+              <div class="theme-options">
+                <button type="button" data-theme="auto" aria-pressed="true">
+                  自动匹配<span>跟随常用军种</span></button
+                ><button type="button" data-theme="ground" aria-pressed="false">
+                  钢铁前线<span>陆战背景</span></button
+                ><button type="button" data-theme="aviation" aria-pressed="false">
+                  长空之上<span>航空背景</span>
+                </button>
+              </div>
+            </fieldset>
+            <label for="tone">评价风格</label
+            ><select id="tone">
+              <option value="review">战术复盘</option>
+              <option value="encourage">鼓励一下</option>
+            </select>
+            <div class="notice">
+              <b>先看样式，再接入生成</b>
+              <p>战绩来自实际查询。当前评价是示例文案；登录、额度与图片生成将在确认设计后接入。</p>
+            </div>
+            <button type="button" class="primary" id="preview-report">更新战报预览</button
+            ><button type="button" id="download-info">保存图片</button>
+            <p class="fine">换背景、查看已有战报和重复保存不消耗生成次数。</p>
+          </aside>
+          <div class="poster-stage">
+            <div class="poster-caption">
+              <span>竖版战报预览</span><span id="theme-caption"></span>
+            </div>
+            <article id="poster" class="poster" aria-label="玩家战报"></article>
+          </div>
+        </div>
+      </section>
+      <footer class="page-footer">
+        <span>资料来自战雷官方公开查询 · <span id="capture-time"></span></span
+        ><span>静态设计预览 · 不会发起新的战绩查询</span>
+      </footer>
+    </main>
+    <dialog id="info-dialog">
+      <button type="button" class="dialog-close" aria-label="关闭">×</button>
+      <h2 id="dialog-title"></h2>
+      <p id="dialog-copy"></p>
+      <button type="button" class="primary dialog-done">知道了</button>
+    </dialog>
+  </body>
 </html>
