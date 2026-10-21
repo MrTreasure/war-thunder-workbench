@@ -1,40 +1,10 @@
-/** Build the isolated design review. JSON stays canonical; delivery is JavaScript. */
-import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
-import { createHash } from "node:crypto";
-const root = new URL("../", import.meta.url);
-const source = new URL("design-previews/player-stats/", root);
-const output = new URL("public/design/player-stats/", root);
-const data = JSON.parse(await readFile(new URL("data/player-stats-preview.json", root), "utf8"));
-if (data.schemaVersion !== 1 || data.kind !== "static-design-preview" || !data.players.length)
-  throw new Error("Invalid preview fixture");
+/** Keep previously shared preview links opening the implemented stats page. */
+import { mkdir, writeFile, rm } from "node:fs/promises";
+const output = new URL("../public/design/player-stats/", import.meta.url);
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
-async function asset(prefix, suffix, body) {
-  const hash = createHash("sha256").update(body).digest("hex").slice(0, 16);
-  const name = `${prefix}.${hash}.${suffix}`;
-  await writeFile(new URL(name, output), body);
-  return name;
-}
-const dataName = await asset("data", "js", `export default ${JSON.stringify(data)};\n`);
-const fontName = await asset(
-  "numbers",
-  "ttf",
-  await readFile(new URL("src/assets/RobotoCondensed-Bold.ttf", root)),
+await writeFile(
+  new URL("preview.html", output),
+  `<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>战绩查询与授勋战报</title><style>body{background:#202529;color:#e5e6dc;font:16px system-ui;padding:30px}a{color:#d5b66c}</style><p>正在打开战绩查询与授勋战报…</p><a href="../../#/stats">点击进入</a><script>const q=new URLSearchParams(location.search);const next=new URLSearchParams();if(q.get('player'))next.set('player',q.get('player').slice(0,64));if(q.get('view')==='report')next.set('view','report');location.replace('../../#/stats'+(next.size?'?'+next.toString():''));</script></html>`,
 );
-const cssName = await asset(
-  "style",
-  "css",
-  (await readFile(new URL("style.css", source), "utf8")).replace("./numbers.ttf", `./${fontName}`),
-);
-const appName = await asset(
-  "app",
-  "js",
-  (await readFile(new URL("app.js", source), "utf8")).replace("./data.js", `./${dataName}`),
-);
-const html = (await readFile(new URL("preview.html", source), "utf8"))
-  .replace("./style.css", `./${cssName}`)
-  .replace("./app.js", `./${appName}`);
-await writeFile(new URL("preview.html", output), html);
-console.log(
-  `Built standalone player stats preview: ${data.players.length} player(s), JSON transported as JS.`,
-);
+console.log("Prepared compatibility link to #/stats; no player fixtures published.");

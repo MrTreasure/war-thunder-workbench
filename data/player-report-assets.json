@@ -1,0 +1,308 @@
+{
+  "schemaVersion": 1,
+  "backgrounds": [
+    {
+      "id": "bg-f43b8ea30f",
+      "title": "装甲前线 · 帕特里亚",
+      "category": "ground",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_patria_bmp_3_logo_056f2963433ebf4ac1b945004888e57f.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/_thumbs/279x157/1920x1080_patria_bmp_3_logo_056f2963433ebf4ac1b945004888e57f_279x157_3843dc21082a1fe9c1bea6968252799e.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "checkedAt": "2026-10-21T11:31:50.615307+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-003afe534e",
+      "title": "苍穹远征",
+      "category": "mixed",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_logo_eng_a98e2d250b72a68a4c6073f0d30db010.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/_thumbs/279x157/1920x1080_sky_odyssey_logo_eng_a98e2d250b72a68a4c6073f0d30db010_279x157_c2a0f5eaf6d0236e897f26c8d1ec50fc.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "checkedAt": "2026-10-21T11:31:50.615336+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-a3369979d1",
+      "title": "海上猎鹰 · AW159",
+      "category": "aviation",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_aw_159_logo_eng_0b76aeba7f0d6c03d48c576faa7af56a.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/_thumbs/279x157/1920x1080_sky_odyssey_aw_159_logo_eng_0b76aeba7f0d6c03d48c576faa7af56a_279x157_22a8e34e79cdcc8f5559e9298ba62088.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "checkedAt": "2026-10-21T11:31:50.615346+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-a52fd68397",
+      "title": "长空利剑 · 歼-16",
+      "category": "aviation",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_j16_logo_eng_0fbcfd8f9c34bf54000c5e6711410708.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/_thumbs/279x157/1920x1080_sky_odyssey_j16_logo_eng_0fbcfd8f9c34bf54000c5e6711410708_279x157_e13a9bbc6f9caad870afe32944247cc4.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "checkedAt": "2026-10-21T11:31:50.615354+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-600cb93ef2",
+      "title": "阿琼出击",
+      "category": "ground",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_sky_odyssey_arjun_mk1_logo_eng_4b463db29bd527e1fe8e3c7fa0812663.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/_thumbs/279x157/1920x1080_sky_odyssey_arjun_mk1_logo_eng_4b463db29bd527e1fe8e3c7fa0812663_279x157_8c9d4c62db809e2bc9b3757acf3656d4.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "checkedAt": "2026-10-21T11:31:50.615360+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-c3ce0aa55e",
+      "title": "鹰击长空",
+      "category": "aviation",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_hawk_209_indonesia_logo_0fdbee1145346161ab0bde343e58409d.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/_thumbs/279x157/1920x1080_hawk_209_indonesia_logo_0fdbee1145346161ab0bde343e58409d_279x157_76cf5cd6ccc7d9da318f09642987f8e2.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "checkedAt": "2026-10-21T11:31:50.615371+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-ed22579cab",
+      "title": "十月革命号",
+      "category": "ships",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/1920x1080_battleship_oktyabrskaya_revolutsiya_logo_31c3d5361aa1c44b8cfcee6b8f3d9733.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/_thumbs/279x157/1920x1080_battleship_oktyabrskaya_revolutsiya_logo_31c3d5361aa1c44b8cfcee6b8f3d9733_279x157_eecf3f38eabe2f0a4e620c3a6509ca66.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "checkedAt": "2026-10-21T11:31:50.615382+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-eee20c3800",
+      "title": "机动突击 · 菲亚特",
+      "category": "ground",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_it_fiat_6616_ub_logo_3327a4c998d2f2f429a90eea190e3753.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/_thumbs/279x157/1920x1080_it_fiat_6616_ub_logo_3327a4c998d2f2f429a90eea190e3753_279x157_47b54cbda1fa6f3874a6ea897495e53c.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "checkedAt": "2026-10-21T11:31:50.615389+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-cacb0c169c",
+      "title": "弯刀出击",
+      "category": "ground",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_scimitar_strike_logo_aa9d4dcedf930fc01a002d65f33131a5.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/_thumbs/279x157/1920x1080_scimitar_strike_logo_aa9d4dcedf930fc01a002d65f33131a5_279x157_7de23f3c217b3aa22205684f28b02b53.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/2",
+      "checkedAt": "2026-10-21T11:31:55.747276+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-7d268eeb32",
+      "title": "重骑兵",
+      "category": "mixed",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_heavy_cavalry_logo_eng_42204711432b0ddb79a5f30b72850fe0.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/_thumbs/279x157/1920x1080_heavy_cavalry_logo_eng_42204711432b0ddb79a5f30b72850fe0_279x157_f2b8f6e75fc0cab062727782a19e144b.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/2",
+      "checkedAt": "2026-10-21T11:31:55.747497+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-86e7dccdc2",
+      "title": "鹰隼训练 · 雅克-130",
+      "category": "aviation",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_heavy_cavalry_yak130_m346_logo_eng_85a4367acf304ee8f2f7895affcaaff7.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/_thumbs/279x157/1920x1080_heavy_cavalry_yak130_m346_logo_eng_85a4367acf304ee8f2f7895affcaaff7_279x157_743391617df7d8e6b5997c4acad514ac.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/2",
+      "checkedAt": "2026-10-21T11:31:55.747543+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-ec1998f9a4",
+      "title": "普卡拉突击",
+      "category": "aviation",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_heavy_cavalry_ia_58a_pucara_logo_eng_ce844054d0453e11239c6c35afae33ba.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/_thumbs/279x157/1920x1080_heavy_cavalry_ia_58a_pucara_logo_eng_ce844054d0453e11239c6c35afae33ba_279x157_54212094f63258933f6bca0c4c8eb886.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/2",
+      "checkedAt": "2026-10-21T11:31:55.747584+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-a00089015e",
+      "title": "自行火炮 · 野蜂",
+      "category": "ground",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_heavy_cavalry_hummel_logo_eng_1b67946313ed536aab6822822868c710.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/_thumbs/279x157/1920x1080_heavy_cavalry_hummel_logo_eng_1b67946313ed536aab6822822868c710_279x157_517b2c93c7ca9e3628fbc80fc02bfc41.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/2",
+      "checkedAt": "2026-10-21T11:31:55.747626+00:00",
+      "era": "ww2"
+    },
+    {
+      "id": "bg-1e8d1f7bf4",
+      "title": "喷火掠影",
+      "category": "aviation",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_spitfire_lf_mk9c_cw_greece_logo_dc1ebf0983fbb16aa7b7fed086198fa8.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/_thumbs/279x157/1920x1080_spitfire_lf_mk9c_cw_greece_logo_dc1ebf0983fbb16aa7b7fed086198fa8_279x157_44218d24ba6ec8f2993bc9b85831b06f.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/3",
+      "checkedAt": "2026-10-21T11:32:02.502932+00:00",
+      "era": "ww2"
+    },
+    {
+      "id": "bg-2fa09ae8d9",
+      "title": "胜利纪念",
+      "category": "mixed",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_victory_day_2026_logo_602e1a54af7fac44271a481f0fb798ea.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/_thumbs/279x157/1920x1080_victory_day_2026_logo_602e1a54af7fac44271a481f0fb798ea_279x157_df4e32e167598ed9b0b2d5139538cea5.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/3",
+      "checkedAt": "2026-10-21T11:32:02.503051+00:00",
+      "era": "ww2"
+    },
+    {
+      "id": "bg-e30d62d3ad",
+      "title": "海上宪兵",
+      "category": "ships",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/1920x1080_ship_marathon_marine_gendarme_logo_df1ef5ea1e9bb608ee8877961a8a5c8c.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/_thumbs/279x157/1920x1080_ship_marathon_marine_gendarme_logo_df1ef5ea1e9bb608ee8877961a8a5c8c_279x157_5ccd21909575016fa3b4cdc62db0f0b6.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/3",
+      "checkedAt": "2026-10-21T11:32:02.503107+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-c07b9f3ee1",
+      "title": "第九浪潮",
+      "category": "mixed",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_ninth_wave_logo_eng_1ec685a725112eee99ae28dc8e9fb71b.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/_thumbs/279x157/1920x1080_ninth_wave_logo_eng_1ec685a725112eee99ae28dc8e9fb71b_279x157_4532857726c2d4a03c7ca2fd0be214f0.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/3",
+      "checkedAt": "2026-10-21T11:32:02.503206+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-fdaf2d6ef5",
+      "title": "匈牙利空军",
+      "category": "aviation",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_ninth_wave_hungarian_aircrafts_logo_eng_b575755f1fcaddf1be50f7a8ec9fbbaa.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/_thumbs/279x157/1920x1080_ninth_wave_hungarian_aircrafts_logo_eng_b575755f1fcaddf1be50f7a8ec9fbbaa_279x157_bf99c08856f244d7e078fc803c919afb.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/3",
+      "checkedAt": "2026-10-21T11:32:02.503276+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-e4de4818c3",
+      "title": "装甲浪潮",
+      "category": "mixed",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_ninth_wave_armoured_fighting_vehicles_logo_eng_541b93d95ebfe68ee212d84d1115d7d7.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/_thumbs/279x157/1920x1080_ninth_wave_armoured_fighting_vehicles_logo_eng_541b93d95ebfe68ee212d84d1115d7d7_279x157_fe5ebee38b0d82e8d403b6ae2ab39c9d.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/3",
+      "checkedAt": "2026-10-21T11:32:02.503330+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-5827d48a53",
+      "title": "俄克拉荷马号",
+      "category": "ships",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/1920x1080_ship_marathon_uss_oklakhoma_logo_4e4c11df16c7d0b66b104ec8594ac778.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/_thumbs/279x157/1920x1080_ship_marathon_uss_oklakhoma_logo_4e4c11df16c7d0b66b104ec8594ac778_279x157_941b98a89b6e6d4939b6d70e731ffbe2.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/3",
+      "checkedAt": "2026-10-21T11:32:02.503381+00:00",
+      "era": "ww2"
+    },
+    {
+      "id": "bg-df2bee539d",
+      "title": "北境之翼 · CF-188",
+      "category": "aviation",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_cf_188a_canada_logo_0932e0eccebda8911b7eefd830f874cf.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/_thumbs/279x157/1920x1080_cf_188a_canada_logo_0932e0eccebda8911b7eefd830f874cf_279x157_0f7a721a688f33f2f2c5bed0cb8cd699.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/3",
+      "checkedAt": "2026-10-21T11:32:02.503429+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-61d030614a",
+      "title": "空中驮马",
+      "category": "aviation",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_aircraft_marathon_workhorse_logo_b7847b1ca7ad2c67625fd9559c71e6ce.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/_thumbs/279x157/1920x1080_aircraft_marathon_workhorse_logo_b7847b1ca7ad2c67625fd9559c71e6ce_279x157_db232870898897124e4c75f886a6877d.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/4",
+      "checkedAt": "2026-10-21T11:32:08.306970+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-cb6d510e27",
+      "title": "轻骑侦察 · ELC",
+      "category": "ground",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_amx_elc_901_logo_a5b964e82699b453f3868a578a0f1806.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/_thumbs/279x157/1920x1080_amx_elc_901_logo_a5b964e82699b453f3868a578a0f1806_279x157_25c3528d859f4bd6fc34450d0efa1252.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/4",
+      "checkedAt": "2026-10-21T11:32:08.307068+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-24b1f27bf7",
+      "title": "铁甲防线 · T-72B3",
+      "category": "ground",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_event_t_72b3_arena_logo_f2dfe88cd0c49cd7adbeb026740f525c.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/_thumbs/279x157/1920x1080_event_t_72b3_arena_logo_f2dfe88cd0c49cd7adbeb026740f525c_279x157_713328541b48d50e250b99be4a371450.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/4",
+      "checkedAt": "2026-10-21T11:32:08.307117+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-175aab064f",
+      "title": "超级大黄蜂",
+      "category": "aviation",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_line_of_contact_fa_18e_block_2_logo_eng_752362bafa0b4effbb6c57be6a50bc6d.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/_thumbs/279x157/1920x1080_line_of_contact_fa_18e_block_2_logo_eng_752362bafa0b4effbb6c57be6a50bc6d_279x157_e9986546074b8d11690c75f23f97c4dd.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/4",
+      "checkedAt": "2026-10-21T11:32:08.307173+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-ab12a1689f",
+      "title": "截击长空 · 米格-25",
+      "category": "aviation",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_line_of_contact_mig_25pd_logo_eng_845b0172125e032169d8c292dbf8f041.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/_thumbs/279x157/1920x1080_line_of_contact_mig_25pd_logo_eng_845b0172125e032169d8c292dbf8f041_279x157_67caf9fb1d9f08d8940d2ff7ba1d013d.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/4",
+      "checkedAt": "2026-10-21T11:32:08.307222+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-ca1fcedda5",
+      "title": "威尔士亲王号",
+      "category": "ships",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_line_of_contact_prince_wales_logo_eng_7eba58793c7f1fde72b8939b65996da3.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/_thumbs/279x157/1920x1080_line_of_contact_prince_wales_logo_eng_7eba58793c7f1fde72b8939b65996da3_279x157_33d01bed91d34dba9371823d900b3a44.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/4",
+      "checkedAt": "2026-10-21T11:32:08.307269+00:00",
+      "era": "ww2"
+    },
+    {
+      "id": "bg-2003e54ef5",
+      "title": "接触前线",
+      "category": "mixed",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_line_of_contact_logo_eng_bc30d2bbb78da53162bf173bdf59047d.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/_thumbs/279x157/1920x1080_line_of_contact_logo_eng_bc30d2bbb78da53162bf173bdf59047d_279x157_3ec95321407afd40251bf522f87659e0.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/4",
+      "checkedAt": "2026-10-21T11:32:08.307322+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-952bc2f501",
+      "title": "海上巡猎 · 205PE",
+      "category": "ships",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/1920x1080_event_205pe_k225_logo_592532112049b5195bea926fba22c02c.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/_thumbs/279x157/1920x1080_event_205pe_k225_logo_592532112049b5195bea926fba22c02c_279x157_60392606557793734e60f42cf0fa5e8a.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/4",
+      "checkedAt": "2026-10-21T11:32:08.307367+00:00",
+      "era": "modern"
+    },
+    {
+      "id": "bg-ec31d79628",
+      "title": "先锋出击",
+      "category": "mixed",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_spearhead_logo_eng_d6f9adcafc06be87916da90701a0c08c.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/_thumbs/279x157/1920x1080_spearhead_logo_eng_d6f9adcafc06be87916da90701a0c08c_279x157_b6d0313b9fcecb3005bc643c797325bb.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/4",
+      "checkedAt": "2026-10-21T11:32:08.307414+00:00",
+      "era": "modern"
+    }
+  ],
+  "avatarBase": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatars/",
+  "avatarSource": "Original game images.vromfs.bin, commit ea96f3af75afe1d858f80ac13f212db218bc69ca",
+  "armyBase": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/gameuiskin/"
+}

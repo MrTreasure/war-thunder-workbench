@@ -1130,3 +1130,310 @@
     max-height: min(44dvh, 360px);
   }
 }
+
+/* Career and commendation pages keep the shared page picker in the app header. */
+@media (max-width: 1100px) {
+  .wt-record-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .wt-record-overview {
+    grid-template-columns: minmax(0, 1fr) 300px;
+  }
+  .wt-record-countries {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .wt-record-report-layout {
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 20px;
+  }
+  .wt-report-poster {
+    padding: 25px;
+  }
+  .wt-poster-vehicle {
+    grid-template-columns: 18px 80px minmax(0, 1fr);
+    gap: 8px;
+  }
+  .wt-poster-vehicle > img {
+    width: 80px;
+  }
+  .wt-poster-vehicle-values {
+    gap: 8px;
+  }
+}
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-record-page {
+    padding: 20px 14px 30px;
+  }
+  .wt-record-page-title {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .wt-record-page h1 {
+    font-size: 22px;
+  }
+  .wt-record-account {
+    text-align: left;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .wt-record-query {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .wt-record-query input {
+    width: 0;
+    max-width: none;
+    font-size: 16px;
+  }
+  .wt-record-query > span {
+    flex-basis: 100%;
+    margin-left: 0;
+    font-size: 11px;
+  }
+  .wt-record-candidates {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .wt-record-player {
+    padding: 16px 14px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .wt-record-player h2 {
+    font-size: 23px;
+  }
+  .wt-record-player > div:not(.wt-record-source) {
+    min-width: 0;
+    flex: 1;
+  }
+  .wt-player-avatar {
+    width: 56px;
+    height: 56px;
+  }
+  .wt-record-source {
+    flex-basis: 100%;
+    text-align: left;
+    margin: 0;
+    flex-direction: row;
+    gap: 9px;
+    font-size: 10px;
+  }
+  .wt-record-tabs {
+    gap: 20px;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+  }
+  .wt-record-tabs > button {
+    font-size: 14px;
+  }
+  .wt-record-modes {
+    margin-left: 0;
+    flex-basis: 100%;
+    width: 100%;
+  }
+  .wt-record-modes button {
+    flex: 1;
+    min-height: 44px;
+  }
+  .wt-record-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .wt-record-metrics > div {
+    padding: 13px 14px;
+  }
+  .wt-record-metrics strong {
+    font-size: 30px;
+  }
+  .wt-record-overview {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .wt-record-panel {
+    padding: 18px 16px;
+  }
+  .wt-record-branch-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px;
+  }
+  .wt-record-branch-grid strong {
+    font-size: 29px;
+  }
+  .wt-record-branch-grid p {
+    font-size: 10px;
+  }
+  .wt-record-branch-grid small {
+    font-size: 9px;
+  }
+  .wt-record-heading {
+    gap: 9px;
+    align-items: baseline;
+  }
+  .wt-record-heading h2 {
+    font-size: 16px;
+  }
+  .wt-record-heading > span {
+    font-size: 10px;
+  }
+  .wt-radar > svg {
+    max-width: 340px;
+    margin: auto;
+  }
+  .wt-radar summary {
+    min-height: 44px;
+  }
+  .wt-record-countries {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .wt-record-filters {
+    flex-wrap: wrap;
+  }
+  .wt-record-filters > input {
+    width: 100%;
+    font-size: 16px;
+  }
+  .wt-record-filters .wt-select {
+    min-width: 0;
+    width: 100%;
+  }
+  .wt-record-table-scroll {
+    margin-inline: -16px;
+  }
+  .wt-record-report-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 23px;
+  }
+  .wt-report-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 11px;
+  }
+  .wt-report-controls > h2,
+  .wt-report-controls > p,
+  .wt-report-controls > .wt-record-heading,
+  .wt-report-controls > .wt-report-backgrounds,
+  .wt-report-controls > .wt-report-voice,
+  .wt-report-controls > a {
+    grid-column: 1/-1;
+  }
+  .wt-report-backgrounds {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-height: 230px;
+  }
+  .wt-report-backgrounds button {
+    min-height: 90px;
+  }
+  .wt-report-controls > .wt-record-primary {
+    grid-column: 1/-1;
+  }
+  .wt-report-controls > .wt-select {
+    min-width: 0;
+  }
+  .wt-report-controls > button {
+    padding-inline: 8px;
+    font-size: 13px;
+  }
+  .wt-report-poster {
+    padding: 25px 19px;
+  }
+  .wt-poster-top {
+    margin-bottom: 29px;
+  }
+  .wt-poster-top > img {
+    width: 94px;
+    height: 43px;
+  }
+  .wt-poster-top > span {
+    font-size: 9px;
+  }
+  .wt-poster-identity {
+    gap: 12px;
+  }
+  .wt-poster-identity .wt-player-avatar {
+    width: 53px;
+    height: 53px;
+  }
+  .wt-poster-identity h2 {
+    font-size: 29px;
+  }
+  .wt-poster-identity p {
+    font-size: 9px;
+  }
+  .wt-poster-identity > div > span {
+    font-size: 10px;
+  }
+  .wt-poster-metrics {
+    gap: 19px;
+  }
+  .wt-poster-metrics strong {
+    font-size: 29px;
+  }
+  .wt-poster-metrics .wt-poster-efficiency strong {
+    font-size: 43px;
+  }
+  .wt-poster-vehicle {
+    grid-template-columns: 15px 67px minmax(0, 1fr);
+    gap: 7px;
+    padding: 13px 0;
+  }
+  .wt-poster-vehicle > img {
+    width: 67px;
+    height: 64px;
+  }
+  .wt-poster-vehicle h3 {
+    font-size: 13px;
+  }
+  .wt-poster-vehicle-values {
+    font-size: 9px;
+    gap: 7px;
+  }
+  .wt-poster-vehicle-values b {
+    font-size: 11px;
+  }
+  .wt-poster-silver b {
+    font-size: 11px;
+  }
+  .wt-poster-speech h3 {
+    font-size: 19px;
+  }
+  .wt-poster-speech p {
+    font-size: 12px;
+  }
+  .wt-record-welcome {
+    padding: 45px 16px;
+  }
+  .wt-record-welcome h2 {
+    font-size: 21px;
+  }
+  .wt-record-welcome > div {
+    flex-direction: column;
+  }
+}
+@media (max-width: 360px) {
+  .wt-record-page {
+    padding-inline: 10px;
+  }
+  .wt-record-player h2 {
+    font-size: 21px;
+  }
+  .wt-poster-identity h2 {
+    font-size: 25px;
+  }
+  .wt-poster-metrics {
+    gap: 14px;
+  }
+  .wt-report-poster {
+    padding-inline: 14px;
+  }
+  .wt-record-countries {
+    gap: 13px;
+  }
+  .wt-report-backgrounds {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-record-page .wt-record-link {
+    min-height: 44px;
+  }
+}

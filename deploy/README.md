@@ -59,3 +59,7 @@ include /etc/nginx/sites/render-observability.inc;
 本次配置备份位于部署机器的 `appdata/war-thunder-trees/backups/nginx-observability-20261020-143305/`，`manifest.json` 记录哪些文件原先存在。
 
 回退时恢复备份中的 `render.conf` 和 `war-thunder-assets.inc`，移除本次新增的 `render-timing.conf` 与 `render-observability.inc`，随后执行 `docker exec static-server nginx -t`；通过后执行 `docker exec static-server nginx -s reload`。应用静态文件无需重新发布。
+
+## 战绩战报图片下载
+
+`nginx-war-thunder-assets.inc` 现在同时包含应用 HTML 所在目录的精确前缀规则。仅本应用的 `connect-src` 放行战绩 API、原生载具图及固定版本游戏图标所用的可信域名，供 CORS 图片读取与 PNG 导出；不会修改其他 render 应用的策略。HTML 仍为 no-store，哈希资源仍由更长的 assets 前缀处理。修改 include 前备份，`nginx -t` 成功后平滑加载。
