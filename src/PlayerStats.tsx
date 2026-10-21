@@ -15,6 +15,7 @@ import {
   statsBranchKd,
   statsBranchTarget,
   statsArmyIcon,
+  statsReportScopeLabel,
   statsCategoryNames,
 } from "./player-stats-api";
 import type {
@@ -90,6 +91,20 @@ export function PlayerStats() {
   const [report, setReport] = useState<StatsReport | null>(null),
     [background, setBackground] = useState("auto"),
     [bgFilter, setBgFilter] = useState("all");
+  const [reportCountry, setReportCountry] = useState("all"),
+    [reportCategory, setReportCategory] = useState("all"),
+    [previewBusy, setPreviewBusy] = useState(false),
+    [previewError, setPreviewError] = useState(""),
+    [previewRetry, setPreviewRetry] = useState(0),
+    [viewingHistory, setViewingHistory] = useState(false);
+  function changeReportFilter(value: string, field: "country" | "category") {
+    if (field === "country") setReportCountry(value);
+    else setReportCategory(value);
+    setViewingHistory(false);
+    setReport(null);
+    setBackground("auto");
+    setPreviewError("");
+  }
   const [showRules, setShowRules] = useState(false),
     [history, setHistory] = useState<StatsReport[] | null>(null),
     [exportBusy, setExportBusy] = useState(false);
@@ -116,6 +131,9 @@ export function PlayerStats() {
     setCategory("all");
     setLimit(40);
     setReport(null);
+    setReportCountry("all");
+    setReportCategory("all");
+    setViewingHistory(false);
     setBackground("auto");
     setCandidates([]);
     setNotice(p.cached ? "已命中缓存，本次不扣查询次数。" : "已取得官方公开资料，并保存查询记录。");
@@ -232,28 +250,46 @@ export function PlayerStats() {
   }, []);
   useEffect(() => {
     const c = new AbortController();
-    if (!profile || tab !== "report" || !profile.modes.some((m) => m.id === mode)) return;
+    if (!profile || tab !== "report" || viewingHistory || !profile.modes.some((m) => m.id === mode))
+      return;
+    const matches = (current: StatsReport) =>
+      current.payload.mode === mode &&
+      current.payload.player.uid === profile.uid &&
+      (current.payload.scope?.country || "all") === reportCountry &&
+      (current.payload.scope?.category || "all") === reportCategory;
+    setPreviewBusy(true);
+    setPreviewError("");
+    setReport((current) =>
+      current && matches(current) && current.status !== "preview" ? current : null,
+    );
     void statsRequest<StatsReport>(
       "reports/preview",
-      { snapshotId: profile.snapshotId, mode, requestId: "preview_" + crypto.randomUUID() },
+      {
+        snapshotId: profile.snapshotId,
+        mode,
+        country: reportCountry,
+        category: reportCategory,
+        requestId: "preview_" + crypto.randomUUID(),
+      },
       c.signal,
     )
       .then((value) => {
         if (!c.signal.aborted)
           setReport((current) =>
-            current?.payload.mode === mode &&
-            current.payload.player.uid === profile.uid &&
-            current.status !== "preview"
-              ? current
-              : value,
+            current && matches(current) && current.status !== "preview" ? current : value,
           );
       })
       .catch((failure) => {
         if (!c.signal.aborted)
-          setError(failure instanceof Error ? failure.message : "暂时无法预览战报。");
+          setPreviewError(
+            failure instanceof Error ? failure.message : "暂时无法预览战报，请稍后重试。",
+          );
+      })
+      .finally(() => {
+        if (!c.signal.aborted) setPreviewBusy(false);
       });
     return () => c.abort();
-  }, [profile, mode, tab]);
+  }, [profile, mode, tab, reportCountry, reportCategory, viewingHistory, previewRetry]);
   useEffect(() => {
     if (!report || !["queued", "running"].includes(report.status)) return;
     const c = new AbortController();
@@ -335,14 +371,20 @@ export function PlayerStats() {
     }
   }
   async function generate() {
-    if (!profile) return;
+    if (!profile || !report || viewingHistory || previewBusy) return;
     const c = controller();
     setBusy(true);
     setError("");
     try {
       const value = await statsRequest<StatsReport>(
         "reports",
-        { snapshotId: profile.snapshotId, mode, requestId: "report_" + crypto.randomUUID() },
+        {
+          snapshotId: profile.snapshotId,
+          mode,
+          country: reportCountry,
+          category: reportCategory,
+          requestId: "report_" + crypto.randomUUID(),
+        },
         c.signal,
       );
       if (!c.signal.aborted) setReport(value);
@@ -540,9 +582,16 @@ export function PlayerStats() {
               {profile.modes.map((m) => (
                 <button
                   key={m.id}
+                  disabled={
+                    tab === "report" &&
+                    (busy ||
+                      exportBusy ||
+                      (!!report && ["queued", "running"].includes(report.status)))
+                  }
                   aria-pressed={mode === m.id}
                   onClick={() => {
                     setMode(m.id);
+                    setViewingHistory(false);
                     setLimit(40);
                     setReport(null);
                   }}
@@ -710,7 +759,55 @@ export function PlayerStats() {
             <div className="wt-record-report-layout">
               <aside className="wt-record-panel wt-report-controls">
                 <h2>你的授勋战报</h2>
-                <p>同一模式，按战斗场次选择 Top 5；只依据这五辆车生成评价。</p>
+                <p>先选国家和兵种，再从该范围按战斗场次选择 Top 5。</p>
+                <div className="wt-report-filters" aria-label="战报载具筛选">
+                  <label>
+                    <span>国家</span>
+                    <GameSelect
+                      aria-label="战报国家"
+                      value={reportCountry}
+                      onValueChange={(value) => changeReportFilter(value, "country")}
+                      disabled={
+                        busy ||
+                        exportBusy ||
+                        (!!report && ["queued", "running"].includes(report.status))
+                      }
+                    >
+                      <option value="all">全部国家</option>
+                      {profile.countries.map((country) => (
+                        <option key={country.id} value={country.id}>
+                          {country.name}
+                        </option>
+                      ))}
+                    </GameSelect>
+                  </label>
+                  <label>
+                    <span>兵种</span>
+                    <GameSelect
+                      aria-label="战报兵种"
+                      value={reportCategory}
+                      onValueChange={(value) => changeReportFilter(value, "category")}
+                      disabled={
+                        busy ||
+                        exportBusy ||
+                        (!!report && ["queued", "running"].includes(report.status))
+                      }
+                    >
+                      <option value="all">全部兵种</option>
+                      {Object.entries(statsCategoryNames).map(([id, name]) => (
+                        <option key={id} value={id}>
+                          {name}
+                        </option>
+                      ))}
+                    </GameSelect>
+                  </label>
+                </div>
+                <p className="wt-record-fine">
+                  筛选预览不扣次数。重新生成其他范围的 AI 致辞，会使用一次战报额度。
+                </p>
+                {viewingHistory && (
+                  <p className="wt-record-fine">正在查看已存战报。调整筛选可返回当前玩家的预览。</p>
+                )}
                 <div className="wt-record-heading">
                   <h3>战雷官方背景</h3>
                   <span>{config?.assets.backgrounds.length || 0} 张</span>
@@ -750,7 +847,14 @@ export function PlayerStats() {
                 </div>
                 <button
                   className="wt-record-primary"
-                  disabled={busy || !report || ["queued", "running"].includes(report.status)}
+                  disabled={
+                    busy ||
+                    previewBusy ||
+                    !!previewError ||
+                    viewingHistory ||
+                    !report ||
+                    ["queued", "running"].includes(report.status)
+                  }
                   onClick={() => void generate()}
                 >
                   {report?.status === "queued" || report?.status === "running"
@@ -762,6 +866,7 @@ export function PlayerStats() {
                 <button
                   disabled={
                     !report ||
+                    previewBusy ||
                     exportBusy ||
                     report.status === "queued" ||
                     report.status === "running"
@@ -797,6 +902,15 @@ export function PlayerStats() {
                   </span>
                   <span>{bg?.title}</span>
                 </div>
+                {previewBusy && !viewingHistory && (
+                  <output className="wt-report-empty">正在筛选载具并准备预览…</output>
+                )}
+                {!previewBusy && previewError && !viewingHistory && (
+                  <div className="wt-report-empty">
+                    <output>{previewError}</output>
+                    <button onClick={() => setPreviewRetry((value) => value + 1)}>重新预览</button>
+                  </div>
+                )}
                 {report && (
                   <ReportPoster
                     report={report}
@@ -842,6 +956,10 @@ export function PlayerStats() {
                 key={item.id}
                 className="wt-report-history"
                 onClick={() => {
+                  setViewingHistory(true);
+                  setPreviewBusy(false);
+                  setReportCountry(item.payload.scope?.country || "all");
+                  setReportCategory(item.payload.scope?.category || "all");
                   setReport(item);
                   setTab("report");
                   setBackground("auto");
@@ -850,7 +968,7 @@ export function PlayerStats() {
               >
                 <b>{item.payload.player.nickname}</b>
                 <span>
-                  {statsModeNames[item.payload.mode]} ·{" "}
+                  {statsModeNames[item.payload.mode]} · {statsReportScopeLabel(item.payload)} ·{" "}
                   {item.status === "ready"
                     ? "已生成"
                     : item.status === "failed"
@@ -894,7 +1012,7 @@ function ReportPoster({
       <header className="wt-poster-identity">
         <Avatar url={p.player.avatar} name={p.player.nickname} />
         <div>
-          <p>战地嘉奖 · 个人出击档案</p>
+          <p>战地嘉奖 · {statsReportScopeLabel(p)}</p>
           <h2>{p.player.nickname}</h2>
           <span>
             等级 {num(p.player.level)} · {p.player.clanTag || "勇敢出击，留下记录"}

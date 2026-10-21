@@ -20,7 +20,7 @@ function ArchiveEntry({ entry, collection }: { entry: Entry; collection: Collect
   const checked = check?.updatedAt === entry.updatedAt;
   return (
     <li className="atlas-archive-entry">
-      <a href={entry.source} target="_blank" rel="noreferrer">
+      <a href={entry.source} target="_blank" rel="noopener noreferrer">
         {entry.title}
         <span aria-hidden="true"> ↗</span>
       </a>
@@ -83,7 +83,7 @@ function ArchiveCollection({ collection }: { collection: Collection }) {
             className="atlas-source-link"
             href={collection.source}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             打开合集 ↗
           </a>

@@ -8,6 +8,7 @@ import {
   statsBranchKd,
   statsBranchTarget,
   statsArmyIcon,
+  statsReportScopeLabel,
 } from "./player-stats-api";
 import type { StatsReport, Background } from "./player-stats-api";
 export async function downloadStatsReport(
@@ -146,7 +147,7 @@ export async function downloadStatsReport(
     ctx.fillRect(64, 204, 132, 132);
     text(Array.from(p.player.nickname)[0], 100, 295, 65, gold, 700);
   }
-  text("战地嘉奖 · 个人出击档案", 225, 231, 25, gold);
+  text("战地嘉奖 · " + statsReportScopeLabel(p), 225, 231, 25, gold);
   text(p.player.nickname, 225, 301, 64, white, 700);
   text(
     "等级 " + n(p.player.level) + (p.player.clanTag ? " · " + p.player.clanTag : ""),

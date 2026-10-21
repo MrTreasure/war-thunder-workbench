@@ -90,7 +90,14 @@ export type StatsSession = {
   report: { used: number; reserved: number };
   limits: { queryLimit: number; reportLimit: number; cacheTtlSeconds: number };
 };
+export type ReportScope = {
+  country: string;
+  category: string;
+  countryLabel: string;
+  categoryLabel: string;
+};
 export type ReportPayload = {
+  scope?: ReportScope;
   player: Pick<PlayerProfile, "uid" | "nickname" | "level" | "avatar" | "avatarKey" | "clanTag">;
   fetchedAt: string;
   mode: string;
@@ -275,3 +282,8 @@ export const statsArmyIcon = (base: string, branch: string) =>
   base +
   (branch === "ground" ? "army_tank" : branch === "air" ? "army_fighter" : "army_destroyer") +
   ".svg";
+
+export const statsReportScopeLabel = (payload: ReportPayload) =>
+  (payload.scope?.countryLabel || "全部国家") +
+  " · " +
+  (payload.scope?.categoryLabel || "全部兵种");

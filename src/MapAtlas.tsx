@@ -83,6 +83,8 @@ export function MapAtlas() {
         {cards.map(({ map, thumb }) => (
           <Link
             className="ground-card"
+            target="_blank"
+            rel="noopener noreferrer"
             key={thumb.layoutId}
             to="/maps/$mapId"
             params={{ mapId: map.id }}
@@ -361,7 +363,12 @@ function GroundDetail({
             >
               {editing ? "完成编辑" : "编辑走线"}
             </button>
-            <a className="ground-original" href={map.base.url} target="_blank" rel="noreferrer">
+            <a
+              className="ground-original"
+              href={map.base.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               原图 ↗
             </a>
           </div>
@@ -508,7 +515,7 @@ function GroundDetail({
                 >
                   重试加载
                 </button>
-                <a href={map.base.url} target="_blank" rel="noreferrer">
+                <a href={map.base.url} target="_blank" rel="noopener noreferrer">
                   打开原图 ↗
                 </a>
               </p>
@@ -619,7 +626,7 @@ function GroundDetail({
               <p>同一地图的不同布局、季节及更新版本可能有差异，以原帖为准。</p>
               <div>
                 {map.guides.map((g) => (
-                  <a key={g.source} href={g.source} target="_blank" rel="noreferrer">
+                  <a key={g.source} href={g.source} target="_blank" rel="noopener noreferrer">
                     <span>{g.title}</span>
                     <small>{g.edition} · 原帖 ↗</small>
                   </a>

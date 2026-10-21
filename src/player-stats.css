@@ -881,3 +881,34 @@
   vertical-align: middle;
   margin-right: 6px;
 }
+
+/* finesse · component: report filters · existing game controls, no new palette */
+.wt-report-filters {
+  display: grid;
+  gap: 12px;
+}
+.wt-report-filters > label {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+.wt-report-filters > label > span {
+  font-size: 12px;
+  color: var(--wt-record-muted);
+}
+.wt-report-filters .wt-select {
+  width: 100%;
+  min-width: 0;
+}
+.wt-report-empty {
+  display: block;
+  padding: 36px 20px;
+  color: var(--wt-record-muted);
+  text-align: center;
+  border: 1px solid var(--wt-record-line);
+}
+
+.wt-report-empty > output {
+  display: block;
+  margin-bottom: 14px;
+}
