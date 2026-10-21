@@ -2,6 +2,16 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import {
   parseProject,
+  bendPoints,
+  curveControls,
+  routePoint,
+  pathData,
+  routeDash,
+  routeDecorations,
+  shapeCorners,
+  shapeBounds,
+  shapePath,
+  mapView,
   makeProject,
   moveAnnotation,
   createHistory,
@@ -40,6 +50,83 @@ const path = {
   dashed: false,
   arrow: true,
 };
+// Curve endpoints, midpoints and shared SVG/PNG path commands stay in the same UV space.
+const curve = {
+  ...path,
+  id: "curve-1",
+  curve: true,
+  points: bendPoints(path.points[0], path.points[1]),
+  lineStyle: "defense",
+};
+assert.equal(curve.points.length, 3);
+assert.deepEqual(routePoint(curve, 0, 0), curve.points[0]);
+assert.deepEqual(routePoint(curve, 1, 1), curve.points[2]);
+assert.match(pathData(curve.points, true), /C/);
+assert(!pathData(path.points).includes("C"));
+assert.notDeepEqual(routePoint(curve, 0, 0.5), {
+  x: (curve.points[0].x + curve.points[1].x) / 2,
+  y: (curve.points[0].y + curve.points[1].y) / 2,
+});
+for (const p of curveControls(curve.points, 0))
+  assert(p.x >= 0 && p.x <= 1 && p.y >= 0 && p.y <= 1);
+assert(routeDecorations(curve).length > 0);
+assert.equal(routeDecorations({ ...curve, lineStyle: "solid" }).length, 0);
+assert(routeDecorations({ ...curve, lineStyle: "barrier" }).length > 0);
+assert.deepEqual(routeDash({ ...path, lineStyle: "solid", dashed: true }), []);
+assert(routeDash({ ...path, lineStyle: "dashdot" }).length === 4);
+const area = {
+  ...base,
+  id: "area-1",
+  kind: "shape",
+  shape: "polygon",
+  points: shapeCorners({ x: 0.2, y: 0.3 }, { x: 0.7, y: 0.8 }),
+  width: 0.003,
+  fillOpacity: 0.12,
+  hatch: true,
+  caption: "危险区域",
+};
+assert.match(shapePath(area), /Z$/);
+assert.match(
+  shapePath({ ...area, shape: "ellipse", points: [area.points[0], area.points[2]] }),
+  /a/,
+);
+const movedArea = moveAnnotation(area, 1, -1),
+  bounds = shapeBounds(movedArea);
+assert(Math.abs(bounds.x + bounds.w - 1) < 1e-10);
+assert.equal(bounds.y, 0);
+assert.deepEqual(area.points[0], { x: 0.2, y: 0.3 });
+assert.deepEqual(parseProject(makeProject(context, [curve, area]), iconIds, known).items, [
+  curve,
+  area,
+]);
+assert.throws(() =>
+  parseProject(makeProject(context, [{ ...curve, lineStyle: "javascript:bad" }]), iconIds, known),
+);
+assert.throws(() =>
+  parseProject(makeProject(context, [{ ...curve, curve: "yes" }]), iconIds, known),
+);
+for (const invalidArea of [
+  { ...area, points: [area.points[0], area.points[1]] },
+  { ...area, fillOpacity: 1 },
+  { ...area, hatch: "true" },
+  { ...area, shape: "iframe" },
+])
+  assert.throws(() => parseProject(makeProject(context, [invalidArea]), iconIds, known));
+for (const aspect of [0.4, 1, 1.7, 3.5])
+  for (const zoom of [1, 2, 8])
+    for (const offset of [
+      { x: 0, y: 0 },
+      { x: -2000, y: 2000 },
+    ]) {
+      const view = mapView([0.2, 0.2, 0.725, 0.725], zoom, aspect, offset);
+      assert(Math.abs(view.w / view.h - aspect) < 1e-8);
+      assert(
+        view.x >= 0 &&
+          view.y >= 0 &&
+          view.x + view.w <= 1000 + 1e-8 &&
+          view.y + view.h <= 1000 + 1e-8,
+      );
+    }
 const icon = {
   ...base,
   id: "icon-1",
@@ -164,5 +251,5 @@ globalThis.localStorage.setItem = () => {
 };
 assert.throws(() => writeProject(project));
 console.log(
-  "Map editor verified: import validation, immutable movement, arrow geometry, undo/redo, history grouping, scoped persistence and 79 original icon records",
+  "Map editor verified: bounded viewport, curves, tactical lines, shapes, import validation, immutable movement, undo/redo, scoped persistence and 79 original icon records",
 );

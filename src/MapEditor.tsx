@@ -5,11 +5,19 @@ import type { CSSProperties, PointerEvent, ReactNode, Ref } from "react";
 import { createPortal } from "react-dom";
 import catalog from "../data/map-editor-icons.json";
 import palette from "../data/map-editor-palette.json";
+import lineCatalog from "../data/map-editor-lines.json";
 import { GroundSvgImage, GroundThumbnail } from "./map-assets";
 import { Modal } from "./Modal";
 import { downloadBlob } from "./map-editor-export";
 import {
   annotationName,
+  bendPoints,
+  routeDash,
+  routeDecorations,
+  routePoint,
+  shapeBounds,
+  shapeCorners,
+  shapePath,
   anchorPoint,
   arrowPoints,
   clamp,
@@ -28,6 +36,8 @@ import {
 } from "./map-editor-model";
 import type {
   Annotation,
+  GeometryAnnotation,
+  ShapeAnnotation,
   EditorContext,
   HistoryAction,
   MapPoint,
@@ -39,7 +49,18 @@ const icons = new Map(catalog.icons.map((i) => [i.id, i]));
 const iconIds = new Set(icons.keys());
 export const editorIconAssets = Object.fromEntries(catalog.icons.map((i) => [i.id, i.asset]));
 export type MapEditorHandle = { finish: () => Annotation[] };
-type Tool = "pan" | "select" | "arrow" | "route" | "pen" | "icon" | "text";
+type Tool =
+  | "pan"
+  | "select"
+  | "arrow"
+  | "route"
+  | "curve"
+  | "pen"
+  | "icon"
+  | "text"
+  | "shape"
+  | "danger"
+  | "sniper";
 type Props = {
   ref?: Ref<MapEditorHandle>;
   active: boolean;
@@ -69,13 +90,21 @@ type Gesture =
       index: number;
       insert: boolean;
       start: MapPoint;
-      path: RouteAnnotation;
+      path: GeometryAnnotation;
       original: Annotation[];
       result: Annotation[];
     }
   | { kind: "line"; start: MapPoint; second: boolean; moved: boolean }
   | { kind: "pen" };
-const defaults = { color: "#e4c477", width: 0.003, dashed: false, size: 0.035, fontSize: 0.018 };
+const defaults = {
+  arrow: false,
+  lineStyle: "solid" as NonNullable<RouteAnnotation["lineStyle"]>,
+  color: "#e4c477",
+  width: 0.003,
+  dashed: false,
+  size: 0.035,
+  fontSize: 0.018,
+};
 const id = () => crypto.randomUUID();
 export function MapEditor({
   ref,
@@ -114,11 +143,12 @@ export function MapEditor({
   const [tool, setTool] = useState<Tool>("select"),
     [selectedId, setSelectedId] = useState<string | null>(null),
     [settings, setSettings] = useState(defaults);
+  const [shapeKind, setShapeKind] = useState<ShapeAnnotation["shape"]>("rectangle");
   const [replaceIcon, setReplaceIcon] = useState(false);
   const [iconId, setIconId] = useState("army_tank"),
     [iconGroup, setIconGroup] = useState("单位与队伍");
-  const [pending, setPendingState] = useState<RouteAnnotation | null>(null);
-  const pendingRef = useRef<RouteAnnotation | null>(null);
+  const [pending, setPendingState] = useState<GeometryAnnotation | null>(null);
+  const pendingRef = useRef<GeometryAnnotation | null>(null);
   const [preview, setPreview] = useState<Annotation[] | null>(null);
   const [selectedPoint, setSelectedPoint] = useState<number | null>(null);
   const gesture = useRef<Gesture | null>(null);
@@ -134,7 +164,7 @@ export function MapEditor({
     textField = useRef<HTMLTextAreaElement>(null);
   const visible = preview || history.present;
   const selected = history.present.find((a) => a.id === selectedId);
-  const setPending = (p: RouteAnnotation | null) => {
+  const setPending = (p: GeometryAnnotation | null) => {
     pendingRef.current = p;
     setPendingState(p);
   };
@@ -174,6 +204,9 @@ export function MapEditor({
     if (
       stroke &&
       stroke.points.length >= 2 &&
+      (stroke.kind !== "shape" ||
+        (shapeBounds(stroke).w * 1000 > unitsPerPixel * 2 &&
+          shapeBounds(stroke).h * 1000 > unitsPerPixel * 2)) &&
       stroke.points.some(
         (p) =>
           Math.hypot(p.x - stroke.points[0].x, p.y - stroke.points[0].y) * 1000 > unitsPerPixel * 2,
@@ -231,14 +264,40 @@ export function MapEditor({
     finish();
     setReplaceIcon(false);
     setTool(next);
+    if (next === "danger") setSettings((s) => ({ ...s, color: "#ff3020" }));
     setSelectedId(null);
     setSelectedPoint(null);
-    setPanel(next === "icon" ? "icons" : panel === "icons" ? null : panel);
+    setPanel(
+      next === "icon" ? "icons" : next === "shape" ? "style" : panel === "icons" ? null : panel,
+    );
   }
   function changeStyle(key: "color" | "width" | "dashed", value: string | number | boolean) {
     setSettings((s) => ({ ...s, [key]: value }));
     if (selected) patch({ [key]: value }, `${selected.id}:${key}`);
     if (pendingRef.current) setPending({ ...pendingRef.current, [key]: value });
+  }
+  function chooseLinePreset(presetId: string) {
+    const preset = lineCatalog.presets.find((p) => p.id === presetId);
+    if (!preset) return;
+    const lineStyle = preset.style as NonNullable<RouteAnnotation["lineStyle"]>;
+    setSettings((s) => ({ ...s, arrow: preset.arrow, lineStyle, dashed: lineStyle === "dashed" }));
+    if (selected?.kind === "path")
+      patch({ lineStyle, dashed: lineStyle === "dashed", arrow: preset.arrow });
+    else if (tool !== "curve") setTool(preset.arrow ? "arrow" : "route");
+  }
+  function resizePending(stroke: GeometryAnnotation, end: MapPoint): GeometryAnnotation {
+    const start = stroke.points[0];
+    return {
+      ...stroke,
+      points:
+        stroke.kind === "shape"
+          ? stroke.shape === "polygon"
+            ? shapeCorners(start, end)
+            : [start, end]
+          : stroke.curve
+            ? bendPoints(start, end)
+            : [start, end],
+    };
   }
   function toPoint(e: { clientX: number; clientY: number }): MapPoint | null {
     const matrix = svg?.getScreenCTM();
@@ -270,10 +329,10 @@ export function MapEditor({
       select(item);
       if (item.locked) return;
       const handle = (e.target as Element).closest("[data-vertex],[data-midpoint]");
-      if (handle && item.kind === "path") {
+      if (handle && (item.kind === "path" || item.kind === "shape")) {
         const insert = handle.hasAttribute("data-midpoint");
         const index = Number(handle.getAttribute(insert ? "data-midpoint" : "data-vertex"));
-        if (insert && item.points.length >= 3000) {
+        if (insert && item.points.length >= (item.kind === "shape" ? 128 : 3000)) {
           setNotice("单条走线最多 3000 个点");
           return;
         }
@@ -302,10 +361,17 @@ export function MapEditor({
       return;
     }
     const base = { id: id(), color: settings.color, hidden: false, locked: false };
-    if (tool === "icon") {
-      add({ ...base, kind: "icon", point, iconId, size: settings.size, rotation: 0, caption: "" });
+    if (tool === "icon" || tool === "sniper") {
+      add({
+        ...base,
+        kind: "icon",
+        point,
+        iconId: tool === "sniper" ? "objective_tank_outline" : iconId,
+        size: settings.size,
+        rotation: 0,
+        caption: tool === "sniper" ? "狙击点" : "",
+      });
       setTool("select");
-      setPanel("style");
       return;
     }
     if (tool === "text") {
@@ -325,6 +391,27 @@ export function MapEditor({
       setNotice("最多支持 500 个标注");
       return;
     }
+    if (tool === "shape" || tool === "danger") {
+      const stroke = pendingRef.current;
+      if (stroke) setPending(resizePending(stroke, point));
+      else {
+        const shape = tool === "danger" ? "polygon" : shapeKind;
+        setPending({
+          ...base,
+          kind: "shape",
+          color: base.color,
+          shape,
+          points: shape === "polygon" ? shapeCorners(point, point) : [point, point],
+          width: settings.width,
+          fillOpacity: 0.12,
+          hatch: tool === "danger",
+          caption: tool === "danger" ? "危险区域" : "",
+        });
+      }
+      gesture.current = { kind: "line", start: point, second: !!stroke, moved: false };
+      e.currentTarget.setPointerCapture(e.pointerId);
+      return;
+    }
     if (tool === "pen") {
       setPending({
         ...base,
@@ -340,7 +427,7 @@ export function MapEditor({
     }
     const stroke = pendingRef.current;
     if (stroke) {
-      setPending({ ...stroke, points: [stroke.points[0], point] });
+      setPending(resizePending(stroke, point));
     } else {
       setPending({
         ...base,
@@ -348,7 +435,9 @@ export function MapEditor({
         points: [point, point],
         width: settings.width,
         dashed: settings.dashed,
-        arrow: tool === "arrow",
+        arrow: tool === "arrow" || (tool === "curve" && settings.arrow),
+        curve: tool === "curve",
+        lineStyle: settings.lineStyle,
       });
     }
     gesture.current = { kind: "line", start: point, second: !!stroke, moved: false };
@@ -394,7 +483,7 @@ export function MapEditor({
         Math.hypot(point.x - g.start.x, point.y - g.start.y) * 1000 >= unitsPerPixel * 4
       )
         g.moved = true;
-      setPending({ ...stroke, points: [stroke.points[0], point] });
+      setPending(resizePending(stroke, point));
       return;
     }
     if (g?.kind === "pen" && stroke) {
@@ -420,22 +509,34 @@ export function MapEditor({
   }
   function deletePoint() {
     if (
-      selected?.kind !== "path" ||
+      (selected?.kind !== "path" && selected?.kind !== "shape") ||
       selected.locked ||
       selectedPoint === null ||
-      selected.points.length <= 2
+      selected.points.length <= (selected.kind === "shape" ? 3 : 2)
     )
       return;
     patch({ points: selected.points.filter((_, i) => i !== selectedPoint) });
     setSelectedPoint(Math.min(selectedPoint, selected.points.length - 2));
   }
   function insertPoint() {
-    if (selected?.kind !== "path" || selected.locked || selected.points.length >= 3000) return;
+    if (
+      (selected?.kind !== "path" && selected?.kind !== "shape") ||
+      selected.locked ||
+      (selected.kind === "shape" && selected.shape !== "polygon") ||
+      selected.points.length >= (selected.kind === "shape" ? 128 : 3000)
+    )
+      return;
     const index = Math.min(selectedPoint ?? 0, selected.points.length - 2),
       a = selected.points[index],
       b = selected.points[index + 1],
       points = [...selected.points];
-    points.splice(index + 1, 0, { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
+    points.splice(
+      index + 1,
+      0,
+      selected.kind === "path"
+        ? routePoint(selected, index, 0.5)
+        : { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 },
+    );
     patch({ points });
     setSelectedPoint(index + 1);
   }
@@ -486,7 +587,11 @@ export function MapEditor({
     if (e.key === "Delete" || e.key === "Backspace") {
       if (selected) {
         e.preventDefault();
-        if (selected.kind === "path" && selectedPoint !== null && selected.points.length > 2)
+        if (
+          (selected.kind === "path" || selected.kind === "shape") &&
+          selectedPoint !== null &&
+          selected.points.length > (selected.kind === "shape" ? 3 : 2)
+        )
           deletePoint();
         else remove();
       }
@@ -498,7 +603,11 @@ export function MapEditor({
     ) {
       e.preventDefault();
       const step = e.shiftKey ? 0.01 : 0.001;
-      if (selected.kind === "path" && selectedPoint !== null && selected.points[selectedPoint]) {
+      if (
+        (selected.kind === "path" || selected.kind === "shape") &&
+        selectedPoint !== null &&
+        selected.points[selectedPoint]
+      ) {
         const p = selected.points[selectedPoint];
         patch({
           points: selected.points.map((v, i) =>
@@ -623,8 +732,9 @@ export function MapEditor({
     }
   }
   const currentDraft = pending;
-  const selectedPath = visible.find(
-    (a): a is RouteAnnotation => a.id === selectedId && a.kind === "path" && !a.hidden,
+  const selectedGeometry = visible.find(
+    (a): a is GeometryAnnotation =>
+      a.id === selectedId && (a.kind === "path" || a.kind === "shape") && !a.hidden,
   );
   const rendered =
     host &&
@@ -652,14 +762,22 @@ export function MapEditor({
         onDoubleClick={(e) => {
           if (!active || tool !== "select") return;
           const handle = (e.target as Element).closest("[data-vertex]");
-          if (handle && selectedPath && !selectedPath.locked && selectedPath.points.length > 2) {
+          if (
+            handle &&
+            selectedGeometry &&
+            !selectedGeometry.locked &&
+            selectedGeometry.points.length > (selectedGeometry.kind === "shape" ? 3 : 2)
+          ) {
             e.preventDefault();
             e.stopPropagation();
             const index = Number(handle.getAttribute("data-vertex"));
             apply(
               historyRef.current.present.map((a) =>
-                a.id === selectedPath.id
-                  ? { ...selectedPath, points: selectedPath.points.filter((_, i) => i !== index) }
+                a.id === selectedGeometry.id
+                  ? {
+                      ...selectedGeometry,
+                      points: selectedGeometry.points.filter((_, i) => i !== index),
+                    }
                   : a,
               ),
             );
@@ -683,9 +801,9 @@ export function MapEditor({
               hitWidth={hitWidth}
             />
           ))}
-        {active && tool === "select" && selectedPath && !selectedPath.locked && (
+        {active && tool === "select" && selectedGeometry && !selectedGeometry.locked && (
           <LineHandles
-            item={selectedPath}
+            item={selectedGeometry}
             selectedPoint={selectedPoint}
             radius={handleRadius}
             hitWidth={hitWidth}
@@ -720,7 +838,11 @@ export function MapEditor({
               ["pan", "平移", "✥"],
               ["arrow", "箭头", "↗"],
               ["route", "线条", "╱"],
+              ["curve", "曲线", "∿"],
               ["pen", "画笔", "〰"],
+              ["shape", "形状", "▱"],
+              ["danger", "危险区", "⚠"],
+              ["sniper", "狙击点", "⌖"],
               ["icon", "图标", "◇"],
               ["text", "文字", "T"],
             ] as const
@@ -968,6 +1090,24 @@ export function MapEditor({
               </>
             ) : (
               <div className="map-editor-fields">
+                {!selected && tool === "shape" && (
+                  <label>
+                    形状
+                    <select
+                      value={shapeKind}
+                      onChange={(e) => {
+                        finish();
+                        setShapeKind(e.target.value as ShapeAnnotation["shape"]);
+                        setTool("shape");
+                      }}
+                    >
+                      <option value="rectangle">矩形</option>
+                      <option value="ellipse">椭圆 / 圆</option>
+                      <option value="polygon">可编辑多边形</option>
+                    </select>
+                    <small>拖出范围后，拖动控制点调整形状。</small>
+                  </label>
+                )}
                 {selected && (
                   <label className="map-editor-check">
                     <input
@@ -1012,11 +1152,11 @@ export function MapEditor({
                     onBlur={() => change({ type: "endGroup" })}
                   />
                 </label>
-                {(!selected || selected.kind === "path") && (
+                {(!selected || selected.kind === "path" || selected.kind === "shape") && (
                   <>
-                    {selected?.kind === "path" && (
+                    {(selected?.kind === "path" || selected?.kind === "shape") && (
                       <>
-                        <p>拖动实心端点调整线条，拖动空心中点添加拐点。双击拐点可删除。</p>
+                        <p>拖实心点调整，拖空心中点加拐点。双击拐点可删除。</p>
                         <label>
                           编辑端点 / 拐点
                           <select
@@ -1028,21 +1168,27 @@ export function MapEditor({
                               )
                             }
                           >
-                            <option value="">整条线移动</option>
+                            <option value="">整体移动</option>
                             {selected.points.map((_, i) => (
                               <option key={i} value={i}>
-                                {i === 0
-                                  ? "起点"
-                                  : i === selected.points.length - 1
-                                    ? "终点"
-                                    : `拐点 ${i}`}
+                                {selected.kind === "shape"
+                                  ? `控制点 ${i + 1}`
+                                  : i === 0
+                                    ? "起点"
+                                    : i === selected.points.length - 1
+                                      ? "终点"
+                                      : `拐点 ${i}`}
                               </option>
                             ))}
                           </select>
                         </label>
                         <div className="map-editor-selection-actions">
                           <button
-                            disabled={selected.locked || selected.points.length >= 3000}
+                            disabled={
+                              selected.locked ||
+                              (selected.kind === "shape" && selected.shape !== "polygon") ||
+                              selected.points.length >= (selected.kind === "shape" ? 128 : 3000)
+                            }
                             onClick={insertPoint}
                           >
                             添加拐点
@@ -1051,7 +1197,7 @@ export function MapEditor({
                             disabled={
                               selected.locked ||
                               selectedPoint === null ||
-                              selected.points.length <= 2
+                              selected.points.length <= (selected.kind === "shape" ? 3 : 2)
                             }
                             onClick={deletePoint}
                           >
@@ -1066,21 +1212,75 @@ export function MapEditor({
                         type="range"
                         min={1}
                         max={30}
-                        value={(selected?.kind === "path" ? selected.width : settings.width) * 1000}
+                        value={
+                          (selected?.kind === "path" || selected?.kind === "shape"
+                            ? selected.width
+                            : settings.width) * 1000
+                        }
                         disabled={selected?.locked}
                         onChange={(e) => changeStyle("width", Number(e.target.value) / 1000)}
                         onBlur={() => change({ type: "endGroup" })}
                       />
                     </label>
-                    <label className="map-editor-check">
-                      <input
-                        type="checkbox"
-                        checked={selected?.kind === "path" ? selected.dashed : settings.dashed}
-                        disabled={selected?.locked}
-                        onChange={(e) => changeStyle("dashed", e.target.checked)}
-                      />
-                      虚线
-                    </label>
+                    {(!selected || selected.kind === "path") && (
+                      <>
+                        <label>
+                          战术线样式
+                          <select
+                            value={
+                              selected?.kind === "path"
+                                ? selected.lineStyle || (selected.dashed ? "dashed" : "solid")
+                                : settings.lineStyle
+                            }
+                            disabled={selected?.locked}
+                            onChange={(e) => {
+                              const lineStyle = e.target.value as NonNullable<
+                                RouteAnnotation["lineStyle"]
+                              >;
+                              setSettings((s) => ({ ...s, lineStyle }));
+                              if (selected?.kind === "path")
+                                patch({ lineStyle, dashed: lineStyle === "dashed" });
+                            }}
+                          >
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点线 / 射界</option>
+                            <option value="dashdot">点划线 / 补给</option>
+                            <option value="defense">锯齿 / 防御阵线</option>
+                            <option value="barrier">交叉 / 障碍封锁线</option>
+                          </select>
+                        </label>
+                        <div className="map-editor-line-presets" aria-label="战术线预设">
+                          {lineCatalog.presets.map((preset) => (
+                            <button
+                              key={preset.id}
+                              disabled={selected?.locked}
+                              onClick={() => chooseLinePreset(preset.id)}
+                            >
+                              {preset.name}
+                            </button>
+                          ))}
+                        </div>
+                        {selected?.kind === "path" && (
+                          <label className="map-editor-check">
+                            <input
+                              type="checkbox"
+                              checked={!!selected.curve}
+                              disabled={selected.locked}
+                              onChange={(e) =>
+                                patch({
+                                  curve: e.target.checked,
+                                  ...(e.target.checked && selected.points.length === 2
+                                    ? { points: bendPoints(selected.points[0], selected.points[1]) }
+                                    : {}),
+                                })
+                              }
+                            />
+                            平滑曲线
+                          </label>
+                        )}
+                      </>
+                    )}
                     {selected?.kind === "path" && (
                       <label className="map-editor-check">
                         <input
@@ -1092,6 +1292,48 @@ export function MapEditor({
                         末端箭头
                       </label>
                     )}
+                  </>
+                )}
+                {selected?.kind === "shape" && (
+                  <>
+                    <label>
+                      区域说明
+                      <textarea
+                        value={selected.caption}
+                        maxLength={300}
+                        disabled={selected.locked}
+                        onChange={(e) =>
+                          patch({ caption: e.target.value }, `${selected.id}:caption`)
+                        }
+                        onBlur={() => change({ type: "endGroup" })}
+                      />
+                    </label>
+                    <label>
+                      填充透明度
+                      <input
+                        type="range"
+                        min={0}
+                        max={60}
+                        value={selected.fillOpacity * 100}
+                        disabled={selected.locked}
+                        onChange={(e) =>
+                          patch(
+                            { fillOpacity: Number(e.target.value) / 100 },
+                            `${selected.id}:fillOpacity`,
+                          )
+                        }
+                        onBlur={() => change({ type: "endGroup" })}
+                      />
+                    </label>
+                    <label className="map-editor-check">
+                      <input
+                        type="checkbox"
+                        checked={selected.hatch}
+                        disabled={selected.locked}
+                        onChange={(e) => patch({ hatch: e.target.checked })}
+                      />
+                      危险区斜线填充
+                    </label>
                   </>
                 )}
                 {selected?.kind === "icon" && (
@@ -1166,7 +1408,7 @@ export function MapEditor({
                     </label>
                   </>
                 )}
-                {selected && selected.kind !== "path" && (
+                {selected && selected.kind !== "path" && selected.kind !== "shape" && (
                   <label>
                     旋转角度
                     <input
@@ -1195,14 +1437,18 @@ export function MapEditor({
                             step={0.1}
                             value={Number(
                               (
-                                ((selected.kind === "path" && selectedPoint !== null
+                                (((selected.kind === "path" || selected.kind === "shape") &&
+                                selectedPoint !== null
                                   ? selected.points[selectedPoint]
                                   : null) || anchorPoint(selected))[axis] * 100
                               ).toFixed(2),
                             )}
                             disabled={selected.locked}
                             onChange={(e) => {
-                              if (selected.kind === "path" && selectedPoint !== null) {
+                              if (
+                                (selected.kind === "path" || selected.kind === "shape") &&
+                                selectedPoint !== null
+                              ) {
                                 patch(
                                   {
                                     points: selected.points.map((p, i) =>
@@ -1267,15 +1513,19 @@ export function MapEditor({
                   ? tool === "pen"
                     ? "松开完成画笔"
                     : "松开完成线条；也可点击起点、终点"
-                  : tool === "arrow" || tool === "route"
+                  : tool === "arrow" || tool === "route" || tool === "curve"
                     ? "拖出线条，松开后直接编辑端点"
-                    : tool === "icon"
-                      ? "点击地图放置原生图标"
-                      : tool === "text"
-                        ? "点击地图添加文字"
-                        : selectedPath
-                          ? "拖实心点调整 · 拖空心点加拐点 · 拖线移动"
-                          : "选择标注编辑；按 Esc 取消选择"}
+                    : tool === "danger" || tool === "shape"
+                      ? "拖出区域，松开后调整形状"
+                      : tool === "sniper"
+                        ? "点击地图添加狙击点"
+                        : tool === "icon"
+                          ? "点击地图放置原生图标"
+                          : tool === "text"
+                            ? "点击地图添加文字"
+                            : selectedGeometry
+                              ? "拖实心点调整 · 拖空心点加拐点 · 拖线移动"
+                              : "选择标注编辑；按 Esc 取消选择"}
               </span>
               <span className="map-editor-save-state" aria-live="polite">
                 {notice}
@@ -1329,19 +1579,31 @@ function LineHandles({
   radius,
   hitWidth,
 }: {
-  item: RouteAnnotation;
+  item: GeometryAnnotation;
   selectedPoint: number | null;
   radius: number;
   hitWidth: number;
 }) {
   return (
     <g data-annotation-id={item.id} data-editor-ui="true">
-      {item.points.slice(1).map((p, i) => {
+      {(item.kind === "shape" && item.shape !== "polygon"
+        ? []
+        : item.kind === "shape"
+          ? [...item.points.slice(1), item.points[0]]
+          : item.points.slice(1)
+      ).map((p, i) => {
         const a = item.points[i];
-        if (Math.hypot(p.x - a.x, p.y - a.y) * 1000 < radius * 8 || item.points.length >= 3000)
+        if (
+          Math.hypot(p.x - a.x, p.y - a.y) * 1000 < radius * 8 ||
+          item.points.length >= (item.kind === "shape" ? 128 : 3000)
+        )
           return null;
-        const x = (a.x + p.x) * 500,
-          y = (a.y + p.y) * 500;
+        const middle =
+          item.kind === "path"
+            ? routePoint(item, i, 0.5)
+            : { x: (a.x + p.x) / 2, y: (a.y + p.y) / 2 };
+        const x = middle.x * 1000,
+          y = middle.y * 1000;
         return (
           <g key={`mid-${i}`} data-midpoint={i + 1} style={{ cursor: "copy" }}>
             <title>拖动添加拐点</title>
@@ -1414,27 +1676,93 @@ function AnnotationShape({
     return (
       <g data-annotation-id={item.id}>
         <path
-          d={pathData(item.points)}
+          d={pathData(item.points, item.curve)}
           fill="none"
           stroke="transparent"
           strokeWidth={Math.max(item.width * 1000, hitWidth)}
           pointerEvents="stroke"
         />
         <path
-          d={pathData(item.points)}
+          d={pathData(item.points, item.curve)}
           fill="none"
           stroke={item.color}
           strokeWidth={item.width * 1000}
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeDasharray={item.dashed ? `${item.width * 4000} ${item.width * 3000}` : undefined}
+          strokeDasharray={routeDash(item).join(" ") || undefined}
           pointerEvents="none"
         />
+        {routeDecorations(item).map((points, i) => (
+          <path
+            key={`decoration-${i}`}
+            d={pathData(points)}
+            fill={item.lineStyle === "defense" ? item.color : "none"}
+            stroke={item.color}
+            strokeWidth={item.width * 700}
+            pointerEvents="none"
+          />
+        ))}
         {triangle.length > 0 && (
           <polygon
             points={triangle.map((p) => `${p.x * 1000},${p.y * 1000}`).join(" ")}
             fill={item.color}
           />
+        )}
+      </g>
+    );
+  }
+  if (item.kind === "shape") {
+    const bounds = shapeBounds(item),
+      d = shapePath(item),
+      patternId = `danger-hatch-${item.id}`;
+    return (
+      <g data-annotation-id={item.id}>
+        {item.hatch && (
+          <defs>
+            <pattern id={patternId} patternUnits="userSpaceOnUse" width={12} height={12}>
+              <path
+                d="M-3 3L3 -3M0 12L12 0M9 15L15 9"
+                stroke={item.color}
+                strokeWidth={1.2}
+                opacity={0.65}
+              />
+            </pattern>
+          </defs>
+        )}
+        <path
+          d={d}
+          fill={item.color}
+          fillOpacity={item.fillOpacity}
+          stroke={item.color}
+          strokeWidth={item.width * 1000}
+        />
+        {item.hatch && <path d={d} fill={`url(#${patternId})`} pointerEvents="none" />}
+        <path
+          d={d}
+          fill="transparent"
+          stroke="transparent"
+          strokeWidth={Math.max(item.width * 1000, hitWidth)}
+        />
+        {item.caption && (
+          <text
+            x={(bounds.x + bounds.w / 2) * 1000}
+            y={(bounds.y + bounds.h / 2) * 1000}
+            textAnchor="middle"
+            dominantBaseline="central"
+            fontFamily="system-ui,sans-serif"
+            fontSize={16}
+            fontWeight={600}
+            fill={item.color}
+            stroke="#171c22"
+            strokeWidth={2.2}
+            paintOrder="stroke"
+          >
+            {item.caption.split("\n").map((line, i) => (
+              <tspan key={i} x={(bounds.x + bounds.w / 2) * 1000} dy={i ? 20 : 0}>
+                {line}
+              </tspan>
+            ))}
+          </text>
         )}
       </g>
     );

@@ -1,0 +1,12 @@
+{
+  "description": "地图战术示意线预设，便于说明走线与区域用途，不宣称符合某一军标。",
+  "presets": [
+    { "id": "route", "name": "普通路线", "style": "solid", "arrow": false },
+    { "id": "advance", "name": "进攻方向", "style": "solid", "arrow": true },
+    { "id": "retreat", "name": "撤退路线", "style": "dashed", "arrow": true },
+    { "id": "supply", "name": "补给路线", "style": "dashdot", "arrow": true },
+    { "id": "sight", "name": "观察 / 射界线", "style": "dotted", "arrow": false },
+    { "id": "defense", "name": "防御阵线", "style": "defense", "arrow": false },
+    { "id": "barrier", "name": "障碍 / 封锁线", "style": "barrier", "arrow": false }
+  ]
+}

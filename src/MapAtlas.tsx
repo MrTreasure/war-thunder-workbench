@@ -1,12 +1,13 @@
 /* Interactive SVG map owns arrow-key pan and Home reset; native HTML has no map widget. */
 /* oxlint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex */
-import { useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { GroundThumbnail, GroundSvgImage, rotateAsset } from "./map-assets";
 import { MapEditor, editorIconAssets } from "./MapEditor";
 import type { MapEditorHandle } from "./MapEditor";
 import type { EditorContext, MapProject } from "./map-editor-model";
 import { renderMapPng } from "./map-editor-export";
+import { mapView } from "./map-editor-model";
 import { Link, Navigate, useNavigate } from "@tanstack/react-router";
 import atlas from "../data/ground-maps.json";
 import { Route } from "./routes/_workbench.maps";
@@ -221,12 +222,24 @@ function GroundDetail({
   };
   const clipId = useId();
   const [svg, setSvg] = useState<SVGSVGElement | null>(null);
+  const [aspect, setAspect] = useState(1);
+  useEffect(() => {
+    if (!svg) return;
+    const measure = () => {
+      const rect = svg.getBoundingClientRect();
+      if (rect.width > 0 && rect.height > 0) setAspect(rect.width / rect.height);
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(svg);
+    return () => observer.disconnect();
+  }, [svg]);
   const [editorHost, setEditorHost] = useState<SVGGElement | null>(null);
   const [editing, setEditing] = useState(false);
   const editorRef = useRef<MapEditorHandle>(null);
   const startPan = (e: { pointerId: number; clientX: number; clientY: number }) => {
     svg?.setPointerCapture(e.pointerId);
-    drag.current = { x: e.clientX, y: e.clientY, ox: offset.x, oy: offset.y };
+    drag.current = { x: e.clientX, y: e.clientY, ox: x - originX, oy: y - originY };
   };
   const drag = useRef<{ x: number; y: number; ox: number; oy: number } | null>(null);
   const reset = () => {
@@ -234,12 +247,7 @@ function GroundDetail({
     setOffset({ x: 0, y: 0 });
   };
   const crop = cropped && layout.crop ? layout.crop : [0, 0, 1, 1];
-  const baseW = (crop[2] - crop[0]) * 1000,
-    baseH = (crop[3] - crop[1]) * 1000;
-  const w = baseW / zoom,
-    h = baseH / zoom;
-  const x = crop[0] * 1000 + (baseW - w) / 2 + offset.x,
-    y = crop[1] * 1000 + (baseH - h) / 2 + offset.y;
+  const { x, y, w, h, originX, originY } = mapView(crop, zoom, aspect, offset);
   const [x0, z0] = map.bounds[0],
     [x1, z1] = map.bounds[1];
   const origin = map.grid.default_reference.origin_xz_m,

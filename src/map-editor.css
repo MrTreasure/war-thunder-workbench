@@ -438,3 +438,12 @@
 .map-editor-ui button:active:not(:disabled) {
   background: var(--wt-accent-soft);
 }
+.map-editor-line-presets {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+}
+.map-editor-line-presets button {
+  font-size: 11px;
+  padding-inline: 4px;
+}

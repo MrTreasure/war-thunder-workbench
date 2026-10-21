@@ -222,3 +222,15 @@
 - Editor palette defaults live in `data/map-editor-palette.json`; keep original
   game asset colors and existing theme colors identified separately. Selection
   handles use screen-sized targets, independent of map zoom and viewport size.
+
+- The map viewport expands to the actual SVG aspect ratio and clamps panning to
+  full-map bounds. SVG rendering, pointer projection and PNG export must use the
+  same `{x,y,w,h}`; do not reintroduce square letterboxing or independent layer crops.
+- Map annotations include optional smooth-curve and tactical line styles plus
+  rectangle/ellipse/polygon areas. Keep legacy version-1 paths importable.
+  Shared geometry in `map-editor-model.ts` drives SVG and Canvas export, including
+  curve midpoints, arrow tangents, defensive/obstacle marks and area hatching.
+  Validate area sizes, opacity, captions and point limits before storing/importing.
+- Tactical line presets are illustrative, not certified military symbology.
+  Sniper points reuse the allowlisted original `objective_tank_outline` icon with
+  a caption; do not invent an official sniper icon or introduce arbitrary URLs.

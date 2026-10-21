@@ -1,5 +1,12 @@
 import type { Annotation, MapPoint } from "./map-editor-model";
-import { arrowPoints } from "./map-editor-model";
+import {
+  arrowPoints,
+  pathData,
+  routeDash,
+  routeDecorations,
+  shapeBounds,
+  shapePath,
+} from "./map-editor-model";
 import { assetSources } from "./map-assets";
 import type { GroundImageAsset } from "./map-assets";
 export type MapExportScene = {
@@ -218,16 +225,23 @@ export async function renderMapPng(
     if (item.hidden) continue;
     if (item.kind === "path") {
       ctx.save();
-      ctx.beginPath();
-      item.points.forEach((p, i) =>
-        i ? ctx.lineTo(p.x * 1000, p.y * 1000) : ctx.moveTo(p.x * 1000, p.y * 1000),
-      );
+      const route = new Path2D(pathData(item.points, item.curve));
       ctx.strokeStyle = item.color;
       ctx.lineWidth = item.width * 1000;
       ctx.lineCap = "round";
       ctx.lineJoin = "round";
-      if (item.dashed) ctx.setLineDash([item.width * 4000, item.width * 3000]);
-      ctx.stroke();
+      ctx.setLineDash(routeDash(item));
+      ctx.stroke(route);
+      ctx.setLineDash([]);
+      ctx.lineWidth = item.width * 700;
+      for (const points of routeDecorations(item)) {
+        const decoration = new Path2D(pathData(points));
+        if (item.lineStyle === "defense") {
+          ctx.fillStyle = item.color;
+          ctx.fill(decoration);
+        }
+        ctx.stroke(decoration);
+      }
       const triangle = arrowPoints(item);
       if (triangle.length) {
         ctx.setLineDash([]);
@@ -240,6 +254,43 @@ export async function renderMapPng(
         ctx.fill();
       }
       ctx.restore();
+    } else if (item.kind === "shape") {
+      const path = new Path2D(shapePath(item)),
+        bounds = shapeBounds(item);
+      ctx.save();
+      ctx.fillStyle = item.color;
+      ctx.globalAlpha = item.fillOpacity;
+      ctx.fill(path);
+      ctx.globalAlpha = 1;
+      if (item.hatch) {
+        ctx.save();
+        ctx.clip(path);
+        ctx.strokeStyle = item.color;
+        ctx.lineWidth = 1.2;
+        ctx.globalAlpha = 0.65;
+        ctx.beginPath();
+        // Same 12-world-unit diagonal pattern as the editor's SVG.
+        for (let diagonal = 0; diagonal <= 2000; diagonal += 12) {
+          ctx.moveTo(diagonal, 0);
+          ctx.lineTo(0, diagonal);
+        }
+        ctx.stroke();
+        ctx.restore();
+      }
+      ctx.strokeStyle = item.color;
+      ctx.lineWidth = item.width * 1000;
+      ctx.stroke(path);
+      ctx.restore();
+      if (item.caption)
+        drawText(
+          ctx,
+          item.caption,
+          { x: bounds.x + bounds.w / 2, y: bounds.y + bounds.h / 2 - 0.008 },
+          16,
+          item.color,
+          0,
+          "center",
+        );
     } else if (item.kind === "text")
       drawText(ctx, item.text, item.point, item.fontSize * 1000, item.color, item.rotation);
     else {

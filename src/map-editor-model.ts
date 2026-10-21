@@ -7,7 +7,19 @@ export type RouteAnnotation = Base & {
   width: number;
   dashed: boolean;
   arrow: boolean;
+  curve?: boolean;
+  lineStyle?: "solid" | "dashed" | "dotted" | "dashdot" | "defense" | "barrier";
 };
+export type ShapeAnnotation = Base & {
+  kind: "shape";
+  shape: "rectangle" | "ellipse" | "polygon";
+  points: MapPoint[];
+  width: number;
+  fillOpacity: number;
+  hatch: boolean;
+  caption: string;
+};
+export type GeometryAnnotation = RouteAnnotation | ShapeAnnotation;
 export type IconAnnotation = Base & {
   kind: "icon";
   point: MapPoint;
@@ -23,7 +35,7 @@ export type TextAnnotation = Base & {
   fontSize: number;
   rotation: number;
 };
-export type Annotation = RouteAnnotation | IconAnnotation | TextAnnotation;
+export type Annotation = RouteAnnotation | IconAnnotation | TextAnnotation | ShapeAnnotation;
 export type MapProject = EditorContext & { version: 1; updatedAt: string; items: Annotation[] };
 export const MAX_ITEMS = 500;
 export const MAX_FILE_BYTES = 4 * 1024 * 1024;
@@ -33,22 +45,157 @@ export const sameContext = (a: EditorContext, b: EditorContext) =>
   a.mapId === b.mapId && a.layoutId === b.layoutId && a.team === b.team;
 export const clamp = (n: number, min = 0, max = 1) => Math.max(min, Math.min(max, n));
 export function moveAnnotation(item: Annotation, dx: number, dy: number): Annotation {
-  const points = item.kind === "path" ? item.points : [item.point];
+  const points = item.kind === "path" || item.kind === "shape" ? item.points : [item.point];
   dx = clamp(dx, -Math.min(...points.map((p) => p.x)), 1 - Math.max(...points.map((p) => p.x)));
   dy = clamp(dy, -Math.min(...points.map((p) => p.y)), 1 - Math.max(...points.map((p) => p.y)));
   const move = (p: MapPoint) => ({ x: clamp(p.x + dx), y: clamp(p.y + dy) });
-  return item.kind === "path"
+  return item.kind === "path" || item.kind === "shape"
     ? { ...item, points: points.map(move) }
     : { ...item, point: move(item.point) };
 }
 export const anchorPoint = (item: Annotation) =>
-  item.kind === "path" ? item.points[0] : item.point;
-export const pathData = (points: MapPoint[]) =>
-  points.map((p, i) => `${i ? "L" : "M"}${p.x * 1000},${p.y * 1000}`).join(" ");
+  item.kind === "path" || item.kind === "shape" ? item.points[0] : item.point;
+export function curveControls(points: MapPoint[], index: number): [MapPoint, MapPoint] {
+  const a = points[index],
+    b = points[index + 1],
+    previous = points[index - 1] || a,
+    next = points[index + 2] || b;
+  return [
+    { x: clamp(a.x + (b.x - previous.x) / 6), y: clamp(a.y + (b.y - previous.y) / 6) },
+    { x: clamp(b.x - (next.x - a.x) / 6), y: clamp(b.y - (next.y - a.y) / 6) },
+  ];
+}
+export function routePoint(item: RouteAnnotation, index: number, t: number): MapPoint {
+  const a = item.points[index],
+    b = item.points[index + 1];
+  if (!item.curve) return { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t };
+  const [c, d] = curveControls(item.points, index),
+    u = 1 - t;
+  return {
+    x: u ** 3 * a.x + 3 * u ** 2 * t * c.x + 3 * u * t ** 2 * d.x + t ** 3 * b.x,
+    y: u ** 3 * a.y + 3 * u ** 2 * t * c.y + 3 * u * t ** 2 * d.y + t ** 3 * b.y,
+  };
+}
+export function pathData(points: MapPoint[], curve = false): string {
+  return points
+    .map((p, i) => {
+      if (!i) return `M${p.x * 1000},${p.y * 1000}`;
+      if (!curve) return `L${p.x * 1000},${p.y * 1000}`;
+      const [a, b] = curveControls(points, i - 1);
+      return `C${a.x * 1000},${a.y * 1000} ${b.x * 1000},${b.y * 1000} ${p.x * 1000},${p.y * 1000}`;
+    })
+    .join(" ");
+}
+export function bendPoints(start: MapPoint, end: MapPoint): MapPoint[] {
+  const dx = end.x - start.x,
+    dy = end.y - start.y;
+  return [
+    start,
+    { x: clamp((start.x + end.x) / 2 - dy * 0.2), y: clamp((start.y + end.y) / 2 + dx * 0.2) },
+    end,
+  ];
+}
+export function routeDash(item: RouteAnnotation): number[] {
+  const w = item.width * 1000;
+  switch (item.lineStyle || (item.dashed ? "dashed" : "solid")) {
+    case "dashed":
+      return [w * 4, w * 3];
+    case "dotted":
+      return [w * 0.15, w * 2.5];
+    case "dashdot":
+      return [w * 5, w * 2, w * 0.2, w * 2];
+    default:
+      return [];
+  }
+}
+/** Decorations are tactical sketch aids, not certified military symbology. */
+export function routeDecorations(item: RouteAnnotation): MapPoint[][] {
+  if (item.lineStyle !== "defense" && item.lineStyle !== "barrier") return [];
+  const samples: MapPoint[] = [item.points[0]];
+  for (let i = 0; i < item.points.length - 1; i++) {
+    const steps = item.curve ? 20 : 1;
+    for (let k = 1; k <= steps; k++) samples.push(routePoint(item, i, k / steps));
+  }
+  const spacing = Math.max(0.018, item.width * 8),
+    size = Math.max(0.006, item.width * 2.2);
+  const result: MapPoint[][] = [];
+  let walked = 0,
+    target = spacing / 2;
+  for (let i = 1; i < samples.length; i++) {
+    const a = samples[i - 1],
+      b = samples[i],
+      dx = b.x - a.x,
+      dy = b.y - a.y,
+      length = Math.hypot(dx, dy);
+    if (length < 1e-9) continue;
+    while (target <= walked + length && result.length < 500) {
+      const t = (target - walked) / length,
+        x = a.x + dx * t,
+        y = a.y + dy * t,
+        ux = dx / length,
+        uy = dy / length;
+      const at = (along: number, side: number) => ({
+        x: x + ux * along - uy * side,
+        y: y + uy * along + ux * side,
+      });
+      if (item.lineStyle === "defense") result.push([at(-size, 0), at(0, size * 1.6), at(size, 0)]);
+      else {
+        result.push([at(-size, -size), at(size, size)]);
+        result.push([at(-size, size), at(size, -size)]);
+      }
+      target += spacing;
+    }
+    walked += length;
+  }
+  return result;
+}
+export function shapeCorners(a: MapPoint, b: MapPoint): MapPoint[] {
+  return [a, { x: b.x, y: a.y }, b, { x: a.x, y: b.y }];
+}
+export function shapeBounds(item: ShapeAnnotation) {
+  const xs = item.points.map((p) => p.x),
+    ys = item.points.map((p) => p.y),
+    x = Math.min(...xs),
+    y = Math.min(...ys);
+  return { x, y, w: Math.max(...xs) - x, h: Math.max(...ys) - y };
+}
+export function shapePath(item: ShapeAnnotation): string {
+  if (item.shape === "polygon") return pathData(item.points) + " Z";
+  const { x, y, w, h } = shapeBounds(item);
+  if (item.shape === "ellipse") {
+    if (!w || !h) return "";
+    return `M${x * 1000},${(y + h / 2) * 1000}a${w * 500},${h * 500} 0 1 0 ${w * 1000},0a${w * 500},${h * 500} 0 1 0 ${-w * 1000},0Z`;
+  }
+  return pathData(shapeCorners({ x, y }, { x: x + w, y: y + h })) + " Z";
+}
+/** Expand the layout to the actual viewport; prevent panning into empty world space. */
+export function mapView(crop: number[], zoom: number, aspect: number, offset: MapPoint) {
+  const baseW = (crop[2] - crop[0]) * 1000,
+    baseH = (crop[3] - crop[1]) * 1000;
+  let w = Math.max(baseW / zoom, (baseH / zoom) * aspect),
+    h = w / aspect;
+  const fit = Math.min(1, 1000 / w, 1000 / h);
+  w *= fit;
+  h *= fit;
+  const originX = (crop[0] + crop[2]) * 500 - w / 2,
+    originY = (crop[1] + crop[3]) * 500 - h / 2;
+  return {
+    w,
+    h,
+    x: clamp(originX + offset.x, 0, 1000 - w),
+    y: clamp(originY + offset.y, 0, 1000 - h),
+    originX,
+    originY,
+  };
+}
 export function arrowPoints(item: RouteAnnotation): MapPoint[] {
   if (!item.arrow || item.points.length < 2) return [];
   const b = item.points.at(-1)!;
-  const a = [...item.points].reverse().find((p) => Math.hypot(b.x - p.x, b.y - p.y) > 0.00001);
+  const lastControl = item.curve ? curveControls(item.points, item.points.length - 2)[1] : null;
+  const a =
+    lastControl && Math.hypot(b.x - lastControl.x, b.y - lastControl.y) > 0.00001
+      ? lastControl
+      : [...item.points].reverse().find((p) => Math.hypot(b.x - p.x, b.y - p.y) > 0.00001);
   if (!a) return [];
   const angle = Math.atan2(b.y - a.y, b.x - a.x),
     length = item.width * 4;
@@ -138,6 +285,14 @@ function flag(value: unknown) {
   requireValue(value, typeof value === "boolean", "标注开关格式错误");
   return value as boolean;
 }
+function lineStyle(value: unknown): NonNullable<RouteAnnotation["lineStyle"]> {
+  requireValue(
+    value,
+    ["solid", "dashed", "dotted", "dashdot", "defense", "barrier"].includes(value as string),
+    "未知线条样式",
+  );
+  return value as NonNullable<RouteAnnotation["lineStyle"]>;
+}
 export function parseProject(
   input: unknown,
   iconIds: ReadonlySet<string>,
@@ -188,6 +343,37 @@ export function parseProject(
         width: number(a.width, 0.001, 0.03),
         dashed: flag(a.dashed),
         arrow: flag(a.arrow),
+        ...(a.curve === undefined ? {} : { curve: flag(a.curve) }),
+        ...(a.lineStyle === undefined ? {} : { lineStyle: lineStyle(a.lineStyle) }),
+      };
+    }
+    if (a.kind === "shape") {
+      const shape = a.shape;
+      requireValue(
+        shape,
+        shape === "rectangle" || shape === "ellipse" || shape === "polygon",
+        "未知区域形状",
+      );
+      requireValue(
+        a.points,
+        Array.isArray(a.points) &&
+          (shape === "polygon"
+            ? a.points.length >= 3 && a.points.length <= 128
+            : a.points.length === 2),
+        "区域控制点数量不正确",
+      );
+      const points = (a.points as unknown[]).map(point);
+      totalPoints += points.length;
+      requireValue(totalPoints, totalPoints <= 50000, "文件包含过多控制点");
+      return {
+        ...base,
+        kind: "shape",
+        shape,
+        points,
+        width: number(a.width, 0.001, 0.03),
+        fillOpacity: number(a.fillOpacity, 0, 0.6),
+        hatch: flag(a.hatch),
+        caption: text(a.caption, 300),
       };
     }
     if (a.kind === "icon") {
@@ -244,9 +430,12 @@ export function readProject(
 export function annotationName(a: Annotation): string {
   return a.kind === "text"
     ? a.text.split("\n")[0] || "文字说明"
-    : a.kind === "icon"
-      ? a.caption || "图标标记"
-      : a.arrow
-        ? "箭头走线"
-        : "折线 / 画笔";
+    : a.kind === "shape"
+      ? a.caption ||
+        (a.shape === "ellipse" ? "椭圆区域" : a.shape === "rectangle" ? "矩形区域" : "多边形区域")
+      : a.kind === "icon"
+        ? a.caption || "图标标记"
+        : a.arrow
+          ? "箭头走线"
+          : "折线 / 画笔";
 }
