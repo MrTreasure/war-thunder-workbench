@@ -181,6 +181,36 @@
       "capturedAt": "2026-10-21",
       "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?guides=1#/maps",
       "note": "路线、阵线和位置标记为绘制示例"
+    },
+    {
+      "file": "ground-map-guides.png",
+      "width": 1600,
+      "height": 1050,
+      "bytes": 1080503,
+      "sha256": "eccaeabc8a8e597d2ccefd458a49d0ec2d4ec14d1b088120dbf8cfa3c5304638",
+      "capturedAt": "2026-10-21",
+      "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?guides=1#/maps",
+      "note": "走线及方案为绘制示例"
+    },
+    {
+      "file": "map-plans.png",
+      "width": 1600,
+      "height": 1050,
+      "bytes": 1489572,
+      "sha256": "387d5d1862c25f3ecb03a1b1cfeec50ac0bf320c1597975502f3517ce11993bc",
+      "capturedAt": "2026-10-21",
+      "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?guides=1#/maps",
+      "note": "走线及方案为绘制示例"
+    },
+    {
+      "file": "map-text-fonts.png",
+      "width": 1600,
+      "height": 1050,
+      "bytes": 1485472,
+      "sha256": "654580c29a1ea7e517143611a17f34b814b4cb62a70750ff717b532742ed8b7e",
+      "capturedAt": "2026-10-21",
+      "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?guides=1#/maps",
+      "note": "走线及方案为绘制示例"
     }
   ]
 }
