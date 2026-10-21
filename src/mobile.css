@@ -932,22 +932,41 @@
     font-size: 12px;
     padding-inline: 10px;
   }
-  .ground-detail-page .ground-heading {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  .ground-detail-page {
+    padding: 6px 8px 24px;
   }
-  .ground-detail-page .ground-heading h1 {
-    font-size: 22px;
+  .ground-workspace {
+    height: auto;
+    min-height: 0;
+    grid-template-rows: auto auto;
+    gap: 6px;
   }
-  .ground-detail-page .ground-heading p {
+  .ground-detail-toolbar {
+    gap: 6px 10px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .ground-map-identity {
+    gap: 10px;
+  }
+  .ground-map-identity h1 {
+    font-size: 18px;
+  }
+  .ground-map-identity small {
+    display: none;
+  }
+  .ground-map-identity .ground-back {
     font-size: 12px;
   }
   .ground-original {
     font-size: 12px;
+    grid-column: 2;
+    grid-row: 1;
   }
   .ground-controls {
-    gap: 10px;
+    grid-column: 1/-1;
+    grid-row: 2;
+    gap: 6px;
     display: grid;
     grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   }
@@ -956,6 +975,8 @@
   }
   .ground-controls select {
     max-width: none;
+    width: 100%;
+    padding: 8px;
   }
   .ground-layer-toggles {
     grid-column: 1/-1;
@@ -968,7 +989,7 @@
     font-size: 12px;
   }
   .ground-stage {
-    height: min(64dvh, calc(100vw - 22px));
+    height: min(76dvh, calc(100vw - 18px));
     min-height: 0;
   }
   .ground-zoom {

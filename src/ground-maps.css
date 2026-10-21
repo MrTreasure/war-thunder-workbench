@@ -159,11 +159,46 @@
   color: var(--wt-muted);
   margin: 10px;
 }
-.ground-detail-page .ground-heading {
-  margin: 12px 0 0;
+.ground-detail-page {
+  width: 100%;
+  max-width: none;
+  padding: 8px 12px 24px;
 }
-.ground-detail-page .ground-heading p {
+.ground-workspace {
+  height: calc(100dvh - var(--wt-app-header-height) - 16px);
+  min-height: 320px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 8px;
+}
+.ground-detail-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+.ground-map-identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+.ground-map-identity h1 {
   margin: 0;
+  font-size: 20px;
+  font-weight: 650;
+  line-height: 1.25;
+}
+.ground-map-identity small {
+  display: block;
+  color: var(--wt-muted);
+  font-size: 11px;
+  font-weight: 400;
+  margin-top: 2px;
+}
+.ground-detail-toolbar > .ground-original {
+  margin-left: auto;
 }
 .ground-back,
 .ground-original {
@@ -188,14 +223,19 @@
 }
 .ground-controls {
   display: flex;
-  gap: 14px;
-  align-items: end;
+  gap: 8px;
+  align-items: center;
   flex-wrap: wrap;
-  padding: 12px 0 16px;
+  padding: 0;
+  min-width: 0;
+  flex: 1;
 }
 .ground-controls label {
-  display: grid;
-  gap: 5px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: 6px;
   color: var(--wt-muted);
   font-size: 12px;
   max-width: 100%;
@@ -208,8 +248,9 @@
   padding: 10px;
   font-size: 16px;
   min-height: 44px;
-  max-width: 420px;
-  width: 100%;
+  max-width: 260px;
+  width: auto;
+  min-width: 0;
 }
 .ground-layer-toggles {
   display: flex;
@@ -221,8 +262,8 @@
   position: relative;
   background: #151b1e;
   border: 1px solid #68747c70;
-  min-height: 280px;
-  height: min(64dvh, 780px);
+  min-height: 0;
+  height: 100%;
   overflow: hidden;
 }
 .ground-stage svg {

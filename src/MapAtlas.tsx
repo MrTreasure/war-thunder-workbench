@@ -1,7 +1,7 @@
 /* Interactive SVG map owns arrow-key pan and Home reset; native HTML has no map widget. */
 /* oxlint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex */
 import { useId, useRef, useState } from "react";
-import type { ImgHTMLAttributes, SVGProps } from "react";
+import type { ImgHTMLAttributes, ReactNode, SVGProps } from "react";
 import { Link, Navigate, useNavigate } from "@tanstack/react-router";
 import atlas from "../data/ground-maps.json";
 import { Route } from "./routes/_workbench.maps";
@@ -130,7 +130,7 @@ export function GroundMapPage() {
   const map = atlas.maps.find((m) => m.id === mapId);
   const back = (
     <Link className="ground-back" to="/maps" search={{ q: search.q, hasGuides: search.hasGuides }}>
-      ← 返回地图列表
+      ← 地图列表
     </Link>
   );
   if (!map)
@@ -145,18 +145,9 @@ export function GroundMapPage() {
     );
   return (
     <main className="ground-page ground-detail-page" aria-label={`${map.name}地图详情`}>
-      {back}
-      <header className="ground-heading">
-        <div>
-          <h1>{map.name}</h1>
-          <p>{map.english}</p>
-        </div>
-        <a className="ground-original" href={map.base.url} target="_blank" rel="noreferrer">
-          打开原图 ↗
-        </a>
-      </header>
       <GroundDetail
         key={map.id}
+        back={back}
         map={map}
         layoutId={search.side}
         choose={(side) =>
@@ -172,10 +163,12 @@ export function GroundMapPage() {
   );
 }
 function GroundDetail({
+  back,
   map,
   layoutId,
   choose,
 }: {
+  back: ReactNode;
   map: GroundMap;
   layoutId?: string;
   choose: (id: string) => void;
@@ -248,217 +241,236 @@ function GroundDetail({
   return (
     <section className="ground-detail" aria-label="地图与任务布局">
       <div className="ground-detail-body">
-        <div className="ground-controls">
-          <label>
-            任务布局
-            <select
-              value={layout.id}
-              onChange={(e) => {
-                reset();
-                choose(e.target.value);
+        <div className="ground-workspace">
+          <div className="ground-detail-toolbar">
+            <div className="ground-map-identity">
+              {back}
+              <h1>
+                {map.name}
+                <small>{map.english}</small>
+              </h1>
+            </div>
+            <div className="ground-controls">
+              <label>
+                <span>布局</span>
+                <select
+                  aria-label="任务布局"
+                  value={layout.id}
+                  onChange={(e) => {
+                    reset();
+                    choose(e.target.value);
+                  }}
+                >
+                  {map.layouts.map((l) => (
+                    <option key={l.id} value={l.id}>
+                      {map.thumbnails.find((t) => t.layoutId === l.id)?.name || l.name}
+                      {map.layouts.filter((v) => v.name === l.name).length > 1 &&
+                      !map.thumbnails.some((t) => t.layoutId === l.id)
+                        ? ` · 布局 ${map.layouts.filter((v) => v.name === l.name).findIndex((v) => v.id === l.id) + 1}`
+                        : ""}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                <span>己方</span>
+                <select
+                  aria-label="己方出生侧"
+                  value={team}
+                  onChange={(e) => setTeam(Number(e.target.value))}
+                >
+                  <option value={1}>队伍 1</option>
+                  <option value={2}>队伍 2</option>
+                </select>
+              </label>
+              <div className="ground-layer-toggles">
+                {[
+                  ["等高线", contours, setContours],
+                  ["点位", points, setPoints],
+                  ["参考网格", grid, setGrid],
+                  ["布局范围", cropped, setCropped],
+                ].map(([name, value, set]) => (
+                  <button
+                    key={name as string}
+                    aria-pressed={value as boolean}
+                    onClick={() => {
+                      reset();
+                      (set as (v: boolean) => void)(!value);
+                    }}
+                  >
+                    {name as string}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <a className="ground-original" href={map.base.url} target="_blank" rel="noreferrer">
+              原图 ↗
+            </a>
+          </div>
+          <div className="ground-stage" data-zoomed={zoom > 1}>
+            <svg
+              ref={svg}
+              role="application"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                const delta = 40 / zoom;
+                if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) {
+                  e.preventDefault();
+                  setOffset((o) => ({
+                    x: o.x + (e.key === "ArrowLeft" ? -delta : e.key === "ArrowRight" ? delta : 0),
+                    y: o.y + (e.key === "ArrowUp" ? -delta : e.key === "ArrowDown" ? delta : 0),
+                  }));
+                }
+                if (e.key === "Home") {
+                  e.preventDefault();
+                  reset();
+                }
+              }}
+              viewBox={`${x} ${y} ${w} ${h}`}
+              aria-label={`${map.name} ${layout.name}，可拖动查看，使用下方按钮缩放`}
+              preserveAspectRatio="xMidYMid meet"
+              onPointerDown={(e) => {
+                if (e.button !== 0) return;
+                svg.current?.setPointerCapture(e.pointerId);
+                drag.current = { x: e.clientX, y: e.clientY, ox: offset.x, oy: offset.y };
+              }}
+              onPointerMove={(e) => {
+                const d = drag.current;
+                if (!d) return;
+                const rect = svg.current!.getBoundingClientRect();
+                const scale = Math.min(rect.width / w, rect.height / h);
+                setOffset({
+                  x: d.ox - (e.clientX - d.x) / scale,
+                  y: d.oy - (e.clientY - d.y) / scale,
+                });
+              }}
+              onPointerUp={() => {
+                drag.current = null;
+              }}
+              onPointerCancel={() => {
+                drag.current = null;
               }}
             >
-              {map.layouts.map((l) => (
-                <option key={l.id} value={l.id}>
-                  {map.thumbnails.find((t) => t.layoutId === l.id)?.name || l.name}
-                  {map.layouts.filter((v) => v.name === l.name).length > 1 &&
-                  !map.thumbnails.some((t) => t.layoutId === l.id)
-                    ? ` · 布局 ${map.layouts.filter((v) => v.name === l.name).findIndex((v) => v.id === l.id) + 1}`
-                    : ""}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            己方出生侧
-            <select value={team} onChange={(e) => setTeam(Number(e.target.value))}>
-              <option value={1}>队伍 1</option>
-              <option value={2}>队伍 2</option>
-            </select>
-          </label>
-          <div className="ground-layer-toggles">
-            {[
-              ["等高线", contours, setContours],
-              ["点位", points, setPoints],
-              ["参考网格", grid, setGrid],
-              ["布局范围", cropped, setCropped],
-            ].map(([name, value, set]) => (
-              <button
-                key={name as string}
-                aria-pressed={value as boolean}
-                onClick={() => {
-                  reset();
-                  (set as (v: boolean) => void)(!value);
-                }}
-              >
-                {name as string}
-              </button>
-            ))}
-          </div>
-        </div>
-        <div className="ground-stage" data-zoomed={zoom > 1}>
-          <svg
-            ref={svg}
-            role="application"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              const delta = 40 / zoom;
-              if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) {
-                e.preventDefault();
-                setOffset((o) => ({
-                  x: o.x + (e.key === "ArrowLeft" ? -delta : e.key === "ArrowRight" ? delta : 0),
-                  y: o.y + (e.key === "ArrowUp" ? -delta : e.key === "ArrowDown" ? delta : 0),
-                }));
-              }
-              if (e.key === "Home") {
-                e.preventDefault();
-                reset();
-              }
-            }}
-            viewBox={`${x} ${y} ${w} ${h}`}
-            aria-label={`${map.name} ${layout.name}，可拖动查看，使用下方按钮缩放`}
-            preserveAspectRatio="xMidYMid meet"
-            onPointerDown={(e) => {
-              if (e.button !== 0) return;
-              svg.current?.setPointerCapture(e.pointerId);
-              drag.current = { x: e.clientX, y: e.clientY, ox: offset.x, oy: offset.y };
-            }}
-            onPointerMove={(e) => {
-              const d = drag.current;
-              if (!d) return;
-              const rect = svg.current!.getBoundingClientRect();
-              const scale = Math.min(rect.width / w, rect.height / h);
-              setOffset({
-                x: d.ox - (e.clientX - d.x) / scale,
-                y: d.oy - (e.clientY - d.y) / scale,
-              });
-            }}
-            onPointerUp={() => {
-              drag.current = null;
-            }}
-            onPointerCancel={() => {
-              drag.current = null;
-            }}
-          >
-            <defs>
-              <clipPath id={clipId}>
-                <rect x={x} y={y} width={w} height={h} />
-              </clipPath>
-            </defs>
-            <g clipPath={`url(#${clipId})`}>
-              <GroundSvgImage
-                key={`base-${retryVersion}`}
-                asset={rotateAsset(map.base, sourceChoice)}
-                x={0}
-                y={0}
-                width={1000}
-                height={1000}
-                preserveAspectRatio="none"
-                onLoad={() => setLoaded(true)}
-                onFailure={() => setFailed(true)}
-              />
-              {contours && (
+              <defs>
+                <clipPath id={clipId}>
+                  <rect x={x} y={y} width={w} height={h} />
+                </clipPath>
+              </defs>
+              <g clipPath={`url(#${clipId})`}>
                 <GroundSvgImage
-                  key={`contours-${retryVersion}`}
-                  asset={rotateAsset(map.contourImage, sourceChoice)}
+                  key={`base-${retryVersion}`}
+                  asset={rotateAsset(map.base, sourceChoice)}
                   x={0}
                   y={0}
                   width={1000}
                   height={1000}
                   preserveAspectRatio="none"
-                  opacity={0.8}
-                  onLoad={() => setContourLoaded(true)}
+                  onLoad={() => setLoaded(true)}
                   onFailure={() => setFailed(true)}
                 />
-              )}
-              {grid && (
-                <g
-                  className="ground-grid-lines"
-                  style={{ fontSize: 16 / zoom, strokeWidth: 1 / zoom }}
-                >
-                  {gridLines}
-                </g>
-              )}
-              {points &&
-                layout.marks.map((mark, i) => {
-                  const size = w * (mark.kind === "spawn" ? 0.047 : 0.029);
-                  const key =
-                    mark.kind === "spawn"
-                      ? mark.team === team
-                        ? "spawn_ally"
-                        : "spawn_enemy"
-                      : `capture_${mark.label.toLowerCase()}`;
-                  const icon = atlas.icons[key as keyof typeof atlas.icons];
-                  return icon ? (
-                    <GroundSvgImage
-                      key={`${i}-${retryVersion}`}
-                      asset={rotateAsset(icon, sourceChoice)}
-                      onFailure={() => setFailed(true)}
-                      x={mark.x * 1000 - size / 2}
-                      y={mark.y * 1000 - size / 2}
-                      width={size}
-                      height={size}
-                    >
-                      <title>
+                {contours && (
+                  <GroundSvgImage
+                    key={`contours-${retryVersion}`}
+                    asset={rotateAsset(map.contourImage, sourceChoice)}
+                    x={0}
+                    y={0}
+                    width={1000}
+                    height={1000}
+                    preserveAspectRatio="none"
+                    opacity={0.8}
+                    onLoad={() => setContourLoaded(true)}
+                    onFailure={() => setFailed(true)}
+                  />
+                )}
+                {grid && (
+                  <g
+                    className="ground-grid-lines"
+                    style={{ fontSize: 16 / zoom, strokeWidth: 1 / zoom }}
+                  >
+                    {gridLines}
+                  </g>
+                )}
+                {points &&
+                  layout.marks.map((mark, i) => {
+                    const size = w * (mark.kind === "spawn" ? 0.047 : 0.029);
+                    const key =
+                      mark.kind === "spawn"
+                        ? mark.team === team
+                          ? "spawn_ally"
+                          : "spawn_enemy"
+                        : `capture_${mark.label.toLowerCase()}`;
+                    const icon = atlas.icons[key as keyof typeof atlas.icons];
+                    return icon ? (
+                      <GroundSvgImage
+                        key={`${i}-${retryVersion}`}
+                        asset={rotateAsset(icon, sourceChoice)}
+                        onFailure={() => setFailed(true)}
+                        x={mark.x * 1000 - size / 2}
+                        y={mark.y * 1000 - size / 2}
+                        width={size}
+                        height={size}
+                      >
+                        <title>
+                          {mark.label}
+                          {mark.team ? ` · 队伍 ${mark.team}` : ""}
+                        </title>
+                      </GroundSvgImage>
+                    ) : (
+                      <text
+                        key={i}
+                        x={mark.x * 1000}
+                        y={mark.y * 1000}
+                        fill="#efede5"
+                        textAnchor="middle"
+                        fontSize={size}
+                      >
                         {mark.label}
-                        {mark.team ? ` · 队伍 ${mark.team}` : ""}
-                      </title>
-                    </GroundSvgImage>
-                  ) : (
-                    <text
-                      key={i}
-                      x={mark.x * 1000}
-                      y={mark.y * 1000}
-                      fill="#efede5"
-                      textAnchor="middle"
-                      fontSize={size}
-                    >
-                      {mark.label}
-                    </text>
-                  );
-                })}
-            </g>
-          </svg>
-          {(!loaded || (contours && !contourLoaded)) && !failed && (
-            <p className="ground-map-status">
-              {loaded ? "正在加载地形图层…" : "正在加载高清地图…"}
-              <button onClick={alternateSource}>尝试备用线路</button>
-            </p>
-          )}
-          {failed && (
-            <p className="ground-map-status" role="alert">
-              图层暂时无法加载。
+                      </text>
+                    );
+                  })}
+              </g>
+            </svg>
+            {(!loaded || (contours && !contourLoaded)) && !failed && (
+              <p className="ground-map-status">
+                {loaded ? "正在加载地形图层…" : "正在加载高清地图…"}
+                <button onClick={alternateSource}>尝试备用线路</button>
+              </p>
+            )}
+            {failed && (
+              <p className="ground-map-status" role="alert">
+                图层暂时无法加载。
+                <button
+                  onClick={() => {
+                    setFailed(false);
+                    setLoaded(false);
+                    setRetryVersion((v) => v + 1);
+                  }}
+                >
+                  重试加载
+                </button>
+                <a href={map.base.url} target="_blank" rel="noreferrer">
+                  打开原图 ↗
+                </a>
+              </p>
+            )}
+            <div className="ground-zoom">
               <button
-                onClick={() => {
-                  setFailed(false);
-                  setLoaded(false);
-                  setRetryVersion((v) => v + 1);
-                }}
+                aria-label="缩小地图"
+                disabled={zoom <= 1}
+                onClick={() => setZoom((z) => Math.max(1, z / 1.5))}
               >
-                重试加载
+                −
               </button>
-              <a href={map.base.url} target="_blank" rel="noreferrer">
-                打开原图 ↗
-              </a>
-            </p>
-          )}
-          <div className="ground-zoom">
-            <button
-              aria-label="缩小地图"
-              disabled={zoom <= 1}
-              onClick={() => setZoom((z) => Math.max(1, z / 1.5))}
-            >
-              −
-            </button>
-            <span>{Math.round(zoom * 100)}%</span>
-            <button
-              aria-label="放大地图"
-              disabled={zoom >= 8}
-              onClick={() => setZoom((z) => Math.min(8, z * 1.5))}
-            >
-              ＋
-            </button>
-            <button onClick={reset}>复位</button>
+              <span>{Math.round(zoom * 100)}%</span>
+              <button
+                aria-label="放大地图"
+                disabled={zoom >= 8}
+                onClick={() => setZoom((z) => Math.min(8, z * 1.5))}
+              >
+                ＋
+              </button>
+              <button onClick={reset}>复位</button>
+            </div>
           </div>
         </div>
         <div className="ground-map-meta">

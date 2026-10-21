@@ -189,3 +189,7 @@
   Treat all `/maps/` paths as maps in the shared header/provider so they never
   start loading vehicle data. Keep list query/guide filters in route search for
   back/forward and return links. Ground-map details must not use a modal dialog.
+- Ground-map detail identity, return link and controls share one compact toolbar.
+  Desktop `.ground-workspace` fills the viewport below the persistent app header;
+  the map takes the remaining grid row with no fixed 780px height cap. Keep
+  legends and related guides after the workspace in the normal page scroller.
