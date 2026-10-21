@@ -261,3 +261,9 @@
   scalloped front lines, triangular antitank teeth, obstacles and hollow advance
   arrows. Share body/decoration geometry across live SVG, picker previews and PNG.
   Preserve legacy paths; validate new style/head/flip fields and finite extended coordinates.
+
+- Hollow advance-arrow outlines follow a joined/rounded centerline with continuous
+  offset normals. Do not offset separate segments independently across corners;
+  this causes returning inner spurs and abrupt outer joins. Preserve straight-line
+  width when redundant or duplicate anchors are present; use the same path for
+  SVG previews, live annotations and PNG export.

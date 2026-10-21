@@ -162,6 +162,90 @@ assert.equal(arrowPoints({ ...curve, lineStyle: "advance" }).length, 0);
 assert.throws(() =>
   parseProject(makeProject(context, [{ ...outsideRoute, arrowHead: "script" }]), iconIds, known),
 );
+// Hollow arrow bends must remain simple outlines, with no returning spur at the inner corner.
+function arrowVertices(route) {
+  const numbers = routeBodyData(route)
+    .match(/-?\d+(?:\.\d+)?(?:e[+-]?\d+)?/gi)
+    .map(Number);
+  return Array.from({ length: numbers.length / 2 }, (_, i) => ({
+    x: numbers[i * 2],
+    y: numbers[i * 2 + 1],
+  }));
+}
+function cross(a, b, c) {
+  return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
+}
+for (const points of [
+  [
+    { x: 0.9, y: 0.9 },
+    { x: 0.6, y: 0.1 },
+    { x: 0.1, y: 0.1 },
+  ],
+  [
+    { x: 0.1, y: 0.8 },
+    { x: 0.1, y: 0.2 },
+    { x: 0.8, y: 0.2 },
+  ],
+  [
+    { x: 0.1, y: 0.1 },
+    { x: 0.4, y: 0.4 },
+    { x: 0.7, y: 0.1 },
+    { x: 0.9, y: 0.1 },
+  ],
+]) {
+  const vertices = arrowVertices({ ...path, points, lineStyle: "advance" });
+  assert(vertices.length > 20);
+  for (let i = 0; i < vertices.length; i++) {
+    const a = vertices[i],
+      b = vertices[(i + 1) % vertices.length],
+      c = vertices[(i + 2) % vertices.length],
+      ax = b.x - a.x,
+      ay = b.y - a.y,
+      bx = c.x - b.x,
+      by = c.y - b.y,
+      lengths = Math.hypot(ax, ay) * Math.hypot(bx, by);
+    if (lengths > 1e-8)
+      assert((ax * bx + ay * by) / lengths > -0.99, "inner arrow outline doubles back");
+    for (let j = i + 2; j < vertices.length; j++) {
+      if (i === 0 && j === vertices.length - 1) continue;
+      const d = vertices[j],
+        e = vertices[(j + 1) % vertices.length];
+      assert(
+        !(cross(a, b, d) * cross(a, b, e) < -1e-8 && cross(d, e, a) * cross(d, e, b) < -1e-8),
+        "arrow outline crosses itself",
+      );
+    }
+  }
+}
+const directArrow = {
+  ...path,
+  lineStyle: "advance",
+  points: [
+    { x: 0.1, y: 0.2 },
+    { x: 0.9, y: 0.2 },
+  ],
+};
+assert.equal(
+  routeBodyData(directArrow),
+  routeBodyData({
+    ...directArrow,
+    points: [directArrow.points[0], { x: 0.8999, y: 0.2 }, directArrow.points[1]],
+  }),
+);
+assert.equal(
+  routeBodyData(directArrow),
+  routeBodyData({
+    ...directArrow,
+    points: [directArrow.points[0], directArrow.points[0], directArrow.points[1]],
+  }),
+);
+assert(
+  !routeBodyData({
+    ...directArrow,
+    curve: true,
+    points: bendPoints(directArrow.points[0], directArrow.points[1]),
+  }).includes("NaN"),
+);
 const icon = {
   ...base,
   id: "icon-1",

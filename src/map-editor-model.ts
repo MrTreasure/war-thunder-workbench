@@ -176,6 +176,172 @@ function measureRoute(item: RouteAnnotation) {
   };
   return { length, at };
 }
+type ArrowSample = { point: MapPoint; dx: number; dy: number };
+/** Round the centerline first, then offset its continuous tangents on both sides. */
+function advanceBodyData(item: RouteAnnotation, total: number): string {
+  const epsilon = 1e-9,
+    source = item.points.filter(
+      (p, i, all) => !i || Math.hypot(p.x - all[i - 1].x, p.y - all[i - 1].y) > epsilon,
+    );
+  if (!item.curve) {
+    for (let i = source.length - 2; i > 0; i--) {
+      const a = source[i - 1],
+        b = source[i],
+        c = source[i + 1],
+        ax = b.x - a.x,
+        ay = b.y - a.y,
+        bx = c.x - b.x,
+        by = c.y - b.y,
+        lengths = Math.hypot(ax, ay) * Math.hypot(bx, by);
+      if (ax * bx + ay * by > 0 && Math.abs(ax * by - ay * bx) <= lengths * 1e-7)
+        source.splice(i, 1);
+    }
+  }
+  if (source.length < 2) return pathData(item.points);
+  let half = Math.min(Math.max(0.006, item.width * 2.8), total * 0.13),
+    minimumRadius = Infinity;
+  const samples: ArrowSample[] = [];
+  const unit = (x: number, y: number) => {
+    const length = Math.hypot(x, y);
+    return length > epsilon ? { x: x / length, y: y / length } : { x: 1, y: 0 };
+  };
+  const append = (point: MapPoint, dx: number, dy: number) => {
+    const t = unit(dx, dy),
+      entry = { point, dx: t.x, dy: t.y },
+      previous = samples.at(-1);
+    if (previous && Math.hypot(point.x - previous.point.x, point.y - previous.point.y) < epsilon)
+      samples[samples.length - 1] = entry;
+    else samples.push(entry);
+  };
+  let finalStraight = Math.hypot(
+    source.at(-1)!.x - source.at(-2)!.x,
+    source.at(-1)!.y - source.at(-2)!.y,
+  );
+  if (item.curve) {
+    for (let i = 0; i < source.length - 1; i++) {
+      const a = source[i],
+        b = source[i + 1],
+        [c, d] = curveControls(source, i),
+        route = { ...item, points: source };
+      for (let k = i ? 1 : 0; k <= 32; k++) {
+        const t = k / 32,
+          u = 1 - t;
+        const dx = 3 * u * u * (c.x - a.x) + 6 * u * t * (d.x - c.x) + 3 * t * t * (b.x - d.x),
+          dy = 3 * u * u * (c.y - a.y) + 6 * u * t * (d.y - c.y) + 3 * t * t * (b.y - d.y),
+          ddx = 6 * u * (d.x - 2 * c.x + a.x) + 6 * t * (b.x - 2 * d.x + c.x),
+          ddy = 6 * u * (d.y - 2 * c.y + a.y) + 6 * t * (b.y - 2 * d.y + c.y),
+          cross = Math.abs(dx * ddy - dy * ddx),
+          speed = Math.hypot(dx, dy);
+        if (cross > epsilon && speed > epsilon)
+          minimumRadius = Math.min(minimumRadius, speed ** 3 / cross);
+        append(
+          routePoint(route, i, t),
+          speed > epsilon ? dx : b.x - a.x,
+          speed > epsilon ? dy : b.y - a.y,
+        );
+      }
+    }
+  } else {
+    const firstDirection = unit(source[1].x - source[0].x, source[1].y - source[0].y);
+    append(source[0], firstDirection.x, firstDirection.y);
+    for (let i = 1; i < source.length - 1; i++) {
+      const a = source[i - 1],
+        b = source[i],
+        c = source[i + 1],
+        incoming = unit(b.x - a.x, b.y - a.y),
+        outgoing = unit(c.x - b.x, c.y - b.y),
+        turn = Math.atan2(
+          incoming.x * outgoing.y - incoming.y * outgoing.x,
+          incoming.x * outgoing.x + incoming.y * outgoing.y,
+        );
+      if (Math.abs(turn) < 1e-5 || Math.abs(turn) > Math.PI - 0.015) {
+        append(b, outgoing.x, outgoing.y);
+        continue;
+      }
+      const tangent = Math.tan(Math.abs(turn) / 2),
+        cut = Math.min(
+          half * 2.6 * tangent,
+          Math.hypot(b.x - a.x, b.y - a.y) * 0.42,
+          Math.hypot(c.x - b.x, c.y - b.y) * 0.42,
+        ),
+        radius = cut / tangent,
+        sign = Math.sign(turn),
+        entry = { x: b.x - incoming.x * cut, y: b.y - incoming.y * cut },
+        center = {
+          x: entry.x - incoming.y * radius * sign,
+          y: entry.y + incoming.x * radius * sign,
+        },
+        start = Math.atan2(entry.y - center.y, entry.x - center.x),
+        steps = Math.max(4, Math.ceil(Math.abs(turn) / (Math.PI / 32)));
+      minimumRadius = Math.min(minimumRadius, radius);
+      append(entry, incoming.x, incoming.y);
+      for (let k = 1; k <= steps; k++) {
+        const angle = start + (turn * k) / steps;
+        append(
+          { x: center.x + radius * Math.cos(angle), y: center.y + radius * Math.sin(angle) },
+          -Math.sin(angle) * sign,
+          Math.cos(angle) * sign,
+        );
+      }
+      if (i === source.length - 2) finalStraight = Math.hypot(c.x - b.x, c.y - b.y) - cut;
+    }
+    const last = source.at(-1)!,
+      previous = source.at(-2)!;
+    append(last, last.x - previous.x, last.y - previous.y);
+  }
+  const distances = [0];
+  for (let i = 1; i < samples.length; i++)
+    distances.push(
+      distances.at(-1)! +
+        Math.hypot(
+          samples[i].point.x - samples[i - 1].point.x,
+          samples[i].point.y - samples[i - 1].point.y,
+        ),
+    );
+  const length = distances.at(-1)!;
+  if (length < epsilon) return pathData(source);
+  const head = Math.min(Math.max(0.028, item.width * 11), length * 0.42, finalStraight * 0.85),
+    end = length - head;
+  half = Math.min(half, minimumRadius * 0.75, head * 0.45);
+  const shaft: ArrowSample[] = [];
+  for (let i = 0; i < samples.length; i++) {
+    if (distances[i] < end) {
+      shaft.push(samples[i]);
+      continue;
+    }
+    const previous = samples[Math.max(0, i - 1)],
+      current = samples[i],
+      span = distances[i] - distances[Math.max(0, i - 1)],
+      t = span > epsilon ? (end - distances[Math.max(0, i - 1)]) / span : 0,
+      direction = unit(
+        previous.dx + (current.dx - previous.dx) * t,
+        previous.dy + (current.dy - previous.dy) * t,
+      );
+    shaft.push({
+      point: {
+        x: previous.point.x + (current.point.x - previous.point.x) * t,
+        y: previous.point.y + (current.point.y - previous.point.y) * t,
+      },
+      dx: direction.x,
+      dy: direction.y,
+    });
+    break;
+  }
+  const offset = (sample: ArrowSample, distance: number) => ({
+      x: sample.point.x - sample.dy * distance,
+      y: sample.point.y + sample.dx * distance,
+    }),
+    neck = shaft.at(-1)!;
+  return (
+    pathData([
+      ...shaft.map((s) => offset(s, half)),
+      offset(neck, half * 2),
+      source.at(-1)!,
+      offset(neck, -half * 2),
+      ...shaft.map((s) => offset(s, -half)).reverse(),
+    ]) + " Z"
+  );
+}
 /** Independently drawn planning graphics, informed by FORTL/FLOT/ATDITCH conventions. */
 export function routeBodyData(item: RouteAnnotation): string {
   if (!["defense", "front", "advance"].includes(item.lineStyle || ""))
@@ -183,24 +349,7 @@ export function routeBodyData(item: RouteAnnotation): string {
   const { length, at } = measureRoute(item);
   if (length < 0.00001) return pathData(item.points, item.curve);
   const sign = item.flip ? -1 : 1;
-  if (item.lineStyle === "advance") {
-    const half = Math.min(Math.max(0.006, item.width * 2.8), length * 0.13),
-      head = Math.min(Math.max(0.028, item.width * 11), length * 0.42),
-      shoulder = half * 2,
-      end = length - head,
-      steps = Math.min(250, Math.max(2, Math.ceil(end / 0.008))),
-      left: MapPoint[] = [],
-      right: MapPoint[] = [];
-    for (let i = 0; i <= steps; i++) {
-      const d = (end * i) / steps;
-      left.push(at(d, half));
-      right.push(at(d, -half));
-    }
-    return (
-      pathData([...left, at(end, shoulder), at(length), at(end, -shoulder), ...right.reverse()]) +
-      " Z"
-    );
-  }
+  if (item.lineStyle === "advance") return advanceBodyData(item, length);
   const count = Math.min(350, Math.max(1, Math.floor(length / Math.max(0.025, item.width * 10)))),
     step = length / count,
     height = Math.min(Math.max(0.006, item.width * 2.6), step * 0.4) * sign,
