@@ -214,9 +214,15 @@
   silently omitting failed layers. Keep cancellation, 2K/4K options, source
   fallbacks and the original map/annotation coordinate projection aligned.
 - Run `pnpm run check:map-editor` with the routine verification gate. Editing is
-  immersive: hide the application header and reserve separate grid tracks for
-  tools, properties and status. Never float opaque tool panels over the map.
-  On mobile, tools and a scrollable properties area occupy rows below the canvas.
+  immersive: hide the application header and reserve fixed tracks for the main
+  tool rail, canvas and status. Secondary tools/properties are dismissible floating
+  panels on desktop and mobile. Opening, closing or switching a panel must not
+  resize the SVG, change the camera or move the map; do not allocate a panel grid
+  column/row. Mobile panels float above the bottom tool dock.
+- Keep the main map tool rail to select, pan, tactical lines, pen, shapes, markers
+  and text. Straight/curved lines, arrows and defense presets live in the tactical
+  floating panel. Danger regions live in shapes; sniper markers live in markers.
+  Keep creation, direct point editing, undo and saved geometry compatible.
 - Lines/arrows complete on drag release (or a start/end click pair) and become
   selected immediately. Drag endpoints to edit, drag hollow midpoint handles to
   insert bends; support deleting bends and keyboard/numeric point editing. Do not

@@ -111,6 +111,7 @@ type Gesture =
   | { kind: "pen" };
 const defaults = {
   arrow: false,
+  curve: false,
   arrowHead: "filled" as "filled" | "open",
   lineStyle: "solid" as NonNullable<RouteAnnotation["lineStyle"]>,
   color: "#e4c477",
@@ -291,7 +292,11 @@ export function MapEditor({
     finish();
     setReplaceIcon(false);
     if (next === "tactical") {
-      setTool("route");
+      if (panel === "lines") {
+        setPanel(null);
+        return;
+      }
+      setTool(settings.curve ? "curve" : settings.arrow ? "arrow" : "route");
       setSelectedId(null);
       setSelectedPoint(null);
       setPanel("lines");
@@ -344,7 +349,19 @@ export function MapEditor({
         dashed: lineStyle === "dashed",
         arrow: preset.arrow,
       });
-    else if (tool !== "curve") setTool(preset.arrow ? "arrow" : "route");
+    else setTool(settings.curve ? "curve" : preset.arrow ? "arrow" : "route");
+  }
+  function chooseLineCurve(curve: boolean) {
+    finish();
+    setSettings((s) => ({ ...s, curve }));
+    if (selected?.kind === "path")
+      patch({
+        curve,
+        ...(curve && selected.points.length === 2
+          ? { points: bendPoints(selected.points[0], selected.points[1]) }
+          : {}),
+      });
+    else setTool(curve ? "curve" : settings.arrow ? "arrow" : "route");
   }
   function resizePending(stroke: GeometryAnnotation, end: MapPoint): GeometryAnnotation {
     const start = stroke.points[0];
@@ -908,14 +925,8 @@ export function MapEditor({
               ["select", "选择", "↖"],
               ["pan", "平移", "✥"],
               ["tactical", "战术线", "⌁"],
-              ["defense", "防线", "⊓"],
-              ["arrow", "箭头", "↗"],
-              ["route", "线条", "╱"],
-              ["curve", "曲线", "∿"],
               ["pen", "画笔", "〰"],
               ["shape", "形状", "▱"],
-              ["danger", "危险区", "⚠"],
-              ["sniper", "狙击点", "⌖"],
               ["icon", "标记", "◇"],
               ["text", "文字", "T"],
             ] as const
@@ -925,11 +936,13 @@ export function MapEditor({
               title={label}
               aria-pressed={
                 value === "tactical"
-                  ? panel === "lines"
-                  : value === "defense"
-                    ? tool === "route" && settings.lineStyle === "defense"
-                    : tool === value && (value !== "route" || settings.lineStyle !== "defense")
+                  ? ["arrow", "route", "curve"].includes(tool)
+                  : value === "shape"
+                    ? tool === "shape" || tool === "danger"
+                    : tool === value
               }
+              aria-expanded={value === "tactical" ? panel === "lines" : undefined}
+              aria-controls={value === "tactical" ? "map-editor-inspector" : undefined}
               onClick={() => chooseTool(value)}
             >
               <span aria-hidden="true">{glyph}</span>
@@ -1030,7 +1043,12 @@ export function MapEditor({
           }}
         />
         {panel && (
-          <aside className="map-editor-inspector" data-panel={panel} aria-label="标注编辑面板">
+          <aside
+            id="map-editor-inspector"
+            className="map-editor-inspector"
+            data-panel={panel}
+            aria-label="标注编辑面板"
+          >
             <header>
               <strong>
                 {panel === "icons"
@@ -1047,12 +1065,37 @@ export function MapEditor({
                             ? annotationName(selected)
                             : "绘制样式"}
               </strong>
-              <button aria-label="收起编辑面板" onClick={() => setPanel(null)}>
+              <button
+                aria-label="收起编辑面板"
+                onClick={() => {
+                  setPanel(null);
+                  svg?.focus();
+                }}
+              >
                 ×
               </button>
             </header>
             {panel === "lines" ? (
               <>
+                <div className="map-editor-draw-mode" role="toolbar" aria-label="线条绘制方式">
+                  {(
+                    [
+                      [false, "直线 / 折线"],
+                      [true, "平滑曲线"],
+                    ] as const
+                  ).map(([curve, label]) => (
+                    <button
+                      key={label}
+                      disabled={selected?.locked}
+                      aria-pressed={
+                        (selected?.kind === "path" ? !!selected.curve : settings.curve) === curve
+                      }
+                      onClick={() => chooseLineCurve(curve)}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
                 <p>选择线型后拖动绘制；选中现有线条时直接替换样式。</p>
                 <div className="map-editor-tactical-presets">
                   {lineCatalog.presets.map((preset) => (
@@ -1273,12 +1316,16 @@ export function MapEditor({
               </>
             ) : (
               <div className="map-editor-fields">
-                {!selected && tool === "shape" && (
+                {!selected && (tool === "shape" || tool === "danger") && (
                   <label>
                     形状
                     <select
-                      value={shapeKind}
+                      value={tool === "danger" ? "danger" : shapeKind}
                       onChange={(e) => {
+                        if (e.target.value === "danger") {
+                          chooseTool("danger");
+                          return;
+                        }
                         finish();
                         setShapeKind(e.target.value as ShapeAnnotation["shape"]);
                         setTool("shape");
@@ -1287,6 +1334,7 @@ export function MapEditor({
                       <option value="rectangle">矩形</option>
                       <option value="ellipse">椭圆 / 圆</option>
                       <option value="polygon">可编辑多边形</option>
+                      <option value="danger">危险区域（多边形）</option>
                     </select>
                     <small>拖出范围后，拖动控制点调整形状。</small>
                   </label>
