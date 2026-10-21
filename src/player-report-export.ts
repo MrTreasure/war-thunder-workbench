@@ -1,3 +1,4 @@
+import { stampExportWatermark } from "./export-watermark";
 import { localReportImage, reportChartData, reportSummary } from "./player-report-design";
 import type { ReportTheme } from "./player-report-design";
 import fontUrl from "./assets/RobotoCondensed-Bold.ttf?url";
@@ -296,6 +297,7 @@ export async function downloadStatsReport(
   text("效率为本工具参考指数 · 构成图仅含所列载具已知击毁", 64, footer + 75, 21, muted);
   text("银狮为累计获得统计，非余额或净收入 · 虚构授勋情景", 64, footer + 106, 20, muted);
   if (signal.aborted) return;
+  await stampExportWatermark(canvas, signal);
   const blob = await new Promise<Blob>((resolve, reject) =>
     canvas.toBlob(
       (value) => (value ? resolve(value) : reject(new Error("战报图片生成失败。"))),

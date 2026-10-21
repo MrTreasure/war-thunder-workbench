@@ -1,3 +1,4 @@
+import { stampExportWatermark } from "./export-watermark";
 import type { Annotation, MapPoint } from "./map-editor-model";
 import type { TextAnnotation } from "./map-editor-model";
 import { canvasTextFont } from "./map-editor-fonts";
@@ -349,6 +350,7 @@ export async function renderMapPng(
     }
   }
   if (signal.aborted) throw new Error("已取消导出");
+  await stampExportWatermark(canvas, signal);
   return new Promise((resolve, reject) => {
     try {
       canvas.toBlob(

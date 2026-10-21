@@ -39,6 +39,11 @@ export function PlayerReport({
         } as CSSProperties
       }
     >
+      <div className="wt-report-screen-watermark" aria-hidden="true">
+        {Array.from({ length: 24 }, (_, i) => (
+          <span key={i}>mrtreasure.cc</span>
+        ))}
+      </div>
       <div className="wt-poster-top">
         <img src="https://warthunder.com/assets/img/svg/logo-wt.svg" alt="War Thunder" />
         <span>{statsModeNames[p.mode]} · 生涯嘉奖</span>
