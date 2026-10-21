@@ -30,14 +30,11 @@
 
 如果你也玩战雷，欢迎试试，也欢迎告诉我还想加什么功能。
 
+GitHub：https://github.com/MrTreasure/war-thunder-workbench
+
 #战争雷霆 #战雷 #战争雷霆陆战 #战雷攻略 #游戏工具 #战术地图
 
 ---
-
-## 使用入口
-
-- [科技树、研发与配队](https://render.qmuse.pub/p/muse/8645013411493394)
-- [陆战地图与走线绘制](https://render.mrtreasure.cc/muse/war-thunder-trees/?guides=1#/maps)
 
 ## 配图顺序
 
