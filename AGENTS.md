@@ -175,10 +175,17 @@
 
 - Hidden `?guides=1#/maps` now displays the ground-map atlas. Canonical map metadata
   lives in `data/ground-maps.json`; keep the page lazy and do not load country data.
-  User-provided map imagery is an exception to the official-image rule: host it on
-  the existing R2 `wt-map-atlas` bucket under `ground-maps/v1/` with hashed names.
+  User-provided map imagery is an exception to the official-image rule: archive it in
+  the existing GitHub `MrTreasure/oss-files` image repository, pin full commit IDs
+  in raw/CDN URLs and keep the existing R2 addresses as fallback sources.
   Keep raw exports and contour-coordinate JSON out of Git and QMuse uploads.
 - Ground-map base, contour SVG and briefing points share the original normalized
   coordinate system. Mission cropping changes only the shared viewBox. Reference
   grids are not verified runtime grids; world Y is not verified sea-level height.
   Guide links must disclose layout/version differences; preserve old guide data.
+
+- Ground-map details use the independent `#/maps/$mapId` route, with the same hidden
+  outer `guides=1` gate. Preserve old `#/maps?map=...&side=...` links by redirecting.
+  Treat all `/maps/` paths as maps in the shared header/provider so they never
+  start loading vehicle data. Keep list query/guide filters in route search for
+  back/forward and return links. Ground-map details must not use a modal dialog.

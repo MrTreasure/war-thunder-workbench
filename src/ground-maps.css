@@ -63,13 +63,14 @@
   font-size: 13px;
 }
 .ground-page button,
-.ground-dialog button {
+.ground-detail-page button {
   cursor: pointer;
 }
 .ground-searchbar button,
 .ground-layer-toggles button,
 .ground-zoom button,
-.ground-empty button {
+.ground-empty button,
+.ground-map-status button {
   min-height: 44px;
   padding: 8px 14px;
   border: 1px solid #68747c70;
@@ -158,27 +159,32 @@
   color: var(--wt-muted);
   margin: 10px;
 }
-.calculator.ground-dialog {
-  width: min(1480px, 96vw);
-  max-width: 1480px;
-  height: min(94dvh, 1250px);
-  max-height: 94dvh;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  overflow: hidden;
+.ground-detail-page .ground-heading {
+  margin: 12px 0 0;
 }
-.ground-dialog .calc-header {
-  padding: 16px 22px;
-  flex: none;
+.ground-detail-page .ground-heading p {
+  margin: 0;
 }
-.ground-dialog .calc-header h2 {
-  font-size: 24px;
+.ground-back,
+.ground-original {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--wt-gold);
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.ground-back:hover,
+.ground-original:hover {
+  text-decoration: underline;
 }
 .ground-detail-body {
-  overflow: auto;
-  padding: 0 22px 22px;
-  min-height: 0;
+  min-width: 0;
+}
+.ground-card {
+  display: block;
+  text-decoration: none;
 }
 .ground-controls {
   display: flex;
@@ -356,7 +362,7 @@
   font-size: 12px;
 }
 .ground-page :focus-visible,
-.ground-dialog :focus-visible {
+.ground-detail-page :focus-visible {
   outline: 2px solid var(--wt-gold);
   outline-offset: 3px;
 }

@@ -14,6 +14,7 @@ import { Route as WorkbenchRouteImport } from './routes/_workbench'
 import { Route as WorkbenchLineupsRouteImport } from './routes/_workbench.lineups'
 import { Route as WorkbenchMapsRouteImport } from './routes/_workbench.maps'
 import { Route as WorkbenchTreeRouteImport } from './routes/_workbench.tree'
+import { Route as WorkbenchMapsMapIdRouteImport } from './routes/_workbench.maps_.$mapId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -39,18 +40,25 @@ const WorkbenchTreeRoute = WorkbenchTreeRouteImport.update({
   path: '/tree',
   getParentRoute: () => WorkbenchRoute,
 } as any)
+const WorkbenchMapsMapIdRoute = WorkbenchMapsMapIdRouteImport.update({
+  id: '/maps_/$mapId',
+  path: '/maps/$mapId',
+  getParentRoute: () => WorkbenchRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/lineups': typeof WorkbenchLineupsRoute
   '/maps': typeof WorkbenchMapsRoute
   '/tree': typeof WorkbenchTreeRoute
+  '/maps/$mapId': typeof WorkbenchMapsMapIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/lineups': typeof WorkbenchLineupsRoute
   '/maps': typeof WorkbenchMapsRoute
   '/tree': typeof WorkbenchTreeRoute
+  '/maps/$mapId': typeof WorkbenchMapsMapIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -59,12 +67,13 @@ export interface FileRoutesById {
   '/_workbench/lineups': typeof WorkbenchLineupsRoute
   '/_workbench/maps': typeof WorkbenchMapsRoute
   '/_workbench/tree': typeof WorkbenchTreeRoute
+  '/_workbench/maps_/$mapId': typeof WorkbenchMapsMapIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/lineups' | '/maps' | '/tree'
+  fullPaths: '/' | '/lineups' | '/maps' | '/tree' | '/maps/$mapId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/lineups' | '/maps' | '/tree'
+  to: '/' | '/lineups' | '/maps' | '/tree' | '/maps/$mapId'
   id:
     | '__root__'
     | '/'
@@ -72,6 +81,7 @@ export interface FileRouteTypes {
     | '/_workbench/lineups'
     | '/_workbench/maps'
     | '/_workbench/tree'
+    | '/_workbench/maps_/$mapId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -116,6 +126,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkbenchTreeRouteImport
       parentRoute: typeof WorkbenchRoute
     }
+    '/_workbench/maps_/$mapId': {
+      id: '/_workbench/maps_/$mapId'
+      path: '/maps/$mapId'
+      fullPath: '/maps/$mapId'
+      preLoaderRoute: typeof WorkbenchMapsMapIdRouteImport
+      parentRoute: typeof WorkbenchRoute
+    }
   }
 }
 
@@ -123,12 +140,14 @@ interface WorkbenchRouteChildren {
   WorkbenchLineupsRoute: typeof WorkbenchLineupsRoute
   WorkbenchMapsRoute: typeof WorkbenchMapsRoute
   WorkbenchTreeRoute: typeof WorkbenchTreeRoute
+  WorkbenchMapsMapIdRoute: typeof WorkbenchMapsMapIdRoute
 }
 
 const WorkbenchRouteChildren: WorkbenchRouteChildren = {
   WorkbenchLineupsRoute: WorkbenchLineupsRoute,
   WorkbenchMapsRoute: WorkbenchMapsRoute,
   WorkbenchTreeRoute: WorkbenchTreeRoute,
+  WorkbenchMapsMapIdRoute: WorkbenchMapsMapIdRoute,
 }
 
 const WorkbenchRouteWithChildren = WorkbenchRoute._addFileChildren(

@@ -1,10 +1,11 @@
 /* Interactive SVG map owns arrow-key pan and Home reset; native HTML has no map widget. */
 /* oxlint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex */
 import { useId, useRef, useState } from "react";
-import { useNavigate } from "@tanstack/react-router";
+import type { ImgHTMLAttributes, SVGProps } from "react";
+import { Link, Navigate, useNavigate } from "@tanstack/react-router";
 import atlas from "../data/ground-maps.json";
 import { Route } from "./routes/_workbench.maps";
-import { Modal } from "./Modal";
+import { Route as DetailRoute } from "./routes/_workbench.maps_.$mapId";
 
 type GroundMap = (typeof atlas.maps)[number];
 const normalize = (s: string) =>
@@ -12,8 +13,16 @@ const normalize = (s: string) =>
 export function MapAtlas() {
   const search = Route.useSearch();
   const navigate = useNavigate({ from: "/maps" });
-  const [query, setQuery] = useState("");
-  const [onlyGuides, setOnlyGuides] = useState(false);
+  const query = search.q || "";
+  const onlyGuides = !!search.hasGuides;
+  const setQuery = (q: string) =>
+    void navigate({ search: { ...search, q: q || undefined }, replace: true, resetScroll: false });
+  const setOnlyGuides = (value: boolean) =>
+    void navigate({
+      search: { ...search, hasGuides: value || undefined },
+      replace: true,
+      resetScroll: false,
+    });
   const selected = atlas.maps.find(
     (m) => m.id === search.map || m.legacyGuideIds.includes(search.map || ""),
   );
@@ -25,6 +34,15 @@ export function MapAtlas() {
           [map.name, map.english, map.id, thumb.name, ...map.guides.map((g) => g.title)].join(" "),
         ).includes(normalize(query)) &&
         (!onlyGuides || map.guides.length),
+    );
+  if (selected)
+    return (
+      <Navigate
+        to="/maps/$mapId"
+        params={{ mapId: selected.id }}
+        search={{ side: search.side, q: search.q, hasGuides: search.hasGuides }}
+        replace
+      />
     );
   return (
     <main className="ground-page" aria-label="陆战地图">
@@ -48,21 +66,23 @@ export function MapAtlas() {
             onChange={(e) => setQuery(e.target.value)}
           />
         </label>
-        <button aria-pressed={onlyGuides} onClick={() => setOnlyGuides((v) => !v)}>
+        <button aria-pressed={onlyGuides} onClick={() => setOnlyGuides(!onlyGuides)}>
           仅看有关联攻略
         </button>
         <span>{cards.length} 个三点占领布局</span>
       </div>
       <section className="ground-gallery" aria-label="地图列表">
         {cards.map(({ map, thumb }) => (
-          <button
+          <Link
             className="ground-card"
             key={thumb.layoutId}
-            onClick={() => void navigate({ search: { map: map.id, side: thumb.layoutId } })}
+            to="/maps/$mapId"
+            params={{ mapId: map.id }}
+            search={{ side: thumb.layoutId, q: search.q, hasGuides: search.hasGuides }}
           >
             <div className="ground-card-image">
-              <img
-                src={thumb.image.url}
+              <GroundThumbnail
+                asset={thumb.image}
                 alt={`${map.name} ${thumb.name} 点位缩略图`}
                 width={thumb.width}
                 height={thumb.height}
@@ -80,7 +100,7 @@ export function MapAtlas() {
                 {map.layouts.length} 种任务布局 <b aria-hidden="true">↗</b>
               </small>
             </div>
-          </button>
+          </Link>
         ))}
       </section>
       {!cards.length && (
@@ -100,23 +120,54 @@ export function MapAtlas() {
       <p className="ground-source-note">
         列表展示导出资料中的三点占领布局；详情可切换全部已收录任务。点位为简报参考位置，关联攻略请结合原帖的地图版本阅读。
       </p>
-      {selected && (
-        <GroundDetail
-          key={selected.id}
-          map={selected}
-          layoutId={search.side}
-          choose={(id) =>
-            void navigate({
-              search: { map: selected.id, side: id },
-              replace: true,
-              resetScroll: false,
-            })
-          }
-          close={() =>
-            void navigate({ search: { map: undefined, side: undefined }, resetScroll: false })
-          }
-        />
-      )}
+    </main>
+  );
+}
+export function GroundMapPage() {
+  const { mapId } = DetailRoute.useParams();
+  const search = DetailRoute.useSearch();
+  const navigate = useNavigate({ from: "/maps/$mapId" });
+  const map = atlas.maps.find((m) => m.id === mapId);
+  const back = (
+    <Link className="ground-back" to="/maps" search={{ q: search.q, hasGuides: search.hasGuides }}>
+      ← 返回地图列表
+    </Link>
+  );
+  if (!map)
+    return (
+      <main className="ground-page">
+        <header className="ground-heading">
+          <h1>地图未找到</h1>
+          {back}
+        </header>
+        <p>这张地图尚未收录，请返回列表选择。</p>
+      </main>
+    );
+  return (
+    <main className="ground-page ground-detail-page" aria-label={`${map.name}地图详情`}>
+      {back}
+      <header className="ground-heading">
+        <div>
+          <h1>{map.name}</h1>
+          <p>{map.english}</p>
+        </div>
+        <a className="ground-original" href={map.base.url} target="_blank" rel="noreferrer">
+          打开原图 ↗
+        </a>
+      </header>
+      <GroundDetail
+        key={map.id}
+        map={map}
+        layoutId={search.side}
+        choose={(side) =>
+          void navigate({
+            params: { mapId },
+            search: { ...search, side },
+            replace: true,
+            resetScroll: false,
+          })
+        }
+      />
     </main>
   );
 }
@@ -124,12 +175,10 @@ function GroundDetail({
   map,
   layoutId,
   choose,
-  close,
 }: {
   map: GroundMap;
   layoutId?: string;
   choose: (id: string) => void;
-  close: () => void;
 }) {
   const layout = map.layouts.find((l) => l.id === layoutId) || map.layouts[0];
   const [contours, setContours] = useState(true),
@@ -141,6 +190,16 @@ function GroundDetail({
     [offset, setOffset] = useState({ x: 0, y: 0 });
   const [failed, setFailed] = useState(false),
     [loaded, setLoaded] = useState(false);
+  const [retryVersion, setRetryVersion] = useState(0);
+  const [sourceChoice, setSourceChoice] = useState(0);
+  const [contourLoaded, setContourLoaded] = useState(false);
+  const alternateSource = () => {
+    setSourceChoice((v) => (v + 1) % 3);
+    setLoaded(false);
+    setContourLoaded(false);
+    setFailed(false);
+    setRetryVersion((v) => v + 1);
+  };
   const clipId = useId();
   const svg = useRef<SVGSVGElement>(null);
   const drag = useRef<{ x: number; y: number; ox: number; oy: number } | null>(null);
@@ -187,7 +246,7 @@ function GroundDetail({
     }
   }
   return (
-    <Modal className="ground-dialog" title={map.name} subtitle={map.english} close={close}>
+    <section className="ground-detail" aria-label="地图与任务布局">
       <div className="ground-detail-body">
         <div className="ground-controls">
           <label>
@@ -287,26 +346,29 @@ function GroundDetail({
               </clipPath>
             </defs>
             <g clipPath={`url(#${clipId})`}>
-              <image
-                href={map.base.url}
+              <GroundSvgImage
+                key={`base-${retryVersion}`}
+                asset={rotateAsset(map.base, sourceChoice)}
                 x={0}
                 y={0}
                 width={1000}
                 height={1000}
                 preserveAspectRatio="none"
                 onLoad={() => setLoaded(true)}
-                onError={() => setFailed(true)}
+                onFailure={() => setFailed(true)}
               />
               {contours && (
-                <image
-                  href={map.contourImage.url}
+                <GroundSvgImage
+                  key={`contours-${retryVersion}`}
+                  asset={rotateAsset(map.contourImage, sourceChoice)}
                   x={0}
                   y={0}
                   width={1000}
                   height={1000}
                   preserveAspectRatio="none"
                   opacity={0.8}
-                  onError={() => setFailed(true)}
+                  onLoad={() => setContourLoaded(true)}
+                  onFailure={() => setFailed(true)}
                 />
               )}
               {grid && (
@@ -328,9 +390,10 @@ function GroundDetail({
                       : `capture_${mark.label.toLowerCase()}`;
                   const icon = atlas.icons[key as keyof typeof atlas.icons];
                   return icon ? (
-                    <image
-                      key={i}
-                      href={icon.url}
+                    <GroundSvgImage
+                      key={`${i}-${retryVersion}`}
+                      asset={rotateAsset(icon, sourceChoice)}
+                      onFailure={() => setFailed(true)}
                       x={mark.x * 1000 - size / 2}
                       y={mark.y * 1000 - size / 2}
                       width={size}
@@ -340,7 +403,7 @@ function GroundDetail({
                         {mark.label}
                         {mark.team ? ` · 队伍 ${mark.team}` : ""}
                       </title>
-                    </image>
+                    </GroundSvgImage>
                   ) : (
                     <text
                       key={i}
@@ -356,10 +419,24 @@ function GroundDetail({
                 })}
             </g>
           </svg>
-          {!loaded && !failed && <p className="ground-map-status">正在加载高清地图…</p>}
+          {(!loaded || (contours && !contourLoaded)) && !failed && (
+            <p className="ground-map-status">
+              {loaded ? "正在加载地形图层…" : "正在加载高清地图…"}
+              <button onClick={alternateSource}>尝试备用线路</button>
+            </p>
+          )}
           {failed && (
             <p className="ground-map-status" role="alert">
-              图层加载失败，请关闭后重试。
+              图层暂时无法加载。
+              <button
+                onClick={() => {
+                  setFailed(false);
+                  setLoaded(false);
+                  setRetryVersion((v) => v + 1);
+                }}
+              >
+                重试加载
+              </button>
               <a href={map.base.url} target="_blank" rel="noreferrer">
                 打开原图 ↗
               </a>
@@ -427,6 +504,57 @@ function GroundDetail({
           )}
         </section>
       </div>
-    </Modal>
+    </section>
   );
+}
+
+// Keep primary images in GitHub, with independent alternatives for failed connections.
+type GroundImageAsset = { url: string; rawUrl?: string; fallbackUrl?: string };
+const assetSources = (asset: GroundImageAsset) => [
+  ...new Set([asset.url, asset.rawUrl, asset.fallbackUrl].filter((s): s is string => !!s)),
+];
+function GroundThumbnail({
+  asset,
+  alt,
+  ...props
+}: { asset: GroundImageAsset } & ImgHTMLAttributes<HTMLImageElement>) {
+  const [source, setSource] = useState(0);
+  const sources = assetSources(asset);
+  return (
+    <img
+      {...props}
+      alt={alt || "地图点位缩略图"}
+      src={sources[source]}
+      onError={() => {
+        if (source + 1 < sources.length) setSource(source + 1);
+      }}
+    />
+  );
+}
+function GroundSvgImage({
+  asset,
+  onFailure,
+  ...props
+}: { asset: GroundImageAsset; onFailure?: () => void } & SVGProps<SVGImageElement>) {
+  const [source, setSource] = useState(0);
+  const sources = assetSources(asset);
+  return (
+    <image
+      {...props}
+      href={sources[source]}
+      onError={() => {
+        if (source + 1 < sources.length) setSource(source + 1);
+        else onFailure?.();
+      }}
+    />
+  );
+}
+
+function rotateAsset(asset: GroundImageAsset, choice: number): GroundImageAsset {
+  const sources = assetSources(asset);
+  return {
+    url: sources[choice % sources.length],
+    rawUrl: sources[(choice + 1) % sources.length],
+    fallbackUrl: sources[(choice + 2) % sources.length],
+  };
 }

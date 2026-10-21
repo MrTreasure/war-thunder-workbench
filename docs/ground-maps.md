@@ -13,28 +13,47 @@
 
 ## 图片托管
 
-使用现有 Cloudflare R2 桶 `wt-map-atlas`，公开域名 `https://wtmaps.mrtreasure.cc`，独立前缀 `ground-maps/v1/`。193 个内容哈希命名对象，包括 55 张底图、55 个等高线 SVG、77 张缩略图、6 个图标。等高线以 gzip 传输，保持原始内容；所有对象采用一年 immutable 缓存。原始 ZIP、巨大等高线坐标 JSON 和本机环境均不提交 Git，也不进入 QMuse 产物。
+使用已有图床仓库 [MrTreasure/oss-files](https://github.com/MrTreasure/oss-files)，目录为 `war-thunder/ground-maps/v1/`。193 个图片对象与源码分仓保存：55 张底图、55 个等高线 SVG、77 张缩略图和 6 个点位图标。URL 固定到完整 Git 提交 ID，文件名带内容哈希，避免分支更新改变旧版页面。
 
-选择 R2 是为了避免把数百 MB 的图片加入源码仓库。R2 标准存储包含免费额度且公网流出免流量费，实际费用取决于账号总用量，参见 [R2 价格说明](https://developers.cloudflare.com/r2/pricing/)。GitHub 建议仓库保持较小，对单文件有大小限制，参见 [GitHub 文件限制](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github)。
+图片首先通过 jsDelivr 访问仓库固定版本的文件，失败时依次尝试 GitHub 原始文件和已存在的 R2 备份。R2 原图未删除。`oss.mrtreasure.cc` 的旧测试文件当前返回 404，尚未把这个未经核验的域名用于新图片，也未修改其全站绑定。
+
+底图维持原始 WebP；等高线 SVG 仅压缩数字书写和省略重复的直线命令，逐项验证所有数值坐标未改变。归档共约 338.8 MiB，最大单文件 19,748,407 字节。大体积图片、原始 ZIP 与巨大等高线坐标 JSON 不进入应用源码仓库或 QMuse 上传。
+
+原先选择 R2 是为了控制源码仓库大小；GitHub 图片仓库同样可行，本次按已有图床仓库接入。元数据中的 `sourceSha256` 保留原文件哈希，`sha256` 对应仓库文件，`fallbackSha256` 对应 R2 备份。
+
+## 独立详情页
+
+点击卡片打开 `#/maps/地图ID?side=布局ID`。详情页与列表共用顶部导航，支持直接访问、刷新、前进/后退和返回列表；列表搜索与仅看有关联攻略的筛选保存在路由中。旧 `#/maps?map=...&side=...` 链接自动跳转。未知地图提供返回列表入口，没有外层 `guides=1` 时依旧返回科技树。
 
 ## 重新准备
 
-在独立 Python 环境安装 Pillow 13.0.0、boto3 1.43.115、PyYAML 6.0.3，然后执行：
+在独立 Python 环境安装 Pillow 13.0.0；R2 上传额外需要 boto3 1.43.115、PyYAML 6.0.3。先准备本机导出文件，再归档到图床仓库：
 
 ```sh
 python scripts/prepare-ground-maps.py '<解压后的战雷陆战地图目录>' '<解压后的缩略图目录>'
-# 确需上传时追加 --upload；现有对象以内容哈希核对后跳过。
+python scripts/archive-ground-map-assets.py --repo '<oss-files 本地工作目录>' --source '<解压后的战雷陆战地图目录>'
+# 审查并提交、推送 oss-files 中 war-thunder/ground-maps/ 的新增文件。
+python scripts/archive-ground-map-assets.py --repo '<oss-files 本地工作目录>' --source '<解压后的战雷陆战地图目录>' --apply-ref '<图床仓库完整提交ID>'
 ```
 
-上传脚本从本机密码本 `cloudflare.r2_admin` 读取凭据，不将密钥写入工程。只上传 `ground-maps/v1/` 下的新内容，不删除既有图床文件。规范数据在 `data/ground-maps.json`，构建后仅由隐藏页面的懒加载 JS 携带，不发布独立 JSON。
+归档脚本不读取密钥、不推送。原 R2 上传脚本仅在显式追加 `--upload` 时读取密码本 `cloudflare.r2_admin`。资产提交确认上传后再固定版本链接并构建，禁止发布尚未推送的图片版本。
 
-常规 `pnpm run check` 会检查地图数量、布局、坐标投影、缩略图关联及资源哈希；`pnpm run build` 保持原有国家数据与禁止独立 JSON 的检查。预览通过现有 `pnpm run publish` 发布，QMuse 仍等待用户确认预览。
+规范数据在 `data/ground-maps.json`，仅由隐藏地图页面的懒加载 JS 携带。常规 `pnpm run check` 检查地图数量、任务布局、坐标投影、缩略图关联、资源哈希和图床版本；`pnpm run build` 保持原有国家数据与禁止独立 JSON 的检查。预览仍通过 `pnpm run publish`，QMuse 等待用户确认。
 
 ## 本次验收记录
 
 - `pnpm run check`、`pnpm run build` 与构建产物检查全部通过；独立 JSON 发布数为 0。
 - 193 个 R2 图片公网地址全部返回成功；底图与等高线在实际地图详情正常叠加。
 - 公网预览返回 200，内容与当前构建一致，HTML 为 `no-store`；公网浏览器可显示全部 77 个卡片。
-- 320 / 375 / 414 / 768 像素列表无横向溢出，375 像素详情按钮与关闭入口可用；桌面详情保持居中。
+- 原版本已核对 320 / 375 / 414 / 768 像素列表无横向溢出；本次详情改为普通独立页面，使用返回列表链接。
 - 隐藏开关关闭时不加载地图模块；地图页面不加载国家载具数据。
 - 等高线 gzip 对象合计约 78.1 MiB，原始约 224.5 MiB；实际传输取决于浏览器协商与边缘缓存。
+
+## Git 图床与独立详情修订
+
+- 图床版本：`79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7`，已核对远端提交中全部 193 张图片的路径、文件长度与内容哈希。
+- 用户指出的阿拉曼底图通过 GitHub 原始地址下载为 2,421,652 字节，哈希与导出文件一致；该图及最大等高线的 CDN 地址均返回 200。
+- 原 R2 文件本身完整；测试中浏览器请求返回 200，Python 默认客户端收到 Cloudflare 1010 拦截。无法仅据此判定用户网络的具体失败原因，因此本次切换默认图片来源并保留备用。
+- 所有修改已通过常规代码、数据与构建检查。详情使用独立路由，共享页面框架；本次没有进行浏览器自动操作。
+- 对返回成功但长时间未完成的请求，加载提示提供“尝试备用线路”，可主动切换地址；底图和等高线分别报告加载状态，避免底图就绪时误认为全部图层已完成。
+- 公网 `?guides=1` 入口已核对返回 200，HTML 与发布构建一致并保持 `no-store`；原图 CDN 分段请求返回 206，可正常读取图片内容。

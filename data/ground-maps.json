@@ -1,39 +1,63 @@
 {
   "schemaVersion": 1,
   "source": "用户提供的陆战地图与 DOM 点位导出，2026-10-21",
-  "hosting": "Cloudflare R2 / wt-map-atlas",
+  "hosting": "GitHub MrTreasure/oss-files via jsDelivr (immutable commit), with raw GitHub and existing R2 fallback",
   "contourIntervalM": 5,
   "majorContourIntervalM": 25,
   "icons": {
     "capture_a": {
-      "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/icons/2bf78d3e803c84a0fd8cd42c.svg",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/2bf78d3e803c84a0fd8cd42c.svg",
       "sha256": "2bf78d3e803c84a0fd8cd42cd77e45e9217e074b7fd88396f6a3329280fe2514",
-      "bytes": 1494
+      "bytes": 1494,
+      "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/icons/2bf78d3e803c84a0fd8cd42c.svg",
+      "fallbackSha256": "2bf78d3e803c84a0fd8cd42cd77e45e9217e074b7fd88396f6a3329280fe2514",
+      "sourceSha256": "2bf78d3e803c84a0fd8cd42cd77e45e9217e074b7fd88396f6a3329280fe2514",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/2bf78d3e803c84a0fd8cd42c.svg"
     },
     "capture_b": {
-      "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/icons/7a158b5c79a8373580fe814c.svg",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7a158b5c79a8373580fe814c.svg",
       "sha256": "7a158b5c79a8373580fe814c455620fa7ce9fba9f9693b8d9c275f4bf2baf5cb",
-      "bytes": 2224
+      "bytes": 2224,
+      "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/icons/7a158b5c79a8373580fe814c.svg",
+      "fallbackSha256": "7a158b5c79a8373580fe814c455620fa7ce9fba9f9693b8d9c275f4bf2baf5cb",
+      "sourceSha256": "7a158b5c79a8373580fe814c455620fa7ce9fba9f9693b8d9c275f4bf2baf5cb",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7a158b5c79a8373580fe814c.svg"
     },
     "capture_c": {
-      "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/icons/69c2ec1e40df427ce7de01f5.svg",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/69c2ec1e40df427ce7de01f5.svg",
       "sha256": "69c2ec1e40df427ce7de01f517858209aca0e9fc176d900a37a493bd342ba3aa",
-      "bytes": 2286
+      "bytes": 2286,
+      "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/icons/69c2ec1e40df427ce7de01f5.svg",
+      "fallbackSha256": "69c2ec1e40df427ce7de01f517858209aca0e9fc176d900a37a493bd342ba3aa",
+      "sourceSha256": "69c2ec1e40df427ce7de01f517858209aca0e9fc176d900a37a493bd342ba3aa",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/69c2ec1e40df427ce7de01f5.svg"
     },
     "capture_d": {
-      "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/icons/0c289a61f962ec75734fcedd.svg",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/0c289a61f962ec75734fcedd.svg",
       "sha256": "0c289a61f962ec75734fceddab93ecb98c43e1c193abd8c5c8575dca7c02b2c9",
-      "bytes": 1382
+      "bytes": 1382,
+      "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/icons/0c289a61f962ec75734fcedd.svg",
+      "fallbackSha256": "0c289a61f962ec75734fceddab93ecb98c43e1c193abd8c5c8575dca7c02b2c9",
+      "sourceSha256": "0c289a61f962ec75734fceddab93ecb98c43e1c193abd8c5c8575dca7c02b2c9",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/0c289a61f962ec75734fcedd.svg"
     },
     "spawn_ally": {
-      "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/icons/09c23115272799ec6de7fe6d.svg",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/09c23115272799ec6de7fe6d.svg",
       "sha256": "09c23115272799ec6de7fe6d15671ac7f7da1cf64e192ebdd1e892f4d5ec442a",
-      "bytes": 285
+      "bytes": 285,
+      "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/icons/09c23115272799ec6de7fe6d.svg",
+      "fallbackSha256": "09c23115272799ec6de7fe6d15671ac7f7da1cf64e192ebdd1e892f4d5ec442a",
+      "sourceSha256": "09c23115272799ec6de7fe6d15671ac7f7da1cf64e192ebdd1e892f4d5ec442a",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/09c23115272799ec6de7fe6d.svg"
     },
     "spawn_enemy": {
-      "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/icons/b9376daffd83900486fb4fd6.svg",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/b9376daffd83900486fb4fd6.svg",
       "sha256": "b9376daffd83900486fb4fd676357871f86bc2351a159db3d937fbf08662753d",
-      "bytes": 285
+      "bytes": 285,
+      "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/icons/b9376daffd83900486fb4fd6.svg",
+      "fallbackSha256": "b9376daffd83900486fb4fd676357871f86bc2351a159db3d937fbf08662753d",
+      "sourceSha256": "b9376daffd83900486fb4fd676357871f86bc2351a159db3d937fbf08662753d",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/b9376daffd83900486fb4fd6.svg"
     }
   },
   "maps": [
@@ -502,23 +526,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/d8b79e4b50084855bd388876.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d8b79e4b50084855bd388876.webp",
         "sha256": "d8b79e4b50084855bd388876bae35c140e0d7b6b419d4cf407eafe313400351a",
-        "bytes": 1377006
+        "bytes": 1377006,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/d8b79e4b50084855bd388876.webp",
+        "fallbackSha256": "d8b79e4b50084855bd388876bae35c140e0d7b6b419d4cf407eafe313400351a",
+        "sourceSha256": "d8b79e4b50084855bd388876bae35c140e0d7b6b419d4cf407eafe313400351a",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d8b79e4b50084855bd388876.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/61e08eccab13e3608f9ab093.svg",
-        "sha256": "61e08eccab13e3608f9ab093926d8ca26d29c46cf2bf479e196e36f4297a2987",
-        "bytes": 179343
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/f14dec0f86acc1e78dc535be.svg",
+        "sha256": "f14dec0f86acc1e78dc535be15541d491cf75a693dc6098aaaab794871f32da7",
+        "bytes": 167551,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/61e08eccab13e3608f9ab093.svg",
+        "fallbackSha256": "61e08eccab13e3608f9ab093926d8ca26d29c46cf2bf479e196e36f4297a2987",
+        "sourceSha256": "61e08eccab13e3608f9ab093926d8ca26d29c46cf2bf479e196e36f4297a2987",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/f14dec0f86acc1e78dc535be.svg"
       },
       "thumbnails": [
         {
           "layoutId": "abandoned_factory_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/871860505e39899f21ca7a51.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/871860505e39899f21ca7a51.webp",
             "sha256": "871860505e39899f21ca7a51601c7002d862f4395afa98739c49ffbd7d285ba6",
-            "bytes": 29904
+            "bytes": 29904,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/871860505e39899f21ca7a51.webp",
+            "fallbackSha256": "871860505e39899f21ca7a51601c7002d862f4395afa98739c49ffbd7d285ba6",
+            "sourceSha256": "871860505e39899f21ca7a51601c7002d862f4395afa98739c49ffbd7d285ba6",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/871860505e39899f21ca7a51.webp"
           },
           "width": 512,
           "height": 512,
@@ -1445,23 +1481,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/5d2803e76be4dbbe65dc0879.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5d2803e76be4dbbe65dc0879.webp",
         "sha256": "5d2803e76be4dbbe65dc0879ab0e2b4d055bf0ac82badea7720e6253e9031c23",
-        "bytes": 3736194
+        "bytes": 3736194,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/5d2803e76be4dbbe65dc0879.webp",
+        "fallbackSha256": "5d2803e76be4dbbe65dc0879ab0e2b4d055bf0ac82badea7720e6253e9031c23",
+        "sourceSha256": "5d2803e76be4dbbe65dc0879ab0e2b4d055bf0ac82badea7720e6253e9031c23",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5d2803e76be4dbbe65dc0879.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/44768f1120aadac2654d7380.svg",
-        "sha256": "44768f1120aadac2654d7380b1d6fd958bae2f06d1bf9a131c651c69007f1bd5",
-        "bytes": 12551611
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/159bf93bf9f0f4fc83178af1.svg",
+        "sha256": "159bf93bf9f0f4fc83178af124351072ffb5b751b7034b9d0a7251e14d0bbc9b",
+        "bytes": 11734461,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/44768f1120aadac2654d7380.svg",
+        "fallbackSha256": "44768f1120aadac2654d7380b1d6fd958bae2f06d1bf9a131c651c69007f1bd5",
+        "sourceSha256": "44768f1120aadac2654d7380b1d6fd958bae2f06d1bf9a131c651c69007f1bd5",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/159bf93bf9f0f4fc83178af1.svg"
       },
       "thumbnails": [
         {
           "layoutId": "abandoned_town_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/bb53a5907c8c0a5b7081f224.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/bb53a5907c8c0a5b7081f224.webp",
             "sha256": "bb53a5907c8c0a5b7081f2243ebe8deb7a55ec5002be68efa4db77c333f8ee9d",
-            "bytes": 49820
+            "bytes": 49820,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/bb53a5907c8c0a5b7081f224.webp",
+            "fallbackSha256": "bb53a5907c8c0a5b7081f2243ebe8deb7a55ec5002be68efa4db77c333f8ee9d",
+            "sourceSha256": "bb53a5907c8c0a5b7081f2243ebe8deb7a55ec5002be68efa4db77c333f8ee9d",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/bb53a5907c8c0a5b7081f224.webp"
           },
           "width": 512,
           "height": 512,
@@ -2601,23 +2649,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/95f2747f98216f9073fc27ba.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/95f2747f98216f9073fc27ba.webp",
         "sha256": "95f2747f98216f9073fc27ba52cf733331f718ccca9793db773a9bef77e51059",
-        "bytes": 2421652
+        "bytes": 2421652,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/95f2747f98216f9073fc27ba.webp",
+        "fallbackSha256": "95f2747f98216f9073fc27ba52cf733331f718ccca9793db773a9bef77e51059",
+        "sourceSha256": "95f2747f98216f9073fc27ba52cf733331f718ccca9793db773a9bef77e51059",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/95f2747f98216f9073fc27ba.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/46c386fe8c0ef4ffca61371c.svg",
-        "sha256": "46c386fe8c0ef4ffca61371c0de8a67c952db42dddc887cfc87ab08915e2b85c",
-        "bytes": 6574235
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/983a088751654a4db57da80b.svg",
+        "sha256": "983a088751654a4db57da80b631e2d74d7547a74a7dd538049c80e7caf4231b9",
+        "bytes": 6146580,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/46c386fe8c0ef4ffca61371c.svg",
+        "fallbackSha256": "46c386fe8c0ef4ffca61371c0de8a67c952db42dddc887cfc87ab08915e2b85c",
+        "sourceSha256": "46c386fe8c0ef4ffca61371c0de8a67c952db42dddc887cfc87ab08915e2b85c",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/983a088751654a4db57da80b.svg"
       },
       "thumbnails": [
         {
           "layoutId": "africa_desert_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/6f6dcf7182e03f34bd38cf94.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/6f6dcf7182e03f34bd38cf94.webp",
             "sha256": "6f6dcf7182e03f34bd38cf944a571872c4a4fddc3b21ce878b76234d4a84a9b2",
-            "bytes": 21858
+            "bytes": 21858,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/6f6dcf7182e03f34bd38cf94.webp",
+            "fallbackSha256": "6f6dcf7182e03f34bd38cf944a571872c4a4fddc3b21ce878b76234d4a84a9b2",
+            "sourceSha256": "6f6dcf7182e03f34bd38cf944a571872c4a4fddc3b21ce878b76234d4a84a9b2",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/6f6dcf7182e03f34bd38cf94.webp"
           },
           "width": 512,
           "height": 512,
@@ -2627,9 +2687,13 @@
           "layoutId": "africa_desert_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/64722db6e9e9620774a96dc3.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/64722db6e9e9620774a96dc3.webp",
             "sha256": "64722db6e9e9620774a96dc37f394b45ebc603fb64400973270cb58a63b48b5e",
-            "bytes": 18274
+            "bytes": 18274,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/64722db6e9e9620774a96dc3.webp",
+            "fallbackSha256": "64722db6e9e9620774a96dc37f394b45ebc603fb64400973270cb58a63b48b5e",
+            "sourceSha256": "64722db6e9e9620774a96dc37f394b45ebc603fb64400973270cb58a63b48b5e",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/64722db6e9e9620774a96dc3.webp"
           },
           "width": 512,
           "height": 512,
@@ -3127,23 +3191,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/d00e9794c2454ec0fe341b86.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d00e9794c2454ec0fe341b86.webp",
         "sha256": "d00e9794c2454ec0fe341b866140bdf05b36ccaad0ef0a030822ef77dd25427a",
-        "bytes": 1955372
+        "bytes": 1955372,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/d00e9794c2454ec0fe341b86.webp",
+        "fallbackSha256": "d00e9794c2454ec0fe341b866140bdf05b36ccaad0ef0a030822ef77dd25427a",
+        "sourceSha256": "d00e9794c2454ec0fe341b866140bdf05b36ccaad0ef0a030822ef77dd25427a",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d00e9794c2454ec0fe341b86.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/0e84b1c705598552e464ab27.svg",
-        "sha256": "0e84b1c705598552e464ab279bd60ea6d888b61be88a6f3923f1c4bf19fb33e1",
-        "bytes": 3147690
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/fe83884f86310014e56415c2.svg",
+        "sha256": "fe83884f86310014e56415c209eecfdd73c7fd949b486ce5d681ffa311711e4b",
+        "bytes": 2941663,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/0e84b1c705598552e464ab27.svg",
+        "fallbackSha256": "0e84b1c705598552e464ab279bd60ea6d888b61be88a6f3923f1c4bf19fb33e1",
+        "sourceSha256": "0e84b1c705598552e464ab279bd60ea6d888b61be88a6f3923f1c4bf19fb33e1",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/fe83884f86310014e56415c2.svg"
       },
       "thumbnails": [
         {
           "layoutId": "alaska_town_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/abe53c96a64db1de4bb6aea6.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/abe53c96a64db1de4bb6aea6.webp",
             "sha256": "abe53c96a64db1de4bb6aea6be6811e736a087d26e4c895b5c7ea613901be1ac",
-            "bytes": 22062
+            "bytes": 22062,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/abe53c96a64db1de4bb6aea6.webp",
+            "fallbackSha256": "abe53c96a64db1de4bb6aea6be6811e736a087d26e4c895b5c7ea613901be1ac",
+            "sourceSha256": "abe53c96a64db1de4bb6aea6be6811e736a087d26e4c895b5c7ea613901be1ac",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/abe53c96a64db1de4bb6aea6.webp"
           },
           "width": 512,
           "height": 512,
@@ -4001,23 +4077,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/44aa5a0a2883aea10c0d6e40.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/44aa5a0a2883aea10c0d6e40.webp",
         "sha256": "44aa5a0a2883aea10c0d6e403e996ea7dc565877d69b7689a3848f322f9142b7",
-        "bytes": 2312714
+        "bytes": 2312714,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/44aa5a0a2883aea10c0d6e40.webp",
+        "fallbackSha256": "44aa5a0a2883aea10c0d6e403e996ea7dc565877d69b7689a3848f322f9142b7",
+        "sourceSha256": "44aa5a0a2883aea10c0d6e403e996ea7dc565877d69b7689a3848f322f9142b7",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/44aa5a0a2883aea10c0d6e40.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/97c819dcab757fa884b7618f.svg",
-        "sha256": "97c819dcab757fa884b7618f2ce091675859ed8aa160c512256dc793b0e3c718",
-        "bytes": 2874660
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/28e541c080bc39945be8f679.svg",
+        "sha256": "28e541c080bc39945be8f679bc4f94ebc876713b83bdbb7064f10ce3be71b3a6",
+        "bytes": 2685948,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/97c819dcab757fa884b7618f.svg",
+        "fallbackSha256": "97c819dcab757fa884b7618f2ce091675859ed8aa160c512256dc793b0e3c718",
+        "sourceSha256": "97c819dcab757fa884b7618f2ce091675859ed8aa160c512256dc793b0e3c718",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/28e541c080bc39945be8f679.svg"
       },
       "thumbnails": [
         {
           "layoutId": "alps_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/e8639c78740447a756aca78e.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/e8639c78740447a756aca78e.webp",
             "sha256": "e8639c78740447a756aca78e8096de33f4f914f00cca2964c5ff217a0c6c5927",
-            "bytes": 26354
+            "bytes": 26354,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/e8639c78740447a756aca78e.webp",
+            "fallbackSha256": "e8639c78740447a756aca78e8096de33f4f914f00cca2964c5ff217a0c6c5927",
+            "sourceSha256": "e8639c78740447a756aca78e8096de33f4f914f00cca2964c5ff217a0c6c5927",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/e8639c78740447a756aca78e.webp"
           },
           "width": 512,
           "height": 512,
@@ -4492,23 +4580,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/71025944a1e5ecfc130422a3.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/71025944a1e5ecfc130422a3.webp",
         "sha256": "71025944a1e5ecfc130422a33c06566e6146b9c7bb288ee094b827b98a3440f8",
-        "bytes": 3806984
+        "bytes": 3806984,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/71025944a1e5ecfc130422a3.webp",
+        "fallbackSha256": "71025944a1e5ecfc130422a33c06566e6146b9c7bb288ee094b827b98a3440f8",
+        "sourceSha256": "71025944a1e5ecfc130422a33c06566e6146b9c7bb288ee094b827b98a3440f8",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/71025944a1e5ecfc130422a3.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/791d7b95a24782a7183815fb.svg",
-        "sha256": "791d7b95a24782a7183815fbd9d7721938612fca747c5d40601f478735c8084e",
-        "bytes": 4200547
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/6dc1463f4b7749f22aba4246.svg",
+        "sha256": "6dc1463f4b7749f22aba42462190c2de320eaf45034ea507df5923e46a2da18d",
+        "bytes": 3929331,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/791d7b95a24782a7183815fb.svg",
+        "fallbackSha256": "791d7b95a24782a7183815fbd9d7721938612fca747c5d40601f478735c8084e",
+        "sourceSha256": "791d7b95a24782a7183815fbd9d7721938612fca747c5d40601f478735c8084e",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/6dc1463f4b7749f22aba4246.svg"
       },
       "thumbnails": [
         {
           "layoutId": "american_valley_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/72dc2529fded89a75957dc4d.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/72dc2529fded89a75957dc4d.webp",
             "sha256": "72dc2529fded89a75957dc4df14969463ed700c88d61839b149836e8d6cb8397",
-            "bytes": 73040
+            "bytes": 73040,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/72dc2529fded89a75957dc4d.webp",
+            "fallbackSha256": "72dc2529fded89a75957dc4df14969463ed700c88d61839b149836e8d6cb8397",
+            "sourceSha256": "72dc2529fded89a75957dc4df14969463ed700c88d61839b149836e8d6cb8397",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/72dc2529fded89a75957dc4d.webp"
           },
           "width": 512,
           "height": 512,
@@ -5188,23 +5288,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/a084bcb2ab4f28e4c1ec764f.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a084bcb2ab4f28e4c1ec764f.webp",
         "sha256": "a084bcb2ab4f28e4c1ec764f10acd52efb7d48df74624f3a015a6c26f025b426",
-        "bytes": 2321234
+        "bytes": 2321234,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/a084bcb2ab4f28e4c1ec764f.webp",
+        "fallbackSha256": "a084bcb2ab4f28e4c1ec764f10acd52efb7d48df74624f3a015a6c26f025b426",
+        "sourceSha256": "a084bcb2ab4f28e4c1ec764f10acd52efb7d48df74624f3a015a6c26f025b426",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a084bcb2ab4f28e4c1ec764f.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/d4d0a26db68d9c55aa0a3c8f.svg",
-        "sha256": "d4d0a26db68d9c55aa0a3c8fba403310dc4a0af0835d79b736d623d0972d5b1f",
-        "bytes": 2037212
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/127b05685119eca588f6b2ee.svg",
+        "sha256": "127b05685119eca588f6b2ee89049c6c5f8feb4520835058e9544adfe08b2c3b",
+        "bytes": 1904246,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/d4d0a26db68d9c55aa0a3c8f.svg",
+        "fallbackSha256": "d4d0a26db68d9c55aa0a3c8fba403310dc4a0af0835d79b736d623d0972d5b1f",
+        "sourceSha256": "d4d0a26db68d9c55aa0a3c8fba403310dc4a0af0835d79b736d623d0972d5b1f",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/127b05685119eca588f6b2ee.svg"
       },
       "thumbnails": [
         {
           "layoutId": "aral_sea_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/734e93e2e6f8dd3ae8e4f133.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/734e93e2e6f8dd3ae8e4f133.webp",
             "sha256": "734e93e2e6f8dd3ae8e4f13390853fda5c6e9dd1a625b88245e3b7440c649546",
-            "bytes": 31118
+            "bytes": 31118,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/734e93e2e6f8dd3ae8e4f133.webp",
+            "fallbackSha256": "734e93e2e6f8dd3ae8e4f13390853fda5c6e9dd1a625b88245e3b7440c649546",
+            "sourceSha256": "734e93e2e6f8dd3ae8e4f13390853fda5c6e9dd1a625b88245e3b7440c649546",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/734e93e2e6f8dd3ae8e4f133.webp"
           },
           "width": 512,
           "height": 512,
@@ -5775,23 +5887,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/7f5510a2714d11f486c5287c.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7f5510a2714d11f486c5287c.webp",
         "sha256": "7f5510a2714d11f486c5287ced311e4c44b7c573ffed4dd6dea37cc0cf076e23",
-        "bytes": 2660122
+        "bytes": 2660122,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/7f5510a2714d11f486c5287c.webp",
+        "fallbackSha256": "7f5510a2714d11f486c5287ced311e4c44b7c573ffed4dd6dea37cc0cf076e23",
+        "sourceSha256": "7f5510a2714d11f486c5287ced311e4c44b7c573ffed4dd6dea37cc0cf076e23",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7f5510a2714d11f486c5287c.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/51ae47740c7e8f990098a89d.svg",
-        "sha256": "51ae47740c7e8f990098a89d5c7b1f36250a203faeac6e24f02d2953291a198c",
-        "bytes": 17483350
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/fbba5fdccae6d4dc07c9daad.svg",
+        "sha256": "fbba5fdccae6d4dc07c9daade4a2b6f4c2e526994045892495cc2fced9de611b",
+        "bytes": 16514186,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/51ae47740c7e8f990098a89d.svg",
+        "fallbackSha256": "51ae47740c7e8f990098a89d5c7b1f36250a203faeac6e24f02d2953291a198c",
+        "sourceSha256": "51ae47740c7e8f990098a89d5c7b1f36250a203faeac6e24f02d2953291a198c",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/fbba5fdccae6d4dc07c9daad.svg"
       },
       "thumbnails": [
         {
           "layoutId": "arctic_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/d52acd8308d1d2dd8d1d3017.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d52acd8308d1d2dd8d1d3017.webp",
             "sha256": "d52acd8308d1d2dd8d1d301716d13f5c19e9da6d1bee911895f70944bd8c7e40",
-            "bytes": 52752
+            "bytes": 52752,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/d52acd8308d1d2dd8d1d3017.webp",
+            "fallbackSha256": "d52acd8308d1d2dd8d1d301716d13f5c19e9da6d1bee911895f70944bd8c7e40",
+            "sourceSha256": "d52acd8308d1d2dd8d1d301716d13f5c19e9da6d1bee911895f70944bd8c7e40",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d52acd8308d1d2dd8d1d3017.webp"
           },
           "width": 512,
           "height": 512,
@@ -5801,9 +5925,13 @@
           "layoutId": "arctic_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/a4412e732b2f4b514120e4cf.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a4412e732b2f4b514120e4cf.webp",
             "sha256": "a4412e732b2f4b514120e4cf41f6787686aebdf4e9f9f0c9637c0bd2830aeda8",
-            "bytes": 63424
+            "bytes": 63424,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/a4412e732b2f4b514120e4cf.webp",
+            "fallbackSha256": "a4412e732b2f4b514120e4cf41f6787686aebdf4e9f9f0c9637c0bd2830aeda8",
+            "sourceSha256": "a4412e732b2f4b514120e4cf41f6787686aebdf4e9f9f0c9637c0bd2830aeda8",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a4412e732b2f4b514120e4cf.webp"
           },
           "width": 512,
           "height": 479,
@@ -6295,23 +6423,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/2c141ed9b2969938278a4af3.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/2c141ed9b2969938278a4af3.webp",
         "sha256": "2c141ed9b2969938278a4af35e4aa0339c6f52b61fc2dd8245fb443e70fe3367",
-        "bytes": 2451350
+        "bytes": 2451350,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/2c141ed9b2969938278a4af3.webp",
+        "fallbackSha256": "2c141ed9b2969938278a4af35e4aa0339c6f52b61fc2dd8245fb443e70fe3367",
+        "sourceSha256": "2c141ed9b2969938278a4af35e4aa0339c6f52b61fc2dd8245fb443e70fe3367",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/2c141ed9b2969938278a4af3.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/42215570b917c3fa684e2628.svg",
-        "sha256": "42215570b917c3fa684e2628bca0795ae4420e76d61dc70efe5cb31fe63560cb",
-        "bytes": 2152678
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/eb0923ef14d5e39078b607e3.svg",
+        "sha256": "eb0923ef14d5e39078b607e37c0ee8b6d13dece4e1268f0138d4f0ef7c61b002",
+        "bytes": 2012155,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/42215570b917c3fa684e2628.svg",
+        "fallbackSha256": "42215570b917c3fa684e2628bca0795ae4420e76d61dc70efe5cb31fe63560cb",
+        "sourceSha256": "42215570b917c3fa684e2628bca0795ae4420e76d61dc70efe5cb31fe63560cb",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/eb0923ef14d5e39078b607e3.svg"
       },
       "thumbnails": [
         {
           "layoutId": "ardennes_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/7bda2c8424f8bd3776b342da.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7bda2c8424f8bd3776b342da.webp",
             "sha256": "7bda2c8424f8bd3776b342dab9c43a37de9e52d0e0ecb122a76f440a07d441cf",
-            "bytes": 30034
+            "bytes": 30034,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/7bda2c8424f8bd3776b342da.webp",
+            "fallbackSha256": "7bda2c8424f8bd3776b342dab9c43a37de9e52d0e0ecb122a76f440a07d441cf",
+            "sourceSha256": "7bda2c8424f8bd3776b342dab9c43a37de9e52d0e0ecb122a76f440a07d441cf",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7bda2c8424f8bd3776b342da.webp"
           },
           "width": 512,
           "height": 512,
@@ -6321,9 +6461,13 @@
           "layoutId": "ardennes_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/d0767520668c2ccffa8ebd71.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d0767520668c2ccffa8ebd71.webp",
             "sha256": "d0767520668c2ccffa8ebd71c9949b9b81800718a3a3c6a2b983f97431872f48",
-            "bytes": 32828
+            "bytes": 32828,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/d0767520668c2ccffa8ebd71.webp",
+            "fallbackSha256": "d0767520668c2ccffa8ebd71c9949b9b81800718a3a3c6a2b983f97431872f48",
+            "sourceSha256": "d0767520668c2ccffa8ebd71c9949b9b81800718a3a3c6a2b983f97431872f48",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d0767520668c2ccffa8ebd71.webp"
           },
           "width": 512,
           "height": 512,
@@ -6809,23 +6953,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/24a93440bc25bd837fd2c9cf.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/24a93440bc25bd837fd2c9cf.webp",
         "sha256": "24a93440bc25bd837fd2c9cfeb86d0c3a746ca82b99558f4eedb79ae5b1726a1",
-        "bytes": 2690264
+        "bytes": 2690264,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/24a93440bc25bd837fd2c9cf.webp",
+        "fallbackSha256": "24a93440bc25bd837fd2c9cfeb86d0c3a746ca82b99558f4eedb79ae5b1726a1",
+        "sourceSha256": "24a93440bc25bd837fd2c9cfeb86d0c3a746ca82b99558f4eedb79ae5b1726a1",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/24a93440bc25bd837fd2c9cf.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/d870c57fa74f4cdb885a0f80.svg",
-        "sha256": "d870c57fa74f4cdb885a0f805970c8e31fdfacea4820042d9254de4bea38a677",
-        "bytes": 2152678
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/91f9ecac06be43f57d42b7d9.svg",
+        "sha256": "91f9ecac06be43f57d42b7d92de1460acadae86cd41827c71458fd50328ad3c9",
+        "bytes": 2012156,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/d870c57fa74f4cdb885a0f80.svg",
+        "fallbackSha256": "d870c57fa74f4cdb885a0f805970c8e31fdfacea4820042d9254de4bea38a677",
+        "sourceSha256": "d870c57fa74f4cdb885a0f805970c8e31fdfacea4820042d9254de4bea38a677",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/91f9ecac06be43f57d42b7d9.svg"
       },
       "thumbnails": [
         {
           "layoutId": "ardennes_snow_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/d7b153ec348b58f11fd7a815.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d7b153ec348b58f11fd7a815.webp",
             "sha256": "d7b153ec348b58f11fd7a8159cc74f5af632bde26ced6e0f4adcd9d20682ccaa",
-            "bytes": 39424
+            "bytes": 39424,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/d7b153ec348b58f11fd7a815.webp",
+            "fallbackSha256": "d7b153ec348b58f11fd7a8159cc74f5af632bde26ced6e0f4adcd9d20682ccaa",
+            "sourceSha256": "d7b153ec348b58f11fd7a8159cc74f5af632bde26ced6e0f4adcd9d20682ccaa",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d7b153ec348b58f11fd7a815.webp"
           },
           "width": 512,
           "height": 512,
@@ -6835,9 +6991,13 @@
           "layoutId": "ardennes_snow_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/a53f6e7898037d8dce96ef82.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a53f6e7898037d8dce96ef82.webp",
             "sha256": "a53f6e7898037d8dce96ef8208727965cda05639dd18ba25bfbc8fb32ec1ba55",
-            "bytes": 41746
+            "bytes": 41746,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/a53f6e7898037d8dce96ef82.webp",
+            "fallbackSha256": "a53f6e7898037d8dce96ef8208727965cda05639dd18ba25bfbc8fb32ec1ba55",
+            "sourceSha256": "a53f6e7898037d8dce96ef8208727965cda05639dd18ba25bfbc8fb32ec1ba55",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a53f6e7898037d8dce96ef82.webp"
           },
           "width": 512,
           "height": 512,
@@ -7657,23 +7817,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/77760c9bdbc710f680c7fbb9.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/77760c9bdbc710f680c7fbb9.webp",
         "sha256": "77760c9bdbc710f680c7fbb921bfc0b95964cf07dac3188e2b7d90bd44a90f37",
-        "bytes": 1644510
+        "bytes": 1644510,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/77760c9bdbc710f680c7fbb9.webp",
+        "fallbackSha256": "77760c9bdbc710f680c7fbb921bfc0b95964cf07dac3188e2b7d90bd44a90f37",
+        "sourceSha256": "77760c9bdbc710f680c7fbb921bfc0b95964cf07dac3188e2b7d90bd44a90f37",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/77760c9bdbc710f680c7fbb9.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/aef6b56587be48e4f5ec1713.svg",
-        "sha256": "aef6b56587be48e4f5ec171317dde9a821b5782406be028331aa34bb628883a1",
-        "bytes": 624580
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/f3c9beb72902a91a45605526.svg",
+        "sha256": "f3c9beb72902a91a45605526b9378880b68ac647cee81dd9865aa5230df3e429",
+        "bytes": 584685,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/aef6b56587be48e4f5ec1713.svg",
+        "fallbackSha256": "aef6b56587be48e4f5ec171317dde9a821b5782406be028331aa34bb628883a1",
+        "sourceSha256": "aef6b56587be48e4f5ec171317dde9a821b5782406be028331aa34bb628883a1",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/f3c9beb72902a91a45605526.svg"
       },
       "thumbnails": [
         {
           "layoutId": "berlin_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/af6e6b0d46c1dbaac385b517.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/af6e6b0d46c1dbaac385b517.webp",
             "sha256": "af6e6b0d46c1dbaac385b5174f8c5d0653ce88a3f63ec761616f38a7156b2415",
-            "bytes": 40890
+            "bytes": 40890,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/af6e6b0d46c1dbaac385b517.webp",
+            "fallbackSha256": "af6e6b0d46c1dbaac385b5174f8c5d0653ce88a3f63ec761616f38a7156b2415",
+            "sourceSha256": "af6e6b0d46c1dbaac385b5174f8c5d0653ce88a3f63ec761616f38a7156b2415",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/af6e6b0d46c1dbaac385b517.webp"
           },
           "width": 512,
           "height": 512,
@@ -8148,23 +8320,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/847a1330b0bd9b75f9257079.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/847a1330b0bd9b75f9257079.webp",
         "sha256": "847a1330b0bd9b75f9257079f73d1acb811fc31c4116ad4f76bae03d76a1c396",
-        "bytes": 2844680
+        "bytes": 2844680,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/847a1330b0bd9b75f9257079.webp",
+        "fallbackSha256": "847a1330b0bd9b75f9257079f73d1acb811fc31c4116ad4f76bae03d76a1c396",
+        "sourceSha256": "847a1330b0bd9b75f9257079f73d1acb811fc31c4116ad4f76bae03d76a1c396",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/847a1330b0bd9b75f9257079.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/30b2aa2add67f76db404b8f4.svg",
-        "sha256": "30b2aa2add67f76db404b8f4365ee61cc08e013e02a0c9445c51151202b89828",
-        "bytes": 938471
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/bb20896d961a2c8bdfb2ff88.svg",
+        "sha256": "bb20896d961a2c8bdfb2ff885ab23509b6787726256c15ca620389288adecb7c",
+        "bytes": 878375,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/30b2aa2add67f76db404b8f4.svg",
+        "fallbackSha256": "30b2aa2add67f76db404b8f4365ee61cc08e013e02a0c9445c51151202b89828",
+        "sourceSha256": "30b2aa2add67f76db404b8f4365ee61cc08e013e02a0c9445c51151202b89828",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/bb20896d961a2c8bdfb2ff88.svg"
       },
       "thumbnails": [
         {
           "layoutId": "breslau_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/6034f5672142f3fdd6eeca38.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/6034f5672142f3fdd6eeca38.webp",
             "sha256": "6034f5672142f3fdd6eeca3880d5f11ff68793397121383732b7f7176b21e3cd",
-            "bytes": 53004
+            "bytes": 53004,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/6034f5672142f3fdd6eeca38.webp",
+            "fallbackSha256": "6034f5672142f3fdd6eeca3880d5f11ff68793397121383732b7f7176b21e3cd",
+            "sourceSha256": "6034f5672142f3fdd6eeca3880d5f11ff68793397121383732b7f7176b21e3cd",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/6034f5672142f3fdd6eeca38.webp"
           },
           "width": 511,
           "height": 512,
@@ -8600,23 +8784,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/08323c47aac940108691d7ec.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/08323c47aac940108691d7ec.webp",
         "sha256": "08323c47aac940108691d7ec22ddb139d8de0c5ca5ae3940817acb4dad46abe2",
-        "bytes": 1518614
+        "bytes": 1518614,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/08323c47aac940108691d7ec.webp",
+        "fallbackSha256": "08323c47aac940108691d7ec22ddb139d8de0c5ca5ae3940817acb4dad46abe2",
+        "sourceSha256": "08323c47aac940108691d7ec22ddb139d8de0c5ca5ae3940817acb4dad46abe2",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/08323c47aac940108691d7ec.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/d5ee811005407c286398ff53.svg",
-        "sha256": "d5ee811005407c286398ff53004d56d6d13b226258801072db660dcfdee0cd2a",
-        "bytes": 906932
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/48fd2a1bf502ba41f616d19c.svg",
+        "sha256": "48fd2a1bf502ba41f616d19c28be5dff1ac785915217c19cc7b4e92a158b5132",
+        "bytes": 848148,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/d5ee811005407c286398ff53.svg",
+        "fallbackSha256": "d5ee811005407c286398ff53004d56d6d13b226258801072db660dcfdee0cd2a",
+        "sourceSha256": "d5ee811005407c286398ff53004d56d6d13b226258801072db660dcfdee0cd2a",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/48fd2a1bf502ba41f616d19c.svg"
       },
       "thumbnails": [
         {
           "layoutId": "container_port_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/7f18b42d6724774ea0455921.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7f18b42d6724774ea0455921.webp",
             "sha256": "7f18b42d6724774ea045592177888256cc24d8bbbb04d8915f24badd541eed15",
-            "bytes": 29572
+            "bytes": 29572,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/7f18b42d6724774ea0455921.webp",
+            "fallbackSha256": "7f18b42d6724774ea045592177888256cc24d8bbbb04d8915f24badd541eed15",
+            "sourceSha256": "7f18b42d6724774ea045592177888256cc24d8bbbb04d8915f24badd541eed15",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7f18b42d6724774ea0455921.webp"
           },
           "width": 512,
           "height": 512,
@@ -10076,23 +10272,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/c04b94246a905819dfb15559.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/c04b94246a905819dfb15559.webp",
         "sha256": "c04b94246a905819dfb15559d1b3190536221d283582cf6166371f3d66c8dc7d",
-        "bytes": 2331702
+        "bytes": 2331702,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/c04b94246a905819dfb15559.webp",
+        "fallbackSha256": "c04b94246a905819dfb15559d1b3190536221d283582cf6166371f3d66c8dc7d",
+        "sourceSha256": "c04b94246a905819dfb15559d1b3190536221d283582cf6166371f3d66c8dc7d",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/c04b94246a905819dfb15559.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/8a82d2c8145ce68a7d20094c.svg",
-        "sha256": "8a82d2c8145ce68a7d20094c53af1daa6dfe1498f5dcd1a775525d5bf9f0a750",
-        "bytes": 2290224
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/3abb51d57b23e9ece730f36d.svg",
+        "sha256": "3abb51d57b23e9ece730f36db61a1967dc6304f5483a3cbfdb50de38c01f6a61",
+        "bytes": 2142495,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/8a82d2c8145ce68a7d20094c.svg",
+        "fallbackSha256": "8a82d2c8145ce68a7d20094c53af1daa6dfe1498f5dcd1a775525d5bf9f0a750",
+        "sourceSha256": "8a82d2c8145ce68a7d20094c53af1daa6dfe1498f5dcd1a775525d5bf9f0a750",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/3abb51d57b23e9ece730f36d.svg"
       },
       "thumbnails": [
         {
           "layoutId": "eastern_europe_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/3a70f81ed541cc3998a1f5dc.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/3a70f81ed541cc3998a1f5dc.webp",
             "sha256": "3a70f81ed541cc3998a1f5dc775cc4c5435fe18c7734be9fefccdf3f445b229b",
-            "bytes": 35320
+            "bytes": 35320,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/3a70f81ed541cc3998a1f5dc.webp",
+            "fallbackSha256": "3a70f81ed541cc3998a1f5dc775cc4c5435fe18c7734be9fefccdf3f445b229b",
+            "sourceSha256": "3a70f81ed541cc3998a1f5dc775cc4c5435fe18c7734be9fefccdf3f445b229b",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/3a70f81ed541cc3998a1f5dc.webp"
           },
           "width": 512,
           "height": 512,
@@ -10102,9 +10310,13 @@
           "layoutId": "european_province_dom",
           "name": "三点占领 · 大东欧",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/5b6f6c256a8f376f0461ec72.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5b6f6c256a8f376f0461ec72.webp",
             "sha256": "5b6f6c256a8f376f0461ec72c4988e1cda737ff2eb6fa259c09c45b2dc2f65d8",
-            "bytes": 28858
+            "bytes": 28858,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/5b6f6c256a8f376f0461ec72.webp",
+            "fallbackSha256": "5b6f6c256a8f376f0461ec72c4988e1cda737ff2eb6fa259c09c45b2dc2f65d8",
+            "sourceSha256": "5b6f6c256a8f376f0461ec72c4988e1cda737ff2eb6fa259c09c45b2dc2f65d8",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5b6f6c256a8f376f0461ec72.webp"
           },
           "width": 512,
           "height": 512,
@@ -10114,9 +10326,13 @@
           "layoutId": "eastern_europe_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/1fa4baf404dd1da031ba6b9f.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/1fa4baf404dd1da031ba6b9f.webp",
             "sha256": "1fa4baf404dd1da031ba6b9fd5ddf4360b56ea0aa4846853acd3d30105973bc1",
-            "bytes": 35510
+            "bytes": 35510,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/1fa4baf404dd1da031ba6b9f.webp",
+            "fallbackSha256": "1fa4baf404dd1da031ba6b9fd5ddf4360b56ea0aa4846853acd3d30105973bc1",
+            "sourceSha256": "1fa4baf404dd1da031ba6b9fd5ddf4360b56ea0aa4846853acd3d30105973bc1",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/1fa4baf404dd1da031ba6b9f.webp"
           },
           "width": 512,
           "height": 512,
@@ -10648,23 +10864,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/7971bb97e433ebed40a2ec58.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7971bb97e433ebed40a2ec58.webp",
         "sha256": "7971bb97e433ebed40a2ec58248fad84f270e22198f47f1a8684f3894a37fc42",
-        "bytes": 9810888
+        "bytes": 9810888,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/7971bb97e433ebed40a2ec58.webp",
+        "fallbackSha256": "7971bb97e433ebed40a2ec58248fad84f270e22198f47f1a8684f3894a37fc42",
+        "sourceSha256": "7971bb97e433ebed40a2ec58248fad84f270e22198f47f1a8684f3894a37fc42",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7971bb97e433ebed40a2ec58.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/71e631e3062e10509af3fdb0.svg",
-        "sha256": "71e631e3062e10509af3fdb08a9e290fb67fe431b386cefda215364690a2888b",
-        "bytes": 810252
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d1dca83fc81f0c2233f356a5.svg",
+        "sha256": "d1dca83fc81f0c2233f356a5eee02ad61dbd5f48ec47a3992d1b375994f8e190",
+        "bytes": 752011,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/71e631e3062e10509af3fdb0.svg",
+        "fallbackSha256": "71e631e3062e10509af3fdb08a9e290fb67fe431b386cefda215364690a2888b",
+        "sourceSha256": "71e631e3062e10509af3fdb08a9e290fb67fe431b386cefda215364690a2888b",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d1dca83fc81f0c2233f356a5.svg"
       },
       "thumbnails": [
         {
           "layoutId": "falklands_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/255d212f0638a51574846182.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/255d212f0638a51574846182.webp",
             "sha256": "255d212f0638a515748461821a941ef24754794a926c7452ec66085839febae3",
-            "bytes": 27166
+            "bytes": 27166,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/255d212f0638a51574846182.webp",
+            "fallbackSha256": "255d212f0638a515748461821a941ef24754794a926c7452ec66085839febae3",
+            "sourceSha256": "255d212f0638a515748461821a941ef24754794a926c7452ec66085839febae3",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/255d212f0638a51574846182.webp"
           },
           "width": 512,
           "height": 512,
@@ -11481,23 +11709,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/2e29b113560d810286b5a7b5.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/2e29b113560d810286b5a7b5.webp",
         "sha256": "2e29b113560d810286b5a7b51f4c01926193d0c4766889c95c2fa1f2f4bb9192",
-        "bytes": 1794240
+        "bytes": 1794240,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/2e29b113560d810286b5a7b5.webp",
+        "fallbackSha256": "2e29b113560d810286b5a7b51f4c01926193d0c4766889c95c2fa1f2f4bb9192",
+        "sourceSha256": "2e29b113560d810286b5a7b51f4c01926193d0c4766889c95c2fa1f2f4bb9192",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/2e29b113560d810286b5a7b5.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/5ef261b1e91f53b656afeba9.svg",
-        "sha256": "5ef261b1e91f53b656afeba93bb888825bca784027ae4aff2ec3cb1352e4a20a",
-        "bytes": 2255568
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7a337dc552e11f302f35d47e.svg",
+        "sha256": "7a337dc552e11f302f35d47e785f9beb22fe56b05a5839e86b19eef47024a82a",
+        "bytes": 2108091,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/5ef261b1e91f53b656afeba9.svg",
+        "fallbackSha256": "5ef261b1e91f53b656afeba93bb888825bca784027ae4aff2ec3cb1352e4a20a",
+        "sourceSha256": "5ef261b1e91f53b656afeba93bb888825bca784027ae4aff2ec3cb1352e4a20a",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7a337dc552e11f302f35d47e.svg"
       },
       "thumbnails": [
         {
           "layoutId": "finland_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/efaf16d6f45dad85682d1fca.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/efaf16d6f45dad85682d1fca.webp",
             "sha256": "efaf16d6f45dad85682d1fcae0e5d576d00ae8572203ac6455f71d9e7d22ccfa",
-            "bytes": 26484
+            "bytes": 26484,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/efaf16d6f45dad85682d1fca.webp",
+            "fallbackSha256": "efaf16d6f45dad85682d1fcae0e5d576d00ae8572203ac6455f71d9e7d22ccfa",
+            "sourceSha256": "efaf16d6f45dad85682d1fcae0e5d576d00ae8572203ac6455f71d9e7d22ccfa",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/efaf16d6f45dad85682d1fca.webp"
           },
           "width": 512,
           "height": 512,
@@ -11805,23 +12045,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/64ab26a8870c7d446d945982.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/64ab26a8870c7d446d945982.webp",
         "sha256": "64ab26a8870c7d446d945982faa8d2cb56a7e4ed14c9b17d67b6a21f983f7496",
-        "bytes": 2406234
+        "bytes": 2406234,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/64ab26a8870c7d446d945982.webp",
+        "fallbackSha256": "64ab26a8870c7d446d945982faa8d2cb56a7e4ed14c9b17d67b6a21f983f7496",
+        "sourceSha256": "64ab26a8870c7d446d945982faa8d2cb56a7e4ed14c9b17d67b6a21f983f7496",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/64ab26a8870c7d446d945982.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/fc54271c32276e0fb829f35e.svg",
-        "sha256": "fc54271c32276e0fb829f35ecc8191c0186cf8d0302ca3ccd695fe07392724f3",
-        "bytes": 3023341
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/9791a4d41e4e7d3f5dfdb747.svg",
+        "sha256": "9791a4d41e4e7d3f5dfdb747ade8cf76ec41a72f3131260eea67545e56d88ec5",
+        "bytes": 2828618,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/fc54271c32276e0fb829f35e.svg",
+        "fallbackSha256": "fc54271c32276e0fb829f35ecc8191c0186cf8d0302ca3ccd695fe07392724f3",
+        "sourceSha256": "fc54271c32276e0fb829f35ecc8191c0186cf8d0302ca3ccd695fe07392724f3",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/9791a4d41e4e7d3f5dfdb747.svg"
       },
       "thumbnails": [
         {
           "layoutId": "fortress_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/a4085e56dbe62058cb9a018e.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a4085e56dbe62058cb9a018e.webp",
             "sha256": "a4085e56dbe62058cb9a018e1da3b1b746d511318666485e3629c4e4d76bd2c9",
-            "bytes": 40490
+            "bytes": 40490,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/a4085e56dbe62058cb9a018e.webp",
+            "fallbackSha256": "a4085e56dbe62058cb9a018e1da3b1b746d511318666485e3629c4e4d76bd2c9",
+            "sourceSha256": "a4085e56dbe62058cb9a018e1da3b1b746d511318666485e3629c4e4d76bd2c9",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a4085e56dbe62058cb9a018e.webp"
           },
           "width": 512,
           "height": 512,
@@ -12748,23 +13000,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/268aa8ed41b4472a02e069e7.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/268aa8ed41b4472a02e069e7.webp",
         "sha256": "268aa8ed41b4472a02e069e7295b9aeb22f41cb5f76d3ae85392ea228207efbc",
-        "bytes": 1240450
+        "bytes": 1240450,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/268aa8ed41b4472a02e069e7.webp",
+        "fallbackSha256": "268aa8ed41b4472a02e069e7295b9aeb22f41cb5f76d3ae85392ea228207efbc",
+        "sourceSha256": "268aa8ed41b4472a02e069e7295b9aeb22f41cb5f76d3ae85392ea228207efbc",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/268aa8ed41b4472a02e069e7.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/9580cbbfb96d01841caa2830.svg",
-        "sha256": "9580cbbfb96d01841caa28301dde0c30598f157b3955392ecedd2376878b7d5c",
-        "bytes": 3914528
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5ff0ba2103394de8c221e4e0.svg",
+        "sha256": "5ff0ba2103394de8c221e4e0aa8a3b8fc37889b3acf552f5a74022d8a406ce8e",
+        "bytes": 3658327,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/9580cbbfb96d01841caa2830.svg",
+        "fallbackSha256": "9580cbbfb96d01841caa28301dde0c30598f157b3955392ecedd2376878b7d5c",
+        "sourceSha256": "9580cbbfb96d01841caa28301dde0c30598f157b3955392ecedd2376878b7d5c",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5ff0ba2103394de8c221e4e0.svg"
       },
       "thumbnails": [
         {
           "layoutId": "fulda_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/8e0214789aafea0a4565fb24.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/8e0214789aafea0a4565fb24.webp",
             "sha256": "8e0214789aafea0a4565fb240f91326e41b5fcb29465a663694afde37db5e1de",
-            "bytes": 19028
+            "bytes": 19028,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/8e0214789aafea0a4565fb24.webp",
+            "fallbackSha256": "8e0214789aafea0a4565fb240f91326e41b5fcb29465a663694afde37db5e1de",
+            "sourceSha256": "8e0214789aafea0a4565fb240f91326e41b5fcb29465a663694afde37db5e1de",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/8e0214789aafea0a4565fb24.webp"
           },
           "width": 512,
           "height": 512,
@@ -12774,9 +13038,13 @@
           "layoutId": "fulda_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/2f3b106b7c25413c9f8898d0.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/2f3b106b7c25413c9f8898d0.webp",
             "sha256": "2f3b106b7c25413c9f8898d029c3ae9cb99bcce0e18096b7f8320e146e03ef12",
-            "bytes": 17018
+            "bytes": 17018,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/2f3b106b7c25413c9f8898d0.webp",
+            "fallbackSha256": "2f3b106b7c25413c9f8898d029c3ae9cb99bcce0e18096b7f8320e146e03ef12",
+            "sourceSha256": "2f3b106b7c25413c9f8898d029c3ae9cb99bcce0e18096b7f8320e146e03ef12",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/2f3b106b7c25413c9f8898d0.webp"
           },
           "width": 512,
           "height": 512,
@@ -13059,23 +13327,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/4b98afbd45ed94029f8425ce.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/4b98afbd45ed94029f8425ce.webp",
         "sha256": "4b98afbd45ed94029f8425ce58726e37741f0890b986868699301daa0a16319a",
-        "bytes": 2563052
+        "bytes": 2563052,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/4b98afbd45ed94029f8425ce.webp",
+        "fallbackSha256": "4b98afbd45ed94029f8425ce58726e37741f0890b986868699301daa0a16319a",
+        "sourceSha256": "4b98afbd45ed94029f8425ce58726e37741f0890b986868699301daa0a16319a",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/4b98afbd45ed94029f8425ce.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/0764c5236fe65b47f5f266a6.svg",
-        "sha256": "0764c5236fe65b47f5f266a6a46f002470508887a7b4bd90acd19dddeff64a10",
-        "bytes": 1635338
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7b2a870ec875b99f616f3ea7.svg",
+        "sha256": "7b2a870ec875b99f616f3ea70705fded0e977528edd3076cd80b901484075d53",
+        "bytes": 1529353,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/0764c5236fe65b47f5f266a6.svg",
+        "fallbackSha256": "0764c5236fe65b47f5f266a6a46f002470508887a7b4bd90acd19dddeff64a10",
+        "sourceSha256": "0764c5236fe65b47f5f266a6a46f002470508887a7b4bd90acd19dddeff64a10",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7b2a870ec875b99f616f3ea7.svg"
       },
       "thumbnails": [
         {
           "layoutId": "greece_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/6d10dc2cb008e01a2208da18.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/6d10dc2cb008e01a2208da18.webp",
             "sha256": "6d10dc2cb008e01a2208da1890fa32b7f55c7b27aa9240a9d60a28c89021e636",
-            "bytes": 52418
+            "bytes": 52418,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/6d10dc2cb008e01a2208da18.webp",
+            "fallbackSha256": "6d10dc2cb008e01a2208da1890fa32b7f55c7b27aa9240a9d60a28c89021e636",
+            "sourceSha256": "6d10dc2cb008e01a2208da1890fa32b7f55c7b27aa9240a9d60a28c89021e636",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/6d10dc2cb008e01a2208da18.webp"
           },
           "width": 512,
           "height": 512,
@@ -13874,23 +14154,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/d3c6972d00dd96596f0779c5.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d3c6972d00dd96596f0779c5.webp",
         "sha256": "d3c6972d00dd96596f0779c5a65622a61786b532ebea1ba4b6724d9199047e47",
-        "bytes": 1960366
+        "bytes": 1960366,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/d3c6972d00dd96596f0779c5.webp",
+        "fallbackSha256": "d3c6972d00dd96596f0779c5a65622a61786b532ebea1ba4b6724d9199047e47",
+        "sourceSha256": "d3c6972d00dd96596f0779c5a65622a61786b532ebea1ba4b6724d9199047e47",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d3c6972d00dd96596f0779c5.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/95752be4df057bb0fc09d9f0.svg",
-        "sha256": "95752be4df057bb0fc09d9f091ddda74b02a33cd29d8845672651aaabb081d15",
-        "bytes": 4959939
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5692a05dd5f25c93799f7cab.svg",
+        "sha256": "5692a05dd5f25c93799f7cab6f833efa2671e761338e21767d4b344b5bbb35c3",
+        "bytes": 4636934,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/95752be4df057bb0fc09d9f0.svg",
+        "fallbackSha256": "95752be4df057bb0fc09d9f091ddda74b02a33cd29d8845672651aaabb081d15",
+        "sourceSha256": "95752be4df057bb0fc09d9f091ddda74b02a33cd29d8845672651aaabb081d15",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5692a05dd5f25c93799f7cab.svg"
       },
       "thumbnails": [
         {
           "layoutId": "guadalcanal_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/a29cef576fe113351f51596f.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a29cef576fe113351f51596f.webp",
             "sha256": "a29cef576fe113351f51596fab3aee2b1f274404b4a3714b3fd3a0c6ebe2e597",
-            "bytes": 40256
+            "bytes": 40256,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/a29cef576fe113351f51596f.webp",
+            "fallbackSha256": "a29cef576fe113351f51596fab3aee2b1f274404b4a3714b3fd3a0c6ebe2e597",
+            "sourceSha256": "a29cef576fe113351f51596fab3aee2b1f274404b4a3714b3fd3a0c6ebe2e597",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a29cef576fe113351f51596f.webp"
           },
           "width": 512,
           "height": 512,
@@ -15021,23 +15313,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/80f794be79496f09b988bca1.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/80f794be79496f09b988bca1.webp",
         "sha256": "80f794be79496f09b988bca147f3a99ac2d8b532ebd81aa2f0885445b2e75407",
-        "bytes": 1856524
+        "bytes": 1856524,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/80f794be79496f09b988bca1.webp",
+        "fallbackSha256": "80f794be79496f09b988bca147f3a99ac2d8b532ebd81aa2f0885445b2e75407",
+        "sourceSha256": "80f794be79496f09b988bca147f3a99ac2d8b532ebd81aa2f0885445b2e75407",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/80f794be79496f09b988bca1.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/e52434b1dc83cab341990050.svg",
-        "sha256": "e52434b1dc83cab341990050c9456ab392f907ba597191dd2e619af565b3086c",
-        "bytes": 3431786
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/8f8bb5e8e6c0657277dbe8cb.svg",
+        "sha256": "8f8bb5e8e6c0657277dbe8cbfcfaaa6f36f3f6d324de9ba1cc9ccf19098da71a",
+        "bytes": 3208091,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/e52434b1dc83cab341990050.svg",
+        "fallbackSha256": "e52434b1dc83cab341990050c9456ab392f907ba597191dd2e619af565b3086c",
+        "sourceSha256": "e52434b1dc83cab341990050c9456ab392f907ba597191dd2e619af565b3086c",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/8f8bb5e8e6c0657277dbe8cb.svg"
       },
       "thumbnails": [
         {
           "layoutId": "hurtgen_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/7c18ef92f2e3635a24b3e97e.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7c18ef92f2e3635a24b3e97e.webp",
             "sha256": "7c18ef92f2e3635a24b3e97ee0af85d0dc07d2a817c28ff1380d453669d63883",
-            "bytes": 16622
+            "bytes": 16622,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/7c18ef92f2e3635a24b3e97e.webp",
+            "fallbackSha256": "7c18ef92f2e3635a24b3e97ee0af85d0dc07d2a817c28ff1380d453669d63883",
+            "sourceSha256": "7c18ef92f2e3635a24b3e97ee0af85d0dc07d2a817c28ff1380d453669d63883",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7c18ef92f2e3635a24b3e97e.webp"
           },
           "width": 512,
           "height": 441,
@@ -15047,9 +15351,13 @@
           "layoutId": "hurtgen_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/08b3b24cdb1994c4b3777aaa.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/08b3b24cdb1994c4b3777aaa.webp",
             "sha256": "08b3b24cdb1994c4b3777aaac104165a16cc428b45f3801ab4a18a1297293b02",
-            "bytes": 19042
+            "bytes": 19042,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/08b3b24cdb1994c4b3777aaa.webp",
+            "fallbackSha256": "08b3b24cdb1994c4b3777aaac104165a16cc428b45f3801ab4a18a1297293b02",
+            "sourceSha256": "08b3b24cdb1994c4b3777aaac104165a16cc428b45f3801ab4a18a1297293b02",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/08b3b24cdb1994c4b3777aaa.webp"
           },
           "width": 512,
           "height": 512,
@@ -15530,23 +15838,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/5404199f3b48c7c0ee9081f5.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5404199f3b48c7c0ee9081f5.webp",
         "sha256": "5404199f3b48c7c0ee9081f526a0c6fd6a2796763caa7025c6972574b6f56acb",
-        "bytes": 2268804
+        "bytes": 2268804,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/5404199f3b48c7c0ee9081f5.webp",
+        "fallbackSha256": "5404199f3b48c7c0ee9081f526a0c6fd6a2796763caa7025c6972574b6f56acb",
+        "sourceSha256": "5404199f3b48c7c0ee9081f526a0c6fd6a2796763caa7025c6972574b6f56acb",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5404199f3b48c7c0ee9081f5.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/1dc9f21dad43aef677e63d25.svg",
-        "sha256": "1dc9f21dad43aef677e63d252be5c844e69c714f1811f917a1190e9b75164a73",
-        "bytes": 2612959
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d529b5192ffb3c6b1ad60278.svg",
+        "sha256": "d529b5192ffb3c6b1ad602780df1c836d045b1559a9230295bccff3b28a69a46",
+        "bytes": 2447113,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/1dc9f21dad43aef677e63d25.svg",
+        "fallbackSha256": "1dc9f21dad43aef677e63d252be5c844e69c714f1811f917a1190e9b75164a73",
+        "sourceSha256": "1dc9f21dad43aef677e63d252be5c844e69c714f1811f917a1190e9b75164a73",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d529b5192ffb3c6b1ad60278.svg"
       },
       "thumbnails": [
         {
           "layoutId": "iberian_castle_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/33d1eced2e8263c385374689.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/33d1eced2e8263c385374689.webp",
             "sha256": "33d1eced2e8263c38537468968be6eb310b40c58af1d6e57b6fcbe0734b47fd0",
-            "bytes": 48060
+            "bytes": 48060,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/33d1eced2e8263c385374689.webp",
+            "fallbackSha256": "33d1eced2e8263c38537468968be6eb310b40c58af1d6e57b6fcbe0734b47fd0",
+            "sourceSha256": "33d1eced2e8263c38537468968be6eb310b40c58af1d6e57b6fcbe0734b47fd0",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/33d1eced2e8263c385374689.webp"
           },
           "width": 512,
           "height": 512,
@@ -16243,23 +16563,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/72950b0e02e0982e5dc3d8fc.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/72950b0e02e0982e5dc3d8fc.webp",
         "sha256": "72950b0e02e0982e5dc3d8fc03bb01584415381a0df19b00919caf1f6b971a0a",
-        "bytes": 5583778
+        "bytes": 5583778,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/72950b0e02e0982e5dc3d8fc.webp",
+        "fallbackSha256": "72950b0e02e0982e5dc3d8fc03bb01584415381a0df19b00919caf1f6b971a0a",
+        "sourceSha256": "72950b0e02e0982e5dc3d8fc03bb01584415381a0df19b00919caf1f6b971a0a",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/72950b0e02e0982e5dc3d8fc.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/5c25d3d117bd4c751c2a0a57.svg",
-        "sha256": "5c25d3d117bd4c751c2a0a578f9e256425cf01670bd0c9345a34e6aac6556b19",
-        "bytes": 6508097
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/e39e5d4d34d0ba7668b60207.svg",
+        "sha256": "e39e5d4d34d0ba7668b60207ab6b92ce368f33453904229c59bc82b4c19eef27",
+        "bytes": 6078843,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/5c25d3d117bd4c751c2a0a57.svg",
+        "fallbackSha256": "5c25d3d117bd4c751c2a0a578f9e256425cf01670bd0c9345a34e6aac6556b19",
+        "sourceSha256": "5c25d3d117bd4c751c2a0a578f9e256425cf01670bd0c9345a34e6aac6556b19",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/e39e5d4d34d0ba7668b60207.svg"
       },
       "thumbnails": [
         {
           "layoutId": "ireland_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/c768444d3bf30fe8958a014d.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/c768444d3bf30fe8958a014d.webp",
             "sha256": "c768444d3bf30fe8958a014d59442a11c86f130d535e6568c24f5d6bab911006",
-            "bytes": 14358
+            "bytes": 14358,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/c768444d3bf30fe8958a014d.webp",
+            "fallbackSha256": "c768444d3bf30fe8958a014d59442a11c86f130d535e6568c24f5d6bab911006",
+            "sourceSha256": "c768444d3bf30fe8958a014d59442a11c86f130d535e6568c24f5d6bab911006",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/c768444d3bf30fe8958a014d.webp"
           },
           "width": 512,
           "height": 512,
@@ -16789,23 +17121,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/fe63460fcfb01bd865722a40.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/fe63460fcfb01bd865722a40.webp",
         "sha256": "fe63460fcfb01bd865722a40f6b83339b0f4a38378213f218a8756c2d68d796d",
-        "bytes": 2393216
+        "bytes": 2393216,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/fe63460fcfb01bd865722a40.webp",
+        "fallbackSha256": "fe63460fcfb01bd865722a40f6b83339b0f4a38378213f218a8756c2d68d796d",
+        "sourceSha256": "fe63460fcfb01bd865722a40f6b83339b0f4a38378213f218a8756c2d68d796d",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/fe63460fcfb01bd865722a40.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/b3c0da1b3ea24f27c7c3f6c4.svg",
-        "sha256": "b3c0da1b3ea24f27c7c3f6c4fba83851b2057d64cb5733f4d19a7816dfb6e6a0",
-        "bytes": 947919
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/308728e4219108592f13d129.svg",
+        "sha256": "308728e4219108592f13d129e78e921fc3cb938ac528172717c01d615be3124c",
+        "bytes": 885967,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/b3c0da1b3ea24f27c7c3f6c4.svg",
+        "fallbackSha256": "b3c0da1b3ea24f27c7c3f6c4fba83851b2057d64cb5733f4d19a7816dfb6e6a0",
+        "sourceSha256": "b3c0da1b3ea24f27c7c3f6c4fba83851b2057d64cb5733f4d19a7816dfb6e6a0",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/308728e4219108592f13d129.svg"
       },
       "thumbnails": [
         {
           "layoutId": "israel_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/3d4bc29c654f0aa286285051.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/3d4bc29c654f0aa286285051.webp",
             "sha256": "3d4bc29c654f0aa286285051bbbf6a5ca979a73240214dcde48fb2a215c5c8d3",
-            "bytes": 36136
+            "bytes": 36136,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/3d4bc29c654f0aa286285051.webp",
+            "fallbackSha256": "3d4bc29c654f0aa286285051bbbf6a5ca979a73240214dcde48fb2a215c5c8d3",
+            "sourceSha256": "3d4bc29c654f0aa286285051bbbf6a5ca979a73240214dcde48fb2a215c5c8d3",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/3d4bc29c654f0aa286285051.webp"
           },
           "width": 512,
           "height": 512,
@@ -17589,23 +17933,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/5bee454b32b7f5d138dee45d.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5bee454b32b7f5d138dee45d.webp",
         "sha256": "5bee454b32b7f5d138dee45db91980421a03f140efde650ce111034c3010b86e",
-        "bytes": 1086150
+        "bytes": 1086150,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/5bee454b32b7f5d138dee45d.webp",
+        "fallbackSha256": "5bee454b32b7f5d138dee45db91980421a03f140efde650ce111034c3010b86e",
+        "sourceSha256": "5bee454b32b7f5d138dee45db91980421a03f140efde650ce111034c3010b86e",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5bee454b32b7f5d138dee45d.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/67d23b082270b1e19b7fe570.svg",
-        "sha256": "67d23b082270b1e19b7fe5708a0b194ecc9d718a7ff8519749551438621bd3b8",
-        "bytes": 6726852
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/eacb9d09e71efc13c86e379a.svg",
+        "sha256": "eacb9d09e71efc13c86e379a5506d771adf3066c678d4465f2dab8523113cfb7",
+        "bytes": 6283384,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/67d23b082270b1e19b7fe570.svg",
+        "fallbackSha256": "67d23b082270b1e19b7fe5708a0b194ecc9d718a7ff8519749551438621bd3b8",
+        "sourceSha256": "67d23b082270b1e19b7fe5708a0b194ecc9d718a7ff8519749551438621bd3b8",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/eacb9d09e71efc13c86e379a.svg"
       },
       "thumbnails": [
         {
           "layoutId": "japan_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/8e4e1a70f8ebaa6132f94bd6.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/8e4e1a70f8ebaa6132f94bd6.webp",
             "sha256": "8e4e1a70f8ebaa6132f94bd60f812d429706c7a29217575ee52e21604059e032",
-            "bytes": 34332
+            "bytes": 34332,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/8e4e1a70f8ebaa6132f94bd6.webp",
+            "fallbackSha256": "8e4e1a70f8ebaa6132f94bd60f812d429706c7a29217575ee52e21604059e032",
+            "sourceSha256": "8e4e1a70f8ebaa6132f94bd60f812d429706c7a29217575ee52e21604059e032",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/8e4e1a70f8ebaa6132f94bd6.webp"
           },
           "width": 512,
           "height": 512,
@@ -18620,23 +18976,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/a1104d52540518fd0a4d84af.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a1104d52540518fd0a4d84af.webp",
         "sha256": "a1104d52540518fd0a4d84af5cbfb36067bd775c2e518ba675ff169b60170476",
-        "bytes": 1776814
+        "bytes": 1776814,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/a1104d52540518fd0a4d84af.webp",
+        "fallbackSha256": "a1104d52540518fd0a4d84af5cbfb36067bd775c2e518ba675ff169b60170476",
+        "sourceSha256": "a1104d52540518fd0a4d84af5cbfb36067bd775c2e518ba675ff169b60170476",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a1104d52540518fd0a4d84af.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/06ac8d5747ce0969ee3f3193.svg",
-        "sha256": "06ac8d5747ce0969ee3f319364d21026a424daf4387c88693a483e0cfe96ec5a",
-        "bytes": 4711116
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/aa8cdbe652c765459e496d35.svg",
+        "sha256": "aa8cdbe652c765459e496d350a4c163a2164e50d8efec624e2106a84285d4b45",
+        "bytes": 4404900,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/06ac8d5747ce0969ee3f3193.svg",
+        "fallbackSha256": "06ac8d5747ce0969ee3f319364d21026a424daf4387c88693a483e0cfe96ec5a",
+        "sourceSha256": "06ac8d5747ce0969ee3f319364d21026a424daf4387c88693a483e0cfe96ec5a",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/aa8cdbe652c765459e496d35.svg"
       },
       "thumbnails": [
         {
           "layoutId": "karelia_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/da02cd2aebe4ac081663f40c.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/da02cd2aebe4ac081663f40c.webp",
             "sha256": "da02cd2aebe4ac081663f40c44aaa19d64cc6c70b306fb3209b7e2c14eeb6d68",
-            "bytes": 33450
+            "bytes": 33450,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/da02cd2aebe4ac081663f40c.webp",
+            "fallbackSha256": "da02cd2aebe4ac081663f40c44aaa19d64cc6c70b306fb3209b7e2c14eeb6d68",
+            "sourceSha256": "da02cd2aebe4ac081663f40c44aaa19d64cc6c70b306fb3209b7e2c14eeb6d68",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/da02cd2aebe4ac081663f40c.webp"
           },
           "width": 512,
           "height": 512,
@@ -19166,23 +19534,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/0b4d9f2af8ee7328acca70ec.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/0b4d9f2af8ee7328acca70ec.webp",
         "sha256": "0b4d9f2af8ee7328acca70ec5ab1fd4de47909589d08bf7e7efedd91025ec4a7",
-        "bytes": 3071588
+        "bytes": 3071588,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/0b4d9f2af8ee7328acca70ec.webp",
+        "fallbackSha256": "0b4d9f2af8ee7328acca70ec5ab1fd4de47909589d08bf7e7efedd91025ec4a7",
+        "sourceSha256": "0b4d9f2af8ee7328acca70ec5ab1fd4de47909589d08bf7e7efedd91025ec4a7",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/0b4d9f2af8ee7328acca70ec.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/d2144eabf8d379378142d0ba.svg",
-        "sha256": "d2144eabf8d379378142d0baa1838cdfc4eded77d9fdfdae1464afc5e10021e5",
-        "bytes": 4069977
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/911186ad734206abab784b0f.svg",
+        "sha256": "911186ad734206abab784b0fa72a076afb381d059b686463b806e065ce202429",
+        "bytes": 3803592,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/d2144eabf8d379378142d0ba.svg",
+        "fallbackSha256": "d2144eabf8d379378142d0baa1838cdfc4eded77d9fdfdae1464afc5e10021e5",
+        "sourceSha256": "d2144eabf8d379378142d0baa1838cdfc4eded77d9fdfdae1464afc5e10021e5",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/911186ad734206abab784b0f.svg"
       },
       "thumbnails": [
         {
           "layoutId": "karpaty_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/a0e7cb5e1ba489a5e17a772d.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a0e7cb5e1ba489a5e17a772d.webp",
             "sha256": "a0e7cb5e1ba489a5e17a772ddfc4ac9caa0701a2c5946c2f464d6e14b6a36e90",
-            "bytes": 34408
+            "bytes": 34408,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/a0e7cb5e1ba489a5e17a772d.webp",
+            "fallbackSha256": "a0e7cb5e1ba489a5e17a772ddfc4ac9caa0701a2c5946c2f464d6e14b6a36e90",
+            "sourceSha256": "a0e7cb5e1ba489a5e17a772ddfc4ac9caa0701a2c5946c2f464d6e14b6a36e90",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a0e7cb5e1ba489a5e17a772d.webp"
           },
           "width": 512,
           "height": 512,
@@ -19607,23 +19987,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/0493d1846710f149fb6c2286.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/0493d1846710f149fb6c2286.webp",
         "sha256": "0493d1846710f149fb6c2286d8e106131ad46d24330e986eeef58bb4cd2c7824",
-        "bytes": 2142316
+        "bytes": 2142316,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/0493d1846710f149fb6c2286.webp",
+        "fallbackSha256": "0493d1846710f149fb6c2286d8e106131ad46d24330e986eeef58bb4cd2c7824",
+        "sourceSha256": "0493d1846710f149fb6c2286d8e106131ad46d24330e986eeef58bb4cd2c7824",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/0493d1846710f149fb6c2286.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/33aaa79f5cb9d87aebb97da4.svg",
-        "sha256": "33aaa79f5cb9d87aebb97da4a9189f6306e7be2b5838a8f051bd0c60f59ea681",
-        "bytes": 5088917
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/f1b42bf2ecd2f42eee57c0b2.svg",
+        "sha256": "f1b42bf2ecd2f42eee57c0b28778645ca0cbbf5fd2ac4b52dda3be10969a269b",
+        "bytes": 4758052,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/33aaa79f5cb9d87aebb97da4.svg",
+        "fallbackSha256": "33aaa79f5cb9d87aebb97da4a9189f6306e7be2b5838a8f051bd0c60f59ea681",
+        "sourceSha256": "33aaa79f5cb9d87aebb97da4a9189f6306e7be2b5838a8f051bd0c60f59ea681",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/f1b42bf2ecd2f42eee57c0b2.svg"
       },
       "thumbnails": [
         {
           "layoutId": "korea_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/d2b249a14f81a5b2100ad36c.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d2b249a14f81a5b2100ad36c.webp",
             "sha256": "d2b249a14f81a5b2100ad36c7f4fd2a5b38f0544525ca27a16c2e503667a25a9",
-            "bytes": 43694
+            "bytes": 43694,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/d2b249a14f81a5b2100ad36c.webp",
+            "fallbackSha256": "d2b249a14f81a5b2100ad36c7f4fd2a5b38f0544525ca27a16c2e503667a25a9",
+            "sourceSha256": "d2b249a14f81a5b2100ad36c7f4fd2a5b38f0544525ca27a16c2e503667a25a9",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d2b249a14f81a5b2100ad36c.webp"
           },
           "width": 410,
           "height": 512,
@@ -20055,23 +20447,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/bd2da597b663d2e56c708e3d.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/bd2da597b663d2e56c708e3d.webp",
         "sha256": "bd2da597b663d2e56c708e3d484cce674494d659b50c7cef2143e0dc7fd06947",
-        "bytes": 3239788
+        "bytes": 3239788,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/bd2da597b663d2e56c708e3d.webp",
+        "fallbackSha256": "bd2da597b663d2e56c708e3d484cce674494d659b50c7cef2143e0dc7fd06947",
+        "sourceSha256": "bd2da597b663d2e56c708e3d484cce674494d659b50c7cef2143e0dc7fd06947",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/bd2da597b663d2e56c708e3d.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/50878cfda646c95b54b53382.svg",
-        "sha256": "50878cfda646c95b54b53382c6338d77af79281a59f6da90283cb589a513aee4",
-        "bytes": 6954571
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/2cd4a8412277fbe8540f960e.svg",
+        "sha256": "2cd4a8412277fbe8540f960e7f65a211de5c7b9ad59a2e72fe4ff7484bdf71b0",
+        "bytes": 6499461,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/50878cfda646c95b54b53382.svg",
+        "fallbackSha256": "50878cfda646c95b54b53382c6338d77af79281a59f6da90283cb589a513aee4",
+        "sourceSha256": "50878cfda646c95b54b53382c6338d77af79281a59f6da90283cb589a513aee4",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/2cd4a8412277fbe8540f960e.svg"
       },
       "thumbnails": [
         {
           "layoutId": "krymsk_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/8b95d370040c549c4b3c0971.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/8b95d370040c549c4b3c0971.webp",
             "sha256": "8b95d370040c549c4b3c097177683adced2460e5729a690ff4b2183b52c42340",
-            "bytes": 54050
+            "bytes": 54050,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/8b95d370040c549c4b3c0971.webp",
+            "fallbackSha256": "8b95d370040c549c4b3c097177683adced2460e5729a690ff4b2183b52c42340",
+            "sourceSha256": "8b95d370040c549c4b3c097177683adced2460e5729a690ff4b2183b52c42340",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/8b95d370040c549c4b3c0971.webp"
           },
           "width": 512,
           "height": 512,
@@ -20669,23 +21073,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/c5d89dbedbebd2dfdf533a22.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/c5d89dbedbebd2dfdf533a22.webp",
         "sha256": "c5d89dbedbebd2dfdf533a2257be4d0a41ccd8117c2764ab858704f2f46276b2",
-        "bytes": 1305136
+        "bytes": 1305136,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/c5d89dbedbebd2dfdf533a22.webp",
+        "fallbackSha256": "c5d89dbedbebd2dfdf533a2257be4d0a41ccd8117c2764ab858704f2f46276b2",
+        "sourceSha256": "c5d89dbedbebd2dfdf533a2257be4d0a41ccd8117c2764ab858704f2f46276b2",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/c5d89dbedbebd2dfdf533a22.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/29574f009da2a53e350d8ff1.svg",
-        "sha256": "29574f009da2a53e350d8ff1d28d6780db1f92ab4795c8a7b9666951588823b4",
-        "bytes": 2767878
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/e4c693bcb2794540518ab0c6.svg",
+        "sha256": "e4c693bcb2794540518ab0c6134311bce6d2ed9edfaa9076642fe14c6b584699",
+        "bytes": 2587592,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/29574f009da2a53e350d8ff1.svg",
+        "fallbackSha256": "29574f009da2a53e350d8ff1d28d6780db1f92ab4795c8a7b9666951588823b4",
+        "sourceSha256": "29574f009da2a53e350d8ff1d28d6780db1f92ab4795c8a7b9666951588823b4",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/e4c693bcb2794540518ab0c6.svg"
       },
       "thumbnails": [
         {
           "layoutId": "kursk_villages_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/105ad98edd2034025c050141.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/105ad98edd2034025c050141.webp",
             "sha256": "105ad98edd2034025c05014141de88b5b412662e8c5d46362eec834f13f697ce",
-            "bytes": 18198
+            "bytes": 18198,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/105ad98edd2034025c050141.webp",
+            "fallbackSha256": "105ad98edd2034025c05014141de88b5b412662e8c5d46362eec834f13f697ce",
+            "sourceSha256": "105ad98edd2034025c05014141de88b5b412662e8c5d46362eec834f13f697ce",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/105ad98edd2034025c050141.webp"
           },
           "width": 512,
           "height": 512,
@@ -20695,9 +21111,13 @@
           "layoutId": "kursk_villages_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/b47968dd050b5b47a7d3f881.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/b47968dd050b5b47a7d3f881.webp",
             "sha256": "b47968dd050b5b47a7d3f881da1f90449399c0e5abef3a30f7feaff0a063dee1",
-            "bytes": 15016
+            "bytes": 15016,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/b47968dd050b5b47a7d3f881.webp",
+            "fallbackSha256": "b47968dd050b5b47a7d3f881da1f90449399c0e5abef3a30f7feaff0a063dee1",
+            "sourceSha256": "b47968dd050b5b47a7d3f881da1f90449399c0e5abef3a30f7feaff0a063dee1",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/b47968dd050b5b47a7d3f881.webp"
           },
           "width": 512,
           "height": 512,
@@ -21452,23 +21872,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/93dba458d6cb4ec33624ae81.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/93dba458d6cb4ec33624ae81.webp",
         "sha256": "93dba458d6cb4ec33624ae8133fbbeb1fad0d575dc45f4c28994f372d3b4e553",
-        "bytes": 2130968
+        "bytes": 2130968,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/93dba458d6cb4ec33624ae81.webp",
+        "fallbackSha256": "93dba458d6cb4ec33624ae8133fbbeb1fad0d575dc45f4c28994f372d3b4e553",
+        "sourceSha256": "93dba458d6cb4ec33624ae8133fbbeb1fad0d575dc45f4c28994f372d3b4e553",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/93dba458d6cb4ec33624ae81.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/bf70aab08cf720ef6ec0301e.svg",
-        "sha256": "bf70aab08cf720ef6ec0301ee8c5cc39e7c4298aef7e82c75b23d3c354b0d952",
-        "bytes": 10013316
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a0251cba9322c497fbcad6a6.svg",
+        "sha256": "a0251cba9322c497fbcad6a6d9f60140de4b2ca360ebb5f0c3a026cf55c10c65",
+        "bytes": 9354784,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/bf70aab08cf720ef6ec0301e.svg",
+        "fallbackSha256": "bf70aab08cf720ef6ec0301ee8c5cc39e7c4298aef7e82c75b23d3c354b0d952",
+        "sourceSha256": "bf70aab08cf720ef6ec0301ee8c5cc39e7c4298aef7e82c75b23d3c354b0d952",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a0251cba9322c497fbcad6a6.svg"
       },
       "thumbnails": [
         {
           "layoutId": "lazzaro_italy_new_city_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/011ff67c0a2ff082e5e138be.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/011ff67c0a2ff082e5e138be.webp",
             "sha256": "011ff67c0a2ff082e5e138bee300d140e324c258492b7bc55d9725388f518871",
-            "bytes": 26102
+            "bytes": 26102,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/011ff67c0a2ff082e5e138be.webp",
+            "fallbackSha256": "011ff67c0a2ff082e5e138bee300d140e324c258492b7bc55d9725388f518871",
+            "sourceSha256": "011ff67c0a2ff082e5e138bee300d140e324c258492b7bc55d9725388f518871",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/011ff67c0a2ff082e5e138be.webp"
           },
           "width": 512,
           "height": 512,
@@ -21924,23 +22356,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/a76929a2c05bd31a84398b0c.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a76929a2c05bd31a84398b0c.webp",
         "sha256": "a76929a2c05bd31a84398b0c0b37062a997b561f7e18b8cf5e6dd1140cd5982f",
-        "bytes": 1388802
+        "bytes": 1388802,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/a76929a2c05bd31a84398b0c.webp",
+        "fallbackSha256": "a76929a2c05bd31a84398b0c0b37062a997b561f7e18b8cf5e6dd1140cd5982f",
+        "sourceSha256": "a76929a2c05bd31a84398b0c0b37062a997b561f7e18b8cf5e6dd1140cd5982f",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a76929a2c05bd31a84398b0c.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/07030633b8f99b838755280a.svg",
-        "sha256": "07030633b8f99b838755280a2d8912d8381023a434f0cebe69bace20acfb6059",
-        "bytes": 938586
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/f91baf781e4de42a00446a8a.svg",
+        "sha256": "f91baf781e4de42a00446a8aa4c5e3f284bcb32f2cd787ac9a1d6a35560b6b64",
+        "bytes": 878029,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/07030633b8f99b838755280a.svg",
+        "fallbackSha256": "07030633b8f99b838755280a2d8912d8381023a434f0cebe69bace20acfb6059",
+        "sourceSha256": "07030633b8f99b838755280a2d8912d8381023a434f0cebe69bace20acfb6059",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/f91baf781e4de42a00446a8a.svg"
       },
       "thumbnails": [
         {
           "layoutId": "middle_east_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/c4ba5ca11123f7361d2dfd2a.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/c4ba5ca11123f7361d2dfd2a.webp",
             "sha256": "c4ba5ca11123f7361d2dfd2a5430f98376d591e4bcd7f932d9dbeccb338b2378",
-            "bytes": 18240
+            "bytes": 18240,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/c4ba5ca11123f7361d2dfd2a.webp",
+            "fallbackSha256": "c4ba5ca11123f7361d2dfd2a5430f98376d591e4bcd7f932d9dbeccb338b2378",
+            "sourceSha256": "c4ba5ca11123f7361d2dfd2a5430f98376d591e4bcd7f932d9dbeccb338b2378",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/c4ba5ca11123f7361d2dfd2a.webp"
           },
           "width": 512,
           "height": 512,
@@ -22813,23 +23257,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/273f38295f4abec37035c951.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/273f38295f4abec37035c951.webp",
         "sha256": "273f38295f4abec37035c95133222d07602c7b251e37912e785549cde52efa1f",
-        "bytes": 2079670
+        "bytes": 2079670,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/273f38295f4abec37035c951.webp",
+        "fallbackSha256": "273f38295f4abec37035c95133222d07602c7b251e37912e785549cde52efa1f",
+        "sourceSha256": "273f38295f4abec37035c95133222d07602c7b251e37912e785549cde52efa1f",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/273f38295f4abec37035c951.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/43619d8c9323edd2d55e92a8.svg",
-        "sha256": "43619d8c9323edd2d55e92a8928947dfc5b96ee0f71e671f474a1277bbde08d9",
-        "bytes": 4268753
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/681aea8fe431f9e16b96fb1a.svg",
+        "sha256": "681aea8fe431f9e16b96fb1a0c4d34f8953c949f8e65806f6865838095f09254",
+        "bytes": 3992574,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/43619d8c9323edd2d55e92a8.svg",
+        "fallbackSha256": "43619d8c9323edd2d55e92a8928947dfc5b96ee0f71e671f474a1277bbde08d9",
+        "sourceSha256": "43619d8c9323edd2d55e92a8928947dfc5b96ee0f71e671f474a1277bbde08d9",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/681aea8fe431f9e16b96fb1a.svg"
       },
       "thumbnails": [
         {
           "layoutId": "mozdok_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/b8511551d90a2376d2470c83.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/b8511551d90a2376d2470c83.webp",
             "sha256": "b8511551d90a2376d2470c839e854d1148495f5181190c4f4f0fd5865269d845",
-            "bytes": 16948
+            "bytes": 16948,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/b8511551d90a2376d2470c83.webp",
+            "fallbackSha256": "b8511551d90a2376d2470c839e854d1148495f5181190c4f4f0fd5865269d845",
+            "sourceSha256": "b8511551d90a2376d2470c839e854d1148495f5181190c4f4f0fd5865269d845",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/b8511551d90a2376d2470c83.webp"
           },
           "width": 512,
           "height": 512,
@@ -22839,9 +23295,13 @@
           "layoutId": "mozdok_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/45640eff2a93ecf7a7410814.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/45640eff2a93ecf7a7410814.webp",
             "sha256": "45640eff2a93ecf7a7410814b5e8a7aa8df878abe7a401b06d74c820dd1edb08",
-            "bytes": 14624
+            "bytes": 14624,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/45640eff2a93ecf7a7410814.webp",
+            "fallbackSha256": "45640eff2a93ecf7a7410814b5e8a7aa8df878abe7a401b06d74c820dd1edb08",
+            "sourceSha256": "45640eff2a93ecf7a7410814b5e8a7aa8df878abe7a401b06d74c820dd1edb08",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/45640eff2a93ecf7a7410814.webp"
           },
           "width": 512,
           "height": 512,
@@ -23381,23 +23841,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/1dd9243d2ad2ad88e2110195.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/1dd9243d2ad2ad88e2110195.webp",
         "sha256": "1dd9243d2ad2ad88e2110195d9b4112ea5989057d9c302dc2625de459cade301",
-        "bytes": 2922918
+        "bytes": 2922918,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/1dd9243d2ad2ad88e2110195.webp",
+        "fallbackSha256": "1dd9243d2ad2ad88e2110195d9b4112ea5989057d9c302dc2625de459cade301",
+        "sourceSha256": "1dd9243d2ad2ad88e2110195d9b4112ea5989057d9c302dc2625de459cade301",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/1dd9243d2ad2ad88e2110195.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/7626871a8727065db6048318.svg",
-        "sha256": "7626871a8727065db604831844a5eceba9da73db7e8d2ff608f7ea5995a94a61",
-        "bytes": 1765244
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/6f504167a671f1d688b01d3a.svg",
+        "sha256": "6f504167a671f1d688b01d3a3b683cbd1f2f88a3f12efbbaf2d4bad4a18908de",
+        "bytes": 1649932,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/7626871a8727065db6048318.svg",
+        "fallbackSha256": "7626871a8727065db604831844a5eceba9da73db7e8d2ff608f7ea5995a94a61",
+        "sourceSha256": "7626871a8727065db604831844a5eceba9da73db7e8d2ff608f7ea5995a94a61",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/6f504167a671f1d688b01d3a.svg"
       },
       "thumbnails": [
         {
           "layoutId": "netherlands_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/7590467b8b235e5fd1827930.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7590467b8b235e5fd1827930.webp",
             "sha256": "7590467b8b235e5fd1827930256950a6af22b1971fbd3ab252bc66637307a356",
-            "bytes": 35924
+            "bytes": 35924,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/7590467b8b235e5fd1827930.webp",
+            "fallbackSha256": "7590467b8b235e5fd1827930256950a6af22b1971fbd3ab252bc66637307a356",
+            "sourceSha256": "7590467b8b235e5fd1827930256950a6af22b1971fbd3ab252bc66637307a356",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7590467b8b235e5fd1827930.webp"
           },
           "width": 512,
           "height": 512,
@@ -23407,9 +23879,13 @@
           "layoutId": "netherlands_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/c0ad93a64b26c90388e14db5.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/c0ad93a64b26c90388e14db5.webp",
             "sha256": "c0ad93a64b26c90388e14db5ab40a68cf112d0464d09efac623b59f8064983b0",
-            "bytes": 34320
+            "bytes": 34320,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/c0ad93a64b26c90388e14db5.webp",
+            "fallbackSha256": "c0ad93a64b26c90388e14db5ab40a68cf112d0464d09efac623b59f8064983b0",
+            "sourceSha256": "c0ad93a64b26c90388e14db5ab40a68cf112d0464d09efac623b59f8064983b0",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/c0ad93a64b26c90388e14db5.webp"
           },
           "width": 512,
           "height": 512,
@@ -24085,23 +24561,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/0ff882159dfca8c6fa67581e.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/0ff882159dfca8c6fa67581e.webp",
         "sha256": "0ff882159dfca8c6fa67581e6c03fbab2dd0fb6000c95499ee3c54ee7cba6fd6",
-        "bytes": 2451890
+        "bytes": 2451890,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/0ff882159dfca8c6fa67581e.webp",
+        "fallbackSha256": "0ff882159dfca8c6fa67581e6c03fbab2dd0fb6000c95499ee3c54ee7cba6fd6",
+        "sourceSha256": "0ff882159dfca8c6fa67581e6c03fbab2dd0fb6000c95499ee3c54ee7cba6fd6",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/0ff882159dfca8c6fa67581e.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/86fe557e320b797e2c14474c.svg",
-        "sha256": "86fe557e320b797e2c14474cf138dcd6bfe6da2e8d5fa93eeff53e64f4b19614",
-        "bytes": 2523946
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/8729369ce9e1f644313f2700.svg",
+        "sha256": "8729369ce9e1f644313f2700e8731b26f5276f2d6f1ff5ef6723be4709a23988",
+        "bytes": 2359357,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/86fe557e320b797e2c14474c.svg",
+        "fallbackSha256": "86fe557e320b797e2c14474cf138dcd6bfe6da2e8d5fa93eeff53e64f4b19614",
+        "sourceSha256": "86fe557e320b797e2c14474cf138dcd6bfe6da2e8d5fa93eeff53e64f4b19614",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/8729369ce9e1f644313f2700.svg"
       },
       "thumbnails": [
         {
           "layoutId": "normandy_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/5dc0f23fb35b1305a7aad32a.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5dc0f23fb35b1305a7aad32a.webp",
             "sha256": "5dc0f23fb35b1305a7aad32ab03c0f0d19acaa6bffa6a9fa4812329899171c06",
-            "bytes": 19396
+            "bytes": 19396,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/5dc0f23fb35b1305a7aad32a.webp",
+            "fallbackSha256": "5dc0f23fb35b1305a7aad32ab03c0f0d19acaa6bffa6a9fa4812329899171c06",
+            "sourceSha256": "5dc0f23fb35b1305a7aad32ab03c0f0d19acaa6bffa6a9fa4812329899171c06",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5dc0f23fb35b1305a7aad32a.webp"
           },
           "width": 512,
           "height": 512,
@@ -24111,9 +24599,13 @@
           "layoutId": "normandy_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/fda16bf6044265997df5d0a0.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/fda16bf6044265997df5d0a0.webp",
             "sha256": "fda16bf6044265997df5d0a0dc4efe0e9f6fe0637adbc0921f8583ebf626e5e0",
-            "bytes": 22346
+            "bytes": 22346,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/fda16bf6044265997df5d0a0.webp",
+            "fallbackSha256": "fda16bf6044265997df5d0a0dc4efe0e9f6fe0637adbc0921f8583ebf626e5e0",
+            "sourceSha256": "fda16bf6044265997df5d0a0dc4efe0e9f6fe0637adbc0921f8583ebf626e5e0",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/fda16bf6044265997df5d0a0.webp"
           },
           "width": 512,
           "height": 512,
@@ -24538,23 +25030,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/caa281e1e155fb86566c4f0c.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/caa281e1e155fb86566c4f0c.webp",
         "sha256": "caa281e1e155fb86566c4f0c05ec1dd9beb13556e13c95776ea07b52d926c6b4",
-        "bytes": 2029414
+        "bytes": 2029414,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/caa281e1e155fb86566c4f0c.webp",
+        "fallbackSha256": "caa281e1e155fb86566c4f0c05ec1dd9beb13556e13c95776ea07b52d926c6b4",
+        "sourceSha256": "caa281e1e155fb86566c4f0c05ec1dd9beb13556e13c95776ea07b52d926c6b4",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/caa281e1e155fb86566c4f0c.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/7f2d980ddcac0081f3fe23bb.svg",
-        "sha256": "7f2d980ddcac0081f3fe23bbff781f6e97d75c87670ee55f94643ad6ee48f9be",
-        "bytes": 20446208
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/6d097bbd51f93bfe8cab3cf1.svg",
+        "sha256": "6d097bbd51f93bfe8cab3cf1876ba9b360e1dafcb055ccd7c717de84f2739614",
+        "bytes": 19112212,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/7f2d980ddcac0081f3fe23bb.svg",
+        "fallbackSha256": "7f2d980ddcac0081f3fe23bbff781f6e97d75c87670ee55f94643ad6ee48f9be",
+        "sourceSha256": "7f2d980ddcac0081f3fe23bbff781f6e97d75c87670ee55f94643ad6ee48f9be",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/6d097bbd51f93bfe8cab3cf1.svg"
       },
       "thumbnails": [
         {
           "layoutId": "northern_india_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/35c12c49a1e024a39c41965e.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/35c12c49a1e024a39c41965e.webp",
             "sha256": "35c12c49a1e024a39c41965e7c8ba542e8786a4f2400d1382d0b126045d01fd3",
-            "bytes": 44676
+            "bytes": 44676,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/35c12c49a1e024a39c41965e.webp",
+            "fallbackSha256": "35c12c49a1e024a39c41965e7c8ba542e8786a4f2400d1382d0b126045d01fd3",
+            "sourceSha256": "35c12c49a1e024a39c41965e7c8ba542e8786a4f2400d1382d0b126045d01fd3",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/35c12c49a1e024a39c41965e.webp"
           },
           "width": 512,
           "height": 512,
@@ -24564,9 +25068,13 @@
           "layoutId": "northern_india_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/bbcd027ea179660117a086a4.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/bbcd027ea179660117a086a4.webp",
             "sha256": "bbcd027ea179660117a086a41bfe0a704b4456b0d310509c3239ad56769e7eee",
-            "bytes": 44638
+            "bytes": 44638,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/bbcd027ea179660117a086a4.webp",
+            "fallbackSha256": "bbcd027ea179660117a086a41bfe0a704b4456b0d310509c3239ad56769e7eee",
+            "sourceSha256": "bbcd027ea179660117a086a41bfe0a704b4456b0d310509c3239ad56769e7eee",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/bbcd027ea179660117a086a4.webp"
           },
           "width": 512,
           "height": 512,
@@ -25243,23 +25751,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/16d18bfca4d5050dc1b2b519.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/16d18bfca4d5050dc1b2b519.webp",
         "sha256": "16d18bfca4d5050dc1b2b51995c2d10da3ec2687cd13bad231bf2d85925848c9",
-        "bytes": 3481016
+        "bytes": 3481016,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/16d18bfca4d5050dc1b2b519.webp",
+        "fallbackSha256": "16d18bfca4d5050dc1b2b51995c2d10da3ec2687cd13bad231bf2d85925848c9",
+        "sourceSha256": "16d18bfca4d5050dc1b2b51995c2d10da3ec2687cd13bad231bf2d85925848c9",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/16d18bfca4d5050dc1b2b519.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/0fcf27d8021d9665dfa74a9b.svg",
-        "sha256": "0fcf27d8021d9665dfa74a9b28ba2ce6ac384f07b4697a563d8df755172752b0",
-        "bytes": 10474539
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/c0655ca95afb85f4c5ac3cf4.svg",
+        "sha256": "c0655ca95afb85f4c5ac3cf4c9515afcbc308ccafb8a8ce3b81bf66d7ed49a52",
+        "bytes": 9787774,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/0fcf27d8021d9665dfa74a9b.svg",
+        "fallbackSha256": "0fcf27d8021d9665dfa74a9b28ba2ce6ac384f07b4697a563d8df755172752b0",
+        "sourceSha256": "0fcf27d8021d9665dfa74a9b28ba2ce6ac384f07b4697a563d8df755172752b0",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/c0655ca95afb85f4c5ac3cf4.svg"
       },
       "thumbnails": [
         {
           "layoutId": "northern_valley_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/219401592394acb3c983c488.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/219401592394acb3c983c488.webp",
             "sha256": "219401592394acb3c983c488d5c88a1226daf569b404c87859974a617729d487",
-            "bytes": 60190
+            "bytes": 60190,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/219401592394acb3c983c488.webp",
+            "fallbackSha256": "219401592394acb3c983c488d5c88a1226daf569b404c87859974a617729d487",
+            "sourceSha256": "219401592394acb3c983c488d5c88a1226daf569b404c87859974a617729d487",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/219401592394acb3c983c488.webp"
           },
           "width": 512,
           "height": 512,
@@ -25269,9 +25789,13 @@
           "layoutId": "northern_valley_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/16934db0cd1235442dd1194d.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/16934db0cd1235442dd1194d.webp",
             "sha256": "16934db0cd1235442dd1194d1fbfc885286154cd6534a78be4f959a79019327c",
-            "bytes": 62516
+            "bytes": 62516,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/16934db0cd1235442dd1194d.webp",
+            "fallbackSha256": "16934db0cd1235442dd1194d1fbfc885286154cd6534a78be4f959a79019327c",
+            "sourceSha256": "16934db0cd1235442dd1194d1fbfc885286154cd6534a78be4f959a79019327c",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/16934db0cd1235442dd1194d.webp"
           },
           "width": 512,
           "height": 512,
@@ -25752,23 +26276,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/c000fab0ea1a703ed5d91fbd.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/c000fab0ea1a703ed5d91fbd.webp",
         "sha256": "c000fab0ea1a703ed5d91fbd57d6d3a5155541ac4985b28184b56afbc0aed142",
-        "bytes": 1686814
+        "bytes": 1686814,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/c000fab0ea1a703ed5d91fbd.webp",
+        "fallbackSha256": "c000fab0ea1a703ed5d91fbd57d6d3a5155541ac4985b28184b56afbc0aed142",
+        "sourceSha256": "c000fab0ea1a703ed5d91fbd57d6d3a5155541ac4985b28184b56afbc0aed142",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/c000fab0ea1a703ed5d91fbd.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/d37543035100334d1091742c.svg",
-        "sha256": "d37543035100334d1091742c60de6ec53985ca969df4365119d77e8eebb338a2",
-        "bytes": 3154244
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5161da1c427ee6c3c080b842.svg",
+        "sha256": "5161da1c427ee6c3c080b84201c288e082df746c0876617629da47715c6375a5",
+        "bytes": 2947800,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/d37543035100334d1091742c.svg",
+        "fallbackSha256": "d37543035100334d1091742c60de6ec53985ca969df4365119d77e8eebb338a2",
+        "sourceSha256": "d37543035100334d1091742c60de6ec53985ca969df4365119d77e8eebb338a2",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5161da1c427ee6c3c080b842.svg"
       },
       "thumbnails": [
         {
           "layoutId": "nuclear_incident_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/5609a59b07dbc4d29dcc2f7e.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5609a59b07dbc4d29dcc2f7e.webp",
             "sha256": "5609a59b07dbc4d29dcc2f7e35d579e0eaac71a6b50ccc375415283c6dbc8872",
-            "bytes": 18930
+            "bytes": 18930,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/5609a59b07dbc4d29dcc2f7e.webp",
+            "fallbackSha256": "5609a59b07dbc4d29dcc2f7e35d579e0eaac71a6b50ccc375415283c6dbc8872",
+            "sourceSha256": "5609a59b07dbc4d29dcc2f7e35d579e0eaac71a6b50ccc375415283c6dbc8872",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5609a59b07dbc4d29dcc2f7e.webp"
           },
           "width": 512,
           "height": 512,
@@ -27042,23 +27578,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/e077aeb124b310fa80cabe69.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/e077aeb124b310fa80cabe69.webp",
         "sha256": "e077aeb124b310fa80cabe696d23727e55e0794b795d2e7e42f5167418fe4941",
-        "bytes": 2875794
+        "bytes": 2875794,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/e077aeb124b310fa80cabe69.webp",
+        "fallbackSha256": "e077aeb124b310fa80cabe696d23727e55e0794b795d2e7e42f5167418fe4941",
+        "sourceSha256": "e077aeb124b310fa80cabe696d23727e55e0794b795d2e7e42f5167418fe4941",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/e077aeb124b310fa80cabe69.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/d97911ec7d48e281efe62eea.svg",
-        "sha256": "d97911ec7d48e281efe62eea4f59ca73f09e269343ff6476f6dbb4a923dd21a1",
-        "bytes": 1967422
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a752310d2aa5d709438c9c27.svg",
+        "sha256": "a752310d2aa5d709438c9c2770c9f9a1d947ef7e92b854c468f95b1bdb6502aa",
+        "bytes": 1838685,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/d97911ec7d48e281efe62eea.svg",
+        "fallbackSha256": "d97911ec7d48e281efe62eea4f59ca73f09e269343ff6476f6dbb4a923dd21a1",
+        "sourceSha256": "d97911ec7d48e281efe62eea4f59ca73f09e269343ff6476f6dbb4a923dd21a1",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a752310d2aa5d709438c9c27.svg"
       },
       "thumbnails": [
         {
           "layoutId": "poland_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/5fd101d9a7d32434817368bc.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5fd101d9a7d32434817368bc.webp",
             "sha256": "5fd101d9a7d32434817368bc5246f24568d19c11a82ae8fd7a6137c815917b0e",
-            "bytes": 25812
+            "bytes": 25812,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/5fd101d9a7d32434817368bc.webp",
+            "fallbackSha256": "5fd101d9a7d32434817368bc5246f24568d19c11a82ae8fd7a6137c815917b0e",
+            "sourceSha256": "5fd101d9a7d32434817368bc5246f24568d19c11a82ae8fd7a6137c815917b0e",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5fd101d9a7d32434817368bc.webp"
           },
           "width": 512,
           "height": 512,
@@ -27068,9 +27616,13 @@
           "layoutId": "poland_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/5432daba4739dea11fd1516d.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5432daba4739dea11fd1516d.webp",
             "sha256": "5432daba4739dea11fd1516d13eca33ee29af027d0f3727572f49241a4e89885",
-            "bytes": 24360
+            "bytes": 24360,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/5432daba4739dea11fd1516d.webp",
+            "fallbackSha256": "5432daba4739dea11fd1516d13eca33ee29af027d0f3727572f49241a4e89885",
+            "sourceSha256": "5432daba4739dea11fd1516d13eca33ee29af027d0f3727572f49241a4e89885",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5432daba4739dea11fd1516d.webp"
           },
           "width": 512,
           "height": 512,
@@ -28357,23 +28909,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/0a509e92d38b6f27bf0b301f.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/0a509e92d38b6f27bf0b301f.webp",
         "sha256": "0a509e92d38b6f27bf0b301f830d7beb3ae449aa014bf5dc39420b643f292d6d",
-        "bytes": 1932410
+        "bytes": 1932410,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/0a509e92d38b6f27bf0b301f.webp",
+        "fallbackSha256": "0a509e92d38b6f27bf0b301f830d7beb3ae449aa014bf5dc39420b643f292d6d",
+        "sourceSha256": "0a509e92d38b6f27bf0b301f830d7beb3ae449aa014bf5dc39420b643f292d6d",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/0a509e92d38b6f27bf0b301f.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/16194d2e11bb4dd978ee44ea.svg",
-        "sha256": "16194d2e11bb4dd978ee44ea0bd3a00e44c298940b4edc2db8b87c07194bb080",
-        "bytes": 1952149
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/95fcc6cb2b168ed7c429905d.svg",
+        "sha256": "95fcc6cb2b168ed7c429905d01533bb9b41280775adbc03c9e058e0f7a2020cd",
+        "bytes": 1824311,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/16194d2e11bb4dd978ee44ea.svg",
+        "fallbackSha256": "16194d2e11bb4dd978ee44ea0bd3a00e44c298940b4edc2db8b87c07194bb080",
+        "sourceSha256": "16194d2e11bb4dd978ee44ea0bd3a00e44c298940b4edc2db8b87c07194bb080",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/95fcc6cb2b168ed7c429905d.svg"
       },
       "thumbnails": [
         {
           "layoutId": "poland_snow_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/0db1a5d3c564e92729d52eba.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/0db1a5d3c564e92729d52eba.webp",
             "sha256": "0db1a5d3c564e92729d52eba8ae5eb060a05a9bca6e494bea2d8e8ec79b35a53",
-            "bytes": 30402
+            "bytes": 30402,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/0db1a5d3c564e92729d52eba.webp",
+            "fallbackSha256": "0db1a5d3c564e92729d52eba8ae5eb060a05a9bca6e494bea2d8e8ec79b35a53",
+            "sourceSha256": "0db1a5d3c564e92729d52eba8ae5eb060a05a9bca6e494bea2d8e8ec79b35a53",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/0db1a5d3c564e92729d52eba.webp"
           },
           "width": 512,
           "height": 512,
@@ -28383,9 +28947,13 @@
           "layoutId": "poland_snow_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/6b49fdcf6927d77719b3bae5.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/6b49fdcf6927d77719b3bae5.webp",
             "sha256": "6b49fdcf6927d77719b3bae5a38d00e1b7c562c928b8b96c456e503536d0f58f",
-            "bytes": 28662
+            "bytes": 28662,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/6b49fdcf6927d77719b3bae5.webp",
+            "fallbackSha256": "6b49fdcf6927d77719b3bae5a38d00e1b7c562c928b8b96c456e503536d0f58f",
+            "sourceSha256": "6b49fdcf6927d77719b3bae5a38d00e1b7c562c928b8b96c456e503536d0f58f",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/6b49fdcf6927d77719b3bae5.webp"
           },
           "width": 512,
           "height": 512,
@@ -28856,23 +29424,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/5c3c7a70f142e733c201b265.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5c3c7a70f142e733c201b265.webp",
         "sha256": "5c3c7a70f142e733c201b2651441ebf497c641f5a0fb33a5c5fc33b87d1ce10b",
-        "bytes": 1180254
+        "bytes": 1180254,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/5c3c7a70f142e733c201b265.webp",
+        "fallbackSha256": "5c3c7a70f142e733c201b2651441ebf497c641f5a0fb33a5c5fc33b87d1ce10b",
+        "sourceSha256": "5c3c7a70f142e733c201b2651441ebf497c641f5a0fb33a5c5fc33b87d1ce10b",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5c3c7a70f142e733c201b265.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/9f20555ce5ffe5c359c6ab6b.svg",
-        "sha256": "9f20555ce5ffe5c359c6ab6b66e8ee8e7c6f1b39c46cdfc0550b4b246d2cd34b",
-        "bytes": 1517091
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/028d14bfcb3ea0e45bce47c7.svg",
+        "sha256": "028d14bfcb3ea0e45bce47c7e11ff5b9fc85e6c6964ca3bc7e0b15d432cfdfc6",
+        "bytes": 1348765,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/9f20555ce5ffe5c359c6ab6b.svg",
+        "fallbackSha256": "9f20555ce5ffe5c359c6ab6b66e8ee8e7c6f1b39c46cdfc0550b4b246d2cd34b",
+        "sourceSha256": "9f20555ce5ffe5c359c6ab6b66e8ee8e7c6f1b39c46cdfc0550b4b246d2cd34b",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/028d14bfcb3ea0e45bce47c7.svg"
       },
       "thumbnails": [
         {
           "layoutId": "port_novorossiysk_aslt_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/b31a34b73a7af083b4888e04.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/b31a34b73a7af083b4888e04.webp",
             "sha256": "b31a34b73a7af083b4888e046a034181900490b37ef801196a724ce8756b43f7",
-            "bytes": 18492
+            "bytes": 18492,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/b31a34b73a7af083b4888e04.webp",
+            "fallbackSha256": "b31a34b73a7af083b4888e046a034181900490b37ef801196a724ce8756b43f7",
+            "sourceSha256": "b31a34b73a7af083b4888e046a034181900490b37ef801196a724ce8756b43f7",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/b31a34b73a7af083b4888e04.webp"
           },
           "width": 512,
           "height": 512,
@@ -29352,23 +29932,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/12edbe515e2132ece29b6396.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/12edbe515e2132ece29b6396.webp",
         "sha256": "12edbe515e2132ece29b6396ecd0704337cd3da2eff8190ff4ddb1acb9e7617c",
-        "bytes": 1211326
+        "bytes": 1211326,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/12edbe515e2132ece29b6396.webp",
+        "fallbackSha256": "12edbe515e2132ece29b6396ecd0704337cd3da2eff8190ff4ddb1acb9e7617c",
+        "sourceSha256": "12edbe515e2132ece29b6396ecd0704337cd3da2eff8190ff4ddb1acb9e7617c",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/12edbe515e2132ece29b6396.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/a394f009197fd36121e99615.svg",
-        "sha256": "a394f009197fd36121e9961567d93bfe1aa6ebfb849fd6278322dc94b289a7ef",
-        "bytes": 4647996
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/ca5d8771c79202ca7dd5a3dd.svg",
+        "sha256": "ca5d8771c79202ca7dd5a3ddb75df5151e82e31673d007f44cda21fbc87dae2c",
+        "bytes": 4346819,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/a394f009197fd36121e99615.svg",
+        "fallbackSha256": "a394f009197fd36121e9961567d93bfe1aa6ebfb849fd6278322dc94b289a7ef",
+        "sourceSha256": "a394f009197fd36121e9961567d93bfe1aa6ebfb849fd6278322dc94b289a7ef",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/ca5d8771c79202ca7dd5a3dd.svg"
       },
       "thumbnails": [
         {
           "layoutId": "red_desert_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/1bcd16f6a0dda73ba0d380f4.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/1bcd16f6a0dda73ba0d380f4.webp",
             "sha256": "1bcd16f6a0dda73ba0d380f4dbeb5d2cb8e7afc8c40b56e05036a7ae30a276a0",
-            "bytes": 23466
+            "bytes": 23466,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/1bcd16f6a0dda73ba0d380f4.webp",
+            "fallbackSha256": "1bcd16f6a0dda73ba0d380f4dbeb5d2cb8e7afc8c40b56e05036a7ae30a276a0",
+            "sourceSha256": "1bcd16f6a0dda73ba0d380f4dbeb5d2cb8e7afc8c40b56e05036a7ae30a276a0",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/1bcd16f6a0dda73ba0d380f4.webp"
           },
           "width": 512,
           "height": 512,
@@ -29817,23 +30409,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/75219c2fceefc9c57ac73b7f.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/75219c2fceefc9c57ac73b7f.webp",
         "sha256": "75219c2fceefc9c57ac73b7fb7c5b802eb95647a9f6b12e1e2eca46ef00e7e2d",
-        "bytes": 1200722
+        "bytes": 1200722,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/75219c2fceefc9c57ac73b7f.webp",
+        "fallbackSha256": "75219c2fceefc9c57ac73b7fb7c5b802eb95647a9f6b12e1e2eca46ef00e7e2d",
+        "sourceSha256": "75219c2fceefc9c57ac73b7fb7c5b802eb95647a9f6b12e1e2eca46ef00e7e2d",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/75219c2fceefc9c57ac73b7f.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/6594a25ba13b1946c0520e51.svg",
-        "sha256": "6594a25ba13b1946c0520e51112dffdb7bc5e8ab534d02ef51045913c25df131",
-        "bytes": 353948
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5bf53b98d42b0b7b56ce19df.svg",
+        "sha256": "5bf53b98d42b0b7b56ce19df610f0bbd19c1f60e758ae84835dd725c46ec17ad",
+        "bytes": 337788,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/6594a25ba13b1946c0520e51.svg",
+        "fallbackSha256": "6594a25ba13b1946c0520e51112dffdb7bc5e8ab534d02ef51045913c25df131",
+        "sourceSha256": "6594a25ba13b1946c0520e51112dffdb7bc5e8ab534d02ef51045913c25df131",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5bf53b98d42b0b7b56ce19df.svg"
       },
       "thumbnails": [
         {
           "layoutId": "rheinland_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/d4698f31be4baf00fc46259d.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d4698f31be4baf00fc46259d.webp",
             "sha256": "d4698f31be4baf00fc46259d7c0f322393fcd8eda6fff6df32b41e375b4262ae",
-            "bytes": 30702
+            "bytes": 30702,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/d4698f31be4baf00fc46259d.webp",
+            "fallbackSha256": "d4698f31be4baf00fc46259d7c0f322393fcd8eda6fff6df32b41e375b4262ae",
+            "sourceSha256": "d4698f31be4baf00fc46259d7c0f322393fcd8eda6fff6df32b41e375b4262ae",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d4698f31be4baf00fc46259d.webp"
           },
           "width": 512,
           "height": 512,
@@ -30725,23 +31329,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/fbf1911fe540bc8e7a93c839.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/fbf1911fe540bc8e7a93c839.webp",
         "sha256": "fbf1911fe540bc8e7a93c83915436dc84c945b9b3713f903e7ecfa3b82bcb0e3",
-        "bytes": 1588274
+        "bytes": 1588274,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/fbf1911fe540bc8e7a93c839.webp",
+        "fallbackSha256": "fbf1911fe540bc8e7a93c83915436dc84c945b9b3713f903e7ecfa3b82bcb0e3",
+        "sourceSha256": "fbf1911fe540bc8e7a93c83915436dc84c945b9b3713f903e7ecfa3b82bcb0e3",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/fbf1911fe540bc8e7a93c839.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/40015bfbbf2d512440c4c004.svg",
-        "sha256": "40015bfbbf2d512440c4c0044de48c8a165492f09642b2bdfb8fe5b9f6858b28",
-        "bytes": 3680975
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/cddf8087c4e2c40597f5c425.svg",
+        "sha256": "cddf8087c4e2c40597f5c42576f5ec2e4b931d1ee0385bc703fb06c26cf63a39",
+        "bytes": 3440181,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/40015bfbbf2d512440c4c004.svg",
+        "fallbackSha256": "40015bfbbf2d512440c4c0044de48c8a165492f09642b2bdfb8fe5b9f6858b28",
+        "sourceSha256": "40015bfbbf2d512440c4c0044de48c8a165492f09642b2bdfb8fe5b9f6858b28",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/cddf8087c4e2c40597f5c425.svg"
       },
       "thumbnails": [
         {
           "layoutId": "sector_montmedy_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/9a78e1cbbe488b522def47b2.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/9a78e1cbbe488b522def47b2.webp",
             "sha256": "9a78e1cbbe488b522def47b23af3c4515ff9d8f258084adacfc1854efd7ec2ca",
-            "bytes": 17490
+            "bytes": 17490,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/9a78e1cbbe488b522def47b2.webp",
+            "fallbackSha256": "9a78e1cbbe488b522def47b23af3c4515ff9d8f258084adacfc1854efd7ec2ca",
+            "sourceSha256": "9a78e1cbbe488b522def47b23af3c4515ff9d8f258084adacfc1854efd7ec2ca",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/9a78e1cbbe488b522def47b2.webp"
           },
           "width": 512,
           "height": 512,
@@ -30751,9 +31367,13 @@
           "layoutId": "sector_montmedy_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/ca87490447e4dfcdf5109895.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/ca87490447e4dfcdf5109895.webp",
             "sha256": "ca87490447e4dfcdf51098955647745e30b42630fea6b7adf77fc9e7d387717a",
-            "bytes": 15248
+            "bytes": 15248,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/ca87490447e4dfcdf5109895.webp",
+            "fallbackSha256": "ca87490447e4dfcdf51098955647745e30b42630fea6b7adf77fc9e7d387717a",
+            "sourceSha256": "ca87490447e4dfcdf51098955647745e30b42630fea6b7adf77fc9e7d387717a",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/ca87490447e4dfcdf5109895.webp"
           },
           "width": 512,
           "height": 512,
@@ -31669,23 +32289,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/89482e4e2928459a4b081f22.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/89482e4e2928459a4b081f22.webp",
         "sha256": "89482e4e2928459a4b081f22376fe165399e94e03dcab0d9b41ea31ee5df4bd0",
-        "bytes": 1847302
+        "bytes": 1847302,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/89482e4e2928459a4b081f22.webp",
+        "fallbackSha256": "89482e4e2928459a4b081f22376fe165399e94e03dcab0d9b41ea31ee5df4bd0",
+        "sourceSha256": "89482e4e2928459a4b081f22376fe165399e94e03dcab0d9b41ea31ee5df4bd0",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/89482e4e2928459a4b081f22.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/dcf2b58ece367e1bc81bfdc2.svg",
-        "sha256": "dcf2b58ece367e1bc81bfdc2d1af864b792b16371ccf692b7f1dcc99f6a2e85c",
-        "bytes": 3679258
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/e155411bec1b4d720bc2a1f7.svg",
+        "sha256": "e155411bec1b4d720bc2a1f789d72e90af00a25a69012809d9088d4dcbe59268",
+        "bytes": 3438477,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/dcf2b58ece367e1bc81bfdc2.svg",
+        "fallbackSha256": "dcf2b58ece367e1bc81bfdc2d1af864b792b16371ccf692b7f1dcc99f6a2e85c",
+        "sourceSha256": "dcf2b58ece367e1bc81bfdc2d1af864b792b16371ccf692b7f1dcc99f6a2e85c",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/e155411bec1b4d720bc2a1f7.svg"
       },
       "thumbnails": [
         {
           "layoutId": "sector_montmedy_snow_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/f9ec69048bafc08fcc8eaccb.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/f9ec69048bafc08fcc8eaccb.webp",
             "sha256": "f9ec69048bafc08fcc8eaccb8c7f8a3ed82724cb3bd82ed5f68da398cca1af87",
-            "bytes": 31766
+            "bytes": 31766,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/f9ec69048bafc08fcc8eaccb.webp",
+            "fallbackSha256": "f9ec69048bafc08fcc8eaccb8c7f8a3ed82724cb3bd82ed5f68da398cca1af87",
+            "sourceSha256": "f9ec69048bafc08fcc8eaccb8c7f8a3ed82724cb3bd82ed5f68da398cca1af87",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/f9ec69048bafc08fcc8eaccb.webp"
           },
           "width": 512,
           "height": 512,
@@ -31695,9 +32327,13 @@
           "layoutId": "sector_montmedy_snow_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/1058c0c9382813f7c9f0f6b3.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/1058c0c9382813f7c9f0f6b3.webp",
             "sha256": "1058c0c9382813f7c9f0f6b3f1cdaa0d9845ca3b441787d5f67487b43ea6bace",
-            "bytes": 28052
+            "bytes": 28052,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/1058c0c9382813f7c9f0f6b3.webp",
+            "fallbackSha256": "1058c0c9382813f7c9f0f6b3f1cdaa0d9845ca3b441787d5f67487b43ea6bace",
+            "sourceSha256": "1058c0c9382813f7c9f0f6b3f1cdaa0d9845ca3b441787d5f67487b43ea6bace",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/1058c0c9382813f7c9f0f6b3.webp"
           },
           "width": 512,
           "height": 512,
@@ -32612,23 +33248,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/d9154becb9f6a8970efa078d.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d9154becb9f6a8970efa078d.webp",
         "sha256": "d9154becb9f6a8970efa078d878768d2d678cd5adefd124bf48cbb32c2d69b69",
-        "bytes": 2019394
+        "bytes": 2019394,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/d9154becb9f6a8970efa078d.webp",
+        "fallbackSha256": "d9154becb9f6a8970efa078d878768d2d678cd5adefd124bf48cbb32c2d69b69",
+        "sourceSha256": "d9154becb9f6a8970efa078d878768d2d678cd5adefd124bf48cbb32c2d69b69",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d9154becb9f6a8970efa078d.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/719c571539331f102a7d6693.svg",
-        "sha256": "719c571539331f102a7d66933e2fd9404ebdb7fa9ddfa6846b21cd2d64ae5d24",
-        "bytes": 3645486
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a52d788befc311c4b5bcf159.svg",
+        "sha256": "a52d788befc311c4b5bcf1597f7e38e71ea1a91a459f1daabdbc1b89596ab67d",
+        "bytes": 3407960,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/719c571539331f102a7d6693.svg",
+        "fallbackSha256": "719c571539331f102a7d66933e2fd9404ebdb7fa9ddfa6846b21cd2d64ae5d24",
+        "sourceSha256": "719c571539331f102a7d66933e2fd9404ebdb7fa9ddfa6846b21cd2d64ae5d24",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a52d788befc311c4b5bcf159.svg"
       },
       "thumbnails": [
         {
           "layoutId": "sinai_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/a1bb0763766532fba3502734.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a1bb0763766532fba3502734.webp",
             "sha256": "a1bb0763766532fba3502734507e10b8b1b56acee46306d73ec0f064825e0c87",
-            "bytes": 31774
+            "bytes": 31774,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/a1bb0763766532fba3502734.webp",
+            "fallbackSha256": "a1bb0763766532fba3502734507e10b8b1b56acee46306d73ec0f064825e0c87",
+            "sourceSha256": "a1bb0763766532fba3502734507e10b8b1b56acee46306d73ec0f064825e0c87",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a1bb0763766532fba3502734.webp"
           },
           "width": 512,
           "height": 512,
@@ -32638,9 +33286,13 @@
           "layoutId": "sinai_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/989be092ab92a1dc67af5b9e.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/989be092ab92a1dc67af5b9e.webp",
             "sha256": "989be092ab92a1dc67af5b9e592b77606e22a6a64198b0a342004bec20ffc3b3",
-            "bytes": 19260
+            "bytes": 19260,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/989be092ab92a1dc67af5b9e.webp",
+            "fallbackSha256": "989be092ab92a1dc67af5b9e592b77606e22a6a64198b0a342004bec20ffc3b3",
+            "sourceSha256": "989be092ab92a1dc67af5b9e592b77606e22a6a64198b0a342004bec20ffc3b3",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/989be092ab92a1dc67af5b9e.webp"
           },
           "width": 491,
           "height": 512,
@@ -33122,23 +33774,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/a0f4725f7c140d2188b24d85.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a0f4725f7c140d2188b24d85.webp",
         "sha256": "a0f4725f7c140d2188b24d85a25baf7e9b60c89d36de139a34e62dad16f80d7e",
-        "bytes": 3061088
+        "bytes": 3061088,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/a0f4725f7c140d2188b24d85.webp",
+        "fallbackSha256": "a0f4725f7c140d2188b24d85a25baf7e9b60c89d36de139a34e62dad16f80d7e",
+        "sourceSha256": "a0f4725f7c140d2188b24d85a25baf7e9b60c89d36de139a34e62dad16f80d7e",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a0f4725f7c140d2188b24d85.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/de77e2f0c4e1cdb62c8567fc.svg",
-        "sha256": "de77e2f0c4e1cdb62c8567fc7c3c1892d5e646882d94f4cfe81078491b8c7209",
-        "bytes": 894378
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/4a671837339724d70a5e9473.svg",
+        "sha256": "4a671837339724d70a5e9473f785d78c455f556bbad9f97b479d5c01d3256436",
+        "bytes": 836176,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/de77e2f0c4e1cdb62c8567fc.svg",
+        "fallbackSha256": "de77e2f0c4e1cdb62c8567fc7c3c1892d5e646882d94f4cfe81078491b8c7209",
+        "sourceSha256": "de77e2f0c4e1cdb62c8567fc7c3c1892d5e646882d94f4cfe81078491b8c7209",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/4a671837339724d70a5e9473.svg"
       },
       "thumbnails": [
         {
           "layoutId": "soviet_suburban_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/b4d61a0a35cf7c6d5cc5a8d7.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/b4d61a0a35cf7c6d5cc5a8d7.webp",
             "sha256": "b4d61a0a35cf7c6d5cc5a8d7679784e97a8dce32b9523b095f7f557249a759a6",
-            "bytes": 41134
+            "bytes": 41134,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/b4d61a0a35cf7c6d5cc5a8d7.webp",
+            "fallbackSha256": "b4d61a0a35cf7c6d5cc5a8d7679784e97a8dce32b9523b095f7f557249a759a6",
+            "sourceSha256": "b4d61a0a35cf7c6d5cc5a8d7679784e97a8dce32b9523b095f7f557249a759a6",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/b4d61a0a35cf7c6d5cc5a8d7.webp"
           },
           "width": 512,
           "height": 512,
@@ -33620,23 +34284,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/f6a2e09963ebc3734728f8b1.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/f6a2e09963ebc3734728f8b1.webp",
         "sha256": "f6a2e09963ebc3734728f8b16436cdf6db8fa687bc7d77aa888dcb59a393e6bb",
-        "bytes": 3222614
+        "bytes": 3222614,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/f6a2e09963ebc3734728f8b1.webp",
+        "fallbackSha256": "f6a2e09963ebc3734728f8b16436cdf6db8fa687bc7d77aa888dcb59a393e6bb",
+        "sourceSha256": "f6a2e09963ebc3734728f8b16436cdf6db8fa687bc7d77aa888dcb59a393e6bb",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/f6a2e09963ebc3734728f8b1.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/02c74aee488c01210fdd85f2.svg",
-        "sha256": "02c74aee488c01210fdd85f2fde11367beb86c42e3a2aeb82f1861633a369485",
-        "bytes": 910467
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d42f148c6d84c746ccb1f291.svg",
+        "sha256": "d42f148c6d84c746ccb1f291e45d79845d41808119e74ef0a35a9dbad4f6e4c9",
+        "bytes": 851227,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/02c74aee488c01210fdd85f2.svg",
+        "fallbackSha256": "02c74aee488c01210fdd85f2fde11367beb86c42e3a2aeb82f1861633a369485",
+        "sourceSha256": "02c74aee488c01210fdd85f2fde11367beb86c42e3a2aeb82f1861633a369485",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/d42f148c6d84c746ccb1f291.svg"
       },
       "thumbnails": [
         {
           "layoutId": "soviet_suburban_snow_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/4e12f51af9331a5c3161efb0.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/4e12f51af9331a5c3161efb0.webp",
             "sha256": "4e12f51af9331a5c3161efb063cc59463cc24351bcfeae7c51b5df9490b1c457",
-            "bytes": 63844
+            "bytes": 63844,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/4e12f51af9331a5c3161efb0.webp",
+            "fallbackSha256": "4e12f51af9331a5c3161efb063cc59463cc24351bcfeae7c51b5df9490b1c457",
+            "sourceSha256": "4e12f51af9331a5c3161efb063cc59463cc24351bcfeae7c51b5df9490b1c457",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/4e12f51af9331a5c3161efb0.webp"
           },
           "width": 512,
           "height": 512,
@@ -34399,23 +35075,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/f77d218b668dd1bf93102f57.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/f77d218b668dd1bf93102f57.webp",
         "sha256": "f77d218b668dd1bf93102f57dd9d2efb7397425834441e47a778b047dbbe4169",
-        "bytes": 2107014
+        "bytes": 2107014,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/f77d218b668dd1bf93102f57.webp",
+        "fallbackSha256": "f77d218b668dd1bf93102f57dd9d2efb7397425834441e47a778b047dbbe4169",
+        "sourceSha256": "f77d218b668dd1bf93102f57dd9d2efb7397425834441e47a778b047dbbe4169",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/f77d218b668dd1bf93102f57.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/89f128b280b5391001b63bbf.svg",
-        "sha256": "89f128b280b5391001b63bbff6de86e561ba97bef01782a0a46e6e2d833ad279",
-        "bytes": 2274767
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/b7991b0025fdf0a09313f26e.svg",
+        "sha256": "b7991b0025fdf0a09313f26e5807c483a19f3407cbc291d912a42de2d85346dd",
+        "bytes": 2126649,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/89f128b280b5391001b63bbf.svg",
+        "fallbackSha256": "89f128b280b5391001b63bbff6de86e561ba97bef01782a0a46e6e2d833ad279",
+        "sourceSha256": "89f128b280b5391001b63bbff6de86e561ba97bef01782a0a46e6e2d833ad279",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/b7991b0025fdf0a09313f26e.svg"
       },
       "thumbnails": [
         {
           "layoutId": "stalingrad_factory_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/5be577876c053b1f2fa78409.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5be577876c053b1f2fa78409.webp",
             "sha256": "5be577876c053b1f2fa784095ce66ce951a6d75af25881a5cbb1fb0640551778",
-            "bytes": 51496
+            "bytes": 51496,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/5be577876c053b1f2fa78409.webp",
+            "fallbackSha256": "5be577876c053b1f2fa784095ce66ce951a6d75af25881a5cbb1fb0640551778",
+            "sourceSha256": "5be577876c053b1f2fa784095ce66ce951a6d75af25881a5cbb1fb0640551778",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/5be577876c053b1f2fa78409.webp"
           },
           "width": 512,
           "height": 512,
@@ -34873,23 +35561,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/cdf4f5219f61a4fb0777daa4.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/cdf4f5219f61a4fb0777daa4.webp",
         "sha256": "cdf4f5219f61a4fb0777daa474ac1ec57dbf69d556658a84e88a3442cdc74f45",
-        "bytes": 2747136
+        "bytes": 2747136,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/cdf4f5219f61a4fb0777daa4.webp",
+        "fallbackSha256": "cdf4f5219f61a4fb0777daa474ac1ec57dbf69d556658a84e88a3442cdc74f45",
+        "sourceSha256": "cdf4f5219f61a4fb0777daa474ac1ec57dbf69d556658a84e88a3442cdc74f45",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/cdf4f5219f61a4fb0777daa4.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/f8db46b676926c1f6c59045e.svg",
-        "sha256": "f8db46b676926c1f6c59045ecadea4d7037fe7130d74d7b2ec8761f465187a3c",
-        "bytes": 7199500
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/783538ba6fba4f3705a7cce7.svg",
+        "sha256": "783538ba6fba4f3705a7cce763df04adf3eeb5061ecafcc70c97bd744c86c41d",
+        "bytes": 6726188,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/f8db46b676926c1f6c59045e.svg",
+        "fallbackSha256": "f8db46b676926c1f6c59045ecadea4d7037fe7130d74d7b2ec8761f465187a3c",
+        "sourceSha256": "f8db46b676926c1f6c59045ecadea4d7037fe7130d74d7b2ec8761f465187a3c",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/783538ba6fba4f3705a7cce7.svg"
       },
       "thumbnails": [
         {
           "layoutId": "sweden_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/3c2b0e5cb232ceb074ec7740.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/3c2b0e5cb232ceb074ec7740.webp",
             "sha256": "3c2b0e5cb232ceb074ec7740aea3c00b00d3341d956b82664dd343a2e87577a0",
-            "bytes": 58174
+            "bytes": 58174,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/3c2b0e5cb232ceb074ec7740.webp",
+            "fallbackSha256": "3c2b0e5cb232ceb074ec7740aea3c00b00d3341d956b82664dd343a2e87577a0",
+            "sourceSha256": "3c2b0e5cb232ceb074ec7740aea3c00b00d3341d956b82664dd343a2e87577a0",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/3c2b0e5cb232ceb074ec7740.webp"
           },
           "width": 512,
           "height": 512,
@@ -35565,23 +36265,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/212a678894c1ab742c0d3212.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/212a678894c1ab742c0d3212.webp",
         "sha256": "212a678894c1ab742c0d3212709332f58abe8506a84dce2890d28f7800954194",
-        "bytes": 2526748
+        "bytes": 2526748,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/212a678894c1ab742c0d3212.webp",
+        "fallbackSha256": "212a678894c1ab742c0d3212709332f58abe8506a84dce2890d28f7800954194",
+        "sourceSha256": "212a678894c1ab742c0d3212709332f58abe8506a84dce2890d28f7800954194",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/212a678894c1ab742c0d3212.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/67b38244d885e49b9db98689.svg",
-        "sha256": "67b38244d885e49b9db986896a473bc85abfa93d1aafa3b9f993a5cb03d7c16a",
-        "bytes": 2658409
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/177b429c3935b8c65636fc3c.svg",
+        "sha256": "177b429c3935b8c65636fc3c01d46a1765cfcffc4ad642db2e759a7e28275be3",
+        "bytes": 2487075,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/67b38244d885e49b9db98689.svg",
+        "fallbackSha256": "67b38244d885e49b9db986896a473bc85abfa93d1aafa3b9f993a5cb03d7c16a",
+        "sourceSha256": "67b38244d885e49b9db986896a473bc85abfa93d1aafa3b9f993a5cb03d7c16a",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/177b429c3935b8c65636fc3c.svg"
       },
       "thumbnails": [
         {
           "layoutId": "tunisia_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/fe812f57c4d6a8ff0e44d1ef.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/fe812f57c4d6a8ff0e44d1ef.webp",
             "sha256": "fe812f57c4d6a8ff0e44d1ef5a33e15b9e4230340950e8639a866d403e8807c4",
-            "bytes": 39160
+            "bytes": 39160,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/fe812f57c4d6a8ff0e44d1ef.webp",
+            "fallbackSha256": "fe812f57c4d6a8ff0e44d1ef5a33e15b9e4230340950e8639a866d403e8807c4",
+            "sourceSha256": "fe812f57c4d6a8ff0e44d1ef5a33e15b9e4230340950e8639a866d403e8807c4",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/fe812f57c4d6a8ff0e44d1ef.webp"
           },
           "width": 512,
           "height": 512,
@@ -35591,9 +36303,13 @@
           "layoutId": "tunisia_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/69161bd6e0e20067ed3643d8.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/69161bd6e0e20067ed3643d8.webp",
             "sha256": "69161bd6e0e20067ed3643d8ccff71a688819c601c7600c4a8d2415648dc6264",
-            "bytes": 28002
+            "bytes": 28002,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/69161bd6e0e20067ed3643d8.webp",
+            "fallbackSha256": "69161bd6e0e20067ed3643d8ccff71a688819c601c7600c4a8d2415648dc6264",
+            "sourceSha256": "69161bd6e0e20067ed3643d8ccff71a688819c601c7600c4a8d2415648dc6264",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/69161bd6e0e20067ed3643d8.webp"
           },
           "width": 512,
           "height": 512,
@@ -36545,23 +37261,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/c6689c23d1a88e1d72583564.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/c6689c23d1a88e1d72583564.webp",
         "sha256": "c6689c23d1a88e1d72583564a5a6f6f2a8ed3e33e04c0ef0000625f679611899",
-        "bytes": 2246632
+        "bytes": 2246632,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/c6689c23d1a88e1d72583564.webp",
+        "fallbackSha256": "c6689c23d1a88e1d72583564a5a6f6f2a8ed3e33e04c0ef0000625f679611899",
+        "sourceSha256": "c6689c23d1a88e1d72583564a5a6f6f2a8ed3e33e04c0ef0000625f679611899",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/c6689c23d1a88e1d72583564.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/3996c6be99b8c002c69926c3.svg",
-        "sha256": "3996c6be99b8c002c69926c324456b9b53bab3f9457d4876e8fbe6f66010d403",
-        "bytes": 21131393
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/759ab31eb0ae09f93fd03aa1.svg",
+        "sha256": "759ab31eb0ae09f93fd03aa153a1ab7d8afb3fe8ae0713cab0c9fdf94c7f4c60",
+        "bytes": 19748407,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/3996c6be99b8c002c69926c3.svg",
+        "fallbackSha256": "3996c6be99b8c002c69926c324456b9b53bab3f9457d4876e8fbe6f66010d403",
+        "sourceSha256": "3996c6be99b8c002c69926c324456b9b53bab3f9457d4876e8fbe6f66010d403",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/759ab31eb0ae09f93fd03aa1.svg"
       },
       "thumbnails": [
         {
           "layoutId": "vietnam_hills_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/e3d8ff4546019b2f7a7c97f4.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/e3d8ff4546019b2f7a7c97f4.webp",
             "sha256": "e3d8ff4546019b2f7a7c97f4e0455a7f83130ae4a11db6f395957020159d3291",
-            "bytes": 17158
+            "bytes": 17158,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/e3d8ff4546019b2f7a7c97f4.webp",
+            "fallbackSha256": "e3d8ff4546019b2f7a7c97f4e0455a7f83130ae4a11db6f395957020159d3291",
+            "sourceSha256": "e3d8ff4546019b2f7a7c97f4e0455a7f83130ae4a11db6f395957020159d3291",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/e3d8ff4546019b2f7a7c97f4.webp"
           },
           "width": 512,
           "height": 512,
@@ -36571,9 +37299,13 @@
           "layoutId": "vietnam_hills_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/e5b1e35c6a40840291119786.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/e5b1e35c6a40840291119786.webp",
             "sha256": "e5b1e35c6a40840291119786f34872dce2ac1fbb0f91633e5e456ad3cc6efe52",
-            "bytes": 21398
+            "bytes": 21398,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/e5b1e35c6a40840291119786.webp",
+            "fallbackSha256": "e5b1e35c6a40840291119786f34872dce2ac1fbb0f91633e5e456ad3cc6efe52",
+            "sourceSha256": "e5b1e35c6a40840291119786f34872dce2ac1fbb0f91633e5e456ad3cc6efe52",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/e5b1e35c6a40840291119786.webp"
           },
           "width": 512,
           "height": 512,
@@ -37086,23 +37818,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/0f7c3b13440efc75190cadd7.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/0f7c3b13440efc75190cadd7.webp",
         "sha256": "0f7c3b13440efc75190cadd7cb5b56b430b1d978fddc4a370f397c5bc3b5e5df",
-        "bytes": 1810654
+        "bytes": 1810654,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/0f7c3b13440efc75190cadd7.webp",
+        "fallbackSha256": "0f7c3b13440efc75190cadd7cb5b56b430b1d978fddc4a370f397c5bc3b5e5df",
+        "sourceSha256": "0f7c3b13440efc75190cadd7cb5b56b430b1d978fddc4a370f397c5bc3b5e5df",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/0f7c3b13440efc75190cadd7.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/b22d68510914edccb2e8785a.svg",
-        "sha256": "b22d68510914edccb2e8785a9b7dfd1d111c9af95125c3cdd7e03f6fdc29a72d",
-        "bytes": 3022842
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7af743d80ec9b092750a6fbd.svg",
+        "sha256": "7af743d80ec9b092750a6fbd93142bb327ac50c70034d91dc873dff41cd96f40",
+        "bytes": 2826449,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/b22d68510914edccb2e8785a.svg",
+        "fallbackSha256": "b22d68510914edccb2e8785a9b7dfd1d111c9af95125c3cdd7e03f6fdc29a72d",
+        "sourceSha256": "b22d68510914edccb2e8785a9b7dfd1d111c9af95125c3cdd7e03f6fdc29a72d",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7af743d80ec9b092750a6fbd.svg"
       },
       "thumbnails": [
         {
           "layoutId": "vlaanderen_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/e94c579ddc9325abf04b6a40.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/e94c579ddc9325abf04b6a40.webp",
             "sha256": "e94c579ddc9325abf04b6a40e8370f911ea9027b2ca85abaf7dcc0f92d48d7af",
-            "bytes": 26246
+            "bytes": 26246,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/e94c579ddc9325abf04b6a40.webp",
+            "fallbackSha256": "e94c579ddc9325abf04b6a40e8370f911ea9027b2ca85abaf7dcc0f92d48d7af",
+            "sourceSha256": "e94c579ddc9325abf04b6a40e8370f911ea9027b2ca85abaf7dcc0f92d48d7af",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/e94c579ddc9325abf04b6a40.webp"
           },
           "width": 512,
           "height": 512,
@@ -38063,23 +38807,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/9b52f7ba6b1cd84d1bbd3247.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/9b52f7ba6b1cd84d1bbd3247.webp",
         "sha256": "9b52f7ba6b1cd84d1bbd3247b4ca146352cd9b2c1f3a7e1936ce70ebbf358df4",
-        "bytes": 1277920
+        "bytes": 1277920,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/9b52f7ba6b1cd84d1bbd3247.webp",
+        "fallbackSha256": "9b52f7ba6b1cd84d1bbd3247b4ca146352cd9b2c1f3a7e1936ce70ebbf358df4",
+        "sourceSha256": "9b52f7ba6b1cd84d1bbd3247b4ca146352cd9b2c1f3a7e1936ce70ebbf358df4",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/9b52f7ba6b1cd84d1bbd3247.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/7ffbec4912abc95e6b1b08a4.svg",
-        "sha256": "7ffbec4912abc95e6b1b08a491de92f2db99f4617660364fd4c94a4f7a09657a",
-        "bytes": 2680108
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/3490a3ba13a78bdd87be2691.svg",
+        "sha256": "3490a3ba13a78bdd87be26917f0d705cdcee69abd27ab8b10592c32e49bda7c8",
+        "bytes": 2506578,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/7ffbec4912abc95e6b1b08a4.svg",
+        "fallbackSha256": "7ffbec4912abc95e6b1b08a491de92f2db99f4617660364fd4c94a4f7a09657a",
+        "sourceSha256": "7ffbec4912abc95e6b1b08a491de92f2db99f4617660364fd4c94a4f7a09657a",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/3490a3ba13a78bdd87be2691.svg"
       },
       "thumbnails": [
         {
           "layoutId": "volokolamsk_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/016be886c173024cf0f35a5f.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/016be886c173024cf0f35a5f.webp",
             "sha256": "016be886c173024cf0f35a5f8f45560e60fa644f108d5f743f20fc42cc03fd56",
-            "bytes": 24562
+            "bytes": 24562,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/016be886c173024cf0f35a5f.webp",
+            "fallbackSha256": "016be886c173024cf0f35a5f8f45560e60fa644f108d5f743f20fc42cc03fd56",
+            "sourceSha256": "016be886c173024cf0f35a5f8f45560e60fa644f108d5f743f20fc42cc03fd56",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/016be886c173024cf0f35a5f.webp"
           },
           "width": 512,
           "height": 512,
@@ -38089,9 +38845,13 @@
           "layoutId": "volokolamsk_02_dom",
           "name": "三点占领 · 布局 02",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/2e8770f51dac0200094bd16a.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/2e8770f51dac0200094bd16a.webp",
             "sha256": "2e8770f51dac0200094bd16ab81c6cd5c071f1d2e3034c41d24c1e82e4abac65",
-            "bytes": 28708
+            "bytes": 28708,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/2e8770f51dac0200094bd16a.webp",
+            "fallbackSha256": "2e8770f51dac0200094bd16ab81c6cd5c071f1d2e3034c41d24c1e82e4abac65",
+            "sourceSha256": "2e8770f51dac0200094bd16ab81c6cd5c071f1d2e3034c41d24c1e82e4abac65",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/2e8770f51dac0200094bd16a.webp"
           },
           "width": 512,
           "height": 512,
@@ -39066,23 +39826,35 @@
         ]
       },
       "base": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/7f2999226c6bb83fe812d8bf.webp",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7f2999226c6bb83fe812d8bf.webp",
         "sha256": "7f2999226c6bb83fe812d8bf1cbf5565c4c7787da505f70634a17fce9dfe88e6",
-        "bytes": 3014720
+        "bytes": 3014720,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/base/7f2999226c6bb83fe812d8bf.webp",
+        "fallbackSha256": "7f2999226c6bb83fe812d8bf1cbf5565c4c7787da505f70634a17fce9dfe88e6",
+        "sourceSha256": "7f2999226c6bb83fe812d8bf1cbf5565c4c7787da505f70634a17fce9dfe88e6",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/7f2999226c6bb83fe812d8bf.webp"
       },
       "contourImage": {
-        "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/83c2198848bce7009ea1b3c3.svg",
-        "sha256": "83c2198848bce7009ea1b3c36443a2b14f512c61651e75393da34cb9904b0897",
-        "bytes": 1039345
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a0a351449aa7990a3cfffbfe.svg",
+        "sha256": "a0a351449aa7990a3cfffbfe86d757a9013a26809f6cbc34b16afdadaeff5aac",
+        "bytes": 972902,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/contours/83c2198848bce7009ea1b3c3.svg",
+        "fallbackSha256": "83c2198848bce7009ea1b3c36443a2b14f512c61651e75393da34cb9904b0897",
+        "sourceSha256": "83c2198848bce7009ea1b3c36443a2b14f512c61651e75393da34cb9904b0897",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/a0a351449aa7990a3cfffbfe.svg"
       },
       "thumbnails": [
         {
           "layoutId": "western_europe_dom",
           "name": "三点占领",
           "image": {
-            "url": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/3f8a5ab80d9ded0c4256bc07.webp",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/3f8a5ab80d9ded0c4256bc07.webp",
             "sha256": "3f8a5ab80d9ded0c4256bc07e823b823e622ca48abe26b43b1af2c2c9f6123e7",
-            "bytes": 45940
+            "bytes": 45940,
+            "fallbackUrl": "https://wtmaps.mrtreasure.cc/ground-maps/v1/thumbs/3f8a5ab80d9ded0c4256bc07.webp",
+            "fallbackSha256": "3f8a5ab80d9ded0c4256bc07e823b823e622ca48abe26b43b1af2c2c9f6123e7",
+            "sourceSha256": "3f8a5ab80d9ded0c4256bc07e823b823e622ca48abe26b43b1af2c2c9f6123e7",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7/war-thunder/ground-maps/v1/3f8a5ab80d9ded0c4256bc07.webp"
           },
           "width": 512,
           "height": 512,
@@ -39098,5 +39870,9 @@
       ],
       "legacyGuideIds": []
     }
-  ]
+  ],
+  "assetRepository": {
+    "url": "https://github.com/MrTreasure/oss-files",
+    "commit": "79e2bcf7905f6802a7e5b8d93f7ba053101ed1a7"
+  }
 }

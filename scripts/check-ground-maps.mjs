@@ -12,12 +12,27 @@ assert.equal(
   atlas.maps.reduce((n, m) => n + m.thumbnails.length, 0),
   77,
 );
+assert.equal(atlas.assetRepository.url, "https://github.com/MrTreasure/oss-files");
+assert.match(atlas.assetRepository.commit, /^[a-f0-9]{40}$/);
 const ids = new Set();
 function asset(a) {
-  assert.match(a.url, /^https:\/\/wtmaps\.mrtreasure\.cc\/ground-maps\/v1\//);
+  assert(
+    a.url.startsWith(
+      `https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@${atlas.assetRepository.commit}/war-thunder/ground-maps/v1/`,
+    ),
+  );
+  assert(
+    a.rawUrl.startsWith(
+      `https://raw.githubusercontent.com/MrTreasure/oss-files/${atlas.assetRepository.commit}/war-thunder/ground-maps/v1/`,
+    ),
+  );
+  assert.match(a.fallbackUrl, /^https:\/\/wtmaps\.mrtreasure\.cc\/ground-maps\/v1\//);
+  assert(a.fallbackUrl.includes(a.fallbackSha256.slice(0, 24)));
   assert.match(a.sha256, /^[a-f0-9]{64}$/);
   assert(a.url.includes(a.sha256.slice(0, 24)));
   assert(a.bytes > 0);
+  assert.match(a.sourceSha256, /^[a-f0-9]{64}$/);
+  assert.equal(a.fallbackSha256, a.sourceSha256);
 }
 for (const m of atlas.maps) {
   assert(!ids.has(m.id));
