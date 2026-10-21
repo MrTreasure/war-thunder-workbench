@@ -9,6 +9,7 @@ import type { MapEditorHandle } from "./MapEditor";
 import type { EditorContext, MapProject } from "./map-editor-model";
 import { renderMapPng } from "./map-editor-export";
 import { mapView } from "./map-editor-model";
+import { CONTOUR_IMAGE_TRANSFORM, referenceGrid } from "./ground-map-projection";
 import { Link, Navigate, useNavigate } from "@tanstack/react-router";
 import atlas from "../data/ground-maps.json";
 import { Route } from "./routes/_workbench.maps";
@@ -256,36 +257,27 @@ function GroundDetail({
     h: (crop[3] - crop[1]) * 1000,
   };
   const markerScale = mapFrame.w / zoom;
-  const [x0, z0] = map.bounds[0],
-    [x1, z1] = map.bounds[1];
-  const origin = map.grid.default_reference.origin_xz_m,
-    step = map.grid.default_reference.step_xz_m;
   const gridLines = [];
   if (grid) {
-    for (let i = 0; i < 100; i++) {
-      const gx = ((origin[0] + i * step[0] - x0) / (x1 - x0)) * 1000,
-        gz = ((origin[1] + i * step[1] - z0) / (z1 - z0)) * 1000;
-      if (gx <= 1000 && gx >= 0)
-        gridLines.push(
-          <g key={`x${i}`}>
-            <path d={`M${gx} 0V1000`} />
-            <text x={gx + 3} y={mapFrame.y + 18 / zoom}>
-              {i + 1}
-            </text>
-          </g>,
-        );
-      if (gz <= 1000 && gz >= 0)
-        gridLines.push(
-          <g key={`z${i}`}>
-            <path d={`M0 ${gz}H1000`} />
-            <text x={mapFrame.x + 4 / zoom} y={gz + 15 / zoom}>
-              {i < 26
-                ? String.fromCharCode(65 + i)
-                : String.fromCharCode(64 + Math.floor(i / 26)) + String.fromCharCode(65 + (i % 26))}
-            </text>
-          </g>,
-        );
-    }
+    const lines = referenceGrid(map.bounds, map.grid.default_reference);
+    for (const { position, label } of lines.vertical)
+      gridLines.push(
+        <g key={`x${label}`}>
+          <path d={`M${position} 0V1000`} />
+          <text x={position + 3} y={mapFrame.y + 18 / zoom}>
+            {label}
+          </text>
+        </g>,
+      );
+    for (const { position, label } of lines.horizontal)
+      gridLines.push(
+        <g key={`z${label}`}>
+          <path d={`M0 ${position}H1000`} />
+          <text x={mapFrame.x + 4 / zoom} y={position + 15 / zoom}>
+            {label}
+          </text>
+        </g>,
+      );
   }
   const mapControls = (
     <div className="ground-controls">
@@ -443,6 +435,7 @@ function GroundDetail({
                     width={1000}
                     height={1000}
                     preserveAspectRatio="none"
+                    transform={CONTOUR_IMAGE_TRANSFORM}
                     opacity={0.8}
                     onLoad={() => setContourLoaded(true)}
                     onFailure={() => setFailed(true)}

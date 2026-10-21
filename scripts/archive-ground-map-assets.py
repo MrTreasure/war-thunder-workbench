@@ -8,6 +8,7 @@ for path in a.source.rglob('*'):
  if path.is_file() and path.suffix in ('.webp','.svg'):
   assets[hashlib.sha256(path.read_bytes()).hexdigest()]=path
 for path in (root/'artifacts/ground-maps/publish').glob('*.webp'):assets[hashlib.sha256(path.read_bytes()).hexdigest()]=path
+for path in (root/'artifacts/ground-maps/corrected-thumbnails').glob('*.webp'):assets[hashlib.sha256(path.read_bytes()).hexdigest()]=path
 items=[*data['icons'].values()]
 for m in data['maps']:items += [m['base'],m['contourImage']]+[t['image'] for t in m['thumbnails']]
 records=[]
@@ -24,12 +25,13 @@ for item in items:
  else:
   assert hashlib.sha256(dest.read_bytes()).hexdigest()==h
   assert re.fullmatch('[a-f0-9]{40}',a.apply_ref)
-  fallback=item.get('fallbackUrl',item['url']);fallback_sha=item.get('fallbackSha256',item['sha256'])
-  item.update(url=f'https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@{a.apply_ref}/{relative}',rawUrl=f'https://raw.githubusercontent.com/MrTreasure/oss-files/{a.apply_ref}/{relative}',fallbackUrl=fallback,fallbackSha256=fallback_sha,sourceSha256=original,sha256=h,bytes=len(body))
+  fallback=item.get('fallbackUrl') or (item['url'] if item['url'].startswith('https://wtmaps.mrtreasure.cc/') and source.parent.name!='corrected-thumbnails' else None)
+  if fallback:item.update(fallbackUrl=fallback,fallbackSha256=item.get('fallbackSha256',item['sha256']))
+  item.update(url=f'https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@{a.apply_ref}/{relative}',rawUrl=f'https://raw.githubusercontent.com/MrTreasure/oss-files/{a.apply_ref}/{relative}',sourceSha256=original,sha256=h,bytes=len(body))
  records.append({'path':relative,'sha256':h,'bytes':len(body),'sourceSha256':original})
 if a.apply_ref:
  data['hosting']='GitHub MrTreasure/oss-files via jsDelivr (immutable commit), with raw GitHub and existing R2 fallback';data['assetRepository']={'url':'https://github.com/MrTreasure/oss-files','commit':a.apply_ref};canonical.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
 else:
  (a.repo/'war-thunder/ground-maps/manifest.json').write_text(json.dumps({'source':'User-provided War Thunder ground map exports, 2026-10-21','assets':records},ensure_ascii=False,indent=2)+'\n')
- (a.repo/'war-thunder/ground-maps/README.md').write_text('# War Thunder ground maps\n\n55 base maps, 55 terrain contour SVG overlays, 77 DOM preview thumbnails, and 6 point icons.\n\nOriginal base maps are unchanged. Contour SVG syntax is compacted without changing numerical coordinates or line geometry. Filenames contain SHA-256 prefixes; full hashes and source hashes are in manifest.json. Game imagery remains the property of its respective rights holders.\n\nUsed by https://github.com/MrTreasure/war-thunder-workbench\n')
+ (a.repo/'war-thunder/ground-maps/README.md').write_text('# War Thunder ground maps\n\n55 base maps, 55 terrain contour SVG overlays, 77 corrected DOM previews, and 6 point icons.\n\nOriginal base maps are unchanged. DOM previews use corrected point projection over unchanged terrain, retaining original export hashes in the application catalog. Contour SVG syntax is compacted without changing numerical coordinates or line geometry; consumers must reflect their Y axis once to align world +Z with texture up. Filenames contain SHA-256 prefixes; full hashes and source hashes are in manifest.json. Game imagery remains the property of its respective rights holders.\n\nUsed by https://github.com/MrTreasure/war-thunder-workbench\n')
 print('Prepared' if not a.apply_ref else 'Pinned',len(records),'assets;',round(sum(r['bytes'] for r in records)/1048576,1),'MiB; max file',max(r['bytes'] for r in records))

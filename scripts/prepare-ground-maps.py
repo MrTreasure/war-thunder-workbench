@@ -1,7 +1,7 @@
-"""Prepare provided ground-map exports. Requires Pillow; upload additionally needs boto3/PyYAML.
+"""Prepare provided ground-map exports. Requires Pillow/CairoSVG; upload additionally needs boto3/PyYAML.
 Run with the two extracted export folders and optionally --upload. Credentials stay in password book.
 """
-import argparse,csv,hashlib,json,mimetypes,pathlib,concurrent.futures,gzip
+import argparse,csv,hashlib,json,mimetypes,pathlib,concurrent.futures,gzip,subprocess,sys
 from PIL import Image
 p=argparse.ArgumentParser();p.add_argument('maps',type=pathlib.Path);p.add_argument('thumbs',type=pathlib.Path);p.add_argument('--upload',action='store_true');a=p.parse_args()
 out=pathlib.Path('artifacts/ground-maps/publish');out.mkdir(parents=True,exist_ok=True)
@@ -20,8 +20,9 @@ for m in maps:
  m['thumbnails']=[]
  for r in rows:
   if r['地图ID']!=m['id']:continue
-  src=a.thumbs/r['图片路径'];im=Image.open(src);im.thumbnail((512,512));dest=out/(r['布局ID']+'.webp');im.save(dest,'WEBP',quality=82,method=6)
-  m['thumbnails'].append({'layoutId':r['布局ID'],'name':r['布局名称'],'image':asset(dest,'thumbs'),'width':im.width,'height':im.height,'sourceSha256':hashlib.sha256(src.read_bytes()).hexdigest()})
+  src=a.thumbs/r['图片路径']
+  with Image.open(src) as im:width,height=im.size
+  m['thumbnails'].append({'layoutId':r['布局ID'],'name':r['布局名称'],'image':asset(src,'dom'),'width':width,'height':height,'sourceSha256':hashlib.sha256(src.read_bytes()).hexdigest()})
  names=alias.get(m['id'],[m['name'].split(' • ')[0].split(' - ')[0]])
  # Winter maps must not silently inherit routes for a different season.
  if 'snow' in m['id']:names=[m['name']]
@@ -31,6 +32,12 @@ for m in maps:
 assert len(maps)==55 and sum(len(m['thumbnails']) for m in maps)==77
 result={'schemaVersion':1,'source':'用户提供的陆战地图与 DOM 点位导出，2026-10-21','hosting':'Cloudflare R2 / wt-map-atlas','contourIntervalM':5,'majorContourIntervalM':25,'icons':icons,'maps':maps}
 pathlib.Path('data/ground-maps.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+# Correct world-Z direction and rebuild previews over unmodified source terrain.
+subprocess.run([sys.executable,str(pathlib.Path(__file__).with_name('correct-ground-map-projection.py')),
+                '--maps',str(a.maps),'--thumbs',str(a.thumbs)],check=True)
+for key in list(assets):
+ if '/dom/' in key:del assets[key]
+for path in pathlib.Path('artifacts/ground-maps/corrected-thumbnails').glob('*.webp'):asset(path,'thumbs')
 print('Prepared',len(maps),'maps,',sum(len(m['layouts']) for m in maps),'layouts,',len(assets),'assets,',round(sum(p.stat().st_size for p,h in assets.values())/1048576,1),'MiB',flush=True)
 if a.upload:
  import boto3,yaml

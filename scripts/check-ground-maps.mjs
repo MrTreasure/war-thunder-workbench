@@ -14,8 +14,11 @@ assert.equal(
 );
 assert.equal(atlas.assetRepository.url, "https://github.com/MrTreasure/oss-files");
 assert.match(atlas.assetRepository.commit, /^[a-f0-9]{40}$/);
+assert.equal(atlas.projection.revision, 2);
+assert.equal(atlas.projection.worldZDirection, "up");
+assert.equal(atlas.projection.contourSvgTransform, "matrix(1 0 0 -1 0 1000)");
 const ids = new Set();
-function asset(a) {
+function asset(a, fallbackRequired = true) {
   assert(
     a.url.startsWith(
       `https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@${atlas.assetRepository.commit}/war-thunder/ground-maps/v1/`,
@@ -26,13 +29,15 @@ function asset(a) {
       `https://raw.githubusercontent.com/MrTreasure/oss-files/${atlas.assetRepository.commit}/war-thunder/ground-maps/v1/`,
     ),
   );
-  assert.match(a.fallbackUrl, /^https:\/\/wtmaps\.mrtreasure\.cc\/ground-maps\/v1\//);
-  assert(a.fallbackUrl.includes(a.fallbackSha256.slice(0, 24)));
+  if (fallbackRequired || a.fallbackUrl) {
+    assert.match(a.fallbackUrl, /^https:\/\/wtmaps\.mrtreasure\.cc\/ground-maps\/v1\//);
+    assert(a.fallbackUrl.includes(a.fallbackSha256.slice(0, 24)));
+    assert.equal(a.fallbackSha256, a.sourceSha256);
+  }
   assert.match(a.sha256, /^[a-f0-9]{64}$/);
   assert(a.url.includes(a.sha256.slice(0, 24)));
   assert(a.bytes > 0);
   assert.match(a.sourceSha256, /^[a-f0-9]{64}$/);
-  assert.equal(a.fallbackSha256, a.sourceSha256);
 }
 for (const m of atlas.maps) {
   assert(!ids.has(m.id));
@@ -42,6 +47,8 @@ for (const m of atlas.maps) {
   assert(m.width > 0 && m.height > 0);
   assert(m.bounds[1][0] > m.bounds[0][0] && m.bounds[1][1] > m.bounds[0][1]);
   assert(m.grid.default_reference.step_xz_m.every((n) => n > 0));
+  assert.equal(m.grid.default_reference.origin_xz_m[1], m.bounds[1][1]);
+  assert.equal(m.contours.imageProjection, "source-world-z-down; reflect-y-on-display");
   assert.equal(m.grid.verified_for_runtime_match, false);
   const layouts = new Set();
   for (const l of m.layouts) {
@@ -56,7 +63,7 @@ for (const m of atlas.maps) {
       assert(Number.isFinite(p.x) && Number.isFinite(p.y));
       const world = [
         m.bounds[0][0] + p.x * (m.bounds[1][0] - m.bounds[0][0]),
-        m.bounds[0][1] + p.y * (m.bounds[1][1] - m.bounds[0][1]),
+        m.bounds[1][1] - p.y * (m.bounds[1][1] - m.bounds[0][1]),
       ];
       assert(
         world.every((n, i) => Math.abs(n - p.world[i]) < 0.02),
@@ -66,8 +73,11 @@ for (const m of atlas.maps) {
   }
   for (const t of m.thumbnails) {
     assert(layouts.has(t.layoutId));
-    asset(t.image);
-    assert(t.width <= 512 && t.height <= 512);
+    asset(t.image, false);
+    assert.equal(t.projectionRevision, 2);
+    assert.match(t.sourcePath, /^图片\/.+_dom\.webp$/);
+    assert.match(t.sourceSha256, /^[a-f0-9]{64}$/);
+    assert(t.width > 0 && t.height > 0 && t.width <= 512 && t.height <= 512);
   }
   for (const g of m.guides) {
     assert.match(g.source, /^https:\/\/(www\.)?xiaoheihe\.cn\//);

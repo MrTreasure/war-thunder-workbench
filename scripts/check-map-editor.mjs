@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import "./check-ground-map-projection.mjs";
 import { readFile } from "node:fs/promises";
 import {
   parseProject,

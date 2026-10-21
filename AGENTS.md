@@ -180,7 +180,15 @@
   in raw/CDN URLs and keep the existing R2 addresses as fallback sources.
   Keep raw exports and contour-coordinate JSON out of Git and QMuse uploads.
 - Ground-map base, contour SVG and briefing points share the original normalized
-  coordinate system. Mission cropping clips the map layer only; it must never clip custom annotations. Reference
+  coordinate system after projection. Original textures have +worldZ towards the
+  top: canonical point v=(maxZ-worldZ)/(maxZ-minZ); reflect source crops likewise.
+  Source contour SVGs still use +Z-down; reflect that image layer exactly once
+  using the shared `ground-map-projection.ts` matrix in SVG and PNG export.
+  Keep base textures, icons, letters and existing user annotations unreflected.
+  DOM composites in the original upload share the wrong projection; rebuild their
+  77 matching layouts from the original terrain and native point icons, retain
+  original DOM hashes, and never reuse the wrong composites as image fallbacks.
+  Mission cropping clips the map layer only; it must never clip custom annotations. Reference
   grids are not verified runtime grids; world Y is not verified sea-level height.
   Guide links must disclose layout/version differences; preserve old guide data.
 

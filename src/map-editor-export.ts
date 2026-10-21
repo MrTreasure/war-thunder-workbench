@@ -13,6 +13,7 @@ import {
 import { assetSources } from "./map-assets";
 import type { GroundImageAsset } from "./map-assets";
 import { tacticalSymbolIds, drawTacticalSymbol } from "./map-editor-symbols";
+import { CONTOUR_IMAGE_MATRIX, referenceGrid } from "./ground-map-projection";
 export type MapExportScene = {
   base: GroundImageAsset;
   contourImage: GroundImageAsset;
@@ -178,51 +179,44 @@ export async function renderMapPng(
   ctx.clip();
   ctx.drawImage(images.get(scene.base.url)!, 0, 0, 1000, 1000);
   if (scene.contours) {
+    ctx.save();
     ctx.globalAlpha = 0.8;
+    ctx.transform(...CONTOUR_IMAGE_MATRIX);
     ctx.drawImage(images.get(scene.contourImage.url)!, 0, 0, 1000, 1000);
-    ctx.globalAlpha = 1;
+    ctx.restore();
   }
   if (scene.grid) {
-    const [[x0, z0], [x1, z1]] = scene.bounds,
-      ref = scene.reference;
+    const lines = referenceGrid(scene.bounds, scene.reference);
     ctx.save();
     ctx.strokeStyle = "#f7edcb9c";
     ctx.lineWidth = 1 / scene.zoom;
     ctx.font = `${16 / scene.zoom}px system-ui,sans-serif`;
     ctx.textBaseline = "top";
-    for (let i = 0; i < 100; i++) {
-      const gx = ((ref.origin_xz_m[0] + i * ref.step_xz_m[0] - x0) / (x1 - x0)) * 1000,
-        gz = ((ref.origin_xz_m[1] + i * ref.step_xz_m[1] - z0) / (z1 - z0)) * 1000;
-      if (gx >= 0 && gx <= 1000) {
-        ctx.beginPath();
-        ctx.moveTo(gx, 0);
-        ctx.lineTo(gx, 1000);
-        ctx.stroke();
-        drawText(
-          ctx,
-          String(i + 1),
-          { x: (gx + 3) / 1000, y: (scene.mapFrame.y + 3 / scene.zoom) / 1000 },
-          16 / scene.zoom,
-          "#f7edcb",
-        );
-      }
-      if (gz >= 0 && gz <= 1000) {
-        ctx.beginPath();
-        ctx.moveTo(0, gz);
-        ctx.lineTo(1000, gz);
-        ctx.stroke();
-        const label =
-          i < 26
-            ? String.fromCharCode(65 + i)
-            : String.fromCharCode(64 + Math.floor(i / 26)) + String.fromCharCode(65 + (i % 26));
-        drawText(
-          ctx,
-          label,
-          { x: (scene.mapFrame.x + 4 / scene.zoom) / 1000, y: gz / 1000 },
-          16 / scene.zoom,
-          "#f7edcb",
-        );
-      }
+    for (const { position: gx, label } of lines.vertical) {
+      ctx.beginPath();
+      ctx.moveTo(gx, 0);
+      ctx.lineTo(gx, 1000);
+      ctx.stroke();
+      drawText(
+        ctx,
+        label,
+        { x: (gx + 3) / 1000, y: (scene.mapFrame.y + 3 / scene.zoom) / 1000 },
+        16 / scene.zoom,
+        "#f7edcb",
+      );
+    }
+    for (const { position: gz, label } of lines.horizontal) {
+      ctx.beginPath();
+      ctx.moveTo(0, gz);
+      ctx.lineTo(1000, gz);
+      ctx.stroke();
+      drawText(
+        ctx,
+        label,
+        { x: (scene.mapFrame.x + 4 / scene.zoom) / 1000, y: gz / 1000 },
+        16 / scene.zoom,
+        "#f7edcb",
+      );
     }
     ctx.restore();
   }
