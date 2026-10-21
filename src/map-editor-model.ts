@@ -168,16 +168,11 @@ export function shapePath(item: ShapeAnnotation): string {
   }
   return pathData(shapeCorners({ x, y }, { x: x + w, y: y + h })) + " Z";
 }
-/** Expand the layout to the actual viewport; prevent panning into empty world space. */
-export function mapView(crop: number[], zoom: number, aspect: number, offset: MapPoint) {
-  const baseW = (crop[2] - crop[0]) * 1000,
-    baseH = (crop[3] - crop[1]) * 1000;
-  let w = Math.max(baseW / zoom, (baseH / zoom) * aspect),
-    h = w / aspect;
-  const fit = Math.min(1, 1000 / w, 1000 / h);
-  w *= fit;
-  h *= fit;
-  const originX = (crop[0] + crop[2]) * 500 - w / 2,
+/** Keep the requested layout intact; SVG meet centers it in the available canvas. */
+export function mapView(crop: number[], zoom: number, offset: MapPoint) {
+  const w = ((crop[2] - crop[0]) * 1000) / zoom,
+    h = ((crop[3] - crop[1]) * 1000) / zoom,
+    originX = (crop[0] + crop[2]) * 500 - w / 2,
     originY = (crop[1] + crop[3]) * 500 - h / 2;
   return {
     w,

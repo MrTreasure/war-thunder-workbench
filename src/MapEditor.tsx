@@ -8,6 +8,12 @@ import palette from "../data/map-editor-palette.json";
 import lineCatalog from "../data/map-editor-lines.json";
 import { GroundSvgImage, GroundThumbnail } from "./map-assets";
 import { Modal } from "./Modal";
+import {
+  TacticalSymbol,
+  tacticalSymbols,
+  tacticalSymbolIds,
+  tacticalSymbol,
+} from "./map-editor-symbols";
 import { downloadBlob } from "./map-editor-export";
 import {
   annotationName,
@@ -46,7 +52,7 @@ import type {
 } from "./map-editor-model";
 
 const icons = new Map(catalog.icons.map((i) => [i.id, i]));
-const iconIds = new Set(icons.keys());
+const iconIds = new Set([...icons.keys(), ...tacticalSymbolIds]);
 export const editorIconAssets = Object.fromEntries(catalog.icons.map((i) => [i.id, i.asset]));
 export type MapEditorHandle = { finish: () => Annotation[] };
 type Tool =
@@ -145,8 +151,11 @@ export function MapEditor({
     [settings, setSettings] = useState(defaults);
   const [shapeKind, setShapeKind] = useState<ShapeAnnotation["shape"]>("rectangle");
   const [replaceIcon, setReplaceIcon] = useState(false);
-  const [iconId, setIconId] = useState("army_tank"),
-    [iconGroup, setIconGroup] = useState("单位与队伍");
+  const [iconId, setIconId] = useState("tactical_sniper"),
+    [iconGroup, setIconGroup] = useState("火力与阵地");
+  const [markerLibrary, setMarkerLibrary] = useState<"tactical" | "original">("tactical");
+  const [markerQuery, setMarkerQuery] = useState("");
+  const markerEntries = markerLibrary === "tactical" ? tacticalSymbols : catalog.icons;
   const [pending, setPendingState] = useState<GeometryAnnotation | null>(null);
   const pendingRef = useRef<GeometryAnnotation | null>(null);
   const [preview, setPreview] = useState<Annotation[] | null>(null);
@@ -366,10 +375,10 @@ export function MapEditor({
         ...base,
         kind: "icon",
         point,
-        iconId: tool === "sniper" ? "objective_tank_outline" : iconId,
+        iconId: tool === "sniper" ? "tactical_sniper" : iconId,
         size: settings.size,
         rotation: 0,
-        caption: tool === "sniper" ? "狙击点" : "",
+        caption: tool === "sniper" ? "狙击点" : tacticalSymbol(iconId)?.label || "",
       });
       setTool("select");
       return;
@@ -843,7 +852,7 @@ export function MapEditor({
               ["shape", "形状", "▱"],
               ["danger", "危险区", "⚠"],
               ["sniper", "狙击点", "⌖"],
-              ["icon", "图标", "◇"],
+              ["icon", "标记", "◇"],
               ["text", "文字", "T"],
             ] as const
           ).map(([value, label, glyph]) => (
@@ -943,11 +952,11 @@ export function MapEditor({
           }}
         />
         {panel && (
-          <aside className="map-editor-inspector" aria-label="标注编辑面板">
+          <aside className="map-editor-inspector" data-panel={panel} aria-label="标注编辑面板">
             <header>
               <strong>
                 {panel === "icons"
-                  ? "战雷原生图标"
+                  ? "地图标记"
                   : panel === "layers"
                     ? "标注图层"
                     : panel === "files"
@@ -999,8 +1008,38 @@ export function MapEditor({
               mapControls
             ) : panel === "icons" ? (
               <>
+                <div className="map-editor-library-tabs" role="toolbar" aria-label="标记图库">
+                  {(
+                    [
+                      ["tactical", "战术符号"],
+                      ["original", "战雷原生"],
+                    ] as const
+                  ).map(([value, label]) => (
+                    <button
+                      key={value}
+                      aria-pressed={markerLibrary === value}
+                      onClick={() => {
+                        setMarkerLibrary(value);
+                        setIconGroup(
+                          value === "tactical" ? tacticalSymbols[0].group : catalog.icons[0].group,
+                        );
+                        setMarkerQuery("");
+                      }}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
+                <input
+                  className="map-editor-marker-search"
+                  type="search"
+                  aria-label="搜索地图标记"
+                  placeholder="搜索标记"
+                  value={markerQuery}
+                  onChange={(e) => setMarkerQuery(e.target.value)}
+                />
                 <div className="map-editor-icon-tabs">
-                  {[...new Set(catalog.icons.map((i) => i.group))].map((group) => (
+                  {[...new Set(markerEntries.map((i) => i.group))].map((group) => (
                     <button
                       key={group}
                       aria-pressed={iconGroup === group}
@@ -1010,14 +1049,16 @@ export function MapEditor({
                     </button>
                   ))}
                 </div>
-                <p>{replaceIcon ? "选择图标替换当前标记。" : "选择图标后，点击地图放置。"}</p>
+                <p>{replaceIcon ? "选择标记替换当前标注。" : "选择标记后，点击地图放置。"}</p>
                 <div className="map-editor-icon-grid">
-                  {catalog.icons
-                    .filter((i) => i.group === iconGroup)
+                  {markerEntries
+                    .filter((i) =>
+                      markerQuery ? i.label.includes(markerQuery.trim()) : i.group === iconGroup,
+                    )
                     .map((icon) => (
                       <button
                         key={icon.id}
-                        title={`${icon.label} · ${icon.id}`}
+                        title={icon.label}
                         aria-label={icon.label}
                         aria-pressed={iconId === icon.id}
                         onClick={() => {
@@ -1030,17 +1071,30 @@ export function MapEditor({
                           } else setTool("icon");
                         }}
                       >
-                        <GroundThumbnail
-                          asset={icon.asset}
-                          alt=""
-                          width={32}
-                          height={32}
-                          loading="lazy"
-                        />
+                        {"asset" in icon ? (
+                          <GroundThumbnail
+                            asset={icon.asset}
+                            alt=""
+                            width={32}
+                            height={32}
+                            loading="lazy"
+                          />
+                        ) : (
+                          <svg
+                            className="map-editor-symbol-preview"
+                            viewBox="0 0 32 32"
+                            aria-hidden="true"
+                          >
+                            <TacticalSymbol id={icon.id} />
+                          </svg>
+                        )}
                         <span>{icon.label}</span>
                       </button>
                     ))}
                 </div>
+                {!markerEntries.some((i) =>
+                  markerQuery ? i.label.includes(markerQuery.trim()) : i.group === iconGroup,
+                ) && <p>没有找到匹配标记。</p>}
               </>
             ) : panel === "layers" ? (
               <>
@@ -1368,6 +1422,11 @@ export function MapEditor({
                       disabled={selected.locked}
                       onClick={() => {
                         setIconId(selected.iconId);
+                        const original = icons.get(selected.iconId),
+                          tactical = tacticalSymbol(selected.iconId);
+                        setMarkerLibrary(tactical ? "tactical" : "original");
+                        setIconGroup(tactical?.group || original?.group || "单位与队伍");
+                        setMarkerQuery("");
                         setReplaceIcon(true);
                         setPanel("icons");
                       }}
@@ -1809,8 +1868,9 @@ function AnnotationShape({
         {outline}
       </g>
     );
-  const icon = icons.get(item.iconId);
-  if (!icon) return null;
+  const icon = icons.get(item.iconId),
+    symbol = tacticalSymbol(item.iconId);
+  if (!icon && !symbol) return null;
   const size = item.size * 1000;
   return (
     <g data-annotation-id={item.id}>
@@ -1829,13 +1889,25 @@ function AnnotationShape({
           stroke={item.color}
           strokeWidth={1.5}
         />
-        <GroundSvgImage
-          asset={icon.asset}
-          x={anchor.x * 1000 - size / 2}
-          y={anchor.y * 1000 - size / 2}
-          width={size}
-          height={size}
-        />
+        {symbol ? (
+          <TacticalSymbol
+            id={item.iconId}
+            x={anchor.x * 1000 - size / 2}
+            y={anchor.y * 1000 - size / 2}
+            size={size}
+            color={item.color}
+          />
+        ) : (
+          icon && (
+            <GroundSvgImage
+              asset={icon.asset}
+              x={anchor.x * 1000 - size / 2}
+              y={anchor.y * 1000 - size / 2}
+              width={size}
+              height={size}
+            />
+          )
+        )}
       </g>
       {item.caption && (
         <text

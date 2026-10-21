@@ -1,6 +1,6 @@
 /* Interactive SVG map owns arrow-key pan and Home reset; native HTML has no map widget. */
 /* oxlint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex */
-import { useEffect, useId, useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { GroundThumbnail, GroundSvgImage, rotateAsset } from "./map-assets";
 import { MapEditor, editorIconAssets } from "./MapEditor";
@@ -222,18 +222,6 @@ function GroundDetail({
   };
   const clipId = useId();
   const [svg, setSvg] = useState<SVGSVGElement | null>(null);
-  const [aspect, setAspect] = useState(1);
-  useEffect(() => {
-    if (!svg) return;
-    const measure = () => {
-      const rect = svg.getBoundingClientRect();
-      if (rect.width > 0 && rect.height > 0) setAspect(rect.width / rect.height);
-    };
-    measure();
-    const observer = new ResizeObserver(measure);
-    observer.observe(svg);
-    return () => observer.disconnect();
-  }, [svg]);
   const [editorHost, setEditorHost] = useState<SVGGElement | null>(null);
   const [editing, setEditing] = useState(false);
   const editorRef = useRef<MapEditorHandle>(null);
@@ -247,7 +235,7 @@ function GroundDetail({
     setOffset({ x: 0, y: 0 });
   };
   const crop = cropped && layout.crop ? layout.crop : [0, 0, 1, 1];
-  const { x, y, w, h, originX, originY } = mapView(crop, zoom, aspect, offset);
+  const { x, y, w, h, originX, originY } = mapView(crop, zoom, offset);
   const [x0, z0] = map.bounds[0],
     [x1, z1] = map.bounds[1];
   const origin = map.grid.default_reference.origin_xz_m,

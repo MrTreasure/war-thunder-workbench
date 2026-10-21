@@ -24,8 +24,15 @@ import {
 const catalog = JSON.parse(
   await readFile(new URL("../data/map-editor-icons.json", import.meta.url), "utf8"),
 );
-const iconIds = new Set(catalog.icons.map((i) => i.id));
-assert.equal(iconIds.size, 79);
+const symbolCatalog = JSON.parse(
+  await readFile(new URL("../data/map-editor-symbols.json", import.meta.url), "utf8"),
+);
+const iconIds = new Set([
+  ...catalog.icons.map((i) => i.id),
+  ...symbolCatalog.symbols.map((i) => i.id),
+]);
+assert.equal(new Set(catalog.icons.map((i) => i.id)).size, 79);
+assert.equal(iconIds.size, 79 + symbolCatalog.symbols.length);
 assert.match(catalog.commit, /^[a-f0-9]{40}$/);
 for (const icon of catalog.icons) {
   assert(
@@ -118,8 +125,12 @@ for (const aspect of [0.4, 1, 1.7, 3.5])
       { x: 0, y: 0 },
       { x: -2000, y: 2000 },
     ]) {
-      const view = mapView([0.2, 0.2, 0.725, 0.725], zoom, aspect, offset);
-      assert(Math.abs(view.w / view.h - aspect) < 1e-8);
+      const view = mapView([0.2, 0.2, 0.725, 0.725], zoom, offset);
+      assert(Math.abs(view.w - 525 / zoom) < 1e-8);
+      assert(Math.abs(view.h - 525 / zoom) < 1e-8);
+      // Wide or tall canvases must not change the selected layout or crop its edges.
+      const displayScale = Math.min((aspect * 1000) / view.w, 1000 / view.h);
+      assert(view.w * displayScale <= aspect * 1000 + 1e-8 && view.h * displayScale <= 1000 + 1e-8);
       assert(
         view.x >= 0 &&
           view.y >= 0 &&
@@ -137,6 +148,22 @@ const icon = {
   iconId: catalog.icons[0].id,
   caption: "防守点",
 };
+const symbolMarker = { ...icon, id: "symbol-1", iconId: "tactical_sniper", caption: "狙击点" };
+assert.deepEqual(parseProject(makeProject(context, [symbolMarker]), iconIds, known).items, [
+  symbolMarker,
+]);
+assert.throws(() =>
+  parseProject(
+    makeProject(context, [{ ...symbolMarker, iconId: "tactical_untrusted" }]),
+    iconIds,
+    known,
+  ),
+);
+const playerIcon = catalog.icons.find((i) => i.id === "map_player_tank_hull");
+assert.notEqual(playerIcon.asset.sha256, playerIcon.asset.sourceSha256);
+assert(
+  playerIcon.asset.normalization.includes("Added SVG namespace for standalone image rendering"),
+);
 const text = {
   ...base,
   id: "text-1",
@@ -251,5 +278,5 @@ globalThis.localStorage.setItem = () => {
 };
 assert.throws(() => writeProject(project));
 console.log(
-  "Map editor verified: bounded viewport, curves, tactical lines, shapes, import validation, immutable movement, undo/redo, scoped persistence and 79 original icon records",
+  "Map editor verified: centered layout viewport, tactical symbols, curves, tactical lines, shapes, import validation, immutable movement, undo/redo, scoped persistence and 79 original icon records",
 );

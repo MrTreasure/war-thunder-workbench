@@ -1120,3 +1120,9 @@
     display: none;
   }
 }
+
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .map-editor-inspector[data-panel="icons"] {
+    max-height: min(44dvh, 360px);
+  }
+}

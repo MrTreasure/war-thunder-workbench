@@ -201,7 +201,10 @@
   evict them with data caches or touch carts, lineups or research state. Finish
   pending strokes before changing layout/team; preserve undo/redo per context.
 - `data/map-editor-icons.json` is the allowlisted registry of original game SVG
-  icons, archived unchanged in the existing `oss-files` image repository. Keep
+  icons in the existing `oss-files` image repository. Preserve original files;
+  standalone compatibility derivatives may add missing namespace/viewBox root
+  metadata while preserving drawing geometry, with source SHA and normalization
+  recorded in the registry. Keep
   asset commits pinned and stable icon IDs for saved drafts. Never import image
   URLs, HTML or executable content from user project files.
 - Editable `.wtmap.json` downloads are user-generated documents, not published
@@ -223,14 +226,20 @@
   game asset colors and existing theme colors identified separately. Selection
   handles use screen-sized targets, independent of map zoom and viewport size.
 
-- The map viewport expands to the actual SVG aspect ratio and clamps panning to
-  full-map bounds. SVG rendering, pointer projection and PNG export must use the
-  same `{x,y,w,h}`; do not reintroduce square letterboxing or independent layer crops.
+- Preserve the selected map/layout aspect ratio, centered with SVG `meet` sizing.
+  Empty space around the map is allowed; never expand/crop it to force canvas fill.
+  Clamp panning to map bounds. Keep SVG, pointer projection and PNG export on the
+  same `{x,y,w,h}`. Tools and inspectors reserve space outside the map.
 - Map annotations include optional smooth-curve and tactical line styles plus
   rectangle/ellipse/polygon areas. Keep legacy version-1 paths importable.
   Shared geometry in `map-editor-model.ts` drives SVG and Canvas export, including
   curve midpoints, arrow tangents, defensive/obstacle marks and area hatching.
   Validate area sizes, opacity, captions and point limits before storing/importing.
 - Tactical line presets are illustrative, not certified military symbology.
-  Sniper points reuse the allowlisted original `objective_tank_outline` icon with
-  a caption; do not invent an official sniper icon or introduce arbitrary URLs.
+  `data/map-editor-symbols.json` contains project-drawn tactical marker geometry,
+  displayed separately from the original game icon library. The same trusted
+  symbol registry drives SVG, PNG export and import ID validation. Do not claim
+  these are official game icons or accept arbitrary URLs/geometry from imports.
+- Map editor confirmation/import dialogs use content height, centered fixed inset
+  and bounded vertical scrolling on desktop and mobile; never inherit the full
+  research calculator height.

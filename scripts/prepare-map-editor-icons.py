@@ -2,7 +2,19 @@
 import argparse,pathlib,hashlib,json,re
 p=argparse.ArgumentParser();p.add_argument('--repo',type=pathlib.Path,required=True);p.add_argument('--source',type=pathlib.Path,default=pathlib.Path('artifacts/ground-maps/maps-source/战雷陆战地图/图标/游戏原版SVG'));p.add_argument('--apply-ref');a=p.parse_args();items=[]
 for src in sorted(a.source.glob('*.svg')):
- name=src.stem;body=src.read_bytes();sha=hashlib.sha256(body).hexdigest();path=f'war-thunder/map-editor/v1/{sha[:24]}.svg'
+ name=src.stem;original=src.read_bytes();body=original;normalization=[]
+ root_match=re.search(br'<svg\b[^>]*>',body)
+ assert root_match,src
+ root=root_match.group()
+ if not re.search(br'\bxmlns=',root):
+  body=body[:root_match.start()]+root.replace(b'<svg',b'<svg xmlns="http://www.w3.org/2000/svg"',1)+body[root_match.end():]
+  normalization.append('Added SVG namespace for standalone image rendering')
+ if normalization and not re.search(br'\bviewBox=',root):
+  width=re.search(br'\bwidth="([0-9.]+)"',root);height=re.search(br'\bheight="([0-9.]+)"',root)
+  if width and height:
+   body=body.replace(b'<svg',b'<svg viewBox="0 0 '+width.group(1)+b' '+height.group(1)+b'"',1)
+   normalization.append('Added viewBox matching original width and height')
+ sha=hashlib.sha256(body).hexdigest();path=f'war-thunder/map-editor/v1/{sha[:24]}.svg'
  if 'capture' in name:group='占领点';label='占领点'
  elif 'base' in name:group='基地';label='基地'
  else:group='单位与队伍';label={'army_tank':'坦克','map_player_tank_hull':'玩家坦克','spawn_ally':'己方出生点','spawn_enemy':'敌方出生点','objective_tank':'坦克目标','objective_tank_outline':'坦克目标（轮廓）'}.get(name,'战场标记')
@@ -14,10 +26,16 @@ for src in sorted(a.source.glob('*.svg')):
   if key in name and not letter:label=word
  if label=='战场标记':label+=' · '+name.replace('map_','').replace('_',' ')
  dest=a.repo/path
- if not a.apply_ref:dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(body)
+ if not a.apply_ref:
+  dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(body)
+  if body!=original:
+   source_sha=hashlib.sha256(original).hexdigest();(a.repo/f'war-thunder/map-editor/v1/{source_sha[:24]}.svg').write_bytes(original)
  else:assert hashlib.sha256(dest.read_bytes()).hexdigest()==sha
  ref=a.apply_ref or 'PENDING'
  items.append({'id':name,'label':label,'group':group,'asset':{'url':f'https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@{ref}/{path}','rawUrl':f'https://raw.githubusercontent.com/MrTreasure/oss-files/{ref}/{path}','sha256':sha,'bytes':len(body)}})
+ if normalization:
+  items[-1]['asset']['sourceSha256']=hashlib.sha256(original).hexdigest()
+  items[-1]['asset']['normalization']=normalization
 assert len(items)==79
 if not a.apply_ref:
  for item in items:
@@ -29,5 +47,5 @@ if a.apply_ref:
  assert re.fullmatch('[0-9a-f]{40}',a.apply_ref);pathlib.Path('data/map-editor-icons.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
 else:
  (a.repo/'war-thunder/map-editor/manifest.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
- (a.repo/'war-thunder/map-editor/README.md').write_text('# Original War Thunder map icons\n\n79 original SVG resources from the user-supplied game export. File contents are unchanged; filenames contain SHA-256 prefixes. These game assets remain the property of their respective rights holders. Used by the local map-route editor in war-thunder-workbench.\n')
+ (a.repo/'war-thunder/map-editor/README.md').write_text('# Original War Thunder map icons\n\n79 game SVG resources from the user-supplied export. Originals are preserved. A standalone compatibility derivative adds missing SVG namespace/viewBox metadata to map_player_tank_hull; its drawing geometry is unchanged. Filenames contain SHA-256 prefixes. These game assets remain the property of their respective rights holders. Used by the local map-route editor in war-thunder-workbench.\n')
 print('Pinned' if a.apply_ref else 'Prepared',len(items),'original game icons')

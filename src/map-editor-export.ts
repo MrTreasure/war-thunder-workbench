@@ -9,6 +9,7 @@ import {
 } from "./map-editor-model";
 import { assetSources } from "./map-assets";
 import type { GroundImageAsset } from "./map-assets";
+import { tacticalSymbolIds, drawTacticalSymbol } from "./map-editor-symbols";
 export type MapExportScene = {
   base: GroundImageAsset;
   contourImage: GroundImageAsset;
@@ -126,7 +127,7 @@ export async function renderMapPng(
       if (asset) add(asset);
     }
   for (const item of items)
-    if (!item.hidden && item.kind === "icon") {
+    if (!item.hidden && item.kind === "icon" && !tacticalSymbolIds.has(item.iconId)) {
       const asset = scene.editorIcons[item.iconId];
       if (!asset) throw new Error("图标资源未收录");
       add(asset);
@@ -307,7 +308,8 @@ export async function renderMapPng(
       ctx.arc(0, 0, size * 0.6, 0, Math.PI * 2);
       ctx.fill();
       ctx.stroke();
-      contain(ctx, images.get(scene.editorIcons[item.iconId].url)!, -size / 2, -size / 2, size);
+      if (!drawTacticalSymbol(ctx, item.iconId, -size / 2, -size / 2, size, item.color))
+        contain(ctx, images.get(scene.editorIcons[item.iconId].url)!, -size / 2, -size / 2, size);
       ctx.restore();
       if (item.caption)
         drawText(
