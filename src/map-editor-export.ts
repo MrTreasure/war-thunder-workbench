@@ -1,4 +1,6 @@
 import type { Annotation, MapPoint } from "./map-editor-model";
+import type { TextAnnotation } from "./map-editor-model";
+import { canvasTextFont } from "./map-editor-fonts";
 import {
   arrowPoints,
   pathData,
@@ -96,11 +98,12 @@ function drawText(
   color: string,
   rotation = 0,
   align: CanvasTextAlign = "left",
+  typography: Pick<TextAnnotation, "font" | "fontWeight" | "italic"> = {},
 ) {
   ctx.save();
   ctx.translate(p.x * 1000, p.y * 1000);
   ctx.rotate((rotation * Math.PI) / 180);
-  ctx.font = `600 ${size}px system-ui, sans-serif`;
+  ctx.font = canvasTextFont(typography, size);
   ctx.textAlign = align;
   ctx.textBaseline = "top";
   ctx.lineJoin = "round";
@@ -120,6 +123,13 @@ export async function renderMapPng(
   signal: AbortSignal,
   progress: (loaded: number, total: number) => void,
 ): Promise<Blob> {
+  const fontsReady = Promise.all(
+    items
+      .filter((item): item is TextAnnotation => item.kind === "text" && !item.hidden)
+      .map((item) =>
+        document.fonts.load(canvasTextFont(item, item.fontSize * 1000), item.text || " "),
+      ),
+  );
   const needed = new Map<string, GroundImageAsset>();
   const add = (asset: GroundImageAsset) => needed.set(asset.url, asset);
   add(scene.base);
@@ -140,15 +150,16 @@ export async function renderMapPng(
   progress(0, needed.size);
   // Bound concurrent large terrain downloads; no pixel reads before CORS-approved images load.
   const queue = [...needed.values()];
-  await Promise.all(
-    [0, 1].map(async () => {
+  await Promise.all([
+    fontsReady,
+    ...[0, 1].map(async () => {
       while (queue.length) {
         const asset = queue.shift()!;
         images.set(asset.url, await loadAsset(asset, signal));
         progress(++loaded, needed.size);
       }
     }),
-  );
+  ]);
   if (signal.aborted) throw new Error("已取消导出");
   const { x, y, w, h } = scene.view;
   const scale = Math.min(4096, Math.max(512, resolution)) / Math.max(w, h);
@@ -304,7 +315,16 @@ export async function renderMapPng(
           "center",
         );
     } else if (item.kind === "text")
-      drawText(ctx, item.text, item.point, item.fontSize * 1000, item.color, item.rotation);
+      drawText(
+        ctx,
+        item.text,
+        item.point,
+        item.fontSize * 1000,
+        item.color,
+        item.rotation,
+        "left",
+        item,
+      );
     else {
       const size = item.size * 1000,
         px = item.point.x * 1000,

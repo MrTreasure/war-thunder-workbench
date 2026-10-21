@@ -274,3 +274,18 @@
   do not replace them with browser-native option menus or body portals behind dialogs.
 - Selecting an annotation or finishing a new one opens its floating properties.
   Keep the close control visually compact and never resize the canvas for the panel.
+
+- Named map plans and their working drafts live only in the dedicated OPFS
+  `wt-map-plans-v1` directory, scoped by map/layout/team. Migrate legacy
+  `wt-map-editor-v1:*` localStorage drafts into the default plan once, retaining
+  the original keys. Do not put new named plans in localStorage or evict them as
+  cached data. Serialize writes, commit through createWritable/close, and use
+  Web Locks plus fresh reads to preserve changes from other tabs. Report quota,
+  corruption or unsupported OPFS without overwriting the previous file.
+- Finish and save before switching plans or routes. Keep undo history separated
+  by plan. Imports create a new named plan, never silently replace an existing
+  one; deletion requires confirmation and keeps at least one plan per context.
+- Text uses allowlisted `map-editor-fonts.ts` families with optional font weight
+  and italic fields. Preserve old version-1 text defaults and use identical
+  typography for SVG and PNG export. Never accept arbitrary CSS/font URLs from
+  imported plans; load the required same-origin font before PNG rendering.

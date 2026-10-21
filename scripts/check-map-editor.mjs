@@ -392,3 +392,4 @@ assert.throws(() => writeProject(project));
 console.log(
   "Map editor verified: independent map/canvas layers, outside-map coordinates, tactical lines, clear/undo, symbols, curves, shapes, import validation, immutable movement, undo/redo, scoped persistence and 79 original icon records",
 );
+await import("./check-map-plans.mjs");

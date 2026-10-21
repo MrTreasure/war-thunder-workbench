@@ -1,3 +1,5 @@
+import { mapFonts } from "./map-editor-fonts.ts";
+import type { MapFont } from "./map-editor-fonts.ts";
 export type MapPoint = { x: number; y: number };
 export type EditorContext = { mapId: string; layoutId: string; team: 1 | 2 };
 type Base = { id: string; color: string; hidden: boolean; locked: boolean };
@@ -44,6 +46,9 @@ export type TextAnnotation = Base & {
   point: MapPoint;
   text: string;
   fontSize: number;
+  font?: MapFont;
+  fontWeight?: 400 | 600 | 700;
+  italic?: boolean;
   rotation: number;
 };
 export type Annotation = RouteAnnotation | IconAnnotation | TextAnnotation | ShapeAnnotation;
@@ -646,12 +651,27 @@ export function parseProject(
       };
     }
     requireValue(a.kind, a.kind === "text", "不支持的标注类型");
+    if (a.font !== undefined)
+      requireValue(
+        a.font,
+        mapFonts.some((font) => font.id === a.font),
+        "未收录的文字字体",
+      );
+    if (a.fontWeight !== undefined)
+      requireValue(
+        a.fontWeight,
+        [400, 600, 700].includes(a.fontWeight as number),
+        "文字字重格式错误",
+      );
     return {
       ...base,
       kind: "text",
       point: point(a.point),
       text: text(a.text, 1000),
       fontSize: number(a.fontSize, 0.008, 0.1),
+      ...(a.font === undefined ? {} : { font: a.font as MapFont }),
+      ...(a.fontWeight === undefined ? {} : { fontWeight: a.fontWeight as 400 | 600 | 700 }),
+      ...(a.italic === undefined ? {} : { italic: flag(a.italic) }),
       rotation: number(a.rotation, -180, 180),
     };
   });

@@ -582,3 +582,25 @@
   padding-inline: 5px;
   font-size: 12px;
 }
+.map-editor-plan-meta {
+  display: grid;
+  gap: 3px;
+  color: var(--wt-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+.map-editor-plan-form {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 12px 0;
+  border-block: 1px solid var(--wt-line);
+}
+.map-editor-plans .map-editor-plan-error {
+  color: #f3a5a5;
+}
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .map-editor-plans button {
+    min-height: 44px;
+  }
+}

@@ -1,6 +1,12 @@
 /* Interactive SVG drawing surface has keyboard alternatives in the HTML object list. */
 /* oxlint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex */
 import { GameSelect } from "./components/GameSelect";
+import { useBlocker } from "@tanstack/react-router";
+import { MapPlansPanel } from "./MapPlansPanel";
+import { MapPlanStore } from "./map-editor-plans";
+import { useMapPlans } from "./use-map-plans";
+import { mapFonts, fontFamily } from "./map-editor-fonts";
+import type { MapFont } from "./map-editor-fonts";
 import { useEffect, useEffectEvent, useImperativeHandle, useRef, useState } from "react";
 import type { CSSProperties, PointerEvent, ReactNode, Ref } from "react";
 import { createPortal } from "react-dom";
@@ -43,7 +49,6 @@ import {
   reduceHistory,
   sameContext,
   serializeProject,
-  writeProject,
 } from "./map-editor-model";
 import type {
   Annotation,
@@ -120,6 +125,9 @@ const defaults = {
   dashed: false,
   size: 0.035,
   fontSize: 0.018,
+  font: "sans" as MapFont,
+  fontWeight: 600 as 400 | 600 | 700,
+  italic: false,
 };
 const id = () => crypto.randomUUID();
 export function MapEditor({
@@ -173,13 +181,40 @@ export function MapEditor({
   const [selectedPoint, setSelectedPoint] = useState<number | null>(null);
   const gesture = useRef<Gesture | null>(null);
   const [panel, setPanel] = useState<
-      "style" | "icons" | "layers" | "files" | "map" | "lines" | null
+      "style" | "icons" | "layers" | "files" | "map" | "lines" | "plans" | null
     >(null),
     [notice, setNotice] = useState(initial.message),
     [storageError, setStorageError] = useState(false);
   const [incoming, setIncoming] = useState<MapProject | null>(null),
     [busy, setBusy] = useState<string | null>(null),
     [resolution, setResolution] = useState(2048);
+  const [deletePlan, setDeletePlan] = useState<string | null>(null);
+  const [importing, setImporting] = useState(false);
+  const planHistories = useRef(new Map<string, ReturnType<typeof createHistory>>());
+  const currentPlanId = useRef<string | null>(null);
+  const plans = useMapPlans(context, initial.items, iconIds, (items, planId) => {
+    if (currentPlanId.current) planHistories.current.set(currentPlanId.current, historyRef.current);
+    const cached = planHistories.current.get(planId);
+    const next =
+      cached && JSON.stringify(cached.present) === JSON.stringify(items)
+        ? cached
+        : createHistory(items);
+    currentPlanId.current = planId;
+    historyRef.current = next;
+    setHistory(next);
+    gesture.current = null;
+    pendingRef.current = null;
+    setPendingState(null);
+    setPreview(null);
+    setSelectedId(null);
+    setSelectedPoint(null);
+    setTool("select");
+    setNotice(
+      initial.message.startsWith("无法读取")
+        ? initial.message
+        : `已载入本地方案 · ${items.length} 个标注`,
+    );
+  });
   const abort = useRef<AbortController | null>(null),
     file = useRef<HTMLInputElement>(null),
     textField = useRef<HTMLTextAreaElement>(null);
@@ -189,15 +224,23 @@ export function MapEditor({
     pendingRef.current = p;
     setPendingState(p);
   };
+  useBlocker({
+    shouldBlockFn: async () => {
+      finish();
+      if (!plans.hasUnsaved()) return false;
+      try {
+        await plans.flush();
+        return false;
+      } catch {
+        return true;
+      }
+    },
+    enableBeforeUnload: () => plans.hasUnsaved() || !!pendingRef.current || !!gesture.current,
+  });
   function persist(items: Annotation[]) {
-    try {
-      writeProject(makeProject(context, items));
-      setStorageError(false);
-      setNotice(`本地草稿已保存 · ${items.length} 个标注`);
-    } catch {
-      setStorageError(true);
-      setNotice("浏览器空间不足或禁止保存，请导出编辑文件保留结果");
-    }
+    plans.save(items);
+    setStorageError(false);
+    setNotice(`已保存 · ${items.length} 个标注`);
   }
   function change(action: HistoryAction) {
     const next = reduceHistory(historyRef.current, action);
@@ -388,7 +431,7 @@ export function MapEditor({
     return { x: canvasCoordinate(p.x / 1000), y: canvasCoordinate(p.y / 1000) };
   }
   function pointerDown(e: PointerEvent<SVGGElement>) {
-    if (!active || e.button !== 0) return;
+    if (!active || plans.loading || plans.working || e.button !== 0) return;
     e.stopPropagation();
     svg?.focus();
     if (tool === "pan") {
@@ -463,6 +506,9 @@ export function MapEditor({
         point,
         text: "文字说明",
         fontSize: settings.fontSize,
+        font: settings.font,
+        fontWeight: settings.fontWeight,
+        italic: settings.italic,
         rotation: 0,
       });
       setTool("select");
@@ -631,6 +677,8 @@ export function MapEditor({
   const onKeys = useEffectEvent((e: KeyboardEvent) => {
     if (
       !active ||
+      plans.loading ||
+      plans.working ||
       document.querySelector("dialog[open]") ||
       (e.target as HTMLElement)?.closest(
         "input,textarea,select,[role=combobox],[role=listbox],[contenteditable=true]",
@@ -740,7 +788,7 @@ export function MapEditor({
         const hasLength = stroke?.points.some(
           (p) => Math.hypot(p.x - stroke.points[0].x, p.y - stroke.points[0].y) > 0.00001,
         );
-        writeProject(makeProject(context, stroke && hasLength ? [...items, stroke] : items));
+        if (!plans.loading) plans.save(stroke && hasLength ? [...items, stroke] : items);
       } catch {
         /* Keep existing saved draft intact. */
       }
@@ -767,21 +815,26 @@ export function MapEditor({
       setNotice(error instanceof Error ? error.message : "无法读取编辑文件");
     }
   }
-  function confirmImport() {
-    if (!incoming) return;
+  async function confirmImport() {
+    if (!incoming || importing) return;
+    setImporting(true);
     try {
-      if (sameContext(incoming, context)) {
-        cancelGesture();
-        apply(incoming.items);
-        setSelectedId(null);
-      } else {
-        finish();
-        writeProject(incoming);
+      finish();
+      await plans.flush();
+      const name = `导入方案 ${new Date().toLocaleString("zh-CN", { hour12: false }).replaceAll("/", "-")}`;
+      if (sameContext(incoming, context)) await plans.create(name, incoming.items);
+      else {
+        const store = new MapPlanStore(incoming, iconIds);
+        const legacy = readProject(incoming, iconIds);
+        await store.load(makeProject(incoming, legacy.items));
+        await store.create(name, incoming);
         openProject(incoming);
       }
       setIncoming(null);
     } catch {
       setNotice("无法保存导入的草稿，请先导出当前内容并检查浏览器空间");
+    } finally {
+      setImporting(false);
     }
   }
   function exportFile() {
@@ -790,9 +843,10 @@ export function MapEditor({
       const body = serializeProject(makeProject(context, items));
       downloadBlob(
         new Blob([body], { type: "application/json" }),
-        `${mapName}-${context.layoutId}-队伍${context.team}.wtmap.json`,
+        `${mapName}-${plans.active?.name || "走线"}-${context.layoutId}-队伍${context.team}.wtmap.json`,
       );
       setNotice("编辑文件已导出，可再次导入继续修改");
+      plans.markExported();
     } catch (error) {
       setNotice(error instanceof Error ? error.message : "编辑文件导出失败");
     }
@@ -808,7 +862,7 @@ export function MapEditor({
         if (!controller.signal.aborted) setBusy(`正在准备图层 ${loaded}/${total}`);
       });
       if (controller.signal.aborted) return;
-      downloadBlob(blob, `${mapName}-队伍${context.team}-走线.png`);
+      downloadBlob(blob, `${mapName}-队伍${context.team}-${plans.active?.name || "走线"}.png`);
       setNotice("图片已导出");
     } catch (error) {
       controller.abort();
@@ -828,8 +882,8 @@ export function MapEditor({
     createPortal(
       <g
         data-map-annotations="true"
-        data-active={active}
-        pointerEvents={active ? "auto" : "none"}
+        data-active={active && !plans.loading && !plans.working}
+        pointerEvents={active && !plans.loading && !plans.working ? "auto" : "none"}
         style={{
           cursor: active
             ? tool === "pan"
@@ -925,7 +979,12 @@ export function MapEditor({
     <>
       {rendered}
       <div className="map-editor-ui">
-        <div className="map-editor-tools" role="toolbar" aria-label="走线绘制工具">
+        <div
+          className="map-editor-tools"
+          role="toolbar"
+          aria-label="走线绘制工具"
+          inert={plans.loading || plans.working}
+        >
           {(
             [
               ["select", "选择", "↖"],
@@ -956,7 +1015,12 @@ export function MapEditor({
             </button>
           ))}
         </div>
-        <div className="map-editor-actions" role="toolbar" aria-label="地图编辑操作">
+        <div
+          className="map-editor-actions"
+          role="toolbar"
+          aria-label="地图编辑操作"
+          inert={plans.loading || plans.working}
+        >
           <button
             className="map-editor-exit"
             onClick={() => {
@@ -968,7 +1032,7 @@ export function MapEditor({
           </button>
           <strong className="map-editor-title" title={`${mapName} · 队伍 ${context.team}`}>
             {mapName}
-            <small>走线编辑</small>
+            <small>{plans.active?.name || "走线编辑"}</small>
           </strong>
           <button
             title="撤销 Ctrl+Z"
@@ -1018,6 +1082,7 @@ export function MapEditor({
           {(
             [
               ["style", "属性"],
+              ["plans", "方案"],
               ["layers", "图层"],
               ["map", "底图"],
               ["files", "导出"],
@@ -1063,13 +1128,15 @@ export function MapEditor({
                     ? "军事战术线"
                     : panel === "layers"
                       ? "标注图层"
-                      : panel === "files"
-                        ? "导入与导出"
-                        : panel === "map"
-                          ? "底图与布局"
-                          : selected
-                            ? annotationName(selected)
-                            : "绘制样式"}
+                      : panel === "plans"
+                        ? "走线方案"
+                        : panel === "files"
+                          ? "导入与导出"
+                          : panel === "map"
+                            ? "底图与布局"
+                            : selected
+                              ? annotationName(selected)
+                              : "绘制样式"}
               </strong>
               <button
                 className="map-editor-panel-close"
@@ -1150,15 +1217,36 @@ export function MapEditor({
                   ))}
                 </div>
               </>
+            ) : panel === "plans" ? (
+              <MapPlansPanel
+                library={plans.library}
+                disabled={plans.loading || plans.working}
+                saving={plans.saving}
+                error={plans.error}
+                choose={async (id) => {
+                  finish();
+                  await plans.select(id);
+                }}
+                action={async (kind, name) => {
+                  const items = finish();
+                  if (kind === "rename") await plans.rename(name);
+                  else await plans.create(name, kind === "copy" ? items : []);
+                }}
+                save={async () => {
+                  persist(finish());
+                  await plans.flush();
+                }}
+                remove={() => setDeletePlan(plans.active?.id || null)}
+              />
             ) : panel === "files" ? (
               <div className="map-editor-fields">
-                <p>每次修改自动保存到当前浏览器。导出编辑文件可在其他设备继续修改。</p>
+                <p>当前方案的修改自动保存到此浏览器。导出编辑文件可在其他设备继续修改。</p>
                 <button
                   onClick={() => {
                     persist(finish());
                   }}
                 >
-                  保存草稿
+                  保存当前方案
                 </button>
                 <button
                   onClick={() => {
@@ -1650,6 +1738,52 @@ export function MapEditor({
                       />
                     </label>
                     <label>
+                      字体
+                      <GameSelect
+                        value={selected.font || "sans"}
+                        disabled={selected.locked}
+                        onValueChange={(font) => {
+                          setSettings((value) => ({ ...value, font: font as MapFont }));
+                          patch({ font });
+                        }}
+                      >
+                        {mapFonts.map((font) => (
+                          <option key={font.id} value={font.id}>
+                            {font.name}
+                          </option>
+                        ))}
+                      </GameSelect>
+                    </label>
+                    <label>
+                      字重
+                      <GameSelect
+                        value={selected.fontWeight ?? 600}
+                        disabled={selected.locked}
+                        onValueChange={(weight) => {
+                          const fontWeight = Number(weight) as 400 | 600 | 700;
+                          setSettings((value) => ({ ...value, fontWeight }));
+                          patch({ fontWeight });
+                        }}
+                      >
+                        <option value={400}>常规</option>
+                        <option value={600}>半粗</option>
+                        <option value={700}>加粗</option>
+                      </GameSelect>
+                    </label>
+                    <label className="map-editor-check">
+                      <input
+                        type="checkbox"
+                        checked={!!selected.italic}
+                        disabled={selected.locked}
+                        onChange={(event) => {
+                          setSettings((value) => ({ ...value, italic: event.target.checked }));
+                          patch({ italic: event.target.checked });
+                        }}
+                      />
+                      斜体
+                    </label>
+                    <small>字体显示取决于设备中可用的字体，导出图片沿用当前设置。</small>
+                    <label>
                       字号
                       <input
                         type="range"
@@ -1764,7 +1898,7 @@ export function MapEditor({
             )}
           </aside>
         )}
-        <output className={`map-editor-status${storageError ? " is-error" : ""}`}>
+        <output className={`map-editor-status${storageError || plans.error ? " is-error" : ""}`}>
           {busy ? (
             <>
               {busy}
@@ -1792,7 +1926,16 @@ export function MapEditor({
                               : "选择标注编辑；按 Esc 取消选择"}
               </span>
               <span className="map-editor-save-state" aria-live="polite">
-                {notice}
+                {plans.loading
+                  ? "正在读取本地方案…"
+                  : plans.error ||
+                    (plans.working
+                      ? "正在切换方案…"
+                      : plans.saving
+                        ? "正在保存方案…"
+                        : plans.active
+                          ? `${plans.active.name} · ${notice}`
+                          : notice)}
               </span>
             </>
           )}
@@ -1801,14 +1944,59 @@ export function MapEditor({
       {incoming && (
         <Modal
           title="导入走线编辑文件"
-          close={() => setIncoming(null)}
+          close={() => {
+            if (!importing) setIncoming(null);
+          }}
           className="map-editor-import-dialog"
         >
           <p>{describeContext(incoming)}</p>
-          <p>包含 {incoming.items.length} 个标注。确认后将替换该地图、布局和队伍的本地草稿。</p>
+          <p>
+            包含 {incoming.items.length}{" "}
+            个标注。确认后将保存为该地图、布局和队伍下的新方案，已有方案会保留。
+          </p>
           <div className="map-editor-dialog-actions">
-            <button onClick={() => setIncoming(null)}>取消</button>
-            <button onClick={confirmImport}>导入并打开</button>
+            <button disabled={importing} onClick={() => setIncoming(null)}>
+              取消
+            </button>
+            <button
+              disabled={importing || plans.working || plans.loading}
+              onClick={() => void confirmImport()}
+            >
+              {importing ? "正在导入…" : "导入并打开"}
+            </button>
+          </div>
+        </Modal>
+      )}
+      {deletePlan && (
+        <Modal
+          title="删除走线方案"
+          close={() => setDeletePlan(null)}
+          className="map-editor-import-dialog"
+        >
+          <p>确认删除“{plans.active?.name}”？其他方案不受影响。需要保留时，请先导出编辑文件。</p>
+          <div className="map-editor-dialog-actions">
+            <button disabled={plans.working} onClick={() => setDeletePlan(null)}>
+              取消
+            </button>
+            <button
+              disabled={plans.working}
+              onClick={() => {
+                if (deletePlan !== plans.active?.id) {
+                  setDeletePlan(null);
+                  return;
+                }
+                finish();
+                void plans
+                  .remove()
+                  .then(() => {
+                    planHistories.current.delete(deletePlan);
+                    setDeletePlan(null);
+                  })
+                  .catch(() => {});
+              }}
+            >
+              删除方案
+            </button>
           </div>
         </Modal>
       )}
@@ -2052,8 +2240,9 @@ function AnnotationShape({
           y={anchor.y * 1000}
           fill={item.color}
           fontSize={item.fontSize * 1000}
-          fontWeight={600}
-          fontFamily="system-ui,sans-serif"
+          fontWeight={item.fontWeight ?? 600}
+          fontFamily={fontFamily(item.font)}
+          fontStyle={item.italic ? "italic" : "normal"}
           dominantBaseline="text-before-edge"
           stroke="#171c22"
           strokeWidth={item.fontSize * 120}
