@@ -15,7 +15,8 @@
         "vehicleMetadata": "data/trees.json",
         "names": "data/localization.json",
         "vehicleIdJoin": "Case-insensitive exact match against canonical tree IDs; original statistics ID retained",
-        "missingValues": "null; never inferred as zero"
+        "missingValues": "null; never inferred as zero",
+        "unavailableSentinels": "Negative leaderboard sentinels normalized to null"
       },
       "capturedAt": "2026-10-21T09:27:57.117051+00:00",
       "countries": [
@@ -155,7 +156,7 @@
           "sorties": null,
           "groundKills": null,
           "airKills": null,
-          "deaths": -2.0,
+          "deaths": null,
           "branches": []
         }
       },
@@ -927,7 +928,8 @@
         "vehicleMetadata": "data/trees.json",
         "names": "data/localization.json",
         "vehicleIdJoin": "Case-insensitive exact match against canonical tree IDs; original statistics ID retained",
-        "missingValues": "null; never inferred as zero"
+        "missingValues": "null; never inferred as zero",
+        "unavailableSentinels": "Negative leaderboard sentinels normalized to null"
       },
       "capturedAt": "2026-10-21T11:01:25.603589+00:00",
       "countries": [
