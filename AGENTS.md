@@ -267,3 +267,10 @@
   this causes returning inner spurs and abrupt outer joins. Preserve straight-line
   width when redundant or duplicate anchors are present; use the same path for
   SVG previews, live annotations and PNG export.
+
+- Use `GameSelect` for shared game-themed dropdowns, including expanded options.
+  Preserve grouped/disabled choices, numeric value conversions and keyboard access.
+  Menus use the Popover top layer inside their owning native dialog when present;
+  do not replace them with browser-native option menus or body portals behind dialogs.
+- Selecting an annotation or finishing a new one opens its floating properties.
+  Keep the close control visually compact and never resize the canvas for the panel.

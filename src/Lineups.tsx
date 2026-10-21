@@ -1,3 +1,4 @@
+import { GameSelect } from "./components/GameSelect";
 import {
   LineupSummary,
   LineupSummaryRatings,
@@ -68,7 +69,7 @@ export function Lineups({
             国家
             <span className={`lineup-country-select ${country ? "has-flag" : ""}`}>
               {country && <img src={catalog.flags[country]} alt="" width={24} height={18} />}
-              <select value={country} onChange={(e) => chooseCountry(e.target.value)}>
+              <GameSelect value={country} onValueChange={(value) => chooseCountry(value)}>
                 <option value="" disabled>
                   选择国家
                 </option>
@@ -77,18 +78,18 @@ export function Lineups({
                     {name}
                   </option>
                 ))}
-              </select>
+              </GameSelect>
             </span>
           </label>
           <label className="calc-field lineup-mode-field">
             卡片权重
-            <select value={mode} onChange={(e) => setMode(e.target.value as Mode)}>
+            <GameSelect value={mode} onValueChange={(value) => setMode(value as Mode)}>
               {Object.entries(modes).map(([id, name]) => (
                 <option key={id} value={id}>
                   {name} {id.toUpperCase()}
                 </option>
               ))}
-            </select>
+            </GameSelect>
           </label>
           <button
             className="quiet-button lineup-import-action"
@@ -631,16 +632,16 @@ function CountryLineups({
               </label>
               <label className="calc-field">
                 战斗类型
-                <select
+                <GameSelect
                   value={selected.battleType}
-                  onChange={(e) => update({ battleType: e.target.value as BattleType })}
+                  onValueChange={(value) => update({ battleType: value as BattleType })}
                 >
                   {Object.entries(battleNames).map(([id, label]) => (
                     <option key={id} value={id}>
                       {label}
                     </option>
                   ))}
-                </select>
+                </GameSelect>
               </label>
               <details key={selected.id} className="lineup-editor-more">
                 <summary>更多操作</summary>
@@ -721,16 +722,16 @@ function CountryLineups({
                 <h3>为槽位 {activeSlot + 1} 选择载具</h3>
                 <label className="calc-field">
                   当前槽位
-                  <select
+                  <GameSelect
                     value={activeSlot}
-                    onChange={(e) => setActiveSlot(Number(e.target.value))}
+                    onValueChange={(value) => setActiveSlot(Number(value))}
                   >
                     {selected.slots.map((id, i) => (
                       <option key={i} value={i}>
                         {i + 1} · {id ? units.get(id)?.name || id : "空槽位"}
                       </option>
                     ))}
-                  </select>
+                  </GameSelect>
                 </label>
                 <button
                   className="quiet-button"
@@ -769,36 +770,36 @@ function CountryLineups({
                 >
                   <label className="calc-field">
                     军种
-                    <select value={category} onChange={(e) => setCategory(e.target.value)}>
+                    <GameSelect value={category} onValueChange={(value) => setCategory(value)}>
                       <option value="all">全部军种</option>
                       {Object.entries(catalog.categories).map(([id, label]) => (
                         <option key={id} value={id}>
                           {label}
                         </option>
                       ))}
-                    </select>
+                    </GameSelect>
                   </label>
                   <label className="calc-field">
                     等级
-                    <select value={rank} onChange={(e) => setRank(e.target.value)}>
+                    <GameSelect value={rank} onValueChange={(value) => setRank(value)}>
                       <option value="all">全部 Rank</option>
                       {ranks.map((value) => (
                         <option key={value} value={value}>
                           Rank {value}
                         </option>
                       ))}
-                    </select>
+                    </GameSelect>
                   </label>
                   <label className="calc-field">
                     载具类型
-                    <select value={kind} onChange={(e) => setKind(e.target.value)}>
+                    <GameSelect value={kind} onValueChange={(value) => setKind(value)}>
                       <option value="all">全部类型</option>
                       {Object.entries(catalog.lineupKinds).map(([id, label]) => (
                         <option key={id} value={id}>
                           {label}
                         </option>
                       ))}
-                    </select>
+                    </GameSelect>
                   </label>
                 </div>
                 <p className="calc-note">

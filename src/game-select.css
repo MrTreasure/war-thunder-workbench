@@ -1,0 +1,144 @@
+/* finesse · component: game-select · register=product
+ * states: default · hover · focus-visible · active · disabled · expanded · selected
+ * tokens: inherited War Thunder charcoal metal and service gold */
+.wt-select.wt-select {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+  max-width: 100%;
+  padding-inline: 10px;
+  border: 1px solid var(--wt-strong-line);
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--wt-panel), var(--wt-surface));
+  color: var(--wt-ink);
+  box-shadow:
+    inset 0 1px 0 var(--wt-line),
+    inset 0 -1px 0 var(--wt-page);
+  text-align: start;
+  line-height: 1.4;
+  cursor: pointer;
+}
+.wt-select-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wt-select-chevron {
+  flex: 0 0 12px;
+  color: var(--wt-gold);
+}
+.wt-select.wt-select[aria-expanded="true"] {
+  border-color: var(--wt-gold);
+  background: linear-gradient(180deg, var(--wt-raised), var(--wt-surface));
+}
+.wt-select[aria-expanded="true"] .wt-select-chevron {
+  transform: rotate(180deg);
+}
+.wt-select.wt-select:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 2px;
+}
+.wt-select.wt-select:active {
+  background: var(--wt-surface);
+  box-shadow: inset 0 2px 4px var(--wt-page);
+}
+.wt-select.wt-select:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.wt-select-menu {
+  position: fixed;
+  inset: auto;
+  width: max-content;
+  max-width: min(480px, calc(100vw - 16px));
+  margin: 0;
+  padding: 4px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--wt-wire) var(--wt-surface);
+  border: 1px solid var(--wt-gold-line);
+  border-radius: 2px;
+  background: linear-gradient(145deg, var(--wt-panel), var(--wt-surface) 65%);
+  box-shadow:
+    inset 0 1px 0 var(--wt-strong-line),
+    var(--wt-shadow);
+  color: var(--wt-ink);
+  font: 13px/1.4 var(--wt-sans);
+  z-index: 100;
+}
+.wt-select-menu::backdrop {
+  background: transparent;
+}
+.wt-select-group {
+  padding: 8px 10px 5px;
+  color: var(--wt-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+.wt-select-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 6px 9px;
+  border: 1px solid transparent;
+  border-radius: 1px;
+  cursor: pointer;
+  user-select: none;
+}
+.wt-select-option > span:last-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wt-select-check {
+  flex: 0 0 13px;
+  color: var(--wt-gold);
+}
+.wt-select-option[aria-selected="true"] {
+  color: var(--wt-gold);
+  background: var(--wt-gold-soft);
+}
+.wt-select-option[data-active="true"] {
+  border-color: var(--wt-gold-line);
+  background: var(--wt-accent-soft);
+}
+.wt-select-option[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.wt-select-option:not([aria-disabled="true"]):active {
+  background: var(--wt-raised);
+}
+@media (hover: hover) {
+  .wt-select.wt-select:not(:disabled):hover {
+    border-color: var(--wt-gold-line);
+    background: linear-gradient(180deg, var(--wt-raised), var(--wt-panel));
+  }
+}
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-select.wt-select {
+    min-height: 44px;
+    font-size: 16px;
+  }
+  .wt-select-option {
+    min-height: 44px;
+    font-size: 16px;
+  }
+  .mobile-page-navigation .wt-select.wt-select {
+    justify-content: center;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    text-align: center;
+  }
+  .mobile-page-navigation .wt-select-chevron {
+    display: none;
+  }
+}

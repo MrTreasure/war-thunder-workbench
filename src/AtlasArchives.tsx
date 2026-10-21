@@ -1,3 +1,4 @@
+import { GameSelect } from "./components/GameSelect";
 import { useState } from "react";
 import library from "../data/map-collections.json";
 
@@ -99,14 +100,14 @@ function ArchiveCollection({ collection }: { collection: Collection }) {
           </label>
           <label>
             <span className="sr-only">旧版文章类型</span>
-            <select value={category} onChange={(event) => setCategory(event.target.value)}>
+            <GameSelect value={category} onValueChange={(value) => setCategory(value)}>
               <option value="all">全部文章</option>
               {Object.entries(library.categoryLabels).map(([id, label]) => (
                 <option key={id} value={id}>
                   {label}
                 </option>
               ))}
-            </select>
+            </GameSelect>
           </label>
         </div>
         <div className="atlas-archive-count">

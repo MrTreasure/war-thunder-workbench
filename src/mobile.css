@@ -347,7 +347,7 @@
     gap: 6px;
     font-size: 12px;
   }
-  .tool-panel .compact-field select {
+  .tool-panel .compact-field :is(select, .wt-select) {
     width: 100%;
     min-width: 0;
     max-width: none;
@@ -487,7 +487,7 @@
     font-size: 13px;
     padding: 8px 10px;
   }
-  .calculator :is(input:not([type="checkbox"]), select) {
+  .calculator :is(input:not([type="checkbox"]), :is(select, .wt-select)) {
     min-height: 44px;
     height: 44px;
     font-size: 16px;
@@ -597,7 +597,7 @@
   .vehicle-route-list.is-editing .vehicle-route-row > strong {
     grid-column: 3;
   }
-  .vehicle-config .calc-owned-row > select {
+  .vehicle-config .calc-owned-row > :is(select, .wt-select) {
     width: 90px;
   }
   .vehicle-gate-check .calc-gate-row {
@@ -663,7 +663,7 @@
     padding: 0 env(safe-area-inset-right, 0px) max(20px, env(safe-area-inset-bottom, 0px))
       env(safe-area-inset-left, 0px);
   }
-  .lineup-page :is(input:not([type="radio"]), select) {
+  .lineup-page :is(input:not([type="radio"]), :is(select, .wt-select)) {
     font-size: 16px;
   }
   .lineup-content {
@@ -721,7 +721,7 @@
     flex-wrap: wrap;
     min-width: 0;
   }
-  .lineup-saved .lineup-inline-label select {
+  .lineup-saved .lineup-inline-label :is(select, .wt-select) {
     flex: 1;
     min-width: 0;
   }
@@ -860,7 +860,7 @@
   .lineup-country-select img {
     display: none;
   }
-  .lineup-country-select.has-flag select {
+  .lineup-country-select.has-flag :is(select, .wt-select) {
     padding-left: 10px;
   }
   .tool-panel .category-tabs {
@@ -973,7 +973,7 @@
   .ground-controls label:first-child {
     grid-column: auto;
   }
-  .ground-controls select {
+  .ground-controls :is(select, .wt-select) {
     max-width: none;
     width: 100%;
     padding: 8px;
@@ -1041,6 +1041,8 @@
     gap: 1px;
   }
   .map-editor-actions button {
+    min-height: 44px;
+    min-width: 36px;
     padding: 5px 7px;
     font-size: 12px;
   }

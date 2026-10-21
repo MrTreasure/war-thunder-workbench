@@ -147,7 +147,7 @@
 .search input {
   font-size: 11px;
 }
-select,
+:is(select, .wt-select),
 .quiet-button,
 .zoom-control,
 .country-trigger {
@@ -409,7 +409,7 @@ select,
   background: #1d252e;
 }
 .calculator input:not([type="checkbox"]),
-.calculator select {
+.calculator :is(select, .wt-select) {
   border-radius: 2px;
   background: #1b242d;
   border-color: #52616c;
@@ -619,7 +619,7 @@ select,
   font-size: 12px;
 }
 .vehicle-calculator input:not([type="checkbox"]),
-.vehicle-calculator select {
+.vehicle-calculator :is(select, .wt-select) {
   height: 36px;
 }
 .vehicle-ready {
@@ -668,7 +668,7 @@ select,
 .vehicle-config .calc-owned-rank h4 {
   position: static;
 }
-.vehicle-config .calc-owned-row > select {
+.vehicle-config .calc-owned-row > :is(select, .wt-select) {
   width: 72px;
 }
 .vehicle-gate-settings h4 {
@@ -832,11 +832,11 @@ select,
   font-size: 12px;
   line-height: 1.7;
 }
-.vehicle-calculator :is(input, select, button, summary):focus-visible {
+.vehicle-calculator :is(input, :is(select, .wt-select), button, summary):focus-visible {
   outline: 2px solid var(--wt-accent);
   outline-offset: 3px;
 }
-.vehicle-calculator :is(input, select):disabled {
+.vehicle-calculator :is(input, :is(select, .wt-select)):disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
@@ -852,8 +852,8 @@ select,
 }
 
 /* Shared controls: reserve a separate inset arrow area on every native select. */
-select,
-.calculator select {
+:is(select, .wt-select),
+.calculator :is(select, .wt-select) {
   appearance: none;
   -webkit-appearance: none;
   padding-inline: 10px 34px;
@@ -869,8 +869,8 @@ select,
   text-overflow: ellipsis;
   cursor: pointer;
 }
-select option,
-select optgroup {
+:is(select, .wt-select) option,
+:is(select, .wt-select) optgroup {
   background: var(--wt-panel);
   color: var(--wt-ink);
 }
@@ -893,11 +893,11 @@ select optgroup {
   text-align: center;
 }
 button:disabled,
-select:disabled {
+:is(select, .wt-select):disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
-:is(button, select, .country-trigger):focus-visible {
+:is(button, :is(select, .wt-select), .country-trigger):focus-visible {
   outline: 2px solid var(--wt-accent);
   outline-offset: 3px;
 }
@@ -920,7 +920,7 @@ select:disabled {
   grid-column: 1 / -1;
 }
 @media (hover: hover) {
-  select:not(:disabled):hover {
+  :is(select, .wt-select):not(:disabled):hover {
     background-color: var(--wt-raised);
     border-color: var(--wt-wire);
   }

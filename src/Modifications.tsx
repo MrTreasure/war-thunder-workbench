@@ -1,3 +1,4 @@
+import { GameSelect } from "./components/GameSelect";
 import { useState } from "react";
 import type { CartItem, Catalog, Modifications, Tree, Vehicle } from "./models";
 import { Modal, Metrics } from "./Modal";
@@ -55,7 +56,7 @@ export function ModificationCalculator({
         selector={
           <label className="calc-field">
             目标载具
-            <select value={target} onChange={(e) => setTarget(e.target.value)}>
+            <GameSelect value={target} onValueChange={(value) => setTarget(value)}>
               {tree.ranks.map((rank) => (
                 <optgroup key={rank.rank} label={`Rank ${rank.rank}`}>
                   {[...index.units.values()]
@@ -68,7 +69,7 @@ export function ModificationCalculator({
                     ))}
                 </optgroup>
               ))}
-            </select>
+            </GameSelect>
           </label>
         }
       />

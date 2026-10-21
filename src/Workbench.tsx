@@ -1,3 +1,4 @@
+import { GameSelect } from "./components/GameSelect";
 import { Component, createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { useRouterState } from "@tanstack/react-router";
 import type { ReactNode } from "react";
@@ -511,24 +512,24 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
               </div>
               <label className="compact-field">
                 高亮权重
-                <select value={mode} onChange={(e) => setMode(e.target.value as Mode)}>
+                <GameSelect value={mode} onValueChange={(value) => setMode(value as Mode)}>
                   {(Object.entries(modes) as [Mode, string][]).map(([id, name]) => (
                     <option value={id} key={id}>
                       {name} {id.toUpperCase()}
                     </option>
                   ))}
-                </select>
+                </GameSelect>
               </label>
               <label className="compact-field">
                 右侧载具
-                <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+                <GameSelect value={filter} onValueChange={(value) => setFilter(value)}>
                   <option value="all">全部特殊载具</option>
                   <option value="premium">高级载具</option>
                   <option value="gold">金币车</option>
                   <option value="pack">礼包车</option>
                   <option value="squadron">联队载具</option>
                   <option value="other">活动 / 其他</option>
-                </select>
+                </GameSelect>
               </label>
               <button className="quiet-button calc-open" disabled={!tree} onClick={openParts}>
                 研发配件

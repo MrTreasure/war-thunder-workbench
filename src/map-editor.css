@@ -2,10 +2,10 @@
  * D=direct-endpoint-editing · E=existing-game-maps · SOUL=5 SPECTACLE=2 DENSITY=9 */
 .ground-edit-toggle,
 .map-editor-ui button,
-.map-editor-ui select,
+.map-editor-ui :is(select, .wt-select),
 .map-editor-dialog-actions button {
-  min-height: 44px;
-  padding: 8px 12px;
+  min-height: 32px;
+  padding: 5px 10px;
   border: 1px solid #68747c80;
   border-radius: 5px;
   background: var(--wt-surface);
@@ -65,7 +65,7 @@
 .ground-stage[data-editing="true"] {
   display: grid;
   grid-template-columns: 60px minmax(0, 1fr);
-  grid-template-rows: 48px minmax(0, 1fr) 44px;
+  grid-template-rows: 40px minmax(0, 1fr) 44px;
   width: 100%;
   height: 100%;
   border: 0;
@@ -127,8 +127,8 @@
   flex: none;
 }
 .map-editor-actions button {
-  min-width: 44px;
-  padding: 6px 10px;
+  min-width: 32px;
+  padding: 4px 8px;
   border-color: transparent;
 }
 .map-editor-actions .map-editor-exit {
@@ -191,7 +191,7 @@
 .map-editor-inspector {
   position: absolute;
   z-index: 6;
-  top: 58px;
+  top: 50px;
   right: 12px;
   width: min(300px, calc(100% - 84px));
   min-height: 0;
@@ -213,7 +213,7 @@
   display: grid;
   gap: 6px;
 }
-.map-editor-inspector .ground-controls select {
+.map-editor-inspector .ground-controls :is(select, .wt-select) {
   width: 100%;
 }
 .map-editor-inspector .ground-layer-toggles {
@@ -237,8 +237,31 @@
   white-space: nowrap;
 }
 .map-editor-inspector > header button {
-  padding: 6px;
-  min-width: 44px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  min-height: 28px;
+  min-width: 28px;
+  flex: none;
+  padding: 0;
+  border-color: transparent;
+  border-radius: 2px;
+  background: transparent;
+  font-size: 20px;
+  line-height: 1;
+}
+.map-editor-panel-close::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+}
+@media (hover: hover) {
+  .map-editor-inspector > header button:hover {
+    color: var(--wt-gold);
+    background: var(--wt-accent-soft);
+  }
 }
 .map-editor-inspector p {
   color: var(--wt-muted);

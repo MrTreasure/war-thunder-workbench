@@ -11,6 +11,7 @@
 @import "./ground-maps.css";
 @import "./map-editor.css";
 @import "./mobile.css";
+@import "./game-select.css";
 @source "../src";
 
 @custom-variant dark (&:is(.dark *));

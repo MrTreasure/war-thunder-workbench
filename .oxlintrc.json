@@ -8,6 +8,12 @@
   "categories": {
     "correctness": "error"
   },
+  "rules": {
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      { "controlComponents": ["GameSelect"] }
+    ]
+  },
   "env": {
     "browser": true,
     "es2022": true

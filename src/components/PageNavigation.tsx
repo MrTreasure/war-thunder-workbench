@@ -1,3 +1,4 @@
+import { GameSelect } from "./GameSelect";
 import { guidesEnabled } from "../features";
 export function PageNavigation({ page }: { page: "tree" | "lineups" | "maps" }) {
   const enabled = guidesEnabled();
@@ -17,11 +18,11 @@ export function PageNavigation({ page }: { page: "tree" | "lineups" | "maps" }) 
         )}
       </nav>
       <nav className="mobile-page-navigation" aria-label="工具页面">
-        <select
+        <GameSelect
           aria-label="切换页面"
           value={page}
-          onChange={(event) => {
-            const next = event.target.value;
+          onValueChange={(value) => {
+            const next = value;
             if (
               (next === "tree" || next === "lineups" || (enabled && next === "maps")) &&
               next !== page
@@ -32,7 +33,7 @@ export function PageNavigation({ page }: { page: "tree" | "lineups" | "maps" }) 
           <option value="tree">科技树</option>
           <option value="lineups">出击队列</option>
           {enabled && <option value="maps">陆战地图</option>}
-        </select>
+        </GameSelect>
       </nav>
     </>
   );

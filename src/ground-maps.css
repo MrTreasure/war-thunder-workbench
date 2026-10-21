@@ -174,14 +174,14 @@
 .ground-detail-toolbar {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
   flex-wrap: wrap;
   min-width: 0;
 }
 .ground-map-identity {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
   min-width: 0;
 }
 .ground-map-identity h1 {
@@ -240,7 +240,7 @@
   font-size: 12px;
   max-width: 100%;
 }
-.ground-controls select {
+.ground-controls :is(select, .wt-select) {
   background: var(--wt-surface);
   color: var(--wt-ink);
   border: 1px solid #68747c70;
@@ -254,9 +254,26 @@
 }
 .ground-layer-toggles {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
   margin-left: auto;
+}
+@media (min-width: 801px) and (pointer: fine) {
+  .ground-detail-toolbar :is(button, .wt-select, .ground-back, .ground-original) {
+    min-height: 32px;
+    font-size: 12px;
+    border-radius: 2px;
+  }
+  .ground-detail-toolbar :is(button, .wt-select) {
+    padding: 5px 9px;
+  }
+  .ground-detail-toolbar .ground-controls :is(select, .wt-select) {
+    font-size: 13px;
+    padding-block: 5px;
+  }
+  .ground-detail-toolbar .ground-map-identity h1 {
+    font-size: 18px;
+  }
 }
 .ground-stage {
   position: relative;

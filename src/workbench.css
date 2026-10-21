@@ -35,12 +35,12 @@ body {
 }
 button,
 input,
-select {
+:is(select, .wt-select) {
   font: inherit;
 }
 button,
 a,
-select,
+:is(select, .wt-select),
 input {
   -webkit-tap-highlight-color: transparent;
 }
@@ -56,14 +56,14 @@ a {
 }
 button:focus-visible,
 a:focus-visible,
-select:focus-visible,
+:is(select, .wt-select):focus-visible,
 input:focus-visible,
 main:focus-visible {
   outline: 2px solid var(--wt-accent);
   outline-offset: 4px;
 }
 button,
-select {
+:is(select, .wt-select) {
   white-space: nowrap;
 }
 button {
@@ -247,7 +247,7 @@ kbd {
   font-size: 11px;
   color: var(--wt-muted);
 }
-select {
+:is(select, .wt-select) {
   height: 34px;
   max-width: 200px;
   padding: 0 25px 0 9px;
@@ -982,7 +982,7 @@ body.is-fullscreen .detail {
   .compact-field {
     gap: 5px;
   }
-  .compact-field > select {
+  .compact-field > :is(select, .wt-select) {
     max-width: 150px;
     height: 30px;
   }
@@ -1200,7 +1200,7 @@ h1 {
   font-size: 10px;
   gap: 5px;
 }
-select {
+:is(select, .wt-select) {
   height: 29px;
   font-size: 10px;
   max-width: 180px;
@@ -1321,7 +1321,7 @@ select {
     flex-basis: 100%;
     max-width: none;
   }
-  .compact-field select {
+  .compact-field :is(select, .wt-select) {
     max-width: 150px;
   }
   .fullscreen-button {
@@ -1512,7 +1512,7 @@ select {
   flex-shrink: 0;
 }
 .calculator input:not([type="checkbox"]),
-.calculator select {
+.calculator :is(select, .wt-select) {
   width: 100%;
   min-width: 0;
   height: 32px;
@@ -1629,7 +1629,7 @@ select {
 .calc-owned-row > .calc-unit-label {
   flex: 1;
 }
-.calc-owned-row > select {
+.calc-owned-row > :is(select, .wt-select) {
   width: 66px;
   flex: none;
 }
@@ -1746,7 +1746,7 @@ select {
 #root {
   min-height: 100dvh;
 }
-.calc-inputs select {
+.calc-inputs :is(select, .wt-select) {
   max-width: none;
 }
 .cart-content {

@@ -1,3 +1,4 @@
+import { GameSelect } from "./components/GameSelect";
 import { useMemo, useState } from "react";
 import type { CartItem, Catalog, Profile, Tree } from "./models";
 import { branchOwned, calculate, indexTree, prerequisitePath, rankNumber } from "./planner";
@@ -183,12 +184,12 @@ export function VehicleCalculator({
             <h3>目标与单价</h3>
             <label className="calc-field">
               目标载具
-              <select
+              <GameSelect
                 value={state.target}
-                onChange={(e) => {
+                onValueChange={(value) => {
                   setDrafts({});
                   setProgressDraft("0");
-                  update({ target: e.target.value, progress: 0 });
+                  update({ target: value, progress: 0 });
                 }}
               >
                 {tree.ranks.map((rank) => (
@@ -202,7 +203,7 @@ export function VehicleCalculator({
                       ))}
                   </optgroup>
                 ))}
-              </select>
+              </GameSelect>
             </label>
             <label className="calc-field">
               每万研发点单价（元）
@@ -222,11 +223,11 @@ export function VehicleCalculator({
             <h3>账号进度</h3>
             <label className="calc-field">
               这条线路已拥有到哪辆车？
-              <select
+              <GameSelect
                 value={reached?.id || ""}
-                onChange={(e) =>
+                onValueChange={(value) =>
                   update({
-                    owned: branchOwned(index, state.target, state.owned, e.target.value),
+                    owned: branchOwned(index, state.target, state.owned, value),
                   })
                 }
               >
@@ -237,7 +238,7 @@ export function VehicleCalculator({
                   </option>
                 ))}
                 <option value={state.target}>目标载具也已拥有（待研 0）</option>
-              </select>
+              </GameSelect>
             </label>
             <p className="calc-note">选择已购车辆，会将本线到该车的前置一并记为已有。</p>
             <button
@@ -263,9 +264,9 @@ export function VehicleCalculator({
             </button>
             <label className="calc-field">
               已开放等级 / 计价起点
-              <select
+              <GameSelect
                 value={state.unlocked}
-                onChange={(e) => update({ unlocked: Number(e.target.value) })}
+                onValueChange={(value) => update({ unlocked: Number(value) })}
               >
                 <option value={0}>
                   自动识别：Rank{" "}
@@ -277,7 +278,7 @@ export function VehicleCalculator({
                     从 Rank {rank.rank} 计价
                   </option>
                 ))}
-              </select>
+              </GameSelect>
             </label>
             <p className="calc-note">
               手动选择后，低于该等级的载具均跳过计价；本级及以上前置与数量补位照常计算，不修改真实已有记录。自动识别时按真实已有载具计算。
@@ -325,23 +326,23 @@ export function VehicleCalculator({
                 />
                 <label className="calc-field">
                   载具类型
-                  <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+                  <GameSelect value={filter} onValueChange={(value) => setFilter(value)}>
                     <option value="all">全部载具</option>
                     <option value="research">常规研发</option>
                     {tab === "owned" && <option value="special">金币 / 特殊</option>}
                     <option value="checked">已勾选</option>
-                  </select>
+                  </GameSelect>
                 </label>
                 <label className="calc-field">
                   等级
-                  <select value={rankFilter} onChange={(e) => setRankFilter(e.target.value)}>
+                  <GameSelect value={rankFilter} onValueChange={(value) => setRankFilter(value)}>
                     <option value="all">全部等级</option>
                     {tree.ranks.map((rank) => (
                       <option key={rank.rank} value={rank.rank}>
                         Rank {rank.rank}
                       </option>
                     ))}
-                  </select>
+                  </GameSelect>
                 </label>
               </div>
               <p className="calc-note">
@@ -379,7 +380,7 @@ export function VehicleCalculator({
                               </small>
                             </span>
                             {tab === "route" && (
-                              <select
+                              <GameSelect
                                 aria-label={`${unit.name} 补研策略`}
                                 disabled={
                                   state.owned.includes(unit.id) || unit.rankNumber > targetRank
@@ -391,15 +392,15 @@ export function VehicleCalculator({
                                       ? "ban"
                                       : "auto"
                                 }
-                                onChange={(e) =>
+                                onValueChange={(value) =>
                                   update({
                                     pins: [
                                       ...state.pins.filter((id) => id !== unit.id),
-                                      ...(e.target.value === "pin" ? [unit.id] : []),
+                                      ...(value === "pin" ? [unit.id] : []),
                                     ],
                                     banned: [
                                       ...state.banned.filter((id) => id !== unit.id),
-                                      ...(e.target.value === "ban" ? [unit.id] : []),
+                                      ...(value === "ban" ? [unit.id] : []),
                                     ],
                                   })
                                 }
@@ -407,7 +408,7 @@ export function VehicleCalculator({
                                 <option value="auto">自动</option>
                                 <option value="pin">指定</option>
                                 <option value="ban">排除</option>
-                              </select>
+                              </GameSelect>
                             )}
                           </label>
                         ))}

@@ -1,5 +1,6 @@
 /* Interactive SVG drawing surface has keyboard alternatives in the HTML object list. */
 /* oxlint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex */
+import { GameSelect } from "./components/GameSelect";
 import { useEffect, useEffectEvent, useImperativeHandle, useRef, useState } from "react";
 import type { CSSProperties, PointerEvent, ReactNode, Ref } from "react";
 import { createPortal } from "react-dom";
@@ -235,6 +236,7 @@ export function MapEditor({
       result = [...result, stroke];
       setSelectedId(stroke.id);
       setSelectedPoint(null);
+      setPanel("style");
       if (tool !== "pen") setTool("select");
     }
     if (result !== historyRef.current.present) apply(result);
@@ -249,10 +251,12 @@ export function MapEditor({
     apply([...historyRef.current.present, item]);
     setSelectedId(item.id);
     setSelectedPoint(null);
+    setPanel("style");
   }
   function select(item: Annotation) {
     setSelectedId(item.id);
     setSelectedPoint(null);
+    setPanel("style");
   }
   function patch(changes: Record<string, unknown>, group?: string) {
     if (!selected || selected.locked) return;
@@ -628,7 +632,9 @@ export function MapEditor({
     if (
       !active ||
       document.querySelector("dialog[open]") ||
-      (e.target as HTMLElement)?.closest("input,textarea,select,[contenteditable=true]")
+      (e.target as HTMLElement)?.closest(
+        "input,textarea,select,[role=combobox],[role=listbox],[contenteditable=true]",
+      )
     )
       return;
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z") {
@@ -1066,6 +1072,7 @@ export function MapEditor({
                             : "绘制样式"}
               </strong>
               <button
+                className="map-editor-panel-close"
                 aria-label="收起编辑面板"
                 onClick={() => {
                   setPanel(null);
@@ -1164,13 +1171,13 @@ export function MapEditor({
                 <button onClick={exportFile}>导出编辑文件</button>
                 <label>
                   图片尺寸
-                  <select
+                  <GameSelect
                     value={resolution}
-                    onChange={(e) => setResolution(Number(e.target.value))}
+                    onValueChange={(value) => setResolution(Number(value))}
                   >
                     <option value={2048}>2K 图片</option>
                     <option value={4096}>4K 图片</option>
-                  </select>
+                  </GameSelect>
                 </label>
                 <button disabled={!!busy} onClick={() => void exportPng()}>
                   导出图片
@@ -1319,15 +1326,15 @@ export function MapEditor({
                 {!selected && (tool === "shape" || tool === "danger") && (
                   <label>
                     形状
-                    <select
+                    <GameSelect
                       value={tool === "danger" ? "danger" : shapeKind}
-                      onChange={(e) => {
-                        if (e.target.value === "danger") {
+                      onValueChange={(value) => {
+                        if (value === "danger") {
                           chooseTool("danger");
                           return;
                         }
                         finish();
-                        setShapeKind(e.target.value as ShapeAnnotation["shape"]);
+                        setShapeKind(value as ShapeAnnotation["shape"]);
                         setTool("shape");
                       }}
                     >
@@ -1335,7 +1342,7 @@ export function MapEditor({
                       <option value="ellipse">椭圆 / 圆</option>
                       <option value="polygon">可编辑多边形</option>
                       <option value="danger">危险区域（多边形）</option>
-                    </select>
+                    </GameSelect>
                     <small>拖出范围后，拖动控制点调整形状。</small>
                   </label>
                 )}
@@ -1390,13 +1397,11 @@ export function MapEditor({
                         <p>拖实心点调整，拖空心中点加拐点。双击拐点可删除。</p>
                         <label>
                           编辑端点 / 拐点
-                          <select
+                          <GameSelect
                             value={selectedPoint ?? ""}
                             disabled={selected.locked}
-                            onChange={(e) =>
-                              setSelectedPoint(
-                                e.target.value === "" ? null : Number(e.target.value),
-                              )
+                            onValueChange={(value) =>
+                              setSelectedPoint(value === "" ? null : Number(value))
                             }
                           >
                             <option value="">整体移动</option>
@@ -1411,7 +1416,7 @@ export function MapEditor({
                                       : `拐点 ${i}`}
                               </option>
                             ))}
-                          </select>
+                          </GameSelect>
                         </label>
                         <div className="map-editor-selection-actions">
                           <button
@@ -1457,17 +1462,15 @@ export function MapEditor({
                       <>
                         <label>
                           战术线样式
-                          <select
+                          <GameSelect
                             value={
                               selected?.kind === "path"
                                 ? selected.lineStyle || (selected.dashed ? "dashed" : "solid")
                                 : settings.lineStyle
                             }
                             disabled={selected?.locked}
-                            onChange={(e) => {
-                              const lineStyle = e.target.value as NonNullable<
-                                RouteAnnotation["lineStyle"]
-                              >;
+                            onValueChange={(value) => {
+                              const lineStyle = value as NonNullable<RouteAnnotation["lineStyle"]>;
                               setSettings((s) => ({ ...s, lineStyle }));
                               if (selected?.kind === "path")
                                 patch({ lineStyle, dashed: lineStyle === "dashed" });
@@ -1482,7 +1485,7 @@ export function MapEditor({
                             <option value="antitank">三角齿 / 反坦克壕线</option>
                             <option value="advance">中空宽箭头 / 进攻轴线</option>
                             <option value="barrier">交叉 / 障碍封锁线</option>
-                          </select>
+                          </GameSelect>
                         </label>
                         <button onClick={() => setPanel("lines")}>查看全部战术线型</button>
                         {selected?.kind === "path" && (
@@ -1521,14 +1524,14 @@ export function MapEditor({
                         {selected.arrow && selected.lineStyle !== "advance" && (
                           <label>
                             箭头形式
-                            <select
+                            <GameSelect
                               value={selected.arrowHead || "filled"}
                               disabled={selected.locked}
-                              onChange={(e) => patch({ arrowHead: e.target.value })}
+                              onValueChange={(value) => patch({ arrowHead: value })}
                             >
                               <option value="open">军事方向箭头（开口）</option>
                               <option value="filled">实心箭头</option>
-                            </select>
+                            </GameSelect>
                           </label>
                         )}
                       </>

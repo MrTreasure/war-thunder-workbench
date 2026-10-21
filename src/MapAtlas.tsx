@@ -1,5 +1,6 @@
 /* Interactive SVG map owns arrow-key pan and Home reset; native HTML has no map widget. */
 /* oxlint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex */
+import { GameSelect } from "./components/GameSelect";
 import { useEffect, useId, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { GroundThumbnail, GroundSvgImage, rotateAsset } from "./map-assets";
@@ -290,13 +291,13 @@ function GroundDetail({
     <div className="ground-controls">
       <label>
         <span>布局</span>
-        <select
+        <GameSelect
           aria-label="任务布局"
           value={layout.id}
-          onChange={(e) => {
+          onValueChange={(value) => {
             reset();
             editorRef.current?.finish();
-            choose(e.target.value);
+            choose(value);
           }}
         >
           {map.layouts.map((l) => (
@@ -308,21 +309,21 @@ function GroundDetail({
                 : ""}
             </option>
           ))}
-        </select>
+        </GameSelect>
       </label>
       <label>
         <span>己方</span>
-        <select
+        <GameSelect
           aria-label="己方出生侧"
           value={team}
-          onChange={(e) => {
+          onValueChange={(value) => {
             editorRef.current?.finish();
-            chooseTeam(Number(e.target.value) as 1 | 2);
+            chooseTeam(Number(value) as 1 | 2);
           }}
         >
           <option value={1}>队伍 1</option>
           <option value={2}>队伍 2</option>
-        </select>
+        </GameSelect>
       </label>
       <div className="ground-layer-toggles">
         {[

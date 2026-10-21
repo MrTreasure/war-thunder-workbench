@@ -30,7 +30,7 @@
   gap: 6px;
   font-size: 12px;
 }
-.lineup-toolbar select {
+.lineup-toolbar :is(select, .wt-select) {
   min-height: 44px;
   padding-inline: 10px 26px;
   font-size: 14px;
@@ -41,6 +41,7 @@
 }
 .lineup-country-select img {
   position: absolute;
+  z-index: 1;
   top: 50%;
   left: 12px;
   width: 24px;
@@ -49,18 +50,18 @@
   transform: translateY(-50%);
   pointer-events: none;
 }
-.lineup-country-select.has-flag select {
+.lineup-country-select.has-flag :is(select, .wt-select) {
   padding-left: 44px;
 }
 .lineup-import-action {
   align-self: end;
   white-space: nowrap;
 }
-.lineup-page :is(button, input:not([type="radio"]), select, .quiet-button) {
+.lineup-page :is(button, input:not([type="radio"]), :is(select, .wt-select), .quiet-button) {
   min-height: 44px;
 }
 .lineup-page input:not([type="radio"]),
-.lineup-page select {
+.lineup-page :is(select, .wt-select) {
   width: 100%;
   min-width: 0;
   border: 1px solid var(--wt-strong-line);
@@ -70,7 +71,7 @@
   font: 12px var(--wt-sans);
   padding: 8px 10px;
 }
-.lineup-page select {
+.lineup-page :is(select, .wt-select) {
   padding-right: 34px;
 }
 .lineup-page button:disabled,
@@ -78,7 +79,7 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
-.lineup-page :is(button, input, select, summary, a):focus-visible,
+.lineup-page :is(button, input, :is(select, .wt-select), summary, a):focus-visible,
 .lineup-candidate.is-focus {
   outline: 2px solid var(--wt-gold);
   outline-offset: 2px;
@@ -240,7 +241,7 @@
   color: var(--wt-muted);
   font-size: 11px;
 }
-.lineup-inline-label select {
+.lineup-inline-label :is(select, .wt-select) {
   width: auto;
 }
 .lineup-slots {

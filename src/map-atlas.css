@@ -208,7 +208,7 @@
   display: block;
   min-width: 0;
 }
-.atlas-archive-controls :is(input, select) {
+.atlas-archive-controls :is(input, :is(select, .wt-select)) {
   width: 100%;
   min-width: 0;
   min-height: 44px;
