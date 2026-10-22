@@ -73,32 +73,34 @@ function CalendarReference({ close }: { close: () => void }) {
   return (
     <Modal
       title="折扣年历 · 高清参考图"
-      subtitle={`${calendarReference.attribution}；保留原图样式，仅放大并轻度清晰化。`}
+      subtitle={`${calendarReference.attribution}；按原表格样式重新排字与绘制。`}
       close={close}
       className="wt-sale-reference-viewer"
     >
       <div className="wt-sale-reference-caption">
         <p>{calendarReference.notice}</p>
         {asset && (
-          <a href={asset.rawUrl} target="_blank" rel="noreferrer">
+          <a href={calendarReference.png.rawUrl} target="_blank" rel="noreferrer">
             查看高清原图 ↗
           </a>
         )}
       </div>
-      {asset && !failed ? (
-        <img
-          src={asset.url}
-          width={asset.width}
-          height={asset.height}
-          alt="战争雷霆折扣年历：全系促销、专题纪念活动及参与条件，历史整理不代表当年公告。"
-          onError={(event) => {
-            if (event.currentTarget.src !== asset.rawUrl) event.currentTarget.src = asset.rawUrl;
-            else setFailed(true);
-          }}
-        />
-      ) : (
-        <p role="alert">参考图暂时无法加载，请通过上方链接查看高清原图。</p>
-      )}
+      <div className="wt-sale-reference-image">
+        {asset && !failed ? (
+          <img
+            src={asset.url}
+            width={asset.width}
+            height={asset.height}
+            alt="战争雷霆折扣年历：全系促销、专题纪念活动及参与条件，历史整理不代表当年公告。"
+            onError={(event) => {
+              if (event.currentTarget.src !== asset.rawUrl) event.currentTarget.src = asset.rawUrl;
+              else setFailed(true);
+            }}
+          />
+        ) : (
+          <p role="alert">参考图暂时无法加载，请通过上方链接查看高清原图。</p>
+        )}
+      </div>
     </Modal>
   );
 }

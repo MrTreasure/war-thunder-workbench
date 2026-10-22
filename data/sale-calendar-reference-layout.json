@@ -1,0 +1,1050 @@
+{
+  "schemaVersion": 1,
+  "sourceImageSha256": "3d42c6da2ed372d151c18ab060d038cc0262a62f2213bdba97f36380d3f90544",
+  "canvas": [
+    850,
+    728
+  ],
+  "scale": 5,
+  "font": {
+    "name": "LXGW WenKai Regular",
+    "url": "https://raw.githubusercontent.com/lxgw/LxgwWenKai/v1.521/fonts/TTF/LXGWWenKai-Regular.ttf",
+    "sha256": "b64b7add297672bf04c54ce229678ddf09b4f9671cb1ece1f24c868f4226edd0",
+    "license": "SIL Open Font License 1.1",
+    "licenseUrl": "https://github.com/lxgw/LxgwWenKai/blob/v1.521/OFL.txt"
+  },
+  "colors": {
+    "ink": "#131313",
+    "red": "#a9282e",
+    "blue": "#274fc2",
+    "header": "#e6485a",
+    "pale": "#d9e2f2",
+    "white": "#ffffff",
+    "grid": "#111111"
+  },
+  "cells": [
+    {
+      "box": [
+        1,
+        1,
+        146,
+        42
+      ],
+      "text": "全系固定打折活动",
+      "fontSize": 13,
+      "fill": "header",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        146,
+        1,
+        380,
+        42
+      ],
+      "text": "开始时间",
+      "fontSize": 15,
+      "fill": "header",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        380,
+        1,
+        554,
+        42
+      ],
+      "text": "金银车折扣\n含银车购买费用、配件、护身符",
+      "fontSize": 15,
+      "fill": "header",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        554,
+        1,
+        654,
+        42
+      ],
+      "text": "单个礼包折扣",
+      "fontSize": 13,
+      "fill": "header",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        654,
+        1,
+        773,
+        42
+      ],
+      "text": "捆绑包（把几个礼包\n捆一起卖）",
+      "fontSize": 13,
+      "fill": "header",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        773,
+        1,
+        849,
+        42
+      ],
+      "text": "高级账号",
+      "fontSize": 13,
+      "fill": "header",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        1,
+        42,
+        146,
+        65
+      ],
+      "text": "圣诞/新年",
+      "fontSize": 12,
+      "fill": "pale",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        146,
+        42,
+        380,
+        65
+      ],
+      "text": "<b>12月-1月</b>（当年圣诞节前后）",
+      "fontSize": 12,
+      "fill": "pale",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        380,
+        42,
+        554,
+        65
+      ],
+      "text": "<r>5折</r>",
+      "fontSize": 12,
+      "fill": "pale",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        554,
+        42,
+        654,
+        65
+      ],
+      "text": "<r>5折</r>",
+      "fontSize": 12,
+      "fill": "pale",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        654,
+        42,
+        773,
+        65
+      ],
+      "text": "<r>5折</r>",
+      "fontSize": 12,
+      "fill": "pale",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        773,
+        42,
+        849,
+        65
+      ],
+      "text": "<r>半价</r>",
+      "fontSize": 12,
+      "fill": "pale",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        1,
+        65,
+        146,
+        89
+      ],
+      "text": "胜利日",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        146,
+        65,
+        380,
+        89
+      ],
+      "text": "<b>5月初</b>（一般在10号之前）",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        380,
+        65,
+        554,
+        89
+      ],
+      "text": "7折",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        554,
+        65,
+        654,
+        89
+      ],
+      "text": "<r>5折</r>",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        654,
+        65,
+        773,
+        89
+      ],
+      "text": "<r>5折</r>",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        773,
+        65,
+        849,
+        89
+      ],
+      "text": "<r>半价</r>",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        1,
+        89,
+        146,
+        112
+      ],
+      "text": "夏促",
+      "fontSize": 12,
+      "fill": "pale",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        146,
+        89,
+        380,
+        112
+      ],
+      "text": "<b>6月末</b>（一般在20号之后）",
+      "fontSize": 12,
+      "fill": "pale",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        380,
+        89,
+        554,
+        112
+      ],
+      "text": "无折扣",
+      "fontSize": 12,
+      "fill": "pale",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        554,
+        89,
+        654,
+        112
+      ],
+      "text": "<r>5折</r>",
+      "fontSize": 12,
+      "fill": "pale",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        654,
+        89,
+        773,
+        112
+      ],
+      "text": "<r>5折</r>",
+      "fontSize": 12,
+      "fill": "pale",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        773,
+        89,
+        849,
+        112
+      ],
+      "text": "无折扣",
+      "fontSize": 12,
+      "fill": "pale",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        1,
+        112,
+        146,
+        135
+      ],
+      "text": "周年庆",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        146,
+        112,
+        380,
+        135
+      ],
+      "text": "<b>10月末-11月初</b>",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        380,
+        112,
+        554,
+        135
+      ],
+      "text": "<r>5折</r>",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        554,
+        112,
+        654,
+        135
+      ],
+      "text": "<r>5折</r>",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        654,
+        112,
+        773,
+        135
+      ],
+      "text": "<r>5折</r>",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        773,
+        112,
+        849,
+        135
+      ],
+      "text": "<r>半价</r>",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        1,
+        135,
+        146,
+        158
+      ],
+      "text": "黑色星期五",
+      "fontSize": 12,
+      "fill": "pale",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        146,
+        135,
+        380,
+        158
+      ],
+      "text": "<b>11月末</b>（当年黑色星期五前后）",
+      "fontSize": 12,
+      "fill": "pale",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        380,
+        135,
+        554,
+        158
+      ],
+      "text": "无折扣",
+      "fontSize": 12,
+      "fill": "pale",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        554,
+        135,
+        654,
+        158
+      ],
+      "text": "7折",
+      "fontSize": 12,
+      "fill": "pale",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        654,
+        135,
+        773,
+        158
+      ],
+      "text": "<r>5折</r>",
+      "fontSize": 12,
+      "fill": "pale",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        773,
+        135,
+        849,
+        158
+      ],
+      "text": "无折扣",
+      "fontSize": 12,
+      "fill": "pale",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        1,
+        158,
+        146,
+        230
+      ],
+      "text": "什么东西永远不打折",
+      "fontSize": 15,
+      "fill": "white",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        146,
+        158,
+        654,
+        230
+      ],
+      "text": "1. 联队载具（包括联队载具相关的银狮以及金鹰配件研发，护身符）\n2. 金鹰充值（<r>硬要说愚人节4月1日有相关金鹰礼包</r>）\n3. 贴章（伪装章500金鹰一个的那玩意 PS：可以通过通行证白嫖）\n4. 交易所，这玩意打折除非美刀彻底崩了，盎金币对RUB汇率大幅度变化才有可能\n5. 车位（成员组位置，银狮和金鹰车位均不打折）",
+      "fontSize": 11.2,
+      "fill": "white",
+      "align": "left",
+      "bold": false
+    },
+    {
+      "box": [
+        654,
+        158,
+        773,
+        230
+      ],
+      "text": "有需求随时可以\n购入",
+      "fontSize": 16,
+      "fill": "white",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        1,
+        230,
+        146,
+        274
+      ],
+      "text": "打折规律",
+      "fontSize": 16,
+      "fill": "pale",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        146,
+        230,
+        773,
+        274
+      ],
+      "text": "目前截止目前，以上单个礼包5折折扣活动（黑色星期五不算），均不会连续出现在两期相连的打折活动中，所以说如果你希\n望等待下次打折活动购入某载具的单个礼包，你可以去查询上一次固定打折活动中，该载具<r>是否有过5折折扣</r>",
+      "fontSize": 11.2,
+      "fill": "pale",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        1,
+        274,
+        146,
+        324
+      ],
+      "text": "新载具不参与打折",
+      "fontSize": 16,
+      "fill": "white",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        146,
+        274,
+        773,
+        324
+      ],
+      "text": "打折规律：正常的新载具，礼包，在更新后三个游戏版本内不会打折\n目前游戏内的常驻同捆礼包（如德国二战东西线虚拟礼包）<r>不遵守此规律</r>\n同样也有特殊情况，如果有载具卖的太烂了，有极大概率会在下一次活动中加入<r>半价</r>同捆包",
+      "fontSize": 11.4,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        1,
+        324,
+        146,
+        357
+      ],
+      "text": "什么是捆绑包",
+      "fontSize": 16,
+      "fill": "white",
+      "align": "center",
+      "bold": true
+    },
+    {
+      "box": [
+        146,
+        324,
+        773,
+        357
+      ],
+      "text": "捆绑包为多个礼包或金币车捆绑售卖，通常来说为同一系相近权重的载具同捆，并无明显固定规律\n甚至有多系多类别载具同捆的情况",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        773,
+        158,
+        849,
+        357
+      ],
+      "text": "由于Gaijin并\n未出具过详细\n的打折规则，\n以上数据均为\n爱吃猫饭的墨\n森柠总结归\n纳，最后推导\n而出，有任何\n遗漏欢迎补充\n（<r>理性氪金</r>）",
+      "fontSize": 11.7,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        1,
+        357,
+        146,
+        398
+      ],
+      "text": "特殊打折活动",
+      "fontSize": 17,
+      "fill": "header",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        146,
+        357,
+        380,
+        398
+      ],
+      "text": "开始时间",
+      "fontSize": 17,
+      "fill": "header",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        380,
+        357,
+        654,
+        398
+      ],
+      "text": "折扣内容",
+      "fontSize": 17,
+      "fill": "header",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        654,
+        357,
+        849,
+        398
+      ],
+      "text": "归纳标准",
+      "fontSize": 17,
+      "fill": "header",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        1,
+        398,
+        146,
+        453
+      ],
+      "text": "中系专属",
+      "fontSize": 18,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        146,
+        398,
+        380,
+        425
+      ],
+      "text": "春节（<r>当年大年初一前后</r>）",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        146,
+        425,
+        380,
+        453
+      ],
+      "text": "国庆（<r>10月1日前后</r>）",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        1,
+        453,
+        146,
+        480
+      ],
+      "text": "日系专属",
+      "fontSize": 18,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        146,
+        453,
+        380,
+        480
+      ],
+      "text": "日本建国纪念日（<r>2月11日前后</r>）",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        1,
+        480,
+        146,
+        508
+      ],
+      "text": "苏系专属",
+      "fontSize": 18,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        146,
+        480,
+        380,
+        508
+      ],
+      "text": "苏联武装力量纪念日（<r>2月21日前后</r>）",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        1,
+        508,
+        146,
+        535
+      ],
+      "text": "瑞典专属",
+      "fontSize": 18,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        146,
+        508,
+        380,
+        535
+      ],
+      "text": "芬兰空军成立日（<r>3月6日前后</r>）",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        1,
+        535,
+        146,
+        590
+      ],
+      "text": "意大利专属",
+      "fontSize": 18,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        146,
+        535,
+        380,
+        563
+      ],
+      "text": "意大利空军成立日（<r>3月27日前后</r>）",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        146,
+        563,
+        380,
+        590
+      ],
+      "text": "意大利国家团结暨建军日（<r>11月5日前后</r>）",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        1,
+        590,
+        146,
+        618
+      ],
+      "text": "法国专属",
+      "fontSize": 18,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        146,
+        590,
+        380,
+        618
+      ],
+      "text": "法国国庆节（<r>7月14日前后</r>）",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        1,
+        618,
+        146,
+        644
+      ],
+      "text": "英系",
+      "fontSize": 18,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        146,
+        618,
+        380,
+        644
+      ],
+      "text": "大不列颠空战纪念日（<r>9月15日前后</r>）",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        1,
+        644,
+        146,
+        670
+      ],
+      "text": "美系",
+      "fontSize": 18,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        146,
+        644,
+        380,
+        670
+      ],
+      "text": "美国空军成立纪念日（<r>9月19日前后</r>）",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        1,
+        670,
+        146,
+        698
+      ],
+      "text": "美系+英系",
+      "fontSize": 18,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        146,
+        670,
+        380,
+        698
+      ],
+      "text": "诺曼底登陆纪念日（<r>6月6日前后</r>）",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        380,
+        398,
+        654,
+        670
+      ],
+      "fontSize": 18,
+      "fill": "white",
+      "align": "center",
+      "bold": false,
+      "textBlocks": [
+        {
+          "box": [
+            385,
+            425,
+            649,
+            558
+          ],
+          "text": "部分礼包参与打折，折扣为5\n折或7折\n<r>礼包同捆正常都是5折</r>\n通常各系主流开线载具以及非\n新热门载具礼包\n均会打折",
+          "fontSize": 19,
+          "fill": "white",
+          "bold": false,
+          "align": "center"
+        },
+        {
+          "box": [
+            384,
+            565,
+            650,
+            620
+          ],
+          "text": "（德系在10月3日的两德统一日前后是有固定活\n动的，但目前没有过五折促销活动，未来可\n期）",
+          "fontSize": 10.6,
+          "fill": "white",
+          "bold": false,
+          "align": "center"
+        }
+      ]
+    },
+    {
+      "box": [
+        380,
+        670,
+        654,
+        698
+      ],
+      "text": "诺曼底登陆纪念日（D日）这个是<blue>二战载具</blue>专属活动",
+      "fontSize": 11,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        654,
+        398,
+        849,
+        563
+      ],
+      "text": "从25年开始，大量国家国庆节以及\n空军建军节\n均有打折促销活动，但部分活动还仅仅\n停留在7折力度，目前归纳的特殊打折\n活动，均为爱吃猫饭的墨森柠认为<r>相\n对稳定有5折</r>促销的活动\n\nps：部分国家的国庆类似节日\n由于与全系固定打折活动接近\n所以并未出现固定专属打折时间",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        654,
+        563,
+        849,
+        618
+      ],
+      "text": "Gaijin除了特殊节日外，也会进行一\n些打折促销活动，有明显痕迹的就是\nSTEAM要求的促销联动",
+      "fontSize": 12,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        654,
+        618,
+        849,
+        698
+      ],
+      "text": "<r>各系新手包</r>也有极大可能\n在这些日子<r>打5折</r>",
+      "fontSize": 15,
+      "fill": "white",
+      "align": "center",
+      "bold": false
+    },
+    {
+      "box": [
+        1,
+        698,
+        849,
+        727
+      ],
+      "text": "战争雷霆氪金小贴士：半价才是“原价”（所以7折补充收藏载具需慎重考虑，抽到游戏内2.5折才是真的折扣）",
+      "fontSize": 11,
+      "fill": "pale",
+      "align": "center",
+      "bold": false
+    }
+  ],
+  "dottedLines": [
+    [
+      654,
+      158,
+      654,
+      230
+    ]
+  ]
+}

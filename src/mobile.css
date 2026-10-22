@@ -1733,7 +1733,11 @@
 }
 
 @media (max-width: 800px) {
-  .wt-sale-reference-viewer.calculator { padding: 12px; }
+  .wt-sale-reference-viewer.calculator {
+    padding: 10px;
+    height: min(calc((100vw - 40px) * 728 / 850 + 200px), calc(100dvh - 16px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)));
+    max-height: calc(100dvh - 16px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  }
   .wt-sale-reference-viewer .calc-header { align-items: flex-start; }
   .wt-sale-reference-caption a { display: inline-flex; align-items: center; min-height: 44px; }
   .wt-sale-picker-controls .wt-select { padding-inline: 8px; }

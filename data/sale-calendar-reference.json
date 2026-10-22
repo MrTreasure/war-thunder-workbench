@@ -4,15 +4,6 @@
   "attribution": "图片和折扣信息均来自盒友整理收集",
   "notice": "仅根据往年折扣情况预测，具体数据以官方公布为准。",
   "sourceImageSha256": "3d42c6da2ed372d151c18ab060d038cc0262a62f2213bdba97f36380d3f90544",
-  "subtitle": "原图保真高清版 · 保留原有表格、配色、文字及比例",
-  "enhancedAt": "2026-10-22",
-  "processing": {
-    "scale": 4,
-    "resize": "Lanczos",
-    "sharpen": "luminance UnsharpMask(radius=2.0,percent=105,threshold=4)",
-    "encoding": "lossless WebP",
-    "retypeset": false
-  },
   "original": {
     "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@1dfb521a36a28d265d2b95f1855e530da942c27a/war-thunder/sales-calendar/v1/original-3d42c6da2ed372d1.png",
     "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/1dfb521a36a28d265d2b95f1855e530da942c27a/war-thunder/sales-calendar/v1/original-3d42c6da2ed372d1.png",
@@ -22,13 +13,31 @@
     "height": 728,
     "commit": "1dfb521a36a28d265d2b95f1855e530da942c27a"
   },
+  "subtitle": "原样式高清重制 · 按原表格重新排字与绘线",
+  "redrawnAt": "2026-10-22",
+  "processing": {
+    "mode": "fresh-typesetting-and-table-redraw",
+    "scale": 5,
+    "encoding": "WebP quality=86 preview; lossless full-resolution PNG",
+    "retypeset": true,
+    "layoutSha256": "1951ba9a21867760889beb988d824b72648913e74c52bd173a09183faba28933"
+  },
   "asset": {
-    "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@1dfb521a36a28d265d2b95f1855e530da942c27a/war-thunder/sales-calendar/v1/calendar-original-hd-483966abe203cf89.webp",
-    "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/1dfb521a36a28d265d2b95f1855e530da942c27a/war-thunder/sales-calendar/v1/calendar-original-hd-483966abe203cf89.webp",
-    "sha256": "483966abe203cf89332ae98dab6c736082efcd0e91c14cd8b1f890b47e958b36",
-    "bytes": 4465950,
-    "width": 3400,
-    "height": 2912,
-    "commit": "1dfb521a36a28d265d2b95f1855e530da942c27a"
+    "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@ba70248c3578a78252659a71d2b2813ee9d4fe0f/war-thunder/sales-calendar/v1/calendar-retypeset-5872b73a18a6d7b6.webp",
+    "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/ba70248c3578a78252659a71d2b2813ee9d4fe0f/war-thunder/sales-calendar/v1/calendar-retypeset-5872b73a18a6d7b6.webp",
+    "sha256": "5872b73a18a6d7b614201da4fbd488cab0d07e952da664319be810aee7fa2d6f",
+    "bytes": 315420,
+    "width": 1700,
+    "height": 1456,
+    "commit": "ba70248c3578a78252659a71d2b2813ee9d4fe0f"
+  },
+  "png": {
+    "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@ba70248c3578a78252659a71d2b2813ee9d4fe0f/war-thunder/sales-calendar/v1/calendar-retypeset-58026e23754810a7.png",
+    "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/ba70248c3578a78252659a71d2b2813ee9d4fe0f/war-thunder/sales-calendar/v1/calendar-retypeset-58026e23754810a7.png",
+    "sha256": "58026e23754810a7166000d22d39d44f6de56a5cfcf53e3006a9c04d3956718e",
+    "bytes": 2262989,
+    "width": 4250,
+    "height": 3640,
+    "commit": "ba70248c3578a78252659a71d2b2813ee9d4fe0f"
   }
 }
