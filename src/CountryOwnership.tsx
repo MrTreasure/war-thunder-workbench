@@ -70,6 +70,7 @@ export function CountryOwnership({ profile }: { profile: PlayerProfile }) {
       <div className="wt-record-heading wt-country-heading">
         <h2>各国拥有载具</h2>
         <GameSelect
+          disabled={profile.localOnly}
           aria-label="各国拥有载具军种"
           value={category}
           onValueChange={(selected) => {

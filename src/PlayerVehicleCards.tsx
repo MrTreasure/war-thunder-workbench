@@ -6,10 +6,11 @@ import catalog from "../data/catalog-settings.json";
 
 export function PlayerVehicleCards({ vehicles, select, showNaval }: { vehicles: PlayerVehicle[]; select: (vehicle: PlayerVehicle) => void; showNaval: boolean }) {
   return <div className="wt-vehicle-cards">{vehicles.map(vehicle => <article key={vehicle.id} className="wt-vehicle-card">
-    <div className="wt-vehicle-card-heading"><div><h3>{vehicle.name}</h3><p>{vehicle.rank ? `${vehicle.rank} 级 · ` : ""}{catalog.countries[vehicle.country as keyof typeof catalog.countries] || "国家待匹配"}</p></div><div className="wt-vehicle-card-efficiency"><strong>{num(vehicle.efficiency)}</strong><span>{vehicle.smallSample ? "场次不足" : "效率评分"}</span></div></div>
+    <header className="wt-vehicle-card-heading"><div><h3 title={vehicle.name}>{vehicle.name}</h3><p>{catalog.countries[vehicle.country as keyof typeof catalog.countries] || "国家待匹配"}</p></div><span className="wt-vehicle-card-rank">{vehicle.rank || "—"}<small>级</small></span></header>
     <button className="wt-vehicle-card-art" onClick={() => select(vehicle)} aria-label={`查看${vehicle.name}战绩详情`}><img src={vehicle.image} alt={vehicle.name} loading="lazy" decoding="async" onError={event => { if (event.currentTarget.src !== vehicle.thumbnail) event.currentTarget.src = vehicle.thumbnail; }} /></button>
+    <div className="wt-vehicle-card-rating"><span>作战效率</span><strong>{num(vehicle.efficiency)}</strong><small>{vehicle.smallSample ? "场次不足 50" : "累计表现"}</small></div>
     <dl className="wt-vehicle-card-values">{[["场次", num(vehicle.battles)], ["胜率", vehicle.winRate == null ? "—" : `${vehicle.winRate.toFixed(2)}%`], ["综合 K/D", ratio(vehicle.kd)], ["对空 K/D", ratio(vehicle.airKd)], ["对地 K/D", ratio(vehicle.groundKd)], [showNaval ? "对海 K/D" : "出击", showNaval ? vehicle.category === "ground" ? "—" : ratio(vehicle.navalKd) : num(vehicle.sorties)]].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
-    <div className="wt-vehicle-card-footer"><span title={`累计银狮：${statsSilver(vehicle.silverLions)}`}><img src={statsSilverIcon} alt="银狮" /><strong>{compactSilver(vehicle.silverLions)}</strong><small>累计获得</small></span><button className="wt-record-link" onClick={() => select(vehicle)}>战绩详情 ↗</button></div>
+    <footer className="wt-vehicle-card-footer"><span title={`累计银狮：${statsSilver(vehicle.silverLions)}`}><img src={statsSilverIcon} alt="银狮" /><strong>{compactSilver(vehicle.silverLions)}</strong></span><button className="wt-record-link" onClick={() => select(vehicle)}>查看战绩 <span aria-hidden="true">↗</span></button></footer>
   </article>)}</div>;
 }
 

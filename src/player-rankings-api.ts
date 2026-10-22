@@ -14,7 +14,7 @@ export type PlayerDetails = {
   registeredAt: number | null; scopes: CareerScope[];
   vehicles: (Counters & Metrics & Pick<PlayerVehicle, "id" | "mode">)[];
   usage: { id: string; label: string; mode: string; battles: number | null; wins: number | null;
-    roles: { id: string; label: string; seconds: number }[] }[];
+    roles: { id: string; label: string; seconds: number; sorties?: number | null; airKills?: number | null; groundKills?: number | null; navalKills?: number | null }[] }[];
 };
 export type RankPoint = { percentile: number; value: number; rank?: number };
 export type PlayerRank = {
@@ -57,11 +57,11 @@ function subscribe(listener: () => void) { listeners.add(listener); return () =>
 export function usePlayerRead<T extends { uid: string; snapshotId: string }>(
   profile: PlayerProfile | null, path: string, active: boolean, seconds = 7200,
 ) {
-  const uid = profile?.uid, snapshotId = profile?.snapshotId;
+  const uid = profile?.uid, snapshotId = profile?.snapshotId, localOnly = profile?.localOnly === true;
   const key = (snapshotId || "none") + ":" + path;
   const state = useSyncExternalStore(subscribe, useCallback(() => results.get(key) || empty, [key]));
   const load = useCallback((force = false) => {
-    if (!uid || !snapshotId) return;
+    if (!uid || !snapshotId || localOnly) return;
     const previous = results.get(key);
     if (pendingReads.has(key) || (!force && previous && previous.until > Date.now())) return;
     const controller = new AbortController(), revision = generation;
@@ -80,9 +80,9 @@ export function usePlayerRead<T extends { uid: string; snapshotId: string }>(
           publish(key, { data: previous?.data || null, busy: false, error: failure instanceof Error ? failure.message : "暂时无法读取，请稍后重试。", until: 0 });
       })
       .finally(() => { if (pendingReads.get(key) === controller) pendingReads.delete(key); });
-  }, [key, uid, snapshotId, path, seconds]);
+  }, [key, uid, snapshotId, localOnly, path, seconds]);
   useEffect(() => { if (active) load(); }, [active, load]);
-  return { data: state.data as T | null, busy: active && (state === empty || state.busy), error: state.error,
+  return { data: state.data as T | null, busy: active && !localOnly && (state === empty || state.busy), error: localOnly ? "当前为本机保存的资料，请重新查询此玩家后查看扩展数据。" : state.error,
     retry: useCallback(() => load(true), [load]) };
 }
 

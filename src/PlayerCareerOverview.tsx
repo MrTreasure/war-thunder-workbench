@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { GameSelect } from "./components/GameSelect";
+import { PlayerTypeUsage } from "./PlayerTypeUsage";
 import { CountryOwnership } from "./CountryOwnership";
 import { PlayerRadar } from "./PlayerRadar";
 import { statsDate, statsNumber as num, statsRatio as ratio, statsBranchKd, statsArmyIcon, statsBranchTarget } from "./player-stats-api";
@@ -12,16 +13,11 @@ export function PlayerCareerOverview({ profile, mode, base, active, armyBase = "
 }) {
   const read = usePlayerRead<PlayerDetails>(profile, "details", active);
   const [branch, setBranch] = useState("combined"), [period, setPeriod] = useState<"career" | "recent">("career");
-  const [usageGroup, setUsageGroup] = useState("pvp_played"), [expanded, setExpanded] = useState(false);
   const selectedBranch = mode === "sb" && branch === "naval" ? "combined" : branch;
   const scope = read.data?.scopes.find(s => s.mode === mode && s.branch === selectedBranch);
   const selected = scope?.periods[period];
   const counters = selected?.counters || (period === "career" && selectedBranch === "combined" ? base : null);
   const career = scope?.periods.career, recent = scope?.periods.recent;
-  const usageGroups = read.data?.usage.filter(u => u.mode === mode) || [];
-  const usage = usageGroups.find(u => u.id === usageGroup) || usageGroups[0];
-  const roles = [...(usage?.roles || [])].sort((a, b) => b.seconds - a.seconds);
-  const maxSeconds = Math.max(1, ...roles.map(r => r.seconds));
   if (!active) return null;
   return (
     <div className="wt-career-overview">
@@ -30,7 +26,7 @@ export function PlayerCareerOverview({ profile, mode, base, active, armyBase = "
         <div className="wt-career-period" aria-label="生涯统计时期"><button aria-pressed={period === "career"} onClick={() => setPeriod("career")}>累计</button><button aria-pressed={period === "recent"} onClick={() => setPeriod("recent")}>官方近期</button></div>
         <span>{read.data ? `扩展统计采集于 ${statsDate(read.data.fetchedAt)}` : read.busy ? "正在补充官方统计…" : "基础战绩已可查看"}</span>
       </div>
-      {read.error && <div className="wt-rank-error"><span>扩展统计：{read.error}</span><button onClick={read.retry}>重试</button></div>}
+      {read.error && <div className="wt-rank-error"><span>扩展统计：{read.error}</span>{!profile.localOnly && <button onClick={read.retry}>重试</button>}</div>}
       {!counters ? <p className="wt-record-empty">{read.busy ? "正在读取所选范围…" : "此范围暂无有效统计，其他生涯资料仍可查看。"}</p> : <>
         <div className="wt-record-metrics wt-career-metrics">
           {[
@@ -62,17 +58,14 @@ export function PlayerCareerOverview({ profile, mode, base, active, armyBase = "
           {read.data?.registeredAt && <p className="wt-career-registered">注册于 {new Date(read.data.registeredAt * 1000).toLocaleDateString("zh-CN")}</p>}
         </section>
       </div>
-      <div className="wt-record-overview">
+      <div className="wt-career-inventory">
         <div className="wt-record-career">
           {base && base.branches.length > 0 && <section className="wt-record-panel wt-record-branch-panel"><div className="wt-record-heading"><h2>载具分类 K/D</h2><span>当前模式 · 累计单车记录</span></div><div className="wt-record-branch-grid">{base.branches.map(b => <div key={b.id}><div className="wt-record-branch-summary"><h3><img className="wt-branch-icon" src={statsArmyIcon(armyBase, b.id)} alt="" />{b.label}</h3><strong>{ratio(statsBranchKd(b))}</strong></div><small>{statsBranchTarget(b.id)} K/D · {b.vehicleCount} 辆已出击</small></div>)}</div><p className="wt-record-fine">仅以对应军种单车的击毁、死亡汇总；与上方按对局类型统计的范围不同。</p></section>}
           <CountryOwnership profile={profile} />
         </div>
-        <section className="wt-record-panel wt-career-usage">
-          <div className="wt-record-heading"><h2>载具使用时长</h2>{usageGroups.length > 0 && <GameSelect aria-label="使用时长玩法" value={usage?.id || "pvp_played"} onValueChange={setUsageGroup}>{usageGroups.map(u => <option value={u.id} key={u.id}>{u.label}</option>)}</GameSelect>}</div>
-          {roles.length ? <><div className="wt-career-usage-list">{(expanded ? roles : roles.slice(0, 6)).map(r => <div key={r.id}><span>{r.label}</span><span className="wt-career-hours">{(r.seconds / 3600).toLocaleString("zh-CN", { maximumFractionDigits: 1 })} 小时</span><div><i style={{ width: `${r.seconds / maxSeconds * 100}%` }} /></div></div>)}</div>{roles.length > 6 && <button className="wt-record-link" onClick={() => setExpanded(v => !v)}>{expanded ? "收起" : `展开全部 ${roles.length} 类`}</button>}</> : <p className="wt-record-fine">{read.busy ? "正在补充载具使用时长…" : "暂无此模式的已核实时长。"}</p>}
-          <p className="wt-record-fine">官方记录的载具使用时长，不包含排队等完整游戏时间。</p>
-        </section>
+
       </div>
+      <PlayerTypeUsage profile={profile} mode={mode} active={active} />
     </div>
   );
 }

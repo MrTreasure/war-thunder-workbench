@@ -50,6 +50,7 @@ export type PlayerVehicle = Metrics &
     thumbnail: string;
   };
 export type PlayerProfile = {
+  localOnly?: boolean;
   uid: string;
   nickname: string;
   level: number | null;

@@ -274,19 +274,30 @@ export function PlayerStats() {
     setNotice("");
   }
   async function openSavedProfile(p: PlayerProfile) {
-    const id = ++generation.current;
+    const id = ++generation.current, c = controller();
     setBusy(true);
     setError("");
     try {
-      const { applyPlayerEfficiency } = await import("./player-efficiency");
-      const current = await applyPlayerEfficiency({ ...p, cached: true });
-      if (id !== generation.current) return;
-      loadProfile(current, true);
-      setNotice("正在查看本机保存的资料，采集时间见下方；可强制刷新官方资料。");
+      const restored = await statsRequest<PlayerProfile>("players/restore", { snapshotId: p.snapshotId, uid: p.uid }, c.signal);
+      if (c.signal.aborted || id !== generation.current) return;
+      if (restored.uid !== p.uid) throw new Error("保存的玩家身份不一致，请重新查询。");
+      loadProfile(restored);
+      setNotice("已打开保存的查询记录，本次不扣查询次数；采集时间见下方。");
     } catch (failure) {
-      if (id === generation.current)
-        setError(failure instanceof Error ? failure.message : "本机资料暂时无法读取。");
+      if (c.signal.aborted || id !== generation.current) return;
+      try {
+        const { applyPlayerEfficiency } = await import("./player-efficiency");
+        const current = await applyPlayerEfficiency({ ...p, cached: true, localOnly: true });
+        if (c.signal.aborted || id !== generation.current) return;
+        loadProfile(current, true);
+        setNotice("正在查看本机资料。扩展统计暂未连接，可重新查询此玩家后继续查看。");
+        setError(failure instanceof Error ? failure.message : "暂时无法恢复查询记录。");
+      } catch (localFailure) {
+        if (!c.signal.aborted && id === generation.current)
+          setError(localFailure instanceof Error ? localFailure.message : "本机资料暂时无法读取。");
+      }
     } finally {
+      requests.current.delete(c);
       if (id === generation.current) setBusy(false);
     }
   }
@@ -839,7 +850,7 @@ export function PlayerStats() {
                 等级 {num(profile.level)} · UID {profile.uid}
               </p>
             </div>
-            <button className="wt-record-link wt-garage-entry" onClick={() => setShowGarage(true)}>完整车库</button>
+            <button className="wt-record-link wt-garage-entry" disabled={profile.localOnly} onClick={() => setShowGarage(true)}>完整车库</button>
             <AccountValuation
               key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
               profile={profile}
@@ -853,9 +864,9 @@ export function PlayerStats() {
               </span>
               <button
                 className="wt-record-link wt-record-refresh"
-                title="重新获取官方资料，按一次新查询计入额度；同一玩家每分钟可刷新一次"
+                title={profile.localOnly ? "请先重新查询此玩家" : "重新获取官方资料，按一次新查询计入额度；同一玩家每分钟可刷新一次"}
                 disabled={
-                  busy || exportBusy || (!!report && ["queued", "running"].includes(report.status))
+                  profile.localOnly || busy || exportBusy || (!!report && ["queued", "running"].includes(report.status))
                 }
                 onClick={() => void forceRefresh()}
               >

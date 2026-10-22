@@ -1874,7 +1874,7 @@
   .wt-rank-toolbar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .wt-rank-toolbar > label { min-width: 0; }
   .wt-rank-scoreboard > div { padding-inline: 14px; }
-  .wt-rank-scoreboard strong { font-size: 25px; }
+  .wt-rank-scoreboard strong { font-size: 21px; }
   .wt-rank-scoreboard small { font-size: 11px; }
   .wt-rank-intro { align-items: start; }
   .wt-rank-intro > span { font-size: 11px; }
@@ -1899,7 +1899,7 @@
   .wt-rank-scoreboard { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 20px; padding-top: 6px; }
   .wt-rank-scoreboard > .wt-rank-primary { grid-column: 1 / -1; }
   .wt-rank-scoreboard > div:nth-child(2) { border: 0; padding-left: 0; }
-  .wt-rank-scoreboard .wt-rank-primary strong { font-size: 38px; }
+  .wt-rank-scoreboard .wt-rank-primary strong { font-size: 23px; }
   .wt-career-period button { padding-inline: 12px; }
   .wt-record-tabs { flex-wrap: wrap; }
   .wt-record-tabs > button { min-height: 44px; white-space: nowrap; }
@@ -1907,7 +1907,7 @@
   .wt-vehicle-record-counters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 900px) {
   .wt-vehicle-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
@@ -1918,10 +1918,51 @@
 }
 @media (max-width: 520px) {
   .wt-vehicle-cards { grid-template-columns: minmax(0, 1fr); }
-  .wt-vehicle-card-art { height: 190px; }
+  .wt-record-page button.wt-vehicle-card-art { height: 170px; }
   .wt-vehicle-card-heading h3 { min-height: 0; }
   .wt-vehicle-display-toolbar > span { font-size: 11px; }
   .wt-vehicle-page-controls { gap: 6px; }
   .wt-vehicle-page-controls button { padding-inline: 9px; font-size: 12px; }
   .wt-vehicle-page-controls .wt-select { min-width: 75px; }
+}
+
+@media (max-width: 1100px) {
+  .wt-rank-analysis-layout { grid-template-columns: minmax(0, 1fr); }
+  .wt-rank-scope-note dl { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 24px; }
+}
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-record-page .wt-rank-toolbar .wt-select, .wt-type-heading > .wt-select, .wt-vehicle-rank-heading > .wt-select { min-height: 44px; font-size: 16px; }
+  .wt-rank-benchmark-layout { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .wt-rank-median-note { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 14px; border: 0; border-top: 1px solid var(--wt-record-line); padding: 8px 0 0; }
+  .wt-rank-median-note strong { font-size: 17px; margin: 0; }
+  .wt-rank-median-note p { flex-basis: 100%; }
+  .wt-rank-median-note br { display: none; }
+  .wt-rank-median-note br::after { content: " · "; }
+  .wt-rank-toolbar { padding: 10px; gap: 10px; }
+  .wt-record-page .wt-rank-distribution, .wt-record-page .wt-type-usage { padding: 12px; }
+  .wt-type-heading { flex-wrap: wrap; }
+  .wt-type-heading > .wt-select { width: 130px; }
+  .wt-type-summary { gap: 8px 18px; }
+  .wt-record-page .wt-vehicle-card-footer button { min-height: 44px; }
+}
+@media (max-width: 520px) {
+  .wt-rank-intro > span { display: none; }
+  .wt-rank-benchmarks > div { grid-template-columns: 96px minmax(0, 1fr); gap: 7px; }
+  .wt-rank-benchmarks dt { font-size: 11px; gap: 4px; }
+  .wt-rank-benchmarks dt small { font-size: 9px; }
+  .wt-rank-benchmarks dd { grid-template-columns: minmax(0, 1fr) 67px; gap: 7px; }
+  .wt-rank-benchmarks dd b { font-size: 11px; }
+  .wt-rank-scoreboard { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 0; }
+  .wt-rank-scoreboard > .wt-rank-primary { grid-column: auto; }
+  .wt-rank-scoreboard > div { padding-inline: 9px; }
+  .wt-rank-scoreboard > div:nth-child(2) { padding-left: 9px; border-left: 1px solid var(--wt-record-line); }
+  .wt-rank-scoreboard small { font-size: 10px; }
+  .wt-rank-scoreboard strong, .wt-rank-scoreboard .wt-rank-primary strong { font-size: clamp(14px, 3.6vw, 19px); white-space: nowrap; }
+  .wt-vehicle-rank-heading { gap: 8px; }
+  .wt-vehicle-rank-heading > .wt-select { flex-basis: 170px; width: 170px; }
+  .wt-vehicle-card-rating strong { font-size: 21px; }
+}
+
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-career-inventory > .wt-record-career { grid-template-columns: minmax(0, 1fr); }
 }

@@ -2182,44 +2182,65 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-career-hours { color: var(--wt-record-muted); font-variant-numeric: tabular-nums; }
 .wt-career-usage-list > div > div { grid-column: 1 / -1; height: 5px; border-radius: 2px; background: var(--wt-record-line); overflow: hidden; }
 .wt-career-usage-list i { display: block; height: 100%; background: var(--wt-record-gold); }
-.wt-rank-intro { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.wt-rank-intro h2 { font-size: 22px; }
-.wt-rank-intro p, .wt-rank-intro > span { color: var(--wt-record-muted); font-size: 13px; }
-.wt-rank-intro > span { white-space: nowrap; }
-.wt-rank-toolbar { padding: 16px 0; border-block: 1px solid var(--wt-record-line); }
-.wt-rank-toolbar > label { flex: 1; min-width: 170px; }
-.wt-rank-scoreboard { display: grid; grid-template-columns: minmax(0, 1.3fr) repeat(2, minmax(0, 1fr)); padding: 24px 0; border-bottom: 1px solid var(--wt-record-line); font-variant-numeric: tabular-nums; }
-.wt-rank-scoreboard > div { display: grid; gap: 6px; padding-inline: 24px; border-left: 1px solid var(--wt-record-line); align-content: start; }
+/* finesse · redesigned ranking ledger · product · compact numeric hierarchy,
+ * discrete benchmark bars, original hangar slate/gold, no decorative chart curve */
+.wt-record-page .wt-rank-intro { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.wt-record-page .wt-rank-intro h2 { font-size: 16px; font-weight: 600; }
+.wt-rank-intro p, .wt-rank-intro > span { color: var(--wt-record-muted); font-size: 12px; }
+.wt-rank-intro > span { white-space: nowrap; border-left: 2px solid var(--wt-record-gold); padding-left: 9px; }
+.wt-rank-toolbar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding: 12px 14px; border: 1px solid var(--wt-record-line); background: color-mix(in srgb, var(--wt-record-panel) 80%, transparent); }
+.wt-rank-toolbar > label { min-width: 0; }
+.wt-record-page .wt-rank-toolbar .wt-select { width: 100%; min-height: 38px; padding: 7px 10px; font-size: 13px; }
+.wt-rank-scoreboard { display: grid; grid-template-columns: minmax(0, 1.25fr) repeat(2, minmax(0, 1fr)); padding: 2px 0 10px; border-bottom: 1px solid var(--wt-record-line); font-variant-numeric: tabular-nums; }
+.wt-rank-scoreboard > div { display: grid; gap: 4px; padding-inline: 18px; border-left: 1px solid var(--wt-record-line); align-content: start; }
 .wt-rank-scoreboard > div:first-child { padding-left: 0; border: 0; }
-.wt-rank-scoreboard span, .wt-rank-scoreboard small { color: var(--wt-record-muted); }
-.wt-rank-scoreboard strong { font-size: clamp(26px, 3vw, 42px); line-height: 1.3; font-weight: 600; letter-spacing: -.03em; }
+.wt-rank-scoreboard span, .wt-rank-scoreboard small { color: var(--wt-record-muted); font-size: 11px; }
+.wt-rank-scoreboard strong { font-size: 23px; line-height: 1.3; font-weight: 600; letter-spacing: -.02em; }
 .wt-rank-scoreboard .wt-rank-primary strong { color: var(--wt-record-gold); }
-.wt-rank-distribution { padding-block: 22px; }
-.wt-rank-position-label { display: flex; gap: 12px; align-items: baseline; margin-top: 22px; }
-.wt-rank-position-label strong { font-size: 26px; font-weight: 600; color: var(--wt-record-gold); }
-.wt-rank-position-label span { color: var(--wt-record-muted); font-size: 12px; }
-.wt-rank-position { position: relative; margin: 24px 8px 0; height: 18px; }
-.wt-rank-position-track { position: absolute; inset: 6px 0; background: var(--wt-record-line); border-radius: 3px; }
-.wt-rank-position i { position: absolute; top: 4px; width: 1px; height: 10px; background: var(--wt-record-muted); opacity: .6; }
-.wt-rank-position b { position: absolute; top: 0; width: 9px; height: 18px; margin-left: -4.5px; background: var(--wt-record-gold); border: 2px solid var(--wt-record-panel); border-radius: 3px; }
-.wt-rank-scale { display: flex; justify-content: space-between; color: var(--wt-record-muted); font-size: 12px; margin: 6px 0 20px; }
-.wt-rank-distribution svg { display: block; width: 100%; max-height: 330px; margin: 12px auto; overflow: visible; }
-.wt-rank-distribution svg text { fill: var(--wt-record-muted); font: 12px system-ui, sans-serif; }
-.wt-rank-grid { stroke: var(--wt-record-line); stroke-width: 1; }
-.wt-rank-curve { fill: none; stroke: var(--wt-record-gold); stroke-width: 2; stroke-linejoin: round; }
-.wt-rank-reference-dot { fill: var(--wt-record-panel); stroke: var(--wt-record-gold); stroke-width: 2; }
-.wt-rank-player-dot { fill: var(--wt-record-ink); stroke: var(--wt-record-panel); stroke-width: 2; }
-.wt-rank-marker-line { stroke: var(--wt-record-muted); stroke-width: 1; stroke-dasharray: 4 4; }
-.wt-rank-reference-summary { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 30px; color: var(--wt-record-muted); }
-.wt-rank-reference-summary b { margin-left: 8px; color: var(--wt-record-ink); font-weight: 500; }
-.wt-rank-reference-table { margin-block: 16px; color: var(--wt-record-muted); }
-.wt-rank-reference-table summary { cursor: pointer; min-height: 36px; display: list-item; }
-.wt-rank-reference-table table { font-size: 13px; }
-.wt-rank-reference-state { padding: 24px 0; color: var(--wt-record-muted); font-size: 13px; }
-.wt-rank-source { display: grid; gap: 4px; font-size: 12px; color: var(--wt-record-muted); }
-.wt-rank-loading { display: block; padding: 28px 0; color: var(--wt-record-muted); }
-.wt-rank-error { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; color: #e3a392; }
-.wt-rank-error button, .wt-owned-row button, .wt-owned-more { min-height: 44px; border: 1px solid var(--wt-record-line); border-radius: 4px; padding: 8px 14px; color: var(--wt-record-ink); background: transparent; white-space: nowrap; }
+.wt-rank-analysis-layout { display: grid; grid-template-columns: minmax(0, 1fr) 245px; gap: 16px; align-items: stretch; }
+.wt-record-page .wt-rank-distribution, .wt-owned-content .wt-rank-distribution { padding: 16px; border: 1px solid var(--wt-record-line); min-width: 0; background: var(--wt-record-panel); }
+.wt-rank-chart-heading { display: flex; align-items: center; gap: 12px; justify-content: space-between; }
+.wt-record-page .wt-rank-chart-heading h2 { font-size: 14px; font-weight: 600; white-space: nowrap; }
+.wt-rank-chart-heading > span { color: var(--wt-record-muted); font-size: 11px; }
+.wt-rank-position-block { padding: 12px 0; margin-bottom: 8px; border-bottom: 1px solid var(--wt-record-line); }
+.wt-rank-position-label { display: flex; gap: 12px; align-items: baseline; justify-content: space-between; font-size: 12px; }
+.wt-rank-position-label > span { color: var(--wt-record-muted); }
+.wt-rank-position-label strong { font-size: 14px; font-weight: 600; color: var(--wt-record-gold); }
+.wt-rank-position { position: relative; margin: 9px 5px 0; height: 12px; }
+.wt-rank-position-track { position: absolute; inset: 3px 0; background: linear-gradient(90deg, color-mix(in srgb, var(--wt-record-muted) 15%, transparent) 0 25%, color-mix(in srgb, var(--wt-record-muted) 25%, transparent) 25% 50%, color-mix(in srgb, var(--wt-record-gold) 25%, transparent) 50% 75%, color-mix(in srgb, var(--wt-record-gold) 45%, transparent) 75%); }
+.wt-rank-position i { position: absolute; top: 1px; width: 1px; height: 10px; background: var(--wt-record-muted); opacity: .4; }
+.wt-rank-position b { position: absolute; top: 0; width: 6px; height: 12px; margin-left: -3px; background: var(--wt-record-gold); border: 1px solid var(--wt-record-panel); }
+.wt-rank-scale { display: flex; justify-content: space-between; color: var(--wt-record-muted); font-size: 10px; margin-top: 3px; }
+.wt-rank-benchmark-layout { display: grid; grid-template-columns: minmax(0, 1fr) 145px; gap: 22px; }
+.wt-rank-benchmarks { margin: 0; display: grid; align-content: start; gap: 2px; font-variant-numeric: tabular-nums; }
+.wt-rank-benchmarks > div { display: grid; grid-template-columns: 115px minmax(0, 1fr); gap: 10px; align-items: center; min-height: 28px; }
+.wt-rank-benchmarks dt { display: flex; gap: 6px; align-items: center; color: var(--wt-record-muted); font-size: 12px; white-space: nowrap; }
+.wt-rank-benchmarks dt small { font-size: 10px; color: var(--wt-record-muted); }
+.wt-rank-benchmarks dd { display: grid; grid-template-columns: minmax(0, 1fr) 82px; align-items: center; gap: 12px; margin: 0; }
+.wt-rank-benchmarks dd b { font-size: 12px; font-weight: 500; text-align: right; }
+.wt-rank-benchmark-track { height: 5px; background: color-mix(in srgb, var(--wt-record-muted) 9%, transparent); }
+.wt-rank-benchmark-track i { display: block; height: 100%; background: color-mix(in srgb, var(--wt-record-muted) 55%, transparent); }
+.wt-rank-benchmark-median .wt-rank-benchmark-track i { background: var(--wt-record-muted); }
+.wt-rank-benchmarks > .wt-rank-benchmark-own { margin-top: 5px; padding-top: 7px; border-top: 1px solid var(--wt-record-line); }
+.wt-rank-benchmark-own dt, .wt-rank-benchmark-own dd b { color: var(--wt-record-gold); }
+.wt-rank-benchmark-own .wt-rank-benchmark-track i { background: var(--wt-record-gold); }
+.wt-rank-median-note { padding: 5px 0 0 16px; border-left: 1px solid var(--wt-record-line); align-self: stretch; }
+.wt-rank-median-note > span, .wt-rank-median-note p { display: block; color: var(--wt-record-muted); font-size: 11px; line-height: 1.8; }
+.wt-rank-median-note strong { display: block; color: var(--wt-record-gold); font-size: 20px; font-weight: 500; margin: 6px 0 10px; font-variant-numeric: tabular-nums; }
+.wt-record-page .wt-rank-chart-note, .wt-owned-content .wt-rank-chart-note { margin: 12px 0 0; font-size: 11px; }
+.wt-record-page .wt-rank-scope-note { padding: 14px 16px; border: 1px solid var(--wt-record-line); }
+.wt-record-page .wt-rank-scope-note h3 { font-size: 13px; font-weight: 600; margin-bottom: 10px; }
+.wt-rank-scope-note dl { margin: 0 0 14px; display: grid; gap: 5px; font-size: 12px; }
+.wt-rank-scope-note dl > div { display: flex; justify-content: space-between; gap: 8px; }
+.wt-rank-scope-note dt { color: var(--wt-record-muted); }
+.wt-rank-scope-note dd { margin: 0; }
+.wt-rank-scope-note p { color: var(--wt-record-muted); font-size: 11px; }
+.wt-rank-scope-note p + p { margin-top: 12px; }
+.wt-rank-reference-state { padding: 20px 0; color: var(--wt-record-muted); font-size: 12px; }
+.wt-rank-source { display: flex; flex-wrap: wrap; gap: 3px 16px; font-size: 11px; color: var(--wt-record-muted); }
+.wt-rank-loading { display: block; padding: 20px 0; color: var(--wt-record-muted); font-size: 12px; }
+.wt-rank-error { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; color: #e3a392; font-size: 12px; }
+.wt-rank-error button, .wt-owned-row button { min-height: 44px; border: 1px solid var(--wt-record-line); border-radius: 2px; padding: 8px 14px; color: var(--wt-record-ink); background: transparent; white-space: nowrap; }
 .wt-rank-unit-picker { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
 .wt-garage-entry { white-space: nowrap; min-height: 44px; }
 .wt-vehicle-detail-button { display: inline-block; margin: 2px 0 0 77px; min-height: 28px; padding: 0; font-size: 12px; }
@@ -2269,26 +2290,30 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-vehicle-view-switch button { min-height: 44px; min-width: 72px; padding: 8px 18px; border: 0; color: var(--wt-record-muted); background: transparent; font: inherit; white-space: nowrap; }
 .wt-vehicle-view-switch button + button { border-left: 1px solid var(--wt-record-line); }
 .wt-vehicle-view-switch button[aria-pressed="true"] { background: var(--wt-record-line); color: var(--wt-record-gold); }
-.wt-vehicle-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.wt-vehicle-card { min-width: 0; background: var(--wt-record-panel); border: 1px solid var(--wt-record-line); border-radius: 5px; overflow: hidden; }
-.wt-vehicle-card-heading { display: flex; align-items: start; gap: 10px; padding: 16px 16px 0; }
+/* finesse · War Thunder service-record slots · four per desktop row */
+.wt-vehicle-cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.wt-vehicle-card { display: flex; flex-direction: column; min-width: 0; background: color-mix(in srgb, var(--wt-record-panel) 92%, #121b20); border: 1px solid var(--wt-record-line); border-radius: 2px; overflow: hidden; }
+.wt-vehicle-card-heading { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid color-mix(in srgb, var(--wt-record-line) 70%, transparent); background: color-mix(in srgb, var(--wt-record-muted) 5%, transparent); }
 .wt-vehicle-card-heading > div:first-child { flex: 1; min-width: 0; }
-.wt-vehicle-card-heading h3 { min-height: 2.7em; font-size: 16px; line-height: 1.35; overflow-wrap: anywhere; }
-.wt-vehicle-card-heading p { font-size: 12px; color: var(--wt-record-muted); margin-top: 5px; }
-.wt-vehicle-card-efficiency { display: grid; text-align: right; flex-shrink: 0; }
-.wt-vehicle-card-efficiency strong { color: var(--wt-record-gold); font-size: 24px; font-weight: 600; line-height: 1.3; }
-.wt-vehicle-card-efficiency span { color: var(--wt-record-muted); font-size: 10px; }
-.wt-vehicle-card-art { display: block; width: 100%; height: 174px; padding: 10px 18px; border: 0; background: transparent; cursor: pointer; }
+.wt-record-page .wt-vehicle-card-heading h3 { font-size: 13px; font-weight: 600; line-height: 1.45; min-height: 1.45em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wt-vehicle-card-heading p { font-size: 10px; color: var(--wt-record-muted); margin-top: 2px; }
+.wt-vehicle-card-rank { display: flex; align-items: baseline; gap: 3px; padding-left: 9px; border-left: 1px solid var(--wt-record-line); color: var(--wt-record-muted); font-size: 17px; font-weight: 500; }
+.wt-vehicle-card-rank small { font-size: 10px; }
+.wt-record-page button.wt-vehicle-card-art { display: block; width: 100%; height: 145px; padding: 8px 12px 2px; border: 0; border-radius: 0; background: transparent; cursor: pointer; }
+.wt-record-page button.wt-vehicle-card-art:hover { background: color-mix(in srgb, var(--wt-record-muted) 5%, transparent); }
 .wt-vehicle-card-art img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.wt-vehicle-card-values { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 10px; padding: 14px 16px 18px; margin: 0; font-variant-numeric: tabular-nums; }
-.wt-vehicle-card-values dt { font-size: 11px; color: var(--wt-record-muted); }
-.wt-vehicle-card-values dd { margin: 3px 0 0; font-size: 17px; font-weight: 500; }
-.wt-vehicle-card-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; padding: 8px 16px; border-top: 1px solid var(--wt-record-line); }
-.wt-vehicle-card-footer > span { display: inline-flex; align-items: center; gap: 5px; }
-.wt-vehicle-card-footer img { width: 21px; height: 21px; object-fit: contain; }
-.wt-vehicle-card-footer strong { font-size: 15px; font-weight: 500; }
-.wt-vehicle-card-footer small { color: var(--wt-record-muted); font-size: 10px; }
-.wt-vehicle-card-footer button { min-height: 44px; font-size: 12px; white-space: nowrap; }
+.wt-vehicle-card-rating { display: flex; align-items: baseline; gap: 8px; margin-inline: 12px; padding-block: 5px 9px; border-bottom: 1px solid var(--wt-record-line); font-variant-numeric: tabular-nums; }
+.wt-vehicle-card-rating > span { color: var(--wt-record-muted); font-size: 11px; }
+.wt-vehicle-card-rating strong { color: var(--wt-record-gold); font-size: 20px; line-height: 1.2; font-weight: 600; }
+.wt-vehicle-card-rating small { margin-left: auto; color: var(--wt-record-muted); font-size: 10px; }
+.wt-vehicle-card-values { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px 8px; padding: 10px 12px 12px; margin: 0; font-variant-numeric: tabular-nums; }
+.wt-vehicle-card-values dt { font-size: 10px; color: var(--wt-record-muted); white-space: nowrap; }
+.wt-vehicle-card-values dd { margin: 2px 0 0; font-size: 14px; font-weight: 500; white-space: nowrap; }
+.wt-vehicle-card-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 3px 12px; margin-top: auto; border-top: 1px solid var(--wt-record-line); background: color-mix(in srgb, var(--wt-record-muted) 4%, transparent); }
+.wt-vehicle-card-footer > span { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.wt-vehicle-card-footer img { width: 19px; height: 19px; object-fit: contain; }
+.wt-vehicle-card-footer strong { font-size: 12px; font-weight: 500; }
+.wt-record-page .wt-vehicle-card-footer button { min-height: 40px; font-size: 11px; white-space: nowrap; }
 .wt-vehicle-pagination { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; padding-block: 18px; color: var(--wt-record-muted); font-size: 12px; }
 .wt-vehicle-pagination > .wt-select { width: 140px; }
 .wt-vehicle-page-controls { display: flex; align-items: center; gap: 8px; margin-left: auto; }
@@ -2301,3 +2326,34 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
   .wt-vehicle-page-controls button:not(:disabled):hover { color: var(--wt-record-gold); border-color: var(--wt-record-gold); }
 }
 .wt-vehicle-page-controls button:not(:disabled):active, .wt-vehicle-card-art:active { background: var(--wt-record-line); }
+
+.wt-vehicle-rank-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 14px 0 8px; }
+.wt-record-page .wt-vehicle-rank-heading h2 { flex: 0 0 auto; white-space: nowrap; font-size: 14px; font-weight: 600; }
+.wt-vehicle-rank-heading > .wt-select { flex: 0 1 220px; width: 220px; min-width: 0; min-height: 38px; font-size: 13px; }
+.wt-vehicle-record-dialog .wt-rank-distribution { margin-top: 8px; }
+/* finesse · classification ledger · exact values beside proportional duration bars */
+.wt-record-page .wt-type-usage { display: grid; gap: 12px; padding: 16px; border: 1px solid var(--wt-record-line); min-width: 0; }
+.wt-type-heading { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.wt-record-page .wt-type-heading h2 { font-size: 14px; font-weight: 600; }
+.wt-type-heading p { font-size: 11px; color: var(--wt-record-muted); margin-top: 2px; }
+.wt-type-heading > .wt-select { width: 145px; min-height: 38px; font-size: 12px; flex-shrink: 0; }
+.wt-type-summary { display: flex; flex-wrap: wrap; gap: 8px 26px; padding: 9px 0 13px; border-bottom: 1px solid var(--wt-record-line); }
+.wt-type-summary > span { display: flex; align-items: baseline; gap: 9px; font-size: 11px; color: var(--wt-record-muted); }
+.wt-type-summary b { font-size: 15px; font-weight: 500; color: var(--wt-record-ink); }
+.wt-type-summary b small { font-size: 11px; font-weight: 400; color: var(--wt-record-muted); }
+.wt-type-summary > span:first-child b { color: var(--wt-record-gold); }
+.wt-type-table-scroll { overflow: auto; min-width: 0; }
+.wt-type-table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+.wt-type-table th, .wt-type-table td { text-align: right; padding: 9px 12px; font-size: 12px; border-bottom: 1px solid color-mix(in srgb, var(--wt-record-line) 70%, transparent); white-space: nowrap; }
+.wt-type-table thead th { color: var(--wt-record-muted); font-size: 11px; font-weight: 400; background: color-mix(in srgb, var(--wt-record-muted) 4%, transparent); }
+.wt-type-table tr > :first-child { text-align: left; padding-left: 0; font-weight: 500; }
+.wt-type-table tr > :last-child { padding-right: 0; }
+.wt-type-duration { display: grid; gap: 5px; text-align: right; min-width: 120px; }
+.wt-type-duration small { font-size: 10px; color: var(--wt-record-muted); }
+.wt-type-duration > div { height: 3px; background: color-mix(in srgb, var(--wt-record-muted) 9%, transparent); }
+.wt-type-duration i { display: block; height: 100%; background: color-mix(in srgb, var(--wt-record-gold) 75%, transparent); }
+.wt-type-expand { justify-self: start; }
+.wt-type-note { font-size: 11px; color: var(--wt-record-muted); }
+.wt-type-note > span { display: block; margin-top: 3px; }
+
+.wt-career-inventory > .wt-record-career { display: grid; grid-template-columns: minmax(0, .65fr) minmax(0, 1.35fr); gap: 16px; align-items: start; }
