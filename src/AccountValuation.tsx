@@ -32,6 +32,8 @@ type Scenario = {
 };
 export type Valuation = {
   id: string;
+  snapshotId: string;
+  player: { uid: string; nickname: string };
   fetchedAt: string;
   calculatedAt: string;
   cached: boolean;

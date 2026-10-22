@@ -21,6 +21,10 @@ function valid(value: unknown): value is Valuation {
   if (
     !object(value) ||
     !text(value.id) ||
+    !text(value.snapshotId) ||
+    !object(value.player) ||
+    !text(value.player.uid) ||
+    !text(value.player.nickname) ||
     !date(value.fetchedAt) ||
     !date(value.calculatedAt) ||
     !text(value.notice)
@@ -187,7 +191,9 @@ function readEntries(): Entry[] {
           entry.savedAt <= now + 60000 &&
           entry.expiresAt > now &&
           entry.expiresAt <= entry.savedAt + TTL &&
-          valid(entry.value),
+          valid(entry.value) &&
+          entry.value.player.uid === entry.uid &&
+          entry.value.snapshotId === entry.snapshotId,
       )
       .slice(0, 8);
   } catch {
@@ -213,7 +219,13 @@ export function cacheValuation(
   profile: Pick<PlayerProfile, "uid" | "snapshotId">,
   value: Valuation,
 ) {
-  if (!scope || !valid(value)) return false;
+  if (
+    !scope ||
+    !valid(value) ||
+    value.player.uid !== profile.uid ||
+    value.snapshotId !== profile.snapshotId
+  )
+    return false;
   const savedAt = Date.now(),
     expiresAt = savedAt + TTL;
   if (!Number.isFinite(expiresAt) || expiresAt <= savedAt) return false;
