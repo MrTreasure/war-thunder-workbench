@@ -211,6 +211,74 @@
       "capturedAt": "2026-10-21",
       "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?guides=1#/maps",
       "note": "走线及方案为绘制示例"
+    },
+    {
+      "file": "sales-vehicle-picker.png",
+      "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?category=ground&mode=rb#/sales",
+      "note": "真实页面，按VII级筛选中国金鹰与礼包载具，关注操作仅影响此截图浏览器；仅裁去页面周围空白，保留目标区域完整内容",
+      "capturedAt": "2026-10-22T05:54:59.912Z",
+      "width": 820,
+      "height": 840,
+      "bytes": 108986,
+      "sha256": "943b786dd6d540aa7dcac88b5b0d2556c36f0a073e56da732c8a5ff3981d41b6",
+      "crop": [
+        390,
+        180,
+        1210,
+        1020
+      ]
+    },
+    {
+      "file": "sales-overview.png",
+      "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?category=ground&mode=rb#/sales",
+      "note": "真实页面；五辆关注载具为截图浏览器内的演示选择，日期与价格为截图时数据",
+      "capturedAt": "2026-10-22T05:55:04.734Z",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 233624,
+      "sha256": "b85bdb053eb03124d1ff11326eb13e354cc334554f7407a5162cee10a1d7caea"
+    },
+    {
+      "file": "sales-month.png",
+      "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?category=ground&mode=rb#/sales",
+      "note": "2026年10月真实月历；预测带预计与虚线标识，不代表正式公告；仅裁去页面周围空白，保留目标区域完整内容",
+      "capturedAt": "2026-10-22T05:56:38.469Z",
+      "width": 1424,
+      "height": 922,
+      "bytes": 109763,
+      "sha256": "996ef753f878c415a4b082ece7246fed4436a41d906380043f1b64108ed8ba78",
+      "crop": [
+        88,
+        253,
+        1512,
+        1175
+      ]
+    },
+    {
+      "file": "sales-timeline.png",
+      "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?category=ground&mode=rb#/sales",
+      "note": "2026年10月真实活动时间轴，含已公布与预测活动",
+      "capturedAt": "2026-10-22T05:56:38.607Z",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 181066,
+      "sha256": "e55beeaa10b93051d8b3406d5a02747524d7a30d3462f75093194e983ccd5ed3"
+    },
+    {
+      "file": "sales-reference.png",
+      "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?category=ground&mode=rb#/sales",
+      "note": "实际高清参考图弹窗，整图适应剩余空间，无横向或纵向滚动；仅裁去页面周围空白，保留目标区域完整内容",
+      "capturedAt": "2026-10-22T05:56:42.247Z",
+      "width": 1180,
+      "height": 1140,
+      "bytes": 801523,
+      "sha256": "e6b08303dd74edf1535c27d36e17f71ecadbe01c071cbe83a94fb3065d327f64",
+      "crop": [
+        210,
+        30,
+        1390,
+        1170
+      ]
     }
   ]
 }
