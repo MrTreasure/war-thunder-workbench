@@ -2292,7 +2292,7 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-vehicle-view-switch button[aria-pressed="true"] { background: var(--wt-record-line); color: var(--wt-record-gold); }
 /* finesse · War Thunder service-record slots · four per desktop row */
 .wt-vehicle-cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-.wt-vehicle-card { position: relative; display: flex; flex-direction: column; min-width: 0; background: color-mix(in srgb, var(--wt-record-panel) 88%, #642923); border: 1px solid var(--wt-record-line); border-radius: 2px; overflow: hidden; }
+.wt-vehicle-card { position: relative; display: flex; flex-direction: column; min-width: 0; background: color-mix(in srgb, var(--wt-record-panel) 92%, #121b20); border: 1px solid var(--wt-record-line); border-radius: 2px; overflow: hidden; }
 .wt-vehicle-card-heading { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid color-mix(in srgb, var(--wt-record-line) 70%, transparent); background: color-mix(in srgb, var(--wt-record-muted) 5%, transparent); }
 .wt-vehicle-card-heading > div:first-child { flex: 1; min-width: 0; }
 .wt-record-page .wt-vehicle-card-heading h3 { font-size: 13px; font-weight: 600; line-height: 1.45; min-height: 1.45em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -2310,12 +2310,10 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-vehicle-card-values { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px 8px; padding: 10px 12px 12px; margin: 0; font-variant-numeric: tabular-nums; }
 .wt-vehicle-card-values dt { font-size: 10px; color: var(--wt-record-muted); white-space: nowrap; }
 .wt-vehicle-card-values dd { margin: 2px 0 0; font-size: 14px; font-weight: 500; white-space: nowrap; }
-.wt-vehicle-card-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 3px 12px; margin-top: auto; border-top: 1px solid var(--wt-record-line); background: color-mix(in srgb, var(--wt-record-muted) 4%, transparent); }
-.wt-vehicle-card-footer > span { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
-.wt-vehicle-card-footer img { width: 19px; height: 19px; object-fit: contain; }
-.wt-vehicle-card-footer strong { font-size: 12px; font-weight: 500; }
-.wt-vehicle-card-footer { min-height: 42px; }
-.wt-vehicle-card-footer > small { font-size: 11px; color: var(--wt-record-muted); white-space: nowrap; }
+.wt-vehicle-card-footer { position: relative; z-index: 2; display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 6px; min-height: 36px; padding: 3px 10px; margin-top: auto; border-top: 1px solid var(--wt-record-line); background: color-mix(in srgb, var(--wt-record-muted) 4%, transparent); }
+.wt-vehicle-card-footer > span { display: inline-flex; min-width: 0; align-items: center; gap: 4px; white-space: nowrap; }
+.wt-vehicle-card-footer img { flex-shrink: 0; width: 17px; height: 17px; object-fit: contain; }
+.wt-vehicle-card-footer strong { font-size: 11px; font-weight: 500; }
 .wt-vehicle-pagination { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; padding-block: 18px; color: var(--wt-record-muted); font-size: 12px; }
 .wt-vehicle-pagination > .wt-select { width: 140px; }
 .wt-vehicle-page-controls { display: flex; align-items: center; gap: 8px; margin-left: auto; }
@@ -2387,13 +2385,12 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 /* Shared rhythm between career summary, vehicle records and the final duration panel. */
 .wt-record-results { display: grid; gap: 18px; min-width: 0; }
 
-.wt-vehicle-card-footer { display: grid; gap: 7px; padding: 9px 12px 10px; }
-.wt-vehicle-card-actions { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-.wt-record-page .wt-vehicle-card-actions button { min-width: 0; min-height: 44px; padding: 8px 4px; font-size: 11px; border: 1px solid var(--wt-record-line); border-radius: 2px; background: var(--wt-record-panel); color: var(--wt-record-ink); white-space: nowrap; }
+.wt-vehicle-card-actions { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 10px; margin-left: auto; }
+.wt-record-page .wt-vehicle-card-actions button { min-width: 0; min-height: 28px; padding: 2px 0; font-size: 11px; line-height: 1.4; border: 0; border-radius: 0; background: transparent; color: var(--wt-record-muted); white-space: nowrap; cursor: pointer; }
 .wt-record-page .wt-vehicle-card-actions button:focus-visible { outline: 2px solid var(--wt-record-gold); outline-offset: 2px; }
-.wt-record-page .wt-vehicle-card-actions button:active { background: var(--wt-record-line); }
+.wt-record-page .wt-vehicle-card-actions button:active { color: var(--wt-record-gold); }
 @media (hover: hover) {
-  .wt-record-page .wt-vehicle-card-actions button:hover { border-color: var(--wt-record-gold); }
+  .wt-record-page .wt-vehicle-card-actions button:hover { color: var(--wt-record-gold); text-decoration: underline; text-underline-offset: 3px; }
 }
 .wt-vehicle-share-background { display: flex; flex-shrink: 0; align-items: center; flex-wrap: wrap; gap: 10px; padding: 8px 20px; border-top: 1px solid var(--wt-record-line); color: var(--wt-record-muted); font: 12px/1.5 system-ui, sans-serif; }
 .wt-vehicle-share-background .wt-select { min-width: 110px; min-height: 44px; }

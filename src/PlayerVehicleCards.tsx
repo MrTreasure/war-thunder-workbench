@@ -67,11 +67,11 @@ export function PlayerVehicleCards({
               ["对空 K/D", ratio(vehicle.airKd)],
               ["对地 K/D", ratio(vehicle.groundKd)],
               [
-                showNaval ? "对海 K/D" : "出击",
-                showNaval
-                  ? vehicle.category === "ground"
-                    ? "—"
-                    : ratio(vehicle.navalKd)
+                showNaval && (vehicle.category === "ships" || vehicle.category === "boats")
+                  ? "对海 K/D"
+                  : "出击",
+                showNaval && (vehicle.category === "ships" || vehicle.category === "boats")
+                  ? ratio(vehicle.navalKd)
                   : num(vehicle.sorties),
               ],
             ].map(([label, value]) => (

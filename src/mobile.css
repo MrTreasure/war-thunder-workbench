@@ -1976,3 +1976,8 @@
   .wt-vehicle-record-actions { align-items: flex-start; }
   .wt-vehicle-record-actions button { flex-shrink: 0; }
 }
+
+@media (min-width: 901px) and (max-width: 1100px) {
+  .wt-vehicle-card-actions { gap: 8px; }
+  .wt-record-page .wt-vehicle-card-actions button { font-size: 10px; }
+}
