@@ -1783,3 +1783,22 @@
   .wt-sale-reading-guide > summary > span { display: block; margin-left: 16px; }
   .wt-sale-reading-guide dl > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
 }
+
+@media (max-width: 800px) {
+  .wt-loading-content { width: calc(100% - 40px); margin-inline: 20px; padding: 28px 0 72px; }
+  .wt-loading-logo { width: 126px; height: 60px; margin-bottom: 22px; }
+  .wt-loading h1 { font-size: 28px; }
+  .wt-loading-features { column-gap: 16px; margin-bottom: 24px; }
+  .wt-loading-features a { grid-template-columns: minmax(0, 1fr) 12px; padding-block: 12px; gap: 6px; min-height: 72px; }
+  .wt-loading-feature-number { display: none; }
+  .wt-loading-features strong { font-size: 14px; }
+  .wt-loading-features small { font-size: 10px; }
+  .wt-loading-version { left: 20px; bottom: 22px; font-size: 9px; }
+  .wt-loading-retry { min-height: 44px; }
+  .wt-loading-compact h1 { font-size: 22px; }
+  .viewport > .wt-loading-compact .wt-loading-content { width: calc(100% - 40px); margin-inline: 20px; }
+}
+@media (max-width: 380px) {
+  .wt-loading-features { grid-template-columns: minmax(0, 1fr); }
+  .wt-loading-features a { min-height: 64px; }
+}

@@ -3,12 +3,11 @@
   display: flex;
   align-items: center;
   min-height: 100dvh;
-  overflow: hidden;
   isolation: isolate;
   color: #eeebe3;
   background: #151a20
     url("https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_patria_bmp_3_logo_056f2963433ebf4ac1b945004888e57f.jpg")
-    center center/cover no-repeat;
+    center center / cover no-repeat;
   font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
 }
 .wt-loading:before {
@@ -19,50 +18,106 @@
   background:
     linear-gradient(
       90deg,
-      rgba(13, 18, 24, 0.95),
-      rgba(13, 18, 24, 0.7) 38%,
-      rgba(13, 18, 24, 0.12) 76%
+      rgba(13, 18, 24, 0.97),
+      rgba(13, 18, 24, 0.82) 48%,
+      rgba(13, 18, 24, 0.22)
     ),
-    linear-gradient(0deg, rgba(13, 18, 24, 0.75), transparent 45%);
+    linear-gradient(0deg, rgba(13, 18, 24, 0.8), transparent 65%);
 }
 .wt-loading-content {
-  width: min(440px, 70%);
-  margin-left: 8%;
-  padding: 48px 0 64px;
+  width: min(680px, 76%);
+  margin-left: 7.5%;
+  padding: 44px 0 86px;
 }
 .wt-loading-logo {
+  filter: brightness(0) invert(0.94);
   display: block;
-  width: 208px;
-  height: 100px;
+  width: 152px;
+  height: 74px;
   object-fit: contain;
   object-position: left center;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 .wt-loading-caption {
-  font-size: 10px;
-  letter-spacing: 3px;
+  font:
+    10px/1.6 Consolas,
+    monospace;
+  letter-spacing: 2px;
   color: #e1bc77;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 .wt-loading h1 {
-  font-size: 24px;
+  font-size: clamp(28px, 3vw, 40px);
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   margin: 0 0 12px;
-  line-height: 1.4;
+  line-height: 1.3;
   white-space: normal;
 }
 .wt-loading-copy {
-  font-size: 12px;
+  font-size: 13px;
   color: #b5b8ba;
+  line-height: 1.8;
+  margin: 0 0 26px;
+}
+.wt-loading-features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 24px;
+  margin-bottom: 30px;
+}
+.wt-loading-features a {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr) 16px;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 0;
+  border-top: 1px solid #ffffff26;
+  color: inherit;
+  text-decoration: none;
+  min-width: 0;
+}
+.wt-loading-feature-number {
+  font:
+    10px Consolas,
+    monospace;
+  color: #bba878;
+  align-self: start;
+  padding-top: 4px;
+}
+.wt-loading-features strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.wt-loading-features small {
+  display: block;
+  margin-top: 5px;
+  font-size: 11px;
+  color: #a8b1b8;
   line-height: 1.7;
-  margin: 0 0 30px;
+}
+.wt-loading-feature-arrow {
+  color: #8b969c;
+  font-size: 16px;
+}
+.wt-loading-features a:hover strong,
+.wt-loading-features a:hover .wt-loading-feature-arrow {
+  color: #e1bc77;
+}
+.wt-loading-features a:focus-visible {
+  outline: 2px solid #e1bc77;
+  outline-offset: 3px;
+}
+.wt-loading-transfer {
+  max-width: 520px;
 }
 .wt-loading-progress {
   display: block;
   appearance: none;
   width: 100%;
-  height: 4px;
+  height: 3px;
   border: 0;
   background: #454a4e;
   border-radius: 0;
@@ -76,10 +131,14 @@
 .wt-loading-progress::-moz-progress-bar {
   background: #ce4a38;
 }
+.wt-loading-progress:indeterminate {
+  opacity: 0.7;
+}
 .wt-loading-status {
   display: flex;
   justify-content: space-between;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 6px 16px;
   margin-top: 12px;
   color: #c2c4c4;
   font:
@@ -90,8 +149,8 @@
 }
 .wt-loading-version {
   position: absolute;
-  bottom: 28px;
-  left: 8%;
+  bottom: 26px;
+  left: 7.5%;
   font:
     10px Consolas,
     monospace;
@@ -99,7 +158,8 @@
   color: #b4b6b4;
 }
 .wt-loading-retry {
-  margin-top: 24px;
+  margin-top: 22px;
+  min-height: 40px;
   padding: 9px 20px;
   border: 1px solid #ac4739;
   border-radius: 2px;
@@ -110,6 +170,9 @@
     "Microsoft YaHei",
     sans-serif;
   cursor: pointer;
+}
+.wt-loading-retry[hidden] {
+  display: none;
 }
 .wt-loading-retry:hover {
   background: #aa4033;
@@ -127,8 +190,8 @@
   padding-block: 30px;
 }
 .wt-loading-compact .wt-loading-logo {
-  width: 167px;
-  height: 80px;
+  width: 140px;
+  height: 68px;
   margin-bottom: 22px;
 }
 .wt-loading-compact h1 {
