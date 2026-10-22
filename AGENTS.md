@@ -77,6 +77,10 @@
   are filters, not page links. Use menu.csv's mainmenu/* Simplified Chinese
   entries for category labels, with localization provenance in canonical JSON.
 - Render `AppHeader` once in the shared `_workbench` route, outside the Outlet.
+  The title is 研发工作台. Keep the shared account control at the right edge on every
+  page, including map editing. `WorkbenchAccountProvider` owns existing stats
+  login/session state, popup callbacks and cross-tab updates; page components
+  must not portal their own login control into the header.
   Its identity, dimensions and creator link stay identical across pages. Desktop
   shows page links; mobile uses a native page select in the top header. Keep
   the shared content scroll frame and its TanStack scroll restoration ID stable.
@@ -222,8 +226,8 @@
   silently omitting failed layers. Keep cancellation, 2K/4K options, source
   fallbacks and the original map/annotation coordinate projection aligned.
 - Run `pnpm run check:map-editor` with the routine verification gate. Editing is
-  immersive: hide the application header and reserve fixed tracks for the main
-  tool rail, canvas and status. Secondary tools/properties are dismissible floating
+  immersive below the persistent application header: reserve fixed tracks for the
+  main tool rail, canvas and status. Secondary tools/properties are dismissible floating
   panels on desktop and mobile. Opening, closing or switching a panel must not
   resize the SVG, change the camera or move the map; do not allocate a panel grid
   column/row. Mobile panels float above the bottom tool dock.

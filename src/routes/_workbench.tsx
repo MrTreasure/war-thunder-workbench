@@ -1,5 +1,6 @@
 import { Outlet, createFileRoute } from "@tanstack/react-router";
 import { ErrorBoundary, WorkbenchProvider } from "../Workbench";
+import { WorkbenchAccountProvider } from "../WorkbenchAccount";
 import { AppHeader } from "../components/AppHeader";
 // The two pages share this workspace; avoid serial startup requests for tiny route adapters.
 export const Route = createFileRoute("/_workbench")({
@@ -11,14 +12,16 @@ function WorkbenchLayout() {
     <div className="workbench-layout">
       <ErrorBoundary>
         <WorkbenchProvider>
-          <AppHeader />
-          <div
-            className="workbench-content"
-            id="workbench-content"
-            data-scroll-restoration-id="workbench-content"
-          >
-            <Outlet />
-          </div>
+          <WorkbenchAccountProvider>
+            <AppHeader />
+            <div
+              className="workbench-content"
+              id="workbench-content"
+              data-scroll-restoration-id="workbench-content"
+            >
+              <Outlet />
+            </div>
+          </WorkbenchAccountProvider>
         </WorkbenchProvider>
       </ErrorBoundary>
     </div>

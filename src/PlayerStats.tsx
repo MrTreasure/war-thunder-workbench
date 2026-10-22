@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AccountValuation } from "./AccountValuation";
 import { PlayerReport } from "./PlayerReport";
-import { StatsAccountMenu } from "./components/StatsAccountMenu";
+import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { reportStyle, reportStyles, type ReportStyle } from "./player-report-style";
 import { StatsDataNotes } from "./StatsDataNotes";
 import {
@@ -19,9 +18,6 @@ import { Modal } from "./Modal";
 import { PlayerRadar } from "./PlayerRadar";
 import {
   statsRequest,
-  prepareStatsDevice,
-  setStatsToken,
-  loginChallenge,
   statsNumber as num,
   statsSilver,
   statsSilverIcon,
@@ -122,8 +118,8 @@ export function PlayerStats() {
   const [leaderMode, setLeaderMode] = useState("rb"),
     [leaderBranch, setLeaderBranch] = useState("ground");
   const board = leaderboards.boards.find((b) => b.mode === leaderMode && b.branch === leaderBranch);
-  const [config, setConfig] = useState<StatsConfig | null>(null),
-    [session, setSession] = useState<StatsSession | null>(null);
+  const [config, setConfig] = useState<StatsConfig | null>(null);
+  const { session, refreshSession: refreshAccountSession, identityVersion } = useWorkbenchAccount();
   const [nickname, setNickname] = useState(route.player || lastStatsNickname()),
     [candidates, setCandidates] = useState<PlayerCandidate[]>([]),
     [queryId, setQueryId] = useState("");
@@ -161,12 +157,10 @@ export function PlayerStats() {
     [reportTheme, setReportTheme] = useState<ReportTheme>(defaultReportTheme),
     [colorBusy, setColorBusy] = useState(false),
     [uploadBusy, setUploadBusy] = useState(false),
-    [backgroundError, setBackgroundError] = useState(""),
-    [headerHost, setHeaderHost] = useState<HTMLElement | null>(null);
+    [backgroundError, setBackgroundError] = useState("");
   const uploadInput = useRef<HTMLInputElement>(null),
     uploadState = useRef({ url: "", version: 0 });
   useEffect(() => {
-    setHeaderHost(document.getElementById("wt-header-account"));
     const resource = uploadState.current;
     return () => {
       resource.version++;
@@ -203,18 +197,17 @@ export function PlayerStats() {
   const requests = useRef(new Set<AbortController>()),
     generation = useRef(0),
     exportController = useRef<AbortController | null>(null);
-  const authPending = useRef<{ verifier: string; state: string; popup: Window } | null>(null);
+  const refreshSession = useCallback(async () => {
+    try {
+      await refreshAccountSession();
+    } catch {
+      /* Explicit requests present connection failures; quota refresh is best effort. */
+    }
+  }, [refreshAccountSession]);
   function controller() {
     const c = new AbortController();
     requests.current.add(c);
     return c;
-  }
-  async function refreshSession() {
-    try {
-      setSession(await statsRequest<StatsSession>("session"));
-    } catch {
-      /* An expired login is presented by the next explicit request. */
-    }
   }
   function loadProfile(p: PlayerProfile, local = false) {
     setProfile(p);
@@ -352,14 +345,10 @@ export function PlayerStats() {
     const c = new AbortController(),
       active = requests.current;
     active.add(c);
-    void Promise.all([
-      statsRequest<StatsConfig>("config", undefined, c.signal),
-      prepareStatsDevice(c.signal),
-    ])
-      .then(async ([cfg, actor]) => {
+    void Promise.all([statsRequest<StatsConfig>("config", undefined, c.signal), refreshSession()])
+      .then(async ([cfg]) => {
         if (c.signal.aborted) return;
         setConfig(cfg);
-        setSession(actor);
         if (route.player) {
           const result = await statsRequest<{ items: PlayerCandidate[]; queryId: string }>(
             "players/search",
@@ -378,7 +367,7 @@ export function PlayerStats() {
             );
             if (!c.signal.aborted) {
               loadProfile(p);
-              setSession(await statsRequest<StatsSession>("session", undefined, c.signal));
+              await refreshSession();
             }
           }
         }
@@ -414,67 +403,22 @@ export function PlayerStats() {
       clearTimeout(timeout);
       c.abort();
     };
-  }, [report]);
+  }, [report, refreshSession]);
+  const previousIdentity = useRef(identityVersion);
   useEffect(() => {
-    const listener = async (event: MessageEvent) => {
-      const pending = authPending.current;
-      if (
-        !pending ||
-        event.origin !== "https://api.mrtreasure.cc" ||
-        event.source !== pending.popup ||
-        event.data?.type !== "wt-login-code" ||
-        event.data.state !== pending.state
-      )
-        return;
-      authPending.current = null;
-      try {
-        const result = await statsRequest<{ token: string }>("auth/exchange", {
-          code: event.data.code,
-          verifier: pending.verifier,
-        });
-        setStatsToken(result.token);
-        setSession(await statsRequest<StatsSession>("session"));
-        setProfile(null);
-        setCandidates([]);
-        setNotice("登录成功，已取消每日次数限制。请重新选择玩家，缓存不扣次。");
-      } catch (failure) {
-        setError(failure instanceof Error ? failure.message : "登录未完成。");
-      }
-    };
-    window.addEventListener("message", listener);
-    return () => window.removeEventListener("message", listener);
-  }, []);
-  async function login() {
-    const popup = window.open("about:blank", "wt-account-login", "width=500,height=680");
-    if (!popup) {
-      setError("请允许打开登录窗口后重试。");
-      return;
-    }
-    try {
-      const challenge = await loginChallenge();
-      authPending.current = { verifier: challenge.verifier, state: challenge.state, popup };
-      const start = await statsRequest<{ authorizeUrl: string }>("auth/start", {
-        challenge: challenge.challenge,
-        state: challenge.state,
-      });
-      popup.location.replace(start.authorizeUrl);
-    } catch (failure) {
-      popup.close();
-      setError(failure instanceof Error ? failure.message : "无法打开登录。");
-    }
-  }
-  async function logout() {
-    try {
-      await statsRequest("auth/logout", {});
-      setStatsToken("");
-      setProfile(null);
-      setReport(null);
-      setSession(await statsRequest<StatsSession>("session"));
-    } catch (failure) {
-      setError(failure instanceof Error ? failure.message : "退出失败。");
-      throw failure;
-    }
-  }
+    if (previousIdentity.current === identityVersion) return;
+    previousIdentity.current = identityVersion;
+    generation.current++;
+    requests.current.forEach((request) => request.abort());
+    exportController.current?.abort();
+    setBusy(false);
+    setProfile(null);
+    setCandidates([]);
+    setReport(null);
+    setHistory(null);
+    setQueryId("");
+    setNotice("账号状态已更新，请重新选择玩家。");
+  }, [identityVersion]);
   async function generate() {
     if (!profile || viewingHistory || !eligible.length) return;
     const c = controller();
@@ -586,22 +530,6 @@ export function PlayerStats() {
   const hours = Math.max(2, Math.round((config?.settings.cacheTtlSeconds || 7200) / 3600));
   return (
     <div className="wt-record-page">
-      {headerHost &&
-        createPortal(
-          <div className="wt-header-account">
-            {session?.user ? (
-              <StatsAccountMenu
-                name={session.user.displayName || session.user.email || "已登录"}
-                onLogout={logout}
-              />
-            ) : (
-              <button className="wt-header-login" disabled={!session} onClick={() => void login()}>
-                登录
-              </button>
-            )}
-          </div>,
-          headerHost,
-        )}
       <header className="wt-record-page-title">
         <div>
           <h1>生涯战绩与个人战报</h1>

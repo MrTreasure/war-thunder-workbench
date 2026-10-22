@@ -132,3 +132,12 @@
 - No cloud user-state persistence or QMuse import was added. Preview remains the existing Nginx route.
 
 Verification: `pnpm run check` and `pnpm run build` passed. A focused planner check confirmed owned T-34-85 reduces its remaining RP from 72,900 to zero and clearing retains manual ownership. Live service/DB smoke with isolated disposable actors confirmed all 126 real garage vehicles match, idempotent retry charges once, quota exhaustion/access denial block imports, failure releases reservations, and canonical rank III / 33,000 RP survives the valuation response. No upstream calls were made by this smoke. Production preview HTML was compared byte-for-byte to the checked build. UI acceptance remains manual.
+
+
+## 2026-10-22 persistent shared account control
+
+- Branding is now 研发工作台 in the shared header, startup screen and document metadata.
+- `WorkbenchAccountProvider` lives above the shared header and route Outlet. It reuses the existing stats device/session keys and authorization-code/PKCE flow; it does not introduce another account service or persist research state remotely.
+- The header owns the rightmost account menu on all five pages and nested map detail/editing views. Switching routes keeps the popup callback listener and current session alive. Map editing starts below the same header.
+- Session preparation is shared across concurrent consumers. Identity changes (login/logout, expiry or another tab) invalidate pending player/report/import selections while preserving local research/lineup/map-plan documents. Query, report, valuation and garage-import quota refreshes use the shared session.
+- Popup callbacks retain origin/source/state checks. Failed account requests remain retryable from the shared header; no login tokens are exposed in UI or logs.

@@ -38,9 +38,6 @@
   outline: 2px solid var(--wt-gold);
   outline-offset: 2px;
 }
-.workbench-layout:has(.ground-workspace[data-editing="true"]) .app-header {
-  display: none;
-}
 .workbench-layout:has(.ground-workspace[data-editing="true"]) .workbench-content {
   overflow: clip;
   scrollbar-gutter: auto;
@@ -50,8 +47,8 @@
 }
 .ground-workspace[data-editing="true"] {
   position: fixed;
-  inset: 0;
-  height: 100dvh;
+  inset: var(--wt-app-header-height) 0 0;
+  height: calc(100dvh - var(--wt-app-header-height));
   min-height: 0;
   z-index: 40;
   display: block;

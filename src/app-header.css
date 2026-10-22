@@ -16,7 +16,7 @@
 }
 .app-header {
   position: relative;
-  z-index: 20;
+  z-index: 50;
   flex: 0 0 var(--wt-app-header-height);
   height: var(--wt-app-header-height);
   padding-top: env(safe-area-inset-top, 0px);
@@ -354,5 +354,45 @@
   }
   .app-header-actions:has(.wt-header-account) .creator-promo-link {
     min-width: 44px;
+  }
+}
+
+.wt-header-auth-message {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 12px;
+  width: min(320px, calc(100vw - 24px));
+  display: flex;
+  align-items: start;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--wt-line);
+  border-radius: 4px;
+  background: var(--wt-panel);
+  color: var(--wt-ink);
+  box-shadow: 0 8px 28px #0005;
+  font-size: 12px;
+}
+.wt-header-auth-message > span {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+.wt-header-auth-message button {
+  flex: none;
+  min-height: 32px;
+}
+@media (min-width: 801px) and (max-width: 1100px) {
+  .app-header-inner {
+    gap: 8px;
+    padding-inline: 16px;
+  }
+  .app-header .creator-promo-short {
+    display: none;
+  }
+  .app-header-actions {
+    gap: 8px;
+  }
+  .wt-account-trigger {
+    max-width: 100px;
   }
 }

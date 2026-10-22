@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { prepareStatsDevice, statsDate, statsRequest } from "./player-stats-api";
-import type { PlayerCandidate, PlayerProfile, StatsSession } from "./player-stats-api";
+import { statsDate, statsRequest } from "./player-stats-api";
+import type { PlayerCandidate, PlayerProfile } from "./player-stats-api";
+import { useWorkbenchAccount } from "./WorkbenchAccount";
 import type { Profile } from "./models";
 
 type ImportedGarage = {
@@ -27,7 +28,8 @@ export function OwnedVehicleImport({
 }) {
   const [open, setOpen] = useState(false);
   const [nickname, setNickname] = useState("");
-  const [session, setSession] = useState<StatsSession | null>(null);
+  const { session, refreshSession, identityVersion } = useWorkbenchAccount();
+  const previousIdentity = useRef(identityVersion);
   const [candidates, setCandidates] = useState<PlayerCandidate[]>([]);
   const [queryId, setQueryId] = useState("");
   const [player, setPlayer] = useState<PlayerProfile | null>(null);
@@ -36,6 +38,16 @@ export function OwnedVehicleImport({
   const controller = useRef<AbortController | null>(null);
   const [pending, setPending] = useState<{ snapshotId: string; requestId: string } | null>(null);
   useEffect(() => () => controller.current?.abort(), []);
+  useEffect(() => {
+    if (previousIdentity.current === identityVersion) return;
+    previousIdentity.current = identityVersion;
+    controller.current?.abort();
+    setBusy(false);
+    setPlayer(null);
+    setCandidates([]);
+    setPending(null);
+    setQueryId("");
+  }, [identityVersion]);
   async function run(action: (signal: AbortSignal) => Promise<void>) {
     if (busy) return;
     const c = new AbortController();
@@ -49,9 +61,7 @@ export function OwnedVehicleImport({
     } finally {
       if (!c.signal.aborted) {
         setBusy(false);
-        void statsRequest<StatsSession>("session")
-          .then(setSession)
-          .catch(() => {});
+        void refreshSession().catch(() => {});
       }
     }
   }
@@ -74,8 +84,8 @@ export function OwnedVehicleImport({
               return;
             }
             setOpen(true);
-            void run(async (signal) => {
-              setSession(await prepareStatsDevice(signal));
+            void run(async () => {
+              await refreshSession();
             });
           }}
         >
