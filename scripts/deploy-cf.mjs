@@ -7,9 +7,11 @@ import { fileURLToPath } from "node:url";
 
 setDefaultResultOrder("ipv4first");
 const root = fileURLToPath(new URL("../", import.meta.url));
+const runtime = process.env.WT_CF_RUNTIME || "/vol1/1000/appdata/war-thunder-trees/cloudflare";
 const dryRun = process.argv.slice(2).includes("--dry-run");
-if (process.argv.slice(2).some((arg) => arg !== "--dry-run"))
-  throw Error("Usage: pnpm run deploy:cf [--dry-run]");
+const verifyOnly = process.argv.slice(2).includes("--verify-only");
+if (process.argv.slice(2).some((arg) => !["--dry-run", "--verify-only"].includes(arg)))
+  throw Error("Usage: pnpm run deploy:cf [--dry-run | --verify-only]");
 function run(args) {
   const result = spawnSync("pnpm", args, {
     cwd: root,
@@ -18,6 +20,12 @@ function run(args) {
   });
   if (result.status !== 0) throw Error(`pnpm ${args.join(" ")} failed`);
 }
+if (verifyOnly) {
+  if (dryRun) throw Error("Choose dry-run or verify-only");
+  await verifyWorker(await readFile(resolve(runtime, "staging/index.html"), "utf8"));
+  process.exit(0);
+}
+
 // Check the real public gateway without replaying any business/quota operation.
 if (!dryRun) {
   const origin = "https://wt.mrtreasure.cc";
@@ -76,7 +84,7 @@ if (!dryRun) {
 }
 run(["run", "check"]);
 run(["run", "build"]);
-const runtime = process.env.WT_CF_RUNTIME || "/vol1/1000/appdata/war-thunder-trees/cloudflare";
+
 const stage = resolve(runtime, "staging");
 const archive = resolve(runtime, "asset-history");
 await mkdir(archive, { recursive: true });
@@ -121,8 +129,13 @@ run([
 ]);
 if (!dryRun) {
   await cp(resolve(stage, "assets"), archive, { recursive: true });
-  function readPublic(url) {
-    const result = spawnSync(
+  await verifyWorker(html);
+}
+
+async function verifyWorker(html) {
+  let publicAddresses;
+  function curl(args) {
+    return spawnSync(
       "curl",
       [
         "--http1.1",
@@ -131,35 +144,54 @@ if (!dryRun) {
         "--silent",
         "--show-error",
         "--connect-timeout",
-        "8",
+        "5",
         "--max-time",
-        "20",
-        url,
+        "15",
+        ...args,
       ],
       { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 },
     );
+  }
+  function readPublic(url) {
+    const parsed = new URL(url);
+    if (parsed.origin !== "https://wt.mrtreasure.cc") throw Error("Unexpected verification origin");
+    let result = curl([url]);
+    if (result.status === 6) {
+      // Newly created names may remain negatively cached in the NAS/router.
+      // Use a public DNS answer, retaining the original URL, SNI and TLS validation.
+      if (!publicAddresses) {
+        const dns = curl(["https://dns.alidns.com/resolve?name=wt.mrtreasure.cc&type=A"]);
+        if (dns.status !== 0) throw Error("Public DNS check failed");
+        const response = JSON.parse(dns.stdout);
+        publicAddresses = (response.Answer || [])
+          .filter(
+            (item) =>
+              item.type === 1 &&
+              /^\d{1,3}(?:\.\d{1,3}){3}$/.test(item.data) &&
+              item.data.split(".").every((n) => Number(n) <= 255),
+          )
+          .map((item) => item.data);
+        if (response.Status !== 0 || !publicAddresses.length)
+          throw Error("Production DNS is not published yet");
+        console.log(
+          "Local DNS has an old negative result; verifying Cloudflare using public DNS answers",
+        );
+      }
+      for (const ip of publicAddresses) {
+        result = curl(["--resolve", "wt.mrtreasure.cc:443:" + ip, url]);
+        if (result.status === 0) break;
+      }
+    }
     if (result.status !== 0) throw Error("Public Cloudflare verification failed: " + url);
     return result.stdout;
   }
-  let live;
-  for (let attempt = 0; attempt < 3; attempt++) {
-    try {
-      live = readPublic("https://wt.mrtreasure.cc/");
-      break;
-    } catch (error) {
-      if (attempt === 2) throw error;
-      await new Promise((resolve) => setTimeout(resolve, 3000));
-    }
-  }
+  const live = readPublic("https://wt.mrtreasure.cc/");
   const entry = html.match(
     /<script[^>]+src="([^"]+)"[^>]*type="module"|<script[^>]+type="module"[^>]*src="([^"]+)"/,
   );
   if (!entry || !live.includes(entry[1] || entry[2]))
-    throw Error(
-      "Upload finished but public entry verification failed; check DNS/deployment before retrying",
-    );
-  const scriptUrl = new URL(entry[1] || entry[2], "https://wt.mrtreasure.cc/").href;
-  readPublic(scriptUrl);
+    throw Error("Public entry does not match this release");
+  readPublic(new URL(entry[1] || entry[2], "https://wt.mrtreasure.cc/").href);
   const css = html.match(/<link[^>]+href="([^"]+\.css)"/);
   if (!css) throw Error("Missing stylesheet");
   readPublic(new URL(css[1], "https://wt.mrtreasure.cc/").href);
@@ -169,5 +201,7 @@ if (!dryRun) {
     )
   )
     throw Error("Wrong production sitemap");
-  console.log("Verified public deployment: https://wt.mrtreasure.cc/");
+  console.log(
+    "Verified public deployment: https://wt.mrtreasure.cc/ (HTTPS, entry, JS, CSS, sitemap)",
+  );
 }
