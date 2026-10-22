@@ -736,7 +736,6 @@ export function PlayerStats() {
                 {[
                   ["ground", "陆战"],
                   ["air", "空战"],
-                  ["naval", "海战"],
                 ].map(([id, label]) => (
                   <button
                     key={id}
@@ -749,9 +748,7 @@ export function PlayerStats() {
               </fieldset>
             </div>
             <p className="wt-record-fine">
-              {leaderBranch === "naval"
-                ? "海战榜单暂未提供，可直接输入昵称查询。"
-                : "按官方累计击毁数整理，点击昵称查询，新的查询遵守上方额度。"}
+              按官方累计击毁数整理，点击昵称查询，新的查询遵守上方额度。
             </p>
             {board ? (
               <>
@@ -777,11 +774,7 @@ export function PlayerStats() {
                 </p>
               </>
             ) : (
-              <p className="wt-record-empty">
-                {leaderBranch === "naval"
-                  ? "官方当前未提供可核验的海战独立榜单。"
-                  : "该榜单暂未获取，请稍后再试或直接输入昵称。"}
-              </p>
+              <p className="wt-record-empty">该榜单暂未获取，请稍后再试或直接输入昵称。</p>
             )}
           </section>
         </div>
