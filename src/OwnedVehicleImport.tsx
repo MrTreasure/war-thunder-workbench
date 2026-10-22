@@ -165,7 +165,7 @@ export function OwnedVehicleImport({
           {player && (
             <button
               type="button"
-              className="gold-button"
+              className="quiet-button vehicle-import-confirm"
               disabled={
                 busy ||
                 (limit != null &&

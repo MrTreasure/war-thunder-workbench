@@ -1920,3 +1920,14 @@ body {
 .vehicle-import-candidates [aria-pressed="true"] {
   border-color: var(--wt-accent);
 }
+
+.vehicle-import-panel > button {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  min-height: 36px;
+}
+.vehicle-import-panel .vehicle-import-confirm {
+  color: var(--wt-accent);
+  border-color: var(--wt-accent);
+  background: var(--wt-accent-soft);
+}
