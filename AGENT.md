@@ -4,5 +4,6 @@
 - 这些资料必须放在被忽略的 `artifacts/` 目录中，不得加入 Git 提交，不得上传 GitHub、Git 图床、Gist、Release、公开附件或应用发布包。不得通过改名、复制到其他目录或 `git add -f` 绕过要求。
 - 效率研究保留在 `artifacts/private-rating-research/`、`artifacts/efficiency-inverse/`；收益研究保留在 `artifacts/private-reward-research/`、`artifacts/reward-analysis-20261022/`。不得清除这些本地资料以替代取消公开追踪。
 - 清理已经跟踪的研究资料时，先保存并校验本地副本。推送前检查当前文件和所有拟推送的历史，不能只添加忽略规则或在最新提交中删除文件。已经上传的研究内容应从对应远程记录中清理。
+- 本机共享 Git 目录已安装 `pre-push` 检查，依据 `scripts/check-private-research-push.py` 检查拟推送提交的全部历史；旧工作副本也必须通过检查。不得用 `--no-verify` 绕过。新克隆需重新安装本机钩子，或在推送前运行该脚本的 `--check <提交>` 检查。
 - 正式功能所需、已经确认公开的评分实现、运行配置和使用说明可以正常维护；不得把研究报告、截图样本对比或推导过程混入这些文件。
 - 其他项目约束见 `AGENTS.md`。
