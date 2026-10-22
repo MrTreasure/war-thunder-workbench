@@ -79,6 +79,7 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
         if (original.origin !== location.origin || original.pathname !== location.pathname) throw new Error("登录返回地址无效。");
         history.replaceState(history.state, "", original);
         const result = await statsRequest<{ token: string }>("auth/exchange", { code, verifier: intent.verifier });
+        resetIdentity();
         setStatsToken(result.token);
         notifyStatsAccountLogin();
       } else if (remembersStatsAccount() && !hasStatsToken()) {
@@ -144,11 +145,17 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
         setBusy(false);
       }
     }, 1000);
+    const expired = () => { resetIdentity(); void refreshSession().catch(() => {}); };
+    const visible = () => { if (document.visibilityState === "visible") void refreshSession().catch(() => {}); };
+    window.addEventListener("wt-account-expired", expired);
+    document.addEventListener("visibilitychange", visible);
     window.addEventListener("message", listener);
     window.addEventListener("storage", storage);
     return () => {
       clearInterval(timer);
       clearInterval(renew);
+      window.removeEventListener("wt-account-expired", expired);
+      document.removeEventListener("visibilitychange", visible);
       window.removeEventListener("message", listener);
       window.removeEventListener("storage", storage);
     };

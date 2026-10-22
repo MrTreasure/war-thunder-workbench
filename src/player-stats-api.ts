@@ -192,6 +192,7 @@ export async function statsRequest<T>(
   body?: unknown,
   signal?: AbortSignal,
 ): Promise<T> {
+  const requestToken = sessionToken;
   const response = await fetch(settings.apiBaseUrl + "/" + path, {
     method: body === undefined ? "GET" : "POST",
     headers: statsHeaders(),
@@ -202,8 +203,13 @@ export async function statsRequest<T>(
     ...(body === undefined ? {} : { body: JSON.stringify(body) }),
   });
   const data = await response.json().catch(() => null);
-  if (!response.ok)
+  if (!response.ok) {
+    if (path !== "session" && data?.code === "LOGIN_EXPIRED" && sessionToken === requestToken) {
+      setStatsToken("");
+      window.dispatchEvent(new Event("wt-account-expired"));
+    }
     throw new StatsError(data?.message || "战绩服务暂时无法访问", data?.code || "REQUEST_FAILED");
+  }
   // All derived scores cross this boundary, including nested report/vehicle data.
   // The adapter loads its CDN runtime only when the response contains scoring rows.
   const { applyPlayerEfficiency } = await import("./player-efficiency");
