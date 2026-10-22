@@ -19,12 +19,13 @@ import type { ReportTheme } from "./player-report-design";
 import { useNavigate, useSearch } from "@tanstack/react-router";
 import catalogSettings from "../data/catalog-settings.json";
 import valuationRules from "../data/account-valuation-rules.json";
-import leaderboards from "../data/player-leaderboards.json";
+import { cachedLeaderboards, cacheLeaderboards, validLeaderboards, type LeaderboardData, type LeaderboardPlayer } from "./player-leaderboards-cache";
 import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
 import { PlayerRadar } from "./PlayerRadar";
 import {
   statsRequest,
+  StatsError,
   statsNumber as num,
   statsSilver,
   statsSilverIcon,
@@ -122,6 +123,7 @@ export function PlayerStats() {
   const route = useSearch({ from: "/_workbench/stats" });
   const navigate = useNavigate({ from: "/stats" });
   const [recentPlayers, setRecentPlayers] = useState(statsQueryHistory);
+  const [leaderboards, setLeaderboards] = useState(cachedLeaderboards);
   const [leaderMode, setLeaderMode] = useState("rb"),
     [leaderBranch, setLeaderBranch] = useState("ground");
   const board = leaderboards.boards.find((b) => b.mode === leaderMode && b.branch === leaderBranch);
@@ -256,7 +258,7 @@ export function PlayerStats() {
     setTab("overview");
     void navigate({ search: {}, replace: true });
   }
-  async function performSearch(nick: string, exact: boolean) {
+  async function performSearch(nick: string) {
     const value = nick.trim();
     if (value.length < 2) return;
     rememberStatsNickname(value);
@@ -279,15 +281,7 @@ export function PlayerStats() {
       setQueryId(result.queryId);
       setCandidates(result.items);
       if (!result.items.length) setNotice("没有找到玩家，请检查昵称与平台后缀。");
-      const matches = result.items.filter((p) => p.nickname === value);
-      if (exact && matches.length === 1) {
-        const p = await statsRequest<PlayerProfile>(
-          "players/select",
-          { queryId: result.queryId, uid: matches[0].uid },
-          c.signal,
-        );
-        if (!c.signal.aborted && id === generation.current) loadProfile(p);
-      } else setProfile(null);
+      setProfile(null);
     } catch (failure) {
       if (!c.signal.aborted && id === generation.current)
         setError(failure instanceof Error ? failure.message : "查询失败，请稍后重试。");
@@ -297,6 +291,42 @@ export function PlayerStats() {
         setBusy(false);
         void refreshSession();
       }
+    }
+  }
+  async function chooseLeader(player: LeaderboardPlayer) {
+    if (busy || !session) return;
+    const id = ++generation.current, c = controller();
+    setBusy(true);
+    setError("");
+    setNotice("");
+    setNickname(player.nickname);
+    setCandidates([]);
+    setQueryId("");
+    setProfile(null);
+    try {
+      const result = await statsRequest<PlayerProfile>("players/leaderboard", {
+        mode: leaderMode, branch: leaderBranch, rank: player.rank, nickname: player.nickname,
+        uid: player.uid || undefined, requestId: "query_" + crypto.randomUUID(),
+      }, c.signal);
+      if (!c.signal.aborted && id === generation.current) {
+        loadProfile(result);
+        const next = { ...leaderboards, boards: leaderboards.boards.map(b => ({ ...b, players: b.players.map(p =>
+          p.nickname === player.nickname ? { ...p, uid: result.uid } : p,
+        ) })) };
+        setLeaderboards(next);
+        cacheLeaderboards(next);
+      }
+    } catch (failure) {
+      if (!c.signal.aborted && id === generation.current) {
+        setError(failure instanceof Error ? failure.message : "榜单玩家查询失败。");
+        if (failure instanceof StatsError && failure.code === "BOARD_CHANGED") {
+          const current = await statsRequest<LeaderboardData>("leaderboards?revision=" + Date.now(), undefined, c.signal).catch(() => null);
+          if (!c.signal.aborted && id === generation.current && validLeaderboards(current)) { setLeaderboards(current); cacheLeaderboards(current); }
+        }
+      }
+    } finally {
+      requests.current.delete(c);
+      if (!c.signal.aborted && id === generation.current) { setBusy(false); void refreshSession(); }
     }
   }
   async function choose(p: PlayerCandidate) {
@@ -358,6 +388,13 @@ export function PlayerStats() {
     }
   }
   useEffect(() => {
+    const c = new AbortController();
+    void statsRequest<LeaderboardData>("leaderboards", undefined, c.signal).then(value => {
+      if (!c.signal.aborted && validLeaderboards(value)) { setLeaderboards(value); cacheLeaderboards(value); }
+    }).catch(() => { /* Keep the saved official snapshot when unavailable. */ });
+    return () => c.abort();
+  }, []);
+  useEffect(() => {
     const c = new AbortController(),
       active = requests.current;
     active.add(c);
@@ -372,7 +409,6 @@ export function PlayerStats() {
             c.signal,
           );
           if (c.signal.aborted) return;
-          setCandidates(result.items);
           setQueryId(result.queryId);
           const exact = result.items.filter((p) => p.nickname === route.player);
           if (exact.length === 1) {
@@ -385,7 +421,7 @@ export function PlayerStats() {
               loadProfile(p);
               await refreshSession();
             }
-          }
+          } else setCandidates(result.items);
         }
       })
       .catch((failure) => {
@@ -568,7 +604,7 @@ export function PlayerStats() {
         className="wt-record-query"
         onSubmit={(event) => {
           event.preventDefault();
-          void performSearch(nickname, false);
+          void performSearch(nickname);
         }}
       >
         <label className="sr-only" htmlFor="player-nickname">
@@ -694,7 +730,7 @@ export function PlayerStats() {
               </fieldset>
             </div>
             <p className="wt-record-fine">
-              按官方累计击毁数整理，点击昵称查询，新的查询遵守上方额度。
+              按官方累计击毁数整理，点击后按已核验 UID 查询；缓存命中免费，新查询遵守上方额度。
             </p>
             {board ? (
               <>
@@ -703,10 +739,7 @@ export function PlayerStats() {
                     <li key={p.rank}>
                       <button
                         disabled={!session || busy}
-                        onClick={() => {
-                          setNickname(p.nickname);
-                          void performSearch(p.nickname, true);
-                        }}
+                        onClick={() => void chooseLeader(p)}
                       >
                         <span className="wt-record-rank">{String(p.rank).padStart(2, "0")}</span>
                         <b>{p.nickname}</b>

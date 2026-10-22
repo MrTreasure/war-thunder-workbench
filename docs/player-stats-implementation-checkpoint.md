@@ -170,3 +170,10 @@ Verification: `pnpm run check` and `pnpm run build` passed. A focused planner ch
 - Policies run before RP, GE, pack and market classification. Excluded freebies are displayed separately; hidden/unpriced entries remain in the existing unpriced vehicle cards. Custom prices are included exactly once with an extra composition segment. Only owned/observed candidates enter these policies; no missing ownership or historical RP is fabricated.
 - Cached valuations are checked through actor-bound `GET /public/valuations/:id`. Policy-only changes are repriced from unchanged verified financial/garage basis without upstream requests or quota. Other basis changes require explicit recalculation. Browser caches never write prices to the server; network failure can still show the saved historical result with a notice.
 - Every vehicle table header supports ascending/descending order, natural name ordering and infinity, with unknown values last in both directions. Sorting precedes the visible-row limit; an unavailable naval column cannot remain the active hidden sort.
+
+### 排行榜 UID 与 GET 缓存（2026-10-22）
+
+- 榜单点击改走独立 `players/leaderboard` 请求：服务端校验榜单行、复用已核验昵称→UID 映射并按 UID 读取档案；不先呈现前缀候选。手动搜索仍显式选择候选，精确深链读取期间也不闪现候选列表。
+- 榜单列表新增 GET 接口与独立本地 1 小时缓存，保留静态官方快照作为失败回退。UID 以服务端数据库为准，客户端不得将不明 UID 猜成已核验。
+- 独立服务复用 NAS Redis DB3，仅缓存匿名公开读模型；四类公开 GET 增加 Cache-Control/ETag/304。身份、额度、战报、估值和写接口保持 no-store。详见独立服务 `docs/cache-audit.md`。
+- `node scripts/prepare-player-leaderboards.mjs` 同步 canonical 榜单到独立服务；不采集、不构建、不发布。
