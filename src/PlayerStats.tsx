@@ -89,7 +89,14 @@ function VehicleRow({
   return (
     <tr>
       <td aria-label={v.name}>
-        <span className="wt-record-vehicle">
+        <a
+          className="wt-record-vehicle"
+          href={"https://wiki.warthunder.com/unit/" + encodeURIComponent(v.id)}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${v.name} 官方 Wiki（新标签页打开）`}
+          title="在新标签页打开官方 Wiki"
+        >
           <img src={v.thumbnail} alt="" loading="lazy" />
           <span>
             <b>{v.name}</b>
@@ -98,7 +105,7 @@ function VehicleRow({
               {countryName}
             </small>
           </span>
-        </span>
+        </a>
       </td>
       <td>{num(v.battles)}</td>
       <td>{v.winRate == null ? "—" : v.winRate.toFixed(2) + "%"}</td>
