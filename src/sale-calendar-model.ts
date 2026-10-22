@@ -106,7 +106,7 @@ const dateFormatter = new Intl.DateTimeFormat("zh-CN", {
 export const saleDate = (value: string) => dateFormatter.format(new Date(value));
 export function saleRange(event: SaleEvent): string {
   if (event.status === "predicted" && event.startWindow && event.endWindow)
-    return `预计开始 ${saleDate(event.startWindow[0])}—${saleDate(event.startWindow[1])} · 结束 ${saleDate(event.endWindow[0])}—${saleDate(event.endWindow[1])}`;
+    return `可能于 ${saleDate(event.startWindow[0])}—${saleDate(event.startWindow[1])} 开始 · 可能于 ${saleDate(event.endWindow[0])}—${saleDate(event.endWindow[1])} 结束`;
   return `${saleDate(event.startAt)}—${saleDate(event.endAt)}`;
 }
 export function saleRate(event: SaleEvent, channel?: string): string {

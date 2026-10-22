@@ -841,3 +841,37 @@
 .wt-sales-page .wt-sale-title-button:active {
   color: var(--wt-gold);
 }
+
+/* finesse · component=watchlist-disclosure · states=default,hover,focus-visible,active,expanded */
+.wt-sale-watch-fold {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 10px 0;
+}
+.wt-sale-watch-fold > span,
+.wt-sales-page .wt-sale-prediction-note {
+  color: var(--wt-muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+.wt-sale-watch-fold > button {
+  padding: 6px 12px;
+  color: var(--wt-gold);
+  border: 1px solid var(--wt-gold-line);
+  background: var(--wt-gold-soft);
+  cursor: pointer;
+}
+.wt-sale-watch-fold > button:active {
+  border-color: var(--wt-gold);
+}
+.wt-sales-page .wt-sale-prediction-note {
+  margin-top: 10px;
+}
+@media (hover: hover) {
+  .wt-sale-watch-fold > button:hover {
+    border-color: var(--wt-gold);
+  }
+}
