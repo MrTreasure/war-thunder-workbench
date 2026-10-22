@@ -1,0 +1,544 @@
+import { useEffect, useMemo, useState } from "react";
+import { GameSelect } from "./components/GameSelect";
+import { Modal } from "./Modal";
+import { useStored, object } from "./storage";
+import { statsRequest, statsCategoryNames } from "./player-stats-api";
+import bootstrap from "./generated/bootstrap.json";
+import {
+  nextSale,
+  saleChannels,
+  saleCountdown,
+  saleDate,
+  saleRange,
+  saleRate,
+} from "./sale-calendar-model";
+import type { SaleCalendarData, SaleEvent, SaleVehicle } from "./sale-calendar-model";
+
+const countries: Record<string, string> = bootstrap.countries;
+const watchValid = (value: unknown): value is SaleVehicle[] =>
+  Array.isArray(value) &&
+  value.length <= 60 &&
+  value.every(
+    (v) =>
+      object(v) &&
+      typeof v.id === "string" &&
+      typeof v.name === "string" &&
+      typeof v.country === "string" &&
+      typeof v.category === "string" &&
+      typeof v.channel === "string" &&
+      v.channel in saleChannels &&
+      typeof v.image === "string" &&
+      v.image.startsWith("https://static.encyclopedia.warthunder.com/"),
+  );
+function VehiclePicture({ vehicle }: { vehicle: SaleVehicle }) {
+  return (
+    <img
+      src={vehicle.image}
+      alt=""
+      loading="lazy"
+      width={112}
+      height={70}
+      onError={(e) => {
+        e.currentTarget.style.visibility = "hidden";
+      }}
+    />
+  );
+}
+function AddVehicles({
+  saved,
+  add,
+  close,
+}: {
+  saved: SaleVehicle[];
+  add: (v: SaleVehicle) => void;
+  close: () => void;
+}) {
+  const [country, setCountry] = useState("china"),
+    [category, setCategory] = useState("all"),
+    [query, setQuery] = useState("");
+  const [results, setResults] = useState<SaleVehicle[]>([]),
+    [total, setTotal] = useState(0),
+    [loading, setLoading] = useState(true),
+    [error, setError] = useState("");
+  useEffect(() => {
+    const controller = new AbortController();
+    const timer = window.setTimeout(() => {
+      setLoading(true);
+      setError("");
+      setResults([]);
+      void statsRequest<{ items: SaleVehicle[]; total: number }>(
+        `sales/vehicles?country=${encodeURIComponent(country)}&category=${encodeURIComponent(category)}&q=${encodeURIComponent(query.trim())}`,
+        undefined,
+        controller.signal,
+      )
+        .then((r) => {
+          if (!controller.signal.aborted) {
+            setResults(r.items);
+            setTotal(r.total);
+          }
+        })
+        .catch((e: Error) => {
+          if (!controller.signal.aborted) setError(e.message);
+        })
+        .finally(() => {
+          if (!controller.signal.aborted) setLoading(false);
+        });
+    }, 350);
+    return () => {
+      window.clearTimeout(timer);
+      controller.abort();
+    };
+  }, [country, category, query]);
+  return (
+    <Modal
+      title="添加关注载具"
+      subtitle="选择国家后搜索；关注列表仅保存在当前浏览器。"
+      close={close}
+      className="wt-sale-picker"
+    >
+      <div className="wt-sale-picker-controls">
+        <GameSelect aria-label="载具国家" value={country} onValueChange={setCountry}>
+          {Object.entries(countries).map(([id, name]) => (
+            <option key={id} value={id}>
+              {name}
+            </option>
+          ))}
+        </GameSelect>
+        <GameSelect aria-label="载具军种" value={category} onValueChange={setCategory}>
+          <option value="all">全部军种</option>
+          {Object.entries(statsCategoryNames).map(([id, name]) => (
+            <option key={id} value={id}>
+              {name}
+            </option>
+          ))}
+        </GameSelect>
+        <input
+          aria-label="搜索载具"
+          placeholder="名称或载具代号"
+          value={query}
+          maxLength={80}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </div>
+      <div className="wt-sale-picker-results" aria-live="polite" aria-busy={loading}>
+        {error ? (
+          <p role="alert">{error}</p>
+        ) : loading ? (
+          <p>正在查找载具…</p>
+        ) : !results.length ? (
+          <p>没有找到匹配载具，试试其他名称。</p>
+        ) : (
+          results.map((vehicle) => {
+            const added = saved.some((v) => v.id === vehicle.id);
+            return (
+              <div className="wt-sale-vehicle-option" key={vehicle.id}>
+                <VehiclePicture vehicle={vehicle} />
+                <div>
+                  <strong>{vehicle.name}</strong>
+                  <span>
+                    {statsCategoryNames[vehicle.category]} · {vehicle.rank}级 ·{" "}
+                    {saleChannels[vehicle.channel]}
+                  </span>
+                </div>
+                <button disabled={added || saved.length >= 60} onClick={() => add(vehicle)}>
+                  {added ? "已关注" : "＋ 关注"}
+                </button>
+              </div>
+            );
+          })
+        )}
+      </div>
+      <footer>
+        {loading ? "" : `找到 ${total} 辆，展示前 ${results.length} 辆。可继续输入名称缩小范围。`}
+        <button onClick={close}>完成</button>
+      </footer>
+    </Modal>
+  );
+}
+function SourceLinks({ event }: { event: SaleEvent }) {
+  return (
+    <>
+      {event.sources.map((source) => (
+        <a key={source.url} href={source.url} target="_blank" rel="noreferrer">
+          {event.status === "predicted" ? "历史公告 ↗" : "官方公告 ↗"}
+        </a>
+      ))}
+    </>
+  );
+}
+export function SaleCalendar() {
+  const [data, setData] = useState<SaleCalendarData | null>(null),
+    [error, setError] = useState(""),
+    [loading, setLoading] = useState(true),
+    [reload, setReload] = useState(0);
+  const [clock, setClock] = useState(() => Date.now()),
+    [offset, setOffset] = useState(0);
+  const [year, setYear] = useState(() => new Date().getFullYear()),
+    [month, setMonth] = useState("all"),
+    [channel, setChannel] = useState("all"),
+    [country, setCountry] = useState("all"),
+    [status, setStatus] = useState("all");
+  const [picker, setPicker] = useState(false),
+    [watch, saveWatch, storageError] = useStored<SaleVehicle[]>("wt-sale-watch-v1", [], watchValid);
+  useEffect(() => {
+    const timer = window.setInterval(() => setClock(Date.now()), 1000);
+    return () => window.clearInterval(timer);
+  }, []);
+  useEffect(() => {
+    const controller = new AbortController();
+    const timer = window.setTimeout(() => {
+      setLoading(true);
+      setError("");
+      void statsRequest<SaleCalendarData>("sales", undefined, controller.signal)
+        .then((r) => {
+          if (!controller.signal.aborted) {
+            setData(r);
+            setOffset(Date.parse(r.serverNow) - Date.now());
+          }
+        })
+        .catch((e: Error) => {
+          if (!controller.signal.aborted) setError(e.message);
+        })
+        .finally(() => {
+          if (!controller.signal.aborted) setLoading(false);
+        });
+    }, 0);
+    return () => {
+      window.clearTimeout(timer);
+      controller.abort();
+    };
+  }, [reload]);
+  const now = clock + offset;
+  const events = useMemo(() => data?.events || [], [data]);
+  const years = useMemo(() => [...new Set(events.map((e) => e.year))].sort(), [events]);
+  const visible = events.filter(
+    (e) =>
+      e.year === year &&
+      (month === "all" || new Date(e.startAt).getUTCMonth() + 1 === Number(month)) &&
+      (channel === "all" || e.channels.includes(channel as never)) &&
+      (country === "all" || !e.countries.length || e.countries.includes(country)) &&
+      (status === "all" || e.status === status),
+  );
+  const next = events
+    .filter((e) =>
+      e.status === "confirmed"
+        ? Date.parse(e.endAt) > now
+        : Date.parse(e.endWindow?.[1] || e.endAt) > now,
+    )
+    .sort((a, b) => Date.parse(a.startAt) - Date.parse(b.startAt))[0];
+  const known = events.filter((e) => e.year === year && e.status === "confirmed").length;
+  const add = (vehicle: SaleVehicle) => {
+    if (watch.length < 60 && !watch.some((v) => v.id === vehicle.id))
+      saveWatch([...watch, vehicle]);
+  };
+  return (
+    <main className="wt-sales-page">
+      <header className="wt-sales-heading">
+        <div>
+          <h2>折扣日历</h2>
+          <p>把想入库的载具记下来，等一个合适的价格。</p>
+        </div>
+        <div className="wt-sales-heading-actions">
+          <button className="primary" onClick={() => setPicker(true)}>
+            ＋ 添加载具
+          </button>
+          <button onClick={() => setReload((n) => n + 1)} disabled={loading}>
+            {loading ? "读取中…" : "刷新日历"}
+          </button>
+        </div>
+      </header>
+      {error && (
+        <div className="wt-sales-error" role="alert">
+          {error} <button onClick={() => setReload((n) => n + 1)}>重试</button>
+          {data && " · 上次日历仍保留"}
+        </div>
+      )}
+      {storageError && <p role="alert">{storageError}</p>}
+      <section className="wt-sales-topline" aria-label="活动概览">
+        <div>
+          <span>下一场活动</span>
+          <strong>{next?.title || (loading ? "正在读取公告" : "暂无可用排期")}</strong>
+          <small>{next ? saleCountdown(next, now) : "活动数据由服务器定期核对"}</small>
+        </div>
+        <div>
+          <span>{year} 年排期</span>
+          <strong>
+            {known} <small>已公布阶段</small>
+          </strong>
+          <small>预测以虚线与“预计”区分</small>
+        </div>
+        <div>
+          <span>我的关注</span>
+          <strong>
+            {watch.length} <small>辆载具</small>
+          </strong>
+          <small>按实际购买渠道寻找优惠窗口</small>
+        </div>
+      </section>
+      <section className="wt-sale-watch">
+        <div className="wt-sales-section-title">
+          <h3>我的关注</h3>
+          <span>日期统一为北京时间 · 捆绑包需满足组合购买条件</span>
+        </div>
+        {!watch.length ? (
+          <div className="wt-sale-empty">
+            <div aria-hidden="true">＋</div>
+            <p>先把想买的载具放进关注列表</p>
+            <span>查看最近的优惠窗口与倒计时，游戏内购车和商城礼包分别匹配。</span>
+            <button onClick={() => setPicker(true)}>选择载具</button>
+          </div>
+        ) : (
+          <div className="wt-sale-watch-list">
+            {watch.map((vehicle) => {
+              const event = nextSale(vehicle, events, now),
+                exact = event?.status === "confirmed" && event.vehicleIds.includes(vehicle.id);
+              return (
+                <article key={vehicle.id} className="wt-sale-watch-row">
+                  <VehiclePicture vehicle={vehicle} />
+                  <div className="wt-sale-watch-identity">
+                    <h4>{vehicle.name}</h4>
+                    <span>
+                      {countries[vehicle.country]} · {saleChannels[vehicle.channel]}
+                    </span>
+                  </div>
+                  <div className="wt-sale-watch-opportunity">
+                    {event ? (
+                      <>
+                        <strong>{event.title}</strong>
+                        <span>{saleRange(event)}</span>
+                        <small>
+                          {event.status === "predicted"
+                            ? "预测窗口，尚未公布名单"
+                            : exact
+                              ? "已核对参与名单"
+                              : event.coverage === "all-except-exclusions"
+                                ? "常规优惠范围，需核对新车排除名单"
+                                : "可能相关，需核对指定载具名单"}
+                        </small>
+                      </>
+                    ) : (
+                      <span>
+                        {["market", "excluded"].includes(vehicle.channel)
+                          ? "此购买渠道不自动参与常规载具促销"
+                          : "尚无匹配的优惠排期"}
+                      </span>
+                    )}
+                  </div>
+                  <div className="wt-sale-watch-countdown">
+                    {event && (
+                      <>
+                        <b>{saleCountdown(event, now)}</b>
+                        <small>{saleRate(event, vehicle.channel)}</small>
+                        <SourceLinks event={event} />
+                      </>
+                    )}
+                  </div>
+                  <button
+                    className="wt-sale-remove"
+                    aria-label={`取消关注${vehicle.name}`}
+                    onClick={() => saveWatch(watch.filter((v) => v.id !== vehicle.id))}
+                  >
+                    ×
+                  </button>
+                </article>
+              );
+            })}
+          </div>
+        )}
+      </section>
+      <section className="wt-sale-calendar">
+        <div className="wt-sales-section-title">
+          <h3>年度优惠时间轴</h3>
+          <span>
+            <i className="wt-sale-dot" /> 官方已公布 <i className="wt-sale-dot predicted" />{" "}
+            历史推算
+          </span>
+        </div>
+        <div className="wt-sale-filters">
+          <GameSelect
+            aria-label="活动年份"
+            value={String(year)}
+            onValueChange={(v) => setYear(Number(v))}
+          >
+            {(years.length ? years : [year]).map((y) => (
+              <option key={y} value={y}>
+                {y} 年
+              </option>
+            ))}
+          </GameSelect>
+          <GameSelect aria-label="月份" value={month} onValueChange={setMonth}>
+            <option value="all">全年</option>
+            {Array.from({ length: 12 }, (_, i) => (
+              <option key={i + 1} value={i + 1}>
+                {i + 1} 月
+              </option>
+            ))}
+          </GameSelect>
+          <GameSelect aria-label="优惠渠道" value={channel} onValueChange={setChannel}>
+            <option value="all">全部购买渠道</option>
+            {Object.entries(saleChannels)
+              .filter(([k]) => !["market", "excluded", "unknown"].includes(k))
+              .map(([k, v]) => (
+                <option key={k} value={k}>
+                  {v}
+                </option>
+              ))}
+          </GameSelect>
+          <GameSelect aria-label="活动国家" value={country} onValueChange={setCountry}>
+            <option value="all">全部国家</option>
+            {Object.entries(countries).map(([k, v]) => (
+              <option key={k} value={k}>
+                {v}
+              </option>
+            ))}
+          </GameSelect>
+          <GameSelect aria-label="排期状态" value={status} onValueChange={setStatus}>
+            <option value="all">已公布与预测</option>
+            <option value="confirmed">官方已公布</option>
+            <option value="predicted">仅看预测</option>
+          </GameSelect>
+        </div>
+        <fieldset className="wt-sale-year-strip" aria-label="按月份查看活动">
+          {Array.from({ length: 12 }, (_, i) => {
+            const m = i + 1,
+              items = events.filter(
+                (e) => e.year === year && new Date(e.startAt).getUTCMonth() === i,
+              );
+            return (
+              <button
+                key={m}
+                aria-pressed={month === String(m)}
+                onClick={() => setMonth(month === String(m) ? "all" : String(m))}
+              >
+                <span>{m}月</span>
+                <div>
+                  {items.map((e) => (
+                    <i key={e.id} className={e.status} title={e.title} />
+                  ))}
+                </div>
+                <small>{items.length ? `${items.length}阶段` : "暂无"}</small>
+              </button>
+            );
+          })}
+        </fieldset>
+        <div className="wt-sale-events" aria-busy={loading}>
+          {!visible.length ? (
+            <p className="wt-sale-no-events">
+              {loading
+                ? "正在读取服务器日历…"
+                : "当前筛选下没有活动。可切换月份、购买渠道或查看其他年份。"}
+            </p>
+          ) : (
+            visible.map((event) => {
+              const previous = events.find(
+                (e) =>
+                  e.family === event.family &&
+                  e.phase === event.phase &&
+                  e.year === year - 1 &&
+                  e.status === "confirmed",
+              );
+              const active =
+                event.status === "confirmed" &&
+                Date.parse(event.startAt) <= now &&
+                Date.parse(event.endAt) > now;
+              return (
+                <article key={event.id} className={`wt-sale-event ${event.status}`}>
+                  <div className="wt-sale-date-column">
+                    <strong>{saleDate(event.startAt)}</strong>
+                    <span>
+                      {event.status === "predicted"
+                        ? "预计中点"
+                        : event.startPrecision === "day"
+                          ? "开始日期"
+                          : "开始"}
+                    </span>
+                    <small>
+                      {active
+                        ? "进行中"
+                        : Date.parse(event.endAt) < now
+                          ? event.status === "predicted"
+                            ? "预测期已过"
+                            : "历史记录"
+                          : event.status === "predicted"
+                            ? "待官方公布"
+                            : "已公布"}
+                    </small>
+                  </div>
+                  <div className="wt-sale-event-main">
+                    <div className="wt-sale-event-title">
+                      <h4>{event.title}</h4>
+                      <span className={`wt-sale-badge ${event.status}`}>
+                        {event.status === "predicted" ? "预测窗口" : "官方日期"}
+                      </span>
+                    </div>
+                    <p className="wt-sale-range">{saleRange(event)}</p>
+                    <div className="wt-sale-tags">
+                      {event.channels.map((c) => (
+                        <span key={c}>{saleChannels[c]}</span>
+                      ))}
+                      <span>
+                        {event.countries.length
+                          ? event.countries.map((c) => countries[c]).join("／")
+                          : "全国家活动"}
+                      </span>
+                    </div>
+                    <p className="wt-sale-note">{event.notes}</p>
+                    {previous && (
+                      <p className="wt-sale-history">
+                        去年 {previous.year}：{saleRange(previous)}
+                      </p>
+                    )}
+                    <details>
+                      <summary>时间、依据与参与范围</summary>
+                      <p>
+                        {event.status === "predicted"
+                          ? event.basis?.method
+                          : "已核对官方公告。活动日期已公布，不代表所有所列国家的载具都参与。"}
+                      </p>
+                      <p>
+                        {event.status === "confirmed"
+                          ? `开始：${event.startPrecision === "day" ? `${saleDate(event.startAt)}（原公告未注明开始时刻）` : new Date(event.startAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" })}；结束：${new Date(event.endAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" })}`
+                          : `历史基准：${event.basis?.year} 年，${event.basis ? saleDate(event.basis.startAt) : ""}—${event.basis ? saleDate(event.basis.endAt) : ""}。预测中点不表示精确开始时间。`}
+                      </p>
+                      <p>
+                        新版本载具、联队载具、组合购买门槛和平台差异请以官方公告为准。日期边界通常不含结束时刻。
+                      </p>
+                      <SourceLinks event={event} />
+                    </details>
+                  </div>
+                  <div className="wt-sale-event-rate">
+                    <strong>{saleRate(event)}</strong>
+                    <span>
+                      {event.status === "predicted" ? "今年力度待公布" : "适用于指定范围"}
+                    </span>
+                    <SourceLinks event={event} />
+                  </div>
+                </article>
+              );
+            })
+          )}
+        </div>
+      </section>
+      <footer className="wt-sale-footnote">
+        <p>
+          预测只用于安排购买时间，不构成载具必定打折或价格承诺。金鹰充值、交易所商品、乘员与载具研发
+          RP 不自动随购车活动降价。当前为 PC／Gaijin 商城日历，主机商店可能有不同时间。
+        </p>
+        <p>
+          公告核对：
+          {data
+            ? new Date(data.checkedAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" })
+            : "等待服务器"}
+          {data?.nextCheckAt
+            ? ` · 下次计划核对 ${new Date(data.nextCheckAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" })}`
+            : ""}
+          {data && ["partial", "failed", "interrupted"].includes(data.updateStatus)
+            ? " · 最近核对未完整完成，保留上次有效记录。"
+            : ""}{" "}
+          · “刷新日历”读取已入库结果，不触发官方站点查询。
+        </p>
+      </footer>
+      {picker && <AddVehicles saved={watch} add={add} close={() => setPicker(false)} />}
+    </main>
+  );
+}

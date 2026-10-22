@@ -62,13 +62,15 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   });
   useEffect(() => {
     document.title =
-      page === "stats"
-        ? "战绩查询 · War Thunder 研发工作台"
-        : page === "maps"
-          ? "陆战地图 · War Thunder 研发工作台"
-          : page === "lineups"
-            ? "出击队列 · War Thunder 研发工作台"
-            : "War Thunder 研发工作台";
+      page === "sales"
+        ? "折扣日历 · War Thunder 研发工作台"
+        : page === "stats"
+          ? "战绩查询 · War Thunder 研发工作台"
+          : page === "maps"
+            ? "陆战地图 · War Thunder 研发工作台"
+            : page === "lineups"
+              ? "出击队列 · War Thunder 研发工作台"
+              : "War Thunder 研发工作台";
   }, [page]);
   const currentKey = country;
   const countryEntry = manifest.countries[country] || null;
@@ -104,7 +106,8 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
     [bootstrap, loadedCountry, currentKey, country],
   );
   useEffect(() => {
-    if (page === "maps" || page === "stats" || !country || !countryEntry) return;
+    if (page === "maps" || page === "stats" || page === "sales" || !country || !countryEntry)
+      return;
     const controller = new AbortController();
     const valid = (value: unknown): value is CountryPayload => {
       if (

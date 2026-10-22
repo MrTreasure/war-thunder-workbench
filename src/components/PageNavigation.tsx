@@ -1,5 +1,9 @@
 import { GameSelect } from "./GameSelect";
-export function PageNavigation({ page }: { page: "tree" | "lineups" | "maps" | "stats" }) {
+export function PageNavigation({
+  page,
+}: {
+  page: "tree" | "lineups" | "maps" | "stats" | "sales";
+}) {
   return (
     <>
       <nav className="page-navigation" aria-label="工具页面">
@@ -15,6 +19,9 @@ export function PageNavigation({ page }: { page: "tree" | "lineups" | "maps" | "
         <a href="#/stats" aria-current={page === "stats" ? "page" : undefined}>
           战绩查询
         </a>
+        <a href="#/sales" aria-current={page === "sales" ? "page" : undefined}>
+          折扣日历
+        </a>
       </nav>
       <nav className="mobile-page-navigation" aria-label="工具页面">
         <GameSelect
@@ -23,7 +30,11 @@ export function PageNavigation({ page }: { page: "tree" | "lineups" | "maps" | "
           onValueChange={(value) => {
             const next = value;
             if (
-              (next === "tree" || next === "lineups" || next === "maps" || next === "stats") &&
+              (next === "tree" ||
+                next === "lineups" ||
+                next === "maps" ||
+                next === "stats" ||
+                next === "sales") &&
               next !== page
             )
               location.hash = `/${next}`;
@@ -33,6 +44,7 @@ export function PageNavigation({ page }: { page: "tree" | "lineups" | "maps" | "
           <option value="lineups">出击队列</option>
           <option value="maps">陆战地图</option>
           <option value="stats">战绩查询</option>
+          <option value="sales">折扣日历</option>
         </GameSelect>
       </nav>
     </>

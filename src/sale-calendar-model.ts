@@ -1,0 +1,119 @@
+export type SaleChannel = "sl" | "ge" | "pack" | "bundle" | "premium";
+export type SaleEvent = {
+  id: string;
+  family: string;
+  phase: string;
+  title: string;
+  year: number;
+  status: "confirmed" | "predicted";
+  startAt: string;
+  endAt: string;
+  startPrecision?: string;
+  startWindow?: string[];
+  endWindow?: string[];
+  countries: string[];
+  categories: string[];
+  channels: SaleChannel[];
+  coverage: string;
+  vehicleIds: string[];
+  excludedVehicleIds: string[];
+  discounts: { channel: SaleChannel; percentOff: number }[];
+  notes: string;
+  sources: { url: string; title: string; checkedAt: string }[];
+  basis?: { year: number; startAt: string; endAt: string; method: string };
+};
+export type SaleVehicle = {
+  id: string;
+  name: string;
+  nameEn: string;
+  country: string;
+  category: string;
+  channel: SaleChannel | "market" | "excluded" | "unknown";
+  image: string;
+  rank: string;
+  store: string | null;
+  market: string | null;
+};
+export type SaleCalendarData = {
+  serverNow: string;
+  checkedAt: string;
+  nextCheckAt: string | null;
+  lastAttemptAt: string | null;
+  updateStatus: string;
+  events: SaleEvent[];
+};
+export const saleChannels: Record<string, string> = {
+  sl: "银狮购车",
+  ge: "金鹰购车",
+  pack: "商城礼包",
+  bundle: "组合礼包",
+  premium: "高级账号",
+  market: "交易所",
+  excluded: "联队载具",
+  unknown: "购买方式待核对",
+};
+export function matchesSale(vehicle: SaleVehicle, event: SaleEvent): boolean {
+  if (["market", "excluded", "unknown"].includes(vehicle.channel)) return false;
+  if (event.countries.length && !event.countries.includes(vehicle.country)) return false;
+  if (event.categories.length && !event.categories.includes(vehicle.category)) return false;
+  if (event.excludedVehicleIds.includes(vehicle.id)) return false;
+  if (event.coverage === "explicit" && !event.vehicleIds.includes(vehicle.id)) return false;
+  return (
+    event.channels.includes(vehicle.channel as SaleChannel) ||
+    (event.channels.includes("bundle") && ["pack", "ge"].includes(vehicle.channel))
+  );
+}
+export function nextSale(vehicle: SaleVehicle, events: SaleEvent[], now: number): SaleEvent | null {
+  return (
+    events
+      .filter(
+        (event) =>
+          matchesSale(vehicle, event) &&
+          Date.parse(
+            event.status === "predicted" ? event.endWindow?.[1] || event.endAt : event.endAt,
+          ) > now,
+      )
+      .sort(
+        (a, b) =>
+          Math.max(now, Date.parse(a.startAt)) - Math.max(now, Date.parse(b.startAt)) ||
+          Number(a.status === "predicted") - Number(b.status === "predicted"),
+      )[0] || null
+  );
+}
+export function saleCountdown(event: SaleEvent, now: number): string {
+  const start = Date.parse(event.startAt),
+    end = Date.parse(event.endAt);
+  if (event.status === "predicted" && event.startWindow && now >= Date.parse(event.startWindow[0]))
+    return "已进入预测窗口";
+  if (now >= end) return "已结束";
+  const seconds = Math.max(0, Math.floor(((now >= start ? end : start) - now) / 1000));
+  const days = Math.floor(seconds / 86400),
+    hours = Math.floor(seconds / 3600) % 24;
+  const minutes = Math.floor(seconds / 60) % 60;
+  return `${event.status === "predicted" ? "预计距开始" : now >= start ? "距结束" : "距开始"} ${days ? days + "天 " : ""}${hours}时 ${minutes}分${event.status === "predicted" ? "" : " " + (seconds % 60) + "秒"}`;
+}
+const dateFormatter = new Intl.DateTimeFormat("zh-CN", {
+  timeZone: "Asia/Shanghai",
+  month: "2-digit",
+  day: "2-digit",
+});
+export const saleDate = (value: string) => dateFormatter.format(new Date(value));
+export function saleRange(event: SaleEvent): string {
+  if (event.status === "predicted" && event.startWindow && event.endWindow)
+    return `预计开始 ${saleDate(event.startWindow[0])}—${saleDate(event.startWindow[1])} · 结束 ${saleDate(event.endWindow[0])}—${saleDate(event.endWindow[1])}`;
+  return `${saleDate(event.startAt)}—${saleDate(event.endAt)}`;
+}
+export function saleRate(event: SaleEvent, channel?: string): string {
+  const rates = [
+    ...new Set(
+      event.discounts.filter((r) => !channel || r.channel === channel).map((r) => r.percentOff),
+    ),
+  ].sort((a, b) => a - b);
+  if (!rates.length)
+    return channel && event.channels.includes("bundle") ? "组合价与条件见公告" : "力度见公告";
+  const label =
+    rates.length === 1
+      ? `${(100 - rates[0]) / 10}折`
+      : `${(100 - rates[rates.length - 1]) / 10}—${(100 - rates[0]) / 10}折`;
+  return `${event.status === "predicted" ? "往年 " : ""}${label}`;
+}
