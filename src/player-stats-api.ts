@@ -345,14 +345,14 @@ export function statsQueryHistory(): PlayerProfile[] {
               Array.isArray(p.countries) &&
               Array.isArray(p.vehicles),
           )
-          .slice(0, 8)
+          .slice(0, 16)
       : [];
   } catch {
     return [];
   }
 }
 export function rememberStatsProfile(profile: PlayerProfile): PlayerProfile[] {
-  const items = [profile, ...statsQueryHistory().filter((p) => p.uid !== profile.uid)].slice(0, 8);
+  const items = [profile, ...statsQueryHistory().filter((p) => p.uid !== profile.uid)].slice(0, 16);
   // Bound this independent cache; quota failures never evict other user state.
   while (items.length) {
     try {

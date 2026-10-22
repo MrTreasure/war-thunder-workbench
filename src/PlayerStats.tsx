@@ -629,7 +629,7 @@ export function PlayerStats() {
               )}
             </div>
             <p className="wt-record-fine">
-              本机保留最近 8
+              本机保留最近 16
               位玩家的已查资料，点击直接查看，不发起新查询；需要最新资料时使用强制刷新。
             </p>
             {recentPlayers.length ? (
