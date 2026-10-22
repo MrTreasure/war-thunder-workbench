@@ -149,7 +149,8 @@ export function PlayerStats() {
     [mode, setMode] = useState("rb"),
     [tab, setTab] = useState(route.view || "overview");
   const publicDetails = usePlayerRead<PlayerDetails>(profile, "details", false);
-  const detailVehicles = new Map(publicDetails.data?.vehicles.map(v => [`${v.mode}:${v.id}`, v]) || []);
+  const freshVehicleDetails = profile && publicDetails.data && Date.parse(publicDetails.data.fetchedAt) >= Date.parse(profile.fetchedAt) ? publicDetails.data : null;
+  const detailVehicles = new Map(freshVehicleDetails?.vehicles.map(v => [`${v.mode}:${v.id}`, v]) || []);
   const effectiveVehicles = (profile?.vehicles || []).map(v => ({ ...v, ...detailVehicles.get(`${v.mode}:${v.id}`) }));
   const displayProfile = profile ? { ...profile, vehicles: effectiveVehicles } : null;
   const [showGarage, setShowGarage] = useState(false);
@@ -907,7 +908,7 @@ export function PlayerStats() {
                   <h2>
                     载具战绩 <span>{filtered.length} 辆</span>
                   </h2>
-                  <span>{statsModeNames[mode]} · 仅展示已出击载具{publicDetails.data ? ` · 采集于 ${statsDate(publicDetails.data.fetchedAt)}` : ""}</span>
+                  <span>{statsModeNames[mode]} · 仅展示已出击载具{freshVehicleDetails ? ` · 采集于 ${statsDate(freshVehicleDetails.fetchedAt)}` : ""}</span>
                 </div>
                 <div className="wt-record-filters">
                   <input
