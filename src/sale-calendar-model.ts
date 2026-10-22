@@ -182,3 +182,14 @@ export function saleEventNote(event: SaleEvent): string {
   }
   return note.trim();
 }
+
+export function saleActivity(event: SaleEvent, now: number) {
+  const state =
+    now < Date.parse(event.startAt)
+      ? "upcoming"
+      : now >= Date.parse(event.endAt)
+        ? "ended"
+        : "active";
+  const label = { upcoming: "待开始", active: "活动中", ended: "已结束" }[state];
+  return { state, label, fullLabel: `${event.status === "predicted" ? "预计" : ""}${label}` };
+}

@@ -6,8 +6,8 @@
   isolation: isolate;
   color: #eeebe3;
   background: #151a20
-    url("https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_patria_bmp_3_logo_056f2963433ebf4ac1b945004888e57f.jpg")
-    center center / cover no-repeat;
+    var(--wt-loading-background-image)
+    var(--wt-loading-background-position, center) / cover no-repeat;
   font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
 }
 .wt-loading:before {
@@ -184,7 +184,7 @@
 .wt-loading-compact {
   min-height: 0;
   height: calc(100% - 75px);
-  background-position: center;
+  background-position: var(--wt-loading-background-position, center);
 }
 .wt-loading-compact .wt-loading-content {
   padding-block: 30px;

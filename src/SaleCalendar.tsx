@@ -3,7 +3,8 @@ import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
 import { SaleMonthCalendar } from "./SaleMonthCalendar";
 import { useStored, object } from "./storage";
-import { statsRequest, statsCategoryNames } from "./player-stats-api";
+import { statsCategoryNames } from "./player-stats-api";
+import { readSaleCalendar, readSaleVehicles } from "./sale-calendar-api";
 import bootstrap from "./generated/bootstrap.json";
 import calendarReference from "../data/sale-calendar-reference.json";
 import {
@@ -18,6 +19,7 @@ import {
   saleRate,
   saleOriginalPrice,
   saleEventNote,
+  saleActivity,
 } from "./sale-calendar-model";
 import type { SaleCalendarData, SaleEvent, SaleVehicle } from "./sale-calendar-model";
 
@@ -123,9 +125,8 @@ function AddVehicles({
       setLoading(true);
       setError("");
       setResults([]);
-      void statsRequest<{ items: SaleVehicle[]; total: number }>(
-        `sales/vehicles?country=${encodeURIComponent(country)}&category=${encodeURIComponent(category)}&rank=${encodeURIComponent(rank)}&q=${encodeURIComponent(query.trim())}`,
-        undefined,
+      void readSaleVehicles(
+        `country=${encodeURIComponent(country)}&category=${encodeURIComponent(category)}&rank=${encodeURIComponent(rank)}&q=${encodeURIComponent(query.trim())}`,
         controller.signal,
       )
         .then((r) => {
@@ -264,7 +265,7 @@ export function SaleCalendar() {
     const timer = window.setTimeout(() => {
       setLoading(true);
       setError("");
-      void statsRequest<SaleCalendarData>("sales", undefined, controller.signal)
+      void readSaleCalendar(controller.signal, reload > 0)
         .then((r) => {
           if (!controller.signal.aborted) {
             setData(r);
@@ -359,7 +360,7 @@ export function SaleCalendar() {
             <dt>日期预测</dt>
             <dd>
               按往年日期推算，开始与结束各预留 ±4
-              天；黑五按感恩节次日、春节按农历新年调整。两个范围分别表示可能的开始日、结束日，预测中点仅供参考；预测不保证载具参与或折扣力度。
+              天；黑五按感恩节次日、春节按农历新年调整。两个范围分别表示可能的开始日、结束日，预测中点仅供参考，预测状态按预计起止日标注；预测不保证载具参与或折扣力度。
             </dd>
           </div>
           <div>
@@ -570,6 +571,7 @@ export function SaleCalendar() {
             month={Number(month)}
             events={filtered}
             today={today}
+            now={now}
             years={years.length ? years : [year]}
             navigate={navigateMonth}
             goToday={() => {
@@ -623,12 +625,12 @@ export function SaleCalendar() {
                       e.status === "confirmed",
                   );
                   const note = saleEventNote(event);
-                  const active =
-                    event.status === "confirmed" &&
-                    Date.parse(event.startAt) <= now &&
-                    Date.parse(event.endAt) > now;
+                  const activity = saleActivity(event, now);
                   return (
-                    <article key={event.id} className={`wt-sale-event ${event.status}`}>
+                    <article
+                      key={event.id}
+                      className={`wt-sale-event ${event.status} activity-${activity.state}`}
+                    >
                       <div className="wt-sale-date-column">
                         <strong>{saleDate(event.startAt)}</strong>
                         <span>
@@ -638,17 +640,7 @@ export function SaleCalendar() {
                               ? "开始日期"
                               : "开始"}
                         </span>
-                        <small>
-                          {active
-                            ? "进行中"
-                            : Date.parse(event.endAt) < now
-                              ? event.status === "predicted"
-                                ? "预测期已过"
-                                : "历史记录"
-                              : event.status === "predicted"
-                                ? "待官方公布"
-                                : "已公布"}
-                        </small>
+                        <small className="wt-sale-activity-status">{activity.fullLabel}</small>
                       </div>
                       <div className="wt-sale-event-main">
                         <div className="wt-sale-event-title">

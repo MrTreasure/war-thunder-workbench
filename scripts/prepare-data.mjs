@@ -1,8 +1,10 @@
+import { prepareAppearance } from "./prepare-appearance.mjs";
 import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { resolve } from "node:path";
 const root = fileURLToPath(new URL("../", import.meta.url));
+await prepareAppearance(root);
 const json = async (name) => JSON.parse(await readFile(resolve(root, "data", name), "utf8"));
 const [trees, research, purchases, planning, flags, taxonomy] = await Promise.all(
   [

@@ -918,3 +918,72 @@
 .wt-sale-reading-guide > summary:active {
   color: var(--wt-gold);
 }
+
+/* finesse · component=sale-activity-state · color always paired with text */
+.activity-upcoming {
+  --wt-sale-state-ink: #91c6f2;
+  --wt-sale-state-fill: rgba(78, 139, 190, 0.13);
+  --wt-sale-state-line: rgba(119, 177, 223, 0.55);
+}
+.activity-active {
+  --wt-sale-state-ink: #91d7ad;
+  --wt-sale-state-fill: rgba(72, 151, 109, 0.16);
+  --wt-sale-state-line: rgba(115, 200, 149, 0.6);
+}
+.activity-ended {
+  --wt-sale-state-ink: #acb5bc;
+  --wt-sale-state-fill: rgba(135, 147, 158, 0.09);
+  --wt-sale-state-line: rgba(139, 151, 163, 0.35);
+}
+.wt-sales-page .wt-sale-range-bar {
+  border-color: var(--wt-sale-state-line);
+  background: var(--wt-sale-state-fill);
+}
+.wt-sales-page .wt-sale-range-bar.predicted {
+  background: linear-gradient(
+    90deg,
+    var(--wt-page) 0%,
+    var(--wt-page) var(--wt-sale-range-core-start),
+    var(--wt-sale-state-fill) var(--wt-sale-range-core-start),
+    var(--wt-sale-state-fill) var(--wt-sale-range-core-end),
+    var(--wt-page) var(--wt-sale-range-core-end),
+    var(--wt-page) 100%
+  );
+}
+.wt-sale-activity-status {
+  color: var(--wt-sale-state-ink);
+  font-size: 11px;
+  white-space: nowrap;
+  flex: none;
+}
+.wt-sale-activity-status i {
+  font-style: normal;
+  margin-right: 2px;
+}
+.wt-sale-range-bar .wt-sale-range-start,
+.wt-sale-range-bar .wt-sale-range-end {
+  color: var(--wt-sale-state-ink);
+}
+.wt-sale-date-column .wt-sale-activity-status {
+  color: var(--wt-sale-state-ink);
+}
+@container sale-range (max-width: 85px) {
+  .wt-sale-range-bar .wt-sale-range-name {
+    display: none;
+  }
+  .wt-sale-range-bar .wt-sale-activity-status i {
+    display: block;
+    font-size: 9px;
+    line-height: 1.15;
+  }
+  .wt-sale-range-bar .wt-sale-activity-status {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 10px;
+  }
+}
+
+.wt-sale-event .wt-sale-date-column strong {
+  color: var(--wt-sale-state-ink);
+}

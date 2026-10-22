@@ -8,6 +8,7 @@ import {
   saleRange,
   saleRate,
   saleEventNote,
+  saleActivity,
   placeSaleCalendarRanges,
 } from "./sale-calendar-model";
 import type { SaleEvent } from "./sale-calendar-model";
@@ -33,6 +34,7 @@ export function SaleMonthCalendar({
   month,
   events,
   today,
+  now,
   years,
   navigate,
   goToday,
@@ -42,6 +44,7 @@ export function SaleMonthCalendar({
   month: number;
   events: SaleEvent[];
   today: string;
+  now: number;
   years: number[];
   navigate: (offset: number) => void;
   goToday: () => void;
@@ -177,11 +180,12 @@ export function SaleMonthCalendar({
                         );
                       const continuesLeft = start < weekStart,
                         continuesRight = end > weekEnd;
+                      const activity = saleActivity(event, now);
                       return (
                         <button
                           key={event.id}
                           type="button"
-                          className={`wt-sale-range-bar ${event.status} ${continuesLeft ? "continues-left" : ""} ${continuesRight ? "continues-right" : ""}`}
+                          className={`wt-sale-range-bar ${event.status} activity-${activity.state} ${continuesLeft ? "continues-left" : ""} ${continuesRight ? "continues-right" : ""}`}
                           style={
                             {
                               gridColumn: `${column + 1} / span ${days}`,
@@ -191,8 +195,8 @@ export function SaleMonthCalendar({
                             } as CSSProperties
                           }
                           aria-pressed={selectedEventId === event.id}
-                          aria-label={`${event.title}，${saleRange(event)}，点击查看活动详情`}
-                          title={`${event.title} · ${saleRange(event)}`}
+                          aria-label={`${event.title}，${activity.fullLabel}，${saleRange(event)}，点击查看活动详情`}
+                          title={`${event.title} · ${activity.fullLabel} · ${saleRange(event)}`}
                           onClick={() => {
                             setSelected(from);
                             setSelectedEventId(event.id);
@@ -204,6 +208,10 @@ export function SaleMonthCalendar({
                               : event.status === "predicted"
                                 ? "预计窗口"
                                 : `${saleDate(event.startAt)}起`}
+                          </span>
+                          <span className="wt-sale-activity-status">
+                            {event.status === "predicted" && <i>预计</i>}
+                            {activity.label}
                           </span>
                           <span className="wt-sale-range-name">{event.title}</span>
                           <span className="wt-sale-range-end">
@@ -249,6 +257,11 @@ export function SaleMonthCalendar({
                 <div className="wt-sale-day-detail-heading">
                   <h4>{event.title}</h4>
                   <span className={`wt-sale-badge ${event.status}`}>{stage(event, selected)}</span>
+                  <span
+                    className={`wt-sale-activity-status activity-${saleActivity(event, now).state}`}
+                  >
+                    {saleActivity(event, now).fullLabel}
+                  </span>
                   <strong>{saleRate(event)}</strong>
                 </div>
                 <p>{saleRange(event)}</p>
