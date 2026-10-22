@@ -732,10 +732,11 @@ export function PlayerStats() {
                   </button>
                 ))}
               </fieldset>
-              <fieldset aria-label="排行榜目标类型">
+              <fieldset aria-label="排行榜军种">
                 {[
-                  ["ground", "陆战 · 地面目标"],
-                  ["air", "空战 · 空中目标"],
+                  ["ground", "陆战"],
+                  ["air", "空战"],
+                  ["naval", "海战"],
                 ].map(([id, label]) => (
                   <button
                     key={id}
@@ -748,8 +749,9 @@ export function PlayerStats() {
               </fieldset>
             </div>
             <p className="wt-record-fine">
-              按官方累计{leaderBranch === "ground" ? "地面" : "空中"}
-              目标击毁数排名，非独立陆战／空战匹配模式排名。点击昵称查询，新的查询遵守上方额度。
+              {leaderBranch === "naval"
+                ? "海战榜单暂未提供，可直接输入昵称查询。"
+                : "按官方累计击毁数整理，点击昵称查询，新的查询遵守上方额度。"}
             </p>
             {board ? (
               <>
@@ -775,7 +777,11 @@ export function PlayerStats() {
                 </p>
               </>
             ) : (
-              <p className="wt-record-empty">该榜单暂未获取，请稍后再试或直接输入昵称。</p>
+              <p className="wt-record-empty">
+                {leaderBranch === "naval"
+                  ? "官方当前未提供可核验的海战独立榜单。"
+                  : "该榜单暂未获取，请稍后再试或直接输入昵称。"}
+              </p>
             )}
           </section>
         </div>
