@@ -2,6 +2,10 @@ import { createContext, useCallback, useContext, useEffect, useRef, useState } f
 import type { ReactNode } from "react";
 import {
   loginChallenge,
+  hasStatsToken,
+  remembersStatsAccount,
+  forgetStatsAccount,
+  notifyStatsAccountLogin,
   prepareStatsDevice,
   setStatsToken,
   statsRequest,
@@ -26,6 +30,7 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
   const [identityVersion, setIdentityVersion] = useState(0);
   const acceptedIdentity = useRef<string | null | undefined>(undefined);
   const pending = useRef<{ verifier: string; state: string; popup: Window } | null>(null);
+  const restoring = useRef(false);
   const flight = useRef<{ controller: AbortController; promise: Promise<StatsSession> } | null>(
     null,
   );
@@ -57,16 +62,48 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
     setIdentityVersion((value) => value + 1);
   }, []);
   useEffect(() => {
-    void refreshSession().catch(() => {
-      /* Login remains available to retry a connection. */
-    });
+    async function restore() {
+      const url = new URL(window.location.href);
+      const code = url.searchParams.get("wt_auth_code");
+      const state = url.searchParams.get("wt_auth_state");
+      const saved = sessionStorage.getItem("wt-auth-intent-v1");
+      if (code) {
+        sessionStorage.removeItem("wt-auth-intent-v1");
+        url.searchParams.delete("wt_auth_code");
+        url.searchParams.delete("wt_auth_state");
+        history.replaceState(history.state, "", url);
+        if (!saved) throw new Error("登录请求已过期，请重新登录。");
+        const intent = JSON.parse(saved) as { verifier: string; state: string; returnUrl: string; expires: number };
+        if (intent.state !== state || intent.expires < Date.now()) throw new Error("登录请求已过期，请重新登录。");
+        const original = new URL(intent.returnUrl);
+        if (original.origin !== location.origin || original.pathname !== location.pathname) throw new Error("登录返回地址无效。");
+        history.replaceState(history.state, "", original);
+        const result = await statsRequest<{ token: string }>("auth/exchange", { code, verifier: intent.verifier });
+        setStatsToken(result.token);
+        notifyStatsAccountLogin();
+      } else if (remembersStatsAccount() && !hasStatsToken()) {
+        await redirectLogin();
+        return;
+      }
+      await refreshSession();
+    }
+    if (!restoring.current) {
+      restoring.current = true;
+      void restore().catch((failure: unknown) => {
+        setError(failure instanceof Error ? failure.message : "无法恢复登录，请重试。");
+        void refreshSession().catch(() => {});
+      });
+    }
     const storage = (event: StorageEvent) => {
       if (
+        event.key !== "wt-account-change-v1" &&
         event.key !== "wt-stats-session-v1" &&
         event.key !== "wt-stats-device-v1" &&
         event.key !== null
       )
         return;
+      setStatsToken("");
+      if (event.newValue?.startsWith("login:")) setError("账号已在其他页面登录，点击登录可恢复当前页面的会话。");
       resetIdentity();
       void refreshSession().catch(() => {});
     };
@@ -89,6 +126,7 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
         });
         resetIdentity();
         setStatsToken(result.token);
+        notifyStatsAccountLogin();
         await refreshSession();
         setError("");
       } catch (failure) {
@@ -97,6 +135,9 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
         setBusy(false);
       }
     };
+    const renew = setInterval(() => {
+      if (hasStatsToken()) void statsRequest<{ token: string }>("auth/refresh", {}).then(result => setStatsToken(result.token)).catch(() => {});
+    }, 10 * 60 * 1000);
     const timer = setInterval(() => {
       if (pending.current?.popup.closed) {
         pending.current = null;
@@ -107,15 +148,30 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
     window.addEventListener("storage", storage);
     return () => {
       clearInterval(timer);
+      clearInterval(renew);
       window.removeEventListener("message", listener);
       window.removeEventListener("storage", storage);
     };
   }, [refreshSession, resetIdentity]);
+  async function redirectLogin() {
+    const challenge = await loginChallenge();
+    const intent = { ...challenge, returnUrl: window.location.href, expires: Date.now() + 10 * 60 * 1000 };
+    sessionStorage.setItem("wt-auth-intent-v1", JSON.stringify(intent));
+    const start = await statsRequest<{ authorizeUrl: string }>("auth/start", {
+      challenge: challenge.challenge, state: challenge.state,
+      returnUrl: window.location.href,
+    });
+    window.location.assign(start.authorizeUrl);
+  }
   async function login() {
     if (busy) return;
     const popup = window.open("about:blank", "wt-account-login", "width=500,height=680");
     if (!popup) {
-      setError("请允许打开登录窗口后重试。");
+      setBusy(true);
+      try { await redirectLogin(); } catch (failure) {
+        setError(failure instanceof Error ? failure.message : "无法打开登录，请重试。");
+        setBusy(false);
+      }
       return;
     }
     setBusy(true);
@@ -144,7 +200,7 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
   async function logout() {
     await statsRequest("auth/logout", {});
     resetIdentity();
-    setStatsToken("");
+    forgetStatsAccount();
     await refreshSession();
     setError("");
   }

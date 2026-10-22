@@ -154,16 +154,37 @@ function stored(key: string) {
     return "";
   }
 }
+let sessionToken = "";
+// QMuse shares its origin with other applications. Persist only a non-secret hint.
+export function hasStatsToken() { return Boolean(sessionToken); }
+export function remembersStatsAccount() { return stored("wt-account-known-v1") === "1"; }
 export function setStatsToken(token: string) {
-  if (token) localStorage.setItem(SESSION, token);
-  else localStorage.removeItem(SESSION);
+  sessionToken = token;
+  localStorage.removeItem(SESSION);
+  if (token) localStorage.setItem("wt-account-known-v1", "1");
 }
+export function notifyStatsAccountLogin() {
+  localStorage.setItem("wt-account-change-v1", "login:" + crypto.randomUUID());
+}
+export function forgetStatsAccount() {
+  sessionToken = "";
+  localStorage.removeItem(SESSION);
+  localStorage.removeItem("wt-account-known-v1");
+  localStorage.setItem("wt-account-change-v1", crypto.randomUUID());
+}
+// Old bearer credentials are retired instead of being copied into the new flow.
+try {
+  if (stored(SESSION)) {
+    localStorage.setItem("wt-account-known-v1", "1");
+    localStorage.removeItem(SESSION);
+  }
+} catch { /* Storage may be disabled. */ }
 export function statsHeaders() {
   return {
     "Content-Type": "application/json",
     Accept: "application/json",
     "X-WT-Device": stored(DEVICE),
-    ...(stored(SESSION) ? { Authorization: "Bearer " + stored(SESSION) } : {}),
+    ...(sessionToken ? { Authorization: "Bearer " + sessionToken } : {}),
   };
 }
 export async function statsRequest<T>(
