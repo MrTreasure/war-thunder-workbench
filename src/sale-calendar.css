@@ -452,3 +452,250 @@
   color: var(--wt-muted);
   padding-top: 14px;
 }
+/* finesse · component=calendar-view-switch-and-month-grid · existing slate/gold tokens */
+.wt-sale-view-switch {
+  display: flex;
+  gap: 3px;
+  padding: 3px;
+  margin: 0;
+  border: 1px solid var(--wt-line);
+  border-radius: 6px;
+  background: var(--wt-page);
+}
+.wt-sale-view-switch button {
+  min-height: 32px;
+  padding: 5px 14px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-sale-view-switch button[aria-pressed="true"] {
+  background: var(--wt-gold-soft);
+  border-color: var(--wt-gold-line);
+  color: var(--wt-gold);
+}
+.wt-sale-month {
+  min-width: 0;
+}
+.wt-sale-month-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 18px 0 10px;
+}
+.wt-sale-month-toolbar > div:first-child {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+.wt-sale-month-toolbar h4 {
+  font-size: 18px;
+}
+.wt-sale-month-toolbar span {
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.wt-sale-month-navigation {
+  display: flex;
+  gap: 6px;
+}
+.wt-sale-month-navigation button {
+  min-width: 38px;
+  padding: 5px 12px;
+}
+.wt-sale-month-navigation button:first-child,
+.wt-sale-month-navigation button:last-child {
+  font-size: 22px;
+  line-height: 1;
+}
+.wt-sales-page .wt-sale-month-guide {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--wt-muted);
+  margin-bottom: 12px;
+}
+.wt-sale-month-grid {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  border: 1px solid var(--wt-line);
+}
+.wt-sale-month-grid th {
+  padding: 10px 4px;
+  color: var(--wt-muted);
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--wt-surface);
+  text-align: center;
+}
+.wt-sale-month-grid th.weekend {
+  color: var(--wt-gold);
+}
+.wt-sale-month-grid td {
+  vertical-align: top;
+  padding: 0;
+  border: 1px solid var(--wt-line);
+  background: var(--wt-surface);
+}
+.wt-sale-month-grid td.outside {
+  background: var(--wt-page);
+}
+.wt-sale-month-grid td.selected {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: -2px;
+}
+.wt-sales-page .wt-sale-month-day {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  width: 100%;
+  min-width: 0;
+  min-height: 142px;
+  height: 100%;
+  padding: 8px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  text-align: left;
+  white-space: normal;
+  color: var(--wt-ink);
+}
+.wt-sale-month-day:active {
+  background: var(--wt-gold-soft);
+}
+.wt-sale-month-number {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  min-height: 24px;
+}
+.wt-sale-month-number b {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.wt-sale-month-number small {
+  font-size: 10px;
+  color: var(--wt-gold);
+}
+.outside .wt-sale-month-number b {
+  color: var(--wt-muted);
+}
+.wt-sale-month-day[aria-current="date"] .wt-sale-month-number b {
+  border-radius: 50%;
+  color: var(--wt-page);
+  background: var(--wt-gold);
+}
+.wt-sale-month-day-events {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+.wt-sale-month-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px 6px;
+  border: 1px solid var(--wt-gold-line);
+  border-radius: 4px;
+  background: var(--wt-gold-soft);
+  min-width: 0;
+}
+.wt-sale-month-chip.predicted {
+  background: transparent;
+  border: 1px dashed var(--wt-muted);
+}
+.wt-sale-month-chip.window-only {
+  border-color: var(--wt-line);
+  background: var(--wt-page);
+}
+.wt-sale-month-stage {
+  color: var(--wt-gold);
+  font-size: 10px;
+  line-height: 1.3;
+}
+.wt-sale-month-chip.predicted .wt-sale-month-stage {
+  color: var(--wt-muted);
+}
+.wt-sale-month-event-name {
+  color: var(--wt-body);
+  font-size: 11px;
+  line-height: 1.35;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wt-sale-month-more {
+  font-size: 10px;
+  color: var(--wt-muted);
+  line-height: 1.5;
+}
+.wt-sale-day-details {
+  margin-top: 18px;
+  border: 1px solid var(--wt-line);
+  border-radius: 6px;
+  padding: 16px;
+  background: var(--wt-surface);
+  min-width: 0;
+}
+.wt-sale-day-details > .wt-sales-section-title {
+  justify-content: flex-start;
+}
+.wt-sale-day-details > .wt-sales-section-title button {
+  margin-left: auto;
+  padding: 0 10px;
+}
+.wt-sale-day-details h4 {
+  font-size: 14px;
+}
+.wt-sale-day-details > p {
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-sale-day-details article {
+  padding: 14px 0;
+  border-top: 1px solid var(--wt-line);
+}
+.wt-sale-day-details article:last-child {
+  padding-bottom: 0;
+}
+.wt-sale-day-detail-heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+}
+.wt-sale-day-detail-heading strong {
+  margin-left: auto;
+  color: var(--wt-gold);
+  font-size: 13px;
+}
+.wt-sale-day-details article p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--wt-muted);
+  margin-top: 7px;
+  overflow-wrap: anywhere;
+}
+.wt-sale-day-details article a {
+  display: inline-block;
+  margin-top: 7px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .wt-sale-month-day:hover {
+    background: var(--wt-gold-soft);
+  }
+  .wt-sale-view-switch button:hover {
+    color: var(--wt-gold);
+  }
+}

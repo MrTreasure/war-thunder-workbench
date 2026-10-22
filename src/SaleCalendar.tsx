@@ -1,11 +1,15 @@
 import { useEffect, useMemo, useState } from "react";
 import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
+import { SaleMonthCalendar } from "./SaleMonthCalendar";
 import { useStored, object } from "./storage";
 import { statsRequest, statsCategoryNames } from "./player-stats-api";
 import bootstrap from "./generated/bootstrap.json";
 import {
   nextSale,
+  beijingDayKey,
+  saleCalendarSpan,
+  isSaleWatchVehicle,
   saleChannels,
   saleCountdown,
   saleDate,
@@ -73,7 +77,7 @@ function AddVehicles({
       )
         .then((r) => {
           if (!controller.signal.aborted) {
-            setResults(r.items);
+            setResults(r.items.filter(isSaleWatchVehicle));
             setTotal(r.total);
           }
         })
@@ -92,7 +96,7 @@ function AddVehicles({
   return (
     <Modal
       title="添加关注载具"
-      subtitle="选择国家后搜索；关注列表仅保存在当前浏览器。"
+      subtitle="仅支持金鹰与商城礼包载具；关注列表保存在当前浏览器。"
       close={close}
       className="wt-sale-picker"
     >
@@ -173,13 +177,19 @@ export function SaleCalendar() {
     [reload, setReload] = useState(0);
   const [clock, setClock] = useState(() => Date.now()),
     [offset, setOffset] = useState(0);
-  const [year, setYear] = useState(() => new Date().getFullYear()),
-    [month, setMonth] = useState("all"),
+  const [year, setYear] = useState(() => Number(beijingDayKey(Date.now()).slice(0, 4))),
+    [month, setMonth] = useState(() => String(Number(beijingDayKey(Date.now()).slice(5, 7)))),
     [channel, setChannel] = useState("all"),
     [country, setCountry] = useState("all"),
     [status, setStatus] = useState("all");
+  const [view, setView] = useState<"calendar" | "timeline">("calendar");
   const [picker, setPicker] = useState(false),
-    [watch, saveWatch, storageError] = useStored<SaleVehicle[]>("wt-sale-watch-v1", [], watchValid);
+    [watch, saveWatch, storageError] = useStored<SaleVehicle[]>(
+      "wt-sale-watch-v1",
+      [],
+      watchValid,
+      (entries) => entries.filter(isSaleWatchVehicle),
+    );
   useEffect(() => {
     const timer = window.setInterval(() => setClock(Date.now()), 1000);
     return () => window.clearInterval(timer);
@@ -211,14 +221,36 @@ export function SaleCalendar() {
   const now = clock + offset;
   const events = useMemo(() => data?.events || [], [data]);
   const years = useMemo(() => [...new Set(events.map((e) => e.year))].sort(), [events]);
-  const visible = events.filter(
-    (e) =>
-      e.year === year &&
-      (month === "all" || new Date(e.startAt).getUTCMonth() + 1 === Number(month)) &&
-      (channel === "all" || e.channels.includes(channel as never)) &&
-      (country === "all" || !e.countries.length || e.countries.includes(country)) &&
-      (status === "all" || e.status === status),
+  const filtered = useMemo(
+    () =>
+      events.filter(
+        (event) =>
+          (channel === "all" || event.channels.some((c) => c === channel)) &&
+          (country === "all" || !event.countries.length || event.countries.includes(country)) &&
+          (status === "all" || event.status === status),
+      ),
+    [events, channel, country, status],
   );
+  const periodStart = `${year}-${month === "all" ? "01" : month.padStart(2, "0")}-01`;
+  const periodEnd =
+    month === "all"
+      ? `${year}-12-31`
+      : `${year}-${month.padStart(2, "0")}-${new Date(Date.UTC(year, Number(month), 0)).getUTCDate()}`;
+  const visible = filtered.filter((event) => {
+    const span = saleCalendarSpan(event);
+    return span.start <= periodEnd && span.end >= periodStart;
+  });
+  const today = beijingDayKey(now);
+  const switchView = (nextView: "calendar" | "timeline") => {
+    if (nextView === "calendar" && month === "all")
+      setMonth(year === Number(today.slice(0, 4)) ? String(Number(today.slice(5, 7))) : "1");
+    setView(nextView);
+  };
+  const navigateMonth = (offset: number) => {
+    const next = new Date(Date.UTC(year, Number(month) - 1 + offset, 1));
+    setYear(next.getUTCFullYear());
+    setMonth(String(next.getUTCMonth() + 1));
+  };
   const next = events
     .filter((e) =>
       e.status === "confirmed"
@@ -228,7 +260,7 @@ export function SaleCalendar() {
     .sort((a, b) => Date.parse(a.startAt) - Date.parse(b.startAt))[0];
   const known = events.filter((e) => e.year === year && e.status === "confirmed").length;
   const add = (vehicle: SaleVehicle) => {
-    if (watch.length < 60 && !watch.some((v) => v.id === vehicle.id))
+    if (isSaleWatchVehicle(vehicle) && watch.length < 60 && !watch.some((v) => v.id === vehicle.id))
       saveWatch([...watch, vehicle]);
   };
   return (
@@ -241,9 +273,6 @@ export function SaleCalendar() {
         <div className="wt-sales-heading-actions">
           <button className="primary" onClick={() => setPicker(true)}>
             ＋ 添加载具
-          </button>
-          <button onClick={() => setReload((n) => n + 1)} disabled={loading}>
-            {loading ? "读取中…" : "刷新日历"}
           </button>
         </div>
       </header>
@@ -284,7 +313,7 @@ export function SaleCalendar() {
           <div className="wt-sale-empty">
             <div aria-hidden="true">＋</div>
             <p>先把想买的载具放进关注列表</p>
-            <span>查看最近的优惠窗口与倒计时，游戏内购车和商城礼包分别匹配。</span>
+            <span>关注金鹰与商城礼包载具，查看对应的优惠窗口和倒计时。</span>
             <button onClick={() => setPicker(true)}>选择载具</button>
           </div>
         ) : (
@@ -348,11 +377,19 @@ export function SaleCalendar() {
       </section>
       <section className="wt-sale-calendar">
         <div className="wt-sales-section-title">
-          <h3>年度优惠时间轴</h3>
+          <h3>{view === "calendar" ? "优惠月历" : "年度优惠时间轴"}</h3>
           <span>
             <i className="wt-sale-dot" /> 官方已公布 <i className="wt-sale-dot predicted" />{" "}
             历史推算
           </span>
+          <fieldset className="wt-sale-view-switch" aria-label="活动视图">
+            <button aria-pressed={view === "calendar"} onClick={() => switchView("calendar")}>
+              月历
+            </button>
+            <button aria-pressed={view === "timeline"} onClick={() => switchView("timeline")}>
+              时间轴
+            </button>
+          </fieldset>
         </div>
         <div className="wt-sale-filters">
           <GameSelect
@@ -367,7 +404,7 @@ export function SaleCalendar() {
             ))}
           </GameSelect>
           <GameSelect aria-label="月份" value={month} onValueChange={setMonth}>
-            <option value="all">全年</option>
+            {view === "timeline" && <option value="all">全年</option>}
             {Array.from({ length: 12 }, (_, i) => (
               <option key={i + 1} value={i + 1}>
                 {i + 1} 月
@@ -398,126 +435,148 @@ export function SaleCalendar() {
             <option value="predicted">仅看预测</option>
           </GameSelect>
         </div>
-        <fieldset className="wt-sale-year-strip" aria-label="按月份查看活动">
-          {Array.from({ length: 12 }, (_, i) => {
-            const m = i + 1,
-              items = events.filter(
-                (e) => e.year === year && new Date(e.startAt).getUTCMonth() === i,
-              );
-            return (
-              <button
-                key={m}
-                aria-pressed={month === String(m)}
-                onClick={() => setMonth(month === String(m) ? "all" : String(m))}
-              >
-                <span>{m}月</span>
-                <div>
-                  {items.map((e) => (
-                    <i key={e.id} className={e.status} title={e.title} />
-                  ))}
-                </div>
-                <small>{items.length ? `${items.length}阶段` : "暂无"}</small>
-              </button>
-            );
-          })}
-        </fieldset>
-        <div className="wt-sale-events" aria-busy={loading}>
-          {!visible.length ? (
-            <p className="wt-sale-no-events">
-              {loading
-                ? "正在读取服务器日历…"
-                : "当前筛选下没有活动。可切换月份、购买渠道或查看其他年份。"}
-            </p>
-          ) : (
-            visible.map((event) => {
-              const previous = events.find(
-                (e) =>
-                  e.family === event.family &&
-                  e.phase === event.phase &&
-                  e.year === year - 1 &&
-                  e.status === "confirmed",
-              );
-              const active =
-                event.status === "confirmed" &&
-                Date.parse(event.startAt) <= now &&
-                Date.parse(event.endAt) > now;
-              return (
-                <article key={event.id} className={`wt-sale-event ${event.status}`}>
-                  <div className="wt-sale-date-column">
-                    <strong>{saleDate(event.startAt)}</strong>
-                    <span>
-                      {event.status === "predicted"
-                        ? "预计中点"
-                        : event.startPrecision === "day"
-                          ? "开始日期"
-                          : "开始"}
-                    </span>
-                    <small>
-                      {active
-                        ? "进行中"
-                        : Date.parse(event.endAt) < now
-                          ? event.status === "predicted"
-                            ? "预测期已过"
-                            : "历史记录"
-                          : event.status === "predicted"
-                            ? "待官方公布"
-                            : "已公布"}
-                    </small>
-                  </div>
-                  <div className="wt-sale-event-main">
-                    <div className="wt-sale-event-title">
-                      <h4>{event.title}</h4>
-                      <span className={`wt-sale-badge ${event.status}`}>
-                        {event.status === "predicted" ? "预测窗口" : "官方日期"}
-                      </span>
-                    </div>
-                    <p className="wt-sale-range">{saleRange(event)}</p>
-                    <div className="wt-sale-tags">
-                      {event.channels.map((c) => (
-                        <span key={c}>{saleChannels[c]}</span>
+        {view === "calendar" ? (
+          <SaleMonthCalendar
+            key={`${year}-${month}`}
+            year={year}
+            month={Number(month)}
+            events={filtered}
+            today={today}
+            years={years.length ? years : [year]}
+            navigate={navigateMonth}
+            goToday={() => {
+              setYear(Number(today.slice(0, 4)));
+              setMonth(String(Number(today.slice(5, 7))));
+            }}
+            loading={loading}
+          />
+        ) : (
+          <>
+            <fieldset className="wt-sale-year-strip" aria-label="按月份查看活动">
+              {Array.from({ length: 12 }, (_, i) => {
+                const m = i + 1,
+                  items = filtered.filter((event) => {
+                    const span = saleCalendarSpan(event),
+                      start = `${year}-${String(m).padStart(2, "0")}-01`,
+                      end = `${year}-${String(m).padStart(2, "0")}-${new Date(Date.UTC(year, m, 0)).getUTCDate()}`;
+                    return span.start <= end && span.end >= start;
+                  });
+                return (
+                  <button
+                    key={m}
+                    aria-pressed={month === String(m)}
+                    onClick={() => setMonth(month === String(m) ? "all" : String(m))}
+                  >
+                    <span>{m}月</span>
+                    <div>
+                      {items.map((e) => (
+                        <i key={e.id} className={e.status} title={e.title} />
                       ))}
-                      <span>
-                        {event.countries.length
-                          ? event.countries.map((c) => countries[c]).join("／")
-                          : "全国家活动"}
-                      </span>
                     </div>
-                    <p className="wt-sale-note">{event.notes}</p>
-                    {previous && (
-                      <p className="wt-sale-history">
-                        去年 {previous.year}：{saleRange(previous)}
-                      </p>
-                    )}
-                    <details>
-                      <summary>时间、依据与参与范围</summary>
-                      <p>
-                        {event.status === "predicted"
-                          ? event.basis?.method
-                          : "已核对官方公告。活动日期已公布，不代表所有所列国家的载具都参与。"}
-                      </p>
-                      <p>
-                        {event.status === "confirmed"
-                          ? `开始：${event.startPrecision === "day" ? `${saleDate(event.startAt)}（原公告未注明开始时刻）` : new Date(event.startAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" })}；结束：${new Date(event.endAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" })}`
-                          : `历史基准：${event.basis?.year} 年，${event.basis ? saleDate(event.basis.startAt) : ""}—${event.basis ? saleDate(event.basis.endAt) : ""}。预测中点不表示精确开始时间。`}
-                      </p>
-                      <p>
-                        新版本载具、联队载具、组合购买门槛和平台差异请以官方公告为准。日期边界通常不含结束时刻。
-                      </p>
-                      <SourceLinks event={event} />
-                    </details>
-                  </div>
-                  <div className="wt-sale-event-rate">
-                    <strong>{saleRate(event)}</strong>
-                    <span>
-                      {event.status === "predicted" ? "今年力度待公布" : "适用于指定范围"}
-                    </span>
-                    <SourceLinks event={event} />
-                  </div>
-                </article>
-              );
-            })
-          )}
-        </div>
+                    <small>{items.length ? `${items.length}阶段` : "暂无"}</small>
+                  </button>
+                );
+              })}
+            </fieldset>
+            <div className="wt-sale-events" aria-busy={loading}>
+              {!visible.length ? (
+                <p className="wt-sale-no-events">
+                  {loading
+                    ? "正在读取服务器日历…"
+                    : "当前筛选下没有活动。可切换月份、购买渠道或查看其他年份。"}
+                </p>
+              ) : (
+                visible.map((event) => {
+                  const previous = events.find(
+                    (e) =>
+                      e.family === event.family &&
+                      e.phase === event.phase &&
+                      e.year === event.year - 1 &&
+                      e.status === "confirmed",
+                  );
+                  const active =
+                    event.status === "confirmed" &&
+                    Date.parse(event.startAt) <= now &&
+                    Date.parse(event.endAt) > now;
+                  return (
+                    <article key={event.id} className={`wt-sale-event ${event.status}`}>
+                      <div className="wt-sale-date-column">
+                        <strong>{saleDate(event.startAt)}</strong>
+                        <span>
+                          {event.status === "predicted"
+                            ? "预计中点"
+                            : event.startPrecision === "day"
+                              ? "开始日期"
+                              : "开始"}
+                        </span>
+                        <small>
+                          {active
+                            ? "进行中"
+                            : Date.parse(event.endAt) < now
+                              ? event.status === "predicted"
+                                ? "预测期已过"
+                                : "历史记录"
+                              : event.status === "predicted"
+                                ? "待官方公布"
+                                : "已公布"}
+                        </small>
+                      </div>
+                      <div className="wt-sale-event-main">
+                        <div className="wt-sale-event-title">
+                          <h4>{event.title}</h4>
+                          <span className={`wt-sale-badge ${event.status}`}>
+                            {event.status === "predicted" ? "预测窗口" : "官方日期"}
+                          </span>
+                        </div>
+                        <p className="wt-sale-range">{saleRange(event)}</p>
+                        <div className="wt-sale-tags">
+                          {event.channels.map((c) => (
+                            <span key={c}>{saleChannels[c]}</span>
+                          ))}
+                          <span>
+                            {event.countries.length
+                              ? event.countries.map((c) => countries[c]).join("／")
+                              : "全国家活动"}
+                          </span>
+                        </div>
+                        <p className="wt-sale-note">{event.notes}</p>
+                        {previous && (
+                          <p className="wt-sale-history">
+                            去年 {previous.year}：{saleRange(previous)}
+                          </p>
+                        )}
+                        <details>
+                          <summary>时间、依据与参与范围</summary>
+                          <p>
+                            {event.status === "predicted"
+                              ? event.basis?.method
+                              : "已核对官方公告。活动日期已公布，不代表所有所列国家的载具都参与。"}
+                          </p>
+                          <p>
+                            {event.status === "confirmed"
+                              ? `开始：${event.startPrecision === "day" ? `${saleDate(event.startAt)}（原公告未注明开始时刻）` : new Date(event.startAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" })}；结束：${new Date(event.endAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" })}`
+                              : `历史基准：${event.basis?.year} 年，${event.basis ? saleDate(event.basis.startAt) : ""}—${event.basis ? saleDate(event.basis.endAt) : ""}。预测中点不表示精确开始时间。`}
+                          </p>
+                          <p>
+                            新版本载具、联队载具、组合购买门槛和平台差异请以官方公告为准。日期边界通常不含结束时刻。
+                          </p>
+                          <SourceLinks event={event} />
+                        </details>
+                      </div>
+                      <div className="wt-sale-event-rate">
+                        <strong>{saleRate(event)}</strong>
+                        <span>
+                          {event.status === "predicted" ? "该年力度待公布" : "适用于指定范围"}
+                        </span>
+                        <SourceLinks event={event} />
+                      </div>
+                    </article>
+                  );
+                })
+              )}
+            </div>
+          </>
+        )}
       </section>
       <footer className="wt-sale-footnote">
         <p>
@@ -535,7 +594,7 @@ export function SaleCalendar() {
           {data && ["partial", "failed", "interrupted"].includes(data.updateStatus)
             ? " · 最近核对未完整完成，保留上次有效记录。"
             : ""}{" "}
-          · “刷新日历”读取已入库结果，不触发官方站点查询。
+          · 活动排期由管理员在后台核对更新。
         </p>
       </footer>
       {picker && <AddVehicles saved={watch} add={add} close={() => setPicker(false)} />}

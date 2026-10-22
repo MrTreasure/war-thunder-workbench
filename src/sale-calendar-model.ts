@@ -117,3 +117,21 @@ export function saleRate(event: SaleEvent, channel?: string): string {
       : `${(100 - rates[rates.length - 1]) / 10}—${(100 - rates[0]) / 10}折`;
   return `${event.status === "predicted" ? "往年 " : ""}${label}`;
 }
+
+/** Calendar date independent of the visitor's OS timezone. */
+export function beijingDayKey(value: string | number): string {
+  const timestamp = typeof value === "number" ? value : Date.parse(value);
+  return new Date(timestamp + 8 * 3600000).toISOString().slice(0, 10);
+}
+export function saleCalendarSpan(event: SaleEvent): { start: string; end: string } {
+  return {
+    start: beijingDayKey(
+      event.status === "predicted" ? event.startWindow?.[0] || event.startAt : event.startAt,
+    ),
+    end: beijingDayKey(
+      event.status === "predicted" ? event.endWindow?.[1] || event.endAt : event.endAt,
+    ),
+  };
+}
+export const isSaleWatchVehicle = (vehicle: Pick<SaleVehicle, "channel">) =>
+  ["ge", "pack", "bundle"].includes(vehicle.channel);
