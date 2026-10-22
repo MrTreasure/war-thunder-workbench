@@ -53,8 +53,8 @@
   z-index: 40;
   display: block;
   background: var(--wt-page);
-  padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
-    env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+  padding: 0 env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px)
+    env(safe-area-inset-left, 0px);
 }
 .ground-workspace[data-editing="true"] > .ground-detail-toolbar {
   display: none;
