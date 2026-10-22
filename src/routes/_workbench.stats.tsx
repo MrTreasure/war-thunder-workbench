@@ -3,7 +3,7 @@ export const Route = createFileRoute("/_workbench/stats")({
   codeSplitGroupings: [],
   validateSearch: (search: Record<string, unknown>): { player?: string; view?: string } => ({
     player: typeof search.player === "string" ? search.player : undefined,
-    view: search.view === "report" ? "report" : undefined,
+    view: search.view === "report" || search.view === "rankings" ? search.view : undefined,
   }),
   component: lazyRouteComponent(() => import("../PlayerStats"), "PlayerStats"),
 });

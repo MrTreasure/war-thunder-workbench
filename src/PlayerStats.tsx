@@ -4,7 +4,14 @@ import {
   type VehicleSort,
   type VehicleSortKey,
 } from "./player-vehicle-sort";
-import { CountryOwnership } from "./CountryOwnership";
+import { PlayerCareerOverview } from "./PlayerCareerOverview";
+import { PlayerRankings } from "./PlayerRankings";
+import { PlayerGarage, PlayerVehicleDetails } from "./PlayerGarage";
+import { PlayerVehicleCards, PlayerVehiclePagination } from "./PlayerVehicleCards";
+import { compactSilver, savedVehiclePresentation, saveVehiclePresentation, savedVehiclePageSize, saveVehiclePageSize } from "./player-number-format";
+import type { VehiclePresentation } from "./player-number-format";
+import { clearRankingMemory, usePlayerRead } from "./player-rankings-api";
+import type { PlayerDetails } from "./player-rankings-api";
 import { AccountValuation } from "./AccountValuation";
 import { PlayerReport } from "./PlayerReport";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
@@ -23,7 +30,6 @@ import valuationRules from "../data/account-valuation-rules.json";
 import { cachedLeaderboards, cacheLeaderboards, validLeaderboards, type LeaderboardData, type LeaderboardPlayer } from "./player-leaderboards-cache";
 import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
-import { PlayerRadar } from "./PlayerRadar";
 import {
   statsRequest,
   StatsError,
@@ -33,9 +39,6 @@ import {
   statsRatio as ratio,
   statsDate,
   statsModeNames,
-  statsBranchKd,
-  statsBranchTarget,
-  statsArmyIcon,
   statsReportScopeLabel,
   lastStatsNickname,
   rememberStatsNickname,
@@ -81,10 +84,12 @@ function VehicleRow({
   vehicle: v,
   countryName,
   showNaval,
+  select,
 }: {
   vehicle: PlayerVehicle;
   countryName: string;
   showNaval: boolean;
+  select: () => void;
 }) {
   return (
     <tr>
@@ -106,6 +111,7 @@ function VehicleRow({
             </small>
           </span>
         </a>
+        <button className="wt-record-link wt-vehicle-detail-button" onClick={select}>战绩详情</button>
       </td>
       <td>{num(v.battles)}</td>
       <td>{v.winRate == null ? "—" : v.winRate.toFixed(2) + "%"}</td>
@@ -120,7 +126,7 @@ function VehicleRow({
       <td className="wt-silver">
         <span className="wt-silver-amount">
           <img src={statsSilverIcon} alt="银狮" />
-          {statsSilver(v.silverLions)}
+          <span title={`累计银狮：${statsSilver(v.silverLions)}`}>{compactSilver(v.silverLions)}</span>
         </span>
       </td>
     </tr>
@@ -141,7 +147,18 @@ export function PlayerStats() {
     [queryId, setQueryId] = useState("");
   const [profile, setProfile] = useState<PlayerProfile | null>(null),
     [mode, setMode] = useState("rb"),
-    [tab, setTab] = useState(route.view === "report" ? "report" : "overview");
+    [tab, setTab] = useState(route.view || "overview");
+  const publicDetails = usePlayerRead<PlayerDetails>(profile, "details", false);
+  const detailVehicles = new Map(publicDetails.data?.vehicles.map(v => [`${v.mode}:${v.id}`, v]) || []);
+  const effectiveVehicles = (profile?.vehicles || []).map(v => ({ ...v, ...detailVehicles.get(`${v.mode}:${v.id}`) }));
+  const displayProfile = profile ? { ...profile, vehicles: effectiveVehicles } : null;
+  const [showGarage, setShowGarage] = useState(false);
+  const [selectedVehicle, setSelectedVehicle] = useState<PlayerVehicle | null>(null);
+  function changeTab(next: string) {
+    setTab(next);
+    void navigate({ search: (previous: { player?: string; view?: string }) => ({ ...previous, view: next === "overview" ? undefined : next }), replace: false });
+  }
+  useEffect(() => { setTab(route.view || "overview"); }, [route.view]);
   const [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
     [notice, setNotice] = useState("");
@@ -149,7 +166,9 @@ export function PlayerStats() {
     [category, setCategory] = useState("all"),
     [vehicleCountry, setVehicleCountry] = useState("all"),
     [vehicleRank, setVehicleRank] = useState("all"),
-    [limit, setLimit] = useState(40);
+    [vehiclePage, setVehiclePage] = useState(1);
+  const [vehicleView, setVehicleView] = useState(savedVehiclePresentation);
+  const [vehiclePageSize, setVehiclePageSize] = useState(savedVehiclePageSize);
   const [vehicleSort, setVehicleSort] = useState<VehicleSort | null>({
     key: "battles",
     direction: "desc",
@@ -233,6 +252,8 @@ export function PlayerStats() {
   }
   function loadProfile(p: PlayerProfile, local = false) {
     setProfile(p);
+    setShowGarage(false);
+    setSelectedVehicle(null);
     if (!local) setRecentPlayers(rememberStatsProfile(p));
     setNickname(p.nickname);
     rememberStatsNickname(p.nickname);
@@ -242,7 +263,7 @@ export function PlayerStats() {
     setVehicleCountry("all");
     setVehicleRank("all");
     setVehicleSort({ key: "battles", direction: "desc" });
-    setLimit(40);
+    setVehiclePage(1);
     setReport(null);
     setReportCountry("all");
     setReportCategory("all");
@@ -484,6 +505,9 @@ export function PlayerStats() {
   useEffect(() => {
     if (previousIdentity.current === identityVersion) return;
     previousIdentity.current = identityVersion;
+    clearRankingMemory();
+    setShowGarage(false);
+    setSelectedVehicle(null);
     generation.current++;
     requests.current.forEach((request) => request.abort());
     exportController.current?.abort();
@@ -563,9 +587,9 @@ export function PlayerStats() {
         ? toggle ? current.direction === "desc" ? "asc" : "desc" : current.direction
         : "desc",
     }));
-    setLimit(40);
+    setVehiclePage(1);
   }
-  const filtered = (profile?.vehicles || [])
+  const filtered = effectiveVehicles
     .filter(
       (v) =>
         v.mode === mode &&
@@ -575,7 +599,10 @@ export function PlayerStats() {
         (!search || (v.name + " " + v.id).toLowerCase().includes(search.toLowerCase())),
     )
     .sort((a, b) => vehicleSort ? comparePlayerVehicles(a, b, vehicleSort) : 0);
-  const eligible = (profile?.vehicles || []).filter(
+  const vehiclePages = Math.max(1, Math.ceil(filtered.length / vehiclePageSize));
+  const currentVehiclePage = Math.min(vehiclePage, vehiclePages);
+  const pagedVehicles = filtered.slice((currentVehiclePage - 1) * vehiclePageSize, currentVehiclePage * vehiclePageSize);
+  const eligible = effectiveVehicles.filter(
     (v) =>
       v.mode === mode &&
       (reportCountry === "all" || v.country === reportCountry) &&
@@ -629,8 +656,8 @@ export function PlayerStats() {
     <div className="wt-record-page">
       <header className="wt-record-page-title">
         <div>
-          <h1>生涯战绩与个人战报</h1>
-          <p>查看生涯记录，选一种风格写下你的战报。</p>
+          <h1>个人战绩档案</h1>
+          <p>查看生涯表现、排位数据和完整车库，生成你的个人战报。</p>
         </div>
         <div className="wt-record-account">
           <span>
@@ -811,6 +838,7 @@ export function PlayerStats() {
                 等级 {num(profile.level)} · UID {profile.uid}
               </p>
             </div>
+            <button className="wt-record-link wt-garage-entry" onClick={() => setShowGarage(true)}>完整车库</button>
             <AccountValuation
               key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
               profile={profile}
@@ -836,10 +864,13 @@ export function PlayerStats() {
             </div>
           </section>
           <div className="wt-record-tabs" aria-label="战绩视图">
-            <button aria-pressed={tab === "overview"} onClick={() => setTab("overview")}>
+            <button aria-pressed={tab === "overview"} onClick={() => changeTab("overview")}>
               生涯总览
             </button>
-            <button aria-pressed={tab === "report"} onClick={() => setTab("report")}>
+            <button aria-pressed={tab === "rankings"} onClick={() => changeTab("rankings")}>
+              排位数据
+            </button>
+            <button aria-pressed={tab === "report"} onClick={() => changeTab("report")}>
               个人战报 <small>TOP 5</small>
             </button>
             <div className="wt-record-modes">
@@ -856,7 +887,7 @@ export function PlayerStats() {
                   onClick={() => {
                     setMode(m.id);
                     setViewingHistory(false);
-                    setLimit(40);
+                    setVehiclePage(1);
                     setReport(null);
                   }}
                 >
@@ -865,71 +896,18 @@ export function PlayerStats() {
               ))}
             </div>
           </div>
-          {!active ? (
+          <PlayerCareerOverview key={`career:${profile.snapshotId}`} profile={profile} mode={mode} base={active} active={tab === "overview"} armyBase={config?.assets.armyBase || ""} />
+          <PlayerRankings key={`rankings:${profile.snapshotId}`} profile={displayProfile!} mode={mode} active={tab === "rankings"} />
+          {tab === "rankings" ? null : !active ? (
             <p className="wt-record-empty">这位玩家还没有可展示的出击记录。</p>
           ) : tab === "overview" ? (
             <>
-              <div className="wt-record-metrics">
-                {[
-                  ["战斗场次", num(active.battles)],
-                  ["胜率", active.winRate == null ? "—" : active.winRate.toFixed(2) + "%"],
-                  ["效率评分", num(active.efficiency)],
-                  ["综合 K/D", ratio(active.kd)],
-                  ["空中目标击毁", num(active.airKills)],
-                  ["地面目标击毁", num(active.groundKills)],
-                ].map(([label, value]) => (
-                  <div key={label}>
-                    <span>{label}</span>
-                    <strong>{value}</strong>
-                    {label === "效率评分" && (
-                      <button className="wt-record-link" onClick={() => setShowRules(true)}>
-                        查看评分说明
-                      </button>
-                    )}
-                  </div>
-                ))}
-              </div>
-              <div className="wt-record-overview">
-                <div className="wt-record-career">
-                  <section className="wt-record-panel wt-record-branch-panel">
-                    <div className="wt-record-heading">
-                      <h2>分军种 K/D</h2>
-                      <span>陆军对地 · 航空对空 · 海军对海</span>
-                    </div>
-                    <div className="wt-record-branch-grid">
-                      {active.branches.map((b) => (
-                        <div key={b.id}>
-                          <div className="wt-record-branch-summary">
-                            <h3>
-                              <img
-                                className="wt-branch-icon"
-                                src={statsArmyIcon(config?.assets.armyBase || "", b.id)}
-                                alt=""
-                              />
-                              {b.label}
-                            </h3>
-                            <strong>{ratio(statsBranchKd(b))}</strong>
-                          </div>
-                          <small>
-                            {statsBranchTarget(b.id)} K/D · {b.vehicleCount} 辆已出击
-                          </small>
-                        </div>
-                      ))}
-                    </div>
-                    <p className="wt-record-fine">
-                      目标击毁 ÷ 对应军种载具死亡；仅汇总已返回的记录。
-                    </p>
-                  </section>
-                  <CountryOwnership key={profile.snapshotId} profile={profile} />
-                </div>
-                <PlayerRadar axes={active.radar} />
-              </div>
               <section className="wt-record-panel wt-record-table-panel">
                 <div className="wt-record-heading">
                   <h2>
                     载具战绩 <span>{filtered.length} 辆</span>
                   </h2>
-                  <span>{statsModeNames[mode]} · 仅展示已出击载具</span>
+                  <span>{statsModeNames[mode]} · 仅展示已出击载具{publicDetails.data ? ` · 采集于 ${statsDate(publicDetails.data.fetchedAt)}` : ""}</span>
                 </div>
                 <div className="wt-record-filters">
                   <input
@@ -937,7 +915,7 @@ export function PlayerStats() {
                     value={search}
                     onChange={(event) => {
                       setSearch(event.target.value);
-                      setLimit(40);
+                      setVehiclePage(1);
                     }}
                     placeholder="搜索载具名称或型号"
                     aria-label="筛选载具"
@@ -947,7 +925,7 @@ export function PlayerStats() {
                     value={vehicleCountry}
                     onValueChange={(value) => {
                       setVehicleCountry(value);
-                      setLimit(40);
+                      setVehiclePage(1);
                     }}
                   >
                     <option value="all">全部国家</option>
@@ -970,7 +948,7 @@ export function PlayerStats() {
                             ? { key: "battles", direction: "desc" }
                             : current,
                         );
-                      setLimit(40);
+                      setVehiclePage(1);
                     }}
                     aria-label="军种筛选"
                   >
@@ -986,7 +964,7 @@ export function PlayerStats() {
                     value={vehicleRank}
                     onValueChange={(value) => {
                       setVehicleRank(value);
-                      setLimit(40);
+                      setVehiclePage(1);
                     }}
                   >
                     <option value="all">全部等级</option>
@@ -1021,7 +999,11 @@ export function PlayerStats() {
                   </button>
                   <button type="button" disabled={!vehicleSort} onClick={() => sortVehicles("none")}>清除排序</button>
                 </div>
-                <div className="wt-record-table-scroll">
+                <div className="wt-vehicle-display-toolbar">
+                  <div className="wt-vehicle-view-switch" aria-label="载具战绩展示形式">{(["table", "cards"] as VehiclePresentation[]).map(view => <button key={view} aria-pressed={vehicleView === view} onClick={() => { setVehicleView(view); saveVehiclePresentation(view); }}>{view === "table" ? "表格" : "卡片"}</button>)}</div>
+                  <span>展示形式保存在本机</span>
+                </div>
+                {vehicleView === "cards" ? <PlayerVehicleCards vehicles={pagedVehicles} select={setSelectedVehicle} showNaval={category !== "ground"} /> : <div className="wt-record-table-scroll">
                   <table>
                     <thead>
                       <tr>
@@ -1058,10 +1040,11 @@ export function PlayerStats() {
                       </tr>
                     </thead>
                     <tbody>
-                      {filtered.slice(0, limit).map((v) => (
+                      {pagedVehicles.map((v) => (
                         <VehicleRow
                           key={v.id}
                           vehicle={v}
+                          select={() => setSelectedVehicle(v)}
                           showNaval={category !== "ground"}
                           countryName={
                             profile.countries.find((c) => c.id === v.country)?.name ||
@@ -1072,13 +1055,9 @@ export function PlayerStats() {
                       ))}
                     </tbody>
                   </table>
-                </div>
+                </div>}
                 {!filtered.length && <p className="wt-record-empty">没有符合筛选条件的载具。</p>}
-                {limit < filtered.length && (
-                  <button className="wt-record-more" onClick={() => setLimit(limit + 40)}>
-                    显示更多载具
-                  </button>
-                )}
+                <PlayerVehiclePagination page={currentVehiclePage} pages={vehiclePages} total={filtered.length} pageSize={vehiclePageSize} changePage={setVehiclePage} changeSize={size => { setVehiclePageSize(size); setVehiclePage(1); saveVehiclePageSize(size); }} />
                 <p className="wt-record-fine">
                   单车对空、对地、对海 K/D
                   分别使用该车死亡次数。银狮为助手累计获得统计，不是当前余额或扣除维修补给后的净收入，数据取自助手统计，建议以游戏内记录为准。“—”代表未返回。
@@ -1375,6 +1354,8 @@ export function PlayerStats() {
           </footer>
         </>
       )}
+      {displayProfile && showGarage && <PlayerGarage profile={displayProfile} close={() => setShowGarage(false)} selectVehicle={vehicle => { setShowGarage(false); setSelectedVehicle(vehicle); }} />}
+      {displayProfile && selectedVehicle && <PlayerVehicleDetails profile={displayProfile} vehicle={effectiveVehicles.find(v => v.id === selectedVehicle.id && v.mode === selectedVehicle.mode) || selectedVehicle} close={() => setSelectedVehicle(null)} />}
       {showRules && (
         <Modal
           title="读懂你的战绩"
@@ -1399,7 +1380,7 @@ export function PlayerStats() {
                   setAnalysisStyle(item.payload.analysis?.style || "commander");
                   setCustomStyle(item.payload.analysis?.customStyle || "");
                   setReport(item);
-                  setTab("report");
+                  changeTab("report");
                   setBackground("auto");
                   setHistory(null);
                 }}

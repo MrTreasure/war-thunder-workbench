@@ -110,6 +110,7 @@ export function loadPlayerEfficiency(): Promise<Entry> {
 }
 
 const fields = ["battles", "wins", "sorties", "deaths", "airKills", "groundKills"] as const;
+const scores = new Map<string, number | null>();
 function score(row: Record<string, unknown>, entry: Entry): number | null {
   const values = fields.map((key) => row[key]);
   if (
@@ -123,6 +124,8 @@ function score(row: Record<string, unknown>, entry: Entry): number | null {
   )
     return null;
   if (values[1] > values[0]) return null;
+  const cacheKey = values.join(":");
+  if (scores.has(cacheKey)) return scores.get(cacheKey)!;
   // Fixed anonymous slots, disposable padding, and a per-call transport mask.
   // These obscure the ABI; they are not encryption or a security boundary.
   const random = crypto.getRandomValues(new Uint16Array(manifest.argumentCount));
@@ -131,7 +134,10 @@ function score(row: Record<string, unknown>, entry: Entry): number | null {
     slots[slot] = values[i] * 3 + slots[0];
   });
   const value = entry(...slots);
-  return Number.isInteger(value) && value >= 0 && value <= 2000 ? value : null;
+  const result = Number.isInteger(value) && value >= 0 && value <= 2000 ? value : null;
+  scores.set(cacheKey, result);
+  if (scores.size > 32768) scores.delete(scores.keys().next().value!);
+  return result;
 }
 
 function hasRows(value: unknown): boolean {

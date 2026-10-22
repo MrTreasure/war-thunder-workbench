@@ -1865,3 +1865,63 @@
   .wt-record-country-panel .wt-record-countries > div { grid-template-columns: 22px minmax(0, 1fr) auto auto; }
   .wt-record-country-panel .wt-country-elite { grid-column: auto; justify-content: flex-end; flex-wrap: nowrap; }
 }
+
+
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-career-charts { grid-template-columns: minmax(0, 1fr); }
+  .wt-career-toolbar > span { flex-basis: 100%; margin-left: 0; }
+  .wt-career-toolbar .wt-select, .wt-rank-toolbar .wt-select, .wt-owned-filters .wt-select, .wt-owned-content input { font-size: 16px; }
+  .wt-rank-toolbar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wt-rank-toolbar > label { min-width: 0; }
+  .wt-rank-scoreboard > div { padding-inline: 14px; }
+  .wt-rank-scoreboard strong { font-size: 25px; }
+  .wt-rank-scoreboard small { font-size: 11px; }
+  .wt-rank-intro { align-items: start; }
+  .wt-rank-intro > span { font-size: 11px; }
+  .wt-rank-position-label { flex-wrap: wrap; gap: 3px 12px; }
+  .calculator.wt-owned-garage { width: calc(100vw - 20px); max-height: calc(100dvh - 20px); }
+  .wt-owned-garage .calc-header, .wt-owned-content { padding: 16px; }
+  .wt-owned-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wt-owned-filters > input { grid-column: 1 / -1; }
+  .wt-owned-row { grid-template-columns: 65px minmax(0, 1fr) auto; gap: 8px; }
+  .wt-owned-row > img { width: 60px; height: 38px; }
+  .wt-owned-row > div { grid-column: 2 / -1; }
+  .wt-owned-row > .wt-owned-played, .wt-owned-row > .wt-owned-unplayed { grid-column: 2; grid-row: 2; }
+  .wt-owned-row > .wt-owned-elite { grid-column: 1; grid-row: 2; font-size: 11px; }
+  .wt-owned-row button { grid-column: 3; grid-row: 2; font-size: 12px; padding-inline: 10px; }
+  .wt-rank-unit-picker { grid-template-columns: minmax(0, 1fr); }
+  .wt-vehicle-detail-button { min-height: 44px; }
+  .wt-career-comparison { padding-inline: 12px; }
+  .wt-career-comparison th, .wt-career-comparison td { padding: 12px 4px; font-size: 12px; }
+  .wt-vehicle-record-identity > img { width: 110px; height: 80px; }
+}
+@media (max-width: 520px) {
+  .wt-rank-scoreboard { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 20px; padding-top: 6px; }
+  .wt-rank-scoreboard > .wt-rank-primary { grid-column: 1 / -1; }
+  .wt-rank-scoreboard > div:nth-child(2) { border: 0; padding-left: 0; }
+  .wt-rank-scoreboard .wt-rank-primary strong { font-size: 38px; }
+  .wt-career-period button { padding-inline: 12px; }
+  .wt-record-tabs { flex-wrap: wrap; }
+  .wt-record-tabs > button { min-height: 44px; white-space: nowrap; }
+  .wt-record-tabs .wt-record-modes { flex-basis: 100%; margin-left: 0; }
+  .wt-vehicle-record-counters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 1100px) {
+  .wt-vehicle-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-vehicle-pagination > .wt-select, .wt-vehicle-page-controls .wt-select { font-size: 16px; }
+  .wt-vehicle-page-controls { margin-left: 0; flex-basis: 100%; }
+  .wt-vehicle-page-controls .wt-select { flex: 1; }
+  .wt-vehicle-display-toolbar { align-items: center; }
+}
+@media (max-width: 520px) {
+  .wt-vehicle-cards { grid-template-columns: minmax(0, 1fr); }
+  .wt-vehicle-card-art { height: 190px; }
+  .wt-vehicle-card-heading h3 { min-height: 0; }
+  .wt-vehicle-display-toolbar > span { font-size: 11px; }
+  .wt-vehicle-page-controls { gap: 6px; }
+  .wt-vehicle-page-controls button { padding-inline: 9px; font-size: 12px; }
+  .wt-vehicle-page-controls .wt-select { min-width: 75px; }
+}

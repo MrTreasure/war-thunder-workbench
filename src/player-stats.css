@@ -2154,3 +2154,150 @@ a.wt-record-vehicle:hover b { color: var(--wt-record-gold); text-decoration: und
 a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); outline-offset: 3px; }
 
 .wt-country-breakdown { grid-template-columns: repeat(auto-fit, minmax(min(100%, 225px), 1fr)); }
+
+
+/* finesse · component: player rankings · register=product
+ * existing hangar palette; explicit data ranges, numeric chart fallback */
+.wt-career-overview, .wt-rankings { display: grid; gap: 18px; min-width: 0; }
+.wt-career-toolbar, .wt-rank-toolbar { display: flex; align-items: end; gap: 12px; flex-wrap: wrap; }
+.wt-career-toolbar > label, .wt-rank-toolbar > label { display: grid; gap: 5px; color: var(--wt-record-muted); font-size: 12px; min-width: 150px; }
+.wt-career-toolbar > span { margin-left: auto; color: var(--wt-record-muted); font-size: 12px; align-self: center; }
+.wt-career-toolbar .wt-select, .wt-rank-toolbar .wt-select { min-height: 44px; font-size: 14px; }
+.wt-career-period { display: flex; border-bottom: 1px solid var(--wt-record-line); }
+.wt-career-period button { min-height: 44px; padding: 8px 16px; color: var(--wt-record-muted); background: transparent; border: 0; border-bottom: 2px solid transparent; white-space: nowrap; }
+.wt-career-period button[aria-pressed="true"] { color: var(--wt-record-gold); border-bottom-color: var(--wt-record-gold); }
+.wt-career-basis { margin-top: -12px !important; }
+.wt-career-charts { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.35fr); gap: 18px; }
+.wt-career-comparison { display: flex; flex-direction: column; gap: 15px; }
+.wt-career-comparison table, .wt-rank-reference-table table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+.wt-career-comparison th, .wt-career-comparison td, .wt-rank-reference-table td, .wt-rank-reference-table th { padding: 12px 8px; text-align: right; border-bottom: 1px solid var(--wt-record-line); white-space: nowrap; }
+.wt-career-comparison tr > :first-child, .wt-rank-reference-table tr > :first-child { text-align: left; }
+.wt-career-comparison th { font-weight: 500; color: var(--wt-record-muted); }
+.wt-career-up { color: #9bc7ac; }
+.wt-career-down { color: #e3a392; }
+.wt-career-registered { margin-top: auto !important; font-size: 12px; color: var(--wt-record-muted); }
+.wt-career-usage { display: grid; align-content: start; gap: 18px; }
+.wt-career-usage-list { display: grid; gap: 16px; }
+.wt-career-usage-list > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 12px; }
+.wt-career-hours { color: var(--wt-record-muted); font-variant-numeric: tabular-nums; }
+.wt-career-usage-list > div > div { grid-column: 1 / -1; height: 5px; border-radius: 2px; background: var(--wt-record-line); overflow: hidden; }
+.wt-career-usage-list i { display: block; height: 100%; background: var(--wt-record-gold); }
+.wt-rank-intro { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.wt-rank-intro h2 { font-size: 22px; }
+.wt-rank-intro p, .wt-rank-intro > span { color: var(--wt-record-muted); font-size: 13px; }
+.wt-rank-intro > span { white-space: nowrap; }
+.wt-rank-toolbar { padding: 16px 0; border-block: 1px solid var(--wt-record-line); }
+.wt-rank-toolbar > label { flex: 1; min-width: 170px; }
+.wt-rank-scoreboard { display: grid; grid-template-columns: minmax(0, 1.3fr) repeat(2, minmax(0, 1fr)); padding: 24px 0; border-bottom: 1px solid var(--wt-record-line); font-variant-numeric: tabular-nums; }
+.wt-rank-scoreboard > div { display: grid; gap: 6px; padding-inline: 24px; border-left: 1px solid var(--wt-record-line); align-content: start; }
+.wt-rank-scoreboard > div:first-child { padding-left: 0; border: 0; }
+.wt-rank-scoreboard span, .wt-rank-scoreboard small { color: var(--wt-record-muted); }
+.wt-rank-scoreboard strong { font-size: clamp(26px, 3vw, 42px); line-height: 1.3; font-weight: 600; letter-spacing: -.03em; }
+.wt-rank-scoreboard .wt-rank-primary strong { color: var(--wt-record-gold); }
+.wt-rank-distribution { padding-block: 22px; }
+.wt-rank-position-label { display: flex; gap: 12px; align-items: baseline; margin-top: 22px; }
+.wt-rank-position-label strong { font-size: 26px; font-weight: 600; color: var(--wt-record-gold); }
+.wt-rank-position-label span { color: var(--wt-record-muted); font-size: 12px; }
+.wt-rank-position { position: relative; margin: 24px 8px 0; height: 18px; }
+.wt-rank-position-track { position: absolute; inset: 6px 0; background: var(--wt-record-line); border-radius: 3px; }
+.wt-rank-position i { position: absolute; top: 4px; width: 1px; height: 10px; background: var(--wt-record-muted); opacity: .6; }
+.wt-rank-position b { position: absolute; top: 0; width: 9px; height: 18px; margin-left: -4.5px; background: var(--wt-record-gold); border: 2px solid var(--wt-record-panel); border-radius: 3px; }
+.wt-rank-scale { display: flex; justify-content: space-between; color: var(--wt-record-muted); font-size: 12px; margin: 6px 0 20px; }
+.wt-rank-distribution svg { display: block; width: 100%; max-height: 330px; margin: 12px auto; overflow: visible; }
+.wt-rank-distribution svg text { fill: var(--wt-record-muted); font: 12px system-ui, sans-serif; }
+.wt-rank-grid { stroke: var(--wt-record-line); stroke-width: 1; }
+.wt-rank-curve { fill: none; stroke: var(--wt-record-gold); stroke-width: 2; stroke-linejoin: round; }
+.wt-rank-reference-dot { fill: var(--wt-record-panel); stroke: var(--wt-record-gold); stroke-width: 2; }
+.wt-rank-player-dot { fill: var(--wt-record-ink); stroke: var(--wt-record-panel); stroke-width: 2; }
+.wt-rank-marker-line { stroke: var(--wt-record-muted); stroke-width: 1; stroke-dasharray: 4 4; }
+.wt-rank-reference-summary { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 30px; color: var(--wt-record-muted); }
+.wt-rank-reference-summary b { margin-left: 8px; color: var(--wt-record-ink); font-weight: 500; }
+.wt-rank-reference-table { margin-block: 16px; color: var(--wt-record-muted); }
+.wt-rank-reference-table summary { cursor: pointer; min-height: 36px; display: list-item; }
+.wt-rank-reference-table table { font-size: 13px; }
+.wt-rank-reference-state { padding: 24px 0; color: var(--wt-record-muted); font-size: 13px; }
+.wt-rank-source { display: grid; gap: 4px; font-size: 12px; color: var(--wt-record-muted); }
+.wt-rank-loading { display: block; padding: 28px 0; color: var(--wt-record-muted); }
+.wt-rank-error { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; color: #e3a392; }
+.wt-rank-error button, .wt-owned-row button, .wt-owned-more { min-height: 44px; border: 1px solid var(--wt-record-line); border-radius: 4px; padding: 8px 14px; color: var(--wt-record-ink); background: transparent; white-space: nowrap; }
+.wt-rank-unit-picker { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+.wt-garage-entry { white-space: nowrap; min-height: 44px; }
+.wt-vehicle-detail-button { display: inline-block; margin: 2px 0 0 77px; min-height: 28px; padding: 0; font-size: 12px; }
+.calculator.wt-owned-garage { position: fixed; inset: 0; margin: auto; width: min(1120px, calc(100vw - 40px)); height: fit-content; max-height: calc(100dvh - 40px); padding: 0; display: flex; flex-direction: column; overflow: hidden; color: var(--wt-record-ink); background: var(--wt-record-panel); border: 1px solid var(--wt-record-line); border-radius: 8px; }
+.wt-owned-garage .calc-header { flex-shrink: 0; padding: 18px 24px; }
+.wt-owned-garage .calc-header h2 { font-size: 20px; overflow-wrap: anywhere; }
+.wt-owned-garage .calc-header p { color: var(--wt-record-muted); font-size: 12px; }
+.wt-owned-content { min-height: 0; overflow: auto; padding: 20px 24px; font: 14px/1.6 system-ui, sans-serif; }
+.wt-owned-content input { color: var(--wt-record-ink); background: transparent; border: 1px solid var(--wt-record-line); border-radius: 4px; padding: 10px 12px; min-height: 44px; min-width: 0; width: 100%; font: inherit; }
+.wt-owned-summary { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; margin-bottom: 20px; color: var(--wt-record-muted); font-size: 12px; }
+.wt-owned-summary strong { color: var(--wt-record-ink); font-size: 25px; }
+.wt-owned-summary strong small { font-size: 13px; font-weight: 400; }
+.wt-owned-filters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
+.wt-owned-filters .wt-select { min-width: 0; min-height: 44px; }
+.wt-owned-row { display: grid; grid-template-columns: 94px minmax(0, 1fr) auto auto auto; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--wt-record-line); }
+.wt-owned-row > img { width: 90px; height: 48px; object-fit: contain; }
+.wt-owned-row > div { min-width: 0; }
+.wt-owned-row a { color: var(--wt-record-ink); font-weight: 600; overflow-wrap: anywhere; }
+.wt-owned-row small { display: block; color: var(--wt-record-muted); font-size: 12px; }
+.wt-owned-row button { grid-column: 5; }
+.wt-owned-played, .wt-owned-unplayed { font-size: 12px; white-space: nowrap; }
+.wt-owned-played { color: #9bc7ac; }
+.wt-owned-unplayed { color: var(--wt-record-muted); }
+.wt-owned-elite { display: inline-flex; align-items: center; gap: 4px; color: var(--wt-record-elite-gold); font-size: 12px; white-space: nowrap; }
+.wt-owned-elite img { width: 18px; height: 18px; object-fit: contain; }
+.wt-owned-more { display: block; margin: 20px auto 0; }
+.wt-vehicle-record-identity { display: flex; align-items: center; gap: 22px; margin-bottom: 18px; }
+.wt-vehicle-record-identity > img { width: 170px; height: 95px; object-fit: contain; }
+.wt-vehicle-record-identity p, .wt-vehicle-record-identity a { font-size: 12px; color: var(--wt-record-muted); }
+.wt-vehicle-record-counters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; padding-block: 15px; border-block: 1px solid var(--wt-record-line); }
+.wt-vehicle-record-counters > div { display: grid; gap: 4px; }
+.wt-vehicle-record-counters span { color: var(--wt-record-muted); font-size: 12px; }
+.wt-vehicle-record-counters strong { font-size: 20px; font-weight: 500; }
+.wt-vehicle-record-silver { display: flex; align-items: center; gap: 8px; margin-block: 18px !important; color: var(--wt-record-muted); }
+.wt-vehicle-record-silver img { width: 22px; height: 22px; }
+.wt-record-page .wt-rankings button:focus-visible, .wt-record-page .wt-career-period button:focus-visible, .wt-owned-garage button:focus-visible, .wt-vehicle-detail-button:focus-visible { outline: 2px solid var(--wt-record-gold); outline-offset: 3px; }
+.wt-rankings button:disabled, .wt-owned-garage button:disabled { opacity: .5; cursor: not-allowed; }
+@media (hover: hover) {
+  .wt-rank-error button:hover, .wt-owned-row button:hover, .wt-owned-more:hover { border-color: var(--wt-record-gold); color: var(--wt-record-gold); }
+}
+.wt-rank-error button:active, .wt-owned-row button:active, .wt-owned-more:active { background: var(--wt-record-line); }
+
+/* Vehicle results share filters and ordering across both saved presentations. */
+.wt-vehicle-display-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-block: 18px 14px; }
+.wt-vehicle-display-toolbar > span { color: var(--wt-record-muted); font-size: 12px; }
+.wt-vehicle-view-switch { display: inline-flex; border: 1px solid var(--wt-record-line); border-radius: 4px; overflow: hidden; }
+.wt-vehicle-view-switch button { min-height: 44px; min-width: 72px; padding: 8px 18px; border: 0; color: var(--wt-record-muted); background: transparent; font: inherit; white-space: nowrap; }
+.wt-vehicle-view-switch button + button { border-left: 1px solid var(--wt-record-line); }
+.wt-vehicle-view-switch button[aria-pressed="true"] { background: var(--wt-record-line); color: var(--wt-record-gold); }
+.wt-vehicle-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.wt-vehicle-card { min-width: 0; background: var(--wt-record-panel); border: 1px solid var(--wt-record-line); border-radius: 5px; overflow: hidden; }
+.wt-vehicle-card-heading { display: flex; align-items: start; gap: 10px; padding: 16px 16px 0; }
+.wt-vehicle-card-heading > div:first-child { flex: 1; min-width: 0; }
+.wt-vehicle-card-heading h3 { min-height: 2.7em; font-size: 16px; line-height: 1.35; overflow-wrap: anywhere; }
+.wt-vehicle-card-heading p { font-size: 12px; color: var(--wt-record-muted); margin-top: 5px; }
+.wt-vehicle-card-efficiency { display: grid; text-align: right; flex-shrink: 0; }
+.wt-vehicle-card-efficiency strong { color: var(--wt-record-gold); font-size: 24px; font-weight: 600; line-height: 1.3; }
+.wt-vehicle-card-efficiency span { color: var(--wt-record-muted); font-size: 10px; }
+.wt-vehicle-card-art { display: block; width: 100%; height: 174px; padding: 10px 18px; border: 0; background: transparent; cursor: pointer; }
+.wt-vehicle-card-art img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.wt-vehicle-card-values { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 10px; padding: 14px 16px 18px; margin: 0; font-variant-numeric: tabular-nums; }
+.wt-vehicle-card-values dt { font-size: 11px; color: var(--wt-record-muted); }
+.wt-vehicle-card-values dd { margin: 3px 0 0; font-size: 17px; font-weight: 500; }
+.wt-vehicle-card-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; padding: 8px 16px; border-top: 1px solid var(--wt-record-line); }
+.wt-vehicle-card-footer > span { display: inline-flex; align-items: center; gap: 5px; }
+.wt-vehicle-card-footer img { width: 21px; height: 21px; object-fit: contain; }
+.wt-vehicle-card-footer strong { font-size: 15px; font-weight: 500; }
+.wt-vehicle-card-footer small { color: var(--wt-record-muted); font-size: 10px; }
+.wt-vehicle-card-footer button { min-height: 44px; font-size: 12px; white-space: nowrap; }
+.wt-vehicle-pagination { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; padding-block: 18px; color: var(--wt-record-muted); font-size: 12px; }
+.wt-vehicle-pagination > .wt-select { width: 140px; }
+.wt-vehicle-page-controls { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+.wt-vehicle-page-controls button { min-height: 44px; padding: 8px 12px; color: var(--wt-record-ink); background: transparent; border: 1px solid var(--wt-record-line); border-radius: 4px; white-space: nowrap; }
+.wt-vehicle-page-controls .wt-select { min-width: 90px; min-height: 44px; }
+.wt-vehicle-page-controls button:disabled { opacity: .4; cursor: not-allowed; }
+.wt-vehicle-page-controls button:focus-visible, .wt-vehicle-card-art:focus-visible, .wt-vehicle-view-switch button:focus-visible { outline: 2px solid var(--wt-record-gold); outline-offset: -3px; }
+@media (hover: hover) {
+  .wt-vehicle-card:has(.wt-vehicle-card-art:hover) { border-color: var(--wt-record-gold); }
+  .wt-vehicle-page-controls button:not(:disabled):hover { color: var(--wt-record-gold); border-color: var(--wt-record-gold); }
+}
+.wt-vehicle-page-controls button:not(:disabled):active, .wt-vehicle-card-art:active { background: var(--wt-record-line); }
