@@ -8,6 +8,8 @@ import { PlayerTypeUsage } from "./PlayerTypeUsage";
 import { PlayerCareerOverview } from "./PlayerCareerOverview";
 import { PlayerRankings } from "./PlayerRankings";
 import { PlayerGarage, PlayerVehicleDetails } from "./PlayerGarage";
+import { PlayerVehicleShare, startVehicleShare } from "./PlayerVehicleShare";
+import type { VehicleShareJob } from "./PlayerVehicleShare";
 import { PlayerVehicleCards, PlayerVehiclePagination } from "./PlayerVehicleCards";
 import { compactSilver, savedVehiclePresentation, saveVehiclePresentation, savedVehiclePageSize, saveVehiclePageSize } from "./player-number-format";
 import type { VehiclePresentation } from "./player-number-format";
@@ -156,6 +158,9 @@ export function PlayerStats() {
   const displayProfile = profile ? { ...profile, vehicles: effectiveVehicles } : null;
   const [showGarage, setShowGarage] = useState(false);
   const [selectedVehicle, setSelectedVehicle] = useState<PlayerVehicle | null>(null);
+  const [vehicleShare, setVehicleShare] = useState<{
+    profile: PlayerProfile; vehicle: PlayerVehicle; job: VehicleShareJob;
+  } | null>(null);
   function changeTab(next: string) {
     setTab(next);
     void navigate({ search: (previous: { player?: string; view?: string }) => ({ ...previous, view: next === "overview" ? undefined : next }), replace: false });
@@ -256,6 +261,7 @@ export function PlayerStats() {
     setProfile(p);
     setShowGarage(false);
     setSelectedVehicle(null);
+    setVehicleShare(null);
     if (!local) setRecentPlayers(rememberStatsProfile(p));
     setNickname(p.nickname);
     rememberStatsNickname(p.nickname);
@@ -521,6 +527,7 @@ export function PlayerStats() {
     clearRankingMemory();
     setShowGarage(false);
     setSelectedVehicle(null);
+    setVehicleShare(null);
     generation.current++;
     requests.current.forEach((request) => request.abort());
     exportController.current?.abort();
@@ -1015,7 +1022,9 @@ export function PlayerStats() {
                   <div className="wt-vehicle-view-switch" aria-label="载具战绩展示形式">{(["table", "cards"] as VehiclePresentation[]).map(view => <button key={view} aria-pressed={vehicleView === view} onClick={() => { setVehicleView(view); saveVehiclePresentation(view); }}>{view === "table" ? "表格" : "卡片"}</button>)}</div>
                   <span>展示形式保存在本机</span>
                 </div>
-                {vehicleView === "cards" ? <PlayerVehicleCards vehicles={pagedVehicles} select={setSelectedVehicle} showNaval={category !== "ground"} /> : <div className="wt-record-table-scroll">
+                {vehicleView === "cards" ? <PlayerVehicleCards vehicles={pagedVehicles} select={setSelectedVehicle} generate={vehicle => {
+                  if (displayProfile) setVehicleShare({ profile: displayProfile, vehicle, job: startVehicleShare(displayProfile, vehicle) });
+                }} showNaval={category !== "ground"} /> : <div className="wt-record-table-scroll">
                   <table>
                     <thead>
                       <tr>
@@ -1370,6 +1379,8 @@ export function PlayerStats() {
       )}
       {displayProfile && showGarage && <PlayerGarage profile={displayProfile} close={() => setShowGarage(false)} selectVehicle={vehicle => { setShowGarage(false); setSelectedVehicle(vehicle); }} />}
       {displayProfile && selectedVehicle && <PlayerVehicleDetails profile={displayProfile} vehicle={effectiveVehicles.find(v => v.id === selectedVehicle.id && v.mode === selectedVehicle.mode) || selectedVehicle} close={() => setSelectedVehicle(null)} />}
+      {vehicleShare && <PlayerVehicleShare profile={vehicleShare.profile} vehicle={vehicleShare.vehicle} job={vehicleShare.job}
+        close={() => setVehicleShare(null)} back={() => { setSelectedVehicle(vehicleShare.vehicle); setVehicleShare(null); }} />}
       {showRules && (
         <Modal
           title="读懂你的战绩"

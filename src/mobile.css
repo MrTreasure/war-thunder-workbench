@@ -1918,7 +1918,7 @@
 }
 @media (max-width: 520px) {
   .wt-vehicle-cards { grid-template-columns: minmax(0, 1fr); }
-  .wt-record-page button.wt-vehicle-card-art { height: 170px; }
+  .wt-vehicle-card-art { height: 170px; }
   .wt-vehicle-card-heading h3 { min-height: 0; }
   .wt-vehicle-display-toolbar > span { font-size: 11px; }
   .wt-vehicle-page-controls { gap: 6px; }
@@ -1965,4 +1965,14 @@
 
 @media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
   .wt-career-inventory > .wt-record-career { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 800px) {
+  .calculator.wt-vehicle-share-dialog { width: calc(100vw - 20px); height: calc(100dvh - 20px); }
+  .wt-vehicle-share-dialog .calc-header { padding: 12px 16px; }
+  .wt-vehicle-share-preview { padding: 8px; }
+  .wt-vehicle-share-actions { padding: 10px 12px 12px; gap: 8px; }
+  .wt-vehicle-share-actions button { padding-inline: 12px; }
+  .wt-vehicle-record-actions { align-items: flex-start; }
+  .wt-vehicle-record-actions button { flex-shrink: 0; }
 }

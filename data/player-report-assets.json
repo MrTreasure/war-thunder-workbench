@@ -305,11 +305,13 @@
   "avatarBase": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatars/",
   "avatarSource": "Original game images.vromfs.bin, commit ea96f3af75afe1d858f80ac13f212db218bc69ca",
   "armyBase": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/gameuiskin/",
-  "silverLionsIcon": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/gameuiskin/warpoints.png",
+  "silverLionsIcon": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/gameuiskin/item_type_warpoints.svg",
   "silverLionsIconProvenance": {
-    "source": "War Thunder game UI asset: warpoints.png",
+    "source": "War Thunder game UI vector asset: item_type_warpoints.svg",
     "assetCommit": "ea96f3af75afe1d858f80ac13f212db218bc69ca",
-    "verifiedAt": "2026-10-21"
+    "verifiedAt": "2026-10-23",
+    "sha256": "0af46a7612d7150b5d51320460966857b8b6f826652adc3abcf7ecabc491d6c0",
+    "format": "SVG vector; original game geometry and gradients"
   },
   "goldenEaglesIcon": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/gameuiskin/item_type_eagles.svg",
   "goldenEaglesIconProvenance": {

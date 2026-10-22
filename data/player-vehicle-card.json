@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 2,
+  "width": 1080,
+  "height": 1620,
+  "siteLabel": "wt.mrtreasure.cc",
+  "backgrounds": {
+    "ww2": {
+      "label": "二战",
+      "path": "src/assets/vehicle-card-ww2.webp",
+      "generator": "gpt-image-2.5",
+      "generatedAt": "2026-10-23",
+      "sha256": "70497020087509d7a048b64f24eebcf79849b8dae2499959f00668f79f7c8be0",
+      "bytes": 53194,
+      "originalSha256": "c3cb6a3e3e903ddbfdb2b56764e8e44c2bbadb016b119c66b0ddf14b9a88e146",
+      "processing": "WebP quality 86; original composition preserved"
+    },
+    "coldwar": {
+      "label": "冷战",
+      "path": "src/assets/vehicle-card-coldwar.webp",
+      "generator": "gpt-image-2.5",
+      "generatedAt": "2026-10-23",
+      "sha256": "447e3228d6693b6a530b671f1e814e5f44075a78e42bb069aca5a767d63b5007",
+      "bytes": 37836,
+      "originalSha256": "82477ddbda58af59f8aa4159fe111ffd5da9b9ecefe361a0975b3d73563d334d",
+      "processing": "WebP quality 86; original composition preserved"
+    },
+    "modern": {
+      "label": "现代",
+      "path": "src/assets/vehicle-card-modern.webp",
+      "generator": "gpt-image-2.5",
+      "generatedAt": "2026-10-23",
+      "sha256": "ef4da44cd7379a437c52b6a6d3c6089750e43300843d7bcf88a4521133b5314e",
+      "bytes": 42602,
+      "originalSha256": "bf6df4b65815796b1caee4627c2c57944f9febff72008e4c59e050003673c493",
+      "processing": "WebP quality 86; original composition preserved"
+    }
+  },
+  "selection": {
+    "notice": "主题初选按载具覆盖项及等级分段匹配；不代表精确服役年代，可手动切换。",
+    "rankFallback": {
+      "ground": {
+        "I": "ww2",
+        "II": "ww2",
+        "III": "ww2",
+        "IV": "ww2",
+        "V": "coldwar",
+        "VI": "coldwar",
+        "VII": "modern",
+        "VIII": "modern"
+      },
+      "aviation": {
+        "I": "ww2",
+        "II": "ww2",
+        "III": "ww2",
+        "IV": "ww2",
+        "V": "coldwar",
+        "VI": "coldwar",
+        "VII": "modern",
+        "VIII": "modern"
+      },
+      "helicopters": {
+        "V": "coldwar",
+        "VI": "coldwar",
+        "VII": "modern",
+        "VIII": "modern"
+      },
+      "ships": {
+        "I": "ww2",
+        "II": "ww2",
+        "III": "ww2",
+        "IV": "ww2",
+        "V": "ww2",
+        "VI": "ww2"
+      },
+      "boats": {
+        "I": "ww2",
+        "II": "ww2",
+        "III": "coldwar",
+        "IV": "coldwar",
+        "V": "coldwar",
+        "VI": "modern"
+      }
+    },
+    "vehicleOverrides": {
+      "it_m18_hellcat": "ww2",
+      "germ_leopard_i": "coldwar",
+      "germ_leopard_i_a1": "coldwar",
+      "germ_leopard_1a5": "coldwar",
+      "germ_leopard_2a7v": "modern",
+      "ussr_pt_76b": "coldwar",
+      "cn_pt_76": "coldwar",
+      "sw_pt_76b": "coldwar",
+      "ussr_asu_57": "coldwar",
+      "us_m41_walker_bulldog": "coldwar",
+      "jp_m41_walker_bulldog": "coldwar",
+      "germ_le_kpz_m41": "coldwar",
+      "fr_amx_13_75": "coldwar",
+      "fr_amx_13_fl_11": "coldwar",
+      "fr_amx_13_dca_40": "coldwar"
+    }
+  }
+}

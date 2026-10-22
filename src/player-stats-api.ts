@@ -317,7 +317,17 @@ export async function reportImage(kind: string, key: string, signal: AbortSignal
         signal: AbortSignal.any([signal, AbortSignal.timeout(30000)]),
       });
       if (!response.ok) throw new Error("图片读取失败");
-      const url = URL.createObjectURL(await response.blob());
+      let blob = await response.blob();
+      if (kind === "currency" && blob.type.includes("svg")) {
+        // Preserve the original game's vector geometry; rasterize above export size.
+        const svg = new DOMParser().parseFromString(await blob.text(), "image/svg+xml");
+        if (svg.documentElement.localName !== "svg" || svg.querySelector("parsererror"))
+          throw new Error("银狮图标格式异常");
+        svg.documentElement.setAttribute("width", "256");
+        svg.documentElement.setAttribute("height", "256");
+        blob = new Blob([new XMLSerializer().serializeToString(svg)], { type: "image/svg+xml" });
+      }
+      const url = URL.createObjectURL(blob);
       try {
         const img = new Image();
         img.src = url;
