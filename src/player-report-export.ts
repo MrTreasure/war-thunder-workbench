@@ -1,3 +1,4 @@
+import { vehicleDisplayName } from "./vehicle-display-name";
 import { reportStyle } from "./player-report-style";
 import { stampExportWatermark } from "./export-watermark";
 import {
@@ -263,7 +264,7 @@ export async function downloadStatsReport(
     const y = vehicleStart + i * vehicleHeight;
     text(String(i + 1).padStart(2, "0"), 64, y + 48, 29, gold, 700);
     fit(vehicles[i], 107, y + 4, 160, 94);
-    text(shorten(v.name, 485, 29, 700), 292, y + 27, 29, white, 700);
+    text(shorten(vehicleDisplayName(v.name), 485, 29, 700), 292, y + 27, 29, white, 700);
     ctx.save();
     ctx.textAlign = "right";
     text(n(v.efficiency) + " 效率" + (v.smallSample ? " · 场次不足" : ""), 1016, y + 27, 23, gold);

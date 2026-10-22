@@ -1,3 +1,4 @@
+import { vehicleDisplayName } from "./vehicle-display-name";
 import type { CSSProperties } from "react";
 import { reportStyle } from "./player-report-style";
 import type { Background, StatsReport } from "./player-stats-api";
@@ -180,10 +181,10 @@ export function PlayerReport({
       {p.top5.map((v, i) => (
         <section className="wt-poster-vehicle" key={v.id}>
           <span className="wt-poster-place">{String(i + 1).padStart(2, "0")}</span>
-          <img src={v.image} alt={v.name} loading="lazy" />
+          <img src={v.image} alt={vehicleDisplayName(v.name)} loading="lazy" />
           <div className="wt-poster-vehicle-info">
             <div className="wt-poster-vehicle-title">
-              <h3>{v.name}</h3>
+              <h3>{vehicleDisplayName(v.name)}</h3>
               <span>
                 <b>{n(v.efficiency)}</b> 效率{v.smallSample ? " · 场次不足" : ""}
               </span>

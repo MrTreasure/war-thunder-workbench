@@ -1,3 +1,4 @@
+import { vehicleDisplayName } from "./vehicle-display-name";
 import layout from "../data/player-vehicle-card.json";
 import catalog from "../data/catalog-settings.json";
 import { compactSilver } from "./player-number-format";
@@ -111,7 +112,7 @@ export function drawVehicleShareCard(
   line(76, 195, 1004, 195);
 
   // Long localized names occupy up to two lines without truncating their identity.
-  const title = vehicle.name;
+  const title = vehicleDisplayName(vehicle.name);
   ctx.font =
     '700 128px WTCard, "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", system-ui, sans-serif';
   const wideTitle = ctx.measureText(title).width > 1580;

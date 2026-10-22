@@ -1,3 +1,4 @@
+import { vehicleDisplayName } from "./vehicle-display-name";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   comparePlayerVehicles,
@@ -96,18 +97,18 @@ function VehicleRow({
 }) {
   return (
     <tr>
-      <td aria-label={v.name}>
+      <td aria-label={vehicleDisplayName(v.name)}>
         <a
           className="wt-record-vehicle"
           href={"https://wiki.warthunder.com/unit/" + encodeURIComponent(v.id)}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`${v.name} 官方 Wiki（新标签页打开）`}
+          aria-label={`${vehicleDisplayName(v.name)} 官方 Wiki（新标签页打开）`}
           title="在新标签页打开官方 Wiki"
         >
           <img src={v.thumbnail} alt="" loading="lazy" />
           <span>
-            <b>{v.name}</b>
+            <b>{vehicleDisplayName(v.name)}</b>
             <small>
               {v.rank && `${v.rank} 级 · `}
               {countryName}
@@ -616,7 +617,7 @@ export function PlayerStats() {
         (category === "all" || v.category === category) &&
         (vehicleCountry === "all" || (v.country || "unknown") === vehicleCountry) &&
         (vehicleRank === "all" || (v.rank || "unknown") === vehicleRank) &&
-        (!search || (v.name + " " + v.id).toLowerCase().includes(search.toLowerCase())),
+        (!search || (vehicleDisplayName(v.name) + " " + v.id).toLowerCase().includes(search.toLowerCase())),
     )
     .sort((a, b) => vehicleSort ? comparePlayerVehicles(a, b, vehicleSort) : 0);
   const vehiclePages = Math.max(1, Math.ceil(filtered.length / vehiclePageSize));

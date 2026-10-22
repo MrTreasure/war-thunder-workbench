@@ -1,3 +1,4 @@
+import { vehicleDisplayName } from "./vehicle-display-name";
 import { GameSelect } from "./components/GameSelect";
 import { compactSilver } from "./player-number-format";
 import {
@@ -27,11 +28,11 @@ export function PlayerVehicleCards({
           <button
             className="wt-vehicle-card-open"
             onClick={() => select(vehicle)}
-            aria-label={`查看${vehicle.name}战绩详情`}
+            aria-label={`查看${vehicleDisplayName(vehicle.name)}战绩详情`}
           />
           <header className="wt-vehicle-card-heading">
             <div>
-              <h3 title={vehicle.name}>{vehicle.name}</h3>
+              <h3 title={vehicleDisplayName(vehicle.name)}>{vehicleDisplayName(vehicle.name)}</h3>
               <p>
                 {catalog.countries[vehicle.country as keyof typeof catalog.countries] ||
                   "国家待匹配"}
@@ -87,10 +88,16 @@ export function PlayerVehicleCards({
               <strong>{compactSilver(vehicle.silverLions)}</strong>
             </span>
             <div className="wt-vehicle-card-actions">
-              <button onClick={() => select(vehicle)} aria-label={`查看${vehicle.name}详情`}>
+              <button
+                onClick={() => select(vehicle)}
+                aria-label={`查看${vehicleDisplayName(vehicle.name)}详情`}
+              >
                 查看详情
               </button>
-              <button onClick={() => generate(vehicle)} aria-label={`生成${vehicle.name}战绩图片`}>
+              <button
+                onClick={() => generate(vehicle)}
+                aria-label={`生成${vehicleDisplayName(vehicle.name)}战绩图片`}
+              >
                 生成图片
               </button>
             </div>

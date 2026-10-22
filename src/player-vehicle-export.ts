@@ -1,3 +1,4 @@
+import { vehicleDisplayName } from "./vehicle-display-name";
 import fontUrl from "./assets/RobotoCondensed-Bold.ttf?url";
 import catalog from "../data/catalog-settings.json";
 import layout from "../data/player-vehicle-card.json";
@@ -159,7 +160,7 @@ export function downloadVehicleCard(blob: Blob, profile: PlayerProfile, vehicle:
     link = document.createElement("a");
   link.href = url;
   link.download = Array.from(
-    `${profile.nickname}-${vehicle.name}-${vehicle.mode.toUpperCase()}.png`,
+    `${profile.nickname}-${vehicleDisplayName(vehicle.name)}-${vehicle.mode.toUpperCase()}.png`,
     (character) => (character.codePointAt(0)! < 32 ? "_" : character),
   )
     .join("")

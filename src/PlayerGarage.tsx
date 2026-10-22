@@ -1,3 +1,4 @@
+import { vehicleDisplayName } from "./vehicle-display-name";
 import { useState } from "react";
 import catalog from "../data/catalog-settings.json";
 import { GameSelect } from "./components/GameSelect";
@@ -43,7 +44,7 @@ export function PlayerGarage({
       (rank === "all" || v.rank === rank) &&
       (kind === "all" || v.kind === kind) &&
       (played === "all" || v.observed === (played === "yes")) &&
-      (v.name.toLowerCase().includes(search.toLowerCase()) ||
+      (vehicleDisplayName(v.name).toLowerCase().includes(search.toLowerCase()) ||
         v.id.toLowerCase().includes(search.toLowerCase())),
   );
   const pages = Math.max(1, Math.ceil(filtered.length / pageSize));
@@ -195,7 +196,7 @@ export function PlayerGarage({
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {v.name}
+                        {vehicleDisplayName(v.name)}
                       </a>
                       <small>
                         {catalog.countries[v.country as keyof typeof catalog.countries] ||
@@ -250,7 +251,7 @@ export function PlayerVehicleDetails({
   return (
     <Modal
       key="detail"
-      title={vehicle.name}
+      title={vehicleDisplayName(vehicle.name)}
       subtitle={`${profile.nickname} · ${vehicle.mode.toUpperCase()} · 载具累计战绩`}
       close={close}
       className="wt-owned-garage wt-vehicle-record-dialog"
@@ -259,7 +260,7 @@ export function PlayerVehicleDetails({
         <div className="wt-vehicle-record-identity">
           <img src={vehicle.image} alt="" />
           <div>
-            <h3>{vehicle.name}</h3>
+            <h3>{vehicleDisplayName(vehicle.name)}</h3>
             <p>
               {vehicle.mode.toUpperCase()} ·{" "}
               {statsCategoryNames[vehicle.category || ""] || "分类待匹配"}

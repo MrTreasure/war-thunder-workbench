@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "prefixGlyphs": [
+    "⋠",
+    "␕",
+    "␖",
+    "␗",
+    "␘",
+    "␠",
+    "␞",
+    "␟",
+    "▀",
+    "▂",
+    "▃",
+    "▄",
+    "▅",
+    "▇",
+    "█",
+    "◄",
+    "◊",
+    "◐",
+    ""
+  ],
+  "policy": "Display-only removal of game country-symbol prefixes. Preserve canonical/localized names, vehicle IDs and cached records; display existing country metadata separately. Other punctuation and variant symbols are retained.",
+  "source": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/gui.vromfs.bin_u/globalscripts/countrysymbols.nut",
+  "sourceSha256": "0f0aa7c08ebdbd8d7346958808abff0f97dd27ffd140ae02982eeb2b3391ded2",
+  "fallbackSource": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/gui.vromfs.bin_u/scripts/userlog/unitnamesymbolrestrictions.nut",
+  "verifiedAt": "2026-10-23"
+}

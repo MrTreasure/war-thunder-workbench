@@ -1,3 +1,4 @@
+import { vehicleDisplayName } from "./vehicle-display-name";
 import type { Background, ReportPayload } from "./player-stats-api";
 import { statsNumber, statsRatio } from "./player-stats-api";
 import statsRules from "../data/player-stats-rules.json";
@@ -153,7 +154,7 @@ export function reportSummary(p: ReportPayload) {
 export function reportChartData(p: ReportPayload) {
   const values = p.top5.map((v, i) => ({
     id: v.id,
-    label: v.name,
+    label: vehicleDisplayName(v.name),
     rank: String(i + 1).padStart(2, "0"),
     value: v.efficiency,
   }));

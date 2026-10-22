@@ -1,3 +1,4 @@
+import { vehicleDisplayName } from "./vehicle-display-name";
 import { useEffect, useRef, useState } from "react";
 import { Modal } from "./Modal";
 import { GameSelect } from "./components/GameSelect";
@@ -119,7 +120,7 @@ export function PlayerVehicleShare({
         {url ? (
           <img
             src={url}
-            alt={`${profile.nickname} · ${vehicle.name} · ${vehicle.mode.toUpperCase()} 战绩卡片`}
+            alt={`${profile.nickname} · ${vehicleDisplayName(vehicle.name)} · ${vehicle.mode.toUpperCase()} 战绩卡片`}
           />
         ) : (
           <div className="wt-vehicle-share-loading" role={error ? "alert" : "status"}>
