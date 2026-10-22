@@ -851,8 +851,7 @@
   gap: 8px 16px;
   padding: 10px 0;
 }
-.wt-sale-watch-fold > span,
-.wt-sales-page .wt-sale-prediction-note {
+.wt-sale-watch-fold > span {
   color: var(--wt-muted);
   font-size: 11px;
   line-height: 1.8;
@@ -867,11 +866,55 @@
 .wt-sale-watch-fold > button:active {
   border-color: var(--wt-gold);
 }
-.wt-sales-page .wt-sale-prediction-note {
-  margin-top: 10px;
-}
 @media (hover: hover) {
   .wt-sale-watch-fold > button:hover {
     border-color: var(--wt-gold);
   }
+}
+
+/* finesse · component=sale-calendar-reading-guide · shared explanations appear once */
+.wt-sale-reading-guide {
+  margin: -6px 0 20px;
+  padding: 10px 14px;
+  border: 1px solid var(--wt-line);
+  border-radius: 6px;
+  background: var(--wt-surface);
+  color: var(--wt-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.wt-sale-reading-guide > summary {
+  width: fit-content;
+  cursor: pointer;
+  color: var(--wt-ink);
+}
+.wt-sale-reading-guide > summary > span {
+  margin-left: 12px;
+  color: var(--wt-muted);
+  font-size: 11px;
+}
+.wt-sale-reading-guide dl {
+  margin: 10px 0 0;
+}
+.wt-sale-reading-guide dl > div {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 12px;
+}
+.wt-sale-reading-guide dl > div + div {
+  margin-top: 6px;
+}
+.wt-sale-reading-guide dt {
+  color: var(--wt-gold);
+}
+.wt-sale-reading-guide dd {
+  margin: 0;
+}
+@media (hover: hover) {
+  .wt-sale-reading-guide > summary:hover {
+    color: var(--wt-gold);
+  }
+}
+.wt-sale-reading-guide > summary:active {
+  color: var(--wt-gold);
 }

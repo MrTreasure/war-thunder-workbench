@@ -1776,3 +1776,10 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+@media (max-width: 800px) {
+  .wt-sale-reading-guide { padding: 8px 10px; }
+  .wt-sale-reading-guide > summary { min-height: 44px; align-content: center; }
+  .wt-sale-reading-guide > summary > span { display: block; margin-left: 16px; }
+  .wt-sale-reading-guide dl > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+}

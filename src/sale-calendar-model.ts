@@ -170,3 +170,15 @@ export function saleOriginalPrice(vehicle: SaleVehicle): string {
   const cents = BigInt(price.amount);
   return `礼包原价 ¥ ${(cents / 100n).toLocaleString("zh-CN")}.${(cents % 100n).toString().padStart(2, "0")} · 整包`;
 }
+
+/** Omit only known shared boilerplate; keep event-specific conditions verbatim. */
+export function saleEventNote(event: SaleEvent): string {
+  let note = event.notes;
+  for (const sharedPrefix of [
+    "预测活动窗口，载具名单和力度尚未公布。",
+    "联队载具与公告指定的新版本载具及其改装、护符、备份排除；不降低研发 RP。",
+  ]) {
+    if (note.startsWith(sharedPrefix)) note = note.slice(sharedPrefix.length);
+  }
+  return note.trim();
+}

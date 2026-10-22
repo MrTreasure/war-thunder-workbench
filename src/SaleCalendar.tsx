@@ -17,6 +17,7 @@ import {
   saleRange,
   saleRate,
   saleOriginalPrice,
+  saleEventNote,
 } from "./sale-calendar-model";
 import type { SaleCalendarData, SaleEvent, SaleVehicle } from "./sale-calendar-model";
 
@@ -349,6 +350,34 @@ export function SaleCalendar() {
           </button>
         </div>
       </header>
+      <details className="wt-sale-reading-guide">
+        <summary>
+          日历说明 <span>日期预测 · 参与范围 · 时间与平台</span>
+        </summary>
+        <dl>
+          <div>
+            <dt>日期预测</dt>
+            <dd>
+              按往年日期推算，开始与结束各预留 ±4
+              天；黑五按感恩节次日、春节按农历新年调整。两个范围分别表示可能的开始日、结束日，预测中点仅供参考；预测不保证载具参与或折扣力度。
+            </dd>
+          </div>
+          <div>
+            <dt>参与范围</dt>
+            <dd>
+              “已公布”表示活动日期确认，不代表所列国家的全部载具参与。新版本载具、联队载具及其改装、护符、备份、组合购买门槛，以当次公告为准；金鹰充值、交易所商品、乘员与研发
+              RP 不随购车活动自动降价。
+            </dd>
+          </div>
+          <div>
+            <dt>时间平台</dt>
+            <dd>
+              统一使用北京时间，结束时刻不含在活动内；公告未注明时刻时只显示日期。当前为 PC／Gaijin
+              商城日历，游戏内与商城阶段分开，主机商店可能采用不同时间。
+            </dd>
+          </div>
+        </dl>
+      </details>
       {referenceOpen && <CalendarReference close={() => setReferenceOpen(false)} />}
       {error && (
         <div className="wt-sales-error" role="alert">
@@ -381,7 +410,6 @@ export function SaleCalendar() {
       <section className="wt-sale-watch">
         <div className="wt-sales-section-title">
           <h3>我的关注</h3>
-          <span>日期统一为北京时间 · 捆绑包需满足组合购买条件</span>
         </div>
         {!watch.length ? (
           <div className="wt-sale-empty">
@@ -472,9 +500,6 @@ export function SaleCalendar() {
                 </button>
               </div>
             )}
-            <p className="wt-sale-prediction-note">
-              预测的两个范围分别表示可能的开始日、结束日，并非确定的促销持续时间；是否参与以官方名单为准。
-            </p>
           </>
         )}
       </section>
@@ -597,6 +622,7 @@ export function SaleCalendar() {
                       e.year === event.year - 1 &&
                       e.status === "confirmed",
                   );
+                  const note = saleEventNote(event);
                   const active =
                     event.status === "confirmed" &&
                     Date.parse(event.startAt) <= now &&
@@ -642,27 +668,35 @@ export function SaleCalendar() {
                               : "全国家活动"}
                           </span>
                         </div>
-                        <p className="wt-sale-note">{event.notes}</p>
-                        {previous && (
-                          <p className="wt-sale-history">
-                            去年 {previous.year}：{saleRange(previous)}
+                        {note && (
+                          <p className="wt-sale-note">
+                            {event.status === "predicted" ? "历史参与情况：" : ""}
+                            {note}
                           </p>
                         )}
                         <details>
                           <summary>时间、依据与参与范围</summary>
-                          <p>
-                            {event.status === "predicted"
-                              ? event.basis?.method
-                              : "已核对官方公告。活动日期已公布，不代表所有所列国家的载具都参与。"}
-                          </p>
-                          <p>
-                            {event.status === "confirmed"
-                              ? `开始：${event.startPrecision === "day" ? `${saleDate(event.startAt)}（原公告未注明开始时刻）` : new Date(event.startAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" })}；结束：${new Date(event.endAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" })}`
-                              : `历史基准：${event.basis?.year} 年，${event.basis ? saleDate(event.basis.startAt) : ""}—${event.basis ? saleDate(event.basis.endAt) : ""}。预测中点不表示精确开始时间。`}
-                          </p>
-                          <p>
-                            新版本载具、联队载具、组合购买门槛和平台差异请以官方公告为准。日期边界通常不含结束时刻。
-                          </p>
+                          {event.status === "confirmed" ? (
+                            <>
+                              <p>{`开始：${event.startPrecision === "day" ? `${saleDate(event.startAt)}（原公告未注明开始时刻）` : new Date(event.startAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" })}；结束：${new Date(event.endAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" })}`}</p>
+                              {previous && (
+                                <p className="wt-sale-history">
+                                  去年 {previous.year}：{saleRange(previous)}
+                                </p>
+                              )}
+                            </>
+                          ) : event.basis ? (
+                            <p>
+                              历史基准：{event.basis.year} 年，{saleDate(event.basis.startAt)}—
+                              {saleDate(event.basis.endAt)}
+                            </p>
+                          ) : (
+                            previous && (
+                              <p>
+                                历史基准：{previous.year} 年，{saleRange(previous)}
+                              </p>
+                            )
+                          )}
                           <SourceLinks event={event} />
                         </details>
                       </div>
@@ -682,10 +716,6 @@ export function SaleCalendar() {
         )}
       </section>
       <footer className="wt-sale-footnote">
-        <p>
-          预测只用于安排购买时间，不构成载具必定打折或价格承诺。金鹰充值、交易所商品、乘员与载具研发
-          RP 不自动随购车活动降价。当前为 PC／Gaijin 商城日历，主机商店可能有不同时间。
-        </p>
         <p>
           公告核对：
           {data

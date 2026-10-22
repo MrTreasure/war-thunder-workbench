@@ -7,6 +7,7 @@ import {
   saleDate,
   saleRange,
   saleRate,
+  saleEventNote,
   placeSaleCalendarRanges,
 } from "./sale-calendar-model";
 import type { SaleEvent } from "./sale-calendar-model";
@@ -261,10 +262,14 @@ export function SaleMonthCalendar({
                         })}{" "}
                     · 结束：
                     {new Date(event.endAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" })}
-                    （北京时间，结束时刻不含在活动内）
                   </p>
                 )}
-                <p>{event.notes}</p>
+                {saleEventNote(event) && (
+                  <p>
+                    {event.status === "predicted" ? "历史参与情况：" : ""}
+                    {saleEventNote(event)}
+                  </p>
+                )}
                 {event.sources.map((source) => (
                   <a key={source.url} href={source.url} target="_blank" rel="noreferrer">
                     {event.status === "predicted" ? "历史依据" : "官方公告"} ↗
