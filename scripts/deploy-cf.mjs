@@ -18,37 +18,61 @@ function run(args) {
   });
   if (result.status !== 0) throw Error(`pnpm ${args.join(" ")} failed`);
 }
-// A new origin needs explicit API and authorization return-path permission.
+// Check the real public gateway without replaying any business/quota operation.
 if (!dryRun) {
   const origin = "https://wt.mrtreasure.cc";
-  const response = await fetch("https://api.mrtreasure.cc/wt-stats/v1/auth/start", {
-    method: "OPTIONS",
-    headers: {
-      Origin: origin,
-      "Access-Control-Request-Method": "POST",
-      "Access-Control-Request-Headers": "content-type",
-    },
-    signal: AbortSignal.timeout(10000),
-  });
-  if (!response.ok || response.headers.get("access-control-allow-origin") !== origin)
-    throw Error(
-      "Cloudflare origin is not enabled in the stats API. Follow docs/deployment-seo.md before publishing.",
+  function gatewayCheck(method, headers, body) {
+    const args = [
+      "--http1.1",
+      "--ipv4",
+      "--silent",
+      "--show-error",
+      "--connect-timeout",
+      "5",
+      "--max-time",
+      "15",
+      "--include",
+      "--request",
+      method,
+    ];
+    for (const [name, value] of Object.entries(headers)) args.push("--header", `${name}: ${value}`);
+    if (body !== undefined) args.push("--data-binary", "@-");
+    args.push(
+      "--write-out",
+      "\n__WT_STATUS__%{http_code}",
+      "https://api.mrtreasure.cc/wt-stats/v1/auth/start",
     );
+    const result = spawnSync("curl", args, {
+      encoding: "utf8",
+      input: body === undefined ? undefined : JSON.stringify(body),
+      maxBuffer: 1024 * 1024,
+    });
+    if (result.status !== 0)
+      throw Error("Public API deployment preflight failed; no Worker was uploaded");
+    return { status: Number(result.stdout.match(/__WT_STATUS__(\d+)$/)?.[1]), raw: result.stdout };
+  }
+  const response = gatewayCheck("OPTIONS", {
+    Origin: origin,
+    "Access-Control-Request-Method": "POST",
+    "Access-Control-Request-Headers": "content-type",
+  });
+  if (
+    response.status !== 200 ||
+    !response.raw.toLowerCase().includes("access-control-allow-origin: " + origin)
+  )
+    throw Error("Production CORS origin is not enabled; see docs/deployment-seo.md");
   const { randomBytes } = await import("node:crypto");
-  const auth = await fetch("https://api.mrtreasure.cc/wt-stats/v1/auth/start", {
-    method: "POST",
-    headers: { Origin: origin, "Content-Type": "application/json" },
-    signal: AbortSignal.timeout(10000),
-    body: JSON.stringify({
+  const auth = gatewayCheck(
+    "POST",
+    { Origin: origin, "Content-Type": "application/json" },
+    {
       challenge: randomBytes(32).toString("base64url"),
       state: randomBytes(24).toString("base64url"),
       returnUrl: origin + "/",
-    }),
-  });
-  if (!auth.ok)
-    throw Error(
-      "Cloudflare authorization return URL is not enabled. Follow docs/deployment-seo.md before publishing.",
-    );
+    },
+  );
+  if (auth.status !== 200)
+    throw Error("Production login return URL is not enabled; see docs/deployment-seo.md");
 }
 run(["run", "check"]);
 run(["run", "build"]);
