@@ -150,7 +150,7 @@ export function PlayerStats() {
     [vehicleCountry, setVehicleCountry] = useState("all"),
     [vehicleRank, setVehicleRank] = useState("all"),
     [limit, setLimit] = useState(40);
-  const [vehicleSort, setVehicleSort] = useState<VehicleSort>({
+  const [vehicleSort, setVehicleSort] = useState<VehicleSort | null>({
     key: "battles",
     direction: "desc",
   });
@@ -530,7 +530,6 @@ export function PlayerStats() {
   }
   const active = profile?.modes.find((m) => m.id === mode);
   const vehicleColumns: [VehicleSortKey, string][] = [
-    ["name", "载具"],
     ["battles", "场次"],
     ["winRate", "胜率"],
     ["airKd", "对空 K/D"],
@@ -540,12 +539,12 @@ export function PlayerStats() {
     ["efficiency", "效率评分"],
     ["silverLions", "累计获得银狮"],
   ];
-  function sortVehicles(key: VehicleSortKey, toggle = false) {
-    setVehicleSort(current => ({
+  function sortVehicles(key: VehicleSortKey | "none", toggle = false) {
+    setVehicleSort(current => key === "none" ? null : ({
       key,
-      direction: current.key === key
+      direction: current?.key === key
         ? toggle ? current.direction === "desc" ? "asc" : "desc" : current.direction
-        : key === "name" ? "asc" : "desc",
+        : "desc",
     }));
     setLimit(40);
   }
@@ -558,7 +557,7 @@ export function PlayerStats() {
         (vehicleRank === "all" || (v.rank || "unknown") === vehicleRank) &&
         (!search || (v.name + " " + v.id).toLowerCase().includes(search.toLowerCase())),
     )
-    .sort((a, b) => comparePlayerVehicles(a, b, vehicleSort));
+    .sort((a, b) => vehicleSort ? comparePlayerVehicles(a, b, vehicleSort) : 0);
   const eligible = (profile?.vehicles || []).filter(
     (v) =>
       v.mode === mode &&
@@ -953,7 +952,7 @@ export function PlayerStats() {
                       setCategory(value);
                       if (value === "ground")
                         setVehicleSort((current) =>
-                          current.key === "navalKd"
+                          current?.key === "navalKd"
                             ? { key: "battles", direction: "desc" }
                             : current,
                         );
@@ -989,9 +988,10 @@ export function PlayerStats() {
                   <GameSelect
                     className="wt-record-sort-field"
                     aria-label="载具战绩排序字段"
-                    value={vehicleSort.key}
-                    onValueChange={value => sortVehicles(value as VehicleSortKey)}
+                    value={vehicleSort?.key || "none"}
+                    onValueChange={value => sortVehicles(value as VehicleSortKey | "none")}
                   >
+                    <option value="none">不排序</option>
                     {vehicleColumns.map(([key, label]) => (
                       <option key={key} value={key}>按{label}排序</option>
                     ))}
@@ -999,23 +999,26 @@ export function PlayerStats() {
                   <button
                     type="button"
                     className="wt-record-sort-direction"
-                    onClick={() => sortVehicles(vehicleSort.key, true)}
-                    aria-label={`切换为${vehicleSort.direction === "desc" ? "升序" : "降序"}排列载具战绩`}
+                    disabled={!vehicleSort}
+                    onClick={() => { if (vehicleSort) sortVehicles(vehicleSort.key, true); }}
+                    aria-label={`切换为${vehicleSort?.direction === "desc" ? "升序" : "降序"}排列载具战绩`}
                   >
-                    {vehicleSort.direction === "desc" ? "降序 ↓" : "升序 ↑"}
+                    {!vehicleSort ? "升降序" : vehicleSort.direction === "desc" ? "降序 ↓" : "升序 ↑"}
                   </button>
+                  <button type="button" disabled={!vehicleSort} onClick={() => sortVehicles("none")}>清除排序</button>
                 </div>
                 <div className="wt-record-table-scroll">
                   <table>
                     <thead>
                       <tr>
+                        <th scope="col">载具</th>
                         {vehicleColumns.map(([key, label]) => (
                           <th
                             key={key}
                             scope="col"
                             aria-sort={
-                              vehicleSort.key === key
-                                ? vehicleSort.direction === "asc"
+                              vehicleSort?.key === key
+                                ? vehicleSort?.direction === "asc"
                                   ? "ascending"
                                   : "descending"
                                 : "none"
@@ -1029,8 +1032,8 @@ export function PlayerStats() {
                             >
                               {label}
                               <span aria-hidden="true">
-                                {vehicleSort.key === key
-                                  ? vehicleSort.direction === "desc"
+                                {vehicleSort?.key === key
+                                  ? vehicleSort?.direction === "desc"
                                     ? "↓"
                                     : "↑"
                                   : "↕"}

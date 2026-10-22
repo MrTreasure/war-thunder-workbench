@@ -1,6 +1,5 @@
 import type { PlayerVehicle } from "./player-stats-api";
 export type VehicleSortKey =
-  | "name"
   | "battles"
   | "winRate"
   | "airKd"

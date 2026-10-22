@@ -29,6 +29,7 @@ for (const [country, categories] of Object.entries(researchCounts.countries)) {
     const tree = catalog.trees[category]?.[country];
     if (!tree) {
       assert.equal(total, null);
+      assert.equal(researchCounts.researchVehicleIds[country][category], null);
       continue;
     }
     const ids = new Set();
@@ -36,6 +37,7 @@ for (const [country, categories] of Object.entries(researchCounts.countries)) {
       for (const node of rank.research)
         for (const v of node.variant ? node.members.slice(0, 1) : node.members) ids.add(v.id);
     assert.equal(total, ids.size, `${country}/${category}: researchable count drift`);
+    assert.deepEqual(researchCounts.researchVehicleIds[country][category], [...ids]);
   }
 }
 assert.deepEqual(

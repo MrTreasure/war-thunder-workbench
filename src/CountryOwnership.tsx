@@ -14,6 +14,8 @@ type Counter = {
   knownOwned: number;
   knownElite: number;
   researchable: number | null;
+  researchOwned: number;
+  researchElite: number;
 };
 type OwnershipData = {
   uid: string;
@@ -89,7 +91,7 @@ export function CountryOwnership({ profile }: { profile: PlayerProfile }) {
             </option>
           ))}
         </GameSelect>
-        <span>{needsBreakdown ? "拥有 / 可研发 · 精英" : "拥有 / 精英 · 官方公开数量"}</span>
+        <span>{needsBreakdown ? "已研发 / 可研发 · 精英" : "拥有 / 精英 · 官方公开数量"}</span>
       </div>
       {!needsBreakdown ? (
         <div className="wt-record-countries">
@@ -139,8 +141,7 @@ export function CountryOwnership({ profile }: { profile: PlayerProfile }) {
                   const graduated =
                     count.researchable != null &&
                     count.researchable > 0 &&
-                    count.owned != null &&
-                    count.owned >= count.researchable;
+                    count.researchOwned >= count.researchable;
                   return (
                     <div key={c.id}>
                       <img className="wt-record-country-flag" src={c.flag} alt="" />
@@ -149,7 +150,7 @@ export function CountryOwnership({ profile }: { profile: PlayerProfile }) {
                         {graduated && (
                           <b
                             className="wt-country-graduated"
-                            title="按数量规则：已拥有数量达到当前可研发数量，包含特种载具，不代表逐车全解锁。"
+                            title="当前常规科技树可研发载具已全部拥有；礼包、金鹰和其他特种载具不参与毕业判定。"
                           >
                             毕业
                           </b>
@@ -157,31 +158,28 @@ export function CountryOwnership({ profile }: { profile: PlayerProfile }) {
                       </span>
                       <span
                         className="wt-country-owned-count"
-                        title={`已拥有 ${count.owned == null ? "至少 " + num(count.knownOwned) : num(count.owned)} 辆；${count.researchable == null ? "暂无常规科技树" : "可研发 " + num(count.researchable) + " 辆"}`}
+                        title={`常规研发已拥有 ${num(count.researchOwned)} 辆；军种总拥有 ${count.owned == null ? "至少 " + num(count.knownOwned) : num(count.owned)} 辆；${count.researchable == null ? "暂无常规科技树" : "可研发 " + num(count.researchable) + " 辆"}`}
                       >
-                        <b>
-                          {count.owned == null ? "≥" + num(count.knownOwned) : num(count.owned)}
-                        </b>
+                        <b>{num(count.researchOwned)}</b>
                         <small>
                           {" "}
                           / {count.researchable == null ? "—" : num(count.researchable)}
                         </small>
                       </span>
-                      <small className="wt-country-elite">
+                      <small
+                        className="wt-country-elite"
+                        title={`常规可研发载具中的精英 ${num(count.researchElite)} 辆`}
+                      >
                         <img src={statsGoldenEaglesIcon} alt="" />
                         <span>精英</span>
-                        <strong>
-                          {count.elite == null ? "≥" + num(count.knownElite) : num(count.elite)}
-                        </strong>
-                        {c.unclassified > 0 && <span> · {c.unclassified} 辆军种待核验</span>}
-                        {count.researchable == null && <span> · 暂无常规科技树</span>}
+                        <strong>{num(count.researchElite)}</strong>
                       </small>
                     </div>
                   );
                 })}
               </div>
               <p className="wt-record-fine">
-                已拥有包含未出战及特种载具；组合载具按一个项目计数。毕业按拥有数量达标判定。
+                仅统计当前常规科技树已拥有载具，包含未出战载具；金鹰、礼包及其他特种载具不计入进度与毕业。组合载具按一个项目计数。
               </p>
               <p className="wt-record-fine">
                 完整车库 {statsDate(data.fetchedAt)} · 可研发目录{" "}

@@ -1855,3 +1855,13 @@
   .wt-country-heading > span { flex-basis: 100%; }
   .wt-country-breakdown { grid-template-columns: minmax(0, 1fr); }
 }
+
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-country-breakdown > div { grid-template-columns: 22px minmax(0, 1fr) auto auto; }
+  .wt-country-breakdown .wt-country-elite { grid-column: auto; justify-content: flex-end; flex-wrap: nowrap; }
+}
+@media (max-width: 600px) {
+  .wt-record-country-panel .wt-record-countries { grid-template-columns: minmax(0, 1fr); }
+  .wt-record-country-panel .wt-record-countries > div { grid-template-columns: 22px minmax(0, 1fr) auto auto; }
+  .wt-record-country-panel .wt-country-elite { grid-column: auto; justify-content: flex-end; flex-wrap: nowrap; }
+}
