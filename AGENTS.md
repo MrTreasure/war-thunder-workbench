@@ -7,7 +7,7 @@
   repositories, releases or application packages. Preserve local copies before
   removing tracked/history records; inspect all history intended for push.
 
-- This is the canonical source for `/muse/war-thunder-trees/`. The old
+- Production is `https://wt.mrtreasure.cc/` on its own Workers Static Assets deployment. Render `https://render.mrtreasure.cc/war-thunder-trees/` is preview only; this project is an explicit exception to the shared Render publication convention. Do not redirect wt to Render. The old
   `../war-thunder-trees/` project is a legacy snapshot.
 - React + Vite + TypeScript 7, using the supplied QMuse template configuration,
   TanStack file routes and Tailwind v4. Use pnpm and keep exact dependency versions.
@@ -44,7 +44,7 @@
   copies or embedded flag data. Keep the font same-origin under the existing CSP.
 - `pnpm run refresh` updates JSON; it must not publish. Build and publish only
   after the data gate succeeds. Preserve provenance timestamps on failed requests.
-- Publish only this existing Muse route. Upload hashed JS/CSS/data before HTML,
+- Publish only this existing Render application. The old NAS Muse directory is compatibility staging; the public URL has no `/muse/` prefix. Follow `../cloudflare-sites/DEPLOYMENT.md`. Upload hashed JS/CSS/data before HTML,
   keep old hashed assets for open sessions, and back up entry files.
 
 - Sortie lineups use country-scoped `wt-lineups-v1:*` storage. Never evict these

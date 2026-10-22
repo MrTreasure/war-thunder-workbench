@@ -1,7 +1,8 @@
 {
   "provider": "cloudflare-web-analytics",
   "hostname": "wt.mrtreasure.cc",
-  "token": "536dcc7f709c4a978a60e3c080bc5825",
-  "dashboardSite": "mrtreasure.cc",
-  "autoInstallAlreadyEnabled": true
+  "token": "b6a379c4810b4b7d99bb9f7dde1443f2",
+  "siteTag": "f5164b57956d4b27934abbe88b94505b",
+  "dashboardSite": "wt.mrtreasure.cc",
+  "autoInstallAlreadyEnabled": false
 }

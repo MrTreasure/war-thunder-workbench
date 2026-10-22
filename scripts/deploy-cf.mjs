@@ -1,9 +1,11 @@
+import { setDefaultResultOrder } from "node:dns";
 /** Upload only the validated static build. Never upload the source tree. */
 import { spawnSync } from "node:child_process";
-import { cp, mkdir, readdir, rm, stat, readFile } from "node:fs/promises";
+import { cp, mkdir, readdir, rm, stat, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
+setDefaultResultOrder("ipv4first");
 const root = fileURLToPath(new URL("../", import.meta.url));
 const dryRun = process.argv.slice(2).includes("--dry-run");
 if (process.argv.slice(2).some((arg) => arg !== "--dry-run"))
@@ -50,8 +52,9 @@ if (!dryRun) {
 }
 run(["run", "check"]);
 run(["run", "build"]);
-const stage = resolve(root, "artifacts/cf-deploy");
-const archive = resolve(root, "artifacts/cf-asset-history");
+const runtime = process.env.WT_CF_RUNTIME || "/vol1/1000/appdata/war-thunder-trees/cloudflare";
+const stage = resolve(runtime, "staging");
+const archive = resolve(runtime, "asset-history");
 await mkdir(archive, { recursive: true });
 await rm(stage, { recursive: true, force: true });
 await cp(resolve(root, "dist"), stage, { recursive: true });
@@ -73,25 +76,74 @@ if (count > 20000)
 const html = await readFile(resolve(stage, "index.html"), "utf8");
 if (!html.includes('rel="canonical" href="https://wt.mrtreasure.cc/"'))
   throw Error("Wrong canonical site");
+const deploymentConfig = JSON.parse(await readFile(resolve(root, "wrangler.jsonc"), "utf8"));
+if (
+  deploymentConfig.name !== "war-thunder-workbench" ||
+  deploymentConfig.routes?.length !== 1 ||
+  deploymentConfig.routes[0].pattern !== "wt.mrtreasure.cc" ||
+  deploymentConfig.routes[0].custom_domain !== true
+)
+  throw Error("Production deployment must bind only wt.mrtreasure.cc to its independent Worker");
+deploymentConfig.assets.directory = stage;
+const configPath = resolve(runtime, "wrangler.json");
+await writeFile(configPath, JSON.stringify(deploymentConfig, null, 2) + "\n", { mode: 0o600 });
 run([
   "exec",
   "wrangler",
   "deploy",
-  ...(dryRun ? ["--dry-run", "--outdir", "artifacts/cf-dry-run"] : []),
+  "--config",
+  configPath,
+  ...(dryRun ? ["--dry-run", "--outdir", resolve(runtime, "dry-run")] : []),
 ]);
 if (!dryRun) {
   await cp(resolve(stage, "assets"), archive, { recursive: true });
-  const response = await fetch("https://wt.mrtreasure.cc/", {
-    cache: "no-store",
-    signal: AbortSignal.timeout(20000),
-  });
-  const live = await response.text();
+  function readPublic(url) {
+    const result = spawnSync(
+      "curl",
+      [
+        "--http1.1",
+        "--ipv4",
+        "--fail",
+        "--silent",
+        "--show-error",
+        "--connect-timeout",
+        "8",
+        "--max-time",
+        "20",
+        url,
+      ],
+      { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 },
+    );
+    if (result.status !== 0) throw Error("Public Cloudflare verification failed: " + url);
+    return result.stdout;
+  }
+  let live;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      live = readPublic("https://wt.mrtreasure.cc/");
+      break;
+    } catch (error) {
+      if (attempt === 2) throw error;
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+    }
+  }
   const entry = html.match(
     /<script[^>]+src="([^"]+)"[^>]*type="module"|<script[^>]+type="module"[^>]*src="([^"]+)"/,
   );
-  if (!response.ok || !entry || !live.includes(entry[1] || entry[2]))
+  if (!entry || !live.includes(entry[1] || entry[2]))
     throw Error(
       "Upload finished but public entry verification failed; check DNS/deployment before retrying",
     );
+  const scriptUrl = new URL(entry[1] || entry[2], "https://wt.mrtreasure.cc/").href;
+  readPublic(scriptUrl);
+  const css = html.match(/<link[^>]+href="([^"]+\.css)"/);
+  if (!css) throw Error("Missing stylesheet");
+  readPublic(new URL(css[1], "https://wt.mrtreasure.cc/").href);
+  if (
+    !readPublic("https://wt.mrtreasure.cc/robots.txt").includes(
+      "https://wt.mrtreasure.cc/sitemap.xml",
+    )
+  )
+    throw Error("Wrong production sitemap");
   console.log("Verified public deployment: https://wt.mrtreasure.cc/");
 }

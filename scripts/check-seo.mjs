@@ -40,7 +40,10 @@ for (const [lang, locale] of Object.entries(config.locales)) {
   for (const faq of locale.faqs) assert(markdown.includes(faq.answer));
   checkAnalytics(document);
   assert.equal(document.querySelectorAll('link[hreflang]:not([hreflang="x-default"])').length, 3);
-  assert.equal(document.querySelector('meta[name="robots"]').content.includes("noindex"), false);
+  assert.equal(
+    document.querySelector('meta[name="robots"]').content.includes("noindex"),
+    process.env.WT_DEPLOY_TARGET === "preview",
+  );
   assert.equal(
     JSON.parse(document.querySelector('script[type="application/ld+json"]').textContent).inLanguage,
     lang,

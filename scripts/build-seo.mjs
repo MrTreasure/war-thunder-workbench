@@ -20,6 +20,7 @@ const json = (value) => JSON.stringify(value).replaceAll("<", "\\u003c");
 const languages = Object.entries(config.locales);
 const chinese = config.locales["zh-CN"];
 const analytics = await cloudflareAnalyticsSnippet();
+const preview = process.env.WT_DEPLOY_TARGET === "preview";
 const schema = (locale, canonical) => ({
   "@context": "https://schema.org",
   "@type": "WebApplication",
@@ -33,7 +34,7 @@ const schema = (locale, canonical) => ({
   featureList: locale.features.map((feature) => feature.title),
 });
 const metadata = (locale, canonical) =>
-  `<meta name="description" content="${escape(locale.description)}"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="${escape(canonical)}"><meta property="og:type" content="website"><meta property="og:title" content="${escape(locale.title)}"><meta property="og:description" content="${escape(locale.description)}"><meta property="og:url" content="${escape(canonical)}"><meta property="og:image" content="${escape(config.imageUrl)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(locale.title)}"><meta name="twitter:description" content="${escape(locale.description)}"><meta name="twitter:image" content="${escape(config.imageUrl)}">`;
+  `<meta name="description" content="${escape(locale.description)}"><meta name="robots" content="${preview ? "noindex,follow" : "index,follow,max-image-preview:large"}"><link rel="canonical" href="${escape(canonical)}"><meta property="og:type" content="website"><meta property="og:title" content="${escape(locale.title)}"><meta property="og:description" content="${escape(locale.description)}"><meta property="og:url" content="${escape(canonical)}"><meta property="og:image" content="${escape(config.imageUrl)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(locale.title)}"><meta name="twitter:description" content="${escape(locale.description)}"><meta name="twitter:image" content="${escape(config.imageUrl)}">`;
 let verification = "";
 for (const [name, value] of [
   ["google-site-verification", process.env.WT_GOOGLE_SITE_VERIFICATION],

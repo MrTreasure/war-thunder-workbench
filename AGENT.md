@@ -25,3 +25,10 @@
 - 授权维护源码与编译材料只在本机 `artifacts/private-efficiency-runtime/` 保存，不得打包或上传。维护与分析 Agent 应使用获授权的本地源码；未经作者授权不得对受许可约束的二进制进行反向工程、反编译或重建，适用法律允许的情形除外。
 - 二进制适用独立授权声明，不适用本仓库的 MIT 授权。不得宣称 Wasm、参数混淆或上述声明能够保证算法保密或强制其他工具遵守。
 - 后端 AI 事实需要评分时仅在本机服务执行同一已校验 Wasm，不信任客户端提交的评分，不公开或上传后端实现。
+
+## 战雷正式站与预览部署（2026-10-23 用户明确约定）
+
+- 正式站固定为 `https://wt.mrtreasure.cc/`，部署独立 Workers Static Assets；这是共享静态页地址约定的项目例外。不得改成 Render 正式站或把 wt 域名重定向到 Render。
+- `https://render.mrtreasure.cc/war-thunder-trees/` 只作预览，旧 `/muse/war-thunder-trees/` 为兼容地址。
+- `deploy:cf` 只发布独立正式 Worker；`deploy:preview` 只更新 Render 预览；`deploy:qmuse` 仅更新既有 QMuse 应用。正式 CF 的统计与 SEO canonical 指向 wt 站点。
+- 后台“页面分析”位于战雷工具下，并直达 wt 域名独立 Web Analytics 站点。

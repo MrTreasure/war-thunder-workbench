@@ -31,7 +31,8 @@
     "prepare:valuation": "node scripts/prepare-data.mjs && node scripts/prepare-account-valuation.mjs",
     "prepare:ownership": "node scripts/prepare-data.mjs && node scripts/prepare-player-research-counts.mjs",
     "deploy:qmuse": "node scripts/deploy-qmuse.mjs",
-    "deploy:cf": "node scripts/deploy-cf.mjs"
+    "deploy:cf": "node scripts/deploy-cf.mjs",
+    "deploy:preview": "node scripts/deploy-preview.mjs"
   },
   "dependencies": {
     "@noble/hashes": "2.4.0",
