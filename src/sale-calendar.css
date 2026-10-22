@@ -409,7 +409,7 @@
 }
 .wt-sale-picker-controls {
   display: grid;
-  grid-template-columns: minmax(0, 140px) minmax(0, 150px) minmax(180px, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
   gap: 8px;
   margin: 16px 0;
 }
@@ -419,6 +419,7 @@
   min-height: 40px;
 }
 .wt-sale-picker-controls input {
+  grid-column: 1 / -1;
   min-width: 0;
   padding: 8px 10px;
   border: 1px solid var(--wt-line);
@@ -753,4 +754,90 @@
   .wt-sale-view-switch button:hover {
     color: var(--wt-gold);
   }
+}
+
+/* finesse · component=sale-reference-and-price · existing slate/gold product tokens */
+.wt-sales-page .wt-sale-title-button {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--wt-ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.wt-sale-title-button > span {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--wt-gold);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.wt-sale-attribution {
+  display: block;
+  color: var(--wt-muted);
+  font-size: 11px;
+  margin-top: 7px;
+}
+.wt-sale-original-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 3px 10px;
+  margin-top: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.wt-sale-vehicle-option .wt-sale-original-price > span,
+.wt-sale-watch-identity .wt-sale-original-price > span {
+  margin: 0;
+  color: var(--wt-gold);
+  font-size: 12px;
+}
+.wt-sale-original-price small {
+  color: var(--wt-muted);
+  font-size: 10px;
+}
+.wt-sale-reference-viewer.calculator {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(1180px, calc(100vw - 24px));
+  height: fit-content;
+  max-height: calc(100dvh - 32px);
+  padding: 18px;
+  overflow-y: auto;
+}
+.wt-sale-reference-viewer > img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.wt-sale-reference-caption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  justify-content: space-between;
+  margin: 16px 0;
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.wt-sale-reference-caption p {
+  margin: 0;
+}
+.wt-sale-reference-caption a {
+  color: var(--wt-gold);
+  white-space: nowrap;
+}
+@media (hover: hover) {
+  .wt-sales-page .wt-sale-title-button:hover {
+    color: var(--wt-gold);
+  }
+}
+.wt-sales-page .wt-sale-title-button:active {
+  color: var(--wt-gold);
 }

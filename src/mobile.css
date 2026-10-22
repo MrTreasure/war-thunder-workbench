@@ -1701,7 +1701,7 @@
 
 /* Sale calendar uses the shared header and native content scroll frame. */
 @media (max-width:800px) {
- .wt-sales-page{padding:18px 14px 24px}.wt-sales-heading{align-items:flex-start;flex-wrap:wrap}.wt-sales-heading h2{font-size:21px}.wt-sales-heading-actions{width:100%;justify-content:flex-start}.wt-sales-page button,.wt-sale-picker button{min-height:44px}.wt-sales-topline{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.wt-sales-topline>div{padding:12px}.wt-sales-topline>div:first-child{grid-column:1/-1;border-bottom:1px solid var(--wt-line)}.wt-sales-topline>div:nth-child(2){border-left:0}.wt-sales-topline strong{font-size:20px}.wt-sales-section-title{align-items:flex-start;flex-wrap:wrap}.wt-sale-empty{align-items:flex-start}.wt-sale-empty>span{flex-basis:100%}.wt-sale-year-strip{grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}.wt-sale-filters .wt-select{min-width:0;flex:1 1 130px}.wt-sale-event{grid-template-columns:55px minmax(0,1fr);gap:12px;padding:16px 0}.wt-sale-date-column strong{font-size:17px}.wt-sale-event-rate{grid-column:2;flex-direction:row;align-items:center;justify-content:flex-start;gap:12px;text-align:left}.wt-sale-event-rate strong{font-size:17px}.wt-sale-event-title h4{font-size:14px}.wt-sale-watch-row{grid-template-columns:68px minmax(0,1fr) 30px;gap:8px;padding:12px 0}.wt-sale-watch-row img{width:68px;height:50px}.wt-sale-watch-opportunity{grid-column:2;grid-row:2}.wt-sale-watch-countdown{grid-column:2;grid-row:3}.wt-sale-remove{grid-column:3;grid-row:1}.wt-sale-watch-identity h4{font-size:13px}.wt-sale-picker-controls{grid-template-columns:repeat(2,minmax(0,1fr))}.wt-sale-picker-controls input{grid-column:1/-1;font-size:16px;min-height:44px}.wt-sale-picker-results{max-height:48dvh}.wt-sale-vehicle-option{gap:8px}.wt-sale-vehicle-option img{width:60px;height:44px}.wt-sale-picker footer{align-items:flex-start}.wt-sale-event details a{display:inline-block;margin:5px 0}
+ .wt-sales-page{padding:18px 14px 24px}.wt-sales-heading{align-items:flex-start;flex-wrap:wrap}.wt-sales-heading h2{font-size:21px}.wt-sales-heading-actions{width:100%;justify-content:flex-start}.wt-sales-page button,.wt-sale-picker button{min-height:44px}.wt-sales-topline{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.wt-sales-topline>div{padding:12px}.wt-sales-topline>div:first-child{grid-column:1/-1;border-bottom:1px solid var(--wt-line)}.wt-sales-topline>div:nth-child(2){border-left:0}.wt-sales-topline strong{font-size:20px}.wt-sales-section-title{align-items:flex-start;flex-wrap:wrap}.wt-sale-empty{align-items:flex-start}.wt-sale-empty>span{flex-basis:100%}.wt-sale-year-strip{grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}.wt-sale-filters .wt-select{min-width:0;flex:1 1 130px}.wt-sale-event{grid-template-columns:55px minmax(0,1fr);gap:12px;padding:16px 0}.wt-sale-date-column strong{font-size:17px}.wt-sale-event-rate{grid-column:2;flex-direction:row;align-items:center;justify-content:flex-start;gap:12px;text-align:left}.wt-sale-event-rate strong{font-size:17px}.wt-sale-event-title h4{font-size:14px}.wt-sale-watch-row{grid-template-columns:68px minmax(0,1fr) 30px;gap:8px;padding:12px 0}.wt-sale-watch-row img{width:68px;height:50px}.wt-sale-watch-opportunity{grid-column:2;grid-row:2}.wt-sale-watch-countdown{grid-column:2;grid-row:3}.wt-sale-remove{grid-column:3;grid-row:1}.wt-sale-watch-identity h4{font-size:13px}.wt-sale-picker-controls{grid-template-columns:repeat(3,minmax(0,1fr))}.wt-sale-picker-controls input{grid-column:1/-1;font-size:16px;min-height:44px}.wt-sale-picker-results{max-height:48dvh}.wt-sale-vehicle-option{gap:8px}.wt-sale-vehicle-option img{width:60px;height:44px}.wt-sale-picker footer{align-items:flex-start}.wt-sale-event details a{display:inline-block;margin:5px 0}
 }
 
 @media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
@@ -1730,4 +1730,12 @@
 }
 @media (max-width: 520px) {
   .wt-valuation-products { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 800px) {
+  .wt-sale-reference-viewer.calculator { padding: 12px; }
+  .wt-sale-reference-viewer .calc-header { align-items: flex-start; }
+  .wt-sale-reference-caption a { display: inline-flex; align-items: center; min-height: 44px; }
+  .wt-sale-picker-controls .wt-select { padding-inline: 8px; }
+  .wt-sale-title-button { max-width: 100%; }
 }

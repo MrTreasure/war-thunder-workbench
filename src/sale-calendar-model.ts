@@ -31,6 +31,12 @@ export type SaleVehicle = {
   channel: SaleChannel | "market" | "excluded" | "unknown";
   image: string;
   rank: string;
+  originalPrice?: {
+    currency: "GE" | "CNY";
+    amount: number | null;
+    checkedAt: string | null;
+    source: string | null;
+  } | null;
   store: string | null;
   market: string | null;
 };
@@ -154,4 +160,13 @@ export function placeSaleCalendarRanges(events: SaleEvent[], firstDay: string, l
     laneEnds[lane] = item.end;
     return { ...item, lane };
   });
+}
+
+export function saleOriginalPrice(vehicle: SaleVehicle): string {
+  const price = vehicle.originalPrice;
+  if (!price || !Number.isSafeInteger(price.amount) || price.amount === null || price.amount <= 0)
+    return vehicle.channel === "ge" ? "金鹰原价待报价" : "礼包原价待报价";
+  if (price.currency === "GE") return `原价 ${price.amount.toLocaleString("zh-CN")} 金鹰`;
+  const cents = BigInt(price.amount);
+  return `礼包原价 ¥ ${(cents / 100n).toLocaleString("zh-CN")}.${(cents % 100n).toString().padStart(2, "0")} · 整包`;
 }

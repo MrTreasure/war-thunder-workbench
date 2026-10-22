@@ -1,17 +1,26 @@
 // Server-only search index, prepared from canonical vehicle data; never shipped as public JSON.
 import { readFile, writeFile } from "node:fs/promises";
 const source = JSON.parse(await readFile(new URL("../data/trees.json", import.meta.url), "utf8"));
+const prices = JSON.parse(
+  await readFile(new URL("../data/store-prices.json", import.meta.url), "utf8"),
+);
+const purchases = JSON.parse(
+  await readFile(new URL("../data/purchases.json", import.meta.url), "utf8"),
+);
 const vehicles = new Map();
 function walk(value, country, category) {
   if (Array.isArray(value)) value.forEach((entry) => walk(entry, country, category));
   else if (value && typeof value === "object") {
     if (value.id && value.br && value.side && !value.group) {
+      const store = purchases[value.id]?.store || value.store || null;
+      const productId = store ? new URL(store).searchParams.get("id") : null;
+      const quote = productId ? prices.products[productId] : null;
       const channel =
         value.kind === "squadron"
           ? "excluded"
           : value.market
             ? "market"
-            : value.store
+            : store
               ? "pack"
               : value.side === "research"
                 ? "sl"
@@ -31,7 +40,26 @@ function walk(value, country, category) {
           value.thumbnailUrl ||
           value.imageUrl ||
           `https://static.encyclopedia.warthunder.com/slots/${value.id}.png`,
-        store: value.store || null,
+        store,
+        originalPrice:
+          channel === "ge"
+            ? {
+                currency: "GE",
+                amount: Number.isSafeInteger(value.price) && value.price > 0 ? value.price : null,
+                checkedAt: source.checkedAt || null,
+                source: source.sources?.[category]?.url || null,
+              }
+            : ["pack", "bundle"].includes(channel)
+              ? {
+                  currency: "CNY",
+                  amount:
+                    Number.isSafeInteger(quote?.regularAmountCents) && quote.regularAmountCents > 0
+                      ? quote.regularAmountCents
+                      : null,
+                  checkedAt: quote?.checkedAt || null,
+                  source: quote?.source || store,
+                }
+              : null,
         market: value.market || null,
       });
     }

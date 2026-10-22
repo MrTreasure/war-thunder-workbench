@@ -5,6 +5,7 @@ import { SaleMonthCalendar } from "./SaleMonthCalendar";
 import { useStored, object } from "./storage";
 import { statsRequest, statsCategoryNames } from "./player-stats-api";
 import bootstrap from "./generated/bootstrap.json";
+import calendarReference from "../data/sale-calendar-reference.json";
 import {
   nextSale,
   beijingDayKey,
@@ -15,6 +16,7 @@ import {
   saleDate,
   saleRange,
   saleRate,
+  saleOriginalPrice,
 } from "./sale-calendar-model";
 import type { SaleCalendarData, SaleEvent, SaleVehicle } from "./sale-calendar-model";
 
@@ -48,6 +50,55 @@ function VehiclePicture({ vehicle }: { vehicle: SaleVehicle }) {
     />
   );
 }
+function VehicleOriginalPrice({ vehicle }: { vehicle: SaleVehicle }) {
+  const quote = vehicle.originalPrice;
+  return (
+    <div className="wt-sale-original-price">
+      <span>{saleOriginalPrice(vehicle)}</span>
+      {quote?.checkedAt && (
+        <small>
+          核对于{" "}
+          {new Date(quote.checkedAt).toLocaleDateString("zh-CN", { timeZone: "Asia/Shanghai" })}
+        </small>
+      )}
+    </div>
+  );
+}
+function CalendarReference({ close }: { close: () => void }) {
+  const [failed, setFailed] = useState(false);
+  const asset = calendarReference.asset;
+  return (
+    <Modal
+      title="折扣年历 · 高清参考图"
+      subtitle={`${calendarReference.attribution}；按原图内容高清重绘。`}
+      close={close}
+      className="wt-sale-reference-viewer"
+    >
+      <div className="wt-sale-reference-caption">
+        <p>{calendarReference.notice}</p>
+        {asset && (
+          <a href={asset.rawUrl} target="_blank" rel="noreferrer">
+            打开高清原图 ↗
+          </a>
+        )}
+      </div>
+      {asset && !failed ? (
+        <img
+          src={asset.url}
+          width={asset.width}
+          height={asset.height}
+          alt="战争雷霆折扣年历：全系促销、专题纪念活动及参与条件，历史整理不代表当年公告。"
+          onError={(event) => {
+            if (event.currentTarget.src !== asset.rawUrl) event.currentTarget.src = asset.rawUrl;
+            else setFailed(true);
+          }}
+        />
+      ) : (
+        <p role="alert">参考图暂时无法加载，请通过上方链接查看高清原图。</p>
+      )}
+    </Modal>
+  );
+}
 function AddVehicles({
   saved,
   add,
@@ -59,6 +110,7 @@ function AddVehicles({
 }) {
   const [country, setCountry] = useState("china"),
     [category, setCategory] = useState("all"),
+    [rank, setRank] = useState("all"),
     [query, setQuery] = useState("");
   const [results, setResults] = useState<SaleVehicle[]>([]),
     [total, setTotal] = useState(0),
@@ -71,7 +123,7 @@ function AddVehicles({
       setError("");
       setResults([]);
       void statsRequest<{ items: SaleVehicle[]; total: number }>(
-        `sales/vehicles?country=${encodeURIComponent(country)}&category=${encodeURIComponent(category)}&q=${encodeURIComponent(query.trim())}`,
+        `sales/vehicles?country=${encodeURIComponent(country)}&category=${encodeURIComponent(category)}&rank=${encodeURIComponent(rank)}&q=${encodeURIComponent(query.trim())}`,
         undefined,
         controller.signal,
       )
@@ -92,7 +144,7 @@ function AddVehicles({
       window.clearTimeout(timer);
       controller.abort();
     };
-  }, [country, category, query]);
+  }, [country, category, rank, query]);
   return (
     <Modal
       title="添加关注载具"
@@ -113,6 +165,14 @@ function AddVehicles({
           {Object.entries(statsCategoryNames).map(([id, name]) => (
             <option key={id} value={id}>
               {name}
+            </option>
+          ))}
+        </GameSelect>
+        <GameSelect aria-label="载具等级" value={rank} onValueChange={setRank}>
+          <option value="all">全部等级</option>
+          {["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"].map((value) => (
+            <option key={value} value={value}>
+              {value}级
             </option>
           ))}
         </GameSelect>
@@ -143,6 +203,7 @@ function AddVehicles({
                     {statsCategoryNames[vehicle.category]} · {vehicle.rank}级 ·{" "}
                     {saleChannels[vehicle.channel]}
                   </span>
+                  <VehicleOriginalPrice vehicle={vehicle} />
                 </div>
                 <button disabled={added || saved.length >= 60} onClick={() => add(vehicle)}>
                   {added ? "已关注" : "＋ 关注"}
@@ -183,6 +244,7 @@ export function SaleCalendar() {
     [country, setCountry] = useState("all"),
     [status, setStatus] = useState("all");
   const [view, setView] = useState<"calendar" | "timeline">("calendar");
+  const [referenceOpen, setReferenceOpen] = useState(false);
   const [picker, setPicker] = useState(false),
     [watch, saveWatch, storageError] = useStored<SaleVehicle[]>(
       "wt-sale-watch-v1",
@@ -267,8 +329,17 @@ export function SaleCalendar() {
     <main className="wt-sales-page">
       <header className="wt-sales-heading">
         <div>
-          <h2>折扣日历</h2>
-          <p>把想入库的载具记下来，等一个合适的价格。</p>
+          <h2>
+            <button
+              className="wt-sale-title-button"
+              onClick={() => setReferenceOpen(true)}
+              aria-haspopup="dialog"
+            >
+              折扣日历<span>查看全年参考图 ↗</span>
+            </button>
+          </h2>
+          <p>{calendarReference.notice}</p>
+          <small className="wt-sale-attribution">{calendarReference.attribution}</small>
         </div>
         <div className="wt-sales-heading-actions">
           <button className="primary" onClick={() => setPicker(true)}>
@@ -276,6 +347,7 @@ export function SaleCalendar() {
           </button>
         </div>
       </header>
+      {referenceOpen && <CalendarReference close={() => setReferenceOpen(false)} />}
       {error && (
         <div className="wt-sales-error" role="alert">
           {error} <button onClick={() => setReload((n) => n + 1)}>重试</button>
@@ -334,8 +406,10 @@ export function SaleCalendar() {
                   <div className="wt-sale-watch-identity">
                     <h4>{vehicle.name}</h4>
                     <span>
-                      {countries[vehicle.country]} · {saleChannels[vehicle.channel]}
+                      {countries[vehicle.country]} · {vehicle.rank}级 ·{" "}
+                      {saleChannels[vehicle.channel]}
                     </span>
+                    <VehicleOriginalPrice vehicle={vehicle} />
                   </div>
                   <div className="wt-sale-watch-opportunity">
                     {event ? (
