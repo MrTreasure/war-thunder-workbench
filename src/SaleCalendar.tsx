@@ -70,7 +70,7 @@ function CalendarReference({ close }: { close: () => void }) {
   return (
     <Modal
       title="折扣年历 · 高清参考图"
-      subtitle={`${calendarReference.attribution}；按原图内容高清重绘。`}
+      subtitle={`${calendarReference.attribution}；保留原图样式，仅放大并轻度清晰化。`}
       close={close}
       className="wt-sale-reference-viewer"
     >
@@ -78,7 +78,7 @@ function CalendarReference({ close }: { close: () => void }) {
         <p>{calendarReference.notice}</p>
         {asset && (
           <a href={asset.rawUrl} target="_blank" rel="noreferrer">
-            打开高清原图 ↗
+            查看高清原图 ↗
           </a>
         )}
       </div>
