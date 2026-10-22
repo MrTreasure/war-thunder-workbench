@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-20T09:15:28.530Z",
+  "sources": {
+    "ground": {
+      "url": "https://wiki.warthunder.com/ground",
+      "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+    },
+    "aviation": {
+      "url": "https://wiki.warthunder.com/aviation",
+      "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+    },
+    "ships": {
+      "url": "https://wiki.warthunder.com/ships",
+      "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+    },
+    "boats": {
+      "url": "https://wiki.warthunder.com/boats",
+      "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+    },
+    "helicopters": {
+      "url": "https://wiki.warthunder.com/helicopters",
+      "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
+      "checkedAt": "2026-10-20T09:15:28.530Z"
+    }
+  },
+  "categories": {
+    "ground": "陆军",
+    "aviation": "空军",
+    "helicopters": "直升机",
+    "ships": "远洋海军",
+    "boats": "近岸海军"
+  },
+  "countryNames": {
+    "usa": "美国",
+    "germany": "德国",
+    "ussr": "苏联",
+    "britain": "英国",
+    "japan": "日本",
+    "china": "中国",
+    "italy": "意大利",
+    "france": "法国",
+    "sweden": "瑞典",
+    "israel": "以色列"
+  },
+  "countries": {
+    "usa": {
+      "ground": 92,
+      "aviation": 131,
+      "helicopters": 12,
+      "ships": 38,
+      "boats": 24
+    },
+    "germany": {
+      "ground": 114,
+      "aviation": 120,
+      "helicopters": 9,
+      "ships": 31,
+      "boats": 28
+    },
+    "ussr": {
+      "ground": 116,
+      "aviation": 129,
+      "helicopters": 12,
+      "ships": 28,
+      "boats": 32
+    },
+    "britain": {
+      "ground": 101,
+      "aviation": 115,
+      "helicopters": 7,
+      "ships": 41,
+      "boats": 28
+    },
+    "japan": {
+      "ground": 67,
+      "aviation": 102,
+      "helicopters": 6,
+      "ships": 34,
+      "boats": 25
+    },
+    "china": {
+      "ground": 75,
+      "aviation": 70,
+      "helicopters": 10,
+      "ships": null,
+      "boats": null
+    },
+    "italy": {
+      "ground": 82,
+      "aviation": 88,
+      "helicopters": 6,
+      "ships": 27,
+      "boats": 20
+    },
+    "france": {
+      "ground": 82,
+      "aviation": 84,
+      "helicopters": 9,
+      "ships": 27,
+      "boats": 19
+    },
+    "sweden": {
+      "ground": 74,
+      "aviation": 55,
+      "helicopters": 5,
+      "ships": null,
+      "boats": null
+    },
+    "israel": {
+      "ground": 50,
+      "aviation": 37,
+      "helicopters": 7,
+      "ships": null,
+      "boats": null
+    }
+  },
+  "basis": "当前常规科技树可研发项目，包含初始载具和文件夹成员；组合载具按一个研发项目计数，不含金鹰、礼包、联队及活动等特种载具。无科技树的国家军种为 null。"
+}

@@ -18,6 +18,30 @@ const storePrices = await read("data/store-prices.json");
 const purchases = await read("data/purchases.json");
 const priceReport = await read("data/store-prices-report.json");
 const leaderboards = await read("data/player-leaderboards.json");
+const researchCounts = await read("data/player-research-counts.json");
+assert.equal(researchCounts.schemaVersion, 1);
+assert.equal(researchCounts.checkedAt, catalog.checkedAt);
+assert.deepEqual(researchCounts.sources, catalog.sources);
+for (const [country, categories] of Object.entries(researchCounts.countries)) {
+  assert(country in settings.countries);
+  assert.deepEqual(Object.keys(categories).sort(), Object.keys(settings.categories).sort());
+  for (const [category, total] of Object.entries(categories)) {
+    const tree = catalog.trees[category]?.[country];
+    if (!tree) {
+      assert.equal(total, null);
+      continue;
+    }
+    const ids = new Set();
+    for (const rank of tree.ranks)
+      for (const node of rank.research)
+        for (const v of node.variant ? node.members.slice(0, 1) : node.members) ids.add(v.id);
+    assert.equal(total, ids.size, `${country}/${category}: researchable count drift`);
+  }
+}
+assert.deepEqual(
+  Object.keys(researchCounts.countries).sort(),
+  Object.keys(settings.countries).sort(),
+);
 assert.equal(leaderboards.schemaVersion, 1);
 assert.equal(leaderboards.boards.length, 6);
 assert.equal(new Set(leaderboards.boards.map((b) => `${b.mode}/${b.branch}`)).size, 6);

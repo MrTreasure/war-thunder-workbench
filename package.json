@@ -28,7 +28,8 @@
     "build:stats-preview": "node scripts/build-player-stats-preview.mjs",
     "refresh:leaderboards": "node scripts/refresh-player-leaderboards.mjs",
     "research:valuation-policies": "node scripts/research-valuation-policies.mjs",
-    "prepare:valuation": "node scripts/prepare-data.mjs && node scripts/prepare-account-valuation.mjs"
+    "prepare:valuation": "node scripts/prepare-data.mjs && node scripts/prepare-account-valuation.mjs",
+    "prepare:ownership": "node scripts/prepare-data.mjs && node scripts/prepare-player-research-counts.mjs"
   },
   "dependencies": {
     "@noble/hashes": "2.4.0",

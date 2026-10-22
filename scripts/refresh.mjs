@@ -12,5 +12,6 @@ run("python3", ["scripts/modifications.py"]);
 run("python3", ["scripts/localization.py"]);
 run(process.execPath, ["scripts/lineup-codebook.mjs"]);
 run(process.execPath, ["scripts/prepare-data.mjs"]);
+run(process.execPath, ["scripts/prepare-player-research-counts.mjs", "--local-only"]);
 run(process.execPath, ["scripts/check-data.mjs"]);
 console.log("All JSON data refreshed. Run pnpm run release to build and publish.");

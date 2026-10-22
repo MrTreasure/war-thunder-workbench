@@ -4,6 +4,7 @@ import {
   type VehicleSort,
   type VehicleSortKey,
 } from "./player-vehicle-sort";
+import { CountryOwnership } from "./CountryOwnership";
 import { AccountValuation } from "./AccountValuation";
 import { PlayerReport } from "./PlayerReport";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
@@ -29,7 +30,6 @@ import {
   statsNumber as num,
   statsSilver,
   statsSilverIcon,
-  statsGoldenEaglesIcon,
   statsRatio as ratio,
   statsDate,
   statsModeNames,
@@ -900,31 +900,7 @@ export function PlayerStats() {
                       目标击毁 ÷ 对应军种载具死亡；仅汇总已返回的记录。
                     </p>
                   </section>
-                  <section className="wt-record-panel wt-record-country-panel">
-                    <div className="wt-record-heading">
-                      <h2>各国拥有载具</h2>
-                      <span>拥有 / 精英 · 官方公开数量</span>
-                    </div>
-                    <div className="wt-record-countries">
-                      {profile.countries
-                        .filter((c) => c.owned != null && c.owned > 0)
-                        .map((c) => (
-                          <div key={c.id}>
-                            <img className="wt-record-country-flag" src={c.flag} alt="" />
-                            <span>{c.name}</span>
-                            <b>{num(c.owned)}</b>
-                            <small
-                              className="wt-country-elite"
-                              title={`精英载具 ${num(c.elite)} 辆`}
-                            >
-                              <img src={statsGoldenEaglesIcon} alt="" />
-                              <span>精英</span>
-                              <strong>{num(c.elite)}</strong>
-                            </small>
-                          </div>
-                        ))}
-                    </div>
-                  </section>
+                  <CountryOwnership key={profile.snapshotId} profile={profile} />
                 </div>
                 <PlayerRadar axes={active.radar} />
               </div>

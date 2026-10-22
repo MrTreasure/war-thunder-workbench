@@ -1846,3 +1846,12 @@
 @media (max-width: 380px) {
   .wt-record-filters .wt-record-sort-field { grid-column: auto; }
 }
+
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-country-heading .wt-select { min-height: 44px; font-size: 16px; }
+  .wt-country-error button { min-height: 44px; }
+}
+@media (max-width: 520px) {
+  .wt-country-heading > span { flex-basis: 100%; }
+  .wt-country-breakdown { grid-template-columns: minmax(0, 1fr); }
+}
