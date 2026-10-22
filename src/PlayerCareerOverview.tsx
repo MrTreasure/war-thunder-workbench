@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { GameSelect } from "./components/GameSelect";
-import { PlayerTypeUsage } from "./PlayerTypeUsage";
 import { CountryOwnership } from "./CountryOwnership";
 import { PlayerRadar } from "./PlayerRadar";
 import { statsDate, statsNumber as num, statsRatio as ratio, statsBranchKd, statsArmyIcon, statsBranchTarget } from "./player-stats-api";
@@ -65,7 +64,6 @@ export function PlayerCareerOverview({ profile, mode, base, active, armyBase = "
         </div>
 
       </div>
-      <PlayerTypeUsage profile={profile} mode={mode} active={active} />
     </div>
   );
 }

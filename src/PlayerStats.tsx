@@ -4,6 +4,7 @@ import {
   type VehicleSort,
   type VehicleSortKey,
 } from "./player-vehicle-sort";
+import { PlayerTypeUsage } from "./PlayerTypeUsage";
 import { PlayerCareerOverview } from "./PlayerCareerOverview";
 import { PlayerRankings } from "./PlayerRankings";
 import { PlayerGarage, PlayerVehicleDetails } from "./PlayerGarage";
@@ -908,6 +909,7 @@ export function PlayerStats() {
               ))}
             </div>
           </div>
+          <div className="wt-record-results">
           <PlayerCareerOverview key={`career:${profile.snapshotId}`} profile={profile} mode={mode} base={active} active={tab === "overview"} armyBase={config?.assets.armyBase || ""} />
           <PlayerRankings key={`rankings:${profile.snapshotId}`} profile={displayProfile!} mode={mode} active={tab === "rankings"} />
           {tab === "rankings" ? null : !active ? (
@@ -1075,6 +1077,7 @@ export function PlayerStats() {
                   分别使用该车死亡次数。银狮为助手累计获得统计，不是当前余额或扣除维修补给后的净收入，数据取自助手统计，建议以游戏内记录为准。“—”代表未返回。
                 </p>
               </section>
+              <PlayerTypeUsage profile={profile} mode={mode} active={tab === "overview"} />
             </>
           ) : (
             <div className="wt-record-report-layout">
@@ -1358,6 +1361,7 @@ export function PlayerStats() {
               </div>
             </div>
           )}
+          </div>
           <footer className="wt-record-footer">
             {profile.notice}{" "}
             <button className="wt-record-link" onClick={() => setShowRules(true)}>
