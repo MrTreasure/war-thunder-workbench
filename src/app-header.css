@@ -392,6 +392,10 @@
   .app-header-actions {
     gap: 8px;
   }
+  .app-header .page-navigation > a {
+    padding-inline: 10px;
+    font-size: 13px;
+  }
   .wt-account-trigger {
     max-width: 100px;
   }
