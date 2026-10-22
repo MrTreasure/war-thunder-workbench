@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { AccountValuation } from "./AccountValuation";
 import { PlayerReport } from "./PlayerReport";
 import { StatsAccountMenu } from "./components/StatsAccountMenu";
 import { reportStyle, reportStyles, type ReportStyle } from "./player-report-style";
@@ -792,6 +793,12 @@ export function PlayerStats() {
                 等级 {num(profile.level)} · UID {profile.uid}
               </p>
             </div>
+            <AccountValuation
+              key={profile.snapshotId}
+              profile={profile}
+              session={session}
+              onSessionChange={refreshSession}
+            />
             <div className="wt-record-source">
               <span>
                 采集于 {statsDate(profile.fetchedAt)} ·{" "}

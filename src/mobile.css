@@ -1698,3 +1698,12 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-record-player .wt-account-valuation { flex-basis: 100%; }
+  .calculator.wt-valuation-dialog { width: calc(100vw - 16px); max-height: calc(100dvh - 16px); padding: 0 14px 18px; }
+  .wt-valuation-dialog .calc-header { margin-inline: -14px; padding-inline: 14px; }
+  .wt-valuation-totals { grid-template-columns: minmax(0, 1fr); }
+  .wt-valuation-section li { flex-wrap: wrap; gap: 6px; }
+  .wt-valuation-section li > :last-child { text-align: left; }
+}

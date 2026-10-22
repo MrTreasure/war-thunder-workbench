@@ -99,7 +99,13 @@ export type StatsSession = {
   unlimited: boolean;
   query: { used: number; reserved: number };
   report: { used: number; reserved: number };
-  limits: { queryLimit: number | null; reportLimit: number | null; cacheTtlSeconds: number };
+  valuation?: { used: number; reserved: number };
+  limits: {
+    queryLimit: number | null;
+    reportLimit: number | null;
+    valuationLimit?: number | null;
+    cacheTtlSeconds: number;
+  };
 };
 export type ReportScope = {
   country: string;

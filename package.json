@@ -26,7 +26,8 @@
     "import:qmuse": "pnpm run check && pnpm run build && qmuse-cli import . --no-open",
     "check:map-editor": "node --experimental-strip-types scripts/check-map-editor.mjs",
     "build:stats-preview": "node scripts/build-player-stats-preview.mjs",
-    "refresh:leaderboards": "node scripts/refresh-player-leaderboards.mjs"
+    "refresh:leaderboards": "node scripts/refresh-player-leaderboards.mjs",
+    "prepare:valuation": "node scripts/prepare-data.mjs && node scripts/prepare-account-valuation.mjs"
   },
   "dependencies": {
     "@noble/hashes": "2.4.0",

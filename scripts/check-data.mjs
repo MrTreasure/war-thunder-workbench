@@ -49,6 +49,22 @@ for (const board of leaderboards.boards) {
     assert.equal(url.searchParams.get("page"), String(index + 1));
   });
 }
+const valuationRules = await read("data/account-valuation-rules.json");
+assert.equal(valuationRules.schemaVersion, 1);
+assert.equal(valuationRules.ge.cents, 18900);
+assert.equal(valuationRules.ge.units, 5000);
+assert.equal(valuationRules.rpUnit, 10000);
+for (const [key, expected] of Object.entries({
+  normal: [300, 200, 100],
+  discount: [300, 200, 50],
+  secondHand: [150, 100, 30],
+})) {
+  const rule = valuationRules.scenarios[key];
+  assert.equal(rule.rpCents.ground, expected[0]);
+  assert.equal(rule.rpCents.helicopters, expected[0]);
+  assert.equal(rule.rpCents.aviation, expected[1]);
+  assert.equal(rule.purchasePercent, expected[2]);
+}
 assert.equal(storePrices.schemaVersion, 1);
 assert.equal(priceReport.errors.length, 0, "Resolve store price refresh errors before publishing");
 for (const purchase of Object.values(purchases)) {
