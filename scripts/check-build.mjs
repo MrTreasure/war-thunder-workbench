@@ -7,6 +7,35 @@ const root = fileURLToPath(new URL("../", import.meta.url));
 const dist = resolve(root, "dist");
 const manifest = JSON.parse(await readFile(resolve(root, "src/generated/manifest.json"), "utf8"));
 const files = await readdir(dist, { recursive: true });
+const scoring = JSON.parse(
+  await readFile(resolve(root, "data/player-efficiency-wasm.json"), "utf8"),
+);
+const statsRules = JSON.parse(
+  await readFile(resolve(root, "data/player-stats-rules.json"), "utf8"),
+);
+assert.equal(scoring.version, statsRules.version, "Scoring runtime and display version must agree");
+assert.match(scoring.commit, /^[a-f0-9]{40}$/);
+assert.match(scoring.sha256, /^[a-f0-9]{64}$/);
+assert.equal(scoring.argumentCount, 16);
+assert.equal(scoring.abi, "slots-f64-v1");
+assert(Number.isSafeInteger(scoring.bytes) && scoring.bytes > 0 && scoring.bytes < 32768);
+const scoringPath = `war-thunder/efficiency/v3/${scoring.sha256}.wasm`;
+assert.equal(
+  scoring.url,
+  `https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@${scoring.commit}/${scoringPath}`,
+);
+assert.equal(
+  scoring.fallbackUrl,
+  `https://raw.githubusercontent.com/MrTreasure/oss-files/${scoring.commit}/${scoringPath}`,
+);
+assert(
+  !("coefficients" in statsRules.efficiency) && !("smoothing" in statsRules.efficiency),
+  "Public scoring metadata must not carry a JS formula",
+);
+assert(
+  !files.some((file) => /\.(wat|wasm)$/.test(file)),
+  "Scoring binaries belong on the pinned CDN only",
+);
 assert(
   !files.some((file) => file.endsWith(".json")),
   "Published build must not contain JSON files",

@@ -224,7 +224,8 @@ export function PlayerReport({
       </section>
       <footer className="wt-poster-bottom">
         <span>资料采集 {statsDate(p.fetchedAt)}</span>
-        <span>效率按公开公式计算 · 构成图仅含所列载具的已知击毁 · 单车对空/地/海数字为 K/D</span>
+        {p.previousEfficiencyVersion && <span>历史点评保留原文，效率评分已按当前规则更新。</span>}
+        <span>效率为工作台统计评分 · 构成图仅含所列载具的已知击毁 · 单车对空/地/海数字为 K/D</span>
         <span>银狮为累计获得，非余额或净收入 · AI 点评仅供参考</span>
       </footer>
     </article>

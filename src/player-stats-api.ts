@@ -115,6 +115,7 @@ export type ReportScope = {
 };
 export type ReportPayload = {
   efficiencyVersion?: string;
+  previousEfficiencyVersion?: string;
   analysis?: { style: ReportStyle; label: string; customStyle?: string };
   career?: PlayerMode;
   recentMatches?: { available: boolean; notice: string; source?: string };
@@ -182,7 +183,10 @@ export async function statsRequest<T>(
   const data = await response.json().catch(() => null);
   if (!response.ok)
     throw new StatsError(data?.message || "战绩服务暂时无法访问", data?.code || "REQUEST_FAILED");
-  return data as T;
+  // All derived scores cross this boundary, including nested report/vehicle data.
+  // The adapter loads its CDN runtime only when the response contains scoring rows.
+  const { applyPlayerEfficiency } = await import("./player-efficiency");
+  return applyPlayerEfficiency(data as T);
 }
 export const statsModeNames: Record<string, string> = {
   ab: "街机战斗",

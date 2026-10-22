@@ -251,6 +251,23 @@ export function PlayerStats() {
     setCandidates([]);
     setNotice("");
   }
+  async function openSavedProfile(p: PlayerProfile) {
+    const id = ++generation.current;
+    setBusy(true);
+    setError("");
+    try {
+      const { applyPlayerEfficiency } = await import("./player-efficiency");
+      const current = await applyPlayerEfficiency({ ...p, cached: true });
+      if (id !== generation.current) return;
+      loadProfile(current, true);
+      setNotice("正在查看本机保存的资料，采集时间见下方；可强制刷新官方资料。");
+    } catch (failure) {
+      if (id === generation.current)
+        setError(failure instanceof Error ? failure.message : "本机资料暂时无法读取。");
+    } finally {
+      if (id === generation.current) setBusy(false);
+    }
+  }
   function returnToSearch() {
     generation.current++;
     requests.current.forEach((c) => c.abort());
@@ -700,10 +717,7 @@ export function PlayerStats() {
                   <button
                     key={p.uid}
                     disabled={busy}
-                    onClick={() => {
-                      loadProfile({ ...p, cached: true }, true);
-                      setNotice("正在查看本机保存的资料，采集时间见下方；可强制刷新官方资料。");
-                    }}
+                    onClick={() => { void openSavedProfile(p); }}
                   >
                     <Avatar url={p.avatar} name={p.nickname} />
                     <span>
@@ -869,7 +883,7 @@ export function PlayerStats() {
                     <strong>{value}</strong>
                     {label === "效率评分" && (
                       <button className="wt-record-link" onClick={() => setShowRules(true)}>
-                        查看计算规则
+                        查看评分说明
                       </button>
                     )}
                   </div>

@@ -2,7 +2,9 @@ import type { Background, ReportPayload } from "./player-stats-api";
 import { statsNumber, statsRatio } from "./player-stats-api";
 import statsRules from "../data/player-stats-rules.json";
 export function reportEfficiencyMaximum(payload: ReportPayload) {
-  return payload.efficiencyVersion === statsRules.version ? statsRules.efficiency.maximum : 1000;
+  return [statsRules.version, "wt-efficiency-v2"].includes(payload.efficiencyVersion || "")
+    ? statsRules.efficiency.maximum
+    : 1000;
 }
 export type ReportTheme = {
   base: string;

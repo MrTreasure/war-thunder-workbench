@@ -1,6 +1,6 @@
 import rules from "../data/player-stats-rules.json";
 export function StatsDataNotes() {
-  const { smoothing: s, coefficients: a, minimumBattles, maximum } = rules.efficiency;
+  const { minimumBattles } = rules.efficiency;
   return (
     <div className="wt-data-notes">
       <p className="wt-data-intro">
@@ -12,46 +12,30 @@ export function StatsDataNotes() {
           <span>0–{rules.efficiency.maximum}</span>
         </div>
         <p>
-          综合击毁表现、场均产出与胜率，通过场次平滑减少少量记录的波动。它不是官方评级或全服排名；不足{" "}
-          {minimumBattles} 场记 0 分。
+          评分受击毁与死亡表现、场均击毁、每次出击击毁、胜率、场均死亡与场均出击影响。
+          它不是官方评级或全服排名；不足 {minimumBattles} 场记 0 分。
         </p>
         <div className="wt-efficiency-weights">
           <span>
-            <b>K/D</b> 击毁表现
+            <b>K/D</b> 击毁与死亡
           </span>
           <span>
-            <b>K/B</b> 场均产出
+            <b>K/B</b> 场均击毁
           </span>
           <span>
             <b>W/B</b> 胜率
           </span>
+          <span>
+            <b>K/R</b> 每次出击击毁
+          </span>
+          <span>
+            <b>D/B</b> 场均死亡
+          </span>
+          <span>
+            <b>R/B</b> 场均出击
+          </span>
         </div>
-        <details className="wt-data-formula">
-          <summary>查看计算方式</summary>
-          <dl>
-            <div>
-              <dt>平滑 K/D</dt>
-              <dd>K / (D + c)</dd>
-            </div>
-            <div>
-              <dt>平滑场均击毁 kb</dt>
-              <dd>K / (B + c)</dd>
-            </div>
-            <div>
-              <dt>平滑胜率 wr</dt>
-              <dd>(W + 0.5c) / (B + c)</dd>
-            </div>
-          </dl>
-          <p>c = {s}；ln 为自然对数，wr 使用 0–1 小数。</p>
-          <code>
-            z = {a.logKd} × ln(kd) + {a.logKillsPerBattle} × ln(kb) + {a.winRate} × wr {a.intercept}
-          </code>
-          <code>效率 = round({maximum} / (1 + exp(−z)))</code>
-          <p>
-            结果四舍五入。K 为已返回的击毁合计，D 为死亡，W 为胜场，B 为场次。不足 {minimumBattles}{" "}
-            场或已知击毁合计为 0 时记 0 分；缺失关键计数时显示“—”。未返回的击毁类别保持未知。
-          </p>
-        </details>
+        <p>缺失关键记录时显示“—”，未返回的击毁类别保持未知。</p>
       </section>
       <section className="wt-data-note">
         <div className="wt-data-note-heading">
@@ -82,8 +66,8 @@ export function StatsDataNotes() {
         <section className="wt-data-note">
           <h3>六维能力图</h3>
           <p>
-            按同一模式换算至 0–100。胜率使用原百分比，比值按 100 × x / (1 + x)
-            换算；缺项留空，不表示全服名次。
+            展示同一模式下的胜率、对空表现、对地表现、综合 K/D、出击表现与场均击毁。
+            各维度统一展示为 0–100；缺项留空，不表示全服名次。
           </p>
         </section>
         <section className="wt-data-note">

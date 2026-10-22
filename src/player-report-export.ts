@@ -291,8 +291,16 @@ export async function downloadStatsReport(
   const footer = canvas.height - 118;
   line(footer);
   text("资料采集 " + statsDate(p.fetchedAt), 64, footer + 34, 20, muted);
-  text("效率按公开公式计算 · 构成图仅含所列载具已知击毁", 64, footer + 66, 19, muted);
-  text("银狮为累计获得，非净收入 · AI 点评仅供参考", 64, footer + 96, 19, muted);
+  text("效率为工作台统计评分 · 构成图仅含所列载具已知击毁", 64, footer + 66, 19, muted);
+  text(
+    p.previousEfficiencyVersion
+      ? "历史点评保留原文，评分已更新 · 银狮为累计获得，非净收入"
+      : "银狮为累计获得，非净收入 · AI 点评仅供参考",
+    64,
+    footer + 96,
+    19,
+    muted,
+  );
   if (signal.aborted) return;
   await stampExportWatermark(canvas, signal);
   const blob = await new Promise<Blob>((resolve, reject) =>
