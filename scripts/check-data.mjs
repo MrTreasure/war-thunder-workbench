@@ -17,6 +17,38 @@ const codebook = await read("data/lineup-codebook.json");
 const storePrices = await read("data/store-prices.json");
 const purchases = await read("data/purchases.json");
 const priceReport = await read("data/store-prices-report.json");
+const leaderboards = await read("data/player-leaderboards.json");
+assert.equal(leaderboards.schemaVersion, 1);
+assert.equal(leaderboards.boards.length, 6);
+assert.equal(new Set(leaderboards.boards.map((b) => `${b.mode}/${b.branch}`)).size, 6);
+for (const board of leaderboards.boards) {
+  assert(["ab", "rb", "sb"].includes(board.mode));
+  assert(["ground", "air"].includes(board.branch));
+  assert.equal(board.period, "all-time");
+  assert.equal(
+    board.metric,
+    board.branch === "ground" ? "ground-targets-destroyed" : "air-targets-destroyed",
+  );
+  assert(Number.isFinite(Date.parse(board.fetchedAt)));
+  assert.equal(board.players.length, 25);
+  assert.equal(new Set(board.players.map((p) => p.nickname)).size, 25);
+  board.players.forEach((p, index) => {
+    assert.equal(p.rank, index + 1);
+    assert(typeof p.nickname === "string" && p.nickname.length >= 2 && p.nickname.length <= 64);
+  });
+  assert.equal(board.sources.length, 2);
+  board.sources.forEach((source, index) => {
+    const url = new URL(source);
+    assert.equal(url.origin, "https://warthunder.com");
+    assert.equal(url.pathname, "/en/community/leaderboard/");
+    assert.equal(
+      url.searchParams.get("game"),
+      { ab: "arcade", rb: "historical", sb: "simulation" }[board.mode],
+    );
+    assert.equal(url.searchParams.get("sort"), board.branch === "ground" ? "gtd" : "atd");
+    assert.equal(url.searchParams.get("page"), String(index + 1));
+  });
+}
 assert.equal(storePrices.schemaVersion, 1);
 assert.equal(priceReport.errors.length, 0, "Resolve store price refresh errors before publishing");
 for (const purchase of Object.values(purchases)) {

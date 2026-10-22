@@ -321,3 +321,53 @@ export function rememberStatsNickname(value: string) {
     /* Query remains available when local storage is disabled. */
   }
 }
+
+const QUERY_HISTORY = "wt-stats-query-history-v1";
+export function statsQueryHistory(): PlayerProfile[] {
+  try {
+    const value = JSON.parse(stored(QUERY_HISTORY) || "[]");
+    return Array.isArray(value)
+      ? value
+          .filter(
+            (p): p is PlayerProfile =>
+              p &&
+              typeof p.uid === "string" &&
+              typeof p.nickname === "string" &&
+              typeof p.fetchedAt === "string" &&
+              typeof p.snapshotId === "string" &&
+              Array.isArray(p.modes) &&
+              Array.isArray(p.countries) &&
+              Array.isArray(p.vehicles),
+          )
+          .slice(0, 8)
+      : [];
+  } catch {
+    return [];
+  }
+}
+export function rememberStatsProfile(profile: PlayerProfile): PlayerProfile[] {
+  const items = [profile, ...statsQueryHistory().filter((p) => p.uid !== profile.uid)].slice(0, 8);
+  // Bound this independent cache; quota failures never evict other user state.
+  while (items.length) {
+    try {
+      const body = JSON.stringify(items);
+      if (body.length > 2_000_000) {
+        items.pop();
+        continue;
+      }
+      localStorage.setItem(QUERY_HISTORY, body);
+      return items;
+    } catch {
+      items.pop();
+    }
+  }
+  return statsQueryHistory();
+}
+export function clearStatsQueryHistory() {
+  try {
+    localStorage.removeItem(QUERY_HISTORY);
+  } catch {
+    /* Storage may be unavailable. */
+  }
+  return statsQueryHistory();
+}

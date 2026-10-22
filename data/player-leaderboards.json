@@ -1,0 +1,683 @@
+{
+  "schemaVersion": 1,
+  "boards": [
+    {
+      "mode": "ab",
+      "branch": "ground",
+      "period": "all-time",
+      "metric": "ground-targets-destroyed",
+      "fetchedAt": "2026-10-22T02:31:12.567Z",
+      "sources": [
+        "https://warthunder.com/en/community/leaderboard/?game=arcade&sort=gtd&page=1",
+        "https://warthunder.com/en/community/leaderboard/?game=arcade&sort=gtd&page=2"
+      ],
+      "players": [
+        {
+          "rank": 1,
+          "nickname": "BOEHTEX"
+        },
+        {
+          "rank": 2,
+          "nickname": "A1Bomber"
+        },
+        {
+          "rank": 3,
+          "nickname": "Commander_Crap"
+        },
+        {
+          "rank": 4,
+          "nickname": "romarioKIEB"
+        },
+        {
+          "rank": 5,
+          "nickname": "KlausKinski999"
+        },
+        {
+          "rank": 6,
+          "nickname": "Iron1967"
+        },
+        {
+          "rank": 7,
+          "nickname": "nicco1965"
+        },
+        {
+          "rank": 8,
+          "nickname": "e04_James_威帥"
+        },
+        {
+          "rank": 9,
+          "nickname": "bluesky777"
+        },
+        {
+          "rank": 10,
+          "nickname": "Pigeon8675309"
+        },
+        {
+          "rank": 11,
+          "nickname": "letatel"
+        },
+        {
+          "rank": 12,
+          "nickname": "aleksandr5555"
+        },
+        {
+          "rank": 13,
+          "nickname": "Sky_Capt"
+        },
+        {
+          "rank": 14,
+          "nickname": "BigJohn2"
+        },
+        {
+          "rank": 15,
+          "nickname": "LTKurt"
+        },
+        {
+          "rank": 16,
+          "nickname": "kwa53arc@psn"
+        },
+        {
+          "rank": 17,
+          "nickname": "танки и точка"
+        },
+        {
+          "rank": 18,
+          "nickname": "-Kanonenfieber-"
+        },
+        {
+          "rank": 19,
+          "nickname": "ANB57"
+        },
+        {
+          "rank": 20,
+          "nickname": "ramesseum"
+        },
+        {
+          "rank": 21,
+          "nickname": "madkitty999"
+        },
+        {
+          "rank": 22,
+          "nickname": "GGG1964"
+        },
+        {
+          "rank": 23,
+          "nickname": "_LUSO_"
+        },
+        {
+          "rank": 24,
+          "nickname": "DDay06061944"
+        },
+        {
+          "rank": 25,
+          "nickname": "Mement0 M0ri"
+        }
+      ]
+    },
+    {
+      "mode": "ab",
+      "branch": "air",
+      "period": "all-time",
+      "metric": "air-targets-destroyed",
+      "fetchedAt": "2026-10-22T02:31:28.459Z",
+      "sources": [
+        "https://warthunder.com/en/community/leaderboard/?game=arcade&sort=atd&page=1",
+        "https://warthunder.com/en/community/leaderboard/?game=arcade&sort=atd&page=2"
+      ],
+      "players": [
+        {
+          "rank": 1,
+          "nickname": "FLASH_MAN"
+        },
+        {
+          "rank": 2,
+          "nickname": "_jd"
+        },
+        {
+          "rank": 3,
+          "nickname": "romarioKIEB"
+        },
+        {
+          "rank": 4,
+          "nickname": "_alte_Ratte_"
+        },
+        {
+          "rank": 5,
+          "nickname": "diggernz"
+        },
+        {
+          "rank": 6,
+          "nickname": "BaLa_Racha_Cuca"
+        },
+        {
+          "rank": 7,
+          "nickname": "TITAN_13"
+        },
+        {
+          "rank": 8,
+          "nickname": "worcestershire"
+        },
+        {
+          "rank": 9,
+          "nickname": "BigJohn2"
+        },
+        {
+          "rank": 10,
+          "nickname": "ramesseum"
+        },
+        {
+          "rank": 11,
+          "nickname": "captaino"
+        },
+        {
+          "rank": 12,
+          "nickname": "-LooRoLL-"
+        },
+        {
+          "rank": 13,
+          "nickname": "yLiTkA"
+        },
+        {
+          "rank": 14,
+          "nickname": "Honors2Konner"
+        },
+        {
+          "rank": 15,
+          "nickname": "dfjgdgf"
+        },
+        {
+          "rank": 16,
+          "nickname": "v_china"
+        },
+        {
+          "rank": 17,
+          "nickname": "Timur23rumiT"
+        },
+        {
+          "rank": 18,
+          "nickname": "DopS"
+        },
+        {
+          "rank": 19,
+          "nickname": "SmellyDungBeetle"
+        },
+        {
+          "rank": 20,
+          "nickname": "__Feromon__"
+        },
+        {
+          "rank": 21,
+          "nickname": "chillywilly4"
+        },
+        {
+          "rank": 22,
+          "nickname": "Cornholio68"
+        },
+        {
+          "rank": 23,
+          "nickname": "-RUSSIALOVESYOU-"
+        },
+        {
+          "rank": 24,
+          "nickname": "Дмитрий_by"
+        },
+        {
+          "rank": 25,
+          "nickname": "Newb_Becky"
+        }
+      ]
+    },
+    {
+      "mode": "rb",
+      "branch": "ground",
+      "period": "all-time",
+      "metric": "ground-targets-destroyed",
+      "fetchedAt": "2026-10-22T02:31:44.470Z",
+      "sources": [
+        "https://warthunder.com/en/community/leaderboard/?game=historical&sort=gtd&page=1",
+        "https://warthunder.com/en/community/leaderboard/?game=historical&sort=gtd&page=2"
+      ],
+      "players": [
+        {
+          "rank": 1,
+          "nickname": "DB_Pooper"
+        },
+        {
+          "rank": 2,
+          "nickname": "-_DRAUGR_-"
+        },
+        {
+          "rank": 3,
+          "nickname": "adry_kie"
+        },
+        {
+          "rank": 4,
+          "nickname": "Fox McCloud"
+        },
+        {
+          "rank": 5,
+          "nickname": "EpicBoozer"
+        },
+        {
+          "rank": 6,
+          "nickname": "BPA_Jon"
+        },
+        {
+          "rank": 7,
+          "nickname": "MARECHAL ZHUKOV"
+        },
+        {
+          "rank": 8,
+          "nickname": "巨大嘟噜噜"
+        },
+        {
+          "rank": 9,
+          "nickname": "____GG_WP____"
+        },
+        {
+          "rank": 10,
+          "nickname": "OㅅO"
+        },
+        {
+          "rank": 11,
+          "nickname": "AlexIII"
+        },
+        {
+          "rank": 12,
+          "nickname": "Vincblackshadow"
+        },
+        {
+          "rank": 13,
+          "nickname": "mustang5170"
+        },
+        {
+          "rank": 14,
+          "nickname": "HellCat25545"
+        },
+        {
+          "rank": 15,
+          "nickname": "DrugCat33_TV"
+        },
+        {
+          "rank": 16,
+          "nickname": "wardog3680"
+        },
+        {
+          "rank": 17,
+          "nickname": "MILOVNIK_BOBRU"
+        },
+        {
+          "rank": 18,
+          "nickname": "Главная Чайка"
+        },
+        {
+          "rank": 19,
+          "nickname": "Manuelita"
+        },
+        {
+          "rank": 20,
+          "nickname": "Surbass"
+        },
+        {
+          "rank": 21,
+          "nickname": "Gυm"
+        },
+        {
+          "rank": 22,
+          "nickname": "Савва"
+        },
+        {
+          "rank": 23,
+          "nickname": "zapchenk7"
+        },
+        {
+          "rank": 24,
+          "nickname": "HariMeow"
+        },
+        {
+          "rank": 25,
+          "nickname": "pieberry"
+        }
+      ]
+    },
+    {
+      "mode": "rb",
+      "branch": "air",
+      "period": "all-time",
+      "metric": "air-targets-destroyed",
+      "fetchedAt": "2026-10-22T02:32:00.716Z",
+      "sources": [
+        "https://warthunder.com/en/community/leaderboard/?game=historical&sort=atd&page=1",
+        "https://warthunder.com/en/community/leaderboard/?game=historical&sort=atd&page=2"
+      ],
+      "players": [
+        {
+          "rank": 1,
+          "nickname": "Coppen_"
+        },
+        {
+          "rank": 2,
+          "nickname": "Thunder_2000"
+        },
+        {
+          "rank": 3,
+          "nickname": "天宮  こころ"
+        },
+        {
+          "rank": 4,
+          "nickname": "Nаgаtо"
+        },
+        {
+          "rank": 5,
+          "nickname": "Bad_Karma옷"
+        },
+        {
+          "rank": 6,
+          "nickname": "苦崽"
+        },
+        {
+          "rank": 7,
+          "nickname": "_Willie_"
+        },
+        {
+          "rank": 8,
+          "nickname": "_N_O__N_A_M_E_"
+        },
+        {
+          "rank": 9,
+          "nickname": "Jッ"
+        },
+        {
+          "rank": 10,
+          "nickname": "Lzx71"
+        },
+        {
+          "rank": 11,
+          "nickname": "Tupairofaces919@live"
+        },
+        {
+          "rank": 12,
+          "nickname": "MARECHAL ZHUKOV"
+        },
+        {
+          "rank": 13,
+          "nickname": "Chippy_"
+        },
+        {
+          "rank": 14,
+          "nickname": "_Blackviper_"
+        },
+        {
+          "rank": 15,
+          "nickname": "zerbin4"
+        },
+        {
+          "rank": 16,
+          "nickname": "_zodiac_"
+        },
+        {
+          "rank": 17,
+          "nickname": "Mlmlka"
+        },
+        {
+          "rank": 18,
+          "nickname": "_Шизофрения_"
+        },
+        {
+          "rank": 19,
+          "nickname": "____Ken____"
+        },
+        {
+          "rank": 20,
+          "nickname": "Mordillo66"
+        },
+        {
+          "rank": 21,
+          "nickname": "SpiderPug"
+        },
+        {
+          "rank": 22,
+          "nickname": "EHHEE"
+        },
+        {
+          "rank": 23,
+          "nickname": "Epuraska"
+        },
+        {
+          "rank": 24,
+          "nickname": "CuzConfuciusSaid"
+        },
+        {
+          "rank": 25,
+          "nickname": "Moxie_NF"
+        }
+      ]
+    },
+    {
+      "mode": "sb",
+      "branch": "ground",
+      "period": "all-time",
+      "metric": "ground-targets-destroyed",
+      "fetchedAt": "2026-10-22T02:32:16.540Z",
+      "sources": [
+        "https://warthunder.com/en/community/leaderboard/?game=simulation&sort=gtd&page=1",
+        "https://warthunder.com/en/community/leaderboard/?game=simulation&sort=gtd&page=2"
+      ],
+      "players": [
+        {
+          "rank": 1,
+          "nickname": "Beclo"
+        },
+        {
+          "rank": 2,
+          "nickname": "CXK114514"
+        },
+        {
+          "rank": 3,
+          "nickname": "POTAPUZKA"
+        },
+        {
+          "rank": 4,
+          "nickname": "saiqak"
+        },
+        {
+          "rank": 5,
+          "nickname": "Rasmusnalle"
+        },
+        {
+          "rank": 6,
+          "nickname": "_WOLF_I_"
+        },
+        {
+          "rank": 7,
+          "nickname": "Кокс"
+        },
+        {
+          "rank": 8,
+          "nickname": "ДЯДЮШКА_ДЖО"
+        },
+        {
+          "rank": 9,
+          "nickname": "underTaker1"
+        },
+        {
+          "rank": 10,
+          "nickname": "Каламбур_за_300"
+        },
+        {
+          "rank": 11,
+          "nickname": "Stels_hp"
+        },
+        {
+          "rank": 12,
+          "nickname": "BAHEK"
+        },
+        {
+          "rank": 13,
+          "nickname": "Hevoskuiskaaja"
+        },
+        {
+          "rank": 14,
+          "nickname": "Packal"
+        },
+        {
+          "rank": 15,
+          "nickname": "- ПАТУЖНЫЙ -"
+        },
+        {
+          "rank": 16,
+          "nickname": "bgm7777"
+        },
+        {
+          "rank": 17,
+          "nickname": "Особо опасный"
+        },
+        {
+          "rank": 18,
+          "nickname": "TheTankist"
+        },
+        {
+          "rank": 19,
+          "nickname": "gedeon2015"
+        },
+        {
+          "rank": 20,
+          "nickname": "Loestic"
+        },
+        {
+          "rank": 21,
+          "nickname": "madpaul02"
+        },
+        {
+          "rank": 22,
+          "nickname": "Borja_VDV_Voin"
+        },
+        {
+          "rank": 23,
+          "nickname": "C_M_E_P_W"
+        },
+        {
+          "rank": 24,
+          "nickname": "Hans_von_Grobel"
+        },
+        {
+          "rank": 25,
+          "nickname": "Festung_yaosai"
+        }
+      ]
+    },
+    {
+      "mode": "sb",
+      "branch": "air",
+      "period": "all-time",
+      "metric": "air-targets-destroyed",
+      "fetchedAt": "2026-10-22T02:32:32.380Z",
+      "sources": [
+        "https://warthunder.com/en/community/leaderboard/?game=simulation&sort=atd&page=1",
+        "https://warthunder.com/en/community/leaderboard/?game=simulation&sort=atd&page=2"
+      ],
+      "players": [
+        {
+          "rank": 1,
+          "nickname": "GREEK AIR FORCE"
+        },
+        {
+          "rank": 2,
+          "nickname": "RR_Kapibara"
+        },
+        {
+          "rank": 3,
+          "nickname": "-скиф-"
+        },
+        {
+          "rank": 4,
+          "nickname": "GerMit1313"
+        },
+        {
+          "rank": 5,
+          "nickname": "HelloRoger"
+        },
+        {
+          "rank": 6,
+          "nickname": "eikodenz_-"
+        },
+        {
+          "rank": 7,
+          "nickname": "菜鸟"
+        },
+        {
+          "rank": 8,
+          "nickname": "creature259"
+        },
+        {
+          "rank": 9,
+          "nickname": "約束"
+        },
+        {
+          "rank": 10,
+          "nickname": "LoGo_7"
+        },
+        {
+          "rank": 11,
+          "nickname": "kobun"
+        },
+        {
+          "rank": 12,
+          "nickname": "nanumah"
+        },
+        {
+          "rank": 13,
+          "nickname": "AleksTayga@psn"
+        },
+        {
+          "rank": 14,
+          "nickname": "BOPOHA_ZJIA9I"
+        },
+        {
+          "rank": 15,
+          "nickname": "esapekkis"
+        },
+        {
+          "rank": 16,
+          "nickname": "_Flying_Bacon_"
+        },
+        {
+          "rank": 17,
+          "nickname": "VGIK134"
+        },
+        {
+          "rank": 18,
+          "nickname": "mister_sergRU"
+        },
+        {
+          "rank": 19,
+          "nickname": "MISTIK"
+        },
+        {
+          "rank": 20,
+          "nickname": "SBUA_vplars_ua"
+        },
+        {
+          "rank": 21,
+          "nickname": "vallmar"
+        },
+        {
+          "rank": 22,
+          "nickname": "Yvarov"
+        },
+        {
+          "rank": 23,
+          "nickname": "DeltaSBW"
+        },
+        {
+          "rank": 24,
+          "nickname": "_WOLF_I_"
+        },
+        {
+          "rank": 25,
+          "nickname": "Starsss2_TV"
+        }
+      ]
+    }
+  ]
+}

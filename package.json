@@ -25,7 +25,8 @@
     "check": "tsr generate && pnpm run typecheck && pnpm run lint && pnpm run check:data && pnpm run check:map-editor",
     "import:qmuse": "pnpm run check && pnpm run build && qmuse-cli import . --no-open",
     "check:map-editor": "node --experimental-strip-types scripts/check-map-editor.mjs",
-    "build:stats-preview": "node scripts/build-player-stats-preview.mjs"
+    "build:stats-preview": "node scripts/build-player-stats-preview.mjs",
+    "refresh:leaderboards": "node scripts/refresh-player-leaderboards.mjs"
   },
   "dependencies": {
     "@noble/hashes": "2.4.0",

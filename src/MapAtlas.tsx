@@ -83,8 +83,6 @@ export function MapAtlas() {
         {cards.map(({ map, thumb }) => (
           <Link
             className="ground-card"
-            target="_blank"
-            rel="noopener noreferrer"
             key={thumb.layoutId}
             to="/maps/$mapId"
             params={{ mapId: map.id }}
@@ -107,7 +105,7 @@ export function MapAtlas() {
               <strong>{map.name}</strong>
               <span>{thumb.name}</span>
               <small>
-                {map.layouts.length} 种任务布局 <b aria-hidden="true">↗</b>
+                {map.layouts.length} 种任务布局 <b aria-hidden="true">→</b>
               </small>
             </div>
           </Link>

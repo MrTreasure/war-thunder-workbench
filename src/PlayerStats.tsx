@@ -11,7 +11,8 @@ import {
   localReportImage,
 } from "./player-report-design";
 import type { ReportTheme } from "./player-report-design";
-import { useSearch } from "@tanstack/react-router";
+import { useNavigate, useSearch } from "@tanstack/react-router";
+import leaderboards from "../data/player-leaderboards.json";
 import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
 import { PlayerRadar } from "./PlayerRadar";
@@ -33,6 +34,9 @@ import {
   statsReportScopeLabel,
   lastStatsNickname,
   rememberStatsNickname,
+  statsQueryHistory,
+  rememberStatsProfile,
+  clearStatsQueryHistory,
   reportImage,
   statsCategoryNames,
 } from "./player-stats-api";
@@ -112,6 +116,11 @@ function VehicleRow({
 }
 export function PlayerStats() {
   const route = useSearch({ from: "/_workbench/stats" });
+  const navigate = useNavigate({ from: "/stats" });
+  const [recentPlayers, setRecentPlayers] = useState(statsQueryHistory);
+  const [leaderMode, setLeaderMode] = useState("rb"),
+    [leaderBranch, setLeaderBranch] = useState("ground");
+  const board = leaderboards.boards.find((b) => b.mode === leaderMode && b.branch === leaderBranch);
   const [config, setConfig] = useState<StatsConfig | null>(null),
     [session, setSession] = useState<StatsSession | null>(null);
   const [nickname, setNickname] = useState(route.player || lastStatsNickname()),
@@ -206,8 +215,9 @@ export function PlayerStats() {
       /* An expired login is presented by the next explicit request. */
     }
   }
-  function loadProfile(p: PlayerProfile) {
+  function loadProfile(p: PlayerProfile, local = false) {
     setProfile(p);
+    if (!local) setRecentPlayers(rememberStatsProfile(p));
     setNickname(p.nickname);
     rememberStatsNickname(p.nickname);
     setMode([...p.modes].sort((a, b) => (b.battles || 0) - (a.battles || 0))[0]?.id || "rb");
@@ -221,6 +231,20 @@ export function PlayerStats() {
     setBackground("auto");
     setCandidates([]);
     setNotice("");
+  }
+  function returnToSearch() {
+    generation.current++;
+    requests.current.forEach((c) => c.abort());
+    exportController.current?.abort();
+    setBusy(false);
+    setProfile(null);
+    setCandidates([]);
+    setReport(null);
+    setHistory(null);
+    setError("");
+    setNotice("");
+    setTab("overview");
+    void navigate({ search: {}, replace: true });
   }
   async function performSearch(nick: string, exact: boolean) {
     const value = nick.trim();
@@ -305,6 +329,7 @@ export function PlayerStats() {
       );
       if (c.signal.aborted || id !== generation.current) return;
       setProfile(value);
+      setRecentPlayers(rememberStatsProfile(value));
       setNickname(value.nickname);
       rememberStatsNickname(value.nickname);
       if (!value.modes.some((m) => m.id === mode)) setMode(value.modes[0]?.id || "rb");
@@ -592,6 +617,11 @@ export function PlayerStats() {
           </span>
         </div>
       </header>
+      {(profile || candidates.length > 0 || busy || route.player) && (
+        <button className="wt-record-back" onClick={returnToSearch}>
+          ← 返回战绩首页
+        </button>
+      )}
       <form
         className="wt-record-query"
         onSubmit={(event) => {
@@ -641,31 +671,113 @@ export function PlayerStats() {
         </section>
       )}
       {!profile && !candidates.length && (
-        <section className="wt-record-welcome">
-          <h2>查找你的战斗记录</h2>
-          <p>输入昵称，查看生涯、单车收入与分军种 K/D，再生成 Top 5 战报。</p>
-          <div>
-            <button
-              disabled={!session || busy}
-              onClick={() => {
-                setNickname("ArthurDaynee");
-                void performSearch("ArthurDaynee", true);
-              }}
-            >
-              查看 ArthurDaynee
-            </button>
-            <button
-              disabled={!session || busy}
-              onClick={() => {
-                setNickname("starfall21740");
-                void performSearch("starfall21740", true);
-              }}
-            >
-              查看 starfall21740
-            </button>
-          </div>
-          <small>只展示有出击记录的数据。查询其他玩家不需要对方的游戏密码。</small>
-        </section>
+        <div className="wt-record-home">
+          <section className="wt-record-panel">
+            <div className="wt-record-heading">
+              <h2>
+                最近查询 <span>{recentPlayers.length}</span>
+              </h2>
+              {!!recentPlayers.length && (
+                <button onClick={() => setRecentPlayers(clearStatsQueryHistory())}>清空记录</button>
+              )}
+            </div>
+            <p className="wt-record-fine">
+              本机保留最近 8
+              位玩家的已查资料，点击直接查看，不发起新查询；需要最新资料时使用强制刷新。
+            </p>
+            {recentPlayers.length ? (
+              <div className="wt-record-recent">
+                {recentPlayers.map((p) => (
+                  <button
+                    key={p.uid}
+                    disabled={busy}
+                    onClick={() => {
+                      loadProfile({ ...p, cached: true }, true);
+                      setNotice("正在查看本机保存的资料，采集时间见下方；可强制刷新官方资料。");
+                    }}
+                  >
+                    <Avatar url={p.avatar} name={p.nickname} />
+                    <span>
+                      <b>{p.nickname}</b>
+                      <small>{statsDate(p.fetchedAt)}</small>
+                    </span>
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <p className="wt-record-empty">还没有查询记录，输入昵称或从下方排行榜选择玩家。</p>
+            )}
+          </section>
+          <section className="wt-record-panel">
+            <div className="wt-record-heading">
+              <h2>
+                官方排行榜 <span>TOP 25</span>
+              </h2>
+              {board && (
+                <a href={board.sources[0]} target="_blank" rel="noopener noreferrer">
+                  查看官方榜单 ↗
+                </a>
+              )}
+            </div>
+            <div className="wt-record-leader-filters">
+              <fieldset aria-label="排行榜战斗模式">
+                {Object.entries(statsModeNames).map(([id, label]) => (
+                  <button
+                    key={id}
+                    aria-pressed={leaderMode === id}
+                    onClick={() => setLeaderMode(id)}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </fieldset>
+              <fieldset aria-label="排行榜目标类型">
+                {[
+                  ["ground", "陆战 · 地面目标"],
+                  ["air", "空战 · 空中目标"],
+                ].map(([id, label]) => (
+                  <button
+                    key={id}
+                    aria-pressed={leaderBranch === id}
+                    onClick={() => setLeaderBranch(id)}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </fieldset>
+            </div>
+            <p className="wt-record-fine">
+              按官方累计{leaderBranch === "ground" ? "地面" : "空中"}
+              目标击毁数排名，非独立陆战／空战匹配模式排名。点击昵称查询，新的查询遵守上方额度。
+            </p>
+            {board ? (
+              <>
+                <ol className="wt-record-leaders">
+                  {board.players.map((p) => (
+                    <li key={p.rank}>
+                      <button
+                        disabled={!session || busy}
+                        onClick={() => {
+                          setNickname(p.nickname);
+                          void performSearch(p.nickname, true);
+                        }}
+                      >
+                        <span className="wt-record-rank">{String(p.rank).padStart(2, "0")}</span>
+                        <b>{p.nickname}</b>
+                        <span aria-hidden="true">→</span>
+                      </button>
+                    </li>
+                  ))}
+                </ol>
+                <p className="wt-record-fine">
+                  榜单快照采集于 {statsDate(board.fetchedAt)} · 官方累计榜，非实时更新。
+                </p>
+              </>
+            ) : (
+              <p className="wt-record-empty">该榜单暂未获取，请稍后再试或直接输入昵称。</p>
+            )}
+          </section>
+        </div>
       )}
       {profile && (
         <>
