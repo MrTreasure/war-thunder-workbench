@@ -217,17 +217,19 @@ function ProductShelf({ children }: { children: ReactNode[] }) {
     </>
   );
 }
-function ResearchPagination({
+function VehicleDetailPagination({
   page,
   pages,
   onChange,
+  label,
 }: {
   page: number;
   pages: number;
   onChange: (page: number) => void;
+  label: string;
 }) {
   return (
-    <nav className="wt-valuation-pagination" aria-label="研发点明细分页">
+    <nav className="wt-valuation-pagination" aria-label={`${label}分页`}>
       <button
         type="button"
         className="quiet-button"
@@ -237,7 +239,7 @@ function ResearchPagination({
         上一页
       </button>
       <GameSelect
-        aria-label="研发点明细页码"
+        aria-label={`${label}页码`}
         value={page}
         onValueChange={(value) => onChange(Number(value))}
       >
@@ -257,6 +259,51 @@ function ResearchPagination({
       </button>
     </nav>
   );
+}
+type VehicleFilters = { country: string; category: string; rank: string };
+function matchesVehicleFilters(item: Partial<Item>, filters: VehicleFilters) {
+  return (filters.country === "all" || (item.country || "unknown") === filters.country) &&
+    (filters.category === "all" || (item.category || "unknown") === filters.category) &&
+    (filters.rank === "all" || (item.rank || "unknown") === filters.rank);
+}
+function VehicleDetailFilters({ items, filters, onChange, count, total, page, pages, onPageChange, label, unit }: {
+  items: Partial<Item>[];
+  filters: VehicleFilters;
+  onChange: (field: keyof VehicleFilters, value: string) => void;
+  count: number;
+  total: number;
+  page: number;
+  pages: number;
+  onPageChange: (page: number) => void;
+  label: string;
+  unit: string;
+}) {
+  const names = catalogSettings.countries as Record<string, string>;
+  return <div className="wt-valuation-filters">
+    <label>国别
+      <GameSelect value={filters.country} onValueChange={value => onChange("country", value)}>
+        <option value="all">全部国别</option>
+        {[...new Set(items.map(v => v.country || "unknown"))].sort().map(id =>
+          <option key={id} value={id}>{id === "unknown" ? "国别待核验" : names[id] || id}</option>)}
+      </GameSelect>
+    </label>
+    <label>军种
+      <GameSelect value={filters.category} onValueChange={value => onChange("category", value)}>
+        <option value="all">全部军种</option>
+        {[...new Set(items.map(v => v.category || "unknown"))].sort().map(id =>
+          <option key={id} value={id}>{id === "unknown" ? "军种待核验" : statsCategoryNames[id] || id}</option>)}
+      </GameSelect>
+    </label>
+    <label>等级
+      <GameSelect value={filters.rank} onValueChange={value => onChange("rank", value)}>
+        <option value="all">全部等级</option>
+        {valuationRules.researchRanks.map(rank => <option key={rank} value={rank}>Rank {rank}</option>)}
+        {items.some(v => !v.rank) && <option value="unknown">等级待核验</option>}
+      </GameSelect>
+    </label>
+    <output>筛选 {count} / {total} {unit} · 每页 10 {unit} · 研发点降序</output>
+    <VehicleDetailPagination page={page} pages={pages} onChange={onPageChange} label={label} />
+  </div>;
 }
 function ValueComposition({ scenario, label }: { scenario: Scenario; label: string }) {
   const parts = [
@@ -350,6 +397,8 @@ export function AccountValuation({
   const [researchCountry, setResearchCountry] = useState("all");
   const [researchCategory, setResearchCategory] = useState("all");
   const [researchRank, setResearchRank] = useState("all");
+  const [unpricedFilters, setUnpricedFilters] = useState<VehicleFilters>({ country: "all", category: "all", rank: "all" });
+  const [unpricedPage, setUnpricedPage] = useState(1);
   const [showResearch, setShowResearch] = useState(false);
   const [showUnpriced, setShowUnpriced] = useState(false);
   const [scenarioKey, setScenarioKey] = useState<ScenarioKey>("normal");
@@ -439,12 +488,7 @@ export function AccountValuation({
   }
   const filteredResearch =
     value?.research
-      .filter(
-        (v) =>
-          (researchCountry === "all" || v.country === researchCountry) &&
-          (researchCategory === "all" || v.category === researchCategory) &&
-          (researchRank === "all" || (v.rank || "unknown") === researchRank),
-      )
+      .filter(v => matchesVehicleFilters(v, { country: researchCountry, category: researchCategory, rank: researchRank }))
       .sort((a, b) => (b.rp ?? -1) - (a.rp ?? -1) || a.name.localeCompare(b.name, "zh-CN")) || [];
   const researchPages = Math.max(1, Math.ceil(filteredResearch.length / 10));
   const currentResearchPage = Math.min(researchPage, researchPages);
@@ -480,6 +524,11 @@ export function AccountValuation({
     value?.unpriced
       .map((item) => ({ ...knownItems.get(item.id), ...item }))
       .sort((a, b) => (b.rp ?? -1) - (a.rp ?? -1) || a.name.localeCompare(b.name, "zh-CN")) || [];
+  const unpricedVehicles = unpricedItems.flatMap<Partial<Item>>(v => v.vehicles?.length ? v.vehicles : [v]);
+  const filteredUnpriced = unpricedItems.filter(v => (v.vehicles?.length ? v.vehicles : [v]).some(item => matchesVehicleFilters(item, unpricedFilters)));
+  const unpricedPages = Math.max(1, Math.ceil(filteredUnpriced.length / 10));
+  const currentUnpricedPage = Math.min(unpricedPage, unpricedPages);
+  const visibleUnpriced = filteredUnpriced.slice((currentUnpricedPage - 1) * 10, currentUnpricedPage * 10);
   return (
     <div className="wt-account-valuation">
       <button
@@ -772,71 +821,21 @@ export function AccountValuation({
                 .join(" · ") || "暂无已核实研发点"}
             </p>
             {showResearch && (
-              <div className="wt-valuation-filters">
-                <label>
-                  国别
-                  <GameSelect
-                    value={researchCountry}
-                    onValueChange={(value) => {
-                      setResearchCountry(value);
-                      setResearchPage(1);
-                    }}
-                  >
-                    <option value="all">全部国别</option>
-                    {[...new Set(value.research.map((v) => v.country))].sort().map((id) => (
-                      <option key={id} value={id}>
-                        {countryName(id)}
-                      </option>
-                    ))}
-                  </GameSelect>
-                </label>
-                <label>
-                  军种
-                  <GameSelect
-                    value={researchCategory}
-                    onValueChange={(value) => {
-                      setResearchCategory(value);
-                      setResearchPage(1);
-                    }}
-                  >
-                    <option value="all">全部军种</option>
-                    {[...new Set(value.research.map((v) => v.category))].sort().map((id) => (
-                      <option key={id} value={id}>
-                        {statsCategoryNames[id] || id}
-                      </option>
-                    ))}
-                  </GameSelect>
-                </label>
-                <label>
-                  等级
-                  <GameSelect
-                    value={researchRank}
-                    onValueChange={(value) => {
-                      setResearchRank(value);
-                      setResearchPage(1);
-                    }}
-                  >
-                    <option value="all">全部等级</option>
-                    {valuationRules.researchRanks.map((rank) => (
-                      <option key={rank} value={rank}>
-                        Rank {rank}
-                      </option>
-                    ))}
-                    {value.research.some((v) => !v.rank) && (
-                      <option value="unknown">等级待核验</option>
-                    )}
-                  </GameSelect>
-                </label>
-                <output>
-                  筛选 {filteredResearch.length} / {value.researchCount} 辆 · 每页 10 辆 ·
-                  研发点降序
-                </output>
-                <ResearchPagination
-                  page={currentResearchPage}
-                  pages={researchPages}
-                  onChange={setResearchPage}
-                />
-              </div>
+              <VehicleDetailFilters
+                items={value.research}
+                filters={{ country: researchCountry, category: researchCategory, rank: researchRank }}
+                onChange={(field, selected) => {
+                  ({ country: setResearchCountry, category: setResearchCategory, rank: setResearchRank })[field](selected);
+                  setResearchPage(1);
+                }}
+                count={filteredResearch.length}
+                total={value.researchCount}
+                page={currentResearchPage}
+                pages={researchPages}
+                onPageChange={setResearchPage}
+                label="研发点明细"
+                unit="辆"
+              />
             )}
             {showResearch && !filteredResearch.length && <output>没有符合筛选条件的载具。</output>}
             {showResearch && (
@@ -883,8 +882,26 @@ export function AccountValuation({
               <summary>未计价项目 · {value.unpriced.length}</summary>
               <p>以下项目资料或价格尚未核实，未按零元计入估值。</p>
               {showUnpriced && (
+                <VehicleDetailFilters
+                  items={unpricedVehicles}
+                  filters={unpricedFilters}
+                  onChange={(field, selected) => {
+                    setUnpricedFilters(previous => ({ ...previous, [field]: selected }));
+                    setUnpricedPage(1);
+                  }}
+                  count={filteredUnpriced.length}
+                  total={value.unpriced.length}
+                  page={currentUnpricedPage}
+                  pages={unpricedPages}
+                  onPageChange={setUnpricedPage}
+                  label="未计价项目"
+                  unit="项"
+                />
+              )}
+              {showUnpriced && !filteredUnpriced.length && <output>没有符合筛选条件的项目。</output>}
+              {showUnpriced && (
                 <div className="wt-valuation-research wt-valuation-unpriced">
-                  {unpricedItems.map((v, i) => {
+                  {visibleUnpriced.map((v, i) => {
                     const vehicles = v.vehicles?.length ? v.vehicles : [v];
                     return (
                       <article key={v.id + i}>

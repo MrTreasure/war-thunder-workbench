@@ -2067,15 +2067,23 @@
 .wt-valuation-pagination {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 6px;
   margin-left: auto;
+  max-width: 100%;
+  overflow-x: auto;
 }
-.wt-valuation-pagination button {
+.wt-valuation-pagination > button {
   min-height: 36px;
+  flex: 0 0 auto;
+  width: auto;
+  white-space: nowrap;
+  padding-inline: 10px;
 }
-.wt-valuation-pagination .wt-select {
-  min-width: 118px;
+.wt-valuation-pagination > .wt-select {
+  flex: 0 1 150px;
+  width: 150px;
+  min-width: 110px;
   max-width: 150px;
 }
 
