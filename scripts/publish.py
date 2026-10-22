@@ -24,7 +24,7 @@ def atomic(path,data,mode=0o644):
  temp=path.with_name(path.name+'.next');temp.write_bytes(data);temp.chmod(mode);os.replace(temp,path)
 destination.mkdir(parents=True,exist_ok=True,mode=0o755);destination.chmod(0o755)
 for file in sorted(dist.rglob('*'),key=lambda path:(path.suffix.lower()=='.html',str(path))):
- if not file.is_file() or file.name=='index.html':continue
+ if not file.is_file() or file==dist/'index.html':continue
  target=destination/file.relative_to(dist)
  if file.suffix.lower()=='.html' and target.exists():
   saved=backup/'entries'/file.relative_to(dist);saved.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(target,saved)
