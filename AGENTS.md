@@ -1,5 +1,12 @@
 # War Thunder Workbench
 
+- Read `AGENT.md` for the local-only research policy. Efficiency calculation
+  analyses and Silver Lion/RP reward research reports, samples, derivations,
+  charts, reproduction scripts and related research plans must remain in ignored
+  local `artifacts/` directories. Never commit or upload them to GitHub, image
+  repositories, releases or application packages. Preserve local copies before
+  removing tracked/history records; inspect all history intended for push.
+
 - This is the canonical source for `/muse/war-thunder-trees/`. The old
   `../war-thunder-trees/` project is a legacy snapshot.
 - React + Vite + TypeScript 7, using the supplied QMuse template configuration,

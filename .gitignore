@@ -25,3 +25,20 @@ artifacts/
 
 # Generated standalone design review
 public/design/player-stats/
+
+# Private efficiency and reward analysis: local only, including source material.
+/docs/player-stats-efficiency-comparison.md
+/docs/player-stats-efficiency-inference.md
+/docs/player-stats-public-rating-formulas.md
+/docs/rating-formulas-NOTICE.md
+/data/player-efficiency-inverse-research.json
+/data/player-rating-research.json
+/scripts/research-efficiency-inverse.py
+/scripts/research-rating-formulas.py
+/docs/research-strategy-plan.md
+/data/reward-analysis*.json
+/scripts/reward_analysis/
+**/效率计算分析报告.*
+**/战雷收益分析报告.*
+**/efficiency-analysis.md
+**/reward-analysis-report.*
