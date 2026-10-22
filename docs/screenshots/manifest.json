@@ -279,6 +279,77 @@
         1390,
         1170
       ]
+    },
+    {
+      "file": "player-stats-overview.png",
+      "width": 1600,
+      "height": 1180,
+      "bytes": 211769,
+      "sha256": "193cb04b87313d3c087f1f2c0bb82637ab1106995c52770691ca3917576bad81",
+      "capturedAt": "2026-10-22T09:05:03.915Z",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394?category=ground&mode=rb#/stats",
+      "note": "实际公开玩家资料：历史模式生涯、能力图、军种K/D及各国载具进度"
+    },
+    {
+      "file": "player-stats-vehicles.png",
+      "width": 1600,
+      "height": 1180,
+      "bytes": 218609,
+      "sha256": "662d4d44afcee7c3e9690413dd5421a7688421162a027716ba02dfc26bea2063",
+      "capturedAt": "2026-10-22T09:05:05.263Z",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394?category=ground&mode=rb#/stats",
+      "note": "实际陆军载具列表：筛选、排序、分目标K/D、效率和累计银狮"
+    },
+    {
+      "file": "player-report-options.png",
+      "width": 1384,
+      "height": 1426,
+      "bytes": 779583,
+      "sha256": "e0acfeb4e20d1c5e17fbdbf548106117cc1a560ed99a037799c92f15efdacd69",
+      "capturedAt": "2026-10-22T09:10:37.761Z",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394?category=ground&mode=rb#/stats",
+      "note": "真实战报设置与已生成预览的完整区域，保留筛选、风格、背景和保存按钮"
+    },
+    {
+      "file": "player-report.png",
+      "width": 1080,
+      "height": 1811,
+      "bytes": 1589273,
+      "sha256": "3fc033ff7761f886dd6489bd1634c0304a33a3cad3def0f61468d966da3c1013",
+      "capturedAt": "2026-10-22T09:10:37.439Z",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394?category=ground&mode=rb#/stats",
+      "note": "通过实际应用“保存战报图片”导出的完整战报，含原有水印；未重新生成或修改数据"
+    },
+    {
+      "file": "player-stats-mobile.png",
+      "width": 430,
+      "height": 1116,
+      "bytes": 85385,
+      "sha256": "42349becbebcf6df835a7105d3561f0c514b75869e17de3a202c622e4ca36486",
+      "capturedAt": "2026-10-22T09:10:38.049Z",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394?category=ground&mode=rb#/stats",
+      "note": "实际手机宽度截图，裁至完整国家列表结束位置，展示生涯数据、军种K/D和各国载具；未修改页面内容或数值。"
+    },
+    {
+      "file": "player-account-valuation.png",
+      "width": 1600,
+      "height": 1180,
+      "bytes": 305576,
+      "sha256": "d81fc642e1e4067311bc938d4aae16cb71e50b7f5a2e30b13689ec72ff64ba40",
+      "capturedAt": "2026-10-22T09:42:44.442Z",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394?category=ground&mode=rb#/stats",
+      "note": "starfall21740实际账号参考估值：完整公开车库核验、包含未出战载具、不同价值口径及组成；金额不是成交价"
+    },
+    {
+      "file": "player-owned-vehicles.png",
+      "width": 1600,
+      "height": 1180,
+      "bytes": 323390,
+      "sha256": "2d0461b166e6dd52090506d073c9b643ab06771d7a0c496b2a27dd199695e57a",
+      "capturedAt": "2026-10-22T09:43:04.766Z",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394?category=ground&mode=rb#/stats",
+      "note": "starfall21740已拥有常规载具明细，包含未出战载具，按国家、军种、等级筛选；其他已拥有载具按金鹰、礼包、特殊和待核价分类列出"
     }
-  ]
+  ],
+  "playerStatsCapturedAt": "2026-10-22"
 }

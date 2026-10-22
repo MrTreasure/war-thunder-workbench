@@ -71,3 +71,5 @@ console.log(
     verifiedCanonicalHashes: published.length,
   }),
 );
+
+await import("./check-seo.mjs");

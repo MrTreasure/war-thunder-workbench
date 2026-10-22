@@ -1,0 +1,339 @@
+{
+  "siteUrl": "https://wt.mrtreasure.cc/",
+  "qmuseUrl": "https://render.qmuse.pub/p/muse/8645013411493394",
+  "imageUrl": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_logo_eng_a98e2d250b72a68a4c6073f0d30db010.jpg",
+  "locales": {
+    "zh-CN": {
+      "path": "zh",
+      "name": "简体中文",
+      "title": "战雷工作台：战雷战绩查询、科技树、走线与账号价值",
+      "description": "战雷工作台提供战雷战绩查询、战雷科技树与研发规划、战雷走线绘制和战雷账号价值估算，支持出击队列与陆战地图。",
+      "intro": "为战争雷霆 PC 国际服玩家准备的独立工具合集。从查看科技树、规划研发，到查询玩家战绩和绘制地图走线，在一个工作台中完成。",
+      "open": "打开工作台",
+      "features": [
+        {
+          "route": "stats",
+          "title": "战雷战绩查询",
+          "text": "输入完整昵称或从官方排行榜选择玩家，查看场次、胜率、击毁与载具战绩。支持国家、军种、等级筛选与数值排序；查询结果有缓存，页面保留资料获取时间。载具战绩只反映出战记录，不能单凭出战记录判断全部已拥有载具。"
+        },
+        {
+          "route": "tree",
+          "title": "战雷科技树与研发规划",
+          "text": "浏览十国陆战、航空、直升机、舰船和快艇科技树，查看研发前置条件与研发点。规划多个目标时共享前置载具去重计算，并可按报价设置估算研发费用。未知成本保持未知；不同模式的战斗评级需分别查看。"
+        },
+        {
+          "route": "maps",
+          "title": "战雷走线与陆战地图",
+          "text": "浏览陆战地图布局，在地图上绘制路线、箭头、区域和文字，保存独立地图方案并导出 PNG。地图与任务布局可能随版本变化；图上的战术标记用于玩家交流，不代表官方军事符号。"
+        },
+        {
+          "route": "stats",
+          "title": "战雷账号价值估算",
+          "text": "按可核实的载具资料与配置价格，分别展示研发点、金鹰、礼包和特殊载具，比较正常、折扣与交易价值。特殊载具单独列示，缺少报价的项目不按零元处理。估值仅供参考，不代表成交价格或交易承诺；计算及资料导入受对应额度限制。"
+        },
+        {
+          "route": "lineups",
+          "title": "出击队列与分享",
+          "text": "为不同国家保存出击队列，按游戏模式查看队列评级并分享队列码。研发计划、队列与地图方案保存在当前浏览器；可使用的导出功能用于自行备份，不会自动跨设备同步。"
+        }
+      ],
+      "notes": "可不登录使用公开功能。需要登录或额度的操作会在使用时提示。无需提供战争雷霆游戏账号密码。本站为玩家制作的独立工具，与 Gaijin Entertainment 无隶属关系，游戏名称与图片归各自权利人所有。",
+      "languageNote": "以下提供英文、俄文功能介绍；交互工作台目前主要使用简体中文。",
+      "qmuseLabel": "QMuse 备用入口",
+      "howToTitle": "如何开始使用",
+      "faqTitle": "常见问题",
+      "dataTitle": "数据来源与更新",
+      "reviewedLabel": "功能说明核对日期",
+      "sourcesLabel": "参考来源",
+      "homeLabel": "战雷工作台",
+      "guideLabel": "功能说明",
+      "dataNotes": "载具与研发资料参考 War Thunder Wiki 及公开游戏数据，官方排行榜提供玩家入口。具体资料以功能页展示的来源、版本和核验时间为准。商店报价与市场报价可能变化；缺少可靠报价或研发点时保留未知。本站的说明核对日期不代表全部载具、价格和玩家资料已在当天更新。",
+      "analyticsNote": "此 Cloudflare 部署版本使用 Cloudflare Web Analytics 统计访问和页面性能；不额外添加玩家昵称、UID、邮箱、查询记录或估值结果作为统计事件。",
+      "howTo": [
+        {
+          "title": "查询玩家战绩",
+          "steps": [
+            "打开战绩查询，输入完整昵称，或从官方排行榜选择玩家。",
+            "存在同名前缀候选时先确认目标玩家；排行榜入口使用对应玩家身份。",
+            "选择模式并按国家、军种、等级筛选载具，查看资料获取时间后决定是否主动刷新。"
+          ]
+        },
+        {
+          "title": "规划目标载具研发",
+          "steps": [
+            "打开科技树并选择国家、军种和模式，再找到目标载具。",
+            "加入研发目标，核对前置载具与当前已研发进度；可使用已有载具导入功能辅助标记。",
+            "查看共享前置去重后的研发点与报价，确认未知项及导入数据的覆盖范围。"
+          ]
+        },
+        {
+          "title": "绘制地图走线",
+          "steps": [
+            "打开陆战地图，选择地图、任务布局与阵营，再进入编辑。",
+            "用路线、箭头、区域、标记与文字表达行进计划，按需要保存不同方案。",
+            "保存当前方案后使用 PNG 或项目文件导出功能；换设备前自行备份。"
+          ]
+        },
+        {
+          "title": "查看账号估值",
+          "steps": [
+            "先确认目标玩家，再点击账号估值计算；按页面提示登录并使用对应额度。",
+            "比较正常、折扣和交易价值，打开明细查看研发点、金鹰、礼包与特殊载具。",
+            "核对未计价项目、车库覆盖范围及报价日期；把估值视为参考，不作为成交保证。"
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "战雷战绩查询需要游戏账号密码吗？",
+          "answer": "不需要。查询的是目标玩家公开资料。本站账号登录用于需要身份或额度的功能，不要在本站输入战争雷霆游戏账号密码。"
+        },
+        {
+          "question": "为什么没有出战过的载具可能不在战绩列表？",
+          "answer": "战绩列表只包含已有出战记录。已有载具资料由另一类公开数据提供；只有接口实际返回且能够匹配的载具才能确认拥有，不能把没有战绩当作未拥有。"
+        },
+        {
+          "question": "为什么查询结果不是刚刚打完一局后的战绩？",
+          "answer": "查询会使用缓存，官方数据也可能延迟。先查看获取时间，需要时使用主动刷新；刷新及其他付费额度操作以页面提示为准。"
+        },
+        {
+          "question": "多个目标会重复计算相同的前置载具吗？",
+          "answer": "共同前置载具会去重。实际所需研发点还受已研发进度与目标路径影响；导入资料的缺失项不会自动当作已经研发或零成本。"
+        },
+        {
+          "question": "账号价值包含哪些项目？",
+          "answer": "明细区分研发点、金鹰、礼包、特殊载具及未计价项目。特殊载具单独展示，默认赠送和被排除项目按本站配置处理；缺少价格不代表免费，估值也不代表市场成交价。"
+        },
+        {
+          "question": "QMuse 和自有域名的队列与地图方案会同步吗？",
+          "answer": "不会自动同步。它们属于不同浏览器站点，本地存储相互独立；请使用已有的分享码、项目导出及导入功能迁移需要的内容。"
+        }
+      ]
+    },
+    "en": {
+      "path": "en",
+      "name": "English",
+      "title": "War Thunder Workbench — Player Stats, Tech Trees, Map Routes & Account Value",
+      "description": "War Thunder player stats lookup, research tech trees and RP planning, ground map route drawing, account value estimates and saved lineups in one independent workbench.",
+      "intro": "An independent toolkit for War Thunder PC international players. Explore research trees, plan vehicle progression, look up public player statistics and draw routes on ground battle maps.",
+      "open": "Open workbench",
+      "features": [
+        {
+          "route": "stats",
+          "title": "War Thunder player stats lookup",
+          "text": "Search by a complete nickname or choose a player from official leaderboards. Review battles, win rate, kills and vehicle battle records with nation, branch and rank filters. Cached results retain their fetch time. Battle records show vehicles played; they do not establish ownership of every vehicle in an account."
+        },
+        {
+          "route": "tree",
+          "title": "War Thunder tech trees and research planner",
+          "text": "Explore ten nations across ground vehicles, aviation, helicopters, ships and boats. Check research prerequisites and research points. Shared prerequisites are counted once when planning multiple targets; configured RP rates support cost estimates. Unknown costs stay unknown, and battle ratings must be checked for the selected game mode."
+        },
+        {
+          "route": "maps",
+          "title": "War Thunder map routes and tactical drawing",
+          "text": "Browse ground map layouts and draw routes, arrows, areas and text. Save separate map plans and export PNG images. Map and mission layouts may differ by game version. Tactical markers are illustrations for player communication, not certified military symbols."
+        },
+        {
+          "route": "stats",
+          "title": "War Thunder account value estimator",
+          "text": "Review research points, Golden Eagle vehicles, packs and special vehicles using available vehicle evidence and configured prices. Compare normal, discounted and trade value estimates. Special vehicles are listed separately; missing quotes are not treated as zero. Estimates are for reference, not sale offers or guaranteed transaction prices. Calculations and imports use their respective quotas."
+        },
+        {
+          "route": "lineups",
+          "title": "Vehicle lineups and sharing",
+          "text": "Save nation-specific lineups, check lineup ratings for the selected mode and share lineup codes. Research plans, lineups and map plans stay in the current browser. Use available exports for backups; local plans do not automatically synchronize between devices."
+        }
+      ],
+      "notes": "Public features can be used without signing in. Operations that need an account or quota explain this when used. You do not need to provide your War Thunder game password. This fan-made toolkit is not affiliated with Gaijin Entertainment. Game names and artwork belong to their respective owners.",
+      "languageNote": "This is an English feature guide. The interactive workbench currently uses primarily Simplified Chinese.",
+      "qmuseLabel": "Alternative QMuse entry",
+      "howToTitle": "Getting started",
+      "faqTitle": "Frequently asked questions",
+      "dataTitle": "Sources and data freshness",
+      "reviewedLabel": "Feature guide reviewed",
+      "sourcesLabel": "Reference sources",
+      "homeLabel": "War Thunder Workbench",
+      "guideLabel": "Feature guide",
+      "dataNotes": "Vehicle and research information references War Thunder Wiki and public game data; official leaderboards provide player entry points. Check each feature for its source, version and verification time. Store and market prices may change. Missing reliable prices or RP values remain unknown. The guide review date does not mean every vehicle, quote or player profile was refreshed that day.",
+      "analyticsNote": "This Cloudflare deployment uses Cloudflare Web Analytics for visits and page performance. No additional events are added for player nicknames, UIDs, email addresses, query history or valuation results.",
+      "howTo": [
+        {
+          "title": "Look up player statistics",
+          "steps": [
+            "Open player stats and enter a complete nickname, or choose a player from an official leaderboard.",
+            "Confirm the intended player if a nickname search returns multiple prefix matches. Leaderboard links use the selected player identity.",
+            "Choose a mode and filter vehicles by nation, branch and rank. Check the fetch time before deciding to refresh."
+          ]
+        },
+        {
+          "title": "Plan vehicle research",
+          "steps": [
+            "Open a tech tree, select the nation, branch and mode, then find a target vehicle.",
+            "Add research targets and check prerequisites against existing progress. Available owned-vehicle imports can help mark progress.",
+            "Review deduplicated research points and quotes, including unknown values and the coverage of imported records."
+          ]
+        },
+        {
+          "title": "Draw ground map routes",
+          "steps": [
+            "Open ground maps, choose a map, mission layout and side, then enter the editor.",
+            "Use routes, arrows, areas, markers and text to explain the plan. Save separate plans where useful.",
+            "Save before exporting a PNG image or project file. Keep a backup when changing devices."
+          ]
+        },
+        {
+          "title": "Estimate account value",
+          "steps": [
+            "Confirm the player and request an account estimate. Sign in and use the relevant quota when prompted.",
+            "Compare normal, discounted and trade estimates, then inspect research points, Golden Eagle vehicles, packs and special vehicles.",
+            "Check unpriced items, garage coverage and quote dates. Treat the result as a reference rather than a guaranteed sale price."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Do I need to provide my War Thunder password?",
+          "answer": "No. Player lookup uses public information. The workbench account is used for features that need identity or quota; do not enter your War Thunder game password here."
+        },
+        {
+          "question": "Why can an owned but unplayed vehicle be missing from battle records?",
+          "answer": "Battle records cover vehicles played. Owned-vehicle data comes from a separate public source. Ownership can only be confirmed for returned and matched records; a missing battle record does not establish that a vehicle is unowned."
+        },
+        {
+          "question": "Why is my latest battle not visible yet?",
+          "answer": "Results may be cached, and upstream statistics may also be delayed. Check the fetch time and use an explicit refresh when needed. Follow the page prompts for refresh and other quota-consuming operations."
+        },
+        {
+          "question": "Are shared research prerequisites counted more than once?",
+          "answer": "Shared prerequisites are deduplicated. Required RP also depends on existing progress and the target path. Missing import records are not automatically treated as already researched or zero cost."
+        },
+        {
+          "question": "What does the account estimate include?",
+          "answer": "The detail view distinguishes RP, Golden Eagle vehicles, packs, special vehicles and unpriced items. Special vehicles are shown separately; starter gifts and excluded entries follow the configured valuation policy. Missing prices do not mean free, and estimates are not market transaction prices."
+        },
+        {
+          "question": "Do QMuse and the custom domain share local plans?",
+          "answer": "No automatic synchronization is provided. They are separate browser origins with independent local storage. Use existing share codes and project export/import tools to move the content you need."
+        }
+      ]
+    },
+    "ru": {
+      "path": "ru",
+      "name": "Русский",
+      "title": "War Thunder Workbench — статистика игроков, дерево исследования, маршруты и оценка аккаунта",
+      "description": "Статистика игроков War Thunder, дерево исследования техники, планирование очков исследования, маршруты на картах, оценка стоимости аккаунта и наборы техники.",
+      "intro": "Независимый набор инструментов для игроков международной версии War Thunder на ПК. Изучайте деревья техники, планируйте исследования, смотрите открытую статистику игроков и рисуйте маршруты на картах наземных боёв.",
+      "open": "Открыть инструменты",
+      "features": [
+        {
+          "route": "stats",
+          "title": "Статистика игроков War Thunder",
+          "text": "Введите полный никнейм или выберите игрока из официальной таблицы лидеров. Просматривайте бои, процент побед, уничтоженную технику и статистику машин с фильтрами по стране, роду войск и рангу. Данные кэшируются с указанием времени получения. Участие машины в боях не подтверждает полный состав техники на аккаунте."
+        },
+        {
+          "route": "tree",
+          "title": "Дерево исследования War Thunder",
+          "text": "Просматривайте технику десяти стран: наземную, авиацию, вертолёты, корабли и катера. Проверяйте предшествующие машины и очки исследования. Общие предшественники нескольких целей учитываются один раз; заданные расценки помогают оценить стоимость исследования. Неизвестные значения не заменяются нулём. Боевой рейтинг зависит от выбранного режима."
+        },
+        {
+          "route": "maps",
+          "title": "Маршруты на картах War Thunder",
+          "text": "Выбирайте схемы наземных карт и рисуйте маршруты, стрелки, области и подписи. Сохраняйте отдельные планы и экспортируйте изображения PNG. Карты и расположение целей могут меняться между версиями игры. Тактические обозначения предназначены для общения игроков и не являются утверждённой военной символикой."
+        },
+        {
+          "route": "stats",
+          "title": "Оценка стоимости аккаунта War Thunder",
+          "text": "Смотрите составляющие оценки: очки исследования, технику за Золотые орлы, наборы и особые машины. Сравнивайте обычную, скидочную и торговую оценку на основе доступных данных и заданных цен. Особая техника показана отдельно; отсутствие цены не означает нулевую стоимость. Оценка справочная и не гарантирует цену сделки. Расчёты и импорт расходуют соответствующие лимиты."
+        },
+        {
+          "route": "lineups",
+          "title": "Наборы техники и обмен",
+          "text": "Сохраняйте наборы для каждой страны, проверяйте рейтинг по выбранному режиму и делитесь кодами наборов. Планы исследования, наборы и схемы карт хранятся в текущем браузере. Используйте доступный экспорт для резервных копий: автоматической синхронизации между устройствами нет."
+        }
+      ],
+      "notes": "Открытыми функциями можно пользоваться без входа. Если операция требует аккаунта или лимита, об этом сообщается при использовании. Пароль игрового аккаунта War Thunder не нужен. Это фанатский проект, не связанный с Gaijin Entertainment. Названия игры и изображения принадлежат соответствующим правообладателям.",
+      "languageNote": "Это описание функций на русском языке. Основной язык интерактивных инструментов сейчас — упрощённый китайский.",
+      "qmuseLabel": "Дополнительный вход через QMuse",
+      "howToTitle": "Как начать работу",
+      "faqTitle": "Частые вопросы",
+      "dataTitle": "Источники и актуальность данных",
+      "reviewedLabel": "Описание функций проверено",
+      "sourcesLabel": "Справочные источники",
+      "homeLabel": "War Thunder Workbench",
+      "guideLabel": "Описание функций",
+      "dataNotes": "Данные о технике и исследованиях основаны на War Thunder Wiki и открытых игровых данных; официальные таблицы лидеров помогают выбрать игрока. Источник, версию и время проверки смотрите в соответствующем разделе. Цены магазина и рынка могут меняться. Отсутствующие достоверные цены и значения ОИ остаются неизвестными. Дата проверки описания не означает обновление всех машин, цен и профилей в этот день.",
+      "analyticsNote": "Версия на Cloudflare использует Cloudflare Web Analytics для статистики посещений и производительности страниц. Дополнительные события с никнеймами, UID, адресами электронной почты, историей запросов или результатами оценки не добавляются.",
+      "howTo": [
+        {
+          "title": "Посмотреть статистику игрока",
+          "steps": [
+            "Откройте статистику и введите полный никнейм либо выберите игрока из официальной таблицы лидеров.",
+            "Если найдено несколько совпадений по началу никнейма, подтвердите нужного игрока. Ссылки из таблицы лидеров используют выбранного игрока.",
+            "Выберите режим и фильтры по стране, роду войск и рангу. Проверьте время получения данных перед обновлением."
+          ]
+        },
+        {
+          "title": "Спланировать исследование техники",
+          "steps": [
+            "Откройте дерево, выберите страну, род войск и режим, затем найдите целевую машину.",
+            "Добавьте цели и сравните предшествующую технику с текущим прогрессом. Импорт имеющейся техники может помочь отметить прогресс.",
+            "Проверьте сумму ОИ без повторного учёта общих предшественников, неизвестные значения и полноту импортированных записей."
+          ]
+        },
+        {
+          "title": "Нарисовать маршрут на карте",
+          "steps": [
+            "Откройте наземные карты, выберите карту, схему задания и сторону, затем перейдите в редактор.",
+            "Обозначьте план маршрутами, стрелками, областями, маркерами и текстом. При необходимости сохраните разные планы.",
+            "Сохраните план перед экспортом PNG или файла проекта. Сделайте резервную копию перед сменой устройства."
+          ]
+        },
+        {
+          "title": "Оценить стоимость аккаунта",
+          "steps": [
+            "Подтвердите игрока и запустите оценку. Войдите в аккаунт и используйте соответствующий лимит, если появится запрос.",
+            "Сравните обычную, скидочную и торговую оценки; откройте состав ОИ, техники за Золотые орлы, наборов и особых машин.",
+            "Проверьте позиции без цены, полноту гаража и даты котировок. Результат справочный и не гарантирует цену продажи."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Нужно ли вводить пароль War Thunder?",
+          "answer": "Нет. Поиск использует открытую информацию игрока. Аккаунт инструментов нужен для функций с авторизацией или лимитами; не вводите здесь пароль игрового аккаунта War Thunder."
+        },
+        {
+          "question": "Почему имеющаяся машина без боёв отсутствует в статистике?",
+          "answer": "Боевая статистика показывает технику, участвовавшую в боях. Данные о владении берутся из отдельного открытого источника. Владение подтверждается только для полученных и сопоставленных записей; отсутствие боёв не означает отсутствие машины."
+        },
+        {
+          "question": "Почему последний бой ещё не появился?",
+          "answer": "Результаты могут быть кэшированы, а исходная статистика может обновляться с задержкой. Проверьте время получения данных и при необходимости обновите их вручную. Расход лимита указан в интерфейсе соответствующей операции."
+        },
+        {
+          "question": "Общие предшественники целей учитываются повторно?",
+          "answer": "Нет, общие предшественники учитываются один раз. Нужные ОИ зависят также от прогресса и пути к цели. Пропуски в импорте не считаются автоматически исследованной техникой или нулевой стоимостью."
+        },
+        {
+          "question": "Что входит в оценку аккаунта?",
+          "answer": "Отдельно показаны ОИ, техника за Золотые орлы, наборы, особые машины и позиции без цены. Особая техника указана отдельно; подарочные и исключённые машины обрабатываются по заданной политике. Неизвестная цена не означает бесплатную машину, а оценка не равна цене сделки."
+        },
+        {
+          "question": "Синхронизируются ли планы между QMuse и собственным доменом?",
+          "answer": "Автоматической синхронизации нет. Это разные сайты с независимым локальным хранилищем браузера. Для переноса используйте существующие коды обмена и экспорт или импорт проектов."
+        }
+      ]
+    }
+  },
+  "contentReviewedAt": "2026-10-22",
+  "sources": [
+    {
+      "url": "https://wiki.warthunder.com/",
+      "name": "War Thunder Wiki"
+    },
+    {
+      "url": "https://warthunder.com/en/community/leaderboard/",
+      "name": "War Thunder leaderboards"
+    }
+  ]
+}

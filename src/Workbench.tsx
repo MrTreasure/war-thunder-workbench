@@ -1,3 +1,4 @@
+import { updateSearchMetadata } from "./search-metadata";
 import { GameSelect } from "./components/GameSelect";
 import { Component, createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { useRouterState } from "@tanstack/react-router";
@@ -61,16 +62,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
     select: (state) => workbenchPage(state.location.pathname),
   });
   useEffect(() => {
-    document.title =
-      page === "sales"
-        ? "折扣日历 · War Thunder 研发工作台"
-        : page === "stats"
-          ? "战绩查询 · War Thunder 研发工作台"
-          : page === "maps"
-            ? "陆战地图 · War Thunder 研发工作台"
-            : page === "lineups"
-              ? "出击队列 · War Thunder 研发工作台"
-              : "War Thunder 研发工作台";
+    updateSearchMetadata(page);
   }, [page]);
   const currentKey = country;
   const countryEntry = manifest.countries[country] || null;

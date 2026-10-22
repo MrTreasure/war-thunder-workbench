@@ -1,0 +1,26 @@
+/*
+  Cache-Control: no-store
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Content-Security-Policy: default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; form-action 'none'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self'; connect-src 'self' https://api.mrtreasure.cc https://static.encyclopedia.warthunder.com https://cdn.jsdelivr.net https://raw.githubusercontent.com https://wtmaps.mrtreasure.cc https://cloudflareinsights.com https://*.cloudflareinsights.com
+
+/assets/*
+  ! Cache-Control
+  Cache-Control: public, max-age=31536000, immutable
+
+/about/*
+  ! Cache-Control
+  Cache-Control: public, max-age=0, must-revalidate
+
+/robots.txt
+  ! Cache-Control
+  Cache-Control: public, max-age=300
+
+/sitemap.xml
+  ! Cache-Control
+  Cache-Control: public, max-age=300
+
+/llms.txt
+  ! Cache-Control
+  Cache-Control: public, max-age=300
