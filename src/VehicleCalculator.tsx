@@ -2,6 +2,7 @@ import { GameSelect } from "./components/GameSelect";
 import { useMemo, useState } from "react";
 import type { CartItem, Catalog, Profile, Tree } from "./models";
 import { branchOwned, calculate, indexTree, prerequisitePath, rankNumber } from "./planner";
+import { OwnedVehicleImport } from "./OwnedVehicleImport";
 import { Modal, Metrics } from "./Modal";
 import { integer, object, strings, useStored, readJson } from "./storage";
 import { format, makeItem, parseRate, quoteCents } from "./quotes";
@@ -11,6 +12,12 @@ const valid = (v: unknown): v is Profile =>
   typeof v.target === "string" &&
   typeof v.price === "string" &&
   strings(v.owned) &&
+  (v.ownedImport === undefined ||
+    (object(v.ownedImport) &&
+      strings(v.ownedImport.ids) &&
+      typeof v.ownedImport.uid === "string" &&
+      typeof v.ownedImport.nickname === "string" &&
+      typeof v.ownedImport.fetchedAt === "string")) &&
   strings(v.pins) &&
   strings(v.banned) &&
   integer(v.unlocked) &&
@@ -65,6 +72,19 @@ export function VehicleCalculator({
     return {
       target: typeof old.target === "string" ? old.target : fallback,
       owned: ids(old.owned),
+      ownedImport:
+        object(old.ownedImport) &&
+        strings(old.ownedImport.ids) &&
+        typeof old.ownedImport.uid === "string" &&
+        typeof old.ownedImport.nickname === "string" &&
+        typeof old.ownedImport.fetchedAt === "string"
+          ? {
+              ids: ids(old.ownedImport.ids),
+              uid: old.ownedImport.uid,
+              nickname: old.ownedImport.nickname,
+              fetchedAt: old.ownedImport.fetchedAt,
+            }
+          : undefined,
       pins: ids(old.pins),
       banned: ids(old.banned),
       costs,
@@ -99,10 +119,14 @@ export function VehicleCalculator({
   const [progressDraft, setProgressDraft] = useState(String(state.progress));
   const [gateDrafts, setGateDrafts] = useState<Record<string, string>>({});
   const [editCosts, setEditCosts] = useState(false);
-  const result = useMemo(() => calculate(tree, state), [tree, state]);
+  const owned = useMemo(
+    () => [...new Set([...state.owned, ...(state.ownedImport?.ids || [])])],
+    [state.owned, state.ownedImport],
+  );
+  const result = useMemo(() => calculate(tree, { ...state, owned }), [tree, state, owned]);
   const ancestors = useMemo(() => prerequisitePath(index, state.target), [index, state.target]);
   const reached = [...ancestors, index.units.get(state.target)!]
-    .filter((unit) => state.owned.includes(unit.id))
+    .filter((unit) => owned.includes(unit.id))
     .at(-1);
   const pendingPrerequisites = result.rows.filter((row) => row.reason === "目标前置");
   const extraRows = result.rows.filter((row) => row.reason === "等级补位");
@@ -143,7 +167,7 @@ export function VehicleCalculator({
         (filter === "special" && unit.side === "special") ||
         (filter === "checked" &&
           (tab === "owned"
-            ? state.owned.includes(unit.id)
+            ? owned.includes(unit.id)
             : state.pins.includes(unit.id) || state.banned.includes(unit.id)))) &&
       `${unit.name}${unit.nameEn || ""}${unit.id}`
         .normalize("NFKC")
@@ -221,6 +245,34 @@ export function VehicleCalculator({
 
           <section className="vehicle-form-section">
             <h3>账号进度</h3>
+            <OwnedVehicleImport
+              country={country}
+              category={category}
+              current={state.ownedImport}
+              onImport={(garage) => {
+                const ids = [
+                  ...new Set(
+                    garage.vehicles
+                      .filter((v) => v.country === country && v.category === category)
+                      .map((v) => index.aliases.get(v.id) || v.id)
+                      .filter((id) => index.units.has(id)),
+                  ),
+                ];
+                setDrafts({});
+                setProgressDraft("0");
+                update({
+                  ownedImport: {
+                    ids,
+                    uid: garage.uid,
+                    nickname: garage.nickname,
+                    fetchedAt: garage.fetchedAt,
+                  },
+                  unlocked: 0,
+                  progress: 0,
+                });
+              }}
+              onClear={() => update({ ownedImport: undefined })}
+            />
             <label className="calc-field">
               这条线路已拥有到哪辆车？
               <GameSelect
@@ -244,7 +296,7 @@ export function VehicleCalculator({
             <button
               className="quiet-button vehicle-ready"
               disabled={
-                state.owned.includes(state.target) ||
+                owned.includes(state.target) ||
                 (pendingPrerequisites.length === 0 &&
                   result.unlocked >= targetRank &&
                   state.pins.length === 0)
@@ -289,7 +341,7 @@ export function VehicleCalculator({
             <summary>
               其他已有载具与补研偏好{" "}
               <span>
-                {state.owned.length} 辆已有
+                {owned.length} 辆已有
                 {state.pins.length + state.banned.length > 0
                   ? ` · ${state.pins.length + state.banned.length} 项偏好`
                   : ""}
@@ -363,7 +415,13 @@ export function VehicleCalculator({
                             {tab === "owned" && (
                               <input
                                 type="checkbox"
-                                checked={state.owned.includes(unit.id)}
+                                checked={owned.includes(unit.id)}
+                                disabled={state.ownedImport?.ids.includes(unit.id)}
+                                title={
+                                  state.ownedImport?.ids.includes(unit.id)
+                                    ? "官方车库已拥有，清除导入后可手动修改"
+                                    : undefined
+                                }
                                 onChange={(e) =>
                                   update({
                                     owned: e.target.checked
@@ -382,9 +440,7 @@ export function VehicleCalculator({
                             {tab === "route" && (
                               <GameSelect
                                 aria-label={`${unit.name} 补研策略`}
-                                disabled={
-                                  state.owned.includes(unit.id) || unit.rankNumber > targetRank
-                                }
+                                disabled={owned.includes(unit.id) || unit.rankNumber > targetRank}
                                 value={
                                   state.pins.includes(unit.id)
                                     ? "pin"
@@ -490,6 +546,7 @@ export function VehicleCalculator({
                 setProgressDraft("0");
                 update({
                   owned: [],
+                  ownedImport: undefined,
                   pins: [],
                   banned: [],
                   costs: {},

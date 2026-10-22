@@ -1887,3 +1887,36 @@ body {
   color: var(--wt-body);
   font-family: var(--wt-sans);
 }
+
+.vehicle-garage-import {
+  padding-block: 10px;
+  border-block: 1px solid var(--wt-line);
+  margin-block: 10px;
+}
+.vehicle-import-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.vehicle-import-panel {
+  display: grid;
+  gap: 10px;
+  padding-top: 10px;
+}
+.vehicle-import-panel > button {
+  justify-self: start;
+}
+.vehicle-import-candidates {
+  display: grid;
+  gap: 6px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+.vehicle-import-candidates button {
+  text-align: left;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+.vehicle-import-candidates [aria-pressed="true"] {
+  border-color: var(--wt-accent);
+}

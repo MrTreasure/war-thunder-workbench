@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import catalogSettings from "../data/catalog-settings.json";
+import { GameSelect } from "./components/GameSelect";
+import { rankNumber } from "./planner";
 import { Modal } from "./Modal";
 import { statsRequest, statsDate, statsNumber, statsCategoryNames } from "./player-stats-api";
 import type { PlayerProfile, StatsSession } from "./player-stats-api";
 
-type Item = { id: string; name: string; country: string; category: string };
+type Item = { id: string; name: string; country: string; category: string; rank?: string | null };
 type Scenario = {
   label: string;
   rpCents: number;
@@ -134,6 +136,77 @@ function ProductCard({
     </article>
   );
 }
+function ValueComposition({ scenario }: { scenario: Scenario }) {
+  const parts = [
+    { name: "研发点", cents: scenario.rpCents, color: "#d9b868" },
+    { name: "金鹰载具", cents: scenario.geCents, color: "#78aba8" },
+    { name: "礼包", cents: scenario.packCents, color: "#a28cba" },
+  ];
+  const total = parts.reduce((sum, p) => sum + BigInt(p.cents), 0n);
+  let offset = 0;
+  return (
+    <aside className="wt-valuation-composition" aria-label="正常价值占比">
+      <h3>正常价值占比</h3>
+      <div className="wt-valuation-chart-body">
+        <svg
+          viewBox="0 0 100 100"
+          aria-label={
+            total > 0n ? "研发点、金鹰载具和礼包的已核价占比，详见图例" : "暂无已核价金额"
+          }
+        >
+          <circle cx="50" cy="50" r="40" fill="none" stroke="#394247" strokeWidth="16" />
+          {parts.map((p) => {
+            const share = total > 0n ? (Number(p.cents) / Number(total)) * 100 : 0;
+            const start = offset;
+            offset += share;
+            return (
+              <circle
+                key={p.name}
+                cx="50"
+                cy="50"
+                r="40"
+                pathLength="100"
+                fill="none"
+                stroke={p.color}
+                strokeWidth="16"
+                strokeDasharray={`${share} ${100 - share}`}
+                strokeDashoffset={-start}
+                transform="rotate(-90 50 50)"
+              >
+                <title>
+                  {p.name}：{valuationMoney(p.cents)}
+                </title>
+              </circle>
+            );
+          })}
+          <text x="50" y="48" textAnchor="middle">
+            已核价
+          </text>
+          <text x="50" y="62" textAnchor="middle">
+            CNY
+          </text>
+        </svg>
+        <dl>
+          {parts.map((p) => (
+            <div key={p.name}>
+              <dt>
+                <i style={{ background: p.color }} />
+                {p.name}
+              </dt>
+              <dd>
+                {total > 0n
+                  ? `${(Number((BigInt(p.cents) * 10000n) / total) / 100).toFixed(2)}%`
+                  : "—"}
+                <small>{valuationMoney(p.cents)}</small>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+      <small>仅统计已核价人民币金额；特殊载具 GJN 单列。</small>
+    </aside>
+  );
+}
 export function AccountValuation({
   profile,
   session,
@@ -147,6 +220,9 @@ export function AccountValuation({
   const [open, setOpen] = useState(false),
     [busy, setBusy] = useState(false),
     [error, setError] = useState("");
+  const [researchCountry, setResearchCountry] = useState("all");
+  const [researchCategory, setResearchCategory] = useState("all");
+  const [researchRank, setResearchRank] = useState("all");
   const [showResearch, setShowResearch] = useState(false);
   const request = useRef<AbortController | null>(null);
   useEffect(() => () => request.current?.abort(), []);
@@ -181,6 +257,15 @@ export function AccountValuation({
       }
     }
   }
+  const filteredResearch =
+    value?.research.filter(
+      (v) =>
+        (researchCountry === "all" || v.country === researchCountry) &&
+        (researchCategory === "all" || v.category === researchCategory) &&
+        (researchRank === "all" || (v.rank || "unknown") === researchRank),
+    ) || [];
+  const countryName = (id: string) =>
+    (catalogSettings.countries as Record<string, string>)[id] || id;
   return (
     <div className="wt-account-valuation">
       <button
@@ -215,22 +300,25 @@ export function AccountValuation({
           }}
           className="wt-valuation-dialog"
         >
-          <p className="wt-valuation-intro">
-            {value.ownership?.verified ? (
-              <>
-                依据官方公开车库中 {value.ownership.ownedCount} 辆已拥有载具计算，包含{" "}
-                {value.ownership.unplayedCount}{" "}
-                辆未出战载具。研发点按已拥有载具去重汇总，不额外推算未持有的前置。
-              </>
-            ) : (
-              <>根据 {value.observedCount} 辆出战载具与当前前置推算，尚未核验完整已拥有清单。</>
-            )}
-            同一载具、同一礼包只计算一次。
-            {value.ownership?.fetchedAt && (
-              <> 车库核验于 {statsDate(value.ownership.fetchedAt)}。</>
-            )}
-            {value.ownership?.notice && <> {value.ownership.notice}</>}
-          </p>
+          <div className="wt-valuation-overview">
+            <p className="wt-valuation-intro">
+              {value.ownership?.verified ? (
+                <>
+                  依据官方公开车库中 {value.ownership.ownedCount} 辆已拥有载具计算，包含{" "}
+                  {value.ownership.unplayedCount}{" "}
+                  辆未出战载具。研发点按已拥有载具去重汇总，不额外推算未持有的前置。
+                </>
+              ) : (
+                <>根据 {value.observedCount} 辆出战载具与当前前置推算，尚未核验完整已拥有清单。</>
+              )}
+              同一载具、同一礼包只计算一次。
+              {value.ownership?.fetchedAt && (
+                <> 车库核验于 {statsDate(value.ownership.fetchedAt)}。</>
+              )}
+              {value.ownership?.notice && <> {value.ownership.notice}</>}
+            </p>
+            <ValueComposition scenario={value.scenarios.normal} />
+          </div>
           <div className="wt-valuation-totals">
             {Object.entries(value.scenarios).map(([key, s]) => (
               <section key={key}>
@@ -366,8 +454,51 @@ export function AccountValuation({
                 .join(" · ") || "暂无已核实研发点"}
             </p>
             {showResearch && (
+              <div className="wt-valuation-filters">
+                <label>
+                  国别
+                  <GameSelect value={researchCountry} onValueChange={setResearchCountry}>
+                    <option value="all">全部国别</option>
+                    {[...new Set(value.research.map((v) => v.country))].sort().map((id) => (
+                      <option key={id} value={id}>
+                        {countryName(id)}
+                      </option>
+                    ))}
+                  </GameSelect>
+                </label>
+                <label>
+                  军种
+                  <GameSelect value={researchCategory} onValueChange={setResearchCategory}>
+                    <option value="all">全部军种</option>
+                    {[...new Set(value.research.map((v) => v.category))].sort().map((id) => (
+                      <option key={id} value={id}>
+                        {statsCategoryNames[id] || id}
+                      </option>
+                    ))}
+                  </GameSelect>
+                </label>
+                <label>
+                  等级
+                  <GameSelect value={researchRank} onValueChange={setResearchRank}>
+                    <option value="all">全部等级</option>
+                    {[...new Set(value.research.map((v) => v.rank || "unknown"))]
+                      .sort((a, b) => (rankNumber(a) || 99) - (rankNumber(b) || 99))
+                      .map((rank) => (
+                        <option key={rank} value={rank}>
+                          {rank === "unknown" ? "等级待核验" : `Rank ${rank}`}
+                        </option>
+                      ))}
+                  </GameSelect>
+                </label>
+                <output>
+                  显示 {filteredResearch.length} / {value.researchCount} 辆
+                </output>
+              </div>
+            )}
+            {showResearch && !filteredResearch.length && <output>没有符合筛选条件的载具。</output>}
+            {showResearch && (
               <div className="wt-valuation-research">
-                {value.research.map((v) => (
+                {filteredResearch.map((v) => (
                   <article key={v.id}>
                     <VehicleArt item={v} compact />
                     <div>
@@ -388,7 +519,8 @@ export function AccountValuation({
                           : v.observed
                             ? "有出战记录"
                             : "根据当前前置推算"}{" "}
-                        · {statsCategoryNames[v.category] || v.category}
+                        · {countryName(v.country)} · {statsCategoryNames[v.category] || v.category}{" "}
+                        · {v.rank ? `Rank ${v.rank}` : "等级待核验"}
                       </small>
                       <strong>{statsNumber(v.rp)} RP</strong>
                       <small>

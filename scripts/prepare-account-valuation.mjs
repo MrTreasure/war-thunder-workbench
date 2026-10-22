@@ -26,6 +26,7 @@ for (const [category, countries] of Object.entries(catalog.trees)) {
             name: v.name,
             category,
             country,
+            rank: rank.rank,
             kind: v.kind,
             side: v.side,
             parent: req ? aliases[req] || req : null,

@@ -1739,3 +1739,40 @@
   .wt-sale-picker-controls .wt-select { padding-inline: 8px; }
   .wt-sale-title-button { max-width: 100%; }
 }
+
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-valuation-overview {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .wt-valuation-composition {
+    border-left: 0;
+    padding-left: 0;
+    max-width: 340px;
+    justify-self: end;
+    width: 100%;
+  }
+  .wt-valuation-products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .wt-valuation-filters label {
+    flex: 1 1 100px;
+    min-width: 0;
+  }
+  .wt-valuation-filters .wt-select {
+    min-height: 44px;
+    font-size: 16px;
+  }
+  .vehicle-garage-import input {
+    font-size: 16px;
+    min-height: 44px;
+  }
+  .vehicle-garage-import button {
+    min-height: 44px;
+  }
+}
+@media (max-width: 380px) {
+  .wt-valuation-products {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -121,3 +121,12 @@
 - 新估值优先按已核验拥有ID去重汇总，不再对这份完整清单额外增加未持有的当前前置；接口失败时标明按出战记录推算。车库只在显式计算时读取/缓存，与现有查询池共享频控，不额外扣查询额度，独立估值额度保持原规则。本地科技树拥有状态不自动更改。
 - 真实市场均价首轮已完成：141项中139项取得近30完整UTC日成交量加权日行情均价，2项无窗口内成交保持null；原始公开行情hash、样本、窗口和日期随数据库事件保留。更新脚本仅复用加密会话，无重新登录或交易。
 - 已部署验证：前台 `d241277` 独立worktree运行 `pnpm run check` / `pnpm run build` 通过；服务运行于只读release `def7c07`，解析器镜像内校验安装成功，Python编译通过。实际HTTP估值返回ownedCount=126/unplayedCount=105，T-34-85为owned且未出战、33000RP；再次计算免费缓存、独立估值额度used=1/reserved=0，查询/战报额度不变。车库表不保存slots/unlocks等额外字段，验证actor记录已清理。未使用浏览器自动化，未进行QMuse导入。
+
+
+## 2026-10-22 compact valuation and owned-vehicle import
+
+- Product cards use four compact desktop columns and shorter official artwork. The upper-right donut summarizes known normal CNY RP/GE/pack values, including zero/partial states; market GJN stays separate.
+- Research detail filters compose country/category/rank using canonical metadata. Unknown rank remains explicit.
+- Research quote calculators can search/select a player and explicitly import the verified public garage for the current country/category, including unplayed vehicles. Search uses existing query quota; each successful import uses one valuation quota even if garage cache is reused. Failures release reservations; retries reuse the request ID.
+- Manual ownership remains in `Profile.owned`; optional `Profile.ownedImport` stores imported IDs and provenance in the existing country/category local profile. Calculations use a deduplicated union. Clearing import retains manual selections; reset clears both. Import restores automatic rank calculation and clears prior target partial RP to avoid applying another player's progress.
+- No cloud user-state persistence or QMuse import was added. Preview remains the existing Nginx route.

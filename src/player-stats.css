@@ -1703,8 +1703,8 @@
 }
 .wt-valuation-products {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
   margin-top: 14px;
 }
 .wt-valuation-product {
@@ -1716,10 +1716,10 @@
 }
 .wt-valuation-product-media {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(48px, 1fr));
   align-items: center;
-  min-height: 150px;
-  padding: 12px;
+  min-height: 84px;
+  padding: 6px;
   background: #1b2125;
 }
 .wt-valuation-product-media figure {
@@ -1737,7 +1737,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 124px;
+  height: 76px;
 }
 .wt-valuation-art img {
   display: block;
@@ -1750,7 +1750,7 @@
   color: var(--wt-record-muted);
 }
 .wt-valuation-product-body {
-  padding: 14px;
+  padding: 10px;
 }
 .wt-valuation-product-kind {
   display: block;
@@ -1759,7 +1759,7 @@
   margin-bottom: 6px;
 }
 .wt-valuation-product h4 {
-  font-size: 15px;
+  font-size: 13px;
   line-height: 1.5;
   margin: 0;
   overflow-wrap: anywhere;
@@ -1772,9 +1772,9 @@
 }
 .wt-valuation-product-price {
   display: block;
-  font-size: 24px;
+  font-size: 20px;
   color: var(--wt-record-gold);
-  margin-block: 12px 6px;
+  margin-block: 6px 4px;
   font-variant-numeric: tabular-nums;
 }
 .wt-valuation-product-notes {
@@ -1837,4 +1837,82 @@
 }
 .calculator.wt-valuation-dialog[open] {
   display: block;
+}
+
+.wt-valuation-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 24px;
+  align-items: start;
+}
+.wt-valuation-composition {
+  border-left: 1px solid var(--wt-record-line);
+  padding-left: 18px;
+}
+.wt-valuation-composition h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+}
+.wt-valuation-chart-body {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+}
+.wt-valuation-chart-body svg {
+  width: 100%;
+}
+.wt-valuation-chart-body text {
+  fill: var(--wt-record-muted);
+  font-size: 10px;
+}
+.wt-valuation-chart-body dl {
+  margin: 0;
+  font-size: 11px;
+}
+.wt-valuation-chart-body dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-block: 6px;
+}
+.wt-valuation-chart-body dt {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.wt-valuation-chart-body dt i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+.wt-valuation-chart-body dd {
+  margin: 0;
+  text-align: right;
+}
+.wt-valuation-chart-body dd small {
+  display: block;
+  color: var(--wt-record-muted);
+}
+.wt-valuation-composition > small {
+  font-size: 10px;
+  color: var(--wt-record-muted);
+}
+.wt-valuation-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: end;
+  margin-top: 12px;
+}
+.wt-valuation-filters label {
+  display: grid;
+  gap: 4px;
+  font-size: 12px;
+  min-width: 120px;
+}
+.wt-valuation-filters output {
+  color: var(--wt-record-muted);
+  font-size: 12px;
+  padding-bottom: 10px;
 }

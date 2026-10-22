@@ -115,6 +115,7 @@ export type Modifications = Record<string, ModificationData>;
 export interface Profile {
   target: string;
   owned: string[];
+  ownedImport?: { ids: string[]; uid: string; nickname: string; fetchedAt: string };
   pins: string[];
   banned: string[];
   costs: Record<string, number>;
