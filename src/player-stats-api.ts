@@ -157,7 +157,6 @@ function stored(key: string) {
 let sessionToken = "";
 // QMuse shares its origin with other applications. Persist only a non-secret hint.
 export function hasStatsToken() { return Boolean(sessionToken); }
-export function remembersStatsAccount() { return stored("wt-account-known-v1") === "1"; }
 export function setStatsToken(token: string) {
   sessionToken = token;
   localStorage.removeItem(SESSION);

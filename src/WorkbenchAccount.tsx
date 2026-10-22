@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import {
   loginChallenge,
   hasStatsToken,
-  remembersStatsAccount,
   forgetStatsAccount,
   notifyStatsAccountLogin,
   prepareStatsDevice,
@@ -82,9 +81,6 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
         resetIdentity();
         setStatsToken(result.token);
         notifyStatsAccountLogin();
-      } else if (remembersStatsAccount() && !hasStatsToken()) {
-        await redirectLogin();
-        return;
       }
       await refreshSession();
     }
