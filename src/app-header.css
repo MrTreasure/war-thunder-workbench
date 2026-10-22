@@ -99,8 +99,7 @@
   white-space: nowrap;
 }
 @media (max-width: 1150px) {
-  .app-header .creator-promo-text,
-  .app-header .creator-promo-arrow {
+  .app-header .creator-promo-text {
     display: none;
   }
   .app-header .creator-promo-short {
@@ -212,6 +211,30 @@
   justify-content: flex-end;
   gap: 18px;
   min-width: 0;
+}
+/* Keep external destinations beside the shared account control on every page. */
+.app-repository-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 32px;
+  min-height: 44px;
+  color: var(--wt-muted);
+  border-radius: 2px;
+}
+.app-repository-link svg {
+  flex: none;
+}
+.app-repository-link:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 2px;
+}
+@media (hover: hover) {
+  .app-repository-link:hover {
+    color: var(--wt-ink);
+    background: var(--wt-raised);
+  }
 }
 .wt-header-account {
   display: flex;
@@ -328,8 +351,7 @@
   }
 }
 @media (max-width: 1280px) {
-  .app-header-actions .creator-promo-text,
-  .app-header-actions .creator-promo-arrow {
+  .app-header-actions .creator-promo-text {
     display: none;
   }
   .app-header-actions .creator-promo-short {
@@ -342,6 +364,9 @@
   }
   .app-header-actions {
     gap: 4px;
+  }
+  .app-repository-link {
+    width: 44px;
   }
   .wt-account-trigger {
     max-width: 86px;
