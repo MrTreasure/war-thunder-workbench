@@ -308,3 +308,5 @@
   and italic fields. Preserve old version-1 text defaults and use identical
   typography for SVG and PNG export. Never accept arbitrary CSS/font URLs from
   imported plans; load the required same-origin font before PNG rendering.
+
+- 2026-10-23 用户明确例外：战雷独立 Worker `war-thunder-workbench` 保持原名，不添加 `c137-` 前缀，不为命名迁移或重新创建它。
