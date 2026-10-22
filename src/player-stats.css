@@ -2111,3 +2111,15 @@
   outline: 2px solid var(--wt-record-gold);
   outline-offset: 3px;
 }
+
+.wt-record-filters .wt-record-sort-direction {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  color: var(--wt-record-gold);
+}
+.wt-record-sort:hover,
+.wt-record-sort:hover > span,
+.wt-record-table-scroll th[aria-sort="ascending"] .wt-record-sort > span,
+.wt-record-table-scroll th[aria-sort="descending"] .wt-record-sort > span {
+  color: var(--wt-record-gold);
+}

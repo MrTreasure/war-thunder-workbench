@@ -522,6 +522,26 @@ export function PlayerStats() {
     }
   }
   const active = profile?.modes.find((m) => m.id === mode);
+  const vehicleColumns: [VehicleSortKey, string][] = [
+    ["name", "载具"],
+    ["battles", "场次"],
+    ["winRate", "胜率"],
+    ["airKd", "对空 K/D"],
+    ["groundKd", "对地 K/D"],
+    ...(category === "ground" ? [] : [["navalKd", "对海 K/D"]] as [VehicleSortKey, string][]),
+    ["kd", "综合 K/D"],
+    ["efficiency", "效率评分"],
+    ["silverLions", "累计获得银狮"],
+  ];
+  function sortVehicles(key: VehicleSortKey, toggle = false) {
+    setVehicleSort(current => ({
+      key,
+      direction: current.key === key
+        ? toggle ? current.direction === "desc" ? "asc" : "desc" : current.direction
+        : key === "name" ? "asc" : "desc",
+    }));
+    setLimit(40);
+  }
   const filtered = (profile?.vehicles || [])
     .filter(
       (v) =>
@@ -983,24 +1003,30 @@ export function PlayerStats() {
                       <option value="unknown">等级待核验</option>
                     )}
                   </GameSelect>
+                  <GameSelect
+                    className="wt-record-sort-field"
+                    aria-label="载具战绩排序字段"
+                    value={vehicleSort.key}
+                    onValueChange={value => sortVehicles(value as VehicleSortKey)}
+                  >
+                    {vehicleColumns.map(([key, label]) => (
+                      <option key={key} value={key}>按{label}排序</option>
+                    ))}
+                  </GameSelect>
+                  <button
+                    type="button"
+                    className="wt-record-sort-direction"
+                    onClick={() => sortVehicles(vehicleSort.key, true)}
+                    aria-label={`切换为${vehicleSort.direction === "desc" ? "升序" : "降序"}排列载具战绩`}
+                  >
+                    {vehicleSort.direction === "desc" ? "降序 ↓" : "升序 ↑"}
+                  </button>
                 </div>
                 <div className="wt-record-table-scroll">
                   <table>
                     <thead>
                       <tr>
-                        {(
-                          [
-                            ["name", "载具"],
-                            ["battles", "场次"],
-                            ["winRate", "胜率"],
-                            ["airKd", "对空 K/D"],
-                            ["groundKd", "对地 K/D"],
-                            ...(category === "ground" ? [] : [["navalKd", "对海 K/D"]]),
-                            ["kd", "综合 K/D"],
-                            ["efficiency", "效率评分"],
-                            ["silverLions", "累计获得银狮"],
-                          ] as [VehicleSortKey, string][]
-                        ).map(([key, label]) => (
+                        {vehicleColumns.map(([key, label]) => (
                           <th
                             key={key}
                             scope="col"
@@ -1015,20 +1041,8 @@ export function PlayerStats() {
                             <button
                               type="button"
                               className="wt-record-sort"
-                              onClick={() => {
-                                setVehicleSort((current) => ({
-                                  key,
-                                  direction:
-                                    current.key === key
-                                      ? current.direction === "desc"
-                                        ? "asc"
-                                        : "desc"
-                                      : key === "name"
-                                        ? "asc"
-                                        : "desc",
-                                }));
-                                setLimit(40);
-                              }}
+                              onClick={() => sortVehicles(key, true)}
+                              title={`按${label}排序，点击切换升序或降序`}
                             >
                               {label}
                               <span aria-hidden="true">
