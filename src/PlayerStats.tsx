@@ -618,11 +618,6 @@ export function PlayerStats() {
           </span>
         </div>
       </header>
-      {(profile || candidates.length > 0 || busy || route.player) && (
-        <button className="wt-record-back" onClick={returnToSearch}>
-          ← 返回战绩首页
-        </button>
-      )}
       <form
         className="wt-record-query"
         onSubmit={(event) => {
@@ -649,6 +644,11 @@ export function PlayerStats() {
           {busy ? "正在查询…" : "搜索玩家"}
         </button>
         <span>缓存至少 {hours} 小时，命中免费</span>
+        {(profile || candidates.length > 0 || busy || route.player) && (
+          <button type="button" className="wt-record-back" onClick={returnToSearch}>
+            ← 返回战绩首页
+          </button>
+        )}
       </form>
       {error && (
         <p className="wt-record-error" role="alert">

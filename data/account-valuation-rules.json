@@ -1,12 +1,39 @@
 {
   "schemaVersion": 1,
   "version": "account-valuation-v1",
-  "ge": { "cents": 18900, "units": 5000 },
+  "ge": {
+    "cents": 18900,
+    "units": 5000
+  },
   "rpUnit": 10000,
   "scenarios": {
-    "normal": { "label": "正常价值", "rpCents": { "ground": 300, "helicopters": 300, "aviation": 200 }, "purchasePercent": 100 },
-    "discount": { "label": "折扣价值", "rpCents": { "ground": 300, "helicopters": 300, "aviation": 200 }, "purchasePercent": 50 },
-    "secondHand": { "label": "二手价值", "rpCents": { "ground": 150, "helicopters": 150, "aviation": 100 }, "purchasePercent": 30 }
+    "normal": {
+      "label": "正常价值",
+      "rpCents": {
+        "ground": 300,
+        "helicopters": 300,
+        "aviation": 200
+      },
+      "purchasePercent": 100
+    },
+    "discount": {
+      "label": "折扣价值",
+      "rpCents": {
+        "ground": 300,
+        "helicopters": 300,
+        "aviation": 200
+      },
+      "purchasePercent": 50
+    },
+    "secondHand": {
+      "label": "二手价值",
+      "rpCents": {
+        "ground": 150,
+        "helicopters": 150,
+        "aviation": 100
+      },
+      "purchasePercent": 30
+    }
   },
-  "notice": "仅供参考。根据公开出战载具及当前研发前置推算，不代表完整持有清单、实际投入或成交价格；不推算未出战载具、历史研发折扣、改装研发和高级账号。特殊载具 GJN 价格单列，不计入人民币总价；未核价条目不按零元处理。"
+  "notice": "仅供参考。优先依据官方公开已拥有载具清单计算；未取得清单时按出战记录及当前研发前置推算。结果不代表实际投入或成交价格，不包含未购载具的研发进度、改装研发和高级账号。特殊载具 GJN 均价单列，不计入人民币总价；未核价条目不按零元处理。"
 }

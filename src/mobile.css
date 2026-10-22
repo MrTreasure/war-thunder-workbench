@@ -1716,3 +1716,18 @@
 @media (max-width:800px) {
  .wt-sale-view-switch{margin-left:auto}.wt-sale-view-switch button{min-height:44px;padding:7px 14px}.wt-sale-month-toolbar{flex-wrap:wrap;gap:8px}.wt-sale-month-toolbar h4{font-size:16px}.wt-sale-month-toolbar>div:first-child{gap:8px}.wt-sale-month-navigation button{min-width:44px;min-height:44px;padding:5px 10px}.wt-sale-month-grid th{font-size:11px;padding:9px 0}.wt-sale-week{grid-template-rows:30px repeat(var(--wt-sale-week-lanes),44px) minmax(8px,1fr)}.wt-sales-page .wt-sale-week .wt-sale-month-day{padding:5px 3px}.wt-sales-page .wt-sale-range-bar{min-height:44px;padding:5px 4px;margin-inline:2px;gap:4px}.wt-sale-range-name{font-size:10px}.wt-sale-month-number{gap:0;min-height:22px}.wt-sale-month-number b{width:21px;height:21px;font-size:11px}.wt-sale-month-number small{font-size:9px}.wt-sale-day-details{padding:12px}.wt-sale-day-detail-heading strong{margin-left:0}.wt-sale-day-details article p{font-size:11px}
 }
+
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-record-query { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
+  .wt-record-query:has(.wt-record-back) { grid-template-columns: minmax(0, 1fr) auto auto; }
+  .wt-record-query input { width: 100%; }
+  .wt-record-query > span { grid-column: 1 / -1; grid-row: 2; }
+  .wt-record-query .wt-record-back { grid-column: 3; grid-row: 1; padding-inline: 8px; font-size: 12px; }
+  .wt-record-query .wt-record-primary { padding-inline: 10px; }
+  .wt-valuation-dialog > .calc-header { position: sticky; top: 0; }
+  .wt-valuation-products { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .wt-valuation-research { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 520px) {
+  .wt-valuation-products { grid-template-columns: minmax(0, 1fr); }
+}

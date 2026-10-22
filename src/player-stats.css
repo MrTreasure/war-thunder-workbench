@@ -1691,3 +1691,150 @@
 .wt-valuation-section a {
   color: var(--wt-record-gold);
 }
+
+.wt-record-query .wt-record-back {
+  margin: 0 0 0 auto;
+}
+.wt-valuation-dialog p {
+  font-size: 14px;
+}
+.wt-valuation-dialog .calc-header h2 {
+  font-size: 20px;
+}
+.wt-valuation-products {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+.wt-valuation-product {
+  min-width: 0;
+  border: 1px solid var(--wt-record-line);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--wt-record-panel);
+}
+.wt-valuation-product-media {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  align-items: center;
+  min-height: 150px;
+  padding: 12px;
+  background: #1b2125;
+}
+.wt-valuation-product-media figure {
+  margin: 0;
+  min-width: 0;
+}
+.wt-valuation-product-media figcaption {
+  font-size: 11px;
+  text-align: center;
+  color: var(--wt-record-muted);
+  overflow-wrap: anywhere;
+}
+.wt-valuation-art {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 124px;
+}
+.wt-valuation-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.wt-valuation-art-missing {
+  font-size: 11px;
+  color: var(--wt-record-muted);
+}
+.wt-valuation-product-body {
+  padding: 14px;
+}
+.wt-valuation-product-kind {
+  display: block;
+  color: var(--wt-record-muted);
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+.wt-valuation-product h4 {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.wt-valuation-product h4 a {
+  text-decoration: none;
+}
+.wt-valuation-product h4 a:hover {
+  text-decoration: underline;
+}
+.wt-valuation-product-price {
+  display: block;
+  font-size: 24px;
+  color: var(--wt-record-gold);
+  margin-block: 12px 6px;
+  font-variant-numeric: tabular-nums;
+}
+.wt-valuation-product-notes {
+  display: grid;
+  gap: 4px;
+  color: var(--wt-record-muted);
+  font-size: 12px;
+}
+.wt-valuation-product-notes > small {
+  font-size: 11px;
+}
+.wt-valuation-product-method summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.wt-valuation-product-method p {
+  overflow-wrap: anywhere;
+}
+.wt-valuation-research {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+.wt-valuation-research > article {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid var(--wt-record-line);
+  border-radius: 4px;
+  padding: 10px;
+  min-width: 0;
+}
+.wt-valuation-art-compact {
+  flex: 0 0 96px;
+  width: 96px;
+  height: 76px;
+}
+.wt-valuation-research h4 {
+  margin: 0;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.wt-valuation-research small {
+  display: block;
+  font-size: 11px;
+  color: var(--wt-record-muted);
+}
+.wt-valuation-research strong {
+  display: block;
+  color: var(--wt-record-gold);
+  font-size: 16px;
+  margin-top: 4px;
+}
+.calculator.wt-valuation-dialog:not([open]) {
+  display: none;
+}
+.calculator.wt-valuation-dialog[open] {
+  display: block;
+}
