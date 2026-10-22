@@ -1,3 +1,6 @@
+import { vehicleName } from "./i18n/core";
+import { useLocale } from "./i18n/react";
+import { localize, t } from "./i18n/core";
 /* Interactive SVG map owns arrow-key pan and Home reset; native HTML has no map widget. */
 /* oxlint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex */
 import { GameSelect } from "./components/GameSelect";
@@ -19,6 +22,8 @@ type GroundMap = (typeof atlas.maps)[number];
 const normalize = (s: string) =>
   s.normalize("NFKC").toLowerCase().replaceAll("日曜", "日耀").replaceAll("马奇诺", "马其诺");
 export function MapAtlas() {
+  const locale = useLocale();
+
   const search = Route.useSearch();
   const navigate = useNavigate({ from: "/maps" });
   const query = search.q || "";
@@ -53,106 +58,134 @@ export function MapAtlas() {
       />
     );
   return (
-    <main className="ground-page" aria-label="陆战地图">
+    <main className="ground-page" aria-label={t("陆战地图")}>
       <header className="ground-heading">
         <div>
-          <h1>陆战地图</h1>
-          <p>从地图读懂战场，选择布局查看地形与点位。</p>
+          <h1>{t("陆战地图")}</h1>
+          {locale !== "zh-CN" && (
+            <p className="wt-source-language-note">{t("攻略链接与参考图保留原文。")}</p>
+          )}
+          <p>{t("从地图读懂战场，选择布局查看地形与点位。")}</p>
         </div>
         <div className="ground-count">
-          <strong>{atlas.maps.length}</strong> 张地图{" "}
-          <span> / {atlas.maps.reduce((n, m) => n + m.layouts.length, 0)} 种任务布局</span>
+          <strong>{localize(atlas.maps.length)}</strong> {t("张地图")}
+          {localize(" ")}
+          <span>
+            {" "}
+            / {localize(atlas.maps.reduce((n, m) => n + m.layouts.length, 0))} {t("种任务布局")}
+          </span>
         </div>
       </header>
       <div className="ground-searchbar">
         <label>
-          <span className="sr-only">搜索地图</span>
+          <span className="sr-only">{t("搜索地图")}</span>
           <input
             type="search"
-            placeholder="搜索地图名称、英文名或攻略"
+            placeholder={t("搜索地图名称、英文名或攻略")}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
         </label>
         <button aria-pressed={onlyGuides} onClick={() => setOnlyGuides(!onlyGuides)}>
-          仅看有关联攻略
+          {t("仅看有关联攻略")}
         </button>
-        <span>{cards.length} 个三点占领布局</span>
+        <span>
+          {localize(cards.length)} {t("个三点占领布局")}
+        </span>
       </div>
-      <section className="ground-gallery" aria-label="地图列表">
-        {cards.map(({ map, thumb }) => (
-          <Link
-            className="ground-card"
-            key={thumb.layoutId}
-            to="/maps/$mapId"
-            params={{ mapId: map.id }}
-            search={{ side: thumb.layoutId, q: search.q, hasGuides: search.hasGuides }}
-          >
-            <div className="ground-card-image">
-              <GroundThumbnail
-                asset={thumb.image}
-                alt={`${map.name} ${thumb.name} 点位缩略图`}
-                width={thumb.width}
-                height={thumb.height}
-                loading="lazy"
-                decoding="async"
-              />
-              {map.guides.length > 0 && (
-                <span className="ground-guide-badge">攻略 {map.guides.length}</span>
-              )}
-            </div>
-            <div className="ground-card-caption">
-              <strong>{map.name}</strong>
-              <span>{thumb.name}</span>
-              <small>
-                {map.layouts.length} 种任务布局 <b aria-hidden="true">→</b>
-              </small>
-            </div>
-          </Link>
-        ))}
+      <section className="ground-gallery" aria-label={t("地图列表")}>
+        {localize(
+          cards.map(({ map, thumb }) => (
+            <Link
+              className="ground-card"
+              key={thumb.layoutId}
+              to="/maps/$mapId"
+              params={{ mapId: map.id }}
+              search={{ side: thumb.layoutId, q: search.q, hasGuides: search.hasGuides }}
+            >
+              <div className="ground-card-image">
+                <GroundThumbnail
+                  asset={thumb.image}
+                  alt={localize(
+                    `${localize(vehicleName(map))} ${localize(vehicleName(thumb))} 点位缩略图`,
+                  )}
+                  width={thumb.width}
+                  height={thumb.height}
+                  loading="lazy"
+                  decoding="async"
+                />
+                {localize(
+                  map.guides.length > 0 && (
+                    <span className="ground-guide-badge">
+                      {t("攻略")}
+                      {localize(map.guides.length)}
+                    </span>
+                  ),
+                )}
+              </div>
+              <div className="ground-card-caption">
+                <strong>{localize(vehicleName(map))}</strong>
+                <span>{localize(vehicleName(thumb))}</span>
+                <small>
+                  {localize(map.layouts.length)} {t("种任务布局")}
+                  <b aria-hidden="true">→</b>
+                </small>
+              </div>
+            </Link>
+          )),
+        )}
       </section>
-      {!cards.length && (
-        <div className="ground-empty">
-          <h2>没有找到这张地图</h2>
-          <p>试试地图简称或英文名称。</p>
-          <button
-            onClick={() => {
-              setQuery("");
-              setOnlyGuides(false);
-            }}
-          >
-            显示全部地图
-          </button>
-        </div>
+      {localize(
+        !cards.length && (
+          <div className="ground-empty">
+            <h2>{t("没有找到这张地图")}</h2>
+            <p>{t("试试地图简称或英文名称。")}</p>
+            <button
+              onClick={() => {
+                setQuery("");
+                setOnlyGuides(false);
+              }}
+            >
+              {t("显示全部地图")}
+            </button>
+          </div>
+        ),
       )}
       <p className="ground-source-note">
-        列表展示导出资料中的三点占领布局；详情可切换全部已收录任务。点位为简报参考位置，关联攻略请结合原帖的地图版本阅读。
+        {t(
+          "列表展示导出资料中的三点占领布局；详情可切换全部已收录任务。点位为简报参考位置，关联攻略请结合原帖的地图版本阅读。",
+        )}
       </p>
     </main>
   );
 }
 export function GroundMapPage() {
+  useLocale();
+
   const { mapId } = DetailRoute.useParams();
   const search = DetailRoute.useSearch();
   const navigate = useNavigate({ from: "/maps/$mapId" });
   const map = atlas.maps.find((m) => m.id === mapId);
   const back = (
     <Link className="ground-back" to="/maps" search={{ q: search.q, hasGuides: search.hasGuides }}>
-      ← 地图列表
+      {t("← 地图列表")}
     </Link>
   );
   if (!map)
     return (
       <main className="ground-page">
         <header className="ground-heading">
-          <h1>地图未找到</h1>
-          {back}
+          <h1>{t("地图未找到")}</h1>
+          {localize(back)}
         </header>
-        <p>这张地图尚未收录，请返回列表选择。</p>
+        <p>{t("这张地图尚未收录，请返回列表选择。")}</p>
       </main>
     );
   return (
-    <main className="ground-page ground-detail-page" aria-label={`${map.name}地图详情`}>
+    <main
+      className="ground-page ground-detail-page"
+      aria-label={localize(`${localize(vehicleName(map))}地图详情`)}
+    >
       <GroundDetail
         key={map.id}
         back={back}
@@ -203,6 +236,8 @@ function GroundDetail({
   openProject: (project: MapProject) => void;
   choose: (id: string) => void;
 }) {
+  useLocale();
+
   const layout = map.layouts.find((l) => l.id === layoutId) || map.layouts[0];
   const [contours, setContours] = useState(true),
     [points, setPoints] = useState(true),
@@ -265,7 +300,7 @@ function GroundDetail({
         <g key={`x${label}`}>
           <path d={`M${position} 0V1000`} />
           <text x={position + 3} y={mapFrame.y + 18 / zoom}>
-            {label}
+            {localize(label)}
           </text>
         </g>,
       );
@@ -274,7 +309,7 @@ function GroundDetail({
         <g key={`z${label}`}>
           <path d={`M0 ${position}H1000`} />
           <text x={mapFrame.x + 4 / zoom} y={position + 15 / zoom}>
-            {label}
+            {localize(label)}
           </text>
         </g>,
       );
@@ -282,9 +317,9 @@ function GroundDetail({
   const mapControls = (
     <div className="ground-controls">
       <label>
-        <span>布局</span>
+        <span>{t("布局")}</span>
         <GameSelect
-          aria-label="任务布局"
+          aria-label={t("任务布局")}
           value={layout.id}
           onValueChange={(value) => {
             reset();
@@ -292,65 +327,73 @@ function GroundDetail({
             choose(value);
           }}
         >
-          {map.layouts.map((l) => (
-            <option key={l.id} value={l.id}>
-              {map.thumbnails.find((t) => t.layoutId === l.id)?.name || l.name}
-              {map.layouts.filter((v) => v.name === l.name).length > 1 &&
-              !map.thumbnails.some((t) => t.layoutId === l.id)
-                ? ` · 布局 ${map.layouts.filter((v) => v.name === l.name).findIndex((v) => v.id === l.id) + 1}`
-                : ""}
-            </option>
-          ))}
+          {localize(
+            map.layouts.map((l) => (
+              <option key={l.id} value={l.id}>
+                {localize(
+                  vehicleName(map.thumbnails.find((t) => t.layoutId === l.id)) || vehicleName(l),
+                )}
+                {localize(
+                  map.layouts.filter((v) => vehicleName(v) === vehicleName(l)).length > 1 &&
+                    !map.thumbnails.some((t) => t.layoutId === l.id)
+                    ? ` · 布局 ${localize(map.layouts.filter((v) => vehicleName(v) === vehicleName(l)).findIndex((v) => v.id === l.id) + 1)}`
+                    : "",
+                )}
+              </option>
+            )),
+          )}
         </GameSelect>
       </label>
       <label>
-        <span>己方</span>
+        <span>{t("己方")}</span>
         <GameSelect
-          aria-label="己方出生侧"
+          aria-label={t("己方出生侧")}
           value={team}
           onValueChange={(value) => {
             editorRef.current?.finish();
             chooseTeam(Number(value) as 1 | 2);
           }}
         >
-          <option value={1}>队伍 1</option>
-          <option value={2}>队伍 2</option>
+          <option value={1}>{t("队伍 1")}</option>
+          <option value={2}>{t("队伍 2")}</option>
         </GameSelect>
       </label>
       <div className="ground-layer-toggles">
-        {[
-          ["等高线", contours, setContours],
-          ["点位", points, setPoints],
-          ["参考网格", grid, setGrid],
-          ["布局范围", cropped, setCropped],
-        ].map(([name, value, set]) => (
-          <button
-            key={name as string}
-            aria-pressed={value as boolean}
-            onClick={() => {
-              reset();
-              (set as (v: boolean) => void)(!value);
-            }}
-          >
-            {name as string}
-          </button>
-        ))}
+        {localize(
+          [
+            ["等高线", contours, setContours],
+            ["点位", points, setPoints],
+            ["参考网格", grid, setGrid],
+            ["布局范围", cropped, setCropped],
+          ].map(([name, value, set]) => (
+            <button
+              key={name as string}
+              aria-pressed={value as boolean}
+              onClick={() => {
+                reset();
+                (set as (v: boolean) => void)(!value);
+              }}
+            >
+              {localize(name as string)}
+            </button>
+          )),
+        )}
       </div>
     </div>
   );
   return (
-    <section className="ground-detail" data-editing={editing} aria-label="地图与任务布局">
+    <section className="ground-detail" data-editing={editing} aria-label={t("地图与任务布局")}>
       <div className="ground-detail-body">
         <div className="ground-workspace" data-editing={editing}>
           <div className="ground-detail-toolbar">
             <div className="ground-map-identity">
-              {back}
+              {localize(back)}
               <h1>
-                {map.name}
-                <small>{map.english}</small>
+                {localize(vehicleName(map))}
+                <small>{localize(map.english)}</small>
               </h1>
             </div>
-            {mapControls}
+            {localize(mapControls)}
             <button
               className="ground-edit-toggle"
               aria-pressed={editing}
@@ -359,7 +402,7 @@ function GroundDetail({
                 setEditing((v) => !v);
               }}
             >
-              {editing ? "完成编辑" : "编辑走线"}
+              {localize(editing ? "完成编辑" : "编辑走线")}
             </button>
             <a
               className="ground-original"
@@ -367,7 +410,7 @@ function GroundDetail({
               target="_blank"
               rel="noopener noreferrer"
             >
-              原图 ↗
+              {t("原图 ↗")}
             </a>
           </div>
           <div className="ground-stage" data-zoomed={zoom > 1} data-editing={editing}>
@@ -391,7 +434,9 @@ function GroundDetail({
                 }
               }}
               viewBox={`${x} ${y} ${w} ${h}`}
-              aria-label={`${map.name} ${layout.name}，可拖动查看，使用下方按钮缩放`}
+              aria-label={localize(
+                `${localize(vehicleName(map))} ${localize(vehicleName(layout))}，可拖动查看，使用下方按钮缩放`,
+              )}
               preserveAspectRatio="xMidYMid meet"
               onPointerDown={(e) => {
                 if (e.button !== 0) return;
@@ -431,92 +476,102 @@ function GroundDetail({
                   onLoad={() => setLoaded(true)}
                   onFailure={() => setFailed(true)}
                 />
-                {contours && (
-                  <GroundSvgImage
-                    key={`contours-${retryVersion}`}
-                    asset={rotateAsset(map.contourImage, sourceChoice)}
-                    x={0}
-                    y={0}
-                    width={1000}
-                    height={1000}
-                    preserveAspectRatio="none"
-                    transform={CONTOUR_IMAGE_TRANSFORM}
-                    opacity={0.8}
-                    onLoad={() => setContourLoaded(true)}
-                    onFailure={() => setFailed(true)}
-                  />
+                {localize(
+                  contours && (
+                    <GroundSvgImage
+                      key={`contours-${retryVersion}`}
+                      asset={rotateAsset(map.contourImage, sourceChoice)}
+                      x={0}
+                      y={0}
+                      width={1000}
+                      height={1000}
+                      preserveAspectRatio="none"
+                      transform={CONTOUR_IMAGE_TRANSFORM}
+                      opacity={0.8}
+                      onLoad={() => setContourLoaded(true)}
+                      onFailure={() => setFailed(true)}
+                    />
+                  ),
                 )}
-                {grid && (
-                  <g
-                    className="ground-grid-lines"
-                    style={{ fontSize: 16 / zoom, strokeWidth: 1 / zoom }}
-                  >
-                    {gridLines}
-                  </g>
+                {localize(
+                  grid && (
+                    <g
+                      className="ground-grid-lines"
+                      style={{ fontSize: 16 / zoom, strokeWidth: 1 / zoom }}
+                    >
+                      {localize(gridLines)}
+                    </g>
+                  ),
                 )}
-                {points &&
-                  layout.marks.map((mark, i) => {
-                    const size = markerScale * (mark.kind === "spawn" ? 0.047 : 0.029);
-                    const key =
-                      mark.kind === "spawn"
-                        ? mark.team === team
-                          ? "spawn_ally"
-                          : "spawn_enemy"
-                        : `capture_${mark.label.toLowerCase()}`;
-                    const icon = atlas.icons[key as keyof typeof atlas.icons];
-                    return icon ? (
-                      <GroundSvgImage
-                        key={`${i}-${retryVersion}`}
-                        asset={rotateAsset(icon, sourceChoice)}
-                        onFailure={() => setFailed(true)}
-                        x={mark.x * 1000 - size / 2}
-                        y={mark.y * 1000 - size / 2}
-                        width={size}
-                        height={size}
-                      >
-                        <title>
-                          {mark.label}
-                          {mark.team ? ` · 队伍 ${mark.team}` : ""}
-                        </title>
-                      </GroundSvgImage>
-                    ) : (
-                      <text
-                        key={i}
-                        x={mark.x * 1000}
-                        y={mark.y * 1000}
-                        fill="#efede5"
-                        textAnchor="middle"
-                        fontSize={size}
-                      >
-                        {mark.label}
-                      </text>
-                    );
-                  })}
+                {localize(
+                  points &&
+                    layout.marks.map((mark, i) => {
+                      const size = markerScale * (mark.kind === "spawn" ? 0.047 : 0.029);
+                      const key =
+                        mark.kind === "spawn"
+                          ? mark.team === team
+                            ? "spawn_ally"
+                            : "spawn_enemy"
+                          : `capture_${localize(mark.label.toLowerCase())}`;
+                      const icon = atlas.icons[key as keyof typeof atlas.icons];
+                      return icon ? (
+                        <GroundSvgImage
+                          key={`${i}-${retryVersion}`}
+                          asset={rotateAsset(icon, sourceChoice)}
+                          onFailure={() => setFailed(true)}
+                          x={mark.x * 1000 - size / 2}
+                          y={mark.y * 1000 - size / 2}
+                          width={size}
+                          height={size}
+                        >
+                          <title>
+                            {localize(mark.label)}
+                            {localize(mark.team ? ` · 队伍 ${localize(mark.team)}` : "")}
+                          </title>
+                        </GroundSvgImage>
+                      ) : (
+                        <text
+                          key={i}
+                          x={mark.x * 1000}
+                          y={mark.y * 1000}
+                          fill="#efede5"
+                          textAnchor="middle"
+                          fontSize={size}
+                        >
+                          {localize(mark.label)}
+                        </text>
+                      );
+                    }),
+                )}
               </g>
               <g ref={setEditorHost} />
             </svg>
-            {(!loaded || (contours && !contourLoaded)) && !failed && (
-              <p className="ground-map-status">
-                {loaded ? "正在加载地形图层…" : "正在加载高清地图…"}
-                <button onClick={alternateSource}>尝试备用线路</button>
-              </p>
+            {localize(
+              (!loaded || (contours && !contourLoaded)) && !failed && (
+                <p className="ground-map-status">
+                  {localize(loaded ? "正在加载地形图层…" : "正在加载高清地图…")}
+                  <button onClick={alternateSource}>{t("尝试备用线路")}</button>
+                </p>
+              ),
             )}
-            {failed && (
-              <p className="ground-map-status" role="alert">
-                图层暂时无法加载。
-                <button
-                  onClick={() => {
-                    setFailed(false);
-                    setLoaded(false);
-                    setRetryVersion((v) => v + 1);
-                  }}
-                >
-                  重试加载
-                </button>
-                <a href={map.base.url} target="_blank" rel="noopener noreferrer">
-                  打开原图 ↗
-                </a>
-              </p>
+            {localize(
+              failed && (
+                <p className="ground-map-status" role="alert">
+                  {t("图层暂时无法加载。")}
+                  <button
+                    onClick={() => {
+                      setFailed(false);
+                      setLoaded(false);
+                      setRetryVersion((v) => v + 1);
+                    }}
+                  >
+                    {t("重试加载")}
+                  </button>
+                  <a href={map.base.url} target="_blank" rel="noopener noreferrer">
+                    {t("打开原图 ↗")}
+                  </a>
+                </p>
+              ),
             )}
             <MapEditor
               key={`${map.id}:${layout.id}:${team}`}
@@ -575,64 +630,77 @@ function GroundDetail({
             />
             <div className="ground-zoom">
               <button
-                aria-label="缩小地图"
+                aria-label={t("缩小地图")}
                 disabled={zoom <= 1}
                 onClick={() => setZoom((z) => Math.max(1, z / 1.5))}
               >
                 −
               </button>
-              <span>{Math.round(zoom * 100)}%</span>
+              <span>{localize(Math.round(zoom * 100))}%</span>
               <button
-                aria-label="放大地图"
+                aria-label={t("放大地图")}
                 disabled={zoom >= 8}
                 onClick={() => setZoom((z) => Math.min(8, z * 1.5))}
               >
                 ＋
               </button>
-              <button onClick={reset}>复位</button>
+              <button onClick={reset}>{t("复位")}</button>
             </div>
           </div>
         </div>
         <div className="ground-map-meta">
           <span>
-            <i className="ground-ally" /> 己方出生点
+            <i className="ground-ally" /> {t("己方出生点")}
           </span>
           <span>
-            <i className="ground-enemy" /> 敌方出生点
+            <i className="ground-enemy" /> {t("敌方出生点")}
           </span>
-          <span>◇ 占领点</span>
-          <span>等高距 5 m · 主等高距 25 m</span>
+          <span>{t("◇ 占领点")}</span>
+          <span>{t("等高距 5 m · 主等高距 25 m")}</span>
         </div>
         <details className="ground-notes">
-          <summary>地形与坐标说明</summary>
+          <summary>{t("地形与坐标说明")}</summary>
           <p>
-            地形高度 {map.contours.height_range_m.map((n) => n.toFixed(1)).join(" ~ ")}{" "}
-            m，为世界坐标
-            Y，并非已校准海拔。等高线仅表示地形，不包含建筑、桥梁或通行性判断。点位为任务简报参考位置，并非精确出生范围。
+            {t("地形高度")}
+            {localize(map.contours.height_range_m.map((n) => n.toFixed(1)).join(" ~ "))}
+            {localize(" ")}
+            {t(
+              "m，为世界坐标 Y，并非已校准海拔。等高线仅表示地形，不包含建筑、桥梁或通行性判断。点位为任务简报参考位置，并非精确出生范围。",
+            )}
           </p>
           <p>
-            参考网格使用地图文件中的间距，字母自上向下、数字自左向右；未与实际对局校准，切换布局不会重置编号。原始地形采样间距{" "}
-            {map.contours.native_sample_m} m。
+            {t(
+              "参考网格使用地图文件中的间距，字母自上向下、数字自左向右；未与实际对局校准，切换布局不会重置编号。原始地形采样间距",
+            )}
+            {localize(" ")}
+            {localize(map.contours.native_sample_m)} m。
           </p>
         </details>
         <section className="ground-related">
           <h3>
-            关联攻略 <span>{map.guides.length}</span>
+            {t("关联攻略")}
+            <span>{localize(map.guides.length)}</span>
           </h3>
-          {map.guides.length ? (
-            <>
-              <p>同一地图的不同布局、季节及更新版本可能有差异，以原帖为准。</p>
-              <div>
-                {map.guides.map((g) => (
-                  <a key={g.source} href={g.source} target="_blank" rel="noopener noreferrer">
-                    <span>{g.title}</span>
-                    <small>{g.edition} · 原帖 ↗</small>
-                  </a>
-                ))}
-              </div>
-            </>
-          ) : (
-            <p>暂未收录这张地图的关联攻略。</p>
+          {localize(
+            map.guides.length ? (
+              <>
+                <p>{t("同一地图的不同布局、季节及更新版本可能有差异，以原帖为准。")}</p>
+                <div>
+                  {localize(
+                    map.guides.map((g) => (
+                      <a key={g.source} href={g.source} target="_blank" rel="noopener noreferrer">
+                        <span>{localize(g.title)}</span>
+                        <small>
+                          {localize(g.edition)} {t("· 原帖 ↗")}
+                        </small>
+                      </a>
+                    )),
+                  )}
+                </div>
+              </>
+            ) : (
+              <p>{t("暂未收录这张地图的关联攻略。")}</p>
+            ),
           )}
         </section>
       </div>

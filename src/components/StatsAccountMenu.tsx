@@ -1,3 +1,5 @@
+import { useLocale } from "../i18n/react";
+import { localize } from "../i18n/core";
 import { useId, useRef, useState } from "react";
 
 export function StatsAccountMenu({
@@ -7,6 +9,8 @@ export function StatsAccountMenu({
   name: string;
   onLogout: () => Promise<void>;
 }) {
+  useLocale();
+
   const id = useId();
   const panel = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
@@ -69,9 +73,9 @@ export function StatsAccountMenu({
             }
           }}
         >
-          {busy ? "正在退出…" : "退出登录"}
+          {localize(busy ? "正在退出…" : "退出登录")}
         </button>
-        {error && <small role="alert">{error}</small>}
+        {localize(error && <small role="alert">{localize(error)}</small>)}
       </div>
     </>
   );

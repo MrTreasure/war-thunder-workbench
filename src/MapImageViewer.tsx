@@ -1,3 +1,6 @@
+import { vehicleName } from "./i18n/core";
+import { useLocale } from "./i18n/react";
+import { localize, t } from "./i18n/core";
 import { useEffect, useRef, useState } from "react";
 import { Modal } from "./Modal";
 import { loadMapImage } from "./map-image-cache";
@@ -14,6 +17,8 @@ export function MapImageViewer({
   children: React.ReactNode;
   close: () => void;
 }) {
+  useLocale();
+
   const viewport = useRef<HTMLDivElement>(null);
   const drag = useRef<{ x: number; y: number; left: number; top: number } | null>(null);
   const [url, setUrl] = useState(image.thumb);
@@ -59,17 +64,17 @@ export function MapImageViewer({
   return (
     <Modal
       className="atlas-image-dialog"
-      title={`${image.name} · ${side}`}
+      title={localize(`${localize(vehicleName(image))} · ${localize(side)}`)}
       subtitle={image.kind === "原图" ? "地图底图，走线标注请对照原帖" : "作者走线标注图"}
       close={close}
     >
       <div className="atlas-viewer-toolbar">
-        <div className="atlas-side-tabs">{children}</div>
+        <div className="atlas-side-tabs">{localize(children)}</div>
         <div className="atlas-zoom-actions">
           <button
             onClick={() => setZoom((v) => Math.max(0.5, v / 1.5))}
             disabled={zoom <= 0.5}
-            aria-label="缩小地图"
+            aria-label={t("缩小地图")}
           >
             −
           </button>
@@ -79,12 +84,12 @@ export function MapImageViewer({
               viewport.current?.scrollTo(0, 0);
             }}
           >
-            适应屏幕
+            {t("适应屏幕")}
           </button>
           <button
             onClick={() => setZoom((v) => Math.min(8, v * 1.5))}
             disabled={zoom >= 8}
-            aria-label="放大地图"
+            aria-label={t("放大地图")}
           >
             ＋
           </button>
@@ -124,7 +129,9 @@ export function MapImageViewer({
         >
           <img
             src={url}
-            alt={`${image.name} ${side}${image.kind}`}
+            alt={localize(
+              `${localize(vehicleName(image))} ${localize(side)}${localize(image.kind)}`,
+            )}
             draggable={false}
             onLoad={(event) =>
               setNatural({
@@ -137,25 +144,29 @@ export function MapImageViewer({
       </div>
       <output className="atlas-viewer-status">
         <span>
-          {error ||
-            (loaded
-              ? "高清图已就绪 · 放大后可拖动或滑动查看"
-              : `正在读取高清图 ${(received / 1048576).toFixed(1)} / ${(image.size / 1048576).toFixed(1)} MB`)}
+          {localize(
+            error ||
+              (loaded
+                ? "高清图已就绪 · 放大后可拖动或滑动查看"
+                : `正在读取高清图 ${localize((received / 1048576).toFixed(1))} / ${localize((image.size / 1048576).toFixed(1))} MB`),
+          )}
         </span>
-        {error && (
-          <button
-            onClick={() => {
-              setError("");
-              setReceived(0);
-              setLoaded(false);
-              setRetry((v) => v + 1);
-            }}
-          >
-            重试
-          </button>
+        {localize(
+          error && (
+            <button
+              onClick={() => {
+                setError("");
+                setReceived(0);
+                setLoaded(false);
+                setRetry((v) => v + 1);
+              }}
+            >
+              {t("重试")}
+            </button>
+          ),
         )}
         <a href={image.image} target="_blank" rel="noreferrer">
-          打开原图 ↗
+          {t("打开原图 ↗")}
         </a>
       </output>
     </Modal>

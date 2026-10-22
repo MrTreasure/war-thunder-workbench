@@ -1,3 +1,8 @@
+import { useEffect } from "react";
+import { LanguageSwitch } from "./LanguageSwitch";
+import { updateSearchMetadata } from "../search-metadata";
+import { useLocale } from "../i18n/react";
+import { t } from "../i18n/core";
 import { useRouterState } from "@tanstack/react-router";
 import { WorkbenchAccountControl } from "./WorkbenchAccountControl";
 import { CreatorLink } from "./CreatorLink";
@@ -5,9 +10,12 @@ import { PageNavigation } from "./PageNavigation";
 import { workbenchPage } from "../features";
 
 export function AppHeader() {
+  const locale = useLocale();
+
   const page = useRouterState({
     select: (state) => workbenchPage(state.location.pathname),
   });
+  useEffect(() => updateSearchMetadata(page), [page, locale]);
   return (
     <header className="app-header">
       <div className="app-header-inner">
@@ -20,19 +28,20 @@ export function AppHeader() {
             height={45}
           />
           <div className="app-brand-copy">
-            <h1>研发工作台</h1>
-            <span>战争雷霆玩家工具</span>
+            <h1>{t("研发工作台")}</h1>
+            <span>{t("战争雷霆玩家工具")}</span>
           </div>
         </div>
         <PageNavigation page={page} />
         <div className="app-header-actions">
+          <LanguageSwitch />
           <CreatorLink />
           <a
             className="app-repository-link"
             href="https://github.com/MrTreasure/war-thunder-workbench"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="GitHub 仓库：MrTreasure/war-thunder-workbench（新窗口打开）"
+            aria-label={t("GitHub 仓库：MrTreasure/war-thunder-workbench（新窗口打开）")}
             title="GitHub · github.com/MrTreasure/war-thunder-workbench"
           >
             <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">

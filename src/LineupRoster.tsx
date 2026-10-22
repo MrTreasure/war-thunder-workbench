@@ -1,3 +1,6 @@
+import { vehicleName } from "./i18n/core";
+import { useLocale } from "./i18n/react";
+import { localize, t } from "./i18n/core";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type {
   PointerEvent as ReactPointerEvent,
@@ -51,6 +54,8 @@ export function LineupRoster({
   clear: (index: number) => void;
   chooseAircraft: (id: string) => void;
 }) {
+  useLocale();
+
   const rail = useRef<HTMLOListElement>(null);
   const gesture = useRef<Gesture | null>(null);
   const suppressClick = useRef(false);
@@ -230,72 +235,37 @@ export function LineupRoster({
       <ol
         className={`lineup-slots ${drag ? "is-dragging" : ""}`}
         ref={rail}
-        aria-label="横向乘员槽位，可长按拖动排序"
+        aria-label={t("横向乘员槽位，可长按拖动排序")}
       >
-        {slots.map((id, index) => {
-          const unit = id ? units.get(id) : undefined;
-          const handlers = {
-            onPointerDown: (event: ReactPointerEvent<HTMLButtonElement>) => down(event, index),
-            onPointerMove: move,
-            onPointerUp: up,
-            onPointerCancel: () => stop(),
-            onLostPointerCapture: () => {
-              if (gesture.current) stop();
-            },
-            onKeyDown: (event: ReactKeyboardEvent<HTMLButtonElement>) => keyMove(event, index),
-            onContextMenu: (event: ReactMouseEvent<HTMLButtonElement>) => event.preventDefault(),
-            onDragStart: (event: ReactDragEvent<HTMLButtonElement>) => event.preventDefault(),
-          };
-          return (
-            <li
-              key={index}
-              data-slot-index={index}
-              className={`${activeSlot === index ? "is-active" : ""} ${drag?.from === index ? "is-drag-source" : ""} ${drag?.to === index ? "is-drop-target" : ""}`}
-            >
-              <button
-                type="button"
-                className="lineup-slot-select"
-                aria-pressed={activeSlot === index}
-                aria-label={`槽位 ${index + 1}：${unit?.name || "空位"}，长按拖动；Alt 加左右方向键排序`}
-                {...handlers}
-                onClick={() => {
-                  if (suppressClick.current) {
-                    suppressClick.current = false;
-                    return;
-                  }
-                  selectSlot(index);
-                }}
+        {localize(
+          slots.map((id, index) => {
+            const unit = id ? units.get(id) : undefined;
+            const handlers = {
+              onPointerDown: (event: ReactPointerEvent<HTMLButtonElement>) => down(event, index),
+              onPointerMove: move,
+              onPointerUp: up,
+              onPointerCancel: () => stop(),
+              onLostPointerCapture: () => {
+                if (gesture.current) stop();
+              },
+              onKeyDown: (event: ReactKeyboardEvent<HTMLButtonElement>) => keyMove(event, index),
+              onContextMenu: (event: ReactMouseEvent<HTMLButtonElement>) => event.preventDefault(),
+              onDragStart: (event: ReactDragEvent<HTMLButtonElement>) => event.preventDefault(),
+            };
+            return (
+              <li
+                key={index}
+                data-slot-index={index}
+                className={`${activeSlot === index ? "is-active" : ""} ${drag?.from === index ? "is-drag-source" : ""} ${drag?.to === index ? "is-drop-target" : ""}`}
               >
-                <span className="lineup-slot-number">{index + 1}</span>
-                {unit ? (
-                  <img
-                    src={unit.thumbnailUrl}
-                    alt=""
-                    loading="lazy"
-                    width={110}
-                    height={65}
-                    draggable={false}
-                  />
-                ) : (
-                  <span className="lineup-slot-placeholder">＋</span>
-                )}
-                <span className="lineup-slot-name">
-                  <strong>{unit?.name || (id ? `资料缺失：${id}` : "选择载具")}</strong>
-                  <small>
-                    {unit
-                      ? `${categories[unit.category]} · ${mode.toUpperCase()} ${brLabel(vehicleStep(unit, battleType, mode))}`
-                      : "空槽位"}
-                  </small>
-                </span>
-              </button>
-              <div className="lineup-slot-tools">
                 <button
                   type="button"
-                  className="lineup-drag-handle"
+                  className="lineup-slot-select"
+                  aria-pressed={activeSlot === index}
+                  aria-label={localize(
+                    `槽位 ${localize(index + 1)}：${localize(vehicleName(unit) || "空位")}，长按拖动；Alt 加左右方向键排序`,
+                  )}
                   {...handlers}
-                  onPointerDown={(event) => down(event, index, true)}
-                  aria-label={`按住拖动槽位 ${index + 1}`}
-                  title="按住即可拖动；Alt + 左右方向键排序"
                   onClick={() => {
                     if (suppressClick.current) {
                       suppressClick.current = false;
@@ -304,50 +274,105 @@ export function LineupRoster({
                     selectSlot(index);
                   }}
                 >
-                  ⠿
+                  <span className="lineup-slot-number">{localize(index + 1)}</span>
+                  {localize(
+                    unit ? (
+                      <img
+                        src={unit.thumbnailUrl}
+                        alt=""
+                        loading="lazy"
+                        width={110}
+                        height={65}
+                        draggable={false}
+                      />
+                    ) : (
+                      <span className="lineup-slot-placeholder">＋</span>
+                    ),
+                  )}
+                  <span className="lineup-slot-name">
+                    <strong>
+                      {localize(
+                        vehicleName(unit) || (id ? `资料缺失：${localize(id)}` : t("选择载具")),
+                      )}
+                    </strong>
+                    <small>
+                      {localize(
+                        unit
+                          ? `${localize(categories[unit.category])} · ${localize(mode.toUpperCase())} ${localize(brLabel(vehicleStep(unit, battleType, mode)))}`
+                          : "空槽位",
+                      )}
+                    </small>
+                  </span>
                 </button>
-                {battleType === "air" && unit?.category === "aviation" && (
-                  <label className="lineup-active-aircraft">
-                    <input
-                      type="radio"
-                      name="lineup-rb-aircraft"
-                      checked={activeAircraft === id}
-                      onChange={() => chooseAircraft(unit.id)}
-                    />
-                    RB 出击
-                  </label>
-                )}
-                <button
-                  type="button"
-                  className="lineup-slot-clear"
-                  disabled={!id}
-                  aria-label={`清空槽位 ${index + 1}`}
-                  onClick={() => clear(index)}
-                >
-                  ×
-                </button>
-              </div>
-            </li>
-          );
-        })}
+                <div className="lineup-slot-tools">
+                  <button
+                    type="button"
+                    className="lineup-drag-handle"
+                    {...handlers}
+                    onPointerDown={(event) => down(event, index, true)}
+                    aria-label={localize(`按住拖动槽位 ${localize(index + 1)}`)}
+                    title={t("按住即可拖动；Alt + 左右方向键排序")}
+                    onClick={() => {
+                      if (suppressClick.current) {
+                        suppressClick.current = false;
+                        return;
+                      }
+                      selectSlot(index);
+                    }}
+                  >
+                    ⠿
+                  </button>
+                  {localize(
+                    battleType === "air" && unit?.category === "aviation" && (
+                      <label className="lineup-active-aircraft">
+                        <input
+                          type="radio"
+                          name="lineup-rb-aircraft"
+                          checked={activeAircraft === id}
+                          onChange={() => chooseAircraft(unit.id)}
+                        />
+                        {t("RB 出击")}
+                      </label>
+                    ),
+                  )}
+                  <button
+                    type="button"
+                    className="lineup-slot-clear"
+                    disabled={!id}
+                    aria-label={localize(`清空槽位 ${localize(index + 1)}`)}
+                    onClick={() => clear(index)}
+                  >
+                    ×
+                  </button>
+                </div>
+              </li>
+            );
+          }),
+        )}
       </ol>
       <output className="lineup-drag-status" aria-live="polite">
-        {announcement}
+        {localize(announcement)}
       </output>
-      {drag &&
-        createPortal(
-          <div
-            className="lineup-drag-ghost"
-            aria-hidden="true"
-            style={{ left: Math.max(100, Math.min(window.innerWidth - 100, drag.x)), top: drag.y }}
-          >
-            <span>
-              槽位 {drag.from + 1} → {drag.to + 1}
-            </span>
-            <strong>{dragUnit?.name || "空槽位"}</strong>
-          </div>,
-          document.body,
-        )}
+      {localize(
+        drag &&
+          createPortal(
+            <div
+              className="lineup-drag-ghost"
+              aria-hidden="true"
+              style={{
+                left: Math.max(100, Math.min(window.innerWidth - 100, drag.x)),
+                top: drag.y,
+              }}
+            >
+              <span>
+                {t("槽位")}
+                {localize(drag.from + 1)} → {localize(drag.to + 1)}
+              </span>
+              <strong>{localize(vehicleName(dragUnit) || t("空槽位"))}</strong>
+            </div>,
+            document.body,
+          ),
+      )}
     </>
   );
 }

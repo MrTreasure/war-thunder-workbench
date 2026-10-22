@@ -1,3 +1,4 @@
+import { useLocale } from "../i18n/react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useWorkbenchPage } from "../Workbench";
 export const Route = createFileRoute("/_workbench/lineups")({
@@ -5,5 +6,7 @@ export const Route = createFileRoute("/_workbench/lineups")({
   component: Page,
 });
 function Page() {
+  useLocale();
+
   return useWorkbenchPage("lineups");
 }

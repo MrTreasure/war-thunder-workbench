@@ -14,6 +14,7 @@
 @import "./sale-calendar.css";
 @import "./mobile.css";
 @import "./game-select.css";
+@import "./i18n.css";
 @source "../src";
 
 @custom-variant dark (&:is(.dark *));

@@ -1,3 +1,4 @@
+import { t } from "./i18n/core";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import type { Background, ReportPayload } from "./player-stats-api";
 import { statsNumber, statsRatio } from "./player-stats-api";
@@ -51,7 +52,7 @@ export function imageReportTheme(image: HTMLImageElement): ReportTheme {
   canvas.width = 80;
   canvas.height = 60;
   const ctx = canvas.getContext("2d", { willReadFrequently: true });
-  if (!ctx) throw new Error("浏览器无法读取图片颜色。");
+  if (!ctx) throw new Error(t("浏览器无法读取图片颜色。"));
   ctx.drawImage(image, 0, 0, 80, 60);
   const pixels = ctx.getImageData(0, 0, 80, 60).data;
   const bins = new Map<string, { rgb: RGB; weight: number }>();
@@ -97,22 +98,22 @@ export async function localReportImage(source: string, signal?: AbortSignal) {
   const image = new Image();
   image.src = source;
   await image.decode();
-  if (signal?.aborted) throw new DOMException("已取消", "AbortError");
+  if (signal?.aborted) throw new DOMException(t("已取消"), "AbortError");
   return image;
 }
 export async function uploadReportBackground(
   file: File,
 ): Promise<{ background: Background; theme: ReportTheme }> {
   if (!["image/jpeg", "image/png", "image/webp"].includes(file.type))
-    throw new Error("请选择 JPG、PNG 或 WebP 图片。");
-  if (file.size > 12 * 1024 * 1024) throw new Error("图片不能超过 12 MB，请压缩后再试。");
+    throw new Error(t("请选择 JPG、PNG 或 WebP 图片。"));
+  if (file.size > 12 * 1024 * 1024) throw new Error(t("图片不能超过 12 MB，请压缩后再试。"));
   const bytes = new Uint8Array(await file.slice(0, 12).arrayBuffer());
   const png = bytes[0] === 137 && bytes[1] === 80 && bytes[2] === 78 && bytes[3] === 71;
   const jpg = bytes[0] === 255 && bytes[1] === 216;
   const webp =
     String.fromCharCode(...bytes.slice(0, 4)) === "RIFF" &&
     String.fromCharCode(...bytes.slice(8, 12)) === "WEBP";
-  if (!png && !jpg && !webp) throw new Error("文件内容不是支持的图片格式，请换一张图片。");
+  if (!png && !jpg && !webp) throw new Error(t("文件内容不是支持的图片格式，请换一张图片。"));
   const source = URL.createObjectURL(file);
   try {
     const image = await localReportImage(source);
@@ -121,7 +122,7 @@ export async function uploadReportBackground(
       image.naturalWidth < 320 ||
       image.naturalHeight < 240
     )
-      throw new Error("请选择至少 320×240、且不超过 2400 万像素的图片。");
+      throw new Error(t("请选择至少 320×240、且不超过 2400 万像素的图片。"));
     return {
       background: {
         id: "custom",
@@ -145,10 +146,10 @@ export function reportSummary(p: ReportPayload) {
   const win =
     p.career?.winRate ?? (row.battles && row.wins != null ? (row.wins / row.battles) * 100 : null);
   return [
-    { label: p.career ? "战斗场次" : "单车场次合计", value: statsNumber(row.battles) },
-    { label: "综合 K/D", value: statsRatio(row.kd) },
-    { label: "效率评分", value: statsNumber(row.efficiency) },
-    { label: "胜率", value: win == null ? "—" : win.toFixed(2) + "%" },
+    { label: p.career ? t("战斗场次") : t("单车场次合计"), value: statsNumber(row.battles) },
+    { label: t("综合 K/D"), value: statsRatio(row.kd) },
+    { label: t("效率评分"), value: statsNumber(row.efficiency) },
+    { label: t("胜率"), value: win == null ? "—" : win.toFixed(2) + "%" },
   ];
 }
 export function reportChartData(p: ReportPayload) {
@@ -162,9 +163,9 @@ export function reportChartData(p: ReportPayload) {
     p.scope?.category === "ground" ||
     (p.top5.length > 0 && p.top5.every((v) => v.category === "ground"));
   const segments = [
-    { key: "air", label: "空中目标", value: p.totals.airKills },
-    { key: "ground", label: "地面目标", value: p.totals.groundKills },
-    { key: "naval", label: "海上目标", value: p.totals.navalKills },
+    { key: "air", label: t("空中目标"), value: p.totals.airKills },
+    { key: "ground", label: t("地面目标"), value: p.totals.groundKills },
+    { key: "naval", label: t("海上目标"), value: p.totals.navalKills },
   ].filter((segment) => !groundOnly || segment.key !== "naval");
   const total = segments.reduce((sum, v) => sum + (v.value ?? 0), 0);
   let start = -Math.PI / 2;

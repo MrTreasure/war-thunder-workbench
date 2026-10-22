@@ -1,3 +1,4 @@
+import { t, localize, vehicleName } from "./i18n/core";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { reportStyle } from "./player-report-style";
 import { stampExportWatermark } from "./export-watermark";
@@ -47,7 +48,7 @@ export async function downloadStatsReport(
         credentials: "omit",
         signal: AbortSignal.any([signal, AbortSignal.timeout(30000)]),
       });
-      if (!response.ok) throw new Error("军种图标暂时无法读取，请稍后保存。");
+      if (!response.ok) throw new Error(t("军种图标暂时无法读取，请稍后保存。"));
       const url = URL.createObjectURL(await response.blob());
       try {
         const image = new Image();
@@ -67,7 +68,7 @@ export async function downloadStatsReport(
   canvas.width = 1080;
   canvas.height = 1900;
   const ctx = canvas.getContext("2d");
-  if (!ctx) throw new Error("浏览器无法创建战报图片。");
+  if (!ctx) throw new Error(t("浏览器无法创建战报图片。"));
   const gold = theme.accent,
     white = theme.ink,
     muted = theme.muted,
@@ -77,7 +78,7 @@ export async function downloadStatsReport(
   const vehicleStart = 790;
   const vehicleHeight = 118;
   const speechY = vehicleStart + p.top5.length * vehicleHeight + 42;
-  const speech = report.review?.speech || "请生成战报后再保存。";
+  const speech = report.review?.speech || t("请生成战报后再保存。");
   ctx.font = "28px sans-serif";
   let measuredLine = "",
     lineCount = 1;
@@ -116,9 +117,16 @@ export async function downloadStatsReport(
     );
   }
   function text(value: string, x: number, y: number, size = 30, color = white, weight = 400) {
+    value = localize(value);
     ctx!.font = `${weight} ${size}px ${weight === 700 ? "WTReport," : ""} sans-serif`;
     ctx!.fillStyle = color;
-    ctx!.fillText(value, x, y);
+    const available =
+      ctx!.textAlign === "right"
+        ? x - 64
+        : ctx!.textAlign === "center"
+          ? Math.min(x - 64, 1016 - x) * 2
+          : 1016 - x;
+    ctx!.fillText(value, x, y, Math.max(32, available));
   }
   function line(y: number) {
     ctx!.strokeStyle = theme.line;
@@ -180,16 +188,16 @@ export async function downloadStatsReport(
   }
   text(shorten(p.player.nickname, 815, 49, 700), 188, 188, 49, white, 700);
   text(
-    "等级 " + n(p.player.level) + (p.player.clanTag ? " · " + p.player.clanTag : ""),
+    t("等级 ") + n(p.player.level) + (p.player.clanTag ? " · " + p.player.clanTag : ""),
     188,
     226,
     24,
     muted,
   );
   text(voice.kicker + " · " + statsReportScopeLabel(p), 64, 282, 22, gold);
-  text(shorten(report.review?.title || "你的战地记录", 952, 43, 700), 64, 335, 43, white, 700);
+  text(shorten(report.review?.title || t("你的战地记录"), 952, 43, 700), 64, 335, 43, white, 700);
   text(
-    p.career ? "生涯总览 · 该模式全部国家与兵种" : "所列载具汇总 · 含同场多车，非总对局",
+    p.career ? t("生涯总览 · 该模式全部国家与兵种") : t("所列载具汇总 · 含同场多车，非总对局"),
     64,
     377,
     22,
@@ -212,9 +220,9 @@ export async function downloadStatsReport(
     );
   });
   line(544);
-  text("载具效率评分", 64, 580, 23, gold, 700);
+  text(t("载具效率评分"), 64, 580, 23, gold, 700);
   text("0–" + efficiencyMaximum, 505, 580, 18, muted);
-  text("载具击毁构成", 666, 580, 23, gold, 700);
+  text(t("载具击毁构成"), 666, 580, 23, gold, 700);
   ctx.save();
   ctx.textAlign = "right";
   text(chart.hasKnown ? n(chart.total) : "—", 1016, 580, 28, white, 700);
@@ -259,44 +267,50 @@ export async function downloadStatsReport(
     ctx.restore();
   });
   line(744);
-  text("常用载具 · TOP " + p.top5.length, 64, 777, 25, gold, 700);
+  text(t("常用载具 · TOP ") + p.top5.length, 64, 777, 25, gold, 700);
   p.top5.forEach((v, i) => {
     const y = vehicleStart + i * vehicleHeight;
     text(String(i + 1).padStart(2, "0"), 64, y + 48, 29, gold, 700);
     fit(vehicles[i], 107, y + 4, 160, 94);
-    text(shorten(vehicleDisplayName(v.name), 485, 29, 700), 292, y + 27, 29, white, 700);
+    text(shorten(vehicleDisplayName(vehicleName(v)), 485, 29, 700), 292, y + 27, 29, white, 700);
     ctx.save();
     ctx.textAlign = "right";
-    text(n(v.efficiency) + " 效率" + (v.smallSample ? " · 场次不足" : ""), 1016, y + 27, 23, gold);
+    text(
+      n(v.efficiency) + t(" 效率") + (v.smallSample ? t(" · 场次不足") : ""),
+      1016,
+      y + 27,
+      23,
+      gold,
+    );
     ctx.restore();
     const stats =
       n(v.battles) +
-      " 场 · " +
+      t(" 场 · ") +
       (v.winRate == null ? "—" : v.winRate.toFixed(2) + "%") +
-      " 胜率 · 空 " +
+      t(" 胜率 · 空 ") +
       r(v.airKd) +
-      " / 地 " +
+      t(" / 地 ") +
       r(v.groundKd) +
       (v.category !== "ground" &&
       (v.navalKd != null || v.category === "ships" || v.category === "boats")
-        ? " / 海 " + r(v.navalKd)
+        ? t(" / 海 ") + r(v.navalKd)
         : "") +
       " K/D";
     text(shorten(stats, 724, 23), 292, y + 61, 23, muted);
     fit(silver, 292, y + 77, 24, 24);
-    text("累计银狮  " + statsSilver(v.silverLions), 326, y + 97, 23, muted);
+    text(t("累计银狮  ") + statsSilver(v.silverLions), 326, y + 97, 23, muted);
     line(y + vehicleHeight - 5);
   });
   text(voice.sectionTitle, 64, speechY, 25, gold, 700);
   wrap(speech, 64, speechY + 52, 952, 28, 43);
   const footer = canvas.height - 118;
   line(footer);
-  text("资料采集 " + statsDate(p.fetchedAt), 64, footer + 34, 20, muted);
-  text("效率为工作台统计评分 · 构成图仅含所列载具已知击毁", 64, footer + 66, 19, muted);
+  text(t("资料采集 ") + statsDate(p.fetchedAt), 64, footer + 34, 20, muted);
+  text(t("效率为工作台统计评分 · 构成图仅含所列载具已知击毁"), 64, footer + 66, 19, muted);
   text(
     p.previousEfficiencyVersion
-      ? "历史点评保留原文，评分已更新 · 银狮为累计获得，非净收入"
-      : "银狮为累计获得，非净收入 · AI 点评仅供参考",
+      ? t("历史点评保留原文，评分已更新 · 银狮为累计获得，非净收入")
+      : t("银狮为累计获得，非净收入 · AI 点评仅供参考"),
     64,
     footer + 96,
     19,
@@ -306,7 +320,7 @@ export async function downloadStatsReport(
   await stampExportWatermark(canvas, signal);
   const blob = await new Promise<Blob>((resolve, reject) =>
     canvas.toBlob(
-      (value) => (value ? resolve(value) : reject(new Error("战报图片生成失败。"))),
+      (value) => (value ? resolve(value) : reject(new Error(t("战报图片生成失败。")))),
       "image/png",
     ),
   );
@@ -320,7 +334,7 @@ export async function downloadStatsReport(
     p.mode +
     "_" +
     voice.label +
-    "_战报.png";
+    t("_战报.png");
   anchor.click();
   setTimeout(() => URL.revokeObjectURL(url), 30000);
 }

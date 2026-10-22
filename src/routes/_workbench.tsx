@@ -1,3 +1,4 @@
+import { useLocale } from "../i18n/react";
 import { Outlet, createFileRoute } from "@tanstack/react-router";
 import { ErrorBoundary, WorkbenchProvider } from "../Workbench";
 import { WorkbenchAccountProvider } from "../WorkbenchAccount";
@@ -8,6 +9,8 @@ export const Route = createFileRoute("/_workbench")({
   component: WorkbenchLayout,
 });
 function WorkbenchLayout() {
+  useLocale();
+
   return (
     <div className="workbench-layout">
       <ErrorBoundary>

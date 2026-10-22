@@ -1,3 +1,5 @@
+import { t, localize, vehicleName } from "./i18n/core";
+import { getLocale } from "./i18n/core";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import layout from "../data/player-vehicle-card.json";
 import catalog from "../data/catalog-settings.json";
@@ -19,7 +21,7 @@ export type VehicleCardAssets = {
 };
 export const vehicleCardSize = { width: layout.width, height: layout.height };
 const number = (value: number | null | undefined) =>
-  value == null || !Number.isFinite(value) ? "—" : value.toLocaleString("zh-CN");
+  value == null || !Number.isFinite(value) ? "—" : value.toLocaleString(getLocale());
 const ratio = (value: Ratio) =>
   value === "∞" ? value : value == null || !Number.isFinite(value) ? "—" : value.toFixed(2);
 
@@ -57,6 +59,7 @@ export function drawVehicleShareCard(
     width = 936,
     align: CanvasTextAlign = "left",
   ) => {
+    value = localize(value);
     ctx.save();
     ctx.textAlign = align;
     ctx.fillStyle = color;
@@ -93,16 +96,16 @@ export function drawVehicleShareCard(
   ctx.imageSmoothingQuality = "high";
 
   text(profile.nickname, 76, 105, 50, cream, 928);
-  const modes: Record<string, string> = { ab: "街机", rb: "历史", sb: "全真" };
+  const modes: Record<string, string> = { ab: t("街机"), rb: t("历史"), sb: t("全真") };
   const categories: Record<string, string> = {
-    ground: "陆战",
-    aviation: "空战",
-    helicopters: "直升机",
-    ships: "远洋海战",
-    boats: "近岸海战",
+    ground: t("陆战"),
+    aviation: t("空战"),
+    helicopters: t("直升机"),
+    ships: t("远洋海战"),
+    boats: t("近岸海战"),
   };
   text(
-    `${categories[vehicle.category || ""] || "载具"}${modes[vehicle.mode] || ""} · ${vehicle.mode.toUpperCase()}`,
+    `${t(categories[vehicle.category || ""] || "载具")} · ${t(modes[vehicle.mode] || "")} · ${vehicle.mode.toUpperCase()}`,
     76,
     163,
     34,
@@ -112,7 +115,7 @@ export function drawVehicleShareCard(
   line(76, 195, 1004, 195);
 
   // Long localized names occupy up to two lines without truncating their identity.
-  const title = vehicleDisplayName(vehicle.name);
+  const title = vehicleDisplayName(vehicleName(vehicle));
   ctx.font =
     '700 128px WTCard, "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", system-ui, sans-serif';
   const wideTitle = ctx.measureText(title).width > 1580;
@@ -126,9 +129,9 @@ export function drawVehicleShareCard(
   } else text(title, 74, 353, 128, cream, 930);
   if (assets.flag) fit(assets.flag, 78, 389, 64, 42);
   const country =
-    catalog.countries[vehicle.country as keyof typeof catalog.countries] || "国家待匹配";
+    catalog.countries[vehicle.country as keyof typeof catalog.countries] || t("国家待匹配");
   text(
-    `${country}${vehicle.rank ? ` · ${vehicle.rank} 级` : ""}`,
+    `${t(country)}${vehicle.rank ? ` · ${vehicle.rank}${t("级")}` : ""}`,
     assets.flag ? 162 : 78,
     423,
     29,
@@ -141,10 +144,10 @@ export function drawVehicleShareCard(
   // Keep the statistics separate from the scene; all labels and numbers are live data.
   const columns = [215, 540, 865];
   const primary = [
-    ["综合 K/D", ratio(vehicle.kd)],
-    ["效率评分", number(vehicle.efficiency)],
+    [t("综合 K/D"), ratio(vehicle.kd)],
+    [t("效率评分"), number(vehicle.efficiency)],
     [
-      "胜率",
+      t("胜率"),
       vehicle.winRate == null || !Number.isFinite(vehicle.winRate)
         ? "—"
         : `${vehicle.winRate.toFixed(2)}%`,
@@ -159,9 +162,9 @@ export function drawVehicleShareCard(
   line(76, 1070, 1004, 1070);
   const naval = vehicle.category === "ships" || vehicle.category === "boats";
   const secondary = [
-    ["战斗场次", number(vehicle.battles)],
-    [naval ? "对海 K/D" : "对地 K/D", ratio(naval ? vehicle.navalKd : vehicle.groundKd)],
-    ["对空 K/D", ratio(vehicle.airKd)],
+    [t("战斗场次"), number(vehicle.battles)],
+    [naval ? t("对海 K/D") : t("对地 K/D"), ratio(naval ? vehicle.navalKd : vehicle.groundKd)],
+    [t("对空 K/D"), ratio(vehicle.airKd)],
   ];
   secondary.forEach(([label, value], i) => {
     text(label, columns[i], 1124, 29, muted, 280, "center");
@@ -172,14 +175,14 @@ export function drawVehicleShareCard(
   line(76, 1236, 1004, 1236);
 
   fit(assets.silver, 82, 1272, 72, 72);
-  text("累计获得银狮", 174, 1324, 30, muted, 282);
+  text(getLocale() === "zh-CN" ? t("累计获得银狮") : t("累计 SL"), 174, 1324, 30, muted, 282);
   line(492, 1268, 492, 1347);
   text(compactSilver(vehicle.silverLions), 986, 1333, 87, cream, 460, "right");
   line(76, 1370, 1004, 1370);
   fit(assets.logo, 360, 1396, 360, 169);
   const date = new Date(profile.fetchedAt);
   if (!Number.isNaN(date.getTime())) {
-    const day = new Intl.DateTimeFormat("zh-CN", {
+    const day = new Intl.DateTimeFormat(getLocale(), {
       timeZone: "Asia/Shanghai",
       year: "numeric",
       month: "2-digit",

@@ -237,6 +237,7 @@ function checkName(value, proof, nameEn) {
   assert.equal(proof.nameEn, nameEn);
   assert.equal(value.nameEn, nameEn);
   assert.equal(value.nameZhCN, proof.nameZhCN);
+  assert.equal(value.nameRu, proof.nameRu || null);
   assert.equal(value.name, proof.nameZhCN || nameEn);
   if (proof.nameZhCN) {
     const entry = localization.entries[proof.entry];
@@ -247,6 +248,12 @@ function checkName(value, proof, nameEn) {
       expected = expected.replace("%s", parameter);
     }
     assert.equal(expected.replaceAll("\u200b", "").replaceAll("\ufeff", "").trim(), value.nameZhCN);
+    if (proof.nameRu) {
+      let russian = entry.russianRaw;
+      assert.equal(typeof russian, "string");
+      for (const parameter of proof.parameters) russian = russian.replace("%s", parameter);
+      assert.equal(russian.replaceAll("\u200b", "").replaceAll("\ufeff", "").trim(), value.nameRu);
+    }
     assert.equal(value.localizationKey, proof.entry);
   } else assert(proof.missing);
 }
@@ -410,7 +417,7 @@ for (const [country, entry] of Object.entries(manifest.countries)) {
     items.forEach((item, index) => {
       const source = originalItems[index];
       checkName(item, localization.modifications[source.id + "\t" + source.name], source.name);
-      const { name, nameEn, nameZhCN, localizationKey, ...costFields } = item;
+      const { name, nameEn, nameRu, nameZhCN, localizationKey, ...costFields } = item;
       const { name: originalName, ...originalCostFields } = source;
       assert.deepEqual(costFields, originalCostFields);
     });

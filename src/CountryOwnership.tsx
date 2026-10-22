@@ -1,3 +1,6 @@
+import { vehicleName } from "./i18n/core";
+import { useLocale } from "./i18n/react";
+import { localize, t } from "./i18n/core";
 import { useEffect, useState } from "react";
 import { GameSelect } from "./components/GameSelect";
 import {
@@ -31,6 +34,8 @@ type OwnershipData = {
   }[];
 };
 export function CountryOwnership({ profile }: { profile: PlayerProfile }) {
+  useLocale();
+
   const [category, setCategory] = useState("all");
   const [data, setData] = useState<OwnershipData | null>(null);
   const [busy, setBusy] = useState(false),
@@ -68,10 +73,10 @@ export function CountryOwnership({ profile }: { profile: PlayerProfile }) {
   return (
     <section className="wt-record-panel wt-record-country-panel">
       <div className="wt-record-heading wt-country-heading">
-        <h2>各国拥有载具</h2>
+        <h2>{t("各国拥有载具")}</h2>
         <GameSelect
           disabled={profile.localOnly}
-          aria-label="各国拥有载具军种"
+          aria-label={t("各国拥有载具军种")}
           value={category}
           onValueChange={(selected) => {
             setCategory(selected);
@@ -85,110 +90,143 @@ export function CountryOwnership({ profile }: { profile: PlayerProfile }) {
             }
           }}
         >
-          <option value="all">全部军种</option>
-          {Object.entries(statsCategoryNames).map(([id, name]) => (
-            <option key={id} value={id}>
-              {name}
-            </option>
-          ))}
+          <option value="all">{t("全部军种")}</option>
+          {localize(
+            Object.entries(statsCategoryNames).map(([id, name]) => (
+              <option key={id} value={id}>
+                {localize(name)}
+              </option>
+            )),
+          )}
         </GameSelect>
-        <span>{needsBreakdown ? "已研发 / 可研发 · 精英" : "拥有 / 精英 · 官方公开数量"}</span>
+        <span>
+          {localize(needsBreakdown ? "已研发 / 可研发 · 精英" : "拥有 / 精英 · 官方公开数量")}
+        </span>
       </div>
-      {!needsBreakdown ? (
-        <div className="wt-record-countries">
-          {profile.countries
-            .filter((c) => c.owned != null && c.owned > 0)
-            .map((c) => (
-              <div key={c.id}>
-                <img className="wt-record-country-flag" src={c.flag} alt="" />
-                <span>{c.name}</span>
-                <b>{num(c.owned)}</b>
-                <small className="wt-country-elite" title={`精英载具 ${num(c.elite)} 辆`}>
-                  <img src={statsGoldenEaglesIcon} alt="" />
-                  <span>精英</span>
-                  <strong>{num(c.elite)}</strong>
-                </small>
-              </div>
-            ))}
-        </div>
-      ) : (
-        <>
-          {busy && !data && (
-            <output className="wt-record-fine wt-country-loading">
-              正在读取完整车库军种统计，包含未出战载具…
-            </output>
-          )}
-          {error && (
-            <output className="wt-country-error">
-              <span>{error}</span>
-              <button
-                type="button"
-                onClick={() => {
-                  setBusy(true);
-                  setError("");
-                  setRetry((v) => v + 1);
-                }}
-              >
-                重试统计
-              </button>
-            </output>
-          )}
-          {data && (
-            <>
-              <div className="wt-record-countries wt-country-breakdown">
-                {data.countries.map((c) => {
-                  const count = c.categories[category];
-                  if (!count) return null;
-                  const graduated =
-                    count.researchable != null &&
-                    count.researchable > 0 &&
-                    count.researchOwned >= count.researchable;
-                  return (
-                    <div key={c.id}>
-                      <img className="wt-record-country-flag" src={c.flag} alt="" />
-                      <span className="wt-country-name">
-                        {c.name}
-                        {graduated && (
-                          <b
-                            className="wt-country-graduated"
-                            title="当前常规科技树可研发载具已全部拥有；礼包、金鹰和其他特种载具不参与毕业判定。"
-                          >
-                            毕业
-                          </b>
-                        )}
-                      </span>
-                      <span
-                        className="wt-country-owned-count"
-                        title={`常规研发已拥有 ${num(count.researchOwned)} 辆；军种总拥有 ${count.owned == null ? "至少 " + num(count.knownOwned) : num(count.owned)} 辆；${count.researchable == null ? "暂无常规科技树" : "可研发 " + num(count.researchable) + " 辆"}`}
-                      >
-                        <b>{num(count.researchOwned)}</b>
-                        <small>
-                          {" "}
-                          / {count.researchable == null ? "—" : num(count.researchable)}
-                        </small>
-                      </span>
-                      <small
-                        className="wt-country-elite"
-                        title={`常规可研发载具中的精英 ${num(count.researchElite)} 辆`}
-                      >
-                        <img src={statsGoldenEaglesIcon} alt="" />
-                        <span>精英</span>
-                        <strong>{num(count.researchElite)}</strong>
-                      </small>
-                    </div>
-                  );
-                })}
-              </div>
-              <p className="wt-record-fine">
-                仅统计当前常规科技树已拥有载具，包含未出战载具；金鹰、礼包及其他特种载具不计入进度与毕业。组合载具按一个项目计数。
-              </p>
-              <p className="wt-record-fine">
-                完整车库 {statsDate(data.fetchedAt)} · 可研发目录{" "}
-                {statsDate(data.researchCheckedAt)}
-              </p>
-            </>
-          )}
-        </>
+      {localize(
+        !needsBreakdown ? (
+          <div className="wt-record-countries">
+            {localize(
+              profile.countries
+                .filter((c) => c.owned != null && c.owned > 0)
+                .map((c) => (
+                  <div key={c.id}>
+                    <img className="wt-record-country-flag" src={c.flag} alt="" />
+                    <span>{localize(vehicleName(c))}</span>
+                    <b>{localize(num(c.owned))}</b>
+                    <small
+                      className="wt-country-elite"
+                      title={localize(`精英载具 ${localize(num(c.elite))} 辆`)}
+                    >
+                      <img src={statsGoldenEaglesIcon} alt="" />
+                      <span>{t("精英")}</span>
+                      <strong>{localize(num(c.elite))}</strong>
+                    </small>
+                  </div>
+                )),
+            )}
+          </div>
+        ) : (
+          <>
+            {localize(
+              busy && !data && (
+                <output className="wt-record-fine wt-country-loading">
+                  {t("正在读取完整车库军种统计，包含未出战载具…")}
+                </output>
+              ),
+            )}
+            {localize(
+              error && (
+                <output className="wt-country-error">
+                  <span>{localize(error)}</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setBusy(true);
+                      setError("");
+                      setRetry((v) => v + 1);
+                    }}
+                  >
+                    {t("重试统计")}
+                  </button>
+                </output>
+              ),
+            )}
+            {localize(
+              data && (
+                <>
+                  <div className="wt-record-countries wt-country-breakdown">
+                    {localize(
+                      data.countries.map((c) => {
+                        const count = c.categories[category];
+                        if (!count) return null;
+                        const graduated =
+                          count.researchable != null &&
+                          count.researchable > 0 &&
+                          count.researchOwned >= count.researchable;
+                        return (
+                          <div key={c.id}>
+                            <img className="wt-record-country-flag" src={c.flag} alt="" />
+                            <span className="wt-country-name">
+                              {localize(vehicleName(c))}
+                              {localize(
+                                graduated && (
+                                  <b
+                                    className="wt-country-graduated"
+                                    title={t(
+                                      "当前常规科技树可研发载具已全部拥有；礼包、金鹰和其他特种载具不参与毕业判定。",
+                                    )}
+                                  >
+                                    {t("毕业")}
+                                  </b>
+                                ),
+                              )}
+                            </span>
+                            <span
+                              className="wt-country-owned-count"
+                              title={localize(
+                                `常规研发已拥有 ${localize(num(count.researchOwned))} 辆；军种总拥有 ${localize(count.owned == null ? "至少 " + num(count.knownOwned) : num(count.owned))} 辆；${localize(count.researchable == null ? "暂无常规科技树" : "可研发 " + num(count.researchable) + " 辆")}`,
+                              )}
+                            >
+                              <b>{localize(num(count.researchOwned))}</b>
+                              <small>
+                                {localize(" ")}/{" "}
+                                {localize(
+                                  count.researchable == null ? "—" : num(count.researchable),
+                                )}
+                              </small>
+                            </span>
+                            <small
+                              className="wt-country-elite"
+                              title={localize(
+                                `常规可研发载具中的精英 ${localize(num(count.researchElite))} 辆`,
+                              )}
+                            >
+                              <img src={statsGoldenEaglesIcon} alt="" />
+                              <span>{t("精英")}</span>
+                              <strong>{localize(num(count.researchElite))}</strong>
+                            </small>
+                          </div>
+                        );
+                      }),
+                    )}
+                  </div>
+                  <p className="wt-record-fine">
+                    {t(
+                      "仅统计当前常规科技树已拥有载具，包含未出战载具；金鹰、礼包及其他特种载具不计入进度与毕业。组合载具按一个项目计数。",
+                    )}
+                  </p>
+                  <p className="wt-record-fine">
+                    {t("完整车库")}
+                    {localize(statsDate(data.fetchedAt))} {t("· 可研发目录")}
+                    {localize(" ")}
+                    {localize(statsDate(data.researchCheckedAt))}
+                  </p>
+                </>
+              ),
+            )}
+          </>
+        ),
       )}
     </section>
   );

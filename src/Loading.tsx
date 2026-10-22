@@ -1,3 +1,5 @@
+import { useLocale } from "./i18n/react";
+import { localize, t } from "./i18n/core";
 import { downloadLabel } from "./data-loader";
 import type { DownloadProgress } from "./data-loader";
 const loadingFeatures = [
@@ -21,11 +23,13 @@ export function WarThunderLoading({
   retry?: () => void;
   compact?: boolean;
 }) {
+  useLocale();
+
   const percent = progress.total ? Math.min(100, (progress.received / progress.total) * 100) : 0;
   return (
     <section
       className={`wt-loading ${compact ? "wt-loading-compact" : ""}`}
-      aria-label={error ? "数据加载失败" : title}
+      aria-label={localize(error ? "数据加载失败" : title)}
     >
       <div className="wt-loading-content">
         <img
@@ -36,52 +40,62 @@ export function WarThunderLoading({
           alt="War Thunder"
         />
         <div className="wt-loading-caption">WAR THUNDER / PLAYER WORKBENCH</div>
-        <h1>{error ? "数据读取失败" : title}</h1>
+        <h1>{localize(error ? "数据读取失败" : title)}</h1>
         <p className="wt-loading-copy">
-          {error ||
-            (compact
-              ? "包含本国全部军种与改装资料，载入后可直接切换。"
-              : "从研发规划到战场复盘，常用工具集中在这里。")}
+          {localize(
+            error ||
+              (compact
+                ? "包含本国全部军种与改装资料，载入后可直接切换。"
+                : "从研发规划到战场复盘，常用工具集中在这里。"),
+          )}
         </p>
-        {!compact && (
-          <nav className="wt-loading-features" aria-label="工作台功能">
-            {loadingFeatures.map(([number, name, description, href]) => (
-              <a key={number} href={href}>
-                <span className="wt-loading-feature-number" aria-hidden="true">
-                  {number}
-                </span>
-                <span>
-                  <strong>{name}</strong>
-                  <small>{description}</small>
-                </span>
-                <span className="wt-loading-feature-arrow" aria-hidden="true">
-                  ↗
-                </span>
-              </a>
-            ))}
-          </nav>
+        {localize(
+          !compact && (
+            <nav className="wt-loading-features" aria-label={t("工作台功能")}>
+              {localize(
+                loadingFeatures.map(([number, name, description, href]) => (
+                  <a key={number} href={href}>
+                    <span className="wt-loading-feature-number" aria-hidden="true">
+                      {localize(number)}
+                    </span>
+                    <span>
+                      <strong>{localize(name)}</strong>
+                      <small>{localize(description)}</small>
+                    </span>
+                    <span className="wt-loading-feature-arrow" aria-hidden="true">
+                      ↗
+                    </span>
+                  </a>
+                )),
+              )}
+            </nav>
+          ),
         )}
         <div className="wt-loading-transfer">
           <progress
             className="wt-loading-progress"
             value={progress.total ? percent : undefined}
             max={100}
-            aria-label={progress.total ? "资料读取进度" : "正在加载国家资料"}
+            aria-label={localize(progress.total ? "资料读取进度" : "正在加载国家资料")}
           />
           <div className="wt-loading-status">
             <span>
-              {error ? "请检查连接后重试" : progress.total ? "正在读取资料" : "正在准备资料"}
+              {localize(
+                error ? "请检查连接后重试" : progress.total ? "正在读取资料" : "正在准备资料",
+              )}
             </span>
-            <span>{error ? "" : downloadLabel(progress)}</span>
+            <span>{localize(error ? "" : downloadLabel(progress))}</span>
           </div>
         </div>
-        {retry && error && (
-          <button className="wt-loading-retry" onClick={retry}>
-            {error ? "重新读取" : "重新加载"}
-          </button>
+        {localize(
+          retry && error && (
+            <button className="wt-loading-retry" onClick={retry}>
+              {localize(error ? "重新读取" : "重新加载")}
+            </button>
+          ),
         )}
       </div>
-      <span className="wt-loading-version">WAR THUNDER · PC / 国际服</span>
+      <span className="wt-loading-version">{t("WAR THUNDER · PC / 国际服")}</span>
     </section>
   );
 }

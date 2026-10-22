@@ -1,3 +1,6 @@
+import { getLocale } from "./i18n/core";
+import { useLocale } from "./i18n/react";
+import { localize } from "./i18n/core";
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import {
@@ -23,6 +26,8 @@ type Account = {
 };
 const AccountContext = createContext<Account | null>(null);
 export function WorkbenchAccountProvider({ children }: { children: ReactNode }) {
+  useLocale();
+
   const [session, setSession] = useState<StatsSession | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -72,12 +77,22 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
         url.searchParams.delete("wt_auth_state");
         history.replaceState(history.state, "", url);
         if (!saved) throw new Error("登录请求已过期，请重新登录。");
-        const intent = JSON.parse(saved) as { verifier: string; state: string; returnUrl: string; expires: number };
-        if (intent.state !== state || intent.expires < Date.now()) throw new Error("登录请求已过期，请重新登录。");
+        const intent = JSON.parse(saved) as {
+          verifier: string;
+          state: string;
+          returnUrl: string;
+          expires: number;
+        };
+        if (intent.state !== state || intent.expires < Date.now())
+          throw new Error("登录请求已过期，请重新登录。");
         const original = new URL(intent.returnUrl);
-        if (original.origin !== location.origin || original.pathname !== location.pathname) throw new Error("登录返回地址无效。");
+        if (original.origin !== location.origin || original.pathname !== location.pathname)
+          throw new Error("登录返回地址无效。");
         history.replaceState(history.state, "", original);
-        const result = await statsRequest<{ token: string }>("auth/exchange", { code, verifier: intent.verifier });
+        const result = await statsRequest<{ token: string }>("auth/exchange", {
+          code,
+          verifier: intent.verifier,
+        });
         resetIdentity();
         setStatsToken(result.token);
         notifyStatsAccountLogin();
@@ -100,7 +115,8 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
       )
         return;
       setStatsToken("");
-      if (event.newValue?.startsWith("login:")) setError("账号已在其他页面登录，点击登录可恢复当前页面的会话。");
+      if (event.newValue?.startsWith("login:"))
+        setError("账号已在其他页面登录，点击登录可恢复当前页面的会话。");
       resetIdentity();
       void refreshSession().catch(() => {});
     };
@@ -132,17 +148,28 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
         setBusy(false);
       }
     };
-    const renew = setInterval(() => {
-      if (hasStatsToken()) void statsRequest<{ token: string }>("auth/refresh", {}).then(result => setStatsToken(result.token)).catch(() => {});
-    }, 10 * 60 * 1000);
+    const renew = setInterval(
+      () => {
+        if (hasStatsToken())
+          void statsRequest<{ token: string }>("auth/refresh", {})
+            .then((result) => setStatsToken(result.token))
+            .catch(() => {});
+      },
+      10 * 60 * 1000,
+    );
     const timer = setInterval(() => {
       if (pending.current?.popup.closed) {
         pending.current = null;
         setBusy(false);
       }
     }, 1000);
-    const expired = () => { resetIdentity(); void refreshSession().catch(() => {}); };
-    const visible = () => { if (document.visibilityState === "visible") void refreshSession().catch(() => {}); };
+    const expired = () => {
+      resetIdentity();
+      void refreshSession().catch(() => {});
+    };
+    const visible = () => {
+      if (document.visibilityState === "visible") void refreshSession().catch(() => {});
+    };
     window.addEventListener("wt-account-expired", expired);
     document.addEventListener("visibilitychange", visible);
     window.addEventListener("message", listener);
@@ -158,20 +185,27 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
   }, [refreshSession, resetIdentity]);
   async function redirectLogin() {
     const challenge = await loginChallenge();
-    const intent = { ...challenge, returnUrl: window.location.href, expires: Date.now() + 10 * 60 * 1000 };
+    const intent = {
+      ...challenge,
+      returnUrl: window.location.href,
+      expires: Date.now() + 10 * 60 * 1000,
+    };
     sessionStorage.setItem("wt-auth-intent-v1", JSON.stringify(intent));
     const start = await statsRequest<{ authorizeUrl: string }>("auth/start", {
-      challenge: challenge.challenge, state: challenge.state,
+      challenge: challenge.challenge,
+      state: challenge.state,
       returnUrl: window.location.href,
     });
-    window.location.assign(start.authorizeUrl);
+    window.location.assign(localizedAuthorizeUrl(start.authorizeUrl));
   }
   async function login() {
     if (busy) return;
     const popup = window.open("about:blank", "wt-account-login", "width=500,height=680");
     if (!popup) {
       setBusy(true);
-      try { await redirectLogin(); } catch (failure) {
+      try {
+        await redirectLogin();
+      } catch (failure) {
         setError(failure instanceof Error ? failure.message : "无法打开登录，请重试。");
         setBusy(false);
       }
@@ -192,7 +226,7 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
         setBusy(false);
         return;
       }
-      popup.location.replace(start.authorizeUrl);
+      popup.location.replace(localizedAuthorizeUrl(start.authorizeUrl));
     } catch (failure) {
       pending.current = null;
       popup.close();
@@ -220,7 +254,7 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
         logout,
       }}
     >
-      {children}
+      {localize(children)}
     </AccountContext.Provider>
   );
 }
@@ -228,4 +262,10 @@ export function useWorkbenchAccount() {
   const account = useContext(AccountContext);
   if (!account) throw new Error("WorkbenchAccountProvider is required");
   return account;
+}
+
+function localizedAuthorizeUrl(value: string) {
+  const url = new URL(value);
+  url.searchParams.set("lang", getLocale());
+  return url.href;
 }

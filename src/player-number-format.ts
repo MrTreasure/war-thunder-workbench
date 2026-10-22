@@ -1,6 +1,12 @@
+import { getLocale } from "./i18n/core";
 /** Compact game income; preserve the exact integer for titles/details. */
 export function compactSilver(value: number | null | undefined): string {
   if (value == null || !Number.isSafeInteger(value) || value < 0) return "—";
+  if (getLocale() !== "zh-CN")
+    return new Intl.NumberFormat(getLocale(), {
+      notation: "compact",
+      maximumFractionDigits: 2,
+    }).format(value);
   const integer = BigInt(value);
   if (integer < 10000n) return integer.toString();
   let divisor = integer >= 100000000n ? 100000000n : 10000n;
@@ -11,25 +17,42 @@ export function compactSilver(value: number | null | undefined): string {
     rounded = (integer * 100n + divisor / 2n) / divisor;
   }
   const decimal = (rounded % 100n).toString().padStart(2, "0").replace(/0+$/, "");
-  return (rounded / 100n).toString() + (decimal ? "." + decimal : "") + (divisor === 10000n ? "万" : "亿");
+  return (
+    (rounded / 100n).toString() +
+    (decimal ? "." + decimal : "") +
+    (divisor === 10000n ? "万" : "亿")
+  );
 }
 
 export type VehiclePresentation = "table" | "cards";
 const VIEW_KEY = "wt-stats-vehicle-view-v1";
 const SIZE_KEY = "wt-stats-vehicle-page-size-v1";
 export function savedVehiclePresentation(): VehiclePresentation {
-  try { return localStorage.getItem(VIEW_KEY) === "cards" ? "cards" : "table"; }
-  catch { return "table"; }
+  try {
+    return localStorage.getItem(VIEW_KEY) === "cards" ? "cards" : "table";
+  } catch {
+    return "table";
+  }
 }
 export function saveVehiclePresentation(view: VehiclePresentation) {
-  try { localStorage.setItem(VIEW_KEY, view); } catch { /* Keep the in-memory choice. */ }
+  try {
+    localStorage.setItem(VIEW_KEY, view);
+  } catch {
+    /* Keep the in-memory choice. */
+  }
 }
 export function savedVehiclePageSize() {
   try {
     const value = Number(localStorage.getItem(SIZE_KEY));
     return [20, 40, 80].includes(value) ? value : 20;
-  } catch { return 20; }
+  } catch {
+    return 20;
+  }
 }
 export function saveVehiclePageSize(size: number) {
-  try { localStorage.setItem(SIZE_KEY, String(size)); } catch { /* Keep the current page size. */ }
+  try {
+    localStorage.setItem(SIZE_KEY, String(size));
+  } catch {
+    /* Keep the current page size. */
+  }
 }

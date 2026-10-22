@@ -1,4 +1,4 @@
-"""Import the game's Simplified Chinese column, pinned to a verified datamine commit.
+"""Import the game's Simplified Chinese and Russian columns, pinned to a verified datamine commit.
 No RP or Wiki provenance is changed. Failure leaves the previous mapping untouched.
 Usage: python3 scripts/localization.py [--source-dir=/path/to/complete/csv/files]
 """
@@ -39,31 +39,33 @@ def main():
         sources[name] = {'url': f'https://raw.githubusercontent.com/{REPO}/{commit}/lang.vromfs.bin_u/lang/{name}.csv', 'sha256': hashlib.sha256(raw).hexdigest(), 'gitBlob': blob_hash, 'bytes': len(raw)}
         rows = csv.reader(io.StringIO(raw.decode('utf-8-sig'), newline=''), delimiter=';', strict=True)
         header = next(rows)
-        en, zh = header.index('<English>'), header.index('<Chinese>')
+        en, zh, ru = header.index('<English>'), header.index('<Chinese>'), header.index('<Russian>')
         table = {}
         for row in rows:
             if not row or not any(row):
                 continue
-            if len(row) <= max(en, zh):
+            if len(row) <= max(en, zh, ru):
                 raise ValueError(f'Truncated language row: {name}/{row[0]}')
             if row[0] in table:
                 raise ValueError(f'Duplicate localization key: {name}/{row[0]}')
-            table[row[0]] = {'english': row[en], 'chineseRaw': row[zh]}
+            table[row[0]] = {'english': row[en], 'chineseRaw': row[zh], 'russianRaw': row[ru]}
         tables[name] = table
     entries = {}
     def record(file, key, name_en, method, parameters=None):
         source = tables[file][key]
         raw = source['chineseRaw']
+        russian = source['russianRaw']
         if not clean(raw):
             return None
         params = parameters or []
         for parameter in params:
             raw = raw.replace('%s', parameter, 1)
+            russian = russian.replace('%s', parameter, 1)
         if '%s' in raw or '{' in raw:
             return None
         entry_key = f'{file}:{key}'
         entries[entry_key] = source
-        return {'nameEn': name_en, 'nameZhCN': clean(raw), 'entry': entry_key, 'method': method, 'parameters': params}
+        return {'nameEn': name_en, 'nameZhCN': clean(raw), 'nameRu': clean(russian) if clean(russian) and '%s' not in russian and '{' not in russian else None, 'entry': entry_key, 'method': method, 'parameters': params}
     settings = json.loads((ROOT / 'data/catalog-settings.json').read_text())
     categories = {}
     for category, key in settings['categoryLocalizationKeys'].items():
@@ -157,7 +159,7 @@ def main():
                 modifications[key] = modification_name(item['id'], item['name'])
     missing_vehicles = [key for key, value in vehicles.items() if not value['nameZhCN']]
     missing_mods = [key for key, value in modifications.items() if not value['nameZhCN']]
-    output = {'schemaVersion': 1, 'language': 'zh-CN', 'column': '<Chinese>', 'sourceLabel': 'Game localization files preserved by community datamine (not an official API)', 'commit': commit, 'checkedAt': datetime.now(timezone.utc).isoformat(), 'normalization': 'Remove U+200B and U+FEFF; trim surrounding whitespace. Original Chinese preserved in entries. Substitute only verified numeric game template parameters.', 'sources': sources, 'entries': entries, 'categories': categories, 'vehicles': vehicles, 'groups': groups, 'modifications': modifications, 'coverage': {'categories': len(categories), 'vehicles': len(vehicles), 'vehicleMissing': missing_vehicles, 'modificationNames': len(modifications), 'modificationMissing': missing_mods}}
+    output = {'schemaVersion': 1, 'language': 'zh-CN', 'column': '<Chinese>', 'languages': ['zh-CN', 'en', 'ru'], 'columns': {'zh-CN': '<Chinese>', 'en': '<English>', 'ru': '<Russian>'}, 'sourceLabel': 'Game localization files preserved by community datamine (not an official API)', 'commit': commit, 'checkedAt': datetime.now(timezone.utc).isoformat(), 'normalization': 'Remove U+200B and U+FEFF; trim surrounding whitespace. Original Chinese preserved in entries. Substitute only verified numeric game template parameters.', 'sources': sources, 'entries': entries, 'categories': categories, 'vehicles': vehicles, 'groups': groups, 'modifications': modifications, 'coverage': {'categories': len(categories), 'vehicles': len(vehicles), 'vehicleMissing': missing_vehicles, 'modificationNames': len(modifications), 'modificationMissing': missing_mods}}
     path = ROOT / 'data/localization.json'
     temp = path.with_suffix('.json.next')
     temp.write_text(json.dumps(output, ensure_ascii=False, indent=2) + '\n')

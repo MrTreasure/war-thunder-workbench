@@ -1,3 +1,5 @@
+import { useLocale } from "./i18n/react";
+import { localize, t } from "./i18n/core";
 import { useEffect, useRef, useState } from "react";
 import { statsDate, statsRequest } from "./player-stats-api";
 import type { PlayerCandidate, PlayerProfile } from "./player-stats-api";
@@ -26,6 +28,8 @@ export function OwnedVehicleImport({
   onImport: (garage: ImportedGarage) => void;
   onClear: () => void;
 }) {
+  useLocale();
+
   const [open, setOpen] = useState(false);
   const [nickname, setNickname] = useState("");
   const { session, refreshSession, identityVersion } = useWorkbenchAccount();
@@ -89,33 +93,41 @@ export function OwnedVehicleImport({
             });
           }}
         >
-          导入玩家已有载具
+          {t("导入玩家已有载具")}
         </button>
-        {current && (
-          <button className="quiet-button" type="button" disabled={busy} onClick={onClear}>
-            清除导入
-          </button>
+        {localize(
+          current && (
+            <button className="quiet-button" type="button" disabled={busy} onClick={onClear}>
+              {t("清除导入")}
+            </button>
+          ),
         )}
       </div>
       {current && (
         <p className="calc-note">
-          {current.nickname} · 本国本军种 {current.ids.length} 辆 · 核验{" "}
-          {statsDate(current.fetchedAt)}。清除仅移除导入记录，保留手动勾选。
+          {current.nickname} {t("· 本国本军种")}
+          {localize(current.ids.length)} {t("辆 · 核验")}
+          {localize(" ")}
+          {localize(statsDate(current.fetchedAt))}
+          {t("。清除仅移除导入记录，保留手动勾选。")}
         </p>
       )}
       {open && (
         <div className="vehicle-import-panel">
           <p className="calc-note">
-            成功导入扣 1 次账号估值额度，今日剩余 {remaining}
-            ；失败不扣。搜索使用战绩查询额度，命中查询缓存不扣次。仅应用于当前国别和军种，包含未出战载具；导入后恢复自动等级计算，目标已研进度归零。
+            {t("成功导入扣 1 次账号估值额度，今日剩余")}
+            {localize(remaining)}
+            {t(
+              "；失败不扣。搜索使用战绩查询额度，命中查询缓存不扣次。仅应用于当前国别和军种，包含未出战载具；导入后恢复自动等级计算，目标已研进度归零。",
+            )}
           </p>
           <label className="calc-field">
-            游戏昵称
+            {t("游戏昵称")}
             <input
               value={nickname}
               maxLength={64}
               disabled={busy}
-              placeholder="输入完整昵称"
+              placeholder={t("输入完整昵称")}
               onChange={(e) => {
                 setNickname(e.target.value);
                 setPlayer(null);
@@ -143,7 +155,7 @@ export function OwnedVehicleImport({
               })
             }
           >
-            搜索玩家
+            {t("搜索玩家")}
           </button>
           <div className="vehicle-import-candidates">
             {candidates.map((candidate) => (
@@ -168,7 +180,7 @@ export function OwnedVehicleImport({
                   })
                 }
               >
-                {candidate.nickname} · UID {candidate.uid}
+                {candidate.nickname} · UID {localize(candidate.uid)}
               </button>
             ))}
           </div>
@@ -205,11 +217,12 @@ export function OwnedVehicleImport({
                 })
               }
             >
-              导入 {player.nickname} 的车库（消耗 1 次）
+              {t("导入")}
+              {player.nickname} {t("的车库（消耗 1 次）")}
             </button>
           )}
-          {busy && <output className="calc-note">正在读取官方资料…</output>}
-          {notice && <output className="calc-note">{notice}</output>}
+          {localize(busy && <output className="calc-note">{t("正在读取官方资料…")}</output>)}
+          {localize(notice && <output className="calc-note">{localize(notice)}</output>)}
         </div>
       )}
     </div>

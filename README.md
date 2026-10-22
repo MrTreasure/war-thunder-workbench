@@ -6,6 +6,14 @@
 
 ![中国陆军科技树](docs/screenshots/tree.png)
 
+## 界面语言
+
+支持简体中文、English 和 Русский，使用右上角语言菜单即时切换，选择会保存在当前浏览器。
+科技树载具和配件优先使用已核验的游戏译名；缺失的俄文配件名回退到英文。
+用户昵称、自定义方案、地图标注、原始攻略图片及已生成的 AI 点评保留原文。
+
+开发分支的 [中文预览](https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN)、[English preview](https://render.mrtreasure.cc/war-thunder-trees/?lang=en)、[Предпросмотр на русском](https://render.mrtreasure.cc/war-thunder-trees/?lang=ru) 仅用于评审。
+
 ## 能帮你做什么
 
 - **查车**：查看十国科技树，支持陆军、空军、直升机、远洋海军和近岸海军。

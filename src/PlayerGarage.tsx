@@ -1,3 +1,6 @@
+import { vehicleName } from "./i18n/core";
+import { useLocale } from "./i18n/react";
+import { localize, t } from "./i18n/core";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { useState } from "react";
 import catalog from "../data/catalog-settings.json";
@@ -27,6 +30,8 @@ export function PlayerGarage({
   close: () => void;
   selectVehicle: (vehicle: PlayerVehicle) => void;
 }) {
+  useLocale();
+
   const read = usePlayerRead<OwnedGarage>(profile, "garage", true);
   const [country, setCountry] = useState("all"),
     [category, setCategory] = useState("all"),
@@ -63,7 +68,7 @@ export function PlayerGarage({
   };
   return (
     <Modal
-      title={`${profile.nickname} · 完整车库`}
+      title={localize(`${profile.nickname} · 完整车库`)}
       subtitle="所有已拥有载具，包含未出击车辆；查看清单不消耗估值次数。"
       close={close}
       className="wt-owned-garage"
@@ -71,10 +76,14 @@ export function PlayerGarage({
       <div className="wt-owned-content">
         <div className="wt-owned-summary">
           <strong>
-            {num(units.length)} <small>辆已拥有</small>
+            {localize(num(units.length))} <small>{t("辆已拥有")}</small>
           </strong>
-          <span>{num(units.filter((v) => !v.observed).length)} 辆未出击</span>
-          <span>{read.data ? `车库采集于 ${statsDate(read.data.fetchedAt)}` : ""}</span>
+          <span>
+            {localize(num(units.filter((v) => !v.observed).length))} {t("辆未出击")}
+          </span>
+          <span>
+            {localize(read.data ? `车库采集于 ${localize(statsDate(read.data.fetchedAt))}` : "")}
+          </span>
         </div>
         <div className="wt-owned-filters">
           <input
@@ -84,155 +93,189 @@ export function PlayerGarage({
               setSearch(e.target.value);
               setPage(1);
             }}
-            placeholder="搜索载具名称"
-            aria-label="搜索完整车库载具"
+            placeholder={t("搜索载具名称")}
+            aria-label={t("搜索完整车库载具")}
           />
           <GameSelect
-            aria-label="车库国家"
+            aria-label={t("车库国家")}
             value={country}
             onValueChange={(v) => {
               setCountry(v);
               setPage(1);
             }}
           >
-            <option value="all">全部国家</option>
-            {Object.entries(catalog.countries).map(([id, name]) => (
-              <option key={id} value={id}>
-                {name}
-              </option>
-            ))}
+            <option value="all">{t("全部国家")}</option>
+            {localize(
+              Object.entries(catalog.countries).map(([id, name]) => (
+                <option key={id} value={id}>
+                  {localize(name)}
+                </option>
+              )),
+            )}
           </GameSelect>
           <GameSelect
-            aria-label="车库军种"
+            aria-label={t("车库军种")}
             value={category}
             onValueChange={(v) => {
               setCategory(v);
               setPage(1);
             }}
           >
-            <option value="all">全部军种</option>
-            {Object.entries(statsCategoryNames).map(([id, name]) => (
-              <option key={id} value={id}>
-                {name}
-              </option>
-            ))}
+            <option value="all">{t("全部军种")}</option>
+            {localize(
+              Object.entries(statsCategoryNames).map(([id, name]) => (
+                <option key={id} value={id}>
+                  {localize(name)}
+                </option>
+              )),
+            )}
           </GameSelect>
           <GameSelect
-            aria-label="车库等级"
+            aria-label={t("车库等级")}
             value={rank}
             onValueChange={(v) => {
               setRank(v);
               setPage(1);
             }}
           >
-            <option value="all">全部等级</option>
-            {ranks.map((v) => (
-              <option key={v} value={v}>
-                {v} 级
-              </option>
-            ))}
+            <option value="all">{t("全部等级")}</option>
+            {localize(
+              ranks.map((v) => (
+                <option key={v} value={v}>
+                  {localize(v)} {t("级")}
+                </option>
+              )),
+            )}
           </GameSelect>
           <GameSelect
-            aria-label="车库载具类型"
+            aria-label={t("车库载具类型")}
             value={kind}
             onValueChange={(v) => {
               setKind(v);
               setPage(1);
             }}
           >
-            <option value="all">全部类型</option>
-            {kinds.map((v) => (
-              <option value={v} key={v}>
-                {kindLabels[v] || v}
-              </option>
-            ))}
+            <option value="all">{t("全部类型")}</option>
+            {localize(
+              kinds.map((v) => (
+                <option value={v} key={v}>
+                  {localize(kindLabels[v] || v)}
+                </option>
+              )),
+            )}
           </GameSelect>
           <GameSelect
-            aria-label="车库出击状态"
+            aria-label={t("车库出击状态")}
             value={played}
             onValueChange={(v) => {
               setPlayed(v);
               setPage(1);
             }}
           >
-            <option value="all">全部出击状态</option>
-            <option value="yes">已出击</option>
-            <option value="no">未出击</option>
+            <option value="all">{t("全部出击状态")}</option>
+            <option value="yes">{t("已出击")}</option>
+            <option value="no">{t("未出击")}</option>
           </GameSelect>
         </div>
-        {read.busy && !read.data && <output className="wt-rank-loading">正在读取完整车库…</output>}
-        {read.error && (
-          <div className="wt-rank-error" role="alert">
-            <span>{read.error}</span>
-            {!profile.localOnly && <button onClick={read.retry}>重试</button>}
-          </div>
+        {localize(
+          read.busy && !read.data && (
+            <output className="wt-rank-loading">{t("正在读取完整车库…")}</output>
+          ),
         )}
-        {read.data && (
-          <>
-            <p className="wt-record-fine">
-              筛选出 {num(filtered.length)} 辆
-              {read.data.unmatchedCount > 0
-                ? ` · ${read.data.unmatchedCount} 辆尚未匹配分类，仍保留在清单中`
-                : ""}
-            </p>
-            <div className="wt-owned-list">
-              {filtered.slice((currentPage - 1) * pageSize, currentPage * pageSize).map((v) => {
-                const record = [...profile.vehicles]
-                  .filter((r) => r.id === v.id)
-                  .sort((a, b) => (b.battles || 0) - (a.battles || 0))[0];
-                return (
-                  <div key={v.id} className="wt-owned-row">
-                    <img
-                      src={v.image}
-                      alt=""
-                      loading="lazy"
-                      onError={(e) => {
-                        e.currentTarget.hidden = true;
-                      }}
-                    />
-                    <div>
-                      <a
-                        href={`https://wiki.warthunder.com/unit/${encodeURIComponent(v.id)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {vehicleDisplayName(v.name)}
-                      </a>
-                      <small>
-                        {catalog.countries[v.country as keyof typeof catalog.countries] ||
-                          v.country}{" "}
-                        · {statsCategoryNames[v.category || ""] || "分类待匹配"}
-                        {v.rank ? ` · ${v.rank} 级` : ""}
-                      </small>
-                    </div>
-                    <span className={v.observed ? "wt-owned-played" : "wt-owned-unplayed"}>
-                      {v.observed ? "已出击" : "未出击"}
-                    </span>
-                    {v.elite && (
-                      <span className="wt-owned-elite">
-                        <img src={statsGoldenEaglesIcon} alt="" />
-                        精英
-                      </span>
-                    )}
-                    {record && <button onClick={() => selectVehicle(record)}>查看战绩</button>}
-                  </div>
-                );
-              })}
+        {localize(
+          read.error && (
+            <div className="wt-rank-error" role="alert">
+              <span>{localize(read.error)}</span>
+              {localize(!profile.localOnly && <button onClick={read.retry}>{t("重试")}</button>)}
             </div>
-            {filtered.length === 0 && <p className="wt-record-empty">没有符合当前筛选的载具。</p>}
-            <PlayerVehiclePagination
-              page={currentPage}
-              pages={pages}
-              total={filtered.length}
-              pageSize={pageSize}
-              changePage={setPage}
-              changeSize={(size) => {
-                setPageSize(size);
-                setPage(1);
-                saveVehiclePageSize(size);
-              }}
-            />
-          </>
+          ),
+        )}
+        {localize(
+          read.data && (
+            <>
+              <p className="wt-record-fine">
+                {t("筛选出")}
+                {localize(num(filtered.length))} {t("辆")}
+                {localize(
+                  read.data.unmatchedCount > 0
+                    ? ` · ${localize(read.data.unmatchedCount)} 辆尚未匹配分类，仍保留在清单中`
+                    : "",
+                )}
+              </p>
+              <div className="wt-owned-list">
+                {localize(
+                  filtered.slice((currentPage - 1) * pageSize, currentPage * pageSize).map((v) => {
+                    const record = [...profile.vehicles]
+                      .filter((r) => r.id === v.id)
+                      .sort((a, b) => (b.battles || 0) - (a.battles || 0))[0];
+                    return (
+                      <div key={v.id} className="wt-owned-row">
+                        <img
+                          src={v.image}
+                          alt=""
+                          loading="lazy"
+                          onError={(e) => {
+                            e.currentTarget.hidden = true;
+                          }}
+                        />
+                        <div>
+                          <a
+                            href={`https://wiki.warthunder.com/unit/${encodeURIComponent(v.id)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {localize(vehicleDisplayName(vehicleName(v)))}
+                          </a>
+                          <small>
+                            {localize(
+                              catalog.countries[v.country as keyof typeof catalog.countries] ||
+                                v.country,
+                            )}
+                            {localize(" ")}·{" "}
+                            {localize(statsCategoryNames[v.category || ""] || "分类待匹配")}
+                            {localize(v.rank ? ` · ${localize(v.rank)} 级` : "")}
+                          </small>
+                        </div>
+                        <span className={v.observed ? "wt-owned-played" : "wt-owned-unplayed"}>
+                          {localize(v.observed ? "已出击" : "未出击")}
+                        </span>
+                        {localize(
+                          v.elite && (
+                            <span className="wt-owned-elite">
+                              <img src={statsGoldenEaglesIcon} alt="" />
+                              {t("精英")}
+                            </span>
+                          ),
+                        )}
+                        {localize(
+                          record && (
+                            <button onClick={() => selectVehicle(record)}>{t("查看战绩")}</button>
+                          ),
+                        )}
+                      </div>
+                    );
+                  }),
+                )}
+              </div>
+              {localize(
+                filtered.length === 0 && (
+                  <p className="wt-record-empty">{t("没有符合当前筛选的载具。")}</p>
+                ),
+              )}
+              <PlayerVehiclePagination
+                page={currentPage}
+                pages={pages}
+                total={filtered.length}
+                pageSize={pageSize}
+                changePage={setPage}
+                changeSize={(size) => {
+                  setPageSize(size);
+                  setPage(1);
+                  saveVehiclePageSize(size);
+                }}
+              />
+            </>
+          ),
         )}
       </div>
     </Modal>
@@ -248,10 +291,12 @@ export function PlayerVehicleDetails({
   vehicle: PlayerVehicle;
   close: () => void;
 }) {
+  useLocale();
+
   return (
     <Modal
       key="detail"
-      title={vehicleDisplayName(vehicle.name)}
+      title={localize(vehicleDisplayName(vehicleName(vehicle)))}
       subtitle={`${profile.nickname} · ${vehicle.mode.toUpperCase()} · 载具累计战绩`}
       close={close}
       className="wt-owned-garage wt-vehicle-record-dialog"
@@ -260,45 +305,48 @@ export function PlayerVehicleDetails({
         <div className="wt-vehicle-record-identity">
           <img src={vehicle.image} alt="" />
           <div>
-            <h3>{vehicleDisplayName(vehicle.name)}</h3>
+            <h3>{localize(vehicleDisplayName(vehicleName(vehicle)))}</h3>
             <p>
-              {vehicle.mode.toUpperCase()} ·{" "}
-              {statsCategoryNames[vehicle.category || ""] || "分类待匹配"}
-              {vehicle.rank ? ` · ${vehicle.rank} 级` : ""}
+              {localize(vehicle.mode.toUpperCase())} ·{localize(" ")}
+              {localize(statsCategoryNames[vehicle.category || ""] || "分类待匹配")}
+              {localize(vehicle.rank ? ` · ${localize(vehicle.rank)} 级` : "")}
             </p>
             <a
               href={`https://wiki.warthunder.com/unit/${encodeURIComponent(vehicle.id)}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              查看官方 Wiki ↗
+              {t("查看官方 Wiki ↗")}
             </a>
           </div>
         </div>
         <div className="wt-vehicle-record-counters">
-          {[
-            ["战斗场次", num(vehicle.battles)],
-            ["胜率", vehicle.winRate == null ? "—" : `${vehicle.winRate.toFixed(2)}%`],
-            ["工作台效率", num(vehicle.efficiency)],
-            ["综合 K/D", statsRatio(vehicle.kd)],
-            ["对地 K/D", statsRatio(vehicle.groundKd)],
-            ["对空 K/D", statsRatio(vehicle.airKd)],
-            ["死亡", num(vehicle.deaths)],
-            ["出击", num(vehicle.sorties)],
-            ["对地击毁", num(vehicle.groundKills)],
-            ["对空击毁", num(vehicle.airKills)],
-          ].map(([label, value]) => (
-            <div key={label}>
-              <span>{label}</span>
-              <strong>{value}</strong>
-            </div>
-          ))}
+          {localize(
+            [
+              ["战斗场次", num(vehicle.battles)],
+              ["胜率", vehicle.winRate == null ? "—" : `${localize(vehicle.winRate.toFixed(2))}%`],
+              ["工作台效率", num(vehicle.efficiency)],
+              ["综合 K/D", statsRatio(vehicle.kd)],
+              ["对地 K/D", statsRatio(vehicle.groundKd)],
+              ["对空 K/D", statsRatio(vehicle.airKd)],
+              ["死亡", num(vehicle.deaths)],
+              ["出击", num(vehicle.sorties)],
+              ["对地击毁", num(vehicle.groundKills)],
+              ["对空击毁", num(vehicle.airKills)],
+            ].map(([label, value]) => (
+              <div key={label}>
+                <span>{localize(label)}</span>
+                <strong>{localize(value)}</strong>
+              </div>
+            )),
+          )}
         </div>
         <p className="wt-vehicle-record-silver">
-          <img src={statsSilverIcon} alt="银狮" />
-          累计银狮{" "}
-          <strong title={statsSilver(vehicle.silverLions)}>
-            {compactSilver(vehicle.silverLions)}
+          <img src={statsSilverIcon} alt={t("银狮")} />
+          {t("累计银狮")}
+          {localize(" ")}
+          <strong title={localize(statsSilver(vehicle.silverLions))}>
+            {localize(compactSilver(vehicle.silverLions))}
           </strong>
         </p>
       </div>

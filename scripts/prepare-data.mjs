@@ -30,6 +30,7 @@ const storePrices = await json("store-prices.json");
 const localized = (value, proof) => {
   value.nameEn = value.name;
   value.nameZhCN = proof?.nameZhCN || null;
+  value.nameRu = proof?.nameEn === value.name ? proof.nameRu || null : null;
   if (proof?.nameEn === value.name && proof.nameZhCN) {
     value.name = proof.nameZhCN;
     value.localizationKey = proof.entry;
@@ -93,7 +94,11 @@ for (const countries of Object.values(catalog.trees))
       for (const node of [...rank.research, ...rank.special]) {
         if (node.group && localization.groups[node.id])
           localized(node, localization.groups[node.id]);
-        else node.name = node.members[0].name;
+        else {
+          node.name = node.members[0].name;
+          node.nameEn = node.members[0].nameEn;
+          node.nameRu = node.members[0].nameRu;
+        }
       }
   }
 await rm(resolve(root, "public/data"), { recursive: true, force: true });

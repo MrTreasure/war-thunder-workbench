@@ -1,3 +1,6 @@
+import { vehicleName } from "./i18n/core";
+import { useLocale } from "./i18n/react";
+import { localize, t } from "./i18n/core";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { useEffect, useRef, useState } from "react";
 import { Modal } from "./Modal";
@@ -39,6 +42,8 @@ export function PlayerVehicleShare({
   close: () => void;
   back: () => void;
 }) {
+  useLocale();
+
   const [blob, setBlob] = useState<Blob | null>(null);
   const [url, setUrl] = useState("");
   const [error, setError] = useState("");
@@ -104,44 +109,52 @@ export function PlayerVehicleShare({
     }
   };
   return (
-    <Modal title="载具战绩卡片" close={close} className="wt-owned-garage wt-vehicle-share-dialog">
+    <Modal
+      title={t("载具战绩卡片")}
+      close={close}
+      className="wt-owned-garage wt-vehicle-share-dialog"
+    >
       <div className="wt-vehicle-share-background">
-        <span>背景</span>
-        <GameSelect aria-label="载具卡片背景" value={activeJob.era} onValueChange={changeEra}>
-          {Object.entries(vehicleCardBackgrounds).map(([id, item]) => (
-            <option value={id} key={id}>
-              {item.label}
-            </option>
-          ))}
+        <span>{t("背景")}</span>
+        <GameSelect aria-label={t("载具卡片背景")} value={activeJob.era} onValueChange={changeEra}>
+          {localize(
+            Object.entries(vehicleCardBackgrounds).map(([id, item]) => (
+              <option value={id} key={id}>
+                {localize(item.label)}
+              </option>
+            )),
+          )}
         </GameSelect>
-        <small>可自由切换时代风格</small>
+        <small>{t("可自由切换时代风格")}</small>
       </div>
       <div className="wt-vehicle-share-preview" aria-busy={!url && !error}>
         {url ? (
           <img
             src={url}
-            alt={`${profile.nickname} · ${vehicleDisplayName(vehicle.name)} · ${vehicle.mode.toUpperCase()} 战绩卡片`}
+            alt={localize(
+              `${profile.nickname} · ${localize(vehicleDisplayName(vehicleName(vehicle)))} · ${localize(vehicle.mode.toUpperCase())} 战绩卡片`,
+            )}
           />
         ) : (
           <div className="wt-vehicle-share-loading" role={error ? "alert" : "status"}>
-            <strong>{error ? "生成未完成" : "正在制作卡片"}</strong>
-            <p>{error || "正在读取游戏原图与背景，请稍候…"}</p>
+            <strong>{localize(error ? "生成未完成" : "正在制作卡片")}</strong>
+            <p>{localize(error || "正在读取游戏原图与背景，请稍候…")}</p>
           </div>
         )}
       </div>
       <div className="wt-vehicle-share-actions">
-        <output>{error ? "返回详情后可重新生成。" : message}</output>
+        <output>{localize(error ? "返回详情后可重新生成。" : message)}</output>
         <div>
-          <button onClick={back}>返回详情</button>
+          <button onClick={back}>{t("返回详情")}</button>
           <button disabled={!blob || copying} onClick={copy}>
-            {copying ? "正在复制…" : "复制图片"}
+            {localize(copying ? "正在复制…" : "复制图片")}
           </button>
           <button
             className="wt-vehicle-share-primary"
             disabled={!blob}
             onClick={() => blob && downloadVehicleCard(blob, profile, vehicle)}
           >
-            下载 PNG
+            {t("下载 PNG")}
           </button>
         </div>
       </div>

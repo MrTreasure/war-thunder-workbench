@@ -1,3 +1,5 @@
+import { useLocale } from "../i18n/react";
+import { localize, t } from "../i18n/core";
 /* Select-only combobox: focus remains on the trigger; options use aria-activedescendant. */
 /* oxlint-disable jsx-a11y/prefer-tag-over-role */
 import {
@@ -24,6 +26,7 @@ type Props = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "value" | "onChange" 
   value: string | number;
   onValueChange: (value: string) => void;
   children: ReactNode;
+  displayValue?: string;
 };
 
 function text(children: ReactNode): string {
@@ -58,6 +61,7 @@ export function GameSelect({
   value,
   onValueChange,
   children,
+  displayValue,
   className = "",
   disabled,
   id,
@@ -65,6 +69,8 @@ export function GameSelect({
   onBlur,
   ...props
 }: Props) {
+  useLocale();
+
   const uid = useId();
   const triggerId = id || `${uid}-trigger`;
   const menuId = `${uid}-menu`;
@@ -209,7 +215,9 @@ export function GameSelect({
           setOpen(false);
         }}
       >
-        <span className="wt-select-label">{options[chosen]?.label || "请选择"}</span>
+        <span className="wt-select-label">
+          {displayValue ?? options[chosen]?.label ?? t("请选择")}
+        </span>
         <svg
           className="wt-select-chevron"
           width="12"
@@ -220,61 +228,67 @@ export function GameSelect({
           <path d="m3 4.5 3 3 3-3" fill="none" stroke="currentColor" strokeWidth="1.5" />
         </svg>
       </button>
-      {open &&
-        portalHost &&
-        createPortal(
-          <div
-            id={menuId}
-            ref={menu}
-            className="wt-select-menu"
-            popover="auto"
-            role="listbox"
-            tabIndex={-1}
-            aria-labelledby={triggerId}
-            onKeyDown={(event) => event.stopPropagation()}
-          >
-            {options.map((option, index) => (
-              <Fragment key={`${option.value}-${index}`}>
-                {option.group && option.group !== options[index - 1]?.group && (
-                  <div className="wt-select-group" role="presentation">
-                    {option.group}
-                  </div>
-                )}
-                <div
-                  id={`${menuId}-${index}`}
-                  className="wt-select-option"
-                  role="option"
-                  tabIndex={-1}
-                  aria-selected={index === chosen}
-                  aria-disabled={option.disabled || undefined}
-                  data-active={index === active || undefined}
-                  title={option.label}
-                  onPointerDown={(event) => event.preventDefault()}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter" || event.key === " ") {
-                      event.preventDefault();
-                      choose(index);
-                    }
-                  }}
-                  onPointerMove={(event) => {
-                    if (event.pointerType === "mouse" && !option.disabled) setActive(index);
-                  }}
-                  onClick={(event) => {
-                    event.preventDefault();
-                    event.stopPropagation();
-                    choose(index);
-                  }}
-                >
-                  <span className="wt-select-check" aria-hidden="true">
-                    {index === chosen ? "✓" : ""}
-                  </span>
-                  <span>{option.label}</span>
-                </div>
-              </Fragment>
-            ))}
-          </div>,
-          portalHost,
-        )}
+      {localize(
+        open &&
+          portalHost &&
+          createPortal(
+            <div
+              id={menuId}
+              ref={menu}
+              className="wt-select-menu"
+              popover="auto"
+              role="listbox"
+              tabIndex={-1}
+              aria-labelledby={triggerId}
+              onKeyDown={(event) => event.stopPropagation()}
+            >
+              {localize(
+                options.map((option, index) => (
+                  <Fragment key={`${option.value}-${index}`}>
+                    {localize(
+                      option.group && option.group !== options[index - 1]?.group && (
+                        <div className="wt-select-group" role="presentation">
+                          {option.group}
+                        </div>
+                      ),
+                    )}
+                    <div
+                      id={`${menuId}-${index}`}
+                      className="wt-select-option"
+                      role="option"
+                      tabIndex={-1}
+                      aria-selected={index === chosen}
+                      aria-disabled={option.disabled || undefined}
+                      data-active={index === active || undefined}
+                      title={option.label}
+                      onPointerDown={(event) => event.preventDefault()}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter" || event.key === " ") {
+                          event.preventDefault();
+                          choose(index);
+                        }
+                      }}
+                      onPointerMove={(event) => {
+                        if (event.pointerType === "mouse" && !option.disabled) setActive(index);
+                      }}
+                      onClick={(event) => {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        choose(index);
+                      }}
+                    >
+                      <span className="wt-select-check" aria-hidden="true">
+                        {localize(index === chosen ? "✓" : "")}
+                      </span>
+                      <span>{option.label}</span>
+                    </div>
+                  </Fragment>
+                )),
+              )}
+            </div>,
+            portalHost,
+          ),
+      )}
     </>
   );
 }

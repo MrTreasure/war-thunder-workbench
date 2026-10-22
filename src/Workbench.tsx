@@ -1,3 +1,6 @@
+import { vehicleName } from "./i18n/core";
+import { useLocale } from "./i18n/react";
+import { localize, t } from "./i18n/core";
 import { updateSearchMetadata } from "./search-metadata";
 import { GameSelect } from "./components/GameSelect";
 import { Component, createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
@@ -32,9 +35,9 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, { failed: 
   override render() {
     return this.state.failed ? (
       <WarThunderLoading
-        title="界面暂时无法显示"
+        title={t("界面暂时无法显示")}
         progress={{ received: 0, total: 0 }}
-        error="界面未能正常显示，请重新加载；本地购物车会保留。"
+        error={t("界面未能正常显示，请重新加载；本地购物车会保留。")}
         retry={() => location.reload()}
       />
     ) : (
@@ -50,6 +53,8 @@ export function useWorkbenchPage(page: "tree" | "lineups") {
   return pages[page];
 }
 export function WorkbenchProvider({ children }: { children: ReactNode }) {
+  useLocale();
+
   const bootstrap = bootstrapData as CatalogIndex;
   const params = new URLSearchParams(location.search);
   const [initial] = useState(() =>
@@ -390,7 +395,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       payload={loadedCountry?.key === currentKey ? loadedCountry.value : null}
       {...{ chooseCountry, mode, setMode }}
       progress={countryProgress?.key === currentKey ? countryProgress : { received: 0, total: 0 }}
-      error={countryError?.key === currentKey ? countryError.message : undefined}
+      error={localize(countryError?.key === currentKey ? countryError.message : undefined)}
       retry={() => {
         setCountryError(null);
         setCountryProgress(null);
@@ -400,7 +405,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   );
   const treePage = (
     <div className={`app-shell ${fallbackFull ? "fullscreen-fallback" : ""}`}>
-      <section className="workbench-header" aria-label="科技树筛选与操作">
+      <section className="workbench-header" aria-label={t("科技树筛选与操作")}>
         <button
           ref={mobileToolsToggle}
           className="mobile-tools-toggle"
@@ -413,68 +418,79 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
           }}
         >
           <span>
-            <strong>筛选与操作</strong>
+            <strong>{t("筛选与操作")}</strong>
             <small>
-              {P.countries[country] || "选择国家"} · {P.categories[category]} · {mode.toUpperCase()}
-              {query ? ` · 搜索：${query}` : filter !== "all" ? " · 已筛选" : ""}
+              {localize(P.countries[country] || "选择国家")} · {localize(P.categories[category])} ·{" "}
+              {localize(mode.toUpperCase())}
+              {localize(
+                query ? ` · 搜索：${localize(query)}` : filter !== "all" ? " · 已筛选" : "",
+              )}
             </small>
           </span>
-          <span className="mobile-tools-label">{mobileToolsOpen ? "收起" : "展开"}</span>
+          <span className="mobile-tools-label">{localize(mobileToolsOpen ? "收起" : "展开")}</span>
           <span className="mobile-tools-chevron" aria-hidden="true">
             ⌄
           </span>
         </button>
         <div className="tool-panel" id="tree-tools" data-expanded={mobileToolsOpen}>
-          <nav className="control-row" aria-label="国家与军种">
+          <nav className="control-row" aria-label={t("国家与军种")}>
             <div className="nation-picker">
               <details className="country-dropdown" ref={countryPicker}>
                 <summary
                   onKeyDown={countryKeys}
                   className="country-trigger"
-                  aria-label={`选择国家：${P.countries[country] || "未选择"}`}
+                  aria-label={localize(`选择国家：${localize(P.countries[country] || "未选择")}`)}
                 >
-                  {country && <img className="country-flag" alt="" src={P.flags[country]} />}
-                  <span>{P.countries[country] || "选择国家"}</span>
+                  {localize(
+                    country && <img className="country-flag" alt="" src={P.flags[country]} />,
+                  )}
+                  <span>{localize(P.countries[country] || "选择国家")}</span>
                   <span className="country-chevron">⌄</span>
                 </summary>
                 <div className="country-options">
-                  {Object.entries(P.countries).map(([id, name]) => (
-                    <button
-                      className="country-option"
-                      onKeyDown={countryKeys}
-                      key={id}
-                      aria-pressed={country === id}
-                      onClick={() => {
-                        reset();
-                        chooseCountry(id);
-                        if (countryPicker.current) {
-                          countryPicker.current.open = false;
-                          countryPicker.current.querySelector("summary")?.focus();
-                        }
-                      }}
-                    >
-                      <img className="country-flag" alt="" src={P.flags[id]} />
-                      <span>{name}</span>
-                      <span className="country-selected">{country === id ? "✓" : ""}</span>
-                    </button>
-                  ))}
+                  {localize(
+                    Object.entries(P.countries).map(([id, name]) => (
+                      <button
+                        className="country-option"
+                        onKeyDown={countryKeys}
+                        key={id}
+                        aria-pressed={country === id}
+                        onClick={() => {
+                          reset();
+                          chooseCountry(id);
+                          if (countryPicker.current) {
+                            countryPicker.current.open = false;
+                            countryPicker.current.querySelector("summary")?.focus();
+                          }
+                        }}
+                      >
+                        <img className="country-flag" alt="" src={P.flags[id]} />
+                        <span>{localize(name)}</span>
+                        <span className="country-selected">
+                          {localize(country === id ? "✓" : "")}
+                        </span>
+                      </button>
+                    )),
+                  )}
                 </div>
               </details>
             </div>
             <div className="control-divider" />
             <div className="category-tabs">
-              {Object.entries(P.categories).map(([id, name]) => (
-                <button
-                  aria-pressed={category === id}
-                  key={id}
-                  onClick={() => {
-                    reset();
-                    chooseCategory(id);
-                  }}
-                >
-                  {name}
-                </button>
-              ))}
+              {localize(
+                Object.entries(P.categories).map(([id, name]) => (
+                  <button
+                    aria-pressed={category === id}
+                    key={id}
+                    onClick={() => {
+                      reset();
+                      chooseCategory(id);
+                    }}
+                  >
+                    {localize(name)}
+                  </button>
+                )),
+              )}
             </div>
           </nav>
           <section className="controls">
@@ -482,10 +498,10 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
               <div className="search-wrap" ref={searchWrap}>
                 <label className="search">
                   <input
-                    aria-label="搜索载具"
+                    aria-label={t("搜索载具")}
                     ref={search}
                     type="search"
-                    placeholder="搜索载具 / 定位路线"
+                    placeholder={t("搜索载具 / 定位路线")}
                     value={query}
                     onChange={(e) => {
                       setQuery(e.target.value);
@@ -495,53 +511,62 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                   />
                   <kbd>/</kbd>
                 </label>
-                {showResults && query && (
-                  <div className="search-results">
-                    {matches.slice(0, 9).map((unit) => (
-                      <button key={unit.id} onClick={() => select(unit.id, true)}>
-                        <span>{unit.name}</span>
-                        <small>Rank {unit.rank}</small>
-                      </button>
-                    ))}
-                    <p>{matches.length} 个匹配；点击定位并高亮路线。</p>
-                  </div>
+                {localize(
+                  showResults && query && (
+                    <div className="search-results">
+                      {localize(
+                        matches.slice(0, 9).map((unit) => (
+                          <button key={unit.id} onClick={() => select(unit.id, true)}>
+                            <span>{localize(vehicleName(unit))}</span>
+                            <small>Rank {localize(unit.rank)}</small>
+                          </button>
+                        )),
+                      )}
+                      <p>
+                        {localize(matches.length)} {t("个匹配；点击定位并高亮路线。")}
+                      </p>
+                    </div>
+                  ),
                 )}
               </div>
               <label className="compact-field">
-                高亮权重
+                {t("高亮权重")}
                 <GameSelect value={mode} onValueChange={(value) => setMode(value as Mode)}>
-                  {(Object.entries(modes) as [Mode, string][]).map(([id, name]) => (
-                    <option value={id} key={id}>
-                      {name} {id.toUpperCase()}
-                    </option>
-                  ))}
+                  {localize(
+                    (Object.entries(modes) as [Mode, string][]).map(([id, name]) => (
+                      <option value={id} key={id}>
+                        {localize(name)} {localize(id.toUpperCase())}
+                      </option>
+                    )),
+                  )}
                 </GameSelect>
               </label>
               <label className="compact-field">
-                右侧载具
+                {t("右侧载具")}
                 <GameSelect value={filter} onValueChange={(value) => setFilter(value)}>
-                  <option value="all">全部特殊载具</option>
-                  <option value="premium">高级载具</option>
-                  <option value="gold">金币车</option>
-                  <option value="pack">礼包车</option>
-                  <option value="squadron">联队载具</option>
-                  <option value="other">活动 / 其他</option>
+                  <option value="all">{t("全部特殊载具")}</option>
+                  <option value="premium">{t("高级载具")}</option>
+                  <option value="gold">{t("金币车")}</option>
+                  <option value="pack">{t("礼包车")}</option>
+                  <option value="squadron">{t("联队载具")}</option>
+                  <option value="other">{t("活动 / 其他")}</option>
                 </GameSelect>
               </label>
               <button className="quiet-button calc-open" disabled={!tree} onClick={openParts}>
-                研发配件
+                {t("研发配件")}
               </button>
               <button
                 className="quiet-button calc-open"
                 disabled={!tree}
                 onClick={() => setModal("vehicle")}
               >
-                研发载具
+                {t("研发载具")}
               </button>
               <button className="quiet-button cart-button" onClick={() => setModal("cart")}>
-                购物车{" "}
+                {t("购物车")}
+                {localize(" ")}
                 <span className="cart-badge" key={pulse}>
-                  {cart.length}
+                  {localize(cart.length)}
                 </span>
               </button>
               <button
@@ -551,11 +576,11 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                   setExpanded(allOpen ? new Set() : new Set(groups.map((node) => node.id)))
                 }
               >
-                {allOpen ? "收起折叠组" : "展开折叠组"}
+                {localize(allOpen ? "收起折叠组" : "展开折叠组")}
               </button>
               <div className="zoom-control">
                 <button
-                  aria-label="缩小"
+                  aria-label={t("缩小")}
                   disabled={zoom <= 0.5}
                   onClick={() =>
                     setZoom((value) => Math.max(0.5, Math.round((value - 0.1) * 10) / 10))
@@ -563,9 +588,9 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                 >
                   −
                 </button>
-                <output>{Math.round(zoom * 100)}%</output>
+                <output>{localize(Math.round(zoom * 100))}%</output>
                 <button
-                  aria-label="放大"
+                  aria-label={t("放大")}
                   disabled={zoom >= 1.4}
                   onClick={() =>
                     setZoom((value) => Math.min(1.4, Math.round((value + 0.1) * 10) / 10))
@@ -575,18 +600,21 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                 </button>
               </div>
               <button className="quiet-button" onClick={() => void fullscreen()}>
-                {full || fallbackFull ? "退出全屏" : "⛶ 全屏"}
+                {localize(full || fallbackFull ? "退出全屏" : "⛶ 全屏")}
               </button>
             </div>
           </section>
           <div className="mobile-tools-source">
-            <span>资料更新 · {P.checkedAt.slice(0, 10)}</span>
+            <span>
+              {t("资料更新 ·")}
+              {localize(P.checkedAt.slice(0, 10))}
+            </span>
             <a
               href={`${P.sources[category].url}?v=t&t_c=${country}`}
               target="_blank"
               rel="noreferrer"
             >
-              官方原树 ↗
+              {t("官方原树 ↗")}
             </a>
           </div>
           <button
@@ -598,252 +626,317 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
               mobileToolsToggle.current?.focus();
             }}
           >
-            收起并查看科技树
+            {t("收起并查看科技树")}
           </button>
         </div>
       </section>
       <div className="tree-status">
         <div>
           <strong>
-            {P.countries[country] || "选择国家"} / {P.categories[category]}
+            {localize(P.countries[country] || "选择国家")} / {localize(P.categories[category])}
           </strong>
           <span>
-            {tree
-              ? `${tree.counts.research} 辆常规研发 · ${tree.counts.special} 辆独立获取`
-              : !country
-                ? "选定国家后读取资料"
-                : countryEntry && loadedCountry?.key !== currentKey
-                  ? "正在读取该国全部资料"
-                  : "暂无官方研发树"}
+            {localize(
+              tree
+                ? `${localize(tree.counts.research)} 辆常规研发 · ${localize(tree.counts.special)} 辆独立获取`
+                : !country
+                  ? "选定国家后读取资料"
+                  : countryEntry && loadedCountry?.key !== currentKey
+                    ? "正在读取该国全部资料"
+                    : "暂无官方研发树",
+            )}
           </span>
         </div>
         <div className="legend">
           <span>
             <i className="legend-line" />
-            前置研发
+            {t("前置研发")}
           </span>
           <span>
             <i className="legend-folder" />
-            折叠组
+            {t("折叠组")}
           </span>
           <span>
             <i className="legend-gold" />
-            独立获取
+            {t("独立获取")}
           </span>
         </div>
       </div>
-      <main className="viewport" ref={viewport} aria-label="可上下左右滚动的研发树">
-        {!country ? (
-          <section className="nation-landing">
-            <div className="nation-landing-copy">
-              <img
-                src="https://warthunder.com/assets/img/svg/logo-wt.svg"
-                width={167}
-                height={80}
-                alt="War Thunder"
-              />
-              <h2>选择你的研发国家</h2>
-              <p>选定后一次读取该国所有军种与配件资料，下次自动恢复。</p>
+      <main className="viewport" ref={viewport} aria-label={t("可上下左右滚动的研发树")}>
+        {localize(
+          !country ? (
+            <section className="nation-landing">
+              <div className="nation-landing-copy">
+                <img
+                  src="https://warthunder.com/assets/img/svg/logo-wt.svg"
+                  width={167}
+                  height={80}
+                  alt="War Thunder"
+                />
+                <h2>{t("选择你的研发国家")}</h2>
+                <p>{t("选定后一次读取该国所有军种与配件资料，下次自动恢复。")}</p>
+              </div>
+              <div className="nation-grid">
+                {localize(
+                  Object.entries(P.countries).map(([id, name]) => (
+                    <button
+                      className="nation-choice"
+                      key={id}
+                      onClick={() => {
+                        reset();
+                        chooseCountry(id);
+                      }}
+                    >
+                      <img src={P.flags[id]} alt="" />
+                      <span>{localize(name)}</span>
+                      <small>{t("查看研发树 →")}</small>
+                    </button>
+                  )),
+                )}
+              </div>
+            </section>
+          ) : countryEntry && loadedCountry?.key !== currentKey ? (
+            <WarThunderLoading
+              compact
+              title={localize(`载入${localize(P.countries[country])}全部载具资料`)}
+              progress={
+                countryProgress?.key === currentKey ? countryProgress : { received: 0, total: 0 }
+              }
+              error={localize(countryError?.key === currentKey ? countryError.message : undefined)}
+              retry={
+                countryError?.key === currentKey
+                  ? () => {
+                      setCountryError(null);
+                      setCountryProgress(null);
+                      setCountryRetry((value) => value + 1);
+                    }
+                  : undefined
+              }
+            />
+          ) : tree ? (
+            <TreeCanvas
+              {...{
+                tree,
+                catalog: P,
+                mode,
+                selected,
+                query,
+                expanded,
+                toggle,
+                zoom,
+                filter,
+                locate,
+              }}
+              onSelect={select}
+            />
+          ) : (
+            <div className="empty-state">
+              <span>{t("暂无此军种")}</span>
+              <h2>{t("官方 Wiki 尚未列出这棵研发树")}</h2>
+              <p>{t("切换国家或军种继续查看。")}</p>
             </div>
-            <div className="nation-grid">
-              {Object.entries(P.countries).map(([id, name]) => (
-                <button
-                  className="nation-choice"
-                  key={id}
-                  onClick={() => {
-                    reset();
-                    chooseCountry(id);
-                  }}
-                >
-                  <img src={P.flags[id]} alt="" />
-                  <span>{name}</span>
-                  <small>查看研发树 →</small>
-                </button>
-              ))}
-            </div>
-          </section>
-        ) : countryEntry && loadedCountry?.key !== currentKey ? (
-          <WarThunderLoading
-            compact
-            title={`载入${P.countries[country]}全部载具资料`}
-            progress={
-              countryProgress?.key === currentKey ? countryProgress : { received: 0, total: 0 }
-            }
-            error={countryError?.key === currentKey ? countryError.message : undefined}
-            retry={
-              countryError?.key === currentKey
-                ? () => {
-                    setCountryError(null);
-                    setCountryProgress(null);
-                    setCountryRetry((value) => value + 1);
-                  }
-                : undefined
-            }
-          />
-        ) : tree ? (
-          <TreeCanvas
-            {...{ tree, catalog: P, mode, selected, query, expanded, toggle, zoom, filter, locate }}
-            onSelect={select}
-          />
-        ) : (
-          <div className="empty-state">
-            <span>暂无此军种</span>
-            <h2>官方 Wiki 尚未列出这棵研发树</h2>
-            <p>切换国家或军种继续查看。</p>
-          </div>
+          ),
         )}
         <footer className="footnote">
           <div className="footnote-intro">
             <p>
-              从上往下沿箭头研发；折叠组可以展开。AB / RB / SB
-              切换后显示当前模式权重。配件与载具分别计价，出击队列和购物车本地保存。
+              {t(
+                "从上往下沿箭头研发；折叠组可以展开。AB / RB / SB 切换后显示当前模式权重。配件与载具分别计价，出击队列和购物车本地保存。",
+              )}
             </p>
             <span className="tree-source">
-              官方 Wiki · {P.checkedAt.slice(0, 10)}
+              {t("官方 Wiki ·")}
+              {localize(P.checkedAt.slice(0, 10))}
               <a
                 href={`${P.sources[category].url}?v=t&t_c=${country}`}
                 target="_blank"
                 rel="noreferrer"
               >
-                官方原树 ↗
+                {t("官方原树 ↗")}
               </a>
             </span>
           </div>
           <div>
-            <span>{tree?.edges.length || 0} 条官方分支连线</span>
-            {selected && <button onClick={() => setSelected(null)}>清除路线高亮</button>}
             <span>
-              {loadedCountry?.key === currentKey
-                ? cacheLabel(loadedCountry.cache)
-                : "选定国家后读取资料"}
-              {!remembered ? " · 无法记住选择" : ""} · 数据以游戏内为准
+              {localize(tree?.edges.length || 0)} {t("条官方分支连线")}
+            </span>
+            {localize(
+              selected && <button onClick={() => setSelected(null)}>{t("清除路线高亮")}</button>,
+            )}
+            <span>
+              {localize(
+                loadedCountry?.key === currentKey
+                  ? cacheLabel(loadedCountry.cache)
+                  : "选定国家后读取资料",
+              )}
+              {localize(!remembered ? " · 无法记住选择" : "")} {t("· 数据以游戏内为准")}
             </span>
           </div>
         </footer>
-        {unit && (
-          <Modal
-            className="vehicle-detail-dialog"
-            close={() => setSelected(null)}
-            subtitle={unit.side === "research" ? "研发路线" : P.kinds[unit.kind]}
-            title={
-              <a
-                className="detail-title-link"
-                href={`https://wiki.warthunder.com/unit/${encodeURIComponent(unit.id)}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {unit.name} <span aria-hidden="true">↗</span>
-              </a>
-            }
-          >
-            <article className="detail" aria-label="载具详情">
-              <button
-                className="detail-image"
-                onClick={() => setModal("image")}
-                aria-label={`放大查看 ${unit.name} 官方图片`}
-              >
-                <VehicleImage key={unit.id} unit={unit} />
-                <span className="detail-image-hint">点击放大 ⛶</span>
-              </button>
-              <div className="detail-actions">
-                <button
-                  className="quiet-button calc-open"
-                  disabled={unit.side !== "research"}
-                  title={unit.side !== "research" ? "独立获取载具不接入常规研发路线" : undefined}
-                  onClick={() => setModal("vehicle")}
+        {localize(
+          unit && (
+            <Modal
+              className="vehicle-detail-dialog"
+              close={() => setSelected(null)}
+              subtitle={unit.side === "research" ? "研发路线" : P.kinds[unit.kind]}
+              title={localize(
+                <a
+                  className="detail-title-link"
+                  href={`https://wiki.warthunder.com/unit/${encodeURIComponent(unit.id)}`}
+                  target="_blank"
+                  rel="noreferrer"
                 >
-                  研发载具
+                  {localize(vehicleName(unit))} <span aria-hidden="true">↗</span>
+                </a>,
+              )}
+            >
+              <article className="detail" aria-label={t("载具详情")}>
+                <button
+                  className="detail-image"
+                  onClick={() => setModal("image")}
+                  aria-label={localize(`放大查看 ${localize(vehicleName(unit))} 官方图片`)}
+                >
+                  <VehicleImage key={unit.id} unit={unit} />
+                  <span className="detail-image-hint">{t("点击放大 ⛶")}</span>
                 </button>
-                <button className="quiet-button calc-open" onClick={openParts}>
-                  研发配件
-                </button>
-              </div>
-              <div className="detail-facts">
-                <span>{P.countries[country] || "选择国家"}</span>
-                <span>Rank {unit.rank}</span>
-                <span>
-                  {modes[mode]} {mode.toUpperCase()} {rating(unit, mode)}
-                </span>
-              </div>
-              {(unit.side === "research" || unit.kind === "squadron") && (
-                <div className="research-cost">
-                  <span>{unit.kind === "squadron" ? "联队研发点" : "基础研发点"}</span>
-                  <strong>{rpText(unit)}</strong>
+                <div className="detail-actions">
+                  <button
+                    className="quiet-button calc-open"
+                    disabled={unit.side !== "research"}
+                    title={localize(
+                      unit.side !== "research" ? "独立获取载具不接入常规研发路线" : undefined,
+                    )}
+                    onClick={() => setModal("vehicle")}
+                  >
+                    {t("研发载具")}
+                  </button>
+                  <button className="quiet-button calc-open" onClick={openParts}>
+                    {t("研发配件")}
+                  </button>
                 </div>
-              )}
-              <PackPriceDetails unit={unit} />
-              {unit.side === "research" ? (
-                <>
-                  <h3>必要前置路线</h3>
-                  <ol className="research-path">
-                    {path.map((id) => {
-                      const previous = indexed.units.get(id);
-                      return previous ? (
-                        <li key={id}>
-                          {previous.name}
-                          <small>
-                            {rpText(previous)} · Rank {previous.rank}
-                          </small>
-                        </li>
-                      ) : null;
-                    })}
-                  </ol>
-                  <p>沿真实前置关系展开，不代表已满足等级购车数量。速算面板会补齐等级门槛。</p>
-                </>
-              ) : (
-                <p>独立获取载具，不接入常规研发路线。礼包与市场链接是否在售以商城为准。</p>
-              )}
-              <div className="detail-links">
-                {unit.store && (
-                  <a href={unit.store} target="_blank" rel="noreferrer">
-                    官方礼包 ↗
-                  </a>
+                <div className="detail-facts">
+                  <span>{localize(P.countries[country] || "选择国家")}</span>
+                  <span>Rank {localize(unit.rank)}</span>
+                  <span>
+                    {localize(modes[mode])} {localize(mode.toUpperCase())}{" "}
+                    {localize(rating(unit, mode))}
+                  </span>
+                </div>
+                {localize(
+                  (unit.side === "research" || unit.kind === "squadron") && (
+                    <div className="research-cost">
+                      <span>
+                        {localize(unit.kind === "squadron" ? "联队研发点" : "基础研发点")}
+                      </span>
+                      <strong>{localize(rpText(unit))}</strong>
+                    </div>
+                  ),
                 )}
-                {unit.market && (
-                  <a href={unit.market} target="_blank" rel="noreferrer">
-                    市场 ↗
-                  </a>
+                <PackPriceDetails unit={unit} />
+                {localize(
+                  unit.side === "research" ? (
+                    <>
+                      <h3>{t("必要前置路线")}</h3>
+                      <ol className="research-path">
+                        {localize(
+                          path.map((id) => {
+                            const previous = indexed.units.get(id);
+                            return previous ? (
+                              <li key={id}>
+                                {localize(vehicleName(previous))}
+                                <small>
+                                  {localize(rpText(previous))} · Rank {localize(previous.rank)}
+                                </small>
+                              </li>
+                            ) : null;
+                          }),
+                        )}
+                      </ol>
+                      <p>
+                        {t(
+                          "沿真实前置关系展开，不代表已满足等级购车数量。速算面板会补齐等级门槛。",
+                        )}
+                      </p>
+                    </>
+                  ) : (
+                    <p>
+                      {t("独立获取载具，不接入常规研发路线。礼包与市场链接是否在售以商城为准。")}
+                    </p>
+                  ),
                 )}
-              </div>
-            </article>
-          </Modal>
+                <div className="detail-links">
+                  {localize(
+                    unit.store && (
+                      <a href={unit.store} target="_blank" rel="noreferrer">
+                        {t("官方礼包 ↗")}
+                      </a>
+                    ),
+                  )}
+                  {localize(
+                    unit.market && (
+                      <a href={unit.market} target="_blank" rel="noreferrer">
+                        {t("市场 ↗")}
+                      </a>
+                    ),
+                  )}
+                </div>
+              </article>
+            </Modal>
+          ),
         )}
       </main>
-      {cartError && (
-        <p role="alert" className="cart-error">
-          {cartError}
-        </p>
+      {localize(
+        cartError && (
+          <p role="alert" className="cart-error">
+            {localize(cartError)}
+          </p>
+        ),
       )}
-      {modal === "image" && unit && (
-        <Modal
-          className="vehicle-image-modal"
-          title={unit.name}
-          subtitle="官方载具大图"
-          close={() => setModal(null)}
-        >
-          <VehicleImage key={unit.id} unit={unit} />
-        </Modal>
+      {localize(
+        modal === "image" && unit && (
+          <Modal
+            className="vehicle-image-modal"
+            title={localize(vehicleName(unit))}
+            subtitle="官方载具大图"
+            close={() => setModal(null)}
+          >
+            <VehicleImage key={unit.id} unit={unit} />
+          </Modal>
+        ),
       )}
-      {modal === "parts" && tree && modifications && (
-        <ModificationCalculator
-          {...{ catalog: P, modifications, tree, country, category, selected, add }}
-          close={() => setModal(null)}
-        />
-      )}{" "}
-      {modal === "vehicle" && tree && (
-        <VehicleCalculator
-          {...{ catalog: P, tree, country, category, selected, add }}
-          close={() => setModal(null)}
-        />
-      )}{" "}
-      {modal === "cart" && (
-        <Cart items={cart} remove={remove} error={cartError} close={() => setModal(null)} />
+      {localize(
+        modal === "parts" && tree && modifications && (
+          <ModificationCalculator
+            {...{ catalog: P, modifications, tree, country, category, selected, add }}
+            close={() => setModal(null)}
+          />
+        ),
+      )}
+      {localize(" ")}
+      {localize(
+        modal === "vehicle" && tree && (
+          <VehicleCalculator
+            {...{ catalog: P, tree, country, category, selected, add }}
+            close={() => setModal(null)}
+          />
+        ),
+      )}
+      {localize(" ")}
+      {localize(
+        modal === "cart" && (
+          <Cart
+            items={cart}
+            remove={remove}
+            error={localize(cartError)}
+            close={() => setModal(null)}
+          />
+        ),
       )}
     </div>
   );
   return (
     <WorkbenchPages.Provider value={{ tree: treePage, lineups: lineupsPage }}>
-      {children}
+      {localize(children)}
     </WorkbenchPages.Provider>
   );
 }

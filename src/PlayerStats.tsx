@@ -1,3 +1,6 @@
+import { vehicleName } from "./i18n/core";
+import { useLocale } from "./i18n/react";
+import { localize, t } from "./i18n/core";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
@@ -12,7 +15,13 @@ import { PlayerGarage, PlayerVehicleDetails } from "./PlayerGarage";
 import { PlayerVehicleShare, startVehicleShare } from "./PlayerVehicleShare";
 import type { VehicleShareJob } from "./PlayerVehicleShare";
 import { PlayerVehicleCards, PlayerVehiclePagination } from "./PlayerVehicleCards";
-import { compactSilver, savedVehiclePresentation, saveVehiclePresentation, savedVehiclePageSize, saveVehiclePageSize } from "./player-number-format";
+import {
+  compactSilver,
+  savedVehiclePresentation,
+  saveVehiclePresentation,
+  savedVehiclePageSize,
+  saveVehiclePageSize,
+} from "./player-number-format";
 import type { VehiclePresentation } from "./player-number-format";
 import { clearRankingMemory, usePlayerRead } from "./player-rankings-api";
 import type { PlayerDetails } from "./player-rankings-api";
@@ -31,7 +40,13 @@ import type { ReportTheme } from "./player-report-design";
 import { useNavigate, useSearch } from "@tanstack/react-router";
 import catalogSettings from "../data/catalog-settings.json";
 import valuationRules from "../data/account-valuation-rules.json";
-import { cachedLeaderboards, cacheLeaderboards, validLeaderboards, type LeaderboardData, type LeaderboardPlayer } from "./player-leaderboards-cache";
+import {
+  cachedLeaderboards,
+  cacheLeaderboards,
+  validLeaderboards,
+  type LeaderboardData,
+  type LeaderboardPlayer,
+} from "./player-leaderboards-cache";
 import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
 import {
@@ -69,17 +84,21 @@ import type {
   PlayerVehicle,
 } from "./player-stats-api";
 function Avatar({ url, name }: { url: string | null; name: string }) {
+  useLocale();
+
   return (
     <span className="wt-player-avatar">
-      <span aria-hidden="true">{Array.from(name)[0]}</span>
-      {url && (
-        <img
-          src={url}
-          alt={`${name}的游戏头像`}
-          onError={(event) => {
-            event.currentTarget.hidden = true;
-          }}
-        />
+      <span aria-hidden="true">{localize(Array.from(name)[0])}</span>
+      {localize(
+        url && (
+          <img
+            src={url}
+            alt={localize(`${localize(name)}的游戏头像`)}
+            onError={(event) => {
+              event.currentTarget.hidden = true;
+            }}
+          />
+        ),
       )}
     </span>
   );
@@ -95,48 +114,58 @@ function VehicleRow({
   showNaval: boolean;
   select: () => void;
 }) {
+  useLocale();
+
   return (
     <tr>
-      <td aria-label={vehicleDisplayName(v.name)}>
+      <td aria-label={localize(vehicleDisplayName(vehicleName(v)))}>
         <a
           className="wt-record-vehicle"
           href={"https://wiki.warthunder.com/unit/" + encodeURIComponent(v.id)}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`${vehicleDisplayName(v.name)} 官方 Wiki（新标签页打开）`}
-          title="在新标签页打开官方 Wiki"
+          aria-label={localize(
+            `${localize(vehicleDisplayName(vehicleName(v)))} 官方 Wiki（新标签页打开）`,
+          )}
+          title={t("在新标签页打开官方 Wiki")}
         >
           <img src={v.thumbnail} alt="" loading="lazy" />
           <span>
-            <b>{vehicleDisplayName(v.name)}</b>
+            <b>{localize(vehicleDisplayName(vehicleName(v)))}</b>
             <small>
-              {v.rank && `${v.rank} 级 · `}
-              {countryName}
+              {localize(v.rank && `${localize(v.rank)} 级 · `)}
+              {localize(countryName)}
             </small>
           </span>
         </a>
-        <button className="wt-record-link wt-vehicle-detail-button" onClick={select}>战绩详情</button>
+        <button className="wt-record-link wt-vehicle-detail-button" onClick={select}>
+          {t("战绩详情")}
+        </button>
       </td>
-      <td>{num(v.battles)}</td>
-      <td>{v.winRate == null ? "—" : v.winRate.toFixed(2) + "%"}</td>
-      <td>{ratio(v.airKd)}</td>
-      <td>{ratio(v.groundKd)}</td>
-      {showNaval && <td>{v.category === "ground" ? "—" : ratio(v.navalKd)}</td>}
-      <td>{ratio(v.kd)}</td>
+      <td>{localize(num(v.battles))}</td>
+      <td>{localize(v.winRate == null ? "—" : v.winRate.toFixed(2) + "%")}</td>
+      <td>{localize(ratio(v.airKd))}</td>
+      <td>{localize(ratio(v.groundKd))}</td>
+      {localize(showNaval && <td>{localize(v.category === "ground" ? "—" : ratio(v.navalKd))}</td>)}
+      <td>{localize(ratio(v.kd))}</td>
       <td>
-        <b className="wt-gold">{num(v.efficiency)}</b>
-        {v.smallSample && <small className="wt-record-small">场次不足</small>}
+        <b className="wt-gold">{localize(num(v.efficiency))}</b>
+        {localize(v.smallSample && <small className="wt-record-small">{t("场次不足")}</small>)}
       </td>
       <td className="wt-silver">
         <span className="wt-silver-amount">
-          <img src={statsSilverIcon} alt="银狮" />
-          <span title={`累计银狮：${statsSilver(v.silverLions)}`}>{compactSilver(v.silverLions)}</span>
+          <img src={statsSilverIcon} alt={t("银狮")} />
+          <span title={localize(`累计银狮：${localize(statsSilver(v.silverLions))}`)}>
+            {localize(compactSilver(v.silverLions))}
+          </span>
         </span>
       </td>
     </tr>
   );
 }
 export function PlayerStats() {
+  useLocale();
+
   const route = useSearch({ from: "/_workbench/stats" });
   const navigate = useNavigate({ from: "/stats" });
   const [recentPlayers, setRecentPlayers] = useState(statsQueryHistory);
@@ -153,20 +182,40 @@ export function PlayerStats() {
     [mode, setMode] = useState("rb"),
     [tab, setTab] = useState(route.view || "overview");
   const publicDetails = usePlayerRead<PlayerDetails>(profile, "details", false);
-  const freshVehicleDetails = profile && publicDetails.data && Date.parse(publicDetails.data.fetchedAt) >= Date.parse(profile.fetchedAt) ? publicDetails.data : null;
-  const detailVehicles = new Map(freshVehicleDetails?.vehicles.map(v => [`${v.mode}:${v.id}`, v]) || []);
-  const effectiveVehicles = (profile?.vehicles || []).map(v => ({ ...v, ...detailVehicles.get(`${v.mode}:${v.id}`) }));
+  const freshVehicleDetails =
+    profile &&
+    publicDetails.data &&
+    Date.parse(publicDetails.data.fetchedAt) >= Date.parse(profile.fetchedAt)
+      ? publicDetails.data
+      : null;
+  const detailVehicles = new Map(
+    freshVehicleDetails?.vehicles.map((v) => [`${v.mode}:${v.id}`, v]) || [],
+  );
+  const effectiveVehicles = (profile?.vehicles || []).map((v) => ({
+    ...v,
+    ...detailVehicles.get(`${v.mode}:${v.id}`),
+  }));
   const displayProfile = profile ? { ...profile, vehicles: effectiveVehicles } : null;
   const [showGarage, setShowGarage] = useState(false);
   const [selectedVehicle, setSelectedVehicle] = useState<PlayerVehicle | null>(null);
   const [vehicleShare, setVehicleShare] = useState<{
-    profile: PlayerProfile; vehicle: PlayerVehicle; job: VehicleShareJob;
+    profile: PlayerProfile;
+    vehicle: PlayerVehicle;
+    job: VehicleShareJob;
   } | null>(null);
   function changeTab(next: string) {
     setTab(next);
-    void navigate({ search: (previous: { player?: string; view?: string }) => ({ ...previous, view: next === "overview" ? undefined : next }), replace: false });
+    void navigate({
+      search: (previous: { player?: string; view?: string }) => ({
+        ...previous,
+        view: next === "overview" ? undefined : next,
+      }),
+      replace: false,
+    });
   }
-  useEffect(() => { setTab(route.view || "overview"); }, [route.view]);
+  useEffect(() => {
+    setTab(route.view || "overview");
+  }, [route.view]);
   const [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
     [notice, setNotice] = useState("");
@@ -282,11 +331,16 @@ export function PlayerStats() {
     setNotice("");
   }
   async function openSavedProfile(p: PlayerProfile) {
-    const id = ++generation.current, c = controller();
+    const id = ++generation.current,
+      c = controller();
     setBusy(true);
     setError("");
     try {
-      const restored = await statsRequest<PlayerProfile>("players/restore", { snapshotId: p.snapshotId, uid: p.uid }, c.signal);
+      const restored = await statsRequest<PlayerProfile>(
+        "players/restore",
+        { snapshotId: p.snapshotId, uid: p.uid },
+        c.signal,
+      );
       if (c.signal.aborted || id !== generation.current) return;
       if (restored.uid !== p.uid) throw new Error("保存的玩家身份不一致，请重新查询。");
       loadProfile(restored);
@@ -360,7 +414,8 @@ export function PlayerStats() {
   }
   async function chooseLeader(player: LeaderboardPlayer) {
     if (busy || !session) return;
-    const id = ++generation.current, c = controller();
+    const id = ++generation.current,
+      c = controller();
     setBusy(true);
     setError("");
     setNotice("");
@@ -369,15 +424,29 @@ export function PlayerStats() {
     setQueryId("");
     setProfile(null);
     try {
-      const result = await statsRequest<PlayerProfile>("players/leaderboard", {
-        mode: leaderMode, branch: leaderBranch, rank: player.rank, nickname: player.nickname,
-        uid: player.uid || undefined, requestId: "query_" + crypto.randomUUID(),
-      }, c.signal);
+      const result = await statsRequest<PlayerProfile>(
+        "players/leaderboard",
+        {
+          mode: leaderMode,
+          branch: leaderBranch,
+          rank: player.rank,
+          nickname: player.nickname,
+          uid: player.uid || undefined,
+          requestId: "query_" + crypto.randomUUID(),
+        },
+        c.signal,
+      );
       if (!c.signal.aborted && id === generation.current) {
         loadProfile(result);
-        const next = { ...leaderboards, boards: leaderboards.boards.map(b => ({ ...b, players: b.players.map(p =>
-          p.nickname === player.nickname ? { ...p, uid: result.uid } : p,
-        ) })) };
+        const next = {
+          ...leaderboards,
+          boards: leaderboards.boards.map((b) => ({
+            ...b,
+            players: b.players.map((p) =>
+              p.nickname === player.nickname ? { ...p, uid: result.uid } : p,
+            ),
+          })),
+        };
         setLeaderboards(next);
         cacheLeaderboards(next);
       }
@@ -385,13 +454,23 @@ export function PlayerStats() {
       if (!c.signal.aborted && id === generation.current) {
         setError(failure instanceof Error ? failure.message : "榜单玩家查询失败。");
         if (failure instanceof StatsError && failure.code === "BOARD_CHANGED") {
-          const current = await statsRequest<LeaderboardData>("leaderboards?revision=" + Date.now(), undefined, c.signal).catch(() => null);
-          if (!c.signal.aborted && id === generation.current && validLeaderboards(current)) { setLeaderboards(current); cacheLeaderboards(current); }
+          const current = await statsRequest<LeaderboardData>(
+            "leaderboards?revision=" + Date.now(),
+            undefined,
+            c.signal,
+          ).catch(() => null);
+          if (!c.signal.aborted && id === generation.current && validLeaderboards(current)) {
+            setLeaderboards(current);
+            cacheLeaderboards(current);
+          }
         }
       }
     } finally {
       requests.current.delete(c);
-      if (!c.signal.aborted && id === generation.current) { setBusy(false); void refreshSession(); }
+      if (!c.signal.aborted && id === generation.current) {
+        setBusy(false);
+        void refreshSession();
+      }
     }
   }
   async function choose(p: PlayerCandidate) {
@@ -454,9 +533,16 @@ export function PlayerStats() {
   }
   useEffect(() => {
     const c = new AbortController();
-    void statsRequest<LeaderboardData>("leaderboards", undefined, c.signal).then(value => {
-      if (!c.signal.aborted && validLeaderboards(value)) { setLeaderboards(value); cacheLeaderboards(value); }
-    }).catch(() => { /* Keep the saved official snapshot when unavailable. */ });
+    void statsRequest<LeaderboardData>("leaderboards", undefined, c.signal)
+      .then((value) => {
+        if (!c.signal.aborted && validLeaderboards(value)) {
+          setLeaderboards(value);
+          cacheLeaderboards(value);
+        }
+      })
+      .catch(() => {
+        /* Keep the saved official snapshot when unavailable. */
+      });
     return () => c.abort();
   }, []);
   useEffect(() => {
@@ -596,18 +682,27 @@ export function PlayerStats() {
     ["winRate", "胜率"],
     ["airKd", "对空 K/D"],
     ["groundKd", "对地 K/D"],
-    ...(category === "ground" ? [] : [["navalKd", "对海 K/D"]] as [VehicleSortKey, string][]),
+    ...(category === "ground" ? [] : ([["navalKd", "对海 K/D"]] as [VehicleSortKey, string][])),
     ["kd", "综合 K/D"],
     ["efficiency", "效率评分"],
     ["silverLions", "累计获得银狮"],
   ];
   function sortVehicles(key: VehicleSortKey | "none", toggle = false) {
-    setVehicleSort(current => key === "none" ? null : ({
-      key,
-      direction: current?.key === key
-        ? toggle ? current.direction === "desc" ? "asc" : "desc" : current.direction
-        : "desc",
-    }));
+    setVehicleSort((current) =>
+      key === "none"
+        ? null
+        : {
+            key,
+            direction:
+              current?.key === key
+                ? toggle
+                  ? current.direction === "desc"
+                    ? "asc"
+                    : "desc"
+                  : current.direction
+                : "desc",
+          },
+    );
     setVehiclePage(1);
   }
   const filtered = effectiveVehicles
@@ -617,12 +712,16 @@ export function PlayerStats() {
         (category === "all" || v.category === category) &&
         (vehicleCountry === "all" || (v.country || "unknown") === vehicleCountry) &&
         (vehicleRank === "all" || (v.rank || "unknown") === vehicleRank) &&
-        (!search || (vehicleDisplayName(v.name) + " " + v.id).toLowerCase().includes(search.toLowerCase())),
+        (!search ||
+          (vehicleDisplayName(v.name) + " " + v.id).toLowerCase().includes(search.toLowerCase())),
     )
-    .sort((a, b) => vehicleSort ? comparePlayerVehicles(a, b, vehicleSort) : 0);
+    .sort((a, b) => (vehicleSort ? comparePlayerVehicles(a, b, vehicleSort) : 0));
   const vehiclePages = Math.max(1, Math.ceil(filtered.length / vehiclePageSize));
   const currentVehiclePage = Math.min(vehiclePage, vehiclePages);
-  const pagedVehicles = filtered.slice((currentVehiclePage - 1) * vehiclePageSize, currentVehiclePage * vehiclePageSize);
+  const pagedVehicles = filtered.slice(
+    (currentVehiclePage - 1) * vehiclePageSize,
+    currentVehiclePage * vehiclePageSize,
+  );
   const eligible = effectiveVehicles.filter(
     (v) =>
       v.mode === mode &&
@@ -676,17 +775,19 @@ export function PlayerStats() {
     <div className="wt-record-page">
       <header className="wt-record-page-title">
         <div>
-          <h1>个人战绩档案</h1>
-          <p>查看生涯表现、排位数据和完整车库，生成你的个人战报。</p>
+          <h1>{t("个人战绩档案")}</h1>
+          <p>{t("查看生涯表现、排位数据和完整车库，生成你的个人战报。")}</p>
         </div>
         <div className="wt-record-account">
           <span>
-            {session?.role === "superadmin" ? "超管" : session?.user ? "普通用户" : "游客"}
-            {" · 新查询 "}
-            {quotaLabel(session, "query")}
-            {" / 战报 "}
-            {quotaLabel(session, "report")}
-            <small>每日零点重置 · 缓存命中不扣次</small>
+            {localize(
+              session?.role === "superadmin" ? "超管" : session?.user ? "普通用户" : "游客",
+            )}
+            {localize(" · 新查询 ")}
+            {localize(quotaLabel(session, "query"))}
+            {localize(" / 战报 ")}
+            {localize(quotaLabel(session, "report"))}
+            <small>{t("每日零点重置 · 缓存命中不扣次")}</small>
           </span>
         </div>
       </header>
@@ -698,7 +799,7 @@ export function PlayerStats() {
         }}
       >
         <label className="sr-only" htmlFor="player-nickname">
-          游戏昵称
+          {t("游戏昵称")}
         </label>
         <input
           id="player-nickname"
@@ -706,38 +807,42 @@ export function PlayerStats() {
           value={nickname}
           onChange={(event) => setNickname(event.target.value)}
           maxLength={64}
-          placeholder="输入游戏昵称，保留 @psn 等后缀"
+          placeholder={t("输入游戏昵称，保留 @psn 等后缀")}
           autoComplete="off"
         />
         <button
           className="wt-record-primary"
           disabled={busy || !session || nickname.trim().length < 2}
         >
-          {busy ? "正在查询…" : "搜索玩家"}
+          {localize(busy ? "正在查询…" : "搜索玩家")}
         </button>
-        {(profile || candidates.length > 0 || busy || route.player) && (
-          <button type="button" className="wt-record-back" onClick={returnToSearch}>
-            ← 返回战绩首页
-          </button>
+        {localize(
+          (profile || candidates.length > 0 || busy || route.player) && (
+            <button type="button" className="wt-record-back" onClick={returnToSearch}>
+              {t("← 返回战绩首页")}
+            </button>
+          ),
         )}
       </form>
-      {error && (
-        <p className="wt-record-error" role="alert">
-          {error}
-        </p>
+      {localize(
+        error && (
+          <p className="wt-record-error" role="alert">
+            {localize(error)}
+          </p>
+        ),
       )}
-      {notice && <output className="wt-record-notice">{notice}</output>}
+      {localize(notice && <output className="wt-record-notice">{localize(notice)}</output>)}
       {!!candidates.length && (
         <section className="wt-record-candidates">
-          <h2>确认玩家</h2>
+          <h2>{t("确认玩家")}</h2>
           {candidates.map((p) => (
             <button key={p.uid} disabled={busy} onClick={() => void choose(p)}>
               <Avatar url={p.avatar} name={p.nickname} />
               <span>
                 <b>{p.nickname}</b>
-                <small>UID {p.uid}</small>
+                <small>UID {localize(p.uid)}</small>
               </span>
-              <span>查看 ↗</span>
+              <span>{t("查看 ↗")}</span>
             </button>
           ))}
         </section>
@@ -747,15 +852,21 @@ export function PlayerStats() {
           <section className="wt-record-panel">
             <div className="wt-record-heading">
               <h2>
-                最近查询 <span>{recentPlayers.length}</span>
+                {t("最近查询")}
+                <span>{localize(recentPlayers.length)}</span>
               </h2>
-              {!!recentPlayers.length && (
-                <button onClick={() => setRecentPlayers(clearStatsQueryHistory())}>清空记录</button>
+              {localize(
+                !!recentPlayers.length && (
+                  <button onClick={() => setRecentPlayers(clearStatsQueryHistory())}>
+                    {t("清空记录")}
+                  </button>
+                ),
               )}
             </div>
             <p className="wt-record-fine">
-              本机保留最近 16
-              位玩家的已查资料，点击直接查看，不发起新查询；需要最新资料时使用强制刷新。
+              {t(
+                "本机保留最近 16 位玩家的已查资料，点击直接查看，不发起新查询；需要最新资料时使用强制刷新。",
+              )}
             </p>
             {recentPlayers.length ? (
               <div className="wt-record-recent">
@@ -763,71 +874,83 @@ export function PlayerStats() {
                   <button
                     key={p.uid}
                     disabled={busy}
-                    onClick={() => { void openSavedProfile(p); }}
+                    onClick={() => {
+                      void openSavedProfile(p);
+                    }}
                   >
                     <Avatar url={p.avatar} name={p.nickname} />
                     <span>
                       <b>{p.nickname}</b>
-                      <small>{statsDate(p.fetchedAt)}</small>
+                      <small>{localize(statsDate(p.fetchedAt))}</small>
                     </span>
                   </button>
                 ))}
               </div>
             ) : (
-              <p className="wt-record-empty">还没有查询记录，输入昵称或从下方排行榜选择玩家。</p>
+              <p className="wt-record-empty">
+                {t("还没有查询记录，输入昵称或从下方排行榜选择玩家。")}
+              </p>
             )}
           </section>
           <section className="wt-record-panel">
             <div className="wt-record-heading">
               <h2>
-                官方排行榜 <span>TOP 25</span>
+                {t("官方排行榜")}
+                <span>TOP 25</span>
               </h2>
-              {board && (
-                <a href={board.sources[0]} target="_blank" rel="noopener noreferrer">
-                  查看官方榜单 ↗
-                </a>
+              {localize(
+                board && (
+                  <a href={board.sources[0]} target="_blank" rel="noopener noreferrer">
+                    {t("查看官方榜单 ↗")}
+                  </a>
+                ),
               )}
             </div>
             <div className="wt-record-leader-filters">
-              <fieldset aria-label="排行榜战斗模式">
-                {Object.entries(statsModeNames).map(([id, label]) => (
-                  <button
-                    key={id}
-                    aria-pressed={leaderMode === id}
-                    onClick={() => setLeaderMode(id)}
-                  >
-                    {label}
-                  </button>
-                ))}
+              <fieldset aria-label={t("排行榜战斗模式")}>
+                {localize(
+                  Object.entries(statsModeNames).map(([id, label]) => (
+                    <button
+                      key={id}
+                      aria-pressed={leaderMode === id}
+                      onClick={() => setLeaderMode(id)}
+                    >
+                      {localize(label)}
+                    </button>
+                  )),
+                )}
               </fieldset>
-              <fieldset aria-label="排行榜军种">
-                {[
-                  ["ground", "陆战"],
-                  ["air", "空战"],
-                ].map(([id, label]) => (
-                  <button
-                    key={id}
-                    aria-pressed={leaderBranch === id}
-                    onClick={() => setLeaderBranch(id)}
-                  >
-                    {label}
-                  </button>
-                ))}
+              <fieldset aria-label={t("排行榜军种")}>
+                {localize(
+                  [
+                    ["ground", "陆战"],
+                    ["air", "空战"],
+                  ].map(([id, label]) => (
+                    <button
+                      key={id}
+                      aria-pressed={leaderBranch === id}
+                      onClick={() => setLeaderBranch(id)}
+                    >
+                      {localize(label)}
+                    </button>
+                  )),
+                )}
               </fieldset>
             </div>
             <p className="wt-record-fine">
-              按官方累计击毁数整理，点击后按已核验 UID 查询；缓存命中免费，新查询遵守上方额度。
+              {t(
+                "按官方累计击毁数整理，点击后按已核验 UID 查询；缓存命中免费，新查询遵守上方额度。",
+              )}
             </p>
             {board ? (
               <>
                 <ol className="wt-record-leaders">
                   {board.players.map((p) => (
                     <li key={p.rank}>
-                      <button
-                        disabled={!session || busy}
-                        onClick={() => void chooseLeader(p)}
-                      >
-                        <span className="wt-record-rank">{String(p.rank).padStart(2, "0")}</span>
+                      <button disabled={!session || busy} onClick={() => void chooseLeader(p)}>
+                        <span className="wt-record-rank">
+                          {localize(String(p.rank).padStart(2, "0"))}
+                        </span>
                         <b>{p.nickname}</b>
                         <span aria-hidden="true">→</span>
                       </button>
@@ -835,11 +958,12 @@ export function PlayerStats() {
                   ))}
                 </ol>
                 <p className="wt-record-fine">
-                  榜单快照采集于 {statsDate(board.fetchedAt)} · 官方累计榜，非实时更新。
+                  {t("榜单快照采集于")}
+                  {localize(statsDate(board.fetchedAt))} {t("· 官方累计榜，非实时更新。")}
                 </p>
               </>
             ) : (
-              <p className="wt-record-empty">该榜单暂未获取，请稍后再试或直接输入昵称。</p>
+              <p className="wt-record-empty">{t("该榜单暂未获取，请稍后再试或直接输入昵称。")}</p>
             )}
           </section>
         </div>
@@ -850,14 +974,21 @@ export function PlayerStats() {
             <Avatar url={profile.avatar} name={profile.nickname} />
             <div>
               <h2>
-                {profile.clanTag && <small>{profile.clanTag} </small>}
+                {localize(profile.clanTag && <small>{localize(profile.clanTag)} </small>)}
                 {profile.nickname}
               </h2>
               <p>
-                等级 {num(profile.level)} · UID {profile.uid}
+                {t("等级")}
+                {localize(num(profile.level))} · UID {localize(profile.uid)}
               </p>
             </div>
-            <button className="wt-record-link wt-garage-entry" disabled={profile.localOnly} onClick={() => setShowGarage(true)}>完整车库</button>
+            <button
+              className="wt-record-link wt-garage-entry"
+              disabled={profile.localOnly}
+              onClick={() => setShowGarage(true)}
+            >
+              {t("完整车库")}
+            </button>
             <AccountValuation
               key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
               profile={profile}
@@ -866,534 +997,742 @@ export function PlayerStats() {
             />
             <div className="wt-record-source">
               <span>
-                采集于 {statsDate(profile.fetchedAt)} ·{" "}
-                {profile.cached ? "已命中缓存，本次不扣查询次数" : "官方助手资料"}
+                {t("采集于")}
+                {localize(statsDate(profile.fetchedAt))} ·{localize(" ")}
+                {localize(profile.cached ? "已命中缓存，本次不扣查询次数" : "官方助手资料")}
               </span>
               <button
                 className="wt-record-link wt-record-refresh"
-                title={profile.localOnly ? "请先重新查询此玩家" : "重新获取官方资料，按一次新查询计入额度；同一玩家每分钟可刷新一次"}
+                title={localize(
+                  profile.localOnly
+                    ? "请先重新查询此玩家"
+                    : "重新获取官方资料，按一次新查询计入额度；同一玩家每分钟可刷新一次",
+                )}
                 disabled={
-                  profile.localOnly || busy || exportBusy || (!!report && ["queued", "running"].includes(report.status))
+                  profile.localOnly ||
+                  busy ||
+                  exportBusy ||
+                  (!!report && ["queued", "running"].includes(report.status))
                 }
                 onClick={() => void forceRefresh()}
               >
-                {busy ? "正在获取…" : "强制刷新"}
+                {localize(busy ? "正在获取…" : "强制刷新")}
               </button>
-              <small>强制刷新计入新查询次数</small>
+              <small>{t("强制刷新计入新查询次数")}</small>
             </div>
           </section>
-          <div className="wt-record-tabs" aria-label="战绩视图">
+          <div className="wt-record-tabs" aria-label={t("战绩视图")}>
             <button aria-pressed={tab === "overview"} onClick={() => changeTab("overview")}>
-              生涯总览
+              {t("生涯总览")}
             </button>
             <button aria-pressed={tab === "rankings"} onClick={() => changeTab("rankings")}>
-              排位数据
+              {t("排位数据")}
             </button>
             <button aria-pressed={tab === "report"} onClick={() => changeTab("report")}>
-              个人战报 <small>TOP 5</small>
+              {t("个人战报")}
+              <small>TOP 5</small>
             </button>
             <div className="wt-record-modes">
-              {profile.modes.map((m) => (
-                <button
-                  key={m.id}
-                  disabled={
-                    tab === "report" &&
-                    (busy ||
-                      exportBusy ||
-                      (!!report && ["queued", "running"].includes(report.status)))
-                  }
-                  aria-pressed={mode === m.id}
-                  onClick={() => {
-                    setMode(m.id);
-                    setViewingHistory(false);
-                    setVehiclePage(1);
-                    setReport(null);
-                  }}
-                >
-                  {statsModeNames[m.id]}
-                </button>
-              ))}
+              {localize(
+                profile.modes.map((m) => (
+                  <button
+                    key={m.id}
+                    disabled={
+                      tab === "report" &&
+                      (busy ||
+                        exportBusy ||
+                        (!!report && ["queued", "running"].includes(report.status)))
+                    }
+                    aria-pressed={mode === m.id}
+                    onClick={() => {
+                      setMode(m.id);
+                      setViewingHistory(false);
+                      setVehiclePage(1);
+                      setReport(null);
+                    }}
+                  >
+                    {localize(statsModeNames[m.id])}
+                  </button>
+                )),
+              )}
             </div>
           </div>
           <div className="wt-record-results">
-          <PlayerCareerOverview key={`career:${profile.snapshotId}`} profile={profile} mode={mode} base={active} active={tab === "overview"} armyBase={config?.assets.armyBase || ""} />
-          <PlayerRankings key={`rankings:${profile.snapshotId}`} profile={displayProfile!} mode={mode} active={tab === "rankings"} />
-          {tab === "rankings" ? null : !active ? (
-            <p className="wt-record-empty">这位玩家还没有可展示的出击记录。</p>
-          ) : tab === "overview" ? (
-            <>
-              <section className="wt-record-panel wt-record-table-panel">
-                <div className="wt-record-heading">
-                  <h2>
-                    载具战绩 <span>{filtered.length} 辆</span>
-                  </h2>
-                  <span>{statsModeNames[mode]} · 仅展示已出击载具{freshVehicleDetails ? ` · 采集于 ${statsDate(freshVehicleDetails.fetchedAt)}` : ""}</span>
-                </div>
-                <div className="wt-record-filters">
-                  <input
-                    type="search"
-                    value={search}
-                    onChange={(event) => {
-                      setSearch(event.target.value);
-                      setVehiclePage(1);
-                    }}
-                    placeholder="搜索载具名称或型号"
-                    aria-label="筛选载具"
-                  />
-                  <GameSelect
-                    aria-label="载具国家筛选"
-                    value={vehicleCountry}
-                    onValueChange={(value) => {
-                      setVehicleCountry(value);
-                      setVehiclePage(1);
-                    }}
-                  >
-                    <option value="all">全部国家</option>
-                    {Object.entries(catalogSettings.countries).map(([id, name]) => (
-                      <option key={id} value={id}>
-                        {name}
-                      </option>
-                    ))}
-                    {profile.vehicles.some((v) => !v.country) && (
-                      <option value="unknown">国家待核验</option>
-                    )}
-                  </GameSelect>
-                  <GameSelect
-                    value={category}
-                    onValueChange={(value) => {
-                      setCategory(value);
-                      if (value === "ground")
-                        setVehicleSort((current) =>
-                          current?.key === "navalKd"
-                            ? { key: "battles", direction: "desc" }
-                            : current,
-                        );
-                      setVehiclePage(1);
-                    }}
-                    aria-label="军种筛选"
-                  >
-                    <option value="all">全部军种</option>
-                    {Object.entries(statsCategoryNames).map(([id, name]) => (
-                      <option key={id} value={id}>
-                        {name}
-                      </option>
-                    ))}
-                  </GameSelect>
-                  <GameSelect
-                    aria-label="载具等级筛选"
-                    value={vehicleRank}
-                    onValueChange={(value) => {
-                      setVehicleRank(value);
-                      setVehiclePage(1);
-                    }}
-                  >
-                    <option value="all">全部等级</option>
-                    {valuationRules.researchRanks.map((rank) => (
-                      <option key={rank} value={rank}>
-                        Rank {rank}
-                      </option>
-                    ))}
-                    {profile.vehicles.some((v) => !v.rank) && (
-                      <option value="unknown">等级待核验</option>
-                    )}
-                  </GameSelect>
-                  <GameSelect
-                    className="wt-record-sort-field"
-                    aria-label="载具战绩排序字段"
-                    value={vehicleSort?.key || "none"}
-                    onValueChange={value => sortVehicles(value as VehicleSortKey | "none")}
-                  >
-                    <option value="none">不排序</option>
-                    {vehicleColumns.map(([key, label]) => (
-                      <option key={key} value={key}>按{label}排序</option>
-                    ))}
-                  </GameSelect>
-                  <button
-                    type="button"
-                    className="wt-record-sort-direction"
-                    disabled={!vehicleSort}
-                    onClick={() => { if (vehicleSort) sortVehicles(vehicleSort.key, true); }}
-                    aria-label={`切换为${vehicleSort?.direction === "desc" ? "升序" : "降序"}排列载具战绩`}
-                  >
-                    {!vehicleSort ? "升降序" : vehicleSort.direction === "desc" ? "降序 ↓" : "升序 ↑"}
-                  </button>
-                  <button type="button" disabled={!vehicleSort} onClick={() => sortVehicles("none")}>清除排序</button>
-                </div>
-                <div className="wt-vehicle-display-toolbar">
-                  <div className="wt-vehicle-view-switch" aria-label="载具战绩展示形式">{(["table", "cards"] as VehiclePresentation[]).map(view => <button key={view} aria-pressed={vehicleView === view} onClick={() => { setVehicleView(view); saveVehiclePresentation(view); }}>{view === "table" ? "表格" : "卡片"}</button>)}</div>
-                  <span>展示形式保存在本机</span>
-                </div>
-                {vehicleView === "cards" ? <PlayerVehicleCards vehicles={pagedVehicles} select={setSelectedVehicle} generate={vehicle => {
-                  if (displayProfile) setVehicleShare({ profile: displayProfile, vehicle, job: startVehicleShare(displayProfile, vehicle) });
-                }} showNaval={category !== "ground"} /> : <div className="wt-record-table-scroll">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th scope="col">载具</th>
-                        {vehicleColumns.map(([key, label]) => (
-                          <th
-                            key={key}
-                            scope="col"
-                            aria-sort={
-                              vehicleSort?.key === key
-                                ? vehicleSort?.direction === "asc"
-                                  ? "ascending"
-                                  : "descending"
-                                : "none"
-                            }
+            <PlayerCareerOverview
+              key={`career:${profile.snapshotId}`}
+              profile={profile}
+              mode={mode}
+              base={active}
+              active={tab === "overview"}
+              armyBase={config?.assets.armyBase || ""}
+            />
+            <PlayerRankings
+              key={`rankings:${profile.snapshotId}`}
+              profile={displayProfile!}
+              mode={mode}
+              active={tab === "rankings"}
+            />
+            {tab === "rankings" ? null : !active ? (
+              <p className="wt-record-empty">{t("这位玩家还没有可展示的出击记录。")}</p>
+            ) : tab === "overview" ? (
+              <>
+                <section className="wt-record-panel wt-record-table-panel">
+                  <div className="wt-record-heading">
+                    <h2>
+                      {t("载具战绩")}
+                      <span>
+                        {localize(filtered.length)} {t("辆")}
+                      </span>
+                    </h2>
+                    <span>
+                      {localize(statsModeNames[mode])} {t("· 仅展示已出击载具")}
+                      {localize(
+                        freshVehicleDetails
+                          ? ` · 采集于 ${localize(statsDate(freshVehicleDetails.fetchedAt))}`
+                          : "",
+                      )}
+                    </span>
+                  </div>
+                  <div className="wt-record-filters">
+                    <input
+                      type="search"
+                      value={search}
+                      onChange={(event) => {
+                        setSearch(event.target.value);
+                        setVehiclePage(1);
+                      }}
+                      placeholder={t("搜索载具名称或型号")}
+                      aria-label={t("筛选载具")}
+                    />
+                    <GameSelect
+                      aria-label={t("载具国家筛选")}
+                      value={vehicleCountry}
+                      onValueChange={(value) => {
+                        setVehicleCountry(value);
+                        setVehiclePage(1);
+                      }}
+                    >
+                      <option value="all">{t("全部国家")}</option>
+                      {localize(
+                        Object.entries(catalogSettings.countries).map(([id, name]) => (
+                          <option key={id} value={id}>
+                            {localize(name)}
+                          </option>
+                        )),
+                      )}
+                      {localize(
+                        profile.vehicles.some((v) => !v.country) && (
+                          <option value="unknown">{t("国家待核验")}</option>
+                        ),
+                      )}
+                    </GameSelect>
+                    <GameSelect
+                      value={category}
+                      onValueChange={(value) => {
+                        setCategory(value);
+                        if (value === "ground")
+                          setVehicleSort((current) =>
+                            current?.key === "navalKd"
+                              ? { key: "battles", direction: "desc" }
+                              : current,
+                          );
+                        setVehiclePage(1);
+                      }}
+                      aria-label={t("军种筛选")}
+                    >
+                      <option value="all">{t("全部军种")}</option>
+                      {localize(
+                        Object.entries(statsCategoryNames).map(([id, name]) => (
+                          <option key={id} value={id}>
+                            {localize(name)}
+                          </option>
+                        )),
+                      )}
+                    </GameSelect>
+                    <GameSelect
+                      aria-label={t("载具等级筛选")}
+                      value={vehicleRank}
+                      onValueChange={(value) => {
+                        setVehicleRank(value);
+                        setVehiclePage(1);
+                      }}
+                    >
+                      <option value="all">{t("全部等级")}</option>
+                      {localize(
+                        valuationRules.researchRanks.map((rank) => (
+                          <option key={rank} value={rank}>
+                            Rank {localize(rank)}
+                          </option>
+                        )),
+                      )}
+                      {localize(
+                        profile.vehicles.some((v) => !v.rank) && (
+                          <option value="unknown">{t("等级待核验")}</option>
+                        ),
+                      )}
+                    </GameSelect>
+                    <GameSelect
+                      className="wt-record-sort-field"
+                      aria-label={t("载具战绩排序字段")}
+                      value={vehicleSort?.key || "none"}
+                      onValueChange={(value) => sortVehicles(value as VehicleSortKey | "none")}
+                    >
+                      <option value="none">{t("不排序")}</option>
+                      {localize(
+                        vehicleColumns.map(([key, label]) => (
+                          <option key={key} value={key}>
+                            {t("按")}
+                            {localize(label)}
+                            {t("排序")}
+                          </option>
+                        )),
+                      )}
+                    </GameSelect>
+                    <button
+                      type="button"
+                      className="wt-record-sort-direction"
+                      disabled={!vehicleSort}
+                      onClick={() => {
+                        if (vehicleSort) sortVehicles(vehicleSort.key, true);
+                      }}
+                      aria-label={localize(
+                        `切换为${localize(vehicleSort?.direction === "desc" ? "升序" : "降序")}排列载具战绩`,
+                      )}
+                    >
+                      {localize(
+                        !vehicleSort
+                          ? "升降序"
+                          : vehicleSort.direction === "desc"
+                            ? "降序 ↓"
+                            : "升序 ↑",
+                      )}
+                    </button>
+                    <button
+                      type="button"
+                      disabled={!vehicleSort}
+                      onClick={() => sortVehicles("none")}
+                    >
+                      {t("清除排序")}
+                    </button>
+                  </div>
+                  <div className="wt-vehicle-display-toolbar">
+                    <div className="wt-vehicle-view-switch" aria-label={t("载具战绩展示形式")}>
+                      {localize(
+                        (["table", "cards"] as VehiclePresentation[]).map((view) => (
+                          <button
+                            key={view}
+                            aria-pressed={vehicleView === view}
+                            onClick={() => {
+                              setVehicleView(view);
+                              saveVehiclePresentation(view);
+                            }}
                           >
-                            <button
-                              type="button"
-                              className="wt-record-sort"
-                              onClick={() => sortVehicles(key, true)}
-                              title={`按${label}排序，点击切换升序或降序`}
-                            >
-                              {label}
-                              <span aria-hidden="true">
-                                {vehicleSort?.key === key
-                                  ? vehicleSort?.direction === "desc"
-                                    ? "↓"
-                                    : "↑"
-                                  : "↕"}
-                              </span>
-                            </button>
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {pagedVehicles.map((v) => (
-                        <VehicleRow
-                          key={v.id}
-                          vehicle={v}
-                          select={() => setSelectedVehicle(v)}
-                          showNaval={category !== "ground"}
-                          countryName={
-                            profile.countries.find((c) => c.id === v.country)?.name ||
-                            statsCategoryNames[v.category || ""] ||
-                            ""
-                          }
-                        />
-                      ))}
-                    </tbody>
-                  </table>
-                </div>}
-                {!filtered.length && <p className="wt-record-empty">没有符合筛选条件的载具。</p>}
-                <PlayerVehiclePagination page={currentVehiclePage} pages={vehiclePages} total={filtered.length} pageSize={vehiclePageSize} changePage={setVehiclePage} changeSize={size => { setVehiclePageSize(size); setVehiclePage(1); saveVehiclePageSize(size); }} />
-                <p className="wt-record-fine">
-                  单车对空、对地、对海 K/D
-                  分别使用该车死亡次数。银狮为助手累计获得统计，不是当前余额或扣除维修补给后的净收入，数据取自助手统计，建议以游戏内记录为准。“—”代表未返回。
-                </p>
-              </section>
-              <PlayerTypeUsage profile={profile} mode={mode} active={tab === "overview"} />
-            </>
-          ) : (
-            <div className="wt-record-report-layout">
-              <aside className="wt-record-panel wt-report-controls">
-                <h2>定制你的战报</h2>
-                <p>选好范围、点评风格与背景，再一起生成。</p>
-                <div className="wt-report-filters" aria-label="战报载具筛选">
-                  <label>
-                    <span>国家</span>
-                    <GameSelect
-                      aria-label="战报国家"
-                      value={reportCountry}
-                      onValueChange={(value) => changeReportFilter(value, "country")}
-                      disabled={
-                        busy ||
-                        exportBusy ||
-                        (!!report && ["queued", "running"].includes(report.status))
-                      }
-                    >
-                      <option value="all">全部国家</option>
-                      {profile.countries.map((country) => (
-                        <option key={country.id} value={country.id}>
-                          {country.name}
-                        </option>
-                      ))}
-                    </GameSelect>
-                  </label>
-                  <label>
-                    <span>兵种</span>
-                    <GameSelect
-                      aria-label="战报兵种"
-                      value={reportCategory}
-                      onValueChange={(value) => changeReportFilter(value, "category")}
-                      disabled={
-                        busy ||
-                        exportBusy ||
-                        (!!report && ["queued", "running"].includes(report.status))
-                      }
-                    >
-                      <option value="all">全部兵种</option>
-                      {Object.entries(statsCategoryNames).map(([id, name]) => (
-                        <option key={id} value={id}>
-                          {name}
-                        </option>
-                      ))}
-                    </GameSelect>
-                  </label>
-                </div>
-                <div className="wt-report-voice">
-                  <label htmlFor="report-style">AI 点评风格</label>
-                  <GameSelect
-                    id="report-style"
-                    value={analysisStyle}
-                    disabled={
-                      busy ||
-                      exportBusy ||
-                      (!!report && ["queued", "running"].includes(report.status))
-                    }
-                    onValueChange={(value) => changeStyle(value as ReportStyle)}
-                  >
-                    {reportStyles.map((style) => (
-                      <option value={style.id} key={style.id}>
-                        {style.label}
-                      </option>
-                    ))}
-                  </GameSelect>
-                  <p>{reportStyle(analysisStyle).description}</p>
-                  {analysisStyle === "custom" && (
-                    <div className="wt-report-custom-style">
-                      <label htmlFor="report-style-preference">想怎么说</label>
-                      <textarea
-                        id="report-style-preference"
-                        maxLength={160}
-                        rows={3}
-                        value={customStyle}
+                            {localize(view === "table" ? "表格" : "卡片")}
+                          </button>
+                        )),
+                      )}
+                    </div>
+                    <span>{t("展示形式保存在本机")}</span>
+                  </div>
+                  {vehicleView === "cards" ? (
+                    <PlayerVehicleCards
+                      vehicles={pagedVehicles}
+                      select={setSelectedVehicle}
+                      generate={(vehicle) => {
+                        if (displayProfile)
+                          setVehicleShare({
+                            profile: displayProfile,
+                            vehicle,
+                            job: startVehicleShare(displayProfile, vehicle),
+                          });
+                      }}
+                      showNaval={category !== "ground"}
+                    />
+                  ) : (
+                    <div className="wt-record-table-scroll">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th scope="col">{t("载具")}</th>
+                            {localize(
+                              vehicleColumns.map(([key, label]) => (
+                                <th
+                                  key={key}
+                                  scope="col"
+                                  aria-sort={
+                                    vehicleSort?.key === key
+                                      ? vehicleSort?.direction === "asc"
+                                        ? "ascending"
+                                        : "descending"
+                                      : "none"
+                                  }
+                                >
+                                  <button
+                                    type="button"
+                                    className="wt-record-sort"
+                                    onClick={() => sortVehicles(key, true)}
+                                    title={localize(`按${localize(label)}排序，点击切换升序或降序`)}
+                                  >
+                                    {localize(label)}
+                                    <span aria-hidden="true">
+                                      {localize(
+                                        vehicleSort?.key === key
+                                          ? vehicleSort?.direction === "desc"
+                                            ? "↓"
+                                            : "↑"
+                                          : "↕",
+                                      )}
+                                    </span>
+                                  </button>
+                                </th>
+                              )),
+                            )}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {pagedVehicles.map((v) => (
+                            <VehicleRow
+                              key={v.id}
+                              vehicle={v}
+                              select={() => setSelectedVehicle(v)}
+                              showNaval={category !== "ground"}
+                              countryName={
+                                profile.countries.find((c) => c.id === v.country)?.name ||
+                                statsCategoryNames[v.category || ""] ||
+                                ""
+                              }
+                            />
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+                  {localize(
+                    !filtered.length && (
+                      <p className="wt-record-empty">{t("没有符合筛选条件的载具。")}</p>
+                    ),
+                  )}
+                  <PlayerVehiclePagination
+                    page={currentVehiclePage}
+                    pages={vehiclePages}
+                    total={filtered.length}
+                    pageSize={vehiclePageSize}
+                    changePage={setVehiclePage}
+                    changeSize={(size) => {
+                      setVehiclePageSize(size);
+                      setVehiclePage(1);
+                      saveVehiclePageSize(size);
+                    }}
+                  />
+                  <p className="wt-record-fine">
+                    {t(
+                      "单车对空、对地、对海 K/D 分别使用该车死亡次数。银狮为助手累计获得统计，不是当前余额或扣除维修补给后的净收入，数据取自助手统计，建议以游戏内记录为准。“—”代表未返回。",
+                    )}
+                  </p>
+                </section>
+                <PlayerTypeUsage profile={profile} mode={mode} active={tab === "overview"} />
+              </>
+            ) : (
+              <div className="wt-record-report-layout">
+                <aside className="wt-record-panel wt-report-controls">
+                  <h2>{t("定制你的战报")}</h2>
+                  <p>{t("选好范围、点评风格与背景，再一起生成。")}</p>
+                  <div className="wt-report-filters" aria-label={t("战报载具筛选")}>
+                    <label>
+                      <span>{t("国家")}</span>
+                      <GameSelect
+                        aria-label={t("战报国家")}
+                        value={reportCountry}
+                        onValueChange={(value) => changeReportFilter(value, "country")}
                         disabled={
                           busy ||
                           exportBusy ||
                           (!!report && ["queued", "running"].includes(report.status))
                         }
-                        aria-describedby="report-style-hint"
-                        placeholder="例如：像战雷老玩家闲聊，先讲强项，再用一句冷幽默提醒短板。"
-                        onChange={(event) => changeStyle("custom", event.target.value)}
-                      />
-                      <small id="report-style-hint">
-                        只描述语气和分析角度，请勿填写隐私。<span>{customStyle.length}/160</span>
+                      >
+                        <option value="all">{t("全部国家")}</option>
+                        {localize(
+                          profile.countries.map((country) => (
+                            <option key={country.id} value={country.id}>
+                              {localize(vehicleName(country))}
+                            </option>
+                          )),
+                        )}
+                      </GameSelect>
+                    </label>
+                    <label>
+                      <span>{t("兵种")}</span>
+                      <GameSelect
+                        aria-label={t("战报兵种")}
+                        value={reportCategory}
+                        onValueChange={(value) => changeReportFilter(value, "category")}
+                        disabled={
+                          busy ||
+                          exportBusy ||
+                          (!!report && ["queued", "running"].includes(report.status))
+                        }
+                      >
+                        <option value="all">{t("全部兵种")}</option>
+                        {localize(
+                          Object.entries(statsCategoryNames).map(([id, name]) => (
+                            <option key={id} value={id}>
+                              {localize(name)}
+                            </option>
+                          )),
+                        )}
+                      </GameSelect>
+                    </label>
+                  </div>
+                  <div className="wt-report-voice">
+                    <label htmlFor="report-style">{t("AI 点评风格")}</label>
+                    <GameSelect
+                      id="report-style"
+                      value={analysisStyle}
+                      disabled={
+                        busy ||
+                        exportBusy ||
+                        (!!report && ["queued", "running"].includes(report.status))
+                      }
+                      onValueChange={(value) => changeStyle(value as ReportStyle)}
+                    >
+                      {localize(
+                        reportStyles.map((style) => (
+                          <option value={style.id} key={style.id}>
+                            {localize(style.label)}
+                          </option>
+                        )),
+                      )}
+                    </GameSelect>
+                    <p>{localize(reportStyle(analysisStyle).description)}</p>
+                    {localize(
+                      analysisStyle === "custom" && (
+                        <div className="wt-report-custom-style">
+                          <label htmlFor="report-style-preference">{t("想怎么说")}</label>
+                          <textarea
+                            id="report-style-preference"
+                            maxLength={160}
+                            rows={3}
+                            value={customStyle}
+                            disabled={
+                              busy ||
+                              exportBusy ||
+                              (!!report && ["queued", "running"].includes(report.status))
+                            }
+                            aria-describedby="report-style-hint"
+                            placeholder={t(
+                              "例如：像战雷老玩家闲聊，先讲强项，再用一句冷幽默提醒短板。",
+                            )}
+                            onChange={(event) => changeStyle("custom", event.target.value)}
+                          />
+                          <small id="report-style-hint">
+                            {t("只描述语气和分析角度，请勿填写隐私。")}
+                            <span>{localize(customStyle.length)}/160</span>
+                          </small>
+                        </div>
+                      ),
+                    )}
+                  </div>
+                  <p className="wt-record-fine">
+                    {t("筛选和选图不扣次数。点击生成时使用一次战报额度，生成失败会退回。")}
+                  </p>
+                  {localize(
+                    viewingHistory && (
+                      <p className="wt-record-fine">
+                        {t("正在查看已存战报。调整筛选可为当前玩家配置新战报。")}
+                      </p>
+                    ),
+                  )}
+                  <div className="wt-record-heading">
+                    <h3>{t("战雷官方背景")}</h3>
+                    <span>
+                      {localize(config?.assets.backgrounds.length || 0)} {t("张")}
+                    </span>
+                  </div>
+                  <button
+                    disabled={exportBusy}
+                    aria-pressed={background === "auto"}
+                    onClick={() => setBackground("auto")}
+                  >
+                    {t("自动匹配军种与年代")}
+                  </button>
+                  <GameSelect
+                    aria-label={t("背景类别")}
+                    value={bgFilter}
+                    onValueChange={setBgFilter}
+                  >
+                    <option value="all">{t("全部背景")}</option>
+                    <option value="ground">{t("装甲战场")}</option>
+                    <option value="aviation">{t("航空战场")}</option>
+                    <option value="ships">{t("海上战场")}</option>
+                    <option value="mixed">{t("综合场景")}</option>
+                  </GameSelect>
+                  <div className="wt-report-backgrounds">
+                    {localize(
+                      config?.assets.backgrounds
+                        .filter((b) => bgFilter === "all" || b.category === bgFilter)
+                        .map((b) => (
+                          <button
+                            key={b.id}
+                            disabled={exportBusy}
+                            aria-pressed={bg?.id === b.id && background !== "auto"}
+                            onClick={() => setBackground(b.id)}
+                          >
+                            <img src={b.thumbnail} alt="" loading="lazy" />
+                            <span>{localize(b.title)}</span>
+                          </button>
+                        )),
+                    )}
+                  </div>
+                  {localize(
+                    bg && !bg.local && (
+                      <a href={bg.sourcePage} target="_blank" rel="noreferrer">
+                        {t("查看此背景的官方来源 ↗")}
+                      </a>
+                    ),
+                  )}
+                  <div className="wt-custom-background">
+                    <input
+                      ref={uploadInput}
+                      disabled={exportBusy || uploadBusy}
+                      type="file"
+                      accept="image/jpeg,image/png,image/webp"
+                      className="sr-only"
+                      aria-label={t("上传自己的战报背景")}
+                      onChange={(event) => {
+                        const file = event.currentTarget.files?.[0];
+                        event.currentTarget.value = "";
+                        if (file) void uploadBackground(file);
+                      }}
+                    />
+                    <button
+                      disabled={uploadBusy || exportBusy}
+                      onClick={() => uploadInput.current?.click()}
+                    >
+                      {localize(uploadBusy ? "正在读取图片…" : "上传自己的背景")}
+                    </button>
+                    {localize(
+                      customBackground && (
+                        <button
+                          className="wt-custom-background-choice"
+                          disabled={exportBusy}
+                          aria-pressed={background === "custom"}
+                          onClick={() => setBackground("custom")}
+                        >
+                          <img src={customBackground.source} alt={t("自选背景缩略图")} />
+                          <span>{localize(customBackground.title)}</span>
+                        </button>
+                      ),
+                    )}
+                    <small>
+                      {t("JPG / PNG / WebP，最大 12 MB。只在本次页面使用，不上传服务器。")}
+                    </small>
+                    <div className="wt-report-palette" aria-label={t("从背景提取的战报配色")}>
+                      {localize(
+                        [
+                          reportTheme.base,
+                          reportTheme.accent,
+                          reportTheme.secondary,
+                          reportTheme.ink,
+                        ].map((color, i) => <i key={i} style={{ backgroundColor: color }} />),
+                      )}
+                      <span>{localize(colorBusy ? "正在读取背景颜色…" : "随背景自动配色")}</span>
+                    </div>
+                    {localize(
+                      backgroundError && (
+                        <p className="wt-record-fine" role="alert">
+                          {localize(backgroundError)}
+                        </p>
+                      ),
+                    )}
+                  </div>
+                  <button
+                    className="wt-record-primary"
+                    disabled={
+                      busy ||
+                      viewingHistory ||
+                      !eligible.length ||
+                      (analysisStyle === "custom" && !customStyle.trim()) ||
+                      (!!report && ["queued", "running"].includes(report.status))
+                    }
+                    onClick={() => void generate()}
+                  >
+                    {localize(
+                      report?.status === "queued" || report?.status === "running"
+                        ? "正在生成战报与点评…"
+                        : report?.status === "ready"
+                          ? "取用相同配置战报"
+                          : "生成我的战报",
+                    )}
+                  </button>
+                  <button
+                    disabled={!report || exportBusy || colorBusy || report.status !== "ready"}
+                    onClick={() => void save()}
+                  >
+                    {localize(exportBusy ? "正在保存图片…" : "保存战报图片")}
+                  </button>
+                  {localize(
+                    exportBusy && (
+                      <button onClick={() => exportController.current?.abort()}>
+                        {t("取消保存")}
+                      </button>
+                    ),
+                  )}
+                  <button
+                    onClick={() => {
+                      void statsRequest<{ items: StatsReport[] }>("reports")
+                        .then((value) => setHistory(value.items))
+                        .catch((failure) => setError(failure.message));
+                    }}
+                  >
+                    {t("我的战报")}
+                  </button>
+                  <p className="wt-record-fine">
+                    {t("更换背景和重复保存不扣次；更换分析风格或自定义内容会生成新战报。")}
+                  </p>
+                </aside>
+                <div className="wt-report-stage">
+                  <div className="wt-report-caption">
+                    <span>
+                      {localize(
+                        report?.status === "ready"
+                          ? "已生成"
+                          : report?.status === "running"
+                            ? "正在生成"
+                            : "待生成",
+                      )}
+                    </span>
+                    <span>{localize(bg?.title)}</span>
+                  </div>
+                  {!report && (
+                    <div className="wt-report-idle">
+                      <span>{t("你的战地档案")}</span>
+                      <h2>{t("选好，再签发。")}</h2>
+                      <p>
+                        {localize(statsModeNames[mode])} ·{localize(" ")}
+                        {reportCountry === "all"
+                          ? t("全部国家")
+                          : profile.countries.find((c) => c.id === reportCountry)?.name}
+                        {localize(" ")}·{" "}
+                        {localize(
+                          reportCategory === "all"
+                            ? "全部兵种"
+                            : statsCategoryNames[reportCategory],
+                        )}
+                      </p>
+                      <strong>
+                        {localize(eligible.length)} {t("辆有出击记录的载具")}
+                      </strong>
+                      <p>
+                        {localize(
+                          eligible.length
+                            ? "生成后展示生涯总览与该范围最常用的五辆载具。"
+                            : "这个范围暂时没有出击记录，请调整筛选。",
+                        )}
+                      </p>
+                      <small>
+                        {localize(reportStyle(analysisStyle).label)}{" "}
+                        {t("· 点击生成后，数据与点评一起完成。")}
                       </small>
                     </div>
                   )}
-                </div>
-                <p className="wt-record-fine">
-                  筛选和选图不扣次数。点击生成时使用一次战报额度，生成失败会退回。
-                </p>
-                {viewingHistory && (
-                  <p className="wt-record-fine">
-                    正在查看已存战报。调整筛选可为当前玩家配置新战报。
-                  </p>
-                )}
-                <div className="wt-record-heading">
-                  <h3>战雷官方背景</h3>
-                  <span>{config?.assets.backgrounds.length || 0} 张</span>
-                </div>
-                <button
-                  disabled={exportBusy}
-                  aria-pressed={background === "auto"}
-                  onClick={() => setBackground("auto")}
-                >
-                  自动匹配军种与年代
-                </button>
-                <GameSelect aria-label="背景类别" value={bgFilter} onValueChange={setBgFilter}>
-                  <option value="all">全部背景</option>
-                  <option value="ground">装甲战场</option>
-                  <option value="aviation">航空战场</option>
-                  <option value="ships">海上战场</option>
-                  <option value="mixed">综合场景</option>
-                </GameSelect>
-                <div className="wt-report-backgrounds">
-                  {config?.assets.backgrounds
-                    .filter((b) => bgFilter === "all" || b.category === bgFilter)
-                    .map((b) => (
-                      <button
-                        key={b.id}
-                        disabled={exportBusy}
-                        aria-pressed={bg?.id === b.id && background !== "auto"}
-                        onClick={() => setBackground(b.id)}
-                      >
-                        <img src={b.thumbnail} alt="" loading="lazy" />
-                        <span>{b.title}</span>
-                      </button>
-                    ))}
-                </div>
-                {bg && !bg.local && (
-                  <a href={bg.sourcePage} target="_blank" rel="noreferrer">
-                    查看此背景的官方来源 ↗
-                  </a>
-                )}
-                <div className="wt-custom-background">
-                  <input
-                    ref={uploadInput}
-                    disabled={exportBusy || uploadBusy}
-                    type="file"
-                    accept="image/jpeg,image/png,image/webp"
-                    className="sr-only"
-                    aria-label="上传自己的战报背景"
-                    onChange={(event) => {
-                      const file = event.currentTarget.files?.[0];
-                      event.currentTarget.value = "";
-                      if (file) void uploadBackground(file);
-                    }}
-                  />
-                  <button
-                    disabled={uploadBusy || exportBusy}
-                    onClick={() => uploadInput.current?.click()}
-                  >
-                    {uploadBusy ? "正在读取图片…" : "上传自己的背景"}
-                  </button>
-                  {customBackground && (
-                    <button
-                      className="wt-custom-background-choice"
-                      disabled={exportBusy}
-                      aria-pressed={background === "custom"}
-                      onClick={() => setBackground("custom")}
-                    >
-                      <img src={customBackground.source} alt="自选背景缩略图" />
-                      <span>{customBackground.title}</span>
-                    </button>
+                  {localize(
+                    report && ["queued", "running"].includes(report.status) && (
+                      <div className="wt-report-idle" aria-live="polite">
+                        <span>{t("正在制作")}</span>
+                        <h2>
+                          {t("正在写你的")}
+                          {localize(reportStyle(report.payload.analysis?.style).label)}
+                        </h2>
+                        <p>{t("结合真实生涯与常用载具完成点评，请稍候。")}</p>
+                        <progress aria-label={t("正在制作战报")} />
+                        <small>{t("完成后，整份战报会一起出现。")}</small>
+                      </div>
+                    ),
                   )}
-                  <small>JPG / PNG / WebP，最大 12 MB。只在本次页面使用，不上传服务器。</small>
-                  <div className="wt-report-palette" aria-label="从背景提取的战报配色">
-                    {[
-                      reportTheme.base,
-                      reportTheme.accent,
-                      reportTheme.secondary,
-                      reportTheme.ink,
-                    ].map((color, i) => (
-                      <i key={i} style={{ backgroundColor: color }} />
-                    ))}
-                    <span>{colorBusy ? "正在读取背景颜色…" : "随背景自动配色"}</span>
-                  </div>
-                  {backgroundError && (
-                    <p className="wt-record-fine" role="alert">
-                      {backgroundError}
-                    </p>
+                  {localize(
+                    report?.status === "failed" && (
+                      <div className="wt-report-idle">
+                        <h2>{t("这份战报还没完成")}</h2>
+                        <p>{t("本次生成额度已退回，请稍后重新生成。")}</p>
+                      </div>
+                    ),
+                  )}
+                  {localize(
+                    report?.status === "ready" && (
+                      <PlayerReport
+                        report={report}
+                        background={bg}
+                        armyBase={config?.assets.armyBase || ""}
+                        theme={reportTheme}
+                      />
+                    ),
                   )}
                 </div>
-                <button
-                  className="wt-record-primary"
-                  disabled={
-                    busy ||
-                    viewingHistory ||
-                    !eligible.length ||
-                    (analysisStyle === "custom" && !customStyle.trim()) ||
-                    (!!report && ["queued", "running"].includes(report.status))
-                  }
-                  onClick={() => void generate()}
-                >
-                  {report?.status === "queued" || report?.status === "running"
-                    ? "正在生成战报与点评…"
-                    : report?.status === "ready"
-                      ? "取用相同配置战报"
-                      : "生成我的战报"}
-                </button>
-                <button
-                  disabled={!report || exportBusy || colorBusy || report.status !== "ready"}
-                  onClick={() => void save()}
-                >
-                  {exportBusy ? "正在保存图片…" : "保存战报图片"}
-                </button>
-                {exportBusy && (
-                  <button onClick={() => exportController.current?.abort()}>取消保存</button>
-                )}
-                <button
-                  onClick={() => {
-                    void statsRequest<{ items: StatsReport[] }>("reports")
-                      .then((value) => setHistory(value.items))
-                      .catch((failure) => setError(failure.message));
-                  }}
-                >
-                  我的战报
-                </button>
-                <p className="wt-record-fine">
-                  更换背景和重复保存不扣次；更换分析风格或自定义内容会生成新战报。
-                </p>
-              </aside>
-              <div className="wt-report-stage">
-                <div className="wt-report-caption">
-                  <span>
-                    {report?.status === "ready"
-                      ? "已生成"
-                      : report?.status === "running"
-                        ? "正在生成"
-                        : "待生成"}
-                  </span>
-                  <span>{bg?.title}</span>
-                </div>
-                {!report && (
-                  <div className="wt-report-idle">
-                    <span>你的战地档案</span>
-                    <h2>选好，再签发。</h2>
-                    <p>
-                      {statsModeNames[mode]} ·{" "}
-                      {reportCountry === "all"
-                        ? "全部国家"
-                        : profile.countries.find((c) => c.id === reportCountry)?.name}{" "}
-                      · {reportCategory === "all" ? "全部兵种" : statsCategoryNames[reportCategory]}
-                    </p>
-                    <strong>{eligible.length} 辆有出击记录的载具</strong>
-                    <p>
-                      {eligible.length
-                        ? "生成后展示生涯总览与该范围最常用的五辆载具。"
-                        : "这个范围暂时没有出击记录，请调整筛选。"}
-                    </p>
-                    <small>
-                      {reportStyle(analysisStyle).label} · 点击生成后，数据与点评一起完成。
-                    </small>
-                  </div>
-                )}
-                {report && ["queued", "running"].includes(report.status) && (
-                  <div className="wt-report-idle" aria-live="polite">
-                    <span>正在制作</span>
-                    <h2>正在写你的{reportStyle(report.payload.analysis?.style).label}</h2>
-                    <p>结合真实生涯与常用载具完成点评，请稍候。</p>
-                    <progress aria-label="正在制作战报" />
-                    <small>完成后，整份战报会一起出现。</small>
-                  </div>
-                )}
-                {report?.status === "failed" && (
-                  <div className="wt-report-idle">
-                    <h2>这份战报还没完成</h2>
-                    <p>本次生成额度已退回，请稍后重新生成。</p>
-                  </div>
-                )}
-                {report?.status === "ready" && (
-                  <PlayerReport
-                    report={report}
-                    background={bg}
-                    armyBase={config?.assets.armyBase || ""}
-                    theme={reportTheme}
-                  />
-                )}
               </div>
-            </div>
-          )}
+            )}
           </div>
           <footer className="wt-record-footer">
-            {profile.notice}{" "}
+            {localize(profile.notice)}
+            {localize(" ")}
             <button className="wt-record-link" onClick={() => setShowRules(true)}>
-              效率分与 K/D 说明
+              {t("效率分与 K/D 说明")}
             </button>
           </footer>
         </>
       )}
-      {displayProfile && showGarage && <PlayerGarage profile={displayProfile} close={() => setShowGarage(false)} selectVehicle={vehicle => { setShowGarage(false); setSelectedVehicle(vehicle); }} />}
-      {displayProfile && selectedVehicle && <PlayerVehicleDetails profile={displayProfile} vehicle={effectiveVehicles.find(v => v.id === selectedVehicle.id && v.mode === selectedVehicle.mode) || selectedVehicle} close={() => setSelectedVehicle(null)} />}
-      {vehicleShare && <PlayerVehicleShare profile={vehicleShare.profile} vehicle={vehicleShare.vehicle} job={vehicleShare.job}
-        close={() => setVehicleShare(null)} back={() => { setSelectedVehicle(vehicleShare.vehicle); setVehicleShare(null); }} />}
-      {showRules && (
-        <Modal
-          title="读懂你的战绩"
-          subtitle="先看统计范围，再看数字。"
-          close={() => setShowRules(false)}
-          className="wt-record-rules wt-data-notes-dialog"
-        >
-          <StatsDataNotes />
-        </Modal>
+      {localize(
+        displayProfile && showGarage && (
+          <PlayerGarage
+            profile={displayProfile}
+            close={() => setShowGarage(false)}
+            selectVehicle={(vehicle) => {
+              setShowGarage(false);
+              setSelectedVehicle(vehicle);
+            }}
+          />
+        ),
+      )}
+      {localize(
+        displayProfile && selectedVehicle && (
+          <PlayerVehicleDetails
+            profile={displayProfile}
+            vehicle={
+              effectiveVehicles.find(
+                (v) => v.id === selectedVehicle.id && v.mode === selectedVehicle.mode,
+              ) || selectedVehicle
+            }
+            close={() => setSelectedVehicle(null)}
+          />
+        ),
+      )}
+      {localize(
+        vehicleShare && (
+          <PlayerVehicleShare
+            profile={vehicleShare.profile}
+            vehicle={vehicleShare.vehicle}
+            job={vehicleShare.job}
+            close={() => setVehicleShare(null)}
+            back={() => {
+              setSelectedVehicle(vehicleShare.vehicle);
+              setVehicleShare(null);
+            }}
+          />
+        ),
+      )}
+      {localize(
+        showRules && (
+          <Modal
+            title={t("读懂你的战绩")}
+            subtitle="先看统计范围，再看数字。"
+            close={() => setShowRules(false)}
+            className="wt-record-rules wt-data-notes-dialog"
+          >
+            <StatsDataNotes />
+          </Modal>
+        ),
       )}
       {history && (
-        <Modal title="我的战报" close={() => setHistory(null)} className="wt-record-rules">
+        <Modal title={t("我的战报")} close={() => setHistory(null)} className="wt-record-rules">
           {history.length ? (
             history.map((item) => (
               <button
@@ -1413,19 +1752,22 @@ export function PlayerStats() {
               >
                 <b>{item.payload.player.nickname}</b>
                 <span>
-                  {statsModeNames[item.payload.mode]} · {statsReportScopeLabel(item.payload)} ·{" "}
-                  {reportStyle(item.payload.analysis?.style).label} ·{" "}
-                  {item.status === "ready"
-                    ? "已生成"
-                    : item.status === "failed"
-                      ? "未生成"
-                      : "处理中"}
+                  {localize(statsModeNames[item.payload.mode])} ·{" "}
+                  {localize(statsReportScopeLabel(item.payload))} ·{localize(" ")}
+                  {localize(reportStyle(item.payload.analysis?.style).label)} ·{localize(" ")}
+                  {localize(
+                    item.status === "ready"
+                      ? "已生成"
+                      : item.status === "failed"
+                        ? "未生成"
+                        : "处理中",
+                  )}
                 </span>
-                <small>{item.createdAt && statsDate(item.createdAt)}</small>
+                <small>{localize(item.createdAt && statsDate(item.createdAt))}</small>
               </button>
             ))
           ) : (
-            <p>还没有生成过战报。</p>
+            <p>{t("还没有生成过战报。")}</p>
           )}
         </Modal>
       )}

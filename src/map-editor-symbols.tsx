@@ -1,3 +1,5 @@
+import { useLocale } from "./i18n/react";
+import { localize } from "./i18n/core";
 import catalog from "../data/map-editor-symbols.json";
 export const tacticalSymbols = catalog.symbols;
 const symbols = new Map(tacticalSymbols.map((s) => [s.id, s]));
@@ -16,6 +18,8 @@ export function TacticalSymbol({
   size?: number;
   color?: string;
 }) {
+  useLocale();
+
   const symbol = symbols.get(id);
   if (!symbol) return null;
   return (
@@ -27,12 +31,14 @@ export function TacticalSymbol({
       strokeLinejoin="round"
       fill="none"
     >
-      {symbol.paths.map((p, i) => (
-        <path key={`p${i}`} d={p.d} fill={p.filled ? color : "none"} />
-      ))}
-      {symbol.circles.map((c, i) => (
-        <circle key={`c${i}`} cx={c.cx} cy={c.cy} r={c.r} fill={c.filled ? color : "none"} />
-      ))}
+      {localize(
+        symbol.paths.map((p, i) => <path key={`p${i}`} d={p.d} fill={p.filled ? color : "none"} />),
+      )}
+      {localize(
+        symbol.circles.map((c, i) => (
+          <circle key={`c${i}`} cx={c.cx} cy={c.cy} r={c.r} fill={c.filled ? color : "none"} />
+        )),
+      )}
     </g>
   );
 }

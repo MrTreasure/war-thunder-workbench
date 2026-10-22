@@ -1,0 +1,7510 @@
+{
+  "胜率": [
+    "Win rate",
+    "Победы"
+  ],
+  "辆": [
+    " vehicles",
+    " ед."
+  ],
+  "重试": [
+    "Retry",
+    "Повторить"
+  ],
+  "全部军种": [
+    "All branches",
+    "Все рода войск"
+  ],
+  "等级": [
+    "Rank",
+    "Ранг"
+  ],
+  "全部等级": [
+    "All ranks",
+    "Все ранги"
+  ],
+  "对地 K/D": [
+    "Ground K/D",
+    "K/D по наземным целям"
+  ],
+  "对空 K/D": [
+    "Air K/D",
+    "K/D по воздушным целям"
+  ],
+  "综合 K/D": [
+    "Overall K/D",
+    "Общий K/D"
+  ],
+  "效率评分": [
+    "Efficiency",
+    "Эффективность"
+  ],
+  "战斗场次": [
+    "Battles",
+    "Бои"
+  ],
+  "全部国家": [
+    "All nations",
+    "Все нации"
+  ],
+  "累计银狮": [
+    "Total Silver Lions",
+    "Всего Серебряных львов"
+  ],
+  "不限次": [
+    "Unlimited",
+    "Без ограничений"
+  ],
+  "{0} 次": [
+    "{0} uses",
+    "{0} раз"
+  ],
+  "资料采集": [
+    "Data collected",
+    "Данные собраны"
+  ],
+  "空槽位": [
+    "Empty crew slot",
+    "Пустой слот экипажа"
+  ],
+  "选择载具": [
+    "Select vehicle",
+    "Выбрать технику"
+  ],
+  "空战": [
+    "Air battles",
+    "Воздушные бои"
+  ],
+  "陆战": [
+    "Ground battles",
+    "Наземные бои"
+  ],
+  "出击队列": [
+    "Lineups",
+    "Составы"
+  ],
+  "载具类型": [
+    "Vehicle type",
+    "Тип техники"
+  ],
+  "陆战地图": [
+    "Ground maps",
+    "Наземные карты"
+  ],
+  "折扣日历": [
+    "Sale calendar",
+    "Календарь скидок"
+  ],
+  "待核对": [
+    "Unverified",
+    "Не проверено"
+  ],
+  "目标载具": [
+    "Target vehicle",
+    "Целевая техника"
+  ],
+  "联队载具": [
+    "Squadron vehicle",
+    "Полковая техника"
+  ],
+  "级": [
+    " rank",
+    " ранг"
+  ],
+  "出击": [
+    "Sorties",
+    "Вылеты"
+  ],
+  "银狮": [
+    "Silver Lions",
+    "Серебряные львы"
+  ],
+  "对海 K/D": [
+    "Naval K/D",
+    "K/D по морским целям"
+  ],
+  "显示": [
+    "Show",
+    "Показать"
+  ],
+  "个": [
+    " items",
+    " шт."
+  ],
+  "收起": [
+    "Collapse",
+    "Свернуть"
+  ],
+  "上一页": [
+    "Previous",
+    "Назад"
+  ],
+  "下一页": [
+    "Next",
+    "Далее"
+  ],
+  "军种": [
+    "Branch",
+    "Род войск"
+  ],
+  "等级待核验": [
+    "Rank unverified",
+    "Ранг не проверен"
+  ],
+  "金鹰载具": [
+    "GE vehicles",
+    "Техника за ЗО"
+  ],
+  "账号估值": [
+    "Account valuation",
+    "Оценка аккаунта"
+  ],
+  "没有符合筛选条件的载具。": [
+    "No vehicles match these filters.",
+    "Нет техники по выбранным фильтрам."
+  ],
+  "精英": [
+    "Spaded",
+    "Элитная"
+  ],
+  "完整车库": [
+    "Full hangar",
+    "Весь ангар"
+  ],
+  "资料待更新": [
+    "Data needs updating",
+    "Данные устарели"
+  ],
+  "RB 出击": [
+    "RB sorties",
+    "Вылеты в РБ"
+  ],
+  "空位": [
+    "Empty slot",
+    "Пустой слот"
+  ],
+  "国家": [
+    "Nation",
+    "Нация"
+  ],
+  "选择国家": [
+    "Select nation",
+    "Выбрать нацию"
+  ],
+  "载入{0}全部载具资料": [
+    "Loading all vehicles for {0}",
+    "Загрузка всей техники: {0}"
+  ],
+  "正在复制…": [
+    "Copying…",
+    "Копирование…"
+  ],
+  "删除": [
+    "Delete",
+    "Удалить"
+  ],
+  "{0} 副本": [
+    "{0} copy",
+    "{0} — копия"
+  ],
+  "搜索型号": [
+    "Search model",
+    "Поиск модели"
+  ],
+  "筛选载具": [
+    "Filter vehicles",
+    "Фильтр техники"
+  ],
+  "全部类型": [
+    "All types",
+    "Все типы"
+  ],
+  "战绩查询": [
+    "Player stats",
+    "Статистика"
+  ],
+  "打开原图 ↗": [
+    "Open original ↗",
+    "Открыть оригинал ↗"
+  ],
+  "缩小地图": [
+    "Zoom out",
+    "Уменьшить"
+  ],
+  "放大地图": [
+    "Zoom in",
+    "Увеличить"
+  ],
+  "文字说明": [
+    "Text annotation",
+    "Текстовая отметка"
+  ],
+  "最多支持 500 个标注": [
+    "Up to 500 annotations",
+    "Не более 500 отметок"
+  ],
+  "完成": [
+    "Done",
+    "Готово"
+  ],
+  "方案": [
+    "Plan",
+    "План"
+  ],
+  "取消": [
+    "Cancel",
+    "Отмена"
+  ],
+  "高清图暂时无法读取": [
+    "The full-size image is temporarily unavailable",
+    "Полноразмерное изображение временно недоступно"
+  ],
+  "待研：{0} RP": [
+    "Remaining: {0} RP",
+    "Осталось: {0} ОИ"
+  ],
+  "每万 RP：{0}": [
+    "Per 10,000 RP: {0}",
+    "За 10 000 ОИ: {0}"
+  ],
+  "未填": [
+    "Not set",
+    "Не задано"
+  ],
+  "元": [
+    "CNY",
+    "юаней"
+  ],
+  "价格：{0}": [
+    "Price: {0}",
+    "Цена: {0}"
+  ],
+  "未勾选": [
+    "Not selected",
+    "Не выбрано"
+  ],
+  "加入购物车": [
+    "Add to cart",
+    "В корзину"
+  ],
+  "游戏昵称": [
+    "In-game nickname",
+    "Игровой никнейм"
+  ],
+  "搜索玩家": [
+    "Search player",
+    "Найти игрока"
+  ],
+  "累计": [
+    "All-time",
+    "За всё время"
+  ],
+  "官方近期": [
+    "Official recent",
+    "Недавние — офиц."
+  ],
+  "工作台效率": [
+    "Workbench efficiency",
+    "Эффективность мастерской"
+  ],
+  "平均得分": [
+    "Average score",
+    "Средний счёт"
+  ],
+  "综合 PVP": [
+    "Overall PvP",
+    "Общий PvP"
+  ],
+  "常规载具": [
+    "Regular vehicles",
+    "Обычная техника"
+  ],
+  "高级载具": [
+    "Premium vehicles",
+    "Премиумная техника"
+  ],
+  "研发载具": [
+    "Researchable vehicles",
+    "Исследуемая техника"
+  ],
+  "· {0} 级": [
+    "· Rank {0}",
+    "· Ранг {0}"
+  ],
+  "对地击毁": [
+    "Ground kills",
+    "Наземных целей уничтожено"
+  ],
+  "对空击毁": [
+    "Air kills",
+    "Воздушных целей уничтожено"
+  ],
+  "排位数据": [
+    "Ranking data",
+    "Данные рейтинга"
+  ],
+  "累计表现": [
+    "All-time performance",
+    "Результаты за всё время"
+  ],
+  "你的战地记录": [
+    "Your battlefield record",
+    "Ваш боевой путь"
+  ],
+  "生涯总览": [
+    "Career overview",
+    "Обзор карьеры"
+  ],
+  "载具效率评分": [
+    "Vehicle efficiency",
+    "Эффективность техники"
+  ],
+  "载具击毁构成": [
+    "Vehicle kill breakdown",
+    "Уничтоженные цели по типам"
+  ],
+  "常用载具 · TOP": [
+    "Most played · TOP",
+    "Чаще всего в бою · ТОП"
+  ],
+  "效率": [
+    "Efficiency",
+    "Эффективность"
+  ],
+  "· 场次不足": [
+    "· Too few battles",
+    "· Мало боёв"
+  ],
+  "对空": [
+    "Air",
+    "Воздушные"
+  ],
+  "对地": [
+    "Ground",
+    "Наземные"
+  ],
+  "对海": [
+    "Naval",
+    "Морские"
+  ],
+  "累计银狮：{0}": [
+    "Total Silver Lions: {0}",
+    "Всего Серебряных львов: {0}"
+  ],
+  "场次": [
+    "Battles",
+    "Бои"
+  ],
+  "累计获得银狮": [
+    "Silver Lions earned",
+    "Заработано Серебряных львов"
+  ],
+  "采集于": [
+    "Collected on",
+    "Собрано"
+  ],
+  "载具": [
+    "Vehicle",
+    "Техника"
+  ],
+  "全部兵种": [
+    "All services",
+    "Все рода войск"
+  ],
+  "国家待匹配": [
+    "Nation not matched",
+    "Нация не определена"
+  ],
+  "搜索载具": [
+    "Search vehicles",
+    "Поиск техники"
+  ],
+  "年": [
+    " year",
+    " год"
+  ],
+  "月": [
+    " month",
+    " месяц"
+  ],
+  "开始": [
+    "Start",
+    "Начало"
+  ],
+  "历史参与情况：": [
+    "Previous participation:",
+    "Участие ранее:"
+  ],
+  "预计": [
+    "Estimated",
+    "Ожидается"
+  ],
+  "街机": [
+    "Arcade",
+    "Аркада"
+  ],
+  "历史": [
+    "Realistic",
+    "Реалистичные"
+  ],
+  "全真": [
+    "Simulator",
+    "Симуляторные"
+  ],
+  "常规研发": [
+    "Regular research",
+    "Обычное исследование"
+  ],
+  "独立获取": [
+    "Separate acquisition",
+    "Отдельное получение"
+  ],
+  "折叠组": [
+    "Folder",
+    "Группа"
+  ],
+  "目标前置": [
+    "Required predecessor",
+    "Предшествующая техника"
+  ],
+  "等级补位": [
+    "Rank fillers",
+    "Техника для открытия ранга"
+  ],
+  "战争雷霆玩家工具": [
+    "War Thunder player tools",
+    "Инструменты для War Thunder"
+  ],
+  "已取消": [
+    "Cancelled",
+    "Отменено"
+  ],
+  "直升机": [
+    "Helicopters",
+    "Вертолёты"
+  ],
+  "待核价": [
+    "Price unverified",
+    "Цена не проверена"
+  ],
+  "图片暂不可用": [
+    "Image unavailable",
+    "Изображение недоступно"
+  ],
+  "展开全部": [
+    "Expand all",
+    "Развернуть всё"
+  ],
+  "{0}分页": [
+    "{0} pagination",
+    "Страницы: {0}"
+  ],
+  "{0}页码": [
+    "{0} page number",
+    "Номер страницы: {0}"
+  ],
+  "第": [
+    "Page ",
+    "Стр. "
+  ],
+  "页": [
+    "",
+    ""
+  ],
+  "国别": [
+    "Nation",
+    "Нация"
+  ],
+  "全部国别": [
+    "All nations",
+    "Все нации"
+  ],
+  "国别待核验": [
+    "Nation unverified",
+    "Нация не проверена"
+  ],
+  "军种待核验": [
+    "Branch unverified",
+    "Род войск не проверен"
+  ],
+  "筛选": [
+    "Filter",
+    "Фильтр"
+  ],
+  "· 每页 10": [
+    "· 10 per page",
+    "· По 10 на странице"
+  ],
+  "· 研发点降序": [
+    "· RP descending",
+    "· По убыванию ОИ"
+  ],
+  "研发点": [
+    "Research Points",
+    "Очки исследования"
+  ],
+  "礼包": [
+    "Packs",
+    "Наборы"
+  ],
+  "自定义": [
+    "Custom",
+    "Свой вариант"
+  ],
+  "{0}占比": [
+    "{0} share",
+    "Доля: {0}"
+  ],
+  "占比": [
+    "Share",
+    "Доля"
+  ],
+  "当前估值各项已核价占比，详见图例": [
+    "Value breakdown of priced items; see legend",
+    "Доли оценённых категорий; см. легенду"
+  ],
+  "暂无已核价金额": [
+    "No verified prices yet",
+    "Нет проверенных цен"
+  ],
+  "已核价": [
+    "Priced",
+    "Оценено"
+  ],
+  "仅统计已核价人民币金额；特殊载具 GJN 单列。": [
+    "Only verified CNY amounts are included; special vehicles in GJN are listed separately.",
+    "Учитываются только проверенные суммы в CNY; особая техника в GJN указана отдельно."
+  ],
+  "正在校验最新估值规则，本次校验不扣次。": [
+    "Checking current valuation rules; this check uses no quota.",
+    "Проверяем правила оценки. Проверка не расходует лимит."
+  ],
+  "暂时无法校验最新规则，当前展示已保存估值；联网后重新打开会再校验。": [
+    "Rules could not be checked. Showing the saved valuation; reopening online will check again.",
+    "Не удалось проверить правила. Показана сохранённая оценка; при открытии с интернетом проверка повторится."
+  ],
+  "估值缓存暂不可用，请显式重新计算。本次校验不扣次。": [
+    "Valuation cache unavailable. Please recalculate explicitly; this check uses no quota.",
+    "Кэш оценки недоступен. Запустите расчёт снова; проверка не расходует лимит."
+  ],
+  "估值已计算，本地缓存未能保存。": [
+    "Valuation calculated, but the local cache could not be saved.",
+    "Оценка рассчитана, но не сохранена в локальном кэше."
+  ],
+  "估值计算失败，请重试。": [
+    "Valuation failed. Please retry.",
+    "Не удалось рассчитать оценку. Повторите попытку."
+  ],
+  "正在校验估值缓存…": [
+    "Checking valuation cache…",
+    "Проверка кэша оценки…"
+  ],
+  "正在计算估值…": [
+    "Calculating valuation…",
+    "Расчёт оценки…"
+  ],
+  "独立额度 · 今日": [
+    "Separate quota · Today",
+    "Отдельный лимит · Сегодня"
+  ],
+  "已读取估值缓存": [
+    "Valuation loaded from cache",
+    "Оценка загружена из кэша"
+  ],
+  "{0} · 账号估值": [
+    "{0} · Account valuation",
+    "{0} · Оценка аккаунта"
+  ],
+  "公开车库已核验": [
+    "Public hangar verified",
+    "Публичный ангар проверен"
+  ],
+  "按出战记录推算": [
+    "Estimated from battle records",
+    "Оценка по боевой статистике"
+  ],
+  "已拥有": [
+    "Owned",
+    "В наличии"
+  ],
+  "出战载具": [
+    "Vehicles played",
+    "Техника с боями"
+  ],
+  "辆未出战": [
+    " vehicles not played",
+    " ед. без боёв"
+  ],
+  "项待核价": [
+    " items need pricing",
+    " поз. без цены"
+  ],
+  "辆不参与估值": [
+    " vehicles excluded",
+    " ед. исключено"
+  ],
+  "价值概览": [
+    "Value overview",
+    "Обзор стоимости"
+  ],
+  "选择价值类型": [
+    "Select value type",
+    "Выбрать тип оценки"
+  ],
+  "已核价金额，未计价项目另列": [
+    "Verified prices; unpriced items listed separately",
+    "Проверенные цены; неоценённые позиции — отдельно"
+  ],
+  "已核价合计": [
+    "Priced total",
+    "Итого по оценённым"
+  ],
+  "陆战 / 直升机": [
+    "Ground / Helicopters",
+    "Наземная / Вертолёты"
+  ],
+  "/ 万 RP": [
+    "/ 10,000 RP",
+    "/ 10 000 ОИ"
+  ],
+  "飞机": [
+    "Aircraft",
+    "Самолёты"
+  ],
+  "金鹰 / 礼包": [
+    "GE / Packs",
+    "ЗО / Наборы"
+  ],
+  "按原价": [
+    "Full price",
+    "Полная цена"
+  ],
+  "按原价 {0} 折": [
+    "{0}0% of full price",
+    "{0}0% полной цены"
+  ],
+  "估值依据与计算规则": [
+    "Valuation basis and rules",
+    "Основания и правила оценки"
+  ],
+  "车库核验 {0}": [
+    "Hangar verified {0}",
+    "Ангар проверен: {0}"
+  ],
+  "出战记录与当前前置推算": [
+    "Battle records and current prerequisites",
+    "Боевая статистика и текущие требования"
+  ],
+  "依据官方公开车库中的已拥有载具计算，包含未出战载具。研发点按已拥有载具去重汇总，不额外推算未持有的前置。": [
+    "Based on owned vehicles in the official public hangar, including unplayed vehicles. Research Points are deduplicated across owned vehicles; unowned predecessors are not inferred.",
+    "Расчёт по технике официального публичного ангара, включая технику без боёв. ОИ учитываются без повторов; некупленные предшественники не добавляются."
+  ],
+  "根据出战记录与当前研发前置推算，尚未核验完整已拥有清单。": [
+    "Estimated from battle records and current research prerequisites; the full owned list has not been verified.",
+    "Оценка по боям и текущим требованиям исследования. Полный список имеющейся техники не проверен."
+  ],
+  "同一载具、同一礼包只计算一次。": [
+    "Each vehicle and each pack is counted once.",
+    "Каждая машина и каждый набор учитываются один раз."
+  ],
+  "正常／折扣：陆战、直升机 ¥3／万 RP，飞机 ¥2／万 RP；折扣金鹰与礼包 5 折。交易：陆战、直升机 ¥1.5／万 RP，飞机 ¥1／万 RP，金鹰与礼包按原价 3 折。": [
+    "Normal/sale: ground and helicopters ¥3/10,000 RP; aircraft ¥2/10,000 RP. Sale GE and packs: 50%. Trade: ground/helicopters ¥1.5/10,000 RP; aircraft ¥1/10,000 RP; GE and packs: 30% of full price.",
+    "Обычная/со скидкой: наземная техника и вертолёты — ¥3/10 000 ОИ, самолёты — ¥2/10 000 ОИ. ЗО и наборы со скидкой — 50%. Торговая: ¥1,5 и ¥1/10 000 ОИ соответственно; ЗО и наборы — 30% полной цены."
+  ],
+  "金鹰按 ¥189／5000 GE 换算，共": [
+    "GE converted at ¥189/5,000 GE, total ",
+    "ЗО пересчитаны по ¥189/5 000 ЗО, всего "
+  ],
+  "GE。礼包采用已核验人民币整包原价，保留查价日期；特殊载具优先单列，不重复计入金鹰或礼包。金额按各分项汇总后四舍五入到分。": [
+    " GE. Packs use verified full-pack CNY prices with check dates. Special vehicles are listed separately without double-counting as GE or packs. Totals are rounded to the nearest fen.",
+    " ЗО. Для наборов используются проверенные полные цены в CNY с датами проверки. Особая техника указана отдельно, без повторного учёта как ЗО или наборов. Суммы округляются до фэня."
+  ],
+  "金鹰载具 ·": [
+    "GE vehicles ·",
+    "Техника за ЗО ·"
+  ],
+  "{0} · 金鹰载具": [
+    "{0} · GE vehicle",
+    "{0} · Техника за ЗО"
+  ],
+  "GE · 原价折算": [
+    "GE · Full-price conversion",
+    "ЗО · Пересчёт полной цены"
+  ],
+  "核验": [
+    "Verified",
+    "Проверено"
+  ],
+  "出战记录中未识别到金鹰载具。": [
+    "No GE vehicles identified in battle records.",
+    "В боевой статистике не найдена техника за ЗО."
+  ],
+  "礼包载具 ·": [
+    "Pack vehicles ·",
+    "Техника из наборов ·"
+  ],
+  "个礼包": [
+    " packs",
+    " наборов"
+  ],
+  "整包原价 · 已识别 {0} 辆": [
+    "Full pack price · {0} vehicles identified",
+    "Полная цена набора · Найдено техники: {0}"
+  ],
+  "核验 {0}": [
+    "Verified {0}",
+    "Проверено: {0}"
+  ],
+  "尚无有效报价": [
+    "No valid price",
+    "Нет актуальной цены"
+  ],
+  "出战记录中未识别到礼包载具。": [
+    "No pack vehicles identified in battle records.",
+    "В боевой статистике не найдена техника из наборов."
+  ],
+  "特殊载具 ·": [
+    "Special vehicles ·",
+    "Особая техника ·"
+  ],
+  "Gaijin 币均价单独展示，不计入人民币总价。已核价合计": [
+    "Average GJN prices are listed separately and excluded from the CNY total. Priced total ",
+    "Средние цены в GJN указаны отдельно и не входят в итог в CNY. Оценено на сумму "
+  ],
+  "辆待核价。": [
+    " vehicles need pricing.",
+    " ед. без цены."
+  ],
+  "{0} · 市场特殊载具": [
+    "{0} · Market special vehicle",
+    "{0} · Особая биржевая техника"
+  ],
+  "尚无经核验的成交均价": [
+    "No verified average sale price",
+    "Нет проверенной средней цены продаж"
+  ],
+  "{0} 个成交样本": [
+    "{0} sale samples",
+    "Продаж в выборке: {0}"
+  ],
+  "未知价格不按零元计算": [
+    "Unknown prices are never counted as zero",
+    "Неизвестная цена не считается нулевой"
+  ],
+  "均价口径": [
+    "Average-price basis",
+    "Основание средней цены"
+  ],
+  "出战记录中未识别到市场特殊载具。": [
+    "No special market vehicles identified in battle records.",
+    "В боевой статистике не найдена особая биржевая техника."
+  ],
+  "管理员自定义价值 ·": [
+    "Admin-defined values ·",
+    "Оценки администратора ·"
+  ],
+  "采用管理员保存的三档人民币估值，与金鹰、礼包和 GJN 均价不重复计算。": [
+    "Uses three saved CNY valuation tiers without double-counting GE, packs or GJN averages.",
+    "Три сохранённых администратором уровня оценки в CNY, без повторного учёта ЗО, наборов и средних цен GJN."
+  ],
+  "{0} · 自定义": [
+    "{0} · Custom",
+    "{0} · Своя оценка"
+  ],
+  "不参与估值的免费／排除载具 ·": [
+    "Free / excluded vehicles ·",
+    "Бесплатная / исключённая техника ·"
+  ],
+  "以下载具按已保存规则排除，不计入研发点、金鹰、礼包或其他价值。": [
+    "Excluded by saved rules; not included in RP, GE, packs or other value.",
+    "Исключена по сохранённым правилам; не входит в стоимость ОИ, ЗО, наборов и других категорий."
+  ],
+  "研发点明细 ·": [
+    "Research Point details ·",
+    "Расшифровка ОИ ·"
+  ],
+  "辆（": [
+    " vehicles (",
+    " ед. ("
+  ],
+  "含推算前置": [
+    "includes inferred predecessors",
+    "включая предполагаемых предшественников"
+  ],
+  "暂无已核实研发点": [
+    "No verified Research Points",
+    "Нет проверенных данных об ОИ"
+  ],
+  "研发点明细": [
+    "Research Point details",
+    "Расшифровка ОИ"
+  ],
+  "已拥有 · 有出战记录": [
+    "Owned · Played",
+    "В наличии · Есть бои"
+  ],
+  "已拥有 · 未出战": [
+    "Owned · Unplayed",
+    "В наличии · Без боёв"
+  ],
+  "有出战记录": [
+    "Has battle records",
+    "Есть боевая статистика"
+  ],
+  "根据当前前置推算": [
+    "Inferred from current prerequisites",
+    "Предположено по текущим требованиям"
+  ],
+  "研发点待核验": [
+    "RP unverified",
+    "ОИ не проверены"
+  ],
+  "未计价项目 ·": [
+    "Unpriced items ·",
+    "Неоценённые позиции ·"
+  ],
+  "以下项目资料或价格尚未核实，未按零元计入估值。": [
+    "Data or prices are unverified; these items are not included as zero-cost items.",
+    "Данные или цены не проверены; эти позиции не включаются в оценку с нулевой ценой."
+  ],
+  "未计价项目": [
+    "Unpriced items",
+    "Неоценённые позиции"
+  ],
+  "项": [
+    " items",
+    " поз."
+  ],
+  "没有符合筛选条件的项目。": [
+    "No items match these filters.",
+    "Нет позиций по выбранным фильтрам."
+  ],
+  "研发点核验": [
+    "RP verified",
+    "ОИ проверены"
+  ],
+  "· 估值计算": [
+    "· Valuation calculated",
+    "· Оценка рассчитана"
+  ],
+  "· 浏览器估值缓存，本次不扣次": [
+    "· Browser valuation cache; no quota used",
+    "· Оценка из браузера; лимит не расходуется"
+  ],
+  "· 已命中估值缓存，本次不扣次": [
+    "· Valuation cache hit; no quota used",
+    "· Оценка из кэша; лимит не расходуется"
+  ],
+  "其他资料": [
+    "Other resources",
+    "Другие материалы"
+  ],
+  "正文已核对": [
+    "Article verified",
+    "Текст проверен"
+  ],
+  "这张地图的旧版攻略": [
+    "Older guides for this map",
+    "Старые руководства по этой карте"
+  ],
+  "篇 · 点位编号独立参考": [
+    " articles · Check point numbering separately",
+    " статей · Нумерация точек отдельная"
+  ],
+  "同名地图的旧版文章，不与上方新版编号或路线合并。请先核对原帖地图变体。": [
+    "Older articles for a map with the same name. Their numbering and routes are separate from the new version above; check the original map variant.",
+    "Старые статьи по одноимённой карте. Нумерация и маршруты не совпадают с новой версией выше; проверьте вариант карты в оригинале."
+  ],
+  "目录已完整收录；“正文已核对”仅标记已读取的文章，其余请以原帖为准。": [
+    "The full index is collected. Only articles marked “Article verified” have been read; consult the original for others.",
+    "Оглавление собрано полностью. Прочитаны только статьи с отметкой «Текст проверен»; остальные сверяйте с оригиналом."
+  ],
+  "旧版合集 ·": [
+    "Older collection ·",
+    "Старая подборка ·"
+  ],
+  "篇": [
+    " articles",
+    " статей"
+  ],
+  "打开合集 ↗": [
+    "Open collection ↗",
+    "Открыть подборку ↗"
+  ],
+  "搜索旧版合集": [
+    "Search older collections",
+    "Поиск старых подборок"
+  ],
+  "搜索旧版地图或文章": [
+    "Search older maps or articles",
+    "Поиск старых карт или статей"
+  ],
+  "旧版文章类型": [
+    "Older article type",
+    "Тип старой статьи"
+  ],
+  "全部文章": [
+    "All articles",
+    "Все статьи"
+  ],
+  "篇匹配": [
+    " articles match",
+    " статей найдено"
+  ],
+  "目录核对": [
+    "Index verified",
+    "Оглавление проверено"
+  ],
+  "没有匹配的文章": [
+    "No matching articles",
+    "Статьи не найдены"
+  ],
+  "清除筛选": [
+    "Clear filters",
+    "Сбросить фильтры"
+  ],
+  "更多攻略合集": [
+    "More guide collections",
+    "Другие подборки руководств"
+  ],
+  "更多攻略": [
+    "More guides",
+    "Другие руководства"
+  ],
+  "旧版图解与经验文章，按原帖年份和版本分别查阅。": [
+    "Older diagrams and tips, grouped by original year and version.",
+    "Старые схемы и советы; учитывайте год и версию оригинала."
+  ],
+  "战争雷霆研发购物车": [
+    "War Thunder Research Cart",
+    "Корзина исследований War Thunder"
+  ],
+  "载具研发": [
+    "Vehicle research",
+    "Исследование техники"
+  ],
+  "配件研发": [
+    "Modification research",
+    "Исследование модулей"
+  ],
+  "快照：{0}": [
+    "Snapshot: {0}",
+    "Снимок: {0}"
+  ],
+  "去重后 {0} RP": [
+    "{0} RP after deduplication",
+    "{0} ОИ без повторов"
+  ],
+  "单价冲突：{0}，请先移除冲突报价": [
+    "Conflicting rates: {0}; remove conflicting quotes first",
+    "Разные тарифы: {0}; сначала удалите конфликтующие расчёты"
+  ],
+  "总价 {0}": [
+    "Total {0}",
+    "Итого {0}"
+  ],
+  "共有前置按载具去重，取较大的待研 RP；金额按去重后各项单价统一计算到分。": [
+    "Shared predecessors are deduplicated by vehicle, taking the greater remaining RP. Each deduplicated rate is calculated to the nearest fen.",
+    "Общие предшественники учитываются один раз по максимальному остатку ОИ. Стоимость каждой позиции рассчитывается до фэня."
+  ],
+  "研发购物车": [
+    "Research cart",
+    "Корзина исследований"
+  ],
+  "保存在此浏览器 · 报价快照不会随数据更新自动改变": [
+    "Saved in this browser · Quotes do not change automatically when data updates",
+    "Сохранено в браузере · Обновление данных не меняет сохранённые расчёты"
+  ],
+  "共有载具单价不一致：{0}。请移除旧报价后重新加入。": [
+    "Shared vehicles have conflicting rates: {0}. Remove the old quote and add it again.",
+    "Разные тарифы для общей техники: {0}. Удалите старый расчёт и добавьте заново."
+  ],
+  "{0} 项报价 · 合并 {1} 项重复研发工作。共享前置仅计一次，按较大的待研 RP 计费。": [
+    "{0} quotes · {1} duplicate research tasks merged. Shared predecessors are charged once using the greater remaining RP.",
+    "Расчётов: {0} · Объединено повторов: {1}. Общие предшественники оплачиваются один раз по максимальному остатку ОИ."
+  ],
+  "导出 JSON 备份": [
+    "Export JSON backup",
+    "Экспорт копии JSON"
+  ],
+  "已复制报价清单": [
+    "Quote list copied",
+    "Список расчётов скопирован"
+  ],
+  "无法访问剪贴板，请使用 JSON 导出。": [
+    "Clipboard unavailable; use JSON export.",
+    "Буфер обмена недоступен; используйте экспорт JSON."
+  ],
+  "复制报价清单": [
+    "Copy quote list",
+    "Копировать расчёты"
+  ],
+  "还没有报价。先计算载具或配件研发，再点击“加入购物车”。": [
+    "No quotes yet. Calculate vehicle or modification research, then select “Add to cart”.",
+    "Расчётов пока нет. Рассчитайте исследование техники или модулей и нажмите «В корзину»."
+  ],
+  "移除": [
+    "Remove",
+    "Убрать"
+  ],
+  "研发明细 / 计价依据": [
+    "Research details / Pricing basis",
+    "Исследования / Основания цены"
+  ],
+  "不同类型的研发分别计价；配件报价按同一载具更新已有条目。加入多个目标时，共有前置不会重复收费。购物车不是游戏实际进度记录，请在新报价中保持已有载具和已研 RP 一致。": [
+    "Research types are priced separately. Modification quotes update existing entries for the same vehicle. Shared predecessors are charged only once across targets. The cart is not your in-game progress; keep owned vehicles and researched RP consistent in new quotes.",
+    "Разные типы исследований считаются отдельно. Расчёт модулей обновляет позицию той же машины. Общие предшественники не оплачиваются повторно. Корзина не отражает игровой прогресс; указывайте одинаковые имеющуюся технику и исследованные ОИ."
+  ],
+  "军种统计身份校验失败，请刷新玩家资料。": [
+    "Branch statistics identity check failed. Refresh the player profile.",
+    "Не удалось проверить принадлежность статистики. Обновите профиль игрока."
+  ],
+  "暂时无法读取完整军种统计。": [
+    "Full branch statistics are temporarily unavailable.",
+    "Полная статистика по родам войск временно недоступна."
+  ],
+  "各国拥有载具": [
+    "Vehicles owned by nation",
+    "Техника по нациям"
+  ],
+  "各国拥有载具军种": [
+    "Owned vehicles by nation and branch",
+    "Техника по нациям и родам войск"
+  ],
+  "已研发 / 可研发 · 精英": [
+    "Researched / Researchable · Spaded",
+    "Исследовано / Доступно · Элитная"
+  ],
+  "拥有 / 精英 · 官方公开数量": [
+    "Owned / Spaded · Official public counts",
+    "В наличии / Элитная · Открытые данные игры"
+  ],
+  "精英载具 {0} 辆": [
+    "{0} spaded vehicles",
+    "Элитной техники: {0}"
+  ],
+  "正在读取完整车库军种统计，包含未出战载具…": [
+    "Loading branch statistics from the full hangar, including unplayed vehicles…",
+    "Загрузка статистики ангара по родам войск, включая технику без боёв…"
+  ],
+  "重试统计": [
+    "Retry statistics",
+    "Повторить загрузку"
+  ],
+  "当前常规科技树可研发载具已全部拥有；礼包、金鹰和其他特种载具不参与毕业判定。": [
+    "All currently researchable regular vehicles are owned. Packs, GE and other special vehicles do not affect completion.",
+    "Вся текущая исследуемая обычная техника получена. Наборы, ЗО и другая особая техника не влияют на завершение."
+  ],
+  "毕业": [
+    "Complete",
+    "Ветка закрыта"
+  ],
+  "常规研发已拥有 {0} 辆；军种总拥有 {1} 辆；{2}": [
+    "{0} regular research vehicles owned; {1} vehicles in this branch; {2}",
+    "Обычной исследуемой техники: {0}; всего в этом роде войск: {1}; {2}"
+  ],
+  "至少": [
+    "at least",
+    "не менее"
+  ],
+  "暂无常规科技树": [
+    "No regular research tree",
+    "Нет обычной ветки исследований"
+  ],
+  "可研发": [
+    "Researchable",
+    "Исследуемая"
+  ],
+  "常规可研发载具中的精英 {0} 辆": [
+    "{0} spaded vehicles in the regular research tree",
+    "Элитной техники в обычной ветке: {0}"
+  ],
+  "仅统计当前常规科技树已拥有载具，包含未出战载具；金鹰、礼包及其他特种载具不计入进度与毕业。组合载具按一个项目计数。": [
+    "Counts owned vehicles in the current regular tree, including unplayed vehicles. GE, packs and special vehicles are excluded from progress and completion. Combined vehicles count as one.",
+    "Учитывается техника текущей обычной ветки, включая технику без боёв. ЗО, наборы и особая техника не влияют на прогресс и завершение. Составная техника считается одной позицией."
+  ],
+  "· 可研发目录": [
+    "· Researchable catalog",
+    "· Каталог исследований"
+  ],
+  "{0} 的槽位预览，可横向滚动": [
+    "Crew preview for {0}; scroll horizontally",
+    "Экипажи: {0}; доступна горизонтальная прокрутка"
+  ],
+  "队列不同模式权重": [
+    "Lineup BR by mode",
+    "БР состава по режимам"
+  ],
+  "不同模式的队列权重": [
+    "Lineup BR in different modes",
+    "БР состава в разных режимах"
+  ],
+  "辆不参与此模式计算": [
+    " vehicles excluded from this mode",
+    " ед. не учитывается в этом режиме"
+  ],
+  "权重规则与来源": [
+    "BR rules and sources",
+    "Правила БР и источники"
+  ],
+  "空战 AB 取前三架，A/2+B/4+C/4；两架取 (A+B)/2，单架取自身。B/C 与 A 的计算差距最多两档，按最近 BR 档位取整，正中间向上，最终最多比 A 低一档。": [
+    "Air AB uses the top three aircraft: A/2+B/4+C/4; two use (A+B)/2; one uses its own BR. B/C are capped two steps below A. Round to the nearest step, ties upward; the final BR is at most one step below A.",
+    "В АБ учитываются три лучших самолёта: A/2+B/4+C/4; два — (A+B)/2; один — собственный БР. B/C ограничены двумя шагами ниже A. Округление до ближайшего шага, при равенстве вверх; итог не ниже A более чем на один шаг."
+  ],
+  "陆战 RB 的固定翼飞机采用陆战专用权重，直升机使用 RB 权重；陆战 AB 的机库固定翼飞机与直升机不计入。海战的飞机不得超过最高舰艇一档，超限飞机不可出击。SB 不据此生成普通匹配权重。": [
+    "Ground RB uses aircraft ground-specific BR and helicopter RB BR. Ground AB excludes hangar aircraft and helicopters. Naval aircraft cannot exceed the highest vessel by more than one BR step. No normal SB queue BR is inferred.",
+    "В наземных РБ для самолётов применяется наземный БР, для вертолётов — БР РБ. В наземных АБ авиация ангара не учитывается. В морских боях самолёт не может превышать лучший корабль более чем на шаг БР. Обычный БР очереди СБ не вычисляется."
+  ],
+  "直升机可加入陆战混合队列；不参与固定翼空战或海战队列计算，直升机 PVE 等独立玩法另按活动规则。": [
+    "Helicopters can join mixed ground lineups. They are excluded from fixed-wing air and naval calculations; helicopter PvE and events follow separate rules.",
+    "Вертолёты доступны в смешанных наземных составах. В расчётах самолётных и морских составов они не участвуют; PvE вертолётов и события имеют отдельные правила."
+  ],
+  "这是机库队列估算；损坏、锁定、临时活动和未解锁槽位等账号状态请以游戏为准。": [
+    "This estimates the hangar lineup. Damage, locks, events and unpurchased slots depend on your in-game account state.",
+    "Это оценка состава ангара. Повреждения, блокировки, события и открытые слоты проверяйте в игре."
+  ],
+  "官方 Wiki 匹配规则": [
+    "Official Wiki matchmaking rules",
+    "Матчмейкинг — официальная Wiki"
+  ],
+  "官方空战权重与取整说明": [
+    "Official air BR and rounding guide",
+    "Правила БР авиации и округления"
+  ],
+  "官方乘员槽位说明": [
+    "Official crew-slot guide",
+    "Официальное описание слотов экипажа"
+  ],
+  "拖动已取消，顺序未改变。": [
+    "Drag cancelled; order unchanged.",
+    "Перетаскивание отменено; порядок сохранён."
+  ],
+  "已提起槽位 {0}，拖到目标位置后松开；Esc 取消。": [
+    "Picked up slot {0}. Release at the target position; Esc cancels.",
+    "Выбран слот {0}. Отпустите в нужном месте; Esc — отмена."
+  ],
+  "槽位 {0} 已移至 {1}。": [
+    "Slot {0} moved to {1}.",
+    "Слот {0} перемещён в {1}."
+  ],
+  "已在队列外松开，顺序未改变。": [
+    "Released outside the lineup; order unchanged.",
+    "Отпущено вне состава; порядок сохранён."
+  ],
+  "横向乘员槽位，可长按拖动排序": [
+    "Horizontal crew slots; long-press to reorder",
+    "Слоты экипажа; удерживайте для изменения порядка"
+  ],
+  "槽位 {0}：{1}，长按拖动；Alt 加左右方向键排序": [
+    "Slot {0}: {1}. Long-press to drag; Alt + left/right reorders",
+    "Слот {0}: {1}. Удерживайте для перетаскивания; Alt + влево/вправо меняет порядок"
+  ],
+  "资料缺失：{0}": [
+    "Missing data: {0}",
+    "Нет данных: {0}"
+  ],
+  "按住拖动槽位 {0}": [
+    "Hold to drag slot {0}",
+    "Удерживайте, чтобы перетащить слот {0}"
+  ],
+  "按住即可拖动；Alt + 左右方向键排序": [
+    "Hold to drag; Alt + left/right reorders",
+    "Удерживайте для перетаскивания; Alt + влево/вправо меняет порядок"
+  ],
+  "清空槽位 {0}": [
+    "Clear slot {0}",
+    "Очистить слот {0}"
+  ],
+  "槽位": [
+    "Slot",
+    "Слот"
+  ],
+  "海战": [
+    "Naval battles",
+    "Морские бои"
+  ],
+  "国家与卡片权重": [
+    "Nation and card BR",
+    "Нация и БР карточек"
+  ],
+  "卡片权重": [
+    "Card BR",
+    "БР карточек"
+  ],
+  "导入队列": [
+    "Import lineup",
+    "Импорт состава"
+  ],
+  "导入出击队列": [
+    "Import battle lineup",
+    "Импорт боевого состава"
+  ],
+  "粘贴分享码后预览，确认后保存为新队列。区分大小写。": [
+    "Paste a share code to preview, then save as a new lineup. Codes are case-sensitive.",
+    "Вставьте код для просмотра и сохраните новый состав. Регистр имеет значение."
+  ],
+  "分享码读取失败。": [
+    "Could not read share code.",
+    "Не удалось прочитать код."
+  ],
+  "导入分享码（区分大小写）": [
+    "Import share code (case-sensitive)",
+    "Код импорта (с учётом регистра)"
+  ],
+  "{0} 位分享码，含空槽位": [
+    "{0}-character share code, including empty slots",
+    "Код из {0} символов, включая пустые слоты"
+  ],
+  "预览导入": [
+    "Preview import",
+    "Предпросмотр импорта"
+  ],
+  "读取{0}资料后预览": [
+    "Preview after loading {0}",
+    "Просмотр после загрузки: {0}"
+  ],
+  "载入队列资料": [
+    "Load lineup data",
+    "Загрузить данные состава"
+  ],
+  "先选择一个国家": [
+    "Choose a nation first",
+    "Сначала выберите нацию"
+  ],
+  "也可以点击“导入队列”，使用分享码自动选择国家。": [
+    "Or select “Import lineup” to choose a nation automatically from a share code.",
+    "Или выберите «Импорт состава», чтобы определить нацию по коду."
+  ],
+  "当前资料没有 {0}，请更新资料后再导入。": [
+    "Current data does not contain {0}. Update data before importing.",
+    "В текущих данных нет {0}. Обновите данные перед импортом."
+  ],
+  "导入失败，请检查分享码。": [
+    "Import failed. Check the share code.",
+    "Ошибка импорта. Проверьте код."
+  ],
+  "无法导出分享码。": [
+    "Could not export share code.",
+    "Не удалось экспортировать код."
+  ],
+  "队列 {0}": [
+    "Lineup {0}",
+    "Состав {0}"
+  ],
+  "未命名队列": [
+    "Unnamed lineup",
+    "Безымянный состав"
+  ],
+  "队列配置不完整或载具有重复，请检查槽位。": [
+    "Lineup configuration is incomplete or contains duplicate vehicles. Check the slots.",
+    "Состав не заполнен или содержит повторы техники. Проверьте слоты."
+  ],
+  "分享码已复制。": [
+    "Share code copied.",
+    "Код скопирован."
+  ],
+  "浏览器未允许复制，请选中分享码手动复制。": [
+    "Clipboard permission denied; select and copy the code manually.",
+    "Нет доступа к буферу; выделите и скопируйте код вручную."
+  ],
+  "导入预览 · {0}": [
+    "Import preview · {0}",
+    "Предпросмотр импорта · {0}"
+  ],
+  "核对载具与空位，保存后会新增一个队列。": [
+    "Check vehicles and empty slots. Saving creates a new lineup.",
+    "Проверьте технику и пустые слоты. При сохранении создаётся новый состав."
+  ],
+  "修改分享码": [
+    "Edit share code",
+    "Изменить код"
+  ],
+  "分享码只包含国家和槽位顺序。导入后可修改名称、战斗类型及空战 RB 出击飞机。": [
+    "Share codes include only nation and slot order. After import you can change the name, battle type and selected Air RB aircraft.",
+    "Код содержит только нацию и порядок слотов. После импорта можно изменить название, тип боя и выбранный самолёт воздушных РБ."
+  ],
+  "导入队列 {0}": [
+    "Imported lineup {0}",
+    "Импортированный состав {0}"
+  ],
+  "保存为新队列": [
+    "Save as new lineup",
+    "Сохранить новый состав"
+  ],
+  "分享队列 · {0}": [
+    "Share lineup · {0}",
+    "Поделиться составом · {0}"
+  ],
+  "24 位分享码，区分大小写；保留空槽位与顺序。": [
+    "24-character, case-sensitive code. Empty slots and order are preserved.",
+    "Код из 24 символов с учётом регистра. Порядок и пустые слоты сохраняются."
+  ],
+  "当前队列分享码": [
+    "Current lineup share code",
+    "Код текущего состава"
+  ],
+  "复制分享码": [
+    "Copy share code",
+    "Копировать код"
+  ],
+  "分享码只包含国家和载具槽位，不包含队列名称、战斗类型和空战 RB 出击选择。": [
+    "Codes include only nation and vehicle slots, not the name, battle type or Air RB aircraft selection.",
+    "Код содержит только нацию и слоты техники, без названия, типа боя и выбора самолёта для воздушных РБ."
+  ],
+  "删除队列": [
+    "Delete lineup",
+    "Удалить состав"
+  ],
+  "确定删除“{0}”？": [
+    "Delete “{0}”?",
+    "Удалить «{0}»?"
+  ],
+  "保留队列": [
+    "Keep lineup",
+    "Оставить состав"
+  ],
+  "确认删除": [
+    "Confirm delete",
+    "Удалить"
+  ],
+  "已保存的出击队列": [
+    "Saved battle lineups",
+    "Сохранённые боевые составы"
+  ],
+  "我的队列": [
+    "My lineups",
+    "Мои составы"
+  ],
+  "＋ 新建队列": [
+    "＋ New lineup",
+    "＋ Новый состав"
+  ],
+  "分享 {0}": [
+    "Share {0}",
+    "Поделиться: {0}"
+  ],
+  "分享": [
+    "Share",
+    "Поделиться"
+  ],
+  "编辑 {0}": [
+    "Edit {0}",
+    "Изменить: {0}"
+  ],
+  "编辑队列": [
+    "Edit lineup",
+    "Изменить состав"
+  ],
+  "删除 {0}": [
+    "Delete {0}",
+    "Удалить: {0}"
+  ],
+  "还没有保存的队列": [
+    "No saved lineups yet",
+    "Нет сохранённых составов"
+  ],
+  "选择载具并保存，你的": [
+    "Choose vehicles and save; your ",
+    "Выберите технику и сохраните; ваши "
+  ],
+  "常用阵容会显示在这里。": [
+    "favorite lineups will appear here.",
+    "любимые составы появятся здесь."
+  ],
+  "队列配置": [
+    "Lineup configuration",
+    "Настройка состава"
+  ],
+  "新建队列": [
+    "New lineup",
+    "Новый состав"
+  ],
+  "取消，返回列表": [
+    "Cancel and return to list",
+    "Отмена и возврат к списку"
+  ],
+  "保存队列": [
+    "Save lineup",
+    "Сохранить состав"
+  ],
+  "保存后生效，取消不会覆盖已保存的队列。": [
+    "Changes apply on save. Cancelling preserves saved lineups.",
+    "Изменения применяются при сохранении. Отмена сохраняет прежние составы."
+  ],
+  "队列名称": [
+    "Lineup name",
+    "Название состава"
+  ],
+  "战斗类型": [
+    "Battle type",
+    "Тип боя"
+  ],
+  "更多操作": [
+    "More actions",
+    "Другие действия"
+  ],
+  "复制队列": [
+    "Duplicate lineup",
+    "Копировать состав"
+  ],
+  "乘员槽位": [
+    "Crew slots",
+    "Слоты экипажа"
+  ],
+  "点击槽位后在下方选车；拖动柄按住即可排序，卡片长按后拖动、短划横向浏览；Alt + ← / → 也可排序。": [
+    "Click a slot to choose a vehicle below. Hold its handle to reorder; long-press a card to drag or swipe to scroll. Alt + ← / → also reorders.",
+    "Нажмите слот для выбора техники ниже. Удерживайте ручку для перестановки; удержание карточки — перетаскивание, короткий свайп — прокрутка. Alt + ← / → также меняет порядок."
+  ],
+  "RB 只计算标为出击的飞机。": [
+    "RB counts only the aircraft marked for sortie.",
+    "В РБ учитывается только самолёт, выбранный для вылета."
+  ],
+  "权重按所选战斗类型计算。": [
+    "BR is calculated for the selected battle type.",
+    "БР рассчитывается для выбранного типа боя."
+  ],
+  "载具选择": [
+    "Vehicle picker",
+    "Выбор техники"
+  ],
+  "为槽位": [
+    "For slot",
+    "Для слота"
+  ],
+  "当前槽位": [
+    "Current slot",
+    "Текущий слот"
+  ],
+  "清空当前槽位": [
+    "Clear current slot",
+    "Очистить текущий слот"
+  ],
+  "中文、英文或载具 ID": [
+    "Chinese, English or vehicle ID",
+    "Название на китайском, английском или ID"
+  ],
+  "全部 Rank": [
+    "All ranks",
+    "Все ранги"
+  ],
+  "辆匹配": [
+    " vehicles match",
+    " ед. найдено"
+  ],
+  "，显示前 100 辆，请搜索缩小范围": [
+    "; first 100 shown. Narrow your search",
+    "; показаны первые 100. Уточните поиск"
+  ],
+  "已配置": [
+    "Configured",
+    "Назначено"
+  ],
+  "没有符合条件的载具，试试其他类型、等级、军种或型号。": [
+    "No matching vehicles. Try another type, rank, branch or model.",
+    "Нет подходящей техники. Измените тип, ранг, род войск или модель."
+  ],
+  "分享码导出": [
+    "Share-code export",
+    "Экспорт кода"
+  ],
+  "分享码": [
+    "Share code",
+    "Код состава"
+  ],
+  "位 · 区分大小写": [
+    " characters · Case-sensitive",
+    " символа · Регистр важен"
+  ],
+  "为国家码；其后每两位为一个槽位，": [
+    " is the nation code; each following pair is a slot; ",
+    " — код нации; каждая следующая пара — слот; "
+  ],
+  "为空位。保持原始大小写。分享码不包含队列名称、战斗类型和 RB 出击选择。": [
+    " means empty. Preserve letter case. Codes exclude lineup name, battle type and RB aircraft selection.",
+    " — пустой слот. Сохраняйте регистр. Код не включает название, тип боя и выбор самолёта РБ."
+  ],
+  "科技树与研发": [
+    "Tech trees & research",
+    "Деревья и исследования"
+  ],
+  "十国载具 · 配件报价 · 研发清单": [
+    "Ten nations · Modification quotes · Research lists",
+    "10 наций · Расчёт модулей · Списки исследований"
+  ],
+  "阵容配置 · BR 核对 · 分享码": [
+    "Configure lineups · Check BR · Share codes",
+    "Составы · Проверка БР · Обмен кодами"
+  ],
+  "地图详情 · 战术标注 · 攻略": [
+    "Map details · Tactical annotations · Guides",
+    "Карты · Тактические отметки · Руководства"
+  ],
+  "官方排行榜 · 玩家数据 · AI 战报": [
+    "Official rankings · Player data · AI reports",
+    "Официальные рейтинги · Статистика · ИИ-отчёты"
+  ],
+  "公开车库 · 未出战载具 · 价值明细": [
+    "Public hangar · Unplayed vehicles · Value details",
+    "Публичный ангар · Техника без боёв · Оценка"
+  ],
+  "折扣记录 · 降价预测 · 载具关注": [
+    "Sale history · Forecasts · Vehicle watchlist",
+    "История скидок · Прогнозы · Избранная техника"
+  ],
+  "数据加载失败": [
+    "Data loading failed",
+    "Ошибка загрузки данных"
+  ],
+  "数据读取失败": [
+    "Could not read data",
+    "Не удалось прочитать данные"
+  ],
+  "包含本国全部军种与改装资料，载入后可直接切换。": [
+    "Includes all branches and modifications for this nation. Switch freely after loading.",
+    "Все рода войск и модификации выбранной нации. После загрузки можно свободно переключаться."
+  ],
+  "从研发规划到战场复盘，常用工具集中在这里。": [
+    "From research planning to battle reviews, your tools are all here.",
+    "От исследований до разбора боёв — все инструменты здесь."
+  ],
+  "工作台功能": [
+    "Workbench tools",
+    "Инструменты мастерской"
+  ],
+  "资料读取进度": [
+    "Data loading progress",
+    "Ход загрузки данных"
+  ],
+  "正在加载国家资料": [
+    "Loading nation data",
+    "Загрузка данных нации"
+  ],
+  "请检查连接后重试": [
+    "Check your connection and retry",
+    "Проверьте подключение и повторите"
+  ],
+  "正在读取资料": [
+    "Reading data",
+    "Чтение данных"
+  ],
+  "正在准备资料": [
+    "Preparing data",
+    "Подготовка данных"
+  ],
+  "重新读取": [
+    "Read again",
+    "Прочитать снова"
+  ],
+  "重新加载": [
+    "Reload",
+    "Перезагрузить"
+  ],
+  "WAR THUNDER · PC / 国际服": [
+    "WAR THUNDER · PC / International",
+    "WAR THUNDER · ПК / Международный сервер"
+  ],
+  "日曜": [
+    "Sun City",
+    "Солнечный город"
+  ],
+  "日耀": [
+    "Sun City",
+    "Солнечный город"
+  ],
+  "马奇诺": [
+    "Maginot Line",
+    "Линия Мажино"
+  ],
+  "马其诺": [
+    "Maginot Line",
+    "Линия Мажино"
+  ],
+  "从地图读懂战场，选择布局查看地形与点位。": [
+    "Read the battlefield. Choose a layout to explore terrain and objectives.",
+    "Изучайте поле боя. Выберите вариант карты, чтобы увидеть рельеф и точки."
+  ],
+  "张地图": [
+    " maps",
+    " карт"
+  ],
+  "种任务布局": [
+    " mission layouts",
+    " вариантов миссий"
+  ],
+  "搜索地图": [
+    "Search maps",
+    "Поиск карт"
+  ],
+  "搜索地图名称、英文名或攻略": [
+    "Search map names, English names or guides",
+    "Название карты, английское название или руководство"
+  ],
+  "仅看有关联攻略": [
+    "Only maps with guides",
+    "Только карты с руководствами"
+  ],
+  "个三点占领布局": [
+    " three-point layouts",
+    " вариантов с тремя точками"
+  ],
+  "地图列表": [
+    "Map list",
+    "Список карт"
+  ],
+  "{0} {1} 点位缩略图": [
+    "{0} {1} objective thumbnail",
+    "{0} {1} — миниатюра точек"
+  ],
+  "攻略": [
+    "Guides",
+    "Руководства"
+  ],
+  "没有找到这张地图": [
+    "Map not found",
+    "Карта не найдена"
+  ],
+  "试试地图简称或英文名称。": [
+    "Try an abbreviation or English map name.",
+    "Попробуйте сокращение или английское название."
+  ],
+  "显示全部地图": [
+    "Show all maps",
+    "Показать все карты"
+  ],
+  "列表展示导出资料中的三点占领布局；详情可切换全部已收录任务。点位为简报参考位置，关联攻略请结合原帖的地图版本阅读。": [
+    "The list shows exported three-point layouts; details include all collected missions. Objectives are briefing reference positions. Check the original guide's map version.",
+    "В списке — варианты с тремя точками; в деталях доступны все собранные миссии. Точки приведены по брифингу. Сверяйте версию карты с оригиналом руководства."
+  ],
+  "← 地图列表": [
+    "← Map list",
+    "← Список карт"
+  ],
+  "地图未找到": [
+    "Map not found",
+    "Карта не найдена"
+  ],
+  "这张地图尚未收录，请返回列表选择。": [
+    "This map is not included yet. Return to the list.",
+    "Этой карты пока нет. Вернитесь к списку."
+  ],
+  "{0}地图详情": [
+    "{0} map details",
+    "Карта {0}: подробности"
+  ],
+  "布局": [
+    "Layout",
+    "Вариант"
+  ],
+  "任务布局": [
+    "Mission layout",
+    "Вариант миссии"
+  ],
+  "· 布局 {0}": [
+    "· Layout {0}",
+    "· Вариант {0}"
+  ],
+  "己方": [
+    "Your team",
+    "Ваша команда"
+  ],
+  "己方出生侧": [
+    "Your spawn side",
+    "Ваша сторона появления"
+  ],
+  "队伍 1": [
+    "Team 1",
+    "Команда 1"
+  ],
+  "队伍 2": [
+    "Team 2",
+    "Команда 2"
+  ],
+  "等高线": [
+    "Contours",
+    "Горизонтали"
+  ],
+  "点位": [
+    "Objectives",
+    "Точки"
+  ],
+  "参考网格": [
+    "Reference grid",
+    "Справочная сетка"
+  ],
+  "布局范围": [
+    "Layout bounds",
+    "Границы варианта"
+  ],
+  "地图与任务布局": [
+    "Map and mission layout",
+    "Карта и вариант миссии"
+  ],
+  "完成编辑": [
+    "Finish editing",
+    "Завершить"
+  ],
+  "编辑走线": [
+    "Draw routes",
+    "Рисовать маршруты"
+  ],
+  "原图 ↗": [
+    "Original ↗",
+    "Оригинал ↗"
+  ],
+  "{0} {1}，可拖动查看，使用下方按钮缩放": [
+    "{0} {1}; drag to pan, use buttons below to zoom",
+    "{0} {1}; перетаскивайте для перемещения, кнопки ниже меняют масштаб"
+  ],
+  "· 队伍 {0}": [
+    "· Team {0}",
+    "· Команда {0}"
+  ],
+  "正在加载地形图层…": [
+    "Loading terrain layer…",
+    "Загрузка рельефа…"
+  ],
+  "正在加载高清地图…": [
+    "Loading high-resolution map…",
+    "Загрузка карты высокого разрешения…"
+  ],
+  "尝试备用线路": [
+    "Try fallback source",
+    "Другой источник"
+  ],
+  "图层暂时无法加载。": [
+    "Layer temporarily unavailable.",
+    "Слой временно недоступен."
+  ],
+  "重试加载": [
+    "Retry loading",
+    "Повторить загрузку"
+  ],
+  "{0} · {1} · 队伍 {2}": [
+    "{0} · {1} · Team {2}",
+    "{0} · {1} · Команда {2}"
+  ],
+  "地图": [
+    "Map",
+    "Карта"
+  ],
+  "复位": [
+    "Reset view",
+    "Сбросить вид"
+  ],
+  "己方出生点": [
+    "Friendly spawn",
+    "Союзное появление"
+  ],
+  "敌方出生点": [
+    "Enemy spawn",
+    "Появление противника"
+  ],
+  "◇ 占领点": [
+    "◇ Capture point",
+    "◇ Точка захвата"
+  ],
+  "等高距 5 m · 主等高距 25 m": [
+    "Contours 5 m · Major contours 25 m",
+    "Горизонтали 5 м · Основные 25 м"
+  ],
+  "地形与坐标说明": [
+    "Terrain and coordinate notes",
+    "Рельеф и координаты"
+  ],
+  "地形高度": [
+    "Terrain height ",
+    "Высота рельефа "
+  ],
+  "m，为世界坐标 Y，并非已校准海拔。等高线仅表示地形，不包含建筑、桥梁或通行性判断。点位为任务简报参考位置，并非精确出生范围。": [
+    " m in world-coordinate Y, not calibrated elevation. Contours show terrain only, not buildings, bridges or passability. Objectives are briefing references, not exact spawn areas.",
+    " м по мировой координате Y, не проверенная высота над морем. Горизонтали не учитывают здания, мосты и проходимость. Точки из брифинга не обозначают точные зоны появления."
+  ],
+  "参考网格使用地图文件中的间距，字母自上向下、数字自左向右；未与实际对局校准，切换布局不会重置编号。原始地形采样间距": [
+    "The reference grid uses map-file spacing: letters top to bottom, numbers left to right. It is not calibrated to live matches; switching layouts preserves numbering. Original terrain sample spacing ",
+    "Сетка использует шаг файла карты: буквы сверху вниз, числа слева направо. Сетка не сверена с боем; смена варианта не меняет нумерацию. Шаг исходной выборки рельефа "
+  ],
+  "关联攻略": [
+    "Related guides",
+    "Связанные руководства"
+  ],
+  "同一地图的不同布局、季节及更新版本可能有差异，以原帖为准。": [
+    "Layouts, seasons and updates may differ. Refer to the original guide.",
+    "Варианты карты, сезоны и обновления могут различаться. Сверяйтесь с оригиналом."
+  ],
+  "· 原帖 ↗": [
+    "· Original post ↗",
+    "· Оригинал ↗"
+  ],
+  "暂未收录这张地图的关联攻略。": [
+    "No related guides collected for this map yet.",
+    "Руководства по этой карте пока не добавлены."
+  ],
+  "火力与阵地": [
+    "Firepower & positions",
+    "Огонь и позиции"
+  ],
+  "无法读取": [
+    "Could not read",
+    "Не удалось прочитать"
+  ],
+  "已载入本地方案 · {0} 个标注": [
+    "Local plan loaded · {0} annotations",
+    "Локальный план загружен · Отметок: {0}"
+  ],
+  "已保存 · {0} 个标注": [
+    "Saved · {0} annotations",
+    "Сохранено · Отметок: {0}"
+  ],
+  "无法更新标注": [
+    "Could not update annotations",
+    "Не удалось обновить отметки"
+  ],
+  "最多支持 500 个标注，请删除部分内容后再添加": [
+    "Up to 500 annotations. Remove some before adding more",
+    "Не более 500 отметок. Удалите часть перед добавлением новых"
+  ],
+  "已清除当前画布全部自定义标记": [
+    "All custom annotations cleared from this canvas",
+    "Все пользовательские отметки на холсте удалены"
+  ],
+  "单条走线最多 3000 个点": [
+    "A route can contain at most 3,000 points",
+    "В маршруте не более 3 000 точек"
+  ],
+  "狙击点": [
+    "Sniper position",
+    "Снайперская позиция"
+  ],
+  "危险区域": [
+    "Danger area",
+    "Опасная зона"
+  ],
+  "点击终点即完成，或按 Esc 取消": [
+    "Click the endpoint to finish, or Esc to cancel",
+    "Нажмите конечную точку для завершения; Esc — отмена"
+  ],
+  "编辑文件不能超过 4 MiB": [
+    "Project files cannot exceed 4 MiB",
+    "Файл проекта не должен превышать 4 МиБ"
+  ],
+  "无法读取编辑文件": [
+    "Could not read project file",
+    "Не удалось прочитать файл проекта"
+  ],
+  "导入方案 {0}": [
+    "Imported plan {0}",
+    "Импортированный план {0}"
+  ],
+  "无法保存导入的草稿，请先导出当前内容并检查浏览器空间": [
+    "Could not save imported draft. Export current work and check browser storage.",
+    "Не удалось сохранить импортированный черновик. Экспортируйте работу и проверьте место в браузере."
+  ],
+  "{0}-{1}-{2}-队伍{3}.wtmap.json": [
+    "{0}-{1}-{2}-team{3}.wtmap.json",
+    "{0}-{1}-{2}-команда{3}.wtmap.json"
+  ],
+  "走线": [
+    "Route",
+    "Маршрут"
+  ],
+  "编辑文件已导出，可再次导入继续修改": [
+    "Project exported; import it again to continue editing",
+    "Проект экспортирован; его можно импортировать для дальнейшего редактирования"
+  ],
+  "编辑文件导出失败": [
+    "Project export failed",
+    "Ошибка экспорта проекта"
+  ],
+  "正在准备图片…": [
+    "Preparing image…",
+    "Подготовка изображения…"
+  ],
+  "正在准备图层 {0}/{1}": [
+    "Preparing layer {0}/{1}",
+    "Подготовка слоя {0}/{1}"
+  ],
+  "{0}-队伍{1}-{2}.png": [
+    "{0}-team{1}-{2}.png",
+    "{0}-команда{1}-{2}.png"
+  ],
+  "图片已导出": [
+    "Image exported",
+    "Изображение экспортировано"
+  ],
+  "图片导出失败，请保存编辑文件后重试": [
+    "Image export failed. Save the project file and retry.",
+    "Не удалось экспортировать изображение. Сохраните проект и повторите."
+  ],
+  "走线绘制工具": [
+    "Route drawing tools",
+    "Инструменты маршрутов"
+  ],
+  "选择": [
+    "Select",
+    "Выбор"
+  ],
+  "平移": [
+    "Pan",
+    "Перемещение"
+  ],
+  "战术线": [
+    "Tactical lines",
+    "Тактические линии"
+  ],
+  "画笔": [
+    "Pen",
+    "Перо"
+  ],
+  "形状": [
+    "Shapes",
+    "Фигуры"
+  ],
+  "标记": [
+    "Markers",
+    "Маркеры"
+  ],
+  "文字": [
+    "Text",
+    "Текст"
+  ],
+  "地图编辑操作": [
+    "Map editing actions",
+    "Действия редактора карты"
+  ],
+  "{0} · 队伍 {1}": [
+    "{0} · Team {1}",
+    "{0} · Команда {1}"
+  ],
+  "走线编辑": [
+    "Route editor",
+    "Редактор маршрутов"
+  ],
+  "撤销 Ctrl+Z": [
+    "Undo Ctrl+Z",
+    "Отменить Ctrl+Z"
+  ],
+  "撤销": [
+    "Undo",
+    "Отменить"
+  ],
+  "重做 Ctrl+Shift+Z": [
+    "Redo Ctrl+Shift+Z",
+    "Повторить Ctrl+Shift+Z"
+  ],
+  "重做": [
+    "Redo",
+    "Повторить"
+  ],
+  "清除当前画布全部自定义标注，包括隐藏和锁定标注；可撤销": [
+    "Clear all custom annotations, including hidden and locked ones; undo is available",
+    "Удалить все пользовательские отметки, включая скрытые и заблокированные; действие можно отменить"
+  ],
+  "清除标记": [
+    "Clear annotations",
+    "Очистить отметки"
+  ],
+  "常用标注颜色": [
+    "Common annotation colors",
+    "Основные цвета отметок"
+  ],
+  "属性": [
+    "Properties",
+    "Свойства"
+  ],
+  "图层": [
+    "Layers",
+    "Слои"
+  ],
+  "底图": [
+    "Base map",
+    "Подложка"
+  ],
+  "导出": [
+    "Export",
+    "Экспорт"
+  ],
+  "导入地图编辑文件": [
+    "Import map project",
+    "Импорт проекта карты"
+  ],
+  "标注编辑面板": [
+    "Annotation editing panel",
+    "Панель редактирования отметок"
+  ],
+  "地图标记": [
+    "Map markers",
+    "Маркеры карты"
+  ],
+  "军事战术线": [
+    "Military tactical lines",
+    "Военные тактические линии"
+  ],
+  "标注图层": [
+    "Annotation layers",
+    "Слои отметок"
+  ],
+  "走线方案": [
+    "Route plans",
+    "Планы маршрутов"
+  ],
+  "导入与导出": [
+    "Import & export",
+    "Импорт и экспорт"
+  ],
+  "底图与布局": [
+    "Base map & layout",
+    "Подложка и вариант"
+  ],
+  "绘制样式": [
+    "Drawing style",
+    "Стиль рисования"
+  ],
+  "收起编辑面板": [
+    "Collapse editor panel",
+    "Свернуть панель редактора"
+  ],
+  "线条绘制方式": [
+    "Line drawing mode",
+    "Режим рисования линий"
+  ],
+  "直线 / 折线": [
+    "Straight / Polyline",
+    "Прямая / Ломаная"
+  ],
+  "平滑曲线": [
+    "Smooth curve",
+    "Плавная кривая"
+  ],
+  "选择线型后拖动绘制；选中现有线条时直接替换样式。": [
+    "Choose a line style and drag to draw. For a selected line, the style changes immediately.",
+    "Выберите стиль и потяните для рисования. Для выбранной линии стиль меняется сразу."
+  ],
+  "当前方案的修改自动保存到此浏览器。导出编辑文件可在其他设备继续修改。": [
+    "Changes to this plan are saved automatically in this browser. Export the project to edit on another device.",
+    "Изменения плана сохраняются в браузере автоматически. Экспортируйте проект для работы на другом устройстве."
+  ],
+  "保存当前方案": [
+    "Save current plan",
+    "Сохранить текущий план"
+  ],
+  "导入编辑文件": [
+    "Import project",
+    "Импорт проекта"
+  ],
+  "导出编辑文件": [
+    "Export project",
+    "Экспорт проекта"
+  ],
+  "图片尺寸": [
+    "Image size",
+    "Размер изображения"
+  ],
+  "2K 图片": [
+    "2K image",
+    "Изображение 2K"
+  ],
+  "4K 图片": [
+    "4K image",
+    "Изображение 4K"
+  ],
+  "导出图片": [
+    "Export image",
+    "Экспорт изображения"
+  ],
+  "标记图库": [
+    "Marker library",
+    "Библиотека маркеров"
+  ],
+  "战术符号": [
+    "Tactical symbols",
+    "Тактические символы"
+  ],
+  "战雷原生": [
+    "War Thunder originals",
+    "Оригинальные игровые"
+  ],
+  "搜索地图标记": [
+    "Search map markers",
+    "Поиск маркеров карты"
+  ],
+  "搜索标记": [
+    "Search markers",
+    "Поиск маркеров"
+  ],
+  "选择标记替换当前标注。": [
+    "Choose a marker to replace the selected annotation.",
+    "Выберите маркер для замены текущей отметки."
+  ],
+  "选择标记后，点击地图放置。": [
+    "Choose a marker, then click the map to place it.",
+    "Выберите маркер и нажмите на карту, чтобы разместить."
+  ],
+  "没有找到匹配标记。": [
+    "No matching markers.",
+    "Подходящие маркеры не найдены."
+  ],
+  "点击图层选择；锁定后可避免误拖动。": [
+    "Click a layer to select it. Lock to prevent accidental dragging.",
+    "Нажмите слой для выбора. Блокировка предотвращает случайное перемещение."
+  ],
+  "隐藏": [
+    "Hide",
+    "Скрыть"
+  ],
+  "解锁": [
+    "Unlock",
+    "Разблокировать"
+  ],
+  "锁定": [
+    "Lock",
+    "Заблокировать"
+  ],
+  "清空标注": [
+    "Clear annotations",
+    "Очистить отметки"
+  ],
+  "矩形": [
+    "Rectangle",
+    "Прямоугольник"
+  ],
+  "椭圆 / 圆": [
+    "Ellipse / Circle",
+    "Эллипс / Круг"
+  ],
+  "可编辑多边形": [
+    "Editable polygon",
+    "Редактируемый многоугольник"
+  ],
+  "危险区域（多边形）": [
+    "Danger area (polygon)",
+    "Опасная зона (многоугольник)"
+  ],
+  "拖出范围后，拖动控制点调整形状。": [
+    "Drag to create an area, then move its handles to adjust the shape.",
+    "Потяните для создания области, затем перемещайте узлы для изменения формы."
+  ],
+  "锁定当前标注": [
+    "Lock selected annotation",
+    "Заблокировать выбранную отметку"
+  ],
+  "战雷常用颜色": [
+    "Common War Thunder colors",
+    "Основные цвета War Thunder"
+  ],
+  "自定义颜色": [
+    "Custom color",
+    "Свой цвет"
+  ],
+  "拖实心点调整，拖空心中点加拐点。双击拐点可删除。": [
+    "Drag solid handles to adjust, hollow midpoints to add bends. Double-click a bend to remove it.",
+    "Сплошные узлы меняют форму, полые добавляют изгибы. Двойной щелчок удаляет изгиб."
+  ],
+  "编辑端点 / 拐点": [
+    "Edit endpoints / bends",
+    "Изменить концы / изгибы"
+  ],
+  "整体移动": [
+    "Move whole object",
+    "Переместить целиком"
+  ],
+  "控制点 {0}": [
+    "Handle {0}",
+    "Узел {0}"
+  ],
+  "起点": [
+    "Start",
+    "Начало"
+  ],
+  "终点": [
+    "End",
+    "Конец"
+  ],
+  "拐点 {0}": [
+    "Bend {0}",
+    "Изгиб {0}"
+  ],
+  "添加拐点": [
+    "Add bend",
+    "Добавить изгиб"
+  ],
+  "删除拐点": [
+    "Delete bend",
+    "Удалить изгиб"
+  ],
+  "线条粗细": [
+    "Line width",
+    "Толщина линии"
+  ],
+  "战术线样式": [
+    "Tactical line style",
+    "Стиль тактической линии"
+  ],
+  "实线": [
+    "Solid",
+    "Сплошная"
+  ],
+  "虚线": [
+    "Dashed",
+    "Штриховая"
+  ],
+  "点线 / 射界": [
+    "Dotted / Field of fire",
+    "Пунктир / Сектор огня"
+  ],
+  "点划线 / 补给": [
+    "Dash-dot / Supply",
+    "Штрихпунктир / Снабжение"
+  ],
+  "折齿 / 工事防御线": [
+    "Square teeth / Fortified defense",
+    "Прямоугольные зубцы / Укрепления"
+  ],
+  "弧齿 / 前沿阵线": [
+    "Scallops / Front line",
+    "Дуги / Передний край"
+  ],
+  "三角齿 / 反坦克壕线": [
+    "Triangular teeth / Antitank ditch",
+    "Треугольные зубцы / Противотанковый ров"
+  ],
+  "中空宽箭头 / 进攻轴线": [
+    "Hollow wide arrow / Axis of advance",
+    "Полая широкая стрелка / Направление наступления"
+  ],
+  "交叉 / 障碍封锁线": [
+    "Crosses / Obstacle line",
+    "Кресты / Заграждения"
+  ],
+  "查看全部战术线型": [
+    "View all tactical line styles",
+    "Все стили тактических линий"
+  ],
+  "翻转阵线朝向": [
+    "Flip front direction",
+    "Развернуть направление фронта"
+  ],
+  "箭头形式": [
+    "Arrow type",
+    "Тип стрелки"
+  ],
+  "军事方向箭头（开口）": [
+    "Open direction arrow",
+    "Открытая стрелка направления"
+  ],
+  "实心箭头": [
+    "Filled arrow",
+    "Сплошная стрелка"
+  ],
+  "末端箭头": [
+    "Arrowhead",
+    "Наконечник"
+  ],
+  "区域说明": [
+    "Area caption",
+    "Подпись области"
+  ],
+  "填充透明度": [
+    "Fill opacity",
+    "Непрозрачность заливки"
+  ],
+  "危险区斜线填充": [
+    "Danger-area hatching",
+    "Штриховка опасной зоны"
+  ],
+  "图标大小": [
+    "Icon size",
+    "Размер значка"
+  ],
+  "单位与队伍": [
+    "Unit & team",
+    "Подразделение и команда"
+  ],
+  "更换图标": [
+    "Replace icon",
+    "Заменить значок"
+  ],
+  "字体": [
+    "Font",
+    "Шрифт"
+  ],
+  "字重": [
+    "Weight",
+    "Насыщенность"
+  ],
+  "常规": [
+    "Regular",
+    "Обычный"
+  ],
+  "半粗": [
+    "Semibold",
+    "Полужирный"
+  ],
+  "加粗": [
+    "Bold",
+    "Жирный"
+  ],
+  "斜体": [
+    "Italic",
+    "Курсив"
+  ],
+  "字体显示取决于设备中可用的字体，导出图片沿用当前设置。": [
+    "Available fonts depend on your device. Image exports use the current settings.",
+    "Доступность шрифтов зависит от устройства. Экспорт изображения использует текущие настройки."
+  ],
+  "字号": [
+    "Font size",
+    "Размер шрифта"
+  ],
+  "旋转角度": [
+    "Rotation",
+    "Поворот"
+  ],
+  "上移一层": [
+    "Bring forward",
+    "На слой выше"
+  ],
+  "下移一层": [
+    "Send backward",
+    "На слой ниже"
+  ],
+  "复制": [
+    "Duplicate",
+    "Копировать"
+  ],
+  "也可选中标注后使用方向键微调；Shift 加速。": [
+    "Use arrow keys to nudge a selected annotation; Shift moves faster.",
+    "Стрелки сдвигают выбранную отметку; Shift увеличивает шаг."
+  ],
+  "取消导出": [
+    "Cancel export",
+    "Отменить экспорт"
+  ],
+  "松开完成画笔": [
+    "Release to finish pen stroke",
+    "Отпустите, чтобы закончить штрих"
+  ],
+  "松开完成线条；也可点击起点、终点": [
+    "Release to finish the line, or click start and end",
+    "Отпустите для завершения линии или нажмите начало и конец"
+  ],
+  "拖出线条，松开后直接编辑端点": [
+    "Drag a line; release to edit endpoints",
+    "Нарисуйте линию; отпустите для редактирования концов"
+  ],
+  "拖出区域，松开后调整形状": [
+    "Drag an area; release to adjust its shape",
+    "Нарисуйте область; отпустите для изменения формы"
+  ],
+  "点击地图添加狙击点": [
+    "Click the map to add a sniper position",
+    "Нажмите на карту для снайперской позиции"
+  ],
+  "点击地图放置原生图标": [
+    "Click the map to place a game icon",
+    "Нажмите на карту для игрового значка"
+  ],
+  "点击地图添加文字": [
+    "Click the map to add text",
+    "Нажмите на карту для текста"
+  ],
+  "拖实心点调整 · 拖空心点加拐点 · 拖线移动": [
+    "Solid handles: adjust · Hollow: add bend · Drag line: move",
+    "Сплошные узлы: правка · Полые: изгиб · Перетаскивание линии: сдвиг"
+  ],
+  "选择标注编辑；按 Esc 取消选择": [
+    "Select an annotation to edit; Esc clears selection",
+    "Выберите отметку для правки; Esc снимает выделение"
+  ],
+  "正在读取本地方案…": [
+    "Reading local plans…",
+    "Чтение локальных планов…"
+  ],
+  "正在切换方案…": [
+    "Switching plans…",
+    "Смена плана…"
+  ],
+  "正在保存方案…": [
+    "Saving plan…",
+    "Сохранение плана…"
+  ],
+  "导入走线编辑文件": [
+    "Import route project",
+    "Импорт проекта маршрутов"
+  ],
+  "包含": [
+    "Contains ",
+    "Содержит "
+  ],
+  "个标注。确认后将保存为该地图、布局和队伍下的新方案，已有方案会保留。": [
+    " annotations. Confirm to save a new plan for this map, layout and team. Existing plans are kept.",
+    " отметок. После подтверждения создастся новый план для этой карты, варианта и команды. Старые планы сохраняются."
+  ],
+  "正在导入…": [
+    "Importing…",
+    "Импорт…"
+  ],
+  "导入并打开": [
+    "Import & open",
+    "Импортировать и открыть"
+  ],
+  "删除走线方案": [
+    "Delete route plan",
+    "Удалить план маршрутов"
+  ],
+  "确认删除“": [
+    "Delete “",
+    "Удалить «"
+  ],
+  "”？其他方案不受影响。需要保留时，请先导出编辑文件。": [
+    "”? Other plans are unaffected. Export the project first if you need a copy.",
+    "»? Другие планы сохранятся. Если нужна копия, сначала экспортируйте проект."
+  ],
+  "删除方案": [
+    "Delete plan",
+    "Удалить план"
+  ],
+  "拖动添加拐点": [
+    "Drag to add a bend",
+    "Потяните для добавления изгиба"
+  ],
+  "：拖动调整位置": [
+    ": drag to move",
+    ": перетащите для перемещения"
+  ],
+  "原图": [
+    "Original image",
+    "Оригинал"
+  ],
+  "地图底图，走线标注请对照原帖": [
+    "Base map; compare route annotations with the original post",
+    "Подложка карты; сверяйте маршруты с оригинальной публикацией"
+  ],
+  "作者走线标注图": [
+    "Author's route annotations",
+    "Маршруты автора"
+  ],
+  "适应屏幕": [
+    "Fit to screen",
+    "По размеру экрана"
+  ],
+  "高清图已就绪 · 放大后可拖动或滑动查看": [
+    "Full-resolution image ready · Zoom in and drag or swipe to explore",
+    "Полное изображение готово · Увеличьте и перетаскивайте для просмотра"
+  ],
+  "正在读取高清图 {0} / {1} MB": [
+    "Loading full-resolution image {0} / {1} MB",
+    "Загрузка полного изображения {0} / {1} МБ"
+  ],
+  "方案 {0}": [
+    "Plan {0}",
+    "План {0}"
+  ],
+  "当前地图、任务布局和己方队伍可保存多套方案。修改自动保存在此浏览器。": [
+    "Save multiple plans for each map, mission layout and team. Changes are saved automatically in this browser.",
+    "Можно сохранять несколько планов для каждой карты, варианта миссии и команды. Изменения автоматически сохраняются в браузере."
+  ],
+  "当前方案": [
+    "Current plan",
+    "Текущий план"
+  ],
+  "个标注 ·": [
+    " annotations ·",
+    " отметок ·"
+  ],
+  "个方案": [
+    " plans",
+    " планов"
+  ],
+  "新建空白方案": [
+    "New blank plan",
+    "Новый пустой план"
+  ],
+  "另存为新方案": [
+    "Save as new plan",
+    "Сохранить как новый план"
+  ],
+  "重命名": [
+    "Rename",
+    "Переименовать"
+  ],
+  "删除当前方案": [
+    "Delete current plan",
+    "Удалить текущий план"
+  ],
+  "方案名称": [
+    "Plan name",
+    "Название плана"
+  ],
+  "保存名称": [
+    "Save name",
+    "Сохранить название"
+  ],
+  "创建并打开": [
+    "Create & open",
+    "Создать и открыть"
+  ],
+  "正在保存…": [
+    "Saving…",
+    "Сохранение…"
+  ],
+  "立即保存当前方案": [
+    "Save current plan now",
+    "Сохранить текущий план сейчас"
+  ],
+  "方案仅保存在此浏览器。换设备或清理浏览数据前，请在“导出”中保存编辑文件。": [
+    "Plans are stored only in this browser. Export project files before changing device or clearing browser data.",
+    "Планы хранятся только в этом браузере. Экспортируйте проекты перед сменой устройства или очисткой данных браузера."
+  ],
+  "关闭 ×": [
+    "Close ×",
+    "Закрыть ×"
+  ],
+  "待研发总量": [
+    "Total remaining RP",
+    "Всего ОИ осталось"
+  ],
+  "预估价格": [
+    "Estimated price",
+    "Расчётная цена"
+  ],
+  "待报价": [
+    "Not quoted",
+    "Не рассчитано"
+  ],
+  "配件研发速算": [
+    "Quick modification quote",
+    "Расчёт модификаций"
+  ],
+  "{0} / {1} · 单独计算此载具的配件": [
+    "{0} / {1} · Only this vehicle's modifications",
+    "{0} / {1} · Только модификации этой машины"
+  ],
+  "· 独立获取": [
+    "· Separate acquisition",
+    "· Отдельное получение"
+  ],
+  "手动基础配件 RP": [
+    "Manual base modification RP",
+    "Базовые ОИ модификаций вручную"
+  ],
+  "未知来源": [
+    "Unknown source",
+    "Источник неизвестен"
+  ],
+  "{0} / {1} · {2} 配件研发": [
+    "{0} / {1} · {2} modification research",
+    "{0} / {1} · {2}: исследование модификаций"
+  ],
+  "完整基础配件 RP：{0}": [
+    "Full base modification RP: {0}",
+    "Полные базовые ОИ модификаций: {0}"
+  ],
+  "未知": [
+    "Unknown",
+    "Неизвестно"
+  ],
+  "已完成配件 RP：{0}": [
+    "Completed modification RP: {0}",
+    "ОИ готовых модификаций: {0}"
+  ],
+  "其他已投入 RP：{0}": [
+    "Other invested RP: {0}",
+    "Другие вложенные ОИ: {0}"
+  ],
+  "无效": [
+    "Invalid",
+    "Неверно"
+  ],
+  "已完成配件：{0}": [
+    "Completed modifications: {0}",
+    "Готовые модификации: {0}"
+  ],
+  "来源：{0} / {1}": [
+    "Source: {0} / {1}",
+    "Источник: {0} / {1}"
+  ],
+  "手动填入": [
+    "Entered manually",
+    "Указано вручную"
+  ],
+  "无数据时间": [
+    "No data timestamp",
+    "Нет даты данных"
+  ],
+  "只计算此载具配件，不含载具研发、银狮和购车。": [
+    "Only this vehicle's modifications; excludes vehicle research, Silver Lions and purchase cost.",
+    "Только модификации этой машины, без исследования техники, Серебряных львов и покупки."
+  ],
+  "高级载具已解锁全部配件": [
+    "All modifications unlocked on premium vehicle",
+    "Все модификации премиумной техники открыты"
+  ],
+  "默认待研 0 RP；如游戏内仍需研发，可取消并核对。": [
+    "Remaining RP defaults to 0. Uncheck and verify if research is still needed in game.",
+    "По умолчанию осталось 0 ОИ. Снимите отметку и проверьте, если в игре ещё нужно исследование."
+  ],
+  "每万配件 RP 单价（元）": [
+    "Price per 10,000 modification RP (CNY)",
+    "Цена за 10 000 ОИ модификаций (CNY)"
+  ],
+  "填写单价": [
+    "Enter rate",
+    "Укажите тариф"
+  ],
+  "未勾选配件中已投入 RP": [
+    "RP already invested in unchecked modifications",
+    "ОИ, вложенные в неотмеченные модификации"
+  ],
+  "手动核对完整配件成本": [
+    "Manually verify full modification cost",
+    "Проверить полную стоимость модификаций вручную"
+  ],
+  "官方数据缺失或游戏版本不同，可填写完整基础 RP。留空使用官方数据。": [
+    "If official data is missing or outdated, enter full base RP. Leave blank to use official data.",
+    "Если официальные данные отсутствуют или устарели, укажите полные базовые ОИ. Оставьте пустым для официальных данных."
+  ],
+  "完整配件总 RP": [
+    "Full modification RP",
+    "Полные ОИ модификаций"
+  ],
+  "官方未提供": [
+    "Not provided officially",
+    "Нет официальных данных"
+  ],
+  "勾选已完成的配件会扣除其研发点。“其他已投入”仅填写未勾选配件的部分进度，避免重复扣除。": [
+    "Completed modifications are deducted from remaining RP. “Other invested RP” is partial progress in unchecked modifications only, avoiding double deductions.",
+    "ОИ готовых модификаций вычитаются. «Другие вложенные ОИ» — только частичный прогресс неотмеченных модификаций, без повторного вычитания."
+  ],
+  "数据核对：{0}": [
+    "Data verified: {0}",
+    "Данные проверены: {0}"
+  ],
+  "尚无此载具的配件数据。": [
+    "No modification data for this vehicle yet.",
+    "Данных о модификациях этой машины пока нет."
+  ],
+  "查看官方载具资料 ↗": [
+    "View official vehicle information ↗",
+    "Официальная информация о технике ↗"
+  ],
+  "配件进度与单价自动保存在此浏览器。": [
+    "Modification progress and rates are saved automatically in this browser.",
+    "Прогресс модификаций и тарифы автоматически сохраняются в браузере."
+  ],
+  "待研 RP ÷ 10,000 × 配件单价，金额四舍五入到分。": [
+    "Remaining RP ÷ 10,000 × modification rate; rounded to the nearest fen.",
+    "Остаток ОИ ÷ 10 000 × тариф модификаций; округление до фэня."
+  ],
+  "缺少完整配件研发点，或已研 RP 无效。请核对或手动填写后报价。": [
+    "Full modification RP is missing or invested RP is invalid. Verify or enter values manually before quoting.",
+    "Не указаны полные ОИ модификаций или неверен прогресс. Проверьте данные либо введите вручную."
+  ],
+  "逐项成本尚未完整匹配官方总额，暂不提供逐项扣除；可在左侧填写已投入 RP。": [
+    "Item costs do not yet match the verified total; item-by-item deductions are disabled. Enter invested RP on the left.",
+    "Стоимость отдельных модификаций не совпадает с общим итогом; вычитание по пунктам отключено. Укажите вложенные ОИ слева."
+  ],
+  "{0} · 配件研发": [
+    "{0} · Modification research",
+    "{0} · Исследование модификаций"
+  ],
+  "配件明细 / 已完成": [
+    "Modification details / Completed",
+    "Модификации / Готово"
+  ],
+  "官方页面未列出可用的逐项配件成本；可使用左侧的完整总 RP 手动报价。": [
+    "The official page has no usable itemized costs. Enter the full RP total on the left for a manual quote.",
+    "На официальной странице нет стоимости по пунктам. Укажите полные ОИ слева для ручного расчёта."
+  ],
+  "车库导入失败，请重试。": [
+    "Hangar import failed. Please retry.",
+    "Импорт ангара не удался. Повторите попытку."
+  ],
+  "导入玩家已有载具": [
+    "Import player's owned vehicles",
+    "Импорт техники игрока"
+  ],
+  "清除导入": [
+    "Clear import",
+    "Удалить импорт"
+  ],
+  "· 本国本军种": [
+    "· This nation and branch",
+    "· Текущая нация и род войск"
+  ],
+  "辆 · 核验": [
+    " vehicles · Verified ",
+    " ед. · Проверено "
+  ],
+  "。清除仅移除导入记录，保留手动勾选。": [
+    ". Clearing removes only imported records and keeps manual selections.",
+    ". Удаление затронет только импорт; ручной выбор сохранится."
+  ],
+  "成功导入扣 1 次账号估值额度，今日剩余": [
+    "A successful import uses 1 account valuation credit. Remaining today: ",
+    "Успешный импорт расходует 1 попытку оценки аккаунта. Осталось сегодня: "
+  ],
+  "；失败不扣。搜索使用战绩查询额度，命中查询缓存不扣次。仅应用于当前国别和军种，包含未出战载具；导入后恢复自动等级计算，目标已研进度归零。": [
+    "; failures use none. Search uses the stats quota, except cache hits. Applies only to the current nation and branch, including unplayed vehicles. Import restores automatic rank calculation and resets target research progress.",
+    "; ошибка не расходует попытку. Поиск использует лимит статистики, кроме попаданий в кэш. Импорт применяется к текущей нации и роду войск, включая технику без боёв, возвращает автоматический расчёт ранга и обнуляет прогресс цели."
+  ],
+  "输入完整昵称": [
+    "Enter full nickname",
+    "Введите полный никнейм"
+  ],
+  "没有找到玩家，请检查完整昵称及平台后缀。": [
+    "Player not found. Check the full nickname and platform suffix.",
+    "Игрок не найден. Проверьте полный никнейм и суффикс платформы."
+  ],
+  "已导入 {0}：当前国别与军种匹配 {1} 辆。{2}": [
+    "Imported {0}: {1} vehicles match the current nation and branch. {2}",
+    "Импортирован {0}: совпадений по нации и роду войск — {1}. {2}"
+  ],
+  "资料库暂未识别 {0} 辆，未计入。": [
+    "{0} vehicles are not recognized by the database and were excluded.",
+    "Техника не распознана в базе: {0} ед.; не учтена."
+  ],
+  "导入": [
+    "Import ",
+    "Импортировать "
+  ],
+  "的车库（消耗 1 次）": [
+    "'s hangar (uses 1 credit)",
+    ": ангар (1 попытка)"
+  ],
+  "正在读取官方资料…": [
+    "Reading official data…",
+    "Чтение официальных данных…"
+  ],
+  "礼包 {0}": [
+    "Pack {0}",
+    "Набор {0}"
+  ],
+  "礼包 · 暂无报价": [
+    "Pack · No quote",
+    "Набор · Нет цены"
+  ],
+  "礼包人民币价格": [
+    "Pack price in CNY",
+    "Цена набора в CNY"
+  ],
+  "官方礼包价格 · 人民币": [
+    "Official pack price · CNY",
+    "Официальная цена набора · CNY"
+  ],
+  "暂无报价": [
+    "No quote",
+    "Нет цены"
+  ],
+  "原价 {0}": [
+    "Full price {0}",
+    "Полная цена {0}"
+  ],
+  "整包售价，包含商店列出的载具及附赠内容；实际支付以商店结算为准。": [
+    "Full-pack price includes the listed vehicles and extras. The store checkout price is final.",
+    "Полная цена набора включает указанную технику и бонусы. Итоговая цена определяется в магазине."
+  ],
+  "当前未查到可核实的人民币价格，是否在售请查看官方商店。": [
+    "No verifiable CNY price found. Check availability in the official store.",
+    "Проверенная цена в CNY не найдена. Наличие проверьте в официальном магазине."
+  ],
+  "价格核对于": [
+    "Price checked on ",
+    "Цена проверена "
+  ],
+  "对局统计": [
+    "Battle statistics",
+    "Статистика боёв"
+  ],
+  "生涯对局统计范围": [
+    "Career battle scope",
+    "Область боевой статистики"
+  ],
+  "生涯统计时期": [
+    "Career statistics period",
+    "Период статистики карьеры"
+  ],
+  "扩展统计采集于 {0}": [
+    "Extended statistics collected {0}",
+    "Расширенная статистика собрана: {0}"
+  ],
+  "正在补充官方统计…": [
+    "Loading additional official statistics…",
+    "Загрузка дополнительной официальной статистики…"
+  ],
+  "基础战绩已可查看": [
+    "Basic stats are ready",
+    "Основная статистика доступна"
+  ],
+  "扩展统计：": [
+    "Extended statistics: ",
+    "Расширенная статистика: "
+  ],
+  "正在读取所选范围…": [
+    "Loading selected scope…",
+    "Загрузка выбранной области…"
+  ],
+  "此范围暂无有效统计，其他生涯资料仍可查看。": [
+    "No valid statistics in this scope. Other career data is still available.",
+    "Нет статистики для выбранной области. Остальные данные карьеры доступны."
+  ],
+  "有效场次不足 50": [
+    "Fewer than 50 valid battles",
+    "Менее 50 учтённых боёв"
+  ],
+  "累计统计": [
+    "All-time statistics",
+    "Статистика за всё время"
+  ],
+  "官方近期口径，非逐场记录": [
+    "Official recent period, not individual battle logs",
+    "Недавний период игры, не журнал отдельных боёв"
+  ],
+  "· 对空／对地 K/D 均使用所选范围的死亡数。": [
+    "· Air/ground K/D both use deaths from the selected scope.",
+    "· K/D по воздушным и наземным целям используют смерти выбранной области."
+  ],
+  "陆战对局包含其中的飞机出击。": [
+    "Ground battle statistics include aircraft sorties in those battles.",
+    "Статистика наземных боёв включает вылеты авиации в этих боях."
+  ],
+  "近期与生涯": [
+    "Recent vs career",
+    "Недавнее и карьера"
+  ],
+  "同一统计范围": [
+    "Same statistics scope",
+    "Одинаковая область статистики"
+  ],
+  "指标": [
+    "Metric",
+    "Показатель"
+  ],
+  "生涯累计": [
+    "Career total",
+    "За всю карьеру"
+  ],
+  "差异": [
+    "Difference",
+    "Разница"
+  ],
+  "队内相对位置": [
+    "Relative team position",
+    "Место в команде"
+  ],
+  "击毁／出击": [
+    "Kills / sortie",
+    "Уничтожений / вылет"
+  ],
+  "个百分点": [
+    " percentage points",
+    " п. п."
+  ],
+  "场 · 近期": [
+    " battles · Recent ",
+    " боёв · За недавнее время "
+  ],
+  "场。差异仅与自身生涯均值比较，不代表连续涨跌或最近几局结果。": [
+    " battles. Differences compare only with your career average; they are not streaks or the outcome of the last few battles.",
+    " боёв. Разница сравнивается только со средним за карьеру и не означает серию побед или результаты последних боёв."
+  ],
+  "正在补充近期统计…": [
+    "Loading recent statistics…",
+    "Загрузка недавней статистики…"
+  ],
+  "当前范围缺少可比较的近期数据。": [
+    "No comparable recent data in this scope.",
+    "Для этой области нет сопоставимых недавних данных."
+  ],
+  "注册于": [
+    "Registered ",
+    "Зарегистрирован "
+  ],
+  "载具分类 K/D": [
+    "K/D by vehicle class",
+    "K/D по классам техники"
+  ],
+  "当前模式 · 累计单车记录": [
+    "Current mode · All-time vehicle records",
+    "Текущий режим · Статистика техники за всё время"
+  ],
+  "辆已出击": [
+    " vehicles played",
+    " ед. с боями"
+  ],
+  "仅以对应军种单车的击毁、死亡汇总；与上方按对局类型统计的范围不同。": [
+    "Kills and deaths are summed from vehicles of the relevant branch. This differs from battle-type statistics above.",
+    "Суммируются уничтожения и смерти техники соответствующего рода войск. Область отличается от статистики по типу боя выше."
+  ],
+  "礼包载具": [
+    "Pack vehicles",
+    "Техника из наборов"
+  ],
+  "活动载具": [
+    "Event vehicles",
+    "Событийная техника"
+  ],
+  "特殊载具": [
+    "Special vehicles",
+    "Особая техника"
+  ],
+  "{0} · 完整车库": [
+    "{0} · Full hangar",
+    "{0} · Весь ангар"
+  ],
+  "所有已拥有载具，包含未出击车辆；查看清单不消耗估值次数。": [
+    "All owned vehicles, including unplayed vehicles. Viewing this list uses no valuation credits.",
+    "Вся имеющаяся техника, включая технику без боёв. Просмотр не расходует попытки оценки."
+  ],
+  "辆已拥有": [
+    " vehicles owned",
+    " ед. в наличии"
+  ],
+  "辆未出击": [
+    " vehicles unplayed",
+    " ед. без боёв"
+  ],
+  "车库采集于 {0}": [
+    "Hangar collected {0}",
+    "Ангар собран: {0}"
+  ],
+  "搜索载具名称": [
+    "Search vehicle names",
+    "Поиск по названию техники"
+  ],
+  "搜索完整车库载具": [
+    "Search full hangar",
+    "Поиск по всему ангару"
+  ],
+  "车库国家": [
+    "Hangar nation",
+    "Нация в ангаре"
+  ],
+  "车库军种": [
+    "Hangar branch",
+    "Род войск в ангаре"
+  ],
+  "车库等级": [
+    "Hangar rank",
+    "Ранг в ангаре"
+  ],
+  "车库载具类型": [
+    "Hangar vehicle type",
+    "Тип техники в ангаре"
+  ],
+  "车库出击状态": [
+    "Hangar battle status",
+    "Участие техники в боях"
+  ],
+  "全部出击状态": [
+    "All battle statuses",
+    "Любое участие в боях"
+  ],
+  "已出击": [
+    "Played",
+    "Есть бои"
+  ],
+  "未出击": [
+    "Unplayed",
+    "Без боёв"
+  ],
+  "正在读取完整车库…": [
+    "Loading full hangar…",
+    "Загрузка всего ангара…"
+  ],
+  "筛选出": [
+    "Filtered ",
+    "Отобрано "
+  ],
+  "· {0} 辆尚未匹配分类，仍保留在清单中": [
+    "· {0} unclassified vehicles remain in the list",
+    "· Не классифицировано: {0} ед.; они остаются в списке"
+  ],
+  "分类待匹配": [
+    "Classification pending",
+    "Класс не определён"
+  ],
+  "查看战绩": [
+    "View stats",
+    "Статистика"
+  ],
+  "没有符合当前筛选的载具。": [
+    "No vehicles match the current filters.",
+    "Нет техники по текущим фильтрам."
+  ],
+  "{0} · {1} · 载具累计战绩": [
+    "{0} · {1} · All-time vehicle stats",
+    "{0} · {1} · Статистика техники за всё время"
+  ],
+  "查看官方 Wiki ↗": [
+    "Official Wiki ↗",
+    "Официальная Wiki ↗"
+  ],
+  "死亡": [
+    "Deaths",
+    "Смерти"
+  ],
+  "六维能力画像": [
+    "Six-axis performance profile",
+    "Профиль по шести показателям"
+  ],
+  "同一模式": [
+    "Same mode",
+    "Один режим"
+  ],
+  "六维统计画像，各项真实数值可在下方展开查看": [
+    "Six-axis statistics profile; expand below for actual values",
+    "Профиль по шести показателям; точные значения доступны ниже"
+  ],
+  "查看数值与换算说明": [
+    "Show values & conversion notes",
+    "Значения и правила пересчёта"
+  ],
+  "比值按 x/(1+x) 换算，胜率直接使用百分比。缺失项目留空，不代表零分；不是全服百分位。": [
+    "Ratios use x/(1+x); win rate uses its percentage directly. Missing values stay blank, not zero. These are not server-wide percentiles.",
+    "Соотношения приведены по x/(1+x); победы — напрямую в процентах. Нет данных — пустое значение, не ноль. Это не процентили всего сервера."
+  ],
+  "{0}{1} 个百分点": [
+    "{0}{1} percentage points",
+    "{0}{1} п. п."
+  ],
+  "分位对照": [
+    "Percentile comparison",
+    "Сравнение процентилей"
+  ],
+  "本站有效样本": [
+    "Valid workbench samples",
+    "Валидные выборки мастерской"
+  ],
+  "官方榜表抽样": [
+    "Official ranking sample",
+    "Выборка официального рейтинга"
+  ],
+  "名次位置": [
+    "Rank position",
+    "Место в рейтинге"
+  ],
+  "榜内前": [
+    "Top ",
+    "Верхние "
+  ],
+  "较低": [
+    "Lower",
+    "Ниже"
+  ],
+  "中位": [
+    "Median",
+    "Медиана"
+  ],
+  "较高": [
+    "Higher",
+    "Выше"
+  ],
+  "近期仅展示官方名次，不换算活跃玩家百分位。": [
+    "Recent results show official ranks only, not active-player percentiles.",
+    "Недавние результаты показывают только официальное место, без процентилей активных игроков."
+  ],
+  "有效样本达到 {0} 位后展示分位。": [
+    "Percentiles unlock after {0} valid players.",
+    "Процентили появятся после набора {0} валидных игроков."
+  ],
+  "% 分位": [
+    "th percentile",
+    "% процентиль"
+  ],
+  "中位数": [
+    "Median",
+    "Медиана"
+  ],
+  "本人": [
+    "You",
+    "Вы"
+  ],
+  "相较中位数": [
+    "Compared to median",
+    "Относительно медианы"
+  ],
+  "分位值按从低到高排列，50% 分位为中位数。参考条取自有限名次抽样，不代表完整人数分布；同分名次可能并列。": [
+    "Percentiles run low to high; the 50th is the median. Reference bars use limited rank samples, not the full population. Equal scores may share a rank.",
+    "Процентили идут от низкого к высокому; 50-й — медиана. Полосы основаны на ограниченной выборке мест, а не на всей популяции. Одинаковые результаты могут иметь одно место."
+  ],
+  "正在整理分位参考，个人名次已可查看。": [
+    "Preparing percentile references; your rank is available.",
+    "Готовим процентили; ваше место уже доступно."
+  ],
+  "近期参照人数尚未核实。": [
+    "The recent reference population is not verified.",
+    "Число игроков для недавнего сравнения не проверено."
+  ],
+  "样本正在积累，达到有效人数后开放对照。": [
+    "Samples are accumulating. Comparisons open after sufficient valid players.",
+    "Выборка накапливается. Сравнение откроется после набора достаточного числа игроков."
+  ],
+  "分位参考暂未就绪，个人名次仍可查看。": [
+    "Percentile reference is not ready; your rank is available.",
+    "Процентили ещё не готовы; ваше место доступно."
+  ],
+  "选择指标，查看名次与同范围玩家的分位对照。": [
+    "Choose a metric to compare rank and percentiles in the same scope.",
+    "Выберите показатель для сравнения места и процентилей в той же области."
+  ],
+  "官方榜内位置": [
+    "Official ranking position",
+    "Место в официальном рейтинге"
+  ],
+  "统计范围": [
+    "Statistics scope",
+    "Область статистики"
+  ],
+  "对比指标": [
+    "Comparison metric",
+    "Показатель сравнения"
+  ],
+  "统计时期": [
+    "Statistics period",
+    "Период статистики"
+  ],
+  "正在读取排位数据，生涯战绩仍可切换查看…": [
+    "Loading rankings; career stats remain available…",
+    "Загрузка рейтинга; статистика карьеры доступна…"
+  ],
+  "官方近期表现": [
+    "Official recent performance",
+    "Недавние официальные результаты"
+  ],
+  "官方名次": [
+    "Official rank",
+    "Официальное место"
+  ],
+  "暂无有效名次": [
+    "No valid rank",
+    "Нет действительного места"
+  ],
+  "当前指标": [
+    "Current metric",
+    "Текущий показатель"
+  ],
+  "榜表记录数": [
+    "Ranking records",
+    "Записей в рейтинге"
+  ],
+  "不等于全部注册人数": [
+    "Not the total registered population",
+    "Это не число всех зарегистрированных игроков"
+  ],
+  "对局": [
+    "Battle type",
+    "Тип боя"
+  ],
+  "模式": [
+    "Mode",
+    "Режим"
+  ],
+  "时期": [
+    "Period",
+    "Период"
+  ],
+  "来源": [
+    "Source",
+    "Источник"
+  ],
+  "官方榜表": [
+    "Official ranking",
+    "Официальный рейтинг"
+  ],
+  "榜表人数仅代表该指标的统计记录，不等于全部注册玩家。": [
+    "Ranking counts refer only to records for this metric, not all registered players.",
+    "Число записей относится только к этому показателю, а не ко всем зарегистрированным игрокам."
+  ],
+  "队内相对位置衡量单局队内表现，数值越高通常越靠前。": [
+    "Relative team position measures performance within a match; higher generally means a better position.",
+    "Относительное место оценивает результат в команде за бой; выше обычно означает лучше."
+  ],
+  "该项击毁统计包含玩家与机器人，不等于仅对玩家的击毁。": [
+    "This kill metric includes players and bots, not player kills alone.",
+    "Этот показатель включает игроков и ботов, а не только игроков."
+  ],
+  "所选对局范围与载具分类不同，陆战对局也包含其中的航空出击。": [
+    "Battle scope differs from vehicle classes; ground battles also include aircraft sorties.",
+    "Область боёв отличается от классов техники; наземные бои включают вылеты авиации."
+  ],
+  "正在展示已保存排位 ·": [
+    "Showing saved rankings ·",
+    "Показан сохранённый рейтинг ·"
+  ],
+  "排位采集于 {0}": [
+    "Rankings collected {0}",
+    "Рейтинг собран: {0}"
+  ],
+  "尚无有效排位记录": [
+    "No valid ranking records yet",
+    "Нет действительных записей рейтинга"
+  ],
+  "的游戏头像": [
+    "'s game avatar",
+    " — игровой аватар"
+  ],
+  "所列载具汇总": [
+    "Listed vehicle totals",
+    "Итоги указанной техники"
+  ],
+  "该模式 · 全部国家与兵种": [
+    "This mode · All nations and services",
+    "Этот режим · Все нации и рода войск"
+  ],
+  "含同场多车，不代表总对局": [
+    "Includes multiple vehicles per battle; not total matches",
+    "В бою может быть несколько машин; это не число боёв"
+  ],
+  "所列载具统计图": [
+    "Charts for listed vehicles",
+    "Графики указанной техники"
+  ],
+  "已知击毁": [
+    "Known kills",
+    "Известные уничтожения"
+  ],
+  "图表对应数值：所列载具效率评分与已返回的目标击毁构成": [
+    "Chart values: listed vehicle efficiency and returned kill breakdown",
+    "Значения графиков: эффективность указанной техники и доступный состав уничтоженных целей"
+  ],
+  "项目": [
+    "Item",
+    "Показатель"
+  ],
+  "数值": [
+    "Value",
+    "Значение"
+  ],
+  "击毁": [
+    "Kills",
+    "Уничтожено"
+  ],
+  "场": [
+    " battles",
+    " боёв"
+  ],
+  "累计获得银狮，非净收入": [
+    "Silver Lions earned, not net income",
+    "Заработанные Серебряные львы, не чистый доход"
+  ],
+  "历史点评保留原文，效率评分已按当前规则更新。": [
+    "Historical comments are preserved; efficiency has been updated to the current rules.",
+    "Старые комментарии сохранены; эффективность пересчитана по текущим правилам."
+  ],
+  "效率为工作台统计评分 · 构成图仅含所列载具的已知击毁 · 单车对空/地/海数字为 K/D": [
+    "Efficiency is the workbench score · Breakdown includes known kills of listed vehicles only · Vehicle air/ground/naval numbers are K/D",
+    "Эффективность — оценка мастерской · Диаграмма учитывает известные уничтожения указанной техники · Числа по воздуху/земле/морю — K/D"
+  ],
+  "银狮为累计获得，非余额或净收入 · AI 点评仅供参考": [
+    "Silver Lions are total earned, not balance or net income · AI comments are for reference only",
+    "Серебряные львы — всего заработано, не баланс и не чистый доход · Комментарии ИИ справочные"
+  ],
+  "{0}的游戏头像": [
+    "{0}'s game avatar",
+    "Игровой аватар: {0}"
+  ],
+  "{0} 官方 Wiki（新标签页打开）": [
+    "{0} official Wiki (opens in new tab)",
+    "{0}: официальная Wiki (новая вкладка)"
+  ],
+  "在新标签页打开官方 Wiki": [
+    "Open official Wiki in a new tab",
+    "Открыть официальную Wiki в новой вкладке"
+  ],
+  "{0} 级 ·": [
+    "Rank {0} ·",
+    "Ранг {0} ·"
+  ],
+  "战绩详情": [
+    "Stats details",
+    "Подробная статистика"
+  ],
+  "场次不足": [
+    "Too few battles",
+    "Мало боёв"
+  ],
+  "图片读取失败，请重新选择。": [
+    "Could not read image. Choose another.",
+    "Не удалось прочитать изображение. Выберите другое."
+  ],
+  "保存的玩家身份不一致，请重新查询。": [
+    "Saved player identity does not match. Query again.",
+    "Сохранённый игрок не совпадает. Выполните поиск снова."
+  ],
+  "已打开保存的查询记录，本次不扣查询次数；采集时间见下方。": [
+    "Saved query opened without using quota. Collection time is shown below.",
+    "Сохранённый запрос открыт без расхода лимита. Время сбора указано ниже."
+  ],
+  "正在查看本机资料。扩展统计暂未连接，可重新查询此玩家后继续查看。": [
+    "Viewing local data. Extended stats are not connected; query this player again to continue.",
+    "Показаны локальные данные. Расширенная статистика не подключена; найдите игрока снова."
+  ],
+  "暂时无法恢复查询记录。": [
+    "Could not restore query history.",
+    "Не удалось восстановить историю запросов."
+  ],
+  "本机资料暂时无法读取。": [
+    "Local data is temporarily unavailable.",
+    "Локальные данные временно недоступны."
+  ],
+  "没有找到玩家，请检查昵称与平台后缀。": [
+    "Player not found. Check nickname and platform suffix.",
+    "Игрок не найден. Проверьте никнейм и суффикс платформы."
+  ],
+  "查询失败，请稍后重试。": [
+    "Query failed. Please try later.",
+    "Запрос не удался. Повторите позже."
+  ],
+  "榜单玩家查询失败。": [
+    "Could not query the leaderboard player.",
+    "Не удалось загрузить игрока из рейтинга."
+  ],
+  "查询失败。": [
+    "Query failed.",
+    "Запрос не удался."
+  ],
+  "已重新获取官方资料。": [
+    "Official data refreshed.",
+    "Официальные данные обновлены."
+  ],
+  "刷新失败，原资料仍可查看。": [
+    "Refresh failed; previous data is still available.",
+    "Обновление не удалось; прежние данные доступны."
+  ],
+  "服务暂时不可用。": [
+    "Service temporarily unavailable.",
+    "Сервис временно недоступен."
+  ],
+  "暂时无法读取战报状态。": [
+    "Report status temporarily unavailable.",
+    "Статус отчёта временно недоступен."
+  ],
+  "账号状态已更新，请重新选择玩家。": [
+    "Account status updated. Select the player again.",
+    "Состояние аккаунта обновлено. Выберите игрока снова."
+  ],
+  "战报暂时无法生成。": [
+    "Report generation temporarily unavailable.",
+    "Создание отчёта временно недоступно."
+  ],
+  "保存失败，请重试。": [
+    "Save failed. Please retry.",
+    "Не удалось сохранить. Повторите."
+  ],
+  "暂时无法提取这张背景的颜色，可重选背景后再试。": [
+    "Could not extract colors from this background. Try selecting it again.",
+    "Не удалось извлечь цвета фона. Выберите его снова."
+  ],
+  "个人战绩档案": [
+    "Player service record",
+    "Личное дело игрока"
+  ],
+  "查看生涯表现、排位数据和完整车库，生成你的个人战报。": [
+    "View career stats, rankings and full hangar; create your personal battle report.",
+    "Карьера, рейтинги и весь ангар; создайте свой боевой отчёт."
+  ],
+  "超管": [
+    "Admin",
+    "Администратор"
+  ],
+  "普通用户": [
+    "Member",
+    "Пользователь"
+  ],
+  "游客": [
+    "Guest",
+    "Гость"
+  ],
+  "· 新查询": [
+    "· New queries",
+    "· Новые запросы"
+  ],
+  "/ 战报": [
+    "/ Reports",
+    "/ Отчёты"
+  ],
+  "每日零点重置 · 缓存命中不扣次": [
+    "Resets at midnight daily · Cache hits use no quota",
+    "Сброс ежедневно в полночь · Кэш не расходует лимит"
+  ],
+  "输入游戏昵称，保留 @psn 等后缀": [
+    "In-game nickname; keep suffixes such as @psn",
+    "Игровой никнейм; сохраняйте суффиксы вроде @psn"
+  ],
+  "正在查询…": [
+    "Searching…",
+    "Поиск…"
+  ],
+  "← 返回战绩首页": [
+    "← Stats home",
+    "← К поиску"
+  ],
+  "确认玩家": [
+    "Confirm player",
+    "Выберите игрока"
+  ],
+  "查看 ↗": [
+    "View ↗",
+    "Открыть ↗"
+  ],
+  "最近查询": [
+    "Recent queries",
+    "Недавние запросы"
+  ],
+  "清空记录": [
+    "Clear history",
+    "Очистить историю"
+  ],
+  "本机保留最近 16 位玩家的已查资料，点击直接查看，不发起新查询；需要最新资料时使用强制刷新。": [
+    "Stores the latest 16 queried players on this device. Click to view without a new query; use Force refresh for current data.",
+    "На устройстве хранятся данные последних 16 игроков. Просмотр не создаёт запрос; для актуальных данных нажмите «Обновить принудительно»."
+  ],
+  "还没有查询记录，输入昵称或从下方排行榜选择玩家。": [
+    "No queries yet. Enter a nickname or select a player from the leaderboard below.",
+    "Запросов пока нет. Введите никнейм или выберите игрока из рейтинга ниже."
+  ],
+  "官方排行榜": [
+    "Official leaderboards",
+    "Официальные рейтинги"
+  ],
+  "查看官方榜单 ↗": [
+    "View official leaderboard ↗",
+    "Официальный рейтинг ↗"
+  ],
+  "排行榜战斗模式": [
+    "Leaderboard mode",
+    "Режим рейтинга"
+  ],
+  "排行榜军种": [
+    "Leaderboard branch",
+    "Род войск рейтинга"
+  ],
+  "按官方累计击毁数整理，点击后按已核验 UID 查询；缓存命中免费，新查询遵守上方额度。": [
+    "Sorted by official total kills. Clicking queries the verified UID; cache hits are free, new queries follow the quota above.",
+    "По официальному общему числу уничтожений. Запрос выполняется по проверенному UID; кэш бесплатен, новые запросы используют лимит выше."
+  ],
+  "榜单快照采集于": [
+    "Leaderboard snapshot collected ",
+    "Снимок рейтинга собран "
+  ],
+  "· 官方累计榜，非实时更新。": [
+    "· Official all-time ranking; not live.",
+    "· Официальный рейтинг за всё время, не в реальном времени."
+  ],
+  "该榜单暂未获取，请稍后再试或直接输入昵称。": [
+    "Leaderboard unavailable. Try later or enter a nickname directly.",
+    "Рейтинг недоступен. Повторите позже или введите никнейм."
+  ],
+  "已命中缓存，本次不扣查询次数": [
+    "Cache hit; no query quota used",
+    "Данные из кэша; лимит не расходуется"
+  ],
+  "官方助手资料": [
+    "Official Assistant data",
+    "Данные официального помощника"
+  ],
+  "请先重新查询此玩家": [
+    "Query this player again first",
+    "Сначала найдите этого игрока снова"
+  ],
+  "重新获取官方资料，按一次新查询计入额度；同一玩家每分钟可刷新一次": [
+    "Fetch official data again, using one new query. Each player can be refreshed once per minute.",
+    "Повторно получить данные, потратив один запрос. Обновление игрока доступно раз в минуту."
+  ],
+  "正在获取…": [
+    "Fetching…",
+    "Загрузка…"
+  ],
+  "强制刷新": [
+    "Force refresh",
+    "Обновить принудительно"
+  ],
+  "强制刷新计入新查询次数": [
+    "Force refresh counts as a new query",
+    "Принудительное обновление расходует запрос"
+  ],
+  "战绩视图": [
+    "Stats view",
+    "Вид статистики"
+  ],
+  "个人战报": [
+    "Personal battle report",
+    "Личный боевой отчёт"
+  ],
+  "这位玩家还没有可展示的出击记录。": [
+    "This player has no sortie records to display.",
+    "У игрока нет записей о вылетах для показа."
+  ],
+  "载具战绩": [
+    "Vehicle stats",
+    "Статистика техники"
+  ],
+  "· 仅展示已出击载具": [
+    "· Played vehicles only",
+    "· Только техника с боями"
+  ],
+  "· 采集于 {0}": [
+    "· Collected {0}",
+    "· Собрано: {0}"
+  ],
+  "搜索载具名称或型号": [
+    "Search vehicle name or model",
+    "Название или модель техники"
+  ],
+  "载具国家筛选": [
+    "Filter vehicle nation",
+    "Фильтр нации техники"
+  ],
+  "国家待核验": [
+    "Nation unverified",
+    "Нация не проверена"
+  ],
+  "军种筛选": [
+    "Branch filter",
+    "Фильтр рода войск"
+  ],
+  "载具等级筛选": [
+    "Vehicle rank filter",
+    "Фильтр ранга техники"
+  ],
+  "载具战绩排序字段": [
+    "Vehicle stats sort field",
+    "Поле сортировки статистики техники"
+  ],
+  "不排序": [
+    "No sorting",
+    "Без сортировки"
+  ],
+  "按": [
+    "By ",
+    "По "
+  ],
+  "排序": [
+    "Sort",
+    "Сортировка"
+  ],
+  "切换为{0}排列载具战绩": [
+    "Sort vehicle stats in {0} order",
+    "Сортировать статистику техники: {0}"
+  ],
+  "升序": [
+    "Ascending",
+    "По возрастанию"
+  ],
+  "降序": [
+    "Descending",
+    "По убыванию"
+  ],
+  "升降序": [
+    "Sort direction",
+    "Порядок сортировки"
+  ],
+  "降序 ↓": [
+    "Descending ↓",
+    "По убыванию ↓"
+  ],
+  "升序 ↑": [
+    "Ascending ↑",
+    "По возрастанию ↑"
+  ],
+  "清除排序": [
+    "Clear sorting",
+    "Сбросить сортировку"
+  ],
+  "载具战绩展示形式": [
+    "Vehicle stats presentation",
+    "Представление статистики техники"
+  ],
+  "表格": [
+    "Table",
+    "Таблица"
+  ],
+  "卡片": [
+    "Cards",
+    "Карточки"
+  ],
+  "展示形式保存在本机": [
+    "View preference saved on this device",
+    "Вид сохранён на этом устройстве"
+  ],
+  "按{0}排序，点击切换升序或降序": [
+    "Sort by {0}; click to toggle ascending/descending",
+    "Сортировка по {0}; нажмите для смены порядка"
+  ],
+  "单车对空、对地、对海 K/D 分别使用该车死亡次数。银狮为助手累计获得统计，不是当前余额或扣除维修补给后的净收入，数据取自助手统计，建议以游戏内记录为准。“—”代表未返回。": [
+    "Vehicle air, ground and naval K/D all use that vehicle's deaths. Silver Lions are total earned according to the Assistant, not your balance or net income after repairs and supplies. In-game records take precedence. “—” means not returned.",
+    "K/D по воздуху, земле и морю используют смерти этой машины. Серебряные львы — всего заработано по данным помощника, не баланс и не чистый доход после ремонта и снабжения. Сверяйтесь с игрой. «—» означает, что данных нет."
+  ],
+  "定制你的战报": [
+    "Customize your report",
+    "Настройте свой отчёт"
+  ],
+  "选好范围、点评风格与背景，再一起生成。": [
+    "Choose scope, comment style and background, then generate.",
+    "Выберите область, стиль комментария и фон, затем создайте отчёт."
+  ],
+  "战报载具筛选": [
+    "Report vehicle filter",
+    "Фильтр техники отчёта"
+  ],
+  "战报国家": [
+    "Report nation",
+    "Нация отчёта"
+  ],
+  "兵种": [
+    "Service",
+    "Род войск"
+  ],
+  "战报兵种": [
+    "Report service",
+    "Род войск отчёта"
+  ],
+  "AI 点评风格": [
+    "AI comment style",
+    "Стиль комментария ИИ"
+  ],
+  "想怎么说": [
+    "How should it sound?",
+    "Как это сказать?"
+  ],
+  "例如：像战雷老玩家闲聊，先讲强项，再用一句冷幽默提醒短板。": [
+    "For example: an experienced War Thunder player chatting—start with strengths, then add a dry joke about weaknesses.",
+    "Например: беседа опытного игрока War Thunder — сначала сильные стороны, затем короткая ироничная реплика о слабых."
+  ],
+  "只描述语气和分析角度，请勿填写隐私。": [
+    "Describe tone and analysis angle only; do not include private information.",
+    "Укажите только тон и направление анализа, без личных данных."
+  ],
+  "筛选和选图不扣次数。点击生成时使用一次战报额度，生成失败会退回。": [
+    "Filtering and choosing images use no quota. Generating uses one report credit, refunded if generation fails.",
+    "Фильтры и выбор фона бесплатны. Создание расходует одну попытку отчёта, которая вернётся при ошибке."
+  ],
+  "正在查看已存战报。调整筛选可为当前玩家配置新战报。": [
+    "Viewing a saved report. Change filters to configure a new report for this player.",
+    "Показан сохранённый отчёт. Измените фильтры для нового отчёта этого игрока."
+  ],
+  "战雷官方背景": [
+    "Official War Thunder backgrounds",
+    "Официальные фоны War Thunder"
+  ],
+  "张": [
+    " images",
+    " изображений"
+  ],
+  "自动匹配军种与年代": [
+    "Auto-match branch and era",
+    "Автовыбор рода войск и эпохи"
+  ],
+  "背景类别": [
+    "Background category",
+    "Категория фона"
+  ],
+  "全部背景": [
+    "All backgrounds",
+    "Все фоны"
+  ],
+  "装甲战场": [
+    "Armored battlefield",
+    "Танковое поле боя"
+  ],
+  "航空战场": [
+    "Aerial battlefield",
+    "Воздушное поле боя"
+  ],
+  "海上战场": [
+    "Naval battlefield",
+    "Морское поле боя"
+  ],
+  "综合场景": [
+    "Mixed scenes",
+    "Разные сцены"
+  ],
+  "查看此背景的官方来源 ↗": [
+    "View official source of this background ↗",
+    "Официальный источник фона ↗"
+  ],
+  "上传自己的战报背景": [
+    "Upload your report background",
+    "Выбрать свой фон отчёта"
+  ],
+  "正在读取图片…": [
+    "Reading image…",
+    "Чтение изображения…"
+  ],
+  "上传自己的背景": [
+    "Upload your background",
+    "Выбрать свой фон"
+  ],
+  "自选背景缩略图": [
+    "Custom background thumbnail",
+    "Миниатюра своего фона"
+  ],
+  "JPG / PNG / WebP，最大 12 MB。只在本次页面使用，不上传服务器。": [
+    "JPG / PNG / WebP, up to 12 MB. Used on this page only; never uploaded to the server.",
+    "JPG / PNG / WebP, до 12 МБ. Только на этой странице, без загрузки на сервер."
+  ],
+  "从背景提取的战报配色": [
+    "Report colors extracted from background",
+    "Цвета отчёта из фона"
+  ],
+  "正在读取背景颜色…": [
+    "Reading background colors…",
+    "Извлечение цветов фона…"
+  ],
+  "随背景自动配色": [
+    "Auto colors from background",
+    "Автоцвета из фона"
+  ],
+  "正在生成战报与点评…": [
+    "Generating report and comments…",
+    "Создание отчёта и комментариев…"
+  ],
+  "取用相同配置战报": [
+    "Reuse matching report",
+    "Взять отчёт с теми же настройками"
+  ],
+  "生成我的战报": [
+    "Generate my report",
+    "Создать мой отчёт"
+  ],
+  "正在保存图片…": [
+    "Saving image…",
+    "Сохранение изображения…"
+  ],
+  "保存战报图片": [
+    "Save report image",
+    "Сохранить изображение отчёта"
+  ],
+  "取消保存": [
+    "Cancel save",
+    "Отменить сохранение"
+  ],
+  "我的战报": [
+    "My report",
+    "Мой отчёт"
+  ],
+  "更换背景和重复保存不扣次；更换分析风格或自定义内容会生成新战报。": [
+    "Changing backgrounds or saving again uses no quota. Changing analysis style or custom instructions creates a new report.",
+    "Смена фона и повторное сохранение бесплатны. Смена стиля или своих инструкций создаёт новый отчёт."
+  ],
+  "已生成": [
+    "Generated",
+    "Готово"
+  ],
+  "正在生成": [
+    "Generating",
+    "Создаётся"
+  ],
+  "待生成": [
+    "Not generated",
+    "Не создано"
+  ],
+  "你的战地档案": [
+    "Your service record",
+    "Ваше личное дело"
+  ],
+  "选好，再签发。": [
+    "Choose, then issue.",
+    "Выберите — и оформите."
+  ],
+  "辆有出击记录的载具": [
+    " vehicles with sortie records",
+    " ед. с записями о боях"
+  ],
+  "生成后展示生涯总览与该范围最常用的五辆载具。": [
+    "The report shows a career overview and the five most-used vehicles in this scope.",
+    "Отчёт покажет обзор карьеры и пять наиболее используемых машин в выбранной области."
+  ],
+  "这个范围暂时没有出击记录，请调整筛选。": [
+    "No sortie records in this scope. Adjust the filters.",
+    "В этой области нет записей о боях. Измените фильтры."
+  ],
+  "· 点击生成后，数据与点评一起完成。": [
+    "· Generation prepares data and comments together.",
+    "· Данные и комментарий создаются вместе."
+  ],
+  "正在制作": [
+    "In production",
+    "Создаётся"
+  ],
+  "正在写你的": [
+    "Writing your ",
+    "Готовим ваш "
+  ],
+  "结合真实生涯与常用载具完成点评，请稍候。": [
+    "Preparing comments from actual career stats and frequently used vehicles. Please wait.",
+    "Готовим комментарий по реальной статистике карьеры и частой технике. Подождите."
+  ],
+  "正在制作战报": [
+    "Creating report",
+    "Создание отчёта"
+  ],
+  "完成后，整份战报会一起出现。": [
+    "The complete report will appear together when ready.",
+    "Готовый отчёт появится целиком."
+  ],
+  "这份战报还没完成": [
+    "This report is not finished",
+    "Отчёт ещё не готов"
+  ],
+  "本次生成额度已退回，请稍后重新生成。": [
+    "The report credit was refunded. Try generating again later.",
+    "Попытка отчёта возвращена. Повторите создание позже."
+  ],
+  "效率分与 K/D 说明": [
+    "Efficiency & K/D notes",
+    "Об эффективности и K/D"
+  ],
+  "读懂你的战绩": [
+    "Understand your stats",
+    "Разберитесь в статистике"
+  ],
+  "先看统计范围，再看数字。": [
+    "Check the scope before the numbers.",
+    "Сначала область, затем цифры."
+  ],
+  "未生成": [
+    "Not generated",
+    "Не создано"
+  ],
+  "处理中": [
+    "Processing",
+    "Обработка"
+  ],
+  "还没有生成过战报。": [
+    "No reports generated yet.",
+    "Отчётов пока нет."
+  ],
+  "载具类型与游玩时长": [
+    "Vehicle classes & playtime",
+    "Классы техники и время игры"
+  ],
+  "按当前战斗模式，查看各类载具的使用记录。": [
+    "View class usage in the current battle mode.",
+    "Статистика классов техники в текущем режиме боя."
+  ],
+  "分类统计玩法": [
+    "Class statistics mode",
+    "Режим статистики классов"
+  ],
+  "正在补充分类统计…": [
+    "Loading class statistics…",
+    "Загрузка статистики классов…"
+  ],
+  "已记录时长": [
+    "Recorded playtime",
+    "Учтённое время игры"
+  ],
+  "小时": [
+    "hours",
+    "ч"
+  ],
+  "常用类型": [
+    "Most-used class",
+    "Частый класс"
+  ],
+  "玩法场次": [
+    "Mode battles",
+    "Боёв в режиме"
+  ],
+  "胜场": [
+    "Wins",
+    "Победы"
+  ],
+  "游玩时长": [
+    "Playtime",
+    "Время игры"
+  ],
+  "时长占比": [
+    "Time share",
+    "Доля времени"
+  ],
+  "对海击毁": [
+    "Naval kills",
+    "Морских целей уничтожено"
+  ],
+  "{0} {1} 小时": [
+    "{0} {1} hours",
+    "{0} {1} ч"
+  ],
+  "收起分类": [
+    "Collapse classes",
+    "Свернуть классы"
+  ],
+  "展开全部 {0} 类": [
+    "Expand all {0} classes",
+    "Все классы ({0})"
+  ],
+  "此模式暂无已核实的分类游玩记录。": [
+    "No verified class playtime for this mode.",
+    "Нет проверенного времени по классам для этого режима."
+  ],
+  "分类使用时长不含排队时间；占比以已返回分类的时长合计为基数，玩法场次不可按载具类型相加。未返回的数据记为“—”。": [
+    "Class playtime excludes queue time; shares use the total returned class time. Mode battles cannot be summed by vehicle class. Missing values show “—”.",
+    "Время по классам не включает очередь; доли рассчитаны по сумме доступного времени. Число боёв нельзя суммировать по классам техники. Нет данных — «—»."
+  ],
+  "查看{0}战绩详情": [
+    "View {0} stats details",
+    "Подробная статистика: {0}"
+  ],
+  "作战效率": [
+    "Combat efficiency",
+    "Боевая эффективность"
+  ],
+  "场次不足 50": [
+    "Fewer than 50 battles",
+    "Менее 50 боёв"
+  ],
+  "查看{0}详情": [
+    "View {0} details",
+    "Подробности: {0}"
+  ],
+  "查看详情": [
+    "View details",
+    "Подробнее"
+  ],
+  "生成{0}战绩图片": [
+    "Create {0} stats image",
+    "Создать изображение статистики: {0}"
+  ],
+  "生成图片": [
+    "Create image",
+    "Создать изображение"
+  ],
+  "载具战绩分页": [
+    "Vehicle stats pagination",
+    "Страницы статистики техники"
+  ],
+  "每页载具数量": [
+    "Vehicles per page",
+    "Техники на странице"
+  ],
+  "辆 / 页": [
+    " vehicles / page",
+    " ед. / стр."
+  ],
+  "载具战绩第一页": [
+    "First vehicle stats page",
+    "Первая страница статистики техники"
+  ],
+  "首页": [
+    "First",
+    "Первая"
+  ],
+  "载具战绩页码": [
+    "Vehicle stats page number",
+    "Номер страницы статистики техники"
+  ],
+  "载具战绩最后一页": [
+    "Last vehicle stats page",
+    "Последняя страница статистики техники"
+  ],
+  "末页": [
+    "Last",
+    "Последняя"
+  ],
+  "生成后将尝试复制图片。": [
+    "The image will be copied automatically if possible.",
+    "После создания будет выполнена попытка копирования."
+  ],
+  "卡片生成失败，请返回详情重试。": [
+    "Card generation failed. Return to details and retry.",
+    "Не удалось создать карточку. Вернитесь к деталям и повторите."
+  ],
+  "图片已复制，可直接粘贴分享。": [
+    "Image copied. Paste it to share.",
+    "Изображение скопировано. Вставьте его, чтобы поделиться."
+  ],
+  "自动复制未完成，请点击复制图片，或下载 PNG。": [
+    "Automatic copying failed. Select Copy image or download PNG.",
+    "Не удалось скопировать автоматически. Нажмите «Копировать изображение» или скачайте PNG."
+  ],
+  "复制被浏览器阻止，请允许剪贴板权限或下载 PNG。": [
+    "Copying blocked by browser. Allow clipboard access or download PNG.",
+    "Браузер запретил копирование. Разрешите буфер обмена или скачайте PNG."
+  ],
+  "载具战绩卡片": [
+    "Vehicle stats card",
+    "Карточка статистики техники"
+  ],
+  "背景": [
+    "Background",
+    "Фон"
+  ],
+  "载具卡片背景": [
+    "Vehicle card background",
+    "Фон карточки техники"
+  ],
+  "可自由切换时代风格": [
+    "Switch era styles freely",
+    "Свободная смена стиля эпохи"
+  ],
+  "{0} · {1} · {2} 战绩卡片": [
+    "{0} · {1} · {2} stats card",
+    "{0} · {1} · {2}: карточка статистики"
+  ],
+  "生成未完成": [
+    "Generation incomplete",
+    "Создание не завершено"
+  ],
+  "正在制作卡片": [
+    "Creating card",
+    "Создание карточки"
+  ],
+  "正在读取游戏原图与背景，请稍候…": [
+    "Loading original game images and background…",
+    "Загрузка игровых изображений и фона…"
+  ],
+  "返回详情后可重新生成。": [
+    "Return to details to generate again.",
+    "Вернитесь к деталям, чтобы создать заново."
+  ],
+  "返回详情": [
+    "Back to details",
+    "К подробностям"
+  ],
+  "复制图片": [
+    "Copy image",
+    "Копировать изображение"
+  ],
+  "下载 PNG": [
+    "Download PNG",
+    "Скачать PNG"
+  ],
+  "核对于": [
+    "Verified on ",
+    "Проверено "
+  ],
+  "折扣年历 · 高清参考图": [
+    "Annual sale calendar · High-resolution reference",
+    "Годовой календарь скидок · Полная справочная схема"
+  ],
+  "{0}；按原表格样式重新排字与绘制。": [
+    "{0}; typeset and redrawn in the original table style.",
+    "{0}; текст и схема оформлены по исходной таблице."
+  ],
+  "查看高清原图 ↗": [
+    "View full-resolution original ↗",
+    "Оригинал в полном разрешении ↗"
+  ],
+  "战争雷霆折扣年历：全系促销、专题纪念活动及参与条件，历史整理不代表当年公告。": [
+    "War Thunder sale calendar: general sales, themed events and eligibility. Historical records are not this year's announcements.",
+    "Календарь скидок War Thunder: общие акции, тематические события и условия участия. История не заменяет объявления текущего года."
+  ],
+  "参考图暂时无法加载，请通过上方链接查看高清原图。": [
+    "Reference image unavailable. Use the link above to open the original.",
+    "Справочная схема недоступна. Откройте оригинал по ссылке выше."
+  ],
+  "添加关注载具": [
+    "Add vehicle to watchlist",
+    "Добавить технику в избранное"
+  ],
+  "仅支持金鹰与商城礼包载具；关注列表保存在当前浏览器。": [
+    "GE and store-pack vehicles only. Watchlist is stored in this browser.",
+    "Только техника за ЗО и наборы магазина. Список хранится в этом браузере."
+  ],
+  "载具国家": [
+    "Vehicle nation",
+    "Нация техники"
+  ],
+  "载具军种": [
+    "Vehicle branch",
+    "Род войск техники"
+  ],
+  "载具等级": [
+    "Vehicle rank",
+    "Ранг техники"
+  ],
+  "名称或载具代号": [
+    "Name or vehicle ID",
+    "Название или ID техники"
+  ],
+  "正在查找载具…": [
+    "Searching vehicles…",
+    "Поиск техники…"
+  ],
+  "没有找到匹配载具，试试其他名称。": [
+    "No matching vehicles. Try another name.",
+    "Техника не найдена. Попробуйте другое название."
+  ],
+  "级 ·": [
+    " rank ·",
+    " ранг ·"
+  ],
+  "已关注": [
+    "Watching",
+    "В избранном"
+  ],
+  "＋ 关注": [
+    "＋ Watch",
+    "＋ В избранное"
+  ],
+  "找到 {0} 辆，展示前 {1} 辆。可继续输入名称缩小范围。": [
+    "{0} vehicles found; first {1} shown. Refine the name to narrow results.",
+    "Найдено: {0}, показано первых {1}. Уточните название."
+  ],
+  "历史公告 ↗": [
+    "Past announcement ↗",
+    "Прошлое объявление ↗"
+  ],
+  "官方公告 ↗": [
+    "Official announcement ↗",
+    "Официальное объявление ↗"
+  ],
+  "查看全年参考图 ↗": [
+    "View annual reference ↗",
+    "Годовая справочная схема ↗"
+  ],
+  "＋ 添加载具": [
+    "＋ Add vehicle",
+    "＋ Добавить технику"
+  ],
+  "日历说明": [
+    "Calendar notes",
+    "О календаре"
+  ],
+  "日期预测 · 参与范围 · 时间与平台": [
+    "Date forecasts · Eligibility · Time & platform",
+    "Прогноз дат · Участие · Время и платформа"
+  ],
+  "日期预测": [
+    "Date forecast",
+    "Прогноз дат"
+  ],
+  "按往年日期推算，开始与结束各预留 ±4 天；黑五按感恩节次日、春节按农历新年调整。两个范围分别表示可能的开始日、结束日，预测中点仅供参考，预测状态按预计起止日标注；预测不保证载具参与或折扣力度。": [
+    "Forecasts use past dates with ±4 days for start and end; Black Friday follows US Thanksgiving and Lunar New Year follows its lunar date. Ranges show possible start/end dates; midpoints are indicative. Forecasts do not guarantee vehicle eligibility or discount levels.",
+    "Прогноз по прошлым датам с окном ±4 дня для начала и конца; Чёрная пятница — после Дня благодарения США, Новый год — по лунному календарю. Окна обозначают возможные даты начала и конца, середина справочная. Участие техники и размер скидки не гарантируются."
+  ],
+  "参与范围": [
+    "Eligibility",
+    "Условия участия"
+  ],
+  "“已公布”表示活动日期确认，不代表所列国家的全部载具参与。新版本载具、联队载具及其改装、护符、备份、组合购买门槛，以当次公告为准；金鹰充值、交易所商品、乘员与研发 RP 不随购车活动自动降价。": [
+    "“Announced” confirms dates, not every vehicle of listed nations. New vehicles, squadron vehicles and modifications, talismans, backups and bundle requirements follow each announcement. GE top-ups, market items, crews and research RP do not automatically get vehicle-sale discounts.",
+    "«Объявлено» подтверждает даты, а не всю технику указанных наций. Новая и полковая техника, модификации, талисманы, дублёры и условия наборов — по объявлению. Пополнение ЗО, биржа, экипажи и ОИ не получают скидку автоматически."
+  ],
+  "时间平台": [
+    "Time & platform",
+    "Время и платформа"
+  ],
+  "统一使用北京时间，结束时刻不含在活动内；公告未注明时刻时只显示日期。当前为 PC／Gaijin 商城日历，游戏内与商城阶段分开，主机商店可能采用不同时间。": [
+    "All times are Beijing time (UTC+8); the end instant is excluded. Date-only announcements remain date-only. This calendar covers PC and the Gaijin Store, with in-game and store stages separate; console dates may differ.",
+    "Время пекинское (UTC+8); момент окончания не входит в акцию. Если время не указано, показывается только дата. Календарь для ПК и Gaijin Store; этапы игры и магазина раздельны. На консолях даты могут отличаться."
+  ],
+  "· 上次日历仍保留": [
+    "· Previous calendar preserved",
+    "· Прежний календарь сохранён"
+  ],
+  "活动概览": [
+    "Event overview",
+    "Обзор событий"
+  ],
+  "下一场活动": [
+    "Next event",
+    "Следующее событие"
+  ],
+  "正在读取公告": [
+    "Reading announcements",
+    "Чтение объявлений"
+  ],
+  "暂无可用排期": [
+    "No schedule available",
+    "Нет доступного расписания"
+  ],
+  "活动数据由服务器定期核对": [
+    "Server checks event data periodically",
+    "Сервер периодически проверяет события"
+  ],
+  "年排期": [
+    "year schedule",
+    "расписание года"
+  ],
+  "已公布阶段": [
+    "Announced stages",
+    "Объявленные этапы"
+  ],
+  "预测以虚线与“预计”区分": [
+    "Forecasts use dashed lines and “Estimated”",
+    "Прогнозы отмечены пунктиром и «Ожидается»"
+  ],
+  "我的关注": [
+    "My watchlist",
+    "Моё избранное"
+  ],
+  "辆载具": [
+    " vehicles",
+    " ед. техники"
+  ],
+  "按实际购买渠道寻找优惠窗口": [
+    "Find sale windows for each purchase channel",
+    "Акции для соответствующего способа покупки"
+  ],
+  "先把想买的载具放进关注列表": [
+    "Add desired vehicles to your watchlist first",
+    "Сначала добавьте желаемую технику в избранное"
+  ],
+  "关注金鹰与商城礼包载具，查看对应的优惠窗口和倒计时。": [
+    "Watch GE and pack vehicles to see relevant sale windows and countdowns.",
+    "Добавьте технику за ЗО и наборы для просмотра акций и обратного отсчёта."
+  ],
+  "预测窗口，尚未公布名单": [
+    "Forecast window; vehicle list not announced",
+    "Прогнозное окно; список техники не объявлен"
+  ],
+  "已核对参与名单": [
+    "Eligible list verified",
+    "Список участников проверен"
+  ],
+  "常规优惠范围，需核对新车排除名单": [
+    "General sale scope; check new-vehicle exclusions",
+    "Общая акция; проверьте исключения новой техники"
+  ],
+  "可能相关，需核对指定载具名单": [
+    "Possibly relevant; verify the specified vehicle list",
+    "Возможно подходит; проверьте список техники"
+  ],
+  "此购买渠道不自动参与常规载具促销": [
+    "This channel does not automatically join regular vehicle sales",
+    "Этот способ покупки не участвует в обычных акциях автоматически"
+  ],
+  "尚无匹配的优惠排期": [
+    "No matching sale schedule",
+    "Нет подходящих акций"
+  ],
+  "取消关注{0}": [
+    "Unwatch {0}",
+    "Убрать из избранного: {0}"
+  ],
+  "已显示": [
+    "Showing ",
+    "Показано "
+  ],
+  "收起至 5 辆 ↑": [
+    "Collapse to 5 vehicles ↑",
+    "Свернуть до 5 ↑"
+  ],
+  "展开全部 {0} 辆 ↓": [
+    "Show all {0} vehicles ↓",
+    "Показать все {0} ↓"
+  ],
+  "优惠月历": [
+    "Sale month calendar",
+    "Месячный календарь скидок"
+  ],
+  "年度优惠时间轴": [
+    "Annual sale timeline",
+    "Годовая шкала скидок"
+  ],
+  "官方已公布": [
+    "Officially announced",
+    "Официально объявлено"
+  ],
+  "历史推算": [
+    "Estimated from history",
+    "Прогноз по истории"
+  ],
+  "活动视图": [
+    "Event view",
+    "Вид событий"
+  ],
+  "月历": [
+    "Month",
+    "Месяц"
+  ],
+  "时间轴": [
+    "Timeline",
+    "Шкала времени"
+  ],
+  "活动年份": [
+    "Event year",
+    "Год событий"
+  ],
+  "月份": [
+    "Month",
+    "Месяц"
+  ],
+  "全年": [
+    "All year",
+    "Весь год"
+  ],
+  "优惠渠道": [
+    "Sale channel",
+    "Способ покупки"
+  ],
+  "全部购买渠道": [
+    "All purchase channels",
+    "Все способы покупки"
+  ],
+  "活动国家": [
+    "Event nations",
+    "Нации события"
+  ],
+  "排期状态": [
+    "Schedule status",
+    "Статус расписания"
+  ],
+  "已公布与预测": [
+    "Announced & forecast",
+    "Объявлено и прогноз"
+  ],
+  "仅看预测": [
+    "Forecasts only",
+    "Только прогноз"
+  ],
+  "按月份查看活动": [
+    "Browse events by month",
+    "События по месяцам"
+  ],
+  "{0}阶段": [
+    "{0} stages",
+    "Этапов: {0}"
+  ],
+  "暂无": [
+    "None",
+    "Нет"
+  ],
+  "正在读取服务器日历…": [
+    "Loading server calendar…",
+    "Загрузка календаря сервера…"
+  ],
+  "当前筛选下没有活动。可切换月份、购买渠道或查看其他年份。": [
+    "No events match these filters. Change month, purchase channel or year.",
+    "Нет событий по этим фильтрам. Измените месяц, способ покупки или год."
+  ],
+  "预计中点": [
+    "Forecast midpoint",
+    "Середина прогноза"
+  ],
+  "开始日期": [
+    "Start date",
+    "Дата начала"
+  ],
+  "预测窗口": [
+    "Forecast window",
+    "Прогнозное окно"
+  ],
+  "官方日期": [
+    "Official dates",
+    "Официальные даты"
+  ],
+  "全国家活动": [
+    "All-nation event",
+    "Событие для всех наций"
+  ],
+  "时间、依据与参与范围": [
+    "Timing, basis & eligibility",
+    "Даты, основания и участие"
+  ],
+  "开始：{0}；结束：{1}": [
+    "Start: {0}; end: {1}",
+    "Начало: {0}; конец: {1}"
+  ],
+  "{0}（原公告未注明开始时刻）": [
+    "{0} (no start time given in announcement)",
+    "{0} (в объявлении нет времени начала)"
+  ],
+  "去年": [
+    "Last year",
+    "Прошлый год"
+  ],
+  "历史基准：": [
+    "Historical basis: ",
+    "Историческая основа: "
+  ],
+  "年，": [
+    " year, ",
+    " год, "
+  ],
+  "该年力度待公布": [
+    "This year's discount not announced",
+    "Скидка этого года не объявлена"
+  ],
+  "适用于指定范围": [
+    "Applies to specified scope",
+    "Для указанной категории"
+  ],
+  "公告核对：": [
+    "Announcement verified: ",
+    "Объявление проверено: "
+  ],
+  "等待服务器": [
+    "Waiting for server",
+    "Ожидание сервера"
+  ],
+  "· 下次计划核对 {0}": [
+    "· Next scheduled check {0}",
+    "· Следующая проверка: {0}"
+  ],
+  "· 最近核对未完整完成，保留上次有效记录。": [
+    "· Latest check incomplete; previous valid records kept.",
+    "· Последняя проверка не завершена; прежние записи сохранены."
+  ],
+  "· 活动排期由管理员在后台核对更新。": [
+    "· Administrators verify and update event schedules.",
+    "· Расписание проверяется и обновляется администраторами."
+  ],
+  "一": [
+    "Mon",
+    "Пн"
+  ],
+  "二": [
+    "Tue",
+    "Вт"
+  ],
+  "三": [
+    "Wed",
+    "Ср"
+  ],
+  "四": [
+    "Thu",
+    "Чт"
+  ],
+  "五": [
+    "Fri",
+    "Пт"
+  ],
+  "六": [
+    "Sat",
+    "Сб"
+  ],
+  "日": [
+    "Sun",
+    "Вс"
+  ],
+  "{0}年{1}月{2}日": [
+    "{0}-{1}-{2}",
+    "{2}.{1}.{0}"
+  ],
+  "预计起止": [
+    "Estimated dates",
+    "Ожидаемые даты"
+  ],
+  "当日开始／结束": [
+    "Starts / ends this day",
+    "Начинается / заканчивается в этот день"
+  ],
+  "预计开始": [
+    "Estimated start",
+    "Ожидаемое начало"
+  ],
+  "预计结束": [
+    "Estimated end",
+    "Ожидаемый конец"
+  ],
+  "结束": [
+    "End",
+    "Конец"
+  ],
+  "预测时间窗": [
+    "Forecast time window",
+    "Временное окно прогноза"
+  ],
+  "预计期间": [
+    "Estimated period",
+    "Ожидаемый период"
+  ],
+  "优惠期间": [
+    "Sale period",
+    "Период скидок"
+  ],
+  "正在读取活动…": [
+    "Loading events…",
+    "Загрузка событий…"
+  ],
+  "{0} 个活动阶段": [
+    "{0} event stages",
+    "Этапов событий: {0}"
+  ],
+  "上个月": [
+    "Previous month",
+    "Предыдущий месяц"
+  ],
+  "本月": [
+    "This month",
+    "Этот месяц"
+  ],
+  "下个月": [
+    "Next month",
+    "Следующий месяц"
+  ],
+  "活动以连续横条覆盖起止日期，跨周接续显示。点击横条查看完整信息；虚线为预测，浅色区段表示可能提前或延后的时间窗。": [
+    "Events span continuous bars across dates and weeks. Click for full details. Dashed bars are forecasts; lighter segments mark possible earlier/later dates.",
+    "События показаны непрерывными полосами по датам и неделям. Нажмите для подробностей. Пунктир — прогноз; светлые сегменты — возможное смещение дат."
+  ],
+  "{0}年{1}月优惠月历": [
+    "Sale calendar {0}-{1}",
+    "Календарь скидок: {1}.{0}"
+  ],
+  "周": [
+    "Week",
+    "Неделя"
+  ],
+  "{0}，{1}项优惠，点击查看当天活动": [
+    "{0}, {1} offers; click to view day's events",
+    "{0}, акций: {1}; нажмите для просмотра дня"
+  ],
+  "今天": [
+    "Today",
+    "Сегодня"
+  ],
+  "{0}，{1}，{2}，点击查看活动详情": [
+    "{0}, {1}, {2}; click for event details",
+    "{0}, {1}, {2}; нажмите для подробностей события"
+  ],
+  "‹ 接上周": [
+    "‹ From previous week",
+    "‹ С прошлой недели"
+  ],
+  "预计窗口": [
+    "Estimated window",
+    "Ожидаемое окно"
+  ],
+  "{0}起": [
+    "From {0}",
+    "С {0}"
+  ],
+  "下周续 ›": [
+    "Continues next week ›",
+    "На следующую неделю ›"
+  ],
+  "窗口止": [
+    "Window end",
+    "Конец окна"
+  ],
+  "{0}止": [
+    "Until {0}",
+    "До {0}"
+  ],
+  "本月没有符合筛选条件的活动，可切换月份或调整筛选。": [
+    "No matching events this month. Change month or filters.",
+    "В этом месяце нет подходящих событий. Измените месяц или фильтры."
+  ],
+  "所选日期活动": [
+    "Selected day's events",
+    "События выбранного дня"
+  ],
+  "活动详情": [
+    "Event details",
+    "Подробности события"
+  ],
+  "项活动": [
+    " events",
+    " событий"
+  ],
+  "关闭日期详情": [
+    "Close day details",
+    "Закрыть подробности дня"
+  ],
+  "当天没有符合筛选条件的活动。": [
+    "No matching events on this date.",
+    "В этот день нет подходящих событий."
+  ],
+  "开始：": [
+    "Start: ",
+    "Начало: "
+  ],
+  "{0}（公告未注明时刻）": [
+    "{0} (time not stated in announcement)",
+    "{0} (время в объявлении не указано)"
+  ],
+  "· 结束：": [
+    "· End: ",
+    "· Конец: "
+  ],
+  "历史依据": [
+    "Historical basis",
+    "Исторические основания"
+  ],
+  "官方公告": [
+    "Official announcement",
+    "Официальное объявление"
+  ],
+  "生涯看全貌，Top 5 看常用载具。两处统计范围不同，阅读时请先留意标题。": [
+    "Career shows the big picture; Top 5 shows favorite vehicles. Their scopes differ—check the headings first.",
+    "Карьера показывает общую картину, топ-5 — любимую технику. Области различаются; сначала смотрите заголовки."
+  ],
+  "评分受击毁与死亡表现、场均击毁、每次出击击毁、胜率、场均死亡与场均出击影响。 它不是官方评级或全服排名；不足": [
+    "The score reflects kills/deaths, kills per battle and sortie, win rate, deaths and sorties per battle. It is not an official rating or server rank; fewer than ",
+    "Оценка учитывает уничтожения и смерти, уничтожения за бой и вылет, победы, смерти и вылеты за бой. Это не официальный рейтинг и не место на сервере; менее "
+  ],
+  "场记 0 分。": [
+    " battles receive a score of 0.",
+    " боёв дают оценку 0."
+  ],
+  "击毁与死亡": [
+    "Kills & deaths",
+    "Уничтожения и смерти"
+  ],
+  "场均击毁": [
+    "Kills / battle",
+    "Уничтожений / бой"
+  ],
+  "每次出击击毁": [
+    "Kills / sortie",
+    "Уничтожений / вылет"
+  ],
+  "场均死亡": [
+    "Deaths / battle",
+    "Смертей / бой"
+  ],
+  "场均出击": [
+    "Sorties / battle",
+    "Вылетов / бой"
+  ],
+  "缺失关键记录时显示“—”，未返回的击毁类别保持未知。": [
+    "Missing key records show “—”; unreturned kill categories stay unknown.",
+    "При отсутствии ключевых данных — «—»; неотданные категории уничтожений остаются неизвестными."
+  ],
+  "K/D 怎么看": [
+    "Understanding K/D",
+    "Как читать K/D"
+  ],
+  "击毁 ÷ 对应死亡": [
+    "Kills ÷ corresponding deaths",
+    "Уничтожения ÷ соответствующие смерти"
+  ],
+  "陆军对地": [
+    "Ground vehicles vs ground",
+    "Наземная техника по земле"
+  ],
+  "陆军的地面目标击毁 / 陆军载具死亡": [
+    "Ground kills by ground vehicles / ground vehicle deaths",
+    "Наземные цели наземной техники / её смерти"
+  ],
+  "航空对空": [
+    "Aircraft vs air",
+    "Авиация по воздуху"
+  ],
+  "航空的空中目标击毁 / 航空载具死亡": [
+    "Air kills by aircraft / aircraft deaths",
+    "Воздушные цели авиации / её смерти"
+  ],
+  "海军对海": [
+    "Naval vehicles vs naval",
+    "Флот по морским целям"
+  ],
+  "海军的海上目标击毁 / 海军载具死亡": [
+    "Naval kills by naval vehicles / naval vehicle deaths",
+    "Морские цели флота / его смерти"
+  ],
+  "单车 K/D": [
+    "Vehicle K/D",
+    "K/D машины"
+  ],
+  "该车对空、对地或对海击毁 / 该车死亡": [
+    "This vehicle's air, ground or naval kills / its deaths",
+    "Воздушные, наземные или морские цели машины / её смерти"
+  ],
+  "只配对同一范围内已返回的记录。综合 K/D 合计已知击毁；缺少死亡记录时，不推测分母。": [
+    "Only returned records in the same scope are paired. Overall K/D sums known kills; a missing death count is never inferred.",
+    "Сопоставляются только доступные записи одной области. Общий K/D суммирует известные уничтожения; отсутствующее число смертей не предполагается."
+  ],
+  "六维能力图": [
+    "Six-axis chart",
+    "Диаграмма шести показателей"
+  ],
+  "展示同一模式下的胜率、对空表现、对地表现、综合 K/D、出击表现与场均击毁。 各维度统一展示为 0–100；缺项留空，不表示全服名次。": [
+    "Shows win rate, air performance, ground performance, overall K/D, sortie performance and kills per battle in one mode. Axes use 0–100; missing values stay blank. This is not a server rank.",
+    "Победы, воздушные и наземные результаты, общий K/D, эффективность вылетов и уничтожения за бой в одном режиме. Шкалы 0–100; отсутствующие значения пустые. Это не место на сервере."
+  ],
+  "记录载具累计获得的银狮，按四位分组阅读。它不是当前余额或扣除维修后的净收入；未返回的金额显示“—”。": [
+    "Shows Silver Lions earned by vehicles, using compact notation. This is not the current balance or net income after repairs; missing amounts show “—”.",
+    "Показаны Серебряные львы, заработанные техникой, в кратком виде. Это не баланс и не чистый доход после ремонта; отсутствующие суммы — «—»."
+  ],
+  "资料来自公开统计，载具列表仅包含有出击记录的载具，并非完整车库。AI 点评基于这些资料，不代表官方评价。": [
+    "Data comes from public statistics. Battle lists contain only played vehicles, not the full hangar. AI comments use this data and are not official evaluations.",
+    "Данные взяты из публичной статистики. Боевой список содержит только технику с боями, не весь ангар. Комментарии ИИ основаны на этих данных и не являются официальной оценкой."
+  ],
+  "研发点 —": [
+    "RP —",
+    "ОИ —"
+  ],
+  "免费研发": [
+    "Free research",
+    "Бесплатное исследование"
+  ],
+  "{0}，Rank {1}，查看研发信息": [
+    "{0}, Rank {1}, view research information",
+    "{0}, ранг {1}, сведения об исследовании"
+  ],
+  "原始列位置 · 沿箭头向下": [
+    "Original columns · Follow arrows down",
+    "Исходные столбцы · По стрелкам вниз"
+  ],
+  "金币 / 礼包及特殊载具": [
+    "GE / Packs & special vehicles",
+    "ЗО / Наборы и особая техника"
+  ],
+  "辆 · 常规研发": [
+    " vehicles · Regular research",
+    " ед. · Обычное исследование"
+  ],
+  "联动系统": [
+    "Linked system",
+    "Связанная система"
+  ],
+  "手动基础 RP": [
+    "Manual base RP",
+    "Базовые ОИ вручную"
+  ],
+  "从 Rank {0} 计价，低等级跳过": [
+    "Price from Rank {0}; lower ranks skipped",
+    "Расчёт с ранга {0}; более низкие пропущены"
+  ],
+  "自动，按真实已有记录计算": [
+    "Automatic, based on actual ownership",
+    "Автоматически, по имеющейся технике"
+  ],
+  "目标已研：{0} RP": [
+    "Target researched: {0} RP",
+    "Исследовано у цели: {0} ОИ"
+  ],
+  "本线已拥有至：{0}；等级已开放至：{1}": [
+    "Owned along this line through: {0}; ranks unlocked through: {1}",
+    "Техника в этой линии до: {0}; открыты ранги до: {1}"
+  ],
+  "未记录": [
+    "Not recorded",
+    "Не записано"
+  ],
+  "计价起点：{0}": [
+    "Pricing starts at: {0}",
+    "Начало расчёта: {0}"
+  ],
+  "Rank {0}，低于该等级的载具不计价（不代表实际拥有）": [
+    "Rank {0}; lower ranks excluded from pricing, not marked as owned",
+    "Ранг {0}; более низкие не оцениваются, но не считаются имеющимися"
+  ],
+  "已有：{0}": [
+    "Owned: {0}",
+    "В наличии: {0}"
+  ],
+  "{0}→{1}：已有 {2} + 新增 {3} / {4}": [
+    "{0}→{1}: {2} owned + {3} new / {4}",
+    "{0}→{1}: {2} в наличии + {3} новых / {4}"
+  ],
+  "已解锁": [
+    "Unlocked",
+    "Открыто"
+  ],
+  "RP未知": [
+    "RP unknown",
+    "ОИ неизвестны"
+  ],
+  "新增车辆需研究后购买才能计入门槛。不含银狮、金币购车、改装或联队研发。自动补位不保证全局最低。": [
+    "New vehicles count toward rank gates only after research and purchase. Excludes Silver Lions, GE purchases, modifications and squadron research. Automatic fillers do not guarantee the global minimum.",
+    "Новая техника учитывается в пороге ранга только после исследования и покупки. Без Серебряных львов, покупок за ЗО, модификаций и полкового исследования. Автоподбор не гарантирует общий минимум."
+  ],
+  "载具研发报价": [
+    "Vehicle research quote",
+    "Расчёт исследования техники"
+  ],
+  "{0} / {1} · 账号进度自动保存在本地": [
+    "{0} / {1} · Account progress saved locally",
+    "{0} / {1} · Прогресс аккаунта сохранён локально"
+  ],
+  "报价设置": [
+    "Quote settings",
+    "Настройки расчёта"
+  ],
+  "目标与单价": [
+    "Target & rate",
+    "Цель и тариф"
+  ],
+  "每万研发点单价（元）": [
+    "Price per 10,000 RP (CNY)",
+    "Цена за 10 000 ОИ (CNY)"
+  ],
+  "填写单价后显示价格": [
+    "Enter a rate to see the price",
+    "Укажите тариф для расчёта цены"
+  ],
+  "账号进度": [
+    "Account progress",
+    "Прогресс аккаунта"
+  ],
+  "这条线路已拥有到哪辆车？": [
+    "Which vehicle do you own along this line?",
+    "До какой машины в этой линии есть техника?"
+  ],
+  "本线前置尚未拥有": [
+    "No predecessors owned in this line",
+    "Нет предшественников в этой линии"
+  ],
+  "目标载具也已拥有（待研 0）": [
+    "Target also owned (0 RP remaining)",
+    "Цель уже в наличии (осталось 0 ОИ)"
+  ],
+  "选择已购车辆，会将本线到该车的前置一并记为已有。": [
+    "Selecting an owned vehicle also marks its predecessors along this line as owned.",
+    "Выбор купленной машины отмечает имеющимися и её предшественников в этой линии."
+  ],
+  "已可直接研发，只算目标": [
+    "Ready to research; target only",
+    "Можно исследовать сразу; только цель"
+  ],
+  "已开放等级 / 计价起点": [
+    "Unlocked rank / Pricing start",
+    "Открытый ранг / Начало расчёта"
+  ],
+  "自动识别：Rank": [
+    "Auto-detected: Rank ",
+    "Автоопределение: ранг "
+  ],
+  "从 Rank": [
+    "From Rank ",
+    "С ранга "
+  ],
+  "计价": [
+    "Price from here",
+    "Начало расчёта"
+  ],
+  "手动选择后，低于该等级的载具均跳过计价；本级及以上前置与数量补位照常计算，不修改真实已有记录。自动识别时按真实已有载具计算。": [
+    "Manual selection skips lower ranks for pricing; prerequisites and fillers at this rank or above are still counted. Actual ownership is unchanged. Automatic mode uses actual owned vehicles.",
+    "Ручной выбор исключает из цены более низкие ранги; предшественники и добор от этого ранга учитываются. Реальное владение не меняется. Автоматический режим использует имеющуюся технику."
+  ],
+  "其他已有载具与补研偏好": [
+    "Other owned vehicles & filler preferences",
+    "Другая техника и предпочтения добора"
+  ],
+  "辆已有": [
+    " vehicles owned",
+    " ед. в наличии"
+  ],
+  "· {0} 项偏好": [
+    "· {0} preferences",
+    "· Предпочтений: {0}"
+  ],
+  "已有载具": [
+    "Owned vehicles",
+    "Имеющаяся техника"
+  ],
+  "补研选择": [
+    "Filler preferences",
+    "Выбор добора"
+  ],
+  "搜索计算载具": [
+    "Search research candidates",
+    "Поиск техники для расчёта"
+  ],
+  "全部载具": [
+    "All vehicles",
+    "Вся техника"
+  ],
+  "金币 / 特殊": [
+    "GE / Special",
+    "ЗО / Особая"
+  ],
+  "已勾选": [
+    "Selected",
+    "Выбрано"
+  ],
+  "仅勾选已购买 / 已领取车辆；高级、活动和联队车计入所在等级数量。": [
+    "Select only purchased or claimed vehicles. Premium, event and squadron vehicles count toward their rank.",
+    "Отмечайте только купленную или полученную технику. Премиумная, событийная и полковая техника учитывается в своём ранге."
+  ],
+  "指定车辆会连同必要前置加入；排除只限制自动补位，不绕过目标前置。": [
+    "Required selections include their predecessors. Exclusions affect automatic fillers only and cannot bypass target prerequisites.",
+    "Указанная техника добавляется с предшественниками. Исключения ограничивают автодобор и не обходят требования цели."
+  ],
+  "官方车库已拥有，清除导入后可手动修改": [
+    "Owned in official hangar; clear the import to edit manually",
+    "Есть в официальном ангаре; удалите импорт для ручной правки"
+  ],
+  "{0} 补研策略": [
+    "{0} filler strategy",
+    "Стратегия добора: {0}"
+  ],
+  "自动": [
+    "Automatic",
+    "Автоматически"
+  ],
+  "指定": [
+    "Required",
+    "Обязательно"
+  ],
+  "排除": [
+    "Exclude",
+    "Исключить"
+  ],
+  "没有匹配载具，请调整搜索或筛选条件。": [
+    "No matching vehicles. Adjust search or filters.",
+    "Техника не найдена. Измените поиск или фильтры."
+  ],
+  "已投入研发点与门槛修正": [
+    "Invested RP & rank-gate overrides",
+    "Вложенные ОИ и поправки порогов"
+  ],
+  "已研 {0} RP": [
+    "{0} RP researched",
+    "Исследовано {0} ОИ"
+  ],
+  "可选": [
+    "Optional",
+    "Необязательно"
+  ],
+  "· 门槛已修改": [
+    "· Gate overridden",
+    "· Порог изменён"
+  ],
+  "已投入目标载具的研发点": [
+    "RP already invested in target",
+    "ОИ, уже вложенные в цель"
+  ],
+  "修正各级购车数量门槛": [
+    "Override vehicle purchase gates by rank",
+    "Изменить число покупок для рангов"
+  ],
+  "按同国、同军种的上一级已购数量计数。": [
+    "Counts purchases in the previous rank of the same nation and branch.",
+    "Учитываются покупки предыдущего ранга той же нации и рода войск."
+  ],
+  "配置镜像": [
+    "Configuration mirror",
+    "Зеркало конфигурации"
+  ],
+  "→ 下一级": [
+    "→ Next rank",
+    "→ Следующий ранг"
+  ],
+  "只计算研发点，不含购车与乘员费用。": [
+    "Research Points only; excludes vehicle and crew purchase costs.",
+    "Только ОИ, без стоимости покупки техники и экипажа."
+  ],
+  "重置本树进度": [
+    "Reset this tree's progress",
+    "Сбросить прогресс этой ветки"
+  ],
+  "研发报价结果": [
+    "Research quote result",
+    "Результат расчёта исследования"
+  ],
+  "{0} · 载具研发": [
+    "{0} · Vehicle research",
+    "{0} · Исследование техники"
+  ],
+  "已复制清单": [
+    "List copied",
+    "Список скопирован"
+  ],
+  "无法访问剪贴板，可加入购物车后导出 JSON。": [
+    "Clipboard unavailable. Add to cart and export JSON.",
+    "Буфер обмена недоступен. Добавьте в корзину и экспортируйте JSON."
+  ],
+  "复制清单": [
+    "Copy list",
+    "Копировать список"
+  ],
+  "按实际研发点计价，不凑整万。": [
+    "Based on exact Research Points; not rounded to blocks of 10,000.",
+    "Расчёт по точным ОИ, без округления до десятков тысяч."
+  ],
+  "辆成本未知，请在清单补填基础 RP。已知部分": [
+    " vehicles have unknown costs. Enter base RP in the list. Known portion ",
+    " ед. с неизвестной стоимостью. Укажите базовые ОИ в списке. Известная часть "
+  ],
+  "已研 RP 需为非负整数，可在左侧“已投入研发点”中修正。": [
+    "Researched RP must be a nonnegative integer. Correct it under “Invested RP” on the left.",
+    "Исследованные ОИ — целое неотрицательное число. Исправьте в разделе «Вложенные ОИ» слева."
+  ],
+  "等级门槛需为 0～99 的整数，可在左侧“门槛修正”中修改。": [
+    "Rank gates must be integers from 0 to 99. Edit the gate overrides on the left.",
+    "Порог ранга — целое число от 0 до 99. Измените поправки порогов слева."
+  ],
+  "基础 RP 修改后请按 Enter 或移开焦点应用。": [
+    "Press Enter or leave the field to apply base RP changes.",
+    "Нажмите Enter или уберите фокус для применения базовых ОИ."
+  ],
+  "这条线路还有": [
+    "This line still has ",
+    "В этой линии ещё "
+  ],
+  "辆前置未记录为已有": [
+    " predecessors not recorded as owned",
+    " предшественников, не отмеченных имеющимися"
+  ],
+  "清单保留计价起点及以上的未拥有前置。已实际拥有的载具可在本线进度或清单中扣除。": [
+    "Lists unowned prerequisites at or above the pricing start. Mark owned vehicles in line progress or the list to deduct them.",
+    "Показаны отсутствующие предшественники от начала расчёта. Отметьте имеющиеся в прогрессе линии или списке, чтобы вычесть."
+  ],
+  "已拥有的前置不会重复计价，请先填写左侧的本线进度。": [
+    "Owned predecessors are never charged twice. Enter your line progress on the left first.",
+    "Имеющиеся предшественники повторно не оплачиваются. Сначала укажите прогресс линии слева."
+  ],
+  "本次研发清单": [
+    "Research list for this quote",
+    "Список этого исследования"
+  ],
+  "辆 · 前置": [
+    " vehicles · Prerequisites",
+    " ед. · Предшественники"
+  ],
+  "· 等级补位": [
+    "· Rank fillers",
+    "· Добор ранга"
+  ],
+  "完成修改": [
+    "Finish editing",
+    "Завершить правку"
+  ],
+  "修改基础 RP": [
+    "Edit base RP",
+    "Изменить базовые ОИ"
+  ],
+  "已有": [
+    "Owned",
+    "В наличии"
+  ],
+  "研发顺序 / 用途": [
+    "Research order / Purpose",
+    "Порядок / Назначение"
+  ],
+  "基础 RP": [
+    "Base RP",
+    "Базовые ОИ"
+  ],
+  "待研 RP": [
+    "Remaining RP",
+    "Остаток ОИ"
+  ],
+  "{0} 已拥有": [
+    "{0} owned",
+    "{0} в наличии"
+  ],
+  "{0} 完整基础 RP": [
+    "{0} full base RP",
+    "{0}: полные базовые ОИ"
+  ],
+  "填写 RP": [
+    "Enter RP",
+    "Укажите ОИ"
+  ],
+  "待填": [
+    "Required",
+    "Нужно указать"
+  ],
+  "目标载具已拥有": [
+    "Target already owned",
+    "Цель уже в наличии"
+  ],
+  "目标低于计价起点": [
+    "Target below pricing start",
+    "Цель ниже начала расчёта"
+  ],
+  "本次无需新增研发": [
+    "No new research needed",
+    "Новое исследование не требуется"
+  ],
+  "本次无需研发，可以选择其他目标继续计算。": [
+    "No research needed for this quote. Choose another target.",
+    "Исследование не требуется. Выберите другую цель."
+  ],
+  "等级门槛核对": [
+    "Rank-gate checks",
+    "Проверка порогов ранга"
+  ],
+  "项需要核对 · 其余已开放或无需解锁": [
+    " items to verify · Others unlocked or not required",
+    " поз. для проверки · Остальные открыты или не требуются"
+  ],
+  "本次新增": [
+    "New in this quote",
+    "Добавлено в расчёте"
+  ],
+  "要求 / 状态": [
+    "Requirement / Status",
+    "Требование / Статус"
+  ],
+  "已开放": [
+    "Unlocked",
+    "Открыто"
+  ],
+  "无需解锁": [
+    "Not required",
+    "Не требуется"
+  ],
+  "自动补位按新增前置链成本优先选择，可在左侧调整补研偏好；不保证全局最省。新增车辆须购买后才计入等级数量。": [
+    "Automatic fillers prioritize the added prerequisite-chain cost. Adjust preferences on the left; the global minimum is not guaranteed. New vehicles count toward rank only after purchase.",
+    "Автодобор выбирает по стоимости добавляемой цепочки. Предпочтения задаются слева; глобальный минимум не гарантирован. Новая техника учитывается в ранге только после покупки."
+  ],
+  "以色列跨国入门条件需在游戏内满足，本表从本国起始等级计算。": [
+    "Israel's cross-nation entry conditions must be met in game. This table starts at the nation's first rank.",
+    "Условия входа в израильскую ветку через другие нации нужно выполнить в игре. Расчёт начинается с начального ранга нации."
+  ],
+  "官方图片暂时无法载入，可点击载具标题查看官方资料。": [
+    "Official image temporarily unavailable. Click the vehicle title for official information.",
+    "Официальное изображение недоступно. Нажмите название техники для официальных сведений."
+  ],
+  "正在载入官方图片…": [
+    "Loading official image…",
+    "Загрузка официального изображения…"
+  ],
+  "{0} 官方载具图片": [
+    "{0} official vehicle image",
+    "{0}: официальное изображение техники"
+  ],
+  "大图暂不可用，显示官方预览图": [
+    "Full image unavailable; showing official thumbnail",
+    "Полное изображение недоступно; показана официальная миниатюра"
+  ],
+  "界面暂时无法显示": [
+    "Interface temporarily unavailable",
+    "Интерфейс временно недоступен"
+  ],
+  "界面未能正常显示，请重新加载；本地购物车会保留。": [
+    "The interface could not be displayed. Reload; your local cart is preserved.",
+    "Не удалось показать интерфейс. Перезагрузите; локальная корзина сохранится."
+  ],
+  "工作台页面缺少共享状态。": [
+    "Shared workbench state is missing.",
+    "Нет общего состояния мастерской."
+  ],
+  "载具资料读取失败": [
+    "Could not load vehicle data",
+    "Не удалось загрузить данные техники"
+  ],
+  "这份报价已经在购物车中。": [
+    "This quote is already in the cart.",
+    "Этот расчёт уже в корзине."
+  ],
+  "购物车已满，请导出备份并移除部分报价。": [
+    "Cart full. Export a backup and remove some quotes.",
+    "Корзина заполнена. Экспортируйте копию и удалите часть расчётов."
+  ],
+  "已更新购物车中的配件报价 ✓": [
+    "Modification quote updated in cart ✓",
+    "Расчёт модификаций в корзине обновлён ✓"
+  ],
+  "已加入购物车 ✓": [
+    "Added to cart ✓",
+    "Добавлено в корзину ✓"
+  ],
+  "保存失败：浏览器存储不可用或已满。请先导出购物车，报价尚未加入。": [
+    "Save failed: browser storage unavailable or full. Export your cart first; the quote was not added.",
+    "Не удалось сохранить: хранилище недоступно или заполнено. Сначала экспортируйте корзину; расчёт не добавлен."
+  ],
+  "浏览器保存失败，条目尚未移除。": [
+    "Browser save failed; item was not removed.",
+    "Ошибка сохранения браузера; позиция не удалена."
+  ],
+  "科技树筛选与操作": [
+    "Tech tree filters & actions",
+    "Фильтры и действия дерева"
+  ],
+  "筛选与操作": [
+    "Filters & actions",
+    "Фильтры и действия"
+  ],
+  "· 搜索：{0}": [
+    "· Search: {0}",
+    "· Поиск: {0}"
+  ],
+  "· 已筛选": [
+    "· Filtered",
+    "· Фильтр активен"
+  ],
+  "展开": [
+    "Expand",
+    "Развернуть"
+  ],
+  "国家与军种": [
+    "Nation & branch",
+    "Нация и род войск"
+  ],
+  "选择国家：{0}": [
+    "Choose nation: {0}",
+    "Выбрать нацию: {0}"
+  ],
+  "未选择": [
+    "Not selected",
+    "Не выбрано"
+  ],
+  "搜索载具 / 定位路线": [
+    "Search vehicles / Find route",
+    "Поиск техники / Найти маршрут"
+  ],
+  "个匹配；点击定位并高亮路线。": [
+    " matches; click to locate and highlight the route.",
+    " совпадений; нажмите для перехода и подсветки маршрута."
+  ],
+  "高亮权重": [
+    "BR highlight",
+    "Подсветка БР"
+  ],
+  "右侧载具": [
+    "Vehicles on the right",
+    "Техника справа"
+  ],
+  "全部特殊载具": [
+    "All special vehicles",
+    "Вся особая техника"
+  ],
+  "金币车": [
+    "GE vehicles",
+    "Техника за ЗО"
+  ],
+  "礼包车": [
+    "Pack vehicles",
+    "Техника из наборов"
+  ],
+  "活动 / 其他": [
+    "Event / Other",
+    "Событийная / Другая"
+  ],
+  "研发配件": [
+    "Research modifications",
+    "Исследование модификаций"
+  ],
+  "购物车": [
+    "Cart",
+    "Корзина"
+  ],
+  "收起折叠组": [
+    "Collapse folders",
+    "Свернуть группы"
+  ],
+  "展开折叠组": [
+    "Expand folders",
+    "Развернуть группы"
+  ],
+  "缩小": [
+    "Zoom out",
+    "Уменьшить"
+  ],
+  "放大": [
+    "Zoom in",
+    "Увеличить"
+  ],
+  "退出全屏": [
+    "Exit fullscreen",
+    "Выйти из полноэкранного режима"
+  ],
+  "⛶ 全屏": [
+    "⛶ Fullscreen",
+    "⛶ На весь экран"
+  ],
+  "资料更新 ·": [
+    "Data updated ·",
+    "Данные обновлены ·"
+  ],
+  "官方原树 ↗": [
+    "Official tree ↗",
+    "Официальное дерево ↗"
+  ],
+  "收起并查看科技树": [
+    "Collapse & view tree",
+    "Свернуть и смотреть дерево"
+  ],
+  "{0} 辆常规研发 · {1} 辆独立获取": [
+    "{0} regular research · {1} separate acquisition",
+    "{0} обычных исследований · {1} отдельных получений"
+  ],
+  "选定国家后读取资料": [
+    "Select a nation to load data",
+    "Выберите нацию для загрузки"
+  ],
+  "正在读取该国全部资料": [
+    "Loading all data for this nation",
+    "Загрузка всех данных нации"
+  ],
+  "暂无官方研发树": [
+    "No official research tree",
+    "Нет официального дерева исследований"
+  ],
+  "前置研发": [
+    "Prerequisite research",
+    "Предшествующие исследования"
+  ],
+  "可上下左右滚动的研发树": [
+    "Research tree scrollable in all directions",
+    "Дерево с прокруткой во всех направлениях"
+  ],
+  "选择你的研发国家": [
+    "Choose your research nation",
+    "Выберите нацию исследования"
+  ],
+  "选定后一次读取该国所有军种与配件资料，下次自动恢复。": [
+    "Loads all branches and modifications of the selected nation at once. Your choice is restored next time.",
+    "Все рода войск и модификации выбранной нации загружаются вместе. Выбор сохранится до следующего раза."
+  ],
+  "查看研发树 →": [
+    "View research tree →",
+    "Открыть дерево →"
+  ],
+  "暂无此军种": [
+    "Branch unavailable",
+    "Род войск недоступен"
+  ],
+  "官方 Wiki 尚未列出这棵研发树": [
+    "The official Wiki has no tree for this branch yet",
+    "Официальная Wiki пока не содержит это дерево"
+  ],
+  "切换国家或军种继续查看。": [
+    "Select another nation or branch.",
+    "Выберите другую нацию или род войск."
+  ],
+  "从上往下沿箭头研发；折叠组可以展开。AB / RB / SB 切换后显示当前模式权重。配件与载具分别计价，出击队列和购物车本地保存。": [
+    "Research down the arrows; folders expand. AB / RB / SB switches the displayed BR. Vehicles and modifications are priced separately; lineups and cart are stored locally.",
+    "Исследуйте вниз по стрелкам; группы раскрываются. АБ / РБ / СБ меняют показанный БР. Техника и модификации рассчитываются отдельно; составы и корзина хранятся локально."
+  ],
+  "官方 Wiki ·": [
+    "Official Wiki ·",
+    "Официальная Wiki ·"
+  ],
+  "条官方分支连线": [
+    " official branch connections",
+    " официальных связей веток"
+  ],
+  "清除路线高亮": [
+    "Clear route highlight",
+    "Убрать подсветку маршрута"
+  ],
+  "· 无法记住选择": [
+    "· Could not remember selection",
+    "· Не удалось сохранить выбор"
+  ],
+  "· 数据以游戏内为准": [
+    "· In-game data takes precedence",
+    "· Данные в игре имеют приоритет"
+  ],
+  "研发路线": [
+    "Research route",
+    "Маршрут исследования"
+  ],
+  "载具详情": [
+    "Vehicle details",
+    "Подробности техники"
+  ],
+  "放大查看 {0} 官方图片": [
+    "Enlarge {0} official image",
+    "Увеличить официальное изображение: {0}"
+  ],
+  "点击放大 ⛶": [
+    "Click to enlarge ⛶",
+    "Нажмите для увеличения ⛶"
+  ],
+  "独立获取载具不接入常规研发路线": [
+    "Separately acquired vehicles are not linked to regular research routes",
+    "Техника отдельного получения не включена в обычные маршруты исследования"
+  ],
+  "联队研发点": [
+    "Squadron RP",
+    "Полковые ОИ"
+  ],
+  "基础研发点": [
+    "Base Research Points",
+    "Базовые очки исследования"
+  ],
+  "必要前置路线": [
+    "Required prerequisite route",
+    "Обязательная цепочка предшественников"
+  ],
+  "沿真实前置关系展开，不代表已满足等级购车数量。速算面板会补齐等级门槛。": [
+    "Follows actual prerequisites; does not imply rank purchase gates are met. The calculator fills those gates.",
+    "Показаны реальные предшественники; это не означает выполнения порогов покупки. Калькулятор добирает нужную технику."
+  ],
+  "独立获取载具，不接入常规研发路线。礼包与市场链接是否在售以商城为准。": [
+    "Separately acquired vehicles do not join regular research routes. Pack and market availability depends on the store.",
+    "Техника отдельного получения не входит в обычные ветки. Наличие наборов и биржевых товаров проверяйте в магазине."
+  ],
+  "官方礼包 ↗": [
+    "Official pack ↗",
+    "Официальный набор ↗"
+  ],
+  "市场 ↗": [
+    "Market ↗",
+    "Биржа ↗"
+  ],
+  "官方载具大图": [
+    "Official full-size vehicle image",
+    "Официальное изображение техники"
+  ],
+  "登录请求已过期，请重新登录。": [
+    "Login request expired. Log in again.",
+    "Запрос входа истёк. Войдите снова."
+  ],
+  "登录返回地址无效。": [
+    "Invalid login return address.",
+    "Неверный адрес возврата после входа."
+  ],
+  "无法恢复登录，请重试。": [
+    "Could not restore login. Please retry.",
+    "Не удалось восстановить вход. Повторите."
+  ],
+  "账号已在其他页面登录，点击登录可恢复当前页面的会话。": [
+    "Signed in on another page. Click Log in to restore this page's session.",
+    "Вход выполнен на другой странице. Нажмите «Войти» для восстановления сессии."
+  ],
+  "登录未完成，请重试。": [
+    "Login incomplete. Please retry.",
+    "Вход не завершён. Повторите."
+  ],
+  "无法打开登录，请重试。": [
+    "Could not open login. Please retry.",
+    "Не удалось открыть вход. Повторите."
+  ],
+  "研发工作台": [
+    "Research Workbench",
+    "Мастерская исследований"
+  ],
+  "GitHub 仓库：MrTreasure/war-thunder-workbench（新窗口打开）": [
+    "GitHub repository: MrTreasure/war-thunder-workbench (opens in new window)",
+    "Репозиторий GitHub: MrTreasure/war-thunder-workbench (новое окно)"
+  ],
+  "QMuse 创作平台": [
+    "QMuse creator platform",
+    "Платформа QMuse"
+  ],
+  "QMuse，让灵感触手可及（新窗口打开）": [
+    "QMuse, bring ideas within reach (opens in new window)",
+    "QMuse: идеи становятся ближе (новое окно)"
+  ],
+  "让灵感触手可及": [
+    "Bring ideas within reach",
+    "Идеи становятся ближе"
+  ],
+  "请选择": [
+    "Select",
+    "Выбрать"
+  ],
+  "工具页面": [
+    "Tools",
+    "Инструменты"
+  ],
+  "科技树": [
+    "Tech trees",
+    "Деревья техники"
+  ],
+  "切换页面": [
+    "Switch page",
+    "Сменить страницу"
+  ],
+  "退出未完成，请重试。": [
+    "Logout incomplete. Please retry.",
+    "Выход не завершён. Повторите."
+  ],
+  "正在退出…": [
+    "Logging out…",
+    "Выход…"
+  ],
+  "退出登录": [
+    "Log out",
+    "Выйти"
+  ],
+  "已登录": [
+    "Signed in",
+    "Вход выполнен"
+  ],
+  "登录中…": [
+    "Logging in…",
+    "Вход…"
+  ],
+  "登录": [
+    "Log in",
+    "Войти"
+  ],
+  "关闭": [
+    "Close",
+    "Закрыть"
+  ],
+  "资料校验未通过，请重新读取": [
+    "Data verification failed. Load again",
+    "Проверка данных не пройдена. Загрузите снова"
+  ],
+  "资料格式异常，请重新读取": [
+    "Invalid data format. Load again",
+    "Неверный формат данных. Загрузите снова"
+  ],
+  "资料版本或国家不匹配，请重新读取": [
+    "Data version or nation mismatch. Load again",
+    "Не совпадает версия данных или нация. Загрузите снова"
+  ],
+  "OPFS 本地缓存": [
+    "OPFS local cache",
+    "Локальный кэш OPFS"
+  ],
+  "localStorage 本地缓存": [
+    "localStorage cache",
+    "Кэш localStorage"
+  ],
+  "仅本次使用（本地缓存未写入）": [
+    "This session only (local cache not saved)",
+    "Только текущая сессия (кэш не сохранён)"
+  ],
+  "没有找到该国资料模块，请刷新应用。": [
+    "Nation data module missing. Refresh the app.",
+    "Модуль данных нации не найден. Обновите приложение."
+  ],
+  "资料模块不完整，请刷新后重试。": [
+    "Incomplete data module. Refresh and retry.",
+    "Модуль данных неполный. Обновите и повторите."
+  ],
+  "正在载入国家资料模块": [
+    "Loading nation data module",
+    "Загрузка модуля данных нации"
+  ],
+  "图片尺寸不适合写入暗水印。": [
+    "Image size is unsuitable for an invisible watermark.",
+    "Размер изображения не подходит для скрытого водяного знака."
+  ],
+  "无法写入图片暗水印。": [
+    "Could not embed an invisible watermark.",
+    "Не удалось добавить скрытый водяной знак."
+  ],
+  "图片细节不足以写入可靠暗水印，请提高导出分辨率。": [
+    "Not enough detail for a reliable invisible watermark. Increase export resolution.",
+    "Недостаточно деталей для надёжного скрытого знака. Увеличьте разрешение экспорта."
+  ],
+  "分享码必须是 {0} 位数字及大小写字母，请检查长度和空格。": [
+    "Share codes must be {0} letters/digits. Check length, spaces and letter case.",
+    "Код должен содержать {0} букв и цифр. Проверьте длину, пробелы и регистр."
+  ],
+  "国家码不存在，请保留分享码的原始大小写。": [
+    "Unknown nation code. Preserve the original letter case.",
+    "Код нации неизвестен. Сохраните исходный регистр."
+  ],
+  "载具数量超过队列槽位上限。": [
+    "Vehicle count exceeds the crew-slot limit.",
+    "Число машин превышает лимит слотов экипажа."
+  ],
+  "国家不存在。": [
+    "Nation not found.",
+    "Нация не найдена."
+  ],
+  "同一载具不能占用多个槽位。": [
+    "A vehicle cannot occupy multiple slots.",
+    "Одна машина не может занимать несколько слотов."
+  ],
+  "载具 {0} 尚无稳定编码，暂不能导出。": [
+    "Vehicle {0} has no stable code yet and cannot be exported.",
+    "У техники {0} ещё нет постоянного кода; экспорт недоступен."
+  ],
+  "请先读取分享码对应国家的资料。": [
+    "Load the nation referenced by the share code first.",
+    "Сначала загрузите нацию, указанную в коде."
+  ],
+  "槽位 {0} 的编码 {1} 不存在，请检查大小写或更新资料。": [
+    "Slot {0} code {1} not found. Check letter case or update data.",
+    "Код {1} слота {0} не найден. Проверьте регистр или обновите данные."
+  ],
+  "分享码包含重复载具，请检查编码。": [
+    "Share code contains duplicate vehicles.",
+    "Код содержит повторяющуюся технику."
+  ],
+  "队列中有当前资料无法识别的载具，暂不计算权重。": [
+    "The lineup contains unknown vehicles; BR is not calculated.",
+    "В составе есть неизвестная техника; БР не рассчитывается."
+  ],
+  "未配置": [
+    "Not configured",
+    "Не настроено"
+  ],
+  "选择载具后显示队列权重。": [
+    "Select vehicles to see lineup BR.",
+    "Выберите технику для просмотра БР состава."
+  ],
+  "无此模式": [
+    "Mode unavailable",
+    "Режим недоступен"
+  ],
+  "海战无普通 SB 匹配；海战持续对抗另按房间规则。": [
+    "Naval has no regular SB matchmaking. Naval Enduring Confrontation uses room rules.",
+    "У флота нет обычных СБ. Морское «Противостояние» использует правила комнаты."
+  ],
+  "按活动名单": [
+    "Event vehicle list",
+    "По списку события"
+  ],
+  "陆战 SB 不按队列最高 BR 匹配，需核对当前活动允许载具名单。": [
+    "Ground SB does not match by highest lineup BR. Check the current allowed-vehicle list.",
+    "Наземные СБ подбираются не по максимальному БР состава. Проверьте текущий список допустимой техники."
+  ],
+  "无可用飞机": [
+    "No eligible aircraft",
+    "Нет подходящих самолётов"
+  ],
+  "空战需要至少一架飞机。": [
+    "Air battles require at least one aircraft.",
+    "Для воздушных боёв нужен хотя бы один самолёт."
+  ],
+  "权重未知": [
+    "BR unknown",
+    "БР неизвестен"
+  ],
+  "有飞机缺少 SB 权重，请更新资料。": [
+    "Some aircraft have no SB BR. Update data.",
+    "У части самолётов нет БР СБ. Обновите данные."
+  ],
+  "按房间范围": [
+    "Room BR ranges",
+    "По диапазонам комнаты"
+  ],
+  "飞机 SB {0}～{1}；至少一架满足房间必需范围，其余需在允许范围内。": [
+    "Air SB {0}–{1}; at least one aircraft must meet the required range, others must be within the allowed range.",
+    "Авиа СБ {0}–{1}; хотя бы один самолёт должен соответствовать обязательному диапазону, остальные — допустимому."
+  ],
+  "缺少主战载具": [
+    "Main battle vehicle missing",
+    "Нет основной боевой техники"
+  ],
+  "此处估算陆战混合队列，请加入地面载具；直升机 PVE 等独立玩法不在此处估算。": [
+    "This estimates mixed ground lineups. Add a ground vehicle; helicopter PvE and other separate modes are not estimated here.",
+    "Здесь рассчитываются смешанные наземные составы. Добавьте наземную технику; PvE вертолётов и отдельные режимы не рассчитываются."
+  ],
+  "请配置与当前战斗类型对应的飞机、地面载具或舰艇。": [
+    "Add aircraft, ground vehicles or vessels matching the selected battle type.",
+    "Добавьте самолёты, наземную технику или корабли выбранного типа боя."
+  ],
+  "有舰艇缺少该模式权重。": [
+    "Some vessels lack BR for this mode.",
+    "У части кораблей нет БР для этого режима."
+  ],
+  "请选择出击飞机": [
+    "Select the aircraft to fly",
+    "Выберите самолёт для вылета"
+  ],
+  "空战 RB 仅按实际出击飞机的权重匹配。": [
+    "Air RB matches only by the aircraft actually flown.",
+    "В воздушных РБ подбор идёт только по самолёту вылета."
+  ],
+  "仅计算 {0}；其他槽位不参与空战 RB 匹配。": [
+    "Only {0} is counted; other slots do not affect Air RB.",
+    "Учитывается только {0}; другие слоты не влияют на воздушные РБ."
+  ],
+  "有可用载具缺少该模式权重，请更新资料。": [
+    "Some eligible vehicles lack BR for this mode. Update data.",
+    "У части доступной техники нет БР для режима. Обновите данные."
+  ],
+  "前三架加权；两架取均值，单架取自身；最多下调一档。": [
+    "Top three aircraft weighted; two use their average, one uses its own BR. At most one BR step lower.",
+    "Взвешены три лучших самолёта; для двух — среднее, одного — собственный БР. Снижение не более одного шага."
+  ],
+  "仅地面载具取最高权重，机库固定翼飞机和直升机不参与陆战 AB。": [
+    "Highest ground-vehicle BR only. Hangar aircraft and helicopters do not affect Ground AB.",
+    "Максимальный БР наземной техники. Самолёты и вертолёты ангара не влияют на наземные АБ."
+  ],
+  "地面载具、固定翼飞机与直升机取最高权重；固定翼采用陆战 RB 权重，直升机采用 RB 权重。": [
+    "Highest BR among ground vehicles, aircraft and helicopters. Aircraft use Ground RB BR; helicopters use RB BR.",
+    "Максимальный БР наземной техники, самолётов и вертолётов. Самолёты используют наземный БР РБ, вертолёты — БР РБ."
+  ],
+  "可用舰艇与飞机取最高权重；超过最高舰艇一档的飞机不计入且不可出击。": [
+    "Highest BR of eligible vessels and aircraft. Aircraft more than one BR step above the top vessel are excluded and cannot spawn.",
+    "Максимальный БР доступных кораблей и самолётов. Самолёты выше лучшего корабля более чем на шаг не учитываются и недоступны для вылета."
+  ],
+  "地图点位缩略图": [
+    "Map objective thumbnail",
+    "Миниатюра точек карты"
+  ],
+  "已取消导出": [
+    "Export cancelled",
+    "Экспорт отменён"
+  ],
+  "图片源未允许导出或暂时无法访问": [
+    "Image source does not allow export or is unavailable",
+    "Источник не разрешает экспорт или недоступен"
+  ],
+  "图片加载超时": [
+    "Image loading timed out",
+    "Время загрузки изображения истекло"
+  ],
+  "图片无法用于导出，请切换网络后重试；编辑文件仍可保存": [
+    "Image cannot be exported. Try another network; project files can still be saved",
+    "Изображение нельзя экспортировать. Попробуйте другую сеть; проект всё ещё можно сохранить"
+  ],
+  "图标资源未收录": [
+    "Icon resource not registered",
+    "Значок не зарегистрирован"
+  ],
+  "当前浏览器无法生成图片": [
+    "This browser cannot generate images",
+    "Браузер не поддерживает создание изображений"
+  ],
+  "无法绘制区域填充": [
+    "Could not draw area fill",
+    "Не удалось нарисовать заливку"
+  ],
+  "图片生成失败，请尝试 2K 尺寸": [
+    "Image generation failed. Try 2K",
+    "Не удалось создать изображение. Попробуйте 2K"
+  ],
+  "图片源不允许导出，请保存编辑文件后重试": [
+    "Image source disallows export. Save the project and retry",
+    "Источник запрещает экспорт. Сохраните проект и повторите"
+  ],
+  "系统黑体": [
+    "System sans-serif",
+    "Системный без засечек"
+  ],
+  "宋体 / 衬线": [
+    "Song / Serif",
+    "Сун / С засечками"
+  ],
+  "楷体": [
+    "Kai",
+    "Кай"
+  ],
+  "等宽": [
+    "Monospace",
+    "Моноширинный"
+  ],
+  "战术窄体": [
+    "Tactical condensed",
+    "Узкий тактический"
+  ],
+  "标注数值超出范围": [
+    "Annotation value out of range",
+    "Значение отметки вне диапазона"
+  ],
+  "文件格式不正确": [
+    "Invalid file format",
+    "Неверный формат файла"
+  ],
+  "文字内容过长或格式错误": [
+    "Text too long or invalid",
+    "Текст слишком длинный или неверный"
+  ],
+  "标注开关格式错误": [
+    "Invalid annotation toggle",
+    "Неверный переключатель отметки"
+  ],
+  "未知箭头样式": [
+    "Unknown arrow style",
+    "Неизвестный стиль стрелки"
+  ],
+  "未知线条样式": [
+    "Unknown line style",
+    "Неизвестный стиль линии"
+  ],
+  "不支持这个编辑文件版本": [
+    "Unsupported project version",
+    "Версия проекта не поддерживается"
+  ],
+  "文件对应的地图、布局或队伍未收录": [
+    "Map, layout or team in this file is not registered",
+    "Карта, вариант или команда файла не зарегистрированы"
+  ],
+  "文件保存时间格式错误": [
+    "Invalid file timestamp",
+    "Неверная дата файла"
+  ],
+  "标注编号重复或无效": [
+    "Duplicate or invalid annotation ID",
+    "Повторный или неверный ID отметки"
+  ],
+  "标注颜色格式错误": [
+    "Invalid annotation color",
+    "Неверный цвет отметки"
+  ],
+  "走线需包含 2 至 3000 个点": [
+    "Routes must contain 2 to 3,000 points",
+    "Маршрут должен содержать от 2 до 3 000 точек"
+  ],
+  "文件包含过多走线点": [
+    "Too many route points in file",
+    "Слишком много точек маршрутов в файле"
+  ],
+  "未知区域形状": [
+    "Unknown area shape",
+    "Неизвестная форма области"
+  ],
+  "区域控制点数量不正确": [
+    "Invalid number of area handles",
+    "Неверное число узлов области"
+  ],
+  "文件包含过多控制点": [
+    "Too many handles in file",
+    "Слишком много узлов в файле"
+  ],
+  "文件包含未收录图标": [
+    "File contains an unregistered icon",
+    "В файле есть незарегистрированный значок"
+  ],
+  "不支持的标注类型": [
+    "Unsupported annotation type",
+    "Тип отметки не поддерживается"
+  ],
+  "未收录的文字字体": [
+    "Font not allowlisted",
+    "Шрифт не входит в разрешённый список"
+  ],
+  "文字字重格式错误": [
+    "Invalid font weight",
+    "Неверная насыщенность шрифта"
+  ],
+  "草稿过大，请减少标注或分次保存": [
+    "Draft too large. Reduce annotations or save in parts",
+    "Черновик слишком велик. Уменьшите число отметок или сохраните частями"
+  ],
+  "标注将保存在当前浏览器": [
+    "Annotations are saved in this browser",
+    "Отметки сохраняются в этом браузере"
+  ],
+  "已恢复本地草稿 · {0} 个标注": [
+    "Local draft restored · {0} annotations",
+    "Черновик восстановлен · Отметок: {0}"
+  ],
+  "无法读取本地草稿，原记录已保留；请先导出当前编辑结果": [
+    "Could not read local draft. Original kept; export current work first",
+    "Не удалось прочитать черновик. Оригинал сохранён; сначала экспортируйте текущую работу"
+  ],
+  "椭圆区域": [
+    "Ellipse area",
+    "Эллиптическая область"
+  ],
+  "矩形区域": [
+    "Rectangle area",
+    "Прямоугольная область"
+  ],
+  "多边形区域": [
+    "Polygon area",
+    "Многоугольная область"
+  ],
+  "图标标记": [
+    "Icon marker",
+    "Значок"
+  ],
+  "箭头走线": [
+    "Arrow route",
+    "Маршрут со стрелкой"
+  ],
+  "折线 / 画笔": [
+    "Polyline / Pen",
+    "Ломаная / Перо"
+  ],
+  "当前浏览器不支持本地方案保存，请导出编辑文件保留内容": [
+    "Local plan storage unsupported. Export the project to keep your work",
+    "Локальное хранение планов не поддерживается. Экспортируйте проект"
+  ],
+  "本地方案文件过大，原文件已保留": [
+    "Local plan file too large; original preserved",
+    "Файл плана слишком велик; оригинал сохранён"
+  ],
+  "方案名称需为 1 至 60 个字": [
+    "Plan names must contain 1–60 characters",
+    "Название плана должно содержать 1–60 символов"
+  ],
+  "本地方案文件无法读取，原文件已保留，请先导出当前内容": [
+    "Could not read local plan file. Original kept; export current work first",
+    "Не удалось прочитать план. Оригинал сохранён; сначала экспортируйте текущую работу"
+  ],
+  "浏览器空间不足，原方案已保留；请导出当前内容后整理方案": [
+    "Browser storage full. Original plan kept; export current work before removing plans",
+    "Хранилище браузера заполнено. План сохранён; экспортируйте работу перед удалением планов"
+  ],
+  "浏览器限制了本地方案保存，请导出编辑文件保留内容": [
+    "Browser blocked local saving. Export the project to keep your work",
+    "Браузер запретил сохранение. Экспортируйте проект"
+  ],
+  "本地保存失败，请导出当前内容后重试": [
+    "Local save failed. Export current work and retry",
+    "Локальное сохранение не удалось. Экспортируйте работу и повторите"
+  ],
+  "本地方案资料无法读取，原文件已保留，请勿清理浏览器数据": [
+    "Local plan data unreadable. Original file kept; do not clear browser data",
+    "Данные плана не читаются. Оригинал сохранён; не очищайте данные браузера"
+  ],
+  "本地方案编号无效，原文件已保留": [
+    "Invalid local plan ID; original preserved",
+    "Неверный ID плана; оригинал сохранён"
+  ],
+  "本地方案名称重复，原文件已保留": [
+    "Duplicate local plan name; original preserved",
+    "Повторное название плана; оригинал сохранён"
+  ],
+  "本地方案选择无效，原文件已保留": [
+    "Invalid local plan selection; original preserved",
+    "Неверный выбор плана; оригинал сохранён"
+  ],
+  "默认方案": [
+    "Default plan",
+    "Основной план"
+  ],
+  "本地方案文件不存在，请导出当前内容后重新打开地图": [
+    "Local plan file missing. Export current work and reopen the map",
+    "Файл плана отсутствует. Экспортируйте работу и откройте карту заново"
+  ],
+  "该方案已被其他页面删除，请另存当前内容": [
+    "This plan was deleted in another tab. Save current work as a new plan",
+    "План удалён в другой вкладке. Сохраните текущую работу как новый план"
+  ],
+  "每个地图布局最多保存 50 个方案，请先导出或删除不需要的方案": [
+    "Up to 50 plans per map layout. Export or delete unneeded plans first",
+    "Не более 50 планов на вариант карты. Сначала экспортируйте или удалите лишние"
+  ],
+  "已存在同名方案，请换一个名称": [
+    "A plan with this name already exists. Choose another name",
+    "План с таким названием уже есть. Выберите другое"
+  ],
+  "该方案不存在": [
+    "Plan not found",
+    "План не найден"
+  ],
+  "请至少保留一个方案，可用“清除标记”重新绘制": [
+    "Keep at least one plan. Use Clear annotations to start over",
+    "Оставьте хотя бы один план. Для нового рисунка используйте «Очистить отметки»"
+  ],
+  "图片大小与目录不符，请打开原图核对": [
+    "Image size differs from catalog. Check the original",
+    "Размер изображения не совпадает с каталогом. Проверьте оригинал"
+  ],
+  "图片校验未通过，请打开原图核对": [
+    "Image verification failed. Check the original",
+    "Изображение не прошло проверку. Проверьте оригинал"
+  ],
+  "缺失可研发前置：{0}": [
+    "Missing researchable predecessor: {0}",
+    "Не найден исследуемый предшественник: {0}"
+  ],
+  "前置关系出现循环，请核对数据": [
+    "Cyclic prerequisites detected. Verify the data",
+    "Обнаружен цикл предшественников. Проверьте данные"
+  ],
+  "请选择常规研发载具作为目标": [
+    "Choose a regular research vehicle as target",
+    "Выберите обычную исследуемую технику как цель"
+  ],
+  "Rank {0} 的解锁数量缺失，请填写": [
+    "Rank {0} unlock count missing; enter it",
+    "Не указан порог открытия ранга {0}; введите его"
+  ],
+  "Rank {0} 数量不足：{1} / {2}，请调整排除项或勾选已拥有载具": [
+    "Rank {0} count too low: {1} / {2}. Adjust exclusions or owned selections",
+    "Недостаточно техники ранга {0}: {1} / {2}. Измените исключения или имеющуюся технику"
+  ],
+  "指定补研": [
+    "Required filler",
+    "Обязательный добор"
+  ],
+  "Rank {0} 门槛未满足": [
+    "Rank {0} gate not met",
+    "Порог ранга {0} не выполнен"
+  ],
+  "效率评分组件暂时无法加载或校验失败，请稍后重试。": [
+    "Efficiency module unavailable or failed verification. Try later.",
+    "Модуль эффективности недоступен или не прошёл проверку. Повторите позже."
+  ],
+  "效率评分组件版本不匹配。": [
+    "Efficiency module version mismatch.",
+    "Версия модуля эффективности не совпадает."
+  ],
+  "当前浏览器无法运行效率评分组件。": [
+    "This browser cannot run the efficiency module.",
+    "Браузер не поддерживает модуль эффективности."
+  ],
+  "万": [
+    " ten-thousands",
+    " ×10 тыс."
+  ],
+  "亿": [
+    " hundred-millions",
+    " ×100 млн"
+  ],
+  "玩家资料身份不一致，请重新查询。": [
+    "Player identity mismatch. Query again.",
+    "Игрок не совпадает. Выполните поиск снова."
+  ],
+  "暂时无法读取，请稍后重试。": [
+    "Temporarily unavailable. Please try later.",
+    "Временно недоступно. Повторите позже."
+  ],
+  "当前为本机保存的资料，请重新查询此玩家后查看扩展数据。": [
+    "This is locally saved data. Query this player again for extended data.",
+    "Это локальные данные. Найдите игрока снова для расширенных данных."
+  ],
+  "平均队内相对位置": [
+    "Average relative team position",
+    "Среднее относительное место в команде"
+  ],
+  "玩家／机器人击毁 · 每次出击": [
+    "Player / bot kills · Per sortie",
+    "Игроки / боты уничтожены · За вылет"
+  ],
+  "陆战对局": [
+    "Ground matches",
+    "Наземные бои"
+  ],
+  "空战对局": [
+    "Air matches",
+    "Воздушные бои"
+  ],
+  "海战对局": [
+    "Naval matches",
+    "Морские бои"
+  ],
+  "浏览器无法读取图片颜色。": [
+    "Browser could not read image colors.",
+    "Браузер не смог прочитать цвета изображения."
+  ],
+  "请选择 JPG、PNG 或 WebP 图片。": [
+    "Choose a JPG, PNG or WebP image.",
+    "Выберите JPG, PNG или WebP."
+  ],
+  "图片不能超过 12 MB，请压缩后再试。": [
+    "Image exceeds 12 MB. Compress and retry.",
+    "Изображение больше 12 МБ. Сожмите и повторите."
+  ],
+  "文件内容不是支持的图片格式，请换一张图片。": [
+    "Unsupported image content. Choose another image.",
+    "Формат содержимого не поддерживается. Выберите другое изображение."
+  ],
+  "请选择至少 320×240、且不超过 2400 万像素的图片。": [
+    "Choose an image at least 320×240 and no more than 24 megapixels.",
+    "Выберите изображение не меньше 320×240 и не больше 24 мегапикселей."
+  ],
+  "单车场次合计": [
+    "Total vehicle battles",
+    "Сумма боёв техники"
+  ],
+  "空中目标": [
+    "Air targets",
+    "Воздушные цели"
+  ],
+  "地面目标": [
+    "Ground targets",
+    "Наземные цели"
+  ],
+  "海上目标": [
+    "Naval targets",
+    "Морские цели"
+  ],
+  "军种图标暂时无法读取，请稍后保存。": [
+    "Service icon unavailable. Try saving later.",
+    "Значок рода войск недоступен. Сохраните позже."
+  ],
+  "浏览器无法创建战报图片。": [
+    "Browser could not create the report image.",
+    "Браузер не смог создать изображение отчёта."
+  ],
+  "请生成战报后再保存。": [
+    "Generate a report before saving.",
+    "Сначала создайте отчёт."
+  ],
+  "生涯总览 · 该模式全部国家与兵种": [
+    "Career overview · All nations and services in this mode",
+    "Обзор карьеры · Все нации и рода войск в режиме"
+  ],
+  "所列载具汇总 · 含同场多车，非总对局": [
+    "Listed vehicle totals · Multiple vehicles per match, not total matches",
+    "Итоги техники · Несколько машин за бой, не число боёв"
+  ],
+  "场 ·": [
+    " battles ·",
+    " боёв ·"
+  ],
+  "胜率 · 空": [
+    "Win rate · Air",
+    "Победы · Воздух"
+  ],
+  "/ 地": [
+    "/ Ground",
+    "/ Земля"
+  ],
+  "/ 海": [
+    "/ Naval",
+    "/ Море"
+  ],
+  "效率为工作台统计评分 · 构成图仅含所列载具已知击毁": [
+    "Efficiency is the workbench score · Breakdown includes known kills of listed vehicles only",
+    "Эффективность — оценка мастерской · Диаграмма учитывает известные уничтожения указанной техники"
+  ],
+  "历史点评保留原文，评分已更新 · 银狮为累计获得，非净收入": [
+    "Historical comments preserved; score updated · Silver Lions are earned totals, not net income",
+    "Старые комментарии сохранены; оценка обновлена · Серебряные львы — заработано, не чистый доход"
+  ],
+  "银狮为累计获得，非净收入 · AI 点评仅供参考": [
+    "Silver Lions are earned totals, not net income · AI comments are for reference only",
+    "Серебряные львы — заработано, не чистый доход · Комментарии ИИ справочные"
+  ],
+  "战报图片生成失败。": [
+    "Report image generation failed.",
+    "Не удалось создать изображение отчёта."
+  ],
+  "_战报.png": [
+    "_report.png",
+    "_отчёт.png"
+  ],
+  "战绩服务暂时无法访问": [
+    "Stats service temporarily unavailable",
+    "Сервис статистики временно недоступен"
+  ],
+  "街机战斗": [
+    "Arcade battles",
+    "Аркадные бои"
+  ],
+  "历史战斗": [
+    "Realistic battles",
+    "Реалистичные бои"
+  ],
+  "全真战斗": [
+    "Simulator battles",
+    "Симуляторные бои"
+  ],
+  "陆军": [
+    "Army",
+    "Армия"
+  ],
+  "空军": [
+    "Aviation",
+    "Авиация"
+  ],
+  "远洋海军": [
+    "Bluewater fleet",
+    "Большой флот"
+  ],
+  "近岸海军": [
+    "Coastal fleet",
+    "Малый флот"
+  ],
+  "图片读取失败": [
+    "Could not read image",
+    "Не удалось прочитать изображение"
+  ],
+  "银狮图标格式异常": [
+    "Invalid Silver Lions icon format",
+    "Неверный формат значка Серебряных львов"
+  ],
+  "战报图片读取失败，请稍后再保存。": [
+    "Report image could not be loaded. Save again later.",
+    "Не удалось загрузить изображение отчёта. Сохраните позже."
+  ],
+  "远洋海战": [
+    "Bluewater battles",
+    "Бои большого флота"
+  ],
+  "近岸海战": [
+    "Coastal battles",
+    "Бои малого флота"
+  ],
+  "数据采集 {0}": [
+    "Data collected {0}",
+    "Данные собраны: {0}"
+  ],
+  "卡片素材暂时无法读取，请重试保存。": [
+    "Card assets unavailable. Try saving again.",
+    "Ресурсы карточки недоступны. Попробуйте сохранить снова."
+  ],
+  "卡片背景校验失败，请刷新页面后重试。": [
+    "Card background verification failed. Refresh and retry.",
+    "Фон карточки не прошёл проверку. Обновите страницу и повторите."
+  ],
+  "浏览器无法读取载具图片。": [
+    "Browser could not load the vehicle image.",
+    "Браузер не смог загрузить изображение техники."
+  ],
+  "官方载具图片为空，请稍后重试。": [
+    "Official vehicle image is empty. Try later.",
+    "Официальное изображение техники пустое. Повторите позже."
+  ],
+  "浏览器无法创建标志图层。": [
+    "Browser could not create the logo layer.",
+    "Браузер не смог создать слой логотипа."
+  ],
+  "浏览器无法生成载具卡片，请更换浏览器后重试。": [
+    "Browser could not generate the vehicle card. Try another browser.",
+    "Браузер не смог создать карточку техники. Попробуйте другой браузер."
+  ],
+  "图片编码失败，请重试。": [
+    "Image encoding failed. Please retry.",
+    "Не удалось закодировать изображение. Повторите."
+  ],
+  "当前浏览器不支持复制图片，请下载 PNG。": [
+    "Image copying is unsupported. Download PNG instead.",
+    "Копирование изображений не поддерживается. Скачайте PNG."
+  ],
+  "页面未找到": [
+    "Page not found",
+    "Страница не найдена"
+  ],
+  "你访问的页面不存在，或已被移动。": [
+    "This page does not exist or has moved.",
+    "Страница не существует или перемещена."
+  ],
+  "返回首页": [
+    "Back to home",
+    "На главную"
+  ],
+  "页面加载失败": [
+    "Page failed to load",
+    "Страница не загрузилась"
+  ],
+  "页面暂时无法加载。你可以尝试重试，或返回首页。": [
+    "This page is temporarily unavailable. Retry or return home.",
+    "Страница временно недоступна. Повторите или вернитесь на главную."
+  ],
+  "日历资料格式异常，请稍后重试": [
+    "Invalid calendar data. Try later",
+    "Неверные данные календаря. Повторите позже"
+  ],
+  "银狮购车": [
+    "Silver Lion purchases",
+    "Покупка за Серебряные львы"
+  ],
+  "金鹰购车": [
+    "GE purchases",
+    "Покупка за ЗО"
+  ],
+  "商城礼包": [
+    "Store packs",
+    "Наборы магазина"
+  ],
+  "组合礼包": [
+    "Bundles",
+    "Комплекты"
+  ],
+  "高级账号": [
+    "Premium account",
+    "Премиум-аккаунт"
+  ],
+  "交易所": [
+    "Marketplace",
+    "Биржа"
+  ],
+  "购买方式待核对": [
+    "Purchase channel unverified",
+    "Способ покупки не проверен"
+  ],
+  "已进入预测窗口": [
+    "Forecast window reached",
+    "Прогнозное окно началось"
+  ],
+  "已结束": [
+    "Ended",
+    "Завершено"
+  ],
+  "{0} {1}{2}时 {3}分{4}": [
+    "{0} {1}{2}h {3}m{4}",
+    "{0} {1}{2}ч {3}мин{4}"
+  ],
+  "预计距开始": [
+    "Estimated until start",
+    "Ожидается до начала"
+  ],
+  "距结束": [
+    "Until end",
+    "До конца"
+  ],
+  "距开始": [
+    "Until start",
+    "До начала"
+  ],
+  "天": [
+    " days",
+    " дн."
+  ],
+  "秒": [
+    " seconds",
+    " с"
+  ],
+  "可能于 {0}—{1} 开始 · 可能于 {2}—{3} 结束": [
+    "May start {0}–{1} · May end {2}–{3}",
+    "Возможное начало {0}–{1} · Конец {2}–{3}"
+  ],
+  "组合价与条件见公告": [
+    "See announcement for bundle prices and terms",
+    "Цены комплектов и условия — в объявлении"
+  ],
+  "力度见公告": [
+    "See announcement for discount",
+    "Размер скидки — в объявлении"
+  ],
+  "{0}折": [
+    "{0}0% of full price",
+    "{0}0% полной цены"
+  ],
+  "{0}—{1}折": [
+    "{0}0–{1}0% of full price",
+    "{0}0–{1}0% полной цены"
+  ],
+  "往年": [
+    "Previous years",
+    "Прошлые годы"
+  ],
+  "金鹰原价待报价": [
+    "GE full price unavailable",
+    "Полная цена в ЗО неизвестна"
+  ],
+  "礼包原价待报价": [
+    "Pack full price unavailable",
+    "Полная цена набора неизвестна"
+  ],
+  "原价 {0} 金鹰": [
+    "Full price {0} GE",
+    "Полная цена {0} ЗО"
+  ],
+  "礼包原价 ¥ {0}.{1} · 整包": [
+    "Pack full price ¥ {0}.{1} · Whole pack",
+    "Полная цена набора ¥ {0}.{1} · Весь набор"
+  ],
+  "预测活动窗口，载具名单和力度尚未公布。": [
+    "Forecast event window; vehicle list and discounts not announced.",
+    "Прогнозное окно; список техники и скидки ещё не объявлены."
+  ],
+  "联队载具与公告指定的新版本载具及其改装、护符、备份排除；不降低研发 RP。": [
+    "Squadron vehicles and specified recent vehicles, their modifications, talismans and backups are excluded. Research RP is not reduced.",
+    "Полковая и указанная новая техника, их модификации, талисманы и дублёры исключены. Стоимость исследования в ОИ не снижается."
+  ],
+  "待开始": [
+    "Upcoming",
+    "Скоро"
+  ],
+  "活动中": [
+    "Active",
+    "Идёт"
+  ],
+  "战雷科技树与研发规划": [
+    "War Thunder tech trees & research planning",
+    "Деревья и планирование исследований War Thunder"
+  ],
+  "战雷战绩查询与战雷账号价值": [
+    "War Thunder player stats & account valuation",
+    "Статистика и оценка аккаунта War Thunder"
+  ],
+  "战雷走线与陆战地图编辑": [
+    "War Thunder routes & ground map editor",
+    "Маршруты и редактор наземных карт War Thunder"
+  ],
+  "战雷出击队列": [
+    "War Thunder lineups",
+    "Составы War Thunder"
+  ],
+  "战雷折扣日历": [
+    "War Thunder sale calendar",
+    "Календарь скидок War Thunder"
+  ],
+  "{0} · 战雷工作台 | War Thunder Workbench": [
+    "{0} · War Thunder Workbench",
+    "{0} · Мастерская War Thunder"
+  ],
+  "War Thunder Workbench · 战雷工作台": [
+    "War Thunder Workbench",
+    "Мастерская War Thunder"
+  ],
+  "浏览器无法保存，本次设置只在当前页面有效。": [
+    "Browser could not save. These settings apply only to this page.",
+    "Браузер не смог сохранить. Настройки действуют только на этой странице."
+  ],
+  "当前无法保存到浏览器，请导出编辑文件保留内容": [
+    "Browser save unavailable. Export the project to keep your work",
+    "Сохранение недоступно. Экспортируйте проект"
+  ],
+  "正在处理方案，请稍候": [
+    "Processing plan. Please wait",
+    "Обработка плана. Подождите"
+  ],
+  "当前无法保存方案，请先导出编辑文件保留内容": [
+    "Cannot save the plan. Export the project to keep your work",
+    "Не удалось сохранить план. Экспортируйте проект"
+  ],
+  "中国": [
+    "China",
+    "Китай"
+  ],
+  "二战": [
+    "WWII",
+    "Вторая мировая"
+  ],
+  "冷战": [
+    "Cold War",
+    "Холодная война"
+  ],
+  "同盟": [
+    "Allies",
+    "Союзники"
+  ],
+  "坦克": [
+    "Tank",
+    "Танк"
+  ],
+  "基地": [
+    "Base",
+    "База"
+  ],
+  "德国": [
+    "Germany",
+    "Германия"
+  ],
+  "日本": [
+    "Japan",
+    "Япония"
+  ],
+  "法国": [
+    "France",
+    "Франция"
+  ],
+  "浅灰": [
+    "Light gray",
+    "Светло-серый"
+  ],
+  "炮艇": [
+    "Gunboat",
+    "Канонерская лодка"
+  ],
+  "现代": [
+    "Modern",
+    "Современность"
+  ],
+  "瑞典": [
+    "Sweden",
+    "Швеция"
+  ],
+  "美国": [
+    "USA",
+    "США"
+  ],
+  "苏联": [
+    "USSR",
+    "СССР"
+  ],
+  "英国": [
+    "Great Britain",
+    "Великобритания"
+  ],
+  "菱形": [
+    "Diamond",
+    "Ромб"
+  ],
+  "蓝色": [
+    "Blue",
+    "Синий"
+  ],
+  "轴心": [
+    "Axis",
+    "Ось"
+  ],
+  "金色": [
+    "Gold",
+    "Золотой"
+  ],
+  "以色列": [
+    "Israel",
+    "Израиль"
+  ],
+  "伏击点": [
+    "Ambush position",
+    "Засада"
+  ],
+  "占领区": [
+    "Capture zone",
+    "Зона захвата"
+  ],
+  "占领点": [
+    "Capture point",
+    "Точка захвата"
+  ],
+  "危险点": [
+    "Danger marker",
+    "Опасность"
+  ],
+  "友军绿": [
+    "Friendly green",
+    "Союзный зелёный"
+  ],
+  "意大利": [
+    "Italy",
+    "Италия"
+  ],
+  "战列舰": [
+    "Battleship",
+    "Линкор"
+  ],
+  "战斗机": [
+    "Fighter",
+    "Истребитель"
+  ],
+  "护卫舰": [
+    "Frigate",
+    "Фрегат"
+  ],
+  "攻击机": [
+    "Strike aircraft",
+    "Штурмовик"
+  ],
+  "敌军红": [
+    "Enemy red",
+    "Вражеский красный"
+  ],
+  "救援点": [
+    "Rescue point",
+    "Точка спасения"
+  ],
+  "标记黄": [
+    "Marker yellow",
+    "Жёлтый маркер"
+  ],
+  "核武器": [
+    "Nuclear weapon",
+    "Ядерное оружие"
+  ],
+  "细点线": [
+    "Fine dotted line",
+    "Мелкий пунктир"
+  ],
+  "维修点": [
+    "Repair point",
+    "Точка ремонта"
+  ],
+  "舰载机": [
+    "Carrier aircraft",
+    "Палубная авиация"
+  ],
+  "补给点": [
+    "Supply point",
+    "Точка снабжения"
+  ],
+  "观察点": [
+    "Observation point",
+    "Наблюдательный пункт"
+  ],
+  "轰炸机": [
+    "Bomber",
+    "Бомбардировщик"
+  ],
+  "途经点": [
+    "Waypoint",
+    "Промежуточная точка"
+  ],
+  "重骑兵": [
+    "Heavy Cavalry",
+    "Тяжёлая кавалерия"
+  ],
+  "集结点": [
+    "Rally point",
+    "Точка сбора"
+  ],
+  "驱逐舰": [
+    "Destroyer",
+    "Эсминец"
+  ],
+  "鱼雷艇": [
+    "Torpedo boat",
+    "Торпедный катер"
+  ],
+  "中型坦克": [
+    "Medium tank",
+    "Средний танк"
+  ],
+  "先锋出击": [
+    "Spearhead",
+    "Авангард"
+  ],
+  "出击效率": [
+    "Sortie efficiency",
+    "Эффективность вылетов"
+  ],
+  "前沿阵线": [
+    "Front line",
+    "Передний край"
+  ],
+  "喷火掠影": [
+    "Spitfire",
+    "Спитфайр"
+  ],
+  "坦克目标": [
+    "Tank target",
+    "Цель: танк"
+  ],
+  "对地效率": [
+    "Ground efficiency",
+    "Наземная эффективность"
+  ],
+  "对空效率": [
+    "Air efficiency",
+    "Воздушная эффективность"
+  ],
+  "市场载具": [
+    "Market vehicle",
+    "Биржевая техника"
+  ],
+  "弯刀出击": [
+    "Scimitar",
+    "Скимитар"
+  ],
+  "接触前线": [
+    "Contact front",
+    "Линия соприкосновения"
+  ],
+  "撤退路线": [
+    "Retreat route",
+    "Путь отхода"
+  ],
+  "普通路线": [
+    "Regular route",
+    "Обычный маршрут"
+  ],
+  "海上宪兵": [
+    "Naval patrol",
+    "Морской патруль"
+  ],
+  "火力支援": [
+    "Fire support",
+    "Огневая поддержка"
+  ],
+  "玩家坦克": [
+    "Player tank",
+    "Танк игрока"
+  ],
+  "空中驮马": [
+    "Air transport",
+    "Воздушный транспорт"
+  ],
+  "第九浪潮": [
+    "Ninth Wave",
+    "Девятый вал"
+  ],
+  "精英载具": [
+    "Spaded vehicles",
+    "Элитная техника"
+  ],
+  "胜利纪念": [
+    "Victory anniversary",
+    "Годовщина Победы"
+  ],
+  "自行防空": [
+    "SPAA",
+    "ЗСУ"
+  ],
+  "苍穹远征": [
+    "Air expedition",
+    "Воздушная экспедиция"
+  ],
+  "补给路线": [
+    "Supply route",
+    "Маршрут снабжения"
+  ],
+  "装甲浪潮": [
+    "Armored wave",
+    "Бронетанковая волна"
+  ],
+  "轻型坦克": [
+    "Light tank",
+    "Лёгкий танк"
+  ],
+  "轻巡洋舰": [
+    "Light cruiser",
+    "Лёгкий крейсер"
+  ],
+  "近海舰艇": [
+    "Coastal vessel",
+    "Малый корабль"
+  ],
+  "进攻方向": [
+    "Attack direction",
+    "Направление атаки"
+  ],
+  "进攻轴线": [
+    "Axis of advance",
+    "Направление наступления"
+  ],
+  "连续实线": [
+    "Continuous solid",
+    "Сплошная линия"
+  ],
+  "重型坦克": [
+    "Heavy tank",
+    "Тяжёлый танк"
+  ],
+  "重巡洋舰": [
+    "Heavy cruiser",
+    "Тяжёлый крейсер"
+  ],
+  "防御阵地": [
+    "Defensive position",
+    "Оборонительная позиция"
+  ],
+  "防空警戒": [
+    "Air defense alert",
+    "ПВО"
+  ],
+  "阿琼出击": [
+    "Arjun",
+    "Арджун"
+  ],
+  "雷区标记": [
+    "Minefield",
+    "Минное поле"
+  ],
+  "鹰击长空": [
+    "Eagle strike",
+    "Удар орла"
+  ],
+  "匈牙利空军": [
+    "Hungarian aviation",
+    "Венгерская авиация"
+  ],
+  "十月革命号": [
+    "Oktyabrskaya Revolyutsiya",
+    "Октябрьская революция"
+  ],
+  "反坦克壕线": [
+    "Antitank ditch",
+    "Противотанковый ров"
+  ],
+  "反坦克阵地": [
+    "Antitank position",
+    "Противотанковая позиция"
+  ],
+  "坦克歼击车": [
+    "Tank destroyer",
+    "САУ"
+  ],
+  "战列巡洋舰": [
+    "Battlecruiser",
+    "Линейный крейсер"
+  ],
+  "支援与保障": [
+    "Support & logistics",
+    "Поддержка и обеспечение"
+  ],
+  "攻击直升机": [
+    "Attack helicopter",
+    "Ударный вертолёт"
+  ],
+  "普卡拉突击": [
+    "Pucará",
+    "Пукара"
+  ],
+  "点划线箭头": [
+    "Dash-dot arrow",
+    "Штрихпунктирная стрелка"
+  ],
+  "综合K/D": [
+    "Overall K/D",
+    "Общий K/D"
+  ],
+  "警戒与危险": [
+    "Alert & danger",
+    "Предупреждения и опасность"
+  ],
+  "超级大黄蜂": [
+    "Super Hornet",
+    "Супер Хорнет"
+  ],
+  "通用直升机": [
+    "Utility helicopter",
+    "Многоцелевой вертолёт"
+  ],
+  "俄克拉荷马号": [
+    "USS Oklahoma",
+    "Оклахома"
+  ],
+  "其他高级载具": [
+    "Other premium vehicles",
+    "Другая премиумная техника"
+  ],
+  "基地（任务）": [
+    "Base (mission)",
+    "База (миссия)"
+  ],
+  "威尔士亲王号": [
+    "HMS Prince of Wales",
+    "Принц Уэльский"
+  ],
+  "细线开口箭头": [
+    "Thin open arrow",
+    "Тонкая открытая стрелка"
+  ],
+  "绿色防御阵线": [
+    "Green defensive front",
+    "Зелёный оборонительный рубеж"
+  ],
+  "虚线方向箭头": [
+    "Dashed direction arrow",
+    "Штриховая стрелка направления"
+  ],
+  "连续交叉记号": [
+    "Continuous crosses",
+    "Непрерывные кресты"
+  ],
+  "击毁与死亡表现": [
+    "Kill / death performance",
+    "Уничтожения / смерти"
+  ],
+  "坦克目标（轮廓）": [
+    "Tank target (outline)",
+    "Цель: танк (контур)"
+  ],
+  "观察 / 射界线": [
+    "Observation / Field of fire",
+    "Наблюдение / Сектор огня"
+  ],
+  "障碍 / 封锁线": [
+    "Obstacles / Blocking line",
+    "Заграждения / Линия блокирования"
+  ],
+  "活动 / 特殊载具": [
+    "Event / Special vehicles",
+    "Событийная / Особая техника"
+  ],
+  "自行火炮 · 野蜂": [
+    "Self-propelled artillery · Hummel",
+    "САУ · Хуммель"
+  ],
+  "机动突击 · 菲亚特": [
+    "Mobile assault · Fiat",
+    "Мобильный штурм · Fiat"
+  ],
+  "轻骑侦察 · ELC": [
+    "Light reconnaissance · ELC",
+    "Лёгкая разведка · ELC"
+  ],
+  "装甲前线 · 帕特里亚": [
+    "Armored front · Patria",
+    "Бронетанковый фронт · Patria"
+  ],
+  "长空利剑 · 歼-16": [
+    "Sky blade · J-16",
+    "Небесный клинок · J-16"
+  ],
+  "截击长空 · 米格-25": [
+    "Sky interceptor · MiG-25",
+    "Высотный перехват · МиГ-25"
+  ],
+  "海上巡猎 · 205PE": [
+    "Naval hunter · 205PE",
+    "Морской охотник · 205PE"
+  ],
+  "海上猎鹰 · AW159": [
+    "Sea falcon · AW159",
+    "Морской сокол · AW159"
+  ],
+  "北境之翼 · CF-188": [
+    "Northern wings · CF-188",
+    "Крылья севера · CF-188"
+  ],
+  "连续弧齿 · 与工事线区分": [
+    "Continuous scallops · Distinct from fortifications",
+    "Непрерывные дуги · Не линия укреплений"
+  ],
+  "铁甲防线 · T-72B3": [
+    "Armored defense · T-72B3",
+    "Броневая оборона · Т-72Б3"
+  ],
+  "鹰隼训练 · 雅克-130": [
+    "Falcon training · Yak-130",
+    "Подготовка соколов · Як-130"
+  ],
+  "中空宽箭头 · 表示推进轴向": [
+    "Hollow wide arrow · Axis of advance",
+    "Полая широкая стрелка · Направление наступления"
+  ],
+  "单侧三角齿 · 支持翻转朝向": [
+    "One-sided triangular teeth · Direction reversible",
+    "Односторонние треугольные зубцы · Направление меняется"
+  ],
+  "折齿工事线 · 支持翻转朝向": [
+    "Fortification teeth · Direction reversible",
+    "Зубцы укреплений · Направление меняется"
+  ],
+  "游戏配置公开镜像（非官方 API）": [
+    "Public game-configuration mirror (not an official API)",
+    "Публичное зеркало конфигурации игры (не официальный API)"
+  ],
+  "区分工事线、前沿线、反坦克壕线及进攻方向": [
+    "Distinct fortification, front, antitank ditch and advance lines",
+    "Раздельные линии укреплений, фронта, противотанковых рвов и наступления"
+  ],
+  "工事线折齿结构；项目独立实现弧长放置与绘制": [
+    "Fortification teeth; project-specific arc-length placement and drawing",
+    "Зубцы укреплений; собственная расстановка по длине дуги и отрисовка проекта"
+  ],
+  "用户提供的游戏原版SVG图标，2026-10-21": [
+    "Original game SVG icons provided by the user, 2026-10-21",
+    "Оригинальные игровые SVG-значки от пользователя, 2026-10-21"
+  ],
+  "项目绘制的攻略战术示意符号，与战雷原生图标分组展示。": [
+    "Project-drawn tactical guide symbols, shown separately from original game icons.",
+    "Тактические символы проекта для руководств, отдельно от оригинальных игровых значков."
+  ],
+  "MIL-STD-2525 / APP-6 多点战术图形开源实现": [
+    "Open-source MIL-STD-2525 / APP-6 multipoint tactical graphics",
+    "Открытая реализация многоточечной графики MIL-STD-2525 / APP-6"
+  ],
+  "按同一模式的公开统计展示为0–100；不是全服排名，缺失维度留空。": [
+    "Public stats from the same mode scaled to 0–100; not server rankings. Missing axes stay blank.",
+    "Публичная статистика одного режима по шкале 0–100; не рейтинг сервера. Нет данных — ось пустая."
+  ],
+  "主题初选按载具覆盖项及等级分段匹配；不代表精确服役年代，可手动切换。": [
+    "Initial theme matches vehicle coverage and rank ranges, not exact service dates. Change manually if needed.",
+    "Начальная тема выбрана по типу и рангу техники, не по точным годам службы. Её можно сменить вручную."
+  ],
+  "综合击毁与死亡表现、场均击毁、每次出击击毁、胜率、场均死亡与场均出击，结合统计场次评估。": [
+    "Uses kills/deaths, kills per battle and sortie, win rate, deaths and sorties per battle, adjusted for battle count.",
+    "Учитывает уничтожения и смерти, уничтожения за бой и вылет, победы, смерти и вылеты за бой с учётом числа боёв."
+  ],
+  "参考军用战术图形线型的攻略绘图预设。绿色防御线为项目默认配色，支持改色；不宣称整套军标认证。": [
+    "Guide presets inspired by military tactical lines. Green is the default defensive-line color and can be changed; no claim of full military-symbol certification.",
+    "Пресеты для руководств по мотивам военных линий. Зелёный — изменяемый цвет обороны по умолчанию; соответствие полному стандарту не заявляется."
+  ],
+  "范围0–2000，非官方评级，不代表全服名次或百分位。不足50场记0；缺少关键记录时不评分。陆战与航空仅统计空中及地面目标击毁。": [
+    "Scale 0–2000, not official rating, rank or percentile. Fewer than 50 battles score 0; missing key data is not scored. Ground and aviation count only air/ground kills.",
+    "Шкала 0–2000, не официальный рейтинг, место или процентиль. Менее 50 боёв — 0; при нехватке ключевых данных оценки нет. Для наземной техники и авиации учитываются только воздушные и наземные цели."
+  ],
+  "标注预设。绿、红取自所提供出生点图标；黄、浅灰取自原版出生点 SVG；蓝取自当前编辑选中色；金取自应用现有主题。不是强制的游戏阵营颜色设置。": [
+    "Annotation palette. Green/red come from supplied spawn icons; yellow/light gray from original spawn SVGs; blue from the editor selection and gold from the app theme. These do not enforce in-game faction colors.",
+    "Палитра отметок. Зелёный/красный — из значков появления; жёлтый/светло-серый — из исходных SVG; синий — выделение редактора, золотой — тема приложения. Это не принудительные цвета сторон игры."
+  ],
+  "基地 A": [
+    "Base A",
+    "База A"
+  ],
+  "基地 B": [
+    "Base B",
+    "База B"
+  ],
+  "基地 C": [
+    "Base C",
+    "База C"
+  ],
+  "基地 D": [
+    "Base D",
+    "База D"
+  ],
+  "基地 E": [
+    "Base E",
+    "База E"
+  ],
+  "基地 F": [
+    "Base F",
+    "База F"
+  ],
+  "基地 G": [
+    "Base G",
+    "База G"
+  ],
+  "基地 H": [
+    "Base H",
+    "База H"
+  ],
+  "基地 I": [
+    "Base I",
+    "База I"
+  ],
+  "基地 J": [
+    "Base J",
+    "База J"
+  ],
+  "基地 K": [
+    "Base K",
+    "База K"
+  ],
+  "基地 L": [
+    "Base L",
+    "База L"
+  ],
+  "基地 M": [
+    "Base M",
+    "База M"
+  ],
+  "基地 N": [
+    "Base N",
+    "База N"
+  ],
+  "基地 O": [
+    "Base O",
+    "База O"
+  ],
+  "基地 P": [
+    "Base P",
+    "База P"
+  ],
+  "占领点 A": [
+    "Capture point A",
+    "Точка захвата A"
+  ],
+  "占领点 B": [
+    "Capture point B",
+    "Точка захвата B"
+  ],
+  "占领点 C": [
+    "Capture point C",
+    "Точка захвата C"
+  ],
+  "占领点 D": [
+    "Capture point D",
+    "Точка захвата D"
+  ],
+  "占领点 E": [
+    "Capture point E",
+    "Точка захвата E"
+  ],
+  "占领点 F": [
+    "Capture point F",
+    "Точка захвата F"
+  ],
+  "占领点 G": [
+    "Capture point G",
+    "Точка захвата G"
+  ],
+  "占领点 H": [
+    "Capture point H",
+    "Точка захвата H"
+  ],
+  "占领点 I": [
+    "Capture point I",
+    "Точка захвата I"
+  ],
+  "占领点 J": [
+    "Capture point J",
+    "Точка захвата J"
+  ],
+  "占领点 K": [
+    "Capture point K",
+    "Точка захвата K"
+  ],
+  "占领点 L": [
+    "Capture point L",
+    "Точка захвата L"
+  ],
+  "占领点 M": [
+    "Capture point M",
+    "Точка захвата M"
+  ],
+  "占领点 N": [
+    "Capture point N",
+    "Точка захвата N"
+  ],
+  "占领点 O": [
+    "Capture point O",
+    "Точка захвата O"
+  ],
+  "占领点 P": [
+    "Capture point P",
+    "Точка захвата P"
+  ],
+  "基地 A（任务）": [
+    "Base A (mission)",
+    "База A (миссия)"
+  ],
+  "基地 B（任务）": [
+    "Base B (mission)",
+    "База B (миссия)"
+  ],
+  "基地 C（任务）": [
+    "Base C (mission)",
+    "База C (миссия)"
+  ],
+  "基地 D（任务）": [
+    "Base D (mission)",
+    "База D (миссия)"
+  ],
+  "基地 E（任务）": [
+    "Base E (mission)",
+    "База E (миссия)"
+  ],
+  "基地 F（任务）": [
+    "Base F (mission)",
+    "База F (миссия)"
+  ],
+  "基地 G（任务）": [
+    "Base G (mission)",
+    "База G (миссия)"
+  ],
+  "基地 H（任务）": [
+    "Base H (mission)",
+    "База H (миссия)"
+  ],
+  "基地 I（任务）": [
+    "Base I (mission)",
+    "База I (миссия)"
+  ],
+  "基地 J（任务）": [
+    "Base J (mission)",
+    "База J (миссия)"
+  ],
+  "基地 K（任务）": [
+    "Base K (mission)",
+    "База K (миссия)"
+  ],
+  "基地 L（任务）": [
+    "Base L (mission)",
+    "База L (миссия)"
+  ],
+  "基地 M（任务）": [
+    "Base M (mission)",
+    "База M (миссия)"
+  ],
+  "基地 N（任务）": [
+    "Base N (mission)",
+    "База N (миссия)"
+  ],
+  "基地 O（任务）": [
+    "Base O (mission)",
+    "База O (миссия)"
+  ],
+  "基地 P（任务）": [
+    "Base P (mission)",
+    "База P (миссия)"
+  ],
+  "基地 A（无底色）": [
+    "Base A (transparent)",
+    "База A (без фона)"
+  ],
+  "基地 B（无底色）": [
+    "Base B (transparent)",
+    "База B (без фона)"
+  ],
+  "基地 C（无底色）": [
+    "Base C (transparent)",
+    "База C (без фона)"
+  ],
+  "基地 D（无底色）": [
+    "Base D (transparent)",
+    "База D (без фона)"
+  ],
+  "基地 E（无底色）": [
+    "Base E (transparent)",
+    "База E (без фона)"
+  ],
+  "基地 F（无底色）": [
+    "Base F (transparent)",
+    "База F (без фона)"
+  ],
+  "基地 G（无底色）": [
+    "Base G (transparent)",
+    "База G (без фона)"
+  ],
+  "基地 H（无底色）": [
+    "Base H (transparent)",
+    "База H (без фона)"
+  ],
+  "基地 I（无底色）": [
+    "Base I (transparent)",
+    "База I (без фона)"
+  ],
+  "基地 J（无底色）": [
+    "Base J (transparent)",
+    "База J (без фона)"
+  ],
+  "基地 K（无底色）": [
+    "Base K (transparent)",
+    "База K (без фона)"
+  ],
+  "基地 L（无底色）": [
+    "Base L (transparent)",
+    "База L (без фона)"
+  ],
+  "基地 M（无底色）": [
+    "Base M (transparent)",
+    "База M (без фона)"
+  ],
+  "基地 N（无底色）": [
+    "Base N (transparent)",
+    "База N (без фона)"
+  ],
+  "基地 O（无底色）": [
+    "Base O (transparent)",
+    "База O (без фона)"
+  ],
+  "基地 P（无底色）": [
+    "Base P (transparent)",
+    "База P (без фона)"
+  ],
+  "切换语言": [
+    "Switch language",
+    "Сменить язык"
+  ],
+  "战雷工作台": [
+    "War Thunder Workbench",
+    "Мастерская War Thunder"
+  ],
+  "原文资料": [
+    "Source content",
+    "Исходные материалы"
+  ],
+  "攻略正文保留原文，载具缺少对应译名时使用已有英文名称。": [
+    "Guide articles remain in their original language. Vehicles without a localized name use the available English name.",
+    "Статьи руководств сохраняют исходный язык. Если перевода названия техники нет, используется имеющееся английское название."
+  ],
+  "原价的 {0}%": [
+    "{0}% of full price",
+    "{0}% полной цены"
+  ],
+  "优惠 {0}%": [
+    "{0}% off",
+    "Скидка {0}%"
+  ],
+  "时": [
+    "h",
+    "ч"
+  ],
+  "分钟": [
+    "min",
+    "мин"
+  ],
+  "点评为生成时的原文，不会随界面语言自动翻译。": [
+    "Comments retain their original language and do not change with the interface language.",
+    "Комментарии сохраняют исходный язык и не переводятся при смене языка интерфейса."
+  ],
+  "攻略链接与参考图保留原文。": [
+    "Linked guides and reference images remain in their original language.",
+    "Руководства по ссылкам и справочные изображения сохраняют исходный язык."
+  ],
+  "司令致辞": [
+    "Commander address",
+    "Обращение командира"
+  ],
+  "像司令送你回到队伍，郑重、有温度，不照着表格念数字。": [
+    "A warm, dignified send-off from your commander, not a recital of numbers.",
+    "Тёплое и сдержанное напутствие командира, а не чтение цифр."
+  ],
+  "司令的话": [
+    "Commander's words",
+    "Слово командира"
+  ],
+  "战地嘉奖": [
+    "Battlefield commendation",
+    "Боевая благодарность"
+  ],
+  "致每一位仍在出击的战士": [
+    "To every warrior still taking the field",
+    "Каждому бойцу, продолжающему бой"
+  ],
+  "战斗数据分析": [
+    "Combat analysis",
+    "Анализ боевых данных"
+  ],
+  "结合生涯与常用载具，指出优势、短板和下一步值得关注的指标。": [
+    "Career and frequently used vehicles: strengths, weaknesses and metrics to watch next.",
+    "Карьера и частая техника: сильные стороны, слабые места и показатели для наблюдения."
+  ],
+  "作战评估": [
+    "Combat assessment",
+    "Боевая оценка"
+  ],
+  "以记录为据，下一次出击见": [
+    "Based on the record. See you next sortie.",
+    "По данным записи. До следующего вылета."
+  ],
+  "犀利评价": [
+    "Sharp critique",
+    "Острая оценка"
+  ],
+  "把战绩里的反差拎出来损两句，少客套，不灌鸡汤。": [
+    "A pointed take on the contrasts in your stats, without pleasantries or empty motivation.",
+    "Колкий взгляд на контрасты статистики, без любезностей и пустых похвал."
+  ],
+  "战地辣评": [
+    "Battlefield roast",
+    "Боевой разнос"
+  ],
+  "犀利点评": [
+    "Sharp commentary",
+    "Острый комментарий"
+  ],
+  "话放这儿，下次拿战绩反驳。": [
+    "Challenge accepted? Let your next stats reply.",
+    "Вызов брошен. Возрази следующими результатами."
+  ],
+  "自定义风格": [
+    "Custom style",
+    "Свой стиль"
+  ],
+  "描述你想要的语气、表达角度和篇幅；数据与结论仍以战绩为准。": [
+    "Describe your preferred tone, angle and length; facts and conclusions still follow the stats.",
+    "Опишите тон, подход и длину; факты и выводы остаются привязаны к статистике."
+  ],
+  "你的战绩点评": [
+    "Your stats commentary",
+    "Комментарий к вашей статистике"
+  ],
+  "自选视角": [
+    "Your perspective",
+    "Ваш взгляд"
+  ],
+  "你的视角，真实的出击记录": [
+    "Your perspective, real sortie records",
+    "Ваш взгляд, реальные боевые записи"
+  ],
+  "战争雷霆 · 折扣年历": [
+    "War Thunder · Annual sale calendar",
+    "War Thunder · Годовой календарь скидок"
+  ],
+  "图片和折扣信息均来自盒友整理收集": [
+    "Image and sale information collected by the community",
+    "Изображение и сведения о скидках собраны сообществом"
+  ],
+  "仅根据往年折扣情况预测，具体数据以官方公布为准。": [
+    "Forecasts use previous sales only. Official announcements take precedence.",
+    "Прогноз по прошлым скидкам. Приоритет у официальных объявлений."
+  ],
+  "原样式高清重制 · 按原表格重新排字与绘线": [
+    "High-resolution redraw with the original table layout",
+    "Перерисовка в высоком разрешении с исходной структурой таблицы"
+  ],
+  "正常价值": [
+    "Normal value",
+    "Обычная стоимость"
+  ],
+  "折扣价值": [
+    "Sale value",
+    "Стоимость со скидкой"
+  ],
+  "交易价值": [
+    "Trade value",
+    "Торговая стоимость"
+  ],
+  "仅供参考。优先依据官方公开已拥有载具清单计算；未取得清单时按出战记录及当前研发前置推算。结果不代表实际投入或成交价格，不包含未购载具的研发进度、改装研发和高级账号。特殊载具 GJN 均价单列，不计入人民币总价；未核价条目不按零元处理。": [
+    "For reference only. Uses the official public owned-vehicle list when available; otherwise estimates from battle records and current prerequisites. This is not actual spending or a transaction price. Excludes progress on unpurchased vehicles, modification research and premium account time. Special-vehicle GJN averages are listed separately and excluded from the CNY total. Unpriced items are never treated as free.",
+    "Только для справки. По возможности используется официальный список имеющейся техники; иначе — оценка по боям и текущим требованиям. Это не фактические затраты и не цена сделки. Не учитываются прогресс некупленной техники, модификации и премиум-аккаунт. Средние цены особой техники в GJN указаны отдельно и не входят в итог CNY. Неизвестная цена не считается нулевой."
+  ],
+  "三点占领": [
+    "Domination (3 zones)",
+    "Превосходство (3 точки)"
+  ],
+  "出生点": [
+    "Spawn point",
+    "Точка появления"
+  ],
+  "双基地战斗": [
+    "Battle (2 bases)",
+    "Сражение (2 базы)"
+  ],
+  "单点争夺 1": [
+    "Conquest 1",
+    "Захват 1"
+  ],
+  "单点争夺 2": [
+    "Conquest 2",
+    "Захват 2"
+  ],
+  "单点争夺 3": [
+    "Conquest 3",
+    "Захват 3"
+  ],
+  "单点争夺 4": [
+    "Conquest 4",
+    "Захват 4"
+  ],
+  "三点占领 · 布局 02": [
+    "Domination (3 zones) · Layout 02",
+    "Превосходство (3 точки) · Вариант 02"
+  ],
+  "双基地战斗 · 布局 02": [
+    "Battle (2 bases) · Layout 02",
+    "Сражение (2 базы) · Вариант 02"
+  ],
+  "单点争夺 1 · 布局 02": [
+    "Conquest 1 · Layout 02",
+    "Захват 1 · Вариант 02"
+  ],
+  "单点争夺 2 · 布局 02": [
+    "Conquest 2 · Layout 02",
+    "Захват 2 · Вариант 02"
+  ],
+  "单点争夺 3 · 布局 02": [
+    "Conquest 3 · Layout 02",
+    "Захват 3 · Вариант 02"
+  ],
+  "三点占领 · 大东欧": [
+    "Domination (3 zones) · Large Eastern Europe",
+    "Превосходство (3 точки) · Большая Восточная Европа"
+  ],
+  "双基地战斗 · 大东欧": [
+    "Battle (2 bases) · Large Eastern Europe",
+    "Сражение (2 базы) · Большая Восточная Европа"
+  ],
+  "分": [
+    "points",
+    "очков"
+  ],
+  "研发前置缺失": [
+    "Research prerequisite missing",
+    "Нет предшественника исследования"
+  ],
+  "研发点未核实": [
+    "Research Points unverified",
+    "ОИ не проверены"
+  ],
+  "金鹰售价未核实": [
+    "GE price unverified",
+    "Цена в ЗО не проверена"
+  ],
+  "载具不在当前资料库": [
+    "Vehicle not in current database",
+    "Техники нет в текущей базе"
+  ],
+  "礼包人民币原价未核实": [
+    "Full pack CNY price unverified",
+    "Полная цена набора в CNY не проверена"
+  ],
+  "管理员设置不参与估值": [
+    "Excluded from valuation by admin",
+    "Исключено из оценки администратором"
+  ],
+  "管理员自定义价值未填写完整": [
+    "Admin custom valuation incomplete",
+    "Оценка администратора не заполнена полностью"
+  ],
+  "该兵种未配置研发点估值单价": [
+    "No RP valuation rate for this branch",
+    "Для этого рода войск не задан тариф ОИ"
+  ],
+  "活动／特殊载具无已核实购入价格": [
+    "No verified purchase price for event/special vehicle",
+    "Нет проверенной цены покупки событийной/особой техники"
+  ],
+  "管理员已设定该载具的三档人民币价值": [
+    "Admin has set three CNY valuation tiers for this vehicle",
+    "Администратор задал три уровня оценки техники в CNY"
+  ],
+  "陆战对局包含其中航空出击；官方近期汇总不是逐场记录。": [
+    "Ground matches include aircraft sorties; official recent summaries are not individual battle logs.",
+    "Наземные бои включают вылеты авиации; недавняя сводка игры — не журнал отдельных боёв."
+  ],
+  "名次按官方榜表统计范围展示；分位图为有限官方名次抽样。": [
+    "Ranks follow the official leaderboard scope; percentile charts use limited official rank samples.",
+    "Места приведены по области официального рейтинга; процентили основаны на ограниченной выборке мест."
+  ],
+  "近期榜表总数包含无有效成绩记录，仅显示名次，不换算活跃玩家百分位。": [
+    "Recent board totals include entries without valid results. Only ranks are shown, not active-player percentiles.",
+    "Число записей недавнего рейтинга включает записи без результатов. Показаны только места, без процентилей активных игроков."
+  ],
+  "单车记录不等于完整车库；银狮为累计获得候选口径，不是余额或净收入。效率为工作台统计评分。": [
+    "Vehicle records are not the full hangar. Silver Lions are an earned-total measure, not balance or net income. Efficiency is the workbench score.",
+    "Статистика техники — не весь ангар. Серебряные львы отражают заработанное, не баланс и не чистый доход. Эффективность — оценка мастерской."
+  ],
+  "对空表现": [
+    "Air performance",
+    "Результаты по воздуху"
+  ],
+  "对地表现": [
+    "Ground performance",
+    "Результаты по земле"
+  ],
+  "出击表现": [
+    "Sortie performance",
+    "Результаты вылетов"
+  ],
+  "Rank": [
+    "Rank",
+    "Ранг"
+  ],
+  "雷达：胜率": [
+    "Win rate",
+    "Победы"
+  ],
+  "雷达：对空": [
+    "Air",
+    "Воздух"
+  ],
+  "雷达：对地": [
+    "Ground",
+    "Земля"
+  ],
+  "雷达：综合": [
+    "K/D",
+    "K/D"
+  ],
+  "雷达：出击": [
+    "Sorties",
+    "Вылеты"
+  ],
+  "雷达：场均": [
+    "Kills/btl",
+    "Цели/бой"
+  ],
+  "累计 SL": [
+    "Total Silver Lions",
+    "Всего SL"
+  ]
+}

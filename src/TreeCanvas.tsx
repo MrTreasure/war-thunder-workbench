@@ -1,3 +1,6 @@
+import { vehicleName } from "./i18n/core";
+import { useLocale } from "./i18n/react";
+import { localize, t } from "./i18n/core";
 import { useEffect, useMemo, useRef } from "react";
 import type { CSSProperties } from "react";
 import type { Catalog, Mode, Tree, TreeNode, Vehicle } from "./models";
@@ -72,11 +75,15 @@ export function VehicleCard({
   selected: boolean;
   onSelect: () => void;
 }) {
+  useLocale();
+
   return (
     <button
       className={`vehicle-card ${selected ? "is-selected" : ""}`}
       onClick={onSelect}
-      aria-label={`${unit.name}，Rank ${unit.rank}，查看研发信息`}
+      aria-label={localize(
+        `${localize(vehicleName(unit))}，Rank ${localize(unit.rank)}，查看研发信息`,
+      )}
     >
       <img
         src={unit.thumbnailUrl}
@@ -88,29 +95,34 @@ export function VehicleCard({
           e.currentTarget.hidden = true;
         }}
       />
-      <span className="unit-role">{catalog.roles[unit.role || ""] || "常规载具"}</span>
-      <span className="unit-name" title={unit.name}>
-        {unit.name}
+      <span className="unit-role">{localize(catalog.roles[unit.role || ""] || "常规载具")}</span>
+      <span className="unit-name" title={localize(vehicleName(unit))}>
+        {localize(vehicleName(unit))}
       </span>
       <span className="unit-meta">
         <span
           className={`unit-badge ${unit.side === "research" || unit.kind === "squadron" ? "unit-rp" : ""}`}
         >
-          {unit.side === "research" || unit.kind === "squadron"
-            ? rpText(unit)
-            : unit.kind === "gold" && unit.price !== null
-              ? `${format(unit.price)} GE`
-              : unit.kind === "pack"
-                ? packPriceLabel(unit)
-                : catalog.kinds[unit.kind]}
+          {localize(
+            unit.side === "research" || unit.kind === "squadron"
+              ? rpText(unit)
+              : unit.kind === "gold" && unit.price !== null
+                ? `${localize(format(unit.price))} GE`
+                : unit.kind === "pack"
+                  ? packPriceLabel(unit)
+                  : catalog.kinds[unit.kind],
+          )}
         </span>
       </span>
       <span className="battle-ratings">
-        <span className="battle-rating" title={`${modes[mode]} ${rating(unit, mode)}`}>
+        <span
+          className="battle-rating"
+          title={localize(`${localize(modes[mode])} ${localize(rating(unit, mode))}`)}
+        >
           <span className="rating-mode">
-            {modes[mode]} {mode.toUpperCase()}
+            {localize(modes[mode])} {localize(mode.toUpperCase())}
           </span>
-          <strong>{rating(unit, mode)}</strong>
+          <strong>{localize(rating(unit, mode))}</strong>
         </span>
       </span>
     </button>
@@ -141,6 +153,8 @@ export function TreeCanvas({
   onSelect: (id: string) => void;
   locate: number;
 }) {
+  useLocale();
+
   const layout = useMemo(() => treeLayout(tree, expanded), [tree, expanded]);
   const refs = useRef(new Map<string, HTMLElement>());
   const nodes = tree.ranks.flatMap((rank) => [...rank.research, ...rank.special]);
@@ -188,28 +202,33 @@ export function TreeCanvas({
           style={at(layout.specialX, 12, layout.specialWidth)}
         />
         <div className="panel-heading" style={at(layout.mainX + 13, 29, layout.mainWidth - 26)}>
-          常规研发<small>原始列位置 · 沿箭头向下</small>
+          {t("常规研发")}
+          <small>{t("原始列位置 · 沿箭头向下")}</small>
         </div>
         <div
           className="panel-heading is-special"
           style={at(layout.specialX + 13, 29, layout.specialWidth - 26)}
         >
-          金币 / 礼包及特殊载具<small>独立获取</small>
+          {t("金币 / 礼包及特殊载具")}
+          <small>{t("独立获取")}</small>
         </div>
-        {layout.ranks.map(({ rank, start }) => (
-          <div key={rank.rank}>
-            <div
-              className="rank-band"
-              style={at(layout.mainX + 1, start, layout.width - layout.mainX - 15)}
-            />
-            <div className="rank-label" style={at(10, start + 12)}>
-              RANK<b>{rank.rank}</b>
+        {localize(
+          layout.ranks.map(({ rank, start }) => (
+            <div key={rank.rank}>
+              <div
+                className="rank-band"
+                style={at(layout.mainX + 1, start, layout.width - layout.mainX - 15)}
+              />
+              <div className="rank-label" style={at(10, start + 12)}>
+                RANK<b>{localize(rank.rank)}</b>
+              </div>
+              <div className="rank-note" style={at(layout.mainX + 13, start + 13)}>
+                {localize(rank.research.reduce((sum, node) => sum + node.members.length, 0))}{" "}
+                {t("辆 · 常规研发")}
+              </div>
             </div>
-            <div className="rank-note" style={at(layout.mainX + 13, start + 13)}>
-              {rank.research.reduce((sum, node) => sum + node.members.length, 0)} 辆 · 常规研发
-            </div>
-          </div>
-        ))}
+          )),
+        )}
         <svg className="edges" width={layout.width} height={layout.height} aria-hidden="true">
           <defs>
             <marker
@@ -235,31 +254,33 @@ export function TreeCanvas({
               <path d="M0 0 L8 4 L0 8Z" />
             </marker>
           </defs>
-          {tree.edges.map((edge) => {
-            const from = layout.positions.get(edge.from),
-              to = layout.positions.get(edge.to);
-            if (!from || !to) return null;
-            const x1 = from.x + 84,
-              y1 = from.y + from.height + 2,
-              x2 = to.x + 84,
-              y2 = to.y - 5,
-              rail = x1 < x2 ? to.x - 10 : to.x + 178;
-            const folder = nodeMap.get(edge.from)?.group && expanded.has(edge.from);
-            const d = folder
-              ? `M${from.x + 170},${from.y + 55} H${from.x + 178} V${y2 - 9} H${x2} V${y2}`
-              : x1 === x2
-                ? `M${x1},${y1} V${y2}`
-                : `M${x1},${y1} V${from.rowBottom + 12} H${rail} V${y2 - 9} H${x2} V${y2}`;
-            const active = route.has(edge.from) && route.has(edge.to);
-            return (
-              <path
-                key={`${edge.from}:${edge.to}`}
-                d={d}
-                className={`edge ${active ? "is-route" : ""}`}
-                markerEnd={active ? "url(#arrow-active)" : "url(#arrow)"}
-              />
-            );
-          })}
+          {localize(
+            tree.edges.map((edge) => {
+              const from = layout.positions.get(edge.from),
+                to = layout.positions.get(edge.to);
+              if (!from || !to) return null;
+              const x1 = from.x + 84,
+                y1 = from.y + from.height + 2,
+                x2 = to.x + 84,
+                y2 = to.y - 5,
+                rail = x1 < x2 ? to.x - 10 : to.x + 178;
+              const folder = nodeMap.get(edge.from)?.group && expanded.has(edge.from);
+              const d = folder
+                ? `M${localize(from.x + 170)},${localize(from.y + 55)} H${localize(from.x + 178)} V${localize(y2 - 9)} H${localize(x2)} V${localize(y2)}`
+                : x1 === x2
+                  ? `M${localize(x1)},${localize(y1)} V${localize(y2)}`
+                  : `M${localize(x1)},${localize(y1)} V${localize(from.rowBottom + 12)} H${localize(rail)} V${localize(y2 - 9)} H${localize(x2)} V${localize(y2)}`;
+              const active = route.has(edge.from) && route.has(edge.to);
+              return (
+                <path
+                  key={`${edge.from}:${edge.to}`}
+                  d={d}
+                  className={`edge ${active ? "is-route" : ""}`}
+                  markerEnd={active ? "url(#arrow-active)" : "url(#arrow)"}
+                />
+              );
+            }),
+          )}
         </svg>
         {nodes.map((node) => {
           const p = layout.positions.get(node.id)!;
@@ -289,36 +310,45 @@ export function TreeCanvas({
                 selected={node.members[0].id === selected}
                 onSelect={() => onSelect(node.members[0].id)}
               />
-              {node.group && (
-                <>
-                  <button
-                    className="folder-toggle"
-                    aria-expanded={expanded.has(node.id)}
-                    onClick={() => toggle(node.id)}
-                  >
-                    <span>
-                      {node.variant ? "联动系统" : "折叠组"} · {node.members.length} 辆
-                    </span>
-                    <span>{expanded.has(node.id) ? "−" : "＋"}</span>
-                  </button>
-                  {expanded.has(node.id) && (
-                    <div className="folder-members">
-                      {node.members.slice(1).map((unit) => (
-                        <div className="folder-member" key={unit.id}>
-                          {unit.req &&
-                            node.members.some((previous) => previous.id === unit.req) && (
-                              <span className="folder-link" />
-                            )}
-                          <VehicleCard
-                            {...{ unit, catalog, mode }}
-                            selected={unit.id === selected}
-                            onSelect={() => onSelect(unit.id)}
-                          />
+              {localize(
+                node.group && (
+                  <>
+                    <button
+                      className="folder-toggle"
+                      aria-expanded={expanded.has(node.id)}
+                      onClick={() => toggle(node.id)}
+                    >
+                      <span>
+                        {localize(node.variant ? "联动系统" : "折叠组")} ·{" "}
+                        {localize(node.members.length)} {t("辆")}
+                      </span>
+                      <span>{localize(expanded.has(node.id) ? "−" : "＋")}</span>
+                    </button>
+                    {localize(
+                      expanded.has(node.id) && (
+                        <div className="folder-members">
+                          {localize(
+                            node.members.slice(1).map((unit) => (
+                              <div className="folder-member" key={unit.id}>
+                                {localize(
+                                  unit.req &&
+                                    node.members.some((previous) => previous.id === unit.req) && (
+                                      <span className="folder-link" />
+                                    ),
+                                )}
+                                <VehicleCard
+                                  {...{ unit, catalog, mode }}
+                                  selected={unit.id === selected}
+                                  onSelect={() => onSelect(unit.id)}
+                                />
+                              </div>
+                            )),
+                          )}
                         </div>
-                      ))}
-                    </div>
-                  )}
-                </>
+                      ),
+                    )}
+                  </>
+                ),
               )}
             </article>
           );

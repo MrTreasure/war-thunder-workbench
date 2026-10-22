@@ -1,3 +1,6 @@
+import { getLocale } from "./i18n/core";
+import { useLocale } from "./i18n/react";
+import { localize, t } from "./i18n/core";
 import { useEffect, useId, useRef } from "react";
 import type { ReactNode } from "react";
 export function Modal({
@@ -13,6 +16,8 @@ export function Modal({
   children: ReactNode;
   className?: string;
 }) {
+  useLocale();
+
   const ref = useRef<HTMLDialogElement>(null);
   const titleId = useId();
   useEffect(() => {
@@ -30,30 +35,36 @@ export function Modal({
     >
       <header className="calc-header">
         <div>
-          <h2 id={titleId}>{title}</h2>
-          <p>{subtitle}</p>
+          <h2 id={titleId}>{localize(title)}</h2>
+          <p>{localize(subtitle)}</p>
         </div>
         <button className="quiet-button" onClick={close}>
-          关闭 ×
+          {t("关闭 ×")}
         </button>
       </header>
-      {children}
+      {localize(children)}
     </dialog>
   );
 }
 export function Metrics({ rp, cents }: { rp: number | null; cents: number | null }) {
+  useLocale();
+
   return (
     <div className="calc-metrics">
       <div>
-        <span>待研发总量</span>
-        <strong>{rp === null ? "待核对" : `${rp.toLocaleString("zh-CN")} RP`}</strong>
+        <span>{t("待研发总量")}</span>
+        <strong>
+          {localize(rp === null ? "待核对" : `${localize(rp.toLocaleString(getLocale()))} RP`)}
+        </strong>
       </div>
       <div>
-        <span>预估价格</span>
+        <span>{t("预估价格")}</span>
         <strong>
-          {cents === null
-            ? "待报价"
-            : `¥ ${(cents / 100).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+          {localize(
+            cents === null
+              ? "待报价"
+              : `¥ ${localize((cents / 100).toLocaleString(getLocale(), { minimumFractionDigits: 2, maximumFractionDigits: 2 }))}`,
+          )}
         </strong>
       </div>
     </div>

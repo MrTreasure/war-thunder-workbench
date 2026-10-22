@@ -1,3 +1,4 @@
+import { getLocale, t, decimalSeparator } from "./i18n/core";
 export type SaleChannel = "sl" | "ge" | "pack" | "bundle" | "premium";
 export type SaleEvent = {
   id: string;
@@ -96,14 +97,31 @@ export function saleCountdown(event: SaleEvent, now: number): string {
   const days = Math.floor(seconds / 86400),
     hours = Math.floor(seconds / 3600) % 24;
   const minutes = Math.floor(seconds / 60) % 60;
+  if (getLocale() !== "zh-CN") {
+    const heading = t(
+      event.status === "predicted" ? "预计距开始" : now >= start ? "距结束" : "距开始",
+    );
+    return (
+      heading +
+      " " +
+      [
+        days ? days + t("天") : "",
+        hours + t("时"),
+        minutes + t("分钟"),
+        event.status === "predicted" ? "" : (seconds % 60) + t("秒"),
+      ]
+        .filter(Boolean)
+        .join(" ")
+    );
+  }
   return `${event.status === "predicted" ? "预计距开始" : now >= start ? "距结束" : "距开始"} ${days ? days + "天 " : ""}${hours}时 ${minutes}分${event.status === "predicted" ? "" : " " + (seconds % 60) + "秒"}`;
 }
-const dateFormatter = new Intl.DateTimeFormat("zh-CN", {
-  timeZone: "Asia/Shanghai",
-  month: "2-digit",
-  day: "2-digit",
-});
-export const saleDate = (value: string) => dateFormatter.format(new Date(value));
+export const saleDate = (value: string) =>
+  new Intl.DateTimeFormat(getLocale(), {
+    timeZone: "Asia/Shanghai",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date(value));
 export function saleRange(event: SaleEvent): string {
   if (event.status === "predicted" && event.startWindow && event.endWindow)
     return `可能于 ${saleDate(event.startWindow[0])}—${saleDate(event.startWindow[1])} 开始 · 可能于 ${saleDate(event.endWindow[0])}—${saleDate(event.endWindow[1])} 结束`;
@@ -117,6 +135,15 @@ export function saleRate(event: SaleEvent, channel?: string): string {
   ].sort((a, b) => a - b);
   if (!rates.length)
     return channel && event.channels.includes("bundle") ? "组合价与条件见公告" : "力度见公告";
+  if (getLocale() !== "zh-CN") {
+    const value =
+      rates.length === 1
+        ? rates[0].toLocaleString(getLocale())
+        : rates[0].toLocaleString(getLocale()) +
+          "–" +
+          rates[rates.length - 1].toLocaleString(getLocale());
+    return (event.status === "predicted" ? t("往年") + " " : "") + t("优惠 {0}%", [value]);
+  }
   const label =
     rates.length === 1
       ? `${(100 - rates[0]) / 10}折`
@@ -166,9 +193,9 @@ export function saleOriginalPrice(vehicle: SaleVehicle): string {
   const price = vehicle.originalPrice;
   if (!price || !Number.isSafeInteger(price.amount) || price.amount === null || price.amount <= 0)
     return vehicle.channel === "ge" ? "金鹰原价待报价" : "礼包原价待报价";
-  if (price.currency === "GE") return `原价 ${price.amount.toLocaleString("zh-CN")} 金鹰`;
+  if (price.currency === "GE") return `原价 ${price.amount.toLocaleString(getLocale())} 金鹰`;
   const cents = BigInt(price.amount);
-  return `礼包原价 ¥ ${(cents / 100n).toLocaleString("zh-CN")}.${(cents % 100n).toString().padStart(2, "0")} · 整包`;
+  return `礼包原价 ¥ ${(cents / 100n).toLocaleString(getLocale())}${decimalSeparator()}${(cents % 100n).toString().padStart(2, "0")} · 整包`;
 }
 
 /** Omit only known shared boilerplate; keep event-specific conditions verbatim. */

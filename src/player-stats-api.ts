@@ -1,3 +1,4 @@
+import { getLocale } from "./i18n/core";
 import settings from "./config/player-stats.json";
 import reportAssets from "../data/player-report-assets.json";
 import type { ReportStyle } from "./player-report-style";
@@ -157,7 +158,9 @@ function stored(key: string) {
 }
 let sessionToken = "";
 // QMuse shares its origin with other applications. Persist only a non-secret hint.
-export function hasStatsToken() { return Boolean(sessionToken); }
+export function hasStatsToken() {
+  return Boolean(sessionToken);
+}
 export function setStatsToken(token: string) {
   sessionToken = token;
   localStorage.removeItem(SESSION);
@@ -178,7 +181,9 @@ try {
     localStorage.setItem("wt-account-known-v1", "1");
     localStorage.removeItem(SESSION);
   }
-} catch { /* Storage may be disabled. */ }
+} catch {
+  /* Storage may be disabled. */
+}
 export function statsHeaders() {
   return {
     "Content-Type": "application/json",
@@ -228,20 +233,22 @@ export const statsCategoryNames: Record<string, string> = {
   boats: "近岸海军",
 };
 export const statsNumber = (value: number | null | undefined) =>
-  value == null ? "—" : value.toLocaleString("zh-CN");
+  value == null ? "—" : value.toLocaleString(getLocale());
 /** Group by 万, retaining the exact integer rather than rounding income. */
 export const statsSilver = (value: number | null | undefined) =>
   value == null || !Number.isSafeInteger(value)
     ? "—"
-    : BigInt(value)
-        .toString()
-        .replace(/\B(?=(\d{4})+(?!\d))/g, ",");
+    : getLocale() !== "zh-CN"
+      ? BigInt(value).toLocaleString(getLocale())
+      : BigInt(value)
+          .toString()
+          .replace(/\B(?=(\d{4})+(?!\d))/g, ",");
 export const statsSilverIcon = reportAssets.silverLionsIcon;
 export const statsGoldenEaglesIcon = reportAssets.goldenEaglesIcon;
 export const statsRatio = (value: Ratio | undefined) =>
   typeof value === "number" ? value.toFixed(2) : value === "∞" ? "∞" : "—";
 export const statsDate = (value: string) =>
-  new Date(value).toLocaleString("zh-CN", { hour12: false, timeZone: "Asia/Shanghai" });
+  new Date(value).toLocaleString(getLocale(), { hour12: false, timeZone: "Asia/Shanghai" });
 function base64url(bytes: Uint8Array) {
   return btoa(String.fromCharCode(...bytes))
     .replaceAll("+", "-")

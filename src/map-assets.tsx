@@ -1,3 +1,5 @@
+import { useLocale } from "./i18n/react";
+import { localize } from "./i18n/core";
 import { useState } from "react";
 import type { ImgHTMLAttributes, SVGProps } from "react";
 // Keep primary images in GitHub, with independent alternatives for failed connections.
@@ -10,12 +12,14 @@ export function GroundThumbnail({
   alt,
   ...props
 }: { asset: GroundImageAsset } & ImgHTMLAttributes<HTMLImageElement>) {
+  useLocale();
+
   const [source, setSource] = useState(0);
   const sources = assetSources(asset);
   return (
     <img
       {...props}
-      alt={alt ?? "地图点位缩略图"}
+      alt={localize(alt ?? "地图点位缩略图")}
       src={sources[source]}
       onError={() => {
         if (source + 1 < sources.length) setSource(source + 1);
@@ -28,6 +32,8 @@ export function GroundSvgImage({
   onFailure,
   ...props
 }: { asset: GroundImageAsset; onFailure?: () => void } & SVGProps<SVGImageElement>) {
+  useLocale();
+
   const [source, setSource] = useState(0);
   const sources = assetSources(asset);
   return (

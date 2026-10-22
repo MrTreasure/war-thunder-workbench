@@ -1,8 +1,10 @@
+import { getLocale, t } from "./i18n/core";
 import seo from "../data/site-seo.json";
 
 /** QMuse replaces source head tags; restore public metadata after app startup too. */
 export function updateSearchMetadata(page: string) {
-  const zh = seo.locales["zh-CN"];
+  const locale = getLocale();
+  const zh = seo.locales[locale];
   const titles: Record<string, string> = {
     tree: "战雷科技树与研发规划",
     stats: "战雷战绩查询与战雷账号价值",
@@ -10,7 +12,7 @@ export function updateSearchMetadata(page: string) {
     lineups: "战雷出击队列",
     sales: "战雷折扣日历",
   };
-  document.title = `${titles[page] || "战争雷霆玩家工具"} · 战雷工作台 | War Thunder Workbench`;
+  document.title = `${t(titles[page] || "战争雷霆玩家工具")} · ${t("战雷工作台")} | War Thunder Workbench`;
   const qmuse = location.origin === new URL(seo.qmuseUrl).origin;
   const canonical = qmuse ? seo.qmuseUrl : seo.siteUrl;
   const setMeta = (attribute: "name" | "property", name: string, content: string) => {
@@ -46,10 +48,10 @@ export function updateSearchMetadata(page: string) {
   structured.textContent = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "War Thunder Workbench · 战雷工作台",
+    name: t("战雷工作台"),
     url: canonical,
     description: zh.description,
-    inLanguage: "zh-CN",
+    inLanguage: locale,
     applicationCategory: "GameApplication",
     operatingSystem: "Web browser",
     featureList: zh.features.map((feature) => feature.title),

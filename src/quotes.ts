@@ -1,8 +1,9 @@
+import { getLocale } from "./i18n/core";
 import type { CartItem, CartLine } from "./models";
 import { integer, object } from "./validation.ts";
-export const format = (value: number) => value.toLocaleString("zh-CN");
+export const format = (value: number) => value.toLocaleString(getLocale());
 export const money = (cents: number) =>
-  `¥ ${(cents / 100).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  `¥ ${(cents / 100).toLocaleString(getLocale(), { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 export function parseRate(value: string): number | null {
   if (!/^\d+(\.\d{1,2})?$/.test(value)) return null;
   const cents = Math.round(Number(value) * 100);
