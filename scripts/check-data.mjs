@@ -54,6 +54,16 @@ assert.equal(valuationRules.schemaVersion, 1);
 assert.equal(valuationRules.ge.cents, 18900);
 assert.equal(valuationRules.ge.units, 5000);
 assert.equal(valuationRules.rpUnit, 10000);
+assert.equal(valuationRules.scenarios.secondHand.label, "交易价值");
+assert.deepEqual(
+  new Set(valuationRules.researchRanks),
+  new Set(
+    Object.values(catalog.trees).flatMap((countries) =>
+      Object.values(countries).flatMap((tree) => tree?.ranks.map((rank) => rank.rank) || []),
+    ),
+  ),
+  "Valuation filters must include every canonical research rank",
+);
 for (const [key, expected] of Object.entries({
   normal: [300, 200, 100],
   discount: [300, 200, 50],

@@ -2,12 +2,25 @@ import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import catalogSettings from "../data/catalog-settings.json";
 import { GameSelect } from "./components/GameSelect";
-import { rankNumber } from "./planner";
+import valuationRules from "../data/account-valuation-rules.json";
 import { Modal } from "./Modal";
 import { statsRequest, statsDate, statsNumber, statsCategoryNames } from "./player-stats-api";
 import type { PlayerProfile, StatsSession } from "./player-stats-api";
 
 type Item = { id: string; name: string; country: string; category: string; rank?: string | null };
+type ScenarioKey = "normal" | "discount" | "secondHand";
+const scenarioKeys: ScenarioKey[] = ["normal", "discount", "secondHand"];
+type UnpricedItem = Partial<Item> & {
+  id: string;
+  name: string;
+  reason: string;
+  rp?: number | null;
+  rpSource?: string | null;
+  rpCheckedAt?: string | null;
+  owned?: boolean;
+  observed?: boolean;
+  vehicles?: Item[];
+};
 type Scenario = {
   label: string;
   rpCents: number;
@@ -64,7 +77,7 @@ type Valuation = {
     rpSource: string | null;
     rpCheckedAt: string | null;
   })[];
-  unpriced: { id: string; name: string; reason: string }[];
+  unpriced: UnpricedItem[];
   rules: {
     ge: { cents: number; units: number };
     rpUnit: number;
@@ -136,7 +149,7 @@ function ProductCard({
     </article>
   );
 }
-function ValueComposition({ scenario }: { scenario: Scenario }) {
+function ValueComposition({ scenario, label }: { scenario: Scenario; label: string }) {
   const parts = [
     { name: "研发点", cents: scenario.rpCents, color: "#d9b868" },
     { name: "金鹰载具", cents: scenario.geCents, color: "#78aba8" },
@@ -145,8 +158,8 @@ function ValueComposition({ scenario }: { scenario: Scenario }) {
   const total = parts.reduce((sum, p) => sum + BigInt(p.cents), 0n);
   let offset = 0;
   return (
-    <aside className="wt-valuation-composition" aria-label="正常价值占比">
-      <h3>正常价值占比</h3>
+    <aside className="wt-valuation-composition" aria-label={`${label}占比`}>
+      <h3>{label}占比</h3>
       <div className="wt-valuation-chart-body">
         <svg
           viewBox="0 0 100 100"
@@ -224,6 +237,8 @@ export function AccountValuation({
   const [researchCategory, setResearchCategory] = useState("all");
   const [researchRank, setResearchRank] = useState("all");
   const [showResearch, setShowResearch] = useState(false);
+  const [showUnpriced, setShowUnpriced] = useState(false);
+  const [scenarioKey, setScenarioKey] = useState<ScenarioKey>("normal");
   const request = useRef<AbortController | null>(null);
   useEffect(() => () => request.current?.abort(), []);
   const limit = session?.limits.valuationLimit;
@@ -258,14 +273,42 @@ export function AccountValuation({
     }
   }
   const filteredResearch =
-    value?.research.filter(
-      (v) =>
-        (researchCountry === "all" || v.country === researchCountry) &&
-        (researchCategory === "all" || v.category === researchCategory) &&
-        (researchRank === "all" || (v.rank || "unknown") === researchRank),
-    ) || [];
+    value?.research
+      .filter(
+        (v) =>
+          (researchCountry === "all" || v.country === researchCountry) &&
+          (researchCategory === "all" || v.category === researchCategory) &&
+          (researchRank === "all" || (v.rank || "unknown") === researchRank),
+      )
+      .sort((a, b) => (b.rp ?? -1) - (a.rp ?? -1) || a.name.localeCompare(b.name, "zh-CN")) || [];
   const countryName = (id: string) =>
     (catalogSettings.countries as Record<string, string>)[id] || id;
+  const selectedScenario = value?.scenarios[scenarioKey];
+  const selectedRule = value?.rules.scenarios[scenarioKey];
+  const knownItems = new Map<
+    string,
+    Partial<Item> & { rp?: number | null; rpSource?: string | null; rpCheckedAt?: string | null }
+  >([
+    ...profile.vehicles.map(
+      (v) =>
+        [
+          v.id,
+          { ...v, country: v.country || undefined, category: v.category || undefined },
+        ] as const,
+    ),
+    ...(value
+      ? [
+          ...value.research,
+          ...value.gold,
+          ...value.market,
+          ...value.packs.flatMap((p) => p.vehicles),
+        ].map((v) => [v.id, v] as const)
+      : []),
+  ]);
+  const unpricedItems =
+    value?.unpriced
+      .map((item) => ({ ...knownItems.get(item.id), ...item }))
+      .sort((a, b) => (b.rp ?? -1) - (a.rp ?? -1) || a.name.localeCompare(b.name, "zh-CN")) || [];
   return (
     <div className="wt-account-valuation">
       <button
@@ -297,62 +340,105 @@ export function AccountValuation({
           close={() => {
             setOpen(false);
             setShowResearch(false);
+            setShowUnpriced(false);
           }}
           className="wt-valuation-dialog"
         >
-          <div className="wt-valuation-overview">
-            <p className="wt-valuation-intro">
-              {value.ownership?.verified ? (
-                <>
-                  依据官方公开车库中 {value.ownership.ownedCount} 辆已拥有载具计算，包含{" "}
-                  {value.ownership.unplayedCount}{" "}
-                  辆未出战载具。研发点按已拥有载具去重汇总，不额外推算未持有的前置。
-                </>
-              ) : (
-                <>根据 {value.observedCount} 辆出战载具与当前前置推算，尚未核验完整已拥有清单。</>
-              )}
-              同一载具、同一礼包只计算一次。
-              {value.ownership?.fetchedAt && (
-                <> 车库核验于 {statsDate(value.ownership.fetchedAt)}。</>
-              )}
-              {value.ownership?.notice && <> {value.ownership.notice}</>}
+          <div className="wt-valuation-coverage">
+            <span className="wt-valuation-verified">
+              {value.ownership?.verified ? "公开车库已核验" : "按出战记录推算"}
+            </span>
+            <span>
+              <b>{value.ownership?.ownedCount ?? value.observedCount}</b> 辆
+              {value.ownership?.verified ? "已拥有" : "出战载具"}
+            </span>
+            {value.ownership?.verified && (
+              <span>
+                <b>{value.ownership.unplayedCount}</b> 辆未出战
+              </span>
+            )}
+            <span>
+              <b>{value.unpriced.length}</b> 项待核价
+            </span>
+          </div>
+          <section className="wt-valuation-dashboard" aria-label="价值概览">
+            <fieldset className="wt-valuation-scenarios" aria-label="选择价值类型">
+              {scenarioKeys.map((key) => (
+                <button
+                  type="button"
+                  key={key}
+                  aria-pressed={scenarioKey === key}
+                  onClick={() => setScenarioKey(key)}
+                >
+                  <span>{valuationRules.scenarios[key].label}</span>
+                  <strong>{valuationMoney(value.scenarios[key].knownCents)}</strong>
+                </button>
+              ))}
+            </fieldset>
+            {selectedScenario && selectedRule && (
+              <div className="wt-valuation-summary">
+                <div className="wt-valuation-current" aria-live="polite" aria-atomic="true">
+                  <span className="wt-valuation-eyebrow">
+                    {valuationRules.scenarios[scenarioKey].label} · CNY
+                  </span>
+                  <strong className="wt-valuation-amount">
+                    {valuationMoney(selectedScenario.knownCents)}
+                  </strong>
+                  <output className="wt-valuation-price-status">
+                    {selectedScenario.totalCents == null
+                      ? "已核价部分，未计价项目另列"
+                      : "已核价合计"}
+                  </output>
+                  <dl className="wt-valuation-rate-note">
+                    <div>
+                      <dt>陆战 / 直升机</dt>
+                      <dd>{valuationMoney(selectedRule.rpCents.ground)} / 万 RP</dd>
+                    </div>
+                    <div>
+                      <dt>飞机</dt>
+                      <dd>{valuationMoney(selectedRule.rpCents.aviation)} / 万 RP</dd>
+                    </div>
+                    <div>
+                      <dt>金鹰 / 礼包</dt>
+                      <dd>
+                        {selectedRule.purchasePercent === 100
+                          ? "按原价"
+                          : `按原价 ${selectedRule.purchasePercent / 10} 折`}
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+                <ValueComposition
+                  scenario={selectedScenario}
+                  label={valuationRules.scenarios[scenarioKey].label}
+                />
+              </div>
+            )}
+          </section>
+          <details className="wt-valuation-basis">
+            <summary>
+              估值依据与计算规则{" "}
+              <span>
+                {value.ownership?.fetchedAt
+                  ? `车库核验 ${statsDate(value.ownership.fetchedAt)}`
+                  : "出战记录与当前前置推算"}
+              </span>
+            </summary>
+            <p>
+              {value.ownership?.verified
+                ? "依据官方公开车库中的已拥有载具计算，包含未出战载具。研发点按已拥有载具去重汇总，不额外推算未持有的前置。"
+                : "根据出战记录与当前研发前置推算，尚未核验完整已拥有清单。"}{" "}
+              同一载具、同一礼包只计算一次。{value.ownership?.notice}
             </p>
-            <ValueComposition scenario={value.scenarios.normal} />
-          </div>
-          <div className="wt-valuation-totals">
-            {Object.entries(value.scenarios).map(([key, s]) => (
-              <section key={key}>
-                <h3>{s.label}</h3>
-                <strong>{valuationMoney(s.knownCents)}</strong>
-                <small>{s.totalCents == null ? "已核价部分，存在未计价项目" : "已核价合计"}</small>
-                <dl>
-                  <div>
-                    <dt>研发点</dt>
-                    <dd>{valuationMoney(s.rpCents)}</dd>
-                  </div>
-                  <div>
-                    <dt>金鹰载具</dt>
-                    <dd>{valuationMoney(s.geCents)}</dd>
-                  </div>
-                  <div>
-                    <dt>礼包</dt>
-                    <dd>{valuationMoney(s.packCents)}</dd>
-                  </div>
-                </dl>
-              </section>
-            ))}
-          </div>
-          <section className="wt-valuation-section">
-            <h3>计算规则</h3>
             <p>
               正常／折扣：陆战、直升机 ¥3／万 RP，飞机 ¥2／万 RP；折扣金鹰与礼包 5
-              折。二手：陆战、直升机 ¥1.5／万 RP，飞机 ¥1／万 RP，金鹰与礼包按原价 3 折。
+              折。交易：陆战、直升机 ¥1.5／万 RP，飞机 ¥1／万 RP，金鹰与礼包按原价 3 折。
             </p>
             <p>
               金鹰按 ¥189／5000 GE 换算，共 {statsNumber(value.geTotal)}{" "}
               GE。礼包采用已核验人民币整包原价，保留查价日期；特殊载具优先单列，不重复计入金鹰或礼包。金额按各分项汇总后四舍五入到分。
             </p>
-          </section>
+          </details>
           <section className="wt-valuation-section">
             <h3>金鹰载具 · {value.gold.length}</h3>
             {value.gold.length ? (
@@ -481,17 +567,18 @@ export function AccountValuation({
                   等级
                   <GameSelect value={researchRank} onValueChange={setResearchRank}>
                     <option value="all">全部等级</option>
-                    {[...new Set(value.research.map((v) => v.rank || "unknown"))]
-                      .sort((a, b) => (rankNumber(a) || 99) - (rankNumber(b) || 99))
-                      .map((rank) => (
-                        <option key={rank} value={rank}>
-                          {rank === "unknown" ? "等级待核验" : `Rank ${rank}`}
-                        </option>
-                      ))}
+                    {valuationRules.researchRanks.map((rank) => (
+                      <option key={rank} value={rank}>
+                        Rank {rank}
+                      </option>
+                    ))}
+                    {value.research.some((v) => !v.rank) && (
+                      <option value="unknown">等级待核验</option>
+                    )}
                   </GameSelect>
                 </label>
                 <output>
-                  显示 {filteredResearch.length} / {value.researchCount} 辆
+                  显示 {filteredResearch.length} / {value.researchCount} 辆 · 研发点降序
                 </output>
               </div>
             )}
@@ -533,16 +620,64 @@ export function AccountValuation({
             )}
           </details>
           {!!value.unpriced.length && (
-            <details className="wt-valuation-section">
+            <details
+              className="wt-valuation-section"
+              onToggle={(event) => setShowUnpriced(event.currentTarget.open)}
+            >
               <summary>未计价项目 · {value.unpriced.length}</summary>
-              <ul>
-                {value.unpriced.map((v, i) => (
-                  <li key={v.id + i}>
-                    <span>{v.name}</span>
-                    <span>{v.reason}</span>
-                  </li>
-                ))}
-              </ul>
+              <p>以下项目资料或价格尚未核实，未按零元计入估值。</p>
+              {showUnpriced && (
+                <div className="wt-valuation-research wt-valuation-unpriced">
+                  {unpricedItems.map((v, i) => {
+                    const vehicles = v.vehicles?.length ? v.vehicles : [v];
+                    return (
+                      <article key={v.id + i}>
+                        <div className="wt-valuation-unpriced-art">
+                          {vehicles.map((item) => (
+                            <VehicleArt
+                              key={item.id}
+                              item={{
+                                id: item.id,
+                                name: item.name,
+                                country: item.country || "",
+                                category: item.category || "",
+                              }}
+                              compact
+                            />
+                          ))}
+                        </div>
+                        <div>
+                          <h4>
+                            {v.rpSource ? (
+                              <a href={v.rpSource} target="_blank" rel="noreferrer">
+                                {v.name}
+                              </a>
+                            ) : (
+                              v.name
+                            )}
+                          </h4>
+                          {v.owned && (
+                            <small>{v.observed ? "已拥有 · 有出战记录" : "已拥有 · 未出战"}</small>
+                          )}
+                          {vehicles.map((item) => (
+                            <small key={item.id}>
+                              {vehicles.length > 1 ? `${item.name} · ` : ""}
+                              {item.country ? countryName(item.country) : "国别待核验"} ·{" "}
+                              {item.category
+                                ? statsCategoryNames[item.category] || item.category
+                                : "军种待核验"}{" "}
+                              · {item.rank ? `Rank ${item.rank}` : "等级待核验"}
+                            </small>
+                          ))}
+                          {v.rp != null && <strong>{statsNumber(v.rp)} RP</strong>}
+                          <span className="wt-valuation-unpriced-reason">{v.reason}</span>
+                          {v.rpCheckedAt && <small>研发点核验 {statsDate(v.rpCheckedAt)}</small>}
+                        </div>
+                      </article>
+                    );
+                  })}
+                </div>
+              )}
             </details>
           )}
           <footer className="wt-valuation-section">

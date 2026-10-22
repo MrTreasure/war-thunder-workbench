@@ -1802,3 +1802,15 @@
   .wt-loading-features { grid-template-columns: minmax(0, 1fr); }
   .wt-loading-features a { min-height: 64px; }
 }
+
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-valuation-scenarios > button { padding: 12px 10px; min-height: 64px; }
+  .wt-valuation-scenarios > button > strong { font-size: clamp(15px, 3.6vw, 20px); }
+  .wt-valuation-summary { grid-template-columns: minmax(0, 1fr); gap: 18px; padding: 18px 14px; }
+  .wt-valuation-amount { font-size: 34px; }
+  .wt-valuation-composition { justify-self: stretch; max-width: none; padding: 16px 0 0; border: 0; border-top: 1px solid var(--wt-record-line); }
+  .wt-valuation-chart-body { grid-template-columns: 112px minmax(0, 1fr); gap: 18px; }
+  .wt-valuation-coverage { gap: 6px 12px; font-size: 11px; }
+  .wt-valuation-basis summary > span { flex-basis: 100%; padding-left: 18px; }
+}
+@media (max-width: 380px) { .wt-valuation-chart-body { grid-template-columns: 92px minmax(0, 1fr); gap: 12px; } }

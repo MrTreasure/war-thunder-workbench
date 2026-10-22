@@ -1609,45 +1609,6 @@
   margin: 0 -24px 16px;
   padding: 16px 24px;
 }
-.wt-valuation-intro {
-  color: var(--wt-record-muted);
-}
-.wt-valuation-totals {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin-block: 18px;
-}
-.wt-valuation-totals > section {
-  padding: 16px;
-  border: 1px solid var(--wt-record-line);
-  background: var(--wt-record-panel);
-  border-radius: 4px;
-  min-width: 0;
-}
-.wt-valuation-totals strong {
-  display: block;
-  font-size: clamp(22px, 3vw, 32px);
-  color: var(--wt-record-gold);
-  overflow-wrap: anywhere;
-}
-.wt-valuation-totals small {
-  display: block;
-  font-size: 11px;
-  color: var(--wt-record-muted);
-}
-.wt-valuation-totals dl {
-  margin: 12px 0 0;
-}
-.wt-valuation-totals dl > div {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 4px;
-}
-.wt-valuation-totals dd {
-  margin: 0;
-}
 .wt-valuation-section {
   margin-top: 18px;
   padding-top: 14px;
@@ -1839,28 +1800,145 @@
   display: block;
 }
 
-.wt-valuation-overview {
+/* One value selector drives both the current total and its composition. */
+.wt-valuation-coverage {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
+  font-size: 12px;
+  color: var(--wt-record-muted);
+  margin-block: 6px 16px;
+}
+.wt-valuation-coverage b {
+  color: var(--wt-record-ink);
+  font-weight: 600;
+}
+.wt-valuation-verified {
+  color: #93b7a1;
+}
+.wt-valuation-dashboard {
+  border: 1px solid var(--wt-record-line);
+  border-radius: 5px;
+  overflow: hidden;
+  background: var(--wt-record-panel);
+}
+.wt-valuation-scenarios {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  border: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 300px;
-  gap: 24px;
-  align-items: start;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid var(--wt-record-line);
+}
+.wt-valuation-scenarios > button {
+  min-width: 0;
+  padding: 14px 18px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  text-align: left;
+  white-space: normal;
+  color: var(--wt-record-muted);
+}
+.wt-valuation-scenarios > button + button {
+  border-left: 1px solid var(--wt-record-line);
+}
+.wt-valuation-scenarios > button[aria-pressed="true"] {
+  border-bottom-color: var(--wt-record-gold);
+  color: var(--wt-record-gold);
+  background: #d9b8680b;
+}
+.wt-valuation-scenarios > button:focus-visible {
+  outline: 2px solid var(--wt-record-gold);
+  outline-offset: -4px;
+}
+.wt-valuation-scenarios > button > span {
+  display: block;
+  font-size: 12px;
+}
+.wt-valuation-scenarios > button > strong {
+  display: block;
+  font-size: 21px;
+  font-weight: 600;
+  margin-top: 5px;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+.wt-valuation-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 28px;
+  padding: 24px;
+  align-items: center;
+}
+.wt-valuation-current {
+  min-width: 0;
+}
+.wt-valuation-eyebrow {
+  display: block;
+  color: var(--wt-record-muted);
+  font-size: 12px;
+}
+.wt-valuation-amount {
+  display: block;
+  margin-block: 6px;
+  color: var(--wt-record-gold);
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.wt-valuation-price-status {
+  display: block;
+  color: var(--wt-record-muted);
+  font-size: 11px;
+}
+.wt-valuation-rate-note {
+  margin: 18px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--wt-record-line);
+  font-size: 11px;
+}
+.wt-valuation-rate-note > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px;
+  margin-block: 5px;
+}
+.wt-valuation-rate-note dt {
+  color: var(--wt-record-muted);
+}
+.wt-valuation-rate-note dd {
+  margin: 0;
 }
 .wt-valuation-composition {
+  min-width: 0;
+  padding-left: 24px;
   border-left: 1px solid var(--wt-record-line);
-  padding-left: 18px;
 }
 .wt-valuation-composition h3 {
-  margin: 0 0 8px;
-  font-size: 13px;
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 500;
 }
 .wt-valuation-chart-body {
   display: grid;
-  grid-template-columns: 100px minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: 124px minmax(0, 1fr);
+  gap: 18px;
   align-items: center;
 }
 .wt-valuation-chart-body svg {
   width: 100%;
+}
+.wt-valuation-chart-body circle {
+  transition:
+    stroke-dasharray 240ms ease,
+    stroke-dashoffset 240ms ease;
 }
 .wt-valuation-chart-body text {
   fill: var(--wt-record-muted);
@@ -1874,7 +1952,7 @@
   display: flex;
   justify-content: space-between;
   gap: 8px;
-  margin-block: 6px;
+  margin-block: 9px;
 }
 .wt-valuation-chart-body dt {
   display: flex;
@@ -1885,18 +1963,69 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
+  flex: none;
 }
 .wt-valuation-chart-body dd {
   margin: 0;
   text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 .wt-valuation-chart-body dd small {
   display: block;
   color: var(--wt-record-muted);
+  font-size: 10px;
+  margin-top: 2px;
 }
 .wt-valuation-composition > small {
+  display: block;
+  margin-top: 10px;
   font-size: 10px;
   color: var(--wt-record-muted);
+}
+.wt-valuation-basis {
+  margin-top: 8px;
+  font-size: 12px;
+}
+.wt-valuation-basis summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  min-height: 44px;
+  cursor: pointer;
+}
+.wt-valuation-basis summary::before {
+  content: "▸";
+  color: var(--wt-record-gold);
+}
+.wt-valuation-basis[open] summary::before {
+  content: "▾";
+}
+.wt-valuation-basis summary > span {
+  color: var(--wt-record-muted);
+  font-size: 11px;
+}
+.wt-valuation-basis p {
+  color: var(--wt-record-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.wt-valuation-unpriced-art {
+  flex: 0 0 96px;
+  display: grid;
+  align-self: center;
+}
+.wt-valuation-unpriced-reason {
+  display: block;
+  margin-top: 6px;
+  color: #d7b18d;
+  font-size: 12px;
+  line-height: 1.5;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wt-valuation-chart-body circle {
+    transition: none;
+  }
 }
 .wt-valuation-filters {
   display: flex;
