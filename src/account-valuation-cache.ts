@@ -64,11 +64,16 @@ function valid(value: unknown): value is Valuation {
       !integer(s.geCents) ||
       !integer(s.packCents) ||
       !integer(s.knownCents) ||
+      (s.manualCents !== undefined && !integer(s.manualCents)) ||
       !nullableInteger(s.totalCents)
     )
       return false;
     if (
-      BigInt(s.rpCents) + BigInt(s.geCents) + BigInt(s.packCents) !== BigInt(s.knownCents) ||
+      BigInt(s.rpCents) +
+        BigInt(s.geCents) +
+        BigInt(s.packCents) +
+        BigInt((s.manualCents as number | undefined) || 0) !==
+        BigInt(s.knownCents) ||
       (s.totalCents !== null && s.totalCents !== s.knownCents)
     )
       return false;
@@ -91,6 +96,36 @@ function valid(value: unknown): value is Valuation {
       !optionalText(value.ownership.notice))
   )
     return false;
+  if (value.policyVersion !== undefined && !text(value.policyVersion)) return false;
+  if (
+    value.excluded !== undefined &&
+    !list(value.excluded, (v) => item(v) && object(v) && text(v.reason) && optionalText(v.source))
+  )
+    return false;
+  if (
+    value.manual !== undefined &&
+    !list(
+      value.manual,
+      (v) =>
+        item(v) &&
+        object(v) &&
+        text(v.reason) &&
+        optionalText(v.source) &&
+        object(v.prices) &&
+        scenarioKeys.every((key) => object(v.prices) && nullableInteger(v.prices[key])),
+    )
+  )
+    return false;
+  if (Array.isArray(value.manual)) {
+    for (const key of scenarioKeys) {
+      const total = value.manual.reduce((sum: bigint, entry: unknown) => {
+        if (!object(entry) || !object(entry.prices) || !integer(entry.prices[key])) return sum;
+        return sum + BigInt(entry.prices[key]);
+      }, 0n);
+      const scenario = (value.scenarios as Record<string, Record<string, number>>)[key];
+      if (total !== BigInt(scenario.manualCents || 0)) return false;
+    }
+  }
   return (
     list(
       value.gold,
@@ -254,4 +289,28 @@ export function cacheValuation(
     }
   }
   return false;
+}
+
+export function forgetCachedValuation(
+  scope: string | null,
+  profile: Pick<PlayerProfile, "uid" | "snapshotId">,
+) {
+  try {
+    localStorage.setItem(
+      CACHE,
+      JSON.stringify({
+        version: 1,
+        entries: readEntries().filter(
+          (entry) =>
+            !(
+              entry.scope === scope &&
+              entry.uid === profile.uid &&
+              entry.snapshotId === profile.snapshotId
+            ),
+        ),
+      }),
+    );
+  } catch {
+    /* A failed cache cleanup does not affect server permissions. */
+  }
 }

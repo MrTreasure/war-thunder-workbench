@@ -75,6 +75,41 @@ for (const [key, expected] of Object.entries({
   assert.equal(rule.rpCents.aviation, expected[1]);
   assert.equal(rule.purchasePercent, expected[2]);
 }
+const vehiclePolicies = await read("data/account-vehicle-policies.json");
+assert.equal(vehiclePolicies.schemaVersion, 1);
+assert.equal(
+  new Set(vehiclePolicies.vehicles.map((v) => v.id)).size,
+  vehiclePolicies.vehicles.length,
+);
+const canonicalUnitIds = new Set(
+  Object.values(catalog.trees).flatMap((countries) =>
+    Object.values(countries).flatMap((tree) =>
+      tree
+        ? tree.ranks.flatMap((rank) =>
+            [...rank.research, ...rank.special].flatMap((node) => node.members.map((v) => v.id)),
+          )
+        : [],
+    ),
+  ),
+);
+for (const policy of vehiclePolicies.vehicles) {
+  assert(canonicalUnitIds.has(policy.id), `Unknown valuation policy vehicle ${policy.id}`);
+  assert(["auto", "exclude", "unpriced"].includes(policy.defaultMode));
+  assert.equal(new URL(policy.source).protocol, "https:");
+  assert(["wiki.warthunder.com", "warthunder.com"].includes(new URL(policy.source).hostname));
+  assert.match(policy.sha256, /^[a-f0-9]{64}$/);
+  assert(Number.isFinite(Date.parse(policy.checkedAt)));
+  if (policy.classification === "initial_free") assert(policy.freePurchase && policy.rp === 0);
+}
+for (const id of ["us_m4_sherman_promo", "jp_destroyer_hatsuzuki"])
+  assert.equal(vehiclePolicies.vehicles.find((v) => v.id === id)?.defaultMode, "exclude");
+for (const id of [
+  "germ_panther_ii",
+  "germ_pzkpfw_vi_ausf_b_tiger_iih_kwk46",
+  "germ_pzkpfw_maus",
+  "germ_pzkpfw_e_100",
+])
+  assert.equal(vehiclePolicies.vehicles.find((v) => v.id === id)?.defaultMode, "unpriced");
 assert.equal(storePrices.schemaVersion, 1);
 assert.equal(priceReport.errors.length, 0, "Resolve store price refresh errors before publishing");
 for (const purchase of Object.values(purchases)) {

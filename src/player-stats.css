@@ -2078,3 +2078,28 @@
   min-width: 118px;
   max-width: 150px;
 }
+
+.wt-record-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  white-space: nowrap;
+}
+.wt-record-sort > span {
+  color: var(--wt-record-muted);
+  font-size: 12px;
+}
+.wt-record-table-scroll th[aria-sort="ascending"] .wt-record-sort,
+.wt-record-table-scroll th[aria-sort="descending"] .wt-record-sort {
+  color: var(--wt-record-gold);
+}
+.wt-record-sort:focus-visible {
+  outline: 2px solid var(--wt-record-gold);
+  outline-offset: 3px;
+}

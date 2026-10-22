@@ -63,6 +63,11 @@ await writeFile(
   new URL("valuation-rules.json", output),
   JSON.stringify(await read("data/account-valuation-rules.json")),
 );
+// Acquisition metadata is versioned independently of financial basis/cache keys.
+await writeFile(
+  new URL("valuation-vehicle-policies.json", output),
+  JSON.stringify(await read("data/account-vehicle-policies.json")),
+);
 // Initial unknown quotes remain null. The database is authoritative for maintained market averages.
 await writeFile(new URL("valuation-market-seed.json", output), JSON.stringify(markets));
 console.log(

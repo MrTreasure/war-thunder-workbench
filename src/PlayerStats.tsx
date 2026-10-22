@@ -1,4 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  comparePlayerVehicles,
+  type VehicleSort,
+  type VehicleSortKey,
+} from "./player-vehicle-sort";
 import { AccountValuation } from "./AccountValuation";
 import { PlayerReport } from "./PlayerReport";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
@@ -136,6 +141,10 @@ export function PlayerStats() {
     [vehicleCountry, setVehicleCountry] = useState("all"),
     [vehicleRank, setVehicleRank] = useState("all"),
     [limit, setLimit] = useState(40);
+  const [vehicleSort, setVehicleSort] = useState<VehicleSort>({
+    key: "battles",
+    direction: "desc",
+  });
   const [report, setReport] = useState<StatsReport | null>(null),
     [background, setBackground] = useState("auto"),
     [bgFilter, setBgFilter] = useState("all");
@@ -223,6 +232,7 @@ export function PlayerStats() {
     setCategory("all");
     setVehicleCountry("all");
     setVehicleRank("all");
+    setVehicleSort({ key: "battles", direction: "desc" });
     setLimit(40);
     setReport(null);
     setReportCountry("all");
@@ -485,7 +495,7 @@ export function PlayerStats() {
         (vehicleRank === "all" || (v.rank || "unknown") === vehicleRank) &&
         (!search || (v.name + " " + v.id).toLowerCase().includes(search.toLowerCase())),
     )
-    .sort((a, b) => (b.battles || 0) - (a.battles || 0));
+    .sort((a, b) => comparePlayerVehicles(a, b, vehicleSort));
   const eligible = (profile?.vehicles || []).filter(
     (v) =>
       v.mode === mode &&
@@ -905,6 +915,12 @@ export function PlayerStats() {
                     value={category}
                     onValueChange={(value) => {
                       setCategory(value);
+                      if (value === "ground")
+                        setVehicleSort((current) =>
+                          current.key === "navalKd"
+                            ? { key: "battles", direction: "desc" }
+                            : current,
+                        );
                       setLimit(40);
                     }}
                     aria-label="军种筛选"
@@ -939,19 +955,57 @@ export function PlayerStats() {
                   <table>
                     <thead>
                       <tr>
-                        {[
-                          "载具",
-                          "场次",
-                          "胜率",
-                          "对空 K/D",
-                          "对地 K/D",
-                          ...(category === "ground" ? [] : ["对海 K/D"]),
-                          "综合 K/D",
-                          "效率评分",
-                          "累计获得银狮",
-                        ].map((label) => (
-                          <th key={label} scope="col">
-                            {label}
+                        {(
+                          [
+                            ["name", "载具"],
+                            ["battles", "场次"],
+                            ["winRate", "胜率"],
+                            ["airKd", "对空 K/D"],
+                            ["groundKd", "对地 K/D"],
+                            ...(category === "ground" ? [] : [["navalKd", "对海 K/D"]]),
+                            ["kd", "综合 K/D"],
+                            ["efficiency", "效率评分"],
+                            ["silverLions", "累计获得银狮"],
+                          ] as [VehicleSortKey, string][]
+                        ).map(([key, label]) => (
+                          <th
+                            key={key}
+                            scope="col"
+                            aria-sort={
+                              vehicleSort.key === key
+                                ? vehicleSort.direction === "asc"
+                                  ? "ascending"
+                                  : "descending"
+                                : "none"
+                            }
+                          >
+                            <button
+                              type="button"
+                              className="wt-record-sort"
+                              onClick={() => {
+                                setVehicleSort((current) => ({
+                                  key,
+                                  direction:
+                                    current.key === key
+                                      ? current.direction === "desc"
+                                        ? "asc"
+                                        : "desc"
+                                      : key === "name"
+                                        ? "asc"
+                                        : "desc",
+                                }));
+                                setLimit(40);
+                              }}
+                            >
+                              {label}
+                              <span aria-hidden="true">
+                                {vehicleSort.key === key
+                                  ? vehicleSort.direction === "desc"
+                                    ? "↓"
+                                    : "↑"
+                                  : "↕"}
+                              </span>
+                            </button>
                           </th>
                         ))}
                       </tr>

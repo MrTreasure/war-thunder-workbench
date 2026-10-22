@@ -3,9 +3,20 @@ import type { ReactNode } from "react";
 import catalogSettings from "../data/catalog-settings.json";
 import { GameSelect } from "./components/GameSelect";
 import valuationRules from "../data/account-valuation-rules.json";
-import { cacheValuation, cachedValuation, valuationCacheScope } from "./account-valuation-cache";
+import {
+  cacheValuation,
+  cachedValuation,
+  forgetCachedValuation,
+  valuationCacheScope,
+} from "./account-valuation-cache";
 import { Modal } from "./Modal";
-import { statsRequest, statsDate, statsNumber, statsCategoryNames } from "./player-stats-api";
+import {
+  StatsError,
+  statsRequest,
+  statsDate,
+  statsNumber,
+  statsCategoryNames,
+} from "./player-stats-api";
 import type { PlayerProfile, StatsSession } from "./player-stats-api";
 
 type Item = { id: string; name: string; country: string; category: string; rank?: string | null };
@@ -27,6 +38,7 @@ type Scenario = {
   rpCents: number;
   geCents: number;
   packCents: number;
+  manualCents?: number;
   knownCents: number;
   totalCents: number | null;
 };
@@ -38,6 +50,13 @@ export type Valuation = {
   calculatedAt: string;
   cached: boolean;
   localCached?: boolean;
+  policyVersion?: string;
+  excluded?: (Item & { reason: string; source?: string | null })[];
+  manual?: (Item & {
+    reason: string;
+    source?: string | null;
+    prices: Record<ScenarioKey, number | null>;
+  })[];
   observedCount: number;
   ownership?: {
     verified: boolean;
@@ -244,6 +263,9 @@ function ValueComposition({ scenario, label }: { scenario: Scenario; label: stri
     { name: "研发点", cents: scenario.rpCents, color: "#d9b868" },
     { name: "金鹰载具", cents: scenario.geCents, color: "#78aba8" },
     { name: "礼包", cents: scenario.packCents, color: "#a28cba" },
+    ...((scenario.manualCents || 0) > 0
+      ? [{ name: "自定义", cents: scenario.manualCents!, color: "#c58c62" }]
+      : []),
   ];
   const total = parts.reduce((sum, p) => sum + BigInt(p.cents), 0n);
   let offset = 0;
@@ -253,9 +275,7 @@ function ValueComposition({ scenario, label }: { scenario: Scenario; label: stri
       <div className="wt-valuation-chart-body">
         <svg
           viewBox="0 0 100 100"
-          aria-label={
-            total > 0n ? "研发点、金鹰载具和礼包的已核价占比，详见图例" : "暂无已核价金额"
-          }
+          aria-label={total > 0n ? "当前估值各项已核价占比，详见图例" : "暂无已核价金额"}
         >
           <circle cx="50" cy="50" r="40" fill="none" stroke="#394247" strokeWidth="16" />
           {parts.map((p) => {
@@ -323,6 +343,7 @@ export function AccountValuation({
   const [value, setValue] = useState<Valuation | null>(() => cachedValuation(cacheScope, profile));
   const [cacheNotice, setCacheNotice] = useState("");
   const [researchPage, setResearchPage] = useState(1);
+  const [checking, setChecking] = useState(false);
   const [open, setOpen] = useState(false),
     [busy, setBusy] = useState(false),
     [error, setError] = useState("");
@@ -339,6 +360,54 @@ export function AccountValuation({
     limit == null
       ? "不限次"
       : `${Math.max(0, limit - (session?.valuation?.used || 0) - (session?.valuation?.reserved || 0))} 次`;
+  async function openCached() {
+    if (!value || checking) return;
+    const c = new AbortController();
+    request.current = c;
+    setChecking(true);
+    setOpen(true);
+    setCacheNotice("正在校验最新估值规则，本次校验不扣次。");
+    setError("");
+    try {
+      const current = await statsRequest<Valuation>(
+        "valuations/" + encodeURIComponent(value.id),
+        undefined,
+        c.signal,
+      );
+      if (!c.signal.aborted) {
+        setValue(current);
+        cacheValuation(cacheScope, profile, current);
+        setCacheNotice("");
+      }
+    } catch (failure) {
+      if (!c.signal.aborted) {
+        if (
+          !(failure instanceof StatsError) ||
+          ![
+            "CACHE_STALE",
+            "QUERY_REQUIRED",
+            "INVALID_TICKET",
+            "LOGIN_EXPIRED",
+            "VALUATION_NOT_FOUND",
+          ].includes(failure.code)
+        ) {
+          setCacheNotice("暂时无法校验最新规则，当前展示已保存估值；联网后重新打开会再校验。");
+          return;
+        }
+        forgetCachedValuation(cacheScope, profile);
+        setValue(null);
+        setOpen(false);
+        setCacheNotice("");
+        setError(
+          failure instanceof Error
+            ? failure.message
+            : "估值缓存暂不可用，请显式重新计算。本次校验不扣次。",
+        );
+      }
+    } finally {
+      if (!c.signal.aborted) setChecking(false);
+    }
+  }
   async function calculate() {
     if (busy) return;
     const c = new AbortController();
@@ -415,11 +484,15 @@ export function AccountValuation({
     <div className="wt-account-valuation">
       <button
         className="wt-valuation-trigger"
-        disabled={!session || busy}
-        onClick={() => (value ? setOpen(true) : void calculate())}
+        disabled={!session || busy || checking}
+        onClick={() => (value ? void openCached() : void calculate())}
       >
-        {busy ? (
-          "正在计算估值…"
+        {busy || checking ? (
+          checking ? (
+            "正在校验估值缓存…"
+          ) : (
+            "正在计算估值…"
+          )
         ) : value ? (
           <>
             账号估值 <b>{valuationMoney(value.scenarios.normal.knownCents)}</b>
@@ -442,6 +515,11 @@ export function AccountValuation({
           title={`${profile.nickname} · 账号估值`}
           close={() => {
             setOpen(false);
+            if (checking) {
+              request.current?.abort();
+              setChecking(false);
+              setCacheNotice("");
+            }
             setShowResearch(false);
             setResearchPage(1);
             setShowUnpriced(false);
@@ -464,6 +542,11 @@ export function AccountValuation({
             <span>
               <b>{value.unpriced.length}</b> 项待核价
             </span>
+            {!!value.excluded?.length && (
+              <span>
+                <b>{value.excluded.length}</b> 辆不参与估值
+              </span>
+            )}
           </div>
           <section className="wt-valuation-dashboard" aria-label="价值概览">
             <fieldset className="wt-valuation-scenarios" aria-label="选择价值类型">
@@ -630,6 +713,51 @@ export function AccountValuation({
               <p>出战记录中未识别到市场特殊载具。</p>
             )}
           </section>
+          {!!value.manual?.length && (
+            <section className="wt-valuation-section">
+              <h3>管理员自定义价值 · {value.manual.length} 辆</h3>
+              <p>采用管理员保存的三档人民币估值，与金鹰、礼包和 GJN 均价不重复计算。</p>
+              <ProductShelf>
+                {value.manual.map((item) => (
+                  <ProductCard
+                    key={item.id}
+                    title={item.name}
+                    source={
+                      item.source ||
+                      "https://wiki.warthunder.com/unit/" + encodeURIComponent(item.id)
+                    }
+                    items={[item]}
+                    kind={`${valuationRules.scenarios[scenarioKey].label} · 自定义`}
+                    price={valuationMoney(item.prices[scenarioKey])}
+                  >
+                    <span>{item.reason}</span>
+                  </ProductCard>
+                ))}
+              </ProductShelf>
+            </section>
+          )}
+          {!!value.excluded?.length && (
+            <details className="wt-valuation-section">
+              <summary>不参与估值的免费／排除载具 · {value.excluded.length}</summary>
+              <p>以下载具按已保存规则排除，不计入研发点、金鹰、礼包或其他价值。</p>
+              <div className="wt-valuation-research">
+                {value.excluded.map((item) => (
+                  <article key={item.id}>
+                    <VehicleArt item={item} compact />
+                    <div>
+                      <h4>{item.name}</h4>
+                      <small>
+                        {countryName(item.country)} ·{" "}
+                        {statsCategoryNames[item.category] || item.category} ·{" "}
+                        {item.rank ? `Rank ${item.rank}` : "等级待核验"}
+                      </small>
+                      <span className="wt-valuation-unpriced-reason">{item.reason}</span>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </details>
+          )}
           <details
             className="wt-valuation-section"
             onToggle={(event) => setShowResearch(event.currentTarget.open)}
@@ -809,6 +937,7 @@ export function AccountValuation({
             </details>
           )}
           <footer className="wt-valuation-section">
+            {cacheNotice && <output>{cacheNotice}</output>}
             <p>{value.notice}</p>
             <small>
               资料采集 {statsDate(value.fetchedAt)} · 估值计算 {statsDate(value.calculatedAt)}
