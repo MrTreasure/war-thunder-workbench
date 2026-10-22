@@ -135,3 +135,23 @@ export function saleCalendarSpan(event: SaleEvent): { start: string; end: string
 }
 export const isSaleWatchVehicle = (vehicle: Pick<SaleVehicle, "channel">) =>
   ["ge", "pack", "bundle"].includes(vehicle.channel);
+
+/** One interval per event; retain its lane when it continues into the next week. */
+export function placeSaleCalendarRanges(events: SaleEvent[], firstDay: string, lastDay: string) {
+  const intervals = events
+    .map((event) => ({ event, ...saleCalendarSpan(event) }))
+    .filter((item) => item.start <= lastDay && item.end >= firstDay)
+    .sort(
+      (a, b) =>
+        a.start.localeCompare(b.start) ||
+        a.end.localeCompare(b.end) ||
+        a.event.id.localeCompare(b.event.id),
+    );
+  const laneEnds: string[] = [];
+  return intervals.map((item) => {
+    let lane = laneEnds.findIndex((end) => end < item.start);
+    if (lane < 0) lane = laneEnds.length;
+    laneEnds[lane] = item.end;
+    return { ...item, lane };
+  });
+}

@@ -106,9 +106,19 @@
   border: 1px dashed var(--wt-line);
   border-radius: 8px;
 }
-.wt-sale-empty > div {
-  font-size: 28px;
+.wt-sales-page .wt-sale-add-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: var(--wt-gold);
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
 }
 .wt-sale-empty p {
   font-size: 14px;
@@ -398,13 +408,18 @@
   position: fixed;
 }
 .wt-sale-picker-controls {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 140px) minmax(0, 150px) minmax(180px, 1fr);
   gap: 8px;
   margin: 16px 0;
 }
+.wt-sale-picker-controls > :is(input, .wt-select) {
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+}
 .wt-sale-picker-controls input {
   min-width: 0;
-  flex: 1;
   padding: 8px 10px;
   border: 1px solid var(--wt-line);
   background: var(--wt-surface);
@@ -534,35 +549,41 @@
 .wt-sale-month-grid th.weekend {
   color: var(--wt-gold);
 }
-.wt-sale-month-grid td {
-  vertical-align: top;
+.wt-sale-month-grid .wt-sale-week-cell {
   padding: 0;
-  border: 1px solid var(--wt-line);
-  background: var(--wt-surface);
+  border: 0;
 }
-.wt-sale-month-grid td.outside {
-  background: var(--wt-page);
+.wt-sale-week {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-rows: 34px repeat(var(--wt-sale-week-lanes), 36px) minmax(8px, 1fr);
+  row-gap: 4px;
+  min-height: 104px;
 }
-.wt-sale-month-grid td.selected {
-  outline: 2px solid var(--wt-gold);
-  outline-offset: -2px;
-}
-.wt-sales-page .wt-sale-month-day {
+.wt-sales-page .wt-sale-week .wt-sale-month-day {
+  z-index: 0;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 6px;
-  width: 100%;
+  justify-content: flex-start;
   min-width: 0;
-  min-height: 142px;
-  height: 100%;
-  padding: 8px;
+  min-height: 0;
+  width: 100%;
+  padding: 6px 8px;
   border: 0;
+  border-right: 1px solid var(--wt-line);
+  border-bottom: 1px solid var(--wt-line);
   border-radius: 0;
-  background: transparent;
-  text-align: left;
-  white-space: normal;
+  background: var(--wt-surface);
   color: var(--wt-ink);
+  text-align: left;
+}
+.wt-sales-page .wt-sale-week .wt-sale-month-day.outside {
+  background: var(--wt-page);
+}
+.wt-sale-month-day.selected {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: -2px;
 }
 .wt-sale-month-day:active {
   background: var(--wt-gold-soft);
@@ -595,50 +616,84 @@
   color: var(--wt-page);
   background: var(--wt-gold);
 }
-.wt-sale-month-day-events {
+/* Continuous event ranges occupy date columns, keeping one lane across weeks. */
+.wt-sales-page .wt-sale-range-bar {
+  z-index: 1;
+  container: sale-range / inline-size;
   display: flex;
-  flex-direction: column;
-  gap: 5px;
+  align-items: center;
+  gap: 10px;
   min-width: 0;
-}
-.wt-sale-month-chip {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 4px 6px;
+  min-height: 36px;
+  margin: 0 4px;
+  padding: 5px 9px;
   border: 1px solid var(--wt-gold-line);
-  border-radius: 4px;
+  border-radius: 5px;
   background: var(--wt-gold-soft);
+  color: var(--wt-ink);
+  cursor: pointer;
+  text-align: left;
+}
+.wt-sale-range-name {
+  flex: 1;
   min-width: 0;
-}
-.wt-sale-month-chip.predicted {
-  background: transparent;
-  border: 1px dashed var(--wt-muted);
-}
-.wt-sale-month-chip.window-only {
-  border-color: var(--wt-line);
-  background: var(--wt-page);
-}
-.wt-sale-month-stage {
-  color: var(--wt-gold);
-  font-size: 10px;
-  line-height: 1.3;
-}
-.wt-sale-month-chip.predicted .wt-sale-month-stage {
-  color: var(--wt-muted);
-}
-.wt-sale-month-event-name {
-  color: var(--wt-body);
-  font-size: 11px;
-  line-height: 1.35;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 12px;
 }
-.wt-sale-month-more {
+.wt-sale-range-start,
+.wt-sale-range-end {
+  flex: none;
   font-size: 10px;
-  color: var(--wt-muted);
-  line-height: 1.5;
+  color: var(--wt-gold);
+}
+.wt-sales-page .wt-sale-range-bar.predicted {
+  border-style: dashed;
+  background: linear-gradient(
+    90deg,
+    var(--wt-page) 0%,
+    var(--wt-page) var(--wt-sale-range-core-start),
+    var(--wt-gold-soft) var(--wt-sale-range-core-start),
+    var(--wt-gold-soft) var(--wt-sale-range-core-end),
+    var(--wt-page) var(--wt-sale-range-core-end),
+    var(--wt-page) 100%
+  );
+}
+.wt-sales-page .wt-sale-range-bar.continues-left {
+  margin-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left-style: dashed;
+}
+.wt-sales-page .wt-sale-range-bar.continues-right {
+  margin-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right-style: dashed;
+}
+.wt-sales-page .wt-sale-range-bar[aria-pressed="true"],
+.wt-sales-page .wt-sale-range-bar:active {
+  border-color: var(--wt-gold);
+  color: var(--wt-gold);
+}
+@container sale-range (max-width: 260px) {
+  .wt-sale-range-start,
+  .wt-sale-range-end {
+    display: none;
+  }
+}
+@media (hover: hover) {
+  .wt-sales-page .wt-sale-add-icon:hover,
+  .wt-sales-page .wt-sale-week .wt-sale-month-day:hover {
+    background: var(--wt-gold-soft);
+  }
+  .wt-sales-page .wt-sale-range-bar:hover {
+    border-color: var(--wt-gold);
+  }
+}
+.wt-sales-page .wt-sale-add-icon:active {
+  background: var(--wt-gold-soft);
 }
 .wt-sale-day-details {
   margin-top: 18px;

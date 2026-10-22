@@ -311,7 +311,14 @@ export function SaleCalendar() {
         </div>
         {!watch.length ? (
           <div className="wt-sale-empty">
-            <div aria-hidden="true">＋</div>
+            <button
+              type="button"
+              className="wt-sale-add-icon"
+              aria-label="添加关注载具"
+              onClick={() => setPicker(true)}
+            >
+              ＋
+            </button>
             <p>先把想买的载具放进关注列表</p>
             <span>关注金鹰与商城礼包载具，查看对应的优惠窗口和倒计时。</span>
             <button onClick={() => setPicker(true)}>选择载具</button>
