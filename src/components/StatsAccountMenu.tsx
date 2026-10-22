@@ -29,7 +29,22 @@ export function StatsAccountMenu({
         }}
       >
         <span>{name}</span>
-        <span aria-hidden="true">⌄</span>
+        <svg
+          className="wt-account-chevron"
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="m3 4.5 3 3 3-3"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       </button>
       <div
         id={id}

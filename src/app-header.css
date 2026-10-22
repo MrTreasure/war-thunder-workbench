@@ -231,6 +231,13 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+.wt-header-login.wt-account-trigger {
+  text-decoration: none;
+}
+.wt-account-chevron {
+  display: block;
+  flex: 0 0 12px;
+}
 .wt-account-popover {
   position: fixed;
   inset: auto;
