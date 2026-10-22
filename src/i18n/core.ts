@@ -154,3 +154,9 @@ export const monthLabel = (year: number, month: number) =>
   new Intl.DateTimeFormat(getLocale(), { year: "numeric", month: "long", timeZone: "UTC" }).format(
     new Date(Date.UTC(year, month - 1, 1)),
   );
+/** Search every verified name, regardless of the current display language. */
+export function vehicleSearchText(value: Named & { id?: string }) {
+  return [value.name, value.nameEn, value.nameRu, value.english, value.id]
+    .filter((entry): entry is string => typeof entry === "string")
+    .join(" ");
+}

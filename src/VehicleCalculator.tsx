@@ -1,3 +1,4 @@
+import { vehicleSearchText } from "./i18n/core";
 import { vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { localize, t } from "./i18n/core";
@@ -176,7 +177,7 @@ export function VehicleCalculator({
           (tab === "owned"
             ? owned.includes(unit.id)
             : state.pins.includes(unit.id) || state.banned.includes(unit.id)))) &&
-      `${unit.name}${unit.nameEn || ""}${unit.id}`
+      vehicleSearchText(unit)
         .normalize("NFKC")
         .toLowerCase()
         .replaceAll(" ", "")

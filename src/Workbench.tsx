@@ -1,3 +1,4 @@
+import { vehicleSearchText } from "./i18n/core";
 import { vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { localize, t } from "./i18n/core";
@@ -214,7 +215,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
     .toLowerCase()
     .replace(/[^\p{L}\p{N}]/gu, "");
   const matches = all.filter((unit) =>
-    (unit.name + (unit.nameEn || "") + unit.id)
+    vehicleSearchText(unit)
       .normalize("NFKC")
       .toLowerCase()
       .replace(/[^\p{L}\p{N}]/gu, "")

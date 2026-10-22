@@ -1,3 +1,4 @@
+import { vehicleSearchText } from "./i18n/core";
 import { vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { localize, t } from "./i18n/core";
@@ -712,8 +713,7 @@ export function PlayerStats() {
         (category === "all" || v.category === category) &&
         (vehicleCountry === "all" || (v.country || "unknown") === vehicleCountry) &&
         (vehicleRank === "all" || (v.rank || "unknown") === vehicleRank) &&
-        (!search ||
-          (vehicleDisplayName(v.name) + " " + v.id).toLowerCase().includes(search.toLowerCase())),
+        (!search || vehicleSearchText(v).toLowerCase().includes(search.toLowerCase())),
     )
     .sort((a, b) => (vehicleSort ? comparePlayerVehicles(a, b, vehicleSort) : 0));
   const vehiclePages = Math.max(1, Math.ceil(filtered.length / vehiclePageSize));

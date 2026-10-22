@@ -1,3 +1,4 @@
+import { vehicleSearchText } from "./i18n/core";
 import { vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { localize, t } from "./i18n/core";
@@ -428,11 +429,7 @@ function CountryLineups({
       (category === "all" || unit.category === category) &&
       (rank === "all" || unit.rank === rank) &&
       (kind === "all" || (kind === "premium" ? unit.premium : lineupVehicleKind(unit) === kind)) &&
-      `${unit.name}${unit.nameEn || ""}${unit.id}`
-        .normalize("NFKC")
-        .toLowerCase()
-        .replaceAll(" ", "")
-        .includes(needle),
+      vehicleSearchText(unit).normalize("NFKC").toLowerCase().replaceAll(" ", "").includes(needle),
   );
   return (
     <>

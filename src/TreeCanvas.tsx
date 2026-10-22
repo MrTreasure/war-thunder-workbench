@@ -1,3 +1,4 @@
+import { vehicleSearchText } from "./i18n/core";
 import { vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { localize, t } from "./i18n/core";
@@ -287,9 +288,7 @@ export function TreeCanvas({
           const side = node.members[0].side;
           const muted = Boolean(
             (query &&
-              !node.members.some((unit) =>
-                normal(unit.name + (unit.nameEn || "") + unit.id).includes(needle),
-              ) &&
+              !node.members.some((unit) => normal(vehicleSearchText(unit)).includes(needle)) &&
               !route.has(node.id)) ||
             (selected && !route.has(node.id)),
           );

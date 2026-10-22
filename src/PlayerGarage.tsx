@@ -1,3 +1,4 @@
+import { vehicleSearchText } from "./i18n/core";
 import { vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { localize, t } from "./i18n/core";
@@ -49,7 +50,7 @@ export function PlayerGarage({
       (rank === "all" || v.rank === rank) &&
       (kind === "all" || v.kind === kind) &&
       (played === "all" || v.observed === (played === "yes")) &&
-      (vehicleDisplayName(v.name).toLowerCase().includes(search.toLowerCase()) ||
+      (vehicleSearchText(v).toLowerCase().includes(search.toLowerCase()) ||
         v.id.toLowerCase().includes(search.toLowerCase())),
   );
   const pages = Math.max(1, Math.ceil(filtered.length / pageSize));
