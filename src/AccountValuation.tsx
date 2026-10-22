@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState, useSyncExternalStore } from "react";
 import type { ReactNode } from "react";
 import catalogSettings from "../data/catalog-settings.json";
 import { GameSelect } from "./components/GameSelect";
 import valuationRules from "../data/account-valuation-rules.json";
+import { cacheValuation, cachedValuation, valuationCacheScope } from "./account-valuation-cache";
 import { Modal } from "./Modal";
 import { statsRequest, statsDate, statsNumber, statsCategoryNames } from "./player-stats-api";
 import type { PlayerProfile, StatsSession } from "./player-stats-api";
@@ -29,11 +30,12 @@ type Scenario = {
   knownCents: number;
   totalCents: number | null;
 };
-type Valuation = {
+export type Valuation = {
   id: string;
   fetchedAt: string;
   calculatedAt: string;
   cached: boolean;
+  localCached?: boolean;
   observedCount: number;
   ownership?: {
     verified: boolean;
@@ -149,6 +151,92 @@ function ProductCard({
     </article>
   );
 }
+const productBreakpoints = [
+  "(max-width: 380px)",
+  "(max-width: 800px), (max-width: 1100px) and (pointer: coarse)",
+];
+function productColumns() {
+  return window.matchMedia(productBreakpoints[0]).matches
+    ? 1
+    : window.matchMedia(productBreakpoints[1]).matches
+      ? 2
+      : 4;
+}
+function subscribeProductColumns(listener: () => void) {
+  const queries = productBreakpoints.map((query) => window.matchMedia(query));
+  queries.forEach((query) => query.addEventListener("change", listener));
+  return () => queries.forEach((query) => query.removeEventListener("change", listener));
+}
+function ProductShelf({ children }: { children: ReactNode[] }) {
+  const [expanded, setExpanded] = useState(false);
+  const columns = useSyncExternalStore(subscribeProductColumns, productColumns, () => 4);
+  const id = useId(),
+    visible = expanded ? children : children.slice(0, columns * 3);
+  return (
+    <>
+      <div className="wt-valuation-products" id={id}>
+        {visible}
+      </div>
+      {children.length > columns * 3 && (
+        <div className="wt-valuation-shelf-actions">
+          <small>
+            显示 {visible.length} / {children.length} 个
+          </small>
+          <button
+            type="button"
+            className="quiet-button"
+            aria-expanded={expanded}
+            aria-controls={id}
+            onClick={() => setExpanded((value) => !value)}
+          >
+            {expanded ? "收起" : "展开全部"}
+          </button>
+        </div>
+      )}
+    </>
+  );
+}
+function ResearchPagination({
+  page,
+  pages,
+  onChange,
+}: {
+  page: number;
+  pages: number;
+  onChange: (page: number) => void;
+}) {
+  return (
+    <nav className="wt-valuation-pagination" aria-label="研发点明细分页">
+      <button
+        type="button"
+        className="quiet-button"
+        disabled={page <= 1}
+        onClick={() => onChange(page - 1)}
+      >
+        上一页
+      </button>
+      <GameSelect
+        aria-label="研发点明细页码"
+        value={page}
+        onValueChange={(value) => onChange(Number(value))}
+      >
+        {Array.from({ length: pages }, (_, i) => (
+          <option key={i + 1} value={i + 1}>
+            第 {i + 1} / {pages} 页
+          </option>
+        ))}
+      </GameSelect>
+      <button
+        type="button"
+        className="quiet-button"
+        disabled={page >= pages}
+        onClick={() => onChange(page + 1)}
+      >
+        下一页
+      </button>
+    </nav>
+  );
+}
 function ValueComposition({ scenario, label }: { scenario: Scenario; label: string }) {
   const parts = [
     { name: "研发点", cents: scenario.rpCents, color: "#d9b868" },
@@ -229,7 +317,10 @@ export function AccountValuation({
   session: StatsSession | null;
   onSessionChange: () => Promise<void>;
 }) {
-  const [value, setValue] = useState<Valuation | null>(null);
+  const cacheScope = valuationCacheScope(session);
+  const [value, setValue] = useState<Valuation | null>(() => cachedValuation(cacheScope, profile));
+  const [cacheNotice, setCacheNotice] = useState("");
+  const [researchPage, setResearchPage] = useState(1);
   const [open, setOpen] = useState(false),
     [busy, setBusy] = useState(false),
     [error, setError] = useState("");
@@ -260,6 +351,9 @@ export function AccountValuation({
       );
       if (!c.signal.aborted) {
         setValue(result);
+        if (!cacheValuation(cacheScope, profile, result))
+          setCacheNotice("估值已计算，本地缓存未能保存。");
+        else setCacheNotice("");
         setOpen(true);
       }
     } catch (failure) {
@@ -281,6 +375,12 @@ export function AccountValuation({
           (researchRank === "all" || (v.rank || "unknown") === researchRank),
       )
       .sort((a, b) => (b.rp ?? -1) - (a.rp ?? -1) || a.name.localeCompare(b.name, "zh-CN")) || [];
+  const researchPages = Math.max(1, Math.ceil(filteredResearch.length / 10));
+  const currentResearchPage = Math.min(researchPage, researchPages);
+  const visibleResearch = filteredResearch.slice(
+    (currentResearchPage - 1) * 10,
+    currentResearchPage * 10,
+  );
   const countryName = (id: string) =>
     (catalogSettings.countries as Record<string, string>)[id] || id;
   const selectedScenario = value?.scenarios[scenarioKey];
@@ -321,7 +421,6 @@ export function AccountValuation({
         ) : value ? (
           <>
             账号估值 <b>{valuationMoney(value.scenarios.normal.knownCents)}</b>
-            {value.scenarios.normal.totalCents == null && "（部分）"}{" "}
             <span aria-hidden="true">›</span>
           </>
         ) : (
@@ -329,6 +428,8 @@ export function AccountValuation({
         )}
       </button>
       {!value && <small>独立额度 · 今日 {session ? remaining : "—"}</small>}
+      {value?.localCached && <small>已读取估值缓存</small>}
+      {cacheNotice && <small>{cacheNotice}</small>}
       {error && (
         <small className="wt-record-error" role="alert">
           {error}
@@ -340,6 +441,7 @@ export function AccountValuation({
           close={() => {
             setOpen(false);
             setShowResearch(false);
+            setResearchPage(1);
             setShowUnpriced(false);
           }}
           className="wt-valuation-dialog"
@@ -386,7 +488,7 @@ export function AccountValuation({
                   </strong>
                   <output className="wt-valuation-price-status">
                     {selectedScenario.totalCents == null
-                      ? "已核价部分，未计价项目另列"
+                      ? "已核价金额，未计价项目另列"
                       : "已核价合计"}
                   </output>
                   <dl className="wt-valuation-rate-note">
@@ -442,7 +544,7 @@ export function AccountValuation({
           <section className="wt-valuation-section">
             <h3>金鹰载具 · {value.gold.length}</h3>
             {value.gold.length ? (
-              <div className="wt-valuation-products">
+              <ProductShelf>
                 {value.gold.map((v) => (
                   <ProductCard
                     key={v.id}
@@ -456,7 +558,7 @@ export function AccountValuation({
                     {v.checkedAt && <small>核验 {statsDate(v.checkedAt)}</small>}
                   </ProductCard>
                 ))}
-              </div>
+              </ProductShelf>
             ) : (
               <p>出战记录中未识别到金鹰载具。</p>
             )}
@@ -464,7 +566,7 @@ export function AccountValuation({
           <section className="wt-valuation-section">
             <h3>礼包载具 · {value.packs.length} 个礼包</h3>
             {value.packs.length ? (
-              <div className="wt-valuation-products">
+              <ProductShelf>
                 {value.packs.map((p) => (
                   <ProductCard
                     key={p.productId}
@@ -478,7 +580,7 @@ export function AccountValuation({
                     <small>{p.checkedAt ? `核验 ${statsDate(p.checkedAt)}` : "尚无有效报价"}</small>
                   </ProductCard>
                 ))}
-              </div>
+              </ProductShelf>
             ) : (
               <p>出战记录中未识别到礼包载具。</p>
             )}
@@ -543,7 +645,13 @@ export function AccountValuation({
               <div className="wt-valuation-filters">
                 <label>
                   国别
-                  <GameSelect value={researchCountry} onValueChange={setResearchCountry}>
+                  <GameSelect
+                    value={researchCountry}
+                    onValueChange={(value) => {
+                      setResearchCountry(value);
+                      setResearchPage(1);
+                    }}
+                  >
                     <option value="all">全部国别</option>
                     {[...new Set(value.research.map((v) => v.country))].sort().map((id) => (
                       <option key={id} value={id}>
@@ -554,7 +662,13 @@ export function AccountValuation({
                 </label>
                 <label>
                   军种
-                  <GameSelect value={researchCategory} onValueChange={setResearchCategory}>
+                  <GameSelect
+                    value={researchCategory}
+                    onValueChange={(value) => {
+                      setResearchCategory(value);
+                      setResearchPage(1);
+                    }}
+                  >
                     <option value="all">全部军种</option>
                     {[...new Set(value.research.map((v) => v.category))].sort().map((id) => (
                       <option key={id} value={id}>
@@ -565,7 +679,13 @@ export function AccountValuation({
                 </label>
                 <label>
                   等级
-                  <GameSelect value={researchRank} onValueChange={setResearchRank}>
+                  <GameSelect
+                    value={researchRank}
+                    onValueChange={(value) => {
+                      setResearchRank(value);
+                      setResearchPage(1);
+                    }}
+                  >
                     <option value="all">全部等级</option>
                     {valuationRules.researchRanks.map((rank) => (
                       <option key={rank} value={rank}>
@@ -578,14 +698,20 @@ export function AccountValuation({
                   </GameSelect>
                 </label>
                 <output>
-                  显示 {filteredResearch.length} / {value.researchCount} 辆 · 研发点降序
+                  筛选 {filteredResearch.length} / {value.researchCount} 辆 · 每页 10 辆 ·
+                  研发点降序
                 </output>
+                <ResearchPagination
+                  page={currentResearchPage}
+                  pages={researchPages}
+                  onChange={setResearchPage}
+                />
               </div>
             )}
             {showResearch && !filteredResearch.length && <output>没有符合筛选条件的载具。</output>}
             {showResearch && (
               <div className="wt-valuation-research">
-                {filteredResearch.map((v) => (
+                {visibleResearch.map((v) => (
                   <article key={v.id}>
                     <VehicleArt item={v} compact />
                     <div>
@@ -684,7 +810,9 @@ export function AccountValuation({
             <p>{value.notice}</p>
             <small>
               资料采集 {statsDate(value.fetchedAt)} · 估值计算 {statsDate(value.calculatedAt)}
-              {value.cached && " · 已命中估值缓存，本次不扣次"}
+              {value.localCached
+                ? " · 浏览器估值缓存，本次不扣次"
+                : value.cached && " · 已命中估值缓存，本次不扣次"}
             </small>
           </footer>
         </Modal>

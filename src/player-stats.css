@@ -558,11 +558,14 @@
 }
 .wt-record-filters {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 16px;
 }
 .wt-record-filters > input {
   width: 300px;
+  flex: 1 1 240px;
+  min-width: 0;
 }
 .wt-record-filters .wt-select {
   min-width: 150px;
@@ -2044,4 +2047,34 @@
   color: var(--wt-record-muted);
   font-size: 12px;
   padding-bottom: 10px;
+}
+
+.wt-valuation-shelf-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 10px;
+}
+.wt-valuation-shelf-actions small {
+  color: var(--wt-record-muted);
+  font-size: 11px;
+}
+.wt-valuation-shelf-actions button {
+  min-height: 36px;
+  padding-inline: 16px;
+}
+.wt-valuation-pagination {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-left: auto;
+}
+.wt-valuation-pagination button {
+  min-height: 36px;
+}
+.wt-valuation-pagination .wt-select {
+  min-width: 118px;
+  max-width: 150px;
 }

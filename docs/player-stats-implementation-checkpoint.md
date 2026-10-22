@@ -150,3 +150,13 @@ Verification: `pnpm run check` and `pnpm run build` passed. A focused planner ch
 - Research ranks are the complete canonical I–IX list independent of owned vehicles or filters; data validation compares the filter list against all canonical tree ranks. Research rows sort by descending known RP, unknown RP last, with deterministic name ties.
 - Unpriced entries use the same compact official-artwork vehicle layout, with country/category/rank, known RP, provenance and pricing reason. Whole-pack unknown quotes retain their member vehicles. Missing catalog data stays unknown.
 - The service decorates both existing cached and fresh unpriced results with allowlisted canonical metadata. This preserves all prior amounts, financial cache keys and quota behavior. Focused verification covered real ArthurDaynee 初月/M4 metadata, cache amount preservation/nonmutation, whole-pack members and null unknown RP. UI acceptance remains manual.
+
+
+## 2026-10-22 vehicle filters, persistent valuation cache and bounded detail lists
+
+- Vehicle battle rows compose search, battle mode, all ten countries, all five categories and complete I–IX ranks. Unknown country/rank remains an explicit choice; changes reset the visible-row limit and switching players resets these filters.
+- Successful estimates are stored in isolated `wt-stats-valuations-v1`, scoped to current user/guest plus public player UID and profile snapshot. Results expire after two hours; at most eight valid entries and two million JSON characters are retained. Only this independent cache is rewritten. Arithmetic/schema checks, financial-rule signatures, expiry and identity/snapshot checks reject stale or malformed records. Cache/storage failures leave successful calculations visible.
+- Local cached estimates restore on remount/reload without submitting a valuation request or spending quota; server cache behavior remains unchanged. Exterior valuation wording no longer appends 部分; missing-price explanations remain within the details.
+- GE and pack products retain four desktop columns and default to three rows (12 cards). Mobile uses its existing 2/1-column layout and also defaults to three rows. Expand/collapse mounts only the visible official images.
+- Research detail filtering and RP-descending order precede pagination: 10 items per page, previous/next plus direct page selection; each filter returns to page one. Only the current page's cards/images mount.
+- Focused command verification exercised real cached response restore, identity/snapshot isolation, exact amount preservation, expiry, corrupted data, bounded eviction, storage failure and preservation of unrelated research/lineup keys. UI acceptance remains manual.

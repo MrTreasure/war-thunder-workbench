@@ -12,6 +12,8 @@ import {
 } from "./player-report-design";
 import type { ReportTheme } from "./player-report-design";
 import { useNavigate, useSearch } from "@tanstack/react-router";
+import catalogSettings from "../data/catalog-settings.json";
+import valuationRules from "../data/account-valuation-rules.json";
 import leaderboards from "../data/player-leaderboards.json";
 import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
@@ -131,6 +133,8 @@ export function PlayerStats() {
     [notice, setNotice] = useState("");
   const [search, setSearch] = useState(""),
     [category, setCategory] = useState("all"),
+    [vehicleCountry, setVehicleCountry] = useState("all"),
+    [vehicleRank, setVehicleRank] = useState("all"),
     [limit, setLimit] = useState(40);
   const [report, setReport] = useState<StatsReport | null>(null),
     [background, setBackground] = useState("auto"),
@@ -217,6 +221,8 @@ export function PlayerStats() {
     setMode([...p.modes].sort((a, b) => (b.battles || 0) - (a.battles || 0))[0]?.id || "rb");
     setSearch("");
     setCategory("all");
+    setVehicleCountry("all");
+    setVehicleRank("all");
     setLimit(40);
     setReport(null);
     setReportCountry("all");
@@ -475,6 +481,8 @@ export function PlayerStats() {
       (v) =>
         v.mode === mode &&
         (category === "all" || v.category === category) &&
+        (vehicleCountry === "all" || (v.country || "unknown") === vehicleCountry) &&
+        (vehicleRank === "all" || (v.rank || "unknown") === vehicleRank) &&
         (!search || (v.name + " " + v.id).toLowerCase().includes(search.toLowerCase())),
     )
     .sort((a, b) => (b.battles || 0) - (a.battles || 0));
@@ -721,7 +729,7 @@ export function PlayerStats() {
               </p>
             </div>
             <AccountValuation
-              key={profile.snapshotId}
+              key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
               profile={profile}
               session={session}
               onSessionChange={refreshSession}
@@ -876,6 +884,24 @@ export function PlayerStats() {
                     aria-label="筛选载具"
                   />
                   <GameSelect
+                    aria-label="载具国家筛选"
+                    value={vehicleCountry}
+                    onValueChange={(value) => {
+                      setVehicleCountry(value);
+                      setLimit(40);
+                    }}
+                  >
+                    <option value="all">全部国家</option>
+                    {Object.entries(catalogSettings.countries).map(([id, name]) => (
+                      <option key={id} value={id}>
+                        {name}
+                      </option>
+                    ))}
+                    {profile.vehicles.some((v) => !v.country) && (
+                      <option value="unknown">国家待核验</option>
+                    )}
+                  </GameSelect>
+                  <GameSelect
                     value={category}
                     onValueChange={(value) => {
                       setCategory(value);
@@ -889,6 +915,24 @@ export function PlayerStats() {
                         {name}
                       </option>
                     ))}
+                  </GameSelect>
+                  <GameSelect
+                    aria-label="载具等级筛选"
+                    value={vehicleRank}
+                    onValueChange={(value) => {
+                      setVehicleRank(value);
+                      setLimit(40);
+                    }}
+                  >
+                    <option value="all">全部等级</option>
+                    {valuationRules.researchRanks.map((rank) => (
+                      <option key={rank} value={rank}>
+                        Rank {rank}
+                      </option>
+                    ))}
+                    {profile.vehicles.some((v) => !v.rank) && (
+                      <option value="unknown">等级待核验</option>
+                    )}
                   </GameSelect>
                 </div>
                 <div className="wt-record-table-scroll">
@@ -928,6 +972,7 @@ export function PlayerStats() {
                     </tbody>
                   </table>
                 </div>
+                {!filtered.length && <p className="wt-record-empty">没有符合筛选条件的载具。</p>}
                 {limit < filtered.length && (
                   <button className="wt-record-more" onClick={() => setLimit(limit + 40)}>
                     显示更多载具
