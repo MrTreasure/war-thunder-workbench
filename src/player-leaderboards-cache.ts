@@ -1,11 +1,11 @@
-import snapshot from "../data/player-leaderboards.json";
+import snapshot from "../data/player-leaderboard-navigation.json";
 export type LeaderboardPlayer = { rank: number; nickname: string; uid?: string | null; uidVerifiedAt?: string | null };
 export type LeaderboardData = { schemaVersion: number; contentSafetyVersion?: string; boards: (Omit<(typeof snapshot.boards)[number], "players"> & { players: LeaderboardPlayer[] })[] };
 const KEY = "wt-stats-leaderboards-v1", TTL = 3600000;
 export function validLeaderboards(value: unknown): value is LeaderboardData {
   if (!value || typeof value !== "object") return false;
   const data = value as LeaderboardData;
-  return data.contentSafetyVersion === "content-safety-v1" && data.schemaVersion === 1 && Array.isArray(data.boards) && data.boards.length === 6 &&
+  return data.contentSafetyVersion === "content-safety-v2" && data.schemaVersion === 1 && Array.isArray(data.boards) && data.boards.length === 6 &&
     data.boards.every(b => b && typeof b === "object") &&
     new Set(data.boards.map(b => b.mode + "/" + b.branch)).size === 6 &&
     data.boards.every(b => b && ["ab", "rb", "sb"].includes(b.mode) && ["ground", "air"].includes(b.branch) &&

@@ -20,6 +20,7 @@ const item = (v: unknown) =>
 function valid(value: unknown): value is Valuation {
   if (
     !object(value) ||
+    value.contentSafetyVersion !== "content-safety-v2" ||
     !text(value.id) ||
     !text(value.snapshotId) ||
     !object(value.player) ||

@@ -1,3 +1,4 @@
+import { queryTask, pendingQuery, resumeQuery, forgetQuery } from "./player-query-task";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { statsCountryMatches, statsCountryLabel } from "./stats-country";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -140,6 +141,8 @@ function VehicleRow({
 export function PlayerStats() {
   const route = useSearch({ from: "/_workbench/stats" });
   const navigate = useNavigate({ from: "/stats" });
+  const [queryProgress, setQueryProgress] = useState("");
+  const resumedQuery = useRef(false);
   const [recentPlayers, setRecentPlayers] = useState(statsQueryHistory);
   const [leaderboards, setLeaderboards] = useState(cachedLeaderboards);
   const [leaderMode, setLeaderMode] = useState("rb"),
@@ -259,8 +262,9 @@ export function PlayerStats() {
     requests.current.add(c);
     return c;
   }
-  function loadProfile(p: PlayerProfile, local = false) {
+  const loadProfile = useCallback((p: PlayerProfile, local = false) => {
     setProfile(p);
+    if (p.nicknameHidden && route.player) void navigate({ search: { view: route.view }, replace: true });
     setShowGarage(false);
     setSelectedVehicle(null);
     setVehicleShare(null);
@@ -280,9 +284,29 @@ export function PlayerStats() {
     setViewingHistory(false);
     setBackground("auto");
     setCandidates([]);
-    setNotice("");
-  }
+    setNotice(p.stale ? p.staleReason || "官方查询繁忙，正在展示此前采集的资料。" : "");
+  }, [navigate, route.player, route.view]);
+  const hasSession = !!session;
+  useEffect(() => {
+    if (!hasSession || route.player || resumedQuery.current || !pendingQuery()) return;
+    resumedQuery.current = true;
+    const c = controller(), id = ++generation.current;
+    setBusy(true);
+    void resumeQuery<PlayerProfile | { items: PlayerCandidate[]; queryId: string; stale?: boolean; staleReason?: string }>(c.signal, setQueryProgress)
+      .then(value => {
+        if (!value || c.signal.aborted || id !== generation.current) return;
+        if ("items" in value.result) {
+          setQueryId(value.result.queryId); setCandidates(value.result.items);
+          if (value.result.stale) setNotice(value.result.staleReason || "正在展示已保存的搜索结果。");
+        } else loadProfile(value.result);
+        void refreshSession();
+      })
+      .catch(error => { if (!c.signal.aborted) setError(error instanceof Error ? error.message : "暂时无法恢复查询。"); })
+      .finally(() => { requests.current.delete(c); if (!c.signal.aborted && id === generation.current) setBusy(false); });
+    return () => { c.abort(); resumedQuery.current = false; };
+  }, [hasSession, route.player, loadProfile, refreshSession]);
   async function openSavedProfile(p: PlayerProfile) {
+    setQueryProgress("");
     const id = ++generation.current, c = controller();
     setBusy(true);
     setError("");
@@ -324,19 +348,23 @@ export function PlayerStats() {
     setError("");
     setNotice("");
     try {
-      const result = await statsRequest<{
+      const result = await queryTask<{
         items: PlayerCandidate[];
         queryId: string;
         cached: boolean;
+        stale?: boolean;
+        staleReason?: string;
       }>(
-        "players/search",
+        "search",
         { nickname: value, requestId: "query_" + crypto.randomUUID() },
         c.signal,
+        setQueryProgress,
       );
       if (c.signal.aborted || id !== generation.current) return;
       setQueryId(result.queryId);
       setCandidates(result.items);
       if (!result.items.length) setNotice("没有找到玩家，请检查昵称与平台后缀。");
+      else if (result.stale) setNotice(result.staleReason || "正在展示已保存的搜索结果，请核对玩家 UID。");
       setProfile(null);
     } catch (failure) {
       if (!c.signal.aborted && id === generation.current)
@@ -360,10 +388,10 @@ export function PlayerStats() {
     setQueryId("");
     setProfile(null);
     try {
-      const result = await statsRequest<PlayerProfile>("players/leaderboard", {
+      const result = await queryTask<PlayerProfile>("leaderboard", {
         mode: leaderMode, branch: leaderBranch, rank: player.rank, nickname: player.nickname,
         uid: player.uid || undefined, requestId: "query_" + crypto.randomUUID(),
-      }, c.signal);
+      }, c.signal, setQueryProgress);
       if (!c.signal.aborted && id === generation.current) {
         loadProfile(result);
         const next = { ...leaderboards, boards: leaderboards.boards.map(b => ({ ...b, players: b.players.map(p =>
@@ -391,10 +419,11 @@ export function PlayerStats() {
     setBusy(true);
     setError("");
     try {
-      const value = await statsRequest<PlayerProfile>(
-        "players/select",
+      const value = await queryTask<PlayerProfile>(
+        "select",
         { queryId, uid: p.uid },
         c.signal,
+        setQueryProgress,
       );
       if (!c.signal.aborted && id === generation.current) loadProfile(value);
     } catch (failure) {
@@ -415,13 +444,14 @@ export function PlayerStats() {
     setError("");
     setNotice("");
     try {
-      const value = await statsRequest<PlayerProfile>(
-        "players/refresh",
+      const value = await queryTask<PlayerProfile>(
+        "refresh",
         {
           snapshotId: profile.snapshotId,
           requestId: "refresh_" + crypto.randomUUID(),
         },
         c.signal,
+        setQueryProgress,
       );
       if (c.signal.aborted || id !== generation.current) return;
       setProfile(value);
@@ -517,6 +547,8 @@ export function PlayerStats() {
     if (previousIdentity.current === identityVersion) return;
     previousIdentity.current = identityVersion;
     clearRankingMemory();
+    forgetQuery();
+    setQueryProgress("");
     setShowGarage(false);
     setSelectedVehicle(null);
     setVehicleShare(null);
@@ -532,6 +564,7 @@ export function PlayerStats() {
     setNotice("账号状态已更新，请重新选择玩家。");
   }, [identityVersion]);
   async function generate() {
+    setQueryProgress("");
     if (!profile || viewingHistory || !eligible.length) return;
     const c = controller();
     setBusy(true);
@@ -712,6 +745,7 @@ export function PlayerStats() {
           </button>
         )}
       </form>
+      {busy && queryProgress && <output className="wt-record-notice" aria-live="polite">{queryProgress}</output>}
       {error && (
         <p className="wt-record-error" role="alert">
           {error}

@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "boards": [
+    {
+      "mode": "ab",
+      "branch": "ground",
+      "period": "all-time",
+      "metric": "ground-targets-destroyed",
+      "fetchedAt": "2026-10-22T02:31:12.567Z",
+      "sources": [
+        "https://warthunder.com/en/community/leaderboard/?game=arcade&sort=gtd&page=1",
+        "https://warthunder.com/en/community/leaderboard/?game=arcade&sort=gtd&page=2"
+      ]
+    },
+    {
+      "mode": "ab",
+      "branch": "air",
+      "period": "all-time",
+      "metric": "air-targets-destroyed",
+      "fetchedAt": "2026-10-22T02:31:28.459Z",
+      "sources": [
+        "https://warthunder.com/en/community/leaderboard/?game=arcade&sort=atd&page=1",
+        "https://warthunder.com/en/community/leaderboard/?game=arcade&sort=atd&page=2"
+      ]
+    },
+    {
+      "mode": "rb",
+      "branch": "ground",
+      "period": "all-time",
+      "metric": "ground-targets-destroyed",
+      "fetchedAt": "2026-10-22T02:31:44.470Z",
+      "sources": [
+        "https://warthunder.com/en/community/leaderboard/?game=historical&sort=gtd&page=1",
+        "https://warthunder.com/en/community/leaderboard/?game=historical&sort=gtd&page=2"
+      ]
+    },
+    {
+      "mode": "rb",
+      "branch": "air",
+      "period": "all-time",
+      "metric": "air-targets-destroyed",
+      "fetchedAt": "2026-10-22T02:32:00.716Z",
+      "sources": [
+        "https://warthunder.com/en/community/leaderboard/?game=historical&sort=atd&page=1",
+        "https://warthunder.com/en/community/leaderboard/?game=historical&sort=atd&page=2"
+      ]
+    },
+    {
+      "mode": "sb",
+      "branch": "ground",
+      "period": "all-time",
+      "metric": "ground-targets-destroyed",
+      "fetchedAt": "2026-10-22T02:32:16.540Z",
+      "sources": [
+        "https://warthunder.com/en/community/leaderboard/?game=simulation&sort=gtd&page=1",
+        "https://warthunder.com/en/community/leaderboard/?game=simulation&sort=gtd&page=2"
+      ]
+    },
+    {
+      "mode": "sb",
+      "branch": "air",
+      "period": "all-time",
+      "metric": "air-targets-destroyed",
+      "fetchedAt": "2026-10-22T02:32:32.380Z",
+      "sources": [
+        "https://warthunder.com/en/community/leaderboard/?game=simulation&sort=atd&page=1",
+        "https://warthunder.com/en/community/leaderboard/?game=simulation&sort=atd&page=2"
+      ]
+    }
+  ]
+}

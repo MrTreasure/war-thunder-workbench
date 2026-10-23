@@ -51,6 +51,9 @@ export type PlayerVehicle = Metrics &
   };
 export type PlayerProfile = {
   contentSafetyVersion?: string;
+  nicknameHidden?: boolean;
+  stale?: boolean;
+  staleReason?: string;
   localOnly?: boolean;
   uid: string;
   nickname: string;
@@ -381,7 +384,7 @@ export function statsQueryHistory(): PlayerProfile[] {
               p &&
               typeof p.uid === "string" &&
               typeof p.nickname === "string" &&
-              p.contentSafetyVersion === "content-safety-v1" &&
+              p.contentSafetyVersion === "content-safety-v2" &&
               typeof p.fetchedAt === "string" &&
               typeof p.snapshotId === "string" &&
               Array.isArray(p.modes) &&
