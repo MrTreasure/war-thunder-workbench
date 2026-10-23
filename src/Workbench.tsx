@@ -1,3 +1,4 @@
+import { SiteGuideLinks } from "./components/SiteGuideLinks";
 import { vehicleSearchText } from "./i18n/core";
 import { vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
@@ -695,6 +696,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                   )),
                 )}
               </div>
+              <SiteGuideLinks />
             </section>
           ) : countryEntry && loadedCountry?.key !== currentKey ? (
             <WarThunderLoading

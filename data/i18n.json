@@ -7574,5 +7574,29 @@
   "按往年日期推算，开始与结束各预留 ±4 天；预测开始日遇周末统一顺延到下一个工作日，并保留历史活动时长；开始候选日期排除周六、周日，活动持续期间及结束日可跨周末。周末顺延是预测假设，具体以官方公布为准。黑五按感恩节次日、春节按农历新年调整。两个范围分别表示可能的开始日、结束日，预测中点仅供参考，预测状态按预计起止日标注；预测不保证载具参与或折扣力度。 已过去的日期自动移出预计开始窗口，窗口全部过期后不再作为未来活动展示。候选日期的高／中／低仅表示与历史推算参考日接近程度的相对判断，不是统计概率。": [
     "Forecasts use prior-year dates with ±4-day start and end windows. Weekend starts move forward to the next working day while preserving the historical duration; start candidates exclude weekends, but events and end dates may span weekends. This adjustment is a forecast assumption; official announcements take precedence. Black Friday follows Thanksgiving and Lunar New Year follows the lunar calendar. Start and end windows are separate; midpoint dates are references only. Forecasts do not guarantee vehicle eligibility or discounts. Past start dates are removed; fully expired windows are omitted from future events. High / medium / low describes proximity to the historical reference date, not a statistical probability.",
     "Прогноз основан на датах прошлых лет: для начала и окончания предусмотрено окно ±4 дня. Начало в выходной переносится на следующий рабочий день с сохранением прежней длительности; выходные исключены из возможных дат начала, но событие и окончание могут приходиться на них. Это допущение прогноза; приоритет имеют официальные объявления. Чёрная пятница следует за Днём благодарения, китайский Новый год — лунному календарю. Окна начала и окончания независимы; средние даты даны для ориентира. Участие техники и размер скидок не гарантированы. Прошедшие даты начала удаляются, истёкшие окна не показываются среди будущих событий. Высокая / средняя / низкая оценка отражает близость к опорной дате, а не статистическую вероятность."
+  ],
+  "正在载入界面资源": [
+    "Loading interface resources",
+    "Загрузка интерфейса"
+  ],
+  "完成后自动进入": [
+    "Opens automatically when ready",
+    "Откроется после загрузки"
+  ],
+  "界面文件读取失败": [
+    "Could not load the interface",
+    "Не удалось загрузить интерфейс"
+  ],
+  "请检查网络后重新加载；本地已保存的数据会保留。": [
+    "Check your connection and reload; locally saved data will be kept.",
+    "Проверьте подключение и обновите страницу; локальные данные сохранятся."
+  ],
+  "等待重试": [
+    "Waiting to retry",
+    "Ожидание повтора"
+  ],
+  "请启用 JavaScript 以使用工作台。已保存的研发进度、队列和地图方案会保留在当前浏览器。": [
+    "Enable JavaScript to use the workbench. Saved research progress, lineups and map plans remain in this browser.",
+    "Для работы инструментов включите JavaScript. Прогресс исследований, составы и планы карт сохраняются в этом браузере."
   ]
 }

@@ -15,7 +15,12 @@ export function AppHeader() {
   const page = useRouterState({
     select: (state) => workbenchPage(state.location.pathname),
   });
-  useEffect(() => updateSearchMetadata(page), [page, locale]);
+  useEffect(() => {
+    const update = () => updateSearchMetadata(page);
+    update();
+    window.addEventListener("wt-language-url-change", update);
+    return () => window.removeEventListener("wt-language-url-change", update);
+  }, [page, locale]);
   return (
     <header className="app-header">
       <div className="app-header-inner">

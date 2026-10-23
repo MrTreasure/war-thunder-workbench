@@ -50,17 +50,25 @@ pnpm run deploy:preview
 
 `data/site-seo.json` 保存三语正式文案。构建生成：
 
-- `/`：产品标题、description、canonical、Open Graph、Twitter card 和 WebApplication JSON-LD。
-- `/about/zh/`、`/about/en/`、`/about/ru/`：服务器直接返回完整 HTML 正文。包含对应语言的战绩、科技树、走线、账号估值、队列介绍及实际功能入口，不要求抓取器运行 JavaScript。语言互链、`lang`、自引用 canonical 和相互对应的 hreflang 只应用于这些真正翻译的介绍页；没有声称交互界面已经支持三种语言。
-- `/sitemap.xml`：仅列出可抓取的真实页面，不包含 `#/stats` 等片段、用户查询结果或私人方案。不伪造每日 lastmod。
-- `/robots.txt`：允许公开页抓取并声明 sitemap。robots 不代替认证或授权。
-- `/llms.txt` 与各语言 `index.md`：为 AI 搜索与 agent 提供功能、入口和数据限制，明确缓存时间、出战记录与归属的区别、估值仅供参考及本地保存行为。不暴露写入接口、用户查询、凭据或内部实现。`llms.txt` 是辅助约定，不是搜索排名保证，也不是 agent 授权协议。
+- `/`：中立入口，保留首次按浏览器语言选择和用户手动偏好，不自动跳转；作为语言组的 `x-default`。
+- `/zh/`、`/en/`、`/ru/`：固定语言的真实应用入口。首次 HTTP 响应直接提供该语言的首屏正文、标题、description、canonical、OG/Twitter 和 WebApplication JSON-LD。语言路径优先于 query、存储及浏览器语言，不按爬虫 UA 另行返回内容。切换语言保留当前 hash 页面、查询参数、TanStack history state 和草稿。
+- `/about/zh/`、`/about/en/`、`/about/ru/`：无需 JavaScript 的完整功能说明，包含六类工具、实际操作步骤、FAQ、来源与语言支持说明。
+- `/about/{zh|en|ru}/{stats|research|maps|account-value|lineups|sales}/`：18 个功能说明页，提供各自标题、摘要、相关操作步骤与实际工具入口；语言切换保持当前功能对应关系。
+- 所有语言组均有自引用 canonical、双向 hreflang、`x-default`、对应 `lang` 与 JSON-LD `inLanguage`，可见链接连接应用、介绍与功能页。应用仍使用 hash 管理工具状态，不将用户战绩结果或私有草稿生成索引页。
+- `/sitemap.xml`：列出 25 个真实 URL，不包含查询串、hash、用户查询结果或私人方案。静态说明页仅使用正文实际修订日期作为 `lastmod`；应用入口不伪造每日更新时间。
+- `/robots.txt`：允许公开页抓取并声明 sitemap。未知 URL 返回真正 404，404 页设置 noindex；Render 预览所有页面 noindex。robots 不代替认证或授权。
+- `/llms.txt` 与所有说明页的 `index.md`：更新三语应用与功能入口、数据来源和限制。不暴露写入接口、用户查询、凭据或内部实现。`llms.txt` 是辅助约定，不是搜索排名保证或 agent 授权协议。
+- `pnpm run build` 的 SEO 检查遍历全部 25 页：核对语言、首屏、唯一 title/canonical、互链、资源真实存在、结构化数据、Markdown、sitemap、404 与部署限定统计。不使用浏览器自动化。
+
+固定语言页与中立入口使用同一 origin，本地研发进度、购物车、队列、地图方案及会话不迁移、不清理。受浏览器拦截而改用整页登录时，前端沿用既有根路径回调并在成功后恢复语言路径；服务端白名单没有放宽。
 
 覆盖关键词：战雷工作台、战雷战绩查询、战雷科技树、战雷走线、战雷账号价值；英文包含 War Thunder Workbench / player stats lookup / tech trees / map routes / account value；俄文包含 статистика игроков / дерево исследования / маршруты на картах / оценка стоимости аккаунта。
 
 ### Google 与百度正式收录
 
 上线后分别在 Google Search Console 和百度搜索资源平台验证站点所有权、提交主站 sitemap、检查抓取与索引状态。域名 DNS 验证或平台验证文件需要站长权限及平台提供的真实值；本次没有伪造验证代码，也没有宣称完成账号侧提交。若采用 HTML 验证，可在构建环境设置 `WT_GOOGLE_SITE_VERIFICATION`、`WT_BAIDU_SITE_VERIFICATION`，生成对应首页 meta 标签，再部署。验证值本身不是登录凭据。
+
+建议在 Search Console 依次检查首页、三个固定语言入口及三个介绍页，确认实际抓取正文、Google 选择的 canonical 与索引状态；随后抽查六种功能页，并按页面/国家/查询词观察搜索曝光与点击。实时抓取成功不等于已经编入索引，`site:` 搜索不代替站长平台报告。百度同样先验证站点、提交 sitemap 并查看抓取与索引反馈，不自动批量提交或反复请求收录。
 
 三语静态正文比只靠客户端片段路由更可控。SEO 配置和可抓取不等于已收录，更不能保证具体关键词排名。请用各平台实际抓取/索引报告验收；本任务没有使用浏览器自动化或批量提交工具。
 

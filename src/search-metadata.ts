@@ -1,3 +1,4 @@
+import { pathLocale, localeAppPath } from "./i18n/urls";
 import { getLocale, t } from "./i18n/core";
 import seo from "../data/site-seo.json";
 
@@ -14,7 +15,10 @@ export function updateSearchMetadata(page: string) {
   };
   document.title = `${t(titles[page] || "战争雷霆玩家工具")} · ${t("战雷工作台")} | War Thunder Workbench`;
   const qmuse = location.origin === new URL(seo.qmuseUrl).origin;
-  const canonical = qmuse ? seo.qmuseUrl : seo.siteUrl;
+  const entryLocale = pathLocale(location.pathname);
+  const canonical = qmuse
+    ? seo.qmuseUrl
+    : new URL(entryLocale ? localeAppPath("/", entryLocale).slice(1) : "", seo.siteUrl).href;
   const setMeta = (attribute: "name" | "property", name: string, content: string) => {
     let tag = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${name}"]`);
     if (!tag) {
@@ -31,6 +35,26 @@ export function updateSearchMetadata(page: string) {
   setMeta("property", "og:url", canonical);
   setMeta("property", "og:image", seo.imageUrl);
   setMeta("name", "twitter:card", "summary_large_image");
+  setMeta("name", "twitter:title", document.title);
+  setMeta("name", "twitter:description", zh.description);
+  setMeta("name", "twitter:image", seo.imageUrl);
+  if (!qmuse) {
+    for (const lang of ["zh-CN", "en", "ru", "x-default"] as const) {
+      let alternate = document.head.querySelector<HTMLLinkElement>(
+        `link[rel="alternate"][hreflang="${lang}"]`,
+      );
+      if (!alternate) {
+        alternate = document.createElement("link");
+        alternate.rel = "alternate";
+        alternate.hreflang = lang;
+        document.head.append(alternate);
+      }
+      alternate.href =
+        lang === "x-default"
+          ? seo.siteUrl
+          : new URL(localeAppPath("/", lang).slice(1), seo.siteUrl).href;
+    }
+  }
   let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
   if (!link) {
     link = document.createElement("link");

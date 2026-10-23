@@ -1,3 +1,4 @@
+import { appBasePath, pathLocale } from "./i18n/urls";
 import { getLocale } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { localize } from "./i18n/core";
@@ -81,6 +82,7 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
           verifier: string;
           state: string;
           returnUrl: string;
+          destinationUrl?: string;
           expires: number;
         };
         if (intent.state !== state || intent.expires < Date.now())
@@ -88,7 +90,17 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
         const original = new URL(intent.returnUrl);
         if (original.origin !== location.origin || original.pathname !== location.pathname)
           throw new Error("登录返回地址无效。");
-        history.replaceState(history.state, "", original);
+        const destination = new URL(intent.destinationUrl || intent.returnUrl);
+        if (
+          destination.origin !== original.origin ||
+          (destination.pathname !== original.pathname &&
+            (!pathLocale(destination.pathname) ||
+              appBasePath(destination.pathname) !== original.pathname))
+        )
+          throw new Error("登录返回地址无效。");
+        history.replaceState(history.state, "", destination);
+        if (destination.pathname !== original.pathname)
+          window.dispatchEvent(new Event("wt-language-url-change"));
         const result = await statsRequest<{ token: string }>("auth/exchange", {
           code,
           verifier: intent.verifier,
@@ -185,16 +197,22 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
   }, [refreshSession, resetIdentity]);
   async function redirectLogin() {
     const challenge = await loginChallenge();
+    const returnUrl = new URL(window.location.href);
+    if (pathLocale(returnUrl.pathname)) {
+      returnUrl.pathname = appBasePath(returnUrl.pathname);
+      returnUrl.searchParams.set("lang", getLocale());
+    }
     const intent = {
       ...challenge,
-      returnUrl: window.location.href,
+      returnUrl: returnUrl.href,
+      destinationUrl: window.location.href,
       expires: Date.now() + 10 * 60 * 1000,
     };
     sessionStorage.setItem("wt-auth-intent-v1", JSON.stringify(intent));
     const start = await statsRequest<{ authorizeUrl: string }>("auth/start", {
       challenge: challenge.challenge,
       state: challenge.state,
-      returnUrl: window.location.href,
+      returnUrl: returnUrl.href,
     });
     window.location.assign(localizedAuthorizeUrl(start.authorizeUrl));
   }

@@ -1,4 +1,5 @@
 import messages from "../../data/i18n.json";
+import { localeAppPath, pathLocale } from "./urls";
 
 export type Locale = "zh-CN" | "en" | "ru";
 export const locales: readonly Locale[] = ["zh-CN", "en", "ru"];
@@ -18,6 +19,8 @@ function browserLocale(): Locale {
 }
 function initialLocale(): Locale {
   if (typeof window === "undefined") return "zh-CN";
+  const entryLocale = pathLocale(window.location.pathname);
+  if (entryLocale) return entryLocale;
   try {
     const query = new URLSearchParams(window.location.search).get("lang");
     if (validLocale(query)) return query;
@@ -49,10 +52,15 @@ export function setLocale(next: Locale) {
   updateDocument();
   if (typeof window !== "undefined") {
     const url = new URL(window.location.href);
+    const localizedEntries = document.querySelector('meta[name="wt-localized-entries"]');
+    if (localizedEntries || pathLocale(url.pathname))
+      url.pathname = localeAppPath(url.pathname, next);
     if (url.searchParams.has("lang")) {
       url.searchParams.set("lang", next);
-      window.history.replaceState(window.history.state, "", url);
     }
+    const pathChanged = url.pathname !== window.location.pathname;
+    window.history.replaceState(window.history.state, "", url);
+    if (pathChanged) window.dispatchEvent(new Event("wt-language-url-change"));
   }
   try {
     localStorage.setItem(key, next);
@@ -64,7 +72,10 @@ export function setLocale(next: Locale) {
 if (typeof window !== "undefined") {
   window.addEventListener("storage", (event) => {
     if (event.key !== key && event.key !== null) return;
-    const next = validLocale(event.newValue) ? event.newValue : initialLocale();
+    // A fixed language URL must not change when another tab changes its preference.
+    const next =
+      pathLocale(window.location.pathname) ||
+      (validLocale(event.newValue) ? event.newValue : initialLocale());
     if (next === locale) return;
     locale = next;
     updateDocument();

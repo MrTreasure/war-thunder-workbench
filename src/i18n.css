@@ -174,3 +174,11 @@
   font-size: clamp(24px, 4vw, 44px);
   overflow-wrap: anywhere;
 }
+
+.wt-site-guide { max-width: 1100px; padding-top: 16px; border-top: 1px solid var(--wt-line); font-size: 12px; line-height: 1.7; color: var(--wt-muted); }
+.wt-site-guide p { max-width: 800px; margin: 0 0 10px; }
+.wt-site-guide nav, .wt-site-guide > div { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.wt-site-guide a { color: var(--wt-gold); text-underline-offset: 3px; overflow-wrap: anywhere; }
+.wt-site-guide > div { margin-top: 10px; }
+.wt-site-guide a:focus-visible { outline: 2px solid var(--wt-gold); outline-offset: 3px; }
+@media (max-width: 800px) { .wt-site-guide a { display: inline-flex; align-items: center; min-height: 44px; } }
