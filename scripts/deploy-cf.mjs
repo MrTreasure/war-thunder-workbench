@@ -142,11 +142,18 @@ if (!dryRun) {
 
 async function verifyWorker(html) {
   let publicAddresses;
+  try {
+    publicAddresses = (await lookup("wt.mrtreasure.cc", { all: true, family: 4 })).map(
+      (item) => item.address,
+    );
+  } catch {
+    // A newly published name may still have a local negative DNS cache.
+  }
   function curl(args) {
     return spawnSync(
       "curl",
       [
-        "--http1.1",
+        "--http2",
         "--ipv4",
         "--compressed",
         "--fail",
@@ -155,7 +162,7 @@ async function verifyWorker(html) {
         "--connect-timeout",
         "5",
         "--max-time",
-        "45",
+        "30",
         ...args,
       ],
       { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 },
@@ -165,9 +172,9 @@ async function verifyWorker(html) {
     const parsed = new URL(url);
     if (parsed.origin !== "https://wt.mrtreasure.cc") throw Error("Unexpected verification origin");
     let result = curl([url]);
-    if (result.status === 6) {
-      // Newly created names may remain negatively cached in the NAS/router.
-      // Use a public DNS answer, retaining the original URL, SNI and TLS validation.
+    if ([6, 7, 16, 18, 28, 35, 52, 55, 56, 92].includes(result.status)) {
+      // Retry transport failures only. HTTP rejections must remain visible.
+      // Keep the public URL, SNI and certificate validation on every address.
       if (!publicAddresses) {
         const dns = curl(["https://dns.alidns.com/resolve?name=wt.mrtreasure.cc&type=A"]);
         if (dns.status !== 0) throw Error("Public DNS check failed");
@@ -182,13 +189,11 @@ async function verifyWorker(html) {
           .map((item) => item.data);
         if (response.Status !== 0 || !publicAddresses.length)
           throw Error("Production DNS is not published yet");
-        console.log(
-          "Local DNS has an old negative result; verifying Cloudflare using public DNS answers",
-        );
+        console.log("Using public DNS answers for Cloudflare verification");
       }
       for (const ip of publicAddresses) {
         result = curl(["--resolve", "wt.mrtreasure.cc:443:" + ip, url]);
-        if (result.status === 0) break;
+        if (result.status === 0 || result.status === 22) break;
       }
     }
     if (result.status !== 0) throw Error("Public Cloudflare verification failed: " + url);

@@ -44,6 +44,8 @@ pnpm run deploy:preview
 3. Turnstile 继续运行在 `api.mrtreasure.cc` 登录窗口，登录入口不迁到 NAS，也不需要放宽 Turnstile hostname。人工验收访客访问、查询、主动登录、弹窗返回、退出、地图导出和国家模块懒加载。
 4. `deploy:cf` 直接发布独立 `war-thunder-workbench` Worker 和 `wt.mrtreasure.cc` 自定义域名。`deploy:preview` 使用现有兼容发布输入及共享 Render 同步器，禁止拿 Render 发布替代正式 Worker 部署。正式发布完成后核对公网 HTML、JS、CSS 和 sitemap；只有构建或预演成功不能宣称正式站可用。
 
+CF 公网部署校验使用 HTTP/2，并仅在 DNS、TLS、超时或传输中断时尝试该域名发布的其他 IPv4 地址；保留原 URL、SNI 与证书校验，不修改系统 DNS，HTTP 拒绝不会被重试掩盖。`deploy:cf --verify-only` 可以复核已发布版本，不重复上传或创建登录请求。
+
 新域名是不同浏览器 origin，现有 localStorage、OPFS、队列与地图方案不会自动迁移。使用现有分享/导出功能迁移需要的内容，不能宣称跨域自动同步。账号仍通过既有安全登录窗口访问。
 
 ## SEO 实现与边界
