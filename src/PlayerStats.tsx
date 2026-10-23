@@ -2,6 +2,7 @@ import { vehicleSearchText } from "./i18n/core";
 import { vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { localize, t } from "./i18n/core";
+import { queryTask, pendingQuery, resumeQuery, forgetQuery } from "./player-query-task";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { statsCountryMatches, statsCountryLabel } from "./stats-country";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -170,6 +171,8 @@ export function PlayerStats() {
 
   const route = useSearch({ from: "/_workbench/stats" });
   const navigate = useNavigate({ from: "/stats" });
+  const [queryProgress, setQueryProgress] = useState("");
+  const resumedQuery = useRef(false);
   const [recentPlayers, setRecentPlayers] = useState(statsQueryHistory);
   const [leaderboards, setLeaderboards] = useState(cachedLeaderboards);
   const [leaderMode, setLeaderMode] = useState("rb"),
@@ -309,30 +312,70 @@ export function PlayerStats() {
     requests.current.add(c);
     return c;
   }
-  function loadProfile(p: PlayerProfile, local = false) {
-    setProfile(p);
-    setShowGarage(false);
-    setSelectedVehicle(null);
-    setVehicleShare(null);
-    if (!local) setRecentPlayers(rememberStatsProfile(p));
-    setNickname(p.nickname);
-    rememberStatsNickname(p.nickname);
-    setMode([...p.modes].sort((a, b) => (b.battles || 0) - (a.battles || 0))[0]?.id || "rb");
-    setSearch("");
-    setCategory("all");
-    setVehicleCountry("all");
-    setVehicleRank("all");
-    setVehicleSort({ key: "battles", direction: "desc" });
-    setVehiclePage(1);
-    setReport(null);
-    setReportCountry("all");
-    setReportCategory("all");
-    setViewingHistory(false);
-    setBackground("auto");
-    setCandidates([]);
-    setNotice("");
-  }
+  const loadProfile = useCallback(
+    (p: PlayerProfile, local = false) => {
+      setProfile(p);
+      if (p.nicknameHidden && route.player)
+        void navigate({ search: { view: route.view }, replace: true });
+      setShowGarage(false);
+      setSelectedVehicle(null);
+      setVehicleShare(null);
+      if (!local) setRecentPlayers(rememberStatsProfile(p));
+      setNickname(p.nickname);
+      rememberStatsNickname(p.nickname);
+      setMode([...p.modes].sort((a, b) => (b.battles || 0) - (a.battles || 0))[0]?.id || "rb");
+      setSearch("");
+      setCategory("all");
+      setVehicleCountry("all");
+      setVehicleRank("all");
+      setVehicleSort({ key: "battles", direction: "desc" });
+      setVehiclePage(1);
+      setReport(null);
+      setReportCountry("all");
+      setReportCategory("all");
+      setViewingHistory(false);
+      setBackground("auto");
+      setCandidates([]);
+      setNotice(p.stale ? p.staleReason || t("官方查询繁忙，正在展示此前采集的资料。") : "");
+    },
+    [navigate, route.player, route.view],
+  );
+  const hasSession = !!session;
+  useEffect(() => {
+    if (!hasSession || route.player || resumedQuery.current || !pendingQuery()) return;
+    resumedQuery.current = true;
+    const c = controller(),
+      id = ++generation.current;
+    setBusy(true);
+    void resumeQuery<
+      | PlayerProfile
+      | { items: PlayerCandidate[]; queryId: string; stale?: boolean; staleReason?: string }
+    >(c.signal, setQueryProgress)
+      .then((value) => {
+        if (!value || c.signal.aborted || id !== generation.current) return;
+        if ("items" in value.result) {
+          setQueryId(value.result.queryId);
+          setCandidates(value.result.items);
+          if (value.result.stale)
+            setNotice(value.result.staleReason || t("正在展示已保存的搜索结果。"));
+        } else loadProfile(value.result);
+        void refreshSession();
+      })
+      .catch((error) => {
+        if (!c.signal.aborted)
+          setError(error instanceof Error ? error.message : t("暂时无法恢复查询。"));
+      })
+      .finally(() => {
+        requests.current.delete(c);
+        if (!c.signal.aborted && id === generation.current) setBusy(false);
+      });
+    return () => {
+      c.abort();
+      resumedQuery.current = false;
+    };
+  }, [hasSession, route.player, loadProfile, refreshSession]);
   async function openSavedProfile(p: PlayerProfile) {
+    setQueryProgress("");
     const id = ++generation.current,
       c = controller();
     setBusy(true);
@@ -349,17 +392,11 @@ export function PlayerStats() {
       setNotice("已打开保存的查询记录，本次不扣查询次数；采集时间见下方。");
     } catch (failure) {
       if (c.signal.aborted || id !== generation.current) return;
-      try {
-        const { applyPlayerEfficiency } = await import("./player-efficiency");
-        const current = await applyPlayerEfficiency({ ...p, cached: true, localOnly: true });
-        if (c.signal.aborted || id !== generation.current) return;
-        loadProfile(current, true);
-        setNotice("正在查看本机资料。扩展统计暂未连接，可重新查询此玩家后继续查看。");
-        setError(failure instanceof Error ? failure.message : "暂时无法恢复查询记录。");
-      } catch (localFailure) {
-        if (!c.signal.aborted && id === generation.current)
-          setError(localFailure instanceof Error ? localFailure.message : "本机资料暂时无法读取。");
-      }
+      setError(
+        failure instanceof Error
+          ? failure.message
+          : t("暂时无法完成安全审核，请稍后重新打开记录。"),
+      );
     } finally {
       requests.current.delete(c);
       if (id === generation.current) setBusy(false);
@@ -389,19 +426,24 @@ export function PlayerStats() {
     setError("");
     setNotice("");
     try {
-      const result = await statsRequest<{
+      const result = await queryTask<{
         items: PlayerCandidate[];
         queryId: string;
         cached: boolean;
+        stale?: boolean;
+        staleReason?: string;
       }>(
-        "players/search",
+        "search",
         { nickname: value, requestId: "query_" + crypto.randomUUID() },
         c.signal,
+        setQueryProgress,
       );
       if (c.signal.aborted || id !== generation.current) return;
       setQueryId(result.queryId);
       setCandidates(result.items);
       if (!result.items.length) setNotice("没有找到玩家，请检查昵称与平台后缀。");
+      else if (result.stale)
+        setNotice(result.staleReason || t("正在展示已保存的搜索结果，请核对玩家 UID。"));
       setProfile(null);
     } catch (failure) {
       if (!c.signal.aborted && id === generation.current)
@@ -426,8 +468,8 @@ export function PlayerStats() {
     setQueryId("");
     setProfile(null);
     try {
-      const result = await statsRequest<PlayerProfile>(
-        "players/leaderboard",
+      const result = await queryTask<PlayerProfile>(
+        "leaderboard",
         {
           mode: leaderMode,
           branch: leaderBranch,
@@ -437,6 +479,7 @@ export function PlayerStats() {
           requestId: "query_" + crypto.randomUUID(),
         },
         c.signal,
+        setQueryProgress,
       );
       if (!c.signal.aborted && id === generation.current) {
         loadProfile(result);
@@ -481,10 +524,11 @@ export function PlayerStats() {
     setBusy(true);
     setError("");
     try {
-      const value = await statsRequest<PlayerProfile>(
-        "players/select",
+      const value = await queryTask<PlayerProfile>(
+        "select",
         { queryId, uid: p.uid },
         c.signal,
+        setQueryProgress,
       );
       if (!c.signal.aborted && id === generation.current) loadProfile(value);
     } catch (failure) {
@@ -505,13 +549,14 @@ export function PlayerStats() {
     setError("");
     setNotice("");
     try {
-      const value = await statsRequest<PlayerProfile>(
-        "players/refresh",
+      const value = await queryTask<PlayerProfile>(
+        "refresh",
         {
           snapshotId: profile.snapshotId,
           requestId: "refresh_" + crypto.randomUUID(),
         },
         c.signal,
+        setQueryProgress,
       );
       if (c.signal.aborted || id !== generation.current) return;
       setProfile(value);
@@ -614,6 +659,8 @@ export function PlayerStats() {
     if (previousIdentity.current === identityVersion) return;
     previousIdentity.current = identityVersion;
     clearRankingMemory();
+    forgetQuery();
+    setQueryProgress("");
     setShowGarage(false);
     setSelectedVehicle(null);
     setVehicleShare(null);
@@ -629,6 +676,7 @@ export function PlayerStats() {
     setNotice("账号状态已更新，请重新选择玩家。");
   }, [identityVersion]);
   async function generate() {
+    setQueryProgress("");
     if (!profile || viewingHistory || !eligible.length) return;
     const c = controller();
     setBusy(true);
@@ -825,6 +873,11 @@ export function PlayerStats() {
           ),
         )}
       </form>
+      {busy && queryProgress && (
+        <output className="wt-record-notice" aria-live="polite">
+          {localize(queryProgress)}
+        </output>
+      )}
       {localize(
         error && (
           <p className="wt-record-error" role="alert">

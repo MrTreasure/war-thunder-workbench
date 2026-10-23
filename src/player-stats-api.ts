@@ -51,6 +51,10 @@ export type PlayerVehicle = Metrics &
     thumbnail: string;
   };
 export type PlayerProfile = {
+  contentSafetyVersion?: string;
+  nicknameHidden?: boolean;
+  stale?: boolean;
+  staleReason?: string;
   localOnly?: boolean;
   uid: string;
   nickname: string;
@@ -203,8 +207,8 @@ export async function statsRequest<T>(
     headers: statsHeaders(),
     credentials: "omit",
     signal: signal
-      ? AbortSignal.any([signal, AbortSignal.timeout(45000)])
-      : AbortSignal.timeout(45000),
+      ? AbortSignal.any([signal, AbortSignal.timeout(60000)])
+      : AbortSignal.timeout(60000),
     ...(body === undefined ? {} : { body: JSON.stringify(body) }),
   });
   const data = await response.json().catch(() => null);
@@ -387,6 +391,7 @@ export function statsQueryHistory(): PlayerProfile[] {
               p &&
               typeof p.uid === "string" &&
               typeof p.nickname === "string" &&
+              p.contentSafetyVersion === "content-safety-v2" &&
               typeof p.fetchedAt === "string" &&
               typeof p.snapshotId === "string" &&
               Array.isArray(p.modes) &&

@@ -1903,5 +1903,21 @@
   "俄联邦": "Russian Federation",
   "{0}科技树": "{0} tech tree",
   "{0}，{1}，{2}，{3}，点击查看活动详情": "{0}, {1}, {2}, {3}, click for event details",
-  "{0} · 预计开始 · 可能性{1}": "{0} · Expected start · Likelihood: {1}"
+  "{0} · 预计开始 · 可能性{1}": "{0} · Expected start · Likelihood: {1}",
+  "官方查询繁忙，正在展示此前采集的资料。": "The official lookup service is busy. Showing previously collected data.",
+  "正在展示已保存的搜索结果。": "Showing saved search results.",
+  "暂时无法恢复查询。": "Unable to resume the lookup right now.",
+  "暂时无法完成安全审核，请稍后重新打开记录。": "Content review is temporarily unavailable. Please reopen this record later.",
+  "正在展示已保存的搜索结果，请核对玩家 UID。": "Showing saved search results. Please verify the player's UID.",
+  "查询已排队，无需重复提交…": "Lookup queued. No need to submit again…",
+  "正在检查已有资料…": "Checking existing data…",
+  "正在等待官方查询通道…": "Waiting for the official lookup service…",
+  "正在整理资料并审核显示内容…": "Preparing data and reviewing content for display…",
+  "连接暂时中断，任务仍在后台处理；刷新页面可继续查看，无需重复提交。": "Connection lost. Your lookup is still running in the background. Refresh the page to check its status; no need to submit again.",
+  "连接暂时不稳定，正在恢复任务状态…": "Connection unstable. Restoring lookup status…",
+  "查询未完成，请稍后重试": "Lookup incomplete. Please try again later.",
+  "查询正在处理中…": "Processing lookup…",
+  "查询仍在后台处理中，刷新页面可继续查看任务状态。": "Your lookup is still running in the background. Refresh the page to check its status.",
+  "正在提交查询任务…": "Submitting lookup…",
+  "正在恢复上次查询任务…": "Resuming your previous lookup…"
 }

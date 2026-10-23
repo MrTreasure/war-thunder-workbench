@@ -1,0 +1,140 @@
+import { t } from "./i18n/core";
+import { statsRequest, StatsError } from "./player-stats-api";
+
+export type QueryKind = "search" | "select" | "leaderboard" | "refresh";
+type PendingQuery = { id: string; kind: QueryKind; savedAt: number };
+type QueryJob<T> = PendingQuery & {
+  status: "queued" | "running" | "ready" | "failed";
+  stage: string;
+  result?: T;
+  error?: { code: string; message: string };
+  contentSafetyVersion?: string;
+};
+const KEY = "wt-stats-pending-query-v1";
+const stages: Record<string, () => string> = {
+  queued: () => t("查询已排队，无需重复提交…"),
+  cache: () => t("正在检查已有资料…"),
+  waiting: () => t("正在等待官方查询通道…"),
+  fetching: () => t("正在读取官方资料…"),
+  moderating: () => t("正在整理资料并审核显示内容…"),
+};
+export function pendingQuery(): PendingQuery | null {
+  try {
+    const value = JSON.parse(sessionStorage.getItem(KEY) || "null");
+    if (
+      value &&
+      /^qjob_[A-Za-z0-9_-]{10,60}$/.test(value.id) &&
+      ["search", "select", "leaderboard", "refresh"].includes(value.kind) &&
+      Number.isFinite(value.savedAt) &&
+      Date.now() - value.savedAt >= 0 &&
+      Date.now() - value.savedAt < 15 * 60_000
+    )
+      return value;
+  } catch {
+    /* Task recovery is optional when browser storage is unavailable. */
+  }
+  return null;
+}
+export function forgetQuery(id?: string) {
+  try {
+    if (!id || pendingQuery()?.id === id) sessionStorage.removeItem(KEY);
+  } catch {
+    /* No credentials are stored here. */
+  }
+}
+function remember(job: PendingQuery) {
+  try {
+    sessionStorage.setItem(
+      KEY,
+      JSON.stringify({ id: job.id, kind: job.kind, savedAt: Date.now() }),
+    );
+  } catch {
+    /* Polling still works. */
+  }
+}
+function pause(signal: AbortSignal) {
+  return new Promise<void>((resolve, reject) => {
+    if (signal.aborted) {
+      reject(signal.reason);
+      return;
+    }
+    const abort = () => {
+      clearTimeout(timer);
+      reject(signal.reason);
+    };
+    const timer = setTimeout(() => {
+      signal.removeEventListener("abort", abort);
+      resolve();
+    }, 2000);
+    signal.addEventListener("abort", abort, { once: true });
+  });
+}
+async function follow<T>(
+  task: PendingQuery,
+  signal: AbortSignal,
+  progress: (text: string) => void,
+): Promise<T> {
+  const until = Date.now() + 7 * 60_000;
+  let transientFailures = 0;
+  while (Date.now() < until) {
+    signal.throwIfAborted();
+    let job: QueryJob<T>;
+    try {
+      job = await statsRequest<QueryJob<T>>(
+        `queries/${encodeURIComponent(task.id)}`,
+        undefined,
+        signal,
+      );
+      transientFailures = 0;
+    } catch (error) {
+      if (signal.aborted) throw error;
+      if (
+        error instanceof StatsError &&
+        ["QUERY_JOB_NOT_FOUND", "LOGIN_EXPIRED", "INVALID_TICKET"].includes(error.code)
+      ) {
+        forgetQuery(task.id);
+        throw error;
+      }
+      if (++transientFailures >= 3)
+        throw new Error(t("连接暂时中断，任务仍在后台处理；刷新页面可继续查看，无需重复提交。"));
+      progress(t("连接暂时不稳定，正在恢复任务状态…"));
+      await pause(signal);
+      continue;
+    }
+    if (job.status === "failed") {
+      forgetQuery(task.id);
+      throw new StatsError(
+        job.error?.message || t("查询未完成，请稍后重试"),
+        job.error?.code || "QUERY_FAILED",
+      );
+    }
+    if (job.status === "ready" && job.result) {
+      forgetQuery(task.id);
+      return { ...job.result, contentSafetyVersion: job.contentSafetyVersion };
+    }
+    progress(stages[job.stage]?.() || t("查询正在处理中…"));
+    await pause(signal);
+  }
+  throw new Error(t("查询仍在后台处理中，刷新页面可继续查看任务状态。"));
+}
+export async function queryTask<T>(
+  kind: QueryKind,
+  payload: unknown,
+  signal: AbortSignal,
+  progress: (text: string) => void,
+): Promise<T> {
+  progress(t("正在提交查询任务…"));
+  const job = await statsRequest<QueryJob<T>>(
+    "queries",
+    { kind, payload, requestId: "task_" + crypto.randomUUID() },
+    signal,
+  );
+  remember(job);
+  return follow<T>(job, signal, progress);
+}
+export async function resumeQuery<T>(signal: AbortSignal, progress: (text: string) => void) {
+  const task = pendingQuery();
+  if (!task) return null;
+  progress(t("正在恢复上次查询任务…"));
+  return { kind: task.kind, result: await follow<T>(task, signal, progress) };
+}
