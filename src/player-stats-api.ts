@@ -401,7 +401,7 @@ export function statsQueryHistory(): PlayerProfile[] {
               p &&
               typeof p.uid === "string" &&
               typeof p.nickname === "string" &&
-              p.contentSafetyVersion === "content-safety-v2" &&
+              p.contentSafetyVersion === "content-safety-v3" &&
               typeof p.fetchedAt === "string" &&
               typeof p.snapshotId === "string" &&
               Array.isArray(p.modes) &&

@@ -110,7 +110,7 @@ export function StatsAccountMenu({
           }}>
             <label htmlFor={`${id}-username`}>用户名</label>
             <input ref={input} id={`${id}-username`} aria-describedby={`${id}-username-help ${id}-username-error`} autoComplete="username" minLength={2} maxLength={32} required value={draft} disabled={saving} onChange={event => setDraft(event.target.value)} />
-            <small id={`${id}-username-help`}>2–32 个字符，保存时检查重名和内容安全。</small>
+            <small id={`${id}-username-help`}>2–32 个字符，支持 #、@、☆ 等可见符号；保存时检查重名和内容安全。</small>
             <p id={`${id}-username-error`} className="wt-username-error" role="alert">{error}</p>
             <div><button className="wt-username-save" type="submit" disabled={saving}>{saving ? "正在保存…" : "保存"}</button><button type="button" disabled={saving} onClick={closeEditor}>取消</button></div>
           </form>
