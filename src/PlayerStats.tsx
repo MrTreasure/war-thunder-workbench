@@ -294,17 +294,7 @@ export function PlayerStats() {
       setNotice("已打开保存的查询记录，本次不扣查询次数；采集时间见下方。");
     } catch (failure) {
       if (c.signal.aborted || id !== generation.current) return;
-      try {
-        const { applyPlayerEfficiency } = await import("./player-efficiency");
-        const current = await applyPlayerEfficiency({ ...p, cached: true, localOnly: true });
-        if (c.signal.aborted || id !== generation.current) return;
-        loadProfile(current, true);
-        setNotice("正在查看本机资料。扩展统计暂未连接，可重新查询此玩家后继续查看。");
-        setError(failure instanceof Error ? failure.message : "暂时无法恢复查询记录。");
-      } catch (localFailure) {
-        if (!c.signal.aborted && id === generation.current)
-          setError(localFailure instanceof Error ? localFailure.message : "本机资料暂时无法读取。");
-      }
+      setError(failure instanceof Error ? failure.message : "暂时无法完成安全审核，请稍后重新打开记录。");
     } finally {
       requests.current.delete(c);
       if (id === generation.current) setBusy(false);
