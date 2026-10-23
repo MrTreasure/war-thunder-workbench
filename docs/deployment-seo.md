@@ -134,7 +134,7 @@ CF 上传 staging、配置、历史哈希资源位于运行目录，不将源码
 - 仅 Cloudflare 验证过且分类为 `Search Engine Crawler` 的搜索爬虫免于这条入口挑战；仅伪装 User-Agent 无效。没有对所有 verified bots 放行。
 - `/about/*`、`/assets/*`、`/robots.txt`、`/sitemap.xml`、`/llms.txt`、favicon 和静态 404 文档不匹配这两条规则。载具数据保持公开，SEO 介绍页不要求验证。
 - 规则必须包含精确 host 条件；不修改 QMuse、API、后台域名，也不修改已有 zone 级 AI/Bot Fight Mode 配置。
-- 沿用已有 1,800 秒 Challenge Passage 设置，未修改整个 zone 的挑战有效期。真人通过后可匿名使用；不是永久免验证，也不保证识别所有自动化浏览器。
+- 用户确认后将 Challenge Passage 调整为 7,200 秒（2 小时）。这是 `mrtreasure.cc` 整个 zone 的通行有效期；入口规则仍仅匹配国际站。真人通过后可匿名使用；不是永久免验证，也不保证识别所有自动化浏览器。
 
 `deploy:cf` 公网检查只在入口返回 **403 且明确带 `cf-mitigated: challenge`** 时接受预期挑战，随后检查公开 SEO 页和本次构建的 JS/CSS。其他 403、HTTP 错误、传输错误仍失败。工具入口允许正常 200 响应，例如已被边缘判定可以放行的请求。不要为部署检查添加 IP 白名单或全局 Skip。
 

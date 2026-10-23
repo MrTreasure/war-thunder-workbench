@@ -16,5 +16,7 @@
       "action": "managed_challenge",
       "enabled": true
     }
-  ]
+  ],
+  "challengePassageSeconds": 7200,
+  "challengePassageScope": "mrtreasure.cc zone setting; not a per-rule or QMuse setting"
 }
