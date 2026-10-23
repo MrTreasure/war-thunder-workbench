@@ -1,3 +1,4 @@
+import predictionDisplay from "../data/sale-prediction-display.json";
 export type SaleChannel = "sl" | "ge" | "pack" | "bundle" | "premium";
 export type SaleEvent = {
   id: string;
@@ -12,6 +13,7 @@ export type SaleEvent = {
   startWindow?: string[];
   startCandidates?: string[];
   predictionVersion?: string;
+  predictionReferenceStartAt?: string;
   endWindow?: string[];
   countries: string[];
   categories: string[];
@@ -153,6 +155,77 @@ export function saleRate(event: SaleEvent, channel?: string): string {
 export function beijingDayKey(value: string | number): string {
   const timestamp = typeof value === "number" ? value : Date.parse(value);
   return new Date(timestamp + 8 * 3600000).toISOString().slice(0, 10);
+}
+export type SaleStartCandidate = {
+  at: string;
+  day: string;
+  confidence: "high" | "medium" | "low";
+  label: string;
+  shortLabel: string;
+  preferred: boolean;
+};
+/** A rolling display projection; the persisted historical forecast remains unchanged. */
+export function saleStartCandidates(event: SaleEvent, now: number): SaleStartCandidate[] {
+  if (event.status !== "predicted") return [];
+  const today = beijingDayKey(now);
+  const reference = beijingDayKey(event.predictionReferenceStartAt || event.startAt);
+  let values = event.startCandidates;
+  if (!values) {
+    const first = Date.parse(event.startWindow?.[0] || event.startAt);
+    const last = Date.parse(event.startWindow?.[1] || event.startAt);
+    const count = Math.floor((last - first) / 86400000) + 1;
+    values =
+      count > 0 && count <= 31
+        ? Array.from({ length: count }, (_, i) => new Date(first + i * 86400000).toISOString())
+        : [];
+  }
+  return [...new Map(values.map((at) => [beijingDayKey(at), at])).entries()]
+    .filter(([day]) => day >= today && ![0, 6].includes(new Date(day).getUTCDay()))
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([day, at]) => {
+      const distance = Math.abs(Date.parse(day) - Date.parse(reference)) / 86400000;
+      const confidence =
+        distance <= predictionDisplay.highDistanceDays
+          ? "high"
+          : distance <= predictionDisplay.mediumDistanceDays
+            ? "medium"
+            : "low";
+      return {
+        at,
+        day,
+        confidence,
+        label: predictionDisplay.labels[confidence],
+        shortLabel: predictionDisplay.shortLabels[confidence],
+        preferred: day === beijingDayKey(event.startAt),
+      };
+    });
+}
+export function projectSaleForecast(event: SaleEvent, now: number): SaleEvent | null {
+  if (event.status === "confirmed") return event;
+  const candidates = saleStartCandidates(event, now);
+  if (!candidates.length) return null;
+  const reference = event.predictionReferenceStartAt || event.startAt;
+  const closest = [...candidates].sort(
+    (a, b) =>
+      Math.abs(Date.parse(a.at) - Date.parse(reference)) -
+      Math.abs(Date.parse(b.at) - Date.parse(reference)),
+  )[0];
+  const shift = Date.parse(closest.at) - Date.parse(event.startAt);
+  const earliestEnd = Math.max(
+    Date.parse(event.endWindow?.[0] || event.endAt),
+    Date.parse(closest.at),
+  );
+  const latestEnd = Date.parse(event.endWindow?.[1] || event.endAt);
+  if (earliestEnd > latestEnd) return null;
+  return {
+    ...event,
+    predictionReferenceStartAt: reference,
+    startAt: closest.at,
+    endAt: new Date(Date.parse(event.endAt) + shift).toISOString(),
+    startCandidates: candidates.map((item) => item.at),
+    startWindow: [candidates[0].at, candidates[candidates.length - 1].at],
+    endWindow: [new Date(earliestEnd).toISOString(), new Date(latestEnd).toISOString()],
+  };
 }
 export function saleCalendarSpan(event: SaleEvent): { start: string; end: string } {
   return {

@@ -20,6 +20,8 @@ import {
   saleOriginalPrice,
   saleEventNote,
   saleActivity,
+  projectSaleForecast,
+  saleStartCandidates,
 } from "./sale-calendar-model";
 import type { SaleCalendarData, SaleEvent, SaleVehicle } from "./sale-calendar-model";
 
@@ -287,7 +289,11 @@ export function SaleCalendar() {
     };
   }, [reload]);
   const now = clock + offset;
-  const events = useMemo(() => data?.events || [], [data]);
+  const today = beijingDayKey(now);
+  const events = useMemo(() => (data?.events || []).flatMap(event => {
+    const projected = projectSaleForecast(event, Date.parse(today + "T00:00:00+08:00"));
+    return projected ? [projected] : [];
+  }), [data, today]);
   const years = useMemo(() => [...new Set(events.map((e) => e.year))].sort(), [events]);
   const filtered = useMemo(
     () =>
@@ -308,7 +314,6 @@ export function SaleCalendar() {
     const span = saleCalendarSpan(event);
     return span.start <= periodEnd && span.end >= periodStart;
   });
-  const today = beijingDayKey(now);
   const switchView = (nextView: "calendar" | "timeline") => {
     if (nextView === "calendar" && month === "all")
       setMonth(year === Number(today.slice(0, 4)) ? String(Number(today.slice(5, 7))) : "1");
@@ -363,6 +368,7 @@ export function SaleCalendar() {
             <dd>
               按往年日期推算，开始与结束各预留 ±4
               天；预测开始日遇周末统一顺延到下一个工作日，并保留历史活动时长；开始候选日期排除周六、周日，活动持续期间及结束日可跨周末。周末顺延是预测假设，具体以官方公布为准。黑五按感恩节次日、春节按农历新年调整。两个范围分别表示可能的开始日、结束日，预测中点仅供参考，预测状态按预计起止日标注；预测不保证载具参与或折扣力度。
+              已过去的日期自动移出预计开始窗口，窗口全部过期后不再作为未来活动展示。候选日期的高／中／低仅表示与历史推算参考日接近程度的相对判断，不是统计概率。
             </dd>
           </div>
           <div>
@@ -691,6 +697,11 @@ export function SaleCalendar() {
                               </p>
                             )
                           )}
+                          {event.status === "predicted" && <div className="wt-sale-candidate-list" aria-label="候选开始日与相对可能性">
+                            {saleStartCandidates(event, now).map(candidate => <span key={candidate.day} className={`confidence-${candidate.confidence}`}>
+                              {saleDate(candidate.at)} <b>{candidate.label}</b>{candidate.preferred ? " · 参考" : ""}
+                            </span>)}
+                          </div>}
                           <SourceLinks event={event} />
                         </details>
                       </div>

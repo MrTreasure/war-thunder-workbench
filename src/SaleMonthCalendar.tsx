@@ -10,6 +10,7 @@ import {
   saleEventNote,
   saleActivity,
   placeSaleCalendarRanges,
+  saleStartCandidates,
 } from "./sale-calendar-model";
 import type { SaleEvent } from "./sale-calendar-model";
 
@@ -19,7 +20,12 @@ function dayLabel(key: string) {
   const [year, month, day] = key.split("-").map(Number);
   return `${year}年${month}月${day}日`;
 }
-function stage(event: SaleEvent, key: string): string {
+function stage(event: SaleEvent, key: string, now: number): string {
+  if (event.status === "predicted") {
+    if (key < beijingDayKey(now)) return "日期已过";
+    const candidate = saleStartCandidates(event, now).find((item) => item.day === key);
+    if (candidate) return `候选开始 · ${candidate.label}`;
+  }
   const start = beijingDayKey(event.startAt),
     end = beijingDayKey(event.endAt);
   if (start === key && end === key)
@@ -114,8 +120,14 @@ export function SaleMonthCalendar({
         </div>
       </div>
       <p className="wt-sale-month-guide">
-        活动以连续横条覆盖起止日期，跨周接续显示。点击横条查看完整信息；虚线为预测，浅色区段表示可能提前或延后的时间窗。
+        实线为官方活动，虚线为预测。◆
+        标记候选开始日，高／中／低表示相对可能性；过往日期不再作为开始候选。
       </p>
+      <div className="wt-sale-confidence-legend" aria-label="候选开始日图例">
+        <span className="confidence-high">◆ 高：参考日</span>
+        <span className="confidence-medium">◆ 中：附近日期</span>
+        <span className="confidence-low">◆ 低：较远日期</span>
+      </div>
       <table className="wt-sale-month-grid" aria-label={`${year}年${month}月优惠月历`}>
         <thead>
           <tr>
@@ -166,18 +178,12 @@ export function SaleMonthCalendar({
                         to = end > weekEnd ? weekEnd : end;
                       const column = Math.round((Date.parse(from) - Date.parse(weekStart)) / DAY),
                         days = Math.round((Date.parse(to) - Date.parse(from)) / DAY) + 1;
-                      const coreFrom = beijingDayKey(event.startAt),
-                        coreTo = beijingDayKey(event.endAt);
-                      const percent = (day: string, inclusive: boolean) =>
-                        Math.max(
-                          0,
-                          Math.min(
-                            100,
-                            (((Date.parse(day) - Date.parse(from)) / DAY + (inclusive ? 1 : 0)) /
-                              days) *
-                              100,
-                          ),
-                        );
+                      const candidates = saleStartCandidates(event, now).filter(
+                        (item) => item.day >= from && item.day <= to,
+                      );
+                      const candidateLabel = candidates
+                        .map((item) => `${saleDate(item.at)}开始可能性${item.label}`)
+                        .join("，");
                       const continuesLeft = start < weekStart,
                         continuesRight = end > weekEnd;
                       const activity = saleActivity(event, now);
@@ -190,37 +196,56 @@ export function SaleMonthCalendar({
                             {
                               gridColumn: `${column + 1} / span ${days}`,
                               gridRow: lane + 2,
-                              "--wt-sale-range-core-start": `${percent(coreFrom, false)}%`,
-                              "--wt-sale-range-core-end": `${percent(coreTo, true)}%`,
                             } as CSSProperties
                           }
                           aria-pressed={selectedEventId === event.id}
-                          aria-label={`${event.title}，${activity.fullLabel}，${saleRange(event)}，点击查看活动详情`}
-                          title={`${event.title} · ${activity.fullLabel} · ${saleRange(event)}`}
-                          onClick={() => {
-                            setSelected(from);
+                          aria-label={`${event.title}，${activity.fullLabel}，${saleRange(event)}，${candidateLabel}，点击查看活动详情`}
+                          title={`${event.title} · ${activity.fullLabel} · ${saleRange(event)}${candidateLabel ? " · " + candidateLabel : ""}`}
+                          onClick={(click) => {
+                            const marker = (click.target as Element).closest<HTMLElement>(
+                              "[data-start-day]",
+                            );
+                            setSelected(marker?.dataset.startDay || from);
                             setSelectedEventId(event.id);
                           }}
                         >
-                          <span className="wt-sale-range-start">
-                            {continuesLeft
-                              ? "‹ 接上周"
-                              : event.status === "predicted"
-                                ? "预计窗口"
-                                : `${saleDate(event.startAt)}起`}
+                          <span className="wt-sale-range-heading">
+                            <span className="wt-sale-range-start">
+                              {!continuesLeft &&
+                                (event.status === "predicted"
+                                  ? "预计窗口"
+                                  : `${saleDate(event.startAt)}起`)}
+                            </span>
+                            <span className="wt-sale-activity-status">
+                              {event.status === "predicted" && <i>预计</i>}
+                              {activity.label}
+                            </span>
+                            <span className="wt-sale-range-name">{event.title}</span>
+                            <span className="wt-sale-range-end">
+                              {!continuesRight &&
+                                (event.status === "predicted"
+                                  ? "窗口止"
+                                  : `${saleDate(event.endAt)}止`)}
+                            </span>
                           </span>
-                          <span className="wt-sale-activity-status">
-                            {event.status === "predicted" && <i>预计</i>}
-                            {activity.label}
-                          </span>
-                          <span className="wt-sale-range-name">{event.title}</span>
-                          <span className="wt-sale-range-end">
-                            {continuesRight
-                              ? "下周续 ›"
-                              : event.status === "predicted"
-                                ? "窗口止"
-                                : `${saleDate(event.endAt)}止`}
-                          </span>
+                          {event.status === "predicted" && (
+                            <span className="wt-sale-start-markers">
+                              {candidates.map((candidate) => (
+                                <span
+                                  key={candidate.day}
+                                  className={`wt-sale-start-marker confidence-${candidate.confidence} ${candidate.preferred ? "preferred" : ""}`}
+                                  data-start-day={candidate.day}
+                                  style={{
+                                    left: `${(((Date.parse(candidate.day) - Date.parse(from)) / DAY + 0.5) / days) * 100}%`,
+                                  }}
+                                  title={`${saleDate(candidate.at)} · 预计开始 · 可能性${candidate.label}`}
+                                >
+                                  <span aria-hidden="true">◆</span>
+                                  {candidate.shortLabel}
+                                </span>
+                              ))}
+                            </span>
+                          )}
                         </button>
                       );
                     })}
@@ -256,7 +281,9 @@ export function SaleMonthCalendar({
               <article key={event.id}>
                 <div className="wt-sale-day-detail-heading">
                   <h4>{event.title}</h4>
-                  <span className={`wt-sale-badge ${event.status}`}>{stage(event, selected)}</span>
+                  <span className={`wt-sale-badge ${event.status}`}>
+                    {stage(event, selected, now)}
+                  </span>
                   <span
                     className={`wt-sale-activity-status activity-${saleActivity(event, now).state}`}
                   >
@@ -265,6 +292,16 @@ export function SaleMonthCalendar({
                   <strong>{saleRate(event)}</strong>
                 </div>
                 <p>{saleRange(event)}</p>
+                {event.status === "predicted" && (
+                  <div className="wt-sale-candidate-list" aria-label="候选开始日与相对可能性">
+                    {saleStartCandidates(event, now).map((candidate) => (
+                      <span key={candidate.day} className={`confidence-${candidate.confidence}`}>
+                        {saleDate(candidate.at)} <b>{candidate.label}</b>
+                        {candidate.preferred ? " · 参考" : ""}
+                      </span>
+                    ))}
+                  </div>
+                )}
                 {event.status === "confirmed" && (
                   <p>
                     开始：
