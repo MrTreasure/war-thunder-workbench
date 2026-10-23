@@ -91,16 +91,18 @@ export function nextSale(vehicle: SaleVehicle, events: SaleEvent[], now: number)
   );
 }
 export function saleCountdown(event: SaleEvent, now: number): string {
-  const start = Date.parse(event.startAt),
+  const predicted = event.status === "predicted";
+  const earliest = predicted ? saleStartCandidates(event, now)[0] : undefined;
+  if (predicted && !earliest) return "预测开始窗口已过";
+  if (earliest && earliest.day === beijingDayKey(now)) return "已进入预测窗口";
+  const start = Date.parse(earliest?.at || event.startAt),
     end = Date.parse(event.endAt);
-  if (event.status === "predicted" && event.startWindow && now >= Date.parse(event.startWindow[0]))
-    return "已进入预测窗口";
   if (now >= end) return "已结束";
   const seconds = Math.max(0, Math.floor(((now >= start ? end : start) - now) / 1000));
   const days = Math.floor(seconds / 86400),
     hours = Math.floor(seconds / 3600) % 24;
   const minutes = Math.floor(seconds / 60) % 60;
-  return `${event.status === "predicted" ? "预计距开始" : now >= start ? "距结束" : "距开始"} ${days ? days + "天 " : ""}${hours}时 ${minutes}分${event.status === "predicted" ? "" : " " + (seconds % 60) + "秒"}`;
+  return `${predicted ? "距最早预计开始" : now >= start ? "距结束" : "距开始"} ${days ? days + "天 " : ""}${hours}时 ${minutes}分${predicted ? "" : " " + (seconds % 60) + "秒"}`;
 }
 const dateFormatter = new Intl.DateTimeFormat("zh-CN", {
   timeZone: "Asia/Shanghai",
