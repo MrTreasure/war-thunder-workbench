@@ -1,4 +1,4 @@
-**🇨🇳 简体中文** · [🇬🇧 English](README.en.md) · [🇷🇺 Русский](README.ru.md) · [🇯🇵 日本語](README.ja.md)
+**<img src="https://login.gaijin.net/gcm/flags/flag_zh.svg" width="24" height="16" alt=""> 简体中文** · [<img src="https://login.gaijin.net/gcm/flags/flag_en.svg" width="24" height="16" alt=""> English](README.en.md) · [<img src="https://login.gaijin.net/gcm/flags/flag_ru.svg" width="24" height="16" alt=""> Русский](README.ru.md) · [<img src="https://login.gaijin.net/gcm/flags/flag_ja.svg" width="24" height="16" alt=""> 日本語](README.ja.md)
 
 # WarThunder 研发工作台
 

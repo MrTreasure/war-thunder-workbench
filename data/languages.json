@@ -1,6 +1,22 @@
 {
-  "zh-CN": { "code": "ZH", "name": "中文", "flag": "🇨🇳" },
-  "en": { "code": "EN", "name": "English", "flag": "🇬🇧" },
-  "ru": { "code": "RU", "name": "Русский", "flag": "🇷🇺" },
-  "ja": { "code": "JA", "name": "日本語", "flag": "🇯🇵" }
+  "zh-CN": {
+    "code": "ZH",
+    "name": "中文",
+    "flagUrl": "https://login.gaijin.net/gcm/flags/flag_zh.svg"
+  },
+  "en": {
+    "code": "EN",
+    "name": "English",
+    "flagUrl": "https://login.gaijin.net/gcm/flags/flag_en.svg"
+  },
+  "ru": {
+    "code": "RU",
+    "name": "Русский",
+    "flagUrl": "https://login.gaijin.net/gcm/flags/flag_ru.svg"
+  },
+  "ja": {
+    "code": "JA",
+    "name": "日本語",
+    "flagUrl": "https://login.gaijin.net/gcm/flags/flag_ja.svg"
+  }
 }

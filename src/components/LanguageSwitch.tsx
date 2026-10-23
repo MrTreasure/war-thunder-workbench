@@ -13,9 +13,20 @@ function LanguageLabel({
   const language = languages[value];
   return (
     <span className="wt-language-label" lang={value}>
-      <span className="wt-language-flag" aria-hidden="true">
-        {language.flag}
-      </span>
+      <img
+        className="wt-language-flag"
+        src={language.flagUrl}
+        width={28}
+        height={18}
+        alt=""
+        aria-hidden="true"
+        onError={(event) => {
+          event.currentTarget.style.visibility = "hidden";
+        }}
+        onLoad={(event) => {
+          event.currentTarget.style.visibility = "visible";
+        }}
+      />
       <span className="wt-language-code">{language.code}</span>
       {expanded && (
         <span className="wt-language-name">

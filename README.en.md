@@ -1,4 +1,4 @@
-[🇨🇳 简体中文](README.md) · **🇬🇧 English** · [🇷🇺 Русский](README.ru.md) · [🇯🇵 日本語](README.ja.md)
+[<img src="https://login.gaijin.net/gcm/flags/flag_zh.svg" width="24" height="16" alt=""> 简体中文](README.md) · **<img src="https://login.gaijin.net/gcm/flags/flag_en.svg" width="24" height="16" alt=""> English** · [<img src="https://login.gaijin.net/gcm/flags/flag_ru.svg" width="24" height="16" alt=""> Русский](README.ru.md) · [<img src="https://login.gaijin.net/gcm/flags/flag_ja.svg" width="24" height="16" alt=""> 日本語](README.ja.md)
 
 # War Thunder Research Workbench
 
