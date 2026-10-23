@@ -1,0 +1,36 @@
+{
+  "sourcePage": "https://store.gaijin.net/",
+  "sourceScript": "https://login.gaijin.net/gcm/gcm.13c741559deb611a32b2.js",
+  "checkedAt": "2026-10-23T14:12:44.604819+00:00",
+  "usage": "Original remote Gaijin common-menu SVGs; no local copies, redrawing or Emoji font dependency.",
+  "assets": [
+    {
+      "locale": "zh-CN",
+      "url": "https://login.gaijin.net/gcm/flags/flag_zh.svg",
+      "bytes": 1315,
+      "sha256": "571667213373701341954589548e04dee9260c991ea8fe9fba57ef5b87c9f76e",
+      "viewBox": "0 0 26 18"
+    },
+    {
+      "locale": "en",
+      "url": "https://login.gaijin.net/gcm/flags/flag_en.svg",
+      "bytes": 1765,
+      "sha256": "d33e0c7dac115ee53cbd5f4d5f08fcc6315cf9025ffb0fd550df2a723509d7bf",
+      "viewBox": "0 0 26 18"
+    },
+    {
+      "locale": "ru",
+      "url": "https://login.gaijin.net/gcm/flags/flag_ru.svg",
+      "bytes": 688,
+      "sha256": "9ff87d38f21db2cda958d50c09fb6b6ca5dfbd6878dd4b86fd78da3f92908e78",
+      "viewBox": "0 0 26 18"
+    },
+    {
+      "locale": "ja",
+      "url": "https://login.gaijin.net/gcm/flags/flag_ja.svg",
+      "bytes": 719,
+      "sha256": "47dc390366d62ce2229e2b955090ae03a91514005e540d0d7074dc50f41b6240",
+      "viewBox": "0 0 26 18"
+    }
+  ]
+}
