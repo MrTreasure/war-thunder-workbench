@@ -6,6 +6,16 @@ const key = "wt-language-v1";
 const listeners = new Set<() => void>();
 const dictionary = messages as Record<string, readonly string[]>;
 const validLocale = (value: unknown): value is Locale => locales.includes(value as Locale);
+function browserLocale(): Locale {
+  if (typeof navigator === "undefined") return "zh-CN";
+  const preferred = [...(navigator.languages || []), navigator.language];
+  for (const language of preferred) {
+    const base = language?.trim().toLowerCase().split(/[-_]/)[0];
+    if (base === "zh") return "zh-CN";
+    if (base === "en" || base === "ru") return base;
+  }
+  return "zh-CN";
+}
 function initialLocale(): Locale {
   if (typeof window === "undefined") return "zh-CN";
   try {
@@ -16,7 +26,7 @@ function initialLocale(): Locale {
   } catch {
     /* A denied storage permission must not prevent startup. */
   }
-  return "zh-CN";
+  return browserLocale();
 }
 let locale = initialLocale();
 export const getLocale = () => locale;
@@ -33,7 +43,8 @@ function updateDocument() {
 }
 updateDocument();
 export function setLocale(next: Locale) {
-  if (!validLocale(next) || locale === next) return;
+  if (!validLocale(next)) return;
+  const changed = locale !== next;
   locale = next;
   updateDocument();
   if (typeof window !== "undefined") {
@@ -48,12 +59,12 @@ export function setLocale(next: Locale) {
   } catch {
     /* Keep the in-memory choice. */
   }
-  for (const listener of listeners) listener();
+  if (changed) for (const listener of listeners) listener();
 }
 if (typeof window !== "undefined") {
   window.addEventListener("storage", (event) => {
-    if (event.key !== key) return;
-    const next = validLocale(event.newValue) ? event.newValue : "zh-CN";
+    if (event.key !== key && event.key !== null) return;
+    const next = validLocale(event.newValue) ? event.newValue : initialLocale();
     if (next === locale) return;
     locale = next;
     updateDocument();
