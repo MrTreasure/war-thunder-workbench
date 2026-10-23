@@ -25,11 +25,11 @@
   ],
   "对地 K/D": [
     "Ground K/D",
-    "K/D по наземным целям"
+    "K/D (земля)"
   ],
   "对空 K/D": [
     "Air K/D",
-    "K/D по воздушным целям"
+    "K/D (воздух)"
   ],
   "综合 K/D": [
     "Overall K/D",
@@ -49,7 +49,7 @@
   ],
   "累计银狮": [
     "Total Silver Lions",
-    "Всего Серебряных львов"
+    "Всего СЛ"
   ],
   "不限次": [
     "Unlimited",
@@ -65,7 +65,7 @@
   ],
   "空槽位": [
     "Empty crew slot",
-    "Пустой слот экипажа"
+    "Пустой слот"
   ],
   "选择载具": [
     "Select vehicle",
@@ -89,7 +89,7 @@
   ],
   "陆战地图": [
     "Ground maps",
-    "Наземные карты"
+    "Карты боёв"
   ],
   "折扣日历": [
     "Sale calendar",
@@ -121,7 +121,7 @@
   ],
   "对海 K/D": [
     "Naval K/D",
-    "K/D по морским целям"
+    "K/D (море)"
   ],
   "显示": [
     "Show",
@@ -225,7 +225,7 @@
   ],
   "打开原图 ↗": [
     "Open original ↗",
-    "Открыть оригинал ↗"
+    "Оригинал ↗"
   ],
   "缩小地图": [
     "Zoom out",
@@ -305,7 +305,7 @@
   ],
   "工作台效率": [
     "Workbench efficiency",
-    "Эффективность мастерской"
+    "Эффективность"
   ],
   "平均得分": [
     "Average score",
@@ -333,11 +333,11 @@
   ],
   "对地击毁": [
     "Ground kills",
-    "Наземных целей уничтожено"
+    "Наземные цели"
   ],
   "对空击毁": [
     "Air kills",
-    "Воздушных целей уничтожено"
+    "Воздушные цели"
   ],
   "排位数据": [
     "Ranking data",
@@ -345,7 +345,7 @@
   ],
   "累计表现": [
     "All-time performance",
-    "Результаты за всё время"
+    "Общие результаты"
   ],
   "你的战地记录": [
     "Your battlefield record",
@@ -361,7 +361,7 @@
   ],
   "载具击毁构成": [
     "Vehicle kill breakdown",
-    "Уничтоженные цели по типам"
+    "Уничтоженные цели"
   ],
   "常用载具 · TOP": [
     "Most played · TOP",
@@ -389,7 +389,7 @@
   ],
   "累计银狮：{0}": [
     "Total Silver Lions: {0}",
-    "Всего Серебряных львов: {0}"
+    "Всего СЛ: {0}"
   ],
   "场次": [
     "Battles",
@@ -397,7 +397,7 @@
   ],
   "累计获得银狮": [
     "Silver Lions earned",
-    "Заработано Серебряных львов"
+    "Заработано СЛ"
   ],
   "采集于": [
     "Collected on",
@@ -441,19 +441,19 @@
   ],
   "街机": [
     "Arcade",
-    "Аркада"
+    "АБ"
   ],
   "历史": [
     "Realistic",
-    "Реалистичные"
+    "РБ"
   ],
   "全真": [
     "Simulator",
-    "Симуляторные"
+    "СБ"
   ],
   "常规研发": [
     "Regular research",
-    "Обычное исследование"
+    "Исследование"
   ],
   "独立获取": [
     "Separate acquisition",
@@ -465,11 +465,11 @@
   ],
   "目标前置": [
     "Required predecessor",
-    "Предшествующая техника"
+    "Предшественники"
   ],
   "等级补位": [
     "Rank fillers",
-    "Техника для открытия ранга"
+    "Добор техники"
   ],
   "战争雷霆玩家工具": [
     "War Thunder player tools",
@@ -645,11 +645,11 @@
   ],
   "价值概览": [
     "Value overview",
-    "Обзор стоимости"
+    "Оценка"
   ],
   "选择价值类型": [
     "Select value type",
-    "Выбрать тип оценки"
+    "Вариант оценки"
   ],
   "已核价金额，未计价项目另列": [
     "Verified prices; unpriced items listed separately",
@@ -657,7 +657,7 @@
   ],
   "已核价合计": [
     "Priced total",
-    "Итого по оценённым"
+    "Итого оценено"
   ],
   "陆战 / 直升机": [
     "Ground / Helicopters",
@@ -829,7 +829,7 @@
   ],
   "含推算前置": [
     "includes inferred predecessors",
-    "включая предполагаемых предшественников"
+    "включая расчётных предшественников"
   ],
   "暂无已核实研发点": [
     "No verified Research Points",
@@ -985,7 +985,7 @@
   ],
   "配件研发": [
     "Modification research",
-    "Исследование модулей"
+    "Модификации"
   ],
   "快照：{0}": [
     "Snapshot: {0}",
@@ -1369,7 +1369,7 @@
   ],
   "已保存的出击队列": [
     "Saved battle lineups",
-    "Сохранённые боевые составы"
+    "Мои составы"
   ],
   "我的队列": [
     "My lineups",
@@ -1421,7 +1421,7 @@
   ],
   "取消，返回列表": [
     "Cancel and return to list",
-    "Отмена и возврат к списку"
+    "Назад к списку"
   ],
   "保存队列": [
     "Save lineup",
@@ -1481,7 +1481,7 @@
   ],
   "中文、英文或载具 ID": [
     "Chinese, English or vehicle ID",
-    "Название на китайском, английском или ID"
+    "Название или ID техники"
   ],
   "全部 Rank": [
     "All ranks",
@@ -1637,7 +1637,7 @@
   ],
   "搜索地图名称、英文名或攻略": [
     "Search map names, English names or guides",
-    "Название карты, английское название или руководство"
+    "Карта или руководство"
   ],
   "仅看有关联攻略": [
     "Only maps with guides",
@@ -3609,7 +3609,7 @@
   ],
   "清除排序": [
     "Clear sorting",
-    "Сбросить сортировку"
+    "Сбросить"
   ],
   "载具战绩展示形式": [
     "Vehicle stats presentation",
@@ -3893,7 +3893,7 @@
   ],
   "已记录时长": [
     "Recorded playtime",
-    "Учтённое время игры"
+    "Время в боях"
   ],
   "小时": [
     "hours",
@@ -3921,7 +3921,7 @@
   ],
   "对海击毁": [
     "Naval kills",
-    "Морских целей уничтожено"
+    "Морские цели"
   ],
   "{0} {1} 小时": [
     "{0} {1} hours",
@@ -3973,11 +3973,11 @@
   ],
   "载具战绩分页": [
     "Vehicle stats pagination",
-    "Страницы статистики техники"
+    "Страницы техники"
   ],
   "每页载具数量": [
     "Vehicles per page",
-    "Техники на странице"
+    "Техники на страницу"
   ],
   "辆 / 页": [
     " vehicles / page",
@@ -4149,7 +4149,7 @@
   ],
   "官方公告 ↗": [
     "Official announcement ↗",
-    "Официальное объявление ↗"
+    "Объявление ↗"
   ],
   "查看全年参考图 ↗": [
     "View annual reference ↗",
@@ -4617,7 +4617,7 @@
   ],
   "官方公告": [
     "Official announcement",
-    "Официальное объявление"
+    "Объявление"
   ],
   "生涯看全貌，Top 5 看常用载具。两处统计范围不同，阅读时请先留意标题。": [
     "Career shows the big picture; Top 5 shows favorite vehicles. Their scopes differ—check the headings first.",
@@ -4797,7 +4797,7 @@
   ],
   "载具研发报价": [
     "Vehicle research quote",
-    "Расчёт исследования техники"
+    "Расчёт ОИ"
   ],
   "{0} / {1} · 账号进度自动保存在本地": [
     "{0} / {1} · Account progress saved locally",
@@ -4977,7 +4977,7 @@
   ],
   "研发报价结果": [
     "Research quote result",
-    "Результат расчёта исследования"
+    "Результат расчёта"
   ],
   "{0} · 载具研发": [
     "{0} · Vehicle research",
@@ -5033,7 +5033,7 @@
   ],
   "本次研发清单": [
     "Research list for this quote",
-    "Список этого исследования"
+    "Список исследования"
   ],
   "辆 · 前置": [
     " vehicles · Prerequisites",
@@ -5101,7 +5101,7 @@
   ],
   "等级门槛核对": [
     "Rank-gate checks",
-    "Проверка порогов ранга"
+    "Открытие рангов"
   ],
   "项需要核对 · 其余已开放或无需解锁": [
     " items to verify · Others unlocked or not required",
@@ -5253,7 +5253,7 @@
   ],
   "研发配件": [
     "Research modifications",
-    "Исследование модификаций"
+    "Модификации"
   ],
   "购物车": [
     "Cart",
@@ -5277,7 +5277,7 @@
   ],
   "退出全屏": [
     "Exit fullscreen",
-    "Выйти из полноэкранного режима"
+    "Свернуть"
   ],
   "⛶ 全屏": [
     "⛶ Fullscreen",
@@ -5289,7 +5289,7 @@
   ],
   "官方原树 ↗": [
     "Official tree ↗",
-    "Официальное дерево ↗"
+    "Дерево в Wiki ↗"
   ],
   "收起并查看科技树": [
     "Collapse & view tree",
@@ -5313,7 +5313,7 @@
   ],
   "前置研发": [
     "Prerequisite research",
-    "Предшествующие исследования"
+    "Предшественники"
   ],
   "可上下左右滚动的研发树": [
     "Research tree scrollable in all directions",
@@ -5369,11 +5369,11 @@
   ],
   "研发路线": [
     "Research route",
-    "Маршрут исследования"
+    "Путь исследования"
   ],
   "载具详情": [
     "Vehicle details",
-    "Подробности техники"
+    "О технике"
   ],
   "放大查看 {0} 官方图片": [
     "Enlarge {0} official image",
@@ -5393,11 +5393,11 @@
   ],
   "基础研发点": [
     "Base Research Points",
-    "Базовые очки исследования"
+    "Базовые ОИ"
   ],
   "必要前置路线": [
     "Required prerequisite route",
-    "Обязательная цепочка предшественников"
+    "Цепочка исследования"
   ],
   "沿真实前置关系展开，不代表已满足等级购车数量。速算面板会补齐等级门槛。": [
     "Follows actual prerequisites; does not imply rank purchase gates are met. The calculator fills those gates.",
@@ -5417,7 +5417,7 @@
   ],
   "官方载具大图": [
     "Official full-size vehicle image",
-    "Официальное изображение техники"
+    "Изображение техники"
   ],
   "登录请求已过期，请重新登录。": [
     "Login request expired. Log in again.",
@@ -5445,7 +5445,7 @@
   ],
   "研发工作台": [
     "Research Workbench",
-    "Мастерская исследований"
+    "Мастерская"
   ],
   "GitHub 仓库：MrTreasure/war-thunder-workbench（新窗口打开）": [
     "GitHub repository: MrTreasure/war-thunder-workbench (opens in new window)",
@@ -5473,7 +5473,7 @@
   ],
   "科技树": [
     "Tech trees",
-    "Деревья техники"
+    "Дерево техники"
   ],
   "切换页面": [
     "Switch page",
@@ -7333,15 +7333,15 @@
   ],
   "正常价值": [
     "Normal value",
-    "Обычная стоимость"
+    "Полная цена"
   ],
   "折扣价值": [
     "Sale value",
-    "Стоимость со скидкой"
+    "Со скидкой"
   ],
   "交易价值": [
     "Trade value",
-    "Торговая стоимость"
+    "При продаже"
   ],
   "仅供参考。优先依据官方公开已拥有载具清单计算；未取得清单时按出战记录及当前研发前置推算。结果不代表实际投入或成交价格，不包含未购载具的研发进度、改装研发和高级账号。特殊载具 GJN 均价单列，不计入人民币总价；未核价条目不按零元处理。": [
     "For reference only. Uses the official public owned-vehicle list when available; otherwise estimates from battle records and current prerequisites. This is not actual spending or a transaction price. Excludes progress on unpurchased vehicles, modification research and premium account time. Special-vehicle GJN averages are listed separately and excluded from the CNY total. Unpriced items are never treated as free.",

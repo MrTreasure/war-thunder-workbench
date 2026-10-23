@@ -12,11 +12,9 @@
   padding-inline: 10px;
   border: 1px solid var(--wt-strong-line);
   border-radius: 2px;
-  background: linear-gradient(180deg, var(--wt-panel), var(--wt-surface));
+  background: var(--wt-surface);
   color: var(--wt-ink);
-  box-shadow:
-    inset 0 1px 0 var(--wt-line),
-    inset 0 -1px 0 var(--wt-page);
+  box-shadow: none;
   text-align: start;
   line-height: 1.4;
   cursor: pointer;
@@ -33,7 +31,7 @@
 }
 .wt-select.wt-select[aria-expanded="true"] {
   border-color: var(--wt-gold);
-  background: linear-gradient(180deg, var(--wt-raised), var(--wt-surface));
+  background: var(--wt-raised);
 }
 .wt-select[aria-expanded="true"] .wt-select-chevron {
   transform: rotate(180deg);
@@ -44,7 +42,7 @@
 }
 .wt-select.wt-select:active {
   background: var(--wt-surface);
-  box-shadow: inset 0 2px 4px var(--wt-page);
+  box-shadow: none;
 }
 .wt-select.wt-select:disabled {
   opacity: 0.45;
@@ -63,10 +61,8 @@
   scrollbar-color: var(--wt-wire) var(--wt-surface);
   border: 1px solid var(--wt-gold-line);
   border-radius: 2px;
-  background: linear-gradient(145deg, var(--wt-panel), var(--wt-surface) 65%);
-  box-shadow:
-    inset 0 1px 0 var(--wt-strong-line),
-    var(--wt-shadow);
+  background: var(--wt-panel);
+  box-shadow: var(--wt-shadow);
   color: var(--wt-ink);
   font: 13px/1.4 var(--wt-sans);
   z-index: 100;
@@ -119,7 +115,7 @@
 @media (hover: hover) {
   .wt-select.wt-select:not(:disabled):hover {
     border-color: var(--wt-gold-line);
-    background: linear-gradient(180deg, var(--wt-raised), var(--wt-panel));
+    background: var(--wt-raised);
   }
 }
 @media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
