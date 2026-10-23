@@ -112,9 +112,15 @@ export type Valuation = {
 };
 export function valuationMoney(cents: number | null, symbol = "¥") {
   if (cents == null || !Number.isSafeInteger(cents)) return "待核价";
-  const n = BigInt(cents);
-  const rounded = n < 0n ? -((-n + 50n) / 100n) : (n + 50n) / 100n;
-  return `${symbol}${rounded.toLocaleString("zh-CN")}`;
+  const value = BigInt(cents);
+  const absolute = value < 0n ? -value : value;
+  return `${symbol}${value < 0n ? "-" : ""}${(absolute / 100n).toLocaleString("zh-CN")}.${String(absolute % 100n).padStart(2, "0")}`;
+}
+function valuationTotal(cents: number | null) {
+  if (cents == null || !Number.isSafeInteger(cents)) return "待核价";
+  const value = BigInt(cents);
+  const rounded = value < 0n ? -((-value + 50n) / 100n) : (value + 50n) / 100n;
+  return `¥${rounded.toLocaleString("zh-CN")}`;
 }
 function valuationUnitPrice(cents: number) {
   if (!Number.isSafeInteger(cents) || cents < 0) return "待核价";
@@ -551,7 +557,7 @@ export function AccountValuation({
           )
         ) : value ? (
           <>
-            账号估值 <b>{valuationMoney(value.scenarios.normal.knownCents)}</b>
+            账号估值 <b>{valuationTotal(value.scenarios.normal.knownCents)}</b>
             <span aria-hidden="true">›</span>
           </>
         ) : (
@@ -614,7 +620,7 @@ export function AccountValuation({
                   onClick={() => setScenarioKey(key)}
                 >
                   <span>{valuationRules.scenarios[key].label}</span>
-                  <strong>{valuationMoney(value.scenarios[key].knownCents)}</strong>
+                  <strong>{valuationTotal(value.scenarios[key].knownCents)}</strong>
                 </button>
               ))}
             </fieldset>
@@ -625,7 +631,7 @@ export function AccountValuation({
                     {valuationRules.scenarios[scenarioKey].label} · CNY
                   </span>
                   <strong className="wt-valuation-amount">
-                    {valuationMoney(selectedScenario.knownCents)}
+                    {valuationTotal(selectedScenario.knownCents)}
                   </strong>
                   <output className="wt-valuation-price-status">
                     {selectedScenario.totalCents == null
