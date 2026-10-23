@@ -1,6 +1,6 @@
 import { statsRequest } from "./player-stats-api";
 import type { SaleCalendarData, SaleVehicle } from "./sale-calendar-model";
-const KEY = "wt-sale-read-cache-v2";
+const KEY = "wt-sale-read-cache-v3";
 type Entry = { value: unknown; savedAt: number; expiresAt: number };
 const entries = new Map<string, Entry>();
 const pending = new Map<string, Promise<unknown>>();
