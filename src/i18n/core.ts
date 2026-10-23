@@ -1,3 +1,4 @@
+import { vehicleDisplayName } from "../vehicle-display-name";
 import messages from "../../data/i18n.json";
 import { localeAppPath, pathLocale } from "./urls";
 
@@ -158,7 +159,7 @@ export function vehicleName(value: Named): string;
 export function vehicleName(value: Named | null | undefined): string | undefined;
 export function vehicleName(value: Named | null | undefined): string | undefined {
   if (!value) return undefined;
-  if (locale === "zh-CN") return value.name;
+  if (locale === "zh-CN") return vehicleDisplayName(value.name);
   const russian = typeof value.nameRu === "string" && value.nameRu ? value.nameRu : undefined;
   const english =
     typeof value.nameEn === "string" && value.nameEn
@@ -166,7 +167,7 @@ export function vehicleName(value: Named | null | undefined): string | undefined
       : typeof value.english === "string"
         ? value.english
         : undefined;
-  return (locale === "ru" ? russian : undefined) || english || t(value.name);
+  return vehicleDisplayName((locale === "ru" ? russian : undefined) || english || t(value.name));
 }
 
 export const decimalSeparator = () =>
@@ -178,7 +179,7 @@ export const monthLabel = (year: number, month: number) =>
   );
 /** Search every verified name, regardless of the current display language. */
 export function vehicleSearchText(value: Named & { id?: string }) {
-  return [value.name, value.nameEn, value.nameRu, value.english, value.id]
+  return [vehicleDisplayName(value.name), value.name, value.nameEn, value.nameRu, value.english, value.id]
     .filter((entry): entry is string => typeof entry === "string")
     .join(" ");
 }
