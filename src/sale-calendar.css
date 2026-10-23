@@ -988,9 +988,9 @@
 .confidence-medium { --wt-sale-confidence: #9dcff5; color: var(--wt-sale-confidence); }
 .confidence-low { --wt-sale-confidence: #bbc2c9; color: var(--wt-sale-confidence); }
 .wt-sale-week { grid-template-rows: 34px repeat(var(--wt-sale-week-lanes), 54px) minmax(8px, 1fr); }
-.wt-sales-page .wt-sale-range-bar { position: relative; display: grid; grid-template-rows: minmax(0, 1fr) 18px; gap: 2px; min-height: 52px; padding: 4px 0; background: #284e6b; border-color: #79b8e5; color: #e1effa; }
-.wt-sales-page .wt-sale-range-bar.activity-active { background: #28553f; border-color: #7bc59b; color: #dff4e6; }
-.wt-sales-page .wt-sale-range-bar.activity-ended { background: #39424b; border-color: #7d8b96; color: #dce2e7; }
+.wt-sales-page .wt-sale-range-bar { position: relative; display: grid; grid-template-rows: minmax(0, 1fr) 18px; gap: 2px; min-height: 52px; padding: 4px 0; background: rgb(121 184 229 / 18%); border-color: #79b8e5; color: #e1effa; }
+.wt-sales-page .wt-sale-range-bar.activity-active { background: rgb(123 197 155 / 18%); border-color: #7bc59b; color: #dff4e6; }
+.wt-sales-page .wt-sale-range-bar.activity-ended { background: rgb(125 139 150 / 14%); border-color: #7d8b96; color: #dce2e7; }
 .wt-sales-page .wt-sale-range-bar.predicted { background-image: none; border-style: dashed; }
 .wt-sale-range-heading { display: flex; align-items: center; gap: 8px; min-width: 0; padding-inline: 8px; }
 .wt-sale-range-bar.confirmed .wt-sale-range-heading { grid-row: 1 / -1; }
