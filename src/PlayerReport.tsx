@@ -1,4 +1,5 @@
 import { vehicleDisplayName } from "./vehicle-display-name";
+import { statsCountryFlag } from "./stats-country";
 import type { CSSProperties } from "react";
 import { reportStyle } from "./player-report-style";
 import type { Background, StatsReport } from "./player-stats-api";
@@ -178,13 +179,18 @@ export function PlayerReport({
         <h3>常用载具 · TOP {p.top5.length}</h3>
         <span>{statsReportScopeLabel(p)}</span>
       </div>
-      {p.top5.map((v, i) => (
+      {p.top5.map((v, i) => {
+        const flag = statsCountryFlag(v.country);
+        return (
         <section className="wt-poster-vehicle" key={v.id}>
           <span className="wt-poster-place">{String(i + 1).padStart(2, "0")}</span>
           <img src={v.image} alt={vehicleDisplayName(v.name)} loading="lazy" />
           <div className="wt-poster-vehicle-info">
             <div className="wt-poster-vehicle-title">
-              <h3>{vehicleDisplayName(v.name)}</h3>
+              <h3>
+                {flag && <img className="wt-poster-country-flag" src={flag.url} alt={`${flag.name}科技树`} loading="lazy" />}
+                <span>{vehicleDisplayName(v.name)}</span>
+              </h3>
               <span>
                 <b>{n(v.efficiency)}</b> 效率{v.smallSample ? " · 场次不足" : ""}
               </span>
@@ -217,7 +223,8 @@ export function PlayerReport({
             </div>
           </div>
         </section>
-      ))}
+        );
+      })}
       <section className="wt-poster-speech">
         <span>{voice.sectionTitle}</span>
         <p>{report.review?.speech}</p>

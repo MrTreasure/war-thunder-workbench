@@ -1,6 +1,6 @@
 import { vehicleDisplayName } from "./vehicle-display-name";
 import layout from "../data/player-vehicle-card.json";
-import catalog from "../data/catalog-settings.json";
+import { statsCountryLabel } from "./stats-country";
 import { compactSilver } from "./player-number-format";
 import type { PlayerProfile, PlayerVehicle, Ratio } from "./player-stats-api";
 
@@ -125,8 +125,7 @@ export function drawVehicleShareCard(
     text(chars.slice(split).join("").trim(), 74, 365, 70, cream, 930);
   } else text(title, 74, 353, 128, cream, 930);
   if (assets.flag) fit(assets.flag, 78, 389, 64, 42);
-  const country =
-    catalog.countries[vehicle.country as keyof typeof catalog.countries] || "国家待匹配";
+  const country = vehicle.country ? statsCountryLabel(vehicle.country) : "国家待匹配";
   text(
     `${country}${vehicle.rank ? ` · ${vehicle.rank} 级` : ""}`,
     assets.flag ? 162 : 78,

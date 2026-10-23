@@ -1,4 +1,5 @@
 import { vehicleDisplayName } from "./vehicle-display-name";
+import { statsCountryFlag } from "./stats-country";
 import { reportStyle } from "./player-report-style";
 import { stampExportWatermark } from "./export-watermark";
 import {
@@ -41,6 +42,13 @@ export async function downloadStatsReport(
     p.player.avatarKey ? reportImage("avatar", p.player.avatarKey, signal) : Promise.resolve(null),
     ...p.top5.map((v) => reportImage("vehicle", v.id, signal)),
   ]);
+  const flagIds = [...new Set(p.top5.flatMap((v) => {
+    const flag = statsCountryFlag(v.country);
+    return flag ? [flag.id] : [];
+  }))];
+  const flags = new Map(await Promise.all(flagIds.map(async (id) =>
+    [id, await reportImage("flag", id, signal)] as const,
+  )));
   const armies = await Promise.all(
     (p.career?.branches || p.branches).map(async (branch) => {
       const response = await fetch(statsArmyIcon(armyBase, branch.id), {
@@ -264,7 +272,11 @@ export async function downloadStatsReport(
     const y = vehicleStart + i * vehicleHeight;
     text(String(i + 1).padStart(2, "0"), 64, y + 48, 29, gold, 700);
     fit(vehicles[i], 107, y + 4, 160, 94);
-    text(shorten(vehicleDisplayName(v.name), 485, 29, 700), 292, y + 27, 29, white, 700);
+    const flagId = statsCountryFlag(v.country)?.id;
+    const flag = flagId ? flags.get(flagId) : undefined;
+    const nameOffset = flag ? 42 : 0;
+    if (flag) fit(flag, 292, y + 7, 30, 20);
+    text(shorten(vehicleDisplayName(v.name), 485 - nameOffset, 29, 700), 292 + nameOffset, y + 27, 29, white, 700);
     ctx.save();
     ctx.textAlign = "right";
     text(n(v.efficiency) + " 效率" + (v.smallSample ? " · 场次不足" : ""), 1016, y + 27, 23, gold);

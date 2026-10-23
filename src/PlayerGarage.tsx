@@ -17,6 +17,7 @@ import { usePlayerRead } from "./player-rankings-api";
 import type { OwnedGarage } from "./player-rankings-api";
 import { compactSilver, savedVehiclePageSize, saveVehiclePageSize } from "./player-number-format";
 import { PlayerVehiclePagination } from "./PlayerVehicleCards";
+import { statsCountryMatches, statsCountryLabel } from "./stats-country";
 
 export function PlayerGarage({
   profile,
@@ -39,7 +40,7 @@ export function PlayerGarage({
   const units = read.data?.vehicles || [];
   const filtered = units.filter(
     (v) =>
-      (country === "all" || v.country === country) &&
+      statsCountryMatches(v.country, country) &&
       (category === "all" || v.category === category) &&
       (rank === "all" || v.rank === rank) &&
       (kind === "all" || v.kind === kind) &&
@@ -96,9 +97,9 @@ export function PlayerGarage({
             }}
           >
             <option value="all">全部国家</option>
-            {Object.entries(catalog.countries).map(([id, name]) => (
+            {Object.keys(catalog.countries).map((id) => (
               <option key={id} value={id}>
-                {name}
+                {statsCountryLabel(id)}
               </option>
             ))}
           </GameSelect>
@@ -199,8 +200,7 @@ export function PlayerGarage({
                         {vehicleDisplayName(v.name)}
                       </a>
                       <small>
-                        {catalog.countries[v.country as keyof typeof catalog.countries] ||
-                          v.country}{" "}
+                        {statsCountryLabel(v.country)}{" "}
                         · {statsCategoryNames[v.category || ""] || "分类待匹配"}
                         {v.rank ? ` · ${v.rank} 级` : ""}
                       </small>

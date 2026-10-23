@@ -1,4 +1,5 @@
 import { vehicleDisplayName } from "./vehicle-display-name";
+import { statsCountryMatches, statsCountryLabel } from "./stats-country";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   comparePlayerVehicles,
@@ -615,7 +616,7 @@ export function PlayerStats() {
       (v) =>
         v.mode === mode &&
         (category === "all" || v.category === category) &&
-        (vehicleCountry === "all" || (v.country || "unknown") === vehicleCountry) &&
+        statsCountryMatches(v.country, vehicleCountry) &&
         (vehicleRank === "all" || (v.rank || "unknown") === vehicleRank) &&
         (!search || (vehicleDisplayName(v.name) + " " + v.id).toLowerCase().includes(search.toLowerCase())),
     )
@@ -949,9 +950,9 @@ export function PlayerStats() {
                     }}
                   >
                     <option value="all">全部国家</option>
-                    {Object.entries(catalogSettings.countries).map(([id, name]) => (
+                    {Object.keys(catalogSettings.countries).map((id) => (
                       <option key={id} value={id}>
-                        {name}
+                        {statsCountryLabel(id)}
                       </option>
                     ))}
                     {profile.vehicles.some((v) => !v.country) && (

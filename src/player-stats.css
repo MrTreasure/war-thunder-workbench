@@ -1077,10 +1077,20 @@
   margin-bottom: 6px;
 }
 .wt-poster-vehicle-title h3 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
   font-size: 14px;
   line-height: 1.4;
   margin: 0;
   overflow-wrap: anywhere;
+}
+.wt-poster-country-flag {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 16px;
+  object-fit: contain;
 }
 .wt-poster-vehicle-title > span {
   flex: none;

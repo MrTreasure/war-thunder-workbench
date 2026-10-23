@@ -1,6 +1,6 @@
 import { vehicleDisplayName } from "./vehicle-display-name";
 import fontUrl from "./assets/RobotoCondensed-Bold.ttf?url";
-import catalog from "../data/catalog-settings.json";
+import { statsCountryFlag } from "./stats-country";
 import layout from "../data/player-vehicle-card.json";
 import { reportImage } from "./player-stats-api";
 import type { PlayerProfile, PlayerVehicle } from "./player-stats-api";
@@ -106,13 +106,14 @@ export async function createVehicleCard(
   signal: AbortSignal,
   era: VehicleCardEra = defaultVehicleCardEra(vehicle),
 ) {
+  const countryFlag = statsCountryFlag(vehicle.country);
   const [background, unit, logo, silver, flag] = await Promise.all([
     readImage(vehicleCardBackgroundUrls[era], signal, layout.backgrounds[era]),
     reportImage("vehicle", vehicle.id, signal),
     reportImage("logo", "wt", signal),
     reportImage("currency", "sl", signal),
-    vehicle.country && vehicle.country in catalog.countries
-      ? reportImage("flag", vehicle.country, signal)
+    countryFlag
+      ? reportImage("flag", countryFlag.id, signal)
       : Promise.resolve(null),
     loadFont(),
   ]);
