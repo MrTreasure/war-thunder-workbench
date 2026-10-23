@@ -1,6 +1,7 @@
-import { statsRequest } from "./player-stats-api";
+import { readPublicResource } from "./public-resource-api";
 import type { SaleCalendarData, SaleVehicle } from "./sale-calendar-model";
 const KEY = "wt-sale-read-cache-v3";
+const CALENDAR_KEY = "wt-sale-calendar-cache-v1";
 type Entry = { value: unknown; savedAt: number; expiresAt: number };
 const entries = new Map<string, Entry>();
 const pending = new Map<string, Promise<unknown>>();
@@ -17,9 +18,21 @@ function validValue(path: string, value: unknown) {
         typeof data.total === "number" &&
         Number.isFinite(data.total);
 }
+function validEntry(path: string, entry: unknown): entry is Entry {
+  if (!entry || typeof entry !== "object") return false;
+  const item = entry as Entry;
+  return Number.isFinite(item.savedAt) && item.savedAt > 0 && item.savedAt <= Date.now() &&
+    Number.isFinite(item.expiresAt) && item.expiresAt >= item.savedAt &&
+    item.expiresAt <= item.savedAt + 30 * 60_000 && validValue(path, item.value);
+}
 function restore() {
   if (restored) return;
   restored = true;
+  try {
+    const text = localStorage.getItem(CALENDAR_KEY);
+    const item: unknown = text && text.length <= 2_000_000 ? JSON.parse(text) : null;
+    if (validEntry("sales", item)) entries.set("sales", item);
+  } catch { /* Fall back to this tab's cache when persistent storage is unavailable. */ }
   try {
     const value: unknown = JSON.parse(sessionStorage.getItem(KEY) || "null");
     if (Array.isArray(value))
@@ -27,13 +40,9 @@ function restore() {
         if (
           Array.isArray(row) &&
           typeof row[0] === "string" &&
-          row[1] &&
-          typeof row[1].savedAt === "number" &&
-          row[1].savedAt <= Date.now() &&
-          Number.isFinite(row[1].expiresAt) &&
-          row[1].expiresAt <= row[1].savedAt + 30 * 60_000 &&
-          row[1].expiresAt > Date.now() &&
-          validValue(row[0], row[1].value)
+          validEntry(row[0], row[1]) &&
+          (row[0] === "sales" || row[1].expiresAt > Date.now()) &&
+          (!entries.has(row[0]) || entries.get(row[0])!.savedAt < row[1].savedAt)
         )
           entries.set(row[0], row[1]);
       }
@@ -44,8 +53,17 @@ function restore() {
 function save(key: string, entry: Entry) {
   entries.delete(key);
   entries.set(key, entry);
-  for (const [name, item] of entries) if (item.expiresAt <= Date.now()) entries.delete(name);
-  while (entries.size > 48) entries.delete(entries.keys().next().value!);
+  // Expiry controls freshness, not whether the last successful calendar is usable.
+  for (const [name, item] of entries) if (name !== "sales" && item.expiresAt <= Date.now()) entries.delete(name);
+  while (entries.size > 48) {
+    const oldest = [...entries.keys()].find(name => name !== "sales");
+    if (!oldest) break;
+    entries.delete(oldest);
+  }
+  if (key === "sales") {
+    try { localStorage.setItem(CALENDAR_KEY, JSON.stringify(entry)); }
+    catch { /* Never evict watch lists, lineups, profiles or carts to make room. */ }
+  }
   try {
     sessionStorage.setItem(KEY, JSON.stringify([...entries]));
   } catch {
@@ -73,26 +91,45 @@ function observe<T>(promise: Promise<T>, signal?: AbortSignal): Promise<T> {
     );
   });
 }
+function cachedValue<T>(path: string, item: Entry): T {
+  const value = item.value as T & { serverNow?: string };
+  // Advance only the clock; official verification/provenance dates stay unchanged.
+  return path === "sales" && value.serverNow
+    ? { ...value, serverNow: new Date(Date.parse(value.serverNow) + Date.now() - item.savedAt).toISOString() }
+    : value;
+}
+/** Synchronous first paint, including expired data. Refresh separately without clearing it. */
+export function cachedSaleCalendar(): SaleCalendarData | null {
+  restore();
+  const item = entries.get("sales");
+  return item ? cachedValue<SaleCalendarData>("sales", item) : null;
+}
+async function loadPublicSaleData(path: string): Promise<unknown> {
+  if (path === "sales") {
+    const value = await readPublicResource<Omit<SaleCalendarData, "serverNow">>("calendar");
+    return { ...value, serverNow: new Date().toISOString() };
+  }
+  const query = new URLSearchParams(path.split("?")[1]);
+  const country = query.get("country") || "china";
+  const data = await readPublicResource<{ country: string; items: SaleVehicle[]; checkedAt: string }>("vehicles-" + country);
+  if (data.country !== country || !Array.isArray(data.items)) throw new Error("载具目录格式异常。");
+  const category = query.get("category") || "all", rank = query.get("rank") || "all";
+  const search = (query.get("q") || "").toLowerCase().replace(/ /g, "").slice(0, 80);
+  const items = data.items.filter(v => ["ge", "pack", "bundle"].includes(v.channel) && v.country === country &&
+    (category === "all" || v.category === category) && (rank === "all" || v.rank === rank) &&
+    (v.id + v.name + (v.nameEn || "")).toLowerCase().replace(/ /g, "").includes(search));
+  return { items: items.slice(0, 60), total: items.length, checkedAt: data.checkedAt };
+}
 async function read<T>(path: string, ttl: number, signal?: AbortSignal, force = false): Promise<T> {
   restore();
   const item = entries.get(path);
   if (!force && item && item.expiresAt > Date.now()) {
-    // A cached schedule must not turn the browser clock back to its fetch time.
-    const value = item.value as T & { serverNow?: string };
-    const result =
-      path === "sales" && value.serverNow
-        ? {
-            ...value,
-            serverNow: new Date(
-              Date.parse(value.serverNow) + Date.now() - item.savedAt,
-            ).toISOString(),
-          }
-        : value;
+    const result = cachedValue<T>(path, item);
     return observe(Promise.resolve(result), signal);
   }
   let request = pending.get(path);
   if (!request) {
-    request = statsRequest<T>(path)
+    request = loadPublicSaleData(path)
       .then((value) => {
         if (!validValue(path, value)) throw new Error("日历资料格式异常，请稍后重试");
         const savedAt = Date.now();
@@ -106,5 +143,7 @@ async function read<T>(path: string, ttl: number, signal?: AbortSignal, force = 
 }
 export const readSaleCalendar = (signal?: AbortSignal, force = false) =>
   read<SaleCalendarData>("sales", 10 * 60_000, signal, force);
+// Catalog versions are cached by country/hash. Per-query result TTLs would hide
+// catalog updates and are unnecessary now that filtering is entirely local.
 export const readSaleVehicles = (query: string, signal?: AbortSignal) =>
-  read<{ items: SaleVehicle[]; total: number }>("sales/vehicles?" + query, 30 * 60_000, signal);
+  observe(loadPublicSaleData("sales/vehicles?" + query) as Promise<{ items: SaleVehicle[]; total: number }>, signal);

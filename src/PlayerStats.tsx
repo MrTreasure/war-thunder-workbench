@@ -1,3 +1,4 @@
+import { readPublicResource } from "./public-resource-api";
 import { queryTask, pendingQuery, resumeQuery, forgetQuery } from "./player-query-task";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { statsCountryMatches, statsCountryLabel } from "./stats-country";
@@ -484,7 +485,7 @@ export function PlayerStats() {
     const c = new AbortController(),
       active = requests.current;
     active.add(c);
-    void Promise.all([statsRequest<StatsConfig>("config", undefined, c.signal), refreshSession()])
+    void Promise.all([readPublicResource<StatsConfig>("config", c.signal), refreshSession()])
       .then(async ([cfg]) => {
         if (c.signal.aborted) return;
         setConfig(cfg);
