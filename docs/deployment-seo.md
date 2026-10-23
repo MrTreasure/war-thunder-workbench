@@ -123,3 +123,27 @@ CF 公网部署校验使用 HTTP/2，并仅在 DNS、TLS、超时或传输中断
 | `deploy:qmuse` | `https://render.qmuse.pub/p/muse/8645013411493394` | 原有 QMuse 应用 | 无 |
 
 CF 上传 staging、配置、历史哈希资源位于运行目录，不将源码、凭据或研究文件上传。Wrangler 管理凭据由已授权运行环境提供，密码本索引为 `cloudflare.api_token_worker` 和 `cloudflare.account_id`。
+
+## 国际站工具入口保护（2026-10-23）
+
+用户授权在 `wt.mrtreasure.cc` 启用 Cloudflare WAF 自定义规则。规则定义保存在
+`deploy/cloudflare-entry-protection.json`；部署在 zone 的 `http_request_firewall_custom`
+阶段，不是前端遮罩，也不要求访客登录账号。
+
+- 工具入口：已识别为 `AI Assistant`、`AI Crawler`、`AI Search` 的机器人阻断；其余请求使用 Managed Challenge。
+- 仅 Cloudflare 验证过且分类为 `Search Engine Crawler` 的搜索爬虫免于这条入口挑战；仅伪装 User-Agent 无效。没有对所有 verified bots 放行。
+- `/about/*`、`/assets/*`、`/robots.txt`、`/sitemap.xml`、`/llms.txt`、favicon 和静态 404 文档不匹配这两条规则。载具数据保持公开，SEO 介绍页不要求验证。
+- 规则必须包含精确 host 条件；不修改 QMuse、API、后台域名，也不修改已有 zone 级 AI/Bot Fight Mode 配置。
+- 沿用已有 1,800 秒 Challenge Passage 设置，未修改整个 zone 的挑战有效期。真人通过后可匿名使用；不是永久免验证，也不保证识别所有自动化浏览器。
+
+`deploy:cf` 公网检查只在入口返回 **403 且明确带 `cf-mitigated: challenge`** 时接受预期挑战，随后检查公开 SEO 页和本次构建的 JS/CSS。其他 403、HTTP 错误、传输错误仍失败。工具入口允许正常 200 响应，例如已被边缘判定可以放行的请求。不要为部署检查添加 IP 白名单或全局 Skip。
+
+回滚时，在 Cloudflare **Security → Security rules / Custom rules** 中只禁用下列两条规则：
+
+- `WT international: block identified AI agents at interactive entry`
+- `WT international: challenge anonymous tool entry; preserve verified search crawlers`
+
+保留其他域名和安全规则。规则变更前后的完整 API 快照与 ID 保存在本机被忽略的
+`artifacts/cf-entry-protection/`，不得提交凭据。Cloudflare 原生挑战的真人完成流程需手动验收，不使用自动化绕过挑战。
+
+来源：[自定义规则与免费套餐支持](https://developers.cloudflare.com/waf/custom-rules/)、[验证机器人分类](https://developers.cloudflare.com/bots/concepts/bot/verified-bots/)、[通行 Cookie 与有效期](https://developers.cloudflare.com/cloudflare-challenges/concepts/clearance/)。

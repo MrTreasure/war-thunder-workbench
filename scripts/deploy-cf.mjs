@@ -168,10 +168,11 @@ async function verifyWorker(html) {
       { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 },
     );
   }
-  function readPublic(url) {
+  function readPublic(url, allowEntryChallenge = false) {
     const parsed = new URL(url);
     if (parsed.origin !== "https://wt.mrtreasure.cc") throw Error("Unexpected verification origin");
-    let result = curl([url]);
+    const requestArgs = allowEntryChallenge ? ["--include", url] : [url];
+    let result = curl(requestArgs);
     if ([6, 7, 16, 18, 28, 35, 52, 55, 56, 92].includes(result.status)) {
       // Retry transport failures only. HTTP rejections must remain visible.
       // Keep the public URL, SNI and certificate validation on every address.
@@ -192,19 +193,36 @@ async function verifyWorker(html) {
         console.log("Using public DNS answers for Cloudflare verification");
       }
       for (const ip of publicAddresses) {
-        result = curl(["--resolve", "wt.mrtreasure.cc:443:" + ip, url]);
+        result = curl(["--resolve", "wt.mrtreasure.cc:443:" + ip, ...requestArgs]);
         if (result.status === 0 || result.status === 22) break;
       }
     }
+    // The international tool entry intentionally challenges unverified clients.
+    // Only accept Cloudflare's explicit challenge response, never an arbitrary 403.
+    if (
+      allowEntryChallenge &&
+      result.status === 22 &&
+      /^HTTP\/[\d.]+ 403\b/im.test(result.stdout) &&
+      /^cf-mitigated:\s*challenge\s*$/im.test(result.stdout)
+    )
+      return null;
     if (result.status !== 0) throw Error("Public Cloudflare verification failed: " + url);
     return result.stdout;
   }
-  const live = readPublic("https://wt.mrtreasure.cc/");
+  const live = readPublic("https://wt.mrtreasure.cc/", true);
   const entry = html.match(
     /<script[^>]+src="([^"]+)"[^>]*type="module"|<script[^>]+type="module"[^>]*src="([^"]+)"/,
   );
-  if (!entry || !live.includes(entry[1] || entry[2]))
+  if (!entry || (live !== null && !live.includes(entry[1] || entry[2])))
     throw Error("Public entry does not match this release");
+  if (live === null) {
+    const guide = readPublic("https://wt.mrtreasure.cc/about/zh/");
+    if (!guide.includes("https://wt.mrtreasure.cc/about/zh/") || !guide.includes('lang="zh-CN"'))
+      throw Error("Public SEO guide unavailable behind entry protection");
+    console.log(
+      "Verified intentional CF challenge on the tool entry; public SEO guide remains accessible",
+    );
+  }
   readPublic(new URL(entry[1] || entry[2], "https://wt.mrtreasure.cc/").href);
   const css = html.match(/<link[^>]+href="([^"]+\.css)"/);
   if (!css) throw Error("Missing stylesheet");
@@ -216,6 +234,6 @@ async function verifyWorker(html) {
   )
     throw Error("Wrong production sitemap");
   console.log(
-    "Verified public deployment: https://wt.mrtreasure.cc/ (HTTPS, entry, JS, CSS, sitemap)",
+    `Verified public deployment: https://wt.mrtreasure.cc/ (HTTPS, ${live === null ? "protected entry + public SEO" : "entry"}, JS, CSS, sitemap)`,
   );
 }

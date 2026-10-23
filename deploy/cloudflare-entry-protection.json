@@ -1,0 +1,20 @@
+{
+  "hostname": "wt.mrtreasure.cc",
+  "phase": "http_request_firewall_custom",
+  "rules": [
+    {
+      "ref": "wt_international_block_ai_tool_entry",
+      "description": "WT international: block identified AI agents at interactive entry",
+      "expression": "(http.host eq \"wt.mrtreasure.cc\" and not (starts_with(http.request.uri.path, \"/about/\") or starts_with(http.request.uri.path, \"/assets/\") or http.request.uri.path in {\"/robots.txt\" \"/sitemap.xml\" \"/llms.txt\" \"/favicon.ico\" \"/404.html\"})) and cf.verified_bot_category in {\"AI Assistant\" \"AI Crawler\" \"AI Search\"}",
+      "action": "block",
+      "enabled": true
+    },
+    {
+      "ref": "wt_international_challenge_tool_entry",
+      "description": "WT international: challenge anonymous tool entry; preserve verified search crawlers",
+      "expression": "(http.host eq \"wt.mrtreasure.cc\" and not (starts_with(http.request.uri.path, \"/about/\") or starts_with(http.request.uri.path, \"/assets/\") or http.request.uri.path in {\"/robots.txt\" \"/sitemap.xml\" \"/llms.txt\" \"/favicon.ico\" \"/404.html\"})) and not (cf.client.bot and cf.verified_bot_category eq \"Search Engine Crawler\")",
+      "action": "managed_challenge",
+      "enabled": true
+    }
+  ]
+}
