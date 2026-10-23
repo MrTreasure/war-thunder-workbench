@@ -717,7 +717,7 @@ export function PlayerStats() {
     setError("");
     try {
       const { downloadStatsReport } = await import("./player-report-export");
-      await downloadStatsReport(report, selected, config.assets.armyBase, reportTheme, c.signal);
+      await downloadStatsReport(report, selected, reportTheme, c.signal);
     } catch (failure) {
       if (!c.signal.aborted)
         setError(failure instanceof Error ? failure.message : "保存失败，请重试。");

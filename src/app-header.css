@@ -425,3 +425,14 @@
     max-width: 100px;
   }
 }
+
+/* finesse · component: username editor · product · existing workbench tokens */
+.wt-username-form { display: grid; gap: 8px; width: min(280px, calc(100vw - 48px)); }
+.wt-username-form input { min-width: 0; width: 100%; min-height: 44px; padding: 8px; font: 16px var(--wt-sans); color: var(--wt-ink); background: var(--wt-page); border: 1px solid var(--wt-line); }
+.wt-username-form small { color: var(--wt-muted); line-height: 1.5; }
+.wt-username-form > div { display: flex; gap: 8px; }
+.wt-username-form button { min-height: 44px; white-space: nowrap; }
+.wt-username-form :disabled { opacity: .5; cursor: not-allowed; }
+.wt-username-form :focus-visible { outline: 2px solid var(--wt-gold); outline-offset: 2px; }
+.wt-username-form button:active { background: var(--wt-raised); }
+@media (hover: hover) { .wt-username-form input:hover { border-color: var(--wt-gold); } }

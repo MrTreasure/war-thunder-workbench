@@ -21,9 +21,15 @@
     "◐",
     ""
   ],
-  "policy": "Display-only removal of game country-symbol prefixes. Preserve canonical/localized names, vehicle IDs and cached records; display existing country metadata separately. Other punctuation and variant symbols are retained.",
+  "policy": "Preserve official localized vehicle names and variant/country symbols; render symbols using the official Wiki WTSymbols font. Only remove invisible BOM/zero-width separators.",
   "source": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/gui.vromfs.bin_u/globalscripts/countrysymbols.nut",
   "sourceSha256": "0f0aa7c08ebdbd8d7346958808abff0f97dd27ffd140ae02982eeb2b3391ded2",
   "fallbackSource": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/gui.vromfs.bin_u/scripts/userlog/unitnamesymbolrestrictions.nut",
-  "verifiedAt": "2026-10-23"
+  "verifiedAt": "2026-10-23",
+  "font": {
+    "source": "https://wiki.warthunder.com/fonts/symbols_skyquake.bfc9728c6a6bc73f209a.ttf",
+    "sha256": "6b4ca901914e6bf4114f1f86309620d8306ad1517c09ef5693b576089616b04a",
+    "bytes": 57140,
+    "verifiedAt": "2026-10-23"
+  }
 }

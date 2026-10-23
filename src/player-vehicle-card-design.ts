@@ -66,7 +66,7 @@ export function drawVehicleShareCard(
     ctx.shadowColor = "#250704";
     ctx.shadowBlur = 3;
     ctx.shadowOffsetY = 2;
-    ctx.font = `700 ${size}px WTCard, "Arial Narrow", "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", system-ui, sans-serif`;
+    ctx.font = `700 ${size}px WTSymbols, WTCard, "Arial Narrow", "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", system-ui, sans-serif`;
     const measured = ctx.measureText(value).width;
     if (measured > width) {
       ctx.translate(x, y);
@@ -117,7 +117,7 @@ export function drawVehicleShareCard(
   // Long localized names occupy up to two lines without truncating their identity.
   const title = vehicleDisplayName(vehicleName(vehicle));
   ctx.font =
-    '700 128px WTCard, "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", system-ui, sans-serif';
+    '700 128px WTSymbols, WTCard, "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", system-ui, sans-serif';
   const wideTitle = ctx.measureText(title).width > 1580;
   if (wideTitle) {
     const chars = Array.from(title);

@@ -1,5 +1,7 @@
 import { useLocale } from "../i18n/react";
-import { localize } from "../i18n/core";
+import { localize, t } from "../i18n/core";
+import { statsRequest, notifyStatsAccountLogin } from "../player-stats-api";
+import { useWorkbenchAccount } from "../WorkbenchAccount";
 import { useId, useRef, useState } from "react";
 
 export function StatsAccountMenu({
@@ -11,6 +13,10 @@ export function StatsAccountMenu({
 }) {
   useLocale();
 
+  const { refreshSession } = useWorkbenchAccount();
+  const [editing, setEditing] = useState(false);
+  const [draft, setDraft] = useState("");
+  const [saving, setSaving] = useState(false);
   const id = useId();
   const panel = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
@@ -58,8 +64,70 @@ export function StatsAccountMenu({
         onToggle={(event) => setOpen(event.newState === "open")}
       >
         <p>{name}</p>
+        {editing ? (
+          <form
+            className="wt-username-form"
+            onSubmit={async (event) => {
+              event.preventDefault();
+              if (saving) return;
+              setSaving(true);
+              setError("");
+              try {
+                await statsRequest("auth/profile", { displayName: draft.trim() });
+                await refreshSession();
+                notifyStatsAccountLogin();
+                setEditing(false);
+              } catch (reason) {
+                setError(reason instanceof Error ? reason.message : t("保存失败，请重试。"));
+              } finally {
+                setSaving(false);
+              }
+            }}
+          >
+            <label htmlFor={`${id}-username`}>{t("用户名")}</label>
+            <input
+              id={`${id}-username`}
+              autoComplete="username"
+              minLength={2}
+              maxLength={32}
+              required
+              value={draft}
+              disabled={saving}
+              onChange={(event) => setDraft(event.target.value)}
+            />
+            <small>{t("2–32 个字符，保存时检查重名和内容安全。")}</small>
+            <div>
+              <button type="submit" disabled={saving}>
+                {saving ? t("正在保存…") : t("保存")}
+              </button>
+              <button
+                type="button"
+                disabled={saving}
+                onClick={() => {
+                  setEditing(false);
+                  setError("");
+                }}
+              >
+                {t("取消")}
+              </button>
+            </div>
+          </form>
+        ) : (
+          <button
+            type="button"
+            disabled={busy}
+            onClick={() => {
+              setDraft(name);
+              setEditing(true);
+              setError("");
+            }}
+          >
+            {t("修改用户名")}
+          </button>
+        )}
+
         <button
-          disabled={busy}
+          disabled={busy || saving}
           onClick={async () => {
             setBusy(true);
             setError("");
