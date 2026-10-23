@@ -1,5 +1,6 @@
 import { t, localize, vehicleName } from "./i18n/core";
 import { vehicleDisplayName } from "./vehicle-display-name";
+import { statsCountryFlag } from "./stats-country";
 import { reportStyle } from "./player-report-style";
 import { stampExportWatermark } from "./export-watermark";
 import {
@@ -7,6 +8,7 @@ import {
   reportChartData,
   reportSummary,
   reportEfficiencyMaximum,
+  reportSiteWatermark,
 } from "./player-report-design";
 import type { ReportTheme } from "./player-report-design";
 import fontUrl from "./assets/RobotoCondensed-Bold.ttf?url";
@@ -42,6 +44,19 @@ export async function downloadStatsReport(
     p.player.avatarKey ? reportImage("avatar", p.player.avatarKey, signal) : Promise.resolve(null),
     ...p.top5.map((v) => reportImage("vehicle", v.id, signal)),
   ]);
+  const flagIds = [
+    ...new Set(
+      p.top5.flatMap((v) => {
+        const flag = statsCountryFlag(v.country);
+        return flag ? [flag.id] : [];
+      }),
+    ),
+  ];
+  const flags = new Map(
+    await Promise.all(
+      flagIds.map(async (id) => [id, await reportImage("flag", id, signal)] as const),
+    ),
+  );
   const armies = await Promise.all(
     (p.career?.branches || p.branches).map(async (branch) => {
       const response = await fetch(statsArmyIcon(armyBase, branch.id), {
@@ -88,7 +103,7 @@ export async function downloadStatsReport(
       measuredLine = letter === "\n" ? "" : letter;
     } else measuredLine += letter;
   }
-  canvas.height = Math.max(1300, speechY + 52 + lineCount * 43 + 165);
+  canvas.height = Math.max(1300, speechY + 52 + lineCount * 43 + 165) + 36;
   ctx.fillStyle = ink;
   ctx.fillRect(0, 0, 1080, canvas.height);
   function cover(img: HTMLImageElement, x: number, y: number, w: number, h: number) {
@@ -272,7 +287,18 @@ export async function downloadStatsReport(
     const y = vehicleStart + i * vehicleHeight;
     text(String(i + 1).padStart(2, "0"), 64, y + 48, 29, gold, 700);
     fit(vehicles[i], 107, y + 4, 160, 94);
-    text(shorten(vehicleDisplayName(vehicleName(v)), 485, 29, 700), 292, y + 27, 29, white, 700);
+    const flagId = statsCountryFlag(v.country)?.id;
+    const flag = flagId ? flags.get(flagId) : undefined;
+    const nameOffset = flag ? 42 : 0;
+    if (flag) fit(flag, 292, y + 7, 30, 20);
+    text(
+      shorten(vehicleDisplayName(vehicleName(v)), 485 - nameOffset, 29, 700),
+      292 + nameOffset,
+      y + 27,
+      29,
+      white,
+      700,
+    );
     ctx.save();
     ctx.textAlign = "right";
     text(
@@ -303,7 +329,7 @@ export async function downloadStatsReport(
   });
   text(voice.sectionTitle, 64, speechY, 25, gold, 700);
   wrap(speech, 64, speechY + 52, 952, 28, 43);
-  const footer = canvas.height - 118;
+  const footer = canvas.height - 154;
   line(footer);
   text(t("资料采集 ") + statsDate(p.fetchedAt), 64, footer + 34, 20, muted);
   text(t("效率为工作台统计评分 · 构成图仅含所列载具已知击毁"), 64, footer + 66, 19, muted);
@@ -316,6 +342,10 @@ export async function downloadStatsReport(
     19,
     muted,
   );
+  ctx.save();
+  ctx.textAlign = "right";
+  text(reportSiteWatermark, 1016, footer + 132, 22, white, 700);
+  ctx.restore();
   if (signal.aborted) return;
   await stampExportWatermark(canvas, signal);
   const blob = await new Promise<Blob>((resolve, reject) =>

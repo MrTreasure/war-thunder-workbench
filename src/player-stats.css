@@ -1077,10 +1077,20 @@
   margin-bottom: 6px;
 }
 .wt-poster-vehicle-title h3 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
   font-size: 14px;
   line-height: 1.4;
   margin: 0;
   overflow-wrap: anywhere;
+}
+.wt-poster-country-flag {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 16px;
+  object-fit: contain;
 }
 .wt-poster-vehicle-title > span {
   flex: none;
@@ -1159,6 +1169,15 @@
   font-size: 9px;
   line-height: 1.7;
   color: var(--wt-report-muted);
+}
+.wt-poster-site-watermark {
+  align-self: flex-end;
+  margin-top: 6px;
+  color: var(--wt-report-ink);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 .wt-report-idle {
   min-height: 440px;

@@ -22,6 +22,8 @@ import {
   statsCategoryNames,
 } from "./player-stats-api";
 import type { PlayerProfile, StatsSession } from "./player-stats-api";
+import { sortValuationPrices } from "./account-valuation-sort";
+import { statsCountryId, statsCountryMatches, statsCountryLabel } from "./stats-country";
 
 type Item = { id: string; name: string; country: string; category: string; rank?: string | null };
 type ScenarioKey = "normal" | "discount" | "secondHand";
@@ -285,7 +287,7 @@ function VehicleDetailPagination({
 type VehicleFilters = { country: string; category: string; rank: string };
 function matchesVehicleFilters(item: Partial<Item>, filters: VehicleFilters) {
   return (
-    (filters.country === "all" || (item.country || "unknown") === filters.country) &&
+    statsCountryMatches(item.country, filters.country) &&
     (filters.category === "all" || (item.category || "unknown") === filters.category) &&
     (filters.rank === "all" || (item.rank || "unknown") === filters.rank)
   );
@@ -315,7 +317,6 @@ function VehicleDetailFilters({
 }) {
   useLocale();
 
-  const names = catalogSettings.countries as Record<string, string>;
   return (
     <div className="wt-valuation-filters">
       <label>
@@ -323,9 +324,9 @@ function VehicleDetailFilters({
         <GameSelect value={filters.country} onValueChange={(value) => onChange("country", value)}>
           <option value="all">{t("全部国别")}</option>
           {localize(
-            [...new Set(items.map((v) => v.country || "unknown"))].sort().map((id) => (
+            [...new Set(items.map((v) => statsCountryId(v.country)))].sort().map((id) => (
               <option key={id} value={id}>
-                {localize(id === "unknown" ? "国别待核验" : names[id] || id)}
+                {localize(id === "unknown" ? "国别待核验" : statsCountryLabel(id))}
               </option>
             )),
           )}
@@ -589,8 +590,7 @@ export function AccountValuation({
     (currentResearchPage - 1) * 10,
     currentResearchPage * 10,
   );
-  const countryName = (id: string) =>
-    (catalogSettings.countries as Record<string, string>)[id] || id;
+  const countryName = statsCountryLabel;
   const selectedScenario = value?.scenarios[scenarioKey];
   const selectedRule = value?.rules.scenarios[scenarioKey];
   const knownItems = new Map<
@@ -829,7 +829,7 @@ export function AccountValuation({
               value.gold.length ? (
                 <ProductShelf>
                   {localize(
-                    value.gold.map((v) => (
+                    sortValuationPrices(value.gold).map((v) => (
                       <ProductCard
                         key={v.id}
                         title={localize(vehicleName(v))}
@@ -867,7 +867,7 @@ export function AccountValuation({
               value.packs.length ? (
                 <ProductShelf>
                   {localize(
-                    value.packs.map((p) => (
+                    sortValuationPrices(value.packs).map((p) => (
                       <ProductCard
                         key={p.productId}
                         title={localize(p.title)}

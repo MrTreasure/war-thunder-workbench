@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "basis": "按战争雷霆科技树归属归一化筛选别名，不修改载具原始国别或国旗。",
+  "aliases": {
+    "russia": "ussr",
+    "russian_federation": "ussr",
+    "russian federation": "ussr",
+    "苏联": "ussr",
+    "俄联邦": "ussr",
+    "俄罗斯": "ussr",
+    "俄罗斯联邦": "ussr"
+  },
+  "filterLabels": {
+    "ussr": "苏联 / 俄联邦"
+  }
+}

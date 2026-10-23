@@ -2,6 +2,7 @@ import { vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { localize, t } from "./i18n/core";
 import { vehicleDisplayName } from "./vehicle-display-name";
+import { statsCountryFlag } from "./stats-country";
 import type { CSSProperties } from "react";
 import { reportStyle } from "./player-report-style";
 import type { Background, StatsReport } from "./player-stats-api";
@@ -17,7 +18,12 @@ import {
   statsBranchTarget,
   statsReportScopeLabel,
 } from "./player-stats-api";
-import { reportChartData, reportSummary, reportEfficiencyMaximum } from "./player-report-design";
+import {
+  reportChartData,
+  reportSummary,
+  reportEfficiencyMaximum,
+  reportSiteWatermark,
+} from "./player-report-design";
 import type { ReportTheme } from "./player-report-design";
 export function PlayerReport({
   report,
@@ -219,7 +225,17 @@ export function PlayerReport({
             <img src={v.image} alt={localize(vehicleDisplayName(vehicleName(v)))} loading="lazy" />
             <div className="wt-poster-vehicle-info">
               <div className="wt-poster-vehicle-title">
-                <h3>{localize(vehicleDisplayName(vehicleName(v)))}</h3>
+                <h3>
+                  {statsCountryFlag(v.country) && (
+                    <img
+                      className="wt-poster-country-flag"
+                      src={statsCountryFlag(v.country)!.url}
+                      alt={localize(statsCountryFlag(v.country)!.name)}
+                      loading="lazy"
+                    />
+                  )}
+                  <span>{vehicleDisplayName(vehicleName(v))}</span>
+                </h3>
                 <span>
                   <b>{localize(n(v.efficiency))}</b> {t("效率")}
                   {localize(v.smallSample ? " · 场次不足" : "")}
@@ -280,6 +296,7 @@ export function PlayerReport({
           {t("效率为工作台统计评分 · 构成图仅含所列载具的已知击毁 · 单车对空/地/海数字为 K/D")}
         </span>
         <span>{t("银狮为累计获得，非余额或净收入 · AI 点评仅供参考")}</span>
+        <span className="wt-poster-site-watermark">{reportSiteWatermark}</span>
       </footer>
     </article>
   );

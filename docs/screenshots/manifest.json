@@ -214,142 +214,207 @@
     },
     {
       "file": "sales-vehicle-picker.png",
-      "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?category=ground&mode=rb#/sales",
-      "note": "真实页面，按VII级筛选中国金鹰与礼包载具，关注操作仅影响此截图浏览器；仅裁去页面周围空白，保留目标区域完整内容",
-      "capturedAt": "2026-10-22T05:54:59.912Z",
-      "width": 820,
-      "height": 840,
-      "bytes": 108986,
-      "sha256": "943b786dd6d540aa7dcac88b5b0d2556c36f0a073e56da732c8a5ff3981d41b6",
-      "crop": [
-        390,
-        180,
-        1210,
-        1020
-      ]
+      "note": "仅金鹰及礼包载具可关注，支持国家军种等级搜索",
+      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/sales",
+      "capturedAt": "2026-10-23T04:12:42.761Z",
+      "width": 780,
+      "height": 452,
+      "bytes": 47627,
+      "sha256": "74629ef703299e092c3311fc41b04ae6b0a6bfff420562806a5c1c42e702a3e9"
     },
     {
       "file": "sales-overview.png",
-      "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?category=ground&mode=rb#/sales",
-      "note": "真实页面；五辆关注载具为截图浏览器内的演示选择，日期与价格为截图时数据",
-      "capturedAt": "2026-10-22T05:55:04.734Z",
+      "note": "真实关注载具原价、最近候选日倒计时与统一预测说明",
+      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/sales",
+      "capturedAt": "2026-10-23T04:12:43.197Z",
       "width": 1600,
-      "height": 1200,
-      "bytes": 233624,
-      "sha256": "b85bdb053eb03124d1ff11326eb13e354cc334554f7407a5162cee10a1d7caea"
+      "height": 1100,
+      "bytes": 158338,
+      "sha256": "3c9c7bcf647bf18a1d45de8e8ae578f36d78f59e6baab88deb01e0b8ff7e1a35"
     },
     {
       "file": "sales-month.png",
-      "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?category=ground&mode=rb#/sales",
-      "note": "2026年10月真实月历；预测带预计与虚线标识，不代表正式公告；仅裁去页面周围空白，保留目标区域完整内容",
-      "capturedAt": "2026-10-22T05:56:38.469Z",
-      "width": 1424,
-      "height": 922,
-      "bytes": 109763,
-      "sha256": "996ef753f878c415a4b082ece7246fed4436a41d906380043f1b64108ed8ba78",
-      "crop": [
-        88,
-        253,
-        1512,
-        1175
-      ]
+      "note": "半透明跨日活动条与高/中/低候选开始日",
+      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/sales",
+      "capturedAt": "2026-10-23T04:12:43.284Z",
+      "width": 1600,
+      "height": 1100,
+      "bytes": 114019,
+      "sha256": "b43c734602a89568c9a5b86b1395eee1f4095777fa9ff128c9d427a81205602f"
     },
     {
       "file": "sales-timeline.png",
-      "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?category=ground&mode=rb#/sales",
-      "note": "2026年10月真实活动时间轴，含已公布与预测活动",
-      "capturedAt": "2026-10-22T05:56:38.607Z",
+      "note": "时间轴、活动状态与历史公告入口",
+      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/sales",
+      "capturedAt": "2026-10-23T04:12:43.441Z",
       "width": 1600,
-      "height": 1200,
-      "bytes": 181066,
-      "sha256": "e55beeaa10b93051d8b3406d5a02747524d7a30d3462f75093194e983ccd5ed3"
+      "height": 1100,
+      "bytes": 152806,
+      "sha256": "25382de54a90def872d037a5c106f0d35e4cb83daba366a679f8f4dfeac1ad3c"
     },
     {
       "file": "sales-reference.png",
-      "source": "https://render.mrtreasure.cc/muse/war-thunder-trees/?category=ground&mode=rb#/sales",
-      "note": "实际高清参考图弹窗，整图适应剩余空间，无横向或纵向滚动；仅裁去页面周围空白，保留目标区域完整内容",
-      "capturedAt": "2026-10-22T05:56:42.247Z",
+      "note": "实页高清参考图弹窗与来源说明，完整展示无滚动",
+      "source": "https://render.mrtreasure.cc/war-thunder-trees/?category=ground&mode=rb#/sales",
+      "capturedAt": "2026-10-23T04:15:14.176Z",
       "width": 1180,
-      "height": 1140,
-      "bytes": 801523,
-      "sha256": "e6b08303dd74edf1535c27d36e17f71ecadbe01c071cbe83a94fb3065d327f64",
-      "crop": [
-        210,
-        30,
-        1390,
-        1170
-      ]
+      "height": 1068,
+      "bytes": 682079,
+      "sha256": "cccbdd203002643bbb28532f6a70076e070071b5b28a27794df8cbbefcea7798"
     },
     {
       "file": "player-stats-overview.png",
+      "note": "真实玩家历史模式生涯总览、六维能力、近期比较、分类K/D与国家数量",
+      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats",
+      "capturedAt": "2026-10-23T04:13:34.620Z",
+      "identityMasked": false,
       "width": 1600,
-      "height": 1180,
-      "bytes": 211769,
-      "sha256": "193cb04b87313d3c087f1f2c0bb82637ab1106995c52770691ca3917576bad81",
-      "capturedAt": "2026-10-22T09:05:03.915Z",
-      "source": "https://render.qmuse.pub/p/muse/8645013411493394?category=ground&mode=rb#/stats",
-      "note": "实际公开玩家资料：历史模式生涯、能力图、军种K/D及各国载具进度"
+      "height": 1460,
+      "bytes": 247668,
+      "sha256": "7a8abd01bc3ed3f883d4976a45111f0570f40d7550258dc55e9c8732044bde51"
     },
     {
       "file": "player-stats-vehicles.png",
+      "note": "陆军单车战绩表，含分页、排序和万/亿银狮缩写",
+      "capturedAt": "2026-10-23T04:07:26.144Z",
+      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats",
+      "identityMasked": false,
       "width": 1600,
-      "height": 1180,
-      "bytes": 218609,
-      "sha256": "662d4d44afcee7c3e9690413dd5421a7688421162a027716ba02dfc26bea2063",
-      "capturedAt": "2026-10-22T09:05:05.263Z",
-      "source": "https://render.qmuse.pub/p/muse/8645013411493394?category=ground&mode=rb#/stats",
-      "note": "实际陆军载具列表：筛选、排序、分目标K/D、效率和累计银狮"
+      "height": 1100,
+      "bytes": 164163,
+      "sha256": "b786d6f8c877952d7d3cfa0790fb895fa33a84fdcf0aaded4146ff0774444ce0"
     },
     {
       "file": "player-report-options.png",
+      "note": "完整实页战报设置与已生成预览，复用历史点评",
+      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats?lang=zh-CN&category=ground&mode=rb&view=report",
+      "capturedAt": "2026-10-23T04:20:59.566Z",
+      "identityMasked": false,
       "width": 1384,
-      "height": 1426,
-      "bytes": 779583,
-      "sha256": "e0acfeb4e20d1c5e17fbdbf548106117cc1a560ed99a037799c92f15efdacd69",
-      "capturedAt": "2026-10-22T09:10:37.761Z",
-      "source": "https://render.qmuse.pub/p/muse/8645013411493394?category=ground&mode=rb#/stats",
-      "note": "真实战报设置与已生成预览的完整区域，保留筛选、风格、背景和保存按钮"
+      "height": 1418,
+      "bytes": 781473,
+      "sha256": "7da04c473f6abf8fe3d693ad5031fc694c9f3b6ae7817b6ac5511d888c4b40c2"
     },
     {
       "file": "player-report.png",
-      "width": 1080,
-      "height": 1811,
-      "bytes": 1589273,
-      "sha256": "3fc033ff7761f886dd6489bd1634c0304a33a3cad3def0f61468d966da3c1013",
-      "capturedAt": "2026-10-22T09:10:37.439Z",
-      "source": "https://render.qmuse.pub/p/muse/8645013411493394?category=ground&mode=rb#/stats",
-      "note": "通过实际应用“保存战报图片”导出的完整战报，含原有水印；未重新生成或修改数据"
+      "note": "从实际已生成战报设置页截图裁切完整海报；不改像素内容、玩家身份或数据。下载遇图片读取失败，本图不是下载产物。",
+      "capturedAt": "2026-10-23T04:24:26.974Z",
+      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats?lang=zh-CN&category=ground&mode=rb&view=report",
+      "identityMasked": false,
+      "sourceCapture": "player-report-options.png",
+      "crop": {
+        "x": 512,
+        "y": 60,
+        "width": 700,
+        "height": 1328
+      },
+      "width": 700,
+      "height": 1328,
+      "bytes": 591272,
+      "sha256": "e9fc6321a3c90291b6d1c20d2b73f0a46af16a69265de38651c20d2435313adc"
     },
     {
       "file": "player-stats-mobile.png",
+      "note": "手机宽度下的真实玩家生涯及近期比较",
+      "capturedAt": "2026-10-23T04:10:09.460Z",
+      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats?lang=zh-CN&category=ground&mode=rb",
+      "identityMasked": false,
       "width": 430,
-      "height": 1116,
-      "bytes": 85385,
-      "sha256": "42349becbebcf6df835a7105d3561f0c514b75869e17de3a202c622e4ca36486",
-      "capturedAt": "2026-10-22T09:10:38.049Z",
-      "source": "https://render.qmuse.pub/p/muse/8645013411493394?category=ground&mode=rb#/stats",
-      "note": "实际手机宽度截图，裁至完整国家列表结束位置，展示生涯数据、军种K/D和各国载具；未修改页面内容或数值。"
+      "height": 1250,
+      "bytes": 99362,
+      "sha256": "34de7d04af191100e59e85668ad90a434ef2d339450ee222dafe92b916f37493"
     },
     {
       "file": "player-account-valuation.png",
-      "width": 1600,
-      "height": 1180,
-      "bytes": 305576,
-      "sha256": "d81fc642e1e4067311bc938d4aae16cb71e50b7f5a2e30b13689ec72ff64ba40",
-      "capturedAt": "2026-10-22T09:42:44.442Z",
-      "source": "https://render.qmuse.pub/p/muse/8645013411493394?category=ground&mode=rb#/stats",
-      "note": "starfall21740实际账号参考估值：完整公开车库核验、包含未出战载具、不同价值口径及组成；金额不是成交价"
+      "note": "实际账号参考价值分项及估值口径，不代表成交价",
+      "capturedAt": "2026-10-23T04:09:53.346Z",
+      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats?lang=zh-CN&category=ground&mode=rb&view=rankings",
+      "identityMasked": false,
+      "width": 1000,
+      "height": 1068,
+      "bytes": 177579,
+      "sha256": "f1cfe05aa8a2ca733d398854750ff35d4a1c141b5e273058a9674c11a3e5bd16"
     },
     {
       "file": "player-owned-vehicles.png",
+      "note": "独立完整车库与包含未出击车辆的组合筛选",
+      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats",
+      "capturedAt": "2026-10-23T04:13:59.160Z",
+      "identityMasked": false,
+      "width": 1120,
+      "height": 1420,
+      "bytes": 170526,
+      "sha256": "e65ae8d163b1044dbb7095ab527102ff72dee029e7db1247173ca011c2a7785d"
+    },
+    {
+      "file": "player-stats-cards.png",
+      "note": "桌面四列战雷风格卡片和紧凑文字操作",
+      "capturedAt": "2026-10-23T04:07:26.977Z",
+      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats",
+      "identityMasked": false,
       "width": 1600,
-      "height": 1180,
-      "bytes": 323390,
-      "sha256": "2d0461b166e6dd52090506d073c9b643ab06771d7a0c496b2a27dd199695e57a",
-      "capturedAt": "2026-10-22T09:43:04.766Z",
-      "source": "https://render.qmuse.pub/p/muse/8645013411493394?category=ground&mode=rb#/stats",
-      "note": "starfall21740已拥有常规载具明细，包含未出战载具，按国家、军种、等级筛选；其他已拥有载具按金鹰、礼包、特殊和待核价分类列出"
+      "height": 1100,
+      "bytes": 363827,
+      "sha256": "57a1369be39e355a9d00e39999c1d981f4254bcc313468a571434343e345821a"
+    },
+    {
+      "file": "player-type-usage.png",
+      "note": "生涯页最底部载具类型游玩时长与击毁使用统计",
+      "capturedAt": "2026-10-23T04:07:57.282Z",
+      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats",
+      "identityMasked": false,
+      "width": 1384,
+      "height": 646,
+      "bytes": 69550,
+      "sha256": "b354a80ffede8520bbf2b07f135cc44097e8e07b9dcbb81afebb2bbf198841ec"
+    },
+    {
+      "file": "player-rankings.png",
+      "note": "官方陆战排位数据、指标筛选、个人名次及有限抽样的分位说明",
+      "capturedAt": "2026-10-23T04:08:46.801Z",
+      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats?lang=zh-CN&category=ground&mode=rb&view=rankings",
+      "identityMasked": false,
+      "width": 1600,
+      "height": 1100,
+      "bytes": 165805,
+      "sha256": "5c2a51d70935e344bf9bed6fb74edb1ec63ece4daf6b95dd70b32e4b3e6214c4"
+    },
+    {
+      "file": "player-vehicle-detail.png",
+      "note": "真实单车详情，不展示未经核实的同车排名",
+      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats",
+      "capturedAt": "2026-10-23T04:13:35.895Z",
+      "identityMasked": false,
+      "width": 1120,
+      "height": 598,
+      "bytes": 50325,
+      "sha256": "4e5c8b856c6e53529c3d52d921e1bb00347539ad927fe5fed7d2e3a396636f50"
+    },
+    {
+      "file": "player-vehicle-share.png",
+      "note": "实际应用生成的战绩图片与时代背景切换、复制、下载",
+      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats",
+      "capturedAt": "2026-10-23T04:13:49.351Z",
+      "identityMasked": false,
+      "width": 760,
+      "height": 940,
+      "bytes": 292989,
+      "sha256": "99e773e23670dbf1bee8f74f9ec534dcf95bcd4d374ac6669bc21571b02abf0f"
+    },
+    {
+      "file": "player-vehicle-card.png",
+      "note": "应用实际下载的单车战绩图，数据与水印未改动",
+      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats",
+      "capturedAt": "2026-10-23T04:13:49.450Z",
+      "identityMasked": false,
+      "width": 1080,
+      "height": 1620,
+      "bytes": 1910921,
+      "sha256": "1df073dc83b582c9667f5a30cd8b261e52b8297fae7037c428c36a6198b8044b"
     }
   ],
-  "playerStatsCapturedAt": "2026-10-22"
+  "playerStatsCapturedAt": "2026-10-23",
+  "updatedAt": "2026-10-23",
+  "salesCapturedAt": "2026-10-23",
+  "latestCaptureSource": "https://render.mrtreasure.cc/war-thunder-trees/"
 }
