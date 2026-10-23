@@ -1011,3 +1011,8 @@
   .wt-sale-range-heading .wt-sale-activity-status { flex: 1; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
   .wt-sale-start-marker { gap: 2px; padding-inline: 3px; }
 }
+.wt-sales-page .wt-sale-range-bar[aria-pressed="true"] { outline: 2px solid var(--wt-gold); outline-offset: -2px; }
+.wt-sales-page .wt-sale-range-bar:active { filter: brightness(1.12); }
+@media (hover: hover) {
+  .wt-sales-page .wt-sale-range-bar:hover { filter: brightness(1.1); }
+}
