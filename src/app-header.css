@@ -427,11 +427,15 @@
 }
 
 /* finesse · component: username editor · product · existing workbench tokens */
-.wt-username-form { display: grid; gap: 8px; width: min(280px, calc(100vw - 48px)); }
+.calculator.wt-username-dialog { width: min(440px, calc(100vw - 32px)); height: fit-content; max-height: calc(100dvh - 32px); overflow-y: auto; }
+.wt-username-form { display: grid; gap: 12px; min-width: 0; padding: 20px; font: 14px/1.5 var(--wt-sans); }
+.wt-username-form > label { color: var(--wt-ink); font-weight: 600; }
+.wt-username-error { min-height: 1.5em; margin: 0; color: var(--wt-gold); overflow-wrap: anywhere; }
 .wt-username-form input { min-width: 0; width: 100%; min-height: 44px; padding: 8px; font: 16px var(--wt-sans); color: var(--wt-ink); background: var(--wt-page); border: 1px solid var(--wt-line); }
 .wt-username-form small { color: var(--wt-muted); line-height: 1.5; }
-.wt-username-form > div { display: flex; gap: 8px; }
-.wt-username-form button { min-height: 44px; white-space: nowrap; }
+.wt-username-form > div { display: flex; justify-content: flex-end; gap: 8px; }
+.wt-username-form button { min-height: 44px; min-width: 88px; padding: 8px 16px; border: 1px solid var(--wt-line); border-radius: 4px; background: var(--wt-surface); color: var(--wt-ink); font: inherit; cursor: pointer; white-space: nowrap; }
+.wt-username-form .wt-username-save { background: var(--wt-gold); color: var(--wt-accent-ink); border-color: var(--wt-gold); }
 .wt-username-form :disabled { opacity: .5; cursor: not-allowed; }
 .wt-username-form :focus-visible { outline: 2px solid var(--wt-gold); outline-offset: 2px; }
 .wt-username-form button:active { background: var(--wt-raised); }

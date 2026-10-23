@@ -1,6 +1,7 @@
 import { statsRequest, notifyStatsAccountLogin } from "../player-stats-api";
 import { useWorkbenchAccount } from "../WorkbenchAccount";
-import { useId, useRef, useState } from "react";
+import { Modal } from "../Modal";
+import { useEffect, useId, useRef, useState } from "react";
 
 export function StatsAccountMenu({
   name,
@@ -14,6 +15,14 @@ export function StatsAccountMenu({
   const [draft, setDraft] = useState("");
   const [saving, setSaving] = useState(false);
   const id = useId();
+  const trigger = useRef<HTMLButtonElement>(null);
+  const input = useRef<HTMLInputElement>(null);
+  useEffect(() => { if (editing) input.current?.focus(); }, [editing]);
+  const closeEditor = () => {
+    setEditing(false);
+    setError("");
+    requestAnimationFrame(() => trigger.current?.focus());
+  };
   const panel = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -21,6 +30,7 @@ export function StatsAccountMenu({
   return (
     <>
       <button
+        ref={trigger}
         className="wt-header-login wt-account-trigger"
         popoverTarget={id}
         aria-expanded={open}
@@ -60,25 +70,10 @@ export function StatsAccountMenu({
         onToggle={(event) => setOpen(event.newState === "open")}
       >
         <p>{name}</p>
-        {editing ? (
-          <form className="wt-username-form" onSubmit={async (event) => {
-            event.preventDefault();
-            if (saving) return;
-            setSaving(true); setError("");
-            try {
-              await statsRequest("auth/profile", { displayName: draft.trim() });
-              await refreshSession();
-              notifyStatsAccountLogin();
-              setEditing(false);
-            } catch (reason) { setError(reason instanceof Error ? reason.message : "保存失败，请重试。"); }
-            finally { setSaving(false); }
-          }}>
-            <label htmlFor={`${id}-username`}>用户名</label>
-            <input id={`${id}-username`} autoComplete="username" minLength={2} maxLength={32} required value={draft} disabled={saving} onChange={event => setDraft(event.target.value)} />
-            <small>2–32 个字符，保存时检查重名和内容安全。</small>
-            <div><button type="submit" disabled={saving}>{saving ? "正在保存…" : "保存"}</button><button type="button" disabled={saving} onClick={() => { setEditing(false); setError(""); }}>取消</button></div>
-          </form>
-        ) : <button type="button" disabled={busy} onClick={() => { setDraft(name); setEditing(true); setError(""); }}>修改用户名</button>}
+        <button type="button" disabled={busy || saving} onClick={() => {
+          panel.current?.hidePopover();
+          setDraft(name); setError(""); setEditing(true);
+        }}>修改用户名</button>
 
         <button
           disabled={busy || saving}
@@ -97,8 +92,30 @@ export function StatsAccountMenu({
         >
           {busy ? "正在退出…" : "退出登录"}
         </button>
-        {error && <small role="alert">{error}</small>}
+        {error && !editing && <small role="alert">{error}</small>}
       </div>
+      {editing && (
+        <Modal title="修改用户名" close={closeEditor} className="wt-username-dialog">
+          <form className="wt-username-form" onSubmit={async (event) => {
+            event.preventDefault();
+            if (saving) return;
+            setSaving(true); setError("");
+            try {
+              await statsRequest("auth/profile", { displayName: draft.trim() });
+              await refreshSession();
+              notifyStatsAccountLogin();
+              closeEditor();
+            } catch (reason) { setError(reason instanceof Error ? reason.message : "保存失败，请重试。"); }
+            finally { setSaving(false); }
+          }}>
+            <label htmlFor={`${id}-username`}>用户名</label>
+            <input ref={input} id={`${id}-username`} aria-describedby={`${id}-username-help ${id}-username-error`} autoComplete="username" minLength={2} maxLength={32} required value={draft} disabled={saving} onChange={event => setDraft(event.target.value)} />
+            <small id={`${id}-username-help`}>2–32 个字符，保存时检查重名和内容安全。</small>
+            <p id={`${id}-username-error`} className="wt-username-error" role="alert">{error}</p>
+            <div><button className="wt-username-save" type="submit" disabled={saving}>{saving ? "正在保存…" : "保存"}</button><button type="button" disabled={saving} onClick={closeEditor}>取消</button></div>
+          </form>
+        </Modal>
+      )}
     </>
   );
 }

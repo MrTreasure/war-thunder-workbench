@@ -113,7 +113,14 @@ export type Valuation = {
 export function valuationMoney(cents: number | null, symbol = "¥") {
   if (cents == null || !Number.isSafeInteger(cents)) return "待核价";
   const n = BigInt(cents);
-  return `${symbol}${(n / 100n).toLocaleString("zh-CN")}.${String(n % 100n).padStart(2, "0")}`;
+  const rounded = n < 0n ? -((-n + 50n) / 100n) : (n + 50n) / 100n;
+  return `${symbol}${rounded.toLocaleString("zh-CN")}`;
+}
+function valuationUnitPrice(cents: number) {
+  if (!Number.isSafeInteger(cents) || cents < 0) return "待核价";
+  const value = BigInt(cents);
+  const fraction = String(value % 100n).padStart(2, "0").replace(/0+$/, "");
+  return `¥${(value / 100n).toLocaleString("zh-CN")}${fraction ? "." + fraction : ""}`;
 }
 function VehicleArt({ item, compact = false }: { item: Item; compact?: boolean }) {
   const [failed, setFailed] = useState(false);
@@ -628,11 +635,11 @@ export function AccountValuation({
                   <dl className="wt-valuation-rate-note">
                     <div>
                       <dt>陆战 / 直升机</dt>
-                      <dd>{valuationMoney(selectedRule.rpCents.ground)} / 万 RP</dd>
+                      <dd>{valuationUnitPrice(selectedRule.rpCents.ground)} / 万 RP</dd>
                     </div>
                     <div>
                       <dt>飞机</dt>
-                      <dd>{valuationMoney(selectedRule.rpCents.aviation)} / 万 RP</dd>
+                      <dd>{valuationUnitPrice(selectedRule.rpCents.aviation)} / 万 RP</dd>
                     </div>
                     <div>
                       <dt>金鹰 / 礼包</dt>
