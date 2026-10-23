@@ -332,11 +332,11 @@
     "· Ранг {0}"
   ],
   "对地击毁": [
-    "Ground kills",
+    "Ground targets destroyed",
     "Наземные цели"
   ],
   "对空击毁": [
-    "Air kills",
+    "Air targets destroyed",
     "Воздушные цели"
   ],
   "排位数据": [
@@ -360,7 +360,7 @@
     "Эффективность техники"
   ],
   "载具击毁构成": [
-    "Vehicle kill breakdown",
+    "Targets destroyed",
     "Уничтоженные цели"
   ],
   "常用载具 · TOP": [
@@ -464,11 +464,11 @@
     "Группа"
   ],
   "目标前置": [
-    "Required predecessor",
+    "Prerequisites",
     "Предшественники"
   ],
   "等级补位": [
-    "Rank fillers",
+    "Rank unlocks",
     "Добор техники"
   ],
   "战争雷霆玩家工具": [
@@ -540,8 +540,8 @@
     "· По убыванию ОИ"
   ],
   "研发点": [
-    "Research Points",
-    "Очки исследования"
+    "Research points",
+    "Очки исследований"
   ],
   "礼包": [
     "Packs",
@@ -648,7 +648,7 @@
     "Оценка"
   ],
   "选择价值类型": [
-    "Select value type",
+    "Valuation basis",
     "Вариант оценки"
   ],
   "已核价金额，未计价项目另列": [
@@ -696,7 +696,7 @@
     "Боевая статистика и текущие требования"
   ],
   "依据官方公开车库中的已拥有载具计算，包含未出战载具。研发点按已拥有载具去重汇总，不额外推算未持有的前置。": [
-    "Based on owned vehicles in the official public hangar, including unplayed vehicles. Research Points are deduplicated across owned vehicles; unowned predecessors are not inferred.",
+    "Based on owned vehicles in the official public hangar, including unplayed vehicles. Research points are deduplicated across owned vehicles; unowned predecessors are not inferred.",
     "Расчёт по технике официального публичного ангара, включая технику без боёв. ОИ учитываются без повторов; некупленные предшественники не добавляются."
   ],
   "根据出战记录与当前研发前置推算，尚未核验完整已拥有清单。": [
@@ -820,7 +820,7 @@
     "Исключена по сохранённым правилам; не входит в стоимость ОИ, ЗО, наборов и других категорий."
   ],
   "研发点明细 ·": [
-    "Research Point details ·",
+    "RP breakdown ·",
     "Расшифровка ОИ ·"
   ],
   "辆（": [
@@ -828,15 +828,15 @@
     " ед. ("
   ],
   "含推算前置": [
-    "includes inferred predecessors",
+    "includes inferred prerequisites",
     "включая расчётных предшественников"
   ],
   "暂无已核实研发点": [
-    "No verified Research Points",
+    "No verified Research points",
     "Нет проверенных данных об ОИ"
   ],
   "研发点明细": [
-    "Research Point details",
+    "RP breakdown",
     "Расшифровка ОИ"
   ],
   "已拥有 · 有出战记录": [
@@ -984,7 +984,7 @@
     "Исследование техники"
   ],
   "配件研发": [
-    "Modification research",
+    "Modifications",
     "Модификации"
   ],
   "快照：{0}": [
@@ -2572,7 +2572,7 @@
     "Не рассчитано"
   ],
   "配件研发速算": [
-    "Quick modification quote",
+    "Modification calculator",
     "Расчёт модификаций"
   ],
   "{0} / {1} · 单独计算此载具的配件": [
@@ -3920,7 +3920,7 @@
     "Доля времени"
   ],
   "对海击毁": [
-    "Naval kills",
+    "Naval targets destroyed",
     "Морские цели"
   ],
   "{0} {1} 小时": [
@@ -4796,7 +4796,7 @@
     "Новая техника учитывается в пороге ранга только после исследования и покупки. Без Серебряных львов, покупок за ЗО, модификаций и полкового исследования. Автоподбор не гарантирует общий минимум."
   ],
   "载具研发报价": [
-    "Vehicle research quote",
+    "Research calculator",
     "Расчёт ОИ"
   ],
   "{0} / {1} · 账号进度自动保存在本地": [
@@ -4968,7 +4968,7 @@
     "→ Следующий ранг"
   ],
   "只计算研发点，不含购车与乘员费用。": [
-    "Research Points only; excludes vehicle and crew purchase costs.",
+    "Research points only; excludes vehicle and crew purchase costs.",
     "Только ОИ, без стоимости покупки техники и экипажа."
   ],
   "重置本树进度": [
@@ -4976,7 +4976,7 @@
     "Сбросить прогресс этой ветки"
   ],
   "研发报价结果": [
-    "Research quote result",
+    "Research quote",
     "Результат расчёта"
   ],
   "{0} · 载具研发": [
@@ -4996,7 +4996,7 @@
     "Копировать список"
   ],
   "按实际研发点计价，不凑整万。": [
-    "Based on exact Research Points; not rounded to blocks of 10,000.",
+    "Based on exact Research points; not rounded to blocks of 10,000.",
     "Расчёт по точным ОИ, без округления до десятков тысяч."
   ],
   "辆成本未知，请在清单补填基础 RP。已知部分": [
@@ -5032,7 +5032,7 @@
     "Имеющиеся предшественники повторно не оплачиваются. Сначала укажите прогресс линии слева."
   ],
   "本次研发清单": [
-    "Research list for this quote",
+    "Research list",
     "Список исследования"
   ],
   "辆 · 前置": [
@@ -5040,7 +5040,7 @@
     " ед. · Предшественники"
   ],
   "· 等级补位": [
-    "· Rank fillers",
+    "· Rank unlocks",
     "· Добор ранга"
   ],
   "完成修改": [
@@ -5100,7 +5100,7 @@
     "Исследование не требуется. Выберите другую цель."
   ],
   "等级门槛核对": [
-    "Rank-gate checks",
+    "Rank requirements",
     "Открытие рангов"
   ],
   "项需要核对 · 其余已开放或无需解锁": [
@@ -5252,7 +5252,7 @@
     "Событийная / Другая"
   ],
   "研发配件": [
-    "Research modifications",
+    "Modifications",
     "Модификации"
   ],
   "购物车": [
@@ -5312,7 +5312,7 @@
     "Нет официального дерева исследований"
   ],
   "前置研发": [
-    "Prerequisite research",
+    "Prerequisites",
     "Предшественники"
   ],
   "可上下左右滚动的研发树": [
@@ -5368,7 +5368,7 @@
     "· Данные в игре имеют приоритет"
   ],
   "研发路线": [
-    "Research route",
+    "Research path",
     "Путь исследования"
   ],
   "载具详情": [
@@ -5392,11 +5392,11 @@
     "Полковые ОИ"
   ],
   "基础研发点": [
-    "Base Research Points",
+    "Base RP",
     "Базовые ОИ"
   ],
   "必要前置路线": [
-    "Required prerequisite route",
+    "Required research path",
     "Цепочка исследования"
   ],
   "沿真实前置关系展开，不代表已满足等级购车数量。速算面板会补齐等级门槛。": [
@@ -5472,7 +5472,7 @@
     "Инструменты"
   ],
   "科技树": [
-    "Tech trees",
+    "Tech tree",
     "Дерево техники"
   ],
   "切换页面": [
@@ -6128,15 +6128,15 @@
     "Сервис статистики временно недоступен"
   ],
   "街机战斗": [
-    "Arcade battles",
+    "Arcade Battles",
     "Аркадные бои"
   ],
   "历史战斗": [
-    "Realistic battles",
+    "Realistic Battles",
     "Реалистичные бои"
   ],
   "全真战斗": [
-    "Simulator battles",
+    "Simulator Battles",
     "Симуляторные бои"
   ],
   "陆军": [
@@ -6236,11 +6236,11 @@
     "Неверные данные календаря. Повторите позже"
   ],
   "银狮购车": [
-    "Silver Lion purchases",
+    "Purchases with SL",
     "Покупка за Серебряные львы"
   ],
   "金鹰购车": [
-    "GE purchases",
+    "Purchases with GE",
     "Покупка за ЗО"
   ],
   "商城礼包": [
@@ -7332,15 +7332,15 @@
     "Перерисовка в высоком разрешении с исходной структурой таблицы"
   ],
   "正常价值": [
-    "Normal value",
+    "Full value",
     "Полная цена"
   ],
   "折扣价值": [
-    "Sale value",
+    "Discounted value",
     "Со скидкой"
   ],
   "交易价值": [
-    "Trade value",
+    "Resale value",
     "При продаже"
   ],
   "仅供参考。优先依据官方公开已拥有载具清单计算；未取得清单时按出战记录及当前研发前置推算。结果不代表实际投入或成交价格，不包含未购载具的研发进度、改装研发和高级账号。特殊载具 GJN 均价单列，不计入人民币总价；未核价条目不按零元处理。": [
@@ -7412,7 +7412,7 @@
     "Нет предшественника исследования"
   ],
   "研发点未核实": [
-    "Research Points unverified",
+    "Research points unverified",
     "ОИ не проверены"
   ],
   "金鹰售价未核实": [
