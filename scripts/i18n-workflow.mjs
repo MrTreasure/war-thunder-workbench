@@ -161,7 +161,7 @@ const compact = new Map([
   ),
 ]);
 const terms = {
-  研发点: { en: "Research Points", ru: "Очки исследования", ja: "研究ポイント" },
+  研发点: { en: "Research points", ru: "Очки исследований", ja: "リサーチポイント" },
   金鹰: { en: "Golden Eagles", ru: "Золотые орлы", ja: "ゴールデンイーグル" },
   银狮: { en: "Silver Lions", ru: "Серебряные львы", ja: "シルバーライオン" },
   街机战斗: { en: "Arcade Battles", ru: "Аркадные бои", ja: "アーケードバトル" },
