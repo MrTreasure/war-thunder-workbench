@@ -10,6 +10,8 @@ export type SaleEvent = {
   endAt: string;
   startPrecision?: string;
   startWindow?: string[];
+  startCandidates?: string[];
+  predictionVersion?: string;
   endWindow?: string[];
   countries: string[];
   categories: string[];
@@ -104,9 +106,32 @@ const dateFormatter = new Intl.DateTimeFormat("zh-CN", {
   day: "2-digit",
 });
 export const saleDate = (value: string) => dateFormatter.format(new Date(value));
+function startCandidateRanges(candidates: string[]): string {
+  const dates = [
+    ...new Map(candidates.map((value) => [beijingDayKey(value), value])).values(),
+  ].sort((a, b) => Date.parse(a) - Date.parse(b));
+  const groups: string[][] = [];
+  for (const value of dates) {
+    const group = groups[groups.length - 1];
+    const previous = group?.[group.length - 1];
+    if (
+      previous &&
+      Date.parse(beijingDayKey(value)) - Date.parse(beijingDayKey(previous)) === 86400000
+    )
+      group.push(value);
+    else groups.push([value]);
+  }
+  return groups
+    .map((group) =>
+      group.length === 1
+        ? saleDate(group[0])
+        : `${saleDate(group[0])}—${saleDate(group[group.length - 1])}`,
+    )
+    .join("、");
+}
 export function saleRange(event: SaleEvent): string {
   if (event.status === "predicted" && event.startWindow && event.endWindow)
-    return `可能于 ${saleDate(event.startWindow[0])}—${saleDate(event.startWindow[1])} 开始 · 可能于 ${saleDate(event.endWindow[0])}—${saleDate(event.endWindow[1])} 结束`;
+    return `可能于 ${event.startCandidates?.length ? startCandidateRanges(event.startCandidates) : `${saleDate(event.startWindow[0])}—${saleDate(event.startWindow[1])}`} 开始 · 可能于 ${saleDate(event.endWindow[0])}—${saleDate(event.endWindow[1])} 结束`;
   return `${saleDate(event.startAt)}—${saleDate(event.endAt)}`;
 }
 export function saleRate(event: SaleEvent, channel?: string): string {
