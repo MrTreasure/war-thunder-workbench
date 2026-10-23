@@ -2,6 +2,7 @@ import { vehicleDisplayName } from "./vehicle-display-name";
 import type { Background, ReportPayload } from "./player-stats-api";
 import { statsNumber, statsRatio } from "./player-stats-api";
 import statsRules from "../data/player-stats-rules.json";
+export const reportSiteWatermark = "wt.mrtreasure.cc";
 export function reportEfficiencyMaximum(payload: ReportPayload) {
   return [statsRules.version, "wt-efficiency-v2"].includes(payload.efficiencyVersion || "")
     ? statsRules.efficiency.maximum

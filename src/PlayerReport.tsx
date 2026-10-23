@@ -15,7 +15,7 @@ import {
   statsBranchTarget,
   statsReportScopeLabel,
 } from "./player-stats-api";
-import { reportChartData, reportSummary, reportEfficiencyMaximum } from "./player-report-design";
+import { reportChartData, reportSummary, reportEfficiencyMaximum, reportSiteWatermark } from "./player-report-design";
 import type { ReportTheme } from "./player-report-design";
 export function PlayerReport({
   report,
@@ -235,6 +235,7 @@ export function PlayerReport({
         {p.previousEfficiencyVersion && <span>历史点评保留原文，效率评分已按当前规则更新。</span>}
         <span>效率为工作台统计评分 · 构成图仅含所列载具的已知击毁 · 单车对空/地/海数字为 K/D</span>
         <span>银狮为累计获得，非余额或净收入 · AI 点评仅供参考</span>
+        <span className="wt-poster-site-watermark">{reportSiteWatermark}</span>
       </footer>
     </article>
   );
