@@ -3088,16 +3088,16 @@
     "Верхние "
   ],
   "较低": [
-    "Lower",
-    "Ниже"
+    "Low",
+    "Низкая"
   ],
   "中位": [
     "Median",
     "Медиана"
   ],
   "较高": [
-    "Higher",
-    "Выше"
+    "High",
+    "Высокая"
   ],
   "近期仅展示官方名次，不换算活跃玩家百分位。": [
     "Recent results show official ranks only, not active-player percentiles.",
@@ -7506,5 +7506,73 @@
   "累计 SL": [
     "Total Silver Lions",
     "Всего SL"
+  ],
+  "预测开始窗口已过": [
+    "Forecast start window has passed",
+    "Окно начала прогноза прошло"
+  ],
+  "距最早预计开始": [
+    "Until earliest forecast start",
+    "До ближайшего начала"
+  ],
+  "候选开始日与相对可能性": [
+    "Possible start dates and relative likelihood",
+    "Возможные даты начала и их оценка"
+  ],
+  "候选开始日图例": [
+    "Start-date legend",
+    "Условные обозначения дат"
+  ],
+  "◆ 高：参考日": [
+    "◆ High: reference date",
+    "◆ Высокая: опорная дата"
+  ],
+  "◆ 中：附近日期": [
+    "◆ Medium: nearby dates",
+    "◆ Средняя: близкие даты"
+  ],
+  "◆ 低：较远日期": [
+    "◆ Low: more distant dates",
+    "◆ Низкая: отдалённые даты"
+  ],
+  "日期已过": [
+    "Date has passed",
+    "Дата прошла"
+  ],
+  "候选开始 · {0}": [
+    "Possible start · {0}",
+    "Возможное начало · {0}"
+  ],
+  "一般": [
+    "Medium",
+    "Средняя"
+  ],
+  "高": [
+    "High",
+    "Выс."
+  ],
+  "中": [
+    "Medium",
+    "Сред."
+  ],
+  "低": [
+    "Low",
+    "Низ."
+  ],
+  "· 参考": [
+    "· Reference",
+    "· Опорная дата"
+  ],
+  "候选开始日：{0}": [
+    "Possible start dates: {0}",
+    "Возможные даты начала: {0}"
+  ],
+  "实线为官方活动，虚线为预测。◆ 标记候选开始日，高／中／低表示相对可能性；过往日期不再作为开始候选。": [
+    "Solid lines mark official events; dashed lines mark forecasts. ◆ marks possible start dates; high / medium / low indicates relative likelihood. Past dates are excluded.",
+    "Сплошные линии — официальные события, пунктир — прогнозы. ◆ отмечает возможные даты начала; высокая / средняя / низкая — относительная оценка. Прошедшие даты исключены."
+  ],
+  "按往年日期推算，开始与结束各预留 ±4 天；预测开始日遇周末统一顺延到下一个工作日，并保留历史活动时长；开始候选日期排除周六、周日，活动持续期间及结束日可跨周末。周末顺延是预测假设，具体以官方公布为准。黑五按感恩节次日、春节按农历新年调整。两个范围分别表示可能的开始日、结束日，预测中点仅供参考，预测状态按预计起止日标注；预测不保证载具参与或折扣力度。 已过去的日期自动移出预计开始窗口，窗口全部过期后不再作为未来活动展示。候选日期的高／中／低仅表示与历史推算参考日接近程度的相对判断，不是统计概率。": [
+    "Forecasts use prior-year dates with ±4-day start and end windows. Weekend starts move forward to the next working day while preserving the historical duration; start candidates exclude weekends, but events and end dates may span weekends. This adjustment is a forecast assumption; official announcements take precedence. Black Friday follows Thanksgiving and Lunar New Year follows the lunar calendar. Start and end windows are separate; midpoint dates are references only. Forecasts do not guarantee vehicle eligibility or discounts. Past start dates are removed; fully expired windows are omitted from future events. High / medium / low describes proximity to the historical reference date, not a statistical probability.",
+    "Прогноз основан на датах прошлых лет: для начала и окончания предусмотрено окно ±4 дня. Начало в выходной переносится на следующий рабочий день с сохранением прежней длительности; выходные исключены из возможных дат начала, но событие и окончание могут приходиться на них. Это допущение прогноза; приоритет имеют официальные объявления. Чёрная пятница следует за Днём благодарения, китайский Новый год — лунному календарю. Окна начала и окончания независимы; средние даты даны для ориентира. Участие техники и размер скидок не гарантированы. Прошедшие даты начала удаляются, истёкшие окна не показываются среди будущих событий. Высокая / средняя / низкая оценка отражает близость к опорной дате, а не статистическую вероятность."
   ]
 }

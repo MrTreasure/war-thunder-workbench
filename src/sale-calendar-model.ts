@@ -1,4 +1,5 @@
 import { getLocale, t, decimalSeparator } from "./i18n/core";
+import predictionDisplay from "../data/sale-prediction-display.json";
 export type SaleChannel = "sl" | "ge" | "pack" | "bundle" | "premium";
 export type SaleEvent = {
   id: string;
@@ -11,6 +12,9 @@ export type SaleEvent = {
   endAt: string;
   startPrecision?: string;
   startWindow?: string[];
+  startCandidates?: string[];
+  predictionVersion?: string;
+  predictionReferenceStartAt?: string;
   endWindow?: string[];
   countries: string[];
   categories: string[];
@@ -88,19 +92,19 @@ export function nextSale(vehicle: SaleVehicle, events: SaleEvent[], now: number)
   );
 }
 export function saleCountdown(event: SaleEvent, now: number): string {
-  const start = Date.parse(event.startAt),
+  const predicted = event.status === "predicted";
+  const earliest = predicted ? saleStartCandidates(event, now)[0] : undefined;
+  if (predicted && !earliest) return t("预测开始窗口已过");
+  if (earliest && earliest.day === beijingDayKey(now)) return t("已进入预测窗口");
+  const start = Date.parse(earliest?.at || event.startAt),
     end = Date.parse(event.endAt);
-  if (event.status === "predicted" && event.startWindow && now >= Date.parse(event.startWindow[0]))
-    return "已进入预测窗口";
-  if (now >= end) return "已结束";
+  if (now >= end) return t("已结束");
   const seconds = Math.max(0, Math.floor(((now >= start ? end : start) - now) / 1000));
   const days = Math.floor(seconds / 86400),
     hours = Math.floor(seconds / 3600) % 24;
   const minutes = Math.floor(seconds / 60) % 60;
   if (getLocale() !== "zh-CN") {
-    const heading = t(
-      event.status === "predicted" ? "预计距开始" : now >= start ? "距结束" : "距开始",
-    );
+    const heading = t(predicted ? "距最早预计开始" : now >= start ? "距结束" : "距开始");
     return (
       heading +
       " " +
@@ -108,13 +112,13 @@ export function saleCountdown(event: SaleEvent, now: number): string {
         days ? days + t("天") : "",
         hours + t("时"),
         minutes + t("分钟"),
-        event.status === "predicted" ? "" : (seconds % 60) + t("秒"),
+        predicted ? "" : (seconds % 60) + t("秒"),
       ]
         .filter(Boolean)
         .join(" ")
     );
   }
-  return `${event.status === "predicted" ? "预计距开始" : now >= start ? "距结束" : "距开始"} ${days ? days + "天 " : ""}${hours}时 ${minutes}分${event.status === "predicted" ? "" : " " + (seconds % 60) + "秒"}`;
+  return `${predicted ? "距最早预计开始" : now >= start ? "距结束" : "距开始"} ${days ? days + "天 " : ""}${hours}时 ${minutes}分${predicted ? "" : " " + (seconds % 60) + "秒"}`;
 }
 export const saleDate = (value: string) =>
   new Intl.DateTimeFormat(getLocale(), {
@@ -122,9 +126,32 @@ export const saleDate = (value: string) =>
     month: "2-digit",
     day: "2-digit",
   }).format(new Date(value));
+function startCandidateRanges(candidates: string[]): string {
+  const dates = [
+    ...new Map(candidates.map((value) => [beijingDayKey(value), value])).values(),
+  ].sort((a, b) => Date.parse(a) - Date.parse(b));
+  const groups: string[][] = [];
+  for (const value of dates) {
+    const group = groups[groups.length - 1];
+    const previous = group?.[group.length - 1];
+    if (
+      previous &&
+      Date.parse(beijingDayKey(value)) - Date.parse(beijingDayKey(previous)) === 86400000
+    )
+      group.push(value);
+    else groups.push([value]);
+  }
+  return groups
+    .map((group) =>
+      group.length === 1
+        ? saleDate(group[0])
+        : `${saleDate(group[0])}—${saleDate(group[group.length - 1])}`,
+    )
+    .join(getLocale() === "zh-CN" ? "、" : ", ");
+}
 export function saleRange(event: SaleEvent): string {
   if (event.status === "predicted" && event.startWindow && event.endWindow)
-    return `可能于 ${saleDate(event.startWindow[0])}—${saleDate(event.startWindow[1])} 开始 · 可能于 ${saleDate(event.endWindow[0])}—${saleDate(event.endWindow[1])} 结束`;
+    return `可能于 ${event.startCandidates?.length ? startCandidateRanges(event.startCandidates) : `${saleDate(event.startWindow[0])}—${saleDate(event.startWindow[1])}`} 开始 · 可能于 ${saleDate(event.endWindow[0])}—${saleDate(event.endWindow[1])} 结束`;
   return `${saleDate(event.startAt)}—${saleDate(event.endAt)}`;
 }
 export function saleRate(event: SaleEvent, channel?: string): string {
@@ -155,6 +182,77 @@ export function saleRate(event: SaleEvent, channel?: string): string {
 export function beijingDayKey(value: string | number): string {
   const timestamp = typeof value === "number" ? value : Date.parse(value);
   return new Date(timestamp + 8 * 3600000).toISOString().slice(0, 10);
+}
+export type SaleStartCandidate = {
+  at: string;
+  day: string;
+  confidence: "high" | "medium" | "low";
+  label: string;
+  shortLabel: string;
+  preferred: boolean;
+};
+/** A rolling display projection; the persisted historical forecast remains unchanged. */
+export function saleStartCandidates(event: SaleEvent, now: number): SaleStartCandidate[] {
+  if (event.status !== "predicted") return [];
+  const today = beijingDayKey(now);
+  const reference = beijingDayKey(event.predictionReferenceStartAt || event.startAt);
+  let values = event.startCandidates;
+  if (!values) {
+    const first = Date.parse(event.startWindow?.[0] || event.startAt);
+    const last = Date.parse(event.startWindow?.[1] || event.startAt);
+    const count = Math.floor((last - first) / 86400000) + 1;
+    values =
+      count > 0 && count <= 31
+        ? Array.from({ length: count }, (_, i) => new Date(first + i * 86400000).toISOString())
+        : [];
+  }
+  return [...new Map(values.map((at) => [beijingDayKey(at), at])).entries()]
+    .filter(([day]) => day >= today && ![0, 6].includes(new Date(day).getUTCDay()))
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([day, at]) => {
+      const distance = Math.abs(Date.parse(day) - Date.parse(reference)) / 86400000;
+      const confidence =
+        distance <= predictionDisplay.highDistanceDays
+          ? "high"
+          : distance <= predictionDisplay.mediumDistanceDays
+            ? "medium"
+            : "low";
+      return {
+        at,
+        day,
+        confidence,
+        label: predictionDisplay.labels[confidence],
+        shortLabel: predictionDisplay.shortLabels[confidence],
+        preferred: day === beijingDayKey(event.startAt),
+      };
+    });
+}
+export function projectSaleForecast(event: SaleEvent, now: number): SaleEvent | null {
+  if (event.status === "confirmed") return event;
+  const candidates = saleStartCandidates(event, now);
+  if (!candidates.length) return null;
+  const reference = event.predictionReferenceStartAt || event.startAt;
+  const closest = [...candidates].sort(
+    (a, b) =>
+      Math.abs(Date.parse(a.at) - Date.parse(reference)) -
+      Math.abs(Date.parse(b.at) - Date.parse(reference)),
+  )[0];
+  const shift = Date.parse(closest.at) - Date.parse(event.startAt);
+  const earliestEnd = Math.max(
+    Date.parse(event.endWindow?.[0] || event.endAt),
+    Date.parse(closest.at),
+  );
+  const latestEnd = Date.parse(event.endWindow?.[1] || event.endAt);
+  if (earliestEnd > latestEnd) return null;
+  return {
+    ...event,
+    predictionReferenceStartAt: reference,
+    startAt: closest.at,
+    endAt: new Date(Date.parse(event.endAt) + shift).toISOString(),
+    startCandidates: candidates.map((item) => item.at),
+    startWindow: [candidates[0].at, candidates[candidates.length - 1].at],
+    endWindow: [new Date(earliestEnd).toISOString(), new Date(latestEnd).toISOString()],
+  };
 }
 export function saleCalendarSpan(event: SaleEvent): { start: string; end: string } {
   return {

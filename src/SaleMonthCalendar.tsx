@@ -1,4 +1,5 @@
-import { getLocale, monthLabel } from "./i18n/core";
+import { getLocale } from "./i18n/core";
+import { monthLabel } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { localize, t } from "./i18n/core";
 /* finesse · component=monthly-sale-calendar · existing workbench tokens and event evidence */
@@ -13,6 +14,7 @@ import {
   saleEventNote,
   saleActivity,
   placeSaleCalendarRanges,
+  saleStartCandidates,
 } from "./sale-calendar-model";
 import type { SaleEvent } from "./sale-calendar-model";
 
@@ -22,7 +24,12 @@ function dayLabel(key: string) {
   const [year, month, day] = key.split("-").map(Number);
   return `${year}年${month}月${day}日`;
 }
-function stage(event: SaleEvent, key: string): string {
+function stage(event: SaleEvent, key: string, now: number): string {
+  if (event.status === "predicted") {
+    if (key < beijingDayKey(now)) return "日期已过";
+    const candidate = saleStartCandidates(event, now).find((item) => item.day === key);
+    if (candidate) return `候选开始 · ${candidate.label}`;
+  }
   const start = beijingDayKey(event.startAt),
     end = beijingDayKey(event.endAt);
   if (start === key && end === key)
@@ -96,7 +103,7 @@ export function SaleMonthCalendar({
       <div className="wt-sale-month-toolbar">
         <div>
           <h4>{monthLabel(year, month)}</h4>
-          <span>{localize(loading ? "正在读取活动…" : `${localize(monthCount)} 个活动阶段`)}</span>
+          <span>{localize(loading ? "正在读取活动…" : `${monthCount} 个活动阶段`)}</span>
         </div>
         <div className="wt-sale-month-navigation">
           <button
@@ -118,13 +125,15 @@ export function SaleMonthCalendar({
       </div>
       <p className="wt-sale-month-guide">
         {t(
-          "活动以连续横条覆盖起止日期，跨周接续显示。点击横条查看完整信息；虚线为预测，浅色区段表示可能提前或延后的时间窗。",
+          "实线为官方活动，虚线为预测。◆ 标记候选开始日，高／中／低表示相对可能性；过往日期不再作为开始候选。",
         )}
       </p>
-      <table
-        className="wt-sale-month-grid"
-        aria-label={localize(`${localize(year)}年${localize(month)}月优惠月历`)}
-      >
+      <div className="wt-sale-confidence-legend" aria-label={t("候选开始日图例")}>
+        <span className="confidence-high">{t("◆ 高：参考日")}</span>
+        <span className="confidence-medium">{t("◆ 中：附近日期")}</span>
+        <span className="confidence-low">{t("◆ 低：较远日期")}</span>
+      </div>
+      <table className="wt-sale-month-grid" aria-label={localize(`${year}年${month}月优惠月历`)}>
         <thead>
           <tr>
             {localize(
@@ -163,7 +172,7 @@ export function SaleMonthCalendar({
                             aria-pressed={cell.key === selected && !selectedEventId}
                             aria-current={cell.key === today ? "date" : undefined}
                             aria-label={localize(
-                              `${localize(dayLabel(cell.key))}，${localize(onDay(cell.key).length)}项优惠，点击查看当天活动`,
+                              `${dayLabel(cell.key)}，${onDay(cell.key).length}项优惠，点击查看当天活动`,
                             )}
                             onClick={() => {
                               setSelected(cell.key);
@@ -185,19 +194,12 @@ export function SaleMonthCalendar({
                               (Date.parse(from) - Date.parse(weekStart)) / DAY,
                             ),
                             days = Math.round((Date.parse(to) - Date.parse(from)) / DAY) + 1;
-                          const coreFrom = beijingDayKey(event.startAt),
-                            coreTo = beijingDayKey(event.endAt);
-                          const percent = (day: string, inclusive: boolean) =>
-                            Math.max(
-                              0,
-                              Math.min(
-                                100,
-                                (((Date.parse(day) - Date.parse(from)) / DAY +
-                                  (inclusive ? 1 : 0)) /
-                                  days) *
-                                  100,
-                              ),
-                            );
+                          const candidates = saleStartCandidates(event, now).filter(
+                            (item) => item.day >= from && item.day <= to,
+                          );
+                          const candidateLabel = candidates
+                            .map((item) => `${saleDate(item.at)}开始可能性${item.label}`)
+                            .join("，");
                           const continuesLeft = start < weekStart,
                             continuesRight = end > weekEnd;
                           const activity = saleActivity(event, now);
@@ -210,45 +212,70 @@ export function SaleMonthCalendar({
                                 {
                                   gridColumn: `${column + 1} / span ${days}`,
                                   gridRow: lane + 2,
-                                  "--wt-sale-range-core-start": `${percent(coreFrom, false)}%`,
-                                  "--wt-sale-range-core-end": `${percent(coreTo, true)}%`,
                                 } as CSSProperties
                               }
                               aria-pressed={selectedEventId === event.id}
                               aria-label={localize(
-                                `${localize(event.title)}，${localize(activity.fullLabel)}，${localize(saleRange(event))}，点击查看活动详情`,
+                                `${event.title}，${activity.fullLabel}，${saleRange(event)}，${candidateLabel}，点击查看活动详情`,
                               )}
                               title={localize(
-                                `${localize(event.title)} · ${localize(activity.fullLabel)} · ${localize(saleRange(event))}`,
+                                `${event.title} · ${activity.fullLabel} · ${saleRange(event)}${candidateLabel ? " · " + candidateLabel : ""}`,
                               )}
-                              onClick={() => {
-                                setSelected(from);
+                              onClick={(click) => {
+                                const marker = (click.target as Element).closest<HTMLElement>(
+                                  "[data-start-day]",
+                                );
+                                setSelected(marker?.dataset.startDay || from);
                                 setSelectedEventId(event.id);
                               }}
                             >
-                              <span className="wt-sale-range-start">
-                                {localize(
-                                  continuesLeft
-                                    ? "‹ 接上周"
-                                    : event.status === "predicted"
-                                      ? "预计窗口"
-                                      : `${localize(saleDate(event.startAt))}起`,
-                                )}
+                              <span className="wt-sale-range-heading">
+                                <span className="wt-sale-range-start">
+                                  {localize(
+                                    !continuesLeft &&
+                                      (event.status === "predicted"
+                                        ? "预计窗口"
+                                        : `${saleDate(event.startAt)}起`),
+                                  )}
+                                </span>
+                                <span className="wt-sale-activity-status">
+                                  {localize(event.status === "predicted" && <i>{t("预计")}</i>)}
+                                  {localize(activity.label)}
+                                </span>
+                                <span className="wt-sale-range-name">{localize(event.title)}</span>
+                                <span className="wt-sale-range-end">
+                                  {localize(
+                                    !continuesRight &&
+                                      (event.status === "predicted"
+                                        ? "窗口止"
+                                        : `${saleDate(event.endAt)}止`),
+                                  )}
+                                </span>
                               </span>
-                              <span className="wt-sale-activity-status">
-                                {localize(event.status === "predicted" && <i>{t("预计")}</i>)}
-                                {localize(activity.label)}
-                              </span>
-                              <span className="wt-sale-range-name">{localize(event.title)}</span>
-                              <span className="wt-sale-range-end">
-                                {localize(
-                                  continuesRight
-                                    ? "下周续 ›"
-                                    : event.status === "predicted"
-                                      ? "窗口止"
-                                      : `${localize(saleDate(event.endAt))}止`,
-                                )}
-                              </span>
+                              {localize(
+                                event.status === "predicted" && (
+                                  <span className="wt-sale-start-markers">
+                                    {localize(
+                                      candidates.map((candidate) => (
+                                        <span
+                                          key={candidate.day}
+                                          className={`wt-sale-start-marker confidence-${candidate.confidence} ${candidate.preferred ? "preferred" : ""}`}
+                                          data-start-day={candidate.day}
+                                          style={{
+                                            left: `${(((Date.parse(candidate.day) - Date.parse(from)) / DAY + 0.5) / days) * 100}%`,
+                                          }}
+                                          title={localize(
+                                            `${saleDate(candidate.at)} · 预计开始 · 可能性${candidate.label}`,
+                                          )}
+                                        >
+                                          <span aria-hidden="true">◆</span>
+                                          {localize(candidate.shortLabel)}
+                                        </span>
+                                      )),
+                                    )}
+                                  </span>
+                                ),
+                              )}
                             </button>
                           );
                         }),
@@ -300,7 +327,7 @@ export function SaleMonthCalendar({
                     <div className="wt-sale-day-detail-heading">
                       <h4>{localize(event.title)}</h4>
                       <span className={`wt-sale-badge ${event.status}`}>
-                        {localize(stage(event, selected))}
+                        {localize(stage(event, selected, now))}
                       </span>
                       <span
                         className={`wt-sale-activity-status activity-${saleActivity(event, now).state}`}
@@ -311,12 +338,33 @@ export function SaleMonthCalendar({
                     </div>
                     <p>{localize(saleRange(event))}</p>
                     {localize(
+                      event.status === "predicted" && (
+                        <div
+                          className="wt-sale-candidate-list"
+                          aria-label={t("候选开始日与相对可能性")}
+                        >
+                          {localize(
+                            saleStartCandidates(event, now).map((candidate) => (
+                              <span
+                                key={candidate.day}
+                                className={`confidence-${candidate.confidence}`}
+                              >
+                                {localize(saleDate(candidate.at))}{" "}
+                                <b>{localize(candidate.label)}</b>
+                                {localize(candidate.preferred ? " · 参考" : "")}
+                              </span>
+                            )),
+                          )}
+                        </div>
+                      ),
+                    )}
+                    {localize(
                       event.status === "confirmed" && (
                         <p>
                           {t("开始：")}
                           {localize(
                             event.startPrecision === "day"
-                              ? `${localize(saleDate(event.startAt))}（公告未注明时刻）`
+                              ? `${saleDate(event.startAt)}（公告未注明时刻）`
                               : new Date(event.startAt).toLocaleString(getLocale(), {
                                   timeZone: "Asia/Shanghai",
                                 }),
