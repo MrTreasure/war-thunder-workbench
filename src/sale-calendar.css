@@ -651,15 +651,6 @@
 }
 .wt-sales-page .wt-sale-range-bar.predicted {
   border-style: dashed;
-  background: linear-gradient(
-    90deg,
-    var(--wt-page) 0%,
-    var(--wt-page) var(--wt-sale-range-core-start),
-    var(--wt-gold-soft) var(--wt-sale-range-core-start),
-    var(--wt-gold-soft) var(--wt-sale-range-core-end),
-    var(--wt-page) var(--wt-sale-range-core-end),
-    var(--wt-page) 100%
-  );
 }
 .wt-sales-page .wt-sale-range-bar.continues-left {
   margin-left: 0;
@@ -952,17 +943,6 @@
 .wt-sales-page .wt-sale-range-bar {
   border-color: var(--wt-sale-state-line);
   background: var(--wt-sale-state-fill);
-}
-.wt-sales-page .wt-sale-range-bar.predicted {
-  background: linear-gradient(
-    90deg,
-    var(--wt-page) 0%,
-    var(--wt-page) var(--wt-sale-range-core-start),
-    var(--wt-sale-state-fill) var(--wt-sale-range-core-start),
-    var(--wt-sale-state-fill) var(--wt-sale-range-core-end),
-    var(--wt-page) var(--wt-sale-range-core-end),
-    var(--wt-page) 100%
-  );
 }
 .wt-sale-activity-status {
   color: var(--wt-sale-state-ink);
