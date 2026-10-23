@@ -7,7 +7,7 @@ import { Modal } from "./Modal";
 import { SaleMonthCalendar } from "./SaleMonthCalendar";
 import { useStored, object } from "./storage";
 import { statsCategoryNames } from "./player-stats-api";
-import { readSaleCalendar, readSaleVehicles } from "./sale-calendar-api";
+import { cachedSaleCalendar, readSaleCalendar, readSaleVehicles } from "./sale-calendar-api";
 import bootstrap from "./generated/bootstrap.json";
 import calendarReference from "../data/sale-calendar-reference.json";
 import {
@@ -170,7 +170,7 @@ function AddVehicles({
         .finally(() => {
           if (!controller.signal.aborted) setLoading(false);
         });
-    }, 350);
+    }, 0);
     return () => {
       window.clearTimeout(timer);
       controller.abort();
@@ -280,12 +280,12 @@ function SourceLinks({ event }: { event: SaleEvent }) {
 export function SaleCalendar() {
   useLocale();
 
-  const [data, setData] = useState<SaleCalendarData | null>(null),
+  const [data, setData] = useState<SaleCalendarData | null>(cachedSaleCalendar),
     [error, setError] = useState(""),
-    [loading, setLoading] = useState(true),
+    [loading, setLoading] = useState(() => !data),
     [reload, setReload] = useState(0);
   const [clock, setClock] = useState(() => Date.now()),
-    [offset, setOffset] = useState(0);
+    [offset, setOffset] = useState(() => (data ? Date.parse(data.serverNow) - Date.now() : 0));
   const [year, setYear] = useState(() => Number(beijingDayKey(Date.now()).slice(0, 4))),
     [month, setMonth] = useState(() => String(Number(beijingDayKey(Date.now()).slice(5, 7)))),
     [channel, setChannel] = useState("all"),
@@ -309,9 +309,9 @@ export function SaleCalendar() {
   useEffect(() => {
     const controller = new AbortController();
     const timer = window.setTimeout(() => {
-      setLoading(true);
+      setLoading(!cachedSaleCalendar());
       setError("");
-      void readSaleCalendar(controller.signal, reload > 0)
+      void readSaleCalendar(controller.signal, true)
         .then((r) => {
           if (!controller.signal.aborted) {
             setData(r);

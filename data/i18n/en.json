@@ -1924,5 +1924,11 @@
   "2–32 个字符，保存时检查重名和内容安全。": "2–32 characters. Checked for availability and content safety when saved.",
   "保存": "Save",
   "修改用户名": "Change username",
-  "2–32 个字符，支持 #、@、☆ 等可见符号；保存时检查重名和内容安全。": "2–32 characters, including visible symbols such as #, @ and ☆. Checked for duplicate names and content safety when saved."
+  "2–32 个字符，支持 #、@、☆ 等可见符号；保存时检查重名和内容安全。": "2–32 characters, including visible symbols such as #, @ and ☆. Checked for duplicate names and content safety when saved.",
+  "公共资料校验失败，请稍后重试。": "Public data verification failed. Please try again later.",
+  "公共资料暂时无法更新。": "Public data cannot be updated right now.",
+  "公共资料版本无效。": "Invalid public data version.",
+  "公共资料暂时无法读取。": "Public data cannot be loaded right now.",
+  "不支持的公共资料类型。": "Unsupported public data type.",
+  "载具目录格式异常。": "Invalid vehicle catalog format."
 }

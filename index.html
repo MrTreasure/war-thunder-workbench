@@ -21,8 +21,17 @@
     previousImage.src = cached.value.backgroundUrl;
   }
   if (cached && valid(cached.value) && cached.savedAt <= Date.now() && Date.now() - cached.savedAt < ttl) return;
-  fetch(api + "/appearance", { credentials: "omit", cache: "no-store", signal: AbortSignal.timeout(5000) })
+  fetch(api + "/public-data/manifest/appearance", { credentials: "omit", signal: AbortSignal.timeout(5000) })
     .then(function (response) { if (!response.ok) throw new Error("appearance"); return response.json(); })
+    .then(async function (manifest) {
+      if (manifest.schemaVersion !== 1 || manifest.resource !== "appearance" || !/^[a-f0-9]{64}$/.test(manifest.sha256) || manifest.path !== "public-data/objects/" + manifest.sha256 || !Number.isSafeInteger(manifest.bytes) || manifest.bytes < 1 || manifest.bytes > 16384) throw new Error("appearance manifest");
+      var response = await fetch(api + "/" + manifest.path, { credentials: "omit", cache: "force-cache", signal: AbortSignal.timeout(5000) });
+      if (!response.ok) throw new Error("appearance object");
+      var bytes = await response.arrayBuffer();
+      var hash = Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", bytes))).map(function (v) { return v.toString(16).padStart(2, "0"); }).join("");
+      if (bytes.byteLength !== manifest.bytes || hash !== manifest.sha256) throw new Error("appearance hash");
+      return JSON.parse(new TextDecoder().decode(bytes));
+    })
     .then(function (value) {
       if (!valid(value)) return;
       var image = new Image();
