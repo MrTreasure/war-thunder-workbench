@@ -1,3 +1,4 @@
+import { vehicleDisplayName } from "./vehicle-display-name";
 import { useState } from "react";
 import type { Vehicle } from "./models";
 export function VehicleImage({ unit }: { unit: Vehicle }) {
@@ -14,7 +15,7 @@ export function VehicleImage({ unit }: { unit: Vehicle }) {
       {!loaded && <output className="vehicle-image-status">正在载入官方图片…</output>}
       <img
         src={source === "large" ? unit.imageUrl : unit.thumbnailUrl}
-        alt={`${unit.name} 官方载具图片`}
+        alt={`${vehicleDisplayName(unit.name)} 官方载具图片`}
         width={1000}
         height={600}
         onLoad={() => setLoaded(true)}

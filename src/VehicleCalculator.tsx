@@ -1,3 +1,4 @@
+import { vehicleDisplayName } from "./vehicle-display-name";
 import { GameSelect } from "./components/GameSelect";
 import { useMemo, useState } from "react";
 import type { CartItem, Catalog, Profile, Tree } from "./models";
@@ -169,7 +170,7 @@ export function VehicleCalculator({
           (tab === "owned"
             ? owned.includes(unit.id)
             : state.pins.includes(unit.id) || state.banned.includes(unit.id)))) &&
-      `${unit.name}${unit.nameEn || ""}${unit.id}`
+      `${vehicleDisplayName(unit.name)}${unit.nameEn || ""}${unit.id}`
         .normalize("NFKC")
         .toLowerCase()
         .replaceAll(" ", "")
@@ -190,7 +191,7 @@ export function VehicleCalculator({
     ),
     ...result.rows.map(
       (row, i) =>
-        `${i + 1}. ${row.unit.name} [${row.unit.rank}] ${row.reason} ${row.rp === null ? "RP未知" : format(row.rp) + " RP"}`,
+        `${i + 1}. ${vehicleDisplayName(row.unit.name)} [${row.unit.rank}] ${row.reason} ${row.rp === null ? "RP未知" : format(row.rp) + " RP"}`,
     ),
     ...result.errors,
     "新增车辆需研究后购买才能计入门槛。不含银狮、金币购车、改装或联队研发。自动补位不保证全局最低。",
@@ -222,7 +223,7 @@ export function VehicleCalculator({
                       .filter((unit) => unit.side === "research" && unit.rank === rank.rank)
                       .map((unit) => (
                         <option key={unit.id} value={unit.id}>
-                          {unit.name}
+                          {vehicleDisplayName(unit.name)}
                         </option>
                       ))}
                   </optgroup>
@@ -286,7 +287,7 @@ export function VehicleCalculator({
                 <option value="">本线前置尚未拥有</option>
                 {ancestors.map((unit) => (
                   <option key={unit.id} value={unit.id}>
-                    {unit.name} · Rank {unit.rank}
+                    {vehicleDisplayName(unit.name)} · Rank {unit.rank}
                   </option>
                 ))}
                 <option value={state.target}>目标载具也已拥有（待研 0）</option>
@@ -432,14 +433,14 @@ export function VehicleCalculator({
                               />
                             )}
                             <span className="calc-unit-label">
-                              <span>{unit.name}</span>
+                              <span>{vehicleDisplayName(unit.name)}</span>
                               <small>
                                 {unit.side === "research" ? "常规研发" : catalog.kinds[unit.kind]}
                               </small>
                             </span>
                             {tab === "route" && (
                               <GameSelect
-                                aria-label={`${unit.name} 补研策略`}
+                                aria-label={`${vehicleDisplayName(unit.name)} 补研策略`}
                                 disabled={owned.includes(unit.id) || unit.rankNumber > targetRank}
                                 value={
                                   state.pins.includes(unit.id)
@@ -670,7 +671,7 @@ export function VehicleCalculator({
                   >
                     <input
                       type="checkbox"
-                      aria-label={`${row.unit.name} 已拥有`}
+                      aria-label={`${vehicleDisplayName(row.unit.name)} 已拥有`}
                       checked={false}
                       onChange={() => {
                         const next = { ...drafts };
@@ -681,7 +682,7 @@ export function VehicleCalculator({
                     />
                     <span className="calc-unit-label">
                       <span>
-                        {i + 1}. {row.unit.name}
+                        {i + 1}. {vehicleDisplayName(row.unit.name)}
                       </span>
                       <small>
                         Rank {row.unit.rank} · {row.reason}
@@ -689,7 +690,7 @@ export function VehicleCalculator({
                     </span>
                     {editingCosts && (
                       <input
-                        aria-label={`${row.unit.name} 完整基础 RP`}
+                        aria-label={`${vehicleDisplayName(row.unit.name)} 完整基础 RP`}
                         type="number"
                         min="0"
                         max="10000000"

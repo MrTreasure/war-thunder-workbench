@@ -1,3 +1,4 @@
+import { vehicleDisplayName } from "./vehicle-display-name";
 import { useEffect, useMemo, useRef } from "react";
 import type { CSSProperties } from "react";
 import type { Catalog, Mode, Tree, TreeNode, Vehicle } from "./models";
@@ -76,7 +77,7 @@ export function VehicleCard({
     <button
       className={`vehicle-card ${selected ? "is-selected" : ""}`}
       onClick={onSelect}
-      aria-label={`${unit.name}，Rank ${unit.rank}，查看研发信息`}
+      aria-label={`${vehicleDisplayName(unit.name)}，Rank ${unit.rank}，查看研发信息`}
     >
       <img
         src={unit.thumbnailUrl}
@@ -89,8 +90,8 @@ export function VehicleCard({
         }}
       />
       <span className="unit-role">{catalog.roles[unit.role || ""] || "常规载具"}</span>
-      <span className="unit-name" title={unit.name}>
-        {unit.name}
+      <span className="unit-name" title={vehicleDisplayName(unit.name)}>
+        {vehicleDisplayName(unit.name)}
       </span>
       <span className="unit-meta">
         <span

@@ -1,3 +1,4 @@
+import { vehicleDisplayName } from "./vehicle-display-name";
 import { updateSearchMetadata } from "./search-metadata";
 import { GameSelect } from "./components/GameSelect";
 import { Component, createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
@@ -499,7 +500,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                   <div className="search-results">
                     {matches.slice(0, 9).map((unit) => (
                       <button key={unit.id} onClick={() => select(unit.id, true)}>
-                        <span>{unit.name}</span>
+                        <span>{vehicleDisplayName(unit.name)}</span>
                         <small>Rank {unit.rank}</small>
                       </button>
                     ))}
@@ -732,7 +733,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                 target="_blank"
                 rel="noreferrer"
               >
-                {unit.name} <span aria-hidden="true">↗</span>
+                {vehicleDisplayName(unit.name)} <span aria-hidden="true">↗</span>
               </a>
             }
           >
@@ -740,7 +741,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
               <button
                 className="detail-image"
                 onClick={() => setModal("image")}
-                aria-label={`放大查看 ${unit.name} 官方图片`}
+                aria-label={`放大查看 ${vehicleDisplayName(unit.name)} 官方图片`}
               >
                 <VehicleImage key={unit.id} unit={unit} />
                 <span className="detail-image-hint">点击放大 ⛶</span>
@@ -780,7 +781,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                       const previous = indexed.units.get(id);
                       return previous ? (
                         <li key={id}>
-                          {previous.name}
+                          {vehicleDisplayName(previous.name)}
                           <small>
                             {rpText(previous)} · Rank {previous.rank}
                           </small>
@@ -817,7 +818,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       {modal === "image" && unit && (
         <Modal
           className="vehicle-image-modal"
-          title={unit.name}
+          title={vehicleDisplayName(unit.name)}
           subtitle="官方载具大图"
           close={() => setModal(null)}
         >

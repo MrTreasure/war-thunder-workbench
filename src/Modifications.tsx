@@ -1,3 +1,4 @@
+import { vehicleDisplayName } from "./vehicle-display-name";
 import { GameSelect } from "./components/GameSelect";
 import { useState } from "react";
 import type { CartItem, Catalog, Modifications, Tree, Vehicle } from "./models";
@@ -63,7 +64,7 @@ export function ModificationCalculator({
                     .filter((u) => u.rank === rank.rank)
                     .map((u) => (
                       <option key={u.id} value={u.id}>
-                        {u.name}
+                        {vehicleDisplayName(u.name)}
                         {u.side === "special" ? " · 独立获取" : ""}
                       </option>
                     ))}
@@ -149,7 +150,7 @@ function PartsForm({
     save({ ...state, ...patch });
   };
   const report = [
-    `${catalog.countries[country]} / ${catalog.categories[category]} · ${unit.name} 配件研发`,
+    `${catalog.countries[country]} / ${catalog.categories[category]} · ${vehicleDisplayName(unit.name)} 配件研发`,
     `完整基础配件 RP：${base === null ? "未知" : format(base)}`,
     `已完成配件 RP：${format(completed)}`,
     `其他已投入 RP：${progress === null ? "无效" : format(progress)}`,
@@ -263,7 +264,7 @@ function PartsForm({
                 add(
                   makeItem({
                     kind: "modifications",
-                    title: `${unit.name} · 配件研发`,
+                    title: `${vehicleDisplayName(unit.name)} · 配件研发`,
                     dataVersion: data?.checkedAt || catalog.checkedAt,
                     lines,
                     details: report,
