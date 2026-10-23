@@ -574,6 +574,7 @@ function GroundDetail({
               ),
             )}
             <MapEditor
+              drawingView={{ x, y, w, h, crop, contours, grid, points }}
               key={`${map.id}:${layout.id}:${team}`}
               ref={editorRef}
               active={editing}

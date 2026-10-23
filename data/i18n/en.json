@@ -1930,5 +1930,7 @@
   "公共资料版本无效。": "Invalid public data version.",
   "公共资料暂时无法读取。": "Public data cannot be loaded right now.",
   "不支持的公共资料类型。": "Unsupported public data type.",
-  "载具目录格式异常。": "Invalid vehicle catalog format."
+  "载具目录格式异常。": "Invalid vehicle catalog format.",
+  "底图素材加载失败，绘制数据仍可查看。": "Base map assets failed to load. Annotations are still available.",
+  "{0} · {1} · 队伍 {2}走线预览": "{0} · {1} · Team {2} route preview"
 }
