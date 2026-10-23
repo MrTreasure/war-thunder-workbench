@@ -1,3 +1,5 @@
+import reportAssets from "../data/player-report-assets.json";
+import { loadVehicleSymbols } from "./vehicle-symbol-font";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { statsCountryFlag } from "./stats-country";
 import { reportStyle } from "./player-report-style";
@@ -27,7 +29,6 @@ import type { StatsReport, Background } from "./player-stats-api";
 export async function downloadStatsReport(
   report: StatsReport,
   background: Background,
-  armyBase: string,
   theme: ReportTheme,
   signal: AbortSignal,
 ) {
@@ -52,7 +53,7 @@ export async function downloadStatsReport(
   )));
   const armies = await Promise.all(
     (p.career?.branches || p.branches).map(async (branch) => {
-      const response = await fetch(statsArmyIcon(armyBase, branch.id), {
+      const response = await fetch(statsArmyIcon(reportAssets.armyBase, branch.id), {
         credentials: "omit",
         signal: AbortSignal.any([signal, AbortSignal.timeout(30000)]),
       });
@@ -70,6 +71,7 @@ export async function downloadStatsReport(
   );
   const font = new FontFace("WTReport", `url("${fontUrl}")`, { weight: "700" });
   document.fonts.add(await font.load());
+    await loadVehicleSymbols();
   await document.fonts.ready;
   if (signal.aborted) return;
   const canvas = document.createElement("canvas");
@@ -125,7 +127,7 @@ export async function downloadStatsReport(
     );
   }
   function text(value: string, x: number, y: number, size = 30, color = white, weight = 400) {
-    ctx!.font = `${weight} ${size}px ${weight === 700 ? "WTReport," : ""} sans-serif`;
+    ctx!.font = `${weight} ${size}px WTSymbols, ${weight === 700 ? "WTReport," : ""} sans-serif`;
     ctx!.fillStyle = color;
     ctx!.fillText(value, x, y);
   }
@@ -154,7 +156,7 @@ export async function downloadStatsReport(
     return y;
   }
   function shorten(value: string, maxWidth: number, size: number, weight = 400) {
-    ctx!.font = `${weight} ${size}px ${weight === 700 ? "WTReport," : ""} sans-serif`;
+    ctx!.font = `${weight} ${size}px WTSymbols, ${weight === 700 ? "WTReport," : ""} sans-serif`;
     if (ctx!.measureText(value).width <= maxWidth) return value;
     const letters = Array.from(value);
     while (letters.length && ctx!.measureText(letters.join("") + "…").width > maxWidth)

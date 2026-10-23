@@ -1,3 +1,4 @@
+import { loadVehicleSymbols } from "./vehicle-symbol-font";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import fontUrl from "./assets/RobotoCondensed-Bold.ttf?url";
 import { statsCountryFlag } from "./stats-country";
@@ -15,6 +16,7 @@ async function loadFont() {
   fontReady ||= (async () => {
     const font = new FontFace("WTCard", `url("${fontUrl}")`, { weight: "700" });
     document.fonts.add(await font.load());
+    await loadVehicleSymbols();
   })().catch((error) => {
     fontReady = undefined;
     throw error;

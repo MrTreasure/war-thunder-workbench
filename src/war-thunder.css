@@ -228,7 +228,7 @@
   color: #84929c;
 }
 .rank-label b {
-  font-family: WTCondensed, var(--wt-sans);
+  font-family: WTSymbols, WTCondensed, var(--wt-sans);
   font-weight: 700;
   font-size: 27px;
   color: #b7c0c5;
@@ -439,7 +439,7 @@
 }
 .calc-metrics strong {
   color: #e5c88a;
-  font-family: WTCondensed, var(--wt-mono);
+  font-family: WTSymbols, WTCondensed, var(--wt-mono);
   font-weight: 700;
   letter-spacing: 0.4px;
 }

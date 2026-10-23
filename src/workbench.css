@@ -1,6 +1,13 @@
+/* Official Wiki symbol font: restricted to game markers, never ordinary text. */
+@font-face {
+  font-family: WTSymbols;
+  src: url("./assets/WTSymbols.ttf") format("truetype");
+  font-display: block;
+  unicode-range: U+22E0,U+2417,U+2419,U+2420,U+2580,U+2582-2585,U+25C4,U+25CA-25CD,U+25D0,U+25D4,U+25D7-25D8,U+25E1-25E2,U+25E5,U+F059;
+}
 /* finesse · register=product · A=graphite+seafoam+semantic-gold · B=system-sans+mono · C=research-canvas+separate-premium · D=state-feedback · E=matte · SOUL=6 SPECTACLE=2 DENSITY=9 */
 :root {
-  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: WTSymbols, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   color-scheme: dark;
   --wt-page: #121818;
   --wt-surface: #192121;
@@ -19,8 +26,8 @@
   --wt-gold-line: rgba(226, 195, 138, 0.25);
   --wt-wire: #668477;
   --wt-shadow: 0 12px 40px rgba(5, 23, 18, 0.28);
-  --wt-sans: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --wt-mono: "SFMono-Regular", Consolas, monospace;
+  --wt-sans: WTSymbols, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --wt-mono: WTSymbols, "SFMono-Regular", Consolas, monospace;
   color: var(--wt-ink);
   background: var(--wt-page);
 }

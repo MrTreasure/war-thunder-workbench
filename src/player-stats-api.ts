@@ -1,4 +1,5 @@
 import settings from "./config/player-stats.json";
+import branding from "../data/branding.json";
 import reportAssets from "../data/player-report-assets.json";
 import type { ReportStyle } from "./player-report-style";
 export type Ratio = number | "∞" | null;
@@ -305,23 +306,39 @@ export async function prepareStatsDevice(signal?: AbortSignal) {
   }
 }
 export async function reportImage(kind: string, key: string, signal: AbortSignal) {
-  const proxy = settings.apiBaseUrl + "/media/" + kind + "/" + encodeURIComponent(key);
-  const sources =
-    kind === "vehicle" && /^[a-zA-Z0-9_-]+$/.test(key)
-      ? [
-          "https://static.encyclopedia.warthunder.com/images/" + encodeURIComponent(key) + ".png",
-          proxy,
-        ]
-      : [proxy];
+  let sources: string[] = [];
+  let expected: { bytes: number; sha256: string } | undefined;
+  if (kind === "background" || kind === "flag") {
+    const { default: staticAssets } = await import("../data/player-report-static-assets.json");
+    const entries = staticAssets.assets[kind] as Record<string, { url: string; fallbackUrl: string; bytes: number; sha256: string }>;
+    const entry = entries[key];
+    if (entry) { sources = [entry.url, entry.fallbackUrl]; expected = entry; }
+  } else if (kind === "vehicle" && /^[a-zA-Z0-9_-]+$/.test(key)) {
+    sources = ["https://static.encyclopedia.warthunder.com/images/" + encodeURIComponent(key) + ".png"];
+  } else if (kind === "avatar" && /^cardicon_[A-Za-z0-9_]{1,100}$/.test(key)) {
+    sources = [reportAssets.avatarBase + key + ".png"];
+  } else if (kind === "logo" && key === "wt") {
+    const logo = branding.assets.find(asset => asset.id === "logo");
+    if (logo) sources = [logo.source];
+  } else if (kind === "currency" && key === "sl") {
+    sources = [reportAssets.silverLionsIcon];
+  }
+  // Browser-only image reads. Never attach account credentials or fall back to NAS.
   for (const source of sources) {
     try {
       const response = await fetch(source, {
-        ...(source === proxy ? { headers: statsHeaders() } : {}),
+        cache: "force-cache",
         credentials: "omit",
         signal: AbortSignal.any([signal, AbortSignal.timeout(30000)]),
       });
       if (!response.ok) throw new Error("图片读取失败");
       let blob = await response.blob();
+      if (expected) {
+        const bytes = await blob.arrayBuffer();
+        const hash = Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", bytes)))
+          .map(value => value.toString(16).padStart(2, "0")).join("");
+        if (bytes.byteLength !== expected.bytes || hash !== expected.sha256) throw new Error("图片素材校验失败");
+      }
       if (kind === "currency" && blob.type.includes("svg")) {
         // Preserve the original game's vector geometry; rasterize above export size.
         const svg = new DOMParser().parseFromString(await blob.text(), "image/svg+xml");
