@@ -16,7 +16,7 @@ export function validLeaderboards(value: unknown): value is LeaderboardData {
   if (!value || typeof value !== "object") return false;
   const data = value as LeaderboardData;
   return (
-    data.contentSafetyVersion === "content-safety-v2" &&
+    data.contentSafetyVersion === "content-safety-v3" &&
     data.schemaVersion === 1 &&
     Array.isArray(data.boards) &&
     data.boards.length === 6 &&

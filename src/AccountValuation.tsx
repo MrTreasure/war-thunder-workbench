@@ -116,8 +116,23 @@ export type Valuation = {
 };
 export function valuationMoney(cents: number | null, symbol = "¥") {
   if (cents == null || !Number.isSafeInteger(cents)) return "待核价";
-  const n = BigInt(cents);
-  return `${symbol}${(n / 100n).toLocaleString(getLocale())}${decimalSeparator()}${String(n % 100n).padStart(2, "0")}`;
+  const value = BigInt(cents);
+  const absolute = value < 0n ? -value : value;
+  return `${symbol}${value < 0n ? "-" : ""}${(absolute / 100n).toLocaleString(getLocale())}${decimalSeparator()}${String(absolute % 100n).padStart(2, "0")}`;
+}
+function valuationTotal(cents: number | null) {
+  if (cents == null || !Number.isSafeInteger(cents)) return "待核价";
+  const value = BigInt(cents);
+  const rounded = value < 0n ? -((-value + 50n) / 100n) : (value + 50n) / 100n;
+  return `¥${rounded.toLocaleString(getLocale())}`;
+}
+function valuationUnitPrice(cents: number) {
+  if (!Number.isSafeInteger(cents) || cents < 0) return "待核价";
+  const value = BigInt(cents);
+  const fraction = String(value % 100n)
+    .padStart(2, "0")
+    .replace(/0+$/, "");
+  return `¥${(value / 100n).toLocaleString(getLocale())}${fraction ? decimalSeparator() + fraction : ""}`;
 }
 function VehicleArt({ item, compact = false }: { item: Item; compact?: boolean }) {
   useLocale();
@@ -649,7 +664,7 @@ export function AccountValuation({
           ) : value ? (
             <>
               {t("账号估值")}
-              <b>{localize(valuationMoney(value.scenarios.normal.knownCents))}</b>
+              <b>{localize(valuationTotal(value.scenarios.normal.knownCents))}</b>
               <span aria-hidden="true">›</span>
             </>
           ) : (
@@ -727,7 +742,7 @@ export function AccountValuation({
                     onClick={() => setScenarioKey(key)}
                   >
                     <span>{localize(valuationRules.scenarios[key].label)}</span>
-                    <strong>{localize(valuationMoney(value.scenarios[key].knownCents))}</strong>
+                    <strong>{localize(valuationTotal(value.scenarios[key].knownCents))}</strong>
                   </button>
                 )),
               )}
@@ -740,7 +755,7 @@ export function AccountValuation({
                       {localize(valuationRules.scenarios[scenarioKey].label)} · CNY
                     </span>
                     <strong className="wt-valuation-amount">
-                      {localize(valuationMoney(selectedScenario.knownCents))}
+                      {localize(valuationTotal(selectedScenario.knownCents))}
                     </strong>
                     <output className="wt-valuation-price-status">
                       {localize(
@@ -753,13 +768,14 @@ export function AccountValuation({
                       <div>
                         <dt>{t("陆战 / 直升机")}</dt>
                         <dd>
-                          {localize(valuationMoney(selectedRule.rpCents.ground))} {t("/ 万 RP")}
+                          {localize(valuationUnitPrice(selectedRule.rpCents.ground))} {t("/ 万 RP")}
                         </dd>
                       </div>
                       <div>
                         <dt>{t("飞机")}</dt>
                         <dd>
-                          {localize(valuationMoney(selectedRule.rpCents.aviation))} {t("/ 万 RP")}
+                          {localize(valuationUnitPrice(selectedRule.rpCents.aviation))}{" "}
+                          {t("/ 万 RP")}
                         </dd>
                       </div>
                       <div>

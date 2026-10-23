@@ -1923,5 +1923,6 @@
   "用户名": "Username",
   "2–32 个字符，保存时检查重名和内容安全。": "2–32 characters. Checked for availability and content safety when saved.",
   "保存": "Save",
-  "修改用户名": "Change username"
+  "修改用户名": "Change username",
+  "2–32 个字符，支持 #、@、☆ 等可见符号；保存时检查重名和内容安全。": "2–32 characters, including visible symbols such as #, @ and ☆. Checked for duplicate names and content safety when saved."
 }
