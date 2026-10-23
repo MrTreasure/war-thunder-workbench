@@ -2,7 +2,7 @@
 
 给《战争雷霆》玩家做的一个中文小工具：查科技树、算研发、搭队列，也能看陆战地图、画自己的战术走线、查生涯战绩、查看完整车库、计算账号参考价值、生成个人战报，以及关注想买的载具、等合适的折扣。
 
-**[正式站（QMuse） →](https://render.qmuse.pub/p/muse/8645013411493394)** · **[国际站 →](https://wt.mrtreasure.cc/)** · **[个人战绩与车库 →](https://render.qmuse.pub/p/muse/8645013411493394#/stats)** · **[陆战地图与走线绘制 →](https://render.qmuse.pub/p/muse/8645013411493394#/maps)** · **[折扣日历 →](https://render.qmuse.pub/p/muse/8645013411493394#/sales)** · [更新预览](https://render.mrtreasure.cc/war-thunder-trees/) · [功能介绍](#功能介绍)
+**[正式站（QMuse） →](https://render.qmuse.pub/p/muse/8645013411493394)** · **[国际站 →](https://wt.mrtreasure.cc/)** · **[个人战绩与车库 →](https://render.qmuse.pub/p/muse/8645013411493394#/stats)** · **[陆战地图与走线绘制 →](https://render.qmuse.pub/p/muse/8645013411493394#/maps)** · **[折扣日历 →](https://render.qmuse.pub/p/muse/8645013411493394#/sales)** · [功能介绍](#功能介绍)
 
 ![中国陆军科技树](docs/screenshots/tree.png)
 
