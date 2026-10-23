@@ -1,12 +1,25 @@
 import { vehicleDisplayName } from "../vehicle-display-name";
-import messages from "../../data/i18n.json";
+import sourceMessages from "../../data/i18n/zh-CN.json";
+import englishMessages from "../../data/i18n/en.json";
+import russianMessages from "../../data/i18n/ru.json";
+import japaneseMessages from "../../data/i18n/ja.json";
 import { localeAppPath, pathLocale } from "./urls";
 
-export type Locale = "zh-CN" | "en" | "ru";
-export const locales: readonly Locale[] = ["zh-CN", "en", "ru"];
+export type Locale = "zh-CN" | "en" | "ru" | "ja";
+export const locales: readonly Locale[] = ["zh-CN", "en", "ru", "ja"];
 const key = "wt-language-v1";
 const listeners = new Set<() => void>();
-const dictionary = messages as Record<string, readonly string[]>;
+const translations: Record<string, Record<string, string>> = {
+  en: englishMessages,
+  ru: russianMessages,
+  ja: japaneseMessages,
+};
+const dictionary: Record<string, readonly string[]> = Object.fromEntries(
+  Object.keys(sourceMessages).map((source) => [
+    source,
+    [translations.en[source], translations.ru[source], translations.ja[source]],
+  ]),
+);
 const validLocale = (value: unknown): value is Locale => locales.includes(value as Locale);
 function browserLocale(): Locale {
   if (typeof navigator === "undefined") return "zh-CN";
@@ -14,7 +27,7 @@ function browserLocale(): Locale {
   for (const language of preferred) {
     const base = language?.trim().toLowerCase().split(/[-_]/)[0];
     if (base === "zh") return "zh-CN";
-    if (base === "en" || base === "ru") return base;
+    if (base === "en" || base === "ru" || base === "ja") return base;
   }
   return "zh-CN";
 }
@@ -102,24 +115,36 @@ const patterns = Object.entries(dictionary)
     (a, b) => b.source.replace(/\{\d+\}/g, "").length - a.source.replace(/\{\d+\}/g, "").length,
   );
 // Some public providers return English labels. Translate only unambiguous known labels.
-const englishLabels = new Map<string, string | null>();
-for (const [source, [english, russian]] of Object.entries(dictionary)) {
+const englishLabels = {
+  ru: new Map<string, string | null>(),
+  ja: new Map<string, string | null>(),
+};
+for (const [source, [english, russian, japanese]] of Object.entries(dictionary)) {
   if (/\{\d+\}/.test(source) || !english.trim()) continue;
   const key = english.trim();
-  const previous = englishLabels.get(key);
-  englishLabels.set(key, previous === undefined || previous === russian ? russian : null);
+  for (const [target, value] of [
+    ["ru", russian],
+    ["ja", japanese],
+  ] as const) {
+    const previous = englishLabels[target].get(key);
+    englishLabels[target].set(key, previous === undefined || previous === value ? value : null);
+  }
 }
-const caches = { en: new Map<string, string>(), ru: new Map<string, string>() };
+const caches = {
+  en: new Map<string, string>(),
+  ru: new Map<string, string>(),
+  ja: new Map<string, string>(),
+};
 function translated(source: string): string {
   if (locale === "zh-CN") return source;
-  const column = locale === "en" ? 0 : 1;
+  const column = locale === "en" ? 0 : locale === "ru" ? 1 : 2;
   const cache = caches[locale];
   const cached = cache.get(source);
   if (cached !== undefined) return cached;
   const trimmed = source.trim().replace(/\s+/g, " ");
   let result =
     dictionary[trimmed]?.[column] ??
-    (locale === "ru" ? (englishLabels.get(trimmed) ?? undefined) : undefined);
+    (locale !== "en" ? (englishLabels[locale].get(trimmed) ?? undefined) : undefined);
   if (result === undefined && !/\p{Script=Han}/u.test(source)) return source;
   if (result === undefined) {
     for (const pattern of patterns) {
@@ -154,12 +179,19 @@ export function localize<T>(value: T): T {
   if (Array.isArray(value)) return value.map((entry: unknown) => localize(entry)) as T;
   return value;
 }
-type Named = { name: string; nameEn?: string; nameRu?: string | null; english?: string };
+type Named = {
+  name: string;
+  nameEn?: string;
+  nameRu?: string | null;
+  nameJa?: string | null;
+  english?: string;
+};
 export function vehicleName(value: Named): string;
 export function vehicleName(value: Named | null | undefined): string | undefined;
 export function vehicleName(value: Named | null | undefined): string | undefined {
   if (!value) return undefined;
   if (locale === "zh-CN") return vehicleDisplayName(value.name);
+  const japanese = typeof value.nameJa === "string" && value.nameJa ? value.nameJa : undefined;
   const russian = typeof value.nameRu === "string" && value.nameRu ? value.nameRu : undefined;
   const english =
     typeof value.nameEn === "string" && value.nameEn
@@ -167,7 +199,11 @@ export function vehicleName(value: Named | null | undefined): string | undefined
       : typeof value.english === "string"
         ? value.english
         : undefined;
-  return vehicleDisplayName((locale === "ru" ? russian : undefined) || english || t(value.name));
+  return vehicleDisplayName(
+    (locale === "ja" ? japanese : locale === "ru" ? russian : undefined) ||
+      english ||
+      t(value.name),
+  );
 }
 
 export const decimalSeparator = () =>
@@ -179,7 +215,15 @@ export const monthLabel = (year: number, month: number) =>
   );
 /** Search every verified name, regardless of the current display language. */
 export function vehicleSearchText(value: Named & { id?: string }) {
-  return [vehicleDisplayName(value.name), value.name, value.nameEn, value.nameRu, value.english, value.id]
+  return [
+    vehicleDisplayName(value.name),
+    value.name,
+    value.nameEn,
+    value.nameRu,
+    value.nameJa,
+    value.english,
+    value.id,
+  ]
     .filter((entry): entry is string => typeof entry === "string")
     .join(" ");
 }

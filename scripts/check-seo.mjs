@@ -3,6 +3,7 @@ import { readFile, readdir } from "node:fs/promises";
 import { parseHTML, DOMParser } from "linkedom";
 const root = new URL("../", import.meta.url);
 const config = JSON.parse(await readFile(new URL("data/site-seo.json", root), "utf8"));
+const japanese = JSON.parse(await readFile(new URL("data/i18n/ja.json", root), "utf8"));
 const base = new URL(process.env.WT_SITE_URL || config.siteUrl);
 if (!base.pathname.endsWith("/")) base.pathname += "/";
 const url = (path = "") => new URL(path, base).href;
@@ -89,13 +90,25 @@ for (const [canonical, page] of expected) {
     assert(document.querySelector('meta[name="wt-localized-entries"]'));
     assert.equal(document.querySelectorAll('script[type="module"][src]').length, 1);
     assert(document.querySelector("#root").textContent.includes(page.locale.intro));
-    if (page.lang !== "zh-CN") {
+    if (page.lang !== "zh-CN" && page.lang !== "ja") {
       const startup = document.querySelector("#root").cloneNode(true);
       startup.querySelector(".wt-seo-help")?.remove();
       assert(
         !/\p{Script=Han}/u.test(startup.textContent),
         `Untranslated startup screen: ${canonical}`,
       );
+    }
+    if (page.lang === "ja") {
+      function checkJapanese(node) {
+        if (node.nodeType === 3) {
+          const text = node.textContent.trim().replace(/\s+/g, " ");
+          assert(
+            !japanese[text] || japanese[text] === text,
+            `Untranslated Japanese startup: ${text}`,
+          );
+        } else for (const child of node.childNodes) checkJapanese(child);
+      }
+      checkJapanese(document.querySelector("#root"));
     }
     assert(!/country-[^"<>]*\.js/.test(html), "Country payload must stay lazy");
   } else {

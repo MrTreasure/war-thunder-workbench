@@ -39,7 +39,7 @@ export function updateSearchMetadata(page: string) {
   setMeta("name", "twitter:description", zh.description);
   setMeta("name", "twitter:image", seo.imageUrl);
   if (!qmuse) {
-    for (const lang of ["zh-CN", "en", "ru", "x-default"] as const) {
+    for (const lang of ["zh-CN", "en", "ru", "ja", "x-default"] as const) {
       let alternate = document.head.querySelector<HTMLLinkElement>(
         `link[rel="alternate"][hreflang="${lang}"]`,
       );

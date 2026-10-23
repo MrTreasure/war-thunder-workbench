@@ -175,10 +175,134 @@
   overflow-wrap: anywhere;
 }
 
-.wt-site-guide { max-width: 1100px; padding-top: 16px; border-top: 1px solid var(--wt-line); font-size: 12px; line-height: 1.7; color: var(--wt-muted); }
-.wt-site-guide p { max-width: 800px; margin: 0 0 10px; }
-.wt-site-guide nav, .wt-site-guide > div { display: flex; flex-wrap: wrap; gap: 8px 20px; }
-.wt-site-guide a { color: var(--wt-gold); text-underline-offset: 3px; overflow-wrap: anywhere; }
-.wt-site-guide > div { margin-top: 10px; }
-.wt-site-guide a:focus-visible { outline: 2px solid var(--wt-gold); outline-offset: 3px; }
-@media (max-width: 800px) { .wt-site-guide a { display: inline-flex; align-items: center; min-height: 44px; } }
+.wt-site-guide {
+  max-width: 1100px;
+  padding-top: 16px;
+  border-top: 1px solid var(--wt-line);
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--wt-muted);
+}
+.wt-site-guide p {
+  max-width: 800px;
+  margin: 0 0 10px;
+}
+.wt-site-guide nav,
+.wt-site-guide > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+.wt-site-guide a {
+  color: var(--wt-gold);
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+.wt-site-guide > div {
+  margin-top: 10px;
+}
+.wt-site-guide a:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 3px;
+}
+@media (max-width: 800px) {
+  .wt-site-guide a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+
+/* Flat War Thunder language menu: native names and a cyan selection rail. */
+.wt-language-control .wt-language-select.wt-select {
+  width: 94px;
+  padding-inline: 8px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #eef2f4;
+  box-shadow: none;
+  font-weight: 400;
+}
+.wt-language-control .wt-language-select.wt-select:is(:hover, :active, [aria-expanded="true"]) {
+  background: #1b252e;
+  border: 0;
+  box-shadow: none;
+}
+.wt-language-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+.wt-language-flag {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  font-size: 23px;
+  line-height: 1;
+  width: 28px;
+  text-align: center;
+}
+.wt-language-code {
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+.wt-language-name {
+  font-size: 17px;
+}
+.wt-language-menu.wt-select-menu {
+  width: min(254px, calc(100vw - 16px));
+  padding: 8px 0;
+  border: 1px solid #35414b;
+  border-radius: 0;
+  background: #1b252e;
+  color: #c4c9cd;
+  box-shadow: 0 8px 24px #0004;
+}
+.wt-language-menu .wt-select-option {
+  min-height: 52px;
+  padding: 10px 20px;
+  border: 0;
+  border-left: 3px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  box-shadow: none;
+}
+.wt-language-menu .wt-select-option:is(:hover, :focus-visible) {
+  background: #25333e;
+  color: #fff;
+}
+.wt-language-menu .wt-select-option[aria-selected="true"] {
+  border-left-color: #27e5d7;
+  color: #27e5d7;
+  background: #1d2a33;
+}
+.wt-language-menu .wt-select-check {
+  display: none;
+}
+@media (max-width: 800px) {
+  .wt-language-control .wt-language-select.wt-select {
+    width: 78px;
+    padding-inline: 4px;
+    gap: 4px;
+  }
+  .wt-language-control .wt-language-label {
+    gap: 5px;
+  }
+  .wt-language-control .wt-language-flag {
+    font-size: 20px;
+    width: 24px;
+  }
+  .wt-language-control .wt-language-code {
+    font-size: 12px;
+  }
+}
+.wt-language-menu .wt-select-option[data-active="true"] {
+  background: #25333e;
+  outline: 1px solid #66818f;
+  outline-offset: -2px;
+}
+.wt-language-menu .wt-select-option[aria-selected="true"][data-active="true"] {
+  color: #27e5d7;
+  border-left-color: #27e5d7;
+}

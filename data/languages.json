@@ -1,0 +1,6 @@
+{
+  "zh-CN": { "code": "ZH", "name": "中文", "flag": "🇨🇳" },
+  "en": { "code": "EN", "name": "English", "flag": "🇬🇧" },
+  "ru": { "code": "RU", "name": "Русский", "flag": "🇷🇺" },
+  "ja": { "code": "JA", "name": "日本語", "flag": "🇯🇵" }
+}

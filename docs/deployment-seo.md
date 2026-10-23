@@ -2,25 +2,22 @@
 
 ## 目标与命令
 
-2026-10-23 用户明确约定：战雷正式站是独立 Workers，不套用共享 Render 正式地址约定。Render 只作预览；wt 不跳转到 Render。
+2026-10-23 用户明确约定：正式站为既有 QMuse 应用，国际站为独立 Workers Static Assets。国际站保持自己的域名，不重定向到其他部署。
 
 - SEO 主站：`https://wt.mrtreasure.cc/`。
-- QMuse 分发入口：`https://render.qmuse.pub/p/muse/8645013411493394`。
-- 验收预览使用 `https://render.mrtreasure.cc/war-thunder-trees/`，使用 `noindex`；旧 `/muse/war-thunder-trees/` 仅作兼容跳转。
+- QMuse 正式站：`https://render.qmuse.pub/p/muse/8645013411493394`。
 - 后端继续通过既有 `api.mrtreasure.cc` Cloudflare Tunnel 提供服务。CF 上传内容仅为已验证的静态构建，不包含后端、凭据、研究目录或原始数据 JSON。
 
 ```sh
 pnpm run deploy:cf --dry-run
 pnpm run deploy:qmuse --dry-run
-pnpm run deploy:preview --dry-run
 
 # 预览确认后，执行对应命令才会真正发布
 pnpm run deploy:cf
 pnpm run deploy:qmuse
-pnpm run deploy:preview
 ```
 
-三个命令均执行 `check`、`build`。CF dry run 生成本地上传目录并通过 Wrangler 校验；QMuse dry run 检查构建与现有绑定，不调用平台。QMuse 命令使用固定版本 CLI，先导入绑定应用，再正式发布 READY 版本，最后核对线上 `appVersionId`。导入成功本身不代表已发布。失败时保留部署 ID，避免重复创建部署。`.qmuse/project.json` 只由 CLI 更新，发布命令不改绑定。
+两个部署命令均执行 `check`、`build`。CF dry run 生成本地上传目录并通过 Wrangler 校验；QMuse dry run 检查构建与现有绑定，不调用平台。QMuse 命令使用固定版本 CLI，先导入绑定应用，再正式发布 READY 版本，最后核对线上 `appVersionId`。导入成功本身不代表已发布。失败时保留部署 ID，避免重复创建部署。`.qmuse/project.json` 只由 CLI 更新，发布命令不改绑定。
 
 `pnpm run import:qmuse` 仍仅导入，不等同于 `deploy:qmuse`。
 
@@ -42,7 +39,7 @@ pnpm run deploy:preview
 1. 在管理 `mrtreasure.cc` 的 Cloudflare 账号完成 `pnpm exec wrangler login`，或由运行环境提供最小权限的 `CLOUDFLARE_API_TOKEN`、`CLOUDFLARE_ACCOUNT_ID`。凭据遵循本机 credentials skill，只存密码本或授权的运行环境，不写入仓库。首次发布会创建名为 `war-thunder-workbench` 的静态 Worker 并绑定指定域名；先确认没有同名服务或该域名已有业务。
 2. 为现有 stats 服务增加精确 CORS origin `https://wt.mrtreasure.cc`；在后端授权返回 URL allowlist 增加 **`https://wt.mrtreasure.cc/`**。既有 QMuse 和预览入口继续保留。不要开放任意子域、通配符返回 URL 或公网 NAS 端口。部署脚本实际检查预检响应与不发送邮件、不登录的短期授权开始请求，缺少权限时停止。
 3. Turnstile 继续运行在 `api.mrtreasure.cc` 登录窗口，登录入口不迁到 NAS，也不需要放宽 Turnstile hostname。人工验收访客访问、查询、主动登录、弹窗返回、退出、地图导出和国家模块懒加载。
-4. `deploy:cf` 直接发布独立 `war-thunder-workbench` Worker 和 `wt.mrtreasure.cc` 自定义域名。`deploy:preview` 使用现有兼容发布输入及共享 Render 同步器，禁止拿 Render 发布替代正式 Worker 部署。正式发布完成后核对公网 HTML、JS、CSS 和 sitemap；只有构建或预演成功不能宣称正式站可用。
+4. `deploy:cf` 更新既有 `war-thunder-workbench` Worker 和 `wt.mrtreasure.cc` 国际站，正式站 QMuse 另行授权。发布后检查公网 HTML、JS、CSS 和 sitemap；本地构建成功不等于已上线。
 
 CF 公网部署校验使用 HTTP/2，并仅在 DNS、TLS、超时或传输中断时尝试该域名发布的其他 IPv4 地址；保留原 URL、SNI 与证书校验，不修改系统 DNS，HTTP 拒绝不会被重试掩盖。`deploy:cf --verify-only` 可以复核已发布版本，不重复上传或创建登录请求。
 
@@ -50,29 +47,29 @@ CF 公网部署校验使用 HTTP/2，并仅在 DNS、TLS、超时或传输中断
 
 ## SEO 实现与边界
 
-`data/site-seo.json` 保存三语正式文案。构建生成：
+`data/site-seo.json` 保存四语正式文案。构建生成：
 
 - `/`：中立入口，保留首次按浏览器语言选择和用户手动偏好，不自动跳转；作为语言组的 `x-default`。
-- `/zh/`、`/en/`、`/ru/`：固定语言的真实应用入口。首次 HTTP 响应直接提供该语言的首屏正文、标题、description、canonical、OG/Twitter 和 WebApplication JSON-LD。语言路径优先于 query、存储及浏览器语言，不按爬虫 UA 另行返回内容。切换语言保留当前 hash 页面、查询参数、TanStack history state 和草稿。
-- `/about/zh/`、`/about/en/`、`/about/ru/`：无需 JavaScript 的完整功能说明，包含六类工具、实际操作步骤、FAQ、来源与语言支持说明。
-- `/about/{zh|en|ru}/{stats|research|maps|account-value|lineups|sales}/`：18 个功能说明页，提供各自标题、摘要、相关操作步骤与实际工具入口；语言切换保持当前功能对应关系。
+- `/zh/`、`/en/`、`/ru/`、`/ja/`：固定语言的真实应用入口。首次 HTTP 响应直接提供该语言的首屏正文、标题、description、canonical、OG/Twitter 和 WebApplication JSON-LD。语言路径优先于 query、存储及浏览器语言，不按爬虫 UA 另行返回内容。切换语言保留当前 hash 页面、查询参数、TanStack history state 和草稿。
+- `/about/zh/`、`/about/en/`、`/about/ru/`、`/about/ja/`：无需 JavaScript 的完整功能说明，包含六类工具、实际操作步骤、FAQ、来源与语言支持说明。
+- `/about/{zh|en|ru|ja}/{stats|research|maps|account-value|lineups|sales}/`：24 个功能说明页，提供各自标题、摘要、相关操作步骤与实际工具入口；语言切换保持当前功能对应关系。
 - 所有语言组均有自引用 canonical、双向 hreflang、`x-default`、对应 `lang` 与 JSON-LD `inLanguage`，可见链接连接应用、介绍与功能页。应用仍使用 hash 管理工具状态，不将用户战绩结果或私有草稿生成索引页。
-- `/sitemap.xml`：列出 25 个真实 URL，不包含查询串、hash、用户查询结果或私人方案。静态说明页仅使用正文实际修订日期作为 `lastmod`；应用入口不伪造每日更新时间。
-- `/robots.txt`：允许公开页抓取并声明 sitemap。未知 URL 返回真正 404，404 页设置 noindex；Render 预览所有页面 noindex。robots 不代替认证或授权。
-- `/llms.txt` 与所有说明页的 `index.md`：更新三语应用与功能入口、数据来源和限制。不暴露写入接口、用户查询、凭据或内部实现。`llms.txt` 是辅助约定，不是搜索排名保证或 agent 授权协议。
-- `pnpm run build` 的 SEO 检查遍历全部 25 页：核对语言、首屏、唯一 title/canonical、互链、资源真实存在、结构化数据、Markdown、sitemap、404 与部署限定统计。不使用浏览器自动化。
+- `/sitemap.xml`：列出 33 个真实 URL，不包含查询串、hash、用户查询结果或私人方案。静态说明页仅使用正文实际修订日期作为 `lastmod`；应用入口不伪造每日更新时间。
+- `/robots.txt`：允许公开页抓取并声明 sitemap。未知 URL 返回真正 404，404 页设置 noindex；预览构建所有页面 noindex。robots 不代替认证或授权。
+- `/llms.txt` 与所有说明页的 `index.md`：更新四语应用与功能入口、数据来源和限制。不暴露写入接口、用户查询、凭据或内部实现。`llms.txt` 是辅助约定，不是搜索排名保证或 agent 授权协议。
+- `pnpm run build` 的 SEO 检查遍历全部 33 页：核对语言、首屏、唯一 title/canonical、互链、资源真实存在、结构化数据、Markdown、sitemap、404 与部署限定统计。不使用浏览器自动化。
 
 固定语言页与中立入口使用同一 origin，本地研发进度、购物车、队列、地图方案及会话不迁移、不清理。受浏览器拦截而改用整页登录时，前端沿用既有根路径回调并在成功后恢复语言路径；服务端白名单没有放宽。
 
-覆盖关键词：战雷工作台、战雷战绩查询、战雷科技树、战雷走线、战雷账号价值；英文包含 War Thunder Workbench / player stats lookup / tech trees / map routes / account value；俄文包含 статистика игроков / дерево исследования / маршруты на картах / оценка стоимости аккаунта。
+覆盖关键词：战雷工作台、战雷战绩查询、战雷科技树、战雷走线、战雷账号价值；英文包含 War Thunder Workbench / player stats lookup / tech trees / map routes / account value；俄文包含 статистика игроков / дерево исследования / маршруты на картах / оценка стоимости аккаунта；日文包含 戦績検索 / 研究ツリー / 戦術ルート / アカウント評価。
 
 ### Google 与百度正式收录
 
 上线后分别在 Google Search Console 和百度搜索资源平台验证站点所有权、提交主站 sitemap、检查抓取与索引状态。域名 DNS 验证或平台验证文件需要站长权限及平台提供的真实值；本次没有伪造验证代码，也没有宣称完成账号侧提交。若采用 HTML 验证，可在构建环境设置 `WT_GOOGLE_SITE_VERIFICATION`、`WT_BAIDU_SITE_VERIFICATION`，生成对应首页 meta 标签，再部署。验证值本身不是登录凭据。
 
-建议在 Search Console 依次检查首页、三个固定语言入口及三个介绍页，确认实际抓取正文、Google 选择的 canonical 与索引状态；随后抽查六种功能页，并按页面/国家/查询词观察搜索曝光与点击。实时抓取成功不等于已经编入索引，`site:` 搜索不代替站长平台报告。百度同样先验证站点、提交 sitemap 并查看抓取与索引反馈，不自动批量提交或反复请求收录。
+建议在 Search Console 依次检查首页、四个固定语言入口及四个介绍页，确认实际抓取正文、Google 选择的 canonical 与索引状态；随后抽查六种功能页，并按页面/国家/查询词观察搜索曝光与点击。实时抓取成功不等于已经编入索引，`site:` 搜索不代替站长平台报告。百度同样先验证站点、提交 sitemap 并查看抓取与索引反馈，不自动批量提交或反复请求收录。
 
-三语静态正文比只靠客户端片段路由更可控。SEO 配置和可抓取不等于已收录，更不能保证具体关键词排名。请用各平台实际抓取/索引报告验收；本任务没有使用浏览器自动化或批量提交工具。
+四语静态正文比只靠客户端片段路由更可控。SEO 配置和可抓取不等于已收录，更不能保证具体关键词排名。请用各平台实际抓取/索引报告验收；本任务没有使用浏览器自动化或批量提交工具。
 
 ### QMuse 站点可否做 SEO？
 
@@ -88,7 +85,7 @@ CF 公网部署校验使用 HTTP/2，并仅在 DNS、TLS、超时或传输中断
 
 ## 本轮补充：说明内容与 CF 站点分析
 
-### 已补充的三语说明
+### 已补充的四语说明
 
 三份静态介绍页及对应 Markdown 均增加：
 
@@ -109,11 +106,11 @@ CF 公网部署校验使用 HTTP/2，并仅在 DNS、TLS、超时或传输中断
 采用 Cloudflare 官方 Web Analytics beacon。使用 `wt.mrtreasure.cc` 专属、手动安装的 Web Analytics 站点；后台 **战雷工具 → 页面分析** 以该站点 siteTag 直接打开对应统计，不再进入账户级总览。
 
 - `data/site-analytics.json` 只存浏览器可公开使用的 beacon token 和域名配置，**不是 Cloudflare API token**，不含任何管理凭据。
-- `deploy:cf` 明确设置 `WT_DEPLOY_TARGET=cf`，构建才会向首页、三语说明页和 404 页写入加载器。普通构建、预览构建及 `deploy:qmuse` 均排除此加载器；QMuse 命令显式覆盖目标，避免继承 shell 中的 CF 目标。
+- `deploy:cf` 明确设置 `WT_DEPLOY_TARGET=cf`，构建才会向首页、四语说明页和 404 页写入加载器。普通构建、预览构建及 `deploy:qmuse` 均排除此加载器；QMuse 命令显式覆盖目标，避免继承 shell 中的 CF 目标。
 - 运行时再次要求 origin 精确等于 `https://wt.mrtreasure.cc`。即使 CF 构建被复制到预览或 QMuse，也不会由此加载 Cloudflare beacon。
 - 正式站 HTML 添加 `Cache-Control: no-transform`，避免区域级自动注入覆盖专属统计。加载器仍会在解析完 HTML 后检查现有 beacon，防止重复加载。不修改其他域名的区域统计设置。
 - 手动加载使用官方 `https://static.cloudflareinsights.com/beacon.min.js`，相应 CSP 脚本和上报域名沿用 CF 部署配置。
-- 不添加昵称、UID、邮箱、查询记录或估值结果的自定义事件，不改写 URL 来制造虚假的页面浏览。Hash 路由不是独立的搜索收录页，CF 的标准统计也不能据此提供完整的功能访问拆分。普通页面和静态三语页仍可查看访问与页面性能。
+- 不添加昵称、UID、邮箱、查询记录或估值结果的自定义事件，不改写 URL 来制造虚假的页面浏览。Hash 路由不是独立的搜索收录页，CF 的标准统计也不能据此提供完整的功能访问拆分。普通页面和静态四语页仍可查看访问与页面性能。
 - 阻止 beacon 或关闭 JavaScript 不影响静态说明正文。页面性能报告依赖真实访问产生的 RUM 数据，尚未部署的构建不会立即出现在面板里。
 
 参考：[官方接入说明](https://developers.cloudflare.com/web-analytics/get-started/)、[Web Analytics 与 SPA](https://developers.cloudflare.com/web-analytics/get-started/web-analytics-spa/)、[数据采集说明](https://developers.cloudflare.com/web-analytics/data-metrics/data-origin-and-collection/)。
@@ -123,7 +120,6 @@ CF 公网部署校验使用 HTTP/2，并仅在 DNS、TLS、超时或传输中断
 | 命令 | 正式/预览地址 | 部署形态 | 新增统计 |
 | --- | --- | --- | --- |
 | `deploy:cf` | `https://wt.mrtreasure.cc/` | 独立 Workers Static Assets、自定义域名 | wt 专属 |
-| `deploy:preview` | `https://render.mrtreasure.cc/war-thunder-trees/` | 既有 Render 预览同步、noindex | 无 |
 | `deploy:qmuse` | `https://render.qmuse.pub/p/muse/8645013411493394` | 原有 QMuse 应用 | 无 |
 
 CF 上传 staging、配置、历史哈希资源位于运行目录，不将源码、凭据或研究文件上传。Wrangler 管理凭据由已授权运行环境提供，密码本索引为 `cloudflare.api_token_worker` 和 `cloudflare.account_id`。

@@ -14,6 +14,7 @@ const collators = {
   "zh-CN": new Intl.Collator("zh-CN", { numeric: true, sensitivity: "base" }),
   en: new Intl.Collator("en", { numeric: true, sensitivity: "base" }),
   ru: new Intl.Collator("ru", { numeric: true, sensitivity: "base" }),
+  ja: new Intl.Collator("ja", { numeric: true, sensitivity: "base" }),
 };
 export function comparePlayerVehicles(a: PlayerVehicle, b: PlayerVehicle, sort: VehicleSort) {
   const collator = collators[getLocale()];

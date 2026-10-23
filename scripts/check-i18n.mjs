@@ -4,13 +4,35 @@ import { readFile, readdir } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 const root = new URL("../", import.meta.url);
-const dictionary = JSON.parse(await readFile(new URL("data/i18n.json", root), "utf8"));
+const dictionaries = Object.fromEntries(
+  await Promise.all(
+    ["zh-CN", "en", "ru", "ja"].map(async (lang) => [
+      lang,
+      JSON.parse(await readFile(new URL(`data/i18n/${lang}.json`, root), "utf8")),
+    ]),
+  ),
+);
+for (const [lang, messages] of Object.entries(dictionaries))
+  assert.deepEqual(
+    Object.keys(messages).sort(),
+    Object.keys(dictionaries["zh-CN"]).sort(),
+    `Locale key mismatch: ${lang}`,
+  );
+const dictionary = Object.fromEntries(
+  Object.keys(dictionaries["zh-CN"]).map((key) => [
+    key,
+    [dictionaries.en[key], dictionaries.ru[key], dictionaries.ja[key]],
+  ]),
+);
 const placeholders = (value) => [...value.matchAll(/\{\d+\}/g)].map((match) => match[0]).sort();
 for (const [key, translations] of Object.entries(dictionary)) {
-  assert.equal(translations.length, 2, `Missing locale: ${key}`);
-  for (const translated of translations) {
+  assert.equal(translations.length, 3, `Missing locale: ${key}`);
+  for (const [index, translated] of translations.entries()) {
     assert.equal(typeof translated, "string", `Invalid locale value: ${key}`);
-    assert(!/\p{Script=Han}/u.test(translated), `Untranslated foreign message: ${key}`);
+    assert(
+      index === 2 || !/\p{Script=Han}/u.test(translated),
+      `Untranslated foreign message: ${key}`,
+    );
     assert.deepEqual(placeholders(translated), placeholders(key), `Changed placeholders: ${key}`);
     assert(
       !/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/u.test(translated),
@@ -73,6 +95,11 @@ for (const key of [
 }
 const localization = JSON.parse(await readFile(new URL("data/localization.json", root), "utf8"));
 assert.equal(localization.columns.ru, "<Russian>");
+assert.equal(localization.columns.ja, "<Japanese>");
+assert(
+  Object.values(localization.vehicles).every((value) => value.nameJa),
+  "Missing Japanese vehicle mappings",
+);
 const russianVehicles = Object.values(localization.vehicles).filter((value) => value.nameRu).length;
 assert.equal(
   russianVehicles,
@@ -81,7 +108,7 @@ assert.equal(
 );
 console.log(
   JSON.stringify({
-    locales: ["zh-CN", "en", "ru"],
+    locales: ["zh-CN", "en", "ru", "ja"],
     messages: Object.keys(dictionary).length,
     sourceFiles: sources,
     translatedCalls: staticCalls,

@@ -17,6 +17,7 @@ export interface Vehicle {
   name: string;
   nameEn?: string;
   nameRu?: string | null;
+  nameJa?: string | null;
   nameZhCN?: string | null;
   localizationKey?: string;
   req: string | null;
@@ -40,6 +41,7 @@ export interface TreeNode {
   name: string;
   nameEn?: string;
   nameRu?: string | null;
+  nameJa?: string | null;
   nameZhCN?: string | null;
   localizationKey?: string;
   group: boolean;
@@ -98,6 +100,7 @@ export interface Modification {
   name: string;
   nameEn?: string;
   nameRu?: string | null;
+  nameJa?: string | null;
   nameZhCN?: string | null;
   localizationKey?: string;
   rp: number | null;
@@ -137,6 +140,7 @@ export interface CartLine {
   name: string;
   nameEn?: string;
   nameRu?: string | null;
+  nameJa?: string | null;
   nameZhCN?: string | null;
   localizationKey?: string;
   rp: number;

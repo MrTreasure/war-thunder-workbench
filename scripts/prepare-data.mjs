@@ -30,6 +30,7 @@ const storePrices = await json("store-prices.json");
 const localized = (value, proof) => {
   value.nameEn = value.name;
   value.nameZhCN = proof?.nameZhCN || null;
+  value.nameJa = proof?.nameEn === value.name ? proof.nameJa || null : null;
   value.nameRu = proof?.nameEn === value.name ? proof.nameRu || null : null;
   if (proof?.nameEn === value.name && proof.nameZhCN) {
     value.name = proof.nameZhCN;
@@ -98,6 +99,7 @@ for (const countries of Object.values(catalog.trees))
           node.name = node.members[0].name;
           node.nameEn = node.members[0].nameEn;
           node.nameRu = node.members[0].nameRu;
+          node.nameJa = node.members[0].nameJa;
         }
       }
   }

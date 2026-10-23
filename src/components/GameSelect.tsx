@@ -26,7 +26,10 @@ type Props = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "value" | "onChange" 
   value: string | number;
   onValueChange: (value: string) => void;
   children: ReactNode;
-  displayValue?: string;
+  displayValue?: ReactNode;
+  renderOption?: (option: Readonly<Entry>) => ReactNode;
+  menuClassName?: string;
+  menuAlign?: "start" | "end";
 };
 
 function text(children: ReactNode): string {
@@ -62,6 +65,9 @@ export function GameSelect({
   onValueChange,
   children,
   displayValue,
+  renderOption,
+  menuClassName = "",
+  menuAlign = "start",
   className = "",
   disabled,
   id,
@@ -164,7 +170,7 @@ export function GameSelect({
       const maxHeight = Math.max(40, Math.min(344, up ? above : below));
       popup.style.width = `${popupWidth}px`;
       popup.style.maxHeight = `${maxHeight}px`;
-      popup.style.left = `${Math.max(left + 8, Math.min(rect.left, left + width - popupWidth - 8))}px`;
+      popup.style.left = `${Math.max(left + 8, Math.min(menuAlign === "end" ? rect.right - popupWidth : rect.left, left + width - popupWidth - 8))}px`;
       popup.style.top = `${up ? Math.max(top + 8, rect.top - Math.min(popup.scrollHeight, maxHeight) - 4) : rect.bottom + 4}px`;
     }
     const toggled = (event: ToggleEvent) => {
@@ -189,7 +195,7 @@ export function GameSelect({
       window.visualViewport?.removeEventListener("resize", place);
       window.visualViewport?.removeEventListener("scroll", place);
     };
-  }, [open]);
+  }, [open, menuAlign]);
   useEffect(() => {
     if (open) document.getElementById(`${menuId}-${active}`)?.scrollIntoView({ block: "nearest" });
   }, [open, active, menuId]);
@@ -235,7 +241,7 @@ export function GameSelect({
             <div
               id={menuId}
               ref={menu}
-              className="wt-select-menu"
+              className={`wt-select-menu ${menuClassName}`}
               popover="auto"
               role="listbox"
               tabIndex={-1}
@@ -280,7 +286,7 @@ export function GameSelect({
                       <span className="wt-select-check" aria-hidden="true">
                         {localize(index === chosen ? "✓" : "")}
                       </span>
-                      <span>{option.label}</span>
+                      <span>{renderOption ? renderOption(option) : option.label}</span>
                     </div>
                   </Fragment>
                 )),

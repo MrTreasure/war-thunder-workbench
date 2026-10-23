@@ -6,7 +6,14 @@ import { cloudflareAnalyticsSnippet } from "./site-analytics.mjs";
 
 const root = new URL("../", import.meta.url);
 const config = JSON.parse(await readFile(new URL("data/site-seo.json", root), "utf8"));
-const messages = JSON.parse(await readFile(new URL("data/i18n.json", root), "utf8"));
+const messages = Object.fromEntries(
+  await Promise.all(
+    ["en", "ru", "ja"].map(async (lang) => [
+      lang,
+      JSON.parse(await readFile(new URL(`data/i18n/${lang}.json`, root), "utf8")),
+    ]),
+  ),
+);
 const dist = resolve(new URL("dist/", root).pathname);
 const base = new URL(process.env.WT_SITE_URL || config.siteUrl);
 if (base.protocol !== "https:" || base.search || base.hash || base.username || base.password)
@@ -73,7 +80,7 @@ async function output(path, text) {
 }
 function translated(source, lang) {
   const key = source.trim().replace(/\s+/g, " ");
-  const value = lang === "zh-CN" ? undefined : messages[key]?.[lang === "en" ? 0 : 1];
+  const value = lang === "zh-CN" ? undefined : messages[lang]?.[key];
   return value === undefined ? source : source.replace(source.trim(), value);
 }
 function localizeBoot(document, lang, locale, entryPath) {
@@ -208,12 +215,12 @@ await output(
 await output("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${url("sitemap.xml")}\n`);
 await output(
   "llms.txt",
-  `# War Thunder Workbench · 战雷工作台\n\n> Independent fan-made tools for War Thunder PC international players. The interactive app supports Simplified Chinese, English and Russian. The neutral entry follows browser language until a manual preference is saved; fixed language URLs remain deterministic. Public features allow guest use; some operations require an account and quota.\n\n## Applications\n${languages.map(([, locale]) => `- [${locale.name}](${url(appPath(locale))}): ${locale.description}`).join("\n")}\n- [Default entry](${url()})\n- [QMuse entry](${config.qmuseUrl}): alternative distribution; local data is not shared across domains.\n\n## Feature guides\n${languages.map(([, locale]) => `- [${locale.name}](${url(guidePath(locale))})\n- [${locale.name} Markdown](${url(guidePath(locale))}index.md)\n${locale.features.map((feature) => `  - [${feature.title}](${url(guidePath(locale, feature.slug))})`).join("\n")}`).join("\n")}\n\n## Data boundaries\nPlayer query results may be cached; use their fetch times. Battle records are not complete ownership evidence. Account estimates are for reference, not guaranteed sale prices. Unknown prices and research costs remain unknown. Local research plans, lineups and map plans stay in the browser. No public write API or agent authentication integration is provided. Do not ask users for War Thunder passwords. Not affiliated with Gaijin Entertainment.\n`,
+  `# War Thunder Workbench · 战雷工作台\n\n> Independent fan-made tools for War Thunder PC international players. The interactive app supports Simplified Chinese, English, Russian and Japanese. The neutral entry follows browser language until a manual preference is saved; fixed language URLs remain deterministic. Public features allow guest use; some operations require an account and quota.\n\n## Applications\n${languages.map(([, locale]) => `- [${locale.name}](${url(appPath(locale))}): ${locale.description}`).join("\n")}\n- [Default entry](${url()})\n- [QMuse entry](${config.qmuseUrl}): alternative distribution; local data is not shared across domains.\n\n## Feature guides\n${languages.map(([, locale]) => `- [${locale.name}](${url(guidePath(locale))})\n- [${locale.name} Markdown](${url(guidePath(locale))}index.md)\n${locale.features.map((feature) => `  - [${feature.title}](${url(guidePath(locale, feature.slug))})`).join("\n")}`).join("\n")}\n\n## Data boundaries\nPlayer query results may be cached; use their fetch times. Battle records are not complete ownership evidence. Account estimates are for reference, not guaranteed sale prices. Unknown prices and research costs remain unknown. Local research plans, lineups and map plans stay in the browser. No public write API or agent authentication integration is provided. Do not ask users for War Thunder passwords. Not affiliated with Gaijin Entertainment.\n`,
 );
 await output(
   "404.html",
   `<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="robots" content="noindex"><title>页面不存在 · 战雷工作台</title><h1>404</h1><p><a href="${url()}">返回战雷工作台 / Open workbench</a></p>${analytics}</html>`,
 );
 console.log(
-  `SEO: ${sitemap.length} real URLs, three localized applications and guides, six feature guides per language; preview=${preview}, CF analytics=${!!analytics}`,
+  `SEO: ${sitemap.length} real URLs, four localized applications and guides, six feature guides per language; preview=${preview}, CF analytics=${!!analytics}`,
 );
