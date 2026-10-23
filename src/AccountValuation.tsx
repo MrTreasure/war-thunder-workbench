@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import catalogSettings from "../data/catalog-settings.json";
 import { GameSelect } from "./components/GameSelect";
 import valuationRules from "../data/account-valuation-rules.json";
+import vehiclePolicies from "../data/account-vehicle-policies.json";
 import {
   cacheValuation,
   cachedValuation,
@@ -20,6 +21,14 @@ import {
 import type { PlayerProfile, StatsSession } from "./player-stats-api";
 import { sortValuationPrices } from "./account-valuation-sort";
 import { statsCountryId, statsCountryMatches, statsCountryLabel } from "./stats-country";
+
+// Hide only the initial vehicles whose free research AND purchase were verified.
+// Keep exclusions for promotional, hidden and other special vehicles visible.
+const hiddenInitialVehicles = new Set(
+  vehiclePolicies.vehicles
+    .filter(policy => policy.classification === "initial_free" && policy.freeResearch === true && policy.freePurchase === true)
+    .map(policy => policy.id),
+);
 
 type Item = { id: string; name: string; country: string; category: string; rank?: string | null };
 type ScenarioKey = "normal" | "discount" | "secondHand";
@@ -500,6 +509,7 @@ export function AccountValuation({
       }
     }
   }
+  const visibleExcluded = value?.excluded?.filter(item => !hiddenInitialVehicles.has(item.id)) || [];
   const filteredResearch =
     value?.research
       .filter(v => matchesVehicleFilters(v, { country: researchCountry, category: researchCategory, rank: researchRank }))
@@ -604,9 +614,9 @@ export function AccountValuation({
             <span>
               <b>{value.unpriced.length}</b> 项待核价
             </span>
-            {!!value.excluded?.length && (
+            {!!visibleExcluded.length && (
               <span>
-                <b>{value.excluded.length}</b> 辆不参与估值
+                <b>{visibleExcluded.length}</b> 辆不参与估值
               </span>
             )}
           </div>
@@ -798,12 +808,12 @@ export function AccountValuation({
               </ProductShelf>
             </section>
           )}
-          {!!value.excluded?.length && (
+          {!!visibleExcluded.length && (
             <details className="wt-valuation-section">
-              <summary>不参与估值的免费／排除载具 · {value.excluded.length}</summary>
+              <summary>不参与估值的隐藏／特殊载具 · {visibleExcluded.length}</summary>
               <p>以下载具按已保存规则排除，不计入研发点、金鹰、礼包或其他价值。</p>
               <div className="wt-valuation-research">
-                {value.excluded.map((item) => (
+                {visibleExcluded.map((item) => (
                   <article key={item.id}>
                     <VehicleArt item={item} compact />
                     <div>
