@@ -42,7 +42,12 @@ export async function flushMapDrawingLogs() {
   if (running || !navigator.onLine) return;
   running = true;
   try {
-    const rows = (await pending()).filter(row => row.nextAt <= Date.now());
+    const queued = await pending();
+    // Drop old low-content queue entries without sending them or touching saved plans.
+    for (const row of queued) {
+      if (row.project.items.length < 3) await write(row.requestId);
+    }
+    const rows = queued.filter(row => row.project.items.length >= 3 && row.nextAt <= Date.now());
     if (!rows.length) return;
     const session = await prepareStatsDevice();
     const ownerKey = session.user ? `user:${session.user.id}` : "guest";
@@ -62,6 +67,7 @@ export async function flushMapDrawingLogs() {
   finally { running = false; }
 }
 export async function recordMapCompletion(completion: Omit<Completion, "requestId">) {
+  if (completion.project.items.length < 3) return;
   try {
     serializeProject(completion.project);
     await write({ ...completion, requestId: crypto.randomUUID(), attempts: 0, nextAt: 0 }, true);
