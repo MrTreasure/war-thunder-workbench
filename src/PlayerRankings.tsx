@@ -8,7 +8,7 @@ import {
 import type { PlayerRank } from "./player-rankings-api";
 
 export function RankDistribution({ data, metric }: { data: PlayerRank; metric: string }) {
-  const points = [...(data.references?.points || data.points || [])].sort((a, b) => a.percentile - b.percentile);
+  const points = [...(data.references?.points || [])].sort((a, b) => a.percentile - b.percentile);
   const position = data.position ? Math.max(0, Math.min(100, 100 - data.position.topPercent)) : null;
   const maximum = Math.max(1, ...points.map(point => point.value), data.value || 0) * 1.06;
   const median = points.find(point => point.percentile === 50);
@@ -19,19 +19,19 @@ export function RankDistribution({ data, metric }: { data: PlayerRank; metric: s
     ? `${difference > 0 ? "+" : ""}${(difference * 100).toFixed(1)} 个百分点`
     : differencePercent != null ? `${differencePercent > 0 ? "+" : ""}${differencePercent.toFixed(1)}%` : rankingValue(difference, metric);
   return <section className="wt-record-panel wt-rank-distribution">
-    <header className="wt-rank-chart-heading"><h2>分位对照</h2><span>{data.sampleCount != null ? "本站有效样本" : "官方榜表抽样"}</span></header>
+    <header className="wt-rank-chart-heading"><h2>分位对照</h2><span>官方榜表抽样</span></header>
     {position != null ? <div className="wt-rank-position-block">
       <div className="wt-rank-position-label"><span>名次位置</span><strong>榜内前 {data.position!.topPercent.toFixed(2)}%</strong></div>
       <div className="wt-rank-position" aria-hidden="true"><div className="wt-rank-position-track" />{[0, 25, 50, 75, 100].map(value => <i key={value} style={{ left: `${value}%` }} />)}<b style={{ left: `${position}%` }} /></div>
       <div className="wt-rank-scale"><span>较低</span><span>中位</span><span>较高</span></div>
-    </div> : <p className="wt-record-fine">{data.period === "recent" ? "近期仅展示官方名次，不换算活跃玩家百分位。" : `有效样本达到 ${data.minimumPlayers || 100} 位后展示分位。`}</p>}
+    </div> : <p className="wt-record-fine">{data.period === "recent" ? "近期仅展示官方名次，不换算活跃玩家百分位。" : "官方榜表暂未提供可核实名次，不展示分位。"}</p>}
     {points.length >= 2 ? <>
       <div className="wt-rank-benchmark-layout"><dl className="wt-rank-benchmarks">
         {points.map(point => <div className={point.percentile === 50 ? "wt-rank-benchmark-median" : ""} key={point.percentile}><dt>{point.percentile}% 分位{point.percentile === 50 && <small>中位数</small>}</dt><dd><span aria-hidden="true" className="wt-rank-benchmark-track"><i style={{ width: `${point.value / maximum * 100}%` }} /></span><b>{rankingValue(point.value, metric)}</b></dd></div>)}
         {data.value != null && <div className="wt-rank-benchmark-own"><dt>本人</dt><dd><span aria-hidden="true" className="wt-rank-benchmark-track"><i style={{ width: `${data.value / maximum * 100}%` }} /></span><b>{rankingValue(data.value, metric)}</b></dd></div>}
       </dl><aside className="wt-rank-median-note"><span>相较中位数</span><strong>{medianChange}</strong><p>中位数 {rankingValue(median?.value, metric)}<br />本人 {rankingValue(data.value, metric)}</p></aside></div>
       <p className="wt-record-fine wt-rank-chart-note">分位值按从低到高排列，50% 分位为中位数。参考条取自有限名次抽样，不代表完整人数分布；同分名次可能并列。</p>
-    </> : <p className="wt-rank-reference-state">{["pending", "running"].includes(data.referenceState || "") ? "正在整理分位参考，个人名次已可查看。" : data.period === "recent" ? "近期参照人数尚未核实。" : data.sampleCount != null ? "样本正在积累，达到有效人数后开放对照。" : "分位参考暂未就绪，个人名次仍可查看。"}</p>}
+    </> : <p className="wt-rank-reference-state">{["pending", "running"].includes(data.referenceState || "") ? "正在整理分位参考，个人名次已可查看。" : data.period === "recent" ? "近期参照人数尚未核实。" : "分位参考暂未就绪，个人名次仍可查看。"}</p>}
   </section>;
 }
 

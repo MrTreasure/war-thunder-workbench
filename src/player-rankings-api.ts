@@ -23,8 +23,7 @@ export type PlayerRank = {
   fetchedAt: string | null; expiresAt?: string; stale?: boolean; notice: string;
   position: { topPercent: number; basis: string } | null;
   references?: { points: RankPoint[]; fetchedAt: string; approximate: boolean } | null;
-  referenceState?: string; points?: RankPoint[]; sampleCount?: number;
-  minimumBattles?: number; minimumPlayers?: number; version?: string;
+  referenceState?: string;
 };
 export type OwnedVehicle = {
   id: string; name: string; country: string; category: string | null; rank: string | null;
