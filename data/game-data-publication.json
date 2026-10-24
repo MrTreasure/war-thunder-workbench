@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "gpub_1792825961561_fb5938d3bb",
+  "runId": "gdata_initial_catalog",
+  "checkedAt": "2026-10-20T09:15:28.530Z",
+  "changes": [],
+  "sources": {
+    "ground": {
+      "url": "https://wiki.warthunder.com/ground",
+      "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+    },
+    "aviation": {
+      "url": "https://wiki.warthunder.com/aviation",
+      "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+    },
+    "ships": {
+      "url": "https://wiki.warthunder.com/ships",
+      "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+    },
+    "boats": {
+      "url": "https://wiki.warthunder.com/boats",
+      "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+    },
+    "helicopters": {
+      "url": "https://wiki.warthunder.com/helicopters",
+      "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
+      "checkedAt": "2026-10-20T09:15:28.530Z"
+    }
+  }
+}
