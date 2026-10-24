@@ -294,6 +294,7 @@ function PartsForm({
           <ModificationGrid
             data={data}
             included={state.included}
+            allUnlockedByDefault={data.allUnlockedByDefault || unit.premium}
             completed={state.completed}
             onChange={(id, checked) =>
               update({

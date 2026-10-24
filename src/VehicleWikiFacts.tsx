@@ -1,6 +1,8 @@
 import type { Vehicle, WikiVehicleDetails } from "./models";
 import { PackPriceDetails } from "./PackPrice";
 import { rpText } from "./TreeCanvas";
+import { ResearchPoints } from "./ResearchPoints";
+import { compactResearchPoints } from "./research-number-format";
 import "./vehicle-wiki-facts.css";
 
 const modeLabels = { ab: "街机 AB", rb: "历史 RB", sb: "全真 SB" };
@@ -31,7 +33,13 @@ export function VehicleWikiFacts({ unit }: { unit: Vehicle }) {
         {(unit.side === "research" || unit.kind === "squadron") && (
           <div className="wt-vehicle-price-line">
             <span>{unit.kind === "squadron" ? "联队研发点" : "载具研发点"}</span>
-            <strong>{rpText(unit)}</strong>
+            <strong>
+              {unit.rp ? (
+                <ResearchPoints>{compactResearchPoints(unit.rp)}</ResearchPoints>
+              ) : (
+                rpText(unit)
+              )}
+            </strong>
           </div>
         )}
         {unit.kind === "gold" && (

@@ -3,6 +3,8 @@ import { VehicleImage } from "./VehicleImage";
 import { VehicleWikiFacts } from "./VehicleWikiFacts";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { modes, rating, rpText } from "./TreeCanvas";
+import { ResearchPoints } from "./ResearchPoints";
+import { compactResearchPoints } from "./research-number-format";
 
 export function VehicleDetails({
   unit,
@@ -112,7 +114,12 @@ export function VehicleDetails({
                   <span>
                     <strong>{vehicleDisplayName(previous.name)}</strong>
                     <small>
-                      Rank {previous.rank} · {rpText(previous)}
+                      Rank {previous.rank} ·{" "}
+                      {previous.rp ? (
+                        <ResearchPoints>{compactResearchPoints(previous.rp)}</ResearchPoints>
+                      ) : (
+                        rpText(previous)
+                      )}
                     </small>
                   </span>
                 </button>

@@ -1,0 +1,16 @@
+.wt-research-points,
+.calc-metrics strong .wt-research-points {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  color: inherit;
+  font: inherit;
+}
+.wt-research-points > img {
+  width: 0.85em;
+  height: 0.85em;
+  min-width: 12px;
+  min-height: 12px;
+  object-fit: contain;
+}

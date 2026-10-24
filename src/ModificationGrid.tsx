@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import type { Modification, ModificationData } from "./models";
 import { compactResearchPoints } from "./research-number-format";
 import { format } from "./quotes";
+import { ResearchPoints } from "./ResearchPoints";
 const groupNames: Record<string, string> = {
   Mobility: "机动",
   Protection: "防护",
@@ -13,11 +14,13 @@ const groupNames: Record<string, string> = {
 export function ModificationGrid({
   data,
   included,
+  allUnlockedByDefault,
   completed,
   onChange,
 }: {
   data: ModificationData;
   included: boolean;
+  allUnlockedByDefault: boolean;
   completed: string[];
   onChange: (id: string, checked: boolean) => void;
 }) {
@@ -58,9 +61,15 @@ export function ModificationGrid({
         <span className="wt-part-name" title={item.name}>
           {item.name}
         </span>
-        <strong title={item.rp === null ? undefined : `${format(item.rp)} RP`}>
-          {item.rp === null ? "官方未提供" : `${compactResearchPoints(item.rp)} RP`}
-        </strong>
+        {!allUnlockedByDefault && (
+          <strong title={item.rp === null ? undefined : `${format(item.rp)} 研发点`}>
+            {item.rp === null ? (
+              "官方未提供"
+            ) : (
+              <ResearchPoints>{compactResearchPoints(item.rp)}</ResearchPoints>
+            )}
+          </strong>
+        )}
       </label>
     );
   }
