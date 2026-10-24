@@ -1,6 +1,6 @@
-import { getLocale } from "./i18n/core";
+import { t, getLocale, localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
-import { localize, t } from "./i18n/core";
+import { VehicleTile } from "./VehicleTile";
 import { useEffect, useId, useMemo, useState } from "react";
 import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
@@ -44,25 +44,18 @@ const watchValid = (value: unknown): value is SaleVehicle[] =>
       typeof v.image === "string" &&
       v.image.startsWith("https://static.encyclopedia.warthunder.com/"),
   );
-function VehiclePicture({ vehicle }: { vehicle: SaleVehicle }) {
-  useLocale();
-
+function SaleVehicleTile({ vehicle }: { vehicle: SaleVehicle }) {
   return (
-    <img
-      src={vehicle.image}
-      alt=""
-      loading="lazy"
-      width={112}
-      height={70}
-      onError={(e) => {
-        e.currentTarget.style.visibility = "hidden";
+    <VehicleTile
+      unit={{
+        ...vehicle,
+        kind: vehicle.channel === "ge" ? "gold" : vehicle.channel,
+        price: vehicle.originalPrice?.currency === "GE" ? vehicle.originalPrice.amount : null,
       }}
     />
   );
 }
 function VehicleOriginalPrice({ vehicle }: { vehicle: SaleVehicle }) {
-  useLocale();
-
   const quote = vehicle.originalPrice;
   return (
     <div className="wt-sale-original-price">
@@ -84,14 +77,12 @@ function VehicleOriginalPrice({ vehicle }: { vehicle: SaleVehicle }) {
   );
 }
 function CalendarReference({ close }: { close: () => void }) {
-  useLocale();
-
   const [failed, setFailed] = useState(false);
   const asset = calendarReference.asset;
   return (
     <Modal
       title={t("折扣年历 · 高清参考图")}
-      subtitle={`${calendarReference.attribution}；按原表格样式重新排字与绘制。`}
+      subtitle={t("{0}；按原表格样式重新排字与绘制。", [localize(calendarReference.attribution)])}
       close={close}
       className="wt-sale-reference-viewer"
     >
@@ -138,8 +129,6 @@ function AddVehicles({
   add: (v: SaleVehicle) => void;
   close: () => void;
 }) {
-  useLocale();
-
   const [country, setCountry] = useState("china"),
     [category, setCategory] = useState("all"),
     [rank, setRank] = useState("all"),
@@ -179,7 +168,7 @@ function AddVehicles({
   return (
     <Modal
       title={t("添加关注载具")}
-      subtitle="仅支持金鹰与商城礼包载具；关注列表保存在当前浏览器。"
+      subtitle={t("仅支持金鹰与商城礼包载具；关注列表保存在当前浏览器。")}
       close={close}
       className="wt-sale-picker"
     >
@@ -223,39 +212,46 @@ function AddVehicles({
         />
       </div>
       <div className="wt-sale-picker-results" aria-live="polite" aria-busy={loading}>
-        {error ? (
-          <p role="alert">{localize(error)}</p>
-        ) : loading ? (
-          <p>{t("正在查找载具…")}</p>
-        ) : !results.length ? (
-          <p>{t("没有找到匹配载具，试试其他名称。")}</p>
-        ) : (
-          results.map((vehicle) => {
-            const added = saved.some((v) => v.id === vehicle.id);
-            return (
-              <div className="wt-sale-vehicle-option" key={vehicle.id}>
-                <VehiclePicture vehicle={vehicle} />
-                <div>
-                  <strong>{vehicle.name}</strong>
-                  <span>
-                    {localize(statsCategoryNames[vehicle.category])} · {localize(vehicle.rank)}
-                    {t("级 ·")}
-                    {localize(" ")}
-                    {localize(saleChannels[vehicle.channel])}
-                  </span>
-                  <VehicleOriginalPrice vehicle={vehicle} />
+        {localize(
+          error ? (
+            <p role="alert">{localize(error)}</p>
+          ) : loading ? (
+            <p>{t("正在查找载具…")}</p>
+          ) : !results.length ? (
+            <p>{t("没有找到匹配载具，试试其他名称。")}</p>
+          ) : (
+            results.map((vehicle) => {
+              const added = saved.some((v) => v.id === vehicle.id);
+              return (
+                <div className="wt-sale-vehicle-option" key={vehicle.id}>
+                  <SaleVehicleTile vehicle={vehicle} />
+                  <div>
+                    <strong>{localize(vehicle.name)}</strong>
+                    <span>
+                      {localize(statsCategoryNames[vehicle.category])} · {localize(vehicle.rank)}
+                      {t("级 ·")}
+                      {localize(" ")}
+                      {localize(saleChannels[vehicle.channel])}
+                    </span>
+                    <VehicleOriginalPrice vehicle={vehicle} />
+                  </div>
+                  <button disabled={added || saved.length >= 60} onClick={() => add(vehicle)}>
+                    {localize(added ? t("已关注") : t("＋ 关注"))}
+                  </button>
                 </div>
-                <button disabled={added || saved.length >= 60} onClick={() => add(vehicle)}>
-                  {localize(added ? "已关注" : "＋ 关注")}
-                </button>
-              </div>
-            );
-          })
+              );
+            })
+          ),
         )}
       </div>
       <footer>
         {localize(
-          loading ? "" : `找到 ${total} 辆，展示前 ${results.length} 辆。可继续输入名称缩小范围。`,
+          loading
+            ? ""
+            : t("找到 {0} 辆，展示前 {1} 辆。可继续输入名称缩小范围。", [
+                localize(total),
+                localize(results.length),
+              ]),
         )}
         <button onClick={close}>{t("完成")}</button>
       </footer>
@@ -263,14 +259,12 @@ function AddVehicles({
   );
 }
 function SourceLinks({ event }: { event: SaleEvent }) {
-  useLocale();
-
   return (
     <>
       {localize(
         event.sources.map((source) => (
           <a key={source.url} href={source.url} target="_blank" rel="noreferrer">
-            {localize(event.status === "predicted" ? "历史公告 ↗" : "官方公告 ↗")}
+            {localize(event.status === "predicted" ? t("历史公告 ↗") : t("官方公告 ↗"))}
           </a>
         )),
       )}
@@ -279,7 +273,6 @@ function SourceLinks({ event }: { event: SaleEvent }) {
 }
 export function SaleCalendar() {
   useLocale();
-
   const [data, setData] = useState<SaleCalendarData | null>(cachedSaleCalendar),
     [error, setError] = useState(""),
     [loading, setLoading] = useState(() => !data),
@@ -442,7 +435,7 @@ export function SaleCalendar() {
         error && (
           <div className="wt-sales-error" role="alert">
             {localize(error)} <button onClick={() => setReload((n) => n + 1)}>{t("重试")}</button>
-            {localize(data && " · 上次日历仍保留")}
+            {localize(data && t(" · 上次日历仍保留"))}
           </div>
         ),
       )}
@@ -450,12 +443,15 @@ export function SaleCalendar() {
       <section className="wt-sales-topline" aria-label={t("活动概览")}>
         <div>
           <span>{t("下一场活动")}</span>
-          <strong>{localize(next?.title || (loading ? "正在读取公告" : "暂无可用排期"))}</strong>
-          <small>{localize(next ? saleCountdown(next, now) : "活动数据由服务器定期核对")}</small>
+          <strong>
+            {localize(next?.title || (loading ? t("正在读取公告") : t("暂无可用排期")))}
+          </strong>
+          <small>{localize(next ? saleCountdown(next, now) : t("活动数据由服务器定期核对"))}</small>
         </div>
         <div>
           <span>
-            {localize(year)} {t("年排期")}
+            {localize(year)}
+            {t("年排期")}
           </span>
           <strong>
             {localize(known)} <small>{t("已公布阶段")}</small>
@@ -474,117 +470,127 @@ export function SaleCalendar() {
         <div className="wt-sales-section-title">
           <h3>{t("我的关注")}</h3>
         </div>
-        {!watch.length ? (
-          <div className="wt-sale-empty">
-            <button
-              type="button"
-              className="wt-sale-add-icon"
-              aria-label={t("添加关注载具")}
-              onClick={() => setPicker(true)}
-            >
-              ＋
-            </button>
-            <p>{t("先把想买的载具放进关注列表")}</p>
-            <span>{t("关注金鹰与商城礼包载具，查看对应的优惠窗口和倒计时。")}</span>
-            <button onClick={() => setPicker(true)}>{t("选择载具")}</button>
-          </div>
-        ) : (
-          <>
-            <div className="wt-sale-watch-list" id={watchListId}>
-              {(watchExpanded ? watch : watch.slice(0, 5)).map((vehicle) => {
-                const event = nextSale(vehicle, events, now),
-                  exact = event?.status === "confirmed" && event.vehicleIds.includes(vehicle.id);
-                return (
-                  <article key={vehicle.id} className="wt-sale-watch-row">
-                    <VehiclePicture vehicle={vehicle} />
-                    <div className="wt-sale-watch-identity">
-                      <h4>{vehicle.name}</h4>
-                      <span>
-                        {localize(countries[vehicle.country])} · {localize(vehicle.rank)}
-                        {t("级 ·")}
-                        {localize(" ")}
-                        {localize(saleChannels[vehicle.channel])}
-                      </span>
-                      <VehicleOriginalPrice vehicle={vehicle} />
-                    </div>
-                    <div className="wt-sale-watch-opportunity">
-                      {localize(
-                        event ? (
-                          <>
-                            <strong>{localize(event.title)}</strong>
-                            <span>{localize(saleRange(event))}</span>
-                            <small>
-                              {localize(
-                                event.status === "predicted"
-                                  ? "预测窗口，尚未公布名单"
-                                  : exact
-                                    ? "已核对参与名单"
-                                    : event.coverage === "all-except-exclusions"
-                                      ? "常规优惠范围，需核对新车排除名单"
-                                      : "可能相关，需核对指定载具名单",
-                              )}
-                            </small>
-                          </>
-                        ) : (
-                          <span>
-                            {localize(
-                              ["market", "excluded"].includes(vehicle.channel)
-                                ? "此购买渠道不自动参与常规载具促销"
-                                : "尚无匹配的优惠排期",
-                            )}
-                          </span>
-                        ),
-                      )}
-                    </div>
-                    <div className="wt-sale-watch-countdown">
-                      {localize(
-                        event && (
-                          <>
-                            <b>{localize(saleCountdown(event, now))}</b>
-                            <small>{localize(saleRate(event, vehicle.channel))}</small>
-                            <SourceLinks event={event} />
-                          </>
-                        ),
-                      )}
-                    </div>
-                    <button
-                      className="wt-sale-remove"
-                      aria-label={localize(`取消关注${vehicle.name}`)}
-                      onClick={() => saveWatch(watch.filter((v) => v.id !== vehicle.id))}
-                    >
-                      ×
-                    </button>
-                  </article>
-                );
-              })}
+        {localize(
+          !watch.length ? (
+            <div className="wt-sale-empty">
+              <button
+                type="button"
+                className="wt-sale-add-icon"
+                aria-label={t("添加关注载具")}
+                onClick={() => setPicker(true)}
+              >
+                ＋
+              </button>
+              <p>{t("先把想买的载具放进关注列表")}</p>
+              <span>{t("关注金鹰与商城礼包载具，查看对应的优惠窗口和倒计时。")}</span>
+              <button onClick={() => setPicker(true)}>{t("选择载具")}</button>
             </div>
-            {localize(
-              watch.length > 5 && (
-                <div className="wt-sale-watch-fold">
-                  <span>
-                    {t("已显示")}
-                    {localize(watchExpanded ? watch.length : 5)} / {localize(watch.length)}{" "}
-                    {t("辆")}
-                  </span>
-                  <button
-                    type="button"
-                    aria-controls={watchListId}
-                    aria-expanded={watchExpanded}
-                    onClick={() => setWatchExpanded((value) => !value)}
-                  >
-                    {localize(watchExpanded ? "收起至 5 辆 ↑" : `展开全部 ${watch.length} 辆 ↓`)}
-                  </button>
-                </div>
-              ),
-            )}
-          </>
+          ) : (
+            <>
+              <div className="wt-sale-watch-list" id={watchListId}>
+                {localize(
+                  (watchExpanded ? watch : watch.slice(0, 5)).map((vehicle) => {
+                    const event = nextSale(vehicle, events, now),
+                      exact =
+                        event?.status === "confirmed" && event.vehicleIds.includes(vehicle.id);
+                    return (
+                      <article key={vehicle.id} className="wt-sale-watch-row">
+                        <SaleVehicleTile vehicle={vehicle} />
+                        <div className="wt-sale-watch-identity">
+                          <h4>{localize(vehicle.name)}</h4>
+                          <span>
+                            {localize(countries[vehicle.country])} · {localize(vehicle.rank)}
+                            {t("级 ·")}
+                            {localize(" ")}
+                            {localize(saleChannels[vehicle.channel])}
+                          </span>
+                          <VehicleOriginalPrice vehicle={vehicle} />
+                        </div>
+                        <div className="wt-sale-watch-opportunity">
+                          {localize(
+                            event ? (
+                              <>
+                                <strong>{localize(event.title)}</strong>
+                                <span>{localize(saleRange(event))}</span>
+                                <small>
+                                  {localize(
+                                    event.status === "predicted"
+                                      ? t("预测窗口，尚未公布名单")
+                                      : exact
+                                        ? t("已核对参与名单")
+                                        : event.coverage === "all-except-exclusions"
+                                          ? t("常规优惠范围，需核对新车排除名单")
+                                          : t("可能相关，需核对指定载具名单"),
+                                  )}
+                                </small>
+                              </>
+                            ) : (
+                              <span>
+                                {localize(
+                                  ["market", "excluded"].includes(vehicle.channel)
+                                    ? t("此购买渠道不自动参与常规载具促销")
+                                    : t("尚无匹配的优惠排期"),
+                                )}
+                              </span>
+                            ),
+                          )}
+                        </div>
+                        <div className="wt-sale-watch-countdown">
+                          {localize(
+                            event && (
+                              <>
+                                <b>{localize(saleCountdown(event, now))}</b>
+                                <small>{localize(saleRate(event, vehicle.channel))}</small>
+                                <SourceLinks event={event} />
+                              </>
+                            ),
+                          )}
+                        </div>
+                        <button
+                          className="wt-sale-remove"
+                          aria-label={t("取消关注{0}", [localize(vehicle.name)])}
+                          onClick={() => saveWatch(watch.filter((v) => v.id !== vehicle.id))}
+                        >
+                          ×
+                        </button>
+                      </article>
+                    );
+                  }),
+                )}
+              </div>
+              {localize(
+                watch.length > 5 && (
+                  <div className="wt-sale-watch-fold">
+                    <span>
+                      {t("已显示")}
+                      {localize(watchExpanded ? watch.length : 5)} / {localize(watch.length)}
+                      {t("辆")}
+                    </span>
+                    <button
+                      type="button"
+                      aria-controls={watchListId}
+                      aria-expanded={watchExpanded}
+                      onClick={() => setWatchExpanded((value) => !value)}
+                    >
+                      {localize(
+                        watchExpanded
+                          ? t("收起至 5 辆 ↑")
+                          : t("展开全部 {0} 辆 ↓", [localize(watch.length)]),
+                      )}
+                    </button>
+                  </div>
+                ),
+              )}
+            </>
+          ),
         )}
       </section>
       <section className="wt-sale-calendar">
         <div className="wt-sales-section-title">
-          <h3>{localize(view === "calendar" ? "优惠月历" : "年度优惠时间轴")}</h3>
+          <h3>{localize(view === "calendar" ? t("优惠月历") : t("年度优惠时间轴"))}</h3>
           <span>
-            <i className="wt-sale-dot" /> {t("官方已公布")}
+            <i className="wt-sale-dot" />
+            {t("官方已公布")}
             <i className="wt-sale-dot predicted" />
             {localize(" ")}
             {t("历史推算")}
@@ -607,7 +613,8 @@ export function SaleCalendar() {
             {localize(
               (years.length ? years : [year]).map((y) => (
                 <option key={y} value={y}>
-                  {localize(y)} {t("年")}
+                  {localize(y)}
+                  {t("年")}
                 </option>
               )),
             )}
@@ -617,7 +624,8 @@ export function SaleCalendar() {
             {localize(
               Array.from({ length: 12 }, (_, i) => (
                 <option key={i + 1} value={i + 1}>
-                  {localize(i + 1)} {t("月")}
+                  {localize(i + 1)}
+                  {t("月")}
                 </option>
               )),
             )}
@@ -691,12 +699,14 @@ export function SaleCalendar() {
                         </span>
                         <div>
                           {localize(
-                            items.map((e) => (
-                              <i key={e.id} className={e.status} title={localize(e.title)} />
-                            )),
+                            items.map((e) => <i key={e.id} className={e.status} title={e.title} />),
                           )}
                         </div>
-                        <small>{localize(items.length ? `${items.length}阶段` : "暂无")}</small>
+                        <small>
+                          {localize(
+                            items.length ? t("{0}阶段", [localize(items.length)]) : t("暂无"),
+                          )}
+                        </small>
                       </button>
                     );
                   }),
@@ -708,8 +718,8 @@ export function SaleCalendar() {
                     <p className="wt-sale-no-events">
                       {localize(
                         loading
-                          ? "正在读取服务器日历…"
-                          : "当前筛选下没有活动。可切换月份、购买渠道或查看其他年份。",
+                          ? t("正在读取服务器日历…")
+                          : t("当前筛选下没有活动。可切换月份、购买渠道或查看其他年份。"),
                       )}
                     </p>
                   ) : (
@@ -733,10 +743,10 @@ export function SaleCalendar() {
                             <span>
                               {localize(
                                 event.status === "predicted"
-                                  ? "预计中点"
+                                  ? t("预计中点")
                                   : event.startPrecision === "day"
-                                    ? "开始日期"
-                                    : "开始",
+                                    ? t("开始日期")
+                                    : t("开始"),
                               )}
                             </span>
                             <small className="wt-sale-activity-status">
@@ -747,7 +757,9 @@ export function SaleCalendar() {
                             <div className="wt-sale-event-title">
                               <h4>{localize(event.title)}</h4>
                               <span className={`wt-sale-badge ${event.status}`}>
-                                {localize(event.status === "predicted" ? "预测窗口" : "官方日期")}
+                                {localize(
+                                  event.status === "predicted" ? t("预测窗口") : t("官方日期"),
+                                )}
                               </span>
                             </div>
                             <p className="wt-sale-range">{localize(saleRange(event))}</p>
@@ -761,14 +773,16 @@ export function SaleCalendar() {
                                 {localize(
                                   event.countries.length
                                     ? event.countries.map((c) => countries[c]).join("／")
-                                    : "全国家活动",
+                                    : t("全国家活动"),
                                 )}
                               </span>
                             </div>
                             {localize(
                               note && (
                                 <p className="wt-sale-note">
-                                  {localize(event.status === "predicted" ? "历史参与情况：" : "")}
+                                  {localize(
+                                    event.status === "predicted" ? t("历史参与情况：") : "",
+                                  )}
                                   {localize(note)}
                                 </p>
                               ),
@@ -780,7 +794,21 @@ export function SaleCalendar() {
                                   <>
                                     <p>
                                       {localize(
-                                        `开始：${event.startPrecision === "day" ? `${saleDate(event.startAt)}（原公告未注明开始时刻）` : new Date(event.startAt).toLocaleString(getLocale(), { timeZone: "Asia/Shanghai" })}；结束：${new Date(event.endAt).toLocaleString(getLocale(), { timeZone: "Asia/Shanghai" })}`,
+                                        t("开始：{0}；结束：{1}", [
+                                          localize(
+                                            event.startPrecision === "day"
+                                              ? `${saleDate(event.startAt)}（原公告未注明开始时刻）`
+                                              : new Date(event.startAt).toLocaleString(
+                                                  getLocale(),
+                                                  { timeZone: "Asia/Shanghai" },
+                                                ),
+                                          ),
+                                          localize(
+                                            new Date(event.endAt).toLocaleString(getLocale(), {
+                                              timeZone: "Asia/Shanghai",
+                                            }),
+                                          ),
+                                        ]),
                                       )}
                                     </p>
                                     {localize(
@@ -795,7 +823,8 @@ export function SaleCalendar() {
                                 ) : event.basis ? (
                                   <p>
                                     {t("历史基准：")}
-                                    {localize(event.basis.year)} {t("年，")}
+                                    {localize(event.basis.year)}
+                                    {t("年，")}
                                     {localize(saleDate(event.basis.startAt))}—
                                     {localize(saleDate(event.basis.endAt))}
                                   </p>
@@ -803,7 +832,8 @@ export function SaleCalendar() {
                                   previous && (
                                     <p>
                                       {t("历史基准：")}
-                                      {localize(previous.year)} {t("年，")}
+                                      {localize(previous.year)}
+                                      {t("年，")}
                                       {localize(saleRange(previous))}
                                     </p>
                                   )
@@ -823,7 +853,7 @@ export function SaleCalendar() {
                                         >
                                           {localize(saleDate(candidate.at))}{" "}
                                           <b>{localize(candidate.label)}</b>
-                                          {localize(candidate.preferred ? " · 参考" : "")}
+                                          {localize(candidate.preferred ? t(" · 参考") : "")}
                                         </span>
                                       )),
                                     )}
@@ -837,7 +867,9 @@ export function SaleCalendar() {
                             <strong>{localize(saleRate(event))}</strong>
                             <span>
                               {localize(
-                                event.status === "predicted" ? "该年力度待公布" : "适用于指定范围",
+                                event.status === "predicted"
+                                  ? t("该年力度待公布")
+                                  : t("适用于指定范围"),
                               )}
                             </span>
                             <SourceLinks event={event} />
@@ -858,16 +890,22 @@ export function SaleCalendar() {
           {localize(
             data
               ? new Date(data.checkedAt).toLocaleString(getLocale(), { timeZone: "Asia/Shanghai" })
-              : "等待服务器",
+              : t("等待服务器"),
           )}
           {localize(
             data?.nextCheckAt
-              ? ` · 下次计划核对 ${new Date(data.nextCheckAt).toLocaleString(getLocale(), { timeZone: "Asia/Shanghai" })}`
+              ? t(" · 下次计划核对 {0}", [
+                  localize(
+                    new Date(data.nextCheckAt).toLocaleString(getLocale(), {
+                      timeZone: "Asia/Shanghai",
+                    }),
+                  ),
+                ])
               : "",
           )}
           {localize(
             data && ["partial", "failed", "interrupted"].includes(data.updateStatus)
-              ? " · 最近核对未完整完成，保留上次有效记录。"
+              ? t(" · 最近核对未完整完成，保留上次有效记录。")
               : "",
           )}
           {localize(" ")}

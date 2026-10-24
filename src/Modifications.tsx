@@ -1,7 +1,7 @@
 import { t, getLocale, localize, vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
+import { VehicleTile } from "./VehicleTile";
 import { ModificationGrid } from "./ModificationGrid";
-
 import { GameSelect } from "./components/GameSelect";
 import { useState } from "react";
 import type { CartItem, Catalog, Modifications, Tree, Vehicle } from "./models";
@@ -65,19 +65,31 @@ export function ModificationCalculator({
         selector={
           <label className="calc-field">
             {t("目标载具")}
-            <GameSelect value={target} onValueChange={(value) => setTarget(value)}>
-              {tree.ranks.map((rank) => (
-                <optgroup key={rank.rank} label={`Rank ${rank.rank}`}>
-                  {[...index.units.values()]
-                    .filter((u) => u.rank === rank.rank)
-                    .map((u) => (
-                      <option key={u.id} value={u.id}>
-                        {vehicleName(u)}
-                        {u.side === "special" ? t(" · 独立获取") : ""}
-                      </option>
-                    ))}
-                </optgroup>
-              ))}
+            <GameSelect
+              renderOption={(option) => {
+                const id = option.value;
+                const unit = index.units.get(id);
+                return unit ? <VehicleTile unit={unit} catalog={catalog} /> : null;
+              }}
+              value={target}
+              onValueChange={(value) => setTarget(value)}
+            >
+              {localize(
+                tree.ranks.map((rank) => (
+                  <optgroup key={rank.rank} label={`Rank ${rank.rank}`}>
+                    {localize(
+                      [...index.units.values()]
+                        .filter((u) => u.rank === rank.rank)
+                        .map((u) => (
+                          <option key={u.id} value={u.id}>
+                            {vehicleName(u)}
+                            {localize(u.side === "special" ? t(" · 独立获取") : "")}
+                          </option>
+                        )),
+                    )}
+                  </optgroup>
+                )),
+              )}
             </GameSelect>
           </label>
         }
@@ -173,7 +185,7 @@ function PartsForm({
       localize(
         data?.items
           .filter((item) => state.completed.includes(item.id))
-          .map((item) => vehicleName(item))
+          .map((item) => item.name)
           .join("、") || "未勾选",
       ),
     ]),
@@ -186,19 +198,21 @@ function PartsForm({
   return (
     <div className="calc-main">
       <section className="calc-inputs">
-        {selector}
-        {(data?.allUnlockedByDefault || unit.premium) && (
-          <label className="calc-owned-row" aria-label={t("高级载具已解锁全部配件")}>
-            <input
-              type="checkbox"
-              checked={state.included}
-              onChange={(e) => update({ included: e.target.checked })}
-            />
-            <span className="calc-unit-label">
-              <span>{t("高级载具已解锁全部配件")}</span>
-              <small>{t("默认待研 0 RP；如游戏内仍需研发，可取消并核对。")}</small>
-            </span>
-          </label>
+        {localize(selector)}
+        {localize(
+          (data?.allUnlockedByDefault || unit.premium) && (
+            <label className="calc-owned-row" aria-label={t("高级载具已解锁全部配件")}>
+              <input
+                type="checkbox"
+                checked={state.included}
+                onChange={(e) => update({ included: e.target.checked })}
+              />
+              <span className="calc-unit-label">
+                <span>{t("高级载具已解锁全部配件")}</span>
+                <small>{t("默认待研 0 RP；如游戏内仍需研发，可取消并核对。")}</small>
+              </span>
+            </label>
+          ),
         )}
         <label className="calc-field">
           {t("每万配件 RP 单价（元）")}
@@ -250,18 +264,22 @@ function PartsForm({
           )}
         </p>
         <p className="calc-note">
-          {data?.checkedAt
-            ? t("数据核对：{0}", [
-                localize(new Date(data.checkedAt).toLocaleDateString(getLocale())),
-              ])
-            : t("尚无此载具的配件数据。")}
+          {localize(
+            data?.checkedAt
+              ? t("数据核对：{0}", [
+                  localize(new Date(data.checkedAt).toLocaleDateString(getLocale())),
+                ])
+              : t("尚无此载具的配件数据。"),
+          )}
         </p>
-        {data?.source && (
-          <a className="calc-note" href={data.source} target="_blank" rel="noreferrer">
-            {t("查看官方载具资料 ↗")}
-          </a>
+        {localize(
+          data?.source && (
+            <a className="calc-note" href={data.source} target="_blank" rel="noreferrer">
+              {t("查看官方载具资料 ↗")}
+            </a>
+          ),
         )}
-        <p className="calc-note">{error || t("配件进度与单价自动保存在此浏览器。")}</p>
+        <p className="calc-note">{localize(error || t("配件进度与单价自动保存在此浏览器。"))}</p>
       </section>
       <section className="calc-output">
         <div className="wt-parts-summary">
@@ -286,20 +304,24 @@ function PartsForm({
             >
               {t("加入购物车")}
             </button>
-            <output className="calc-note">{message}</output>
+            <output className="calc-note">{localize(message)}</output>
           </div>
         </div>
         <details className="wt-parts-breakdown" open={rp === null}>
           <summary>{t("估算明细")}</summary>
           <p className="calc-formula">{t("待研 RP ÷ 10,000 × 配件单价，金额四舍五入到分。")}</p>
           <output className={`calc-status ${rp === null ? "has-error" : ""}`}>
-            {rp === null
-              ? t("缺少完整配件研发点，或已研 RP 无效。请核对或手动填写后报价。")
-              : `${format(base!)} − ${format(completed)} − ${format(progress!)} = ${format(rp)} RP`}
-            {!data?.itemCostsComplete && (
-              <p className="calc-note">
-                {t("逐项成本尚未完整匹配官方总额，暂不提供逐项扣除；可在左侧填写已投入 RP。")}
-              </p>
+            {localize(
+              rp === null
+                ? t("缺少完整配件研发点，或已研 RP 无效。请核对或手动填写后报价。")
+                : `${format(base!)} − ${format(completed)} − ${format(progress!)} = ${format(rp)} RP`,
+            )}
+            {localize(
+              !data?.itemCostsComplete && (
+                <p className="calc-note">
+                  {t("逐项成本尚未完整匹配官方总额，暂不提供逐项扣除；可在左侧填写已投入 RP。")}
+                </p>
+              ),
             )}
           </output>
         </details>
@@ -309,24 +331,26 @@ function PartsForm({
             <span>{vehicleName(unit)}</span>
           </div>
         </div>
-        {data?.items.length ? (
-          <ModificationGrid
-            data={data}
-            included={state.included}
-            allUnlockedByDefault={data.allUnlockedByDefault || unit.premium}
-            completed={state.completed}
-            onChange={(id, checked) =>
-              update({
-                completed: checked
-                  ? [...state.completed, id]
-                  : state.completed.filter((value) => value !== id),
-              })
-            }
-          />
-        ) : (
-          <p className="calc-note">
-            {t("官方页面未列出可用的逐项配件成本；可使用左侧的完整总 RP 手动报价。")}
-          </p>
+        {localize(
+          data?.items.length ? (
+            <ModificationGrid
+              data={data}
+              included={state.included}
+              allUnlockedByDefault={data.allUnlockedByDefault || unit.premium}
+              completed={state.completed}
+              onChange={(id, checked) =>
+                update({
+                  completed: checked
+                    ? [...state.completed, id]
+                    : state.completed.filter((value) => value !== id),
+                })
+              }
+            />
+          ) : (
+            <p className="calc-note">
+              {t("官方页面未列出可用的逐项配件成本；可使用左侧的完整总 RP 手动报价。")}
+            </p>
+          ),
         )}
       </section>
     </div>

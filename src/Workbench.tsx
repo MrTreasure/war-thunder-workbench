@@ -2,7 +2,6 @@ import { vehicleSearchText } from "./i18n/core";
 import { localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { t, vehicleName } from "./i18n/core";
-import { SiteGuideLinks } from "./components/SiteGuideLinks";
 import { Chevron } from "./components/Chevron";
 import { useAccountWorkspace } from "./workspace-context";
 
@@ -856,7 +855,6 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                 "从上往下沿箭头研发；折叠组可以展开。AB / RB / SB 切换后显示当前模式权重。配件与载具分别计价，出击队列和购物车本地保存。",
               )}
             </p>
-            <SiteGuideLinks />
             <span className="tree-source">
               {t("官方 Wiki ·")}
               {localize(P.checkedAt.slice(0, 10))}

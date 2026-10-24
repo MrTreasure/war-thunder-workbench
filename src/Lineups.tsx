@@ -1,6 +1,6 @@
-import { localize } from "./i18n/core";
+import { t, localize, vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
-import { t } from "./i18n/core";
+import { VehicleTile } from "./VehicleTile";
 import cardTheme from "../data/vehicle-card-theme.json";
 import type { CSSProperties } from "react";
 import { Chevron } from "./components/Chevron";
@@ -16,7 +16,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { CatalogIndex, CountryPayload, Mode } from "./models";
 import type { DownloadProgress } from "./data-loader";
 import { LineupRoster } from "./LineupRoster";
-import { packPriceLabel } from "./PackPrice";
 import { Modal } from "./Modal";
 import { rankNumber } from "./planner";
 import { WarThunderLoading } from "./Loading";
@@ -60,7 +59,6 @@ export function Lineups({
   retry: () => void;
 }) {
   useLocale();
-
   const [importText, setImportText] = useState("");
   const [importOpen, setImportOpen] = useState(false);
   const importInput = useRef<HTMLInputElement>(null);
@@ -164,7 +162,9 @@ export function Lineups({
                     autoCapitalize="none"
                     autoCorrect="off"
                     spellCheck={false}
-                    placeholder={t("{0} 位分享码，含空槽位", [2 + catalog.lineup.maxSlots * 2])}
+                    placeholder={t("{0} 位分享码，含空槽位", [
+                      localize(2 + catalog.lineup.maxSlots * 2),
+                    ])}
                     aria-invalid={Boolean(importError)}
                     aria-describedby={importError ? "lineup-import-error" : undefined}
                   />
@@ -188,7 +188,7 @@ export function Lineups({
             <Modal
               className="lineup-import-dialog"
               title={t("导入出击队列")}
-              subtitle={t("读取{0}资料后预览", [catalog.countries[pending.country]])}
+              subtitle={t("读取{0}资料后预览", [localize(catalog.countries[pending.country])])}
               close={() => setPending(null)}
             >
               <WarThunderLoading
@@ -210,7 +210,7 @@ export function Lineups({
           ) : !payload || payload.country !== country ? (
             <WarThunderLoading
               compact
-              title={t("载入{0}全部载具资料", [catalog.countries[country]])}
+              title={t("载入{0}全部载具资料", [localize(catalog.countries[country])])}
               progress={progress}
               error={error}
               retry={error ? retry : undefined}
@@ -252,8 +252,6 @@ function CountryLineups({
   dismissImport: () => void;
   editImport: () => void;
 }) {
-  useLocale();
-
   const rules = catalog.lineup;
   const [saved, save, storageError] = useStored<Lineup[]>(
     `wt-lineups-v1:${country}`,
@@ -294,7 +292,7 @@ function CountryLineups({
       const unavailable = slots.filter((id) => id && !units.has(id));
       if (unavailable.length)
         return {
-          error: t("当前资料没有 {0}，请更新资料后再导入。", [unavailable.join("、")]),
+          error: t("当前资料没有 {0}，请更新资料后再导入。", [localize(unavailable.join("、"))]),
           slots: null,
         };
       return { slots, error: "" };
@@ -330,7 +328,7 @@ function CountryLineups({
     const lineup: Lineup = {
       id:
         globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}`,
-      name: name || t("队列 {0}", [saved.length + 1]),
+      name: name || t("队列 {0}", [localize(saved.length + 1)]),
       slots,
       battleType: type || (slots.some(Boolean) ? inferBattle(slots, units) : defaultBattle),
       activeAircraft: activeAircraft === undefined ? firstAircraft : activeAircraft,
@@ -444,7 +442,7 @@ function CountryLineups({
       (category === "all" || unit.category === category) &&
       (rank === "all" || unit.rank === rank) &&
       (kind === "all" || (kind === "premium" ? unit.premium : lineupVehicleKind(unit) === kind)) &&
-      `${unit.name}${unit.nameEn || ""}${unit.id}`
+      `${vehicleName(unit)}${unit.nameEn || ""}${unit.id}`
         .normalize("NFKC")
         .toLowerCase()
         .replaceAll(" ", "")
@@ -459,487 +457,73 @@ function CountryLineups({
           </p>
         ),
       )}
-      {preview && (
-        <Modal
-          className="lineup-import-dialog"
-          title={t("导入预览 · {0}", [catalog.countries[country]])}
-          subtitle={t("核对载具与空位，保存后会新增一个队列。")}
-          close={dismissImport}
-        >
-          <div className="lineup-import-preview">
-            {preview.error ? (
-              <div>
-                <p role="alert" className="lineup-feedback is-error">
-                  {localize(preview.error)}
-                </p>
-                <button className="quiet-button" onClick={editImport}>
-                  {t("修改分享码")}
-                </button>
-              </div>
-            ) : (
-              <>
-                <ol className="lineup-import-slots">
-                  {preview.slots!.map((id, i) => (
-                    <li key={i}>
-                      <span>{localize(i + 1)}</span>
-                      {id ? units.get(id)?.name || id : t("空位")}
-                    </li>
-                  ))}
-                </ol>
-                <p className="calc-note">
-                  {t("分享码只包含国家和槽位顺序。导入后可修改名称、战斗类型及空战 RB 出击飞机。")}
-                </p>
-                <button
-                  className="quiet-button calc-open"
-                  onClick={() => {
-                    const created = create(
-                      preview.slots!,
-                      t("导入队列 {0}", [saved.length + 1]),
-                      undefined,
-                      undefined,
-                      false,
-                    );
-                    if (created !== false) dismissImport();
-                  }}
-                >
-                  {t("保存为新队列")}
-                </button>
-              </>
-            )}
-          </div>
-        </Modal>
-      )}
-      {shareOpen && selected && (
-        <Modal
-          className="lineup-import-dialog"
-          title={t("分享队列 · {0}", [selected.name])}
-          subtitle={t("24 位分享码，区分大小写；保留空槽位与顺序。")}
-          close={() => setShareOpen(false)}
-        >
-          <div className="lineup-share">
-            <div className="lineup-share-row">
-              <code ref={shareCode} aria-label={t("当前队列分享码")}>
-                {localize(share.code)}
-              </code>
-              <button
-                className="quiet-button calc-open"
-                disabled={!share.code || copying}
-                onClick={() => void copyCode(share.code)}
-              >
-                {localize(copying ? t("正在复制…") : t("复制分享码"))}
-              </button>
-            </div>
-            <p className="lineup-feedback" role={share.error ? "alert" : "status"}>
-              {localize(share.error || message)}
-            </p>
-            <p className="calc-note">
-              {t("分享码只包含国家和载具槽位，不包含队列名称、战斗类型和空战 RB 出击选择。")}
-            </p>
-          </div>
-        </Modal>
-      )}
-      {deleting && saved.some((row) => row.id === deleting) && (
-        <Modal
-          className="lineup-import-dialog"
-          title={t("删除队列")}
-          subtitle={t("确定删除“{0}”？", [
-            saved.find((row) => row.id === deleting)?.name || t("未命名队列"),
-          ])}
-          close={() => setDeleting("")}
-        >
-          <div className="lineup-delete">
-            <button className="quiet-button" onClick={() => setDeleting("")}>
-              {t("保留队列")}
-            </button>
-            <button
-              className="quiet-button"
-              onClick={() => {
-                if (!save(saved.filter((row) => row.id !== deleting))) return;
-                if (draft?.id === deleting) returnToList();
-                setDeleting("");
-              }}
-            >
-              {t("确认删除")}
-            </button>
-          </div>
-        </Modal>
-      )}
-      <div className="lineup-workspace">
-        {!draft && (
-          <section className="lineup-saved" aria-label={t("已保存的出击队列")}>
-            <div className="lineup-section-heading lineup-list-heading">
-              <h3 ref={heading} tabIndex={-1}>
-                {t("我的队列")}
-                <small>
-                  {localize(saved.length)} {t("个")}
-                </small>
-              </h3>
+      {localize(
+        preview && (
+          <Modal
+            className="lineup-import-dialog"
+            title={t("导入预览 · {0}", [localize(catalog.countries[country])])}
+            subtitle={t("核对载具与空位，保存后会新增一个队列。")}
+            close={dismissImport}
+          >
+            <div className="lineup-import-preview">
               {localize(
-                saved.length > 0 && (
-                  <button
-                    className="quiet-button calc-open"
-                    onClick={() => {
-                      create();
-                      focusHeading();
-                    }}
-                  >
-                    {t("＋ 新建队列")}
-                  </button>
+                preview.error ? (
+                  <div>
+                    <p role="alert" className="lineup-feedback is-error">
+                      {localize(preview.error)}
+                    </p>
+                    <button className="quiet-button" onClick={editImport}>
+                      {t("修改分享码")}
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <ol className="lineup-import-slots">
+                      {localize(
+                        preview.slots!.map((id, i) => (
+                          <li key={i}>
+                            <span>{localize(i + 1)}</span>
+                            {localize(id ? units.get(id)?.name || id : t("空位"))}
+                          </li>
+                        )),
+                      )}
+                    </ol>
+                    <p className="calc-note">
+                      {t(
+                        "分享码只包含国家和槽位顺序。导入后可修改名称、战斗类型及空战 RB 出击飞机。",
+                      )}
+                    </p>
+                    <button
+                      className="quiet-button calc-open"
+                      onClick={() => {
+                        const created = create(
+                          preview.slots!,
+                          t("导入队列 {0}", [localize(saved.length + 1)]),
+                          undefined,
+                          undefined,
+                          false,
+                        );
+                        if (created !== false) dismissImport();
+                      }}
+                    >
+                      {t("保存为新队列")}
+                    </button>
+                  </>
                 ),
               )}
             </div>
-            <div className="lineup-saved-list">
-              {saved.map((row) => (
-                <article className="lineup-saved-row" key={row.id}>
-                  <div className="lineup-card-heading">
-                    <div>
-                      <h3>{row.name || t("未命名队列")}</h3>
-                      <p className="calc-note">
-                        {localize(battleNames[row.battleType])} ·{" "}
-                        {localize(row.slots.filter(Boolean).length)} /{localize(" ")}
-                        {localize(rules.maxSlots)} {t("辆")}
-                      </p>
-                    </div>
-                    <button
-                      className="quiet-button lineup-card-share"
-                      aria-label={t("分享 {0}", [row.name])}
-                      disabled={copying}
-                      onClick={() => shareLineup(row)}
-                    >
-                      {t("分享")}
-                    </button>
-                  </div>
-                  <LineupSummaryRatings lineup={row} units={units} rules={rules} />
-                  <LineupSummary lineup={row} units={units} mode={mode} catalog={catalog} />
-                  <footer className="lineup-card-actions">
-                    <button
-                      className="quiet-button"
-                      aria-label={t("编辑 {0}", [row.name])}
-                      onClick={() => edit(row)}
-                    >
-                      {t("编辑队列")}
-                    </button>
-                    <button
-                      className="quiet-button"
-                      aria-label={t("删除 {0}", [row.name])}
-                      onClick={() => setDeleting(row.id)}
-                    >
-                      {t("删除")}
-                    </button>
-                  </footer>
-                </article>
-              ))}
-            </div>
-            {localize(
-              !saved.length && (
-                <div className="lineup-empty lineup-saved-empty">
-                  <h3>{t("还没有保存的队列")}</h3>
-                  <p>
-                    {t("选择载具并保存，你的")}
-                    {localize(catalog.countries[country])}
-                    {t("常用阵容会显示在这里。")}
-                  </p>
-                  <button
-                    className="quiet-button calc-open"
-                    onClick={() => {
-                      create();
-                      focusHeading();
-                    }}
-                  >
-                    {t("＋ 新建队列")}
-                  </button>
-                </div>
-              ),
-            )}
-          </section>
-        )}
-        {draft && selected && (
-          <section className="lineup-editor" aria-label={t("队列配置")}>
-            <div className="lineup-editor-navigation">
-              <h3 ref={heading} tabIndex={-1}>
-                {localize(editingId ? t("编辑队列") : t("新建队列"))}
-              </h3>
-              <div className="lineup-saved-actions">
-                <button className="quiet-button" onClick={returnToList}>
-                  {t("取消，返回列表")}
-                </button>
-                <button
-                  className="quiet-button calc-open"
-                  disabled={!draft.slots.some(Boolean)}
-                  onClick={saveDraft}
-                >
-                  {t("保存队列")}
-                </button>
-              </div>
-            </div>
-            <p className="calc-note">{t("保存后生效，取消不会覆盖已保存的队列。")}</p>
-            <div className="lineup-editor-heading">
-              <label className="calc-field">
-                {t("队列名称")}
-                <input
-                  value={selected.name}
-                  maxLength={80}
-                  onChange={(e) => update({ name: e.target.value })}
-                  onBlur={() => {
-                    if (!selected.name.trim()) update({ name: t("未命名队列") });
-                  }}
-                />
-              </label>
-              <label className="calc-field">
-                {t("战斗类型")}
-                <GameSelect
-                  value={selected.battleType}
-                  onValueChange={(value) => update({ battleType: value as BattleType })}
-                >
-                  {localize(
-                    Object.entries(battleNames).map(([id, label]) => (
-                      <option key={id} value={id}>
-                        {localize(label)}
-                      </option>
-                    )),
-                  )}
-                </GameSelect>
-              </label>
-              <details key={selected.id} className="lineup-editor-more">
-                <summary>{t("更多操作")}</summary>
-                <div>
-                  <button
-                    className="quiet-button"
-                    onClick={() =>
-                      create(
-                        [...selected.slots],
-                        t("{0} 副本", [selected.name.slice(0, 74)]),
-                        selected.battleType,
-                        selected.activeAircraft,
-                      )
-                    }
-                  >
-                    {t("复制队列")}
-                  </button>
-                  <button
-                    className="quiet-button"
-                    disabled={!editingId}
-                    onClick={() => setDeleting(selected.id)}
-                  >
-                    {t("删除")}
-                  </button>
-                </div>
-              </details>
-            </div>
-            <div className="lineup-configure">
-              <section className="lineup-roster" aria-label={t("乘员槽位")}>
-                <div className="lineup-section-heading">
-                  <h3>
-                    {t("乘员槽位")}
-                    {localize(" ")}
-                    <small>
-                      {localize(selected.slots.filter(Boolean).length)} / {localize(rules.maxSlots)}
-                    </small>
-                  </h3>
-                </div>
-                <p className="calc-note">
-                  {t(
-                    "点击槽位后在下方选车；拖动柄按住即可排序，卡片长按后拖动、短划横向浏览；Alt + ← / → 也可排序。",
-                  )}
-                  {localize(
-                    selected.battleType === "air"
-                      ? t("RB 只计算标为出击的飞机。")
-                      : t("权重按所选战斗类型计算。"),
-                  )}
-                </p>
-                <LineupRoster
-                  key={selected.id}
-                  slots={selected.slots}
-                  units={units}
-                  activeSlot={activeSlot}
-                  selectSlot={setActiveSlot}
-                  battleType={selected.battleType}
-                  activeAircraft={selected.activeAircraft}
-                  mode={mode}
-                  categories={catalog.categories}
-                  reorder={(slots, active) => {
-                    update({ slots });
-                    setActiveSlot(active);
-                  }}
-                  chooseAircraft={(id) => update({ activeAircraft: id })}
-                  clear={(index) => {
-                    const slots = [...selected.slots];
-                    const id = slots[index];
-                    slots[index] = null;
-                    update({
-                      slots,
-                      activeAircraft:
-                        selected.activeAircraft === id
-                          ? slots.find((uid) => uid && units.get(uid)?.category === "aviation") ||
-                            null
-                          : selected.activeAircraft,
-                    });
-                  }}
-                />
-              </section>
-              <LineupRatingsView ratings={ratings} units={units} />
-
-              <section className="lineup-picker" aria-label={t("载具选择")}>
-                <h3>
-                  {t("为槽位")}
-                  {localize(activeSlot + 1)} {t("选择载具")}
-                </h3>
-                <label className="calc-field">
-                  {t("当前槽位")}
-                  <GameSelect
-                    value={activeSlot}
-                    onValueChange={(value) => setActiveSlot(Number(value))}
-                  >
-                    {selected.slots.map((id, i) => (
-                      <option key={i} value={i}>
-                        {localize(i + 1)} · {id ? units.get(id)?.name || id : t("空槽位")}
-                      </option>
-                    ))}
-                  </GameSelect>
-                </label>
-                <button
-                  className="quiet-button"
-                  disabled={!selected.slots[activeSlot]}
-                  onClick={() => place(null)}
-                >
-                  {t("清空当前槽位")}
-                </button>
-                <label className="calc-field lineup-picker-search">
-                  {t("搜索型号")}
-                  <input
-                    type="search"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    placeholder={t("中文、英文或载具 ID")}
-                  />
-                </label>
-                <button
-                  className="quiet-button lineup-picker-filter-toggle"
-                  aria-expanded={filtersOpen}
-                  aria-controls="lineup-vehicle-filters"
-                  onClick={() => setFiltersOpen(!filtersOpen)}
-                >
-                  <span>{t("筛选载具")}</span>
-                  <small>
-                    {localize(category === "all" ? t("全部军种") : catalog.categories[category])} ·
-                    {localize(" ")}
-                    {localize(rank === "all" ? t("全部等级") : `Rank ${rank}`)} ·{localize(" ")}
-                    {localize(kind === "all" ? t("全部类型") : catalog.lineupKinds[kind])}
-                  </small>
-                  <Chevron className={filtersOpen ? "is-open" : ""} />
-                </button>
-                <div
-                  className="lineup-picker-filter-fields"
-                  id="lineup-vehicle-filters"
-                  data-expanded={filtersOpen}
-                >
-                  <label className="calc-field">
-                    {t("军种")}
-                    <GameSelect value={category} onValueChange={(value) => setCategory(value)}>
-                      <option value="all">{t("全部军种")}</option>
-                      {localize(
-                        Object.entries(catalog.categories).map(([id, label]) => (
-                          <option key={id} value={id}>
-                            {localize(label)}
-                          </option>
-                        )),
-                      )}
-                    </GameSelect>
-                  </label>
-                  <label className="calc-field">
-                    {t("等级")}
-                    <GameSelect value={rank} onValueChange={(value) => setRank(value)}>
-                      <option value="all">{t("全部 Rank")}</option>
-                      {localize(
-                        ranks.map((value) => (
-                          <option key={value} value={value}>
-                            Rank {localize(value)}
-                          </option>
-                        )),
-                      )}
-                    </GameSelect>
-                  </label>
-                  <label className="calc-field">
-                    {t("载具类型")}
-                    <GameSelect value={kind} onValueChange={(value) => setKind(value)}>
-                      <option value="all">{t("全部类型")}</option>
-                      {localize(
-                        Object.entries(catalog.lineupKinds).map(([id, label]) => (
-                          <option key={id} value={id}>
-                            {localize(label)}
-                          </option>
-                        )),
-                      )}
-                    </GameSelect>
-                  </label>
-                </div>
-                <p className="calc-note">
-                  {localize(candidates.length)} {t("辆匹配")}
-                  {localize(candidates.length > 100 ? t("，显示前 100 辆，请搜索缩小范围") : "")}
-                </p>
-                <div className="lineup-candidates">
-                  {candidates.slice(0, 100).map((unit) => {
-                    const occupied = selected.slots.includes(unit.id);
-                    return (
-                      <button
-                        key={unit.id}
-                        className={`lineup-candidate is-kind-${lineupVehicleKind(unit)}`}
-                        disabled={occupied}
-                        onClick={() => place(unit.id)}
-                      >
-                        <img src={unit.thumbnailUrl} width={64} height={38} alt="" loading="lazy" />
-                        <span>
-                          <strong>{unit.name}</strong>
-                          <span className="lineup-vehicle-tags">
-                            <span className={`lineup-kind-tag is-kind-${lineupVehicleKind(unit)}`}>
-                              {localize(
-                                unit.kind === "pack"
-                                  ? packPriceLabel(unit)
-                                  : catalog.lineupKinds[lineupVehicleKind(unit)],
-                              )}
-                            </span>
-                            {localize(
-                              unit.premium && ["pack", "market"].includes(unit.kind) && (
-                                <span className="lineup-kind-tag is-kind-premium">
-                                  {localize(catalog.lineupKinds.premium)}
-                                </span>
-                              ),
-                            )}
-                          </span>
-                          <small>
-                            {localize(catalog.categories[unit.category])} · Rank{" "}
-                            {localize(unit.rank)}
-                          </small>
-                        </span>
-                        <b>
-                          {localize(
-                            occupied
-                              ? t("已配置")
-                              : brLabel(vehicleStep(unit, selected.battleType, mode)),
-                          )}
-                        </b>
-                      </button>
-                    );
-                  })}
-                  {localize(
-                    !candidates.length && (
-                      <p className="lineup-empty">
-                        {t("没有符合条件的载具，试试其他类型、等级、军种或型号。")}
-                      </p>
-                    ),
-                  )}
-                </div>
-              </section>
-            </div>
-            <section className="lineup-share" aria-label={t("分享码导出")}>
-              <div className="lineup-section-heading">
-                <h3>
-                  {t("分享码")}
-                  <small>
-                    {localize(2 + rules.maxSlots * 2)} {t("位 · 区分大小写")}
-                  </small>
-                </h3>
-              </div>
+          </Modal>
+        ),
+      )}
+      {localize(
+        shareOpen && selected && (
+          <Modal
+            className="lineup-import-dialog"
+            title={t("分享队列 · {0}", [localize(selected.name)])}
+            subtitle={t("24 位分享码，区分大小写；保留空槽位与顺序。")}
+            close={() => setShareOpen(false)}
+          >
+            <div className="lineup-share">
               <div className="lineup-share-row">
                 <code ref={shareCode} aria-label={t("当前队列分享码")}>
                   {localize(share.code)}
@@ -952,21 +536,452 @@ function CountryLineups({
                   {localize(copying ? t("正在复制…") : t("复制分享码"))}
                 </button>
               </div>
-              <p className="calc-note">
-                {localize(rules.countryCodes[country])} {t("为国家码；其后每两位为一个槽位，")}
-                {localize(rules.emptyCode)}
-                {localize(" ")}
-                {t("为空位。保持原始大小写。分享码不包含队列名称、战斗类型和 RB 出击选择。")}
-              </p>
-              <p
-                className={`lineup-feedback ${share.error ? "is-error" : ""}`}
-                role={share.error ? "alert" : "status"}
-              >
+              <p className="lineup-feedback" role={share.error ? "alert" : "status"}>
                 {localize(share.error || message)}
               </p>
+              <p className="calc-note">
+                {t("分享码只包含国家和载具槽位，不包含队列名称、战斗类型和空战 RB 出击选择。")}
+              </p>
+            </div>
+          </Modal>
+        ),
+      )}
+      {localize(
+        deleting && saved.some((row) => row.id === deleting) && (
+          <Modal
+            className="lineup-import-dialog"
+            title={t("删除队列")}
+            subtitle={t("确定删除“{0}”？", [
+              localize(saved.find((row) => row.id === deleting)?.name || "未命名队列"),
+            ])}
+            close={() => setDeleting("")}
+          >
+            <div className="lineup-delete">
+              <button className="quiet-button" onClick={() => setDeleting("")}>
+                {t("保留队列")}
+              </button>
+              <button
+                className="quiet-button"
+                onClick={() => {
+                  if (!save(saved.filter((row) => row.id !== deleting))) return;
+                  if (draft?.id === deleting) returnToList();
+                  setDeleting("");
+                }}
+              >
+                {t("确认删除")}
+              </button>
+            </div>
+          </Modal>
+        ),
+      )}
+      <div className="lineup-workspace">
+        {localize(
+          !draft && (
+            <section className="lineup-saved" aria-label={t("已保存的出击队列")}>
+              <div className="lineup-section-heading lineup-list-heading">
+                <h3 ref={heading} tabIndex={-1}>
+                  {t("我的队列")}
+                  <small>
+                    {localize(saved.length)}
+                    {t("个")}
+                  </small>
+                </h3>
+                {localize(
+                  saved.length > 0 && (
+                    <button
+                      className="quiet-button calc-open"
+                      onClick={() => {
+                        create();
+                        focusHeading();
+                      }}
+                    >
+                      {t("＋ 新建队列")}
+                    </button>
+                  ),
+                )}
+              </div>
+              <div className="lineup-saved-list">
+                {localize(
+                  saved.map((row) => (
+                    <article className="lineup-saved-row" key={row.id}>
+                      <div className="lineup-card-heading">
+                        <div>
+                          <h3>{localize(row.name || t("未命名队列"))}</h3>
+                          <p className="calc-note">
+                            {localize(battleNames[row.battleType])} ·{" "}
+                            {localize(row.slots.filter(Boolean).length)} /{localize(" ")}
+                            {localize(rules.maxSlots)}
+                            {t("辆")}
+                          </p>
+                        </div>
+                        <button
+                          className="quiet-button lineup-card-share"
+                          aria-label={t("分享 {0}", [localize(row.name)])}
+                          disabled={copying}
+                          onClick={() => shareLineup(row)}
+                        >
+                          {t("分享")}
+                        </button>
+                      </div>
+                      <LineupSummaryRatings lineup={row} units={units} rules={rules} />
+                      <LineupSummary lineup={row} units={units} mode={mode} catalog={catalog} />
+                      <footer className="lineup-card-actions">
+                        <button
+                          className="quiet-button"
+                          aria-label={t("编辑 {0}", [localize(row.name)])}
+                          onClick={() => edit(row)}
+                        >
+                          {t("编辑队列")}
+                        </button>
+                        <button
+                          className="quiet-button"
+                          aria-label={t("删除 {0}", [localize(row.name)])}
+                          onClick={() => setDeleting(row.id)}
+                        >
+                          {t("删除")}
+                        </button>
+                      </footer>
+                    </article>
+                  )),
+                )}
+              </div>
+              {localize(
+                !saved.length && (
+                  <div className="lineup-empty lineup-saved-empty">
+                    <h3>{t("还没有保存的队列")}</h3>
+                    <p>
+                      {t("选择载具并保存，你的")}
+                      {localize(catalog.countries[country])}
+                      {t("常用阵容会显示在这里。")}
+                    </p>
+                    <button
+                      className="quiet-button calc-open"
+                      onClick={() => {
+                        create();
+                        focusHeading();
+                      }}
+                    >
+                      {t("＋ 新建队列")}
+                    </button>
+                  </div>
+                ),
+              )}
             </section>
-            <LineupRulesNotes rules={rules} />
-          </section>
+          ),
+        )}
+        {localize(
+          draft && selected && (
+            <section className="lineup-editor" aria-label={t("队列配置")}>
+              <div className="lineup-editor-navigation">
+                <h3 ref={heading} tabIndex={-1}>
+                  {localize(editingId ? t("编辑队列") : t("新建队列"))}
+                </h3>
+                <div className="lineup-saved-actions">
+                  <button className="quiet-button" onClick={returnToList}>
+                    {t("取消，返回列表")}
+                  </button>
+                  <button
+                    className="quiet-button calc-open"
+                    disabled={!draft.slots.some(Boolean)}
+                    onClick={saveDraft}
+                  >
+                    {t("保存队列")}
+                  </button>
+                </div>
+              </div>
+              <p className="calc-note">{t("保存后生效，取消不会覆盖已保存的队列。")}</p>
+              <div className="lineup-editor-heading">
+                <label className="calc-field">
+                  {t("队列名称")}
+                  <input
+                    value={selected.name}
+                    maxLength={80}
+                    onChange={(e) => update({ name: e.target.value })}
+                    onBlur={() => {
+                      if (!selected.name.trim()) update({ name: t("未命名队列") });
+                    }}
+                  />
+                </label>
+                <label className="calc-field">
+                  {t("战斗类型")}
+                  <GameSelect
+                    value={selected.battleType}
+                    onValueChange={(value) => update({ battleType: value as BattleType })}
+                  >
+                    {localize(
+                      Object.entries(battleNames).map(([id, label]) => (
+                        <option key={id} value={id}>
+                          {localize(label)}
+                        </option>
+                      )),
+                    )}
+                  </GameSelect>
+                </label>
+                <details key={selected.id} className="lineup-editor-more">
+                  <summary>{t("更多操作")}</summary>
+                  <div>
+                    <button
+                      className="quiet-button"
+                      onClick={() =>
+                        create(
+                          [...selected.slots],
+                          t("{0} 副本", [localize(selected.name.slice(0, 74))]),
+                          selected.battleType,
+                          selected.activeAircraft,
+                        )
+                      }
+                    >
+                      {t("复制队列")}
+                    </button>
+                    <button
+                      className="quiet-button"
+                      disabled={!editingId}
+                      onClick={() => setDeleting(selected.id)}
+                    >
+                      {t("删除")}
+                    </button>
+                  </div>
+                </details>
+              </div>
+              <div className="lineup-configure">
+                <section className="lineup-roster" aria-label={t("乘员槽位")}>
+                  <div className="lineup-section-heading">
+                    <h3>
+                      {t("乘员槽位")}
+                      {localize(" ")}
+                      <small>
+                        {localize(selected.slots.filter(Boolean).length)} /{" "}
+                        {localize(rules.maxSlots)}
+                      </small>
+                    </h3>
+                  </div>
+                  <p className="calc-note">
+                    {t(
+                      "点击槽位后在下方选车；拖动柄按住即可排序，卡片长按后拖动、短划横向浏览；Alt + ← / → 也可排序。",
+                    )}
+                    {localize(
+                      selected.battleType === "air"
+                        ? t("RB 只计算标为出击的飞机。")
+                        : t("权重按所选战斗类型计算。"),
+                    )}
+                  </p>
+                  <LineupRoster
+                    key={selected.id}
+                    slots={selected.slots}
+                    units={units}
+                    activeSlot={activeSlot}
+                    selectSlot={setActiveSlot}
+                    battleType={selected.battleType}
+                    activeAircraft={selected.activeAircraft}
+                    mode={mode}
+                    categories={catalog.categories}
+                    reorder={(slots, active) => {
+                      update({ slots });
+                      setActiveSlot(active);
+                    }}
+                    chooseAircraft={(id) => update({ activeAircraft: id })}
+                    clear={(index) => {
+                      const slots = [...selected.slots];
+                      const id = slots[index];
+                      slots[index] = null;
+                      update({
+                        slots,
+                        activeAircraft:
+                          selected.activeAircraft === id
+                            ? slots.find((uid) => uid && units.get(uid)?.category === "aviation") ||
+                              null
+                            : selected.activeAircraft,
+                      });
+                    }}
+                  />
+                </section>
+                <LineupRatingsView ratings={ratings} units={units} />
+
+                <section className="lineup-picker" aria-label={t("载具选择")}>
+                  <h3>
+                    {t("为槽位")}
+                    {localize(activeSlot + 1)}
+                    {t("选择载具")}
+                  </h3>
+                  <label className="calc-field">
+                    {t("当前槽位")}
+                    <GameSelect
+                      renderOption={(option) => {
+                        const value = option.value;
+                        const id = selected.slots[Number(value)];
+                        const unit = id ? units.get(id) : null;
+                        return unit ? (
+                          <VehicleTile unit={unit} catalog={catalog} mode={mode} />
+                        ) : null;
+                      }}
+                      value={activeSlot}
+                      onValueChange={(value) => setActiveSlot(Number(value))}
+                    >
+                      {localize(
+                        selected.slots.map((id, i) => (
+                          <option key={i} value={i}>
+                            {localize(i + 1)} ·{" "}
+                            {localize(id ? units.get(id)?.name || id : t("空槽位"))}
+                          </option>
+                        )),
+                      )}
+                    </GameSelect>
+                  </label>
+                  <button
+                    className="quiet-button"
+                    disabled={!selected.slots[activeSlot]}
+                    onClick={() => place(null)}
+                  >
+                    {t("清空当前槽位")}
+                  </button>
+                  <label className="calc-field lineup-picker-search">
+                    {t("搜索型号")}
+                    <input
+                      type="search"
+                      value={search}
+                      onChange={(e) => setSearch(e.target.value)}
+                      placeholder={t("中文、英文或载具 ID")}
+                    />
+                  </label>
+                  <button
+                    className="quiet-button lineup-picker-filter-toggle"
+                    aria-expanded={filtersOpen}
+                    aria-controls="lineup-vehicle-filters"
+                    onClick={() => setFiltersOpen(!filtersOpen)}
+                  >
+                    <span>{t("筛选载具")}</span>
+                    <small>
+                      {localize(category === "all" ? t("全部军种") : catalog.categories[category])}{" "}
+                      ·{localize(" ")}
+                      {localize(rank === "all" ? t("全部等级") : `Rank ${rank}`)} ·{localize(" ")}
+                      {localize(kind === "all" ? t("全部类型") : catalog.lineupKinds[kind])}
+                    </small>
+                    <Chevron className={filtersOpen ? "is-open" : ""} />
+                  </button>
+                  <div
+                    className="lineup-picker-filter-fields"
+                    id="lineup-vehicle-filters"
+                    data-expanded={filtersOpen}
+                  >
+                    <label className="calc-field">
+                      {t("军种")}
+                      <GameSelect value={category} onValueChange={(value) => setCategory(value)}>
+                        <option value="all">{t("全部军种")}</option>
+                        {localize(
+                          Object.entries(catalog.categories).map(([id, label]) => (
+                            <option key={id} value={id}>
+                              {localize(label)}
+                            </option>
+                          )),
+                        )}
+                      </GameSelect>
+                    </label>
+                    <label className="calc-field">
+                      {t("等级")}
+                      <GameSelect value={rank} onValueChange={(value) => setRank(value)}>
+                        <option value="all">{t("全部 Rank")}</option>
+                        {localize(
+                          ranks.map((value) => (
+                            <option key={value} value={value}>
+                              Rank {localize(value)}
+                            </option>
+                          )),
+                        )}
+                      </GameSelect>
+                    </label>
+                    <label className="calc-field">
+                      {t("载具类型")}
+                      <GameSelect value={kind} onValueChange={(value) => setKind(value)}>
+                        <option value="all">{t("全部类型")}</option>
+                        {localize(
+                          Object.entries(catalog.lineupKinds).map(([id, label]) => (
+                            <option key={id} value={id}>
+                              {localize(label)}
+                            </option>
+                          )),
+                        )}
+                      </GameSelect>
+                    </label>
+                  </div>
+                  <p className="calc-note">
+                    {localize(candidates.length)}
+                    {t("辆匹配")}
+                    {localize(candidates.length > 100 ? t("，显示前 100 辆，请搜索缩小范围") : "")}
+                  </p>
+                  <div className="lineup-candidates">
+                    {localize(
+                      candidates.slice(0, 100).map((unit) => {
+                        const occupied = selected.slots.includes(unit.id);
+                        return (
+                          <div className="wt-vehicle-option" key={unit.id}>
+                            <VehicleTile
+                              unit={unit}
+                              catalog={catalog}
+                              mode={mode}
+                              disabled={occupied}
+                              onSelect={() => place(unit.id)}
+                              modeRating={brLabel(vehicleStep(unit, selected.battleType, mode))}
+                            />
+                            <small>
+                              {localize(
+                                occupied
+                                  ? t("已配置")
+                                  : `${catalog.categories[unit.category]} · Rank ${unit.rank}`,
+                              )}
+                            </small>
+                          </div>
+                        );
+                      }),
+                    )}
+                    {localize(
+                      !candidates.length && (
+                        <p className="lineup-empty">
+                          {t("没有符合条件的载具，试试其他类型、等级、军种或型号。")}
+                        </p>
+                      ),
+                    )}
+                  </div>
+                </section>
+              </div>
+              <section className="lineup-share" aria-label={t("分享码导出")}>
+                <div className="lineup-section-heading">
+                  <h3>
+                    {t("分享码")}
+                    <small>
+                      {localize(2 + rules.maxSlots * 2)}
+                      {t("位 · 区分大小写")}
+                    </small>
+                  </h3>
+                </div>
+                <div className="lineup-share-row">
+                  <code ref={shareCode} aria-label={t("当前队列分享码")}>
+                    {localize(share.code)}
+                  </code>
+                  <button
+                    className="quiet-button calc-open"
+                    disabled={!share.code || copying}
+                    onClick={() => void copyCode(share.code)}
+                  >
+                    {localize(copying ? t("正在复制…") : t("复制分享码"))}
+                  </button>
+                </div>
+                <p className="calc-note">
+                  {localize(rules.countryCodes[country])}
+                  {t("为国家码；其后每两位为一个槽位，")}
+                  {localize(rules.emptyCode)}
+                  {localize(" ")}
+                  {t("为空位。保持原始大小写。分享码不包含队列名称、战斗类型和 RB 出击选择。")}
+                </p>
+                <p
+                  className={`lineup-feedback ${share.error ? "is-error" : ""}`}
+                  role={share.error ? "alert" : "status"}
+                >
+                  {localize(share.error || message)}
+                </p>
+              </section>
+              <LineupRulesNotes rules={rules} />
+            </section>
+          ),
         )}
       </div>
     </>

@@ -1,8 +1,7 @@
-import { localize } from "./i18n/core";
+import { t, localize, vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
-import { t, vehicleName } from "./i18n/core";
+import { VehicleTile } from "./VehicleTile";
 import { useAccountWorkspace } from "./workspace-context";
-
 import { GameSelect } from "./components/GameSelect";
 import { useMemo, useState } from "react";
 import type { CartItem, Catalog, Profile, Tree } from "./models";
@@ -47,7 +46,6 @@ export function VehicleCalculator({
   add: (item: CartItem) => string;
 }) {
   useLocale();
-
   const workspace = useAccountWorkspace();
   const binding = workspace?.binding;
   const index = useMemo(() => indexTree(tree), [tree]);
@@ -181,16 +179,7 @@ export function VehicleCalculator({
           country,
           category,
           remainingBefore: row.rp!,
-          basis: t("{0}；{1}", [
-            state.costs[row.unit.id] !== undefined
-              ? t("手动基础 RP")
-              : row.unit.rpCheckedAt || catalog.checkedAt,
-            state.unlocked
-              ? t("从 Rank {0} 计价，低等级跳过", [
-                  tree.ranks.find((rank) => rankNumber(rank.rank) === state.unlocked)?.rank,
-                ])
-              : t("自动，按真实已有记录计算"),
-          ]),
+          basis: `${state.costs[row.unit.id] !== undefined ? t("手动基础 RP") : row.unit.rpCheckedAt || catalog.checkedAt}；${state.unlocked ? t("从 Rank {0} 计价，低等级跳过", [localize(tree.ranks.find((rank) => rankNumber(rank.rank) === state.unlocked)?.rank)]) : t("自动，按真实已有记录计算")}`,
         }))
       : [];
   const cents = total !== null && rate !== null ? quoteCents(lines) : null;
@@ -217,42 +206,37 @@ export function VehicleCalculator({
         .includes(search.normalize("NFKC").toLowerCase().replaceAll(" ", "")),
   );
   const report = [
-    `${catalog.countries[country]} / ${catalog.categories[category]} · ${vehicleName(result.target)}`,
-    t("待研：{0} RP", [total === null ? t("待核对") : format(total)]),
-    t("每万 RP：{0}", [rate === null ? t("未填") : (rate / 100).toFixed(2) + t(" 元")]),
-    t("价格：{0}", [cents === null ? t("待核对") : (cents / 100).toFixed(2) + t(" 元")]),
-    t("目标已研：{0} RP", [state.progress]),
+    `${catalog.countries[country]} / ${catalog.categories[category]} · ${result.target?.name}`,
+    t("待研：{0} RP", [localize(total === null ? "待核对" : format(total))]),
+    t("每万 RP：{0}", [localize(rate === null ? "未填" : (rate / 100).toFixed(2) + " 元")]),
+    t("价格：{0}", [localize(cents === null ? "待核对" : (cents / 100).toFixed(2) + " 元")]),
+    t("目标已研：{0} RP", [localize(state.progress)]),
     t("本线已拥有至：{0}；等级已开放至：{1}", [
-      vehicleName(reached) || t("未记录"),
-      result.unlocked,
+      localize(reached?.name || "未记录"),
+      localize(result.unlocked),
     ]),
     t("计价起点：{0}", [
-      state.unlocked
-        ? t("Rank {0}，低于该等级的载具不计价（不代表实际拥有）", [
-            tree.ranks.find((rank) => rankNumber(rank.rank) === state.unlocked)?.rank,
-          ])
-        : t("自动，按真实已有记录计算"),
+      localize(
+        state.unlocked
+          ? `Rank ${tree.ranks.find((rank) => rankNumber(rank.rank) === state.unlocked)?.rank}，低于该等级的载具不计价（不代表实际拥有）`
+          : "自动，按真实已有记录计算",
+      ),
     ]),
     t("已有：{0}", [
-      [...result.owned].map((id) => vehicleName(index.units.get(id))).join("、") || t("未勾选"),
+      localize([...result.owned].map((id) => index.units.get(id)?.name).join("、") || "未勾选"),
     ]),
     ...result.gates.map((gate) =>
       t("{0}→{1}：已有 {2} + 新增 {3} / {4}", [
-        gate.rank,
-        gate.next,
-        gate.have,
-        gate.added,
-        gate.alreadyOpen ? t("已解锁") : gate.required,
+        localize(gate.rank),
+        localize(gate.next),
+        localize(gate.have),
+        localize(gate.added),
+        localize(gate.alreadyOpen ? "已解锁" : gate.required),
       ]),
     ),
-    ...result.rows.map((row, i) =>
-      t("{0}. {1} [{2}] {3} {4}", [
-        i + 1,
-        vehicleName(row.unit),
-        row.unit.rank,
-        row.reason,
-        row.rp === null ? t("RP未知") : format(row.rp) + " RP",
-      ]),
+    ...result.rows.map(
+      (row, i) =>
+        `${i + 1}. ${vehicleName(row.unit)} [${row.unit.rank}] ${row.reason} ${row.rp === null ? t("RP未知") : format(row.rp) + " RP"}`,
     ),
     ...result.errors,
     t(
@@ -264,8 +248,8 @@ export function VehicleCalculator({
       className="vehicle-calculator"
       title={t("载具研发报价")}
       subtitle={t("{0} / {1} · 账号进度自动保存在本地", [
-        catalog.countries[country],
-        catalog.categories[category],
+        localize(catalog.countries[country]),
+        localize(catalog.categories[category]),
       ])}
       close={close}
     >
@@ -276,6 +260,11 @@ export function VehicleCalculator({
             <label className="calc-field">
               {t("目标载具")}
               <GameSelect
+                renderOption={(option) => {
+                  const id = option.value;
+                  const unit = index.units.get(id);
+                  return unit ? <VehicleTile unit={unit} catalog={catalog} /> : null;
+                }}
                 value={state.target}
                 onValueChange={(value) => {
                   setDrafts({});
@@ -283,17 +272,21 @@ export function VehicleCalculator({
                   update({ target: value, progress: 0 });
                 }}
               >
-                {tree.ranks.map((rank) => (
-                  <optgroup key={rank.rank} label={`Rank ${rank.rank}`}>
-                    {all
-                      .filter((unit) => unit.side === "research" && unit.rank === rank.rank)
-                      .map((unit) => (
-                        <option key={unit.id} value={unit.id}>
-                          {vehicleName(unit)}
-                        </option>
-                      ))}
-                  </optgroup>
-                ))}
+                {localize(
+                  tree.ranks.map((rank) => (
+                    <optgroup key={rank.rank} label={`Rank ${rank.rank}`}>
+                      {localize(
+                        all
+                          .filter((unit) => unit.side === "research" && unit.rank === rank.rank)
+                          .map((unit) => (
+                            <option key={unit.id} value={unit.id}>
+                              {vehicleName(unit)}
+                            </option>
+                          )),
+                      )}
+                    </optgroup>
+                  )),
+                )}
               </GameSelect>
             </label>
             <label className="calc-field">
@@ -312,46 +305,48 @@ export function VehicleCalculator({
 
           <section className="vehicle-form-section">
             <h3>{t("账号进度")}</h3>
-            {workspace?.binding ? (
-              <p className="wt-owned-caption">
-                {t("已应用关联账号")}
-                {workspace.binding.nickname} · UID {workspace.binding.uid}
-                {localize(" ")}
-                {t("的车库，自动跳过已拥有载具。")}
-                <br />
-                {t("采集于")}
-                {localize(new Date(workspace.binding.fetchedAt).toLocaleString())}
-                {t("。关联账号的车库优先于临时导入；手动拥有标记作为补充。")}
-              </p>
-            ) : (
-              <OwnedVehicleImport
-                country={country}
-                category={category}
-                current={state.ownedImport}
-                onImport={(garage) => {
-                  const ids = [
-                    ...new Set(
-                      garage.vehicles
-                        .filter((v) => v.country === country && v.category === category)
-                        .map((v) => index.aliases.get(v.id) || v.id)
-                        .filter((id) => index.units.has(id)),
-                    ),
-                  ];
-                  setDrafts({});
-                  setProgressDraft("0");
-                  update({
-                    ownedImport: {
-                      ids,
-                      uid: garage.uid,
-                      nickname: garage.nickname,
-                      fetchedAt: garage.fetchedAt,
-                    },
-                    unlocked: 0,
-                    progress: 0,
-                  });
-                }}
-                onClear={() => update({ ownedImport: undefined })}
-              />
+            {localize(
+              workspace?.binding ? (
+                <p className="wt-owned-caption">
+                  {t("已应用关联账号")}
+                  {localize(workspace.binding.nickname)} · UID {localize(workspace.binding.uid)}
+                  {localize(" ")}
+                  {t("的车库，自动跳过已拥有载具。")}
+                  <br />
+                  {t("采集于")}
+                  {localize(new Date(workspace.binding.fetchedAt).toLocaleString())}
+                  {t("。关联账号的车库优先于临时导入；手动拥有标记作为补充。")}
+                </p>
+              ) : (
+                <OwnedVehicleImport
+                  country={country}
+                  category={category}
+                  current={state.ownedImport}
+                  onImport={(garage) => {
+                    const ids = [
+                      ...new Set(
+                        garage.vehicles
+                          .filter((v) => v.country === country && v.category === category)
+                          .map((v) => index.aliases.get(v.id) || v.id)
+                          .filter((id) => index.units.has(id)),
+                      ),
+                    ];
+                    setDrafts({});
+                    setProgressDraft("0");
+                    update({
+                      ownedImport: {
+                        ids,
+                        uid: garage.uid,
+                        nickname: garage.nickname,
+                        fetchedAt: garage.fetchedAt,
+                      },
+                      unlocked: 0,
+                      progress: 0,
+                    });
+                  }}
+                  onClear={() => update({ ownedImport: undefined })}
+                />
+              ),
             )}
             <label className="calc-field">
               {t("这条线路已拥有到哪辆车？")}
@@ -364,11 +359,13 @@ export function VehicleCalculator({
                 }
               >
                 <option value="">{t("本线前置尚未拥有")}</option>
-                {ancestors.map((unit) => (
-                  <option key={unit.id} value={unit.id}>
-                    {vehicleName(unit)} · Rank {localize(unit.rank)}
-                  </option>
-                ))}
+                {localize(
+                  ancestors.map((unit) => (
+                    <option key={unit.id} value={unit.id}>
+                      {vehicleName(unit)} · Rank {localize(unit.rank)}
+                    </option>
+                  )),
+                )}
                 <option value={state.target}>{t("目标载具也已拥有（待研 0）")}</option>
               </GameSelect>
             </label>
@@ -412,7 +409,8 @@ export function VehicleCalculator({
                   tree.ranks.map((rank) => (
                     <option value={rankNumber(rank.rank)} key={rank.rank}>
                       {t("从 Rank")}
-                      {localize(rank.rank)} {t("计价")}
+                      {localize(rank.rank)}
+                      {t("计价")}
                     </option>
                   )),
                 )}
@@ -430,10 +428,11 @@ export function VehicleCalculator({
               {t("其他已有载具与补研偏好")}
               {localize(" ")}
               <span>
-                {localize(owned.length)} {t("辆已有")}
+                {localize(owned.length)}
+                {t("辆已有")}
                 {localize(
                   state.pins.length + state.banned.length > 0
-                    ? t(" · {0} 项偏好", [state.pins.length + state.banned.length])
+                    ? t(" · {0} 项偏好", [localize(state.pins.length + state.banned.length)])
                     : "",
                 )}
               </span>
@@ -500,79 +499,82 @@ export function VehicleCalculator({
                 )}
               </p>
               <div className="calc-collection">
-                {tree.ranks
-                  .filter((rank) => visible.some((unit) => unit.rank === rank.rank))
-                  .map((rank) => (
-                    <div className="calc-owned-rank" key={rank.rank}>
-                      <h4>Rank {localize(rank.rank)}</h4>
-                      {visible
-                        .filter((unit) => unit.rank === rank.rank)
-                        .map((unit) => (
-                          <label className="calc-owned-row" key={unit.id}>
-                            {localize(
-                              tab === "owned" && (
-                                <input
-                                  type="checkbox"
-                                  checked={owned.includes(unit.id)}
-                                  disabled={state.ownedImport?.ids.includes(unit.id)}
-                                  title={
-                                    state.ownedImport?.ids.includes(unit.id)
-                                      ? t("官方车库已拥有，清除导入后可手动修改")
-                                      : undefined
-                                  }
-                                  onChange={(e) =>
-                                    update({
-                                      owned: e.target.checked
-                                        ? [...state.owned, unit.id]
-                                        : state.owned.filter((id) => id !== unit.id),
-                                    })
-                                  }
-                                />
-                              ),
-                            )}
-                            <span className="calc-unit-label">
-                              <span>{vehicleName(unit)}</span>
-                              <small>
+                {localize(
+                  tree.ranks
+                    .filter((rank) => visible.some((unit) => unit.rank === rank.rank))
+                    .map((rank) => (
+                      <div className="calc-owned-rank" key={rank.rank}>
+                        <h4>Rank {localize(rank.rank)}</h4>
+                        {localize(
+                          visible
+                            .filter((unit) => unit.rank === rank.rank)
+                            .map((unit) => (
+                              <label className="calc-owned-row" key={unit.id}>
                                 {localize(
-                                  unit.side === "research"
-                                    ? t("常规研发")
-                                    : catalog.kinds[unit.kind],
+                                  tab === "owned" && (
+                                    <input
+                                      type="checkbox"
+                                      checked={owned.includes(unit.id)}
+                                      disabled={state.ownedImport?.ids.includes(unit.id)}
+                                      title={
+                                        state.ownedImport?.ids.includes(unit.id)
+                                          ? t("官方车库已拥有，清除导入后可手动修改")
+                                          : undefined
+                                      }
+                                      onChange={(e) =>
+                                        update({
+                                          owned: e.target.checked
+                                            ? [...state.owned, unit.id]
+                                            : state.owned.filter((id) => id !== unit.id),
+                                        })
+                                      }
+                                    />
+                                  ),
                                 )}
-                              </small>
-                            </span>
-                            {tab === "route" && (
-                              <GameSelect
-                                aria-label={t("{0} 补研策略", [vehicleName(unit)])}
-                                disabled={owned.includes(unit.id) || unit.rankNumber > targetRank}
-                                value={
-                                  state.pins.includes(unit.id)
-                                    ? "pin"
-                                    : state.banned.includes(unit.id)
-                                      ? "ban"
-                                      : "auto"
-                                }
-                                onValueChange={(value) =>
-                                  update({
-                                    pins: [
-                                      ...state.pins.filter((id) => id !== unit.id),
-                                      ...(value === "pin" ? [unit.id] : []),
-                                    ],
-                                    banned: [
-                                      ...state.banned.filter((id) => id !== unit.id),
-                                      ...(value === "ban" ? [unit.id] : []),
-                                    ],
-                                  })
-                                }
-                              >
-                                <option value="auto">{t("自动")}</option>
-                                <option value="pin">{t("指定")}</option>
-                                <option value="ban">{t("排除")}</option>
-                              </GameSelect>
-                            )}
-                          </label>
-                        ))}
-                    </div>
-                  ))}
+                                <VehicleTile
+                                  unit={unit}
+                                  catalog={catalog}
+                                  owned={owned.includes(unit.id)}
+                                />
+                                {localize(
+                                  tab === "route" && (
+                                    <GameSelect
+                                      aria-label={t("{0} 补研策略", [localize(vehicleName(unit))])}
+                                      disabled={
+                                        owned.includes(unit.id) || unit.rankNumber > targetRank
+                                      }
+                                      value={
+                                        state.pins.includes(unit.id)
+                                          ? "pin"
+                                          : state.banned.includes(unit.id)
+                                            ? "ban"
+                                            : "auto"
+                                      }
+                                      onValueChange={(value) =>
+                                        update({
+                                          pins: [
+                                            ...state.pins.filter((id) => id !== unit.id),
+                                            ...(value === "pin" ? [unit.id] : []),
+                                          ],
+                                          banned: [
+                                            ...state.banned.filter((id) => id !== unit.id),
+                                            ...(value === "ban" ? [unit.id] : []),
+                                          ],
+                                        })
+                                      }
+                                    >
+                                      <option value="auto">{t("自动")}</option>
+                                      <option value="pin">{t("指定")}</option>
+                                      <option value="ban">{t("排除")}</option>
+                                    </GameSelect>
+                                  ),
+                                )}
+                              </label>
+                            )),
+                        )}
+                      </div>
+                    )),
+                )}
               </div>
 
               {localize(
@@ -589,7 +591,9 @@ export function VehicleCalculator({
               {localize(" ")}
               <span>
                 {localize(
-                  state.progress > 0 ? t("已研 {0} RP", [format(state.progress)]) : t("可选"),
+                  state.progress > 0
+                    ? t("已研 {0} RP", [localize(format(state.progress))])
+                    : t("可选"),
                 )}
                 {localize(
                   Object.entries(state.gates).some(([rank, count]) => gates[rank] !== count)
@@ -627,7 +631,8 @@ export function VehicleCalculator({
                   {localize(
                     tree.ranks.slice(0, -1).map((rank) => (
                       <label className="calc-field" key={rank.rank}>
-                        {localize(rank.rank)} {t("→ 下一级")}
+                        {localize(rank.rank)}
+                        {t("→ 下一级")}
                         <input
                           type="number"
                           min="0"
@@ -687,7 +692,7 @@ export function VehicleCalculator({
                     add(
                       makeItem({
                         kind: "vehicle",
-                        title: t("{0} · 载具研发", [vehicleName(result.target)]),
+                        title: t("{0} · 载具研发", [localize(result.target?.name)]),
                         dataVersion: catalog.checkedAt,
                         lines,
                         details: report,
@@ -734,7 +739,7 @@ export function VehicleCalculator({
                   {localize(
                     result.unknown.length > 0 && (
                       <p>
-                        {localize(result.unknown.length)}{" "}
+                        {localize(result.unknown.length)}
                         {t("辆成本未知，请在清单补填基础 RP。已知部分")}
                         {localize(" ")}
                         {localize(format(result.knownTotal))} RP。
@@ -762,7 +767,8 @@ export function VehicleCalculator({
                 <div className="vehicle-explanation">
                   <strong>
                     {t("这条线路还有")}
-                    {localize(pendingPrerequisites.length)} {t("辆前置未记录为已有")}
+                    {localize(pendingPrerequisites.length)}
+                    {t("辆前置未记录为已有")}
                   </strong>
                   <p>
                     {localize(
@@ -780,8 +786,10 @@ export function VehicleCalculator({
               <div>
                 <h3>{t("本次研发清单")}</h3>
                 <p>
-                  {localize(result.rows.length)} {t("辆 · 前置")}
-                  {localize(pendingPrerequisites.length)} {t("· 等级补位")}
+                  {localize(result.rows.length)}
+                  {t("辆 · 前置")}
+                  {localize(pendingPrerequisites.length)}
+                  {t("· 等级补位")}
                   {localize(" ")}
                   {localize(extraRows.length)}
                 </p>
@@ -800,86 +808,94 @@ export function VehicleCalculator({
                 )}
               </button>
             </div>
-            {result.rows.length > 0 ? (
-              <div className={`vehicle-route-list ${editingCosts ? "is-editing" : ""}`}>
-                <div className="vehicle-route-row is-header">
-                  <span>{t("已有")}</span>
-                  <span>{t("研发顺序 / 用途")}</span>
-                  {localize(editingCosts && <span>{t("基础 RP")}</span>)}
-                  <span>{t("待研 RP")}</span>
-                </div>
-                {result.rows.map((row, i) => (
-                  <div
-                    className={t("vehicle-route-row {0}", [
-                      row.reason === "目标载具" ? "is-target" : "",
-                    ])}
-                    key={row.unit.id}
-                  >
-                    <input
-                      type="checkbox"
-                      aria-label={t("{0} 已拥有", [vehicleName(row.unit)])}
-                      checked={false}
-                      onChange={() => {
-                        const next = { ...drafts };
-                        delete next[row.unit.id];
-                        setDrafts(next);
-                        update({ owned: [...state.owned, row.unit.id] });
-                      }}
-                    />
-                    <span className="calc-unit-label">
-                      <span>
-                        {localize(i + 1)}. {vehicleName(row.unit)}
-                      </span>
-                      <small>
-                        Rank {localize(row.unit.rank)} · {localize(row.reason)}
-                      </small>
-                    </span>
-                    {editingCosts && (
-                      <input
-                        aria-label={t("{0} 完整基础 RP", [vehicleName(row.unit)])}
-                        type="number"
-                        min="0"
-                        max="10000000"
-                        step="1"
-                        placeholder={t("填写 RP")}
-                        value={drafts[row.unit.id] ?? row.baseRp ?? ""}
-                        onChange={(e) => setDrafts({ ...drafts, [row.unit.id]: e.target.value })}
-                        onBlur={(e) => {
-                          if (
-                            /^\d+$/.test(e.target.value) &&
-                            integer(Number(e.target.value)) &&
-                            Number(e.target.value) <= 10_000_000
-                          ) {
+            {localize(
+              result.rows.length > 0 ? (
+                <div className={`vehicle-route-list ${editingCosts ? "is-editing" : ""}`}>
+                  <div className="vehicle-route-row is-header">
+                    <span>{t("已有")}</span>
+                    <span>{t("研发顺序 / 用途")}</span>
+                    {localize(editingCosts && <span>{t("基础 RP")}</span>)}
+                    <span>{t("待研 RP")}</span>
+                  </div>
+                  {localize(
+                    result.rows.map((row, i) => (
+                      <div
+                        className={`vehicle-route-row ${row.reason === "目标载具" ? "is-target" : ""}`}
+                        key={row.unit.id}
+                      >
+                        <input
+                          type="checkbox"
+                          aria-label={t("{0} 已拥有", [localize(vehicleName(row.unit))])}
+                          checked={false}
+                          onChange={() => {
                             const next = { ...drafts };
                             delete next[row.unit.id];
                             setDrafts(next);
-                            update({
-                              costs: { ...state.costs, [row.unit.id]: Number(e.target.value) },
-                            });
-                          }
-                        }}
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter") e.currentTarget.blur();
-                        }}
-                      />
-                    )}
-                    <strong>{localize(row.rp === null ? t("待填") : format(row.rp))}</strong>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="vehicle-empty">
-                <strong>
-                  {localize(
-                    result.owned.has(state.target)
-                      ? t("目标载具已拥有")
-                      : state.unlocked > targetRank
-                        ? t("目标低于计价起点")
-                        : t("本次无需新增研发"),
+                            update({ owned: [...state.owned, row.unit.id] });
+                          }}
+                        />
+                        <span className="wt-research-tile-entry">
+                          <VehicleTile unit={row.unit} catalog={catalog} />
+                          <small>
+                            {localize(i + 1)}. Rank {localize(row.unit.rank)} ·{" "}
+                            {localize(row.reason)}
+                          </small>
+                        </span>
+                        {localize(
+                          editingCosts && (
+                            <input
+                              aria-label={t("{0} 完整基础 RP", [localize(vehicleName(row.unit))])}
+                              type="number"
+                              min="0"
+                              max="10000000"
+                              step="1"
+                              placeholder={t("填写 RP")}
+                              value={drafts[row.unit.id] ?? row.baseRp ?? ""}
+                              onChange={(e) =>
+                                setDrafts({ ...drafts, [row.unit.id]: e.target.value })
+                              }
+                              onBlur={(e) => {
+                                if (
+                                  /^\d+$/.test(e.target.value) &&
+                                  integer(Number(e.target.value)) &&
+                                  Number(e.target.value) <= 10_000_000
+                                ) {
+                                  const next = { ...drafts };
+                                  delete next[row.unit.id];
+                                  setDrafts(next);
+                                  update({
+                                    costs: {
+                                      ...state.costs,
+                                      [row.unit.id]: Number(e.target.value),
+                                    },
+                                  });
+                                }
+                              }}
+                              onKeyDown={(e) => {
+                                if (e.key === "Enter") e.currentTarget.blur();
+                              }}
+                            />
+                          ),
+                        )}
+                        <strong>{localize(row.rp === null ? t("待填") : format(row.rp))}</strong>
+                      </div>
+                    )),
                   )}
-                </strong>
-                <p>{t("本次无需研发，可以选择其他目标继续计算。")}</p>
-              </div>
+                </div>
+              ) : (
+                <div className="vehicle-empty">
+                  <strong>
+                    {localize(
+                      result.owned.has(state.target)
+                        ? t("目标载具已拥有")
+                        : state.unlocked > targetRank
+                          ? t("目标低于计价起点")
+                          : t("本次无需新增研发"),
+                    )}
+                  </strong>
+                  <p>{t("本次无需研发，可以选择其他目标继续计算。")}</p>
+                </div>
+              ),
             )}
 
             <details className="vehicle-disclosure vehicle-gate-check">
@@ -887,7 +903,7 @@ export function VehicleCalculator({
                 {t("等级门槛核对")}
                 {localize(" ")}
                 <span>
-                  {localize(result.gates.filter((gate) => gate.needed).length)}{" "}
+                  {localize(result.gates.filter((gate) => gate.needed).length)}
                   {t("项需要核对 · 其余已开放或无需解锁")}
                 </span>
               </summary>

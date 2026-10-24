@@ -88,8 +88,8 @@
 - `src/styles.css` is the template/Tailwind entry, `src/workbench.css` contains
   existing workbench rules. Keep legacy localStorage/OPFS and RP behavior.
 - Place `CreatorLink` in the top-right header of both research-tree and lineup
-  pages. Use the supplied QMuse logo and invite link; do not duplicate it in the
-  explanatory row or a separate footer. Keep it responsive without horizontal overflow.
+  pages. Use the supplied QMuse logo and invite link; do not duplicate its full promotion block in other content. The shared page footer
+  carries the separately requested QMuse Vibecoding platform attribution. Keep it responsive without horizontal overflow.
 - All pages share `PageNavigation` for 科技树 / 出击队列 / 陆战地图. Keep this navigation
   outside the tree's collapsible filter panel on every screen size. Categories
   are filters, not page links. Use menu.csv's mainmenu/* Simplified Chinese
@@ -384,7 +384,7 @@
 
 - After agreement confirmation, account saves are automatic and silent. Never open the cloud-data/import panel merely because a user logged in, and do not show successful sync status in the header or menu. The panel remains available on explicit request.
 - First account use may automatically import valid guest plans only into missing cloud keys. Cloud documents, deletion tombstones and pending account edits win; retain the guest originals and prevent automatic import into another account once claimed.
-- Full garages live under 出击队列 → 我的车库 at `#/lineups/garage`, require login on both frontend and backend, and use the exact shared stats vehicle-card component with filters, modes, sorting and pagination. Default to the linked game account; unlinked users get a stats/binding entry. Old stats garage links redirect. Garage and its details use page content, not dialogs; anonymous local lineups remain available. Do not load country trees on the garage route.
+- Full garages live under 出击队列 → 我的车库 at `#/lineups/garage`, require login on both frontend and backend, and use the shared VehicleTile from the research tree with filters, modes, sorting and pagination. Statistical vehicle cards are reserved for explicit battle-performance views. Default to the linked game account; unlinked users get a stats/binding entry. Old stats garage links redirect. Garage and its details use page content, not dialogs; anonymous local lineups remain available. Do not load country trees on the garage route.
 - Owned spades use the original `item_icon_elite_slot.png` card-body watermark and game colors recorded in `data/account-workspace.json`, behind vehicle art/text. Do not restore a boxed corner badge. Keep original HTTPS asset URLs and provenance.
 
 ## 贴花查询暂缓（2026-10-24）
@@ -424,3 +424,15 @@
 - “适应窗口”只用图标按钮，提供 title/aria-label。科技树箭头复用核验的官方 arrow_simple.svg 几何和原始轴宽，连线持续随折叠组过渡。
 - 配件图标、官方 Wiki 每车栏目/行列位置信息保存在 data/modification-presentation.json，并合入既有按国家懒加载模块。仅使用官方 CDN；未核实格位的载具不补造等级/依赖。图标因国家/载具不同的，优先使用每车来源，不把德国乘员图标套用到其他国家。
 - 配件图形选择必须复用原 RP、完成勾选、单价、购物车和浏览器保存逻辑，不改变数值来源或将未知价格/RP 当零。
+
+## 统一载具规范与页脚（2026-10-25 用户确认）
+
+- 科技树已验收的载具样式是通用载具规范。`src/VehicleTile.tsx` 为唯一通用载具展示组件；科技树、拥有状态、载具研发、研发前置、搜索与筛选结果、目标下拉候选、出击队列与乘员槽位、我的车库、账号估值、折扣关注均复用它，不复制 JSX 或单独再造一种载具卡。
+- `PlayerVehicleCards` 仅用于明确展示战绩的场景；我的车库默认展示拥有清单，不使用战绩卡片。点击查看战绩后可进入现有战绩详情。详情大图与导出的战报图片保留其用途。
+- 通用载具使用原游戏图片、WTSymbols 特殊符号、Fira Sans Condensed 400 字重，统一 228×76 主体；常规研发点、金鹰、礼包整包人民币、护身符与 GJN 图标遵循科技树现行规则。场景补充信息放在组件外围，不修改主体比例或覆盖其名称、图标、配色。
+- 黑桃只表示真实已拥有。已配置队列、曾出击、推算前置不作为拥有证据。其他玩家的车库、估值必须传入该玩家的拥有状态，不混用当前登录账号的车库。
+- 组件适配已知资料；字段缺失保持未知，不补零、不臆造 BR／币价，不因渲染单个组件请求数据或全量加载十国资料。载具稳定 ID、已有本地存储键、分享码、筛选与排序行为保持兼容。
+- 估值第三种场景统一显示“参考价值”；原 API、缓存及规则键 `secondHand` 保留，金额、费率与估值算法不因文案修改而改变。
+- 所有工作台页面由共享 `AppFooter` 在正常滚动内容底部展示非官方声明、官方 Wiki 与官方公开渠道来源说明、版权归属和权益反馈入口；不得做成固定遮挡条或改变地图编辑器画布尺寸。
+- 页脚明确显示“本应用通过 QMuse Vibecoding 平台搭建”，链接为 `https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB`，带外跳符号、新窗口与 `noopener noreferrer`。顶部共享 CreatorLink 保留；本项是用户要求的独立平台署名，不重复整块推广组件。
+- `style.md` 是本应用视觉方案与组件使用规范；新增或修改界面应先读取。两站视觉组件保持一致，国际站新增文案及名称、数值格式必须补齐英／俄／日。

@@ -279,7 +279,7 @@ export function GameSelect({
                       <span className="wt-select-check" aria-hidden="true">
                         {localize(index === chosen ? "✓" : "")}
                       </span>
-                      <span>{renderOption ? renderOption(option) : option.label}</span>
+                      <span>{renderOption?.(option) ?? option.label}</span>
                     </div>
                   </Fragment>
                 )),

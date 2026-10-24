@@ -1,6 +1,6 @@
-import { vehicleName } from "./i18n/core";
+import { t, localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
-import { localize, t } from "./i18n/core";
+import { VehicleTile } from "./VehicleTile";
 import type { CatalogIndex, LineupRules, Mode } from "./models";
 import type { Lineup, LineupRating, LineupVehicle } from "./lineups";
 import { brLabel, vehicleStep, lineupVehicleKind, lineupRatings } from "./lineups";
@@ -19,12 +19,11 @@ export function LineupSummary({
   catalog: CatalogIndex;
 }) {
   useLocale();
-
   return (
     <ol
       className="lineup-summary-slots"
       tabIndex={0}
-      aria-label={localize(`${lineup.name} 的槽位预览，可横向滚动`)}
+      aria-label={t("{0} 的槽位预览，可横向滚动", [localize(lineup.name)])}
     >
       {localize(
         lineup.slots.map((id, index) => {
@@ -34,25 +33,23 @@ export function LineupSummary({
               <span className="lineup-summary-number">{localize(index + 1)}</span>
               {localize(
                 unit ? (
-                  <img src={unit.thumbnailUrl} width={92} height={54} loading="lazy" alt="" />
+                  <VehicleTile
+                    unit={unit}
+                    catalog={catalog}
+                    mode={mode}
+                    modeRating={brLabel(vehicleStep(unit, lineup.battleType, mode))}
+                  />
                 ) : (
-                  <span className="lineup-summary-placeholder">—</span>
+                  <span className="lineup-summary-placeholder">
+                    {localize(id ? t("资料待更新") : t("空槽位"))}
+                  </span>
                 ),
               )}
-              <strong>{localize(vehicleName(unit) || (id ? t("资料待更新") : t("空槽位")))}</strong>
               {localize(
                 unit && (
                   <small>
                     {localize(catalog.categories[unit.category])} · Rank {localize(unit.rank)}
                   </small>
-                ),
-              )}
-              {localize(
-                unit && (
-                  <span className="lineup-summary-br">
-                    {localize(mode.toUpperCase())}{" "}
-                    {localize(brLabel(vehicleStep(unit, lineup.battleType, mode)))}
-                  </span>
                 ),
               )}
               {localize(
@@ -78,17 +75,14 @@ export function LineupSummaryRatings({
   rules: LineupRules;
 }) {
   useLocale();
-
   return (
     <div className="lineup-summary-ratings" aria-label={t("队列不同模式权重")}>
       {localize(
         lineupRatings(lineup, units, rules).map((value) => (
           <span
             key={value.mode}
-            title={localize(value.note)}
-            aria-label={localize(
-              `${localize(modes[value.mode])}：${localize(value.label)}。${localize(value.note)}`,
-            )}
+            title={value.note}
+            aria-label={`${modes[value.mode]}：${value.label}。${value.note}`}
           >
             {localize(value.mode.toUpperCase())} <strong>{localize(value.label)}</strong>
           </span>
@@ -105,7 +99,6 @@ export function LineupRatingsView({
   units: Map<string, LineupVehicle>;
 }) {
   useLocale();
-
   return (
     <div className="lineup-ratings" aria-label={t("不同模式的队列权重")}>
       {localize(
@@ -120,12 +113,11 @@ export function LineupRatingsView({
               value.excluded.length > 0 && (
                 <details>
                   <summary>
-                    {localize(value.excluded.length)} {t("辆不参与此模式计算")}
+                    {localize(value.excluded.length)}
+                    {t("辆不参与此模式计算")}
                   </summary>
                   <p>
-                    {localize(
-                      value.excluded.map((id) => vehicleName(units.get(id)) || id).join("、"),
-                    )}
+                    {localize(value.excluded.map((id) => units.get(id)?.name || id).join("、"))}
                   </p>
                 </details>
               ),
@@ -138,7 +130,6 @@ export function LineupRatingsView({
 }
 export function LineupRulesNotes({ rules }: { rules: LineupRules }) {
   useLocale();
-
   return (
     <details className="lineup-rule-notes">
       <summary>{t("权重规则与来源")}</summary>
@@ -163,10 +154,10 @@ export function LineupRulesNotes({ rules }: { rules: LineupRules }) {
           <a key={source.url} href={source.url} target="_blank" rel="noreferrer">
             {localize(
               i === 0
-                ? "官方 Wiki 匹配规则"
+                ? t("官方 Wiki 匹配规则")
                 : i === 1
-                  ? "官方空战权重与取整说明"
-                  : "官方乘员槽位说明",
+                  ? t("官方空战权重与取整说明")
+                  : t("官方乘员槽位说明"),
             )}
             {localize(" ")}↗
           </a>

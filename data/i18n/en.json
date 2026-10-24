@@ -1834,7 +1834,7 @@
   "原样式高清重制 · 按原表格重新排字与绘线": "High-resolution redraw with the original table layout",
   "正常价值": "Full value",
   "折扣价值": "Discounted value",
-  "交易价值": "Resale value",
+  "交易价值": "Reference value",
   "仅供参考。优先依据官方公开已拥有载具清单计算；未取得清单时按出战记录及当前研发前置推算。结果不代表实际投入或成交价格，不包含未购载具的研发进度、改装研发和高级账号。特殊载具 GJN 均价单列，不计入人民币总价；未核价条目不按零元处理。": "For reference only. Uses the official public owned-vehicle list when available; otherwise estimates from battle records and current prerequisites. This is not actual spending or a transaction price. Excludes progress on unpurchased vehicles, modification research and premium account time. Special-vehicle GJN averages are listed separately and excluded from the CNY total. Unpriced items are never treated as free.",
   "三点占领": "Domination (3 zones)",
   "出生点": "Spawn point",
@@ -2184,5 +2184,15 @@
   "官方页面暂未列出该载具的收益倍率。": "The official page does not currently list reward multipliers for this vehicle.",
   "尚未采集到该载具的收益倍率。": "Reward multipliers for this vehicle have not been collected yet.",
   "预览资料索引暂时不可用。": "The preview data index is temporarily unavailable.",
-  "预览资料索引过大。": "The preview data index exceeds the size limit."
+  "预览资料索引过大。": "The preview data index exceeds the size limit.",
+  "参考价值": "Reference value",
+  "，查看载具详情": ", view vehicle details",
+  "免责声明与制作平台": "Disclaimer and platform credit",
+  "本应用为玩家独立开发的非官方工具，与 Gaijin Entertainment 无隶属或官方背书关系。 游戏基础资料整理自": "This independent fan tool is not affiliated with or endorsed by Gaijin Entertainment. Basic game information is compiled from",
+  "战争雷霆官方 Wiki ↗": "official War Thunder Wiki ↗",
+  "及官方公开渠道；游戏名称、商标、图片、地图和相关资源归相应权利人所有，社区补充资料保留原出处。": "and official public channels. Game names, trademarks, artwork, maps and related resources belong to their respective rights holders; supplementary community material retains its original attribution.",
+  "内容以游戏与官方公告为准；账号参考价值、工作台效率分、折扣预测与 AI 点评仅供参考。 如涉及权益问题，请通过": "The game and official announcements take precedence. Account valuations, workbench scores, sale forecasts and AI commentary are for reference only. For rights concerns, contact us through",
+  "项目反馈入口 ↗": "project feedback ↗",
+  "联系，核实后及时更正、替换或移除。": "so we can review and promptly correct, replace or remove the relevant content.",
+  "本应用通过 QMuse Vibecoding 平台搭建": "Built with the QMuse Vibecoding platform"
 }

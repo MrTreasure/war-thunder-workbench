@@ -1,7 +1,6 @@
-import { vehicleSearchText } from "./i18n/core";
-import { localize } from "./i18n/core";
+import { t, localize, vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
-import { t, vehicleName } from "./i18n/core";
+import { VehicleTile } from "./VehicleTile";
 import { garageVehicleRecords } from "./garage-vehicles";
 import {
   comparePlayerVehicles,
@@ -9,7 +8,6 @@ import {
   type VehicleSortKey,
 } from "./player-vehicle-sort";
 import valuationRules from "../data/account-valuation-rules.json";
-
 import { useState } from "react";
 import catalog from "../data/catalog-settings.json";
 import { GameSelect } from "./components/GameSelect";
@@ -26,7 +24,7 @@ import type { PlayerProfile, PlayerVehicle } from "./player-stats-api";
 import { usePlayerRead } from "./player-rankings-api";
 import type { OwnedGarage, PlayerDetails } from "./player-rankings-api";
 import { compactSilver, savedVehiclePageSize, saveVehiclePageSize } from "./player-number-format";
-import { PlayerVehicleCards, PlayerVehiclePagination } from "./PlayerVehicleCards";
+import { PlayerVehiclePagination } from "./PlayerVehicleCards";
 import { statsCountryMatches, statsCountryLabel } from "./stats-country";
 
 export function PlayerGarage({
@@ -37,7 +35,6 @@ export function PlayerGarage({
   selectVehicle: (vehicle: PlayerVehicle) => void;
 }) {
   useLocale();
-
   const read = usePlayerRead<OwnedGarage>(profile, "garage", true);
   const details = usePlayerRead<PlayerDetails>(profile, "details", true);
   const detailRecords =
@@ -62,7 +59,7 @@ export function PlayerGarage({
       (rank === "all" || v.rank === rank) &&
       (kind === "all" || v.kind === kind) &&
       (played === "all" || v.observed === (played === "yes")) &&
-      (vehicleSearchText(v).toLowerCase().includes(search.toLowerCase()) ||
+      (vehicleName(v).toLowerCase().includes(search.toLowerCase()) ||
         v.id.toLowerCase().includes(search.toLowerCase())),
   );
   const vehicles = garageVehicleRecords(filtered, profile.vehicles, mode, detailRecords);
@@ -99,10 +96,13 @@ export function PlayerGarage({
             {localize(num(units.length))} <small>{t("辆已拥有")}</small>
           </strong>
           <span>
-            {localize(num(units.filter((v) => !v.observed).length))} {t("辆未出击")}
+            {localize(num(units.filter((v) => !v.observed).length))}
+            {t("辆未出击")}
           </span>
           <span>
-            {localize(read.data ? t("车库采集于 {0}", [statsDate(read.data.fetchedAt)]) : "")}
+            {localize(
+              read.data ? t("车库采集于 {0}", [localize(statsDate(read.data.fetchedAt))]) : "",
+            )}
           </span>
         </div>
         <div className="wt-record-filters wt-garage-filters" aria-label={t("车库筛选与排序")}>
@@ -174,7 +174,8 @@ export function PlayerGarage({
             {localize(
               ranks.map((v) => (
                 <option key={v} value={v}>
-                  {localize(v)} {t("级")}
+                  {localize(v)}
+                  {t("级")}
                 </option>
               )),
             )}
@@ -230,7 +231,9 @@ export function PlayerGarage({
                 ] as const
               ).map(([id, label]) => (
                 <option key={id} value={id}>
-                  {t("按{0}排序", [localize(label)])}
+                  {t("按")}
+                  {localize(label)}
+                  {t("排序")}
                 </option>
               )),
             )}
@@ -265,19 +268,47 @@ export function PlayerGarage({
             <>
               <p className="wt-record-fine">
                 {t("筛选出")}
-                {localize(num(filtered.length))} {t("辆")}
+                {localize(num(filtered.length))}
+                {t("辆")}
                 {localize(
                   read.data.unmatchedCount > 0
-                    ? t(" · {0} 辆尚未匹配分类，仍保留在清单中", [read.data.unmatchedCount])
+                    ? t(" · {0} 辆尚未匹配分类，仍保留在清单中", [
+                        localize(read.data.unmatchedCount),
+                      ])
                     : "",
                 )}
               </p>
-              <PlayerVehicleCards
-                vehicles={vehicles.slice((currentPage - 1) * pageSize, currentPage * pageSize)}
-                select={selectVehicle}
-                showNaval={category !== "ground"}
-                noRecords={noRecords}
-              />
+              <div className="wt-vehicle-tile-grid wt-garage-tiles">
+                {localize(
+                  vehicles
+                    .slice((currentPage - 1) * pageSize, currentPage * pageSize)
+                    .map((vehicle) => {
+                      const owned = filtered.find((v) => v.id === vehicle.id)!;
+                      return (
+                        <article className="wt-vehicle-option" key={vehicle.id}>
+                          <VehicleTile
+                            unit={{ ...owned, image: vehicle.image, thumbnail: vehicle.thumbnail }}
+                            owned
+                            mode={mode as "ab" | "rb" | "sb"}
+                            onSelect={() => selectVehicle(vehicle)}
+                          />
+                          <small>
+                            {localize(statsCountryLabel(owned.country))} ·{localize(" ")}
+                            {localize(owned.rank ? `Rank ${owned.rank}` : t("等级待核验"))} ·
+                            {localize(" ")}
+                            {localize(noRecords.has(vehicle.id) ? t("未出击") : t("已出击"))}
+                          </small>
+                          <button
+                            className="wt-vehicle-text-action"
+                            onClick={() => selectVehicle(vehicle)}
+                          >
+                            {t("查看战绩")}
+                          </button>
+                        </article>
+                      );
+                    }),
+                )}
+              </div>
               {localize(
                 filtered.length === 0 && (
                   <p className="wt-record-empty">{t("没有符合当前筛选的载具。")}</p>
@@ -315,7 +346,6 @@ export function PlayerVehicleDetails({
   inline?: boolean;
 }) {
   useLocale();
-
   const content = (
     <div className="wt-owned-content">
       <div className="wt-vehicle-record-identity">
@@ -325,7 +355,7 @@ export function PlayerVehicleDetails({
           <p>
             {localize(vehicle.mode.toUpperCase())} ·{localize(" ")}
             {localize(statsCategoryNames[vehicle.category || ""] || t("分类待匹配"))}
-            {localize(vehicle.rank ? t(" · {0} 级", [vehicle.rank]) : "")}
+            {localize(vehicle.rank ? t(" · {0} 级", [localize(vehicle.rank)]) : "")}
           </p>
           <a
             href={`https://wiki.warthunder.com/unit/${encodeURIComponent(vehicle.id)}`}
@@ -390,7 +420,10 @@ export function PlayerVehicleDetails({
   return (
     <Modal
       title={vehicleName(vehicle)}
-      subtitle={t("{0} · {1} · 载具累计战绩", [profile.nickname, vehicle.mode.toUpperCase()])}
+      subtitle={t("{0} · {1} · 载具累计战绩", [
+        localize(profile.nickname),
+        localize(vehicle.mode.toUpperCase()),
+      ])}
       close={close}
       className="wt-owned-garage wt-vehicle-record-dialog"
     >

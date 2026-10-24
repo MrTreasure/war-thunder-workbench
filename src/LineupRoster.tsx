@@ -1,6 +1,6 @@
-import { vehicleName } from "./i18n/core";
+import { t, localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
-import { localize, t } from "./i18n/core";
+import { VehicleTile } from "./VehicleTile";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type {
   PointerEvent as ReactPointerEvent,
@@ -55,7 +55,6 @@ export function LineupRoster({
   chooseAircraft: (id: string) => void;
 }) {
   useLocale();
-
   const rail = useRef<HTMLOListElement>(null);
   const gesture = useRef<Gesture | null>(null);
   const suppressClick = useRef(false);
@@ -74,7 +73,7 @@ export function LineupRoster({
     const cancel = (event: KeyboardEvent) => {
       if (event.key === "Escape" && gesture.current) {
         stop();
-        setAnnouncement("拖动已取消，顺序未改变。");
+        setAnnouncement(t("拖动已取消，顺序未改变。"));
       }
     };
     const preventDragScroll = (event: TouchEvent) => {
@@ -156,7 +155,7 @@ export function LineupRoster({
       suppressClick.current = true;
       selectSlot(index);
       setDrag({ from: index, to: index, x: current.x, y: current.y });
-      setAnnouncement(`已提起槽位 ${index + 1}，拖到目标位置后松开；Esc 取消。`);
+      setAnnouncement(t("已提起槽位 {0}，拖到目标位置后松开；Esc 取消。", [localize(index + 1)]));
       current.frame = requestAnimationFrame(trackDrag);
     };
     // A handle is an explicit drag target. Do not route its first movement into
@@ -207,8 +206,8 @@ export function LineupRoster({
       ) {
         const to = targetAt(event.clientX);
         reorder(moveLineupSlot(slots, current.from, to), to);
-        setAnnouncement(`槽位 ${current.from + 1} 已移至 ${to + 1}。`);
-      } else setAnnouncement("已在队列外松开，顺序未改变。");
+        setAnnouncement(t("槽位 {0} 已移至 {1}。", [localize(current.from + 1), localize(to + 1)]));
+      } else setAnnouncement(t("已在队列外松开，顺序未改变。"));
     }
     stop();
   }
@@ -219,7 +218,7 @@ export function LineupRoster({
     if (to < 0 || to >= slots.length) return;
     stop();
     reorder(moveLineupSlot(slots, index, to), to);
-    setAnnouncement(`槽位 ${index + 1} 已移至 ${to + 1}。`);
+    setAnnouncement(t("槽位 {0} 已移至 {1}。", [localize(index + 1), localize(to + 1)]));
     requestAnimationFrame(() => {
       const element = rail.current?.querySelector<HTMLButtonElement>(
         `[data-slot-index="${to}"] .lineup-slot-select`,
@@ -262,9 +261,10 @@ export function LineupRoster({
                   type="button"
                   className="lineup-slot-select"
                   aria-pressed={activeSlot === index}
-                  aria-label={localize(
-                    `槽位 ${localize(index + 1)}：${localize(vehicleName(unit) || "空位")}，长按拖动；Alt 加左右方向键排序`,
-                  )}
+                  aria-label={t("槽位 {0}：{1}，长按拖动；Alt 加左右方向键排序", [
+                    localize(index + 1),
+                    localize(unit?.name || "空位"),
+                  ])}
                   {...handlers}
                   onClick={() => {
                     if (suppressClick.current) {
@@ -277,31 +277,24 @@ export function LineupRoster({
                   <span className="lineup-slot-number">{localize(index + 1)}</span>
                   {localize(
                     unit ? (
-                      <img
-                        src={unit.thumbnailUrl}
-                        alt=""
-                        loading="lazy"
-                        width={110}
-                        height={65}
-                        draggable={false}
+                      <VehicleTile
+                        unit={unit}
+                        mode={mode}
+                        selected={activeSlot === index}
+                        modeRating={brLabel(vehicleStep(unit, battleType, mode))}
                       />
                     ) : (
                       <span className="lineup-slot-placeholder">＋</span>
                     ),
                   )}
-                  <span className="lineup-slot-name">
-                    <strong>
-                      {localize(
-                        vehicleName(unit) || (id ? `资料缺失：${localize(id)}` : t("选择载具")),
-                      )}
-                    </strong>
-                    <small>
-                      {localize(
-                        unit
-                          ? `${localize(categories[unit.category])} · ${localize(mode.toUpperCase())} ${localize(brLabel(vehicleStep(unit, battleType, mode)))}`
-                          : "空槽位",
-                      )}
-                    </small>
+                  <span className="lineup-slot-caption">
+                    {localize(
+                      unit
+                        ? `${categories[unit.category]} · Rank ${unit.rank}`
+                        : id
+                          ? t("资料缺失：{0}", [localize(id)])
+                          : t("选择载具"),
+                    )}
                   </span>
                 </button>
                 <div className="lineup-slot-tools">
@@ -310,7 +303,7 @@ export function LineupRoster({
                     className="lineup-drag-handle"
                     {...handlers}
                     onPointerDown={(event) => down(event, index, true)}
-                    aria-label={localize(`按住拖动槽位 ${localize(index + 1)}`)}
+                    aria-label={t("按住拖动槽位 {0}", [localize(index + 1)])}
                     title={t("按住即可拖动；Alt + 左右方向键排序")}
                     onClick={() => {
                       if (suppressClick.current) {
@@ -339,7 +332,7 @@ export function LineupRoster({
                     type="button"
                     className="lineup-slot-clear"
                     disabled={!id}
-                    aria-label={localize(`清空槽位 ${localize(index + 1)}`)}
+                    aria-label={t("清空槽位 {0}", [localize(index + 1)])}
                     onClick={() => clear(index)}
                   >
                     ×
@@ -368,7 +361,7 @@ export function LineupRoster({
                 {t("槽位")}
                 {localize(drag.from + 1)} → {localize(drag.to + 1)}
               </span>
-              <strong>{localize(vehicleName(dragUnit) || t("空槽位"))}</strong>
+              <strong>{localize(dragUnit?.name || t("空槽位"))}</strong>
             </div>,
             document.body,
           ),

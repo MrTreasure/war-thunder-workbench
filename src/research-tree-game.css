@@ -6,7 +6,7 @@
   font-style: normal;
   font-display: swap;
 }
-.canvas {
+:root {
   --wt-game-card: #0b1e29b2;
   --wt-game-border: #253940;
   --wt-game-top: #4a5d5b;
@@ -24,7 +24,7 @@
   background: #10191c20;
   border-color: #82949918;
 }
-.node .vehicle-card.wt-game-card {
+.vehicle-card.wt-game-card {
   position: relative;
   display: block;
   width: 228px;
@@ -44,28 +44,28 @@
   font-synthesis: none;
   font-weight: 400;
 }
-.node .vehicle-card.wt-game-card.is-owned {
+.vehicle-card.wt-game-card.is-owned {
   background: #25333bb2;
   border-color: #3e5159;
   border-top-color: #57767e;
 }
-.node .vehicle-card.wt-game-card.is-premium {
+.vehicle-card.wt-game-card.is-premium {
   background: #191107c9;
   border-color: #3b2e19;
   border-top-color: #735728;
 }
-.node .vehicle-card.wt-game-card.is-premium.is-owned {
+.vehicle-card.wt-game-card.is-premium.is-owned {
   background: #2d250fb2;
   border-color: #5b471f;
   border-top-color: #7b591f;
 }
-.canvas .node .vehicle-card.wt-game-card.is-squadron {
+.vehicle-card.wt-game-card.is-squadron {
   background: #18231ac9;
   border-color: #374736;
   border-top-color: #4c6045;
   box-shadow: 0 1px 1px #050b103d;
 }
-.canvas .node .vehicle-card.wt-game-card.is-squadron.is-owned {
+.vehicle-card.wt-game-card.is-squadron.is-owned {
   background: #263a1cb2;
   border-color: #3e5c2c;
   border-top-color: #4b712f;
@@ -330,17 +330,17 @@
   outline: 2px solid #d4c293;
   outline-offset: 2px;
 }
-.node .vehicle-card.wt-game-card:focus-visible {
+.vehicle-card.wt-game-card:focus-visible {
   outline: 2px solid #d6e4df;
   outline-offset: 3px;
 }
 @media (hover: hover) {
-  .canvas .node .vehicle-card.wt-game-card:hover {
+  .vehicle-card.wt-game-card:hover {
     border-color: #99b9be;
     box-shadow: 0 0 0 1px #91b2b72b;
     filter: brightness(1.12);
   }
-  .canvas .node .vehicle-card.wt-game-card.is-premium:hover {
+  .vehicle-card.wt-game-card.is-premium:hover {
     border-color: #c1994c;
   }
 }
@@ -393,10 +393,10 @@
 .canvas .folder-toggle[aria-expanded="true"] .wt-chevron {
   transform: rotate(180deg);
 }
-.canvas .node .vehicle-card.wt-game-card.is-squadron:hover {
+.vehicle-card.wt-game-card.is-squadron:hover {
   border-color: #68825c;
 }
-.canvas .node .vehicle-card.wt-game-card.is-squadron:focus-visible {
+.vehicle-card.wt-game-card.is-squadron:focus-visible {
   outline-color: #9ab784;
 }
 @media (prefers-reduced-motion: reduce) {

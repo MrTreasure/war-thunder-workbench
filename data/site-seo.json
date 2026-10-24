@@ -38,9 +38,9 @@
         {
           "route": "stats",
           "title": "战雷账号价值估算",
-          "text": "按可核实的载具资料与配置价格，分别展示研发点、金鹰、礼包和特殊载具，比较正常、折扣与交易价值。特殊载具单独列示，缺少报价的项目不按零元处理。估值仅供参考，不代表成交价格或交易承诺；计算及资料导入受对应额度限制。",
+          "text": "按可核实的载具资料与配置价格，分别展示研发点、金鹰、礼包和特殊载具，比较正常、折扣与参考价值。特殊载具单独列示，缺少报价的项目不按零元处理。估值仅供参考，不代表成交价格或交易承诺；计算及资料导入受对应额度限制。",
           "slug": "account-value",
-          "description": "按可核实的载具资料与配置价格，分别展示研发点、金鹰、礼包和特殊载具，比较正常、折扣与交易价值。",
+          "description": "按可核实的载具资料与配置价格，分别展示研发点、金鹰、礼包和特殊载具，比较正常、折扣与参考价值。",
           "seoTitle": "战雷账号价值估算 | 战雷工作台"
         },
         {
@@ -101,7 +101,7 @@
           "title": "查看账号估值",
           "steps": [
             "先确认目标玩家，再点击账号估值计算；按页面提示登录并使用对应额度。",
-            "比较正常、折扣和交易价值，打开明细查看研发点、金鹰、礼包与特殊载具。",
+            "比较正常、折扣和参考价值，打开明细查看研发点、金鹰、礼包与特殊载具。",
             "核对未计价项目、车库覆盖范围及报价日期；把估值视为参考，不作为成交保证。"
           ]
         },
@@ -188,7 +188,7 @@
         {
           "route": "stats",
           "title": "War Thunder account value estimator",
-          "text": "Review research points, Golden Eagle vehicles, packs and special vehicles using available vehicle evidence and configured prices. Compare normal, discounted and trade value estimates. Special vehicles are listed separately; missing quotes are not treated as zero. Estimates are for reference, not sale offers or guaranteed transaction prices. Calculations and imports use their respective quotas.",
+          "text": "Review research points, Golden Eagle vehicles, packs and special vehicles using available vehicle evidence and configured prices. Compare normal, discounted and reference value estimates. Special vehicles are listed separately; missing quotes are not treated as zero. Estimates are for reference, not sale offers or guaranteed transaction prices. Calculations and imports use their respective quotas.",
           "slug": "account-value",
           "description": "Review research points, Golden Eagle vehicles, packs and special vehicles using available vehicle evidence and configured prices.",
           "seoTitle": "War Thunder account value estimator"
@@ -251,7 +251,7 @@
           "title": "Estimate account value",
           "steps": [
             "Confirm the player and request an account estimate. Sign in and use the relevant quota when prompted.",
-            "Compare normal, discounted and trade estimates, then inspect research points, Golden Eagle vehicles, packs and special vehicles.",
+            "Compare normal, discounted and reference estimates, then inspect research points, Golden Eagle vehicles, packs and special vehicles.",
             "Check unpriced items, garage coverage and quote dates. Treat the result as a reference rather than a guaranteed sale price."
           ]
         },
@@ -338,7 +338,7 @@
         {
           "route": "stats",
           "title": "Оценка стоимости аккаунта War Thunder",
-          "text": "Смотрите составляющие оценки: очки исследования, технику за Золотые орлы, наборы и особые машины. Сравнивайте обычную, скидочную и торговую оценку на основе доступных данных и заданных цен. Особая техника показана отдельно; отсутствие цены не означает нулевую стоимость. Оценка справочная и не гарантирует цену сделки. Расчёты и импорт расходуют соответствующие лимиты.",
+          "text": "Смотрите составляющие оценки: очки исследования, технику за Золотые орлы, наборы и особые машины. Сравнивайте обычную, скидочную и справочную оценку на основе доступных данных и заданных цен. Особая техника показана отдельно; отсутствие цены не означает нулевую стоимость. Оценка справочная и не гарантирует цену сделки. Расчёты и импорт расходуют соответствующие лимиты.",
           "slug": "account-value",
           "description": "Смотрите составляющие оценки: очки исследования, технику за Золотые орлы, наборы и особые машины.",
           "seoTitle": "Оценка стоимости аккаунта War Thunder"
@@ -401,7 +401,7 @@
           "title": "Оценить стоимость аккаунта",
           "steps": [
             "Подтвердите игрока и запустите оценку. Войдите в аккаунт и используйте соответствующий лимит, если появится запрос.",
-            "Сравните обычную, скидочную и торговую оценки; откройте состав ОИ, техники за Золотые орлы, наборов и особых машин.",
+            "Сравните обычную, скидочную и справочную оценки; откройте состав ОИ, техники за Золотые орлы, наборов и особых машин.",
             "Проверьте позиции без цены, полноту гаража и даты котировок. Результат справочный и не гарантирует цену продажи."
           ]
         },
@@ -488,7 +488,7 @@
         {
           "route": "stats",
           "title": "War Thunderのアカウント評価額",
-          "text": "確認可能な車両データと設定価格に基づき、RP、ゴールデンイーグル車両、パック、特殊車両の内訳を表示します。通常・割引・取引の評価額を比較できます。特殊車両は別記し、価格不明の項目はゼロとして扱いません。評価額は参考値であり、売買の申し出や取引価格の保証ではありません。計算とインポートには、それぞれの利用回数枠を使用します。",
+          "text": "確認可能な車両データと設定価格に基づき、RP、ゴールデンイーグル車両、パック、特殊車両の内訳を表示します。通常・割引・参考の評価額を比較できます。特殊車両は別記し、価格不明の項目はゼロとして扱いません。評価額は参考値であり、売買の申し出や取引価格の保証ではありません。計算とインポートには、それぞれの利用回数枠を使用します。",
           "slug": "account-value",
           "description": "RP・GE車両・パック・特殊車両の内訳を確認し、通常・割引・取引の参考評価額を比較できます。",
           "seoTitle": "War Thunderのアカウント評価額 | Workbench"
@@ -551,7 +551,7 @@
           "title": "アカウント評価額を見る",
           "steps": [
             "対象プレイヤーを確認して評価額の計算を開始します。案内に従ってログインし、必要な利用回数枠を使用します。",
-            "通常・割引・取引の評価額を比較し、内訳でRP・GE車両・パック・特殊車両を確認します。",
+            "通常・割引・参考の評価額を比較し、内訳でRP・GE車両・パック・特殊車両を確認します。",
             "未評価の項目、所有車両データの対象範囲、価格の確認日を確認してください。結果は参考値であり、取引価格の保証ではありません。"
           ]
         },

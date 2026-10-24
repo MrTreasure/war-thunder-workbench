@@ -1,3 +1,4 @@
+import { AppFooter } from "../components/AppFooter";
 import { useLocale } from "../i18n/react";
 import { AccountWorkspaceProvider } from "../AccountWorkspace";
 import { Outlet, createFileRoute } from "@tanstack/react-router";
@@ -24,6 +25,7 @@ function WorkbenchLayout() {
                 data-scroll-restoration-id="workbench-content"
               >
                 <Outlet />
+                <AppFooter />
               </div>
             </WorkbenchProvider>
           </AccountWorkspaceProvider>
