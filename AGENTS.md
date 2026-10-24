@@ -379,3 +379,8 @@
 - First account use may automatically import valid guest plans only into missing cloud keys. Cloud documents, deletion tombstones and pending account edits win; retain the guest originals and prevent automatic import into another account once claimed.
 - Full garages live under 出击队列 → 我的车库 at `#/lineups/garage`, require login on both frontend and backend, and use the exact shared stats vehicle-card component with filters, modes, sorting and pagination. Default to the linked game account; unlinked users get a stats/binding entry. Old stats garage links redirect. Garage and its details use page content, not dialogs; anonymous local lineups remain available. Do not load country trees on the garage route.
 - Owned spades use the original `item_icon_elite_slot.png` card-body watermark and game colors recorded in `data/account-workspace.json`, behind vehicle art/text. Do not restore a boxed corner badge. Keep original HTTPS asset URLs and provenance.
+
+## 贴花查询暂缓（2026-10-24）
+
+- 当前无官方可用 CDN 资源，贴花查询计划暂时搁置。隐藏桌面及移动入口，直接访问旧路由返回科技树，不加载贴花目录或发起查询。
+- 保留现有实现和本地数据；未确认可用的官方资源前，不重新开放入口，不猜测或拼接图片地址。
