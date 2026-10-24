@@ -6,7 +6,7 @@
       "branch": "ground",
       "period": "all-time",
       "metric": "ground-targets-destroyed",
-      "fetchedAt": "2026-10-22T02:31:12.567Z",
+      "fetchedAt": "2026-10-24T06:05:35.955Z",
       "sources": [
         "https://warthunder.com/en/community/leaderboard/?game=arcade&sort=gtd&page=1",
         "https://warthunder.com/en/community/leaderboard/?game=arcade&sort=gtd&page=2"
@@ -17,7 +17,7 @@
       "branch": "air",
       "period": "all-time",
       "metric": "air-targets-destroyed",
-      "fetchedAt": "2026-10-22T02:31:28.459Z",
+      "fetchedAt": "2026-10-24T06:05:52.025Z",
       "sources": [
         "https://warthunder.com/en/community/leaderboard/?game=arcade&sort=atd&page=1",
         "https://warthunder.com/en/community/leaderboard/?game=arcade&sort=atd&page=2"
@@ -28,7 +28,7 @@
       "branch": "ground",
       "period": "all-time",
       "metric": "ground-targets-destroyed",
-      "fetchedAt": "2026-10-22T02:31:44.470Z",
+      "fetchedAt": "2026-10-24T06:06:08.185Z",
       "sources": [
         "https://warthunder.com/en/community/leaderboard/?game=historical&sort=gtd&page=1",
         "https://warthunder.com/en/community/leaderboard/?game=historical&sort=gtd&page=2"
@@ -39,7 +39,7 @@
       "branch": "air",
       "period": "all-time",
       "metric": "air-targets-destroyed",
-      "fetchedAt": "2026-10-22T02:32:00.716Z",
+      "fetchedAt": "2026-10-24T06:06:25.049Z",
       "sources": [
         "https://warthunder.com/en/community/leaderboard/?game=historical&sort=atd&page=1",
         "https://warthunder.com/en/community/leaderboard/?game=historical&sort=atd&page=2"
@@ -50,7 +50,7 @@
       "branch": "ground",
       "period": "all-time",
       "metric": "ground-targets-destroyed",
-      "fetchedAt": "2026-10-22T02:32:16.540Z",
+      "fetchedAt": "2026-10-24T06:06:41.488Z",
       "sources": [
         "https://warthunder.com/en/community/leaderboard/?game=simulation&sort=gtd&page=1",
         "https://warthunder.com/en/community/leaderboard/?game=simulation&sort=gtd&page=2"
@@ -61,7 +61,7 @@
       "branch": "air",
       "period": "all-time",
       "metric": "air-targets-destroyed",
-      "fetchedAt": "2026-10-22T02:32:32.380Z",
+      "fetchedAt": "2026-10-24T06:06:58.041Z",
       "sources": [
         "https://warthunder.com/en/community/leaderboard/?game=simulation&sort=atd&page=1",
         "https://warthunder.com/en/community/leaderboard/?game=simulation&sort=atd&page=2"

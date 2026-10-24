@@ -26,7 +26,7 @@
   white-space: nowrap;
 }
 .wt-select-chevron {
-  flex: 0 0 12px;
+  flex: 0 0 16px;
   color: var(--wt-gold);
 }
 .wt-select.wt-select[aria-expanded="true"] {
@@ -135,6 +135,9 @@
     text-align: center;
   }
   .mobile-page-navigation .wt-select-chevron {
-    display: none;
+    display: block;
   }
 }
+
+.wt-chevron { display: block; flex: none; width: 16px; height: 16px; overflow: visible; }
+.wt-chevron.is-open, .country-dropdown[open] > .country-trigger .country-chevron { transform: rotate(180deg); }

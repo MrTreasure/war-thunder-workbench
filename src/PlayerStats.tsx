@@ -960,7 +960,7 @@ export function PlayerStats() {
             <div className="wt-record-heading">
               <h2>
                 {t("官方排行榜")}
-                <span>TOP 25</span>
+                <span>TOP 30</span>
               </h2>
               {localize(
                 board && (

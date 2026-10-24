@@ -2,6 +2,7 @@ import { vehicleSearchText } from "./i18n/core";
 import { localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { t, vehicleName } from "./i18n/core";
+import cardTheme from "../data/vehicle-card-theme.json";
 import workspaceAssets from "../data/account-workspace.json";
 import { useAccountWorkspace } from "./workspace-context";
 
@@ -85,7 +86,16 @@ export function VehicleCard({
   const owned = !!workspace?.ownedVehicleIds.has(unit.id);
   return (
     <button
-      className={`vehicle-card ${selected ? "is-selected" : ""}`}
+      className={`vehicle-card ${unit.kind === "squadron" ? "is-squadron" : ""} ${selected ? "is-selected" : ""}`}
+      data-kind={unit.kind}
+      style={
+        unit.kind === "squadron"
+          ? ({
+              "--wt-squadron-top": cardTheme.squadron.topLine,
+              "--wt-squadron-owned": cardTheme.squadron.ownedBackground,
+            } as CSSProperties)
+          : undefined
+      }
       onClick={onSelect}
       aria-label={t("{0}，Rank {1}{2}，查看研发信息", [
         vehicleName(unit),
@@ -151,13 +161,15 @@ export function VehicleCard({
           className={`unit-badge ${unit.side === "research" || unit.kind === "squadron" ? "unit-rp" : ""}`}
         >
           {localize(
-            unit.side === "research" || unit.kind === "squadron"
-              ? rpText(unit)
-              : unit.kind === "gold" && unit.price !== null
-                ? `${format(unit.price)} GE`
-                : unit.kind === "pack"
-                  ? packPriceLabel(unit)
-                  : catalog.kinds[unit.kind],
+            unit.kind === "squadron"
+              ? t("联队载具 · {0}", [rpText(unit)])
+              : unit.side === "research"
+                ? rpText(unit)
+                : unit.kind === "gold" && unit.price !== null
+                  ? `${format(unit.price)} GE`
+                  : unit.kind === "pack"
+                    ? packPriceLabel(unit)
+                    : catalog.kinds[unit.kind],
           )}
         </span>
       </span>

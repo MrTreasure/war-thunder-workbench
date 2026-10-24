@@ -2121,5 +2121,6 @@
   "仅可更新已关联的游戏账号": "Only the linked game account can be updated.",
   "登录后，本站会保存你的研发计划、研发载具购物车、出击队列，以及你主动关联的游戏 UID、公开车库和采集时间，用于跨设备同步、标记已拥有载具和计算剩余研发点。UID 关联由你自行确认，不代表官方身份认证。本站还保存查询与战报记录、访问和安全日志。你可以解除游戏账号关联、导出或删除云端计划数据。本站不要求提供你的 Gaijin 密码或游戏验证码。请勿与游戏账号或其他网站设置相同密码，避免造成不必要的损失。本站承诺不保存明文密码，仅保存加盐后的密码哈希用于账号认证，不将密码另作他用。不同意时可继续以游客身份使用本地功能。": "When you log in, this site stores your research plans, vehicle research cart, lineups, and any game UID you choose to link, along with your public garage and its collection time. This enables cross-device sync, marks owned vehicles, and calculates remaining Research points. You confirm the UID link yourself; it is not official identity verification. This site also stores lookup and battle report history, access logs, and security logs. You can unlink your game account and export or delete your cloud plan data. This site never asks for your Gaijin password or game verification codes. Use a different password from your game account and other websites to avoid unnecessary losses. This site commits to never storing passwords in plain text. Only salted password hashes are stored for account authentication, and passwords are not used for any other purpose. If you do not agree, you can continue using local features as a guest.",
   "请登录后查看完整车库": "Log in to view the full garage.",
-  "请完整输入：{0}": "Enter the full text: {0}"
+  "请完整输入：{0}": "Enter the full text: {0}",
+  "联队载具 · {0}": "Squadron vehicle · {0}"
 }

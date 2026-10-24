@@ -1,5 +1,6 @@
 import { useLocale } from "../i18n/react";
 import { localize, t } from "../i18n/core";
+import { Chevron } from "./Chevron";
 /* Select-only combobox: focus remains on the trigger; options use aria-activedescendant. */
 /* oxlint-disable jsx-a11y/prefer-tag-over-role */
 import {
@@ -224,15 +225,7 @@ export function GameSelect({
         <span className="wt-select-label">
           {displayValue ?? options[chosen]?.label ?? t("请选择")}
         </span>
-        <svg
-          className="wt-select-chevron"
-          width="12"
-          height="12"
-          viewBox="0 0 12 12"
-          aria-hidden="true"
-        >
-          <path d="m3 4.5 3 3 3-3" fill="none" stroke="currentColor" strokeWidth="1.5" />
-        </svg>
+        <Chevron className="wt-select-chevron" />
       </button>
       {localize(
         open &&

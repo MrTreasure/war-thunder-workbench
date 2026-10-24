@@ -3,6 +3,7 @@ import { localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { t, vehicleName } from "./i18n/core";
 import { SiteGuideLinks } from "./components/SiteGuideLinks";
+import { Chevron } from "./components/Chevron";
 import { useAccountWorkspace } from "./workspace-context";
 
 import { updateSearchMetadata } from "./search-metadata";
@@ -454,9 +455,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
           <span className="mobile-tools-label">
             {localize(mobileToolsOpen ? t("收起") : t("展开"))}
           </span>
-          <span className="mobile-tools-chevron" aria-hidden="true">
-            ⌄
-          </span>
+          <Chevron className="mobile-tools-chevron" />
         </button>
         <div className="tool-panel" id="tree-tools" data-expanded={mobileToolsOpen}>
           <nav className="control-row" aria-label={t("国家与军种")}>
@@ -471,7 +470,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                     country && <img className="country-flag" alt="" src={P.flags[country]} />,
                   )}
                   <span>{localize(P.countries[country] || t("选择国家"))}</span>
-                  <span className="country-chevron">⌄</span>
+                  <Chevron className="country-chevron" />
                 </summary>
                 <div className="country-options">
                   {localize(

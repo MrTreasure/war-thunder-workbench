@@ -6,7 +6,7 @@
       "branch": "ground",
       "period": "all-time",
       "metric": "ground-targets-destroyed",
-      "fetchedAt": "2026-10-22T02:31:12.567Z",
+      "fetchedAt": "2026-10-24T06:05:35.955Z",
       "sources": [
         "https://warthunder.com/en/community/leaderboard/?game=arcade&sort=gtd&page=1",
         "https://warthunder.com/en/community/leaderboard/?game=arcade&sort=gtd&page=2"
@@ -111,6 +111,26 @@
         {
           "rank": 25,
           "nickname": "Mement0 M0ri"
+        },
+        {
+          "rank": 26,
+          "nickname": "Timur23rumiT"
+        },
+        {
+          "rank": 27,
+          "nickname": "klin5"
+        },
+        {
+          "rank": 28,
+          "nickname": "foutu"
+        },
+        {
+          "rank": 29,
+          "nickname": "NoblemanDK"
+        },
+        {
+          "rank": 30,
+          "nickname": "oxriapok2015"
         }
       ]
     },
@@ -119,7 +139,7 @@
       "branch": "air",
       "period": "all-time",
       "metric": "air-targets-destroyed",
-      "fetchedAt": "2026-10-22T02:31:28.459Z",
+      "fetchedAt": "2026-10-24T06:05:52.025Z",
       "sources": [
         "https://warthunder.com/en/community/leaderboard/?game=arcade&sort=atd&page=1",
         "https://warthunder.com/en/community/leaderboard/?game=arcade&sort=atd&page=2"
@@ -224,6 +244,26 @@
         {
           "rank": 25,
           "nickname": "Newb_Becky"
+        },
+        {
+          "rank": 26,
+          "nickname": "grig_and_urs"
+        },
+        {
+          "rank": 27,
+          "nickname": "BULLET777RU"
+        },
+        {
+          "rank": 28,
+          "nickname": "Pája_Klik_CZ"
+        },
+        {
+          "rank": 29,
+          "nickname": "bungler91"
+        },
+        {
+          "rank": 30,
+          "nickname": "Shepard_FR"
         }
       ]
     },
@@ -232,7 +272,7 @@
       "branch": "ground",
       "period": "all-time",
       "metric": "ground-targets-destroyed",
-      "fetchedAt": "2026-10-22T02:31:44.470Z",
+      "fetchedAt": "2026-10-24T06:06:08.185Z",
       "sources": [
         "https://warthunder.com/en/community/leaderboard/?game=historical&sort=gtd&page=1",
         "https://warthunder.com/en/community/leaderboard/?game=historical&sort=gtd&page=2"
@@ -320,11 +360,11 @@
         },
         {
           "rank": 21,
-          "nickname": "Gυm"
+          "nickname": "Савва"
         },
         {
           "rank": 22,
-          "nickname": "Савва"
+          "nickname": "Gυm"
         },
         {
           "rank": 23,
@@ -337,6 +377,26 @@
         {
           "rank": 25,
           "nickname": "pieberry"
+        },
+        {
+          "rank": 26,
+          "nickname": "VDV_1979_1981"
+        },
+        {
+          "rank": 27,
+          "nickname": "Taxkorgan"
+        },
+        {
+          "rank": 28,
+          "nickname": "SerGeySemen0ви4"
+        },
+        {
+          "rank": 29,
+          "nickname": "AkulaV_"
+        },
+        {
+          "rank": 30,
+          "nickname": "Marseille_JG27"
         }
       ]
     },
@@ -345,7 +405,7 @@
       "branch": "air",
       "period": "all-time",
       "metric": "air-targets-destroyed",
-      "fetchedAt": "2026-10-22T02:32:00.716Z",
+      "fetchedAt": "2026-10-24T06:06:25.049Z",
       "sources": [
         "https://warthunder.com/en/community/leaderboard/?game=historical&sort=atd&page=1",
         "https://warthunder.com/en/community/leaderboard/?game=historical&sort=atd&page=2"
@@ -450,6 +510,26 @@
         {
           "rank": 25,
           "nickname": "Moxie_NF"
+        },
+        {
+          "rank": 26,
+          "nickname": "Marseille_JG27"
+        },
+        {
+          "rank": 27,
+          "nickname": "ch_"
+        },
+        {
+          "rank": 28,
+          "nickname": "Xoquenorrex"
+        },
+        {
+          "rank": 29,
+          "nickname": "_YellowJacket_"
+        },
+        {
+          "rank": 30,
+          "nickname": "Flankerman"
         }
       ]
     },
@@ -458,7 +538,7 @@
       "branch": "ground",
       "period": "all-time",
       "metric": "ground-targets-destroyed",
-      "fetchedAt": "2026-10-22T02:32:16.540Z",
+      "fetchedAt": "2026-10-24T06:06:41.488Z",
       "sources": [
         "https://warthunder.com/en/community/leaderboard/?game=simulation&sort=gtd&page=1",
         "https://warthunder.com/en/community/leaderboard/?game=simulation&sort=gtd&page=2"
@@ -563,6 +643,26 @@
         {
           "rank": 25,
           "nickname": "Festung_yaosai"
+        },
+        {
+          "rank": 26,
+          "nickname": "Мексиканец"
+        },
+        {
+          "rank": 27,
+          "nickname": "Sergej1999"
+        },
+        {
+          "rank": 28,
+          "nickname": "AxT_AxT"
+        },
+        {
+          "rank": 29,
+          "nickname": "alexdeda"
+        },
+        {
+          "rank": 30,
+          "nickname": "Shadem"
         }
       ]
     },
@@ -571,7 +671,7 @@
       "branch": "air",
       "period": "all-time",
       "metric": "air-targets-destroyed",
-      "fetchedAt": "2026-10-22T02:32:32.380Z",
+      "fetchedAt": "2026-10-24T06:06:58.041Z",
       "sources": [
         "https://warthunder.com/en/community/leaderboard/?game=simulation&sort=atd&page=1",
         "https://warthunder.com/en/community/leaderboard/?game=simulation&sort=atd&page=2"
@@ -647,11 +747,11 @@
         },
         {
           "rank": 18,
-          "nickname": "mister_sergRU"
+          "nickname": "MISTIK"
         },
         {
           "rank": 19,
-          "nickname": "MISTIK"
+          "nickname": "mister_sergRU"
         },
         {
           "rank": 20,
@@ -676,6 +776,26 @@
         {
           "rank": 25,
           "nickname": "Starsss2_TV"
+        },
+        {
+          "rank": 26,
+          "nickname": "FalconEddiy"
+        },
+        {
+          "rank": 27,
+          "nickname": "wowangik"
+        },
+        {
+          "rank": 28,
+          "nickname": "NimbalTarget@live"
+        },
+        {
+          "rank": 29,
+          "nickname": "RR_Zvezda"
+        },
+        {
+          "rank": 30,
+          "nickname": "Loestic"
         }
       ]
     }
