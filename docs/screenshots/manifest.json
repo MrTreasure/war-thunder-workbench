@@ -265,24 +265,28 @@
     {
       "file": "player-stats-overview.png",
       "note": "真实玩家历史模式生涯总览、六维能力、近期比较、分类K/D与国家数量",
-      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats",
-      "capturedAt": "2026-10-23T04:13:34.620Z",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394",
+      "capturedAt": "2026-10-24T06:49:26.914433+00:00",
       "identityMasked": false,
       "width": 1600,
-      "height": 1460,
-      "bytes": 247668,
-      "sha256": "7a8abd01bc3ed3f883d4976a45111f0570f40d7550258dc55e9c8732044bde51"
+      "height": 1013,
+      "bytes": 160626,
+      "sha256": "7fcd510d499bb88be9dc783134e8d713ce00927c88cf766e8ad2145d7753029e",
+      "exampleGameNickname": "starfall21740",
+      "exampleGameUID": "129393650"
     },
     {
       "file": "player-stats-vehicles.png",
       "note": "陆军单车战绩表，含分页、排序和万/亿银狮缩写",
-      "capturedAt": "2026-10-23T04:07:26.144Z",
-      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats",
+      "capturedAt": "2026-10-24T06:47:16.376849+00:00",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394",
       "identityMasked": false,
       "width": 1600,
-      "height": 1100,
-      "bytes": 164163,
-      "sha256": "b786d6f8c877952d7d3cfa0790fb895fa33a84fdcf0aaded4146ff0774444ce0"
+      "height": 1013,
+      "bytes": 161102,
+      "sha256": "c548571120f042ad32390e06eddcc876b0a2ce8fdb2f7671c713d185a39b8cb2",
+      "exampleGameNickname": "starfall21740",
+      "exampleGameUID": "129393650"
     },
     {
       "file": "player-report-options.png",
@@ -316,13 +320,15 @@
     {
       "file": "player-stats-mobile.png",
       "note": "手机宽度下的真实玩家生涯及近期比较",
-      "capturedAt": "2026-10-23T04:10:09.460Z",
-      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats?lang=zh-CN&category=ground&mode=rb",
+      "capturedAt": "2026-10-24T06:49:44.830670+00:00",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394",
       "identityMasked": false,
-      "width": 430,
-      "height": 1250,
-      "bytes": 99362,
-      "sha256": "34de7d04af191100e59e85668ad90a434ef2d339450ee222dafe92b916f37493"
+      "width": 390,
+      "height": 844,
+      "bytes": 72091,
+      "sha256": "0cda0e51aec7d901f92a31d7b69dbb216ec00ba011a72ae9d7a850e11125ab61",
+      "exampleGameNickname": "starfall21740",
+      "exampleGameUID": "129393650"
     },
     {
       "file": "player-account-valuation.png",
@@ -338,57 +344,67 @@
     {
       "file": "player-owned-vehicles.png",
       "note": "独立完整车库与包含未出击车辆的组合筛选",
-      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats",
-      "capturedAt": "2026-10-23T04:13:59.160Z",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394",
+      "capturedAt": "2026-10-24T06:46:51.736580+00:00",
       "identityMasked": false,
-      "width": 1120,
-      "height": 1420,
-      "bytes": 170526,
-      "sha256": "e65ae8d163b1044dbb7095ab527102ff72dee029e7db1247173ca011c2a7785d"
+      "width": 1600,
+      "height": 1013,
+      "bytes": 304740,
+      "sha256": "eb56a3f9bded397377dc1a90dd09b82161a7b2cd4f6538948dd4370a5df74dd2",
+      "exampleGameNickname": "starfall21740",
+      "exampleGameUID": "129393650"
     },
     {
       "file": "player-stats-cards.png",
       "note": "桌面四列战雷风格卡片和紧凑文字操作",
-      "capturedAt": "2026-10-23T04:07:26.977Z",
-      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats",
+      "capturedAt": "2026-10-24T06:47:14.232825+00:00",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394",
       "identityMasked": false,
       "width": 1600,
-      "height": 1100,
-      "bytes": 363827,
-      "sha256": "57a1369be39e355a9d00e39999c1d981f4254bcc313468a571434343e345821a"
+      "height": 1013,
+      "bytes": 405895,
+      "sha256": "2e83e0df762720c3ced74bd707e93aed4e759a0fdababb75aab529598dc49324",
+      "exampleGameNickname": "starfall21740",
+      "exampleGameUID": "129393650"
     },
     {
       "file": "player-type-usage.png",
       "note": "生涯页最底部载具类型游玩时长与击毁使用统计",
-      "capturedAt": "2026-10-23T04:07:57.282Z",
-      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats",
+      "capturedAt": "2026-10-24T06:43:56.963019+00:00",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394",
       "identityMasked": false,
-      "width": 1384,
-      "height": 646,
-      "bytes": 69550,
-      "sha256": "b354a80ffede8520bbf2b07f135cc44097e8e07b9dcbb81afebb2bbf198841ec"
+      "width": 1600,
+      "height": 1100,
+      "bytes": 145242,
+      "sha256": "91abc6315fec1439241a444118774794eacf9cfcdd4d3c435c3aee2206e7a7f4",
+      "exampleGameNickname": "starfall21740",
+      "exampleGameUID": "129393650"
     },
     {
       "file": "player-rankings.png",
       "note": "官方陆战排位数据、指标筛选、个人名次及有限抽样的分位说明",
-      "capturedAt": "2026-10-23T04:08:46.801Z",
-      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats?lang=zh-CN&category=ground&mode=rb&view=rankings",
+      "capturedAt": "2026-10-24T06:49:44.550666+00:00",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394",
       "identityMasked": false,
       "width": 1600,
-      "height": 1100,
-      "bytes": 165805,
-      "sha256": "5c2a51d70935e344bf9bed6fb74edb1ec63ece4daf6b95dd70b32e4b3e6214c4"
+      "height": 1013,
+      "bytes": 154981,
+      "sha256": "0fe8d955eccfb1f050d9f98a7b3a787a2efe5345b0d2f2444c5bf2c74b9e32ef",
+      "exampleGameNickname": "starfall21740",
+      "exampleGameUID": "129393650"
     },
     {
       "file": "player-vehicle-detail.png",
       "note": "真实单车详情，不展示未经核实的同车排名",
-      "source": "https://render.mrtreasure.cc/war-thunder-trees/?lang=zh-CN&category=ground&mode=rb#/stats",
-      "capturedAt": "2026-10-23T04:13:35.895Z",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394",
+      "capturedAt": "2026-10-24T06:47:14.468828+00:00",
       "identityMasked": false,
-      "width": 1120,
-      "height": 598,
-      "bytes": 50325,
-      "sha256": "4e5c8b856c6e53529c3d52d921e1bb00347539ad927fe5fed7d2e3a396636f50"
+      "width": 1600,
+      "height": 1013,
+      "bytes": 219825,
+      "sha256": "45e5434eef4bdb6ada334752cef5fd9a0a60b0dd76afd12f2f6de07294278eb8",
+      "exampleGameNickname": "starfall21740",
+      "exampleGameUID": "129393650"
     },
     {
       "file": "player-vehicle-share.png",
@@ -411,10 +427,30 @@
       "height": 1620,
       "bytes": 1910921,
       "sha256": "1df073dc83b582c9667f5a30cd8b261e52b8297fae7037c428c36a6198b8044b"
+    },
+    {
+      "file": "player-leaderboards.png",
+      "width": 1600,
+      "height": 1100,
+      "bytes": 141220,
+      "sha256": "6d0f1a6f588c2405db70873af26ed8f872f5dbacceec9923fa721fe36dbe517b",
+      "capturedAt": "2026-10-24T06:41:43.894335+00:00",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394",
+      "identityMasked": false
+    },
+    {
+      "file": "squadron-vehicles.png",
+      "width": 1600,
+      "height": 1100,
+      "bytes": 281785,
+      "sha256": "171f7e266eb4a717b70045056eb0fee3632b97baea43ee28b68519688c47d95f",
+      "capturedAt": "2026-10-24T06:48:05.045410+00:00",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394",
+      "identityMasked": false
     }
   ],
-  "playerStatsCapturedAt": "2026-10-23",
-  "updatedAt": "2026-10-23",
+  "playerStatsCapturedAt": "2026-10-24",
+  "updatedAt": "2026-10-24",
   "salesCapturedAt": "2026-10-23",
-  "latestCaptureSource": "https://render.mrtreasure.cc/war-thunder-trees/"
+  "latestCaptureSource": "https://render.qmuse.pub/p/muse/8645013411493394"
 }
