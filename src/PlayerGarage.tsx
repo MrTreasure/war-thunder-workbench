@@ -61,7 +61,7 @@ export function PlayerGarage({
   );
   const vehicles = garageVehicleRecords(filtered, profile.vehicles, mode, detailRecords);
   if (sort) vehicles.sort((a, b) => comparePlayerVehicles(a, b, sort));
-  const notes = new Map(
+  const noRecords = new Set(
     filtered
       .filter(
         (v) =>
@@ -69,7 +69,7 @@ export function PlayerGarage({
           (!profile.vehicles.some((r) => r.id === v.id && r.mode === mode) &&
             !detailRecords.some((r) => r.id === v.id && r.mode === mode)),
       )
-      .map((v) => [v.id, v.observed ? "本模式暂无战绩" : "未出击"]),
+      .map((v) => v.id),
   );
   const pages = Math.max(1, Math.ceil(filtered.length / pageSize));
   const currentPage = Math.min(page, pages);
@@ -248,7 +248,7 @@ export function PlayerGarage({
               vehicles={vehicles.slice((currentPage - 1) * pageSize, currentPage * pageSize)}
               select={selectVehicle}
               showNaval={category !== "ground"}
-              notes={notes}
+              noRecords={noRecords}
             />
             {filtered.length === 0 && <p className="wt-record-empty">没有符合当前筛选的载具。</p>}
             <PlayerVehiclePagination
@@ -301,32 +301,38 @@ export function PlayerVehicleDetails({
           </a>
         </div>
       </div>
-      <div className="wt-vehicle-record-counters">
-        {[
-          ["战斗场次", num(vehicle.battles)],
-          ["胜率", vehicle.winRate == null ? "—" : `${vehicle.winRate.toFixed(2)}%`],
-          ["工作台效率", num(vehicle.efficiency)],
-          ["综合 K/D", statsRatio(vehicle.kd)],
-          ["对地 K/D", statsRatio(vehicle.groundKd)],
-          ["对空 K/D", statsRatio(vehicle.airKd)],
-          ["死亡", num(vehicle.deaths)],
-          ["出击", num(vehicle.sorties)],
-          ["对地击毁", num(vehicle.groundKills)],
-          ["对空击毁", num(vehicle.airKills)],
-        ].map(([label, value]) => (
-          <div key={label}>
-            <span>{label}</span>
-            <strong>{value}</strong>
+      {inline && vehicle.battles == null ? (
+        <p className="wt-vehicle-card-no-record">暂无出击记录</p>
+      ) : (
+        <>
+          <div className="wt-vehicle-record-counters">
+            {[
+              ["战斗场次", num(vehicle.battles)],
+              ["胜率", vehicle.winRate == null ? "—" : `${vehicle.winRate.toFixed(2)}%`],
+              ["工作台效率", num(vehicle.efficiency)],
+              ["综合 K/D", statsRatio(vehicle.kd)],
+              ["对地 K/D", statsRatio(vehicle.groundKd)],
+              ["对空 K/D", statsRatio(vehicle.airKd)],
+              ["死亡", num(vehicle.deaths)],
+              ["出击", num(vehicle.sorties)],
+              ["对地击毁", num(vehicle.groundKills)],
+              ["对空击毁", num(vehicle.airKills)],
+            ].map(([label, value]) => (
+              <div key={label}>
+                <span>{label}</span>
+                <strong>{value}</strong>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <p className="wt-vehicle-record-silver">
-        <img src={statsSilverIcon} alt="银狮" />
-        累计银狮{" "}
-        <strong title={statsSilver(vehicle.silverLions)}>
-          {compactSilver(vehicle.silverLions)}
-        </strong>
-      </p>
+          <p className="wt-vehicle-record-silver">
+            <img src={statsSilverIcon} alt="银狮" />
+            累计银狮{" "}
+            <strong title={statsSilver(vehicle.silverLions)}>
+              {compactSilver(vehicle.silverLions)}
+            </strong>
+          </p>
+        </>
+      )}
     </div>
   );
   if (inline)

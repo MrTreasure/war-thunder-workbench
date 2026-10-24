@@ -2013,3 +2013,13 @@
   .wt-garage-detail .wt-vehicle-record-identity { gap: 10px; }
   .wt-garage-detail .wt-vehicle-record-identity > img { width: 100px; height: 70px; }
 }
+
+@media (max-width: 1100px) {
+  .wt-record-player { grid-template-columns: auto minmax(0, 1fr); }
+  .wt-record-player > .wt-record-player-actions { grid-column: 1 / -1; justify-content: flex-start; }
+}
+@media (max-width: 600px) {
+  .wt-record-player-actions > button, .wt-record-player-actions > .wt-account-valuation { flex: 1 1 130px; }
+  .wt-record-player-actions .wt-account-valuation { max-width: none; }
+  .wt-record-player-actions .wt-valuation-trigger { width: 100%; }
+}

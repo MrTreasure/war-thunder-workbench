@@ -875,7 +875,7 @@ export function PlayerStats() {
         <>
           <section className="wt-record-player">
             <Avatar url={profile.avatar} name={profile.nickname} />
-            <div>
+            <div className="wt-record-player-identity">
               <h2>
                 {profile.clanTag && <small>{profile.clanTag} </small>}
                 {profile.nickname}
@@ -884,28 +884,36 @@ export function PlayerStats() {
                 等级 {num(profile.level)} · UID {profile.uid}
               </p>
             </div>
-            <GameAccountBinding key={`${profile.snapshotId}:${session?.user?.id || "guest"}`} profile={profile} />
-            <AccountValuation
-              key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
-              profile={profile}
-              session={session}
-              onSessionChange={refreshSession}
-            />
-            <div className="wt-record-source">
-              <span>
-                采集于 {statsDate(profile.fetchedAt)} ·{" "}
-                {profile.cached ? "已命中缓存，本次不扣查询次数" : "官方助手资料"}
-              </span>
+            <div className="wt-record-player-actions" aria-label="玩家资料操作">
+              <GameAccountBinding
+                key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
+                profile={profile}
+              />
+              <AccountValuation
+                key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
+                profile={profile}
+                session={session}
+                onSessionChange={refreshSession}
+              />
               <button
-                className="wt-record-link wt-record-refresh"
-                title={profile.localOnly ? "请先重新查询此玩家" : "重新获取官方资料，按一次新查询计入额度；同一玩家每分钟可刷新一次"}
+                className="wt-record-player-refresh"
+                title="重新获取官方资料，计入新查询次数"
                 disabled={
-                  profile.localOnly || busy || exportBusy || (!!report && ["queued", "running"].includes(report.status))
+                  profile.localOnly ||
+                  busy ||
+                  exportBusy ||
+                  (!!report && ["queued", "running"].includes(report.status))
                 }
                 onClick={() => void forceRefresh()}
               >
                 {busy ? "正在获取…" : "强制刷新"}
               </button>
+            </div>
+            <div className="wt-record-source">
+              <span>
+                采集于 {statsDate(profile.fetchedAt)} ·{" "}
+                {profile.cached ? "已命中缓存，本次不扣查询次数" : "官方助手资料"}
+              </span>
               <small>强制刷新计入新查询次数</small>
             </div>
           </section>

@@ -2414,3 +2414,18 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-vehicle-share-background { display: flex; flex-shrink: 0; align-items: center; flex-wrap: wrap; gap: 10px; padding: 8px 20px; border-top: 1px solid var(--wt-record-line); color: var(--wt-record-muted); font: 12px/1.5 system-ui, sans-serif; }
 .wt-vehicle-share-background .wt-select { min-width: 110px; min-height: 44px; }
 .wt-vehicle-share-background small { margin-left: auto; font-size: 11px; }
+
+/* Player dossier: identity, aligned actions, then provenance. */
+.wt-record-player { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 14px 18px; border-radius: 2px; }
+.wt-record-player-identity { min-width: 0; }
+.wt-record-player-actions { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: flex-end; gap: 8px; }
+.wt-record-page .wt-record-player-actions > button,
+.wt-record-page .wt-record-player-actions .wt-valuation-trigger { min-height: 44px; padding: 10px 14px; border: 1px solid var(--wt-record-line); border-radius: 2px; background: #293238; color: var(--wt-record-ink); font-size: 12px; line-height: 1.5; text-decoration: none; box-shadow: none; }
+.wt-record-page .wt-record-player-actions .wt-valuation-trigger { border-color: var(--wt-record-gold); color: var(--wt-record-gold); }
+.wt-record-player-actions .wt-account-valuation { max-width: 240px; }
+.wt-record-player-actions > button:focus-visible { outline: 2px solid var(--wt-record-gold); outline-offset: 2px; }
+.wt-record-player-actions > button:disabled { opacity: .5; }
+.wt-record-player-actions > button:not(:disabled):hover { border-color: var(--wt-record-gold); color: var(--wt-record-gold); }
+.wt-record-player > .wt-record-source { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; margin: 0; padding-top: 10px; border-top: 1px solid var(--wt-record-line); text-align: left; }
+.wt-vehicle-card-no-record { display: grid; place-items: center; flex: 1; min-height: 132px; margin: 0; padding: 20px 12px; color: var(--wt-record-muted); font-size: 13px; }
+.wt-vehicle-card-footer > a { color: var(--wt-record-muted); font-size: 11px; }

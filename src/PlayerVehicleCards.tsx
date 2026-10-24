@@ -15,13 +15,13 @@ export function PlayerVehicleCards({
   select,
   generate,
   showNaval,
-  notes,
+  noRecords,
 }: {
   vehicles: PlayerVehicle[];
   select: (vehicle: PlayerVehicle) => void;
   generate?: (vehicle: PlayerVehicle) => void;
   showNaval: boolean;
-  notes?: ReadonlyMap<string, string>;
+  noRecords?: ReadonlySet<string>;
 }) {
   return (
     <div className="wt-vehicle-cards">
@@ -57,40 +57,54 @@ export function PlayerVehicleCards({
               }}
             />
           </div>
-          <div className="wt-vehicle-card-rating">
-            <span>作战效率</span>
-            <strong>{num(vehicle.efficiency)}</strong>
-            <small>
-              {notes?.get(vehicle.id) || (vehicle.smallSample ? "场次不足 50" : "累计表现")}
-            </small>
-          </div>
-          <dl className="wt-vehicle-card-values">
-            {[
-              ["场次", num(vehicle.battles)],
-              ["胜率", vehicle.winRate == null ? "—" : `${vehicle.winRate.toFixed(2)}%`],
-              ["综合 K/D", ratio(vehicle.kd)],
-              ["对空 K/D", ratio(vehicle.airKd)],
-              ["对地 K/D", ratio(vehicle.groundKd)],
-              [
-                showNaval && (vehicle.category === "ships" || vehicle.category === "boats")
-                  ? "对海 K/D"
-                  : "出击",
-                showNaval && (vehicle.category === "ships" || vehicle.category === "boats")
-                  ? ratio(vehicle.navalKd)
-                  : num(vehicle.sorties),
-              ],
-            ].map(([label, value]) => (
-              <div key={label}>
-                <dt>{label}</dt>
-                <dd>{value}</dd>
+          {noRecords?.has(vehicle.id) ? (
+            <p className="wt-vehicle-card-no-record">暂无出击记录</p>
+          ) : (
+            <>
+              <div className="wt-vehicle-card-rating">
+                <span>作战效率</span>
+                <strong>{num(vehicle.efficiency)}</strong>
+                <small>{vehicle.smallSample ? "场次不足 50" : "累计表现"}</small>
               </div>
-            ))}
-          </dl>
+              <dl className="wt-vehicle-card-values">
+                {[
+                  ["场次", num(vehicle.battles)],
+                  ["胜率", vehicle.winRate == null ? "—" : `${vehicle.winRate.toFixed(2)}%`],
+                  ["综合 K/D", ratio(vehicle.kd)],
+                  ["对空 K/D", ratio(vehicle.airKd)],
+                  ["对地 K/D", ratio(vehicle.groundKd)],
+                  [
+                    showNaval && (vehicle.category === "ships" || vehicle.category === "boats")
+                      ? "对海 K/D"
+                      : "出击",
+                    showNaval && (vehicle.category === "ships" || vehicle.category === "boats")
+                      ? ratio(vehicle.navalKd)
+                      : num(vehicle.sorties),
+                  ],
+                ].map(([label, value]) => (
+                  <div key={label}>
+                    <dt>{label}</dt>
+                    <dd>{value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </>
+          )}
           <footer className="wt-vehicle-card-footer">
-            <span title={`累计银狮：${statsSilver(vehicle.silverLions)}`}>
-              <img src={statsSilverIcon} alt="银狮" />
-              <strong>{compactSilver(vehicle.silverLions)}</strong>
-            </span>
+            {noRecords?.has(vehicle.id) ? (
+              <a
+                href={`https://wiki.warthunder.com/unit/${encodeURIComponent(vehicle.id)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                官方 Wiki ↗
+              </a>
+            ) : (
+              <span title={`累计银狮：${statsSilver(vehicle.silverLions)}`}>
+                <img src={statsSilverIcon} alt="银狮" />
+                <strong>{compactSilver(vehicle.silverLions)}</strong>
+              </span>
+            )}
             <div className="wt-vehicle-card-actions">
               <button
                 onClick={() => select(vehicle)}
