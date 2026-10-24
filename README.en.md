@@ -37,7 +37,11 @@ Works on desktop and mobile. Research trees, lineups, maps and the sales calenda
 
 [Open player lookup](https://render.qmuse.pub/p/muse/8645013411493394#/stats), enter an in-game nickname and confirm the player, or select a player from the official leaderboard on the home screen. Public lookup does not need a game password. The tool's account and your game account are separate.
 
-The screenshots below were recaptured while using the updated preview on 2026-10-23. Player nicknames, UIDs and avatars have been retained as requested. Statistics, rankings, prices and remaining allowances reflect the capture times shown and may change. Preview updates become available after release.
+On **2026-10-24**, the live site was used to refresh the stats, hangar, squadron-vehicle and leaderboard screenshots. The account-linking example uses public records for `starfall21740`. Report, share-card and valuation images retain their earlier captures; see the [per-image dates and sources](docs/screenshots/README.md). Nicknames, UIDs and avatars are retained, and values reflect the capture time.
+
+The home screen shows the official **Top 30** in three desktop columns, with AB/RB/SB and ground/air filters.
+
+![Official Top 30 in three columns](docs/screenshots/player-leaderboards.png)
 
 ### Career overview: lifetime, official recent stats and battle types
 
@@ -53,15 +57,15 @@ Owned and elite vehicle counts can also be viewed by nation. Missing data is ide
 
 Switch from **Career overview** to **Rankings**, then filter by battle mode, battle scope, metric and lifetime/official recent period to see the metric value, official rank and number of leaderboard entries.
 
-Available metrics include average score, win rate, relative team position and kills per spawn, depending on the selected scope. Percentile comparisons use a limited sample of official leaderboard records. If that sample is not ready, the page retains your official rank and explains the status. **Leaderboard entries are not the total number of registered players, and sample percentiles are not an exact distribution of all players. This page does not show a site-specific ranking.**
+Compare personal values and ranks with official lifetime or recent leaderboards. Missing values remain unknown. The tool does not build its own player-sample ranking, and leaderboard entries are not the total player population.
 
 ![Official rankings, metric filters and leaderboard scope explanation](docs/screenshots/player-rankings.png)
 
 ### Complete vehicle collection: including vehicles never used in battle
 
-Click **Complete collection** beside the player profile to view all vehicles confirmed as owned in public records, including tanks, aircraft and other vehicles that have never been used in battle. No account valuation is required, and opening the list does not consume a valuation use.
+Sign in and open **Lineups → My hangar** to view the linked game account’s public collection on a dedicated page, including unused vehicles. The hangar shares the stats cards, filters, sorting and pagination. Filters and sorting stay on one horizontally scrollable row. Cards without records show **“No sorties recorded”** and retain the official Wiki link. Viewing the list does not consume valuation allowance.
 
-Combine filters for **nation, branch, rank, vehicle type, battle participation and name**. The list includes pagination, elite markers and links to the official Wiki. Vehicles with battle records can open their detailed statistics. If collection data is unavailable, the page says so rather than assuming the missing vehicles are not owned.
+The initial link requires re-entering the game UID. Later queries and force refreshes update that account’s hangar automatically. A spade marks owned vehicles in the research tree, and research calculations skip them.
 
 ![Complete collection with unused-vehicle markers, filters and pagination](docs/screenshots/player-owned-vehicles.png)
 
@@ -128,6 +132,10 @@ Save the image once generation is complete. Saving again or changing the backgro
 - Workbench efficiency ranges from **0–2000**, with fewer than 50 battles scored as 0. It is not an official rating, official rank or player percentile. The page only explains the factors that affect it.
 - Official recent statistics are API aggregates, not recent replays or a battle-by-battle log. Performance charts and AI commentary do not replace official records.
 
+### Sign-in and cross-device saving
+
+Guests keep local research plans, carts, lineups and map tools. After sign-in, research plans, research carts and lineups save automatically to the server for use across devices. Map drawing plans remain in the current browser. First use requires agreement to the user terms. Use a different password from your game account and other sites; no Gaijin password or game verification code is requested.
+
 ## Feature guide
 
 ### 1. Choose a nation and explore its research tree
@@ -139,6 +147,10 @@ Select a nation, branch and battle mode. Search by Chinese name or English model
 Regular research and special vehicles appear separately, with Golden Eagle, pack, squadron and event acquisition methods distinguished. Switch AB / RB / SB to view the Battle Rating for each mode.
 
 ![Research tree and special vehicle sections](docs/screenshots/tree.png)
+
+Squadron vehicles use a game-style green card and an explicit **Squadron vehicle** label. Event vehicles and store packs retain their verified classifications.
+
+![Squadron vehicle cards and nation selector](docs/screenshots/squadron-vehicles.png)
 
 Open a vehicle to view a larger image, research information and pack prices in CNY. The vehicle title links to the official Wiki; below it are **Research vehicle** and **Research modifications**. Packs without a verified price show **No quote available**. Full pack prices are not split into invented per-vehicle prices.
 
