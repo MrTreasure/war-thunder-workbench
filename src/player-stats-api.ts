@@ -162,7 +162,9 @@ function stored(key: string) {
 }
 let sessionToken = "";
 // QMuse shares its origin with other applications. Persist only a non-secret hint.
-export function hasStatsToken() { return Boolean(sessionToken); }
+export function hasStatsToken() {
+  return Boolean(sessionToken);
+}
 export function setStatsToken(token: string) {
   sessionToken = token;
   localStorage.removeItem(SESSION);
@@ -183,7 +185,9 @@ try {
     localStorage.setItem("wt-account-known-v1", "1");
     localStorage.removeItem(SESSION);
   }
-} catch { /* Storage may be disabled. */ }
+} catch {
+  /* Storage may be disabled. */
+}
 export function statsHeaders() {
   return {
     "Content-Type": "application/json",
@@ -215,11 +219,14 @@ export async function statsRequest<T>(
     }
     throw new StatsError(data?.message || "战绩服务暂时无法访问", data?.code || "REQUEST_FAILED");
   }
-  if (path === "session" && data && (!data.user || typeof data.user.id !== "string" || !data.user.id)) data.user = null;
-  // All derived scores cross this boundary, including nested report/vehicle data.
-  // The adapter loads its CDN runtime only when the response contains scoring rows.
-  const { applyPlayerEfficiency } = await import("./player-efficiency");
-  return applyPlayerEfficiency(data as T);
+  if (
+    path === "session" &&
+    data &&
+    (!data.user || typeof data.user.id !== "string" || !data.user.id)
+  )
+    data.user = null;
+  // Scores are calculated and versioned by the service, then cached with the profile.
+  return data as T;
 }
 export const statsModeNames: Record<string, string> = {
   ab: "街机战斗",
@@ -311,15 +318,23 @@ export async function reportImage(kind: string, key: string, signal: AbortSignal
   let expected: { bytes: number; sha256: string } | undefined;
   if (kind === "background" || kind === "flag") {
     const { default: staticAssets } = await import("../data/player-report-static-assets.json");
-    const entries = staticAssets.assets[kind] as Record<string, { url: string; fallbackUrl: string; bytes: number; sha256: string }>;
+    const entries = staticAssets.assets[kind] as Record<
+      string,
+      { url: string; fallbackUrl: string; bytes: number; sha256: string }
+    >;
     const entry = entries[key];
-    if (entry) { sources = [entry.url, entry.fallbackUrl]; expected = entry; }
+    if (entry) {
+      sources = [entry.url, entry.fallbackUrl];
+      expected = entry;
+    }
   } else if (kind === "vehicle" && /^[a-zA-Z0-9_-]+$/.test(key)) {
-    sources = ["https://static.encyclopedia.warthunder.com/images/" + encodeURIComponent(key) + ".png"];
+    sources = [
+      "https://static.encyclopedia.warthunder.com/images/" + encodeURIComponent(key) + ".png",
+    ];
   } else if (kind === "avatar" && /^cardicon_[A-Za-z0-9_]{1,100}$/.test(key)) {
     sources = [reportAssets.avatarBase + key + ".png"];
   } else if (kind === "logo" && key === "wt") {
-    const logo = branding.assets.find(asset => asset.id === "logo");
+    const logo = branding.assets.find((asset) => asset.id === "logo");
     if (logo) sources = [logo.source];
   } else if (kind === "currency" && key === "sl") {
     sources = [reportAssets.silverLionsIcon];
@@ -337,8 +352,10 @@ export async function reportImage(kind: string, key: string, signal: AbortSignal
       if (expected) {
         const bytes = await blob.arrayBuffer();
         const hash = Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", bytes)))
-          .map(value => value.toString(16).padStart(2, "0")).join("");
-        if (bytes.byteLength !== expected.bytes || hash !== expected.sha256) throw new Error("图片素材校验失败");
+          .map((value) => value.toString(16).padStart(2, "0"))
+          .join("");
+        if (bytes.byteLength !== expected.bytes || hash !== expected.sha256)
+          throw new Error("图片素材校验失败");
       }
       if (kind === "currency" && blob.type.includes("svg")) {
         // Preserve the original game's vector geometry; rasterize above export size.

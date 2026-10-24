@@ -40,5 +40,14 @@
     "helicopters": "mainmenu/helicopters",
     "ships": "mainmenu/ships",
     "boats": "mainmenu/boats"
+  },
+  "vehicleMediaOverrides": {
+    "ussr_t_80u_yt_cup_2019": {
+      "imageUrl": "https://static.encyclopedia.warthunder.com/images/ussr_t_80u_yt_cup_2019.png",
+      "thumbnailUrl": "https://static.encyclopedia.warthunder.com/images/ussr_t_80u_yt_cup_2019.png",
+      "source": "https://wiki.warthunder.com/unit/ussr_t_80u_yt_cup_2019",
+      "checkedAt": "2026-10-24",
+      "basis": "The official slot thumbnail returns 404; use the verified official image of this exact tournament vehicle."
+    }
   }
 }

@@ -2,7 +2,7 @@
 export const countryModules: Record<string, () => Promise<{ default: string }>> = {
 "country-usa": () => import("./countries/country-usa.1b33cbf63fdc1e8d"),
 "country-germany": () => import("./countries/country-germany.dec1febf00979885"),
-"country-ussr": () => import("./countries/country-ussr.52b119c45f94b994"),
+"country-ussr": () => import("./countries/country-ussr.9d868b0176bf98b7"),
 "country-britain": () => import("./countries/country-britain.b0002900de8c8071"),
 "country-japan": () => import("./countries/country-japan.ce9781747722604f"),
 "country-china": () => import("./countries/country-china.7306147e96b2e08b"),

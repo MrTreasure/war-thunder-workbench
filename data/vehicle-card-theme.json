@@ -9,5 +9,72 @@
     "source": "https://github.com/gszabi99/War-Thunder-Datamine/blob/ea96f3af75afe1d858f80ac13f212db218bc69ca/gui.vromfs.bin_u/gui/csselems/unitcard.css",
     "checkedAt": "2026-10-24",
     "basis": "Original game slotSquadronTopLineColor and slotOwnedSquadronBgColor; ARGB alpha separated for the application card surface. This is an archived game asset, not a Gaijin-hosted source."
+  },
+  "icons": {
+    "rp": "https://static.encyclopedia.warthunder.com/gui_skin/item_type_rp.svg",
+    "ge": "https://static.encyclopedia.warthunder.com/gui_skin/item_type_eagles.svg",
+    "gjn": "https://static.encyclopedia.warthunder.com/gui_skin/gc.svg",
+    "talisman": "https://static.encyclopedia.warthunder.com/gui_skin/item_type_talisman.svg",
+    "owned": "https://static.encyclopedia.warthunder.com/gui_skin/item_icon_elite_slot.png"
+  },
+  "iconProvenance": {
+    "rp": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/item_type_rp.svg",
+      "bytes": 10527,
+      "sha256": "3101056aa8b0a85d64dd8fe22f294fe0fda9193fa4946a095957348ec60eac52",
+      "checkedAt": "2026-10-24T12:55:43.693647+00:00"
+    },
+    "ge": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/item_type_eagles.svg",
+      "bytes": 15252,
+      "sha256": "033ce22131d8f9e5a64115e2581abbbc44879b52cac61a7eab46d448a5c43b7f",
+      "checkedAt": "2026-10-24T12:55:43.693749+00:00"
+    },
+    "gjn": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/gc.svg",
+      "bytes": 743,
+      "sha256": "36db530156a67e8d216b9bf4b9f8d91ab18c38d50bf69857dd235263574d2bbf",
+      "checkedAt": "2026-10-24T12:55:43.693785+00:00"
+    },
+    "talisman": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/item_type_talisman.svg",
+      "bytes": 77602,
+      "sha256": "6e634f1cf5fdcc888ed612fe447b25dac74e2074fc0c50efaffcabda77fa5f28",
+      "checkedAt": "2026-10-24T12:55:43.694026+00:00"
+    },
+    "owned": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/item_icon_elite_slot.png",
+      "bytes": 5601,
+      "sha256": "88cb7e3a04c122e775861b55016c0ee41b0de53b4a2cdbb93ebe565c23e1770f",
+      "checkedAt": "2026-10-24T12:55:43.694071+00:00"
+    }
+  },
+  "regular": {
+    "background": "#0b1e29b2",
+    "border": "#253940",
+    "topLine": "#4a5d5b",
+    "ownedBackground": "#25333bb2",
+    "ownedBorder": "#3e5159",
+    "ownedTopLine": "#57767e"
+  },
+  "premium": {
+    "background": "#191107c9",
+    "border": "#3b2e19",
+    "topLine": "#735728",
+    "ownedBackground": "#2d250fb2",
+    "ownedBorder": "#5b471f",
+    "ownedTopLine": "#7b591f"
+  },
+  "marketIconIds": [
+    "ussr_object_292",
+    "ussr_t_72m2_moderna",
+    "ussr_t_72b3_arena",
+    "ussr_t_80um2"
+  ],
+  "geometry": {
+    "cardWidth": 228,
+    "cardHeight": 76,
+    "cellWidth": 282,
+    "rowGap": 56
   }
 }
