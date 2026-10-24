@@ -340,7 +340,15 @@ export function TreeCanvas({
               to = layout.positions.get(edge.to);
             if (!from || !to) return null;
             const folder = !!nodeMap.get(edge.from)?.group && expanded.has(edge.from);
-            const d = treeEdgePath(from, to, cardTheme.geometry.cardWidth, folder);
+            const d = treeEdgePath(
+              {
+                ...from,
+                height: nodeMap.get(edge.from)?.group ? from.height : cardTheme.geometry.cardHeight,
+              },
+              to,
+              cardTheme.geometry.cardWidth,
+              folder,
+            );
             const active = route.has(edge.from) && route.has(edge.to);
             return (
               <path
