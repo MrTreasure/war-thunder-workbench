@@ -1,0 +1,943 @@
+{
+  "schemaVersion": 1,
+  "images": {
+    "new_tank_tracks": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_traks.png",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_maus",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "new_tank_suspension": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_suspension.png",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_maus",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "new_tank_brakes": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_break.png",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_maus",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "new_tank_filter": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_filter.png",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_maus",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "new_tank_transmission": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_transmission.png",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_maus",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "new_tank_engine": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_engine.png",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_maus",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "tank_tool_kit": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/tank_tool_kit.png",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_maus",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "manual_extinguisher": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/extinguisher.png",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_maus",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "tank_medical_kit": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/tank_reinforcement_ger.png",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_maus",
+      "checkedAt": "2026-10-24",
+      "universal": false
+    },
+    "mine_protection_improvement": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/tank_additional_armor.png",
+      "source": "https://wiki.warthunder.com/unit/germ_leopard_2a7v",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "new_tank_horizontal_aiming": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_horizontal_aiming.png",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_maus",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "tank_new_gun": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/tank_cannon.png",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_maus",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "120mm_DM_HE_FS_ammo_pack": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png",
+      "source": "https://wiki.warthunder.com/unit/germ_leopard_2a7v",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "new_tank_vertical_aiming": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_vertical_aiming.png",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_maus",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "tank_smoke_screen_system_mod": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/smoke_screen.png",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_maus",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "night_vision_system": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/thermal_sight.png",
+      "source": "https://wiki.warthunder.com/unit/germ_leopard_2a7v",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "art_support": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/art_support.png",
+      "source": "https://wiki.warthunder.com/unit/ussr_t_80u_yt_cup_2019",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "120mm_DM_APDS_FS_ammo_pack": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png",
+      "source": "https://wiki.warthunder.com/unit/germ_leopard_2a7v",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "modern_tank_laser_rangefinder": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/tank_laser_rangefinder.png",
+      "source": "https://wiki.warthunder.com/unit/ussr_t_80u_yt_cup_2019",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "tank_bulldozer_blade": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/dozer_blade.png",
+      "source": "https://wiki.warthunder.com/unit/ussr_t_80u_yt_cup_2019",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "tank_engine_smoke_screen_system": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/engine_smoke_screen_system.png",
+      "source": "https://wiki.warthunder.com/unit/ussr_t_80u_yt_cup_2019",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "125mm_ussr_APDS_FS_ammo_pack": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png",
+      "source": "https://wiki.warthunder.com/unit/ussr_t_80u_yt_cup_2019",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "125mm_ussr_ATGM_ammo_pack": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png",
+      "source": "https://wiki.warthunder.com/unit/ussr_t_80u_yt_cup_2019",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "night_vision_system_upgrade_nv_to_thermal": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/thermal_sight.png",
+      "source": "https://wiki.warthunder.com/unit/ussr_t_80u_yt_cup_2019",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "125mm_ussr_3BM42_APDS_FS_ammo_pack": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png",
+      "source": "https://wiki.warthunder.com/unit/ussr_t_80u_yt_cup_2019",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "128mm_ger_APCBC_ammo_pack": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_maus",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "75mm_ger_Smoke_ammo_pack": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_maus",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "75mm_ger_kwk44_Hl_C_HEAT_ammo_pack": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_maus",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    },
+    "128mm_ger_TS_ammo_pack": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_maus",
+      "checkedAt": "2026-10-24",
+      "universal": true
+    }
+  },
+  "layouts": {
+    "germ_leopard_2a7v": {
+      "groups": [
+        {
+          "name": "Mobility",
+          "columns": 2
+        },
+        {
+          "name": "Protection",
+          "columns": 1
+        },
+        {
+          "name": "Firepower",
+          "columns": 3
+        }
+      ],
+      "items": [
+        {
+          "id": "new_tank_tracks",
+          "group": 0,
+          "row": 1,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_traks.png"
+        },
+        {
+          "id": "new_tank_suspension",
+          "group": 0,
+          "row": 2,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_suspension.png"
+        },
+        {
+          "id": "new_tank_brakes",
+          "group": 0,
+          "row": 2,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_break.png"
+        },
+        {
+          "id": "new_tank_filter",
+          "group": 0,
+          "row": 3,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_filter.png"
+        },
+        {
+          "id": "new_tank_transmission",
+          "group": 0,
+          "row": 4,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_transmission.png"
+        },
+        {
+          "id": "new_tank_engine",
+          "group": 0,
+          "row": 4,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_engine.png"
+        },
+        {
+          "id": "tank_tool_kit",
+          "group": 1,
+          "row": 1,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_tool_kit.png"
+        },
+        {
+          "id": "manual_extinguisher",
+          "group": 1,
+          "row": 2,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/extinguisher.png"
+        },
+        {
+          "id": "tank_medical_kit",
+          "group": 1,
+          "row": 3,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_reinforcement_ger.png"
+        },
+        {
+          "id": "mine_protection_improvement",
+          "group": 1,
+          "row": 4,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_additional_armor.png"
+        },
+        {
+          "id": "new_tank_horizontal_aiming",
+          "group": 2,
+          "row": 1,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_horizontal_aiming.png"
+        },
+        {
+          "id": "tank_new_gun",
+          "group": 2,
+          "row": 2,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_cannon.png"
+        },
+        {
+          "id": "120mm_DM_HE_FS_ammo_pack",
+          "group": 2,
+          "row": 2,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png"
+        },
+        {
+          "id": "new_tank_vertical_aiming",
+          "group": 2,
+          "row": 3,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_vertical_aiming.png"
+        },
+        {
+          "id": "tank_smoke_screen_system_mod",
+          "group": 2,
+          "row": 3,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/smoke_screen.png"
+        },
+        {
+          "id": "night_vision_system",
+          "group": 2,
+          "row": 3,
+          "column": 2,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/thermal_sight.png"
+        },
+        {
+          "id": "art_support",
+          "group": 2,
+          "row": 4,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/art_support.png"
+        },
+        {
+          "id": "120mm_DM_APDS_FS_ammo_pack",
+          "group": 2,
+          "row": 4,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png"
+        },
+        {
+          "id": "modern_tank_laser_rangefinder",
+          "group": 2,
+          "row": 4,
+          "column": 2,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_laser_rangefinder.png"
+        }
+      ],
+      "source": "https://wiki.warthunder.com/unit/germ_leopard_2a7v",
+      "checkedAt": "2026-10-24",
+      "htmlSha256": "9b9878fdd49d5214ec7d7e3cf8ee716196561dbd4e7ed27c7f55febb35995e66"
+    },
+    "ussr_t_80ud": {
+      "groups": [
+        {
+          "name": "Mobility",
+          "columns": 2
+        },
+        {
+          "name": "Protection",
+          "columns": 2
+        },
+        {
+          "name": "Firepower",
+          "columns": 2
+        }
+      ],
+      "items": [
+        {
+          "id": "new_tank_tracks",
+          "group": 0,
+          "row": 1,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_traks.png"
+        },
+        {
+          "id": "new_tank_suspension",
+          "group": 0,
+          "row": 2,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_suspension.png"
+        },
+        {
+          "id": "new_tank_brakes",
+          "group": 0,
+          "row": 2,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_break.png"
+        },
+        {
+          "id": "new_tank_filter",
+          "group": 0,
+          "row": 3,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_filter.png"
+        },
+        {
+          "id": "new_tank_transmission",
+          "group": 0,
+          "row": 4,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_transmission.png"
+        },
+        {
+          "id": "new_tank_engine",
+          "group": 0,
+          "row": 4,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_engine.png"
+        },
+        {
+          "id": "tank_tool_kit",
+          "group": 1,
+          "row": 1,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_tool_kit.png"
+        },
+        {
+          "id": "tank_bulldozer_blade",
+          "group": 1,
+          "row": 1,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/dozer_blade.png"
+        },
+        {
+          "id": "manual_extinguisher",
+          "group": 1,
+          "row": 2,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/extinguisher.png"
+        },
+        {
+          "id": "tank_smoke_screen_system_mod",
+          "group": 1,
+          "row": 2,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/smoke_screen.png"
+        },
+        {
+          "id": "tank_medical_kit",
+          "group": 1,
+          "row": 3,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_reinforcement_ussr.png"
+        },
+        {
+          "id": "tank_engine_smoke_screen_system",
+          "group": 1,
+          "row": 4,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/engine_smoke_screen_system.png"
+        },
+        {
+          "id": "new_tank_horizontal_aiming",
+          "group": 2,
+          "row": 1,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_horizontal_aiming.png"
+        },
+        {
+          "id": "125mm_ussr_APDS_FS_ammo_pack",
+          "group": 2,
+          "row": 1,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png"
+        },
+        {
+          "id": "tank_new_gun",
+          "group": 2,
+          "row": 2,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_cannon.png"
+        },
+        {
+          "id": "modern_tank_laser_rangefinder",
+          "group": 2,
+          "row": 2,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_laser_rangefinder.png"
+        },
+        {
+          "id": "new_tank_vertical_aiming",
+          "group": 2,
+          "row": 3,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_vertical_aiming.png"
+        },
+        {
+          "id": "125mm_ussr_ATGM_ammo_pack",
+          "group": 2,
+          "row": 3,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png"
+        },
+        {
+          "id": "art_support",
+          "group": 2,
+          "row": 4,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/art_support.png"
+        }
+      ],
+      "source": "https://wiki.warthunder.com/unit/ussr_t_80ud",
+      "checkedAt": "2026-10-24",
+      "htmlSha256": "51d94f5d0d6ed4f2cb486f2e85575dbab554b3175be3ea4ba7a74223d84575b2"
+    },
+    "ussr_t_80u_yt_cup_2019": {
+      "groups": [
+        {
+          "name": "Mobility",
+          "columns": 2
+        },
+        {
+          "name": "Protection",
+          "columns": 2
+        },
+        {
+          "name": "Firepower",
+          "columns": 2
+        }
+      ],
+      "items": [
+        {
+          "id": "new_tank_tracks",
+          "group": 0,
+          "row": 1,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_traks.png"
+        },
+        {
+          "id": "new_tank_suspension",
+          "group": 0,
+          "row": 2,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_suspension.png"
+        },
+        {
+          "id": "new_tank_brakes",
+          "group": 0,
+          "row": 2,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_break.png"
+        },
+        {
+          "id": "new_tank_filter",
+          "group": 0,
+          "row": 3,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_filter.png"
+        },
+        {
+          "id": "new_tank_transmission",
+          "group": 0,
+          "row": 4,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_transmission.png"
+        },
+        {
+          "id": "new_tank_engine",
+          "group": 0,
+          "row": 4,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_engine.png"
+        },
+        {
+          "id": "tank_tool_kit",
+          "group": 1,
+          "row": 1,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_tool_kit.png"
+        },
+        {
+          "id": "tank_bulldozer_blade",
+          "group": 1,
+          "row": 1,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/dozer_blade.png"
+        },
+        {
+          "id": "manual_extinguisher",
+          "group": 1,
+          "row": 2,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/extinguisher.png"
+        },
+        {
+          "id": "tank_smoke_screen_system_mod",
+          "group": 1,
+          "row": 2,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/smoke_screen.png"
+        },
+        {
+          "id": "tank_medical_kit",
+          "group": 1,
+          "row": 3,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_reinforcement_ussr.png"
+        },
+        {
+          "id": "tank_engine_smoke_screen_system",
+          "group": 1,
+          "row": 4,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/engine_smoke_screen_system.png"
+        },
+        {
+          "id": "night_vision_system_upgrade_nv_to_thermal",
+          "group": 1,
+          "row": 4,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/thermal_sight.png"
+        },
+        {
+          "id": "new_tank_horizontal_aiming",
+          "group": 2,
+          "row": 1,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_horizontal_aiming.png"
+        },
+        {
+          "id": "125mm_ussr_APDS_FS_ammo_pack",
+          "group": 2,
+          "row": 1,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png"
+        },
+        {
+          "id": "tank_new_gun",
+          "group": 2,
+          "row": 2,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_cannon.png"
+        },
+        {
+          "id": "modern_tank_laser_rangefinder",
+          "group": 2,
+          "row": 2,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_laser_rangefinder.png"
+        },
+        {
+          "id": "new_tank_vertical_aiming",
+          "group": 2,
+          "row": 3,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_vertical_aiming.png"
+        },
+        {
+          "id": "125mm_ussr_ATGM_ammo_pack",
+          "group": 2,
+          "row": 3,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png"
+        },
+        {
+          "id": "art_support",
+          "group": 2,
+          "row": 4,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/art_support.png"
+        },
+        {
+          "id": "125mm_ussr_3BM42_APDS_FS_ammo_pack",
+          "group": 2,
+          "row": 4,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png"
+        }
+      ],
+      "source": "https://wiki.warthunder.com/unit/ussr_t_80u_yt_cup_2019",
+      "checkedAt": "2026-10-24",
+      "htmlSha256": "e52f0b46e3336f62757a568a6a501ad48f9f8251cdb47472fd8c448a797f9bab"
+    },
+    "germ_pzkpfw_e_100": {
+      "groups": [
+        {
+          "name": "Mobility",
+          "columns": 2
+        },
+        {
+          "name": "Protection",
+          "columns": 1
+        },
+        {
+          "name": "Firepower",
+          "columns": 3
+        }
+      ],
+      "items": [
+        {
+          "id": "new_tank_tracks",
+          "group": 0,
+          "row": 1,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_traks.png"
+        },
+        {
+          "id": "new_tank_suspension",
+          "group": 0,
+          "row": 2,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_suspension.png"
+        },
+        {
+          "id": "new_tank_brakes",
+          "group": 0,
+          "row": 2,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_break.png"
+        },
+        {
+          "id": "new_tank_filter",
+          "group": 0,
+          "row": 3,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_filter.png"
+        },
+        {
+          "id": "new_tank_transmission",
+          "group": 0,
+          "row": 4,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_transmission.png"
+        },
+        {
+          "id": "new_tank_engine",
+          "group": 0,
+          "row": 4,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_engine.png"
+        },
+        {
+          "id": "tank_tool_kit",
+          "group": 1,
+          "row": 1,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_tool_kit.png"
+        },
+        {
+          "id": "manual_extinguisher",
+          "group": 1,
+          "row": 2,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/extinguisher.png"
+        },
+        {
+          "id": "tank_medical_kit",
+          "group": 1,
+          "row": 3,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_reinforcement_ger.png"
+        },
+        {
+          "id": "new_tank_horizontal_aiming",
+          "group": 2,
+          "row": 1,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_horizontal_aiming.png"
+        },
+        {
+          "id": "128mm_ger_APCBC_ammo_pack",
+          "group": 2,
+          "row": 1,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png"
+        },
+        {
+          "id": "75mm_ger_Smoke_ammo_pack",
+          "group": 2,
+          "row": 1,
+          "column": 2,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png"
+        },
+        {
+          "id": "tank_new_gun",
+          "group": 2,
+          "row": 2,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_cannon.png"
+        },
+        {
+          "id": "75mm_ger_kwk44_Hl_C_HEAT_ammo_pack",
+          "group": 2,
+          "row": 2,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png"
+        },
+        {
+          "id": "new_tank_vertical_aiming",
+          "group": 2,
+          "row": 3,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_vertical_aiming.png"
+        },
+        {
+          "id": "128mm_ger_TS_ammo_pack",
+          "group": 2,
+          "row": 4,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png"
+        },
+        {
+          "id": "tank_smoke_screen_system_mod",
+          "group": 2,
+          "row": 4,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/smoke_screen.png"
+        }
+      ],
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_e_100",
+      "checkedAt": "2026-10-24",
+      "htmlSha256": "3855f80c385633ff9646db3ce77382d1300196b98062a35646c6f22b96557476"
+    },
+    "germ_pzkpfw_maus": {
+      "groups": [
+        {
+          "name": "Mobility",
+          "columns": 2
+        },
+        {
+          "name": "Protection",
+          "columns": 1
+        },
+        {
+          "name": "Firepower",
+          "columns": 3
+        }
+      ],
+      "items": [
+        {
+          "id": "new_tank_tracks",
+          "group": 0,
+          "row": 1,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_traks.png"
+        },
+        {
+          "id": "new_tank_suspension",
+          "group": 0,
+          "row": 2,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_suspension.png"
+        },
+        {
+          "id": "new_tank_brakes",
+          "group": 0,
+          "row": 2,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_break.png"
+        },
+        {
+          "id": "new_tank_filter",
+          "group": 0,
+          "row": 3,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_filter.png"
+        },
+        {
+          "id": "new_tank_transmission",
+          "group": 0,
+          "row": 4,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_transmission.png"
+        },
+        {
+          "id": "new_tank_engine",
+          "group": 0,
+          "row": 4,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_engine.png"
+        },
+        {
+          "id": "tank_tool_kit",
+          "group": 1,
+          "row": 1,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_tool_kit.png"
+        },
+        {
+          "id": "manual_extinguisher",
+          "group": 1,
+          "row": 2,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/extinguisher.png"
+        },
+        {
+          "id": "tank_medical_kit",
+          "group": 1,
+          "row": 3,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_reinforcement_ger.png"
+        },
+        {
+          "id": "new_tank_horizontal_aiming",
+          "group": 2,
+          "row": 1,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_horizontal_aiming.png"
+        },
+        {
+          "id": "128mm_ger_APCBC_ammo_pack",
+          "group": 2,
+          "row": 1,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png"
+        },
+        {
+          "id": "75mm_ger_Smoke_ammo_pack",
+          "group": 2,
+          "row": 1,
+          "column": 2,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png"
+        },
+        {
+          "id": "tank_new_gun",
+          "group": 2,
+          "row": 2,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_cannon.png"
+        },
+        {
+          "id": "75mm_ger_kwk44_Hl_C_HEAT_ammo_pack",
+          "group": 2,
+          "row": 2,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png"
+        },
+        {
+          "id": "new_tank_vertical_aiming",
+          "group": 2,
+          "row": 3,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_vertical_aiming.png"
+        },
+        {
+          "id": "128mm_ger_TS_ammo_pack",
+          "group": 2,
+          "row": 4,
+          "column": 0,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png"
+        },
+        {
+          "id": "tank_smoke_screen_system_mod",
+          "group": 2,
+          "row": 4,
+          "column": 1,
+          "imageUrl": "https://static.encyclopedia.warthunder.com/gui_skin/smoke_screen.png"
+        }
+      ],
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_maus",
+      "checkedAt": "2026-10-24",
+      "htmlSha256": "05a2294134d25db69444c3f83a4f0d1bfc5135c5160854cde29417a630834ffb"
+    }
+  },
+  "fallbacks": {
+    "groundAmmo": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/tank_ammo.png",
+      "basis": "Official Wiki uses this shared icon for the verified ground ammunition packs in the collected unit pages."
+    }
+  }
+}

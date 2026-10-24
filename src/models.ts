@@ -105,6 +105,8 @@ export interface Catalog {
   lineupKinds: Record<string, string>;
 }
 export interface Modification {
+  imageUrl?: string;
+  position?: { group: number; row: number; column: number };
   id: string;
   name: string;
   nameEn?: string;
@@ -115,6 +117,7 @@ export interface Modification {
   rp: number | null;
 }
 export interface ModificationData {
+  presentation?: { groups: { name: string; columns: number }[]; source: string; checkedAt: string };
   allUnlockedByDefault: boolean;
   unitId: string;
   totalRp: number | null;

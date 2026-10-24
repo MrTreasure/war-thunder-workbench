@@ -628,8 +628,21 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                   −
                 </button>
                 <output>{Math.round(zoom * 100)}%</output>
-                <button onClick={() => setAutoZoom(true)} aria-pressed={autoZoom}>
-                  适应窗口
+                <button
+                  onClick={() => setAutoZoom(true)}
+                  aria-pressed={autoZoom}
+                  title="适应窗口"
+                  aria-label="适应窗口"
+                >
+                  <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path
+                      d="M3 7V3h4m6 0h4v4M3 13v4h4m6 0h4v-4M7 7h6v6H7z"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </button>
                 <button
                   aria-label="放大"

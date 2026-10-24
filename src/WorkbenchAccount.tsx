@@ -64,25 +64,62 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
     async function restore() {
       const url = new URL(window.location.href);
       const code = url.searchParams.get("wt_auth_code");
+      const silentMiss = url.searchParams.get("wt_auth_silent") === "miss";
       const state = url.searchParams.get("wt_auth_state");
       const saved = sessionStorage.getItem("wt-auth-intent-v1");
+      if (silentMiss) {
+        const original = saved
+          ? (JSON.parse(saved) as { state: string; originalPath?: string; expires: number })
+          : null;
+        sessionStorage.removeItem("wt-auth-intent-v1");
+        url.searchParams.delete("wt_auth_silent");
+        url.searchParams.delete("wt_auth_state");
+        if (original && original.state === state && original.expires > Date.now()) {
+          const destination = new URL(original.originalPath || "/", location.origin);
+          if (destination.origin === location.origin && destination.pathname === location.pathname)
+            history.replaceState(history.state, "", destination);
+          else history.replaceState(history.state, "", url);
+        } else history.replaceState(history.state, "", url);
+      }
       if (code) {
         sessionStorage.removeItem("wt-auth-intent-v1");
         url.searchParams.delete("wt_auth_code");
         url.searchParams.delete("wt_auth_state");
         history.replaceState(history.state, "", url);
         if (!saved) throw new Error("登录请求已过期，请重新登录。");
-        const intent = JSON.parse(saved) as { verifier: string; state: string; returnUrl?: string; originalPath?: string; expires: number };
-        if (intent.state !== state || intent.expires < Date.now()) throw new Error("登录请求已过期，请重新登录。");
+        const intent = JSON.parse(saved) as {
+          verifier: string;
+          state: string;
+          returnUrl?: string;
+          originalPath?: string;
+          expires: number;
+        };
+        if (intent.state !== state || intent.expires < Date.now())
+          throw new Error("登录请求已过期，请重新登录。");
         const original = new URL(intent.originalPath || intent.returnUrl || "/", location.origin);
-        if (original.origin !== location.origin || original.pathname !== location.pathname) throw new Error("登录返回地址无效。");
+        if (original.origin !== location.origin || original.pathname !== location.pathname)
+          throw new Error("登录返回地址无效。");
         history.replaceState(history.state, "", original);
-        const result = await statsRequest<{ token: string }>("auth/exchange", { code, verifier: intent.verifier });
+        const result = await statsRequest<{ token: string }>("auth/exchange", {
+          code,
+          verifier: intent.verifier,
+        });
         resetIdentity();
         setStatsToken(result.token);
         notifyStatsAccountLogin();
       }
-      await refreshSession();
+      const current = await refreshSession();
+      // One automatic, non-interactive redirect migrates legacy first-party login cookies.
+      if (
+        !current.user &&
+        !code &&
+        !silentMiss &&
+        localStorage.getItem("wt-account-known-v1") &&
+        Date.now() - Number(sessionStorage.getItem("wt-auth-silent-attempt-v1") || "0") > 600000
+      ) {
+        sessionStorage.setItem("wt-auth-silent-attempt-v1", String(Date.now()));
+        await redirectLogin(true);
+      }
     }
     if (!restoring.current) {
       restoring.current = true;
@@ -100,7 +137,7 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
       )
         return;
       setStatsToken("");
-      if (event.newValue?.startsWith("login:")) setError("账号已在其他页面登录，点击登录可恢复当前页面的会话。");
+      if (event.newValue?.startsWith("login:")) setError("");
       resetIdentity();
       void refreshSession().catch(() => {});
     };
@@ -132,17 +169,28 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
         setBusy(false);
       }
     };
-    const renew = setInterval(() => {
-      if (hasStatsToken()) void statsRequest<{ token: string }>("auth/refresh", {}).then(result => setStatsToken(result.token)).catch(() => {});
-    }, 10 * 60 * 1000);
+    const renew = setInterval(
+      () => {
+        if (hasStatsToken())
+          void statsRequest<{ token: string }>("auth/refresh", {})
+            .then((result) => setStatsToken(result.token))
+            .catch(() => {});
+      },
+      10 * 60 * 1000,
+    );
     const timer = setInterval(() => {
       if (pending.current?.popup.closed) {
         pending.current = null;
         setBusy(false);
       }
     }, 1000);
-    const expired = () => { resetIdentity(); void refreshSession().catch(() => {}); };
-    const visible = () => { if (document.visibilityState === "visible") void refreshSession().catch(() => {}); };
+    const expired = () => {
+      resetIdentity();
+      void refreshSession().catch(() => {});
+    };
+    const visible = () => {
+      if (document.visibilityState === "visible") void refreshSession().catch(() => {});
+    };
     window.addEventListener("wt-account-expired", expired);
     document.addEventListener("visibilitychange", visible);
     window.addEventListener("message", listener);
@@ -156,23 +204,33 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
       window.removeEventListener("storage", storage);
     };
   }, [refreshSession, resetIdentity]);
-  async function redirectLogin() {
+  async function redirectLogin(silent = false) {
     const challenge = await loginChallenge();
     const returnUrl = window.location.origin + window.location.pathname;
-    const intent = { verifier: challenge.verifier, state: challenge.state, originalPath: window.location.pathname + window.location.search + window.location.hash, expires: Date.now() + 10 * 60 * 1000 };
+    const intent = {
+      verifier: challenge.verifier,
+      state: challenge.state,
+      originalPath: window.location.pathname + window.location.search + window.location.hash,
+      expires: Date.now() + 10 * 60 * 1000,
+    };
     sessionStorage.setItem("wt-auth-intent-v1", JSON.stringify(intent));
     const start = await statsRequest<{ authorizeUrl: string }>("auth/start", {
-      challenge: challenge.challenge, state: challenge.state,
+      challenge: challenge.challenge,
+      state: challenge.state,
       returnUrl,
     });
-    window.location.assign(start.authorizeUrl);
+    const destination = new URL(start.authorizeUrl);
+    if (silent) destination.pathname = destination.pathname.replace(/\/authorize$/, "/silent");
+    window.location.assign(destination.href);
   }
   async function login() {
     if (busy) return;
     const popup = window.open("about:blank", "wt-account-login", "width=500,height=680");
     if (!popup) {
       setBusy(true);
-      try { await redirectLogin(); } catch (failure) {
+      try {
+        await redirectLogin();
+      } catch (failure) {
         setError(failure instanceof Error ? failure.message : "无法打开登录，请重试。");
         setBusy(false);
       }
