@@ -13,9 +13,14 @@
     {
       "file": "home.png",
       "width": 1600,
-      "height": 1000,
-      "bytes": 1277256,
-      "sha256": "1f63b9e1c17fe1c47c4383a7e40f7b6e384bfe1eb04786478f99210ec26981e9"
+      "height": 1050,
+      "bytes": 263498,
+      "sha256": "8055ec3f05435e9a869a9be63a358e4fdcf75e96e90efcdb42ea6521d524e598",
+      "capturedAt": "2026-10-24T16:11:53.927076+00:00",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394",
+      "appVersion": "90800545",
+      "note": "新版正式站首次访问、尚未选择国家",
+      "identityMasked": false
     },
     {
       "file": "lineup-china-117.png",
@@ -83,23 +88,38 @@
     {
       "file": "modifications.png",
       "width": 1600,
-      "height": 1000,
-      "bytes": 125162,
-      "sha256": "9f4e51db0a31578ec31629252352ba7ab2c9ad22f32d42aae63eeea9c5809c59"
+      "height": 1050,
+      "bytes": 184735,
+      "sha256": "80c5fd349f11a85b902f63d729266f59418b1559a900b75e3182f32f7b303695",
+      "capturedAt": "2026-10-24T16:17:33.006Z",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394?category=ground&mode=rb&country=china#/tree",
+      "appVersion": "90800545",
+      "note": "配件研发示例：真实等级与栏目布局，已完成勾选及 5000 点部分进度，单价 4 元／万研发点",
+      "identityMasked": false
     },
     {
       "file": "tree.png",
       "width": 1600,
-      "height": 1000,
-      "bytes": 348613,
-      "sha256": "467d82a1844622ba217330edbddbae0bef6c0c0c74ed1a9f368179bb7cb18890"
+      "height": 1050,
+      "bytes": 417943,
+      "sha256": "1ff36250c8755368f3ce609d0eb0e55609556f7b737c4c432c5dc41ee0061002",
+      "capturedAt": "2026-10-24T16:17:29.948Z",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394?category=ground&mode=rb&country=china#/tree",
+      "appVersion": "90800545",
+      "note": "新版游戏风格科技树；真实页面、官方图片及研发点图标",
+      "identityMasked": false
     },
     {
       "file": "vehicle-detail.png",
       "width": 1600,
-      "height": 1000,
-      "bytes": 206868,
-      "sha256": "b30ce5edba3233370d7a0deae6b5e3bd2ca23dcf3dc812346237e0d2dfbf7880"
+      "height": 1050,
+      "bytes": 253042,
+      "sha256": "ed9f20190d6f6acbcec0c7a6dae5bb5d5e958536c9eedf8f33fa291d18352eb1",
+      "capturedAt": "2026-10-24T16:17:31.854Z",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394?category=ground&mode=rb&country=china#/tree",
+      "appVersion": "90800545",
+      "note": "新版载具详情：基础资料、价格、收益倍率和必要前置路线",
+      "identityMasked": false
     },
     {
       "file": "vehicle-filters.png",
@@ -447,10 +467,23 @@
       "capturedAt": "2026-10-24T06:48:05.045410+00:00",
       "source": "https://render.qmuse.pub/p/muse/8645013411493394",
       "identityMasked": false
+    },
+    {
+      "file": "vehicle-research.png",
+      "width": 1600,
+      "height": 1050,
+      "bytes": 156827,
+      "sha256": "2f53f42b366835ec1f0082d15244501a83ea24e9f9f45263d3c66c3463ee2987",
+      "capturedAt": "2026-10-24T16:17:32.222Z",
+      "source": "https://render.qmuse.pub/p/muse/8645013411493394?category=ground&mode=rb&country=china#/tree",
+      "appVersion": "90800545",
+      "note": "载具研发示例：ZTZ99A，从 VIII 级计价，单价 3 元／万研发点；页面实际计算",
+      "identityMasked": false
     }
   ],
   "playerStatsCapturedAt": "2026-10-24",
-  "updatedAt": "2026-10-24",
+  "updatedAt": "2026-10-25",
   "salesCapturedAt": "2026-10-23",
-  "latestCaptureSource": "https://render.qmuse.pub/p/muse/8645013411493394"
+  "latestCaptureSource": "https://render.qmuse.pub/p/muse/8645013411493394",
+  "treeCapturedAt": "2026-10-25"
 }
