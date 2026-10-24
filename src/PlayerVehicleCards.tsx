@@ -15,11 +15,13 @@ export function PlayerVehicleCards({
   select,
   generate,
   showNaval,
+  notes,
 }: {
   vehicles: PlayerVehicle[];
   select: (vehicle: PlayerVehicle) => void;
-  generate: (vehicle: PlayerVehicle) => void;
+  generate?: (vehicle: PlayerVehicle) => void;
   showNaval: boolean;
+  notes?: ReadonlyMap<string, string>;
 }) {
   return (
     <div className="wt-vehicle-cards">
@@ -58,7 +60,9 @@ export function PlayerVehicleCards({
           <div className="wt-vehicle-card-rating">
             <span>作战效率</span>
             <strong>{num(vehicle.efficiency)}</strong>
-            <small>{vehicle.smallSample ? "场次不足 50" : "累计表现"}</small>
+            <small>
+              {notes?.get(vehicle.id) || (vehicle.smallSample ? "场次不足 50" : "累计表现")}
+            </small>
           </div>
           <dl className="wt-vehicle-card-values">
             {[
@@ -94,12 +98,14 @@ export function PlayerVehicleCards({
               >
                 查看详情
               </button>
-              <button
-                onClick={() => generate(vehicle)}
-                aria-label={`生成${vehicleDisplayName(vehicle.name)}战绩图片`}
-              >
-                生成图片
-              </button>
+              {generate && (
+                <button
+                  onClick={() => generate(vehicle)}
+                  aria-label={`生成${vehicleDisplayName(vehicle.name)}战绩图片`}
+                >
+                  生成图片
+                </button>
+              )}
             </div>
           </footer>
         </article>

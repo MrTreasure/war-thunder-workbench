@@ -2005,22 +2005,11 @@
   .calculator.wt-decal-dialog { width: calc(100vw - 20px); max-height: calc(100dvh - 24px); }
 }
 
-/* Independent garage page keeps compact cards and reachable controls. */
-@media (max-width: 1200px) {
-  .wt-garage-page .wt-owned-filters { grid-template-columns: repeat(3,minmax(0,1fr)); }
-  .wt-garage-cards { grid-template-columns: repeat(3,minmax(0,1fr)); }
-}
-@media (max-width: 900px) {
-  .wt-garage-cards { grid-template-columns: repeat(2,minmax(0,1fr)); }
-}
+/* Garage reuses the stats cards; only page navigation needs mobile adjustments. */
 @media (max-width: 600px) {
   .wt-garage-page-heading { align-items: flex-start; gap: 8px; }
   .wt-garage-page-heading h1 { font-size: 20px; }
   .wt-garage-back { padding: 6px 8px; font-size: 12px; }
-  .wt-garage-page .wt-owned-filters { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .wt-garage-page .wt-owned-filters input { grid-column: 1/-1; font-size: 16px; }
-  .wt-garage-page .wt-garage-card-footer button { min-height: 44px; }
-  .wt-garage-card { grid-template-columns: 1fr; gap: 6px; padding: 10px; }
-  .wt-garage-card > img { width: 100%; height: 66px; }
-  .wt-garage-card-footer { flex-wrap: wrap; }
+  .wt-garage-detail .wt-vehicle-record-identity { gap: 10px; }
+  .wt-garage-detail .wt-vehicle-record-identity > img { width: 100px; height: 70px; }
 }

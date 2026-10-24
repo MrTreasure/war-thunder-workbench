@@ -7,6 +7,6 @@ export const workbenchPage = (pathname: string) =>
         ? "sales"
         : pathname === "/stats" || pathname.startsWith("/stats/")
           ? "stats"
-          : pathname === "/lineups"
+          : pathname === "/lineups" || pathname.startsWith("/lineups/")
             ? "lineups"
             : "tree";

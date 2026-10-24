@@ -1,4 +1,4 @@
-import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 export const Route = createFileRoute("/_workbench/stats_/garage")({
   codeSplitGroupings: [],
   validateSearch: (search: Record<string, unknown>): { snapshot?: string; uid?: string } => ({
@@ -9,5 +9,7 @@ export const Route = createFileRoute("/_workbench/stats_/garage")({
     uid:
       typeof search.uid === "string" && /^[0-9]{1,20}$/.test(search.uid) ? search.uid : undefined,
   }),
-  component: lazyRouteComponent(() => import("../PlayerGaragePage"), "PlayerGaragePage"),
+  beforeLoad: ({ search }) => {
+    throw redirect({ to: "/lineups/garage", search, replace: true });
+  },
 });

@@ -167,12 +167,6 @@ export function PlayerStats() {
   const [vehicleShare, setVehicleShare] = useState<{
     profile: PlayerProfile; vehicle: PlayerVehicle; job: VehicleShareJob;
   } | null>(null);
-  async function openGarage() {
-    if (!profile || profile.localOnly) return;
-    // Preserve a free cached restore for browser Back as well as the return link.
-    await navigate({ to: "/stats", search: { snapshot: profile.snapshotId, uid: profile.uid, view: route.view }, replace: true });
-    await navigate({ to: "/stats/garage", search: { snapshot: profile.snapshotId, uid: profile.uid } });
-  }
   function changeTab(next: string) {
     setTab(next);
     void navigate({ search: (previous: { player?: string; view?: string }) => ({ ...previous, view: next === "overview" ? undefined : next }), replace: false });
@@ -709,7 +703,7 @@ export function PlayerStats() {
       <header className="wt-record-page-title">
         <div>
           <h1>个人战绩档案</h1>
-          <p>查看生涯表现、排位数据和完整车库，生成你的个人战报。</p>
+          <p>查看生涯表现和官方排位，生成你的个人战报。</p>
         </div>
         <div className="wt-record-account">
           <span>
@@ -890,7 +884,6 @@ export function PlayerStats() {
                 等级 {num(profile.level)} · UID {profile.uid}
               </p>
             </div>
-            <button className="wt-record-link wt-garage-entry" disabled={profile.localOnly} onClick={() => void openGarage()}>完整车库</button>
             <GameAccountBinding key={`${profile.snapshotId}:${session?.user?.id || "guest"}`} profile={profile} />
             <AccountValuation
               key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}

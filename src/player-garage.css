@@ -1,117 +1,17 @@
-.wt-garage-page {
-  max-width: 1560px;
-  padding-top: 20px;
-}
-.wt-garage-page-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 18px;
-}
-.wt-garage-page .wt-garage-eyebrow {
-  color: var(--wt-record-gold);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  margin-bottom: 4px;
-}
-.wt-garage-page-heading h1 {
-  font-size: 24px;
-  overflow-wrap: anywhere;
-}
-.wt-garage-back {
-  flex: none;
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding: 8px 14px;
-  border: 1px solid var(--wt-record-line);
-  background: #1c2426;
-}
-.wt-garage-page .wt-owned-content {
-  padding: 0;
-}
-.wt-garage-page .wt-owned-summary {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 8px 20px;
-  margin: 0 0 14px;
-}
-.wt-garage-page .wt-owned-summary strong {
-  font-size: 26px;
-}
-.wt-garage-page .wt-owned-summary small,
-.wt-garage-page .wt-owned-summary > span {
-  font-size: 12px;
-}
-.wt-garage-page .wt-owned-filters {
-  display: grid;
-  grid-template-columns: minmax(180px, 1.5fr) repeat(5, minmax(120px, 1fr));
-  gap: 8px;
-  margin: 0 0 10px;
-}
-.wt-garage-page .wt-owned-filters > * {
-  min-width: 0;
-  width: 100%;
-}
-.wt-garage-page .wt-owned-filters input {
-  min-height: 44px;
-  margin: 0;
-}
-.wt-garage-page .wt-record-fine {
-  margin: 10px 0;
-  font-size: 12px;
-}
-.wt-garage-cards {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
-}
-.wt-garage-card {
-  min-width: 0;
-  display: grid;
-  grid-template-columns: 88px minmax(0, 1fr);
-  gap: 8px 10px;
-  align-items: center;
-  padding: 12px;
-  border: 1px solid var(--wt-record-line);
-  background: #1d2528;
-}
-.wt-garage-card > img {
-  width: 88px;
-  height: 60px;
-  object-fit: contain;
-}
-.wt-garage-card-info {
-  min-width: 0;
-}
-.wt-garage-card-info a {
-  display: block;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 1.35;
-  overflow-wrap: anywhere;
-}
-.wt-garage-card-info small {
-  display: block;
-  color: var(--wt-record-muted);
-  font-size: 11px;
-  margin-top: 5px;
-}
-.wt-garage-card-footer {
-  grid-column: 1/-1;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 32px;
-  border-top: 1px solid var(--wt-record-line);
-  padding-top: 8px;
-  font-size: 12px;
-}
-.wt-garage-page .wt-garage-card-footer button {
-  margin-left: auto;
-  min-height: 36px;
-  padding: 4px 10px;
-  font-size: 12px;
-}
+.wt-lineup-sections { display: flex; gap: 24px; margin-bottom: 18px; border-bottom: 1px solid var(--wt-strong-line); }
+.wt-lineup-sections a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 0; color: var(--wt-muted); text-decoration: none; border-bottom: 2px solid transparent; }
+.wt-lineup-sections a[aria-current="page"] { color: var(--wt-gold); border-color: var(--wt-gold); }
+.wt-garage-page { max-width: 1560px; padding-top: 20px; }
+.wt-garage-page-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.wt-garage-page .wt-garage-eyebrow { color: var(--wt-record-muted); font-size: 12px; margin-bottom: 4px; }
+.wt-garage-page-heading h1 { font-size: 24px; overflow-wrap: anywhere; }
+.wt-garage-back { display: inline-flex; align-items: center; min-height: 44px; flex: none; padding: 8px 12px; border: 1px solid var(--wt-record-line); }
+.wt-garage-page .wt-owned-content { padding: 0; }
+.wt-garage-page .wt-owned-summary { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 20px; margin-bottom: 16px; }
+.wt-garage-page .wt-owned-summary strong { font-size: 26px; }
+.wt-garage-page .wt-owned-summary small, .wt-garage-page .wt-owned-summary > span { font-size: 12px; }
+.wt-garage-login { padding: 24px; display: grid; gap: 14px; justify-items: start; }
+.wt-garage-detail > header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--wt-record-line); }
+.wt-garage-detail .wt-owned-content { padding: 16px; }
+.wt-garage-detail .wt-vehicle-record-identity { gap: 16px; margin-bottom: 12px; }
+.wt-garage-detail .wt-vehicle-record-identity > img { width: 140px; height: 85px; }

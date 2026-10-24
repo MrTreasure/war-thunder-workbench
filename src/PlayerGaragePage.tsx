@@ -1,3 +1,5 @@
+import { useAccountWorkspace } from "./workspace-context";
+import { LineupNavigation } from "./components/LineupNavigation";
 import { useEffect, useState } from "react";
 import { Link, useSearch } from "@tanstack/react-router";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
@@ -6,10 +8,27 @@ import type { PlayerProfile, PlayerVehicle } from "./player-stats-api";
 import { PlayerGarage, PlayerVehicleDetails } from "./PlayerGarage";
 
 export function PlayerGaragePage() {
-  const { identityVersion } = useWorkbenchAccount();
-  const search = useSearch({ from: "/_workbench/stats_/garage" });
+  const { identityVersion, session, busy, login } = useWorkbenchAccount();
+  const workspace = useAccountWorkspace();
+  const search = useSearch({ from: "/_workbench/lineups_/garage" });
+  if (!session?.user?.id)
+    return (
+      <main className="wt-record-page wt-garage-page">
+        <LineupNavigation garage />
+        <section className="wt-record-panel wt-garage-login">
+          <h1>我的车库</h1>
+          <p>登录后可查看关联游戏账号的完整车库。</p>
+          <button disabled={busy} onClick={() => void login()}>
+            {busy ? "正在读取账号…" : "登录并查看车库"}
+          </button>
+        </section>
+      </main>
+    );
   return (
-    <GaragePageContent key={`${identityVersion}:${search.uid}:${search.snapshot}`} {...search} />
+    <GaragePageContent
+      key={`${identityVersion}:${workspace?.binding?.uid || ""}:${search.uid}:${search.snapshot}`}
+      {...search}
+    />
   );
 }
 function GaragePageContent({ snapshot, uid }: { snapshot?: string; uid?: string }) {
@@ -18,14 +37,15 @@ function GaragePageContent({ snapshot, uid }: { snapshot?: string; uid?: string 
   const [attempt, setAttempt] = useState(0);
   const [selected, setSelected] = useState<PlayerVehicle | null>(null);
   useEffect(() => {
-    if (!snapshot || !uid) return;
     const c = new AbortController();
     void prepareStatsDevice(c.signal)
       .then(() =>
-        statsRequest<PlayerProfile>("players/restore", { snapshotId: snapshot, uid }, c.signal),
+        snapshot && uid
+          ? statsRequest<PlayerProfile>("players/restore", { snapshotId: snapshot, uid }, c.signal)
+          : statsRequest<PlayerProfile>("account/game-binding/profile", undefined, c.signal),
       )
       .then((value) => {
-        if (value.uid !== uid) throw Error("玩家资料身份不一致，请返回战绩页重新查询。");
+        if (uid && value.uid !== uid) throw Error("玩家资料身份不一致，请返回战绩页重新查询。");
         if (!c.signal.aborted) setProfile(value);
       })
       .catch((reason) => {
@@ -36,22 +56,17 @@ function GaragePageContent({ snapshot, uid }: { snapshot?: string; uid?: string 
   }, [snapshot, uid, attempt]);
   return (
     <main className="wt-record-page wt-garage-page">
+      <LineupNavigation garage />
       <header className="wt-garage-page-heading">
         <div>
-          <p className="wt-garage-eyebrow">玩家档案 / 车库</p>
+          <p className="wt-garage-eyebrow">出击队列 / 我的车库</p>
           <h1>{profile ? `${profile.nickname} · 完整车库` : "完整车库"}</h1>
         </div>
-        <Link
-          className="wt-garage-back"
-          to="/stats"
-          search={profile ? { snapshot: profile.snapshotId, uid: profile.uid } : {}}
-        >
-          ← 返回战绩
+        <Link className="wt-garage-back" to="/lineups">
+          ← 返回出击队列
         </Link>
       </header>
-      {!snapshot || !uid ? (
-        <p className="wt-record-empty">请先查询玩家，再从战绩页打开完整车库。</p>
-      ) : error ? (
+      {error ? (
         <div className="wt-rank-error" role="alert">
           <span>{error}</span>
           <button
@@ -62,10 +77,11 @@ function GaragePageContent({ snapshot, uid }: { snapshot?: string; uid?: string 
           >
             重试
           </button>
+          <Link to="/stats">查询并关联游戏账号 ↗</Link>
         </div>
       ) : !profile ? (
         <output className="wt-rank-loading">正在读取完整车库…</output>
-      ) : (
+      ) : selected ? null : (
         <PlayerGarage profile={profile} selectVehicle={setSelected} />
       )}
       {profile && selected && (
@@ -73,6 +89,7 @@ function GaragePageContent({ snapshot, uid }: { snapshot?: string; uid?: string 
           profile={profile}
           vehicle={selected}
           close={() => setSelected(null)}
+          inline
         />
       )}
     </main>

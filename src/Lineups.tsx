@@ -1,3 +1,4 @@
+import { LineupNavigation } from "./components/LineupNavigation";
 import { GameSelect } from "./components/GameSelect";
 import {
   LineupSummary,
@@ -64,6 +65,7 @@ export function Lineups({
     <main className="lineup-page" aria-label="出击队列">
       <div className="lineup-content">
         <h2 className="sr-only">出击队列</h2>
+        <LineupNavigation />
         <section className="lineup-toolbar" aria-label="国家与卡片权重">
           <label className="calc-field lineup-country-field">
             国家

@@ -64,6 +64,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   const page = useRouterState({
     select: (state) => workbenchPage(state.location.pathname),
   });
+  const garagePage = useRouterState({ select: state => state.location.pathname === "/lineups/garage" });
   useEffect(() => {
     updateSearchMetadata(page);
   }, [page]);
@@ -101,7 +102,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
     [bootstrap, loadedCountry, currentKey, country],
   );
   useEffect(() => {
-    if (page === "maps" || page === "stats" || page === "sales" || page === "decals" || !country || !countryEntry)
+    if (garagePage || page === "maps" || page === "stats" || page === "sales" || page === "decals" || !country || !countryEntry)
       return;
     const controller = new AbortController();
     const valid = (value: unknown): value is CountryPayload => {
@@ -142,7 +143,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
           });
       });
     return () => controller.abort();
-  }, [country, currentKey, countryEntry, countryRetry, bootstrap, page]);
+  }, [country, currentKey, countryEntry, countryRetry, bootstrap, page, garagePage]);
   function chooseCountry(value: string) {
     if (value !== country) {
       setCountryError(null);

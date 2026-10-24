@@ -27,7 +27,7 @@ export type PlayerRank = {
 };
 export type OwnedVehicle = {
   id: string; name: string; country: string; category: string | null; rank: string | null;
-  kind: string | null; elite: boolean; observed: boolean; image: string;
+  kind: string | null; elite: boolean; observed: boolean; image: string; thumbnail?: string;
 };
 export type OwnedGarage = {
   uid: string; snapshotId: string; fetchedAt: string; source: string;

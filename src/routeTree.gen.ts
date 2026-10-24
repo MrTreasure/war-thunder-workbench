@@ -17,6 +17,7 @@ import { Route as WorkbenchMapsRouteImport } from './routes/_workbench.maps'
 import { Route as WorkbenchSalesRouteImport } from './routes/_workbench.sales'
 import { Route as WorkbenchStatsRouteImport } from './routes/_workbench.stats'
 import { Route as WorkbenchTreeRouteImport } from './routes/_workbench.tree'
+import { Route as WorkbenchLineupsGarageRouteImport } from './routes/_workbench.lineups_.garage'
 import { Route as WorkbenchMapsMapIdRouteImport } from './routes/_workbench.maps_.$mapId'
 import { Route as WorkbenchStatsGarageRouteImport } from './routes/_workbench.stats_.garage'
 
@@ -59,6 +60,11 @@ const WorkbenchTreeRoute = WorkbenchTreeRouteImport.update({
   path: '/tree',
   getParentRoute: () => WorkbenchRoute,
 } as any)
+const WorkbenchLineupsGarageRoute = WorkbenchLineupsGarageRouteImport.update({
+  id: '/lineups_/garage',
+  path: '/lineups/garage',
+  getParentRoute: () => WorkbenchRoute,
+} as any)
 const WorkbenchMapsMapIdRoute = WorkbenchMapsMapIdRouteImport.update({
   id: '/maps_/$mapId',
   path: '/maps/$mapId',
@@ -78,6 +84,7 @@ export interface FileRoutesByFullPath {
   '/sales': typeof WorkbenchSalesRoute
   '/stats': typeof WorkbenchStatsRoute
   '/tree': typeof WorkbenchTreeRoute
+  '/lineups/garage': typeof WorkbenchLineupsGarageRoute
   '/maps/$mapId': typeof WorkbenchMapsMapIdRoute
   '/stats/garage': typeof WorkbenchStatsGarageRoute
 }
@@ -89,6 +96,7 @@ export interface FileRoutesByTo {
   '/sales': typeof WorkbenchSalesRoute
   '/stats': typeof WorkbenchStatsRoute
   '/tree': typeof WorkbenchTreeRoute
+  '/lineups/garage': typeof WorkbenchLineupsGarageRoute
   '/maps/$mapId': typeof WorkbenchMapsMapIdRoute
   '/stats/garage': typeof WorkbenchStatsGarageRoute
 }
@@ -102,6 +110,7 @@ export interface FileRoutesById {
   '/_workbench/sales': typeof WorkbenchSalesRoute
   '/_workbench/stats': typeof WorkbenchStatsRoute
   '/_workbench/tree': typeof WorkbenchTreeRoute
+  '/_workbench/lineups_/garage': typeof WorkbenchLineupsGarageRoute
   '/_workbench/maps_/$mapId': typeof WorkbenchMapsMapIdRoute
   '/_workbench/stats_/garage': typeof WorkbenchStatsGarageRoute
 }
@@ -115,6 +124,7 @@ export interface FileRouteTypes {
     | '/sales'
     | '/stats'
     | '/tree'
+    | '/lineups/garage'
     | '/maps/$mapId'
     | '/stats/garage'
   fileRoutesByTo: FileRoutesByTo
@@ -126,6 +136,7 @@ export interface FileRouteTypes {
     | '/sales'
     | '/stats'
     | '/tree'
+    | '/lineups/garage'
     | '/maps/$mapId'
     | '/stats/garage'
   id:
@@ -138,6 +149,7 @@ export interface FileRouteTypes {
     | '/_workbench/sales'
     | '/_workbench/stats'
     | '/_workbench/tree'
+    | '/_workbench/lineups_/garage'
     | '/_workbench/maps_/$mapId'
     | '/_workbench/stats_/garage'
   fileRoutesById: FileRoutesById
@@ -205,6 +217,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkbenchTreeRouteImport
       parentRoute: typeof WorkbenchRoute
     }
+    '/_workbench/lineups_/garage': {
+      id: '/_workbench/lineups_/garage'
+      path: '/lineups/garage'
+      fullPath: '/lineups/garage'
+      preLoaderRoute: typeof WorkbenchLineupsGarageRouteImport
+      parentRoute: typeof WorkbenchRoute
+    }
     '/_workbench/maps_/$mapId': {
       id: '/_workbench/maps_/$mapId'
       path: '/maps/$mapId'
@@ -229,6 +248,7 @@ interface WorkbenchRouteChildren {
   WorkbenchSalesRoute: typeof WorkbenchSalesRoute
   WorkbenchStatsRoute: typeof WorkbenchStatsRoute
   WorkbenchTreeRoute: typeof WorkbenchTreeRoute
+  WorkbenchLineupsGarageRoute: typeof WorkbenchLineupsGarageRoute
   WorkbenchMapsMapIdRoute: typeof WorkbenchMapsMapIdRoute
   WorkbenchStatsGarageRoute: typeof WorkbenchStatsGarageRoute
 }
@@ -240,6 +260,7 @@ const WorkbenchRouteChildren: WorkbenchRouteChildren = {
   WorkbenchSalesRoute: WorkbenchSalesRoute,
   WorkbenchStatsRoute: WorkbenchStatsRoute,
   WorkbenchTreeRoute: WorkbenchTreeRoute,
+  WorkbenchLineupsGarageRoute: WorkbenchLineupsGarageRoute,
   WorkbenchMapsMapIdRoute: WorkbenchMapsMapIdRoute,
   WorkbenchStatsGarageRoute: WorkbenchStatsGarageRoute,
 }
