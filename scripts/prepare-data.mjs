@@ -27,6 +27,7 @@ const settings = await json("catalog-settings.json");
 const lineup = await json("lineup-rules.json");
 const lineupCodebook = await json("lineup-codebook.json");
 const storePrices = await json("store-prices.json");
+const vehicleDetails = await json("vehicle-details.json");
 const localized = (value, proof) => {
   value.nameEn = value.name;
   value.nameZhCN = proof?.nameZhCN || null;
@@ -51,6 +52,7 @@ for (const [category, values] of Object.entries(catalog.trees))
       for (const node of [...rank.research, ...rank.special])
         for (const unit of node.members) {
           localized(unit, localization.vehicles[unit.id]);
+          if (vehicleDetails.vehicles[unit.id]) unit.wikiDetails = vehicleDetails.vehicles[unit.id];
           unit.imageUrl = settings.vehicleImageTemplate.replace(
             "{id}",
             encodeURIComponent(unit.id),
@@ -155,6 +157,7 @@ for (const country of Object.keys(catalog.countries)) {
     schemaVersion: 2,
     country,
     checkedAt: catalog.checkedAt,
+    sources: catalog.sources,
     trees: nationTrees,
     modifications: units,
     lineupCodes: lineupCodebook.countries[country],

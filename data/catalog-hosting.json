@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "repository": "MrTreasure/oss-files",
+  "branch": "main",
+  "manifestPath": "war-thunder/catalog/manifest.js",
+  "countryDirectory": "war-thunder/catalog/countries",
+  "resource": "research-catalog"
+}

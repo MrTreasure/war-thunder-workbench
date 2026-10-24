@@ -15,7 +15,7 @@ const pending = new Map<string, Promise<unknown>>();
 const writes = new Map<string, Promise<void>>();
 const prefix = "wt-public-resources-v1:";
 const resourceName =
-  /^(calendar|config|appearance|vehicles-(usa|germany|ussr|britain|japan|china|italy|france|sweden|israel))$/;
+  /^(calendar|config|appearance|research-catalog|vehicles-(usa|germany|ussr|britain|japan|china|italy|france|sweden|israel))$/;
 function validManifest(value: unknown, resource: string): value is Manifest {
   if (!value || typeof value !== "object") return false;
   const m = value as Manifest;

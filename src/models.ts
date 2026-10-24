@@ -1,4 +1,12 @@
 export type Mode = "ab" | "rb" | "sb";
+export interface WikiVehicleDetails {
+  purchase?: { currency: "SL" | "GE"; amount: number; source: string; checkedAt: string; sha256: string };
+  rewards?: {
+    source: string; checkedAt: string; sha256: string;
+    rp: { factor: number; basePercent: Partial<Record<Mode, number>>; percent: Partial<Record<Mode, number>> };
+    sl: { factor: number; basePercent: Partial<Record<Mode, number>>; percent: Partial<Record<Mode, number>> };
+  };
+}
 export interface PackPrice {
   productId: string;
   title: string | null;
@@ -13,6 +21,7 @@ export interface PackPrice {
   sha256: string;
 }
 export interface Vehicle {
+  wikiDetails?: WikiVehicleDetails;
   id: string;
   name: string;
   nameEn?: string;
@@ -169,6 +178,7 @@ export interface CountryPayload {
   schemaVersion: 2;
   country: string;
   checkedAt: string;
+  sources?: Catalog["sources"];
   trees: Record<string, Tree | null>;
   modifications: Modifications;
   lineupCodes: Record<string, string>;
