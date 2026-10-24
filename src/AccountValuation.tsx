@@ -575,7 +575,6 @@ export function AccountValuation({
         )}
       </button>
       {!value && <small>独立额度 · 今日 {session ? remaining : "—"}</small>}
-      {value?.localCached && <small>已读取估值缓存</small>}
       {cacheNotice && <small>{cacheNotice}</small>}
       {error && (
         <small className="wt-record-error" role="alert">

@@ -889,12 +889,6 @@ export function PlayerStats() {
                 key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
                 profile={profile}
               />
-              <AccountValuation
-                key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
-                profile={profile}
-                session={session}
-                onSessionChange={refreshSession}
-              />
               <button
                 className="wt-record-player-refresh"
                 title="重新获取官方资料，计入新查询次数"
@@ -908,6 +902,12 @@ export function PlayerStats() {
               >
                 {busy ? "正在获取…" : "强制刷新"}
               </button>
+              <AccountValuation
+                key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
+                profile={profile}
+                session={session}
+                onSessionChange={refreshSession}
+              />
             </div>
             <div className="wt-record-source">
               <span>

@@ -13,8 +13,41 @@ export function GameAccountBinding({ profile }: { profile: PlayerProfile }) {
     [error, setError] = useState("");
   const request = useRef(`bind_${crypto.randomUUID().replaceAll("-", "")}`);
   const current = workspace?.binding;
-  const refresh = !!current && current.uid === profile.uid;
-  if (!session?.user?.id || !workspace?.ready || (current && !refresh)) return null;
+  const automaticRequest = useRef("");
+  const [refreshError, setRefreshError] = useState("");
+  const refreshBinding = workspace?.reload;
+  useEffect(() => {
+    if (
+      !session?.user?.id ||
+      !workspace?.ready ||
+      !workspace.consented ||
+      current?.uid !== profile.uid ||
+      profile.localOnly
+    )
+      return;
+    const key = `${session.user.id}:${profile.snapshotId}:${profile.fetchedAt}`;
+    if (automaticRequest.current === key) return;
+    automaticRequest.current = key;
+    setRefreshError("");
+    void statsRequest("account/game-binding/refresh", { snapshotId: profile.snapshotId })
+      .then(() => refreshBinding?.())
+      .catch(() => setRefreshError("车库更新暂不可用，已保留上次记录。"));
+  }, [
+    session?.user?.id,
+    workspace?.ready,
+    workspace?.consented,
+    current?.uid,
+    profile.uid,
+    profile.snapshotId,
+    profile.fetchedAt,
+    profile.localOnly,
+    refreshBinding,
+  ]);
+  if (!session?.user?.id || !workspace?.ready) return null;
+  if (current)
+    return current.uid === profile.uid && refreshError ? (
+      <output>{refreshError}</output>
+    ) : null;
   const limit = session.limits.valuationLimit;
   const remaining =
     limit == null
@@ -35,11 +68,11 @@ export function GameAccountBinding({ profile }: { profile: PlayerProfile }) {
           setOpen(true);
         }}
       >
-        {refresh ? "更新关联车库" : "绑定游戏账号"}
+        绑定游戏账号
       </button>
       {open && (
         <Modal
-          title={refresh ? "更新关联车库" : "绑定游戏账号"}
+          title="绑定游戏账号"
           close={() => {
             if (!busy) setOpen(false);
           }}
@@ -103,7 +136,7 @@ export function GameAccountBinding({ profile }: { profile: PlayerProfile }) {
             {error && <p role="alert">{error}</p>}
             <div className="wt-account-actions">
               <button disabled={busy || uid !== profile.uid} type="submit">
-                {busy ? "正在读取车库…" : refresh ? "确认更新车库" : "确认绑定"}
+                {busy ? "正在读取车库…" : "确认绑定"}
               </button>
               <button disabled={busy} type="button" onClick={() => setOpen(false)}>
                 取消
