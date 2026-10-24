@@ -39,6 +39,12 @@ const localized = (value, proof) => {
     value.localizationKey = proof.entry;
   }
 };
+const modificationCountries = new Map();
+for (const categories of Object.values(trees.trees))
+  for (const [country, tree] of Object.entries(categories))
+    for (const rank of tree?.ranks || [])
+      for (const node of [...rank.research, ...rank.special])
+        for (const unit of node.members) modificationCountries.set(unit.id, country);
 for (const [unitId, row] of Object.entries(modifications)) {
   const layout = modificationPresentation.layouts[unitId];
   if (layout)
@@ -51,6 +57,9 @@ for (const [unitId, row] of Object.entries(modifications)) {
     localized(item, localization.modifications[item.id + "\t" + item.name]);
     const image = modificationPresentation.images[item.id];
     if (image && image.universal !== false) item.imageUrl = image.url;
+    const countryImage =
+      modificationPresentation.countryImages?.[item.id]?.[modificationCountries.get(unitId)];
+    if (countryImage) item.imageUrl = countryImage.url;
     const position = layout?.items.find((entry) => entry.id === item.id);
     if (position?.imageUrl) item.imageUrl = position.imageUrl;
     if (position)

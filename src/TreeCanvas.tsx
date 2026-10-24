@@ -313,26 +313,26 @@ export function TreeCanvas({
             <marker
               id="arrow"
               viewBox={cardTheme.researchArrows.viewBox}
-              refX="9"
+              refX="9.5"
               refY="9.5"
               markerWidth="19"
               markerHeight="19"
               markerUnits="userSpaceOnUse"
-              orient="auto"
+              orient="0"
             >
-              <path d={cardTheme.researchArrows.path} transform="rotate(-90 9.5 9.5)" />
+              <path d={cardTheme.researchArrows.path} />
             </marker>
             <marker
               id="arrow-active"
               viewBox={cardTheme.researchArrows.viewBox}
-              refX="9"
+              refX="9.5"
               refY="9.5"
               markerWidth="19"
               markerHeight="19"
               markerUnits="userSpaceOnUse"
-              orient="auto"
+              orient="0"
             >
-              <path d={cardTheme.researchArrows.path} transform="rotate(-90 9.5 9.5)" />
+              <path d={cardTheme.researchArrows.path} />
             </marker>
           </defs>
           {tree.edges.map((edge) => {

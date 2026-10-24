@@ -69,7 +69,12 @@ export function ModificationGrid({
   return (
     <div className="wt-parts-board">
       {!!data.presentation && located.length > 0 && (
-        <div className="wt-part-groups">
+        <div
+          className="wt-part-groups"
+          style={{
+            gridTemplateColumns: `24px ${data.presentation.groups.map((group) => `minmax(0, ${Math.max(1, group.columns)}fr)`).join(" ")}`,
+          }}
+        >
           <aside className="wt-part-ranks" aria-label="配件等级">
             {Array.from(
               { length: Math.max(0, ...located.map((item) => item.position?.row || 0)) },
