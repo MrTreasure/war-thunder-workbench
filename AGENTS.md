@@ -11,9 +11,9 @@
 - 本文件 `AGENTS.md` 是 Codex 的唯一项目指令入口；原 `AGENT.md` 规则已合并到本文件，不再维护第二份指令。`AGENT.md` 不得提交或上传，必须保持 Git 忽略。
 - 正式站：`https://render.qmuse.pub/p/muse/8645013411493394`，只更新既有 QMuse 应用。
 - 国际站：`https://wt.mrtreasure.cc/`，部署独立 Workers Static Assets，Worker 保持 `war-thunder-workbench` 原名。
-- 禁止访问、部署、预览、重定向或新增链接到域名 `render.mrtreasure.cc`，包括任何子路径。上级或历史文档中的旧 Render 发布指令不适用于本项目。
-- `deploy:qmuse` 用于正式站；`deploy:cf` 用于国际站。禁止运行旧 `deploy:preview`、`publish`、`release` 及共享 Render 发布流程；不得将其当作正式站或国际站的发布步骤。
-- 验收使用用户明确授权的 QMuse 或国际站部署；尚未发布的本地构建不能宣称已在线。发布前保留构建、Git 版本及必要回滚材料。
+- 2026-10-24 用户澄清：独立 Render 预览站并未停用，已迁至 Cloudflare Workers。预览地址为 `https://render.mrtreasure.cc/war-thunder-trees/`，可用于用户验收；不得将其当作正式站或国际站。先前对 Render 域名的全面禁用已撤销。
+- `deploy:qmuse` 用于正式站；`deploy:cf` 用于国际站。`deploy:preview` 仅发布独立 Render 预览；遵循 CF Workers 现行资源先于 HTML、哈希资源保留、鉴权及边缘校验流程，不恢复 NAS 对外托管。
+- 用户要求预览时，先发布独立 Render 预览并等待明确验收；确认前禁止更新 QMuse、国际站、线上图床资料索引及后端现行数据。尚未发布的本地构建不能宣称已在线。发布前保留构建、Git 版本及必要回滚材料。
 - 国际站 SEO canonical 与 Web Analytics 继续对应 wt 域名；后台“页面分析”保持直达该站统计。
 - 国际站发布使用 `feat/seo-localized-pages` 的多语言工作区，合并 main 后补充英、俄、日文案，不得以中文 main 构建覆盖国际站。
 - 2026-10-24 QMuse 90800278 曾因「未声明 WASM」被拒；按用户要求补充结构化用途清单、文件 NOTICE、加载入口注释及官方 CLI 清单核对后，仅重试一次，90800422 / 部署 36900195 的最终审核为 PASSED、部署为 DEPLOYED，已验证线上版本；静态子扫描仍保留 WASM 告警，不能声称所有扫描均通过。此为历史发布记录；后续用户已改为后端原生计算，当前前端不得包含 WASM。
@@ -426,3 +426,10 @@
 - 折叠组展开/收起保留关闭动画，隐藏内容 inert；卡片、等级行和等拓扑连线使用一致过渡，支持快速反向操作及减少动态效果。不可通过重载国家数据或整棵树重挂载实现动画。
 - 联队卡片维持绿色边框；禁止使用未定义 CSS 变量导致 border-color 回落到 currentColor 的旧规则。
 - 用户要求彻底撤下远端 WASM。保留旧静态哈希的部署规则不适用于评分 WASM，发布归档与当前静态目录都须剔除；本地私有研究副本仍保留。Git 固定历史链接能否失效必须真实验证，不得将当前分支删除等同于历史对象删除。
+
+## 自动登录与配件展示（2026-10-24）
+
+- 回访用户通过后端 HttpOnly/Secure/SameSite=None/Partitioned 会话 Cookie 恢复短期 Bearer；Cookie 绑定受信 Origin、签名设备票据及原浏览器会话。浏览器本地只保存非敏感登录提示，不落盘 Bearer。退出须撤销对应浏览器和恢复凭据。旧登录 Cookie 仅作一次不显示登录表单的静默跳转迁移，失败返回原页面，避免循环。
+- “适应窗口”只用图标按钮，提供 title/aria-label。科技树箭头复用核验的官方 arrow_simple.svg 几何和原始轴宽，连线持续随折叠组过渡。
+- 配件图标、官方 Wiki 每车栏目/行列位置信息保存在 data/modification-presentation.json，并合入既有按国家懒加载模块。仅使用官方 CDN；未核实格位的载具不补造等级/依赖。图标因国家/载具不同的，优先使用每车来源，不把德国乘员图标套用到其他国家。
+- 配件图形选择必须复用原 RP、完成勾选、单价、购物车和浏览器保存逻辑，不改变数值来源或将未知价格/RP 当零。

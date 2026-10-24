@@ -205,7 +205,7 @@ export async function statsRequest<T>(
   const response = await fetch(settings.apiBaseUrl + "/" + path, {
     method: body === undefined ? "GET" : "POST",
     headers: statsHeaders(),
-    credentials: "omit",
+    credentials: path.startsWith("auth/") ? "include" : "omit",
     signal: signal
       ? AbortSignal.any([signal, AbortSignal.timeout(60000)])
       : AbortSignal.timeout(60000),
@@ -213,7 +213,12 @@ export async function statsRequest<T>(
   });
   const data = await response.json().catch(() => null);
   if (!response.ok) {
-    if (path !== "session" && data?.code === "LOGIN_EXPIRED" && sessionToken === requestToken) {
+    if (
+      path !== "session" &&
+      path !== "auth/resume" &&
+      data?.code === "LOGIN_EXPIRED" &&
+      sessionToken === requestToken
+    ) {
       setStatsToken("");
       window.dispatchEvent(new Event("wt-account-expired"));
     }
@@ -299,6 +304,18 @@ export async function prepareStatsDevice(signal?: AbortSignal) {
     localStorage.setItem(DEVICE, result.ticket);
   }
   if (!stored(DEVICE)) await create();
+  if (!hasStatsToken() && stored("wt-account-known-v1")) {
+    try {
+      const result = await statsRequest<{ token: string }>(
+        "auth/resume",
+        {},
+        signal ? AbortSignal.any([signal, AbortSignal.timeout(8000)]) : AbortSignal.timeout(8000),
+      );
+      setStatsToken(result.token);
+    } catch {
+      if (signal?.aborted) throw new DOMException("Aborted", "AbortError");
+    }
+  }
   try {
     return await statsRequest<StatsSession>("session", undefined, signal);
   } catch (error) {

@@ -312,25 +312,27 @@ export function TreeCanvas({
           <defs>
             <marker
               id="arrow"
-              viewBox="0 0 8 8"
-              refX="7"
-              refY="4"
-              markerWidth="6"
-              markerHeight="6"
-              orient="auto"
+              viewBox={cardTheme.researchArrows.viewBox}
+              refX="9.5"
+              refY="9.5"
+              markerWidth="19"
+              markerHeight="19"
+              markerUnits="userSpaceOnUse"
+              orient="0"
             >
-              <path d="M0 0 L8 4 L0 8Z" />
+              <path d={cardTheme.researchArrows.path} />
             </marker>
             <marker
               id="arrow-active"
-              viewBox="0 0 8 8"
-              refX="7"
-              refY="4"
-              markerWidth="6"
-              markerHeight="6"
-              orient="auto"
+              viewBox={cardTheme.researchArrows.viewBox}
+              refX="9.5"
+              refY="9.5"
+              markerWidth="19"
+              markerHeight="19"
+              markerUnits="userSpaceOnUse"
+              orient="0"
             >
-              <path d="M0 0 L8 4 L0 8Z" />
+              <path d={cardTheme.researchArrows.path} />
             </marker>
           </defs>
           {tree.edges.map((edge) => {
@@ -338,7 +340,15 @@ export function TreeCanvas({
               to = layout.positions.get(edge.to);
             if (!from || !to) return null;
             const folder = !!nodeMap.get(edge.from)?.group && expanded.has(edge.from);
-            const d = treeEdgePath(from, to, cardTheme.geometry.cardWidth, folder);
+            const d = treeEdgePath(
+              {
+                ...from,
+                height: nodeMap.get(edge.from)?.group ? from.height : cardTheme.geometry.cardHeight,
+              },
+              to,
+              cardTheme.geometry.cardWidth,
+              folder,
+            );
             const active = route.has(edge.from) && route.has(edge.to);
             return (
               <path

@@ -85,5 +85,21 @@
     "gameFontIndexSha256": "51230147ba26131df5fc8fa3adaa90b26ff82e832a9f99f39991f0d8a43e3530",
     "cjkPolicy": "Prefer installed Microsoft YaHei (game font index includes msyh); retain platform fallback. Proprietary game CJK font files are not redistributed.",
     "checkedAt": "2026-10-24"
+  },
+  "researchArrows": {
+    "source": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/arrow_simple.svg",
+      "bytes": 88,
+      "sha256": "dc6220e50cc8b019e9c739e8a45377bff254e085083a6e1ac2f7fa9d2630ceea"
+    },
+    "horizontalSource": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/arrow_simple_hor.svg",
+      "bytes": 85,
+      "sha256": "b89391d8b3f708067711095b9da764ab11e2498ecd9d8d2340252aa0040f9c76"
+    },
+    "viewBox": "0 0 19 19",
+    "path": "M14 9V1H5v8H1l8.5 8.5L18 9h-4z",
+    "bodyWidth": 9,
+    "basis": "Original game shopArrow[type=vertical] uses arrow_simple.svg with a nine-pixel shaft in its 19-pixel source box."
   }
 }

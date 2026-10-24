@@ -16,6 +16,7 @@ const [trees, research, purchases, planning, flags, taxonomy] = await Promise.al
     "taxonomy.json",
   ].map(json),
 );
+const modificationPresentation = await json("modification-presentation.json");
 let modifications = {};
 try {
   modifications = await json("modifications.json");
@@ -38,9 +39,33 @@ const localized = (value, proof) => {
     value.localizationKey = proof.entry;
   }
 };
-for (const row of Object.values(modifications))
-  for (const item of row.items)
+const modificationCountries = new Map();
+for (const categories of Object.values(trees.trees))
+  for (const [country, tree] of Object.entries(categories))
+    for (const rank of tree?.ranks || [])
+      for (const node of [...rank.research, ...rank.special])
+        for (const unit of node.members) modificationCountries.set(unit.id, country);
+for (const [unitId, row] of Object.entries(modifications)) {
+  const layout = modificationPresentation.layouts[unitId];
+  if (layout)
+    row.presentation = {
+      groups: layout.groups,
+      source: layout.source,
+      checkedAt: layout.checkedAt,
+    };
+  for (const item of row.items) {
     localized(item, localization.modifications[item.id + "\t" + item.name]);
+    const image = modificationPresentation.images[item.id];
+    if (image && image.universal !== false) item.imageUrl = image.url;
+    const countryImage =
+      modificationPresentation.countryImages?.[item.id]?.[modificationCountries.get(unitId)];
+    if (countryImage) item.imageUrl = countryImage.url;
+    const position = layout?.items.find((entry) => entry.id === item.id);
+    if (position?.imageUrl) item.imageUrl = position.imageUrl;
+    if (position)
+      item.position = { group: position.group, row: position.row, column: position.column };
+  }
+}
 const catalog = { schemaVersion: 1, ...trees, flags, planning, ...taxonomy, lineup };
 for (const [category, values] of Object.entries(catalog.trees))
   for (const [country, tree] of Object.entries(values)) {
@@ -149,7 +174,20 @@ for (const country of Object.keys(catalog.countries)) {
     for (const rank of tree.ranks)
       for (const node of [...rank.research, ...rank.special])
         for (const unit of node.members)
-          if (modifications[unit.id]) units[unit.id] = modifications[unit.id];
+          if (modifications[unit.id]) {
+            const row = modifications[unit.id];
+            units[unit.id] =
+              category === "ground"
+                ? {
+                    ...row,
+                    items: row.items.map((item) =>
+                      item.imageUrl || !item.id.endsWith("_ammo_pack")
+                        ? item
+                        : { ...item, imageUrl: modificationPresentation.fallbacks.groundAmmo.url },
+                    ),
+                  }
+                : row;
+          }
   }
   manifest.countries[country] = await emit(`country-${country}`, {
     schemaVersion: 2,

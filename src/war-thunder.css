@@ -925,3 +925,18 @@ button:disabled,
     border-color: var(--wt-wire);
   }
 }
+
+/* The tree reuses the verified, cached appearance artwork applied by boot-appearance. */
+.tree-viewport {
+  background-color: #191f26;
+  background-image: linear-gradient(#111a22c9, #111a22e0), var(--wt-loading-background-image);
+  background-position: center, var(--wt-loading-background-position, center);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.tree-viewport .column-panel {
+  background-color: #19232b66;
+}
+.tree-viewport .column-panel.is-special {
+  background-color: #67542d21;
+}
