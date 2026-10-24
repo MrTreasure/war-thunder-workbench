@@ -12,14 +12,14 @@ import { Component, createContext, useContext, useEffect, useMemo, useRef, useSt
 import { useRouterState } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import type { CartItem, Catalog, CatalogIndex, DataManifest, CountryPayload, Mode } from "./models";
-import { TreeCanvas, treeLayout, modes, rating, rpText } from "./TreeCanvas";
+import { TreeCanvas, treeLayout, modes } from "./TreeCanvas";
 import { indexTree } from "./planner";
 import { VehicleCalculator } from "./VehicleCalculator";
 import { ModificationCalculator } from "./Modifications";
 import { Cart } from "./Cart";
 import { Lineups } from "./Lineups";
 import { VehicleImage } from "./VehicleImage";
-import { VehicleWikiFacts } from "./VehicleWikiFacts";
+import { VehicleDetails } from "./VehicleDetails";
 import { Modal } from "./Modal";
 import { WarThunderLoading } from "./Loading";
 import { dataCache, cacheLabel } from "./data-cache";
@@ -30,7 +30,7 @@ import { object } from "./validation";
 import { workbenchPage } from "./features";
 import manifestData from "./generated/manifest.json";
 const manifest: DataManifest = { ...manifestData, schemaVersion: 3 };
-import { useStored } from "./storage";
+import { readJson, useStored } from "./storage";
 import { validCart } from "./quotes";
 import bootstrapData from "./generated/bootstrap.json";
 export class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
@@ -83,7 +83,13 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   const [remoteManifest, setRemoteManifest] = useState<DataManifest | null>(null);
   const countryEntry = remoteManifest?.countries[country] || manifest.countries[country] || null;
   useEffect(() => {
-    if (garagePage || !country || ["maps", "stats", "sales", "decals"].includes(page)) return;
+    if (
+      import.meta.env.VITE_WT_CATALOG_SOURCE === "bundled" ||
+      garagePage ||
+      !country ||
+      ["maps", "stats", "sales", "decals"].includes(page)
+    )
+      return;
     const controller = new AbortController();
     const refresh = () => {
       if (document.hidden) return;
@@ -214,8 +220,28 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   const [mobileToolsOpen, setMobileToolsOpen] = useState(false);
   const mobileToolsToggle = useRef<HTMLButtonElement>(null);
   const [filter, setFilter] = useState("all");
-  const [zoom, setZoom] = useState(1);
-  const [autoZoom, setAutoZoom] = useState(true);
+  const [zoomPreference] = useState(() =>
+    readJson<{ zoom: number; autoZoom: boolean } | null>(
+      "wt-planner-v1:tree-zoom",
+      null,
+      (value): value is { zoom: number; autoZoom: boolean } =>
+        object(value) &&
+        typeof value.zoom === "number" &&
+        Number.isFinite(value.zoom) &&
+        value.zoom >= 0.5 &&
+        value.zoom <= 1.4 &&
+        typeof value.autoZoom === "boolean",
+    ),
+  );
+  const [zoom, setZoom] = useState(zoomPreference?.zoom ?? 1);
+  const [autoZoom, setAutoZoom] = useState(zoomPreference?.autoZoom ?? true);
+  useEffect(() => {
+    try {
+      localStorage.setItem("wt-planner-v1:tree-zoom", JSON.stringify({ zoom, autoZoom }));
+    } catch {
+      /* Keep the selected scale usable when browser storage is unavailable. */
+    }
+  }, [zoom, autoZoom]);
   const [locate, setLocate] = useState(0);
   const [modal, setModal] = useState<"parts" | "vehicle" | "cart" | "image" | null>(null);
   useEffect(() => {
@@ -744,7 +770,11 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
           </span>
         </div>
       </div>
-      <main className="viewport tree-viewport" ref={viewport} aria-label={t("可上下左右滚动的研发树")}>
+      <main
+        className="viewport tree-viewport"
+        ref={viewport}
+        aria-label={t("可上下左右滚动的研发树")}
+      >
         {localize(
           !country ? (
             <section className="nation-landing">
@@ -872,75 +902,20 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
               </a>
             }
           >
-            <article className="detail" aria-label={t("载具详情")}>
-              <button
-                className="detail-image"
-                onClick={() => setModal("image")}
-                aria-label={t("放大查看 {0} 官方图片", [vehicleName(unit)])}
-              >
-                <VehicleImage key={unit.id} unit={unit} />
-                <span className="detail-image-hint">{t("点击放大 ⛶")}</span>
-              </button>
-              <div className="detail-actions">
-                <button
-                  className="quiet-button calc-open"
-                  disabled={unit.side !== "research"}
-                  title={unit.side !== "research" ? t("独立获取载具不接入常规研发路线") : undefined}
-                  onClick={() => setModal("vehicle")}
-                >
-                  {t("研发载具")}
-                </button>
-                <button className="quiet-button calc-open" onClick={openParts}>
-                  {t("研发配件")}
-                </button>
-              </div>
-              <div className="detail-facts">
-                <span>
-                  {localize(modes[mode])} {localize(mode.toUpperCase())}{" "}
-                  {localize(rating(unit, mode))}
-                </span>
-              </div>
-              <VehicleWikiFacts unit={unit} catalog={P} country={country} category={category} />
-              {unit.side === "research" ? (
-                <>
-                  <h3>{t("必要前置路线")}</h3>
-                  <ol className="research-path">
-                    {path.map((id) => {
-                      const previous = indexed.units.get(id);
-                      return previous ? (
-                        <li key={id}>
-                          {vehicleName(previous)}
-                          <small>
-                            {localize(rpText(previous))} · Rank {localize(previous.rank)}
-                          </small>
-                        </li>
-                      ) : null;
-                    })}
-                  </ol>
-                  <p>
-                    {t("沿真实前置关系展开，不代表已满足等级购车数量。速算面板会补齐等级门槛。")}
-                  </p>
-                </>
-              ) : (
-                <p>{t("独立获取载具，不接入常规研发路线。礼包与市场链接是否在售以商城为准。")}</p>
-              )}
-              <div className="detail-links">
-                {localize(
-                  unit.store && (
-                    <a href={unit.store} target="_blank" rel="noreferrer">
-                      {t("官方礼包 ↗")}
-                    </a>
-                  ),
-                )}
-                {localize(
-                  unit.market && (
-                    <a href={unit.market} target="_blank" rel="noreferrer">
-                      {t("市场 ↗")}
-                    </a>
-                  ),
-                )}
-              </div>
-            </article>
+            <VehicleDetails
+              unit={unit}
+              catalog={P}
+              country={country}
+              category={category}
+              mode={mode}
+              path={path
+                .map((id) => indexed.units.get(id))
+                .filter((value): value is NonNullable<typeof value> => !!value)}
+              onImage={() => setModal("image")}
+              onVehicle={() => setModal("vehicle")}
+              onParts={openParts}
+              onSelect={setSelected}
+            />
           </Modal>
         )}
       </main>

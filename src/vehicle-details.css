@@ -1,0 +1,238 @@
+/* finesse · component: vehicle-details · register=product · existing --wt tokens
+ * Compact game dossier; responsive route cards, no fixed content-height tracks. */
+.vehicle-detail-dialog {
+  width: min(960px, calc(100vw - 40px));
+  max-height: calc(100dvh - 40px);
+}
+.vehicle-detail-dialog > .calc-header {
+  padding: 14px 20px;
+}
+.vehicle-detail-dialog > .calc-header h2 {
+  font: 400 20px/1.35 var(--wt-sans);
+}
+.vehicle-detail-dialog .detail.wt-vehicle-sheet {
+  display: block;
+  padding: 18px 20px;
+  line-height: 1.5;
+  height: auto;
+  min-height: 0;
+}
+.wt-detail-hero {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.8fr) minmax(0, 1.4fr);
+  gap: 24px;
+  align-items: center;
+  padding-bottom: 18px;
+}
+.wt-detail-image {
+  display: grid;
+  position: relative;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--wt-muted);
+  cursor: zoom-in;
+  min-width: 0;
+}
+.wt-detail-image > span:last-child {
+  font-size: 11px;
+}
+.wt-vehicle-sheet .wt-detail-image .vehicle-image-frame {
+  width: 100%;
+  min-height: 0;
+  height: 150px;
+  background: transparent;
+  border: 0;
+}
+.wt-vehicle-sheet .wt-detail-image .vehicle-image-frame img {
+  width: 100%;
+  height: 150px;
+  max-height: 150px;
+  object-fit: contain;
+}
+.wt-detail-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 16px;
+  margin: 0;
+}
+.wt-detail-meta div {
+  min-width: 0;
+}
+.wt-detail-meta dt {
+  color: var(--wt-muted);
+  font-size: 11px;
+}
+.wt-detail-meta dd {
+  margin: 3px 0 0;
+  color: var(--wt-ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.wt-detail-ratings {
+  display: flex;
+  gap: 18px;
+  padding: 12px 0;
+}
+.wt-detail-ratings > span {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--wt-body);
+}
+.wt-detail-ratings small {
+  font-size: 11px;
+  white-space: nowrap;
+}
+.wt-detail-ratings strong {
+  font:
+    400 21px/1 WTCard,
+    var(--wt-sans);
+}
+.wt-detail-ratings .is-current {
+  color: var(--wt-accent);
+}
+.wt-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.wt-detail-actions > button,
+.wt-detail-actions > a {
+  min-height: 34px;
+  padding: 7px 12px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.wt-detail-actions > a {
+  display: inline-flex;
+  align-items: center;
+  color: var(--wt-body);
+}
+.wt-vehicle-sheet .wt-vehicle-wiki {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  border-block: 1px solid var(--wt-line);
+  padding: 16px 0;
+}
+.wt-vehicle-sheet .wt-vehicle-wiki h3,
+.wt-vehicle-sheet .wt-detail-section-heading h3 {
+  font: 400 14px/1.4 var(--wt-sans);
+  border: 0;
+  margin: 0 0 10px;
+  padding: 0;
+}
+.wt-vehicle-sheet .wt-vehicle-price-line {
+  padding: 7px 0;
+  font-size: 12px;
+}
+.wt-vehicle-sheet .wt-vehicle-facts-source {
+  font-size: 10px;
+}
+.wt-vehicle-sheet .wt-vehicle-reward-table {
+  font-size: 12px;
+}
+.wt-vehicle-sheet .wt-vehicle-reward-table th,
+.wt-vehicle-sheet .wt-vehicle-reward-table td {
+  padding: 7px 8px;
+}
+.wt-vehicle-sheet .wt-vehicle-facts-note {
+  font-size: 11px;
+  line-height: 1.6;
+}
+.wt-detail-route {
+  padding-top: 16px;
+}
+.wt-detail-section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.wt-detail-section-heading > span {
+  color: var(--wt-muted);
+  font-size: 11px;
+}
+.wt-detail-route-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.wt-detail-route-list > li {
+  min-width: 0;
+}
+.wt-detail-route-list button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  min-height: 62px;
+  padding: 6px 8px;
+  border: 1px solid var(--wt-line);
+  background: var(--wt-surface);
+  color: var(--wt-body);
+  text-align: left;
+  cursor: pointer;
+}
+.wt-detail-route-list .is-target button {
+  border-color: var(--wt-accent);
+}
+.wt-vehicle-sheet .wt-detail-route-list .vehicle-image-frame {
+  width: 68px;
+  min-width: 68px;
+  height: 42px;
+  min-height: 0;
+  background: transparent;
+  border: 0;
+}
+.wt-vehicle-sheet .wt-detail-route-list .vehicle-image-frame img {
+  width: 68px;
+  height: 42px;
+  max-height: 42px;
+  object-fit: contain;
+}
+.wt-detail-route-list .vehicle-image-status {
+  display: none;
+}
+.wt-detail-route-list button > span:last-child {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.wt-detail-route-list strong {
+  font: 400 12px/1.35 var(--wt-sans);
+  overflow-wrap: anywhere;
+}
+.wt-detail-route-list small {
+  color: var(--wt-muted);
+  font-size: 10px;
+}
+.wt-vehicle-sheet .wt-detail-route-note {
+  color: var(--wt-muted);
+  font-size: 11px;
+  margin: 8px 0 0;
+}
+.wt-detail-image:focus-visible,
+.wt-detail-route-list button:focus-visible,
+.wt-detail-actions > a:focus-visible {
+  outline: 2px solid var(--wt-accent);
+  outline-offset: 3px;
+}
+.wt-detail-route-list button:active {
+  background: var(--wt-raised);
+}
+.wt-detail-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+@media (hover: hover) {
+  .wt-detail-route-list button:hover {
+    border-color: var(--wt-accent);
+  }
+}

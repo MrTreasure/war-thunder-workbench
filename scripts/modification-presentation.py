@@ -1,8 +1,10 @@
 """Extract presentation only from saved anonymous official Wiki pages; never alter RP costs."""
 from pathlib import Path
 from html.parser import HTMLParser
-import json,re,hashlib,sys
+import json,re,hashlib,sys,gzip
+from datetime import datetime, timezone
 ROOT=Path(__file__).resolve().parents[1]
+CANONICAL_IDS={key.casefold():key for key in json.loads((ROOT/'data/modifications.json').read_text())}
 class Presentation(HTMLParser):
  def __init__(self):super().__init__(convert_charrefs=True);self.on=False;self.head=False;self.group=-1;self.row=0;self.col=-1;self.mod=None;self.groups=[];self.items=[]
  def handle_starttag(self,t,attrs):
@@ -24,27 +26,28 @@ class Presentation(HTMLParser):
   if t=='table':self.on=False
 
 def extract(page):
- s=page.read_text();p=Presentation();p.feed(s)
+ s=gzip.decompress(page.read_bytes()).decode("utf-8") if page.name.endswith(".gz") else page.read_text();p=Presentation();p.feed(s)
  match=re.search(r'<link[^>]*rel="canonical"[^>]*href="https://wiki\.warthunder\.com/unit/([^"/?]+)',s) or re.search(r'https://wiki\.warthunder\.com/unit/([^"/?<> ]+)',s)
  uid=match[1] if match else page.stem
- canonical=json.loads((ROOT/'data/modifications.json').read_text())
- if uid not in canonical:uid=next((key for key in canonical if key.casefold()==uid.casefold()),page.stem)
+ uid=CANONICAL_IDS.get(uid.casefold(),uid)
  if not p.items:return None
- return uid,{'groups':p.groups,'items':p.items,'source':'https://wiki.warthunder.com/unit/'+uid,'checkedAt':'2026-10-24','htmlSha256':hashlib.sha256(s.encode()).hexdigest()}
+ return uid,{'groups':p.groups,'items':p.items,'source':'https://wiki.warthunder.com/unit/'+uid,'checkedAt':datetime.now(timezone.utc).isoformat(),'htmlSha256':hashlib.sha256(s.encode()).hexdigest()}
 
 def main():
  previous=ROOT/'data/modification-presentation.json';data=json.loads(previous.read_text()) if previous.exists() else {'schemaVersion':1,'images':{},'layouts':{}}
  for folder in sys.argv[1:]:
-  path=Path(folder);files=[path] if path.is_file() else sorted(path.glob('*.html'))
+  path=Path(folder);files=[path] if path.is_file() else sorted(list(path.glob('*.html'))+list(path.glob('*.html.gz')))
   for page in files:
    result=extract(page)
    if not result:continue
    uid,layout=result;data['layouts'][uid]=layout
-   for item in layout['items']:
-    if item.get('imageUrl'):
-     existing=data['images'].get(item['id'])
-     shared=not existing or (existing.get('universal',True) and existing['url']==item['imageUrl'])
-     data['images'][item['id']]={'url':item['imageUrl'],'source':layout['source'],'checkedAt':layout['checkedAt'],'universal':shared}
+ data['images']={}
+ for uid,layout in data['layouts'].items():
+  for item in layout['items']:
+   if item.get('imageUrl'):
+    existing=data['images'].get(item['id'])
+    shared=not existing or (existing.get('universal',True) and existing['url']==item['imageUrl'])
+    data['images'][item['id']]={'url':item['imageUrl'],'source':layout['source'],'checkedAt':layout['checkedAt'],'universal':shared}
  trees=json.loads((ROOT/'data/trees.json').read_text())
  countries={u['id']:country for categories in trees['trees'].values() for country,tree in categories.items() if tree for rank in tree['ranks'] for node in rank['research']+rank['special'] for u in node['members']}
  data['countryImages']={}

@@ -1,10 +1,27 @@
 export type Mode = "ab" | "rb" | "sb";
 export interface WikiVehicleDetails {
-  purchase?: { currency: "SL" | "GE"; amount: number; source: string; checkedAt: string; sha256: string };
+  rewardStatus?: { state: "not_listed"; source: string; checkedAt: string; sha256: string };
+  purchase?: {
+    currency: "SL" | "GE";
+    amount: number;
+    source: string;
+    checkedAt: string;
+    sha256: string;
+  };
   rewards?: {
-    source: string; checkedAt: string; sha256: string;
-    rp: { factor: number; basePercent: Partial<Record<Mode, number>>; percent: Partial<Record<Mode, number>> };
-    sl: { factor: number; basePercent: Partial<Record<Mode, number>>; percent: Partial<Record<Mode, number>> };
+    source: string;
+    checkedAt: string;
+    sha256: string;
+    rp: {
+      factor: number;
+      basePercent: Partial<Record<Mode, number>>;
+      percent: Partial<Record<Mode, number>>;
+    };
+    sl: {
+      factor: number;
+      basePercent: Partial<Record<Mode, number>>;
+      percent: Partial<Record<Mode, number>>;
+    };
   };
 }
 export interface PackPrice {
@@ -106,6 +123,7 @@ export interface Catalog {
 }
 export interface Modification {
   imageUrl?: string;
+  tier?: number;
   position?: { group: number; row: number; column: number };
   id: string;
   name: string;

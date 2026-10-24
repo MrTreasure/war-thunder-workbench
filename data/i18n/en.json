@@ -2169,5 +2169,20 @@
   "火力": "Firepower",
   "飞行性能": "Flight performance",
   "生存性": "Survivability",
-  "武器": "Weaponry"
+  "武器": "Weaponry",
+  "待估算": "Pending estimate",
+  "{0} 研发点": "{0} RP",
+  "配件等级 {0}": "Modification tier {0}",
+  "等级待核对": "Tier unverified",
+  "估算明细": "Estimate breakdown",
+  "查看大图 ⛶": "Enlarge image ⛶",
+  "阶级 / 类型": "Rank / type",
+  "各模式战斗评级": "Battle ratings by mode",
+  "{0} 辆前置": "{0} prerequisites",
+  "按真实前置关系排列；研发仍需满足对应阶级的购车数量。": "Ordered by actual prerequisites; research still requires the purchased-vehicle count for the relevant rank.",
+  "独立获取载具，不接入常规研发路线。是否在售以官方页面为准。": "Obtained separately, outside the regular research tree. Check the official page for availability.",
+  "官方页面暂未列出该载具的收益倍率。": "The official page does not currently list reward multipliers for this vehicle.",
+  "尚未采集到该载具的收益倍率。": "Reward multipliers for this vehicle have not been collected yet.",
+  "预览资料索引暂时不可用。": "The preview data index is temporarily unavailable.",
+  "预览资料索引过大。": "The preview data index exceeds the size limit."
 }
