@@ -15,7 +15,7 @@ const dist = new URL("dist/", app),
 const html = await readFile(new URL("index.html", dist), "utf8");
 const manifest = JSON.parse(await readFile(new URL("manifest.json", dist), "utf8"));
 assert.equal(manifest.name, "战雷工作台");
-assert.deepEqual([...manifest.platforms].sort(), ["android", "ios"]);
+assert.deepEqual([...manifest.platforms].sort(), ["android", "ios", "windows"]);
 assert(
   !files.some((f) => /\.(wasm|wat|map)$/.test(f)),
   "No browser efficiency runtime, WAT or source maps",

@@ -12,7 +12,7 @@ pnpm --dir apps/war-thunder-heybox run typecheck
 pnpm --dir apps/war-thunder-heybox run build
 ```
 
-远端项目已经绑定，不重复创建。SDK 固定为 0.9.3，目标为 Android / iOS，游戏绑定为 PC《战争雷霆》。网络仅申请自有域名 `api.mrtreasure.cc`；权限审批不阻塞本地开发；远端版本的网络调用需要平台批准。
+远端项目已经绑定，不重复创建。SDK 固定为 0.9.3，预览声明为 Android / iOS / Windows，游戏绑定为 PC《战争雷霆》（PC 游戏关联要求至少声明一个桌面平台）。界面使用同一移动宽度布局，真实设备验收仍待完成。网络仅申请自有域名 `api.mrtreasure.cc`；权限审批不阻塞本地开发；远端版本的网络调用需要平台批准。
 
 ## 账号接入
 
