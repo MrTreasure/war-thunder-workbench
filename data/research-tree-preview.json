@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "title": "科技树 · 游戏样式预览",
+  "country": "ussr",
+  "category": "ground",
+  "mode": "rb",
+  "layout": {
+    "width": 2048,
+    "cardWidth": 228,
+    "cardHeight": 76,
+    "mainX": 58,
+    "specialX": 1470,
+    "columnStep": 282,
+    "rowStep": 142,
+    "rankHeader": 34,
+    "rankBottom": 30
+  },
+  "views": [
+    {
+      "id": "early",
+      "label": "低阶科技树",
+      "ranks": [
+        "I",
+        "II"
+      ]
+    },
+    {
+      "id": "modern",
+      "label": "现代载具",
+      "ranks": [
+        "VII",
+        "VIII"
+      ]
+    }
+  ],
+  "referenceLayout": {
+    "I": {
+      "research": [
+        [
+          "ussr_bt_5",
+          "ussr_t_26_1940",
+          "ussr_t_26_4",
+          "ussr_su_5_1",
+          "ussr_gaz_4m"
+        ],
+        [
+          "ussr_bt_7_1937",
+          "ussr_t_28_1938",
+          "ussr_t_60_1941",
+          "ussr_su_76m_1943",
+          "ussr_gaz_dshk"
+        ],
+        [
+          "ussr_bt_7_m",
+          "ussr_t_28",
+          "ussr_t_70_1942"
+        ]
+      ],
+      "special": [
+        [
+          "ussr_t_26_1940_1st_gvtbr",
+          "ussr_t_26e"
+        ],
+        [
+          "ussr_t_35",
+          "ussr_rbt_5"
+        ],
+        [
+          "ussr_su_57",
+          "ussr_ba_11"
+        ],
+        [
+          "ussr_pzkpfw_iii_ausf_j_l42",
+          "ussr_bm_8_24"
+        ]
+      ]
+    },
+    "II": {
+      "maximumSpecialRow": 1
+    }
+  },
+  "ownedExamples": [
+    "ussr_bt_5",
+    "ussr_t_26_1940",
+    "ussr_bt_7_1937",
+    "ussr_t_28_1938",
+    "ussr_bt_7_m",
+    "ussr_t_28",
+    "ussr_t_35",
+    "ussr_t_50",
+    "ussr_t_72b",
+    "ussr_t_64_b_1984",
+    "ussr_2s38",
+    "ussr_t_80ud",
+    "ussr_t_80u"
+  ],
+  "marketIconExamples": [
+    "ussr_object_292",
+    "ussr_t_72m2_moderna",
+    "ussr_t_72b3_arena",
+    "ussr_t_80um2"
+  ],
+  "icons": {
+    "rp": "https://static.encyclopedia.warthunder.com/gui_skin/item_type_rp.svg",
+    "ge": "https://static.encyclopedia.warthunder.com/gui_skin/item_type_eagles.svg",
+    "gjn": "https://static.encyclopedia.warthunder.com/gui_skin/gc.svg",
+    "talisman": "https://static.encyclopedia.warthunder.com/gui_skin/item_type_talisman.svg",
+    "owned": "https://static.encyclopedia.warthunder.com/gui_skin/item_icon_elite_slot.png"
+  },
+  "provenance": {
+    "layout": "User-provided game screenshots, 2026-10-24; existing canonical vehicle data supplies RP, GE, BR and verified whole-pack CNY prices.",
+    "owned": "Illustrative preview states only; never read or write an account garage.",
+    "marketIcons": "The supplied modern-vehicle screenshot establishes these channel icons; no GJN market amount is inferred.",
+    "gameColors": "Archived original unitcard.css; locked red is replaced by the normal blue-grey state as requested."
+  },
+  "iconProvenance": {
+    "rp": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/item_type_rp.svg",
+      "bytes": 10527,
+      "sha256": "3101056aa8b0a85d64dd8fe22f294fe0fda9193fa4946a095957348ec60eac52",
+      "checkedAt": "2026-10-24T12:55:43.693647+00:00"
+    },
+    "ge": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/item_type_eagles.svg",
+      "bytes": 15252,
+      "sha256": "033ce22131d8f9e5a64115e2581abbbc44879b52cac61a7eab46d448a5c43b7f",
+      "checkedAt": "2026-10-24T12:55:43.693749+00:00"
+    },
+    "gjn": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/gc.svg",
+      "bytes": 743,
+      "sha256": "36db530156a67e8d216b9bf4b9f8d91ab18c38d50bf69857dd235263574d2bbf",
+      "checkedAt": "2026-10-24T12:55:43.693785+00:00"
+    },
+    "talisman": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/item_type_talisman.svg",
+      "bytes": 77602,
+      "sha256": "6e634f1cf5fdcc888ed612fe447b25dac74e2074fc0c50efaffcabda77fa5f28",
+      "checkedAt": "2026-10-24T12:55:43.694026+00:00"
+    },
+    "owned": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/item_icon_elite_slot.png",
+      "bytes": 5601,
+      "sha256": "88cb7e3a04c122e775861b55016c0ee41b0de53b4a2cdbb93ebe565c23e1770f",
+      "checkedAt": "2026-10-24T12:55:43.694071+00:00"
+    }
+  }
+}
