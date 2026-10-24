@@ -2,6 +2,9 @@ import { vehicleSearchText } from "./i18n/core";
 import { localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { getLocale, t, vehicleName } from "./i18n/core";
+import { TreeFolder } from "./TreeFolder";
+import { Chevron } from "./components/Chevron";
+import { treeEdgePath } from "./tree-edge-path";
 import cardTheme from "../data/vehicle-card-theme.json";
 import { useAccountWorkspace } from "./workspace-context";
 
@@ -25,7 +28,8 @@ export const rpText = (unit: Vehicle) =>
       : `${compactResearchPoints(unit.rp, getLocale())} RP`;
 const at = (left: number, top: number, width?: number, height?: number): CSSProperties => ({
   left,
-  top,
+  top: 0,
+  transform: `translateY(${top}px)`,
   width,
   height,
   position: "absolute",
@@ -354,22 +358,14 @@ export function TreeCanvas({
             const from = layout.positions.get(edge.from),
               to = layout.positions.get(edge.to);
             if (!from || !to) return null;
-            const x1 = from.x + cardTheme.geometry.cardWidth / 2,
-              y1 = from.y + from.height + 2,
-              x2 = to.x + cardTheme.geometry.cardWidth / 2,
-              y2 = to.y - 5,
-              rail = x1 < x2 ? to.x - 10 : to.x + cardTheme.geometry.cardWidth + 10;
-            const folder = nodeMap.get(edge.from)?.group && expanded.has(edge.from);
-            const d = folder
-              ? `M${from.x + cardTheme.geometry.cardWidth + 2},${from.y + 38} H${from.x + cardTheme.geometry.cardWidth + 10} V${y2 - 9} H${x2} V${y2}`
-              : x1 === x2
-                ? `M${x1},${y1} V${y2}`
-                : `M${x1},${y1} V${from.rowBottom + 12} H${rail} V${y2 - 9} H${x2} V${y2}`;
+            const folder = !!nodeMap.get(edge.from)?.group && expanded.has(edge.from);
+            const d = treeEdgePath(from, to, cardTheme.geometry.cardWidth, folder);
             const active = route.has(edge.from) && route.has(edge.to);
             return (
               <path
                 key={`${edge.from}:${edge.to}`}
                 d={d}
+                style={{ d: `path("${d}")` } as CSSProperties}
                 className={`edge ${active ? "is-route" : ""}`}
                 markerEnd={active ? "url(#arrow-active)" : "url(#arrow)"}
               />
@@ -402,45 +398,36 @@ export function TreeCanvas({
                 selected={node.members[0].id === selected}
                 onSelect={() => onSelect(node.members[0].id)}
               />
-              {localize(
-                node.group && (
-                  <>
-                    <button
-                      className="folder-toggle"
-                      aria-expanded={expanded.has(node.id)}
-                      onClick={() => toggle(node.id)}
-                    >
-                      <span>
-                        {localize(node.variant ? t("联动系统") : t("折叠组"))} ·{" "}
-                        {localize(node.members.length)} {t("辆")}
-                      </span>
-                      <span>{localize(expanded.has(node.id) ? "−" : "＋")}</span>
-                    </button>
-                    {localize(
-                      expanded.has(node.id) && (
-                        <div className="folder-members">
-                          {localize(
-                            node.members.slice(1).map((unit) => (
-                              <div className="folder-member" key={unit.id}>
-                                {localize(
-                                  unit.req &&
-                                    node.members.some((previous) => previous.id === unit.req) && (
-                                      <span className="folder-link" />
-                                    ),
-                                )}
-                                <VehicleCard
-                                  {...{ unit, catalog, mode }}
-                                  selected={unit.id === selected}
-                                  onSelect={() => onSelect(unit.id)}
-                                />
-                              </div>
-                            )),
-                          )}
+              {node.group && (
+                <>
+                  <button
+                    className="folder-toggle"
+                    aria-expanded={expanded.has(node.id)}
+                    onClick={() => toggle(node.id)}
+                  >
+                    <span>
+                      {node.variant ? t("联动系统") : t("折叠组")} · {node.members.length} {t("辆")}
+                    </span>
+                    <Chevron />
+                  </button>
+                  <TreeFolder open={expanded.has(node.id)}>
+                    <div className="folder-members">
+                      {node.members.slice(1).map((unit) => (
+                        <div className="folder-member" key={unit.id}>
+                          {unit.req &&
+                            node.members.some((previous) => previous.id === unit.req) && (
+                              <span className="folder-link" />
+                            )}
+                          <VehicleCard
+                            {...{ unit, catalog, mode }}
+                            selected={unit.id === selected}
+                            onSelect={() => onSelect(unit.id)}
+                          />
                         </div>
-                      ),
-                    )}
-                  </>
-                ),
+                      ))}
+                    </div>
+                  </TreeFolder>
+                </>
               )}
             </article>
           );

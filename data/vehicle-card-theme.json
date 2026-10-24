@@ -76,5 +76,14 @@
     "cardHeight": 76,
     "cellWidth": 282,
     "rowGap": 56
+  },
+  "typography": {
+    "latinFamily": "Fira Sans Condensed",
+    "weight": 400,
+    "trackingEm": 0,
+    "gameFontIndexSource": "https://github.com/gszabi99/War-Thunder-Datamine/blob/ea96f3af75afe1d858f80ac13f212db218bc69ca/gui.vromfs.bin_u/idx/ui/fonts.vromfs.bin",
+    "gameFontIndexSha256": "51230147ba26131df5fc8fa3adaa90b26ff82e832a9f99f39991f0d8a43e3530",
+    "cjkPolicy": "Prefer installed Microsoft YaHei (game font index includes msyh); retain platform fallback. Proprietary game CJK font files are not redistributed.",
+    "checkedAt": "2026-10-24"
   }
 }

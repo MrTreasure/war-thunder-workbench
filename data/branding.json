@@ -50,13 +50,14 @@
     },
     {
       "id": "cardFont",
-      "path": "src/assets/RobotoCondensed-Regular.ttf",
-      "source": "https://warthunder.com/assets/fonts/RobotoCondensed/regular.ttf",
-      "sourcePage": "https://warthunder.com/css/fonts.css",
-      "transform": "Original regular weight font for game research cards",
-      "sourceSha256": "f05ab6c1eade444bbf4e3e00710756e95c2a1d09a10425967149802219c0c0cb",
-      "sha256": "f05ab6c1eade444bbf4e3e00710756e95c2a1d09a10425967149802219c0c0cb",
-      "delivery": "local"
+      "path": "src/assets/FiraSansCondensed-Regular.ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/firasanscondensed/FiraSansCondensed-Regular.ttf",
+      "sourcePage": "https://github.com/google/fonts/tree/main/ofl/firasanscondensed",
+      "transform": "Original regular-weight Fira Sans Condensed; family present in archived game font index; installed Microsoft YaHei preferred for Simplified Chinese",
+      "sourceSha256": "c67609f14fc9d328442bfffcc31988b0f76e5575cf460fcc1f3dd8e4912fe257",
+      "sha256": "c67609f14fc9d328442bfffcc31988b0f76e5575cf460fcc1f3dd8e4912fe257",
+      "delivery": "local",
+      "licensePath": "src/assets/FiraSansCondensed-OFL.txt"
     }
   ]
 }
