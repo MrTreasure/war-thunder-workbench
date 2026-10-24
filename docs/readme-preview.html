@@ -1,116 +1,62 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>战雷小工具 · 功能介绍</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#171c22;color:#d4d7d6;font:16px/1.8 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif}.bar{background:#22282f;border-bottom:1px solid #3c454e;padding:12px max(20px,calc((100vw - 1080px)/2));font-size:14px;color:#e4c477}.bar a{float:right}main{max-width:1080px;margin:30px auto 64px;padding:30px 38px;background:#22282f;border:1px solid #3c454e;border-radius:4px}h1,h2,h3,h4{color:#efede5;line-height:1.4}h1{font-size:30px;margin:0 0 20px}h2{margin-top:44px;padding-bottom:10px;border-bottom:1px solid #3c454e}h3{margin-top:34px}a{color:#e4c477;text-decoration:none}a:hover{text-decoration:underline}img{display:block;width:100%;height:auto;margin:18px 0 28px;border:1px solid #3c454e;border-radius:2px}table{border-collapse:collapse;width:100%;margin:20px 0;font-size:14px}td,th{border:1px solid #3c454e;padding:10px;text-align:left}th{background:#30373e}li{margin:8px 0}strong{color:#efede5}hr{border:0;border-top:1px solid #3c454e;margin:36px 0}code{font-size:14px}pre{overflow:auto;background:#171c22;padding:16px}@media(max-width:700px){body{font-size:15px}main{margin:0;padding:24px 16px;border:0}h1{font-size:25px}.bar{padding:10px 16px}.bar a{float:none;display:block}table{font-size:12px}td,th{padding:6px}}</style></head><body><header class="bar">战雷小工具 · 地图与走线<a href="heybox/preview.html">查看地图与走线图文</a></header><main><h1 id="warthunder-载具研发科技树-研发速算-队列配置">WarThunder 载具研发科技树 + 研发速算 + 队列配置</h1>
-<p>给《战争雷霆》玩家做的一个中文小工具：查科技树、算研发、搭队列，也能看陆战地图、画自己的战术走线。</p>
-<p><strong><a href="https://render.qmuse.pub/p/muse/8645013411493394">在线体验 →</a></strong> · <strong><a href="https://render.mrtreasure.cc/muse/war-thunder-trees/?guides=1#/maps">陆战地图与走线绘制 →</a></strong> · <a href="#功能介绍">功能介绍</a></p>
-<p><img alt="中国陆军科技树" src="screenshots/tree.png" /></p>
-<h2 id="能帮你做什么">能帮你做什么</h2>
-<ul>
-<li><strong>查车</strong>：查看十国科技树，支持陆军、空军、直升机、远洋海军和近岸海军。</li>
-<li><strong>算研发</strong>：按已有载具和已开放等级，算出目标还差多少研发点。</li>
-<li><strong>算配件</strong>：勾选已经完成的配件，查看剩余研发量。</li>
-<li><strong>搭队列</strong>：按国家保存多套出击队列，查看不同模式的权重，一键复制分享码。</li>
-<li><strong>看地图</strong>：搜索陆战地图，切换任务布局，查看等高线、占领点和出生点。</li>
-<li><strong>画走线</strong>：绘制进攻箭头、曲线、绿色防御阵线，标出狙击点和危险区域。</li>
-<li><strong>发给队友</strong>：将战术图保存成图片，或导出绘图文件，留着下次继续修改。</li>
-</ul>
-<p>电脑、手机都可以打开。无需登录，也不会连接或读取你的游戏账号。</p>
-<h2 id="功能介绍">功能介绍</h2>
-<h3 id="1-选国家看科技树">1. 选国家，看科技树</h3>
-<p>打开后先选国家，再选军种和战斗模式。可以搜中文名或英文型号，查看前置研发关系、展开同组载具，也能缩放查看整条路线。</p>
-<p><img alt="未选择国家的首页" src="screenshots/home.png" /></p>
-<p>常规研发与特殊载具分开展示，金币、礼包、联队、活动等获取方式也有区分。切换 AB / RB / SB，可以查看对应模式的权重。</p>
-<p><img alt="科技树与特殊载具分区" src="screenshots/tree.png" /></p>
-<p>点开载具能看大图、研发资料和礼包人民币价格。点击载具标题可查看官方百科，下面分别是“研发载具”和“研发配件”。查不到价格的礼包会显示“暂无报价”，整包价格也不会拆成单车价格。</p>
-<p><img alt="载具详情与放大图片" src="screenshots/vehicle-detail.png" /></p>
-<h3 id="2-载具研发先填进度再看还差多少">2. 载具研发：先填进度，再看还差多少</h3>
-<p>选好目标后，告诉工具这条线已经买到哪辆车、开放到了哪个等级。它会把目标、必要前置和等级解锁所需的补研车辆一起列出来。</p>
-<p>说明中的载具研发单价按 <strong>3 元 / 万研发点</strong> 举例，使用时可以自己改。这只是计算示例，不代表游戏内价格或服务报价。</p>
-<p>以 <strong>ZTZ99A</strong> 为目标，没有其他已有载具时：</p>
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>WarThunder 研发工作台 · 项目说明</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#171c22;color:#d4d7d6;font:16px/1.8 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif}.bar{background:#22282f;border-bottom:1px solid #3c454e;padding:12px max(20px,calc((100vw - 1080px)/2));font-size:14px;color:#e4c477}.bar a{float:right}main{max-width:1080px;margin:30px auto 64px;padding:30px 38px;background:#22282f;border:1px solid #3c454e;border-radius:4px}h1,h2,h3,h4{color:#efede5;line-height:1.4}h1{font-size:30px;margin:0 0 20px}h2{margin-top:44px;padding-bottom:10px;border-bottom:1px solid #3c454e}h3{margin-top:34px}a{color:#e4c477;text-decoration:none}a:hover{text-decoration:underline}img{display:block;width:100%;height:auto;margin:18px 0 28px;border:1px solid #3c454e;border-radius:2px}table{border-collapse:collapse;width:100%;margin:20px 0;font-size:14px}td,th{border:1px solid #3c454e;padding:10px;text-align:left}th{background:#30373e}li{margin:8px 0}strong{color:#efede5}hr{border:0;border-top:1px solid #3c454e;margin:36px 0}code{font-size:14px}pre{overflow:auto;background:#171c22;padding:16px}@media(max-width:700px){body{font-size:15px}main{margin:0;padding:24px 16px;border:0}h1{font-size:25px}.bar{padding:10px 16px}.bar a{float:none;display:block}table{font-size:12px}td,th{padding:6px}}</style></head><body><header class="bar">WarThunder 研发工作台 · 项目说明<a href="https://render.qmuse.pub/p/muse/8645013411493394">打开正式站 →</a></header><main><p><a href="../README.md">简体中文</a> · <a href="../README.en.md">English</a> · <a href="../README.ru.md">Русский</a> · <a href="../README.ja.md">日本語</a></p>
+<h1 id="warthunder">WarThunder 研发工作台</h1>
+<p>查科技树、规划研发、配置出击队列，也能查询战绩、绘制地图走线和关注折扣。</p>
+<p><strong><a href="https://render.qmuse.pub/p/muse/8645013411493394">正式站 · QMuse</a></strong> · <strong><a href="https://wt.mrtreasure.cc/">国际站</a></strong> · <a href="usage.zh-CN.md">完整使用说明</a></p>
+<p><img alt="新版中国陆军科技树" src="screenshots/tree.png" /></p>
+<h2 id="_1">功能一览</h2>
 <table>
 <thead>
 <tr>
-<th>已开放等级</th>
-<th>示例待研量</th>
-<th>按 3 元 / 万计算</th>
+<th>模块</th>
+<th>能做什么</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>VIII 级</td>
-<td>810,000 研发点</td>
-<td>243 元</td>
+<td>科技树</td>
+<td>十国、五大军种；搜索、折叠组、前置路线与 AB / RB / SB 权重</td>
 </tr>
 <tr>
-<td>VII 级</td>
-<td>2,065,000 研发点</td>
-<td>619.50 元</td>
+<td>研发估算</td>
+<td>分别计算载具与配件的剩余研发点；自填单价，合并研发清单</td>
+</tr>
+<tr>
+<td>出击队列</td>
+<td>保存多套配置、调整乘员槽位顺序、复制或导入分享码</td>
+</tr>
+<tr>
+<td>战绩与车库</td>
+<td>生涯与近期统计、官方排位、单车表格／卡片、完整车库</td>
+</tr>
+<tr>
+<td>估值与战报</td>
+<td>查看账号参考价值，生成 Top 5 战报、AI 点评与单车图片</td>
+</tr>
+<tr>
+<td>陆战地图</td>
+<td>查看地形与任务布局，绘制走线并导出图片或可编辑文件</td>
+</tr>
+<tr>
+<td>折扣日历</td>
+<td>关注金鹰／礼包载具，对照官方活动与历史预测窗口</td>
 </tr>
 </tbody>
 </table>
-<p><img alt="从 VIII 级开始计算" src="screenshots/vehicle-rank-viii.png" /></p>
-<p><img alt="从 VII 级开始计算" src="screenshots/vehicle-rank-vii.png" /></p>
-<p>如果不想按默认方案补研，也可以自己指定想研发的车、排除不想碰的车。搜索、等级和载具类型可以一起筛选，方便整理已有车辆。</p>
-<p><img alt="按型号、等级和类型筛选载具" src="screenshots/vehicle-filters.png" /></p>
-<h3 id="3-配件研发已经点亮的不用再算一遍">3. 配件研发：已经点亮的，不用再算一遍</h3>
-<p>配件单独计算。勾选已完成的配件，再填写其他配件中已经投入的研发点，就能看到剩余研发量。</p>
-<p>下面以 <strong>ZTZ99A、4 元 / 万研发点</strong> 为例：已完成部分配件，另投入 5,000 研发点后，剩余 263,000 研发点，合计 <strong>105.20 元</strong>。单价同样可以自己修改。</p>
-<p><img alt="配件研发与剩余费用" src="screenshots/modifications.png" /></p>
-<h3 id="4-出击队列常玩的配置存下来就能找">4. 出击队列：常玩的配置，存下来就能找</h3>
-<p>每个国家可以保存多套队列。打开先看到已经配好的队列，新建或编辑时才进入选车页面。取消编辑不会覆盖原来保存的配置。</p>
-<p><img alt="德国已保存的出击队列" src="screenshots/lineups-germany.png" /></p>
-<p>乘员槽位像游戏里一样横向排列，按住拖动可以调整顺序。选车时支持军种、等级、获取方式和型号筛选，也会区分礼包、精英、联队等特殊载具。</p>
-<p>下面是几组陆战 RB 配置示例，供展示功能，不作为最优配队建议。</p>
-<p><strong>中国 · 11.7</strong></p>
-<p><img alt="中国 11.7 出击队列" src="screenshots/lineup-china-117.png" /></p>
-<p><strong>德国 · 5.7</strong></p>
-<p><img alt="德国 5.7 出击队列" src="screenshots/lineup-germany-57.png" /></p>
-<p><strong>德国 · 6.7</strong></p>
-<p><img alt="德国 6.7 出击队列" src="screenshots/lineup-germany-67.png" /></p>
-<p><strong>美国 · 7.0</strong></p>
-<p><img alt="美国 7.0 出击队列" src="screenshots/lineup-usa-70.png" /></p>
-<p><strong>美国 · 顶级房</strong></p>
-<p><img alt="美国顶级房出击队列" src="screenshots/lineup-usa-top.png" /></p>
-<p>配置后可以查看不同模式的权重。需要按活动名单或房间范围判断的模式，会提示进一步核对。</p>
-<p>分享按钮就在队列名称旁边，点击后显示分享码并尝试复制。队友点击“导入”，粘贴分享码即可带入国家和载具顺序。</p>
-<p><img alt="出击队列分享" src="screenshots/lineup-share.png" /></p>
-<p>分享码 <strong>区分大小写，共 24 位</strong>，空槽位也会保留。导入后请再确认队列名称、战斗类型和出击飞机。</p>
-<h3 id="5-研发清单多项一起算">5. 研发清单：多项一起算</h3>
-<p>载具和配件都可以加入购物车，合并查看剩余研发点与费用。几辆车共用的前置不会重复计算；单价不一致时会提醒核对。也可以复制清单或导出报价。</p>
-<p><img alt="载具与配件费用汇总" src="screenshots/cart.png" /></p>
-<p>计算方式为：<strong>剩余研发点 ÷ 10,000 × 自填单价</strong>，金额保留到分，不会把不足一万的部分按整万计算。不含购车银狮、金币和乘员训练费用。</p>
-<h3 id="6-陆战地图开打前先把地形看明白">6. 陆战地图：开打前，先把地形看明白</h3>
-<p><strong><a href="https://render.mrtreasure.cc/muse/war-thunder-trees/?guides=1#/maps">打开陆战地图 →</a></strong></p>
-<p>目前整理了 <strong>55 张陆战地图、309 种任务布局</strong>。可以按中文名或英文名搜索，列表直接展示占领点缩略图；想看相关攻略，也可以只筛选有攻略的地图。</p>
-<p><img alt="陆战地图列表与点位缩略图" src="screenshots/ground-maps.png" /></p>
-<p>点开地图进入大图页面，可切换任务布局和己方队伍，单独开关等高线、点位、参考网格和布局范围。支持拖动、缩放和复位，方便观察山坡、谷地和各点之间的位置关系。</p>
-<p><img alt="阿拉曼地图、等高线与任务点位" src="screenshots/ground-map-detail.png" /></p>
-<p>有相关攻略的地图，会在下方提供原帖入口。老攻略可能对应不同年份或布局，阅读时可以和当前地图对照。</p>
-<h3 id="7-战术走线把脑子里的打法画出来">7. 战术走线：把脑子里的打法画出来</h3>
-<p>进入地图后点击 <strong>“编辑走线”</strong>，就可以在地图上画自己的作战思路。下面的路线仅为绘制示例。</p>
-<p><img alt="进攻路线、防御阵线、危险区和狙击点绘制示例" src="screenshots/tactical-drawing.png" /></p>
-<p><strong>路线可以直接拖出来。</strong> 松手就完成，选中后自动打开属性面板。拖动端点调整方向，在中间加拐点，也可以切换成平滑曲线、修改颜色和粗细。</p>
-<p><strong>不只有普通箭头。</strong> 还提供中空进攻箭头、绿色防御阵线、前沿阵线、撤退路线、障碍线、补给线和射界线，画不同意图时更容易区分。</p>
-<p><img alt="不同战术线型与绿色防御阵线" src="screenshots/tactical-lines.png" /></p>
-<p><strong>重要位置可以单独标出来。</strong> 狙击点、观察点、伏击点、集结点、补给点等战术标记，可以搭配文字说明。危险区域支持画成矩形、椭圆或多边形，并调整颜色和透明度。</p>
-<p><img alt="狙击点、观察点和其他战术标记" src="screenshots/tactical-markers.png" /></p>
-<p>也有单独的战雷原生图标可选，方便画出更熟悉的地图标记。</p>
-<p><img alt="战雷原生图标选择" src="screenshots/tactical-game-icons.png" /></p>
-<p>文字标注支持选择字体、字号、字重和斜体，导出图片时保留当前文字样式。</p>
-<p><img alt="文字字体与样式设置" src="screenshots/map-text-fonts.png" /></p>
-<p>同一张地图可以按不同任务布局和己方队伍保存多套走线方案，支持新建、另存为、重命名、切换和删除。旧草稿会恢复到默认方案，导入文件会新建方案。</p>
-<p><img alt="多套走线方案管理" src="screenshots/map-plans.png" /></p>
-<p>画错可以撤销、重做，也能一键清除全部自定义标记。原有地图和任务点位会保留。</p>
-<p>完成后可以保存 <strong>2K / 4K 图片</strong>发给队友，或导出绘图文件，以后再导入继续改。画布上的标注会自动保存在当前浏览器，并按地图、布局和己方队伍分别记录。</p>
-<h2 id="使用前知道这几件事">使用前知道这几件事</h2>
+<h2 id="_2">载具研发</h2>
+<p>选择目标，填写已有载具、已开放等级和目标进度。清单会列出必要前置及等级补位；合并多个目标时，共用前置只计算一次。</p>
+<p><img alt="载具研发与必要前置清单" src="screenshots/vehicle-research.png" /></p>
+<h2 id="_3">配件研发</h2>
+<p>按真实等级和栏目查看配件，勾选已完成项目，再填写未完成配件中的部分进度。礼包、金鹰等高级载具默认按已解锁全部配件处理。</p>
+<p><img alt="按等级排列的配件、完成状态与剩余研发点" src="screenshots/modifications.png" /></p>
+<p>载具详情还包含官方图片、获取与价格、三种模式的研发点／银狮收益倍率及前置路线。研发点使用官方图标，中文按“万”缩写；缩放偏好保存在当前浏览器。</p>
+<p><strong>估算金额 = 剩余研发点 ÷ 10,000 × 自填单价。</strong> 这是自定义换算，不是游戏官方售价或交易报价；未知数据不会按零计算。</p>
+<h2 id="_4">语言与保存</h2>
 <ul>
-<li>这是玩家自制的非官方工具，载具资料、研发点、分房与解锁要求请以游戏内为准。</li>
-<li>资料不完整时会提示核对，不会把未知研发点直接算成零。</li>
-<li>配队示例、地图走线都是功能演示，不保证最优打法。战术标记用于交流和攻略绘制。</li>
-<li>等高线、参考网格和简报点位适合辅助读图，不能代替实战中的通行、遮挡和位置判断。</li>
-<li>研发进度、队列、购物车和绘图记录保存在当前浏览器，不会自动同步到其他设备。清理浏览记录前，请保存分享码或导出文件。</li>
+<li>国际站支持简体中文、English、Русский、日本語；正式站以中文为主。本文截图为中文界面。</li>
+<li>游客的研发进度、购物车和出击队列保存在当前浏览器；登录后，研发计划、研发购物车和队列可跨设备同步。</li>
+<li>地图方案与折扣关注保存在本地，请按需导出备份。本站查询公开游戏资料，不需要 Gaijin 密码。</li>
+<li>载具数据以游戏和官方资料为准；折扣预测不是活动公告，账号估值不是实际成交价。工作台效率分不是官方评级。</li>
 </ul>
-<h2 id="一起完善">一起完善</h2>
-<p>欢迎反馈想要的功能。载具资料有问题时，请带上国家、军种、载具名称和战斗模式；页面显示不对，也可以附一张截图。</p>
-<p>想参与完善的朋友，可以查看<a href="contributing.md">项目维护说明</a>。另附<a href="xiaohongshu.html">小红书图文介绍</a>和<a href="heybox/preview.html">小黑盒地图与走线介绍</a>。</p>
-<h2 id="许可与致谢">许可与致谢</h2>
-<p>项目代码采用 <a href="license.txt">MIT 许可证</a>。War Thunder 名称、商标、游戏图片及第三方资料归各自权利人所有。</p>
-<p>感谢 War Thunder Wiki、游戏资料整理者、攻略作者，以及提供地图资料和使用反馈的玩家。</p></main></body></html>
+<h2 id="_5">更多说明</h2>
+<p><a href="usage.zh-CN.md">功能使用说明</a> · <a href="screenshots/README.md">截图与来源</a> · <a href="contributing.md">本地开发与贡献</a> · <a href="https://github.com/MrTreasure/war-thunder-workbench/issues">反馈问题</a></p>
+<p>玩家自制的非官方工具，代码采用 <a href="../LICENSE">MIT 许可证</a>。War Thunder 商标、游戏图片与第三方资料归各自权利人所有。感谢官方 Wiki、资料与攻略作者，以及提供反馈的玩家。</p></main></body></html>
