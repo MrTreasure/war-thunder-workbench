@@ -59,20 +59,34 @@ export function createAPI(sdk: SDK) {
       throw new MiniappError("INVALID_API_PATH", "不支持的请求");
     }
     options.signal?.throwIfAborted();
-    const response = await sdk.network.request<T>({
-      url: API + path,
-      method: options.body === undefined ? "GET" : "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        "X-WT-Client": "heybox-mini",
-        ...(options.token ? { Authorization: "Bearer " + options.token } : {}),
-        ...(options.device ? { "X-WT-Device": options.device } : {}),
-      },
-      ...(options.body === undefined ? {} : { data: options.body }),
-      timeout: 9000,
-      validateStatus: () => true,
-    });
+    const response = await sdk.network
+      .request<T>({
+        url: API + path,
+        method: options.body === undefined ? "GET" : "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "X-WT-Client": "heybox-mini",
+          ...(options.token ? { Authorization: "Bearer " + options.token } : {}),
+          ...(options.device ? { "X-WT-Device": options.device } : {}),
+        },
+        ...(options.body === undefined ? {} : { data: options.body }),
+        timeout: 9000,
+        validateStatus: () => true,
+      })
+      .catch((error: unknown) => {
+        const code = (error as { code?: string })?.code || "NETWORK_UNAVAILABLE";
+        const message = [
+          "PERMISSION_NOT_IN_SNAPSHOT",
+          "PERMISSION_DENIED",
+          "METHOD_FORBIDDEN",
+        ].includes(code)
+          ? "网络功能暂未开放，可先使用研发功能。"
+          : code === "REQUEST_TIMEOUT"
+            ? "连接超时，请稍后核对结果，勿连续重复提交。"
+            : "连接暂不可用，请稍后重试。";
+        throw new MiniappError(code, message);
+      });
     // SDK timeout/abort does not cancel the Host request. Never consume its late
     // response after an account switch; mutations keep their own idempotency IDs.
     options.signal?.throwIfAborted();

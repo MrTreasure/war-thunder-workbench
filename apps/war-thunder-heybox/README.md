@@ -12,7 +12,7 @@ pnpm --dir apps/war-thunder-heybox run typecheck
 pnpm --dir apps/war-thunder-heybox run build
 ```
 
-远端项目已经绑定，不重复创建。SDK 固定为 0.9.3，目标为 Android / iOS，游戏绑定为 PC《战争雷霆》。网络仅申请自有域名 `api.mrtreasure.cc`；权限审批不阻塞本地开发，但真机网络验收需要审批通过。
+远端项目已经绑定，不重复创建。SDK 固定为 0.9.3，目标为 Android / iOS，游戏绑定为 PC《战争雷霆》。网络仅申请自有域名 `api.mrtreasure.cc`；权限审批不阻塞本地开发；远端版本的网络调用需要平台批准。
 
 ## 账号接入
 
@@ -23,6 +23,10 @@ pnpm --dir apps/war-thunder-heybox run build
 
 ## 当前进度
 
-已接入账号与网络适配代码；移动界面及模块整合仍在开发。模板图标与封面是占位资源，尚未作为可发布版本提交。浏览器模拟不代表真机授权、网络、分享或文件能力已经验收。
+首版移动界面已整合研发、战绩和账号三个入口，研发画布复用主分支；估值和战报从战绩进入。图标和封面由既有官方素材裁切合成，来源见 `data/heybox-branding.json`。计算包不包含 WASM；作战效率只展示服务端结果。
+
+本地手机调试要求同一局域网。异地验收使用官方远端版本预览：`hb-sdk remote deploy --release-note "移动端预览"` 上传并提审，默认不自动发布；通过 `hb-sdk remote preview 0.1.0` 取得当前版本预览信息。预览权限按平台白名单控制。网络权限尚未批准时，远端版本的登录、战绩等接口以及外部图片可能不可用，不能将本地临时权限当作线上批准。
+
+构建门禁验证十个国家的懒加载文件、哈希、无独立数据 JSON 和无 WASM。界面及真实小黑盒授权仍需人工真机验收，浏览器模拟不代表真机通过。
 
 文档：[SDK](https://docs.xiaoheihe.cn/hb_sdk/)、[登录](https://docs.xiaoheihe.cn/hb_sdk/guide/auth)、[CLI](https://docs.xiaoheihe.cn/hb_sdk/guide/cli)。

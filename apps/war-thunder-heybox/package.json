@@ -7,9 +7,9 @@
     "miniProgramId": "01a16e09-097b-7867-a702-7537cd3919fd",
     "name": "战雷工作台",
     "category": "tool",
-    "icon": "assets/heybox-placeholder.png",
+    "icon": "assets/workbench-icon.png",
     "coverImages": [
-      "assets/heybox-placeholder.png"
+      "assets/workbench-cover.jpg"
     ],
     "platforms": [
       "android",
@@ -24,12 +24,6 @@
       },
       "storage": {
         "enabled": true
-      },
-      "share": {
-        "enabled": true
-      },
-      "filesystem": {
-        "enabled": true
       }
     },
     "desc": "面向战争雷霆玩家的载具与配件研发计算、公开战绩查询、车库参考估值和个人战报工具。",
@@ -40,14 +34,22 @@
   "scripts": {
     "hb-sdk": "hb-sdk",
     "dev": "hb-sdk dev",
-    "build": "hb-sdk build",
+    "build": "tsc --noEmit && hb-sdk build && node scripts/check-build.mjs",
     "deploy": "hb-sdk remote deploy",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepare:branding": "node scripts/prepare-branding.mjs"
   },
   "dependencies": {
-    "@heybox/hb-sdk": "0.9.3"
+    "@heybox/hb-sdk": "0.9.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
   },
   "devDependencies": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "5.2.0",
+    "sharp": "0.34.5",
+    "typescript": "7.0.2",
     "vite": "8.3.4"
   },
   "packageManager": "pnpm@12.3.4"

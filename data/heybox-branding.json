@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "sources": {
+    "logo": {
+      "source": "https://warthunder.com/assets/img/svg/logo-wt.svg",
+      "sourcePage": "https://warthunder.com/en/media/presskit/",
+      "sha256": "8c3f7ebf829174244c2ab8df4c928560fedb9a1d31a4be4b1725115c3af8f408"
+    },
+    "background": {
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_patria_bmp_3_logo_056f2963433ebf4ac1b945004888e57f.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "sha256": "d002b2177bedca205242f03577314ec5286e8f54a5880082b5b9d995071b07c9"
+    }
+  },
+  "transforms": {
+    "icon": "512px center crop, brightness 0.6, downsampled to 200px; original logo resized, monochrome inverted and composited",
+    "cover": "960x540 crop and JPEG encoding"
+  },
+  "assets": [
+    {
+      "path": "apps/war-thunder-heybox/assets/workbench-icon.png",
+      "sha256": "6fb2988a9f01e08218856aa37b0c8c85781af41a34cb6a2b1e316aee9a690379",
+      "bytes": 96102
+    },
+    {
+      "path": "apps/war-thunder-heybox/assets/workbench-cover.jpg",
+      "sha256": "b23f1f4b80dbff40365be0aa4bf762e07cf18a865be6b5d6806758793540c49d",
+      "bytes": 104034
+    }
+  ]
+}

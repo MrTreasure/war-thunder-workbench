@@ -3,4 +3,5 @@ packages:
   - apps/war-thunder-heybox
 allowBuilds:
   esbuild: true
+  sharp: true
   workerd: true

@@ -259,7 +259,7 @@ export function createAccount(sdk: SDK, api: APIRequest) {
     },
     /** Private responses are discarded after account changes, including switches
      * during native Host calls (AbortSignal cannot cancel those calls). */
-    async request<T>(path: string, body?: unknown) {
+    async request<T>(path: string, body?: unknown, signal?: AbortSignal) {
       const turn = epoch,
         current = saved;
       if (status !== "authenticated" || !current || current.expiresAt <= Date.now())
@@ -267,6 +267,7 @@ export function createAccount(sdk: SDK, api: APIRequest) {
       const response = await api<T>(path, {
         ...(body === undefined ? {} : { body }),
         token: current.token,
+        signal,
       });
       if (disposed || epoch !== turn || status !== "authenticated" || saved !== current)
         throw changed();
