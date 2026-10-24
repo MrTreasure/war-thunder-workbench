@@ -12,7 +12,7 @@
 
 前端使用与既有 Git 资产仓库固定提交逐字节一致的本地 Wasm 资产，随应用同源发布并列入 QMuse CLI 生成的源码清单，核验文件大小和 SHA-256 后执行。只在需要评分时加载，优先使用隔离的 OPFS 缓存，存储不可用时尝试 Cache Storage。失败会明确提示，不回退到 JS 公式或旧评分。
 
-入口清单在 `data/player-efficiency-wasm.json`。跨域读取须获资源服务器允许；部署页面的 CSP 须允许对应 CDN 及 WebAssembly 执行。最终投放入口为既有 QMuse 应用 `8645013411493394`；本机 Nginx 配置不能代替平台配置。
+入口清单在 `data/player-efficiency-wasm.json`，逐文件用途与授权说明见 `docs/wasm-assets.md`。运行时只读取同源本地资产；部署页面的 CSP 须允许 WebAssembly 执行。最终投放入口为既有 QMuse 应用 `8645013411493394`；本机 Nginx 配置不能代替平台配置。
 
 ## 授权与维护
 

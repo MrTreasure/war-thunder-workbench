@@ -19,6 +19,31 @@ assert.match(scoring.sha256, /^[a-f0-9]{64}$/);
 assert.equal(scoring.argumentCount, 16);
 assert.equal(scoring.abi, "slots-f64-v1");
 assert(Number.isSafeInteger(scoring.bytes) && scoring.bytes > 0 && scoring.bytes < 32768);
+const declaration = scoring.declaration;
+assert.equal(declaration?.kind, "webassembly", "Declare the efficiency binary explicitly");
+assert.equal(declaration.mimeType, "application/wasm");
+assert.equal(scoring.localPath, "src/assets/player-efficiency.v3.wasm");
+assert.equal(declaration.sourcePath, scoring.localPath);
+assert.equal(declaration.sizeBytes, scoring.bytes);
+assert.equal(declaration.sha256, scoring.sha256);
+assert.equal(declaration.loaderPath, "src/player-efficiency.ts");
+assert.equal(declaration.executionAPI, "WebAssembly.instantiate");
+assert.deepEqual(declaration.hostImports, []);
+assert.equal(declaration.networkAccess, false);
+assert.equal(declaration.storageAccess, false);
+assert.equal(declaration.noticePath, "src/assets/player-efficiency.v3.NOTICE.txt");
+assert.equal(declaration.documentationPath, "docs/wasm-assets.md");
+await readFile(resolve(root, declaration.noticePath));
+await readFile(resolve(root, declaration.documentationPath));
+const localRuntime = await readFile(resolve(root, scoring.localPath));
+assert.equal(localRuntime.byteLength, scoring.bytes);
+assert.equal(createHash("sha256").update(localRuntime).digest("hex"), scoring.sha256);
+// Inspect the module's public import/export metadata, without disassembling it.
+const runtimeModule = await WebAssembly.compile(localRuntime);
+assert.deepEqual(WebAssembly.Module.imports(runtimeModule), declaration.hostImports);
+assert.deepEqual(WebAssembly.Module.exports(runtimeModule), [
+  { name: scoring.exportName, kind: "function" },
+]);
 const scoringPath = `war-thunder/efficiency/v3/${scoring.sha256}.wasm`;
 assert.equal(
   scoring.url,

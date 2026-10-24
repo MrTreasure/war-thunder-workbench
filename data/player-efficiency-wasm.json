@@ -12,5 +12,24 @@
   "noticeUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/a56592405d454051039bfdc2d40da9266b1eb535/war-thunder/efficiency/v3/NOTICE.txt",
   "license": "Restricted application runtime; see NOTICE.txt",
   "localPath": "src/assets/player-efficiency.v3.wasm",
-  "purpose": "Verified local War Thunder workbench efficiency runtime; no imports, no network or storage access"
+  "purpose": "Local player and vehicle efficiency score calculation (0–2000); protected implementation source is not publicly distributed.",
+  "declaration": {
+    "kind": "webassembly",
+    "mimeType": "application/wasm",
+    "sourcePath": "src/assets/player-efficiency.v3.wasm",
+    "sizeBytes": 911,
+    "sha256": "561ca43f4df8ea46cc2d0c83878d1d86b36f5deda466fcf97da56a44d8771147",
+    "loaderPath": "src/player-efficiency.ts",
+    "executionAPI": "WebAssembly.instantiate",
+    "noticePath": "src/assets/player-efficiency.v3.NOTICE.txt",
+    "documentationPath": "docs/wasm-assets.md",
+    "delivery": "same-origin local build asset; no remote WASM execution",
+    "function": "Calculate the shared efficiency score for player profiles, vehicle records, branches, reports and exported cards.",
+    "inputs": "Public aggregate battle statistics supplied by the application; no account credentials.",
+    "output": "An efficiency score in the range 0–2000.",
+    "hostImports": [],
+    "networkAccess": false,
+    "storageAccess": false,
+    "sourceDisclosure": "Protected implementation source, coefficients and research materials are not publicly distributed; the declared binary is included for normal platform review."
+  }
 }

@@ -1,3 +1,16 @@
+/**
+ * DECLARED LOCAL WEBASSEMBLY ASSET — 效率分计算运行资产
+ * Binary: src/assets/player-efficiency.v3.wasm (911 bytes)
+ * SHA-256: 561ca43f4df8ea46cc2d0c83878d1d86b36f5deda466fcf97da56a44d8771147
+ * Declaration: data/player-efficiency-wasm.json
+ * File inventory and purpose: docs/wasm-assets.md
+ * The binary computes the shared player/vehicle efficiency score (0–2000)
+ * from public aggregate battle statistics. It imports no host functions and
+ * has no network, credential or storage access. This adapter owns caching.
+ * The implementation is protected; calculation source, coefficients and
+ * research materials are not publicly distributed. This is an explicit
+ * execution declaration for normal platform review, not a review exemption.
+ */
 import runtimeUrl from "./assets/player-efficiency.v3.wasm?no-inline&url";
 import manifest from "../data/player-efficiency-wasm.json";
 

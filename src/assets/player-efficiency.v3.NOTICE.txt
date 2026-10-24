@@ -1,0 +1,20 @@
+效率分计算运行资产 / Efficiency scoring runtime
+
+文件：player-efficiency.v3.wasm
+用途：根据应用提供的公开汇总战绩，计算玩家、军种与载具共用的 0–2000 效率分。
+这是战雷工作台的统计评分，不是官方评级。该二进制不导入宿主函数，
+不直接访问网络、登录凭据或浏览器存储；加载与缓存由 TypeScript 适配器处理。
+
+计算实现受独立授权保护，不适用应用的 MIT 授权。
+计算源码、系数、研究样本及编译材料不随应用公开分发。
+授权维护者应使用所有者提供的本地源码；未经授权不得反编译、重建或重新分发，
+适用法律允许的情形除外。完整授权来源见 data/player-efficiency-wasm.json 的 noticeUrl。
+
+The local binary calculates the shared efficiency score from public aggregate
+battle statistics. It has no host imports or direct network/storage access.
+Its implementation source and research materials are protected and are not
+publicly distributed. The runtime has a separate license from the application's
+MIT license; the original notice is referenced by the declaration's noticeUrl.
+
+本文件、路径、大小、SHA-256 和执行入口均公开声明，用于平台正常识别与审核。
+保护源码的说明不代表免于平台审核，也不保证浏览器分发的二进制可以保密。
