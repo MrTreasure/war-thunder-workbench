@@ -1,3 +1,4 @@
+import { VehicleTile } from "./VehicleTile";
 import { useEffect, useId, useMemo, useState } from "react";
 import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
@@ -41,16 +42,13 @@ const watchValid = (value: unknown): value is SaleVehicle[] =>
       typeof v.image === "string" &&
       v.image.startsWith("https://static.encyclopedia.warthunder.com/"),
   );
-function VehiclePicture({ vehicle }: { vehicle: SaleVehicle }) {
+function SaleVehicleTile({ vehicle }: { vehicle: SaleVehicle }) {
   return (
-    <img
-      src={vehicle.image}
-      alt=""
-      loading="lazy"
-      width={112}
-      height={70}
-      onError={(e) => {
-        e.currentTarget.style.visibility = "hidden";
+    <VehicleTile
+      unit={{
+        ...vehicle,
+        kind: vehicle.channel === "ge" ? "gold" : vehicle.channel,
+        price: vehicle.originalPrice?.currency === "GE" ? vehicle.originalPrice.amount : null,
       }}
     />
   );
@@ -202,7 +200,7 @@ function AddVehicles({
             const added = saved.some((v) => v.id === vehicle.id);
             return (
               <div className="wt-sale-vehicle-option" key={vehicle.id}>
-                <VehiclePicture vehicle={vehicle} />
+                <SaleVehicleTile vehicle={vehicle} />
                 <div>
                   <strong>{vehicle.name}</strong>
                   <span>
@@ -243,7 +241,7 @@ export function SaleCalendar() {
     [loading, setLoading] = useState(() => !data),
     [reload, setReload] = useState(0);
   const [clock, setClock] = useState(() => Date.now()),
-    [offset, setOffset] = useState(() => data ? Date.parse(data.serverNow) - Date.now() : 0);
+    [offset, setOffset] = useState(() => (data ? Date.parse(data.serverNow) - Date.now() : 0));
   const [year, setYear] = useState(() => Number(beijingDayKey(Date.now()).slice(0, 4))),
     [month, setMonth] = useState(() => String(Number(beijingDayKey(Date.now()).slice(5, 7)))),
     [channel, setChannel] = useState("all"),
@@ -290,10 +288,14 @@ export function SaleCalendar() {
   }, [reload]);
   const now = clock + offset;
   const today = beijingDayKey(now);
-  const events = useMemo(() => (data?.events || []).flatMap(event => {
-    const projected = projectSaleForecast(event, Date.parse(today + "T00:00:00+08:00"));
-    return projected ? [projected] : [];
-  }), [data, today]);
+  const events = useMemo(
+    () =>
+      (data?.events || []).flatMap((event) => {
+        const projected = projectSaleForecast(event, Date.parse(today + "T00:00:00+08:00"));
+        return projected ? [projected] : [];
+      }),
+    [data, today],
+  );
   const years = useMemo(() => [...new Set(events.map((e) => e.year))].sort(), [events]);
   const filtered = useMemo(
     () =>
@@ -442,7 +444,7 @@ export function SaleCalendar() {
                   exact = event?.status === "confirmed" && event.vehicleIds.includes(vehicle.id);
                 return (
                   <article key={vehicle.id} className="wt-sale-watch-row">
-                    <VehiclePicture vehicle={vehicle} />
+                    <SaleVehicleTile vehicle={vehicle} />
                     <div className="wt-sale-watch-identity">
                       <h4>{vehicle.name}</h4>
                       <span>
@@ -697,11 +699,22 @@ export function SaleCalendar() {
                               </p>
                             )
                           )}
-                          {event.status === "predicted" && <div className="wt-sale-candidate-list" aria-label="候选开始日与相对可能性">
-                            {saleStartCandidates(event, now).map(candidate => <span key={candidate.day} className={`confidence-${candidate.confidence}`}>
-                              {saleDate(candidate.at)} <b>{candidate.label}</b>{candidate.preferred ? " · 参考" : ""}
-                            </span>)}
-                          </div>}
+                          {event.status === "predicted" && (
+                            <div
+                              className="wt-sale-candidate-list"
+                              aria-label="候选开始日与相对可能性"
+                            >
+                              {saleStartCandidates(event, now).map((candidate) => (
+                                <span
+                                  key={candidate.day}
+                                  className={`confidence-${candidate.confidence}`}
+                                >
+                                  {saleDate(candidate.at)} <b>{candidate.label}</b>
+                                  {candidate.preferred ? " · 参考" : ""}
+                                </span>
+                              ))}
+                            </div>
+                          )}
                           <SourceLinks event={event} />
                         </details>
                       </div>

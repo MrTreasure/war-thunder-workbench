@@ -76,5 +76,5 @@ pnpm run build
 
 欢迎提交功能建议、数据问题与修复。反馈数据问题时，请附上国家、军种、载具名称、模式、游戏版本和可核对来源；界面问题请附截图与屏幕尺寸。
 
-提交代码前运行 `pnpm run check` 与 `pnpm run build`。载具数据和来源应维护在 `data/*.json`，不要写进 JSX；同时保留已有存储格式与分享码兼容性。开发约定见 [AGENTS.md](../AGENTS.md)。
+提交代码前运行 `pnpm run check` 与 `pnpm run build`。载具数据和来源应维护在 `data/*.json`，不要写进 JSX；同时保留已有存储格式与分享码兼容性。开发约定见 [AGENTS.md](../AGENTS.md)，视觉与共用组件规则见 [style.md](../style.md)。
 

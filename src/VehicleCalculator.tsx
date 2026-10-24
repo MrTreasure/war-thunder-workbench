@@ -1,3 +1,4 @@
+import { VehicleTile } from "./VehicleTile";
 import { useAccountWorkspace } from "./workspace-context";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { GameSelect } from "./components/GameSelect";
@@ -236,6 +237,10 @@ export function VehicleCalculator({
             <label className="calc-field">
               目标载具
               <GameSelect
+                renderOption={(id) => {
+                  const unit = index.units.get(id);
+                  return unit ? <VehicleTile unit={unit} catalog={catalog} /> : null;
+                }}
                 value={state.target}
                 onValueChange={(value) => {
                   setDrafts({});
@@ -468,12 +473,11 @@ export function VehicleCalculator({
                                 }
                               />
                             )}
-                            <span className="calc-unit-label">
-                              <span>{vehicleDisplayName(unit.name)}</span>
-                              <small>
-                                {unit.side === "research" ? "常规研发" : catalog.kinds[unit.kind]}
-                              </small>
-                            </span>
+                            <VehicleTile
+                              unit={unit}
+                              catalog={catalog}
+                              owned={owned.includes(unit.id)}
+                            />
                             {tab === "route" && (
                               <GameSelect
                                 aria-label={`${vehicleDisplayName(unit.name)} 补研策略`}
@@ -716,12 +720,10 @@ export function VehicleCalculator({
                         update({ owned: [...state.owned, row.unit.id] });
                       }}
                     />
-                    <span className="calc-unit-label">
-                      <span>
-                        {i + 1}. {vehicleDisplayName(row.unit.name)}
-                      </span>
+                    <span className="wt-research-tile-entry">
+                      <VehicleTile unit={row.unit} catalog={catalog} />
                       <small>
-                        Rank {row.unit.rank} · {row.reason}
+                        {i + 1}. Rank {row.unit.rank} · {row.reason}
                       </small>
                     </span>
                     {editingCosts && (

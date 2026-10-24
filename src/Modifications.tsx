@@ -1,3 +1,4 @@
+import { VehicleTile } from "./VehicleTile";
 import { ModificationGrid } from "./ModificationGrid";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { GameSelect } from "./components/GameSelect";
@@ -59,7 +60,14 @@ export function ModificationCalculator({
         selector={
           <label className="calc-field">
             目标载具
-            <GameSelect value={target} onValueChange={(value) => setTarget(value)}>
+            <GameSelect
+              renderOption={(id) => {
+                const unit = index.units.get(id);
+                return unit ? <VehicleTile unit={unit} catalog={catalog} /> : null;
+              }}
+              value={target}
+              onValueChange={(value) => setTarget(value)}
+            >
               {tree.ranks.map((rank) => (
                 <optgroup key={rank.rank} label={`Rank ${rank.rank}`}>
                   {[...index.units.values()]

@@ -1,10 +1,9 @@
+import { VehicleTile } from "./VehicleTile";
 import type { Catalog, Mode, Vehicle } from "./models";
 import { VehicleImage } from "./VehicleImage";
 import { VehicleWikiFacts } from "./VehicleWikiFacts";
 import { vehicleDisplayName } from "./vehicle-display-name";
-import { modes, rating, rpText } from "./TreeCanvas";
-import { ResearchPoints } from "./ResearchPoints";
-import { compactResearchPoints } from "./research-number-format";
+import { modes, rating } from "./TreeCanvas";
 
 export function VehicleDetails({
   unit,
@@ -106,23 +105,13 @@ export function VehicleDetails({
           <ol className="wt-detail-route-list">
             {path.map((previous) => (
               <li key={previous.id} className={previous.id === unit.id ? "is-target" : ""}>
-                <button
-                  onClick={() => onSelect(previous.id)}
-                  aria-current={previous.id === unit.id ? "step" : undefined}
-                >
-                  <VehicleImage key={previous.id} unit={previous} />
-                  <span>
-                    <strong>{vehicleDisplayName(previous.name)}</strong>
-                    <small>
-                      Rank {previous.rank} ·{" "}
-                      {previous.rp ? (
-                        <ResearchPoints>{compactResearchPoints(previous.rp)}</ResearchPoints>
-                      ) : (
-                        rpText(previous)
-                      )}
-                    </small>
-                  </span>
-                </button>
+                <VehicleTile
+                  unit={previous}
+                  catalog={catalog}
+                  mode={mode}
+                  selected={previous.id === unit.id}
+                  onSelect={() => onSelect(previous.id)}
+                />
               </li>
             ))}
           </ol>

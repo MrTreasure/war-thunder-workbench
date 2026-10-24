@@ -1,3 +1,4 @@
+import { VehicleTile } from "./VehicleTile";
 import { garageVehicleRecords } from "./garage-vehicles";
 import {
   comparePlayerVehicles,
@@ -22,7 +23,7 @@ import type { PlayerProfile, PlayerVehicle } from "./player-stats-api";
 import { usePlayerRead } from "./player-rankings-api";
 import type { OwnedGarage, PlayerDetails } from "./player-rankings-api";
 import { compactSilver, savedVehiclePageSize, saveVehiclePageSize } from "./player-number-format";
-import { PlayerVehicleCards, PlayerVehiclePagination } from "./PlayerVehicleCards";
+import { PlayerVehiclePagination } from "./PlayerVehicleCards";
 import { statsCountryMatches, statsCountryLabel } from "./stats-country";
 
 export function PlayerGarage({
@@ -242,12 +243,34 @@ export function PlayerGarage({
                 ? ` · ${read.data.unmatchedCount} 辆尚未匹配分类，仍保留在清单中`
                 : ""}
             </p>
-            <PlayerVehicleCards
-              vehicles={vehicles.slice((currentPage - 1) * pageSize, currentPage * pageSize)}
-              select={selectVehicle}
-              showNaval={category !== "ground"}
-              noRecords={noRecords}
-            />
+            <div className="wt-vehicle-tile-grid wt-garage-tiles">
+              {vehicles
+                .slice((currentPage - 1) * pageSize, currentPage * pageSize)
+                .map((vehicle) => {
+                  const owned = filtered.find((v) => v.id === vehicle.id)!;
+                  return (
+                    <article className="wt-vehicle-option" key={vehicle.id}>
+                      <VehicleTile
+                        unit={{ ...owned, image: vehicle.image, thumbnail: vehicle.thumbnail }}
+                        owned
+                        mode={mode as "ab" | "rb" | "sb"}
+                        onSelect={() => selectVehicle(vehicle)}
+                      />
+                      <small>
+                        {statsCountryLabel(owned.country)} ·{" "}
+                        {owned.rank ? `Rank ${owned.rank}` : "等级待核验"} ·{" "}
+                        {noRecords.has(vehicle.id) ? "未出击" : "已出击"}
+                      </small>
+                      <button
+                        className="wt-vehicle-text-action"
+                        onClick={() => selectVehicle(vehicle)}
+                      >
+                        查看战绩
+                      </button>
+                    </article>
+                  );
+                })}
+            </div>
             {filtered.length === 0 && <p className="wt-record-empty">没有符合当前筛选的载具。</p>}
             <PlayerVehiclePagination
               page={currentPage}

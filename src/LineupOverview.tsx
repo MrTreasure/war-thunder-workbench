@@ -1,3 +1,4 @@
+import { VehicleTile } from "./VehicleTile";
 import type { CatalogIndex, LineupRules, Mode } from "./models";
 import type { Lineup, LineupRating, LineupVehicle } from "./lineups";
 import { brLabel, vehicleStep, lineupVehicleKind, lineupRatings } from "./lineups";
@@ -27,20 +28,19 @@ export function LineupSummary({
           <li key={index} className={unit ? `is-kind-${lineupVehicleKind(unit)}` : "is-empty"}>
             <span className="lineup-summary-number">{index + 1}</span>
             {unit ? (
-              <img src={unit.thumbnailUrl} width={92} height={54} loading="lazy" alt="" />
+              <VehicleTile
+                unit={unit}
+                catalog={catalog}
+                mode={mode}
+                modeRating={brLabel(vehicleStep(unit, lineup.battleType, mode))}
+              />
             ) : (
-              <span className="lineup-summary-placeholder">—</span>
+              <span className="lineup-summary-placeholder">{id ? "资料待更新" : "空槽位"}</span>
             )}
-            <strong>{unit?.name || (id ? "资料待更新" : "空槽位")}</strong>
             {unit && (
               <small>
                 {catalog.categories[unit.category]} · Rank {unit.rank}
               </small>
-            )}
-            {unit && (
-              <span className="lineup-summary-br">
-                {mode.toUpperCase()} {brLabel(vehicleStep(unit, lineup.battleType, mode))}
-              </span>
             )}
             {unit?.category === "aviation" &&
               lineup.battleType === "air" &&

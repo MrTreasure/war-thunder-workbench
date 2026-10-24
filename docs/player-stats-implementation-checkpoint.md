@@ -145,7 +145,7 @@ Verification: `pnpm run check` and `pnpm run build` passed. A focused planner ch
 
 ## 2026-10-22 valuation detail redesign
 
-- One compact dashboard replaces the long introduction and three duplicate breakdown cards. Accessible normal/discount/trade toggles drive the current total, configured rates, donut geometry and legend together. Switching views is local and never spends quota. `secondHand` remains the transport/storage key; the display name is 交易价值 from canonical UI rules.
+- One compact dashboard replaces the long introduction and three duplicate breakdown cards. Accessible normal/discount/trade toggles drive the current total, configured rates, donut geometry and legend together. Switching views is local and never spends quota. `secondHand` remains the transport/storage key; the display name is 参考价值 from canonical UI rules.
 - Ownership coverage is summarized above the dashboard; calculation scope, provenance and full rules are expandable. Market GJN remains separate from CNY and partial totals remain explicit.
 - Research ranks are the complete canonical I–IX list independent of owned vehicles or filters; data validation compares the filter list against all canonical tree ranks. Research rows sort by descending known RP, unknown RP last, with deterministic name ties.
 - Unpriced entries use the same compact official-artwork vehicle layout, with country/category/rank, known RP, provenance and pricing reason. Whole-pack unknown quotes retain their member vehicles. Missing catalog data stays unknown.

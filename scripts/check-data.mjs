@@ -112,7 +112,7 @@ assert.equal(valuationRules.schemaVersion, 1);
 assert.equal(valuationRules.ge.cents, 18900);
 assert.equal(valuationRules.ge.units, 5000);
 assert.equal(valuationRules.rpUnit, 10000);
-assert.equal(valuationRules.scenarios.secondHand.label, "交易价值");
+assert.equal(valuationRules.scenarios.secondHand.label, "参考价值");
 assert.deepEqual(
   new Set(valuationRules.researchRanks),
   new Set(

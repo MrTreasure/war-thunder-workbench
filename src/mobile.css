@@ -2835,3 +2835,63 @@
     grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
   }
 }
+
+/* Shared vehicle tiles keep the approved geometry on small screens. */
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-vehicle-tile-grid,
+  .lineup-candidates {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 228px), 1fr));
+    justify-items: center;
+  }
+  .lineup-slots > li {
+    flex-basis: 246px;
+    width: 246px;
+  }
+  .lineup-summary-slots > li {
+    flex-basis: 246px;
+    min-width: 246px;
+  }
+  .wt-valuation-products,
+  .wt-valuation-research {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .wt-valuation-product-media {
+    justify-items: center;
+  }
+  .wt-valuation-research > article {
+    align-items: flex-start;
+  }
+  .wt-sale-watch-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+  }
+  .wt-sale-watch-row > .wt-game-card {
+    grid-column: 1;
+  }
+  .wt-sale-watch-row > .wt-sale-watch-identity,
+  .wt-sale-watch-row > .wt-sale-watch-opportunity,
+  .wt-sale-watch-row > .wt-sale-watch-countdown {
+    grid-column: 1 / -1;
+  }
+  .wt-sale-vehicle-option {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .wt-sale-vehicle-option > .wt-game-card {
+    flex-basis: 228px;
+  }
+  .wt-sale-vehicle-option > div {
+    flex-basis: calc(100% - 90px);
+  }
+  .wt-detail-route-list {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+  }
+  .wt-app-footer {
+    padding-inline: 16px;
+  }
+  .wt-app-footer a {
+    display: inline-block;
+    padding-block: 4px;
+  }
+}
