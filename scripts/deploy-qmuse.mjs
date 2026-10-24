@@ -37,7 +37,7 @@ async function api(method, path, body) {
 }
 // Preserve the existing contest setting and refuse overlapping deploys.
 const previous = await api("GET", `/api/deploy/last?appId=${appId}`);
-if (previous?.status && !["DEPLOYED", "FAILED", "CANCELLED", "CANCELED"].includes(previous.status))
+if (previous?.status && !["DEPLOYED", "FAILED", "DEPLOY_FAILED", "CANCELLED", "CANCELED"].includes(previous.status))
   throw Error("A QMuse deployment is already active; check its status before retrying");
 run([
   "exec",
@@ -92,7 +92,7 @@ for (let attempt = 0; attempt < 150; attempt++) {
     console.log(`Verified QMuse version ${versionId}: https://render.qmuse.pub/p/muse/${appId}`);
     process.exit(0);
   }
-  if (["FAILED", "CANCELLED", "CANCELED"].includes(status.status))
+  if (["FAILED", "DEPLOY_FAILED", "CANCELLED", "CANCELED"].includes(status.status))
     throw Error(`QMuse deployment ${id}: ${status.status}`);
   if (attempt % 5 === 0) console.log(`QMuse deployment ${id}: ${status.status}`);
   await new Promise((resolve) => setTimeout(resolve, 4000));

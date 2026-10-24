@@ -32,10 +32,17 @@ assert(
   !("coefficients" in statsRules.efficiency) && !("smoothing" in statsRules.efficiency),
   "Public scoring metadata must not carry a JS formula",
 );
-assert(
-  !files.some((file) => /\.(wat|wasm)$/.test(file)),
-  "Scoring binaries belong on the pinned CDN only",
+const runtimes = files.filter((file) => file.endsWith(".wasm"));
+assert.equal(runtimes.length, 1, "Publish exactly one declared local runtime");
+const runtimeBytes = await readFile(resolve(dist, runtimes[0]));
+assert.equal(runtimeBytes.byteLength, scoring.bytes, "Local runtime byte length changed");
+assert.equal(
+  createHash("sha256").update(runtimeBytes).digest("hex"),
+  scoring.sha256,
+  "Local runtime hash changed",
 );
+assert(!files.some((file) => file.endsWith(".wat")), "Do not publish runtime source");
+
 assert(
   !files.some((file) => file.endsWith(".json")),
   "Published build must not contain JSON files",

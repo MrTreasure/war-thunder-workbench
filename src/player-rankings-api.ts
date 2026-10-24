@@ -89,7 +89,7 @@ export type OwnedGarage = {
   unmatchedCount: number;
 };
 
-// Bounded, actor-cleared external cache. No bearer tokens are persisted.
+// Bounded read cache, cleared whenever the active account changes.
 type ReadState = { data: unknown; busy: boolean; error: string; until: number };
 const empty: ReadState = { data: null, busy: false, error: "", until: 0 };
 const results = new Map<string, ReadState>();

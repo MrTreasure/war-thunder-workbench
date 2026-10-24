@@ -81,16 +81,27 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
         const intent = JSON.parse(saved) as {
           verifier: string;
           state: string;
-          returnUrl: string;
+          returnUrl?: string;
+          originalPath?: string;
+          destinationPath?: string;
           destinationUrl?: string;
           expires: number;
         };
         if (intent.state !== state || intent.expires < Date.now())
           throw new Error("登录请求已过期，请重新登录。");
-        const original = new URL(intent.returnUrl);
+        const original = new URL(
+          intent.returnUrl || location.origin + appBasePath(location.pathname),
+        );
         if (original.origin !== location.origin || original.pathname !== location.pathname)
           throw new Error("登录返回地址无效。");
-        const destination = new URL(intent.destinationUrl || intent.returnUrl);
+        const destination = new URL(
+          intent.destinationPath ||
+            intent.destinationUrl ||
+            intent.originalPath ||
+            intent.returnUrl ||
+            "/",
+          location.origin,
+        );
         if (
           destination.origin !== original.origin ||
           (destination.pathname !== original.pathname &&
@@ -197,15 +208,13 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
   }, [refreshSession, resetIdentity]);
   async function redirectLogin() {
     const challenge = await loginChallenge();
-    const returnUrl = new URL(window.location.href);
-    if (pathLocale(returnUrl.pathname)) {
-      returnUrl.pathname = appBasePath(returnUrl.pathname);
-      returnUrl.searchParams.set("lang", getLocale());
-    }
+    const returnUrl = new URL(appBasePath(window.location.pathname), window.location.origin);
+    returnUrl.searchParams.set("lang", getLocale());
     const intent = {
-      ...challenge,
+      verifier: challenge.verifier,
+      state: challenge.state,
       returnUrl: returnUrl.href,
-      destinationUrl: window.location.href,
+      destinationPath: window.location.pathname + window.location.search + window.location.hash,
       expires: Date.now() + 10 * 60 * 1000,
     };
     sessionStorage.setItem("wt-auth-intent-v1", JSON.stringify(intent));
