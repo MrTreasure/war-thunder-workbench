@@ -95,9 +95,11 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
             destination.origin === location.origin &&
             (destination.pathname === location.pathname ||
               appBasePath(destination.pathname) === appBasePath(location.pathname))
-          )
+          ) {
+            const changedPath = destination.pathname !== location.pathname;
             history.replaceState(history.state, "", destination);
-          else history.replaceState(history.state, "", url);
+            if (changedPath) window.dispatchEvent(new Event("wt-language-url-change"));
+          } else history.replaceState(history.state, "", url);
         } else history.replaceState(history.state, "", url);
       }
       if (code) {
