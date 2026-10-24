@@ -33,7 +33,7 @@ if (!dryRun) {
   const gatewayAddresses = await lookup("api.mrtreasure.cc", { all: true, family: 4 });
   function gatewayCheck(method, headers, body) {
     const args = [
-      "--http2",
+      "--http1.1",
       "--ipv4",
       "--compressed",
       "--silent",
@@ -153,7 +153,7 @@ async function verifyWorker(html) {
     return spawnSync(
       "curl",
       [
-        "--http2",
+        "--http1.1",
         "--ipv4",
         "--compressed",
         "--fail",
