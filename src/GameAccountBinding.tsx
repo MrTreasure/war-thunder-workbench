@@ -14,7 +14,7 @@ export function GameAccountBinding({ profile }: { profile: PlayerProfile }) {
   const request = useRef(`bind_${crypto.randomUUID().replaceAll("-", "")}`);
   const current = workspace?.binding;
   const refresh = !!current && current.uid === profile.uid;
-  if (!session?.user || !workspace?.ready || (current && !refresh)) return null;
+  if (!session?.user?.id || !workspace?.ready || (current && !refresh)) return null;
   const limit = session.limits.valuationLimit;
   const remaining =
     limit == null
