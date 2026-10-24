@@ -53,14 +53,12 @@ for (const [category, values] of Object.entries(catalog.trees))
         for (const unit of node.members) {
           localized(unit, localization.vehicles[unit.id]);
           if (vehicleDetails.vehicles[unit.id]) unit.wikiDetails = vehicleDetails.vehicles[unit.id];
-          unit.imageUrl = settings.vehicleImageTemplate.replace(
-            "{id}",
-            encodeURIComponent(unit.id),
-          );
-          unit.thumbnailUrl = settings.vehicleThumbnailTemplate.replace(
-            "{id}",
-            encodeURIComponent(unit.id),
-          );
+          unit.imageUrl =
+            settings.vehicleMediaOverrides?.[unit.id]?.imageUrl ||
+            settings.vehicleImageTemplate.replace("{id}", encodeURIComponent(unit.id));
+          unit.thumbnailUrl =
+            settings.vehicleMediaOverrides?.[unit.id]?.thumbnailUrl ||
+            settings.vehicleThumbnailTemplate.replace("{id}", encodeURIComponent(unit.id));
           const rp = research[unit.id];
           if (Number.isSafeInteger(rp?.rp) && rp.rp >= 0) {
             unit.rp = rp.rp;

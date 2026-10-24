@@ -47,6 +47,16 @@
       "transform": "Original remote image, no crop",
       "sourceSha256": "4ef2012f8a0f95ff9cf69f58388c93be625134757c82f5d299e460219d2ee07c",
       "checkedAt": "2026-10-19T13:07:19.406906+00:00"
+    },
+    {
+      "id": "cardFont",
+      "path": "src/assets/RobotoCondensed-Regular.ttf",
+      "source": "https://warthunder.com/assets/fonts/RobotoCondensed/regular.ttf",
+      "sourcePage": "https://warthunder.com/css/fonts.css",
+      "transform": "Original regular weight font for game research cards",
+      "sourceSha256": "f05ab6c1eade444bbf4e3e00710756e95c2a1d09a10425967149802219c0c0cb",
+      "sha256": "f05ab6c1eade444bbf4e3e00710756e95c2a1d09a10425967149802219c0c0cb",
+      "delivery": "local"
     }
   ]
 }

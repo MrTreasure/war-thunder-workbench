@@ -24,7 +24,7 @@ location ^~ /muse/war-thunder-trees/ {
     add_header X-Frame-Options "DENY" always;
     add_header X-Content-Type-Options "nosniff" always;
     add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
-    add_header Content-Security-Policy "default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; form-action 'none'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://unpkg.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https://api.mrtreasure.cc https://static.encyclopedia.warthunder.com https://cdn.jsdelivr.net https://raw.githubusercontent.com https://wtmaps.mrtreasure.cc https://cloudflareinsights.com https://*.cloudflareinsights.com" always;
+    add_header Content-Security-Policy "default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; form-action 'none'; script-src 'self' 'unsafe-inline' https://unpkg.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https://api.mrtreasure.cc https://static.encyclopedia.warthunder.com https://cdn.jsdelivr.net https://raw.githubusercontent.com https://wtmaps.mrtreasure.cc https://cloudflareinsights.com https://*.cloudflareinsights.com" always;
     add_header X-Robots-Tag "noindex, nofollow, noarchive" always;
     add_header Cache-Control "no-store" always;
 }

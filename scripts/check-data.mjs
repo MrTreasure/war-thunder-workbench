@@ -331,11 +331,13 @@ for (const [category, countries] of Object.entries(catalog.trees))
           checkName(unit, localization.vehicles[unit.id], unit.nameEn);
           assert.equal(
             unit.imageUrl,
-            settings.vehicleImageTemplate.replace("{id}", encodeURIComponent(unit.id)),
+            settings.vehicleMediaOverrides?.[unit.id]?.imageUrl ||
+              settings.vehicleImageTemplate.replace("{id}", encodeURIComponent(unit.id)),
           );
           assert.equal(
             unit.thumbnailUrl,
-            settings.vehicleThumbnailTemplate.replace("{id}", encodeURIComponent(unit.id)),
+            settings.vehicleMediaOverrides?.[unit.id]?.thumbnailUrl ||
+              settings.vehicleThumbnailTemplate.replace("{id}", encodeURIComponent(unit.id)),
           );
           for (const br of Object.values(unit.br)) assert(Number.isSafeInteger(br) && br >= 0);
           if (unit.rp !== undefined) assert(Number.isSafeInteger(unit.rp) && unit.rp >= 0);

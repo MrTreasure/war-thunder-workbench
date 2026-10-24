@@ -1,3 +1,4 @@
+import { vehicleMedia } from "./vehicle-media";
 import { vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { localize, t } from "./i18n/core";
@@ -5,6 +6,7 @@ import { useState } from "react";
 import type { Vehicle } from "./models";
 export function VehicleImage({ unit }: { unit: Vehicle }) {
   useLocale();
+  const media = vehicleMedia(unit.id, unit.imageUrl, unit.thumbnailUrl);
 
   const [source, setSource] = useState<"large" | "thumbnail" | "failed">("large");
   const [loaded, setLoaded] = useState(false);
@@ -20,7 +22,7 @@ export function VehicleImage({ unit }: { unit: Vehicle }) {
         !loaded && <output className="vehicle-image-status">{t("正在载入官方图片…")}</output>,
       )}
       <img
-        src={source === "large" ? unit.imageUrl : unit.thumbnailUrl}
+        src={source === "large" ? media.imageUrl : media.thumbnailUrl}
         alt={localize(`${localize(vehicleName(unit))} 官方载具图片`)}
         width={1000}
         height={600}

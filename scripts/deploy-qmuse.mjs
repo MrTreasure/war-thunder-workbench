@@ -23,6 +23,11 @@ const binding = JSON.parse(
 const appId = binding.targets?.prod?.appId;
 if (appId !== "8645013411493394")
   throw Error("Unexpected QMuse binding; do not create a new application");
+// Keep the application source inventory free of retired scoring binaries.
+const { preflightImport } = await import("@qmuse/qmuse-cli/dist/import/preflight.js");
+const sourceInventory = await preflightImport(root);
+if (sourceInventory.files.some((file) => /\.(wasm|wat)$/.test(file.relativePath)))
+  throw Error("Retired efficiency binaries must not be included in the QMuse source package");
 if (dryRun) {
   console.log(
     "Dry run passed: checked build; next steps would import the bound app and publish its READY version. No QMuse calls made.",
@@ -37,7 +42,10 @@ async function api(method, path, body) {
 }
 // Preserve the existing contest setting and refuse overlapping deploys.
 const previous = await api("GET", `/api/deploy/last?appId=${appId}`);
-if (previous?.status && !["DEPLOYED", "FAILED", "DEPLOY_FAILED", "CANCELLED", "CANCELED"].includes(previous.status))
+if (
+  previous?.status &&
+  !["DEPLOYED", "FAILED", "DEPLOY_FAILED", "CANCELLED", "CANCELED"].includes(previous.status)
+)
   throw Error("A QMuse deployment is already active; check its status before retrying");
 run([
   "exec",

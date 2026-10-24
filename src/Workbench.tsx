@@ -12,7 +12,7 @@ import { Component, createContext, useContext, useEffect, useMemo, useRef, useSt
 import { useRouterState } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import type { CartItem, Catalog, CatalogIndex, DataManifest, CountryPayload, Mode } from "./models";
-import { TreeCanvas, modes, rating, rpText } from "./TreeCanvas";
+import { TreeCanvas, treeLayout, modes, rating, rpText } from "./TreeCanvas";
 import { indexTree } from "./planner";
 import { VehicleCalculator } from "./VehicleCalculator";
 import { ModificationCalculator } from "./Modifications";
@@ -215,6 +215,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   const mobileToolsToggle = useRef<HTMLButtonElement>(null);
   const [filter, setFilter] = useState("all");
   const [zoom, setZoom] = useState(1);
+  const [autoZoom, setAutoZoom] = useState(true);
   const [locate, setLocate] = useState(0);
   const [modal, setModal] = useState<"parts" | "vehicle" | "cart" | "image" | null>(null);
   useEffect(() => {
@@ -255,6 +256,18 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
     countryPicker = useRef<HTMLDetailsElement>(null),
     searchWrap = useRef<HTMLDivElement>(null);
   const tree = P.trees[category][country];
+  useEffect(() => {
+    const frame = viewport.current;
+    if (!frame || !tree || !autoZoom) return;
+    const fit = () =>
+      setZoom(
+        Math.max(0.5, Math.min(1, (frame.clientWidth - 24) / treeLayout(tree, expanded).width)),
+      );
+    fit();
+    const observer = new ResizeObserver(fit);
+    observer.observe(frame);
+    return () => observer.disconnect();
+  }, [tree, expanded, autoZoom]);
   const indexed = useMemo(() => indexTree(tree), [tree]);
   const all =
     tree?.ranks
@@ -633,19 +646,24 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                 <button
                   aria-label={t("缩小")}
                   disabled={zoom <= 0.5}
-                  onClick={() =>
-                    setZoom((value) => Math.max(0.5, Math.round((value - 0.1) * 10) / 10))
-                  }
+                  onClick={() => {
+                    setAutoZoom(false);
+                    setZoom((value) => Math.max(0.5, Math.round((value - 0.1) * 10) / 10));
+                  }}
                 >
                   −
                 </button>
-                <output>{localize(Math.round(zoom * 100))}%</output>
+                <output>{Math.round(zoom * 100)}%</output>
+                <button onClick={() => setAutoZoom(true)} aria-pressed={autoZoom}>
+                  {t("适应窗口")}
+                </button>
                 <button
                   aria-label={t("放大")}
                   disabled={zoom >= 1.4}
-                  onClick={() =>
-                    setZoom((value) => Math.min(1.4, Math.round((value + 0.1) * 10) / 10))
-                  }
+                  onClick={() => {
+                    setAutoZoom(false);
+                    setZoom((value) => Math.min(1.4, Math.round((value + 0.1) * 10) / 10));
+                  }}
                 >
                   ＋
                 </button>

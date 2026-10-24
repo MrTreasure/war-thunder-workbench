@@ -1,5 +1,4 @@
 import { readFile, writeFile } from "node:fs/promises";
-import { createHash } from "node:crypto";
 const read = async (p) => JSON.parse(await readFile(new URL("../" + p, import.meta.url), "utf8"));
 const tree = await read("data/trees.json"),
   loc = (await read("data/localization.json")).entries;
@@ -24,20 +23,10 @@ function walk(v, country, category) {
 for (const [category, countries] of Object.entries(tree.trees))
   for (const [country, value] of Object.entries(countries)) walk(value, country, category);
 const output = new URL("../../war-thunder-stats-service/data/", import.meta.url);
-const runtime = await read("data/player-efficiency-wasm.json");
-const binary = await readFile(new URL("efficiency-v3.wasm", output));
-if (
-  binary.length !== runtime.bytes ||
-  createHash("sha256").update(binary).digest("hex") !== runtime.sha256
-)
-  throw new Error(
-    "Install the verified runtime in the local service before updating scoring metadata",
-  );
 for (const [name, value] of Object.entries({
   "vehicle-labels.json": labels,
   "report-assets.json": await read("data/player-report-assets.json"),
   "stats-rules.json": await read("data/player-stats-rules.json"),
-  "player-efficiency-wasm.json": runtime,
   "report-styles.json": await read("data/player-report-styles.json"),
 }))
   await writeFile(new URL(name, output), JSON.stringify(value));

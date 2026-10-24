@@ -2150,5 +2150,17 @@
   "国家资料资源不完整，已保留上次数据。": "Nation data is incomplete. Previous data has been retained.",
   "暂无资料": "No data available",
   "免费": "Free",
-  "阶级": "Rank"
+  "阶级": "Rank",
+  "{0}，Rank {1}{2}，{3}，查看研发信息": "{0}, Rank {1}{2}, {3}, view research details",
+  "初始": "Reserve",
+  "护身符": "Talisman",
+  "整包": "Full pack",
+  "{0} · 价格核对于 {1}": "{0} · Price checked on {1}",
+  "适应窗口": "Fit to window",
+  "图片暂缺": "Image unavailable",
+  "金鹰": "Golden Eagles",
+  "特殊": "Special",
+  " · 已筛选": " · Filtered",
+  " · 搜索：{0}": " · Search: {0}",
+  " · 无法记住选择": " · Unable to save selection"
 }

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="theme-color" content="#10171d">
+<title>科技树 · 游戏样式预览</title>
+<link rel="icon" href="https://warthunder.com/i/favicons/favicon.ico">
+<link rel="stylesheet" href="./{{STYLE}}">
+<script src="./{{SCRIPT}}" defer></script>
+</head>
+<body>
+<div class="wt-scene" aria-hidden="true"></div>
+<header class="wt-preview-header">
+  <div class="wt-preview-brand"><img src="https://warthunder.com/assets/img/svg/logo-wt.svg" width="100" height="43" alt="War Thunder"><span>科技树<span class="wt-preview-tag">样式预览</span></span></div>
+  <div class="wt-preview-tools">
+    <nav class="wt-view-tabs" aria-label="预览区域"><button type="button" data-view="early" aria-pressed="true">低阶科技树</button><button type="button" data-view="modern" aria-pressed="false">现代载具</button></nav>
+    <div class="wt-zoom" role="group" aria-label="科技树缩放"><button type="button" data-zoom="out" aria-label="缩小">−</button><output id="zoom-value" aria-live="polite">适应</output><button type="button" data-zoom="in" aria-label="放大">＋</button><button type="button" data-zoom="fit">适应窗口</button></div>
+  </div>
+</header>
+<div class="wt-context-bar"><div class="wt-context"><img src="https://wiki.warthunder.com/static/country_svg/country_ussr.svg" width="31" height="21" alt="">苏联<span>陆军</span><span>历史模式</span></div><div class="wt-legend"><span class="wt-legend-owned" aria-hidden="true">♠</span><span>已拥有示例</span><span class="wt-legend-help">点击卡片切换拥有状态</span></div></div>
+<main class="wt-tree-viewport" id="tree-viewport" aria-label="科技树静态预览" tabindex="0">
+ <div class="wt-scale-frame" id="scale-frame"><div class="wt-tree-canvas" id="tree-canvas">{{TREES}}</div></div>
+</main>
+<footer class="wt-preview-footer"><span id="selection-note" aria-live="polite">普通载具保留各自研发点；黑桃仅表示已拥有。</span><span>礼包为整包报价 · 核对于 {{PRICE_DATE}} <span class="wt-footer-site">wt.mrtreasure.cc</span></span></footer>
+</body>
+</html>
