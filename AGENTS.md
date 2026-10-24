@@ -15,6 +15,8 @@
 - `deploy:qmuse` 用于正式站；`deploy:cf` 用于国际站。禁止运行旧 `deploy:preview`、`publish`、`release` 及共享 Render 发布流程；不得将其当作正式站或国际站的发布步骤。
 - 验收使用用户明确授权的 QMuse 或国际站部署；尚未发布的本地构建不能宣称已在线。发布前保留构建、Git 版本及必要回滚材料。
 - 国际站 SEO canonical 与 Web Analytics 继续对应 wt 域名；后台“页面分析”保持直达该站统计。
+- 国际站发布使用 `feat/seo-localized-pages` 的多语言工作区，合并 main 后补充英、俄、日文案，不得以中文 main 构建覆盖国际站。
+- 2026-10-24 QMuse 90800278 被平台自动审核以「未声明 WASM」拒绝；官方 CLI 1.0.7 的源码清单已含既有 911 字节本地资产及 SHA。保留上一线上版，需核对平台正式声明规范或由平台复核；不得隐藏 WebAssembly 调用、伪装文件或绕过审核。
 - 旧 `../war-thunder-trees/` 和 NAS Muse 目录仅作历史存档，不是发布目标。
 
 ## 项目实现约束

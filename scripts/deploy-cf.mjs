@@ -8,6 +8,9 @@ import { fileURLToPath } from "node:url";
 
 setDefaultResultOrder("ipv4first");
 const root = fileURLToPath(new URL("../", import.meta.url));
+try { await readFile(resolve(root, "src/i18n/core.ts")); } catch {
+  throw Error("CF international deployment requires the feat/seo-localized-pages multilingual checkout.");
+}
 const runtime = process.env.WT_CF_RUNTIME || "/vol1/1000/appdata/war-thunder-trees/cloudflare";
 const dryRun = process.argv.slice(2).includes("--dry-run");
 const verifyOnly = process.argv.slice(2).includes("--verify-only");
