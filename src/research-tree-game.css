@@ -408,3 +408,24 @@
     transition: none;
   }
 }
+
+.canvas {
+  --wt-game-wire: #4c686d;
+  --wt-game-wire-active: #8eb0ae;
+}
+.canvas .edge {
+  stroke: var(--wt-game-wire);
+  stroke-width: 9;
+  stroke-linecap: butt;
+  stroke-linejoin: miter;
+}
+.canvas .edge.is-route {
+  stroke: var(--wt-game-wire-active);
+  stroke-width: 9;
+}
+.canvas #arrow path {
+  fill: var(--wt-game-wire);
+}
+.canvas #arrow-active path {
+  fill: var(--wt-game-wire-active);
+}

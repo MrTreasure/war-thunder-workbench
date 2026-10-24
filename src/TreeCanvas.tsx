@@ -333,25 +333,27 @@ export function TreeCanvas({
           <defs>
             <marker
               id="arrow"
-              viewBox="0 0 8 8"
-              refX="7"
-              refY="4"
-              markerWidth="6"
-              markerHeight="6"
+              viewBox={cardTheme.researchArrows.viewBox}
+              refX="9"
+              refY="9.5"
+              markerWidth="19"
+              markerHeight="19"
+              markerUnits="userSpaceOnUse"
               orient="auto"
             >
-              <path d="M0 0 L8 4 L0 8Z" />
+              <path d={cardTheme.researchArrows.path} transform="rotate(-90 9.5 9.5)" />
             </marker>
             <marker
               id="arrow-active"
-              viewBox="0 0 8 8"
-              refX="7"
-              refY="4"
-              markerWidth="6"
-              markerHeight="6"
+              viewBox={cardTheme.researchArrows.viewBox}
+              refX="9"
+              refY="9.5"
+              markerWidth="19"
+              markerHeight="19"
+              markerUnits="userSpaceOnUse"
               orient="auto"
             >
-              <path d="M0 0 L8 4 L0 8Z" />
+              <path d={cardTheme.researchArrows.path} transform="rotate(-90 9.5 9.5)" />
             </marker>
           </defs>
           {tree.edges.map((edge) => {

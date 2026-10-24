@@ -2,6 +2,8 @@ import { getLocale } from "./i18n/core";
 import { vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { localize, t } from "./i18n/core";
+import { ModificationGrid } from "./ModificationGrid";
+import { VehicleImage } from "./VehicleImage";
 import { GameSelect } from "./components/GameSelect";
 import { useState } from "react";
 import type { CartItem, Catalog, Modifications, Tree, Vehicle } from "./models";
@@ -303,42 +305,28 @@ function PartsForm({
           <output className="calc-note">{localize(message)}</output>
         </div>
         <h3>{t("配件明细 / 已完成")}</h3>
-        <div className="parts-list">
-          {localize(
-            data?.items.map((item) => (
-              <label key={item.id} className="calc-owned-row">
-                <input
-                  type="checkbox"
-                  disabled={!data.itemCostsComplete || state.included}
-                  checked={
-                    state.included || (data.itemCostsComplete && state.completed.includes(item.id))
-                  }
-                  onChange={(e) =>
-                    update({
-                      completed: e.target.checked
-                        ? [...state.completed, item.id]
-                        : state.completed.filter((id) => id !== item.id),
-                    })
-                  }
-                />
-                <span className="calc-unit-label">
-                  <span>{localize(vehicleName(item))}</span>
-                  <small>{localize(item.id)}</small>
-                </span>
-                <strong>
-                  {localize(item.rp === null ? "官方未提供" : `${localize(format(item.rp))} RP`)}
-                </strong>
-              </label>
-            )),
-          )}
-          {localize(
-            !data?.items.length && (
-              <p className="calc-note">
-                {t("官方页面未列出可用的逐项配件成本；可使用左侧的完整总 RP 手动报价。")}
-              </p>
-            ),
-          )}
+        <div className="wt-parts-vehicle">
+          <VehicleImage key={unit.id} unit={unit} />
+          <span>{vehicleName(unit)}</span>
         </div>
+        {data?.items.length ? (
+          <ModificationGrid
+            data={data}
+            included={state.included}
+            completed={state.completed}
+            onChange={(id, checked) =>
+              update({
+                completed: checked
+                  ? [...state.completed, id]
+                  : state.completed.filter((value) => value !== id),
+              })
+            }
+          />
+        ) : (
+          <p className="calc-note">
+            {t("官方页面未列出可用的逐项配件成本；可使用左侧的完整总 RP 手动报价。")}
+          </p>
+        )}
       </section>
     </div>
   );

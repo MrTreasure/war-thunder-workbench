@@ -11,6 +11,7 @@ const manifest = await read("src/generated/manifest.json");
 const catalog = await read("data/generated/catalog.json"),
   mods = await read("data/modifications.json");
 const settings = await read("data/catalog-settings.json");
+const modificationPresentation = await read("data/modification-presentation.json");
 const localization = await read("data/localization.json");
 const lineupRules = await read("data/lineup-rules.json");
 const codebook = await read("data/lineup-codebook.json");
@@ -449,16 +450,43 @@ for (const [country, entry] of Object.entries(manifest.countries)) {
     if (ids.has(id)) assert(unitIds.has(id), `Wrong country in lineup registry: ${country}/${id}`);
   for (const [id, row] of Object.entries(payload.modifications)) {
     const original = mods[id];
-    const { items, ...metadata } = row;
+    const { items, presentation, ...metadata } = row;
+    const layout = modificationPresentation.layouts[id];
+    assert.deepEqual(
+      presentation,
+      layout
+        ? { groups: layout.groups, source: layout.source, checkedAt: layout.checkedAt }
+        : undefined,
+    );
     const { items: originalItems, ...originalMetadata } = original;
     assert.deepEqual(metadata, originalMetadata);
     assert.equal(items.length, originalItems.length);
     items.forEach((item, index) => {
       const source = originalItems[index];
       checkName(item, localization.modifications[source.id + "\t" + source.name], source.name);
-      const { name, nameEn, nameRu, nameJa, nameZhCN, localizationKey, ...costFields } = item;
+      const {
+        name,
+        nameEn,
+        nameRu,
+        nameJa,
+        nameZhCN,
+        localizationKey,
+        imageUrl,
+        position,
+        ...costFields
+      } = item;
       const { name: originalName, ...originalCostFields } = source;
       assert.deepEqual(costFields, originalCostFields);
+      if (imageUrl)
+        assert.match(
+          imageUrl,
+          /^https:\/\/static\.encyclopedia\.warthunder\.com\/gui_skin\/[A-Za-z0-9_./-]+\.(png|svg|webp)$/,
+        );
+      if (position) {
+        const proof = layout?.items.find((entry) => entry.id === item.id);
+        assert(proof, "Modification grid coordinates require verified per-unit provenance");
+        assert.deepEqual(position, { group: proof.group, row: proof.row, column: proof.column });
+      }
     });
   }
 }

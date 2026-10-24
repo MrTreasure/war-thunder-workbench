@@ -2162,5 +2162,12 @@
   "特殊": "Special",
   " · 已筛选": " · Filtered",
   " · 搜索：{0}": " · Search: {0}",
-  " · 无法记住选择": " · Unable to save selection"
+  " · 无法记住选择": " · Unable to save selection",
+  "配件等级": "Modification tiers",
+  "机动": "Mobility",
+  "防护": "Protection",
+  "火力": "Firepower",
+  "飞行性能": "Flight performance",
+  "生存性": "Survivability",
+  "武器": "Weaponry"
 }
