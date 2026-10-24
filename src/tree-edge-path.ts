@@ -16,7 +16,7 @@ export function treeEdgePath(
         [from.x + cardWidth + 10, from.y + 38],
         [from.x + cardWidth + 10, y2 - 9],
         [x2, y2 - 9],
-        [x2, y2],
+        [x2, y2 - 1],
         [x2, y2],
       ]
     : x1 === x2
@@ -24,8 +24,8 @@ export function treeEdgePath(
           [x1, y1],
           [x1, y1],
           [x1, y1],
-          [x2, y2],
-          [x2, y2],
+          [x2, y2 - 2],
+          [x2, y2 - 1],
           [x2, y2],
         ]
       : [

@@ -45,5 +45,12 @@ def main():
      existing=data['images'].get(item['id'])
      shared=not existing or (existing.get('universal',True) and existing['url']==item['imageUrl'])
      data['images'][item['id']]={'url':item['imageUrl'],'source':layout['source'],'checkedAt':layout['checkedAt'],'universal':shared}
+ trees=json.loads((ROOT/'data/trees.json').read_text())
+ countries={u['id']:country for categories in trees['trees'].values() for country,tree in categories.items() if tree for rank in tree['ranks'] for node in rank['research']+rank['special'] for u in node['members']}
+ data['countryImages']={}
+ for uid,layout in data['layouts'].items():
+  for item in layout['items']:
+   if item['id']=='tank_medical_kit' and item.get('imageUrl') and countries.get(uid):
+    data['countryImages'].setdefault(item['id'],{})[countries[uid]]={'url':item['imageUrl'],'source':layout['source'],'checkedAt':layout['checkedAt']}
  previous.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n');print(json.dumps({'verifiedUnitLayouts':len(data['layouts']),'verifiedModificationImages':len(data['images'])}))
 if __name__=='__main__':main()

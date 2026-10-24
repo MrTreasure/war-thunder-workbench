@@ -9,15 +9,15 @@
     },
     "germany": {
       "key": "country-germany",
-      "file": "country-germany.9877cb583e0a47d7.js",
-      "sha256": "9877cb583e0a47d71f8abf2692248b6cae61f020804666feef7ee8fc107fa8f6",
-      "bytes": 2644200
+      "file": "country-germany.bedef54906f5e20e.js",
+      "sha256": "bedef54906f5e20e85547823b672b2a2cbcca01f3c99ae0c1dc0d724bd969cf9",
+      "bytes": 2662610
     },
     "ussr": {
       "key": "country-ussr",
-      "file": "country-ussr.970d0806bbf7d227.js",
-      "sha256": "970d0806bbf7d22765ff2d9753ed4e81f2d0194be89214ff5a19304d804eacb4",
-      "bytes": 2830956
+      "file": "country-ussr.5b3688a1c9c8bc4a.js",
+      "sha256": "5b3688a1c9c8bc4acff88e97e4734e38c21737de41a99a282ab35e9f2957c0b3",
+      "bytes": 2848626
     },
     "britain": {
       "key": "country-britain",
