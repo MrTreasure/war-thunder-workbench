@@ -108,7 +108,7 @@ for (const file of files) {
   if (!info.isFile()) continue;
   count++;
   if (info.size > 25 * 1024 * 1024) throw Error(`Asset exceeds Cloudflare's 25 MiB limit: ${file}`);
-  if (/\.(json|map|py|ts|tsx|wat|wasm|env|yml|yaml)$/.test(file))
+  if (/\.(json|map|py|ts|tsx|wat|env|yml|yaml)$/.test(file))
     throw Error(`Unexpected source/private payload: ${file}`);
 }
 if (count > 20000)

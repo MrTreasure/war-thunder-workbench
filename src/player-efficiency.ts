@@ -1,3 +1,4 @@
+import runtimeUrl from "./assets/player-efficiency.v3.wasm?no-inline&url";
 import manifest from "../data/player-efficiency-wasm.json";
 
 // The runtime has a separate license from the application's MIT license.
@@ -32,11 +33,11 @@ async function readCache(): Promise<ArrayBuffer | null> {
   }
   try {
     const cache = await caches.open(DIRECTORY);
-    const response = await cache.match(manifest.url);
+    const response = await cache.match(runtimeUrl);
     if (response) {
       const buffer = await response.arrayBuffer();
       if (await verified(buffer)) return buffer;
-      await cache.delete(manifest.url);
+      await cache.delete(runtimeUrl);
     }
   } catch {
     /* Cache Storage is an independent fallback, never an eviction target. */
@@ -62,7 +63,7 @@ async function writeCache(buffer: ArrayBuffer) {
   try {
     const cache = await caches.open(DIRECTORY);
     await cache.put(
-      manifest.url,
+      runtimeUrl,
       new Response(buffer, {
         headers: { "Content-Type": "application/wasm" },
       }),
@@ -73,20 +74,14 @@ async function writeCache(buffer: ArrayBuffer) {
 }
 
 async function download() {
-  for (const url of [manifest.url, manifest.fallbackUrl]) {
-    try {
-      const response = await fetch(url, {
-        credentials: "omit",
-        mode: "cors",
-        cache: "force-cache",
-        signal: AbortSignal.timeout(12000),
-      });
-      if (!response.ok) continue;
-      const buffer = await response.arrayBuffer();
-      if (await verified(buffer)) return buffer;
-    } catch {
-      /* Try the other pinned source; never fall back to a JS formula. */
-    }
+  const response = await fetch(runtimeUrl, {
+    credentials: "omit",
+    cache: "force-cache",
+    signal: AbortSignal.timeout(12000),
+  });
+  if (response.ok) {
+    const buffer = await response.arrayBuffer();
+    if (await verified(buffer)) return buffer;
   }
   throw new Error("效率评分组件暂时无法加载或校验失败，请稍后重试。");
 }

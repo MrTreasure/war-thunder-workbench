@@ -177,7 +177,7 @@ export function forgetStatsAccount() {
   localStorage.removeItem("wt-account-known-v1");
   localStorage.setItem("wt-account-change-v1", crypto.randomUUID());
 }
-// Old bearer credentials are retired instead of being copied into the new flow.
+// Retire legacy authentication state instead of migrating it into the current flow.
 try {
   if (stored(SESSION)) {
     localStorage.setItem("wt-account-known-v1", "1");

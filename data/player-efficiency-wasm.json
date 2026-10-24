@@ -10,5 +10,7 @@
   "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@a56592405d454051039bfdc2d40da9266b1eb535/war-thunder/efficiency/v3/561ca43f4df8ea46cc2d0c83878d1d86b36f5deda466fcf97da56a44d8771147.wasm",
   "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/a56592405d454051039bfdc2d40da9266b1eb535/war-thunder/efficiency/v3/561ca43f4df8ea46cc2d0c83878d1d86b36f5deda466fcf97da56a44d8771147.wasm",
   "noticeUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/a56592405d454051039bfdc2d40da9266b1eb535/war-thunder/efficiency/v3/NOTICE.txt",
-  "license": "Restricted application runtime; see NOTICE.txt"
+  "license": "Restricted application runtime; see NOTICE.txt",
+  "localPath": "src/assets/player-efficiency.v3.wasm",
+  "purpose": "Verified local War Thunder workbench efficiency runtime; no imports, no network or storage access"
 }

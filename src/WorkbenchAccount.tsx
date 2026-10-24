@@ -72,9 +72,9 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
         url.searchParams.delete("wt_auth_state");
         history.replaceState(history.state, "", url);
         if (!saved) throw new Error("登录请求已过期，请重新登录。");
-        const intent = JSON.parse(saved) as { verifier: string; state: string; returnUrl: string; expires: number };
+        const intent = JSON.parse(saved) as { verifier: string; state: string; returnUrl?: string; originalPath?: string; expires: number };
         if (intent.state !== state || intent.expires < Date.now()) throw new Error("登录请求已过期，请重新登录。");
-        const original = new URL(intent.returnUrl);
+        const original = new URL(intent.originalPath || intent.returnUrl || "/", location.origin);
         if (original.origin !== location.origin || original.pathname !== location.pathname) throw new Error("登录返回地址无效。");
         history.replaceState(history.state, "", original);
         const result = await statsRequest<{ token: string }>("auth/exchange", { code, verifier: intent.verifier });
@@ -158,11 +158,12 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
   }, [refreshSession, resetIdentity]);
   async function redirectLogin() {
     const challenge = await loginChallenge();
-    const intent = { ...challenge, returnUrl: window.location.href, expires: Date.now() + 10 * 60 * 1000 };
+    const returnUrl = window.location.origin + window.location.pathname;
+    const intent = { verifier: challenge.verifier, state: challenge.state, originalPath: window.location.pathname + window.location.search + window.location.hash, expires: Date.now() + 10 * 60 * 1000 };
     sessionStorage.setItem("wt-auth-intent-v1", JSON.stringify(intent));
     const start = await statsRequest<{ authorizeUrl: string }>("auth/start", {
       challenge: challenge.challenge, state: challenge.state,
-      returnUrl: window.location.href,
+      returnUrl,
     });
     window.location.assign(start.authorizeUrl);
   }
