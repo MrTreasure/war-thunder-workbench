@@ -1,6 +1,7 @@
-import { getLocale } from "./i18n/core";
+import { localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
-import { localize, t } from "./i18n/core";
+import { t } from "./i18n/core";
+import { useAccountWorkspace } from "./workspace-context";
 import { useState } from "react";
 import type { CartItem } from "./models";
 import { Modal, Metrics } from "./Modal";
@@ -18,34 +19,47 @@ export function Cart({
 }) {
   useLocale();
 
+  const workspace = useAccountWorkspace();
   const [copyMessage, setCopyMessage] = useState("");
   const summary = aggregate(items);
   const text = [
-    "战争雷霆研发购物车",
+    t("战争雷霆研发购物车"),
     ...items.flatMap((item) => [
-      `${item.title} · ${item.kind === "vehicle" ? "载具研发" : "配件研发"}`,
+      t("{0} · {1}", [item.title, item.kind === "vehicle" ? t("载具研发") : t("配件研发")]),
       item.details,
-      `快照：${item.dataVersion}`,
+      t("快照：{0}", [item.dataVersion]),
     ]),
-    `去重后 ${format(summary.rp)} RP`,
+    t("去重后 {0} RP", [format(summary.rp)]),
     summary.conflicts.length
-      ? `单价冲突：${summary.conflicts.join("、")}，请先移除冲突报价`
-      : `总价 ${money(summary.cents)}`,
-    "共有前置按载具去重，取较大的待研 RP；金额按去重后各项单价统一计算到分。",
+      ? t("单价冲突：{0}，请先移除冲突报价", [summary.conflicts.join("、")])
+      : t("总价 {0}", [money(summary.cents)]),
+    t("共有前置按载具去重，取较大的待研 RP；金额按去重后各项单价统一计算到分。"),
   ].join("\n");
   return (
     <Modal
       title={t("研发购物车")}
-      subtitle="保存在此浏览器 · 报价快照不会随数据更新自动改变"
+      subtitle={t("{0} · 报价快照不会随数据更新自动改变", [
+        workspace?.userId ? t("随账号保存") : t("保存在此浏览器"),
+      ])}
       close={close}
     >
       <div className="cart-content">
+        <p className="calc-note">
+          {t(
+            "购物车保存的是当时的报价。绑定、解除关联或更新车库后，请重新计算相关报价，以使用最新的已拥有载具状态。",
+          )}
+        </p>
         <Metrics rp={summary.rp} cents={summary.conflicts.length ? null : summary.cents} />
         <output className={`calc-status ${summary.conflicts.length ? "has-error" : ""}`}>
           {localize(
             summary.conflicts.length
-              ? `共有载具单价不一致：${localize(summary.conflicts.join("、"))}。请移除旧报价后重新加入。`
-              : `${localize(items.length)} 项报价 · 合并 ${localize(summary.duplicates)} 项重复研发工作。共享前置仅计一次，按较大的待研 RP 计费。`,
+              ? t("共有载具单价不一致：{0}。请移除旧报价后重新加入。", [
+                  summary.conflicts.join("、"),
+                ])
+              : t(
+                  "{0} 项报价 · 合并 {1} 项重复研发工作。共享前置仅计一次，按较大的待研 RP 计费。",
+                  [items.length, summary.duplicates],
+                ),
           )}
         </output>
         <div className="cart-actions">
@@ -76,9 +90,9 @@ export function Cart({
             onClick={async () => {
               try {
                 await navigator.clipboard.writeText(text);
-                setCopyMessage("已复制报价清单");
+                setCopyMessage(t("已复制报价清单"));
               } catch {
-                setCopyMessage("无法访问剪贴板，请使用 JSON 导出。");
+                setCopyMessage(t("无法访问剪贴板，请使用 JSON 导出。"));
               }
             }}
           >
@@ -107,9 +121,9 @@ export function Cart({
                 <div>
                   <h3>{localize(item.title)}</h3>
                   <p>
-                    {localize(item.kind === "vehicle" ? "载具研发" : "配件研发")} ·{localize(" ")}
-                    {localize(new Date(item.createdAt).toLocaleString(getLocale()))} ·
+                    {localize(item.kind === "vehicle" ? t("载具研发") : t("配件研发"))} ·
                     {localize(" ")}
+                    {localize(new Date(item.createdAt).toLocaleString("zh-CN"))} ·{localize(" ")}
                     {localize(format(item.lines.reduce((sum, line) => sum + line.rp, 0)))} RP
                   </p>
                 </div>

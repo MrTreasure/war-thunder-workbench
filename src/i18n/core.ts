@@ -167,7 +167,7 @@ function translated(source: string): string {
   return value;
 }
 /** Translate a UI message; placeholders preserve values and their order. */
-export function t(source: string, values?: readonly (string | number)[]): string {
+export function t(source: string, values?: readonly (string | number | null | undefined)[]): string {
   const value = translated(source);
   return values
     ? value.replace(/\{(\d+)\}/g, (_, index: string) => String(values[Number(index)] ?? ""))

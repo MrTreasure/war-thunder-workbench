@@ -1,7 +1,7 @@
-import { vehicleSearchText } from "./i18n/core";
-import { vehicleName } from "./i18n/core";
+import { localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
-import { localize, t } from "./i18n/core";
+import { t } from "./i18n/core";
+import { LineupNavigation } from "./components/LineupNavigation";
 import { GameSelect } from "./components/GameSelect";
 import {
   LineupSummary,
@@ -70,6 +70,7 @@ export function Lineups({
     <main className="lineup-page" aria-label={t("出击队列")}>
       <div className="lineup-content">
         <h2 className="sr-only">{t("出击队列")}</h2>
+        <LineupNavigation />
         <section className="lineup-toolbar" aria-label={t("国家与卡片权重")}>
           <label className="calc-field lineup-country-field">
             {t("国家")}
@@ -119,7 +120,7 @@ export function Lineups({
             <Modal
               className="lineup-import-dialog"
               title={t("导入出击队列")}
-              subtitle="粘贴分享码后预览，确认后保存为新队列。区分大小写。"
+              subtitle={t("粘贴分享码后预览，确认后保存为新队列。区分大小写。")}
               close={() => setImportOpen(false)}
             >
               <form
@@ -133,7 +134,7 @@ export function Lineups({
                     setImportOpen(false);
                     if (target !== country) chooseCountry(target);
                   } catch (cause) {
-                    setImportError(cause instanceof Error ? cause.message : "分享码读取失败。");
+                    setImportError(cause instanceof Error ? cause.message : t("分享码读取失败。"));
                     setPending(null);
                   }
                 }}
@@ -151,9 +152,7 @@ export function Lineups({
                     autoCapitalize="none"
                     autoCorrect="off"
                     spellCheck={false}
-                    placeholder={localize(
-                      `${localize(2 + catalog.lineup.maxSlots * 2)} 位分享码，含空槽位`,
-                    )}
+                    placeholder={t("{0} 位分享码，含空槽位", [2 + catalog.lineup.maxSlots * 2])}
                     aria-invalid={Boolean(importError)}
                     aria-describedby={importError ? "lineup-import-error" : undefined}
                   />
@@ -177,14 +176,14 @@ export function Lineups({
             <Modal
               className="lineup-import-dialog"
               title={t("导入出击队列")}
-              subtitle={`读取${catalog.countries[pending.country]}资料后预览`}
+              subtitle={t("读取{0}资料后预览", [catalog.countries[pending.country]])}
               close={() => setPending(null)}
             >
               <WarThunderLoading
                 compact
                 title={t("载入队列资料")}
                 progress={progress}
-                error={localize(error)}
+                error={error}
                 retry={error ? retry : undefined}
               />
             </Modal>
@@ -199,9 +198,9 @@ export function Lineups({
           ) : !payload || payload.country !== country ? (
             <WarThunderLoading
               compact
-              title={localize(`载入${localize(catalog.countries[country])}全部载具资料`)}
+              title={t("载入{0}全部载具资料", [catalog.countries[country]])}
               progress={progress}
-              error={localize(error)}
+              error={error}
               retry={error ? retry : undefined}
             />
           ) : (
@@ -283,14 +282,14 @@ function CountryLineups({
       const unavailable = slots.filter((id) => id && !units.has(id));
       if (unavailable.length)
         return {
-          error: `当前资料没有 ${unavailable.join("、")}，请更新资料后再导入。`,
+          error: t("当前资料没有 {0}，请更新资料后再导入。", [unavailable.join("、")]),
           slots: null,
         };
       return { slots, error: "" };
     } catch (cause) {
       return {
         slots: null,
-        error: cause instanceof Error ? cause.message : "导入失败，请检查分享码。",
+        error: cause instanceof Error ? cause.message : t("导入失败，请检查分享码。"),
       };
     }
   }, [imported, country, payload.lineupCodes, rules, units]);
@@ -299,7 +298,7 @@ function CountryLineups({
     try {
       return { code: encodeLineup(country, selected.slots, payload.lineupCodes, rules), error: "" };
     } catch (cause) {
-      return { code: "", error: cause instanceof Error ? cause.message : "无法导出分享码。" };
+      return { code: "", error: cause instanceof Error ? cause.message : t("无法导出分享码。") };
     }
   }, [selected, country, payload.lineupCodes, rules]);
   const ratings = selected ? lineupRatings(selected, units, rules) : [];
@@ -328,7 +327,7 @@ function CountryLineups({
       setDraft(lineup);
       setEditingId(null);
     } else {
-      save([...saved, lineup]);
+      if (!save([...saved, lineup])) return false;
       setDraft(null);
       setEditingId(null);
     }
@@ -343,6 +342,7 @@ function CountryLineups({
     setFiltersOpen(false);
     setDeleting("");
     setMessage("");
+    return true;
   }
   function focusHeading() {
     requestAnimationFrame(() => heading.current?.focus());
@@ -371,10 +371,13 @@ function CountryLineups({
     if (!draft || !draft.slots.some(Boolean)) return;
     const next = { ...draft, name: draft.name.trim() || t("未命名队列") };
     if (!validLineups([next], rules.maxSlots)) {
-      setMessage("队列配置不完整或载具有重复，请检查槽位。");
+      setMessage(t("队列配置不完整或载具有重复，请检查槽位。"));
       return;
     }
-    save(editingId ? saved.map((row) => (row.id === editingId ? next : row)) : [...saved, next]);
+    if (
+      !save(editingId ? saved.map((row) => (row.id === editingId ? next : row)) : [...saved, next])
+    )
+      return;
     setSelectedId(next.id);
     returnToList();
   }
@@ -383,7 +386,7 @@ function CountryLineups({
     setCopying(true);
     try {
       await navigator.clipboard.writeText(code);
-      setMessage("分享码已复制。");
+      setMessage(t("分享码已复制。"));
     } catch {
       if (shareCode.current) {
         const range = document.createRange();
@@ -392,7 +395,7 @@ function CountryLineups({
         selection?.removeAllRanges();
         selection?.addRange(range);
       }
-      setMessage("浏览器未允许复制，请选中分享码手动复制。");
+      setMessage(t("浏览器未允许复制，请选中分享码手动复制。"));
     } finally {
       setCopying(false);
     }
@@ -404,7 +407,7 @@ function CountryLineups({
     try {
       void copyCode(encodeLineup(country, row.slots, payload.lineupCodes, rules));
     } catch (cause) {
-      setMessage(cause instanceof Error ? cause.message : "无法导出分享码。");
+      setMessage(cause instanceof Error ? cause.message : t("无法导出分享码。"));
     }
   }
   function place(id: string | null) {
@@ -429,7 +432,11 @@ function CountryLineups({
       (category === "all" || unit.category === category) &&
       (rank === "all" || unit.rank === rank) &&
       (kind === "all" || (kind === "premium" ? unit.premium : lineupVehicleKind(unit) === kind)) &&
-      vehicleSearchText(unit).normalize("NFKC").toLowerCase().replaceAll(" ", "").includes(needle),
+      `${unit.name}${unit.nameEn || ""}${unit.id}`
+        .normalize("NFKC")
+        .toLowerCase()
+        .replaceAll(" ", "")
+        .includes(needle),
   );
   return (
     <>
@@ -440,69 +447,61 @@ function CountryLineups({
           </p>
         ),
       )}
-      {localize(
-        preview && (
-          <Modal
-            className="lineup-import-dialog"
-            title={localize(`导入预览 · ${localize(catalog.countries[country])}`)}
-            subtitle="核对载具与空位，保存后会新增一个队列。"
-            close={dismissImport}
-          >
-            <div className="lineup-import-preview">
-              {localize(
-                preview.error ? (
-                  <div>
-                    <p role="alert" className="lineup-feedback is-error">
-                      {localize(preview.error)}
-                    </p>
-                    <button className="quiet-button" onClick={editImport}>
-                      {t("修改分享码")}
-                    </button>
-                  </div>
-                ) : (
-                  <>
-                    <ol className="lineup-import-slots">
-                      {localize(
-                        preview.slots!.map((id, i) => (
-                          <li key={i}>
-                            <span>{localize(i + 1)}</span>
-                            {localize(id ? vehicleName(units.get(id)) || id : t("空位"))}
-                          </li>
-                        )),
-                      )}
-                    </ol>
-                    <p className="calc-note">
-                      {t(
-                        "分享码只包含国家和槽位顺序。导入后可修改名称、战斗类型及空战 RB 出击飞机。",
-                      )}
-                    </p>
-                    <button
-                      className="quiet-button calc-open"
-                      onClick={() => {
-                        create(
-                          preview.slots!,
-                          `导入队列 ${saved.length + 1}`,
-                          undefined,
-                          undefined,
-                          false,
-                        );
-                        dismissImport();
-                      }}
-                    >
-                      {t("保存为新队列")}
-                    </button>
-                  </>
-                ),
-              )}
-            </div>
-          </Modal>
-        ),
+      {preview && (
+        <Modal
+          className="lineup-import-dialog"
+          title={t("导入预览 · {0}", [catalog.countries[country]])}
+          subtitle={t("核对载具与空位，保存后会新增一个队列。")}
+          close={dismissImport}
+        >
+          <div className="lineup-import-preview">
+            {preview.error ? (
+              <div>
+                <p role="alert" className="lineup-feedback is-error">
+                  {localize(preview.error)}
+                </p>
+                <button className="quiet-button" onClick={editImport}>
+                  {t("修改分享码")}
+                </button>
+              </div>
+            ) : (
+              <>
+                <ol className="lineup-import-slots">
+                  {preview.slots!.map((id, i) => (
+                    <li key={i}>
+                      <span>{localize(i + 1)}</span>
+                      {id ? units.get(id)?.name || id : t("空位")}
+                    </li>
+                  ))}
+                </ol>
+                <p className="calc-note">
+                  {t("分享码只包含国家和槽位顺序。导入后可修改名称、战斗类型及空战 RB 出击飞机。")}
+                </p>
+                <button
+                  className="quiet-button calc-open"
+                  onClick={() => {
+                    const created = create(
+                      preview.slots!,
+                      t("导入队列 {0}", [saved.length + 1]),
+                      undefined,
+                      undefined,
+                      false,
+                    );
+                    if (created !== false) dismissImport();
+                  }}
+                >
+                  {t("保存为新队列")}
+                </button>
+              </>
+            )}
+          </div>
+        </Modal>
       )}
       {shareOpen && selected && (
         <Modal
           className="lineup-import-dialog"
-          title={localize(`分享队列 · ${selected.name}`)}
-          subtitle="24 位分享码，区分大小写；保留空槽位与顺序。"
+          title={t("分享队列 · {0}", [selected.name])}
+          subtitle={t("24 位分享码，区分大小写；保留空槽位与顺序。")}
           close={() => setShareOpen(false)}
         >
           <div className="lineup-share">
@@ -515,7 +514,7 @@ function CountryLineups({
                 disabled={!share.code || copying}
                 onClick={() => void copyCode(share.code)}
               >
-                {localize(copying ? "正在复制…" : "复制分享码")}
+                {localize(copying ? t("正在复制…") : t("复制分享码"))}
               </button>
             </div>
             <p className="lineup-feedback" role={share.error ? "alert" : "status"}>
@@ -531,7 +530,9 @@ function CountryLineups({
         <Modal
           className="lineup-import-dialog"
           title={t("删除队列")}
-          subtitle={`确定删除“${saved.find((row) => row.id === deleting)?.name || "未命名队列"}”？`}
+          subtitle={t("确定删除“{0}”？", [
+            saved.find((row) => row.id === deleting)?.name || t("未命名队列"),
+          ])}
           close={() => setDeleting("")}
         >
           <div className="lineup-delete">
@@ -541,7 +542,7 @@ function CountryLineups({
             <button
               className="quiet-button"
               onClick={() => {
-                save(saved.filter((row) => row.id !== deleting));
+                if (!save(saved.filter((row) => row.id !== deleting))) return;
                 if (draft?.id === deleting) returnToList();
                 setDeleting("");
               }}
@@ -589,7 +590,7 @@ function CountryLineups({
                     </div>
                     <button
                       className="quiet-button lineup-card-share"
-                      aria-label={localize(`分享 ${row.name}`)}
+                      aria-label={t("分享 {0}", [row.name])}
                       disabled={copying}
                       onClick={() => shareLineup(row)}
                     >
@@ -601,14 +602,14 @@ function CountryLineups({
                   <footer className="lineup-card-actions">
                     <button
                       className="quiet-button"
-                      aria-label={localize(`编辑 ${row.name}`)}
+                      aria-label={t("编辑 {0}", [row.name])}
                       onClick={() => edit(row)}
                     >
                       {t("编辑队列")}
                     </button>
                     <button
                       className="quiet-button"
-                      aria-label={localize(`删除 ${row.name}`)}
+                      aria-label={t("删除 {0}", [row.name])}
                       onClick={() => setDeleting(row.id)}
                     >
                       {t("删除")}
@@ -644,7 +645,7 @@ function CountryLineups({
           <section className="lineup-editor" aria-label={t("队列配置")}>
             <div className="lineup-editor-navigation">
               <h3 ref={heading} tabIndex={-1}>
-                {localize(editingId ? "编辑队列" : "新建队列")}
+                {localize(editingId ? t("编辑队列") : t("新建队列"))}
               </h3>
               <div className="lineup-saved-actions">
                 <button className="quiet-button" onClick={returnToList}>
@@ -695,7 +696,7 @@ function CountryLineups({
                     onClick={() =>
                       create(
                         [...selected.slots],
-                        `${selected.name.slice(0, 74)} 副本`,
+                        t("{0} 副本", [selected.name.slice(0, 74)]),
                         selected.battleType,
                         selected.activeAircraft,
                       )
@@ -730,8 +731,8 @@ function CountryLineups({
                   )}
                   {localize(
                     selected.battleType === "air"
-                      ? "RB 只计算标为出击的飞机。"
-                      : "权重按所选战斗类型计算。",
+                      ? t("RB 只计算标为出击的飞机。")
+                      : t("权重按所选战斗类型计算。"),
                   )}
                 </p>
                 <LineupRoster
@@ -777,14 +778,11 @@ function CountryLineups({
                     value={activeSlot}
                     onValueChange={(value) => setActiveSlot(Number(value))}
                   >
-                    {localize(
-                      selected.slots.map((id, i) => (
-                        <option key={i} value={i}>
-                          {localize(i + 1)} ·{" "}
-                          {localize(id ? vehicleName(units.get(id)) || id : t("空槽位"))}
-                        </option>
-                      )),
-                    )}
+                    {selected.slots.map((id, i) => (
+                      <option key={i} value={i}>
+                        {localize(i + 1)} · {id ? units.get(id)?.name || id : t("空槽位")}
+                      </option>
+                    ))}
                   </GameSelect>
                 </label>
                 <button
@@ -811,11 +809,10 @@ function CountryLineups({
                 >
                   <span>{t("筛选载具")}</span>
                   <small>
-                    {localize(category === "all" ? "全部军种" : catalog.categories[category])} ·
+                    {localize(category === "all" ? t("全部军种") : catalog.categories[category])} ·
                     {localize(" ")}
-                    {localize(rank === "all" ? "全部等级" : `Rank ${localize(rank)}`)} ·
-                    {localize(" ")}
-                    {localize(kind === "all" ? "全部类型" : catalog.lineupKinds[kind])}
+                    {localize(rank === "all" ? t("全部等级") : `Rank ${rank}`)} ·{localize(" ")}
+                    {localize(kind === "all" ? t("全部类型") : catalog.lineupKinds[kind])}
                   </small>
                   <span aria-hidden="true">{localize(filtersOpen ? "⌃" : "⌄")}</span>
                 </button>
@@ -866,62 +863,52 @@ function CountryLineups({
                 </div>
                 <p className="calc-note">
                   {localize(candidates.length)} {t("辆匹配")}
-                  {localize(candidates.length > 100 ? "，显示前 100 辆，请搜索缩小范围" : "")}
+                  {localize(candidates.length > 100 ? t("，显示前 100 辆，请搜索缩小范围") : "")}
                 </p>
                 <div className="lineup-candidates">
-                  {localize(
-                    candidates.slice(0, 100).map((unit) => {
-                      const occupied = selected.slots.includes(unit.id);
-                      return (
-                        <button
-                          key={unit.id}
-                          className={`lineup-candidate is-kind-${lineupVehicleKind(unit)}`}
-                          disabled={occupied}
-                          onClick={() => place(unit.id)}
-                        >
-                          <img
-                            src={unit.thumbnailUrl}
-                            width={64}
-                            height={38}
-                            alt=""
-                            loading="lazy"
-                          />
-                          <span>
-                            <strong>{localize(vehicleName(unit))}</strong>
-                            <span className="lineup-vehicle-tags">
-                              <span
-                                className={`lineup-kind-tag is-kind-${lineupVehicleKind(unit)}`}
-                              >
-                                {localize(
-                                  unit.kind === "pack"
-                                    ? packPriceLabel(unit)
-                                    : catalog.lineupKinds[lineupVehicleKind(unit)],
-                                )}
-                              </span>
+                  {candidates.slice(0, 100).map((unit) => {
+                    const occupied = selected.slots.includes(unit.id);
+                    return (
+                      <button
+                        key={unit.id}
+                        className={`lineup-candidate is-kind-${lineupVehicleKind(unit)}`}
+                        disabled={occupied}
+                        onClick={() => place(unit.id)}
+                      >
+                        <img src={unit.thumbnailUrl} width={64} height={38} alt="" loading="lazy" />
+                        <span>
+                          <strong>{unit.name}</strong>
+                          <span className="lineup-vehicle-tags">
+                            <span className={`lineup-kind-tag is-kind-${lineupVehicleKind(unit)}`}>
                               {localize(
-                                unit.premium && ["pack", "market"].includes(unit.kind) && (
-                                  <span className="lineup-kind-tag is-kind-premium">
-                                    {localize(catalog.lineupKinds.premium)}
-                                  </span>
-                                ),
+                                unit.kind === "pack"
+                                  ? packPriceLabel(unit)
+                                  : catalog.lineupKinds[lineupVehicleKind(unit)],
                               )}
                             </span>
-                            <small>
-                              {localize(catalog.categories[unit.category])} · Rank{" "}
-                              {localize(unit.rank)}
-                            </small>
-                          </span>
-                          <b>
                             {localize(
-                              occupied
-                                ? "已配置"
-                                : brLabel(vehicleStep(unit, selected.battleType, mode)),
+                              unit.premium && ["pack", "market"].includes(unit.kind) && (
+                                <span className="lineup-kind-tag is-kind-premium">
+                                  {localize(catalog.lineupKinds.premium)}
+                                </span>
+                              ),
                             )}
-                          </b>
-                        </button>
-                      );
-                    }),
-                  )}
+                          </span>
+                          <small>
+                            {localize(catalog.categories[unit.category])} · Rank{" "}
+                            {localize(unit.rank)}
+                          </small>
+                        </span>
+                        <b>
+                          {localize(
+                            occupied
+                              ? t("已配置")
+                              : brLabel(vehicleStep(unit, selected.battleType, mode)),
+                          )}
+                        </b>
+                      </button>
+                    );
+                  })}
                   {localize(
                     !candidates.length && (
                       <p className="lineup-empty">
@@ -950,7 +937,7 @@ function CountryLineups({
                   disabled={!share.code || copying}
                   onClick={() => void copyCode(share.code)}
                 >
-                  {localize(copying ? "正在复制…" : "复制分享码")}
+                  {localize(copying ? t("正在复制…") : t("复制分享码"))}
                 </button>
               </div>
               <p className="calc-note">

@@ -227,6 +227,7 @@ export async function statsRequest<T>(
     }
     throw new StatsError(data?.message || "战绩服务暂时无法访问", data?.code || "REQUEST_FAILED");
   }
+  if (path === "session" && data && (!data.user || typeof data.user.id !== "string" || !data.user.id)) data.user = null;
   // All derived scores cross this boundary, including nested report/vehicle data.
   // The adapter loads its CDN runtime only when the response contains scoring rows.
   const { applyPlayerEfficiency } = await import("./player-efficiency");

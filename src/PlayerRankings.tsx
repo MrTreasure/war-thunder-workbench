@@ -1,8 +1,10 @@
+import { localize } from "./i18n/core";
+import { statsNumber as num } from "./player-stats-api";
 import { useLocale } from "./i18n/react";
-import { localize, t } from "./i18n/core";
+import { t } from "./i18n/core";
 import { useEffect, useRef, useState } from "react";
 import { GameSelect } from "./components/GameSelect";
-import { statsDate, statsNumber as num } from "./player-stats-api";
+import { statsDate } from "./player-stats-api";
 import type { PlayerProfile } from "./player-stats-api";
 import {
   battleScopes,
@@ -15,9 +17,7 @@ import type { PlayerRank } from "./player-rankings-api";
 export function RankDistribution({ data, metric }: { data: PlayerRank; metric: string }) {
   useLocale();
 
-  const points = [...(data.references?.points || data.points || [])].sort(
-    (a, b) => a.percentile - b.percentile,
-  );
+  const points = [...(data.references?.points || [])].sort((a, b) => a.percentile - b.percentile);
   const position = data.position
     ? Math.max(0, Math.min(100, 100 - data.position.topPercent))
     : null;
@@ -31,7 +31,7 @@ export function RankDistribution({ data, metric }: { data: PlayerRank; metric: s
     difference == null
       ? "—"
       : percentMetric
-        ? `${difference > 0 ? "+" : ""}${(difference * 100).toFixed(1)} 个百分点`
+        ? t("{0}{1} 个百分点", [difference > 0 ? "+" : "", (difference * 100).toFixed(1)])
         : differencePercent != null
           ? `${differencePercent > 0 ? "+" : ""}${differencePercent.toFixed(1)}%`
           : rankingValue(difference, metric);
@@ -39,7 +39,7 @@ export function RankDistribution({ data, metric }: { data: PlayerRank; metric: s
     <section className="wt-record-panel wt-rank-distribution">
       <header className="wt-rank-chart-heading">
         <h2>{t("分位对照")}</h2>
-        <span>{localize(data.sampleCount != null ? "本站有效样本" : "官方榜表抽样")}</span>
+        <span>{t("官方榜表抽样")}</span>
       </header>
       {localize(
         position != null ? (
@@ -70,8 +70,8 @@ export function RankDistribution({ data, metric }: { data: PlayerRank; metric: s
           <p className="wt-record-fine">
             {localize(
               data.period === "recent"
-                ? "近期仅展示官方名次，不换算活跃玩家百分位。"
-                : `有效样本达到 ${localize(data.minimumPlayers || 100)} 位后展示分位。`,
+                ? t("近期仅展示官方名次，不换算活跃玩家百分位。")
+                : t("官方榜表暂未提供可核实名次，不展示分位。"),
             )}
           </p>
         ),
@@ -137,12 +137,10 @@ export function RankDistribution({ data, metric }: { data: PlayerRank; metric: s
           <p className="wt-rank-reference-state">
             {localize(
               ["pending", "running"].includes(data.referenceState || "")
-                ? "正在整理分位参考，个人名次已可查看。"
+                ? t("正在整理分位参考，个人名次已可查看。")
                 : data.period === "recent"
-                  ? "近期参照人数尚未核实。"
-                  : data.sampleCount != null
-                    ? "样本正在积累，达到有效人数后开放对照。"
-                    : "分位参考暂未就绪，个人名次仍可查看。",
+                  ? t("近期参照人数尚未核实。")
+                  : t("分位参考暂未就绪，个人名次仍可查看。"),
             )}
           </p>
         ),
@@ -262,14 +260,12 @@ export function PlayerRankings({
               <div className="wt-rank-primary">
                 <span>{localize(label)}</span>
                 <strong>{localize(rankingValue(data.value, indicator))}</strong>
-                <small>{localize(period === "career" ? "累计表现" : "官方近期表现")}</small>
+                <small>{localize(period === "career" ? t("累计表现") : t("官方近期表现"))}</small>
               </div>
               <div>
                 <span>{t("官方名次")}</span>
-                <strong>
-                  {localize(data.rank == null ? "—" : `#${localize(num(data.rank))}`)}
-                </strong>
-                <small>{localize(data.rank == null ? "暂无有效名次" : "当前指标")}</small>
+                <strong>{localize(data.rank == null ? "—" : `#${num(data.rank)}`)}</strong>
+                <small>{localize(data.rank == null ? t("暂无有效名次") : t("当前指标"))}</small>
               </div>
               <div>
                 <span>{t("榜表记录数")}</span>
@@ -292,7 +288,7 @@ export function PlayerRankings({
                   </div>
                   <div>
                     <dt>{t("时期")}</dt>
-                    <dd>{localize(period === "recent" ? "官方近期" : "累计")}</dd>
+                    <dd>{localize(period === "recent" ? t("官方近期") : t("累计"))}</dd>
                   </div>
                   <div>
                     <dt>{t("来源")}</dt>
@@ -303,21 +299,21 @@ export function PlayerRankings({
                 <p>
                   {localize(
                     indicator === "averageRelativePosition"
-                      ? "队内相对位置衡量单局队内表现，数值越高通常越靠前。"
+                      ? t("队内相对位置衡量单局队内表现，数值越高通常越靠前。")
                       : indicator === "average_active_kills_by_spawn"
-                        ? "该项击毁统计包含玩家与机器人，不等于仅对玩家的击毁。"
-                        : "所选对局范围与载具分类不同，陆战对局也包含其中的航空出击。",
+                        ? t("该项击毁统计包含玩家与机器人，不等于仅对玩家的击毁。")
+                        : t("所选对局范围与载具分类不同，陆战对局也包含其中的航空出击。"),
                   )}
                 </p>
               </aside>
             </div>
             <div className="wt-rank-source">
               <span>
-                {localize(data.stale ? "正在展示已保存排位 · " : "")}
+                {localize(data.stale ? t("正在展示已保存排位 · ") : "")}
                 {localize(
                   data.fetchedAt
-                    ? `排位采集于 ${localize(statsDate(data.fetchedAt))}`
-                    : "尚无有效排位记录",
+                    ? t("排位采集于 {0}", [statsDate(data.fetchedAt)])
+                    : t("尚无有效排位记录"),
                 )}
               </span>
               <span>{localize(data.notice)}</span>

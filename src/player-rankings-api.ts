@@ -78,6 +78,7 @@ export type OwnedVehicle = {
   elite: boolean;
   observed: boolean;
   image: string;
+  thumbnail?: string;
 };
 export type OwnedGarage = {
   uid: string;

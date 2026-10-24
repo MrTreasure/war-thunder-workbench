@@ -1,0 +1,112 @@
+.calculator.wt-account-dialog {
+  width: min(620px, calc(100vw - 24px));
+  height: fit-content;
+  max-height: calc(100dvh - 32px);
+  inset: 0;
+  margin: auto;
+  overflow: auto;
+}
+.wt-account-form {
+  padding: 20px;
+  display: grid;
+  gap: 16px;
+  line-height: 1.65;
+}
+.wt-account-form h3,
+.wt-account-form p {
+  margin: 0;
+}
+.wt-account-form p,
+.wt-account-form small {
+  color: var(--wt-muted, #b4bcb7);
+}
+.wt-account-form input:not([type="checkbox"]) {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background: #171e21;
+  color: inherit;
+  border: 1px solid #566361;
+}
+.wt-account-form button {
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid #626e68;
+  background: #29332f;
+  color: inherit;
+}
+.wt-account-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.wt-account-form a {
+  color: #d9bd7a;
+}
+.wt-agreement-check {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  overflow-wrap: anywhere;
+}
+.wt-agreement-check input {
+  margin-top: 6px;
+  flex: none;
+  width: 18px;
+  height: 18px;
+}
+.wt-account-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.wt-account-form section {
+  padding: 14px;
+  border: 1px solid #566361;
+  display: grid;
+  gap: 10px;
+}
+.wt-account-form [role="alert"] {
+  color: #f2b48d;
+}
+.wt-owned-marker {
+  position: absolute;
+  inset: 2px 1px 25px auto;
+  height: calc(100% - 27px);
+  aspect-ratio: 1;
+  color: #364c5bab;
+  pointer-events: none;
+  z-index: 0;
+}
+.wt-owned-marker.is-premium { color: #5b3416ab; }
+.wt-owned-marker.is-squadron { color: #5d7144; }
+.wt-owned-slot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: currentColor;
+  mask-image: var(--wt-owned-slot-image);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+.vehicle-card .wt-owned-marker img { display: none; }
+.wt-owned-fallback { display: none; }
+.wt-owned-marker[data-unavailable] .wt-owned-slot { display: none; }
+.wt-owned-marker[data-unavailable] .wt-owned-fallback { display: block; font: 70px/1 serif; text-align: center; }
+.vehicle-card > img, .vehicle-card > span:not(.wt-owned-marker) { position: relative; z-index: 1; }
+.vehicle-card > img { position: absolute; }
+.wt-owned-caption { color: #d9bd7a; font-size: 13px; }
+
+.calculator.wt-account-dialog {
+  font: 14px/1.6 var(--wt-sans);
+  color: var(--wt-ink);
+  background: var(--wt-surface);
+  border: 1px solid var(--wt-strong-line);
+}
+.wt-account-dialog .calc-header { padding: 14px 16px; background: var(--wt-panel); }
+.wt-account-dialog .calc-header h2 { font-size: 20px; }
+.wt-account-dialog .calc-header p:empty { display: none; }
+.wt-account-dialog .wt-account-form { padding: 16px; gap: 12px; }
+.wt-account-dialog .wt-account-form button { font: inherit; background: var(--wt-panel); border-color: var(--wt-strong-line); border-radius: 2px; box-shadow: none; }
+.wt-account-dialog .wt-account-form section { padding: 12px; border-color: var(--wt-line); }
+.wt-account-dialog .wt-agreement-check input { min-height: 18px; }

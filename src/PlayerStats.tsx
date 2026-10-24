@@ -1,10 +1,13 @@
 import { vehicleSearchText } from "./i18n/core";
-import { vehicleName } from "./i18n/core";
+import { localize } from "./i18n/core";
+import type { ReportStyle } from "./player-report-style";
+import type { LeaderboardPlayer, LeaderboardData } from "./player-leaderboards-cache";
 import { useLocale } from "./i18n/react";
-import { localize, t } from "./i18n/core";
+import { t, vehicleName } from "./i18n/core";
+import { GameAccountBinding } from "./GameAccountBinding";
 import { readPublicResource } from "./public-resource-api";
 import { queryTask, pendingQuery, resumeQuery, forgetQuery } from "./player-query-task";
-import { vehicleDisplayName } from "./vehicle-display-name";
+
 import { statsCountryMatches, statsCountryLabel } from "./stats-country";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
@@ -15,7 +18,7 @@ import {
 import { PlayerTypeUsage } from "./PlayerTypeUsage";
 import { PlayerCareerOverview } from "./PlayerCareerOverview";
 import { PlayerRankings } from "./PlayerRankings";
-import { PlayerGarage, PlayerVehicleDetails } from "./PlayerGarage";
+import { PlayerVehicleDetails } from "./PlayerGarage";
 import { PlayerVehicleShare, startVehicleShare } from "./PlayerVehicleShare";
 import type { VehicleShareJob } from "./PlayerVehicleShare";
 import { PlayerVehicleCards, PlayerVehiclePagination } from "./PlayerVehicleCards";
@@ -32,7 +35,7 @@ import type { PlayerDetails } from "./player-rankings-api";
 import { AccountValuation } from "./AccountValuation";
 import { PlayerReport } from "./PlayerReport";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
-import { reportStyle, reportStyles, type ReportStyle } from "./player-report-style";
+import { reportStyle, reportStyles } from "./player-report-style";
 import { StatsDataNotes } from "./StatsDataNotes";
 import {
   defaultReportTheme,
@@ -48,8 +51,6 @@ import {
   cachedLeaderboards,
   cacheLeaderboards,
   validLeaderboards,
-  type LeaderboardData,
-  type LeaderboardPlayer,
 } from "./player-leaderboards-cache";
 import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
@@ -75,8 +76,8 @@ function quotaLabel(session: StatsSession | null, kind: "query" | "report") {
   if (!session) return "—";
   const limit = session.limits[kind === "query" ? "queryLimit" : "reportLimit"];
   return limit == null
-    ? "不限次"
-    : `${Math.max(0, limit - session[kind].used - session[kind].reserved)} 次`;
+    ? t("不限次")
+    : t("{0} 次", [Math.max(0, limit - session[kind].used - session[kind].reserved)]);
 }
 import type {
   PlayerCandidate,
@@ -97,7 +98,7 @@ function Avatar({ url, name }: { url: string | null; name: string }) {
         url && (
           <img
             src={url}
-            alt={localize(`${localize(name)}的游戏头像`)}
+            alt={t("{0}的游戏头像", [name])}
             onError={(event) => {
               event.currentTarget.hidden = true;
             }}
@@ -122,22 +123,20 @@ function VehicleRow({
 
   return (
     <tr>
-      <td aria-label={localize(vehicleDisplayName(vehicleName(v)))}>
+      <td aria-label={vehicleName(v)}>
         <a
           className="wt-record-vehicle"
           href={"https://wiki.warthunder.com/unit/" + encodeURIComponent(v.id)}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={localize(
-            `${localize(vehicleDisplayName(vehicleName(v)))} 官方 Wiki（新标签页打开）`,
-          )}
+          aria-label={t("{0} 官方 Wiki（新标签页打开）", [vehicleName(v)])}
           title={t("在新标签页打开官方 Wiki")}
         >
           <img src={v.thumbnail} alt="" loading="lazy" />
           <span>
-            <b>{localize(vehicleDisplayName(vehicleName(v)))}</b>
+            <b>{vehicleName(v)}</b>
             <small>
-              {localize(v.rank && `${localize(v.rank)} 级 · `)}
+              {localize(v.rank && t("{0} 级 · ", [v.rank]))}
               {localize(countryName)}
             </small>
           </span>
@@ -159,7 +158,7 @@ function VehicleRow({
       <td className="wt-silver">
         <span className="wt-silver-amount">
           <img src={statsSilverIcon} alt={t("银狮")} />
-          <span title={localize(`累计银狮：${localize(statsSilver(v.silverLions))}`)}>
+          <span title={t("累计银狮：{0}", [statsSilver(v.silverLions)])}>
             {localize(compactSilver(v.silverLions))}
           </span>
         </span>
@@ -202,7 +201,6 @@ export function PlayerStats() {
     ...detailVehicles.get(`${v.mode}:${v.id}`),
   }));
   const displayProfile = profile ? { ...profile, vehicles: effectiveVehicles } : null;
-  const [showGarage, setShowGarage] = useState(false);
   const [selectedVehicle, setSelectedVehicle] = useState<PlayerVehicle | null>(null);
   const [vehicleShare, setVehicleShare] = useState<{
     profile: PlayerProfile;
@@ -289,7 +287,7 @@ export function PlayerStats() {
     } catch (failure) {
       if (version === uploadState.current.version)
         setBackgroundError(
-          failure instanceof Error ? failure.message : "图片读取失败，请重新选择。",
+          failure instanceof Error ? failure.message : t("图片读取失败，请重新选择。"),
         );
     } finally {
       if (version === uploadState.current.version) setUploadBusy(false);
@@ -318,7 +316,6 @@ export function PlayerStats() {
       setProfile(p);
       if (p.nicknameHidden && route.player)
         void navigate({ search: { view: route.view }, replace: true });
-      setShowGarage(false);
       setSelectedVehicle(null);
       setVehicleShare(null);
       if (!local) setRecentPlayers(rememberStatsProfile(p));
@@ -388,9 +385,9 @@ export function PlayerStats() {
         c.signal,
       );
       if (c.signal.aborted || id !== generation.current) return;
-      if (restored.uid !== p.uid) throw new Error("保存的玩家身份不一致，请重新查询。");
+      if (restored.uid !== p.uid) throw new Error(t("保存的玩家身份不一致，请重新查询。"));
       loadProfile(restored);
-      setNotice("已打开保存的查询记录，本次不扣查询次数；采集时间见下方。");
+      setNotice(t("已打开保存的查询记录，本次不扣查询次数；采集时间见下方。"));
     } catch (failure) {
       if (c.signal.aborted || id !== generation.current) return;
       setError(
@@ -442,13 +439,13 @@ export function PlayerStats() {
       if (c.signal.aborted || id !== generation.current) return;
       setQueryId(result.queryId);
       setCandidates(result.items);
-      if (!result.items.length) setNotice("没有找到玩家，请检查昵称与平台后缀。");
+      if (!result.items.length) setNotice(t("没有找到玩家，请检查昵称与平台后缀。"));
       else if (result.stale)
         setNotice(result.staleReason || t("正在展示已保存的搜索结果，请核对玩家 UID。"));
       setProfile(null);
     } catch (failure) {
       if (!c.signal.aborted && id === generation.current)
-        setError(failure instanceof Error ? failure.message : "查询失败，请稍后重试。");
+        setError(failure instanceof Error ? failure.message : t("查询失败，请稍后重试。"));
     } finally {
       requests.current.delete(c);
       if (!c.signal.aborted && id === generation.current) {
@@ -498,7 +495,7 @@ export function PlayerStats() {
       }
     } catch (failure) {
       if (!c.signal.aborted && id === generation.current) {
-        setError(failure instanceof Error ? failure.message : "榜单玩家查询失败。");
+        setError(failure instanceof Error ? failure.message : t("榜单玩家查询失败。"));
         if (failure instanceof StatsError && failure.code === "BOARD_CHANGED") {
           const current = await statsRequest<LeaderboardData>(
             "leaderboards?revision=" + Date.now(),
@@ -533,7 +530,7 @@ export function PlayerStats() {
       );
       if (!c.signal.aborted && id === generation.current) loadProfile(value);
     } catch (failure) {
-      if (!c.signal.aborted) setError(failure instanceof Error ? failure.message : "查询失败。");
+      if (!c.signal.aborted) setError(failure instanceof Error ? failure.message : t("查询失败。"));
     } finally {
       requests.current.delete(c);
       if (!c.signal.aborted) {
@@ -567,10 +564,10 @@ export function PlayerStats() {
       if (!value.modes.some((m) => m.id === mode)) setMode(value.modes[0]?.id || "rb");
       setReport(null);
       setViewingHistory(false);
-      setNotice("已重新获取官方资料。");
+      setNotice(t("已重新获取官方资料。"));
     } catch (failure) {
       if (!c.signal.aborted && id === generation.current)
-        setError(failure instanceof Error ? failure.message : "刷新失败，原资料仍可查看。");
+        setError(failure instanceof Error ? failure.message : t("刷新失败，原资料仍可查看。"));
     } finally {
       requests.current.delete(c);
       if (!c.signal.aborted && id === generation.current) {
@@ -601,7 +598,14 @@ export function PlayerStats() {
       .then(async ([cfg]) => {
         if (c.signal.aborted) return;
         setConfig(cfg);
-        if (route.player) {
+        if (route.snapshot && route.uid) {
+          const saved = await statsRequest<PlayerProfile>(
+            "players/restore",
+            { snapshotId: route.snapshot, uid: route.uid },
+            c.signal,
+          );
+          if (!c.signal.aborted) loadProfile(saved);
+        } else if (route.player) {
           const result = await statsRequest<{ items: PlayerCandidate[]; queryId: string }>(
             "players/search",
             { nickname: route.player, requestId: "query_" + crypto.randomUUID() },
@@ -625,7 +629,7 @@ export function PlayerStats() {
       })
       .catch((failure) => {
         if (!c.signal.aborted)
-          setError(failure instanceof Error ? failure.message : "服务暂时不可用。");
+          setError(failure instanceof Error ? failure.message : t("服务暂时不可用。"));
       });
     return () => {
       c.abort();
@@ -647,7 +651,7 @@ export function PlayerStats() {
         })
         .catch((failure) => {
           if (!c.signal.aborted)
-            setError(failure instanceof Error ? failure.message : "暂时无法读取战报状态。");
+            setError(failure instanceof Error ? failure.message : t("暂时无法读取战报状态。"));
         });
     }, 1800);
     return () => {
@@ -662,7 +666,6 @@ export function PlayerStats() {
     clearRankingMemory();
     forgetQuery();
     setQueryProgress("");
-    setShowGarage(false);
     setSelectedVehicle(null);
     setVehicleShare(null);
     generation.current++;
@@ -674,7 +677,7 @@ export function PlayerStats() {
     setReport(null);
     setHistory(null);
     setQueryId("");
-    setNotice("账号状态已更新，请重新选择玩家。");
+    setNotice(t("账号状态已更新，请重新选择玩家。"));
   }, [identityVersion]);
   async function generate() {
     setQueryProgress("");
@@ -699,7 +702,7 @@ export function PlayerStats() {
       if (!c.signal.aborted) setReport(value);
     } catch (failure) {
       if (!c.signal.aborted)
-        setError(failure instanceof Error ? failure.message : "战报暂时无法生成。");
+        setError(failure instanceof Error ? failure.message : t("战报暂时无法生成。"));
     } finally {
       requests.current.delete(c);
       if (!c.signal.aborted) {
@@ -721,7 +724,7 @@ export function PlayerStats() {
       await downloadStatsReport(report, selected, reportTheme, c.signal);
     } catch (failure) {
       if (!c.signal.aborted)
-        setError(failure instanceof Error ? failure.message : "保存失败，请重试。");
+        setError(failure instanceof Error ? failure.message : t("保存失败，请重试。"));
     } finally {
       setExportBusy(false);
       exportController.current = null;
@@ -729,14 +732,14 @@ export function PlayerStats() {
   }
   const active = profile?.modes.find((m) => m.id === mode);
   const vehicleColumns: [VehicleSortKey, string][] = [
-    ["battles", "场次"],
-    ["winRate", "胜率"],
-    ["airKd", "对空 K/D"],
-    ["groundKd", "对地 K/D"],
-    ...(category === "ground" ? [] : ([["navalKd", "对海 K/D"]] as [VehicleSortKey, string][])),
-    ["kd", "综合 K/D"],
-    ["efficiency", "效率评分"],
-    ["silverLions", "累计获得银狮"],
+    ["battles", t("场次")],
+    ["winRate", t("胜率")],
+    ["airKd", t("对空 K/D")],
+    ["groundKd", t("对地 K/D")],
+    ...(category === "ground" ? [] : ([["navalKd", t("对海 K/D")]] as [VehicleSortKey, string][])),
+    ["kd", t("综合 K/D")],
+    ["efficiency", t("效率评分")],
+    ["silverLions", t("累计获得银狮")],
   ];
   function sortVehicles(key: VehicleSortKey | "none", toggle = false) {
     setVehicleSort((current) =>
@@ -813,7 +816,7 @@ export function PlayerStats() {
       .catch(() => {
         if (!c.signal.aborted) {
           setReportTheme(defaultReportTheme);
-          setBackgroundError("暂时无法提取这张背景的颜色，可重选背景后再试。");
+          setBackgroundError(t("暂时无法提取这张背景的颜色，可重选背景后再试。"));
         }
       })
       .finally(() => {
@@ -826,16 +829,20 @@ export function PlayerStats() {
       <header className="wt-record-page-title">
         <div>
           <h1>{t("个人战绩档案")}</h1>
-          <p>{t("查看生涯表现、排位数据和完整车库，生成你的个人战报。")}</p>
+          <p>{t("查看生涯表现和官方排位，生成你的个人战报。")}</p>
         </div>
         <div className="wt-record-account">
           <span>
             {localize(
-              session?.role === "superadmin" ? "超管" : session?.user ? "普通用户" : "游客",
+              session?.role === "superadmin"
+                ? t("超管")
+                : session?.user
+                  ? t("普通用户")
+                  : t("游客"),
             )}
-            {localize(" · 新查询 ")}
+            {t(" · 新查询 ")}
             {localize(quotaLabel(session, "query"))}
-            {localize(" / 战报 ")}
+            {t(" / 战报 ")}
             {localize(quotaLabel(session, "report"))}
             <small>{t("每日零点重置 · 缓存命中不扣次")}</small>
           </span>
@@ -864,7 +871,7 @@ export function PlayerStats() {
           className="wt-record-primary"
           disabled={busy || !session || nickname.trim().length < 2}
         >
-          {localize(busy ? "正在查询…" : "搜索玩家")}
+          {localize(busy ? t("正在查询…") : t("搜索玩家"))}
         </button>
         {localize(
           (profile || candidates.length > 0 || busy || route.player) && (
@@ -874,10 +881,12 @@ export function PlayerStats() {
           ),
         )}
       </form>
-      {busy && queryProgress && (
-        <output className="wt-record-notice" aria-live="polite">
-          {localize(queryProgress)}
-        </output>
+      {localize(
+        busy && queryProgress && (
+          <output className="wt-record-notice" aria-live="polite">
+            {localize(queryProgress)}
+          </output>
+        ),
       )}
       {localize(
         error && (
@@ -895,7 +904,7 @@ export function PlayerStats() {
               <Avatar url={p.avatar} name={p.nickname} />
               <span>
                 <b>{p.nickname}</b>
-                <small>UID {localize(p.uid)}</small>
+                <small>UID {p.uid}</small>
               </span>
               <span>{t("查看 ↗")}</span>
             </button>
@@ -978,8 +987,8 @@ export function PlayerStats() {
               <fieldset aria-label={t("排行榜军种")}>
                 {localize(
                   [
-                    ["ground", "陆战"],
-                    ["air", "空战"],
+                    ["ground", t("陆战")],
+                    ["air", t("空战")],
                   ].map(([id, label]) => (
                     <button
                       key={id}
@@ -1027,42 +1036,24 @@ export function PlayerStats() {
         <>
           <section className="wt-record-player">
             <Avatar url={profile.avatar} name={profile.nickname} />
-            <div>
+            <div className="wt-record-player-identity">
               <h2>
                 {localize(profile.clanTag && <small>{localize(profile.clanTag)} </small>)}
                 {profile.nickname}
               </h2>
               <p>
                 {t("等级")}
-                {localize(num(profile.level))} · UID {localize(profile.uid)}
+                {localize(num(profile.level))} · UID {profile.uid}
               </p>
             </div>
-            <button
-              className="wt-record-link wt-garage-entry"
-              disabled={profile.localOnly}
-              onClick={() => setShowGarage(true)}
-            >
-              {t("完整车库")}
-            </button>
-            <AccountValuation
-              key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
-              profile={profile}
-              session={session}
-              onSessionChange={refreshSession}
-            />
-            <div className="wt-record-source">
-              <span>
-                {t("采集于")}
-                {localize(statsDate(profile.fetchedAt))} ·{localize(" ")}
-                {localize(profile.cached ? "已命中缓存，本次不扣查询次数" : "官方助手资料")}
-              </span>
+            <div className="wt-record-player-actions" aria-label={t("玩家资料操作")}>
+              <GameAccountBinding
+                key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
+                profile={profile}
+              />
               <button
-                className="wt-record-link wt-record-refresh"
-                title={localize(
-                  profile.localOnly
-                    ? "请先重新查询此玩家"
-                    : "重新获取官方资料，按一次新查询计入额度；同一玩家每分钟可刷新一次",
-                )}
+                className="wt-record-player-refresh"
+                title={t("重新获取官方资料，计入新查询次数")}
                 disabled={
                   profile.localOnly ||
                   busy ||
@@ -1071,8 +1062,21 @@ export function PlayerStats() {
                 }
                 onClick={() => void forceRefresh()}
               >
-                {localize(busy ? "正在获取…" : "强制刷新")}
+                {localize(busy ? t("正在获取…") : t("强制刷新"))}
               </button>
+              <AccountValuation
+                key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
+                profile={profile}
+                session={session}
+                onSessionChange={refreshSession}
+              />
+            </div>
+            <div className="wt-record-source">
+              <span>
+                {t("采集于")}
+                {localize(statsDate(profile.fetchedAt))} ·{localize(" ")}
+                {localize(profile.cached ? t("已命中缓存，本次不扣查询次数") : t("官方助手资料"))}
+              </span>
               <small>{t("强制刷新计入新查询次数")}</small>
             </div>
           </section>
@@ -1143,7 +1147,7 @@ export function PlayerStats() {
                       {localize(statsModeNames[mode])} {t("· 仅展示已出击载具")}
                       {localize(
                         freshVehicleDetails
-                          ? ` · 采集于 ${localize(statsDate(freshVehicleDetails.fetchedAt))}`
+                          ? t(" · 采集于 {0}", [statsDate(freshVehicleDetails.fetchedAt)])
                           : "",
                       )}
                     </span>
@@ -1236,9 +1240,7 @@ export function PlayerStats() {
                       {localize(
                         vehicleColumns.map(([key, label]) => (
                           <option key={key} value={key}>
-                            {t("按")}
-                            {localize(label)}
-                            {t("排序")}
+                            {t("按{0}排序", [localize(label)])}
                           </option>
                         )),
                       )}
@@ -1250,16 +1252,16 @@ export function PlayerStats() {
                       onClick={() => {
                         if (vehicleSort) sortVehicles(vehicleSort.key, true);
                       }}
-                      aria-label={localize(
-                        `切换为${localize(vehicleSort?.direction === "desc" ? "升序" : "降序")}排列载具战绩`,
-                      )}
+                      aria-label={t("切换为{0}排列载具战绩", [
+                        vehicleSort?.direction === "desc" ? t("升序") : t("降序"),
+                      ])}
                     >
                       {localize(
                         !vehicleSort
-                          ? "升降序"
+                          ? t("升降序")
                           : vehicleSort.direction === "desc"
-                            ? "降序 ↓"
-                            : "升序 ↑",
+                            ? t("降序 ↓")
+                            : t("升序 ↑"),
                       )}
                     </button>
                     <button
@@ -1282,7 +1284,7 @@ export function PlayerStats() {
                               saveVehiclePresentation(view);
                             }}
                           >
-                            {localize(view === "table" ? "表格" : "卡片")}
+                            {localize(view === "table" ? t("表格") : t("卡片"))}
                           </button>
                         )),
                       )}
@@ -1326,7 +1328,7 @@ export function PlayerStats() {
                                     type="button"
                                     className="wt-record-sort"
                                     onClick={() => sortVehicles(key, true)}
-                                    title={localize(`按${localize(label)}排序，点击切换升序或降序`)}
+                                    title={t("按{0}排序，点击切换升序或降序", [label])}
                                   >
                                     {localize(label)}
                                     <span aria-hidden="true">
@@ -1406,13 +1408,11 @@ export function PlayerStats() {
                         }
                       >
                         <option value="all">{t("全部国家")}</option>
-                        {localize(
-                          profile.countries.map((country) => (
-                            <option key={country.id} value={country.id}>
-                              {localize(vehicleName(country))}
-                            </option>
-                          )),
-                        )}
+                        {profile.countries.map((country) => (
+                          <option key={country.id} value={country.id}>
+                            {country.name}
+                          </option>
+                        ))}
                       </GameSelect>
                     </label>
                     <label>
@@ -1563,7 +1563,7 @@ export function PlayerStats() {
                       disabled={uploadBusy || exportBusy}
                       onClick={() => uploadInput.current?.click()}
                     >
-                      {localize(uploadBusy ? "正在读取图片…" : "上传自己的背景")}
+                      {localize(uploadBusy ? t("正在读取图片…") : t("上传自己的背景"))}
                     </button>
                     {localize(
                       customBackground && (
@@ -1590,7 +1590,9 @@ export function PlayerStats() {
                           reportTheme.ink,
                         ].map((color, i) => <i key={i} style={{ backgroundColor: color }} />),
                       )}
-                      <span>{localize(colorBusy ? "正在读取背景颜色…" : "随背景自动配色")}</span>
+                      <span>
+                        {localize(colorBusy ? t("正在读取背景颜色…") : t("随背景自动配色"))}
+                      </span>
                     </div>
                     {localize(
                       backgroundError && (
@@ -1613,17 +1615,17 @@ export function PlayerStats() {
                   >
                     {localize(
                       report?.status === "queued" || report?.status === "running"
-                        ? "正在生成战报与点评…"
+                        ? t("正在生成战报与点评…")
                         : report?.status === "ready"
-                          ? "取用相同配置战报"
-                          : "生成我的战报",
+                          ? t("取用相同配置战报")
+                          : t("生成我的战报"),
                     )}
                   </button>
                   <button
                     disabled={!report || exportBusy || colorBusy || report.status !== "ready"}
                     onClick={() => void save()}
                   >
-                    {localize(exportBusy ? "正在保存图片…" : "保存战报图片")}
+                    {localize(exportBusy ? t("正在保存图片…") : t("保存战报图片"))}
                   </button>
                   {localize(
                     exportBusy && (
@@ -1650,10 +1652,10 @@ export function PlayerStats() {
                     <span>
                       {localize(
                         report?.status === "ready"
-                          ? "已生成"
+                          ? t("已生成")
                           : report?.status === "running"
-                            ? "正在生成"
-                            : "待生成",
+                            ? t("正在生成")
+                            : t("待生成"),
                       )}
                     </span>
                     <span>{localize(bg?.title)}</span>
@@ -1670,7 +1672,7 @@ export function PlayerStats() {
                         {localize(" ")}·{" "}
                         {localize(
                           reportCategory === "all"
-                            ? "全部兵种"
+                            ? t("全部兵种")
                             : statsCategoryNames[reportCategory],
                         )}
                       </p>
@@ -1680,8 +1682,8 @@ export function PlayerStats() {
                       <p>
                         {localize(
                           eligible.length
-                            ? "生成后展示生涯总览与该范围最常用的五辆载具。"
-                            : "这个范围暂时没有出击记录，请调整筛选。",
+                            ? t("生成后展示生涯总览与该范围最常用的五辆载具。")
+                            : t("这个范围暂时没有出击记录，请调整筛选。"),
                         )}
                       </p>
                       <small>
@@ -1736,18 +1738,6 @@ export function PlayerStats() {
         </>
       )}
       {localize(
-        displayProfile && showGarage && (
-          <PlayerGarage
-            profile={displayProfile}
-            close={() => setShowGarage(false)}
-            selectVehicle={(vehicle) => {
-              setShowGarage(false);
-              setSelectedVehicle(vehicle);
-            }}
-          />
-        ),
-      )}
-      {localize(
         displayProfile && selectedVehicle && (
           <PlayerVehicleDetails
             profile={displayProfile}
@@ -1778,7 +1768,7 @@ export function PlayerStats() {
         showRules && (
           <Modal
             title={t("读懂你的战绩")}
-            subtitle="先看统计范围，再看数字。"
+            subtitle={t("先看统计范围，再看数字。")}
             close={() => setShowRules(false)}
             className="wt-record-rules wt-data-notes-dialog"
           >
@@ -1812,10 +1802,10 @@ export function PlayerStats() {
                   {localize(reportStyle(item.payload.analysis?.style).label)} ·{localize(" ")}
                   {localize(
                     item.status === "ready"
-                      ? "已生成"
+                      ? t("已生成")
                       : item.status === "failed"
-                        ? "未生成"
-                        : "处理中",
+                        ? t("未生成")
+                        : t("处理中"),
                   )}
                 </span>
                 <small>{localize(item.createdAt && statsDate(item.createdAt))}</small>

@@ -1,15 +1,21 @@
 import { vehicleSearchText } from "./i18n/core";
-import { vehicleName } from "./i18n/core";
+import { localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
-import { localize, t } from "./i18n/core";
-import { vehicleDisplayName } from "./vehicle-display-name";
+import { t, vehicleName } from "./i18n/core";
+import { garageVehicleRecords } from "./garage-vehicles";
+import {
+  comparePlayerVehicles,
+  type VehicleSort,
+  type VehicleSortKey,
+} from "./player-vehicle-sort";
+import valuationRules from "../data/account-valuation-rules.json";
+
 import { useState } from "react";
 import catalog from "../data/catalog-settings.json";
 import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
 import {
   statsDate,
-  statsGoldenEaglesIcon,
   statsNumber as num,
   statsCategoryNames,
   statsRatio,
@@ -18,23 +24,26 @@ import {
 } from "./player-stats-api";
 import type { PlayerProfile, PlayerVehicle } from "./player-stats-api";
 import { usePlayerRead } from "./player-rankings-api";
-import type { OwnedGarage } from "./player-rankings-api";
+import type { OwnedGarage, PlayerDetails } from "./player-rankings-api";
 import { compactSilver, savedVehiclePageSize, saveVehiclePageSize } from "./player-number-format";
-import { PlayerVehiclePagination } from "./PlayerVehicleCards";
+import { PlayerVehicleCards, PlayerVehiclePagination } from "./PlayerVehicleCards";
 import { statsCountryMatches, statsCountryLabel } from "./stats-country";
 
 export function PlayerGarage({
   profile,
-  close,
   selectVehicle,
 }: {
   profile: PlayerProfile;
-  close: () => void;
   selectVehicle: (vehicle: PlayerVehicle) => void;
 }) {
   useLocale();
 
   const read = usePlayerRead<OwnedGarage>(profile, "garage", true);
+  const details = usePlayerRead<PlayerDetails>(profile, "details", true);
+  const detailRecords =
+    details.data && Date.parse(details.data.fetchedAt) >= Date.parse(profile.fetchedAt)
+      ? details.data.vehicles
+      : [];
   const [country, setCountry] = useState("all"),
     [category, setCategory] = useState("all"),
     [rank, setRank] = useState("all");
@@ -43,6 +52,8 @@ export function PlayerGarage({
     [search, setSearch] = useState(""),
     [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(savedVehiclePageSize);
+  const [mode, setMode] = useState("rb");
+  const [sort, setSort] = useState<VehicleSort | null>({ key: "battles", direction: "desc" });
   const units = read.data?.vehicles || [];
   const filtered = units.filter(
     (v) =>
@@ -54,27 +65,34 @@ export function PlayerGarage({
       (vehicleSearchText(v).toLowerCase().includes(search.toLowerCase()) ||
         v.id.toLowerCase().includes(search.toLowerCase())),
   );
+  const vehicles = garageVehicleRecords(filtered, profile.vehicles, mode, detailRecords);
+  if (sort) vehicles.sort((a, b) => comparePlayerVehicles(a, b, sort));
+  const noRecords = new Set(
+    filtered
+      .filter(
+        (v) =>
+          !v.observed ||
+          (!profile.vehicles.some((r) => r.id === v.id && r.mode === mode) &&
+            !detailRecords.some((r) => r.id === v.id && r.mode === mode)),
+      )
+      .map((v) => v.id),
+  );
   const pages = Math.max(1, Math.ceil(filtered.length / pageSize));
   const currentPage = Math.min(page, pages);
-  const ranks = [...new Set(units.flatMap((v) => (v.rank ? [v.rank] : [])))];
+  const ranks = valuationRules.researchRanks;
   const kinds = [...new Set(units.flatMap((v) => (v.kind ? [v.kind] : [])))];
   const kindLabels: Record<string, string> = {
-    normal: "常规载具",
-    gold: "金鹰载具",
-    pack: "礼包载具",
-    squadron: "联队载具",
-    event: "活动载具",
-    premium: "高级载具",
-    gift: "特殊载具",
-    research: "研发载具",
+    normal: t("常规载具"),
+    gold: t("金鹰载具"),
+    pack: t("礼包载具"),
+    squadron: t("联队载具"),
+    event: t("活动载具"),
+    premium: t("高级载具"),
+    gift: t("特殊载具"),
+    research: t("研发载具"),
   };
   return (
-    <Modal
-      title={localize(`${profile.nickname} · 完整车库`)}
-      subtitle="所有已拥有载具，包含未出击车辆；查看清单不消耗估值次数。"
-      close={close}
-      className="wt-owned-garage"
-    >
+    <section className="wt-garage-inventory" aria-label={t("完整车库载具")}>
       <div className="wt-owned-content">
         <div className="wt-owned-summary">
           <strong>
@@ -84,10 +102,22 @@ export function PlayerGarage({
             {localize(num(units.filter((v) => !v.observed).length))} {t("辆未出击")}
           </span>
           <span>
-            {localize(read.data ? `车库采集于 ${localize(statsDate(read.data.fetchedAt))}` : "")}
+            {localize(read.data ? t("车库采集于 {0}", [statsDate(read.data.fetchedAt)]) : "")}
           </span>
         </div>
-        <div className="wt-owned-filters">
+        <div className="wt-record-filters wt-garage-filters" aria-label={t("车库筛选与排序")}>
+          <GameSelect
+            aria-label={t("车库战斗模式")}
+            value={mode}
+            onValueChange={(v) => {
+              setMode(v);
+              setPage(1);
+            }}
+          >
+            <option value="ab">{t("街机 AB")}</option>
+            <option value="rb">{t("历史 RB")}</option>
+            <option value="sb">{t("全真 SB")}</option>
+          </GameSelect>
           <input
             type="search"
             value={search}
@@ -178,6 +208,44 @@ export function PlayerGarage({
             <option value="yes">{t("已出击")}</option>
             <option value="no">{t("未出击")}</option>
           </GameSelect>
+          <GameSelect
+            aria-label={t("车库载具排序")}
+            value={sort?.key || "none"}
+            onValueChange={(v) => {
+              setSort(v === "none" ? null : { key: v as VehicleSortKey, direction: "desc" });
+              setPage(1);
+            }}
+          >
+            <option value="none">{t("不排序")}</option>
+            {localize(
+              (
+                [
+                  ["battles", t("场次")],
+                  ["efficiency", t("作战效率")],
+                  ["winRate", t("胜率")],
+                  ["kd", t("综合 K/D")],
+                  ["airKd", t("对空 K/D")],
+                  ["groundKd", t("对地 K/D")],
+                  ["silverLions", t("银狮")],
+                ] as const
+              ).map(([id, label]) => (
+                <option key={id} value={id}>
+                  {t("按{0}排序", [localize(label)])}
+                </option>
+              )),
+            )}
+          </GameSelect>
+          <button
+            disabled={!sort}
+            onClick={() => {
+              if (sort) setSort({ ...sort, direction: sort.direction === "desc" ? "asc" : "desc" });
+            }}
+          >
+            {localize(sort?.direction === "asc" ? t("升序 ↑") : t("降序 ↓"))}
+          </button>
+          <button disabled={!sort} onClick={() => setSort(null)}>
+            {t("清除排序")}
+          </button>
         </div>
         {localize(
           read.busy && !read.data && (
@@ -200,64 +268,16 @@ export function PlayerGarage({
                 {localize(num(filtered.length))} {t("辆")}
                 {localize(
                   read.data.unmatchedCount > 0
-                    ? ` · ${localize(read.data.unmatchedCount)} 辆尚未匹配分类，仍保留在清单中`
+                    ? t(" · {0} 辆尚未匹配分类，仍保留在清单中", [read.data.unmatchedCount])
                     : "",
                 )}
               </p>
-              <div className="wt-owned-list">
-                {localize(
-                  filtered.slice((currentPage - 1) * pageSize, currentPage * pageSize).map((v) => {
-                    const record = [...profile.vehicles]
-                      .filter((r) => r.id === v.id)
-                      .sort((a, b) => (b.battles || 0) - (a.battles || 0))[0];
-                    return (
-                      <div key={v.id} className="wt-owned-row">
-                        <img
-                          src={v.image}
-                          alt=""
-                          loading="lazy"
-                          onError={(e) => {
-                            e.currentTarget.hidden = true;
-                          }}
-                        />
-                        <div>
-                          <a
-                            href={`https://wiki.warthunder.com/unit/${encodeURIComponent(v.id)}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            {localize(vehicleDisplayName(vehicleName(v)))}
-                          </a>
-                          <small>
-                            {localize(
-                              statsCountryLabel(v.country),
-                            )}
-                            {localize(" ")}·{" "}
-                            {localize(statsCategoryNames[v.category || ""] || "分类待匹配")}
-                            {localize(v.rank ? ` · ${localize(v.rank)} 级` : "")}
-                          </small>
-                        </div>
-                        <span className={v.observed ? "wt-owned-played" : "wt-owned-unplayed"}>
-                          {localize(v.observed ? "已出击" : "未出击")}
-                        </span>
-                        {localize(
-                          v.elite && (
-                            <span className="wt-owned-elite">
-                              <img src={statsGoldenEaglesIcon} alt="" />
-                              {t("精英")}
-                            </span>
-                          ),
-                        )}
-                        {localize(
-                          record && (
-                            <button onClick={() => selectVehicle(record)}>{t("查看战绩")}</button>
-                          ),
-                        )}
-                      </div>
-                    );
-                  }),
-                )}
-              </div>
+              <PlayerVehicleCards
+                vehicles={vehicles.slice((currentPage - 1) * pageSize, currentPage * pageSize)}
+                select={selectVehicle}
+                showNaval={category !== "ground"}
+                noRecords={noRecords}
+              />
               {localize(
                 filtered.length === 0 && (
                   <p className="wt-record-empty">{t("没有符合当前筛选的载具。")}</p>
@@ -279,7 +299,7 @@ export function PlayerGarage({
           ),
         )}
       </div>
-    </Modal>
+    </section>
   );
 }
 
@@ -287,70 +307,94 @@ export function PlayerVehicleDetails({
   profile,
   vehicle,
   close,
+  inline = false,
 }: {
   profile: PlayerProfile;
   vehicle: PlayerVehicle;
   close: () => void;
+  inline?: boolean;
 }) {
   useLocale();
 
+  const content = (
+    <div className="wt-owned-content">
+      <div className="wt-vehicle-record-identity">
+        <img src={vehicle.image} alt="" />
+        <div>
+          <h3>{vehicleName(vehicle)}</h3>
+          <p>
+            {localize(vehicle.mode.toUpperCase())} ·{localize(" ")}
+            {localize(statsCategoryNames[vehicle.category || ""] || t("分类待匹配"))}
+            {localize(vehicle.rank ? t(" · {0} 级", [vehicle.rank]) : "")}
+          </p>
+          <a
+            href={`https://wiki.warthunder.com/unit/${encodeURIComponent(vehicle.id)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t("查看官方 Wiki ↗")}
+          </a>
+        </div>
+      </div>
+      {localize(
+        inline && vehicle.battles == null ? (
+          <p className="wt-vehicle-card-no-record">{t("暂无出击记录")}</p>
+        ) : (
+          <>
+            <div className="wt-vehicle-record-counters">
+              {localize(
+                [
+                  [t("战斗场次"), num(vehicle.battles)],
+                  [t("胜率"), vehicle.winRate == null ? "—" : `${vehicle.winRate.toFixed(2)}%`],
+                  [t("工作台效率"), num(vehicle.efficiency)],
+                  [t("综合 K/D"), statsRatio(vehicle.kd)],
+                  [t("对地 K/D"), statsRatio(vehicle.groundKd)],
+                  [t("对空 K/D"), statsRatio(vehicle.airKd)],
+                  [t("死亡"), num(vehicle.deaths)],
+                  [t("出击"), num(vehicle.sorties)],
+                  [t("对地击毁"), num(vehicle.groundKills)],
+                  [t("对空击毁"), num(vehicle.airKills)],
+                ].map(([label, value]) => (
+                  <div key={label}>
+                    <span>{localize(label)}</span>
+                    <strong>{localize(value)}</strong>
+                  </div>
+                )),
+              )}
+            </div>
+            <p className="wt-vehicle-record-silver">
+              <img src={statsSilverIcon} alt={t("银狮")} />
+              {t("累计银狮")}
+              {localize(" ")}
+              <strong title={statsSilver(vehicle.silverLions)}>
+                {localize(compactSilver(vehicle.silverLions))}
+              </strong>
+            </p>
+          </>
+        ),
+      )}
+    </div>
+  );
+  if (inline)
+    return (
+      <section className="wt-record-panel wt-garage-detail" aria-label={t("载具战绩详情")}>
+        <header>
+          <h2>
+            {vehicleName(vehicle)} · {localize(vehicle.mode.toUpperCase())}
+          </h2>
+          <button onClick={close}>{t("← 返回车库")}</button>
+        </header>
+        {localize(content)}
+      </section>
+    );
   return (
     <Modal
-      key="detail"
-      title={localize(vehicleDisplayName(vehicleName(vehicle)))}
-      subtitle={`${profile.nickname} · ${vehicle.mode.toUpperCase()} · 载具累计战绩`}
+      title={vehicleName(vehicle)}
+      subtitle={t("{0} · {1} · 载具累计战绩", [profile.nickname, vehicle.mode.toUpperCase()])}
       close={close}
       className="wt-owned-garage wt-vehicle-record-dialog"
     >
-      <div className="wt-owned-content">
-        <div className="wt-vehicle-record-identity">
-          <img src={vehicle.image} alt="" />
-          <div>
-            <h3>{localize(vehicleDisplayName(vehicleName(vehicle)))}</h3>
-            <p>
-              {localize(vehicle.mode.toUpperCase())} ·{localize(" ")}
-              {localize(statsCategoryNames[vehicle.category || ""] || "分类待匹配")}
-              {localize(vehicle.rank ? ` · ${localize(vehicle.rank)} 级` : "")}
-            </p>
-            <a
-              href={`https://wiki.warthunder.com/unit/${encodeURIComponent(vehicle.id)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {t("查看官方 Wiki ↗")}
-            </a>
-          </div>
-        </div>
-        <div className="wt-vehicle-record-counters">
-          {localize(
-            [
-              ["战斗场次", num(vehicle.battles)],
-              ["胜率", vehicle.winRate == null ? "—" : `${localize(vehicle.winRate.toFixed(2))}%`],
-              ["工作台效率", num(vehicle.efficiency)],
-              ["综合 K/D", statsRatio(vehicle.kd)],
-              ["对地 K/D", statsRatio(vehicle.groundKd)],
-              ["对空 K/D", statsRatio(vehicle.airKd)],
-              ["死亡", num(vehicle.deaths)],
-              ["出击", num(vehicle.sorties)],
-              ["对地击毁", num(vehicle.groundKills)],
-              ["对空击毁", num(vehicle.airKills)],
-            ].map(([label, value]) => (
-              <div key={label}>
-                <span>{localize(label)}</span>
-                <strong>{localize(value)}</strong>
-              </div>
-            )),
-          )}
-        </div>
-        <p className="wt-vehicle-record-silver">
-          <img src={statsSilverIcon} alt={t("银狮")} />
-          {t("累计银狮")}
-          {localize(" ")}
-          <strong title={localize(statsSilver(vehicle.silverLions))}>
-            {localize(compactSilver(vehicle.silverLions))}
-          </strong>
-        </p>
-      </div>
+      {localize(content)}
     </Modal>
   );
 }

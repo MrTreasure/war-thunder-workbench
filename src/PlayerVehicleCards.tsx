@@ -1,7 +1,7 @@
-import { vehicleName } from "./i18n/core";
+import { localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
-import { localize, t } from "./i18n/core";
-import { vehicleDisplayName } from "./vehicle-display-name";
+import { t, vehicleName } from "./i18n/core";
+
 import { GameSelect } from "./components/GameSelect";
 import { compactSilver } from "./player-number-format";
 import {
@@ -18,114 +18,125 @@ export function PlayerVehicleCards({
   select,
   generate,
   showNaval,
+  noRecords,
 }: {
   vehicles: PlayerVehicle[];
   select: (vehicle: PlayerVehicle) => void;
-  generate: (vehicle: PlayerVehicle) => void;
+  generate?: (vehicle: PlayerVehicle) => void;
   showNaval: boolean;
+  noRecords?: ReadonlySet<string>;
 }) {
   useLocale();
 
   return (
     <div className="wt-vehicle-cards">
-      {localize(
-        vehicles.map((vehicle) => (
-          <article key={vehicle.id} className="wt-vehicle-card">
-            <button
-              className="wt-vehicle-card-open"
-              onClick={() => select(vehicle)}
-              aria-label={localize(
-                `查看${localize(vehicleDisplayName(vehicleName(vehicle)))}战绩详情`,
-              )}
+      {vehicles.map((vehicle) => (
+        <article key={vehicle.id} className="wt-vehicle-card">
+          <button
+            className="wt-vehicle-card-open"
+            onClick={() => select(vehicle)}
+            aria-label={t("查看{0}战绩详情", [vehicleName(vehicle)])}
+          />
+          <header className="wt-vehicle-card-heading">
+            <div>
+              <h3 title={vehicleName(vehicle)}>{vehicleName(vehicle)}</h3>
+              <p>
+                {localize(
+                  catalog.countries[vehicle.country as keyof typeof catalog.countries] ||
+                    t("国家待匹配"),
+                )}
+              </p>
+            </div>
+            <span className="wt-vehicle-card-rank">
+              {localize(vehicle.rank || "—")}
+              <small>{t("级")}</small>
+            </span>
+          </header>
+          <div className="wt-vehicle-card-art">
+            <img
+              src={vehicle.image}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              onError={(event) => {
+                if (event.currentTarget.src !== vehicle.thumbnail)
+                  event.currentTarget.src = vehicle.thumbnail;
+              }}
             />
-            <header className="wt-vehicle-card-heading">
-              <div>
-                <h3 title={localize(vehicleDisplayName(vehicleName(vehicle)))}>
-                  {localize(vehicleDisplayName(vehicleName(vehicle)))}
-                </h3>
-                <p>
+          </div>
+          {localize(
+            noRecords?.has(vehicle.id) ? (
+              <p className="wt-vehicle-card-no-record">{t("暂无出击记录")}</p>
+            ) : (
+              <>
+                <div className="wt-vehicle-card-rating">
+                  <span>{t("作战效率")}</span>
+                  <strong>{localize(num(vehicle.efficiency))}</strong>
+                  <small>{localize(vehicle.smallSample ? t("场次不足 50") : t("累计表现"))}</small>
+                </div>
+                <dl className="wt-vehicle-card-values">
                   {localize(
-                    catalog.countries[vehicle.country as keyof typeof catalog.countries] ||
-                      "国家待匹配",
+                    [
+                      [t("场次"), num(vehicle.battles)],
+                      [t("胜率"), vehicle.winRate == null ? "—" : `${vehicle.winRate.toFixed(2)}%`],
+                      [t("综合 K/D"), ratio(vehicle.kd)],
+                      [t("对空 K/D"), ratio(vehicle.airKd)],
+                      [t("对地 K/D"), ratio(vehicle.groundKd)],
+                      [
+                        showNaval && (vehicle.category === "ships" || vehicle.category === "boats")
+                          ? t("对海 K/D")
+                          : t("出击"),
+                        showNaval && (vehicle.category === "ships" || vehicle.category === "boats")
+                          ? ratio(vehicle.navalKd)
+                          : num(vehicle.sorties),
+                      ],
+                    ].map(([label, value]) => (
+                      <div key={label}>
+                        <dt>{localize(label)}</dt>
+                        <dd>{localize(value)}</dd>
+                      </div>
+                    )),
                   )}
-                </p>
-              </div>
-              <span className="wt-vehicle-card-rank">
-                {localize(vehicle.rank || "—")}
-                <small>{t("级")}</small>
-              </span>
-            </header>
-            <div className="wt-vehicle-card-art">
-              <img
-                src={vehicle.image}
-                alt=""
-                loading="lazy"
-                decoding="async"
-                onError={(event) => {
-                  if (event.currentTarget.src !== vehicle.thumbnail)
-                    event.currentTarget.src = vehicle.thumbnail;
-                }}
-              />
-            </div>
-            <div className="wt-vehicle-card-rating">
-              <span>{t("作战效率")}</span>
-              <strong>{localize(num(vehicle.efficiency))}</strong>
-              <small>{localize(vehicle.smallSample ? "场次不足 50" : "累计表现")}</small>
-            </div>
-            <dl className="wt-vehicle-card-values">
-              {localize(
-                [
-                  ["场次", num(vehicle.battles)],
-                  [
-                    "胜率",
-                    vehicle.winRate == null ? "—" : `${localize(vehicle.winRate.toFixed(2))}%`,
-                  ],
-                  ["综合 K/D", ratio(vehicle.kd)],
-                  ["对空 K/D", ratio(vehicle.airKd)],
-                  ["对地 K/D", ratio(vehicle.groundKd)],
-                  [
-                    showNaval && (vehicle.category === "ships" || vehicle.category === "boats")
-                      ? "对海 K/D"
-                      : "出击",
-                    showNaval && (vehicle.category === "ships" || vehicle.category === "boats")
-                      ? ratio(vehicle.navalKd)
-                      : num(vehicle.sorties),
-                  ],
-                ].map(([label, value]) => (
-                  <div key={label}>
-                    <dt>{localize(label)}</dt>
-                    <dd>{localize(value)}</dd>
-                  </div>
-                )),
-              )}
-            </dl>
-            <footer className="wt-vehicle-card-footer">
-              <span title={localize(`累计银狮：${localize(statsSilver(vehicle.silverLions))}`)}>
-                <img src={statsSilverIcon} alt={t("银狮")} />
-                <strong>{localize(compactSilver(vehicle.silverLions))}</strong>
-              </span>
-              <div className="wt-vehicle-card-actions">
-                <button
-                  onClick={() => select(vehicle)}
-                  aria-label={localize(
-                    `查看${localize(vehicleDisplayName(vehicleName(vehicle)))}详情`,
-                  )}
+                </dl>
+              </>
+            ),
+          )}
+          <footer className="wt-vehicle-card-footer">
+            {localize(
+              noRecords?.has(vehicle.id) ? (
+                <a
+                  href={`https://wiki.warthunder.com/unit/${encodeURIComponent(vehicle.id)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  {t("查看详情")}
-                </button>
+                  {t("官方 Wiki ↗")}
+                </a>
+              ) : (
+                <span title={t("累计银狮：{0}", [statsSilver(vehicle.silverLions)])}>
+                  <img src={statsSilverIcon} alt={t("银狮")} />
+                  <strong>{localize(compactSilver(vehicle.silverLions))}</strong>
+                </span>
+              ),
+            )}
+            <div className="wt-vehicle-card-actions">
+              <button
+                onClick={() => select(vehicle)}
+                aria-label={t("查看{0}详情", [vehicleName(vehicle)])}
+              >
+                {t("查看详情")}
+              </button>
+              {generate && (
                 <button
                   onClick={() => generate(vehicle)}
-                  aria-label={localize(
-                    `生成${localize(vehicleDisplayName(vehicleName(vehicle)))}战绩图片`,
-                  )}
+                  aria-label={t("生成{0}战绩图片", [vehicleName(vehicle)])}
                 >
                   {t("生成图片")}
                 </button>
-              </div>
-            </footer>
-          </article>
-        )),
-      )}
+              )}
+            </div>
+          </footer>
+        </article>
+      ))}
     </div>
   );
 }
@@ -152,7 +163,7 @@ export function PlayerVehiclePagination({
       <span>
         {localize(
           total
-            ? `${localize(num((page - 1) * pageSize + 1))}–${localize(num(Math.min(total, page * pageSize)))}`
+            ? `${num((page - 1) * pageSize + 1)}–${num(Math.min(total, page * pageSize))}`
             : "0",
         )}
         {localize(" ")}/ {localize(num(total))} {t("辆")}

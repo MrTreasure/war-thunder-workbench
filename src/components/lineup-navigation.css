@@ -1,0 +1,6 @@
+/* Shared navigation owns its colors, font and geometry across both page shells. */
+nav.wt-lineup-sections { display: flex; flex-wrap: nowrap; gap: 24px; margin: 0 0 18px; padding-top: 16px; border-bottom: 1px solid var(--wt-strong-line); font: 14px/1.5 WTSymbols, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+nav.wt-lineup-sections > a { display: inline-flex; align-items: center; flex: none; min-height: 44px; padding: 8px 0; color: var(--wt-muted); text-decoration: none; border-bottom: 2px solid transparent; }
+nav.wt-lineup-sections > a[aria-current="page"] { color: var(--wt-gold); border-color: var(--wt-gold); }
+nav.wt-lineup-sections > a:hover { color: var(--wt-gold); text-decoration: none; }
+nav.wt-lineup-sections > a:focus-visible { outline: 2px solid var(--wt-gold); outline-offset: 3px; }

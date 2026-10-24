@@ -1,0 +1,29 @@
+{
+  "ownedMarker": {
+    "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/gameuiskin/item_icon_elite.svg",
+    "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/gameuiskin/item_icon_elite.svg",
+    "source": "Original War Thunder game UI asset, publicly archived in the existing game asset repository; not hosted by Gaijin.",
+    "assetPath": "atlases.vromfs.bin_u/gameuiskin/item_icon_elite.svg",
+    "assetCommit": "ea96f3af75afe1d858f80ac13f212db218bc69ca",
+    "sha256": "919da70135c89b4f846346ee1ce70ee8ee4ccbe4826276779395bbe849473060",
+    "bytes": 673,
+    "checkedAt": "2026-10-24",
+    "meaning": "In this application the original spade icon means owned. It does not assert that all game modifications are researched.",
+    "background": {
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/gameuiskin/item_icon_elite_slot.png",
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/gameuiskin/item_icon_elite_slot.png",
+      "assetPath": "atlases.vromfs.bin_u/gameuiskin/item_icon_elite_slot.png",
+      "assetCommit": "ea96f3af75afe1d858f80ac13f212db218bc69ca",
+      "sha256": "3f8684cdc09dfdd74e80c48d7d584b336c66699406c9c89d46a9fcd227dfff37",
+      "bytes": 4546,
+      "checkedAt": "2026-10-24",
+      "styleSource": "https://github.com/gszabi99/War-Thunder-Datamine/blob/ea96f3af75afe1d858f80ac13f212db218bc69ca/gui.vromfs.bin_u/gui/csselems/unitcard.css#L806-L827",
+      "colors": {
+        "normal": "#364c5bab",
+        "premium": "#5b3416ab",
+        "squadron": "#5d7144"
+      },
+      "layout": "Original eliteIcon slot watermark, square fitted to card body excluding the top border and bottom rating strip; game ARGB colors converted to CSS RGBA."
+    }
+  }
+}

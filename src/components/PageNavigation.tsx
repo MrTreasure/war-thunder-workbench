@@ -4,7 +4,7 @@ import { GameSelect } from "./GameSelect";
 export function PageNavigation({
   page,
 }: {
-  page: "tree" | "lineups" | "maps" | "stats" | "sales";
+  page: "tree" | "lineups" | "maps" | "stats" | "sales" | "decals";
 }) {
   useLocale();
 

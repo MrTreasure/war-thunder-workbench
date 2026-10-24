@@ -364,3 +364,23 @@
 - 点击地图编辑器“完成”时，静默、异步提交当前方案的 JSON 绘制快照及地图/布局/队伍/视图信息到独立后端数据库。成功失败均不向用户弹提示，不阻塞完成；不采集逐笔过程，不上传或保存图片。
 - 原 OPFS 本地方案保持独立；上传待办使用隔离的 IndexedDB `wt-map-completion-outbox-v1`，最多 20 条，按原登录身份重试，不得跨账号归属。不得清理本地方案、购物车或其他状态。
 - 控制台只读预览复用 `MapAnnotation` / `MapDrawingPreview`，底图及图标只使用现有 CDN 原素材。只有选中记录才加载绘制详情；支持单条/批量删除，删除不能被旧上传重试恢复。
+
+## 账号云端状态与游戏账号关联（2026-10-24 用户确认）
+
+- 登录用户的研发计划、载具研发购物车和出击队列保存至独立 Go 后端；游客保留原本地存储键，不自动上传、覆盖或清除游客记录。首次迁移须显式选择导入，跨账号隔离待同步数据。
+- UID 关联只做防误绑，使用空输入框中的 UID placeholder，要求重新输入相同 UID；不宣称官方身份认证。不要求玩家的 Gaijin 密码。
+- 用户明确确认：游戏原始黑桃图标在本站仅表示“已拥有”，不表示改装全满。用关联车库自动跳过已拥有载具的研发点，不据此清零改装研发点。原图来源及固定版本见 data/account-workspace.json。
+- 解除入口位于用户名菜单；弹窗要求逐字输入“我再也不绑定别人的账号了”。后端必须严格比较原文，不能 trim、只在前端校验或使用普通确认框代替。
+- 登录/注册及云端功能首次使用需要明确确认当前版本的用户协议与数据说明；后台提供账号计划、游戏关联和协议确认管理。私人接口不进入公共缓存；后端源码仍仅本机维护。
+
+## Account sync and garage presentation
+
+- After agreement confirmation, account saves are automatic and silent. Never open the cloud-data/import panel merely because a user logged in, and do not show successful sync status in the header or menu. The panel remains available on explicit request.
+- First account use may automatically import valid guest plans only into missing cloud keys. Cloud documents, deletion tombstones and pending account edits win; retain the guest originals and prevent automatic import into another account once claimed.
+- Full garages live under 出击队列 → 我的车库 at `#/lineups/garage`, require login on both frontend and backend, and use the exact shared stats vehicle-card component with filters, modes, sorting and pagination. Default to the linked game account; unlinked users get a stats/binding entry. Old stats garage links redirect. Garage and its details use page content, not dialogs; anonymous local lineups remain available. Do not load country trees on the garage route.
+- Owned spades use the original `item_icon_elite_slot.png` card-body watermark and game colors recorded in `data/account-workspace.json`, behind vehicle art/text. Do not restore a boxed corner badge. Keep original HTTPS asset URLs and provenance.
+
+## 贴花查询暂缓（2026-10-24）
+
+- 当前无官方可用 CDN 资源，贴花查询计划暂时搁置。隐藏桌面及移动入口，直接访问旧路由返回科技树，不加载贴花目录或发起查询。
+- 保留现有实现和本地数据；未确认可用的官方资源前，不重新开放入口，不猜测或拼接图片地址。

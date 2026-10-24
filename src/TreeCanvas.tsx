@@ -1,7 +1,10 @@
 import { vehicleSearchText } from "./i18n/core";
-import { vehicleName } from "./i18n/core";
+import { localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
-import { localize, t } from "./i18n/core";
+import { t, vehicleName } from "./i18n/core";
+import workspaceAssets from "../data/account-workspace.json";
+import { useAccountWorkspace } from "./workspace-context";
+
 import { useEffect, useMemo, useRef } from "react";
 import type { CSSProperties } from "react";
 import type { Catalog, Mode, Tree, TreeNode, Vehicle } from "./models";
@@ -13,7 +16,7 @@ export const rating = (unit: Vehicle, mode: Mode) =>
     ? (unit.br[mode]! / 3 + 1).toFixed(1)
     : "—";
 export const rpText = (unit: Vehicle) =>
-  unit.rp === undefined ? "研发点 —" : unit.rp === 0 ? "免费研发" : `${format(unit.rp)} RP`;
+  unit.rp === undefined ? t("研发点 —") : unit.rp === 0 ? t("免费研发") : `${format(unit.rp)} RP`;
 const at = (left: number, top: number, width?: number, height?: number): CSSProperties => ({
   left,
   top,
@@ -78,13 +81,17 @@ export function VehicleCard({
 }) {
   useLocale();
 
+  const workspace = useAccountWorkspace();
+  const owned = !!workspace?.ownedVehicleIds.has(unit.id);
   return (
     <button
       className={`vehicle-card ${selected ? "is-selected" : ""}`}
       onClick={onSelect}
-      aria-label={localize(
-        `${localize(vehicleName(unit))}，Rank ${localize(unit.rank)}，查看研发信息`,
-      )}
+      aria-label={t("{0}，Rank {1}{2}，查看研发信息", [
+        vehicleName(unit),
+        unit.rank,
+        owned ? t("，已拥有") : "",
+      ])}
     >
       <img
         src={unit.thumbnailUrl}
@@ -96,9 +103,48 @@ export function VehicleCard({
           e.currentTarget.hidden = true;
         }}
       />
-      <span className="unit-role">{localize(catalog.roles[unit.role || ""] || "常规载具")}</span>
-      <span className="unit-name" title={localize(vehicleName(unit))}>
-        {localize(vehicleName(unit))}
+      {localize(
+        owned && (
+          <span
+            className={`wt-owned-marker ${unit.kind === "squadron" ? "is-squadron" : unit.premium ? "is-premium" : ""}`}
+            style={
+              {
+                "--wt-owned-slot-image": `url("${workspaceAssets.ownedMarker.background.url}")`,
+              } as CSSProperties
+            }
+            title={t("已拥有 · 来自关联游戏账号的公开车库")}
+            aria-label={t("已拥有")}
+          >
+            <span className="wt-owned-slot" aria-hidden="true" />
+            <img
+              src={workspaceAssets.ownedMarker.background.url}
+              width={92}
+              height={92}
+              alt=""
+              onLoad={(e) => {
+                e.currentTarget.parentElement?.style.setProperty(
+                  "--wt-owned-slot-image",
+                  `url("${e.currentTarget.currentSrc || e.currentTarget.src}")`,
+                );
+              }}
+              onError={(e) => {
+                if (e.currentTarget.dataset.fallback !== "1") {
+                  e.currentTarget.dataset.fallback = "1";
+                  e.currentTarget.src = workspaceAssets.ownedMarker.background.fallbackUrl;
+                } else {
+                  e.currentTarget.parentElement?.setAttribute("data-unavailable", "true");
+                }
+              }}
+            />
+            <span className="wt-owned-fallback" aria-hidden="true">
+              ♠
+            </span>
+          </span>
+        ),
+      )}
+      <span className="unit-role">{localize(catalog.roles[unit.role || ""] || t("常规载具"))}</span>
+      <span className="unit-name" title={vehicleName(unit)}>
+        {vehicleName(unit)}
       </span>
       <span className="unit-meta">
         <span
@@ -108,7 +154,7 @@ export function VehicleCard({
             unit.side === "research" || unit.kind === "squadron"
               ? rpText(unit)
               : unit.kind === "gold" && unit.price !== null
-                ? `${localize(format(unit.price))} GE`
+                ? `${format(unit.price)} GE`
                 : unit.kind === "pack"
                   ? packPriceLabel(unit)
                   : catalog.kinds[unit.kind],
@@ -116,10 +162,7 @@ export function VehicleCard({
         </span>
       </span>
       <span className="battle-ratings">
-        <span
-          className="battle-rating"
-          title={localize(`${localize(modes[mode])} ${localize(rating(unit, mode))}`)}
-        >
+        <span className="battle-rating" title={`${modes[mode]} ${rating(unit, mode)}`}>
           <span className="rating-mode">
             {localize(modes[mode])} {localize(mode.toUpperCase())}
           </span>
@@ -267,10 +310,10 @@ export function TreeCanvas({
                 rail = x1 < x2 ? to.x - 10 : to.x + 178;
               const folder = nodeMap.get(edge.from)?.group && expanded.has(edge.from);
               const d = folder
-                ? `M${localize(from.x + 170)},${localize(from.y + 55)} H${localize(from.x + 178)} V${localize(y2 - 9)} H${localize(x2)} V${localize(y2)}`
+                ? `M${from.x + 170},${from.y + 55} H${from.x + 178} V${y2 - 9} H${x2} V${y2}`
                 : x1 === x2
-                  ? `M${localize(x1)},${localize(y1)} V${localize(y2)}`
-                  : `M${localize(x1)},${localize(y1)} V${localize(from.rowBottom + 12)} H${localize(rail)} V${localize(y2 - 9)} H${localize(x2)} V${localize(y2)}`;
+                  ? `M${x1},${y1} V${y2}`
+                  : `M${x1},${y1} V${from.rowBottom + 12} H${rail} V${y2 - 9} H${x2} V${y2}`;
               const active = route.has(edge.from) && route.has(edge.to);
               return (
                 <path
@@ -318,7 +361,7 @@ export function TreeCanvas({
                       onClick={() => toggle(node.id)}
                     >
                       <span>
-                        {localize(node.variant ? "联动系统" : "折叠组")} ·{" "}
+                        {localize(node.variant ? t("联动系统") : t("折叠组"))} ·{" "}
                         {localize(node.members.length)} {t("辆")}
                       </span>
                       <span>{localize(expanded.has(node.id) ? "−" : "＋")}</span>

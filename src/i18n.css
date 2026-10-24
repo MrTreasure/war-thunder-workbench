@@ -307,3 +307,8 @@
   color: #27e5d7;
   border-left-color: #27e5d7;
 }
+
+/* Keep shared hangar navigation and filters stable with longer localized labels. */
+:root:not([lang="zh-CN"]) nav.wt-lineup-sections { font-size: 13px; }
+:root:not([lang="zh-CN"]) .wt-garage-page .wt-garage-filters > .wt-select { max-width: 190px; }
+:root:not([lang="zh-CN"]) .wt-record-player-actions { max-width: 100%; }

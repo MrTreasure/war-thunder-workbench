@@ -1,8 +1,10 @@
-import { SiteGuideLinks } from "./components/SiteGuideLinks";
 import { vehicleSearchText } from "./i18n/core";
-import { vehicleName } from "./i18n/core";
+import { localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
-import { localize, t } from "./i18n/core";
+import { t, vehicleName } from "./i18n/core";
+import { SiteGuideLinks } from "./components/SiteGuideLinks";
+import { useAccountWorkspace } from "./workspace-context";
+
 import { updateSearchMetadata } from "./search-metadata";
 import { GameSelect } from "./components/GameSelect";
 import { Component, createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
@@ -26,7 +28,7 @@ import { object } from "./validation";
 import { workbenchPage } from "./features";
 import manifestData from "./generated/manifest.json";
 const manifest: DataManifest = { ...manifestData, schemaVersion: 3 };
-import { readJson } from "./storage";
+import { useStored } from "./storage";
 import { validCart } from "./quotes";
 import bootstrapData from "./generated/bootstrap.json";
 export class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
@@ -51,12 +53,13 @@ const CART_KEY = "wt-workbench-cart-v1";
 const WorkbenchPages = createContext<{ tree: ReactNode; lineups: ReactNode } | null>(null);
 export function useWorkbenchPage(page: "tree" | "lineups") {
   const pages = useContext(WorkbenchPages);
-  if (!pages) throw Error("工作台页面缺少共享状态。");
+  if (!pages) throw Error(t("工作台页面缺少共享状态。"));
   return pages[page];
 }
 export function WorkbenchProvider({ children }: { children: ReactNode }) {
   useLocale();
 
+  const workspace = useAccountWorkspace();
   const bootstrap = bootstrapData as CatalogIndex;
   const params = new URLSearchParams(location.search);
   const [initial] = useState(() =>
@@ -67,6 +70,9 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   const [remembered, setRemembered] = useState(true);
   const page = useRouterState({
     select: (state) => workbenchPage(state.location.pathname),
+  });
+  const garagePage = useRouterState({
+    select: (state) => state.location.pathname === "/lineups/garage",
   });
   useEffect(() => {
     updateSearchMetadata(page);
@@ -105,7 +111,15 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
     [bootstrap, loadedCountry, currentKey, country],
   );
   useEffect(() => {
-    if (page === "maps" || page === "stats" || page === "sales" || !country || !countryEntry)
+    if (
+      garagePage ||
+      page === "maps" ||
+      page === "stats" ||
+      page === "sales" ||
+      page === "decals" ||
+      !country ||
+      !countryEntry
+    )
       return;
     const controller = new AbortController();
     const valid = (value: unknown): value is CountryPayload => {
@@ -142,11 +156,11 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
         if (!controller.signal.aborted)
           setCountryError({
             key: currentKey,
-            message: error instanceof Error ? error.message : "载具资料读取失败",
+            message: error instanceof Error ? error.message : t("载具资料读取失败"),
           });
       });
     return () => controller.abort();
-  }, [country, currentKey, countryEntry, countryRetry, bootstrap, page]);
+  }, [country, currentKey, countryEntry, countryRetry, bootstrap, page, garagePage]);
   function chooseCountry(value: string) {
     if (value !== country) {
       setCountryError(null);
@@ -194,7 +208,13 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   function openParts() {
     setModal("parts");
   }
-  const [cart, setCart] = useState(() => readJson<CartItem[]>(CART_KEY, [], validCart));
+  const [cart, saveCart, cartStorageError] = useStored<CartItem[]>(
+    CART_KEY,
+    [],
+    validCart,
+    undefined,
+    true,
+  );
   const [pulse, setPulse] = useState(0);
   const [cartError, setCartError] = useState("");
   const [full, setFull] = useState(false);
@@ -322,8 +342,9 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       return next;
     });
   function add(item: CartItem) {
-    if (cart.some((old) => old.fingerprint === item.fingerprint)) return "这份报价已经在购物车中。";
-    if (cart.length >= 500) return "购物车已满，请导出备份并移除部分报价。";
+    if (cart.some((old) => old.fingerprint === item.fingerprint))
+      return t("这份报价已经在购物车中。");
+    if (cart.length >= 500) return t("购物车已满，请导出备份并移除部分报价。");
     const replacing =
       item.kind === "modifications" &&
       cart.some((old) => old.kind === "modifications" && old.lines[0]?.key === item.lines[0]?.key);
@@ -339,23 +360,24 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       item,
     ];
     try {
-      localStorage.setItem(CART_KEY, JSON.stringify(next));
-      setCart(next);
+      if (!saveCart(next)) return t("保存失败：请检查云端同步状态。");
       setPulse((value) => value + 1);
       setCartError("");
-      return replacing ? "已更新购物车中的配件报价 ✓" : "已加入购物车 ✓";
+      return replacing ? t("已更新购物车中的配件报价 ✓") : t("已加入购物车 ✓");
     } catch {
-      return "保存失败：浏览器存储不可用或已满。请先导出购物车，报价尚未加入。";
+      return t("保存失败：浏览器存储不可用或已满。请先导出购物车，报价尚未加入。");
     }
   }
   function remove(id: string) {
     const next = cart.filter((item) => item.id !== id);
     try {
-      localStorage.setItem(CART_KEY, JSON.stringify(next));
-      setCart(next);
+      if (!saveCart(next)) {
+        setCartError(t("移除未完成，请检查云端同步状态。"));
+        return;
+      }
       setCartError("");
     } catch {
-      setCartError("浏览器保存失败，条目尚未移除。");
+      setCartError(t("浏览器保存失败，条目尚未移除。"));
     }
   }
   async function fullscreen() {
@@ -397,7 +419,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       payload={loadedCountry?.key === currentKey ? loadedCountry.value : null}
       {...{ chooseCountry, mode, setMode }}
       progress={countryProgress?.key === currentKey ? countryProgress : { received: 0, total: 0 }}
-      error={localize(countryError?.key === currentKey ? countryError.message : undefined)}
+      error={countryError?.key === currentKey ? countryError.message : undefined}
       retry={() => {
         setCountryError(null);
         setCountryProgress(null);
@@ -422,14 +444,16 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
           <span>
             <strong>{t("筛选与操作")}</strong>
             <small>
-              {localize(P.countries[country] || "选择国家")} · {localize(P.categories[category])} ·{" "}
-              {localize(mode.toUpperCase())}
+              {localize(P.countries[country] || t("选择国家"))} · {localize(P.categories[category])}{" "}
+              · {localize(mode.toUpperCase())}
               {localize(
-                query ? ` · 搜索：${localize(query)}` : filter !== "all" ? " · 已筛选" : "",
+                query ? t(" · 搜索：{0}", [query]) : filter !== "all" ? t(" · 已筛选") : "",
               )}
             </small>
           </span>
-          <span className="mobile-tools-label">{localize(mobileToolsOpen ? "收起" : "展开")}</span>
+          <span className="mobile-tools-label">
+            {localize(mobileToolsOpen ? t("收起") : t("展开"))}
+          </span>
           <span className="mobile-tools-chevron" aria-hidden="true">
             ⌄
           </span>
@@ -441,12 +465,12 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                 <summary
                   onKeyDown={countryKeys}
                   className="country-trigger"
-                  aria-label={localize(`选择国家：${localize(P.countries[country] || "未选择")}`)}
+                  aria-label={t("选择国家：{0}", [P.countries[country] || t("未选择")])}
                 >
                   {localize(
                     country && <img className="country-flag" alt="" src={P.flags[country]} />,
                   )}
-                  <span>{localize(P.countries[country] || "选择国家")}</span>
+                  <span>{localize(P.countries[country] || t("选择国家"))}</span>
                   <span className="country-chevron">⌄</span>
                 </summary>
                 <div className="country-options">
@@ -513,22 +537,18 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                   />
                   <kbd>/</kbd>
                 </label>
-                {localize(
-                  showResults && query && (
-                    <div className="search-results">
-                      {localize(
-                        matches.slice(0, 9).map((unit) => (
-                          <button key={unit.id} onClick={() => select(unit.id, true)}>
-                            <span>{localize(vehicleName(unit))}</span>
-                            <small>Rank {localize(unit.rank)}</small>
-                          </button>
-                        )),
-                      )}
-                      <p>
-                        {localize(matches.length)} {t("个匹配；点击定位并高亮路线。")}
-                      </p>
-                    </div>
-                  ),
+                {showResults && query && (
+                  <div className="search-results">
+                    {matches.slice(0, 9).map((unit) => (
+                      <button key={unit.id} onClick={() => select(unit.id, true)}>
+                        <span>{vehicleName(unit)}</span>
+                        <small>Rank {localize(unit.rank)}</small>
+                      </button>
+                    ))}
+                    <p>
+                      {localize(matches.length)} {t("个匹配；点击定位并高亮路线。")}
+                    </p>
+                  </div>
                 )}
               </div>
               <label className="compact-field">
@@ -578,7 +598,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                   setExpanded(allOpen ? new Set() : new Set(groups.map((node) => node.id)))
                 }
               >
-                {localize(allOpen ? "收起折叠组" : "展开折叠组")}
+                {localize(allOpen ? t("收起折叠组") : t("展开折叠组"))}
               </button>
               <div className="zoom-control">
                 <button
@@ -602,7 +622,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                 </button>
               </div>
               <button className="quiet-button" onClick={() => void fullscreen()}>
-                {localize(full || fallbackFull ? "退出全屏" : "⛶ 全屏")}
+                {localize(full || fallbackFull ? t("退出全屏") : t("⛶ 全屏"))}
               </button>
             </div>
           </section>
@@ -635,17 +655,17 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       <div className="tree-status">
         <div>
           <strong>
-            {localize(P.countries[country] || "选择国家")} / {localize(P.categories[category])}
+            {localize(P.countries[country] || t("选择国家"))} / {localize(P.categories[category])}
           </strong>
           <span>
             {localize(
               tree
-                ? `${localize(tree.counts.research)} 辆常规研发 · ${localize(tree.counts.special)} 辆独立获取`
+                ? t("{0} 辆常规研发 · {1} 辆独立获取", [tree.counts.research, tree.counts.special])
                 : !country
-                  ? "选定国家后读取资料"
+                  ? t("选定国家后读取资料")
                   : countryEntry && loadedCountry?.key !== currentKey
-                    ? "正在读取该国全部资料"
-                    : "暂无官方研发树",
+                    ? t("正在读取该国全部资料")
+                    : t("暂无官方研发树"),
             )}
           </span>
         </div>
@@ -696,16 +716,15 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                   )),
                 )}
               </div>
-              <SiteGuideLinks />
             </section>
           ) : countryEntry && loadedCountry?.key !== currentKey ? (
             <WarThunderLoading
               compact
-              title={localize(`载入${localize(P.countries[country])}全部载具资料`)}
+              title={t("载入{0}全部载具资料", [P.countries[country]])}
               progress={
                 countryProgress?.key === currentKey ? countryProgress : { received: 0, total: 0 }
               }
-              error={localize(countryError?.key === currentKey ? countryError.message : undefined)}
+              error={countryError?.key === currentKey ? countryError.message : undefined}
               retry={
                 countryError?.key === currentKey
                   ? () => {
@@ -747,6 +766,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                 "从上往下沿箭头研发；折叠组可以展开。AB / RB / SB 切换后显示当前模式权重。配件与载具分别计价，出击队列和购物车本地保存。",
               )}
             </p>
+            <SiteGuideLinks />
             <span className="tree-source">
               {t("官方 Wiki ·")}
               {localize(P.checkedAt.slice(0, 10))}
@@ -770,142 +790,128 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
               {localize(
                 loadedCountry?.key === currentKey
                   ? cacheLabel(loadedCountry.cache)
-                  : "选定国家后读取资料",
+                  : t("选定国家后读取资料"),
               )}
-              {localize(!remembered ? " · 无法记住选择" : "")} {t("· 数据以游戏内为准")}
+              {localize(!remembered ? t(" · 无法记住选择") : "")} {t("· 数据以游戏内为准")}
             </span>
           </div>
         </footer>
-        {localize(
-          unit && (
-            <Modal
-              className="vehicle-detail-dialog"
-              close={() => setSelected(null)}
-              subtitle={unit.side === "research" ? "研发路线" : P.kinds[unit.kind]}
-              title={localize(
-                <a
-                  className="detail-title-link"
-                  href={`https://wiki.warthunder.com/unit/${encodeURIComponent(unit.id)}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {localize(vehicleName(unit))} <span aria-hidden="true">↗</span>
-                </a>,
-              )}
-            >
-              <article className="detail" aria-label={t("载具详情")}>
+        {unit && (
+          <Modal
+            className="vehicle-detail-dialog"
+            close={() => setSelected(null)}
+            subtitle={unit.side === "research" ? t("研发路线") : P.kinds[unit.kind]}
+            title={
+              <a
+                className="detail-title-link"
+                href={`https://wiki.warthunder.com/unit/${encodeURIComponent(unit.id)}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {vehicleName(unit)} <span aria-hidden="true">↗</span>
+              </a>
+            }
+          >
+            <article className="detail" aria-label={t("载具详情")}>
+              <button
+                className="detail-image"
+                onClick={() => setModal("image")}
+                aria-label={t("放大查看 {0} 官方图片", [vehicleName(unit)])}
+              >
+                <VehicleImage key={unit.id} unit={unit} />
+                <span className="detail-image-hint">{t("点击放大 ⛶")}</span>
+              </button>
+              <div className="detail-actions">
                 <button
-                  className="detail-image"
-                  onClick={() => setModal("image")}
-                  aria-label={localize(`放大查看 ${localize(vehicleName(unit))} 官方图片`)}
+                  className="quiet-button calc-open"
+                  disabled={unit.side !== "research"}
+                  title={unit.side !== "research" ? t("独立获取载具不接入常规研发路线") : undefined}
+                  onClick={() => setModal("vehicle")}
                 >
-                  <VehicleImage key={unit.id} unit={unit} />
-                  <span className="detail-image-hint">{t("点击放大 ⛶")}</span>
+                  {t("研发载具")}
                 </button>
-                <div className="detail-actions">
-                  <button
-                    className="quiet-button calc-open"
-                    disabled={unit.side !== "research"}
-                    title={localize(
-                      unit.side !== "research" ? "独立获取载具不接入常规研发路线" : undefined,
-                    )}
-                    onClick={() => setModal("vehicle")}
-                  >
-                    {t("研发载具")}
-                  </button>
-                  <button className="quiet-button calc-open" onClick={openParts}>
-                    {t("研发配件")}
-                  </button>
-                </div>
-                <div className="detail-facts">
-                  <span>{localize(P.countries[country] || "选择国家")}</span>
-                  <span>Rank {localize(unit.rank)}</span>
-                  <span>
-                    {localize(modes[mode])} {localize(mode.toUpperCase())}{" "}
-                    {localize(rating(unit, mode))}
-                  </span>
-                </div>
+                <button className="quiet-button calc-open" onClick={openParts}>
+                  {t("研发配件")}
+                </button>
+              </div>
+              <div className="detail-facts">
+                <span>{localize(P.countries[country] || t("选择国家"))}</span>
+                <span>Rank {localize(unit.rank)}</span>
+                <span>
+                  {localize(modes[mode])} {localize(mode.toUpperCase())}{" "}
+                  {localize(rating(unit, mode))}
+                </span>
+              </div>
+              {localize(
+                (unit.side === "research" || unit.kind === "squadron") && (
+                  <div className="research-cost">
+                    <span>
+                      {localize(unit.kind === "squadron" ? t("联队研发点") : t("基础研发点"))}
+                    </span>
+                    <strong>{localize(rpText(unit))}</strong>
+                  </div>
+                ),
+              )}
+              <PackPriceDetails unit={unit} />
+              {unit.side === "research" ? (
+                <>
+                  <h3>{t("必要前置路线")}</h3>
+                  <ol className="research-path">
+                    {path.map((id) => {
+                      const previous = indexed.units.get(id);
+                      return previous ? (
+                        <li key={id}>
+                          {vehicleName(previous)}
+                          <small>
+                            {localize(rpText(previous))} · Rank {localize(previous.rank)}
+                          </small>
+                        </li>
+                      ) : null;
+                    })}
+                  </ol>
+                  <p>
+                    {t("沿真实前置关系展开，不代表已满足等级购车数量。速算面板会补齐等级门槛。")}
+                  </p>
+                </>
+              ) : (
+                <p>{t("独立获取载具，不接入常规研发路线。礼包与市场链接是否在售以商城为准。")}</p>
+              )}
+              <div className="detail-links">
                 {localize(
-                  (unit.side === "research" || unit.kind === "squadron") && (
-                    <div className="research-cost">
-                      <span>
-                        {localize(unit.kind === "squadron" ? "联队研发点" : "基础研发点")}
-                      </span>
-                      <strong>{localize(rpText(unit))}</strong>
-                    </div>
+                  unit.store && (
+                    <a href={unit.store} target="_blank" rel="noreferrer">
+                      {t("官方礼包 ↗")}
+                    </a>
                   ),
                 )}
-                <PackPriceDetails unit={unit} />
                 {localize(
-                  unit.side === "research" ? (
-                    <>
-                      <h3>{t("必要前置路线")}</h3>
-                      <ol className="research-path">
-                        {localize(
-                          path.map((id) => {
-                            const previous = indexed.units.get(id);
-                            return previous ? (
-                              <li key={id}>
-                                {localize(vehicleName(previous))}
-                                <small>
-                                  {localize(rpText(previous))} · Rank {localize(previous.rank)}
-                                </small>
-                              </li>
-                            ) : null;
-                          }),
-                        )}
-                      </ol>
-                      <p>
-                        {t(
-                          "沿真实前置关系展开，不代表已满足等级购车数量。速算面板会补齐等级门槛。",
-                        )}
-                      </p>
-                    </>
-                  ) : (
-                    <p>
-                      {t("独立获取载具，不接入常规研发路线。礼包与市场链接是否在售以商城为准。")}
-                    </p>
+                  unit.market && (
+                    <a href={unit.market} target="_blank" rel="noreferrer">
+                      {t("市场 ↗")}
+                    </a>
                   ),
                 )}
-                <div className="detail-links">
-                  {localize(
-                    unit.store && (
-                      <a href={unit.store} target="_blank" rel="noreferrer">
-                        {t("官方礼包 ↗")}
-                      </a>
-                    ),
-                  )}
-                  {localize(
-                    unit.market && (
-                      <a href={unit.market} target="_blank" rel="noreferrer">
-                        {t("市场 ↗")}
-                      </a>
-                    ),
-                  )}
-                </div>
-              </article>
-            </Modal>
-          ),
+              </div>
+            </article>
+          </Modal>
         )}
       </main>
       {localize(
-        cartError && (
+        (cartError || cartStorageError) && (
           <p role="alert" className="cart-error">
-            {localize(cartError)}
+            {localize(cartError || cartStorageError)}
           </p>
         ),
       )}
-      {localize(
-        modal === "image" && unit && (
-          <Modal
-            className="vehicle-image-modal"
-            title={localize(vehicleName(unit))}
-            subtitle="官方载具大图"
-            close={() => setModal(null)}
-          >
-            <VehicleImage key={unit.id} unit={unit} />
-          </Modal>
-        ),
+      {modal === "image" && unit && (
+        <Modal
+          className="vehicle-image-modal"
+          title={vehicleName(unit)}
+          subtitle={t("官方载具大图")}
+          close={() => setModal(null)}
+        >
+          <VehicleImage key={unit.id} unit={unit} />
+        </Modal>
       )}
       {localize(
         modal === "parts" && tree && modifications && (
@@ -917,12 +923,20 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       )}
       {localize(" ")}
       {localize(
-        modal === "vehicle" && tree && (
-          <VehicleCalculator
-            {...{ catalog: P, tree, country, category, selected, add }}
-            close={() => setModal(null)}
-          />
-        ),
+        modal === "vehicle" &&
+          tree &&
+          (workspace?.userId && !workspace.ready ? (
+            <Modal title={t("正在读取云端研发计划")} close={() => setModal(null)}>
+              <p className="calc-note">
+                {t("请等待账号数据读取完成。如读取失败，可从用户名菜单打开云端数据重试。")}
+              </p>
+            </Modal>
+          ) : (
+            <VehicleCalculator
+              {...{ catalog: P, tree, country, category, selected, add }}
+              close={() => setModal(null)}
+            />
+          )),
       )}
       {localize(" ")}
       {localize(
@@ -930,7 +944,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
           <Cart
             items={cart}
             remove={remove}
-            error={localize(cartError)}
+            error={cartError || cartStorageError}
             close={() => setModal(null)}
           />
         ),

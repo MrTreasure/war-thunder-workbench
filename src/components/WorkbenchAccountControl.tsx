@@ -8,11 +8,13 @@ export function WorkbenchAccountControl() {
   const { session, busy, error, clearError, login, logout } = useWorkbenchAccount();
   return (
     <div className="wt-header-account">
-      {session?.user ? (
-        <StatsAccountMenu
-          name={session.user.displayName || session.user.email || "已登录"}
-          onLogout={logout}
-        />
+      {session?.user?.id ? (
+        <div>
+          <StatsAccountMenu
+            name={session.user.displayName || session.user.email || "已登录"}
+            onLogout={logout}
+          />
+        </div>
       ) : (
         <button
           type="button"

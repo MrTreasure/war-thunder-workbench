@@ -7,6 +7,7 @@ import type { ReactNode } from "react";
 import catalogSettings from "../data/catalog-settings.json";
 import { GameSelect } from "./components/GameSelect";
 import valuationRules from "../data/account-valuation-rules.json";
+import vehiclePolicies from "../data/account-vehicle-policies.json";
 import {
   cacheValuation,
   cachedValuation,
@@ -24,6 +25,19 @@ import {
 import type { PlayerProfile, StatsSession } from "./player-stats-api";
 import { sortValuationPrices } from "./account-valuation-sort";
 import { statsCountryId, statsCountryMatches, statsCountryLabel } from "./stats-country";
+
+// Hide only the initial vehicles whose free research AND purchase were verified.
+// Keep exclusions for promotional, hidden and other special vehicles visible.
+const hiddenInitialVehicles = new Set(
+  vehiclePolicies.vehicles
+    .filter(
+      (policy) =>
+        policy.classification === "initial_free" &&
+        policy.freeResearch === true &&
+        policy.freePurchase === true,
+    )
+    .map((policy) => policy.id),
+);
 
 type Item = { id: string; name: string; country: string; category: string; rank?: string | null };
 type ScenarioKey = "normal" | "discount" | "secondHand";
@@ -115,19 +129,19 @@ export type Valuation = {
   notice: string;
 };
 export function valuationMoney(cents: number | null, symbol = "¥") {
-  if (cents == null || !Number.isSafeInteger(cents)) return "待核价";
+  if (cents == null || !Number.isSafeInteger(cents)) return t("待核价");
   const value = BigInt(cents);
   const absolute = value < 0n ? -value : value;
   return `${symbol}${value < 0n ? "-" : ""}${(absolute / 100n).toLocaleString(getLocale())}${decimalSeparator()}${String(absolute % 100n).padStart(2, "0")}`;
 }
 function valuationTotal(cents: number | null) {
-  if (cents == null || !Number.isSafeInteger(cents)) return "待核价";
+  if (cents == null || !Number.isSafeInteger(cents)) return t("待核价");
   const value = BigInt(cents);
   const rounded = value < 0n ? -((-value + 50n) / 100n) : (value + 50n) / 100n;
   return `¥${rounded.toLocaleString(getLocale())}`;
 }
 function valuationUnitPrice(cents: number) {
-  if (!Number.isSafeInteger(cents) || cents < 0) return "待核价";
+  if (!Number.isSafeInteger(cents) || cents < 0) return t("待核价");
   const value = BigInt(cents);
   const fraction = String(value % 100n)
     .padStart(2, "0")
@@ -243,7 +257,7 @@ function ProductShelf({ children }: { children: ReactNode[] }) {
               aria-controls={id}
               onClick={() => setExpanded((value) => !value)}
             >
-              {localize(expanded ? "收起" : "展开全部")}
+              {localize(expanded ? t("收起") : t("展开全部"))}
             </button>
           </div>
         ),
@@ -341,7 +355,7 @@ function VehicleDetailFilters({
           {localize(
             [...new Set(items.map((v) => statsCountryId(v.country)))].sort().map((id) => (
               <option key={id} value={id}>
-                {localize(id === "unknown" ? "国别待核验" : statsCountryLabel(id))}
+                {localize(id === "unknown" ? t("国别待核验") : statsCountryLabel(id))}
               </option>
             )),
           )}
@@ -354,7 +368,7 @@ function VehicleDetailFilters({
           {localize(
             [...new Set(items.map((v) => v.category || "unknown"))].sort().map((id) => (
               <option key={id} value={id}>
-                {localize(id === "unknown" ? "军种待核验" : statsCategoryNames[id] || id)}
+                {localize(id === "unknown" ? t("军种待核验") : statsCategoryNames[id] || id)}
               </option>
             )),
           )}
@@ -394,11 +408,11 @@ function ValueComposition({ scenario, label }: { scenario: Scenario; label: stri
   useLocale();
 
   const parts = [
-    { name: "研发点", cents: scenario.rpCents, color: "#d9b868" },
-    { name: "金鹰载具", cents: scenario.geCents, color: "#78aba8" },
-    { name: "礼包", cents: scenario.packCents, color: "#a28cba" },
+    { name: t("研发点"), cents: scenario.rpCents, color: "#d9b868" },
+    { name: t("金鹰载具"), cents: scenario.geCents, color: "#78aba8" },
+    { name: t("礼包"), cents: scenario.packCents, color: "#a28cba" },
     ...((scenario.manualCents || 0) > 0
-      ? [{ name: "自定义", cents: scenario.manualCents!, color: "#c58c62" }]
+      ? [{ name: t("自定义"), cents: scenario.manualCents!, color: "#c58c62" }]
       : []),
   ];
   const total = parts.reduce((sum, p) => sum + BigInt(p.cents), 0n);
@@ -412,7 +426,9 @@ function ValueComposition({ scenario, label }: { scenario: Scenario; label: stri
       <div className="wt-valuation-chart-body">
         <svg
           viewBox="0 0 100 100"
-          aria-label={localize(total > 0n ? "当前估值各项已核价占比，详见图例" : "暂无已核价金额")}
+          aria-label={localize(
+            total > 0n ? t("当前估值各项已核价占比，详见图例") : t("暂无已核价金额"),
+          )}
         >
           <circle cx="50" cy="50" r="40" fill="none" stroke="#394247" strokeWidth="16" />
           {localize(
@@ -509,15 +525,20 @@ export function AccountValuation({
   const limit = session?.limits.valuationLimit;
   const remaining =
     limit == null
-      ? "不限次"
-      : `${Math.max(0, limit - (session?.valuation?.used || 0) - (session?.valuation?.reserved || 0))} 次`;
+      ? t("不限次")
+      : t("{0} 次", [
+          Math.max(
+            0,
+            limit - (session?.valuation?.used || 0) - (session?.valuation?.reserved || 0),
+          ),
+        ]);
   async function openCached() {
     if (!value || checking) return;
     const c = new AbortController();
     request.current = c;
     setChecking(true);
     setOpen(true);
-    setCacheNotice("正在校验最新估值规则，本次校验不扣次。");
+    setCacheNotice(t("正在校验最新估值规则，本次校验不扣次。"));
     setError("");
     try {
       const current = await statsRequest<Valuation>(
@@ -542,7 +563,7 @@ export function AccountValuation({
             "VALUATION_NOT_FOUND",
           ].includes(failure.code)
         ) {
-          setCacheNotice("暂时无法校验最新规则，当前展示已保存估值；联网后重新打开会再校验。");
+          setCacheNotice(t("暂时无法校验最新规则，当前展示已保存估值；联网后重新打开会再校验。"));
           return;
         }
         forgetCachedValuation(cacheScope, profile);
@@ -552,7 +573,7 @@ export function AccountValuation({
         setError(
           failure instanceof Error
             ? failure.message
-            : "估值缓存暂不可用，请显式重新计算。本次校验不扣次。",
+            : t("估值缓存暂不可用，请显式重新计算。本次校验不扣次。"),
         );
       }
     } finally {
@@ -574,13 +595,13 @@ export function AccountValuation({
       if (!c.signal.aborted) {
         setValue(result);
         if (!cacheValuation(cacheScope, profile, result))
-          setCacheNotice("估值已计算，本地缓存未能保存。");
+          setCacheNotice(t("估值已计算，本地缓存未能保存。"));
         else setCacheNotice("");
         setOpen(true);
       }
     } catch (failure) {
       if (!c.signal.aborted)
-        setError(failure instanceof Error ? failure.message : "估值计算失败，请重试。");
+        setError(failure instanceof Error ? failure.message : t("估值计算失败，请重试。"));
     } finally {
       if (!c.signal.aborted) {
         setBusy(false);
@@ -588,6 +609,8 @@ export function AccountValuation({
       }
     }
   }
+  const visibleExcluded =
+    value?.excluded?.filter((item) => !hiddenInitialVehicles.has(item.id)) || [];
   const filteredResearch =
     value?.research
       .filter((v) =>
@@ -657,9 +680,9 @@ export function AccountValuation({
         {localize(
           busy || checking ? (
             checking ? (
-              "正在校验估值缓存…"
+              t("正在校验估值缓存…")
             ) : (
-              "正在计算估值…"
+              t("正在计算估值…")
             )
           ) : value ? (
             <>
@@ -668,7 +691,7 @@ export function AccountValuation({
               <span aria-hidden="true">›</span>
             </>
           ) : (
-            "账号估值"
+            t("账号估值")
           ),
         )}
       </button>
@@ -680,7 +703,6 @@ export function AccountValuation({
           </small>
         ),
       )}
-      {localize(value?.localCached && <small>{t("已读取估值缓存")}</small>)}
       {localize(cacheNotice && <small>{localize(cacheNotice)}</small>)}
       {localize(
         error && (
@@ -707,11 +729,11 @@ export function AccountValuation({
         >
           <div className="wt-valuation-coverage">
             <span className="wt-valuation-verified">
-              {localize(value.ownership?.verified ? "公开车库已核验" : "按出战记录推算")}
+              {localize(value.ownership?.verified ? t("公开车库已核验") : t("按出战记录推算"))}
             </span>
             <span>
               <b>{localize(value.ownership?.ownedCount ?? value.observedCount)}</b> {t("辆")}
-              {localize(value.ownership?.verified ? "已拥有" : "出战载具")}
+              {localize(value.ownership?.verified ? t("已拥有") : t("出战载具"))}
             </span>
             {localize(
               value.ownership?.verified && (
@@ -724,9 +746,9 @@ export function AccountValuation({
               <b>{localize(value.unpriced.length)}</b> {t("项待核价")}
             </span>
             {localize(
-              !!value.excluded?.length && (
+              !!visibleExcluded.length && (
                 <span>
-                  <b>{localize(value.excluded.length)}</b> {t("辆不参与估值")}
+                  <b>{localize(visibleExcluded.length)}</b> {t("辆不参与估值")}
                 </span>
               ),
             )}
@@ -760,8 +782,8 @@ export function AccountValuation({
                     <output className="wt-valuation-price-status">
                       {localize(
                         selectedScenario.totalCents == null
-                          ? "已核价金额，未计价项目另列"
-                          : "已核价合计",
+                          ? t("已核价金额，未计价项目另列")
+                          : t("已核价合计"),
                       )}
                     </output>
                     <dl className="wt-valuation-rate-note">
@@ -774,7 +796,8 @@ export function AccountValuation({
                       <div>
                         <dt>{t("飞机")}</dt>
                         <dd>
-                          {localize(valuationUnitPrice(selectedRule.rpCents.aviation))}{" "}
+                          {localize(valuationUnitPrice(selectedRule.rpCents.aviation))}
+                          {localize(" ")}
                           {t("/ 万 RP")}
                         </dd>
                       </div>
@@ -783,9 +806,9 @@ export function AccountValuation({
                         <dd>
                           {localize(
                             selectedRule.purchasePercent === 100
-                              ? "按原价"
+                              ? t("按原价")
                               : getLocale() === "zh-CN"
-                                ? `按原价 ${selectedRule.purchasePercent / 10} 折`
+                                ? t("按原价 {0} 折", [selectedRule.purchasePercent / 10])
                                 : t("原价的 {0}%", [selectedRule.purchasePercent]),
                           )}
                         </dd>
@@ -807,16 +830,18 @@ export function AccountValuation({
               <span>
                 {localize(
                   value.ownership?.fetchedAt
-                    ? `车库核验 ${localize(statsDate(value.ownership.fetchedAt))}`
-                    : "出战记录与当前前置推算",
+                    ? t("车库核验 {0}", [localize(statsDate(value.ownership.fetchedAt))])
+                    : t("出战记录与当前前置推算"),
                 )}
               </span>
             </summary>
             <p>
               {localize(
                 value.ownership?.verified
-                  ? "依据官方公开车库中的已拥有载具计算，包含未出战载具。研发点按已拥有载具去重汇总，不额外推算未持有的前置。"
-                  : "根据出战记录与当前研发前置推算，尚未核验完整已拥有清单。",
+                  ? t(
+                      "依据官方公开车库中的已拥有载具计算，包含未出战载具。研发点按已拥有载具去重汇总，不额外推算未持有的前置。",
+                    )
+                  : t("根据出战记录与当前研发前置推算，尚未核验完整已拥有清单。"),
               )}
               {localize(" ")}
               {t("同一载具、同一礼包只计算一次。")}
@@ -851,7 +876,7 @@ export function AccountValuation({
                         title={localize(vehicleName(v))}
                         source={v.source}
                         items={[v]}
-                        kind={`${statsCategoryNames[v.category] || v.category} · 金鹰载具`}
+                        kind={t("{0} · 金鹰载具", [statsCategoryNames[v.category] || v.category])}
                         price={valuationMoney(v.amountCents)}
                       >
                         <span>
@@ -889,7 +914,7 @@ export function AccountValuation({
                         title={localize(p.title)}
                         source={p.source}
                         items={p.vehicles}
-                        kind={`整包原价 · 已识别 ${p.vehicles.length} 辆`}
+                        kind={t("整包原价 · 已识别 {0} 辆", [p.vehicles.length])}
                         price={valuationMoney(p.amountCents)}
                       >
                         {localize(
@@ -900,8 +925,8 @@ export function AccountValuation({
                         <small>
                           {localize(
                             p.checkedAt
-                              ? `核验 ${localize(statsDate(p.checkedAt))}`
-                              : "尚无有效报价",
+                              ? t("核验 {0}", [localize(statsDate(p.checkedAt))])
+                              : t("尚无有效报价"),
                           )}
                         </small>
                       </ProductCard>
@@ -936,25 +961,27 @@ export function AccountValuation({
                         title={localize(vehicleName(v))}
                         source={v.source}
                         items={[v]}
-                        kind={`${statsCategoryNames[v.category] || v.category} · 市场特殊载具`}
+                        kind={t("{0} · 市场特殊载具", [
+                          statsCategoryNames[v.category] || v.category,
+                        ])}
                         price={
                           v.averageGjnCents == null
-                            ? "待核价"
+                            ? t("待核价")
                             : valuationMoney(v.averageGjnCents, "") + " GJN"
                         }
                       >
                         <span>
                           {localize(
                             v.sampleCount == null
-                              ? "尚无经核验的成交均价"
-                              : `${localize(statsNumber(v.sampleCount))} 个成交样本`,
+                              ? t("尚无经核验的成交均价")
+                              : t("{0} 个成交样本", [localize(statsNumber(v.sampleCount))]),
                           )}
                         </span>
                         <small>
                           {localize(
                             v.checkedAt
-                              ? `核验 ${localize(statsDate(v.checkedAt))}`
-                              : "未知价格不按零元计算",
+                              ? t("核验 {0}", [localize(statsDate(v.checkedAt))])
+                              : t("未知价格不按零元计算"),
                           )}
                         </small>
                         {localize(
@@ -993,7 +1020,7 @@ export function AccountValuation({
                           "https://wiki.warthunder.com/unit/" + encodeURIComponent(item.id)
                         }
                         items={[item]}
-                        kind={`${valuationRules.scenarios[scenarioKey].label} · 自定义`}
+                        kind={t("{0} · 自定义", [valuationRules.scenarios[scenarioKey].label])}
                         price={valuationMoney(item.prices[scenarioKey])}
                       >
                         <span>{localize(item.reason)}</span>
@@ -1004,37 +1031,31 @@ export function AccountValuation({
               </section>
             ),
           )}
-          {localize(
-            !!value.excluded?.length && (
-              <details className="wt-valuation-section">
-                <summary>
-                  {t("不参与估值的免费／排除载具 ·")}
-                  {localize(value.excluded.length)}
-                </summary>
-                <p>{t("以下载具按已保存规则排除，不计入研发点、金鹰、礼包或其他价值。")}</p>
-                <div className="wt-valuation-research">
-                  {localize(
-                    value.excluded.map((item) => (
-                      <article key={item.id}>
-                        <VehicleArt item={item} compact />
-                        <div>
-                          <h4>{localize(vehicleName(item))}</h4>
-                          <small>
-                            {localize(countryName(item.country))} ·{localize(" ")}
-                            {localize(statsCategoryNames[item.category] || item.category)} ·
-                            {localize(" ")}
-                            {localize(item.rank ? `Rank ${localize(item.rank)}` : "等级待核验")}
-                          </small>
-                          <span className="wt-valuation-unpriced-reason">
-                            {localize(item.reason)}
-                          </span>
-                        </div>
-                      </article>
-                    )),
-                  )}
-                </div>
-              </details>
-            ),
+          {!!visibleExcluded.length && (
+            <details className="wt-valuation-section">
+              <summary>
+                {t("不参与估值的隐藏／特殊载具 ·")}
+                {localize(visibleExcluded.length)}
+              </summary>
+              <p>{t("以下载具按已保存规则排除，不计入研发点、金鹰、礼包或其他价值。")}</p>
+              <div className="wt-valuation-research">
+                {visibleExcluded.map((item) => (
+                  <article key={item.id}>
+                    <VehicleArt item={item} compact />
+                    <div>
+                      <h4>{item.name}</h4>
+                      <small>
+                        {localize(countryName(item.country))} ·{localize(" ")}
+                        {localize(statsCategoryNames[item.category] || item.category)} ·
+                        {localize(" ")}
+                        {localize(item.rank ? `Rank ${item.rank}` : t("等级待核验"))}
+                      </small>
+                      <span className="wt-valuation-unpriced-reason">{localize(item.reason)}</span>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </details>
           )}
           <details
             className="wt-valuation-section"
@@ -1043,7 +1064,7 @@ export function AccountValuation({
             <summary>
               {t("研发点明细 ·")}
               {localize(value.researchCount)} {t("辆（")}
-              {localize(value.ownership?.verified ? "已拥有" : "含推算前置")}）
+              {localize(value.ownership?.verified ? t("已拥有") : t("含推算前置"))}）
             </summary>
             <p>
               {localize(
@@ -1052,7 +1073,7 @@ export function AccountValuation({
                     ([cat, rp]) =>
                       `${localize(statsCategoryNames[cat] || cat)} ${localize(statsNumber(rp))} RP`,
                   )
-                  .join(" · ") || "暂无已核实研发点",
+                  .join(" · ") || t("暂无已核实研发点"),
               )}
             </p>
             {localize(
@@ -1078,7 +1099,7 @@ export function AccountValuation({
                   pages={researchPages}
                   onPageChange={setResearchPage}
                   label={t("研发点明细")}
-                  unit="辆"
+                  unit={t("辆")}
                 />
               ),
             )}
@@ -1110,23 +1131,23 @@ export function AccountValuation({
                             {localize(
                               v.owned
                                 ? v.observed
-                                  ? "已拥有 · 有出战记录"
-                                  : "已拥有 · 未出战"
+                                  ? t("已拥有 · 有出战记录")
+                                  : t("已拥有 · 未出战")
                                 : v.observed
-                                  ? "有出战记录"
-                                  : "根据当前前置推算",
+                                  ? t("有出战记录")
+                                  : t("根据当前前置推算"),
                             )}
-                            {localize(" ")}· {localize(countryName(v.country))} ·{" "}
+                            {localize(" ")}· {localize(countryName(v.country))} ·{localize(" ")}
                             {localize(statsCategoryNames[v.category] || v.category)}
-                            {localize(" ")}·{" "}
-                            {localize(v.rank ? `Rank ${localize(v.rank)}` : "等级待核验")}
+                            {localize(" ")}·{localize(" ")}
+                            {localize(v.rank ? `Rank ${localize(v.rank)}` : t("等级待核验"))}
                           </small>
                           <strong>{localize(statsNumber(v.rp))} RP</strong>
                           <small>
                             {localize(
                               v.rpCheckedAt
-                                ? `核验 ${localize(statsDate(v.rpCheckedAt))}`
-                                : "研发点待核验",
+                                ? t("核验 {0}", [localize(statsDate(v.rpCheckedAt))])
+                                : t("研发点待核验"),
                             )}
                           </small>
                         </div>
@@ -1163,7 +1184,7 @@ export function AccountValuation({
                       pages={unpricedPages}
                       onPageChange={setUnpricedPage}
                       label={t("未计价项目")}
-                      unit="项"
+                      unit={t("项")}
                     />
                   ),
                 )}
@@ -1210,7 +1231,9 @@ export function AccountValuation({
                                   v.owned && (
                                     <small>
                                       {localize(
-                                        v.observed ? "已拥有 · 有出战记录" : "已拥有 · 未出战",
+                                        v.observed
+                                          ? t("已拥有 · 有出战记录")
+                                          : t("已拥有 · 未出战"),
                                       )}
                                     </small>
                                   ),
@@ -1224,17 +1247,17 @@ export function AccountValuation({
                                           : "",
                                       )}
                                       {localize(
-                                        item.country ? countryName(item.country) : "国别待核验",
-                                      )}{" "}
-                                      ·{localize(" ")}
+                                        item.country ? countryName(item.country) : t("国别待核验"),
+                                      )}
+                                      {localize(" ")}·{localize(" ")}
                                       {localize(
                                         item.category
                                           ? statsCategoryNames[item.category] || item.category
-                                          : "军种待核验",
+                                          : t("军种待核验"),
                                       )}
-                                      {localize(" ")}·{" "}
+                                      {localize(" ")}·{localize(" ")}
                                       {localize(
-                                        item.rank ? `Rank ${localize(item.rank)}` : "等级待核验",
+                                        item.rank ? `Rank ${localize(item.rank)}` : t("等级待核验"),
                                       )}
                                     </small>
                                   )),
@@ -1273,8 +1296,8 @@ export function AccountValuation({
               {localize(statsDate(value.calculatedAt))}
               {localize(
                 value.localCached
-                  ? " · 浏览器估值缓存，本次不扣次"
-                  : value.cached && " · 已命中估值缓存，本次不扣次",
+                  ? t(" · 浏览器估值缓存，本次不扣次")
+                  : value.cached && t(" · 已命中估值缓存，本次不扣次"),
               )}
             </small>
           </footer>

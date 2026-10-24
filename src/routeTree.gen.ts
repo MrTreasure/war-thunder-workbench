@@ -11,12 +11,15 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WorkbenchRouteImport } from './routes/_workbench'
+import { Route as WorkbenchDecalsRouteImport } from './routes/_workbench.decals'
 import { Route as WorkbenchLineupsRouteImport } from './routes/_workbench.lineups'
 import { Route as WorkbenchMapsRouteImport } from './routes/_workbench.maps'
 import { Route as WorkbenchSalesRouteImport } from './routes/_workbench.sales'
 import { Route as WorkbenchStatsRouteImport } from './routes/_workbench.stats'
 import { Route as WorkbenchTreeRouteImport } from './routes/_workbench.tree'
+import { Route as WorkbenchLineupsGarageRouteImport } from './routes/_workbench.lineups_.garage'
 import { Route as WorkbenchMapsMapIdRouteImport } from './routes/_workbench.maps_.$mapId'
+import { Route as WorkbenchStatsGarageRouteImport } from './routes/_workbench.stats_.garage'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -26,6 +29,11 @@ const IndexRoute = IndexRouteImport.update({
 const WorkbenchRoute = WorkbenchRouteImport.update({
   id: '/_workbench',
   getParentRoute: () => rootRouteImport,
+} as any)
+const WorkbenchDecalsRoute = WorkbenchDecalsRouteImport.update({
+  id: '/decals',
+  path: '/decals',
+  getParentRoute: () => WorkbenchRoute,
 } as any)
 const WorkbenchLineupsRoute = WorkbenchLineupsRouteImport.update({
   id: '/lineups',
@@ -52,58 +60,98 @@ const WorkbenchTreeRoute = WorkbenchTreeRouteImport.update({
   path: '/tree',
   getParentRoute: () => WorkbenchRoute,
 } as any)
+const WorkbenchLineupsGarageRoute = WorkbenchLineupsGarageRouteImport.update({
+  id: '/lineups_/garage',
+  path: '/lineups/garage',
+  getParentRoute: () => WorkbenchRoute,
+} as any)
 const WorkbenchMapsMapIdRoute = WorkbenchMapsMapIdRouteImport.update({
   id: '/maps_/$mapId',
   path: '/maps/$mapId',
   getParentRoute: () => WorkbenchRoute,
 } as any)
+const WorkbenchStatsGarageRoute = WorkbenchStatsGarageRouteImport.update({
+  id: '/stats_/garage',
+  path: '/stats/garage',
+  getParentRoute: () => WorkbenchRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/decals': typeof WorkbenchDecalsRoute
   '/lineups': typeof WorkbenchLineupsRoute
   '/maps': typeof WorkbenchMapsRoute
   '/sales': typeof WorkbenchSalesRoute
   '/stats': typeof WorkbenchStatsRoute
   '/tree': typeof WorkbenchTreeRoute
+  '/lineups/garage': typeof WorkbenchLineupsGarageRoute
   '/maps/$mapId': typeof WorkbenchMapsMapIdRoute
+  '/stats/garage': typeof WorkbenchStatsGarageRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/decals': typeof WorkbenchDecalsRoute
   '/lineups': typeof WorkbenchLineupsRoute
   '/maps': typeof WorkbenchMapsRoute
   '/sales': typeof WorkbenchSalesRoute
   '/stats': typeof WorkbenchStatsRoute
   '/tree': typeof WorkbenchTreeRoute
+  '/lineups/garage': typeof WorkbenchLineupsGarageRoute
   '/maps/$mapId': typeof WorkbenchMapsMapIdRoute
+  '/stats/garage': typeof WorkbenchStatsGarageRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_workbench': typeof WorkbenchRouteWithChildren
+  '/_workbench/decals': typeof WorkbenchDecalsRoute
   '/_workbench/lineups': typeof WorkbenchLineupsRoute
   '/_workbench/maps': typeof WorkbenchMapsRoute
   '/_workbench/sales': typeof WorkbenchSalesRoute
   '/_workbench/stats': typeof WorkbenchStatsRoute
   '/_workbench/tree': typeof WorkbenchTreeRoute
+  '/_workbench/lineups_/garage': typeof WorkbenchLineupsGarageRoute
   '/_workbench/maps_/$mapId': typeof WorkbenchMapsMapIdRoute
+  '/_workbench/stats_/garage': typeof WorkbenchStatsGarageRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/lineups' | '/maps' | '/sales' | '/stats' | '/tree' | '/maps/$mapId'
+    | '/'
+    | '/decals'
+    | '/lineups'
+    | '/maps'
+    | '/sales'
+    | '/stats'
+    | '/tree'
+    | '/lineups/garage'
+    | '/maps/$mapId'
+    | '/stats/garage'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/lineups' | '/maps' | '/sales' | '/stats' | '/tree' | '/maps/$mapId'
+    | '/'
+    | '/decals'
+    | '/lineups'
+    | '/maps'
+    | '/sales'
+    | '/stats'
+    | '/tree'
+    | '/lineups/garage'
+    | '/maps/$mapId'
+    | '/stats/garage'
   id:
     | '__root__'
     | '/'
     | '/_workbench'
+    | '/_workbench/decals'
     | '/_workbench/lineups'
     | '/_workbench/maps'
     | '/_workbench/sales'
     | '/_workbench/stats'
     | '/_workbench/tree'
+    | '/_workbench/lineups_/garage'
     | '/_workbench/maps_/$mapId'
+    | '/_workbench/stats_/garage'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -126,6 +174,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof WorkbenchRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_workbench/decals': {
+      id: '/_workbench/decals'
+      path: '/decals'
+      fullPath: '/decals'
+      preLoaderRoute: typeof WorkbenchDecalsRouteImport
+      parentRoute: typeof WorkbenchRoute
     }
     '/_workbench/lineups': {
       id: '/_workbench/lineups'
@@ -162,6 +217,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkbenchTreeRouteImport
       parentRoute: typeof WorkbenchRoute
     }
+    '/_workbench/lineups_/garage': {
+      id: '/_workbench/lineups_/garage'
+      path: '/lineups/garage'
+      fullPath: '/lineups/garage'
+      preLoaderRoute: typeof WorkbenchLineupsGarageRouteImport
+      parentRoute: typeof WorkbenchRoute
+    }
     '/_workbench/maps_/$mapId': {
       id: '/_workbench/maps_/$mapId'
       path: '/maps/$mapId'
@@ -169,25 +231,38 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkbenchMapsMapIdRouteImport
       parentRoute: typeof WorkbenchRoute
     }
+    '/_workbench/stats_/garage': {
+      id: '/_workbench/stats_/garage'
+      path: '/stats/garage'
+      fullPath: '/stats/garage'
+      preLoaderRoute: typeof WorkbenchStatsGarageRouteImport
+      parentRoute: typeof WorkbenchRoute
+    }
   }
 }
 
 interface WorkbenchRouteChildren {
+  WorkbenchDecalsRoute: typeof WorkbenchDecalsRoute
   WorkbenchLineupsRoute: typeof WorkbenchLineupsRoute
   WorkbenchMapsRoute: typeof WorkbenchMapsRoute
   WorkbenchSalesRoute: typeof WorkbenchSalesRoute
   WorkbenchStatsRoute: typeof WorkbenchStatsRoute
   WorkbenchTreeRoute: typeof WorkbenchTreeRoute
+  WorkbenchLineupsGarageRoute: typeof WorkbenchLineupsGarageRoute
   WorkbenchMapsMapIdRoute: typeof WorkbenchMapsMapIdRoute
+  WorkbenchStatsGarageRoute: typeof WorkbenchStatsGarageRoute
 }
 
 const WorkbenchRouteChildren: WorkbenchRouteChildren = {
+  WorkbenchDecalsRoute: WorkbenchDecalsRoute,
   WorkbenchLineupsRoute: WorkbenchLineupsRoute,
   WorkbenchMapsRoute: WorkbenchMapsRoute,
   WorkbenchSalesRoute: WorkbenchSalesRoute,
   WorkbenchStatsRoute: WorkbenchStatsRoute,
   WorkbenchTreeRoute: WorkbenchTreeRoute,
+  WorkbenchLineupsGarageRoute: WorkbenchLineupsGarageRoute,
   WorkbenchMapsMapIdRoute: WorkbenchMapsMapIdRoute,
+  WorkbenchStatsGarageRoute: WorkbenchStatsGarageRoute,
 }
 
 const WorkbenchRouteWithChildren = WorkbenchRoute._addFileChildren(

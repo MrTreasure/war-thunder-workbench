@@ -1,5 +1,8 @@
+import { localize } from "../i18n/core";
 import { useLocale } from "../i18n/react";
-import { localize, t } from "../i18n/core";
+import { t } from "../i18n/core";
+import { useAccountWorkspace } from "../workspace-context";
+import { UnlinkGameAccount } from "../GameAccountBinding";
 import { statsRequest, notifyStatsAccountLogin } from "../player-stats-api";
 import { useWorkbenchAccount } from "../WorkbenchAccount";
 import { Modal } from "../Modal";
@@ -14,6 +17,8 @@ export function StatsAccountMenu({
 }) {
   useLocale();
 
+  const workspace = useAccountWorkspace();
+  const [unlinking, setUnlinking] = useState(false);
   const { refreshSession } = useWorkbenchAccount();
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState("");
@@ -90,6 +95,29 @@ export function StatsAccountMenu({
         </button>
 
         <button
+          type="button"
+          onClick={() => {
+            panel.current?.hidePopover();
+            workspace?.open();
+          }}
+        >
+          {t("云端数据")}
+        </button>
+        {localize(
+          workspace?.binding && (
+            <button
+              type="button"
+              onClick={() => {
+                panel.current?.hidePopover();
+                setUnlinking(true);
+              }}
+            >
+              {t("解除游戏账号关联")}
+            </button>
+          ),
+        )}
+
+        <button
           disabled={busy || saving}
           onClick={async () => {
             setBusy(true);
@@ -98,66 +126,69 @@ export function StatsAccountMenu({
               await onLogout();
               panel.current?.hidePopover();
             } catch {
-              setError("退出未完成，请重试。");
+              setError(t("退出未完成，请重试。"));
             } finally {
               setBusy(false);
             }
           }}
         >
-          {localize(busy ? "正在退出…" : "退出登录")}
+          {localize(busy ? t("正在退出…") : t("退出登录"))}
         </button>
-        {error && !editing && <small role="alert">{localize(error)}</small>}
+        {localize(error && !editing && <small role="alert">{localize(error)}</small>)}
       </div>
-      {editing && (
-        <Modal title={t("修改用户名")} close={closeEditor} className="wt-username-dialog">
-          <form
-            className="wt-username-form"
-            onSubmit={async (event) => {
-              event.preventDefault();
-              if (saving) return;
-              setSaving(true);
-              setError("");
-              try {
-                await statsRequest("auth/profile", { displayName: draft.trim() });
-                await refreshSession();
-                notifyStatsAccountLogin();
-                closeEditor();
-              } catch (reason) {
-                setError(reason instanceof Error ? reason.message : t("保存失败，请重试。"));
-              } finally {
-                setSaving(false);
-              }
-            }}
-          >
-            <label htmlFor={`${id}-username`}>{t("用户名")}</label>
-            <input
-              ref={input}
-              id={`${id}-username`}
-              aria-describedby={`${id}-username-help ${id}-username-error`}
-              autoComplete="username"
-              minLength={2}
-              maxLength={32}
-              required
-              value={draft}
-              disabled={saving}
-              onChange={(event) => setDraft(event.target.value)}
-            />
-            <small id={`${id}-username-help`}>
-              {t("2–32 个字符，支持 #、@、☆ 等可见符号；保存时检查重名和内容安全。")}
-            </small>
-            <p id={`${id}-username-error`} className="wt-username-error" role="alert">
-              {localize(error)}
-            </p>
-            <div>
-              <button className="wt-username-save" type="submit" disabled={saving}>
-                {saving ? t("正在保存…") : t("保存")}
-              </button>
-              <button type="button" disabled={saving} onClick={closeEditor}>
-                {t("取消")}
-              </button>
-            </div>
-          </form>
-        </Modal>
+      {localize(unlinking && <UnlinkGameAccount close={() => setUnlinking(false)} />)}
+      {localize(
+        editing && (
+          <Modal title={t("修改用户名")} close={closeEditor} className="wt-username-dialog">
+            <form
+              className="wt-username-form"
+              onSubmit={async (event) => {
+                event.preventDefault();
+                if (saving) return;
+                setSaving(true);
+                setError("");
+                try {
+                  await statsRequest("auth/profile", { displayName: draft.trim() });
+                  await refreshSession();
+                  notifyStatsAccountLogin();
+                  closeEditor();
+                } catch (reason) {
+                  setError(reason instanceof Error ? reason.message : t("保存失败，请重试。"));
+                } finally {
+                  setSaving(false);
+                }
+              }}
+            >
+              <label htmlFor={`${id}-username`}>{t("用户名")}</label>
+              <input
+                ref={input}
+                id={`${id}-username`}
+                aria-describedby={`${id}-username-help ${id}-username-error`}
+                autoComplete="username"
+                minLength={2}
+                maxLength={32}
+                required
+                value={draft}
+                disabled={saving}
+                onChange={(event) => setDraft(event.target.value)}
+              />
+              <small id={`${id}-username-help`}>
+                {t("2–32 个字符，支持 #、@、☆ 等可见符号；保存时检查重名和内容安全。")}
+              </small>
+              <p id={`${id}-username-error`} className="wt-username-error" role="alert">
+                {localize(error)}
+              </p>
+              <div>
+                <button className="wt-username-save" type="submit" disabled={saving}>
+                  {localize(saving ? t("正在保存…") : t("保存"))}
+                </button>
+                <button type="button" disabled={saving} onClick={closeEditor}>
+                  {t("取消")}
+                </button>
+              </div>
+            </form>
+          </Modal>
+        ),
       )}
     </>
   );
