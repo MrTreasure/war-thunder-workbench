@@ -33,7 +33,7 @@ export function Cart({
   return (
     <Modal
       title="研发购物车"
-      subtitle={`${workspace?.userId ? "随账号保存 · " + workspace.status : "保存在此浏览器"} · 报价快照不会随数据更新自动改变`}
+      subtitle={`${workspace?.userId ? "随账号保存" : "保存在此浏览器"} · 报价快照不会随数据更新自动改变`}
       close={close}
     >
       <div className="cart-content">

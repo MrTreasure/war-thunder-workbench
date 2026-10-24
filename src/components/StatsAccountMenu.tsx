@@ -96,7 +96,7 @@ export function StatsAccountMenu({
             workspace?.open();
           }}
         >
-          云端数据 · {workspace?.status}
+          云端数据
         </button>
         {workspace?.binding && (
           <button

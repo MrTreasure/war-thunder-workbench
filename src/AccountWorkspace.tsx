@@ -5,11 +5,19 @@ import {
   type GameBinding,
   type WorkspaceDocument,
 } from "./workspace-context";
-import { statsRequest, StatsError } from "./player-stats-api";
+import { statsRequest, StatsError, statsCategoryNames } from "./player-stats-api";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { Modal } from "./Modal";
+import { statsCountryLabel } from "./stats-country";
+import { collectGuestDefaults } from "./workspace-guest-defaults";
 import "./account-workspace.css";
 
+function documentLabel(key: string) {
+  if (key === "wt-workbench-cart-v1") return "研发购物车";
+  const [kind, part, country] = key.split(":");
+  if (kind === "wt-lineups-v1") return `${statsCountryLabel(part)} · 出击队列`;
+  return `${statsCountryLabel(country)} · ${statsCategoryNames[part] || "研发"}计划`;
+}
 type Pending = Record<string, { value: unknown; revision: number }>;
 type Snapshot = {
   ownerKey: string;
@@ -78,11 +86,48 @@ function AccountWorkspace({ children, userId }: { children: ReactNode; userId: s
   const controller = useRef(new AbortController());
   const flight = useRef(false);
   const outboxReady = useRef(false);
+  const autoImported = useRef(false);
+  const autoImports = useRef(new Map<string, Pending[string]>());
+  const storePending = useCallback(
+    (next: Pending) => {
+      try {
+        localStorage.setItem(pendingKey, JSON.stringify(next));
+      } catch {
+        setCacheWarning("浏览器无法暂存待同步内容。请保持页面打开并连接网络；离线时请先导出备份。");
+      }
+      current.current.pending = next;
+      setPending(next);
+    },
+    [pendingKey],
+  );
+  const importGuestDefaults = useCallback(
+    (data: Snapshot) => {
+      if (autoImported.current || !userId || !data.consented) return;
+      autoImported.current = true;
+      try {
+        const additions = collectGuestDefaults(
+          localStorage,
+          userId,
+          data.documents,
+          Object.keys(current.current.pending),
+        );
+        for (const [key, job] of Object.entries(additions)) autoImports.current.set(key, job);
+        if (Object.keys(additions).length)
+          storePending({ ...current.current.pending, ...additions });
+      } catch {
+        /* Guest data stays local when browser storage is unavailable. */
+      }
+    },
+    [userId, storePending],
+  );
   useEffect(() => {
     let active = true;
     let release: () => void = () => {};
     const claim = () => {
-      if (active) outboxReady.current = true;
+      if (active) {
+        outboxReady.current = true;
+        if (current.current.snapshot?.consented) importGuestDefaults(current.current.snapshot);
+      }
     };
     if (!navigator.locks) {
       claim();
@@ -119,7 +164,7 @@ function AccountWorkspace({ children, userId }: { children: ReactNode; userId: s
       outboxReady.current = false;
       release();
     };
-  }, [pendingKey]);
+  }, [pendingKey, importGuestDefaults]);
   const prompted = useRef(new Set<string>());
   const load = useCallback(
     async (preserveDocuments = false) => {
@@ -135,33 +180,14 @@ function AccountWorkspace({ children, userId }: { children: ReactNode; userId: s
           data.documents = current.current.snapshot.documents;
         current.current.snapshot = data;
         setSnapshot(data);
-        const mode = data.consented ? "import" : data.version;
-        if (!prompted.current.has(mode)) {
-          prompted.current.add(mode);
-          if (!data.consented) setOpen(true);
-          else
-            try {
-              const noticeKey = `wt-account-workspace-v1:${userId}:import-notice`;
-              if (!localStorage.getItem(noticeKey)) {
-                const keys = Object.keys(localStorage).filter(workspaceKey);
-                if (keys.length) {
-                  setImportKeys(keys);
-                  setSelectedImports(
-                    keys.filter(
-                      (k) => !data.documents.some((d) => d.key === k && d.value !== null),
-                    ),
-                  );
-                  setOpen(true);
-                }
-                localStorage.setItem(noticeKey, "1");
-              }
-            } catch {
-              /* Account use does not require guest storage access. */
-            }
+        if (data.consented && outboxReady.current) importGuestDefaults(data);
+        if (!data.consented && !prompted.current.has(data.version)) {
+          prompted.current.add(data.version);
+          setOpen(true);
         }
       }
     },
-    [userId],
+    [userId, importGuestDefaults],
   );
   useEffect(() => {
     controller.current = new AbortController();
@@ -185,17 +211,6 @@ function AccountWorkspace({ children, userId }: { children: ReactNode; userId: s
       document.removeEventListener("visibilitychange", refresh);
     };
   }, [userId, load]);
-  function storePending(next: Pending) {
-    try {
-      localStorage.setItem(pendingKey, JSON.stringify(next));
-    } catch {
-      setCacheWarning(
-        "浏览器无法暂存待同步内容。请保持页面打开，直到云端显示已同步；网络不可用时请先导出备份。",
-      );
-    }
-    current.current.pending = next;
-    setPending(next);
-  }
   function save(key: string, value: unknown) {
     const s = current.current.snapshot;
     if (!outboxReady.current) throw Error("正在准备本机同步队列，请稍后重试。");
@@ -243,9 +258,7 @@ function AccountWorkspace({ children, userId }: { children: ReactNode; userId: s
           try {
             localStorage.setItem(pendingKey, JSON.stringify(next));
           } catch {
-            setCacheWarning(
-              "浏览器无法暂存待同步内容。请保持页面打开直到云端已同步，或先导出备份。",
-            );
+            setCacheWarning("浏览器无法暂存待同步内容。请保持页面打开并连接网络，或先导出备份。");
           }
           current.current.pending = next;
           setPending(next);
@@ -263,6 +276,26 @@ function AccountWorkspace({ children, userId }: { children: ReactNode; userId: s
               if (remote.ownerKey !== "user:" + userId)
                 throw Error("登录账号已变化，已停止旧账号同步。");
               const row = remote.documents.find((d) => d.key === key);
+              if (
+                row &&
+                autoImports.current.get(key) === job &&
+                current.current.pending[key] === job
+              ) {
+                const next = { ...current.current.pending };
+                delete next[key];
+                autoImports.current.delete(key);
+                storePending(next);
+                const updated: Snapshot = {
+                  ...current.current.snapshot!,
+                  documents: [
+                    ...current.current.snapshot!.documents.filter((d) => d.key !== key),
+                    row,
+                  ],
+                };
+                current.current.snapshot = updated;
+                setSnapshot(updated);
+                continue;
+              }
               if (row) {
                 setConflict({ key, remote: row });
                 setOpen(true);
@@ -280,7 +313,7 @@ function AccountWorkspace({ children, userId }: { children: ReactNode; userId: s
       flight.current = false;
       if (!controller.current.signal.aborted) setSending(false);
     }
-  }, [pendingKey, userId]);
+  }, [pendingKey, userId, storePending]);
   useEffect(() => {
     if (!snapshot?.consented || conflict || !Object.keys(pending).length || error) return;
     const id = setTimeout(() => void drain(), 600);
@@ -378,7 +411,7 @@ function AccountWorkspace({ children, userId }: { children: ReactNode; userId: s
       {open && userId && (
         <Modal
           title="云端数据"
-          subtitle={status}
+          subtitle={error ? "同步需要处理" : undefined}
           close={() => setOpen(false)}
           className="wt-account-dialog"
         >
@@ -465,7 +498,7 @@ function AccountWorkspace({ children, userId }: { children: ReactNode; userId: s
                             )
                           }
                         />
-                        {k}
+                        {documentLabel(k)}
                         {documents[k]?.value ? "（已有云端内容）" : ""}
                       </label>
                     ))}
@@ -488,7 +521,7 @@ function AccountWorkspace({ children, userId }: { children: ReactNode; userId: s
                 {conflict && (
                   <section>
                     <h3>另一设备更新了此内容</h3>
-                    <p>{conflict.key}。本机待保存内容仍保留，请选择。</p>
+                    <p>{documentLabel(conflict.key)}。本机待保存内容仍保留，请选择。</p>
                     <div className="wt-account-actions">
                       <button
                         disabled={busy || sending}

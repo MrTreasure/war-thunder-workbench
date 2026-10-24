@@ -95,25 +95,39 @@ export function VehicleCard({
       />
       {owned && (
         <span
-          className="wt-owned-marker"
+          className={`wt-owned-marker ${unit.kind === "squadron" ? "is-squadron" : unit.premium ? "is-premium" : ""}`}
+          style={
+            {
+              "--wt-owned-slot-image": `url("${workspaceAssets.ownedMarker.background.url}")`,
+            } as CSSProperties
+          }
           title="已拥有 · 来自关联游戏账号的公开车库"
           aria-label="已拥有"
         >
+          <span className="wt-owned-slot" aria-hidden="true" />
           <img
-            src={workspaceAssets.ownedMarker.url}
-            width={20}
-            height={20}
+            src={workspaceAssets.ownedMarker.background.url}
+            width={92}
+            height={92}
             alt=""
+            onLoad={(e) => {
+              e.currentTarget.parentElement?.style.setProperty(
+                "--wt-owned-slot-image",
+                `url("${e.currentTarget.currentSrc || e.currentTarget.src}")`,
+              );
+            }}
             onError={(e) => {
               if (e.currentTarget.dataset.fallback !== "1") {
                 e.currentTarget.dataset.fallback = "1";
-                e.currentTarget.src = workspaceAssets.ownedMarker.fallbackUrl;
+                e.currentTarget.src = workspaceAssets.ownedMarker.background.fallbackUrl;
               } else {
-                e.currentTarget.hidden = true;
+                e.currentTarget.parentElement?.setAttribute("data-unavailable", "true");
               }
             }}
           />
-          <span aria-hidden="true">♠</span>
+          <span className="wt-owned-fallback" aria-hidden="true">
+            ♠
+          </span>
         </span>
       )}
       <span className="unit-role">{catalog.roles[unit.role || ""] || "常规载具"}</span>

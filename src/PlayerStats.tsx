@@ -12,7 +12,7 @@ import {
 import { PlayerTypeUsage } from "./PlayerTypeUsage";
 import { PlayerCareerOverview } from "./PlayerCareerOverview";
 import { PlayerRankings } from "./PlayerRankings";
-import { PlayerGarage, PlayerVehicleDetails } from "./PlayerGarage";
+import { PlayerVehicleDetails } from "./PlayerGarage";
 import { PlayerVehicleShare, startVehicleShare } from "./PlayerVehicleShare";
 import type { VehicleShareJob } from "./PlayerVehicleShare";
 import { PlayerVehicleCards, PlayerVehiclePagination } from "./PlayerVehicleCards";
@@ -163,11 +163,16 @@ export function PlayerStats() {
   const detailVehicles = new Map(freshVehicleDetails?.vehicles.map(v => [`${v.mode}:${v.id}`, v]) || []);
   const effectiveVehicles = (profile?.vehicles || []).map(v => ({ ...v, ...detailVehicles.get(`${v.mode}:${v.id}`) }));
   const displayProfile = profile ? { ...profile, vehicles: effectiveVehicles } : null;
-  const [showGarage, setShowGarage] = useState(false);
   const [selectedVehicle, setSelectedVehicle] = useState<PlayerVehicle | null>(null);
   const [vehicleShare, setVehicleShare] = useState<{
     profile: PlayerProfile; vehicle: PlayerVehicle; job: VehicleShareJob;
   } | null>(null);
+  async function openGarage() {
+    if (!profile || profile.localOnly) return;
+    // Preserve a free cached restore for browser Back as well as the return link.
+    await navigate({ to: "/stats", search: { snapshot: profile.snapshotId, uid: profile.uid, view: route.view }, replace: true });
+    await navigate({ to: "/stats/garage", search: { snapshot: profile.snapshotId, uid: profile.uid } });
+  }
   function changeTab(next: string) {
     setTab(next);
     void navigate({ search: (previous: { player?: string; view?: string }) => ({ ...previous, view: next === "overview" ? undefined : next }), replace: false });
@@ -267,7 +272,6 @@ export function PlayerStats() {
   const loadProfile = useCallback((p: PlayerProfile, local = false) => {
     setProfile(p);
     if (p.nicknameHidden && route.player) void navigate({ search: { view: route.view }, replace: true });
-    setShowGarage(false);
     setSelectedVehicle(null);
     setVehicleShare(null);
     if (!local) setRecentPlayers(rememberStatsProfile(p));
@@ -490,7 +494,10 @@ export function PlayerStats() {
       .then(async ([cfg]) => {
         if (c.signal.aborted) return;
         setConfig(cfg);
-        if (route.player) {
+        if (route.snapshot && route.uid) {
+          const saved = await statsRequest<PlayerProfile>("players/restore", { snapshotId: route.snapshot, uid: route.uid }, c.signal);
+          if (!c.signal.aborted) loadProfile(saved);
+        } else if (route.player) {
           const result = await statsRequest<{ items: PlayerCandidate[]; queryId: string }>(
             "players/search",
             { nickname: route.player, requestId: "query_" + crypto.randomUUID() },
@@ -551,7 +558,6 @@ export function PlayerStats() {
     clearRankingMemory();
     forgetQuery();
     setQueryProgress("");
-    setShowGarage(false);
     setSelectedVehicle(null);
     setVehicleShare(null);
     generation.current++;
@@ -884,7 +890,7 @@ export function PlayerStats() {
                 等级 {num(profile.level)} · UID {profile.uid}
               </p>
             </div>
-            <button className="wt-record-link wt-garage-entry" disabled={profile.localOnly} onClick={() => setShowGarage(true)}>完整车库</button>
+            <button className="wt-record-link wt-garage-entry" disabled={profile.localOnly} onClick={() => void openGarage()}>完整车库</button>
             <GameAccountBinding key={`${profile.snapshotId}:${session?.user?.id || "guest"}`} profile={profile} />
             <AccountValuation
               key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
@@ -1406,7 +1412,6 @@ export function PlayerStats() {
           </footer>
         </>
       )}
-      {displayProfile && showGarage && <PlayerGarage profile={displayProfile} close={() => setShowGarage(false)} selectVehicle={vehicle => { setShowGarage(false); setSelectedVehicle(vehicle); }} />}
       {displayProfile && selectedVehicle && <PlayerVehicleDetails profile={displayProfile} vehicle={effectiveVehicles.find(v => v.id === selectedVehicle.id && v.mode === selectedVehicle.mode) || selectedVehicle} close={() => setSelectedVehicle(null)} />}
       {vehicleShare && <PlayerVehicleShare profile={vehicleShare.profile} vehicle={vehicleShare.vehicle} job={vehicleShare.job}
         close={() => setVehicleShare(null)} back={() => { setSelectedVehicle(vehicleShare.vehicle); setVehicleShare(null); }} />}

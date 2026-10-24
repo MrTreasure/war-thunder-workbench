@@ -372,3 +372,10 @@
 - 用户明确确认：游戏原始黑桃图标在本站仅表示“已拥有”，不表示改装全满。用关联车库自动跳过已拥有载具的研发点，不据此清零改装研发点。原图来源及固定版本见 data/account-workspace.json。
 - 解除入口位于用户名菜单；弹窗要求逐字输入“我再也不绑定别人的账号了”。后端必须严格比较原文，不能 trim、只在前端校验或使用普通确认框代替。
 - 登录/注册及云端功能首次使用需要明确确认当前版本的用户协议与数据说明；后台提供账号计划、游戏关联和协议确认管理。私人接口不进入公共缓存；后端源码仍仅本机维护。
+
+## Account sync and garage presentation
+
+- After agreement confirmation, account saves are automatic and silent. Never open the cloud-data/import panel merely because a user logged in, and do not show successful sync status in the header or menu. The panel remains available on explicit request.
+- First account use may automatically import valid guest plans only into missing cloud keys. Cloud documents, deletion tombstones and pending account edits win; retain the guest originals and prevent automatic import into another account once claimed.
+- Full garages use the independent `#/stats/garage` page with compact responsive cards, filters, pagination and a cached-profile return to stats. The garage itself must not use a dialog or trigger a new nickname search on return.
+- Owned spades use the original `item_icon_elite_slot.png` card-body watermark and game colors recorded in `data/account-workspace.json`, behind vehicle art/text. Do not restore a boxed corner badge. Keep original HTTPS asset URLs and provenance.

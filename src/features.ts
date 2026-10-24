@@ -5,7 +5,7 @@ export const workbenchPage = (pathname: string) =>
       ? "maps"
       : pathname === "/sales"
         ? "sales"
-        : pathname === "/stats"
+        : pathname === "/stats" || pathname.startsWith("/stats/")
           ? "stats"
           : pathname === "/lineups"
             ? "lineups"

@@ -12,6 +12,7 @@
 @import "./map-editor.css";
 @import "./player-stats.css";
 @import "./sale-calendar.css";
+@import "./player-garage.css";
 @import "./mobile.css";
 @import "./game-select.css";
 @source "../src";

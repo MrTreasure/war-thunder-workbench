@@ -1,11 +1,10 @@
 import { vehicleDisplayName } from "./vehicle-display-name";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import catalog from "../data/catalog-settings.json";
 import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
 import {
   statsDate,
-  statsGoldenEaglesIcon,
   statsNumber as num,
   statsCategoryNames,
   statsRatio,
@@ -21,11 +20,9 @@ import { statsCountryMatches, statsCountryLabel } from "./stats-country";
 
 export function PlayerGarage({
   profile,
-  close,
   selectVehicle,
 }: {
   profile: PlayerProfile;
-  close: () => void;
   selectVehicle: (vehicle: PlayerVehicle) => void;
 }) {
   const read = usePlayerRead<OwnedGarage>(profile, "garage", true);
@@ -62,13 +59,15 @@ export function PlayerGarage({
     gift: "特殊载具",
     research: "研发载具",
   };
+  const records = useMemo(() => {
+    const best = new Map<string, PlayerVehicle>();
+    for (const record of profile.vehicles) {
+      if ((record.battles || 0) >= (best.get(record.id)?.battles || 0)) best.set(record.id, record);
+    }
+    return best;
+  }, [profile.vehicles]);
   return (
-    <Modal
-      title={`${profile.nickname} · 完整车库`}
-      subtitle="所有已拥有载具，包含未出击车辆；查看清单不消耗估值次数。"
-      close={close}
-      className="wt-owned-garage"
-    >
+    <section className="wt-garage-inventory" aria-label="完整车库载具">
       <div className="wt-owned-content">
         <div className="wt-owned-summary">
           <strong>
@@ -176,13 +175,11 @@ export function PlayerGarage({
                 ? ` · ${read.data.unmatchedCount} 辆尚未匹配分类，仍保留在清单中`
                 : ""}
             </p>
-            <div className="wt-owned-list">
+            <div className="wt-garage-cards">
               {filtered.slice((currentPage - 1) * pageSize, currentPage * pageSize).map((v) => {
-                const record = [...profile.vehicles]
-                  .filter((r) => r.id === v.id)
-                  .sort((a, b) => (b.battles || 0) - (a.battles || 0))[0];
+                const record = records.get(v.id);
                 return (
-                  <div key={v.id} className="wt-owned-row">
+                  <article key={v.id} className="wt-garage-card">
                     <img
                       src={v.image}
                       alt=""
@@ -191,7 +188,7 @@ export function PlayerGarage({
                         e.currentTarget.hidden = true;
                       }}
                     />
-                    <div>
+                    <div className="wt-garage-card-info">
                       <a
                         href={`https://wiki.warthunder.com/unit/${encodeURIComponent(v.id)}`}
                         target="_blank"
@@ -200,22 +197,19 @@ export function PlayerGarage({
                         {vehicleDisplayName(v.name)}
                       </a>
                       <small>
-                        {statsCountryLabel(v.country)}{" "}
-                        · {statsCategoryNames[v.category || ""] || "分类待匹配"}
+                        {statsCountryLabel(v.country)} ·{" "}
+                        {statsCategoryNames[v.category || ""] || "分类待匹配"}
                         {v.rank ? ` · ${v.rank} 级` : ""}
                       </small>
                     </div>
-                    <span className={v.observed ? "wt-owned-played" : "wt-owned-unplayed"}>
-                      {v.observed ? "已出击" : "未出击"}
-                    </span>
-                    {v.elite && (
-                      <span className="wt-owned-elite">
-                        <img src={statsGoldenEaglesIcon} alt="" />
-                        精英
+                    <footer className="wt-garage-card-footer">
+                      <span className={v.observed ? "wt-owned-played" : "wt-owned-unplayed"}>
+                        {v.observed ? "已出击" : "未出击"}
                       </span>
-                    )}
-                    {record && <button onClick={() => selectVehicle(record)}>查看战绩</button>}
-                  </div>
+                      {v.elite && <span className="wt-owned-elite">精英</span>}
+                      {record && <button onClick={() => selectVehicle(record)}>查看战绩</button>}
+                    </footer>
+                  </article>
                 );
               })}
             </div>
@@ -235,7 +229,7 @@ export function PlayerGarage({
           </>
         )}
       </div>
-    </Modal>
+    </section>
   );
 }
 

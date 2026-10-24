@@ -18,6 +18,7 @@ import { Route as WorkbenchSalesRouteImport } from './routes/_workbench.sales'
 import { Route as WorkbenchStatsRouteImport } from './routes/_workbench.stats'
 import { Route as WorkbenchTreeRouteImport } from './routes/_workbench.tree'
 import { Route as WorkbenchMapsMapIdRouteImport } from './routes/_workbench.maps_.$mapId'
+import { Route as WorkbenchStatsGarageRouteImport } from './routes/_workbench.stats_.garage'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -63,6 +64,11 @@ const WorkbenchMapsMapIdRoute = WorkbenchMapsMapIdRouteImport.update({
   path: '/maps/$mapId',
   getParentRoute: () => WorkbenchRoute,
 } as any)
+const WorkbenchStatsGarageRoute = WorkbenchStatsGarageRouteImport.update({
+  id: '/stats_/garage',
+  path: '/stats/garage',
+  getParentRoute: () => WorkbenchRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -73,6 +79,7 @@ export interface FileRoutesByFullPath {
   '/stats': typeof WorkbenchStatsRoute
   '/tree': typeof WorkbenchTreeRoute
   '/maps/$mapId': typeof WorkbenchMapsMapIdRoute
+  '/stats/garage': typeof WorkbenchStatsGarageRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   '/stats': typeof WorkbenchStatsRoute
   '/tree': typeof WorkbenchTreeRoute
   '/maps/$mapId': typeof WorkbenchMapsMapIdRoute
+  '/stats/garage': typeof WorkbenchStatsGarageRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   '/_workbench/stats': typeof WorkbenchStatsRoute
   '/_workbench/tree': typeof WorkbenchTreeRoute
   '/_workbench/maps_/$mapId': typeof WorkbenchMapsMapIdRoute
+  '/_workbench/stats_/garage': typeof WorkbenchStatsGarageRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/stats'
     | '/tree'
     | '/maps/$mapId'
+    | '/stats/garage'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -117,6 +127,7 @@ export interface FileRouteTypes {
     | '/stats'
     | '/tree'
     | '/maps/$mapId'
+    | '/stats/garage'
   id:
     | '__root__'
     | '/'
@@ -128,6 +139,7 @@ export interface FileRouteTypes {
     | '/_workbench/stats'
     | '/_workbench/tree'
     | '/_workbench/maps_/$mapId'
+    | '/_workbench/stats_/garage'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -200,6 +212,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkbenchMapsMapIdRouteImport
       parentRoute: typeof WorkbenchRoute
     }
+    '/_workbench/stats_/garage': {
+      id: '/_workbench/stats_/garage'
+      path: '/stats/garage'
+      fullPath: '/stats/garage'
+      preLoaderRoute: typeof WorkbenchStatsGarageRouteImport
+      parentRoute: typeof WorkbenchRoute
+    }
   }
 }
 
@@ -211,6 +230,7 @@ interface WorkbenchRouteChildren {
   WorkbenchStatsRoute: typeof WorkbenchStatsRoute
   WorkbenchTreeRoute: typeof WorkbenchTreeRoute
   WorkbenchMapsMapIdRoute: typeof WorkbenchMapsMapIdRoute
+  WorkbenchStatsGarageRoute: typeof WorkbenchStatsGarageRoute
 }
 
 const WorkbenchRouteChildren: WorkbenchRouteChildren = {
@@ -221,6 +241,7 @@ const WorkbenchRouteChildren: WorkbenchRouteChildren = {
   WorkbenchStatsRoute: WorkbenchStatsRoute,
   WorkbenchTreeRoute: WorkbenchTreeRoute,
   WorkbenchMapsMapIdRoute: WorkbenchMapsMapIdRoute,
+  WorkbenchStatsGarageRoute: WorkbenchStatsGarageRoute,
 }
 
 const WorkbenchRouteWithChildren = WorkbenchRoute._addFileChildren(
