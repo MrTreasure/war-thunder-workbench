@@ -6,6 +6,20 @@
   padding: 28px 24px 40px;
   color: var(--wt-body);
 }
+.wt-decal-login {
+  padding: 32px;
+  border: 1px solid var(--wt-line);
+  background: var(--wt-surface);
+  font-size: 13px;
+}
+.wt-decal-login h3 {
+  font-size: 16px;
+  color: var(--wt-ink);
+}
+.wt-decal-login p {
+  color: var(--wt-muted);
+  line-height: 1.8;
+}
 .wt-decal-heading {
   display: flex;
   align-items: start;

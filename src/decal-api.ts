@@ -1,4 +1,5 @@
 import settings from "./config/player-stats.json";
+import { statsHeaders, StatsError, setStatsToken } from "./player-stats-api";
 
 export type DecalKind = "configured" | "localization" | "announcement";
 export type Decal = {
@@ -51,7 +52,7 @@ export type DecalPage = {
 };
 export type DecalDetail = { item: Decal; revision: string };
 type Cached = { body: string; sha256: string; savedAt: number };
-const prefix = "wt-decal-cache-v1:";
+const prefix = "wt-decal-cache-v2:";
 const memory = new Map<string, Cached>();
 const pending = new Map<string, Promise<unknown>>();
 const writes = new Map<string, Promise<void>>();
@@ -63,7 +64,7 @@ async function hash(text: string) {
     .join("");
 }
 async function directory() {
-  return (await navigator.storage.getDirectory()).getDirectoryHandle("wt-decal-cache-v1", {
+  return (await navigator.storage.getDirectory()).getDirectoryHandle("wt-decal-cache-v2", {
     create: true,
   });
 }
@@ -167,7 +168,10 @@ export async function readDecals<T extends DecalPage | DecalDetail>(
   signal: AbortSignal,
   cached: (value: T) => void,
 ): Promise<T> {
-  const key = await hash(path),
+  const headers = statsHeaders();
+  if (!headers.Authorization) throw new StatsError("登录后可使用贴花查询。", "LOGIN_REQUIRED");
+  const scope = headers.Authorization;
+  const key = await hash(scope + ":" + path),
     old = await saved(key);
   signal.throwIfAborted();
   if (old) {
@@ -177,25 +181,39 @@ export async function readDecals<T extends DecalPage | DecalDetail>(
       if (Date.now() - old.savedAt < 60_000) return value as T;
     }
   }
-  let request = pending.get(path);
+  const flightKey = scope + ":" + path;
+  let request = pending.get(flightKey);
   if (!request) {
     request = (async () => {
-      const response = await fetch(`${settings.apiBaseUrl}/public-data/decals${path}`, {
+      const response = await fetch(`${settings.apiBaseUrl}/decals${path}`, {
         credentials: "omit",
+        headers,
         signal: AbortSignal.timeout(20_000),
       });
-      if (!response.ok) throw new Error("贴花资料暂时无法读取，请稍后重试。");
+      if (!response.ok) {
+        const failure = await response.json().catch(() => null);
+        if (response.status === 401 && statsHeaders().Authorization === scope) {
+          setStatsToken("");
+          window.dispatchEvent(new Event("wt-account-expired"));
+        }
+        throw new StatsError(
+          failure?.message || "贴花资料暂时无法读取，请稍后重试。",
+          failure?.code || "REQUEST_FAILED",
+        );
+      }
       const body = await response.text();
       if (new TextEncoder().encode(body).byteLength > 500_000)
         throw new Error("贴花资料超过读取上限。");
       const value: unknown = JSON.parse(body),
         digest = await hash(body);
-      if (!valid(value) || response.headers.get("ETag") !== `"${digest}"`)
-        throw new Error("贴花资料校验失败。");
+      const expected =
+        response.headers.get("X-WT-Content-SHA256") ||
+        response.headers.get("ETag")?.replace(/^W\//, "").replace(/^"|"$/g, "");
+      if (!valid(value) || expected !== digest) throw new Error("贴花资料校验失败。");
       store(key, { body, sha256: digest, savedAt: Date.now() });
       return value;
-    })().finally(() => pending.delete(path));
-    pending.set(path, request);
+    })().finally(() => pending.delete(flightKey));
+    pending.set(flightKey, request);
   }
   const result = await request;
   signal.throwIfAborted();

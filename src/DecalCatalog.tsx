@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useSearch } from "@tanstack/react-router";
 import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
+import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { readDecals, type Decal, type DecalPage, type DecalDetail } from "./decal-api";
 import "./decal-catalog.css";
 
@@ -154,7 +155,37 @@ function Detail({ initial, close }: { initial: Decal; close: () => void }) {
 }
 export function DecalCatalog() {
   const search = useSearch({ from: "/_workbench/decals" });
-  return <DecalResults key={JSON.stringify(search)} search={search} />;
+  const { session, busy, error, login, identityVersion } = useWorkbenchAccount();
+  if (!session?.user?.id)
+    return (
+      <main className="wt-decal-page">
+        <header className="wt-decal-heading">
+          <div>
+            <span className="wt-decal-label">CUSTOMIZATION ARCHIVE</span>
+            <h2>贴花查询</h2>
+            <p>登录后可查询贴花背景、分类与解锁条件，不消耗战绩查询额度。</p>
+          </div>
+        </header>
+        <section className="wt-decal-login">
+          <h3>登录后使用贴花查询</h3>
+          <p>使用页面右上角的账号登录，或点击下方按钮继续。</p>
+          <button className="quiet-button" disabled={busy} onClick={() => void login()}>
+            {busy ? "正在登录…" : "登录并查询"}
+          </button>
+          {error && (
+            <p role="alert" className="wt-decal-error">
+              {error}
+            </p>
+          )}
+        </section>
+      </main>
+    );
+  return (
+    <DecalResults
+      key={session.user.id + ":" + identityVersion + ":" + JSON.stringify(search)}
+      search={search}
+    />
+  );
 }
 function DecalResults({
   search,
