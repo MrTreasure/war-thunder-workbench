@@ -101,7 +101,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
     [bootstrap, loadedCountry, currentKey, country],
   );
   useEffect(() => {
-    if (page === "maps" || page === "stats" || page === "sales" || !country || !countryEntry)
+    if (page === "maps" || page === "stats" || page === "sales" || page === "decals" || !country || !countryEntry)
       return;
     const controller = new AbortController();
     const valid = (value: unknown): value is CountryPayload => {

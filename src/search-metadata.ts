@@ -9,6 +9,7 @@ export function updateSearchMetadata(page: string) {
     maps: "战雷走线与陆战地图编辑",
     lineups: "战雷出击队列",
     sales: "战雷折扣日历",
+    decals: "战雷贴花查询与解锁条件",
   };
   document.title = `${titles[page] || "战争雷霆玩家工具"} · 战雷工作台 | War Thunder Workbench`;
   const qmuse = location.origin === new URL(seo.qmuseUrl).origin;

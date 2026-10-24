@@ -2,7 +2,7 @@ import { GameSelect } from "./GameSelect";
 export function PageNavigation({
   page,
 }: {
-  page: "tree" | "lineups" | "maps" | "stats" | "sales";
+  page: "tree" | "lineups" | "maps" | "stats" | "sales" | "decals";
 }) {
   return (
     <>
@@ -22,6 +22,9 @@ export function PageNavigation({
         <a href="#/sales" aria-current={page === "sales" ? "page" : undefined}>
           折扣日历
         </a>
+        <a href="#/decals" aria-current={page === "decals" ? "page" : undefined}>
+          贴花查询
+        </a>
       </nav>
       <nav className="mobile-page-navigation" aria-label="工具页面">
         <GameSelect
@@ -34,7 +37,8 @@ export function PageNavigation({
                 next === "lineups" ||
                 next === "maps" ||
                 next === "stats" ||
-                next === "sales") &&
+                next === "sales" ||
+                next === "decals") &&
               next !== page
             )
               location.hash = `/${next}`;
@@ -45,6 +49,7 @@ export function PageNavigation({
           <option value="maps">陆战地图</option>
           <option value="stats">战绩查询</option>
           <option value="sales">折扣日历</option>
+          <option value="decals">贴花查询</option>
         </GameSelect>
       </nav>
     </>
