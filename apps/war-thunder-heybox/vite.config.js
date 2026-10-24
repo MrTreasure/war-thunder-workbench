@@ -5,4 +5,15 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: "./",
   plugins: [react(), miniappManifest()],
+  build: {
+    rolldownOptions: {
+      output: {
+        assetFileNames: "assets/[hash][extname]",
+        chunkFileNames: (chunk) =>
+          chunk.name.startsWith("country-")
+            ? `assets/${chunk.name.split(".")[0].replace("country-", "c-")}-[hash].js`
+            : "assets/[name]-[hash].js",
+      },
+    },
+  },
 });

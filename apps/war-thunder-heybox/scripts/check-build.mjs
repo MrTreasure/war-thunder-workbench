@@ -32,7 +32,7 @@ assert(
 const canonical = JSON.parse(await readFile(new URL("src/generated/manifest.json", root), "utf8"));
 for (const [country, entry] of Object.entries(canonical.countries)) {
   const candidates = files.filter(
-    (f) => f.startsWith("assets/" + entry.file.replace(/\.js$/, "-")) && f.endsWith(".js"),
+    (f) => f.startsWith(`assets/c-${country}-`) && f.endsWith(".js"),
   );
   assert.equal(candidates.length, 1, "Exactly one lazy country module for " + country);
   const { default: text } = await import(pathToFileURL(new URL(candidates[0], dist).pathname).href);
