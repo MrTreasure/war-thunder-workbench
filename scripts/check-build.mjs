@@ -7,66 +7,10 @@ const root = fileURLToPath(new URL("../", import.meta.url));
 const dist = resolve(root, "dist");
 const manifest = JSON.parse(await readFile(resolve(root, "src/generated/manifest.json"), "utf8"));
 const files = await readdir(dist, { recursive: true });
-const scoring = JSON.parse(
-  await readFile(resolve(root, "data/player-efficiency-wasm.json"), "utf8"),
-);
-const statsRules = JSON.parse(
-  await readFile(resolve(root, "data/player-stats-rules.json"), "utf8"),
-);
-assert.equal(scoring.version, statsRules.version, "Scoring runtime and display version must agree");
-assert.match(scoring.commit, /^[a-f0-9]{40}$/);
-assert.match(scoring.sha256, /^[a-f0-9]{64}$/);
-assert.equal(scoring.argumentCount, 16);
-assert.equal(scoring.abi, "slots-f64-v1");
-assert(Number.isSafeInteger(scoring.bytes) && scoring.bytes > 0 && scoring.bytes < 32768);
-const declaration = scoring.declaration;
-assert.equal(declaration?.kind, "webassembly", "Declare the efficiency binary explicitly");
-assert.equal(declaration.mimeType, "application/wasm");
-assert.equal(scoring.localPath, "src/assets/player-efficiency.v3.wasm");
-assert.equal(declaration.sourcePath, scoring.localPath);
-assert.equal(declaration.sizeBytes, scoring.bytes);
-assert.equal(declaration.sha256, scoring.sha256);
-assert.equal(declaration.loaderPath, "src/player-efficiency.ts");
-assert.equal(declaration.executionAPI, "WebAssembly.instantiate");
-assert.deepEqual(declaration.hostImports, []);
-assert.equal(declaration.networkAccess, false);
-assert.equal(declaration.storageAccess, false);
-assert.equal(declaration.noticePath, "src/assets/player-efficiency.v3.NOTICE.txt");
-assert.equal(declaration.documentationPath, "docs/wasm-assets.md");
-await readFile(resolve(root, declaration.noticePath));
-await readFile(resolve(root, declaration.documentationPath));
-const localRuntime = await readFile(resolve(root, scoring.localPath));
-assert.equal(localRuntime.byteLength, scoring.bytes);
-assert.equal(createHash("sha256").update(localRuntime).digest("hex"), scoring.sha256);
-// Inspect the module's public import/export metadata, without disassembling it.
-const runtimeModule = await WebAssembly.compile(localRuntime);
-assert.deepEqual(WebAssembly.Module.imports(runtimeModule), declaration.hostImports);
-assert.deepEqual(WebAssembly.Module.exports(runtimeModule), [
-  { name: scoring.exportName, kind: "function" },
-]);
-const scoringPath = `war-thunder/efficiency/v3/${scoring.sha256}.wasm`;
-assert.equal(
-  scoring.url,
-  `https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@${scoring.commit}/${scoringPath}`,
-);
-assert.equal(
-  scoring.fallbackUrl,
-  `https://raw.githubusercontent.com/MrTreasure/oss-files/${scoring.commit}/${scoringPath}`,
-);
 assert(
-  !("coefficients" in statsRules.efficiency) && !("smoothing" in statsRules.efficiency),
-  "Public scoring metadata must not carry a JS formula",
+  !files.some((file) => /\.(wasm|wat)$/.test(file)),
+  "Efficiency is calculated by the server; publish no client runtime",
 );
-const runtimes = files.filter((file) => file.endsWith(".wasm"));
-assert.equal(runtimes.length, 1, "Publish exactly one declared local runtime");
-const runtimeBytes = await readFile(resolve(dist, runtimes[0]));
-assert.equal(runtimeBytes.byteLength, scoring.bytes, "Local runtime byte length changed");
-assert.equal(
-  createHash("sha256").update(runtimeBytes).digest("hex"),
-  scoring.sha256,
-  "Local runtime hash changed",
-);
-assert(!files.some((file) => file.endsWith(".wat")), "Do not publish runtime source");
 
 assert(
   !files.some((file) => file.endsWith(".json")),

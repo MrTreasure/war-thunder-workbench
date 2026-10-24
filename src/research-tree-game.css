@@ -1,0 +1,410 @@
+/* Approved game card geometry; original official artwork and regular type. */
+@font-face {
+  font-family: WTCard;
+  src: url("./assets/FiraSansCondensed-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+.canvas {
+  --wt-game-card: #0b1e29b2;
+  --wt-game-border: #253940;
+  --wt-game-top: #4a5d5b;
+}
+.canvas .node {
+  width: 228px;
+}
+.canvas .column-panel {
+  background: #10191c20;
+  border-color: #82949918;
+  box-shadow: none;
+  border-radius: 0;
+}
+.canvas .column-panel.is-special {
+  background: #10191c20;
+  border-color: #82949918;
+}
+.node .vehicle-card.wt-game-card {
+  position: relative;
+  display: block;
+  width: 228px;
+  height: 76px;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  border: 1px solid var(--wt-game-border);
+  border-top: 3px solid var(--wt-game-top);
+  border-radius: 0;
+  background: var(--wt-game-card);
+  color: #eef0ea;
+  text-align: right;
+  isolation: isolate;
+  box-shadow: 0 1px 1px #050b103d;
+  font-family: WTSymbols, WTCard, "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  font-synthesis: none;
+  font-weight: 400;
+}
+.node .vehicle-card.wt-game-card.is-owned {
+  background: #25333bb2;
+  border-color: #3e5159;
+  border-top-color: #57767e;
+}
+.node .vehicle-card.wt-game-card.is-premium {
+  background: #191107c9;
+  border-color: #3b2e19;
+  border-top-color: #735728;
+}
+.node .vehicle-card.wt-game-card.is-premium.is-owned {
+  background: #2d250fb2;
+  border-color: #5b471f;
+  border-top-color: #7b591f;
+}
+.canvas .node .vehicle-card.wt-game-card.is-squadron {
+  background: #18231ac9;
+  border-color: #374736;
+  border-top-color: #4c6045;
+  box-shadow: 0 1px 1px #050b103d;
+}
+.canvas .node .vehicle-card.wt-game-card.is-squadron.is-owned {
+  background: #263a1cb2;
+  border-color: #3e5c2c;
+  border-top-color: #4b712f;
+}
+.vehicle-card.wt-game-card > .unit-name {
+  position: absolute;
+  right: 7px;
+  top: 8px;
+  max-width: 211px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-shadow: 0 1px 2px #050b10d9;
+  z-index: 3;
+}
+.vehicle-card.wt-game-card > .unit-name.is-long {
+  font-size: 17px;
+  top: 10px;
+}
+.vehicle-card.wt-game-card .unit-art {
+  position: absolute;
+  left: 0;
+  right: auto;
+  top: auto;
+  bottom: 3px;
+  width: 116px;
+  height: 68px;
+  object-fit: contain;
+  object-position: left bottom;
+  pointer-events: none;
+  filter: drop-shadow(1px 2px 1px #060a10a3);
+  z-index: 1;
+}
+.vehicle-card.wt-game-card > .unit-art-unavailable {
+  position: absolute;
+  left: 30px;
+  bottom: 20px;
+  color: #72838a;
+}
+.vehicle-card.wt-game-card > .wt-game-card-bottom {
+  position: absolute;
+  right: 7px;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 1;
+  white-space: nowrap;
+  z-index: 3;
+  text-shadow: 0 1px 2px #050b10d9;
+}
+.wt-game-card .wt-game-card-cost {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-right: 2px;
+  font-size: 21px;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+}
+.vehicle-card.wt-game-card .wt-game-currency {
+  position: static;
+  display: inline-block;
+  width: 18px;
+  height: 20px;
+  object-fit: contain;
+  vertical-align: middle;
+  filter: drop-shadow(0 1px 1px #050b10d9);
+}
+.vehicle-card.wt-game-card .wt-game-currency.is-ge {
+  width: 20px;
+  height: 22px;
+}
+.vehicle-card.wt-game-card .wt-game-currency.is-gjn {
+  width: 24px;
+  height: 24px;
+}
+.wt-game-card .wt-game-card-br {
+  font-size: 20px;
+  min-width: 29px;
+  text-align: right;
+}
+.wt-game-role {
+  display: inline-block;
+  position: relative;
+  flex: 0 0 auto;
+  width: 14px;
+  height: 12px;
+  color: #e0b8b2;
+}
+.wt-game-role.light::before {
+  content: "";
+  position: absolute;
+  inset: 5px 0 3px;
+  background: currentColor;
+}
+.wt-game-role.medium {
+  color: #df8d8c;
+}
+.wt-game-role.medium::before {
+  content: "";
+  position: absolute;
+  inset: 3px 0 2px;
+  background: currentColor;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 66% 100%, 66% 55%, 34% 55%, 34% 100%, 0 100%);
+}
+.wt-game-role.heavy {
+  color: #e7a698;
+}
+.wt-game-role.heavy::before {
+  content: "";
+  position: absolute;
+  inset: 2px 0 1px;
+  background: currentColor;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    74% 100%,
+    74% 55%,
+    58% 55%,
+    58% 100%,
+    42% 100%,
+    42% 55%,
+    26% 55%,
+    26% 100%,
+    0 100%
+  );
+}
+.wt-game-role.td {
+  color: #91c989;
+}
+.wt-game-role.td::before {
+  content: "";
+  position: absolute;
+  inset: 1px 0;
+  background: currentColor;
+  clip-path: polygon(100% 0, 100% 40%, 42% 74%, 100% 74%, 100% 100%, 0 100%, 0 72%);
+}
+.wt-game-role.aa {
+  color: #b29be1;
+}
+.wt-game-role.aa::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  clip-path: polygon(
+    0 82%,
+    14% 82%,
+    14% 26%,
+    30% 26%,
+    30% 82%,
+    46% 82%,
+    46% 0,
+    62% 0,
+    62% 82%,
+    78% 82%,
+    78% 26%,
+    94% 26%,
+    94% 82%,
+    100% 82%,
+    100% 100%,
+    0 100%
+  );
+}
+.vehicle-card.wt-game-card .wt-game-talisman {
+  position: absolute;
+  left: 50%;
+  right: auto;
+  top: -13px;
+  bottom: auto;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  z-index: 5;
+  filter: drop-shadow(0 1px 2px #100d08);
+  pointer-events: none;
+}
+.vehicle-card.wt-game-card > .wt-game-owned {
+  position: absolute;
+  right: 1px;
+  top: 0;
+  width: 71px;
+  height: 71px;
+  background: #364c5bab;
+  mask: var(--wt-game-owned-icon) center/contain no-repeat;
+  z-index: 0;
+  pointer-events: none;
+}
+.vehicle-card.wt-game-card.is-premium > .wt-game-owned {
+  background: #5b3416ab;
+}
+.vehicle-card.wt-game-card.is-squadron > .wt-game-owned {
+  background: #5d7144;
+}
+.vehicle-card.wt-game-card > .wt-game-pack-price {
+  position: absolute;
+  left: -1px;
+  bottom: -25px;
+  height: 24px;
+  padding: 3px 7px 4px;
+  background: #241d12dc;
+  border: 1px solid #5b471f80;
+  border-top: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #efd9a4;
+  white-space: nowrap;
+  z-index: 2;
+}
+.wt-game-pack-price small {
+  font: 10px/1 var(--wt-sans);
+  margin-right: 6px;
+  color: #b6a78b;
+}
+.canvas .node.is-group > .wt-game-card::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: -9px;
+  width: 65px;
+  height: 8px;
+  border-top: 3px solid var(--wt-game-top);
+  background: var(--wt-game-card);
+  clip-path: polygon(0 0, 75% 0, 86% 70%, 100% 70%, 100% 100%, 0 100%);
+}
+.canvas .folder-toggle {
+  height: 25px;
+  border-radius: 0;
+  background: #11232cd9;
+  border-color: #3c555f;
+  color: #9ab6bc;
+}
+.canvas .folder-members {
+  padding: 18px 0 12px;
+  border: 0;
+  border-radius: 0;
+  background: #101b23ad;
+}
+.canvas .folder-member {
+  margin-top: 30px;
+}
+.canvas .folder-member:first-child {
+  margin-top: 0;
+}
+.canvas .folder-link {
+  top: -23px;
+  height: 19px;
+}
+.canvas .node.is-route .wt-game-card {
+  outline: 1px solid #b5a37a88;
+  outline-offset: 1px;
+}
+.canvas .node .wt-game-card.is-selected {
+  outline: 2px solid #d4c293;
+  outline-offset: 2px;
+}
+.node .vehicle-card.wt-game-card:focus-visible {
+  outline: 2px solid #d6e4df;
+  outline-offset: 3px;
+}
+@media (hover: hover) {
+  .canvas .node .vehicle-card.wt-game-card:hover {
+    border-color: #99b9be;
+    box-shadow: 0 0 0 1px #91b2b72b;
+    filter: brightness(1.12);
+  }
+  .canvas .node .vehicle-card.wt-game-card.is-premium:hover {
+    border-color: #c1994c;
+  }
+}
+
+.wt-game-role.other::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: currentColor;
+  border-radius: 50%;
+}
+
+/* Disclosure is feedback: one shared duration/easing for cards, ranks and wires. */
+.canvas-space {
+  transition: height 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.canvas .node {
+  transition:
+    transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 120ms;
+}
+.canvas :is(.rank-band, .rank-label, .rank-note) {
+  transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.canvas .edge {
+  transition:
+    d 300ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    stroke 120ms;
+}
+.wt-tree-folder {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 300ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 180ms;
+}
+.wt-tree-folder[data-open="true"] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.wt-tree-folder-clip {
+  min-height: 0;
+  overflow: clip;
+}
+.canvas .folder-toggle .wt-chevron {
+  transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  flex: 0 0 auto;
+}
+.canvas .folder-toggle[aria-expanded="true"] .wt-chevron {
+  transform: rotate(180deg);
+}
+.canvas .node .vehicle-card.wt-game-card.is-squadron:hover {
+  border-color: #68825c;
+}
+.canvas .node .vehicle-card.wt-game-card.is-squadron:focus-visible {
+  outline-color: #9ab784;
+}
+@media (prefers-reduced-motion: reduce) {
+  .canvas-space,
+  .canvas .node,
+  .canvas :is(.rank-band, .rank-label, .rank-note, .edge),
+  .wt-tree-folder,
+  .canvas .folder-toggle .wt-chevron {
+    transition: none;
+  }
+}

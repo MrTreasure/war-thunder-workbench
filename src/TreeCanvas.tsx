@@ -1,22 +1,31 @@
+import { TreeFolder } from "./TreeFolder";
+import { Chevron } from "./components/Chevron";
+import { treeEdgePath } from "./tree-edge-path";
 import cardTheme from "../data/vehicle-card-theme.json";
-import workspaceAssets from "../data/account-workspace.json";
 import { useAccountWorkspace } from "./workspace-context";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { useEffect, useMemo, useRef } from "react";
 import type { CSSProperties } from "react";
 import type { Catalog, Mode, Tree, TreeNode, Vehicle } from "./models";
 import { format } from "./quotes";
-import { packPriceLabel } from "./PackPrice";
+import { cnyPrice } from "./PackPrice";
+import { compactResearchPoints } from "./research-number-format";
+import { VehicleThumbnail } from "./VehicleThumbnail";
 export const modes: Record<Mode, string> = { ab: "街机", rb: "历史", sb: "全真" };
 export const rating = (unit: Vehicle, mode: Mode) =>
   typeof unit.br[mode] === "number" && unit.br[mode]! >= 0
     ? (unit.br[mode]! / 3 + 1).toFixed(1)
     : "—";
 export const rpText = (unit: Vehicle) =>
-  unit.rp === undefined ? "研发点 —" : unit.rp === 0 ? "免费研发" : `${format(unit.rp)} RP`;
+  unit.rp === undefined
+    ? "研发点 —"
+    : unit.rp === 0
+      ? "免费研发"
+      : `${compactResearchPoints(unit.rp)} RP`;
 const at = (left: number, top: number, width?: number, height?: number): CSSProperties => ({
   left,
-  top,
+  top: 0,
+  transform: `translateY(${top}px)`,
   width,
   height,
   position: "absolute",
@@ -24,11 +33,11 @@ const at = (left: number, top: number, width?: number, height?: number): CSSProp
 function nodeHeight(node: TreeNode, expanded: Set<string>) {
   const count = node.members.length - 1;
   return node.group
-    ? 135 + (expanded.has(node.id) && count ? 25 + count * 94 + Math.max(0, count - 1) * 18 : 0)
-    : 110;
+    ? 100 + (expanded.has(node.id) && count ? 18 + count * 88 + Math.max(0, count - 1) * 18 : 0)
+    : 102;
 }
 export function treeLayout(tree: Tree, expanded: Set<string>) {
-  const cell = 188,
+  const cell = cardTheme.geometry.cellWidth,
     mainX = 68,
     mainWidth = tree.columns * cell + 4,
     specialX = mainX + mainWidth + 28,
@@ -39,7 +48,7 @@ export function treeLayout(tree: Tree, expanded: Set<string>) {
   const ranks = tree.ranks.map((rank) => {
     const start = cursor;
     const rowCount = Math.max(rank.rows, ...rank.special.map((node) => node.row + 1), 1);
-    const heights = Array.from({ length: rowCount }, () => 110);
+    const heights = Array.from({ length: rowCount }, () => 102);
     for (const node of [...rank.research, ...rank.special])
       heights[node.row] = Math.max(heights[node.row], nodeHeight(node, expanded));
     const starts: number[] = [];
@@ -78,98 +87,126 @@ export function VehicleCard({
 }) {
   const workspace = useAccountWorkspace();
   const owned = !!workspace?.ownedVehicleIds.has(unit.id);
+  const premium = unit.premium || unit.kind === "gold" || unit.kind === "pack";
+  const research = unit.side === "research" || unit.kind === "squadron";
+  const market = !!unit.market || cardTheme.marketIconIds.includes(unit.id);
+  const name = vehicleDisplayName(unit.name);
+  const price = unit.packPrice;
+  const role =
+    unit.role === "spaa"
+      ? "aa"
+      : unit.role === "tank_destroyer"
+        ? "td"
+        : unit.role === "heavy_tank"
+          ? "heavy"
+          : unit.role === "medium_tank"
+            ? "medium"
+            : unit.role === "light_tank"
+              ? "light"
+              : "other";
+  const exact = research
+    ? unit.rp === undefined
+      ? "研发点 —"
+      : `${format(unit.rp)} RP`
+    : unit.kind === "gold"
+      ? unit.price === null
+        ? "暂无报价"
+        : `${format(unit.price)} GE`
+      : catalog.kinds[unit.kind];
   return (
     <button
-      className={`vehicle-card ${unit.kind === "squadron" ? "is-squadron" : ""} ${selected ? "is-selected" : ""}`}
+      className={`vehicle-card wt-game-card ${premium ? "is-premium" : ""} ${owned ? "is-owned" : ""} ${unit.kind === "squadron" ? "is-squadron" : ""} ${selected ? "is-selected" : ""}`}
       data-kind={unit.kind}
-      style={
-        unit.kind === "squadron"
-          ? ({
-              "--wt-squadron-top": cardTheme.squadron.topLine,
-              "--wt-squadron-owned": cardTheme.squadron.ownedBackground,
-            } as CSSProperties)
-          : undefined
-      }
       onClick={onSelect}
-      aria-label={`${vehicleDisplayName(unit.name)}，Rank ${unit.rank}${owned ? "，已拥有" : ""}，查看研发信息`}
+      aria-label={`${name}，Rank ${unit.rank}${owned ? "，已拥有" : ""}，${exact}，查看研发信息`}
+      title={`${name} · ${exact}`}
     >
-      <img
-        src={unit.thumbnailUrl}
-        width={83}
-        height={49}
-        alt=""
-        loading="lazy"
-        onError={(e) => {
-          e.currentTarget.hidden = true;
-        }}
-      />
       {owned && (
         <span
-          className={`wt-owned-marker ${unit.kind === "squadron" ? "is-squadron" : unit.premium ? "is-premium" : ""}`}
-          style={
-            {
-              "--wt-owned-slot-image": `url("${workspaceAssets.ownedMarker.background.url}")`,
-            } as CSSProperties
-          }
+          className="wt-game-owned"
           title="已拥有 · 来自关联游戏账号的公开车库"
           aria-label="已拥有"
+        />
+      )}
+      <VehicleThumbnail unit={unit} />
+      <span className={`unit-name ${name.length > 17 ? "is-long" : ""}`} title={name}>
+        {name}
+      </span>
+      <span className="wt-game-card-bottom">
+        <span className="wt-game-card-cost" title={exact}>
+          {research ? (
+            <>
+              {unit.rp === undefined
+                ? "—"
+                : unit.rp === 0
+                  ? "初始"
+                  : compactResearchPoints(unit.rp)}
+              {unit.rp !== 0 && (
+                <img
+                  className="wt-game-currency"
+                  src={cardTheme.icons.rp}
+                  width={18}
+                  height={18}
+                  alt="研发点"
+                />
+              )}
+            </>
+          ) : unit.kind === "gold" ? (
+            <>
+              {unit.price === null ? "—" : format(unit.price)}
+              <img
+                className="wt-game-currency is-ge"
+                src={cardTheme.icons.ge}
+                width={20}
+                height={20}
+                alt="金鹰"
+              />
+            </>
+          ) : unit.kind === "pack" ? (
+            "礼包"
+          ) : market ? (
+            <img
+              className="wt-game-currency is-gjn"
+              src={cardTheme.icons.gjn}
+              width={24}
+              height={24}
+              alt="Gaijin Coin"
+            />
+          ) : (
+            "特殊"
+          )}
+        </span>
+        <span className="wt-game-card-br">{rating(unit, mode)}</span>
+        <span
+          className={`wt-game-role ${role}`}
+          title={catalog.roles[unit.role || ""] || "常规载具"}
+          aria-label={catalog.roles[unit.role || ""] || "常规载具"}
+        />
+      </span>
+      {premium && (
+        <img
+          className="wt-game-talisman"
+          src={cardTheme.icons.talisman}
+          width={26}
+          height={26}
+          alt="护身符"
+        />
+      )}
+      {unit.kind === "pack" && (
+        <span
+          className="wt-game-pack-price"
+          title={`${price?.title || name} · 价格核对于 ${price?.checkedAt.slice(0, 10) || "—"}`}
         >
-          <span className="wt-owned-slot" aria-hidden="true" />
-          <img
-            src={workspaceAssets.ownedMarker.background.url}
-            width={92}
-            height={92}
-            alt=""
-            onLoad={(e) => {
-              e.currentTarget.parentElement?.style.setProperty(
-                "--wt-owned-slot-image",
-                `url("${e.currentTarget.currentSrc || e.currentTarget.src}")`,
-              );
-            }}
-            onError={(e) => {
-              if (e.currentTarget.dataset.fallback !== "1") {
-                e.currentTarget.dataset.fallback = "1";
-                e.currentTarget.src = workspaceAssets.ownedMarker.background.fallbackUrl;
-              } else {
-                e.currentTarget.parentElement?.setAttribute("data-unavailable", "true");
-              }
-            }}
-          />
-          <span className="wt-owned-fallback" aria-hidden="true">
-            ♠
-          </span>
+          <small>整包</small>
+          {price?.status === "priced" && price.amountCents !== null
+            ? cnyPrice(price.amountCents)
+            : "暂无报价"}
         </span>
       )}
-      <span className="unit-role">{catalog.roles[unit.role || ""] || "常规载具"}</span>
-      <span className="unit-name" title={vehicleDisplayName(unit.name)}>
-        {vehicleDisplayName(unit.name)}
-      </span>
-      <span className="unit-meta">
-        <span
-          className={`unit-badge ${unit.side === "research" || unit.kind === "squadron" ? "unit-rp" : ""}`}
-        >
-          {unit.kind === "squadron"
-            ? `联队载具 · ${rpText(unit)}`
-            : unit.side === "research"
-              ? rpText(unit)
-              : unit.kind === "gold" && unit.price !== null
-                ? `${format(unit.price)} GE`
-                : unit.kind === "pack"
-                  ? packPriceLabel(unit)
-                  : catalog.kinds[unit.kind]}
-        </span>
-      </span>
-      <span className="battle-ratings">
-        <span className="battle-rating" title={`${modes[mode]} ${rating(unit, mode)}`}>
-          <span className="rating-mode">
-            {modes[mode]} {mode.toUpperCase()}
-          </span>
-          <strong>{rating(unit, mode)}</strong>
-        </span>
-      </span>
     </button>
   );
 }
+
 export function TreeCanvas({
   tree,
   catalog,
@@ -234,7 +271,14 @@ export function TreeCanvas({
     >
       <div
         className={`canvas ${selected ? "has-route" : ""}`}
-        style={{ width: layout.width, height: layout.height, transform: `scale(${zoom})` }}
+        style={
+          {
+            width: layout.width,
+            height: layout.height,
+            transform: `scale(${zoom})`,
+            "--wt-game-owned-icon": `url("${cardTheme.icons.owned}")`,
+          } as CSSProperties
+        }
       >
         <div className="column-panel" style={at(layout.mainX, 12, layout.mainWidth)} />
         <div
@@ -293,22 +337,14 @@ export function TreeCanvas({
             const from = layout.positions.get(edge.from),
               to = layout.positions.get(edge.to);
             if (!from || !to) return null;
-            const x1 = from.x + 84,
-              y1 = from.y + from.height + 2,
-              x2 = to.x + 84,
-              y2 = to.y - 5,
-              rail = x1 < x2 ? to.x - 10 : to.x + 178;
-            const folder = nodeMap.get(edge.from)?.group && expanded.has(edge.from);
-            const d = folder
-              ? `M${from.x + 170},${from.y + 55} H${from.x + 178} V${y2 - 9} H${x2} V${y2}`
-              : x1 === x2
-                ? `M${x1},${y1} V${y2}`
-                : `M${x1},${y1} V${from.rowBottom + 12} H${rail} V${y2 - 9} H${x2} V${y2}`;
+            const folder = !!nodeMap.get(edge.from)?.group && expanded.has(edge.from);
+            const d = treeEdgePath(from, to, cardTheme.geometry.cardWidth, folder);
             const active = route.has(edge.from) && route.has(edge.to);
             return (
               <path
                 key={`${edge.from}:${edge.to}`}
                 d={d}
+                style={{ d: `path("${d}")` } as CSSProperties}
                 className={`edge ${active ? "is-route" : ""}`}
                 markerEnd={active ? "url(#arrow-active)" : "url(#arrow)"}
               />
@@ -353,9 +389,9 @@ export function TreeCanvas({
                     <span>
                       {node.variant ? "联动系统" : "折叠组"} · {node.members.length} 辆
                     </span>
-                    <span>{expanded.has(node.id) ? "−" : "＋"}</span>
+                    <Chevron />
                   </button>
-                  {expanded.has(node.id) && (
+                  <TreeFolder open={expanded.has(node.id)}>
                     <div className="folder-members">
                       {node.members.slice(1).map((unit) => (
                         <div className="folder-member" key={unit.id}>
@@ -371,7 +407,7 @@ export function TreeCanvas({
                         </div>
                       ))}
                     </div>
-                  )}
+                  </TreeFolder>
                 </>
               )}
             </article>

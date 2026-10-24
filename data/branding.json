@@ -47,6 +47,17 @@
       "transform": "Original remote image, no crop",
       "sourceSha256": "4ef2012f8a0f95ff9cf69f58388c93be625134757c82f5d299e460219d2ee07c",
       "checkedAt": "2026-10-19T13:07:19.406906+00:00"
+    },
+    {
+      "id": "cardFont",
+      "path": "src/assets/FiraSansCondensed-Regular.ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/firasanscondensed/FiraSansCondensed-Regular.ttf",
+      "sourcePage": "https://github.com/google/fonts/tree/main/ofl/firasanscondensed",
+      "transform": "Original regular-weight Fira Sans Condensed; family present in archived game font index; installed Microsoft YaHei preferred for Simplified Chinese",
+      "sourceSha256": "c67609f14fc9d328442bfffcc31988b0f76e5575cf460fcc1f3dd8e4912fe257",
+      "sha256": "c67609f14fc9d328442bfffcc31988b0f76e5575cf460fcc1f3dd8e4912fe257",
+      "delivery": "local",
+      "licensePath": "src/assets/FiraSansCondensed-OFL.txt"
     }
   ]
 }

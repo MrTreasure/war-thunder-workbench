@@ -23,34 +23,11 @@ const binding = JSON.parse(
 const appId = binding.targets?.prod?.appId;
 if (appId !== "8645013411493394")
   throw Error("Unexpected QMuse binding; do not create a new application");
-// Verify the actual official CLI inventory without editing its generated manifest.
+// Keep the application source inventory free of retired scoring binaries.
 const { preflightImport } = await import("@qmuse/qmuse-cli/dist/import/preflight.js");
-const { createSourceManifest } = await import("@qmuse/qmuse-cli/dist/import/source-manifest.js");
-const scoring = JSON.parse(
-  await readFile(new URL("../data/player-efficiency-wasm.json", import.meta.url), "utf8"),
-);
-const sourceManifest = createSourceManifest(await preflightImport(root));
-const runtimeFiles = sourceManifest.files.filter((file) => file.path.endsWith(".wasm"));
-const runtime = runtimeFiles[0];
-if (
-  runtimeFiles.length !== 1 ||
-  runtime.path !== scoring.localPath ||
-  runtime.sizeBytes !== scoring.bytes ||
-  runtime.sha256 !== scoring.sha256
-)
-  throw Error(
-    "The official QMuse source manifest does not match the declared local efficiency runtime",
-  );
-for (const path of [
-  scoring.declaration.noticePath,
-  scoring.declaration.documentationPath,
-  "data/player-efficiency-wasm.json",
-])
-  if (!sourceManifest.files.some((file) => file.path === path))
-    throw Error("Missing WASM declaration or notice in QMuse source inventory: " + path);
-console.log(
-  `Verified declared local efficiency WASM: ${runtime.path}, ${runtime.sizeBytes} bytes, SHA-256 ${runtime.sha256}`,
-);
+const sourceInventory = await preflightImport(root);
+if (sourceInventory.files.some((file) => /\.(wasm|wat)$/.test(file.relativePath)))
+  throw Error("Retired efficiency binaries must not be included in the QMuse source package");
 if (dryRun) {
   console.log(
     "Dry run passed: checked build; next steps would import the bound app and publish its READY version. No QMuse calls made.",
