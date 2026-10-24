@@ -304,7 +304,7 @@ function CountryLineups({
       setDraft(lineup);
       setEditingId(null);
     } else {
-      save([...saved, lineup]);
+      if (!save([...saved, lineup])) return false;
       setDraft(null);
       setEditingId(null);
     }
@@ -319,6 +319,7 @@ function CountryLineups({
     setFiltersOpen(false);
     setDeleting("");
     setMessage("");
+    return true;
   }
   function focusHeading() {
     requestAnimationFrame(() => heading.current?.focus());
@@ -350,7 +351,10 @@ function CountryLineups({
       setMessage("队列配置不完整或载具有重复，请检查槽位。");
       return;
     }
-    save(editingId ? saved.map((row) => (row.id === editingId ? next : row)) : [...saved, next]);
+    if (
+      !save(editingId ? saved.map((row) => (row.id === editingId ? next : row)) : [...saved, next])
+    )
+      return;
     setSelectedId(next.id);
     returnToList();
   }
@@ -451,14 +455,14 @@ function CountryLineups({
                 <button
                   className="quiet-button calc-open"
                   onClick={() => {
-                    create(
+                    const created = create(
                       preview.slots!,
                       `导入队列 ${saved.length + 1}`,
                       undefined,
                       undefined,
                       false,
                     );
-                    dismissImport();
+                    if (created !== false) dismissImport();
                   }}
                 >
                   保存为新队列
@@ -511,7 +515,7 @@ function CountryLineups({
             <button
               className="quiet-button"
               onClick={() => {
-                save(saved.filter((row) => row.id !== deleting));
+                if (!save(saved.filter((row) => row.id !== deleting))) return;
                 if (draft?.id === deleting) returnToList();
                 setDeleting("");
               }}

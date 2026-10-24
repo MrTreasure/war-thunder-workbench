@@ -1,3 +1,5 @@
+import workspaceAssets from "../data/account-workspace.json";
+import { useAccountWorkspace } from "./workspace-context";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { useEffect, useMemo, useRef } from "react";
 import type { CSSProperties } from "react";
@@ -73,11 +75,13 @@ export function VehicleCard({
   selected: boolean;
   onSelect: () => void;
 }) {
+  const workspace = useAccountWorkspace();
+  const owned = !!workspace?.ownedVehicleIds.has(unit.id);
   return (
     <button
       className={`vehicle-card ${selected ? "is-selected" : ""}`}
       onClick={onSelect}
-      aria-label={`${vehicleDisplayName(unit.name)}，Rank ${unit.rank}，查看研发信息`}
+      aria-label={`${vehicleDisplayName(unit.name)}，Rank ${unit.rank}${owned ? "，已拥有" : ""}，查看研发信息`}
     >
       <img
         src={unit.thumbnailUrl}
@@ -89,6 +93,29 @@ export function VehicleCard({
           e.currentTarget.hidden = true;
         }}
       />
+      {owned && (
+        <span
+          className="wt-owned-marker"
+          title="已拥有 · 来自关联游戏账号的公开车库"
+          aria-label="已拥有"
+        >
+          <img
+            src={workspaceAssets.ownedMarker.url}
+            width={20}
+            height={20}
+            alt=""
+            onError={(e) => {
+              if (e.currentTarget.dataset.fallback !== "1") {
+                e.currentTarget.dataset.fallback = "1";
+                e.currentTarget.src = workspaceAssets.ownedMarker.fallbackUrl;
+              } else {
+                e.currentTarget.hidden = true;
+              }
+            }}
+          />
+          <span aria-hidden="true">♠</span>
+        </span>
+      )}
       <span className="unit-role">{catalog.roles[unit.role || ""] || "常规载具"}</span>
       <span className="unit-name" title={vehicleDisplayName(unit.name)}>
         {vehicleDisplayName(unit.name)}

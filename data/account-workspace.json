@@ -1,0 +1,13 @@
+{
+  "ownedMarker": {
+    "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/gameuiskin/item_icon_elite.svg",
+    "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/gameuiskin/item_icon_elite.svg",
+    "source": "Original War Thunder game UI asset, publicly archived in the existing game asset repository; not hosted by Gaijin.",
+    "assetPath": "atlases.vromfs.bin_u/gameuiskin/item_icon_elite.svg",
+    "assetCommit": "ea96f3af75afe1d858f80ac13f212db218bc69ca",
+    "sha256": "919da70135c89b4f846346ee1ce70ee8ee4ccbe4826276779395bbe849473060",
+    "bytes": 673,
+    "checkedAt": "2026-10-24",
+    "meaning": "In this application the original spade icon means owned. It does not assert that all game modifications are researched."
+  }
+}

@@ -1,3 +1,4 @@
+import { AccountWorkspaceProvider } from "../AccountWorkspace";
 import { Outlet, createFileRoute } from "@tanstack/react-router";
 import { ErrorBoundary, WorkbenchProvider } from "../Workbench";
 import { WorkbenchAccountProvider } from "../WorkbenchAccount";
@@ -11,18 +12,20 @@ function WorkbenchLayout() {
   return (
     <div className="workbench-layout">
       <ErrorBoundary>
-        <WorkbenchProvider>
-          <WorkbenchAccountProvider>
-            <AppHeader />
-            <div
-              className="workbench-content"
-              id="workbench-content"
-              data-scroll-restoration-id="workbench-content"
-            >
-              <Outlet />
-            </div>
-          </WorkbenchAccountProvider>
-        </WorkbenchProvider>
+        <WorkbenchAccountProvider>
+          <AccountWorkspaceProvider>
+            <WorkbenchProvider>
+              <AppHeader />
+              <div
+                className="workbench-content"
+                id="workbench-content"
+                data-scroll-restoration-id="workbench-content"
+              >
+                <Outlet />
+              </div>
+            </WorkbenchProvider>
+          </AccountWorkspaceProvider>
+        </WorkbenchAccountProvider>
       </ErrorBoundary>
     </div>
   );

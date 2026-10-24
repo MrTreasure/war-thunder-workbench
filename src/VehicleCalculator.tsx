@@ -1,3 +1,4 @@
+import { useAccountWorkspace } from "./workspace-context";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { GameSelect } from "./components/GameSelect";
 import { useMemo, useState } from "react";
@@ -42,17 +43,17 @@ export function VehicleCalculator({
   close: () => void;
   add: (item: CartItem) => string;
 }) {
+  const workspace = useAccountWorkspace();
+  const binding = workspace?.binding;
   const index = useMemo(() => indexTree(tree), [tree]);
   const all = [...index.units.values()];
   const fallback = all.find((unit) => unit.side === "research")!.id;
   const gates = catalog.planning.gates[category][country];
   const profileKey = `wt-planner-v1:${category}:${country}`;
   const [migrated] = useState<Profile>(() => {
-    const raw = readJson<unknown>(
-      profileKey,
-      null,
-      (value): value is unknown => value !== undefined,
-    );
+    const raw = workspace?.userId
+      ? workspace.documents[profileKey]?.value
+      : readJson<unknown>(profileKey, null, (value): value is unknown => value !== undefined);
     const old = object(raw) ? raw : {};
     const ids = (value: unknown) =>
       strings(value) ? value.filter((id) => index.units.has(id)) : [];
@@ -95,7 +96,7 @@ export function VehicleCalculator({
       price: typeof old.price === "string" ? old.price : "",
     };
   });
-  const [state, save, error] = useStored<Profile>(profileKey, migrated, valid, () => {
+  const [stored, save, error] = useStored<Profile>(profileKey, migrated, valid, () => {
     const stored = migrated;
     const chosen = index.aliases.get(selected || "") || selected;
     const target =
@@ -111,6 +112,22 @@ export function VehicleCalculator({
       gates: { ...gates, ...stored.gates },
     };
   });
+  const [targetOverride, setTargetOverride] = useState<string | null>(() => {
+    const id = index.aliases.get(selected || "") || selected;
+    return workspace?.userId && id && index.units.get(id)?.side === "research" ? id : null;
+  });
+  const target =
+    targetOverride ||
+    (index.units.get(stored.target)?.side === "research" ? stored.target : fallback);
+  const state = useMemo(
+    () => ({
+      ...stored,
+      target,
+      progress: target === stored.target ? stored.progress : 0,
+      gates: { ...gates, ...stored.gates },
+    }),
+    [stored, target, gates],
+  );
   const [tab, setTab] = useState<"owned" | "route">("owned");
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("all");
@@ -121,8 +138,17 @@ export function VehicleCalculator({
   const [gateDrafts, setGateDrafts] = useState<Record<string, string>>({});
   const [editCosts, setEditCosts] = useState(false);
   const owned = useMemo(
-    () => [...new Set([...state.owned, ...(state.ownedImport?.ids || [])])],
-    [state.owned, state.ownedImport],
+    () => [
+      ...new Set([
+        ...state.owned,
+        ...(binding
+          ? binding.vehicles
+              .filter((v) => v.country === country && v.category === category)
+              .map((v) => index.aliases.get(v.id) || v.id)
+          : state.ownedImport?.ids || []),
+      ]),
+    ],
+    [state.owned, state.ownedImport, binding, country, category, index],
   );
   const result = useMemo(() => calculate(tree, { ...state, owned }), [tree, state, owned]);
   const ancestors = useMemo(() => prerequisitePath(index, state.target), [index, state.target]);
@@ -156,7 +182,7 @@ export function VehicleCalculator({
   const cents = total !== null && rate !== null ? quoteCents(lines) : null;
   const update = (patch: Partial<Profile>) => {
     setMessage("");
-    save({ ...state, ...patch });
+    if (save({ ...state, ...patch }) && patch.target) setTargetOverride(patch.target);
   };
   const targetRank = index.units.get(state.target)!.rankNumber;
   const visible = all.filter(
@@ -246,34 +272,44 @@ export function VehicleCalculator({
 
           <section className="vehicle-form-section">
             <h3>账号进度</h3>
-            <OwnedVehicleImport
-              country={country}
-              category={category}
-              current={state.ownedImport}
-              onImport={(garage) => {
-                const ids = [
-                  ...new Set(
-                    garage.vehicles
-                      .filter((v) => v.country === country && v.category === category)
-                      .map((v) => index.aliases.get(v.id) || v.id)
-                      .filter((id) => index.units.has(id)),
-                  ),
-                ];
-                setDrafts({});
-                setProgressDraft("0");
-                update({
-                  ownedImport: {
-                    ids,
-                    uid: garage.uid,
-                    nickname: garage.nickname,
-                    fetchedAt: garage.fetchedAt,
-                  },
-                  unlocked: 0,
-                  progress: 0,
-                });
-              }}
-              onClear={() => update({ ownedImport: undefined })}
-            />
+            {workspace?.binding ? (
+              <p className="wt-owned-caption">
+                已应用关联账号 {workspace.binding.nickname} · UID {workspace.binding.uid}{" "}
+                的车库，自动跳过已拥有载具。
+                <br />
+                采集于 {new Date(workspace.binding.fetchedAt).toLocaleString()}
+                。关联账号的车库优先于临时导入；手动拥有标记作为补充。
+              </p>
+            ) : (
+              <OwnedVehicleImport
+                country={country}
+                category={category}
+                current={state.ownedImport}
+                onImport={(garage) => {
+                  const ids = [
+                    ...new Set(
+                      garage.vehicles
+                        .filter((v) => v.country === country && v.category === category)
+                        .map((v) => index.aliases.get(v.id) || v.id)
+                        .filter((id) => index.units.has(id)),
+                    ),
+                  ];
+                  setDrafts({});
+                  setProgressDraft("0");
+                  update({
+                    ownedImport: {
+                      ids,
+                      uid: garage.uid,
+                      nickname: garage.nickname,
+                      fetchedAt: garage.fetchedAt,
+                    },
+                    unlocked: 0,
+                    progress: 0,
+                  });
+                }}
+                onClear={() => update({ ownedImport: undefined })}
+              />
+            )}
             <label className="calc-field">
               这条线路已拥有到哪辆车？
               <GameSelect

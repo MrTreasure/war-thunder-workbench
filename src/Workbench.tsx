@@ -1,3 +1,4 @@
+import { useAccountWorkspace } from "./workspace-context";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { updateSearchMetadata } from "./search-metadata";
 import { GameSelect } from "./components/GameSelect";
@@ -22,7 +23,7 @@ import { object } from "./validation";
 import { workbenchPage } from "./features";
 import manifestData from "./generated/manifest.json";
 const manifest: DataManifest = { ...manifestData, schemaVersion: 3 };
-import { readJson } from "./storage";
+import { useStored } from "./storage";
 import { validCart } from "./quotes";
 import bootstrapData from "./generated/bootstrap.json";
 export class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
@@ -51,6 +52,7 @@ export function useWorkbenchPage(page: "tree" | "lineups") {
   return pages[page];
 }
 export function WorkbenchProvider({ children }: { children: ReactNode }) {
+  const workspace = useAccountWorkspace();
   const bootstrap = bootstrapData as CatalogIndex;
   const params = new URLSearchParams(location.search);
   const [initial] = useState(() =>
@@ -188,7 +190,13 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   function openParts() {
     setModal("parts");
   }
-  const [cart, setCart] = useState(() => readJson<CartItem[]>(CART_KEY, [], validCart));
+  const [cart, saveCart, cartStorageError] = useStored<CartItem[]>(
+    CART_KEY,
+    [],
+    validCart,
+    undefined,
+    true,
+  );
   const [pulse, setPulse] = useState(0);
   const [cartError, setCartError] = useState("");
   const [full, setFull] = useState(false);
@@ -333,8 +341,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       item,
     ];
     try {
-      localStorage.setItem(CART_KEY, JSON.stringify(next));
-      setCart(next);
+      if (!saveCart(next)) return "保存失败：请检查云端同步状态。";
       setPulse((value) => value + 1);
       setCartError("");
       return replacing ? "已更新购物车中的配件报价 ✓" : "已加入购物车 ✓";
@@ -345,8 +352,10 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   function remove(id: string) {
     const next = cart.filter((item) => item.id !== id);
     try {
-      localStorage.setItem(CART_KEY, JSON.stringify(next));
-      setCart(next);
+      if (!saveCart(next)) {
+        setCartError("移除未完成，请检查云端同步状态。");
+        return;
+      }
       setCartError("");
     } catch {
       setCartError("浏览器保存失败，条目尚未移除。");
@@ -810,9 +819,9 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
           </Modal>
         )}
       </main>
-      {cartError && (
+      {(cartError || cartStorageError) && (
         <p role="alert" className="cart-error">
-          {cartError}
+          {cartError || cartStorageError}
         </p>
       )}
       {modal === "image" && unit && (
@@ -831,14 +840,27 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
           close={() => setModal(null)}
         />
       )}{" "}
-      {modal === "vehicle" && tree && (
-        <VehicleCalculator
-          {...{ catalog: P, tree, country, category, selected, add }}
+      {modal === "vehicle" &&
+        tree &&
+        (workspace?.userId && !workspace.ready ? (
+          <Modal title="正在读取云端研发计划" close={() => setModal(null)}>
+            <p className="calc-note">
+              请等待账号数据读取完成。如读取失败，可从用户名菜单打开云端数据重试。
+            </p>
+          </Modal>
+        ) : (
+          <VehicleCalculator
+            {...{ catalog: P, tree, country, category, selected, add }}
+            close={() => setModal(null)}
+          />
+        ))}{" "}
+      {modal === "cart" && (
+        <Cart
+          items={cart}
+          remove={remove}
+          error={cartError || cartStorageError}
           close={() => setModal(null)}
         />
-      )}{" "}
-      {modal === "cart" && (
-        <Cart items={cart} remove={remove} error={cartError} close={() => setModal(null)} />
       )}
     </div>
   );

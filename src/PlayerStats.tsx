@@ -1,3 +1,4 @@
+import { GameAccountBinding } from "./GameAccountBinding";
 import { readPublicResource } from "./public-resource-api";
 import { queryTask, pendingQuery, resumeQuery, forgetQuery } from "./player-query-task";
 import { vehicleDisplayName } from "./vehicle-display-name";
@@ -884,6 +885,7 @@ export function PlayerStats() {
               </p>
             </div>
             <button className="wt-record-link wt-garage-entry" disabled={profile.localOnly} onClick={() => setShowGarage(true)}>完整车库</button>
+            <GameAccountBinding key={`${profile.snapshotId}:${session?.user?.id || "guest"}`} profile={profile} />
             <AccountValuation
               key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
               profile={profile}

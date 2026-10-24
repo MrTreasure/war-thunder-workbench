@@ -301,7 +301,8 @@ Click the page's **Sales calendar heading** to open a high-resolution annual ref
 - Incomplete data is flagged for verification; unknown RP is never silently treated as zero.
 - Example lineups and tactical routes demonstrate features, not guaranteed optimal tactics. Tactical markers are intended for communication and guide creation.
 - Contours, reference grids and briefing points help interpret maps but cannot replace in-battle judgments about traversability, cover and positions.
-- Research progress, lineups, carts and drawings are saved in the current browser and do not automatically sync to other devices. Save share codes or export files before clearing browser data.
+- Guest research plans, lineups and carts remain in the current browser. Account cloud storage is implemented and awaiting release: after login and agreement acceptance, plans can sync across devices; importing guest data requires confirmation. Map drawing plans remain local; the data notice explains collection of completed drawing JSON.
+- Linking a game account requires re-entering its UID to prevent mistakes. In this app, the spade means owned; owned vehicles are skipped in vehicle RP calculations, without implying all modifications are researched. Unlink from the username menu by typing the exact Chinese confirmation shown: “我再也不绑定别人的账号了”. Confirm synchronization or export a backup before clearing browser data.
 
 ## Help improve the workbench
 

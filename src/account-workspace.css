@@ -1,0 +1,115 @@
+.calculator.wt-account-dialog {
+  width: min(620px, calc(100vw - 24px));
+  height: fit-content;
+  max-height: calc(100dvh - 32px);
+  inset: 0;
+  margin: auto;
+  overflow: auto;
+}
+.wt-account-form {
+  padding: 20px;
+  display: grid;
+  gap: 16px;
+  line-height: 1.65;
+}
+.wt-account-form h3,
+.wt-account-form p {
+  margin: 0;
+}
+.wt-account-form p,
+.wt-account-form small {
+  color: var(--wt-muted, #b4bcb7);
+}
+.wt-account-form input:not([type="checkbox"]) {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background: #171e21;
+  color: inherit;
+  border: 1px solid #566361;
+}
+.wt-account-form button {
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid #626e68;
+  background: #29332f;
+  color: inherit;
+}
+.wt-account-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.wt-account-form a {
+  color: #d9bd7a;
+}
+.wt-agreement-check {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  overflow-wrap: anywhere;
+}
+.wt-agreement-check input {
+  margin-top: 6px;
+  flex: none;
+  width: 18px;
+  height: 18px;
+}
+.wt-account-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.wt-account-form section {
+  padding: 14px;
+  border: 1px solid #566361;
+  display: grid;
+  gap: 10px;
+}
+.wt-account-form [role="alert"] {
+  color: #f2b48d;
+}
+.wt-owned-marker {
+  position: absolute;
+  inset: 5px 5px auto auto;
+  display: grid;
+  place-items: center;
+  min-width: 24px;
+  height: 24px;
+  background: #192720e8;
+  color: #ead8a0;
+  border: 1px solid #a28a54;
+  font-size: 22px;
+  line-height: 1;
+  z-index: 2;
+}
+.wt-owned-marker img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+.wt-owned-caption {
+  color: #d9bd7a;
+  font-size: 13px;
+}
+.wt-workspace-status {
+  display: block;
+  font-size: 11px;
+  color: #b8c9bd;
+  text-align: right;
+  max-width: 150px;
+  overflow-wrap: anywhere;
+}
+
+.wt-owned-marker img {
+  position: absolute;
+  inset: 1px;
+  z-index: 1;
+  background: #192720;
+}
+.wt-owned-marker img[hidden] {
+  display: none;
+}
+.wt-owned-marker img + span {
+  font-size: 22px;
+}
+.vehicle-card .wt-owned-marker img{width:20px;height:20px;inset:1px;opacity:1}

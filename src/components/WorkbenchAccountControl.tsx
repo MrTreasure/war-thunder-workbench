@@ -1,14 +1,19 @@
+import { useAccountWorkspace } from "../workspace-context";
 import { useWorkbenchAccount } from "../WorkbenchAccount";
 import { StatsAccountMenu } from "./StatsAccountMenu";
 export function WorkbenchAccountControl() {
+  const workspace = useAccountWorkspace();
   const { session, busy, error, clearError, login, logout } = useWorkbenchAccount();
   return (
     <div className="wt-header-account">
       {session?.user ? (
-        <StatsAccountMenu
-          name={session.user.displayName || session.user.email || "已登录"}
-          onLogout={logout}
-        />
+        <div>
+          <StatsAccountMenu
+            name={session.user.displayName || session.user.email || "已登录"}
+            onLogout={logout}
+          />
+          <small className="wt-workspace-status">{workspace?.status}</small>
+        </div>
       ) : (
         <button
           type="button"

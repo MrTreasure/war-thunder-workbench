@@ -1,3 +1,4 @@
+import { useAccountWorkspace } from "./workspace-context";
 import { useState } from "react";
 import type { CartItem } from "./models";
 import { Modal, Metrics } from "./Modal";
@@ -13,6 +14,7 @@ export function Cart({
   close: () => void;
   error: string;
 }) {
+  const workspace = useAccountWorkspace();
   const [copyMessage, setCopyMessage] = useState("");
   const summary = aggregate(items);
   const text = [
@@ -31,10 +33,13 @@ export function Cart({
   return (
     <Modal
       title="研发购物车"
-      subtitle="保存在此浏览器 · 报价快照不会随数据更新自动改变"
+      subtitle={`${workspace?.userId ? "随账号保存 · " + workspace.status : "保存在此浏览器"} · 报价快照不会随数据更新自动改变`}
       close={close}
     >
       <div className="cart-content">
+        <p className="calc-note">
+          购物车保存的是当时的报价。绑定、解除关联或更新车库后，请重新计算相关报价，以使用最新的已拥有载具状态。
+        </p>
         <Metrics rp={summary.rp} cents={summary.conflicts.length ? null : summary.cents} />
         <output className={`calc-status ${summary.conflicts.length ? "has-error" : ""}`}>
           {summary.conflicts.length
