@@ -2794,3 +2794,44 @@
     overflow: visible;
   }
 }
+
+@media (max-width: 800px) {
+  .calculator.wt-modifications-dialog {
+    width: calc(100vw - 12px);
+    height: calc(100dvh - 12px);
+  }
+  .wt-modifications-dialog .calc-output {
+    padding: 12px;
+  }
+  .wt-parts-summary {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .wt-parts-summary .calc-metrics {
+    min-width: 180px;
+    gap: 12px;
+  }
+  .wt-parts-summary .calc-metrics strong {
+    font-size: 22px;
+  }
+  .wt-parts-summary .cart-actions button {
+    min-height: 44px;
+  }
+  .wt-part-groups {
+    min-width: 0;
+  }
+  .wt-part-grid {
+    grid-template-columns: repeat(var(--wt-part-columns, 2), var(--wt-part-card-width));
+    overflow: visible;
+  }
+  .wt-part-card {
+    min-height: 104px;
+  }
+  .wt-part-card input {
+    width: 18px;
+    height: 18px;
+  }
+  .wt-part-tier-row .wt-part-grid.is-unmapped {
+    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  }
+}

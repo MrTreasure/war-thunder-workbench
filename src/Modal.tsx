@@ -52,7 +52,7 @@ export function Metrics({ rp, cents }: { rp: number | null; cents: number | null
         <span>预估价格</span>
         <strong>
           {cents === null
-            ? "待报价"
+            ? "待估算"
             : `¥ ${(cents / 100).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
         </strong>
       </div>

@@ -78,7 +78,7 @@ export function ModificationGrid({
         <div
           className="wt-part-groups"
           style={{
-            gridTemplateColumns: `24px ${data.presentation.groups.map((group) => `minmax(0, ${Math.max(1, group.columns)}fr)`).join(" ")}`,
+            gridTemplateColumns: `24px ${data.presentation.groups.map((group) => `calc(${Math.max(1, group.columns)} * var(--wt-part-card-width) + ${Math.max(0, group.columns - 1)} * 6px)`).join(" ")}`,
           }}
         >
           <aside className="wt-part-ranks" aria-label="配件等级">
