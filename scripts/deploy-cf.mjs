@@ -33,7 +33,7 @@ if (!dryRun) {
   const gatewayAddresses = await lookup("api.mrtreasure.cc", { all: true, family: 4 });
   function gatewayCheck(method, headers, body) {
     const args = [
-      "--http1.1",
+      "--http2",
       "--ipv4",
       "--compressed",
       "--silent",
