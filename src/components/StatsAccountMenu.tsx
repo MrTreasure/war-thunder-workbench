@@ -9,9 +9,11 @@ import { useEffect, useId, useRef, useState } from "react";
 export function StatsAccountMenu({
   name,
   onLogout,
+  onHeyboxLink,
 }: {
   name: string;
   onLogout: () => Promise<void>;
+  onHeyboxLink: () => void;
 }) {
   const workspace = useAccountWorkspace();
   const [unlinking, setUnlinking] = useState(false);
@@ -83,6 +85,15 @@ export function StatsAccountMenu({
           }}
         >
           云端数据
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            panel.current?.hidePopover();
+            onHeyboxLink();
+          }}
+        >
+          关联小黑盒账号
         </button>
         {workspace?.binding && (
           <button

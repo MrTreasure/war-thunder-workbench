@@ -1,3 +1,6 @@
+packages:
+  - .
+  - apps/war-thunder-heybox
 allowBuilds:
   esbuild: true
   workerd: true

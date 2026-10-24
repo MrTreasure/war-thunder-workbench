@@ -1,0 +1,54 @@
+{
+  "name": "war-thunder-heybox",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "heybox": {
+    "miniProgramId": "01a16e09-097b-7867-a702-7537cd3919fd",
+    "name": "战雷工作台",
+    "category": "tool",
+    "icon": "assets/heybox-placeholder.png",
+    "coverImages": [
+      "assets/heybox-placeholder.png"
+    ],
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "permissions": {
+      "userInfo": {
+        "enabled": true
+      },
+      "network": {
+        "enabled": true
+      },
+      "storage": {
+        "enabled": true
+      },
+      "share": {
+        "enabled": true
+      },
+      "filesystem": {
+        "enabled": true
+      }
+    },
+    "desc": "面向战争雷霆玩家的载具与配件研发计算、公开战绩查询、车库参考估值和个人战报工具。",
+    "bindAppIds": [
+      "236390"
+    ]
+  },
+  "scripts": {
+    "hb-sdk": "hb-sdk",
+    "dev": "hb-sdk dev",
+    "build": "hb-sdk build",
+    "deploy": "hb-sdk remote deploy",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@heybox/hb-sdk": "0.9.3"
+  },
+  "devDependencies": {
+    "vite": "8.3.4"
+  },
+  "packageManager": "pnpm@12.3.4"
+}
