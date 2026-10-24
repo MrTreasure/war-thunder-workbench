@@ -56,8 +56,8 @@ for (const board of leaderboards.boards) {
     board.branch === "ground" ? "ground-targets-destroyed" : "air-targets-destroyed",
   );
   assert(Number.isFinite(Date.parse(board.fetchedAt)));
-  assert.equal(board.players.length, 25);
-  assert.equal(new Set(board.players.map((p) => p.nickname)).size, 25);
+  assert.equal(board.players.length, 30);
+  assert.equal(new Set(board.players.map((p) => p.nickname)).size, 30);
   board.players.forEach((p, index) => {
     assert.equal(p.rank, index + 1);
     assert(typeof p.nickname === "string" && p.nickname.length >= 2 && p.nickname.length <= 64);

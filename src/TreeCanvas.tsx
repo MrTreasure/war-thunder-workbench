@@ -1,3 +1,4 @@
+import cardTheme from "../data/vehicle-card-theme.json";
 import workspaceAssets from "../data/account-workspace.json";
 import { useAccountWorkspace } from "./workspace-context";
 import { vehicleDisplayName } from "./vehicle-display-name";
@@ -79,7 +80,16 @@ export function VehicleCard({
   const owned = !!workspace?.ownedVehicleIds.has(unit.id);
   return (
     <button
-      className={`vehicle-card ${selected ? "is-selected" : ""}`}
+      className={`vehicle-card ${unit.kind === "squadron" ? "is-squadron" : ""} ${selected ? "is-selected" : ""}`}
+      data-kind={unit.kind}
+      style={
+        unit.kind === "squadron"
+          ? ({
+              "--wt-squadron-top": cardTheme.squadron.topLine,
+              "--wt-squadron-owned": cardTheme.squadron.ownedBackground,
+            } as CSSProperties)
+          : undefined
+      }
       onClick={onSelect}
       aria-label={`${vehicleDisplayName(unit.name)}，Rank ${unit.rank}${owned ? "，已拥有" : ""}，查看研发信息`}
     >
@@ -138,13 +148,15 @@ export function VehicleCard({
         <span
           className={`unit-badge ${unit.side === "research" || unit.kind === "squadron" ? "unit-rp" : ""}`}
         >
-          {unit.side === "research" || unit.kind === "squadron"
-            ? rpText(unit)
-            : unit.kind === "gold" && unit.price !== null
-              ? `${format(unit.price)} GE`
-              : unit.kind === "pack"
-                ? packPriceLabel(unit)
-                : catalog.kinds[unit.kind]}
+          {unit.kind === "squadron"
+            ? `联队载具 · ${rpText(unit)}`
+            : unit.side === "research"
+              ? rpText(unit)
+              : unit.kind === "gold" && unit.price !== null
+                ? `${format(unit.price)} GE`
+                : unit.kind === "pack"
+                  ? packPriceLabel(unit)
+                  : catalog.kinds[unit.kind]}
         </span>
       </span>
       <span className="battle-ratings">

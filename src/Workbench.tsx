@@ -1,3 +1,4 @@
+import { Chevron } from "./components/Chevron";
 import { useAccountWorkspace } from "./workspace-context";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { updateSearchMetadata } from "./search-metadata";
@@ -431,9 +432,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
             </small>
           </span>
           <span className="mobile-tools-label">{mobileToolsOpen ? "收起" : "展开"}</span>
-          <span className="mobile-tools-chevron" aria-hidden="true">
-            ⌄
-          </span>
+          <Chevron className="mobile-tools-chevron" />
         </button>
         <div className="tool-panel" id="tree-tools" data-expanded={mobileToolsOpen}>
           <nav className="control-row" aria-label="国家与军种">
@@ -446,7 +445,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                 >
                   {country && <img className="country-flag" alt="" src={P.flags[country]} />}
                   <span>{P.countries[country] || "选择国家"}</span>
-                  <span className="country-chevron">⌄</span>
+                  <Chevron className="country-chevron" />
                 </summary>
                 <div className="country-options">
                   {Object.entries(P.countries).map(([id, name]) => (

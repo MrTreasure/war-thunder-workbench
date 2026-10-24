@@ -1,3 +1,5 @@
+import { setDefaultResultOrder } from "node:dns";
+setDefaultResultOrder("ipv4first");
 import { readFile, writeFile, rename } from "node:fs/promises";
 import { parseHTML } from "linkedom";
 
@@ -29,16 +31,16 @@ for (const [mode, game] of Object.entries({ ab: "arcade", rb: "historical", sb: 
           const rank = Number(row.querySelector("td")?.textContent.trim());
           const nickname = new URL(link.getAttribute("href")).searchParams.get("nick");
           if (!nickname || !Number.isInteger(rank)) throw new Error("Invalid player row");
-          if (rank <= 25) players.push({ rank, nickname });
+          if (rank <= 30) players.push({ rank, nickname });
         }
         sources.push(url);
       }
       if (
-        players.length !== 25 ||
+        players.length !== 30 ||
         players.some((p, i) => p.rank !== i + 1) ||
-        new Set(players.map((p) => p.nickname)).size !== 25
+        new Set(players.map((p) => p.nickname)).size !== 30
       )
-        throw new Error("Incomplete official top 25");
+        throw new Error("Incomplete official top 30");
       boards.push({
         mode,
         branch,
@@ -48,7 +50,7 @@ for (const [mode, game] of Object.entries({ ab: "arcade", rb: "historical", sb: 
         sources,
         players,
       });
-      console.log(`${mode}/${branch}: verified 25 players`);
+      console.log(`${mode}/${branch}: verified 30 players`);
     } catch (error) {
       const old = previous.boards.find((b) => b.mode === mode && b.branch === branch);
       if (old) boards.push(old);

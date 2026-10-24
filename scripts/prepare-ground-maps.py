@@ -1,7 +1,7 @@
 """Prepare provided ground-map exports. Requires Pillow/CairoSVG; upload additionally needs boto3/PyYAML.
 Run with the two extracted export folders and optionally --upload. Credentials stay in password book.
 """
-import argparse,csv,hashlib,json,mimetypes,pathlib,concurrent.futures,gzip,subprocess,sys
+import argparse,csv,hashlib,json,mimetypes,pathlib,concurrent.futures,gzip,subprocess,sys,os
 from PIL import Image
 p=argparse.ArgumentParser();p.add_argument('maps',type=pathlib.Path);p.add_argument('thumbs',type=pathlib.Path);p.add_argument('--upload',action='store_true');a=p.parse_args()
 out=pathlib.Path('artifacts/ground-maps/publish');out.mkdir(parents=True,exist_ok=True)
@@ -42,7 +42,9 @@ print('Prepared',len(maps),'maps,',sum(len(m['layouts']) for m in maps),'layouts
 if a.upload:
  import boto3,yaml
  from botocore.config import Config
- c=yaml.safe_load((pathlib.Path.home()/'.secrets/passwords.yml').read_text())['cloudflare']['r2_admin']
+ credential_file=os.environ.get('WT_ASSET_CREDENTIALS_FILE')
+ if not credential_file: raise SystemExit('Set WT_ASSET_CREDENTIALS_FILE in the private local environment before uploading.')
+ c=yaml.safe_load(pathlib.Path(credential_file).read_text())['cloudflare']['r2_admin']
  client=boto3.client('s3',endpoint_url=c['endpoint'],aws_access_key_id=c['access_key_id'],aws_secret_access_key=c['secret_access_key'],region_name='auto',config=Config(max_pool_connections=4,retries={'max_attempts':4}))
  def upload(item):
   key,(path,h)=item

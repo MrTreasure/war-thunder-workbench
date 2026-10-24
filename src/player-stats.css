@@ -2017,11 +2017,16 @@
   cursor: pointer;
 }
 .wt-valuation-basis summary::before {
-  content: "▸";
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
   color: var(--wt-record-gold);
 }
 .wt-valuation-basis[open] summary::before {
-  content: "▾";
+  transform: rotate(45deg);
 }
 .wt-valuation-basis summary > span {
   color: var(--wt-record-muted);

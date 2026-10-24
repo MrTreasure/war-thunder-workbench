@@ -1151,3 +1151,6 @@
   color: var(--wt-gold);
   font: 12px var(--wt-mono);
 }
+
+.lineup-candidate.is-kind-squadron { background: linear-gradient(150deg, var(--wt-squadron-top), var(--wt-squadron-owned)); }
+.lineup-kind-tag.is-kind-squadron { background: var(--wt-squadron-owned); border-color: var(--wt-squadron-top); color: #d0dfc4; }

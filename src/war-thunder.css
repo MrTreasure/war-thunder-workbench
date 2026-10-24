@@ -888,7 +888,7 @@
   padding-inline: 10px 12px;
 }
 .country-chevron {
-  width: 12px;
+  width: 16px;
   flex: none;
   text-align: center;
 }
@@ -925,3 +925,9 @@ button:disabled,
     border-color: var(--wt-wire);
   }
 }
+
+/* Original game squadron palette; retain selected/route borders. */
+.node .vehicle-card.is-squadron { background: linear-gradient(150deg, var(--wt-squadron-top), var(--wt-squadron-owned)); box-shadow: inset 0 2px var(--wt-squadron-top); }
+.node:not(.is-selected):not(.is-route) .vehicle-card.is-squadron:not(.is-selected) { border-color: var(--wt-squadron-top); }
+.node .vehicle-card.is-squadron:hover { background: var(--wt-squadron-top); }
+.vehicle-card.is-squadron .unit-badge { color: #d0dfc4; }

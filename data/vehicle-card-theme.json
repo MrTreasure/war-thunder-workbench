@@ -1,0 +1,13 @@
+{
+  "squadron": {
+    "topLine": "#4c6045",
+    "ownedBackground": "#263a1c",
+    "background": "#18231a",
+    "border": "#263125"
+  },
+  "provenance": {
+    "source": "https://github.com/gszabi99/War-Thunder-Datamine/blob/ea96f3af75afe1d858f80ac13f212db218bc69ca/gui.vromfs.bin_u/gui/csselems/unitcard.css",
+    "checkedAt": "2026-10-24",
+    "basis": "Original game slotSquadronTopLineColor and slotOwnedSquadronBgColor; ARGB alpha separated for the application card surface. This is an archived game asset, not a Gaijin-hosted source."
+  }
+}

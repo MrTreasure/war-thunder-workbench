@@ -1,3 +1,6 @@
+import cardTheme from "../data/vehicle-card-theme.json";
+import type { CSSProperties } from "react";
+import { Chevron } from "./components/Chevron";
 import { LineupNavigation } from "./components/LineupNavigation";
 import { GameSelect } from "./components/GameSelect";
 import {
@@ -62,7 +65,16 @@ export function Lineups({
   const [pending, setPending] = useState<{ country: string; code: string } | null>(null);
   const [importError, setImportError] = useState("");
   return (
-    <main className="lineup-page" aria-label="出击队列">
+    <main
+      className="lineup-page"
+      aria-label="出击队列"
+      style={
+        {
+          "--wt-squadron-top": cardTheme.squadron.topLine,
+          "--wt-squadron-owned": cardTheme.squadron.ownedBackground,
+        } as CSSProperties
+      }
+    >
       <div className="lineup-content">
         <h2 className="sr-only">出击队列</h2>
         <LineupNavigation />
@@ -767,7 +779,7 @@ function CountryLineups({
                     {rank === "all" ? "全部等级" : `Rank ${rank}`} ·{" "}
                     {kind === "all" ? "全部类型" : catalog.lineupKinds[kind]}
                   </small>
-                  <span aria-hidden="true">{filtersOpen ? "⌃" : "⌄"}</span>
+                  <Chevron className={filtersOpen ? "is-open" : ""} />
                 </button>
                 <div
                   className="lineup-picker-filter-fields"

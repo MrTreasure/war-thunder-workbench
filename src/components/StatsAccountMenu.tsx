@@ -1,3 +1,4 @@
+import { Chevron } from "./Chevron";
 import { useAccountWorkspace } from "../workspace-context";
 import { UnlinkGameAccount } from "../GameAccountBinding";
 import { statsRequest, notifyStatsAccountLogin } from "../player-stats-api";
@@ -51,22 +52,7 @@ export function StatsAccountMenu({
         }}
       >
         <span>{name}</span>
-        <svg
-          className="wt-account-chevron"
-          width="12"
-          height="12"
-          viewBox="0 0 12 12"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="m3 4.5 3 3 3-3"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <Chevron className="wt-account-chevron" />
       </button>
       <div
         id={id}

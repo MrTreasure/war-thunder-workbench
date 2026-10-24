@@ -807,7 +807,7 @@ export function PlayerStats() {
           <section className="wt-record-panel">
             <div className="wt-record-heading">
               <h2>
-                官方排行榜 <span>TOP 25</span>
+                官方排行榜 <span>TOP 30</span>
               </h2>
               {board && (
                 <a href={board.sources[0]} target="_blank" rel="noopener noreferrer">
