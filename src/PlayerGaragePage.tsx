@@ -81,8 +81,10 @@ function GaragePageContent({ snapshot, uid }: { snapshot?: string; uid?: string 
         </div>
       ) : !profile ? (
         <output className="wt-rank-loading">正在读取完整车库…</output>
-      ) : selected ? null : (
-        <PlayerGarage profile={profile} selectVehicle={setSelected} />
+      ) : (
+        <div hidden={selected !== null}>
+          <PlayerGarage profile={profile} selectVehicle={setSelected} />
+        </div>
       )}
       {profile && selected && (
         <PlayerVehicleDetails
