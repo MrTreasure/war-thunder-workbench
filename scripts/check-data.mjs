@@ -16,6 +16,36 @@ const lineupRules = await read("data/lineup-rules.json");
 const codebook = await read("data/lineup-codebook.json");
 const storePrices = await read("data/store-prices.json");
 const purchases = await read("data/purchases.json");
+const vehicleDetails = await read("data/vehicle-details.json");
+assert.equal(vehicleDetails.schemaVersion, 1);
+for (const [id, details] of Object.entries(vehicleDetails.vehicles)) {
+  assert.match(id, /^[a-zA-Z0-9_-]+$/);
+  for (const source of [details.purchase, details.rewards].filter(Boolean)) {
+    assert.match(
+      source.source,
+      /^https:\/\/wiki\.warthunder\.com\/(ground|aviation|helicopters|ships|boats|unit\/[a-zA-Z0-9_-]+)$/,
+    );
+    assert.match(source.sha256, /^[a-f0-9]{64}$/);
+    assert(Number.isFinite(Date.parse(source.checkedAt)));
+  }
+  if (details.purchase) {
+    assert(["SL", "GE"].includes(details.purchase.currency));
+    assert(Number.isSafeInteger(details.purchase.amount) && details.purchase.amount >= 0);
+  }
+  if (details.rewards)
+    for (const currency of ["rp", "sl"]) {
+      const multiplier = details.rewards[currency];
+      assert(
+        Number.isFinite(multiplier.factor) && multiplier.factor > 0 && multiplier.factor <= 20,
+      );
+      assert(Object.keys(multiplier.basePercent).length > 0);
+      for (const [mode, base] of Object.entries(multiplier.basePercent)) {
+        assert(["ab", "rb", "sb"].includes(mode));
+        assert(Number.isFinite(base) && base >= 0 && base <= 10000);
+        assert.equal(multiplier.percent[mode], base * multiplier.factor);
+      }
+    }
+}
 const priceReport = await read("data/store-prices-report.json");
 const leaderboards = await read("data/player-leaderboards.json");
 const researchCounts = await read("data/player-research-counts.json");
@@ -237,6 +267,8 @@ function checkName(value, proof, nameEn) {
   assert.equal(proof.nameEn, nameEn);
   assert.equal(value.nameEn, nameEn);
   assert.equal(value.nameZhCN, proof.nameZhCN);
+  assert.equal(value.nameRu, proof.nameRu || null);
+  assert.equal(value.nameJa, proof.nameJa || null);
   assert.equal(value.name, proof.nameZhCN || nameEn);
   if (proof.nameZhCN) {
     const entry = localization.entries[proof.entry];
@@ -410,7 +442,7 @@ for (const [country, entry] of Object.entries(manifest.countries)) {
     items.forEach((item, index) => {
       const source = originalItems[index];
       checkName(item, localization.modifications[source.id + "\t" + source.name], source.name);
-      const { name, nameEn, nameZhCN, localizationKey, ...costFields } = item;
+      const { name, nameEn, nameRu, nameJa, nameZhCN, localizationKey, ...costFields } = item;
       const { name: originalName, ...originalCostFields } = source;
       assert.deepEqual(costFields, originalCostFields);
     });

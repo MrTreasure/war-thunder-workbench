@@ -91,7 +91,8 @@ export class BrowserDataCache {
         const record =
           file.size <= entry.bytes * 2 + 8192 ? this.parse(await file.text(), entry) : null;
         if (record) return { record, saved: "opfs" };
-        await root.removeEntry(entry.key + ".json").catch(() => {});
+        // A version mismatch must preserve the previous file until a verified
+        // replacement has been downloaded and committed successfully.
       } catch {
         /* Missing or inaccessible OPFS entries must not block the localStorage path. */
       }
@@ -103,7 +104,6 @@ export class BrowserDataCache {
       if (!raw) return null;
       const record = this.parse(raw, entry);
       if (!record) {
-        storage.removeItem(key);
         return null;
       }
       record.accessedAt = Date.now();

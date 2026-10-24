@@ -1,9 +1,11 @@
 import { countryModules } from "./generated/country-modules";
+import { parseDataTransport, readCatalogAsset } from "./remote-catalog";
 export interface DataFile {
   key: string;
   file: string;
   sha256: string;
   bytes: number;
+  remote?: { commit: string; path: string };
 }
 export interface DownloadProgress {
   received: number;
@@ -15,6 +17,15 @@ export async function downloadText(
   progress?: (value: DownloadProgress) => void,
 ): Promise<string> {
   signal?.throwIfAborted();
+  if (entry.remote) {
+    progress?.({ received: 0, total: 0 });
+    const text = parseDataTransport(
+      await readCatalogAsset(entry.remote.path, entry.remote.commit, signal),
+    );
+    if (typeof text !== "string" || new TextEncoder().encode(text).byteLength !== entry.bytes)
+      throw Error("国家资料资源不完整，已保留上次数据。");
+    return text;
+  }
   const load = countryModules[entry.key];
   if (!load) throw Error("没有找到该国资料模块，请刷新应用。");
   progress?.({ received: 0, total: 0 });

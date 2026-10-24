@@ -14,10 +14,11 @@ import { ModificationCalculator } from "./Modifications";
 import { Cart } from "./Cart";
 import { Lineups } from "./Lineups";
 import { VehicleImage } from "./VehicleImage";
-import { PackPriceDetails } from "./PackPrice";
+import { VehicleWikiFacts } from "./VehicleWikiFacts";
 import { Modal } from "./Modal";
 import { WarThunderLoading } from "./Loading";
 import { dataCache, cacheLabel } from "./data-cache";
+import { readRemoteCatalog } from "./remote-catalog";
 import type { CacheBackend } from "./data-cache";
 import { initialSelection, rememberSelection } from "./selection";
 import { object } from "./validation";
@@ -65,12 +66,37 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   const page = useRouterState({
     select: (state) => workbenchPage(state.location.pathname),
   });
-  const garagePage = useRouterState({ select: state => state.location.pathname === "/lineups/garage" });
+  const garagePage = useRouterState({
+    select: (state) => state.location.pathname === "/lineups/garage",
+  });
   useEffect(() => {
     updateSearchMetadata(page);
   }, [page]);
   const currentKey = country;
-  const countryEntry = manifest.countries[country] || null;
+  const [remoteManifest, setRemoteManifest] = useState<DataManifest | null>(null);
+  const countryEntry = remoteManifest?.countries[country] || manifest.countries[country] || null;
+  useEffect(() => {
+    if (garagePage || !country || ["maps", "stats", "sales", "decals"].includes(page)) return;
+    const controller = new AbortController();
+    const refresh = () => {
+      if (document.hidden) return;
+      void readRemoteCatalog(controller.signal)
+        .then((value) => {
+          if (value && !controller.signal.aborted) setRemoteManifest(value);
+        })
+        .catch(() => {
+          /* Keep the last verified index or bundled baseline. */
+        });
+    };
+    refresh();
+    window.addEventListener("focus", refresh);
+    document.addEventListener("visibilitychange", refresh);
+    return () => {
+      controller.abort();
+      window.removeEventListener("focus", refresh);
+      document.removeEventListener("visibilitychange", refresh);
+    };
+  }, [country, page, garagePage]);
   const [loadedCountry, setLoadedCountry] = useState<{
     key: string;
     value: CountryPayload;
@@ -86,6 +112,12 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   const P = useMemo<Catalog>(
     () => ({
       ...bootstrap,
+      checkedAt:
+        loadedCountry?.key === currentKey ? loadedCountry.value.checkedAt : bootstrap.checkedAt,
+      sources:
+        loadedCountry?.key === currentKey
+          ? loadedCountry.value.sources || bootstrap.sources
+          : bootstrap.sources,
       trees: Object.fromEntries(
         Object.keys(bootstrap.categories).map((kind) => [
           kind,
@@ -103,7 +135,15 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
     [bootstrap, loadedCountry, currentKey, country],
   );
   useEffect(() => {
-    if (garagePage || page === "maps" || page === "stats" || page === "sales" || page === "decals" || !country || !countryEntry)
+    if (
+      garagePage ||
+      page === "maps" ||
+      page === "stats" ||
+      page === "sales" ||
+      page === "decals" ||
+      !country ||
+      !countryEntry
+    )
       return;
     const controller = new AbortController();
     const valid = (value: unknown): value is CountryPayload => {
@@ -769,19 +809,11 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                 </button>
               </div>
               <div className="detail-facts">
-                <span>{P.countries[country] || "选择国家"}</span>
-                <span>Rank {unit.rank}</span>
                 <span>
                   {modes[mode]} {mode.toUpperCase()} {rating(unit, mode)}
                 </span>
               </div>
-              {(unit.side === "research" || unit.kind === "squadron") && (
-                <div className="research-cost">
-                  <span>{unit.kind === "squadron" ? "联队研发点" : "基础研发点"}</span>
-                  <strong>{rpText(unit)}</strong>
-                </div>
-              )}
-              <PackPriceDetails unit={unit} />
+              <VehicleWikiFacts unit={unit} catalog={P} country={country} category={category} />
               {unit.side === "research" ? (
                 <>
                   <h3>必要前置路线</h3>

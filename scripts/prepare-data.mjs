@@ -27,9 +27,12 @@ const settings = await json("catalog-settings.json");
 const lineup = await json("lineup-rules.json");
 const lineupCodebook = await json("lineup-codebook.json");
 const storePrices = await json("store-prices.json");
+const vehicleDetails = await json("vehicle-details.json");
 const localized = (value, proof) => {
   value.nameEn = value.name;
   value.nameZhCN = proof?.nameZhCN || null;
+  value.nameJa = proof?.nameEn === value.name ? proof.nameJa || null : null;
+  value.nameRu = proof?.nameEn === value.name ? proof.nameRu || null : null;
   if (proof?.nameEn === value.name && proof.nameZhCN) {
     value.name = proof.nameZhCN;
     value.localizationKey = proof.entry;
@@ -49,6 +52,7 @@ for (const [category, values] of Object.entries(catalog.trees))
       for (const node of [...rank.research, ...rank.special])
         for (const unit of node.members) {
           localized(unit, localization.vehicles[unit.id]);
+          if (vehicleDetails.vehicles[unit.id]) unit.wikiDetails = vehicleDetails.vehicles[unit.id];
           unit.imageUrl = settings.vehicleImageTemplate.replace(
             "{id}",
             encodeURIComponent(unit.id),
@@ -93,7 +97,12 @@ for (const countries of Object.values(catalog.trees))
       for (const node of [...rank.research, ...rank.special]) {
         if (node.group && localization.groups[node.id])
           localized(node, localization.groups[node.id]);
-        else node.name = node.members[0].name;
+        else {
+          node.name = node.members[0].name;
+          node.nameEn = node.members[0].nameEn;
+          node.nameRu = node.members[0].nameRu;
+          node.nameJa = node.members[0].nameJa;
+        }
       }
   }
 await rm(resolve(root, "public/data"), { recursive: true, force: true });
@@ -148,6 +157,7 @@ for (const country of Object.keys(catalog.countries)) {
     schemaVersion: 2,
     country,
     checkedAt: catalog.checkedAt,
+    sources: catalog.sources,
     trees: nationTrees,
     modifications: units,
     lineupCodes: lineupCodebook.countries[country],
