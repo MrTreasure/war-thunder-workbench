@@ -230,21 +230,6 @@
   color: var(--wt-muted);
   font-size: 12px;
 }
-.wt-modifications-dialog .wt-parts-heading .vehicle-image-frame {
-  width: 76px;
-  min-height: 0;
-  height: 42px;
-  border: 0;
-  background: transparent;
-}
-.wt-modifications-dialog .wt-parts-heading .vehicle-image-frame img {
-  width: 76px;
-  height: 42px;
-  object-fit: contain;
-}
-.wt-parts-heading .vehicle-image-status {
-  display: none;
-}
 .wt-parts-board {
   --wt-part-card-width: 96px;
   --wt-part-row-height: 104px;

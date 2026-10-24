@@ -1,5 +1,4 @@
 import { ModificationGrid } from "./ModificationGrid";
-import { VehicleImage } from "./VehicleImage";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { GameSelect } from "./components/GameSelect";
 import { useState } from "react";
@@ -290,7 +289,6 @@ function PartsForm({
             <h3>配件明细 / 已完成</h3>
             <span>{vehicleDisplayName(unit.name)}</span>
           </div>
-          <VehicleImage key={unit.id} unit={unit} />
         </div>
         {data?.items.length ? (
           <ModificationGrid
