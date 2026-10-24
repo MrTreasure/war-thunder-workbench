@@ -713,7 +713,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
           </span>
         </div>
       </div>
-      <main className="viewport" ref={viewport} aria-label="可上下左右滚动的研发树">
+      <main className="viewport tree-viewport" ref={viewport} aria-label="可上下左右滚动的研发树">
         {!country ? (
           <section className="nation-landing">
             <div className="nation-landing-copy">
