@@ -95,7 +95,7 @@ export function PlayerGarage({
           <span>{num(units.filter((v) => !v.observed).length)} 辆未出击</span>
           <span>{read.data ? `车库采集于 ${statsDate(read.data.fetchedAt)}` : ""}</span>
         </div>
-        <div className="wt-record-filters">
+        <div className="wt-record-filters wt-garage-filters" aria-label="车库筛选与排序">
           <GameSelect
             aria-label="车库战斗模式"
             value={mode}
@@ -190,8 +190,6 @@ export function PlayerGarage({
             <option value="yes">已出击</option>
             <option value="no">未出击</option>
           </GameSelect>
-        </div>
-        <div className="wt-vehicle-display-toolbar">
           <GameSelect
             aria-label="车库载具排序"
             value={sort?.key || "none"}

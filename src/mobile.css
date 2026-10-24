@@ -2023,3 +2023,8 @@
   .wt-record-player-actions .wt-account-valuation { max-width: none; }
   .wt-record-player-actions .wt-valuation-trigger { width: 100%; }
 }
+
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-garage-page { padding-inline: 12px; }
+  .wt-garage-page .wt-garage-filters > .wt-select { font-size: 16px; }
+}
