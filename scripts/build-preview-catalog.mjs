@@ -22,9 +22,11 @@ for (const [country, entry] of Object.entries(manifest.countries)) {
   );
 }
 const index = `export default ${JSON.stringify(manifest)};\n`;
+const indexFile = `manifest.${sha(index).slice(0, 16)}.js`;
+await writeFile(resolve(directory, indexFile), index);
 await writeFile(resolve(directory, "manifest.js"), index);
 await writeFile(
   resolve(directory, "pointer.js"),
-  `export default ${JSON.stringify({ available: true, repository: "MrTreasure/oss-files", commit: sha(index).slice(0, 40), manifest: { path: "war-thunder/catalog/manifest.js", sha256: sha(index), bytes: Buffer.byteLength(index) } })};\n`,
+  `export default ${JSON.stringify({ available: true, repository: "MrTreasure/oss-files", commit: sha(index).slice(0, 40), manifest: { path: "war-thunder/catalog/" + indexFile, sha256: sha(index), bytes: Buffer.byteLength(index) } })};\n`,
 );
 console.log("Prepared independently hashed preview data; production pointers are unchanged.");

@@ -98,7 +98,11 @@ export function VehicleWikiFacts({ unit }: { unit: Vehicle }) {
             </small>
           </>
         ) : (
-          <p className="wt-vehicle-facts-note">暂无已采集的收益倍率。</p>
+          <p className="wt-vehicle-facts-note">
+            {details?.rewardStatus?.state === "not_listed"
+              ? "官方页面暂未列出该载具的收益倍率。"
+              : "尚未采集到该载具的收益倍率。"}
+          </p>
         )}
         <p className="wt-vehicle-facts-note">
           展示载具资料中的获取百分比，非单局最终收益；账号和活动加成以实际结算为准。

@@ -29,7 +29,7 @@ export async function readCatalogAsset(
 ): Promise<string> {
   if (
     !/^[a-f0-9]{40}$/.test(commit) ||
-    !/^war-thunder\/catalog\/(?:manifest\.js|countries\/country-[a-z]+\.[a-f0-9]{16}\.js)$/.test(
+    !/^war-thunder\/catalog\/(?:manifest(?:\.[a-f0-9]{16})?\.js|countries\/country-[a-z]+\.[a-f0-9]{16}\.js)$/.test(
       path,
     )
   )
@@ -86,7 +86,11 @@ export async function readRemoteCatalog(signal?: AbortSignal): Promise<DataManif
   if (
     pointer.repository !== hosting.repository ||
     !/^[a-f0-9]{40}$/.test(pointer.commit) ||
-    pointer.manifest?.path !== hosting.manifestPath ||
+    (pointer.manifest?.path !== hosting.manifestPath &&
+      !(
+        import.meta.env.VITE_WT_CATALOG_SOURCE === "preview" &&
+        /^war-thunder\/catalog\/manifest\.[a-f0-9]{16}\.js$/.test(pointer.manifest?.path || "")
+      )) ||
     !/^[a-f0-9]{64}$/.test(pointer.manifest.sha256) ||
     !Number.isSafeInteger(pointer.manifest.bytes) ||
     pointer.manifest.bytes < 1 ||

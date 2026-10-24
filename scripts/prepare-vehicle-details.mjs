@@ -34,6 +34,18 @@ try {
 } catch (e) {
   if (e.code !== "ENOENT") throw e;
 }
+const canonicalIds = new Map(
+  Object.keys(JSON.parse(await readFile(resolve(root, "data/modifications.json"), "utf8"))).map(
+    (id) => [id.toLowerCase(), id],
+  ),
+);
+for (const id of Object.keys(data.vehicles)) {
+  const canonical = canonicalIds.get(id.toLowerCase());
+  if (canonical && canonical !== id) {
+    data.vehicles[canonical] = { ...data.vehicles[id], ...data.vehicles[canonical] };
+    delete data.vehicles[id];
+  }
+}
 const digest = (text) => createHash("sha256").update(text).digest("hex");
 if (treesDirectory)
   for (const category of ["ground", "aviation", "helicopters", "ships", "boats"]) {
@@ -44,6 +56,7 @@ if (treesDirectory)
     for (const row of rows) {
       if (typeof row[0] !== "string" || !/^[a-zA-Z0-9_-]+$/.test(row[0]))
         throw Error("Invalid Wiki vehicle ID");
+      const unitId = canonicalIds.get(row[0].toLowerCase()) || row[0];
       const info = row[7],
         price = info?.[1];
       if (
@@ -53,9 +66,9 @@ if (treesDirectory)
         !["w", "g"].includes(price[2])
       )
         continue;
-      if (onlyMissing && data.vehicles[row[0]]?.purchase) continue;
-      data.vehicles[row[0]] = {
-        ...data.vehicles[row[0]],
+      if (onlyMissing && data.vehicles[unitId]?.purchase) continue;
+      data.vehicles[unitId] = {
+        ...data.vehicles[unitId],
         purchase: {
           currency: price[2] === "g" ? "GE" : "SL",
           amount: price[0],
@@ -92,43 +105,79 @@ function multiplier(text, modeOrder) {
     ),
   };
 }
-let rewardCount = 0;
+let rewardCount = 0,
+  rewardNotListed = 0;
+const rewardErrors = [];
 if (unitsDirectory)
   for (const name of await readdir(unitsDirectory)) {
     if (!/^[a-zA-Z0-9_-]+\.html(?:\.gz)?$/.test(name)) continue;
     const id = name.replace(/\.html(?:\.gz)?$/, ""),
       html = await capturedPage(unitsDirectory, id);
     if (onlyMissing && data.vehicles[id]?.rewards?.rp && data.vehicles[id]?.rewards?.sl) continue;
-    const { document } = parseHTML(html);
-    const header = [...document.querySelectorAll(".game-unit_chars-header")].find(
-      (el) => el.textContent.trim() === "Reward multiplier",
-    );
-    if (!header) throw Error(`Missing reward block: ${id}`);
-    const block = header.parentElement.parentElement;
-    const order = block
-      .querySelector(".game-unit_chars-info")
-      ?.textContent.toLowerCase()
-      .match(/\b(?:ab|rb|sb)\b/g);
-    if (!order?.length || new Set(order).size !== order.length)
-      throw Error(`Unknown reward mode order: ${id}`);
-    const rewards = {
-      source: `https://wiki.warthunder.com/unit/${id}`,
-      checkedAt: capturedAt(`units/${id}`),
-      sha256: digest(html),
-    };
-    for (const value of block.querySelectorAll(".game-unit_chars-value")) {
-      const currency = value.querySelector("img[alt='SL']")
-        ? "sl"
-        : value.querySelector("img[alt='RP']")
-          ? "rp"
-          : null;
-      if (currency) rewards[currency] = multiplier(value.textContent, order);
+    try {
+      const { document } = parseHTML(html);
+      const header = [...document.querySelectorAll(".game-unit_chars-header")].find(
+        (el) => el.textContent.trim() === "Reward multiplier",
+      );
+      if (!header) {
+        if (!document.querySelector(".game-unit_card"))
+          throw Error("Missing official vehicle card");
+        data.vehicles[id] = {
+          ...data.vehicles[id],
+          rewardStatus: {
+            state: "not_listed",
+            source: `https://wiki.warthunder.com/unit/${id}`,
+            checkedAt: capturedAt(`units/${id}`),
+            sha256: digest(html),
+          },
+        };
+        rewardNotListed++;
+        continue;
+      }
+      const block = header.parentElement.parentElement;
+      const order = block
+        .querySelector(".game-unit_chars-info")
+        ?.textContent.toLowerCase()
+        .match(/\b(?:ab|rb|sb)\b/g);
+      if (!order?.length || new Set(order).size !== order.length)
+        throw Error(`Unknown reward mode order: ${id}`);
+      const rewards = {
+        source: `https://wiki.warthunder.com/unit/${id}`,
+        checkedAt: capturedAt(`units/${id}`),
+        sha256: digest(html),
+      };
+      for (const value of block.querySelectorAll(".game-unit_chars-value")) {
+        const currency = value.querySelector("img[alt='SL']")
+          ? "sl"
+          : value.querySelector("img[alt='RP']")
+            ? "rp"
+            : null;
+        if (currency) rewards[currency] = multiplier(value.textContent, order);
+      }
+      if (!rewards.sl || !rewards.rp) throw Error(`Incomplete reward block: ${id}`);
+      data.vehicles[id] = { ...data.vehicles[id], rewards };
+      rewardCount++;
+    } catch (error) {
+      rewardErrors.push({
+        id,
+        message: error instanceof Error ? error.message : "Invalid official reward block",
+      });
     }
-    if (!rewards.sl || !rewards.rp) throw Error(`Incomplete reward block: ${id}`);
-    data.vehicles[id] = { ...data.vehicles[id], rewards };
-    rewardCount++;
   }
 await writeFile(path, JSON.stringify(data) + "\n");
+if (collectionPath)
+  await writeFile(
+    resolve(collectionPath, "../rewards-parse.json"),
+    JSON.stringify(
+      { rewardCardsPrepared: rewardCount, rewardNotListed, errors: rewardErrors },
+      null,
+      2,
+    ) + "\n",
+  );
+if (rewardErrors.length) {
+  console.error(`Preserved previous reward records for ${rewardErrors.length} parsing errors.`);
+  process.exitCode = 1;
+}
 console.log(
-  `Prepared Wiki prices for ${Object.keys(data.vehicles).length} vehicles; ${rewardCount} reward cards read. Previous verified cards retained.`,
+  `Prepared Wiki prices for ${Object.keys(data.vehicles).length} vehicles; ${rewardCount} reward cards read; ${rewardNotListed} official pages without a reward block. Previous verified cards retained.`,
 );
