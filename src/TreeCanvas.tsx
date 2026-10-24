@@ -1,3 +1,6 @@
+import { TreeFolder } from "./TreeFolder";
+import { Chevron } from "./components/Chevron";
+import { treeEdgePath } from "./tree-edge-path";
 import cardTheme from "../data/vehicle-card-theme.json";
 import { useAccountWorkspace } from "./workspace-context";
 import { vehicleDisplayName } from "./vehicle-display-name";
@@ -21,7 +24,8 @@ export const rpText = (unit: Vehicle) =>
       : `${compactResearchPoints(unit.rp)} RP`;
 const at = (left: number, top: number, width?: number, height?: number): CSSProperties => ({
   left,
-  top,
+  top: 0,
+  transform: `translateY(${top}px)`,
   width,
   height,
   position: "absolute",
@@ -333,22 +337,14 @@ export function TreeCanvas({
             const from = layout.positions.get(edge.from),
               to = layout.positions.get(edge.to);
             if (!from || !to) return null;
-            const x1 = from.x + cardTheme.geometry.cardWidth / 2,
-              y1 = from.y + from.height + 2,
-              x2 = to.x + cardTheme.geometry.cardWidth / 2,
-              y2 = to.y - 5,
-              rail = x1 < x2 ? to.x - 10 : to.x + cardTheme.geometry.cardWidth + 10;
-            const folder = nodeMap.get(edge.from)?.group && expanded.has(edge.from);
-            const d = folder
-              ? `M${from.x + cardTheme.geometry.cardWidth + 2},${from.y + 38} H${from.x + cardTheme.geometry.cardWidth + 10} V${y2 - 9} H${x2} V${y2}`
-              : x1 === x2
-                ? `M${x1},${y1} V${y2}`
-                : `M${x1},${y1} V${from.rowBottom + 12} H${rail} V${y2 - 9} H${x2} V${y2}`;
+            const folder = !!nodeMap.get(edge.from)?.group && expanded.has(edge.from);
+            const d = treeEdgePath(from, to, cardTheme.geometry.cardWidth, folder);
             const active = route.has(edge.from) && route.has(edge.to);
             return (
               <path
                 key={`${edge.from}:${edge.to}`}
                 d={d}
+                style={{ d: `path("${d}")` } as CSSProperties}
                 className={`edge ${active ? "is-route" : ""}`}
                 markerEnd={active ? "url(#arrow-active)" : "url(#arrow)"}
               />
@@ -393,9 +389,9 @@ export function TreeCanvas({
                     <span>
                       {node.variant ? "联动系统" : "折叠组"} · {node.members.length} 辆
                     </span>
-                    <span>{expanded.has(node.id) ? "−" : "＋"}</span>
+                    <Chevron />
                   </button>
-                  {expanded.has(node.id) && (
+                  <TreeFolder open={expanded.has(node.id)}>
                     <div className="folder-members">
                       {node.members.slice(1).map((unit) => (
                         <div className="folder-member" key={unit.id}>
@@ -411,7 +407,7 @@ export function TreeCanvas({
                         </div>
                       ))}
                     </div>
-                  )}
+                  </TreeFolder>
                 </>
               )}
             </article>

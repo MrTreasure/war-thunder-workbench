@@ -1,7 +1,7 @@
 /* Approved game card geometry; original official artwork and regular type. */
 @font-face {
   font-family: WTCard;
-  src: url("./assets/RobotoCondensed-Regular.ttf") format("truetype");
+  src: url("./assets/FiraSansCondensed-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -40,7 +40,8 @@
   text-align: right;
   isolation: isolate;
   box-shadow: 0 1px 1px #050b103d;
-  font-family: WTSymbols, WTCard, var(--wt-sans);
+  font-family: WTSymbols, WTCard, "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  font-synthesis: none;
   font-weight: 400;
 }
 .node .vehicle-card.wt-game-card.is-owned {
@@ -80,7 +81,7 @@
   font-size: 20px;
   font-weight: 400;
   line-height: 1.2;
-  letter-spacing: -0.035em;
+  letter-spacing: 0;
   text-shadow: 0 1px 2px #050b10d9;
   z-index: 3;
 }
@@ -350,4 +351,60 @@
   inset: 3px;
   background: currentColor;
   border-radius: 50%;
+}
+
+/* Disclosure is feedback: one shared duration/easing for cards, ranks and wires. */
+.canvas-space {
+  transition: height 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.canvas .node {
+  transition:
+    transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 120ms;
+}
+.canvas :is(.rank-band, .rank-label, .rank-note) {
+  transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.canvas .edge {
+  transition:
+    d 300ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    stroke 120ms;
+}
+.wt-tree-folder {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 300ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 180ms;
+}
+.wt-tree-folder[data-open="true"] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.wt-tree-folder-clip {
+  min-height: 0;
+  overflow: clip;
+}
+.canvas .folder-toggle .wt-chevron {
+  transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  flex: 0 0 auto;
+}
+.canvas .folder-toggle[aria-expanded="true"] .wt-chevron {
+  transform: rotate(180deg);
+}
+.canvas .node .vehicle-card.wt-game-card.is-squadron:hover {
+  border-color: #68825c;
+}
+.canvas .node .vehicle-card.wt-game-card.is-squadron:focus-visible {
+  outline-color: #9ab784;
+}
+@media (prefers-reduced-motion: reduce) {
+  .canvas-space,
+  .canvas .node,
+  .canvas :is(.rank-band, .rank-label, .rank-note, .edge),
+  .wt-tree-folder,
+  .canvas .folder-toggle .wt-chevron {
+    transition: none;
+  }
 }
