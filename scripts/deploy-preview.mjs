@@ -9,6 +9,7 @@ if (args.some((arg) => arg !== "--dry-run"))
 const env = {
   ...process.env,
   WT_DEPLOY_TARGET: "preview",
+  VITE_WT_CATALOG_SOURCE: "preview",
   WT_SITE_URL: "https://wt.mrtreasure.cc/",
 };
 function run(args) {
@@ -17,6 +18,7 @@ function run(args) {
 }
 run(["run", "check"]);
 run(["run", "build"]);
+run(["exec", "node", "scripts/build-preview-catalog.mjs"]);
 if (args.includes("--dry-run")) {
   console.log(
     "Preview checked; no upload. Target: https://render.mrtreasure.cc/war-thunder-trees/",

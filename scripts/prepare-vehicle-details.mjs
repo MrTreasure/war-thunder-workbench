@@ -1,4 +1,5 @@
 /** Extract allowlisted published Wiki card fields from archived HTML only. */
+import { gunzipSync } from "node:zlib";
 import { readFile, writeFile, readdir } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -11,6 +12,18 @@ const option = (name) =>
 const treesDirectory = option("trees-dir"),
   unitsDirectory = option("units-dir");
 const checkedAt = option("checked-at") || new Date().toISOString();
+const onlyMissing = process.argv.includes("--only-missing");
+const collectionPath = option("collection-manifest");
+const collection = collectionPath ? JSON.parse(await readFile(collectionPath, "utf8")) : null;
+const capturedAt = (key) => collection?.sources?.[key]?.checkedAt || checkedAt;
+async function capturedPage(directory, name) {
+  try {
+    return await readFile(resolve(directory, name + ".html"), "utf8");
+  } catch (e) {
+    if (e.code !== "ENOENT") throw e;
+    return gunzipSync(await readFile(resolve(directory, name + ".html.gz"))).toString("utf8");
+  }
+}
 if (!treesDirectory && !unitsDirectory)
   throw Error("Supply --trees-dir or --units-dir with archived Wiki HTML");
 if (!Number.isFinite(Date.parse(checkedAt))) throw Error("Invalid checked-at");
@@ -24,7 +37,7 @@ try {
 const digest = (text) => createHash("sha256").update(text).digest("hex");
 if (treesDirectory)
   for (const category of ["ground", "aviation", "helicopters", "ships", "boats"]) {
-    const html = await readFile(resolve(treesDirectory, `${category}.html`), "utf8");
+    const html = await capturedPage(treesDirectory, category);
     const literal = html.match(/window\.WT_UnitList\s*=\s*('(?:\\.|[^'\\])*')/)?.[1];
     if (!literal) throw Error(`Missing ${category} Wiki metadata`);
     const rows = JSON.parse(runInNewContext(literal, Object.create(null), { timeout: 100 }));
@@ -40,13 +53,14 @@ if (treesDirectory)
         !["w", "g"].includes(price[2])
       )
         continue;
+      if (onlyMissing && data.vehicles[row[0]]?.purchase) continue;
       data.vehicles[row[0]] = {
         ...data.vehicles[row[0]],
         purchase: {
           currency: price[2] === "g" ? "GE" : "SL",
           amount: price[0],
           source: `https://wiki.warthunder.com/${category}`,
-          checkedAt,
+          checkedAt: capturedAt(`trees/${category}`),
           sha256: digest(html),
         },
       };
@@ -81,9 +95,10 @@ function multiplier(text, modeOrder) {
 let rewardCount = 0;
 if (unitsDirectory)
   for (const name of await readdir(unitsDirectory)) {
-    if (!/^[a-zA-Z0-9_-]+\.html$/.test(name)) continue;
-    const id = name.slice(0, -5),
-      html = await readFile(resolve(unitsDirectory, name), "utf8");
+    if (!/^[a-zA-Z0-9_-]+\.html(?:\.gz)?$/.test(name)) continue;
+    const id = name.replace(/\.html(?:\.gz)?$/, ""),
+      html = await capturedPage(unitsDirectory, id);
+    if (onlyMissing && data.vehicles[id]?.rewards?.rp && data.vehicles[id]?.rewards?.sl) continue;
     const { document } = parseHTML(html);
     const header = [...document.querySelectorAll(".game-unit_chars-header")].find(
       (el) => el.textContent.trim() === "Reward multiplier",
@@ -98,7 +113,7 @@ if (unitsDirectory)
       throw Error(`Unknown reward mode order: ${id}`);
     const rewards = {
       source: `https://wiki.warthunder.com/unit/${id}`,
-      checkedAt,
+      checkedAt: capturedAt(`units/${id}`),
       sha256: digest(html),
     };
     for (const value of block.querySelectorAll(".game-unit_chars-value")) {

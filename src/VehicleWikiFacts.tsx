@@ -1,4 +1,4 @@
-import type { Catalog, Vehicle, WikiVehicleDetails } from "./models";
+import type { Vehicle, WikiVehicleDetails } from "./models";
 import { PackPriceDetails } from "./PackPrice";
 import { rpText } from "./TreeCanvas";
 import "./vehicle-wiki-facts.css";
@@ -20,47 +20,12 @@ function Reward({ value, mode }: { value: RewardPercent | undefined; mode: "ab" 
     </span>
   );
 }
-export function VehicleWikiFacts({
-  unit,
-  catalog,
-  country,
-  category,
-}: {
-  unit: Vehicle;
-  catalog: Catalog;
-  country: string;
-  category: string;
-}) {
+export function VehicleWikiFacts({ unit }: { unit: Vehicle }) {
   const details = unit.wikiDetails,
     rewards = details?.rewards;
   const purchase = details?.purchase;
   return (
     <div className="wt-vehicle-wiki">
-      <section aria-labelledby="wt-vehicle-basic-title">
-        <h3 id="wt-vehicle-basic-title">基础资料</h3>
-        <dl className="wt-vehicle-facts">
-          <div>
-            <dt>国家 / 军种</dt>
-            <dd>
-              {catalog.countries[country]} · {catalog.categories[category]}
-            </dd>
-          </div>
-          <div>
-            <dt>阶级</dt>
-            <dd>Rank {unit.rank}</dd>
-          </div>
-          <div>
-            <dt>载具类型</dt>
-            <dd>{unit.role ? catalog.roles[unit.role] || unit.role : "暂无资料"}</dd>
-          </div>
-          <div>
-            <dt>获取类别</dt>
-            <dd>
-              {unit.side === "research" ? "常规研发" : catalog.kinds[unit.kind] || "特殊载具"}
-            </dd>
-          </div>
-        </dl>
-      </section>
       <section aria-labelledby="wt-vehicle-purchase-title">
         <h3 id="wt-vehicle-purchase-title">获取与价格</h3>
         {(unit.side === "research" || unit.kind === "squadron") && (

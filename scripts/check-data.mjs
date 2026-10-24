@@ -12,6 +12,7 @@ const catalog = await read("data/generated/catalog.json"),
   mods = await read("data/modifications.json");
 const settings = await read("data/catalog-settings.json");
 const modificationPresentation = await read("data/modification-presentation.json");
+const modificationTiers = await read("data/modification-tiers.json");
 const localization = await read("data/localization.json");
 const lineupRules = await read("data/lineup-rules.json");
 const codebook = await read("data/lineup-codebook.json");
@@ -460,6 +461,7 @@ for (const [country, entry] of Object.entries(manifest.countries)) {
         nameZhCN,
         localizationKey,
         imageUrl,
+        tier,
         position,
         ...costFields
       } = item;
@@ -470,6 +472,15 @@ for (const [country, entry] of Object.entries(manifest.countries)) {
           imageUrl,
           /^https:\/\/static\.encyclopedia\.warthunder\.com\/gui_skin\/[A-Za-z0-9_./-]+\.(png|svg|webp)$/,
         );
+      assert.equal(
+        tier,
+        layout?.items.find((entry) => entry.id === item.id)?.row ||
+          modificationTiers.units[id]?.[item.id],
+      );
+      assert(
+        Number.isInteger(tier) && tier >= 1 && tier <= 6,
+        "Every modification requires a verified tier",
+      );
       if (position) {
         const proof = layout?.items.find((entry) => entry.id === item.id);
         assert(proof, "Modification grid coordinates require verified per-unit provenance");

@@ -34,16 +34,27 @@ export async function readCatalogAsset(
     )
   )
     throw new Error("资料资源地址无效。");
-  const urls = [
-    `https://cdn.jsdelivr.net/gh/${hosting.repository}@${commit}/${path}`,
-    `https://raw.githubusercontent.com/${hosting.repository}/${commit}/${path}`,
-  ];
+  const urls =
+    import.meta.env.VITE_WT_CATALOG_SOURCE === "preview"
+      ? [
+          new URL(
+            `preview-catalog/${path.replace(/^war-thunder\/catalog\//, "")}`,
+            document.baseURI,
+          ).href,
+        ]
+      : [
+          `https://cdn.jsdelivr.net/gh/${hosting.repository}@${commit}/${path}`,
+          `https://raw.githubusercontent.com/${hosting.repository}/${commit}/${path}`,
+        ];
   for (const url of urls) {
     signal?.throwIfAborted();
     try {
       const response = await fetch(url, {
         credentials: "omit",
-        cache: "force-cache",
+        cache:
+          import.meta.env.VITE_WT_CATALOG_SOURCE === "preview" && path.endsWith("/manifest.js")
+            ? "no-cache"
+            : "force-cache",
         signal: AbortSignal.any([...(signal ? [signal] : []), AbortSignal.timeout(20_000)]),
       });
       if (!response.ok) throw new Error("资料资源暂时无法读取。");
@@ -57,7 +68,20 @@ export async function readCatalogAsset(
   throw new Error("资料资源暂时无法读取，已保留上次数据。");
 }
 export async function readRemoteCatalog(signal?: AbortSignal): Promise<DataManifest | null> {
-  const pointer = await readPublicResource<Pointer>(hosting.resource, signal);
+  let pointer: Pointer | null;
+  if (import.meta.env.VITE_WT_CATALOG_SOURCE === "preview") {
+    const response = await fetch(new URL("preview-catalog/pointer.js", document.baseURI), {
+      credentials: "omit",
+      cache: "no-cache",
+      signal,
+    });
+    if (!response.ok) throw new Error("预览资料索引暂时不可用。");
+    const text = await response.text();
+    if (encoder.encode(text).byteLength > 65536) throw new Error("预览资料索引过大。");
+    pointer = parseDataTransport(text) as Pointer;
+  } else {
+    pointer = await readPublicResource<Pointer>(hosting.resource, signal);
+  }
   if (!pointer?.available) return null;
   if (
     pointer.repository !== hosting.repository ||

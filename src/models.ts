@@ -106,6 +106,7 @@ export interface Catalog {
 }
 export interface Modification {
   imageUrl?: string;
+  tier?: number;
   position?: { group: number; row: number; column: number };
   id: string;
   name: string;

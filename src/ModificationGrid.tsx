@@ -66,6 +66,12 @@ export function ModificationGrid({
   }
   const located = data.items.filter((item) => item.position);
   const remaining = data.items.filter((item) => !item.position);
+  const tiers = [
+    ...new Set(
+      remaining.map((item) => item.tier).filter((tier): tier is number => tier !== undefined),
+    ),
+  ].sort((a, b) => a - b);
+  const unknown = remaining.filter((item) => item.tier === undefined);
   return (
     <div className="wt-parts-board">
       {!!data.presentation && located.length > 0 && (
@@ -98,8 +104,23 @@ export function ModificationGrid({
           ))}
         </div>
       )}
-      {remaining.length > 0 && (
-        <div className="wt-part-grid is-unmapped">{remaining.map((item) => card(item))}</div>
+      {tiers.length > 0 && (
+        <div className="wt-part-tier-list">
+          {tiers.map((tier) => (
+            <section className="wt-part-tier-row" key={tier} aria-label={`配件等级 ${tier}`}>
+              <h4>{["I", "II", "III", "IV", "V", "VI"][tier - 1] || tier}</h4>
+              <div className="wt-part-grid is-unmapped">
+                {remaining.filter((item) => item.tier === tier).map((item) => card(item))}
+              </div>
+            </section>
+          ))}
+        </div>
+      )}
+      {unknown.length > 0 && (
+        <section className="wt-part-unknown">
+          <h4>等级待核对</h4>
+          <div className="wt-part-grid is-unmapped">{unknown.map((item) => card(item))}</div>
+        </section>
       )}
     </div>
   );

@@ -140,3 +140,30 @@
     display: grid;
   }
 }
+
+.wt-part-tier-list {
+  display: grid;
+  gap: 16px;
+}
+.wt-part-tier-row {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+}
+.wt-part-tier-row > h4 {
+  display: grid;
+  place-items: center;
+  margin: 0;
+  font: 400 18px var(--wt-sans);
+  color: var(--wt-muted);
+  border-right: 1px solid var(--wt-line);
+}
+.wt-part-tier-row .wt-part-grid.is-unmapped {
+  margin: 0;
+  grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+}
+.wt-part-unknown h4 {
+  color: var(--wt-muted);
+  font-weight: 400;
+}
