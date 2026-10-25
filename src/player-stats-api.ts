@@ -103,6 +103,14 @@ export type StatsSession = {
   } | null;
   role: "guest" | "user" | "superadmin";
   unlimited: boolean;
+  credits?: {
+    enabled: boolean;
+    total: number | null;
+    remaining: number | null;
+    used: number;
+    reserved: number;
+    costs: { query: number; report: number; valuation: number };
+  };
   query: { used: number; reserved: number };
   report: { used: number; reserved: number };
   valuation?: { used: number; reserved: number };
@@ -474,4 +482,22 @@ export function clearStatsQueryHistory() {
     /* Storage may be unavailable. */
   }
   return statsQueryHistory();
+}
+
+/** Presentation only: daily free requests plus the shared extra-points balance. */
+export function statsAvailableRequests(
+  session: StatsSession,
+  kind: "query" | "report" | "valuation",
+): number | null {
+  const limit =
+    session.limits[
+      kind === "query" ? "queryLimit" : kind === "report" ? "reportLimit" : "valuationLimit"
+    ];
+  if (limit == null) return null;
+  const free = Math.max(0, limit - (session[kind]?.used || 0) - (session[kind]?.reserved || 0));
+  const extra = session.credits;
+  if (!extra?.enabled) return free;
+  if (extra.total === null) return null;
+  const cost = extra.costs?.[kind];
+  return free + (cost > 0 ? Math.floor(Math.max(0, extra.remaining || 0) / cost) : 0);
 }

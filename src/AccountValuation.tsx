@@ -1,3 +1,4 @@
+import { statsAvailableRequests } from "./player-stats-api";
 import { useVehicleCatalog } from "./vehicle-catalog";
 import { VehicleTile } from "./VehicleTile";
 import type { VehicleTileUnit } from "./VehicleTile";
@@ -462,11 +463,8 @@ export function AccountValuation({
   const [scenarioKey, setScenarioKey] = useState<ScenarioKey>("normal");
   const request = useRef<AbortController | null>(null);
   useEffect(() => () => request.current?.abort(), []);
-  const limit = session?.limits.valuationLimit;
-  const remaining =
-    limit == null
-      ? "不限次"
-      : `${Math.max(0, limit - (session?.valuation?.used || 0) - (session?.valuation?.reserved || 0))} 次`;
+  const available = session ? statsAvailableRequests(session, "valuation") : 0;
+  const remaining = !session ? "—" : available === null ? "不限次" : `${available} 次`;
   async function openCached() {
     if (!value || checking) return;
     const c = new AbortController();
@@ -636,7 +634,7 @@ export function AccountValuation({
           "账号估值"
         )}
       </button>
-      {!value && <small>独立额度 · 今日 {session ? remaining : "—"}</small>}
+      {!value && <small>可用次数 · {session ? remaining : "—"}</small>}
       {cacheNotice && <small>{cacheNotice}</small>}
       {error && (
         <small className="wt-record-error" role="alert">
