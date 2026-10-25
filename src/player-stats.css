@@ -2486,7 +2486,9 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-record-page .wt-valuation-view-details { margin-top: 8px; background: transparent; color: var(--wt-record-gold); }
 .wt-valuation-detail-toolbar { display: flex; align-items: center; justify-content: space-between; margin-block: 8px 16px; }
 .wt-valuation-detail-toolbar label { display: flex; align-items: center; gap: 12px; color: var(--wt-record-muted); font-size: 12px; }
-.wt-valuation-detail-toolbar .wt-select { min-width: 180px; }
+.wt-valuation-detail-toolbar label { min-width: 0; flex-wrap: nowrap; }
+.wt-valuation-detail-label { flex: 0 0 auto; white-space: nowrap; }
+.wt-valuation-detail-toolbar label > .wt-select { flex: 0 1 180px; width: 180px; min-width: 0; }
 .wt-valuation-dialog [role="tabpanel"] > .wt-valuation-section:first-of-type { margin-top: 0; }
 .wt-valuation-section-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; }
 .wt-valuation-section-heading > span { color: var(--wt-record-muted); font-size: 12px; }
