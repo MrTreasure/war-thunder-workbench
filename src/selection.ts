@@ -22,9 +22,14 @@ export function initialSelection(
     /* First visit or storage unavailable. */
   }
   // A returning browser restores its last filters rather than stale bookmark parameters.
-  if (preferSaved)
-    for (const field of ["country", "category", "mode"])
-      if (typeof saved[field] === "string") query.set(field, saved[field] as string);
+  if (preferSaved) {
+    if (typeof saved.country === "string" && Object.hasOwn(countries, saved.country))
+      query.set("country", saved.country);
+    if (typeof saved.category === "string" && Object.hasOwn(categories, saved.category))
+      query.set("category", saved.category);
+    if (saved.mode === "ab" || saved.mode === "rb" || saved.mode === "sb")
+      query.set("mode", saved.mode);
+  }
   const requested = query.get("country"),
     requestedCategory = query.get("category");
   const country =
