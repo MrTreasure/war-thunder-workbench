@@ -45,7 +45,7 @@ pnpm --dir apps/war-thunder-heybox run build
 
 同日追加核对：用户的基础信息页也显示“当前版本 --”“打开二维码 --”，内测白名单含账号所有者。此前文档示意图的独立预览卡片与用户当前界面不同，禁止继续以该示意图断言当前页面存在预览入口。经用户确认，已提交官方私人工单咨询远程预览入口，等待平台回复；不能将工单提交成功视为预览问题已解决。
 
-## 0.1.2 手机操作修订（已提交审核，未发布）
+## 0.1.2 手机操作修订（已撤回，由0.1.3接续）
 
 - 基于 `style.md` 与 finesse-ui 的 h5 操作层调整，导航和控件复用官方战雷图标，来源、字节数和 SHA-256 见 `data/workbench-ui-assets.json`；顶部使用官方 Logo。载具配色及组件以最新 main 为准。
 - 通过 `viewport.getWindowInfo()` 和窗口变化事件应用逻辑像素安全区域，避开系统栏与宿主胶囊。
@@ -79,4 +79,4 @@ pnpm --dir apps/war-thunder-heybox run build
 
 使用用户指定的官方 Sky Odyssey 歼-16 壁纸，图标聚焦中央飞机，封面裁切避开原图左侧的版本横幅；分别叠加独立的官方 War Thunder Logo。图标为200×200 PNG，封面为960×540 JPEG。来源SHA-256、裁切框及叠加位置统一记录在 `data/heybox-branding.json`，可运行 `pnpm --dir apps/war-thunder-heybox run prepare:branding` 复现。
 
-本次仅更新本地版本资料素材；已提交的0.1.2审核快照不会随源码文件自动变化。
+经用户确认，已撤回0.1.2，将新图标和封面随0.1.3重新提交审核。平台读回0.1.2为withdrawn、0.1.3为auditing，autoPublish=false；返回的图标与封面路径均匹配新素材哈希。当前线上0.1.1保持不变，未执行发布。
