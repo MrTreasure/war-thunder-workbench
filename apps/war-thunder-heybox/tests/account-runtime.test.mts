@@ -17,6 +17,11 @@ function fixture(authenticated = true) {
     accountKey: authenticated ? "account-a" : null,
   };
   let read = () => Promise.resolve(state);
+  let profile: () => Promise<any> = async () => ({
+    isHeyboxAppLoggedIn: false,
+    authorization: null,
+    userInfo: null,
+  });
   const storage = new Map<string, unknown>();
   if (authenticated)
     storage.set("wt_heybox_session_v1", {
@@ -33,6 +38,7 @@ function fixture(authenticated = true) {
       return () => set.delete(callback);
     },
     auth: { getAccountState: () => read() },
+    user: { getInfo: () => profile() },
     storage: {
       getStorage: async ({ key }: { key: string }) => ({ data: storage.get(key) }),
       setStorage: async ({ key, data }: { key: string; data: unknown }) => {
@@ -43,6 +49,9 @@ function fixture(authenticated = true) {
   return {
     sdk,
     storage,
+    profile(read: () => Promise<any>) {
+      profile = read;
+    },
     change(value: typeof state) {
       state = value;
       for (const callback of events.get("heybox_app_login_change") || []) callback(value);
@@ -412,4 +421,61 @@ test("an association response cannot replace the session after a native Host acc
     (e: unknown) => e instanceof MiniappError && e.code === "ACCOUNT_CHANGED",
   );
   account.dispose();
+});
+
+test("miniapp avatar always uses the current Host profile, independently of PC avatar", async () => {
+  const f = fixture();
+  const old = f.storage.get("wt_heybox_session_v1") as any;
+  old.user.avatarUrl = "https://example.com/pc-avatar.png";
+  f.profile(async () => ({
+    isHeyboxAppLoggedIn: true,
+    authorization: { profile: "granted" },
+    userInfo: {
+      app_user_id: "fixture-platform-user",
+      profile: { avatar: "https://example.com/heybox-avatar.png" },
+    },
+  }));
+  const account = createAccount(
+    f.sdk,
+    async () =>
+      ({ user: { id: old.user.id, avatarUrl: "https://example.com/other-pc-avatar.png" } }) as any,
+  );
+  let latest: any;
+  account.subscribe((value) => {
+    latest = value;
+  });
+  await account.initialize();
+  await new Promise((resolve) => setImmediate(resolve));
+  assert.equal(latest.user.avatarUrl, "https://example.com/heybox-avatar.png");
+  await account.refreshProfile();
+  assert.equal(latest.user.avatarUrl, "https://example.com/heybox-avatar.png");
+  account.dispose();
+});
+
+test("unavailable Heybox profile never falls back to a PC avatar", async () => {
+  const f = fixture();
+  (f.storage.get("wt_heybox_session_v1") as any).user.avatarUrl =
+    "https://example.com/pc-avatar.png";
+  f.profile(async () => {
+    throw new Error("profile unavailable");
+  });
+  const account = createAccount(f.sdk, async () => ({}) as any);
+  let latest: any;
+  account.subscribe((value) => {
+    latest = value;
+  });
+  await account.initialize();
+  await new Promise((resolve) => setImmediate(resolve));
+  assert.equal(latest.user.avatarUrl, null);
+  account.dispose();
+});
+
+test("miniapp API does not expose the PC avatar mutation", async () => {
+  const f = fixture(false);
+  const api = createAPI(f.sdk);
+  await assert.rejects(
+    api("auth/avatar", { body: { avatarId: "cardicon_01" } }),
+    (e: any) => e.code === "INVALID_API_PATH",
+  );
+  await assert.rejects(api("auth/avatars"), (e: any) => e.code === "INVALID_API_PATH");
 });

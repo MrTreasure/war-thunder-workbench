@@ -33,13 +33,6 @@ async function asset(name, body, ext) {
   return "../" + path;
 }
 const records = [
-  [
-    "avatar-01-page",
-    "头像分页选择",
-    "Android",
-    "每页最多 24 个；只允许战雷头像与关联的小黑盒头像，游客不能保存。",
-  ],
-  ["avatar-02-filters", "国家与军种筛选", "Android", "美国＋海军筛出 6 个；未知归属保留未分类。"],
   ["android-02-tree", "研发科技树", "Android", "按国家读取，保留原版游戏卡片与科技树布局。"],
   ["android-03-research-detail", "载具与配件研发", "Android", "独立详情页；返回清除载具选择。"],
   ["android-04-filters", "研发筛选", "Android", "筛选作为独立页面，保留来源页状态。"],

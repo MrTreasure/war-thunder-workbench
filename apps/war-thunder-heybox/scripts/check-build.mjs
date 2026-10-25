@@ -72,6 +72,10 @@ const emittedJS = (
   )
 ).join("\n");
 assert(
+  !emittedJS.includes("wt-avatar-picker") && !emittedJS.includes("浏览战雷头像"),
+  "Avatar selection belongs to the PC website only",
+);
+assert(
   !emittedJS.includes("wt-heybox-browser-preview:"),
   "Browser preview adapter must never enter the production miniapp",
 );

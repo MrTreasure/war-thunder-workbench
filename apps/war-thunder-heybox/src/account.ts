@@ -38,6 +38,7 @@ export function createAccount(sdk: SDK, api: APIRequest) {
   let epoch = 0,
     disposed = false,
     confirmedKey: string | null | undefined;
+  let hostAvatarUrl: string | null = null;
   let saved: Saved | null = null,
     pending: Pending | null = null;
   let pairPending: {
@@ -52,7 +53,15 @@ export function createAccount(sdk: SDK, api: APIRequest) {
   const listeners = new Set<(value: AccountView) => void>();
   const view = (): AccountView => ({
     status,
-    user: status === "authenticated" ? (saved?.user ?? null) : null,
+    user:
+      status === "authenticated" && saved
+        ? {
+            ...saved.user,
+            avatarUrl: hostAvatarUrl,
+            avatarFallbackUrl: null,
+            avatarSource: "heybox",
+          }
+        : null,
     storageError,
     generation: epoch,
   });
@@ -78,6 +87,7 @@ export function createAccount(sdk: SDK, api: APIRequest) {
           : undefined;
     if (key !== confirmedKey) {
       epoch++;
+      hostAvatarUrl = null;
       pairPending = null;
     }
     confirmedKey = key;
@@ -98,6 +108,32 @@ export function createAccount(sdk: SDK, api: APIRequest) {
   // Subscribe before the first read. Login-change events invalidate pending
   // responses synchronously, before another user's information can be painted.
   const stopAccount = sdk.on("heybox_app_login_change", reconcile);
+  async function refreshHostProfile(key: string, turn: number) {
+    try {
+      const result = await sdk.user.getInfo();
+      await verify(key, turn);
+      if (status !== "authenticated" || disposed || turn !== epoch) return;
+      const avatar =
+        result.isHeyboxAppLoggedIn && result.authorization.profile === "granted"
+          ? result.userInfo?.profile?.avatar
+          : null;
+      let url: URL | null = null;
+      try {
+        if (avatar) url = new URL(avatar);
+      } catch {
+        /* Missing profile uses the account icon. */
+      }
+      hostAvatarUrl =
+        url?.protocol === "https:" && !url.username && !url.password ? url.href : null;
+      emit();
+    } catch {
+      // Profile permission/network failure must not expose the independently selected PC avatar.
+      if (!disposed && turn === epoch) {
+        hostAvatarUrl = null;
+        emit();
+      }
+    }
+  }
   async function refresh() {
     if (disposed) return;
     status = "checking";
@@ -105,7 +141,11 @@ export function createAccount(sdk: SDK, api: APIRequest) {
     const turn = epoch;
     try {
       const state = await sdk.auth.getAccountState();
-      if (!disposed && turn === epoch) reconcile(state);
+      if (!disposed && turn === epoch) {
+        reconcile(state);
+        if (view().status === "authenticated" && confirmedKey)
+          void refreshHostProfile(confirmedKey, epoch);
+      }
     } catch {
       if (!disposed && turn === epoch) {
         confirmedKey = undefined;
@@ -172,6 +212,7 @@ export function createAccount(sdk: SDK, api: APIRequest) {
     status = "authenticated";
     emit();
     await persist(saved);
+    void refreshHostProfile(key, turn);
   }
   function whenReady(signal?: AbortSignal): Promise<void> {
     signal?.throwIfAborted();
@@ -205,15 +246,12 @@ export function createAccount(sdk: SDK, api: APIRequest) {
       signal?.addEventListener("abort", abort, { once: true });
     });
   }
-  async function refreshProfile(avatarId?: string) {
+  async function refreshProfile() {
     await whenReady();
     const current = saved,
       turn = epoch;
     if (!current || status !== "authenticated") throw changed();
-    const result = await api<{ user: User }>(avatarId === undefined ? "session" : "auth/avatar", {
-      token: current.token,
-      ...(avatarId === undefined ? {} : { body: { avatarId } }),
-    });
+    const result = await api<{ user: User }>("session", { token: current.token });
     await whenReady();
     if (disposed || epoch !== turn || saved !== current || result.user?.id !== current.user.id)
       throw changed();
@@ -340,6 +378,7 @@ export function createAccount(sdk: SDK, api: APIRequest) {
       const token = saved?.token;
       epoch++;
       saved = null;
+      hostAvatarUrl = null;
       pending = null;
       pairPending = null;
       status = confirmedKey === undefined ? "checking" : "guest";
