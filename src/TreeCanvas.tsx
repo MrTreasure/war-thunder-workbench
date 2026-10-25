@@ -1,3 +1,4 @@
+import { matchesVehicleFilter } from "./vehicle-labels";
 import { VehicleTile } from "./VehicleTile";
 import { vehicleSearchText } from "./i18n/core";
 import { localize } from "./i18n/core";
@@ -75,6 +76,7 @@ export function TreeCanvas({
   filter,
   onSelect,
   locate,
+  ownedVehicleIds,
 }: {
   tree: Tree;
   catalog: Catalog;
@@ -87,6 +89,7 @@ export function TreeCanvas({
   filter: string;
   onSelect: (id: string) => void;
   locate: number;
+  ownedVehicleIds?: ReadonlySet<string>;
 }) {
   useLocale();
 
@@ -110,11 +113,7 @@ export function TreeCanvas({
       .toLowerCase()
       .replace(/[^\p{L}\p{N}]/gu, "");
   const needle = normal(query);
-  const visible = (unit: Vehicle) =>
-    filter === "all" ||
-    (filter === "premium" && unit.premium) ||
-    (filter === "other" && !unit.premium && unit.kind !== "squadron") ||
-    unit.kind === filter;
+  const visible = (unit: Vehicle) => matchesVehicleFilter(unit, filter);
   useEffect(() => {
     if (locate && selected) {
       for (const node of tree.ranks.flatMap((rank) => [...rank.research, ...rank.special]))
@@ -246,6 +245,7 @@ export function TreeCanvas({
             >
               <VehicleTile
                 unit={node.members[0]}
+                owned={ownedVehicleIds?.has(node.members[0].id)}
                 {...{ catalog, mode }}
                 selected={node.members[0].id === selected}
                 onSelect={() => onSelect(node.members[0].id)}
@@ -272,6 +272,7 @@ export function TreeCanvas({
                             )}
                           <VehicleTile
                             {...{ unit, catalog, mode }}
+                            owned={ownedVehicleIds?.has(unit.id)}
                             selected={unit.id === selected}
                             onSelect={() => onSelect(unit.id)}
                           />

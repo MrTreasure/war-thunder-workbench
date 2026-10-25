@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 2,
+  "sources": {
+    "logo": {
+      "source": "https://warthunder.com/assets/img/svg/logo-wt.svg",
+      "sourcePage": "https://warthunder.com/en/media/presskit/",
+      "sha256": "8c3f7ebf829174244c2ab8df4c928560fedb9a1d31a4be4b1725115c3af8f408"
+    },
+    "background": {
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_j16_logo_eng_0fbcfd8f9c34bf54000c5e6711410708.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "sha256": "28bbeb5ac3196452eec58c5e48c2ec8897833ba88f0f1578f138f5559d9c900d",
+      "bytes": 571999,
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  "recipe": {
+    "icon": {
+      "crop": {
+        "left": 480,
+        "top": 200,
+        "width": 820,
+        "height": 820
+      },
+      "workingSize": 512,
+      "outputSize": 200,
+      "logo": {
+        "width": 300,
+        "height": 144,
+        "left": 106,
+        "top": 334
+      }
+    },
+    "cover": {
+      "crop": {
+        "left": 400,
+        "top": 100,
+        "width": 1520,
+        "height": 855
+      },
+      "width": 960,
+      "height": 540,
+      "logo": {
+        "width": 190,
+        "height": 92,
+        "left": 728,
+        "top": 34
+      }
+    },
+    "logoTreatment": "Original official logo geometry, inverted to white with a blurred original-logo shadow; no generated artwork or extra title text."
+  },
+  "assets": [
+    {
+      "path": "apps/war-thunder-heybox/assets/workbench-icon.png",
+      "sha256": "eb04cbda3a04ac4e66f87b42791910c86ebadc74a800382eba25ee00e4b88b6f",
+      "bytes": 116591,
+      "width": 200,
+      "height": 200
+    },
+    {
+      "path": "apps/war-thunder-heybox/assets/workbench-cover.jpg",
+      "sha256": "a70748c77ac70b3a6d32533b173e7612e6fe7a4b618d4d21d8417eb7a1f33679",
+      "bytes": 197078,
+      "width": 960,
+      "height": 540
+    }
+  ]
+}

@@ -1,26 +1,46 @@
-import { localize } from "../i18n/core";
+import { t, localize } from "../i18n/core";
 import { useLocale } from "../i18n/react";
-import { t } from "../i18n/core";
 import { Chevron } from "./Chevron";
 import { useAccountWorkspace } from "../workspace-context";
 import { UnlinkGameAccount } from "../GameAccountBinding";
 import { statsRequest, notifyStatsAccountLogin } from "../player-stats-api";
 import { useWorkbenchAccount } from "../WorkbenchAccount";
 import { Modal } from "../Modal";
-import { useEffect, useId, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useId, useRef, useState } from "react";
+import { AccountAvatar } from "../AccountAvatar";
+import type { AvatarOption } from "./AccountAvatarPicker";
+const AccountAvatarPicker = lazy(() => import("./AccountAvatarPicker"));
 
 export function StatsAccountMenu({
   name,
   onLogout,
+  onHeyboxLink,
 }: {
   name: string;
   onLogout: () => Promise<void>;
+  onHeyboxLink: () => void;
 }) {
   useLocale();
-
   const workspace = useAccountWorkspace();
   const [unlinking, setUnlinking] = useState(false);
-  const { refreshSession } = useWorkbenchAccount();
+  const { session, refreshSession } = useWorkbenchAccount();
+  const [avatarEditor, setAvatarEditor] = useState(false),
+    [linkedAvatars, setLinkedAvatars] = useState<AvatarOption[]>([]),
+    [avatarError, setAvatarError] = useState("");
+  useEffect(() => {
+    if (!avatarEditor) return;
+    let live = true;
+    void statsRequest<{ linked: AvatarOption[] }>("auth/avatars")
+      .then((value) => {
+        if (live) setLinkedAvatars(value.linked);
+      })
+      .catch((error) => {
+        if (live) setAvatarError(error instanceof Error ? error.message : t("关联头像暂不可用"));
+      });
+    return () => {
+      live = false;
+    };
+  }, [avatarEditor]);
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState("");
   const [saving, setSaving] = useState(false);
@@ -56,6 +76,7 @@ export function StatsAccountMenu({
           }
         }}
       >
+        <AccountAvatar user={session?.user} />
         <span>{name}</span>
         <Chevron className="wt-account-chevron" />
       </button>
@@ -67,6 +88,16 @@ export function StatsAccountMenu({
         onToggle={(event) => setOpen(event.newState === "open")}
       >
         <p>{name}</p>
+        <button
+          type="button"
+          onClick={() => {
+            panel.current?.hidePopover();
+            setAvatarError("");
+            setAvatarEditor(true);
+          }}
+        >
+          {t("修改头像")}
+        </button>
         <button
           type="button"
           disabled={busy || saving}
@@ -89,18 +120,25 @@ export function StatsAccountMenu({
         >
           {t("云端数据")}
         </button>
-        {localize(
-          workspace?.binding && (
-            <button
-              type="button"
-              onClick={() => {
-                panel.current?.hidePopover();
-                setUnlinking(true);
-              }}
-            >
-              {t("解除游戏账号关联")}
-            </button>
-          ),
+        <button
+          type="button"
+          onClick={() => {
+            panel.current?.hidePopover();
+            onHeyboxLink();
+          }}
+        >
+          {t("关联小黑盒账号")}
+        </button>
+        {workspace?.binding && (
+          <button
+            type="button"
+            onClick={() => {
+              panel.current?.hidePopover();
+              setUnlinking(true);
+            }}
+          >
+            {t("解除游戏账号关联")}
+          </button>
         )}
 
         <button
@@ -118,63 +156,83 @@ export function StatsAccountMenu({
             }
           }}
         >
-          {localize(busy ? t("正在退出…") : t("退出登录"))}
+          {busy ? t("正在退出…") : t("退出登录")}
         </button>
-        {localize(error && !editing && <small role="alert">{localize(error)}</small>)}
+        {error && !editing && <small role="alert">{localize(error)}</small>}
       </div>
-      {localize(unlinking && <UnlinkGameAccount close={() => setUnlinking(false)} />)}
-      {localize(
-        editing && (
-          <Modal title={t("修改用户名")} close={closeEditor} className="wt-username-dialog">
-            <form
-              className="wt-username-form"
-              onSubmit={async (event) => {
-                event.preventDefault();
-                if (saving) return;
-                setSaving(true);
-                setError("");
-                try {
-                  await statsRequest("auth/profile", { displayName: draft.trim() });
-                  await refreshSession();
-                  notifyStatsAccountLogin();
-                  closeEditor();
-                } catch (reason) {
-                  setError(reason instanceof Error ? reason.message : t("保存失败，请重试。"));
-                } finally {
-                  setSaving(false);
-                }
+      {unlinking && <UnlinkGameAccount close={() => setUnlinking(false)} />}
+      {avatarEditor && (
+        <Modal
+          title={t("选择头像")}
+          close={() => setAvatarEditor(false)}
+          className="wt-avatar-dialog"
+        >
+          {avatarError && <p role="alert">{localize(avatarError)}</p>}
+          <Suspense fallback={<p>{t("正在准备头像…")}</p>}>
+            <AccountAvatarPicker
+              currentId={session?.user?.avatarId}
+              linked={linkedAvatars}
+              authenticated={!!session?.user?.id}
+              onSelect={async (avatarId) => {
+                await statsRequest("auth/avatar", { avatarId });
+                await refreshSession();
+                notifyStatsAccountLogin();
+                setAvatarEditor(false);
               }}
-            >
-              <label htmlFor={`${id}-username`}>{t("用户名")}</label>
-              <input
-                ref={input}
-                id={`${id}-username`}
-                aria-describedby={`${id}-username-help ${id}-username-error`}
-                autoComplete="username"
-                minLength={2}
-                maxLength={32}
-                required
-                value={draft}
-                disabled={saving}
-                onChange={(event) => setDraft(event.target.value)}
-              />
-              <small id={`${id}-username-help`}>
-                {t("2–32 个字符，支持 #、@、☆ 等可见符号；保存时检查重名和内容安全。")}
-              </small>
-              <p id={`${id}-username-error`} className="wt-username-error" role="alert">
-                {localize(error)}
-              </p>
-              <div>
-                <button className="wt-username-save" type="submit" disabled={saving}>
-                  {localize(saving ? t("正在保存…") : t("保存"))}
-                </button>
-                <button type="button" disabled={saving} onClick={closeEditor}>
-                  {t("取消")}
-                </button>
-              </div>
-            </form>
-          </Modal>
-        ),
+            />
+          </Suspense>
+        </Modal>
+      )}
+      {editing && (
+        <Modal title={t("修改用户名")} close={closeEditor} className="wt-username-dialog">
+          <form
+            className="wt-username-form"
+            onSubmit={async (event) => {
+              event.preventDefault();
+              if (saving) return;
+              setSaving(true);
+              setError("");
+              try {
+                await statsRequest("auth/profile", { displayName: draft.trim() });
+                await refreshSession();
+                notifyStatsAccountLogin();
+                closeEditor();
+              } catch (reason) {
+                setError(reason instanceof Error ? reason.message : t("保存失败，请重试。"));
+              } finally {
+                setSaving(false);
+              }
+            }}
+          >
+            <label htmlFor={`${id}-username`}>{t("用户名")}</label>
+            <input
+              ref={input}
+              id={`${id}-username`}
+              aria-describedby={`${id}-username-help ${id}-username-error`}
+              autoComplete="username"
+              minLength={2}
+              maxLength={32}
+              required
+              value={draft}
+              disabled={saving}
+              onChange={(event) => setDraft(event.target.value)}
+            />
+            <small id={`${id}-username-help`}>
+              {t("2–32 个字符，支持 #、@、☆ 等可见符号；保存时检查重名和内容安全。")}
+            </small>
+            <p id={`${id}-username-error`} className="wt-username-error" role="alert">
+              {error}
+            </p>
+            <div>
+              <button className="wt-username-save" type="submit" disabled={saving}>
+                {saving ? t("正在保存…") : t("保存")}
+              </button>
+              <button type="button" disabled={saving} onClick={closeEditor}>
+                {t("取消")}
+              </button>
+            </div>
+          </form>
+        </Modal>
       )}
     </>
   );
