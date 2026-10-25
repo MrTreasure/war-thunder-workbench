@@ -2955,3 +2955,40 @@
   .wt-valuation-detail-toolbar label { justify-content: space-between; }
   .wt-valuation-tabs { gap: 24px; margin-bottom: 14px; }
 }
+
+/* Valuation rows: keep tiles legible, collapse columns before crowding details. */
+@media (max-width: 1000px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-valuation-products,
+  .wt-valuation-research {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .wt-valuation-product-pack > .wt-valuation-product-media,
+  .wt-valuation-research-group > .wt-valuation-unpriced-art {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .wt-valuation-product,
+  .wt-valuation-research > article {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding: 18px 12px 12px;
+  }
+  .wt-valuation-product > .wt-valuation-product-media,
+  .wt-valuation-research > article > .wt-game-card {
+    justify-self: center;
+  }
+  .wt-valuation-product-body,
+  .wt-valuation-research > article > div {
+    width: 100%;
+  }
+  .wt-valuation-product-pack > .wt-valuation-product-media,
+  .wt-valuation-research-group > .wt-valuation-unpriced-art {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    width: 100%;
+  }
+  .wt-valuation-product-pack > .wt-valuation-product-body {
+    column-gap: 12px;
+  }
+}
