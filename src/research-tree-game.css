@@ -10,6 +10,13 @@
   --wt-game-card: #0b1e29b2;
   --wt-game-border: #253940;
   --wt-game-top: #4a5d5b;
+  /* Application treatment for unowned special vehicles, not a game asset. */
+  --wt-game-special-base: #281719;
+  --wt-game-special-border: #623a3c;
+  --wt-game-special-top: #98615c;
+  --wt-game-special-sheen: #b9918424;
+  --wt-game-special-shadow: #100e1280;
+  --wt-game-special-brush: #d7b7aa05;
 }
 .canvas .node {
   width: 228px;
@@ -69,6 +76,20 @@
   background: #263a1cb2;
   border-color: #3e5c2c;
   border-top-color: #4b712f;
+}
+/* finesse · component: vehicle-tile · register=product
+ * Unowned special state: brushed dark-red metal; owned surfaces stay unchanged. */
+.vehicle-card.wt-game-card.is-special:not(.is-owned) {
+  background-color: var(--wt-game-special-base);
+  background-image:
+    linear-gradient(112deg, transparent 8%, var(--wt-game-special-sheen) 37%, transparent 61%),
+    repeating-linear-gradient(0deg, transparent 0 2px, var(--wt-game-special-brush) 2px 3px),
+    linear-gradient(180deg, transparent 45%, var(--wt-game-special-shadow));
+  border-color: var(--wt-game-special-border);
+  border-top-color: var(--wt-game-special-top);
+  box-shadow:
+    inset 0 1px 0 var(--wt-game-special-sheen),
+    0 1px 1px var(--wt-game-special-shadow);
 }
 .vehicle-card.wt-game-card > .unit-name {
   position: absolute;
@@ -339,6 +360,9 @@
     border-color: #99b9be;
     box-shadow: 0 0 0 1px #91b2b72b;
     filter: brightness(1.12);
+  }
+  .vehicle-card.wt-game-card.is-special:not(.is-owned):hover {
+    border-color: var(--wt-game-special-top);
   }
   .vehicle-card.wt-game-card.is-premium:hover {
     border-color: #c1994c;
