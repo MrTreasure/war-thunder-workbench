@@ -1,7 +1,7 @@
 import { VehicleTile } from "./VehicleTile";
 import type { CatalogIndex, LineupRules, Mode } from "./models";
 import type { Lineup, LineupRating, LineupVehicle } from "./lineups";
-import { brLabel, vehicleStep, lineupVehicleKind, lineupRatings } from "./lineups";
+import { lineupCardRating, lineupVehicleKind, lineupRatings } from "./lineups";
 import { modes } from "./TreeCanvas";
 // A horizontal native list needs keyboard focus for scrolling, without changing its list semantics.
 /* oxlint-disable jsx-a11y/no-noninteractive-tabindex */
@@ -41,7 +41,7 @@ export function LineupSummary({
                   catalog={catalog}
                   mode={mode}
                   footerLabel={`${catalog.categories[unit.category]} · Rank ${unit.rank}`}
-                  modeRating={brLabel(vehicleStep(unit, lineup.battleType, mode))}
+                  modeRating={lineupCardRating(unit, lineup.battleType, mode)}
                 />
               ) : (
                 <span className="lineup-summary-placeholder">{id ? "资料待更新" : "空槽位"}</span>

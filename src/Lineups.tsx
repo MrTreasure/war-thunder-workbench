@@ -20,7 +20,7 @@ import { WarThunderLoading } from "./Loading";
 import { useStored } from "./storage";
 import { modes } from "./TreeCanvas";
 import {
-  brLabel,
+  lineupCardRating,
   decodeLineup,
   encodeLineup,
   inferBattle,
@@ -29,7 +29,6 @@ import {
   lineupRatings,
   shareCountry,
   validLineups,
-  vehicleStep,
 } from "./lineups";
 import type { BattleType, Lineup } from "./lineups";
 const battleNames: Record<BattleType, string> = { air: "空战", ground: "陆战", naval: "海战" };
@@ -738,6 +737,11 @@ function CountryLineups({
 
               <section className="lineup-picker" aria-label="载具选择">
                 <h3>为槽位 {activeSlot + 1} 选择载具</h3>
+                {selected.battleType === "ground" && mode === "rb" && (
+                  <p className="calc-note">
+                    飞机卡片显示陆战历史权重，与空战历史可能不同；队列取所有可用载具的最高值。
+                  </p>
+                )}
                 <label className="calc-field">
                   当前槽位
                   <GameSelect
@@ -745,7 +749,12 @@ function CountryLineups({
                       const id = selected.slots[Number(value)];
                       const unit = id ? units.get(id) : null;
                       return unit ? (
-                        <VehicleTile unit={unit} catalog={catalog} mode={mode} />
+                        <VehicleTile
+                          unit={unit}
+                          catalog={catalog}
+                          mode={mode}
+                          modeRating={lineupCardRating(unit, selected.battleType, mode)}
+                        />
                       ) : null;
                     }}
                     value={activeSlot}
@@ -842,7 +851,7 @@ function CountryLineups({
                           mode={mode}
                           disabled={occupied}
                           onSelect={() => place(unit.id)}
-                          modeRating={brLabel(vehicleStep(unit, selected.battleType, mode))}
+                          modeRating={lineupCardRating(unit, selected.battleType, mode)}
                         />
                         <small>
                           {occupied

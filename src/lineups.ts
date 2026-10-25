@@ -119,6 +119,16 @@ export function vehicleStep(unit: LineupVehicle, battleType: BattleType, mode: M
   return typeof value === "number" && Number.isSafeInteger(value) && value >= 0 ? value : null;
 }
 export const brLabel = (step: number | null) => (step === null ? "—" : (1 + step / 3).toFixed(1));
+/** Display only ratings relevant to the chosen lineup; excluded categories stay unknown. */
+export function lineupCardRating(unit: LineupVehicle, battleType: BattleType, mode: Mode) {
+  if (
+    (battleType === "ground" && mode === "ab" && unit.category !== "ground") ||
+    (battleType === "air" && unit.category !== "aviation") ||
+    (battleType === "naval" && !["ships", "boats", "aviation"].includes(unit.category))
+  )
+    return "—";
+  return brLabel(vehicleStep(unit, battleType, mode));
+}
 export function arcadeAverage(steps: number[], rules: LineupRules) {
   const sorted = [...steps].sort((a, b) => b - a).slice(0, 3);
   if (!sorted.length) return null;
