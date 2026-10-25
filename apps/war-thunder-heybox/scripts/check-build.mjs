@@ -72,6 +72,10 @@ const emittedJS = (
   )
 ).join("\n");
 assert(
+  !emittedJS.includes("wt-heybox-browser-preview:"),
+  "Browser preview adapter must never enter the production miniapp",
+);
+assert(
   emittedJS.includes("https://api.mrtreasure.cc/wt-stats/v1/"),
   "Built requests must retain the public API gateway",
 );

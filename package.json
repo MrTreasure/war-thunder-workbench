@@ -33,6 +33,7 @@
     "deploy:qmuse": "node scripts/deploy-qmuse.mjs",
     "deploy:cf": "node scripts/deploy-cf.mjs",
     "deploy:preview": "node scripts/deploy-preview.mjs",
+    "build:heybox-preview": "node scripts/build-heybox-static-preview.mjs",
     "refresh:wallpapers": "node scripts/collect-wallpapers.mjs"
   },
   "dependencies": {

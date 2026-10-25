@@ -58,3 +58,9 @@ pnpm --dir apps/war-thunder-heybox run build
 - 修复 Browser Mock 沙箱禁止表单默认提交导致查询按钮无响应：按钮与 Enter 显式触发查询。原生小黑盒授权、账号关联、云端保存和真机图片仍需客户端验证。
 
 正式版业务 API 仅为 `https://api.mrtreasure.cc/wt-stats/v1/`，经 Cloudflare 转发；构建门禁禁止 NAS 直连域名、局域网 API 和个人直连端口，网络异常不切换直连。
+
+## 静态验收预览
+
+根目录运行 `pnpm run build:heybox-preview`，生成独立浏览器预览及截图验收页。浏览器入口复用小程序页面和共享组件，只替换原生能力适配层；保持游客身份，不模拟小黑盒授权或账号合并。研发计划使用隔离的预览存储前缀，业务请求仍仅走 CF API，并禁止重定向到其他入口。
+
+产物位于忽略的 `artifacts/heybox-static-preview/site/`，发布为既有 Render 应用的支持页，不覆盖其主入口。验收截图按明确清单取自本机记录，不上传日志、凭据或整个 artifacts 目录。正式小程序构建检查会阻止浏览器适配层混入。

@@ -1,0 +1,32 @@
+/* finesse · register=h5+product · morph=A-app-shell · A=existing-workbench · B=shared-fonts · C=static-acceptance · D=state-feedback · E=game-surfaces · SOUL=6 SPECTACLE=1 DENSITY=8 */
+html {
+  --wt-host-safe-top: 0px;
+  --wt-host-safe-bottom: 0px;
+}
+body {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+.wt-preview-notice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  padding: 9px 16px;
+  color: var(--wt-ink);
+  background: var(--wt-surface);
+  border-bottom: 1px solid var(--wt-line);
+  font-size: 12px;
+}
+.wt-preview-notice a {
+  color: var(--wt-gold);
+  text-underline-offset: 3px;
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+}
+#app {
+  min-height: 0;
+  border-inline: 1px solid var(--wt-line);
+}

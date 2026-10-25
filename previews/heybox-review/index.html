@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>小程序界面验收 · 战雷工作台</title>
+    <link rel="stylesheet" href="{{CSS}}" />
+    <script src="{{JS}}" defer></script>
+  </head>
+  <body>
+    <header>
+      <div>
+        <p class="version">战雷工作台 · 0.1.2</p>
+        <h1>小程序界面验收</h1>
+      </div>
+      <a class="action" href="../heybox-preview/">打开可操作预览 ↗</a>
+    </header>
+    <main>
+      <section class="intro">
+        <strong class="status">部分通过</strong>
+        <p>
+          布局、返回导航与官方图标通过。真实查询有成功记录，也出现连接失败；小黑盒授权、账号关联与云端保存待真机验证。
+        </p>
+        <p class="muted">
+          2026-10-25 · 官方 SDK 0.9.3 Browser Mock / Playwright。下方为实际截图，未模拟账号登录。
+        </p>
+      </section>
+      <section class="workspace" aria-label="截图浏览">
+        <nav aria-label="页面列表">{{BUTTONS}}</nav>
+        <div class="viewer">
+          <label class="mobile-select"
+            >查看页面<select id="page-select" aria-label="查看页面">
+              {{OPTIONS}}
+            </select></label
+          >
+          <div class="viewer-title">
+            <h2 id="shot-title">研发科技树</h2>
+            <span id="shot-device">Android</span>
+          </div>
+          <a
+            id="original"
+            href="{{FIRST}}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="查看原尺寸截图"
+            ><img id="shot" src="{{FIRST}}" alt="研发科技树，Android 实际截图"
+          /></a>
+          <p id="shot-note">按国家读取，保留原版游戏卡片与科技树布局。</p>
+        </div>
+      </section>
+      <section class="results">
+        <h2>本轮检查</h2>
+        <dl>
+          <div>
+            <dt>正式 API 通道</dt>
+            <dd>仅 CF API 转发；构建实际拦截 NAS、局域网和直连端口。</dd>
+          </div>
+          <div>
+            <dt>代码与构建</dt>
+            <dd>12 项单元测试、小程序及网页构建通过；无 WASM。</dd>
+          </div>
+          <div>
+            <dt>原生能力</dt>
+            <dd>浏览器预览不提供小黑盒授权。关联确认、云端保存及原生返回需 APP 验证。</dd>
+          </div>
+          <div>
+            <dt>查询稳定性</dt>
+            <dd>尚未通过。保留真实成功与失败截图，不使用替代数据。</dd>
+          </div>
+          <div>
+            <dt>发布状态</dt>
+            <dd>本页仅为静态验收预览。小程序 0.1.2 尚未上传、提审或发布。</dd>
+          </div>
+        </dl>
+      </section>
+    </main>
+    <footer>玩家独立开发的非官方工具。游戏素材归原权利人所有。</footer>
+    <script type="application/json" id="screens">
+      {{PAGES}}
+    </script>
+  </body>
+</html>
