@@ -91,7 +91,21 @@ export type Background = {
 export type StatsConfig = {
   assets: { backgrounds: Background[]; avatarBase: string; armyBase: string };
   rules: { efficiency: { description: string; notice: string }; radar: { notice: string } };
-  settings: { cacheTtlSeconds: number; queryLimit: number; reportLimit: number };
+  settings: {
+    cacheTtlSeconds: number;
+    queryLimit: number;
+    reportLimit: number;
+    roleLimits?: Partial<
+      Record<
+        "guest" | "user",
+        {
+          queryLimit?: number | null;
+          reportLimit?: number | null;
+          valuationLimit?: number | null;
+        }
+      >
+    >;
+  };
 };
 export type StatsSession = {
   user: {

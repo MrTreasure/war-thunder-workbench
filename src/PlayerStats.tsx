@@ -1,4 +1,4 @@
-import { statsAvailableRequests } from "./player-stats-api";
+import { ExtraQueryCredits } from "./ExtraQueryCredits";
 import { GameAccountBinding } from "./GameAccountBinding";
 import { readPublicResource } from "./public-resource-api";
 import { queryTask, pendingQuery, resumeQuery, forgetQuery } from "./player-query-task";
@@ -69,16 +69,11 @@ import {
   reportImage,
   statsCategoryNames,
 } from "./player-stats-api";
-function quotaLabel(session: StatsSession | null, kind: "query" | "report") {
-  if (!session) return "—";
-  const available = statsAvailableRequests(session, kind);
-  return available === null ? "不限次" : available === 0 ? "今日额度已达上限" : `${available} 次`;
-}
+
 import type {
   PlayerCandidate,
   PlayerProfile,
   StatsConfig,
-  StatsSession,
   StatsReport,
   Background,
   PlayerVehicle,
@@ -818,20 +813,11 @@ export function PlayerStats() {
           <p>查看生涯表现和官方排位，生成你的个人战报。</p>
         </div>
         <div className="wt-record-account">
-          <span>
-            {session?.role === "superadmin" ? "超管" : session?.user ? "普通用户" : "游客"}
-            {" · 新查询 "}
-            {quotaLabel(session, "query")}
-            {" / 战报 "}
-            {quotaLabel(session, "report")}
-            <small>先用每日免费次数，再用共享额外点数；缓存命中不扣次。</small>
-            {session?.credits?.enabled && (
-              <small>
-                额外点数剩余 {session.credits.total === null ? "不限" : session.credits.remaining}{" "}
-                点，不每日重置。
-              </small>
-            )}
-          </span>
+          {session ? (
+            <ExtraQueryCredits session={session} refresh={refreshAccountSession} config={config} />
+          ) : (
+            <span>额度加载中…</span>
+          )}
         </div>
       </header>
       <form
