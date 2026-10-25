@@ -69,7 +69,9 @@ function VehicleQuoteDate({ vehicle }: { vehicle: SaleVehicle }) {
       {quote?.checkedAt && (
         <small>
           核对于{" "}
-          {new Date(quote.checkedAt).toLocaleDateString("zh-CN", { timeZone: "Asia/Shanghai" })}
+          <time dateTime={quote.checkedAt}>
+            {new Date(quote.checkedAt).toLocaleDateString("zh-CN", { timeZone: "Asia/Shanghai" })}
+          </time>
         </small>
       )}
     </div>

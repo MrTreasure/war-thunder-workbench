@@ -192,13 +192,8 @@
 .lineup-card-actions { margin-top: 8px; padding-top: 8px; }
 .lineup-card-actions button { padding: 4px 9px; min-height: 32px; font-size: 12px; }
 /* One scroll host for the sale picker; the result list never gets its own rail. */
-.wt-sale-picker.calculator { width: min(1080px, calc(100vw - 24px)); scrollbar-width: none; }
+.wt-sale-picker.calculator { width: min(1040px, calc(100vw - 24px)); scrollbar-width: none; }
 .wt-sale-picker.calculator::-webkit-scrollbar { display: none; }
-.wt-sale-picker-results { max-height: none; overflow: visible; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
-.wt-sale-vehicle-option { position: relative; display: grid; grid-template-columns: 228px minmax(0, 1fr); gap: 12px; padding: 22px 0; align-content: start; }
-.wt-sale-vehicle-option > div { min-width: 0; }
-.wt-sale-vehicle-option > div > strong { font-family: WTSymbols, WTCard, var(--wt-sans); font-weight: 400; }
-.wt-sale-vehicle-option > button { grid-column: 2; justify-self: start; font-size: 12px; padding: 4px 8px; }
 .wt-sale-picker footer { flex-wrap: wrap; }
 .wt-sale-picker-pages { display: flex; align-items: center; gap: 10px; }
 .wt-garage-tiles { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 26px 14px; }
@@ -212,10 +207,15 @@
 .vehicle-card.wt-game-card[data-kind="pack"] > .wt-game-card-caption { max-width: calc(100% - 100px); }
 .lineup-summary-slots > li > .wt-game-card:has(> .wt-game-card-caption),
 .lineup-slot-select > .wt-game-card:has(> .wt-game-card-caption) { margin-bottom: 24px; }
-.wt-sale-vehicle-option { grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 8px 14px; padding: 22px 0 14px; }
-.wt-sale-vehicle-option > .wt-game-card { grid-column: 1; grid-row: 1; }
-.wt-sale-vehicle-option > .wt-sale-original-price { grid-column: 1 / -1; grid-row: 2; margin: 0; }
-.wt-sale-vehicle-option > .wt-sale-follow-button { grid-column: 2; grid-row: 1; align-self: start; justify-self: end; min-height: 36px; padding: 6px 12px; border: 1px solid var(--wt-gold-line); border-radius: 3px; color: var(--wt-gold); background: var(--wt-surface); font: 400 12px/1.5 var(--wt-sans); white-space: nowrap; }
 .wt-sale-follow-button:not(:disabled):hover { background: var(--wt-raised); border-color: var(--wt-gold); }
 .wt-sale-follow-button:focus-visible { outline: 2px solid var(--wt-gold); outline-offset: 3px; }
 .wt-sale-follow-button:disabled { opacity: .5; cursor: default; }
+
+/* Compact sale items: a game tile and one narrow action/date column. */
+.wt-sale-picker-results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); justify-items: center; align-items: start; gap: 0 20px; max-height: none; overflow: visible; }
+.wt-sale-vehicle-option { display: grid; position: relative; grid-template-columns: minmax(0, 228px) 76px; grid-template-rows: auto; align-items: start; align-content: start; column-gap: 12px; row-gap: 0; width: 100%; max-width: 316px; min-width: 0; padding: 18px 0 10px; }
+.wt-sale-vehicle-option > .wt-game-card { grid-column: 1; grid-row: 1; min-width: 0; }
+.wt-sale-vehicle-option > .wt-sale-follow-button { grid-column: 2; grid-row: 1; align-self: start; justify-self: stretch; min-height: 36px; padding: 6px; border: 1px solid var(--wt-gold-line); border-radius: 3px; color: var(--wt-gold); background: var(--wt-surface); font: 400 12px/1.5 var(--wt-sans); white-space: nowrap; }
+.wt-sale-vehicle-option > .wt-sale-original-price { grid-column: 2; grid-row: 1; align-self: end; justify-self: stretch; min-width: 0; margin: 0 0 24px; }
+.wt-sale-vehicle-option > .wt-sale-original-price > small { display: grid; gap: 1px; margin: 0; color: var(--wt-muted); font: 400 10px/1.35 var(--wt-sans); text-align: center; }
+.wt-sale-vehicle-option time { display: block; white-space: nowrap; font-variant-numeric: tabular-nums; }
