@@ -4,6 +4,12 @@ import catalog from "../../../src/generated/bootstrap.json";
 import type { BrowserPair } from "./account";
 import { account, api } from "./runtime";
 import { useRuntime } from "./context";
+import {
+  VehiclePresentation,
+  useMiniappVehicleFacts,
+  useMiniappOwnedVehicles,
+} from "./VehiclePresentation";
+import { validPlan } from "./plan";
 import { Sheet, ErrorNote, Icon, errorText } from "./ui";
 const phrase = "我再也不绑定别人的账号了";
 export default function Account({
@@ -27,6 +33,15 @@ export default function Account({
     [pairStage, setPairStage] = useState<"entry" | "inspect" | "create" | "approved">("entry");
   const [unlink, setUnlink] = useState(false),
     [confirmation, setConfirmation] = useState("");
+  const plans = (view.status === "authenticated" ? cloud?.documents || [] : []).filter(
+    (doc) => doc.key.startsWith("wt-planner-v1:") && validPlan(doc.value),
+  );
+  const {
+    facts,
+    error: vehicleFactsError,
+    retry: retryVehicleFacts,
+  } = useMiniappVehicleFacts(active ? plans.map((doc) => doc.key.split(":")[2]) : []);
+  const ownedVehicleIds = useMiniappOwnedVehicles();
   useEffect(() => {
     if (!active || terms) return;
     let live = true;
@@ -165,36 +180,36 @@ export default function Account({
       {view.status === "authenticated" && cloud && (
         <div className="hb-account-section">
           <h3>研发计划</h3>
-          {cloud.documents
-            .filter(
-              (d) =>
-                d.key.startsWith("wt-planner-v1:") &&
-                d.value &&
-                typeof d.value === "object" &&
-                typeof (d.value as { target?: unknown }).target === "string",
-            )
-            .map((d) => {
-              const [, category, country] = d.key.split(":");
-              if (!(category in catalog.categories) || !(country in catalog.countries)) return null;
+          <ErrorNote error={vehicleFactsError} />
+          {vehicleFactsError && <button onClick={retryVehicleFacts}>重新载入载具资料</button>}
+          <div className="hb-saved-plan-list">
+            {plans.map((doc) => {
+              const [, category, country] = doc.key.split(":");
+              if (
+                !(category in catalog.categories) ||
+                !(country in catalog.countries) ||
+                !validPlan(doc.value)
+              )
+                return null;
+              const target = doc.value.target;
               return (
-                <button
-                  className="hb-menu-row"
-                  key={d.key}
-                  onClick={() =>
-                    openPlan({ country, category, target: (d.value as { target: string }).target })
+                <VehiclePresentation
+                  key={doc.key}
+                  unit={
+                    facts.get(target) || {
+                      id: target,
+                      name: vehicleFactsError ? "载具资料暂不可用" : "载具资料正在载入",
+                    }
                   }
-                >
-                  <span>
-                    {catalog.countries[country as keyof typeof catalog.countries]} ·{" "}
-                    {catalog.categories[category as keyof typeof catalog.categories]}
-                  </span>
-                  <Icon name="arrow" />
-                </button>
+                  country={country}
+                  category={category}
+                  owned={ownedVehicleIds.has(target)}
+                  onSelect={() => openPlan({ country, category, target })}
+                />
               );
             })}
-          {!cloud.documents.some((d) => d.key.startsWith("wt-planner-v1:") && d.value) && (
-            <p>尚无保存的研发计划。在研发计算中保存后，可在这里继续。</p>
-          )}
+          </div>
+          {!plans.length && <p>尚无保存的研发计划。在研发计算中保存后，可在这里继续。</p>}
         </div>
       )}
       <div className="hb-account-section">

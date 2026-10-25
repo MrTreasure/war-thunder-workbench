@@ -12,7 +12,9 @@ export default defineConfig({
         chunkFileNames: (chunk) =>
           chunk.name.startsWith("country-")
             ? `assets/${chunk.name.split(".")[0].replace("country-", "c-")}-[hash].js`
-            : "assets/[name]-[hash].js",
+            : chunk.name.startsWith("vehicle-facts-")
+              ? `assets/${chunk.name.split(".")[0].replace("vehicle-facts-", "v-")}-[hash].js`
+              : "assets/[name]-[hash].js",
       },
     },
   },

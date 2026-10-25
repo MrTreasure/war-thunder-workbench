@@ -17,6 +17,7 @@ let snapshot: ReadonlyMap<string, VehicleFacts> = new Map();
 const listeners = new Set<() => void>();
 const pending = new Map<string, Promise<void>>();
 const loaded = new Map<string, number>();
+const bundled = new Map<string, Promise<void>>();
 const subscribe = (listener: () => void) => {
   listeners.add(listener);
   return () => {
@@ -39,10 +40,10 @@ export function registerCountryVehicles(payload: CountryPayload) {
           items.push({ ...unit, country: payload.country, category });
   publish(items);
 }
-export function loadVehicleCountry(country: string): Promise<void> {
+/** Validated package metadata, also usable in native hosts without browser fetch. */
+export function loadBundledVehicleCountry(country: string): Promise<void> {
   if (!Object.hasOwn(bootstrap.countries, country)) return Promise.resolve();
-  if ((loaded.get(country) || 0) > Date.now()) return Promise.resolve();
-  const previous = pending.get(country);
+  const previous = bundled.get(country);
   if (previous) return previous;
   const request = (async () => {
     const entry = vehicleFactModules[country];
@@ -56,10 +57,35 @@ export function loadVehicleCountry(country: string): Promise<void> {
         country: string;
         items: VehicleFacts[];
       };
-      if (body.schemaVersion !== 1 || body.country !== country || !Array.isArray(body.items))
+      if (
+        body.schemaVersion !== 1 ||
+        body.country !== country ||
+        !Array.isArray(body.items) ||
+        body.items.some(
+          (item) =>
+            !item ||
+            typeof item.id !== "string" ||
+            typeof item.name !== "string" ||
+            item.country !== country,
+        )
+      )
         throw new Error("载具目录格式异常。");
       publish(body.items);
     }
+  })().catch((error) => {
+    bundled.delete(country);
+    throw error;
+  });
+  bundled.set(country, request);
+  return request;
+}
+export function loadVehicleCountry(country: string): Promise<void> {
+  if (!Object.hasOwn(bootstrap.countries, country)) return Promise.resolve();
+  if ((loaded.get(country) || 0) > Date.now()) return Promise.resolve();
+  const previous = pending.get(country);
+  if (previous) return previous;
+  const request = (async () => {
+    await loadBundledVehicleCountry(country);
     // The immutable build snapshot is a verified fallback. Preview never changes the live catalog.
     if (import.meta.env.VITE_WT_CATALOG_SOURCE !== "preview") {
       try {

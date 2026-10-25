@@ -6,6 +6,12 @@ import type {
   PlayerVehicle,
 } from "../../../src/player-stats-api";
 import type { Valuation } from "../../../src/AccountValuation";
+import { PlayerVehicleCards } from "../../../src/PlayerVehicleCards";
+import {
+  VehiclePresentation,
+  useMiniappVehicleFacts,
+  useMiniappOwnedVehicles,
+} from "./VehiclePresentation";
 import { GameSelect } from "../../../src/components/GameSelect";
 import { request, query, pause, account } from "./runtime";
 import { useRuntime } from "./context";
@@ -184,9 +190,16 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
         (category === "all" || v.category === category),
     )
     .sort((a, b) => (b.battles || 0) - (a.battles || 0));
+  const visibleVehicles = vehicles.slice(page * 12, (page + 1) * 12);
+  const { error: vehicleFactsError, retry: retryVehicleFacts } = useMiniappVehicleFacts([
+    ...visibleVehicles.map((unit) => unit.country || ""),
+    vehicle?.country || "",
+    ...(report?.payload.top5.map((unit) => unit.country || "") || []),
+  ]);
+  const ownedVehicleIds = useMiniappOwnedVehicles();
   if (screen === "valuation")
     return (
-      <section className="hb-scroll hb-page">
+      <section className="hb-scroll hb-page hb-stats wt-record-page">
         <button className="hb-back" onClick={() => setScreen("profile")}>
           ← 返回战绩
         </button>
@@ -239,7 +252,7 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
     );
   if (screen === "report")
     return (
-      <section className="hb-scroll hb-page">
+      <section className="hb-scroll hb-page hb-stats wt-record-page">
         <button className="hb-back" onClick={() => setScreen("profile")}>
           ← 返回战绩
         </button>
@@ -287,12 +300,14 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
             </dl>
             <p className="hb-report-speech">{report.review?.speech}</p>
             <h3>主力载具</h3>
-            {report.payload.top5.map((v) => (
-              <div className="hb-route-row" key={v.id}>
-                <span>{v.name}</span>
-                <b>{num(v.battles)} 场</b>
-              </div>
-            ))}
+            <PlayerVehicleCards
+              vehicles={report.payload.top5}
+              select={(unit) => {
+                setVehicle(unit);
+                setScreen("profile");
+              }}
+              showNaval
+            />
             <small>数据采集于 {date(report.payload.fetchedAt)}</small>
             <footer className="hb-watermark-reserve" aria-hidden="true" />
           </article>
@@ -300,7 +315,7 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
       </section>
     );
   return (
-    <section className="hb-scroll hb-page">
+    <section className="hb-scroll hb-page hb-stats wt-record-page">
       <form
         className="hb-query-form"
         onSubmit={(e) => {
@@ -460,30 +475,16 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
               ))}
             </GameSelect>
           </div>
-          <div className="hb-vehicle-stats">
-            {vehicles.slice(page * 12, (page + 1) * 12).map((v) => (
-              <button
-                key={v.id}
-                className="hb-stat-vehicle"
-                aria-label={`查看${v.name}的出击记录`}
-                onClick={() => setVehicle(v)}
-              >
-                <div>
-                  <h3>{v.name}</h3>
-                  <small>{v.rank ? `Rank ${v.rank}` : "等级待匹配"}</small>
-                </div>
-                <img src={v.thumbnail || v.image} alt="" loading="lazy" />
-                <div className="hb-stat-vehicle-bottom">
-                  <span>
-                    作战效率 <b>{num(v.efficiency)}</b>
-                  </span>
-                  <small>
-                    {num(v.battles)} 场 · K/D {ratio(v.kd)}
-                  </small>
-                </div>
-              </button>
-            ))}
-          </div>
+          <ErrorNote error={vehicleFactsError} />
+          {vehicleFactsError && <button onClick={retryVehicleFacts}>重新载入载具资料</button>}
+          <PlayerVehicleCards
+            vehicles={visibleVehicles}
+            select={setVehicle}
+            showNaval
+            noRecords={
+              new Set(visibleVehicles.filter((unit) => unit.battles === 0).map((unit) => unit.id))
+            }
+          />
           {!vehicles.length && <p className="hb-muted">暂无符合筛选的出击记录。</p>}
           {vehicles.length > 12 && (
             <div className="hb-pagination">
@@ -505,7 +506,13 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
       )}
       {vehicle && (
         <Sheet title={vehicle.name} close={() => setVehicle(null)}>
-          <img className="hb-detail-art" src={vehicle.image} alt="" />
+          <VehiclePresentation
+            unit={vehicle}
+            country={vehicle.country}
+            category={vehicle.category}
+            mode={mode}
+            owned={cloud?.binding?.uid === profile?.uid && ownedVehicleIds.has(vehicle.id)}
+          />
           <dl className="hb-kv">
             {[
               ["场次", num(vehicle.battles)],

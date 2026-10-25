@@ -1,24 +1,9 @@
 /* finesse · register=h5+product · morph=A-app-shell · A=graphite+oxblood+semantic-gold · B=FiraSansCondensed+system-Chinese · C=three-tabs+research-canvas · D=state-feedback · E=flat-hangar · SOUL=6 SPECTACLE=2 DENSITY=8 */
 :root {
-  --wt-page: #171d21;
-  --wt-surface: #20272c;
-  --wt-panel: #293137;
-  --wt-raised: #323c43;
-  --wt-ink: #f0efea;
-  --wt-body: #d0d3d2;
-  --wt-muted: #a8b2b6;
-  --wt-line: #bac7ce21;
-  --wt-strong-line: #bac7ce40;
-  --wt-accent: #e8b5aa;
-  --wt-accent-soft: #a9433826;
-  --wt-accent-ink: #241b1a;
-  --wt-gold: #dfc58c;
-  --wt-gold-soft: #dfc58c14;
-  --wt-gold-line: #dfc58c40;
-  --wt-hb-red: #943c33;
-  --wt-hb-red-hover: #ab493e;
+  --wt-hb-red: var(--wt-service-red);
+  --wt-hb-red-hover: var(--wt-service-red-hover);
   --wt-hb-danger: #f1a39a;
-  --wt-hb-radius: 5px;
+  --wt-hb-radius: 2px;
   --wt-sans: WTCard, "Microsoft YaHei", "PingFang SC", sans-serif;
   font-family: var(--wt-sans);
   color-scheme: dark;
@@ -81,7 +66,7 @@ button {
 .hb-app button:disabled,
 .hb-sheet button:disabled {
   opacity: 0.45;
-  cursor: default;
+  cursor: not-allowed;
 }
 .hb-app button:focus-visible,
 .hb-sheet button:focus-visible,
@@ -419,42 +404,6 @@ small {
   font-size: 14px;
   max-width: 34ch;
 }
-.hb-unit-list {
-  padding: 12px;
-  display: grid;
-  gap: 6px;
-}
-.hb-unit-list button {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-  text-align: left;
-}
-.hb-unit-list img {
-  width: 70px;
-  height: 48px;
-  object-fit: contain;
-}
-.hb-unit-list span {
-  display: grid;
-  gap: 4px;
-  flex: 1;
-  min-width: 0;
-}
-.hb-unit-list b {
-  font-weight: 500;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.hb-unit-list strong {
-  text-align: right;
-  display: grid;
-  flex: none;
-  font-weight: 500;
-  font-variant-numeric: tabular-nums;
-}
 .hb-sheet {
   position: fixed;
   inset: auto 0 0;
@@ -468,7 +417,7 @@ small {
   border-radius: 10px 10px 0 0;
   background: var(--wt-surface);
   color: var(--wt-ink);
-  box-shadow: 0 -20px 60px #0e16194d;
+  box-shadow: none;
 }
 .hb-sheet[open] {
   display: grid;
@@ -503,24 +452,6 @@ small {
 .hb-sheet-body > p {
   font-size: 14px;
 }
-.hb-calculator-vehicle {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.hb-calculator-vehicle img {
-  width: 110px;
-  height: 72px;
-  object-fit: contain;
-}
-.hb-calculator-vehicle div {
-  min-width: 0;
-}
-.hb-calculator-vehicle p {
-  color: var(--wt-muted);
-  font-size: 13px;
-  margin-top: 5px;
-}
 .hb-result {
   padding: 18px 16px;
   background: var(--wt-page);
@@ -549,40 +480,6 @@ small {
 .hb-checkbox > span {
   flex: 1;
   min-width: 0;
-}
-.hb-part-list {
-  display: grid;
-  gap: 4px;
-  margin-top: 10px;
-}
-.hb-part-list label {
-  font-size: 14px;
-  padding: 5px 0;
-  border-bottom: 1px solid var(--wt-line);
-}
-.hb-part-list small {
-  margin-left: auto;
-}
-.hb-route-row {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--wt-line);
-  font-size: 14px;
-}
-.hb-route-row > span {
-  min-width: 0;
-}
-.hb-route-row small {
-  display: block;
-  margin-top: 3px;
-}
-.hb-route-row b {
-  flex: none;
-  font-weight: 500;
-  font-variant-numeric: tabular-nums;
 }
 .hb-total {
   display: flex;
@@ -759,56 +656,6 @@ details[open] > summary::after {
   gap: 9px;
   margin: 20px 0 10px;
 }
-.hb-vehicle-stats {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 9px;
-}
-.hb-app .hb-stat-vehicle {
-  padding: 12px 10px;
-  text-align: left;
-  white-space: normal;
-  min-width: 0;
-  display: grid;
-  grid-template-rows: auto 78px auto;
-  gap: 7px;
-  background: var(--wt-surface);
-  border-color: var(--wt-line);
-}
-.hb-stat-vehicle h3 {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-  font-size: 16px;
-  font-weight: 500;
-}
-.hb-stat-vehicle > div {
-  min-width: 0;
-}
-.hb-stat-vehicle img {
-  width: 100%;
-  height: 78px;
-  object-fit: contain;
-}
-.hb-stat-vehicle-bottom {
-  border-top: 1px solid var(--wt-line);
-  padding-top: 9px;
-  display: grid;
-  gap: 4px;
-}
-.hb-stat-vehicle-bottom span {
-  display: flex;
-  justify-content: space-between;
-  gap: 5px;
-  font-size: 11px;
-  color: var(--wt-muted);
-}
-.hb-stat-vehicle-bottom b {
-  color: var(--wt-gold);
-  font-size: 17px;
-  font-weight: 400;
-}
 .hb-pagination {
   display: flex;
   align-items: center;
@@ -816,11 +663,6 @@ details[open] > summary::after {
   gap: 8px;
   margin-top: 16px;
   font-size: 13px;
-}
-.hb-detail-art {
-  width: 100%;
-  height: 160px;
-  object-fit: contain;
 }
 .hb-kv {
   margin: 0;
@@ -1094,4 +936,163 @@ details[open] > summary::after {
 .wt-select-option {
   min-height: 44px;
   font-size: 16px;
+}
+
+/* The same 228 × 76 VehicleTile is used in every non-record vehicle context. */
+.hb-unit-list,
+.hb-saved-plan-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(228px, 1fr));
+  gap: 24px 12px;
+  align-content: start;
+  padding: 22px 12px;
+  min-width: 0;
+}
+.hb-saved-plan-list {
+  padding: 8px 0;
+}
+.hb-vehicle-presentation {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 8px;
+  min-width: 0;
+  padding-top: 12px;
+}
+.hb-vehicle-presentation > .vehicle-card.wt-game-card[data-kind="pack"] {
+  margin-bottom: 24px;
+}
+.hb-vehicle-caption {
+  width: 228px;
+  max-width: 100%;
+  display: grid;
+  gap: 3px;
+  color: var(--wt-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+.hb-vehicle-caption > span {
+  overflow-wrap: anywhere;
+}
+.hb-vehicle-full-name {
+  color: var(--wt-body);
+}
+.hb-app .vehicle-card.wt-game-card,
+.hb-sheet .vehicle-card.wt-game-card {
+  box-shadow: none;
+  transition: none;
+}
+.hb-tree-scroll .canvas-space {
+  overflow: visible;
+}
+.hb-app .hb-tree-scroll .vehicle-card.wt-game-card {
+  touch-action: manipulation;
+}
+.hb-sheet-body .hb-vehicle-presentation {
+  flex: none;
+}
+.hb-sheet-body .hb-vehicle-presentation .unit-name {
+  font-weight: 400;
+}
+.hb-route-step {
+  display: grid;
+  gap: 8px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--wt-line);
+}
+.hb-route-step-note {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.hb-route-step-note > .wt-research-points {
+  flex: none;
+  color: var(--wt-gold);
+}
+.hb-result strong > .wt-research-points {
+  font: inherit;
+  color: inherit;
+}
+.hb-result .wt-research-points img {
+  width: 24px;
+  height: 24px;
+}
+.hb-modification-scroll {
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding: 12px 2px;
+}
+.hb-modification-scroll .wt-parts-board {
+  min-width: 0;
+}
+.hb-modification-picker .hb-fine {
+  margin-top: 8px;
+}
+.hb-sheet .wt-part-card input {
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+  padding: 0;
+}
+.hb-stats.wt-record-page {
+  max-width: none;
+  font: inherit;
+  padding: 22px 16px 28px;
+}
+.hb-stats.wt-record-page h2 {
+  font-size: 21px;
+}
+.hb-stats .wt-vehicle-cards {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+.hb-stats .wt-vehicle-card-art {
+  height: 136px;
+}
+.hb-stats .wt-vehicle-card-heading h3 {
+  font-family: var(--wt-sans);
+  font-weight: 400;
+  font-size: 16px;
+}
+.hb-stats.wt-record-page .wt-vehicle-card-actions button {
+  min-height: 44px;
+  padding-inline: 6px;
+  font-size: 12px;
+}
+.hb-stats .wt-vehicle-card-values {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.hb-stats .wt-vehicle-card-rating small {
+  font-size: 11px;
+}
+.hb-stats .wt-vehicle-card-rating strong {
+  font-weight: 400;
+}
+.hb-stats .wt-vehicle-card-values dd {
+  font-weight: 400;
+}
+.hb-stats .hb-report .wt-vehicle-card-heading {
+  padding-bottom: 10px;
+}
+.hb-stats .hb-report .wt-vehicle-card-heading h3 {
+  margin-top: 0;
+}
+.hb-stats .hb-report .wt-vehicle-card-heading p {
+  margin: 2px 0 0;
+}
+@media (min-width: 520px) {
+  .hb-stats .wt-vehicle-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 350px) {
+  .hb-stats.wt-record-page {
+    padding-inline: 12px;
+  }
 }

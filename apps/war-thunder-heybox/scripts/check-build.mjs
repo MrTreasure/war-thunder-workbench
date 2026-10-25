@@ -31,15 +31,27 @@ assert(
 );
 const canonical = JSON.parse(await readFile(new URL("src/generated/manifest.json", root), "utf8"));
 for (const [country, entry] of Object.entries(canonical.countries)) {
-  const candidates = files.filter(
-    (f) => f.startsWith(`assets/c-${country}-`) && f.endsWith(".js"),
-  );
+  const candidates = files.filter((f) => f.startsWith(`assets/c-${country}-`) && f.endsWith(".js"));
   assert.equal(candidates.length, 1, "Exactly one lazy country module for " + country);
   const { default: text } = await import(pathToFileURL(new URL(candidates[0], dist).pathname).href);
   assert.equal(typeof text, "string");
   assert.equal(Buffer.byteLength(text), entry.bytes);
   assert.equal(createHash("sha256").update(text).digest("hex"), entry.sha256);
   assert.equal(JSON.parse(text).country, country);
+}
+const { vehicleFactModules } = await import(new URL("src/generated/vehicle-fact-modules.ts", root));
+for (const [country, entry] of Object.entries(vehicleFactModules)) {
+  const candidates = files.filter(
+    (file) => file.startsWith(`assets/v-${country}-`) && file.endsWith(".js"),
+  );
+  assert.equal(candidates.length, 1, "Exactly one lazy metadata module for " + country);
+  assert(!html.includes(candidates[0]), "Do not preload vehicle metadata");
+  const { default: text } = await import(pathToFileURL(new URL(candidates[0], dist).pathname).href);
+  assert.equal(Buffer.byteLength(text), entry.bytes);
+  assert.equal(createHash("sha256").update(text).digest("hex"), entry.sha256);
+  const body = JSON.parse(text);
+  assert.equal(body.schemaVersion, 1);
+  assert.equal(body.country, country);
 }
 assert(
   !JSON.stringify(manifest).includes("heybox-placeholder"),
@@ -52,6 +64,7 @@ console.log(
   JSON.stringify({
     miniapp: "war-thunder-heybox",
     countries: 10,
+    vehicleMetadataCountries: 10,
     wasm: 0,
     standaloneDataJSON: 0,
     bytes: total.reduce((a, b) => a + b, 0),

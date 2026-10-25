@@ -1,4 +1,9 @@
 import { useEffect, useMemo, useState, useRef } from "react";
+import { registerCountryVehicles } from "../../../src/vehicle-catalog";
+import { matchesVehicleFilter } from "../../../src/vehicle-labels";
+import { ModificationGrid } from "../../../src/ModificationGrid";
+import { ResearchPoints } from "../../../src/ResearchPoints";
+import { VehiclePresentation, useMiniappOwnedVehicles } from "./VehiclePresentation";
 import { TreeCanvas } from "../../../src/TreeCanvas";
 import { GameSelect } from "../../../src/components/GameSelect";
 import { indexTree, calculate } from "../../../src/planner";
@@ -25,6 +30,7 @@ const entries = manifest.countries as Record<
   { key: string; sha256: string; bytes: number }
 >;
 export default function Research({ initial }: { initial?: ResearchIntent }) {
+  const ownedVehicleIds = useMiniappOwnedVehicles();
   const [country, setCountry] = useState(initial?.country || ""),
     [category, setCategory] = useState(initial?.category || "ground"),
     [mode, setMode] = useState<Mode>("rb");
@@ -70,7 +76,10 @@ export default function Research({ initial }: { initial?: ResearchIntent }) {
         !parsed.modifications
       )
         throw Error("国家资料格式无效");
-      if (active) setData(parsed);
+      if (active) {
+        registerCountryVehicles(parsed);
+        setData(parsed);
+      }
     })()
       .catch((e) => {
         if (active) setError(e instanceof Error ? e.message : "资料暂不可用");
@@ -94,6 +103,14 @@ export default function Research({ initial }: { initial?: ResearchIntent }) {
   );
   const tree = data?.trees[category] ?? null;
   const units = useMemo(() => [...indexTree(tree).units.values()], [tree]);
+  const visibleUnits = units.filter(
+    (item) =>
+      (!search ||
+        [item.name, item.nameEn, item.id].some((value) =>
+          value?.toLowerCase().includes(search.toLowerCase()),
+        )) &&
+      matchesVehicleFilter(item, filter),
+  );
   const choose = (id: string) => {
     setSelected(id);
     setSheet("vehicle");
@@ -224,33 +241,35 @@ export default function Research({ initial }: { initial?: ResearchIntent }) {
               filter={filter}
               onSelect={choose}
               locate={0}
+              ownedVehicleIds={ownedVehicleIds}
             />
           ) : (
             <div className="hb-unit-list">
-              {units
-                .filter(
-                  (u) =>
-                    (!search ||
-                      [u.name, u.nameEn, u.id].some((s) =>
-                        s?.toLowerCase().includes(search.toLowerCase()),
-                      )) &&
-                    (filter === "all" || u.kind === filter || (filter === "premium" && u.premium)),
-                )
-                .map((u) => (
-                  <button key={u.id} onClick={() => choose(u.id)}>
-                    <img src={u.thumbnailUrl || u.imageUrl} alt="" loading="lazy" />
-                    <span>
-                      <b>{u.name}</b>
-                      <small>
-                        Rank {u.rank} · {index.kinds[u.kind]}
-                      </small>
-                    </span>
-                    <strong>
-                      {u.rp == null ? "—" : num(u.rp)}
-                      <small>RP</small>
-                    </strong>
+              {!visibleUnits.length && (
+                <div className="hb-empty">
+                  <h2>没有符合条件的载具</h2>
+                  <p>调整获取方式或搜索条件后再试。</p>
+                  <button
+                    onClick={() => {
+                      setSearch("");
+                      setFilter("all");
+                    }}
+                  >
+                    重置筛选
                   </button>
-                ))}
+                </div>
+              )}
+              {visibleUnits.map((u) => (
+                <VehiclePresentation
+                  key={u.id}
+                  unit={u}
+                  country={country}
+                  category={category}
+                  mode={mode}
+                  owned={ownedVehicleIds.has(u.id)}
+                  onSelect={() => choose(u.id)}
+                />
+              ))}
             </div>
           )}
         </div>
@@ -271,10 +290,12 @@ export default function Research({ initial }: { initial?: ResearchIntent }) {
             获取方式
             <GameSelect value={filter} onValueChange={setFilter}>
               <option value="all">全部载具</option>
-              <option value="premium">高级载具</option>
-              <option value="squadron">联队载具</option>
               <option value="research">常规研发</option>
-              <option value="other">其他载具</option>
+              <option value="gold">金鹰载具</option>
+              <option value="pack">礼包载具</option>
+              <option value="premium">全部高级载具</option>
+              <option value="squadron">联队载具</option>
+              <option value="special">特殊载具</option>
             </GameSelect>
           </label>
           <button className="hb-primary" onClick={() => setFilters(false)}>
@@ -285,7 +306,7 @@ export default function Research({ initial }: { initial?: ResearchIntent }) {
       {sheet && unit && tree && data && (
         <Calculator
           key={`${country}:${category}:${unit.id}:${sheet}`}
-          {...{ unit, tree, country, category, catalog, data }}
+          {...{ unit, tree, country, category, catalog, data, mode }}
           kind={sheet}
           switchKind={() => setSheet(sheet === "vehicle" ? "mods" : "vehicle")}
           close={() => setSheet(null)}
@@ -302,6 +323,7 @@ function Calculator({
   catalog,
   data,
   kind,
+  mode,
   switchKind,
   close,
 }: {
@@ -312,6 +334,7 @@ function Calculator({
   catalog: Catalog;
   data: CountryPayload;
   kind: "vehicle" | "mods";
+  mode: Mode;
   switchKind: () => void;
   close: () => void;
 }) {
@@ -445,15 +468,13 @@ function Calculator({
   }
   return (
     <Sheet title={kind === "vehicle" ? "载具研发" : "配件研发"} close={close}>
-      <div className="hb-calculator-vehicle">
-        <img src={unit.imageUrl} alt="" />
-        <div>
-          <h3>{unit.name}</h3>
-          <p>
-            {catalog.countries[country]} · Rank {unit.rank}
-          </p>
-        </div>
-      </div>
+      <VehiclePresentation
+        unit={unit}
+        country={country}
+        category={category}
+        mode={mode}
+        owned={owned.includes(unit.id)}
+      />
       <div className="hb-segment">
         <button
           aria-pressed={kind === "vehicle"}
@@ -468,8 +489,7 @@ function Calculator({
       <div className="hb-result">
         <small>剩余研发点</small>
         <strong>
-          {remaining === null ? "待核对" : num(remaining)}
-          <span> RP</span>
+          <ResearchPoints>{remaining === null ? "待核对" : num(remaining)}</ResearchPoints>
         </strong>
         {kind === "vehicle" && <small>含必要前置及等级补研，跳过已拥有载具</small>}
         {kind === "mods" && premium && <small>高级载具配件默认已解锁</small>}
@@ -500,28 +520,27 @@ function Calculator({
           此目标载具已拥有
         </label>
       )}
-      {kind === "mods" && mods?.itemCostsComplete && !premium && (
-        <details>
-          <summary>勾选已完成配件</summary>
-          <div className="hb-part-list">
-            {mods.items.map((part) => (
-              <label key={part.id} className="hb-checkbox">
-                <input
-                  type="checkbox"
-                  checked={completed.has(part.id)}
-                  onChange={(e) =>
-                    setCompleted((prev) => {
-                      const next = new Set(prev);
-                      if (e.target.checked) next.add(part.id);
-                      else next.delete(part.id);
-                      return next;
-                    })
-                  }
-                />
-                <span>{part.name}</span>
-                <small>{num(part.rp)} RP</small>
-              </label>
-            ))}
+      {kind === "mods" && mods && (
+        <details className="hb-modification-picker">
+          <summary>{premium ? "查看已解锁配件" : "勾选已完成配件"}</summary>
+          {!mods.itemCostsComplete && (
+            <p className="hb-fine">配件费用尚未完整核验，暂不可按单项扣除研发点。</p>
+          )}
+          <div className="hb-modification-scroll">
+            <ModificationGrid
+              data={mods}
+              included={!!premium}
+              allUnlockedByDefault={!!premium}
+              completed={[...completed]}
+              onChange={(id, checked) =>
+                setCompleted((previous) => {
+                  const next = new Set(previous);
+                  if (checked) next.add(id);
+                  else next.delete(id);
+                  return next;
+                })
+              }
+            />
           </div>
         </details>
       )}
@@ -546,12 +565,18 @@ function Calculator({
         <details>
           <summary>查看研发路线 · {plan.rows.length} 辆</summary>
           {plan.rows.map((row) => (
-            <div className="hb-route-row" key={row.unit.id}>
-              <span>
-                {row.unit.name}
-                <small>{row.reason}</small>
-              </span>
-              <b>{num(row.rp)} RP</b>
+            <div className="hb-route-step" key={row.unit.id}>
+              <VehiclePresentation
+                unit={row.unit}
+                country={country}
+                category={category}
+                mode={mode}
+                owned={owned.includes(row.unit.id)}
+              />
+              <div className="hb-route-step-note">
+                <span>{row.reason}</span>
+                <ResearchPoints>{num(row.rp)}</ResearchPoints>
+              </div>
             </div>
           ))}
         </details>

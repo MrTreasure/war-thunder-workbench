@@ -8,6 +8,7 @@ import type { CSSProperties } from "react";
 import type { Catalog, Mode, Tree, TreeNode, Vehicle } from "./models";
 
 import { VehicleTile } from "./VehicleTile";
+import { matchesVehicleFilter } from "./vehicle-labels";
 export { modes, rating, rpText } from "./vehicle-labels";
 const at = (left: number, top: number, width?: number, height?: number): CSSProperties => ({
   left,
@@ -71,6 +72,7 @@ export function TreeCanvas({
   filter,
   onSelect,
   locate,
+  ownedVehicleIds,
 }: {
   tree: Tree;
   catalog: Catalog;
@@ -83,6 +85,7 @@ export function TreeCanvas({
   filter: string;
   onSelect: (id: string) => void;
   locate: number;
+  ownedVehicleIds?: ReadonlySet<string>;
 }) {
   const layout = useMemo(() => treeLayout(tree, expanded), [tree, expanded]);
   const refs = useRef(new Map<string, HTMLElement>());
@@ -104,11 +107,7 @@ export function TreeCanvas({
       .toLowerCase()
       .replace(/[^\p{L}\p{N}]/gu, "");
   const needle = normal(query);
-  const visible = (unit: Vehicle) =>
-    filter === "all" ||
-    (filter === "premium" && unit.premium) ||
-    (filter === "other" && !unit.premium && unit.kind !== "squadron") ||
-    unit.kind === filter;
+  const visible = (unit: Vehicle) => matchesVehicleFilter(unit, filter);
   useEffect(() => {
     if (locate && selected) {
       for (const node of tree.ranks.flatMap((rank) => [...rank.research, ...rank.special]))
@@ -237,6 +236,7 @@ export function TreeCanvas({
             >
               <VehicleTile
                 unit={node.members[0]}
+                owned={ownedVehicleIds?.has(node.members[0].id)}
                 {...{ catalog, mode }}
                 selected={node.members[0].id === selected}
                 onSelect={() => onSelect(node.members[0].id)}
@@ -263,6 +263,7 @@ export function TreeCanvas({
                             )}
                           <VehicleTile
                             {...{ unit, catalog, mode }}
+                            owned={ownedVehicleIds?.has(unit.id)}
                             selected={unit.id === selected}
                             onSelect={() => onSelect(unit.id)}
                           />
