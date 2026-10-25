@@ -1,3 +1,4 @@
+import { useVehicleCatalog } from "./vehicle-catalog";
 import { VehicleTile } from "./VehicleTile";
 import { useEffect, useId, useMemo, useState } from "react";
 import { GameSelect } from "./components/GameSelect";
@@ -45,6 +46,14 @@ const watchValid = (value: unknown): value is SaleVehicle[] =>
 function SaleVehicleTile({ vehicle }: { vehicle: SaleVehicle }) {
   return (
     <VehicleTile
+      packQuote={
+        vehicle.originalPrice?.currency === "CNY"
+          ? {
+              amountCents: vehicle.originalPrice.amount,
+              checkedAt: vehicle.originalPrice.checkedAt,
+            }
+          : undefined
+      }
       unit={{
         ...vehicle,
         kind: vehicle.channel === "ge" ? "gold" : vehicle.channel,
@@ -117,6 +126,8 @@ function AddVehicles({
     [category, setCategory] = useState("all"),
     [rank, setRank] = useState("all"),
     [query, setQuery] = useState("");
+  useVehicleCatalog([country]);
+  const [page, setPage] = useState(1);
   const [results, setResults] = useState<SaleVehicle[]>([]),
     [total, setTotal] = useState(0),
     [loading, setLoading] = useState(true),
@@ -127,6 +138,7 @@ function AddVehicles({
       setLoading(true);
       setError("");
       setResults([]);
+      setPage(1);
       void readSaleVehicles(
         `country=${encodeURIComponent(country)}&category=${encodeURIComponent(category)}&rank=${encodeURIComponent(rank)}&q=${encodeURIComponent(query.trim())}`,
         controller.signal,
@@ -196,7 +208,7 @@ function AddVehicles({
         ) : !results.length ? (
           <p>没有找到匹配载具，试试其他名称。</p>
         ) : (
-          results.map((vehicle) => {
+          results.slice((page - 1) * 24, page * 24).map((vehicle) => {
             const added = saved.some((v) => v.id === vehicle.id);
             return (
               <div className="wt-sale-vehicle-option" key={vehicle.id}>
@@ -218,7 +230,18 @@ function AddVehicles({
         )}
       </div>
       <footer>
-        {loading ? "" : `找到 ${total} 辆，展示前 ${results.length} 辆。可继续输入名称缩小范围。`}
+        <span>{loading ? "" : `找到 ${total} 辆`}</span>
+        <div className="wt-sale-picker-pages">
+          <button disabled={page <= 1} onClick={() => setPage(page - 1)}>
+            上一页
+          </button>
+          <span>
+            {page} / {Math.max(1, Math.ceil(results.length / 24))}
+          </span>
+          <button disabled={page * 24 >= results.length} onClick={() => setPage(page + 1)}>
+            下一页
+          </button>
+        </div>
         <button onClick={close}>完成</button>
       </footer>
     </Modal>
@@ -258,6 +281,7 @@ export function SaleCalendar() {
       watchValid,
       (entries) => entries.filter(isSaleWatchVehicle),
     );
+  useVehicleCatalog(watch.map((v) => v.country));
   useEffect(() => {
     const timer = window.setInterval(() => setClock(Date.now()), 1000);
     return () => window.clearInterval(timer);

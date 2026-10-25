@@ -118,7 +118,7 @@ async function loadPublicSaleData(path: string): Promise<unknown> {
   const items = data.items.filter(v => ["ge", "pack", "bundle"].includes(v.channel) && v.country === country &&
     (category === "all" || v.category === category) && (rank === "all" || v.rank === rank) &&
     (v.id + v.name + (v.nameEn || "")).toLowerCase().replace(/ /g, "").includes(search));
-  return { items: items.slice(0, 60), total: items.length, checkedAt: data.checkedAt };
+  return { items, total: items.length, checkedAt: data.checkedAt };
 }
 async function read<T>(path: string, ttl: number, signal?: AbortSignal, force = false): Promise<T> {
   restore();

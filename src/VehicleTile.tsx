@@ -1,3 +1,4 @@
+import { useVehicleFacts, withVehicleFacts } from "./vehicle-catalog";
 import bootstrap from "./generated/bootstrap.json";
 import cardTheme from "../data/vehicle-card-theme.json";
 import type { CSSProperties } from "react";
@@ -34,7 +35,7 @@ export type VehicleTileUnit = Pick<Vehicle, "id" | "name"> & {
   side?: Vehicle["side"];
 };
 export function VehicleTile({
-  unit,
+  unit: suppliedUnit,
   catalog = bootstrap,
   mode = "rb",
   selected = false,
@@ -43,6 +44,7 @@ export function VehicleTile({
   disabled = false,
   className = "",
   modeRating,
+  packQuote,
 }: {
   unit: VehicleTileUnit;
   catalog?: Pick<Catalog, "kinds" | "roles">;
@@ -53,7 +55,11 @@ export function VehicleTile({
   disabled?: boolean;
   className?: string;
   modeRating?: string;
+  packQuote?: { amountCents: number | null; checkedAt: string | null };
 }) {
+  const facts = useVehicleFacts();
+  const unit =
+    suppliedUnit.br && suppliedUnit.role ? suppliedUnit : withVehicleFacts(suppliedUnit, facts);
   const workspace = useAccountWorkspace();
   const owned = ownedOverride ?? !!workspace?.ownedVehicleIds.has(unit.id);
   const premium =
@@ -66,6 +72,12 @@ export function VehicleTile({
     unit.kind === "market" || !!unit.market || cardTheme.marketIconIds.includes(unit.id);
   const name = vehicleDisplayName(unit.name);
   const price = unit.packPrice;
+  const quotedCents =
+    packQuote && Number.isSafeInteger(packQuote.amountCents) && (packQuote.amountCents ?? 0) > 0
+      ? packQuote.amountCents
+      : null;
+  const packCents = quotedCents ?? (price?.status === "priced" ? price.amountCents : null);
+  const packDate = quotedCents !== null ? packQuote?.checkedAt : price?.checkedAt;
   const role =
     unit.role === "spaa"
       ? "aa"
@@ -176,12 +188,10 @@ export function VehicleTile({
       {unit.kind === "pack" && (
         <span
           className="wt-game-pack-price"
-          title={`${price?.title || name} · 价格核对于 ${price?.checkedAt.slice(0, 10) || "—"}`}
+          title={`${price?.title || name} · 价格核对于 ${packDate?.slice(0, 10) || "—"}`}
         >
           <small>整包</small>
-          {price?.status === "priced" && price.amountCents !== null
-            ? cnyPrice(price.amountCents)
-            : "暂无报价"}
+          {packCents != null ? cnyPrice(packCents) : "暂无报价"}
         </span>
       )}
     </Element>

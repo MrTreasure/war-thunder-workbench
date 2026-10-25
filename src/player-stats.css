@@ -1804,12 +1804,12 @@
   font-size: 14px;
   overflow-wrap: anywhere;
 }
-.wt-valuation-research small {
+.wt-valuation-research > article > div > small {
   display: block;
   font-size: 11px;
   color: var(--wt-record-muted);
 }
-.wt-valuation-research strong {
+.wt-valuation-research > article > div > strong {
   display: block;
   color: var(--wt-record-gold);
   font-size: 16px;

@@ -1,3 +1,4 @@
+import { useVehicleCatalog, withVehicleFacts } from "./vehicle-catalog";
 import { VehicleTile } from "./VehicleTile";
 import { garageVehicleRecords } from "./garage-vehicles";
 import {
@@ -49,7 +50,9 @@ export function PlayerGarage({
   const [pageSize, setPageSize] = useState(savedVehiclePageSize);
   const [mode, setMode] = useState("rb");
   const [sort, setSort] = useState<VehicleSort | null>({ key: "battles", direction: "desc" });
-  const units = read.data?.vehicles || [];
+  const rawUnits = read.data?.vehicles || [];
+  const facts = useVehicleCatalog(rawUnits.map((v) => v.country));
+  const units = rawUnits.map((v) => withVehicleFacts(v, facts));
   const filtered = units.filter(
     (v) =>
       statsCountryMatches(v.country, country) &&
@@ -261,12 +264,6 @@ export function PlayerGarage({
                         {owned.rank ? `Rank ${owned.rank}` : "等级待核验"} ·{" "}
                         {noRecords.has(vehicle.id) ? "未出击" : "已出击"}
                       </small>
-                      <button
-                        className="wt-vehicle-text-action"
-                        onClick={() => selectVehicle(vehicle)}
-                      >
-                        查看战绩
-                      </button>
                     </article>
                   );
                 })}

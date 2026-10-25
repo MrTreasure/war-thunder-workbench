@@ -1,6 +1,7 @@
-// Server-only search index, prepared from canonical vehicle data; never shipped as public JSON.
+// Shared public vehicle metadata, prepared from the same verified canonical tree.
+// Served per country through the existing content-addressed public resource cache.
 import { readFile, writeFile } from "node:fs/promises";
-const source = JSON.parse(await readFile(new URL("../data/trees.json", import.meta.url), "utf8"));
+const source = JSON.parse(await readFile(new URL("../data/generated/catalog.json", import.meta.url), "utf8"));
 const prices = JSON.parse(
   await readFile(new URL("../data/store-prices.json", import.meta.url), "utf8"),
 );
@@ -31,6 +32,16 @@ function walk(value, country, category) {
         id: value.id,
         name: value.name,
         nameEn: value.nameEn || "",
+        nameRu: value.nameRu || null,
+        nameJa: value.nameJa || null,
+        nameZhCN: value.nameZhCN || null,
+        premium: value.premium,
+        role: value.role,
+        br: value.br,
+        side: value.side,
+        rp: value.rp ?? null,
+        price: value.price,
+        packPrice: value.packPrice || null,
         country,
         category,
         rank: value.rank,
@@ -60,7 +71,7 @@ function walk(value, country, category) {
                   source: quote?.source || store,
                 }
               : null,
-        market: value.market || null,
+        market: value.market || purchases[value.id]?.market || null,
       });
     }
     Object.values(value).forEach((entry) => walk(entry, country, category));
@@ -73,4 +84,4 @@ await writeFile(
   new URL("../../war-thunder-stats-service/data/sales-vehicles.json", import.meta.url),
   JSON.stringify(result),
 );
-console.log(`Prepared server-only sale search index: ${vehicles.size} vehicles`);
+console.log(`Prepared shared country vehicle metadata: ${vehicles.size} vehicles`);

@@ -154,7 +154,7 @@ export function PlayerVehiclePagination({
         value={pageSize}
         onValueChange={(v) => changeSize(Number(v))}
       >
-        {[20, 40, 80].map((size) => (
+        {[24, 48, 96].map((size) => (
           <option key={size} value={size}>
             {size} 辆 / 页
           </option>
