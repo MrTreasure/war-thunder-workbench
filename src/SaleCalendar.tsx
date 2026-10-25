@@ -19,7 +19,6 @@ import {
   saleDate,
   saleRange,
   saleRate,
-  saleOriginalPrice,
   saleEventNote,
   saleActivity,
   projectSaleForecast,
@@ -46,6 +45,7 @@ const watchValid = (value: unknown): value is SaleVehicle[] =>
 function SaleVehicleTile({ vehicle }: { vehicle: SaleVehicle }) {
   return (
     <VehicleTile
+      footerLabel={`${statsCategoryNames[vehicle.category]} · Rank ${vehicle.rank}`}
       packQuote={
         vehicle.originalPrice?.currency === "CNY"
           ? {
@@ -62,11 +62,10 @@ function SaleVehicleTile({ vehicle }: { vehicle: SaleVehicle }) {
     />
   );
 }
-function VehicleOriginalPrice({ vehicle }: { vehicle: SaleVehicle }) {
+function VehicleQuoteDate({ vehicle }: { vehicle: SaleVehicle }) {
   const quote = vehicle.originalPrice;
   return (
     <div className="wt-sale-original-price">
-      <span>{saleOriginalPrice(vehicle)}</span>
       {quote?.checkedAt && (
         <small>
           核对于{" "}
@@ -213,15 +212,12 @@ function AddVehicles({
             return (
               <div className="wt-sale-vehicle-option" key={vehicle.id}>
                 <SaleVehicleTile vehicle={vehicle} />
-                <div>
-                  <strong>{vehicle.name}</strong>
-                  <span>
-                    {statsCategoryNames[vehicle.category]} · {vehicle.rank}级 ·{" "}
-                    {saleChannels[vehicle.channel]}
-                  </span>
-                  <VehicleOriginalPrice vehicle={vehicle} />
-                </div>
-                <button disabled={added || saved.length >= 60} onClick={() => add(vehicle)}>
+                <VehicleQuoteDate vehicle={vehicle} />
+                <button
+                  className="wt-sale-follow-button"
+                  disabled={added || saved.length >= 60}
+                  onClick={() => add(vehicle)}
+                >
                   {added ? "已关注" : "＋ 关注"}
                 </button>
               </div>
@@ -470,12 +466,10 @@ export function SaleCalendar() {
                   <article key={vehicle.id} className="wt-sale-watch-row">
                     <SaleVehicleTile vehicle={vehicle} />
                     <div className="wt-sale-watch-identity">
-                      <h4>{vehicle.name}</h4>
                       <span>
-                        {countries[vehicle.country]} · {vehicle.rank}级 ·{" "}
-                        {saleChannels[vehicle.channel]}
+                        {countries[vehicle.country]} · {saleChannels[vehicle.channel]}
                       </span>
-                      <VehicleOriginalPrice vehicle={vehicle} />
+                      <VehicleQuoteDate vehicle={vehicle} />
                     </div>
                     <div className="wt-sale-watch-opportunity">
                       {event ? (

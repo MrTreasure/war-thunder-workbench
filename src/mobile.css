@@ -2914,3 +2914,15 @@
   .wt-sale-vehicle-option > .wt-game-card { grid-column: 1 / -1; }
   .wt-sale-vehicle-option > button { grid-column: 2; grid-row: 2; }
 }
+
+@media (max-width: 800px) {
+  .wt-sale-vehicle-option { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
+  .wt-sale-vehicle-option > .wt-sale-follow-button { min-height: 44px; }
+}
+@media (max-width: 380px) {
+  .wt-sale-vehicle-option > .wt-sale-follow-button { padding-inline: 6px; }
+}
+@media (max-width: 540px) {
+  .wt-sale-vehicle-option > .wt-game-card { grid-column: 1; grid-row: 1; }
+  .wt-sale-vehicle-option > .wt-sale-follow-button { grid-column: 2; grid-row: 1; }
+}

@@ -45,6 +45,7 @@ export function VehicleTile({
   className = "",
   modeRating,
   packQuote,
+  footerLabel,
 }: {
   unit: VehicleTileUnit;
   catalog?: Pick<Catalog, "kinds" | "roles">;
@@ -56,6 +57,7 @@ export function VehicleTile({
   className?: string;
   modeRating?: string;
   packQuote?: { amountCents: number | null; checkedAt: string | null };
+  footerLabel?: string;
 }) {
   const facts = useVehicleFacts();
   const unit =
@@ -184,6 +186,11 @@ export function VehicleTile({
           height={26}
           alt="护身符"
         />
+      )}
+      {footerLabel && (
+        <span className="wt-game-card-caption" title={footerLabel}>
+          {footerLabel}
+        </span>
       )}
       {unit.kind === "pack" && (
         <span
