@@ -19,7 +19,7 @@ const build = spawnSync(
 );
 if (build.status !== 0) throw Error("Static preview build failed");
 const out = new URL("../artifacts/heybox-static-preview/site/", import.meta.url);
-const shots = new URL("../artifacts/heybox-mobile-fixes-20261025/", import.meta.url);
+const shots = new URL("../artifacts/heybox-complete-20261025/", import.meta.url);
 await mkdir(new URL("heybox-preview/", out), { recursive: true });
 const entry = await readFile(new URL("index.html", out), "utf8");
 if (!entry.includes('src="/war-thunder-trees/assets/') || /(?:src|href)="\/assets\//.test(entry))
@@ -33,23 +33,42 @@ async function asset(name, body, ext) {
   return "../" + path;
 }
 const records = [
-  ["android-02-tree", "研发科技树", "Android", "按国家读取，保留原版游戏卡片与科技树布局。"],
-  ["android-03-research-detail", "载具与配件研发", "Android", "独立详情页；返回清除载具选择。"],
-  ["android-04-filters", "研发筛选", "Android", "筛选作为独立页面，保留来源页状态。"],
-  ["android-05-vehicle-list", "载具列表", "Android", "共用 228×76 载具卡片，右下等级页脚。"],
-  ["android-06-account", "我的工作台", "Android", "保留关联入口和主站完整能力入口。"],
   [
-    "android-07-link-account",
-    "关联网页账号",
-    "Android",
-    "输入关联码；真实授权与确认需在小黑盒 APP 内进行。",
+    "achievement-share-mobile",
+    "单载具成就与原生分享",
+    "浏览器 · 测试数据",
+    "直接调用 PC createVehicleCard；底部延伸原背景，接缝柔化，预留 64px 平台水印空间。",
   ],
-  ["android-08-main-site", "体验完整工作台", "Android", "前往既有 QMuse 主站，提供真实地址。"],
-  ["android-09-query", "真实玩家搜索", "Android", "匿名查询返回真实候选；未注入接口响应。"],
-  ["query-profile", "真实战绩成功记录", "iPhone", "该次查询成功；重复流程仍出现连接失败。"],
-  ["iphone-01-account", "我的工作台", "iPhone", "安全区域检查通过，图标成功解码。"],
-  ["iphone-02-link-account", "关联网页账号", "iPhone", "使用独立详情页，未模拟登录。"],
-  ["failure", "复测连接失败", "Android", "保留失败记录：REQUEST_FAILED。查询稳定性尚未通过。"],
+  [
+    "career-report-pc-preview",
+    "完整个人战报",
+    "浏览器 · 测试数据",
+    "PC 与小程序共用完整战报生成器；图片中的点评为明确验收示例，不是真实 AI 分析。",
+  ],
+  [
+    "mock-tree-fullscreen",
+    "全屏科技树",
+    "浏览器交互验收",
+    "双指缩放，隐藏应用导航，仅保留科技树和退出图标；未修改宿主系统全屏。",
+  ],
+  [
+    "mock-history",
+    "本地查询记录",
+    "浏览器 · 测试数据",
+    "本地只保存有界 UID／快照引用；重开后恢复，读取当前服务端审核资料，支持清除。",
+  ],
+  [
+    "mock-valuation-basis",
+    "估值依据",
+    "浏览器 · 测试数据",
+    "展示该次服务端返回的费率和金额口径，不在小程序重算。",
+  ],
+  [
+    "mock-valuation-vehicles",
+    "估值载具明细",
+    "浏览器 · 测试数据",
+    "按国家、获取类型及已核实拥有筛选，复用共用载具卡，按批追加。",
+  ],
 ];
 const pages = [];
 for (const [name, title, device, note] of records) {
