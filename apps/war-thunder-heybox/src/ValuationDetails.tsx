@@ -5,6 +5,7 @@ import { GameSelect } from "../../../src/components/GameSelect";
 import { DetailPage, num, ErrorNote } from "./ui";
 import { VehiclePresentation, useMiniappVehicleFacts } from "./VehiclePresentation";
 import catalog from "../../../src/generated/bootstrap.json";
+import { valuationVehicleOwned } from "./valuation-ownership";
 const names = { normal: "正常价值", discount: "折扣价值", secondHand: "参考价值" };
 export function miniMoney(cents: number | null | undefined) {
   if (cents == null || !Number.isSafeInteger(cents)) return "待核价";
@@ -32,12 +33,16 @@ export function valuationRows(value: Valuation): Row[] {
       group,
       unit,
       note: "",
-      owned: unit.owned === true,
+      owned: valuationVehicleOwned(unit, value.ownership),
       ...extra,
     });
   value.research.forEach((v) =>
     add("普通研发", v, {
-      note: v.owned ? "" : v.observed ? "有出击记录，尚未核实拥有" : "推算前置，不代表实际拥有",
+      note: valuationVehicleOwned(v, value.ownership)
+        ? ""
+        : v.observed
+          ? "有出击记录，尚未核实拥有"
+          : "推算前置，不代表实际拥有",
       source: v.rpSource,
       checkedAt: v.rpCheckedAt,
     }),
@@ -182,9 +187,9 @@ export function MiniappValuationDetails({ valuation: value }: { valuation: Valua
           close={() => setDetail(null)}
         >
           <h2>估值载具明细</h2>
-          <p className="hb-fine">
-            仅已核实拥有的载具展示黑桃；出击记录及推算前置单独标记。礼包金额为整包报价。
-          </p>
+          {!value.ownership?.verified && (
+            <p className="hb-fine">本次未取得车库清单，按出击记录与研发前置展示。</p>
+          )}
           <div className="hb-stats-filters">
             <GameSelect
               aria-label="估值载具国家"
@@ -217,17 +222,19 @@ export function MiniappValuationDetails({ valuation: value }: { valuation: Valua
               ))}
             </GameSelect>
           </div>
-          <label className="hb-owned-filter">
-            <input
-              type="checkbox"
-              checked={onlyOwned}
-              onChange={(e) => {
-                setOnlyOwned(e.target.checked);
-                setLimit(24);
-              }}
-            />
-            只看已核实拥有
-          </label>
+          {rows.some((row) => row.owned) && rows.some((row) => !row.owned) && (
+            <label className="hb-owned-filter">
+              <input
+                type="checkbox"
+                checked={onlyOwned}
+                onChange={(e) => {
+                  setOnlyOwned(e.target.checked);
+                  setLimit(24);
+                }}
+              />
+              只看已核实拥有
+            </label>
+          )}
           <ErrorNote error={facts.error} />
           {facts.error && <button onClick={facts.retry}>重新加载资料</button>}
           <div className="hb-value-vehicles">
