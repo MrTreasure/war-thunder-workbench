@@ -110,14 +110,17 @@ export default function Account({
     <section className="hb-scroll hb-page">
       <div className="hb-account-heading">
         <div className="hb-account-avatar">
-          {view.user?.avatarUrl ? (
-            <AccountAvatar user={view.user} className="wt-account-avatar-large" />
+          {view.hostProfile?.avatarUrl || view.user?.avatarUrl ? (
+            <AccountAvatar
+              user={view.user || view.hostProfile}
+              className="wt-account-avatar-large"
+            />
           ) : (
             <Icon name="account" />
           )}
         </div>
         <div>
-          <h2>{view.user?.displayName || "我的工作台"}</h2>
+          <h2>{view.hostProfile?.displayName || view.user?.displayName || "我的工作台"}</h2>
           <p>{view.status === "authenticated" ? "小黑盒账号已授权" : "游客也可使用公开功能"}</p>
         </div>
       </div>

@@ -101,7 +101,11 @@ export default function App() {
       }}
     >
       <WorkspaceContext value={workspace}>
-        <NavigationProvider root={"#/" + page} suspended={privateCheck}>
+        <NavigationProvider
+          root={"#/" + page}
+          suspended={privateCheck}
+          onHome={() => navigate("research")}
+        >
           <main className="hb-app">
             <header className="hb-app-header">
               <div>
@@ -119,12 +123,12 @@ export default function App() {
                 aria-label="打开我的账号"
                 onClick={() => navigate("account")}
               >
-                {view.user?.avatarUrl ? (
-                  <AccountAvatar user={view.user} />
+                {view.hostProfile?.avatarUrl || view.user?.avatarUrl ? (
+                  <AccountAvatar user={view.user || view.hostProfile} />
                 ) : (
                   <Icon name="account" />
                 )}
-                <span>{view.user?.displayName || "游客"}</span>
+                <span>{view.hostProfile?.displayName || view.user?.displayName || "游客"}</span>
               </button>
             </header>
             <div className="hb-views" key={scope}>

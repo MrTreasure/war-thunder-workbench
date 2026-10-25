@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import type { PlayerProfile, PlayerVehicle, StatsReport } from "../../../src/player-stats-api";
 import { createVehicleCard } from "../../../src/player-vehicle-export";
 import { createStatsReportImage } from "../../../src/player-report-export";
@@ -36,6 +37,8 @@ export function AchievementShare({
   const [image, setImage] = useState(""),
     [retry, setRetry] = useState(0),
     [aspect, setAspect] = useState(2 / 3);
+  const [capturing, setCapturing] = useState(false);
+  const capture = useRef<HTMLElement>(null);
   const poster = useRef<HTMLElement>(null),
     alive = useRef(true);
   useEffect(() => {
@@ -47,10 +50,6 @@ export function AchievementShare({
   useEffect(() => {
     const c = new AbortController();
     let url = "";
-    setRendering(true);
-    setImage("");
-    setError("");
-    setNotice("");
     const terrain = reportAssets.backgrounds.find((v) => v.id === background);
     const result = vehicle
       ? createVehicleCard(profile, vehicle, c.signal, era)
@@ -75,13 +74,24 @@ export function AchievementShare({
       if (url) URL.revokeObjectURL(url);
     };
   }, [profile, vehicle, report, era, background, retry]);
+  function beginRendering() {
+    setRendering(true);
+    setImage("");
+    setError("");
+    setNotice("");
+  }
   async function share() {
     if (busy || rendering || !image || !poster.current) return;
     setBusy(true);
     setError("");
     setNotice("");
     try {
-      await shareReportPoster(sdk, poster.current, () => alive.current);
+      setCapturing(true);
+      await new Promise<void>((resolve) =>
+        requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+      );
+      if (!capture.current || !alive.current) throw Error("分享预览已关闭。");
+      await shareReportPoster(sdk, capture.current, () => alive.current, { fullWindow: true });
       if (alive.current) setNotice("请在小黑盒分享面板确认保存或发布。");
     } catch (e) {
       if (alive.current)
@@ -93,7 +103,10 @@ export function AchievementShare({
               : "分享暂未完成，请重试。",
         );
     } finally {
-      if (alive.current) setBusy(false);
+      if (alive.current) {
+        setBusy(false);
+        setCapturing(false);
+      }
     }
   }
   return (
@@ -112,7 +125,12 @@ export function AchievementShare({
           disabled={busy || rendering}
           aria-label="战报背景"
           value={vehicle ? era : background}
-          onValueChange={(v) => (vehicle ? setEra(v as VehicleCardEra) : setBackground(v))}
+          onValueChange={(v) => {
+            if (v === (vehicle ? era : background)) return;
+            beginRendering();
+            if (vehicle) setEra(v as VehicleCardEra);
+            else setBackground(v);
+          }}
         >
           {vehicle
             ? Object.entries(vehicleCardBackgrounds).map(([id, v]) => (
@@ -137,14 +155,23 @@ export function AchievementShare({
       <ErrorNote error={error} />
       {notice && <output>{notice}</output>}
       {rendering && <output>正在生成战报图片…</output>}
-      {error && !image && <button onClick={() => setRetry((n) => n + 1)}>重新生成</button>}
+      {error && !image && (
+        <button
+          onClick={() => {
+            beginRendering();
+            setRetry((n) => n + 1);
+          }}
+        >
+          重新生成
+        </button>
+      )}
       {image && (
         <div className="hb-share-preview">
           <article
             className="hb-achievement-poster"
             ref={poster}
             aria-label="战报图片预览"
-            style={{ "--hb-poster-ratio": aspect } as React.CSSProperties}
+            style={{ "--wt-poster-ratio": aspect } as React.CSSProperties}
           >
             <img
               className="hb-generated-report"
@@ -166,6 +193,26 @@ export function AchievementShare({
           </article>
         </div>
       )}
+      {capturing &&
+        image &&
+        createPortal(
+          <article
+            className="hb-native-capture"
+            ref={capture}
+            aria-label="完整战报保存画布"
+            style={{
+              backgroundImage: `url("${vehicle ? vehicleCardBackgroundUrls[era] : reportAssets.backgrounds.find((v) => v.id === background)?.source || ""}")`,
+            }}
+          >
+            <img src={image} alt={vehicle ? "完整载具成就卡" : "完整个人战报"} />
+            <div
+              className="hb-achievement-watermark-reserve"
+              aria-hidden="true"
+              style={{ background: "transparent" }}
+            />
+          </article>,
+          document.body,
+        )}
       <p className="hb-fine">保存及分享时，小黑盒会在底部空白处添加平台水印。</p>
     </DetailPage>
   );
