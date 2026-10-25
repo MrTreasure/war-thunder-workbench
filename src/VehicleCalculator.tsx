@@ -721,9 +721,9 @@ export function VehicleCalculator({
                       }}
                     />
                     <span className="wt-research-tile-entry">
-                      <VehicleTile unit={row.unit} catalog={catalog} />
+                      <VehicleTile unit={row.unit} catalog={catalog} showRank />
                       <small>
-                        {i + 1}. Rank {row.unit.rank} · {row.reason}
+                        {i + 1}. {row.reason}
                       </small>
                     </span>
                     {editingCosts && (

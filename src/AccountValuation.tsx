@@ -148,8 +148,23 @@ function valuationUnitPrice(cents: number) {
     .replace(/0+$/, "");
   return `¥${(value / 100n).toLocaleString("zh-CN")}${fraction ? "." + fraction : ""}`;
 }
-function ValuationVehicle({ item }: { item: Item }) {
-  return <VehicleTile unit={item} owned={item.owned ?? false} />;
+function ValuationVehicle({
+  item,
+  showCountry = true,
+  showRank = true,
+}: {
+  item: Item;
+  showCountry?: boolean;
+  showRank?: boolean;
+}) {
+  return (
+    <VehicleTile
+      unit={item}
+      owned={item.owned ?? false}
+      showRank={showRank}
+      countryLabel={showCountry ? statsCountryLabel(item.country) : undefined}
+    />
+  );
 }
 function ProductCard({
   title,
@@ -182,6 +197,8 @@ function ProductCard({
               price: vehicleKind === "gold" ? item.ge : item.price,
             }}
             owned={owned}
+            showRank
+            countryLabel={statsCountryLabel(item.country)}
           />
         ))}
       </div>
@@ -566,7 +583,6 @@ export function AccountValuation({
     (currentResearchPage - 1) * 10,
     currentResearchPage * 10,
   );
-  const countryName = statsCountryLabel;
   const selectedScenario = value?.scenarios[scenarioKey];
   const selectedRule = value?.rules.scenarios[scenarioKey];
   const knownItems = new Map<
@@ -890,11 +906,6 @@ export function AccountValuation({
                     <ValuationVehicle item={item} />
                     <div>
                       <h4 className="wt-vehicle-name">{vehicleDisplayName(item.name)}</h4>
-                      <small>
-                        {countryName(item.country)} ·{" "}
-                        {statsCategoryNames[item.category] || item.category} ·{" "}
-                        {item.rank ? `Rank ${item.rank}` : "等级待核验"}
-                      </small>
                       <span className="wt-valuation-unpriced-reason">{item.reason}</span>
                     </div>
                   </article>
@@ -945,7 +956,11 @@ export function AccountValuation({
               <div className="wt-valuation-research">
                 {visibleResearch.map((v) => (
                   <article key={v.id}>
-                    <ValuationVehicle item={v} />
+                    <ValuationVehicle
+                      item={v}
+                      showCountry={researchCountry === "all"}
+                      showRank={researchRank === "all"}
+                    />
                     <div>
                       <h4>
                         {v.rpSource ? (
@@ -963,9 +978,7 @@ export function AccountValuation({
                             : "已拥有 · 未出战"
                           : v.observed
                             ? "有出战记录"
-                            : "根据当前前置推算"}{" "}
-                        · {countryName(v.country)} · {statsCategoryNames[v.category] || v.category}{" "}
-                        · {v.rank ? `Rank ${v.rank}` : "等级待核验"}
+                            : "根据当前前置推算"}
                       </small>
                       <strong>{statsNumber(v.rp)} RP</strong>
                       <small>
@@ -1013,6 +1026,8 @@ export function AccountValuation({
                         <div className="wt-valuation-unpriced-art">
                           {vehicles.map((item) => (
                             <ValuationVehicle
+                              showCountry={unpricedFilters.country === "all"}
+                              showRank={unpricedFilters.rank === "all"}
                               key={item.id}
                               item={{
                                 id: item.id,
@@ -1036,16 +1051,6 @@ export function AccountValuation({
                           {v.owned && (
                             <small>{v.observed ? "已拥有 · 有出战记录" : "已拥有 · 未出战"}</small>
                           )}
-                          {vehicles.map((item) => (
-                            <small key={item.id}>
-                              {vehicles.length > 1 ? `${item.name} · ` : ""}
-                              {item.country ? countryName(item.country) : "国别待核验"} ·{" "}
-                              {item.category
-                                ? statsCategoryNames[item.category] || item.category
-                                : "军种待核验"}{" "}
-                              · {item.rank ? `Rank ${item.rank}` : "等级待核验"}
-                            </small>
-                          ))}
                           {v.rp != null && <strong>{statsNumber(v.rp)} RP</strong>}
                           <span className="wt-valuation-unpriced-reason">{v.reason}</span>
                           {v.rpCheckedAt && <small>研发点核验 {statsDate(v.rpCheckedAt)}</small>}

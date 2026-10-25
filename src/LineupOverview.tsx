@@ -40,7 +40,7 @@ export function LineupSummary({
                   unit={unit}
                   catalog={catalog}
                   mode={mode}
-                  footerLabel={`${catalog.categories[unit.category]} · Rank ${unit.rank}`}
+                  showRank
                   modeRating={lineupCardRating(unit, lineup.battleType, mode)}
                 />
               ) : (
