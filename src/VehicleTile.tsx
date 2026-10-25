@@ -46,6 +46,7 @@ export function VehicleTile({
   className = "",
   modeRating,
   packQuote,
+  footerLabel,
 }: {
   unit: VehicleTileUnit;
   catalog?: Pick<Catalog, "kinds" | "roles">;
@@ -57,6 +58,7 @@ export function VehicleTile({
   className?: string;
   modeRating?: string;
   packQuote?: { amountCents: number | null; checkedAt: string | null };
+  footerLabel?: string;
 }) {
   useLocale();
   const facts = useVehicleFacts();
@@ -202,6 +204,11 @@ export function VehicleTile({
             alt={t("护身符")}
           />
         ),
+      )}
+      {footerLabel && (
+        <span className="wt-game-card-caption" title={footerLabel}>
+          {footerLabel}
+        </span>
       )}
       {localize(
         unit.kind === "pack" && (

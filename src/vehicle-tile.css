@@ -205,3 +205,17 @@
 .wt-garage-tiles .wt-vehicle-option { min-width: 0; }
 @media (max-width: 1500px) { .wt-garage-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @media (max-width: 1080px) { .wt-garage-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* Rank and whole-pack price share one footer row, independent of acquisition type. */
+.vehicle-card.wt-game-card:has(> .wt-game-card-caption) { margin-bottom: 24px; }
+.vehicle-card.wt-game-card > .wt-game-card-caption { position: absolute; top: calc(100% + 1px); right: -1px; max-width: 100%; height: 24px; padding: 0 2px; color: var(--wt-muted); font: 400 11px/24px var(--wt-sans); white-space: nowrap; text-align: right; overflow: hidden; text-overflow: ellipsis; }
+.vehicle-card.wt-game-card[data-kind="pack"] > .wt-game-card-caption { max-width: calc(100% - 100px); }
+.lineup-summary-slots > li > .wt-game-card:has(> .wt-game-card-caption),
+.lineup-slot-select > .wt-game-card:has(> .wt-game-card-caption) { margin-bottom: 24px; }
+.wt-sale-vehicle-option { grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 8px 14px; padding: 22px 0 14px; }
+.wt-sale-vehicle-option > .wt-game-card { grid-column: 1; grid-row: 1; }
+.wt-sale-vehicle-option > .wt-sale-original-price { grid-column: 1 / -1; grid-row: 2; margin: 0; }
+.wt-sale-vehicle-option > .wt-sale-follow-button { grid-column: 2; grid-row: 1; align-self: start; justify-self: end; min-height: 36px; padding: 6px 12px; border: 1px solid var(--wt-gold-line); border-radius: 3px; color: var(--wt-gold); background: var(--wt-surface); font: 400 12px/1.5 var(--wt-sans); white-space: nowrap; }
+.wt-sale-follow-button:not(:disabled):hover { background: var(--wt-raised); border-color: var(--wt-gold); }
+.wt-sale-follow-button:focus-visible { outline: 2px solid var(--wt-gold); outline-offset: 3px; }
+.wt-sale-follow-button:disabled { opacity: .5; cursor: default; }

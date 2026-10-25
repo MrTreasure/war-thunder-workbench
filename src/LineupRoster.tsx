@@ -281,21 +281,18 @@ export function LineupRoster({
                         unit={unit}
                         mode={mode}
                         selected={activeSlot === index}
+                        footerLabel={`${localize(categories[unit.category])} · Rank ${unit.rank}`}
                         modeRating={brLabel(vehicleStep(unit, battleType, mode))}
                       />
                     ) : (
                       <span className="lineup-slot-placeholder">＋</span>
                     ),
                   )}
-                  <span className="lineup-slot-caption">
-                    {localize(
-                      unit
-                        ? `${categories[unit.category]} · Rank ${unit.rank}`
-                        : id
-                          ? t("资料缺失：{0}", [localize(id)])
-                          : t("选择载具"),
-                    )}
-                  </span>
+                  {!unit && (
+                    <span className="lineup-slot-caption">
+                      {id ? t("资料缺失：{0}", [id]) : t("选择载具")}
+                    </span>
+                  )}
                 </button>
                 <div className="lineup-slot-tools">
                   <button

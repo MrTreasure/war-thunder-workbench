@@ -45,19 +45,13 @@ export function LineupSummary({
                       unit={unit}
                       catalog={catalog}
                       mode={mode}
+                      footerLabel={`${localize(catalog.categories[unit.category])} · Rank ${unit.rank}`}
                       modeRating={brLabel(vehicleStep(unit, lineup.battleType, mode))}
                     />
                   ) : (
                     <span className="lineup-summary-placeholder">
                       {localize(id ? t("资料待更新") : t("空槽位"))}
                     </span>
-                  ),
-                )}
-                {localize(
-                  unit && (
-                    <small>
-                      {localize(catalog.categories[unit.category])} · Rank {localize(unit.rank)}
-                    </small>
                   ),
                 )}
                 {localize(

@@ -292,13 +292,12 @@ export function PlayerGarage({
                           <VehicleTile
                             unit={{ ...owned, image: vehicle.image, thumbnail: vehicle.thumbnail }}
                             owned
+                            footerLabel={owned.rank ? `Rank ${owned.rank}` : undefined}
                             mode={mode as "ab" | "rb" | "sb"}
                             onSelect={() => selectVehicle(vehicle)}
                           />
                           <small>
                             {localize(statsCountryLabel(owned.country))} ·{localize(" ")}
-                            {localize(owned.rank ? `Rank ${owned.rank}` : t("等级待核验"))} ·
-                            {localize(" ")}
                             {localize(noRecords.has(vehicle.id) ? t("未出击") : t("已出击"))}
                           </small>
                         </article>
