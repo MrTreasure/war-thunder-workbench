@@ -165,6 +165,7 @@ function ValuationVehicle({
   return (
     <VehicleTile
       unit={item}
+      href={"https://wiki.warthunder.com/unit/" + encodeURIComponent(item.id)}
       owned={item.owned ?? false}
       showRank={showRank}
       countryLabel={showCountry ? localize(statsCountryLabel(item.country)) : undefined}
@@ -192,13 +193,14 @@ function ProductCard({
 }) {
   return (
     <article
-      className={`wt-valuation-product${vehicleKind === "pack" ? " wt-valuation-product-pack" : ""}`}
+      className={`wt-valuation-product${vehicleKind === "pack" && items.length > 1 ? " wt-valuation-product-pack" : ""}`}
     >
       <div className="wt-valuation-product-media">
         {localize(
           items.map((item) => (
             <VehicleTile
               key={item.id}
+              href={"https://wiki.warthunder.com/unit/" + encodeURIComponent(item.id)}
               unit={{
                 ...item,
                 kind: vehicleKind || item.kind,
@@ -212,12 +214,22 @@ function ProductCard({
         )}
       </div>
       <div className="wt-valuation-product-body">
-        <small className="wt-valuation-product-kind">{localize(kind)}</small>
-        <h4>
-          <a href={source} target="_blank" rel="noreferrer">
-            {t(title)} <span aria-hidden="true">↗</span>
-          </a>
-        </h4>
+        <small className="wt-valuation-product-kind">
+          {vehicleKind === "pack" ? (
+            <a href={source} target="_blank" rel="noreferrer">
+              {localize(kind)} ↗
+            </a>
+          ) : (
+            localize(kind)
+          )}
+        </small>
+        {vehicleKind === "pack" && items.length > 1 && (
+          <h4>
+            <a href={source} target="_blank" rel="noreferrer">
+              {t(title)} <span aria-hidden="true">↗</span>
+            </a>
+          </h4>
+        )}
         <strong className="wt-valuation-product-price">{localize(price)}</strong>
         <div className="wt-valuation-product-notes">{localize(children)}</div>
       </div>
@@ -240,21 +252,18 @@ function subscribeProductColumns(listener: () => void) {
   queries.forEach((query) => query.addEventListener("change", listener));
   return () => queries.forEach((query) => query.removeEventListener("change", listener));
 }
-function ProductShelf({ children, packs = false }: { children: ReactNode[]; packs?: boolean }) {
+function ProductShelf({ children }: { children: ReactNode[] }) {
   const [expanded, setExpanded] = useState(false);
   const columns = useSyncExternalStore(subscribeProductColumns, productColumns, () => 2);
   const id = useId(),
-    visible = expanded ? children : children.slice(0, (packs ? 1 : columns) * 3);
+    visible = expanded ? children : children.slice(0, columns * 3);
   return (
     <>
-      <div
-        className={`wt-valuation-products${packs ? " wt-valuation-products-packs" : ""}`}
-        id={id}
-      >
+      <div className="wt-valuation-products" id={id}>
         {localize(visible)}
       </div>
       {localize(
-        children.length > (packs ? 1 : columns) * 3 && (
+        children.length > columns * 3 && (
           <div className="wt-valuation-shelf-actions">
             <small>
               {t("显示")}
@@ -999,10 +1008,6 @@ export function AccountValuation({
                                 ])}
                                 price={valuationMoney(v.amountCents)}
                               >
-                                <span>
-                                  {localize(statsNumber(v.ge))}
-                                  {t("GE · 原价折算")}
-                                </span>
                                 {localize(
                                   v.checkedAt && (
                                     <small>
@@ -1032,31 +1037,33 @@ export function AccountValuation({
                       value.packs.length ? (
                         <ProductShelf>
                           {localize(
-                            sortValuationPrices(value.packs).map((p) => (
-                              <ProductCard
-                                key={p.productId}
-                                owned={!!value.ownership?.verified}
-                                vehicleKind="pack"
-                                title={p.title}
-                                source={p.source}
-                                items={p.vehicles}
-                                kind={t("整包原价 · 已识别 {0} 辆", [localize(p.vehicles.length)])}
-                                price={valuationMoney(p.amountCents)}
-                              >
-                                {localize(
-                                  p.vehicles.length === 1 && (
-                                    <span>{localize(p.vehicles[0].name)}</span>
-                                  ),
-                                )}
-                                <small>
-                                  {localize(
-                                    p.checkedAt
-                                      ? t("核验 {0}", [localize(statsDate(p.checkedAt))])
-                                      : t("尚无有效报价"),
-                                  )}
-                                </small>
-                              </ProductCard>
-                            )),
+                            sortValuationPrices(value.packs)
+                              .sort(
+                                (a, b) =>
+                                  Number(a.vehicles.length > 1) - Number(b.vehicles.length > 1),
+                              )
+                              .map((p) => (
+                                <ProductCard
+                                  key={p.productId}
+                                  owned={!!value.ownership?.verified}
+                                  vehicleKind="pack"
+                                  title={p.title}
+                                  source={p.source}
+                                  items={p.vehicles}
+                                  kind={t("整包原价 · 已识别 {0} 辆", [
+                                    localize(p.vehicles.length),
+                                  ])}
+                                  price={valuationMoney(p.amountCents)}
+                                >
+                                  <small>
+                                    {localize(
+                                      p.checkedAt
+                                        ? t("核验 {0}", [localize(statsDate(p.checkedAt))])
+                                        : t("尚无有效报价"),
+                                    )}
+                                  </small>
+                                </ProductCard>
+                              )),
                           )}
                         </ProductShelf>
                       ) : (
@@ -1165,7 +1172,6 @@ export function AccountValuation({
                               <article key={item.id}>
                                 <ValuationVehicle item={item} />
                                 <div>
-                                  <h4 className="wt-vehicle-name">{vehicleName(item)}</h4>
                                   <span className="wt-valuation-unpriced-reason">
                                     {localize(item.reason)}
                                   </span>
@@ -1242,17 +1248,6 @@ export function AccountValuation({
                                   showRank={researchRank === "all"}
                                 />
                                 <div>
-                                  <h4>
-                                    {localize(
-                                      v.rpSource ? (
-                                        <a href={v.rpSource} target="_blank" rel="noreferrer">
-                                          {vehicleName(v)}
-                                        </a>
-                                      ) : (
-                                        v.name
-                                      ),
-                                    )}
-                                  </h4>
                                   <small>
                                     {localize(
                                       v.owned
@@ -1353,17 +1348,23 @@ export function AccountValuation({
                                         )}
                                       </div>
                                       <div>
-                                        <h4>
-                                          {localize(
-                                            v.rpSource ? (
-                                              <a href={v.rpSource} target="_blank" rel="noreferrer">
-                                                {vehicleName(v)}
-                                              </a>
-                                            ) : (
-                                              v.name
-                                            ),
-                                          )}
-                                        </h4>
+                                        {vehicles.length > 1 && (
+                                          <h4>
+                                            {localize(
+                                              v.rpSource ? (
+                                                <a
+                                                  href={v.rpSource}
+                                                  target="_blank"
+                                                  rel="noreferrer"
+                                                >
+                                                  {vehicleName(v)}
+                                                </a>
+                                              ) : (
+                                                v.name
+                                              ),
+                                            )}
+                                          </h4>
+                                        )}
                                         {localize(
                                           v.owned && (
                                             <small>

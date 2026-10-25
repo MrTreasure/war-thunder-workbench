@@ -41,6 +41,7 @@ export function VehicleTile({
   mode = "rb",
   selected = false,
   onSelect,
+  href,
   owned: ownedOverride,
   disabled = false,
   className = "",
@@ -55,6 +56,8 @@ export function VehicleTile({
   mode?: Mode;
   selected?: boolean;
   onSelect?: () => void;
+  /** Optional trusted destination for read-only vehicle listings. */
+  href?: string;
   owned?: boolean;
   disabled?: boolean;
   className?: string;
@@ -117,7 +120,7 @@ export function VehicleTile({
   const caption = [countryLabel, footerLabel, showRank && unit.rank ? `Rank ${unit.rank}` : null]
     .filter(Boolean)
     .join(" · ");
-  const Element = onSelect ? "button" : "span";
+  const Element = onSelect ? "button" : href ? "a" : "span";
   const mediaUnit = {
     ...unit,
     imageUrl: unit.imageUrl || unit.image,
@@ -126,7 +129,10 @@ export function VehicleTile({
   return (
     <Element
       className={`vehicle-card wt-game-card ${premium ? "is-premium" : ""} ${special ? "is-special" : ""} ${owned ? "is-owned" : ""} ${unit.kind === "squadron" ? "is-squadron" : ""} ${selected ? "is-selected" : ""} ${className}`}
-      role={onSelect ? undefined : "group"}
+      role={onSelect || href ? undefined : "group"}
+      href={onSelect ? undefined : href}
+      target={!onSelect && href ? "_blank" : undefined}
+      rel={!onSelect && href ? "noreferrer" : undefined}
       data-kind={unit.kind || "unknown"}
       data-owned={owned || undefined}
       disabled={onSelect ? disabled : undefined}

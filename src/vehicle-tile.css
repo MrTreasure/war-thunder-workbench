@@ -120,9 +120,6 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
-.wt-valuation-products-packs {
-  grid-template-columns: minmax(0, 1fr);
-}
 .wt-valuation-product,
 .wt-valuation-research > article {
   display: grid;
@@ -284,3 +281,6 @@
   text-overflow: ellipsis;
 }
 .wt-game-card-caption-rank { flex: 0 0 auto; }
+
+/* Read-only vehicle links retain the shared game tile appearance. */
+a.vehicle-card.wt-game-card { color: inherit; text-decoration: none; cursor: pointer; }
