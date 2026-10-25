@@ -24,8 +24,9 @@
 - React + Vite + TypeScript 7, using the supplied QMuse template configuration,
   TanStack file routes and Tailwind v4. Use pnpm and keep exact dependency versions.
 - Run `pnpm run typecheck`, `pnpm run lint`, `pnpm run check:data`, and
-  `pnpm run build` for routine verification. UI acceptance is manual;
-  do not use browser automation unless the user requests it.
+  `pnpm run build` for routine verification. UI acceptance includes Playwright screenshot verification for this project,
+  explicitly authorized by the user on 2026-10-25. Preserve manual native-client
+  acceptance for capabilities that Browser Mock cannot prove.
 - All vehicle-specific data, prices, prerequisites, ranks, BR, flags,
   modification costs and provenance belong in `data/*.json`, not JSX.
 - Pack prices use verified official CNY amounts in integer cents from
@@ -472,3 +473,19 @@
 
 - 科技树 `/tree` 不挂载公共页脚。其余页面使用紧凑页脚，仅显示非官方提示、免责声明、反馈、主站／国际站链接及 QMuse 平台署名；识别当前站点，不携带账号或会话参数切站。
 - 完整来源、非官方关系、版权归属、参考性质及权益联系说明放在独立 `#/disclaimer` 页面。此页面不得触发国家资料加载。国际站功能说明和语言链接移入该页面，新增文案补齐英、俄、日。
+
+## 截图验收授权（2026-10-25，仅本项目）
+
+- 用户明确允许本项目在开发和交付时使用 Playwright 进行浏览器交互、布局检查与截图验收；不再需要为本项目每轮截图重复询问。此授权不扩展到其他项目。
+- 网页和黑盒小程序的 Browser Mock 应按实际可用环境分别验证；报告须标明浏览器／SDK Mock／真机环境，不把模拟授权、测试资料或浏览器截图冒充小黑盒真实登录和真机通过。
+- 截图、日志与最终验收报告保存在本机忽略的 `artifacts/`，对敏感身份、凭据与开发票据做隔离，截图不包含调试二维码或原始鉴权日志。汇总通过项、缺陷修复、未通过项及验证范围后交付用户。
+
+## 小程序正式 API 通道（2026-10-25 用户明确要求）
+
+- 正式小程序的业务请求固定使用 `https://api.mrtreasure.cc/wt-stats/v1/`，只走 Cloudflare 转发通道；严禁使用 NAS 直连域名、局域网地址、个人直连入口或 `15432` 端口，不能配置成超时回退。
+- 本机官方 SDK Browser Mock 的回环调试地址与开发进程 IPv4 优先设置仅用于本地工具，不得成为正式业务 API 地址。发布构建必须检查正式网关及禁止的直连地址。
+
+## 飞机空陆权重展示（2026-10-25）
+
+- 飞机详情分别列出空战 AB/RB/SB 与陆战 RB/SB（`trb`/`tsb`）；陆战 AB 的机库飞机不参与，缺少陆战字段不得回退成空战权重。陆战 SB 数值展示不能替代活动允许名单。
+- 出击队列的已存预览、乘员槽位、当前槽位下拉与候选使用同一 `lineupCardRating` 展示上下文权重，继续复用 `VehicleTile`；排除军种不显示无关权重，不改变保存、分享码与队列计算规则。

@@ -4,7 +4,7 @@ import { VehicleTile } from "./VehicleTile";
 import type { Catalog, Mode, Vehicle } from "./models";
 import { VehicleImage } from "./VehicleImage";
 import { VehicleWikiFacts } from "./VehicleWikiFacts";
-import { modes, rating } from "./TreeCanvas";
+import { VehicleBattleRatings } from "./VehicleBattleRatings";
 
 export function VehicleDetails({
   unit,
@@ -67,18 +67,7 @@ export function VehicleDetails({
               </dd>
             </div>
           </dl>
-          <div className="wt-detail-ratings" aria-label={t("各模式战斗评级")}>
-            {localize(
-              (["ab", "rb", "sb"] as const).map((value) => (
-                <span key={value} className={value === mode ? "is-current" : ""}>
-                  <small>
-                    {localize(modes[value])} {localize(value.toUpperCase())}
-                  </small>
-                  <strong>{localize(rating(unit, value))}</strong>
-                </span>
-              )),
-            )}
-          </div>
+          <VehicleBattleRatings unit={unit} category={category} mode={mode} />
           <div className="wt-detail-actions">
             <button
               className="quiet-button"

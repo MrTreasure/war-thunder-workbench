@@ -236,3 +236,54 @@
     border-color: var(--wt-accent);
   }
 }
+
+/* finesse component: existing workbench palette; compact, comparable mode rows. */
+.wt-aircraft-ratings {
+  padding: 12px 0;
+  min-width: 0;
+}
+.wt-aircraft-ratings table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.wt-aircraft-ratings caption {
+  text-align: left;
+  color: var(--wt-muted);
+  font-size: 11px;
+  padding-bottom: 8px;
+}
+.wt-aircraft-ratings th {
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--wt-muted);
+}
+.wt-aircraft-ratings th,
+.wt-aircraft-ratings td {
+  text-align: center;
+  padding: 8px 4px;
+  border-bottom: 1px solid var(--wt-line);
+}
+.wt-aircraft-ratings th:first-child {
+  text-align: left;
+  width: 23%;
+}
+.wt-aircraft-ratings td {
+  color: var(--wt-ink);
+  font:
+    400 21px/1.2 WTCard,
+    var(--wt-sans);
+}
+.wt-aircraft-ratings .is-current {
+  color: var(--wt-accent);
+  background: var(--wt-accent-soft);
+}
+.wt-aircraft-ratings .wt-rating-unavailable {
+  color: var(--wt-muted);
+}
+.wt-aircraft-ratings p {
+  color: var(--wt-muted);
+  font-size: 11px;
+  line-height: 1.7;
+  margin: 8px 0 0;
+}
