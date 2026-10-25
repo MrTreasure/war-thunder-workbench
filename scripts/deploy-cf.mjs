@@ -42,6 +42,8 @@ if (!dryRun) {
     const args = [
       "--http1.1",
       "--ipv4",
+      "--noproxy",
+      "*",
       "--compressed",
       "--silent",
       "--show-error",
