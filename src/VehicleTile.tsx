@@ -45,6 +45,7 @@ export function VehicleTile({
   className = "",
   modeRating,
   packQuote,
+  footerLabel,
 }: {
   unit: VehicleTileUnit;
   catalog?: Pick<Catalog, "kinds" | "roles">;
@@ -56,6 +57,7 @@ export function VehicleTile({
   className?: string;
   modeRating?: string;
   packQuote?: { amountCents: number | null; checkedAt: string | null };
+  footerLabel?: string;
 }) {
   const facts = useVehicleFacts();
   const unit =
@@ -68,6 +70,11 @@ export function VehicleTile({
     unit.side === "research" ||
     ["normal", "research", "squadron"].includes(unit.kind || "") ||
     (unit.kind == null && unit.rp != null);
+  const special =
+    !research &&
+    !premium &&
+    unit.kind !== "squadron" &&
+    (unit.side === "special" || unit.kind === "special" || unit.kind === "market");
   const market =
     unit.kind === "market" || !!unit.market || cardTheme.marketIconIds.includes(unit.id);
   const name = vehicleDisplayName(unit.name);
@@ -107,7 +114,7 @@ export function VehicleTile({
   };
   return (
     <Element
-      className={`vehicle-card wt-game-card ${premium ? "is-premium" : ""} ${owned ? "is-owned" : ""} ${unit.kind === "squadron" ? "is-squadron" : ""} ${selected ? "is-selected" : ""} ${className}`}
+      className={`vehicle-card wt-game-card ${premium ? "is-premium" : ""} ${special ? "is-special" : ""} ${owned ? "is-owned" : ""} ${unit.kind === "squadron" ? "is-squadron" : ""} ${selected ? "is-selected" : ""} ${className}`}
       role={onSelect ? undefined : "group"}
       data-kind={unit.kind || "unknown"}
       data-owned={owned || undefined}
@@ -184,6 +191,11 @@ export function VehicleTile({
           height={26}
           alt="护身符"
         />
+      )}
+      {footerLabel && (
+        <span className="wt-game-card-caption" title={footerLabel}>
+          {footerLabel}
+        </span>
       )}
       {unit.kind === "pack" && (
         <span

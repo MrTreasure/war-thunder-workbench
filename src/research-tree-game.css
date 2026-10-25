@@ -10,6 +10,10 @@
   --wt-game-card: #0b1e29b2;
   --wt-game-border: #253940;
   --wt-game-top: #4a5d5b;
+  /* Application treatment for unowned special vehicles, not a game asset. */
+  --wt-game-special-base: #210e10c9;
+  --wt-game-special-border: #49282b;
+  --wt-game-special-top: #75413e;
 }
 .canvas .node {
   width: 228px;
@@ -69,6 +73,13 @@
   background: #263a1cb2;
   border-color: #3e5c2c;
   border-top-color: #4b712f;
+}
+/* finesse · component: vehicle-tile · register=product
+ * Unowned special state: premium-style matte plate in dark red; owned surfaces stay unchanged. */
+.vehicle-card.wt-game-card.is-special:not(.is-owned) {
+  background: var(--wt-game-special-base);
+  border-color: var(--wt-game-special-border);
+  border-top-color: var(--wt-game-special-top);
 }
 .vehicle-card.wt-game-card > .unit-name {
   position: absolute;
@@ -339,6 +350,9 @@
     border-color: #99b9be;
     box-shadow: 0 0 0 1px #91b2b72b;
     filter: brightness(1.12);
+  }
+  .vehicle-card.wt-game-card.is-special:not(.is-owned):hover {
+    border-color: var(--wt-game-special-top);
   }
   .vehicle-card.wt-game-card.is-premium:hover {
     border-color: #c1994c;

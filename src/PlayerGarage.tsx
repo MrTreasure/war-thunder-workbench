@@ -256,12 +256,12 @@ export function PlayerGarage({
                       <VehicleTile
                         unit={{ ...owned, image: vehicle.image, thumbnail: vehicle.thumbnail }}
                         owned
+                        footerLabel={owned.rank ? `Rank ${owned.rank}` : undefined}
                         mode={mode as "ab" | "rb" | "sb"}
                         onSelect={() => selectVehicle(vehicle)}
                       />
                       <small>
                         {statsCountryLabel(owned.country)} ·{" "}
-                        {owned.rank ? `Rank ${owned.rank}` : "等级待核验"} ·{" "}
                         {noRecords.has(vehicle.id) ? "未出击" : "已出击"}
                       </small>
                     </article>

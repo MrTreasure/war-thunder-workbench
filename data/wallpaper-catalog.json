@@ -1,0 +1,3458 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-25T02:54:56.406Z",
+  "source": "Official update-announcement sitemap and public wallpaper gallery; no account credentials",
+  "policy": {
+    "manual": true,
+    "concurrency": 1,
+    "minDelaySeconds": 6,
+    "maxDelaySeconds": 10,
+    "imagesDownloaded": false
+  },
+  "coverage": {
+    "announcementCandidates": 50,
+    "announcementsRead": 50,
+    "announcementsWithWallpapers": 39,
+    "galleryPages": 4,
+    "completeHistoricalArchive": false
+  },
+  "updates": [
+    {
+      "id": "update-10229",
+      "title": "Sky Odyssey",
+      "version": null,
+      "announcedAt": "2026-09-16",
+      "sourcePage": "https://warthunder.com/en/news/10229-meet-the-sky-odyssey-major-update-en",
+      "sourceTitle": "Meet the “Sky Odyssey” Major Update!",
+      "checkedAt": "2026-10-25T02:45:45.237Z",
+      "pageSha256": "b6cc7bc3a2d266ac0b3608004207a02c577b39d6df28b9e5cc7f6c676c85c23b",
+      "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2026/9_September/MajorUpdate/940x530_news_sky_odyssey_7207b840a7e6a0166c08a4f11d670c73.jpg",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-10108",
+      "title": "Heavy Cavalry",
+      "version": null,
+      "announcedAt": "2026-06-24",
+      "sourcePage": "https://warthunder.com/en/news/10108-meet-the-heavy-cavalry-major-update-en",
+      "sourceTitle": "Meet the “Heavy Cavalry” Major Update!",
+      "checkedAt": "2026-10-25T02:45:47.657Z",
+      "pageSha256": "e49454f0ad19f396d8a17b64f5706e445a39702af7dbd343387d856667ab5c2d",
+      "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2026/6_June/Heavy_Cavalry/940x530_news_heavy_cavalry_1ee4d52fa147dcd1c88bed5ad2a28209.jpg",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-9967",
+      "title": "Ninth Wave",
+      "version": null,
+      "announcedAt": "2026-03-18",
+      "sourcePage": "https://warthunder.com/en/news/9967-meet-the-ninth-wave-major-update-en",
+      "sourceTitle": "Meet the “Ninth Wave” Major Update!",
+      "checkedAt": "2026-10-25T02:45:55.814Z",
+      "pageSha256": "cbc2dfcc4c6372461b3355172223426a725acaae8f2d84a2fae625a83a1e546c",
+      "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2026/3_March/NinthWave/940x530_news_ninth_wave_30b8332e0066488c8bd684e4b6e9a5f9.jpg",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-9861",
+      "title": "Line of Contact",
+      "version": null,
+      "announcedAt": "2025-12-16",
+      "sourcePage": "https://warthunder.com/en/news/9861-meet-the-line-of-contact-major-update-en",
+      "sourceTitle": "Meet the “Line of Contact” Major Update!",
+      "checkedAt": "2026-10-25T02:46:06.270Z",
+      "pageSha256": "579de42a2fa86d2ac52aa0ef693ed082f4e6673e673827f98c386c3e51ea6b4e",
+      "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2025/12_December/major_update/940x530_news_line_of_contact_fa_18e_block_2_d007fcf7370d514d74404439a5ee7672.jpg",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-9799",
+      "title": "Spearhead",
+      "version": null,
+      "announcedAt": "2025-11-11",
+      "sourcePage": "https://warthunder.com/en/news/9799-meet-the-spearhead-major-update-en",
+      "sourceTitle": "Meet the “Spearhead” Major Update!",
+      "checkedAt": "2026-10-25T02:46:18.222Z",
+      "pageSha256": "0d6b6d29bf7766221fca667f241aa3f0f6373d5439de8ffca46b4377cde5fb33",
+      "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2025/11_November/Major Update/940x530_news_spearhead_438c366df048834973d4d068dc3480a6.jpg",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-9716",
+      "title": "Tusk Force",
+      "version": null,
+      "announcedAt": "2025-09-23",
+      "sourcePage": "https://warthunder.com/en/news/9716-meet-the-tusk-force-major-update-en",
+      "sourceTitle": "Meet the “Tusk Force” Major Update!",
+      "checkedAt": "2026-10-25T02:46:31.367Z",
+      "pageSha256": "ad69c27a6575c9b892269b58e98dd8736f8c4597b175dfb912c05717525c8027",
+      "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_Artwork_940/Ground/940x530_news_tusk_force_oplot_t_f4030e2af7dba72d3f47bc85ce965cf0.jpg",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-9579",
+      "title": "Leviathans",
+      "version": null,
+      "announcedAt": "2025-06-25",
+      "sourcePage": "https://warthunder.com/en/news/9579-meet-the-leviathans-major-update-en",
+      "sourceTitle": "Meet the “Leviathans” Major Update!",
+      "checkedAt": "2026-10-25T02:46:42.131Z",
+      "pageSha256": "9f49515c9f6dd935b1aae8afbb3cd4007c0f6c46c1ed3350f8df1badeb3af717",
+      "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_Artwork_940/Navy/940x530_news_leviathans_4a89402a70531fc2c0debe5ebb11f8a6.jpg",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-9429",
+      "title": "Hornet’s Sting",
+      "version": null,
+      "announcedAt": "2025-03-18",
+      "sourcePage": "https://warthunder.com/en/news/9429-meet-the-hornets-sting-major-update-en",
+      "sourceTitle": "Meet the “Hornet’s Sting” Major Update!",
+      "checkedAt": "2026-10-25T02:46:52.495Z",
+      "pageSha256": "7674be393726d160b6eb40bc3b34cb67220007a22612b4d3d80d39e40c5b833e",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-9282",
+      "title": "Storm Warning",
+      "version": null,
+      "announcedAt": "2024-12-16",
+      "sourcePage": "https://warthunder.com/en/news/9282-meet-the-storm-warning-major-update-en",
+      "sourceTitle": "Meet the “Storm Warning” Major Update!",
+      "checkedAt": "2026-10-25T02:47:05.151Z",
+      "pageSha256": "80ecae8c68581462e677b0fdf99381cf6072504db05db7248d85d61a36ebab48",
+      "wallpaperCount": 2
+    },
+    {
+      "id": "update-9212",
+      "title": "Firebirds",
+      "version": null,
+      "announcedAt": "2024-11-19",
+      "sourcePage": "https://warthunder.com/en/news/9212-meet-the-firebirds-major-update-en",
+      "sourceTitle": "Meet the “Firebirds” Major Update!",
+      "checkedAt": "2026-10-25T02:47:13.836Z",
+      "pageSha256": "134f2ac2e0a3571b40e373e8ddd0011a46d4d121f321340f1d422d1411011ef8",
+      "wallpaperCount": 3
+    },
+    {
+      "id": "update-9080",
+      "title": "Dance of Dragons",
+      "version": null,
+      "announcedAt": "2024-09-10",
+      "sourcePage": "https://warthunder.com/en/news/9080-meet-the-dance-of-dragons-major-update-en",
+      "sourceTitle": "Meet the “Dance of Dragons” Major Update!",
+      "checkedAt": "2026-10-25T02:47:27.608Z",
+      "pageSha256": "5722ff77b4a8005eff77cf0dfb0a25074a7fef7a3de6aa69c32b952ccbc419c2",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-8953",
+      "title": "Seek & Destroy",
+      "version": null,
+      "announcedAt": "2024-06-19",
+      "sourcePage": "https://warthunder.com/en/news/8953-meet-major-update-seek-destroy-en",
+      "sourceTitle": "Meet Major Update “Seek & Destroy”!",
+      "checkedAt": "2026-10-25T02:47:35.572Z",
+      "pageSha256": "c861b23d3b10e90b9a1cc1cf722045ec5ea8f716978f684ce0c24d2fce52b594",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-8814",
+      "title": "Alpha Strike",
+      "version": null,
+      "announcedAt": "2024-03-13",
+      "sourcePage": "https://warthunder.com/en/news/8814-meet-major-update-alpha-strike-en",
+      "sourceTitle": "Meet Major Update “Alpha Strike”!",
+      "checkedAt": "2026-10-25T02:47:44.452Z",
+      "pageSha256": "685488ce23dd5010f87f6e6095fd2019ce57c57ba4f204d297cceb84520807c0",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-8650",
+      "title": "Air Superiority",
+      "version": null,
+      "announcedAt": "2023-12-14",
+      "sourcePage": "https://warthunder.com/en/news/8650-meet-major-update-air-superiority-en",
+      "sourceTitle": "Meet Major Update “Air Superiority”!",
+      "checkedAt": "2026-10-25T02:47:55.945Z",
+      "pageSha256": "4008806e4cda0399437a8e799c0ee1e66c6e3caefa6f8af81569d05b3453e037",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-8481",
+      "title": "Sons of Attila",
+      "version": null,
+      "announcedAt": "2023-09-19",
+      "sourcePage": "https://warthunder.com/en/news/8481-news-meet-major-update-sons-of-attila-en",
+      "sourceTitle": "Meet Major Update “Sons of Attila”!",
+      "checkedAt": "2026-10-25T02:48:07.077Z",
+      "pageSha256": "f4395961b0b57beed8b9091666e36d9a7ced0b726e4a97344338bdbb748abe19",
+      "wallpaperCount": 2
+    },
+    {
+      "id": "update-8317",
+      "title": "La Royale",
+      "version": null,
+      "announcedAt": "2023-06-14",
+      "sourcePage": "https://warthunder.com/en/news/8317-meet-major-update-la-royale-en",
+      "sourceTitle": "Meet Major Update “La Royale”!",
+      "checkedAt": "2026-10-25T02:48:17.413Z",
+      "pageSha256": "78b372dc8aa4c222c7c4585236b7c84d789c435270b21539649708a703ef3b3a",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-8141",
+      "title": "Sky Guardians",
+      "version": null,
+      "announcedAt": "2023-03-07",
+      "sourcePage": "https://warthunder.com/en/news/8141-meet-major-update-sky-guardians-en",
+      "sourceTitle": "Meet Major Update “Sky Guardians”!",
+      "checkedAt": "2026-10-25T02:48:29.574Z",
+      "pageSha256": "9fb837ab389a83766a219125d37ad9a89e56564c21b6f3c98f66164fe2a7976a",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-8029",
+      "title": "Apex Predators",
+      "version": null,
+      "announcedAt": "2022-12-20",
+      "sourcePage": "https://warthunder.com/en/news/8029-meet-major-update-apex-predators-en",
+      "sourceTitle": "Meet Major Update “Apex Predators”!",
+      "checkedAt": "2026-10-25T02:48:39.874Z",
+      "pageSha256": "20b7bf8310ba012dac36f3aa57f18bc3f089b2a39a798e628bf11eb6fba008a6",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-7930",
+      "title": "Fire and Ice",
+      "version": null,
+      "announcedAt": "2022-10-26",
+      "sourcePage": "https://warthunder.com/en/news/7930-meet-major-update-fire-and-ice-en",
+      "sourceTitle": "Meet Major Update “Fire and Ice”!",
+      "checkedAt": "2026-10-25T02:48:48.634Z",
+      "pageSha256": "b43ea419797cdf75c2a222e6b70c3db17a77a9f76592ba0fed26651272c34dce",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-7868",
+      "title": "Drone Age",
+      "version": null,
+      "announcedAt": "2022-09-14",
+      "sourcePage": "https://warthunder.com/en/news/7868-meet-major-update-drone-age-en",
+      "sourceTitle": "Meet Major Update “Drone Age”!",
+      "checkedAt": "2026-10-25T02:48:58.086Z",
+      "pageSha256": "df5db0014db9de8d48375bd460b9282e46b8b47b0afb18ad892727fd1950b391",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-7740",
+      "title": "Danger Zone",
+      "version": null,
+      "announcedAt": "2022-06-15",
+      "sourcePage": "https://warthunder.com/en/news/7740-meet-major-update-danger-zone-en",
+      "sourceTitle": "Meet Major Update “Danger Zone”!",
+      "checkedAt": "2026-10-25T02:49:09.887Z",
+      "pageSha256": "330b5eadb4f778ac97fec2d2fee0ee0b2057dfb4854915e0855e3912e07fd554",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-7618",
+      "title": "Wind of Change",
+      "version": null,
+      "announcedAt": "2022-03-24",
+      "sourcePage": "https://warthunder.com/en/news/7618-meet-major-update-wind-of-change-en",
+      "sourceTitle": "Meet Major Update “Wind of Change”!",
+      "checkedAt": "2026-10-25T02:49:18.359Z",
+      "pageSha256": "a7f8f3b4ab9a495041ff2adc3ffde4e2999b81f60e897d23a89829077835df55",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-7485",
+      "title": "Winged Lions",
+      "version": null,
+      "announcedAt": "2021-12-14",
+      "sourcePage": "https://warthunder.com/en/news/7485-meet-major-update-winged-lions-en",
+      "sourceTitle": "Meet Major Update “Winged Lions”!",
+      "checkedAt": "2026-10-25T02:49:27.975Z",
+      "pageSha256": "c487fbc42c395fed1123cc795a050102a97691b4f466fd4d30c407a0b7d813d0",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-7400",
+      "title": "Ground Breaking",
+      "version": null,
+      "announcedAt": "2021-10-28",
+      "sourcePage": "https://warthunder.com/en/news/7400-news-meet-major-update-ground-breaking-en",
+      "sourceTitle": "Meet Major Update “Ground Breaking”!",
+      "checkedAt": "2026-10-25T02:49:38.379Z",
+      "pageSha256": "92bca4dbf935449c5e27344c381d2741bd42a01cae50d0ac84b1b4bdf48c8949",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-7325",
+      "title": "Direct Hit",
+      "version": null,
+      "announcedAt": "2021-09-07",
+      "sourcePage": "https://warthunder.com/en/news/7325-news-meet-major-update-direct-hit-en",
+      "sourceTitle": "Meet Major Update “Direct Hit”!",
+      "checkedAt": "2026-10-25T02:49:46.960Z",
+      "pageSha256": "6abf44ea1e3fed5e4f09e36447577d52abee43a723f417f8953a76d7377dafc8",
+      "wallpaperCount": 0
+    },
+    {
+      "id": "update-7200",
+      "title": "Red Skies",
+      "version": null,
+      "announcedAt": "2021-06-02",
+      "sourcePage": "https://warthunder.com/en/news/7200-news-meet-major-update-red-skies-en",
+      "sourceTitle": "Meet Major Update “Red Skies”!",
+      "checkedAt": "2026-10-25T02:49:55.236Z",
+      "pageSha256": "10a5578c0acce0e39c22ee247959dbc6da34a8739cf4154cd52233577e72a7da",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-7086",
+      "title": "Ixwa Strike",
+      "version": null,
+      "announcedAt": "2021-03-10",
+      "sourcePage": "https://warthunder.com/en/news/7086-news-meet-major-update-ixwa-strike-en",
+      "sourceTitle": "Meet Major Update “Ixwa Strike”!",
+      "checkedAt": "2026-10-25T02:50:03.952Z",
+      "pageSha256": "2f070bf1136ef828f41daaa870118eac64f5436415ae1573bca87fc97b063f84",
+      "wallpaperCount": 0
+    },
+    {
+      "id": "update-6994",
+      "title": "Hot Tracks",
+      "version": null,
+      "announcedAt": "2020-12-18",
+      "sourcePage": "https://warthunder.com/en/news/6994-news-meet-major-update-hot-tracks-en",
+      "sourceTitle": "Meet Major Update “Hot Tracks”!",
+      "checkedAt": "2026-10-25T02:50:13.320Z",
+      "pageSha256": "404e26a2699e559c65513b43d81fec1305651d3ab08e1e5daa1de5c0143b7e58",
+      "wallpaperCount": 0
+    },
+    {
+      "id": "update-6947",
+      "title": "New Power",
+      "version": null,
+      "announcedAt": "2020-11-17",
+      "sourcePage": "https://warthunder.com/en/news/6947-news-meet-major-update-new-power-en",
+      "sourceTitle": "Meet Major Update “New Power”!",
+      "checkedAt": "2026-10-25T02:50:25.065Z",
+      "pageSha256": "70d74911bac7a0c3a9ef36dcccafca2c85425bba5f7366730492282bc7a77393",
+      "wallpaperCount": 0
+    },
+    {
+      "id": "update-6852",
+      "title": "Raining Fire",
+      "version": null,
+      "announcedAt": "2020-09-02",
+      "sourcePage": "https://warthunder.com/en/news/6852-news-meet-major-update-raining-fire-en",
+      "sourceTitle": "Meet Major Update \"Raining Fire\"!",
+      "checkedAt": "2026-10-25T02:50:34.377Z",
+      "pageSha256": "f8a463a3b2a89bfd5163296cb3aae02b23dcc3acb5d370065176be9a853d185f",
+      "wallpaperCount": 0
+    },
+    {
+      "id": "update-6741",
+      "title": "Starfighters",
+      "version": null,
+      "announcedAt": "2020-05-26",
+      "sourcePage": "https://warthunder.com/en/news/6741-news-meet-major-update-starfighters-en",
+      "sourceTitle": "Meet Major Update \"Starfighters\"!",
+      "checkedAt": "2026-10-25T02:50:44.897Z",
+      "pageSha256": "20d307818c3260cbfe338ab066b07d69b0f05f99670c91f3e3107d4e2aca4641",
+      "wallpaperCount": 0
+    },
+    {
+      "id": "update-6634",
+      "title": "Viking Fury",
+      "version": null,
+      "announcedAt": "2020-03-16",
+      "sourcePage": "https://warthunder.com/en/news/6634-news-meet-major-update-viking-fury-en",
+      "sourceTitle": "Meet major update \"Viking Fury\"!",
+      "checkedAt": "2026-10-25T02:50:53.177Z",
+      "pageSha256": "4b799dfd557a134909d463c00a48d1891256de44c5a1ddb9fb36987cef86afa7",
+      "wallpaperCount": 0
+    },
+    {
+      "id": "update-6526",
+      "title": "Northern wind",
+      "version": "1.95",
+      "announcedAt": "2019-12-17",
+      "sourcePage": "https://warthunder.com/en/news/6526-news-meet-update-1-95-northern-wind-en",
+      "sourceTitle": "Meet update 1.95 “Northern wind\"!",
+      "checkedAt": "2026-10-25T02:51:05.598Z",
+      "pageSha256": "2a3a9cfeba1c9f7892b8de1f8d7cb86e237e78c16239dc7f7f818fc1a8a1892f",
+      "wallpaperCount": 0
+    },
+    {
+      "id": "update-6457",
+      "title": "Shark Attack",
+      "version": "1.93",
+      "announcedAt": "2019-10-29",
+      "sourcePage": "https://warthunder.com/en/news/6457-meet-update-1-93-shark-attack-en",
+      "sourceTitle": "Meet update 1.93 “Shark Attack\"!",
+      "checkedAt": "2026-10-25T02:51:16.782Z",
+      "pageSha256": "cd39c1a53d8fb47e1db2154668858dfb61c2494eca885806f00e483e4c30fe95",
+      "wallpaperCount": 0
+    },
+    {
+      "id": "update-6373",
+      "title": "Night Vision",
+      "version": "1.91",
+      "announcedAt": "2019-09-11",
+      "sourcePage": "https://warthunder.com/en/news/6373-meet-update-1-91-night-vision-en",
+      "sourceTitle": "Meet update 1.91 “Night Vision\"!",
+      "checkedAt": "2026-10-25T02:51:26.390Z",
+      "pageSha256": "1d4392dca7d0f38a94413b3da05c892619299785b0910c3ad8ae12770aad6835",
+      "wallpaperCount": 0
+    },
+    {
+      "id": "update-6221",
+      "title": "Imperial Navy",
+      "version": "1.89",
+      "announcedAt": "2019-05-29",
+      "sourcePage": "https://warthunder.com/en/news/6221-meet-update-1-89-imperial-navy-survey-added-en",
+      "sourceTitle": "Meet update 1.89 “Imperial Navy\" - Survey added!",
+      "checkedAt": "2026-10-25T02:51:37.327Z",
+      "pageSha256": "00bdd089486691db6b2b5521d4419f6baf93fd1360f4c5d132367a6d0a886bad",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-5950",
+      "title": "Supersonic",
+      "version": "1.85",
+      "announcedAt": "2018-12-17",
+      "sourcePage": "https://warthunder.com/en/news/5950-news-meet-update-1-85-supersonic-survey-added-en",
+      "sourceTitle": "Meet update 1.85 \"Supersonic\" - Survey added!",
+      "checkedAt": "2026-10-25T02:51:49.311Z",
+      "pageSha256": "96548a80cb3de9eea1a3ed1357ecdeb87e76855b88a872db2535e3fadfcbc0fb",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-5845",
+      "title": "Masters of the Sea",
+      "version": "1.83",
+      "announcedAt": "2018-10-26",
+      "sourcePage": "https://warthunder.com/en/news/5845-news-meet-update-1-83-masters-of-the-sea-survey-added-en",
+      "sourceTitle": "Meet update 1.83 “Masters of the Sea” - Survey added!",
+      "checkedAt": "2026-10-25T02:51:58.227Z",
+      "pageSha256": "dfd1b755c24518620dba2f897d3a7f5e69113fb168172643f2ee2d7fe47df624",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-5774",
+      "title": "The Valkyries",
+      "version": "1.81",
+      "announcedAt": "2018-09-20",
+      "sourcePage": "https://warthunder.com/en/news/5774-news-welcome-to-update-1-81-the-valkyries-poll-added-en",
+      "sourceTitle": "Welcome to update 1.81 “The Valkyries” (poll added)",
+      "checkedAt": "2026-10-25T02:52:07.163Z",
+      "pageSha256": "1fe221f0f15cbbe2d1552afa34f4d7945f3c165f5366f7784bfc94c78a532bae",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-5576",
+      "title": "Project-X",
+      "version": "1.79",
+      "announcedAt": "2018-06-12",
+      "sourcePage": "https://warthunder.com/en/news/5576-major-update-1-79-project-x-en",
+      "sourceTitle": "Major Update 1.79 “Project-X”",
+      "checkedAt": "2026-10-25T02:52:16.980Z",
+      "pageSha256": "1874f2d8cc3935413fdb8c95fe6ece540ff88684da3dea6ae878343e2001a42e",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-5381",
+      "title": "Advancing Storm",
+      "version": "1.77",
+      "announcedAt": "2018-03-14",
+      "sourcePage": "https://warthunder.com/en/news/5381-news-meet-update-1-77-advancing-storm-survey-added-en",
+      "sourceTitle": "Meet Update 1.77 “Advancing Storm”! (Survey added)",
+      "checkedAt": "2026-10-25T02:52:25.928Z",
+      "pageSha256": "281a4cac1a1e4a4a47b22014a1e1f71d8bb85920f009f8830871a3825e6702b9",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-5210",
+      "title": "La Résistance",
+      "version": "1.75",
+      "announcedAt": "2017-12-21",
+      "sourcePage": "https://warthunder.com/en/news/5210-news-update-1-75-la-résistance-released-survey-added-en",
+      "sourceTitle": "Update 1.75 'La Résistance' released! (Survey added!)",
+      "checkedAt": "2026-10-25T02:52:37.128Z",
+      "pageSha256": "85318f1c3626244aa4441824172c1c61be00bf376ecf75d3fe3ee8ccaea6220d",
+      "wallpaperCount": 2
+    },
+    {
+      "id": "update-5073",
+      "title": "Vive la France",
+      "version": "1.73",
+      "announcedAt": "2017-11-02",
+      "sourcePage": "https://warthunder.com/en/news/5073-news-update-1-73-vive-la-france-released-en",
+      "sourceTitle": "Update 1.73 'Vive la France' released!",
+      "checkedAt": "2026-10-25T02:52:48.724Z",
+      "pageSha256": "8ed0fa65f2f06f54936f50749a2f69329bab0821d2a6510df6fb62e3107f208e",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-4974",
+      "title": "New E.R.A",
+      "version": "1.71",
+      "announcedAt": "2017-09-19",
+      "sourcePage": "https://warthunder.com/en/news/4974-update-1-71-new-e-r-a-released-en",
+      "sourceTitle": "Update 1.71 'New E.R.A' released!",
+      "checkedAt": "2026-10-25T02:53:00.453Z",
+      "pageSha256": "18f3f3274f2a5f403382a56cfcd6e55e8693b93b5c5573a6e0e2a84c1dcece4a",
+      "wallpaperCount": 2
+    },
+    {
+      "id": "update-4726",
+      "title": "Regia Aeronautica",
+      "version": "1.69",
+      "announcedAt": "2017-05-27",
+      "sourcePage": "https://warthunder.com/en/news/4726-update-1-69-regia-aeronautica-released-en",
+      "sourceTitle": "Update 1.69 'Regia Aeronautica' released!",
+      "checkedAt": "2026-10-25T02:53:10.441Z",
+      "pageSha256": "1cfc0fec5e8233392e5c3b0c5fcba52fc309642e37be5f9d991687cd1ad1d053",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-4580",
+      "title": "Assault",
+      "version": "1.67",
+      "announcedAt": "2017-03-18",
+      "sourcePage": "https://warthunder.com/en/news/4580-news-update-1-67-assault-released-survey-en",
+      "sourceTitle": "Update 1.67 'Assault' released! - Survey!",
+      "checkedAt": "2026-10-25T02:53:19.685Z",
+      "pageSha256": "3fc56d703550130708869d774ff63e11b1002a7e8e93b5029c0ad8399703098e",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-4408",
+      "title": "Way Of The Samurai",
+      "version": "1.65",
+      "announcedAt": "2016-12-20",
+      "sourcePage": "https://warthunder.com/en/news/4408-news-update-1-65-way-of-the-samurai-released-survey-added-en",
+      "sourceTitle": "Update 1.65 'Way Of The Samurai' released! (Survey added!)",
+      "checkedAt": "2026-10-25T02:53:32.037Z",
+      "pageSha256": "6e05a406b6af541f5962a6ad2f0f9247c9dbdae60db48891bb421fcc865dc7ba",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-4258",
+      "title": "Desert Hunters",
+      "version": "1.63",
+      "announcedAt": "2016-09-30",
+      "sourcePage": "https://warthunder.com/en/news/4258-news-update-1-63-desert-hunters-released-survey-added-en",
+      "sourceTitle": "Update 1.63 'Desert Hunters' released! (survey added)",
+      "checkedAt": "2026-10-25T02:53:44.750Z",
+      "pageSha256": "4b4e29f2082e347e73a830d81b6dd383ef70a24ba27c77efa497faea01112382",
+      "wallpaperCount": 1
+    },
+    {
+      "id": "update-3763",
+      "title": "Flaming Arrows",
+      "version": "1.59",
+      "announcedAt": "2016-06-10",
+      "sourcePage": "https://warthunder.com/en/news/3763-news-update-1-59-flaming-arrows-released-en",
+      "sourceTitle": "Update 1.59 \"Flaming Arrows\" released!",
+      "checkedAt": "2026-10-25T02:53:56.178Z",
+      "pageSha256": "a58b78184b1e044ed437842bfbd59f5f1d8d655be5c957276e3c7ee8932c42be",
+      "wallpaperCount": 0
+    },
+    {
+      "id": "update-3634",
+      "title": "Battle March",
+      "version": "1.57",
+      "announcedAt": "2016-03-15",
+      "sourcePage": "https://warthunder.com/en/news/3634-news-update-1-57-battle-march-released-en",
+      "sourceTitle": "Update 1.57 \"Battle March\" released!",
+      "checkedAt": "2026-10-25T02:54:05.886Z",
+      "pageSha256": "fdb8810a8b2543685c53ebe7b7153681edb504a6642831eea1ce91a7c44fd155",
+      "wallpaperCount": 1
+    }
+  ],
+  "backgrounds": [
+    {
+      "id": "bg-f43b8ea30f",
+      "title": "装甲前线 · 帕特里亚",
+      "category": "ground",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_patria_bmp_3_logo_056f2963433ebf4ac1b945004888e57f.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/_thumbs/279x157/1920x1080_patria_bmp_3_logo_056f2963433ebf4ac1b945004888e57f_279x157_3843dc21082a1fe9c1bea6968252799e.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "checkedAt": "2026-10-25T02:54:56.385Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_patria_bmp_3_logo_056f2963433ebf4ac1b945004888e57f.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/2560x1440_patria_bmp_3_logo_9c7adc629a4ecf28d2e8dc70c379a6a9.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/3840x2160_patria_bmp_3_logo_14a998e73e7f7d0db51d4f52b9b7e150.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    },
+    {
+      "id": "bg-003afe534e",
+      "title": "苍穹远征",
+      "category": "mixed",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_logo_eng_a98e2d250b72a68a4c6073f0d30db010.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/_thumbs/279x157/1920x1080_sky_odyssey_logo_eng_a98e2d250b72a68a4c6073f0d30db010_279x157_c2a0f5eaf6d0236e897f26c8d1ec50fc.jpg",
+      "sourcePage": "https://warthunder.com/en/news/10229-meet-the-sky-odyssey-major-update-en",
+      "checkedAt": "2026-10-25T02:45:45.237Z",
+      "update": {
+        "id": "update-10229",
+        "title": "Sky Odyssey",
+        "version": null,
+        "announcedAt": "2026-09-16",
+        "sourcePage": "https://warthunder.com/en/news/10229-meet-the-sky-odyssey-major-update-en",
+        "sourceTitle": "Meet the “Sky Odyssey” Major Update!",
+        "checkedAt": "2026-10-25T02:45:45.237Z",
+        "pageSha256": "b6cc7bc3a2d266ac0b3608004207a02c577b39d6df28b9e5cc7f6c676c85c23b",
+        "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2026/9_September/MajorUpdate/940x530_news_sky_odyssey_7207b840a7e6a0166c08a4f11d670c73.jpg"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_logo_eng_a98e2d250b72a68a4c6073f0d30db010.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/2560x1440_sky_odyssey_logo_eng_94d7cd5c9971329934a72112af05d2db.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/3840x2160_sky_odyssey_logo_eng_827bf2f6be0ec6478c8a7c1b00073e67.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement",
+      "galleryPage": "https://warthunder.com/en/media/wallpapers/"
+    },
+    {
+      "id": "bg-a3369979d1",
+      "title": "海上猎鹰 · AW159",
+      "category": "aviation",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_aw_159_logo_eng_0b76aeba7f0d6c03d48c576faa7af56a.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/_thumbs/279x157/1920x1080_sky_odyssey_aw_159_logo_eng_0b76aeba7f0d6c03d48c576faa7af56a_279x157_22a8e34e79cdcc8f5559e9298ba62088.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "checkedAt": "2026-10-25T02:54:56.385Z",
+      "update": {
+        "id": "update-10229",
+        "title": "Sky Odyssey",
+        "version": null,
+        "announcedAt": "2026-09-16",
+        "sourcePage": "https://warthunder.com/en/news/10229-meet-the-sky-odyssey-major-update-en",
+        "sourceTitle": "Meet the “Sky Odyssey” Major Update!",
+        "checkedAt": "2026-10-25T02:45:45.237Z",
+        "pageSha256": "b6cc7bc3a2d266ac0b3608004207a02c577b39d6df28b9e5cc7f6c676c85c23b",
+        "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2026/9_September/MajorUpdate/940x530_news_sky_odyssey_7207b840a7e6a0166c08a4f11d670c73.jpg"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_aw_159_logo_eng_0b76aeba7f0d6c03d48c576faa7af56a.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/2560x1440_sky_odyssey_aw_159_logo_eng_1333bcd4374cfd6fe089b6605d294366.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/3840x2160_sky_odyssey_aw_159_logo_eng_fb59dd8399c9da7ef2f048f34e2d241a.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official announcement title matched to gallery asset filename"
+    },
+    {
+      "id": "bg-a52fd68397",
+      "title": "长空利剑 · 歼-16",
+      "category": "aviation",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_j16_logo_eng_0fbcfd8f9c34bf54000c5e6711410708.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/_thumbs/279x157/1920x1080_sky_odyssey_j16_logo_eng_0fbcfd8f9c34bf54000c5e6711410708_279x157_e13a9bbc6f9caad870afe32944247cc4.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "checkedAt": "2026-10-25T02:54:56.385Z",
+      "update": {
+        "id": "update-10229",
+        "title": "Sky Odyssey",
+        "version": null,
+        "announcedAt": "2026-09-16",
+        "sourcePage": "https://warthunder.com/en/news/10229-meet-the-sky-odyssey-major-update-en",
+        "sourceTitle": "Meet the “Sky Odyssey” Major Update!",
+        "checkedAt": "2026-10-25T02:45:45.237Z",
+        "pageSha256": "b6cc7bc3a2d266ac0b3608004207a02c577b39d6df28b9e5cc7f6c676c85c23b",
+        "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2026/9_September/MajorUpdate/940x530_news_sky_odyssey_7207b840a7e6a0166c08a4f11d670c73.jpg"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_j16_logo_eng_0fbcfd8f9c34bf54000c5e6711410708.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/2560x1440_sky_odyssey_j16_logo_eng_c7df0ab7cfeccbaa9920dc32ff188446.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/3840x2160_sky_odyssey_j16_logo_eng_1a7efdc2fb981131d7ec918ae3595ee2.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official announcement title matched to gallery asset filename"
+    },
+    {
+      "id": "bg-600cb93ef2",
+      "title": "阿琼出击",
+      "category": "ground",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_sky_odyssey_arjun_mk1_logo_eng_4b463db29bd527e1fe8e3c7fa0812663.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/_thumbs/279x157/1920x1080_sky_odyssey_arjun_mk1_logo_eng_4b463db29bd527e1fe8e3c7fa0812663_279x157_8c9d4c62db809e2bc9b3757acf3656d4.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "checkedAt": "2026-10-25T02:54:56.385Z",
+      "update": {
+        "id": "update-10229",
+        "title": "Sky Odyssey",
+        "version": null,
+        "announcedAt": "2026-09-16",
+        "sourcePage": "https://warthunder.com/en/news/10229-meet-the-sky-odyssey-major-update-en",
+        "sourceTitle": "Meet the “Sky Odyssey” Major Update!",
+        "checkedAt": "2026-10-25T02:45:45.237Z",
+        "pageSha256": "b6cc7bc3a2d266ac0b3608004207a02c577b39d6df28b9e5cc7f6c676c85c23b",
+        "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2026/9_September/MajorUpdate/940x530_news_sky_odyssey_7207b840a7e6a0166c08a4f11d670c73.jpg"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_sky_odyssey_arjun_mk1_logo_eng_4b463db29bd527e1fe8e3c7fa0812663.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/2560x1440_sky_odyssey_arjun_mk1_logo_eng_7aec809c032517a87ed0d6cd22c2ae56.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/3840x2160_sky_odyssey_arjun_mk1_logo_eng_fcc590e8339347c7492682d1285c902e.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official announcement title matched to gallery asset filename"
+    },
+    {
+      "id": "bg-c3ce0aa55e",
+      "title": "鹰击长空",
+      "category": "aviation",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_hawk_209_indonesia_logo_0fdbee1145346161ab0bde343e58409d.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/_thumbs/279x157/1920x1080_hawk_209_indonesia_logo_0fdbee1145346161ab0bde343e58409d_279x157_76cf5cd6ccc7d9da318f09642987f8e2.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "checkedAt": "2026-10-25T02:54:56.386Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_hawk_209_indonesia_logo_0fdbee1145346161ab0bde343e58409d.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/2560x1440_hawk_209_indonesia_logo_bdd29adb4b13dfc8bf7d807f22abe746.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/3840x2160_hawk_209_indonesia_logo_3bbc16237030f67d70ba0987b651e9ab.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    },
+    {
+      "id": "bg-ed22579cab",
+      "title": "十月革命号",
+      "category": "ships",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/1920x1080_battleship_oktyabrskaya_revolutsiya_logo_31c3d5361aa1c44b8cfcee6b8f3d9733.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/_thumbs/279x157/1920x1080_battleship_oktyabrskaya_revolutsiya_logo_31c3d5361aa1c44b8cfcee6b8f3d9733_279x157_eecf3f38eabe2f0a4e620c3a6509ca66.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "checkedAt": "2026-10-25T02:54:56.386Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/1920x1080_battleship_oktyabrskaya_revolutsiya_logo_31c3d5361aa1c44b8cfcee6b8f3d9733.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/2560x1440_battleship_oktyabrskaya_revolutsiya_logo_5bfceb50e25edffa4f48d7494d91ad5d.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/3840x2160_battleship_oktyabrskaya_revolutsiya_logo_2a76671b12094afbff8e589c4975e25b.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    },
+    {
+      "id": "bg-eee20c3800",
+      "title": "机动突击 · 菲亚特",
+      "category": "ground",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_it_fiat_6616_ub_logo_3327a4c998d2f2f429a90eea190e3753.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/_thumbs/279x157/1920x1080_it_fiat_6616_ub_logo_3327a4c998d2f2f429a90eea190e3753_279x157_47b54cbda1fa6f3874a6ea897495e53c.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "checkedAt": "2026-10-25T02:54:56.386Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_it_fiat_6616_ub_logo_3327a4c998d2f2f429a90eea190e3753.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/2560x1440_it_fiat_6616_ub_logo_92ed0d3ecc4720cd0cb098361aa52071.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/3840x2160_it_fiat_6616_ub_logo_409cce274bddcc1f1e4bba3aacb69f52.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    },
+    {
+      "id": "bg-cacb0c169c",
+      "title": "弯刀出击",
+      "category": "ground",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_scimitar_strike_logo_aa9d4dcedf930fc01a002d65f33131a5.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/_thumbs/279x157/1920x1080_scimitar_strike_logo_aa9d4dcedf930fc01a002d65f33131a5_279x157_7de23f3c217b3aa22205684f28b02b53.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/2",
+      "checkedAt": "2026-10-25T02:54:56.392Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_scimitar_strike_logo_aa9d4dcedf930fc01a002d65f33131a5.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/2560x1440_scimitar_strike_logo_fefc2624fe9f0f7cc8709718f54bac9e.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/3840x2160_scimitar_strike_logo_03c8115086460b04a79fa6e2e001a8a4.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    },
+    {
+      "id": "bg-7d268eeb32",
+      "title": "重骑兵",
+      "category": "mixed",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_heavy_cavalry_logo_eng_42204711432b0ddb79a5f30b72850fe0.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/_thumbs/279x157/1920x1080_heavy_cavalry_logo_eng_42204711432b0ddb79a5f30b72850fe0_279x157_f2b8f6e75fc0cab062727782a19e144b.jpg",
+      "sourcePage": "https://warthunder.com/en/news/10108-meet-the-heavy-cavalry-major-update-en",
+      "checkedAt": "2026-10-25T02:45:47.657Z",
+      "update": {
+        "id": "update-10108",
+        "title": "Heavy Cavalry",
+        "version": null,
+        "announcedAt": "2026-06-24",
+        "sourcePage": "https://warthunder.com/en/news/10108-meet-the-heavy-cavalry-major-update-en",
+        "sourceTitle": "Meet the “Heavy Cavalry” Major Update!",
+        "checkedAt": "2026-10-25T02:45:47.657Z",
+        "pageSha256": "e49454f0ad19f396d8a17b64f5706e445a39702af7dbd343387d856667ab5c2d",
+        "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2026/6_June/Heavy_Cavalry/940x530_news_heavy_cavalry_1ee4d52fa147dcd1c88bed5ad2a28209.jpg"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_heavy_cavalry_logo_eng_42204711432b0ddb79a5f30b72850fe0.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/2560x1440_heavy_cavalry_logo_eng_4bc1c42b37aa2fedda7bc1e6b73d65bf.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/3840x2160_heavy_cavalry_logo_eng_5c970319f3896da2a2e4cad6440daf8c.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement",
+      "galleryPage": "https://warthunder.com/en/media/wallpapers/page/2"
+    },
+    {
+      "id": "bg-86e7dccdc2",
+      "title": "鹰隼训练 · 雅克-130",
+      "category": "aviation",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_heavy_cavalry_yak130_m346_logo_eng_85a4367acf304ee8f2f7895affcaaff7.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/_thumbs/279x157/1920x1080_heavy_cavalry_yak130_m346_logo_eng_85a4367acf304ee8f2f7895affcaaff7_279x157_743391617df7d8e6b5997c4acad514ac.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/2",
+      "checkedAt": "2026-10-25T02:54:56.392Z",
+      "update": {
+        "id": "update-10108",
+        "title": "Heavy Cavalry",
+        "version": null,
+        "announcedAt": "2026-06-24",
+        "sourcePage": "https://warthunder.com/en/news/10108-meet-the-heavy-cavalry-major-update-en",
+        "sourceTitle": "Meet the “Heavy Cavalry” Major Update!",
+        "checkedAt": "2026-10-25T02:45:47.657Z",
+        "pageSha256": "e49454f0ad19f396d8a17b64f5706e445a39702af7dbd343387d856667ab5c2d",
+        "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2026/6_June/Heavy_Cavalry/940x530_news_heavy_cavalry_1ee4d52fa147dcd1c88bed5ad2a28209.jpg"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_heavy_cavalry_yak130_m346_logo_eng_85a4367acf304ee8f2f7895affcaaff7.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/2560x1440_heavy_cavalry_yak130_m346_logo_eng_34970baac718180b35022d6b78d6ea2e.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/3840x2160_heavy_cavalry_yak130_m346_logo_eng_1923296c4002fab74e4ffa4817cb01ec.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official announcement title matched to gallery asset filename"
+    },
+    {
+      "id": "bg-ec1998f9a4",
+      "title": "普卡拉突击",
+      "category": "aviation",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_heavy_cavalry_ia_58a_pucara_logo_eng_ce844054d0453e11239c6c35afae33ba.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/_thumbs/279x157/1920x1080_heavy_cavalry_ia_58a_pucara_logo_eng_ce844054d0453e11239c6c35afae33ba_279x157_54212094f63258933f6bca0c4c8eb886.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/2",
+      "checkedAt": "2026-10-25T02:54:56.392Z",
+      "update": {
+        "id": "update-10108",
+        "title": "Heavy Cavalry",
+        "version": null,
+        "announcedAt": "2026-06-24",
+        "sourcePage": "https://warthunder.com/en/news/10108-meet-the-heavy-cavalry-major-update-en",
+        "sourceTitle": "Meet the “Heavy Cavalry” Major Update!",
+        "checkedAt": "2026-10-25T02:45:47.657Z",
+        "pageSha256": "e49454f0ad19f396d8a17b64f5706e445a39702af7dbd343387d856667ab5c2d",
+        "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2026/6_June/Heavy_Cavalry/940x530_news_heavy_cavalry_1ee4d52fa147dcd1c88bed5ad2a28209.jpg"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_heavy_cavalry_ia_58a_pucara_logo_eng_ce844054d0453e11239c6c35afae33ba.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/2560x1440_heavy_cavalry_ia_58a_pucara_logo_eng_700726d96633f44622520a9d1fee3901.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/3840x2160_heavy_cavalry_ia_58a_pucara_logo_eng_1d0cc3633c59a43f5be458a600aba8f8.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official announcement title matched to gallery asset filename"
+    },
+    {
+      "id": "bg-a00089015e",
+      "title": "自行火炮 · 野蜂",
+      "category": "ground",
+      "era": "ww2",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_heavy_cavalry_hummel_logo_eng_1b67946313ed536aab6822822868c710.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/_thumbs/279x157/1920x1080_heavy_cavalry_hummel_logo_eng_1b67946313ed536aab6822822868c710_279x157_517b2c93c7ca9e3628fbc80fc02bfc41.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/2",
+      "checkedAt": "2026-10-25T02:54:56.392Z",
+      "update": {
+        "id": "update-10108",
+        "title": "Heavy Cavalry",
+        "version": null,
+        "announcedAt": "2026-06-24",
+        "sourcePage": "https://warthunder.com/en/news/10108-meet-the-heavy-cavalry-major-update-en",
+        "sourceTitle": "Meet the “Heavy Cavalry” Major Update!",
+        "checkedAt": "2026-10-25T02:45:47.657Z",
+        "pageSha256": "e49454f0ad19f396d8a17b64f5706e445a39702af7dbd343387d856667ab5c2d",
+        "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2026/6_June/Heavy_Cavalry/940x530_news_heavy_cavalry_1ee4d52fa147dcd1c88bed5ad2a28209.jpg"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_heavy_cavalry_hummel_logo_eng_1b67946313ed536aab6822822868c710.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/2560x1440_heavy_cavalry_hummel_logo_eng_a30747f5bb30dc60f825254b199aa30b.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/3840x2160_heavy_cavalry_hummel_logo_eng_219dad7f93eab2340453763d58f3b786.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official announcement title matched to gallery asset filename"
+    },
+    {
+      "id": "bg-1e8d1f7bf4",
+      "title": "喷火掠影",
+      "category": "aviation",
+      "era": "ww2",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_spitfire_lf_mk9c_cw_greece_logo_dc1ebf0983fbb16aa7b7fed086198fa8.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/_thumbs/279x157/1920x1080_spitfire_lf_mk9c_cw_greece_logo_dc1ebf0983fbb16aa7b7fed086198fa8_279x157_44218d24ba6ec8f2993bc9b85831b06f.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/3",
+      "checkedAt": "2026-10-25T02:54:56.398Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_spitfire_lf_mk9c_cw_greece_logo_dc1ebf0983fbb16aa7b7fed086198fa8.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/2560x1440_spitfire_lf_mk9c_cw_greece_logo_b3380d4cb6712a314680be0bd99033a7.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/3840x2160_spitfire_lf_mk9c_cw_greece_logo_6c7b4ee15b92def2bbb64c30ac5a6f6f.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    },
+    {
+      "id": "bg-2fa09ae8d9",
+      "title": "胜利纪念",
+      "category": "mixed",
+      "era": "ww2",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_victory_day_2026_logo_602e1a54af7fac44271a481f0fb798ea.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/_thumbs/279x157/1920x1080_victory_day_2026_logo_602e1a54af7fac44271a481f0fb798ea_279x157_df4e32e167598ed9b0b2d5139538cea5.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/3",
+      "checkedAt": "2026-10-25T02:54:56.398Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_victory_day_2026_logo_602e1a54af7fac44271a481f0fb798ea.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/2560x1440_victory_day_2026_logo_2fece630970847b5d17cc092537cb096.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/3840x2160_victory_day_2026_logo_382dd042459851084a804950fe4c421f.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    },
+    {
+      "id": "bg-e30d62d3ad",
+      "title": "海上宪兵",
+      "category": "ships",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/1920x1080_ship_marathon_marine_gendarme_logo_df1ef5ea1e9bb608ee8877961a8a5c8c.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/_thumbs/279x157/1920x1080_ship_marathon_marine_gendarme_logo_df1ef5ea1e9bb608ee8877961a8a5c8c_279x157_5ccd21909575016fa3b4cdc62db0f0b6.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/3",
+      "checkedAt": "2026-10-25T02:54:56.398Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/1920x1080_ship_marathon_marine_gendarme_logo_df1ef5ea1e9bb608ee8877961a8a5c8c.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/2560x1440_ship_marathon_marine_gendarme_logo_153b759a0e3641e2e177ae9f69a4830f.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/3840x2160_ship_marathon_marine_gendarme_logo_4c9d61dd1ba88d250d302a16d005c880.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    },
+    {
+      "id": "bg-c07b9f3ee1",
+      "title": "第九浪潮",
+      "category": "mixed",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_ninth_wave_logo_eng_1ec685a725112eee99ae28dc8e9fb71b.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/_thumbs/279x157/1920x1080_ninth_wave_logo_eng_1ec685a725112eee99ae28dc8e9fb71b_279x157_4532857726c2d4a03c7ca2fd0be214f0.jpg",
+      "sourcePage": "https://warthunder.com/en/news/9967-meet-the-ninth-wave-major-update-en",
+      "checkedAt": "2026-10-25T02:45:55.814Z",
+      "update": {
+        "id": "update-9967",
+        "title": "Ninth Wave",
+        "version": null,
+        "announcedAt": "2026-03-18",
+        "sourcePage": "https://warthunder.com/en/news/9967-meet-the-ninth-wave-major-update-en",
+        "sourceTitle": "Meet the “Ninth Wave” Major Update!",
+        "checkedAt": "2026-10-25T02:45:55.814Z",
+        "pageSha256": "cbc2dfcc4c6372461b3355172223426a725acaae8f2d84a2fae625a83a1e546c",
+        "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2026/3_March/NinthWave/940x530_news_ninth_wave_30b8332e0066488c8bd684e4b6e9a5f9.jpg"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_ninth_wave_logo_eng_1ec685a725112eee99ae28dc8e9fb71b.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_ninth_wave_logo_eng_9a042924b312213bf37bd1e0e8c05a4f.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/3840x2160_ninth_wave_logo_eng_e4a796bba7c3d94e1e5623c114a72758.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement",
+      "galleryPage": "https://warthunder.com/en/media/wallpapers/page/3"
+    },
+    {
+      "id": "bg-fdaf2d6ef5",
+      "title": "匈牙利空军",
+      "category": "aviation",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_ninth_wave_hungarian_aircrafts_logo_eng_b575755f1fcaddf1be50f7a8ec9fbbaa.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/_thumbs/279x157/1920x1080_ninth_wave_hungarian_aircrafts_logo_eng_b575755f1fcaddf1be50f7a8ec9fbbaa_279x157_bf99c08856f244d7e078fc803c919afb.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/3",
+      "checkedAt": "2026-10-25T02:54:56.399Z",
+      "update": {
+        "id": "update-9967",
+        "title": "Ninth Wave",
+        "version": null,
+        "announcedAt": "2026-03-18",
+        "sourcePage": "https://warthunder.com/en/news/9967-meet-the-ninth-wave-major-update-en",
+        "sourceTitle": "Meet the “Ninth Wave” Major Update!",
+        "checkedAt": "2026-10-25T02:45:55.814Z",
+        "pageSha256": "cbc2dfcc4c6372461b3355172223426a725acaae8f2d84a2fae625a83a1e546c",
+        "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2026/3_March/NinthWave/940x530_news_ninth_wave_30b8332e0066488c8bd684e4b6e9a5f9.jpg"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_ninth_wave_hungarian_aircrafts_logo_eng_b575755f1fcaddf1be50f7a8ec9fbbaa.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_ninth_wave_hungarian_aircraft_logo_eng_fb94f00f963ac086cc11982d34c8b38a.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/3840x2160_ninth_wave_hungarian_aircraft_logo_eng_77ba872d4bd621d142d616e42f27f37d.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official announcement title matched to gallery asset filename"
+    },
+    {
+      "id": "bg-e4de4818c3",
+      "title": "装甲浪潮",
+      "category": "mixed",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_ninth_wave_armoured_fighting_vehicles_logo_eng_541b93d95ebfe68ee212d84d1115d7d7.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/_thumbs/279x157/1920x1080_ninth_wave_armoured_fighting_vehicles_logo_eng_541b93d95ebfe68ee212d84d1115d7d7_279x157_fe5ebee38b0d82e8d403b6ae2ab39c9d.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/3",
+      "checkedAt": "2026-10-25T02:54:56.399Z",
+      "update": {
+        "id": "update-9967",
+        "title": "Ninth Wave",
+        "version": null,
+        "announcedAt": "2026-03-18",
+        "sourcePage": "https://warthunder.com/en/news/9967-meet-the-ninth-wave-major-update-en",
+        "sourceTitle": "Meet the “Ninth Wave” Major Update!",
+        "checkedAt": "2026-10-25T02:45:55.814Z",
+        "pageSha256": "cbc2dfcc4c6372461b3355172223426a725acaae8f2d84a2fae625a83a1e546c",
+        "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2026/3_March/NinthWave/940x530_news_ninth_wave_30b8332e0066488c8bd684e4b6e9a5f9.jpg"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_ninth_wave_armoured_fighting_vehicles_logo_eng_541b93d95ebfe68ee212d84d1115d7d7.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_ninth_wave_armoured_fighting_vehicles_logo_eng_1b9f36abe24541e696f1a060dbe9b33d.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/3840x2160_ninth_wave_armoured_fighting_vehicles_logo_eng_7b44ecb2de0c567bb87346e9357bd1d2.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official announcement title matched to gallery asset filename"
+    },
+    {
+      "id": "bg-5827d48a53",
+      "title": "俄克拉荷马号",
+      "category": "ships",
+      "era": "ww2",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/1920x1080_ship_marathon_uss_oklakhoma_logo_4e4c11df16c7d0b66b104ec8594ac778.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/_thumbs/279x157/1920x1080_ship_marathon_uss_oklakhoma_logo_4e4c11df16c7d0b66b104ec8594ac778_279x157_941b98a89b6e6d4939b6d70e731ffbe2.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/3",
+      "checkedAt": "2026-10-25T02:54:56.399Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/1920x1080_ship_marathon_uss_oklakhoma_logo_4e4c11df16c7d0b66b104ec8594ac778.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/2560x1440_ship_marathon_uss_oklakhoma_logo_09388048475332c9b40bdc812bbd8f7d.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/3840x2160_ship_marathon_uss_oklakhoma_logo_8fd88a5010943443984ff62fe567d267.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    },
+    {
+      "id": "bg-df2bee539d",
+      "title": "北境之翼 · CF-188",
+      "category": "aviation",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_cf_188a_canada_logo_0932e0eccebda8911b7eefd830f874cf.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/_thumbs/279x157/1920x1080_cf_188a_canada_logo_0932e0eccebda8911b7eefd830f874cf_279x157_0f7a721a688f33f2f2c5bed0cb8cd699.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/3",
+      "checkedAt": "2026-10-25T02:54:56.399Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_cf_188a_canada_logo_0932e0eccebda8911b7eefd830f874cf.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/2560x1440_cf_188a_canada_logo_74585fcf15f40b41ce3f53d6c848e336.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/3840x2160_cf_188a_canada_logo_ff6f2b13d3267421910feeb6795df2f2.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    },
+    {
+      "id": "bg-61d030614a",
+      "title": "空中驮马",
+      "category": "aviation",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_aircraft_marathon_workhorse_logo_b7847b1ca7ad2c67625fd9559c71e6ce.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/_thumbs/279x157/1920x1080_aircraft_marathon_workhorse_logo_b7847b1ca7ad2c67625fd9559c71e6ce_279x157_db232870898897124e4c75f886a6877d.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/4",
+      "checkedAt": "2026-10-25T02:54:56.405Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_aircraft_marathon_workhorse_logo_b7847b1ca7ad2c67625fd9559c71e6ce.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/2560x1440_aircraft_marathon_workhorse_logo_5bc424c9892cf5be0c877f3aa9818182.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/3840x2160_aircraft_marathon_workhorse_logo_7a127c7ec4f146dd4525ec10c7bae722.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    },
+    {
+      "id": "bg-cb6d510e27",
+      "title": "轻骑侦察 · ELC",
+      "category": "ground",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_amx_elc_901_logo_a5b964e82699b453f3868a578a0f1806.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/_thumbs/279x157/1920x1080_amx_elc_901_logo_a5b964e82699b453f3868a578a0f1806_279x157_25c3528d859f4bd6fc34450d0efa1252.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/4",
+      "checkedAt": "2026-10-25T02:54:56.405Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_amx_elc_901_logo_a5b964e82699b453f3868a578a0f1806.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/2560x1440_amx_elc_901_logo_9a18829b1e3c45509118a5c02358b763.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/3840x2160_amx_elc_901_logo_e4a839ff1bea7019481fee6c05a75ec5.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    },
+    {
+      "id": "bg-24b1f27bf7",
+      "title": "铁甲防线 · T-72B3",
+      "category": "ground",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_event_t_72b3_arena_logo_f2dfe88cd0c49cd7adbeb026740f525c.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/_thumbs/279x157/1920x1080_event_t_72b3_arena_logo_f2dfe88cd0c49cd7adbeb026740f525c_279x157_713328541b48d50e250b99be4a371450.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/4",
+      "checkedAt": "2026-10-25T02:54:56.405Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_event_t_72b3_arena_logo_f2dfe88cd0c49cd7adbeb026740f525c.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/2560x1440_event_t_72b3_arena_logo_6dfb7bf68e71bb38e424f52cce26fbf6.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/3840x2160_event_t_72b3_arena_logo_b9fab4494c8793bbe95370562e98b0c7.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    },
+    {
+      "id": "bg-175aab064f",
+      "title": "超级大黄蜂",
+      "category": "aviation",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_line_of_contact_fa_18e_block_2_logo_eng_752362bafa0b4effbb6c57be6a50bc6d.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/_thumbs/279x157/1920x1080_line_of_contact_fa_18e_block_2_logo_eng_752362bafa0b4effbb6c57be6a50bc6d_279x157_e9986546074b8d11690c75f23f97c4dd.jpg",
+      "sourcePage": "https://warthunder.com/en/news/9861-meet-the-line-of-contact-major-update-en",
+      "checkedAt": "2026-10-25T02:46:06.270Z",
+      "update": {
+        "id": "update-9861",
+        "title": "Line of Contact",
+        "version": null,
+        "announcedAt": "2025-12-16",
+        "sourcePage": "https://warthunder.com/en/news/9861-meet-the-line-of-contact-major-update-en",
+        "sourceTitle": "Meet the “Line of Contact” Major Update!",
+        "checkedAt": "2026-10-25T02:46:06.270Z",
+        "pageSha256": "579de42a2fa86d2ac52aa0ef693ed082f4e6673e673827f98c386c3e51ea6b4e",
+        "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2025/12_December/major_update/940x530_news_line_of_contact_fa_18e_block_2_d007fcf7370d514d74404439a5ee7672.jpg"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_line_of_contact_fa_18e_block_2_logo_eng_752362bafa0b4effbb6c57be6a50bc6d.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_line_of_contact_fa_18e_block_2_logo_eng_118ebe45417b12aacc02aee4ac9e0ed7.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/3840x2160_line_of_contact_fa_18e_block_2_logo_eng_5cf120186e6e3cddb6d4b0863982ff82.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement",
+      "galleryPage": "https://warthunder.com/en/media/wallpapers/page/4"
+    },
+    {
+      "id": "bg-ab12a1689f",
+      "title": "截击长空 · 米格-25",
+      "category": "aviation",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_line_of_contact_mig_25pd_logo_eng_845b0172125e032169d8c292dbf8f041.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/_thumbs/279x157/1920x1080_line_of_contact_mig_25pd_logo_eng_845b0172125e032169d8c292dbf8f041_279x157_67caf9fb1d9f08d8940d2ff7ba1d013d.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/4",
+      "checkedAt": "2026-10-25T02:54:56.405Z",
+      "update": {
+        "id": "update-9861",
+        "title": "Line of Contact",
+        "version": null,
+        "announcedAt": "2025-12-16",
+        "sourcePage": "https://warthunder.com/en/news/9861-meet-the-line-of-contact-major-update-en",
+        "sourceTitle": "Meet the “Line of Contact” Major Update!",
+        "checkedAt": "2026-10-25T02:46:06.270Z",
+        "pageSha256": "579de42a2fa86d2ac52aa0ef693ed082f4e6673e673827f98c386c3e51ea6b4e",
+        "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2025/12_December/major_update/940x530_news_line_of_contact_fa_18e_block_2_d007fcf7370d514d74404439a5ee7672.jpg"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_line_of_contact_mig_25pd_logo_eng_845b0172125e032169d8c292dbf8f041.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_line_of_contact_mig_25pd_logo_eng_6579118df5814e05389c491c7bd38a29.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/3840x2160_line_of_contact_mig_25pd_logo_eng_c322d069d88af122423e5f53ade1a8b1.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official announcement title matched to gallery asset filename"
+    },
+    {
+      "id": "bg-ca1fcedda5",
+      "title": "威尔士亲王号",
+      "category": "ships",
+      "era": "ww2",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_line_of_contact_prince_wales_logo_eng_7eba58793c7f1fde72b8939b65996da3.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/_thumbs/279x157/1920x1080_line_of_contact_prince_wales_logo_eng_7eba58793c7f1fde72b8939b65996da3_279x157_33d01bed91d34dba9371823d900b3a44.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/4",
+      "checkedAt": "2026-10-25T02:54:56.405Z",
+      "update": {
+        "id": "update-9861",
+        "title": "Line of Contact",
+        "version": null,
+        "announcedAt": "2025-12-16",
+        "sourcePage": "https://warthunder.com/en/news/9861-meet-the-line-of-contact-major-update-en",
+        "sourceTitle": "Meet the “Line of Contact” Major Update!",
+        "checkedAt": "2026-10-25T02:46:06.270Z",
+        "pageSha256": "579de42a2fa86d2ac52aa0ef693ed082f4e6673e673827f98c386c3e51ea6b4e",
+        "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2025/12_December/major_update/940x530_news_line_of_contact_fa_18e_block_2_d007fcf7370d514d74404439a5ee7672.jpg"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_line_of_contact_prince_wales_logo_eng_7eba58793c7f1fde72b8939b65996da3.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_line_of_contact_prince_wales_logo_eng_4bf41b1b0e5ca84f356650575f13c919.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/3840x2160_line_of_contact_prince_wales_logo_eng_94fe86eb3e2da924af309a85bea0c2a7.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official announcement title matched to gallery asset filename"
+    },
+    {
+      "id": "bg-2003e54ef5",
+      "title": "接触前线",
+      "category": "mixed",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_line_of_contact_logo_eng_bc30d2bbb78da53162bf173bdf59047d.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/_thumbs/279x157/1920x1080_line_of_contact_logo_eng_bc30d2bbb78da53162bf173bdf59047d_279x157_3ec95321407afd40251bf522f87659e0.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/4",
+      "checkedAt": "2026-10-25T02:54:56.405Z",
+      "update": {
+        "id": "update-9861",
+        "title": "Line of Contact",
+        "version": null,
+        "announcedAt": "2025-12-16",
+        "sourcePage": "https://warthunder.com/en/news/9861-meet-the-line-of-contact-major-update-en",
+        "sourceTitle": "Meet the “Line of Contact” Major Update!",
+        "checkedAt": "2026-10-25T02:46:06.270Z",
+        "pageSha256": "579de42a2fa86d2ac52aa0ef693ed082f4e6673e673827f98c386c3e51ea6b4e",
+        "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2025/12_December/major_update/940x530_news_line_of_contact_fa_18e_block_2_d007fcf7370d514d74404439a5ee7672.jpg"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_line_of_contact_logo_eng_bc30d2bbb78da53162bf173bdf59047d.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_line_of_contact_logo_eng_b7ee7754be7636ce8b5393976872b317.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/3840x2160_line_of_contact_logo_eng_c55f5a4aa4631834d39c218a0eb83f3a.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official announcement title matched to gallery asset filename"
+    },
+    {
+      "id": "bg-952bc2f501",
+      "title": "海上巡猎 · 205PE",
+      "category": "ships",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/1920x1080_event_205pe_k225_logo_592532112049b5195bea926fba22c02c.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/_thumbs/279x157/1920x1080_event_205pe_k225_logo_592532112049b5195bea926fba22c02c_279x157_60392606557793734e60f42cf0fa5e8a.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/4",
+      "checkedAt": "2026-10-25T02:54:56.405Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/1920x1080_event_205pe_k225_logo_592532112049b5195bea926fba22c02c.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/2560x1440_event_205pe_k225_logo_79677b87e1e32346a173123dafecd948.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Navy/3840x2160_event_205pe_k225_logo_5443e8ab1c86e8ba8ffd2d3f777cc45d.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    },
+    {
+      "id": "bg-ec31d79628",
+      "title": "先锋出击",
+      "category": "mixed",
+      "era": "modern",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_spearhead_logo_eng_d6f9adcafc06be87916da90701a0c08c.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/_thumbs/279x157/1920x1080_spearhead_logo_eng_d6f9adcafc06be87916da90701a0c08c_279x157_b6d0313b9fcecb3005bc643c797325bb.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/4",
+      "checkedAt": "2026-10-25T02:54:56.405Z",
+      "update": {
+        "id": "update-9799",
+        "title": "Spearhead",
+        "version": null,
+        "announcedAt": "2025-11-11",
+        "sourcePage": "https://warthunder.com/en/news/9799-meet-the-spearhead-major-update-en",
+        "sourceTitle": "Meet the “Spearhead” Major Update!",
+        "checkedAt": "2026-10-25T02:46:18.222Z",
+        "pageSha256": "0d6b6d29bf7766221fca667f241aa3f0f6373d5439de8ffca46b4377cde5fb33",
+        "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2025/11_November/Major Update/940x530_news_spearhead_438c366df048834973d4d068dc3480a6.jpg"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_spearhead_logo_eng_d6f9adcafc06be87916da90701a0c08c.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_spearhead_logo_eng_beb2518068ad87899e38333dab6b6627.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/3840x2160_spearhead_logo_eng_079847f34f8d0120a3e7b447f0f46a12.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official announcement title matched to gallery asset filename"
+    },
+    {
+      "id": "bg-3c0b60cca4",
+      "title": "Spearhead · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_spearhead_logo_eng_7b318d2dadcae3444dbc6b6cead6a3dc.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_spearhead_logo_eng_7b318d2dadcae3444dbc6b6cead6a3dc.jpg",
+      "sourcePage": "https://warthunder.com/en/news/9799-meet-the-spearhead-major-update-en",
+      "checkedAt": "2026-10-25T02:46:18.222Z",
+      "update": {
+        "id": "update-9799",
+        "title": "Spearhead",
+        "version": null,
+        "announcedAt": "2025-11-11",
+        "sourcePage": "https://warthunder.com/en/news/9799-meet-the-spearhead-major-update-en",
+        "sourceTitle": "Meet the “Spearhead” Major Update!",
+        "checkedAt": "2026-10-25T02:46:18.222Z",
+        "pageSha256": "0d6b6d29bf7766221fca667f241aa3f0f6373d5439de8ffca46b4377cde5fb33",
+        "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_2025/11_November/Major Update/940x530_news_spearhead_438c366df048834973d4d068dc3480a6.jpg"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_spearhead_logo_eng_7b318d2dadcae3444dbc6b6cead6a3dc.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/2560x1440_spearhead_logo_eng_ddbd3f64185394f79581db50a232fef6.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/3840x2160_spearhead_logo_eng_48578838ae21c38fe6d6ad7581243420.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-ac0a009fc9",
+      "title": "Tusk Force · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_tusk_force_oplot_t_logo_eng_0aa60d4a989fbf31ca8a0477bd5697e5.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_tusk_force_oplot_t_logo_eng_0aa60d4a989fbf31ca8a0477bd5697e5.jpg",
+      "sourcePage": "https://warthunder.com/en/news/9716-meet-the-tusk-force-major-update-en",
+      "checkedAt": "2026-10-25T02:46:31.367Z",
+      "update": {
+        "id": "update-9716",
+        "title": "Tusk Force",
+        "version": null,
+        "announcedAt": "2025-09-23",
+        "sourcePage": "https://warthunder.com/en/news/9716-meet-the-tusk-force-major-update-en",
+        "sourceTitle": "Meet the “Tusk Force” Major Update!",
+        "checkedAt": "2026-10-25T02:46:31.367Z",
+        "pageSha256": "ad69c27a6575c9b892269b58e98dd8736f8c4597b175dfb912c05717525c8027",
+        "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_Artwork_940/Ground/940x530_news_tusk_force_oplot_t_f4030e2af7dba72d3f47bc85ce965cf0.jpg"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_tusk_force_oplot_t_logo_eng_0aa60d4a989fbf31ca8a0477bd5697e5.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_tusk_force_oplot_t_logo_eng_0063eb10340549d12b6420c04ece0cb3.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/3840x2160_tusk_force_oplot_t_logo_eng_269ef33a861b3666e120a1cce3c8e9cb.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-41114c827e",
+      "title": "Leviathans · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_leviathans_logo_eng_ec5b854d2e8f238f9163478815aa9e81.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_leviathans_logo_eng_ec5b854d2e8f238f9163478815aa9e81.jpg",
+      "sourcePage": "https://warthunder.com/en/news/9579-meet-the-leviathans-major-update-en",
+      "checkedAt": "2026-10-25T02:46:42.131Z",
+      "update": {
+        "id": "update-9579",
+        "title": "Leviathans",
+        "version": null,
+        "announcedAt": "2025-06-25",
+        "sourcePage": "https://warthunder.com/en/news/9579-meet-the-leviathans-major-update-en",
+        "sourceTitle": "Meet the “Leviathans” Major Update!",
+        "checkedAt": "2026-10-25T02:46:42.131Z",
+        "pageSha256": "9f49515c9f6dd935b1aae8afbb3cd4007c0f6c46c1ed3350f8df1badeb3af717",
+        "announcementImage": "https://staticfiles.warthunder.com/upload/image/0_Artwork_940/Navy/940x530_news_leviathans_4a89402a70531fc2c0debe5ebb11f8a6.jpg"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_leviathans_logo_eng_ec5b854d2e8f238f9163478815aa9e81.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_leviathans_logo_eng_a0f4fffe3c7c01b8e4f24c7bed41ebe3.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/3840x2160_leviathans_logo_eng_82c4c8d77374132ebbf54089631f67f3.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-ccb36961bf",
+      "title": "Hornet’s Sting · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_hornets_sting_logo_eng_2d22ae28ec0480fd3f856696350210f2.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_hornets_sting_logo_eng_2d22ae28ec0480fd3f856696350210f2.jpg",
+      "sourcePage": "https://warthunder.com/en/news/9429-meet-the-hornets-sting-major-update-en",
+      "checkedAt": "2026-10-25T02:46:52.495Z",
+      "update": {
+        "id": "update-9429",
+        "title": "Hornet’s Sting",
+        "version": null,
+        "announcedAt": "2025-03-18",
+        "sourcePage": "https://warthunder.com/en/news/9429-meet-the-hornets-sting-major-update-en",
+        "sourceTitle": "Meet the “Hornet’s Sting” Major Update!",
+        "checkedAt": "2026-10-25T02:46:52.495Z",
+        "pageSha256": "7674be393726d160b6eb40bc3b34cb67220007a22612b4d3d80d39e40c5b833e"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_hornets_sting_logo_eng_2d22ae28ec0480fd3f856696350210f2.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_hornets_sting_logo_eng_fb3db7ed3b3bfcc6e6a12091fe6e1997.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/3840x2160_hornets_sting_logo_eng_f415c58d74dc28708e3aa4dd8645e6f6.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-5187904a02",
+      "title": "Storm Warning · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_storm_warning_logo_eng_d578a134da9d802d5d6edb719e8daf46.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_storm_warning_logo_eng_d578a134da9d802d5d6edb719e8daf46.jpg",
+      "sourcePage": "https://warthunder.com/en/news/9282-meet-the-storm-warning-major-update-en",
+      "checkedAt": "2026-10-25T02:47:05.151Z",
+      "update": {
+        "id": "update-9282",
+        "title": "Storm Warning",
+        "version": null,
+        "announcedAt": "2024-12-16",
+        "sourcePage": "https://warthunder.com/en/news/9282-meet-the-storm-warning-major-update-en",
+        "sourceTitle": "Meet the “Storm Warning” Major Update!",
+        "checkedAt": "2026-10-25T02:47:05.151Z",
+        "pageSha256": "80ecae8c68581462e677b0fdf99381cf6072504db05db7248d85d61a36ebab48"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_storm_warning_logo_eng_d578a134da9d802d5d6edb719e8daf46.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/2560x1440_storm_warning_logo_eng_cb17d3385a9a6f40ae50e50964b05662.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/3840x2160_storm_warning_logo_eng_abd8255b2921a54df1ff36a887d72172.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-d5c866ff90",
+      "title": "Storm Warning · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_storm_warning_pzh_2000_logo_eng_4483eb353bbeb6a2b19236740114d627.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_storm_warning_pzh_2000_logo_eng_4483eb353bbeb6a2b19236740114d627.jpg",
+      "sourcePage": "https://warthunder.com/en/news/9282-meet-the-storm-warning-major-update-en",
+      "checkedAt": "2026-10-25T02:47:05.151Z",
+      "update": {
+        "id": "update-9282",
+        "title": "Storm Warning",
+        "version": null,
+        "announcedAt": "2024-12-16",
+        "sourcePage": "https://warthunder.com/en/news/9282-meet-the-storm-warning-major-update-en",
+        "sourceTitle": "Meet the “Storm Warning” Major Update!",
+        "checkedAt": "2026-10-25T02:47:05.151Z",
+        "pageSha256": "80ecae8c68581462e677b0fdf99381cf6072504db05db7248d85d61a36ebab48"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_storm_warning_pzh_2000_logo_eng_4483eb353bbeb6a2b19236740114d627.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/2560x1440_storm_warning_pzh_2000_logo_eng_356040360f6a76e934e0981d62c41f4a.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/3840x2160_storm_warning_pzh_2000_logo_eng_9bb26cf66f2a2525d3c134ffcb3f6aae.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-488cbb2b1d",
+      "title": "Firebirds · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_firebirds_logo_eng_88a41ed16e272c1d740f428f6680f082.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_firebirds_logo_eng_88a41ed16e272c1d740f428f6680f082.jpg",
+      "sourcePage": "https://warthunder.com/en/news/9212-meet-the-firebirds-major-update-en",
+      "checkedAt": "2026-10-25T02:47:13.836Z",
+      "update": {
+        "id": "update-9212",
+        "title": "Firebirds",
+        "version": null,
+        "announcedAt": "2024-11-19",
+        "sourcePage": "https://warthunder.com/en/news/9212-meet-the-firebirds-major-update-en",
+        "sourceTitle": "Meet the “Firebirds” Major Update!",
+        "checkedAt": "2026-10-25T02:47:13.836Z",
+        "pageSha256": "134f2ac2e0a3571b40e373e8ddd0011a46d4d121f321340f1d422d1411011ef8"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_firebirds_logo_eng_88a41ed16e272c1d740f428f6680f082.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/2560x1440_firebirds_logo_eng_9a957d306bcc3f10abb0b036902279e3.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/3840x2160_firebirds_logo_eng_cb598d63f0a2d43e8e3bb06b11b522f6.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-343c12725b",
+      "title": "Firebirds · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_firebirds_luchs_a2_fv107_scimitar_logo_eng_18631f942d0a12cff8f404d0a358394f.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_firebirds_luchs_a2_fv107_scimitar_logo_eng_18631f942d0a12cff8f404d0a358394f.jpg",
+      "sourcePage": "https://warthunder.com/en/news/9212-meet-the-firebirds-major-update-en",
+      "checkedAt": "2026-10-25T02:47:13.836Z",
+      "update": {
+        "id": "update-9212",
+        "title": "Firebirds",
+        "version": null,
+        "announcedAt": "2024-11-19",
+        "sourcePage": "https://warthunder.com/en/news/9212-meet-the-firebirds-major-update-en",
+        "sourceTitle": "Meet the “Firebirds” Major Update!",
+        "checkedAt": "2026-10-25T02:47:13.836Z",
+        "pageSha256": "134f2ac2e0a3571b40e373e8ddd0011a46d4d121f321340f1d422d1411011ef8"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_firebirds_luchs_a2_fv107_scimitar_logo_eng_18631f942d0a12cff8f404d0a358394f.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/2560x1440_firebirds_luchs_a2_fv107_scimitar_logo_eng_6bd3d7802347cd06aa99c9c7d33e508d.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/3840x2160_firebirds_luchs_a2_fv107_scimitar_logo_eng_97087417710a2b6b87e004a85ec3e31a.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-9b74d882b8",
+      "title": "Firebirds · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Helicopters/1920x1080_firebirds_super_hind_mk3_logo_eng_9c3dc717054035969433a5655f30787b.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Helicopters/1920x1080_firebirds_super_hind_mk3_logo_eng_9c3dc717054035969433a5655f30787b.jpg",
+      "sourcePage": "https://warthunder.com/en/news/9212-meet-the-firebirds-major-update-en",
+      "checkedAt": "2026-10-25T02:47:13.836Z",
+      "update": {
+        "id": "update-9212",
+        "title": "Firebirds",
+        "version": null,
+        "announcedAt": "2024-11-19",
+        "sourcePage": "https://warthunder.com/en/news/9212-meet-the-firebirds-major-update-en",
+        "sourceTitle": "Meet the “Firebirds” Major Update!",
+        "checkedAt": "2026-10-25T02:47:13.836Z",
+        "pageSha256": "134f2ac2e0a3571b40e373e8ddd0011a46d4d121f321340f1d422d1411011ef8"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Helicopters/1920x1080_firebirds_super_hind_mk3_logo_eng_9c3dc717054035969433a5655f30787b.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Helicopters/2560x1440_firebirds_super_hind_mk3_logo_eng_28997c610f7fb73e722d8b49f6c1e280.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Helicopters/3840x2160_firebirds_super_hind_mk3_logo_eng_9d2a2b73f97f8f8752220e69979460f9.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-ddf4052824",
+      "title": "Dance of Dragons · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_dance_of_dragons_logo_eng_c5ce39d8a20490b7c77721da12e9e04f.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_dance_of_dragons_logo_eng_c5ce39d8a20490b7c77721da12e9e04f.jpg",
+      "sourcePage": "https://warthunder.com/en/news/9080-meet-the-dance-of-dragons-major-update-en",
+      "checkedAt": "2026-10-25T02:47:27.608Z",
+      "update": {
+        "id": "update-9080",
+        "title": "Dance of Dragons",
+        "version": null,
+        "announcedAt": "2024-09-10",
+        "sourcePage": "https://warthunder.com/en/news/9080-meet-the-dance-of-dragons-major-update-en",
+        "sourceTitle": "Meet the “Dance of Dragons” Major Update!",
+        "checkedAt": "2026-10-25T02:47:27.608Z",
+        "pageSha256": "5722ff77b4a8005eff77cf0dfb0a25074a7fef7a3de6aa69c32b952ccbc419c2"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_dance_of_dragons_logo_eng_c5ce39d8a20490b7c77721da12e9e04f.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_dance_of_dragons_logo_eng_5c90c7ec384fbd692f9d54cdff4e4a55.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/3840x2160_dance_of_dragons_logo_eng_a2c40628052bf53fb6106f5b1beff7ee.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-f5ffb53dd3",
+      "title": "Seek & Destroy · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_seek_and_destroy_logo_eng_d31e85bdeb023aaed2a306befa4b3492.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_seek_and_destroy_logo_eng_d31e85bdeb023aaed2a306befa4b3492.jpg",
+      "sourcePage": "https://warthunder.com/en/news/8953-meet-major-update-seek-destroy-en",
+      "checkedAt": "2026-10-25T02:47:35.572Z",
+      "update": {
+        "id": "update-8953",
+        "title": "Seek & Destroy",
+        "version": null,
+        "announcedAt": "2024-06-19",
+        "sourcePage": "https://warthunder.com/en/news/8953-meet-major-update-seek-destroy-en",
+        "sourceTitle": "Meet Major Update “Seek & Destroy”!",
+        "checkedAt": "2026-10-25T02:47:35.572Z",
+        "pageSha256": "c861b23d3b10e90b9a1cc1cf722045ec5ea8f716978f684ce0c24d2fce52b594"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_seek_and_destroy_logo_eng_d31e85bdeb023aaed2a306befa4b3492.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/2560x1440_seek_and_destroy_logo_eng_b5725f6020f99b1f833284d43d67abcd.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/3840x2160_seek_and_destroy_logo_eng_e5a75264144b91d44ab6926e51794b21.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-581421a429",
+      "title": "Alpha Strike · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_alpha_strike_hungary_aircrafts_logo_77cb851553c1a8451aa7cb699a5d62bc.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_alpha_strike_hungary_aircrafts_logo_77cb851553c1a8451aa7cb699a5d62bc.jpg",
+      "sourcePage": "https://warthunder.com/en/news/8814-meet-major-update-alpha-strike-en",
+      "checkedAt": "2026-10-25T02:47:44.452Z",
+      "update": {
+        "id": "update-8814",
+        "title": "Alpha Strike",
+        "version": null,
+        "announcedAt": "2024-03-13",
+        "sourcePage": "https://warthunder.com/en/news/8814-meet-major-update-alpha-strike-en",
+        "sourceTitle": "Meet Major Update “Alpha Strike”!",
+        "checkedAt": "2026-10-25T02:47:44.452Z",
+        "pageSha256": "685488ce23dd5010f87f6e6095fd2019ce57c57ba4f204d297cceb84520807c0"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_alpha_strike_hungary_aircrafts_logo_77cb851553c1a8451aa7cb699a5d62bc.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_alpha_strike_hungary_aircrafts_logo_2857cdac3310ed11b19831a21c4296b6.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/3840x2160_alpha_strike_hungary_aircrafts_logo_ee6d76235dbf9a366035896a20a96426.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-638ee56b57",
+      "title": "Air Superiority · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_air_superiority_logo_0af39eb7a0d03993c71023344a3ed58b.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_air_superiority_logo_0af39eb7a0d03993c71023344a3ed58b.jpg",
+      "sourcePage": "https://warthunder.com/en/news/8650-meet-major-update-air-superiority-en",
+      "checkedAt": "2026-10-25T02:47:55.945Z",
+      "update": {
+        "id": "update-8650",
+        "title": "Air Superiority",
+        "version": null,
+        "announcedAt": "2023-12-14",
+        "sourcePage": "https://warthunder.com/en/news/8650-meet-major-update-air-superiority-en",
+        "sourceTitle": "Meet Major Update “Air Superiority”!",
+        "checkedAt": "2026-10-25T02:47:55.945Z",
+        "pageSha256": "4008806e4cda0399437a8e799c0ee1e66c6e3caefa6f8af81569d05b3453e037"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_air_superiority_logo_0af39eb7a0d03993c71023344a3ed58b.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_air_superiority_logo_697a6c8f6d85d50f1d0aa58daaf641b6.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/3840x2160_air_superiority_logo_58d868df50578e6823150cbda617622b.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-137f58cb54",
+      "title": "Sons of Attila · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_sons_of_attila_hungary_ground_vehicles_logo_eng_88f08973fdbcb15012794aa91f7542bc.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_sons_of_attila_hungary_ground_vehicles_logo_eng_88f08973fdbcb15012794aa91f7542bc.jpg",
+      "sourcePage": "https://warthunder.com/en/news/8481-news-meet-major-update-sons-of-attila-en",
+      "checkedAt": "2026-10-25T02:48:07.077Z",
+      "update": {
+        "id": "update-8481",
+        "title": "Sons of Attila",
+        "version": null,
+        "announcedAt": "2023-09-19",
+        "sourcePage": "https://warthunder.com/en/news/8481-news-meet-major-update-sons-of-attila-en",
+        "sourceTitle": "Meet Major Update “Sons of Attila”!",
+        "checkedAt": "2026-10-25T02:48:07.077Z",
+        "pageSha256": "f4395961b0b57beed8b9091666e36d9a7ced0b726e4a97344338bdbb748abe19"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_sons_of_attila_hungary_ground_vehicles_logo_eng_88f08973fdbcb15012794aa91f7542bc.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/3840x2160_sons_of_attila_hungary_ground_vehicles_logo_eng_dfd2c8dc3f005f5d3aa728c0566c73cc.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-3f3bfbaec1",
+      "title": "Sons of Attila · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_sons_of_attila_logo_hungary_ground_vehicles_eng_3e4139ba5b5b9b48f9dffbc13c7aecf5.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_sons_of_attila_logo_hungary_ground_vehicles_eng_3e4139ba5b5b9b48f9dffbc13c7aecf5.jpg",
+      "sourcePage": "https://warthunder.com/en/news/8481-news-meet-major-update-sons-of-attila-en",
+      "checkedAt": "2026-10-25T02:48:07.077Z",
+      "update": {
+        "id": "update-8481",
+        "title": "Sons of Attila",
+        "version": null,
+        "announcedAt": "2023-09-19",
+        "sourcePage": "https://warthunder.com/en/news/8481-news-meet-major-update-sons-of-attila-en",
+        "sourceTitle": "Meet Major Update “Sons of Attila”!",
+        "checkedAt": "2026-10-25T02:48:07.077Z",
+        "pageSha256": "f4395961b0b57beed8b9091666e36d9a7ced0b726e4a97344338bdbb748abe19"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_sons_of_attila_logo_hungary_ground_vehicles_eng_3e4139ba5b5b9b48f9dffbc13c7aecf5.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      ],
+      "width": 2560,
+      "height": 1440,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-a2cfb7dad7",
+      "title": "La Royale · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_la_royale_logo_894a1ccecf55d0605567aed1545a6e28.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_la_royale_logo_894a1ccecf55d0605567aed1545a6e28.jpg",
+      "sourcePage": "https://warthunder.com/en/news/8317-meet-major-update-la-royale-en",
+      "checkedAt": "2026-10-25T02:48:17.413Z",
+      "update": {
+        "id": "update-8317",
+        "title": "La Royale",
+        "version": null,
+        "announcedAt": "2023-06-14",
+        "sourcePage": "https://warthunder.com/en/news/8317-meet-major-update-la-royale-en",
+        "sourceTitle": "Meet Major Update “La Royale”!",
+        "checkedAt": "2026-10-25T02:48:17.413Z",
+        "pageSha256": "78b372dc8aa4c222c7c4585236b7c84d789c435270b21539649708a703ef3b3a"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_la_royale_logo_894a1ccecf55d0605567aed1545a6e28.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/2560x1440_la_royale_logo_646aa4216f2a829c67bbe2537107441c.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/3840x2160_la_royale_logo_a4f708894ee42e79ff08d42b1da56a16.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-23335c742c",
+      "title": "Sky Guardians · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_sky_guardians_ah_6m_logo_eng_a4d2d590a78efabfd7c37161f6fc191c.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_sky_guardians_ah_6m_logo_eng_a4d2d590a78efabfd7c37161f6fc191c.jpg",
+      "sourcePage": "https://warthunder.com/en/news/8141-meet-major-update-sky-guardians-en",
+      "checkedAt": "2026-10-25T02:48:29.574Z",
+      "update": {
+        "id": "update-8141",
+        "title": "Sky Guardians",
+        "version": null,
+        "announcedAt": "2023-03-07",
+        "sourcePage": "https://warthunder.com/en/news/8141-meet-major-update-sky-guardians-en",
+        "sourceTitle": "Meet Major Update “Sky Guardians”!",
+        "checkedAt": "2026-10-25T02:48:29.574Z",
+        "pageSha256": "9fb837ab389a83766a219125d37ad9a89e56564c21b6f3c98f66164fe2a7976a"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_sky_guardians_ah_6m_logo_eng_a4d2d590a78efabfd7c37161f6fc191c.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_sky_guardians_ah_6m_logo_eng_7054dc3e86f99b688aa43bfaefcb41aa.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/3840x2160_sky_guardians_ah_6m_logo_eng_4311bed06307291f594507b30e79d4fc.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-e69a0f751f",
+      "title": "Apex Predators · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_apex_predators_logo_054f1ade344be93f756d99c28e371981.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_apex_predators_logo_054f1ade344be93f756d99c28e371981.jpg",
+      "sourcePage": "https://warthunder.com/en/news/8029-meet-major-update-apex-predators-en",
+      "checkedAt": "2026-10-25T02:48:39.874Z",
+      "update": {
+        "id": "update-8029",
+        "title": "Apex Predators",
+        "version": null,
+        "announcedAt": "2022-12-20",
+        "sourcePage": "https://warthunder.com/en/news/8029-meet-major-update-apex-predators-en",
+        "sourceTitle": "Meet Major Update “Apex Predators”!",
+        "checkedAt": "2026-10-25T02:48:39.874Z",
+        "pageSha256": "20b7bf8310ba012dac36f3aa57f18bc3f089b2a39a798e628bf11eb6fba008a6"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_apex_predators_logo_054f1ade344be93f756d99c28e371981.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_apex_predators_logo_86b4d77d9a0376c070850f42ca89cfef.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/3840x2160_apex_predators_logo_d145e73dce2610e833582df23000d3ad.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-2ad11a8bfd",
+      "title": "Fire and Ice · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_logo_fire_and_ice_churchill_crocodile_eng_d2ea10e96aabd827e59e47ece2b213d5.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_logo_fire_and_ice_churchill_crocodile_eng_d2ea10e96aabd827e59e47ece2b213d5.jpg",
+      "sourcePage": "https://warthunder.com/en/news/7930-meet-major-update-fire-and-ice-en",
+      "checkedAt": "2026-10-25T02:48:48.634Z",
+      "update": {
+        "id": "update-7930",
+        "title": "Fire and Ice",
+        "version": null,
+        "announcedAt": "2022-10-26",
+        "sourcePage": "https://warthunder.com/en/news/7930-meet-major-update-fire-and-ice-en",
+        "sourceTitle": "Meet Major Update “Fire and Ice”!",
+        "checkedAt": "2026-10-25T02:48:48.634Z",
+        "pageSha256": "b43ea419797cdf75c2a222e6b70c3db17a77a9f76592ba0fed26651272c34dce"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/1920x1080_logo_fire_and_ice_churchill_crocodile_eng_d2ea10e96aabd827e59e47ece2b213d5.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/2560x1440_logo_fire_and_ice_churchill_crocodile_eng_90f180b29ba801fae663d1beb0493be3.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/3840x2160_logo_fire_and_ice_churchill_crocodile_eng_e334092ef572837d572c669a901c53d1.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-2ee8b73ebc",
+      "title": "Drone Age · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/wallpapers/1920x1080_logo_drone_age_battlecruiser_alaska_eng_e2181043fdccb463c3d60a07456e8a63.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/wallpapers/1920x1080_logo_drone_age_battlecruiser_alaska_eng_e2181043fdccb463c3d60a07456e8a63.jpg",
+      "sourcePage": "https://warthunder.com/en/news/7868-meet-major-update-drone-age-en",
+      "checkedAt": "2026-10-25T02:48:58.086Z",
+      "update": {
+        "id": "update-7868",
+        "title": "Drone Age",
+        "version": null,
+        "announcedAt": "2022-09-14",
+        "sourcePage": "https://warthunder.com/en/news/7868-meet-major-update-drone-age-en",
+        "sourceTitle": "Meet Major Update “Drone Age”!",
+        "checkedAt": "2026-10-25T02:48:58.086Z",
+        "pageSha256": "df5db0014db9de8d48375bd460b9282e46b8b47b0afb18ad892727fd1950b391"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1920x1080_logo_drone_age_battlecruiser_alaska_eng_e2181043fdccb463c3d60a07456e8a63.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/2560x1440_logo_drone_age_battlecruiser_alaska_eng_c6fa850d558efdd6b9301bcb38e01776.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/3840x2160_logo_drone_age_battlecruiser_alaska_eng_f08dcc6737f71a993755c2946b529f9c.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-8f96b29124",
+      "title": "Danger Zone · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/wallpapers/1920x1080_logo_danger_zone_f_14a_early_eae41641cdb9e0491892c352135b2ba5.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/wallpapers/1920x1080_logo_danger_zone_f_14a_early_eae41641cdb9e0491892c352135b2ba5.jpg",
+      "sourcePage": "https://warthunder.com/en/news/7740-meet-major-update-danger-zone-en",
+      "checkedAt": "2026-10-25T02:49:09.887Z",
+      "update": {
+        "id": "update-7740",
+        "title": "Danger Zone",
+        "version": null,
+        "announcedAt": "2022-06-15",
+        "sourcePage": "https://warthunder.com/en/news/7740-meet-major-update-danger-zone-en",
+        "sourceTitle": "Meet Major Update “Danger Zone”!",
+        "checkedAt": "2026-10-25T02:49:09.887Z",
+        "pageSha256": "330b5eadb4f778ac97fec2d2fee0ee0b2057dfb4854915e0855e3912e07fd554"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1920x1080_logo_danger_zone_f_14a_early_eae41641cdb9e0491892c352135b2ba5.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/2560x1440_logo_danger_zone_f_14a_early_9e32ccc5e17a1c46c204e4cdf301d836.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/3840x2160_logo_danger_zone_f_14a_early_873717718cc08facf2a162f0eccc18cc.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-2f765b9de6",
+      "title": "Wind of Change · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/wallpapers/1920x1080_logo_wind_of_change_a_10a_eng_655463f31e48b2956f252c39daa59505.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/wallpapers/1920x1080_logo_wind_of_change_a_10a_eng_655463f31e48b2956f252c39daa59505.jpg",
+      "sourcePage": "https://warthunder.com/en/news/7618-meet-major-update-wind-of-change-en",
+      "checkedAt": "2026-10-25T02:49:18.359Z",
+      "update": {
+        "id": "update-7618",
+        "title": "Wind of Change",
+        "version": null,
+        "announcedAt": "2022-03-24",
+        "sourcePage": "https://warthunder.com/en/news/7618-meet-major-update-wind-of-change-en",
+        "sourceTitle": "Meet Major Update “Wind of Change”!",
+        "checkedAt": "2026-10-25T02:49:18.359Z",
+        "pageSha256": "a7f8f3b4ab9a495041ff2adc3ffde4e2999b81f60e897d23a89829077835df55"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1920x1080_logo_wind_of_change_a_10a_eng_655463f31e48b2956f252c39daa59505.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/2560x1440_logo_wind_of_change_a_10a_eng_f29f8d67e0dfbbbaab1042d69bdf7a01.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/3840x2160_logo_wind_of_change_a_10a_eng_be3f6a965c900e0bf470c76d81fb0edb.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-e944ba78fb",
+      "title": "Winged Lions · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/wallpapers/1920x1080_logo_winged_lions_israel_aircraft_com_4e5e153fb6cb3a59c962f988c737881a.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/wallpapers/1920x1080_logo_winged_lions_israel_aircraft_com_4e5e153fb6cb3a59c962f988c737881a.jpg",
+      "sourcePage": "https://warthunder.com/en/news/7485-meet-major-update-winged-lions-en",
+      "checkedAt": "2026-10-25T02:49:27.975Z",
+      "update": {
+        "id": "update-7485",
+        "title": "Winged Lions",
+        "version": null,
+        "announcedAt": "2021-12-14",
+        "sourcePage": "https://warthunder.com/en/news/7485-meet-major-update-winged-lions-en",
+        "sourceTitle": "Meet Major Update “Winged Lions”!",
+        "checkedAt": "2026-10-25T02:49:27.975Z",
+        "pageSha256": "c487fbc42c395fed1123cc795a050102a97691b4f466fd4d30c407a0b7d813d0"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1920x1080_logo_winged_lions_israel_aircraft_com_4e5e153fb6cb3a59c962f988c737881a.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/2560x1440_logo_winged_lions_israel_aircraft_com_0b04d244187b49a1ab5e846b78191704.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/3840x2160_logo_winged_lions_israel_aircraft_com_b7e90d9ac67fccd829cc049801f2f996.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-69260c976c",
+      "title": "Ground Breaking · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/wallpapers/1920x1080_logo_ground_breaking_avre_com_1914667ecf143ab001d2c9bf9fc74b02.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/wallpapers/1920x1080_logo_ground_breaking_avre_com_1914667ecf143ab001d2c9bf9fc74b02.jpg",
+      "sourcePage": "https://warthunder.com/en/news/7400-news-meet-major-update-ground-breaking-en",
+      "checkedAt": "2026-10-25T02:49:38.379Z",
+      "update": {
+        "id": "update-7400",
+        "title": "Ground Breaking",
+        "version": null,
+        "announcedAt": "2021-10-28",
+        "sourcePage": "https://warthunder.com/en/news/7400-news-meet-major-update-ground-breaking-en",
+        "sourceTitle": "Meet Major Update “Ground Breaking”!",
+        "checkedAt": "2026-10-25T02:49:38.379Z",
+        "pageSha256": "92bca4dbf935449c5e27344c381d2741bd42a01cae50d0ac84b1b4bdf48c8949"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1920x1080_logo_ground_breaking_avre_com_1914667ecf143ab001d2c9bf9fc74b02.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/2560x1440_logo_ground_breaking_avre_com_e57910e4e6317fe5194520bf8494069c.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/3840x2160_logo_ground_breaking_avre_com_b1c1fcd04107f22641243cf815dacfb1.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-d31350eefc",
+      "title": "Red Skies · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/wallpapers/1920x1080_logo_red_skies_t_80bvm_com_aa1ed9c1eb35a645d128d3c404bb8a1e.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/wallpapers/1920x1080_logo_red_skies_t_80bvm_com_aa1ed9c1eb35a645d128d3c404bb8a1e.jpg",
+      "sourcePage": "https://warthunder.com/en/news/7200-news-meet-major-update-red-skies-en",
+      "checkedAt": "2026-10-25T02:49:55.236Z",
+      "update": {
+        "id": "update-7200",
+        "title": "Red Skies",
+        "version": null,
+        "announcedAt": "2021-06-02",
+        "sourcePage": "https://warthunder.com/en/news/7200-news-meet-major-update-red-skies-en",
+        "sourceTitle": "Meet Major Update “Red Skies”!",
+        "checkedAt": "2026-10-25T02:49:55.236Z",
+        "pageSha256": "10a5578c0acce0e39c22ee247959dbc6da34a8739cf4154cd52233577e72a7da"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1920x1080_logo_red_skies_t_80bvm_com_aa1ed9c1eb35a645d128d3c404bb8a1e.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/2560x1440_logo_red_skies_t_80bvm_com_ef6341315520f0c3d42e5b5efd24d8fd.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/3840x2160_logo_red_skies_t_80bvm_com_c9ba6a8a5172aa85549b59f3af48f703.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-cdd433ba1b",
+      "title": "Imperial Navy · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_89_1920x1080_logo_main_eng_2eef445570f20afac495b43b9cdb898c.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_89_1920x1080_logo_main_eng_2eef445570f20afac495b43b9cdb898c.jpg",
+      "sourcePage": "https://warthunder.com/en/news/6221-meet-update-1-89-imperial-navy-survey-added-en",
+      "checkedAt": "2026-10-25T02:51:37.327Z",
+      "update": {
+        "id": "update-6221",
+        "title": "Imperial Navy",
+        "version": "1.89",
+        "announcedAt": "2019-05-29",
+        "sourcePage": "https://warthunder.com/en/news/6221-meet-update-1-89-imperial-navy-survey-added-en",
+        "sourceTitle": "Meet update 1.89 “Imperial Navy\" - Survey added!",
+        "checkedAt": "2026-10-25T02:51:37.327Z",
+        "pageSha256": "00bdd089486691db6b2b5521d4419f6baf93fd1360f4c5d132367a6d0a886bad"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_89_1920x1080_logo_main_eng_2eef445570f20afac495b43b9cdb898c.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_89_2560x1440_logo_main_eng_bf5d77fc7567a0a6fc450c8fa1170348.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_89_3840x2160_logo_main_eng_3d7ab884a4ae5217bed3f86c45fa06d2.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-51fde43cbc",
+      "title": "Supersonic · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_85_1920x1080_logo_eng_cde2725c39fc876250e7888fe04d4d04.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_85_1920x1080_logo_eng_cde2725c39fc876250e7888fe04d4d04.jpg",
+      "sourcePage": "https://warthunder.com/en/news/5950-news-meet-update-1-85-supersonic-survey-added-en",
+      "checkedAt": "2026-10-25T02:51:49.311Z",
+      "update": {
+        "id": "update-5950",
+        "title": "Supersonic",
+        "version": "1.85",
+        "announcedAt": "2018-12-17",
+        "sourcePage": "https://warthunder.com/en/news/5950-news-meet-update-1-85-supersonic-survey-added-en",
+        "sourceTitle": "Meet update 1.85 \"Supersonic\" - Survey added!",
+        "checkedAt": "2026-10-25T02:51:49.311Z",
+        "pageSha256": "96548a80cb3de9eea1a3ed1357ecdeb87e76855b88a872db2535e3fadfcbc0fb"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_85_1280x1024_logo_eng_2fa1d73ac9b3f7c7c0802dfa020684ac.jpg",
+          "width": 1280,
+          "height": 1024
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_85_1920x1080_logo_eng_cde2725c39fc876250e7888fe04d4d04.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_85_2560x1440_logo_eng_1094953d708a3df3e60e60b8f6804af7.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-a0c5397439",
+      "title": "Masters of the Sea · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_83_1920x1080_logo_eng_265b1b8e0b991720f8e2d4472b9f8a2a.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_83_1920x1080_logo_eng_265b1b8e0b991720f8e2d4472b9f8a2a.jpg",
+      "sourcePage": "https://warthunder.com/en/news/5845-news-meet-update-1-83-masters-of-the-sea-survey-added-en",
+      "checkedAt": "2026-10-25T02:51:58.227Z",
+      "update": {
+        "id": "update-5845",
+        "title": "Masters of the Sea",
+        "version": "1.83",
+        "announcedAt": "2018-10-26",
+        "sourcePage": "https://warthunder.com/en/news/5845-news-meet-update-1-83-masters-of-the-sea-survey-added-en",
+        "sourceTitle": "Meet update 1.83 “Masters of the Sea” - Survey added!",
+        "checkedAt": "2026-10-25T02:51:58.227Z",
+        "pageSha256": "dfd1b755c24518620dba2f897d3a7f5e69113fb168172643f2ee2d7fe47df624"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_83_1280x1024_logo_eng_08f1fa8e9256d68707f34285c20e4c80.jpg",
+          "width": 1280,
+          "height": 1024
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_83_1920x1080_logo_eng_265b1b8e0b991720f8e2d4472b9f8a2a.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_83_2560x1440_logo_eng_998f32d9f2cdb97e43863019b1e8eb9e.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-71f875b77b",
+      "title": "The Valkyries · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_81_1920x1080_logo_us_eng_2a375b8fcfbf2a65574ce0532f60c91b.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_81_1920x1080_logo_us_eng_2a375b8fcfbf2a65574ce0532f60c91b.jpg",
+      "sourcePage": "https://warthunder.com/en/news/5774-news-welcome-to-update-1-81-the-valkyries-poll-added-en",
+      "checkedAt": "2026-10-25T02:52:07.163Z",
+      "update": {
+        "id": "update-5774",
+        "title": "The Valkyries",
+        "version": "1.81",
+        "announcedAt": "2018-09-20",
+        "sourcePage": "https://warthunder.com/en/news/5774-news-welcome-to-update-1-81-the-valkyries-poll-added-en",
+        "sourceTitle": "Welcome to update 1.81 “The Valkyries” (poll added)",
+        "checkedAt": "2026-10-25T02:52:07.163Z",
+        "pageSha256": "1fe221f0f15cbbe2d1552afa34f4d7945f3c165f5366f7784bfc94c78a532bae"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_81_1280x1024_logo_us_eng_347869a88071adf5b011c9bffd3d0276.jpg",
+          "width": 1280,
+          "height": 1024
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_81_1920x1080_logo_us_eng_2a375b8fcfbf2a65574ce0532f60c91b.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_81_2560x1440_logo_us_eng_3bb995e882d32cdcd25f3af8d04caa6a.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-2c27f79cd5",
+      "title": "Project-X · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_79_1920x1080_logo_leopard_2a4_com_a42728c559e50b414a12793ef453d806.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_79_1920x1080_logo_leopard_2a4_com_a42728c559e50b414a12793ef453d806.jpg",
+      "sourcePage": "https://warthunder.com/en/news/5576-major-update-1-79-project-x-en",
+      "checkedAt": "2026-10-25T02:52:16.980Z",
+      "update": {
+        "id": "update-5576",
+        "title": "Project-X",
+        "version": "1.79",
+        "announcedAt": "2018-06-12",
+        "sourcePage": "https://warthunder.com/en/news/5576-major-update-1-79-project-x-en",
+        "sourceTitle": "Major Update 1.79 “Project-X”",
+        "checkedAt": "2026-10-25T02:52:16.980Z",
+        "pageSha256": "1874f2d8cc3935413fdb8c95fe6ece540ff88684da3dea6ae878343e2001a42e"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_79_1280x1024_logo_leopard_2a4_com_37a78290aad21698c8f7fce219ec7201.jpg",
+          "width": 1280,
+          "height": 1024
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_79_1920x1080_logo_leopard_2a4_com_a42728c559e50b414a12793ef453d806.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_79_2560x1440_logo_leopard_2a4_com_7358f6183b1aff34d4207b76b60105b6.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-c281db1b26",
+      "title": "Advancing Storm · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_77_1920x1080_logo_main_eng_fff139201c4e7242aed2f6954bbdb871.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_77_1920x1080_logo_main_eng_fff139201c4e7242aed2f6954bbdb871.jpg",
+      "sourcePage": "https://warthunder.com/en/news/5381-news-meet-update-1-77-advancing-storm-survey-added-en",
+      "checkedAt": "2026-10-25T02:52:25.928Z",
+      "update": {
+        "id": "update-5381",
+        "title": "Advancing Storm",
+        "version": "1.77",
+        "announcedAt": "2018-03-14",
+        "sourcePage": "https://warthunder.com/en/news/5381-news-meet-update-1-77-advancing-storm-survey-added-en",
+        "sourceTitle": "Meet Update 1.77 “Advancing Storm”! (Survey added)",
+        "checkedAt": "2026-10-25T02:52:25.928Z",
+        "pageSha256": "281a4cac1a1e4a4a47b22014a1e1f71d8bb85920f009f8830871a3825e6702b9"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_77_1280x1024_logo_main_eng_b77e5c06b3cc317a40452bfb9493321a.jpg",
+          "width": 1280,
+          "height": 1024
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_77_1920x1080_logo_main_eng_fff139201c4e7242aed2f6954bbdb871.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1_77_2560x1440_logo_main_eng_a47e4b962879502e2c70ab584cc07e43.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-365409d945",
+      "title": "La Résistance · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/!%202017%20NEWS/12%20December/1.75%20Wallpapers/1_75_main_1920x1080_logo_com_fc0e57e7cd6159599e35df0eb950909c.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/!%202017%20NEWS/12%20December/1.75%20Wallpapers/1_75_main_1920x1080_logo_com_fc0e57e7cd6159599e35df0eb950909c.jpg",
+      "sourcePage": "https://warthunder.com/en/news/5210-news-update-1-75-la-résistance-released-survey-added-en",
+      "checkedAt": "2026-10-25T02:52:37.128Z",
+      "update": {
+        "id": "update-5210",
+        "title": "La Résistance",
+        "version": "1.75",
+        "announcedAt": "2017-12-21",
+        "sourcePage": "https://warthunder.com/en/news/5210-news-update-1-75-la-résistance-released-survey-added-en",
+        "sourceTitle": "Update 1.75 'La Résistance' released! (Survey added!)",
+        "checkedAt": "2026-10-25T02:52:37.128Z",
+        "pageSha256": "85318f1c3626244aa4441824172c1c61be00bf376ecf75d3fe3ee8ccaea6220d"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/!%202017%20NEWS/12%20December/1.75%20Wallpapers/1_75_main_1280x1024_logo_com_052a8f75116622c21070f35accd4071f.jpg",
+          "width": 1280,
+          "height": 1024
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/!%202017%20NEWS/12%20December/1.75%20Wallpapers/1_75_main_1920x1080_logo_com_fc0e57e7cd6159599e35df0eb950909c.jpg",
+          "width": 1920,
+          "height": 1080
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-291d4ab495",
+      "title": "La Résistance · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/!%202017%20NEWS/12%20December/1.75%20Wallpapers/1_75_surbaisse_1280x1024_logo_com_7a958eef4e564dbf7ca0ca262a128ecf.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/!%202017%20NEWS/12%20December/1.75%20Wallpapers/1_75_surbaisse_1280x1024_logo_com_7a958eef4e564dbf7ca0ca262a128ecf.jpg",
+      "sourcePage": "https://warthunder.com/en/news/5210-news-update-1-75-la-résistance-released-survey-added-en",
+      "checkedAt": "2026-10-25T02:52:37.128Z",
+      "update": {
+        "id": "update-5210",
+        "title": "La Résistance",
+        "version": "1.75",
+        "announcedAt": "2017-12-21",
+        "sourcePage": "https://warthunder.com/en/news/5210-news-update-1-75-la-résistance-released-survey-added-en",
+        "sourceTitle": "Update 1.75 'La Résistance' released! (Survey added!)",
+        "checkedAt": "2026-10-25T02:52:37.128Z",
+        "pageSha256": "85318f1c3626244aa4441824172c1c61be00bf376ecf75d3fe3ee8ccaea6220d"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/!%202017%20NEWS/12%20December/1.75%20Wallpapers/1_75_surbaisse_1280x1024_logo_com_7a958eef4e564dbf7ca0ca262a128ecf.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      ],
+      "width": 2560,
+      "height": 1440,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-8b09b67bd7",
+      "title": "Vive la France · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/wallpapers/1-73_1920x1080_logo_so_8000_narval_eng_e20b532c2d028a582067b1e4ea313368.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/wallpapers/1-73_1920x1080_logo_so_8000_narval_eng_e20b532c2d028a582067b1e4ea313368.jpg",
+      "sourcePage": "https://warthunder.com/en/news/5073-news-update-1-73-vive-la-france-released-en",
+      "checkedAt": "2026-10-25T02:52:48.724Z",
+      "update": {
+        "id": "update-5073",
+        "title": "Vive la France",
+        "version": "1.73",
+        "announcedAt": "2017-11-02",
+        "sourcePage": "https://warthunder.com/en/news/5073-news-update-1-73-vive-la-france-released-en",
+        "sourceTitle": "Update 1.73 'Vive la France' released!",
+        "checkedAt": "2026-10-25T02:52:48.724Z",
+        "pageSha256": "8ed0fa65f2f06f54936f50749a2f69329bab0821d2a6510df6fb62e3107f208e"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1-73_1280x1024_logo_so_8000_narval_eng_a9029865fb62d4bdca17be7a82a76b5d.jpg",
+          "width": 1280,
+          "height": 1024
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1-73_1920x1080_logo_so_8000_narval_eng_e20b532c2d028a582067b1e4ea313368.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1-73_2560x1140_logo_so_8000_narval_eng_9b8f8247de7aed70c1cad22ab16458d9.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-39c8babded",
+      "title": "New E.R.A · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/!%202017%20NEWS/09%20September/171NewERA/1-71_1920x1080_logo_main_eng_8f558cabf7c7931c088ef00f437ab52b.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/!%202017%20NEWS/09%20September/171NewERA/1-71_1920x1080_logo_main_eng_8f558cabf7c7931c088ef00f437ab52b.jpg",
+      "sourcePage": "https://warthunder.com/en/news/4974-update-1-71-new-e-r-a-released-en",
+      "checkedAt": "2026-10-25T02:53:00.453Z",
+      "update": {
+        "id": "update-4974",
+        "title": "New E.R.A",
+        "version": "1.71",
+        "announcedAt": "2017-09-19",
+        "sourcePage": "https://warthunder.com/en/news/4974-update-1-71-new-e-r-a-released-en",
+        "sourceTitle": "Update 1.71 'New E.R.A' released!",
+        "checkedAt": "2026-10-25T02:53:00.453Z",
+        "pageSha256": "18f3f3274f2a5f403382a56cfcd6e55e8693b93b5c5573a6e0e2a84c1dcece4a"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/!%202017%20NEWS/09%20September/171NewERA/1-71_1280x1024_logo_main_eng_72535d816be69a1880e498194745eea9.jpg",
+          "width": 1280,
+          "height": 1024
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/!%202017%20NEWS/09%20September/171NewERA/1-71_1920x1080_logo_main_eng_8f558cabf7c7931c088ef00f437ab52b.jpg",
+          "width": 1920,
+          "height": 1080
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-31bbea0434",
+      "title": "New E.R.A · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/!%202017%20NEWS/09%20September/171NewERA/1-71_2560x1440_logo_main_eng(1)_73b5234b7008358c510d05a0c256a79a.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/!%202017%20NEWS/09%20September/171NewERA/1-71_2560x1440_logo_main_eng(1)_73b5234b7008358c510d05a0c256a79a.jpg",
+      "sourcePage": "https://warthunder.com/en/news/4974-update-1-71-new-e-r-a-released-en",
+      "checkedAt": "2026-10-25T02:53:00.453Z",
+      "update": {
+        "id": "update-4974",
+        "title": "New E.R.A",
+        "version": "1.71",
+        "announcedAt": "2017-09-19",
+        "sourcePage": "https://warthunder.com/en/news/4974-update-1-71-new-e-r-a-released-en",
+        "sourceTitle": "Update 1.71 'New E.R.A' released!",
+        "checkedAt": "2026-10-25T02:53:00.453Z",
+        "pageSha256": "18f3f3274f2a5f403382a56cfcd6e55e8693b93b5c5573a6e0e2a84c1dcece4a"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/!%202017%20NEWS/09%20September/171NewERA/1-71_2560x1440_logo_main_eng(1)_73b5234b7008358c510d05a0c256a79a.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      ],
+      "width": 2560,
+      "height": 1440,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-38ab0c012c",
+      "title": "Regia Aeronautica · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/!%202017%20NEWS/05%20May/Update_Regia/1-69_1920x1080_logo_main_com_41bf66139c29ac2c7ccd7197d3eaf948.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/!%202017%20NEWS/05%20May/Update_Regia/1-69_1920x1080_logo_main_com_41bf66139c29ac2c7ccd7197d3eaf948.jpg",
+      "sourcePage": "https://warthunder.com/en/news/4726-update-1-69-regia-aeronautica-released-en",
+      "checkedAt": "2026-10-25T02:53:10.441Z",
+      "update": {
+        "id": "update-4726",
+        "title": "Regia Aeronautica",
+        "version": "1.69",
+        "announcedAt": "2017-05-27",
+        "sourcePage": "https://warthunder.com/en/news/4726-update-1-69-regia-aeronautica-released-en",
+        "sourceTitle": "Update 1.69 'Regia Aeronautica' released!",
+        "checkedAt": "2026-10-25T02:53:10.441Z",
+        "pageSha256": "1cfc0fec5e8233392e5c3b0c5fcba52fc309642e37be5f9d991687cd1ad1d053"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/!%202017%20NEWS/05%20May/Update_Regia/1-69_1280x1024_logo_main_com_2633c4fd01dc81cfe61618264b1569ee.jpg",
+          "width": 1280,
+          "height": 1024
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/!%202017%20NEWS/05%20May/Update_Regia/1-69_1920x1080_logo_main_com_41bf66139c29ac2c7ccd7197d3eaf948.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/!%202017%20NEWS/05%20May/Update_Regia/1-69_2560x1440_logo_main_com_642026d425cc12e0417beb09204fe175.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-f2ebd23c52",
+      "title": "Assault · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/wallpapers/1-67_1920x1080_logo_main_eng_2ab055e9755ce9c2460303c86e76d7e4.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/wallpapers/1-67_1920x1080_logo_main_eng_2ab055e9755ce9c2460303c86e76d7e4.jpg",
+      "sourcePage": "https://warthunder.com/en/news/4580-news-update-1-67-assault-released-survey-en",
+      "checkedAt": "2026-10-25T02:53:19.685Z",
+      "update": {
+        "id": "update-4580",
+        "title": "Assault",
+        "version": "1.67",
+        "announcedAt": "2017-03-18",
+        "sourcePage": "https://warthunder.com/en/news/4580-news-update-1-67-assault-released-survey-en",
+        "sourceTitle": "Update 1.67 'Assault' released! - Survey!",
+        "checkedAt": "2026-10-25T02:53:19.685Z",
+        "pageSha256": "3fc56d703550130708869d774ff63e11b1002a7e8e93b5029c0ad8399703098e"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1-67_1280x1024_logo_main_eng_9e9aab5e33731c46cd1c4580dc8a9374.jpg",
+          "width": 1280,
+          "height": 1024
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1-67_1920x1080_logo_main_eng_2ab055e9755ce9c2460303c86e76d7e4.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1-67_2560x1440_logo_main_eng_61a9455a0435c8188decf7fce2037265.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-7ec10c5037",
+      "title": "Way Of The Samurai · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/wallpapers/1-65_1920x1080_logo_main_eng_38cc7c84f772047c5722abc8f6710bb7.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/wallpapers/1-65_1920x1080_logo_main_eng_38cc7c84f772047c5722abc8f6710bb7.jpg",
+      "sourcePage": "https://warthunder.com/en/news/4408-news-update-1-65-way-of-the-samurai-released-survey-added-en",
+      "checkedAt": "2026-10-25T02:53:32.037Z",
+      "update": {
+        "id": "update-4408",
+        "title": "Way Of The Samurai",
+        "version": "1.65",
+        "announcedAt": "2016-12-20",
+        "sourcePage": "https://warthunder.com/en/news/4408-news-update-1-65-way-of-the-samurai-released-survey-added-en",
+        "sourceTitle": "Update 1.65 'Way Of The Samurai' released! (Survey added!)",
+        "checkedAt": "2026-10-25T02:53:32.037Z",
+        "pageSha256": "6e05a406b6af541f5962a6ad2f0f9247c9dbdae60db48891bb421fcc865dc7ba"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1-65_1280x1024_logo_main_eng_562a9707534cb99f1507093f547ce24b.jpg",
+          "width": 1280,
+          "height": 1024
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1-65_1920x1080_logo_main_eng_38cc7c84f772047c5722abc8f6710bb7.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/wallpapers/1-65_2560x1140_logo_main_eng_b1d926311dc4c623429aec40eb72f837.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-e063a96826",
+      "title": "Desert Hunters · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/!%202016%20NEWS/September/1.63/1-63_1920x1080_logo_eng_8421d4250c33e0b4ad392aa88d05fc7f.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/!%202016%20NEWS/September/1.63/1-63_1920x1080_logo_eng_8421d4250c33e0b4ad392aa88d05fc7f.jpg",
+      "sourcePage": "https://warthunder.com/en/news/4258-news-update-1-63-desert-hunters-released-survey-added-en",
+      "checkedAt": "2026-10-25T02:53:44.750Z",
+      "update": {
+        "id": "update-4258",
+        "title": "Desert Hunters",
+        "version": "1.63",
+        "announcedAt": "2016-09-30",
+        "sourcePage": "https://warthunder.com/en/news/4258-news-update-1-63-desert-hunters-released-survey-added-en",
+        "sourceTitle": "Update 1.63 'Desert Hunters' released! (survey added)",
+        "checkedAt": "2026-10-25T02:53:44.750Z",
+        "pageSha256": "4b4e29f2082e347e73a830d81b6dd383ef70a24ba27c77efa497faea01112382"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/!%202016%20NEWS/September/1.63/1-63_1280x1024_logo_eng_0b2f79623b39b4e1ab043af43b1c52f3.jpg",
+          "width": 1280,
+          "height": 1024
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/!%202016%20NEWS/September/1.63/1-63_1920x1080_logo_eng_8421d4250c33e0b4ad392aa88d05fc7f.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/!%202016%20NEWS/September/1.63/1-63_2560x1140_logo_eng_b598234d029921957009b69cb240d1aa.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-0c2b1c754e",
+      "title": "Battle March · 官方壁纸",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/!%202016%20NEWS/March/BattleMarch/1-57_1920x1080_logo_com_d0abd2694b6516ee36b6d4ff9277634c.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/!%202016%20NEWS/March/BattleMarch/1-57_1920x1080_logo_com_d0abd2694b6516ee36b6d4ff9277634c.jpg",
+      "sourcePage": "https://warthunder.com/en/news/3634-news-update-1-57-battle-march-released-en",
+      "checkedAt": "2026-10-25T02:54:05.886Z",
+      "update": {
+        "id": "update-3634",
+        "title": "Battle March",
+        "version": "1.57",
+        "announcedAt": "2016-03-15",
+        "sourcePage": "https://warthunder.com/en/news/3634-news-update-1-57-battle-march-released-en",
+        "sourceTitle": "Update 1.57 \"Battle March\" released!",
+        "checkedAt": "2026-10-25T02:54:05.886Z",
+        "pageSha256": "fdb8810a8b2543685c53ebe7b7153681edb504a6642831eea1ce91a7c44fd155"
+      },
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/!%202016%20NEWS/March/BattleMarch/1-57_1280x1024_logo_com_bf36861484e55c6ed814498ab9641c64.jpg",
+          "width": 1280,
+          "height": 1024
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/!%202016%20NEWS/March/BattleMarch/1-57_1920x1080_logo_com_d0abd2694b6516ee36b6d4ff9277634c.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/!%202016%20NEWS/March/BattleMarch/1-57_2560x1140_logo_com_9ab04526794cac0441321ac34dba18df.jpg",
+          "width": 2560,
+          "height": 1140
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Explicit wallpaper download links on the official update announcement"
+    },
+    {
+      "id": "bg-f3f9483311",
+      "title": "space program logo",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_space_program_logo_0fedae827126a4d1fc622c0074e01b7c.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/_thumbs/279x157/1920x1080_space_program_logo_0fedae827126a4d1fc622c0074e01b7c_279x157_cdf34eb468ae1fc1be1ce0b832e57a7d.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/",
+      "checkedAt": "2026-10-25T02:54:56.386Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_space_program_logo_0fedae827126a4d1fc622c0074e01b7c.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/2560x1440_space_program_logo_efad7cad3e0d67f67dafa3183a729fbf.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/3840x2160_space_program_logo_7f76de2d6bebe280f4394232ec487440.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    },
+    {
+      "id": "bg-f16a863b39",
+      "title": "senrai maidens usagi logo",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_senrai_maidens_usagi_logo_d17bbe51872673bd11ce4e0b9f8e05bb.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/_thumbs/279x157/1920x1080_senrai_maidens_usagi_logo_d17bbe51872673bd11ce4e0b9f8e05bb_279x157_983b91d79f3a6184db916f14e1149ed3.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/2",
+      "checkedAt": "2026-10-25T02:54:56.392Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_senrai_maidens_usagi_logo_d17bbe51872673bd11ce4e0b9f8e05bb.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/2560x1440_senrai_maidens_usagi_logo_ed8f23503c6f71508e4114f6c3cf0422.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/3840x2160_senrai_maidens_usagi_logo_5918043a65855debf7fa18440db067d2.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    },
+    {
+      "id": "bg-8503c2a74e",
+      "title": "senrai maidens ling logo",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_senrai_maidens_ling_logo_003033a8a70d3dd298440b6101dc8d52.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/_thumbs/279x157/1920x1080_senrai_maidens_ling_logo_003033a8a70d3dd298440b6101dc8d52_279x157_3daaaa326fa297364699e9593a8d2fa8.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/2",
+      "checkedAt": "2026-10-25T02:54:56.392Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_senrai_maidens_ling_logo_003033a8a70d3dd298440b6101dc8d52.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/2560x1440_senrai_maidens_ling_logo_9078895ed775574cf5025183cde2a8a1.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/3840x2160_senrai_maidens_ling_logo_2425b396ea8a7c6b4f04d9883f3902a5.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    },
+    {
+      "id": "bg-d387d7ad7c",
+      "title": "senrai maidens emily logo",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_senrai_maidens_emily_logo_256a49d381826f717da2420255397adb.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/_thumbs/279x157/1920x1080_senrai_maidens_emily_logo_256a49d381826f717da2420255397adb_279x157_402a93b0f5ead65c137f290585f36420.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/2",
+      "checkedAt": "2026-10-25T02:54:56.392Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/1920x1080_senrai_maidens_emily_logo_256a49d381826f717da2420255397adb.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/2560x1440_senrai_maidens_emily_logo_e7c56f4318988e37b9ed5387b6a92f3a.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Ground_Forces/3840x2160_senrai_maidens_emily_logo_2cb9955e7d00fec248b2bc6ba69ed6c2.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    },
+    {
+      "id": "bg-b5dfd74974",
+      "title": "aircraft marathon sky farmer logo",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_aircraft_marathon_sky_farmer_logo_e62991d39285b1f56f480ee5e3e86001.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/_thumbs/279x157/1920x1080_aircraft_marathon_sky_farmer_logo_e62991d39285b1f56f480ee5e3e86001_279x157_cc0827bc206eb0f692c100005193e37d.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/2",
+      "checkedAt": "2026-10-25T02:54:56.393Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_aircraft_marathon_sky_farmer_logo_e62991d39285b1f56f480ee5e3e86001.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/2560x1440_aircraft_marathon_sky_farmer_logo_5cb6842999c15638256db6c182760d1e.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/3840x2160_aircraft_marathon_sky_farmer_logo_fa1bc453e4948fa7457dbdec5e51f4f7.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    },
+    {
+      "id": "bg-cc5fcccef3",
+      "title": "nuclear thunder logo eng",
+      "category": "mixed",
+      "era": "unknown",
+      "source": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_nuclear_thunder_logo_eng_9aa5c1fec101ba9099b43c1ca4b04859.jpg",
+      "thumbnail": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/_thumbs/279x157/1920x1080_nuclear_thunder_logo_eng_9aa5c1fec101ba9099b43c1ca4b04859_279x157_e406cc0094ffc78458d5e905c2729885.jpg",
+      "sourcePage": "https://warthunder.com/en/media/wallpapers/page/3",
+      "checkedAt": "2026-10-25T02:54:56.399Z",
+      "update": null,
+      "variants": [
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/1920x1080_nuclear_thunder_logo_eng_9aa5c1fec101ba9099b43c1ca4b04859.jpg",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/2560x1440_nuclear_thunder_logo_eng_b5084ec220672e817c211ad28bc4efb0.jpg",
+          "width": 2560,
+          "height": 1440
+        },
+        {
+          "url": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Aircraft/3840x2160_nuclear_thunder_logo_eng_ae47a62fd1f366f42f5fbdf689245f20.jpg",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "width": 1920,
+      "height": 1080,
+      "sourceBasis": "Official gallery; release association unconfirmed"
+    }
+  ]
+}

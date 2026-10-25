@@ -1,10 +1,12 @@
+import { saleWatchKey, saleWatchEnvelope, normalizeSaleWatch } from "./sale-watch-storage";
+import { useAccountWorkspace } from "./workspace-context";
 import { useVehicleCatalog } from "./vehicle-catalog";
 import { VehicleTile } from "./VehicleTile";
 import { useEffect, useId, useMemo, useState } from "react";
 import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
 import { SaleMonthCalendar } from "./SaleMonthCalendar";
-import { useStored, object } from "./storage";
+import { useStored } from "./storage";
 import { statsCategoryNames } from "./player-stats-api";
 import { cachedSaleCalendar, readSaleCalendar, readSaleVehicles } from "./sale-calendar-api";
 import bootstrap from "./generated/bootstrap.json";
@@ -19,7 +21,6 @@ import {
   saleDate,
   saleRange,
   saleRate,
-  saleOriginalPrice,
   saleEventNote,
   saleActivity,
   projectSaleForecast,
@@ -28,24 +29,10 @@ import {
 import type { SaleCalendarData, SaleEvent, SaleVehicle } from "./sale-calendar-model";
 
 const countries: Record<string, string> = bootstrap.countries;
-const watchValid = (value: unknown): value is SaleVehicle[] =>
-  Array.isArray(value) &&
-  value.length <= 60 &&
-  value.every(
-    (v) =>
-      object(v) &&
-      typeof v.id === "string" &&
-      typeof v.name === "string" &&
-      typeof v.country === "string" &&
-      typeof v.category === "string" &&
-      typeof v.channel === "string" &&
-      v.channel in saleChannels &&
-      typeof v.image === "string" &&
-      v.image.startsWith("https://static.encyclopedia.warthunder.com/"),
-  );
 function SaleVehicleTile({ vehicle }: { vehicle: SaleVehicle }) {
   return (
     <VehicleTile
+      footerLabel={`${statsCategoryNames[vehicle.category]} · Rank ${vehicle.rank}`}
       packQuote={
         vehicle.originalPrice?.currency === "CNY"
           ? {
@@ -62,15 +49,16 @@ function SaleVehicleTile({ vehicle }: { vehicle: SaleVehicle }) {
     />
   );
 }
-function VehicleOriginalPrice({ vehicle }: { vehicle: SaleVehicle }) {
+function VehicleQuoteDate({ vehicle }: { vehicle: SaleVehicle }) {
   const quote = vehicle.originalPrice;
   return (
     <div className="wt-sale-original-price">
-      <span>{saleOriginalPrice(vehicle)}</span>
       {quote?.checkedAt && (
         <small>
           核对于{" "}
-          {new Date(quote.checkedAt).toLocaleDateString("zh-CN", { timeZone: "Asia/Shanghai" })}
+          <time dateTime={quote.checkedAt}>
+            {new Date(quote.checkedAt).toLocaleDateString("zh-CN", { timeZone: "Asia/Shanghai" })}
+          </time>
         </small>
       )}
     </div>
@@ -117,7 +105,13 @@ function AddVehicles({
   saved,
   add,
   close,
+  accountSaved,
+  canSave,
+  saveError,
 }: {
+  accountSaved: boolean;
+  canSave: boolean;
+  saveError: string;
   saved: SaleVehicle[];
   add: (v: SaleVehicle) => void;
   close: () => void;
@@ -164,10 +158,15 @@ function AddVehicles({
   return (
     <Modal
       title="添加关注载具"
-      subtitle="仅支持金鹰与商城礼包载具；关注列表保存在当前浏览器。"
+      subtitle={
+        accountSaved
+          ? "仅支持金鹰与商城礼包载具；关注列表自动保存到账号。"
+          : "仅支持金鹰与商城礼包载具；关注列表保存在当前浏览器。"
+      }
       close={close}
       className="wt-sale-picker"
     >
+      {saveError && <p role="alert">{saveError}</p>}
       <div className="wt-sale-picker-controls">
         <GameSelect aria-label="载具国家" value={country} onValueChange={setCountry}>
           {Object.entries(countries).map(([id, name]) => (
@@ -213,15 +212,12 @@ function AddVehicles({
             return (
               <div className="wt-sale-vehicle-option" key={vehicle.id}>
                 <SaleVehicleTile vehicle={vehicle} />
-                <div>
-                  <strong>{vehicle.name}</strong>
-                  <span>
-                    {statsCategoryNames[vehicle.category]} · {vehicle.rank}级 ·{" "}
-                    {saleChannels[vehicle.channel]}
-                  </span>
-                  <VehicleOriginalPrice vehicle={vehicle} />
-                </div>
-                <button disabled={added || saved.length >= 60} onClick={() => add(vehicle)}>
+                <VehicleQuoteDate vehicle={vehicle} />
+                <button
+                  className="wt-sale-follow-button"
+                  disabled={!canSave || added || saved.length >= 60}
+                  onClick={() => add(vehicle)}
+                >
                   {added ? "已关注" : "＋ 关注"}
                 </button>
               </div>
@@ -259,6 +255,7 @@ function SourceLinks({ event }: { event: SaleEvent }) {
   );
 }
 export function SaleCalendar() {
+  const workspace = useAccountWorkspace();
   const [data, setData] = useState<SaleCalendarData | null>(cachedSaleCalendar),
     [error, setError] = useState(""),
     [loading, setLoading] = useState(() => !data),
@@ -275,12 +272,22 @@ export function SaleCalendar() {
   const [watchExpanded, setWatchExpanded] = useState(false);
   const watchListId = useId();
   const [picker, setPicker] = useState(false),
-    [watch, saveWatch, storageError] = useStored<SaleVehicle[]>(
-      "wt-sale-watch-v1",
+    [storedWatch, saveWatch, storageError] = useStored<unknown[]>(
+      saleWatchKey,
       [],
-      watchValid,
-      (entries) => entries.filter(isSaleWatchVehicle),
+      saleWatchEnvelope,
+      normalizeSaleWatch,
+      true,
     );
+  const watch = normalizeSaleWatch(storedWatch);
+  const watchReady = !workspace?.userId || (workspace.ready && workspace.consented);
+  const watchError =
+    storageError ||
+    (workspace?.userId && !workspace.ready
+      ? "正在读取账号关注列表，请稍候。"
+      : workspace?.userId && !workspace.consented
+        ? "请先在云端数据中完成同步。"
+        : "");
   useVehicleCatalog(watch.map((v) => v.country));
   useEffect(() => {
     const timer = window.setInterval(() => setClock(Date.now()), 1000);
@@ -446,7 +453,9 @@ export function SaleCalendar() {
         <div className="wt-sales-section-title">
           <h3>我的关注</h3>
         </div>
-        {!watch.length ? (
+        {workspace?.userId && !workspace.ready ? (
+          <output>正在读取账号关注列表，请稍候。</output>
+        ) : !watch.length ? (
           <div className="wt-sale-empty">
             <button
               type="button"
@@ -470,12 +479,10 @@ export function SaleCalendar() {
                   <article key={vehicle.id} className="wt-sale-watch-row">
                     <SaleVehicleTile vehicle={vehicle} />
                     <div className="wt-sale-watch-identity">
-                      <h4>{vehicle.name}</h4>
                       <span>
-                        {countries[vehicle.country]} · {vehicle.rank}级 ·{" "}
-                        {saleChannels[vehicle.channel]}
+                        {countries[vehicle.country]} · {saleChannels[vehicle.channel]}
                       </span>
-                      <VehicleOriginalPrice vehicle={vehicle} />
+                      <VehicleQuoteDate vehicle={vehicle} />
                     </div>
                     <div className="wt-sale-watch-opportunity">
                       {event ? (
@@ -772,7 +779,16 @@ export function SaleCalendar() {
           · 活动排期由管理员在后台核对更新。
         </p>
       </footer>
-      {picker && <AddVehicles saved={watch} add={add} close={() => setPicker(false)} />}
+      {picker && (
+        <AddVehicles
+          saved={watch}
+          add={add}
+          close={() => setPicker(false)}
+          accountSaved={!!workspace?.userId}
+          canSave={watchReady}
+          saveError={watchError}
+        />
+      )}
     </main>
   );
 }

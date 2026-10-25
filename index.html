@@ -3,7 +3,7 @@
   var key = "wt-workbench-appearance-v1", ttl = 300000;
   function valid(value) {
     if (!value || typeof value.theme !== "string" || !Number.isInteger(value.positionX) || !Number.isInteger(value.positionY) || value.positionX < 0 || value.positionX > 100 || value.positionY < 0 || value.positionY > 100) return false;
-    try { var url = new URL(value.backgroundUrl); return url.protocol === "https:" && url.host === "staticfiles.warthunder.com" && !url.search && !url.hash && /^\/upload\/image\/[A-Za-z0-9_.\/-]+\.(jpg|jpeg|png|webp)$/i.test(url.pathname); } catch (_) { return false; }
+    try { var url = new URL(value.backgroundUrl); return url.protocol === "https:" && url.host === "staticfiles.warthunder.com" && !url.username && !url.password && !url.search && !url.hash && /^\/upload\/image\/(?:[A-Za-z0-9_.\/!()-]|%20)+\.(jpg|jpeg|png|webp)$/i.test(url.pathname); } catch (_) { return false; }
   }
   var appliedUrl;
   function apply(value) {
