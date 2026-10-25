@@ -2434,3 +2434,62 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-record-player > .wt-record-source { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; margin: 0; padding-top: 10px; border-top: 1px solid var(--wt-record-line); text-align: left; }
 .wt-vehicle-card-no-record { display: grid; place-items: center; flex: 1; min-height: 132px; margin: 0; padding: 20px 12px; color: var(--wt-record-muted); font-size: 13px; }
 .wt-vehicle-card-footer > a { color: var(--wt-record-muted); font-size: 11px; }
+
+/* Private account points are readable and explainable beside the daily allowance. */
+.wt-record-account { flex-direction: column; align-items: flex-end; gap: 8px; }
+.calculator.wt-query-credit-dialog {
+  width: min(560px, calc(100vw - 24px)); height: fit-content;
+  max-height: calc(100dvh - 32px); overflow-y: auto; padding: 20px; text-align: left; font-size: 14px; line-height: 1.6;
+}
+.wt-query-credit-dialog > p { margin-block: 12px; }
+.wt-query-credit-balance strong { color: var(--wt-record-gold); font-size: 22px; }
+.wt-query-credit-rates { margin-block: 16px; }
+.wt-query-credit-rates > div { display: flex; justify-content: space-between; gap: 16px; padding: 9px 0; border-bottom: 1px solid var(--wt-record-line); }
+.wt-query-credit-rates dd { margin: 0; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.wt-query-credit-notes { padding-inline-start: 20px; line-height: 1.7; }
+.wt-query-credit-notes li + li { margin-top: 6px; }
+.wt-query-credit-status { display: block; margin-block: 12px; color: var(--wt-record-muted); font-size: 12px; }
+
+.wt-extra-query-credits { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.wt-query-free-limits { width: 100%; table-layout: fixed; border-collapse: collapse; margin-block: 12px; }
+.wt-query-free-limits th, .wt-query-free-limits td { padding: 8px 4px; border-bottom: 1px solid var(--wt-record-line); text-align: right; overflow-wrap: anywhere; }
+.wt-query-free-limits th:first-child { text-align: left; width: 28%; }
+.wt-query-credit-dialog h3 { margin: 16px 0 8px; font-size: 15px; }
+
+/* Allowance controls look like text, including hover; override page-wide button chrome. */
+.wt-record-page .wt-extra-query-credits > button {
+  min-height: 0; padding: 0; border: 0; border-radius: 0;
+  background: transparent; box-shadow: none; color: var(--wt-record-ink);
+  font: inherit; line-height: 1.6; text-align: inherit; white-space: normal;
+}
+.wt-record-page .wt-extra-query-credits > button:hover {
+  background: transparent; border: 0; color: var(--wt-record-gold);
+}
+.wt-record-page .wt-extra-query-credits > button:active { transform: none; }
+.wt-extra-query-credits { gap: 3px; }
+
+.wt-record-page .wt-extra-query-credits > button:focus-visible { outline: 2px solid var(--wt-record-gold); outline-offset: 3px; }
+
+/* Valuation: one stable header, two views, then focused vehicle groups. */
+.calculator.wt-valuation-dialog { width: min(1120px, calc(100vw - 32px)); }
+.wt-valuation-dialog .calc-header { z-index: 5; margin-bottom: 12px; }
+.wt-valuation-tabs { display: flex; gap: 24px; border-bottom: 1px solid var(--wt-record-line); margin-bottom: 20px; }
+.wt-record-page .wt-valuation-tabs > button { min-height: 44px; padding: 8px 0; border: 0; border-bottom: 2px solid transparent; border-radius: 0; background: transparent; color: var(--wt-record-muted); }
+.wt-record-page .wt-valuation-tabs > button[aria-selected="true"] { border-bottom-color: var(--wt-record-gold); color: var(--wt-record-gold); }
+.wt-record-page .wt-valuation-tabs > button:hover { background: transparent; color: var(--wt-record-ink); }
+.wt-valuation-tabs > button:focus-visible { outline: 2px solid var(--wt-record-gold); outline-offset: 2px; }
+.wt-valuation-overview-counts { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); border-block: 1px solid var(--wt-record-line); margin: 20px 0 12px; }
+.wt-valuation-overview-counts > div { display: flex; flex-direction: column; gap: 5px; padding: 14px 8px; }
+.wt-valuation-overview-counts span { color: var(--wt-record-muted); font-size: 12px; }
+.wt-valuation-overview-counts strong { font-size: 22px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.wt-valuation-overview-note { color: var(--wt-record-muted); font-size: 12px; }
+.wt-record-page .wt-valuation-view-details { margin-top: 8px; background: transparent; color: var(--wt-record-gold); }
+.wt-valuation-detail-toolbar { display: flex; align-items: center; justify-content: space-between; margin-block: 8px 16px; }
+.wt-valuation-detail-toolbar label { display: flex; align-items: center; gap: 12px; color: var(--wt-record-muted); font-size: 12px; }
+.wt-valuation-detail-toolbar label { min-width: 0; flex-wrap: nowrap; }
+.wt-valuation-detail-label { flex: 0 0 auto; white-space: nowrap; }
+.wt-valuation-detail-toolbar label > .wt-select { flex: 0 1 180px; width: 180px; min-width: 0; }
+.wt-valuation-dialog [role="tabpanel"] > .wt-valuation-section:first-of-type { margin-top: 0; }
+.wt-valuation-section-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; }
+.wt-valuation-section-heading > span { color: var(--wt-record-muted); font-size: 12px; }
+.wt-valuation-market-link { display: inline-block; color: var(--wt-record-gold); margin-top: 4px; }

@@ -40,24 +40,33 @@ export function VehicleTile({
   mode = "rb",
   selected = false,
   onSelect,
+  href,
   owned: ownedOverride,
   disabled = false,
   className = "",
   modeRating,
   packQuote,
   footerLabel,
+  showRank = false,
+  countryLabel,
 }: {
   unit: VehicleTileUnit;
   catalog?: Pick<Catalog, "kinds" | "roles">;
   mode?: Mode;
   selected?: boolean;
   onSelect?: () => void;
+  /** Optional trusted destination for read-only vehicle listings. */
+  href?: string;
   owned?: boolean;
   disabled?: boolean;
   className?: string;
   modeRating?: string;
   packQuote?: { amountCents: number | null; checkedAt: string | null };
   footerLabel?: string;
+  /** Adds rank to the shared right caption; tree rank bands can leave it hidden. */
+  showRank?: boolean;
+  /** Omit when the surrounding page already identifies the country. */
+  countryLabel?: string;
 }) {
   const facts = useVehicleFacts();
   const unit =
@@ -106,7 +115,10 @@ export function VehicleTile({
         ? "暂无报价"
         : `${format(unit.price ?? unit.ge!)} GE`
       : catalog.kinds[unit.kind || ""] || "特殊载具";
-  const Element = onSelect ? "button" : "span";
+  const caption = [countryLabel, footerLabel, showRank && unit.rank ? `Rank ${unit.rank}` : null]
+    .filter(Boolean)
+    .join(" · ");
+  const Element = onSelect ? "button" : href ? "a" : "span";
   const mediaUnit = {
     ...unit,
     imageUrl: unit.imageUrl || unit.image,
@@ -115,7 +127,10 @@ export function VehicleTile({
   return (
     <Element
       className={`vehicle-card wt-game-card ${premium ? "is-premium" : ""} ${special ? "is-special" : ""} ${owned ? "is-owned" : ""} ${unit.kind === "squadron" ? "is-squadron" : ""} ${selected ? "is-selected" : ""} ${className}`}
-      role={onSelect ? undefined : "group"}
+      role={onSelect || href ? undefined : "group"}
+      href={onSelect ? undefined : href}
+      target={!onSelect && href ? "_blank" : undefined}
+      rel={!onSelect && href ? "noreferrer" : undefined}
       data-kind={unit.kind || "unknown"}
       data-owned={owned || undefined}
       disabled={onSelect ? disabled : undefined}
@@ -192,9 +207,16 @@ export function VehicleTile({
           alt="护身符"
         />
       )}
-      {footerLabel && (
-        <span className="wt-game-card-caption" title={footerLabel}>
-          {footerLabel}
+      {caption && (
+        <span className="wt-game-card-caption" title={caption}>
+          {(countryLabel || footerLabel) && (
+            <span className="wt-game-card-caption-context">
+              {[countryLabel, footerLabel].filter(Boolean).join(" · ")}
+            </span>
+          )}
+          {showRank && unit.rank && (
+            <span className="wt-game-card-caption-rank">Rank {unit.rank}</span>
+          )}
         </span>
       )}
       {unit.kind === "pack" && (

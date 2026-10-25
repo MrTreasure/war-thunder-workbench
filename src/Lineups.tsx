@@ -20,7 +20,7 @@ import { WarThunderLoading } from "./Loading";
 import { useStored } from "./storage";
 import { modes } from "./TreeCanvas";
 import {
-  brLabel,
+  lineupCardRating,
   decodeLineup,
   encodeLineup,
   inferBattle,
@@ -29,7 +29,6 @@ import {
   lineupRatings,
   shareCountry,
   validLineups,
-  vehicleStep,
 } from "./lineups";
 import type { BattleType, Lineup } from "./lineups";
 const battleNames: Record<BattleType, string> = { air: "空战", ground: "陆战", naval: "海战" };
@@ -247,6 +246,29 @@ function CountryLineups({
   const selected = draft || saved.find((row) => row.id === selectedId) || saved[0];
   const [activeSlot, setActiveSlot] = useState(0);
   const [search, setSearch] = useState("");
+  const moreActions = useRef<HTMLDetailsElement>(null);
+  useEffect(() => {
+    const closeOutside = (event: Event) => {
+      const menu = moreActions.current;
+      if (menu?.open && event.target instanceof Node && !menu.contains(event.target))
+        menu.open = false;
+    };
+    const escape = (event: KeyboardEvent) => {
+      const menu = moreActions.current;
+      if (event.key === "Escape" && menu?.open) {
+        menu.open = false;
+        menu.querySelector("summary")?.focus();
+      }
+    };
+    document.addEventListener("pointerdown", closeOutside);
+    document.addEventListener("focusin", closeOutside);
+    document.addEventListener("keydown", escape);
+    return () => {
+      document.removeEventListener("pointerdown", closeOutside);
+      document.removeEventListener("focusin", closeOutside);
+      document.removeEventListener("keydown", escape);
+    };
+  }, []);
   const [category, setCategory] = useState(
     defaultBattle === "air" ? "aviation" : defaultBattle === "ground" ? "ground" : "all",
   );
@@ -661,7 +683,7 @@ function CountryLineups({
                   ))}
                 </GameSelect>
               </label>
-              <details key={selected.id} className="lineup-editor-more">
+              <details ref={moreActions} key={selected.id} className="lineup-editor-more">
                 <summary>更多操作</summary>
                 <div>
                   <button
@@ -687,6 +709,10 @@ function CountryLineups({
                 </div>
               </details>
             </div>
+            <p className="calc-note">
+              同一队列同时计算街机 AB、历史 RB 和全真
+              SB。“卡片权重”仅切换卡片显示，不改变计算；全真以活动名单或房间范围为准。
+            </p>
             <div className="lineup-configure">
               <section className="lineup-roster" aria-label="乘员槽位">
                 <div className="lineup-section-heading">
@@ -738,6 +764,11 @@ function CountryLineups({
 
               <section className="lineup-picker" aria-label="载具选择">
                 <h3>为槽位 {activeSlot + 1} 选择载具</h3>
+                {selected.battleType === "ground" && mode === "rb" && (
+                  <p className="calc-note">
+                    飞机卡片显示陆战历史权重，与空战历史可能不同；队列取所有可用载具的最高值。
+                  </p>
+                )}
                 <label className="calc-field">
                   当前槽位
                   <GameSelect
@@ -745,7 +776,12 @@ function CountryLineups({
                       const id = selected.slots[Number(value)];
                       const unit = id ? units.get(id) : null;
                       return unit ? (
-                        <VehicleTile unit={unit} catalog={catalog} mode={mode} />
+                        <VehicleTile
+                          unit={unit}
+                          catalog={catalog}
+                          mode={mode}
+                          modeRating={lineupCardRating(unit, selected.battleType, mode)}
+                        />
                       ) : null;
                     }}
                     value={activeSlot}
@@ -842,13 +878,10 @@ function CountryLineups({
                           mode={mode}
                           disabled={occupied}
                           onSelect={() => place(unit.id)}
-                          modeRating={brLabel(vehicleStep(unit, selected.battleType, mode))}
+                          modeRating={lineupCardRating(unit, selected.battleType, mode)}
+                          showRank={rank === "all"}
+                          footerLabel={occupied ? "已配置" : undefined}
                         />
-                        <small>
-                          {occupied
-                            ? "已配置"
-                            : `${catalog.categories[unit.category]} · Rank ${unit.rank}`}
-                        </small>
                       </div>
                     );
                   })}

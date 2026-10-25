@@ -29,10 +29,19 @@ import {
 import type { SaleCalendarData, SaleEvent, SaleVehicle } from "./sale-calendar-model";
 
 const countries: Record<string, string> = bootstrap.countries;
-function SaleVehicleTile({ vehicle }: { vehicle: SaleVehicle }) {
+function SaleVehicleTile({
+  vehicle,
+  showCountry = false,
+  showRank = true,
+}: {
+  vehicle: SaleVehicle;
+  showCountry?: boolean;
+  showRank?: boolean;
+}) {
   return (
     <VehicleTile
-      footerLabel={`${statsCategoryNames[vehicle.category]} · Rank ${vehicle.rank}`}
+      showRank={showRank}
+      countryLabel={showCountry ? countries[vehicle.country] || vehicle.country : undefined}
       packQuote={
         vehicle.originalPrice?.currency === "CNY"
           ? {
@@ -211,7 +220,11 @@ function AddVehicles({
             const added = saved.some((v) => v.id === vehicle.id);
             return (
               <div className="wt-sale-vehicle-option" key={vehicle.id}>
-                <SaleVehicleTile vehicle={vehicle} />
+                <SaleVehicleTile
+                  vehicle={vehicle}
+                  showCountry={country === "all"}
+                  showRank={rank === "all"}
+                />
                 <VehicleQuoteDate vehicle={vehicle} />
                 <button
                   className="wt-sale-follow-button"
@@ -477,11 +490,9 @@ export function SaleCalendar() {
                   exact = event?.status === "confirmed" && event.vehicleIds.includes(vehicle.id);
                 return (
                   <article key={vehicle.id} className="wt-sale-watch-row">
-                    <SaleVehicleTile vehicle={vehicle} />
+                    <SaleVehicleTile vehicle={vehicle} showCountry />
                     <div className="wt-sale-watch-identity">
-                      <span>
-                        {countries[vehicle.country]} · {saleChannels[vehicle.channel]}
-                      </span>
+                      <span>{saleChannels[vehicle.channel]}</span>
                       <VehicleQuoteDate vehicle={vehicle} />
                     </div>
                     <div className="wt-sale-watch-opportunity">

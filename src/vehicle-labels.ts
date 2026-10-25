@@ -10,7 +10,7 @@ export const matchesVehicleFilter = (unit: Vehicle, filter: string) =>
   (filter === "premium" && unit.premium) ||
   (filter === "other" && !unit.premium && unit.kind !== "squadron") ||
   (!["research", "special"].includes(filter) && unit.kind === filter);
-export const rating = (unit: { br?: Vehicle["br"] }, mode: Mode) => {
+export const rating = (unit: { br?: Vehicle["br"] }, mode: Mode | "trb" | "tsb") => {
   const value = unit.br?.[mode];
   return typeof value === "number" && value >= 0 ? (value / 3 + 1).toFixed(1) : "—";
 };

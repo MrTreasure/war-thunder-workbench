@@ -114,33 +114,54 @@
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 248px), 1fr));
   gap: 16px;
 }
-.wt-valuation-product {
+/* Valuation rows retain the exact shared tile size beside their details. */
+.wt-valuation-products,
+.wt-valuation-research {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.wt-valuation-product,
+.wt-valuation-research > article {
+  display: grid;
+  grid-template-columns: 228px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  padding: 18px 12px 12px;
   border-radius: 2px;
   overflow: visible;
 }
 .wt-valuation-product-media {
-  grid-template-columns: 1fr;
-  justify-items: center;
-  align-content: start;
-  gap: 22px;
-  padding: 20px 10px 12px;
+  grid-template-columns: 228px;
+  justify-items: start;
+  align-content: center;
+  gap: 22px 16px;
+  padding: 0;
   min-height: 0;
+  background: transparent;
 }
 .wt-valuation-product-media > .wt-game-card {
   width: 228px;
+}
+.wt-valuation-product-body {
+  min-width: 0;
+  padding: 0;
 }
 .wt-valuation-product h4 {
   font-family: WTSymbols, WTCard, var(--wt-sans);
   font-weight: 400;
 }
-.wt-valuation-research {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
-  gap: 16px;
+.wt-valuation-product-pack,
+.wt-valuation-research > .wt-valuation-research-group {
+  grid-column: 1 / -1;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 20px;
+  padding: 18px 16px 12px;
 }
-.wt-valuation-research > article {
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 20px 12px 12px;
+.wt-valuation-product-pack > .wt-valuation-product-media,
+.wt-valuation-research-group > .wt-valuation-unpriced-art {
+  grid-template-columns: repeat(3, 228px);
+  justify-items: start;
+  gap: 22px 10px;
 }
 .wt-valuation-research > article > div {
   min-width: 0;
@@ -219,3 +240,20 @@
 .wt-sale-vehicle-option > .wt-sale-original-price { grid-column: 2; grid-row: 1; align-self: end; justify-self: stretch; min-width: 0; margin: 0 0 24px; }
 .wt-sale-vehicle-option > .wt-sale-original-price > small { display: grid; gap: 1px; margin: 0; color: var(--wt-muted); font: 400 10px/1.35 var(--wt-sans); text-align: center; }
 .wt-sale-vehicle-option time { display: block; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* Context and rank share the price track; long country names never displace rank. */
+.vehicle-card.wt-game-card > .wt-game-card-caption {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+}
+.wt-game-card-caption-context {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wt-game-card-caption-rank { flex: 0 0 auto; }
+
+/* Read-only vehicle links retain the shared game tile appearance. */
+a.vehicle-card.wt-game-card { color: inherit; text-decoration: none; cursor: pointer; }

@@ -9,7 +9,7 @@ import type {
 import { createPortal } from "react-dom";
 import type { Mode } from "./models";
 import type { BattleType, LineupVehicle } from "./lineups";
-import { brLabel, vehicleStep } from "./lineups";
+import { lineupCardRating } from "./lineups";
 import { moveLineupSlot } from "./lineups";
 interface DragView {
   from: number;
@@ -35,7 +35,6 @@ export function LineupRoster({
   battleType,
   activeAircraft,
   mode,
-  categories,
   reorder,
   clear,
   chooseAircraft,
@@ -273,8 +272,8 @@ export function LineupRoster({
                     unit={unit}
                     mode={mode}
                     selected={activeSlot === index}
-                    footerLabel={`${categories[unit.category]} · Rank ${unit.rank}`}
-                    modeRating={brLabel(vehicleStep(unit, battleType, mode))}
+                    showRank
+                    modeRating={lineupCardRating(unit, battleType, mode)}
                   />
                 ) : (
                   <span className="lineup-slot-placeholder">＋</span>
