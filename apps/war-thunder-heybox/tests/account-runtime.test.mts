@@ -340,3 +340,76 @@ test("a Host account switch prevents an ambiguous submission from retrying as an
   runtime.dispose();
   account.dispose();
 });
+
+test("a verified association approval replaces the phone session with the unified account", async () => {
+  const f = fixture();
+  Object.assign(f.sdk.auth, {
+    login: async () => ({ code: "fixture-code", accountKey: "account-a" }),
+  });
+  const api: APIRequest = async () =>
+    ({
+      status: "approved",
+      session: {
+        token: "unified_".padEnd(43, "x"),
+        expiresInSeconds: 3600,
+        user: {
+          id: "fixture-web-user",
+          displayName: "Fixture Heybox",
+          avatarUrl: "https://example.invalid/avatar.png",
+        },
+      },
+    }) as any;
+  const account = createAccount(f.sdk, api);
+  await account.initialize();
+  await account.approvePair({
+    pairingCode: "AABBCCDDEEFF",
+    purpose: "bind",
+    origin: "https://wt.mrtreasure.cc",
+    targetName: "Fixture web",
+    expiresAt: Date.now() + 60000,
+    status: "pending",
+  });
+  let user: string | undefined;
+  account.subscribe((view) => {
+    user = view.user?.id;
+  });
+  assert.equal(user, "fixture-web-user");
+  assert.equal(
+    (f.storage.get("wt_heybox_session_v1") as { accountKey: string }).accountKey,
+    "account-a",
+  );
+  account.dispose();
+});
+
+test("an association response cannot replace the session after a native Host account switch", async () => {
+  const f = fixture();
+  Object.assign(f.sdk.auth, {
+    login: async () => ({ code: "fixture-code", accountKey: "account-a" }),
+  });
+  const response = deferred<any>();
+  const api: APIRequest = async () => response.promise;
+  const account = createAccount(f.sdk, api);
+  await account.initialize();
+  const pending = account.approvePair({
+    pairingCode: "AABBCCDDEEFF",
+    purpose: "bind",
+    origin: "https://wt.mrtreasure.cc",
+    expiresAt: Date.now() + 60000,
+    status: "pending",
+  });
+  await new Promise((resolve) => setTimeout(resolve, 0));
+  f.change({ isHeyboxAppLoggedIn: true, accountKey: "account-b" });
+  response.resolve({
+    status: "approved",
+    session: {
+      token: "unified_".padEnd(43, "x"),
+      expiresInSeconds: 3600,
+      user: { id: "fixture-web-user" },
+    },
+  });
+  await assert.rejects(
+    pending,
+    (e: unknown) => e instanceof MiniappError && e.code === "ACCOUNT_CHANGED",
+  );
+  account.dispose();
+});

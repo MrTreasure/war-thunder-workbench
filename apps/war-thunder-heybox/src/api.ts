@@ -17,6 +17,8 @@ const fixed = new Set([
   "account/game-binding/unlink",
   "auth/logout",
   "auth/profile",
+  "auth/avatars",
+  "auth/avatar",
   "auth/heybox/config",
   "auth/heybox/session",
   "auth/heybox/complete",

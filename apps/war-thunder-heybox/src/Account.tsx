@@ -1,4 +1,7 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
+import { AccountAvatar } from "../../../src/AccountAvatar";
+import type { AvatarOption } from "../../../src/components/AccountAvatarPicker";
+const AccountAvatarPicker = lazy(() => import("../../../src/components/AccountAvatarPicker"));
 import type { ResearchIntent } from "./context";
 import catalog from "../../../src/generated/bootstrap.json";
 import type { BrowserPair } from "./account";
@@ -29,6 +32,23 @@ export default function Account({
   const [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
     [notice, setNotice] = useState("");
+  const [avatars, setAvatars] = useState(false),
+    [linkedAvatars, setLinkedAvatars] = useState<AvatarOption[]>([]),
+    [avatarError, setAvatarError] = useState("");
+  useEffect(() => {
+    if (!avatars || view.status !== "authenticated") return;
+    const c = new AbortController();
+    void account
+      .request<{ linked: AvatarOption[] }>("auth/avatars", undefined, c.signal)
+      .then((value) => {
+        if (!c.signal.aborted) setLinkedAvatars(value.linked);
+      })
+      .catch((error) => {
+        if (!c.signal.aborted)
+          setAvatarError(error instanceof Error ? error.message : "关联头像暂不可用");
+      });
+    return () => c.abort();
+  }, [avatars, view.status]);
   const [linkPage, setLinkPage] = useState(false),
     [code, setCode] = useState(""),
     [pair, setPair] = useState<BrowserPair | null>(null),
@@ -109,7 +129,11 @@ export default function Account({
     <section className="hb-scroll hb-page">
       <div className="hb-account-heading">
         <div className="hb-account-avatar">
-          <Icon name="account" />
+          {view.user?.avatarUrl ? (
+            <AccountAvatar user={view.user} className="wt-account-avatar-large" />
+          ) : (
+            <Icon name="account" />
+          )}
         </div>
         <div>
           <h2>{view.user?.displayName || "我的工作台"}</h2>
@@ -117,6 +141,33 @@ export default function Account({
         </div>
       </div>
       <ErrorNote error={error} />
+      <button
+        type="button"
+        className="hb-menu-row"
+        onClick={() => {
+          setAvatarError("");
+          setAvatars(true);
+        }}
+      >
+        <span>{view.status === "authenticated" ? "修改头像" : "浏览战雷头像"}</span>
+        <Icon name="arrow" />
+      </button>
+      {avatars && (
+        <DetailPage path="#/account/avatars" title="选择头像" close={() => setAvatars(false)}>
+          <ErrorNote error={avatarError} />
+          <Suspense fallback={<output>正在准备头像…</output>}>
+            <AccountAvatarPicker
+              currentId={view.user?.avatarId}
+              linked={linkedAvatars}
+              authenticated={view.status === "authenticated"}
+              onSelect={async (id) => {
+                await account.refreshProfile(id);
+                setAvatars(false);
+              }}
+            />
+          </Suspense>
+        </DetailPage>
+      )}
       {notice && <output>{notice}</output>}
       {view.status === "checking" && (
         <div className="hb-account-check">

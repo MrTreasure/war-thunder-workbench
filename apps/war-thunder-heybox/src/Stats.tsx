@@ -178,6 +178,7 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
         c.signal,
       );
       await reloadCloud();
+      await account.refreshProfile();
       setBinding(false);
       setConfirmedUid("");
     });

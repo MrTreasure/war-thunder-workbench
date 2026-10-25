@@ -7,6 +7,7 @@ import { Icon } from "./ui";
 import { NavigationProvider } from "./navigation";
 import { useHostViewport } from "./viewport";
 import uiAssets from "../../../data/workbench-ui-assets.json";
+import { AccountAvatar } from "../../../src/AccountAvatar";
 const Research = lazy(() => import("./Research"));
 const Stats = lazy(() => import("./Stats"));
 const Account = lazy(() => import("./Account"));
@@ -118,7 +119,11 @@ export default function App() {
                 aria-label="打开我的账号"
                 onClick={() => navigate("account")}
               >
-                <Icon name="account" />
+                {view.user?.avatarUrl ? (
+                  <AccountAvatar user={view.user} />
+                ) : (
+                  <Icon name="account" />
+                )}
                 <span>{view.user?.displayName || "游客"}</span>
               </button>
             </header>

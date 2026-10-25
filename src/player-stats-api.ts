@@ -100,6 +100,10 @@ export type StatsSession = {
     email?: string;
     isSuperAdmin?: boolean;
     applicationRole?: "user" | "admin";
+    avatarUrl?: string | null;
+    avatarFallbackUrl?: string | null;
+    avatarId?: string | null;
+    avatarSource?: string;
   } | null;
   role: "guest" | "user" | "superadmin";
   unlimited: boolean;

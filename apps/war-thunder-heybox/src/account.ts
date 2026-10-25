@@ -1,6 +1,13 @@
 import { MiniappError, type APIRequest, type SDK } from "./api.ts";
 
-type User = { id: string; displayName?: string };
+type User = {
+  id: string;
+  displayName?: string;
+  avatarUrl?: string | null;
+  avatarFallbackUrl?: string | null;
+  avatarId?: string | null;
+  avatarSource?: string;
+};
 type LoginResult =
   | { status: "authenticated"; token: string; expiresInSeconds: number; user: User }
   | { status: "onboarding_required"; onboardingTicket: string; expiresInSeconds: number };
@@ -15,7 +22,7 @@ export type BrowserPair = {
   status: "pending" | "approved";
 };
 type PairApproval =
-  | { status: "approved" }
+  | { status: "approved"; session?: { token: string; expiresInSeconds: number; user: User } }
   | { status: "onboarding_required"; approvalTicket: string };
 export type AccountView = {
   status: "checking" | "guest" | "authenticated" | "onboarding";
@@ -198,7 +205,24 @@ export function createAccount(sdk: SDK, api: APIRequest) {
       signal?.addEventListener("abort", abort, { once: true });
     });
   }
+  async function refreshProfile(avatarId?: string) {
+    await whenReady();
+    const current = saved,
+      turn = epoch;
+    if (!current || status !== "authenticated") throw changed();
+    const result = await api<{ user: User }>(avatarId === undefined ? "session" : "auth/avatar", {
+      token: current.token,
+      ...(avatarId === undefined ? {} : { body: { avatarId } }),
+    });
+    await whenReady();
+    if (disposed || epoch !== turn || saved !== current || result.user?.id !== current.user.id)
+      throw changed();
+    saved = { ...current, user: result.user };
+    emit();
+    await persist(saved);
+  }
   return {
+    refreshProfile,
     whenReady,
     initialize,
     refresh,
@@ -265,6 +289,8 @@ export function createAccount(sdk: SDK, api: APIRequest) {
         body: { pairingCode: pair.pairingCode, code: result.code },
       });
       await verify(result.accountKey, turn);
+      if (response.status === "approved" && response.session)
+        await accept({ status: "authenticated", ...response.session }, result.accountKey, turn);
       pairPending =
         response.status === "onboarding_required"
           ? {
