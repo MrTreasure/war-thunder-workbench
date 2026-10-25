@@ -8,8 +8,12 @@ import { fileURLToPath } from "node:url";
 
 setDefaultResultOrder("ipv4first");
 const root = fileURLToPath(new URL("../", import.meta.url));
-try { await readFile(resolve(root, "src/i18n/core.ts")); } catch {
-  throw Error("CF international deployment requires the feat/seo-localized-pages multilingual checkout.");
+try {
+  await readFile(resolve(root, "src/i18n/core.ts"));
+} catch {
+  throw Error(
+    "CF international deployment requires the feat/seo-localized-pages multilingual checkout.",
+  );
 }
 const runtime = process.env.WT_CF_RUNTIME || "/vol1/1000/appdata/war-thunder-trees/cloudflare";
 const dryRun = process.argv.slice(2).includes("--dry-run");
@@ -66,6 +70,14 @@ if (!dryRun) {
       });
       if (result.status === 0) break;
     }
+    // Explicit DNS targets can have a transient edge transport failure while the
+    // ordinary resolver route works. Retry transport only; keep HTTP rejections final.
+    if (result.status !== 0)
+      result = spawnSync("curl", args, {
+        encoding: "utf8",
+        input: body === undefined ? undefined : JSON.stringify(body),
+        maxBuffer: 1024 * 1024,
+      });
     if (result.status !== 0)
       throw Error("Public API deployment preflight failed; no Worker was uploaded");
     return { status: Number(result.stdout.match(/__WT_STATUS__(\d+)$/)?.[1]), raw: result.stdout };
