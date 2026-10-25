@@ -30,3 +30,7 @@
 - 用户要求本轮不重新提审。0.1.3 已提交快照仍保持原权限，本地声明与调用修复随以后明确授权的新构建提交生效。
 
 参考：[权限目录](https://docs.xiaoheihe.cn/hb_sdk/guide/permissions)、[device.setClipboard](https://docs.xiaoheihe.cn/hb_sdk/reference/sdk/device/setClipboard)。
+
+## 后续授权与实际提交
+
+用户于2026-10-25发布0.1.3后，明确要求将此前修改重新提审。剪贴板声明与Host复制修复已随0.1.4提交，读回auditing、autoPublish=false；0.1.3线上快照保持原权限，待0.1.4经用户发布后生效。
