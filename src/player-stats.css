@@ -2469,3 +2469,25 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-extra-query-credits { gap: 3px; }
 
 .wt-record-page .wt-extra-query-credits > button:focus-visible { outline: 2px solid var(--wt-record-gold); outline-offset: 3px; }
+
+/* Valuation: one stable header, two views, then focused vehicle groups. */
+.calculator.wt-valuation-dialog { width: min(1120px, calc(100vw - 32px)); }
+.wt-valuation-dialog .calc-header { z-index: 5; margin-bottom: 12px; }
+.wt-valuation-tabs { display: flex; gap: 24px; border-bottom: 1px solid var(--wt-record-line); margin-bottom: 20px; }
+.wt-record-page .wt-valuation-tabs > button { min-height: 44px; padding: 8px 0; border: 0; border-bottom: 2px solid transparent; border-radius: 0; background: transparent; color: var(--wt-record-muted); }
+.wt-record-page .wt-valuation-tabs > button[aria-selected="true"] { border-bottom-color: var(--wt-record-gold); color: var(--wt-record-gold); }
+.wt-record-page .wt-valuation-tabs > button:hover { background: transparent; color: var(--wt-record-ink); }
+.wt-valuation-tabs > button:focus-visible { outline: 2px solid var(--wt-record-gold); outline-offset: 2px; }
+.wt-valuation-overview-counts { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); border-block: 1px solid var(--wt-record-line); margin: 20px 0 12px; }
+.wt-valuation-overview-counts > div { display: flex; flex-direction: column; gap: 5px; padding: 14px 8px; }
+.wt-valuation-overview-counts span { color: var(--wt-record-muted); font-size: 12px; }
+.wt-valuation-overview-counts strong { font-size: 22px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.wt-valuation-overview-note { color: var(--wt-record-muted); font-size: 12px; }
+.wt-record-page .wt-valuation-view-details { margin-top: 8px; background: transparent; color: var(--wt-record-gold); }
+.wt-valuation-detail-toolbar { display: flex; align-items: center; justify-content: space-between; margin-block: 8px 16px; }
+.wt-valuation-detail-toolbar label { display: flex; align-items: center; gap: 12px; color: var(--wt-record-muted); font-size: 12px; }
+.wt-valuation-detail-toolbar .wt-select { min-width: 180px; }
+.wt-valuation-dialog [role="tabpanel"] > .wt-valuation-section:first-of-type { margin-top: 0; }
+.wt-valuation-section-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; }
+.wt-valuation-section-heading > span { color: var(--wt-record-muted); font-size: 12px; }
+.wt-valuation-market-link { display: inline-block; color: var(--wt-record-gold); margin-top: 4px; }
