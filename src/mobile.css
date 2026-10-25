@@ -2936,3 +2936,13 @@
     padding: 20px 16px 28px;
   }
 }
+
+@media (max-width: 800px) {
+  .wt-record-account { align-items: flex-start; }
+  .wt-extra-query-credit-button { min-height: 44px; }
+}
+
+@media (max-width: 800px) {
+  .wt-extra-query-credits { align-items: flex-start; }
+  .wt-record-quota-button { min-height: 44px; }
+}

@@ -1,4 +1,4 @@
-import { statsAvailableRequests } from "./player-stats-api";
+import { ExtraQueryCredits } from "./ExtraQueryCredits";
 import { vehicleSearchText } from "./i18n/core";
 import { localize } from "./i18n/core";
 import type { ReportStyle } from "./player-report-style";
@@ -73,20 +73,11 @@ import {
   reportImage,
   statsCategoryNames,
 } from "./player-stats-api";
-function quotaLabel(session: StatsSession | null, kind: "query" | "report") {
-  if (!session) return "—";
-  const available = statsAvailableRequests(session, kind);
-  return available === null
-    ? t("不限次")
-    : available === 0
-      ? t("今日额度已达上限")
-      : t("{0} 次", [available]);
-}
+
 import type {
   PlayerCandidate,
   PlayerProfile,
   StatsConfig,
-  StatsSession,
   StatsReport,
   Background,
   PlayerVehicle,
@@ -835,27 +826,11 @@ export function PlayerStats() {
           <p>{t("查看生涯表现和官方排位，生成你的个人战报。")}</p>
         </div>
         <div className="wt-record-account">
-          <span>
-            {localize(
-              session?.role === "superadmin"
-                ? t("超管")
-                : session?.user
-                  ? t("普通用户")
-                  : t("游客"),
-            )}
-            {t(" · 新查询 ")}
-            {localize(quotaLabel(session, "query"))}
-            {t(" / 战报 ")}
-            {localize(quotaLabel(session, "report"))}
-            <small>{t("先用每日免费次数，再用共享额外点数；缓存命中不扣次。")}</small>
-            {session?.credits?.enabled && (
-              <small>
-                {t("额外点数剩余")}{" "}
-                {session.credits.total === null ? t("不限") : localize(session.credits.remaining)}{" "}
-                {t("点，不每日重置。")}
-              </small>
-            )}
-          </span>
+          {session ? (
+            <ExtraQueryCredits session={session} refresh={refreshAccountSession} config={config} />
+          ) : (
+            <span>{t("额度加载中…")}</span>
+          )}
         </div>
       </header>
       <form
