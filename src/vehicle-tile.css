@@ -219,3 +219,17 @@
 .wt-sale-vehicle-option > .wt-sale-original-price { grid-column: 2; grid-row: 1; align-self: end; justify-self: stretch; min-width: 0; margin: 0 0 24px; }
 .wt-sale-vehicle-option > .wt-sale-original-price > small { display: grid; gap: 1px; margin: 0; color: var(--wt-muted); font: 400 10px/1.35 var(--wt-sans); text-align: center; }
 .wt-sale-vehicle-option time { display: block; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* Context and rank share the price track; long country names never displace rank. */
+.vehicle-card.wt-game-card > .wt-game-card-caption {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+}
+.wt-game-card-caption-context {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wt-game-card-caption-rank { flex: 0 0 auto; }

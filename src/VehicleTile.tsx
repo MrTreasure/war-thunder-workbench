@@ -47,6 +47,8 @@ export function VehicleTile({
   modeRating,
   packQuote,
   footerLabel,
+  showRank = false,
+  countryLabel,
 }: {
   unit: VehicleTileUnit;
   catalog?: Pick<Catalog, "kinds" | "roles">;
@@ -59,6 +61,10 @@ export function VehicleTile({
   modeRating?: string;
   packQuote?: { amountCents: number | null; checkedAt: string | null };
   footerLabel?: string;
+  /** Adds rank to the shared right caption; tree rank bands can leave it hidden. */
+  showRank?: boolean;
+  /** Omit when the surrounding page already identifies the country. */
+  countryLabel?: string;
 }) {
   useLocale();
   const facts = useVehicleFacts();
@@ -108,6 +114,9 @@ export function VehicleTile({
         ? t("暂无报价")
         : `${format(unit.price ?? unit.ge!)} GE`
       : catalog.kinds[unit.kind || ""] || t("特殊载具");
+  const caption = [countryLabel, footerLabel, showRank && unit.rank ? `Rank ${unit.rank}` : null]
+    .filter(Boolean)
+    .join(" · ");
   const Element = onSelect ? "button" : "span";
   const mediaUnit = {
     ...unit,
@@ -210,9 +219,16 @@ export function VehicleTile({
           />
         ),
       )}
-      {footerLabel && (
-        <span className="wt-game-card-caption" title={footerLabel}>
-          {footerLabel}
+      {caption && (
+        <span className="wt-game-card-caption" title={caption}>
+          {(countryLabel || footerLabel) && (
+            <span className="wt-game-card-caption-context">
+              {[countryLabel, footerLabel].filter(Boolean).join(" · ")}
+            </span>
+          )}
+          {showRank && unit.rank && (
+            <span className="wt-game-card-caption-rank">Rank {unit.rank}</span>
+          )}
         </span>
       )}
       {localize(

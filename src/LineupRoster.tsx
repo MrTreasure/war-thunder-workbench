@@ -37,7 +37,6 @@ export function LineupRoster({
   battleType,
   activeAircraft,
   mode,
-  categories,
   reorder,
   clear,
   chooseAircraft,
@@ -281,7 +280,7 @@ export function LineupRoster({
                         unit={unit}
                         mode={mode}
                         selected={activeSlot === index}
-                        footerLabel={`${localize(categories[unit.category])} · Rank ${unit.rank}`}
+                        showRank
                         modeRating={lineupCardRating(unit, battleType, mode)}
                       />
                     ) : (

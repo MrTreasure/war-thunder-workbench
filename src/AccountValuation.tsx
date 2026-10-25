@@ -152,8 +152,23 @@ function valuationUnitPrice(cents: number) {
     .replace(/0+$/, "");
   return `¥${(value / 100n).toLocaleString(getLocale())}${fraction ? decimalSeparator() + fraction : ""}`;
 }
-function ValuationVehicle({ item }: { item: Item }) {
-  return <VehicleTile unit={item} owned={item.owned ?? false} />;
+function ValuationVehicle({
+  item,
+  showCountry = true,
+  showRank = true,
+}: {
+  item: Item;
+  showCountry?: boolean;
+  showRank?: boolean;
+}) {
+  return (
+    <VehicleTile
+      unit={item}
+      owned={item.owned ?? false}
+      showRank={showRank}
+      countryLabel={showCountry ? localize(statsCountryLabel(item.country)) : undefined}
+    />
+  );
 }
 function ProductCard({
   title,
@@ -187,6 +202,8 @@ function ProductCard({
                 price: vehicleKind === "gold" ? item.ge : item.price,
               }}
               owned={owned}
+              showRank
+              countryLabel={localize(statsCountryLabel(item.country))}
             />
           )),
         )}
@@ -603,7 +620,6 @@ export function AccountValuation({
     (currentResearchPage - 1) * 10,
     currentResearchPage * 10,
   );
-  const countryName = statsCountryLabel;
   const selectedScenario = value?.scenarios[scenarioKey];
   const selectedRule = value?.rules.scenarios[scenarioKey];
   const knownItems = new Map<
@@ -1044,12 +1060,6 @@ export function AccountValuation({
                           <ValuationVehicle item={item} />
                           <div>
                             <h4 className="wt-vehicle-name">{vehicleName(item)}</h4>
-                            <small>
-                              {localize(countryName(item.country))} ·{localize(" ")}
-                              {localize(statsCategoryNames[item.category] || item.category)} ·
-                              {localize(" ")}
-                              {localize(item.rank ? `Rank ${item.rank}` : t("等级待核验"))}
-                            </small>
                             <span className="wt-valuation-unpriced-reason">
                               {localize(item.reason)}
                             </span>
@@ -1116,7 +1126,11 @@ export function AccountValuation({
                     {localize(
                       visibleResearch.map((v) => (
                         <article key={v.id}>
-                          <ValuationVehicle item={v} />
+                          <ValuationVehicle
+                            item={v}
+                            showCountry={researchCountry === "all"}
+                            showRank={researchRank === "all"}
+                          />
                           <div>
                             <h4>
                               {localize(
@@ -1139,10 +1153,6 @@ export function AccountValuation({
                                     ? t("有出战记录")
                                     : t("根据当前前置推算"),
                               )}
-                              {localize(" ")}· {localize(countryName(v.country))} ·{" "}
-                              {localize(statsCategoryNames[v.category] || v.category)}
-                              {localize(" ")}·{" "}
-                              {localize(v.rank ? `Rank ${v.rank}` : t("等级待核验"))}
                             </small>
                             <strong>{localize(statsNumber(v.rp))} RP</strong>
                             <small>
@@ -1207,6 +1217,8 @@ export function AccountValuation({
                                   {localize(
                                     vehicles.map((item) => (
                                       <ValuationVehicle
+                                        showCountry={unpricedFilters.country === "all"}
+                                        showRank={unpricedFilters.rank === "all"}
                                         key={item.id}
                                         item={{
                                           id: item.id,
@@ -1240,30 +1252,6 @@ export function AccountValuation({
                                         )}
                                       </small>
                                     ),
-                                  )}
-                                  {localize(
-                                    vehicles.map((item) => (
-                                      <small key={item.id}>
-                                        {localize(
-                                          vehicles.length > 1 ? `${vehicleName(item)} · ` : "",
-                                        )}
-                                        {localize(
-                                          item.country
-                                            ? countryName(item.country)
-                                            : t("国别待核验"),
-                                        )}{" "}
-                                        ·{localize(" ")}
-                                        {localize(
-                                          item.category
-                                            ? statsCategoryNames[item.category] || item.category
-                                            : t("军种待核验"),
-                                        )}
-                                        {localize(" ")}·{" "}
-                                        {localize(
-                                          item.rank ? `Rank ${item.rank}` : t("等级待核验"),
-                                        )}
-                                      </small>
-                                    )),
                                   )}
                                   {localize(
                                     v.rp != null && (

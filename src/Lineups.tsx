@@ -960,14 +960,9 @@ function CountryLineups({
                               disabled={occupied}
                               onSelect={() => place(unit.id)}
                               modeRating={lineupCardRating(unit, selected.battleType, mode)}
+                              showRank={rank === "all"}
+                              footerLabel={occupied ? t("已配置") : undefined}
                             />
-                            <small>
-                              {localize(
-                                occupied
-                                  ? t("已配置")
-                                  : `${catalog.categories[unit.category]} · Rank ${unit.rank}`,
-                              )}
-                            </small>
                           </div>
                         );
                       }),
