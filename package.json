@@ -32,7 +32,8 @@
     "prepare:ownership": "node scripts/prepare-data.mjs && node scripts/prepare-player-research-counts.mjs",
     "deploy:qmuse": "node scripts/deploy-qmuse.mjs",
     "deploy:cf": "node scripts/deploy-cf.mjs",
-    "deploy:preview": "node scripts/deploy-preview.mjs"
+    "deploy:preview": "node scripts/deploy-preview.mjs",
+    "refresh:wallpapers": "node scripts/collect-wallpapers.mjs"
   },
   "dependencies": {
     "@noble/hashes": "2.4.0",
