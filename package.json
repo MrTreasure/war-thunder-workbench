@@ -36,7 +36,8 @@
     "check:i18n": "node scripts/check-i18n.mjs",
     "i18n:scan": "node scripts/i18n-workflow.mjs scan --write",
     "i18n:translate": "node scripts/i18n-workflow.mjs translate --write",
-    "i18n:check": "node scripts/i18n-workflow.mjs check"
+    "i18n:check": "node scripts/i18n-workflow.mjs check",
+    "refresh:wallpapers": "node scripts/collect-wallpapers.mjs"
   },
   "dependencies": {
     "@noble/hashes": "2.4.0",
