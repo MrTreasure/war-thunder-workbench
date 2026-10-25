@@ -73,3 +73,10 @@ pnpm --dir apps/war-thunder-heybox run build
 服务对象为《战争雷霆》PC版（平台查询确认 appid 236390），不是手游。平台预检要求声明桌面平台后才允许 bindAppIds；本小程序只面向 Android/iOS，因此保持游戏工作区关联为空。自动发布保持关闭，提交审核与真实客户端验收分别记录。
 
 2026-10-25 提交读回：0.1.2 为 `auditing`，自动发布关闭；当前线上仍为0.1.1。新版本已移除小程序头像编辑。17项测试与SDK Mock界面检查通过，真实授权及查询稳定性仍须客户端复核；不能将提审成功当作真机验收通过。
+
+
+## 图标与封面（2026-10-25 新设计）
+
+使用用户指定的官方 Sky Odyssey 歼-16 壁纸，图标聚焦中央飞机，封面裁切避开原图左侧的版本横幅；分别叠加独立的官方 War Thunder Logo。图标为200×200 PNG，封面为960×540 JPEG。来源SHA-256、裁切框及叠加位置统一记录在 `data/heybox-branding.json`，可运行 `pnpm --dir apps/war-thunder-heybox run prepare:branding` 复现。
+
+本次仅更新本地版本资料素材；已提交的0.1.2审核快照不会随源码文件自动变化。
