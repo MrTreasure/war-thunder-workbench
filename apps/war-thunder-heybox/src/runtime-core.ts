@@ -122,11 +122,29 @@ export function createRuntime(
     await account.whenReady(signal);
     const turn = version;
     progress("正在提交查询…");
-    let job = await request<Job<T>>(
-      "queries",
-      { kind, payload, requestId: "task_" + crypto.randomUUID() },
-      signal,
-    );
+    const submission = { kind, payload, requestId: "task_" + crypto.randomUUID() };
+    let job: Job<T>;
+    for (let attempt = 0; ; attempt++) {
+      if (turn !== version) throw new MiniappError("ACCOUNT_CHANGED", "账号状态已变化，请重新操作");
+      try {
+        job = await request<Job<T>>("queries", submission, signal);
+        break;
+      } catch (error) {
+        signal.throwIfAborted();
+        if (turn !== version)
+          throw new MiniappError("ACCOUNT_CHANGED", "账号状态已变化，请重新操作");
+        const transient =
+          error instanceof MiniappError &&
+          (["REQUEST_TIMEOUT", "REQUEST_FAILED", "NETWORK_UNAVAILABLE"].includes(error.code) ||
+            error.status >= 500);
+        if (!transient || attempt >= 2) throw error;
+        // This endpoint durably deduplicates actor + requestId and verifies the
+        // payload hash before touching quotas. Never mint another ID on retry.
+        // Other mutations, especially one-use authorization codes, are not retried.
+        progress("连接暂时不稳定，正在确认刚才的查询…");
+        await pause(1500 * (attempt + 1), signal);
+      }
+    }
     let budget = 0;
     while (budget < 7 * 60000) {
       signal.throwIfAborted();
@@ -153,7 +171,25 @@ export function createRuntime(
       );
       const delay = Math.min(10000, 2000 + Math.floor(budget / 15000) * 1000);
       budget += await pause(job.status === "ready" ? 0 : delay, signal);
-      job = await request<Job<T>>("queries/" + job.id, undefined, signal);
+      // A completed submission must never be replayed after a network timeout.
+      // Retry only the actor-bound GET for the existing job, with a bounded delay.
+      for (let attempt = 0; ; attempt++) {
+        if (turn !== version)
+          throw new MiniappError("ACCOUNT_CHANGED", "账号状态已变化，请重新操作");
+        try {
+          job = await request<Job<T>>("queries/" + job.id, undefined, signal);
+          break;
+        } catch (error) {
+          signal.throwIfAborted();
+          const transient =
+            error instanceof MiniappError &&
+            (["REQUEST_TIMEOUT", "REQUEST_FAILED", "NETWORK_UNAVAILABLE"].includes(error.code) ||
+              error.status >= 500);
+          if (!transient || attempt >= 2) throw error;
+          progress("连接暂时不稳定，正在继续读取已有查询结果…");
+          budget += await pause(1500 * (attempt + 1), signal);
+        }
+      }
     }
     throw new MiniappError("QUERY_STILL_RUNNING", "查询仍在后台处理，请稍后查看");
   }

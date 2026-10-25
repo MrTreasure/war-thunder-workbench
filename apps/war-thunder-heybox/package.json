@@ -30,7 +30,7 @@
   },
   "scripts": {
     "hb-sdk": "hb-sdk",
-    "dev": "hb-sdk dev",
+    "dev": "node scripts/dev.mjs",
     "build": "tsc --noEmit && hb-sdk build && node scripts/check-build.mjs",
     "deploy": "hb-sdk remote deploy",
     "typecheck": "tsc --noEmit",

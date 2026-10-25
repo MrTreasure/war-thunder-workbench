@@ -57,6 +57,31 @@ assert(
   !JSON.stringify(manifest).includes("heybox-placeholder"),
   "Replace template metadata artwork",
 );
+// Production business traffic has exactly one public gateway. Do not introduce
+// a NAS/LAN failover when a Cloudflare request is slow or unavailable.
+const apiSource = await readFile(new URL("src/api.ts", app), "utf8");
+assert(
+  apiSource.includes('const API = "https://api.mrtreasure.cc/wt-stats/v1/";'),
+  "The production API must remain the Cloudflare gateway",
+);
+const emittedJS = (
+  await Promise.all(
+    files
+      .filter((file) => file.endsWith(".js"))
+      .map((file) => readFile(new URL(file, dist), "utf8")),
+  )
+).join("\n");
+assert(
+  emittedJS.includes("https://api.mrtreasure.cc/wt-stats/v1/"),
+  "Built requests must retain the public API gateway",
+);
+for (const blocked of [
+  /api-nas\.mrtreasure\.cc/i,
+  /https?:\/\/(?:192\.168\.|10\.|172\.(?:1[6-9]|2[0-9]|3[01])\.)/i,
+  /https?:\/\/[^/\s"']+:15432(?:[/"']|$)/i,
+]) {
+  assert(!blocked.test(emittedJS), "A direct NAS or LAN address entered the production bundle");
+}
 const total = await Promise.all(
   files.map(async (f) => (await readFile(new URL(f, dist))).byteLength),
 );
@@ -65,10 +90,12 @@ console.log(
     miniapp: "war-thunder-heybox",
     countries: 10,
     vehicleMetadataCountries: 10,
+    apiGateway: "https://api.mrtreasure.cc/wt-stats/v1/",
+    nasDirectAccess: false,
     wasm: 0,
     standaloneDataJSON: 0,
     bytes: total.reduce((a, b) => a + b, 0),
-    uiAcceptance: "manual",
+    uiAcceptance: "requires Browser Mock screenshots and native device review",
     nativeAuthorization: "not-yet-verified",
   }),
 );

@@ -327,8 +327,19 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
             spellCheck={false}
             value={nickname}
             onChange={(e) => setNickname(e.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" && !event.nativeEvent.isComposing) {
+                event.preventDefault();
+                if (!busy) void search();
+              }
+            }}
           />
-          <button className="hb-primary" disabled={busy || nickname.trim().length < 2}>
+          <button
+            type="button"
+            className="hb-primary"
+            disabled={busy || nickname.trim().length < 2}
+            onClick={() => void search()}
+          >
             {busy ? "查询中" : "查询"}
           </button>
         </div>

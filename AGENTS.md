@@ -24,8 +24,9 @@
 - React + Vite + TypeScript 7, using the supplied QMuse template configuration,
   TanStack file routes and Tailwind v4. Use pnpm and keep exact dependency versions.
 - Run `pnpm run typecheck`, `pnpm run lint`, `pnpm run check:data`, and
-  `pnpm run build` for routine verification. UI acceptance is manual;
-  do not use browser automation unless the user requests it.
+  `pnpm run build` for routine verification. UI acceptance includes Playwright screenshot verification for this project,
+  explicitly authorized by the user on 2026-10-25. Preserve manual native-client
+  acceptance for capabilities that Browser Mock cannot prove.
 - All vehicle-specific data, prices, prerequisites, ranks, BR, flags,
   modification costs and provenance belong in `data/*.json`, not JSX.
 - Pack prices use verified official CNY amounts in integer cents from
@@ -488,3 +489,14 @@
 - 小程序详情、筛选、协议及关联确认使用带返回的独立详情页面，保留来源页滚动和草稿，不用弹窗／底部抽屉。返回研发首页清除载具选择，载具研发与配件研发输入分别管理。
 - 顶部按官方 SDK 窗口安全区域避让状态栏与宿主胶囊，窗口变化时更新；测量前保留顶部空间。前台同账号复核不重挂页面或中断查询，真实切号仍须丢弃旧私人响应。
 - 小程序保留“体验工作台完整能力”入口，指向现有 QMuse 主站；外部网页打不开时提供可选中、可复制的真实地址，不使用未文档化的宿主跳转协议。
+
+## 截图验收授权（2026-10-25，仅本项目）
+
+- 用户明确允许本项目在开发和交付时使用 Playwright 进行浏览器交互、布局检查与截图验收；不再需要为本项目每轮截图重复询问。此授权不扩展到其他项目。
+- 网页和黑盒小程序的 Browser Mock 应按实际可用环境分别验证；报告须标明浏览器／SDK Mock／真机环境，不把模拟授权、测试资料或浏览器截图冒充小黑盒真实登录和真机通过。
+- 截图、日志与最终验收报告保存在本机忽略的 `artifacts/`，对敏感身份、凭据与开发票据做隔离，截图不包含调试二维码或原始鉴权日志。汇总通过项、缺陷修复、未通过项及验证范围后交付用户。
+
+## 小程序正式 API 通道（2026-10-25 用户明确要求）
+
+- 正式小程序的业务请求固定使用 `https://api.mrtreasure.cc/wt-stats/v1/`，只走 Cloudflare 转发通道；严禁使用 NAS 直连域名、局域网地址、个人直连入口或 `15432` 端口，不能配置成超时回退。
+- 本机官方 SDK Browser Mock 的回环调试地址与开发进程 IPv4 优先设置仅用于本地工具，不得成为正式业务 API 地址。发布构建必须检查正式网关及禁止的直连地址。

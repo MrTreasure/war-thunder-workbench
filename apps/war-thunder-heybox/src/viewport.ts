@@ -20,6 +20,9 @@ export function useHostViewport() {
       document.documentElement.dataset.hostViewport = "ready";
     };
     const read = () => {
+      void sdk.viewport.setNavigationBarStyle({ foregroundStyle: "light" }).catch(() => {
+        /* Older Hosts keep their own foreground style. */
+      });
       void sdk.viewport
         .getWindowInfo()
         .then(apply)

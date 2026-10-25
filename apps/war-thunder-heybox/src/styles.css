@@ -1331,3 +1331,27 @@ details[open] > summary::after {
   width: 16px;
   height: 16px;
 }
+
+.hb-game-icon-arrow {
+  transform: rotate(90deg);
+}
+
+/* Keep the approved 228px tile intact; put list metadata beside it on phones. */
+.hb-unit-list {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  padding: 18px 12px;
+}
+.hb-unit-list > .hb-vehicle-presentation {
+  grid-template-columns: 228px minmax(0, 1fr);
+  justify-items: start;
+  align-items: center;
+  gap: 12px;
+  padding-top: 10px;
+}
+.hb-unit-list .hb-vehicle-caption {
+  width: auto;
+  align-self: center;
+  padding-bottom: 16px;
+  line-height: 1.65;
+}

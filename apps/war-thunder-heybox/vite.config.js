@@ -1,10 +1,12 @@
 import { miniappManifest } from "@heybox/hb-sdk/vite";
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   base: "./",
-  plugins: [react(), miniappManifest()],
+  plugins: [miniappManifest()],
+  // Vite 8 compiles automatic JSX from tsconfig without a React refresh plugin.
+  // The SDK restores gated scripts after its handshake; no refresh globals are needed.
+  oxc: { jsx: { refresh: false } },
   build: {
     rolldownOptions: {
       output: {
