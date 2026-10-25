@@ -878,7 +878,7 @@ export function AccountValuation({
             >
               <div className="wt-valuation-detail-toolbar">
                 <label>
-                  明细类别{" "}
+                  <span className="wt-valuation-detail-label">明细类别</span>
                   <GameSelect value={detailKind} onValueChange={setDetailKind}>
                     <option value="all">全部类别</option>
                     <option value="gold">金鹰载具</option>
