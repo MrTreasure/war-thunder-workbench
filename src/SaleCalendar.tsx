@@ -73,11 +73,13 @@ function VehicleQuoteDate({ vehicle }: { vehicle: SaleVehicle }) {
           <small>
             {t("核对于")}
             {localize(" ")}
-            {localize(
-              new Date(quote.checkedAt).toLocaleDateString(getLocale(), {
-                timeZone: "Asia/Shanghai",
-              }),
-            )}
+            <time dateTime={quote.checkedAt}>
+              {localize(
+                new Date(quote.checkedAt).toLocaleDateString(getLocale(), {
+                  timeZone: "Asia/Shanghai",
+                }),
+              )}
+            </time>
           </small>
         ),
       )}

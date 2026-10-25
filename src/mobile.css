@@ -1807,16 +1807,6 @@
     font-size: 16px;
     min-height: 44px;
   }
-  .wt-sale-picker-results {
-    max-height: 48dvh;
-  }
-  .wt-sale-vehicle-option {
-    gap: 8px;
-  }
-  .wt-sale-vehicle-option > img {
-    width: 60px;
-    height: 44px;
-  }
   .wt-sale-picker footer {
     align-items: flex-start;
   }
@@ -2873,16 +2863,6 @@
   .wt-sale-watch-row > .wt-sale-watch-countdown {
     grid-column: 1 / -1;
   }
-  .wt-sale-vehicle-option {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .wt-sale-vehicle-option > .wt-game-card {
-    flex-basis: 228px;
-  }
-  .wt-sale-vehicle-option > div {
-    flex-basis: calc(100% - 90px);
-  }
   .wt-detail-route-list {
     grid-template-columns: minmax(0, 1fr);
     justify-items: center;
@@ -2897,32 +2877,31 @@
 }
 
 /* Vehicle directory: full rows of 24 at 6/4/3/2/1 columns, with no nested picker scroller. */
-@media (max-width: 1000px) {
-  .wt-sale-picker-results { max-height: none; overflow: visible; grid-template-columns: minmax(0, 1fr); }
-}
+
 @media (max-width: 800px) {
   .wt-garage-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; }
   .lineup-saved-row { padding: 12px; }
   .lineup-summary-slots { padding-bottom: 10px; }
   .lineup-card-actions button { min-height: 44px; }
-  .wt-sale-vehicle-option { grid-template-columns: 228px minmax(0, 1fr); }
-  .wt-sale-vehicle-option > button { min-height: 44px; }
 }
 @media (max-width: 540px) {
   .wt-garage-tiles { grid-template-columns: minmax(0, 1fr); }
-  .wt-sale-vehicle-option { grid-template-columns: minmax(0, 1fr) auto; }
-  .wt-sale-vehicle-option > .wt-game-card { grid-column: 1 / -1; }
-  .wt-sale-vehicle-option > button { grid-column: 2; grid-row: 2; }
 }
 
+
+
+
+
+/* Match dialog width to the number of compact sale items, keeping one scroll host. */
+@media (max-width: 1052px) {
+  .wt-sale-picker.calculator { width: min(692px, calc(100vw - 24px)); }
+  .wt-sale-picker-results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 800px) {
-  .wt-sale-vehicle-option { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
   .wt-sale-vehicle-option > .wt-sale-follow-button { min-height: 44px; }
 }
-@media (max-width: 380px) {
-  .wt-sale-vehicle-option > .wt-sale-follow-button { padding-inline: 6px; }
-}
-@media (max-width: 540px) {
-  .wt-sale-vehicle-option > .wt-game-card { grid-column: 1; grid-row: 1; }
-  .wt-sale-vehicle-option > .wt-sale-follow-button { grid-column: 2; grid-row: 1; }
+@media (max-width: 716px) {
+  .wt-sale-picker.calculator { width: min(368px, calc(100vw - 24px)); }
+  .wt-sale-picker-results { grid-template-columns: minmax(0, 1fr); }
+  .wt-sale-picker-controls { grid-template-columns: minmax(0, 1fr); }
 }
