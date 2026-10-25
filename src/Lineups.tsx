@@ -660,7 +660,21 @@ function CountryLineups({
                   ))}
                 </GameSelect>
               </label>
-              <details key={selected.id} className="lineup-editor-more">
+              <details
+                key={selected.id}
+                className="lineup-editor-more"
+                onKeyDown={(event) => {
+                  if (event.key === "Escape") {
+                    event.currentTarget.open = false;
+                    event.currentTarget.querySelector("summary")?.focus();
+                    event.stopPropagation();
+                  }
+                }}
+                onBlur={(event) => {
+                  if (!event.currentTarget.contains(event.relatedTarget))
+                    event.currentTarget.open = false;
+                }}
+              >
                 <summary>更多操作</summary>
                 <div>
                   <button
@@ -686,6 +700,10 @@ function CountryLineups({
                 </div>
               </details>
             </div>
+            <p className="calc-note">
+              同一队列同时计算街机 AB、历史 RB 和全真
+              SB。“卡片权重”仅切换卡片显示，不改变计算；全真以活动名单或房间范围为准。
+            </p>
             <div className="lineup-configure">
               <section className="lineup-roster" aria-label="乘员槽位">
                 <div className="lineup-section-heading">

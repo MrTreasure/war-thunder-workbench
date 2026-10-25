@@ -746,9 +746,6 @@
   .lineup-editor-more {
     min-width: 0;
   }
-  .lineup-editor-more[open] {
-    grid-column: 1 / -1;
-  }
   .lineup-editor-more > div > button {
     flex: 1;
   }
