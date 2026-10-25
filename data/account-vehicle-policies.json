@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "vehicle-policies-v1",
+  "version": "vehicle-policies-v2-low-threshold-zero",
   "checkedAt": "2026-10-22T05:50:32.083Z",
   "vehicles": [
     {
@@ -12,13 +12,22 @@
       "side": "special",
       "classification": "promotion",
       "defaultMode": "exclude",
-      "reason": "战争雷霆手游推广任务奖励，按用户规则不计价",
+      "reason": "手游坦克战3次队内第一；已有政策为零，保持；按用户确认的低门槛赠送规则，参考价值为0。",
       "source": "https://wiki.warthunder.com/unit/us_m4_sherman_promo",
       "checkedAt": "2026-10-22T05:46:34.713Z",
       "sha256": "5e3f41760b0824c41b4893f7f863ad4503cad4b9cc29a1bc2d521a23b4312415",
       "evidence": "duced in 2023 and can be obtained by completing tasks in War Thunder Mobile. The tank's strengths include a rapid-firing gun with",
       "freeResearch": null,
-      "freePurchase": null
+      "freePurchase": null,
+      "curated": true,
+      "zeroValueBasis": {
+        "referenceCents": 0,
+        "checkedAt": "2026-10-25T10:05:46.171960+00:00",
+        "sources": [
+          "https://wtmobile.com/news/crosspromo"
+        ],
+        "basis": "low-threshold-acquisition-policy"
+      }
     },
     {
       "id": "jp_destroyer_hatsuzuki",
@@ -29,13 +38,22 @@
       "side": "special",
       "classification": "promotion",
       "defaultMode": "exclude",
-      "reason": "战争雷霆手游推广任务奖励，按用户规则不计价",
+      "reason": "手游胜利3场；已有政策为零，保持；按用户确认的低门槛赠送规则，参考价值为0。",
       "source": "https://wiki.warthunder.com/unit/jp_destroyer_hatsuzuki",
       "checkedAt": "2026-10-22T05:46:36.718Z",
       "sha256": "ec9e2a1a3cec5e568f1295b77e5d62ae8e76bd0e6d3a8484f922f3216c4251f3",
       "evidence": "Update \"La Royale\" as a promotional reward for the release of War Thunder Mobile. Unlike her sister, Akizuki, Hatsuzuki is in her",
       "freeResearch": null,
-      "freePurchase": null
+      "freePurchase": null,
+      "curated": true,
+      "zeroValueBasis": {
+        "referenceCents": 0,
+        "checkedAt": "2026-10-25T10:05:46.171960+00:00",
+        "sources": [
+          "https://wtmobile.com/news/crosspromo"
+        ],
+        "basis": "low-threshold-acquisition-policy"
+      }
     },
     {
       "id": "germ_panther_ii",
@@ -138,15 +156,24 @@
       "category": "ground",
       "rank": "I",
       "side": "special",
-      "classification": "review",
-      "defaultMode": "unpriced",
-      "reason": "赠送／活动载具候选，获取条件待管理员确认",
+      "classification": "conditional_gift",
+      "defaultMode": "exclude",
+      "reason": "新手推广包免费赠送；不采用单独商店250 GE作为账号增量价值；按用户确认的低门槛赠送规则，参考价值为0。",
       "source": "https://wiki.warthunder.com/unit/us_m2a4_1st_armor_div",
       "checkedAt": "2026-10-22T05:46:51.994Z",
       "sha256": "3484f9d352d8173d0187b60d9d903270be6aac2f142d434214b3e8002af7c5ac",
       "evidence": "Ground Vehicles M2A4 (1st Arm.Div.) I Rank AB 1.0 RB 1.0 SB 1.0 Battle rating USA Research country Light tank Main role",
       "freeResearch": null,
-      "freePurchase": false
+      "freePurchase": false,
+      "curated": true,
+      "zeroValueBasis": {
+        "referenceCents": 0,
+        "checkedAt": "2026-10-25T10:05:46.171960+00:00",
+        "sources": [
+          "https://www.reddit.com/r/Warthunder/comments/fsh96j/free_decal_premium_vehicle_and_3_day_premium_for"
+        ],
+        "basis": "low-threshold-acquisition-policy"
+      }
     },
     {
       "id": "ussr_t_26_1940_1st_gvtbr",
@@ -155,15 +182,25 @@
       "category": "ground",
       "rank": "I",
       "side": "special",
-      "classification": "review",
-      "defaultMode": "unpriced",
-      "reason": "赠送／活动载具候选，获取条件待管理员确认",
+      "classification": "conditional_gift",
+      "defaultMode": "exclude",
+      "reason": "苏联陆军首选国家的新手礼物；另有250 GE售卖渠道不改变低门槛赠送判断；按用户确认的低门槛赠送规则，参考价值为0。",
       "source": "https://wiki.warthunder.com/unit/ussr_t_26_1940_1st_gvtbr",
       "checkedAt": "2026-10-22T05:46:54.629Z",
       "sha256": "6e87d00bc5839841941bbd5fe3f23dd9bf2d4fcf7fea77963a3e31cf13260ca3",
       "evidence": "Ground Vehicles T-26 (1st Gv.T.Br.) I Rank AB 1.0 RB 1.0 SB 1.0 Battle rating USSR Research country Light tank Main role",
       "freeResearch": null,
-      "freePurchase": false
+      "freePurchase": false,
+      "curated": true,
+      "zeroValueBasis": {
+        "referenceCents": 0,
+        "checkedAt": "2026-10-25T10:05:46.171960+00:00",
+        "sources": [
+          "https://www.youtube.com/watch?v=Qrn0r5ajnzM",
+          "https://steamcommunity.com/app/236390/discussions/0/620695877471899291"
+        ],
+        "basis": "low-threshold-acquisition-policy"
+      }
     },
     {
       "id": "uk_a_13_mk1_3rd_rtr",
@@ -172,15 +209,25 @@
       "category": "ground",
       "rank": "I",
       "side": "special",
-      "classification": "review",
-      "defaultMode": "unpriced",
-      "reason": "赠送／活动载具候选，获取条件待管理员确认",
+      "classification": "conditional_gift",
+      "defaultMode": "exclude",
+      "reason": "官方 Wiki 明确曾为英国首选国家赠送；社区有新手领取说明；按用户确认的低门槛赠送规则，参考价值为0。",
       "source": "https://wiki.warthunder.com/unit/uk_a_13_mk1_3rd_rtr",
       "checkedAt": "2026-10-22T05:46:56.881Z",
       "sha256": "2d3d8fb3c6646b5682295378c5e6ef3dc527c7fa96412a4f5fc6ab8e8b5e6704",
       "evidence": "Ground Vehicles A13 Mk I (3rd R.T.R.) I Rank AB 1.0 RB 1.0 SB 1.0 Battle rating Great Britain Research country Light",
       "freeResearch": null,
-      "freePurchase": false
+      "freePurchase": false,
+      "curated": true,
+      "zeroValueBasis": {
+        "referenceCents": 0,
+        "checkedAt": "2026-10-25T10:05:46.171960+00:00",
+        "sources": [
+          "https://wiki.warthunder.com/unit/uk_a_13_mk1_3rd_rtr",
+          "https://www.youtube.com/watch?v=tp7_VTC3FoE"
+        ],
+        "basis": "low-threshold-acquisition-policy"
+      }
     },
     {
       "id": "fr_hotchkiss_h39_cambronne",
@@ -189,15 +236,24 @@
       "category": "ground",
       "rank": "I",
       "side": "special",
-      "classification": "review",
-      "defaultMode": "unpriced",
-      "reason": "赠送／活动载具候选，获取条件待管理员确认",
+      "classification": "conditional_gift",
+      "defaultMode": "exclude",
+      "reason": "2017圣诞活动单场胜利奖励；需III级载具但非长期累计任务，按低门槛赠送归零；按用户确认的低门槛赠送规则，参考价值为0。",
       "source": "https://wiki.warthunder.com/unit/fr_hotchkiss_h39_cambronne",
       "checkedAt": "2026-10-22T05:46:59.116Z",
       "sha256": "62d578b7cf8c7cc154055c0d593b72d046a00c5f6b4f9e6ad62f86aa0ba37049",
       "evidence": "Ground Vehicles H.39 \"Cambronne\" I Rank AB 1.0 RB 1.0 SB 1.0 Battle rating France Research country Light tank Main role 250",
       "freeResearch": null,
-      "freePurchase": false
+      "freePurchase": false,
+      "curated": true,
+      "zeroValueBasis": {
+        "referenceCents": 0,
+        "checkedAt": "2026-10-25T10:05:46.171960+00:00",
+        "sources": [
+          "https://warthunder.com/en/news/5225-special-french-vehicles-as-christmas-presents-en?page=4"
+        ],
+        "basis": "low-threshold-acquisition-policy"
+      }
     },
     {
       "id": "f3f-2_galer",
@@ -206,15 +262,25 @@
       "category": "aviation",
       "rank": "I",
       "side": "special",
-      "classification": "review",
-      "defaultMode": "unpriced",
-      "reason": "赠送／活动载具候选，获取条件待管理员确认",
+      "classification": "conditional_gift",
+      "defaultMode": "exclude",
+      "reason": "新手推广包免费飞机，较普通版本主要为涂装和收益倍率不同；按用户确认的低门槛赠送规则，参考价值为0。",
       "source": "https://wiki.warthunder.com/unit/f3f-2_galer",
       "checkedAt": "2026-10-22T05:47:01.343Z",
       "sha256": "6995bce7ab08223d14d0872f9125044bb28b31b7d5e6841fcc257a4bb8b6365b",
       "evidence": "Aviation Galer's F3F-2 I Rank AB 1.3 RB 1.3 SB 1.3 Battle rating USA Research country Fighter Main role 250 Purchase Premium",
       "freeResearch": null,
-      "freePurchase": false
+      "freePurchase": false,
+      "curated": true,
+      "zeroValueBasis": {
+        "referenceCents": 0,
+        "checkedAt": "2026-10-25T10:05:46.171960+00:00",
+        "sources": [
+          "https://www.youtube.com/watch?v=SFUrSjw9-WQ",
+          "https://wiki.warthunder.com/unit/f3f-2_galer"
+        ],
+        "basis": "low-threshold-acquisition-policy"
+      }
     },
     {
       "id": "p-36a_rasmussen",
@@ -240,15 +306,25 @@
       "category": "aviation",
       "rank": "I",
       "side": "special",
-      "classification": "review",
-      "defaultMode": "unpriced",
-      "reason": "赠送／活动载具候选，获取条件待管理员确认",
+      "classification": "conditional_gift",
+      "defaultMode": "exclude",
+      "reason": "1.31首场战斗美国新手赠送飞机；历史而非承诺当前所有账号均可领取；按用户确认的低门槛赠送规则，参考价值为0。",
       "source": "https://wiki.warthunder.com/unit/f2a-1_thach",
       "checkedAt": "2026-10-22T05:47:05.879Z",
       "sha256": "acc6cc945483b6123eda4be0e2451565116e2dd94c91c14b28cac55c455bcaf3",
       "evidence": "Aviation Thach's F2A-1 I Rank AB 2.0 RB 2.0 SB 2.0 AB — RB 2.3 SB 2.3 AB 2.0 RB 2.0 SB",
       "freeResearch": null,
-      "freePurchase": false
+      "freePurchase": false,
+      "curated": true,
+      "zeroValueBasis": {
+        "referenceCents": 0,
+        "checkedAt": "2026-10-25T10:05:46.171960+00:00",
+        "sources": [
+          "https://warthunder.com/en/news/168-",
+          "https://steamcommunity.com/app/236390/discussions/0/864976115741068641"
+        ],
+        "basis": "low-threshold-acquisition-policy"
+      }
     },
     {
       "id": "bf-109a_1",
@@ -258,14 +334,24 @@
       "rank": "I",
       "side": "special",
       "classification": "conditional_gift",
-      "defaultMode": "unpriced",
-      "reason": "可通过任务／活动／新手奖励获得，默认等待管理员定价",
+      "defaultMode": "exclude",
+      "reason": "1.69替代德国CR42的新手赠送机，另曾2017统一日赠送；按用户确认的低门槛赠送规则，参考价值为0。",
       "source": "https://wiki.warthunder.com/unit/bf-109a_1",
       "checkedAt": "2026-10-22T05:47:08.121Z",
       "sha256": "f70c91cc96c9baaa987a39e53e41974c0c94d788aa0e1ecc2b5fc0f65869e117",
       "evidence": "GE, Flegel's Bf 109A was given away during the 2017 German Unity Day event.Though capable in engagements against aircraft of similar BR,",
       "freeResearch": null,
-      "freePurchase": false
+      "freePurchase": false,
+      "curated": true,
+      "zeroValueBasis": {
+        "referenceCents": 0,
+        "checkedAt": "2026-10-25T10:05:46.171960+00:00",
+        "sources": [
+          "https://wiki.warthunder.com/unit/fiat_cr42_marcolin",
+          "https://wiki.warthunder.com/unit/bf-109a_1"
+        ],
+        "basis": "low-threshold-acquisition-policy"
+      }
     },
     {
       "id": "i-153_m62_zhukovskiy",
@@ -274,15 +360,25 @@
       "category": "aviation",
       "rank": "I",
       "side": "special",
-      "classification": "review",
-      "defaultMode": "unpriced",
-      "reason": "赠送／活动载具候选，获取条件待管理员确认",
+      "classification": "conditional_gift",
+      "defaultMode": "exclude",
+      "reason": "1.31苏联首场战斗新手赠送机；按用户确认的低门槛赠送规则，参考价值为0。",
       "source": "https://wiki.warthunder.com/unit/i-153_m62_zhukovskiy",
       "checkedAt": "2026-10-22T05:47:10.261Z",
       "sha256": "6bcd5e365421c2ab9dd66afcd111e7c25cb88ee00e5ea6796d4fdd2e23e632ce",
       "evidence": "Aviation Zhukovsky's I-153-M62 I Rank AB 2.3 RB 2.3 SB 2.0 Battle rating USSR Research country Fighter Main role 400 Purchase Premium",
       "freeResearch": null,
-      "freePurchase": false
+      "freePurchase": false,
+      "curated": true,
+      "zeroValueBasis": {
+        "referenceCents": 0,
+        "checkedAt": "2026-10-25T10:05:46.171960+00:00",
+        "sources": [
+          "https://warthunder.com/en/news/168-",
+          "https://steamcommunity.com/app/236390/discussions/0/864976115741068641"
+        ],
+        "basis": "low-threshold-acquisition-policy"
+      }
     },
     {
       "id": "gladiator_mk2_tuck",
@@ -291,15 +387,25 @@
       "category": "aviation",
       "rank": "I",
       "side": "special",
-      "classification": "review",
-      "defaultMode": "unpriced",
-      "reason": "赠送／活动载具候选，获取条件待管理员确认",
+      "classification": "conditional_gift",
+      "defaultMode": "exclude",
+      "reason": "1.31英国首场战斗新手赠送机；按用户确认的低门槛赠送规则，参考价值为0。",
       "source": "https://wiki.warthunder.com/unit/gladiator_mk2_tuck",
       "checkedAt": "2026-10-22T05:47:12.360Z",
       "sha256": "575565e484976e38ea8512924b9feff88624f9111591120340b29192c86adc58",
       "evidence": "Aviation Tuck's Gladiator Mk II I Rank AB 1.3 RB 1.0 SB 1.3 Battle rating Great Britain Research country Fighter Main role",
       "freeResearch": null,
-      "freePurchase": false
+      "freePurchase": false,
+      "curated": true,
+      "zeroValueBasis": {
+        "referenceCents": 0,
+        "checkedAt": "2026-10-25T10:05:46.171960+00:00",
+        "sources": [
+          "https://warthunder.com/en/news/168-",
+          "https://www.kiasa.org/2013/06/war-thunder-patch-131-free-plane.html"
+        ],
+        "basis": "low-threshold-acquisition-policy"
+      }
     },
     {
       "id": "a5m4_hagiri",
@@ -308,15 +414,25 @@
       "category": "aviation",
       "rank": "I",
       "side": "special",
-      "classification": "review",
-      "defaultMode": "unpriced",
-      "reason": "赠送／活动载具候选，获取条件待管理员确认",
+      "classification": "conditional_gift",
+      "defaultMode": "exclude",
+      "reason": "1.31日本首场战斗新手赠送机；按用户确认的低门槛赠送规则，参考价值为0。",
       "source": "https://wiki.warthunder.com/unit/a5m4_hagiri",
       "checkedAt": "2026-10-22T05:47:14.266Z",
       "sha256": "ae38ddc17468956611694000793a76422c4a124213751b0a2ef8fda09dbc6739",
       "evidence": "Aviation Hagiri's A5M4 I Rank AB 1.3 RB 1.3 SB 1.3 Battle rating Japan Research country Fighter Main role 250 Purchase Premium",
       "freeResearch": null,
-      "freePurchase": false
+      "freePurchase": false,
+      "curated": true,
+      "zeroValueBasis": {
+        "referenceCents": 0,
+        "checkedAt": "2026-10-25T10:05:46.171960+00:00",
+        "sources": [
+          "https://warthunder.com/en/news/168-",
+          "https://steamcommunity.com/app/236390/discussions/0/864976115741068641"
+        ],
+        "basis": "low-threshold-acquisition-policy"
+      }
     },
     {
       "id": "fiat_cr42_marcolin_italy",
@@ -325,15 +441,25 @@
       "category": "aviation",
       "rank": "I",
       "side": "special",
-      "classification": "review",
-      "defaultMode": "unpriced",
-      "reason": "赠送／活动载具候选，获取条件待管理员确认",
+      "classification": "conditional_gift",
+      "defaultMode": "exclude",
+      "reason": "意大利版需与德国版区分；官方2017社交公告单场胜利65%活跃度赠送，社区视频另说明意大利首选国家领取；按用户确认的低门槛赠送规则，参考价值为0。",
       "source": "https://wiki.warthunder.com/unit/fiat_cr42_marcolin_italy",
       "checkedAt": "2026-10-22T05:47:16.498Z",
       "sha256": "e699a12673af43faf6fe0d3aac2ffcbbc968f4e70882d9dca01a71dc75c6ad72",
       "evidence": "Aviation Marcolin's C.R.42 CN I Rank AB 1.7 RB 1.3 SB 1.3 Battle rating Italy Research country Fighter Main role 250 Purchase",
       "freeResearch": null,
-      "freePurchase": false
+      "freePurchase": false,
+      "curated": true,
+      "zeroValueBasis": {
+        "referenceCents": 0,
+        "checkedAt": "2026-10-25T10:05:46.171960+00:00",
+        "sources": [
+          "https://x.com/warthunder/status/868097095693201408",
+          "https://www.youtube.com/watch?v=-ept9p6L228"
+        ],
+        "basis": "low-threshold-acquisition-policy"
+      }
     },
     {
       "id": "hawk_iii",
@@ -610,14 +736,23 @@
       "side": "research",
       "rp": 0,
       "classification": "hidden",
-      "defaultMode": "unpriced",
-      "reason": "隐藏或按等级条件开放的载具，保留未计价明细，待管理员确认",
+      "defaultMode": "exclude",
+      "reason": "日本陆军II级开放；官方Wiki免费研发和购买；按用户确认的低门槛赠送规则，参考价值为0。",
       "source": "https://wiki.warthunder.com/unit/jp_type_95_ha_go",
       "checkedAt": "2026-10-22T05:47:53.026Z",
       "sha256": "8045317204d7be77ca59d693b6ad1194583170f8a1a989c97679ac2cea5d2cca",
       "evidence": "the enemy.The Ha-Go was removed from its reserve status and hidden from the main tech tree during Update 1.85 \"Supersonic\" after the",
       "freeResearch": true,
-      "freePurchase": true
+      "freePurchase": true,
+      "curated": true,
+      "zeroValueBasis": {
+        "referenceCents": 0,
+        "checkedAt": "2026-10-25T10:05:46.171960+00:00",
+        "sources": [
+          "https://wiki.warthunder.com/unit/jp_type_95_ha_go"
+        ],
+        "basis": "low-threshold-acquisition-policy"
+      }
     },
     {
       "id": "jp_type_89b_i_go_otsu",
@@ -772,14 +907,23 @@
       "side": "research",
       "rp": 0,
       "classification": "hidden",
-      "defaultMode": "unpriced",
-      "reason": "隐藏或按等级条件开放的载具，保留未计价明细，待管理员确认",
+      "defaultMode": "exclude",
+      "reason": "法国陆军II级开放；官方Wiki免费研发和购买；按用户确认的低门槛赠送规则，参考价值为0。",
       "source": "https://wiki.warthunder.com/unit/fr_fcm_36",
       "checkedAt": "2026-10-22T05:48:12.838Z",
       "sha256": "471064a3876e5dc01df679736fb77922578d7c733ea9a858053ab33aced36797",
       "evidence": "bilities, the FCM.36 was removed as a researchable vehicle from the main tech tree during Update 1.85 \"Supersonic\", though it is still",
       "freeResearch": true,
-      "freePurchase": true
+      "freePurchase": true,
+      "curated": true,
+      "zeroValueBasis": {
+        "referenceCents": 0,
+        "checkedAt": "2026-10-25T10:05:46.171960+00:00",
+        "sources": [
+          "https://wiki.warthunder.com/unit/fr_fcm_36"
+        ],
+        "basis": "low-threshold-acquisition-policy"
+      }
     },
     {
       "id": "fr_amd_35",
@@ -916,14 +1060,23 @@
       "side": "research",
       "rp": 0,
       "classification": "hidden",
-      "defaultMode": "unpriced",
-      "reason": "隐藏或按等级条件开放的载具，保留未计价明细，待管理员确认",
+      "defaultMode": "exclude",
+      "reason": "美国海军II级开放；官方Wiki免费研发和购买；按用户确认的低门槛赠送规则，参考价值为0。",
       "source": "https://wiki.warthunder.com/unit/os2u_1",
       "checkedAt": "2026-10-22T05:48:30.435Z",
       "sha256": "9367f3e58aef1fe5f075086ecdcc4a6dda1dba7b794c6e549fe35ea99e4c9faf",
       "evidence": "unavailable after it was removed from the research tree in Update 1.57 \"Battle March\", however, in Update 14.11.18 it was returned, available",
       "freeResearch": true,
-      "freePurchase": true
+      "freePurchase": true,
+      "curated": true,
+      "zeroValueBasis": {
+        "referenceCents": 0,
+        "checkedAt": "2026-10-25T10:05:46.171960+00:00",
+        "sources": [
+          "https://wiki.warthunder.com/unit/os2u_1"
+        ],
+        "basis": "low-threshold-acquisition-policy"
+      }
     },
     {
       "id": "os2u_3",
@@ -934,14 +1087,23 @@
       "side": "research",
       "rp": 0,
       "classification": "hidden",
-      "defaultMode": "unpriced",
-      "reason": "隐藏或按等级条件开放的载具，保留未计价明细，待管理员确认",
+      "defaultMode": "exclude",
+      "reason": "OS2U-1开放后可得；官方Wiki免费研发和购买；按用户确认的低门槛赠送规则，参考价值为0。",
       "source": "https://wiki.warthunder.com/unit/os2u_3",
       "checkedAt": "2026-10-22T05:48:32.683Z",
       "sha256": "4d3994a37629506e291d8af10b02eecea06b3adfad548e86106cdf65e5841d87",
       "evidence": "however, the vehicle was removed from the American air forces tree in Update 1.57 \"Battle March\". But was later added back to",
       "freeResearch": true,
-      "freePurchase": true
+      "freePurchase": true,
+      "curated": true,
+      "zeroValueBasis": {
+        "referenceCents": 0,
+        "checkedAt": "2026-10-25T10:05:46.171960+00:00",
+        "sources": [
+          "https://wiki.warthunder.com/unit/os2u_3"
+        ],
+        "basis": "low-threshold-acquisition-policy"
+      }
     },
     {
       "id": "he51a1",
@@ -1914,6 +2076,32 @@
       "evidence": "attle rating Israel Research country Attack helicopter Main role Free Research 390,000 Purchase Compare Show in game General information During the Yom",
       "freeResearch": true,
       "freePurchase": false
+    },
+    {
+      "id": "bf-109c_1_promo",
+      "name": "Bf 109 C-1",
+      "country": "germany",
+      "category": "aviation",
+      "rank": "I",
+      "side": "special",
+      "classification": "promotion",
+      "source": "https://wiki.warthunder.com/unit/bf-109c_1_promo",
+      "checkedAt": "2026-10-19T09:50:42.447967+00:00",
+      "sha256": "67df1ae271228219e857501ef21814cb78bddada12e31dfb07ce512b3583f12d",
+      "freeResearch": null,
+      "freePurchase": null,
+      "defaultMode": "exclude",
+      "reason": "现有政策遗漏；手游任意方式获得4架飞机（含教程等）领取；按用户确认的低门槛赠送规则，参考价值为0。",
+      "curated": true,
+      "zeroValueBasis": {
+        "referenceCents": 0,
+        "checkedAt": "2026-10-25T10:05:46.171960+00:00",
+        "sources": [
+          "https://wtmobile.com/news/crosspromo",
+          "https://wiki.warthunder.com/unit/bf-109c_1_promo"
+        ],
+        "basis": "low-threshold-acquisition-policy"
+      }
     }
   ],
   "countries": {

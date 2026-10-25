@@ -167,6 +167,7 @@ for (const id of targets) {
         "checkedAt",
         "unitSource",
         "curated",
+        "zeroValueBasis",
       ])
         if (prior[key] !== undefined) entry[key] = prior[key];
     }

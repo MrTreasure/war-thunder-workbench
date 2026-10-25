@@ -2946,3 +2946,13 @@
   .wt-extra-query-credits { align-items: flex-start; }
   .wt-record-quota-button { min-height: 44px; }
 }
+
+
+@media (max-width: 800px) {
+  .calculator.wt-valuation-dialog { width: calc(100vw - 16px); max-height: calc(100dvh - 16px); padding-inline: 14px; }
+  .wt-valuation-dialog .calc-header { margin-inline: -14px; padding-inline: 14px; }
+  .wt-valuation-overview-counts { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .wt-valuation-detail-toolbar, .wt-valuation-detail-toolbar label { width: 100%; }
+  .wt-valuation-detail-toolbar label { justify-content: space-between; }
+  .wt-valuation-tabs { gap: 24px; margin-bottom: 14px; }
+}
