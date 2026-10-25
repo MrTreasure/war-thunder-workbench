@@ -2,7 +2,7 @@ import { GameSelect } from "./GameSelect";
 export function PageNavigation({
   page,
 }: {
-  page: "tree" | "lineups" | "maps" | "stats" | "sales" | "decals";
+  page: "tree" | "lineups" | "maps" | "stats" | "sales" | "decals" | "disclaimer";
 }) {
   return (
     <>
@@ -40,6 +40,11 @@ export function PageNavigation({
               location.hash = `/${next}`;
           }}
         >
+          {page === "disclaimer" && (
+            <option value="disclaimer" disabled>
+              免责声明
+            </option>
+          )}
           <option value="tree">科技树</option>
           <option value="lineups">出击队列</option>
           <option value="maps">陆战地图</option>

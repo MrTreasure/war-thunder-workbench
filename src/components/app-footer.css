@@ -1,33 +1,63 @@
+/* finesse component: existing workbench tokens, compact utility footer. */
 .wt-app-footer {
-  margin-top: 24px;
-  padding: 20px 24px max(20px, env(safe-area-inset-bottom, 0px));
+  padding: 8px 24px max(8px, env(safe-area-inset-bottom, 0px));
   border-top: 1px solid var(--wt-line);
   color: var(--wt-muted);
   background: var(--wt-page);
-  font: 400 11px/1.8 var(--wt-sans);
+  font: 400 11px/1.6 var(--wt-sans);
 }
 .wt-app-footer-inner {
   max-width: 1512px;
   margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 16px;
 }
-.wt-app-footer p {
-  margin: 0 0 6px;
-  overflow-wrap: anywhere;
+.wt-app-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 .wt-app-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  white-space: nowrap;
+}
+.wt-app-footer a,
+.wt-disclaimer-page a {
   color: var(--wt-gold);
   text-decoration: none;
 }
-.wt-app-footer a:hover {
+.wt-app-footer a:hover,
+.wt-disclaimer-page a:hover {
   text-decoration: underline;
 }
-.wt-app-footer a:focus-visible {
+.wt-app-footer a:focus-visible,
+.wt-disclaimer-page a:focus-visible {
   outline: 2px solid var(--wt-gold);
   outline-offset: 3px;
 }
-.wt-app-footer .wt-app-platform-credit {
-  margin: 10px 0 0;
+.wt-app-footer a[aria-current="page"] {
+  color: var(--wt-text);
 }
-.wt-app-platform-credit span {
-  font-family: var(--wt-sans);
+.wt-app-platform-credit {
+  margin-inline-start: auto;
+}
+.wt-disclaimer-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 28px 24px 40px;
+  color: var(--wt-text);
+  font: 400 14px/1.9 var(--wt-sans);
+  overflow-wrap: anywhere;
+}
+.wt-disclaimer-page h2 {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0 0 20px;
+}
+.wt-disclaimer-copy p {
+  margin: 0 0 18px;
 }
