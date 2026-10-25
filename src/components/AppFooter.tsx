@@ -1,41 +1,46 @@
+import { useRouterState } from "@tanstack/react-router";
 import "./app-footer.css";
 
-/** Shared scroll-content footer. Never replaces the persistent account/header controls. */
+/** Compact shared footer; the immersive research tree has no footer. */
 export function AppFooter() {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  if (pathname === "/tree" || pathname === "/") return null;
+  const international = location.hostname === "wt.mrtreasure.cc";
+  const main = location.hostname === "render.qmuse.pub";
   return (
-    <footer className="wt-app-footer" aria-label="免责声明与制作平台">
+    <footer className="wt-app-footer" aria-label="站点信息">
       <div className="wt-app-footer-inner">
-        <p>
-          本应用为玩家独立开发的非官方工具，与 Gaijin Entertainment 无隶属或官方背书关系。
-          游戏基础资料整理自{" "}
-          <a href="https://wiki.warthunder.com/" target="_blank" rel="noopener noreferrer">
-            战争雷霆官方 Wiki ↗
-          </a>{" "}
-          及官方公开渠道；游戏名称、商标、图片、地图和相关资源归相应权利人所有，社区补充资料保留原出处。
-        </p>
-        <p>
-          内容以游戏与官方公告为准；账号参考价值、工作台效率分、折扣预测与 AI 点评仅供参考。
-          如涉及权益问题，请通过{" "}
+        <span>非官方玩家工具</span>
+        <a href="#/disclaimer">免责声明</a>
+        <a
+          href="https://github.com/MrTreasure/war-thunder-workbench/issues"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          反馈 ↗
+        </a>
+        <nav aria-label="切换站点">
           <a
-            href="https://github.com/MrTreasure/war-thunder-workbench/issues"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="https://render.qmuse.pub/p/muse/8645013411493394"
+            aria-current={main ? "page" : undefined}
           >
-            项目反馈入口 ↗
-          </a>{" "}
-          联系，核实后及时更正、替换或移除。
-        </p>
-        <p className="wt-app-platform-credit">
+            主站{main ? "（当前）" : " ↗"}
+          </a>
+          <a href="https://wt.mrtreasure.cc/" aria-current={international ? "page" : undefined}>
+            国际站{international ? "（当前）" : " ↗"}
+          </a>
+        </nav>
+        <span className="wt-app-platform-credit">
           本应用通过{" "}
           <a
             href="https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB"
             target="_blank"
             rel="noopener noreferrer"
           >
-            QMuse Vibecoding 平台 <span aria-hidden="true">↗</span>
+            QMuse Vibecoding 平台 ↗
           </a>{" "}
           搭建
-        </p>
+        </span>
       </div>
     </footer>
   );

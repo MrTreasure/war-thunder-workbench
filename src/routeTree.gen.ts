@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WorkbenchRouteImport } from './routes/_workbench'
 import { Route as WorkbenchDecalsRouteImport } from './routes/_workbench.decals'
+import { Route as WorkbenchDisclaimerRouteImport } from './routes/_workbench.disclaimer'
 import { Route as WorkbenchLineupsRouteImport } from './routes/_workbench.lineups'
 import { Route as WorkbenchMapsRouteImport } from './routes/_workbench.maps'
 import { Route as WorkbenchSalesRouteImport } from './routes/_workbench.sales'
@@ -33,6 +34,11 @@ const WorkbenchRoute = WorkbenchRouteImport.update({
 const WorkbenchDecalsRoute = WorkbenchDecalsRouteImport.update({
   id: '/decals',
   path: '/decals',
+  getParentRoute: () => WorkbenchRoute,
+} as any)
+const WorkbenchDisclaimerRoute = WorkbenchDisclaimerRouteImport.update({
+  id: '/disclaimer',
+  path: '/disclaimer',
   getParentRoute: () => WorkbenchRoute,
 } as any)
 const WorkbenchLineupsRoute = WorkbenchLineupsRouteImport.update({
@@ -79,6 +85,7 @@ const WorkbenchStatsGarageRoute = WorkbenchStatsGarageRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/decals': typeof WorkbenchDecalsRoute
+  '/disclaimer': typeof WorkbenchDisclaimerRoute
   '/lineups': typeof WorkbenchLineupsRoute
   '/maps': typeof WorkbenchMapsRoute
   '/sales': typeof WorkbenchSalesRoute
@@ -91,6 +98,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/decals': typeof WorkbenchDecalsRoute
+  '/disclaimer': typeof WorkbenchDisclaimerRoute
   '/lineups': typeof WorkbenchLineupsRoute
   '/maps': typeof WorkbenchMapsRoute
   '/sales': typeof WorkbenchSalesRoute
@@ -105,6 +113,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_workbench': typeof WorkbenchRouteWithChildren
   '/_workbench/decals': typeof WorkbenchDecalsRoute
+  '/_workbench/disclaimer': typeof WorkbenchDisclaimerRoute
   '/_workbench/lineups': typeof WorkbenchLineupsRoute
   '/_workbench/maps': typeof WorkbenchMapsRoute
   '/_workbench/sales': typeof WorkbenchSalesRoute
@@ -119,6 +128,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/decals'
+    | '/disclaimer'
     | '/lineups'
     | '/maps'
     | '/sales'
@@ -131,6 +141,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/decals'
+    | '/disclaimer'
     | '/lineups'
     | '/maps'
     | '/sales'
@@ -144,6 +155,7 @@ export interface FileRouteTypes {
     | '/'
     | '/_workbench'
     | '/_workbench/decals'
+    | '/_workbench/disclaimer'
     | '/_workbench/lineups'
     | '/_workbench/maps'
     | '/_workbench/sales'
@@ -180,6 +192,13 @@ declare module '@tanstack/react-router' {
       path: '/decals'
       fullPath: '/decals'
       preLoaderRoute: typeof WorkbenchDecalsRouteImport
+      parentRoute: typeof WorkbenchRoute
+    }
+    '/_workbench/disclaimer': {
+      id: '/_workbench/disclaimer'
+      path: '/disclaimer'
+      fullPath: '/disclaimer'
+      preLoaderRoute: typeof WorkbenchDisclaimerRouteImport
       parentRoute: typeof WorkbenchRoute
     }
     '/_workbench/lineups': {
@@ -243,6 +262,7 @@ declare module '@tanstack/react-router' {
 
 interface WorkbenchRouteChildren {
   WorkbenchDecalsRoute: typeof WorkbenchDecalsRoute
+  WorkbenchDisclaimerRoute: typeof WorkbenchDisclaimerRoute
   WorkbenchLineupsRoute: typeof WorkbenchLineupsRoute
   WorkbenchMapsRoute: typeof WorkbenchMapsRoute
   WorkbenchSalesRoute: typeof WorkbenchSalesRoute
@@ -255,6 +275,7 @@ interface WorkbenchRouteChildren {
 
 const WorkbenchRouteChildren: WorkbenchRouteChildren = {
   WorkbenchDecalsRoute: WorkbenchDecalsRoute,
+  WorkbenchDisclaimerRoute: WorkbenchDisclaimerRoute,
   WorkbenchLineupsRoute: WorkbenchLineupsRoute,
   WorkbenchMapsRoute: WorkbenchMapsRoute,
   WorkbenchSalesRoute: WorkbenchSalesRoute,
