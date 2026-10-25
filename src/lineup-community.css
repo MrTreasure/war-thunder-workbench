@@ -1,0 +1,590 @@
+.wt-share-image {
+  font-family: WTSymbols, WTCard, "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  width: var(--wt-share-width);
+  box-sizing: border-box;
+  flex: none;
+  position: relative;
+  padding: 18px 26px 16px;
+  border: 1px solid #48525b;
+  background: linear-gradient(160deg, #2b343c, #222b32);
+  overflow: hidden;
+}
+.wt-share-heading {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+.wt-share-context {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.wt-share-context > img {
+  width: 32px;
+  height: 23px;
+  object-fit: contain;
+}
+.wt-share-context h3 {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.wt-share-context h3 b {
+  font-family: WTCard, sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+  color: #e7d6a4;
+}
+.wt-share-mode {
+  padding-left: 14px;
+  border-left: 1px solid #69778080;
+  font-size: 16px;
+  color: #c2cbd0;
+}
+.wt-share-owner {
+  margin-left: auto;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-width: 0;
+}
+.wt-share-owner > span {
+  font-size: 12px;
+  color: #9ba8af;
+  flex: 0 0 auto;
+}
+.wt-share-owner > strong {
+  font-size: 20px;
+  font-weight: 400;
+  color: #edece6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wt-share-meta {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #8f9ea8;
+}
+.wt-share-id b {
+  margin-left: 8px;
+  font:
+    400 14px WTCard,
+    sans-serif;
+  color: #aebcc6;
+  letter-spacing: 0.5px;
+}
+.wt-share-code {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.wt-share-code code {
+  font:
+    400 16px WTCard,
+    sans-serif;
+  letter-spacing: 1.6px;
+  color: #d7c895;
+}
+.wt-share-crew {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 7px 0 0;
+}
+.wt-share-crew > .wt-game-card {
+  width: 228px;
+  flex: 0 0 228px;
+}
+.wt-share-labels {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 12px;
+}
+.wt-lineup-tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  min-height: 32px;
+  min-width: 112px;
+  padding: 0 12px 0 28px;
+  --wt-tag-tint: #ff313b;
+  isolation: isolate;
+  background: transparent;
+}
+.wt-lineup-tag-skin,
+.wt-lineup-tag-tint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.wt-lineup-tag-skin {
+  z-index: 0;
+  border-style: solid;
+  border-width: 0 3px 0 20px;
+  border-image-source: url("https://static.encyclopedia.warthunder.com/gui_skin/discount_box_thin_bg.svg");
+  border-image-slice: 0 2 0 12 fill;
+  border-image-width: 0 3px 0 20px;
+  border-image-repeat: stretch;
+}
+.wt-lineup-tag-tint {
+  z-index: 1;
+  background: var(--wt-tag-tint);
+  mix-blend-mode: multiply;
+  -webkit-mask-box-image: url("https://static.encyclopedia.warthunder.com/gui_skin/discount_box_thin_bg.svg")
+    0 2 0 12 fill / 0 3px 0 20px / 0 stretch;
+}
+.wt-lineup-tag-text {
+  position: relative;
+  z-index: 2;
+  font-family: WTSymbols, WTCard, "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+  color: #f4f3ef;
+  white-space: nowrap;
+  text-shadow: 0 1px 0 #000000a0;
+  letter-spacing: 0;
+}
+.wt-share-note {
+  border-top: 1px solid #69778246;
+  margin-top: 15px;
+  padding: 14px 0 1px;
+}
+.wt-share-note p {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-family: WTSymbols, WTCard, "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: 0.3px;
+  color: #e3e5df;
+}
+.wt-share-heading {
+  height: 40px;
+  flex-wrap: nowrap;
+}
+.wt-share-context {
+  flex: 0 0 auto;
+}
+.wt-share-context h3,
+.wt-share-context h3 b {
+  height: 40px;
+  line-height: 40px;
+  align-items: center;
+}
+.wt-share-meta {
+  white-space: nowrap;
+}
+.wt-share-meta > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wt-share-meta b {
+  font-weight: 400;
+  color: #b4c1ca;
+}
+.wt-share-meta code {
+  font:
+    400 16px WTCard,
+    sans-serif;
+  letter-spacing: 1.6px;
+  color: #d7c895;
+}
+.wt-share-owner strong {
+  max-width: 240px;
+}
+.wt-share-labels {
+  min-height: 44px;
+}
+.wt-share-crew {
+  padding-bottom: 22px;
+}
+.wt-lineup-tag-text {
+  line-height: 32px;
+}
+.wt-share-context > span {
+  padding-left: 14px;
+  border-left: 1px solid #69778080;
+  font-size: 16px;
+  color: #c2cbd0;
+  white-space: nowrap;
+}
+.wt-community-page .lineup-content {
+  padding-bottom: 32px;
+}
+.wt-community-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 30px 0 24px;
+}
+.wt-community-intro h2 {
+  margin: 2px 0 8px;
+  font: 400 32px/1.2 var(--wt-sans);
+  color: var(--wt-text);
+}
+.wt-community-intro p {
+  color: var(--wt-muted);
+  font-size: 14px;
+  margin: 0;
+}
+.wt-community-intro .wt-community-kicker {
+  font:
+    400 12px WTCard,
+    sans-serif;
+  letter-spacing: 3px;
+  color: var(--wt-gold);
+}
+.wt-community-intro > a {
+  flex: none;
+}
+.wt-community-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px;
+  padding: 18px;
+  background: #172127;
+  border: 1px solid var(--wt-line);
+}
+.wt-community-filters > .calc-field {
+  flex: 1 1 120px;
+  min-width: 110px;
+  max-width: 200px;
+  margin: 0;
+}
+.wt-community-filters .quiet-button {
+  min-height: 40px;
+}
+.wt-community-notice {
+  font: 400 12px/1.6 var(--wt-sans);
+  color: var(--wt-muted);
+  margin: 14px 0 20px;
+}
+.wt-community-list {
+  display: grid;
+  gap: 18px;
+}
+.wt-community-card {
+  border: 1px solid #3c4b55;
+  background: linear-gradient(140deg, #28343d, #1d272e);
+  padding: 20px 24px;
+  min-width: 0;
+}
+.wt-community-card > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.wt-community-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.wt-community-identity h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+}
+.wt-community-identity a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: #ebece7;
+}
+.wt-community-identity b {
+  font:
+    400 30px WTCard,
+    sans-serif;
+  color: #e7d6a4;
+}
+.wt-community-identity h3 span {
+  font-size: 14px;
+  color: #b5c1c8;
+}
+.wt-community-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #bac5cb;
+  font-size: 14px;
+  min-width: 0;
+}
+.wt-community-author strong {
+  font-weight: 400;
+  max-width: 230px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wt-community-author time {
+  font:
+    400 12px WTCard,
+    sans-serif;
+  color: #8f9da7;
+  white-space: nowrap;
+}
+.wt-community-crew {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 24px 2px 32px;
+  scrollbar-width: thin;
+}
+.wt-community-crew > .wt-game-card {
+  flex: 0 0 228px;
+  max-width: none;
+}
+.wt-community-card-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-bottom: 20px;
+}
+.wt-community-card-tags > small {
+  margin-left: auto;
+  color: #b5c1c8;
+}
+.wt-community-card > footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid #66798640;
+  padding-top: 14px;
+}
+.wt-community-votes,
+.wt-community-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.wt-community-actions .quiet-button,
+.wt-community-votes .quiet-button {
+  min-height: 36px;
+  padding: 6px 12px;
+  font-size: 13px;
+}
+.wt-community-votes button[aria-pressed="true"],
+.wt-community-filters button[aria-pressed="true"] {
+  color: var(--wt-gold);
+  border-color: var(--wt-gold);
+  background: #6b5a2f30;
+}
+.wt-community-code {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #899aa5;
+  font:
+    400 12px WTCard,
+    sans-serif;
+  margin-top: 14px;
+  user-select: text;
+}
+.wt-community-code code {
+  letter-spacing: 1px;
+}
+.wt-community-more {
+  position: relative;
+  font-size: 13px;
+  color: var(--wt-muted);
+}
+.wt-community-more summary {
+  cursor: pointer;
+  padding: 8px;
+}
+.wt-community-more > div {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  z-index: 10;
+  display: grid;
+  min-width: 160px;
+  padding: 6px;
+  border: 1px solid #62717b;
+  background: #19252d;
+  box-shadow: 0 8px 20px #0008;
+}
+.wt-community-more button {
+  padding: 12px;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  white-space: nowrap;
+  color: #e5e9e9;
+  cursor: pointer;
+}
+.wt-community-more button:hover {
+  background: #344651;
+}
+.wt-community-back {
+  display: inline-block;
+  margin: 0 0 18px;
+  color: var(--wt-gold);
+}
+.wt-community-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin: 28px 0;
+  color: var(--wt-muted);
+  font-size: 13px;
+}
+.wt-community-tile-loading {
+  width: 228px;
+  height: 76px;
+  flex: none;
+  background: #18252d;
+  border: 1px solid #334751;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.calculator.wt-community-dialog {
+  width: min(900px, calc(100vw - 32px));
+  height: fit-content;
+  max-height: calc(100dvh - 32px);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow-y: auto;
+}
+.calculator.wt-community-dialog .calc-header {
+  flex: none;
+}
+.wt-community-dialog .calc-field {
+  margin: 0;
+}
+.wt-community-dialog input,
+.wt-community-dialog textarea {
+  font: 400 16px/1.5 var(--wt-sans);
+  padding: 10px;
+  border: 1px solid var(--wt-line);
+  background: #18242b;
+  color: var(--wt-text);
+  width: 100%;
+  box-sizing: border-box;
+}
+.wt-community-dialog textarea {
+  resize: vertical;
+}
+.wt-community-dialog .lineup-share {
+  display: grid;
+  gap: 16px;
+}
+.wt-share-settings {
+  display: grid;
+  gap: 18px;
+  border-top: 1px solid var(--wt-line);
+  padding-top: 20px;
+}
+.wt-share-settings > .calc-field {
+  max-width: 260px;
+}
+.wt-community-section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  font-size: 13px;
+  color: var(--wt-muted);
+}
+.wt-community-section-title h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--wt-text);
+}
+.wt-community-section-title a {
+  color: var(--wt-gold);
+}
+.wt-tag-picker {
+  display: grid;
+  gap: 14px;
+}
+.wt-tag-picker fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.wt-tag-picker legend {
+  color: var(--wt-muted);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.wt-tag-choice {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  opacity: 0.8;
+  min-height: 36px;
+}
+.wt-tag-choice[aria-pressed="true"] {
+  opacity: 1;
+  outline: 1px solid #d5c58f;
+  outline-offset: 3px;
+}
+.wt-tag-choice:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.wt-tag-choice:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 3px;
+}
+.wt-share-preview-scroll {
+  overflow: auto;
+  border: 1px solid #48525b;
+  padding: 8px;
+  background: #111a20;
+}
+.calculator.wt-image-dialog {
+  width: min(1600px, calc(100vw - 24px));
+}
+.wt-community-actions > small,
+.wt-community-actions > span {
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-community-actions > strong {
+  font-size: 14px;
+  font-weight: 400;
+}
+.wt-community-card a:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 4px;
+}

@@ -2938,22 +2938,47 @@
 }
 
 @media (max-width: 800px) {
-  .wt-record-account { align-items: flex-start; }
-  .wt-extra-query-credit-button { min-height: 44px; }
+  .wt-record-account {
+    align-items: flex-start;
+  }
+  .wt-extra-query-credit-button {
+    min-height: 44px;
+  }
 }
 
 @media (max-width: 800px) {
-  .wt-extra-query-credits { align-items: flex-start; }
-  .wt-record-quota-button { min-height: 44px; }
+  .wt-extra-query-credits {
+    align-items: flex-start;
+  }
+  .wt-record-quota-button {
+    min-height: 44px;
+  }
 }
 
 @media (max-width: 800px) {
-  .calculator.wt-valuation-dialog { width: calc(100vw - 16px); max-height: calc(100dvh - 16px); padding-inline: 14px; }
-  .wt-valuation-dialog .calc-header { margin-inline: -14px; padding-inline: 14px; }
-  .wt-valuation-overview-counts { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .wt-valuation-detail-toolbar, .wt-valuation-detail-toolbar label { width: 100%; }
-  .wt-valuation-detail-toolbar label { justify-content: space-between; }
-  .wt-valuation-tabs { gap: 24px; margin-bottom: 14px; }
+  .calculator.wt-valuation-dialog {
+    width: calc(100vw - 16px);
+    max-height: calc(100dvh - 16px);
+    padding-inline: 14px;
+  }
+  .wt-valuation-dialog .calc-header {
+    margin-inline: -14px;
+    padding-inline: 14px;
+  }
+  .wt-valuation-overview-counts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .wt-valuation-detail-toolbar,
+  .wt-valuation-detail-toolbar label {
+    width: 100%;
+  }
+  .wt-valuation-detail-toolbar label {
+    justify-content: space-between;
+  }
+  .wt-valuation-tabs {
+    gap: 24px;
+    margin-bottom: 14px;
+  }
 }
 
 /* Valuation rows: keep tiles legible, collapse columns before crowding details. */
@@ -2998,5 +3023,120 @@
   }
   .wt-valuation-product-pack > .wt-valuation-product-body {
     column-gap: 12px;
+  }
+}
+
+/* Queue community keeps fixed-size vehicle strips and floating image previews. */
+@media (max-width: 800px) {
+  .wt-community-intro {
+    align-items: flex-start;
+    margin-top: 20px;
+    gap: 12px;
+  }
+  .wt-community-intro h2 {
+    font-size: 26px;
+  }
+  .wt-community-intro p:not(.wt-community-kicker) {
+    max-width: 230px;
+    font-size: 12px;
+  }
+  .wt-community-intro > a {
+    font-size: 12px;
+    padding: 8px;
+  }
+  .wt-community-filters {
+    padding: 12px;
+    gap: 10px;
+  }
+  .wt-community-filters > .calc-field {
+    flex-basis: calc(50% - 10px);
+    max-width: none;
+    min-width: 0;
+  }
+  .wt-community-card {
+    padding: 16px 12px;
+  }
+  .wt-community-card > header {
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .wt-community-identity a {
+    flex-wrap: wrap;
+    gap: 4px 10px;
+  }
+  .wt-community-identity h3 {
+    font-size: 16px;
+  }
+  .wt-community-identity b {
+    font-size: 26px;
+  }
+  .wt-community-identity h3 span {
+    width: 100%;
+    font-size: 12px;
+  }
+  .wt-community-author {
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    max-width: 40%;
+  }
+  .wt-community-author strong {
+    max-width: 100%;
+  }
+  .wt-community-card > footer {
+    align-items: start;
+  }
+  .wt-community-actions .quiet-button,
+  .wt-community-votes .quiet-button,
+  .wt-community-more summary {
+    min-height: 44px;
+  }
+  .wt-community-code {
+    flex-wrap: wrap;
+    gap: 6px 14px;
+  }
+  .calculator.wt-community-dialog {
+    padding: 16px;
+    max-height: calc(100dvh - 16px);
+    width: calc(100vw - 16px);
+  }
+  .wt-community-dialog .lineup-share-row {
+    flex-wrap: wrap;
+  }
+  .wt-community-dialog .lineup-share-row code {
+    font-size: 14px;
+  }
+  .wt-community-section-title {
+    align-items: flex-start;
+  }
+  .wt-community-section-title a {
+    font-size: 12px;
+  }
+  .wt-lineup-tag {
+    min-width: 100px;
+    padding-right: 10px;
+  }
+  .wt-lineup-tag-text {
+    font-size: 16px;
+  }
+  .wt-share-image .wt-lineup-tag {
+    min-width: 112px;
+  }
+  .wt-community-card-tags > small {
+    width: 100%;
+    margin: 0;
+  }
+  .wt-tag-picker {
+    gap: 18px;
+  }
+  nav.wt-lineup-sections {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  .wt-tag-choice {
+    min-height: 44px;
   }
 }
