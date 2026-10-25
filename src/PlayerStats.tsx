@@ -1,3 +1,4 @@
+import { statsAvailableRequests } from "./player-stats-api";
 import { vehicleSearchText } from "./i18n/core";
 import { localize } from "./i18n/core";
 import type { ReportStyle } from "./player-report-style";
@@ -74,10 +75,12 @@ import {
 } from "./player-stats-api";
 function quotaLabel(session: StatsSession | null, kind: "query" | "report") {
   if (!session) return "—";
-  const limit = session.limits[kind === "query" ? "queryLimit" : "reportLimit"];
-  return limit == null
+  const available = statsAvailableRequests(session, kind);
+  return available === null
     ? t("不限次")
-    : t("{0} 次", [Math.max(0, limit - session[kind].used - session[kind].reserved)]);
+    : available === 0
+      ? t("今日额度已达上限")
+      : t("{0} 次", [available]);
 }
 import type {
   PlayerCandidate,
@@ -844,7 +847,14 @@ export function PlayerStats() {
             {localize(quotaLabel(session, "query"))}
             {t(" / 战报 ")}
             {localize(quotaLabel(session, "report"))}
-            <small>{t("每日零点重置 · 缓存命中不扣次")}</small>
+            <small>{t("先用每日免费次数，再用共享额外点数；缓存命中不扣次。")}</small>
+            {session?.credits?.enabled && (
+              <small>
+                {t("额外点数剩余")}{" "}
+                {session.credits.total === null ? t("不限") : localize(session.credits.remaining)}{" "}
+                {t("点，不每日重置。")}
+              </small>
+            )}
           </span>
         </div>
       </header>

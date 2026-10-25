@@ -1,3 +1,4 @@
+import { statsAvailableRequests } from "./player-stats-api";
 import { t, getLocale, localize, vehicleName, decimalSeparator } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { useVehicleCatalog } from "./vehicle-catalog";
@@ -498,18 +499,14 @@ export function AccountValuation({
   const [scenarioKey, setScenarioKey] = useState<ScenarioKey>("normal");
   const request = useRef<AbortController | null>(null);
   useEffect(() => () => request.current?.abort(), []);
-  const limit = session?.limits.valuationLimit;
-  const remaining =
-    limit == null
+  const available = session ? statsAvailableRequests(session, "valuation") : 0;
+  const remaining = !session
+    ? "—"
+    : available === null
       ? t("不限次")
-      : t("{0} 次", [
-          localize(
-            Math.max(
-              0,
-              limit - (session?.valuation?.used || 0) - (session?.valuation?.reserved || 0),
-            ),
-          ),
-        ]);
+      : available === 0
+        ? t("今日额度已达上限")
+        : t("{0} 次", [available]);
   async function openCached() {
     if (!value || checking) return;
     const c = new AbortController();
@@ -686,7 +683,7 @@ export function AccountValuation({
       {localize(
         !value && (
           <small>
-            {t("独立额度 · 今日")}
+            {t("可用次数 ·")}
             {localize(session ? remaining : "—")}
           </small>
         ),

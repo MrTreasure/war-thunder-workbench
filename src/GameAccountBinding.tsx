@@ -1,3 +1,4 @@
+import { statsAvailableRequests } from "./player-stats-api";
 import { localize } from "./i18n/core";
 import type { PlayerProfile } from "./player-stats-api";
 import { useLocale } from "./i18n/react";
@@ -54,13 +55,14 @@ export function GameAccountBinding({ profile }: { profile: PlayerProfile }) {
     return current.uid === profile.uid && refreshError ? (
       <output>{localize(refreshError)}</output>
     ) : null;
-  const limit = session.limits.valuationLimit;
-  const remaining =
-    limit == null
+  const available = session ? statsAvailableRequests(session, "valuation") : 0;
+  const remaining = !session
+    ? "—"
+    : available === null
       ? t("不限次")
-      : t("{0} 次", [
-          Math.max(0, limit - (session.valuation?.used || 0) - (session.valuation?.reserved || 0)),
-        ]);
+      : available === 0
+        ? t("今日额度已达上限")
+        : t("{0} 次", [available]);
   return (
     <>
       <button
@@ -125,7 +127,7 @@ export function GameAccountBinding({ profile }: { profile: PlayerProfile }) {
             </p>
             <p>
               {t(
-                "本次导入沿用车库导入额度规则，将消耗 1 次估值／导入额度；同一请求重试不会重复扣次。剩余额度：",
+                "本次导入优先使用每日免费次数，用完后扣额外点数；同一请求重试不会重复扣次。可用次数：",
               )}
               {localize(remaining)}
               {t("。读取保存的关联车库不重复扣次。")}

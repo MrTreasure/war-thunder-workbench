@@ -1,3 +1,4 @@
+import { statsAvailableRequests } from "./player-stats-api";
 import { useLocale } from "./i18n/react";
 import { localize, t } from "./i18n/core";
 import { useEffect, useRef, useState } from "react";
@@ -69,12 +70,14 @@ export function OwnedVehicleImport({
       }
     }
   }
-  const limit = session?.limits.valuationLimit;
+  const available = session ? statsAvailableRequests(session, "valuation") : 0;
   const remaining = !session
     ? "—"
-    : limit == null
-      ? "不限次"
-      : `${Math.max(0, limit - (session.valuation?.used || 0) - (session.valuation?.reserved || 0))} 次`;
+    : available === null
+      ? t("不限次")
+      : available === 0
+        ? t("今日额度已达上限")
+        : t("{0} 次", [available]);
   return (
     <div className="vehicle-garage-import">
       <div className="vehicle-import-actions">
@@ -115,7 +118,7 @@ export function OwnedVehicleImport({
       {open && (
         <div className="vehicle-import-panel">
           <p className="calc-note">
-            {t("成功导入扣 1 次账号估值额度，今日剩余")}
+            {t("优先使用账号估值每日免费次数，用完后扣额外点数。可用次数")}
             {localize(remaining)}
             {t(
               "；失败不扣。搜索使用战绩查询额度，命中查询缓存不扣次。仅应用于当前国别和军种，包含未出战载具；导入后恢复自动等级计算，目标已研进度归零。",
@@ -188,12 +191,7 @@ export function OwnedVehicleImport({
             <button
               type="button"
               className="quiet-button vehicle-import-confirm"
-              disabled={
-                busy ||
-                (limit != null &&
-                  (session?.valuation?.used || 0) + (session?.valuation?.reserved || 0) >= limit &&
-                  !pending)
-              }
+              disabled={busy}
               onClick={() =>
                 void run(async (signal) => {
                   const intent = pending || {

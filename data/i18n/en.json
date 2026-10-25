@@ -2215,5 +2215,13 @@
   "机库飞机不参与陆战街机": "Hangar aircraft do not count in Ground AB",
   "陆战历史使用飞机的独立权重；陆战全真仍以活动允许名单为准。": "Ground RB uses a separate aircraft rating; Ground SB eligibility still follows the event vehicle list.",
   "飞机卡片显示陆战历史权重，与空战历史可能不同；队列取所有可用载具的最高值。": "Aircraft tiles show their Ground RB rating, which may differ from Air RB. The lineup uses the highest rating among eligible vehicles.",
-  "同一队列同时计算街机 AB、历史 RB 和全真 SB。“卡片权重”仅切换卡片显示，不改变计算；全真以活动名单或房间范围为准。": "The same lineup is evaluated for AB, RB and SB simultaneously. “Tile rating” only changes the values shown on vehicle tiles. SB eligibility follows the event list or room range."
+  "同一队列同时计算街机 AB、历史 RB 和全真 SB。“卡片权重”仅切换卡片显示，不改变计算；全真以活动名单或房间范围为准。": "The same lineup is evaluated for AB, RB and SB simultaneously. “Tile rating” only changes the values shown on vehicle tiles. SB eligibility follows the event list or room range.",
+  "先用每日免费次数，再用共享额外点数；缓存命中不扣次。": "Daily free requests first, then shared extra credits. Cache hits are free.",
+  "额外点数剩余": "Extra credits remaining",
+  "点，不每日重置。": "points; no daily reset.",
+  "本次导入优先使用每日免费次数，用完后扣额外点数；同一请求重试不会重复扣次。可用次数：": "This import uses a daily free request first, then extra credits. Retrying the same request is not charged again. Available requests:",
+  "优先使用账号估值每日免费次数，用完后扣额外点数。可用次数": "Uses daily free account-valuation requests first, then extra credits. Available requests",
+  "可用次数 ·": "Available requests ·",
+  "今日额度已达上限": "Today’s quota has been reached.",
+  "不限": "Unlimited"
 }
