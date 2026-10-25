@@ -31,12 +31,12 @@ const fixed = new Set([
 ]);
 
 export class MiniappError extends Error {
-  constructor(
-    public code: string,
-    message: string,
-    public status = 0,
-  ) {
+  code: string;
+  status: number;
+  constructor(code: string, message: string, status = 0) {
     super(message);
+    this.code = code;
+    this.status = status;
   }
 }
 
@@ -84,21 +84,41 @@ export function createAPI(sdk: SDK) {
           ? "网络功能暂未开放，可先使用研发功能。"
           : code === "REQUEST_TIMEOUT"
             ? "连接超时，请稍后核对结果，勿连续重复提交。"
-            : "连接暂不可用，请稍后重试。";
+            : code === "REQUEST_UNSUPPORTED"
+              ? "当前客户端无法发送此请求，请更新小黑盒后重试（REQUEST_UNSUPPORTED）。"
+              : `连接暂不可用，请稍后重试（${/^[A-Z_]{3,60}$/.test(code) ? code : "NETWORK_UNAVAILABLE"}）。`;
         throw new MiniappError(code, message);
       });
     // SDK timeout/abort does not cancel the Host request. Never consume its late
     // response after an account switch; mutations keep their own idempotency IDs.
     options.signal?.throwIfAborted();
+    if (!Number.isInteger(response.status))
+      throw new MiniappError("INVALID_NETWORK_RESPONSE", "服务器响应格式无效，请稍后重试。");
+    // Native Hosts may return a JSON response as text. Decode it once here,
+    // before callers inspect job/session fields or HTTP failure messages.
+    let data: unknown = response.data;
+    if (typeof data === "string") {
+      try {
+        data = JSON.parse(data);
+      } catch {
+        throw new MiniappError(
+          "INVALID_NETWORK_RESPONSE",
+          `服务响应暂不可用（HTTP ${response.status}），请稍后重试。`,
+          response.status,
+        );
+      }
+    }
     if (response.status < 200 || response.status >= 300) {
-      const failure = response.data as { code?: unknown; message?: unknown } | null;
+      const failure = data as { code?: unknown; message?: unknown } | null;
       throw new MiniappError(
         typeof failure?.code === "string" ? failure.code : "API_UNAVAILABLE",
         typeof failure?.message === "string" ? failure.message : "服务暂不可用，请稍后重试",
         response.status,
       );
     }
-    return response.data;
+    if (!data || typeof data !== "object")
+      throw new MiniappError("INVALID_NETWORK_RESPONSE", "服务器返回的数据无效，请稍后重试。");
+    return data as T;
   };
 }
 export type APIRequest = ReturnType<typeof createAPI>;

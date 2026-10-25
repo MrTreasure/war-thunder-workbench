@@ -21,6 +21,7 @@ export type AccountView = {
   status: "checking" | "guest" | "authenticated" | "onboarding";
   user: User | null;
   storageError: boolean;
+  generation: number;
 };
 const KEY = "wt_heybox_session_v1";
 const changed = () => new MiniappError("ACCOUNT_CHANGED", "账号状态已变化，请重新登录");
@@ -46,6 +47,7 @@ export function createAccount(sdk: SDK, api: APIRequest) {
     status,
     user: status === "authenticated" ? (saved?.user ?? null) : null,
     storageError,
+    generation: epoch,
   });
   const emit = () => {
     if (!disposed) for (const listener of listeners) listener(view());
@@ -164,7 +166,40 @@ export function createAccount(sdk: SDK, api: APIRequest) {
     emit();
     await persist(saved);
   }
+  function whenReady(signal?: AbortSignal): Promise<void> {
+    signal?.throwIfAborted();
+    if (status !== "checking") return Promise.resolve();
+    return new Promise((resolve, reject) => {
+      const cleanup = () => {
+        clearTimeout(timer);
+        listeners.delete(listener);
+        signal?.removeEventListener("abort", abort);
+      };
+      const listener = (next: AccountView) => {
+        if (next.status !== "checking") {
+          cleanup();
+          resolve();
+        }
+      };
+      const abort = () => {
+        cleanup();
+        reject(signal?.reason);
+      };
+      const timer = setTimeout(() => {
+        cleanup();
+        reject(
+          new MiniappError(
+            "ACCOUNT_CHECK_PENDING",
+            "暂时无法确认账号状态，请在「我的」中重新确认后再查询。",
+          ),
+        );
+      }, 10000);
+      listeners.add(listener);
+      signal?.addEventListener("abort", abort, { once: true });
+    });
+  }
   return {
+    whenReady,
     initialize,
     refresh,
     subscribe(listener: (value: AccountView) => void) {
@@ -260,6 +295,7 @@ export function createAccount(sdk: SDK, api: APIRequest) {
     /** Private responses are discarded after account changes, including switches
      * during native Host calls (AbortSignal cannot cancel those calls). */
     async request<T>(path: string, body?: unknown, signal?: AbortSignal) {
+      await whenReady(signal);
       const turn = epoch,
         current = saved;
       if (status !== "authenticated" || !current || current.expiresAt <= Date.now())
@@ -269,6 +305,7 @@ export function createAccount(sdk: SDK, api: APIRequest) {
         token: current.token,
         signal,
       });
+      await whenReady(signal);
       if (disposed || epoch !== turn || status !== "authenticated" || saved !== current)
         throw changed();
       return response;

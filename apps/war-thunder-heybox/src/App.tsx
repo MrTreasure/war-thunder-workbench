@@ -4,6 +4,9 @@ import { account, sdk } from "./runtime";
 import type { AccountView } from "./account";
 import { RuntimeContext, type Cloud, type ResearchIntent } from "./context";
 import { Icon } from "./ui";
+import { NavigationProvider } from "./navigation";
+import { useHostViewport } from "./viewport";
+import uiAssets from "../../../data/workbench-ui-assets.json";
 const Research = lazy(() => import("./Research"));
 const Stats = lazy(() => import("./Stats"));
 const Account = lazy(() => import("./Account"));
@@ -14,12 +17,14 @@ const pages = [
 ] as const;
 type Page = (typeof pages)[number]["id"];
 export default function App() {
+  useHostViewport();
   const [page, setPage] = useState<Page>("research"),
     [visited, setVisited] = useState(new Set<Page>(["research"]));
   const [view, setView] = useState<AccountView>({
       status: "checking",
       user: null,
       storageError: false,
+      generation: 0,
     }),
     [ready, setReady] = useState(false),
     [cloud, setCloud] = useState<Cloud | null>(null),
@@ -27,6 +32,8 @@ export default function App() {
   const [boundRequest, setBoundRequest] = useState(0);
   const [researchIntent, setResearchIntent] = useState<ResearchIntent>();
   const owner = useRef("");
+  const [scope, setScope] = useState("guest");
+  const privateCheck = view.status === "checking" && scope !== "guest";
   function navigate(next: Page) {
     setVisited((prev) => new Set([...prev, next]));
     setPage(next);
@@ -52,6 +59,7 @@ export default function App() {
     const stop = account.subscribe((v) => {
       owner.current = v.status === "authenticated" ? v.user?.id || "" : "";
       setView(v);
+      if (v.status !== "checking") setScope(v.user?.id || "guest");
       if (v.status === "authenticated") void reloadCloud();
     });
     const handshake = sdk.onHandshakeStateChange((state) => setReady(state.status === "ready"));
@@ -92,63 +100,79 @@ export default function App() {
       }}
     >
       <WorkspaceContext value={workspace}>
-        <main className="hb-app">
-          <header className="hb-app-header">
-            <div>
-              <span className="hb-brand-mark" aria-hidden="true">
-                WT
-              </span>
-              <h1>战雷工作台</h1>
-            </div>
-            <button
-              className="hb-header-account"
-              aria-label="打开我的账号"
-              onClick={() => navigate("account")}
-            >
-              <Icon name="account" />
-              <span>{view.user?.displayName || "游客"}</span>
-            </button>
-          </header>
-          <div className="hb-views" key={view.user?.id || "guest"}>
-            <Suspense fallback={<output className="hb-empty">正在准备工作台…</output>}>
-              <div className="hb-view" hidden={page !== "research"}>
-                <Research key={researchIntent?.serial || 0} initial={researchIntent} />
+        <NavigationProvider root={"#/" + page} suspended={privateCheck}>
+          <main className="hb-app">
+            <header className="hb-app-header">
+              <div>
+                <img
+                  className="wt-brand-logo hb-brand-logo"
+                  src={uiAssets.icons.logo.url}
+                  alt="War Thunder"
+                  width={64}
+                  height={32}
+                />
+                <h1>战雷工作台</h1>
               </div>
-              {visited.has("stats") && (
-                <div className="hb-view" hidden={page !== "stats"}>
-                  <Stats boundRequest={boundRequest} />
-                </div>
-              )}
-              {visited.has("account") && (
-                <div className="hb-view" hidden={page !== "account"}>
-                  <Account
-                    active={page === "account"}
-                    openPlan={(intent) => {
-                      setResearchIntent({ ...intent, serial: Date.now() });
-                      navigate("research");
-                    }}
-                    openBound={() => {
-                      setBoundRequest((v) => v + 1);
-                      navigate("stats");
-                    }}
-                  />
-                </div>
-              )}
-            </Suspense>
-          </div>
-          <nav className="hb-tabbar" aria-label="工作台导航">
-            {pages.map((p) => (
               <button
-                key={p.id}
-                aria-current={page === p.id ? "page" : undefined}
-                onClick={() => navigate(p.id)}
+                className="hb-header-account"
+                aria-label="打开我的账号"
+                onClick={() => navigate("account")}
               >
-                <Icon name={p.icon} />
-                <span>{p.label}</span>
+                <Icon name="account" />
+                <span>{view.user?.displayName || "游客"}</span>
               </button>
-            ))}
-          </nav>
-        </main>
+            </header>
+            <div className="hb-views" key={scope}>
+              {privateCheck && (
+                <div className="hb-session-check">
+                  <output>正在确认账号状态…</output>
+                  <button type="button" onClick={() => void account.refresh()}>
+                    重新确认账号
+                  </button>
+                </div>
+              )}
+              <div className="hb-pages" hidden={privateCheck}>
+                <Suspense fallback={<output className="hb-empty">正在准备工作台…</output>}>
+                  <div className="hb-view" hidden={page !== "research"}>
+                    <Research key={researchIntent?.serial || 0} initial={researchIntent} />
+                  </div>
+                  {visited.has("stats") && (
+                    <div className="hb-view" hidden={page !== "stats"}>
+                      <Stats boundRequest={boundRequest} />
+                    </div>
+                  )}
+                  {visited.has("account") && (
+                    <div className="hb-view" hidden={page !== "account"}>
+                      <Account
+                        active={page === "account"}
+                        openPlan={(intent) => {
+                          setResearchIntent({ ...intent, serial: Date.now() });
+                          navigate("research");
+                        }}
+                        openBound={() => {
+                          setBoundRequest((v) => v + 1);
+                          navigate("stats");
+                        }}
+                      />
+                    </div>
+                  )}
+                </Suspense>
+              </div>
+            </div>
+            <nav className="hb-tabbar" aria-label="工作台导航">
+              {pages.map((p) => (
+                <button
+                  key={p.id}
+                  aria-current={page === p.id ? "page" : undefined}
+                  onClick={() => navigate(p.id)}
+                >
+                  <Icon name={p.icon} />
+                  <span>{p.label}</span>
+                </button>
+              ))}
+            </nav>
+          </main>
+        </NavigationProvider>
       </WorkspaceContext>
     </RuntimeContext>
   );

@@ -9,8 +9,9 @@ import {
   useMiniappVehicleFacts,
   useMiniappOwnedVehicles,
 } from "./VehiclePresentation";
+import { MainSiteLink } from "./MainSiteLink";
 import { validPlan } from "./plan";
-import { Sheet, ErrorNote, Icon, errorText } from "./ui";
+import { DetailPage, ErrorNote, Icon, errorText } from "./ui";
 const phrase = "我再也不绑定别人的账号了";
 export default function Account({
   active,
@@ -28,7 +29,8 @@ export default function Account({
   const [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
     [notice, setNotice] = useState("");
-  const [code, setCode] = useState(""),
+  const [linkPage, setLinkPage] = useState(false),
+    [code, setCode] = useState(""),
     [pair, setPair] = useState<BrowserPair | null>(null),
     [pairStage, setPairStage] = useState<"entry" | "inspect" | "create" | "approved">("entry");
   const [unlink, setUnlink] = useState(false),
@@ -213,111 +215,128 @@ export default function Account({
         </div>
       )}
       <div className="hb-account-section">
-        <h3>网页授权</h3>
-        <p>
-          在网页工作台选择小黑盒登录，或登录已有账号后选择关联小黑盒。只确认你正在操作的浏览器。
-        </p>
-        {pairStage === "entry" && (
-          <>
-            <label>
-              网页授权码
-              <input
-                autoCapitalize="characters"
-                autoComplete="off"
-                spellCheck={false}
-                placeholder="输入网页上的 12 位授权码"
-                value={code}
-                maxLength={16}
-                onChange={(e) => {
-                  setCode(e.target.value);
+        <h3>跨端使用</h3>
+        <button type="button" className="hb-menu-row" onClick={() => setLinkPage(true)}>
+          <span>
+            <b>关联已有网页账号</b>
+            <small>输入主站账号菜单提供的关联码</small>
+          </span>
+          <Icon name="arrow" />
+        </button>
+        <MainSiteLink />
+      </div>
+      {linkPage && (
+        <DetailPage
+          path="#/account/link-heybox"
+          title="关联网页账号"
+          close={() => setLinkPage(false)}
+        >
+          <ErrorNote error={error} />
+          <p>
+            先在主站登录已有工作台账号，再从用户名菜单选择「关联小黑盒」获取关联码。在此输入后，核对账号名称并确认。
+          </p>
+          {pairStage === "entry" && (
+            <>
+              <label>
+                网页关联码
+                <input
+                  autoCapitalize="characters"
+                  autoComplete="off"
+                  spellCheck={false}
+                  placeholder="输入网页上的 12 位关联码"
+                  value={code}
+                  maxLength={16}
+                  onChange={(e) => {
+                    setCode(e.target.value);
+                    setPair(null);
+                  }}
+                />
+              </label>
+              <button
+                disabled={busy || code.replace(/\s/g, "").length !== 12}
+                onClick={() => void perform(inspect())}
+              >
+                {busy ? "正在核对…" : "核对关联账号"}
+              </button>
+            </>
+          )}
+          {pairStage === "inspect" && pair && (
+            <div className="hb-pair-confirm">
+              <p>
+                关联网站 <b>{new URL(pair.origin).hostname}</b>
+              </p>
+              <p>
+                {pair.purpose === "bind" ? "关联到工作台账号" : "登录网页工作台"}
+                {pair.targetName && <strong>「{pair.targetName}」</strong>}
+              </p>
+              <button className="hb-primary" disabled={!ready || busy} onClick={approve}>
+                {busy ? "正在授权…" : "确认关联，使用小黑盒授权"}
+              </button>
+              <button
+                onClick={() => {
+                  setPairStage("entry");
                   setPair(null);
                 }}
-              />
-            </label>
-            <button
-              disabled={busy || code.replace(/\s/g, "").length !== 12}
-              onClick={() => void perform(inspect())}
-            >
-              核对授权请求
-            </button>
-          </>
-        )}
-        {pairStage === "inspect" && pair && (
-          <div className="hb-pair-confirm">
-            <p>
-              授权网站 <b>{new URL(pair.origin).hostname}</b>
-            </p>
-            <p>
-              {pair.purpose === "bind" ? "关联到工作台账号" : "登录网页工作台"}
-              {pair.targetName && <strong>「{pair.targetName}」</strong>}
-            </p>
-            <button className="hb-primary" disabled={!ready || busy} onClick={approve}>
-              {busy ? "正在授权…" : "确认是我操作，使用小黑盒授权"}
-            </button>
-            <button
-              onClick={() => {
-                setPairStage("entry");
-                setPair(null);
-              }}
-            >
-              取消
-            </button>
-          </div>
-        )}
-        {pairStage === "create" && (
-          <div>
-            <p>此身份还没有工作台账号。已有账号请取消，在网页用原账号登录后重新发起关联。</p>
-            <label className="hb-checkbox">
-              <input
-                type="checkbox"
-                checked={agreed}
-                onChange={(e) => setAgreed(e.target.checked)}
-              />
-              <span>
-                同意
-                <button className="hb-text-button" onClick={() => setShowTerms(true)}>
-                  用户协议与数据说明
-                </button>
-              </span>
-            </label>
-            <button
-              className="hb-primary"
-              disabled={!agreed || !terms || busy}
-              onClick={() => {
-                if (terms)
-                  void perform(account.createForPair(terms.version), () =>
-                    setPairStage("approved"),
-                  );
-              }}
-            >
-              创建账号并授权此网页
-            </button>
-            <button
-              onClick={() => {
-                setPairStage("entry");
-                setPair(null);
-              }}
-            >
-              我已有工作台账号
-            </button>
-          </div>
-        )}
-        {pairStage === "approved" && (
-          <div aria-live="polite">
-            <h3>网页授权已确认</h3>
-            <p>返回原来的网页继续使用。</p>
-            <button
-              onClick={() => {
-                setCode("");
-                setPair(null);
-                setPairStage("entry");
-              }}
-            >
-              完成
-            </button>
-          </div>
-        )}
-      </div>
+              >
+                取消
+              </button>
+            </div>
+          )}
+          {pairStage === "create" && (
+            <div>
+              <p>此身份还没有工作台账号。已有账号请取消，在网页用原账号登录后重新发起关联。</p>
+              <label className="hb-checkbox">
+                <input
+                  type="checkbox"
+                  checked={agreed}
+                  onChange={(e) => setAgreed(e.target.checked)}
+                />
+                <span>
+                  同意
+                  <button className="hb-text-button" onClick={() => setShowTerms(true)}>
+                    用户协议与数据说明
+                  </button>
+                </span>
+              </label>
+              <button
+                className="hb-primary"
+                disabled={!agreed || !terms || busy}
+                onClick={() => {
+                  if (terms)
+                    void perform(account.createForPair(terms.version), () =>
+                      setPairStage("approved"),
+                    );
+                }}
+              >
+                创建账号并授权此网页
+              </button>
+              <button
+                onClick={() => {
+                  setPairStage("entry");
+                  setPair(null);
+                }}
+              >
+                我已有工作台账号
+              </button>
+            </div>
+          )}
+          {pairStage === "approved" && (
+            <div aria-live="polite">
+              <h3>账号关联已确认</h3>
+              <p>返回主站继续使用；小程序可重新授权登录同一个工作台账号。</p>
+              <button
+                onClick={() => {
+                  setCode("");
+                  setPair(null);
+                  setPairStage("entry");
+                }}
+              >
+                完成
+              </button>
+            </div>
+          )}
+        </DetailPage>
+      )}
       {view.storageError && (
         <p className="hb-fine">当前客户端无法保存登录状态，下次打开需要重新授权。</p>
       )}
@@ -334,7 +353,11 @@ export default function Account({
         本站与战争雷霆官方无任何关系，仅为个人玩家制作的辅助工具。数据与计算仅供参考，请以游戏内信息为准。
       </p>
       {showTerms && (
-        <Sheet title="用户协议与数据说明" close={() => setShowTerms(false)}>
+        <DetailPage
+          path="#/account/terms"
+          title="用户协议与数据说明"
+          close={() => setShowTerms(false)}
+        >
           <p className="hb-agreement-copy">{terms?.notice || "协议正在读取，请稍后再试。"}</p>
           <p>
             使用小黑盒登录时，本站保存当前小程序的身份标识及工作台账号关联，用于账号认证，不保存小黑盒密码。
@@ -352,10 +375,14 @@ export default function Account({
           >
             已阅读并同意
           </button>
-        </Sheet>
+        </DetailPage>
       )}
       {unlink && (
-        <Sheet title="解除游戏账号关联" close={() => setUnlink(false)}>
+        <DetailPage
+          path="#/account/unlink-game"
+          title="解除游戏账号关联"
+          close={() => setUnlink(false)}
+        >
           <p>请输入以下完整文字以解除当前关联：</p>
           <p className="hb-warning">{phrase}</p>
           <label>
@@ -374,7 +401,7 @@ export default function Account({
           >
             确认解除关联
           </button>
-        </Sheet>
+        </DetailPage>
       )}
     </section>
   );

@@ -20,10 +20,11 @@ import type {
 import bootstrap from "../../../src/generated/bootstrap.json";
 import manifest from "../../../src/generated/manifest.json";
 import { countryModules } from "../../../src/generated/country-modules";
+import { MainSiteLink } from "./MainSiteLink";
 import { validPlan } from "./plan";
 import { sdk, account } from "./runtime";
 import { useRuntime, type ResearchIntent } from "./context";
-import { Sheet, Icon, ErrorNote, num } from "./ui";
+import { DetailPage, Icon, ErrorNote, num } from "./ui";
 const index = bootstrap as CatalogIndex;
 const entries = manifest.countries as Record<
   string,
@@ -187,6 +188,20 @@ export default function Research({ initial }: { initial?: ResearchIntent }) {
             )}
           </div>
         )}
+        {selected && (
+          <div className="hb-selection-bar">
+            <span>{unit?.name || "已选择目标载具"}</span>
+            <button
+              type="button"
+              onClick={() => {
+                setSelected(null);
+                setSheet(null);
+              }}
+            >
+              清除选择
+            </button>
+          </div>
+        )}
       </div>
       {!country ? (
         <div className="hb-country-entry">
@@ -201,6 +216,7 @@ export default function Research({ initial }: { initial?: ResearchIntent }) {
               </button>
             ))}
           </div>
+          <MainSiteLink />
         </div>
       ) : loading ? (
         <div className="hb-empty" aria-live="polite">
@@ -277,7 +293,7 @@ export default function Research({ initial }: { initial?: ResearchIntent }) {
         <div className="hb-empty">该国家暂无此军种科技树，试试其他军种。</div>
       )}
       {filters && (
-        <Sheet title="研发筛选" close={() => setFilters(false)}>
+        <DetailPage path="#/research/filters" title="研发筛选" close={() => setFilters(false)}>
           <label>
             战斗模式
             <GameSelect value={mode} onValueChange={(v) => setMode(v as Mode)}>
@@ -301,32 +317,24 @@ export default function Research({ initial }: { initial?: ResearchIntent }) {
           <button className="hb-primary" onClick={() => setFilters(false)}>
             应用筛选
           </button>
-        </Sheet>
+        </DetailPage>
       )}
       {sheet && unit && tree && data && (
         <Calculator
-          key={`${country}:${category}:${unit.id}:${sheet}`}
+          key={`${country}:${category}:${unit.id}`}
           {...{ unit, tree, country, category, catalog, data, mode }}
           kind={sheet}
           switchKind={() => setSheet(sheet === "vehicle" ? "mods" : "vehicle")}
-          close={() => setSheet(null)}
+          close={() => {
+            setSheet(null);
+            setSelected(null);
+          }}
         />
       )}
     </section>
   );
 }
-function Calculator({
-  unit,
-  tree,
-  country,
-  category,
-  catalog,
-  data,
-  kind,
-  mode,
-  switchKind,
-  close,
-}: {
+type CalculatorProps = {
   unit: Vehicle;
   tree: Tree;
   country: string;
@@ -337,7 +345,30 @@ function Calculator({
   mode: Mode;
   switchKind: () => void;
   close: () => void;
-}) {
+};
+function Calculator(props: CalculatorProps) {
+  return (
+    <DetailPage
+      path={"#/research/vehicle/" + encodeURIComponent(props.unit.id)}
+      title="载具与配件研发"
+      close={props.close}
+    >
+      <CalculatorContent key={props.kind} {...props} />
+    </DetailPage>
+  );
+}
+function CalculatorContent({
+  unit,
+  tree,
+  country,
+  category,
+  catalog,
+  data,
+  kind,
+  mode,
+  switchKind,
+  close,
+}: CalculatorProps) {
   const { view, cloud, reloadCloud } = useRuntime();
   const key = `wt-planner-v1:${category}:${country}`;
   const existing = cloud?.documents.find((d) => d.key === key);
@@ -467,7 +498,7 @@ function Calculator({
     }
   }
   return (
-    <Sheet title={kind === "vehicle" ? "载具研发" : "配件研发"} close={close}>
+    <>
       <VehiclePresentation
         unit={unit}
         country={country}
@@ -596,7 +627,11 @@ function Calculator({
           {saving ? "正在保存…" : saved ? "已保存计划" : "保存研发计划"}
         </button>
       )}
+      <button type="button" onClick={close}>
+        清除选择，返回科技树
+      </button>
+      <MainSiteLink />
       <p className="hb-fine">未知成本保留待核对。估算不含银狮、购车或配件以外的支出。</p>
-    </Sheet>
+    </>
   );
 }

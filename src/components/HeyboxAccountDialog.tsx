@@ -10,7 +10,7 @@ import {
 import { statsRequest, StatsError } from "../player-stats-api";
 import "../heybox-account.css";
 
-type Props = { purpose: "login" | "bind"; close: () => void };
+type Props = { purpose: "bind"; close: () => void };
 export function HeyboxAccountDialog({ purpose, close }: Props) {
   const { session, acceptLogin } = useWorkbenchAccount();
   const currentUserId = session?.user?.id || "";
@@ -57,7 +57,7 @@ export function HeyboxAccountDialog({ purpose, close }: Props) {
     return () => clearInterval(timer);
   }, [pair, phase]);
   async function start() {
-    if (!agreed || !terms || phase === "starting") return;
+    if (!agreed || !terms || phase === "starting" || !currentUserId) return;
     attempt.current?.abort();
     const c = new AbortController();
     attempt.current = c;
@@ -116,7 +116,7 @@ export function HeyboxAccountDialog({ purpose, close }: Props) {
           return;
         }
       }
-      if (!c.signal.aborted) throw Error("授权码已过期，请重新开始");
+      if (!c.signal.aborted) throw Error("关联码已过期，请重新开始");
     } catch (e) {
       if (!c.signal.aborted) {
         setPair(null);
@@ -127,20 +127,15 @@ export function HeyboxAccountDialog({ purpose, close }: Props) {
   }
   const seconds = Math.max(0, Math.ceil((expiresAt - now) / 1000));
   return (
-    <Modal
-      title={purpose === "bind" ? "关联小黑盒账号" : "小黑盒登录"}
-      close={close}
-      className="wt-heybox-dialog"
-    >
+    <Modal title="关联小黑盒账号" close={close} className="wt-heybox-dialog">
       <div className="wt-heybox-content">
         {phase === "loading" && <output>正在读取授权配置…</output>}
-        {phase === "unconfigured" && <p>小黑盒登录暂未开放，请使用账号登录。</p>}
+        {phase === "unconfigured" && <p>小黑盒关联暂未开放，请稍后再试。</p>}
         {(phase === "ready" || phase === "error") && (
           <>
             <p>
-              {purpose === "bind"
-                ? `将小黑盒身份关联到「${session?.user?.displayName || "当前工作台账号"}」，保留此账号原有数据。`
-                : "使用小黑盒 App 内的战雷工作台确认授权。已有工作台账号请先用原账号登录，再从用户名菜单关联。"}
+              将小黑盒身份关联到「{session?.user?.displayName || "当前工作台账号"}
+              」，保留此账号原有数据。
             </p>
             <p className="wt-heybox-identity-notice">
               本站保存小程序身份标识及工作台账号关联，用于登录；不要求小黑盒密码。
@@ -173,15 +168,17 @@ export function HeyboxAccountDialog({ purpose, close }: Props) {
               disabled={!agreed || !terms}
               onClick={() => void start()}
             >
-              {phase === "error" ? "重新开始" : "获取授权码"}
+              {phase === "error" ? "重新开始" : "获取关联码"}
             </button>
           </>
         )}
         {phase === "starting" && <output>正在准备授权…</output>}
         {phase === "waiting" && pair && (
           <>
-            <p>在小黑盒 App 的战雷工作台中，打开「我的 → 网页授权」，输入下方授权码并确认。</p>
-            <p className="wt-heybox-code" aria-label="网页授权码">
+            <p>
+              在小黑盒 App 的战雷工作台中，打开「我的 → 关联已有网页账号」，输入下方关联码并确认。
+            </p>
+            <p className="wt-heybox-code" aria-label="网页关联码">
               <code>{pair.pairingCode.match(/.{1,4}/g)?.join(" ")}</code>
             </p>
             <output>
@@ -192,7 +189,7 @@ export function HeyboxAccountDialog({ purpose, close }: Props) {
         )}
         {phase === "success" && (
           <>
-            <output>{purpose === "bind" ? "小黑盒账号已关联。" : "登录成功。"}</output>
+            <output>小黑盒账号已关联。</output>
             <button type="button" onClick={close}>
               完成
             </button>

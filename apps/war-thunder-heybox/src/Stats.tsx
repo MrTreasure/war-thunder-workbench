@@ -14,8 +14,9 @@ import {
 } from "./VehiclePresentation";
 import { GameSelect } from "../../../src/components/GameSelect";
 import { request, query, pause, account } from "./runtime";
+import { MainSiteLink } from "./MainSiteLink";
 import { useRuntime } from "./context";
-import { Sheet, ErrorNote, num, ratio } from "./ui";
+import { DetailPage, ErrorNote, num, ratio } from "./ui";
 import catalog from "../../../src/generated/bootstrap.json";
 const modeNames = { ab: "街机", rb: "历史", sb: "全真" };
 export default function Stats({ boundRequest }: { boundRequest: number }) {
@@ -197,123 +198,112 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
     ...(report?.payload.top5.map((unit) => unit.country || "") || []),
   ]);
   const ownedVehicleIds = useMiniappOwnedVehicles();
-  if (screen === "valuation")
-    return (
-      <section className="hb-scroll hb-page hb-stats wt-record-page">
-        <button className="hb-back" onClick={() => setScreen("profile")}>
-          ← 返回战绩
-        </button>
-        <h2>车库参考估值</h2>
-        <p className="hb-muted">
-          {profile?.nickname} · UID {profile?.uid}
-        </p>
-        <ErrorNote error={error} />
-        {busy && !valuation && <output>正在计算车库价值…</output>}
-        {valuation && (
-          <>
-            <div className="hb-value-scenarios">
-              {(["normal", "discount", "secondHand"] as const).map((key) => (
-                <article key={key}>
-                  <span>{valuation.scenarios[key].label}</span>
-                  <strong>{money(valuation.scenarios[key].totalCents)}</strong>
-                  {valuation.scenarios[key].totalCents === null && (
-                    <small>已知部分 {money(valuation.scenarios[key].knownCents)}</small>
-                  )}
-                </article>
-              ))}
+  const valuationPage = screen === "valuation" && (
+    <DetailPage path="#/stats/valuation" title="账号参考估值" close={() => setScreen("profile")}>
+      <h2>车库参考估值</h2>
+      <p className="hb-muted">
+        {profile?.nickname} · UID {profile?.uid}
+      </p>
+      <ErrorNote error={error} />
+      {busy && !valuation && <output>正在计算车库价值…</output>}
+      {valuation && (
+        <>
+          <div className="hb-value-scenarios">
+            {(["normal", "discount", "secondHand"] as const).map((key) => (
+              <article key={key}>
+                <span>{valuation.scenarios[key].label}</span>
+                <strong>{money(valuation.scenarios[key].totalCents)}</strong>
+                {valuation.scenarios[key].totalCents === null && (
+                  <small>已知部分 {money(valuation.scenarios[key].knownCents)}</small>
+                )}
+              </article>
+            ))}
+          </div>
+          <dl className="hb-kv">
+            <div>
+              <dt>常规载具</dt>
+              <dd>{num(valuation.researchCount)}</dd>
             </div>
-            <dl className="hb-kv">
-              <div>
-                <dt>常规载具</dt>
-                <dd>{num(valuation.researchCount)}</dd>
-              </div>
-              <div>
-                <dt>金币载具</dt>
-                <dd>{num(valuation.gold.length)}</dd>
-              </div>
-              <div>
-                <dt>礼包</dt>
-                <dd>{num(valuation.packs.length)}</dd>
-              </div>
-              <div>
-                <dt>待核价</dt>
-                <dd>{num(valuation.unpriced.length)}</dd>
-              </div>
-            </dl>
-            <p className="hb-fine">{valuation.ownership?.notice}</p>
-            <p className="hb-fine">{valuation.notice}</p>
-            <p className="hb-fine">
-              计算于 {date(valuation.calculatedAt)}。参考估值不代表交易价格。
+            <div>
+              <dt>金币载具</dt>
+              <dd>{num(valuation.gold.length)}</dd>
+            </div>
+            <div>
+              <dt>礼包</dt>
+              <dd>{num(valuation.packs.length)}</dd>
+            </div>
+            <div>
+              <dt>待核价</dt>
+              <dd>{num(valuation.unpriced.length)}</dd>
+            </div>
+          </dl>
+          <p className="hb-fine">{valuation.ownership?.notice}</p>
+          <p className="hb-fine">{valuation.notice}</p>
+          <p className="hb-fine">计算于 {date(valuation.calculatedAt)}。参考估值不代表交易价格。</p>
+        </>
+      )}
+      {!busy && !valuation && <button onClick={() => void estimate()}>重新估算</button>}
+    </DetailPage>
+  );
+  const reportPage = screen === "report" && (
+    <DetailPage path="#/stats/report" title="个人战报" close={() => setScreen("profile")}>
+      <h2>个人战报</h2>
+      <p className="hb-muted">
+        {profile?.nickname} · {modeNames[mode]}战斗
+      </p>
+      <label>
+        战报风格
+        <GameSelect value={reportStyle} onValueChange={setReportStyle}>
+          <option value="commander">指挥官点评</option>
+          <option value="analysis">战术分析</option>
+          <option value="roast">友好吐槽</option>
+        </GameSelect>
+      </label>
+      <p className="hb-fine">使用当前军种、国家与战斗模式筛选。生成会消耗一次战报额度。</p>
+      <button className="hb-primary" onClick={() => void generate()} disabled={busy}>
+        {" "}
+        {busy ? "正在生成…" : report ? "重新生成战报" : "生成战报"}
+      </button>
+      <ErrorNote error={error} />
+      {progress && <output>{progress}</output>}
+      {report?.status === "ready" && (
+        <article className="hb-report">
+          <header>
+            <span>WAR THUNDER · 战雷工作台</span>
+            <h2>{report.review?.title || "作战报告"}</h2>
+            <p>
+              {report.payload.player.nickname} · UID {report.payload.player.uid}
             </p>
-          </>
-        )}
-        {!busy && !valuation && <button onClick={() => void estimate()}>重新估算</button>}
-      </section>
-    );
-  if (screen === "report")
-    return (
-      <section className="hb-scroll hb-page hb-stats wt-record-page">
-        <button className="hb-back" onClick={() => setScreen("profile")}>
-          ← 返回战绩
-        </button>
-        <h2>个人战报</h2>
-        <p className="hb-muted">
-          {profile?.nickname} · {modeNames[mode]}战斗
-        </p>
-        <label>
-          战报风格
-          <GameSelect value={reportStyle} onValueChange={setReportStyle}>
-            <option value="commander">指挥官点评</option>
-            <option value="analysis">战术分析</option>
-            <option value="roast">友好吐槽</option>
-          </GameSelect>
-        </label>
-        <p className="hb-fine">使用当前军种、国家与战斗模式筛选。生成会消耗一次战报额度。</p>
-        <button className="hb-primary" onClick={() => void generate()} disabled={busy}>
-          {" "}
-          {busy ? "正在生成…" : report ? "重新生成战报" : "生成战报"}
-        </button>
-        <ErrorNote error={error} />
-        {progress && <output>{progress}</output>}
-        {report?.status === "ready" && (
-          <article className="hb-report">
-            <header>
-              <span>WAR THUNDER · 战雷工作台</span>
-              <h2>{report.review?.title || "作战报告"}</h2>
-              <p>
-                {report.payload.player.nickname} · UID {report.payload.player.uid}
-              </p>
-            </header>
-            <dl className="hb-kv">
-              <div>
-                <dt>场次</dt>
-                <dd>{num(report.payload.totals.battles)}</dd>
-              </div>
-              <div>
-                <dt>作战效率</dt>
-                <dd>{num(report.payload.totals.efficiency)}</dd>
-              </div>
-              <div>
-                <dt>综合 K/D</dt>
-                <dd>{ratio(report.payload.totals.kd)}</dd>
-              </div>
-            </dl>
-            <p className="hb-report-speech">{report.review?.speech}</p>
-            <h3>主力载具</h3>
-            <PlayerVehicleCards
-              vehicles={report.payload.top5}
-              select={(unit) => {
-                setVehicle(unit);
-                setScreen("profile");
-              }}
-              showNaval
-            />
-            <small>数据采集于 {date(report.payload.fetchedAt)}</small>
-            <footer className="hb-watermark-reserve" aria-hidden="true" />
-          </article>
-        )}
-      </section>
-    );
+          </header>
+          <dl className="hb-kv">
+            <div>
+              <dt>场次</dt>
+              <dd>{num(report.payload.totals.battles)}</dd>
+            </div>
+            <div>
+              <dt>作战效率</dt>
+              <dd>{num(report.payload.totals.efficiency)}</dd>
+            </div>
+            <div>
+              <dt>综合 K/D</dt>
+              <dd>{ratio(report.payload.totals.kd)}</dd>
+            </div>
+          </dl>
+          <p className="hb-report-speech">{report.review?.speech}</p>
+          <h3>主力载具</h3>
+          <PlayerVehicleCards
+            vehicles={report.payload.top5}
+            select={(unit) => {
+              setVehicle(unit);
+            }}
+            showNaval
+          />
+          <small>数据采集于 {date(report.payload.fetchedAt)}</small>
+          <footer className="hb-watermark-reserve" aria-hidden="true" />
+        </article>
+      )}
+    </DetailPage>
+  );
   return (
     <section className="hb-scroll hb-page hb-stats wt-record-page">
       <form
@@ -329,12 +319,17 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
             id="player-nickname"
             placeholder="完整游戏昵称，含平台后缀"
             minLength={2}
-            maxLength={100}
+            maxLength={64}
+            autoCapitalize="off"
+            autoCorrect="off"
+            autoComplete="off"
+            enterKeyHint="search"
+            spellCheck={false}
             value={nickname}
             onChange={(e) => setNickname(e.target.value)}
           />
           <button className="hb-primary" disabled={busy || nickname.trim().length < 2}>
-            查询
+            {busy ? "查询中" : "查询"}
           </button>
         </div>
       </form>
@@ -504,8 +499,15 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
           )}
         </>
       )}
+      <MainSiteLink />
+      {valuationPage}
+      {reportPage}
       {vehicle && (
-        <Sheet title={vehicle.name} close={() => setVehicle(null)}>
+        <DetailPage
+          path={"#/stats/vehicle/" + encodeURIComponent(vehicle.id)}
+          title={vehicle.name}
+          close={() => setVehicle(null)}
+        >
           <VehiclePresentation
             unit={vehicle}
             country={vehicle.country}
@@ -528,10 +530,10 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
               </div>
             ))}
           </dl>
-        </Sheet>
+        </DetailPage>
       )}
       {binding && profile && (
-        <Sheet title="关联游戏账号" close={() => setBinding(false)}>
+        <DetailPage path="#/stats/link-game" title="关联游戏账号" close={() => setBinding(false)}>
           <h3>{profile.nickname}</h3>
           <p>
             请勿关联他人的游戏账号，否则会影响当前账号的研发计算。本操作仅用于防止误绑，不代表官方身份认证。
@@ -553,7 +555,7 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
           >
             确认关联
           </button>
-        </Sheet>
+        </DetailPage>
       )}
     </section>
   );

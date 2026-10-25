@@ -5,7 +5,6 @@ import {
   useVehicleFacts,
   withVehicleFacts,
 } from "../../../src/vehicle-catalog";
-import { vehicleDisplayName } from "../../../src/vehicle-display-name";
 import type { Mode } from "../../../src/models";
 import catalog from "../../../src/generated/bootstrap.json";
 import { useRuntime } from "./context";
@@ -85,21 +84,22 @@ export function VehiclePresentation({
   const roles = catalog.roles as Record<string, string>;
   return (
     <div className="hb-vehicle-presentation" data-kind={unit.kind}>
-      <VehicleTile unit={unit} mode={mode} owned={owned} onSelect={onSelect} selected={selected} />
+      <VehicleTile
+        unit={unit}
+        mode={mode}
+        owned={owned}
+        onSelect={onSelect}
+        selected={selected}
+        footerLabel={unit.rank ? `等级 ${unit.rank}` : "等级待核对"}
+      />
       <div className="hb-vehicle-caption">
-        <span>
-          {unit.rank ? `等级 ${unit.rank}` : "等级待核对"} ·{" "}
-          {roles[unit.role || ""] || "类型待核对"}
-        </span>
+        <span>{roles[unit.role || ""] || "类型待核对"}</span>
         <span>
           {acquisition} · {(catalog.countries as Record<string, string>)[countryId] || "国家待匹配"}
           {categoryId
             ? ` · ${(catalog.categories as Record<string, string>)[categoryId] || categoryId}`
             : ""}
         </span>
-        {vehicleDisplayName(unit.name).length > 17 && (
-          <span className="hb-vehicle-full-name">{vehicleDisplayName(unit.name)}</span>
-        )}
       </div>
     </div>
   );

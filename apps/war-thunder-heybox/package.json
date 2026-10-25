@@ -1,6 +1,6 @@
 {
   "name": "war-thunder-heybox",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "type": "module",
   "heybox": {
@@ -34,7 +34,8 @@
     "build": "tsc --noEmit && hb-sdk build && node scripts/check-build.mjs",
     "deploy": "hb-sdk remote deploy",
     "typecheck": "tsc --noEmit",
-    "prepare:branding": "node scripts/prepare-branding.mjs"
+    "prepare:branding": "node scripts/prepare-branding.mjs",
+    "test": "node --test tests/*.test.mts"
   },
   "dependencies": {
     "@heybox/hb-sdk": "0.9.3",

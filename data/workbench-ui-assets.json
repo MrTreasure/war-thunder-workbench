@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "source": "Original War Thunder UI assets, reused with the workbench style.md design standard.",
+  "icons": {
+    "research": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/item_type_rp.svg",
+      "bytes": 10527,
+      "sha256": "3101056aa8b0a85d64dd8fe22f294fe0fda9193fa4946a095957348ec60eac52",
+      "checkedAt": "2026-10-25",
+      "source": "War Thunder original game UI asset served by the official encyclopedia CDN"
+    },
+    "stats": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/sh_statistics.svg",
+      "bytes": 1530,
+      "sha256": "504cc15aa0a3ea2ddcf0d5dff62030929fddd836f3d67afe8c9558416d77c722",
+      "checkedAt": "2026-10-25",
+      "source": "War Thunder original game UI asset served by the official encyclopedia CDN"
+    },
+    "account": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/sh_profile.svg",
+      "bytes": 1123,
+      "sha256": "753f35ad8d91f43c595801af10c78303e7e0fdd3c09558a18df5c9d9b51b4c1f",
+      "checkedAt": "2026-10-25",
+      "source": "War Thunder original game UI asset served by the official encyclopedia CDN"
+    },
+    "filter": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/filter_icon.svg",
+      "bytes": 554,
+      "sha256": "9d05761d1036d1e2a1518095f18a7871fc12899462a3e8e035b2db169b27b749",
+      "checkedAt": "2026-10-25",
+      "source": "War Thunder original game UI asset served by the official encyclopedia CDN"
+    },
+    "arrow": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/arrow.svg",
+      "bytes": 2720,
+      "sha256": "ab6e01b1e793b179f939dbfc720eadc3b67cb8725f3cecb1a441657f513c90f1",
+      "checkedAt": "2026-10-25",
+      "source": "War Thunder original game UI asset served by the official encyclopedia CDN"
+    },
+    "back": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/back.svg",
+      "bytes": 150,
+      "sha256": "0c9598a152750203dcf435a3c13c1ea9468f7c8b579ec30b6c02fe875a853081",
+      "checkedAt": "2026-10-25",
+      "source": "War Thunder original game UI asset served by the official encyclopedia CDN"
+    },
+    "logo": {
+      "url": "https://warthunder.com/assets/img/svg/logo-wt.svg",
+      "sourcePage": "https://warthunder.com/en/media/presskit/",
+      "sha256": "8c3f7ebf829174244c2ab8df4c928560fedb9a1d31a4be4b1725115c3af8f408",
+      "checkedAt": "2026-10-19"
+    }
+  }
+}
