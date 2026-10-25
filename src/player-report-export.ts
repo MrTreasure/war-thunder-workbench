@@ -26,7 +26,7 @@ import {
   statsReportScopeLabel,
 } from "./player-stats-api";
 import type { StatsReport, Background } from "./player-stats-api";
-export async function downloadStatsReport(
+export async function createStatsReportImage(
   report: StatsReport,
   background: Background,
   theme: ReportTheme,
@@ -44,13 +44,19 @@ export async function downloadStatsReport(
     p.player.avatarKey ? reportImage("avatar", p.player.avatarKey, signal) : Promise.resolve(null),
     ...p.top5.map((v) => reportImage("vehicle", v.id, signal)),
   ]);
-  const flagIds = [...new Set(p.top5.flatMap((v) => {
-    const flag = statsCountryFlag(v.country);
-    return flag ? [flag.id] : [];
-  }))];
-  const flags = new Map(await Promise.all(flagIds.map(async (id) =>
-    [id, await reportImage("flag", id, signal)] as const,
-  )));
+  const flagIds = [
+    ...new Set(
+      p.top5.flatMap((v) => {
+        const flag = statsCountryFlag(v.country);
+        return flag ? [flag.id] : [];
+      }),
+    ),
+  ];
+  const flags = new Map(
+    await Promise.all(
+      flagIds.map(async (id) => [id, await reportImage("flag", id, signal)] as const),
+    ),
+  );
   const armies = await Promise.all(
     (p.career?.branches || p.branches).map(async (branch) => {
       const response = await fetch(statsArmyIcon(reportAssets.armyBase, branch.id), {
@@ -71,7 +77,7 @@ export async function downloadStatsReport(
   );
   const font = new FontFace("WTReport", `url("${fontUrl}")`, { weight: "700" });
   document.fonts.add(await font.load());
-    await loadVehicleSymbols();
+  await loadVehicleSymbols();
   await document.fonts.ready;
   if (signal.aborted) return;
   const canvas = document.createElement("canvas");
@@ -279,7 +285,14 @@ export async function downloadStatsReport(
     const flag = flagId ? flags.get(flagId) : undefined;
     const nameOffset = flag ? 42 : 0;
     if (flag) fit(flag, 292, y + 7, 30, 20);
-    text(shorten(vehicleDisplayName(v.name), 485 - nameOffset, 29, 700), 292 + nameOffset, y + 27, 29, white, 700);
+    text(
+      shorten(vehicleDisplayName(v.name), 485 - nameOffset, 29, 700),
+      292 + nameOffset,
+      y + 27,
+      29,
+      white,
+      700,
+    );
     ctx.save();
     ctx.textAlign = "right";
     text(n(v.efficiency) + " 效率" + (v.smallSample ? " · 场次不足" : ""), 1016, y + 27, 23, gold);
@@ -330,6 +343,19 @@ export async function downloadStatsReport(
     ),
   );
   if (signal.aborted) return;
+  return blob;
+}
+
+export async function downloadStatsReport(
+  report: StatsReport,
+  background: Background,
+  theme: ReportTheme,
+  signal: AbortSignal,
+) {
+  const blob = await createStatsReportImage(report, background, theme, signal);
+  if (!blob || signal.aborted) return;
+  const p = report.payload,
+    voice = reportStyle(p.analysis?.style);
   const url = URL.createObjectURL(blob),
     anchor = document.createElement("a");
   anchor.href = url;
