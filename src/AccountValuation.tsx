@@ -191,7 +191,9 @@ function ProductCard({
   children: ReactNode;
 }) {
   return (
-    <article className="wt-valuation-product">
+    <article
+      className={`wt-valuation-product${vehicleKind === "pack" ? " wt-valuation-product-pack" : ""}`}
+    >
       <div className="wt-valuation-product-media">
         {localize(
           items.map((item) => (
@@ -224,32 +226,35 @@ function ProductCard({
 }
 const productBreakpoints = [
   "(max-width: 380px)",
-  "(max-width: 800px), (max-width: 1100px) and (pointer: coarse)",
+  "(max-width: 1000px), (max-width: 1100px) and (pointer: coarse)",
 ];
 function productColumns() {
   return window.matchMedia(productBreakpoints[0]).matches
     ? 1
     : window.matchMedia(productBreakpoints[1]).matches
       ? 1
-      : 4;
+      : 2;
 }
 function subscribeProductColumns(listener: () => void) {
   const queries = productBreakpoints.map((query) => window.matchMedia(query));
   queries.forEach((query) => query.addEventListener("change", listener));
   return () => queries.forEach((query) => query.removeEventListener("change", listener));
 }
-function ProductShelf({ children }: { children: ReactNode[] }) {
+function ProductShelf({ children, packs = false }: { children: ReactNode[]; packs?: boolean }) {
   const [expanded, setExpanded] = useState(false);
-  const columns = useSyncExternalStore(subscribeProductColumns, productColumns, () => 4);
+  const columns = useSyncExternalStore(subscribeProductColumns, productColumns, () => 2);
   const id = useId(),
-    visible = expanded ? children : children.slice(0, columns * 3);
+    visible = expanded ? children : children.slice(0, (packs ? 1 : columns) * 3);
   return (
     <>
-      <div className="wt-valuation-products" id={id}>
+      <div
+        className={`wt-valuation-products${packs ? " wt-valuation-products-packs" : ""}`}
+        id={id}
+      >
         {localize(visible)}
       </div>
       {localize(
-        children.length > columns * 3 && (
+        children.length > (packs ? 1 : columns) * 3 && (
           <div className="wt-valuation-shelf-actions">
             <small>
               {t("显示")}
@@ -1322,7 +1327,14 @@ export function AccountValuation({
                                 visibleUnpriced.map((v, i) => {
                                   const vehicles = v.vehicles?.length ? v.vehicles : [v];
                                   return (
-                                    <article key={v.id + i}>
+                                    <article
+                                      key={v.id + i}
+                                      className={
+                                        vehicles.length > 1
+                                          ? "wt-valuation-research-group"
+                                          : undefined
+                                      }
+                                    >
                                       <div className="wt-valuation-unpriced-art">
                                         {localize(
                                           vehicles.map((item) => (
