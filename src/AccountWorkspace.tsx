@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { useLocale } from "./i18n/react";
 import { t } from "./i18n/core";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { saleWatchKey } from "./sale-watch-storage";
 import {
   WorkspaceContext,
   workspaceKey,
@@ -17,6 +18,7 @@ import { collectGuestDefaults } from "./workspace-guest-defaults";
 import "./account-workspace.css";
 
 function documentLabel(key: string) {
+  if (key === saleWatchKey) return t("折扣载具关注列表");
   if (key === "wt-workbench-cart-v1") return t("研发购物车");
   const [kind, part, country] = key.split(":");
   if (kind === "wt-lineups-v1") return t("{0} · 出击队列", [statsCountryLabel(part)]);
@@ -188,7 +190,10 @@ function AccountWorkspace({ children, userId }: { children: ReactNode; userId: s
         throw Error(t("登录账号已变化，已停止读取旧账号数据。"));
       if (!controller.current.signal.aborted) {
         if (preserveDocuments && current.current.snapshot)
-          data.documents = current.current.snapshot.documents;
+          data.documents = [
+            ...current.current.snapshot.documents.filter((d) => d.key !== saleWatchKey),
+            ...data.documents.filter((d) => d.key === saleWatchKey),
+          ];
         current.current.snapshot = data;
         setSnapshot(data);
         if (data.consented && outboxReady.current) importGuestDefaults(data);
@@ -329,7 +334,7 @@ function AccountWorkspace({ children, userId }: { children: ReactNode; userId: s
   }, [pendingKey, userId, storePending]);
   useEffect(() => {
     if (!snapshot?.consented || conflict || !Object.keys(pending).length || error) return;
-    const id = setTimeout(() => void drain(), 600);
+    const id = setTimeout(() => void drain(), Object.hasOwn(pending, saleWatchKey) ? 0 : 600);
     return () => clearTimeout(id);
   }, [pending, snapshot?.consented, conflict, error, drain]);
   useEffect(() => {

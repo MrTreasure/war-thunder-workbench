@@ -9,7 +9,7 @@ export type GameBinding = {
   vehicles: { id: string; country: string; category: string }[];
 };
 export const workspaceKey = (key: string) =>
-  /^(wt-workbench-cart-v1|wt-planner-v1:(ground|aviation|helicopters|ships|boats):(usa|germany|ussr|britain|japan|italy|france|china|sweden|israel)|wt-lineups-v1:(usa|germany|ussr|britain|japan|italy|france|china|sweden|israel))$/.test(
+  /^(wt-sale-watch-v1|wt-workbench-cart-v1|wt-planner-v1:(ground|aviation|helicopters|ships|boats):(usa|germany|ussr|britain|japan|italy|france|china|sweden|israel)|wt-lineups-v1:(usa|germany|ussr|britain|japan|italy|france|china|sweden|israel))$/.test(
     key,
   );
 export type Workspace = {

@@ -1,12 +1,14 @@
 import { t, getLocale, localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
+import { saleWatchKey, saleWatchEnvelope, normalizeSaleWatch } from "./sale-watch-storage";
+import { useAccountWorkspace } from "./workspace-context";
 import { useVehicleCatalog } from "./vehicle-catalog";
 import { VehicleTile } from "./VehicleTile";
 import { useEffect, useId, useMemo, useState } from "react";
 import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
 import { SaleMonthCalendar } from "./SaleMonthCalendar";
-import { useStored, object } from "./storage";
+import { useStored } from "./storage";
 import { statsCategoryNames } from "./player-stats-api";
 import { cachedSaleCalendar, readSaleCalendar, readSaleVehicles } from "./sale-calendar-api";
 import bootstrap from "./generated/bootstrap.json";
@@ -29,21 +31,6 @@ import {
 import type { SaleCalendarData, SaleEvent, SaleVehicle } from "./sale-calendar-model";
 
 const countries: Record<string, string> = bootstrap.countries;
-const watchValid = (value: unknown): value is SaleVehicle[] =>
-  Array.isArray(value) &&
-  value.length <= 60 &&
-  value.every(
-    (v) =>
-      object(v) &&
-      typeof v.id === "string" &&
-      typeof v.name === "string" &&
-      typeof v.country === "string" &&
-      typeof v.category === "string" &&
-      typeof v.channel === "string" &&
-      v.channel in saleChannels &&
-      typeof v.image === "string" &&
-      v.image.startsWith("https://static.encyclopedia.warthunder.com/"),
-  );
 function SaleVehicleTile({ vehicle }: { vehicle: SaleVehicle }) {
   return (
     <VehicleTile
@@ -134,7 +121,13 @@ function AddVehicles({
   saved,
   add,
   close,
+  accountSaved,
+  canSave,
+  saveError,
 }: {
+  accountSaved: boolean;
+  canSave: boolean;
+  saveError: string;
   saved: SaleVehicle[];
   add: (v: SaleVehicle) => void;
   close: () => void;
@@ -181,10 +174,15 @@ function AddVehicles({
   return (
     <Modal
       title={t("添加关注载具")}
-      subtitle={t("仅支持金鹰与商城礼包载具；关注列表保存在当前浏览器。")}
+      subtitle={
+        accountSaved
+          ? t("仅支持金鹰与商城礼包载具；关注列表自动保存到账号。")
+          : t("仅支持金鹰与商城礼包载具；关注列表保存在当前浏览器。")
+      }
       close={close}
       className="wt-sale-picker"
     >
+      {saveError && <p role="alert">{saveError}</p>}
       <div className="wt-sale-picker-controls">
         <GameSelect aria-label={t("载具国家")} value={country} onValueChange={setCountry}>
           {localize(
@@ -241,7 +239,7 @@ function AddVehicles({
                   <VehicleQuoteDate vehicle={vehicle} />
                   <button
                     className="wt-sale-follow-button"
-                    disabled={added || saved.length >= 60}
+                    disabled={!canSave || added || saved.length >= 60}
                     onClick={() => add(vehicle)}
                   >
                     {localize(added ? t("已关注") : t("＋ 关注"))}
@@ -285,6 +283,7 @@ function SourceLinks({ event }: { event: SaleEvent }) {
 }
 export function SaleCalendar() {
   useLocale();
+  const workspace = useAccountWorkspace();
   const [data, setData] = useState<SaleCalendarData | null>(cachedSaleCalendar),
     [error, setError] = useState(""),
     [loading, setLoading] = useState(() => !data),
@@ -301,12 +300,22 @@ export function SaleCalendar() {
   const [watchExpanded, setWatchExpanded] = useState(false);
   const watchListId = useId();
   const [picker, setPicker] = useState(false),
-    [watch, saveWatch, storageError] = useStored<SaleVehicle[]>(
-      "wt-sale-watch-v1",
+    [storedWatch, saveWatch, storageError] = useStored<unknown[]>(
+      saleWatchKey,
       [],
-      watchValid,
-      (entries) => entries.filter(isSaleWatchVehicle),
+      saleWatchEnvelope,
+      normalizeSaleWatch,
+      true,
     );
+  const watch = normalizeSaleWatch(storedWatch);
+  const watchReady = !workspace?.userId || (workspace.ready && workspace.consented);
+  const watchError =
+    storageError ||
+    (workspace?.userId && !workspace.ready
+      ? t("正在读取账号关注列表，请稍候。")
+      : workspace?.userId && !workspace.consented
+        ? t("请先在云端数据中完成同步。")
+        : "");
   useVehicleCatalog(watch.map((v) => v.country));
   useEffect(() => {
     const timer = window.setInterval(() => setClock(Date.now()), 1000);
@@ -484,7 +493,9 @@ export function SaleCalendar() {
           <h3>{t("我的关注")}</h3>
         </div>
         {localize(
-          !watch.length ? (
+          workspace?.userId && !workspace.ready ? (
+            <output>{t("正在读取账号关注列表，请稍候。")}</output>
+          ) : !watch.length ? (
             <div className="wt-sale-empty">
               <button
                 type="button"
@@ -922,7 +933,18 @@ export function SaleCalendar() {
           {t("· 活动排期由管理员在后台核对更新。")}
         </p>
       </footer>
-      {localize(picker && <AddVehicles saved={watch} add={add} close={() => setPicker(false)} />)}
+      {localize(
+        picker && (
+          <AddVehicles
+            saved={watch}
+            add={add}
+            close={() => setPicker(false)}
+            accountSaved={!!workspace?.userId}
+            canSave={watchReady}
+            saveError={watchError}
+          />
+        ),
+      )}
     </main>
   );
 }

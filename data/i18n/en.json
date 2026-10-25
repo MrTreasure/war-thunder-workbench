@@ -2196,5 +2196,9 @@
   "联系，核实后及时更正、替换或移除。": "so we can review and promptly correct, replace or remove the relevant content.",
   "本应用通过 QMuse Vibecoding 平台搭建": "Built with the QMuse Vibecoding platform",
   "返回研发科技树": "Return to the research tree",
-  "找到 {0} 辆": "{0} vehicles found"
+  "找到 {0} 辆": "{0} vehicles found",
+  "折扣载具关注列表": "Sale vehicle watchlist",
+  "仅支持金鹰与商城礼包载具；关注列表自动保存到账号。": "Golden Eagle and store pack vehicles only. Your watchlist is saved to your account.",
+  "正在读取账号关注列表，请稍候。": "Restoring your account watchlist…",
+  "请先在云端数据中完成同步。": "Complete setup in Cloud data first."
 }
