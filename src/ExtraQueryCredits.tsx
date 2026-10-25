@@ -20,7 +20,13 @@ export function ExtraQueryCredits({
   const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState(false);
   const trigger = useRef<HTMLButtonElement>(null);
+  const summary = useRef<HTMLButtonElement>(null);
   const credits = session.credits;
+  const showCredits =
+    !!credits?.enabled &&
+    !!(session.user || session.role === "superadmin") &&
+    (credits.total === null || (credits.remaining ?? 0) > 0);
+
   const balance = !credits
     ? "—"
     : !credits.enabled
@@ -37,7 +43,9 @@ export function ExtraQueryCredits({
   const available = (kind: "query" | "report") => freeLabel(statsAvailableRequests(session, kind));
   function close() {
     setOpen(false);
-    requestAnimationFrame(() => trigger.current?.focus());
+    requestAnimationFrame(() =>
+      (trigger.current?.isConnected ? trigger.current : summary.current)?.focus(),
+    );
   }
   function explain(event: MouseEvent<HTMLButtonElement>) {
     trigger.current = event.currentTarget;
@@ -52,6 +60,7 @@ export function ExtraQueryCredits({
     <div className="wt-extra-query-credits">
       <button
         className="wt-record-quota-button"
+        ref={summary}
         type="button"
         onClick={explain}
         aria-haspopup="dialog"
@@ -63,7 +72,7 @@ export function ExtraQueryCredits({
         {t(" / 战报 ")}
         {available("report")}
       </button>
-      {(session.user || session.role === "superadmin") && (
+      {showCredits && (
         <button
           className="wt-extra-query-credit-button"
           type="button"
@@ -71,9 +80,7 @@ export function ExtraQueryCredits({
           aria-haspopup="dialog"
           aria-expanded={open}
         >
-          <span>{t("额外查询点")}</span>
-          <strong>{balance}</strong>
-          <span aria-hidden="true">ⓘ</span>
+          {t("额外查询点")} {balance}
         </button>
       )}
       {open && (
@@ -104,52 +111,54 @@ export function ExtraQueryCredits({
               ))}
             </tbody>
           </table>
-          <p>{t("每日免费次数在北京时间零点重置，额外查询点不重置。")}</p>
-          <h3>{t("额外查询点")}</h3>
-          <p className="wt-query-credit-balance">
-            {t("当前可用")}{" "}
-            <strong>{session.user || session.role === "superadmin" ? balance : "0"}</strong>{" "}
-            {t("点")}
-          </p>
-          {!session.user && session.role !== "superadmin" && (
-            <p>{t("登录后可使用账号中的额外查询点。")}</p>
+          <p>{t("每日免费次数在北京时间零点重置。")}</p>
+          {showCredits && (
+            <>
+              <h3>{t("额外查询点")}</h3>
+              <p className="wt-query-credit-balance">
+                {t("当前可用")}{" "}
+                <strong>{session.user || session.role === "superadmin" ? balance : "0"}</strong>{" "}
+                {t("点")}
+              </p>
+
+              <p>{t("先使用各项目的每日免费次数，耗尽后才消耗共享的额外查询点。")}</p>
+              <dl className="wt-query-credit-rates" aria-label={t("额外查询点使用比例")}>
+                <div>
+                  <dt>{t("新查询")}</dt>
+                  <dd>{t("{0} 点／次", [credits?.costs?.query ?? "—"])}</dd>
+                </div>
+                <div>
+                  <dt>{t("新战报")}</dt>
+                  <dd>{t("{0} 点／次", [credits?.costs?.report ?? "—"])}</dd>
+                </div>
+                <div>
+                  <dt>{t("账号估值")}</dt>
+                  <dd>{t("{0} 点／次", [credits?.costs?.valuation ?? "—"])}</dd>
+                </div>
+              </dl>
+              <ul className="wt-query-credit-notes">
+                <li>{t("额外查询点累计保留，不按日重置，三个项目共用同一余额。")}</li>
+                <li>{t("缓存命中不扣免费次数，也不扣额外查询点。")}</li>
+                <li>{t("处理中会预占点数；任务失败或取消后释放预占。")}</li>
+                <li>{t("每日免费次数不限的项目，不消耗额外查询点。")}</li>
+                <li>{t("每日免费次数和额外查询点均用完后，提示“今日额度已达上限”。")}</li>
+              </ul>
+              {!!credits?.reserved && (
+                <p>
+                  {t("处理中预占 {0} 点，已从可用余额中扣除。", [
+                    credits.reserved.toLocaleString(getLocale()),
+                  ])}
+                </p>
+              )}
+              <output className="wt-query-credit-status">
+                {refreshing
+                  ? t("正在更新余额…")
+                  : error
+                    ? t("余额更新失败，当前显示上次读取结果，请关闭后重试。")
+                    : t("点数和使用比例以当前账号的服务器记录为准。")}
+              </output>
+            </>
           )}
-          <p>{t("先使用各项目的每日免费次数，耗尽后才消耗共享的额外查询点。")}</p>
-          <dl className="wt-query-credit-rates" aria-label={t("额外查询点使用比例")}>
-            <div>
-              <dt>{t("新查询")}</dt>
-              <dd>{t("{0} 点／次", [credits?.costs?.query ?? "—"])}</dd>
-            </div>
-            <div>
-              <dt>{t("新战报")}</dt>
-              <dd>{t("{0} 点／次", [credits?.costs?.report ?? "—"])}</dd>
-            </div>
-            <div>
-              <dt>{t("账号估值")}</dt>
-              <dd>{t("{0} 点／次", [credits?.costs?.valuation ?? "—"])}</dd>
-            </div>
-          </dl>
-          <ul className="wt-query-credit-notes">
-            <li>{t("额外查询点累计保留，不按日重置，三个项目共用同一余额。")}</li>
-            <li>{t("缓存命中不扣免费次数，也不扣额外查询点。")}</li>
-            <li>{t("处理中会预占点数；任务失败或取消后释放预占。")}</li>
-            <li>{t("每日免费次数不限的项目，不消耗额外查询点。")}</li>
-            <li>{t("每日免费次数和额外查询点均用完后，提示“今日额度已达上限”。")}</li>
-          </ul>
-          {!!credits?.reserved && (
-            <p>
-              {t("处理中预占 {0} 点，已从可用余额中扣除。", [
-                credits.reserved.toLocaleString(getLocale()),
-              ])}
-            </p>
-          )}
-          <output className="wt-query-credit-status">
-            {refreshing
-              ? t("正在更新余额…")
-              : error
-                ? t("余额更新失败，当前显示上次读取结果，请关闭后重试。")
-                : t("点数和使用比例以当前账号的服务器记录为准。")}
-          </output>
         </Modal>
       )}
     </div>

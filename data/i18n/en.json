@@ -2249,5 +2249,6 @@
   "用户角色": "User role",
   "每日免费次数在北京时间零点重置，额外查询点不重置。": "Daily free allowances reset at midnight Beijing time; extra points do not reset.",
   "登录后可使用账号中的额外查询点。": "Sign in to use your account’s extra query points.",
-  "额度加载中…": "Loading allowance…"
+  "额度加载中…": "Loading allowance…",
+  "每日免费次数在北京时间零点重置。": "Daily free allowances reset at midnight Beijing time."
 }
