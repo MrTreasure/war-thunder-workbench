@@ -1,3 +1,4 @@
+import { prepareVehicleFacts } from "./prepare-vehicle-facts.mjs";
 import { prepareAppearance } from "./prepare-appearance.mjs";
 import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
 import { createHash } from "node:crypto";
@@ -17,6 +18,7 @@ const [trees, research, purchases, planning, flags, taxonomy] = await Promise.al
   ].map(json),
 );
 const modificationPresentation = await json("modification-presentation.json");
+const modificationTiers = await json("modification-tiers.json");
 let modifications = {};
 try {
   modifications = await json("modifications.json");
@@ -62,6 +64,7 @@ for (const [unitId, row] of Object.entries(modifications)) {
     if (countryImage) item.imageUrl = countryImage.url;
     const position = layout?.items.find((entry) => entry.id === item.id);
     if (position?.imageUrl) item.imageUrl = position.imageUrl;
+    item.tier = position?.row || modificationTiers.units[unitId]?.[item.id];
     if (position)
       item.position = { group: position.group, row: position.row, column: position.column };
   }
@@ -134,6 +137,7 @@ await mkdir(resolve(root, "src/generated/countries"), { recursive: true });
 await mkdir(resolve(root, "data/generated/countries"), { recursive: true });
 await mkdir(resolve(root, "src/generated"), { recursive: true });
 await mkdir(resolve(root, "data/generated"), { recursive: true });
+await prepareVehicleFacts(root, catalog);
 // The complete snapshot is for build-time checks only; it is never published.
 await writeFile(resolve(root, "data/generated/catalog.json"), JSON.stringify(catalog) + "\n");
 const { trees: allTrees, audit, ...metadata } = catalog;

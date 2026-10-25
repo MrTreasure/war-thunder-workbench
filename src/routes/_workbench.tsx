@@ -1,3 +1,4 @@
+import { AppFooter } from "../components/AppFooter";
 import { AccountWorkspaceProvider } from "../AccountWorkspace";
 import { Outlet, createFileRoute } from "@tanstack/react-router";
 import { ErrorBoundary, WorkbenchProvider } from "../Workbench";
@@ -22,6 +23,7 @@ function WorkbenchLayout() {
                 data-scroll-restoration-id="workbench-content"
               >
                 <Outlet />
+                <AppFooter />
               </div>
             </WorkbenchProvider>
           </AccountWorkspaceProvider>

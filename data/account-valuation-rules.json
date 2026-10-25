@@ -26,7 +26,7 @@
       "purchasePercent": 50
     },
     "secondHand": {
-      "label": "交易价值",
+      "label": "参考价值",
       "rpCents": {
         "ground": 150,
         "helicopters": 150,

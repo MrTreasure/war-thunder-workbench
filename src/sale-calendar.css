@@ -139,7 +139,7 @@
   padding: 12px 8px;
   border-bottom: 1px solid var(--wt-line);
 }
-.wt-sale-watch-row img {
+.wt-sale-watch-row > img {
   width: 100px;
   height: 66px;
   object-fit: contain;
@@ -440,7 +440,7 @@
   padding: 8px 4px;
   border-bottom: 1px solid var(--wt-line);
 }
-.wt-sale-vehicle-option img {
+.wt-sale-vehicle-option > img {
   width: 86px;
   height: 58px;
   object-fit: contain;
@@ -453,7 +453,7 @@
   font-size: 13px;
   overflow-wrap: anywhere;
 }
-.wt-sale-vehicle-option span {
+.wt-sale-vehicle-option > div > span {
   display: block;
   color: var(--wt-muted);
   font-size: 11px;

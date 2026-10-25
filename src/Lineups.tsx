@@ -1,3 +1,4 @@
+import { VehicleTile } from "./VehicleTile";
 import cardTheme from "../data/vehicle-card-theme.json";
 import type { CSSProperties } from "react";
 import { Chevron } from "./components/Chevron";
@@ -13,7 +14,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { CatalogIndex, CountryPayload, Mode } from "./models";
 import type { DownloadProgress } from "./data-loader";
 import { LineupRoster } from "./LineupRoster";
-import { packPriceLabel } from "./PackPrice";
 import { Modal } from "./Modal";
 import { rankNumber } from "./planner";
 import { WarThunderLoading } from "./Loading";
@@ -741,6 +741,13 @@ function CountryLineups({
                 <label className="calc-field">
                   当前槽位
                   <GameSelect
+                    renderOption={(value) => {
+                      const id = selected.slots[Number(value)];
+                      const unit = id ? units.get(id) : null;
+                      return unit ? (
+                        <VehicleTile unit={unit} catalog={catalog} mode={mode} />
+                      ) : null;
+                    }}
                     value={activeSlot}
                     onValueChange={(value) => setActiveSlot(Number(value))}
                   >
@@ -828,37 +835,21 @@ function CountryLineups({
                   {candidates.slice(0, 100).map((unit) => {
                     const occupied = selected.slots.includes(unit.id);
                     return (
-                      <button
-                        key={unit.id}
-                        className={`lineup-candidate is-kind-${lineupVehicleKind(unit)}`}
-                        disabled={occupied}
-                        onClick={() => place(unit.id)}
-                      >
-                        <img src={unit.thumbnailUrl} width={64} height={38} alt="" loading="lazy" />
-                        <span>
-                          <strong>{unit.name}</strong>
-                          <span className="lineup-vehicle-tags">
-                            <span className={`lineup-kind-tag is-kind-${lineupVehicleKind(unit)}`}>
-                              {unit.kind === "pack"
-                                ? packPriceLabel(unit)
-                                : catalog.lineupKinds[lineupVehicleKind(unit)]}
-                            </span>
-                            {unit.premium && ["pack", "market"].includes(unit.kind) && (
-                              <span className="lineup-kind-tag is-kind-premium">
-                                {catalog.lineupKinds.premium}
-                              </span>
-                            )}
-                          </span>
-                          <small>
-                            {catalog.categories[unit.category]} · Rank {unit.rank}
-                          </small>
-                        </span>
-                        <b>
+                      <div className="wt-vehicle-option" key={unit.id}>
+                        <VehicleTile
+                          unit={unit}
+                          catalog={catalog}
+                          mode={mode}
+                          disabled={occupied}
+                          onSelect={() => place(unit.id)}
+                          modeRating={brLabel(vehicleStep(unit, selected.battleType, mode))}
+                        />
+                        <small>
                           {occupied
                             ? "已配置"
-                            : brLabel(vehicleStep(unit, selected.battleType, mode))}
-                        </b>
-                      </button>
+                            : `${catalog.categories[unit.category]} · Rank ${unit.rank}`}
+                        </small>
+                      </div>
                     );
                   })}
                   {!candidates.length && (

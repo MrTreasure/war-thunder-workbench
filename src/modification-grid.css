@@ -140,3 +140,161 @@
     display: grid;
   }
 }
+
+.wt-part-tier-list {
+  display: grid;
+  gap: 16px;
+}
+.wt-part-tier-row {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+}
+.wt-part-tier-row > h4 {
+  display: grid;
+  place-items: center;
+  margin: 0;
+  font: 400 18px var(--wt-sans);
+  color: var(--wt-muted);
+  border-right: 1px solid var(--wt-line);
+}
+.wt-part-tier-row .wt-part-grid.is-unmapped {
+  margin: 0;
+  grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+}
+.wt-part-unknown h4 {
+  color: var(--wt-muted);
+  font-weight: 400;
+}
+
+/* Compact modification research: the grid does not stretch cards to fill a wide dialog. */
+.calculator.wt-modifications-dialog {
+  width: min(1180px, calc(100vw - 32px));
+  height: min(760px, calc(100dvh - 32px));
+}
+.wt-modifications-dialog .calc-main {
+  grid-template-columns: 250px minmax(0, 1fr);
+}
+.wt-modifications-dialog .calc-output {
+  padding: 14px 16px;
+}
+.wt-parts-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.wt-parts-summary .calc-metrics {
+  flex: 1;
+  gap: 24px;
+  padding: 0;
+  border: 0;
+}
+.wt-parts-summary .calc-metrics > div {
+  gap: 3px;
+}
+.wt-parts-summary .calc-metrics strong {
+  font:
+    400 24px/1.2 WTCard,
+    var(--wt-sans);
+  letter-spacing: 0;
+}
+.wt-parts-summary .cart-actions {
+  margin: 0;
+}
+.wt-parts-summary .cart-actions output:empty {
+  display: none;
+}
+.wt-parts-breakdown {
+  margin: 10px 0;
+  color: var(--wt-muted);
+  font-size: 11px;
+}
+.wt-parts-breakdown > summary {
+  cursor: pointer;
+  padding-block: 4px;
+}
+.wt-parts-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 12px 0;
+}
+.wt-parts-heading h3 {
+  margin: 0 0 3px;
+  font-size: 12px;
+}
+.wt-parts-heading > div > span {
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-parts-board {
+  --wt-part-card-width: 96px;
+  --wt-part-row-height: 104px;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.wt-part-groups {
+  width: max-content;
+  min-width: 0;
+  gap: 12px;
+}
+.wt-part-group h4 {
+  height: 26px;
+  margin: 0 0 8px;
+  padding-bottom: 6px;
+  font-size: 12px;
+}
+.wt-part-grid {
+  grid-template-columns: repeat(var(--wt-part-columns, 2), var(--wt-part-card-width));
+  grid-auto-rows: var(--wt-part-row-height);
+  gap: 8px 6px;
+}
+.wt-part-card {
+  gap: 3px;
+  padding: 7px 4px;
+}
+.wt-part-image,
+.wt-part-image img {
+  width: 48px;
+  height: 36px;
+}
+.wt-part-name {
+  font-size: 11px;
+  line-height: 1.25;
+}
+.wt-part-card strong {
+  font-size: 11px;
+}
+.wt-part-card input {
+  width: 14px;
+  height: 14px;
+  top: 5px;
+  left: 5px;
+}
+.wt-part-ranks {
+  grid-auto-rows: var(--wt-part-row-height);
+  gap: 8px;
+  padding-top: 34px;
+  font-size: 15px;
+}
+.wt-part-tier-row .wt-part-grid.is-unmapped,
+.wt-part-grid.is-unmapped {
+  grid-template-columns: repeat(auto-fill, var(--wt-part-card-width));
+}
+
+.calculator.wt-modifications-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+.wt-modifications-dialog > .calc-header {
+  flex-shrink: 0;
+  padding: 10px 16px;
+}
+.wt-modifications-dialog .calc-main {
+  flex: 1;
+  height: auto;
+  min-height: 0;
+}

@@ -1,5 +1,5 @@
+import { VehicleTile } from "./VehicleTile";
 import { ModificationGrid } from "./ModificationGrid";
-import { VehicleImage } from "./VehicleImage";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { GameSelect } from "./components/GameSelect";
 import { useState } from "react";
@@ -49,6 +49,7 @@ export function ModificationCalculator({
   const unit = index.units.get(target)!;
   return (
     <Modal
+      className="wt-modifications-dialog"
       title="配件研发速算"
       subtitle={`${catalog.countries[country]} / ${catalog.categories[category]} · 单独计算此载具的配件`}
       close={close}
@@ -59,7 +60,14 @@ export function ModificationCalculator({
         selector={
           <label className="calc-field">
             目标载具
-            <GameSelect value={target} onValueChange={(value) => setTarget(value)}>
+            <GameSelect
+              renderOption={(id) => {
+                const unit = index.units.get(id);
+                return unit ? <VehicleTile unit={unit} catalog={catalog} /> : null;
+              }}
+              value={target}
+              onValueChange={(value) => setTarget(value)}
+            >
               {tree.ranks.map((rank) => (
                 <optgroup key={rank.rank} label={`Rank ${rank.rank}`}>
                   {[...index.units.values()]
@@ -245,49 +253,56 @@ function PartsForm({
         <p className="calc-note">{error || "配件进度与单价自动保存在此浏览器。"}</p>
       </section>
       <section className="calc-output">
-        <Metrics rp={rp} cents={cents} />
-        <p className="calc-formula">待研 RP ÷ 10,000 × 配件单价，金额四舍五入到分。</p>
-        <output className={`calc-status ${rp === null ? "has-error" : ""}`}>
-          {rp === null
-            ? "缺少完整配件研发点，或已研 RP 无效。请核对或手动填写后报价。"
-            : `${format(base!)} − ${format(completed)} − ${format(progress!)} = ${format(rp)} RP`}
-          {!data?.itemCostsComplete && (
-            <p className="calc-note">
-              逐项成本尚未完整匹配官方总额，暂不提供逐项扣除；可在左侧填写已投入 RP。
-            </p>
-          )}
-        </output>
-        <div className="cart-actions">
-          <button
-            className="quiet-button calc-open"
-            disabled={rp === null || cents === null || rp === 0}
-            onClick={() =>
-              setMessage(
-                add(
-                  makeItem({
-                    kind: "modifications",
-                    title: `${vehicleDisplayName(unit.name)} · 配件研发`,
-                    dataVersion: data?.checkedAt || catalog.checkedAt,
-                    lines,
-                    details: report,
-                  }),
-                ),
-              )
-            }
-          >
-            加入购物车
-          </button>
-          <output className="calc-note">{message}</output>
+        <div className="wt-parts-summary">
+          <Metrics rp={rp} cents={cents} />
+          <div className="cart-actions">
+            <button
+              className="quiet-button calc-open"
+              disabled={rp === null || cents === null || rp === 0}
+              onClick={() =>
+                setMessage(
+                  add(
+                    makeItem({
+                      kind: "modifications",
+                      title: `${vehicleDisplayName(unit.name)} · 配件研发`,
+                      dataVersion: data?.checkedAt || catalog.checkedAt,
+                      lines,
+                      details: report,
+                    }),
+                  ),
+                )
+              }
+            >
+              加入购物车
+            </button>
+            <output className="calc-note">{message}</output>
+          </div>
         </div>
-        <h3>配件明细 / 已完成</h3>
-        <div className="wt-parts-vehicle">
-          <VehicleImage key={unit.id} unit={unit} />
-          <span>{vehicleDisplayName(unit.name)}</span>
+        <details className="wt-parts-breakdown" open={rp === null}>
+          <summary>估算明细</summary>
+          <p className="calc-formula">待研 RP ÷ 10,000 × 配件单价，金额四舍五入到分。</p>
+          <output className={`calc-status ${rp === null ? "has-error" : ""}`}>
+            {rp === null
+              ? "缺少完整配件研发点，或已研 RP 无效。请核对或手动填写后报价。"
+              : `${format(base!)} − ${format(completed)} − ${format(progress!)} = ${format(rp)} RP`}
+            {!data?.itemCostsComplete && (
+              <p className="calc-note">
+                逐项成本尚未完整匹配官方总额，暂不提供逐项扣除；可在左侧填写已投入 RP。
+              </p>
+            )}
+          </output>
+        </details>
+        <div className="wt-parts-heading">
+          <div>
+            <h3>配件明细 / 已完成</h3>
+            <span>{vehicleDisplayName(unit.name)}</span>
+          </div>
         </div>
         {data?.items.length ? (
           <ModificationGrid
             data={data}
             included={state.included}
+            allUnlockedByDefault={data.allUnlockedByDefault || unit.premium}
             completed={state.completed}
             onChange={(id, checked) =>
               update({

@@ -1,0 +1,207 @@
+/* The approved tech-tree tile is the sole general vehicle surface. */
+.vehicle-card.wt-game-card {
+  flex: 0 0 auto;
+  max-width: 100%;
+  --wt-game-owned-icon: none;
+}
+.vehicle-card.wt-game-card[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.vehicle-card.wt-game-card.is-selected {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 2px;
+}
+.vehicle-card.wt-game-card:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 3px;
+}
+.wt-vehicle-tile-grid,
+.lineup-candidates {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 228px), 1fr));
+  align-items: start;
+  gap: 22px 14px;
+  padding-block: 16px;
+}
+.wt-vehicle-option {
+  display: grid;
+  justify-items: start;
+  align-content: start;
+  gap: 8px;
+  min-width: 0;
+}
+.wt-vehicle-option > small,
+.wt-research-tile-entry > small {
+  color: var(--wt-muted);
+  font: 400 11px/1.5 var(--wt-sans);
+}
+.wt-vehicle-text-action {
+  border: 0;
+  padding: 0;
+  color: var(--wt-gold);
+  background: transparent;
+  font: 400 12px/1.5 var(--wt-sans);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.wt-vehicle-text-action:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 3px;
+}
+:is(
+    .wt-vehicle-option,
+    .wt-valuation-product-media,
+    .calc-owned-row,
+    .wt-research-tile-entry,
+    .lineup-slot-select,
+    .wt-detail-route-list > li,
+    .lineup-summary-slots > li,
+    .wt-select-option > span,
+    .wt-sale-watch-row,
+    .wt-sale-vehicle-option
+  )
+  > .wt-game-card[data-kind="pack"] {
+  margin-bottom: 24px;
+}
+.lineup-summary-slots > li {
+  flex-basis: 246px;
+  min-width: 246px;
+  padding: 22px 8px 10px;
+  gap: 8px;
+}
+.lineup-summary-slots > li > small {
+  font: 400 11px/1.4 var(--wt-sans);
+}
+.lineup-slots > li {
+  flex-basis: 246px;
+  width: 246px;
+}
+.lineup-slot-select {
+  padding: 22px 8px 8px;
+  gap: 8px;
+}
+.lineup-slot-caption {
+  color: var(--wt-muted);
+  font: 400 11px/1.5 var(--wt-sans);
+}
+.calc-owned-row:has(> .wt-game-card) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding-block: 16px;
+}
+.calc-owned-row:has(> .wt-game-card) > input {
+  flex: 0 0 auto;
+}
+.wt-research-tile-entry {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  padding-block: 12px;
+}
+.vehicle-route-row:has(.wt-game-card) {
+  align-items: center;
+}
+.wt-detail-route-list {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 228px), 1fr));
+  gap: 22px 10px;
+  padding-top: 14px;
+}
+.wt-valuation-products {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 248px), 1fr));
+  gap: 16px;
+}
+.wt-valuation-product {
+  border-radius: 2px;
+  overflow: visible;
+}
+.wt-valuation-product-media {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-content: start;
+  gap: 22px;
+  padding: 20px 10px 12px;
+  min-height: 0;
+}
+.wt-valuation-product-media > .wt-game-card {
+  width: 228px;
+}
+.wt-valuation-product h4 {
+  font-family: WTSymbols, WTCard, var(--wt-sans);
+  font-weight: 400;
+}
+.wt-valuation-research {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+  gap: 16px;
+}
+.wt-valuation-research > article {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 12px 12px;
+}
+.wt-valuation-research > article > div {
+  min-width: 0;
+  max-width: 100%;
+}
+.wt-valuation-unpriced-art {
+  display: grid;
+  gap: 22px;
+  max-width: 100%;
+}
+.wt-valuation-research .wt-vehicle-name {
+  font-family: WTSymbols, WTCard, var(--wt-sans);
+}
+.wt-select-menu:has(.wt-game-card) {
+  min-width: min(266px, calc(100vw - 24px));
+}
+.wt-select-option:has(.wt-game-card) {
+  padding-block: 16px;
+  align-items: center;
+}
+.wt-sale-watch-row {
+  grid-template-columns: 228px minmax(120px, 1fr) minmax(200px, 1.6fr) minmax(160px, 1fr) 32px;
+  padding-block: 20px;
+}
+.wt-sale-vehicle-option {
+  padding-block: 20px;
+  flex-wrap: wrap;
+}
+.wt-sale-vehicle-option > .wt-game-card {
+  flex: 0 0 228px;
+}
+
+.vehicle-card.wt-game-card[role="group"] {
+  cursor: inherit;
+}
+
+/* Saved lineups use a single compact crew rail, without nested vehicle panels. */
+.lineup-saved-row { padding: 16px 18px 12px; background: color-mix(in srgb, var(--wt-surface) 65%, transparent); border-color: var(--wt-line); }
+.lineup-card-heading { align-items: center; }
+.lineup-card-heading h3 { margin: 0; font-size: 16px; font-weight: 500; }
+.lineup-summary-slots { gap: 12px; margin-top: 8px; padding: 18px 3px 10px; scrollbar-width: thin; scrollbar-color: var(--wt-line) transparent; }
+.lineup-summary-slots > li { flex-basis: 228px; min-width: 228px; padding: 0; gap: 6px; border: 0; background: transparent; align-items: flex-start; text-align: left; }
+.lineup-summary-slots > li > .wt-game-card[data-kind="pack"] { margin-bottom: 24px; }
+.lineup-summary-slots .lineup-summary-number { position: static; align-self: flex-start; line-height: 12px; font-size: 10px; }
+.lineup-summary-slots > li > small { color: var(--wt-muted); padding-left: 1px; }
+.lineup-summary-placeholder { width: 228px; height: 76px; border: 1px dashed var(--wt-line); font-size: 12px; }
+.lineup-summary-ratings { gap: 12px; margin-top: 8px; }
+.lineup-summary-ratings > span { padding: 0; border: 0; }
+.lineup-card-actions { margin-top: 8px; padding-top: 8px; }
+.lineup-card-actions button { padding: 4px 9px; min-height: 32px; font-size: 12px; }
+/* One scroll host for the sale picker; the result list never gets its own rail. */
+.wt-sale-picker.calculator { width: min(1080px, calc(100vw - 24px)); scrollbar-width: none; }
+.wt-sale-picker.calculator::-webkit-scrollbar { display: none; }
+.wt-sale-picker-results { max-height: none; overflow: visible; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
+.wt-sale-vehicle-option { position: relative; display: grid; grid-template-columns: 228px minmax(0, 1fr); gap: 12px; padding: 22px 0; align-content: start; }
+.wt-sale-vehicle-option > div { min-width: 0; }
+.wt-sale-vehicle-option > div > strong { font-family: WTSymbols, WTCard, var(--wt-sans); font-weight: 400; }
+.wt-sale-vehicle-option > button { grid-column: 2; justify-self: start; font-size: 12px; padding: 4px 8px; }
+.wt-sale-picker footer { flex-wrap: wrap; }
+.wt-sale-picker-pages { display: flex; align-items: center; gap: 10px; }
+.wt-garage-tiles { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 26px 14px; }
+.wt-garage-tiles .wt-vehicle-option { min-width: 0; }
+@media (max-width: 1500px) { .wt-garage-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 1080px) { .wt-garage-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

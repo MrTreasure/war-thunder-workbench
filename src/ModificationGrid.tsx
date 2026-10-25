@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import type { Modification, ModificationData } from "./models";
 import { compactResearchPoints } from "./research-number-format";
 import { format } from "./quotes";
+import { ResearchPoints } from "./ResearchPoints";
 const groupNames: Record<string, string> = {
   Mobility: "机动",
   Protection: "防护",
@@ -13,11 +14,13 @@ const groupNames: Record<string, string> = {
 export function ModificationGrid({
   data,
   included,
+  allUnlockedByDefault,
   completed,
   onChange,
 }: {
   data: ModificationData;
   included: boolean;
+  allUnlockedByDefault: boolean;
   completed: string[];
   onChange: (id: string, checked: boolean) => void;
 }) {
@@ -58,21 +61,33 @@ export function ModificationGrid({
         <span className="wt-part-name" title={item.name}>
           {item.name}
         </span>
-        <strong title={item.rp === null ? undefined : `${format(item.rp)} RP`}>
-          {item.rp === null ? "官方未提供" : `${compactResearchPoints(item.rp)} RP`}
-        </strong>
+        {!allUnlockedByDefault && (
+          <strong title={item.rp === null ? undefined : `${format(item.rp)} 研发点`}>
+            {item.rp === null ? (
+              "官方未提供"
+            ) : (
+              <ResearchPoints>{compactResearchPoints(item.rp)}</ResearchPoints>
+            )}
+          </strong>
+        )}
       </label>
     );
   }
   const located = data.items.filter((item) => item.position);
   const remaining = data.items.filter((item) => !item.position);
+  const tiers = [
+    ...new Set(
+      remaining.map((item) => item.tier).filter((tier): tier is number => tier !== undefined),
+    ),
+  ].sort((a, b) => a - b);
+  const unknown = remaining.filter((item) => item.tier === undefined);
   return (
     <div className="wt-parts-board">
       {!!data.presentation && located.length > 0 && (
         <div
           className="wt-part-groups"
           style={{
-            gridTemplateColumns: `24px ${data.presentation.groups.map((group) => `minmax(0, ${Math.max(1, group.columns)}fr)`).join(" ")}`,
+            gridTemplateColumns: `24px ${data.presentation.groups.map((group) => `calc(${Math.max(1, group.columns)} * var(--wt-part-card-width) + ${Math.max(0, group.columns - 1)} * 6px)`).join(" ")}`,
           }}
         >
           <aside className="wt-part-ranks" aria-label="配件等级">
@@ -98,8 +113,23 @@ export function ModificationGrid({
           ))}
         </div>
       )}
-      {remaining.length > 0 && (
-        <div className="wt-part-grid is-unmapped">{remaining.map((item) => card(item))}</div>
+      {tiers.length > 0 && (
+        <div className="wt-part-tier-list">
+          {tiers.map((tier) => (
+            <section className="wt-part-tier-row" key={tier} aria-label={`配件等级 ${tier}`}>
+              <h4>{["I", "II", "III", "IV", "V", "VI"][tier - 1] || tier}</h4>
+              <div className="wt-part-grid is-unmapped">
+                {remaining.filter((item) => item.tier === tier).map((item) => card(item))}
+              </div>
+            </section>
+          ))}
+        </div>
+      )}
+      {unknown.length > 0 && (
+        <section className="wt-part-unknown">
+          <h4>等级待核对</h4>
+          <div className="wt-part-grid is-unmapped">{unknown.map((item) => card(item))}</div>
+        </section>
       )}
     </div>
   );

@@ -1,3 +1,5 @@
+import { useVehicleCatalog, withVehicleFacts } from "./vehicle-catalog";
+import { VehicleTile } from "./VehicleTile";
 import { garageVehicleRecords } from "./garage-vehicles";
 import {
   comparePlayerVehicles,
@@ -22,7 +24,7 @@ import type { PlayerProfile, PlayerVehicle } from "./player-stats-api";
 import { usePlayerRead } from "./player-rankings-api";
 import type { OwnedGarage, PlayerDetails } from "./player-rankings-api";
 import { compactSilver, savedVehiclePageSize, saveVehiclePageSize } from "./player-number-format";
-import { PlayerVehicleCards, PlayerVehiclePagination } from "./PlayerVehicleCards";
+import { PlayerVehiclePagination } from "./PlayerVehicleCards";
 import { statsCountryMatches, statsCountryLabel } from "./stats-country";
 
 export function PlayerGarage({
@@ -48,7 +50,9 @@ export function PlayerGarage({
   const [pageSize, setPageSize] = useState(savedVehiclePageSize);
   const [mode, setMode] = useState("rb");
   const [sort, setSort] = useState<VehicleSort | null>({ key: "battles", direction: "desc" });
-  const units = read.data?.vehicles || [];
+  const rawUnits = read.data?.vehicles || [];
+  const facts = useVehicleCatalog(rawUnits.map((v) => v.country));
+  const units = rawUnits.map((v) => withVehicleFacts(v, facts));
   const filtered = units.filter(
     (v) =>
       statsCountryMatches(v.country, country) &&
@@ -242,12 +246,28 @@ export function PlayerGarage({
                 ? ` · ${read.data.unmatchedCount} 辆尚未匹配分类，仍保留在清单中`
                 : ""}
             </p>
-            <PlayerVehicleCards
-              vehicles={vehicles.slice((currentPage - 1) * pageSize, currentPage * pageSize)}
-              select={selectVehicle}
-              showNaval={category !== "ground"}
-              noRecords={noRecords}
-            />
+            <div className="wt-vehicle-tile-grid wt-garage-tiles">
+              {vehicles
+                .slice((currentPage - 1) * pageSize, currentPage * pageSize)
+                .map((vehicle) => {
+                  const owned = filtered.find((v) => v.id === vehicle.id)!;
+                  return (
+                    <article className="wt-vehicle-option" key={vehicle.id}>
+                      <VehicleTile
+                        unit={{ ...owned, image: vehicle.image, thumbnail: vehicle.thumbnail }}
+                        owned
+                        mode={mode as "ab" | "rb" | "sb"}
+                        onSelect={() => selectVehicle(vehicle)}
+                      />
+                      <small>
+                        {statsCountryLabel(owned.country)} ·{" "}
+                        {owned.rank ? `Rank ${owned.rank}` : "等级待核验"} ·{" "}
+                        {noRecords.has(vehicle.id) ? "未出击" : "已出击"}
+                      </small>
+                    </article>
+                  );
+                })}
+            </div>
             {filtered.length === 0 && <p className="wt-record-empty">没有符合当前筛选的载具。</p>}
             <PlayerVehiclePagination
               page={currentPage}

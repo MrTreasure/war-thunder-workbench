@@ -1,3 +1,4 @@
+import { VehicleTile } from "./VehicleTile";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type {
   PointerEvent as ReactPointerEvent,
@@ -268,24 +269,21 @@ export function LineupRoster({
               >
                 <span className="lineup-slot-number">{index + 1}</span>
                 {unit ? (
-                  <img
-                    src={unit.thumbnailUrl}
-                    alt=""
-                    loading="lazy"
-                    width={110}
-                    height={65}
-                    draggable={false}
+                  <VehicleTile
+                    unit={unit}
+                    mode={mode}
+                    selected={activeSlot === index}
+                    modeRating={brLabel(vehicleStep(unit, battleType, mode))}
                   />
                 ) : (
                   <span className="lineup-slot-placeholder">＋</span>
                 )}
-                <span className="lineup-slot-name">
-                  <strong>{unit?.name || (id ? `资料缺失：${id}` : "选择载具")}</strong>
-                  <small>
-                    {unit
-                      ? `${categories[unit.category]} · ${mode.toUpperCase()} ${brLabel(vehicleStep(unit, battleType, mode))}`
-                      : "空槽位"}
-                  </small>
+                <span className="lineup-slot-caption">
+                  {unit
+                    ? `${categories[unit.category]} · Rank ${unit.rank}`
+                    : id
+                      ? `资料缺失：${id}`
+                      : "选择载具"}
                 </span>
               </button>
               <div className="lineup-slot-tools">

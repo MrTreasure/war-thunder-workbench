@@ -1,3 +1,4 @@
+import { registerCountryVehicles } from "./vehicle-catalog";
 import { Chevron } from "./components/Chevron";
 import { useAccountWorkspace } from "./workspace-context";
 import { vehicleDisplayName } from "./vehicle-display-name";
@@ -7,14 +8,14 @@ import { Component, createContext, useContext, useEffect, useMemo, useRef, useSt
 import { useRouterState } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import type { CartItem, Catalog, CatalogIndex, DataManifest, CountryPayload, Mode } from "./models";
-import { TreeCanvas, treeLayout, modes, rating, rpText } from "./TreeCanvas";
+import { TreeCanvas, treeLayout, modes } from "./TreeCanvas";
 import { indexTree } from "./planner";
 import { VehicleCalculator } from "./VehicleCalculator";
 import { ModificationCalculator } from "./Modifications";
 import { Cart } from "./Cart";
 import { Lineups } from "./Lineups";
 import { VehicleImage } from "./VehicleImage";
-import { VehicleWikiFacts } from "./VehicleWikiFacts";
+import { VehicleDetails } from "./VehicleDetails";
 import { Modal } from "./Modal";
 import { WarThunderLoading } from "./Loading";
 import { dataCache, cacheLabel } from "./data-cache";
@@ -25,7 +26,7 @@ import { object } from "./validation";
 import { workbenchPage } from "./features";
 import manifestData from "./generated/manifest.json";
 const manifest: DataManifest = { ...manifestData, schemaVersion: 3 };
-import { useStored } from "./storage";
+import { readJson, useStored } from "./storage";
 import { validCart } from "./quotes";
 import bootstrapData from "./generated/bootstrap.json";
 export class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
@@ -56,7 +57,6 @@ export function useWorkbenchPage(page: "tree" | "lineups") {
 export function WorkbenchProvider({ children }: { children: ReactNode }) {
   const workspace = useAccountWorkspace();
   const bootstrap = bootstrapData as CatalogIndex;
-  const params = new URLSearchParams(location.search);
   const [initial] = useState(() =>
     initialSelection(bootstrap.countries, bootstrap.categories, location.search),
   );
@@ -76,7 +76,13 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   const [remoteManifest, setRemoteManifest] = useState<DataManifest | null>(null);
   const countryEntry = remoteManifest?.countries[country] || manifest.countries[country] || null;
   useEffect(() => {
-    if (garagePage || !country || ["maps", "stats", "sales", "decals"].includes(page)) return;
+    if (
+      import.meta.env.VITE_WT_CATALOG_SOURCE === "bundled" ||
+      garagePage ||
+      !country ||
+      ["maps", "stats", "sales", "decals"].includes(page)
+    )
+      return;
     const controller = new AbortController();
     const refresh = () => {
       if (document.hidden) return;
@@ -173,8 +179,10 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
         setCountryProgress({ ...value, key: currentKey }),
       )
       .then((result) => {
-        if (!controller.signal.aborted)
+        if (!controller.signal.aborted) {
+          registerCountryVehicles(result.value);
           setLoadedCountry({ key: currentKey, value: result.value, cache: result.saved });
+        }
       })
       .catch((error) => {
         if (!controller.signal.aborted)
@@ -197,35 +205,66 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
     setRemembered(rememberSelection({ country, category: value }));
     setCategory(value);
   }
-  const [mode, setMode] = useState<Mode>(
-    ["ab", "rb", "sb"].includes(params.get("mode") || "") ? (params.get("mode") as Mode) : "rb",
-  );
+  const [mode, setMode] = useState<Mode>(initial.mode || "rb");
   const [selected, setSelected] = useState<string | null>(null);
   const [expanded, setExpanded] = useState(new Set<string>());
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initial.query || "");
   const [showResults, setShowResults] = useState(false);
   const [mobileToolsOpen, setMobileToolsOpen] = useState(false);
   const mobileToolsToggle = useRef<HTMLButtonElement>(null);
-  const [filter, setFilter] = useState("all");
-  const [zoom, setZoom] = useState(1);
-  const [autoZoom, setAutoZoom] = useState(true);
+  const [filter, setFilter] = useState(initial.filter || "all");
+  const [zoomPreference] = useState(() =>
+    readJson<{ zoom: number; autoZoom: boolean } | null>(
+      "wt-planner-v1:tree-zoom",
+      null,
+      (value): value is { zoom: number; autoZoom: boolean } =>
+        object(value) &&
+        typeof value.zoom === "number" &&
+        Number.isFinite(value.zoom) &&
+        value.zoom >= 0.5 &&
+        value.zoom <= 1.4 &&
+        typeof value.autoZoom === "boolean",
+    ),
+  );
+  const [zoom, setZoom] = useState(zoomPreference?.zoom ?? 1);
+  const [autoZoom, setAutoZoom] = useState(zoomPreference?.autoZoom ?? true);
+  useEffect(() => {
+    try {
+      localStorage.setItem("wt-planner-v1:tree-zoom", JSON.stringify({ zoom, autoZoom }));
+    } catch {
+      /* Keep the selected scale usable when browser storage is unavailable. */
+    }
+  }, [zoom, autoZoom]);
   const [locate, setLocate] = useState(0);
   const [modal, setModal] = useState<"parts" | "vehicle" | "cart" | "image" | null>(null);
+  const preferenceSearch = useRef(location.search);
   useEffect(() => {
     function restoreRoute() {
       setModal(null);
       setMobileToolsOpen(false);
-      const next = initialSelection(bootstrap.countries, bootstrap.categories, location.search);
+      const next = initialSelection(
+        bootstrap.countries,
+        bootstrap.categories,
+        location.search,
+        false,
+      );
       setCountry(next.country);
       setCategory(next.category);
-      const requested = new URLSearchParams(location.search).get("mode");
-      setMode(requested && ["ab", "rb", "sb"].includes(requested) ? (requested as Mode) : "rb");
+      setMode(next.mode || "rb");
     }
-    window.addEventListener("hashchange", restoreRoute);
-    window.addEventListener("popstate", restoreRoute);
+    const routeChange = () => {
+      setModal(null);
+      setMobileToolsOpen(false);
+      if (location.search !== preferenceSearch.current) {
+        preferenceSearch.current = location.search;
+        restoreRoute();
+      }
+    };
+    window.addEventListener("hashchange", routeChange);
+    window.addEventListener("popstate", routeChange);
     return () => {
-      window.removeEventListener("hashchange", restoreRoute);
-      window.removeEventListener("popstate", restoreRoute);
+      window.removeEventListener("hashchange", routeChange);
+      window.removeEventListener("popstate", routeChange);
     };
   }, [bootstrap]);
   const modifications =
@@ -280,14 +319,15 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       .includes(needle),
   );
   useEffect(() => {
-    if (country) rememberSelection({ country, category });
-  }, [country, category]);
+    rememberSelection({ country, category, mode, filter, query });
+  }, [country, category, mode, filter, query]);
   useEffect(() => {
     const next = new URLSearchParams(location.search);
     if (country) next.set("country", country);
     else next.delete("country");
     next.set("category", category);
     next.set("mode", mode);
+    preferenceSearch.current = `?${next}`;
     history.replaceState(history.state, "", `${location.pathname}?${next}${location.hash}`);
   }, [country, category, mode]);
   useEffect(() => {
@@ -817,68 +857,20 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
               </a>
             }
           >
-            <article className="detail" aria-label="载具详情">
-              <button
-                className="detail-image"
-                onClick={() => setModal("image")}
-                aria-label={`放大查看 ${vehicleDisplayName(unit.name)} 官方图片`}
-              >
-                <VehicleImage key={unit.id} unit={unit} />
-                <span className="detail-image-hint">点击放大 ⛶</span>
-              </button>
-              <div className="detail-actions">
-                <button
-                  className="quiet-button calc-open"
-                  disabled={unit.side !== "research"}
-                  title={unit.side !== "research" ? "独立获取载具不接入常规研发路线" : undefined}
-                  onClick={() => setModal("vehicle")}
-                >
-                  研发载具
-                </button>
-                <button className="quiet-button calc-open" onClick={openParts}>
-                  研发配件
-                </button>
-              </div>
-              <div className="detail-facts">
-                <span>
-                  {modes[mode]} {mode.toUpperCase()} {rating(unit, mode)}
-                </span>
-              </div>
-              <VehicleWikiFacts unit={unit} catalog={P} country={country} category={category} />
-              {unit.side === "research" ? (
-                <>
-                  <h3>必要前置路线</h3>
-                  <ol className="research-path">
-                    {path.map((id) => {
-                      const previous = indexed.units.get(id);
-                      return previous ? (
-                        <li key={id}>
-                          {vehicleDisplayName(previous.name)}
-                          <small>
-                            {rpText(previous)} · Rank {previous.rank}
-                          </small>
-                        </li>
-                      ) : null;
-                    })}
-                  </ol>
-                  <p>沿真实前置关系展开，不代表已满足等级购车数量。速算面板会补齐等级门槛。</p>
-                </>
-              ) : (
-                <p>独立获取载具，不接入常规研发路线。礼包与市场链接是否在售以商城为准。</p>
-              )}
-              <div className="detail-links">
-                {unit.store && (
-                  <a href={unit.store} target="_blank" rel="noreferrer">
-                    官方礼包 ↗
-                  </a>
-                )}
-                {unit.market && (
-                  <a href={unit.market} target="_blank" rel="noreferrer">
-                    市场 ↗
-                  </a>
-                )}
-              </div>
-            </article>
+            <VehicleDetails
+              unit={unit}
+              catalog={P}
+              country={country}
+              category={category}
+              mode={mode}
+              path={path
+                .map((id) => indexed.units.get(id))
+                .filter((value): value is NonNullable<typeof value> => !!value)}
+              onImage={() => setModal("image")}
+              onVehicle={() => setModal("vehicle")}
+              onParts={openParts}
+              onSelect={setSelected}
+            />
           </Modal>
         )}
       </main>

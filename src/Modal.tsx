@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef } from "react";
 import type { ReactNode } from "react";
+import { ResearchPoints } from "./ResearchPoints";
 export function Modal({
   title,
   subtitle,
@@ -46,13 +47,15 @@ export function Metrics({ rp, cents }: { rp: number | null; cents: number | null
     <div className="calc-metrics">
       <div>
         <span>待研发总量</span>
-        <strong>{rp === null ? "待核对" : `${rp.toLocaleString("zh-CN")} RP`}</strong>
+        <strong>
+          {rp === null ? "待核对" : <ResearchPoints>{rp.toLocaleString("zh-CN")}</ResearchPoints>}
+        </strong>
       </div>
       <div>
         <span>预估价格</span>
         <strong>
           {cents === null
-            ? "待报价"
+            ? "待估算"
             : `¥ ${(cents / 100).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
         </strong>
       </div>

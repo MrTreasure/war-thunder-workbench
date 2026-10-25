@@ -1,3 +1,4 @@
+import { VehicleTile } from "./VehicleTile";
 import type { CatalogIndex, LineupRules, Mode } from "./models";
 import type { Lineup, LineupRating, LineupVehicle } from "./lineups";
 import { brLabel, vehicleStep, lineupVehicleKind, lineupRatings } from "./lineups";
@@ -21,33 +22,40 @@ export function LineupSummary({
       tabIndex={0}
       aria-label={`${lineup.name} 的槽位预览，可横向滚动`}
     >
-      {lineup.slots.map((id, index) => {
-        const unit = id ? units.get(id) : undefined;
-        return (
-          <li key={index} className={unit ? `is-kind-${lineupVehicleKind(unit)}` : "is-empty"}>
-            <span className="lineup-summary-number">{index + 1}</span>
-            {unit ? (
-              <img src={unit.thumbnailUrl} width={92} height={54} loading="lazy" alt="" />
-            ) : (
-              <span className="lineup-summary-placeholder">—</span>
-            )}
-            <strong>{unit?.name || (id ? "资料待更新" : "空槽位")}</strong>
-            {unit && (
-              <small>
-                {catalog.categories[unit.category]} · Rank {unit.rank}
-              </small>
-            )}
-            {unit && (
-              <span className="lineup-summary-br">
-                {mode.toUpperCase()} {brLabel(vehicleStep(unit, lineup.battleType, mode))}
-              </span>
-            )}
-            {unit?.category === "aviation" &&
-              lineup.battleType === "air" &&
-              lineup.activeAircraft === id && <small>RB 出击</small>}
-          </li>
-        );
-      })}
+      {lineup.slots
+        .slice(
+          0,
+          Math.max(
+            1,
+            lineup.slots.reduce((last, id, i) => (id ? i + 1 : last), 0),
+          ),
+        )
+        .map((id, index) => {
+          const unit = id ? units.get(id) : undefined;
+          return (
+            <li key={index} className={unit ? `is-kind-${lineupVehicleKind(unit)}` : "is-empty"}>
+              <span className="lineup-summary-number">{index + 1}</span>
+              {unit ? (
+                <VehicleTile
+                  unit={unit}
+                  catalog={catalog}
+                  mode={mode}
+                  modeRating={brLabel(vehicleStep(unit, lineup.battleType, mode))}
+                />
+              ) : (
+                <span className="lineup-summary-placeholder">{id ? "资料待更新" : "空槽位"}</span>
+              )}
+              {unit && (
+                <small>
+                  {catalog.categories[unit.category]} · Rank {unit.rank}
+                </small>
+              )}
+              {unit?.category === "aviation" &&
+                lineup.battleType === "air" &&
+                lineup.activeAircraft === id && <small>RB 出击</small>}
+            </li>
+          );
+        })}
     </ol>
   );
 }

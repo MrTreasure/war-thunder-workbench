@@ -25,6 +25,7 @@ type Props = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "value" | "onChange" 
   value: string | number;
   onValueChange: (value: string) => void;
   children: ReactNode;
+  renderOption?: (value: string) => ReactNode;
 };
 
 function text(children: ReactNode): string {
@@ -59,6 +60,7 @@ export function GameSelect({
   value,
   onValueChange,
   children,
+  renderOption,
   className = "",
   disabled,
   id,
@@ -261,7 +263,7 @@ export function GameSelect({
                   <span className="wt-select-check" aria-hidden="true">
                     {index === chosen ? "✓" : ""}
                   </span>
-                  <span>{option.label}</span>
+                  <span>{renderOption?.(option.value) ?? option.label}</span>
                 </div>
               </Fragment>
             ))}

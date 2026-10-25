@@ -1,13 +1,13 @@
 // Generated: load only the selected country's transport module.
 export const countryModules: Record<string, () => Promise<{ default: string }>> = {
-"country-usa": () => import("./countries/country-usa.ca2786eadf416857"),
-"country-germany": () => import("./countries/country-germany.bedef54906f5e20e"),
-"country-ussr": () => import("./countries/country-ussr.5b3688a1c9c8bc4a"),
-"country-britain": () => import("./countries/country-britain.daf334a15a0fac18"),
-"country-japan": () => import("./countries/country-japan.68ff8a214a769098"),
-"country-china": () => import("./countries/country-china.50cc3dfd73a2711a"),
-"country-italy": () => import("./countries/country-italy.995e101de229597f"),
-"country-france": () => import("./countries/country-france.814c6479dcc276fd"),
-"country-sweden": () => import("./countries/country-sweden.54c11161ef2292a0"),
-"country-israel": () => import("./countries/country-israel.b0d406ebceb50582")
+"country-usa": () => import("./countries/country-usa.7bac6d02e8869603"),
+"country-germany": () => import("./countries/country-germany.9616113de65f765a"),
+"country-ussr": () => import("./countries/country-ussr.0b954d070fefde39"),
+"country-britain": () => import("./countries/country-britain.2d6cd9daff055788"),
+"country-japan": () => import("./countries/country-japan.ebb79dcab6cff136"),
+"country-china": () => import("./countries/country-china.e705c0d19bc14a2c"),
+"country-italy": () => import("./countries/country-italy.cc7f052db0b0e1ab"),
+"country-france": () => import("./countries/country-france.ce49e17333b6b231"),
+"country-sweden": () => import("./countries/country-sweden.35a5dd1f232ea377"),
+"country-israel": () => import("./countries/country-israel.45b8f9b699a2b11b")
 };

@@ -1,6 +1,8 @@
-import type { Catalog, Vehicle, WikiVehicleDetails } from "./models";
+import type { Vehicle, WikiVehicleDetails } from "./models";
 import { PackPriceDetails } from "./PackPrice";
 import { rpText } from "./TreeCanvas";
+import { ResearchPoints } from "./ResearchPoints";
+import { compactResearchPoints } from "./research-number-format";
 import "./vehicle-wiki-facts.css";
 
 const modeLabels = { ab: "街机 AB", rb: "历史 RB", sb: "全真 SB" };
@@ -20,53 +22,24 @@ function Reward({ value, mode }: { value: RewardPercent | undefined; mode: "ab" 
     </span>
   );
 }
-export function VehicleWikiFacts({
-  unit,
-  catalog,
-  country,
-  category,
-}: {
-  unit: Vehicle;
-  catalog: Catalog;
-  country: string;
-  category: string;
-}) {
+export function VehicleWikiFacts({ unit }: { unit: Vehicle }) {
   const details = unit.wikiDetails,
     rewards = details?.rewards;
   const purchase = details?.purchase;
   return (
     <div className="wt-vehicle-wiki">
-      <section aria-labelledby="wt-vehicle-basic-title">
-        <h3 id="wt-vehicle-basic-title">基础资料</h3>
-        <dl className="wt-vehicle-facts">
-          <div>
-            <dt>国家 / 军种</dt>
-            <dd>
-              {catalog.countries[country]} · {catalog.categories[category]}
-            </dd>
-          </div>
-          <div>
-            <dt>阶级</dt>
-            <dd>Rank {unit.rank}</dd>
-          </div>
-          <div>
-            <dt>载具类型</dt>
-            <dd>{unit.role ? catalog.roles[unit.role] || unit.role : "暂无资料"}</dd>
-          </div>
-          <div>
-            <dt>获取类别</dt>
-            <dd>
-              {unit.side === "research" ? "常规研发" : catalog.kinds[unit.kind] || "特殊载具"}
-            </dd>
-          </div>
-        </dl>
-      </section>
       <section aria-labelledby="wt-vehicle-purchase-title">
         <h3 id="wt-vehicle-purchase-title">获取与价格</h3>
         {(unit.side === "research" || unit.kind === "squadron") && (
           <div className="wt-vehicle-price-line">
             <span>{unit.kind === "squadron" ? "联队研发点" : "载具研发点"}</span>
-            <strong>{rpText(unit)}</strong>
+            <strong>
+              {unit.rp ? (
+                <ResearchPoints>{compactResearchPoints(unit.rp)}</ResearchPoints>
+              ) : (
+                rpText(unit)
+              )}
+            </strong>
           </div>
         )}
         {unit.kind === "gold" && (
@@ -133,7 +106,11 @@ export function VehicleWikiFacts({
             </small>
           </>
         ) : (
-          <p className="wt-vehicle-facts-note">暂无已采集的收益倍率。</p>
+          <p className="wt-vehicle-facts-note">
+            {details?.rewardStatus?.state === "not_listed"
+              ? "官方页面暂未列出该载具的收益倍率。"
+              : "尚未采集到该载具的收益倍率。"}
+          </p>
         )}
         <p className="wt-vehicle-facts-note">
           展示载具资料中的获取百分比，非单局最终收益；账号和活动加成以实际结算为准。

@@ -12,13 +12,20 @@ export function AppHeader() {
     <header className="app-header">
       <div className="app-header-inner">
         <div className="app-identity">
-          <img
-            className="wt-brand-logo"
-            src="https://warthunder.com/assets/img/svg/logo-wt.svg"
-            alt="War Thunder"
-            width={94}
-            height={45}
-          />
+          <a
+            href="#/tree"
+            className="wt-home-link"
+            aria-label="返回研发科技树"
+            title="返回研发科技树"
+          >
+            <img
+              className="wt-brand-logo"
+              src="https://warthunder.com/assets/img/svg/logo-wt.svg"
+              alt="War Thunder"
+              width={94}
+              height={45}
+            />
+          </a>
           <div className="app-brand-copy">
             <h1>研发工作台</h1>
             <span>战争雷霆玩家工具</span>

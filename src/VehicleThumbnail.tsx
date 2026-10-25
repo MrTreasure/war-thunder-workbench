@@ -1,7 +1,7 @@
 import { useState } from "react";
-import type { Vehicle } from "./models";
+type ThumbnailVehicle = { id: string; imageUrl?: string; thumbnailUrl?: string };
 import { vehicleMedia } from "./vehicle-media";
-function Thumbnail({ unit }: { unit: Vehicle }) {
+function Thumbnail({ unit }: { unit: ThumbnailVehicle }) {
   const media = vehicleMedia(unit.id, unit.imageUrl, unit.thumbnailUrl);
   const [fallback, setFallback] = useState(false);
   const [failed, setFailed] = useState(false);
@@ -18,6 +18,7 @@ function Thumbnail({ unit }: { unit: Vehicle }) {
       width={116}
       height={68}
       alt=""
+      draggable={false}
       loading="lazy"
       decoding="async"
       onError={() => {
@@ -27,6 +28,6 @@ function Thumbnail({ unit }: { unit: Vehicle }) {
     />
   );
 }
-export function VehicleThumbnail({ unit }: { unit: Vehicle }) {
+export function VehicleThumbnail({ unit }: { unit: ThumbnailVehicle }) {
   return <Thumbnail key={unit.id} unit={unit} />;
 }

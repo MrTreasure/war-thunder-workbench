@@ -1,17 +1,18 @@
 # 功能图片
 
-[在线体验](https://wt.mrtreasure.cc/)
+[正式站](https://render.qmuse.pub/p/muse/8645013411493394) · [国际站](https://wt.mrtreasure.cc/)
 
 图片中的进度、单价与队列均为示例设置。五组队列及分享码见 [示例队列](../examples/lineups.json)。
 
 | 文件 | 内容 |
 | --- | --- |
 | `home.png` | 尚未选择国家的首次访问首页 |
-| `tree.png` | 中国陆军 RB 科技树，90% 缩放 |
-| `vehicle-detail.png` | ZTZ99A 详情、图片、Wiki 标题链接与两个研发入口 |
-| `vehicle-rank-viii.png` / `vehicle-rank-vii.png` | 同一目标在 VIII / VII 计价起点的不同结果 |
+| `tree.png` | 新版中国陆军 RB 科技树，适应窗口缩放 |
+| `vehicle-detail.png` | ZTZ99A 新版详情、价格、收益倍率和紧凑前置路线 |
+| `vehicle-research.png` | 新版 ZTZ99A 研发：从 VIII 级计价，单价 3 元／万研发点 |
+| `vehicle-rank-viii.png` / `vehicle-rank-vii.png` | 历史版本的 VIII / VII 计价起点示例 |
 | `vehicle-filters.png` | 搜索 ZTZ、Rank VII、常规研发与补研策略 |
-| `modifications.png` | 已完成两个配件，另投入 5,000 RP |
+| `modifications.png` | 新版配件等级与栏目：勾选三个已完成配件，另投入 5,000 RP |
 | `lineup-china-117.png` | 中国 11.7 配置，含常规 / 礼包 / 联队载具 |
 | `lineup-germany-57.png` / `lineup-germany-67.png` | 德国 5.7 / 6.7 配置 |
 | `lineup-usa-70.png` / `lineup-usa-top.png` | 美国 7.0 / 顶级房 12.7 配置 |
@@ -91,4 +92,6 @@
 
 ## 本次更新范围
 
-2026-10-24 补拍上述战绩、车库、Top 30 和联队载具；2026-10-23 的估值、战报、分享图片与折扣日历保留原图；科技树、出击队列、地图绘图等未改版图片保留原采集时间。`manifest.json` 对每个文件单独记录拍摄时间、来源、尺寸和 SHA-256，`updatedAt` 表示清单更新时间，原始批次日期及旧图时间保留，不把旧图标成重新拍摄。
+**2026-10-25** 从已发布正式站（QMuse 版本 `90800545`）重新拍摄首页、科技树、载具详情、载具研发和配件研发。所有图片均为真实页面截图；进度与单价为操作示例，未重绘界面或修改计算数值。其余图片保留原日期。
+
+历史批次：2026-10-24 补拍上述战绩、车库、Top 30 和联队载具；2026-10-23 的估值、战报、分享图片与折扣日历保留原图；出击队列、地图绘图等未补拍图片保留原采集时间。`manifest.json` 对每个文件单独记录拍摄时间、来源、尺寸和 SHA-256，`updatedAt` 表示清单更新时间，原始批次日期及旧图时间保留，不把旧图标成重新拍摄。
