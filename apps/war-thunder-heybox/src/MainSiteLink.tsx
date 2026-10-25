@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { DetailPage, Icon } from "./ui";
+import { sdk } from "./runtime";
 export const MAIN_SITE = "https://render.qmuse.pub/p/muse/8645013411493394";
 
 /** The SDK has no arbitrary-URL navigation API. Keep a real HTTPS link and a selectable fallback. */
@@ -42,12 +43,8 @@ export function MainSiteLink() {
             onClick={() => {
               input.current?.focus();
               input.current?.select();
-              if (!navigator.clipboard) {
-                setMessage("请长按地址复制，然后在浏览器中打开。");
-                return;
-              }
-              void navigator.clipboard
-                .writeText(MAIN_SITE)
+              void sdk.device
+                .setClipboard({ text: MAIN_SITE })
                 .then(() => setMessage("主站地址已复制，可在浏览器中打开。"))
                 .catch(() => setMessage("请长按地址复制，然后在浏览器中打开。"));
             }}

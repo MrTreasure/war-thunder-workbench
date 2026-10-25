@@ -15,6 +15,18 @@ const dist = new URL("dist/", app),
 const html = await readFile(new URL("index.html", dist), "utf8");
 const manifest = JSON.parse(await readFile(new URL("manifest.json", dist), "utf8"));
 assert.equal(manifest.name, "战雷工作台");
+for (const key of ["userInfo", "network", "storage", "clipboard"]) {
+  assert.equal(
+    manifest.permissions?.[key]?.enabled,
+    true,
+    "Missing permission used by the miniapp: " + key,
+  );
+}
+const copySource = await readFile(new URL("src/MainSiteLink.tsx", app), "utf8");
+assert(
+  !copySource.includes("navigator.clipboard"),
+  "Native copy actions must use the SDK Host clipboard",
+);
 assert.deepEqual([...manifest.platforms].sort(), ["android", "ios"]);
 assert(
   !files.some((f) => /\.(wasm|wat|map)$/.test(f)),

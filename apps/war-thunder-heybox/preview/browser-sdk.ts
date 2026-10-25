@@ -14,6 +14,12 @@ const browserSDK = {
     getAccountState: async () => ({ isHeyboxAppLoggedIn: false, accountKey: null }),
     login: unavailable,
   },
+  device: {
+    async setClipboard({ text }: { text: string }) {
+      if (!navigator.clipboard) throw new Error("此浏览器未开放剪贴板，请长按地址复制。");
+      await navigator.clipboard.writeText(text);
+    },
+  },
   storage: {
     async getStorage<T>({ key }: { key: string }) {
       const value = localStorage.getItem(prefix + key);

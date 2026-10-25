@@ -80,3 +80,8 @@ pnpm --dir apps/war-thunder-heybox run build
 使用用户指定的官方 Sky Odyssey 歼-16 壁纸，图标聚焦中央飞机，封面裁切避开原图左侧的版本横幅；分别叠加独立的官方 War Thunder Logo。图标为200×200 PNG，封面为960×540 JPEG。来源SHA-256、裁切框及叠加位置统一记录在 `data/heybox-branding.json`，可运行 `pnpm --dir apps/war-thunder-heybox run prepare:branding` 复现。
 
 经用户确认，已撤回0.1.2，将新图标和封面随0.1.3重新提交审核。平台读回0.1.2为withdrawn、0.1.3为auditing，autoPublish=false；返回的图标与封面路径均匹配新素材哈希。当前线上0.1.1保持不变，未执行发布。
+
+
+## 权限核对（2026-10-25）
+
+现有功能权限、平台审批状态、暂不声明的能力与审核快照边界，见 [权限核对清单](docs/permissions.md)。本地已补齐剪贴板声明，并将复制主站地址改为 SDK `device.setClipboard`；本轮按用户要求只补源码，不撤回或重新提交0.1.3审核。
