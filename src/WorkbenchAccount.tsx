@@ -20,6 +20,7 @@ type Account = {
   refreshSession: () => Promise<StatsSession>;
   login: () => Promise<void>;
   logout: () => Promise<void>;
+  acceptLogin: (token: string) => Promise<void>;
 };
 const AccountContext = createContext<Account | null>(null);
 export function WorkbenchAccountProvider({ children }: { children: ReactNode }) {
@@ -259,6 +260,13 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
       setError(failure instanceof Error ? failure.message : "无法打开登录，请重试。");
     }
   }
+  async function acceptLogin(token: string) {
+    resetIdentity();
+    setStatsToken(token);
+    notifyStatsAccountLogin();
+    await refreshSession();
+    setError("");
+  }
   async function logout() {
     await statsRequest("auth/logout", {});
     resetIdentity();
@@ -277,6 +285,7 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
         refreshSession,
         login,
         logout,
+        acceptLogin,
       }}
     >
       {children}

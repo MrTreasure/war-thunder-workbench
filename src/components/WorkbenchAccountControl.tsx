@@ -1,7 +1,10 @@
+import { useState } from "react";
+import { HeyboxAccountDialog } from "./HeyboxAccountDialog";
 import { useWorkbenchAccount } from "../WorkbenchAccount";
 import { StatsAccountMenu } from "./StatsAccountMenu";
 export function WorkbenchAccountControl() {
   const { session, busy, error, clearError, login, logout } = useWorkbenchAccount();
+  const [heybox, setHeybox] = useState<"bind" | null>(null);
   return (
     <div className="wt-header-account">
       {session?.user?.id ? (
@@ -9,6 +12,7 @@ export function WorkbenchAccountControl() {
           <StatsAccountMenu
             name={session.user.displayName || session.user.email || "已登录"}
             onLogout={logout}
+            onHeyboxLink={() => setHeybox("bind")}
           />
         </div>
       ) : (
@@ -21,6 +25,7 @@ export function WorkbenchAccountControl() {
           {busy ? "登录中…" : "登录"}
         </button>
       )}
+      {heybox && <HeyboxAccountDialog purpose="bind" close={() => setHeybox(null)} />}
       {error && (
         <div className="wt-header-auth-message" role="alert">
           <span>{error}</span>

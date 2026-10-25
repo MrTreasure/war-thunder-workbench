@@ -4,18 +4,40 @@ import { UnlinkGameAccount } from "../GameAccountBinding";
 import { statsRequest, notifyStatsAccountLogin } from "../player-stats-api";
 import { useWorkbenchAccount } from "../WorkbenchAccount";
 import { Modal } from "../Modal";
-import { useEffect, useId, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useId, useRef, useState } from "react";
+import { AccountAvatar } from "../AccountAvatar";
+import type { AvatarOption } from "./AccountAvatarPicker";
+const AccountAvatarPicker = lazy(() => import("./AccountAvatarPicker"));
 
 export function StatsAccountMenu({
   name,
   onLogout,
+  onHeyboxLink,
 }: {
   name: string;
   onLogout: () => Promise<void>;
+  onHeyboxLink: () => void;
 }) {
   const workspace = useAccountWorkspace();
   const [unlinking, setUnlinking] = useState(false);
-  const { refreshSession } = useWorkbenchAccount();
+  const { session, refreshSession } = useWorkbenchAccount();
+  const [avatarEditor, setAvatarEditor] = useState(false),
+    [linkedAvatars, setLinkedAvatars] = useState<AvatarOption[]>([]),
+    [avatarError, setAvatarError] = useState("");
+  useEffect(() => {
+    if (!avatarEditor) return;
+    let live = true;
+    void statsRequest<{ linked: AvatarOption[] }>("auth/avatars")
+      .then((value) => {
+        if (live) setLinkedAvatars(value.linked);
+      })
+      .catch((error) => {
+        if (live) setAvatarError(error instanceof Error ? error.message : "关联头像暂不可用");
+      });
+    return () => {
+      live = false;
+    };
+  }, [avatarEditor]);
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState("");
   const [saving, setSaving] = useState(false);
@@ -51,6 +73,7 @@ export function StatsAccountMenu({
           }
         }}
       >
+        <AccountAvatar user={session?.user} />
         <span>{name}</span>
         <Chevron className="wt-account-chevron" />
       </button>
@@ -62,6 +85,16 @@ export function StatsAccountMenu({
         onToggle={(event) => setOpen(event.newState === "open")}
       >
         <p>{name}</p>
+        <button
+          type="button"
+          onClick={() => {
+            panel.current?.hidePopover();
+            setAvatarError("");
+            setAvatarEditor(true);
+          }}
+        >
+          修改头像
+        </button>
         <button
           type="button"
           disabled={busy || saving}
@@ -83,6 +116,15 @@ export function StatsAccountMenu({
           }}
         >
           云端数据
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            panel.current?.hidePopover();
+            onHeyboxLink();
+          }}
+        >
+          关联小黑盒账号
         </button>
         {workspace?.binding && (
           <button
@@ -116,6 +158,24 @@ export function StatsAccountMenu({
         {error && !editing && <small role="alert">{error}</small>}
       </div>
       {unlinking && <UnlinkGameAccount close={() => setUnlinking(false)} />}
+      {avatarEditor && (
+        <Modal title="选择头像" close={() => setAvatarEditor(false)} className="wt-avatar-dialog">
+          {avatarError && <p role="alert">{avatarError}</p>}
+          <Suspense fallback={<p>正在准备头像…</p>}>
+            <AccountAvatarPicker
+              currentId={session?.user?.avatarId}
+              linked={linkedAvatars}
+              authenticated={!!session?.user?.id}
+              onSelect={async (avatarId) => {
+                await statsRequest("auth/avatar", { avatarId });
+                await refreshSession();
+                notifyStatsAccountLogin();
+                setAvatarEditor(false);
+              }}
+            />
+          </Suspense>
+        </Modal>
+      )}
       {editing && (
         <Modal title="修改用户名" close={closeEditor} className="wt-username-dialog">
           <form
