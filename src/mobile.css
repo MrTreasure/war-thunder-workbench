@@ -2962,6 +2962,14 @@
   .wt-valuation-research {
     grid-template-columns: minmax(0, 1fr);
   }
+  .wt-valuation-product-pack,
+  .wt-valuation-research > .wt-valuation-research-group {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .wt-valuation-product-pack > .wt-valuation-product-body,
+  .wt-valuation-research-group > .wt-valuation-unpriced-art + div {
+    order: -1;
+  }
   .wt-valuation-product-pack > .wt-valuation-product-media,
   .wt-valuation-research-group > .wt-valuation-unpriced-art {
     grid-template-columns: repeat(2, minmax(0, 1fr));

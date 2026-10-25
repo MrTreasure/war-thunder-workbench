@@ -153,39 +153,15 @@
 .wt-valuation-product-pack,
 .wt-valuation-research > .wt-valuation-research-group {
   grid-column: 1 / -1;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: max-content minmax(0, 1fr);
   gap: 20px;
-  padding: 14px 16px;
-}
-.wt-valuation-product-pack > .wt-valuation-product-body {
-  order: -1;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  column-gap: 20px;
-  align-items: baseline;
-}
-.wt-valuation-product-pack .wt-valuation-product-kind {
-  grid-column: 1;
-  margin-bottom: 2px;
-}
-.wt-valuation-product-pack h4 {
-  grid-column: 1;
-}
-.wt-valuation-product-pack .wt-valuation-product-price {
-  grid-column: 2;
-  grid-row: 1 / 3;
-  align-self: center;
-  margin: 0;
-}
-.wt-valuation-product-pack .wt-valuation-product-notes {
-  grid-column: 1 / -1;
-  margin-top: 4px;
+  padding: 18px 16px 12px;
 }
 .wt-valuation-product-pack > .wt-valuation-product-media,
 .wt-valuation-research-group > .wt-valuation-unpriced-art {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, 228px);
   justify-items: start;
-  gap: 22px 16px;
+  gap: 22px 10px;
 }
 .wt-valuation-research > article > div {
   min-width: 0;
@@ -195,9 +171,6 @@
   display: grid;
   gap: 22px;
   max-width: 100%;
-}
-.wt-valuation-research-group > .wt-valuation-unpriced-art + div {
-  order: -1;
 }
 .wt-valuation-research .wt-vehicle-name {
   font-family: WTSymbols, WTCard, var(--wt-sans);
