@@ -1,4 +1,7 @@
 import { t } from "./i18n/core";
+import { vehicleFactModules } from "./generated/vehicle-fact-modules";
+import { sha256 } from "@noble/hashes/sha2.js";
+import { bytesToHex } from "@noble/hashes/utils.js";
 import { useEffect, useSyncExternalStore } from "react";
 import bootstrap from "./generated/bootstrap.json";
 import { readPublicResource } from "./public-resource-api";
@@ -42,23 +45,45 @@ export function loadVehicleCountry(country: string): Promise<void> {
   if ((loaded.get(country) || 0) > Date.now()) return Promise.resolve();
   const previous = pending.get(country);
   if (previous) return previous;
-  const request = readPublicResource<{ country: string; items: VehicleFacts[] }>(
-    `vehicles-${country}`,
-  )
-    .then((value) => {
-      if (
-        value.country !== country ||
-        !Array.isArray(value.items) ||
-        value.items.some(
-          (v) =>
-            !v || typeof v.id !== "string" || typeof v.name !== "string" || v.country !== country,
-        )
-      )
+  const request = (async () => {
+    const entry = vehicleFactModules[country];
+    if (entry) {
+      const { default: text } = await entry.load();
+      const bytes = new TextEncoder().encode(text);
+      if (bytes.byteLength !== entry.bytes || bytesToHex(sha256(bytes)) !== entry.sha256)
         throw new Error(t("载具目录格式异常。"));
-      publish(value.items);
-      loaded.set(country, Date.now() + 60_000);
-    })
-    .finally(() => pending.delete(country));
+      const body = JSON.parse(text) as {
+        schemaVersion: number;
+        country: string;
+        items: VehicleFacts[];
+      };
+      if (body.schemaVersion !== 1 || body.country !== country || !Array.isArray(body.items))
+        throw new Error(t("载具目录格式异常。"));
+      publish(body.items);
+    }
+    // The immutable build snapshot is a verified fallback. Preview never changes the live catalog.
+    if (import.meta.env.VITE_WT_CATALOG_SOURCE !== "preview") {
+      try {
+        const value = await readPublicResource<{ country: string; items: VehicleFacts[] }>(
+          `vehicles-${country}`,
+        );
+        if (
+          value.country !== country ||
+          !Array.isArray(value.items) ||
+          value.items.some(
+            (v) =>
+              !v || typeof v.id !== "string" || typeof v.name !== "string" || v.country !== country,
+          )
+        )
+          throw new Error(t("载具目录格式异常。"));
+        // Compatibility with older public directories, which contained acquisition data only.
+        publish(value.items.filter((v) => v.br && v.side && v.role));
+      } catch {
+        /* Keep the build snapshot and last verified facts. */
+      }
+    }
+    loaded.set(country, Date.now() + 60_000);
+  })().finally(() => pending.delete(country));
   pending.set(country, request);
   return request;
 }
