@@ -1355,3 +1355,109 @@ details[open] > summary::after {
   padding-bottom: 16px;
   line-height: 1.65;
 }
+/* finesse · h5/product · existing workbench tokens, game vehicle components */
+.hb-query-history {
+  margin: 18px 0;
+}
+.hb-query-history header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.hb-query-history h2 {
+  font-size: 16px;
+  margin: 0;
+}
+.hb-query-history > button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px;
+  text-align: left;
+}
+.hb-query-history small {
+  display: block;
+  margin-top: 4px;
+  color: var(--wt-muted);
+}
+.hb-load-more {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 18px 0;
+  color: var(--wt-muted);
+}
+.hb-value-links {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0;
+}
+.hb-value-links button {
+  text-align: left;
+  min-height: 44px;
+}
+.hb-value-rule {
+  border-top: 1px solid var(--wt-line);
+  margin-top: 16px;
+  padding-top: 8px;
+}
+.hb-value-vehicles {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+.hb-value-vehicles > article {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--wt-line);
+  min-width: 0;
+}
+.hb-value-item-note {
+  font-size: 12px;
+  display: grid;
+  gap: 6px;
+  margin-top: 8px;
+  color: var(--wt-muted);
+  overflow-wrap: anywhere;
+}
+.hb-value-item-note p {
+  margin: 0;
+}
+.hb-value-item-note strong {
+  color: var(--wt-ink);
+  font-size: 16px;
+}
+.hb-owned-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+}
+.hb-tree-scroll:not(.is-list) {
+  touch-action: pan-x pan-y;
+}
+.hb-app:has(.is-tree-fullscreen) > .hb-app-header,
+.hb-app:has(.is-tree-fullscreen) > .hb-tabbar,
+.is-tree-fullscreen > .hb-research-toolbar {
+  display: none;
+}
+.hb-research.is-tree-fullscreen {
+  position: fixed;
+  z-index: 50;
+  inset: var(--wt-host-safe-top, 0px) 0 var(--wt-host-safe-bottom, 0px);
+  background: var(--wt-page);
+}
+.hb-app .hb-exit-tree-fullscreen {
+  position: absolute;
+  z-index: 10;
+  right: 12px;
+  top: 12px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--wt-line);
+  background: var(--wt-panel);
+  box-shadow: 0 2px 12px #10151a66;
+}

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState, useRef } from "react";
+import { useTreeGesture } from "./useTreeGesture";
 import { registerCountryVehicles } from "../../../src/vehicle-catalog";
 import { matchesVehicleFilter } from "../../../src/vehicle-labels";
 import { ModificationGrid } from "../../../src/ModificationGrid";
@@ -44,6 +45,25 @@ export default function Research({ initial }: { initial?: ResearchIntent }) {
     [filters, setFilters] = useState(false),
     [display, setDisplay] = useState<"tree" | "list">("tree"),
     [zoom, setZoom] = useState(0.65);
+  const [fullscreen, setFullscreen] = useState(false);
+  const gestureRef = useTreeGesture(zoom, setZoom, !!data && display === "tree");
+  function exitFullscreen() {
+    setFullscreen(false);
+    if (location.hash === "#/research/fullscreen") history.back();
+  }
+  useEffect(() => {
+    if (!fullscreen) return;
+    const pop = () => setFullscreen(false),
+      key = (e: KeyboardEvent) => {
+        if (e.key === "Escape") exitFullscreen();
+      };
+    window.addEventListener("popstate", pop);
+    window.addEventListener("keydown", key);
+    return () => {
+      window.removeEventListener("popstate", pop);
+      window.removeEventListener("keydown", key);
+    };
+  }, [fullscreen]);
   const [expanded, setExpanded] = useState(new Set<string>()),
     [selected, setSelected] = useState<string | null>(initial?.target || null),
     [sheet, setSheet] = useState<"vehicle" | "mods" | null>(initial?.target ? "vehicle" : null);
@@ -113,12 +133,16 @@ export default function Research({ initial }: { initial?: ResearchIntent }) {
       matchesVehicleFilter(item, filter),
   );
   const choose = (id: string) => {
+    if (fullscreen) {
+      setFullscreen(false);
+      history.replaceState(history.state, "", "#/research");
+    }
     setSelected(id);
     setSheet("vehicle");
   };
   const unit = units.find((u) => u.id === selected);
   return (
-    <section className="hb-research">
+    <section className={"hb-research" + (fullscreen ? " is-tree-fullscreen" : "")}>
       <div className="hb-research-toolbar">
         <div className="hb-selects">
           <GameSelect
@@ -173,18 +197,22 @@ export default function Research({ initial }: { initial?: ResearchIntent }) {
               </button>
             </div>
             {display === "tree" && (
-              <label>
-                缩放{" "}
-                <input
-                  type="range"
-                  aria-label="科技树缩放"
-                  min=".6"
-                  max="1"
-                  step=".05"
-                  value={zoom}
-                  onChange={(e) => setZoom(Number(e.target.value))}
-                />
-              </label>
+              <button
+                type="button"
+                className="hb-icon"
+                aria-label="全屏科技树"
+                title="全屏科技树"
+                onClick={() => {
+                  history.pushState(
+                    { ...history.state, wtTreeFullscreen: true },
+                    "",
+                    "#/research/fullscreen",
+                  );
+                  setFullscreen(true);
+                }}
+              >
+                <span aria-hidden="true">⛶</span>
+              </button>
             )}
           </div>
         )}
@@ -203,6 +231,17 @@ export default function Research({ initial }: { initial?: ResearchIntent }) {
           </div>
         )}
       </div>
+      {fullscreen && (
+        <button
+          type="button"
+          className="hb-exit-tree-fullscreen hb-icon"
+          aria-label="退出全屏科技树"
+          title="退出全屏科技树"
+          onClick={exitFullscreen}
+        >
+          <Icon name="back" />
+        </button>
+      )}
       {!country ? (
         <div className="hb-country-entry">
           <h2>选择你的研发阵营</h2>
@@ -237,7 +276,7 @@ export default function Research({ initial }: { initial?: ResearchIntent }) {
           </button>
         </div>
       ) : tree ? (
-        <div className={"hb-tree-scroll " + (display === "list" ? "is-list" : "")}>
+        <div ref={gestureRef} className={"hb-tree-scroll " + (display === "list" ? "is-list" : "")}>
           {display === "tree" ? (
             <TreeCanvas
               tree={tree}

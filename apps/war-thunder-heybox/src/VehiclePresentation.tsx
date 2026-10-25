@@ -90,12 +90,13 @@ export function VehiclePresentation({
         owned={owned}
         onSelect={onSelect}
         selected={selected}
-        footerLabel={unit.rank ? `等级 ${unit.rank}` : "等级待核对"}
+        showRank
+        countryLabel={(catalog.countries as Record<string, string>)[countryId]}
       />
       <div className="hb-vehicle-caption">
         <span>{roles[unit.role || ""] || "类型待核对"}</span>
         <span>
-          {acquisition} · {(catalog.countries as Record<string, string>)[countryId] || "国家待匹配"}
+          {acquisition}
           {categoryId
             ? ` · ${(catalog.categories as Record<string, string>)[categoryId] || categoryId}`
             : ""}

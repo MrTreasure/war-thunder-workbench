@@ -13,14 +13,48 @@ import {
   useMiniappOwnedVehicles,
 } from "./VehiclePresentation";
 import { GameSelect } from "../../../src/components/GameSelect";
-import { request, query, pause, account } from "./runtime";
+import { request, query, pause, account, sdk } from "./runtime";
 import { MainSiteLink } from "./MainSiteLink";
 import { useRuntime } from "./context";
 import { DetailPage, ErrorNote, num, ratio } from "./ui";
+import { createQueryHistory, type QueryRecord } from "./query-history";
+import { MiniappValuationDetails } from "./ValuationDetails";
+import { visibleValuation } from "../../../src/valuation-visibility";
 import catalog from "../../../src/generated/bootstrap.json";
+const historyStore = createQueryHistory(sdk.storage);
 const modeNames = { ab: "街机", rb: "历史", sb: "全真" };
 export default function Stats({ boundRequest }: { boundRequest: number }) {
   const { view, cloud, reloadCloud } = useRuntime();
+  const [recent, setRecent] = useState<QueryRecord[]>([]);
+  const recentRef = useRef<QueryRecord[]>([]);
+  const [historyError, setHistoryError] = useState("");
+  const scroll = useRef<HTMLElement>(null),
+    more = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    let live = true;
+    void historyStore
+      .load()
+      .then((rows) => {
+        if (live && rows) {
+          recentRef.current = rows;
+          setRecent(rows);
+        }
+      })
+      .catch(() => {
+        if (live) setHistoryError("本地查询记录暂不可读，本次查询仍可继续。");
+      });
+    return () => {
+      live = false;
+    };
+  }, []);
+  function saveRecent(rows: QueryRecord[]) {
+    recentRef.current = rows;
+    setRecent(rows);
+    setHistoryError("");
+    void historyStore
+      .save(rows)
+      .catch(() => setHistoryError("本地记录保存失败，查询结果未受影响。"));
+  }
   const [nickname, setNickname] = useState(""),
     [candidates, setCandidates] = useState<PlayerCandidate[]>([]),
     [queryId, setQueryId] = useState(""),
@@ -62,6 +96,17 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
   }
   function loaded(value: PlayerProfile) {
     setProfile(value);
+    saveRecent(
+      [
+        {
+          uid: value.uid,
+          snapshotId: value.snapshotId,
+          nickname: "玩家 #" + value.uid,
+          fetchedAt: value.fetchedAt,
+        },
+        ...recentRef.current.filter((row) => row.uid !== value.uid),
+      ].slice(0, 20),
+    );
     setCandidates([]);
     setMode("rb");
     setPage(0);
@@ -109,6 +154,19 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
       if (!c.signal.aborted) loaded(value);
     });
   }
+  async function restoreRecord(row: QueryRecord) {
+    await run(async (c) => {
+      const value = await request<PlayerProfile>(
+        "players/restore",
+        { uid: row.uid, snapshotId: row.snapshotId },
+        c.signal,
+      );
+      if (c.signal.aborted) return;
+      if (value.uid !== row.uid) throw Error("记录身份不一致，请重新查询。");
+      loaded(value);
+      setNotice("已打开保存记录，采集时间见下方。");
+    });
+  }
   async function refresh() {
     if (!profile) return;
     await run(async (c) => {
@@ -131,7 +189,7 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
         { snapshotId: profile.snapshotId, requestId: "value_" + crypto.randomUUID() },
         c.signal,
       );
-      if (!c.signal.aborted) setValuation(value);
+      if (!c.signal.aborted) setValuation(visibleValuation(value));
     });
   }
   async function generate() {
@@ -192,7 +250,27 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
         (category === "all" || v.category === category),
     )
     .sort((a, b) => (b.battles || 0) - (a.battles || 0));
-  const visibleVehicles = vehicles.slice(page * 12, (page + 1) * 12);
+  const visibleVehicles = vehicles.slice(0, (page + 1) * 12);
+  useEffect(() => {
+    const target = more.current;
+    if (
+      !target ||
+      screen !== "profile" ||
+      vehicle ||
+      !profile ||
+      busy ||
+      (page + 1) * 12 >= vehicles.length
+    )
+      return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) setPage((p) => p + 1);
+      },
+      { root: scroll.current, rootMargin: "160px" },
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [page, vehicles.length, screen, vehicle, profile, busy]);
   const { error: vehicleFactsError, retry: retryVehicleFacts } = useMiniappVehicleFacts([
     ...visibleVehicles.map((unit) => unit.country || ""),
     vehicle?.country || "",
@@ -238,6 +316,7 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
               <dd>{num(valuation.unpriced.length)}</dd>
             </div>
           </dl>
+          <MiniappValuationDetails valuation={valuation} />
           <p className="hb-fine">{valuation.ownership?.notice}</p>
           <p className="hb-fine">{valuation.notice}</p>
           <p className="hb-fine">计算于 {date(valuation.calculatedAt)}。参考估值不代表交易价格。</p>
@@ -306,7 +385,7 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
     </DetailPage>
   );
   return (
-    <section className="hb-scroll hb-page hb-stats wt-record-page">
+    <section ref={scroll} className="hb-scroll hb-page hb-stats wt-record-page">
       <form
         className="hb-query-form"
         onSubmit={(e) => {
@@ -345,6 +424,36 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
           </button>
         </div>
       </form>
+      {recent.length > 0 && !profile && (
+        <section className="hb-query-history" aria-label="本地查询记录">
+          <header>
+            <h2>本地查询记录</h2>
+            <button disabled={busy} onClick={() => saveRecent([])}>
+              清除记录
+            </button>
+          </header>
+          {recent.map((row) => (
+            <button key={row.uid} disabled={busy} onClick={() => void restoreRecord(row)}>
+              <span>
+                {row.nickname}
+                <small>{date(row.fetchedAt)}</small>
+              </span>
+              <span aria-hidden="true">→</span>
+            </button>
+          ))}
+        </section>
+      )}
+      <ErrorNote error={historyError} />
+      {profile && recent.length > 0 && (
+        <button
+          onClick={() => {
+            setProfile(null);
+            setCandidates([]);
+          }}
+        >
+          返回查询记录
+        </button>
+      )}
       <ErrorNote error={error} />
       {notice && <output>{notice}</output>}
       {busy && (
@@ -493,22 +602,14 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
             }
           />
           {!vehicles.length && <p className="hb-muted">暂无符合筛选的出击记录。</p>}
-          {vehicles.length > 12 && (
-            <div className="hb-pagination">
-              <button disabled={page === 0} onClick={() => setPage((p) => p - 1)}>
-                上一页
-              </button>
-              <span>
-                {page + 1} / {Math.ceil(vehicles.length / 12)}
-              </span>
-              <button
-                disabled={(page + 1) * 12 >= vehicles.length}
-                onClick={() => setPage((p) => p + 1)}
-              >
-                下一页
-              </button>
-            </div>
-          )}
+          <div ref={more} className="hb-load-more" aria-live="polite">
+            <small>
+              已显示 {visibleVehicles.length} / {vehicles.length} 辆
+            </small>
+            {visibleVehicles.length < vehicles.length && (
+              <button onClick={() => setPage((p) => p + 1)}>加载更多载具</button>
+            )}
+          </div>
         </>
       )}
       <MainSiteLink />
