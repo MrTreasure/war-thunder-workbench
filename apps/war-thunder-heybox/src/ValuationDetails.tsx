@@ -22,6 +22,7 @@ type Row = {
   checkedAt?: string | null;
   amount?: number | null;
   owned: boolean;
+  packQuote?: { amountCents: number | null; checkedAt: string | null };
 };
 export function valuationRows(value: Valuation): Row[] {
   const rows: Row[] = [];
@@ -36,14 +37,13 @@ export function valuationRows(value: Valuation): Row[] {
     });
   value.research.forEach((v) =>
     add("普通研发", v, {
-      note: `${num(v.rp)} RP · ${v.owned ? "已拥有" : v.observed ? "有出击记录" : "推算前置"}`,
+      note: v.owned ? "" : v.observed ? "有出击记录，尚未核实拥有" : "推算前置，不代表实际拥有",
       source: v.rpSource,
       checkedAt: v.rpCheckedAt,
     }),
   );
   value.gold.forEach((v) =>
     add("金鹰载具", v, {
-      note: `${num(v.ge)} GE`,
       amount: v.amountCents,
       source: v.source,
       checkedAt: v.checkedAt,
@@ -52,10 +52,11 @@ export function valuationRows(value: Valuation): Row[] {
   value.packs.forEach((p) =>
     p.vehicles.forEach((v) =>
       add("礼包载具", v, {
-        note: p.title + " · 整包价格（同礼包不重复计价）",
+        unit: { ...v, kind: "pack" },
+        note: p.vehicles.length > 1 ? p.title + " · 同礼包不重复计价" : "",
         source: p.source,
         checkedAt: p.checkedAt,
-        amount: p.amountCents,
+        packQuote: { amountCents: p.amountCents, checkedAt: p.checkedAt },
       }),
     ),
   );
@@ -232,12 +233,15 @@ export function MiniappValuationDetails({ valuation: value }: { valuation: Valua
           <div className="hb-value-vehicles">
             {visible.map((row) => (
               <article key={row.key}>
-                <VehiclePresentation unit={row.unit} owned={row.owned} />
+                <VehiclePresentation
+                  unit={row.unit}
+                  owned={row.owned}
+                  showCountry={country === "all"}
+                  href={"https://wiki.warthunder.com/unit/" + encodeURIComponent(row.unit.id)}
+                  packQuote={row.packQuote}
+                />
                 <div className="hb-value-item-note">
-                  <span>
-                    {row.group} · {row.owned ? "已拥有" : "拥有状态待核实"}
-                  </span>
-                  <p>{row.note}</p>
+                  {row.note && <p>{row.note}</p>}
                   {Object.hasOwn(row, "amount") && <strong>{miniMoney(row.amount)}</strong>}
                   {row.checkedAt && (
                     <small>核对于 {new Date(row.checkedAt).toLocaleDateString("zh-CN")}</small>

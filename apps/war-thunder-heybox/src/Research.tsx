@@ -320,6 +320,7 @@ export default function Research({ initial }: { initial?: ResearchIntent }) {
                   unit={u}
                   country={country}
                   category={category}
+                  showCountry={false}
                   mode={mode}
                   owned={ownedVehicleIds.has(u.id)}
                   onSelect={() => choose(u.id)}

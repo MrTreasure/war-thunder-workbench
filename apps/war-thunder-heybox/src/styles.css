@@ -905,29 +905,13 @@ details[open] > summary::after {
 }
 .hb-vehicle-presentation {
   display: grid;
-  justify-items: center;
+  justify-items: start;
   align-content: start;
-  gap: 8px;
   min-width: 0;
   padding-top: 12px;
 }
 .hb-vehicle-presentation > .vehicle-card.wt-game-card[data-kind="pack"] {
   margin-bottom: 24px;
-}
-.hb-vehicle-caption {
-  width: 228px;
-  max-width: 100%;
-  display: grid;
-  gap: 3px;
-  color: var(--wt-muted);
-  font-size: 11px;
-  line-height: 1.5;
-}
-.hb-vehicle-caption > span {
-  overflow-wrap: anywhere;
-}
-.hb-vehicle-full-name {
-  color: var(--wt-body);
 }
 .hb-app .vehicle-card.wt-game-card,
 .hb-detail-body .vehicle-card.wt-game-card {
@@ -1342,19 +1326,6 @@ details[open] > summary::after {
   gap: 16px;
   padding: 18px 12px;
 }
-.hb-unit-list > .hb-vehicle-presentation {
-  grid-template-columns: 228px minmax(0, 1fr);
-  justify-items: start;
-  align-items: center;
-  gap: 12px;
-  padding-top: 10px;
-}
-.hb-unit-list .hb-vehicle-caption {
-  width: auto;
-  align-self: center;
-  padding-bottom: 16px;
-  line-height: 1.65;
-}
 /* finesse · h5/product · existing workbench tokens, game vehicle components */
 .hb-query-history {
   margin: 18px 0;
@@ -1410,7 +1381,12 @@ details[open] > summary::after {
   gap: 16px;
   margin-top: 16px;
 }
+/* finesse · component: valuation-entry · register=h5/product · tokens: inherited */
 .hb-value-vehicles > article {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
   padding-bottom: 16px;
   border-bottom: 1px solid var(--wt-line);
   min-width: 0;
@@ -1419,7 +1395,9 @@ details[open] > summary::after {
   font-size: 12px;
   display: grid;
   gap: 6px;
-  margin-top: 8px;
+  flex: 1 1 120px;
+  min-width: 0;
+  padding-block: 8px;
   color: var(--wt-muted);
   overflow-wrap: anywhere;
 }
