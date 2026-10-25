@@ -11,19 +11,20 @@
   <body>
     <header>
       <div>
-        <p class="version">战雷工作台 · 0.1.2</p>
+        <p class="version">战雷工作台 · 0.1.6</p>
         <h1>小程序界面验收</h1>
       </div>
       <a class="action" href="../heybox-preview/">打开可操作预览 ↗</a>
     </header>
     <main>
       <section class="intro">
-        <strong class="status">部分通过</strong>
+        <strong class="status">浏览器验收通过 · 真机待验证</strong>
         <p>
-          布局、返回导航与官方图标通过。真实查询有成功记录，也出现连接失败；小黑盒授权、账号关联与云端保存待真机验证。
+          记录恢复、下滑追加、估值明细、双指缩放及全屏返回已通过浏览器交互验证；原生授权、相册保存与分享结果仍需真机确认。
         </p>
         <p class="muted">
-          2026-10-25 · 官方 SDK 0.9.3 Browser Mock / Playwright。下方为实际截图，未模拟账号登录。
+          2026-10-25 · SDK 0.9.3，浏览器适配器 /
+          Playwright。下方截图使用明确测试数据，不代表真机登录、真实估值或 AI 点评。
         </p>
       </section>
       <section class="workspace" aria-label="截图浏览">
@@ -35,8 +36,8 @@
             </select></label
           >
           <div class="viewer-title">
-            <h2 id="shot-title">研发科技树</h2>
-            <span id="shot-device">Android</span>
+            <h2 id="shot-title">单载具成就与原生分享</h2>
+            <span id="shot-device">浏览器 · 测试数据</span>
           </div>
           <a
             id="original"
@@ -58,19 +59,27 @@
           </div>
           <div>
             <dt>代码与构建</dt>
-            <dd>12 项单元测试、小程序及网页构建通过；无 WASM。</dd>
+            <dd>22 项单元测试、网页与小程序构建通过；无 WASM。</dd>
           </div>
           <div>
             <dt>原生能力</dt>
-            <dd>浏览器预览不提供小黑盒授权。关联确认、云端保存及原生返回需 APP 验证。</dd>
+            <dd>
+              share 已声明并使用公开截图
+              API；网络权限已批准。浏览器不能证明原生授权、相册保存或实际发帖结果。
+            </dd>
           </div>
           <div>
-            <dt>查询稳定性</dt>
-            <dd>尚未通过。保留真实成功与失败截图，不使用替代数据。</dd>
+            <dt>生成链路</dt>
+            <dd>
+              PC 与小程序共用战报请求、风格、载具成就及完整战报图片生成器。正式业务请求仅走 CF API。
+            </dd>
           </div>
           <div>
             <dt>发布状态</dt>
-            <dd>本页仅为静态验收预览。小程序 0.1.2 尚未上传、提审或发布。</dd>
+            <dd>
+              0.1.4 / 0.1.5 已撤回，0.1.6
+              已提审，自动发布关闭；本页仅为静态预览，线上版本以小黑盒后台为准。
+            </dd>
           </div>
         </dl>
       </section>
