@@ -67,7 +67,13 @@ export function OwnedVehicleImport({
     }
   }
   const available = session ? statsAvailableRequests(session, "valuation") : 0;
-  const remaining = !session ? "—" : available === null ? "不限次" : `${available} 次`;
+  const remaining = !session
+    ? "—"
+    : available === null
+      ? "不限次"
+      : available === 0
+        ? "今日额度已达上限"
+        : `${available} 次`;
   return (
     <div className="vehicle-garage-import">
       <div className="vehicle-import-actions">

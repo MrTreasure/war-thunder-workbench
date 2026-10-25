@@ -72,7 +72,7 @@ import {
 function quotaLabel(session: StatsSession | null, kind: "query" | "report") {
   if (!session) return "—";
   const available = statsAvailableRequests(session, kind);
-  return available === null ? "不限次" : `${available} 次`;
+  return available === null ? "不限次" : available === 0 ? "今日额度已达上限" : `${available} 次`;
 }
 import type {
   PlayerCandidate,
