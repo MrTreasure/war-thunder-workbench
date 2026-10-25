@@ -21,6 +21,9 @@ if (build.status !== 0) throw Error("Static preview build failed");
 const out = new URL("../artifacts/heybox-static-preview/site/", import.meta.url);
 const shots = new URL("../artifacts/heybox-mobile-fixes-20261025/", import.meta.url);
 await mkdir(new URL("heybox-preview/", out), { recursive: true });
+const entry = await readFile(new URL("index.html", out), "utf8");
+if (!entry.includes('src="/war-thunder-trees/assets/') || /(?:src|href)="\/assets\//.test(entry))
+  throw Error("Preview entry must load assets from its existing application prefix");
 await rename(new URL("index.html", out), new URL("heybox-preview/index.html", out));
 await mkdir(new URL("heybox-review/", out), { recursive: true });
 const hash = (b) => createHash("sha256").update(b).digest("hex").slice(0, 16);
