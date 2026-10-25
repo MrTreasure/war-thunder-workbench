@@ -4,7 +4,7 @@ import { GameSelect } from "./GameSelect";
 export function PageNavigation({
   page,
 }: {
-  page: "tree" | "lineups" | "maps" | "stats" | "sales" | "decals";
+  page: "tree" | "lineups" | "maps" | "stats" | "sales" | "decals" | "disclaimer";
 }) {
   useLocale();
 
@@ -44,6 +44,11 @@ export function PageNavigation({
               location.hash = `/${next}`;
           }}
         >
+          {page === "disclaimer" && (
+            <option value="disclaimer" disabled>
+              {t("免责声明")}
+            </option>
+          )}
           <option value="tree">{t("科技树")}</option>
           <option value="lineups">{t("出击队列")}</option>
           <option value="maps">{t("陆战地图")}</option>

@@ -86,7 +86,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       import.meta.env.VITE_WT_CATALOG_SOURCE === "bundled" ||
       garagePage ||
       !country ||
-      ["maps", "stats", "sales", "decals"].includes(page)
+      ["maps", "stats", "sales", "decals", "disclaimer"].includes(page)
     )
       return;
     const controller = new AbortController();
@@ -153,6 +153,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       page === "stats" ||
       page === "sales" ||
       page === "decals" ||
+      page === "disclaimer" ||
       !country ||
       !countryEntry
     )

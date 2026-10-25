@@ -2879,29 +2879,63 @@
 /* Vehicle directory: full rows of 24 at 6/4/3/2/1 columns, with no nested picker scroller. */
 
 @media (max-width: 800px) {
-  .wt-garage-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; }
-  .lineup-saved-row { padding: 12px; }
-  .lineup-summary-slots { padding-bottom: 10px; }
-  .lineup-card-actions button { min-height: 44px; }
+  .wt-garage-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 12px;
+  }
+  .lineup-saved-row {
+    padding: 12px;
+  }
+  .lineup-summary-slots {
+    padding-bottom: 10px;
+  }
+  .lineup-card-actions button {
+    min-height: 44px;
+  }
 }
 @media (max-width: 540px) {
-  .wt-garage-tiles { grid-template-columns: minmax(0, 1fr); }
+  .wt-garage-tiles {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
-
-
-
-
 
 /* Match dialog width to the number of compact sale items, keeping one scroll host. */
 @media (max-width: 1052px) {
-  .wt-sale-picker.calculator { width: min(692px, calc(100vw - 24px)); }
-  .wt-sale-picker-results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wt-sale-picker.calculator {
+    width: min(692px, calc(100vw - 24px));
+  }
+  .wt-sale-picker-results {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 @media (max-width: 800px) {
-  .wt-sale-vehicle-option > .wt-sale-follow-button { min-height: 44px; }
+  .wt-sale-vehicle-option > .wt-sale-follow-button {
+    min-height: 44px;
+  }
 }
 @media (max-width: 716px) {
-  .wt-sale-picker.calculator { width: min(368px, calc(100vw - 24px)); }
-  .wt-sale-picker-results { grid-template-columns: minmax(0, 1fr); }
-  .wt-sale-picker-controls { grid-template-columns: minmax(0, 1fr); }
+  .wt-sale-picker.calculator {
+    width: min(368px, calc(100vw - 24px));
+  }
+  .wt-sale-picker-results {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .wt-sale-picker-controls {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .wt-app-footer {
+    padding-inline: 16px;
+  }
+  .wt-app-footer a {
+    min-height: 44px;
+  }
+  .wt-app-platform-credit {
+    margin-inline-start: 0;
+  }
+  .wt-disclaimer-page {
+    padding: 20px 16px 28px;
+  }
 }

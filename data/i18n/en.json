@@ -2200,5 +2200,13 @@
   "折扣载具关注列表": "Sale vehicle watchlist",
   "仅支持金鹰与商城礼包载具；关注列表自动保存到账号。": "Golden Eagle and store pack vehicles only. Your watchlist is saved to your account.",
   "正在读取账号关注列表，请稍候。": "Restoring your account watchlist…",
-  "请先在云端数据中完成同步。": "Complete setup in Cloud data first."
+  "请先在云端数据中完成同步。": "Complete setup in Cloud data first.",
+  "站点信息": "Site information",
+  "切换站点": "Switch site",
+  "非官方玩家工具": "Unofficial player tool",
+  "免责声明": "Disclaimer",
+  "反馈 ↗": "Feedback ↗",
+  "主站": "Main site",
+  "国际站": "International site",
+  "（当前）": " (current)"
 }
