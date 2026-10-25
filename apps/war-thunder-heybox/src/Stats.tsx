@@ -1,3 +1,9 @@
+import { buildReportRequest } from "../../../src/player-report-request";
+import {
+  reportStyles,
+  reportStyle as reportStyleInfo,
+  type ReportStyle,
+} from "../../../src/player-report-style";
 import { useEffect, useRef, useState } from "react";
 import type {
   PlayerCandidate,
@@ -18,6 +24,7 @@ import { MainSiteLink } from "./MainSiteLink";
 import { useRuntime } from "./context";
 import { DetailPage, ErrorNote, num, ratio } from "./ui";
 import { createQueryHistory, type QueryRecord } from "./query-history";
+import { AchievementShare } from "./AchievementShare";
 import { MiniappValuationDetails } from "./ValuationDetails";
 import { visibleValuation } from "../../../src/valuation-visibility";
 import catalog from "../../../src/generated/bootstrap.json";
@@ -71,7 +78,10 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
   const [screen, setScreen] = useState<"profile" | "valuation" | "report">("profile"),
     [valuation, setValuation] = useState<Valuation | null>(null),
     [report, setReport] = useState<StatsReport | null>(null),
-    [reportStyle, setReportStyle] = useState("commander");
+    [reportStyle, setReportStyle] = useState<ReportStyle>("commander");
+  const [customStyle, setCustomStyle] = useState("");
+  const [shareVehicle, setShareVehicle] = useState<PlayerVehicle | null>(null),
+    [shareReport, setShareReport] = useState(false);
   const [binding, setBinding] = useState(false),
     [confirmedUid, setConfirmedUid] = useState("");
   const work = useRef<AbortController | null>(null);
@@ -95,6 +105,8 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
     }
   }
   function loaded(value: PlayerProfile) {
+    setShareVehicle(null);
+    setShareReport(false);
     setProfile(value);
     saveRecent(
       [
@@ -198,15 +210,14 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
       setProgress("战报已提交…");
       let value = await request<StatsReport>(
         "reports",
-        {
+        buildReportRequest({
           snapshotId: profile.snapshotId,
           mode,
           country,
           category,
           style: reportStyle,
-          customStyle: "",
-          requestId: "report_" + crypto.randomUUID(),
-        },
+          customStyle,
+        }),
         c.signal,
       );
       setReport(value);
@@ -333,19 +344,43 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
       </p>
       <label>
         战报风格
-        <GameSelect value={reportStyle} onValueChange={setReportStyle}>
-          <option value="commander">指挥官点评</option>
-          <option value="analysis">战术分析</option>
-          <option value="roast">友好吐槽</option>
+        <GameSelect value={reportStyle} onValueChange={(v) => setReportStyle(v as ReportStyle)}>
+          {reportStyles.map((style) => (
+            <option key={style.id} value={style.id}>
+              {style.label}
+            </option>
+          ))}
         </GameSelect>
       </label>
+      <p className="hb-fine">{reportStyleInfo(reportStyle).description}</p>
+      {reportStyle === "custom" && (
+        <label>
+          自定义风格
+          <textarea
+            maxLength={160}
+            value={customStyle}
+            onChange={(e) => setCustomStyle(e.target.value)}
+            placeholder="只描述语气和分析角度，请勿填写隐私。"
+          />
+          <small>{customStyle.length}/160</small>
+        </label>
+      )}
       <p className="hb-fine">使用当前军种、国家与战斗模式筛选。生成会消耗一次战报额度。</p>
-      <button className="hb-primary" onClick={() => void generate()} disabled={busy}>
+      <button
+        className="hb-primary"
+        onClick={() => void generate()}
+        disabled={busy || (reportStyle === "custom" && !customStyle.trim())}
+      >
         {" "}
         {busy ? "正在生成…" : report ? "重新生成战报" : "生成战报"}
       </button>
       <ErrorNote error={error} />
       {progress && <output>{progress}</output>}
+      {report?.status === "ready" && (
+        <button className="hb-primary" onClick={() => setShareReport(true)}>
+          保存 / 分享战报
+        </button>
+      )}
       {report?.status === "ready" && (
         <article className="hb-report">
           <header>
@@ -594,6 +629,7 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
           <ErrorNote error={vehicleFactsError} />
           {vehicleFactsError && <button onClick={retryVehicleFacts}>重新载入载具资料</button>}
           <PlayerVehicleCards
+            generate={setShareVehicle}
             vehicles={visibleVehicles}
             select={setVehicle}
             showNaval
@@ -621,6 +657,9 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
           title={vehicle.name}
           close={() => setVehicle(null)}
         >
+          <button className="hb-primary" onClick={() => setShareVehicle(vehicle)}>
+            生成载具成就 / 分享战报
+          </button>
           <VehiclePresentation
             unit={vehicle}
             country={vehicle.country}
@@ -644,6 +683,16 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
             ))}
           </dl>
         </DetailPage>
+      )}
+      {shareVehicle && profile && (
+        <AchievementShare
+          profile={profile}
+          vehicle={shareVehicle}
+          close={() => setShareVehicle(null)}
+        />
+      )}
+      {shareReport && profile && report?.status === "ready" && (
+        <AchievementShare profile={profile} report={report} close={() => setShareReport(false)} />
       )}
       {binding && profile && (
         <DetailPage path="#/stats/link-game" title="关联游戏账号" close={() => setBinding(false)}>

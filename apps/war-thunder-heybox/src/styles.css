@@ -1461,3 +1461,58 @@ details[open] > summary::after {
   background: var(--wt-panel);
   box-shadow: 0 2px 12px #10151a66;
 }
+.hb-share-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.hb-share-preview {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.hb-achievement-poster {
+  flex: none;
+  position: relative;
+  overflow: hidden;
+  width: min(
+    100%,
+    calc(
+      (100dvh - 264px - var(--wt-host-safe-top, 0px) - var(--wt-host-safe-bottom, 0px)) *
+        var(--hb-poster-ratio)
+    )
+  );
+  background: #192126;
+  color: #efede5;
+}
+.hb-generated-report {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.hb-achievement-watermark-reserve {
+  height: 64px;
+  background-color: #192126;
+  background-size: 100% auto;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+.hb-achievement-watermark-reserve {
+  position: relative;
+}
+.hb-achievement-watermark-reserve::before {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  left: -14px;
+  right: -14px;
+  top: -8px;
+  height: 32px;
+  background: linear-gradient(to bottom, #1a0e0a00, #1a0e0a35 50%, #1a0e0a00);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 32%, #000 60%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 32%, #000 60%, transparent);
+}

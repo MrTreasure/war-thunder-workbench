@@ -27,7 +27,7 @@ import {
   statsReportScopeLabel,
 } from "./player-stats-api";
 import type { StatsReport, Background } from "./player-stats-api";
-export async function downloadStatsReport(
+export async function createStatsReportImage(
   report: StatsReport,
   background: Background,
   theme: ReportTheme,
@@ -357,6 +357,19 @@ export async function downloadStatsReport(
     ),
   );
   if (signal.aborted) return;
+  return blob;
+}
+
+export async function downloadStatsReport(
+  report: StatsReport,
+  background: Background,
+  theme: ReportTheme,
+  signal: AbortSignal,
+) {
+  const blob = await createStatsReportImage(report, background, theme, signal);
+  if (!blob || signal.aborted) return;
+  const p = report.payload,
+    voice = reportStyle(p.analysis?.style);
   const url = URL.createObjectURL(blob),
     anchor = document.createElement("a");
   anchor.href = url;

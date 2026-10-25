@@ -20,6 +20,13 @@ const browserSDK = {
       await navigator.clipboard.writeText(text);
     },
   },
+  share: {
+    screenshot: async () => {
+      throw Object.assign(new Error("浏览器预览不提供原生截图分享，请在小黑盒手机 App 内打开。"), {
+        code: "METHOD_FORBIDDEN",
+      });
+    },
+  },
   storage: {
     async getStorage<T>({ key }: { key: string }) {
       const value = localStorage.getItem(prefix + key);

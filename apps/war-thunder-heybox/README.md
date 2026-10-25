@@ -101,3 +101,10 @@ pnpm --dir apps/war-thunder-heybox run build
 - 估值增加独立“估值依据”和“载具明细”页面。单价、购入比例、分项金额、核价日期均来自该次服务端结果；车库拥有与推算前置明确区分。明细复用共享载具规范，按国家／获取类型筛选，只看已核实拥有，每批 24 项。初始免费载具使用网页相同过滤器。
 - 科技树移除缩放滑块，双指以手势中心缩放，单指保留滚动。增加应用内全屏，仅显示科技树和退出图标；返回键和 Escape 可退出。不调用未核实的宿主系统全屏接口。
 - 浏览器交互验收使用显式测试数据，检查缩放、全屏、滚动追加、记录重开／恢复／清除及估值详情；不把这些结果称为真机授权或真实估值验收。
+
+## 0.1.6 共用 PC 生成链路（2026-10-25）
+
+0.1.5 已撤回。单载具成就直接调用 `src/player-vehicle-export.ts:createVehicleCard`；个人战报由 `src/player-report-export.ts:createStatsReportImage` 生成 Blob，PC 的下载包装函数同样调用此函数。没有小程序专用的 Canvas 卡片或战报排版副本。
+PC 与小程序调用 `src/player-report-request.ts:buildReportRequest` 提交同一后端 `reports` 接口；风格及自定义偏好使用 `src/player-report-style.ts`。评分、文案生成、审核、缓存与额度仍以同一个后端为准。
+小程序只增加图片预览及原生 `share.screenshot`。底部 64px 水印区延伸当前成就背景，并在接缝处加模糊渐变；不拉伸主体或影响底部文字。个人战报延续共用主题底色。原图仅在客户端生成，不上传成品。
+本地截图与原始 PNG 位于忽略的 `artifacts/heybox-complete-20261025/`；明确标记测试资料，不声称 Browser Mock 已完成真实相册保存或发帖。

@@ -15,7 +15,7 @@ const dist = new URL("dist/", app),
 const html = await readFile(new URL("index.html", dist), "utf8");
 const manifest = JSON.parse(await readFile(new URL("manifest.json", dist), "utf8"));
 assert.equal(manifest.name, "战雷工作台");
-for (const key of ["userInfo", "network", "storage", "clipboard"]) {
+for (const key of ["userInfo", "network", "storage", "clipboard", "share"]) {
   assert.equal(
     manifest.permissions?.[key]?.enabled,
     true,

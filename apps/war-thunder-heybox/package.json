@@ -1,6 +1,6 @@
 {
   "name": "war-thunder-heybox",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "private": true,
   "type": "module",
   "heybox": {
@@ -27,9 +27,12 @@
       },
       "clipboard": {
         "enabled": true
+      },
+      "share": {
+        "enabled": true
       }
     },
-    "desc": "面向战争雷霆玩家的载具与配件研发计算、公开战绩查询、车库参考估值和个人战报工具。"
+    "desc": "面向战争雷霆玩家，提供载具与配件研发、战绩查询、参考估值、载具成就与战报分享。"
   },
   "scripts": {
     "hb-sdk": "hb-sdk",

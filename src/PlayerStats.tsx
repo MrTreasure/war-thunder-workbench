@@ -1,3 +1,4 @@
+import { buildReportRequest } from "./player-report-request";
 import { ExtraQueryCredits } from "./ExtraQueryCredits";
 import { vehicleSearchText } from "./i18n/core";
 import { localize } from "./i18n/core";
@@ -682,15 +683,14 @@ export function PlayerStats() {
     try {
       const value = await statsRequest<StatsReport>(
         "reports",
-        {
+        buildReportRequest({
           snapshotId: profile.snapshotId,
           mode,
           country: reportCountry,
           category: reportCategory,
           style: analysisStyle,
-          customStyle: analysisStyle === "custom" ? customStyle : "",
-          requestId: "report_" + crypto.randomUUID(),
-        },
+          customStyle,
+        }),
         c.signal,
       );
       if (!c.signal.aborted) setReport(value);
