@@ -1,3 +1,4 @@
+import { saleWatchKey, normalizeSaleWatch } from "./sale-watch-storage";
 import { workspaceKey } from "./workspace-context";
 import type { WorkspaceDocument } from "./workspace-context";
 import { validCart } from "./quotes";
@@ -13,7 +14,10 @@ export function collectGuestDefaults(
   pendingKeys: string[],
 ): Defaults {
   const marker = `wt-account-workspace-v1:${userId}:automatic-import`;
-  if (!userId || storage.getItem(marker)) return {};
+  if (!userId) return {};
+  const imported = !!storage.getItem(marker);
+  const watchMarker = `wt-account-workspace-v1:${userId}:sale-watch-import`;
+  const importedWatch = !!storage.getItem(watchMarker);
   const claimKey = "wt-account-workspace-v1:guest-import-owners";
   const parsed: unknown = JSON.parse(storage.getItem(claimKey) || "{}");
   const owners: Record<string, string> = {};
@@ -24,6 +28,27 @@ export function collectGuestDefaults(
   }
   const next: Defaults = {};
   for (const key of Object.keys(storage).filter(workspaceKey)) {
+    if (key === saleWatchKey) {
+      if (importedWatch || pendingKeys.includes(key) || (owners[key] && owners[key] !== userId))
+        continue;
+      try {
+        const raw = storage.getItem(key);
+        if (!raw || raw.length > 1_000_000) continue;
+        const local = normalizeSaleWatch(JSON.parse(raw));
+        if (!local.length) continue;
+        const remote = documents.find((d) => d.key === key);
+        // A cleared/deleted cloud list stays cleared; old local snapshots cannot resurrect it.
+        if (remote && !normalizeSaleWatch(remote.value).length) continue;
+        const merged = normalizeSaleWatch([...normalizeSaleWatch(remote?.value), ...local]);
+        if (JSON.stringify(merged) !== JSON.stringify(normalizeSaleWatch(remote?.value)))
+          next[key] = { value: merged, revision: remote?.revision || 0 };
+        owners[key] = userId;
+      } catch {
+        /* Malformed guest entries never replace an account list. */
+      }
+      continue;
+    }
+    if (imported) continue;
     if (
       documents.some((d) => d.key === key) ||
       pendingKeys.includes(key) ||
@@ -54,5 +79,6 @@ export function collectGuestDefaults(
   }
   storage.setItem(claimKey, JSON.stringify(owners));
   storage.setItem(marker, "1");
+  storage.setItem(watchMarker, "1");
   return next;
 }
