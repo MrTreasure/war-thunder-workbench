@@ -2,6 +2,7 @@ import { vehicleSearchText } from "./i18n/core";
 import { localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { t, vehicleName } from "./i18n/core";
+import { registerCountryVehicles } from "./vehicle-catalog";
 import { Chevron } from "./components/Chevron";
 import { useAccountWorkspace } from "./workspace-context";
 
@@ -62,7 +63,6 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
 
   const workspace = useAccountWorkspace();
   const bootstrap = bootstrapData as CatalogIndex;
-  const params = new URLSearchParams(location.search);
   const [initial] = useState(() =>
     initialSelection(bootstrap.countries, bootstrap.categories, location.search),
   );
@@ -185,8 +185,10 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
         setCountryProgress({ ...value, key: currentKey }),
       )
       .then((result) => {
-        if (!controller.signal.aborted)
+        if (!controller.signal.aborted) {
+          registerCountryVehicles(result.value);
           setLoadedCountry({ key: currentKey, value: result.value, cache: result.saved });
+        }
       })
       .catch((error) => {
         if (!controller.signal.aborted)
@@ -209,16 +211,14 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
     setRemembered(rememberSelection({ country, category: value }));
     setCategory(value);
   }
-  const [mode, setMode] = useState<Mode>(
-    ["ab", "rb", "sb"].includes(params.get("mode") || "") ? (params.get("mode") as Mode) : "rb",
-  );
+  const [mode, setMode] = useState<Mode>(initial.mode || "rb");
   const [selected, setSelected] = useState<string | null>(null);
   const [expanded, setExpanded] = useState(new Set<string>());
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initial.query || "");
   const [showResults, setShowResults] = useState(false);
   const [mobileToolsOpen, setMobileToolsOpen] = useState(false);
   const mobileToolsToggle = useRef<HTMLButtonElement>(null);
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState(initial.filter || "all");
   const [zoomPreference] = useState(() =>
     readJson<{ zoom: number; autoZoom: boolean } | null>(
       "wt-planner-v1:tree-zoom",
@@ -243,21 +243,34 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   }, [zoom, autoZoom]);
   const [locate, setLocate] = useState(0);
   const [modal, setModal] = useState<"parts" | "vehicle" | "cart" | "image" | null>(null);
+  const preferenceSearch = useRef(location.search);
   useEffect(() => {
     function restoreRoute() {
       setModal(null);
       setMobileToolsOpen(false);
-      const next = initialSelection(bootstrap.countries, bootstrap.categories, location.search);
+      const next = initialSelection(
+        bootstrap.countries,
+        bootstrap.categories,
+        location.search,
+        false,
+      );
       setCountry(next.country);
       setCategory(next.category);
-      const requested = new URLSearchParams(location.search).get("mode");
-      setMode(requested && ["ab", "rb", "sb"].includes(requested) ? (requested as Mode) : "rb");
+      setMode(next.mode || "rb");
     }
-    window.addEventListener("hashchange", restoreRoute);
-    window.addEventListener("popstate", restoreRoute);
+    const routeChange = () => {
+      setModal(null);
+      setMobileToolsOpen(false);
+      if (location.search !== preferenceSearch.current) {
+        preferenceSearch.current = location.search;
+        restoreRoute();
+      }
+    };
+    window.addEventListener("hashchange", routeChange);
+    window.addEventListener("popstate", routeChange);
     return () => {
-      window.removeEventListener("hashchange", restoreRoute);
-      window.removeEventListener("popstate", restoreRoute);
+      window.removeEventListener("hashchange", routeChange);
+      window.removeEventListener("popstate", routeChange);
     };
   }, [bootstrap]);
   const modifications =
@@ -312,14 +325,15 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       .includes(needle),
   );
   useEffect(() => {
-    if (country) rememberSelection({ country, category });
-  }, [country, category]);
+    rememberSelection({ country, category, mode, filter, query });
+  }, [country, category, mode, filter, query]);
   useEffect(() => {
     const next = new URLSearchParams(location.search);
     if (country) next.set("country", country);
     else next.delete("country");
     next.set("category", category);
     next.set("mode", mode);
+    preferenceSearch.current = `?${next}`;
     history.replaceState(history.state, "", `${location.pathname}?${next}${location.hash}`);
   }, [country, category, mode]);
   useEffect(() => {

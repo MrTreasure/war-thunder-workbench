@@ -1780,7 +1780,7 @@
     gap: 8px;
     padding: 12px 0;
   }
-  .wt-sale-watch-row img {
+  .wt-sale-watch-row > img {
     width: 68px;
     height: 50px;
   }
@@ -1813,7 +1813,7 @@
   .wt-sale-vehicle-option {
     gap: 8px;
   }
-  .wt-sale-vehicle-option img {
+  .wt-sale-vehicle-option > img {
     width: 60px;
     height: 44px;
   }
@@ -2894,4 +2894,23 @@
     display: inline-block;
     padding-block: 4px;
   }
+}
+
+/* Vehicle directory: full rows of 24 at 6/4/3/2/1 columns, with no nested picker scroller. */
+@media (max-width: 1000px) {
+  .wt-sale-picker-results { max-height: none; overflow: visible; grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 800px) {
+  .wt-garage-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; }
+  .lineup-saved-row { padding: 12px; }
+  .lineup-summary-slots { padding-bottom: 10px; }
+  .lineup-card-actions button { min-height: 44px; }
+  .wt-sale-vehicle-option { grid-template-columns: 228px minmax(0, 1fr); }
+  .wt-sale-vehicle-option > button { min-height: 44px; }
+}
+@media (max-width: 540px) {
+  .wt-garage-tiles { grid-template-columns: minmax(0, 1fr); }
+  .wt-sale-vehicle-option { grid-template-columns: minmax(0, 1fr) auto; }
+  .wt-sale-vehicle-option > .wt-game-card { grid-column: 1 / -1; }
+  .wt-sale-vehicle-option > button { grid-column: 2; grid-row: 2; }
 }

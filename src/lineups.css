@@ -296,7 +296,7 @@
   -webkit-touch-callout: none;
   cursor: grab;
 }
-.lineup-slot-select img {
+.lineup-slot-select > img {
   width: 110px;
   height: 65px;
   object-fit: contain;
@@ -1048,7 +1048,7 @@
   background: var(--wt-page);
   text-align: center;
 }
-.lineup-summary-slots img {
+.lineup-summary-slots > li > img {
   width: 92px;
   height: 54px;
   object-fit: contain;
@@ -1060,7 +1060,7 @@
   height: 54px;
   color: var(--wt-muted);
 }
-.lineup-summary-slots strong {
+.lineup-summary-slots > li > strong {
   display: flex;
   align-items: center;
   justify-content: center;

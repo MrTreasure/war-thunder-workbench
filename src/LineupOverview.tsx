@@ -26,40 +26,48 @@ export function LineupSummary({
       aria-label={t("{0} 的槽位预览，可横向滚动", [localize(lineup.name)])}
     >
       {localize(
-        lineup.slots.map((id, index) => {
-          const unit = id ? units.get(id) : undefined;
-          return (
-            <li key={index} className={unit ? `is-kind-${lineupVehicleKind(unit)}` : "is-empty"}>
-              <span className="lineup-summary-number">{localize(index + 1)}</span>
-              {localize(
-                unit ? (
-                  <VehicleTile
-                    unit={unit}
-                    catalog={catalog}
-                    mode={mode}
-                    modeRating={brLabel(vehicleStep(unit, lineup.battleType, mode))}
-                  />
-                ) : (
-                  <span className="lineup-summary-placeholder">
-                    {localize(id ? t("资料待更新") : t("空槽位"))}
-                  </span>
-                ),
-              )}
-              {localize(
-                unit && (
-                  <small>
-                    {localize(catalog.categories[unit.category])} · Rank {localize(unit.rank)}
-                  </small>
-                ),
-              )}
-              {localize(
-                unit?.category === "aviation" &&
-                  lineup.battleType === "air" &&
-                  lineup.activeAircraft === id && <small>{t("RB 出击")}</small>,
-              )}
-            </li>
-          );
-        }),
+        lineup.slots
+          .slice(
+            0,
+            Math.max(
+              1,
+              lineup.slots.reduce((last, id, i) => (id ? i + 1 : last), 0),
+            ),
+          )
+          .map((id, index) => {
+            const unit = id ? units.get(id) : undefined;
+            return (
+              <li key={index} className={unit ? `is-kind-${lineupVehicleKind(unit)}` : "is-empty"}>
+                <span className="lineup-summary-number">{localize(index + 1)}</span>
+                {localize(
+                  unit ? (
+                    <VehicleTile
+                      unit={unit}
+                      catalog={catalog}
+                      mode={mode}
+                      modeRating={brLabel(vehicleStep(unit, lineup.battleType, mode))}
+                    />
+                  ) : (
+                    <span className="lineup-summary-placeholder">
+                      {localize(id ? t("资料待更新") : t("空槽位"))}
+                    </span>
+                  ),
+                )}
+                {localize(
+                  unit && (
+                    <small>
+                      {localize(catalog.categories[unit.category])} · Rank {localize(unit.rank)}
+                    </small>
+                  ),
+                )}
+                {localize(
+                  unit?.category === "aviation" &&
+                    lineup.battleType === "air" &&
+                    lineup.activeAircraft === id && <small>{t("RB 出击")}</small>,
+                )}
+              </li>
+            );
+          }),
       )}
     </ol>
   );

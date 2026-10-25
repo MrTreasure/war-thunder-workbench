@@ -1,5 +1,6 @@
 import { t, getLocale, localize, vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
+import { useVehicleFacts, withVehicleFacts } from "./vehicle-catalog";
 import bootstrap from "./generated/bootstrap.json";
 import cardTheme from "../data/vehicle-card-theme.json";
 import type { CSSProperties } from "react";
@@ -35,7 +36,7 @@ export type VehicleTileUnit = Pick<Vehicle, "id" | "name"> & {
   side?: Vehicle["side"];
 };
 export function VehicleTile({
-  unit,
+  unit: suppliedUnit,
   catalog = bootstrap,
   mode = "rb",
   selected = false,
@@ -44,6 +45,7 @@ export function VehicleTile({
   disabled = false,
   className = "",
   modeRating,
+  packQuote,
 }: {
   unit: VehicleTileUnit;
   catalog?: Pick<Catalog, "kinds" | "roles">;
@@ -54,8 +56,12 @@ export function VehicleTile({
   disabled?: boolean;
   className?: string;
   modeRating?: string;
+  packQuote?: { amountCents: number | null; checkedAt: string | null };
 }) {
   useLocale();
+  const facts = useVehicleFacts();
+  const unit =
+    suppliedUnit.br && suppliedUnit.role ? suppliedUnit : withVehicleFacts(suppliedUnit, facts);
   const workspace = useAccountWorkspace();
   const owned = ownedOverride ?? !!workspace?.ownedVehicleIds.has(unit.id);
   const premium =
@@ -68,6 +74,12 @@ export function VehicleTile({
     unit.kind === "market" || !!unit.market || cardTheme.marketIconIds.includes(unit.id);
   const name = vehicleName(unit);
   const price = unit.packPrice;
+  const quotedCents =
+    packQuote && Number.isSafeInteger(packQuote.amountCents) && (packQuote.amountCents ?? 0) > 0
+      ? packQuote.amountCents
+      : null;
+  const packCents = quotedCents ?? (price?.status === "priced" ? price.amountCents : null);
+  const packDate = quotedCents !== null ? packQuote?.checkedAt : price?.checkedAt;
   const role =
     unit.role === "spaa"
       ? "aa"
@@ -197,15 +209,11 @@ export function VehicleTile({
             className="wt-game-pack-price"
             title={t("{0} · 价格核对于 {1}", [
               localize(price?.title || name),
-              localize(price?.checkedAt.slice(0, 10) || "—"),
+              localize(packDate?.slice(0, 10) || "—"),
             ])}
           >
             <small>{t("整包")}</small>
-            {localize(
-              price?.status === "priced" && price.amountCents !== null
-                ? cnyPrice(price.amountCents)
-                : t("暂无报价"),
-            )}
+            {localize(packCents != null ? cnyPrice(packCents) : t("暂无报价"))}
           </span>
         ),
       )}

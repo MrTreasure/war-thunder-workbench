@@ -176,3 +176,32 @@
 .vehicle-card.wt-game-card[role="group"] {
   cursor: inherit;
 }
+
+/* Saved lineups use a single compact crew rail, without nested vehicle panels. */
+.lineup-saved-row { padding: 16px 18px 12px; background: color-mix(in srgb, var(--wt-surface) 65%, transparent); border-color: var(--wt-line); }
+.lineup-card-heading { align-items: center; }
+.lineup-card-heading h3 { margin: 0; font-size: 16px; font-weight: 500; }
+.lineup-summary-slots { gap: 12px; margin-top: 8px; padding: 18px 3px 10px; scrollbar-width: thin; scrollbar-color: var(--wt-line) transparent; }
+.lineup-summary-slots > li { flex-basis: 228px; min-width: 228px; padding: 0; gap: 6px; border: 0; background: transparent; align-items: flex-start; text-align: left; }
+.lineup-summary-slots > li > .wt-game-card[data-kind="pack"] { margin-bottom: 24px; }
+.lineup-summary-slots .lineup-summary-number { position: static; align-self: flex-start; line-height: 12px; font-size: 10px; }
+.lineup-summary-slots > li > small { color: var(--wt-muted); padding-left: 1px; }
+.lineup-summary-placeholder { width: 228px; height: 76px; border: 1px dashed var(--wt-line); font-size: 12px; }
+.lineup-summary-ratings { gap: 12px; margin-top: 8px; }
+.lineup-summary-ratings > span { padding: 0; border: 0; }
+.lineup-card-actions { margin-top: 8px; padding-top: 8px; }
+.lineup-card-actions button { padding: 4px 9px; min-height: 32px; font-size: 12px; }
+/* One scroll host for the sale picker; the result list never gets its own rail. */
+.wt-sale-picker.calculator { width: min(1080px, calc(100vw - 24px)); scrollbar-width: none; }
+.wt-sale-picker.calculator::-webkit-scrollbar { display: none; }
+.wt-sale-picker-results { max-height: none; overflow: visible; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
+.wt-sale-vehicle-option { position: relative; display: grid; grid-template-columns: 228px minmax(0, 1fr); gap: 12px; padding: 22px 0; align-content: start; }
+.wt-sale-vehicle-option > div { min-width: 0; }
+.wt-sale-vehicle-option > div > strong { font-family: WTSymbols, WTCard, var(--wt-sans); font-weight: 400; }
+.wt-sale-vehicle-option > button { grid-column: 2; justify-self: start; font-size: 12px; padding: 4px 8px; }
+.wt-sale-picker footer { flex-wrap: wrap; }
+.wt-sale-picker-pages { display: flex; align-items: center; gap: 10px; }
+.wt-garage-tiles { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 26px 14px; }
+.wt-garage-tiles .wt-vehicle-option { min-width: 0; }
+@media (max-width: 1500px) { .wt-garage-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 1080px) { .wt-garage-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

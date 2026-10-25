@@ -1,5 +1,6 @@
 import { t, getLocale, localize, vehicleName, decimalSeparator } from "./i18n/core";
 import { useLocale } from "./i18n/react";
+import { useVehicleCatalog } from "./vehicle-catalog";
 import { VehicleTile } from "./VehicleTile";
 import type { VehicleTileUnit } from "./VehicleTile";
 import { useEffect, useId, useRef, useState, useSyncExternalStore } from "react";
@@ -642,6 +643,17 @@ export function AccountValuation({
   );
   const unpricedPages = Math.max(1, Math.ceil(filteredUnpriced.length / 10));
   const currentUnpricedPage = Math.min(unpricedPage, unpricedPages);
+  useVehicleCatalog(
+    open && value
+      ? [
+          ...value.gold,
+          ...value.market,
+          ...value.packs.flatMap((p) => p.vehicles),
+          ...visibleResearch,
+          ...unpricedVehicles,
+        ].map((v) => v.country || "")
+      : [],
+  );
   const visibleUnpriced = filteredUnpriced.slice(
     (currentUnpricedPage - 1) * 10,
     currentUnpricedPage * 10,

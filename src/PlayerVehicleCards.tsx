@@ -174,7 +174,7 @@ export function PlayerVehiclePagination({
         onValueChange={(v) => changeSize(Number(v))}
       >
         {localize(
-          [20, 40, 80].map((size) => (
+          [24, 48, 96].map((size) => (
             <option key={size} value={size}>
               {localize(size)} {t("辆 / 页")}
             </option>

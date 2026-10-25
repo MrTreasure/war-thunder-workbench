@@ -44,9 +44,9 @@ export function saveVehiclePresentation(view: VehiclePresentation) {
 export function savedVehiclePageSize() {
   try {
     const value = Number(localStorage.getItem(SIZE_KEY));
-    return [20, 40, 80].includes(value) ? value : 20;
+    return [24, 48, 96].includes(value) ? value : 24;
   } catch {
-    return 20;
+    return 24;
   }
 }
 export function saveVehiclePageSize(size: number) {
