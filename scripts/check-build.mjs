@@ -40,6 +40,22 @@ for (const [country, entry] of Object.entries(manifest.countries)) {
   published.push(relative(dist, path));
 }
 assert.equal(files.filter((file) => /assets\/country-.*\.js$/.test(file)).length, 10);
+const factModules = files.filter((file) => /^assets\/vehicle-facts-[a-z]+\.[a-f0-9]{16}\.[^/]+\.js$/.test(file));
+assert.equal(factModules.length, 10, "Expected ten small lazy vehicle metadata modules");
+for (const file of factModules) {
+  assert(!html.includes(file), "Vehicle metadata must not be preloaded at startup");
+  const { default: text } = await import(pathToFileURL(resolve(dist, file)).href);
+  const hash = createHash("sha256").update(text).digest("hex");
+  assert(file.includes(hash.slice(0, 16)), "Vehicle metadata content hash must match its filename");
+  const body = JSON.parse(text);
+  assert.equal(body.schemaVersion, 1);
+  assert(body.items.length > 0);
+  for (const unit of body.items) {
+    assert.equal(unit.country, body.country);
+    assert(unit.br && Object.hasOwn(unit, "role"));
+    assert(!("wikiDetails" in unit) && !("modifications" in unit), "Metadata excludes full detail and modification bodies");
+  }
+}
 console.log(
   JSON.stringify({
     countryJsModules: published.length,

@@ -1,3 +1,4 @@
+import { prepareVehicleFacts } from "./prepare-vehicle-facts.mjs";
 import { prepareAppearance } from "./prepare-appearance.mjs";
 import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
 import { createHash } from "node:crypto";
@@ -136,6 +137,7 @@ await mkdir(resolve(root, "src/generated/countries"), { recursive: true });
 await mkdir(resolve(root, "data/generated/countries"), { recursive: true });
 await mkdir(resolve(root, "src/generated"), { recursive: true });
 await mkdir(resolve(root, "data/generated"), { recursive: true });
+await prepareVehicleFacts(root, catalog);
 // The complete snapshot is for build-time checks only; it is never published.
 await writeFile(resolve(root, "data/generated/catalog.json"), JSON.stringify(catalog) + "\n");
 const { trees: allTrees, audit, ...metadata } = catalog;
