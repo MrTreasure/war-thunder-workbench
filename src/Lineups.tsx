@@ -246,6 +246,29 @@ function CountryLineups({
   const selected = draft || saved.find((row) => row.id === selectedId) || saved[0];
   const [activeSlot, setActiveSlot] = useState(0);
   const [search, setSearch] = useState("");
+  const moreActions = useRef<HTMLDetailsElement>(null);
+  useEffect(() => {
+    const closeOutside = (event: Event) => {
+      const menu = moreActions.current;
+      if (menu?.open && event.target instanceof Node && !menu.contains(event.target))
+        menu.open = false;
+    };
+    const escape = (event: KeyboardEvent) => {
+      const menu = moreActions.current;
+      if (event.key === "Escape" && menu?.open) {
+        menu.open = false;
+        menu.querySelector("summary")?.focus();
+      }
+    };
+    document.addEventListener("pointerdown", closeOutside);
+    document.addEventListener("focusin", closeOutside);
+    document.addEventListener("keydown", escape);
+    return () => {
+      document.removeEventListener("pointerdown", closeOutside);
+      document.removeEventListener("focusin", closeOutside);
+      document.removeEventListener("keydown", escape);
+    };
+  }, []);
   const [category, setCategory] = useState(
     defaultBattle === "air" ? "aviation" : defaultBattle === "ground" ? "ground" : "all",
   );
@@ -660,21 +683,7 @@ function CountryLineups({
                   ))}
                 </GameSelect>
               </label>
-              <details
-                key={selected.id}
-                className="lineup-editor-more"
-                onKeyDown={(event) => {
-                  if (event.key === "Escape") {
-                    event.currentTarget.open = false;
-                    event.currentTarget.querySelector("summary")?.focus();
-                    event.stopPropagation();
-                  }
-                }}
-                onBlur={(event) => {
-                  if (!event.currentTarget.contains(event.relatedTarget))
-                    event.currentTarget.open = false;
-                }}
-              >
+              <details ref={moreActions} key={selected.id} className="lineup-editor-more">
                 <summary>更多操作</summary>
                 <div>
                   <button
