@@ -161,6 +161,7 @@ function ValuationVehicle({
   return (
     <VehicleTile
       unit={item}
+      href={"https://wiki.warthunder.com/unit/" + encodeURIComponent(item.id)}
       owned={item.owned ?? false}
       showRank={showRank}
       countryLabel={showCountry ? statsCountryLabel(item.country) : undefined}
@@ -188,12 +189,13 @@ function ProductCard({
 }) {
   return (
     <article
-      className={`wt-valuation-product${vehicleKind === "pack" ? " wt-valuation-product-pack" : ""}`}
+      className={`wt-valuation-product${vehicleKind === "pack" && items.length > 1 ? " wt-valuation-product-pack" : ""}`}
     >
       <div className="wt-valuation-product-media">
         {items.map((item) => (
           <VehicleTile
             key={item.id}
+            href={"https://wiki.warthunder.com/unit/" + encodeURIComponent(item.id)}
             unit={{
               ...item,
               kind: vehicleKind || item.kind,
@@ -206,12 +208,22 @@ function ProductCard({
         ))}
       </div>
       <div className="wt-valuation-product-body">
-        <small className="wt-valuation-product-kind">{kind}</small>
-        <h4>
-          <a href={source} target="_blank" rel="noreferrer">
-            {vehicleDisplayName(title)} <span aria-hidden="true">↗</span>
-          </a>
-        </h4>
+        <small className="wt-valuation-product-kind">
+          {vehicleKind === "pack" ? (
+            <a href={source} target="_blank" rel="noreferrer">
+              {kind} ↗
+            </a>
+          ) : (
+            kind
+          )}
+        </small>
+        {vehicleKind === "pack" && items.length > 1 && (
+          <h4>
+            <a href={source} target="_blank" rel="noreferrer">
+              {vehicleDisplayName(title)} <span aria-hidden="true">↗</span>
+            </a>
+          </h4>
+        )}
         <strong className="wt-valuation-product-price">{price}</strong>
         <div className="wt-valuation-product-notes">{children}</div>
       </div>
@@ -234,20 +246,17 @@ function subscribeProductColumns(listener: () => void) {
   queries.forEach((query) => query.addEventListener("change", listener));
   return () => queries.forEach((query) => query.removeEventListener("change", listener));
 }
-function ProductShelf({ children, packs = false }: { children: ReactNode[]; packs?: boolean }) {
+function ProductShelf({ children }: { children: ReactNode[] }) {
   const [expanded, setExpanded] = useState(false);
   const columns = useSyncExternalStore(subscribeProductColumns, productColumns, () => 2);
   const id = useId(),
-    visible = expanded ? children : children.slice(0, (packs ? 1 : columns) * 3);
+    visible = expanded ? children : children.slice(0, columns * 3);
   return (
     <>
-      <div
-        className={`wt-valuation-products${packs ? " wt-valuation-products-packs" : ""}`}
-        id={id}
-      >
+      <div className="wt-valuation-products" id={id}>
         {visible}
       </div>
-      {children.length > (packs ? 1 : columns) * 3 && (
+      {children.length > columns * 3 && (
         <div className="wt-valuation-shelf-actions">
           <small>
             显示 {visible.length} / {children.length} 个
@@ -898,7 +907,6 @@ export function AccountValuation({
                           kind={`${statsCategoryNames[v.category] || v.category} · 金鹰载具`}
                           price={valuationMoney(v.amountCents)}
                         >
-                          <span>{statsNumber(v.ge)} GE · 原价折算</span>
                           {v.checkedAt && <small>核验 {statsDate(v.checkedAt)}</small>}
                         </ProductCard>
                       ))}
@@ -912,24 +920,27 @@ export function AccountValuation({
                 <section className="wt-valuation-section">
                   <h3>礼包载具 · {value.packs.length} 个礼包</h3>
                   {value.packs.length ? (
-                    <ProductShelf packs>
-                      {sortValuationPrices(value.packs).map((p) => (
-                        <ProductCard
-                          key={p.productId}
-                          owned={!!value.ownership?.verified}
-                          vehicleKind="pack"
-                          title={p.title}
-                          source={p.source}
-                          items={p.vehicles}
-                          kind={`整包原价 · 已识别 ${p.vehicles.length} 辆`}
-                          price={valuationMoney(p.amountCents)}
-                        >
-                          {p.vehicles.length === 1 && <span>{p.vehicles[0].name}</span>}
-                          <small>
-                            {p.checkedAt ? `核验 ${statsDate(p.checkedAt)}` : "尚无有效报价"}
-                          </small>
-                        </ProductCard>
-                      ))}
+                    <ProductShelf>
+                      {sortValuationPrices(value.packs)
+                        .sort(
+                          (a, b) => Number(a.vehicles.length > 1) - Number(b.vehicles.length > 1),
+                        )
+                        .map((p) => (
+                          <ProductCard
+                            key={p.productId}
+                            owned={!!value.ownership?.verified}
+                            vehicleKind="pack"
+                            title={p.title}
+                            source={p.source}
+                            items={p.vehicles}
+                            kind={`整包原价 · 已识别 ${p.vehicles.length} 辆`}
+                            price={valuationMoney(p.amountCents)}
+                          >
+                            <small>
+                              {p.checkedAt ? `核验 ${statsDate(p.checkedAt)}` : "尚无有效报价"}
+                            </small>
+                          </ProductCard>
+                        ))}
                     </ProductShelf>
                   ) : (
                     <p>出战记录中未识别到礼包载具。</p>
@@ -1015,7 +1026,6 @@ export function AccountValuation({
                       <article key={item.id}>
                         <ValuationVehicle item={item} />
                         <div>
-                          <h4 className="wt-vehicle-name">{vehicleDisplayName(item.name)}</h4>
                           <span className="wt-valuation-unpriced-reason">{item.reason}</span>
                         </div>
                       </article>
@@ -1075,15 +1085,6 @@ export function AccountValuation({
                             showRank={researchRank === "all"}
                           />
                           <div>
-                            <h4>
-                              {v.rpSource ? (
-                                <a href={v.rpSource} target="_blank" rel="noreferrer">
-                                  {v.name}
-                                </a>
-                              ) : (
-                                v.name
-                              )}
-                            </h4>
                             <small>
                               {v.owned
                                 ? v.observed
@@ -1158,15 +1159,17 @@ export function AccountValuation({
                               ))}
                             </div>
                             <div>
-                              <h4>
-                                {v.rpSource ? (
-                                  <a href={v.rpSource} target="_blank" rel="noreferrer">
-                                    {v.name}
-                                  </a>
-                                ) : (
-                                  v.name
-                                )}
-                              </h4>
+                              {vehicles.length > 1 && (
+                                <h4>
+                                  {v.rpSource ? (
+                                    <a href={v.rpSource} target="_blank" rel="noreferrer">
+                                      {v.name}
+                                    </a>
+                                  ) : (
+                                    v.name
+                                  )}
+                                </h4>
+                              )}
                               {v.owned && (
                                 <small>
                                   {v.observed ? "已拥有 · 有出战记录" : "已拥有 · 未出战"}
