@@ -46,15 +46,20 @@ export function LineupShareImage({
     <article className="wt-share-image" aria-label="队列分享图片">
       <header className="wt-share-heading">
         <p>
-          分房范围:{" "}
+          <span className="wt-share-heading-label">分房范围</span>
           <strong>{window ? `${window.minimum} – ${window.maximum}` : post.rating}</strong>
           {window && <small>队列 {post.rating}</small>}
         </p>
-        <p>游戏模式: {gameMode}</p>
-        <p className="wt-share-nation">
-          出击队列:{" "}
-          <img src={bootstrap.flags[post.country as keyof typeof bootstrap.flags]} alt="" />
-          {country}
+        <p>
+          <span className="wt-share-heading-label">游戏模式</span>
+          <strong>{gameMode}</strong>
+        </p>
+        <p>
+          <span className="wt-share-heading-label">出击队列</span>
+          <strong className="wt-share-nation">
+            <img src={bootstrap.flags[post.country as keyof typeof bootstrap.flags]} alt="" />
+            {country}
+          </strong>
         </p>
       </header>
       <div className="wt-share-crew">
@@ -68,7 +73,8 @@ export function LineupShareImage({
                   mode={post.mode}
                   owned={true}
                   showRank={false}
-                  showAcquisition={false}
+                  showAcquisition={true}
+                  showPackPrice={false}
                   modeRating={lineupCardRating(unit, post.battle, post.mode)}
                 />,
               ]
@@ -365,11 +371,10 @@ export function LineupShareTools({
             {communityTags
               .filter((t) => !t.system && t.group === group)
               .map((tag) => (
-                <button
+                <LineupTag
                   key={tag.id}
-                  type="button"
-                  className="wt-tag-choice"
-                  aria-pressed={tags.includes(tag.id)}
+                  id={tag.id}
+                  selected={tags.includes(tag.id)}
                   disabled={!tags.includes(tag.id) && tags.length >= 3}
                   onClick={() => {
                     setTags(
@@ -377,9 +382,7 @@ export function LineupShareTools({
                     );
                     setPost(null);
                   }}
-                >
-                  <LineupTag id={tag.id} />
-                </button>
+                />
               ))}
           </fieldset>
         ))}

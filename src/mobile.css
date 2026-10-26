@@ -3113,16 +3113,6 @@
   .wt-community-section-title a {
     font-size: 12px;
   }
-  .wt-lineup-tag {
-    min-width: 100px;
-    padding-right: 10px;
-  }
-  .wt-lineup-tag-text {
-    font-size: 16px;
-  }
-  .wt-share-image .wt-lineup-tag {
-    min-width: 112px;
-  }
   .wt-community-card-tags > small {
     width: 100%;
     margin: 0;

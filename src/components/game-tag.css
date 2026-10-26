@@ -1,0 +1,81 @@
+/* Shared tags retain the official metal face, eyelet and bevel; no custom glyphs. */
+.wt-game-tag {
+  --wt-tag-finish: grayscale(1) brightness(0.58) contrast(1.15);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  height: 28px;
+  padding: 0 11px 0 24px;
+  border: 0;
+  background: transparent;
+  color: #f0eee7;
+  vertical-align: middle;
+  isolation: isolate;
+  font:
+    400 15px/28px WTSymbols,
+    WTCard,
+    "Microsoft YaHei",
+    "PingFang SC",
+    sans-serif;
+  white-space: nowrap;
+}
+.wt-game-tag[data-tone="gold"] {
+  --wt-tag-finish: sepia(1) saturate(1.1) brightness(0.63) contrast(1.15);
+}
+.wt-game-tag[data-tone="blue"] {
+  --wt-tag-finish: sepia(1) saturate(1.2) hue-rotate(145deg) brightness(0.58) contrast(1.15);
+}
+.wt-game-tag[data-tone="red"] {
+  --wt-tag-finish: sepia(1) saturate(3) hue-rotate(315deg) brightness(0.55) contrast(1.2);
+}
+.wt-game-tag-skin {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  border-style: solid;
+  border-width: 0 3px 0 18px;
+  border-image-source: url("https://static.encyclopedia.warthunder.com/gui_skin/discount_box_thin_bg.svg");
+  border-image-slice: 0 2 0 12 fill;
+  border-image-width: 0 3px 0 18px;
+  border-image-repeat: stretch;
+  filter: var(--wt-tag-finish);
+}
+.wt-game-tag-label {
+  position: relative;
+  text-shadow: 0 1px 1px #000;
+}
+.wt-game-tag.is-interactive {
+  height: 44px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.wt-game-tag.is-interactive .wt-game-tag-skin {
+  inset-block: 8px;
+}
+.wt-game-tag.is-interactive:hover:not(:disabled) .wt-game-tag-skin,
+.wt-game-tag[aria-pressed="true"] .wt-game-tag-skin {
+  filter: var(--wt-tag-finish) brightness(1.4);
+}
+.wt-game-tag[aria-pressed="true"] .wt-game-tag-label {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: #d5c58f;
+}
+.wt-game-tag:focus-visible {
+  outline: 2px solid var(--wt-gold, #d5c58f);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+.wt-game-tag:disabled {
+  opacity: 0.38;
+  cursor: default;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .wt-game-tag-skin {
+    transition: filter 120ms ease;
+  }
+}
