@@ -54,7 +54,7 @@ export function TagPreview() {
           <h2>02 / 七档配色</h2>
           <span className="wt-tag-lab-source">七彩特权效果 · 持续播放</span>
         </div>
-        <p className="wt-tag-motion-status" role="status">
+        <p className="wt-tag-motion-status">
           七彩持续播放 · 明亮彩光与扫光特效
         </p>
         <div className="wt-tag-tier-grid">
