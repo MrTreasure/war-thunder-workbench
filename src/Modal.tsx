@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef } from "react";
 import type { ReactNode } from "react";
+import { GameButton } from "./components/GameButton";
 import { ResearchPoints } from "./ResearchPoints";
 export function Modal({
   title,
@@ -37,9 +38,9 @@ export function Modal({
           <h2 id={titleId}>{title}</h2>
           <p>{subtitle}</p>
         </div>
-        <button className="quiet-button" onClick={close}>
-          关闭 ×
-        </button>
+        <GameButton tone="ghost" icon="close" onClick={close}>
+          关闭
+        </GameButton>
       </header>
       {children}
     </dialog>

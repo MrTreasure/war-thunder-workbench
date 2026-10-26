@@ -27,6 +27,10 @@
   --wt-shadow: 0 14px 48px rgba(6, 12, 19, 0.55);
   --wt-service-red: #b33f32;
   --wt-service-red-hover: #cb4b3b;
+  --wt-action-edge: #e68154;
+  --wt-action-shade: #702b24;
+  --wt-tab-active: #35454d;
+  --wt-positive: #a7c5ac;
   --wt-logo-filter: brightness(0) invert(0.94);
 }
 .wt-brand-logo,

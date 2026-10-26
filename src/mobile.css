@@ -3289,3 +3289,26 @@
     font-size: 16px;
   }
 }
+
+/* Vehicle performance and loadout dossier: one vertical scroller, contained horizontal tables. */
+@media (max-width: 800px) {
+  .calculator.vehicle-detail-dialog[open] { display:grid; grid-template-rows:auto minmax(0,1fr); }
+  .wt-detail-hero { grid-template-columns:minmax(0,1fr); gap:12px; }
+  .wt-detail-tabs { overflow-x:auto; scrollbar-width:thin; }
+  .wt-detail-tabs > button { padding:10px 12px; font-size:13px; }
+  .wt-detail-tabs .wt-control-icon { width:18px; height:18px; flex-basis:18px; }
+  .wt-detail-panel { padding-top:16px; }
+  .wt-performance-toolbar { gap:8px; }
+  .wt-performance-options { width:100%; justify-content:space-between; gap:8px; }
+  .wt-performance-options > .wt-select { flex:1; min-width:0; font-size:16px; }
+  .wt-performance-options > label { white-space:nowrap; }
+  .wt-table-scroll-hint { display:block; margin:0 0 8px; font-size:11px; color:var(--wt-muted); }
+  .wt-performance-table { min-width:650px; }
+  .wt-performance-table th:first-child { width:140px; }
+  .wt-performance-table th, .wt-performance-table td { padding:10px 8px; }
+  .wt-dossier-section-heading { gap:8px; }
+  .wt-dossier-section-heading > span { font-size:11px; }
+  .wt-loadout-limits { gap:16px 24px; }
+  .wt-loadout-matrix th:first-child { min-width:190px; }
+  .wt-loadouts h4 > small { display:block; margin:5px 0 0; }
+}

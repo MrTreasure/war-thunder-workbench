@@ -1,0 +1,378 @@
+/* finesse · component: vehicle-comparison · register=product
+ * states: default · focus-visible · loading · error · empty · success
+ * tokens: existing --wt hangar palette; game toolbar rhythm and aligned reference columns */
+.vehicle-detail-dialog {
+  width: min(1160px, calc(100vw - 40px));
+}
+.vehicle-detail-dialog[open] {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+.vehicle-detail-dialog .detail.wt-vehicle-sheet {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.wt-detail-actions > .wt-game-button {
+  min-height: 44px;
+  padding: 8px 14px;
+  font-size: 13px;
+}
+.wt-detail-hero {
+  grid-template-columns: minmax(200px, 0.8fr) minmax(0, 1.6fr);
+  gap: 24px;
+  padding-bottom: 16px;
+}
+.wt-detail-tabs {
+  position: sticky;
+  top: -1px;
+  z-index: 3;
+  background: var(--wt-surface);
+}
+.wt-detail-panel {
+  min-width: 0;
+  padding-block: 20px 8px;
+}
+.wt-detail-panel[hidden] {
+  display: none;
+}
+.wt-detail-panel .wt-detail-route {
+  padding-top: 0;
+}
+.wt-dossier-section-heading,
+.wt-dossier-section-heading > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wt-dossier-section-heading {
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.wt-dossier-section-heading h3 {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font: 500 15px/1.4 var(--wt-sans);
+  color: var(--wt-ink);
+}
+.wt-dossier-section-heading > span {
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.wt-performance-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.wt-performance-toolbar .wt-game-tabs {
+  border: 1px solid var(--wt-line);
+}
+.wt-performance-toolbar .wt-game-tabs > button {
+  min-height: 42px;
+  padding: 9px 16px;
+  font-size: 13px;
+}
+.wt-performance-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.wt-performance-options > .wt-select {
+  width: auto;
+  flex: 0 0 auto;
+  min-height: 44px;
+  font-size: 12px;
+  padding-inline: 10px;
+}
+.wt-performance-options > label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: var(--wt-body);
+  font-size: 12px;
+  cursor: pointer;
+}
+.wt-performance-options input {
+  accent-color: var(--wt-service-red-hover);
+  width: 16px;
+  height: 16px;
+}
+.wt-performance-scroll,
+.wt-loadout-matrix-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  border: 1px solid var(--wt-line);
+}
+.wt-performance-scroll:focus-visible,
+.wt-loadout-matrix-scroll:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 2px;
+}
+.wt-performance-table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.wt-performance-table th,
+.wt-performance-table td {
+  padding: 12px 10px;
+  text-align: right;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--wt-line);
+}
+.wt-performance-table th {
+  font-weight: 500;
+}
+.wt-performance-table th:first-child {
+  width: 25%;
+  text-align: left;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--wt-surface);
+}
+.wt-performance-table thead th {
+  padding-block: 14px;
+  background: var(--wt-panel);
+  color: var(--wt-body);
+}
+.wt-performance-table thead th:first-child {
+  background: var(--wt-panel);
+}
+.wt-performance-table small {
+  display: block;
+  font-size: 11px;
+  line-height: 1.45;
+  font-weight: 400;
+  color: var(--wt-muted);
+  margin-top: 5px;
+}
+.wt-performance-table tbody th > span {
+  display: block;
+  overflow-wrap: anywhere;
+}
+.wt-performance-table tbody td strong {
+  color: var(--wt-ink);
+  font:
+    400 19px/1.2 WTCard,
+    var(--wt-sans);
+}
+.wt-performance-table [data-baseline="true"] {
+  background: var(--wt-gold-soft);
+}
+.wt-performance-table thead [data-baseline="true"] {
+  color: var(--wt-gold);
+  background: var(--wt-panel);
+  box-shadow: inset 0 -2px 0 var(--wt-gold-line);
+}
+.wt-performance-table small.wt-performance-delta {
+  color: var(--wt-body);
+  white-space: nowrap;
+}
+.wt-performance-table .wt-performance-delta[data-improved="true"] {
+  color: var(--wt-positive);
+}
+.wt-performance-table .wt-performance-delta[data-improved="false"] {
+  color: var(--wt-action-edge);
+}
+.wt-performance-unknown {
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-dossier-empty {
+  margin: 0;
+  padding: 28px 16px;
+  border: 1px solid var(--wt-line);
+  color: var(--wt-muted);
+  text-align: center;
+  font-size: 13px;
+}
+.wt-dossier-note,
+.wt-dossier-provenance {
+  color: var(--wt-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.wt-dossier-note {
+  margin: 12px 0;
+}
+.wt-dossier-provenance {
+  display: inline-block;
+  margin-top: 14px;
+}
+.wt-reference-explanation {
+  margin-top: 16px;
+  border-top: 1px solid var(--wt-line);
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-reference-explanation > summary {
+  min-height: 44px;
+  padding: 12px 0;
+  cursor: pointer;
+  color: var(--wt-body);
+}
+.wt-reference-explanation p {
+  font-size: 12px;
+  line-height: 1.75;
+  margin: 0 0 10px;
+}
+.wt-reference-explanation a {
+  display: inline-block;
+  margin: 0 16px 8px 0;
+  color: var(--wt-gold);
+}
+.wt-table-scroll-hint {
+  display: none;
+}
+.wt-loadout-limits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 40px;
+  margin: 0 0 24px;
+  padding: 14px 0;
+  border-block: 1px solid var(--wt-line);
+}
+.wt-loadout-limits dt {
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.wt-loadout-limits dd {
+  margin: 5px 0 0;
+  color: var(--wt-ink);
+  font:
+    400 23px/1.2 WTCard,
+    var(--wt-sans);
+}
+.wt-loadout-limits dd small {
+  font: 12px var(--wt-sans);
+  color: var(--wt-muted);
+}
+.wt-loadouts h4 {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 20px 0 10px;
+}
+.wt-loadouts h4 > small {
+  margin-left: 8px;
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--wt-muted);
+}
+.wt-loadout-matrix {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.wt-loadout-matrix th,
+.wt-loadout-matrix td {
+  padding: 10px;
+  border-bottom: 1px solid var(--wt-line);
+  text-align: center;
+}
+.wt-loadout-matrix thead {
+  background: var(--wt-panel);
+  color: var(--wt-muted);
+}
+.wt-loadout-matrix th:first-child {
+  width: 300px;
+  min-width: 220px;
+  text-align: left;
+  background: var(--wt-surface);
+}
+.wt-loadout-matrix thead th:first-child {
+  background: var(--wt-panel);
+}
+.wt-loadout-matrix td[data-compatible="true"] {
+  color: var(--wt-positive);
+  background: var(--wt-accent-soft);
+}
+.wt-loadout-weapon {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+  font-weight: 400;
+}
+.wt-loadout-weapon > img {
+  width: 36px;
+  height: 32px;
+  object-fit: contain;
+  flex: none;
+}
+.wt-loadout-weapon > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.wt-loadout-weapon a {
+  color: var(--wt-body);
+}
+.wt-loadout-weapon details {
+  margin-top: 5px;
+}
+.wt-loadout-weapon summary {
+  min-height: 32px;
+  color: var(--wt-gold);
+  cursor: pointer;
+}
+.wt-loadout-weapon dl {
+  display: grid;
+  gap: 8px;
+  margin: 8px 0;
+}
+.wt-loadout-weapon dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.wt-loadout-weapon dt {
+  color: var(--wt-muted);
+}
+.wt-loadout-weapon dd {
+  margin: 0;
+  text-align: right;
+}
+.wt-loadout-presets > details {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--wt-line);
+}
+.wt-loadout-presets summary {
+  cursor: pointer;
+  min-height: 32px;
+}
+.wt-loadout-presets li {
+  margin-block: 12px;
+}
+.wt-loadout-presets a {
+  color: var(--wt-body);
+}
+.wt-preset-parameters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px 24px;
+  margin: 12px 0;
+  font-size: 12px;
+}
+.wt-preset-parameters > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.wt-preset-parameters dt {
+  color: var(--wt-muted);
+}
+.wt-preset-parameters dd {
+  margin: 0;
+  color: var(--wt-body);
+}
