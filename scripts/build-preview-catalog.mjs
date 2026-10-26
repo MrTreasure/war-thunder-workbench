@@ -1,10 +1,11 @@
 /** Emit only the dedicated Render preview catalog. Does not touch the live API pointer or Git CDN. */
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { resolve } from "node:path";
 const root = resolve(import.meta.dirname, "..");
 const manifest = JSON.parse(await readFile(resolve(root, "src/generated/manifest.json"), "utf8"));
 const directory = resolve(root, "dist/preview-catalog");
+await rm(directory, { recursive: true, force: true });
 await mkdir(resolve(directory, "countries"), { recursive: true });
 const sha = (text) => createHash("sha256").update(text).digest("hex");
 for (const [country, entry] of Object.entries(manifest.countries)) {
@@ -16,10 +17,10 @@ for (const [country, entry] of Object.entries(manifest.countries)) {
   );
   if (Buffer.byteLength(text) !== entry.bytes || sha(text) !== entry.sha256)
     throw Error("Preview country hash mismatch");
-  await writeFile(
-    resolve(directory, "countries", entry.file),
-    `export default ${JSON.stringify(text)};\n`,
-  );
+  // The URL hashes the emitted JS bytes; entry.sha256/bytes still verify canonical JSON.
+  const transport = `export default ${JSON.stringify(text)};\n`;
+  entry.file = `country-${country}.${sha(transport).slice(0, 16)}.js`;
+  await writeFile(resolve(directory, "countries", entry.file), transport);
 }
 const index = `export default ${JSON.stringify(manifest)};\n`;
 const indexFile = `manifest.${sha(index).slice(0, 16)}.js`;
