@@ -8,6 +8,22 @@ import { fileURLToPath } from "node:url";
 
 setDefaultResultOrder("ipv4first");
 const root = fileURLToPath(new URL("../", import.meta.url));
+const verifyProxy = process.env.CF_EDGE_PROXY;
+if (verifyProxy) {
+  const url = new URL(verifyProxy);
+  if (
+    url.protocol !== "http:" ||
+    !["127.0.0.1", "localhost", "[::1]"].includes(url.hostname) ||
+    url.username ||
+    url.password ||
+    url.pathname !== "/" ||
+    url.search ||
+    url.hash
+  )
+    throw Error("Invalid local edge verification proxy");
+}
+const edgeProxyArgs = verifyProxy ? ["--proxy", verifyProxy, "--noproxy", ""] : ["--noproxy", "*"];
+
 try {
   await readFile(resolve(root, "src/i18n/core.ts"));
 } catch {
@@ -42,8 +58,7 @@ if (!dryRun) {
     const args = [
       "--http1.1",
       "--ipv4",
-      "--noproxy",
-      "*",
+      ...edgeProxyArgs,
       "--compressed",
       "--silent",
       "--show-error",
@@ -172,6 +187,7 @@ async function verifyWorker(html) {
       [
         "--http1.1",
         "--ipv4",
+        ...edgeProxyArgs,
         "--compressed",
         "--fail",
         "--silent",
