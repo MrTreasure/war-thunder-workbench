@@ -83,11 +83,14 @@ export function groupedOffers(summary?: PriceSummary): PriceOffer[] {
 /** A regular-price snapshot is not evidence of a historical discounted minimum. */
 export function discountedMinimum(offer?: PriceOffer) {
   const p = offer?.minimum;
-  const regular = Math.max(
-    p?.regularAmountMinor || 0,
-    offer?.latest?.regularAmountMinor || 0,
-    ...(offer?.previewPoints || []).map((point) => point.regularAmountMinor || 0),
-  );
+  const regular =
+    offer?.currency === "CNY"
+      ? p?.regularAmountMinor || 0
+      : Math.max(
+          p?.regularAmountMinor || 0,
+          offer?.latest?.regularAmountMinor || 0,
+          ...(offer?.previewPoints || []).map((point) => point.regularAmountMinor || 0),
+        );
   return p && regular > p.amountMinor ? p : null;
 }
 export type PriceSummary = {
