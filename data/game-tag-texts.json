@@ -6,107 +6,706 @@
     {
       "id": "official-title-ac0f8812a1a9",
       "label": "钢铁之躯",
-      "language": "zh-CN",
       "sourceUrl": "https://warthunder.com/zh/news/278/current/",
-      "sourceTitle": "旧礼包，新特卖"
+      "sourceTitle": "旧礼包，新特卖",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
     },
     {
       "id": "official-title-d857c75c8fd3",
       "label": "钢胆铁威",
-      "language": "zh-CN",
       "sourceUrl": "https://warthunder.com/zh/news/505/current/",
-      "sourceTitle": "新年特卖！"
+      "sourceTitle": "新年特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
     },
     {
       "id": "official-title-d261fc38049b",
       "label": "口径至上",
-      "language": "zh-CN",
       "sourceUrl": "https://warthunder.com/zh/news/505/current/",
-      "sourceTitle": "新年特卖！"
+      "sourceTitle": "新年特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
     },
     {
       "id": "official-title-fa829edd0fa1",
       "label": "让榴弹飞",
-      "language": "zh-CN",
       "sourceUrl": "https://warthunder.com/zh/news/505/current/",
-      "sourceTitle": "新年特卖！"
+      "sourceTitle": "新年特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
     },
     {
       "id": "official-title-92ad6891c01c",
       "label": "不屈之决心",
-      "language": "zh-CN",
       "sourceUrl": "https://warthunder.com/zh/news/326/current/",
-      "sourceTitle": "D日特卖！"
+      "sourceTitle": "D日特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
     },
     {
       "id": "official-title-77bdcc4c1a34",
       "label": "不懈的努力",
-      "language": "zh-CN",
       "sourceUrl": "https://warthunder.com/zh/news/326/current/",
-      "sourceTitle": "D日特卖！"
+      "sourceTitle": "D日特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
     },
     {
       "id": "official-title-0413482181b7",
       "label": "多面手",
-      "language": "zh-CN",
       "sourceUrl": "https://warthunder.com/zh/news/1067/current/",
-      "sourceTitle": "排位赛：2023总决赛及Twitch掉宝"
+      "sourceTitle": "排位赛：2023总决赛及Twitch掉宝",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
     },
     {
       "id": "official-title-8dcda4b3695a",
       "label": "空战王牌",
-      "language": "zh-CN",
       "sourceUrl": "https://warthunder.com/zh/news/1067/current/",
-      "sourceTitle": "排位赛：2023总决赛及Twitch掉宝"
+      "sourceTitle": "排位赛：2023总决赛及Twitch掉宝",
+      "kind": "competitive-identity",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
     },
     {
       "id": "official-title-ed93e4c48739",
       "label": "最佳搭档",
-      "language": "zh-CN",
       "sourceUrl": "https://warthunder.com/zh/news/1067/current/",
-      "sourceTitle": "排位赛：2023总决赛及Twitch掉宝"
+      "sourceTitle": "排位赛：2023总决赛及Twitch掉宝",
+      "kind": "competitive-identity",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
     },
     {
       "id": "official-title-1ad2631cb9eb",
       "label": "胜利装甲",
-      "language": "zh-CN",
       "sourceUrl": "https://warthunder.com/zh/news/93/current/",
-      "sourceTitle": "“胜利杯”锦标赛——优胜者"
+      "sourceTitle": "“胜利杯”锦标赛——优胜者",
+      "kind": "competitive-identity",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
     },
     {
       "id": "official-title-ef10ef8f3bea",
       "label": "胜利之翼",
-      "language": "zh-CN",
       "sourceUrl": "https://warthunder.com/zh/news/93/current/",
-      "sourceTitle": "“胜利杯”锦标赛——优胜者"
+      "sourceTitle": "“胜利杯”锦标赛——优胜者",
+      "kind": "competitive-identity",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
     },
     {
       "id": "official-title-0c32723322c0",
       "label": "我们上",
-      "language": "zh-CN",
       "sourceUrl": "https://warthunder.com/zh/news/45/current/",
-      "sourceTitle": "为破纪录的勇士们献上祝福！"
+      "sourceTitle": "为破纪录的勇士们献上祝福！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
     },
     {
       "id": "official-title-9f2ca1654679",
       "label": "庇护之翼",
-      "language": "zh-CN",
       "sourceUrl": "https://warthunder.com/zh/news/1718/current/",
-      "sourceTitle": "勇气时刻：巴西"
+      "sourceTitle": "勇气时刻：巴西",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
     },
     {
       "id": "official-title-ed70c875dfaf",
       "label": "榜样",
-      "language": "zh-CN",
       "sourceUrl": "https://warthunder.com/zh/news/278/current/",
-      "sourceTitle": "旧礼包，新特卖"
+      "sourceTitle": "旧礼包，新特卖",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
     },
     {
       "id": "official-title-5a945b514eef",
       "label": "夜黑金曜",
-      "language": "zh-CN",
       "sourceUrl": "https://warthunder.com/zh/news/1289/current/",
-      "sourceTitle": "黑色星期五礼包上架！"
+      "sourceTitle": "黑色星期五礼包上架！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-da4d098f7403",
+      "label": "暗影危机",
+      "sourceUrl": "https://warthunder.com/zh/news/278/current/",
+      "sourceTitle": "旧礼包，新特卖",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-dd01e7bff23b",
+      "label": "一个人的装填",
+      "sourceUrl": "https://warthunder.com/zh/news/505/current/",
+      "sourceTitle": "新年特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-d86a4d42f297",
+      "label": "命中的捉弄",
+      "sourceUrl": "https://warthunder.com/zh/news/505/current/",
+      "sourceTitle": "新年特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-f673b2b32f5a",
+      "label": "小鬼蹲家",
+      "sourceUrl": "https://warthunder.com/zh/news/505/current/",
+      "sourceTitle": "新年特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-bfe95d7c29b7",
+      "label": "粘稠至亲",
+      "sourceUrl": "https://warthunder.com/zh/news/505/current/",
+      "sourceTitle": "新年特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-8318644acb5d",
+      "label": "蜗牛神的学徒",
+      "sourceUrl": "https://warthunder.com/zh/news/505/current/",
+      "sourceTitle": "新年特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-3716d8ae32dc",
+      "label": "欢乐蜗的朋友们",
+      "sourceUrl": "https://warthunder.com/zh/news/505/current/",
+      "sourceTitle": "新年特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-4b55f848880d",
+      "label": "蜗诞节特映",
+      "sourceUrl": "https://warthunder.com/zh/news/505/current/",
+      "sourceTitle": "新年特卖！",
+      "kind": "collecting-title",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-0ff2ca0f3bdc",
+      "label": "总决赛冠军",
+      "sourceUrl": "https://warthunder.com/zh/news/1067/current/",
+      "sourceTitle": "排位赛：2023总决赛及Twitch掉宝",
+      "kind": "competitive-identity",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-0d1896f230b6",
+      "label": "eSports enjoyer",
+      "sourceUrl": "https://warthunder.com/zh/news/1067/current/",
+      "sourceTitle": "排位赛：2023总决赛及Twitch掉宝",
+      "kind": "fan-title",
+      "language": "en",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-c2ad364bacd6",
+      "label": "健将",
+      "sourceUrl": "https://warthunder.com/zh/news/448/current/",
+      "sourceTitle": "War Thunder在线商店生日特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-a0f49e187740",
+      "label": "同志",
+      "sourceUrl": "https://warthunder.com/zh/news/448/current/",
+      "sourceTitle": "War Thunder在线商店生日特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-e105aaf97108",
+      "label": "能手",
+      "sourceUrl": "https://warthunder.com/zh/news/448/current/",
+      "sourceTitle": "War Thunder在线商店生日特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-90c42cbd6c54",
+      "label": "领主",
+      "sourceUrl": "https://warthunder.com/zh/news/448/current/",
+      "sourceTitle": "War Thunder在线商店生日特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-ed76d2735752",
+      "label": "宗师",
+      "sourceUrl": "https://warthunder.com/zh/news/448/current/",
+      "sourceTitle": "War Thunder在线商店生日特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-2bc4d3fc0a2c",
+      "label": "艺术大师",
+      "sourceUrl": "https://warthunder.com/zh/news/448/current/",
+      "sourceTitle": "War Thunder在线商店生日特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-211bdfac62a9",
+      "label": "鉴赏大师",
+      "sourceUrl": "https://warthunder.com/zh/news/448/current/",
+      "sourceTitle": "War Thunder在线商店生日特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-bce5ddf9e293",
+      "label": "师父",
+      "sourceUrl": "https://warthunder.com/zh/news/448/current/",
+      "sourceTitle": "War Thunder在线商店生日特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-d0960f603067",
+      "label": "吟游诗人",
+      "sourceUrl": "https://warthunder.com/zh/news/448/current/",
+      "sourceTitle": "War Thunder在线商店生日特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-d5724ae29b15",
+      "label": "蜗牛领主",
+      "sourceUrl": "https://warthunder.com/zh/news/448/current/",
+      "sourceTitle": "War Thunder在线商店生日特卖！",
+      "kind": "collecting-title",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-108e93a9580d",
+      "label": "小迷弟",
+      "sourceUrl": "https://warthunder.com/zh/news/856/current/",
+      "sourceTitle": "战争雷霆商城冬季特惠！",
+      "kind": "fan-title",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-e8c69a06c768",
+      "label": "载具鉴赏家",
+      "sourceUrl": "https://warthunder.com/zh/news/856/current/",
+      "sourceTitle": "战争雷霆商城冬季特惠！",
+      "kind": "collecting-title",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-04c165e8f097",
+      "label": "宝藏猎人",
+      "sourceUrl": "https://warthunder.com/zh/news/856/current/",
+      "sourceTitle": "战争雷霆商城冬季特惠！",
+      "kind": "collecting-title",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-b4c30f3f7a46",
+      "label": "超市是我家",
+      "sourceUrl": "https://warthunder.com/zh/news/856/current/",
+      "sourceTitle": "战争雷霆商城冬季特惠！",
+      "kind": "collecting-title",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-53f4e3337639",
+      "label": "恶魔改装",
+      "sourceUrl": "https://warthunder.com/zh/news/886/current/",
+      "sourceTitle": "预购 – 16 式机动战车（初期型）",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-4113472b669f",
+      "label": "魔鬼使徒",
+      "sourceUrl": "https://warthunder.com/zh/news/915/current/",
+      "sourceTitle": "预购: F-4S 鬼怪 II",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-6292032f2cf1",
+      "label": "武装到牙齿",
+      "sourceUrl": "https://warthunder.com/zh/news/54/current/",
+      "sourceTitle": "War Thunder五月特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-190d9f832c8b",
+      "label": "唯真理得胜",
+      "sourceUrl": "https://warthunder.com/zh/news/2727/current/",
+      "sourceTitle": "勇气时刻：印度",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-c647a63dd4d7",
+      "label": "潘多拉守护者",
+      "sourceUrl": "https://warthunder.com/zh/news/839/current/",
+      "sourceTitle": "潘多拉魔盒",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-a3fe3c6816c5",
+      "label": "潘多拉征服者",
+      "sourceUrl": "https://warthunder.com/zh/news/839/current/",
+      "sourceTitle": "潘多拉魔盒",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-7e615ad0a606",
+      "label": "黑色奢华",
+      "sourceUrl": "https://warthunder.com/zh/news/815/current/",
+      "sourceTitle": "黑色星期五特卖！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-0161f5817f80",
+      "label": "My Castle",
+      "sourceUrl": "https://warthunder.com/zh/news/6/current/",
+      "sourceTitle": "“待在家，更安全”特卖活动",
+      "kind": "official-title-text",
+      "language": "en",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-3f1190aff5f7",
+      "label": "一切为了祖国",
+      "sourceUrl": "https://warthunder.com/zh/news/2320/current/",
+      "sourceTitle": "勇气时刻：西班牙",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-3b8fe6ecc074",
+      "label": "银燕",
+      "sourceUrl": "https://warthunder.com/zh/news/831/current/",
+      "sourceTitle": "预购 - VII 级高级载具喷气战斗机",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-0db7b619b330",
+      "label": "星战士",
+      "sourceUrl": "https://warthunder.com/zh/news/831/current/",
+      "sourceTitle": "预购 - VII 级高级载具喷气战斗机",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-2bd8cb2320dd",
+      "label": "幼狮",
+      "sourceUrl": "https://warthunder.com/zh/news/831/current/",
+      "sourceTitle": "预购 - VII 级高级载具喷气战斗机",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-dfc117620485",
+      "label": "西班牙贵族",
+      "sourceUrl": "https://warthunder.com/zh/news/720/current/",
+      "sourceTitle": "预购：VRCC 半人马",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-315e2fb44189",
+      "label": "针锋相对",
+      "sourceUrl": "https://warthunder.com/zh/news/2001/current/",
+      "sourceTitle": "“黄蜂之蜇”礼包开启预售：74 式红星伪装战车、鹞 T.10 上架！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-8f8422c3ef3e",
+      "label": "行胜于言",
+      "sourceUrl": "https://warthunder.com/zh/news/2001/current/",
+      "sourceTitle": "“黄蜂之蜇”礼包开启预售：74 式红星伪装战车、鹞 T.10 上架！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-2b535d48b12f",
+      "label": "幻影杀机",
+      "sourceUrl": "https://warthunder.com/zh/news/837/current/",
+      "sourceTitle": "预购 - VII 级高级载具喷气战斗机（第二批）",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-8317e6923da1",
+      "label": "先锋",
+      "sourceUrl": "https://warthunder.com/zh/news/837/current/",
+      "sourceTitle": "预购 - VII 级高级载具喷气战斗机（第二批）",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-2555f20e7bc3",
+      "label": "摇摆机翼",
+      "sourceUrl": "https://warthunder.com/zh/news/837/current/",
+      "sourceTitle": "预购 - VII 级高级载具喷气战斗机（第二批）",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-8036dd8f21fa",
+      "label": "斗牛士",
+      "sourceUrl": "https://warthunder.com/zh/news/1827/current/",
+      "sourceTitle": "AV-8S、苏-22M4 与 JA 37DI 礼包开放预购！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-65046b94dad6",
+      "label": "装配匠",
+      "sourceUrl": "https://warthunder.com/zh/news/1827/current/",
+      "sourceTitle": "AV-8S、苏-22M4 与 JA 37DI 礼包开放预购！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-dea7c09aa6f3",
+      "label": "驱雷策电",
+      "sourceUrl": "https://warthunder.com/zh/news/1827/current/",
+      "sourceTitle": "AV-8S、苏-22M4 与 JA 37DI 礼包开放预购！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-eeaf6051fbd7",
+      "label": "黄金坦",
+      "sourceUrl": "https://warthunder.com/zh/news/1442/current/",
+      "sourceTitle": "90 式战车 B 型（富士教导团）与梅卡瓦 Mk 3/紫色雷霆开放预购！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-568eca22f7ec",
+      "label": "紫电清霜",
+      "sourceUrl": "https://warthunder.com/zh/news/1442/current/",
+      "sourceTitle": "90 式战车 B 型（富士教导团）与梅卡瓦 Mk 3/紫色雷霆开放预购！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-3ed01d55dca9",
+      "label": "大漠灯神",
+      "sourceUrl": "https://warthunder.com/zh/news/1417/current/",
+      "sourceTitle": "半人马 RGO 与 Strv 121B 礼包开放预购！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-2d1e570f66a8",
+      "label": "蓝血贵族",
+      "sourceUrl": "https://warthunder.com/zh/news/1417/current/",
+      "sourceTitle": "半人马 RGO 与 Strv 121B 礼包开放预购！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-efe438851c7b",
+      "label": "重炮绝唱",
+      "sourceUrl": "https://warthunder.com/zh/news/893/current/",
+      "sourceTitle": "预购：得梅因号重巡洋舰（1948）",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-6055949d24d1",
+      "label": "Gaijin 将军",
+      "sourceUrl": "https://warthunder.com/zh/news/1154/current/",
+      "sourceTitle": "VI 级舰艇加入游戏，阿肯色号和马拉号高级战列舰礼包开放预购！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-6426d9c9a02a",
+      "label": "坚定不移",
+      "sourceUrl": "https://warthunder.com/zh/news/1154/current/",
+      "sourceTitle": "VI 级舰艇加入游戏，阿肯色号和马拉号高级战列舰礼包开放预购！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-a0aaadc2fb78",
+      "label": "隐入黑暗",
+      "sourceUrl": "https://warthunder.com/zh/news/2403/current/",
+      "sourceTitle": "黑色星期五专题折扣开启！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-01cc9ffbb6d6",
+      "label": "玄兵神武",
+      "sourceUrl": "https://warthunder.com/zh/news/1863/current/",
+      "sourceTitle": "疯狂黑色星期五，V 你五折！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-4b4a3c922943",
+      "label": "艾米莉粉丝",
+      "sourceUrl": "https://warthunder.com/zh/news/2627/current/",
+      "sourceTitle": "全新“寒战追凶”动画短片上映，战雷少女小队新成员亮相！",
+      "kind": "fan-title",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-8427f5085404",
+      "label": "阿翎粉丝",
+      "sourceUrl": "https://warthunder.com/zh/news/2627/current/",
+      "sourceTitle": "全新“寒战追凶”动画短片上映，战雷少女小队新成员亮相！",
+      "kind": "fan-title",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-1ff0db95808e",
+      "label": "兔子车长粉丝",
+      "sourceUrl": "https://warthunder.com/zh/news/2627/current/",
+      "sourceTitle": "全新“寒战追凶”动画短片上映，战雷少女小队新成员亮相！",
+      "kind": "fan-title",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-6cffb0998b52",
+      "label": "敢为人先",
+      "sourceUrl": "https://warthunder.com/zh/news/1581/current/",
+      "sourceTitle": "诺曼底登陆 80 周年纪念活动开启！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-21364679adf6",
+      "label": "破敌重锤",
+      "sourceUrl": "https://warthunder.com/zh/news/1581/current/",
+      "sourceTitle": "诺曼底登陆 80 周年纪念活动开启！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-d2c45dffccfe",
+      "label": "战争霸主",
+      "sourceUrl": "https://warthunder.com/zh/news/1581/current/",
+      "sourceTitle": "诺曼底登陆 80 周年纪念活动开启！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-bf89a4cbb822",
+      "label": "诺曼底英豪",
+      "sourceUrl": "https://warthunder.com/zh/news/1581/current/",
+      "sourceTitle": "诺曼底登陆 80 周年纪念活动开启！",
+      "kind": "competitive-identity",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-fb149e4c673b",
+      "label": "常胜元帅",
+      "sourceUrl": "https://warthunder.com/zh/news/1688/current/",
+      "sourceTitle": "巴格拉季昂行动周年纪念活动开启，专题折扣、贴花与挂件上线！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
+    },
+    {
+      "id": "official-title-885e312955a7",
+      "label": "且听战吼！",
+      "sourceUrl": "https://warthunder.com/zh/news/2038/current/",
+      "sourceTitle": "“咆哮的 20 年代”特殊礼包登场！",
+      "kind": "official-title-text",
+      "language": "zh-CN",
+      "sourceLanguage": "zh-CN"
     }
-  ]
+  ],
+  "sourceCount": 33,
+  "coverage": "verified-official-announcements-not-complete-current-client-catalog"
 }

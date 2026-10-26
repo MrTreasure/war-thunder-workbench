@@ -68,6 +68,80 @@
       "label": "七彩闪烁",
       "tint": "#e6a6e0",
       "text": "#ffffff"
+    },
+    "color-red": {
+      "label": "红色",
+      "tint": "#e34e55",
+      "text": "#fff1f0"
+    },
+    "color-orange": {
+      "label": "橙色",
+      "tint": "#df914a",
+      "text": "#20180d"
+    },
+    "color-yellow": {
+      "label": "黄色",
+      "tint": "#e1cc62",
+      "text": "#302a0b"
+    },
+    "color-green": {
+      "label": "绿色",
+      "tint": "#4f9769",
+      "text": "#f0fff5"
+    },
+    "color-cyan": {
+      "label": "青色",
+      "tint": "#4aa7ad",
+      "text": "#10292c"
+    },
+    "color-blue": {
+      "label": "蓝色",
+      "tint": "#4b83bd",
+      "text": "#f2f8ff"
+    },
+    "color-purple": {
+      "label": "紫色",
+      "tint": "#976aac",
+      "text": "#fff5ff"
+    },
+    "color-pink": {
+      "label": "粉色",
+      "tint": "#d58eaf",
+      "text": "#341727"
+    },
+    "color-brown": {
+      "label": "棕色",
+      "tint": "#94704d",
+      "text": "#fff2dc"
+    },
+    "color-black": {
+      "label": "黑色",
+      "tint": "#384149",
+      "text": "#edf4f8"
+    },
+    "color-white": {
+      "label": "白色",
+      "tint": "#f5f6f0",
+      "text": "#1c2a31"
+    },
+    "color-gray": {
+      "label": "灰色",
+      "tint": "#8e989e",
+      "text": "#14232b"
     }
-  }
+  },
+  "basicColors": [
+    "color-red",
+    "color-orange",
+    "color-yellow",
+    "color-green",
+    "color-cyan",
+    "color-blue",
+    "color-purple",
+    "color-pink",
+    "color-brown",
+    "color-black",
+    "color-white",
+    "color-gray"
+  ]
 }

@@ -175,3 +175,31 @@
 .wt-tag-motion-status {
   color: #c1dce7 !important;
 }
+
+.wt-tag-basic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+  gap: 24px 18px;
+}
+.wt-tag-basic-grid h3 {
+  margin-bottom: 10px;
+}
+.wt-tag-text-search {
+  width: 100%;
+  min-height: 44px;
+  padding: 9px 12px;
+  background: #202c34;
+  border: 1px solid #4b5b67;
+  color: #e1e8eb;
+  font: inherit;
+  font-size: 16px;
+}
+.wt-tag-finishes > .wt-tag-choice-group {
+  display: block;
+}
+.wt-tag-choice-group > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}

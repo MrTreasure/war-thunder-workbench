@@ -5,7 +5,12 @@ import "./game-tag.css";
 export type GameTagTone = keyof typeof theme.tones;
 export const gameTagTiers = theme.tiers as GameTagTone[];
 export const gameTagTones = theme.tones;
-export const gameTagChoices: GameTagTone[] = ["original", "red", ...gameTagTiers];
+export const gameTagBasicColors = theme.basicColors as GameTagTone[];
+export const gameTagChoiceGroups: { label: string; tones: GameTagTone[] }[] = [
+  { label: "官方原版", tones: ["original", "red"] },
+  { label: "基本颜色", tones: gameTagBasicColors },
+  { label: "材质与特效", tones: gameTagTiers },
+];
 export type GameTagProps = {
   children: ReactNode;
   tone?: GameTagTone;

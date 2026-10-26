@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { GameTag, gameTagChoices, gameTagTiers, gameTagTones } from "./components/GameTag";
+import {
+  GameTag,
+  gameTagBasicColors,
+  gameTagChoiceGroups,
+  gameTagTiers,
+  gameTagTones,
+} from "./components/GameTag";
 import type { GameTagTone } from "./components/GameTag";
 import registry from "../data/lineup-sharing-tags.json";
 import officialTexts from "../data/game-tag-texts.json";
@@ -8,6 +14,9 @@ import "./tag-preview.css";
 export function TagPreview() {
   const [word, setWord] = useState("经典标配");
   const [tone, setTone] = useState<GameTagTone>("gold");
+  const [textQuery, setTextQuery] = useState("");
+  const matchesText = (label: string) =>
+    label.toLocaleLowerCase().includes(textQuery.trim().toLocaleLowerCase());
   const officialText = officialTexts.titles.find((title) => title.label === word);
   const [combinations, setCombinations] = useState<{ word: string; tone: GameTagTone }[]>([]);
   return (
@@ -15,7 +24,7 @@ export function TagPreview() {
       <header>
         <div>
           <p className="wt-tag-lab-eyebrow">游戏标签 · 独立样式验收</p>
-          <h1>同一句话，自由搭配七档质感</h1>
+          <h1>文案、颜色与材质，自由组合</h1>
           <p>先对照游戏原版，再选择文案与底色。配色不绑定语义，也不表示账号等级。</p>
         </div>
         <a href="#/lineups">返回出击队列 ↗</a>
@@ -50,13 +59,22 @@ export function TagPreview() {
         </p>
       </section>
       <section>
+        <h2>02 / 基本颜色</h2>
+        <div className="wt-tag-basic-grid">
+          {gameTagBasicColors.map((id) => (
+            <div key={id}>
+              <h3>{gameTagTones[id].label}</h3>
+              <GameTag tone={id}>{word}</GameTag>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section>
         <div className="wt-tag-lab-title">
-          <h2>02 / 七档配色</h2>
+          <h2>03 / 材质与特效</h2>
           <span className="wt-tag-lab-source">七彩特权效果 · 持续播放</span>
         </div>
-        <p className="wt-tag-motion-status">
-          七彩持续播放 · 明亮彩光与扫光特效
-        </p>
+        <p className="wt-tag-motion-status">七彩持续播放 · 明亮彩光与扫光特效</p>
         <div className="wt-tag-tier-grid">
           {gameTagTiers.map((id) => (
             <div key={id}>
@@ -67,10 +85,10 @@ export function TagPreview() {
                   (
                     {
                       bronze: "拉丝铜面 · 氧化暗纹",
-                      silver: "冷银镜面 · 细密拉丝",
-                      gold: "抛光黄金 · 暖色高光",
-                      emerald: "通透翠绿 · 多面折光",
-                      diamond: "冰晶切面 · 棱面反射",
+                      silver: "柔和银面 · 细密拉丝",
+                      gold: "缎面黄金 · 温润反光",
+                      emerald: "通透翠绿 · 温润抛光",
+                      diamond: "冰晶切面 · 柔和折射",
                       king: "曜石深底 · 镶金边缘",
                       rainbow: "明亮七彩 · 流动扫光",
                     } as Record<string, string>
@@ -82,23 +100,33 @@ export function TagPreview() {
         </div>
       </section>
       <section>
-        <h2>03 / 自由组合</h2>
+        <h2>04 / 自由组合</h2>
         <div className="wt-tag-composer">
           <div className="wt-tag-words">
             <h3>选择文案</h3>
+            <input
+              className="wt-tag-text-search"
+              type="search"
+              aria-label="标签文案搜索"
+              placeholder="搜索官方称号或队列文案"
+              value={textQuery}
+              onChange={(event) => setTextQuery(event.target.value)}
+            />
             <h4>官方游戏称号 · {officialTexts.titles.length}</h4>
             <div>
-              {officialTexts.titles.map((title) => (
-                <button
-                  key={title.id}
-                  type="button"
-                  aria-pressed={word === title.label}
-                  onClick={() => setWord(title.label)}
-                  title={`来自官方公告《${title.sourceTitle}》`}
-                >
-                  {title.label}
-                </button>
-              ))}
+              {officialTexts.titles
+                .filter((title) => matchesText(title.label))
+                .map((title) => (
+                  <button
+                    key={title.id}
+                    type="button"
+                    aria-pressed={word === title.label}
+                    onClick={() => setWord(title.label)}
+                    title={`来自官方公告《${title.sourceTitle}》`}
+                  >
+                    {title.label}
+                  </button>
+                ))}
             </div>
             <p className="wt-tag-lab-source">
               {officialText ? (
@@ -114,27 +142,34 @@ export function TagPreview() {
             </p>
             <h4>队列文案</h4>
             <div>
-              {registry.tags.map((t) => (
-                <button
-                  key={t.id}
-                  type="button"
-                  aria-pressed={word === t.label}
-                  onClick={() => setWord(t.label)}
-                >
-                  {t.label}
-                </button>
-              ))}
+              {registry.tags
+                .filter((t) => matchesText(t.label))
+                .map((t) => (
+                  <button
+                    key={t.id}
+                    type="button"
+                    aria-pressed={word === t.label}
+                    onClick={() => setWord(t.label)}
+                  >
+                    {t.label}
+                  </button>
+                ))}
             </div>
           </div>
           <div className="wt-tag-finishes">
             <h3>选择标签</h3>
-            <div>
-              {gameTagChoices.map((id) => (
-                <GameTag key={id} tone={id} selected={tone === id} onClick={() => setTone(id)}>
-                  {gameTagTones[id].label}
-                </GameTag>
-              ))}
-            </div>
+            {gameTagChoiceGroups.map((group) => (
+              <div className="wt-tag-choice-group" key={group.label}>
+                <h4>{group.label}</h4>
+                <div>
+                  {group.tones.map((id) => (
+                    <GameTag key={id} tone={id} selected={tone === id} onClick={() => setTone(id)}>
+                      {gameTagTones[id].label}
+                    </GameTag>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
         <div className="wt-tag-result">
