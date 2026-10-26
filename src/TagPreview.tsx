@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { GameTag, gameTagBasicColors, gameTagTiers, gameTagTones } from "./components/GameTag";
 import { TagSelector, type TagChoice } from "./components/TagSelector";
-import { gameTagOptions } from "./game-tag-options";
+import { useTagCatalog, tagLabel } from "./game-tag-catalog";
 import { useGameTagAccess } from "./game-tag-access";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
 import registry from "../data/lineup-sharing-tags.json";
@@ -10,10 +10,10 @@ import "./tag-preview.css";
 export function TagPreview() {
   const [choices, setChoices] = useState<TagChoice[]>([]);
   const access = useGameTagAccess();
+  const tagCatalog = useTagCatalog();
   const account = useWorkbenchAccount();
   const word = choices.length
-    ? gameTagOptions.find((option) => option.id === choices[choices.length - 1].id)?.label ||
-      "经典标配"
+    ? tagLabel(choices[choices.length - 1].id, tagCatalog.items) || "经典标配"
     : "经典标配";
   return (
     <main className="wt-tag-lab">
@@ -98,11 +98,13 @@ export function TagPreview() {
       <section>
         <h2>04 / 自由组合</h2>
         <p className="wt-tag-lab-source">
-          {access.loading
-            ? "正在核验当前账号资格…"
-            : access.access?.bound
-              ? `绑定账号 ${access.access.level ?? "未知"} 级 · 历史战斗 ${access.access.rbBattles ?? "未知"} 次`
-              : "尚未绑定游戏账号：可选官方原版与基本颜色。"}
+          {account.session?.role === "superadmin"
+            ? "超级管理员：全部标签样式已开放"
+            : access.loading
+              ? "正在核验当前账号资格…"
+              : access.access?.bound
+                ? `绑定账号 ${access.access.level ?? "未知"} 级 · 历史战斗 ${access.access.rbBattles ?? "未知"} 次`
+                : "尚未绑定游戏账号：可选官方原版与基本颜色。"}
         </p>
         {!account.session?.user && (
           <button type="button" className="quiet-button" onClick={() => void account.login()}>
@@ -117,7 +119,10 @@ export function TagPreview() {
           刷新标签资格
         </button>
         <TagSelector
-          options={gameTagOptions}
+          options={tagCatalog.options}
+          loading={tagCatalog.loading}
+          error={tagCatalog.error}
+          onRetry={tagCatalog.refresh}
           value={choices}
           onChange={setChoices}
           allowedTones={access.allowedTones}

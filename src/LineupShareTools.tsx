@@ -1,5 +1,5 @@
 import { TagSelector, type TagChoice } from "./components/TagSelector";
-import { gameTagOptions } from "./game-tag-options";
+import { useTagCatalog } from "./game-tag-catalog";
 import { useGameTagAccess } from "./game-tag-access";
 // Fetch status and identity reset synchronize the current request/account with the UI.
 /* oxlint-disable react/set-state-in-effect */
@@ -264,6 +264,7 @@ export function LineupShareTools({
   const [mode, setMode] = useState<Mode>(defaultMode === "ab" ? "ab" : "rb");
   const [choices, setChoices] = useState<TagChoice[]>([]);
   const tagAccess = useGameTagAccess();
+  const tagCatalog = useTagCatalog("lineup");
   const tags = useMemo(() => choices.map((choice) => choice.id), [choices]);
   const tagTones = useMemo(
     () => Object.fromEntries(choices.map((choice) => [choice.id, choice.tone])),
@@ -393,11 +394,13 @@ export function LineupShareTools({
         <small>{tags.length}/3</small>
       </div>
       <p className="calc-note">
-        {tagAccess.loading
-          ? "正在核验标签资格…"
-          : tagAccess.access?.bound
-            ? `绑定账号 ${tagAccess.access.level ?? "未知"} 级 · 历史战斗 ${tagAccess.access.rbBattles ?? "未知"} 次`
-            : "官方原版与基本颜色默认可选；绑定游戏账号可解锁材质。"}
+        {account.session?.role === "superadmin"
+          ? "超级管理员：全部标签样式已开放"
+          : tagAccess.loading
+            ? "正在核验标签资格…"
+            : tagAccess.access?.bound
+              ? `绑定账号 ${tagAccess.access.level ?? "未知"} 级 · 历史战斗 ${tagAccess.access.rbBattles ?? "未知"} 次`
+              : "官方原版与基本颜色默认可选；绑定游戏账号可解锁材质。"}
       </p>
       {tagAccess.error && (
         <p role="alert">
@@ -408,7 +411,10 @@ export function LineupShareTools({
         </p>
       )}
       <TagSelector
-        options={gameTagOptions}
+        options={tagCatalog.options}
+        loading={tagCatalog.loading}
+        error={tagCatalog.error}
+        onRetry={tagCatalog.refresh}
         value={choices}
         allowedTones={tagAccess.allowedTones}
         max={3}

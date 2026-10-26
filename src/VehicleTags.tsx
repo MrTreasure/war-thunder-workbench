@@ -4,7 +4,7 @@ import { communityRequest } from "./lineup-community-api";
 import { GameTag, type GameTagTone } from "./components/GameTag";
 import { GameSelect } from "./components/GameSelect";
 import { TagSelector, type TagChoice } from "./components/TagSelector";
-import { gameTagOptions } from "./game-tag-options";
+import { useTagCatalog, tagLabel } from "./game-tag-catalog";
 import { useGameTagAccess } from "./game-tag-access";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { Modal } from "./Modal";
@@ -37,6 +37,7 @@ function VehicleTagDialog({
   applied: (page: VehicleTagPage) => void;
 }) {
   const access = useGameTagAccess();
+  const tagCatalog = useTagCatalog("vehicle");
   const [value, setValue] = useState<TagChoice[]>([]);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -100,7 +101,10 @@ function VehicleTagDialog({
           </p>
         )}
         <TagSelector
-          options={gameTagOptions}
+          options={tagCatalog.options}
+          loading={tagCatalog.loading}
+          error={tagCatalog.error}
+          onRetry={tagCatalog.refresh}
           value={value}
           allowedTones={access.allowedTones}
           max={1}
@@ -135,6 +139,7 @@ function VehicleTagDialog({
 }
 export function VehicleTags({ vehicleId }: { vehicleId: string }) {
   const account = useWorkbenchAccount();
+  const tagCatalog = useTagCatalog("vehicle");
   const [page, setPage] = useState<VehicleTagPage | null>(null);
   const [version, setVersion] = useState("");
   const [revision, setRevision] = useState(0);
@@ -209,7 +214,7 @@ export function VehicleTags({ vehicleId }: { vehicleId: string }) {
             current.tags.map((tag) => (
               <span key={tag.id}>
                 <GameTag tagId={tag.id} tone={tag.tone}>
-                  {gameTagOptions.find((option) => option.id === tag.id)?.label || tag.id}
+                  {tagLabel(tag.id, tagCatalog.items) || "标签加载中"}
                 </GameTag>
                 <b aria-label={`累计 ${tag.count} 次`}>×{tag.count}</b>
               </span>

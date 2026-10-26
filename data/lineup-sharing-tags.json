@@ -163,7 +163,7 @@
     },
     {
       "id": "all-ge",
-      "label": "全金鹰",
+      "label": "金鹰队列",
       "color": "gold",
       "group": "构成",
       "system": true
@@ -177,7 +177,7 @@
     },
     {
       "id": "mixed-ge",
-      "label": "金银混编",
+      "label": "金银混合",
       "color": "gold",
       "group": "构成",
       "system": true
