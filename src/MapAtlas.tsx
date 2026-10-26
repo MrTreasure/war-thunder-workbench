@@ -15,6 +15,8 @@ import { mapView } from "./map-editor-model";
 import { CONTOUR_IMAGE_TRANSFORM, referenceGrid } from "./ground-map-projection";
 import { Link, Navigate, useNavigate } from "@tanstack/react-router";
 import atlas from "../data/ground-maps.json";
+import { recommendedRoute, hasRecommendedRoutes } from "./map-recommendations";
+import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { Route } from "./routes/_workbench.maps";
 import { Route as DetailRoute } from "./routes/_workbench.maps_.$mapId";
 
@@ -23,6 +25,8 @@ const normalize = (s: string) =>
   s.normalize("NFKC").toLowerCase().replaceAll("日曜", "日耀").replaceAll("马奇诺", "马其诺");
 export function MapAtlas() {
   const locale = useLocale();
+  const { session } = useWorkbenchAccount();
+  const isSuperAdmin = session?.role === "superadmin";
 
   const search = Route.useSearch();
   const navigate = useNavigate({ from: "/maps" });
@@ -46,7 +50,7 @@ export function MapAtlas() {
         normalize(
           [map.name, map.english, map.id, thumb.name, ...map.guides.map((g) => g.title)].join(" "),
         ).includes(normalize(query)) &&
-        (!onlyGuides || map.guides.length),
+        (!onlyGuides || map.guides.length || (isSuperAdmin && hasRecommendedRoutes(map.id))),
     );
   if (selected)
     return (
@@ -115,12 +119,14 @@ export function MapAtlas() {
                   decoding="async"
                 />
                 {localize(
-                  map.guides.length > 0 && (
+                  isSuperAdmin && hasRecommendedRoutes(map.id) ? (
+                    <span className="ground-guide-badge">{t("推荐走线")}</span>
+                  ) : map.guides.length > 0 ? (
                     <span className="ground-guide-badge">
                       {t("攻略")}
                       {localize(map.guides.length)}
                     </span>
-                  ),
+                  ) : null,
                 )}
               </div>
               <div className="ground-card-caption">
@@ -238,11 +244,19 @@ function GroundDetail({
 }) {
   useLocale();
 
+  const { session } = useWorkbenchAccount();
+  const isSuperAdmin = session?.role === "superadmin";
   const layout = map.layouts.find((l) => l.id === layoutId) || map.layouts[0];
   const [contours, setContours] = useState(true),
     [points, setPoints] = useState(true),
     [grid, setGrid] = useState(false),
     [cropped, setCropped] = useState(true);
+  const [recommendations, setRecommendations] = useState(true);
+  const route = isSuperAdmin ? recommendedRoute(map.id, layout.id, team) : undefined;
+  const [routeState, setRouteState] = useState({ id: "", status: "loading" });
+  const [routeRetry, setRouteRetry] = useState(0);
+  const routeKey = `${route?.id || "none"}:${routeRetry}`;
+  const routeStatus = routeState.id === routeKey ? routeState.status : "loading";
   const [zoom, setZoom] = useState(1),
     [offset, setOffset] = useState({ x: 0, y: 0 });
   const [failed, setFailed] = useState(false),
@@ -359,6 +373,26 @@ function GroundDetail({
         </GameSelect>
       </label>
       <div className="ground-layer-toggles">
+        {isSuperAdmin && (
+          <button
+            aria-pressed={recommendations && !!route}
+            aria-busy={recommendations && !!route && routeStatus === "loading"}
+            disabled={!route}
+            title={
+              !route
+                ? t("当前布局与出生侧暂无匹配的推荐走线")
+                : routeStatus === "error"
+                  ? t("推荐走线加载失败，点击重试")
+                  : t("显示或隐藏推荐走线")
+            }
+            onClick={() => {
+              if (recommendations && routeStatus === "error") setRouteRetry((v) => v + 1);
+              else setRecommendations((v) => !v);
+            }}
+          >
+            {t("推荐走线")}
+          </button>
+        )}
         {localize(
           [
             ["等高线", contours, setContours],
@@ -493,6 +527,24 @@ function GroundDetail({
                     />
                   ),
                 )}
+                {recommendations && route && (
+                  <g
+                    className="ground-recommended-layer"
+                    pointerEvents="none"
+                    aria-label={t("推荐走线图层")}
+                  >
+                    <image
+                      key={routeKey}
+                      href={route.url}
+                      width={route.width}
+                      height={route.height}
+                      transform={`matrix(${route.matrix.join(" ")})`}
+                      preserveAspectRatio="none"
+                      onLoad={() => setRouteState({ id: routeKey, status: "loaded" })}
+                      onError={() => setRouteState({ id: routeKey, status: "error" })}
+                    />
+                  </g>
+                )}
                 {localize(
                   grid && (
                     <g
@@ -606,6 +658,15 @@ function GroundDetail({
               exportImage={(items, resolution, signal, progress) =>
                 renderMapPng(
                   {
+                    recommendation:
+                      recommendations && route
+                        ? {
+                            asset: { url: route.url },
+                            width: route.width,
+                            height: route.height,
+                            matrix: route.matrix,
+                          }
+                        : undefined,
                     base: rotateAsset(map.base, sourceChoice),
                     contourImage: rotateAsset(map.contourImage, sourceChoice),
                     view: { x, y, w, h },

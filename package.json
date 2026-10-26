@@ -22,7 +22,7 @@
     "refresh:prices": "node scripts/store-prices.mjs",
     "refresh:guides": "node scripts/extract-map-atlas.mjs",
     "refresh:collections": "node scripts/extract-map-collections.mjs",
-    "check": "tsr generate && pnpm run typecheck && pnpm run lint && pnpm run check:data && pnpm run check:map-editor && pnpm run check:i18n",
+    "check": "tsr generate && pnpm run typecheck && pnpm run lint && pnpm run check:data && pnpm run check:map-editor && pnpm run check:i18n && pnpm run check:map-routes",
     "import:qmuse": "pnpm run check && pnpm run build && qmuse-cli import . --no-open",
     "check:map-editor": "node --experimental-strip-types scripts/check-map-editor.mjs",
     "build:stats-preview": "node scripts/build-player-stats-preview.mjs",
@@ -38,7 +38,8 @@
     "i18n:translate": "node scripts/i18n-workflow.mjs translate --write",
     "i18n:check": "node scripts/i18n-workflow.mjs check",
     "refresh:wallpapers": "node scripts/collect-wallpapers.mjs",
-    "build:heybox-preview": "node scripts/build-heybox-static-preview.mjs"
+    "build:heybox-preview": "node scripts/build-heybox-static-preview.mjs",
+    "check:map-routes": "node scripts/check-map-recommendations.mjs"
   },
   "dependencies": {
     "@noble/hashes": "2.4.0",

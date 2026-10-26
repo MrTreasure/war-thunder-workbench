@@ -2321,5 +2321,10 @@
   "等待手机确认 ·": "Waiting for phone confirmation · ",
   "仅确认你正在操作的浏览器。本站不要求小黑盒或游戏密码。": "Confirm only the browser you are using. We never ask for your Heybox or game password.",
   "小黑盒账号已关联。": "Heybox account linked.",
-  "头像 {0}": "Avatar {0}"
+  "头像 {0}": "Avatar {0}",
+  "推荐走线": "Recommended routes",
+  "推荐走线图层": "Recommended route layer",
+  "当前布局与出生侧暂无匹配的推荐走线": "No recommended route for this layout and spawn side",
+  "推荐走线加载失败，点击重试": "Routes failed to load. Click to retry",
+  "显示或隐藏推荐走线": "Show or hide recommended routes"
 }
