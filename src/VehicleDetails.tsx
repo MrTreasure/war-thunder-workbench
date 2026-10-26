@@ -137,7 +137,7 @@ export function VehicleDetails({
         >
           {active === item.value &&
             (item.value === "performance" ? (
-              <VehiclePerformance key={unit.id} unit={unit} mode={mode} />
+              <VehiclePerformance key={unit.id} unit={unit} mode={mode} category={category} />
             ) : item.value === "loadouts" ? (
               <VehicleLoadouts unit={unit} />
             ) : item.value === "information" ? (

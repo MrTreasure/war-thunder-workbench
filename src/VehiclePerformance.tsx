@@ -2,7 +2,8 @@
 import { useState } from "react";
 import type { Mode, Vehicle, VehiclePerformanceStage, WikiPerformanceMetric } from "./models";
 import { GameTabs } from "./components/GameTabs";
-import { GameSelect } from "./components/GameSelect";
+import { ComparisonBars } from "./components/ComparisonBars";
+import display from "../data/vehicle-performance-display.json";
 import { GameIcon } from "./components/GameIcon";
 const stages: { value: VehiclePerformanceStage; label: string; basis: string }[] = [
   { value: "stock", label: "初始", basis: "初始配件 · 基础乘员" },
@@ -11,65 +12,97 @@ const stages: { value: VehiclePerformanceStage; label: string; basis: string }[]
   { value: "ace", label: "精英成员组", basis: "全配件 · 满技能王牌" },
 ];
 const number = (value: number) => value.toLocaleString("zh-CN", { maximumFractionDigits: 3 });
-function Difference({
-  value,
-  base,
-  direction,
-}: {
-  value: number;
-  base: number | null;
-  direction: WikiPerformanceMetric["direction"];
-}) {
-  if (base === null || value === base) return null;
-  const delta = value - base,
-    percent = base !== 0 ? (delta / Math.abs(base)) * 100 : null;
-  const improved = direction ? (direction === "higher" ? delta > 0 : delta < 0) : null;
+function MetricChart({ metric, mode }: { metric: WikiPerformanceMetric; mode: "ab" | "rb" }) {
+  const values = metric.modes[mode]!;
+  const labels: Record<string, string> = display.labels;
+  const known = Object.values(values).filter((value): value is number => value !== null);
+  const best =
+    known.length && metric.direction
+      ? metric.direction === "higher"
+        ? Math.max(...known)
+        : Math.min(...known)
+      : null;
+  const delta = best !== null && values.stock !== null ? best - values.stock : null;
+  const percent = delta !== null && values.stock ? (delta / Math.abs(values.stock)) * 100 : null;
+  const unchanged = known.length === stages.length && new Set(known).size === 1;
+  const bestStage = stages.find((stage) => values[stage.value] === best);
   return (
-    <small
-      className="wt-performance-delta"
-      data-improved={improved ?? undefined}
-      title={
-        percent === null
-          ? "相对所选基准的差值"
-          : `相对基准 ${percent > 0 ? "+" : ""}${number(percent)}%`
-      }
-    >
-      {delta > 0 ? "+" : ""}
-      {number(delta)}
-      {percent !== null && (
-        <span>
-          {" "}
-          ({percent > 0 ? "+" : ""}
-          {percent.toFixed(1)}%)
-        </span>
+    <figure className="wt-performance-chart">
+      <figcaption>
+        <div>
+          <h4>{labels[metric.id] || metric.label}</h4>
+          <span>
+            {metric.unit}
+            {metric.direction === "lower"
+              ? " · 越低越好"
+              : metric.direction === "higher"
+                ? " · 越高越好"
+                : ""}
+          </span>
+        </div>
+        {delta !== null && delta !== 0 ? (
+          <span
+            className="wt-chart-change"
+            title={`相对初始 ${delta > 0 ? "+" : ""}${number(delta)} ${metric.unit}`}
+          >
+            {percent !== null
+              ? `${percent > 0 ? "+" : ""}${percent.toFixed(1)}%`
+              : `${delta > 0 ? "+" : ""}${number(delta)}`}
+            <small>
+              {bestStage?.value === "ace"
+                ? "精英"
+                : bestStage?.value === "expert"
+                  ? "专家"
+                  : bestStage?.label}
+              较初始
+            </small>
+          </span>
+        ) : unchanged ? (
+          <span className="wt-chart-same">无变化</span>
+        ) : null}
+      </figcaption>
+      <ComparisonBars
+        series={stages.map((stage) => ({
+          id: stage.value,
+          label: stage.value === "expert" ? "专家" : stage.value === "ace" ? "精英" : stage.label,
+          value: values[stage.value],
+          basis: metric.sourceBasis[stage.value],
+        }))}
+        formatValue={number}
+      />
+      {metric.altitudeM !== null && (
+        <p className="wt-chart-context">测定海拔 {number(metric.altitudeM)} m</p>
       )}
-    </small>
+    </figure>
   );
 }
-export function VehiclePerformance({ unit, mode }: { unit: Vehicle; mode: Mode }) {
+export function VehiclePerformance({
+  unit,
+  mode,
+  category,
+}: {
+  unit: Vehicle;
+  mode: Mode;
+  category: string;
+}) {
   const [comparisonMode, setComparisonMode] = useState<"ab" | "rb">(mode === "ab" ? "ab" : "rb");
-  const [baseStage, setBaseStage] = useState<VehiclePerformanceStage>("stock");
-  const [onlyChanges, setOnlyChanges] = useState(false);
   const data = unit.wikiDetails?.performance;
-  const metrics = data?.metrics || [];
-  const visible = metrics.filter((metric) => {
-    const values = metric.modes[comparisonMode];
-    if (!values) return false;
-    return (
-      !onlyChanges || new Set(Object.values(values).filter((value) => value !== null)).size > 1
-    );
-  });
+  const metrics = (data?.metrics || []).filter((metric) => metric.modes[comparisonMode]);
+  const priorities: Record<string, string[]> = display.priorities;
+  const summary = (priorities[category] || priorities.ground)
+    .flatMap((id) => {
+      const metric = metrics.find((item) => item.id === id);
+      return metric ? [metric] : [];
+    })
+    .slice(0, display.summaryLimit);
   const id = `performance-${unit.id}`;
   return (
     <section className="wt-performance" aria-label="载具性能对比">
-      <div className="wt-dossier-section-heading">
+      <div className="wt-performance-header">
         <div>
           <GameIcon name="performance" />
           <h3>性能对比</h3>
         </div>
-        <span>四种参考状态</span>
-      </div>
-      <div className="wt-performance-toolbar">
         <GameTabs
           id={id}
           label="性能对比模式"
@@ -80,28 +113,8 @@ export function VehiclePerformance({ unit, mode }: { unit: Vehicle; mode: Mode }
             { value: "rb", label: "历史 RB" },
           ]}
         />
-        <div className="wt-performance-options">
-          <GameSelect
-            aria-label="差值比较基准"
-            value={baseStage}
-            onValueChange={(value) => setBaseStage(value as VehiclePerformanceStage)}
-          >
-            {stages.map((stage) => (
-              <option key={stage.value} value={stage.value}>
-                对比基准：{stage.label}
-              </option>
-            ))}
-          </GameSelect>
-          <label>
-            <input
-              type="checkbox"
-              checked={onlyChanges}
-              onChange={(event) => setOnlyChanges(event.target.checked)}
-            />
-            仅看有变化
-          </label>
-        </div>
       </div>
+      <p className="wt-performance-caption">初始 / 完全体 / 专家 / 精英 · 相同数值合并展示</p>
       {mode === "sb" && (
         <p className="wt-dossier-note">
           Wiki 性能数据按街机、历史分别列出，此处默认展示历史参考值。
@@ -117,75 +130,70 @@ export function VehiclePerformance({ unit, mode }: { unit: Vehicle; mode: Mode }
       >
         {data?.status === "available" && metrics.length ? (
           <>
-            <p className="wt-table-scroll-hint">横向滑动查看四种状态</p>
-            <section className="wt-performance-scroll" aria-label="四种状态性能数值" tabIndex={0}>
-              <table className="wt-performance-table">
-                <thead>
-                  <tr>
-                    <th scope="col">
-                      性能项目 <small>数值 / 相对基准变化</small>
-                    </th>
-                    {stages.map((stage) => (
-                      <th scope="col" key={stage.value} data-baseline={baseStage === stage.value}>
-                        <span>{stage.label}</span>
-                        <small>{stage.basis}</small>
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {visible.map((metric) => {
-                    const values = metric.modes[comparisonMode]!;
-                    return (
-                      <tr key={metric.id}>
-                        <th scope="row">
-                          <span>{metric.label}</span>
-                          {metric.weaponName && <small>{metric.weaponName}</small>}
-                          <small>
-                            {metric.unit}
-                            {metric.altitudeM !== null
-                              ? ` · 海拔 ${number(metric.altitudeM)} m`
-                              : ""}
-                            {metric.crewDependent ? " · 受乘员影响" : ""}
-                          </small>
+            <div className="wt-performance-charts" aria-label="关键性能图表">
+              {summary.map((metric) => (
+                <MetricChart key={metric.id} metric={metric} mode={comparisonMode} />
+              ))}
+            </div>
+            <details className="wt-performance-details">
+              <summary>查看全部 {metrics.length} 项数值</summary>
+              <section className="wt-performance-scroll" aria-label="四种状态性能数值" tabIndex={0}>
+                <table className="wt-performance-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">性能项目</th>
+                      {stages.map((stage) => (
+                        <th scope="col" key={stage.value}>
+                          <span>{stage.label}</span>
+                          <small>{stage.basis}</small>
                         </th>
-                        {stages.map((stage) => {
-                          const value = values[stage.value],
-                            base = values[baseStage];
-                          return (
-                            <td
-                              key={stage.value}
-                              data-baseline={baseStage === stage.value}
-                              title={
-                                metric.sourceBasis[stage.value] || "Wiki 未提供该乘员状态的可靠数值"
-                              }
-                            >
-                              {value === null || value === undefined ? (
-                                <span className="wt-performance-unknown">待核对</span>
-                              ) : (
-                                <>
-                                  <strong>{number(value)}</strong>
-                                  {stage.value !== baseStage && (
-                                    <Difference
-                                      value={value}
-                                      base={base ?? null}
-                                      direction={metric.direction}
-                                    />
-                                  )}
-                                </>
-                              )}
-                            </td>
-                          );
-                        })}
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-              {!visible.length && (
-                <p className="wt-dossier-empty">当前模式下没有符合筛选条件的项目。</p>
-              )}
-            </section>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {metrics.map((metric) => {
+                      const values = metric.modes[comparisonMode]!;
+                      return (
+                        <tr key={metric.id}>
+                          <th scope="row">
+                            <span>{metric.label}</span>
+                            {metric.weaponName && <small>{metric.weaponName}</small>}
+                            <small>
+                              {metric.unit}
+                              {metric.altitudeM !== null
+                                ? ` · 海拔 ${number(metric.altitudeM)} m`
+                                : ""}
+                              {metric.crewDependent ? " · 受乘员影响" : ""}
+                            </small>
+                          </th>
+                          {stages.map((stage) => {
+                            const value = values[stage.value];
+                            return (
+                              <td
+                                key={stage.value}
+
+                                title={
+                                  metric.sourceBasis[stage.value] ||
+                                  "Wiki 未提供该乘员状态的可靠数值"
+                                }
+                              >
+                                {value === null || value === undefined ? (
+                                  <span className="wt-performance-unknown">待核对</span>
+                                ) : (
+                                  <>
+                                    <strong>{number(value)}</strong>
+                                  </>
+                                )}
+                              </td>
+                            );
+                          })}
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </section>
+            </details>
           </>
         ) : (
           <p className="wt-dossier-empty">
@@ -206,7 +214,7 @@ export function VehiclePerformance({ unit, mode }: { unit: Vehicle; mode: Mode }
       <details className="wt-reference-explanation">
         <summary>对比口径与数据来源</summary>
         <p>
-          初始与完全体采用 Wiki 的
+          图表各项独立量程，条长表示实际数值，相同数值合并显示。初始与完全体采用 Wiki 的
           Basic／Reference。专家和精英列按全配件、满技能资质比较；受乘员影响的项目仅展示 Wiki
           明确给出的端点，缺失的专家数值显示待核对。精英成员组对应游戏中的王牌资质（Ace）；王牌数值引用原页的
           aces 端点，原页未单独拆分技能条件。

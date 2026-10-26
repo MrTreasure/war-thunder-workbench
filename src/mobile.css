@@ -3298,10 +3298,12 @@
   .wt-detail-tabs > button { padding:10px 12px; font-size:13px; }
   .wt-detail-tabs .wt-control-icon { width:18px; height:18px; flex-basis:18px; }
   .wt-detail-panel { padding-top:16px; }
-  .wt-performance-toolbar { gap:8px; }
-  .wt-performance-options { width:100%; justify-content:space-between; gap:8px; }
-  .wt-performance-options > .wt-select { flex:1; min-width:0; font-size:16px; }
-  .wt-performance-options > label { white-space:nowrap; }
+  .wt-performance-header { gap:8px; }
+  .wt-performance-header h3 { font-size:14px; }
+  .wt-performance-header .wt-game-tabs > button { padding:8px 10px; font-size:12px; }
+  .wt-performance-charts { grid-template-columns:minmax(0,1fr); gap:10px; }
+  .wt-performance-chart { padding:12px; }
+  .wt-comparison-bars > li { grid-template-columns:112px minmax(0,1fr) 50px; gap:8px; }
   .wt-table-scroll-hint { display:block; margin:0 0 8px; font-size:11px; color:var(--wt-muted); }
   .wt-performance-table { min-width:650px; }
   .wt-performance-table th:first-child { width:140px; }

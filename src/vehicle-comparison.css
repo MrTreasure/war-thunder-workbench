@@ -2,7 +2,7 @@
  * states: default · focus-visible · loading · error · empty · success
  * tokens: existing --wt hangar palette; game toolbar rhythm and aligned reference columns */
 .vehicle-detail-dialog {
-  width: min(1160px, calc(100vw - 40px));
+  width: min(1040px, calc(100vw - 40px));
 }
 .vehicle-detail-dialog[open] {
   display: grid;
@@ -59,48 +59,160 @@
   font-size: 12px;
   color: var(--wt-muted);
 }
-.wt-performance-toolbar {
+/* Zero-based, independently scaled metric comparisons; direct text labels do not rely on color. */
+.wt-performance-header,
+.wt-performance-header > div:first-child {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-.wt-performance-toolbar .wt-game-tabs {
-  border: 1px solid var(--wt-line);
-}
-.wt-performance-toolbar .wt-game-tabs > button {
-  min-height: 42px;
-  padding: 9px 16px;
-  font-size: 13px;
-}
-.wt-performance-options {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-}
-.wt-performance-options > .wt-select {
-  width: auto;
-  flex: 0 0 auto;
-  min-height: 44px;
-  font-size: 12px;
-  padding-inline: 10px;
-}
-.wt-performance-options > label {
-  display: inline-flex;
   align-items: center;
   gap: 8px;
+}
+.wt-performance-header {
+  justify-content: space-between;
+  gap: 16px;
+}
+.wt-performance-header h3 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: 500 15px/1.4 var(--wt-sans);
+}
+.wt-performance-header .wt-game-tabs {
+  border: 1px solid var(--wt-line);
+}
+.wt-performance-header .wt-game-tabs > button {
   min-height: 44px;
+  padding: 8px 14px;
+  font-size: 13px;
+}
+.wt-vehicle-sheet p.wt-performance-caption {
+  margin: 8px 0 16px;
+  font-size: 12px;
+}
+.wt-performance-charts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.wt-performance-chart {
+  margin: 0;
+  min-width: 0;
+  padding: 14px 16px;
+  background: var(--wt-surface);
+  border: 1px solid var(--wt-line);
+}
+.wt-performance-chart figcaption {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.wt-performance-chart h4 {
+  margin: 0 0 3px;
+  color: var(--wt-ink);
+  font: 500 14px/1.4 var(--wt-sans);
+}
+.wt-performance-chart figcaption > div > span {
+  font-size: 11px;
+  color: var(--wt-muted);
+}
+.wt-chart-change {
+  flex: none;
+  text-align: right;
+  color: var(--wt-positive);
+  font:
+    400 20px/1.2 WTCard,
+    var(--wt-sans);
+}
+.wt-chart-change small {
+  display: block;
+  margin-top: 3px;
+  font: 11px/1.4 var(--wt-sans);
+  color: var(--wt-muted);
+}
+.wt-chart-same {
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.wt-comparison-bars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.wt-comparison-bars > li {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr) 50px;
+  align-items: center;
+  gap: 10px;
+  min-height: 24px;
+  font-size: 12px;
+}
+.wt-comparison-label {
+  line-height: 1.5;
+  color: var(--wt-body);
+  overflow-wrap: anywhere;
+}
+.wt-comparison-track {
+  display: block;
+  height: 8px;
+  min-width: 0;
+  background: var(--wt-panel);
+}
+.wt-comparison-fill {
+  display: block;
+  height: 100%;
+  background: var(--wt-wire);
+}
+.wt-comparison-bars [data-series="spaded"] .wt-comparison-fill {
+  background: var(--wt-body);
+}
+.wt-comparison-bars [data-series="expert"] .wt-comparison-fill {
+  background: var(--wt-gold);
+}
+.wt-comparison-bars [data-series="ace"] .wt-comparison-fill {
+  background: var(--wt-positive);
+}
+.wt-comparison-value {
+  text-align: right;
+  color: var(--wt-ink);
+  font-variant-numeric: tabular-nums;
+}
+.wt-comparison-bars [data-unknown] .wt-comparison-track {
+  background: transparent;
+  border-bottom: 1px dashed var(--wt-strong-line);
+}
+.wt-comparison-bars [data-unknown] .wt-comparison-value {
+  color: var(--wt-muted);
+}
+.wt-vehicle-sheet p.wt-chart-context {
+  margin: 8px 0 0;
+  font-size: 11px;
+}
+.wt-performance-details {
+  margin-top: 12px;
+}
+.wt-performance-details > summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding-block: 10px;
   color: var(--wt-body);
   font-size: 12px;
   cursor: pointer;
 }
-.wt-performance-options input {
-  accent-color: var(--wt-service-red-hover);
-  width: 16px;
-  height: 16px;
+.wt-performance-details > summary::before {
+  content: "+";
+  margin-right: 8px;
+  color: var(--wt-gold);
+}
+.wt-performance-details[open] > summary::before {
+  content: "−";
+}
+.wt-performance-details > summary:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 2px;
 }
 .wt-performance-scroll,
 .wt-loadout-matrix-scroll {
@@ -124,7 +236,7 @@
 }
 .wt-performance-table th,
 .wt-performance-table td {
-  padding: 12px 10px;
+  padding: 8px 10px;
   text-align: right;
   vertical-align: middle;
   border-bottom: 1px solid var(--wt-line);
@@ -163,26 +275,8 @@
 .wt-performance-table tbody td strong {
   color: var(--wt-ink);
   font:
-    400 19px/1.2 WTCard,
+    400 15px/1.2 WTCard,
     var(--wt-sans);
-}
-.wt-performance-table [data-baseline="true"] {
-  background: var(--wt-gold-soft);
-}
-.wt-performance-table thead [data-baseline="true"] {
-  color: var(--wt-gold);
-  background: var(--wt-panel);
-  box-shadow: inset 0 -2px 0 var(--wt-gold-line);
-}
-.wt-performance-table small.wt-performance-delta {
-  color: var(--wt-body);
-  white-space: nowrap;
-}
-.wt-performance-table .wt-performance-delta[data-improved="true"] {
-  color: var(--wt-positive);
-}
-.wt-performance-table .wt-performance-delta[data-improved="false"] {
-  color: var(--wt-action-edge);
 }
 .wt-performance-unknown {
   color: var(--wt-muted);
