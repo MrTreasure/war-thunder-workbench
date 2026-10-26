@@ -1,69 +1,97 @@
-/* Shared tags retain the official metal face, eyelet and bevel; no custom glyphs. */
+/* Official 45×19 skin at 1.5×. Slice 0..12 | 12..43 | 43..45;
+   only the middle expands. RGB multiply preserves the original metal gradient. */
 .wt-game-tag {
-  --wt-tag-finish: grayscale(1) brightness(0.58) contrast(1.15);
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
   box-sizing: border-box;
-  height: 28px;
-  padding: 0 11px 0 24px;
+  height: 28.5px;
+  min-width: 67.5px;
+  padding: 0 10px 0 25px;
   border: 0;
   background: transparent;
-  color: #f0eee7;
+  color: var(--wt-tag-text, #e5e5e5);
   vertical-align: middle;
   isolation: isolate;
   font:
-    400 15px/28px WTSymbols,
+    400 15px/28.5px WTSymbols,
     WTCard,
     "Microsoft YaHei",
     "PingFang SC",
     sans-serif;
   white-space: nowrap;
 }
-.wt-game-tag[data-tone="gold"] {
-  --wt-tag-finish: sepia(1) saturate(1.1) brightness(0.63) contrast(1.15);
-}
-.wt-game-tag[data-tone="blue"] {
-  --wt-tag-finish: sepia(1) saturate(1.2) hue-rotate(145deg) brightness(0.58) contrast(1.15);
-}
-.wt-game-tag[data-tone="red"] {
-  --wt-tag-finish: sepia(1) saturate(3) hue-rotate(315deg) brightness(0.55) contrast(1.2);
-}
-.wt-game-tag-skin {
+.wt-game-tag-skin,
+.wt-game-tag-tint {
   position: absolute;
-  z-index: -1;
   inset: 0;
   pointer-events: none;
+}
+.wt-game-tag-skin {
+  z-index: -2;
   border-style: solid;
   border-width: 0 3px 0 18px;
-  border-image-source: url("https://static.encyclopedia.warthunder.com/gui_skin/discount_box_thin_bg.svg");
+  border-image-source: var(--wt-tag-image);
   border-image-slice: 0 2 0 12 fill;
   border-image-width: 0 3px 0 18px;
   border-image-repeat: stretch;
-  filter: var(--wt-tag-finish);
+}
+.wt-game-tag-tint {
+  z-index: -1;
+  background: var(--wt-tag-tint);
+  mix-blend-mode: multiply;
+  -webkit-mask-box-image-source: var(--wt-tag-image);
+  -webkit-mask-box-image-slice: 0 2 0 12 fill;
+  -webkit-mask-box-image-width: 0 3px 0 18px;
+  -webkit-mask-box-image-repeat: stretch;
+  mask-border-source: var(--wt-tag-image);
+  mask-border-slice: 0 2 0 12 fill;
+  mask-border-width: 0 3px 0 18px;
+  mask-border-repeat: stretch;
+  mask-border-mode: alpha;
+}
+.wt-game-tag[data-tone="rainbow"] .wt-game-tag-tint {
+  background: linear-gradient(
+    105deg,
+    #cb6677,
+    #d49c54,
+    #c8b557,
+    #4ba47c,
+    #579eb9,
+    #7b83bd,
+    #b16fac
+  );
 }
 .wt-game-tag-label {
   position: relative;
-  text-shadow: 0 1px 1px #000;
+  text-shadow: 0 1px 1px #000a;
+}
+.wt-game-tag[data-tone="diamond"] .wt-game-tag-label,
+.wt-game-tag[data-tone="original"] .wt-game-tag-label {
+  text-shadow: 0 1px 0 #ffffff50;
+}
+.wt-game-tag[data-tone="king"] .wt-game-tag-label {
+  text-shadow:
+    0 1px 1px #000,
+    0 0 6px #f6ce5b40;
+  letter-spacing: 0.5px;
 }
 .wt-game-tag.is-interactive {
   height: 44px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-.wt-game-tag.is-interactive .wt-game-tag-skin {
-  inset-block: 8px;
+.wt-game-tag.is-interactive .wt-game-tag-skin,
+.wt-game-tag.is-interactive .wt-game-tag-tint {
+  inset-block: 7.75px;
 }
-.wt-game-tag.is-interactive:hover:not(:disabled) .wt-game-tag-skin,
-.wt-game-tag[aria-pressed="true"] .wt-game-tag-skin {
-  filter: var(--wt-tag-finish) brightness(1.4);
-}
+.wt-game-tag.is-interactive:hover:not(:disabled) .wt-game-tag-label,
 .wt-game-tag[aria-pressed="true"] .wt-game-tag-label {
   text-decoration: underline;
   text-underline-offset: 4px;
-  text-decoration-color: #d5c58f;
+  text-decoration-color: currentColor;
 }
 .wt-game-tag:focus-visible {
   outline: 2px solid var(--wt-gold, #d5c58f);
@@ -74,8 +102,17 @@
   opacity: 0.38;
   cursor: default;
 }
+@keyframes wt-tag-prismatic {
+  0%,
+  100% {
+    filter: brightness(0.9) saturate(0.9);
+  }
+  50% {
+    filter: brightness(1.2) saturate(1.15);
+  }
+}
 @media (prefers-reduced-motion: no-preference) {
-  .wt-game-tag-skin {
-    transition: filter 120ms ease;
+  .wt-game-tag[data-tone="rainbow"][data-animated] .wt-game-tag-tint {
+    animation: wt-tag-prismatic 7s ease-in-out infinite;
   }
 }

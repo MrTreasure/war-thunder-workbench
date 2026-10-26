@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "url": "https://static.encyclopedia.warthunder.com/gui_skin/discount_box_thin_bg.svg",
+    "bytes": 3267,
+    "sha256": "e9239894ddae1d5eef14f1ab422ba50b6a87106948a0f4b20832c82e4ada4dad"
+  },
+  "gameReference": { "textColor": "#e5e5e5", "tint": "#ff313b" },
+  "tiers": ["bronze", "silver", "gold", "emerald", "diamond", "king", "rainbow"],
+  "tones": {
+    "original": { "label": "原始底纹", "tint": "#ffffff", "text": "#202625" },
+    "red": { "label": "游戏原版红", "tint": "#ff313b", "text": "#e5e5e5" },
+    "blue": { "label": "深蓝", "tint": "#456b89", "text": "#edf6fa" },
+    "bronze": { "label": "青铜", "tint": "#ae784c", "text": "#fff0dd" },
+    "silver": { "label": "白银", "tint": "#a6b2bd", "text": "#f8fafb" },
+    "gold": { "label": "黄金", "tint": "#dbb34e", "text": "#fff5ce" },
+    "emerald": { "label": "翡翠", "tint": "#308b68", "text": "#d9ffee" },
+    "diamond": { "label": "钻石", "tint": "#9cd2e7", "text": "#112b36" },
+    "king": { "label": "王者", "tint": "#806526", "text": "#ffe5a0" },
+    "rainbow": { "label": "七彩闪烁", "tint": "#c06aab", "text": "#ffffff" }
+  }
+}

@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WorkbenchRouteImport } from './routes/_workbench'
+import { Route as TagPreviewRouteImport } from './routes/tag-preview'
 import { Route as WorkbenchDecalsRouteImport } from './routes/_workbench.decals'
 import { Route as WorkbenchDisclaimerRouteImport } from './routes/_workbench.disclaimer'
 import { Route as WorkbenchLineupsRouteImport } from './routes/_workbench.lineups'
@@ -30,6 +31,11 @@ const IndexRoute = IndexRouteImport.update({
 } as any)
 const WorkbenchRoute = WorkbenchRouteImport.update({
   id: '/_workbench',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TagPreviewRoute = TagPreviewRouteImport.update({
+  id: '/tag-preview',
+  path: '/tag-preview',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WorkbenchDecalsRoute = WorkbenchDecalsRouteImport.update({
@@ -90,6 +96,7 @@ const WorkbenchStatsGarageRoute = WorkbenchStatsGarageRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/tag-preview': typeof TagPreviewRoute
   '/decals': typeof WorkbenchDecalsRoute
   '/disclaimer': typeof WorkbenchDisclaimerRoute
   '/lineups': typeof WorkbenchLineupsRoute
@@ -104,6 +111,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/tag-preview': typeof TagPreviewRoute
   '/decals': typeof WorkbenchDecalsRoute
   '/disclaimer': typeof WorkbenchDisclaimerRoute
   '/lineups': typeof WorkbenchLineupsRoute
@@ -120,6 +128,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_workbench': typeof WorkbenchRouteWithChildren
+  '/tag-preview': typeof TagPreviewRoute
   '/_workbench/decals': typeof WorkbenchDecalsRoute
   '/_workbench/disclaimer': typeof WorkbenchDisclaimerRoute
   '/_workbench/lineups': typeof WorkbenchLineupsRoute
@@ -136,6 +145,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/tag-preview'
     | '/decals'
     | '/disclaimer'
     | '/lineups'
@@ -150,6 +160,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/tag-preview'
     | '/decals'
     | '/disclaimer'
     | '/lineups'
@@ -165,6 +176,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_workbench'
+    | '/tag-preview'
     | '/_workbench/decals'
     | '/_workbench/disclaimer'
     | '/_workbench/lineups'
@@ -181,6 +193,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   WorkbenchRoute: typeof WorkbenchRouteWithChildren
+  TagPreviewRoute: typeof TagPreviewRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -197,6 +210,13 @@ declare module '@tanstack/react-router' {
       path: ''
       fullPath: '/'
       preLoaderRoute: typeof WorkbenchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tag-preview': {
+      id: '/tag-preview'
+      path: '/tag-preview'
+      fullPath: '/tag-preview'
+      preLoaderRoute: typeof TagPreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_workbench/decals': {
@@ -314,6 +334,7 @@ const WorkbenchRouteWithChildren = WorkbenchRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   WorkbenchRoute: WorkbenchRouteWithChildren,
+  TagPreviewRoute: TagPreviewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
