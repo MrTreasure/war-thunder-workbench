@@ -3,7 +3,7 @@ import { AccountAvatar } from "../../../src/AccountAvatar";
 import type { ResearchIntent } from "./context";
 import catalog from "../../../src/generated/bootstrap.json";
 import type { BrowserPair } from "./account";
-import { account, api } from "./runtime";
+import { account, api, sdk } from "./runtime";
 import { useRuntime } from "./context";
 import {
   VehiclePresentation,
@@ -24,6 +24,14 @@ export default function Account({
   openPlan: (intent: Omit<ResearchIntent, "serial">) => void;
 }) {
   const { view, ready, cloud, reloadCloud } = useRuntime();
+  const linkedIdentity = view.user?.linkedAccounts?.find(
+    (identity) => identity.provider === "heybox",
+  );
+  const linked =
+    view.status === "authenticated" &&
+    !!linkedIdentity &&
+    (!!view.user?.email ||
+      !!view.user?.linkedAccounts?.some((identity) => identity.provider !== "heybox"));
   const [terms, setTerms] = useState<{ version: string; notice: string } | null>(null),
     [agreed, setAgreed] = useState(false),
     [showTerms, setShowTerms] = useState(false);
@@ -59,6 +67,9 @@ export default function Account({
       live = false;
     };
   }, [active, terms]);
+  useEffect(() => {
+    if (active && view.status === "authenticated") void account.refreshProfile().catch(() => {});
+  }, [active, view.status, view.generation]);
   async function perform(promise: Promise<unknown>, done?: () => void) {
     setBusy(true);
     setError("");
@@ -222,15 +233,45 @@ export default function Account({
           {!plans.length && <p>尚无保存的研发计划。在研发计算中保存后，可在这里继续。</p>}
         </div>
       )}
+      {view.status === "authenticated" && linkedIdentity?.providerUserId && (
+        <div className="hb-account-section">
+          <h3>小黑盒小程序身份 ID</h3>
+          <p className="hb-linked-identity-id">{linkedIdentity.providerUserId}</p>
+          <button
+            disabled={busy}
+            onClick={() =>
+              void perform(sdk.device.setClipboard({ text: linkedIdentity.providerUserId! }), () =>
+                setNotice("身份 ID 已复制"),
+              )
+            }
+          >
+            复制 ID
+          </button>
+          <small>此 ID 仅用于当前小程序，不是个人主页数字 ID。</small>
+        </div>
+      )}
       <div className="hb-account-section">
         <h3>跨端使用</h3>
-        <button type="button" className="hb-menu-row" onClick={() => setLinkPage(true)}>
-          <span>
-            <b>关联已有网页账号</b>
-            <small>输入主站账号菜单提供的关联码</small>
-          </span>
-          <Icon name="arrow" />
-        </button>
+        {linked ? (
+          <div className="hb-menu-row" aria-live="polite">
+            <AccountAvatar user={view.hostProfile || linkedIdentity} />
+            <span>
+              <b>小黑盒 · 已关联</b>
+              <small>
+                {view.hostProfile?.displayName || linkedIdentity.displayName || "当前小黑盒账号"} ·
+                与网页共用工作台数据
+              </small>
+            </span>
+          </div>
+        ) : (
+          <button type="button" className="hb-menu-row" onClick={() => setLinkPage(true)}>
+            <span>
+              <b>关联已有网页账号</b>
+              <small>输入主站账号菜单提供的关联码</small>
+            </span>
+            <Icon name="arrow" />
+          </button>
+        )}
         <MainSiteLink />
       </div>
       {linkPage && (
@@ -331,7 +372,11 @@ export default function Account({
           {pairStage === "approved" && (
             <div aria-live="polite">
               <h3>账号关联已确认</h3>
-              <p>返回主站继续使用；小程序可重新授权登录同一个工作台账号。</p>
+              <p>
+                {view.status === "authenticated"
+                  ? "网页与小程序已使用同一个工作台账号。"
+                  : "返回主站继续使用；小程序可重新授权登录同一个工作台账号。"}
+              </p>
               <button
                 onClick={() => {
                   setCode("");

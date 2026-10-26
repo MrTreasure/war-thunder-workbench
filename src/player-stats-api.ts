@@ -109,6 +109,12 @@ export type StatsConfig = {
 };
 export type StatsSession = {
   user: {
+    linkedAccounts?: {
+      provider: string;
+      providerUserId?: string | null;
+      displayName: string | null;
+      avatarUrl: string | null;
+    }[];
     id: string;
     displayName?: string;
     email?: string;

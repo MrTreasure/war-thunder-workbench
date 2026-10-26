@@ -1,7 +1,14 @@
 import { MiniappError, type APIRequest, type SDK } from "./api.ts";
 
 type User = {
+  linkedAccounts?: {
+    provider: string;
+    providerUserId?: string | null;
+    displayName: string | null;
+    avatarUrl: string | null;
+  }[];
   id: string;
+  email?: string | null;
   displayName?: string;
   avatarUrl?: string | null;
   avatarFallbackUrl?: string | null;
@@ -380,6 +387,8 @@ export function createAccount(sdk: SDK, api: APIRequest) {
       });
       await verify(proof.accountKey, proof.epoch);
       if (result.status !== "approved") throw changed();
+      if (result.session)
+        await accept({ status: "authenticated", ...result.session }, proof.accountKey, proof.epoch);
       pairPending = null;
     },
     /** Private responses are discarded after account changes, including switches

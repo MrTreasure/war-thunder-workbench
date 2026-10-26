@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Modal } from "../Modal";
+import { AccountAvatar } from "../AccountAvatar";
 import { useWorkbenchAccount } from "../WorkbenchAccount";
 import {
   heyboxRequest,
@@ -14,6 +15,9 @@ type Props = { purpose: "bind"; close: () => void };
 export function HeyboxAccountDialog({ purpose, close }: Props) {
   const { session, acceptLogin } = useWorkbenchAccount();
   const currentUserId = session?.user?.id || "";
+  const linkedIdentity = session?.user?.linkedAccounts?.find(
+    (identity) => identity.provider === "heybox",
+  );
   const owner = useRef(currentUserId);
   useEffect(() => {
     owner.current = currentUserId;
@@ -27,6 +31,7 @@ export function HeyboxAccountDialog({ purpose, close }: Props) {
   const [terms, setTerms] = useState<{ version: string; notice: string } | null>(null);
   const [agreed, setAgreed] = useState(false),
     [error, setError] = useState("");
+  const [copied, setCopied] = useState(false);
   const attempt = useRef<AbortController | null>(null);
   const initialOwner = useRef(currentUserId);
   useEffect(() => {
@@ -127,72 +132,114 @@ export function HeyboxAccountDialog({ purpose, close }: Props) {
   }
   const seconds = Math.max(0, Math.ceil((expiresAt - now) / 1000));
   return (
-    <Modal title="关联小黑盒账号" close={close} className="wt-heybox-dialog">
+    <Modal
+      title={linkedIdentity ? "已关联的小黑盒账号" : "关联小黑盒账号"}
+      close={close}
+      className="wt-heybox-dialog"
+    >
       <div className="wt-heybox-content">
-        {phase === "loading" && <output>正在读取授权配置…</output>}
-        {phase === "unconfigured" && <p>小黑盒关联暂未开放，请稍后再试。</p>}
-        {(phase === "ready" || phase === "error") && (
+        {linkedIdentity ? (
           <>
-            <p>
-              将小黑盒身份关联到「{session?.user?.displayName || "当前工作台账号"}
-              」，保留此账号原有数据。
-            </p>
-            <p className="wt-heybox-identity-notice">
-              本站保存小程序身份标识及工作台账号关联，用于登录；不要求小黑盒密码。
-            </p>
-            <label className="wt-heybox-agreement">
-              <input
-                type="checkbox"
-                checked={agreed}
-                onChange={(e) => setAgreed(e.target.checked)}
-              />
-              <span>
-                我已阅读并同意
-                <a
-                  href="https://api.mrtreasure.cc/wt-stats/v1/auth/terms"
-                  target="_blank"
-                  rel="noopener noreferrer"
+            <div className="wt-heybox-linked" aria-live="polite">
+              <AccountAvatar user={linkedIdentity} className="wt-account-avatar-large" />
+              <div>
+                <strong>{linkedIdentity.displayName || "小黑盒账号"}</strong>
+                <p>小黑盒 · 已关联</p>
+              </div>
+            </div>
+            <p>已与当前工作台账号关联，可在网页和小程序中使用同一账号的数据。</p>
+            {linkedIdentity.providerUserId && (
+              <div className="wt-heybox-linked-id">
+                <span>小黑盒小程序身份 ID</span>
+                <code>{linkedIdentity.providerUserId}</code>
+                <button
+                  type="button"
+                  onClick={() => {
+                    void navigator.clipboard
+                      .writeText(linkedIdentity.providerUserId!)
+                      .then(() => setCopied(true))
+                      .catch(() => setError("复制未完成，请选择上方 ID 手动复制。"));
+                  }}
                 >
-                  用户协议与数据说明 ↗
-                </a>
-              </span>
-            </label>
-            {error && (
-              <p role="alert" className="wt-heybox-error">
-                {error}
-              </p>
+                  {copied ? "已复制" : "复制 ID"}
+                </button>
+                <small>此 ID 仅用于当前小程序，不是个人主页数字 ID。</small>
+              </div>
             )}
-            <button
-              type="button"
-              className="wt-heybox-primary"
-              disabled={!agreed || !terms}
-              onClick={() => void start()}
-            >
-              {phase === "error" ? "重新开始" : "获取关联码"}
-            </button>
-          </>
-        )}
-        {phase === "starting" && <output>正在准备授权…</output>}
-        {phase === "waiting" && pair && (
-          <>
-            <p>
-              在小黑盒 App 的战雷工作台中，打开「我的 → 关联已有网页账号」，输入下方关联码并确认。
-            </p>
-            <p className="wt-heybox-code" aria-label="网页关联码">
-              <code>{pair.pairingCode.match(/.{1,4}/g)?.join(" ")}</code>
-            </p>
-            <output>
-              等待手机确认 · {Math.floor(seconds / 60)}:{String(seconds % 60).padStart(2, "0")}
-            </output>
-            <small>仅确认你正在操作的浏览器。本站不要求小黑盒或游戏密码。</small>
-          </>
-        )}
-        {phase === "success" && (
-          <>
-            <output>小黑盒账号已关联。</output>
+            {error && <p role="alert">{error}</p>}
             <button type="button" onClick={close}>
               完成
             </button>
+          </>
+        ) : (
+          <>
+            {phase === "loading" && <output>正在读取授权配置…</output>}
+            {phase === "unconfigured" && <p>小黑盒关联暂未开放，请稍后再试。</p>}
+            {(phase === "ready" || phase === "error") && (
+              <>
+                <p>
+                  将小黑盒身份关联到「{session?.user?.displayName || "当前工作台账号"}
+                  」，保留此账号原有数据。
+                </p>
+                <p className="wt-heybox-identity-notice">
+                  本站保存小程序身份标识及工作台账号关联，用于登录；不要求小黑盒密码。
+                </p>
+                <label className="wt-heybox-agreement">
+                  <input
+                    type="checkbox"
+                    checked={agreed}
+                    onChange={(e) => setAgreed(e.target.checked)}
+                  />
+                  <span>
+                    我已阅读并同意
+                    <a
+                      href="https://api.mrtreasure.cc/wt-stats/v1/auth/terms"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      用户协议与数据说明 ↗
+                    </a>
+                  </span>
+                </label>
+                {error && (
+                  <p role="alert" className="wt-heybox-error">
+                    {error}
+                  </p>
+                )}
+                <button
+                  type="button"
+                  className="wt-heybox-primary"
+                  disabled={!agreed || !terms}
+                  onClick={() => void start()}
+                >
+                  {phase === "error" ? "重新开始" : "获取关联码"}
+                </button>
+              </>
+            )}
+            {phase === "starting" && <output>正在准备授权…</output>}
+            {phase === "waiting" && pair && (
+              <>
+                <p>
+                  在小黑盒 App 的战雷工作台中，打开「我的 →
+                  关联已有网页账号」，输入下方关联码并确认。
+                </p>
+                <p className="wt-heybox-code" aria-label="网页关联码">
+                  <code>{pair.pairingCode.match(/.{1,4}/g)?.join(" ")}</code>
+                </p>
+                <output>
+                  等待手机确认 · {Math.floor(seconds / 60)}:{String(seconds % 60).padStart(2, "0")}
+                </output>
+                <small>仅确认你正在操作的浏览器。本站不要求小黑盒或游戏密码。</small>
+              </>
+            )}
+            {phase === "success" && (
+              <>
+                <output>小黑盒账号已关联。</output>
+                <button type="button" onClick={close}>
+                  完成
+                </button>
+              </>
+            )}
           </>
         )}
       </div>

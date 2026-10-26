@@ -21,6 +21,9 @@ export function StatsAccountMenu({
   const workspace = useAccountWorkspace();
   const [unlinking, setUnlinking] = useState(false);
   const { session, refreshSession } = useWorkbenchAccount();
+  const heyboxIdentity = session?.user?.linkedAccounts?.find(
+    (identity) => identity.provider === "heybox",
+  );
   const [avatarEditor, setAvatarEditor] = useState(false),
     [linkedAvatars, setLinkedAvatars] = useState<AvatarOption[]>([]),
     [avatarError, setAvatarError] = useState("");
@@ -124,7 +127,7 @@ export function StatsAccountMenu({
             onHeyboxLink();
           }}
         >
-          关联小黑盒账号
+          {heyboxIdentity ? "小黑盒 · 已关联" : "关联小黑盒账号"}
         </button>
         {workspace?.binding && (
           <button
