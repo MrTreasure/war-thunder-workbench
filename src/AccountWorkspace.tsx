@@ -1,3 +1,4 @@
+import { readPricePreferences, savePricePreferences } from "./sale-price-api";
 import { saleWatchKey } from "./sale-watch-storage";
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import {
@@ -373,7 +374,8 @@ function AccountWorkspace({ children, userId }: { children: ReactNode; userId: s
     setImportKeys(keys);
     setSelectedImports(keys.filter((k) => !documents[k]?.value));
   }
-  function exportData() {
+  async function exportData() {
+    const pricePreferences = await readPricePreferences();
     const blob = new Blob(
       [
         JSON.stringify(
@@ -381,6 +383,7 @@ function AccountWorkspace({ children, userId }: { children: ReactNode; userId: s
             version: 1,
             exportedAt: new Date().toISOString(),
             documents,
+            pricePreferences,
             binding: snapshot?.binding,
           },
           null,
@@ -486,7 +489,9 @@ function AccountWorkspace({ children, userId }: { children: ReactNode; userId: s
                   <button disabled={busy} onClick={inspectLocal}>
                     导入本机游客数据
                   </button>
-                  <button onClick={exportData}>导出云端数据</button>
+                  <button disabled={busy} onClick={() => void run(exportData)}>
+                    导出云端数据
+                  </button>
                 </div>
                 {importKeys.length > 0 && (
                   <section>
@@ -563,7 +568,9 @@ function AccountWorkspace({ children, userId }: { children: ReactNode; userId: s
                 )}
                 <details>
                   <summary>删除云端计划数据</summary>
-                  <p>清空研发计划、购物车及出击队列。不会解除游戏账号关联或删除游客本地数据。</p>
+                  <p>
+                    清空研发计划、购物车、购车勾选及出击队列。不会解除游戏账号关联或删除游客本地数据。
+                  </p>
                   <label className="wt-agreement-check">
                     <input
                       type="checkbox"
@@ -576,6 +583,15 @@ function AccountWorkspace({ children, userId }: { children: ReactNode; userId: s
                     disabled={!deleteConfirm || busy || sending}
                     onClick={() =>
                       void run(async () => {
+                        const pricePreferences = await readPricePreferences();
+                        await savePricePreferences(
+                          { revision: pricePreferences.revision, items: {} },
+                          "user:" + userId,
+                        );
+                        localStorage.removeItem(
+                          "wt-sale-cart-preferences-v1:user:" + userId + ":pending",
+                        );
+                        window.dispatchEvent(new Event("wt-sale-preferences-cleared"));
                         await statsRequest("account/workspace/clear", {
                           confirmed: true,
                           ownerKey: "user:" + userId,

@@ -2,9 +2,10 @@ import { saleWatchKey, saleWatchEnvelope, normalizeSaleWatch } from "./sale-watc
 import { useAccountWorkspace } from "./workspace-context";
 import { useVehicleCatalog } from "./vehicle-catalog";
 import { VehicleTile } from "./VehicleTile";
-import { useEffect, useId, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
+import { SaleCart } from "./SaleCart";
 import { SaleMonthCalendar } from "./SaleMonthCalendar";
 import { useStored } from "./storage";
 import { statsCategoryNames } from "./player-stats-api";
@@ -12,7 +13,6 @@ import { cachedSaleCalendar, readSaleCalendar, readSaleVehicles } from "./sale-c
 import bootstrap from "./generated/bootstrap.json";
 import calendarReference from "../data/sale-calendar-reference.json";
 import {
-  nextSale,
   beijingDayKey,
   saleCalendarSpan,
   isSaleWatchVehicle,
@@ -166,11 +166,11 @@ function AddVehicles({
   }, [country, category, rank, query]);
   return (
     <Modal
-      title="添加关注载具"
+      title="添加购物车载具"
       subtitle={
         accountSaved
-          ? "仅支持金鹰与商城礼包载具；关注列表自动保存到账号。"
-          : "仅支持金鹰与商城礼包载具；关注列表保存在当前浏览器。"
+          ? "仅支持金鹰与商城礼包载具；购物车自动保存到账号。"
+          : "仅支持金鹰与商城礼包载具；购物车保存在当前浏览器。"
       }
       close={close}
       className="wt-sale-picker"
@@ -231,7 +231,7 @@ function AddVehicles({
                   disabled={!canSave || added || saved.length >= 60}
                   onClick={() => add(vehicle)}
                 >
-                  {added ? "已关注" : "＋ 关注"}
+                  {added ? "已加入" : "＋ 加入"}
                 </button>
               </div>
             );
@@ -282,8 +282,7 @@ export function SaleCalendar() {
     [status, setStatus] = useState("all");
   const [view, setView] = useState<"calendar" | "timeline">("calendar");
   const [referenceOpen, setReferenceOpen] = useState(false);
-  const [watchExpanded, setWatchExpanded] = useState(false);
-  const watchListId = useId();
+  const [cartOpen, setCartOpen] = useState(false);
   const [picker, setPicker] = useState(false),
     [storedWatch, saveWatch, storageError] = useStored<unknown[]>(
       saleWatchKey,
@@ -297,7 +296,7 @@ export function SaleCalendar() {
   const watchError =
     storageError ||
     (workspace?.userId && !workspace.ready
-      ? "正在读取账号关注列表，请稍候。"
+      ? "正在读取账号购物车，请稍候。"
       : workspace?.userId && !workspace.consented
         ? "请先在云端数据中完成同步。"
         : "");
@@ -399,6 +398,7 @@ export function SaleCalendar() {
           <small className="wt-sale-attribution">{calendarReference.attribution}</small>
         </div>
         <div className="wt-sales-heading-actions">
+          <button onClick={() => setCartOpen(true)}>我的购物车（{watch.length}）</button>
           <button className="primary" onClick={() => setPicker(true)}>
             ＋ 添加载具
           </button>
@@ -433,6 +433,19 @@ export function SaleCalendar() {
           </div>
         </dl>
       </details>
+      {cartOpen && (
+        <SaleCart
+          vehicles={watch}
+          save={saveWatch}
+          events={events}
+          now={now}
+          ready={!!watchReady}
+          error={watchError}
+          close={() => setCartOpen(false)}
+          add={() => setPicker(true)}
+          tile={(vehicle) => <SaleVehicleTile vehicle={vehicle} showCountry />}
+        />
+      )}
       {referenceOpen && <CalendarReference close={() => setReferenceOpen(false)} />}
       {error && (
         <div className="wt-sales-error" role="alert">
@@ -455,106 +468,14 @@ export function SaleCalendar() {
           <small>预测以虚线与“预计”区分</small>
         </div>
         <div>
-          <span>我的关注</span>
+          <span>我的购车计划</span>
           <strong>
             {watch.length} <small>辆载具</small>
           </strong>
-          <small>按实际购买渠道寻找优惠窗口</small>
+          <button className="quiet-button" onClick={() => setCartOpen(true)}>
+            查看购物车与价格记录 ↗
+          </button>
         </div>
-      </section>
-      <section className="wt-sale-watch">
-        <div className="wt-sales-section-title">
-          <h3>我的关注</h3>
-        </div>
-        {workspace?.userId && !workspace.ready ? (
-          <output>正在读取账号关注列表，请稍候。</output>
-        ) : !watch.length ? (
-          <div className="wt-sale-empty">
-            <button
-              type="button"
-              className="wt-sale-add-icon"
-              aria-label="添加关注载具"
-              onClick={() => setPicker(true)}
-            >
-              ＋
-            </button>
-            <p>先把想买的载具放进关注列表</p>
-            <span>关注金鹰与商城礼包载具，查看对应的优惠窗口和倒计时。</span>
-            <button onClick={() => setPicker(true)}>选择载具</button>
-          </div>
-        ) : (
-          <>
-            <div className="wt-sale-watch-list" id={watchListId}>
-              {(watchExpanded ? watch : watch.slice(0, 5)).map((vehicle) => {
-                const event = nextSale(vehicle, events, now),
-                  exact = event?.status === "confirmed" && event.vehicleIds.includes(vehicle.id);
-                return (
-                  <article key={vehicle.id} className="wt-sale-watch-row">
-                    <SaleVehicleTile vehicle={vehicle} showCountry />
-                    <div className="wt-sale-watch-identity">
-                      <span>{saleChannels[vehicle.channel]}</span>
-                      <VehicleQuoteDate vehicle={vehicle} />
-                    </div>
-                    <div className="wt-sale-watch-opportunity">
-                      {event ? (
-                        <>
-                          <strong>{event.title}</strong>
-                          <span>{saleRange(event)}</span>
-                          <small>
-                            {event.status === "predicted"
-                              ? "预测窗口，尚未公布名单"
-                              : exact
-                                ? "已核对参与名单"
-                                : event.coverage === "all-except-exclusions"
-                                  ? "常规优惠范围，需核对新车排除名单"
-                                  : "可能相关，需核对指定载具名单"}
-                          </small>
-                        </>
-                      ) : (
-                        <span>
-                          {["market", "excluded"].includes(vehicle.channel)
-                            ? "此购买渠道不自动参与常规载具促销"
-                            : "尚无匹配的优惠排期"}
-                        </span>
-                      )}
-                    </div>
-                    <div className="wt-sale-watch-countdown">
-                      {event && (
-                        <>
-                          <b>{saleCountdown(event, now)}</b>
-                          <small>{saleRate(event, vehicle.channel)}</small>
-                          <SourceLinks event={event} />
-                        </>
-                      )}
-                    </div>
-                    <button
-                      className="wt-sale-remove"
-                      aria-label={`取消关注${vehicle.name}`}
-                      onClick={() => saveWatch(watch.filter((v) => v.id !== vehicle.id))}
-                    >
-                      ×
-                    </button>
-                  </article>
-                );
-              })}
-            </div>
-            {watch.length > 5 && (
-              <div className="wt-sale-watch-fold">
-                <span>
-                  已显示 {watchExpanded ? watch.length : 5} / {watch.length} 辆
-                </span>
-                <button
-                  type="button"
-                  aria-controls={watchListId}
-                  aria-expanded={watchExpanded}
-                  onClick={() => setWatchExpanded((value) => !value)}
-                >
-                  {watchExpanded ? "收起至 5 辆 ↑" : `展开全部 ${watch.length} 辆 ↓`}
-                </button>
-              </div>
-            )}
-          </>
-        )}
       </section>
       <section className="wt-sale-calendar">
         <div className="wt-sales-section-title">
