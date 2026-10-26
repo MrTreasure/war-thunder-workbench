@@ -178,60 +178,40 @@ function TagFormDialog({
             <>
               <section className="wt-tag-style-field" aria-label="标签样式">
                 <h3>标签样式</h3>
-                <div className="wt-tag-skin-choices">
+                <GameSelect
+                  className="wt-tag-style-select"
+                  aria-label="选择标签样式"
+                  value={row.tone}
+                  onValueChange={(tone) => update({ tone: tone as GameTagTone })}
+                  renderValue={(value) => (
+                    <GameTag tone={value as GameTagTone}>
+                      {gameTagTones[value as GameTagTone].label}
+                    </GameTag>
+                  )}
+                  renderOption={(value) => {
+                    const tone = value as GameTagTone;
+                    return (
+                      <span className="wt-tag-style-option">
+                        <GameTag tone={tone}>{gameTagTones[tone].label}</GameTag>
+                        {!allowedTones.includes(tone) && <small>{tagRequirement(tone)}</small>}
+                      </span>
+                    );
+                  }}
+                >
                   {[
                     { label: "基础标签", tones: freeTagTones },
                     { label: "等级标签", tones: gameTagChoiceGroups[2].tones },
                   ].map((group) => (
-                    <fieldset key={group.label}>
-                      <legend>{group.label}</legend>
-                      {group.label === "基础标签" ? (
-                        <GameSelect
-                          className="wt-tag-basic-select"
-                          aria-label="选择基础标签"
-                          value={freeTagTones.includes(row.tone) ? row.tone : ""}
-                          onValueChange={(tone) => update({ tone: tone as GameTagTone })}
-                          renderOption={(tone) =>
-                            tone ? (
-                              <GameTag tone={tone as GameTagTone}>
-                                {gameTagTones[tone as GameTagTone].label}
-                              </GameTag>
-                            ) : (
-                              "选择基础标签"
-                            )
-                          }
-                        >
-                          <option value="" disabled>
-                            选择基础标签
-                          </option>
-                          {group.tones.map((tone) => (
-                            <option key={tone} value={tone} disabled={!allowedTones.includes(tone)}>
-                              {gameTagTones[tone].label}
-                            </option>
-                          ))}
-                        </GameSelect>
-                      ) : (
-                        <div>
-                          {group.tones.map((tone) => (
-                            <div key={tone} className="wt-tag-skin-option">
-                              <GameTag
-                                tone={tone}
-                                selected={row.tone === tone}
-                                disabled={!allowedTones.includes(tone)}
-                                onClick={() => update({ tone })}
-                              >
-                                {gameTagTones[tone].label}
-                              </GameTag>
-                              {!allowedTones.includes(tone) && (
-                                <small>{tagRequirement(tone)}</small>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </fieldset>
+                    <optgroup key={group.label} label={group.label}>
+                      {group.tones.map((tone) => (
+                        <option key={tone} value={tone} disabled={!allowedTones.includes(tone)}>
+                          {gameTagTones[tone].label}
+                          {!allowedTones.includes(tone) ? ` · ${tagRequirement(tone)}` : ""}
+                        </option>
+                      ))}
+                    </optgroup>
                   ))}
-                </div>
+                </GameSelect>
               </section>
               <section className="wt-tag-word-field" aria-label="标签文案">
                 <h3>文案</h3>

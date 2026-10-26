@@ -449,7 +449,23 @@
   min-width: 64px;
 }
 
-.wt-tag-basic-select {
+.wt-tag-style-select {
   width: 100%;
   min-height: 44px;
+}
+
+.wt-tag-style-option {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+.wt-tag-style-option small {
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.wt-tag-style-select .wt-select-label {
+  display: inline-flex;
+  align-items: center;
+  padding-block: 4px;
 }
