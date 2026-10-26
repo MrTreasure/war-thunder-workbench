@@ -1,7 +1,7 @@
 import staticAssets from "../data/player-report-static-assets.json";
 import fontUrl from "./assets/FiraSansCondensed-Regular.ttf?url";
 import symbolUrl from "./assets/WTSymbols.ttf?url";
-import { communityRules } from "./lineup-community-api";
+import { communityRules, approveLineupCaption } from "./lineup-community-api";
 import { sha256 } from "@noble/hashes/sha2.js";
 import { bytesToHex } from "@noble/hashes/utils.js";
 
@@ -25,6 +25,15 @@ export async function exportLineupImage(source: HTMLElement, signal: AbortSignal
     height = Math.ceil(source.getBoundingClientRect().height);
   if (width > 2200 || height > 1600 || !source.querySelector(".wt-game-card"))
     throw new Error("分享图片尺寸不正确。");
+  const caption = source.querySelector(".wt-share-note p")?.textContent || "";
+  if (caption.trim()) {
+    await approveLineupCaption(caption, signal, "export");
+    if (caption !== (source.querySelector(".wt-share-note p")?.textContent || ""))
+      throw new Error("文字说明已修改，请重新生成图片。");
+  }
+  // Image loading can fail while fonts or caption checks are pending.
+  if (source.querySelector(".unit-art-unavailable"))
+    throw new Error("有载具图片未能读取，请等待图片恢复后导出。");
   const clone = source.cloneNode(true) as HTMLElement;
   const originals: Element[] = [source, ...source.querySelectorAll("*")];
   const copies: Element[] = [clone, ...clone.querySelectorAll("*")];

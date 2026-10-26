@@ -1,7 +1,6 @@
 // Fetch status and identity reset synchronize the current request/account with the UI.
 /* oxlint-disable react/set-state-in-effect */
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { CSSProperties } from "react";
 import { Link } from "@tanstack/react-router";
 import bootstrap from "./generated/bootstrap.json";
 import { Modal } from "./Modal";
@@ -14,9 +13,10 @@ import {
   communityTags,
   communityMode,
   communityLink,
+  approveLineupCaption,
 } from "./lineup-community-api";
 import type { CommunityPost } from "./lineup-community-api";
-import { lineupCardRating, lineupRatings } from "./lineups";
+import { lineupCardRating, lineupRatings, lineupMatchmakingWindow } from "./lineups";
 import type { Lineup, LineupVehicle } from "./lineups";
 import type { Mode } from "./models";
 
@@ -36,34 +36,26 @@ export function LineupShareImage({
     battleType: post.battle,
     activeAircraft: post.activeAircraft || null,
   };
-  const count = post.slots.filter(Boolean).length;
+  const country = bootstrap.countries[post.country as keyof typeof bootstrap.countries];
+  const window = lineupMatchmakingWindow(post.step, post.mode, bootstrap.lineup);
+  const gameMode = communityMode(post.battle, post.mode)
+    .replace(/街机$/, " · 街机娱乐")
+    .replace(/历史$/, " · 历史性能")
+    .replace(/全真$/, " · 全真模拟");
   return (
-    <article
-      className="wt-share-image"
-      style={{ "--wt-share-width": `${Math.max(1100, count * 240 + 40)}px` } as CSSProperties}
-      aria-label="队列分享图片"
-    >
+    <article className="wt-share-image" aria-label="队列分享图片">
       <header className="wt-share-heading">
-        <div className="wt-share-context">
+        <p>
+          分房范围:{" "}
+          <strong>{window ? `${window.minimum} – ${window.maximum}` : post.rating}</strong>
+          {window && <small>队列 {post.rating}</small>}
+        </p>
+        <p>游戏模式: {gameMode}</p>
+        <p className="wt-share-nation">
+          出击队列:{" "}
           <img src={bootstrap.flags[post.country as keyof typeof bootstrap.flags]} alt="" />
-          <h3>
-            {bootstrap.countries[post.country as keyof typeof bootstrap.countries]}{" "}
-            <b>{post.rating}</b>
-          </h3>
-          <span>{communityMode(post.battle, post.mode)}</span>
-        </div>
-        <div className="wt-share-meta">
-          <span>
-            队列 ID <b>{post.id}</b>
-          </span>
-          <span>
-            分享码 <code>{post.code}</code>
-          </span>
-        </div>
-        <div className="wt-share-owner">
-          <span>分享者</span>
-          <strong>{post.author}</strong>
-        </div>
+          {country}
+        </p>
       </header>
       <div className="wt-share-crew">
         {lineup.slots.flatMap((id) => {
@@ -75,7 +67,8 @@ export function LineupShareImage({
                   unit={unit}
                   mode={post.mode}
                   owned={true}
-                  showRank
+                  showRank={false}
+                  showAcquisition={false}
                   modeRating={lineupCardRating(unit, post.battle, post.mode)}
                 />,
               ]
@@ -92,6 +85,19 @@ export function LineupShareImage({
           <p>{text}</p>
         </section>
       )}
+      <footer className="wt-share-footer">
+        <span className="wt-share-id">
+          队列 ID <b>{post.id}</b>
+        </span>
+        <div className="wt-share-attribution">
+          <span className="wt-share-code">
+            分享码 <code>{post.code}</code>
+          </span>
+          <span className="wt-share-owner">
+            分享者 <strong>{post.author}</strong>
+          </span>
+        </div>
+      </footer>
     </article>
   );
 }
@@ -105,11 +111,37 @@ export function LineupImageDialog({
   close: () => void;
 }) {
   const [text, setText] = useState("");
+  const [approvedText, setApprovedText] = useState("");
+  const [reviewing, setReviewing] = useState(false);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const preview = useRef<HTMLDivElement>(null);
   const controller = useRef<AbortController | null>(null);
   useEffect(() => () => controller.current?.abort(), []);
+  async function applyCaption() {
+    const value = text.trim();
+    if (!value) {
+      setApprovedText("");
+      return;
+    }
+    const signal = new AbortController();
+    controller.current = signal;
+    setReviewing(true);
+    setError("");
+    try {
+      await approveLineupCaption(value, signal.signal);
+      if (!signal.signal.aborted) setApprovedText(value);
+    } catch (cause) {
+      if (!signal.signal.aborted) {
+        setApprovedText("");
+        setError(cause instanceof Error ? cause.message : "文字说明检查失败，请重试。");
+      }
+    } finally {
+      if (!signal.signal.aborted) setReviewing(false);
+    }
+  }
+  const captionPending = !!text.trim() && text.trim() !== approvedText;
+  const locked = busy || reviewing;
   async function exportImage(copy: boolean) {
     if (!preview.current?.firstElementChild) return;
     setBusy(true);
@@ -144,13 +176,13 @@ export function LineupImageDialog({
   return (
     <Modal
       title="生成队列分享图"
-      subtitle="最多 8 辆，保留载具顺序。分享文字仅在当前窗口生成图片，关闭即清除。"
+      subtitle="最多 8 辆，按游戏队列排列。文字说明通过安全检查后应用，不保存到大厅。"
       close={close}
       className="wt-community-dialog wt-image-dialog"
     >
       <div className="wt-share-preview-scroll">
         <div ref={preview}>
-          <LineupShareImage post={post} units={units} text={text} />
+          <LineupShareImage post={post} units={units} text={approvedText} />
         </div>
       </div>
       <label className="calc-field">
@@ -159,21 +191,45 @@ export function LineupImageDialog({
           rows={3}
           maxLength={160}
           value={text}
-          onChange={(e) => setText(e.target.value)}
+          disabled={locked}
+          onChange={(e) => {
+            setText(e.target.value);
+            setApprovedText("");
+            setError("");
+          }}
           placeholder="补充你的打法或使用体验…"
         />
       </label>
+      <p className="calc-note">
+        提交原文和账号／设备标识会记录供管理员审查；图片在本机合成，不上传成品。
+      </p>
       <div className="wt-community-actions">
         <small>{text.length}/160</small>
-        <button className="quiet-button" disabled={busy} onClick={() => void exportImage(false)}>
+        <button
+          className="quiet-button"
+          disabled={locked || !text.trim()}
+          onClick={() => void applyCaption()}
+        >
+          {reviewing ? "正在安全检查…" : "检查并应用说明"}
+        </button>
+        <button
+          className="quiet-button"
+          disabled={locked || captionPending}
+          onClick={() => void exportImage(false)}
+        >
           {busy ? "正在合成…" : "下载图片"}
         </button>
         {typeof ClipboardItem !== "undefined" && (
-          <button className="quiet-button" disabled={busy} onClick={() => void exportImage(true)}>
+          <button
+            className="quiet-button"
+            disabled={locked || captionPending}
+            onClick={() => void exportImage(true)}
+          >
             复制图片
           </button>
         )}
       </div>
+      {captionPending && <p className="calc-note">请先检查并应用文字说明，再导出图片。</p>}
       {error && <output className="lineup-feedback">{error}</output>}
     </Modal>
   );
@@ -193,7 +249,7 @@ export function LineupShareTools({
 }) {
   const account = useWorkbenchAccount();
   const userId = account.session?.user?.id;
-  const [mode, setMode] = useState(defaultMode);
+  const [mode, setMode] = useState<Mode>(defaultMode === "ab" ? "ab" : "rb");
   const [tags, setTags] = useState<string[]>([]);
   const [post, setPost] = useState<CommunityPost | null>(null);
   const [identity, setIdentity] = useState({ author: "游客", authorId: "" });
@@ -291,7 +347,7 @@ export function LineupShareTools({
             setPost(null);
           }}
         >
-          {(["ab", "rb", "sb"] as Mode[]).map((id) => (
+          {(["ab", "rb"] as Mode[]).map((id) => (
             <option key={id} value={id} disabled={id === "sb" && lineup.battleType === "naval"}>
               {communityMode(lineup.battleType, id)}
             </option>

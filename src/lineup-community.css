@@ -1,117 +1,141 @@
+/* Share export follows the compact game lineup panel; cards remain VehicleTile. */
 .wt-share-image {
-  font-family: WTSymbols, WTCard, "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
-  width: var(--wt-share-width);
+  width: 726px;
   box-sizing: border-box;
   flex: none;
   position: relative;
-  padding: 18px 26px 16px;
-  border: 1px solid #48525b;
-  background: linear-gradient(160deg, #2b343c, #222b32);
+  padding: 12px;
+  border: 1px solid #3d4b53;
+  background: linear-gradient(125deg, #1d2a34 0%, #101b24 65%, #1a2630 100%);
+  color: #c5cbcd;
   overflow: hidden;
+  font-family: WTSymbols, WTCard, "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
 }
 .wt-share-heading {
+  display: grid;
+  gap: 0;
+  margin: 0 0 18px;
+}
+.wt-share-heading p {
+  margin: 0;
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 30px;
+  color: #bdc5c9;
+}
+.wt-share-heading small {
+  margin-left: 12px;
+  font-size: 14px;
+  color: #8d9ca6;
+}
+.wt-share-heading strong {
+  font-weight: 400;
+  color: #e0e3df;
+}
+.wt-share-nation {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 24px;
-  margin-bottom: 20px;
+  gap: 8px;
 }
-.wt-share-context {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-}
-.wt-share-context > img {
-  width: 32px;
-  height: 23px;
+.wt-share-nation img {
+  width: 27px;
+  height: 20px;
   object-fit: contain;
 }
-.wt-share-context h3 {
+.wt-share-crew {
+  display: grid;
+  grid-template-columns: repeat(3, 228px);
+  align-items: start;
+  gap: 12px 8px;
+}
+.wt-share-crew > .wt-game-card {
+  width: 228px;
+  max-width: none;
+}
+.wt-share-labels {
   display: flex;
-  align-items: baseline;
-  gap: 14px;
-  margin: 0;
-  font-size: 24px;
-  line-height: 1.2;
-  font-weight: 400;
-  white-space: nowrap;
-}
-.wt-share-context h3 b {
-  font-family: WTCard, sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  color: #e7d6a4;
-}
-.wt-share-mode {
-  padding-left: 14px;
-  border-left: 1px solid #69778080;
-  font-size: 16px;
-  color: #c2cbd0;
-}
-.wt-share-owner {
-  margin-left: auto;
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  min-width: 0;
-}
-.wt-share-owner > span {
-  font-size: 12px;
-  color: #9ba8af;
-  flex: 0 0 auto;
-}
-.wt-share-owner > strong {
-  font-size: 20px;
-  font-weight: 400;
-  color: #edece6;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.wt-share-meta {
-  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 18px;
-  margin-bottom: 0;
-  font-size: 12px;
-  color: #8f9ea8;
+  gap: 8px;
+  padding-top: 18px;
+}
+.wt-share-note {
+  margin: 14px 0 0;
+  padding: 12px 0 0;
+  border-top: 1px solid #61748050;
+}
+.wt-share-note p {
+  margin: 0;
+  color: #d9dcd8;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: inherit;
+  font-size: 19px;
+  line-height: 1.55;
+}
+.wt-share-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 10px;
+  border-top: 1px solid #61748040;
+}
+.wt-share-id {
+  flex: 0 1 auto;
+  min-width: 0;
+  color: #8596a1;
+  font-size: 11px;
+  line-height: 20px;
+  overflow-wrap: anywhere;
 }
 .wt-share-id b {
-  margin-left: 8px;
-  font:
-    400 14px WTCard,
-    sans-serif;
-  color: #aebcc6;
-  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+.wt-share-attribution {
+  display: grid;
+  justify-items: end;
+  gap: 2px;
+  margin-left: auto;
+  flex: 0 0 auto;
+  max-width: 76%;
 }
 .wt-share-code {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  color: #9fadb6;
+  font-size: 12px;
+  line-height: 22px;
 }
 .wt-share-code code {
   font:
-    400 16px WTCard,
+    400 16px/22px WTCard,
     sans-serif;
-  letter-spacing: 1.6px;
-  color: #d7c895;
+  letter-spacing: 1px;
+  color: #d5c89e;
+  white-space: nowrap;
+  user-select: text;
 }
-.wt-share-crew {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  padding: 7px 0 0;
-}
-.wt-share-crew > .wt-game-card {
-  width: 228px;
-  flex: 0 0 228px;
-}
-.wt-share-labels {
-  width: fit-content;
+.wt-share-owner {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding-top: 12px;
+  gap: 8px;
+  max-width: 100%;
+  color: #9fadb6;
+  font-size: 12px;
+  line-height: 24px;
+}
+.wt-share-owner strong {
+  min-width: 0;
+  max-width: 350px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 18px;
+  font-weight: 400;
+  color: #dce1df;
 }
 .wt-lineup-tag {
   position: relative;
@@ -160,73 +184,6 @@
   white-space: nowrap;
   text-shadow: 0 1px 0 #000000a0;
   letter-spacing: 0;
-}
-.wt-share-note {
-  border-top: 1px solid #69778246;
-  margin-top: 15px;
-  padding: 14px 0 1px;
-}
-.wt-share-note p {
-  margin: 0;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-  font-family: WTSymbols, WTCard, "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
-  font-size: 19px;
-  font-weight: 400;
-  line-height: 1.65;
-  letter-spacing: 0.3px;
-  color: #e3e5df;
-}
-.wt-share-heading {
-  height: 40px;
-  flex-wrap: nowrap;
-}
-.wt-share-context {
-  flex: 0 0 auto;
-}
-.wt-share-context h3,
-.wt-share-context h3 b {
-  height: 40px;
-  line-height: 40px;
-  align-items: center;
-}
-.wt-share-meta {
-  white-space: nowrap;
-}
-.wt-share-meta > span {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.wt-share-meta b {
-  font-weight: 400;
-  color: #b4c1ca;
-}
-.wt-share-meta code {
-  font:
-    400 16px WTCard,
-    sans-serif;
-  letter-spacing: 1.6px;
-  color: #d7c895;
-}
-.wt-share-owner strong {
-  max-width: 240px;
-}
-.wt-share-labels {
-  min-height: 44px;
-}
-.wt-share-crew {
-  padding-bottom: 22px;
-}
-.wt-lineup-tag-text {
-  line-height: 32px;
-}
-.wt-share-context > span {
-  padding-left: 14px;
-  border-left: 1px solid #69778080;
-  font-size: 16px;
-  color: #c2cbd0;
-  white-space: nowrap;
 }
 .wt-community-page .lineup-content {
   padding-bottom: 32px;

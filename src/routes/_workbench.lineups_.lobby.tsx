@@ -24,7 +24,7 @@ export const Route = createFileRoute("/_workbench/lineups_/lobby")({
         ? search.battle
         : undefined,
     mode:
-      typeof search.mode === "string" && ["ab", "rb", "sb"].includes(search.mode)
+      typeof search.mode === "string" && ["ab", "rb"].includes(search.mode)
         ? search.mode
         : undefined,
     step: search.step !== undefined ? String(search.step) : undefined,

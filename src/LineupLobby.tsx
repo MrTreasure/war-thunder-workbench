@@ -185,7 +185,6 @@ export function LineupLobby() {
                 <option value="">全部模式</option>
                 <option value="ab">街机</option>
                 <option value="rb">历史</option>
-                <option value="sb">全真</option>
               </GameSelect>
             </label>
             <label className="calc-field">
@@ -244,7 +243,8 @@ export function LineupLobby() {
           </section>
         )}
         <p className="wt-community-notice">
-          队列标签来自分享者的使用体验。权重按所选模式计算；全真按活动名单或房间范围匹配。
+          队列标签来自分享者的使用体验。权重按所选模式计算，可能分房范围为队列 BR
+          ±1.0；单场房间跨度不超过 1.0。
         </p>
         {message && <output className="lineup-feedback">{message}</output>}
         {error ? (
@@ -505,7 +505,11 @@ function CommunityCard({
           <button className="quiet-button" onClick={() => onCopy(post.code)}>
             复制分享码
           </button>
-          <button className="quiet-button" disabled={!ready} onClick={onImage}>
+          <button
+            className="quiet-button"
+            disabled={!ready || post.mode === "sb"}
+            onClick={onImage}
+          >
             分享图片
           </button>
           <details className="wt-community-more">

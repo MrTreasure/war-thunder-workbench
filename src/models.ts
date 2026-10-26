@@ -102,6 +102,7 @@ export interface LineupRules {
   alphabet: string;
   emptyCode: string;
   countryCodes: Record<string, string>;
+  matchmakingSpreadSteps: number;
   airArcadeGapSteps: number;
   airArcadeMaxReductionSteps: number;
   navalAircraftMaxExtraSteps: number;

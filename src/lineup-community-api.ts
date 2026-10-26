@@ -62,3 +62,23 @@ export function communityLink(id: string) {
   url.hash = `/lineups/lobby?post=${encodeURIComponent(id)}`;
   return url.href;
 }
+
+/** Caption text and identity are recorded for private administrator review. */
+export async function approveLineupCaption(
+  text: string,
+  signal?: AbortSignal,
+  purpose: "preview" | "export" = "preview",
+) {
+  const result = await communityRequest<{
+    approved: boolean;
+    textSha256: string;
+    policyVersion: string;
+  }>("caption/check", { text, purpose }, signal);
+  const bytes = new Uint8Array(
+    await crypto.subtle.digest("SHA-256", new TextEncoder().encode("lineup-caption-v1:" + text)),
+  );
+  const hash = [...bytes].map((byte) => byte.toString(16).padStart(2, "0")).join("");
+  if (result.approved !== true || result.textSha256 !== hash || !result.policyVersion)
+    throw new Error("文字说明检查结果不匹配，请重新检查。");
+  return result;
+}
