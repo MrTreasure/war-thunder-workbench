@@ -74,10 +74,11 @@
   .wt-game-tag-material {
   display: block;
 }
-/* Finish stays on the recessed face, away from the original rim and eyelet.
-   This is identical for 28.5px display tags and the 44px interactive hit area. */
+/* Finish covers the whole original silhouette, including the pointed front.
+   The original alpha mask preserves the hole; overlay preserves its black rim.
+   Keep one continuous background, with no rectangular inset or left-side seam. */
 .wt-game-tag-material {
-  clip-path: inset(2px 3px 2px 18px round 1px);
+  mix-blend-mode: overlay;
 }
 .wt-game-tag[data-tone="bronze"] .wt-game-tag-material {
   background:
@@ -215,7 +216,7 @@
   );
   background-size: 260% 100%;
   background-position: 100% 50%;
-  mix-blend-mode: screen;
+  mix-blend-mode: overlay;
 }
 .wt-game-tag-label {
   position: relative;

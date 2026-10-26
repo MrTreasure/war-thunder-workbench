@@ -131,10 +131,12 @@
     }
   },
   "basicColors": [
-    "color-red",
     "color-yellow",
     "color-green",
     "color-blue",
-    "color-purple"
+    "color-purple",
+    "color-pink",
+    "color-orange",
+    "color-black"
   ]
 }
