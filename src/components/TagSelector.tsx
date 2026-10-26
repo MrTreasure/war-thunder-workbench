@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef, useState, type CSSProperties } from "react";
 import { Modal } from "../Modal";
+import { GameSelect } from "./GameSelect";
 import { GameTag, gameTagChoiceGroups, gameTagTones, type GameTagTone } from "./GameTag";
 import policy from "../../data/game-tag-access.json";
 import "./tag-selector.css";
@@ -184,21 +185,50 @@ function TagFormDialog({
                   ].map((group) => (
                     <fieldset key={group.label}>
                       <legend>{group.label}</legend>
-                      <div>
-                        {group.tones.map((tone) => (
-                          <div key={tone} className="wt-tag-skin-option">
-                            <GameTag
-                              tone={tone}
-                              selected={row.tone === tone}
-                              disabled={!allowedTones.includes(tone)}
-                              onClick={() => update({ tone })}
-                            >
+                      {group.label === "基础标签" ? (
+                        <GameSelect
+                          className="wt-tag-basic-select"
+                          aria-label="选择基础标签"
+                          value={freeTagTones.includes(row.tone) ? row.tone : ""}
+                          onValueChange={(tone) => update({ tone: tone as GameTagTone })}
+                          renderOption={(tone) =>
+                            tone ? (
+                              <GameTag tone={tone as GameTagTone}>
+                                {gameTagTones[tone as GameTagTone].label}
+                              </GameTag>
+                            ) : (
+                              "选择基础标签"
+                            )
+                          }
+                        >
+                          <option value="" disabled>
+                            选择基础标签
+                          </option>
+                          {group.tones.map((tone) => (
+                            <option key={tone} value={tone} disabled={!allowedTones.includes(tone)}>
                               {gameTagTones[tone].label}
-                            </GameTag>
-                            {!allowedTones.includes(tone) && <small>{tagRequirement(tone)}</small>}
-                          </div>
-                        ))}
-                      </div>
+                            </option>
+                          ))}
+                        </GameSelect>
+                      ) : (
+                        <div>
+                          {group.tones.map((tone) => (
+                            <div key={tone} className="wt-tag-skin-option">
+                              <GameTag
+                                tone={tone}
+                                selected={row.tone === tone}
+                                disabled={!allowedTones.includes(tone)}
+                                onClick={() => update({ tone })}
+                              >
+                                {gameTagTones[tone].label}
+                              </GameTag>
+                              {!allowedTones.includes(tone) && (
+                                <small>{tagRequirement(tone)}</small>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </fieldset>
                   ))}
                 </div>

@@ -448,3 +448,8 @@
   min-height: 44px;
   min-width: 64px;
 }
+
+.wt-tag-basic-select {
+  width: 100%;
+  min-height: 44px;
+}
