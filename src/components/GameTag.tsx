@@ -5,12 +5,15 @@ import "./game-tag.css";
 export type GameTagTone = keyof typeof theme.tones;
 export const gameTagTiers = theme.tiers as GameTagTone[];
 export const gameTagTones = theme.tones;
+export const gameTagChoices: GameTagTone[] = ["original", "red", ...gameTagTiers];
 export type GameTagProps = {
   children: ReactNode;
   tone?: GameTagTone;
   selected?: boolean;
   disabled?: boolean;
   animated?: boolean;
+  /** Rainbow is an always-animated privilege effect, as requested by the user. */
+  motionOverride?: boolean;
   onClick?: () => void;
 };
 
@@ -23,6 +26,7 @@ export function GameTag({
   selected = false,
   disabled = false,
   animated = true,
+  motionOverride = tone === "rainbow",
   onClick,
 }: GameTagProps) {
   const finish = gameTagTones[tone] || gameTagTones.silver;
@@ -35,6 +39,7 @@ export function GameTag({
     <>
       <span className="wt-game-tag-skin" aria-hidden="true" />
       <span className="wt-game-tag-tint" aria-hidden="true" />
+      <span className="wt-game-tag-material" aria-hidden="true" />
       <span className="wt-game-tag-label">{children}</span>
     </>
   );
@@ -44,6 +49,7 @@ export function GameTag({
       className="wt-game-tag is-interactive"
       data-tone={tone}
       data-animated={animated || undefined}
+      data-motion-override={motionOverride || undefined}
       style={style}
       aria-pressed={selected}
       disabled={disabled}
@@ -56,6 +62,7 @@ export function GameTag({
       className="wt-game-tag"
       data-tone={tone}
       data-animated={animated || undefined}
+      data-motion-override={motionOverride || undefined}
       style={style}
     >
       {content}

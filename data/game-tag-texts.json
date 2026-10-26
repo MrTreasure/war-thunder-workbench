@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-10-26",
+  "kind": "official-title-text-reference",
+  "titles": [
+    {
+      "id": "official-title-ac0f8812a1a9",
+      "label": "钢铁之躯",
+      "language": "zh-CN",
+      "sourceUrl": "https://warthunder.com/zh/news/278/current/",
+      "sourceTitle": "旧礼包，新特卖"
+    },
+    {
+      "id": "official-title-d857c75c8fd3",
+      "label": "钢胆铁威",
+      "language": "zh-CN",
+      "sourceUrl": "https://warthunder.com/zh/news/505/current/",
+      "sourceTitle": "新年特卖！"
+    },
+    {
+      "id": "official-title-d261fc38049b",
+      "label": "口径至上",
+      "language": "zh-CN",
+      "sourceUrl": "https://warthunder.com/zh/news/505/current/",
+      "sourceTitle": "新年特卖！"
+    },
+    {
+      "id": "official-title-fa829edd0fa1",
+      "label": "让榴弹飞",
+      "language": "zh-CN",
+      "sourceUrl": "https://warthunder.com/zh/news/505/current/",
+      "sourceTitle": "新年特卖！"
+    },
+    {
+      "id": "official-title-92ad6891c01c",
+      "label": "不屈之决心",
+      "language": "zh-CN",
+      "sourceUrl": "https://warthunder.com/zh/news/326/current/",
+      "sourceTitle": "D日特卖！"
+    },
+    {
+      "id": "official-title-77bdcc4c1a34",
+      "label": "不懈的努力",
+      "language": "zh-CN",
+      "sourceUrl": "https://warthunder.com/zh/news/326/current/",
+      "sourceTitle": "D日特卖！"
+    },
+    {
+      "id": "official-title-0413482181b7",
+      "label": "多面手",
+      "language": "zh-CN",
+      "sourceUrl": "https://warthunder.com/zh/news/1067/current/",
+      "sourceTitle": "排位赛：2023总决赛及Twitch掉宝"
+    },
+    {
+      "id": "official-title-8dcda4b3695a",
+      "label": "空战王牌",
+      "language": "zh-CN",
+      "sourceUrl": "https://warthunder.com/zh/news/1067/current/",
+      "sourceTitle": "排位赛：2023总决赛及Twitch掉宝"
+    },
+    {
+      "id": "official-title-ed93e4c48739",
+      "label": "最佳搭档",
+      "language": "zh-CN",
+      "sourceUrl": "https://warthunder.com/zh/news/1067/current/",
+      "sourceTitle": "排位赛：2023总决赛及Twitch掉宝"
+    },
+    {
+      "id": "official-title-1ad2631cb9eb",
+      "label": "胜利装甲",
+      "language": "zh-CN",
+      "sourceUrl": "https://warthunder.com/zh/news/93/current/",
+      "sourceTitle": "“胜利杯”锦标赛——优胜者"
+    },
+    {
+      "id": "official-title-ef10ef8f3bea",
+      "label": "胜利之翼",
+      "language": "zh-CN",
+      "sourceUrl": "https://warthunder.com/zh/news/93/current/",
+      "sourceTitle": "“胜利杯”锦标赛——优胜者"
+    },
+    {
+      "id": "official-title-0c32723322c0",
+      "label": "我们上",
+      "language": "zh-CN",
+      "sourceUrl": "https://warthunder.com/zh/news/45/current/",
+      "sourceTitle": "为破纪录的勇士们献上祝福！"
+    },
+    {
+      "id": "official-title-9f2ca1654679",
+      "label": "庇护之翼",
+      "language": "zh-CN",
+      "sourceUrl": "https://warthunder.com/zh/news/1718/current/",
+      "sourceTitle": "勇气时刻：巴西"
+    },
+    {
+      "id": "official-title-ed70c875dfaf",
+      "label": "榜样",
+      "language": "zh-CN",
+      "sourceUrl": "https://warthunder.com/zh/news/278/current/",
+      "sourceTitle": "旧礼包，新特卖"
+    },
+    {
+      "id": "official-title-5a945b514eef",
+      "label": "夜黑金曜",
+      "language": "zh-CN",
+      "sourceUrl": "https://warthunder.com/zh/news/1289/current/",
+      "sourceTitle": "黑色星期五礼包上架！"
+    }
+  ]
+}

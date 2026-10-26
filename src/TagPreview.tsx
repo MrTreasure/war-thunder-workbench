@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { GameTag, gameTagTiers, gameTagTones } from "./components/GameTag";
+import { GameTag, gameTagChoices, gameTagTiers, gameTagTones } from "./components/GameTag";
 import type { GameTagTone } from "./components/GameTag";
 import registry from "../data/lineup-sharing-tags.json";
+import officialTexts from "../data/game-tag-texts.json";
 import "./tag-preview.css";
 
 export function TagPreview() {
   const [word, setWord] = useState("经典标配");
   const [tone, setTone] = useState<GameTagTone>("gold");
-  const [animated, setAnimated] = useState(true);
+  const officialText = officialTexts.titles.find((title) => title.label === word);
   const [combinations, setCombinations] = useState<{ word: string; tone: GameTagTone }[]>([]);
   return (
     <main className="wt-tag-lab">
@@ -51,25 +52,30 @@ export function TagPreview() {
       <section>
         <div className="wt-tag-lab-title">
           <h2>02 / 七档配色</h2>
-          <button type="button" aria-pressed={!animated} onClick={() => setAnimated(!animated)}>
-            {animated ? "暂停七彩闪烁" : "开启七彩闪烁"}
-          </button>
+          <span className="wt-tag-lab-source">七彩特权效果 · 持续播放</span>
         </div>
+        <p className="wt-tag-motion-status" role="status">
+          七彩持续播放 · 明亮彩光与扫光特效
+        </p>
         <div className="wt-tag-tier-grid">
           {gameTagTiers.map((id) => (
             <div key={id}>
               <h3>{gameTagTones[id].label}</h3>
-              <GameTag tone={id} animated={animated}>
-                {word}
-              </GameTag>
+              <GameTag tone={id}>{word}</GameTag>
               <small>
-                {id === "rainbow"
-                  ? "七色金属流光 · 可暂停"
-                  : id === "king"
-                    ? "深金底 · 浅金文字"
-                    : id === "diamond"
-                      ? "冰蓝银面 · 深色文字"
-                      : "原版金属底纹 · 独立乘色"}
+                {
+                  (
+                    {
+                      bronze: "拉丝铜面 · 氧化暗纹",
+                      silver: "冷银镜面 · 细密拉丝",
+                      gold: "抛光黄金 · 暖色高光",
+                      emerald: "通透翠绿 · 多面折光",
+                      diamond: "冰晶切面 · 棱面反射",
+                      king: "曜石深底 · 镶金边缘",
+                      rainbow: "明亮七彩 · 流动扫光",
+                    } as Record<string, string>
+                  )[id]
+                }
               </small>
             </div>
           ))}
@@ -80,6 +86,33 @@ export function TagPreview() {
         <div className="wt-tag-composer">
           <div className="wt-tag-words">
             <h3>选择文案</h3>
+            <h4>官方游戏称号 · {officialTexts.titles.length}</h4>
+            <div>
+              {officialTexts.titles.map((title) => (
+                <button
+                  key={title.id}
+                  type="button"
+                  aria-pressed={word === title.label}
+                  onClick={() => setWord(title.label)}
+                  title={`来自官方公告《${title.sourceTitle}》`}
+                >
+                  {title.label}
+                </button>
+              ))}
+            </div>
+            <p className="wt-tag-lab-source">
+              {officialText ? (
+                <>
+                  官方出处：
+                  <a href={officialText.sourceUrl} target="_blank" rel="noreferrer">
+                    {officialText.sourceTitle} ↗
+                  </a>{" "}
+                  ·{" "}
+                </>
+              ) : null}
+              称号仅作标签文案引用，不代表已解锁。
+            </p>
+            <h4>队列文案</h4>
             <div>
               {registry.tags.map((t) => (
                 <button
@@ -96,14 +129,8 @@ export function TagPreview() {
           <div className="wt-tag-finishes">
             <h3>选择标签</h3>
             <div>
-              {gameTagTiers.map((id) => (
-                <GameTag
-                  key={id}
-                  tone={id}
-                  animated={animated}
-                  selected={tone === id}
-                  onClick={() => setTone(id)}
-                >
+              {gameTagChoices.map((id) => (
+                <GameTag key={id} tone={id} selected={tone === id} onClick={() => setTone(id)}>
                   {gameTagTones[id].label}
                 </GameTag>
               ))}
@@ -112,9 +139,7 @@ export function TagPreview() {
         </div>
         <div className="wt-tag-result">
           <span>当前组合</span>
-          <GameTag tone={tone} animated={animated}>
-            {word}
-          </GameTag>
+          <GameTag tone={tone}>{word}</GameTag>
           <button
             type="button"
             disabled={combinations.length >= 8}
@@ -127,9 +152,7 @@ export function TagPreview() {
           <div className="wt-tag-combinations" aria-label="自由组合结果">
             {combinations.map((c, i) => (
               <div key={i}>
-                <GameTag tone={c.tone} animated={animated}>
-                  {c.word}
-                </GameTag>
+                <GameTag tone={c.tone}>{c.word}</GameTag>
                 <button
                   type="button"
                   aria-label={`移除第 ${i + 1} 个组合`}
@@ -142,7 +165,7 @@ export function TagPreview() {
           </div>
         )}
         <p className="wt-tag-lab-source">
-          组合只保留在当前页面；暂停及减少动态效果设置都会停止闪烁。导出图片保留静态颜色。
+          组合只保留在当前页面；七彩作为特权效果持续播放，文案与材质可自由搭配。
         </p>
       </section>
     </main>

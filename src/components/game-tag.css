@@ -24,13 +24,14 @@
   white-space: nowrap;
 }
 .wt-game-tag-skin,
-.wt-game-tag-tint {
+.wt-game-tag-tint,
+.wt-game-tag-material {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 .wt-game-tag-skin {
-  z-index: -2;
+  z-index: -3;
   border-style: solid;
   border-width: 0 3px 0 18px;
   border-image-source: var(--wt-tag-image);
@@ -38,10 +39,10 @@
   border-image-width: 0 3px 0 18px;
   border-image-repeat: stretch;
 }
-.wt-game-tag-tint {
-  z-index: -1;
+.wt-game-tag-tint,
+.wt-game-tag-material {
+  z-index: -2;
   background: var(--wt-tag-tint);
-  mix-blend-mode: multiply;
   -webkit-mask-box-image-source: var(--wt-tag-image);
   -webkit-mask-box-image-slice: 0 2 0 12 fill;
   -webkit-mask-box-image-width: 0 3px 0 18px;
@@ -52,23 +53,171 @@
   mask-border-repeat: stretch;
   mask-border-mode: alpha;
 }
+.wt-game-tag-tint {
+  mix-blend-mode: multiply;
+}
+.wt-game-tag-material {
+  z-index: -1;
+  display: none;
+  background: none;
+}
+/* Material finishes are app extensions. Official choices retain the original face. */
+.wt-game-tag:is(
+    [data-tone="bronze"],
+    [data-tone="silver"],
+    [data-tone="gold"],
+    [data-tone="emerald"],
+    [data-tone="diamond"],
+    [data-tone="king"],
+    [data-tone="rainbow"]
+  )
+  .wt-game-tag-material {
+  display: block;
+}
+.wt-game-tag[data-tone="bronze"] .wt-game-tag-material {
+  background:
+    linear-gradient(
+      115deg,
+      #ffedc640,
+      transparent 28%,
+      #51240d40 45%,
+      #ffdb9e85 49%,
+      transparent 57%
+    ),
+    repeating-linear-gradient(0deg, #ffeedb14 0 1px, #48250d0a 1px 2px),
+    radial-gradient(ellipse at 10% 80%, #14483d65, transparent 45%);
+}
+.wt-game-tag[data-tone="silver"] .wt-game-tag-material {
+  background:
+    linear-gradient(
+      115deg,
+      #eaf6ff15 12%,
+      #fff9 30%,
+      #28425665 42%,
+      #fff8 48%,
+      #8097aa30 58%,
+      #fff6 83%,
+      transparent
+    ),
+    repeating-linear-gradient(0deg, #ffffff28 0 1px, transparent 1px 3px);
+}
+.wt-game-tag[data-tone="gold"] .wt-game-tag-material {
+  background:
+    linear-gradient(
+      115deg,
+      transparent 12%,
+      #fff9cfb0 28%,
+      #78400055 41%,
+      #fff3a6b0 48%,
+      transparent 57%,
+      #fff7d160 85%,
+      transparent
+    ),
+    repeating-linear-gradient(0deg, #fff6ce22 0 1px, transparent 1px 3px);
+}
+.wt-game-tag[data-tone="emerald"] .wt-game-tag-material {
+  background:
+    linear-gradient(
+      140deg,
+      transparent 15%,
+      #e9fffaa0 16%,
+      #62f8c530 20%,
+      transparent 24%,
+      #002d22a0 68%,
+      transparent 69%
+    ),
+    conic-gradient(
+      from 30deg at 62% 45%,
+      #073c3770,
+      #7cffd650 55deg,
+      #002e2650 110deg,
+      #b5ffe14a 175deg,
+      #003b2e90 250deg,
+      #073c3770
+    ),
+    radial-gradient(ellipse at 35% 85%, #31ffc370, transparent 65%);
+}
+.wt-game-tag[data-tone="diamond"] .wt-game-tag-material {
+  background:
+    linear-gradient(
+      125deg,
+      transparent 20%,
+      #fff9 21%,
+      #ffffff10 28%,
+      transparent 30%,
+      #fff9 76%,
+      transparent 77%
+    ),
+    conic-gradient(
+      from 15deg at 58% 42%,
+      #436fa445,
+      #fff9 45deg,
+      #4f90bf50 85deg,
+      #faffffb0 135deg,
+      #6485d34a 180deg,
+      #c4fbff55 230deg,
+      #fff9 280deg,
+      #436fa445
+    ),
+    linear-gradient(0deg, #bdd5f020, #ffffff60);
+}
+.wt-game-tag[data-tone="king"] .wt-game-tag-material {
+  background:
+    linear-gradient(
+      0deg,
+      #e6b950cc 0 1.5px,
+      transparent 1.5px calc(100% - 1.5px),
+      #ffe39ecc calc(100% - 1.5px)
+    ),
+    linear-gradient(
+      115deg,
+      #080f19b0 12%,
+      #dfb04b55 33%,
+      #080f19a0 48%,
+      #f4d17d80 51%,
+      #111e2bb0 62%,
+      #dfb04b30 90%
+    ),
+    repeating-linear-gradient(135deg, #fff5d40a 0 1px, transparent 1px 4px);
+}
 .wt-game-tag[data-tone="rainbow"] .wt-game-tag-tint {
   background: linear-gradient(
     105deg,
-    #cb6677,
-    #d49c54,
-    #c8b557,
-    #4ba47c,
-    #579eb9,
-    #7b83bd,
-    #b16fac
+    #ff688b,
+    #ffbf58,
+    #fbef77,
+    #56f4b2,
+    #65e9ff,
+    #8294ff,
+    #ef91ff,
+    #ff688b,
+    #ffbf58,
+    #fbef77
   );
+  background-size: 280% 100%;
+  background-position: 0% 50%;
+  filter: brightness(1.35) saturate(1.4);
+}
+.wt-game-tag[data-tone="rainbow"] .wt-game-tag-material {
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    #ffffff10 40%,
+    #ffffffc0 49%,
+    #fff5 54%,
+    transparent 65%
+  );
+  background-size: 260% 100%;
+  background-position: 100% 50%;
+  mix-blend-mode: screen;
 }
 .wt-game-tag-label {
   position: relative;
   text-shadow: 0 1px 1px #000a;
 }
 .wt-game-tag[data-tone="diamond"] .wt-game-tag-label,
+.wt-game-tag[data-tone="silver"] .wt-game-tag-label,
+.wt-game-tag[data-tone="gold"] .wt-game-tag-label,
 .wt-game-tag[data-tone="original"] .wt-game-tag-label {
   text-shadow: 0 1px 0 #ffffff50;
 }
@@ -84,7 +233,8 @@
   -webkit-tap-highlight-color: transparent;
 }
 .wt-game-tag.is-interactive .wt-game-tag-skin,
-.wt-game-tag.is-interactive .wt-game-tag-tint {
+.wt-game-tag.is-interactive .wt-game-tag-tint,
+.wt-game-tag.is-interactive .wt-game-tag-material {
   inset-block: 7.75px;
 }
 .wt-game-tag.is-interactive:hover:not(:disabled) .wt-game-tag-label,
@@ -103,16 +253,38 @@
   cursor: default;
 }
 @keyframes wt-tag-prismatic {
-  0%,
-  100% {
-    filter: brightness(0.9) saturate(0.9);
+  from {
+    background-position: 0% 50%;
   }
-  50% {
-    filter: brightness(1.2) saturate(1.15);
+  to {
+    background-position: 100% 50%;
   }
 }
-@media (prefers-reduced-motion: no-preference) {
-  .wt-game-tag[data-tone="rainbow"][data-animated] .wt-game-tag-tint {
-    animation: wt-tag-prismatic 7s ease-in-out infinite;
+@keyframes wt-tag-sheen {
+  from {
+    background-position: 130% 50%;
+  }
+  to {
+    background-position: -70% 50%;
+  }
+}
+.wt-game-tag[data-tone="rainbow"][data-animated] .wt-game-tag-tint {
+  animation: wt-tag-prismatic 2.8s linear infinite alternate;
+}
+.wt-game-tag[data-tone="rainbow"][data-animated] .wt-game-tag-material {
+  animation: wt-tag-sheen 2.4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wt-game-tag:not([data-motion-override]) :is(.wt-game-tag-tint, .wt-game-tag-material) {
+    animation: none;
+  }
+}
+/* User-requested privilege effect remains animated under the global motion guard. */
+@media (prefers-reduced-motion: reduce) {
+  .wt-game-tag[data-tone="rainbow"][data-animated][data-motion-override] .wt-game-tag-tint {
+    animation: wt-tag-prismatic 2.8s linear infinite alternate !important;
+  }
+  .wt-game-tag[data-tone="rainbow"][data-animated][data-motion-override] .wt-game-tag-material {
+    animation: wt-tag-sheen 2.4s ease-in-out infinite !important;
   }
 }
