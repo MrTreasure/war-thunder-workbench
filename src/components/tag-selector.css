@@ -144,71 +144,23 @@
   cursor: pointer;
   white-space: nowrap;
 }
-.wt-tag-edit-fields {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 16px;
-  margin-top: 22px;
-}
-.wt-tag-edit-fields > div {
+.wt-tag-style-field,
+.wt-tag-word-field {
+  margin-top: 20px;
   min-width: 0;
 }
-.wt-tag-edit-fields > div > span {
-  display: block;
-  margin-bottom: 6px;
+.wt-tag-style-field > h3,
+.wt-tag-word-field > h3 {
+  margin: 0 0 8px;
   font-size: 12px;
+  font-weight: 500;
   color: var(--wt-muted);
 }
-.wt-tag-edit-fields > div > button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  width: 100%;
-  min-height: 52px;
-  padding: 8px 12px;
-  border: 1px solid var(--wt-strong-line);
-  border-radius: 4px;
-  background: var(--wt-surface);
-  color: var(--wt-ink);
-  cursor: pointer;
-  text-align: left;
-}
-.wt-tag-edit-fields strong {
-  font-size: 14px;
-  font-weight: 500;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.wt-tag-edit-fields button[data-active="true"] {
-  border-color: var(--wt-gold-line);
-  background: var(--wt-gold-soft);
-}
-.wt-tag-picker-panel {
-  margin-top: 14px;
-  padding: 14px;
+.wt-tag-skin-choices {
+  padding: 12px;
   border: 1px solid var(--wt-line);
   border-radius: 4px;
   background: var(--wt-surface);
-}
-.wt-tag-picker-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-.wt-tag-picker-heading strong {
-  font-size: 13px;
-}
-.wt-tag-picker-heading button {
-  min-height: 44px;
-  padding: 0 4px 0 12px;
-  color: var(--wt-gold);
-  background: transparent;
-  cursor: pointer;
-  white-space: nowrap;
 }
 .wt-tag-library {
   border: 1px solid var(--wt-line);
@@ -216,32 +168,60 @@
   overflow: clip;
   margin-top: 8px;
 }
-.wt-tag-library > summary {
+.wt-tag-library > h4 {
+  margin: 0;
+}
+.wt-tag-library > h4 > button {
   min-height: 48px;
   padding: 0 12px;
   display: flex;
   align-items: center;
   gap: 12px;
-  list-style: none;
+  width: 100%;
+  background: transparent;
+  text-align: left;
+  font: inherit;
   color: var(--wt-ink);
   cursor: pointer;
 }
-.wt-tag-library > summary::-webkit-details-marker {
-  display: none;
-}
-.wt-tag-library > summary > span:first-child {
+.wt-tag-library > h4 > button > span:first-child {
   font-weight: 600;
 }
-.wt-tag-library > summary > small {
+.wt-tag-library > h4 > button > small {
   font-size: 12px;
   color: var(--wt-muted);
 }
-.wt-tag-library > summary > span:last-child {
+.wt-tag-library > h4 > button > span:last-child {
   margin-left: auto;
   color: var(--wt-muted);
 }
-.wt-tag-library[open] > summary > span:last-child {
+.wt-tag-library[data-open="true"] > h4 > button > span:last-child {
   transform: rotate(180deg);
+}
+.wt-tag-library-reveal {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 240ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 180ms ease;
+}
+.wt-tag-library-reveal > div {
+  min-height: 0;
+  overflow: hidden;
+}
+.wt-tag-library[data-open="true"] .wt-tag-library-reveal {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.wt-tag-library > h4 > button > span:last-child {
+  transition: transform 200ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wt-tag-library-reveal,
+  .wt-tag-library > h4 > button > span:last-child {
+    transition: none;
+  }
 }
 .wt-tag-library-body {
   padding: 12px;
@@ -338,19 +318,6 @@
   margin-top: 14px;
   overflow-wrap: anywhere;
 }
-.wt-tag-live-preview {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  padding-top: 14px;
-  border-top: 1px solid var(--wt-line);
-}
-.wt-tag-live-preview > span:first-child {
-  color: var(--wt-muted);
-  font-size: 12px;
-}
 .wt-tag-form-status {
   min-height: 24px;
   display: flex;
@@ -413,8 +380,7 @@
 }
 @media (hover: hover) {
   .wt-tag-field-control:hover:not(:disabled),
-  .wt-tag-edit-fields button:hover,
-  .wt-tag-library > summary:hover,
+  .wt-tag-library > h4 > button:hover,
   .wt-tag-plain-options > button:hover:not(:disabled) {
     background: var(--wt-raised);
   }
@@ -441,21 +407,14 @@
   .wt-tag-form-footer {
     padding: 12px 16px max(12px, env(safe-area-inset-bottom, 0px));
   }
-  .wt-tag-edit-fields {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 12px;
-  }
   .wt-tag-plain-options {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
   }
-  .wt-tag-picker-panel {
-    padding: 10px;
-  }
   .wt-tag-library-body {
     padding: 10px;
   }
-  .wt-tag-library > summary {
+  .wt-tag-library > h4 > button {
     gap: 8px;
   }
   .wt-tag-field-control {

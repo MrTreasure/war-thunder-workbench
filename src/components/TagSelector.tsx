@@ -46,7 +46,7 @@ function TagFormDialog({
   value,
   onChange,
   allowedTones = freeTagTones,
-  max = 3,
+  max = 5,
   loading = false,
   error = "",
   onRetry,
@@ -76,7 +76,7 @@ function TagFormDialog({
       : [{ key: crypto.randomUUID(), id: "", tone: "original" }],
   );
   const [active, setActive] = useState(() => rows[0]?.key || "");
-  const [pane, setPane] = useState<"word" | "style" | null>(null);
+  const [library, setLibrary] = useState<"queue" | "titles" | null>(null);
   const [query, setQuery] = useState({ queue: "", titles: "" });
   const uid = useId();
   const row = rows.find((row) => row.key === active) || rows[0];
@@ -128,7 +128,6 @@ function TagFormDialog({
                     aria-pressed={item.key === row?.key}
                     onClick={() => {
                       setActive(item.key);
-                      setPane(null);
                     }}
                   >
                     {item.id ? (
@@ -148,7 +147,6 @@ function TagFormDialog({
                       setRows(next);
                       if (active === item.key) {
                         setActive(next[0]?.key || "");
-                        setPane(null);
                       }
                     }}
                   >
@@ -168,7 +166,7 @@ function TagFormDialog({
                   };
                   setRows([...rows, item]);
                   setActive(item.key);
-                  setPane("word");
+                  setLibrary("queue");
                 }}
               >
                 ＋ 添加标签
@@ -177,71 +175,74 @@ function TagFormDialog({
           </section>
           {row && (
             <>
-              <div className="wt-tag-edit-fields">
-                <div>
-                  <span>文案</span>
-                  <button
-                    type="button"
-                    aria-label="选择标签文案"
-                    aria-expanded={pane === "word"}
-                    aria-controls={`${uid}-word`}
-                    data-active={pane === "word"}
-                    onClick={() => setPane(pane === "word" ? null : "word")}
-                  >
-                    <strong>{option?.label || "请选择文案"}</strong>
-                    <span aria-hidden="true">⌄</span>
-                  </button>
+              <section className="wt-tag-style-field" aria-label="标签样式">
+                <h3>标签样式</h3>
+                <div className="wt-tag-skin-choices">
+                  {[
+                    { label: "基础标签", tones: freeTagTones },
+                    { label: "等级标签", tones: gameTagChoiceGroups[2].tones },
+                  ].map((group) => (
+                    <fieldset key={group.label}>
+                      <legend>{group.label}</legend>
+                      <div>
+                        {group.tones.map((tone) => (
+                          <div key={tone} className="wt-tag-skin-option">
+                            <GameTag
+                              tone={tone}
+                              selected={row.tone === tone}
+                              disabled={!allowedTones.includes(tone)}
+                              onClick={() => update({ tone })}
+                            >
+                              {gameTagTones[tone].label}
+                            </GameTag>
+                            {!allowedTones.includes(tone) && <small>{tagRequirement(tone)}</small>}
+                          </div>
+                        ))}
+                      </div>
+                    </fieldset>
+                  ))}
                 </div>
-                <div>
-                  <span>标签样式</span>
-                  <button
-                    type="button"
-                    aria-label="选择标签样式"
-                    aria-expanded={pane === "style"}
-                    aria-controls={`${uid}-style`}
-                    data-active={pane === "style"}
-                    onClick={() => setPane(pane === "style" ? null : "style")}
-                  >
-                    <GameTag tone={row.tone}>{gameTagTones[row.tone].label}</GameTag>
-                    <span aria-hidden="true">⌄</span>
-                  </button>
-                </div>
-              </div>
-              {pane && (
-                <section
-                  className="wt-tag-picker-panel"
-                  id={`${uid}-${pane}`}
-                  aria-label={pane === "word" ? "选择文案" : "选择样式"}
-                >
-                  <div className="wt-tag-picker-heading">
-                    <strong>{pane === "word" ? "选择文案" : "选择样式"}</strong>
-                    <button type="button" onClick={() => setPane(null)}>
-                      返回编辑
-                    </button>
-                  </div>
-                  {pane === "word" ? (
-                    <div className="wt-tag-word-libraries">
-                      {(["queue", "titles"] as const).map((family) => {
-                        const choices = options.filter(
-                          (option) =>
-                            option.active !== false &&
-                            !option.system &&
-                            (option.family ||
-                              (option.id.startsWith("official-title-") ? "titles" : "queue")) ===
-                              family,
-                        );
-                        const matches = choices.filter((option) =>
-                          option.label
-                            .toLocaleLowerCase()
-                            .includes(query[family].trim().toLocaleLowerCase()),
-                        );
-                        return (
-                          <details className="wt-tag-library" key={family}>
-                            <summary>
-                              <span>{family === "queue" ? "队列标签" : "官方称号"}</span>
-                              <small>{choices.length} 个文案</small>
-                              <span aria-hidden="true">⌄</span>
-                            </summary>
+              </section>
+              <section className="wt-tag-word-field" aria-label="标签文案">
+                <h3>文案</h3>
+                <div className="wt-tag-word-libraries">
+                  {(["queue", "titles"] as const).map((family) => {
+                    const choices = options.filter(
+                      (option) =>
+                        option.active !== false &&
+                        !option.system &&
+                        (option.family ||
+                          (option.id.startsWith("official-title-") ? "titles" : "queue")) ===
+                          family,
+                    );
+                    const matches = choices.filter((option) =>
+                      option.label
+                        .toLocaleLowerCase()
+                        .includes(query[family].trim().toLocaleLowerCase()),
+                    );
+                    const expanded = library === family;
+                    return (
+                      <div className="wt-tag-library" key={family} data-open={expanded}>
+                        <h4>
+                          <button
+                            type="button"
+                            id={`${uid}-${family}-trigger`}
+                            aria-expanded={expanded}
+                            aria-controls={`${uid}-${family}-body`}
+                            onClick={() => setLibrary(expanded ? null : family)}
+                          >
+                            <span>{family === "queue" ? "队列标签" : "官方称号"}</span>
+                            <small>{choices.length} 个文案</small>
+                            <span aria-hidden="true">⌄</span>
+                          </button>
+                        </h4>
+                        <section
+                          className="wt-tag-library-reveal"
+                          id={`${uid}-${family}-body`}
+                          aria-labelledby={`${uid}-${family}-trigger`}
+                          inert={!expanded}
+                        >
+                          <div>
                             <div className="wt-tag-library-body">
                               <label className="wt-tag-search">
                                 <span>搜索{family === "queue" ? "队列标签" : "官方称号"}</span>
@@ -266,10 +267,7 @@ function TagFormDialog({
                                       aria-pressed={row.id === choice.id}
                                       disabled={loading || !!error || used}
                                       title={used ? "已用于其他标签" : choice.label}
-                                      onClick={() => {
-                                        update({ id: choice.id });
-                                        setPane(null);
-                                      }}
+                                      onClick={() => update({ id: choice.id })}
                                     >
                                       <span>{choice.label}</span>
                                       <span aria-hidden="true">
@@ -285,38 +283,13 @@ function TagFormDialog({
                                 )}
                               </div>
                             </div>
-                          </details>
-                        );
-                      })}
-                    </div>
-                  ) : (
-                    <div className="wt-tag-skin-choices">
-                      {gameTagChoiceGroups.map((group) => (
-                        <fieldset key={group.label}>
-                          <legend>{group.label}</legend>
-                          <div>
-                            {group.tones.map((tone) => (
-                              <div key={tone} className="wt-tag-skin-option">
-                                <GameTag
-                                  tone={tone}
-                                  selected={row.tone === tone}
-                                  disabled={!allowedTones.includes(tone)}
-                                  onClick={() => update({ tone })}
-                                >
-                                  {gameTagTones[tone].label}
-                                </GameTag>
-                                {!allowedTones.includes(tone) && (
-                                  <small>{tagRequirement(tone)}</small>
-                                )}
-                              </div>
-                            ))}
                           </div>
-                        </fieldset>
-                      ))}
-                    </div>
-                  )}
-                </section>
-              )}
+                        </section>
+                      </div>
+                    );
+                  })}
+                </div>
+              </section>
               {option?.sourceUrl && (
                 <a
                   className="wt-tag-source"
@@ -328,14 +301,6 @@ function TagFormDialog({
                   {option.sourceNote ? ` · ${option.sourceNote}` : ""}
                 </a>
               )}
-              <div className="wt-tag-live-preview">
-                <span>效果预览</span>
-                {row.id ? (
-                  <GameTag tone={row.tone}>{option?.label || row.id}</GameTag>
-                ) : (
-                  <span className="wt-tag-empty">选好文案后展示</span>
-                )}
-              </div>
             </>
           )}
           <div className="wt-tag-form-status" aria-live="polite">
@@ -388,7 +353,7 @@ export function TagSelector({ label = "标签", ...props }: Props) {
     requestAnimationFrame(() => trigger.current?.focus({ preventScroll: true }));
   };
   const uid = useId();
-  const { value, options, disabled = false, loading = false, error = "", max = 3 } = props;
+  const { value, options, disabled = false, loading = false, error = "", max = 5 } = props;
   return (
     <div
       className="wt-tag-selector wt-tag-form-field"

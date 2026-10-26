@@ -390,8 +390,8 @@ export function LineupShareTools({
         </GameSelect>
       </label>
       <div className="wt-community-section-title">
-        <span>队列标签 · 最多选择 3 个</span>
-        <small>{tags.length}/3</small>
+        <span>队列标签 · 最多选择 5 个</span>
+        <small>{tags.length}/5</small>
       </div>
       <p className="calc-note">
         {account.session?.role === "superadmin"
@@ -417,7 +417,7 @@ export function LineupShareTools({
         onRetry={tagCatalog.refresh}
         value={choices}
         allowedTones={tagAccess.allowedTones}
-        max={3}
+        max={5}
         label="队列标签"
         disabled={busy}
         onChange={(value) => {

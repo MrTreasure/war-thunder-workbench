@@ -59,7 +59,7 @@ export function TagPreview() {
           value={choices}
           onChange={setChoices}
           allowedTones={access.allowedTones}
-          max={3}
+          max={5}
           label="队列标签"
         />
         <p className="wt-tag-lab-source">
