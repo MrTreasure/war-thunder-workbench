@@ -1,6 +1,10 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 import { GameIcon, type GameIconName } from "./GameIcon";
-type Look = { tone?: "primary" | "secondary" | "ghost"; icon?: GameIconName; children: ReactNode };
+type Look = {
+  tone?: "primary" | "secondary" | "ghost" | "battle";
+  icon?: GameIconName;
+  children: ReactNode;
+};
 export function GameButton({
   tone = "secondary",
   icon,

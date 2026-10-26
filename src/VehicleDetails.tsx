@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { VehicleTags } from "./VehicleTags";
 import { VehicleTile } from "./VehicleTile";
 import type { Catalog, Mode, Vehicle } from "./models";
@@ -8,9 +8,10 @@ import { vehicleDisplayName } from "./vehicle-display-name";
 import { VehicleBattleRatings } from "./VehicleBattleRatings";
 import { VehiclePerformance } from "./VehiclePerformance";
 import { VehicleLoadouts } from "./VehicleLoadouts";
+import { GameIcon } from "./components/GameIcon";
 import { GameButton, GameLinkButton } from "./components/GameButton";
 import { GameTabs, type GameTab } from "./components/GameTabs";
-type DetailTab = "performance" | "statistics" | "loadouts" | "information" | "route";
+type DetailTab = "tags" | "performance" | "statistics" | "loadouts" | "information" | "route";
 export function VehicleDetails({
   unit,
   catalog,
@@ -34,10 +35,21 @@ export function VehicleDetails({
   onParts: () => void;
   onSelect: (id: string) => void;
 }) {
-  const [tab, setTab] = useState<DetailTab>("performance");
+  const [choice, setChoice] = useState<{ id: string; tab: DetailTab } | null>(null);
+  const [resolved, setResolved] = useState<{ id: string; count: number } | null>(null);
+  const onTagsResolved = useCallback(
+    (count: number) => {
+      setResolved((previous) =>
+        previous?.id === unit.id && previous.count === count ? previous : { id: unit.id, count },
+      );
+    },
+    [unit.id],
+  );
+  const setTab = (tab: DetailTab) => setChoice({ id: unit.id, tab });
   const [performanceMode, setPerformanceMode] = useState<"ab" | "rb">(mode === "ab" ? "ab" : "rb");
   const id = `vehicle-${unit.id}-sections`;
   const items: GameTab<DetailTab>[] = [
+    { value: "tags", label: "载具标签", icon: "details" },
     { value: "performance", label: "性能对比", icon: "performance" },
     { value: "statistics", label: "性能数值", icon: "details" },
     ...(["aviation", "helicopters"].includes(category)
@@ -48,7 +60,14 @@ export function VehicleDetails({
       ? [{ value: "route" as const, label: "研发路线", icon: "route" as const }]
       : []),
   ];
-  const active = items.some((item) => item.value === tab) ? tab : "performance";
+  const ready = choice?.id === unit.id || resolved?.id === unit.id;
+  const selectedTab =
+    choice?.id === unit.id
+      ? choice.tab
+      : resolved?.id === unit.id && resolved.count > 0
+        ? "tags"
+        : "performance";
+  const active = items.some((item) => item.value === selectedTab) ? selectedTab : "performance";
   return (
     <article className="detail wt-vehicle-sheet" aria-label="载具详情">
       <div className="wt-detail-hero">
@@ -58,7 +77,9 @@ export function VehicleDetails({
           aria-label={`放大查看 ${vehicleDisplayName(unit.name)} 官方图片`}
         >
           <VehicleImage key={unit.id} unit={unit} />
-          <span>查看大图 ⛶</span>
+          <span className="wt-detail-zoom" aria-hidden="true">
+            <GameIcon name="external" />
+          </span>
         </button>
         <div className="wt-detail-overview">
           <dl className="wt-detail-meta">
@@ -137,8 +158,13 @@ export function VehicleDetails({
           hidden={active !== item.value}
           className="wt-detail-panel"
         >
-          {active === item.value &&
-            (["performance", "statistics"].includes(item.value) ? (
+          {item.value === "tags" ? (
+            <VehicleTags key={unit.id} vehicleId={unit.id} onResolved={onTagsResolved} />
+          ) : (
+            active === item.value &&
+            (!ready ? (
+              <output className="wt-detail-pending">正在读取载具标签…</output>
+            ) : ["performance", "statistics"].includes(item.value) ? (
               <VehiclePerformance
                 key={unit.id}
                 unit={unit}
@@ -171,10 +197,10 @@ export function VehicleDetails({
                   ))}
                 </ol>
               </section>
-            ))}
+            ))
+          )}
         </section>
       ))}
-      <VehicleTags key={unit.id} vehicleId={unit.id} />
     </article>
   );
 }

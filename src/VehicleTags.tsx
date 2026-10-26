@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { communityRequest } from "./lineup-community-api";
 import { GameTag, type GameTagTone } from "./components/GameTag";
+import { GameButton } from "./components/GameButton";
 import { GameSelect } from "./components/GameSelect";
 import { TagSelector, type TagChoice } from "./components/TagSelector";
 import { useTagCatalog, tagLabel } from "./game-tag-catalog";
@@ -139,7 +140,13 @@ function VehicleTagDialog({
     </Modal>
   );
 }
-export function VehicleTags({ vehicleId }: { vehicleId: string }) {
+export function VehicleTags({
+  vehicleId,
+  onResolved,
+}: {
+  vehicleId: string;
+  onResolved?: (count: number) => void;
+}) {
   const account = useWorkbenchAccount();
   const tagCatalog = useTagCatalog("vehicle");
   const [page, setPage] = useState<VehicleTagPage | null>(null);
@@ -178,6 +185,10 @@ export function VehicleTags({ vehicleId }: { vehicleId: string }) {
     return () => abort.abort();
   }, [vehicleId, version, revision, account.session?.user?.id, account.identityVersion]);
   const current = page?.vehicleId === vehicleId ? page : null;
+  useEffect(() => {
+    if (!loading && (!current || current.version === current.currentVersion))
+      onResolved?.(current?.tags.length || 0);
+  }, [loading, current, onResolved]);
   return (
     <section className="wt-vehicle-tags" aria-label="载具标签">
       <div className="wt-detail-section-heading">
@@ -199,6 +210,20 @@ export function VehicleTags({ vehicleId }: { vehicleId: string }) {
             ))}
           </GameSelect>
         )}
+        <GameButton
+          tone="battle"
+          title={!account.session?.user ? "登录后可为载具打标" : undefined}
+          disabled={loading || !current || current.version !== current.currentVersion}
+          onClick={() => {
+            if (!account.session?.user) {
+              void account.login();
+              return;
+            }
+            setOpen(true);
+          }}
+        >
+          为载具打标
+        </GameButton>
       </div>
       {loading ? (
         <output className="calc-note">正在读取标签…</output>
@@ -227,22 +252,6 @@ export function VehicleTags({ vehicleId }: { vehicleId: string }) {
             : null}
         </div>
       )}
-      <div className="wt-vehicle-tag-footer">
-        <button
-          type="button"
-          className="quiet-button"
-          disabled={loading || !current || current.version !== current.currentVersion}
-          onClick={() => {
-            if (!account.session?.user) {
-              void account.login();
-              return;
-            }
-            setOpen(true);
-          }}
-        >
-          {account.session?.user ? "为载具打标" : "登录后为载具打标"}
-        </button>
-      </div>
       {open && current && (
         <VehicleTagDialog
           page={current}

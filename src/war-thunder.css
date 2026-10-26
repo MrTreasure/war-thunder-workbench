@@ -31,6 +31,12 @@
   --wt-action-shade: #702b24;
   --wt-tab-active: #35454d;
   --wt-positive: #a7c5ac;
+  --wt-battle-edge: #f45c28;
+  --wt-battle-light: #ffbc70;
+  --wt-battle-glow: #ff792bc9;
+  --wt-battle-low: #291c19;
+  --wt-battle-mid: #6c3625;
+  --wt-battle-shade: #190d0b;
   --wt-logo-filter: brightness(0) invert(0.94);
 }
 .wt-brand-logo,

@@ -36,6 +36,23 @@
   box-shadow: none;
   color: var(--wt-body);
 }
+.wt-game-button.is-battle {
+  border: 2px solid var(--wt-battle-edge);
+  background:
+    radial-gradient(ellipse at 50% -65%, var(--wt-battle-glow), transparent 75%),
+    linear-gradient(100deg, var(--wt-battle-low), var(--wt-battle-mid) 50%, var(--wt-battle-low));
+  box-shadow:
+    inset 0 1px 0 var(--wt-battle-light),
+    inset 0 -2px 3px var(--wt-battle-shade),
+    inset 2px 0 4px var(--wt-battle-mid),
+    inset -2px 0 4px var(--wt-battle-mid);
+  min-height: 44px;
+  padding: 7px 20px;
+  font-size: 16px;
+}
+.wt-game-button.is-battle:active:not(:disabled) {
+  background: var(--wt-battle-low);
+}
 .wt-control-icon {
   display: inline-block;
   width: 20px;
@@ -122,6 +139,12 @@
   .wt-game-button.is-primary:hover:not(:disabled) {
     background: var(--wt-service-red-hover);
     border-color: var(--wt-action-edge);
+  }
+  .wt-game-button.is-battle:hover:not(:disabled) {
+    border-color: var(--wt-battle-light);
+    background:
+      radial-gradient(ellipse at 50% -25%, var(--wt-battle-glow), transparent 80%),
+      linear-gradient(100deg, var(--wt-battle-low), var(--wt-battle-mid), var(--wt-battle-low));
   }
   .wt-game-tabs > button:hover:not(:disabled) {
     background: var(--wt-panel);

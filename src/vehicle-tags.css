@@ -1,13 +1,13 @@
 .wt-vehicle-tags {
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px solid var(--wt-line);
+  margin: 0;
+  padding: 0;
 }
 .wt-vehicle-tags .wt-detail-section-heading {
   align-items: center;
   justify-content: flex-start;
   flex-wrap: nowrap;
   gap: 12px;
+  min-height: 44px;
 }
 .wt-vehicle-tags .wt-detail-section-heading > h3 {
   flex: 0 0 auto;
@@ -18,10 +18,16 @@
   font: 400 14px/1.4 var(--wt-sans);
 }
 .wt-vehicle-tags .wt-detail-section-heading > .wt-select {
+  height: 44px;
+  min-height: 44px;
   width: 210px;
-  max-width: calc(100% - 80px);
+  max-width: 210px;
   flex: 0 1 210px;
   min-width: 0;
+}
+.wt-vehicle-tags .wt-detail-section-heading > .wt-game-button {
+  margin-left: auto;
+  flex: none;
 }
 .wt-vehicle-tag-counts {
   display: flex;

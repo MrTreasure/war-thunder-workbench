@@ -396,3 +396,73 @@
   align-items: center;
   gap: 8px;
 }
+
+/* Dossier density: reserve the height for the selected page, not repeated footers. */
+.vehicle-detail-dialog > .calc-header {
+  padding: 8px 16px;
+}
+.vehicle-detail-dialog > .calc-header h2 {
+  margin: 0;
+}
+.vehicle-detail-dialog > .calc-header p {
+  display: none;
+}
+.vehicle-detail-dialog .detail.wt-vehicle-sheet {
+  padding: 12px 16px;
+}
+.wt-detail-hero {
+  gap: 16px;
+  padding-bottom: 10px;
+}
+.wt-vehicle-sheet .wt-detail-image .vehicle-image-frame,
+.wt-vehicle-sheet .wt-detail-image .vehicle-image-frame img {
+  height: 116px;
+  min-height: 0;
+  max-height: 116px;
+}
+.wt-detail-image > .wt-detail-zoom {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  color: var(--wt-body);
+  background: var(--wt-surface);
+}
+.wt-detail-meta {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px 12px;
+}
+.wt-detail-ratings {
+  padding: 8px 0;
+}
+.wt-detail-panel {
+  padding: 12px 0 0;
+}
+.wt-performance-header {
+  margin-bottom: 8px;
+}
+.wt-performance-chart {
+  padding: 10px 12px;
+}
+.wt-performance-chart figcaption {
+  margin-bottom: 8px;
+}
+.wt-comparison-bars {
+  gap: 6px;
+}
+.wt-comparison-bars > li {
+  min-height: 20px;
+}
+.wt-detail-pending {
+  display: block;
+  padding: 14px 0;
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-detail-tabs {
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
