@@ -21,6 +21,7 @@
 @import "./vehicle-details.css";
 @import "./components/game-controls.css";
 @import "./vehicle-comparison.css";
+@import "./components/weapon-parameters.css";
 @import "./mobile.css";
 @import "./game-select.css";
 @source "../src";

@@ -1,0 +1,73 @@
+/* finesse · component: weapon parameters · register=product · existing --wt tokens */
+.wt-weapon-parameters-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 44px;
+  min-width: 44px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--wt-gold);
+  padding: 4px;
+  white-space: nowrap;
+  font: 400 12px/1.3 var(--wt-sans);
+  cursor: help;
+}
+.wt-weapon-parameters-trigger:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 1px;
+}
+.wt-weapon-parameters-trigger:active {
+  background: var(--wt-accent-soft);
+}
+@media (hover: hover) {
+  .wt-weapon-parameters-trigger:hover {
+    background: var(--wt-accent-soft);
+  }
+}
+.wt-weapon-parameters-popup {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  padding: 14px;
+  width: min(360px, calc(100vw - 16px));
+  max-height: min(400px, calc(100dvh - 16px));
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  border: 1px solid var(--wt-strong-line);
+  background: var(--wt-surface);
+  color: var(--wt-ink);
+  box-shadow: var(--wt-shadow);
+  font: 12px/1.5 var(--wt-sans);
+}
+.wt-weapon-parameters-popup::backdrop {
+  background: transparent;
+}
+.wt-weapon-parameters-popup h4 {
+  margin: 0 0 12px;
+  padding: 0 0 10px;
+  border-bottom: 1px solid var(--wt-line);
+  font: 500 13px/1.5 var(--wt-sans);
+  overflow-wrap: anywhere;
+}
+.wt-weapon-parameters-popup dl {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+.wt-weapon-parameters-popup dl > div {
+  display: grid;
+  grid-template-columns: minmax(92px, 0.8fr) minmax(0, 1fr);
+  gap: 12px;
+}
+.wt-weapon-parameters-popup dt {
+  color: var(--wt-muted);
+}
+.wt-weapon-parameters-popup dd {
+  margin: 0;
+  text-align: right;
+  overflow-wrap: anywhere;
+}

@@ -330,17 +330,20 @@
 }
 .wt-loadout-matrix th,
 .wt-loadout-matrix td {
-  padding: 10px;
+  padding: 6px 8px;
   border-bottom: 1px solid var(--wt-line);
   text-align: center;
+}
+.wt-loadout-matrix tbody tr {
+  height: 56px;
 }
 .wt-loadout-matrix thead {
   background: var(--wt-panel);
   color: var(--wt-muted);
 }
 .wt-loadout-matrix th:first-child {
-  width: 300px;
-  min-width: 220px;
+  width: 340px;
+  min-width: 300px;
   text-align: left;
   background: var(--wt-surface);
 }
@@ -353,48 +356,26 @@
 }
 .wt-loadout-weapon {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
+  align-items: center;
+  gap: 8px;
   min-width: 0;
   font-weight: 400;
 }
 .wt-loadout-weapon > img {
-  width: 36px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
   flex: none;
 }
-.wt-loadout-weapon > span {
+.wt-loadout-name {
+  display: block;
   min-width: 0;
-  overflow-wrap: anywhere;
-}
-.wt-loadout-weapon a {
+  max-width: 260px;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: var(--wt-body);
-}
-.wt-loadout-weapon details {
-  margin-top: 5px;
-}
-.wt-loadout-weapon summary {
-  min-height: 32px;
-  color: var(--wt-gold);
-  cursor: pointer;
-}
-.wt-loadout-weapon dl {
-  display: grid;
-  gap: 8px;
-  margin: 8px 0;
-}
-.wt-loadout-weapon dl > div {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-}
-.wt-loadout-weapon dt {
-  color: var(--wt-muted);
-}
-.wt-loadout-weapon dd {
-  margin: 0;
-  text-align: right;
 }
 .wt-loadout-presets > details {
   padding: 12px 0;
@@ -410,22 +391,8 @@
 .wt-loadout-presets a {
   color: var(--wt-body);
 }
-.wt-preset-parameters {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 10px 24px;
-  margin: 12px 0;
-  font-size: 12px;
-}
-.wt-preset-parameters > div {
+.wt-loadout-presets li {
   display: flex;
-  justify-content: space-between;
-  gap: 12px;
-}
-.wt-preset-parameters dt {
-  color: var(--wt-muted);
-}
-.wt-preset-parameters dd {
-  margin: 0;
-  color: var(--wt-body);
+  align-items: center;
+  gap: 8px;
 }

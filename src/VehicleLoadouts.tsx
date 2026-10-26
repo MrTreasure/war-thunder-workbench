@@ -1,5 +1,6 @@
 /* oxlint-disable jsx-a11y/no-noninteractive-tabindex -- Horizontal tables remain keyboard-scrollable. */
 import type { Vehicle } from "./models";
+import { WeaponParameters } from "./components/WeaponParameters";
 import { GameIcon } from "./components/GameIcon";
 const amount = (value: number | null | undefined) =>
   value === null || value === undefined
@@ -90,28 +91,24 @@ export function VehicleLoadouts({ unit }: { unit: Vehicle }) {
                                 loading="lazy"
                               />
                             )}
-                            <span>
-                              {option.source ? (
-                                <a href={option.source} target="_blank" rel="noreferrer">
-                                  {option.name} ↗
-                                </a>
-                              ) : (
-                                option.name
-                              )}
-                              {option.parameters.length > 0 && (
-                                <details>
-                                  <summary>武器参数</summary>
-                                  <dl>
-                                    {option.parameters.map((parameter) => (
-                                      <div key={parameter.id}>
-                                        <dt>{parameter.label}</dt>
-                                        <dd>{parameter.value}</dd>
-                                      </div>
-                                    ))}
-                                  </dl>
-                                </details>
-                              )}
-                            </span>
+                            {option.source ? (
+                              <a
+                                className="wt-loadout-name"
+                                href={option.source}
+                                target="_blank"
+                                rel="noreferrer"
+                                title={option.name}
+                              >
+                                {option.name} ↗
+                              </a>
+                            ) : (
+                              <span className="wt-loadout-name" title={option.name}>
+                                {option.name}
+                              </span>
+                            )}
+                            {option.parameters.length > 0 && (
+                              <WeaponParameters name={option.name} parameters={option.parameters} />
+                            )}
                           </span>
                         </th>
                         <td>
@@ -152,14 +149,7 @@ export function VehicleLoadouts({ unit }: { unit: Vehicle }) {
                         )}
                         {item.count !== null ? ` × ${item.count}` : ""}
                         {!!item.parameters?.length && (
-                          <dl className="wt-preset-parameters">
-                            {item.parameters.map((parameter) => (
-                              <div key={parameter.id}>
-                                <dt>{parameter.label}</dt>
-                                <dd>{parameter.value}</dd>
-                              </div>
-                            ))}
-                          </dl>
+                          <WeaponParameters name={item.name} parameters={item.parameters} />
                         )}
                       </li>
                     ))}

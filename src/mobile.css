@@ -3311,7 +3311,7 @@
   .wt-dossier-section-heading { gap:8px; }
   .wt-dossier-section-heading > span { font-size:11px; }
   .wt-loadout-limits { gap:16px 24px; }
-  .wt-loadout-matrix th:first-child { min-width:190px; }
+  .wt-loadout-matrix th:first-child { width:260px; min-width:260px; }
   .wt-loadouts h4 > small { display:block; margin:5px 0 0; }
 }
 
