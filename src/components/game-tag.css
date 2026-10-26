@@ -74,96 +74,144 @@
   .wt-game-tag-material {
   display: block;
 }
-.wt-game-tag:is(
-    [data-tone="bronze"],
-    [data-tone="silver"],
-    [data-tone="gold"],
-    [data-tone="emerald"],
-    [data-tone="diamond"]
-  )
-  .wt-game-tag-material {
-  /* Preserve the official bevel: the finish never paints over the outer rim or eyelet. */
-  clip-path: inset(2px 3px 2px 18px);
+/* Finish stays on the recessed face, away from the original rim and eyelet.
+   This is identical for 28.5px display tags and the 44px interactive hit area. */
+.wt-game-tag-material {
+  clip-path: inset(2px 3px 2px 18px round 1px);
 }
 .wt-game-tag[data-tone="bronze"] .wt-game-tag-material {
   background:
-    radial-gradient(ellipse at 35% -35%, #ffddb538, transparent 75%),
-    linear-gradient(180deg, #ffe4bd0c, transparent 45%, #512d1612),
-    repeating-linear-gradient(0deg, #ffeedb08 0 1px, #48250d06 1px 3px),
-    radial-gradient(ellipse at 30% 100%, #204b3f20, transparent 65%);
+    linear-gradient(
+      115deg,
+      #ffedc624 12%,
+      #ffdda66b 29%,
+      #51240d50 43%,
+      #ffe2bca0 50%,
+      transparent 61%,
+      #b36c2330 86%
+    ),
+    repeating-linear-gradient(0deg, #ffeedb22 0 1px, #48250d14 1px 2px),
+    radial-gradient(ellipse at 30% 85%, #14483d50, transparent 55%);
 }
 .wt-game-tag[data-tone="silver"] .wt-game-tag-material {
   background:
-    radial-gradient(ellipse at 40% -40%, #ffffff45, transparent 78%),
-    linear-gradient(180deg, #e9f7ff12, transparent 40%, #29495f14 72%, #ffffff0a),
-    repeating-linear-gradient(0deg, #ffffff0a 0 1px, transparent 1px 3px);
+    linear-gradient(
+      115deg,
+      #eaf6ff18 12%,
+      #ffffffa0 30%,
+      #28425675 42%,
+      #ffffffb8 49%,
+      #8097aa30 61%,
+      #ffffff70 84%,
+      transparent
+    ),
+    repeating-linear-gradient(0deg, #ffffff26 0 1px, #122e3a12 1px 3px);
 }
 .wt-game-tag[data-tone="gold"] .wt-game-tag-material {
   background:
-    radial-gradient(ellipse at 36% -35%, #fff1b540, transparent 80%),
-    linear-gradient(180deg, #fff4cb14, transparent 45%, #80510f12 80%, #fff5ca08),
-    repeating-linear-gradient(0deg, #fff6ce0a 0 1px, transparent 1px 3px);
+    linear-gradient(
+      115deg,
+      transparent 12%,
+      #fff4c8b0 29%,
+      #78400070 43%,
+      #fff3a6b8 50%,
+      transparent 62%,
+      #fff0ad70 85%,
+      transparent
+    ),
+    repeating-linear-gradient(0deg, #fff6ce24 0 1px, #6c410d0d 1px 3px);
 }
 .wt-game-tag[data-tone="emerald"] .wt-game-tag-material {
   background:
-    radial-gradient(ellipse at 38% -20%, #baffe538, transparent 70%),
-    radial-gradient(ellipse at 45% 115%, #3affbe24, transparent 70%),
-    linear-gradient(135deg, #00392d1a, #69f3bd10 45%, #003b2d24 85%);
+    linear-gradient(
+      140deg,
+      transparent 16%,
+      #e9fffaa0 19%,
+      #62f8c530 24%,
+      transparent 30%,
+      #002d2280 69%,
+      transparent 76%
+    ),
+    conic-gradient(
+      from 30deg at 62% 45%,
+      #073c3770,
+      #7cffd675 55deg,
+      #002e2680 110deg,
+      #b5ffe16a 175deg,
+      #003b2e90 250deg,
+      #073c3770
+    ),
+    radial-gradient(ellipse at 35% 85%, #31ffc370, transparent 65%);
 }
 .wt-game-tag[data-tone="diamond"] .wt-game-tag-material {
   background:
-    radial-gradient(ellipse at 36% -30%, #ffffff38, transparent 75%),
+    linear-gradient(
+      125deg,
+      transparent 18%,
+      #ffffff9c 23%,
+      #ffffff10 32%,
+      transparent 37%,
+      #ffffff90 76%,
+      transparent 82%
+    ),
     conic-gradient(
       from 15deg at 58% 42%,
-      #436fa41a,
-      #ffffff24 45deg,
-      #4f90bf20 85deg,
-      #faffff30 135deg,
-      #6485d31a 180deg,
-      #c4fbff20 230deg,
-      #ffffff24 280deg,
-      #436fa41a
+      #436fa450,
+      #ffffffc0 45deg,
+      #4f90bf70 85deg,
+      #faffffc0 135deg,
+      #6485d35c 180deg,
+      #c4fbff70 230deg,
+      #ffffffa0 280deg,
+      #436fa450
     ),
-    linear-gradient(0deg, #bdd5f00a, #ffffff14);
+    linear-gradient(0deg, #bdd5f020, #ffffff60);
 }
 .wt-game-tag[data-tone="king"] .wt-game-tag-material {
   background:
     linear-gradient(
-      0deg,
-      #e6b95090 0 1px,
-      transparent 1px calc(100% - 1px),
-      #ffe39e90 calc(100% - 1px)
+      180deg,
+      transparent 9%,
+      #e5b852c0 11% 14%,
+      transparent 16% 83%,
+      #b88c39a0 85% 88%,
+      transparent 90%
     ),
-    radial-gradient(ellipse at 45% -25%, #e8cd7e2a, transparent 75%),
-    linear-gradient(115deg, #080f1980, #b08f4520 48%, #111e2b80),
-    repeating-linear-gradient(135deg, #fff5d406 0 1px, transparent 1px 4px);
+    linear-gradient(
+      115deg,
+      #050b15b0 12%,
+      #dcb45860 34%,
+      #07111ca0 47%,
+      #f4d17d90 54%,
+      #111e2bb0 67%,
+      #dfb04b30 90%
+    ),
+    repeating-linear-gradient(135deg, #fff5d414 0 1px, transparent 1px 4px);
 }
 .wt-game-tag[data-tone="rainbow"] .wt-game-tag-tint {
+  /* The whole spectrum fits the face; hue cycling includes the tip and eyelet. */
   background: linear-gradient(
-    105deg,
-    #ff688b,
-    #ffbf58,
-    #fbef77,
-    #56f4b2,
-    #65e9ff,
-    #8294ff,
-    #ef91ff,
-    #ff688b,
-    #ffbf58,
-    #fbef77
+    100deg,
+    #ff2458 0%,
+    #ff8c0a 14.285%,
+    #ffe217 28.57%,
+    #00ec83 42.855%,
+    #00ccff 57.14%,
+    #5448ff 71.425%,
+    #e400ff 85.71%,
+    #ff2458 100%
   );
-  background-size: 280% 100%;
-  background-position: 0% 50%;
-  filter: brightness(1.35) saturate(1.4);
+  background-size: 100% 100%;
+  filter: brightness(1.2) saturate(1.6) hue-rotate(0deg);
 }
 .wt-game-tag[data-tone="rainbow"] .wt-game-tag-material {
   background: linear-gradient(
     110deg,
     transparent 30%,
-    #ffffff10 40%,
-    #ffffffc0 49%,
-    #fff5 54%,
-    transparent 65%
+    #ffffff08 42%,
+    #ffffff38 50%,
+    #ffffff14 57%,
+    transparent 68%
   );
   background-size: 260% 100%;
   background-position: 100% 50%;
@@ -212,10 +260,10 @@
 }
 @keyframes wt-tag-prismatic {
   from {
-    background-position: 0% 50%;
+    filter: brightness(1.2) saturate(1.6) hue-rotate(0deg);
   }
   to {
-    background-position: 100% 50%;
+    filter: brightness(1.2) saturate(1.6) hue-rotate(360deg);
   }
 }
 @keyframes wt-tag-sheen {
@@ -227,7 +275,7 @@
   }
 }
 .wt-game-tag[data-tone="rainbow"][data-animated] .wt-game-tag-tint {
-  animation: wt-tag-prismatic 2.8s linear infinite alternate;
+  animation: wt-tag-prismatic 4.2s linear infinite;
 }
 .wt-game-tag[data-tone="rainbow"][data-animated] .wt-game-tag-material {
   animation: wt-tag-sheen 2.4s ease-in-out infinite;
@@ -240,7 +288,7 @@
 /* User-requested privilege effect remains animated under the global motion guard. */
 @media (prefers-reduced-motion: reduce) {
   .wt-game-tag[data-tone="rainbow"][data-animated][data-motion-override] .wt-game-tag-tint {
-    animation: wt-tag-prismatic 2.8s linear infinite alternate !important;
+    animation: wt-tag-prismatic 4.2s linear infinite !important;
   }
   .wt-game-tag[data-tone="rainbow"][data-animated][data-motion-override] .wt-game-tag-material {
     animation: wt-tag-sheen 2.4s ease-in-out infinite !important;

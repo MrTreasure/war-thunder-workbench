@@ -85,11 +85,11 @@ export function TagPreview() {
                   (
                     {
                       bronze: "拉丝铜面 · 氧化暗纹",
-                      silver: "柔和银面 · 细密拉丝",
-                      gold: "缎面黄金 · 温润反光",
-                      emerald: "通透翠绿 · 温润抛光",
-                      diamond: "冰晶切面 · 柔和折射",
-                      king: "曜石深底 · 镶金边缘",
+                      silver: "镜面银光 · 细密拉丝",
+                      gold: "抛光黄金 · 金属反射",
+                      emerald: "通透翠绿 · 宝石折光",
+                      diamond: "冰晶切面 · 多面反射",
+                      king: "曜石深底 · 内嵌金饰",
                       rainbow: "明亮七彩 · 流动扫光",
                     } as Record<string, string>
                   )[id]

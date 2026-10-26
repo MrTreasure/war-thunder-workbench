@@ -51,7 +51,7 @@
     },
     "emerald": {
       "label": "翡翠",
-      "tint": "#279267",
+      "tint": "#147752",
       "text": "#e1fff4"
     },
     "diamond": {
@@ -61,7 +61,7 @@
     },
     "king": {
       "label": "王者",
-      "tint": "#52606b",
+      "tint": "#293b49",
       "text": "#ffe49c"
     },
     "rainbow": {
@@ -132,16 +132,9 @@
   },
   "basicColors": [
     "color-red",
-    "color-orange",
     "color-yellow",
     "color-green",
-    "color-cyan",
     "color-blue",
-    "color-purple",
-    "color-pink",
-    "color-brown",
-    "color-black",
-    "color-white",
-    "color-gray"
+    "color-purple"
   ]
 }
