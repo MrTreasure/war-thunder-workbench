@@ -73,58 +73,62 @@ function VehicleTagDialog({
         if (!busy) close();
       }}
     >
-      <p className="calc-note">选择一个文案和样式。同一载具可重复打标，每次消耗 1 次打标额度。</p>
-      <p>
-        今日免费剩余 {quota.remaining === null ? "不限" : quota.remaining} 次
-        {hasPoints ? ` · 额外点数 ${credits.remaining === null ? "不限" : credits.remaining}` : ""}
-      </p>
-      <details className="calc-note">
-        <summary>额度与展示规则</summary>
+      <div className="wt-vehicle-tag-dialog-body">
+        <p className="calc-note">选择一个文案和样式。同一载具可重复打标，每次消耗 1 次打标额度。</p>
         <p>
-          当前身份每日免费 {quota.limit === null ? "不限" : quota.limit}{" "}
-          次，按北京时间自然日恢复。免费次数优先使用
-          {hasPoints ? `，用完后每次消耗 ${quota.pointCost} 点额外查询点` : ""}
-          。同文案累计次数；普通样式采用最后一次，材质样式采用最高档。标签按游戏大版本分别统计。
+          今日免费剩余 {quota.remaining === null ? "不限" : quota.remaining} 次
+          {hasPoints
+            ? ` · 额外点数 ${credits.remaining === null ? "不限" : credits.remaining}`
+            : ""}
         </p>
-      </details>
-      {quota.preview && <p className="calc-note">预览额度独立记录，不扣正式账号点数。</p>}
-      {access.error && (
-        <p role="alert">
-          {access.error}
-          <button type="button" onClick={access.refresh}>
-            重试
+        <details className="calc-note">
+          <summary>额度与展示规则</summary>
+          <p>
+            当前身份每日免费 {quota.limit === null ? "不限" : quota.limit}{" "}
+            次，按北京时间自然日恢复。免费次数优先使用
+            {hasPoints ? `，用完后每次消耗 ${quota.pointCost} 点额外查询点` : ""}
+            。同文案累计次数；普通样式采用最后一次，材质样式采用最高档。标签按游戏大版本分别统计。
+          </p>
+        </details>
+        {quota.preview && <p className="calc-note">预览额度独立记录，不扣正式账号点数。</p>}
+        {access.error && (
+          <p role="alert">
+            {access.error}
+            <button type="button" onClick={access.refresh}>
+              重试
+            </button>
+          </p>
+        )}
+        <TagSelector
+          options={gameTagOptions}
+          value={value}
+          allowedTones={access.allowedTones}
+          max={1}
+          disabled={busy}
+          onChange={(next) => {
+            setValue(next);
+            requestId.current = crypto.randomUUID();
+          }}
+        />
+        {error && (
+          <p role="alert" className="lineup-feedback">
+            {error}
+          </p>
+        )}
+        {exhausted && <p role="alert">今日打标额度已达上限</p>}
+        <div className="wt-vehicle-tag-dialog-actions">
+          <button type="button" className="quiet-button" disabled={busy} onClick={close}>
+            取消
           </button>
-        </p>
-      )}
-      <TagSelector
-        options={gameTagOptions}
-        value={value}
-        allowedTones={access.allowedTones}
-        max={1}
-        disabled={busy}
-        onChange={(next) => {
-          setValue(next);
-          requestId.current = crypto.randomUUID();
-        }}
-      />
-      {error && (
-        <p role="alert" className="lineup-feedback">
-          {error}
-        </p>
-      )}
-      {exhausted && <p role="alert">今日打标额度已达上限</p>}
-      <div className="wt-community-actions">
-        <button type="button" className="quiet-button" disabled={busy} onClick={close}>
-          取消
-        </button>
-        <button
-          type="button"
-          className="quiet-button calc-open"
-          disabled={busy || value.length !== 1 || exhausted}
-          onClick={() => void submit()}
-        >
-          {busy ? "正在提交…" : "确认打标"}
-        </button>
+          <button
+            type="button"
+            className="quiet-button calc-open"
+            disabled={busy || value.length !== 1 || exhausted}
+            onClick={() => void submit()}
+          >
+            {busy ? "正在提交…" : "确认打标"}
+          </button>
+        </div>
       </div>
     </Modal>
   );

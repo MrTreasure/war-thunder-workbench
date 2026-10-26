@@ -53,3 +53,20 @@
     max-height: calc(100dvh - 16px);
   }
 }
+
+.wt-vehicle-tag-dialog-body {
+  padding: 20px 24px 24px;
+}
+.wt-vehicle-tag-dialog-body > p {
+  margin: 0 0 12px;
+}
+.wt-vehicle-tag-dialog-body > details {
+  margin-bottom: 12px;
+}
+.wt-vehicle-tag-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  padding-top: 18px;
+}
