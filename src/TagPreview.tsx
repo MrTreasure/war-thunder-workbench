@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { GameTag, gameTagBasicColors, gameTagTiers, gameTagTones } from "./components/GameTag";
 import { TagSelector, type TagChoice } from "./components/TagSelector";
@@ -26,7 +27,9 @@ export function TagPreview() {
           <h1>标签表单与编辑弹层</h1>
           <p>点击标签字段体验编辑；文案与样式分别选择，确认后应用。下方保留样式对照。</p>
         </div>
-        <a href="#/lineups">返回出击队列 ↗</a>
+        <Link to="/lineups" preload={false}>
+          返回出击队列 ↗
+        </Link>
       </header>
       <section>
         <h2>标签表单组件</h2>
@@ -45,7 +48,9 @@ export function TagPreview() {
           </button>
         )}
         {account.session?.user && !access.access?.bound && (
-          <a href="#/stats">前往战绩页绑定游戏账号 ↗</a>
+          <Link to="/stats" preload={false}>
+            前往战绩页绑定游戏账号 ↗
+          </Link>
         )}
         {access.error && <p role="alert">{access.error}</p>}
         <button type="button" className="wt-vehicle-text-action" onClick={access.refresh}>
