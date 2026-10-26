@@ -5,6 +5,7 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import "./check-map-atlas.mjs";
 import "./check-ground-maps.mjs";
+import { checkVehicleReference } from "./check-vehicle-reference.mjs";
 const root = fileURLToPath(new URL("../", import.meta.url));
 const read = async (path) => JSON.parse(await readFile(resolve(root, path), "utf8"));
 const manifest = await read("src/generated/manifest.json");
@@ -20,6 +21,7 @@ const storePrices = await read("data/store-prices.json");
 const purchases = await read("data/purchases.json");
 const vehicleDetails = await read("data/vehicle-details.json");
 assert.equal(vehicleDetails.schemaVersion, 1);
+checkVehicleReference(vehicleDetails.vehicles);
 for (const [id, details] of Object.entries(vehicleDetails.vehicles)) {
   assert.match(id, /^[a-zA-Z0-9_-]+$/);
   for (const source of [details.purchase, details.rewards].filter(Boolean)) {

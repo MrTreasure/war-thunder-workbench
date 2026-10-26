@@ -1,9 +1,10 @@
-import { useLocale } from "./i18n/react";
 import { t } from "./i18n/core";
+import { useLocale } from "./i18n/react";
 /* oxlint-disable react/set-state-in-effect */
 import { useEffect, useRef, useState } from "react";
 import { communityRequest } from "./lineup-community-api";
 import { GameTag, type GameTagTone } from "./components/GameTag";
+import { GameButton } from "./components/GameButton";
 import { GameSelect } from "./components/GameSelect";
 import { TagSelector, type TagChoice } from "./components/TagSelector";
 import { useTagCatalog, tagLabel } from "./game-tag-catalog";
@@ -85,7 +86,7 @@ function VehicleTagDialog({
           {t("今日免费剩余")}
           {quota.remaining === null ? t("不限") : quota.remaining} {t("次")}
           {hasPoints
-            ? t(" · 额外点数 {0}", credits.remaining === null ? "不限" : credits.remaining)
+            ? t(" · 额外点数 {0}", credits.remaining === null ? t("不限") : credits.remaining)
             : ""}
         </p>
         <details className="calc-note">
@@ -96,7 +97,9 @@ function VehicleTagDialog({
             {t("次，按北京时间自然日恢复。免费次数优先使用")}
             {hasPoints ? t("，用完后每次消耗 {0} 点额外查询点", quota.pointCost) : ""}
             {t(
-              "。同文案累计次数；普通样式采用最后一次，材质样式采用最高档。标签按游戏大版本分别统计。",
+              t(
+                "。同文案累计次数；普通样式采用最后一次，材质样式采用最高档。标签按游戏大版本分别统计。",
+              ),
             )}
           </p>
         </details>
@@ -110,6 +113,7 @@ function VehicleTagDialog({
           </p>
         )}
         <TagSelector
+          scope="vehicle"
           options={tagCatalog.options}
           loading={tagCatalog.loading}
           error={tagCatalog.error}
@@ -147,7 +151,13 @@ function VehicleTagDialog({
     </Modal>
   );
 }
-export function VehicleTags({ vehicleId }: { vehicleId: string }) {
+export function VehicleTags({
+  vehicleId,
+  onResolved,
+}: {
+  vehicleId: string;
+  onResolved?: (count: number) => void;
+}) {
   useLocale();
   const account = useWorkbenchAccount();
   const tagCatalog = useTagCatalog("vehicle");
@@ -187,6 +197,10 @@ export function VehicleTags({ vehicleId }: { vehicleId: string }) {
     return () => abort.abort();
   }, [vehicleId, version, revision, account.session?.user?.id, account.identityVersion]);
   const current = page?.vehicleId === vehicleId ? page : null;
+  useEffect(() => {
+    if (!loading && (!current || current.version === current.currentVersion))
+      onResolved?.(current?.tags.length || 0);
+  }, [loading, current, onResolved]);
   return (
     <section className="wt-vehicle-tags" aria-label={t("载具标签")}>
       <div className="wt-detail-section-heading">
@@ -194,6 +208,9 @@ export function VehicleTags({ vehicleId }: { vehicleId: string }) {
         {current && (
           <GameSelect
             value={current.version}
+            renderValue={() =>
+              current.versions.find((item) => item.id === current.version)?.label || current.version
+            }
             aria-label={t("标签游戏版本")}
             onValueChange={(value) => setVersion(String(value))}
           >
@@ -205,6 +222,20 @@ export function VehicleTags({ vehicleId }: { vehicleId: string }) {
             ))}
           </GameSelect>
         )}
+        <GameButton
+          tone="battle"
+          title={!account.session?.user ? t("登录后可为载具打标") : undefined}
+          disabled={loading || !current || current.version !== current.currentVersion}
+          onClick={() => {
+            if (!account.session?.user) {
+              void account.login();
+              return;
+            }
+            setOpen(true);
+          }}
+        >
+          {t("为载具打标")}
+        </GameButton>
       </div>
       {loading ? (
         <output className="calc-note">{t("正在读取标签…")}</output>
@@ -221,41 +252,18 @@ export function VehicleTags({ vehicleId }: { vehicleId: string }) {
         </p>
       ) : (
         <div className="wt-vehicle-tag-counts">
-          {current?.tags.length ? (
-            current.tags.map((tag) => (
-              <span key={tag.id}>
-                <GameTag tagId={tag.id} tone={tag.tone}>
-                  {tagLabel(tag.id, tagCatalog.items) || t("标签加载中")}
-                </GameTag>
-                <b aria-label={t("累计 {0} 次", tag.count)}>×{tag.count}</b>
-              </span>
-            ))
-          ) : (
-            <p className="calc-note">{t("这个版本还没有标签，来分享你的体验。")}</p>
-          )}
+          {current?.tags.length
+            ? current.tags.map((tag) => (
+                <span key={tag.id}>
+                  <GameTag tagId={tag.id} tone={tag.tone}>
+                    {tagLabel(tag.id, tagCatalog.items) || t("标签加载中")}
+                  </GameTag>
+                  <b aria-label={t("累计 {0} 次", [tag.count])}>×{tag.count}</b>
+                </span>
+              ))
+            : null}
         </div>
       )}
-      <div className="wt-vehicle-tag-footer">
-        <small>
-          {current?.version !== current?.currentVersion
-            ? t("历史版本标签仅供查看")
-            : t("同文案累计次数 · 材质取最高档")}
-        </small>
-        <button
-          type="button"
-          className="quiet-button"
-          disabled={loading || !current || current.version !== current.currentVersion}
-          onClick={() => {
-            if (!account.session?.user) {
-              void account.login();
-              return;
-            }
-            setOpen(true);
-          }}
-        >
-          {account.session?.user ? t("为载具打标") : t("登录后为载具打标")}
-        </button>
-      </div>
       {open && current && (
         <VehicleTagDialog
           page={current}

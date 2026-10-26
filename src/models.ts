@@ -1,5 +1,71 @@
 export type Mode = "ab" | "rb" | "sb";
+export type VehiclePerformanceStage = "stock" | "spaded" | "expert" | "ace";
+export type VehicleReferenceStatus =
+  | "available"
+  | "none"
+  | "not_provided"
+  | "parse_failed"
+  | "not_collected"
+  | "not_applicable";
+export interface WikiReferenceSource {
+  schemaVersion: 1;
+  vehicleId: string;
+  source: string;
+  checkedAt: string;
+  htmlSha256: string;
+  parserVersion: string;
+  status: VehicleReferenceStatus;
+}
+export interface WikiPerformanceMetric {
+  id: string;
+  label: string;
+  unit: string;
+  altitudeM: number | null;
+  crewDependent: boolean;
+  weaponName?: string | null;
+  direction?: "higher" | "lower" | null;
+  modes: Partial<Record<"ab" | "rb", Record<VehiclePerformanceStage, number | null>>>;
+  sourceBasis: Partial<Record<VehiclePerformanceStage, string | null>>;
+}
+export interface WikiPerformance extends WikiReferenceSource {
+  metrics: WikiPerformanceMetric[];
+}
+export interface WikiWeaponParameter {
+  id: string;
+  label: string;
+  value: string;
+}
+export interface WikiLoadoutOption {
+  optionId: string;
+  weaponId: string | null;
+  name: string;
+  count?: number | null;
+  source?: string | null;
+  imageUrl?: string | null;
+  weightKg: number | null;
+  stations: { hardpointId: string; count: number | null }[];
+  parameters: WikiWeaponParameter[];
+}
+export interface WikiLoadouts extends WikiReferenceSource {
+  limits: { id: string; label: string; value: number | null; unit: string }[];
+  presets: {
+    id: string;
+    label: string;
+    items: {
+      name: string;
+      count: number | null;
+      weaponId: string | null;
+      source?: string | null;
+      imageUrl?: string | null;
+      parameters?: WikiWeaponParameter[];
+    }[];
+  }[];
+  hardpoints: { id: string; label: string; side?: "left" | "right" | "center" | null }[];
+  compatibility: WikiLoadoutOption[];
+}
 export interface WikiVehicleDetails {
+  performance?: WikiPerformance;
+  loadouts?: WikiLoadouts;
   rewardStatus?: { state: "not_listed"; source: string; checkedAt: string; sha256: string };
   purchase?: {
     currency: "SL" | "GE";

@@ -11,7 +11,7 @@ export type TagOption = {
   id: string;
   label: string;
   group: string;
-  family?: "queue" | "titles";
+  family?: "queue" | "vehicle" | "titles";
   sourceUrl?: string;
   sourceTitle?: string;
   sourceNote?: string;
@@ -42,6 +42,7 @@ type Props = {
   error?: string;
   onRetry?: () => void;
   label?: string;
+  scope?: "lineup" | "vehicle";
 };
 type Row = TagChoice & { key: string };
 function TagFormDialog({
@@ -55,6 +56,7 @@ function TagFormDialog({
   onRetry,
   close,
   label = t("标签"),
+  scope = "lineup",
 }: Props & { close: () => void }) {
   useLocale();
   const [viewport, setViewport] = useState(() => ({
@@ -83,6 +85,7 @@ function TagFormDialog({
   const [library, setLibrary] = useState<"queue" | "titles" | null>(null);
   const [query, setQuery] = useState({ queue: "", titles: "" });
   const uid = useId();
+  const wordCategory = scope === "vehicle" ? "载具标签" : "队列标签";
   const row = rows.find((row) => row.key === active) || rows[0];
   const option = options.find((option) => option.id === row?.id);
   const update = (patch: Partial<TagChoice>) =>
@@ -224,9 +227,9 @@ function TagFormDialog({
                       (option) =>
                         option.active !== false &&
                         !option.system &&
-                        (option.family ||
-                          (option.id.startsWith("official-title-") ? "titles" : "queue")) ===
-                          family,
+                        (family === "titles"
+                          ? option.family === "titles" || option.id.startsWith("official-title-")
+                          : option.family !== "titles" && !option.id.startsWith("official-title-")),
                     );
                     const matches = choices.filter((option) =>
                       option.label
@@ -244,7 +247,7 @@ function TagFormDialog({
                             aria-controls={`${uid}-${family}-body`}
                             onClick={() => setLibrary(expanded ? null : family)}
                           >
-                            <span>{family === "queue" ? t("队列标签") : t("官方称号")}</span>
+                            <span>{family === "queue" ? t(wordCategory) : t("官方称号")}</span>
                             <small>
                               {choices.length} {t("个文案")}
                             </small>
@@ -262,7 +265,7 @@ function TagFormDialog({
                               <label className="wt-tag-search">
                                 <span>
                                   {t("搜索")}
-                                  {family === "queue" ? t("队列标签") : t("官方称号")}
+                                  {family === "queue" ? t(wordCategory) : t("官方称号")}
                                 </span>
                                 <input
                                   type="search"

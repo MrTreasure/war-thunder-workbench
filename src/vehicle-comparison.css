@@ -1,0 +1,468 @@
+/* finesse · component: vehicle-comparison · register=product
+ * states: default · focus-visible · loading · error · empty · success
+ * tokens: existing --wt hangar palette; game toolbar rhythm and aligned reference columns */
+.vehicle-detail-dialog {
+  width: min(1040px, calc(100vw - 40px));
+}
+.calculator:is(.vehicle-detail-dialog, .wt-modifications-dialog, .vehicle-calculator) {
+  height: min(880px, calc(100dvh - 32px));
+  max-height: calc(100dvh - 32px);
+}
+.vehicle-detail-dialog[open] {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+.vehicle-detail-dialog .detail.wt-vehicle-sheet {
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+.wt-detail-actions > .wt-game-button {
+  min-height: 44px;
+  padding: 8px 14px;
+  font-size: 13px;
+}
+.wt-detail-hero {
+  grid-template-columns: minmax(200px, 0.8fr) minmax(0, 1.6fr);
+  gap: 24px;
+  padding-bottom: 16px;
+}
+.wt-detail-tabs {
+  position: sticky;
+  top: -1px;
+  z-index: 3;
+  background: var(--wt-surface);
+}
+.wt-detail-panel {
+  min-width: 0;
+  padding-block: 20px 8px;
+}
+.wt-detail-panel[hidden] {
+  display: none;
+}
+.wt-detail-panel .wt-detail-route {
+  padding-top: 0;
+}
+.wt-dossier-section-heading,
+.wt-dossier-section-heading > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wt-dossier-section-heading {
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.wt-dossier-section-heading h3 {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font: 500 15px/1.4 var(--wt-sans);
+  color: var(--wt-ink);
+}
+.wt-dossier-section-heading > span {
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+/* Zero-based, independently scaled metric comparisons; direct text labels do not rely on color. */
+.wt-performance-header,
+.wt-performance-header > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wt-performance-header {
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.wt-performance-header h3 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: 500 15px/1.4 var(--wt-sans);
+}
+.wt-performance-header .wt-game-tabs {
+  border: 1px solid var(--wt-line);
+}
+.wt-performance-header .wt-game-tabs > button {
+  min-height: 44px;
+  padding: 8px 14px;
+  font-size: 13px;
+}
+.wt-performance-charts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.wt-performance-chart {
+  margin: 0;
+  min-width: 0;
+  padding: 14px 16px;
+  background: var(--wt-surface);
+  border: 1px solid var(--wt-line);
+}
+.wt-performance-chart figcaption {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.wt-performance-chart h4 {
+  margin: 0 0 3px;
+  color: var(--wt-ink);
+  font: 500 14px/1.4 var(--wt-sans);
+}
+.wt-performance-chart figcaption > div > span {
+  font-size: 11px;
+  color: var(--wt-muted);
+}
+.wt-chart-change {
+  flex: none;
+  text-align: right;
+  color: var(--wt-positive);
+  font:
+    400 20px/1.2 WTCard,
+    var(--wt-sans);
+}
+.wt-chart-change small {
+  display: block;
+  margin-top: 3px;
+  font: 11px/1.4 var(--wt-sans);
+  color: var(--wt-muted);
+}
+.wt-chart-same {
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.wt-comparison-bars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.wt-comparison-bars > li {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr) 50px;
+  align-items: center;
+  gap: 10px;
+  min-height: 24px;
+  font-size: 12px;
+}
+.wt-comparison-label {
+  line-height: 1.5;
+  color: var(--wt-body);
+  overflow-wrap: anywhere;
+}
+.wt-comparison-track {
+  display: block;
+  height: 8px;
+  min-width: 0;
+  background: var(--wt-panel);
+}
+.wt-comparison-fill {
+  display: block;
+  height: 100%;
+  background: var(--wt-wire);
+}
+.wt-comparison-bars [data-series="spaded"] .wt-comparison-fill {
+  background: var(--wt-body);
+}
+.wt-comparison-bars [data-series="expert"] .wt-comparison-fill {
+  background: var(--wt-gold);
+}
+.wt-comparison-bars [data-series="ace"] .wt-comparison-fill {
+  background: var(--wt-positive);
+}
+.wt-comparison-value {
+  text-align: right;
+  color: var(--wt-ink);
+  font-variant-numeric: tabular-nums;
+}
+.wt-comparison-bars [data-unknown] .wt-comparison-track {
+  background: transparent;
+  border-bottom: 1px dashed var(--wt-strong-line);
+}
+.wt-comparison-bars [data-unknown] .wt-comparison-value {
+  color: var(--wt-muted);
+}
+.wt-vehicle-sheet p.wt-chart-context {
+  margin: 8px 0 0;
+  font-size: 11px;
+}
+.wt-performance-scroll,
+.wt-loadout-matrix-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  border: 1px solid var(--wt-line);
+}
+.wt-performance-scroll:focus-visible,
+.wt-loadout-matrix-scroll:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 2px;
+}
+.wt-performance-table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.wt-performance-table th,
+.wt-performance-table td {
+  padding: 8px 10px;
+  text-align: right;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--wt-line);
+}
+.wt-performance-table th {
+  font-weight: 500;
+}
+.wt-performance-table th:first-child {
+  width: 25%;
+  text-align: left;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--wt-surface);
+}
+.wt-performance-table thead th {
+  padding-block: 14px;
+  background: var(--wt-panel);
+  color: var(--wt-body);
+}
+.wt-performance-table thead th:first-child {
+  background: var(--wt-panel);
+}
+.wt-performance-table small {
+  display: block;
+  font-size: 11px;
+  line-height: 1.45;
+  font-weight: 400;
+  color: var(--wt-muted);
+  margin-top: 5px;
+}
+.wt-performance-table tbody th > span {
+  display: block;
+  overflow-wrap: anywhere;
+}
+.wt-performance-table tbody td strong {
+  color: var(--wt-ink);
+  font:
+    400 15px/1.2 WTCard,
+    var(--wt-sans);
+}
+.wt-performance-unknown {
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-dossier-empty {
+  margin: 0;
+  padding: 28px 16px;
+  border: 1px solid var(--wt-line);
+  color: var(--wt-muted);
+  text-align: center;
+  font-size: 13px;
+}
+.wt-dossier-note,
+.wt-dossier-provenance {
+  color: var(--wt-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.wt-dossier-note {
+  margin: 12px 0;
+}
+.wt-dossier-provenance {
+  display: inline-block;
+  margin-top: 14px;
+}
+.wt-table-scroll-hint {
+  display: none;
+}
+.wt-loadout-limits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 40px;
+  margin: 0 0 24px;
+  padding: 14px 0;
+  border-block: 1px solid var(--wt-line);
+}
+.wt-loadout-limits dt {
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.wt-loadout-limits dd {
+  margin: 5px 0 0;
+  color: var(--wt-ink);
+  font:
+    400 23px/1.2 WTCard,
+    var(--wt-sans);
+}
+.wt-loadout-limits dd small {
+  font: 12px var(--wt-sans);
+  color: var(--wt-muted);
+}
+.wt-loadouts h4 {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 20px 0 10px;
+}
+.wt-loadouts h4 > small {
+  margin-left: 8px;
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--wt-muted);
+}
+.wt-loadout-matrix {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.wt-loadout-matrix th,
+.wt-loadout-matrix td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--wt-line);
+  text-align: center;
+}
+.wt-loadout-matrix tbody tr {
+  height: 56px;
+}
+.wt-loadout-matrix thead {
+  background: var(--wt-panel);
+  color: var(--wt-muted);
+}
+.wt-loadout-matrix th:first-child {
+  width: 340px;
+  min-width: 300px;
+  text-align: left;
+  background: var(--wt-surface);
+}
+.wt-loadout-matrix thead th:first-child {
+  background: var(--wt-panel);
+}
+.wt-loadout-matrix td[data-compatible="true"] {
+  color: var(--wt-positive);
+  background: var(--wt-accent-soft);
+}
+.wt-loadout-weapon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  font-weight: 400;
+}
+.wt-loadout-weapon > img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex: none;
+}
+.wt-loadout-name {
+  display: block;
+  min-width: 0;
+  max-width: 260px;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--wt-body);
+}
+.wt-loadout-presets > details {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--wt-line);
+}
+.wt-loadout-presets summary {
+  cursor: pointer;
+  min-height: 32px;
+}
+.wt-loadout-presets li {
+  margin-block: 12px;
+}
+.wt-loadout-presets a {
+  color: var(--wt-body);
+}
+.wt-loadout-presets li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Dossier density: reserve the height for the selected page, not repeated footers. */
+.vehicle-detail-dialog > .calc-header {
+  padding: 8px 16px;
+}
+.vehicle-detail-dialog > .calc-header h2 {
+  margin: 0;
+}
+.vehicle-detail-dialog > .calc-header p {
+  display: none;
+}
+.vehicle-detail-dialog .detail.wt-vehicle-sheet {
+  padding: 12px 16px;
+}
+.wt-detail-hero {
+  gap: 16px;
+  padding-bottom: 10px;
+}
+.wt-vehicle-sheet .wt-detail-image .vehicle-image-frame,
+.wt-vehicle-sheet .wt-detail-image .vehicle-image-frame img {
+  height: 116px;
+  min-height: 0;
+  max-height: 116px;
+}
+.wt-detail-image > .wt-detail-zoom {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  color: var(--wt-body);
+  background: var(--wt-surface);
+}
+.wt-detail-meta {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px 12px;
+}
+.wt-detail-ratings {
+  padding: 8px 0;
+}
+.wt-detail-panel {
+  padding: 12px 0 0;
+}
+.wt-performance-header {
+  margin-bottom: 8px;
+}
+.wt-performance-chart {
+  padding: 10px 12px;
+}
+.wt-performance-chart figcaption {
+  margin-bottom: 8px;
+}
+.wt-comparison-bars {
+  gap: 6px;
+}
+.wt-comparison-bars > li {
+  min-height: 20px;
+}
+.wt-detail-pending {
+  display: block;
+  padding: 14px 0;
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-detail-tabs {
+  overflow-x: auto;
+  scrollbar-width: thin;
+}

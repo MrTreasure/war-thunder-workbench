@@ -2812,14 +2812,14 @@
     overflow: visible;
   }
   .wt-part-card {
-    min-height: 104px;
+    min-height: var(--wt-part-row-height);
   }
   .wt-part-card input {
     width: 18px;
     height: 18px;
   }
   .wt-part-tier-row .wt-part-grid.is-unmapped {
-    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+    grid-template-columns: repeat(auto-fill, var(--wt-part-card-width));
   }
 }
 
@@ -3288,4 +3288,55 @@
   .calculator.wt-price-history-modal .wt-price-metrics strong {
     font-size: 16px;
   }
+}
+
+/* Vehicle performance and loadout dossier: one vertical scroller, contained horizontal tables. */
+@media (max-width: 800px) {
+  .calculator.vehicle-detail-dialog[open] { display:grid; grid-template-rows:auto minmax(0,1fr); }
+  .wt-detail-hero { grid-template-columns:minmax(0,1fr); gap:12px; }
+  .wt-detail-tabs { overflow-x:auto; scrollbar-width:thin; }
+  .wt-detail-tabs > button { padding:10px 12px; font-size:13px; }
+  .wt-detail-tabs .wt-control-icon { width:18px; height:18px; flex-basis:18px; }
+  .wt-detail-panel { padding-top:16px; }
+  .wt-performance-header { gap:8px; }
+  .wt-performance-header h3 { font-size:14px; }
+  .wt-performance-header .wt-game-tabs > button { padding:8px 10px; font-size:12px; }
+  .wt-performance-charts { grid-template-columns:minmax(0,1fr); gap:10px; }
+  .wt-performance-chart { padding:12px; }
+  .wt-comparison-bars > li { grid-template-columns:112px minmax(0,1fr) 50px; gap:8px; }
+  .wt-table-scroll-hint { display:block; margin:0 0 8px; font-size:11px; color:var(--wt-muted); }
+  .wt-performance-table { min-width:650px; }
+  .wt-performance-table th:first-child { width:140px; }
+  .wt-performance-table th, .wt-performance-table td { padding:10px 8px; }
+  .wt-dossier-section-heading { gap:8px; }
+  .wt-dossier-section-heading > span { font-size:11px; }
+  .wt-loadout-limits { gap:16px 24px; }
+  .wt-loadout-matrix th:first-child { width:260px; min-width:260px; }
+  .wt-loadouts h4 > small { display:block; margin:5px 0 0; }
+}
+
+/* Vehicle workspaces retain one viewport-bounded height across tabs and nested calculators. */
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .calculator:is(.vehicle-detail-dialog, .wt-modifications-dialog, .vehicle-calculator) {
+    height: calc(100dvh - 16px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    max-height: calc(100dvh - 16px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Compact vehicle header and aligned tag actions at touch widths. */
+@media (max-width:800px) {
+  .vehicle-detail-dialog > .calc-header { padding:8px 12px; }
+  .wt-detail-hero { gap:8px; padding-bottom:8px; }
+  .wt-vehicle-sheet .wt-detail-image .vehicle-image-frame,
+  .wt-vehicle-sheet .wt-detail-image .vehicle-image-frame img { height:72px; min-height:0; max-height:72px; }
+  .wt-detail-meta { grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px 8px; }
+  .wt-detail-meta dd { font-size:12px; }
+  .wt-detail-ratings { padding:6px 0; }
+  .wt-detail-panel { padding-top:10px; }
+  .wt-performance-chart { padding:10px; }
+  .wt-performance-header { margin-bottom:8px; }
+  .wt-vehicle-tags .wt-detail-section-heading { gap:8px; }
+  .wt-vehicle-tags .wt-detail-section-heading > h3 { display:none; }
+  .wt-vehicle-tags .wt-detail-section-heading > .wt-select { flex:1; width:auto; max-width:210px; }
+  .wt-vehicle-tags .wt-detail-section-heading > .wt-game-button { padding:7px 12px; font-size:15px; }
 }

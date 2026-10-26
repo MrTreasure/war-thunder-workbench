@@ -906,7 +906,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
           <Modal
             className="vehicle-detail-dialog"
             close={() => setSelected(null)}
-            subtitle={unit.side === "research" ? t("研发路线") : P.kinds[unit.kind]}
+            subtitle={t("性能、武器与研发资料")}
             title={
               <a
                 className="detail-title-link"

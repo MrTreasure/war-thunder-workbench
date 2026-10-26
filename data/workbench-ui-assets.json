@@ -49,6 +49,30 @@
       "sourcePage": "https://warthunder.com/en/media/presskit/",
       "sha256": "8c3f7ebf829174244c2ab8df4c928560fedb9a1d31a4be4b1725115c3af8f408",
       "checkedAt": "2026-10-19"
+    },
+    "engine": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/new_tank_engine.png",
+      "bytes": 17803,
+      "sha256": "ad28f942e3d0cdb013fb9ccba9f5ff784a84e90a2b09a0cb29bb3beb3b673065",
+      "checkedAt": "2026-10-26T16:07:58.250542+00:00",
+      "source": "Original War Thunder GUI asset, verified from public Wiki vehicle HTML",
+      "sourcePage": "https://wiki.warthunder.com/unit/germ_pzkpfw_vi_ausf_h1_tiger"
+    },
+    "weapons": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/weapon.png",
+      "bytes": 7920,
+      "sha256": "a8aa28b8d2bdb20851a785997925000edf8c2d482f51c1737ae49cd0606203a1",
+      "checkedAt": "2026-10-26T16:07:59.196715+00:00",
+      "source": "Original War Thunder GUI asset, verified from public Wiki vehicle HTML",
+      "sourcePage": "https://wiki.warthunder.com/unit/mig-21_bis"
+    },
+    "loadout": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/pilon_bomb.png",
+      "bytes": 15627,
+      "sha256": "6fbb75600d1652857672749f940943fc7d122729830cebd8bcc330c6929b96f2",
+      "checkedAt": "2026-10-26T16:08:00.296584+00:00",
+      "source": "Original War Thunder GUI asset, verified from public Wiki vehicle HTML",
+      "sourcePage": "https://wiki.warthunder.com/unit/mig-21_bis"
     }
   }
 }

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "summaryLimit": 4,
+  "priorities": {
+    "ground": ["max-speed-forward", "reload", "turret-rotation-horizontal", "turret-rotation-vertical", "power-to-weight", "engine-power"],
+    "aviation": ["max-speed", "climb-rate", "turn-time", "burst-mass", "fire-rate"],
+    "helicopters": ["max-speed", "climb-rate", "turret-rotation-horizontal", "turret-rotation-vertical", "burst-mass", "fire-rate"],
+    "ships": ["max-speed-forward", "reload", "turret-rotation-horizontal", "turret-rotation-vertical"],
+    "boats": ["max-speed-forward", "reload", "turret-rotation-horizontal", "turret-rotation-vertical", "fire-rate"]
+  },
+  "labels": {
+    "max-speed-forward": "前进极速",
+    "max-speed": "极速",
+    "reload": "主武器装填时间",
+    "turret-rotation-horizontal": "水平瞄准速度",
+    "turret-rotation-vertical": "垂直瞄准速度",
+    "climb-rate": "爬升率",
+    "turn-time": "盘旋时间",
+    "burst-mass": "首秒投射质量",
+    "fire-rate": "射速",
+    "power-to-weight": "功重比",
+    "engine-power": "发动机功率"
+  }
+}

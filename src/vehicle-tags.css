@@ -1,20 +1,42 @@
 .wt-vehicle-tags {
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid var(--wt-line);
+  margin: 0;
+  padding: 0;
 }
 .wt-vehicle-tags .wt-detail-section-heading {
   align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
   gap: 12px;
+  min-height: 44px;
 }
-.wt-vehicle-tags .wt-game-select {
-  max-width: 240px;
+.wt-vehicle-tags .wt-detail-section-heading > h3 {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: 400 14px/1.4 var(--wt-sans);
+}
+.wt-vehicle-tags .wt-detail-section-heading > .wt-select {
+  height: 44px;
+  min-height: 44px;
+  width: 210px;
+  max-width: 210px;
+  flex: 0 1 210px;
+  min-width: 0;
+}
+.wt-vehicle-tags .wt-detail-section-heading > .wt-game-button {
+  margin-left: auto;
+  flex: none;
 }
 .wt-vehicle-tag-counts {
   display: flex;
   flex-wrap: wrap;
   gap: 8px 18px;
   padding-block: 10px;
+}
+.wt-vehicle-tag-counts:empty {
+  display: none;
 }
 .wt-vehicle-tag-counts > span {
   display: inline-flex;
@@ -30,13 +52,10 @@
 .wt-vehicle-tag-footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 12px;
-}
-.wt-vehicle-tag-footer small {
-  color: var(--wt-muted);
+  margin-top: 8px;
 }
 .calculator.wt-vehicle-tag-dialog {
   width: min(960px, calc(100vw - 32px));
@@ -45,9 +64,6 @@
   overflow-y: auto;
 }
 @media (max-width: 650px) {
-  .wt-vehicle-tags .wt-detail-section-heading {
-    flex-wrap: wrap;
-  }
   .calculator.wt-vehicle-tag-dialog {
     width: calc(100vw - 16px);
     max-height: calc(100dvh - 16px);

@@ -1,6 +1,6 @@
-import { Link } from "@tanstack/react-router";
-import { useLocale } from "./i18n/react";
 import { t, localize } from "./i18n/core";
+import { useLocale } from "./i18n/react";
+import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { GameTag, gameTagBasicColors, gameTagTiers, gameTagTones } from "./components/GameTag";
 import { TagSelector, type TagChoice } from "./components/TagSelector";
@@ -16,6 +16,8 @@ export function TagPreview() {
     { id: "classic", tone: "original" },
     { id: "flank", tone: "color-blue" },
   ]);
+  const [vehicleChoices, setVehicleChoices] = useState<TagChoice[]>([]);
+  const vehicleCatalog = useTagCatalog("vehicle");
   const access = useGameTagAccess();
   const tagCatalog = useTagCatalog();
   const account = useWorkbenchAccount();
@@ -43,9 +45,9 @@ export function TagPreview() {
               ? t("正在核验当前账号资格…")
               : access.access?.bound
                 ? t(
-                    "绑定账号 {0} 级 · 历史战斗 {1} 次",
-                    access.access.level ?? "未知",
-                    access.access.rbBattles ?? "未知",
+                    t("绑定账号 {0} 级 · 历史战斗 {1} 次"),
+                    access.access.level ?? t("未知"),
+                    access.access.rbBattles ?? t("未知"),
                   )
                 : t("尚未绑定游戏账号：可选官方原版与基本颜色。")}
         </p>
@@ -76,7 +78,29 @@ export function TagPreview() {
         />
         <p className="wt-tag-lab-source">
           {t(
-            "演示表单已放入两条标签。点击字段打开编辑弹层，文案和样式分别选择；确认后回填，取消保留原值。",
+            t(
+              "演示表单已放入两条标签。点击字段打开编辑弹层，文案和样式分别选择；确认后回填，取消保留原值。",
+            ),
+          )}
+        </p>
+      </section>
+      <section>
+        <h2>{t("载具标签")}</h2>
+        <TagSelector
+          scope="vehicle"
+          options={vehicleCatalog.options}
+          loading={vehicleCatalog.loading}
+          error={vehicleCatalog.error}
+          onRetry={vehicleCatalog.refresh}
+          value={vehicleChoices}
+          onChange={setVehicleChoices}
+          allowedTones={access.allowedTones}
+          max={1}
+          label={t("载具标签")}
+        />
+        <p className="wt-tag-lab-source">
+          {t(
+            "载具评价文案供玩家自主选择，参考社区讨论，不是官方评级。此处仅演示选择，不提交打标或消耗额度。",
           )}
         </p>
       </section>

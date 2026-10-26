@@ -220,7 +220,13 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin: 12px 0;
+  margin: 8px 0;
+}
+.wt-parts-heading > div {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 10px;
 }
 .wt-parts-heading h3 {
   margin: 0 0 3px;
@@ -231,39 +237,47 @@
   font-size: 12px;
 }
 .wt-parts-board {
-  --wt-part-card-width: 96px;
-  --wt-part-row-height: 104px;
+  --wt-part-card-width: 88px;
+  --wt-part-row-height: 84px;
   overflow-x: auto;
   max-width: 100%;
 }
 .wt-part-groups {
   width: max-content;
   min-width: 0;
-  gap: 12px;
+  gap: 10px;
 }
 .wt-part-group h4 {
-  height: 26px;
-  margin: 0 0 8px;
-  padding-bottom: 6px;
+  height: 22px;
+  margin: 0 0 6px;
+  padding-bottom: 4px;
   font-size: 12px;
 }
 .wt-part-grid {
   grid-template-columns: repeat(var(--wt-part-columns, 2), var(--wt-part-card-width));
   grid-auto-rows: var(--wt-part-row-height);
-  gap: 8px 6px;
+  gap: 6px;
 }
 .wt-part-card {
-  gap: 3px;
-  padding: 7px 4px;
+  gap: 2px;
+  padding: 5px 4px;
 }
 .wt-part-image,
 .wt-part-image img {
-  width: 48px;
-  height: 36px;
+  width: 44px;
+  height: 28px;
+}
+.wt-part-image {
+  flex: 0 0 28px;
 }
 .wt-part-name {
   font-size: 11px;
   line-height: 1.25;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
 }
 .wt-part-card strong {
   font-size: 11px;
@@ -276,8 +290,8 @@
 }
 .wt-part-ranks {
   grid-auto-rows: var(--wt-part-row-height);
-  gap: 8px;
-  padding-top: 34px;
+  gap: 6px;
+  padding-top: 28px;
   font-size: 15px;
 }
 .wt-part-tier-row .wt-part-grid.is-unmapped,

@@ -11,11 +11,14 @@ import fcntl
 import gzip
 import hashlib
 import json
+import os
+import shutil
 from pathlib import Path
 import random
 import threading
 import time
 import urllib.request
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -64,7 +67,10 @@ def collect(entry, directory, pacer):
                 raise ValueError('Official page exceeds capture bound')
             final_url = response.url
         html = body.decode('utf-8')
-        if any(marker in html.lower() for marker in ['cf-chl-', 'g-recaptcha', 'verify you are human']) or '/login' in final_url.lower():
+        if (any(marker in html.lower() for marker in ['cf-chl-', 'g-recaptcha', 'verify you are human'])
+                or urlparse(final_url).hostname != 'wiki.warthunder.com'
+                or any(marker in urlparse(final_url).path.lower() for marker in ['/login','/signin','/sign-in','/auth'])
+                or ('game-unit_card' not in html and ('type="password"' in html.lower() or "type='password'" in html.lower()))):
             pacer.stopped.set()
             return key, None, {'checkedAt': now(), 'type': 'VerificationRequired'}, 'challenge'
         if ('window.WT_UnitList' if kind == 'trees' else 'game-unit_card') not in html:
@@ -88,6 +94,7 @@ def collect(entry, directory, pacer):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--reuse-from', type=Path, action='append', default=[], help='Reuse every byte/hash-verified anonymous snapshot with original source time')
     parser.add_argument('--concurrency', type=int, default=10, choices=range(1, 11))
     parser.add_argument('--min-interval', type=float, default=6)
     parser.add_argument('--max-interval', type=float, default=10)
@@ -107,6 +114,7 @@ def main():
     modifications = json.loads((ROOT / 'data/modifications.json').read_text())
     presentation = json.loads((ROOT / 'data/modification-presentation.json').read_text())
     details = json.loads((ROOT / 'data/vehicle-details.json').read_text())
+    categories = {unit['id']:category for category,countries in trees['trees'].items() for tree in countries.values() if tree for rank in tree['ranks'] for node in rank['research']+rank['special'] for unit in node['members']}
     complete_ids = set()
     for uid in ids:
         row = modifications.get(uid, {})
@@ -115,7 +123,14 @@ def main():
         items = row.get('items', [])
         layout_items = {item['id']: item for item in layout.get('items', [])}
         complete_layout = not items or all(item['id'] in layout_items and layout_items[item['id']].get('imageUrl') for item in items)
-        if complete_layout and reward.get('rp') and reward.get('sl') and (row.get('itemCostsComplete') or row.get('status') == 'unavailable'):
+        reference = details['vehicles'].get(uid, {})
+        performance = reference.get('performance', {})
+        loadouts = reference.get('loadouts', {})
+        def reference_complete(value):
+            return (value.get('parserVersion') == 'wiki-performance-loadouts-v3' and value.get('status') in ('available', 'none', 'not_provided', 'not_applicable') and value.get('checkedAt') and value.get('htmlSha256'))
+        category = categories[uid]
+        complete_reference = reference_complete(performance) and (category not in ('aviation','helicopters') or reference_complete(loadouts))
+        if complete_reference and complete_layout and reward.get('rp') and reward.get('sl') and (row.get('itemCostsComplete') or row.get('status') == 'unavailable'):
             complete_ids.add(uid)
     priority = ['ussr_buk_m3_fcs' , 'germ_pzkpfw_iv_ausf_e', 'germ_pzkpfw_maus', 'germ_leopard_2a7v', 'ussr_t_80ud']
     ids.sort(key=lambda uid: (priority.index(uid) if uid in priority else len(priority), uid))
@@ -129,6 +144,32 @@ def main():
     }
     if state.get('state') in ['challenge', 'rate_limited']:
         raise SystemExit('Collection is paused at an official restriction; do not resume around it')
+    reused = 0
+    for source_directory in args.reuse_from:
+        source_directory = source_directory.resolve()
+        source_manifest = json.loads((source_directory / 'manifest.json').read_text())
+        if source_manifest.get('state') in ('challenge','rate_limited'):
+            raise SystemExit('Cannot resume a source collection stopped by an official restriction')
+        for kind, uid, url in queue:
+            key = f'{kind}/{uid}'
+            if key in state['sources']: continue
+            proof = source_manifest.get('sources', {}).get(key, {})
+            original = source_directory / (key + '.html.gz')
+            if not original.is_file() or proof.get('url') != url or not proof.get('checkedAt'): continue
+            try:
+                raw = gzip.decompress(original.read_bytes())
+            except (OSError,EOFError):
+                continue
+            if len(raw) != proof.get('bytes') or hashlib.sha256(raw).hexdigest() != proof.get('sha256'): continue
+            target = directory / (key + '.html.gz')
+            target.parent.mkdir(parents=True, exist_ok=True)
+            if not target.exists():
+                try: os.link(original, target)
+                except OSError: shutil.copy2(original, target)
+            state['sources'][key] = proof
+            reused += 1
+    state['reusedVerifiedSnapshots'] = state.get('reusedVerifiedSnapshots', 0) + reused
+    state['includes'] = ['modifications','modificationPresentation','rpRewards','slRewards','stockSpadedPerformanceABRB','crewEndpoints','aircraftLoadouts']
     pending = []
     for entry in queue:
         kind, uid, _ = entry
@@ -136,9 +177,11 @@ def main():
         path = directory / kind / (uid + '.html.gz')
         if previous and path.exists():
             with gzip.open(path, 'rb') as stream:
-                if hashlib.sha256(stream.read()).hexdigest() == previous['sha256']:
+                raw = stream.read()
+                if len(raw) == previous.get('bytes') and hashlib.sha256(raw).hexdigest() == previous['sha256']:
                     continue
         pending.append(entry)
+    state['networkRequestsNeeded'] = len(pending)
     state.update(state='running', updatedAt=now(), concurrency=args.concurrency, reusedCompleteCards=len(complete_ids),
                  pacing={'scope': 'per_worker', 'hostMinimumSeconds': .8, 'hostMaximumSeconds': 1.2, 'minimumSeconds': args.min_interval,
                          'maximumSeconds': args.max_interval, 'distribution': 'uniform_random'})
