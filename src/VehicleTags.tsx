@@ -44,7 +44,9 @@ function VehicleTagDialog({
   const { quota } = page;
   const credits = quota.credits;
   const hasPoints = credits?.enabled && (credits.remaining === null || credits.remaining > 0);
-  const exhausted = quota.remaining !== null && quota.remaining <= 0 && !hasPoints;
+  const canUsePoints =
+    credits?.enabled && (credits.remaining === null || credits.remaining >= quota.pointCost);
+  const exhausted = quota.remaining !== null && quota.remaining <= 0 && !canUsePoints;
   async function submit() {
     if (value.length !== 1 || busy) return;
     setBusy(true);
