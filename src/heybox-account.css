@@ -1,8 +1,9 @@
 /* finesse · component: account authorization · inherited product tokens · flat panels */
-.wt-heybox-dialog {
+dialog.calculator.wt-heybox-dialog {
   width: min(480px, calc(100vw - 28px));
   height: fit-content;
   max-height: calc(100dvh - 32px);
+  min-height: 0;
 }
 .wt-heybox-content {
   display: grid;
@@ -13,6 +14,32 @@
 }
 .wt-heybox-content p {
   margin: 0;
+}
+.wt-heybox-linked {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+.wt-heybox-linked > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.wt-heybox-linked strong {
+  font-size: 18px;
+}
+.wt-heybox-linked p {
+  color: var(--wt-gold);
+}
+.wt-heybox-linked-id {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.wt-heybox-linked-id code {
+  user-select: text;
+  overflow-wrap: anywhere;
+  color: var(--wt-ink);
 }
 .wt-heybox-content small {
   color: var(--wt-muted);

@@ -21,3 +21,5 @@ document
 document
   .getElementById("page-select")
   .addEventListener("change", (event) => select(Number(event.target.value)));
+const initialPage = Number(new URLSearchParams(location.search).get("page") || 0);
+select(Number.isInteger(initialPage) && pages[initialPage] ? initialPage : 0);

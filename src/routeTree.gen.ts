@@ -19,6 +19,7 @@ import { Route as WorkbenchSalesRouteImport } from './routes/_workbench.sales'
 import { Route as WorkbenchStatsRouteImport } from './routes/_workbench.stats'
 import { Route as WorkbenchTreeRouteImport } from './routes/_workbench.tree'
 import { Route as WorkbenchLineupsGarageRouteImport } from './routes/_workbench.lineups_.garage'
+import { Route as WorkbenchLineupsLobbyRouteImport } from './routes/_workbench.lineups_.lobby'
 import { Route as WorkbenchMapsMapIdRouteImport } from './routes/_workbench.maps_.$mapId'
 import { Route as WorkbenchStatsGarageRouteImport } from './routes/_workbench.stats_.garage'
 
@@ -71,6 +72,11 @@ const WorkbenchLineupsGarageRoute = WorkbenchLineupsGarageRouteImport.update({
   path: '/lineups/garage',
   getParentRoute: () => WorkbenchRoute,
 } as any)
+const WorkbenchLineupsLobbyRoute = WorkbenchLineupsLobbyRouteImport.update({
+  id: '/lineups_/lobby',
+  path: '/lineups/lobby',
+  getParentRoute: () => WorkbenchRoute,
+} as any)
 const WorkbenchMapsMapIdRoute = WorkbenchMapsMapIdRouteImport.update({
   id: '/maps_/$mapId',
   path: '/maps/$mapId',
@@ -92,6 +98,7 @@ export interface FileRoutesByFullPath {
   '/stats': typeof WorkbenchStatsRoute
   '/tree': typeof WorkbenchTreeRoute
   '/lineups/garage': typeof WorkbenchLineupsGarageRoute
+  '/lineups/lobby': typeof WorkbenchLineupsLobbyRoute
   '/maps/$mapId': typeof WorkbenchMapsMapIdRoute
   '/stats/garage': typeof WorkbenchStatsGarageRoute
 }
@@ -105,6 +112,7 @@ export interface FileRoutesByTo {
   '/stats': typeof WorkbenchStatsRoute
   '/tree': typeof WorkbenchTreeRoute
   '/lineups/garage': typeof WorkbenchLineupsGarageRoute
+  '/lineups/lobby': typeof WorkbenchLineupsLobbyRoute
   '/maps/$mapId': typeof WorkbenchMapsMapIdRoute
   '/stats/garage': typeof WorkbenchStatsGarageRoute
 }
@@ -120,6 +128,7 @@ export interface FileRoutesById {
   '/_workbench/stats': typeof WorkbenchStatsRoute
   '/_workbench/tree': typeof WorkbenchTreeRoute
   '/_workbench/lineups_/garage': typeof WorkbenchLineupsGarageRoute
+  '/_workbench/lineups_/lobby': typeof WorkbenchLineupsLobbyRoute
   '/_workbench/maps_/$mapId': typeof WorkbenchMapsMapIdRoute
   '/_workbench/stats_/garage': typeof WorkbenchStatsGarageRoute
 }
@@ -135,6 +144,7 @@ export interface FileRouteTypes {
     | '/stats'
     | '/tree'
     | '/lineups/garage'
+    | '/lineups/lobby'
     | '/maps/$mapId'
     | '/stats/garage'
   fileRoutesByTo: FileRoutesByTo
@@ -148,6 +158,7 @@ export interface FileRouteTypes {
     | '/stats'
     | '/tree'
     | '/lineups/garage'
+    | '/lineups/lobby'
     | '/maps/$mapId'
     | '/stats/garage'
   id:
@@ -162,6 +173,7 @@ export interface FileRouteTypes {
     | '/_workbench/stats'
     | '/_workbench/tree'
     | '/_workbench/lineups_/garage'
+    | '/_workbench/lineups_/lobby'
     | '/_workbench/maps_/$mapId'
     | '/_workbench/stats_/garage'
   fileRoutesById: FileRoutesById
@@ -243,6 +255,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkbenchLineupsGarageRouteImport
       parentRoute: typeof WorkbenchRoute
     }
+    '/_workbench/lineups_/lobby': {
+      id: '/_workbench/lineups_/lobby'
+      path: '/lineups/lobby'
+      fullPath: '/lineups/lobby'
+      preLoaderRoute: typeof WorkbenchLineupsLobbyRouteImport
+      parentRoute: typeof WorkbenchRoute
+    }
     '/_workbench/maps_/$mapId': {
       id: '/_workbench/maps_/$mapId'
       path: '/maps/$mapId'
@@ -269,6 +288,7 @@ interface WorkbenchRouteChildren {
   WorkbenchStatsRoute: typeof WorkbenchStatsRoute
   WorkbenchTreeRoute: typeof WorkbenchTreeRoute
   WorkbenchLineupsGarageRoute: typeof WorkbenchLineupsGarageRoute
+  WorkbenchLineupsLobbyRoute: typeof WorkbenchLineupsLobbyRoute
   WorkbenchMapsMapIdRoute: typeof WorkbenchMapsMapIdRoute
   WorkbenchStatsGarageRoute: typeof WorkbenchStatsGarageRoute
 }
@@ -282,6 +302,7 @@ const WorkbenchRouteChildren: WorkbenchRouteChildren = {
   WorkbenchStatsRoute: WorkbenchStatsRoute,
   WorkbenchTreeRoute: WorkbenchTreeRoute,
   WorkbenchLineupsGarageRoute: WorkbenchLineupsGarageRoute,
+  WorkbenchLineupsLobbyRoute: WorkbenchLineupsLobbyRoute,
   WorkbenchMapsMapIdRoute: WorkbenchMapsMapIdRoute,
   WorkbenchStatsGarageRoute: WorkbenchStatsGarageRoute,
 }

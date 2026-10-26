@@ -4,6 +4,7 @@ export async function shareReportPoster(
   sdk: Pick<SDK, "viewport" | "share">,
   target: HTMLElement,
   live: () => boolean,
+  options: { fullWindow?: boolean } = {},
 ) {
   await document.fonts.ready;
   await Promise.all(
@@ -33,8 +34,18 @@ export async function shareReportPoster(
     throw Error("成就卡未完整显示，请返回后重试。");
   if (!reserve || reserve.height < 57 || Math.abs(reserve.bottom - rect.bottom) > 0.5)
     throw Error("截图底部水印区域不足，请返回后重试。");
+  if (
+    options.fullWindow &&
+    (Math.abs(rect.left) > 1 ||
+      Math.abs(rect.top) > 1 ||
+      Math.abs(rect.right - window.windowWidth) > 1 ||
+      Math.abs(rect.bottom - window.windowHeight) > 1)
+  )
+    throw Error("窗口尺寸已变化，请重新保存战报。");
   await sdk.share.screenshot({
-    rect: { left: rect.left, top: rect.top, width: rect.width, height: rect.height },
+    ...(options.fullWindow
+      ? {}
+      : { rect: { left: rect.left, top: rect.top, width: rect.width, height: rect.height } }),
     delay: 100,
     watermarkTheme: "dark",
     saveToAlbum: true,

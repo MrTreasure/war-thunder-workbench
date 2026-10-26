@@ -1,7 +1,14 @@
 import { MiniappError, type APIRequest, type SDK } from "./api.ts";
 
 type User = {
+  linkedAccounts?: {
+    provider: string;
+    providerUserId?: string | null;
+    displayName: string | null;
+    avatarUrl: string | null;
+  }[];
   id: string;
+  email?: string | null;
   displayName?: string;
   avatarUrl?: string | null;
   avatarFallbackUrl?: string | null;
@@ -29,6 +36,7 @@ export type AccountView = {
   user: User | null;
   storageError: boolean;
   generation: number;
+  hostProfile?: { displayName?: string; avatarUrl: string | null } | null;
 };
 const KEY = "wt_heybox_session_v1";
 const changed = () => new MiniappError("ACCOUNT_CHANGED", "账号状态已变化，请重新登录");
@@ -38,7 +46,9 @@ export function createAccount(sdk: SDK, api: APIRequest) {
   let epoch = 0,
     disposed = false,
     confirmedKey: string | null | undefined;
-  let hostAvatarUrl: string | null = null;
+  let hostAvatarUrl: string | null = null,
+    hostNickname: string | null = null;
+  let profileRead: Promise<void> | null = null;
   let saved: Saved | null = null,
     pending: Pending | null = null;
   let pairPending: {
@@ -57,13 +67,22 @@ export function createAccount(sdk: SDK, api: APIRequest) {
       status === "authenticated" && saved
         ? {
             ...saved.user,
-            avatarUrl: hostAvatarUrl,
+            displayName: hostNickname || saved.user.displayName,
+            avatarUrl:
+              hostAvatarUrl ||
+              (saved.user.avatarSource === "heybox" && saved.user.avatarUrl?.startsWith("https://")
+                ? saved.user.avatarUrl
+                : null),
             avatarFallbackUrl: null,
             avatarSource: "heybox",
           }
         : null,
     storageError,
     generation: epoch,
+    hostProfile:
+      confirmedKey && (hostAvatarUrl || hostNickname)
+        ? { displayName: hostNickname || undefined, avatarUrl: hostAvatarUrl }
+        : null,
   });
   const emit = () => {
     if (!disposed) for (const listener of listeners) listener(view());
@@ -88,6 +107,8 @@ export function createAccount(sdk: SDK, api: APIRequest) {
     if (key !== confirmedKey) {
       epoch++;
       hostAvatarUrl = null;
+      hostNickname = null;
+      profileRead = null;
       pairPending = null;
     }
     confirmedKey = key;
@@ -109,29 +130,42 @@ export function createAccount(sdk: SDK, api: APIRequest) {
   // responses synchronously, before another user's information can be painted.
   const stopAccount = sdk.on("heybox_app_login_change", reconcile);
   async function refreshHostProfile(key: string, turn: number) {
-    try {
-      const result = await sdk.user.getInfo();
-      await verify(key, turn);
-      if (status !== "authenticated" || disposed || turn !== epoch) return;
-      const avatar =
-        result.isHeyboxAppLoggedIn && result.authorization.profile === "granted"
-          ? result.userInfo?.profile?.avatar
-          : null;
-      let url: URL | null = null;
+    if (profileRead) return profileRead;
+    const read = async () => {
       try {
-        if (avatar) url = new URL(avatar);
-      } catch {
-        /* Missing profile uses the account icon. */
-      }
-      hostAvatarUrl =
-        url?.protocol === "https:" && !url.username && !url.password ? url.href : null;
-      emit();
-    } catch {
-      // Profile permission/network failure must not expose the independently selected PC avatar.
-      if (!disposed && turn === epoch) {
-        hostAvatarUrl = null;
+        const result = await sdk.user.getInfo();
+        await verify(key, turn);
+        if (disposed || turn !== epoch || confirmedKey !== key) return;
+        const avatar =
+          result.isHeyboxAppLoggedIn && result.authorization.profile === "granted"
+            ? result.userInfo?.profile?.avatar
+            : null;
+        let url: URL | null = null;
+        try {
+          if (avatar) url = new URL(avatar);
+        } catch {
+          /* Missing profile uses the account icon. */
+        }
+        hostAvatarUrl =
+          url?.protocol === "https:" && !url.username && !url.password ? url.href : null;
+        const nickname =
+          result.isHeyboxAppLoggedIn && result.authorization.profile === "granted"
+            ? result.userInfo?.profile?.nickname?.trim()
+            : null;
+        hostNickname =
+          nickname && !/[\p{Cc}\p{Cf}]/u.test(nickname) ? nickname.slice(0, 100) : null;
         emit();
+      } catch {
+        // Preserve already verified Host presentation on a transient same-account failure.
+        // Account changes clear both fields synchronously in reconcile().
       }
+    };
+    const pending = read();
+    profileRead = pending;
+    try {
+      await pending;
+    } finally {
+      if (profileRead === pending) profileRead = null;
     }
   }
   async function refresh() {
@@ -143,8 +177,7 @@ export function createAccount(sdk: SDK, api: APIRequest) {
       const state = await sdk.auth.getAccountState();
       if (!disposed && turn === epoch) {
         reconcile(state);
-        if (view().status === "authenticated" && confirmedKey)
-          void refreshHostProfile(confirmedKey, epoch);
+        if (confirmedKey) void refreshHostProfile(confirmedKey, epoch);
       }
     } catch {
       if (!disposed && turn === epoch) {
@@ -274,7 +307,7 @@ export function createAccount(sdk: SDK, api: APIRequest) {
     /** Invoke directly from the click handler, without an await before auth.login. */
     async login(agreementVersion: string) {
       if (!agreementVersion || disposed) throw changed();
-      const authorization = sdk.auth.login();
+      const authorization = sdk.auth.login({ scopes: ["profile"] });
       const result = await authorization;
       if (!result.accountKey)
         throw new MiniappError(
@@ -317,7 +350,7 @@ export function createAccount(sdk: SDK, api: APIRequest) {
     /** Call only after showing the website and (for binding) the target account. */
     async approvePair(pair: BrowserPair) {
       if (pair.expiresAt <= Date.now() || pair.status !== "pending") throw changed();
-      const authorization = sdk.auth.login();
+      const authorization = sdk.auth.login({ scopes: ["profile"] });
       const result = await authorization;
       if (!result.accountKey)
         throw new MiniappError("HOST_ACCOUNT_UNAVAILABLE", "请升级小黑盒后重试");
@@ -354,6 +387,8 @@ export function createAccount(sdk: SDK, api: APIRequest) {
       });
       await verify(proof.accountKey, proof.epoch);
       if (result.status !== "approved") throw changed();
+      if (result.session)
+        await accept({ status: "authenticated", ...result.session }, proof.accountKey, proof.epoch);
       pairPending = null;
     },
     /** Private responses are discarded after account changes, including switches

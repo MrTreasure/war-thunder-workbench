@@ -349,7 +349,9 @@ small {
   margin-inline: auto;
 }
 .hb-tree-scroll .canvas {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   transform-origin: top left;
 }
 .hb-country-entry {
@@ -770,6 +772,10 @@ details[open] > summary::after {
   font-size: 14px;
   color: var(--wt-muted);
 }
+.hb-linked-identity-id {
+  overflow-wrap: anywhere;
+  user-select: text;
+}
 .hb-app .hb-menu-row {
   display: flex;
   align-items: center;
@@ -905,29 +911,13 @@ details[open] > summary::after {
 }
 .hb-vehicle-presentation {
   display: grid;
-  justify-items: center;
+  justify-items: start;
   align-content: start;
-  gap: 8px;
   min-width: 0;
   padding-top: 12px;
 }
 .hb-vehicle-presentation > .vehicle-card.wt-game-card[data-kind="pack"] {
   margin-bottom: 24px;
-}
-.hb-vehicle-caption {
-  width: 228px;
-  max-width: 100%;
-  display: grid;
-  gap: 3px;
-  color: var(--wt-muted);
-  font-size: 11px;
-  line-height: 1.5;
-}
-.hb-vehicle-caption > span {
-  overflow-wrap: anywhere;
-}
-.hb-vehicle-full-name {
-  color: var(--wt-body);
 }
 .hb-app .vehicle-card.wt-game-card,
 .hb-detail-body .vehicle-card.wt-game-card {
@@ -937,8 +927,8 @@ details[open] > summary::after {
 .hb-tree-scroll .canvas-space {
   overflow: visible;
 }
-.hb-app .hb-tree-scroll .vehicle-card.wt-game-card {
-  touch-action: manipulation;
+.hb-app .hb-tree-scroll:not(.is-list) .vehicle-card.wt-game-card {
+  touch-action: none;
 }
 .hb-detail-body .hb-vehicle-presentation {
   flex: none;
@@ -1342,19 +1332,6 @@ details[open] > summary::after {
   gap: 16px;
   padding: 18px 12px;
 }
-.hb-unit-list > .hb-vehicle-presentation {
-  grid-template-columns: 228px minmax(0, 1fr);
-  justify-items: start;
-  align-items: center;
-  gap: 12px;
-  padding-top: 10px;
-}
-.hb-unit-list .hb-vehicle-caption {
-  width: auto;
-  align-self: center;
-  padding-bottom: 16px;
-  line-height: 1.65;
-}
 /* finesse · h5/product · existing workbench tokens, game vehicle components */
 .hb-query-history {
   margin: 18px 0;
@@ -1410,7 +1387,12 @@ details[open] > summary::after {
   gap: 16px;
   margin-top: 16px;
 }
+/* finesse · component: valuation-entry · register=h5/product · tokens: inherited */
 .hb-value-vehicles > article {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
   padding-bottom: 16px;
   border-bottom: 1px solid var(--wt-line);
   min-width: 0;
@@ -1419,7 +1401,9 @@ details[open] > summary::after {
   font-size: 12px;
   display: grid;
   gap: 6px;
-  margin-top: 8px;
+  flex: 1 1 120px;
+  min-width: 0;
+  padding-block: 8px;
   color: var(--wt-muted);
   overflow-wrap: anywhere;
 }
@@ -1437,7 +1421,11 @@ details[open] > summary::after {
   min-height: 44px;
 }
 .hb-tree-scroll:not(.is-list) {
-  touch-action: pan-x pan-y;
+  touch-action: none;
+  padding: 16px 16px calc(24px + var(--wt-safe-bottom));
+}
+.hb-tree-scroll.is-list {
+  touch-action: pan-y;
 }
 .hb-app:has(.is-tree-fullscreen) > .hb-app-header,
 .hb-app:has(.is-tree-fullscreen) > .hb-tabbar,
@@ -1445,6 +1433,7 @@ details[open] > summary::after {
   display: none;
 }
 .hb-research.is-tree-fullscreen {
+  height: auto;
   position: fixed;
   z-index: 50;
   inset: var(--wt-host-safe-top, 0px) 0 var(--wt-host-safe-bottom, 0px);
@@ -1481,7 +1470,7 @@ details[open] > summary::after {
     100%,
     calc(
       (100dvh - 264px - var(--wt-host-safe-top, 0px) - var(--wt-host-safe-bottom, 0px)) *
-        var(--hb-poster-ratio)
+        var(--wt-poster-ratio)
     )
   );
   background: #192126;
@@ -1515,4 +1504,122 @@ details[open] > summary::after {
   backdrop-filter: blur(7px);
   -webkit-mask-image: linear-gradient(to bottom, transparent, #000 32%, #000 60%, transparent);
   mask-image: linear-gradient(to bottom, transparent, #000 32%, #000 60%, transparent);
+}
+
+/* Native capsule stays Host-owned; page actions occupy its reserved left rail. */
+.hb-host-actions {
+  position: fixed;
+  z-index: 70;
+  top: max(0px, calc(var(--wt-safe-top) - 48px));
+  left: calc(var(--wt-safe-left) + 12px);
+  right: calc(var(--wt-safe-right) + 112px);
+  height: clamp(0px, calc(var(--wt-safe-top) - 24px), 44px);
+  display: none;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  color: var(--wt-ink);
+}
+.hb-host-actions button {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  padding: 0 6px;
+  border: 0;
+  background: transparent;
+  color: var(--wt-gold);
+  font: inherit;
+}
+.hb-host-actions > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+}
+.hb-host-actions .hb-game-icon {
+  width: 20px;
+  height: 20px;
+}
+.hb-host-actions button:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: -2px;
+}
+.hb-screen-stack:not(.has-detail):has(.is-tree-fullscreen) > .hb-host-actions {
+  display: none;
+}
+.hb-stats-return {
+  display: flex;
+  align-items: center;
+  margin-block: 4px;
+}
+.hb-stats-return > button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.hb-stats-return .hb-game-icon {
+  width: 18px;
+  height: 18px;
+}
+
+html[data-host-top-rail="true"] .hb-host-actions {
+  display: flex;
+}
+html[data-host-top-rail="true"] .hb-detail-screen {
+  grid-template-rows: var(--wt-safe-top) minmax(0, 1fr);
+}
+html[data-host-top-rail="true"] .hb-detail-header {
+  visibility: hidden;
+  pointer-events: none;
+}
+.hb-detail-outlet {
+  grid-row: 2;
+}
+.hb-native-capture {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) 64px;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--wt-page);
+  color: var(--wt-ink);
+}
+.hb-native-capture > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  object-fit: contain;
+}
+.hb-native-capture > .hb-achievement-watermark-reserve {
+  height: 64px;
+  min-height: 64px;
+  background-color: var(--wt-page);
+}
+
+.hb-native-capture {
+  background-size: cover;
+  background-position: center;
+}
+.hb-native-capture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--wt-page) 35%, transparent);
+}
+.hb-native-capture > img,
+.hb-native-capture > .hb-achievement-watermark-reserve {
+  position: relative;
+  z-index: 1;
 }

@@ -22,8 +22,8 @@
   "sources": [
     {
       "url": "https://wiki.warthunder.com/mechanics/matchmaking",
-      "checkedAt": "2026-10-20T09:17:36.988568+00:00",
-      "sha256": "bee33674bca416420649ee655545baf71a95319f9176c10390e08e945b4b26bf"
+      "checkedAt": "2026-10-26T03:01:02.354444+00:00",
+      "sha256": "7853a4b988ef279b48c1e052c0afc057410ea2357d669df9745fe7101b1bff67"
     },
     {
       "url": "https://warthunder.com/en/news/3831--en",
@@ -40,6 +40,8 @@
     "Ground RB includes helicopters using their RB rating. Ground AB, fixed-wing Air and Naval lineups exclude helicopters. Helicopter-only PVE/event matchmaking is not estimated as a mixed Ground lineup.",
     "Naval aircraft use their AB/RB rating; aircraft above one step over the highest vessel are excluded.",
     "SB ground uses event vehicle lists; air SB uses room Required/Allowed BR ranges. No synthetic queue SB matchmaking BR.",
-    "Sharing stores country and ordered vehicles only; name, battle type and Air RB selected aircraft are local settings. Import infers type and selects the first eligible aircraft."
-  ]
+    "Sharing stores country and ordered vehicles only; name, battle type and Air RB selected aircraft are local settings. Import infers type and selects the first eligible aircraft.",
+    "AB/RB possible opponent BR window is lineup BR minus/plus three one-third steps (1.0), floored at 1.0; a single ordinary battle spans no more than 1.0. SB event lists and room ranges remain separate."
+  ],
+  "matchmakingSpreadSteps": 3
 }

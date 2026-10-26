@@ -25,10 +25,12 @@ const NavigationContext = createContext<Navigation | null>(null);
 export function NavigationProvider({
   root,
   suspended = false,
+  onHome,
   children,
 }: {
   root: string;
   suspended?: boolean;
+  onHome?: () => void;
   children: ReactNode;
 }) {
   const [outlet, setOutlet] = useState<HTMLDivElement | null>(null);
@@ -85,6 +87,17 @@ export function NavigationProvider({
   return (
     <NavigationContext value={{ outlet, current: active?.id || "", register, back }}>
       <div className={"hb-screen-stack" + (active ? " has-detail" : "")}>
+        <div className="hb-host-actions" hidden={suspended}>
+          <button
+            type="button"
+            onClick={active ? back : onHome}
+            aria-label={active ? "顶部返回上一页" : "返回研发首页"}
+          >
+            <GameUIIcon name={active ? "back" : "research"} />
+            <span>{active ? "返回" : "首页"}</span>
+          </button>
+          <span>{active?.title || "战雷工作台"}</span>
+        </div>
         <div className="hb-root-screen" hidden={!!active && !suspended}>
           {children}
         </div>

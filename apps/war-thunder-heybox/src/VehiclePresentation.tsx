@@ -51,10 +51,13 @@ export function useMiniappOwnedVehicles() {
 export function VehiclePresentation({
   unit: supplied,
   country,
-  category,
   mode = "rb",
   owned = false,
   onSelect,
+  href,
+  packQuote,
+  showCountry = true,
+  showRank = true,
   selected = false,
 }: {
   unit: VehicleTileUnit;
@@ -64,24 +67,14 @@ export function VehiclePresentation({
   owned?: boolean;
   selected?: boolean;
   onSelect?: () => void;
+  href?: string;
+  packQuote?: { amountCents: number | null; checkedAt: string | null };
+  showCountry?: boolean;
+  showRank?: boolean;
 }) {
   const facts = useVehicleFacts();
   const unit = withVehicleFacts(supplied, facts);
-  const countryId = unit.country || country || "",
-    categoryId = unit.category || category || "";
-  const acquisition =
-    unit.kind === "squadron"
-      ? catalog.lineupKinds.squadron
-      : unit.kind === "gold"
-        ? "金鹰载具"
-        : unit.kind === "pack"
-          ? catalog.lineupKinds.pack
-          : unit.side === "research"
-            ? catalog.lineupKinds.research
-            : unit.kind
-              ? catalog.lineupKinds.special
-              : "获取类型待核对";
-  const roles = catalog.roles as Record<string, string>;
+  const countryId = unit.country || country || "";
   return (
     <div className="hb-vehicle-presentation" data-kind={unit.kind}>
       <VehicleTile
@@ -89,19 +82,14 @@ export function VehiclePresentation({
         mode={mode}
         owned={owned}
         onSelect={onSelect}
+        href={href}
+        packQuote={packQuote}
         selected={selected}
-        showRank
-        countryLabel={(catalog.countries as Record<string, string>)[countryId]}
+        showRank={showRank}
+        countryLabel={
+          showCountry ? (catalog.countries as Record<string, string>)[countryId] : undefined
+        }
       />
-      <div className="hb-vehicle-caption">
-        <span>{roles[unit.role || ""] || "类型待核对"}</span>
-        <span>
-          {acquisition}
-          {categoryId
-            ? ` · ${(catalog.categories as Record<string, string>)[categoryId] || categoryId}`
-            : ""}
-        </span>
-      </div>
     </div>
   );
 }

@@ -75,6 +75,15 @@ export function createAPI(sdk: SDK) {
         validateStatus: () => true,
       })
       .catch((error: unknown) => {
+        // A Host can reject an HTTP error before the SDK status predicate runs.
+        // Preserve its documented response fields instead of turning an expired code into a connection failure.
+        const http = error as { status?: unknown; data?: unknown };
+        if (
+          Number.isInteger(http?.status) &&
+          Number(http.status) >= 400 &&
+          Number(http.status) <= 599
+        )
+          return { status: Number(http.status), data: http.data };
         const code = (error as { code?: string })?.code || "NETWORK_UNAVAILABLE";
         const message = [
           "PERMISSION_NOT_IN_SNAPSHOT",
@@ -101,18 +110,30 @@ export function createAPI(sdk: SDK) {
       try {
         data = JSON.parse(data);
       } catch {
-        throw new MiniappError(
-          "INVALID_NETWORK_RESPONSE",
-          `服务响应暂不可用（HTTP ${response.status}），请稍后重试。`,
-          response.status,
-        );
+        if (response.status >= 400) data = null;
+        else
+          throw new MiniappError(
+            "INVALID_NETWORK_RESPONSE",
+            `服务响应暂不可用（HTTP ${response.status}），请稍后重试。`,
+            response.status,
+          );
       }
     }
     if (response.status < 200 || response.status >= 300) {
       const failure = data as { code?: unknown; message?: unknown } | null;
+      const expired = response.status === 410 && path.startsWith("auth/heybox/device/");
+      const fallback = expired
+        ? "关联号已过期，请在网页重新生成关联号后输入。"
+        : response.status === 429
+          ? "操作过于频繁，请稍后重试。"
+          : `请求未完成（HTTP ${response.status}），请稍后重试。`;
       throw new MiniappError(
-        typeof failure?.code === "string" ? failure.code : "API_UNAVAILABLE",
-        typeof failure?.message === "string" ? failure.message : "服务暂不可用，请稍后重试",
+        typeof failure?.code === "string"
+          ? failure.code
+          : expired
+            ? "HEYBOX_AUTH_EXPIRED"
+            : `HTTP_${response.status}`,
+        expired ? fallback : typeof failure?.message === "string" ? failure.message : fallback,
         response.status,
       );
     }

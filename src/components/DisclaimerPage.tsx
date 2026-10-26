@@ -38,6 +38,12 @@ export function DisclaimerPage() {
           {localize(" ")}
           {t("联系，核实后及时更正、替换或移除。")}
         </p>
+        <h3>{t("分享内容与安全审查")}</h3>
+        <p>
+          {t(
+            "主动提交的分享文字会关联本站账号或匿名设备标识、提交时间及来源地址，记录安全检查结果，供授权管理员审查并处理违规账号；这些记录不会公开到队列大厅。管理员可限制违规账号的整个工作台访问权限。分享图片在浏览器中合成，不上传保存成品。",
+          )}
+        </p>
         <p className="wt-app-platform-credit">
           <a
             href="https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB"

@@ -49,6 +49,7 @@ export function VehicleTile({
   packQuote,
   footerLabel,
   showRank = false,
+  showAcquisition = true,
   countryLabel,
 }: {
   unit: VehicleTileUnit;
@@ -66,6 +67,8 @@ export function VehicleTile({
   footerLabel?: string;
   /** Adds rank to the shared right caption; tree rank bands can leave it hidden. */
   showRank?: boolean;
+  /** Hide acquisition and pack quotes in compact lineup share images. */
+  showAcquisition?: boolean;
   /** Omit when the surrounding page already identifies the country. */
   countryLabel?: string;
 }) {
@@ -139,8 +142,12 @@ export function VehicleTile({
       type={onSelect ? "button" : undefined}
       style={{ "--wt-game-owned-icon": `url("${cardTheme.icons.owned}")` } as CSSProperties}
       onClick={onSelect}
-      aria-label={`${name}，Rank ${unit.rank || "—"}${owned ? t("，已拥有") : ""}，${exact}${onSelect ? t("，查看载具详情") : ""}`}
-      title={`${name} · ${exact}`}
+      aria-label={
+        showAcquisition
+          ? `${name}，Rank ${unit.rank || "—"}${owned ? t("，已拥有") : ""}，${exact}${onSelect ? t("，查看载具详情") : ""}`
+          : `${name}${owned ? t("，已拥有") : ""}${onSelect ? t("，查看载具详情") : ""}`
+      }
+      title={showAcquisition ? `${name} · ${exact}` : name}
     >
       {localize(
         owned && (
@@ -156,57 +163,59 @@ export function VehicleTile({
         {localize(name)}
       </span>
       <span className="wt-game-card-bottom">
-        <span className="wt-game-card-cost" title={exact}>
-          {localize(
-            research ? (
-              <>
-                {localize(
-                  unit.rp == null
-                    ? "—"
-                    : unit.rp === 0
-                      ? t("初始")
-                      : compactResearchPoints(unit.rp, getLocale()),
-                )}
-                {localize(
-                  unit.rp !== 0 && (
-                    <img
-                      className="wt-game-currency"
-                      src={cardTheme.icons.rp}
-                      width={18}
-                      height={18}
-                      alt={t("研发点")}
-                    />
-                  ),
-                )}
-              </>
-            ) : unit.kind === "gold" ? (
-              <>
-                {localize(
-                  unit.price == null && unit.ge == null ? "—" : format((unit.price ?? unit.ge)!),
-                )}
+        {showAcquisition && (
+          <span className="wt-game-card-cost" title={exact}>
+            {localize(
+              research ? (
+                <>
+                  {localize(
+                    unit.rp == null
+                      ? "—"
+                      : unit.rp === 0
+                        ? t("初始")
+                        : compactResearchPoints(unit.rp, getLocale()),
+                  )}
+                  {localize(
+                    unit.rp !== 0 && (
+                      <img
+                        className="wt-game-currency"
+                        src={cardTheme.icons.rp}
+                        width={18}
+                        height={18}
+                        alt={t("研发点")}
+                      />
+                    ),
+                  )}
+                </>
+              ) : unit.kind === "gold" ? (
+                <>
+                  {localize(
+                    unit.price == null && unit.ge == null ? "—" : format((unit.price ?? unit.ge)!),
+                  )}
+                  <img
+                    className="wt-game-currency is-ge"
+                    src={cardTheme.icons.ge}
+                    width={20}
+                    height={20}
+                    alt={t("金鹰")}
+                  />
+                </>
+              ) : unit.kind === "pack" ? (
+                t("礼包")
+              ) : market ? (
                 <img
-                  className="wt-game-currency is-ge"
-                  src={cardTheme.icons.ge}
-                  width={20}
-                  height={20}
-                  alt={t("金鹰")}
+                  className="wt-game-currency is-gjn"
+                  src={cardTheme.icons.gjn}
+                  width={24}
+                  height={24}
+                  alt="Gaijin Coin"
                 />
-              </>
-            ) : unit.kind === "pack" ? (
-              t("礼包")
-            ) : market ? (
-              <img
-                className="wt-game-currency is-gjn"
-                src={cardTheme.icons.gjn}
-                width={24}
-                height={24}
-                alt="Gaijin Coin"
-              />
-            ) : (
-              t("特殊")
-            ),
-          )}
-        </span>
+              ) : (
+                t("特殊")
+              ),
+            )}
+          </span>
+        )}
         <span className="wt-game-card-br">{localize(modeRating ?? rating(unit, mode))}</span>
         <span
           className={`wt-game-role ${role}`}
@@ -238,7 +247,7 @@ export function VehicleTile({
         </span>
       )}
       {localize(
-        unit.kind === "pack" && (
+        showAcquisition && unit.kind === "pack" && (
           <span
             className="wt-game-pack-price"
             title={t("{0} · 价格核对于 {1}", [

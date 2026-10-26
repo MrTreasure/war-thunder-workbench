@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "maxVehicles": 8,
+  "maxAuthorTags": 3,
+  "officialTag": {
+    "url": "https://static.encyclopedia.warthunder.com/gui_skin/discount_box_thin_bg.svg",
+    "bytes": 3267,
+    "sha256": "e9239894ddae1d5eef14f1ab422ba50b6a87106948a0f4b20832c82e4ada4dad"
+  },
+  "colors": {
+    "silver": "#414b53",
+    "gold": "#766348",
+    "red": "#ff313b",
+    "blue": "#355369"
+  },
+  "tags": [
+    {
+      "id": "classic",
+      "label": "经典标配",
+      "color": "gold",
+      "group": "推荐",
+      "system": false
+    },
+    {
+      "id": "balanced",
+      "label": "均衡配置",
+      "color": "silver",
+      "group": "推荐",
+      "system": false
+    },
+    {
+      "id": "core",
+      "label": "核心阵容",
+      "color": "silver",
+      "group": "推荐",
+      "system": false
+    },
+    {
+      "id": "starter",
+      "label": "入门推荐",
+      "color": "silver",
+      "group": "推荐",
+      "system": false
+    },
+    {
+      "id": "transition",
+      "label": "过渡阵容",
+      "color": "silver",
+      "group": "推荐",
+      "system": false
+    },
+    {
+      "id": "strong",
+      "label": "权重强势",
+      "color": "gold",
+      "group": "推荐",
+      "system": false
+    },
+    {
+      "id": "armor",
+      "label": "重装抗线",
+      "color": "red",
+      "group": "战术",
+      "system": false
+    },
+    {
+      "id": "advance",
+      "label": "正面推进",
+      "color": "red",
+      "group": "战术",
+      "system": false
+    },
+    {
+      "id": "shield",
+      "label": "重甲坚盾",
+      "color": "silver",
+      "group": "战术",
+      "system": false
+    },
+    {
+      "id": "steady",
+      "label": "稳扎稳打",
+      "color": "silver",
+      "group": "战术",
+      "system": false
+    },
+    {
+      "id": "flank",
+      "label": "机动侧袭",
+      "color": "blue",
+      "group": "机动",
+      "system": false
+    },
+    {
+      "id": "roam",
+      "label": "灵活游走",
+      "color": "blue",
+      "group": "机动",
+      "system": false
+    },
+    {
+      "id": "relocate",
+      "label": "快速转场",
+      "color": "blue",
+      "group": "机动",
+      "system": false
+    },
+    {
+      "id": "rush",
+      "label": "轻装突进",
+      "color": "blue",
+      "group": "机动",
+      "system": false
+    },
+    {
+      "id": "firepower",
+      "label": "火力凶猛",
+      "color": "red",
+      "group": "火力",
+      "system": false
+    },
+    {
+      "id": "range",
+      "label": "远程支援",
+      "color": "silver",
+      "group": "火力",
+      "system": false
+    },
+    {
+      "id": "rapid",
+      "label": "速射压制",
+      "color": "red",
+      "group": "火力",
+      "system": false
+    },
+    {
+      "id": "glass",
+      "label": "玻璃大炮",
+      "color": "silver",
+      "group": "火力",
+      "system": false
+    },
+    {
+      "id": "ground",
+      "label": "地面主战",
+      "color": "silver",
+      "group": "协同",
+      "system": false
+    },
+    {
+      "id": "combined",
+      "label": "空地协同",
+      "color": "blue",
+      "group": "协同",
+      "system": false
+    },
+    {
+      "id": "aa",
+      "label": "防空齐备",
+      "color": "blue",
+      "group": "协同",
+      "system": false
+    },
+    {
+      "id": "all-ge",
+      "label": "全金鹰",
+      "color": "gold",
+      "group": "构成",
+      "system": true
+    },
+    {
+      "id": "tech",
+      "label": "纯科技树",
+      "color": "silver",
+      "group": "构成",
+      "system": true
+    },
+    {
+      "id": "mixed-ge",
+      "label": "金银混编",
+      "color": "gold",
+      "group": "构成",
+      "system": true
+    },
+    {
+      "id": "mixed-pack",
+      "label": "礼包混编",
+      "color": "silver",
+      "group": "构成",
+      "system": true
+    },
+    {
+      "id": "mixed-event",
+      "label": "活动混编",
+      "color": "silver",
+      "group": "构成",
+      "system": true
+    }
+  ]
+}

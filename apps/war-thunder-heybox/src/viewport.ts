@@ -18,6 +18,7 @@ export function useHostViewport() {
           document.documentElement.style.setProperty(`--wt-host-safe-${edge}`, `${value}px`);
       }
       document.documentElement.dataset.hostViewport = "ready";
+      document.documentElement.dataset.hostTopRail = values.top >= 48 ? "true" : "false";
     };
     const read = () => {
       void sdk.viewport.setNavigationBarStyle({ foregroundStyle: "light" }).catch(() => {

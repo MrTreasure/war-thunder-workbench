@@ -1,3 +1,5 @@
+import { LineupShareTools } from "./LineupShareTools";
+import { useRouterState } from "@tanstack/react-router";
 import { t, localize, vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { VehicleTile } from "./VehicleTile";
@@ -58,6 +60,20 @@ export function Lineups({
   retry: () => void;
 }) {
   useLocale();
+  const routeCountry = useRouterState({
+    select: (state) => (state.location.search as { country?: string }).country,
+  });
+  const handledCountry = useRef<string | undefined>(undefined);
+  useEffect(() => {
+    if (
+      routeCountry &&
+      handledCountry.current !== routeCountry &&
+      Object.hasOwn(catalog.countries, routeCountry)
+    ) {
+      handledCountry.current = routeCountry;
+      if (routeCountry !== country) chooseCountry(routeCountry);
+    }
+  }, [routeCountry, catalog.countries, country, chooseCountry]);
   const [importText, setImportText] = useState("");
   const [importOpen, setImportOpen] = useState(false);
   const importInput = useRef<HTMLInputElement>(null);
@@ -540,7 +556,7 @@ function CountryLineups({
       {localize(
         shareOpen && selected && (
           <Modal
-            className="lineup-import-dialog"
+            className="lineup-import-dialog wt-community-dialog"
             title={t("分享队列 · {0}", [localize(selected.name)])}
             subtitle={t("24 位分享码，区分大小写；保留空槽位与顺序。")}
             close={() => setShareOpen(false)}
@@ -564,6 +580,13 @@ function CountryLineups({
               <p className="calc-note">
                 {t("分享码只包含国家和载具槽位，不包含队列名称、战斗类型和空战 RB 出击选择。")}
               </p>
+              <LineupShareTools
+                lineup={selected}
+                code={share.code}
+                country={country}
+                units={units}
+                defaultMode={mode}
+              />
             </div>
           </Modal>
         ),

@@ -272,3 +272,11 @@ export function moveLineupSlot(slots: (string | null)[], from: number, to: numbe
   result.splice(to, 0, value);
   return result;
 }
+
+/** Standard AB/RB matchmaking can place this queue up to 1.0 below or above.
+ * This is the possible opponent window, not one battle's full BR span. */
+export function lineupMatchmakingWindow(step: number | null, mode: Mode, rules: LineupRules) {
+  if (step === null || mode === "sb") return null;
+  const spread = rules.matchmakingSpreadSteps;
+  return { minimum: brLabel(Math.max(0, step - spread)), maximum: brLabel(step + spread) };
+}

@@ -22,7 +22,7 @@ import { GameSelect } from "../../../src/components/GameSelect";
 import { request, query, pause, account, sdk } from "./runtime";
 import { MainSiteLink } from "./MainSiteLink";
 import { useRuntime } from "./context";
-import { DetailPage, ErrorNote, num, ratio } from "./ui";
+import { DetailPage, ErrorNote, Icon, num, ratio } from "./ui";
 import { createQueryHistory, type QueryRecord } from "./query-history";
 import { AchievementShare } from "./AchievementShare";
 import { MiniappValuationDetails } from "./ValuationDetails";
@@ -422,6 +422,7 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
   return (
     <section ref={scroll} className="hb-scroll hb-page hb-stats wt-record-page">
       <form
+        hidden={!!profile}
         className="hb-query-form"
         onSubmit={(e) => {
           e.preventDefault();
@@ -480,14 +481,26 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
       )}
       <ErrorNote error={historyError} />
       {profile && recent.length > 0 && (
-        <button
-          onClick={() => {
-            setProfile(null);
-            setCandidates([]);
-          }}
-        >
-          返回查询记录
-        </button>
+        <div className="hb-stats-return">
+          <button
+            type="button"
+            className="hb-text-button"
+            onClick={() => {
+              work.current?.abort();
+              setBusy(false);
+              setProgress("");
+              setNotice("");
+              setError("");
+              setProfile(null);
+              setCandidates([]);
+              setNickname("");
+              if (scroll.current) scroll.current.scrollTop = 0;
+            }}
+          >
+            <Icon name="back" />
+            查询记录
+          </button>
+        </div>
       )}
       <ErrorNote error={error} />
       {notice && <output>{notice}</output>}
@@ -686,13 +699,19 @@ export default function Stats({ boundRequest }: { boundRequest: number }) {
       )}
       {shareVehicle && profile && (
         <AchievementShare
+          key={`${profile.snapshotId}:vehicle:${shareVehicle.id}`}
           profile={profile}
           vehicle={shareVehicle}
           close={() => setShareVehicle(null)}
         />
       )}
       {shareReport && profile && report?.status === "ready" && (
-        <AchievementShare profile={profile} report={report} close={() => setShareReport(false)} />
+        <AchievementShare
+          key={`${profile.snapshotId}:report:${report.id}`}
+          profile={profile}
+          report={report}
+          close={() => setShareReport(false)}
+        />
       )}
       {binding && profile && (
         <DetailPage path="#/stats/link-game" title="关联游戏账号" close={() => setBinding(false)}>

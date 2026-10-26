@@ -50,10 +50,18 @@ export default function Research({ initial }: { initial?: ResearchIntent }) {
   function exitFullscreen() {
     setFullscreen(false);
     if (location.hash === "#/research/fullscreen") history.back();
+    else {
+      const state = { ...history.state };
+      delete state.wtTreeFullscreen;
+      history.replaceState(state, "");
+    }
   }
   useEffect(() => {
     if (!fullscreen) return;
-    const pop = () => setFullscreen(false),
+    const pop = () => {
+        if (location.hash !== "#/research/fullscreen" && !history.state?.wtTreeFullscreen)
+          setFullscreen(false);
+      },
       key = (e: KeyboardEvent) => {
         if (e.key === "Escape") exitFullscreen();
       };
@@ -133,10 +141,6 @@ export default function Research({ initial }: { initial?: ResearchIntent }) {
       matchesVehicleFilter(item, filter),
   );
   const choose = (id: string) => {
-    if (fullscreen) {
-      setFullscreen(false);
-      history.replaceState(history.state, "", "#/research");
-    }
     setSelected(id);
     setSheet("vehicle");
   };
@@ -320,6 +324,7 @@ export default function Research({ initial }: { initial?: ResearchIntent }) {
                   unit={u}
                   country={country}
                   category={category}
+                  showCountry={false}
                   mode={mode}
                   owned={ownedVehicleIds.has(u.id)}
                   onSelect={() => choose(u.id)}

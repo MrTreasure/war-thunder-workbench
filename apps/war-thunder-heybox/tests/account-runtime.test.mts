@@ -423,6 +423,55 @@ test("an association response cannot replace the session after a native Host acc
   account.dispose();
 });
 
+test("explicit pair onboarding accepts the resulting native session and retains verified linked identity", async () => {
+  const f = fixture();
+  Object.assign(f.sdk.auth, {
+    login: async () => ({ code: "fixture-code", accountKey: "account-a" }),
+  });
+  const linkedAccounts = [
+    {
+      provider: "heybox",
+      providerUserId: "au_fixture",
+      displayName: "Fixture Heybox",
+      avatarUrl: null,
+    },
+  ];
+  let requests = 0;
+  const api: APIRequest = async () =>
+    (++requests === 1
+      ? { status: "onboarding_required", approvalTicket: "ticket".padEnd(43, "x") }
+      : {
+          status: "approved",
+          session: {
+            token: "unified_".padEnd(43, "x"),
+            expiresInSeconds: 3600,
+            user: { id: "fixture-web-user", linkedAccounts },
+          },
+        }) as any;
+  const account = createAccount(f.sdk, api);
+  await account.initialize();
+  await account.approvePair({
+    pairingCode: "AABBCCDDEEFF",
+    purpose: "login",
+    origin: "https://wt.mrtreasure.cc",
+    expiresAt: Date.now() + 60000,
+    status: "pending",
+  });
+  await account.createForPair("fixture-agreement");
+  let view: any;
+  account.subscribe((value) => {
+    view = value;
+  });
+  assert.equal(view.status, "authenticated");
+  assert.equal(view.user.id, "fixture-web-user");
+  assert.deepEqual(view.user.linkedAccounts, linkedAccounts);
+  assert.deepEqual(
+    (f.storage.get("wt_heybox_session_v1") as any).user.linkedAccounts,
+    linkedAccounts,
+  );
+  account.dispose();
+});
+
 test("miniapp avatar always uses the current Host profile, independently of PC avatar", async () => {
   const f = fixture();
   const old = f.storage.get("wt_heybox_session_v1") as any;
@@ -478,4 +527,104 @@ test("miniapp API does not expose the PC avatar mutation", async () => {
     (e: any) => e.code === "INVALID_API_PATH",
   );
   await assert.rejects(api("auth/avatars"), (e: any) => e.code === "INVALID_API_PATH");
+});
+
+test("current Heybox nickname and avatar are presentation priority and survive transient same-account failure", async () => {
+  const f = fixture();
+  (f.storage.get("wt_heybox_session_v1") as any).user.displayName = "PC username";
+  f.profile(async () => ({
+    isHeyboxAppLoggedIn: true,
+    authorization: { profile: "granted" },
+    userInfo: {
+      app_user_id: "opaque",
+      profile: { nickname: "小黑盒昵称", avatar: "https://example.com/heybox-current.png" },
+    },
+  }));
+  const account = createAccount(f.sdk, async () => ({}) as any);
+  let latest: any;
+  account.subscribe((v) => (latest = v));
+  await account.initialize();
+  await new Promise((r) => setImmediate(r));
+  assert.equal(latest.user.displayName, "小黑盒昵称");
+  assert.equal(latest.user.avatarUrl, "https://example.com/heybox-current.png");
+  f.profile(async () => {
+    throw Error("transient");
+  });
+  await account.refresh();
+  await new Promise((r) => setImmediate(r));
+  assert.equal(latest.user.displayName, "小黑盒昵称");
+  assert.equal(latest.user.avatarUrl, "https://example.com/heybox-current.png");
+  f.change({ isHeyboxAppLoggedIn: true, accountKey: "account-b" });
+  assert.equal(latest.hostProfile, null);
+  assert.equal(latest.user, null);
+  account.dispose();
+});
+
+test("Host display profile is available before a workbench account is linked without granting private access", async () => {
+  const f = fixture();
+  f.storage.delete("wt_heybox_session_v1");
+  f.profile(async () => ({
+    isHeyboxAppLoggedIn: true,
+    authorization: { profile: "granted" },
+    userInfo: {
+      app_user_id: "opaque",
+      profile: { nickname: "黑盒游客", avatar: "https://example.com/avatar.png" },
+    },
+  }));
+  const account = createAccount(f.sdk, async () => ({}) as any);
+  let latest: any;
+  account.subscribe((v) => (latest = v));
+  await account.initialize();
+  await new Promise((r) => setImmediate(r));
+  assert.equal(latest.status, "guest");
+  assert.equal(latest.user, null);
+  assert.equal(latest.hostProfile.displayName, "黑盒游客");
+  await assert.rejects(account.request("account/workspace"));
+  account.dispose();
+});
+
+test("an expired pairing HTTP response from a rejecting native transport is not misreported as a service outage", async () => {
+  const sdk = {
+    network: {
+      request: async () => {
+        throw Object.assign(Error("HTTP error"), {
+          status: 410,
+          data: '{"code":"HEYBOX_AUTH_EXPIRED","message":"expired"}',
+        });
+      },
+    },
+  } as unknown as SDK;
+  await assert.rejects(
+    createAPI(sdk)("auth/heybox/device/inspect", { body: { pairingCode: "000000000000" } }),
+    (e: any) =>
+      e.code === "HEYBOX_AUTH_EXPIRED" && e.status === 410 && e.message.includes("重新生成"),
+  );
+});
+
+test("expired pairing remains actionable when a native Host drops the error body", async () => {
+  for (const data of [null, {}, ""]) {
+    const sdk = { network: { request: async () => ({ status: 410, data }) } } as unknown as SDK;
+    await assert.rejects(
+      createAPI(sdk)("auth/heybox/device/inspect", { body: { pairingCode: "000000000000" } }),
+      (e: any) =>
+        e.code === "HEYBOX_AUTH_EXPIRED" && e.status === 410 && e.message.includes("重新生成"),
+    );
+  }
+});
+
+test("a verified Heybox server avatar remains available on a cold start if the Host profile read fails", async () => {
+  const f = fixture();
+  const saved = f.storage.get("wt_heybox_session_v1") as any;
+  saved.user.avatarSource = "heybox";
+  saved.user.avatarUrl = "https://example.com/server-heybox.png";
+  f.profile(async () => {
+    throw Error("transient");
+  });
+  const account = createAccount(f.sdk, async () => ({}) as any);
+  let latest: any;
+  account.subscribe((v) => (latest = v));
+  await account.initialize();
+  await new Promise((r) => setImmediate(r));
+  assert.equal(latest.user.avatarUrl, "https://example.com/server-heybox.png");
+  account.dispose();
 });
