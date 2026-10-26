@@ -471,7 +471,7 @@ function CommunityCard({
       </section>
       <div className="wt-community-card-tags">
         {post.tags.map((id) => (
-          <LineupTag key={id} id={id} />
+          <LineupTag key={id} id={id} tone={post.tagTones?.[id] || "original"} />
         ))}
         {workspace?.binding && (
           <small>

@@ -1,0 +1,133 @@
+.wt-tag-selector {
+  color: var(--wt-text, #d9e1e4);
+  font-size: 13px;
+}
+.wt-tag-selected {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  min-height: 50px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--wt-line, #354048);
+}
+.wt-tag-selected > div {
+  display: flex;
+  align-items: center;
+}
+.wt-tag-selected > div > button:last-child {
+  color: #aebdc3;
+  background: transparent;
+  padding: 10px;
+  cursor: pointer;
+}
+.wt-tag-selector-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  padding: 16px 0;
+}
+.wt-tag-selector h4,
+.wt-tag-selector label {
+  display: block;
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+.wt-tag-selector input {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  border: 1px solid #3a4850;
+  border-radius: 3px;
+  background: #10181d;
+  color: #edf2f4;
+  padding: 8px 12px;
+  font: inherit;
+  font-size: 16px;
+}
+.wt-tag-option-scroll {
+  max-height: 330px;
+  overflow: auto;
+  margin-top: 12px;
+  overscroll-behavior: contain;
+}
+.wt-tag-selector fieldset {
+  border: 0;
+  padding: 0;
+  min-width: 0;
+  margin: 0 0 14px;
+}
+.wt-tag-selector legend {
+  color: #9aacb5;
+  padding: 0;
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+.wt-tag-option-scroll button {
+  margin: 0 6px 6px 0;
+  padding: 8px 10px;
+  min-height: 36px;
+  border: 1px solid #35444b;
+  border-radius: 3px;
+  color: #c7d3d9;
+  background: #1a252b;
+  cursor: pointer;
+}
+.wt-tag-option-scroll button[aria-pressed="true"] {
+  color: #fff0c5;
+  border-color: #ad9254;
+  background: #393325;
+}
+.wt-tag-selector button:disabled {
+  cursor: not-allowed;
+}
+.wt-tag-option-scroll button:disabled {
+  opacity: 0.4;
+}
+.wt-tag-selector button:focus-visible,
+.wt-tag-selector input:focus-visible {
+  outline: 2px solid #ddc58c;
+  outline-offset: 3px;
+}
+.wt-tag-style-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+.wt-tag-style-options > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.wt-tag-style-options small {
+  max-width: 155px;
+  font-size: 10px;
+  color: #94a6af;
+  padding-left: 8px;
+}
+.wt-tag-source {
+  display: block;
+  font-size: 12px;
+  margin-top: 12px;
+  color: #b9a77a;
+}
+.wt-tag-selector details {
+  color: #99adb8;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.wt-tag-selector summary {
+  cursor: pointer;
+}
+@media (max-width: 650px) {
+  .wt-tag-selector-columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+  .wt-tag-option-scroll {
+    max-height: 220px;
+  }
+  .wt-tag-option-scroll button {
+    min-height: 44px;
+  }
+}

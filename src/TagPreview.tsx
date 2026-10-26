@@ -1,31 +1,27 @@
 import { useState } from "react";
-import {
-  GameTag,
-  gameTagBasicColors,
-  gameTagChoiceGroups,
-  gameTagTiers,
-  gameTagTones,
-} from "./components/GameTag";
-import type { GameTagTone } from "./components/GameTag";
+import { GameTag, gameTagBasicColors, gameTagTiers, gameTagTones } from "./components/GameTag";
+import { TagSelector, type TagChoice } from "./components/TagSelector";
+import { gameTagOptions } from "./game-tag-options";
+import { useGameTagAccess } from "./game-tag-access";
+import { useWorkbenchAccount } from "./WorkbenchAccount";
 import registry from "../data/lineup-sharing-tags.json";
-import officialTexts from "../data/game-tag-texts.json";
 import "./tag-preview.css";
 
 export function TagPreview() {
-  const [word, setWord] = useState("经典标配");
-  const [tone, setTone] = useState<GameTagTone>("gold");
-  const [textQuery, setTextQuery] = useState("");
-  const matchesText = (label: string) =>
-    label.toLocaleLowerCase().includes(textQuery.trim().toLocaleLowerCase());
-  const officialText = officialTexts.titles.find((title) => title.label === word);
-  const [combinations, setCombinations] = useState<{ word: string; tone: GameTagTone }[]>([]);
+  const [choices, setChoices] = useState<TagChoice[]>([]);
+  const access = useGameTagAccess();
+  const account = useWorkbenchAccount();
+  const word = choices.length
+    ? gameTagOptions.find((option) => option.id === choices[choices.length - 1].id)?.label ||
+      "经典标配"
+    : "经典标配";
   return (
     <main className="wt-tag-lab">
       <header>
         <div>
           <p className="wt-tag-lab-eyebrow">游戏标签 · 独立样式验收</p>
           <h1>文案、颜色与材质，自由组合</h1>
-          <p>先对照游戏原版，再选择文案与底色。配色不绑定语义，也不表示账号等级。</p>
+          <p>先对照游戏原版，再选择文案与底色。文案与外观独立选择，材质由绑定游戏账号等级解锁。</p>
         </div>
         <a href="#/lineups">返回出击队列 ↗</a>
       </header>
@@ -101,106 +97,34 @@ export function TagPreview() {
       </section>
       <section>
         <h2>04 / 自由组合</h2>
-        <div className="wt-tag-composer">
-          <div className="wt-tag-words">
-            <h3>选择文案</h3>
-            <input
-              className="wt-tag-text-search"
-              type="search"
-              aria-label="标签文案搜索"
-              placeholder="搜索官方称号或队列文案"
-              value={textQuery}
-              onChange={(event) => setTextQuery(event.target.value)}
-            />
-            <h4>官方游戏称号 · {officialTexts.titles.length}</h4>
-            <div>
-              {officialTexts.titles
-                .filter((title) => matchesText(title.label))
-                .map((title) => (
-                  <button
-                    key={title.id}
-                    type="button"
-                    aria-pressed={word === title.label}
-                    onClick={() => setWord(title.label)}
-                    title={`来自官方公告《${title.sourceTitle}》`}
-                  >
-                    {title.label}
-                  </button>
-                ))}
-            </div>
-            <p className="wt-tag-lab-source">
-              {officialText ? (
-                <>
-                  官方出处：
-                  <a href={officialText.sourceUrl} target="_blank" rel="noreferrer">
-                    {officialText.sourceTitle} ↗
-                  </a>{" "}
-                  ·{" "}
-                </>
-              ) : null}
-              称号仅作标签文案引用，不代表已解锁。
-            </p>
-            <h4>队列文案</h4>
-            <div>
-              {registry.tags
-                .filter((t) => matchesText(t.label))
-                .map((t) => (
-                  <button
-                    key={t.id}
-                    type="button"
-                    aria-pressed={word === t.label}
-                    onClick={() => setWord(t.label)}
-                  >
-                    {t.label}
-                  </button>
-                ))}
-            </div>
-          </div>
-          <div className="wt-tag-finishes">
-            <h3>选择标签</h3>
-            {gameTagChoiceGroups.map((group) => (
-              <div className="wt-tag-choice-group" key={group.label}>
-                <h4>{group.label}</h4>
-                <div>
-                  {group.tones.map((id) => (
-                    <GameTag key={id} tone={id} selected={tone === id} onClick={() => setTone(id)}>
-                      {gameTagTones[id].label}
-                    </GameTag>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="wt-tag-result">
-          <span>当前组合</span>
-          <GameTag tone={tone}>{word}</GameTag>
-          <button
-            type="button"
-            disabled={combinations.length >= 8}
-            onClick={() => setCombinations([...combinations, { word, tone }])}
-          >
-            加入组合 · {combinations.length}/8
-          </button>
-        </div>
-        {combinations.length > 0 && (
-          <div className="wt-tag-combinations" aria-label="自由组合结果">
-            {combinations.map((c, i) => (
-              <div key={i}>
-                <GameTag tone={c.tone}>{c.word}</GameTag>
-                <button
-                  type="button"
-                  aria-label={`移除第 ${i + 1} 个组合`}
-                  onClick={() => setCombinations(combinations.filter((_, n) => n !== i))}
-                >
-                  ×
-                </button>
-              </div>
-            ))}
-          </div>
-        )}
         <p className="wt-tag-lab-source">
-          组合只保留在当前页面；七彩作为特权效果持续播放，文案与材质可自由搭配。
+          {access.loading
+            ? "正在核验当前账号资格…"
+            : access.access?.bound
+              ? `绑定账号 ${access.access.level ?? "未知"} 级 · 历史战斗 ${access.access.rbBattles ?? "未知"} 次`
+              : "尚未绑定游戏账号：可选官方原版与基本颜色。"}
+        </p>
+        {!account.session?.user && (
+          <button type="button" className="quiet-button" onClick={() => void account.login()}>
+            登录并查看解锁资格
+          </button>
+        )}
+        {account.session?.user && !access.access?.bound && (
+          <a href="#/stats">前往战绩页绑定游戏账号 ↗</a>
+        )}
+        {access.error && <p role="alert">{access.error}</p>}
+        <button type="button" className="wt-vehicle-text-action" onClick={access.refresh}>
+          刷新标签资格
+        </button>
+        <TagSelector
+          options={gameTagOptions}
+          value={choices}
+          onChange={setChoices}
+          allowedTones={access.allowedTones}
+          max={8}
+        />
+        <p className="wt-tag-lab-source">
+          上方为全样式对照；实际可选范围以下方选择器为准。组合仅保留在当前页面，队列分享会保存发布时选择的样式。
         </p>
       </section>
     </main>

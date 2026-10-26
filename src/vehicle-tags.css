@@ -1,0 +1,55 @@
+.wt-vehicle-tags {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--wt-line);
+}
+.wt-vehicle-tags .wt-detail-section-heading {
+  align-items: center;
+  gap: 12px;
+}
+.wt-vehicle-tags .wt-game-select {
+  max-width: 240px;
+}
+.wt-vehicle-tag-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  padding-block: 10px;
+}
+.wt-vehicle-tag-counts > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.wt-vehicle-tag-counts b {
+  color: var(--wt-muted);
+  font-size: 12px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.wt-vehicle-tag-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+.wt-vehicle-tag-footer small {
+  color: var(--wt-muted);
+}
+.calculator.wt-vehicle-tag-dialog {
+  width: min(960px, calc(100vw - 32px));
+  height: fit-content;
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+}
+@media (max-width: 650px) {
+  .wt-vehicle-tags .wt-detail-section-heading {
+    flex-wrap: wrap;
+  }
+  .calculator.wt-vehicle-tag-dialog {
+    width: calc(100vw - 16px);
+    max-height: calc(100dvh - 16px);
+  }
+}

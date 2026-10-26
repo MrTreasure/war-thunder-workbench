@@ -1,3 +1,4 @@
+import { VehicleTags } from "./VehicleTags";
 import { VehicleTile } from "./VehicleTile";
 import type { Catalog, Mode, Vehicle } from "./models";
 import { VehicleImage } from "./VehicleImage";
@@ -115,6 +116,7 @@ export function VehicleDetails({
           独立获取载具，不接入常规研发路线。是否在售以官方页面为准。
         </p>
       )}
+      <VehicleTags key={unit.id} vehicleId={unit.id} />
     </article>
   );
 }

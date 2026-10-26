@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "policyVersion": "game-tags-v1",
+  "levels": [
+    { "tone": "bronze", "level": 1 },
+    { "tone": "silver", "level": 25 },
+    { "tone": "gold", "level": 50 },
+    { "tone": "emerald", "level": 75 },
+    { "tone": "diamond", "level": 100 }
+  ],
+  "king": { "level": 100, "rbBattles": 1000 },
+  "rainbow": "existing-superadmin"
+}

@@ -67,7 +67,10 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
     select: (state) => workbenchPage(state.location.pathname),
   });
   const garagePage = useRouterState({
-    select: (state) => state.location.pathname === "/lineups/garage" || state.location.pathname === "/lineups/lobby",
+    select: (state) =>
+      state.location.pathname === "/lineups/garage" ||
+      state.location.pathname === "/lineups/lobby" ||
+      state.location.pathname === "/tag-preview",
   });
   useEffect(() => {
     updateSearchMetadata(page);

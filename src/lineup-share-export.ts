@@ -1,3 +1,5 @@
+import { approveGameTags } from "./game-tag-access";
+import type { TagChoice } from "./components/TagSelector";
 import staticAssets from "../data/player-report-static-assets.json";
 import fontUrl from "./assets/FiraSansCondensed-Regular.ttf?url";
 import symbolUrl from "./assets/WTSymbols.ttf?url";
@@ -25,12 +27,22 @@ export async function exportLineupImage(source: HTMLElement, signal: AbortSignal
     height = Math.ceil(source.getBoundingClientRect().height);
   if (width > 2200 || height > 1600 || !source.querySelector(".wt-game-card"))
     throw new Error("分享图片尺寸不正确。");
+  const readTags = () =>
+    [...source.querySelectorAll<HTMLElement>(".wt-share-labels [data-tag-id]")].map((tag) => ({
+      id: tag.dataset.tagId!,
+      tone: tag.dataset.tone as TagChoice["tone"],
+    }));
+  const tags = readTags();
+  const postId = source.dataset.sharePostId;
+  await approveGameTags(tags, postId, signal);
   const caption = source.querySelector(".wt-share-note p")?.textContent || "";
   if (caption.trim()) {
     await approveLineupCaption(caption, signal, "export");
     if (caption !== (source.querySelector(".wt-share-note p")?.textContent || ""))
       throw new Error("文字说明已修改，请重新生成图片。");
   }
+  if (JSON.stringify(tags) !== JSON.stringify(readTags()) || postId !== source.dataset.sharePostId)
+    throw new Error("标签已修改，请重新生成图片。");
   // Image loading can fail while fonts or caption checks are pending.
   if (source.querySelector(".unit-art-unavailable"))
     throw new Error("有载具图片未能读取，请等待图片恢复后导出。");

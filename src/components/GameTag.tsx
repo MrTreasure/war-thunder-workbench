@@ -13,6 +13,7 @@ export const gameTagChoiceGroups: { label: string; tones: GameTagTone[] }[] = [
 ];
 export type GameTagProps = {
   children: ReactNode;
+  tagId?: string;
   tone?: GameTagTone;
   selected?: boolean;
   disabled?: boolean;
@@ -27,6 +28,7 @@ export type GameTagProps = {
  * Text selection and appearance are independent. No account or network dependency. */
 export function GameTag({
   children,
+  tagId,
   tone = "silver",
   selected = false,
   disabled = false,
@@ -52,6 +54,7 @@ export function GameTag({
     <button
       type="button"
       className="wt-game-tag is-interactive"
+      data-tag-id={tagId}
       data-tone={tone}
       data-animated={animated || undefined}
       data-motion-override={motionOverride || undefined}
@@ -65,6 +68,7 @@ export function GameTag({
   ) : (
     <span
       className="wt-game-tag"
+      data-tag-id={tagId}
       data-tone={tone}
       data-animated={animated || undefined}
       data-motion-override={motionOverride || undefined}
