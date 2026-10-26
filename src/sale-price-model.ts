@@ -2,6 +2,7 @@ import type { SaleVehicle } from "./sale-calendar-model";
 
 export type PricePoint = {
   observedAt: string;
+  contentVersion?: string;
   amountMinor: number;
   regularAmountMinor: number | null;
   sourceUrl: string;
@@ -11,6 +12,7 @@ export type PricePoint = {
 export type PriceOffer = {
   id: string;
   title: string;
+  productId?: string | null;
   currency: "CNY" | "GE";
   platform: string;
   conditions: string;
@@ -26,7 +28,73 @@ export type PriceOffer = {
   lastRecorded?: PricePoint | null;
   truncated?: boolean;
 };
-export type PriceSummary = { vehicleId: string; offers: PriceOffer[] };
+export type DiscountEvidence = {
+  title: string;
+  sourceUrl: string;
+  startAt?: string | null;
+  endAt?: string | null;
+  discountPercent: number;
+  purchaseCondition: string;
+  amountMinor: number | null;
+  currency: "CNY" | "GE";
+  productId?: string | null;
+};
+/** Same SKU is one selectable product. Content versions remain attached to points. */
+export function groupedOffers(summary?: PriceSummary): PriceOffer[] {
+  const groups = new Map<string, PriceOffer[]>();
+  for (const offer of summary?.offers || []) {
+    const key = JSON.stringify([
+      offer.platform,
+      offer.productId || (offer.currency === "GE" ? summary?.vehicleId : offer.id),
+      offer.currency,
+      offer.region,
+      offer.conditions,
+    ]);
+    groups.set(key, [...(groups.get(key) || []), offer]);
+  }
+  return [...groups.entries()].map(([id, offers]) => {
+    const points = (field: "points" | "previewPoints") =>
+      offers
+        .flatMap((o) => (o[field] || []).map((p) => ({ ...p, contentVersion: o.contentVersion })))
+        .sort((a, b) => Date.parse(a.observedAt) - Date.parse(b.observedAt));
+    const values = (field: "latest" | "lastRecorded" | "minimum") =>
+      offers.map((o) => o[field]).filter((p): p is PricePoint => !!p);
+    const newest = (field: "latest" | "lastRecorded") =>
+      values(field).sort((a, b) => Date.parse(b.observedAt) - Date.parse(a.observedAt))[0] || null;
+    return {
+      ...offers[0],
+      id,
+      points: points("points"),
+      previewPoints: points("previewPoints"),
+      sampleCount: offers.reduce((sum, o) => sum + o.sampleCount, 0),
+      firstObservedAt:
+        offers
+          .map((o) => o.firstObservedAt)
+          .filter((v): v is string => !!v)
+          .sort()[0] || null,
+      latest: newest("latest"),
+      lastRecorded: newest("lastRecorded"),
+      minimum: values("minimum").sort((a, b) => a.amountMinor - b.amountMinor)[0] || null,
+      available: offers.some((o) => o.available),
+      truncated: offers.some((o) => o.truncated),
+    };
+  });
+}
+/** A regular-price snapshot is not evidence of a historical discounted minimum. */
+export function discountedMinimum(offer?: PriceOffer) {
+  const p = offer?.minimum;
+  const regular = Math.max(
+    p?.regularAmountMinor || 0,
+    offer?.latest?.regularAmountMinor || 0,
+    ...(offer?.previewPoints || []).map((point) => point.regularAmountMinor || 0),
+  );
+  return p && regular > p.amountMinor ? p : null;
+}
+export type PriceSummary = {
+  vehicleId: string;
+  offers: PriceOffer[];
+  discountEvidence?: DiscountEvidence[];
+};
 export type PricePreferences = Record<string, { selected: boolean }>;
 export function priceText(value: number | bigint | null, currency: "CNY" | "GE") {
   if (value === null) return "待核价";
@@ -38,11 +106,11 @@ export function priceText(value: number | bigint | null, currency: "CNY" | "GE")
 export const priceDate = (value: string | null) =>
   value ? new Date(value).toLocaleDateString("zh-CN", { timeZone: "Asia/Shanghai" }) : "尚无记录";
 export function primaryOffer(summary?: PriceSummary, offerId?: string) {
-  const selected = summary?.offers.find((o) => o.id === offerId);
+  const offers = groupedOffers(summary);
   return (
-    selected ||
-    summary?.offers.find((o) => o.currency === "CNY" && o.conditions === "普通单件购买") ||
-    summary?.offers[0]
+    offers.find((o) => o.id === offerId) ||
+    offers.find((o) => o.currency === "CNY" && o.conditions === "普通单件购买") ||
+    offers[0]
   );
 }
 /** Purchase planning always uses the canonical regular price; history is read-only. */

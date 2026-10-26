@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Modal } from "./Modal";
 import { GameSelect } from "./components/GameSelect";
 import { readPriceHistory } from "./sale-price-api";
-import { priceDate, priceText } from "./sale-price-model";
+import { priceDate, priceText, groupedOffers, discountedMinimum } from "./sale-price-model";
 import type { PriceOffer, PricePoint, PriceSummary } from "./sale-price-model";
 import type { SaleVehicle } from "./sale-calendar-model";
 
@@ -39,7 +39,9 @@ export function PriceChart({ offer, days }: { offer: PriceOffer; days: number })
   const y = (amount: number) => top + ((maxY - amount) / (maxY - minY)) * (height - top - bottom);
   // Join only close observations; the unsampled time between old announcements is unknown.
   const paths = points.map((p, i) =>
-    i && times[i] - times[i - 1] <= 36 * 3_600_000
+    i &&
+    p.contentVersion === points[i - 1].contentVersion &&
+    times[i] - times[i - 1] <= 36 * 3_600_000
       ? `M${x(times[i - 1])},${y(points[i - 1].amountMinor)}H${x(times[i])}V${y(p.amountMinor)}`
       : "",
   );
@@ -78,7 +80,7 @@ export function PriceChart({ offer, days }: { offer: PriceOffer; days: number })
         <path d={paths.join(" ")} className="wt-price-step" />
         {points.map((p, i) => (
           <circle
-            key={p.observedAt}
+            key={p.observedAt + p.contentVersion}
             cx={x(times[i])}
             cy={y(p.amountMinor)}
             r={focus === p ? 6 : 4}
@@ -100,34 +102,64 @@ export function PriceChart({ offer, days }: { offer: PriceOffer; days: number })
         </text>
       </svg>
       <div className="wt-price-chart-caption">
-        <span>● 实测报价　 ┄ 已记录最低</span>
+        <span>● 实测报价　 ┄ 最低采样价</span>
         <span>
           {focus
             ? `${priceDate(focus.observedAt)} · ${priceText(focus.amountMinor, offer.currency)}`
             : "聚焦数据点查看报价"}
         </span>
       </div>
-      <small>间隔超过 36 小时的观测点不连线；空白时段价格未知。</small>
+      <small>间隔超过 36 小时或商品内容版本不同的记录不连线；空白时段价格未知。</small>
     </div>
   );
 }
-export function SalePriceHistory({ vehicle, close }: { vehicle: SaleVehicle; close: () => void }) {
-  const [data, setData] = useState<PriceSummary | null>(null),
+export function SalePriceHistory({
+  vehicle,
+  close,
+  summary,
+}: {
+  vehicle: SaleVehicle;
+  close: () => void;
+  summary?: PriceSummary;
+}) {
+  const [data, setData] = useState<PriceSummary | null>(() =>
+      summary
+        ? {
+            ...summary,
+            offers: summary.offers.map((offer) => ({
+              ...offer,
+              points: offer.previewPoints || [],
+            })),
+          }
+        : null,
+    ),
     [error, setError] = useState("");
+  const [loading, setLoading] = useState(true),
+    [reload, setReload] = useState(0);
   const [days, setDays] = useState(180),
     [offerId, setOfferId] = useState("");
   useEffect(() => {
     const c = new AbortController();
-    void readPriceHistory(vehicle.id, c.signal)
+    void readPriceHistory(vehicle.id, c.signal, reload > 0)
       .then((v) => {
         if (!c.signal.aborted) setData(v);
       })
       .catch((e) => {
-        if (!c.signal.aborted) setError(e.message);
+        if (!c.signal.aborted)
+          setError(
+            e.name === "TimeoutError" || e.name === "AbortError"
+              ? "价格记录读取超时，请重试。"
+              : e.message,
+          );
+      })
+      .finally(() => {
+        if (!c.signal.aborted) setLoading(false);
       });
     return () => c.abort();
-  }, [vehicle.id]);
-  const offer = data?.offers.find((o) => o.id === offerId) || data?.offers[0];
+  }, [vehicle.id, reload]);
+  const offers = useMemo(() => groupedOffers(data || undefined), [data]);
+  const offer = offers.find((o) => o.id === offerId) || offers[0];
+  const minimum = discountedMinimum(offer);
   const [clock] = useState(() => Date.now());
   const rows = useMemo(
     () =>
@@ -143,9 +175,28 @@ export function SalePriceHistory({ vehicle, close }: { vehicle: SaleVehicle; clo
       className="wt-price-history-modal"
     >
       <div className="wt-price-history-body">
-        {error && <p role="alert">{error}</p>}
-        {!data && !error && <output>正在读取价格记录…</output>}
-        {data && !data.offers.length && <p>尚无可核实的商品价格；后续成功核对后开始记录。</p>}
+        {error && (
+          <div className="wt-price-history-error" role="alert">
+            <p>{error}</p>
+            <button
+              onClick={() => {
+                setError("");
+                setLoading(true);
+                setReload((v) => v + 1);
+              }}
+            >
+              重试读取
+            </button>
+          </div>
+        )}
+        {loading && (
+          <output className="wt-price-history-loading">
+            {data?.offers.length ? "已显示最近记录，正在更新完整历史…" : "正在读取价格记录…"}
+          </output>
+        )}
+        {!loading && data && !data.offers.length && (
+          <p className="wt-price-history-empty">尚无可核实的商品价格；后续成功核对后开始记录。</p>
+        )}
         {offer && (
           <>
             <div className="wt-price-history-toolbar">
@@ -157,7 +208,7 @@ export function SalePriceHistory({ vehicle, close }: { vehicle: SaleVehicle; clo
                     setOfferId(value);
                   }}
                 >
-                  {data?.offers.map((o) => (
+                  {offers.map((o) => (
                     <option key={o.id} value={o.id}>
                       {o.title} · {o.currency} · {o.conditions}
                     </option>
@@ -191,9 +242,13 @@ export function SalePriceHistory({ vehicle, close }: { vehicle: SaleVehicle; clo
                 <small>{priceDate((offer.lastRecorded || offer.latest)?.checkedAt ?? null)}</small>
               </div>
               <div>
-                <small>已记录最低</small>
-                <strong>{priceText(offer.minimum?.amountMinor ?? null, offer.currency)}</strong>
-                <small>{priceDate(offer.minimum?.observedAt ?? null)}</small>
+                <small>已核实的折扣采样最低</small>
+                <strong>
+                  {minimum ? priceText(minimum.amountMinor, offer.currency) : "历史低价待核实"}
+                </strong>
+                <small>
+                  {minimum ? priceDate(minimum.observedAt) : "原价快照不能代表历史最低"}
+                </small>
               </div>
               <div>
                 <small>展示口径</small>
@@ -201,6 +256,33 @@ export function SalePriceHistory({ vehicle, close }: { vehicle: SaleVehicle; clo
                 <small>不更新载具原价与购物车合计</small>
               </div>
             </div>
+            {!!data?.discountEvidence?.length && (
+              <section className="wt-price-discount-evidence" aria-label="官方折扣记录">
+                <h3>已核实的官方折扣</h3>
+                {data.discountEvidence.map((e) => (
+                  <article key={e.sourceUrl + e.purchaseCondition + e.productId}>
+                    <a href={e.sourceUrl} target="_blank" rel="noreferrer">
+                      {e.title} ↗
+                    </a>
+                    <span>
+                      {priceDate(e.startAt || null)} — {priceDate(e.endAt || null)} · 优惠{" "}
+                      {e.discountPercent}% · {e.purchaseCondition}
+                    </span>
+                    <small>
+                      {e.amountMinor == null
+                        ? "当时人民币金额未核实，不从当前原价反推。"
+                        : priceText(e.amountMinor, e.currency)}
+                    </small>
+                  </article>
+                ))}
+              </section>
+            )}
+            {offer.minimum && !minimum && (
+              <p className="wt-price-provenance">
+                最低采样价 {priceText(offer.minimum.amountMinor, offer.currency)}
+                ；采样尚未覆盖完整促销历史。
+              </p>
+            )}
             <PriceChart offer={offer} days={days} />
             <details className="wt-price-records" open>
               <summary>价格记录与来源（{rows.length}）</summary>
@@ -217,7 +299,7 @@ export function SalePriceHistory({ vehicle, close }: { vehicle: SaleVehicle; clo
                   </thead>
                   <tbody>
                     {[...rows].reverse().map((p) => (
-                      <tr key={p.observedAt + p.sourceUrl}>
+                      <tr key={p.observedAt + p.sourceUrl + p.contentVersion}>
                         <td>
                           <time dateTime={p.observedAt}>{priceDate(p.observedAt)}</time>
                         </td>

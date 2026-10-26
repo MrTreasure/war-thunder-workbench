@@ -13,6 +13,13 @@ const memory = new Map<string, { value: unknown; until: number }>();
 const pending = new Map<string, Promise<unknown>>();
 const writes = new Map<string, Promise<void>>();
 const prefix = "wt-public-resources-v1:";
+function deadline<T>(request: Promise<T>, milliseconds: number, message: string): Promise<T> {
+  let timer: ReturnType<typeof setTimeout>;
+  const timeout = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => reject(new Error(message)), milliseconds);
+  });
+  return Promise.race([request, timeout]).finally(() => clearTimeout(timer));
+}
 const resourceName =
   /^(calendar|config|appearance|research-catalog|(?:vehicles|prices)-(usa|germany|ussr|britain|japan|china|italy|france|sweden|israel)|price-history-[a-z0-9_-]{1,100})$/i;
 function validManifest(value: unknown, resource: string): value is Manifest {
@@ -35,8 +42,15 @@ async function directory() {
 }
 async function stored(resource: string): Promise<Saved | null> {
   try {
-    const file = await (await (await directory()).getFileHandle(resource + ".json")).getFile();
-    if (file.size <= 2_200_000) return JSON.parse(await file.text());
+    return await deadline(
+      (async () => {
+        const file = await (await (await directory()).getFileHandle(resource + ".json")).getFile();
+        if (file.size > 2_200_000) throw new Error("缓存文件过大");
+        return JSON.parse(await file.text()) as Saved;
+      })(),
+      250,
+      "本地缓存读取超时",
+    );
   } catch {
     /* OPFS may be unavailable in private browsing or storage-limited contexts. */
   }
@@ -94,14 +108,15 @@ function remember(resource: string, value: unknown) {
   return value;
 }
 async function load(resource: string) {
+  // Start the network budget before touching storage. OPFS can stall on some
+  // browsers; neither a cache read nor a response stream may hold the UI forever.
+  const signal = AbortSignal.timeout(15_000);
   const old = await stored(resource);
   const base =
     import.meta.env.VITE_WT_CATALOG_SOURCE === "preview" &&
     /^(prices-|price-history-)/.test(resource)
       ? settings.apiBaseUrl + "/sales-prices-preview/prices"
       : settings.apiBaseUrl;
-  const controller = new AbortController();
-  const signal = AbortSignal.any([controller.signal, AbortSignal.timeout(15_000)]);
   try {
     // No account/device headers: these read models are identical for every visitor.
     const response = await fetch(`${base}/public-data/manifest/${resource}`, {
@@ -145,14 +160,21 @@ async function load(resource: string) {
     throw error;
   }
 }
-export async function readPublicResource<T>(resource: string, signal?: AbortSignal): Promise<T> {
+export async function readPublicResource<T>(
+  resource: string,
+  signal?: AbortSignal,
+  refresh = false,
+): Promise<T> {
   if (!resourceName.test(resource)) throw new Error("不支持的公共资料类型。");
   signal?.throwIfAborted();
+  if (refresh) memory.delete(resource);
   const cached = memory.get(resource);
   if (cached && cached.until > Date.now()) return cached.value as T;
   let request = pending.get(resource);
   if (!request) {
-    request = load(resource).finally(() => pending.delete(resource));
+    request = deadline(load(resource), 18_000, "资料读取超时，请重试。").finally(() =>
+      pending.delete(resource),
+    );
     pending.set(resource, request);
   }
   if (!signal) return request as Promise<T>;

@@ -3130,3 +3130,162 @@
     min-height: 44px;
   }
 }
+
+/* Sale cart has one scrollable list; regular price stays on the shared vehicle tile. */
+@media (max-width: 800px) {
+  .calculator.wt-sale-cart-modal[open],
+  .calculator.wt-price-history-modal[open] {
+    width: calc(100vw - 16px);
+    max-height: calc(100dvh - 16px);
+    padding: 0;
+    overflow: hidden;
+  }
+  .calculator.wt-sale-cart-modal > .calc-header,
+  .calculator.wt-price-history-modal > .calc-header {
+    padding: 12px;
+    gap: 8px;
+  }
+  .calculator.wt-sale-cart-modal > .calc-header h2,
+  .calculator.wt-price-history-modal > .calc-header h2 {
+    font-size: 18px;
+  }
+  .calculator.wt-sale-cart-modal > .calc-header p {
+    font-size: 11px;
+    line-height: 1.5;
+    max-width: 34em;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-toolbar {
+    padding: 12px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-search {
+    grid-column: 1 / -1;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-scroll {
+    padding: 0 12px;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-columns {
+    display: none;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 8px;
+    padding: 10px 0;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-vehicle {
+    grid-column: 1 / -1;
+    gap: 8px;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-original {
+    display: none;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-price {
+    grid-column: 1;
+    grid-row: 2;
+    gap: 2px;
+    font-size: 12px;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-price b::before {
+    content: "历史低价 · ";
+    font-weight: normal;
+    color: var(--wt-muted);
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-price small {
+    font-size: 10px;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-observations {
+    grid-column: 2;
+    grid-row: 2;
+    align-items: flex-end;
+    gap: 0;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-observations > small,
+  .calculator.wt-sale-cart-modal .wt-sale-cart-observations > span,
+  .calculator.wt-sale-cart-modal .wt-price-mini {
+    display: none;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-observations button {
+    align-self: flex-end;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-event {
+    grid-column: 1;
+    grid-row: 3;
+    gap: 0;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-event strong {
+    font-size: 11px;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-event span {
+    font-size: 10px;
+    color: var(--wt-muted);
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-event-detail {
+    display: none;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-actions {
+    grid-column: 2;
+    grid-row: 3;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-actions a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-footer {
+    padding: 10px 12px;
+    gap: 6px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-footer > div:last-child {
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-footer span {
+    font-size: 20px;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-footer small {
+    font-size: 10px;
+  }
+  .calculator.wt-sale-cart-modal button,
+  .calculator.wt-price-history-modal button {
+    min-height: 44px;
+  }
+  .calculator.wt-sale-cart-modal input:not([type="checkbox"]),
+  .calculator.wt-price-history-modal input {
+    min-height: 44px;
+    font-size: 16px;
+  }
+  .calculator.wt-price-history-modal .wt-price-history-body {
+    padding: 0 12px 12px;
+  }
+  .calculator.wt-price-history-modal .wt-price-history-toolbar {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .calculator.wt-price-history-modal .wt-price-history-toolbar label {
+    max-width: 100%;
+    min-width: 0;
+  }
+  .calculator.wt-price-history-modal .wt-price-history-toolbar .wt-select {
+    max-width: calc(100vw - 100px);
+    min-width: 0;
+  }
+  .calculator.wt-price-history-modal .wt-price-metrics {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 12px 0;
+  }
+  .calculator.wt-price-history-modal .wt-price-metrics > div:last-child {
+    grid-column: 1 / -1;
+  }
+  .calculator.wt-price-history-modal .wt-price-metrics strong {
+    font-size: 16px;
+  }
+}

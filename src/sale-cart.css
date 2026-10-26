@@ -20,18 +20,18 @@
   overflow: hidden;
   color: var(--wt-ink);
 }
-.wt-sale-cart-modal .calc-header,
-.wt-price-history-modal .calc-header {
+.wt-sale-cart-modal > .calc-header,
+.wt-price-history-modal > .calc-header {
   flex: 0 0 auto;
   padding: 18px 22px 12px;
   margin: 0;
 }
-.wt-sale-cart-modal .calc-header h2,
-.wt-price-history-modal .calc-header h2 {
+.wt-sale-cart-modal > .calc-header h2,
+.wt-price-history-modal > .calc-header h2 {
   font-size: 21px;
 }
-.wt-sale-cart-modal .calc-header p,
-.wt-price-history-modal .calc-header p {
+.wt-sale-cart-modal > .calc-header p,
+.wt-price-history-modal > .calc-header p {
   max-width: 950px;
   font-size: 12px;
 }
@@ -39,7 +39,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 0 22px 14px;
+  padding: 14px 22px;
   flex: 0 0 auto;
 }
 .wt-sale-cart-search {
@@ -334,78 +334,6 @@
     position: relative;
   }
 }
-@media (max-width: 800px) {
-  .wt-sale-cart-modal.calculator,
-  .wt-price-history-modal.calculator {
-    width: calc(100vw - 16px);
-    max-height: calc(100dvh - 16px);
-  }
-  .wt-sale-cart-modal .calc-header,
-  .wt-price-history-modal .calc-header {
-    padding: 14px 12px;
-  }
-  .wt-sale-cart-toolbar {
-    padding: 0 12px 10px;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .wt-sale-cart-search {
-    flex-basis: 100%;
-  }
-  .wt-sale-cart-scroll {
-    padding-inline: 12px;
-  }
-  .wt-sale-cart-columns {
-    display: none;
-  }
-  .wt-sale-cart-row {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px 8px;
-  }
-  .wt-sale-cart-vehicle {
-    grid-column: 1 / -1;
-  }
-  .wt-sale-cart-actions {
-    grid-column: auto;
-    grid-row: auto;
-    flex-direction: row;
-    align-items: center;
-  }
-  .wt-sale-cart-event {
-    grid-column: 1 / -1;
-  }
-  .wt-sale-cart-observations {
-    grid-column: auto;
-  }
-  .wt-sale-cart-footer {
-    align-items: stretch;
-    flex-direction: column;
-    padding: 12px;
-    gap: 10px;
-  }
-  .wt-sale-cart-footer > div:last-child {
-    justify-content: flex-end;
-  }
-  .wt-sale-cart-modal button,
-  .wt-price-history-modal button,
-  .wt-sale-cart-modal input:not([type="checkbox"]) {
-    min-height: 44px;
-  }
-  .wt-sale-cart-modal input:not([type="checkbox"]),
-  .wt-price-history-modal input {
-    font-size: 16px;
-  }
-  .wt-price-history-body {
-    padding-inline: 12px;
-  }
-  .wt-price-history-toolbar,
-  .wt-price-metrics {
-    gap: 10px;
-  }
-  .wt-price-metrics strong {
-    font-size: 16px;
-  }
-}
 .wt-price-mini {
   width: 108px;
   height: 32px;
@@ -432,4 +360,46 @@
   width: auto;
   flex: 0 1 auto;
   max-width: 520px;
+}
+
+.wt-sale-cart-modal.calculator:not([open]),
+.wt-price-history-modal.calculator:not([open]) {
+  display: none;
+}
+.wt-price-history-error {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid var(--wt-line);
+  color: var(--wt-gold);
+}
+.wt-price-history-loading {
+  display: block;
+  padding: 12px 0;
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-price-discount-evidence {
+  border: 1px solid var(--wt-line);
+  padding: 12px;
+  margin-bottom: 16px;
+}
+.wt-price-discount-evidence h3 {
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+.wt-price-discount-evidence article {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 0;
+  font-size: 12px;
+}
+.wt-price-discount-evidence article + article {
+  border-top: 1px solid var(--wt-line);
+}
+.wt-price-discount-evidence small {
+  color: var(--wt-muted);
 }

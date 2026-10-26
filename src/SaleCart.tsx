@@ -6,7 +6,13 @@ import { useAccountWorkspace } from "./workspace-context";
 import { nextSale, saleCountdown, saleRange } from "./sale-calendar-model";
 import type { SaleEvent, SaleVehicle } from "./sale-calendar-model";
 import { readPriceSummary } from "./sale-price-api";
-import { cartTotals, priceDate, priceText, primaryOffer } from "./sale-price-model";
+import {
+  cartTotals,
+  priceDate,
+  priceText,
+  primaryOffer,
+  discountedMinimum,
+} from "./sale-price-model";
 import type { PriceOffer, PriceSummary } from "./sale-price-model";
 import { useSalePricePreferences } from "./use-sale-price-preferences";
 import { SalePriceHistory } from "./SalePriceHistory";
@@ -78,6 +84,8 @@ export function SaleCart({
     preferences = useSalePricePreferences();
   const [summaries, setSummaries] = useState<Record<string, PriceSummary>>({}),
     [priceError, setPriceError] = useState("");
+  const [loadedCountries, setLoadedCountries] = useState<string[]>([]),
+    [retry, setRetry] = useState(0);
   const [query, setQuery] = useState(""),
     [filter, setFilter] = useState("all"),
     [history, setHistory] = useState<SaleVehicle | null>(null);
@@ -88,25 +96,22 @@ export function SaleCart({
   );
   useEffect(() => {
     const c = new AbortController();
-    void Promise.allSettled(
-      countries
-        .split(",")
-        .filter(Boolean)
-        .map((country) => readPriceSummary(country, c.signal)),
-    ).then((results) => {
-      if (c.signal.aborted) return;
-      const next: Record<string, PriceSummary> = {};
-      let failed = false;
-      for (const r of results) {
-        if (r.status === "fulfilled") {
-          for (const item of r.value.items) next[item.vehicleId] = item;
-        } else failed = true;
-      }
-      setSummaries(next);
-      setPriceError(failed ? "部分历史记录读取失败，原价清单仍可使用。" : "");
-    });
+    for (const country of countries.split(",").filter(Boolean)) {
+      void readPriceSummary(country, c.signal, retry > 0)
+        .then((result) => {
+          if (c.signal.aborted) return;
+          setSummaries((old) => ({
+            ...old,
+            ...Object.fromEntries(result.items.map((item) => [item.vehicleId, item])),
+          }));
+          setLoadedCountries((old) => [...new Set([...old, country])]);
+        })
+        .catch(() => {
+          if (!c.signal.aborted) setPriceError("部分历史记录读取失败，原价清单仍可使用。");
+        });
+    }
     return () => c.abort();
-  }, [countries]);
+  }, [countries, retry]);
   const savePreferences = (items: typeof preferences.items) =>
     preferences.save(
       Object.fromEntries(Object.entries(items).filter(([id]) => vehicles.some((v) => v.id === id))),
@@ -150,6 +155,16 @@ export function SaleCart({
       {(error || priceError || preferences.error) && (
         <div className="wt-sale-cart-errors" role="alert">
           {error || priceError || preferences.error}
+          {priceError && (
+            <button
+              onClick={() => {
+                setPriceError("");
+                setRetry((v) => v + 1);
+              }}
+            >
+              重试历史资料
+            </button>
+          )}
           {preferences.error && (
             <>
               <button onClick={() => download({ pending: preferences.exportPending(), vehicles })}>
@@ -164,7 +179,7 @@ export function SaleCart({
         <div className="wt-sale-cart-columns" aria-hidden="true">
           <span>购车计划 / 载具</span>
           <span>原价</span>
-          <span>已记录最低</span>
+          <span>历史低价</span>
           <span>价格观测</span>
           <span>活动窗口</span>
           <span>操作</span>
@@ -187,6 +202,11 @@ export function SaleCart({
               price = quote?.amount ?? null,
               currency = quote?.currency || "CNY";
             const selected = preferences.items[v.id]?.selected !== false;
+            const promotion = summaries[v.id]?.discountEvidence
+              ?.filter((e) => e.purchaseCondition === "普通单件购买")
+              .sort((a, b) => b.discountPercent - a.discountPercent)[0];
+            const minimum = discountedMinimum(offer),
+              loaded = loadedCountries.includes(v.country);
             return (
               <article className="wt-sale-cart-row" key={v.id}>
                 <div className="wt-sale-cart-vehicle">
@@ -208,7 +228,7 @@ export function SaleCart({
                   </label>
                   {tile(v)}
                 </div>
-                <div className="wt-sale-cart-price">
+                <div className="wt-sale-cart-price wt-sale-cart-original">
                   <strong>{currency === "CNY" ? priceText(price, currency) : "常规金鹰价"}</strong>
                   <small>
                     {currency === "CNY" ? "整包原价" : "常规金鹰价格"} ·{" "}
@@ -217,17 +237,33 @@ export function SaleCart({
                 </div>
                 <div className="wt-sale-cart-price">
                   <b>
-                    {priceText(offer?.minimum?.amountMinor ?? null, offer?.currency || currency)}
+                    {!loaded
+                      ? priceError
+                        ? "读取失败"
+                        : "读取中…"
+                      : minimum
+                        ? priceText(minimum.amountMinor, offer!.currency)
+                        : "待核实"}
                   </b>
                   <small>
-                    {offer?.sampleCount === 1
-                      ? "首次记录"
-                      : priceDate(offer?.minimum?.observedAt ?? null)}
+                    {minimum
+                      ? priceDate(minimum.observedAt)
+                      : promotion
+                        ? `曾优惠 ${promotion.discountPercent}%，金额待核实`
+                        : offer
+                          ? "仅有原价采样，非历史最低"
+                          : "尚无报价记录"}
                   </small>
                 </div>
                 <div className="wt-sale-cart-observations">
                   {offer && <MiniPriceTrend offer={offer} />}
-                  <span>{offer?.sampleCount || 0} 次观测</span>
+                  <span>
+                    {loaded
+                      ? `${offer?.sampleCount || 0} 次采样`
+                      : priceError
+                        ? "读取失败"
+                        : "读取中…"}
+                  </span>
                   <small>
                     {offer && offer.sampleCount > 1
                       ? `自 ${priceDate(offer.firstObservedAt)}`
@@ -242,8 +278,8 @@ export function SaleCart({
                     <>
                       <strong>{event.title}</strong>
                       <span>{saleCountdown(event, now)}</span>
-                      <small>{saleRange(event)}</small>
-                      <small>
+                      <small className="wt-sale-cart-event-detail">{saleRange(event)}</small>
+                      <small className="wt-sale-cart-event-detail">
                         {event.status === "predicted"
                           ? "预测窗口，名单未公布"
                           : event.vehicleIds.includes(v.id)
@@ -351,7 +387,12 @@ export function SaleCart({
         </output>
       )}
       {history && (
-        <SalePriceHistory key={history.id} vehicle={history} close={() => setHistory(null)} />
+        <SalePriceHistory
+          key={history.id}
+          vehicle={history}
+          summary={summaries[history.id]}
+          close={() => setHistory(null)}
+        />
       )}
     </Modal>
   );
