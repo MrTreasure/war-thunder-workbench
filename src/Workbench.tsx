@@ -336,7 +336,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   }, [country, category, mode]);
   useEffect(() => {
     const key = (e: KeyboardEvent) => {
-      if (modal || page !== "tree") return;
+      if (modal || page !== "tree" || document.querySelector("dialog[open]")) return;
       if (
         e.key === "/" &&
         !["INPUT", "TEXTAREA", "SELECT"].includes((e.target as HTMLElement).tagName)
