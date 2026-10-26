@@ -2812,14 +2812,14 @@
     overflow: visible;
   }
   .wt-part-card {
-    min-height: 104px;
+    min-height: var(--wt-part-row-height);
   }
   .wt-part-card input {
     width: 18px;
     height: 18px;
   }
   .wt-part-tier-row .wt-part-grid.is-unmapped {
-    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+    grid-template-columns: repeat(auto-fill, var(--wt-part-card-width));
   }
 }
 
@@ -3313,4 +3313,12 @@
   .wt-loadout-limits { gap:16px 24px; }
   .wt-loadout-matrix th:first-child { min-width:190px; }
   .wt-loadouts h4 > small { display:block; margin:5px 0 0; }
+}
+
+/* Vehicle workspaces retain one viewport-bounded height across tabs and nested calculators. */
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .calculator:is(.vehicle-detail-dialog, .wt-modifications-dialog, .vehicle-calculator) {
+    height: calc(100dvh - 16px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    max-height: calc(100dvh - 16px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  }
 }

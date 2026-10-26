@@ -185,6 +185,9 @@ export function VehicleTags({ vehicleId }: { vehicleId: string }) {
         {current && (
           <GameSelect
             value={current.version}
+            renderValue={() =>
+              current.versions.find((item) => item.id === current.version)?.label || current.version
+            }
             aria-label="标签游戏版本"
             onValueChange={(value) => setVersion(String(value))}
           >
@@ -212,26 +215,19 @@ export function VehicleTags({ vehicleId }: { vehicleId: string }) {
         </p>
       ) : (
         <div className="wt-vehicle-tag-counts">
-          {current?.tags.length ? (
-            current.tags.map((tag) => (
-              <span key={tag.id}>
-                <GameTag tagId={tag.id} tone={tag.tone}>
-                  {tagLabel(tag.id, tagCatalog.items) || "标签加载中"}
-                </GameTag>
-                <b aria-label={`累计 ${tag.count} 次`}>×{tag.count}</b>
-              </span>
-            ))
-          ) : (
-            <p className="calc-note">这个版本还没有标签，来分享你的体验。</p>
-          )}
+          {current?.tags.length
+            ? current.tags.map((tag) => (
+                <span key={tag.id}>
+                  <GameTag tagId={tag.id} tone={tag.tone}>
+                    {tagLabel(tag.id, tagCatalog.items) || "标签加载中"}
+                  </GameTag>
+                  <b aria-label={`累计 ${tag.count} 次`}>×{tag.count}</b>
+                </span>
+              ))
+            : null}
         </div>
       )}
       <div className="wt-vehicle-tag-footer">
-        <small>
-          {current?.version !== current?.currentVersion
-            ? "历史版本标签仅供查看"
-            : "同文案累计次数 · 材质取最高档"}
-        </small>
         <button
           type="button"
           className="quiet-button"

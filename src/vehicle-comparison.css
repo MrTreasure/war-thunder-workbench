@@ -4,13 +4,21 @@
 .vehicle-detail-dialog {
   width: min(1040px, calc(100vw - 40px));
 }
+.calculator:is(.vehicle-detail-dialog, .wt-modifications-dialog, .vehicle-calculator) {
+  height: min(880px, calc(100dvh - 32px));
+  max-height: calc(100dvh - 32px);
+}
 .vehicle-detail-dialog[open] {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
 }
 .vehicle-detail-dialog .detail.wt-vehicle-sheet {
+  height: 100%;
+  min-height: 0;
+  max-height: none;
   overflow-y: auto;
   overscroll-behavior: contain;
+  scrollbar-gutter: stable;
 }
 .wt-detail-actions > .wt-game-button {
   min-height: 44px;
@@ -69,6 +77,7 @@
 .wt-performance-header {
   justify-content: space-between;
   gap: 16px;
+  margin-bottom: 12px;
 }
 .wt-performance-header h3 {
   margin: 0;
@@ -83,10 +92,6 @@
   min-height: 44px;
   padding: 8px 14px;
   font-size: 13px;
-}
-.wt-vehicle-sheet p.wt-performance-caption {
-  margin: 8px 0 16px;
-  font-size: 12px;
 }
 .wt-performance-charts {
   display: grid;
@@ -190,30 +195,6 @@
   margin: 8px 0 0;
   font-size: 11px;
 }
-.wt-performance-details {
-  margin-top: 12px;
-}
-.wt-performance-details > summary {
-  display: flex;
-  align-items: center;
-  min-height: 44px;
-  padding-block: 10px;
-  color: var(--wt-body);
-  font-size: 12px;
-  cursor: pointer;
-}
-.wt-performance-details > summary::before {
-  content: "+";
-  margin-right: 8px;
-  color: var(--wt-gold);
-}
-.wt-performance-details[open] > summary::before {
-  content: "−";
-}
-.wt-performance-details > summary:focus-visible {
-  outline: 2px solid var(--wt-gold);
-  outline-offset: 2px;
-}
 .wt-performance-scroll,
 .wt-loadout-matrix-scroll {
   max-width: 100%;
@@ -302,28 +283,6 @@
 .wt-dossier-provenance {
   display: inline-block;
   margin-top: 14px;
-}
-.wt-reference-explanation {
-  margin-top: 16px;
-  border-top: 1px solid var(--wt-line);
-  color: var(--wt-muted);
-  font-size: 12px;
-}
-.wt-reference-explanation > summary {
-  min-height: 44px;
-  padding: 12px 0;
-  cursor: pointer;
-  color: var(--wt-body);
-}
-.wt-reference-explanation p {
-  font-size: 12px;
-  line-height: 1.75;
-  margin: 0 0 10px;
-}
-.wt-reference-explanation a {
-  display: inline-block;
-  margin: 0 16px 8px 0;
-  color: var(--wt-gold);
 }
 .wt-table-scroll-hint {
   display: none;

@@ -10,7 +10,7 @@ import { VehiclePerformance } from "./VehiclePerformance";
 import { VehicleLoadouts } from "./VehicleLoadouts";
 import { GameButton, GameLinkButton } from "./components/GameButton";
 import { GameTabs, type GameTab } from "./components/GameTabs";
-type DetailTab = "performance" | "loadouts" | "information" | "route";
+type DetailTab = "performance" | "statistics" | "loadouts" | "information" | "route";
 export function VehicleDetails({
   unit,
   catalog,
@@ -35,9 +35,11 @@ export function VehicleDetails({
   onSelect: (id: string) => void;
 }) {
   const [tab, setTab] = useState<DetailTab>("performance");
+  const [performanceMode, setPerformanceMode] = useState<"ab" | "rb">(mode === "ab" ? "ab" : "rb");
   const id = `vehicle-${unit.id}-sections`;
   const items: GameTab<DetailTab>[] = [
     { value: "performance", label: "性能对比", icon: "performance" },
+    { value: "statistics", label: "性能数值", icon: "details" },
     ...(["aviation", "helicopters"].includes(category)
       ? [{ value: "loadouts" as const, label: "武器挂载", icon: "loadout" as const }]
       : []),
@@ -136,8 +138,15 @@ export function VehicleDetails({
           className="wt-detail-panel"
         >
           {active === item.value &&
-            (item.value === "performance" ? (
-              <VehiclePerformance key={unit.id} unit={unit} mode={mode} category={category} />
+            (["performance", "statistics"].includes(item.value) ? (
+              <VehiclePerformance
+                key={unit.id}
+                unit={unit}
+                category={category}
+                view={item.value === "statistics" ? "table" : "chart"}
+                comparisonMode={performanceMode}
+                onModeChange={setPerformanceMode}
+              />
             ) : item.value === "loadouts" ? (
               <VehicleLoadouts unit={unit} />
             ) : item.value === "information" ? (
@@ -161,18 +170,10 @@ export function VehicleDetails({
                     </li>
                   ))}
                 </ol>
-                <p className="wt-detail-route-note">
-                  按真实前置关系排列；研发仍需满足对应阶级的购车数量。
-                </p>
               </section>
             ))}
         </section>
       ))}
-      {unit.side !== "research" && (
-        <p className="wt-detail-route-note">
-          独立获取载具，不接入常规研发路线。是否在售以游戏和官方页面为准。
-        </p>
-      )}
       <VehicleTags key={unit.id} vehicleId={unit.id} />
     </article>
   );
