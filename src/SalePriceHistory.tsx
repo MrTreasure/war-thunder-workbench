@@ -58,7 +58,7 @@ export function PriceChart({ offer, days }: { offer: PriceOffer; days: number })
         aria-label={t(
           "{0}价格观测图，横轴为日期，纵轴为{1}。详细数据见下表。",
           offer.title,
-          offer.currency === "CNY" ? "整包人民币价格" : "金鹰价格",
+          t(offer.currency === "CNY" ? "整包人民币价格" : "金鹰价格"),
         )}
       >
         {[0, 0.5, 1].map((r) => {
