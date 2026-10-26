@@ -16,6 +16,7 @@ import type { GroundImageAsset } from "./map-assets";
 import { tacticalSymbolIds, drawTacticalSymbol } from "./map-editor-symbols";
 import { CONTOUR_IMAGE_MATRIX, referenceGrid } from "./ground-map-projection";
 export type MapExportScene = {
+  recommendation?: { asset: GroundImageAsset; width: number; height: number; matrix: number[] };
   base: GroundImageAsset;
   contourImage: GroundImageAsset;
   view: { x: number; y: number; w: number; h: number };
@@ -136,6 +137,7 @@ export async function renderMapPng(
   const add = (asset: GroundImageAsset) => needed.set(asset.url, asset);
   add(scene.base);
   if (scene.contours) add(scene.contourImage);
+  if (scene.recommendation) add(scene.recommendation.asset);
   if (scene.points)
     for (const mark of scene.marks) {
       const asset = scene.builtinIcons[iconKey(mark, scene.team)];
@@ -184,6 +186,14 @@ export async function renderMapPng(
     ctx.globalAlpha = 0.8;
     ctx.transform(...CONTOUR_IMAGE_MATRIX);
     ctx.drawImage(images.get(scene.contourImage.url)!, 0, 0, 1000, 1000);
+    ctx.restore();
+  }
+  if (scene.recommendation) {
+    const route = scene.recommendation;
+    ctx.save();
+    const [a, b, c, d, e, f] = route.matrix;
+    ctx.transform(a, b, c, d, e, f);
+    ctx.drawImage(images.get(route.asset.url)!, 0, 0, route.width, route.height);
     ctx.restore();
   }
   if (scene.grid) {

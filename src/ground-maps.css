@@ -424,3 +424,30 @@
   outline: 2px solid var(--wt-gold);
   outline-offset: 3px;
 }
+/* finesse · component: recommended-map-routes · register=product · tokens: inherited */
+.ground-route-note {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  display: grid;
+  gap: 3px;
+  max-width: min(440px, calc(100% - 24px));
+  padding: 7px 10px;
+  color: var(--wt-body);
+  background: var(--wt-page);
+  border: 1px solid var(--wt-line);
+  font: 12px/1.4 var(--wt-sans);
+  pointer-events: auto;
+}
+.ground-route-note a {
+  color: var(--wt-gold);
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ground-route-note span { color: var(--wt-muted); }
+.ground-route-note button { min-height: 32px; margin-left: 6px; }
+.ground-route-note a:focus-visible { outline: 2px solid var(--wt-gold); outline-offset: 2px; }
+@media (hover: hover) { .ground-route-note a:hover { text-decoration: underline; } }
+.ground-stage[data-editing="true"] .ground-route-note { display: none; }

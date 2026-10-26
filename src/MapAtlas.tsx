@@ -12,6 +12,7 @@ import { mapView } from "./map-editor-model";
 import { CONTOUR_IMAGE_TRANSFORM, referenceGrid } from "./ground-map-projection";
 import { Link, Navigate, useNavigate } from "@tanstack/react-router";
 import atlas from "../data/ground-maps.json";
+import { recommendedRoute, hasRecommendedRoutes } from "./map-recommendations";
 import { Route } from "./routes/_workbench.maps";
 import { Route as DetailRoute } from "./routes/_workbench.maps_.$mapId";
 
@@ -41,7 +42,7 @@ export function MapAtlas() {
         normalize(
           [map.name, map.english, map.id, thumb.name, ...map.guides.map((g) => g.title)].join(" "),
         ).includes(normalize(query)) &&
-        (!onlyGuides || map.guides.length),
+        (!onlyGuides || map.guides.length || hasRecommendedRoutes(map.id)),
     );
   if (selected)
     return (
@@ -97,9 +98,11 @@ export function MapAtlas() {
                 loading="lazy"
                 decoding="async"
               />
-              {map.guides.length > 0 && (
+              {hasRecommendedRoutes(map.id) ? (
+                <span className="ground-guide-badge">推荐走线</span>
+              ) : map.guides.length > 0 ? (
                 <span className="ground-guide-badge">攻略 {map.guides.length}</span>
-              )}
+              ) : null}
             </div>
             <div className="ground-card-caption">
               <strong>{map.name}</strong>
@@ -208,6 +211,12 @@ function GroundDetail({
     [points, setPoints] = useState(true),
     [grid, setGrid] = useState(false),
     [cropped, setCropped] = useState(true);
+  const [recommendations, setRecommendations] = useState(true);
+  const route = recommendedRoute(map.id, layout.id, team);
+  const [routeState, setRouteState] = useState({ id: "", status: "loading" });
+  const [routeRetry, setRouteRetry] = useState(0);
+  const routeKey = `${route?.id || "none"}:${routeRetry}`;
+  const routeStatus = routeState.id === routeKey ? routeState.status : "loading";
   const [zoom, setZoom] = useState(1),
     [offset, setOffset] = useState({ x: 0, y: 0 });
   const [failed, setFailed] = useState(false),
@@ -318,6 +327,9 @@ function GroundDetail({
         </GameSelect>
       </label>
       <div className="ground-layer-toggles">
+        <button aria-pressed={recommendations} onClick={() => setRecommendations((v) => !v)}>
+          推荐走线
+        </button>
         {[
           ["等高线", contours, setContours],
           ["点位", points, setPoints],
@@ -446,6 +458,24 @@ function GroundDetail({
                     onFailure={() => setFailed(true)}
                   />
                 )}
+                {recommendations && route && (
+                  <g
+                    className="ground-recommended-layer"
+                    pointerEvents="none"
+                    aria-label="推荐走线图层"
+                  >
+                    <image
+                      key={routeKey}
+                      href={route.url}
+                      width={route.width}
+                      height={route.height}
+                      transform={`matrix(${route.matrix.join(" ")})`}
+                      preserveAspectRatio="none"
+                      onLoad={() => setRouteState({ id: routeKey, status: "loaded" })}
+                      onError={() => setRouteState({ id: routeKey, status: "error" })}
+                    />
+                  </g>
+                )}
                 {grid && (
                   <g
                     className="ground-grid-lines"
@@ -518,6 +548,32 @@ function GroundDetail({
                 </a>
               </p>
             )}
+            {recommendations && (
+              <output className="ground-route-note">
+                {route ? (
+                  <>
+                    <a
+                      href={route.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={route.title}
+                    >
+                      推荐走线 · {route.label} · 原攻略 ↗
+                    </a>
+                    <span>玩家经验重绘，仅供参考；布局与版本以原帖为准。</span>
+                    {routeStatus === "loading" && <span>正在加载推荐走线…</span>}
+                    {routeStatus === "error" && (
+                      <span role="alert">
+                        推荐走线加载失败。
+                        <button onClick={() => setRouteRetry((v) => v + 1)}>重试走线</button>
+                      </span>
+                    )}
+                  </>
+                ) : (
+                  <span>当前布局与出生侧暂无匹配的推荐走线。</span>
+                )}
+              </output>
+            )}
             <MapEditor
               drawingView={{ x, y, w, h, crop, contours, grid, points }}
               key={`${map.id}:${layout.id}:${team}`}
@@ -551,6 +607,15 @@ function GroundDetail({
               exportImage={(items, resolution, signal, progress) =>
                 renderMapPng(
                   {
+                    recommendation:
+                      recommendations && route
+                        ? {
+                            asset: { url: route.url },
+                            width: route.width,
+                            height: route.height,
+                            matrix: route.matrix,
+                          }
+                        : undefined,
                     base: rotateAsset(map.base, sourceChoice),
                     contourImage: rotateAsset(map.contourImage, sourceChoice),
                     view: { x, y, w, h },
