@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-10-26",
+  "kind": "community-evaluation-wording",
+  "usageNote": "供玩家为具体载具自主打标；参考官方论坛的玩家讨论，不是开发商评级，不自动给载具打分或改变价格。",
+  "tags": [
+    {
+      "id": "vehicle-great-value",
+      "label": "超值之选",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/worth-it-premiums/234968",
+      "sourceTitle": "Worth it Premiums",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-budget-friendly",
+      "label": "便宜好用",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/worth-it-premiums/234968",
+      "sourceTitle": "Worth it Premiums",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-wait-for-sale",
+      "label": "折扣再入",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/is-it-worth-it-to-buy-to-2s38-so-i-can-have-something-to-pair-with-my-t80ue1/269149",
+      "sourceTitle": "Is it worth it to Buy the 2S38?",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-pricey-at-full-price",
+      "label": "原价偏高",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/f1c-200-premium-is-outdated-and-overpriced-nf-5a-outclasses-it-in-every-way/246822/1",
+      "sourceTitle": "F1C-200 Premium is outdated and overpriced – NF-5A outclasses it in every way",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-buy-with-care",
+      "label": "入手谨慎",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/worth-it-premiums/234968",
+      "sourceTitle": "Worth it Premiums",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-research-grinder",
+      "label": "研发利器",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/best-premium-grinder-for-sweden-ground/292970",
+      "sourceTitle": "Best premium grinder for Sweden ground",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-silver-lion-earner",
+      "label": "银狮印钞机",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/i-need-silver-lions-fast-and-im-broke/262654/16",
+      "sourceTitle": "I need Silver lions, fast and im broke",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-heavy-armor",
+      "label": "重甲铁壁",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/who-is-the-best-person-to-start-with/234381",
+      "sourceTitle": "Who is the best person to start with?",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-forgiving",
+      "label": "容错率高",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/who-is-the-best-person-to-start-with/234381",
+      "sourceTitle": "Who is the best person to start with?",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-skill-dependent",
+      "label": "操作吃熟练度",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/who-is-the-best-person-to-start-with/234381",
+      "sourceTitle": "Who is the best person to start with?",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-stock-grind",
+      "label": "白板坐牢",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/type-61-and-st-a-family/252753",
+      "sourceTitle": "Type 61 and ST-A family",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-spaded-shines",
+      "label": "完全体真香",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/type-61-and-st-a-family/252753",
+      "sourceTitle": "Type 61 and ST-A family",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-flanking-specialist",
+      "label": "绕侧好手",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/type-61-and-st-a-family/252753",
+      "sourceTitle": "Type 61 and ST-A family",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-sniping-specialist",
+      "label": "狙击好手",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/type-61-and-st-a-family/252753",
+      "sourceTitle": "Type 61 and ST-A family",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-limited-depression",
+      "label": "俯角难受",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/the-pantsir-sm-sv-is-simply-too-strong-russian-bias-as-clear-as-day/314801/493",
+      "sourceTitle": "The Pantsir SM-SV is Simply Too Strong, Russian Bias as Clear as Day",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-slow-reverse",
+      "label": "倒车感人",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/the-pantsir-sm-sv-is-simply-too-strong-russian-bias-as-clear-as-day/314801/493",
+      "sourceTitle": "The Pantsir SM-SV is Simply Too Strong, Russian Bias as Clear as Day",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-hard-to-line-up",
+      "label": "队列难配",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/is-it-worth-it-to-buy-to-2s38-so-i-can-have-something-to-pair-with-my-t80ue1/269149",
+      "sourceTitle": "Is it worth it to Buy the 2S38?",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-lineup-complement",
+      "label": "适合补队列",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/is-it-worth-it-to-buy-to-2s38-so-i-can-have-something-to-pair-with-my-t80ue1/269149",
+      "sourceTitle": "Is it worth it to Buy the 2S38?",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-not-alone",
+      "label": "单买不推荐",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/is-it-worth-it-to-buy-to-2s38-so-i-can-have-something-to-pair-with-my-t80ue1/269149",
+      "sourceTitle": "Is it worth it to Buy the 2S38?",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-collectors-pick",
+      "label": "收藏向",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/is-it-at-least-a-bit-worth-buying-the-f-14-iriaf/249285",
+      "sourceTitle": "Is it at least a bit worth buying the F-14 IRIAF?",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-sentimental-pick",
+      "label": "情怀之选",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/is-it-at-least-a-bit-worth-buying-the-f-14-iriaf/249285",
+      "sourceTitle": "Is it at least a bit worth buying the F-14 IRIAF?",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    },
+    {
+      "id": "vehicle-fun-first",
+      "label": "娱乐优先",
+      "group": "载具标签",
+      "family": "vehicle",
+      "scopes": [
+        "vehicle"
+      ],
+      "kind": "community-evaluation-wording",
+      "sourceUrl": "https://forum.warthunder.com/t/is-it-at-least-a-bit-worth-buying-the-f-14-iriaf/249285",
+      "sourceTitle": "Is it at least a bit worth buying the F-14 IRIAF?",
+      "sourceNote": "根据官方论坛玩家讨论归纳的可选文案，非官方评级，不表示对具体载具的结论。"
+    }
+  ]
+}

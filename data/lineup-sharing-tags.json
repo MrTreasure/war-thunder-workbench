@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "maxVehicles": 8,
-  "maxAuthorTags": 3,
+  "maxAuthorTags": 5,
   "officialTag": {
     "url": "https://static.encyclopedia.warthunder.com/gui_skin/discount_box_thin_bg.svg",
     "bytes": 3267,

@@ -1,3 +1,4 @@
+import vehicleTags from "../data/vehicle-tags.json";
 import titles from "../data/game-tag-texts.json";
 import registry from "../data/lineup-sharing-tags.json";
 import type { TagOption } from "./components/TagSelector";
@@ -5,6 +6,7 @@ export const gameTagOptions: TagOption[] = [
   ...registry.tags
     .filter((tag) => !tag.system)
     .map((tag) => ({ ...tag, group: `队列 · ${tag.group}` })),
+  ...vehicleTags.tags.map((tag) => ({ ...tag, family: "vehicle" as const })),
   ...titles.titles.map((title) => ({
     ...title,
     group: "官方游戏称号",

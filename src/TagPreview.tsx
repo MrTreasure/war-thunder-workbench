@@ -13,6 +13,8 @@ export function TagPreview() {
     { id: "classic", tone: "original" },
     { id: "flank", tone: "color-blue" },
   ]);
+  const [vehicleChoices, setVehicleChoices] = useState<TagChoice[]>([]);
+  const vehicleCatalog = useTagCatalog("vehicle");
   const access = useGameTagAccess();
   const tagCatalog = useTagCatalog();
   const account = useWorkbenchAccount();
@@ -69,6 +71,24 @@ export function TagPreview() {
         />
         <p className="wt-tag-lab-source">
           演示表单已放入两条标签。点击字段打开编辑弹层，文案和样式分别选择；确认后回填，取消保留原值。
+        </p>
+      </section>
+      <section>
+        <h2>载具标签</h2>
+        <TagSelector
+          scope="vehicle"
+          options={vehicleCatalog.options}
+          loading={vehicleCatalog.loading}
+          error={vehicleCatalog.error}
+          onRetry={vehicleCatalog.refresh}
+          value={vehicleChoices}
+          onChange={setVehicleChoices}
+          allowedTones={access.allowedTones}
+          max={1}
+          label="载具标签"
+        />
+        <p className="wt-tag-lab-source">
+          载具评价文案供玩家自主选择，参考社区讨论，不是官方评级。此处仅演示选择，不提交打标或消耗额度。
         </p>
       </section>
       <section>

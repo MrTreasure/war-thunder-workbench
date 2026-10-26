@@ -101,6 +101,7 @@ function VehicleTagDialog({
           </p>
         )}
         <TagSelector
+          scope="vehicle"
           options={tagCatalog.options}
           loading={tagCatalog.loading}
           error={tagCatalog.error}
