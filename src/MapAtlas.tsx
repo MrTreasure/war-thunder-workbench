@@ -13,6 +13,7 @@ import { CONTOUR_IMAGE_TRANSFORM, referenceGrid } from "./ground-map-projection"
 import { Link, Navigate, useNavigate } from "@tanstack/react-router";
 import atlas from "../data/ground-maps.json";
 import { recommendedRoute, hasRecommendedRoutes } from "./map-recommendations";
+import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { Route } from "./routes/_workbench.maps";
 import { Route as DetailRoute } from "./routes/_workbench.maps_.$mapId";
 
@@ -20,6 +21,8 @@ type GroundMap = (typeof atlas.maps)[number];
 const normalize = (s: string) =>
   s.normalize("NFKC").toLowerCase().replaceAll("日曜", "日耀").replaceAll("马奇诺", "马其诺");
 export function MapAtlas() {
+  const { session } = useWorkbenchAccount();
+  const isSuperAdmin = session?.role === "superadmin";
   const search = Route.useSearch();
   const navigate = useNavigate({ from: "/maps" });
   const query = search.q || "";
@@ -42,7 +45,7 @@ export function MapAtlas() {
         normalize(
           [map.name, map.english, map.id, thumb.name, ...map.guides.map((g) => g.title)].join(" "),
         ).includes(normalize(query)) &&
-        (!onlyGuides || map.guides.length || hasRecommendedRoutes(map.id)),
+        (!onlyGuides || map.guides.length || (isSuperAdmin && hasRecommendedRoutes(map.id))),
     );
   if (selected)
     return (
@@ -98,7 +101,7 @@ export function MapAtlas() {
                 loading="lazy"
                 decoding="async"
               />
-              {hasRecommendedRoutes(map.id) ? (
+              {isSuperAdmin && hasRecommendedRoutes(map.id) ? (
                 <span className="ground-guide-badge">推荐走线</span>
               ) : map.guides.length > 0 ? (
                 <span className="ground-guide-badge">攻略 {map.guides.length}</span>
@@ -206,13 +209,15 @@ function GroundDetail({
   openProject: (project: MapProject) => void;
   choose: (id: string) => void;
 }) {
+  const { session } = useWorkbenchAccount();
+  const isSuperAdmin = session?.role === "superadmin";
   const layout = map.layouts.find((l) => l.id === layoutId) || map.layouts[0];
   const [contours, setContours] = useState(true),
     [points, setPoints] = useState(true),
     [grid, setGrid] = useState(false),
     [cropped, setCropped] = useState(true);
   const [recommendations, setRecommendations] = useState(true);
-  const route = recommendedRoute(map.id, layout.id, team);
+  const route = isSuperAdmin ? recommendedRoute(map.id, layout.id, team) : undefined;
   const [routeState, setRouteState] = useState({ id: "", status: "loading" });
   const [routeRetry, setRouteRetry] = useState(0);
   const routeKey = `${route?.id || "none"}:${routeRetry}`;
@@ -327,9 +332,26 @@ function GroundDetail({
         </GameSelect>
       </label>
       <div className="ground-layer-toggles">
-        <button aria-pressed={recommendations} onClick={() => setRecommendations((v) => !v)}>
-          推荐走线
-        </button>
+        {isSuperAdmin && (
+          <button
+            aria-pressed={recommendations && !!route}
+            aria-busy={recommendations && !!route && routeStatus === "loading"}
+            disabled={!route}
+            title={
+              !route
+                ? "当前布局与出生侧暂无匹配的推荐走线"
+                : routeStatus === "error"
+                  ? "推荐走线加载失败，点击重试"
+                  : "显示或隐藏推荐走线"
+            }
+            onClick={() => {
+              if (recommendations && routeStatus === "error") setRouteRetry((v) => v + 1);
+              else setRecommendations((v) => !v);
+            }}
+          >
+            推荐走线
+          </button>
+        )}
         {[
           ["等高线", contours, setContours],
           ["点位", points, setPoints],
@@ -547,32 +569,6 @@ function GroundDetail({
                   打开原图 ↗
                 </a>
               </p>
-            )}
-            {recommendations && (
-              <output className="ground-route-note">
-                {route ? (
-                  <>
-                    <a
-                      href={route.sourceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title={route.title}
-                    >
-                      推荐走线 · {route.label} · 原攻略 ↗
-                    </a>
-                    <span>玩家经验重绘，仅供参考；布局与版本以原帖为准。</span>
-                    {routeStatus === "loading" && <span>正在加载推荐走线…</span>}
-                    {routeStatus === "error" && (
-                      <span role="alert">
-                        推荐走线加载失败。
-                        <button onClick={() => setRouteRetry((v) => v + 1)}>重试走线</button>
-                      </span>
-                    )}
-                  </>
-                ) : (
-                  <span>当前布局与出生侧暂无匹配的推荐走线。</span>
-                )}
-              </output>
             )}
             <MapEditor
               drawingView={{ x, y, w, h, crop, contours, grid, points }}

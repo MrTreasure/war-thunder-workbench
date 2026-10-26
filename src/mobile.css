@@ -3140,13 +3140,3 @@
     min-height: 44px;
   }
 }
-@media (max-width: 800px) {
-  .ground-route-note {
-    bottom: 64px;
-    left: 8px;
-    max-width: calc(100% - 16px);
-    padding: 5px 8px;
-    font-size: 11px;
-  }
-  .ground-route-note button { min-height: 44px; }
-}
