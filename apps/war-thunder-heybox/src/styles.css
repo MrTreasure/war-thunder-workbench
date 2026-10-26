@@ -772,6 +772,10 @@ details[open] > summary::after {
   font-size: 14px;
   color: var(--wt-muted);
 }
+.hb-linked-identity-id {
+  overflow-wrap: anywhere;
+  user-select: text;
+}
 .hb-app .hb-menu-row {
   display: flex;
   align-items: center;

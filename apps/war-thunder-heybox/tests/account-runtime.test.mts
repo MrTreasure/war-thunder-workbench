@@ -423,6 +423,55 @@ test("an association response cannot replace the session after a native Host acc
   account.dispose();
 });
 
+test("explicit pair onboarding accepts the resulting native session and retains verified linked identity", async () => {
+  const f = fixture();
+  Object.assign(f.sdk.auth, {
+    login: async () => ({ code: "fixture-code", accountKey: "account-a" }),
+  });
+  const linkedAccounts = [
+    {
+      provider: "heybox",
+      providerUserId: "au_fixture",
+      displayName: "Fixture Heybox",
+      avatarUrl: null,
+    },
+  ];
+  let requests = 0;
+  const api: APIRequest = async () =>
+    (++requests === 1
+      ? { status: "onboarding_required", approvalTicket: "ticket".padEnd(43, "x") }
+      : {
+          status: "approved",
+          session: {
+            token: "unified_".padEnd(43, "x"),
+            expiresInSeconds: 3600,
+            user: { id: "fixture-web-user", linkedAccounts },
+          },
+        }) as any;
+  const account = createAccount(f.sdk, api);
+  await account.initialize();
+  await account.approvePair({
+    pairingCode: "AABBCCDDEEFF",
+    purpose: "login",
+    origin: "https://wt.mrtreasure.cc",
+    expiresAt: Date.now() + 60000,
+    status: "pending",
+  });
+  await account.createForPair("fixture-agreement");
+  let view: any;
+  account.subscribe((value) => {
+    view = value;
+  });
+  assert.equal(view.status, "authenticated");
+  assert.equal(view.user.id, "fixture-web-user");
+  assert.deepEqual(view.user.linkedAccounts, linkedAccounts);
+  assert.deepEqual(
+    (f.storage.get("wt_heybox_session_v1") as any).user.linkedAccounts,
+    linkedAccounts,
+  );
+  account.dispose();
+});
+
 test("miniapp avatar always uses the current Host profile, independently of PC avatar", async () => {
   const f = fixture();
   const old = f.storage.get("wt_heybox_session_v1") as any;
