@@ -1,0 +1,405 @@
+.wt-sales-topline > div {
+  padding: 10px 16px;
+  gap: 3px;
+}
+.wt-sales-topline strong {
+  font-size: 18px;
+}
+.wt-sales-topline {
+  margin-bottom: 16px;
+}
+.wt-sale-cart-modal.calculator,
+.wt-price-history-modal.calculator {
+  width: min(1380px, calc(100vw - 40px));
+  max-width: none;
+  height: fit-content;
+  max-height: calc(100dvh - 40px);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--wt-ink);
+}
+.wt-sale-cart-modal > .calc-header,
+.wt-price-history-modal > .calc-header {
+  flex: 0 0 auto;
+  padding: 18px 22px 12px;
+  margin: 0;
+}
+.wt-sale-cart-modal > .calc-header h2,
+.wt-price-history-modal > .calc-header h2 {
+  font-size: 21px;
+}
+.wt-sale-cart-modal > .calc-header p,
+.wt-price-history-modal > .calc-header p {
+  max-width: 950px;
+  font-size: 12px;
+}
+.wt-sale-cart-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px;
+  flex: 0 0 auto;
+}
+.wt-sale-cart-search {
+  flex: 1;
+}
+.wt-sale-cart-search input {
+  width: 100%;
+}
+.wt-sale-cart-modal input:not([type="checkbox"]),
+.wt-price-history-modal input {
+  min-height: 36px;
+  padding: 7px 10px;
+  border: 1px solid var(--wt-line);
+  border-radius: 4px;
+  background: var(--wt-surface);
+  color: var(--wt-ink);
+}
+.wt-sale-cart-scroll {
+  overflow: auto;
+  min-height: 0;
+  padding: 0 22px;
+}
+.wt-sale-cart-row,
+.wt-sale-cart-columns {
+  display: grid;
+  grid-template-columns: 262px minmax(130px, 1fr) minmax(112px, 0.9fr) minmax(112px, 0.85fr) minmax(
+      185px,
+      1.5fr
+    ) 82px;
+  gap: 12px;
+  align-items: center;
+}
+.wt-sale-cart-columns {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--wt-surface);
+  color: var(--wt-muted);
+  font-size: 12px;
+  padding: 9px 0;
+  border-block: 1px solid var(--wt-line);
+}
+.wt-sale-cart-row {
+  padding-block: 8px;
+  border-bottom: 1px solid var(--wt-line);
+}
+.wt-sale-cart-vehicle {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-width: 0;
+  padding-bottom: 0;
+}
+.wt-sale-cart-vehicle > label {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  flex: 0 0 22px;
+  min-height: 44px;
+}
+.wt-sale-cart-vehicle input {
+  accent-color: var(--wt-gold);
+  width: 16px;
+  height: 16px;
+}
+.wt-sale-cart-vehicle > .wt-game-card {
+  flex: 0 0 228px;
+}
+.wt-sale-cart-price,
+.wt-sale-cart-event,
+.wt-sale-cart-observations,
+.wt-sale-cart-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  font-variant-numeric: tabular-nums;
+}
+.wt-sale-cart-price strong {
+  font-size: 17px;
+}
+.wt-sale-cart-price small,
+.wt-sale-cart-event small,
+.wt-sale-cart-observations small {
+  font-size: 11px;
+  color: var(--wt-muted);
+}
+.wt-sale-cart-event strong {
+  font-size: 12px;
+}
+.wt-sale-cart-event span,
+.wt-sale-cart-observations span,
+.wt-sale-cart-actions {
+  font-size: 12px;
+}
+.wt-sale-cart-actions a {
+  color: var(--wt-gold);
+}
+.wt-sale-cart-actions button,
+.wt-sale-cart-observations button {
+  padding: 4px 6px;
+  min-height: 30px;
+  align-self: flex-start;
+}
+.wt-sale-cart-footer {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px;
+  border-top: 1px solid var(--wt-line);
+  background: var(--wt-surface);
+}
+.wt-sale-cart-footer > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.wt-sale-cart-footer > div:last-child {
+  display: flex;
+  gap: 8px;
+}
+.wt-sale-cart-footer strong {
+  font-size: 12px;
+}
+.wt-sale-cart-footer span {
+  font-size: 21px;
+  color: var(--wt-gold);
+  font-variant-numeric: tabular-nums;
+}
+.wt-sale-cart-footer small {
+  font-size: 11px;
+  color: var(--wt-muted);
+}
+.wt-sale-cart-empty {
+  padding: 40px 12px;
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+}
+.wt-sale-cart-empty p {
+  color: var(--wt-muted);
+}
+.wt-sale-cart-errors,
+.wt-sale-cart-undo {
+  padding: 8px 22px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: var(--wt-gold);
+}
+.wt-price-history-modal.calculator {
+  width: min(1020px, calc(100vw - 40px));
+}
+.wt-price-history-body {
+  overflow: auto;
+  padding: 0 22px 22px;
+}
+.wt-price-history-toolbar {
+  display: flex;
+  gap: 16px;
+  margin: 8px 0;
+  align-items: center;
+}
+.wt-price-history-toolbar label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+.wt-price-provenance {
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-price-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 20px 0;
+}
+.wt-price-metrics > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.wt-price-metrics strong {
+  font-size: 21px;
+}
+.wt-price-metrics small {
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.wt-price-chart {
+  margin-bottom: 16px;
+}
+.wt-price-chart svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.wt-price-chart text {
+  fill: var(--wt-muted);
+  font-size: 11px;
+}
+.wt-price-grid {
+  stroke: var(--wt-line);
+}
+.wt-price-low-line {
+  stroke: var(--wt-gold);
+  stroke-dasharray: 5 4;
+}
+.wt-price-step {
+  stroke: var(--wt-gold);
+  stroke-width: 2;
+  fill: none;
+}
+.wt-price-chart circle {
+  fill: var(--wt-gold);
+  stroke: var(--wt-surface);
+  stroke-width: 2;
+  cursor: pointer;
+}
+.wt-price-chart circle:focus {
+  outline: 2px solid var(--wt-ink);
+}
+.wt-price-chart-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+}
+.wt-price-chart > small {
+  display: block;
+  color: var(--wt-muted);
+  font-size: 11px;
+  margin-top: 8px;
+}
+.wt-price-chart-empty {
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-block: 1px solid var(--wt-line);
+  margin-bottom: 16px;
+  color: var(--wt-muted);
+}
+.wt-price-chart-empty small {
+  font-size: 12px;
+}
+.wt-price-record-table {
+  overflow: auto;
+  margin-top: 12px;
+}
+.wt-price-record-table table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 12px;
+}
+.wt-price-record-table th,
+.wt-price-record-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--wt-line);
+}
+@media (max-width: 1150px) {
+  .wt-sale-cart-row,
+  .wt-sale-cart-columns {
+    grid-template-columns: 262px minmax(120px, 1fr) minmax(110px, 1fr) 80px;
+  }
+  .wt-sale-cart-columns span:nth-child(4),
+  .wt-sale-cart-columns span:nth-child(5) {
+    display: none;
+  }
+  .wt-sale-cart-observations {
+    grid-column: 2;
+    grid-row: auto;
+  }
+  .wt-sale-cart-event {
+    grid-column: 3 / 5;
+  }
+  .wt-sale-cart-actions {
+    grid-column: 4;
+    grid-row: 1;
+  }
+  .wt-sale-cart-row {
+    position: relative;
+  }
+}
+.wt-price-mini {
+  width: 108px;
+  height: 32px;
+}
+.wt-price-mini path {
+  fill: none;
+  stroke: var(--wt-gold);
+  stroke-width: 1.5;
+}
+.wt-price-mini circle {
+  fill: var(--wt-gold);
+}
+
+.wt-sale-cart-price > .wt-select {
+  max-width: 100%;
+  font-size: 11px;
+  min-height: 28px;
+}
+
+.wt-price-history-toolbar label {
+  white-space: nowrap;
+}
+.wt-price-history-toolbar .wt-select {
+  width: auto;
+  flex: 0 1 auto;
+  max-width: 520px;
+}
+
+.wt-sale-cart-modal.calculator:not([open]),
+.wt-price-history-modal.calculator:not([open]) {
+  display: none;
+}
+.wt-price-history-error {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid var(--wt-line);
+  color: var(--wt-gold);
+}
+.wt-price-history-loading {
+  display: block;
+  padding: 12px 0;
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-price-discount-evidence {
+  border: 1px solid var(--wt-line);
+  padding: 12px;
+  margin-bottom: 16px;
+}
+.wt-price-discount-evidence h3 {
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+.wt-price-discount-evidence article {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 0;
+  font-size: 12px;
+}
+.wt-price-discount-evidence article + article {
+  border-top: 1px solid var(--wt-line);
+}
+.wt-price-discount-evidence small {
+  color: var(--wt-muted);
+}

@@ -13,18 +13,25 @@
 }
 .wt-share-heading {
   display: grid;
-  gap: 0;
-  margin: 0 0 18px;
+  grid-template-columns: repeat(3, 228px);
+  gap: 8px;
+  margin: 0 0 14px;
 }
 .wt-share-heading p {
   margin: 0;
-  font-size: 23px;
+  font-size: 20px;
   font-weight: 400;
-  line-height: 30px;
+  line-height: 28px;
   color: #bdc5c9;
 }
+.wt-share-heading-label {
+  display: block;
+  font-size: 12px;
+  line-height: 19px;
+  color: #93a3ad;
+}
 .wt-share-heading small {
-  margin-left: 12px;
+  margin-left: 8px;
   font-size: 14px;
   color: #8d9ca6;
 }
@@ -57,7 +64,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  padding-top: 18px;
+  padding-top: 12px;
 }
 .wt-share-note {
   margin: 14px 0 0;
@@ -136,54 +143,6 @@
   font-size: 18px;
   font-weight: 400;
   color: #dce1df;
-}
-.wt-lineup-tag {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 32px;
-  min-height: 32px;
-  min-width: 112px;
-  padding: 0 12px 0 28px;
-  --wt-tag-tint: #ff313b;
-  isolation: isolate;
-  background: transparent;
-}
-.wt-lineup-tag-skin,
-.wt-lineup-tag-tint {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-.wt-lineup-tag-skin {
-  z-index: 0;
-  border-style: solid;
-  border-width: 0 3px 0 20px;
-  border-image-source: url("https://static.encyclopedia.warthunder.com/gui_skin/discount_box_thin_bg.svg");
-  border-image-slice: 0 2 0 12 fill;
-  border-image-width: 0 3px 0 20px;
-  border-image-repeat: stretch;
-}
-.wt-lineup-tag-tint {
-  z-index: 1;
-  background: var(--wt-tag-tint);
-  mix-blend-mode: multiply;
-  -webkit-mask-box-image: url("https://static.encyclopedia.warthunder.com/gui_skin/discount_box_thin_bg.svg")
-    0 2 0 12 fill / 0 3px 0 20px / 0 stretch;
-}
-.wt-lineup-tag-text {
-  position: relative;
-  z-index: 2;
-  font-family: WTSymbols, WTCard, "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
-  display: block;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 32px;
-  color: #f4f3ef;
-  white-space: nowrap;
-  text-shadow: 0 1px 0 #000000a0;
-  letter-spacing: 0;
 }
 .wt-community-page .lineup-content {
   padding-bottom: 32px;
@@ -501,27 +460,6 @@
   color: var(--wt-muted);
   font-size: 12px;
   margin-bottom: 8px;
-}
-.wt-tag-choice {
-  padding: 0;
-  border: 0;
-  background: none;
-  cursor: pointer;
-  opacity: 0.8;
-  min-height: 36px;
-}
-.wt-tag-choice[aria-pressed="true"] {
-  opacity: 1;
-  outline: 1px solid #d5c58f;
-  outline-offset: 3px;
-}
-.wt-tag-choice:disabled {
-  opacity: 0.35;
-  cursor: default;
-}
-.wt-tag-choice:focus-visible {
-  outline: 2px solid var(--wt-gold);
-  outline-offset: 3px;
 }
 .wt-share-preview-scroll {
   overflow: auto;

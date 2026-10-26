@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "url": "https://static.encyclopedia.warthunder.com/gui_skin/discount_box_thin_bg.svg",
+    "bytes": 3267,
+    "sha256": "e9239894ddae1d5eef14f1ab422ba50b6a87106948a0f4b20832c82e4ada4dad"
+  },
+  "gameReference": {
+    "textColor": "#e5e5e5",
+    "tint": "#ff313b"
+  },
+  "tiers": [
+    "bronze",
+    "silver",
+    "gold",
+    "emerald",
+    "diamond",
+    "king",
+    "rainbow"
+  ],
+  "tones": {
+    "original": {
+      "label": "官方原色",
+      "tint": "#ffffff",
+      "text": "#202625"
+    },
+    "red": {
+      "label": "官方红色",
+      "tint": "#ff313b",
+      "text": "#e5e5e5"
+    },
+    "blue": {
+      "label": "深蓝",
+      "tint": "#456b89",
+      "text": "#edf6fa"
+    },
+    "bronze": {
+      "label": "青铜",
+      "tint": "#c58b58",
+      "text": "#fff0dd"
+    },
+    "silver": {
+      "label": "白银",
+      "tint": "#d0d8df",
+      "text": "#14232c"
+    },
+    "gold": {
+      "label": "黄金",
+      "tint": "#f4cd67",
+      "text": "#362508"
+    },
+    "emerald": {
+      "label": "翡翠",
+      "tint": "#147752",
+      "text": "#e1fff4"
+    },
+    "diamond": {
+      "label": "钻石",
+      "tint": "#c9eaf6",
+      "text": "#112b36"
+    },
+    "king": {
+      "label": "王者",
+      "tint": "#293b49",
+      "text": "#ffe49c"
+    },
+    "rainbow": {
+      "label": "七彩闪烁",
+      "tint": "#e6a6e0",
+      "text": "#ffffff"
+    },
+    "color-red": {
+      "label": "红色",
+      "tint": "#e34e55",
+      "text": "#fff1f0"
+    },
+    "color-orange": {
+      "label": "橙色",
+      "tint": "#df914a",
+      "text": "#20180d"
+    },
+    "color-yellow": {
+      "label": "黄色",
+      "tint": "#e1cc62",
+      "text": "#302a0b"
+    },
+    "color-green": {
+      "label": "绿色",
+      "tint": "#4f9769",
+      "text": "#f0fff5"
+    },
+    "color-cyan": {
+      "label": "青色",
+      "tint": "#4aa7ad",
+      "text": "#10292c"
+    },
+    "color-blue": {
+      "label": "蓝色",
+      "tint": "#4b83bd",
+      "text": "#f2f8ff"
+    },
+    "color-purple": {
+      "label": "紫色",
+      "tint": "#976aac",
+      "text": "#fff5ff"
+    },
+    "color-pink": {
+      "label": "粉色",
+      "tint": "#d58eaf",
+      "text": "#341727"
+    },
+    "color-brown": {
+      "label": "棕色",
+      "tint": "#94704d",
+      "text": "#fff2dc"
+    },
+    "color-black": {
+      "label": "黑色",
+      "tint": "#384149",
+      "text": "#edf4f8"
+    },
+    "color-white": {
+      "label": "白色",
+      "tint": "#f5f6f0",
+      "text": "#1c2a31"
+    },
+    "color-gray": {
+      "label": "灰色",
+      "tint": "#8e989e",
+      "text": "#14232b"
+    }
+  },
+  "basicColors": [
+    "color-yellow",
+    "color-green",
+    "color-blue",
+    "color-purple",
+    "color-pink",
+    "color-orange",
+    "color-black"
+  ]
+}

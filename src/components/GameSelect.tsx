@@ -28,6 +28,7 @@ type Props = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "value" | "onChange" 
   onValueChange: (value: string) => void;
   children: ReactNode;
   displayValue?: ReactNode;
+  renderValue?: (value: string) => ReactNode;
   renderOption?: (option: Readonly<Entry>) => ReactNode;
   menuClassName?: string;
   menuAlign?: "start" | "end";
@@ -66,6 +67,7 @@ export function GameSelect({
   onValueChange,
   children,
   displayValue,
+  renderValue,
   renderOption,
   menuClassName = "",
   menuAlign = "start",
@@ -223,7 +225,7 @@ export function GameSelect({
         }}
       >
         <span className="wt-select-label">
-          {displayValue ?? options[chosen]?.label ?? t("请选择")}
+          {displayValue ?? renderValue?.(String(value)) ?? options[chosen]?.label ?? t("请选择")}
         </span>
         <Chevron className="wt-select-chevron" />
       </button>

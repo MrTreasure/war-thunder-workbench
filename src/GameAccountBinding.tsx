@@ -1,3 +1,4 @@
+import { notifyGameTagAccess } from "./game-tag-access";
 import { statsAvailableRequests } from "./player-stats-api";
 import { localize } from "./i18n/core";
 import type { PlayerProfile } from "./player-stats-api";
@@ -35,6 +36,7 @@ export function GameAccountBinding({ profile }: { profile: PlayerProfile }) {
     const key = `${session.user.id}:${profile.snapshotId}:${profile.fetchedAt}`;
     if (automaticRequest.current === key) return;
     automaticRequest.current = key;
+    notifyGameTagAccess();
     setRefreshError("");
     void statsRequest("account/game-binding/refresh", { snapshotId: profile.snapshotId })
       .then(() => refreshBinding?.())
@@ -104,6 +106,7 @@ export function GameAccountBinding({ profile }: { profile: PlayerProfile }) {
                   requestId: request.current,
                 });
                 await workspace.reload();
+                notifyGameTagAccess();
                 await refreshSession();
                 setOpen(false);
                 request.current = `bind_${crypto.randomUUID().replaceAll("-", "")}`;

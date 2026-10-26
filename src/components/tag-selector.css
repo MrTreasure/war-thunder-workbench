@@ -1,0 +1,475 @@
+/* finesse · component: tag-form-field · register=product
+ * states: default · hover · focus-visible · active · disabled · loading · error · success
+ * tokens: inherited workbench graphite, semantic gold and seafoam */
+.wt-tag-form-field {
+  min-width: 0;
+  color: var(--wt-ink);
+  font: 13px/1.5 var(--wt-sans);
+}
+.wt-tag-field-label,
+.wt-tag-form-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.wt-tag-field-label strong,
+.wt-tag-form-section-title strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+.wt-tag-field-label > span,
+.wt-tag-form-section-title > span {
+  color: var(--wt-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.wt-tag-field-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-height: 64px;
+  padding: 10px 12px;
+  border: 1px solid var(--wt-strong-line);
+  border-radius: 4px;
+  background: var(--wt-surface);
+  color: var(--wt-ink);
+  text-align: left;
+  cursor: pointer;
+}
+.wt-tag-field-values {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+.wt-tag-field-edit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  color: var(--wt-gold);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.wt-tag-empty {
+  font-size: 13px;
+  color: var(--wt-muted);
+}
+.wt-tag-field-note {
+  display: block;
+  min-height: 24px;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.wt-tag-form-field[data-state="error"] .wt-tag-field-control {
+  border-color: var(--wt-gold-line);
+}
+.calculator.wt-tag-form-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(760px, calc(100vw - 32px));
+  height: fit-content;
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+}
+.wt-tag-form-dialog > .calc-header {
+  flex: none;
+  padding: 18px 24px;
+}
+.wt-tag-form-body {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 20px 24px;
+  max-height: calc(100dvh - 190px);
+  color: var(--wt-ink);
+  font: 13px/1.5 var(--wt-sans);
+}
+.wt-tag-draft-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.wt-tag-draft-list > div {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--wt-line);
+  border-radius: 4px;
+  background: var(--wt-surface);
+  min-width: 0;
+  max-width: 100%;
+}
+.wt-tag-draft-list > div[data-active="true"] {
+  border-color: var(--wt-gold-line);
+  background: var(--wt-gold-soft);
+}
+.wt-tag-draft-item {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  min-height: 44px;
+  padding: 4px 0 4px 6px;
+  background: transparent;
+  cursor: pointer;
+}
+.wt-tag-blank {
+  display: block;
+  padding-inline: 8px;
+  color: var(--wt-muted);
+}
+.wt-tag-row-remove {
+  width: 44px;
+  min-height: 44px;
+  font-size: 20px;
+  color: var(--wt-muted);
+  background: transparent;
+  cursor: pointer;
+}
+.wt-tag-add-row {
+  min-height: 44px;
+  padding: 4px 12px;
+  color: var(--wt-gold);
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.wt-tag-style-field,
+.wt-tag-word-field {
+  margin-top: 20px;
+  min-width: 0;
+}
+.wt-tag-style-field > h3,
+.wt-tag-word-field > h3 {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--wt-muted);
+}
+.wt-tag-skin-choices {
+  padding: 12px;
+  border: 1px solid var(--wt-line);
+  border-radius: 4px;
+  background: var(--wt-surface);
+}
+.wt-tag-library {
+  border: 1px solid var(--wt-line);
+  border-radius: 4px;
+  overflow: clip;
+  margin-top: 8px;
+}
+.wt-tag-library > h4 {
+  margin: 0;
+}
+.wt-tag-library > h4 > button {
+  min-height: 48px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: transparent;
+  text-align: left;
+  font: inherit;
+  color: var(--wt-ink);
+  cursor: pointer;
+}
+.wt-tag-library > h4 > button > span:first-child {
+  font-weight: 600;
+}
+.wt-tag-library > h4 > button > small {
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.wt-tag-library > h4 > button > span:last-child {
+  margin-left: auto;
+  color: var(--wt-muted);
+}
+.wt-tag-library[data-open="true"] > h4 > button > span:last-child {
+  transform: rotate(180deg);
+}
+.wt-tag-library-reveal {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 240ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 180ms ease;
+}
+.wt-tag-library-reveal > div {
+  min-height: 0;
+  overflow: hidden;
+}
+.wt-tag-library[data-open="true"] .wt-tag-library-reveal {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.wt-tag-library > h4 > button > span:last-child {
+  transition: transform 200ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wt-tag-library-reveal,
+  .wt-tag-library > h4 > button > span:last-child {
+    transition: none;
+  }
+}
+.wt-tag-library-body {
+  padding: 12px;
+  border-top: 1px solid var(--wt-line);
+}
+.wt-tag-search {
+  display: block;
+}
+.wt-tag-search > span {
+  display: block;
+  color: var(--wt-muted);
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.wt-tag-search input {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--wt-strong-line);
+  border-radius: 4px;
+  background: var(--wt-page);
+  color: var(--wt-ink);
+  font: 16px/1.4 var(--wt-sans);
+}
+.wt-tag-search input::placeholder {
+  color: var(--wt-muted);
+}
+.wt-tag-plain-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+.wt-tag-plain-options > button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 44px;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--wt-line);
+  border-radius: 3px;
+  background: var(--wt-panel);
+  color: var(--wt-body);
+  font: 13px/1.4 var(--wt-sans);
+  cursor: pointer;
+  text-align: left;
+}
+.wt-tag-plain-options > button > span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wt-tag-plain-options > button[aria-pressed="true"] {
+  background: var(--wt-gold-soft);
+  border-color: var(--wt-gold-line);
+  color: var(--wt-gold);
+}
+.wt-tag-skin-choices fieldset {
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  margin: 0 0 12px;
+}
+.wt-tag-skin-choices fieldset:last-child {
+  margin-bottom: 0;
+}
+.wt-tag-skin-choices legend {
+  color: var(--wt-muted);
+  font-size: 12px;
+  padding: 0;
+  margin-bottom: 6px;
+}
+.wt-tag-skin-choices fieldset > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+}
+.wt-tag-skin-option {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.wt-tag-skin-option small {
+  color: var(--wt-muted);
+  font-size: 12px;
+  max-width: 150px;
+}
+.wt-tag-source {
+  display: block;
+  color: var(--wt-muted);
+  font-size: 12px;
+  margin-top: 14px;
+  overflow-wrap: anywhere;
+}
+.wt-tag-form-status {
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-tag-form-status button {
+  min-height: 44px;
+  color: var(--wt-gold);
+  padding-inline: 10px;
+  cursor: pointer;
+}
+.wt-tag-form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid var(--wt-line);
+  background: var(--wt-surface);
+  padding: 12px 24px;
+}
+.wt-tag-form-footer > span {
+  margin-right: auto;
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-tag-form-footer > button {
+  min-height: 44px;
+  white-space: nowrap;
+}
+.wt-tag-form-field button:disabled,
+.wt-tag-form-dialog button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.wt-tag-form-field button:focus-visible,
+.wt-tag-form-dialog button:focus-visible,
+.wt-tag-form-dialog summary:focus-visible,
+.wt-tag-form-dialog input:focus-visible {
+  outline: 2px solid var(--wt-accent);
+  outline-offset: 2px;
+}
+.wt-tag-form-field button:active:not(:disabled),
+.wt-tag-form-dialog button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.wt-tag-field-values .wt-game-tag,
+.wt-tag-draft-item .wt-game-tag {
+  max-width: 100%;
+  min-width: 0;
+}
+.wt-tag-field-values .wt-game-tag-label,
+.wt-tag-draft-item .wt-game-tag-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (hover: hover) {
+  .wt-tag-field-control:hover:not(:disabled),
+  .wt-tag-library > h4 > button:hover,
+  .wt-tag-plain-options > button:hover:not(:disabled) {
+    background: var(--wt-raised);
+  }
+  .wt-tag-row-remove:hover {
+    color: var(--wt-ink);
+  }
+}
+@media (max-width: 650px) {
+  .calculator.wt-tag-form-dialog {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100dvh;
+    inset: 0;
+    margin: auto 0 0;
+    border-radius: 12px 12px 0 0;
+  }
+  .wt-tag-form-dialog > .calc-header {
+    padding: 14px 16px;
+  }
+  .wt-tag-form-body {
+    padding: 16px;
+    max-height: calc(100dvh - 160px);
+  }
+  .wt-tag-form-footer {
+    padding: 12px 16px max(12px, env(safe-area-inset-bottom, 0px));
+  }
+  .wt-tag-plain-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .wt-tag-library-body {
+    padding: 10px;
+  }
+  .wt-tag-library > h4 > button {
+    gap: 8px;
+  }
+  .wt-tag-field-control {
+    gap: 8px;
+  }
+  .wt-tag-field-values .wt-game-tag {
+    max-width: calc(100vw - 130px);
+  }
+  .wt-tag-draft-item .wt-game-tag {
+    max-width: calc(100vw - 110px);
+  }
+}
+
+.wt-tag-editor-host {
+  display: contents;
+}
+@media (max-width: 650px) {
+  .calculator.wt-tag-form-dialog {
+    inset: var(--wt-tag-editor-top, 0px) 0 auto;
+    margin: 0;
+    height: var(--wt-tag-editor-height, 100dvh);
+    max-height: var(--wt-tag-editor-height, 100dvh);
+    border-radius: 0;
+  }
+  .wt-tag-form-body {
+    max-height: none;
+  }
+}
+
+.wt-tag-form-dialog > .calc-header > button {
+  min-height: 44px;
+  min-width: 64px;
+}
+
+.wt-tag-style-select {
+  width: 100%;
+  min-height: 44px;
+}
+
+.wt-tag-style-option {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+.wt-tag-style-option small {
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.wt-tag-style-select .wt-select-label {
+  display: inline-flex;
+  align-items: center;
+  padding-block: 4px;
+}
+
+.calculator.wt-tag-form-dialog[open] {
+  display: grid;
+}

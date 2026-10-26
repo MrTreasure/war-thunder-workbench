@@ -1,23 +1,19 @@
-import { t } from "./i18n/core";
-import { useLocale } from "./i18n/react";
-import type { CSSProperties } from "react";
-import { communityTags, communityRules } from "./lineup-community-api";
-export function LineupTag({ id }: { id: string }) {
-  useLocale();
-  const tag = communityTags.find((item) => item.id === id);
-  if (!tag) return null;
+import { useTagCatalog, tagLabel } from "./game-tag-catalog";
+import { GameTag } from "./components/GameTag";
+import type { GameTagProps } from "./components/GameTag";
+
+/** Lineup registry adapter; visual and interactive behavior belongs to GameTag. */
+export function LineupTag({
+  id,
+  tone = "original",
+  ...props
+}: { id: string } & Omit<GameTagProps, "children">) {
+  const catalogue = useTagCatalog();
+  const label = tagLabel(id, catalogue.items);
+  if (!label) return null;
   return (
-    <span
-      className="wt-lineup-tag"
-      style={
-        {
-          "--wt-tag-tint": communityRules.colors[tag.color as keyof typeof communityRules.colors],
-        } as CSSProperties
-      }
-    >
-      <span className="wt-lineup-tag-skin" aria-hidden="true" />
-      <span className="wt-lineup-tag-tint" aria-hidden="true" />
-      <span className="wt-lineup-tag-text">{t(tag.label)}</span>
-    </span>
+    <GameTag tagId={id} tone={tone} {...props}>
+      {label}
+    </GameTag>
   );
 }

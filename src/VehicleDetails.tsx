@@ -1,5 +1,6 @@
 import { t, localize, vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
+import { VehicleTags } from "./VehicleTags";
 import { VehicleTile } from "./VehicleTile";
 import type { Catalog, Mode, Vehicle } from "./models";
 import { VehicleImage } from "./VehicleImage";
@@ -130,6 +131,7 @@ export function VehicleDetails({
           </p>
         ),
       )}
+      <VehicleTags key={unit.id} vehicleId={unit.id} />
     </article>
   );
 }

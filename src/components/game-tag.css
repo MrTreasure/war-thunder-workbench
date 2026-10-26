@@ -1,0 +1,301 @@
+/* Official 45×19 skin at 1.5×. Slice 0..12 | 12..43 | 43..45;
+   only the middle expands. RGB multiply preserves the original metal gradient. */
+.wt-game-tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  height: 28.5px;
+  min-width: 67.5px;
+  padding: 0 10px 0 25px;
+  border: 0;
+  background: transparent;
+  color: var(--wt-tag-text, #e5e5e5);
+  vertical-align: middle;
+  isolation: isolate;
+  font:
+    400 15px/28.5px WTSymbols,
+    WTCard,
+    "Microsoft YaHei",
+    "PingFang SC",
+    sans-serif;
+  white-space: nowrap;
+}
+.wt-game-tag-skin,
+.wt-game-tag-tint,
+.wt-game-tag-material {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.wt-game-tag-skin {
+  z-index: -3;
+  border-style: solid;
+  border-width: 0 3px 0 18px;
+  border-image-source: var(--wt-tag-image);
+  border-image-slice: 0 2 0 12 fill;
+  border-image-width: 0 3px 0 18px;
+  border-image-repeat: stretch;
+}
+.wt-game-tag-tint,
+.wt-game-tag-material {
+  z-index: -2;
+  background: var(--wt-tag-tint);
+  -webkit-mask-box-image-source: var(--wt-tag-image);
+  -webkit-mask-box-image-slice: 0 2 0 12 fill;
+  -webkit-mask-box-image-width: 0 3px 0 18px;
+  -webkit-mask-box-image-repeat: stretch;
+  mask-border-source: var(--wt-tag-image);
+  mask-border-slice: 0 2 0 12 fill;
+  mask-border-width: 0 3px 0 18px;
+  mask-border-repeat: stretch;
+  mask-border-mode: alpha;
+}
+.wt-game-tag-tint {
+  mix-blend-mode: multiply;
+}
+.wt-game-tag-material {
+  z-index: -1;
+  display: none;
+  background: none;
+}
+/* Material finishes are app extensions. Official choices retain the original face. */
+.wt-game-tag:is(
+    [data-tone="bronze"],
+    [data-tone="silver"],
+    [data-tone="gold"],
+    [data-tone="emerald"],
+    [data-tone="diamond"],
+    [data-tone="king"],
+    [data-tone="rainbow"]
+  )
+  .wt-game-tag-material {
+  display: block;
+}
+/* Finish covers the whole original silhouette, including the pointed front.
+   The original alpha mask preserves the hole; overlay preserves its black rim.
+   Keep one continuous background, with no rectangular inset or left-side seam. */
+.wt-game-tag-material {
+  mix-blend-mode: overlay;
+}
+.wt-game-tag[data-tone="bronze"] .wt-game-tag-material {
+  background:
+    linear-gradient(
+      115deg,
+      #ffedc624 12%,
+      #ffdda66b 29%,
+      #51240d50 43%,
+      #ffe2bca0 50%,
+      transparent 61%,
+      #b36c2330 86%
+    ),
+    repeating-linear-gradient(0deg, #ffeedb22 0 1px, #48250d14 1px 2px),
+    radial-gradient(ellipse at 30% 85%, #14483d50, transparent 55%);
+}
+.wt-game-tag[data-tone="silver"] .wt-game-tag-material {
+  background:
+    linear-gradient(
+      115deg,
+      #eaf6ff18 12%,
+      #ffffffa0 30%,
+      #28425675 42%,
+      #ffffffb8 49%,
+      #8097aa30 61%,
+      #ffffff70 84%,
+      transparent
+    ),
+    repeating-linear-gradient(0deg, #ffffff26 0 1px, #122e3a12 1px 3px);
+}
+.wt-game-tag[data-tone="gold"] .wt-game-tag-material {
+  background:
+    linear-gradient(
+      115deg,
+      transparent 12%,
+      #fff4c8b0 29%,
+      #78400070 43%,
+      #fff3a6b8 50%,
+      transparent 62%,
+      #fff0ad70 85%,
+      transparent
+    ),
+    repeating-linear-gradient(0deg, #fff6ce24 0 1px, #6c410d0d 1px 3px);
+}
+.wt-game-tag[data-tone="emerald"] .wt-game-tag-material {
+  background:
+    linear-gradient(
+      140deg,
+      transparent 16%,
+      #e9fffaa0 19%,
+      #62f8c530 24%,
+      transparent 30%,
+      #002d2280 69%,
+      transparent 76%
+    ),
+    conic-gradient(
+      from 30deg at 62% 45%,
+      #073c3770,
+      #7cffd675 55deg,
+      #002e2680 110deg,
+      #b5ffe16a 175deg,
+      #003b2e90 250deg,
+      #073c3770
+    ),
+    radial-gradient(ellipse at 35% 85%, #31ffc370, transparent 65%);
+}
+.wt-game-tag[data-tone="diamond"] .wt-game-tag-material {
+  background:
+    linear-gradient(
+      125deg,
+      transparent 18%,
+      #ffffff9c 23%,
+      #ffffff10 32%,
+      transparent 37%,
+      #ffffff90 76%,
+      transparent 82%
+    ),
+    conic-gradient(
+      from 15deg at 58% 42%,
+      #436fa450,
+      #ffffffc0 45deg,
+      #4f90bf70 85deg,
+      #faffffc0 135deg,
+      #6485d35c 180deg,
+      #c4fbff70 230deg,
+      #ffffffa0 280deg,
+      #436fa450
+    ),
+    linear-gradient(0deg, #bdd5f020, #ffffff60);
+}
+.wt-game-tag[data-tone="king"] .wt-game-tag-material {
+  background:
+    linear-gradient(
+      180deg,
+      transparent 9%,
+      #e5b852c0 11% 14%,
+      transparent 16% 83%,
+      #b88c39a0 85% 88%,
+      transparent 90%
+    ),
+    linear-gradient(
+      115deg,
+      #050b15b0 12%,
+      #dcb45860 34%,
+      #07111ca0 47%,
+      #f4d17d90 54%,
+      #111e2bb0 67%,
+      #dfb04b30 90%
+    ),
+    repeating-linear-gradient(135deg, #fff5d414 0 1px, transparent 1px 4px);
+}
+.wt-game-tag[data-tone="rainbow"] .wt-game-tag-tint {
+  /* The whole spectrum fits the face; hue cycling includes the tip and eyelet. */
+  background: linear-gradient(
+    100deg,
+    #ff2458 0%,
+    #ff8c0a 14.285%,
+    #ffe217 28.57%,
+    #00ec83 42.855%,
+    #00ccff 57.14%,
+    #5448ff 71.425%,
+    #e400ff 85.71%,
+    #ff2458 100%
+  );
+  background-size: 100% 100%;
+  filter: brightness(1.2) saturate(1.6) hue-rotate(0deg);
+}
+.wt-game-tag[data-tone="rainbow"] .wt-game-tag-material {
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    #ffffff08 42%,
+    #ffffff38 50%,
+    #ffffff14 57%,
+    transparent 68%
+  );
+  background-size: 260% 100%;
+  background-position: 100% 50%;
+  mix-blend-mode: overlay;
+}
+.wt-game-tag-label {
+  position: relative;
+  text-shadow: 0 1px 1px #000a;
+}
+.wt-game-tag[data-tone="diamond"] .wt-game-tag-label,
+.wt-game-tag[data-tone="silver"] .wt-game-tag-label,
+.wt-game-tag[data-tone="gold"] .wt-game-tag-label,
+.wt-game-tag[data-tone="original"] .wt-game-tag-label {
+  text-shadow: 0 1px 0 #ffffff50;
+}
+.wt-game-tag[data-tone="king"] .wt-game-tag-label {
+  text-shadow:
+    0 1px 1px #000,
+    0 0 6px #f6ce5b40;
+  letter-spacing: 0.5px;
+}
+.wt-game-tag.is-interactive {
+  height: 44px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.wt-game-tag.is-interactive .wt-game-tag-skin,
+.wt-game-tag.is-interactive .wt-game-tag-tint,
+.wt-game-tag.is-interactive .wt-game-tag-material {
+  inset-block: 7.75px;
+}
+.wt-game-tag.is-interactive:hover:not(:disabled) .wt-game-tag-label,
+.wt-game-tag[aria-pressed="true"] .wt-game-tag-label {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: currentColor;
+}
+.wt-game-tag:focus-visible {
+  outline: 2px solid var(--wt-gold, #d5c58f);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+.wt-game-tag:disabled {
+  opacity: 0.38;
+  cursor: default;
+}
+@keyframes wt-tag-prismatic {
+  from {
+    filter: brightness(1.2) saturate(1.6) hue-rotate(0deg);
+  }
+  to {
+    filter: brightness(1.2) saturate(1.6) hue-rotate(360deg);
+  }
+}
+@keyframes wt-tag-sheen {
+  from {
+    background-position: 130% 50%;
+  }
+  to {
+    background-position: -70% 50%;
+  }
+}
+.wt-game-tag[data-tone="rainbow"][data-animated] .wt-game-tag-tint {
+  animation: wt-tag-prismatic 4.2s linear infinite;
+}
+.wt-game-tag[data-tone="rainbow"][data-animated] .wt-game-tag-material {
+  animation: wt-tag-sheen 2.4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wt-game-tag:not([data-motion-override]) :is(.wt-game-tag-tint, .wt-game-tag-material) {
+    animation: none;
+  }
+}
+/* User-requested privilege effect remains animated under the global motion guard. */
+@media (prefers-reduced-motion: reduce) {
+  .wt-game-tag[data-tone="rainbow"][data-animated][data-motion-override] .wt-game-tag-tint {
+    animation: wt-tag-prismatic 4.2s linear infinite !important;
+  }
+  .wt-game-tag[data-tone="rainbow"][data-animated][data-motion-override] .wt-game-tag-material {
+    animation: wt-tag-sheen 2.4s ease-in-out infinite !important;
+  }
+}
+
+.wt-game-tag[data-tone^="color-"] .wt-game-tag-label {
+  text-shadow: none;
+}

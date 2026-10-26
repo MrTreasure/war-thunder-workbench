@@ -15,6 +15,7 @@ export type CommunityPost = {
   activeAircraft: string;
   slots: (string | null)[];
   tags: string[];
+  tagTones?: Record<string, import("./components/GameTag").GameTagTone>;
   step: number | null;
   rating: string;
   author: string;
@@ -32,6 +33,7 @@ export type CommunityDraft = {
   mode: Mode;
   activeAircraft: string;
   tags: string[];
+  tagTones?: Record<string, import("./components/GameTag").GameTagTone>;
 };
 export async function communityRequest<T>(
   path: string,

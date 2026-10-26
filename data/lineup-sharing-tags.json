@@ -18,152 +18,152 @@
       "id": "classic",
       "label": "经典标配",
       "color": "gold",
-      "group": "推荐",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "balanced",
       "label": "均衡配置",
       "color": "silver",
-      "group": "推荐",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "core",
       "label": "核心阵容",
       "color": "silver",
-      "group": "推荐",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "starter",
       "label": "入门推荐",
       "color": "silver",
-      "group": "推荐",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "transition",
       "label": "过渡阵容",
       "color": "silver",
-      "group": "推荐",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "strong",
       "label": "权重强势",
       "color": "gold",
-      "group": "推荐",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "armor",
       "label": "重装抗线",
       "color": "red",
-      "group": "战术",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "advance",
       "label": "正面推进",
       "color": "red",
-      "group": "战术",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "shield",
       "label": "重甲坚盾",
       "color": "silver",
-      "group": "战术",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "steady",
       "label": "稳扎稳打",
       "color": "silver",
-      "group": "战术",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "flank",
       "label": "机动侧袭",
       "color": "blue",
-      "group": "机动",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "roam",
       "label": "灵活游走",
       "color": "blue",
-      "group": "机动",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "relocate",
       "label": "快速转场",
       "color": "blue",
-      "group": "机动",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "rush",
       "label": "轻装突进",
       "color": "blue",
-      "group": "机动",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "firepower",
       "label": "火力凶猛",
       "color": "red",
-      "group": "火力",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "range",
       "label": "远程支援",
       "color": "silver",
-      "group": "火力",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "rapid",
       "label": "速射压制",
       "color": "red",
-      "group": "火力",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "glass",
       "label": "玻璃大炮",
       "color": "silver",
-      "group": "火力",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "ground",
       "label": "地面主战",
       "color": "silver",
-      "group": "协同",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "combined",
       "label": "空地协同",
       "color": "blue",
-      "group": "协同",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "aa",
       "label": "防空齐备",
       "color": "blue",
-      "group": "协同",
+      "group": "队列标签",
       "system": false
     },
     {
       "id": "all-ge",
-      "label": "全金鹰",
+      "label": "金鹰队列",
       "color": "gold",
       "group": "构成",
       "system": true
@@ -177,7 +177,7 @@
     },
     {
       "id": "mixed-ge",
-      "label": "金银混编",
+      "label": "金银混合",
       "color": "gold",
       "group": "构成",
       "system": true
@@ -195,6 +195,202 @@
       "color": "silver",
       "group": "构成",
       "system": true
+    },
+    {
+      "id": "spearhead",
+      "label": "进攻尖刀",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "hull-down",
+      "label": "卖头守线",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "fortress",
+      "label": "阵地堡垒",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "hold-point",
+      "label": "据点坚守",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "breakthrough",
+      "label": "重装突破",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "side-armor",
+      "label": "侧面猎手",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "scout-team",
+      "label": "侦察先行",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "ambush",
+      "label": "伏击猎杀",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "fast-cap",
+      "label": "快速抢点",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "mobile-fire",
+      "label": "游走支援",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "high-speed",
+      "label": "高速穿插",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "counterattack",
+      "label": "防守反击",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "long-shot",
+      "label": "远距狙击",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "first-shot",
+      "label": "一击制胜",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "close-combat",
+      "label": "近战突击",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "reload",
+      "label": "持续输出",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "anti-tank",
+      "label": "反坦克主力",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "air-cover",
+      "label": "制空掩护",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "cas-cover",
+      "label": "对地支援",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "air-denial",
+      "label": "禁飞区域",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "multi-role",
+      "label": "全能阵容",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "research-team",
+      "label": "研发主力",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "lion-team",
+      "label": "银狮主力",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "beginner-friendly",
+      "label": "新手友好",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "experienced",
+      "label": "老兵之选",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "high-skill",
+      "label": "高手进阶",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "teamwork",
+      "label": "组队协同",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
+    },
+    {
+      "id": "comeback",
+      "label": "残局收割",
+      "color": "silver",
+      "group": "队列标签",
+      "system": false
     }
   ]
 }

@@ -50,6 +50,7 @@ export function VehicleTile({
   footerLabel,
   showRank = false,
   showAcquisition = true,
+  showPackPrice = true,
   countryLabel,
 }: {
   unit: VehicleTileUnit;
@@ -67,8 +68,10 @@ export function VehicleTile({
   footerLabel?: string;
   /** Adds rank to the shared right caption; tree rank bands can leave it hidden. */
   showRank?: boolean;
-  /** Hide acquisition and pack quotes in compact lineup share images. */
+  /** Whether to display RP, GE or acquisition type in the card body. */
   showAcquisition?: boolean;
+  /** Keep acquisition type visible while omitting the external pack quote. */
+  showPackPrice?: boolean;
   /** Omit when the surrounding page already identifies the country. */
   countryLabel?: string;
 }) {
@@ -246,19 +249,14 @@ export function VehicleTile({
           )}
         </span>
       )}
-      {localize(
-        showAcquisition && unit.kind === "pack" && (
-          <span
-            className="wt-game-pack-price"
-            title={t("{0} · 价格核对于 {1}", [
-              localize(price?.title || name),
-              localize(packDate?.slice(0, 10) || "—"),
-            ])}
-          >
-            <small>{t("整包")}</small>
-            {localize(packCents != null ? cnyPrice(packCents) : t("暂无报价"))}
-          </span>
-        ),
+      {showAcquisition && showPackPrice && unit.kind === "pack" && (
+        <span
+          className="wt-game-pack-price"
+          title={t("{0} · 价格核对于 {1}", price?.title || name, packDate?.slice(0, 10) || "—")}
+        >
+          <small>{t("整包")}</small>
+          {packCents != null ? cnyPrice(packCents) : t("暂无报价")}
+        </span>
       )}
     </Element>
   );

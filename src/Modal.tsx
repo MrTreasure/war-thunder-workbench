@@ -30,7 +30,10 @@ export function Modal({
       ref={ref}
       className={`calculator ${className}`}
       aria-labelledby={titleId}
-      onCancel={close}
+      onCancel={(event) => {
+        event.stopPropagation();
+        close();
+      }}
     >
       <header className="calc-header">
         <div>

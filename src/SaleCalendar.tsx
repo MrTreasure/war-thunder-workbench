@@ -4,9 +4,10 @@ import { saleWatchKey, saleWatchEnvelope, normalizeSaleWatch } from "./sale-watc
 import { useAccountWorkspace } from "./workspace-context";
 import { useVehicleCatalog } from "./vehicle-catalog";
 import { VehicleTile } from "./VehicleTile";
-import { useEffect, useId, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
+import { SaleCart } from "./SaleCart";
 import { SaleMonthCalendar } from "./SaleMonthCalendar";
 import { useStored } from "./storage";
 import { statsCategoryNames } from "./player-stats-api";
@@ -14,7 +15,6 @@ import { cachedSaleCalendar, readSaleCalendar, readSaleVehicles } from "./sale-c
 import bootstrap from "./generated/bootstrap.json";
 import calendarReference from "../data/sale-calendar-reference.json";
 import {
-  nextSale,
   beijingDayKey,
   saleCalendarSpan,
   isSaleWatchVehicle,
@@ -184,11 +184,11 @@ function AddVehicles({
   }, [country, category, rank, query]);
   return (
     <Modal
-      title={t("添加关注载具")}
+      title={t("添加购物车载具")}
       subtitle={
         accountSaved
-          ? t("仅支持金鹰与商城礼包载具；关注列表自动保存到账号。")
-          : t("仅支持金鹰与商城礼包载具；关注列表保存在当前浏览器。")
+          ? t("仅支持金鹰与商城礼包载具；购物车自动保存到账号。")
+          : t("仅支持金鹰与商城礼包载具；购物车保存在当前浏览器。")
       }
       close={close}
       className="wt-sale-picker"
@@ -234,35 +234,33 @@ function AddVehicles({
         />
       </div>
       <div className="wt-sale-picker-results" aria-live="polite" aria-busy={loading}>
-        {localize(
-          error ? (
-            <p role="alert">{localize(error)}</p>
-          ) : loading ? (
-            <p>{t("正在查找载具…")}</p>
-          ) : !results.length ? (
-            <p>{t("没有找到匹配载具，试试其他名称。")}</p>
-          ) : (
-            results.slice((page - 1) * 24, page * 24).map((vehicle) => {
-              const added = saved.some((v) => v.id === vehicle.id);
-              return (
-                <div className="wt-sale-vehicle-option" key={vehicle.id}>
-                  <SaleVehicleTile
-                    vehicle={vehicle}
-                    showCountry={country === "all"}
-                    showRank={rank === "all"}
-                  />
-                  <VehicleQuoteDate vehicle={vehicle} />
-                  <button
-                    className="wt-sale-follow-button"
-                    disabled={!canSave || added || saved.length >= 60}
-                    onClick={() => add(vehicle)}
-                  >
-                    {localize(added ? t("已关注") : t("＋ 关注"))}
-                  </button>
-                </div>
-              );
-            })
-          ),
+        {error ? (
+          <p role="alert">{error}</p>
+        ) : loading ? (
+          <p>{t("正在查找载具…")}</p>
+        ) : !results.length ? (
+          <p>{t("没有找到匹配载具，试试其他名称。")}</p>
+        ) : (
+          results.slice((page - 1) * 24, page * 24).map((vehicle) => {
+            const added = saved.some((v) => v.id === vehicle.id);
+            return (
+              <div className="wt-sale-vehicle-option" key={vehicle.id}>
+                <SaleVehicleTile
+                  vehicle={vehicle}
+                  showCountry={country === "all"}
+                  showRank={rank === "all"}
+                />
+                <VehicleQuoteDate vehicle={vehicle} />
+                <button
+                  className="wt-sale-follow-button"
+                  disabled={!canSave || added || saved.length >= 60}
+                  onClick={() => add(vehicle)}
+                >
+                  {added ? t("已加入") : t("＋ 加入")}
+                </button>
+              </div>
+            );
+          })
         )}
       </div>
       <footer>
@@ -312,8 +310,7 @@ export function SaleCalendar() {
     [status, setStatus] = useState("all");
   const [view, setView] = useState<"calendar" | "timeline">("calendar");
   const [referenceOpen, setReferenceOpen] = useState(false);
-  const [watchExpanded, setWatchExpanded] = useState(false);
-  const watchListId = useId();
+  const [cartOpen, setCartOpen] = useState(false);
   const [picker, setPicker] = useState(false),
     [storedWatch, saveWatch, storageError] = useStored<unknown[]>(
       saleWatchKey,
@@ -327,7 +324,7 @@ export function SaleCalendar() {
   const watchError =
     storageError ||
     (workspace?.userId && !workspace.ready
-      ? t("正在读取账号关注列表，请稍候。")
+      ? t("正在读取账号购物车，请稍候。")
       : workspace?.userId && !workspace.consented
         ? t("请先在云端数据中完成同步。")
         : "");
@@ -430,6 +427,10 @@ export function SaleCalendar() {
           <small className="wt-sale-attribution">{localize(calendarReference.attribution)}</small>
         </div>
         <div className="wt-sales-heading-actions">
+          <button onClick={() => setCartOpen(true)}>
+            {t("我的购物车（")}
+            {watch.length}）
+          </button>
           <button className="primary" onClick={() => setPicker(true)}>
             {t("＋ 添加载具")}
           </button>
@@ -467,14 +468,25 @@ export function SaleCalendar() {
           </div>
         </dl>
       </details>
-      {localize(referenceOpen && <CalendarReference close={() => setReferenceOpen(false)} />)}
-      {localize(
-        error && (
-          <div className="wt-sales-error" role="alert">
-            {localize(error)} <button onClick={() => setReload((n) => n + 1)}>{t("重试")}</button>
-            {localize(data && t(" · 上次日历仍保留"))}
-          </div>
-        ),
+      {cartOpen && (
+        <SaleCart
+          vehicles={watch}
+          save={saveWatch}
+          events={events}
+          now={now}
+          ready={!!watchReady}
+          error={watchError}
+          close={() => setCartOpen(false)}
+          add={() => setPicker(true)}
+          tile={(vehicle) => <SaleVehicleTile vehicle={vehicle} showCountry />}
+        />
+      )}
+      {referenceOpen && <CalendarReference close={() => setReferenceOpen(false)} />}
+      {error && (
+        <div className="wt-sales-error" role="alert">
+          {error} <button onClick={() => setReload((n) => n + 1)}>{t("重试")}</button>
+          {data && t(" · 上次日历仍保留")}
+        </div>
       )}
       {localize(storageError && <p role="alert">{localize(storageError)}</p>)}
       <section className="wt-sales-topline" aria-label={t("活动概览")}>
@@ -496,127 +508,14 @@ export function SaleCalendar() {
           <small>{t("预测以虚线与“预计”区分")}</small>
         </div>
         <div>
-          <span>{t("我的关注")}</span>
+          <span>{t("我的购车计划")}</span>
           <strong>
             {localize(watch.length)} <small>{t("辆载具")}</small>
           </strong>
-          <small>{t("按实际购买渠道寻找优惠窗口")}</small>
+          <button className="quiet-button" onClick={() => setCartOpen(true)}>
+            {t("查看购物车与价格记录 ↗")}
+          </button>
         </div>
-      </section>
-      <section className="wt-sale-watch">
-        <div className="wt-sales-section-title">
-          <h3>{t("我的关注")}</h3>
-        </div>
-        {localize(
-          workspace?.userId && !workspace.ready ? (
-            <output>{t("正在读取账号关注列表，请稍候。")}</output>
-          ) : !watch.length ? (
-            <div className="wt-sale-empty">
-              <button
-                type="button"
-                className="wt-sale-add-icon"
-                aria-label={t("添加关注载具")}
-                onClick={() => setPicker(true)}
-              >
-                ＋
-              </button>
-              <p>{t("先把想买的载具放进关注列表")}</p>
-              <span>{t("关注金鹰与商城礼包载具，查看对应的优惠窗口和倒计时。")}</span>
-              <button onClick={() => setPicker(true)}>{t("选择载具")}</button>
-            </div>
-          ) : (
-            <>
-              <div className="wt-sale-watch-list" id={watchListId}>
-                {localize(
-                  (watchExpanded ? watch : watch.slice(0, 5)).map((vehicle) => {
-                    const event = nextSale(vehicle, events, now),
-                      exact =
-                        event?.status === "confirmed" && event.vehicleIds.includes(vehicle.id);
-                    return (
-                      <article key={vehicle.id} className="wt-sale-watch-row">
-                        <SaleVehicleTile vehicle={vehicle} showCountry />
-                        <div className="wt-sale-watch-identity">
-                          <span>{localize(saleChannels[vehicle.channel])}</span>
-                          <VehicleQuoteDate vehicle={vehicle} />
-                        </div>
-                        <div className="wt-sale-watch-opportunity">
-                          {localize(
-                            event ? (
-                              <>
-                                <strong>{localize(event.title)}</strong>
-                                <span>{localize(saleRange(event))}</span>
-                                <small>
-                                  {localize(
-                                    event.status === "predicted"
-                                      ? t("预测窗口，尚未公布名单")
-                                      : exact
-                                        ? t("已核对参与名单")
-                                        : event.coverage === "all-except-exclusions"
-                                          ? t("常规优惠范围，需核对新车排除名单")
-                                          : t("可能相关，需核对指定载具名单"),
-                                  )}
-                                </small>
-                              </>
-                            ) : (
-                              <span>
-                                {localize(
-                                  ["market", "excluded"].includes(vehicle.channel)
-                                    ? t("此购买渠道不自动参与常规载具促销")
-                                    : t("尚无匹配的优惠排期"),
-                                )}
-                              </span>
-                            ),
-                          )}
-                        </div>
-                        <div className="wt-sale-watch-countdown">
-                          {localize(
-                            event && (
-                              <>
-                                <b>{localize(saleCountdown(event, now))}</b>
-                                <small>{localize(saleRate(event, vehicle.channel))}</small>
-                                <SourceLinks event={event} />
-                              </>
-                            ),
-                          )}
-                        </div>
-                        <button
-                          className="wt-sale-remove"
-                          aria-label={t("取消关注{0}", [localize(vehicle.name)])}
-                          onClick={() => saveWatch(watch.filter((v) => v.id !== vehicle.id))}
-                        >
-                          ×
-                        </button>
-                      </article>
-                    );
-                  }),
-                )}
-              </div>
-              {localize(
-                watch.length > 5 && (
-                  <div className="wt-sale-watch-fold">
-                    <span>
-                      {t("已显示")}
-                      {localize(watchExpanded ? watch.length : 5)} / {localize(watch.length)}
-                      {t("辆")}
-                    </span>
-                    <button
-                      type="button"
-                      aria-controls={watchListId}
-                      aria-expanded={watchExpanded}
-                      onClick={() => setWatchExpanded((value) => !value)}
-                    >
-                      {localize(
-                        watchExpanded
-                          ? t("收起至 5 辆 ↑")
-                          : t("展开全部 {0} 辆 ↓", [localize(watch.length)]),
-                      )}
-                    </button>
-                  </div>
-                ),
-              )}
-            </>
-          ),
-        )}
       </section>
       <section className="wt-sale-calendar">
         <div className="wt-sales-section-title">

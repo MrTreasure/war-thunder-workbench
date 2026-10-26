@@ -1,5 +1,8 @@
-import { t } from "./i18n/core";
 import { useLocale } from "./i18n/react";
+import { t } from "./i18n/core";
+import { TagSelector, type TagChoice } from "./components/TagSelector";
+import { useTagCatalog } from "./game-tag-catalog";
+import { useGameTagAccess } from "./game-tag-access";
 // Fetch status and identity reset synchronize the current request/account with the UI.
 /* oxlint-disable react/set-state-in-effect */
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -12,7 +15,6 @@ import { LineupTag } from "./LineupTag";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
 import {
   communityRequest,
-  communityTags,
   communityMode,
   communityLink,
   approveLineupCaption,
@@ -46,10 +48,14 @@ export function LineupShareImage({
     t({ ab: "街机娱乐", rb: "历史性能", sb: "全真模拟" }[post.mode]),
   ]);
   return (
-    <article className="wt-share-image" aria-label={t("队列分享图片")}>
+    <article
+      className="wt-share-image"
+      aria-label={t("队列分享图片")}
+      data-share-post-id={post.id.startsWith("L-") ? post.id : undefined}
+    >
       <header className="wt-share-heading">
         <p>
-          {t("分房范围:")}{" "}
+          <span className="wt-share-heading-label">{t("分房范围")}</span>
           <strong>{window ? `${window.minimum} – ${window.maximum}` : post.rating}</strong>
           {window && (
             <small>
@@ -62,10 +68,16 @@ export function LineupShareImage({
           {t("游戏模式:")}
           {gameMode}
         </p>
-        <p className="wt-share-nation">
-          {t("出击队列:")}{" "}
-          <img src={bootstrap.flags[post.country as keyof typeof bootstrap.flags]} alt="" />
-          {t(country)}
+        <p>
+          <span className="wt-share-heading-label">{t("游戏模式")}</span>
+          <strong>{gameMode}</strong>
+        </p>
+        <p>
+          <span className="wt-share-heading-label">{t("出击队列")}</span>
+          <strong className="wt-share-nation">
+            <img src={bootstrap.flags[post.country as keyof typeof bootstrap.flags]} alt="" />
+            {country}
+          </strong>
         </p>
       </header>
       <div className="wt-share-crew">
@@ -79,7 +91,8 @@ export function LineupShareImage({
                   mode={post.mode}
                   owned={true}
                   showRank={false}
-                  showAcquisition={false}
+                  showAcquisition={true}
+                  showPackPrice={false}
                   modeRating={lineupCardRating(unit, post.battle, post.mode)}
                 />,
               ]
@@ -88,7 +101,7 @@ export function LineupShareImage({
       </div>
       <div className="wt-share-labels">
         {post.tags.map((id) => (
-          <LineupTag key={id} id={id} />
+          <LineupTag key={id} id={id} tone={post.tagTones?.[id] || "original"} />
         ))}
       </div>
       {text.trim() && (
@@ -266,7 +279,14 @@ export function LineupShareTools({
   const account = useWorkbenchAccount();
   const userId = account.session?.user?.id;
   const [mode, setMode] = useState<Mode>(defaultMode === "ab" ? "ab" : "rb");
-  const [tags, setTags] = useState<string[]>([]);
+  const [choices, setChoices] = useState<TagChoice[]>([]);
+  const tagAccess = useGameTagAccess();
+  const tagCatalog = useTagCatalog("lineup");
+  const tags = useMemo(() => choices.map((choice) => choice.id), [choices]);
+  const tagTones = useMemo(
+    () => Object.fromEntries(choices.map((choice) => [choice.id, choice.tone])),
+    [choices],
+  );
   const [post, setPost] = useState<CommunityPost | null>(null);
   const [identity, setIdentity] = useState({ author: t("游客"), authorId: "" });
   const [busy, setBusy] = useState(false);
@@ -274,6 +294,8 @@ export function LineupShareTools({
   const [image, setImage] = useState(false);
   useEffect(() => {
     setIdentity({ author: t("游客"), authorId: "" });
+    setPost(null);
+    setChoices([]);
     if (!userId) return;
     const abort = new AbortController();
     void communityRequest<{ author: string; authorId: string }>("identity", undefined, abort.signal)
@@ -305,6 +327,7 @@ export function LineupShareTools({
         activeAircraft: lineup.activeAircraft || "",
         slots: lineup.slots,
         tags: [composition, ...tags],
+        tagTones,
         step: rating.step,
         rating: rating.label,
         ...identity,
@@ -314,7 +337,19 @@ export function LineupShareTools({
         vote: 0,
         mine: true,
       },
-    [post, lineup, country, code, mode, composition, tags, rating.step, rating.label, identity],
+    [
+      post,
+      lineup,
+      country,
+      code,
+      mode,
+      composition,
+      tags,
+      tagTones,
+      rating.step,
+      rating.label,
+      identity,
+    ],
   );
   const count = lineup.slots.filter(Boolean).length;
   const invalid =
@@ -337,6 +372,7 @@ export function LineupShareTools({
         mode,
         activeAircraft: lineup.activeAircraft || "",
         tags,
+        tagTones,
       });
       setPost(value);
     } catch (cause) {
@@ -371,35 +407,45 @@ export function LineupShareTools({
         </GameSelect>
       </label>
       <div className="wt-community-section-title">
-        <span>{t("队列标签 · 最多选择 3 个")}</span>
-        <small>{tags.length}/3</small>
+        <span>{t("队列标签 · 最多选择 5 个")}</span>
+        <small>{tags.length}/5</small>
       </div>
-      <div className="wt-tag-picker">
-        {[...new Set(communityTags.filter((t) => !t.system).map((t) => t.group))].map((group) => (
-          <fieldset key={group}>
-            <legend>{t(group)}</legend>
-            {communityTags
-              .filter((t) => !t.system && t.group === group)
-              .map((tag) => (
-                <button
-                  key={tag.id}
-                  type="button"
-                  className="wt-tag-choice"
-                  aria-pressed={tags.includes(tag.id)}
-                  disabled={!tags.includes(tag.id) && tags.length >= 3}
-                  onClick={() => {
-                    setTags(
-                      tags.includes(tag.id) ? tags.filter((t) => t !== tag.id) : [...tags, tag.id],
-                    );
-                    setPost(null);
-                  }}
-                >
-                  <LineupTag id={tag.id} />
-                </button>
-              ))}
-          </fieldset>
-        ))}
-      </div>
+      <p className="calc-note">
+        {account.session?.role === "superadmin"
+          ? t("超级管理员：全部标签样式已开放")
+          : tagAccess.loading
+            ? t("正在核验标签资格…")
+            : tagAccess.access?.bound
+              ? t(
+                  "绑定账号 {0} 级 · 历史战斗 {1} 次",
+                  tagAccess.access.level ?? "未知",
+                  tagAccess.access.rbBattles ?? "未知",
+                )
+              : t("官方原版与基本颜色默认可选；绑定游戏账号可解锁材质。")}
+      </p>
+      {tagAccess.error && (
+        <p role="alert">
+          {tagAccess.error}
+          <button type="button" className="wt-vehicle-text-action" onClick={tagAccess.refresh}>
+            {t("重试")}
+          </button>
+        </p>
+      )}
+      <TagSelector
+        options={tagCatalog.options}
+        loading={tagCatalog.loading}
+        error={tagCatalog.error}
+        onRetry={tagCatalog.refresh}
+        value={choices}
+        allowedTones={tagAccess.allowedTones}
+        max={5}
+        label={t("队列标签")}
+        disabled={busy}
+        onChange={(value) => {
+          setChoices(value);
+          setPost(null);
+        }}
+      />
       <div className="wt-community-actions">
         <LineupTag id={composition} />
         <strong>

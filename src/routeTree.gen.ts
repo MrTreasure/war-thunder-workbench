@@ -17,6 +17,7 @@ import { Route as WorkbenchLineupsRouteImport } from './routes/_workbench.lineup
 import { Route as WorkbenchMapsRouteImport } from './routes/_workbench.maps'
 import { Route as WorkbenchSalesRouteImport } from './routes/_workbench.sales'
 import { Route as WorkbenchStatsRouteImport } from './routes/_workbench.stats'
+import { Route as WorkbenchTagPreviewRouteImport } from './routes/_workbench.tag-preview'
 import { Route as WorkbenchTreeRouteImport } from './routes/_workbench.tree'
 import { Route as WorkbenchLineupsGarageRouteImport } from './routes/_workbench.lineups_.garage'
 import { Route as WorkbenchLineupsLobbyRouteImport } from './routes/_workbench.lineups_.lobby'
@@ -62,6 +63,11 @@ const WorkbenchStatsRoute = WorkbenchStatsRouteImport.update({
   path: '/stats',
   getParentRoute: () => WorkbenchRoute,
 } as any)
+const WorkbenchTagPreviewRoute = WorkbenchTagPreviewRouteImport.update({
+  id: '/tag-preview',
+  path: '/tag-preview',
+  getParentRoute: () => WorkbenchRoute,
+} as any)
 const WorkbenchTreeRoute = WorkbenchTreeRouteImport.update({
   id: '/tree',
   path: '/tree',
@@ -96,6 +102,7 @@ export interface FileRoutesByFullPath {
   '/maps': typeof WorkbenchMapsRoute
   '/sales': typeof WorkbenchSalesRoute
   '/stats': typeof WorkbenchStatsRoute
+  '/tag-preview': typeof WorkbenchTagPreviewRoute
   '/tree': typeof WorkbenchTreeRoute
   '/lineups/garage': typeof WorkbenchLineupsGarageRoute
   '/lineups/lobby': typeof WorkbenchLineupsLobbyRoute
@@ -110,6 +117,7 @@ export interface FileRoutesByTo {
   '/maps': typeof WorkbenchMapsRoute
   '/sales': typeof WorkbenchSalesRoute
   '/stats': typeof WorkbenchStatsRoute
+  '/tag-preview': typeof WorkbenchTagPreviewRoute
   '/tree': typeof WorkbenchTreeRoute
   '/lineups/garage': typeof WorkbenchLineupsGarageRoute
   '/lineups/lobby': typeof WorkbenchLineupsLobbyRoute
@@ -126,6 +134,7 @@ export interface FileRoutesById {
   '/_workbench/maps': typeof WorkbenchMapsRoute
   '/_workbench/sales': typeof WorkbenchSalesRoute
   '/_workbench/stats': typeof WorkbenchStatsRoute
+  '/_workbench/tag-preview': typeof WorkbenchTagPreviewRoute
   '/_workbench/tree': typeof WorkbenchTreeRoute
   '/_workbench/lineups_/garage': typeof WorkbenchLineupsGarageRoute
   '/_workbench/lineups_/lobby': typeof WorkbenchLineupsLobbyRoute
@@ -142,6 +151,7 @@ export interface FileRouteTypes {
     | '/maps'
     | '/sales'
     | '/stats'
+    | '/tag-preview'
     | '/tree'
     | '/lineups/garage'
     | '/lineups/lobby'
@@ -156,6 +166,7 @@ export interface FileRouteTypes {
     | '/maps'
     | '/sales'
     | '/stats'
+    | '/tag-preview'
     | '/tree'
     | '/lineups/garage'
     | '/lineups/lobby'
@@ -171,6 +182,7 @@ export interface FileRouteTypes {
     | '/_workbench/maps'
     | '/_workbench/sales'
     | '/_workbench/stats'
+    | '/_workbench/tag-preview'
     | '/_workbench/tree'
     | '/_workbench/lineups_/garage'
     | '/_workbench/lineups_/lobby'
@@ -241,6 +253,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkbenchStatsRouteImport
       parentRoute: typeof WorkbenchRoute
     }
+    '/_workbench/tag-preview': {
+      id: '/_workbench/tag-preview'
+      path: '/tag-preview'
+      fullPath: '/tag-preview'
+      preLoaderRoute: typeof WorkbenchTagPreviewRouteImport
+      parentRoute: typeof WorkbenchRoute
+    }
     '/_workbench/tree': {
       id: '/_workbench/tree'
       path: '/tree'
@@ -286,6 +305,7 @@ interface WorkbenchRouteChildren {
   WorkbenchMapsRoute: typeof WorkbenchMapsRoute
   WorkbenchSalesRoute: typeof WorkbenchSalesRoute
   WorkbenchStatsRoute: typeof WorkbenchStatsRoute
+  WorkbenchTagPreviewRoute: typeof WorkbenchTagPreviewRoute
   WorkbenchTreeRoute: typeof WorkbenchTreeRoute
   WorkbenchLineupsGarageRoute: typeof WorkbenchLineupsGarageRoute
   WorkbenchLineupsLobbyRoute: typeof WorkbenchLineupsLobbyRoute
@@ -300,6 +320,7 @@ const WorkbenchRouteChildren: WorkbenchRouteChildren = {
   WorkbenchMapsRoute: WorkbenchMapsRoute,
   WorkbenchSalesRoute: WorkbenchSalesRoute,
   WorkbenchStatsRoute: WorkbenchStatsRoute,
+  WorkbenchTagPreviewRoute: WorkbenchTagPreviewRoute,
   WorkbenchTreeRoute: WorkbenchTreeRoute,
   WorkbenchLineupsGarageRoute: WorkbenchLineupsGarageRoute,
   WorkbenchLineupsLobbyRoute: WorkbenchLineupsLobbyRoute,

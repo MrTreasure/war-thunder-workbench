@@ -73,7 +73,10 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
     select: (state) => workbenchPage(state.location.pathname),
   });
   const garagePage = useRouterState({
-    select: (state) => state.location.pathname === "/lineups/garage" || state.location.pathname === "/lineups/lobby",
+    select: (state) =>
+      state.location.pathname === "/lineups/garage" ||
+      state.location.pathname === "/lineups/lobby" ||
+      state.location.pathname === "/tag-preview",
   });
   useEffect(() => {
     updateSearchMetadata(page);
@@ -339,7 +342,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   }, [country, category, mode]);
   useEffect(() => {
     const key = (e: KeyboardEvent) => {
-      if (modal || page !== "tree") return;
+      if (modal || page !== "tree" || document.querySelector("dialog[open]")) return;
       if (
         e.key === "/" &&
         !["INPUT", "TEXTAREA", "SELECT"].includes((e.target as HTMLElement).tagName)
