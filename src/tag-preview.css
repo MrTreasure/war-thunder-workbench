@@ -5,41 +5,46 @@
   color: #dfe3e3;
   font-family: var(--wt-sans);
 }
-.wt-tag-lab header {
+.wt-tag-lab > header {
   display: flex;
   justify-content: space-between;
   align-items: start;
   gap: 24px;
   margin-bottom: 36px;
 }
-.wt-tag-lab h1 {
+.wt-tag-lab > header h1 {
   font-size: 30px;
   font-weight: 400;
   margin: 8px 0 12px;
 }
-.wt-tag-lab h2 {
+.wt-tag-lab > section > h2,
+.wt-tag-lab-title h2 {
   font-size: 18px;
   font-weight: 400;
   color: #d5c597;
   margin: 0 0 22px;
 }
-.wt-tag-lab h3 {
+.wt-tag-basic-grid h3,
+.wt-tag-tier-grid h3 {
   font-size: 14px;
   font-weight: 400;
   margin: 0 0 14px;
 }
-.wt-tag-lab p {
+.wt-tag-lab > header p,
+.wt-tag-lab > section > p {
   color: #9cabb2;
   font-size: 14px;
   line-height: 1.7;
 }
-.wt-tag-lab a {
+.wt-tag-lab > header a,
+.wt-tag-lab > section > a,
+.wt-tag-lab-source a {
   color: #d5c597;
 }
 .wt-tag-lab-eyebrow {
   letter-spacing: 2px;
 }
-.wt-tag-lab section {
+.wt-tag-lab > section {
   padding: 28px 0;
   border-top: 1px solid #48545d;
 }
@@ -84,7 +89,7 @@
 .wt-tag-tier-grid h3 {
   margin: 0;
 }
-.wt-tag-lab button:not(.wt-game-tag) {
+.wt-tag-lab > section > button:not(.wt-game-tag) {
   min-height: 44px;
   padding: 8px 14px;
   border: 1px solid #4e5c65;
@@ -94,12 +99,12 @@
   font-size: 14px;
   cursor: pointer;
 }
-.wt-tag-lab button[aria-pressed="true"]:not(.wt-game-tag) {
+.wt-tag-lab > section > button[aria-pressed="true"]:not(.wt-game-tag) {
   border-color: #c6b179;
   color: #f3e3b7;
   background: #3d3d32;
 }
-.wt-tag-lab button:focus-visible {
+.wt-tag-lab > section > button:focus-visible {
   outline: 2px solid #d5c597;
   outline-offset: 3px;
 }
@@ -147,11 +152,11 @@
   .wt-tag-lab {
     padding: 24px 16px;
   }
-  .wt-tag-lab header {
+  .wt-tag-lab > header {
     flex-direction: column;
     gap: 12px;
   }
-  .wt-tag-lab h1 {
+  .wt-tag-lab > header h1 {
     font-size: 24px;
   }
   .wt-tag-tier-grid {

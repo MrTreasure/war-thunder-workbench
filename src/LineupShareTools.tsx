@@ -418,6 +418,7 @@ export function LineupShareTools({
         value={choices}
         allowedTones={tagAccess.allowedTones}
         max={3}
+        label="队列标签"
         disabled={busy}
         onChange={(value) => {
           setChoices(value);

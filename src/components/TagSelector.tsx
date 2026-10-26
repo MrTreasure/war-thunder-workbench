@@ -1,4 +1,5 @@
-import { useId, useState } from "react";
+import { useEffect, useId, useRef, useState, type CSSProperties } from "react";
+import { Modal } from "../Modal";
 import { GameTag, gameTagChoiceGroups, gameTagTones, type GameTagTone } from "./GameTag";
 import policy from "../../data/game-tag-access.json";
 import "./tag-selector.css";
@@ -27,25 +28,7 @@ export function tagRequirement(tone: GameTagTone) {
         ? "超级管理员专属"
         : "默认可选";
 }
-function Check({ checked }: { checked: boolean }) {
-  return (
-    <span className="wt-tag-check" data-checked={checked} aria-hidden="true">
-      {checked ? "✓" : "+"}
-    </span>
-  );
-}
-/** Controlled selector. Both text libraries start collapsed; styling is a separate action. */
-export function TagSelector({
-  options,
-  value,
-  onChange,
-  allowedTones = freeTagTones,
-  max = 3,
-  disabled = false,
-  loading = false,
-  error = "",
-  onRetry,
-}: {
+type Props = {
   options: readonly TagOption[];
   value: readonly TagChoice[];
   onChange: (value: TagChoice[]) => void;
@@ -55,291 +38,396 @@ export function TagSelector({
   loading?: boolean;
   error?: string;
   onRetry?: () => void;
-}) {
-  const uid = useId();
-  const [active, setActive] = useState<string | null>(null);
-  const [styleOpen, setStyleOpen] = useState(false);
-  const [nextTone, setNextTone] = useState<GameTagTone>("original");
+  label?: string;
+};
+type Row = TagChoice & { key: string };
+function TagFormDialog({
+  options,
+  value,
+  onChange,
+  allowedTones = freeTagTones,
+  max = 3,
+  loading = false,
+  error = "",
+  onRetry,
+  close,
+  label = "标签",
+}: Props & { close: () => void }) {
+  const [viewport, setViewport] = useState(() => ({
+    height: window.visualViewport?.height || window.innerHeight,
+    top: window.visualViewport?.offsetTop || 0,
+  }));
+  useEffect(() => {
+    const view = window.visualViewport;
+    const update = () =>
+      setViewport({ height: view?.height || window.innerHeight, top: view?.offsetTop || 0 });
+    view?.addEventListener("resize", update);
+    view?.addEventListener("scroll", update);
+    window.addEventListener("resize", update);
+    return () => {
+      view?.removeEventListener("resize", update);
+      view?.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+  const [rows, setRows] = useState<Row[]>(() =>
+    value.length
+      ? value.map((choice) => ({ ...choice, key: crypto.randomUUID() }))
+      : [{ key: crypto.randomUUID(), id: "", tone: "original" }],
+  );
+  const [active, setActive] = useState(() => rows[0]?.key || "");
+  const [pane, setPane] = useState<"word" | "style" | null>(null);
   const [query, setQuery] = useState({ queue: "", titles: "" });
-  const [group, setGroup] = useState("全部");
-  const current = value.find((item) => item.id === active) || value.at(-1);
-  const tone = current?.tone ?? (allowedTones.includes(nextTone) ? nextTone : "original");
-  const currentOption = options.find((option) => option.id === current?.id);
-  const optionFamily = (option: TagOption) =>
-    option.family || (option.id.startsWith("official-title-") ? "titles" : "queue");
-  const groupOrder = ["推荐", "战术", "机动", "火力", "协同", "构成"];
-  const orderedOptions = [...options].sort((a, b) => {
-    const ai = groupOrder.indexOf(a.group),
-      bi = groupOrder.indexOf(b.group);
-    return (ai < 0 ? 99 : ai) - (bi < 0 ? 99 : bi);
-  });
-  const choose = (option: TagOption) => {
-    const existing = value.find((item) => item.id === option.id);
-    if (existing && max > 1) {
-      onChange(value.filter((item) => item.id !== option.id));
-      if (active === option.id) setActive(null);
-      return;
-    }
-    setActive(option.id);
-    if (!existing) {
-      const choice = {
-        id: option.id,
-        tone: allowedTones.includes(nextTone) ? nextTone : ("original" as GameTagTone),
-      };
-      onChange(max === 1 ? [choice] : [...value, choice]);
-    }
-  };
-  const styleChoice = (id: GameTagTone) => {
-    setNextTone(id);
-    if (current)
-      onChange(value.map((item) => (item.id === current.id ? { ...item, tone: id } : item)));
-  };
-  const busy = disabled || loading || !!error;
+  const uid = useId();
+  const row = rows.find((row) => row.key === active) || rows[0];
+  const option = options.find((option) => option.id === row?.id);
+  const update = (patch: Partial<TagChoice>) =>
+    setRows(rows.map((item) => (item.key === row.key ? { ...item, ...patch } : item)));
+  const filled = rows.filter((row) => row.id);
+  const duplicates = filled.some(
+    (row, index) => filled.findIndex((other) => other.id === row.id) !== index,
+  );
+  const invalid = filled.some(
+    (row) =>
+      !allowedTones.includes(row.tone) ||
+      !options.some((option) => option.id === row.id && option.active !== false),
+  );
+  const canSave = !loading && !error && !duplicates && !invalid;
+  const blank = rows.some((row) => !row.id);
   return (
     <div
-      className="wt-tag-selector"
-      aria-label="标签选择器"
-      aria-busy={loading}
+      className="wt-tag-editor-host"
+      style={
+        {
+          "--wt-tag-editor-height": `${viewport.height}px`,
+          "--wt-tag-editor-top": `${viewport.top}px`,
+        } as CSSProperties
+      }
+    >
+      <Modal
+        title={`编辑${label}`}
+        subtitle={`最多 ${max} 个 · 确认后应用`}
+        close={close}
+        className="wt-tag-form-dialog"
+      >
+        <div className="wt-tag-form-body">
+          <section className="wt-tag-draft-section" aria-label="编辑中的标签列表">
+            <div className="wt-tag-form-section-title">
+              <strong>已有标签</strong>
+              <span>
+                {filled.length} / {max}
+              </span>
+            </div>
+            <div className="wt-tag-draft-list">
+              {rows.map((item, index) => (
+                <div key={item.key} data-active={item.key === row?.key}>
+                  <button
+                    type="button"
+                    className="wt-tag-draft-item"
+                    aria-label={`编辑第 ${index + 1} 个标签`}
+                    aria-pressed={item.key === row?.key}
+                    onClick={() => {
+                      setActive(item.key);
+                      setPane(null);
+                    }}
+                  >
+                    {item.id ? (
+                      <GameTag tone={item.tone}>
+                        {options.find((option) => option.id === item.id)?.label || item.id}
+                      </GameTag>
+                    ) : (
+                      <span className="wt-tag-blank">新标签</span>
+                    )}
+                  </button>
+                  <button
+                    type="button"
+                    className="wt-tag-row-remove"
+                    aria-label={`移除第 ${index + 1} 个标签`}
+                    onClick={() => {
+                      const next = rows.filter((row) => row.key !== item.key);
+                      setRows(next);
+                      if (active === item.key) {
+                        setActive(next[0]?.key || "");
+                        setPane(null);
+                      }
+                    }}
+                  >
+                    ×
+                  </button>
+                </div>
+              ))}
+              <button
+                type="button"
+                className="wt-tag-add-row"
+                disabled={rows.length >= max || blank}
+                onClick={() => {
+                  const item = {
+                    key: crypto.randomUUID(),
+                    id: "",
+                    tone: "original" as GameTagTone,
+                  };
+                  setRows([...rows, item]);
+                  setActive(item.key);
+                  setPane("word");
+                }}
+              >
+                ＋ 添加标签
+              </button>
+            </div>
+          </section>
+          {row && (
+            <>
+              <div className="wt-tag-edit-fields">
+                <div>
+                  <span>文案</span>
+                  <button
+                    type="button"
+                    aria-label="选择标签文案"
+                    aria-expanded={pane === "word"}
+                    aria-controls={`${uid}-word`}
+                    data-active={pane === "word"}
+                    onClick={() => setPane(pane === "word" ? null : "word")}
+                  >
+                    <strong>{option?.label || "请选择文案"}</strong>
+                    <span aria-hidden="true">⌄</span>
+                  </button>
+                </div>
+                <div>
+                  <span>标签样式</span>
+                  <button
+                    type="button"
+                    aria-label="选择标签样式"
+                    aria-expanded={pane === "style"}
+                    aria-controls={`${uid}-style`}
+                    data-active={pane === "style"}
+                    onClick={() => setPane(pane === "style" ? null : "style")}
+                  >
+                    <GameTag tone={row.tone}>{gameTagTones[row.tone].label}</GameTag>
+                    <span aria-hidden="true">⌄</span>
+                  </button>
+                </div>
+              </div>
+              {pane && (
+                <section
+                  className="wt-tag-picker-panel"
+                  id={`${uid}-${pane}`}
+                  aria-label={pane === "word" ? "选择文案" : "选择样式"}
+                >
+                  <div className="wt-tag-picker-heading">
+                    <strong>{pane === "word" ? "选择文案" : "选择样式"}</strong>
+                    <button type="button" onClick={() => setPane(null)}>
+                      返回编辑
+                    </button>
+                  </div>
+                  {pane === "word" ? (
+                    <div className="wt-tag-word-libraries">
+                      {(["queue", "titles"] as const).map((family) => {
+                        const choices = options.filter(
+                          (option) =>
+                            option.active !== false &&
+                            !option.system &&
+                            (option.family ||
+                              (option.id.startsWith("official-title-") ? "titles" : "queue")) ===
+                              family,
+                        );
+                        const matches = choices.filter((option) =>
+                          option.label
+                            .toLocaleLowerCase()
+                            .includes(query[family].trim().toLocaleLowerCase()),
+                        );
+                        return (
+                          <details className="wt-tag-library" key={family}>
+                            <summary>
+                              <span>{family === "queue" ? "队列标签" : "官方称号"}</span>
+                              <small>{choices.length} 个文案</small>
+                              <span aria-hidden="true">⌄</span>
+                            </summary>
+                            <div className="wt-tag-library-body">
+                              <label className="wt-tag-search">
+                                <span>搜索{family === "queue" ? "队列标签" : "官方称号"}</span>
+                                <input
+                                  type="search"
+                                  value={query[family]}
+                                  placeholder="输入关键词筛选"
+                                  onChange={(event) =>
+                                    setQuery({ ...query, [family]: event.target.value })
+                                  }
+                                />
+                              </label>
+                              <div className="wt-tag-plain-options">
+                                {matches.map((choice) => {
+                                  const used = rows.some(
+                                    (other) => other.key !== row.key && other.id === choice.id,
+                                  );
+                                  return (
+                                    <button
+                                      type="button"
+                                      key={choice.id}
+                                      aria-pressed={row.id === choice.id}
+                                      disabled={loading || !!error || used}
+                                      title={used ? "已用于其他标签" : choice.label}
+                                      onClick={() => {
+                                        update({ id: choice.id });
+                                        setPane(null);
+                                      }}
+                                    >
+                                      <span>{choice.label}</span>
+                                      <span aria-hidden="true">
+                                        {row.id === choice.id ? "✓" : ""}
+                                      </span>
+                                    </button>
+                                  );
+                                })}
+                                {!matches.length && (
+                                  <p className="wt-tag-empty">
+                                    {loading ? "正在读取文案…" : "没有匹配的文案"}
+                                  </p>
+                                )}
+                              </div>
+                            </div>
+                          </details>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <div className="wt-tag-skin-choices">
+                      {gameTagChoiceGroups.map((group) => (
+                        <fieldset key={group.label}>
+                          <legend>{group.label}</legend>
+                          <div>
+                            {group.tones.map((tone) => (
+                              <div key={tone} className="wt-tag-skin-option">
+                                <GameTag
+                                  tone={tone}
+                                  selected={row.tone === tone}
+                                  disabled={!allowedTones.includes(tone)}
+                                  onClick={() => update({ tone })}
+                                >
+                                  {gameTagTones[tone].label}
+                                </GameTag>
+                                {!allowedTones.includes(tone) && (
+                                  <small>{tagRequirement(tone)}</small>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        </fieldset>
+                      ))}
+                    </div>
+                  )}
+                </section>
+              )}
+              {option?.sourceUrl && (
+                <a
+                  className="wt-tag-source"
+                  href={option.sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  文案出处：{option.sourceTitle || option.label} ↗
+                  {option.sourceNote ? ` · ${option.sourceNote}` : ""}
+                </a>
+              )}
+              <div className="wt-tag-live-preview">
+                <span>效果预览</span>
+                {row.id ? (
+                  <GameTag tone={row.tone}>{option?.label || row.id}</GameTag>
+                ) : (
+                  <span className="wt-tag-empty">选好文案后展示</span>
+                )}
+              </div>
+            </>
+          )}
+          <div className="wt-tag-form-status" aria-live="polite">
+            {loading ? (
+              <output>正在读取标签文案…</output>
+            ) : error ? (
+              <>
+                <span>文案读取失败，请重试。</span>
+                <button type="button" onClick={onRetry}>
+                  重试
+                </button>
+              </>
+            ) : invalid ? (
+              <span>部分文案已移除或样式未解锁，请重新选择。</span>
+            ) : duplicates ? (
+              <span>同一文案只能添加一次。</span>
+            ) : (
+              <span>文案与样式独立选择，取消不会保存本次修改。</span>
+            )}
+          </div>
+        </div>
+        <footer className="wt-tag-form-footer">
+          <span>{filled.length} 个标签</span>
+          <button type="button" className="quiet-button" onClick={close}>
+            取消
+          </button>
+          <button
+            type="button"
+            className="quiet-button calc-open"
+            disabled={!canSave}
+            onClick={() => {
+              const next = filled.map(({ id, tone }) => ({ id, tone }));
+              if (JSON.stringify(next) !== JSON.stringify(value)) onChange(next);
+              close();
+            }}
+          >
+            确认标签
+          </button>
+        </footer>
+      </Modal>
+    </div>
+  );
+}
+/** A controlled form field. All edits are local to the dialog until confirmation. */
+export function TagSelector({ label = "标签", ...props }: Props) {
+  const [open, setOpen] = useState(false);
+  const trigger = useRef<HTMLButtonElement>(null);
+  const close = () => {
+    setOpen(false);
+    requestAnimationFrame(() => trigger.current?.focus({ preventScroll: true }));
+  };
+  const uid = useId();
+  const { value, options, disabled = false, loading = false, error = "", max = 3 } = props;
+  return (
+    <div
+      className="wt-tag-selector wt-tag-form-field"
       data-state={loading ? "loading" : error ? "error" : value.length ? "success" : "default"}
     >
-      <div className="wt-tag-selection-heading">
-        <strong>{max === 1 ? "选择一个标签" : "已选标签"}</strong>
+      <div className="wt-tag-field-label" id={uid}>
+        <strong>{label}</strong>
         <span>
           {value.length} / {max}
         </span>
       </div>
-      <div className="wt-tag-selected" aria-label="已选标签">
-        {value.length ? (
-          value.map((choice) => (
-            <div
-              className="wt-tag-selected-item"
-              key={choice.id}
-              data-active={current?.id === choice.id}
-            >
-              <button
-                type="button"
-                className="wt-tag-edit"
-                aria-label={`调整${options.find((option) => option.id === choice.id)?.label || choice.id}样式`}
-                aria-pressed={current?.id === choice.id}
-                disabled={busy}
-                onClick={() => {
-                  setActive(choice.id);
-                  setStyleOpen(true);
-                }}
-              >
-                <GameTag tone={choice.tone}>
-                  {options.find((option) => option.id === choice.id)?.label || choice.id}
-                </GameTag>
-              </button>
-              <button
-                type="button"
-                className="wt-tag-remove"
-                aria-label={`移除${options.find((option) => option.id === choice.id)?.label || choice.id}`}
-                disabled={busy}
-                onClick={() => {
-                  onChange(value.filter((item) => item.id !== choice.id));
-                  if (active === choice.id) setActive(null);
-                }}
-              >
-                ×
-              </button>
-            </div>
-          ))
-        ) : (
-          <span className="wt-tag-empty">展开下方分类，选择喜欢的文案</span>
-        )}
-      </div>
-      <div className="wt-tag-style-bar">
-        <span>{current ? `「${currentOption?.label || "当前标签"}」的样式` : "新标签样式"}</span>
-        <span className="wt-tag-current-tone">{gameTagTones[tone].label}</span>
-        <button
-          type="button"
-          disabled={busy}
-          aria-expanded={styleOpen}
-          aria-controls={`${uid}-styles`}
-          onClick={() => setStyleOpen(!styleOpen)}
-        >
-          {styleOpen ? "完成换样式" : "更换样式"}
-          <span aria-hidden="true">{styleOpen ? "⌃" : "⌄"}</span>
-        </button>
-      </div>
-      {styleOpen && (
-        <section className="wt-tag-style-panel" id={`${uid}-styles`} aria-label="选择标签样式">
-          {gameTagChoiceGroups.map((category) => {
-            const available = category.tones.filter((id) => allowedTones.includes(id));
-            if (!available.length) return null;
-            return (
-              <fieldset key={category.label}>
-                <legend>{category.label}</legend>
-                <div className="wt-tag-style-options">
-                  {available.map((id) => (
-                    <div className="wt-tag-style-option" key={id} data-selected={tone === id}>
-                      <GameTag
-                        tone={id}
-                        selected={tone === id}
-                        disabled={busy}
-                        onClick={() => styleChoice(id)}
-                      >
-                        {gameTagTones[id].label}
-                      </GameTag>
-                      {tone === id && <span aria-hidden="true">✓</span>}
-                    </div>
-                  ))}
-                </div>
-              </fieldset>
-            );
-          })}
-          {gameTagChoiceGroups
-            .flatMap((group) => group.tones)
-            .some((id) => !allowedTones.includes(id)) && (
-            <details className="wt-tag-locked">
-              <summary>查看未解锁样式</summary>
-              <div>
-                {gameTagChoiceGroups
-                  .flatMap((group) => group.tones)
-                  .filter((id) => !allowedTones.includes(id))
-                  .map((id) => (
-                    <div key={id}>
-                      <GameTag tone={id} disabled onClick={() => {}}>
-                        {gameTagTones[id].label}
-                      </GameTag>
-                      <small>{tagRequirement(id)}</small>
-                    </div>
-                  ))}
-              </div>
-            </details>
+      <button
+        type="button"
+        ref={trigger}
+        className="wt-tag-field-control"
+        aria-label={`编辑${label}`}
+        aria-haspopup="dialog"
+        aria-expanded={open}
+        disabled={disabled}
+        onClick={() => setOpen(true)}
+      >
+        <span className="wt-tag-field-values" aria-label="已有标签列表">
+          {value.length ? (
+            value.map((choice) => (
+              <GameTag key={choice.id} tone={choice.tone}>
+                {options.find((option) => option.id === choice.id)?.label || choice.id}
+              </GameTag>
+            ))
+          ) : (
+            <span className="wt-tag-empty">暂无标签，点击选择</span>
           )}
-        </section>
-      )}
-      <div className="wt-tag-selector-status">
-        <output aria-live="polite">
-          {loading
-            ? "正在读取标签文案…"
-            : error
-              ? "标签文案暂时未能读取。请重试。"
-              : max === 1
-                ? "点击其他文案可直接替换；样式可单独更换。"
-                : value.length >= max
-                  ? "已选满，可先移除一个再添加。"
-                  : "点击文案添加，再次点击可移除。"}
-        </output>
-        {error && onRetry && (
-          <button type="button" onClick={onRetry}>
-            重试
-          </button>
-        )}
-      </div>
-      {(["queue", "titles"] as const).map((family) => {
-        const familyOptions = orderedOptions.filter(
-          (option) => option.active !== false && !option.system && optionFamily(option) === family,
-        );
-        const matches = familyOptions.filter(
-          (option) =>
-            (group === "全部" || family !== "queue" || option.group === group) &&
-            option.label.toLocaleLowerCase().includes(query[family].trim().toLocaleLowerCase()),
-        );
-        return (
-          <details className="wt-tag-library" key={family}>
-            <summary>
-              <span>{family === "queue" ? "队列标签" : "官方称号"}</span>
-              <small>{familyOptions.length} 个文案</small>
-              <span className="wt-tag-disclosure" aria-hidden="true">
-                ⌄
-              </span>
-            </summary>
-            <div className="wt-tag-library-body">
-              <label className="wt-tag-search" htmlFor={`${uid}-${family}`}>
-                <span className="wt-tag-search-label">
-                  搜索{family === "queue" ? "队列标签" : "官方称号"}
-                </span>
-                <input
-                  id={`${uid}-${family}`}
-                  type="search"
-                  value={query[family]}
-                  disabled={busy}
-                  placeholder={
-                    family === "queue" ? "例如：机动、抗线、均衡" : "例如：坦克大师、钢铁之躯"
-                  }
-                  onChange={(event) => setQuery({ ...query, [family]: event.target.value })}
-                />
-              </label>
-              {family === "queue" && (
-                <div className="wt-tag-category-filter" aria-label="队列标签分组">
-                  {["全部", ...new Set(familyOptions.map((option) => option.group))].map(
-                    (label) => (
-                      <button
-                        type="button"
-                        key={label}
-                        aria-pressed={group === label}
-                        disabled={busy}
-                        onClick={() => setGroup(label)}
-                      >
-                        {label.replace(/^队列 · /, "")}
-                      </button>
-                    ),
-                  )}
-                </div>
-              )}
-              <div className="wt-tag-option-scroll">
-                {matches.length ? (
-                  matches.map((option) => {
-                    const choice = value.find((item) => item.id === option.id);
-                    const full = !choice && max > 1 && value.length >= max;
-                    return (
-                      <button
-                        className="wt-tag-option"
-                        type="button"
-                        key={option.id}
-                        title={option.label}
-                        aria-label={option.label}
-                        aria-pressed={!!choice}
-                        disabled={busy || full}
-                        onClick={() => choose(option)}
-                      >
-                        <GameTag
-                          tone={
-                            choice?.tone ||
-                            (allowedTones.includes(nextTone) ? nextTone : "original")
-                          }
-                        >
-                          {option.label}
-                        </GameTag>
-                        <Check checked={!!choice} />
-                      </button>
-                    );
-                  })
-                ) : (
-                  <div className="wt-tag-no-results">
-                    <strong>{loading ? "正在读取文案" : "没有找到相关文案"}</strong>
-                    {!loading && (
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setQuery({ ...query, [family]: "" });
-                          setGroup("全部");
-                        }}
-                      >
-                        清除筛选
-                      </button>
-                    )}
-                  </div>
-                )}
-              </div>
-            </div>
-          </details>
-        );
-      })}
-      {currentOption?.sourceUrl && (
-        <a
-          className="wt-tag-source"
-          href={currentOption.sourceUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          文案出处：{currentOption.sourceTitle || currentOption.label} ↗
-          {currentOption.sourceNote ? ` · ${currentOption.sourceNote}` : ""}
-        </a>
-      )}
+        </span>
+        <span className="wt-tag-field-edit">
+          编辑 <span aria-hidden="true">›</span>
+        </span>
+      </button>
+      {loading && <output className="wt-tag-field-note">正在读取文案…</output>}
+      {error && <span className="wt-tag-field-note">文案读取失败，可打开编辑后重试。</span>}
+      {open && <TagFormDialog {...props} label={label} close={close} />}
     </div>
   );
 }

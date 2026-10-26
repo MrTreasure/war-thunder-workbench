@@ -1,231 +1,259 @@
-/* finesse · component: tag-selector · register=product
+/* finesse · component: tag-form-field · register=product
  * states: default · hover · focus-visible · active · disabled · loading · error · success
  * tokens: inherited workbench graphite, semantic gold and seafoam */
-.wt-tag-selector {
+.wt-tag-form-field {
+  min-width: 0;
   color: var(--wt-ink);
   font: 13px/1.5 var(--wt-sans);
-  min-width: 0;
 }
-.wt-tag-selector button,
-.wt-tag-selector summary {
-  -webkit-tap-highlight-color: transparent;
-}
-.wt-tag-selection-heading {
+.wt-tag-field-label,
+.wt-tag-form-section-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  color: var(--wt-body);
+  margin-bottom: 8px;
 }
-.wt-tag-selection-heading strong {
+.wt-tag-field-label strong,
+.wt-tag-form-section-title strong {
   font-size: 13px;
   font-weight: 600;
 }
-.wt-tag-selection-heading > span {
+.wt-tag-field-label > span,
+.wt-tag-form-section-title > span {
   color: var(--wt-muted);
+  font-size: 12px;
   font-variant-numeric: tabular-nums;
 }
-.wt-tag-selected {
+.wt-tag-field-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-height: 64px;
+  padding: 10px 12px;
+  border: 1px solid var(--wt-strong-line);
+  border-radius: 4px;
+  background: var(--wt-surface);
+  color: var(--wt-ink);
+  text-align: left;
+  cursor: pointer;
+}
+.wt-tag-field-values {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+.wt-tag-field-edit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  color: var(--wt-gold);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.wt-tag-empty {
+  font-size: 13px;
+  color: var(--wt-muted);
+}
+.wt-tag-field-note {
+  display: block;
+  min-height: 24px;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.wt-tag-form-field[data-state="error"] .wt-tag-field-control {
+  border-color: var(--wt-gold-line);
+}
+.calculator.wt-tag-form-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(760px, calc(100vw - 32px));
+  height: fit-content;
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+}
+.wt-tag-form-dialog > .calc-header {
+  flex: none;
+  padding: 18px 24px;
+}
+.wt-tag-form-body {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 20px 24px;
+  max-height: calc(100dvh - 190px);
+  color: var(--wt-ink);
+  font: 13px/1.5 var(--wt-sans);
+}
+.wt-tag-draft-list {
   display: flex;
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
-  min-height: 58px;
-  padding: 6px 0 10px;
 }
-.wt-tag-empty {
-  color: var(--wt-muted);
-  font-size: 13px;
-}
-.wt-tag-selected-item {
+.wt-tag-draft-list > div {
   display: flex;
   align-items: center;
-  background: var(--wt-surface);
-  border: 1px solid var(--wt-strong-line);
+  border: 1px solid var(--wt-line);
   border-radius: 4px;
+  background: var(--wt-surface);
   min-width: 0;
   max-width: 100%;
 }
-.wt-tag-selected-item[data-active="true"] {
+.wt-tag-draft-list > div[data-active="true"] {
   border-color: var(--wt-gold-line);
   background: var(--wt-gold-soft);
 }
-.wt-tag-edit {
+.wt-tag-draft-item {
   display: flex;
   align-items: center;
-  min-height: 44px;
-  padding: 0 0 0 6px;
   min-width: 0;
-  cursor: pointer;
-  background: transparent;
-}
-.wt-tag-remove {
-  min-width: 44px;
   min-height: 44px;
+  padding: 4px 0 4px 6px;
+  background: transparent;
+  cursor: pointer;
+}
+.wt-tag-blank {
+  display: block;
+  padding-inline: 8px;
   color: var(--wt-muted);
+}
+.wt-tag-row-remove {
+  width: 44px;
+  min-height: 44px;
   font-size: 20px;
+  color: var(--wt-muted);
   background: transparent;
   cursor: pointer;
 }
-.wt-tag-style-bar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.wt-tag-add-row {
   min-height: 44px;
-  color: var(--wt-body);
-  padding-bottom: 6px;
-  flex-wrap: wrap;
-}
-.wt-tag-style-bar > span:first-child {
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-.wt-tag-current-tone {
+  padding: 4px 12px;
   color: var(--wt-gold);
-  font-size: 12px;
-}
-.wt-tag-style-bar > button {
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
+  background: transparent;
+  cursor: pointer;
   white-space: nowrap;
-  color: var(--wt-gold);
-  background: transparent;
-  cursor: pointer;
-  padding: 0 4px 0 12px;
 }
-.wt-tag-style-panel {
+.wt-tag-edit-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+  margin-top: 22px;
+}
+.wt-tag-edit-fields > div {
+  min-width: 0;
+}
+.wt-tag-edit-fields > div > span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.wt-tag-edit-fields > div > button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 52px;
+  padding: 8px 12px;
+  border: 1px solid var(--wt-strong-line);
+  border-radius: 4px;
+  background: var(--wt-surface);
+  color: var(--wt-ink);
+  cursor: pointer;
+  text-align: left;
+}
+.wt-tag-edit-fields strong {
+  font-size: 14px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wt-tag-edit-fields button[data-active="true"] {
+  border-color: var(--wt-gold-line);
+  background: var(--wt-gold-soft);
+}
+.wt-tag-picker-panel {
+  margin-top: 14px;
+  padding: 14px;
   border: 1px solid var(--wt-line);
   border-radius: 4px;
-  padding: 14px 16px;
   background: var(--wt-surface);
-  margin-bottom: 10px;
 }
-.wt-tag-selector fieldset {
-  border: 0;
-  padding: 0;
-  min-width: 0;
-  margin: 0 0 10px;
-}
-.wt-tag-selector fieldset:last-child {
-  margin-bottom: 0;
-}
-.wt-tag-selector legend {
-  font-size: 12px;
-  color: var(--wt-muted);
-  margin-bottom: 6px;
-  padding: 0;
-}
-.wt-tag-style-options {
+.wt-tag-picker-heading {
   display: flex;
-  flex-wrap: wrap;
-  gap: 4px 14px;
-}
-.wt-tag-style-option {
-  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 4px;
+  gap: 12px;
+  margin-bottom: 8px;
 }
-.wt-tag-style-option > span {
-  color: var(--wt-gold);
-  font-size: 12px;
+.wt-tag-picker-heading strong {
+  font-size: 13px;
 }
-.wt-tag-locked {
-  font-size: 12px;
-  color: var(--wt-muted);
-}
-.wt-tag-locked > summary {
-  cursor: pointer;
+.wt-tag-picker-heading button {
   min-height: 44px;
-  display: flex;
-  align-items: center;
-}
-.wt-tag-locked > div {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 8px 12px;
-}
-.wt-tag-locked > div > div {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-}
-.wt-tag-locked small {
-  font-size: 12px;
-  color: var(--wt-body);
-}
-.wt-tag-selector-status {
-  min-height: 34px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--wt-muted);
-  font-size: 12px;
-  padding-bottom: 8px;
-}
-.wt-tag-selector-status button {
+  padding: 0 4px 0 12px;
   color: var(--wt-gold);
-  padding: 4px 8px;
-  min-height: 36px;
+  background: transparent;
   cursor: pointer;
-}
-.wt-tag-selector[data-state="error"] .wt-tag-selector-status {
-  color: var(--wt-gold);
-}
-.wt-tag-selector[data-state="loading"] .wt-tag-library {
-  opacity: 0.5;
+  white-space: nowrap;
 }
 .wt-tag-library {
   border: 1px solid var(--wt-line);
   border-radius: 4px;
-  background: var(--wt-surface);
-  margin-top: 8px;
   overflow: clip;
+  margin-top: 8px;
 }
 .wt-tag-library > summary {
-  min-height: 52px;
+  min-height: 48px;
+  padding: 0 12px;
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 0 16px;
   list-style: none;
-  cursor: pointer;
-  user-select: none;
   color: var(--wt-ink);
+  cursor: pointer;
 }
 .wt-tag-library > summary::-webkit-details-marker {
   display: none;
 }
 .wt-tag-library > summary > span:first-child {
   font-weight: 600;
-  font-size: 14px;
 }
 .wt-tag-library > summary > small {
   font-size: 12px;
   color: var(--wt-muted);
 }
-.wt-tag-disclosure {
+.wt-tag-library > summary > span:last-child {
   margin-left: auto;
   color: var(--wt-muted);
 }
-.wt-tag-library[open] > .wt-tag-library-body {
-  border-top: 1px solid var(--wt-line);
-}
-.wt-tag-library[open] > summary > .wt-tag-disclosure {
+.wt-tag-library[open] > summary > span:last-child {
   transform: rotate(180deg);
 }
 .wt-tag-library-body {
-  padding: 14px;
+  padding: 12px;
+  border-top: 1px solid var(--wt-line);
 }
 .wt-tag-search {
   display: block;
 }
-.wt-tag-search-label {
+.wt-tag-search > span {
   display: block;
-  font-size: 12px;
   color: var(--wt-muted);
+  font-size: 12px;
   margin-bottom: 6px;
 }
 .wt-tag-search input {
@@ -237,161 +265,227 @@
   background: var(--wt-page);
   color: var(--wt-ink);
   font: 16px/1.4 var(--wt-sans);
-  min-width: 0;
 }
 .wt-tag-search input::placeholder {
   color: var(--wt-muted);
 }
-.wt-tag-category-filter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin: 10px 0 4px;
-}
-.wt-tag-category-filter button {
-  padding: 0 12px;
-  min-height: 44px;
-  border-radius: 3px;
-  background: transparent;
-  color: var(--wt-body);
-  cursor: pointer;
-  white-space: nowrap;
-}
-.wt-tag-category-filter button[aria-pressed="true"] {
-  background: var(--wt-gold-soft);
-  color: var(--wt-gold);
-}
-.wt-tag-option-scroll {
+.wt-tag-plain-options {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  align-content: start;
-  gap: 6px;
-  max-height: 288px;
-  overflow-y: auto;
-  overscroll-behavior: contain;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
   margin-top: 12px;
-  padding: 2px;
-  scrollbar-gutter: stable;
 }
-.wt-tag-option {
+.wt-tag-plain-options > button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 4px;
-  min-height: 48px;
+  gap: 8px;
+  min-height: 44px;
   min-width: 0;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  padding: 2px 8px 2px 4px;
-  background: transparent;
+  padding: 8px 10px;
+  border: 1px solid var(--wt-line);
+  border-radius: 3px;
+  background: var(--wt-panel);
   color: var(--wt-body);
+  font: 13px/1.4 var(--wt-sans);
   cursor: pointer;
+  text-align: left;
 }
-.wt-tag-option[aria-pressed="true"] {
-  border-color: var(--wt-gold-line);
-  background: var(--wt-gold-soft);
-}
-.wt-tag-check {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: none;
-  width: 18px;
-  height: 18px;
-  font: 12px var(--wt-sans);
-  color: var(--wt-muted);
-}
-.wt-tag-check[data-checked="true"] {
-  color: var(--wt-gold);
-}
-.wt-tag-option .wt-game-tag,
-.wt-tag-edit .wt-game-tag {
-  max-width: 100%;
-  min-width: 0;
-}
-.wt-tag-option .wt-game-tag-label,
-.wt-tag-edit .wt-game-tag-label {
-  display: block;
+.wt-tag-plain-options > button > span:first-child {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.wt-tag-no-results {
-  grid-column: 1/-1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  min-height: 100px;
-  color: var(--wt-muted);
-  font-size: 13px;
-}
-.wt-tag-no-results button {
-  min-height: 44px;
+.wt-tag-plain-options > button[aria-pressed="true"] {
+  background: var(--wt-gold-soft);
+  border-color: var(--wt-gold-line);
   color: var(--wt-gold);
-  padding: 0 12px;
-  cursor: pointer;
+}
+.wt-tag-skin-choices fieldset {
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  margin: 0 0 12px;
+}
+.wt-tag-skin-choices fieldset:last-child {
+  margin-bottom: 0;
+}
+.wt-tag-skin-choices legend {
+  color: var(--wt-muted);
+  font-size: 12px;
+  padding: 0;
+  margin-bottom: 6px;
+}
+.wt-tag-skin-choices fieldset > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+}
+.wt-tag-skin-option {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.wt-tag-skin-option small {
+  color: var(--wt-muted);
+  font-size: 12px;
+  max-width: 150px;
 }
 .wt-tag-source {
   display: block;
-  font-size: 12px;
-  line-height: 1.6;
-  margin-top: 12px;
   color: var(--wt-muted);
+  font-size: 12px;
+  margin-top: 14px;
   overflow-wrap: anywhere;
 }
-.wt-tag-selector button:disabled {
+.wt-tag-live-preview {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--wt-line);
+}
+.wt-tag-live-preview > span:first-child {
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-tag-form-status {
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-tag-form-status button {
+  min-height: 44px;
+  color: var(--wt-gold);
+  padding-inline: 10px;
+  cursor: pointer;
+}
+.wt-tag-form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid var(--wt-line);
+  background: var(--wt-surface);
+  padding: 12px 24px;
+}
+.wt-tag-form-footer > span {
+  margin-right: auto;
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-tag-form-footer > button {
+  min-height: 44px;
+  white-space: nowrap;
+}
+.wt-tag-form-field button:disabled,
+.wt-tag-form-dialog button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-.wt-tag-selector button:focus-visible,
-.wt-tag-selector summary:focus-visible,
-.wt-tag-selector input:focus-visible {
+.wt-tag-form-field button:focus-visible,
+.wt-tag-form-dialog button:focus-visible,
+.wt-tag-form-dialog summary:focus-visible,
+.wt-tag-form-dialog input:focus-visible {
   outline: 2px solid var(--wt-accent);
   outline-offset: 2px;
 }
-.wt-tag-selector button:active:not(:disabled) {
+.wt-tag-form-field button:active:not(:disabled),
+.wt-tag-form-dialog button:active:not(:disabled) {
   transform: translateY(1px);
 }
+.wt-tag-field-values .wt-game-tag,
+.wt-tag-draft-item .wt-game-tag {
+  max-width: 100%;
+  min-width: 0;
+}
+.wt-tag-field-values .wt-game-tag-label,
+.wt-tag-draft-item .wt-game-tag-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 @media (hover: hover) {
-  .wt-tag-option:hover:not(:disabled),
+  .wt-tag-field-control:hover:not(:disabled),
+  .wt-tag-edit-fields button:hover,
   .wt-tag-library > summary:hover,
-  .wt-tag-category-filter button:hover:not(:disabled) {
+  .wt-tag-plain-options > button:hover:not(:disabled) {
     background: var(--wt-raised);
   }
-  .wt-tag-remove:hover:not(:disabled) {
-    color: var(--wt-ink);
-  }
-  .wt-tag-style-bar > button:hover:not(:disabled) {
+  .wt-tag-row-remove:hover {
     color: var(--wt-ink);
   }
 }
-@media (max-width: 550px) {
-  .wt-tag-library > summary {
-    padding-inline: 12px;
+@media (max-width: 650px) {
+  .calculator.wt-tag-form-dialog {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100dvh;
+    inset: 0;
+    margin: auto 0 0;
+    border-radius: 12px 12px 0 0;
+  }
+  .wt-tag-form-dialog > .calc-header {
+    padding: 14px 16px;
+  }
+  .wt-tag-form-body {
+    padding: 16px;
+    max-height: calc(100dvh - 160px);
+  }
+  .wt-tag-form-footer {
+    padding: 12px 16px max(12px, env(safe-area-inset-bottom, 0px));
+  }
+  .wt-tag-edit-fields {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .wt-tag-plain-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .wt-tag-picker-panel {
+    padding: 10px;
   }
   .wt-tag-library-body {
     padding: 10px;
   }
-  .wt-tag-option-scroll {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-height: 240px;
+  .wt-tag-library > summary {
+    gap: 8px;
   }
-  .wt-tag-option {
-    padding-right: 2px;
-    gap: 0;
+  .wt-tag-field-control {
+    gap: 8px;
   }
-  .wt-tag-option .wt-game-tag {
-    font-size: 14px;
+  .wt-tag-field-values .wt-game-tag {
+    max-width: calc(100vw - 130px);
   }
-  .wt-tag-style-panel {
-    padding: 12px;
+  .wt-tag-draft-item .wt-game-tag {
+    max-width: calc(100vw - 110px);
   }
-  .wt-tag-style-bar {
-    column-gap: 6px;
+}
+
+.wt-tag-editor-host {
+  display: contents;
+}
+@media (max-width: 650px) {
+  .calculator.wt-tag-form-dialog {
+    inset: var(--wt-tag-editor-top, 0px) 0 auto;
+    margin: 0;
+    height: var(--wt-tag-editor-height, 100dvh);
+    max-height: var(--wt-tag-editor-height, 100dvh);
+    border-radius: 0;
   }
-  .wt-tag-edit .wt-game-tag {
-    max-width: calc(100vw - 140px);
+  .wt-tag-form-body {
+    max-height: none;
   }
+}
+
+.wt-tag-form-dialog > .calc-header > button {
+  min-height: 44px;
+  min-width: 64px;
 }

@@ -8,7 +8,10 @@ import registry from "../data/lineup-sharing-tags.json";
 import "./tag-preview.css";
 
 export function TagPreview() {
-  const [choices, setChoices] = useState<TagChoice[]>([]);
+  const [choices, setChoices] = useState<TagChoice[]>([
+    { id: "classic", tone: "original" },
+    { id: "flank", tone: "color-blue" },
+  ]);
   const access = useGameTagAccess();
   const tagCatalog = useTagCatalog();
   const account = useWorkbenchAccount();
@@ -20,11 +23,49 @@ export function TagPreview() {
       <header>
         <div>
           <p className="wt-tag-lab-eyebrow">游戏标签 · 独立样式验收</p>
-          <h1>文案、颜色与材质，自由组合</h1>
-          <p>先对照游戏原版，再选择文案与底色。文案与外观独立选择，材质由绑定游戏账号等级解锁。</p>
+          <h1>标签表单与编辑弹层</h1>
+          <p>点击标签字段体验编辑；文案与样式分别选择，确认后应用。下方保留样式对照。</p>
         </div>
         <a href="#/lineups">返回出击队列 ↗</a>
       </header>
+      <section>
+        <h2>标签表单组件</h2>
+        <p className="wt-tag-lab-source">
+          {account.session?.role === "superadmin"
+            ? "超级管理员：全部标签样式已开放"
+            : access.loading
+              ? "正在核验当前账号资格…"
+              : access.access?.bound
+                ? `绑定账号 ${access.access.level ?? "未知"} 级 · 历史战斗 ${access.access.rbBattles ?? "未知"} 次`
+                : "尚未绑定游戏账号：可选官方原版与基本颜色。"}
+        </p>
+        {!account.session?.user && (
+          <button type="button" className="quiet-button" onClick={() => void account.login()}>
+            登录并查看解锁资格
+          </button>
+        )}
+        {account.session?.user && !access.access?.bound && (
+          <a href="#/stats">前往战绩页绑定游戏账号 ↗</a>
+        )}
+        {access.error && <p role="alert">{access.error}</p>}
+        <button type="button" className="wt-vehicle-text-action" onClick={access.refresh}>
+          刷新标签资格
+        </button>
+        <TagSelector
+          options={tagCatalog.options}
+          loading={tagCatalog.loading}
+          error={tagCatalog.error}
+          onRetry={tagCatalog.refresh}
+          value={choices}
+          onChange={setChoices}
+          allowedTones={access.allowedTones}
+          max={3}
+          label="队列标签"
+        />
+        <p className="wt-tag-lab-source">
+          演示表单已放入两条标签。点击字段打开编辑弹层，文案和样式分别选择；确认后回填，取消保留原值。
+        </p>
+      </section>
       <section>
         <h2>01 / 游戏原版对照</h2>
         <div className="wt-tag-reference">
@@ -94,43 +135,6 @@ export function TagPreview() {
             </div>
           ))}
         </div>
-      </section>
-      <section>
-        <h2>04 / 自由组合</h2>
-        <p className="wt-tag-lab-source">
-          {account.session?.role === "superadmin"
-            ? "超级管理员：全部标签样式已开放"
-            : access.loading
-              ? "正在核验当前账号资格…"
-              : access.access?.bound
-                ? `绑定账号 ${access.access.level ?? "未知"} 级 · 历史战斗 ${access.access.rbBattles ?? "未知"} 次`
-                : "尚未绑定游戏账号：可选官方原版与基本颜色。"}
-        </p>
-        {!account.session?.user && (
-          <button type="button" className="quiet-button" onClick={() => void account.login()}>
-            登录并查看解锁资格
-          </button>
-        )}
-        {account.session?.user && !access.access?.bound && (
-          <a href="#/stats">前往战绩页绑定游戏账号 ↗</a>
-        )}
-        {access.error && <p role="alert">{access.error}</p>}
-        <button type="button" className="wt-vehicle-text-action" onClick={access.refresh}>
-          刷新标签资格
-        </button>
-        <TagSelector
-          options={tagCatalog.options}
-          loading={tagCatalog.loading}
-          error={tagCatalog.error}
-          onRetry={tagCatalog.refresh}
-          value={choices}
-          onChange={setChoices}
-          allowedTones={access.allowedTones}
-          max={8}
-        />
-        <p className="wt-tag-lab-source">
-          上方为全样式对照；实际可选范围以下方选择器为准。组合仅保留在当前页面，队列分享会保存发布时选择的样式。
-        </p>
       </section>
     </main>
   );

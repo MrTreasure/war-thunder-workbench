@@ -108,6 +108,7 @@ function VehicleTagDialog({
           value={value}
           allowedTones={access.allowedTones}
           max={1}
+          label="载具标签"
           disabled={busy}
           onChange={(next) => {
             setValue(next);
