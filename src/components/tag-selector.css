@@ -469,3 +469,7 @@
   align-items: center;
   padding-block: 4px;
 }
+
+.calculator.wt-tag-form-dialog[open] {
+  display: grid;
+}
