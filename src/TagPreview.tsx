@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { useLocale } from "./i18n/react";
 import { t, localize } from "./i18n/core";
 import { useState } from "react";
@@ -29,7 +30,9 @@ export function TagPreview() {
           <h1>{t("标签表单与编辑弹层")}</h1>
           <p>{t("点击标签字段体验编辑；文案与样式分别选择，确认后应用。下方保留样式对照。")}</p>
         </div>
-        <a href="#/lineups">{t("返回出击队列 ↗")}</a>
+        <Link to="/lineups" preload={false}>
+          {t("返回出击队列 ↗")}
+        </Link>
       </header>
       <section>
         <h2>{t("标签表单组件")}</h2>
@@ -52,7 +55,9 @@ export function TagPreview() {
           </button>
         )}
         {account.session?.user && !access.access?.bound && (
-          <a href="#/stats">{t("前往战绩页绑定游戏账号 ↗")}</a>
+          <Link to="/stats" preload={false}>
+            {t("前往战绩页绑定游戏账号 ↗")}
+          </Link>
         )}
         {access.error && <p role="alert">{access.error}</p>}
         <button type="button" className="wt-vehicle-text-action" onClick={access.refresh}>

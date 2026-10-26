@@ -1,3 +1,4 @@
+import { Link, useNavigate } from "@tanstack/react-router";
 import { useLocale } from "../i18n/react";
 import { t } from "../i18n/core";
 import { GameSelect } from "./GameSelect";
@@ -6,26 +7,27 @@ export function PageNavigation({
 }: {
   page: "tree" | "lineups" | "maps" | "stats" | "sales" | "decals" | "disclaimer";
 }) {
+  const navigate = useNavigate();
   useLocale();
 
   return (
     <>
       <nav className="page-navigation" aria-label={t("工具页面")}>
-        <a href="#/tree" aria-current={page === "tree" ? "page" : undefined}>
+        <Link to="/tree" preload={false} aria-current={page === "tree" ? "page" : undefined}>
           {t("科技树")}
-        </a>
-        <a href="#/lineups" aria-current={page === "lineups" ? "page" : undefined}>
+        </Link>
+        <Link to="/lineups" preload={false} aria-current={page === "lineups" ? "page" : undefined}>
           {t("出击队列")}
-        </a>
-        <a href="#/maps" aria-current={page === "maps" ? "page" : undefined}>
+        </Link>
+        <Link to="/maps" preload={false} aria-current={page === "maps" ? "page" : undefined}>
           {t("陆战地图")}
-        </a>
-        <a href="#/stats" aria-current={page === "stats" ? "page" : undefined}>
+        </Link>
+        <Link to="/stats" preload={false} aria-current={page === "stats" ? "page" : undefined}>
           {t("战绩查询")}
-        </a>
-        <a href="#/sales" aria-current={page === "sales" ? "page" : undefined}>
+        </Link>
+        <Link to="/sales" preload={false} aria-current={page === "sales" ? "page" : undefined}>
           {t("折扣日历")}
-        </a>
+        </Link>
       </nav>
       <nav className="mobile-page-navigation" aria-label={t("工具页面")}>
         <GameSelect
@@ -41,7 +43,7 @@ export function PageNavigation({
                 next === "sales") &&
               next !== page
             )
-              location.hash = `/${next}`;
+              void navigate({ to: `/${next}` });
           }}
         >
           {page === "disclaimer" && (

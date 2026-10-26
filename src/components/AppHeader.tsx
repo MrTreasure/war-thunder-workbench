@@ -3,7 +3,7 @@ import { LanguageSwitch } from "./LanguageSwitch";
 import { updateSearchMetadata } from "../search-metadata";
 import { useLocale } from "../i18n/react";
 import { t } from "../i18n/core";
-import { useRouterState } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { WorkbenchAccountControl } from "./WorkbenchAccountControl";
 import { CreatorLink } from "./CreatorLink";
 import { PageNavigation } from "./PageNavigation";
@@ -25,8 +25,9 @@ export function AppHeader() {
     <header className="app-header">
       <div className="app-header-inner">
         <div className="app-identity">
-          <a
-            href="#/tree"
+          <Link
+            to="/tree"
+            preload={false}
             className="wt-home-link"
             aria-label={t("返回研发科技树")}
             title={t("返回研发科技树")}
@@ -38,7 +39,7 @@ export function AppHeader() {
               width={94}
               height={45}
             />
-          </a>
+          </Link>
           <div className="app-brand-copy">
             <h1>{t("研发工作台")}</h1>
             <span>{t("战争雷霆玩家工具")}</span>

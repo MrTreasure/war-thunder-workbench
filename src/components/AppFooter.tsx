@@ -1,6 +1,6 @@
 import { t } from "../i18n/core";
 import { useLocale } from "../i18n/react";
-import { useRouterState } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import "./app-footer.css";
 
 /** Compact shared footer; the immersive research tree has no footer. */
@@ -14,7 +14,9 @@ export function AppFooter() {
     <footer className="wt-app-footer" aria-label={t("站点信息")}>
       <div className="wt-app-footer-inner">
         <span>{t("非官方玩家工具")}</span>
-        <a href="#/disclaimer">{t("免责声明")}</a>
+        <Link to="/disclaimer" preload={false}>
+          {t("免责声明")}
+        </Link>
         <a
           href="https://github.com/MrTreasure/war-thunder-workbench/issues"
           target="_blank"
