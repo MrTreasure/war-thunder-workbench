@@ -40,7 +40,7 @@ export function Lineups({
   payload,
   chooseCountry,
   defaultBattle,
-  mode,
+  mode: selectedMode,
   setMode,
   progress,
   error,
@@ -57,6 +57,7 @@ export function Lineups({
   error?: string;
   retry: () => void;
 }) {
+  const mode: Mode = selectedMode === "sb" ? "rb" : selectedMode;
   const routeCountry = useRouterState({
     select: (state) => (state.location.search as { country?: string }).country,
   });
@@ -113,11 +114,13 @@ export function Lineups({
           <label className="calc-field lineup-mode-field">
             卡片权重
             <GameSelect value={mode} onValueChange={(value) => setMode(value as Mode)}>
-              {Object.entries(modes).map(([id, name]) => (
-                <option key={id} value={id}>
-                  {name} {id.toUpperCase()}
-                </option>
-              ))}
+              {Object.entries(modes)
+                .filter(([id]) => id !== "sb")
+                .map(([id, name]) => (
+                  <option key={id} value={id}>
+                    {name} {id.toUpperCase()}
+                  </option>
+                ))}
             </GameSelect>
           </label>
           <button
@@ -750,10 +753,7 @@ function CountryLineups({
                 </div>
               </details>
             </div>
-            <p className="calc-note">
-              同一队列同时计算街机 AB、历史 RB 和全真
-              SB。“卡片权重”仅切换卡片显示，不改变计算；全真以活动名单或房间范围为准。
-            </p>
+
             <div className="lineup-configure">
               <section className="lineup-roster" aria-label="乘员槽位">
                 <div className="lineup-section-heading">

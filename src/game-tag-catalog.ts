@@ -18,9 +18,8 @@ type Manifest = {
   path: string;
 };
 type Saved = { manifest: Manifest; body: string };
-const preview = import.meta.env.VITE_WT_CATALOG_SOURCE === "preview";
-const resource = preview ? "game-tags-preview" : "game-tags";
-const base = `${settings.apiBaseUrl}/${preview ? "lineup-community-preview" : "lineup-community"}`;
+const resource = "game-tags";
+const base = `${settings.apiBaseUrl}/lineup-community`;
 let state: CatalogState = { items: [], revision: "", loading: true, error: "", loaded: false };
 const listeners = new Set<() => void>();
 let flight: Promise<void> | null = null;
