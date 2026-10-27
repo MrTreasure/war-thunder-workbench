@@ -1,0 +1,65 @@
+{
+  "roles": {
+    "fighter": "army_fighter",
+    "naval_aircraft": "army_fighter",
+    "bomber": "army_bomber",
+    "assault": "army_assault",
+    "stormovik": "army_assault",
+    "attack_helicopter": "army_helicopter",
+    "utility_helicopter": "army_helicopter",
+    "destroyer": "army_destroyer",
+    "frigate": "army_destroyer",
+    "light_cruiser": "army_cruiser",
+    "heavy_cruiser": "army_cruiser",
+    "cruiser": "army_cruiser",
+    "battlecruiser": "army_cruiser",
+    "battleship": "army_cruiser",
+    "boat": "army_boat",
+    "torpedo_boat": "army_boat",
+    "gun_boat": "army_boat",
+    "heavy_gun_boat": "army_boat",
+    "naval_ferry_barge": "army_boat"
+  },
+  "icons": {
+    "army_fighter": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/army_fighter.svg",
+      "bytes": 1352,
+      "sha256": "b1cfcd054a1bcc3cecff2d6f8a475b7d7772dccafe6dbdadab7be56dc7d7d64d"
+    },
+    "army_bomber": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/army_bomber.svg",
+      "bytes": 2306,
+      "sha256": "9973fa3145907ce4720499f687ed9921cfc24878c1453e5a766ff3b8a9595546"
+    },
+    "army_assault": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/army_assault.svg",
+      "bytes": 1614,
+      "sha256": "96091754df3aa4cda854c71094716b4610ea704ca650b0845343cefd2656c87b"
+    },
+    "army_helicopter": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/army_helicopter.svg",
+      "bytes": 1169,
+      "sha256": "a604611154d793175b69d03a23fdf5512da8646af4923c801f489c9e51ee84b9"
+    },
+    "army_destroyer": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/army_destroyer.svg",
+      "bytes": 767,
+      "sha256": "fa7608456e9a5e471e472ff8dcc9171ed790b1341096f4ebf729ba572b16af06"
+    },
+    "army_cruiser": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/army_cruiser.svg",
+      "bytes": 836,
+      "sha256": "80cdb4e7c43b9d08a8278a7fed646c26ccd68a51d43b5f97d6e0d435c10640e1"
+    },
+    "army_boat": {
+      "url": "https://static.encyclopedia.warthunder.com/gui_skin/army_boat.svg",
+      "bytes": 596,
+      "sha256": "891f08eb49271d0e0def347b4393a835c1b6cfcf7a4ba2beb25060d370455c48"
+    }
+  },
+  "provenance": {
+    "checkedAt": "2026-10-27",
+    "source": "https://github.com/gszabi99/War-Thunder-Datamine/tree/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/gameuiskin",
+    "basis": "Original game army silhouettes, served unchanged by the official encyclopedia CDN. Aircraft distinguish fighter, bomber and assault; naval silhouettes distinguish boats, destroyers/frigates and capital ships. Helicopters use the original helicopter silhouette."
+  }
+}

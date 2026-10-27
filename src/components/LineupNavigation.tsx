@@ -11,18 +11,18 @@ export function LineupNavigation({
   useLocale();
   return (
     <nav className="wt-lineup-sections" aria-label={t("出击队列功能")}>
+      <Link to="/lineups/lobby" aria-current={lobby ? "page" : undefined}>
+        {t("队列大厅")}
+      </Link>
       <Link
         to="/lineups"
         activeOptions={{ exact: true }}
         aria-current={!garage && !lobby ? "page" : undefined}
       >
-        {t("出击队列")}
+        {t("我的队列")}
       </Link>
       <Link to="/lineups/garage" aria-current={garage ? "page" : undefined}>
         {t("我的车库")}
-      </Link>
-      <Link to="/lineups/lobby" aria-current={lobby ? "page" : undefined}>
-        {t("队列大厅")}
       </Link>
     </nav>
   );

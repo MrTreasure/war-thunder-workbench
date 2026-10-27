@@ -1,0 +1,306 @@
+/* finesse · product / hangar roster · soul=5 spectacle=1 density=9
+ * One navigation/command bar, one filter rail, compact comparable roster rows.
+ * Original vehicle art, card typography and metal tag materials are retained. */
+.wt-community-page > .lineup-content,
+.wt-personal-lineups > .lineup-content {
+  max-width: 3840px;
+}
+.wt-personal-lineups:has(.lineup-editor) > .lineup-content {
+  max-width: 1920px;
+}
+.wt-lineup-pagebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-block: 0 12px;
+  border-bottom: 1px solid var(--wt-strong-line);
+}
+.wt-lineup-pagebar > nav.wt-lineup-sections {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding-top: 4px;
+  border-bottom: 0;
+}
+.wt-lineup-pagebar > a {
+  flex: none;
+  min-height: 36px;
+  padding: 7px 12px;
+  font-size: 13px;
+}
+.wt-community-filter-panel {
+  margin-bottom: 12px;
+}
+.wt-community-filter-toggle {
+  display: none;
+}
+.wt-community-filters {
+  gap: 8px 14px;
+  padding: 10px 12px;
+  background: var(--wt-surface);
+  border-color: var(--wt-line);
+}
+.wt-community-filters > .calc-field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 150px;
+  min-width: 140px;
+  max-width: 244px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.wt-community-filters .calc-field > .wt-select {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  height: 36px;
+  min-height: 36px;
+  font-size: 13px;
+}
+.wt-community-filters > button {
+  min-height: 36px;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+.wt-community-list {
+  gap: 12px;
+  align-items: start;
+}
+.wt-community-card {
+  padding: 10px 14px;
+  background: var(--wt-surface);
+  border-color: var(--wt-strong-line);
+}
+.wt-community-card > header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 8px 16px;
+  align-items: center;
+  min-height: 32px;
+}
+.wt-community-identity {
+  gap: 8px;
+}
+.wt-community-identity h3 {
+  font-size: 16px;
+}
+.wt-community-identity a {
+  gap: 8px;
+  white-space: nowrap;
+}
+.wt-community-identity b {
+  font-size: 25px;
+}
+.wt-community-identity h3 span {
+  font-size: 13px;
+}
+.wt-community-identity > img {
+  width: 25px;
+  height: 18px;
+  object-fit: contain;
+}
+.wt-community-card-tags {
+  gap: 6px;
+  padding: 0;
+}
+.wt-community-author {
+  gap: 8px;
+  font-size: 12px;
+}
+.wt-community-author strong {
+  max-width: 160px;
+}
+.wt-community-author time {
+  font-size: 11px;
+}
+.wt-community-crew {
+  gap: 8px;
+  padding: 10px 2px 4px;
+  overscroll-behavior-x: contain;
+}
+.wt-community-crew > .wt-game-card {
+  flex-basis: 214px;
+  width: 214px;
+}
+.wt-community-crew > .wt-game-card > .unit-name {
+  max-width: calc(100% - 14px);
+}
+.wt-community-card > footer {
+  gap: 8px 12px;
+  padding-top: 6px;
+}
+.wt-community-votes,
+.wt-community-actions {
+  flex-wrap: nowrap;
+  gap: 6px;
+}
+.wt-community-actions {
+  margin-left: auto;
+}
+.wt-community-actions .quiet-button,
+.wt-community-votes .quiet-button {
+  min-height: 32px;
+  padding: 4px 10px;
+  font-size: 12px;
+}
+.wt-community-card > footer > small {
+  font-size: 12px;
+  color: var(--wt-muted);
+  white-space: nowrap;
+}
+.wt-community-more summary {
+  min-height: 32px;
+  padding: 6px 8px;
+}
+.wt-community-more > div {
+  min-width: min(300px, calc(100vw - 40px));
+}
+.wt-community-more .wt-community-code {
+  display: grid;
+  gap: 4px;
+  margin: 4px 6px 0;
+  padding: 10px 6px 4px;
+  border-top: 1px solid var(--wt-line);
+  white-space: nowrap;
+}
+.wt-community-more .wt-community-code code {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+.wt-community-rules {
+  margin-block: 12px;
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-community-rules > summary {
+  width: fit-content;
+  padding: 6px 0;
+  cursor: pointer;
+}
+.wt-community-rules .wt-community-notice {
+  margin: 6px 0 12px;
+}
+.wt-personal-lineups .lineup-workspace {
+  max-width: none;
+}
+.wt-personal-lineups .lineup-toolbar {
+  padding-block: 8px;
+}
+.wt-personal-lineups .lineup-toolbar .calc-field {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.wt-personal-lineups .lineup-toolbar .wt-select {
+  min-height: 36px;
+  height: 36px;
+}
+.wt-personal-lineups .lineup-saved {
+  padding-top: 10px;
+}
+.wt-personal-lineups .lineup-list-heading {
+  min-height: 36px;
+}
+.wt-personal-lineups .lineup-list-heading h3 {
+  margin: 0;
+}
+.wt-personal-lineups .lineup-list-heading button {
+  min-height: 36px;
+  padding: 6px 12px;
+}
+.wt-personal-lineups .lineup-saved-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 10px;
+}
+.wt-personal-lineups .lineup-saved-row {
+  padding: 10px 14px;
+}
+.wt-personal-lineups .lineup-card-heading {
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 12px;
+}
+.wt-personal-lineups .lineup-card-heading > div:first-child {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
+}
+.wt-personal-lineups .lineup-card-heading h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wt-personal-lineups .lineup-card-heading .calc-note {
+  flex: none;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 12px;
+}
+.wt-personal-lineups .lineup-summary-ratings {
+  margin: 0;
+  flex-wrap: nowrap;
+}
+.wt-personal-lineups .lineup-summary-ratings strong {
+  font-size: 15px;
+}
+.wt-personal-lineups .lineup-summary-slots {
+  gap: 8px;
+  margin: 4px 0 0;
+  padding: 14px 2px 4px;
+}
+.wt-personal-lineups .lineup-summary-slots > li {
+  position: relative;
+  flex-basis: 214px;
+  min-width: 214px;
+  gap: 0;
+}
+.wt-personal-lineups .lineup-summary-slots > li > .wt-game-card {
+  width: 214px;
+}
+.wt-personal-lineups .lineup-summary-number {
+  position: absolute;
+  left: 2px;
+  top: -12px;
+  line-height: 10px;
+}
+.wt-personal-lineups .lineup-card-actions {
+  padding-top: 6px;
+  margin-top: 0;
+}
+.wt-personal-lineups .lineup-card-actions button,
+.wt-personal-lineups .lineup-card-share {
+  min-height: 32px;
+  padding: 4px 12px;
+  font-size: 12px;
+}
+@media (min-width: 3200px) {
+  .wt-community-list:not(.is-detail),
+  .wt-personal-lineups .lineup-saved-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 801px) and (max-width: 1200px) {
+  .wt-community-card > header {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .wt-community-card-tags {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+@media (pointer: coarse) {
+  .wt-community-actions .quiet-button,
+  .wt-community-votes .quiet-button,
+  .wt-community-more summary {
+    min-height: 44px;
+  }
+}
+
+.wt-community-share-short {
+  display: none;
+}

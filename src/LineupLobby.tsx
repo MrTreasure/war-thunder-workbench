@@ -44,6 +44,7 @@ export function LineupLobby() {
   const [reason, setReason] = useState("misleading");
   const [working, setWorking] = useState("");
   const [message, setMessage] = useState("");
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const query = new URLSearchParams(
     Object.entries(search)
       .filter(([key, value]) => key !== "post" && value !== undefined)
@@ -132,17 +133,16 @@ export function LineupLobby() {
   return (
     <main className="lineup-page wt-community-page">
       <div className="lineup-content">
-        <LineupNavigation lobby />
-        <header className="wt-community-intro">
-          <div>
-            <p className="wt-community-kicker">LINEUP HANGAR</p>
-            <h2>{t("队列大厅")}</h2>
-            <p>{t("找到适合这个权重的搭配，把下一场出击准备好。")}</p>
-          </div>
-          <Link className="quiet-button calc-open" to="/lineups">
-            {t("分享我的队列 ↗")}
+        <header className="wt-lineup-pagebar">
+          <LineupNavigation lobby />
+          <Link className="quiet-button calc-open" to="/lineups" aria-label={t("分享我的队列 ↗")}>
+            <span className="wt-community-share-long">{t("分享我的队列 ↗")}</span>
+            <span className="wt-community-share-short" aria-hidden="true">
+              {t("分享")}
+            </span>
           </Link>
         </header>
+        <h2 className="sr-only">{t("队列大厅")}</h2>
         {search.post ? (
           <Link
             className="wt-community-back"
@@ -152,104 +152,118 @@ export function LineupLobby() {
             {t("← 返回队列大厅")}
           </Link>
         ) : (
-          <section className="wt-community-filters" aria-label={t("筛选队列")}>
-            <label className="calc-field">
-              {t("国家")}
-              <GameSelect
-                value={search.country || ""}
-                onValueChange={(value) => filter("country", value)}
-              >
-                <option value="">{t("全部国家")}</option>
-                {Object.entries(bootstrap.countries).map(([id, label]) => (
-                  <option key={id} value={id}>
-                    {t(label)}
-                  </option>
-                ))}
-              </GameSelect>
-            </label>
-            <label className="calc-field">
-              {t("战斗类型")}
-              <GameSelect
-                value={search.battle || ""}
-                onValueChange={(value) => filter("battle", value)}
-              >
-                <option value="">{t("全部类型")}</option>
-                <option value="ground">{t("陆战")}</option>
-                <option value="air">{t("空战")}</option>
-                <option value="naval">{t("海战")}</option>
-              </GameSelect>
-            </label>
-            <label className="calc-field">
-              {t("模式")}
-              <GameSelect
-                value={search.mode || ""}
-                onValueChange={(value) => filter("mode", value)}
-              >
-                <option value="">{t("全部模式")}</option>
-                <option value="ab">{t("街机")}</option>
-                <option value="rb">{t("历史")}</option>
-              </GameSelect>
-            </label>
-            <label className="calc-field">
-              {t("权重")}
-              <GameSelect
-                value={search.step || ""}
-                onValueChange={(value) => filter("step", value)}
-              >
-                <option value="">{t("全部权重")}</option>
-                {Array.from({ length: 43 }, (_, i) => (
-                  <option key={i} value={String(i)}>
-                    {(1 + i / 3).toFixed(1)}
-                  </option>
-                ))}
-              </GameSelect>
-            </label>
-            <label className="calc-field">
-              {t("标签")}
-              <GameSelect value={search.tag || ""} onValueChange={(value) => filter("tag", value)}>
-                <option value="">{t("全部标签")}</option>
-                {communityTags.map((tag) => (
-                  <option key={tag.id} value={tag.id}>
-                    {t(tag.label)}
-                  </option>
-                ))}
-              </GameSelect>
-            </label>
-            <label className="calc-field">
-              {t("排序")}
-              <GameSelect
-                value={search.sort || ""}
-                onValueChange={(value) => filter("sort", value)}
-              >
-                <option value="">{t("最新发布")}</option>
-                <option value="popular">{t("最多推荐")}</option>
-              </GameSelect>
-            </label>
+          <section className="wt-community-filter-panel" data-open={filtersOpen}>
             <button
-              className="quiet-button"
-              aria-pressed={search.mine === "1"}
-              onClick={() => {
-                if (!account.session?.user) void account.login();
-                else filter("mine", search.mine ? "" : "1");
-              }}
+              type="button"
+              className="wt-community-filter-toggle"
+              aria-expanded={filtersOpen}
+              aria-controls="lineup-lobby-filters"
+              onClick={() => setFiltersOpen((v) => !v)}
             >
-              {t("我的发布")}
+              {t("筛选队列")}
+              <span aria-hidden="true">{filtersOpen ? "−" : "+"}</span>
             </button>
-            {query && (
+            <div
+              id="lineup-lobby-filters"
+              className="wt-community-filters"
+              aria-label={t("筛选队列")}
+            >
+              <label className="calc-field">
+                {t("国家")}
+                <GameSelect
+                  value={search.country || ""}
+                  onValueChange={(value) => filter("country", value)}
+                >
+                  <option value="">{t("全部国家")}</option>
+                  {Object.entries(bootstrap.countries).map(([id, label]) => (
+                    <option key={id} value={id}>
+                      {t(label)}
+                    </option>
+                  ))}
+                </GameSelect>
+              </label>
+              <label className="calc-field">
+                {t("战斗类型")}
+                <GameSelect
+                  value={search.battle || ""}
+                  onValueChange={(value) => filter("battle", value)}
+                >
+                  <option value="">{t("全部类型")}</option>
+                  <option value="ground">{t("陆战")}</option>
+                  <option value="air">{t("空战")}</option>
+                  <option value="naval">{t("海战")}</option>
+                </GameSelect>
+              </label>
+              <label className="calc-field">
+                {t("模式")}
+                <GameSelect
+                  value={search.mode || ""}
+                  onValueChange={(value) => filter("mode", value)}
+                >
+                  <option value="">{t("全部模式")}</option>
+                  <option value="ab">{t("街机")}</option>
+                  <option value="rb">{t("历史")}</option>
+                </GameSelect>
+              </label>
+              <label className="calc-field">
+                {t("权重")}
+                <GameSelect
+                  value={search.step || ""}
+                  onValueChange={(value) => filter("step", value)}
+                >
+                  <option value="">{t("全部权重")}</option>
+                  {Array.from({ length: 43 }, (_, i) => (
+                    <option key={i} value={String(i)}>
+                      {(1 + i / 3).toFixed(1)}
+                    </option>
+                  ))}
+                </GameSelect>
+              </label>
+              <label className="calc-field">
+                {t("标签")}
+                <GameSelect
+                  value={search.tag || ""}
+                  onValueChange={(value) => filter("tag", value)}
+                >
+                  <option value="">{t("全部标签")}</option>
+                  {communityTags.map((tag) => (
+                    <option key={tag.id} value={tag.id}>
+                      {t(tag.label)}
+                    </option>
+                  ))}
+                </GameSelect>
+              </label>
+              <label className="calc-field">
+                {t("排序")}
+                <GameSelect
+                  value={search.sort || ""}
+                  onValueChange={(value) => filter("sort", value)}
+                >
+                  <option value="">{t("最新发布")}</option>
+                  <option value="popular">{t("最多推荐")}</option>
+                </GameSelect>
+              </label>
               <button
-                className="wt-vehicle-text-action"
-                onClick={() => void navigate({ search: {} })}
+                className="quiet-button"
+                aria-pressed={search.mine === "1"}
+                onClick={() => {
+                  if (!account.session?.user) void account.login();
+                  else filter("mine", search.mine ? "" : "1");
+                }}
               >
-                {t("清除筛选")}
+                {t("我的发布")}
               </button>
-            )}
+              {query && (
+                <button
+                  className="wt-vehicle-text-action"
+                  onClick={() => void navigate({ search: {} })}
+                >
+                  {t("清除筛选")}
+                </button>
+              )}
+            </div>
           </section>
         )}
-        <p className="wt-community-notice">
-          {t(
-            "队列标签来自分享者的使用体验。权重按所选模式计算，可能分房范围为队列 BR ±1.0；单场房间跨度不超过 1.0。",
-          )}
-        </p>
         {message && <output className="lineup-feedback">{message}</output>}
         {error ? (
           <div className="lineup-empty">
@@ -262,7 +276,7 @@ export function LineupLobby() {
         ) : busy ? (
           <output className="lineup-feedback">{t("正在读取队列…")}</output>
         ) : posts.length ? (
-          <div className="wt-community-list">
+          <div className={`wt-community-list ${search.post ? "is-detail" : ""}`}>
             {posts.map((post) => (
               <CommunityCard
                 key={post.id}
@@ -300,6 +314,14 @@ export function LineupLobby() {
             </Link>
           </div>
         )}
+        <details className="wt-community-rules">
+          <summary>{t("权重规则与来源")}</summary>
+          <p className="wt-community-notice">
+            {t(
+              "队列标签来自分享者的使用体验。权重按所选模式计算，可能分房范围为队列 BR ±1.0；单场房间跨度不超过 1.0。",
+            )}
+          </p>
+        </details>
         {!search.post && !busy && !error && (result.hasMore || (search.page || 1) > 1) && (
           <nav className="wt-community-pagination" aria-label={t("队列分页")}>
             <button
@@ -452,6 +474,11 @@ function CommunityCard({
             </Link>
           </h3>
         </div>
+        <div className="wt-community-card-tags">
+          {post.tags.map((id) => (
+            <LineupTag key={id} id={id} tone={post.tagTones?.[id] || "original"} />
+          ))}
+        </div>
         <div className="wt-community-author">
           <strong>{post.author}</strong>
           <time dateTime={post.createdAt}>
@@ -477,17 +504,6 @@ function CommunityCard({
           ),
         )}
       </section>
-      <div className="wt-community-card-tags">
-        {post.tags.map((id) => (
-          <LineupTag key={id} id={id} tone={post.tagTones?.[id] || "original"} />
-        ))}
-        {workspace?.binding && (
-          <small>
-            {t("我的车库")}
-            {owned}/{ids.length}
-          </small>
-        )}
-      </div>
       <footer>
         <div className="wt-community-votes">
           <button
@@ -509,6 +525,12 @@ function CommunityCard({
             {post.down}
           </button>
         </div>
+        {workspace?.binding && (
+          <small>
+            {t("我的车库")}
+            {owned}/{ids.length}
+          </small>
+        )}
         <div className="wt-community-actions">
           <button className="quiet-button" onClick={onSave}>
             {t("保存到我的队列")}
@@ -532,14 +554,14 @@ function CommunityCard({
               ) : (
                 <button onClick={onReport}>{t("举报队列")}</button>
               )}
+              <div className="wt-community-code">
+                <span>{post.id}</span>
+                <code>{post.code}</code>
+              </div>
             </div>
           </details>
         </div>
       </footer>
-      <div className="wt-community-code">
-        <span>{post.id}</span>
-        <code>{post.code}</code>
-      </div>
     </article>
   );
 }

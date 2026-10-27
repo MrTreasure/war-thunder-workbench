@@ -55,29 +55,24 @@ export function LineupShareImage({
     >
       <header className="wt-share-heading">
         <p>
+          <span className="wt-share-heading-label">{t("出击队列")}</span>
+          <strong className="wt-share-nation">
+            <img src={bootstrap.flags[post.country as keyof typeof bootstrap.flags]} alt="" />
+            {t(country)}
+          </strong>
+        </p>
+        <p>
           <span className="wt-share-heading-label">{t("分房范围")}</span>
           <strong>{window ? `${window.minimum} – ${window.maximum}` : post.rating}</strong>
           {window && (
             <small>
-              {t("队列")}
-              {post.rating}
+              {t("队列")} {post.rating}
             </small>
           )}
         </p>
         <p>
-          {t("游戏模式:")}
-          {gameMode}
-        </p>
-        <p>
           <span className="wt-share-heading-label">{t("游戏模式")}</span>
           <strong>{gameMode}</strong>
-        </p>
-        <p>
-          <span className="wt-share-heading-label">{t("出击队列")}</span>
-          <strong className="wt-share-nation">
-            <img src={bootstrap.flags[post.country as keyof typeof bootstrap.flags]} alt="" />
-            {country}
-          </strong>
         </p>
       </header>
       <div className="wt-share-crew">
@@ -110,10 +105,6 @@ export function LineupShareImage({
         </section>
       )}
       <footer className="wt-share-footer">
-        <span className="wt-share-id">
-          {t("队列 ID")}
-          <b>{post.id}</b>
-        </span>
         <div className="wt-share-attribution">
           <span className="wt-share-code">
             {t("分享码")}
@@ -157,7 +148,12 @@ export function LineupImageDialog({
     setReviewing(true);
     setError("");
     try {
-      await approveLineupCaption(value, signal.signal, "preview", post.id.startsWith("L-") ? post.id : "");
+      await approveLineupCaption(
+        value,
+        signal.signal,
+        "preview",
+        post.id.startsWith("L-") ? post.id : "",
+      );
       if (!signal.signal.aborted) setApprovedText(value);
     } catch (cause) {
       if (!signal.signal.aborted) {

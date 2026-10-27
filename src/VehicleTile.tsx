@@ -3,6 +3,7 @@ import { useLocale } from "./i18n/react";
 import { useVehicleFacts, withVehicleFacts } from "./vehicle-catalog";
 import bootstrap from "./generated/bootstrap.json";
 import cardTheme from "../data/vehicle-card-theme.json";
+import roleIcons from "../data/vehicle-role-icons.json";
 import type { CSSProperties } from "react";
 import type { Catalog, Mode, PackPrice, Vehicle } from "./models";
 import { useAccountWorkspace } from "./workspace-context";
@@ -114,6 +115,10 @@ export function VehicleTile({
             : unit.role === "light_tank"
               ? "light"
               : "other";
+  const roleIconKey = roleIcons.roles[unit.role as keyof typeof roleIcons.roles];
+  const roleIcon = roleIconKey
+    ? roleIcons.icons[roleIconKey as keyof typeof roleIcons.icons].url
+    : null;
   const exact = research
     ? unit.rp == null
       ? t("研发点 —")
@@ -220,11 +225,18 @@ export function VehicleTile({
           </span>
         )}
         <span className="wt-game-card-br">{localize(modeRating ?? rating(unit, mode))}</span>
-        <span
-          className={`wt-game-role ${role}`}
-          title={catalog.roles[unit.role || ""] || t("常规载具")}
-          aria-label={catalog.roles[unit.role || ""] || t("常规载具")}
-        />
+        {(roleIcon || role !== "other") && (
+          <span
+            className={`wt-game-role ${roleIcon ? "is-symbol" : role}`}
+            style={
+              roleIcon
+                ? { maskImage: `url("${roleIcon}")`, WebkitMaskImage: `url("${roleIcon}")` }
+                : undefined
+            }
+            title={catalog.roles[unit.role || ""] || t("常规载具")}
+            aria-label={catalog.roles[unit.role || ""] || t("常规载具")}
+          />
+        )}
       </span>
       {localize(
         premium && (

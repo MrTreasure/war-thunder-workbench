@@ -84,7 +84,7 @@ export function Lineups({
   const [importError, setImportError] = useState("");
   return (
     <main
-      className="lineup-page"
+      className="lineup-page wt-personal-lineups"
       aria-label={t("出击队列")}
       style={
         {
@@ -659,6 +659,7 @@ function CountryLineups({
                             {t("辆")}
                           </p>
                         </div>
+                        <LineupSummaryRatings lineup={row} units={units} rules={rules} />
                         <button
                           className="quiet-button lineup-card-share"
                           aria-label={t("分享 {0}", [localize(row.name)])}
@@ -668,7 +669,6 @@ function CountryLineups({
                           {t("分享")}
                         </button>
                       </div>
-                      <LineupSummaryRatings lineup={row} units={units} rules={rules} />
                       <LineupSummary lineup={row} units={units} mode={mode} catalog={catalog} />
                       <footer className="lineup-card-actions">
                         <button

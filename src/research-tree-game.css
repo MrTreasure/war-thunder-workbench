@@ -359,12 +359,16 @@
   }
 }
 
-.wt-game-role.other::before {
-  content: "";
-  position: absolute;
-  inset: 3px;
+.wt-game-role.is-symbol {
+  width: 18px;
+  height: 18px;
   background: currentColor;
-  border-radius: 50%;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
 }
 
 /* Disclosure is feedback: one shared duration/easing for cards, ranks and wires. */
