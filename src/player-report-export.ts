@@ -1,3 +1,4 @@
+import { playerAvatarFrame } from "./player-avatar-frame";
 import { t, localize, vehicleName } from "./i18n/core";
 import reportAssets from "../data/player-report-assets.json";
 import { loadVehicleSymbols } from "./vehicle-symbol-font";
@@ -37,12 +38,15 @@ export async function createStatsReportImage(
   const efficiencyMaximum = reportEfficiencyMaximum(p);
   const voice = reportStyle(p.analysis?.style);
   const silver = await reportImage("currency", "sl", signal);
-  const [terrain, logo, avatar, ...vehicles] = await Promise.all([
+  const [terrain, logo, avatar, avatarFrame, ...vehicles] = await Promise.all([
     background.local
       ? localReportImage(background.source, signal)
       : reportImage("background", background.id, signal),
     reportImage("logo", "wt", signal),
     p.player.avatarKey ? reportImage("avatar", p.player.avatarKey, signal) : Promise.resolve(null),
+    playerAvatarFrame(p.player.avatarFrameKey)
+      ? reportImage("avatar-frame", p.player.avatarFrameKey!, signal)
+      : Promise.resolve(null),
     ...p.top5.map((v) => reportImage("vehicle", v.id, signal)),
   ]);
   const flagIds = [
@@ -193,16 +197,24 @@ export async function createStatsReportImage(
   ctx.restore();
   if (avatar) {
     ctx.save();
-    ctx.beginPath();
-    ctx.arc(113, 190, 49, 0, Math.PI * 2);
-    ctx.clip();
-    cover(avatar, 64, 141, 98, 98);
+    if (avatarFrame) {
+      ctx.beginPath();
+      ctx.roundRect(72.33, 149.33, 81.34, 81.34, 3);
+      ctx.clip();
+      cover(avatar, 72.33, 149.33, 81.34, 81.34);
+    } else {
+      ctx.beginPath();
+      ctx.arc(113, 190, 49, 0, Math.PI * 2);
+      ctx.clip();
+      cover(avatar, 64, 141, 98, 98);
+    }
     ctx.restore();
   } else {
     ctx.fillStyle = theme.panel;
     ctx.fillRect(64, 141, 98, 98);
     text(Array.from(p.player.nickname)[0], 86, 212, 48, gold, 700);
   }
+  if (avatarFrame) fit(avatarFrame, 64, 141, 98, 98);
   text(shorten(p.player.nickname, 815, 49, 700), 188, 188, 49, white, 700);
   text(
     t("等级 ") + n(p.player.level) + (p.player.clanTag ? " · " + p.player.clanTag : ""),

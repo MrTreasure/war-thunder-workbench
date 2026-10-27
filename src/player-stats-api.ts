@@ -64,6 +64,7 @@ export type PlayerProfile = {
   clanTag: string | null;
   avatar: string | null;
   avatarKey: string;
+  avatarFrameKey?: string | null;
   source: string;
   fetchedAt: string;
   expiresAt: string;
@@ -160,7 +161,10 @@ export type ReportPayload = {
   career?: PlayerMode;
   recentMatches?: { available: boolean; notice: string; source?: string };
   scope?: ReportScope;
-  player: Pick<PlayerProfile, "uid" | "nickname" | "level" | "avatar" | "avatarKey" | "clanTag">;
+  player: Pick<
+    PlayerProfile,
+    "uid" | "nickname" | "level" | "avatar" | "avatarKey" | "avatarFrameKey" | "clanTag"
+  >;
   fetchedAt: string;
   mode: string;
   top5: PlayerVehicle[];
@@ -390,6 +394,13 @@ export async function reportImage(kind: string, key: string, signal: AbortSignal
     sources = [
       "https://static.encyclopedia.warthunder.com/images/" + encodeURIComponent(key) + ".png",
     ];
+  } else if (kind === "avatar-frame") {
+    const { playerAvatarFrame } = await import("./player-avatar-frame");
+    const frame = playerAvatarFrame(key);
+    if (frame) {
+      sources = [frame.url];
+      expected = frame;
+    }
   } else if (kind === "avatar" && /^cardicon_[A-Za-z0-9_]{1,100}$/.test(key)) {
     sources = [reportAssets.avatarBase + key + ".png"];
   } else if (kind === "logo" && key === "wt") {

@@ -1,3 +1,4 @@
+import { PlayerAvatar as Avatar } from "./PlayerAvatar";
 import type { ReportStyle } from "./player-report-style";
 import type { LeaderboardData, LeaderboardPlayer } from "./player-leaderboards-cache";
 import { useLocale } from "./i18n/react";
@@ -84,26 +85,6 @@ import type {
   Background,
   PlayerVehicle,
 } from "./player-stats-api";
-function Avatar({ url, name }: { url: string | null; name: string }) {
-  useLocale();
-
-  return (
-    <span className="wt-player-avatar">
-      <span aria-hidden="true">{localize(Array.from(name)[0])}</span>
-      {localize(
-        url && (
-          <img
-            src={url}
-            alt={t("{0}的游戏头像", [name])}
-            onError={(event) => {
-              event.currentTarget.hidden = true;
-            }}
-          />
-        ),
-      )}
-    </span>
-  );
-}
 function VehicleRow({
   vehicle: v,
   countryName,
@@ -964,7 +945,7 @@ export function PlayerStats() {
                             void openSavedProfile(p);
                           }}
                         >
-                          <Avatar url={p.avatar} name={p.nickname} />
+                          <Avatar url={p.avatar} name={p.nickname} frameKey={p.avatarFrameKey} />
                           <span>
                             <b>{localize(p.nickname)}</b>
                             <small>{localize(statsDate(p.fetchedAt))}</small>
@@ -1076,7 +1057,11 @@ export function PlayerStats() {
         profile && (
           <>
             <section className="wt-record-player">
-              <Avatar url={profile.avatar} name={profile.nickname} />
+              <Avatar
+                url={profile.avatar}
+                name={profile.nickname}
+                frameKey={profile.avatarFrameKey}
+              />
               <div className="wt-record-player-identity">
                 <h2>
                   {localize(profile.clanTag && <small>{localize(profile.clanTag)} </small>)}

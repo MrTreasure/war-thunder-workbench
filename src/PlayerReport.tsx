@@ -1,3 +1,4 @@
+import { PlayerAvatar } from "./PlayerAvatar";
 import { vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { localize, t } from "./i18n/core";
@@ -73,18 +74,11 @@ export function PlayerReport({
       <div className="wt-poster-eyebrow">{localize(voice.kicker)}</div>
       <h2 className="wt-poster-headline">{report.review?.title || t("你的战地记录")}</h2>
       <header className="wt-poster-identity">
-        <span className="wt-player-avatar">
-          <span aria-hidden="true">{Array.from(p.player.nickname)[0]}</span>
-          {p.player.avatar && (
-            <img
-              src={p.player.avatar}
-              alt={localize(p.player.nickname + "的游戏头像")}
-              onError={(e) => {
-                e.currentTarget.hidden = true;
-              }}
-            />
-          )}
-        </span>
+        <PlayerAvatar
+          url={p.player.avatar}
+          name={p.player.nickname}
+          frameKey={p.player.avatarFrameKey}
+        />
         <div>
           <h3>{p.player.nickname}</h3>
           <span>
