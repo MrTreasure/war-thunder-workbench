@@ -70,12 +70,13 @@ export async function approveLineupCaption(
   text: string,
   signal?: AbortSignal,
   purpose: "preview" | "export" = "preview",
+  sourceId = "",
 ) {
   const result = await communityRequest<{
     approved: boolean;
     textSha256: string;
     policyVersion: string;
-  }>("caption/check", { text, purpose }, signal);
+  }>("caption/check", { text, purpose, ...(sourceId ? { sourceId } : {}) }, signal);
   const bytes = new Uint8Array(
     await crypto.subtle.digest("SHA-256", new TextEncoder().encode("lineup-caption-v1:" + text)),
   );
