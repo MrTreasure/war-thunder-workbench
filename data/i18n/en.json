@@ -3075,5 +3075,12 @@
   "常规载具 · 已拥有 / 总数": "Regular · owned / total",
   "高级载具 · 已拥有 / 总数": "Premium · owned / total",
   "常规载具展示已拥有 / 当前可研发总数；高级载具单独统计金鹰、礼包及目录中其他高级载具的已拥有 / 收录总数。高级载具不参与常规科技树毕业判定；完全体状态不等于高级载具。包含未出战载具，组合载具去重计数。": "Regular vehicles show owned / currently researchable. Premium vehicles separately show owned / catalog total, including Golden Eagle, pack and other premium vehicles. Premium vehicles do not count toward regular tree completion; spaded status is separate from premium status. Unplayed vehicles are included and combined units are deduplicated.",
-  "{0} 级且历史 RB 战斗满 {1} 场": "Level {0} and at least {1} Realistic Battles played"
+  "{0} 级且历史 RB 战斗满 {1} 场": "Level {0} and at least {1} Realistic Battles played",
+  "正在读取勋章": "Loading medals",
+  "重新加载勋章": "Reload medals",
+  "重新加载图标": "Reload icons",
+  "{0} · 已获得": "{0} · Earned",
+  "已获勋章 {0} 枚": "{0} medals earned",
+  "查看已获勋章 · {0}": "View earned medals · {0}",
+  "{0} 枚": "{0} medals"
 }

@@ -14,7 +14,8 @@
       "sha256": "c50e6a169f141c114ab84763ca2d7d0da2cdacfd64e6d4462d6706bc0746276d",
       "gitBlobSha": "e989f14e42734eb44a8302466c7eff3e83908524",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_armed_forces_medal_a1.png"
     },
     {
       "id": "cn_awe_inspiring_medal_a1",
@@ -23,7 +24,8 @@
       "sha256": "b2d67d5383696a5234f368e37095e0aa26565ac16cc0f28257e0e196489bede7",
       "gitBlobSha": "91d20bc925fbb009c6d61b3a85a224e9b112d322",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_awe_inspiring_medal_a1.png"
     },
     {
       "id": "cn_book_nature_order",
@@ -32,7 +34,8 @@
       "sha256": "fc4a1bc852dda226c1ed9d2e3f92da61293ba650e05f3c012b13c9749d55f760",
       "gitBlobSha": "5229c3568e2ce0df1d7d699289af9137b39c17b8",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_book_nature_order.png"
     },
     {
       "id": "cn_brilliant_light_medal_a1",
@@ -41,7 +44,8 @@
       "sha256": "6b45c6aa69ede341e767234f128e812ff0d9a7fd9c92a99aba62609767c57011",
       "gitBlobSha": "da4d9590e6f93965ada8a87c0883a46cbd2ba907",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_brilliant_light_medal_a1.png"
     },
     {
       "id": "cn_cloud_banner_order_4_class",
@@ -50,7 +54,8 @@
       "sha256": "9c034b7123e0b164d17c0b77e233ffa65ed28067dd549f5c78b14d6837195f39",
       "gitBlobSha": "8fc0fc246e9c48bd0fca6234ddf74485a89fc6df",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_cloud_banner_order_4_class.png"
     },
     {
       "id": "cn_cloud_banner_order_5_class",
@@ -59,7 +64,8 @@
       "sha256": "0e40f8925bd5b4d41a438ac9183aee5fa10993f4cff7e0e6ed97fa5d035fdb3a",
       "gitBlobSha": "e775358aad4ed915188f4a561fb668355f872d91",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_cloud_banner_order_5_class.png"
     },
     {
       "id": "cn_cloud_banner_order_6_class",
@@ -68,7 +74,8 @@
       "sha256": "c0247219870df3fcbe1f2524fc99cdda5c0f049e527fc2b85d1aa71222a56e95",
       "gitBlobSha": "6ede57cecdddb0f6d6516f02aec340945c382f94",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_cloud_banner_order_6_class.png"
     },
     {
       "id": "cn_cloud_banner_order_7_class",
@@ -77,7 +84,8 @@
       "sha256": "c8d2cebf70ec690e2f40e5f44eb5c67c038cfd083dbc1725827fca1795725c03",
       "gitBlobSha": "453e0fd6455ba60305372e1eef11abb78f435589",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_cloud_banner_order_7_class.png"
     },
     {
       "id": "cn_cloud_banner_order_8_class",
@@ -86,7 +94,8 @@
       "sha256": "a5d069defc621ebd331e04f97a73f21bf5cad26b169b0326fcc35345494433b9",
       "gitBlobSha": "ba8220d6cf75ae1d735f55cfbab9f1bc0b427bb6",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_cloud_banner_order_8_class.png"
     },
     {
       "id": "cn_cloud_banner_order_9_class",
@@ -95,7 +104,8 @@
       "sha256": "bf33a453ebc2a2034b51761bc2625d355c3505a78ebadd6ed9199d7d6c1a9588",
       "gitBlobSha": "e4c2e931572409812e35e0be24d24319c50d083b",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_cloud_banner_order_9_class.png"
     },
     {
       "id": "cn_cosmic_diagram_order",
@@ -104,7 +114,8 @@
       "sha256": "243eabb54b5dd9c44463a5a19cdf1c0a0790b5c3b15274d1ec7de53946a7a47a",
       "gitBlobSha": "4ff874bcd383cdee80b86ed755664c27c50db953",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_cosmic_diagram_order.png"
     },
     {
       "id": "cn_distinguished_service_medal_a1",
@@ -113,7 +124,8 @@
       "sha256": "e79c82e38149eb6ad1d192a6363cd9a05f07b93a14dcdbb79871fa0337d24449",
       "gitBlobSha": "66e39c765ff1afa461d21753f812024cde73b8bd",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_distinguished_service_medal_a1.png"
     },
     {
       "id": "cn_exemplary_medal_a1",
@@ -122,7 +134,8 @@
       "sha256": "aacc1e8365b9e5e383599db312ed5875209126c400798e6f115dbf083c330940",
       "gitBlobSha": "8a3b7e9bf6bc76426d0803f32ffb1d62a11049d0",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_exemplary_medal_a1.png"
     },
     {
       "id": "cn_honour_renaissance_order_1_class",
@@ -131,7 +144,8 @@
       "sha256": "f5bb118f5ece5ec5d5554fbf608c1916d2440226ebcd36ce1ce1f390300a85ad",
       "gitBlobSha": "178aa146b7c5b18109a0f65dec4c331e682c0fce",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_honour_renaissance_order_1_class.png"
     },
     {
       "id": "cn_honour_renaissance_order_2_class",
@@ -140,7 +154,8 @@
       "sha256": "fa042e8cfeddf954ede7c81b77a180127ef5ba4e93eb36a6f4470539527692ef",
       "gitBlobSha": "afba3dc31f1ddcccbb1afcce6a9551ea553d5331",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_honour_renaissance_order_2_class.png"
     },
     {
       "id": "cn_honour_renaissance_order_3_class",
@@ -149,7 +164,8 @@
       "sha256": "94b1e35accbe7bb5c7c1f00fc3bbfebd3888c20c6e2a8ff6fc943ce52a5c59cc",
       "gitBlobSha": "6675e0777e7aa1a89cf1441eaf2ddf9e470c5808",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_honour_renaissance_order_3_class.png"
     },
     {
       "id": "cn_independence_freedom_medal",
@@ -158,7 +174,8 @@
       "sha256": "dee0dd7deb14cdc5d4e46b6d2ded2ac42d25d056b968a497949e883ee563a698",
       "gitBlobSha": "092d27fb1d0a16236b49bdab9693b225707545bb",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_independence_freedom_medal.png"
     },
     {
       "id": "cn_independence_freedom_order_2_class",
@@ -167,7 +184,8 @@
       "sha256": "3d9f41cd3c913c16fc3da0dead08a0744e92f4e2cf50bcfa096ae9105d73283c",
       "gitBlobSha": "932f1b44a0a26dc0b5c562827cff822c1771a3c7",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_independence_freedom_order_2_class.png"
     },
     {
       "id": "cn_independence_freedom_order_3_class",
@@ -176,7 +194,8 @@
       "sha256": "c20f91c7b6533909797fa9e7f8148919cc9c22f297c914ac7a123449103d35ad",
       "gitBlobSha": "ae18f9b7a173a66edeba70892c7991e75eb1c44a",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_independence_freedom_order_3_class.png"
     },
     {
       "id": "cn_korea_medal",
@@ -185,7 +204,8 @@
       "sha256": "9f8ac616ceed541abd0d5f0b0d4d83816afd5d8bd79ff6299f2b473908ab04ff",
       "gitBlobSha": "dbce8de360acaef884d161a515b7606ee97b6138",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_korea_medal.png"
     },
     {
       "id": "cn_loyalty_diligence_order",
@@ -194,7 +214,8 @@
       "sha256": "fbed154abc8800b63bb8d42e80e900588e32141b41aa88cf359ff26a1882f4b7",
       "gitBlobSha": "68255a861890dd4d602a1d7f7a389e2d54145787",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_loyalty_diligence_order.png"
     },
     {
       "id": "cn_pla_award",
@@ -203,7 +224,8 @@
       "sha256": "fbb2b4b9410e8448a8eccb3f7be85c35b6258fa3c5a8cacdfde8f27a63e937bd",
       "gitBlobSha": "9c7cfcb3630879484ee1a4410b4b527e4c0ac15f",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_pla_award.png"
     },
     {
       "id": "cn_precious_tripod_order_4_class",
@@ -212,7 +234,8 @@
       "sha256": "4767c5616220040bbe8f449e9367007e908d599a674d692743b70611f57ce43a",
       "gitBlobSha": "8262523b112810d7e9a01b494cb0f068b02bc68f",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_precious_tripod_order_4_class.png"
     },
     {
       "id": "cn_precious_tripod_order_5_class",
@@ -221,7 +244,8 @@
       "sha256": "8ec2b4565cd347f9a8f26f87690da410b3582f3a37035a820805b58b5790949f",
       "gitBlobSha": "5aa6a8750c374e4c55bb5521da37548c011c9e8e",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_precious_tripod_order_5_class.png"
     },
     {
       "id": "cn_precious_tripod_order_6_class",
@@ -230,7 +254,8 @@
       "sha256": "4f9806373336f6d4c21e7c34962dd1146a040b99293e0514082aa47fb6c97e39",
       "gitBlobSha": "46a309f10ca81e1ef6044b9fcda91a7616815437",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_precious_tripod_order_6_class.png"
     },
     {
       "id": "cn_precious_tripod_order_7_class",
@@ -239,7 +264,8 @@
       "sha256": "36648e342ff2dda20e8b82b3791be461661b0d4149972efcd92444e5ff4ddbd9",
       "gitBlobSha": "4f9bedefecb6a758808269b3b4e6186fb82e5f63",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_precious_tripod_order_7_class.png"
     },
     {
       "id": "cn_precious_tripod_order_8_class",
@@ -248,7 +274,8 @@
       "sha256": "988f41076b0ad9922d8a59cf286c51a17ae15b35faa1cf3d86ac23f165bd0f57",
       "gitBlobSha": "f8ee2977a8da69f172f31b13198868a9822cf90d",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_precious_tripod_order_8_class.png"
     },
     {
       "id": "cn_precious_tripod_order_9_class",
@@ -257,7 +284,8 @@
       "sha256": "5f7e9e8389270302a6fbc9aaa868a2750d64e81500fb282777658fd6f2af9bb3",
       "gitBlobSha": "73e3f9a795e9d2f535f2b17814fe2724ecfe5959",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_precious_tripod_order_9_class.png"
     },
     {
       "id": "cn_star_medal",
@@ -266,7 +294,8 @@
       "sha256": "963a8588b62ad0038265b3a2d78f225e6d506fd13353aca661807fefa0128ba5",
       "gitBlobSha": "7b5a1c85e2db21f604a55f86d5a93ef8f90d1dd6",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_star_medal.png"
     },
     {
       "id": "cn_sublime_commencement_order",
@@ -275,7 +304,8 @@
       "sha256": "1a89e416c1527c4ea04958586f6e3a7a8b18e3f9889678cb27ceebe9a044267f",
       "gitBlobSha": "162adcbe7bfcc05aa684b9045f026c94dd0cdb08",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_sublime_commencement_order.png"
     },
     {
       "id": "cn_victorious_garrison_medal_a1",
@@ -284,7 +314,8 @@
       "sha256": "d5fb480647300aea68560b8f0def63cde541bbc06713a79e04c043b9e4982a31",
       "gitBlobSha": "18e3e615846129bd63c73623ced0882a19ccc236",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/cn_victorious_garrison_medal_a1.png"
     },
     {
       "id": "fr_africa_medal",
@@ -293,7 +324,8 @@
       "sha256": "44e31be3b884ef9d9124ef76a4e3bde07834e47a1522f4de9785245c4e36a664",
       "gitBlobSha": "886c13987d52eb1f3e454c0e3bbda26eaf92f0d3",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_africa_medal.png"
     },
     {
       "id": "fr_air_medal",
@@ -302,7 +334,8 @@
       "sha256": "471c9a4386c3affb7b532c4f13d993070c1b366df5e0c9aed95f5e07fbd3d6ef",
       "gitBlobSha": "728ed0c62e11ba8222c74f8ab1fb16cbea2badbd",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_air_medal.png"
     },
     {
       "id": "fr_fighter_cross",
@@ -311,7 +344,8 @@
       "sha256": "3373214538af5a8260b3808df63952b2d0b1ed0926ba93f2c8cf210dc5605ed8",
       "gitBlobSha": "5c8c1a5da1b74acc5463471730562393d18ed76c",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_fighter_cross.png"
     },
     {
       "id": "fr_foreign_theaters_cross",
@@ -320,7 +354,8 @@
       "sha256": "66f089f305e0dffeb55cca0c10e49f2d77cc8c8c264c715d4f4f39922fb2f98a",
       "gitBlobSha": "7dad162095f46dc8322612c874ee322698dc5d82",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_foreign_theaters_cross.png"
     },
     {
       "id": "fr_indochina_medal",
@@ -329,7 +364,8 @@
       "sha256": "0673008e7da5dc5ab4ac4c23c6fcf89ba620a72721851f340387d7444d561247",
       "gitBlobSha": "5df6c54539cc7b6ce794b5d12bb04882811b8354",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_indochina_medal.png"
     },
     {
       "id": "fr_italian_medal",
@@ -338,7 +374,8 @@
       "sha256": "c678b66249deb4b723278c56ce769e4e092abfccac8b4107be11cd78969b35fe",
       "gitBlobSha": "99b6a2d60b3a2cd9221e1a77630c9ee8d86b787e",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_italian_medal.png"
     },
     {
       "id": "fr_korea_medal",
@@ -347,7 +384,8 @@
       "sha256": "bba7afb2ca984124571fa182bdd6c2489c15e28810943aba525c429d0ba3ef6e",
       "gitBlobSha": "fbcb409066fcffaf34df1134cb97eb004b50582b",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_korea_medal.png"
     },
     {
       "id": "fr_legion_order_cavalier",
@@ -356,7 +394,8 @@
       "sha256": "9d37707ddc069dad0f45eac5640626af0432f349c40089ba2be453979c3da89c",
       "gitBlobSha": "294fae6c0a8f64eaeaf59fb60abec7d102685abf",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_legion_order_cavalier.png"
     },
     {
       "id": "fr_legion_order_commander",
@@ -365,7 +404,8 @@
       "sha256": "bb0737ef1a1bdd922ae5e0bca61b73e42cd6e21163a2e1f3812622f127638173",
       "gitBlobSha": "babc90f543daf2895f7b5960e967b10f70551add",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_legion_order_commander.png"
     },
     {
       "id": "fr_legion_order_officer",
@@ -374,7 +414,8 @@
       "sha256": "defd59f51c9daf91d00aa7c94955db667a37ac4a619fea695c22c909504b80af",
       "gitBlobSha": "8ab08a22620071f846f3175c603f634d68cc35bd",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_legion_order_officer.png"
     },
     {
       "id": "fr_liberated_medal",
@@ -383,7 +424,8 @@
       "sha256": "3b1ea11255c3e695e16293a5cf439382032c20a016b18a79cda7a972656f1c12",
       "gitBlobSha": "e568375bff36c3d1eeea09d687f092e2fa953ecd",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_liberated_medal.png"
     },
     {
       "id": "fr_liberation_order",
@@ -392,7 +434,8 @@
       "sha256": "77e65facf9e4b1c22a6e3705ad6dc251fd3e96d4facafc27ff89a104606f8f65",
       "gitBlobSha": "e17805ddb4febddf62009a6f40b037776547500b",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_liberation_order.png"
     },
     {
       "id": "fr_merit_navy_order_cavalier",
@@ -401,7 +444,8 @@
       "sha256": "a56120c4d10a058e57d16fec58ee52494913fea753a28c6edb4946ac5d254ff2",
       "gitBlobSha": "b2ec1beb0e0ea537f46821fb6bc7c129db2b7f11",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_merit_navy_order_cavalier.png"
     },
     {
       "id": "fr_merit_navy_order_commander",
@@ -410,7 +454,8 @@
       "sha256": "8f279e0424eba8de415d5fa6c5a490b2a935c7b8640490b37b7d530da08656f3",
       "gitBlobSha": "3539c74e964590d97f7703a9537c748aa2a7354e",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_merit_navy_order_commander.png"
     },
     {
       "id": "fr_merit_navy_order_officer",
@@ -419,7 +464,8 @@
       "sha256": "d0db198379d1236bef7474f13c58d5139106ee3d05469f073f71888fb561d638",
       "gitBlobSha": "3979ea58afab4d69fa76faa8030c089fd6d802b0",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_merit_navy_order_officer.png"
     },
     {
       "id": "fr_merit_order_cavalier",
@@ -428,7 +474,8 @@
       "sha256": "36e282c1c034fb46665617fe969fa00c990a3b9a8f23a26af9a42b016f2e3c93",
       "gitBlobSha": "f00eb839e1c9d11cf97a312de38c23210ddb5a15",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_merit_order_cavalier.png"
     },
     {
       "id": "fr_merit_order_commander",
@@ -437,7 +484,8 @@
       "sha256": "702300e33cfe93296956d9561221c55ded36d3160827b30d431b03a6d480ef57",
       "gitBlobSha": "635c11ada59d4de50032df552766d405d4a5087d",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_merit_order_commander.png"
     },
     {
       "id": "fr_merit_order_officer",
@@ -446,7 +494,8 @@
       "sha256": "fe1d0c324d38c961f26819df31b40b1a7c4a15e451171c6061868df101ebef08",
       "gitBlobSha": "5b445842074f9a665ca4e9456dca7c8ca92da5e4",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_merit_order_officer.png"
     },
     {
       "id": "fr_middle_east_medal",
@@ -455,7 +504,8 @@
       "sha256": "d54ae2cdcda9f8a2935d5718a0d066945811d445e78cd4348b12b7bdadef7233",
       "gitBlobSha": "295fd339acfab363b178628515561f440c0a1d42",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_middle_east_medal.png"
     },
     {
       "id": "fr_military_medal",
@@ -464,7 +514,8 @@
       "sha256": "adebe525cc287c311d67e6306401f4b366fe803a80fbe01045b2caf5e37fe491",
       "gitBlobSha": "34d6090f2d2c9fe4619d4a9769da1dd2b7490841",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_military_medal.png"
     },
     {
       "id": "fr_resistance_medal",
@@ -473,7 +524,8 @@
       "sha256": "94f02b16929479cd2aa144b14b7511c5a4e3da49eb3a523ee3e5598ac243714c",
       "gitBlobSha": "2aad5cd32e5e268ae6fb3bca212c37f6d9be7a8e",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_resistance_medal.png"
     },
     {
       "id": "fr_service_medal",
@@ -482,7 +534,8 @@
       "sha256": "b7c8ed0e8bf520f0ac3756c88d7c700367f9fee9377e65e21fe6dcb29df4d6a6",
       "gitBlobSha": "6fef370b8fc81b413ebc34e4da01faee3e5f2f57",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_service_medal.png"
     },
     {
       "id": "fr_valour_cross",
@@ -491,7 +544,8 @@
       "sha256": "38bbd98c1f13b5178f0c0ce77d959c8b0bdb341222b2e329dbeb1ba48b496d18",
       "gitBlobSha": "3f6881ce33a1beb02f7640c622f77c3846af2ccb",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_valour_cross.png"
     },
     {
       "id": "fr_volunteer_cross",
@@ -500,7 +554,8 @@
       "sha256": "9d91340f35adaa0b02dbe571bf95af1723a8593defb972952a00072db6016505",
       "gitBlobSha": "1bf1ae7191e5c2e9b4e29da3d2056b4e7aaa9600",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_volunteer_cross.png"
     },
     {
       "id": "fr_volunteer_resistance_cross",
@@ -509,7 +564,8 @@
       "sha256": "247ccaabe0f4f9df672347523b7c6739e63628e69fe1b783d31fc6163c5a22bd",
       "gitBlobSha": "c85694e6cc6ad3a8e6695b1d0800d0fe8fd440af",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_volunteer_resistance_cross.png"
     },
     {
       "id": "fr_war_cross",
@@ -518,7 +574,8 @@
       "sha256": "5095da4ef7667413657e6e3ca3b86c8892015881871db0b0c6b06dd47892697a",
       "gitBlobSha": "cdfe917a4430bc33130308db7a62bc3220c4aab5",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_war_cross.png"
     },
     {
       "id": "fr_war_medal",
@@ -527,7 +584,8 @@
       "sha256": "d28b191662a83fd344244f913fcdd95638901342643e09ac70e1bcc332c7fc37",
       "gitBlobSha": "f24ed64687f7282720284bb4e28a64337773c746",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_war_medal.png"
     },
     {
       "id": "fr_wound_medal",
@@ -536,7 +594,8 @@
       "sha256": "4fa804a11816ee3bfddc147dc97c1000831d9ed64c7f05017ca86e1d49213039",
       "gitBlobSha": "2b4cf97e9db5547aede4dc2a76c90ed431789ba3",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/fr_wound_medal.png"
     },
     {
       "id": "ge_cross_gold",
@@ -545,7 +604,8 @@
       "sha256": "21f58fe540e6328b43f6878bb9651d0af02c7bb86ef364455058db0d21a06459",
       "gitBlobSha": "be9385a6a87dcc52632e1ae738e28494d99d8750",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ge_cross_gold.png"
     },
     {
       "id": "ge_iron_cross_1_class",
@@ -554,7 +614,8 @@
       "sha256": "e9d18d6eea51c4086dfddf2206c61ffef6be9da7d9f90ff1f0855e6f97fe1345",
       "gitBlobSha": "eb22d8dd76a06a38f8d1852c0a132ed854e3e68d",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ge_iron_cross_1_class.png"
     },
     {
       "id": "ge_iron_cross_2_class",
@@ -563,7 +624,8 @@
       "sha256": "a0f793a50e4ddaa799dd9a087695e5d415ab50061de1447ced98714db4df20c0",
       "gitBlobSha": "4a8ff7f20eac3a04e5444d42513c89ff18c7052c",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ge_iron_cross_2_class.png"
     },
     {
       "id": "ge_knight_cross",
@@ -572,7 +634,8 @@
       "sha256": "cc0f7d46af302abdf87c4bb33ac9abb2f68f6b5c9bd601b9b0b7c963fc8ac9f3",
       "gitBlobSha": "e4d82c65c8d8b6b8e1034cb12bd940138b94fee4",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ge_knight_cross.png"
     },
     {
       "id": "ge_knight_cross_oak",
@@ -581,7 +644,8 @@
       "sha256": "adfb7ccd314a52ee151b861e7414c394cbf00f0f6ea516d6c500c90eefce4ce7",
       "gitBlobSha": "b5cadc1feb01d7af89eda991f6feb6ef86829c41",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ge_knight_cross_oak.png"
     },
     {
       "id": "ge_knight_cross_oak_swords",
@@ -590,7 +654,8 @@
       "sha256": "ce18e3c409b0c21af27fadae82ba581998444b64961884cc6566b0e8f8a74d58",
       "gitBlobSha": "4a1e3674dc7c9559e6770c089e81f7b650bef007",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ge_knight_cross_oak_swords.png"
     },
     {
       "id": "ge_roll_honor",
@@ -599,7 +664,8 @@
       "sha256": "9f03ee228b67bde83e24101a46fe827adeca0cc56b96c9a1cfa771a8dfdc9805",
       "gitBlobSha": "c8f78dfbc6b49639531717bb480e282a4191bc6e",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ge_roll_honor.png"
     },
     {
       "id": "ge_wound_badge",
@@ -608,7 +674,8 @@
       "sha256": "752b7e4d416eededfb21987d00efbffa62d827ac7b389cdd5b1534677ac6b480",
       "gitBlobSha": "acd19401ba08173c341e6481408d6be98510fcf4",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ge_wound_badge.png"
     },
     {
       "id": "ger_air_defence_badge",
@@ -617,7 +684,8 @@
       "sha256": "6fbd2081ec4b8c7154b349beddcb43529e1297074a60ccc32abe80c60b8fea58",
       "gitBlobSha": "8f4eff077a63ac5c2f79714e313dd87bf37e8b15",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ger_air_defence_badge.png"
     },
     {
       "id": "ger_blockade_runner_badge",
@@ -626,7 +694,8 @@
       "sha256": "1e7b39290a399b0e760ee41e54e28f1a6c1e36d830840ce4aae8afde00dd5235",
       "gitBlobSha": "c09ecde6efa84ec71fe913a90ca887ec85ae2db8",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ger_blockade_runner_badge.png"
     },
     {
       "id": "ger_destroyer_badge",
@@ -635,7 +704,8 @@
       "sha256": "f837e5a9b9a9378d2e677c7eb471362ba1c3deda9b52533039443e338aba2f39",
       "gitBlobSha": "6f0941c2b494a0702325892a3725ee7d3872f64e",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ger_destroyer_badge.png"
     },
     {
       "id": "ger_fleet_badge",
@@ -644,7 +714,8 @@
       "sha256": "4b3c834c9578af061588ed6f921e4f6d414a549966db92f2472c1682b9135a8c",
       "gitBlobSha": "53399308502f20efd21bf52ea8e7b771bf364a95",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ger_fleet_badge.png"
     },
     {
       "id": "ger_honorary_luftwaffe_badge",
@@ -653,7 +724,8 @@
       "sha256": "3514feaea55e7eda1dc54ed0b5ae576bf4511ab1c341f1d7a911131272705d94",
       "gitBlobSha": "d7073085338a6814159861d21207d451e1239013",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ger_honorary_luftwaffe_badge.png"
     },
     {
       "id": "ger_knight_cross_oak_swords_diamonds",
@@ -662,7 +734,8 @@
       "sha256": "f152cef91ae79b0956e0c7cd1bbfa2202ce5806a64eac7e51534068f7aeb6250",
       "gitBlobSha": "724ac2147b768afa683316bab8f75c5f4ee49419",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ger_knight_cross_oak_swords_diamonds.png"
     },
     {
       "id": "ger_minesweeper_badge",
@@ -671,7 +744,8 @@
       "sha256": "ab11ff043752671ef2b0bc8f57ead6b9532efa5544fa8f74c173ce595e75b30a",
       "gitBlobSha": "d0a723a6c812860d3b7801ee369885ccbaa0b59d",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ger_minesweeper_badge.png"
     },
     {
       "id": "ger_panzer_badge_bronze",
@@ -680,7 +754,8 @@
       "sha256": "f9f20361921cba0b120b6d512928e447702c053231dcf9dc288e21137e421d61",
       "gitBlobSha": "a393dba104574bdfa668eced21a47eaf67f44891",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ger_panzer_badge_bronze.png"
     },
     {
       "id": "ger_panzer_badge_silver",
@@ -689,7 +764,8 @@
       "sha256": "c8df1394d93fdc74ae4bfb16adead0543311cf87be5c874cd6fcc2f6128ab2f2",
       "gitBlobSha": "2c5f267e1e54c68def1ad289ae50bf6957d3dc78",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ger_panzer_badge_silver.png"
     },
     {
       "id": "ger_pilot_badge",
@@ -698,7 +774,8 @@
       "sha256": "ba76f54c6365986d212a60b53b9b5a384396e0dd5c74392eb3a6d3df6695ea46",
       "gitBlobSha": "83bd2756cd58b163bd0693751d49e7e6e1a7b72a",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ger_pilot_badge.png"
     },
     {
       "id": "ger_radio_operator_badge",
@@ -707,7 +784,8 @@
       "sha256": "34f80ccf5c73e1a399b752e8ff2a0774191f6078338c163d448b9cfe94b06bdd",
       "gitBlobSha": "7b625445705e6a95516fe1f43cba87849c168bdf",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ger_radio_operator_badge.png"
     },
     {
       "id": "ger_roll_of_honor_army",
@@ -716,7 +794,8 @@
       "sha256": "16478828e7e7ee92e5bd271f45f5545da0808ed978f6ca093cff0787b113f2cc",
       "gitBlobSha": "1229936f6a83b8a26261f6c7e190575386bd0e2e",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ger_roll_of_honor_army.png"
     },
     {
       "id": "ger_roll_of_honor_kriegsmarine",
@@ -725,7 +804,8 @@
       "sha256": "081e46c3f58b099f1ac5210641c0a0c4876e3ca5014f1bd1146b8ccc5c3008db",
       "gitBlobSha": "4e168220f69a5d4e23d793c430b6fb1ff3d8fa43",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ger_roll_of_honor_kriegsmarine.png"
     },
     {
       "id": "ger_sboote_badge",
@@ -734,7 +814,8 @@
       "sha256": "4d05c28fa5bce2284c21f09bc5c96958ba3070a0068c96863543a71b62f3460d",
       "gitBlobSha": "9b8c7ec6ee12f705afcfc7694d110ef38164589f",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ger_sboote_badge.png"
     },
     {
       "id": "ger_wermacht_service_2_class",
@@ -743,7 +824,8 @@
       "sha256": "a575e0ff0c11381135f5a9cc54fe874bd228647b1446342cbd34f0d6223e684d",
       "gitBlobSha": "2e82b6d6d0877c1d80d3b250a0eaf4db9d421ce1",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ger_wermacht_service_2_class.png"
     },
     {
       "id": "ger_wermacht_service_3_class",
@@ -752,7 +834,8 @@
       "sha256": "aea1efbdb891a484e145df1915d3304e3abe33d9f70238d23bb4f99f7df083d0",
       "gitBlobSha": "012ef82f8a677db953f02690c031700c66bc077d",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ger_wermacht_service_3_class.png"
     },
     {
       "id": "ger_wermacht_service_special_class",
@@ -761,7 +844,8 @@
       "sha256": "48a10c5c23aca5a182fa64155499d772243f9892dc68d0d17c141060a5cab65b",
       "gitBlobSha": "67bb901d1435b544667557395494ad3bf7589512",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ger_wermacht_service_special_class.png"
     },
     {
       "id": "ger_wound_badge_gold",
@@ -770,7 +854,8 @@
       "sha256": "5bc5add66334beaf4908357347d3268844ce68a4f9836076aba84dbbb6d0739e",
       "gitBlobSha": "d9c40aae068f570f98392a55a4a5e04b67c675c8",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ger_wound_badge_gold.png"
     },
     {
       "id": "ger_wound_badge_silver",
@@ -779,7 +864,8 @@
       "sha256": "f96a397c1aea8b7689c5e2a2c67e3e17fdaeb51cac73f29ac780a2bc7cb9e9b3",
       "gitBlobSha": "9c7357eecfa6c84bd904dd729b68fefad47211a3",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ger_wound_badge_silver.png"
     },
     {
       "id": "il_armored_corps_tank_officer_insignia",
@@ -788,7 +874,8 @@
       "sha256": "b0beae688eaf97e39b3eafe5b24d59b9b4b393d1fd5c1f627a48bb6ea7474eec",
       "gitBlobSha": "8b5d018ae6ba7ac60760104ef70d264ff6d9fa91",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/il_armored_corps_tank_officer_insignia.png"
     },
     {
       "id": "il_brigade_commander_citation",
@@ -797,7 +884,8 @@
       "sha256": "9dc5107c1434b7f4b80ca0a5f6fab71ec00cb38104b37e44bbc07319eb983ae8",
       "gitBlobSha": "cee532e1bafa4f64fca26537a6b3521df867668b",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/il_brigade_commander_citation.png"
     },
     {
       "id": "il_chief_of_staff_citation",
@@ -806,7 +894,8 @@
       "sha256": "36b4c409206a0385083c3e5f6bb07de7a77d0b95a3d5a7dbbd4f4c8c60b0778e",
       "gitBlobSha": "b5f7846742a81e27e7b0e6fcf17f719035daf653",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/il_chief_of_staff_citation.png"
     },
     {
       "id": "il_divisional_commander_citation",
@@ -815,7 +904,8 @@
       "sha256": "cc932236d6e7ab2415c41b597a73823b37832953d65cfc130424b73b87218116",
       "gitBlobSha": "6c0ef7ef05e6203898335899ddedc080e70870d3",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/il_divisional_commander_citation.png"
     },
     {
       "id": "il_medal_for_distinguished_service",
@@ -824,7 +914,8 @@
       "sha256": "20ebeee98b6fdc430efdb54514f7949ee008d8124d5c07f1fd35bbc29ca844b0",
       "gitBlobSha": "21fb888b316d8b577406b6ece3f88ae5d477c589",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/il_medal_for_distinguished_service.png"
     },
     {
       "id": "il_medal_of_courage",
@@ -833,7 +924,8 @@
       "sha256": "3d0eeb03dea86a4f46c96ead4710c21c8aa34188b0ef4bbeecb505063164af15",
       "gitBlobSha": "29dc21135fda0ab9454206a58439212b45b9cabc",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/il_medal_of_courage.png"
     },
     {
       "id": "il_medal_of_valour",
@@ -842,7 +934,8 @@
       "sha256": "d625407021fd676171c335d7a32c80c219d117be61d9018675c0f721d9f3a010",
       "gitBlobSha": "7982b54b3f1e56248889a34069377cd865ac694f",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/il_medal_of_valour.png"
     },
     {
       "id": "il_metal_pilot_wings_insignia",
@@ -851,7 +944,8 @@
       "sha256": "64be45c13b67e59b61ffaa41eb0c3c1a9a1a10f65ad446aff1f882641c5e8b8b",
       "gitBlobSha": "9dd49d26993715e62850fe2efecce83c4069d092",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/il_metal_pilot_wings_insignia.png"
     },
     {
       "id": "il_nazi_fighter_decoration",
@@ -860,7 +954,8 @@
       "sha256": "09f522872f995acfac7b9bdfa1ba085ec95021e61e98279a7978f3683671bb85",
       "gitBlobSha": "f28ae3f1fc6de8a745f3a3592bbdddd9be67e0c1",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/il_nazi_fighter_decoration.png"
     },
     {
       "id": "il_operational_service_badge",
@@ -869,7 +964,8 @@
       "sha256": "6790f77211ec5712335c7af04c87fc2156165f269ac71af79a0dfdf399db60b9",
       "gitBlobSha": "0c7562b0dc7c4505e07cf0540ee62fbd6f89f0d5",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/il_operational_service_badge.png"
     },
     {
       "id": "il_peace_for_galilee_war",
@@ -878,7 +974,8 @@
       "sha256": "2c5ee1a7d8700ed5550a29c9834186edd54fd7cf668dae58dac8220511166f01",
       "gitBlobSha": "5d7614cf5a78b35c1361c81e43f0acbfa4e9ecce",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/il_peace_for_galilee_war.png"
     },
     {
       "id": "il_sinai_campaign",
@@ -887,7 +984,8 @@
       "sha256": "6b31eedf592c9cbf04060430e7d40c6b9515c9c02f365d2e7217d055f65fdc7d",
       "gitBlobSha": "af2bb10dcf4a95edb81dfa992c30077d57ae5484",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/il_sinai_campaign.png"
     },
     {
       "id": "il_six_day_war",
@@ -896,7 +994,8 @@
       "sha256": "c8d185a78a15473df06fdac61aacf9a36dc072a3b58499c1781a493a29e6ba4b",
       "gitBlobSha": "6f943cebe73c23a0b455e69202f0ed08c9f25d42",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/il_six_day_war.png"
     },
     {
       "id": "il_territorial_command_citation",
@@ -905,7 +1004,8 @@
       "sha256": "97069bac7a9c46de269772589ff1bafb2f9a85750f36260caa80a3ccda7aaac0",
       "gitBlobSha": "b38d05de553e347086ed0c7f55e2e2d9aeac9e79",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/il_territorial_command_citation.png"
     },
     {
       "id": "il_war_of_attrition",
@@ -914,7 +1014,8 @@
       "sha256": "c6d278f0a6b7dd699b36a45c14dfa24396c1c9b200434437ea71cfe2b25e2847",
       "gitBlobSha": "7d72704f50c2aae24f03bb48671d0d7d1740272c",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/il_war_of_attrition.png"
     },
     {
       "id": "il_war_of_independence",
@@ -923,7 +1024,8 @@
       "sha256": "1b398fcae33e78f2bacaf08b0e6c7622668a393c18e7f3e479f9ca8141ab9bc5",
       "gitBlobSha": "80c3add29b7b04a8f090fc7731fe91b90759f091",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/il_war_of_independence.png"
     },
     {
       "id": "il_yom_kippur_war",
@@ -932,7 +1034,8 @@
       "sha256": "c64ad7b7b95d933709a256d0e27e3c9182f364c5aebfd58055ee13b4a62702db",
       "gitBlobSha": "be21921fbd447d45c86aba49d95c33374394d56a",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/il_yom_kippur_war.png"
     },
     {
       "id": "it_africa_medal",
@@ -941,7 +1044,8 @@
       "sha256": "302c7b92902f0d55374fb15e0736bf8d5d29bc922b06e47dc2bc04a73c7f472d",
       "gitBlobSha": "dca8084ac6065dea0d620842ff53f20d63a73fd8",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_africa_medal.png"
     },
     {
       "id": "it_air_valor_medal_gold",
@@ -950,7 +1054,8 @@
       "sha256": "b58ab81d26324064af3181f0c12beffa8dc3dec6684c24fe51459d1075ab9742",
       "gitBlobSha": "430612936e45d2d4a979b6d9b2c878b365ca79df",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_air_valor_medal_gold.png"
     },
     {
       "id": "it_air_valor_medal_silver",
@@ -959,7 +1064,8 @@
       "sha256": "5a9fb06d26c25cb0b9deb70ee37595c4c0838626d04aa500a3d005f0a48baee3",
       "gitBlobSha": "39ac313eff61791923d48b1d8daf92f9b4889c9f",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_air_valor_medal_silver.png"
     },
     {
       "id": "it_attacker_badge",
@@ -968,7 +1074,8 @@
       "sha256": "3812eea277f8310692579c41812cb8d33c048e9930e8d916015b36c25f5b60ec",
       "gitBlobSha": "a2edabef821f3a796a538dd34a66741842757949",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_attacker_badge.png"
     },
     {
       "id": "it_bomber_badge",
@@ -977,7 +1084,8 @@
       "sha256": "665f5593576cf4f87001cf4ed8c8aef64110ffa8153e00bad641ce31f6e8f604",
       "gitBlobSha": "ee02042e68e8e2ad78ed12f80a5c469a90a527a4",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_bomber_badge.png"
     },
     {
       "id": "it_crown_cavalier_order",
@@ -986,7 +1094,8 @@
       "sha256": "685cf0c926e79580bdd0333f21ca5d8a23c5c8887cab66dcc86e7a6bd42110c4",
       "gitBlobSha": "3b89da01dd05b3cdf5c3be64178d2581d82dc592",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_crown_cavalier_order.png"
     },
     {
       "id": "it_crown_officer_order",
@@ -995,7 +1104,8 @@
       "sha256": "5f90069ae17b63884e449415e3b7e73586a18587d41dfedd66c5a00c5a95eaf5",
       "gitBlobSha": "fc7acf3a7b44ef62015a2826cb1702c74730483e",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_crown_officer_order.png"
     },
     {
       "id": "it_dive_bomber_badge",
@@ -1004,7 +1114,8 @@
       "sha256": "63ff9b8a35aaa7106baa89335904094e917fccbeef97ecadca754bf3a80facad",
       "gitBlobSha": "1bd93f1417a02616c688c2148b4ced383dd1eeb6",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_dive_bomber_badge.png"
     },
     {
       "id": "it_ger_eagle_order_3_class",
@@ -1013,7 +1124,8 @@
       "sha256": "a223c20d85a7f278c3f3eb2b8e230ca818237b6844c55c63bf0f4afea59c6413",
       "gitBlobSha": "a01e91cbe39a550b5de72c9c503915e716d0b5fc",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_ger_eagle_order_3_class.png"
     },
     {
       "id": "it_ger_eagle_order_4_class",
@@ -1022,7 +1134,8 @@
       "sha256": "e1d04bad2ae8dfe0f681a07a6bdcf8528fb55666f655d01cf79ddcac6a8809ab",
       "gitBlobSha": "2ac02792ca15b34a5b7c42e2e8705d7cb566e080",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_ger_eagle_order_4_class.png"
     },
     {
       "id": "it_ger_eagle_order_5_class",
@@ -1031,7 +1144,8 @@
       "sha256": "4ea84044dbb333876b801d509f3fe3cc9b37cd753f86cbdd7bf7b515e16fd535",
       "gitBlobSha": "ea4c5784bb831772b5513d0ce3dc84a66acbfaf6",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_ger_eagle_order_5_class.png"
     },
     {
       "id": "it_ger_merit_medal_bronze",
@@ -1040,7 +1154,8 @@
       "sha256": "a18600211ad8e80faa9c55fc4c80de8cc2c09b61cec5feff1e06a58a1a711920",
       "gitBlobSha": "5275e9152ae91b6dabc412b94e59119ed819ca36",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_ger_merit_medal_bronze.png"
     },
     {
       "id": "it_ger_merit_medal_silver",
@@ -1049,7 +1164,8 @@
       "sha256": "31acfdbcfe7d1937ff1f8a8734bacb71ddce56ca924e4ced03f2a0c831f0d751",
       "gitBlobSha": "35c86169c1a6750eeb9769d01527336934f6a404",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_ger_merit_medal_silver.png"
     },
     {
       "id": "it_interceptor_badge",
@@ -1058,7 +1174,8 @@
       "sha256": "5aaab26eb42af6b1fbd0428f94d18046fa076d0f081f2873b142ac50b9653379",
       "gitBlobSha": "7a5484b1ccc8aaf213be53559aa69f52218c82bd",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_interceptor_badge.png"
     },
     {
       "id": "it_merit",
@@ -1067,7 +1184,8 @@
       "sha256": "1d7e4a588ba50161dc49d1b1cb0a78ebf049282a3f009c29ef0e7bc65abe64e9",
       "gitBlobSha": "ea2b4355252eab8dda69097847e85279f7b23876",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_merit.png"
     },
     {
       "id": "it_military_valor_medal_gold",
@@ -1076,7 +1194,8 @@
       "sha256": "972cf77eec68968668511dc9445cf7e63551fc374179fc8515c6ac02bfd044ce",
       "gitBlobSha": "b29e376fc8d23cb9a85fa1c5ed466f095d73e4da",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_military_valor_medal_gold.png"
     },
     {
       "id": "it_military_valor_medal_silver",
@@ -1085,7 +1204,8 @@
       "sha256": "82a63d73b366de1aae94e27dd17c29073e5bed705bd41a6d35a597349b020181",
       "gitBlobSha": "fe191a5f289a4f16b462332322f4bc4e021bcce6",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_military_valor_medal_silver.png"
     },
     {
       "id": "it_navy_valor_medal_bronze",
@@ -1094,7 +1214,8 @@
       "sha256": "98d239134e6dab80aed93c046efae6a8b4a4bfda4b1a842c40e06f6298395a41",
       "gitBlobSha": "47190275cb71842cd824291fb150276c51d21d76",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_navy_valor_medal_bronze.png"
     },
     {
       "id": "it_navy_valor_medal_gold",
@@ -1103,7 +1224,8 @@
       "sha256": "8026b3969b4b8138457833e32df786a8396a8fe4568f4a7360c56026be6f9ae7",
       "gitBlobSha": "332c6f41ef58b2a2e51c3c6ff6696af95b6770d2",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_navy_valor_medal_gold.png"
     },
     {
       "id": "it_navy_valor_medal_silver",
@@ -1112,7 +1234,8 @@
       "sha256": "89b54e21f070fcda6bd8f5f6e1d5fdf745db1d01fec5047bc65270ef4fefccf8",
       "gitBlobSha": "3e66bd792af22e6a083f22af0bc8aca3c83c9138",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_navy_valor_medal_silver.png"
     },
     {
       "id": "it_savoy_cavalier_order",
@@ -1121,7 +1244,8 @@
       "sha256": "e76ba16bbfa2a9ec62c4b630b1ac66145be0bbc7d01f1c148d12bb804fcd70ca",
       "gitBlobSha": "8d83813cea080c435b1f0a4b7802845c7e838c11",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_savoy_cavalier_order.png"
     },
     {
       "id": "it_savoy_officer_order",
@@ -1130,7 +1254,8 @@
       "sha256": "57a2c21c4c9c97807912ced6be7e6d7074ab15ff0e9a561de5b95d36c9941cfd",
       "gitBlobSha": "e76be03e823df7b9d441e4d0dbbc3b56a1796f6b",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_savoy_officer_order.png"
     },
     {
       "id": "it_sky",
@@ -1139,7 +1264,8 @@
       "sha256": "205b67c2d3bc1b1caf018660c56438256887145078130e326830547262ed7b07",
       "gitBlobSha": "33b93cc52412cb294abbf878af7b61685285591b",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_sky.png"
     },
     {
       "id": "it_tanker_badge_gold",
@@ -1148,7 +1274,8 @@
       "sha256": "cfb92160f59506d3288855684b2ad1303dd9980e5bb4db06e00dad4c74081699",
       "gitBlobSha": "3406825954cfac117419cfccd9b49ff60e1dc8c2",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_tanker_badge_gold.png"
     },
     {
       "id": "it_tanker_badge_silver",
@@ -1157,7 +1284,8 @@
       "sha256": "b48543a39dea71eddda983dba91c2819cf552105cde83fdc939dcfb26c6e441e",
       "gitBlobSha": "d30ff5e51ebeefc4b8a9782151ce1ec5d8c55235",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_tanker_badge_silver.png"
     },
     {
       "id": "it_torpedo_bomber_badge",
@@ -1166,7 +1294,8 @@
       "sha256": "2c9efc3c4df3d6a08ad46070dde0f7c0f958d1717cbf10b97e59c2650abf86a1",
       "gitBlobSha": "74d5c3529f85f9859c2f4e2caba307c50cd1321e",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_torpedo_bomber_badge.png"
     },
     {
       "id": "it_warrior",
@@ -1175,7 +1304,8 @@
       "sha256": "6a2a8defecb11ef6f7206dcd6f446fe78184111eabc3a22b0fd20f8200b01ee4",
       "gitBlobSha": "3bf858aa9040b22a40dc175fe0f5fc49a0fe3776",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_warrior.png"
     },
     {
       "id": "it_wound_badge",
@@ -1184,7 +1314,8 @@
       "sha256": "df0b68923027bae4c3461fac759483aa7061f69f15e9b7a299bd94873f21d23c",
       "gitBlobSha": "d6df61390cc92aaf2b766accf511420fd3314c30",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/it_wound_badge.png"
     },
     {
       "id": "jap_bukochosho_2_class",
@@ -1193,7 +1324,8 @@
       "sha256": "ced47a149a4cb1c2e324a90b78a05fc5e051d71c09e314b26fe6df976d9d0221",
       "gitBlobSha": "ad28d066b1ec46eb82cc99367289e2d8bfe7caa9",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_bukochosho_2_class.png"
     },
     {
       "id": "jap_damage_control_badge",
@@ -1202,7 +1334,8 @@
       "sha256": "dccf189578c0f182af99a8a2ebd98432693f87e8d61cd0f4cd4ac1244dd9dffd",
       "gitBlobSha": "5e0a727dfd56bd2ada2845986ec23c4cd5679465",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_damage_control_badge.png"
     },
     {
       "id": "jap_gold",
@@ -1211,7 +1344,8 @@
       "sha256": "fb13509c9e9dd532444f0991fb1b9528c3311789bc2a00f3e8ceea169d7520a2",
       "gitBlobSha": "efbfa035c4436fe4654cea2f9afb415f54d86e3f",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_gold.png"
     },
     {
       "id": "jap_golden_kite_order_4_class",
@@ -1220,7 +1354,8 @@
       "sha256": "4e0c27bc2b176003a619b0229e8d469c6eb99d96d82ed0400284f2957d9ecd0c",
       "gitBlobSha": "6f3957d3f861a9b5be2b32a4f4b383ae22c9e04c",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_golden_kite_order_4_class.png"
     },
     {
       "id": "jap_golden_kite_order_6_class",
@@ -1229,7 +1364,8 @@
       "sha256": "82efb84082e2fd5283a6c45ea66b27cdb19ed388e758dc11cce9d608596775c3",
       "gitBlobSha": "5494163e6e1ed04aba9bdf8818b8a5c7e1e9c4c2",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_golden_kite_order_6_class.png"
     },
     {
       "id": "jap_golden_kite_order_7_class",
@@ -1238,7 +1374,8 @@
       "sha256": "577e1181659f5b06e175e82c767fe2f8e2bb48e7e4c541de7273d18c4dc60836",
       "gitBlobSha": "9fed43bed33eb1093b96448ca1b89ae96294372a",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_golden_kite_order_7_class.png"
     },
     {
       "id": "jap_gunner_bomber_badge",
@@ -1247,7 +1384,8 @@
       "sha256": "b2b109a242abfb88d3a18520afd9d202939fc6e58f831c930791e6fafcaa4fef",
       "gitBlobSha": "db8230c1b0de3801f40a05cb99fbc06eda6c8a02",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_gunner_bomber_badge.png"
     },
     {
       "id": "jap_jaaf_nco_badge",
@@ -1256,7 +1394,8 @@
       "sha256": "987f909f206708ae31b76b953923055b2d8e83ed3787c2083459e15783403b9b",
       "gitBlobSha": "4b12e68109ebcc635d1039190118afa2e54cbb05",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_jaaf_nco_badge.png"
     },
     {
       "id": "jap_jaaf_officer_badge",
@@ -1265,7 +1404,8 @@
       "sha256": "9c3244be8e6e531451fd6ace02d7cba3a256e5ce98e414c906766d1888854e1f",
       "gitBlobSha": "af60b9e37459b52c4899349d75820986f850f209",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_jaaf_officer_badge.png"
     },
     {
       "id": "jap_merit",
@@ -1274,7 +1414,8 @@
       "sha256": "67304cbb9c261adf96d19f111aa23ba1f776c8fda0f5613b13846841f1929a7f",
       "gitBlobSha": "870e9757531dd7cf1b2faeffb3bd11a5929338c9",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_merit.png"
     },
     {
       "id": "jap_navy_pilot_badge_1_class",
@@ -1283,7 +1424,8 @@
       "sha256": "52dae38147437d79d577d82381423cbc54b55d2efc293205985c2b0beea71f7e",
       "gitBlobSha": "fc3bc2f70f432f6ab1e24ac140ae7936dc4b8f0b",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_navy_pilot_badge_1_class.png"
     },
     {
       "id": "jap_navy_pilot_badge_2_class",
@@ -1292,7 +1434,8 @@
       "sha256": "65f50c2844d9aea0fa68d17de669f564e899fcac6836f85d80ff60224702bd99",
       "gitBlobSha": "aee56193c55eba581cfc6fbbcc0ef5c8993c91c8",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_navy_pilot_badge_2_class.png"
     },
     {
       "id": "jap_reservist_badge",
@@ -1301,7 +1444,8 @@
       "sha256": "40881070afeb199778b892072479d850fb3ced9ec064f3977aea9707e471825e",
       "gitBlobSha": "208a884e608bf9eebb6df7a69b9ac019a8ff65bb",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_reservist_badge.png"
     },
     {
       "id": "jap_rising_sun_order_6_class",
@@ -1310,7 +1454,8 @@
       "sha256": "a3957522fae24e20d5753b3a888d4bf9879e42fd9ac9c26e6cc845ecd52c9326",
       "gitBlobSha": "f00c04e12e78c44b28764cabcbf8448f2638be5f",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_rising_sun_order_6_class.png"
     },
     {
       "id": "jap_rising_sun_order_7_class",
@@ -1319,7 +1464,8 @@
       "sha256": "f317d8276f9b29cc83f1c92d721ab47ce28b760481054dc564f97740f1f00e37",
       "gitBlobSha": "9803b06a1a9802cc29ebf4ce8529996468028eac",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_rising_sun_order_7_class.png"
     },
     {
       "id": "jap_rising_sun_order_8_class",
@@ -1328,7 +1474,8 @@
       "sha256": "953ae561f7d1477127e927363afd01b30e9e6ef05007646ff78b21f2fc8b84a5",
       "gitBlobSha": "04eeaf2f8adf05bd07bbc3ba824e666eba5e22dd",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_rising_sun_order_8_class.png"
     },
     {
       "id": "jap_sacred_treasure_order_5_class",
@@ -1337,7 +1484,8 @@
       "sha256": "f7a1834f9ebbfa05305bfd77229de9323248f1baa246c8b62e2e123a3666a2ee",
       "gitBlobSha": "b78e93357b4458cd9d651d5a4d1263c86c8775bf",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_sacred_treasure_order_5_class.png"
     },
     {
       "id": "jap_sacred_treasure_order_6_class",
@@ -1346,7 +1494,8 @@
       "sha256": "4c1d429c8ec41ba1cb556200584713747f2f262504c3a1915cf286152bcce8db",
       "gitBlobSha": "49c156f94e64d8161e3c3d730fd6eb7315fa3f5b",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_sacred_treasure_order_6_class.png"
     },
     {
       "id": "jap_sacred_treasure_order_7_class",
@@ -1355,7 +1504,8 @@
       "sha256": "8353a69975c7b36a450e3946808434628813e711058aff6062646c569f374b53",
       "gitBlobSha": "26e29f8612439c1aa2cf66ab43e9415bc72a77d3",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_sacred_treasure_order_7_class.png"
     },
     {
       "id": "jap_sacred_treasure_order_8_class",
@@ -1364,7 +1514,8 @@
       "sha256": "ff48a06e06558f0a92e3a6d9e420e8474bb37aefec145a14fb891c488ff2228e",
       "gitBlobSha": "466b23c90c94b69dbbce14a62f53a4e447f33b0d",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_sacred_treasure_order_8_class.png"
     },
     {
       "id": "jap_seamanship_badge",
@@ -1373,7 +1524,8 @@
       "sha256": "4b553fbe125fb06e4991a9b07c84666edff281a7d2e5ae8b5b948696611361f5",
       "gitBlobSha": "37ab050164c2be5f68413206e9288195c236fd5c",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_seamanship_badge.png"
     },
     {
       "id": "jap_sun",
@@ -1382,7 +1534,8 @@
       "sha256": "3e4fe649f70946efecd3cddc851d3dce109991d2ccea1041521499a353c106a0",
       "gitBlobSha": "8824f617fa71faab5e4d709f55919c1aed9f95c5",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_sun.png"
     },
     {
       "id": "jap_tank_gun_badge",
@@ -1391,7 +1544,8 @@
       "sha256": "4941b277936a5fdd69730fac94bf00bd74c324ea247023697724b86e6a320ddf",
       "gitBlobSha": "73ff18313007d1fb9fee21042277ed7c6bade4d7",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_tank_gun_badge.png"
     },
     {
       "id": "jap_tanker_badge",
@@ -1400,7 +1554,8 @@
       "sha256": "a1134ee646994a7e292815bf2e9d21481c84dfc2a03c4c75438e03f4d2c57e43",
       "gitBlobSha": "1d6c94bca057f4c56d9bce7defe1e55bf97007bb",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_tanker_badge.png"
     },
     {
       "id": "jap_torpedoman_badge",
@@ -1409,7 +1564,8 @@
       "sha256": "86af3fb60abb7172e07151ec0c94c605313f3f293687546d63015d9c14fbbcc5",
       "gitBlobSha": "1a7b6fc812edb25a2e6a70516d8bb50ccc6383f6",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_torpedoman_badge.png"
     },
     {
       "id": "jap_wound_badge_gold",
@@ -1418,7 +1574,8 @@
       "sha256": "b224261f24f7e7ef99d69b5aa328455c763cb839d420119f43d302f3676cd59f",
       "gitBlobSha": "15272508ed1d80219f480fbf94747566e0bdebe5",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_wound_badge_gold.png"
     },
     {
       "id": "jap_wound_badge_silver",
@@ -1427,7 +1584,8 @@
       "sha256": "11d1a90ea406ca35ee8a19f78c923ec27a4278cc4ebb6ec830747ffd3f7f7fb8",
       "gitBlobSha": "95292b29f8c5950c2cc522cf3e777f72946f2b52",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/jap_wound_badge_silver.png"
     },
     {
       "id": "raaf_39_45_star",
@@ -1436,7 +1594,8 @@
       "sha256": "816d5c5456de598e8ab20baf31084a22ed0deb4bf16a618dabb5fa07de948203",
       "gitBlobSha": "f338772c5114569b403a95e0164bd8e56aae9e5e",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/raaf_39_45_star.png"
     },
     {
       "id": "raaf_flying_cross",
@@ -1445,7 +1604,8 @@
       "sha256": "e97e4e4453ad707fb8b86cc8664e48e49e8c037a5662ba036d2e7793d6c761c2",
       "gitBlobSha": "85ffba98a888defadcccb275258ab52db382c5a8",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/raaf_flying_cross.png"
     },
     {
       "id": "raaf_france_germany",
@@ -1454,7 +1614,8 @@
       "sha256": "7bd56575f736295c74c204920a8343f168926f5ce857b5463ff66a0d89555dd6",
       "gitBlobSha": "d3a9a571cf9c2688b3d81b2986447c956152f312",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/raaf_france_germany.png"
     },
     {
       "id": "raaf_pacific",
@@ -1463,7 +1624,8 @@
       "sha256": "5ed1e16a998dab93c2fb28426711a70c4f7033cef05791a8f456b91432a43145",
       "gitBlobSha": "6a07aa67466f07d27b5fac29cad46b7633775a80",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/raaf_pacific.png"
     },
     {
       "id": "raaf_service_order",
@@ -1472,7 +1634,8 @@
       "sha256": "22f0404c254772e116f67920e6f920a8445fa7c60e826935d07567f0c7e4dc9a",
       "gitBlobSha": "bad76aa98f57d1c03827aaf2bab614233cbde461",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/raaf_service_order.png"
     },
     {
       "id": "raaf_victoria_cross",
@@ -1481,7 +1644,8 @@
       "sha256": "1b640c2a01aebc33d0ef0a1a40e46cd9e2302f5bb8d214703693ef5baead6d47",
       "gitBlobSha": "823ede922a6fdfef7d0816b544b2517ee07cde28",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/raaf_victoria_cross.png"
     },
     {
       "id": "raaf_war_medal",
@@ -1490,7 +1654,8 @@
       "sha256": "2761cfd33f777a785c86329f9270ac3bac3cfb61dfaecaac2738a9dad58ceb84",
       "gitBlobSha": "d272e28b3caad51ae5aa2ed0b6199325ada4cafa",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/raaf_war_medal.png"
     },
     {
       "id": "sw_air_gunner_badge",
@@ -1499,7 +1664,8 @@
       "sha256": "e13bde95b92b3caa1fd80eebb527b3df8f33955dd19ddd7fcd34fa2d045557a3",
       "gitBlobSha": "1c7f3429a4d65bf0b1f12a7e035dfd3ecf239ca6",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_air_gunner_badge.png"
     },
     {
       "id": "sw_conscript_medal",
@@ -1508,7 +1674,8 @@
       "sha256": "3655b8915bbb88eab7010e07d8c903f13d07c2f5c016c66a6aa25f84a45efcd8",
       "gitBlobSha": "ed1da1857f54ddc098dfef69bef0a199e324d919",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_conscript_medal.png"
     },
     {
       "id": "sw_grand_sword_cross",
@@ -1517,7 +1684,8 @@
       "sha256": "e74f2ccab5d5950f6e19d6b4495b51b3ee55c8c48e6e442ec9b042e6debba927",
       "gitBlobSha": "fc912fb4f9139c86f1de7573536d269ad622a035",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_grand_sword_cross.png"
     },
     {
       "id": "sw_international_service_medal",
@@ -1526,7 +1694,8 @@
       "sha256": "ba46ecce9fe052d11c4e7806e60fc69dc17594c4b3a9137ca01f4aa9f97075ce",
       "gitBlobSha": "7913eaf63adff0d6b1d1e049545fa3efce488971",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_international_service_medal.png"
     },
     {
       "id": "sw_merit_medal_gold",
@@ -1535,7 +1704,8 @@
       "sha256": "7849bffbb7897aacfbf4676a8279dade988c5c0e20a484836c4f984bf2723a8f",
       "gitBlobSha": "3888279a9588c6948ca9361f6a45026788cbac6d",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_merit_medal_gold.png"
     },
     {
       "id": "sw_merit_medal_silver",
@@ -1544,7 +1714,8 @@
       "sha256": "998f5ae090ba80573fc263c9674d8ce394b81c0bf98868d39e84ccde47e52829",
       "gitBlobSha": "ab344785a242c39fca441a9f0073420dd6e84210",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_merit_medal_silver.png"
     },
     {
       "id": "sw_national_defense_medal_bronze",
@@ -1553,7 +1724,8 @@
       "sha256": "01ca80854ff06bbf9b3a852e1ff578f33060a4ac5ef4643f52a2173b6df1bd35",
       "gitBlobSha": "949d8fbb0d6475107ccbd5611775fa0f141f3c16",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_national_defense_medal_bronze.png"
     },
     {
       "id": "sw_national_defense_medal_gold",
@@ -1562,7 +1734,8 @@
       "sha256": "75e5614db381241bbecf3f33f9c8cdd9c271d3e5bd385ace5772b65867b61ecf",
       "gitBlobSha": "8865c54eb3f4b497572589813ea3f1663c415ae8",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_national_defense_medal_gold.png"
     },
     {
       "id": "sw_national_defense_medal_gold_rosette",
@@ -1571,7 +1744,8 @@
       "sha256": "3308fd4651bbbd63276a4b21d198eaecc071d749ad75b47e37eb01ad88fc9c4c",
       "gitBlobSha": "e8a85ce6d766b7a7eafa94671548f7650fb3d460",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_national_defense_medal_gold_rosette.png"
     },
     {
       "id": "sw_national_defense_medal_silver",
@@ -1580,7 +1754,8 @@
       "sha256": "24bc8da1abccf890fbb64334f3f7efaf7d12f15c0ef102c9099d583c5b36f76e",
       "gitBlobSha": "821de5d64d55bf71a2f7271398bc71fe3568e63d",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_national_defense_medal_silver.png"
     },
     {
       "id": "sw_pilot_badge_gold",
@@ -1589,7 +1764,8 @@
       "sha256": "6cc0fe9afc2a319a8902ce588f8c8b92f89ba82c0dcf0d50c1655529513e3278",
       "gitBlobSha": "eeaa5eaad22cf2d4b771d9edfa3d24788e0f90b0",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_pilot_badge_gold.png"
     },
     {
       "id": "sw_pilot_badge_silver",
@@ -1598,7 +1774,8 @@
       "sha256": "17c8a9a119ea8fb4709905cbeffc6daf67652f960d809d0651a8aa78a116cbc5",
       "gitBlobSha": "18e1a437709b45bad3ac53ff4a5eacd761530284",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_pilot_badge_silver.png"
     },
     {
       "id": "sw_reserve_officer_medal_gold",
@@ -1607,7 +1784,8 @@
       "sha256": "938a633e4d4cc1db72a347949c86ac9d4a241d630003b140cb5ca8d6359e2927",
       "gitBlobSha": "b6e10547989316697010cc8bf858405daa36884e",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_reserve_officer_medal_gold.png"
     },
     {
       "id": "sw_reserve_officer_medal_silver",
@@ -1616,7 +1794,8 @@
       "sha256": "6bd3672a9b6787a32e209d1336d361f7c2c6251a9eee17e2198dae42c7448051",
       "gitBlobSha": "d7df11557c3490724c37c9f271a14a8c2925e76d",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_reserve_officer_medal_silver.png"
     },
     {
       "id": "sw_sword_cross",
@@ -1625,7 +1804,8 @@
       "sha256": "4b7e8942c45f851e0ac37defd6710a71b1333c9ad10f3a57e8ce55618b95a25f",
       "gitBlobSha": "9066ea9442bd10ed5f91ef666f34f89890945c0e",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_sword_cross.png"
     },
     {
       "id": "sw_sword_medal",
@@ -1634,7 +1814,8 @@
       "sha256": "9e8e6c1d8987dfea964d1c43cf6b25cc6017e003cd5e2cd99839fe1592107092",
       "gitBlobSha": "bf510f80ce0bace42c75e9c4b2b264ad1a88729d",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_sword_medal.png"
     },
     {
       "id": "sw_valor_medal_gold",
@@ -1643,7 +1824,8 @@
       "sha256": "92337620d58b3d590ec6f8f449ba2828805293e275bcac7c9069439a7739af8a",
       "gitBlobSha": "226815965c975de9210b87a7c37bdcede7757615",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_valor_medal_gold.png"
     },
     {
       "id": "sw_valor_medal_silver",
@@ -1652,7 +1834,8 @@
       "sha256": "146f2e50c843b2e870c2707d5edb16efde402902dd4332bae25f1c135ab74428",
       "gitBlobSha": "81673c370c3a897d0003c510f47a136961680dea",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_valor_medal_silver.png"
     },
     {
       "id": "sw_wounded_medal_silver",
@@ -1661,7 +1844,8 @@
       "sha256": "27990207cbb551ddac971feb9b46b07ed0c7410a87edc62831452fee5515dd83",
       "gitBlobSha": "6b7ae80a011f9d14dd8bb7ff3606055feaf494be",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_wounded_medal_silver.png"
     },
     {
       "id": "sw_zeal_integrity_medal",
@@ -1670,7 +1854,8 @@
       "sha256": "0084e06cb86c206ce94bc48b75f9df75b6c39effe9aceea9a27d8542525e90f7",
       "gitBlobSha": "d3a9f67a3e6e1e84bbbb6fbc9a857dac2ec2256f",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/sw_zeal_integrity_medal.png"
     },
     {
       "id": "uk_african_star",
@@ -1679,7 +1864,8 @@
       "sha256": "5bda8f34a1f2933b6a02ed5f2091505dee97062d52913f5f872b982c976d32d2",
       "gitBlobSha": "ced7b6c4fa075514b2066bf21fdba84f0c1d02b3",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/uk_african_star.png"
     },
     {
       "id": "uk_air_crew_europe_star",
@@ -1688,7 +1874,8 @@
       "sha256": "2ba6c6f8c16a3a9c3505479579baf25368578b716a5dcfbb7124da833f53c2be",
       "gitBlobSha": "df7e9965e3c57bd56d5b43e63d9c41f7bf4cbe54",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/uk_air_crew_europe_star.png"
     },
     {
       "id": "uk_air_cross",
@@ -1697,7 +1884,8 @@
       "sha256": "3896ed1c9c9b842d6ee7b5c1f2609cc48c27fb1423707ba00ab9c962577b3324",
       "gitBlobSha": "d8aa81ca92ff9a58e2eda746a0537f2e5ad674a8",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/uk_air_cross.png"
     },
     {
       "id": "uk_air_efficiency_medal",
@@ -1706,7 +1894,8 @@
       "sha256": "3eeeab3404ca1008baccf90220719722f9351113de26a60d260bb42ddc33913c",
       "gitBlobSha": "b1357a8725a58254d084ed1722f7c868ae83cf00",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/uk_air_efficiency_medal.png"
     },
     {
       "id": "uk_air_medal",
@@ -1715,7 +1904,8 @@
       "sha256": "89047f00c3309333bb7119ed0331f4db349e02346b6c39ca4329b316ef4c3f4f",
       "gitBlobSha": "02995c5f35cb1a0aa3c7d5417f4f0434356d7211",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/uk_air_medal.png"
     },
     {
       "id": "uk_army_cross",
@@ -1724,7 +1914,8 @@
       "sha256": "b6fc1cad0b97bb55700f074c468ef8e1374a0933379aebb27c0e62b82e04e253",
       "gitBlobSha": "f6fe9354d242fdd5f5d165262b7c37e64385e085",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/uk_army_cross.png"
     },
     {
       "id": "uk_army_medal",
@@ -1733,7 +1924,8 @@
       "sha256": "3b5bd9109acad0eeb7f6fdb2894093400fe71f1620533af6a93a51c5b6c5e9fb",
       "gitBlobSha": "8ea13770d64a18af3aa6ef4349ab057cc811d7cb",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/uk_army_medal.png"
     },
     {
       "id": "uk_atlantic_star",
@@ -1742,7 +1934,8 @@
       "sha256": "5d0cce89d8c91ce0d3529a3ba503dff3821c0766be1b39665a54e2fa7745179f",
       "gitBlobSha": "68563be044c30ed691422c1c03739f39dc57f0fd",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/uk_atlantic_star.png"
     },
     {
       "id": "uk_conduct_medal",
@@ -1751,7 +1944,8 @@
       "sha256": "7030d7eeaaeba402835aaa8a3e2c6b7e1613de08f3c4c5b286fcb51dc36ae799",
       "gitBlobSha": "3b6badeaebe926463073838dd558352ec2319933",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/uk_conduct_medal.png"
     },
     {
       "id": "uk_conspicious_gallantry_medal",
@@ -1760,7 +1954,8 @@
       "sha256": "939f47f54d48d2997b5375bb417532a51555da79e0a860916e240f3d5187ea51",
       "gitBlobSha": "246801fb921a0640123a4cc802e3e7005998463a",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/uk_conspicious_gallantry_medal.png"
     },
     {
       "id": "uk_flying_medal",
@@ -1769,7 +1964,8 @@
       "sha256": "6192b3f586baabdd925af55c33672f425eb222c3e64c686caaf256afd887ae66",
       "gitBlobSha": "92c77fec25a7ab74fffdbd592305b8975501a498",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/uk_flying_medal.png"
     },
     {
       "id": "uk_italy_star",
@@ -1778,7 +1974,8 @@
       "sha256": "38da966cccc477f7bbe0f19460111f287681ca97d53946f29f9955014333aa71",
       "gitBlobSha": "f89c36baa37fa19d304091f6f583dbb1e06afbef",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/uk_italy_star.png"
     },
     {
       "id": "uk_korean_medal",
@@ -1787,7 +1984,8 @@
       "sha256": "327777513d7dc159e64785d3d3630a2b7352141d6512daf713cc81ff4130bd98",
       "gitBlobSha": "465755e7d143378f7db8f9485957328dbbda3d86",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/uk_korean_medal.png"
     },
     {
       "id": "uk_long_service_medal_air",
@@ -1796,7 +1994,8 @@
       "sha256": "c43c7796be2e1f1d925b1f290d857e422e8b992cd775b6044187d1a3050813ba",
       "gitBlobSha": "11cb13f3358a89c04c2da597eda7d8a961407d38",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/uk_long_service_medal_air.png"
     },
     {
       "id": "uk_long_service_medal_army",
@@ -1805,7 +2004,8 @@
       "sha256": "2f216bc0c72afc0c69b5d006beac005e0e49fcbfb400a629152cfcad6851d89e",
       "gitBlobSha": "42908948a0aa423bd007b55292d9db47c3aa14a9",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/uk_long_service_medal_army.png"
     },
     {
       "id": "uk_long_service_medal_navy",
@@ -1814,7 +2014,8 @@
       "sha256": "e3344755d509f260c53fd5decba75c78ba4a99d66434519d6b91fdf188a5e699",
       "gitBlobSha": "7ab93cd6a7adf8475c3ae77d8301d04804ab4af3",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/uk_long_service_medal_navy.png"
     },
     {
       "id": "uk_service_cross",
@@ -1823,7 +2024,8 @@
       "sha256": "9622733e9abe4ba2f86a30cc194f6e2c79ddcd998e4407de0b51bc5b47f1ce1c",
       "gitBlobSha": "de2c981d1ffaf02bc328764d34df4133d7d26bee",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/uk_service_cross.png"
     },
     {
       "id": "uk_service_cross_rosette",
@@ -1832,7 +2034,8 @@
       "sha256": "326f99f7900569c658a5e69923b874956fd0b026823fd497d33d4d79fccb9162",
       "gitBlobSha": "499202b5db3dac53267bfe24d98284c074d7c34e",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/uk_service_cross_rosette.png"
     },
     {
       "id": "usa_air_1_class",
@@ -1841,7 +2044,8 @@
       "sha256": "56cf6aa1ba4931d0aaea778e59648ff093054e2ae88ad5bc5b359492819f33d1",
       "gitBlobSha": "9f2cfcbdaf2e2ff0e09ecacb0d3ab9ca969854e1",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_air_1_class.png"
     },
     {
       "id": "usa_air_cross",
@@ -1850,7 +2054,8 @@
       "sha256": "22290f2a84d23255f63b8f448c7c02a8c6b2aafc3bdea599de0c98993cb09b1b",
       "gitBlobSha": "ee74262dbbee934913477e97ed03c79542376398",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_air_cross.png"
     },
     {
       "id": "usa_bronze_star_2",
@@ -1859,7 +2064,8 @@
       "sha256": "c9f939bf0061ce8728808af8a91ec814699e73074f9424ef468d0fe83f2ab257",
       "gitBlobSha": "691a3c935f19e84ba5da4098dd654cb037837e5d",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_bronze_star_2.png"
     },
     {
       "id": "usa_commendation_medal_air",
@@ -1868,7 +2074,8 @@
       "sha256": "b872e1484fa9cd2b1e5445d95d90386c131c1c032830dd673e327f8e7cd511c7",
       "gitBlobSha": "5e7587d05c1a8f079af014c50576499434baf1c9",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_commendation_medal_air.png"
     },
     {
       "id": "usa_commendation_medal_army_2",
@@ -1877,7 +2084,8 @@
       "sha256": "b2259ebb41ece45942bf71b817a1fd55e05e2b8429c70957435ccf087151b415",
       "gitBlobSha": "fa5d8ebfe786f6ef8a382f5f3bbc75ae821550fa",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_commendation_medal_army_2.png"
     },
     {
       "id": "usa_commendation_medal_navy",
@@ -1886,7 +2094,8 @@
       "sha256": "c62ea820bb71896d3f0c87c750263a38721918cb80638b4a362cb77a07a1759c",
       "gitBlobSha": "3d62a3059dd4b65c845e33ffeffdcddc3a19e45c",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_commendation_medal_navy.png"
     },
     {
       "id": "usa_conduct",
@@ -1895,7 +2104,8 @@
       "sha256": "973c2ca74a0f939ea4d05d1c82da5b5b91118a5b2b42af506b095dd494694d10",
       "gitBlobSha": "316c33956c3abdd2a0b490b85fd2f784c7e4063d",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_conduct.png"
     },
     {
       "id": "usa_conduct_medal_air",
@@ -1904,7 +2114,8 @@
       "sha256": "30dc489adee0cbcfbc5ead2800d87a71e70e06d42ca5f36c55fd4d2eadffbd57",
       "gitBlobSha": "5922ff7869a94722749d9dea295290fedb116dcf",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_conduct_medal_air.png"
     },
     {
       "id": "usa_conduct_medal_navy",
@@ -1913,7 +2124,8 @@
       "sha256": "163c76001a13eff6726f246f0e2769c47a7d8994afbd1ab9af37288385b09e58",
       "gitBlobSha": "fd901af6439831ec7a53317d958c30dd61afca40",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_conduct_medal_navy.png"
     },
     {
       "id": "usa_europe",
@@ -1922,7 +2134,8 @@
       "sha256": "98300997d7be80f39dbac13790b91c6c62df21acd34ae2db3ae88081d09440a9",
       "gitBlobSha": "6d48d1013260c77e839fe30232c37a9fc60b1255",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_europe.png"
     },
     {
       "id": "usa_flying_cross_1_class",
@@ -1931,7 +2144,8 @@
       "sha256": "0d7fcb2a542c97e1bcee75891447ea8d8b6180a82f06fc59b963e33ff2281caa",
       "gitBlobSha": "70316e41019ea403dc323292ef1917a6b4e5dedd",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_flying_cross_1_class.png"
     },
     {
       "id": "usa_heart",
@@ -1940,7 +2154,8 @@
       "sha256": "b6d40a58f5bdf023cf8443e51a5dcef6070c0e51402b62a4ea77b6c3e3a74f66",
       "gitBlobSha": "b4c3090bc8176b9ea38ccdbb9bd720e1c6ef5401",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_heart.png"
     },
     {
       "id": "usa_honor_medal_air",
@@ -1949,7 +2164,8 @@
       "sha256": "c044d557b2c9985571ee3a341bbd69e943574a737bd8c3a4afc2c4fb42dd56bf",
       "gitBlobSha": "b3efa179aa409be9301bb696c9b1b00542480218",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_honor_medal_air.png"
     },
     {
       "id": "usa_honor_medal_army",
@@ -1958,7 +2174,8 @@
       "sha256": "8010a242fed3c66c1357979943828f5938380d93c291412ec8da34e029b0f9d4",
       "gitBlobSha": "8337ff601072737aaa3fee3b59b435a2a20ebade",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_honor_medal_army.png"
     },
     {
       "id": "usa_honor_medal_navy",
@@ -1967,7 +2184,8 @@
       "sha256": "3e324cbfcfe5d79b46d68b862fc5bc8802a2d3e995ac3f0fc21ab5193faa4ca6",
       "gitBlobSha": "d1bcbd7b6c4f953f5d9fd580861fdddad10d825c",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_honor_medal_navy.png"
     },
     {
       "id": "usa_korean_medal",
@@ -1976,7 +2194,8 @@
       "sha256": "a548a3e349c4d897e0e6ab22d6cd48313e8e262fd9be84eda558501a98ee1f30",
       "gitBlobSha": "6e4dd13c495c519fa6ed5874a987a4b15c7d2766",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_korean_medal.png"
     },
     {
       "id": "usa_merits",
@@ -1985,7 +2204,8 @@
       "sha256": "2f915e588c53d91feb09fc84693e754fb3503862fa68d8c3eb410cd071d63f0c",
       "gitBlobSha": "becbfcaafaaf904193b22f2c3ddea721479b39a0",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_merits.png"
     },
     {
       "id": "usa_navy_cross_2",
@@ -1994,7 +2214,8 @@
       "sha256": "88c489f0f88beb5039875615ee2291c87f257f642589ef8858daab1d01177350",
       "gitBlobSha": "f87a3f0b2a14845c7c305f6f28515b6dc5899bc3",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_navy_cross_2.png"
     },
     {
       "id": "usa_pacific",
@@ -2003,7 +2224,8 @@
       "sha256": "2d149393f6686591fe316b7c411454ddba4322aa411bfc8ca3ca3b36d836d099",
       "gitBlobSha": "d14790647e7e9532443f8d2839ee50c59b80e556",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_pacific.png"
     },
     {
       "id": "usa_service_cross",
@@ -2012,7 +2234,8 @@
       "sha256": "55948e4b06c80f58fc8e1773a397eb28adadef6aef545365bdec22212b63b735",
       "gitBlobSha": "932df6f957086be83b463cbc40b73f34e73b78b8",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_service_cross.png"
     },
     {
       "id": "usa_service_medal_air",
@@ -2021,7 +2244,8 @@
       "sha256": "48dec8323e477e4ce14cba5cb775ef2d406c2b83f1eb81e3fdf0d82556b962e2",
       "gitBlobSha": "dd44c07a331cbf1d54081fcd22f03de1fd81702c",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_service_medal_air.png"
     },
     {
       "id": "usa_service_medal_army",
@@ -2030,7 +2254,8 @@
       "sha256": "d3883e70d6492d3bd19a4ffdc71f5f36f21bdbc57868b068d46049be0adde4b3",
       "gitBlobSha": "b310be2fba1432094c01b3a3d0dd5d9e99c880e8",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_service_medal_army.png"
     },
     {
       "id": "usa_service_medal_navy",
@@ -2039,7 +2264,8 @@
       "sha256": "bd3a7b1c82d05bb626132e4bab7bc3c32cf77537b3199e1f791702964d794a48",
       "gitBlobSha": "824c392ee807ad7b00e894f234c4eb8d2eafe651",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_service_medal_navy.png"
     },
     {
       "id": "usa_sign_bombardier",
@@ -2048,7 +2274,8 @@
       "sha256": "882cb6fa4107d056860b9bb0cb045979bca022a08cdb63b0b4166c318ce8b9a5",
       "gitBlobSha": "9b5e8ef6cdec101f630929848a00ebffe6b91363",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_sign_bombardier.png"
     },
     {
       "id": "usa_sign_gunner",
@@ -2057,7 +2284,8 @@
       "sha256": "d7235b8205f92556735f70f2d48225ff520f00e55b484aa5633e8bcde57170be",
       "gitBlobSha": "a697d4a6d07c482ba70c22309778a5dc545f9a5c",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_sign_gunner.png"
     },
     {
       "id": "usa_sign_pilot",
@@ -2066,7 +2294,8 @@
       "sha256": "c5717951c036cce23af84a2f594efd3d6ab12266fd7da28eca76a07abdced2ea",
       "gitBlobSha": "77b9b9beb0403cb3a7efee65f4459bf0c4b40972",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_sign_pilot.png"
     },
     {
       "id": "usa_sign_pilot_navy",
@@ -2075,7 +2304,8 @@
       "sha256": "f9cccad2fa7dc327490f172c12e85c2f5872434e6b6adc05e2e8042529d5533a",
       "gitBlobSha": "836f19d053650c9c264d82d2d752ffa2dd56bb9b",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_sign_pilot_navy.png"
     },
     {
       "id": "usa_silver_star",
@@ -2084,7 +2314,8 @@
       "sha256": "ecfcf68974982954c9dcc4874104df4d233965805f0423681d272c171916e476",
       "gitBlobSha": "5f26dc6b06a6f939b7cfc51017e2f492e1e79677",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_silver_star.png"
     },
     {
       "id": "usa_wwii_medal",
@@ -2093,7 +2324,8 @@
       "sha256": "51fd7abd2fb8767486e5189ca6aba38304e4bc4dfde29708b512525c06af7833",
       "gitBlobSha": "972163e75d04afa5d468284b2c521b35fa8727bd",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/usa_wwii_medal.png"
     },
     {
       "id": "ussr_air_badge",
@@ -2102,7 +2334,8 @@
       "sha256": "f6840f61f6083061ee213c57bdc30c5aa9642ad6387215722b1699cc8324d9de",
       "gitBlobSha": "b398db418e218d50ed4676af3b87b71c0b681deb",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_air_badge.png"
     },
     {
       "id": "ussr_antiaircraft_badge",
@@ -2111,7 +2344,8 @@
       "sha256": "bf06c41f91df9ee5edda5c8baa698f1b745e3291f5461ac1f031fc8977e43bc2",
       "gitBlobSha": "8e08947f1c0b42c3b09c7d0bfb3d62be53f2bfcf",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_antiaircraft_badge.png"
     },
     {
       "id": "ussr_berlin_capture_medal",
@@ -2120,7 +2354,8 @@
       "sha256": "bf92dd4d18b67cade04b4e1fd445a4766d9573317596d5cf98157160aff7e24d",
       "gitBlobSha": "e2b795f97afb98228ce99390a119fa8a2d5c5511",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_berlin_capture_medal.png"
     },
     {
       "id": "ussr_caucasus_def_medal",
@@ -2129,7 +2364,8 @@
       "sha256": "4ed9a387c817f25b9cdfc8442c91be71079527d1035c9a558500c296e445f732",
       "gitBlobSha": "c111b035598d8dec34e93eac60bd5263d81180c2",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_caucasus_def_medal.png"
     },
     {
       "id": "ussr_for_battle_merit_medal",
@@ -2138,7 +2374,8 @@
       "sha256": "e6fa04dff89a44bd65364648663037d4085e1bdedbcf582702a71379eff2ec61",
       "gitBlobSha": "cdbe3fd7faa31b5eb091ddb8db665036929f5d79",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_for_battle_merit_medal.png"
     },
     {
       "id": "ussr_for_victory_over_germany_medal",
@@ -2147,7 +2384,8 @@
       "sha256": "7bc4263fb79d46fc06310c4eca08f1c092ba1d70f1a94695b709c1d85c064f9c",
       "gitBlobSha": "f3156ef043adb1d71610d92b7609f98e88b30a72",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_for_victory_over_germany_medal.png"
     },
     {
       "id": "ussr_for_victory_over_japan_medal",
@@ -2156,7 +2394,8 @@
       "sha256": "ffbad52f7271c50a6c844b19e4618157d9d8fd6fcb30ecf4966ecbdc6421bff7",
       "gitBlobSha": "1866e4f7a6956fcdb3f9ed4241adecb86d177e37",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_for_victory_over_japan_medal.png"
     },
     {
       "id": "ussr_glory_order_1_class",
@@ -2165,7 +2404,8 @@
       "sha256": "aff06212abcbcf00ee2a2cc21337dc3b8e56cbdd7bae771638be5571b23e0eb7",
       "gitBlobSha": "acb6f4c473000675ad23004a5cc30e3f49666026",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_glory_order_1_class.png"
     },
     {
       "id": "ussr_glory_order_2_class",
@@ -2174,7 +2414,8 @@
       "sha256": "3007391cc95e6f068d205a9fb0038f21207e0778b857a591512e35ac5a74b540",
       "gitBlobSha": "432d70babe6a2eabf12744e09915a4243d8d0ffc",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_glory_order_2_class.png"
     },
     {
       "id": "ussr_glory_order_3_class",
@@ -2183,7 +2424,8 @@
       "sha256": "8e62fd137e857aec9690110ad070a1570b661a9e49247bbe4c0acbef7844f171",
       "gitBlobSha": "d46fa5add7d15ff55784b653535dee0bbb32aaed",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_glory_order_3_class.png"
     },
     {
       "id": "ussr_hero",
@@ -2192,7 +2434,8 @@
       "sha256": "8aef78245640b2182aa6d70c9891fae776d1eae99eed95a2fc6f3e1345b7a318",
       "gitBlobSha": "91405d2bfa56263a003809d9d77569016190aafb",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_hero.png"
     },
     {
       "id": "ussr_leningrad_def_medal",
@@ -2201,7 +2444,8 @@
       "sha256": "b4f561e3a097fac0a869b70ade51ed9d726c2a320b6ca9e6d73425e0de996077",
       "gitBlobSha": "35ba1ecf17e1cd20f435e8b08b9b8dd71d3e32c4",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_leningrad_def_medal.png"
     },
     {
       "id": "ussr_moscow_def_medal",
@@ -2210,7 +2454,8 @@
       "sha256": "2c470c0e89a1a15fe08461c6053162ee479e3ebfa94db4d8d8eb4486163d6a00",
       "gitBlobSha": "1e1dd4a9e287228386ebbc6b77a1ad56c606eb9b",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_moscow_def_medal.png"
     },
     {
       "id": "ussr_nakhimov_medal",
@@ -2219,7 +2464,8 @@
       "sha256": "6201bda3a4e7cda066ebf8dfbac64be58a63f1b3838202a2ec1a72ebb9c97c91",
       "gitBlobSha": "a7dd0453a571b3d8679fd3f20d104c2c49e942d8",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_nakhimov_medal.png"
     },
     {
       "id": "ussr_navy_badge",
@@ -2228,7 +2474,8 @@
       "sha256": "96aa40143128cc13178372ba336d9395738d55e550e56e295c3279fb6df6b6cb",
       "gitBlobSha": "2ded739f7b422ad315a5bc6cff94e6659d6e82e4",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_navy_badge.png"
     },
     {
       "id": "ussr_patriotic_war_1_class",
@@ -2237,7 +2484,8 @@
       "sha256": "c6a173e3a6fea04e21d8da0e0888ba36501fbb6e6dcb36ce90779fff2f557275",
       "gitBlobSha": "646a860106337a2438df04be4ad39e0cbae69c2a",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_patriotic_war_1_class.png"
     },
     {
       "id": "ussr_patriotic_war_2_class",
@@ -2246,7 +2494,8 @@
       "sha256": "64a44e767d66b91a6700805eb07045c0c9dc3d63279cba5bcad48c7311d52883",
       "gitBlobSha": "ffe04049a805b42d7a0b2745bcb29f6c4aa03692",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_patriotic_war_2_class.png"
     },
     {
       "id": "ussr_red_banner_order",
@@ -2255,7 +2504,8 @@
       "sha256": "4c16556e3cce98ae70e6808b1e15c2f7127a102222febc872de65fe03654aafd",
       "gitBlobSha": "0ba57e98c3fec1f2f310be414201c40721d737ed",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_red_banner_order.png"
     },
     {
       "id": "ussr_red_star_order",
@@ -2264,7 +2514,8 @@
       "sha256": "537aa5f9bfe47ab12749a09be171e62d794766132e6fcdf3262afe9eed4e7e5e",
       "gitBlobSha": "74d4c3311c3dee6d1159ef0f27b72eb66ae4f54a",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_red_star_order.png"
     },
     {
       "id": "ussr_stalingrad_def_medal",
@@ -2273,7 +2524,8 @@
       "sha256": "f7e5f49ddfcf23e04d4f257730508d441a3ef833f8f8fa27fa93d958afa0179c",
       "gitBlobSha": "d3b1fc3de49c4f0edbcdfb47c518bda345564765",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_stalingrad_def_medal.png"
     },
     {
       "id": "ussr_tank_shooting_badge",
@@ -2282,7 +2534,8 @@
       "sha256": "1d50b74de58fbd5b3cd2cc3769ffaa51cc0585c8048209b267ac7420c49559e0",
       "gitBlobSha": "f67c62e095d33c0010d8cc1c9bc226e82505dda2",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_tank_shooting_badge.png"
     },
     {
       "id": "ussr_tanker_badge",
@@ -2291,7 +2544,8 @@
       "sha256": "12043627047b871d9f2dcdd64ec3f4bca4a27ea7c3a3a078f8e82e17aca22552",
       "gitBlobSha": "a6b45147074a2ccba895162e445389bd0e686e3b",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_tanker_badge.png"
     },
     {
       "id": "ussr_torpedoman_badge",
@@ -2300,7 +2554,8 @@
       "sha256": "f22e38b36b58d7fe36cc19664a80f1ae71598a350a43609502c9fef33afee14b",
       "gitBlobSha": "45f4a423ef121834471222b8827a5a55098ee864",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_torpedoman_badge.png"
     },
     {
       "id": "ussr_ushakov_medal",
@@ -2309,7 +2564,8 @@
       "sha256": "03cc2b4d755de96ac0407c70e01cc60ac2689b764813585c089e18488fa4524b",
       "gitBlobSha": "2facace1064fa1e42e6dbda450ad443ff3555a8f",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_ushakov_medal.png"
     },
     {
       "id": "ussr_valor_medal",
@@ -2318,7 +2574,8 @@
       "sha256": "0438b6c420bdb55a744f1e5c5bc6a8f1e2f13a343af2acfafe1b6a3e2c89ebcf",
       "gitBlobSha": "d5e94dedb264cc98183c8d9ba3bdaad605cf057b",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_valor_medal.png"
     },
     {
       "id": "ussr_victory_75_medal",
@@ -2327,7 +2584,8 @@
       "sha256": "e63ef13ba8f6663b3171710c7acd07c3f1b6ba4e7727e1b8bc3cb4aea4000038",
       "gitBlobSha": "30e17def1610b69ac229c81d28edbd55febfc8e7",
       "width": 128,
-      "height": 128
+      "height": 128,
+      "fallbackUrl": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/atlases.vromfs.bin_u/medals/ussr_victory_75_medal.png"
     }
   ]
 }

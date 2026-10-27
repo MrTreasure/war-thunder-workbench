@@ -1,111 +1,161 @@
 import { useLocale } from "./i18n/react";
-import { t, localize, getLocale } from "./i18n/core";
-import { useRef, useState } from "react";
+import { t, getLocale } from "./i18n/core";
+import { useLayoutEffect, useRef, useState } from "react";
 import { Modal } from "./Modal";
 import imageRegistry from "../data/player-medal-images.json";
 import { GameSelect } from "./components/GameSelect";
+import { GameTip } from "./components/GameTip";
 import { statsCountryLabel } from "./stats-country";
 import type { PlayerMedals as Medals, PlayerMedal } from "./player-rankings-api";
 
-const medalImages = new Map(
-  (imageRegistry.items as { id: string; url: string }[]).map((item) => [item.id, item.url]),
-);
+const medalImages = new Map(imageRegistry.items.map((item) => [item.id, item]));
 
 function medalName(medal: PlayerMedal) {
   return medal.names[getLocale()] || medal.names.en || t("已获勋章");
 }
 
-/** Renders earned unlocks only. An absent old snapshot is not an empty medal collection. */
-export function PlayerMedals({ medals }: { medals?: Medals | null }) {
+function MedalBadge({
+  medal,
+  unavailable,
+}: {
+  medal: PlayerMedal;
+  unavailable: (id: string) => void;
+}) {
+  const [fallback, setFallback] = useState(false);
+  const image = medalImages.get(medal.id)!;
+  return (
+    <GameTip
+      label={medalName(medal)}
+      className="wt-player-medal"
+      icon={
+        <img
+          src={fallback ? image.fallbackUrl : image.url}
+          width={16}
+          height={16}
+          alt=""
+          onError={() => (fallback ? unavailable(medal.id) : setFallback(true))}
+        />
+      }
+    >
+      <p>{t("{0} · 已获得", [statsCountryLabel(medal.country)])}</p>
+    </GameTip>
+  );
+}
+
+/** Compact earned artwork only; transport failures must never erase ownership. */
+export function PlayerMedals({
+  medals,
+  busy = false,
+  error = "",
+  retry,
+}: {
+  medals?: Medals | null;
+  busy?: boolean;
+  error?: string;
+  retry?: () => void;
+}) {
   useLocale();
   const [open, setOpen] = useState(false);
   const [country, setCountry] = useState("all");
   const trigger = useRef<HTMLButtonElement>(null);
+  const strip = useRef<HTMLDivElement>(null);
   const [failed, setFailed] = useState<string[]>([]);
+  const [limit, setLimit] = useState(4);
   const owned = medals?.items.filter((item) => medalImages.has(item.id)) || [];
-  const visible = owned.filter((item) => !failed.includes(item.id));
-  if (!visible.length) return null;
-  const count = owned.length;
-  const countries = [...new Set(owned.map((item) => item.country))];
-  const filtered = owned.filter((item) => country === "all" || item.country === country);
+  const available = owned.filter((item) => !failed.includes(item.id));
+  const visible = available.slice(0, limit);
+  useLayoutEffect(() => {
+    const element = strip.current;
+    if (!element) return;
+    const measure = () => {
+      const step = matchMedia("(pointer: coarse)").matches ? 36 : 28;
+      setLimit(Math.max(1, Math.min(24, Math.floor((element.clientWidth - 48) / step))));
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [medals, busy, error]);
+  const unavailable = (id: string) => setFailed((ids) => (ids.includes(id) ? ids : [...ids, id]));
   const close = () => {
     setOpen(false);
     requestAnimationFrame(() => trigger.current?.focus({ preventScroll: true }));
   };
+  if (!owned.length) {
+    if (busy)
+      return (
+        <div
+          className="wt-player-medals"
+          ref={strip}
+          aria-label={t("正在读取勋章")}
+          aria-busy="true"
+        >
+          <span className="wt-player-medals-loading" />
+        </div>
+      );
+    if (error)
+      return (
+        <div className="wt-player-medals" ref={strip}>
+          <button type="button" className="wt-player-medals-retry" onClick={retry} title={error}>
+            {t("重新加载勋章")}
+          </button>
+        </div>
+      );
+    return null;
+  }
+  const count = owned.length;
+  const countries = [...new Set(owned.map((item) => item.country))];
+  const filtered = available.filter((item) => country === "all" || item.country === country);
   return (
-    <div className="wt-player-medals">
+    <div className="wt-player-medals" ref={strip} aria-label={t("已获勋章 {0} 枚", [count])}>
+      {visible.map((item) => (
+        <MedalBadge key={item.id} medal={item} unavailable={unavailable} />
+      ))}
       <button
         type="button"
         className="wt-player-medals-trigger"
         ref={trigger}
         aria-haspopup="dialog"
+        aria-label={t("查看已获勋章 · {0}", [count])}
         onClick={() => setOpen(true)}
-        title={t("查看已获勋章")}
+        title={t("查看已获勋章 · {0}", [count])}
       >
-        <img
-          src={medalImages.get(visible[0].id)}
-          width={32}
-          height={40}
-          alt=""
-          onError={() => setFailed((ids) => [...ids, visible[0].id])}
-        />
-        <span>
-          {t("已获勋章")}
-          <b>{localize(count)}</b>
-        </span>
-        <span className="wt-player-medals-names" aria-hidden="true">
-          {localize(
-            visible
-              .slice(0, 2)
-              .map((item) => <span key={item.id}>{localize(medalName(item))}</span>),
-          )}
-        </span>
-        <span aria-hidden="true">›</span>
+        {visible.length < count ? `+${count - visible.length}` : count}
       </button>
-      {localize(
-        open && (
-          <Modal
-            title={t("已获勋章 · {0}", [localize(count)])}
-            close={close}
-            className="wt-player-medals-dialog"
-          >
-            <div className="wt-player-medals-controls">
-              <GameSelect aria-label={t("勋章所属国家")} value={country} onValueChange={setCountry}>
-                <option value="all">{t("全部国家")}</option>
-                {localize(
-                  countries.map((id) => (
-                    <option key={id} value={id}>
-                      {localize(statsCountryLabel(id))}
-                    </option>
-                  )),
-                )}
-              </GameSelect>
-              <span>
-                {localize(filtered.length)}
-                {t("枚")}
-              </span>
-            </div>
-            <ul className="wt-player-medals-list">
-              {localize(
-                filtered.map((item) => (
-                  <li key={item.id}>
-                    <img
-                      src={medalImages.get(item.id)}
-                      width={40}
-                      height={48}
-                      alt=""
-                      onError={() => setFailed((ids) => [...ids, item.id])}
-                    />
-                    <div>
-                      <strong>{localize(medalName(item))}</strong>
-                      <small>{localize(statsCountryLabel(item.country))}</small>
-                    </div>
-                  </li>
-                )),
-              )}
-            </ul>
-          </Modal>
-        ),
+      {open && (
+        <Modal
+          title={t("已获勋章 · {0}", [count])}
+          close={close}
+          className="wt-player-medals-dialog"
+        >
+          <div className="wt-player-medals-controls">
+            <GameSelect aria-label={t("勋章所属国家")} value={country} onValueChange={setCountry}>
+              <option value="all">{t("全部国家")}</option>
+              {countries.map((id) => (
+                <option key={id} value={id}>
+                  {statsCountryLabel(id)}
+                </option>
+              ))}
+            </GameSelect>
+            <span>
+              {t("{0} 枚", [
+                owned.filter((item) => country === "all" || item.country === country).length,
+              ])}
+            </span>
+          </div>
+          <ul className="wt-player-medals-list">
+            {filtered.map((item) => (
+              <li key={item.id}>
+                <MedalBadge medal={item} unavailable={unavailable} />
+              </li>
+            ))}
+          </ul>
+          {failed.length > 0 && (
+            <button type="button" className="wt-player-medals-retry" onClick={() => setFailed([])}>
+              {t("重新加载图标")}
+            </button>
+          )}
+        </Modal>
       )}
     </div>
   );
