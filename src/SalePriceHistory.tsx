@@ -170,27 +170,30 @@ export function SalePriceHistory({
     return () => c.abort();
   }, [vehicle.id, reload]);
   const offers = useMemo(() => groupedOffers(data || undefined), [data]);
-  const offer: PriceOffer | undefined =
-    offers.find((o) => o.id === offerId) ||
-    offers[0] ||
-    (data?.discountEvidence?.some((e) => e.purchaseCondition === "普通单件购买") &&
-    vehicle.originalPrice
-      ? {
-          id: "announcement-reference",
-          title: vehicle.name,
-          currency: vehicle.originalPrice.currency,
-          platform: "gaijin_pc",
-          region: "unknown",
-          conditions: "普通单件购买",
-          contentVersion: "reference",
-          latest: null,
-          minimum: null,
-          firstObservedAt: null,
-          sampleCount: 0,
-          available: false,
-          points: [],
-        }
-      : undefined);
+  const offer = useMemo<PriceOffer | undefined>(
+    () =>
+      offers.find((o) => o.id === offerId) ||
+      offers[0] ||
+      (data?.discountEvidence?.some((e) => e.purchaseCondition === "普通单件购买") &&
+      vehicle.originalPrice
+        ? {
+            id: "announcement-reference",
+            title: vehicle.name,
+            currency: vehicle.originalPrice.currency,
+            platform: "gaijin_pc",
+            region: "unknown",
+            conditions: "普通单件购买",
+            contentVersion: "reference",
+            latest: null,
+            minimum: null,
+            firstObservedAt: null,
+            sampleCount: 0,
+            available: false,
+            points: [],
+          }
+        : undefined),
+    [offers, offerId, data?.discountEvidence, vehicle],
+  );
   const minimum = historicalDisplayMinimum(vehicle, offer, data?.discountEvidence);
   const displayPoints = useMemo(
     () => historicalDisplayPoints(vehicle, offer, data?.discountEvidence),
