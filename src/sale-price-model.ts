@@ -232,7 +232,10 @@ export function historicalDisplayMinimum(
   if (observed) points.push(observed);
   return (
     points
-      .filter((p) => p.regularAmountMinor != null && p.amountMinor < p.regularAmountMinor)
+      .filter(
+        (p) =>
+          p === observed || (p.regularAmountMinor != null && p.amountMinor < p.regularAmountMinor),
+      )
       .sort(
         (a, b) =>
           a.amountMinor - b.amountMinor ||
