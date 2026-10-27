@@ -25,7 +25,8 @@
 }
 .wt-game-tag-skin,
 .wt-game-tag-tint,
-.wt-game-tag-material {
+.wt-game-tag-material,
+.wt-game-tag-luster {
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -40,7 +41,8 @@
   border-image-repeat: stretch;
 }
 .wt-game-tag-tint,
-.wt-game-tag-material {
+.wt-game-tag-material,
+.wt-game-tag-luster {
   z-index: -2;
   background: var(--wt-tag-tint);
   -webkit-mask-box-image-source: var(--wt-tag-image);
@@ -79,6 +81,78 @@
    Keep one continuous background, with no rectangular inset or left-side seam. */
 .wt-game-tag-material {
   mix-blend-mode: overlay;
+}
+/* Keep motion inside the same nine-slice alpha mask as the material. Moving
+   pseudo-elements cannot cover the eyelet or escape the pointed silhouette. */
+.wt-game-tag-luster {
+  --wt-tag-glint: #fff4de;
+  --wt-tag-shine-duration: 4.8s;
+  --wt-tag-shine-delay: -1.1s;
+  z-index: -1;
+  overflow: hidden;
+  background: none;
+  mix-blend-mode: overlay;
+}
+.wt-game-tag-luster::before,
+.wt-game-tag-luster::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.wt-game-tag-luster::before {
+  background: linear-gradient(
+    112deg,
+    transparent 24%,
+    #ffffff10 34%,
+    var(--wt-tag-glint) 48%,
+    #ffffff70 51%,
+    transparent 65%
+  );
+  opacity: 0;
+  transform: translateX(-115%);
+}
+.wt-game-tag-luster::after {
+  background:
+    radial-gradient(ellipse 1px 5px at 28% 24%, var(--wt-tag-glint) 15%, transparent 100%),
+    radial-gradient(ellipse 5px 1px at 28% 24%, var(--wt-tag-glint) 15%, transparent 100%),
+    radial-gradient(ellipse 1px 4px at 80% 75%, var(--wt-tag-glint) 15%, transparent 100%),
+    radial-gradient(ellipse 4px 1px at 80% 75%, var(--wt-tag-glint) 15%, transparent 100%),
+    radial-gradient(circle 1px at 60% 16%, var(--wt-tag-glint) 25%, transparent 100%);
+  opacity: 0.3;
+}
+.wt-game-tag[data-tone="silver"] .wt-game-tag-luster {
+  --wt-tag-glint: #edfbff;
+  --wt-tag-shine-duration: 4.4s;
+  --wt-tag-shine-delay: -2.5s;
+}
+.wt-game-tag[data-tone="gold"] .wt-game-tag-luster {
+  --wt-tag-glint: #fff6bd;
+  --wt-tag-shine-duration: 4.2s;
+  --wt-tag-shine-delay: -0.8s;
+}
+.wt-game-tag[data-tone="emerald"] .wt-game-tag-luster {
+  --wt-tag-glint: #b9ffe5;
+  --wt-tag-shine-duration: 4s;
+  --wt-tag-shine-delay: -1.8s;
+}
+.wt-game-tag[data-tone="diamond"] .wt-game-tag-luster {
+  --wt-tag-glint: #f0fdff;
+  --wt-tag-shine-duration: 3.6s;
+  --wt-tag-shine-delay: -0.4s;
+}
+.wt-game-tag[data-tone="king"] .wt-game-tag-luster {
+  --wt-tag-glint: #ffe49c;
+  --wt-tag-shine-duration: 3.8s;
+  --wt-tag-shine-delay: -2.2s;
+}
+.wt-game-tag[data-animated] .wt-game-tag-luster::before {
+  animation: wt-tag-metal-sweep var(--wt-tag-shine-duration) ease-in-out infinite;
+  animation-delay: var(--wt-tag-shine-delay);
+}
+.wt-game-tag[data-animated] .wt-game-tag-luster::after {
+  animation: wt-tag-metal-glint 3.2s ease-in-out infinite;
+  animation-delay: var(--wt-tag-shine-delay);
 }
 .wt-game-tag[data-tone="bronze"] .wt-game-tag-material {
   background:
@@ -241,7 +315,8 @@
 }
 .wt-game-tag.is-interactive .wt-game-tag-skin,
 .wt-game-tag.is-interactive .wt-game-tag-tint,
-.wt-game-tag.is-interactive .wt-game-tag-material {
+.wt-game-tag.is-interactive .wt-game-tag-material,
+.wt-game-tag.is-interactive .wt-game-tag-luster {
   inset-block: 7.75px;
 }
 .wt-game-tag.is-interactive:hover:not(:disabled) .wt-game-tag-label,
@@ -275,6 +350,36 @@
     background-position: -70% 50%;
   }
 }
+@keyframes wt-tag-metal-sweep {
+  0%,
+  12% {
+    opacity: 0;
+    transform: translateX(-115%);
+  }
+  22% {
+    opacity: 0.7;
+  }
+  62% {
+    opacity: 0.7;
+  }
+  76%,
+  100% {
+    opacity: 0;
+    transform: translateX(115%);
+  }
+}
+@keyframes wt-tag-metal-glint {
+  0%,
+  100% {
+    opacity: 0.16;
+  }
+  32% {
+    opacity: 0.85;
+  }
+  68% {
+    opacity: 0.3;
+  }
+}
 .wt-game-tag[data-tone="rainbow"][data-animated] .wt-game-tag-tint {
   animation: wt-tag-prismatic 4.2s linear infinite;
 }
@@ -283,6 +388,10 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .wt-game-tag:not([data-motion-override]) :is(.wt-game-tag-tint, .wt-game-tag-material) {
+    animation: none;
+  }
+  .wt-game-tag:not([data-motion-override]) .wt-game-tag-luster::before,
+  .wt-game-tag:not([data-motion-override]) .wt-game-tag-luster::after {
     animation: none;
   }
 }
