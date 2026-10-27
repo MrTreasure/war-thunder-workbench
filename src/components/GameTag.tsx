@@ -50,6 +50,9 @@ export function GameTag({
       <span className="wt-game-tag-skin" aria-hidden="true" />
       <span className="wt-game-tag-tint" aria-hidden="true" />
       <span className="wt-game-tag-material" aria-hidden="true" />
+      {gameTagTiers.includes(tone) && tone !== "rainbow" && (
+        <span className="wt-game-tag-luster" aria-hidden="true" />
+      )}
       <span className="wt-game-tag-label">{localize(children)}</span>
     </>
   );
