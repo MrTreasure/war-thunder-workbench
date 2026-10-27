@@ -1,5 +1,5 @@
 import { TagSelector, type TagChoice } from "./components/TagSelector";
-import { useTagCatalog, tagLabel } from "./game-tag-catalog";
+import { useTagCatalog } from "./game-tag-catalog";
 import { useGameTagAccess } from "./game-tag-access";
 // Fetch status and identity reset synchronize the current request/account with the UI.
 /* oxlint-disable react/set-state-in-effect */
@@ -10,7 +10,6 @@ import { Modal } from "./Modal";
 import { GameSelect } from "./components/GameSelect";
 import { VehicleTile } from "./VehicleTile";
 import { LineupTag } from "./LineupTag";
-import type { GameTagTone } from "./components/GameTag";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
 import {
   communityRequest,
@@ -255,40 +254,39 @@ export function LineupShareTools({
   country,
   units,
   defaultMode,
+  onTagsChange,
 }: {
   lineup: Lineup;
   code: string;
   country: string;
   units: Map<string, LineupVehicle>;
   defaultMode: Mode;
+  onTagsChange: (tags: TagChoice[]) => boolean;
 }) {
   const account = useWorkbenchAccount();
   const userId = account.session?.user?.id;
   const [mode, setMode] = useState<Mode>(defaultMode === "ab" ? "ab" : "rb");
   const rating = lineupRatings(lineup, units, bootstrap.lineup).find((r) => r.mode === mode)!;
-  const selected = lineup.slots.flatMap((id) => (id && units.has(id) ? [units.get(id)!] : []));
-  const composition = selected.every((u) => u.side === "research")
-    ? "tech"
-    : selected.every((u) => u.kind === "gold")
-      ? "all-ge"
-      : selected.some((u) => u.kind === "pack")
-        ? "mixed-pack"
-        : selected.some((u) => u.kind === "gold")
-          ? "mixed-ge"
-          : "mixed-event";
-  const [choices, setChoices] = useState<TagChoice[]>([]);
-  const [includeComposition, setIncludeComposition] = useState(true);
-  const [compositionTone, setCompositionTone] = useState<GameTagTone>("red");
+  const [choices, setChoices] = useState<TagChoice[]>(() => {
+    if (lineup.shareTags !== undefined) return lineup.shareTags;
+    const selected = lineup.slots.flatMap((id) => (id && units.has(id) ? [units.get(id)!] : []));
+    const composition = selected.every((u) => u.side === "research")
+      ? "tech"
+      : selected.every((u) => u.kind === "gold")
+        ? "all-ge"
+        : selected.some((u) => u.kind === "pack")
+          ? "mixed-pack"
+          : selected.some((u) => u.kind === "gold")
+            ? "mixed-ge"
+            : "mixed-event";
+    return [{ id: composition, tone: "red" }];
+  });
   const tagAccess = useGameTagAccess();
   const tagCatalog = useTagCatalog("lineup");
   const tags = useMemo(() => choices.map((choice) => choice.id), [choices]);
   const tagTones = useMemo(
-    () =>
-      Object.fromEntries([
-        ...choices.map((choice) => [choice.id, choice.tone]),
-        ...(includeComposition ? [[composition, compositionTone]] : []),
-      ]),
-    [choices, includeComposition, composition, compositionTone],
+    () => Object.fromEntries(choices.map((choice) => [choice.id, choice.tone])),
+    [choices],
   );
   const [post, setPost] = useState<CommunityPost | null>(null);
   const [identity, setIdentity] = useState({ author: "游客", authorId: "" });
@@ -298,9 +296,6 @@ export function LineupShareTools({
   useEffect(() => {
     setIdentity({ author: "游客", authorId: "" });
     setPost(null);
-    setChoices([]);
-    setIncludeComposition(true);
-    setCompositionTone("red");
     if (!userId) return;
     const abort = new AbortController();
     void communityRequest<{ author: string; authorId: string }>("identity", undefined, abort.signal)
@@ -320,7 +315,7 @@ export function LineupShareTools({
         mode,
         activeAircraft: lineup.activeAircraft || "",
         slots: lineup.slots,
-        tags: includeComposition ? [composition, ...tags] : tags,
+        tags,
         tagTones,
         step: rating.step,
         rating: rating.label,
@@ -331,20 +326,7 @@ export function LineupShareTools({
         vote: 0,
         mine: true,
       },
-    [
-      post,
-      lineup,
-      country,
-      code,
-      mode,
-      composition,
-      includeComposition,
-      tags,
-      tagTones,
-      rating.step,
-      rating.label,
-      identity,
-    ],
+    [post, lineup, country, code, mode, tags, tagTones, rating.step, rating.label, identity],
   );
   const count = lineup.slots.filter(Boolean).length;
   const invalid =
@@ -358,6 +340,7 @@ export function LineupShareTools({
       await account.login();
       return;
     }
+    if (!onTagsChange(choices)) return;
     setBusy(true);
     setError("");
     try {
@@ -367,7 +350,7 @@ export function LineupShareTools({
         mode,
         activeAircraft: lineup.activeAircraft || "",
         tags,
-        includeComposition,
+        includeComposition: false,
         tagTones,
       });
       setPost(value);
@@ -404,7 +387,7 @@ export function LineupShareTools({
       </label>
       <div className="wt-community-section-title">
         <span>队列标签 · 最多选择 5 个</span>
-        <small>{tags.length + Number(includeComposition)}/5</small>
+        <small>{tags.length}/5</small>
       </div>
       <p className="calc-note">
         {account.session?.role === "superadmin"
@@ -424,30 +407,20 @@ export function LineupShareTools({
         </p>
       )}
       <TagSelector
-        options={[
-          ...tagCatalog.options,
-          {
-            id: composition,
-            label: tagLabel(composition, tagCatalog.items) || composition,
-            group: "队列标签",
-            family: "queue",
-          },
-        ]}
+        options={tagCatalog.items
+          .filter((tag) => !tag.scopes || tag.scopes.includes("lineup"))
+          .map((tag) => ({ ...tag, system: false }))}
         loading={tagCatalog.loading}
         error={tagCatalog.error}
         onRetry={tagCatalog.refresh}
-        value={
-          includeComposition ? [{ id: composition, tone: compositionTone }, ...choices] : choices
-        }
+        value={choices}
         allowedTones={tagAccess.allowedTones}
         max={5}
         label="队列标签"
         disabled={busy}
         onChange={(value) => {
-          const inferred = value.find((choice) => choice.id === composition);
-          setIncludeComposition(!!inferred);
-          if (inferred) setCompositionTone(inferred.tone);
-          setChoices(value.filter((choice) => choice.id !== composition));
+          if (!onTagsChange(value)) return;
+          setChoices(value);
           setPost(null);
         }}
       />

@@ -554,6 +554,10 @@ function CountryLineups({
               分享码只包含国家和载具槽位，不包含队列名称、战斗类型和空战 RB 出击选择。
             </p>
             <LineupShareTools
+              key={selected.id}
+              onTagsChange={(shareTags) =>
+                save(saved.map((row) => (row.id === selected.id ? { ...row, shareTags } : row)))
+              }
               lineup={selected}
               code={share.code}
               country={country}
