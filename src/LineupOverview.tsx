@@ -23,7 +23,7 @@ export function LineupSummary({
     <ol
       className="lineup-summary-slots"
       tabIndex={0}
-      aria-label={t("{0} 的槽位预览，可横向滚动", [localize(lineup.name)])}
+      aria-label={t("{0} 的槽位预览", [localize(lineup.name)])}
     >
       {localize(
         lineup.slots

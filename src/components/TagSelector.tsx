@@ -79,7 +79,7 @@ function TagFormDialog({
   const [rows, setRows] = useState<Row[]>(() =>
     value.length
       ? value.map((choice) => ({ ...choice, key: crypto.randomUUID() }))
-      : [{ key: crypto.randomUUID(), id: "", tone: "original" }],
+      : [{ key: crypto.randomUUID(), id: "", tone: "red" }],
   );
   const [active, setActive] = useState(() => rows[0]?.key || "");
   const [library, setLibrary] = useState<"queue" | "titles" | null>(null);
@@ -169,7 +169,7 @@ function TagFormDialog({
                   const item = {
                     key: crypto.randomUUID(),
                     id: "",
-                    tone: "original" as GameTagTone,
+                    tone: "red" as GameTagTone,
                   };
                   setRows([...rows, item]);
                   setActive(item.key);

@@ -28,6 +28,7 @@ export type CommunityPost = {
 };
 export type CommunityPage = { items: CommunityPost[]; page: number; hasMore: boolean };
 export type CommunityDraft = {
+  includeComposition?: boolean;
   code: string;
   battle: BattleType;
   mode: Mode;

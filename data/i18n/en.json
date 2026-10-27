@@ -282,6 +282,7 @@
   "仅统计当前常规科技树已拥有载具，包含未出战载具；金鹰、礼包及其他特种载具不计入进度与毕业。组合载具按一个项目计数。": "Counts owned vehicles in the current regular tree, including unplayed vehicles. GE, packs and special vehicles are excluded from progress and completion. Combined vehicles count as one.",
   "· 可研发目录": "· Researchable catalog",
   "{0} 的槽位预览，可横向滚动": "Crew preview for {0}; scroll horizontally",
+  "{0} 的槽位预览": "Crew preview for {0}",
   "队列不同模式权重": "Lineup BR by mode",
   "不同模式的队列权重": "Lineup BR in different modes",
   "辆不参与此模式计算": " vehicles excluded from this mode",
