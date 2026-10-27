@@ -13,11 +13,16 @@
 }
 .wt-share-heading {
   display: grid;
-  grid-template-columns: repeat(3, 228px);
-  gap: 8px;
-  margin: 0 0 14px;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 10px;
 }
 .wt-share-heading p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
   margin: 0;
   font-size: 20px;
   font-weight: 400;
@@ -25,15 +30,16 @@
   color: #bdc5c9;
 }
 .wt-share-heading-label {
+  flex: none;
   display: block;
   font-size: 12px;
   line-height: 19px;
   color: #93a3ad;
 }
 .wt-share-heading small {
-  margin-left: 8px;
-  font-size: 14px;
-  color: #8d9ca6;
+  font-size: 13px;
+  color: #9fadb6;
+  white-space: nowrap;
 }
 .wt-share-heading strong {
   font-weight: 400;
@@ -82,11 +88,11 @@
 }
 .wt-share-footer {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-top: 18px;
-  padding-top: 10px;
+  margin-top: 10px;
+  padding-top: 8px;
   border-top: 1px solid #61748040;
 }
 .wt-share-id {
@@ -101,14 +107,16 @@
   font-weight: 400;
 }
 .wt-share-attribution {
-  display: grid;
-  justify-items: end;
-  gap: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
   margin-left: auto;
-  flex: 0 0 auto;
-  max-width: 76%;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 .wt-share-code {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -126,6 +134,8 @@
   user-select: text;
 }
 .wt-share-owner {
+  white-space: nowrap;
+  min-width: 0;
   display: flex;
   align-items: center;
   gap: 8px;

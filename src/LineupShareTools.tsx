@@ -52,6 +52,13 @@ export function LineupShareImage({
     >
       <header className="wt-share-heading">
         <p>
+          <span className="wt-share-heading-label">出击队列</span>
+          <strong className="wt-share-nation">
+            <img src={bootstrap.flags[post.country as keyof typeof bootstrap.flags]} alt="" />
+            {country}
+          </strong>
+        </p>
+        <p>
           <span className="wt-share-heading-label">分房范围</span>
           <strong>{window ? `${window.minimum} – ${window.maximum}` : post.rating}</strong>
           {window && <small>队列 {post.rating}</small>}
@@ -59,13 +66,6 @@ export function LineupShareImage({
         <p>
           <span className="wt-share-heading-label">游戏模式</span>
           <strong>{gameMode}</strong>
-        </p>
-        <p>
-          <span className="wt-share-heading-label">出击队列</span>
-          <strong className="wt-share-nation">
-            <img src={bootstrap.flags[post.country as keyof typeof bootstrap.flags]} alt="" />
-            {country}
-          </strong>
         </p>
       </header>
       <div className="wt-share-crew">
@@ -98,9 +98,6 @@ export function LineupShareImage({
         </section>
       )}
       <footer className="wt-share-footer">
-        <span className="wt-share-id">
-          队列 ID <b>{post.id}</b>
-        </span>
         <div className="wt-share-attribution">
           <span className="wt-share-code">
             分享码 <code>{post.code}</code>
@@ -141,7 +138,12 @@ export function LineupImageDialog({
     setReviewing(true);
     setError("");
     try {
-      await approveLineupCaption(value, signal.signal, "preview", post.id.startsWith("L-") ? post.id : "");
+      await approveLineupCaption(
+        value,
+        signal.signal,
+        "preview",
+        post.id.startsWith("L-") ? post.id : "",
+      );
       if (!signal.signal.aborted) setApprovedText(value);
     } catch (cause) {
       if (!signal.signal.aborted) {

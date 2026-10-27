@@ -12,7 +12,11 @@ export function PageNavigation({
         <Link to="/tree" preload={false} aria-current={page === "tree" ? "page" : undefined}>
           科技树
         </Link>
-        <Link to="/lineups" preload={false} aria-current={page === "lineups" ? "page" : undefined}>
+        <Link
+          to="/lineups/lobby"
+          preload={false}
+          aria-current={page === "lineups" ? "page" : undefined}
+        >
           出击队列
         </Link>
         <Link to="/maps" preload={false} aria-current={page === "maps" ? "page" : undefined}>
@@ -39,7 +43,7 @@ export function PageNavigation({
                 next === "sales") &&
               next !== page
             )
-              void navigate({ to: `/${next}` });
+              void navigate({ to: next === "lineups" ? "/lineups/lobby" : `/${next}` });
           }}
         >
           {page === "disclaimer" && (

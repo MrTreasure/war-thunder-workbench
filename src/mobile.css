@@ -3292,51 +3292,284 @@
 
 /* Vehicle performance and loadout dossier: one vertical scroller, contained horizontal tables. */
 @media (max-width: 800px) {
-  .calculator.vehicle-detail-dialog[open] { display:grid; grid-template-rows:auto minmax(0,1fr); }
-  .wt-detail-hero { grid-template-columns:minmax(0,1fr); gap:12px; }
-  .wt-detail-tabs { overflow-x:auto; scrollbar-width:thin; }
-  .wt-detail-tabs > button { padding:10px 12px; font-size:13px; }
-  .wt-detail-tabs .wt-control-icon { width:18px; height:18px; flex-basis:18px; }
-  .wt-detail-panel { padding-top:16px; }
-  .wt-performance-header { gap:8px; }
-  .wt-performance-header h3 { font-size:14px; }
-  .wt-performance-header .wt-game-tabs > button { padding:8px 10px; font-size:12px; }
-  .wt-performance-charts { grid-template-columns:minmax(0,1fr); gap:10px; }
-  .wt-performance-chart { padding:12px; }
-  .wt-comparison-bars > li { grid-template-columns:112px minmax(0,1fr) 50px; gap:8px; }
-  .wt-table-scroll-hint { display:block; margin:0 0 8px; font-size:11px; color:var(--wt-muted); }
-  .wt-performance-table { min-width:650px; }
-  .wt-performance-table th:first-child { width:140px; }
-  .wt-performance-table th, .wt-performance-table td { padding:10px 8px; }
-  .wt-dossier-section-heading { gap:8px; }
-  .wt-dossier-section-heading > span { font-size:11px; }
-  .wt-loadout-limits { gap:16px 24px; }
-  .wt-loadout-matrix th:first-child { width:260px; min-width:260px; }
-  .wt-loadouts h4 > small { display:block; margin:5px 0 0; }
+  .calculator.vehicle-detail-dialog[open] {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+  .wt-detail-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .wt-detail-tabs {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .wt-detail-tabs > button {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  .wt-detail-tabs .wt-control-icon {
+    width: 18px;
+    height: 18px;
+    flex-basis: 18px;
+  }
+  .wt-detail-panel {
+    padding-top: 16px;
+  }
+  .wt-performance-header {
+    gap: 8px;
+  }
+  .wt-performance-header h3 {
+    font-size: 14px;
+  }
+  .wt-performance-header .wt-game-tabs > button {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  .wt-performance-charts {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  .wt-performance-chart {
+    padding: 12px;
+  }
+  .wt-comparison-bars > li {
+    grid-template-columns: 112px minmax(0, 1fr) 50px;
+    gap: 8px;
+  }
+  .wt-table-scroll-hint {
+    display: block;
+    margin: 0 0 8px;
+    font-size: 11px;
+    color: var(--wt-muted);
+  }
+  .wt-performance-table {
+    min-width: 650px;
+  }
+  .wt-performance-table th:first-child {
+    width: 140px;
+  }
+  .wt-performance-table th,
+  .wt-performance-table td {
+    padding: 10px 8px;
+  }
+  .wt-dossier-section-heading {
+    gap: 8px;
+  }
+  .wt-dossier-section-heading > span {
+    font-size: 11px;
+  }
+  .wt-loadout-limits {
+    gap: 16px 24px;
+  }
+  .wt-loadout-matrix th:first-child {
+    width: 260px;
+    min-width: 260px;
+  }
+  .wt-loadouts h4 > small {
+    display: block;
+    margin: 5px 0 0;
+  }
 }
 
 /* Vehicle workspaces retain one viewport-bounded height across tabs and nested calculators. */
 @media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
   .calculator:is(.vehicle-detail-dialog, .wt-modifications-dialog, .vehicle-calculator) {
     height: calc(100dvh - 16px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
-    max-height: calc(100dvh - 16px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    max-height: calc(
+      100dvh - 16px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)
+    );
   }
 }
 
 /* Compact vehicle header and aligned tag actions at touch widths. */
-@media (max-width:800px) {
-  .vehicle-detail-dialog > .calc-header { padding:8px 12px; }
-  .wt-detail-hero { gap:8px; padding-bottom:8px; }
+@media (max-width: 800px) {
+  .vehicle-detail-dialog > .calc-header {
+    padding: 8px 12px;
+  }
+  .wt-detail-hero {
+    gap: 8px;
+    padding-bottom: 8px;
+  }
   .wt-vehicle-sheet .wt-detail-image .vehicle-image-frame,
-  .wt-vehicle-sheet .wt-detail-image .vehicle-image-frame img { height:72px; min-height:0; max-height:72px; }
-  .wt-detail-meta { grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px 8px; }
-  .wt-detail-meta dd { font-size:12px; }
-  .wt-detail-ratings { padding:6px 0; }
-  .wt-detail-panel { padding-top:10px; }
-  .wt-performance-chart { padding:10px; }
-  .wt-performance-header { margin-bottom:8px; }
-  .wt-vehicle-tags .wt-detail-section-heading { gap:8px; }
-  .wt-vehicle-tags .wt-detail-section-heading > h3 { display:none; }
-  .wt-vehicle-tags .wt-detail-section-heading > .wt-select { flex:1; width:auto; max-width:210px; }
-  .wt-vehicle-tags .wt-detail-section-heading > .wt-game-button { padding:7px 12px; font-size:15px; }
+  .wt-vehicle-sheet .wt-detail-image .vehicle-image-frame img {
+    height: 72px;
+    min-height: 0;
+    max-height: 72px;
+  }
+  .wt-detail-meta {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px 8px;
+  }
+  .wt-detail-meta dd {
+    font-size: 12px;
+  }
+  .wt-detail-ratings {
+    padding: 6px 0;
+  }
+  .wt-detail-panel {
+    padding-top: 10px;
+  }
+  .wt-performance-chart {
+    padding: 10px;
+  }
+  .wt-performance-header {
+    margin-bottom: 8px;
+  }
+  .wt-vehicle-tags .wt-detail-section-heading {
+    gap: 8px;
+  }
+  .wt-vehicle-tags .wt-detail-section-heading > h3 {
+    display: none;
+  }
+  .wt-vehicle-tags .wt-detail-section-heading > .wt-select {
+    flex: 1;
+    width: auto;
+    max-width: 210px;
+  }
+  .wt-vehicle-tags .wt-detail-section-heading > .wt-game-button {
+    padding: 7px 12px;
+    font-size: 15px;
+  }
+}
+
+/* Compact roster browser: keep mobile controls reachable and strips unwrapped. */
+@media (max-width: 800px) {
+  .wt-lineup-pagebar {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .wt-lineup-pagebar > nav.wt-lineup-sections {
+    gap: 14px;
+    font-size: 13px;
+    padding-top: 0;
+  }
+  .wt-lineup-pagebar > a {
+    font-size: 12px;
+    padding: 8px;
+    min-height: 44px;
+  }
+  .wt-community-filter-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 44px;
+    padding: 8px 12px;
+    border: 1px solid var(--wt-line);
+    background: var(--wt-surface);
+    color: var(--wt-ink);
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .wt-community-filter-panel[data-open="false"] > .wt-community-filters {
+    display: none;
+  }
+  .wt-community-filters {
+    padding: 10px;
+    gap: 10px;
+  }
+  .wt-community-filters > .calc-field {
+    flex: 1 1 calc(50% - 10px);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    min-width: 0;
+    max-width: none;
+  }
+  .wt-community-filters .calc-field > .wt-select {
+    height: 44px;
+    min-height: 44px;
+    font-size: 16px;
+  }
+  .wt-community-card {
+    padding: 10px;
+  }
+  .wt-community-card > header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+  }
+  .wt-community-identity a {
+    flex-wrap: wrap;
+    gap: 4px 8px;
+  }
+  .wt-community-identity h3 span {
+    width: 100%;
+    font-size: 12px;
+  }
+  .wt-community-card-tags {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    gap: 4px;
+  }
+  .wt-community-author {
+    max-width: 125px;
+    gap: 4px;
+  }
+  .wt-community-card > footer {
+    align-items: center;
+  }
+  .wt-community-card > footer > small {
+    margin-left: auto;
+    font-size: 11px;
+  }
+  .wt-community-actions {
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+  .wt-community-actions .quiet-button,
+  .wt-community-votes .quiet-button,
+  .wt-community-more summary {
+    min-height: 44px;
+  }
+  .wt-personal-lineups .lineup-toolbar {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  }
+  .wt-personal-lineups .lineup-toolbar .calc-field {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+  .wt-personal-lineups .lineup-toolbar .wt-select {
+    height: 44px;
+    min-height: 44px;
+  }
+  .wt-personal-lineups .lineup-card-heading {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+  }
+  .wt-personal-lineups .lineup-card-heading > div:first-child {
+    display: block;
+  }
+  .wt-personal-lineups .lineup-card-heading .calc-note {
+    margin-top: 4px;
+    white-space: normal;
+  }
+  .wt-personal-lineups .lineup-summary-ratings {
+    grid-row: 2;
+    grid-column: 1 / -1;
+  }
+  .wt-personal-lineups .lineup-card-share {
+    grid-row: 1;
+    grid-column: 2;
+  }
+  .wt-personal-lineups .lineup-card-actions button,
+  .wt-personal-lineups .lineup-card-share {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 800px) {
+  .wt-community-share-long {
+    display: none;
+  }
+  .wt-community-share-short {
+    display: inline;
+  }
+  .wt-lineup-pagebar > nav.wt-lineup-sections {
+    gap: 12px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
 }
