@@ -24,7 +24,7 @@ export function tagRequirement(tone: GameTagTone) {
   return rule
     ? `绑定账号 ${rule.level} 级`
     : tone === "king"
-      ? "100 级且历史战斗满 1000 次"
+      ? `${policy.king.level} 级且历史 RB 战斗满 ${policy.king.rbBattles} 场`
       : tone === "rainbow"
         ? "超级管理员专属"
         : "默认可选";
