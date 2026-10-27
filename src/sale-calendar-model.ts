@@ -197,6 +197,11 @@ export function saleStartCandidates(event: SaleEvent, now: number): SaleStartCan
   if (event.status !== "predicted") return [];
   const today = beijingDayKey(now);
   const reference = beijingDayKey(event.predictionReferenceStartAt || event.startAt);
+  const phaseRule = event.startNotBefore
+    ? predictionDisplay.sequentialPhases.find(
+        (r) => r.family === event.family && event.channels.includes(r.afterChannel as SaleChannel),
+      )
+    : undefined;
   let values = event.startCandidates;
   if (!values) {
     const first = Date.parse(event.startWindow?.[0] || event.startAt);
@@ -220,7 +225,7 @@ export function saleStartCandidates(event: SaleEvent, now: number): SaleStartCan
       const confidence =
         distance <= predictionDisplay.highDistanceDays
           ? "high"
-          : distance <= predictionDisplay.mediumDistanceDays
+          : distance <= (phaseRule?.mediumDistanceDays ?? predictionDisplay.mediumDistanceDays)
             ? "medium"
             : "low";
       return {
@@ -246,9 +251,7 @@ export function constrainSaleForecast(event: SaleEvent, events: SaleEvent[]): Sa
         e.status === "confirmed" &&
         e.family === event.family &&
         e.year === event.year &&
-        e.discounts.some(
-          (d) => d.channel === rule.beforeChannel && d.percentOff === rule.percentOff,
-        ),
+        (e.phase === rule.beforePhase || e.channels.includes(rule.beforeChannel as SaleChannel)),
     )
     .map((e) => Date.parse(e.endAt))
     .filter(Number.isFinite);
@@ -258,6 +261,7 @@ export function constrainSaleForecast(event: SaleEvent, events: SaleEvent[]): Sa
   return {
     ...event,
     startNotBefore: new Date(boundary).toISOString(),
+    predictionReferenceStartAt: new Date(boundary).toISOString(),
     ...(event.startCandidates ? { startCandidates: candidates } : {}),
     startWindow: [
       new Date(

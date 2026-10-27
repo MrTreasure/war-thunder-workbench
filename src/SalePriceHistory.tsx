@@ -84,15 +84,7 @@ export function PriceChart({ offer, days }: { offer: PriceOffer; days: number })
             </g>
           );
         })}
-        {offer.minimum && (
-          <line
-            x1={left}
-            x2={width - right}
-            y1={y(offer.minimum.amountMinor)}
-            y2={y(offer.minimum.amountMinor)}
-            className="wt-price-low-line"
-          />
-        )}
+
         {paths}
         {points.map((p, i) => (
           <circle
