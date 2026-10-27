@@ -403,3 +403,86 @@
 .wt-price-discount-evidence small {
   color: var(--wt-muted);
 }
+
+.wt-sale-cart-tile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.wt-sale-cart-tile > .wt-game-card {
+  flex: 0 0 228px;
+}
+.wt-sale-cart-tile > .wt-game-tag {
+  flex: 0 0 auto;
+}
+.wt-sale-cart-row,
+.wt-sale-cart-columns {
+  grid-template-columns: 350px minmax(120px, 1fr) minmax(125px, 1fr) 160px minmax(175px, 1.4fr) 70px;
+}
+.wt-sale-cart-modal.calculator {
+  width: min(1520px, calc(100vw - 40px));
+}
+.wt-sale-cart-observations .wt-price-trend-link {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  min-height: 60px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: left;
+  cursor: pointer;
+}
+.wt-price-trend-link:hover {
+  color: var(--wt-gold);
+}
+.wt-price-trend-link:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 3px;
+}
+.wt-price-trend-link .wt-price-mini {
+  width: 100%;
+  height: 44px;
+}
+.wt-price-mini-empty {
+  display: grid;
+  align-items: center;
+  min-height: 44px;
+  color: var(--wt-muted);
+}
+.wt-price-mini circle.is-estimate,
+.wt-price-chart circle.is-estimate {
+  fill: var(--wt-surface);
+  stroke: var(--wt-gold);
+  stroke-width: 1.5;
+}
+.wt-price-step.is-estimate {
+  stroke-dasharray: 5 4;
+}
+@media (max-width: 1250px) and (min-width: 801px) {
+  .wt-sale-cart-row,
+  .wt-sale-cart-columns {
+    grid-template-columns: 350px minmax(110px, 1fr) minmax(120px, 1fr) 70px;
+  }
+  .wt-sale-cart-columns span:nth-child(4),
+  .wt-sale-cart-columns span:nth-child(5) {
+    display: none;
+  }
+  .wt-sale-cart-observations {
+    grid-column: 2;
+  }
+  .wt-sale-cart-event {
+    grid-column: 3 / 5;
+  }
+  .wt-sale-cart-actions {
+    grid-column: 4;
+    grid-row: 1;
+  }
+}
+
+.wt-price-mini path.is-estimate {
+  stroke-dasharray: 4 3;
+}

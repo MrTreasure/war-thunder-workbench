@@ -39,6 +39,7 @@ export type DiscountEvidence = {
   amountMinor: number | null;
   currency: "CNY" | "GE";
   productId?: string | null;
+  estimateOnly?: boolean;
 };
 /** Same SKU is one selectable product. Content versions remain attached to points. */
 export function groupedOffers(summary?: PriceSummary): PriceOffer[] {
@@ -120,14 +121,23 @@ export function primaryOffer(summary?: PriceSummary, offerId?: string) {
   );
 }
 /** Purchase planning always uses the canonical regular price; history is read-only. */
-export function cartTotals(vehicles: SaleVehicle[], preferences: PricePreferences) {
+export function cartTotals(
+  vehicles: SaleVehicle[],
+  preferences: PricePreferences,
+  ownedIds: ReadonlySet<string> = new Set(),
+) {
   const offers = new Map<string, { amount: number; currency: "CNY" | "GE" }>();
   let missing = 0,
     selected = 0,
-    duplicates = 0;
+    duplicates = 0,
+    owned = 0;
   const conflicts = new Set<string>();
   for (const vehicle of vehicles) {
     if (preferences[vehicle.id]?.selected === false) continue;
+    if (ownedIds.has(vehicle.id)) {
+      owned++;
+      continue;
+    }
     selected++;
     const quote = vehicle.originalPrice;
     let productId: string | null = null;
@@ -165,10 +175,75 @@ export function cartTotals(vehicles: SaleVehicle[], preferences: PricePreference
   return {
     cny,
     ge,
+    owned,
     missing,
     selected,
     products: offers.size,
     duplicates,
     conflicts: conflicts.size,
   };
+}
+
+/** Announcement estimates are a separate display projection, never observed quotes. */
+export function historicalDisplayPoints(
+  vehicle: SaleVehicle,
+  offer: PriceOffer | undefined,
+  evidence: DiscountEvidence[] = [],
+): PricePoint[] {
+  const quote = vehicle.originalPrice;
+  const actual = (offer?.points.length ? offer.points : offer?.previewPoints || []).filter(
+    (p) => p.evidenceKind !== "official_announcement_derived",
+  );
+  const estimates: PricePoint[] = [];
+  if (quote?.amount && Number.isSafeInteger(quote.amount)) {
+    for (const e of evidence) {
+      if (
+        (offer &&
+          (offer.currency !== e.currency ||
+            offer.conditions !== e.purchaseCondition ||
+            (e.productId && offer.productId && e.productId !== offer.productId))) ||
+        e.currency !== quote.currency ||
+        e.purchaseCondition !== "普通单件购买" ||
+        !e.startAt ||
+        Date.parse(e.startAt) > Date.now() ||
+        e.discountPercent <= 0 ||
+        e.discountPercent >= 100
+      )
+        continue;
+      const amount = Number((BigInt(quote.amount) * BigInt(100 - e.discountPercent) + 50n) / 100n);
+      estimates.push({
+        observedAt: e.startAt,
+        amountMinor: e.amountMinor ?? amount,
+        regularAmountMinor: quote.amount,
+        sourceUrl: e.sourceUrl,
+        checkedAt: e.startAt,
+        evidenceKind: "official_announcement_derived",
+      });
+    }
+  }
+  return [...actual, ...estimates].sort(
+    (a, b) => Date.parse(a.observedAt) - Date.parse(b.observedAt),
+  );
+}
+export function historicalDisplayMinimum(
+  vehicle: SaleVehicle,
+  offer: PriceOffer | undefined,
+  evidence: DiscountEvidence[] = [],
+) {
+  const points = historicalDisplayPoints(vehicle, offer, evidence);
+  const observed = discountedMinimum(offer);
+  if (observed) points.push(observed);
+  return (
+    points
+      .filter(
+        (p) =>
+          p === observed || (p.regularAmountMinor != null && p.amountMinor < p.regularAmountMinor),
+      )
+      .sort(
+        (a, b) =>
+          a.amountMinor - b.amountMinor ||
+          Number(a.evidenceKind === "official_announcement_derived") -
+            Number(b.evidenceKind === "official_announcement_derived"),
+      )[0] || null
+  );
 }

@@ -54,7 +54,7 @@ function numbers(text, locale = "zh-CN") {
     return [...word].reduce((n, char) => n * 10 + digits[char], 0);
   };
   text = text.replace(
-    /[零一二两三四五六七八九十双单]+(?=个|次|辆|架|档|国|维|点|元|分|位|基地|機|回|台|段階|か国|軸|拠点)/g,
+    /[零一二两三四五六七八九十双单]+(?=个|次|辆|架|档|国|维|点|元|分|位|种|種|基地|機|回|台|段階|か国|軸|拠点)/g,
     (word) => {
       soft.push(hanNumber(word));
       return "";

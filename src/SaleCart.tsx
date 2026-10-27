@@ -13,41 +13,49 @@ import {
   priceDate,
   priceText,
   primaryOffer,
-  discountedMinimum,
+  historicalDisplayPoints,
+  historicalDisplayMinimum,
 } from "./sale-price-model";
-import type { PriceOffer, PriceSummary } from "./sale-price-model";
+import { GameTag } from "./components/GameTag";
+import type { PricePoint, PriceSummary } from "./sale-price-model";
 import { useSalePricePreferences } from "./use-sale-price-preferences";
 import { SalePriceHistory } from "./SalePriceHistory";
 import "./sale-cart.css";
 
-function MiniPriceTrend({ offer }: { offer: PriceOffer }) {
+function MiniPriceTrend({ points }: { points: PricePoint[] }) {
   useLocale();
-  const points = (offer.previewPoints || []).filter(
-    (p) => p.evidenceKind !== "official_announcement_derived",
-  );
-  if (points.length < 2) return null;
+  if (!points.length) return <span className="wt-price-mini-empty">{t("暂无历史价格")}</span>;
   const low = Math.min(...points.map((p) => p.amountMinor)),
     high = Math.max(...points.map((p) => p.amountMinor));
   const start = Date.parse(points[0].observedAt),
     span = Math.max(1, Date.parse(points.at(-1)!.observedAt) - start);
-  const x = (at: string) => 4 + ((Date.parse(at) - start) / span) * 100,
-    y = (n: number) => 26 - ((n - low) / Math.max(1, high - low)) * 20;
-  const d = points
-    .map((p, i) =>
-      i && Date.parse(p.observedAt) - Date.parse(points[i - 1].observedAt) <= 36 * 3600000
-        ? `M${x(points[i - 1].observedAt)},${y(points[i - 1].amountMinor)}H${x(p.observedAt)}V${y(p.amountMinor)}`
-        : "",
-    )
-    .join(" ");
+  const x = (at: string) => 5 + ((Date.parse(at) - start) / span) * 150;
+  const y = (amount: number) => 36 - ((amount - low) / Math.max(high - low, high * 0.12, 1)) * 28;
   return (
-    <svg
-      className="wt-price-mini"
-      viewBox="0 0 108 32"
-      aria-label={t("{0}个价格观测点，详情见历史记录", points.length)}
-    >
-      <path d={d} />
+    <svg className="wt-price-mini" viewBox="0 0 160 44" aria-hidden="true">
+      {points.slice(1).map((p, index) => {
+        const previous = points[index];
+        return (
+          <path
+            key={index}
+            d={`M${x(previous.observedAt)},${y(previous.amountMinor)}L${x(p.observedAt)},${y(p.amountMinor)}`}
+            className={
+              p.evidenceKind === "official_announcement_derived" ||
+              previous.evidenceKind === "official_announcement_derived"
+                ? "is-estimate"
+                : undefined
+            }
+          />
+        );
+      })}
       {points.map((p, i) => (
-        <circle key={i} cx={x(p.observedAt)} cy={y(p.amountMinor)} r="2" />
+        <circle
+          key={i}
+          cx={x(p.observedAt)}
+          cy={y(p.amountMinor)}
+          r="2.5"
+          className={p.evidenceKind === "official_announcement_derived" ? "is-estimate" : undefined}
+        />
       ))}
     </svg>
   );
@@ -120,9 +128,11 @@ export function SaleCart({
     preferences.save(
       Object.fromEntries(Object.entries(items).filter(([id]) => vehicles.some((v) => v.id === id))),
     );
-  const totals = cartTotals(vehicles, preferences.items);
+  const totals = cartTotals(vehicles, preferences.items, workspace?.ownedVehicleIds);
   const rows = vehicles.filter((v) => {
     if (!(v.name + v.nameEn).toLowerCase().includes(query.toLowerCase())) return false;
+    if (filter === "owned") return !!workspace?.ownedVehicleIds.has(v.id);
+    if (filter === "unpurchased") return !workspace?.ownedVehicleIds.has(v.id);
     if (filter === "unknown") return !v.originalPrice?.amount;
     return true;
   });
@@ -132,7 +142,9 @@ export function SaleCart({
       title={t("我的购物车")}
       subtitle={
         workspace?.userId
-          ? t("载具沿用账号关注列表；购车勾选按账号保存。按原价合计，活动价格仅供历史查询。")
+          ? t(
+              "载具沿用账号关注列表；购车勾选按账号保存。已拥有载具不计费，其余按原价合计；活动价格仅供历史查询。",
+            )
           : t("游客清单保存在本浏览器。按原价分别合计整包人民币与金鹰价格。")
       }
       close={close}
@@ -154,6 +166,8 @@ export function SaleCart({
               {t("全部载具（")}
               {vehicles.length}）
             </option>
+            <option value="unpurchased">{t("尚未拥有")}</option>
+            <option value="owned">{t("已拥有")}</option>
             <option value="unknown">{t("资料待核对")}</option>
           </GameSelect>
         </label>
@@ -187,7 +201,7 @@ export function SaleCart({
           <span>{t("购车计划 / 载具")}</span>
           <span>{t("原价")}</span>
           <span>{t("历史低价")}</span>
-          <span>{t("价格观测")}</span>
+          <span>{t("历史走势")}</span>
           <span>{t("活动窗口")}</span>
           <span>{t("操作")}</span>
         </div>
@@ -209,10 +223,13 @@ export function SaleCart({
               price = quote?.amount ?? null,
               currency = quote?.currency || "CNY";
             const selected = preferences.items[v.id]?.selected !== false;
+            const owned = !!workspace?.ownedVehicleIds.has(v.id);
+            const evidence = summaries[v.id]?.discountEvidence || [];
+            const points = historicalDisplayPoints(v, offer, evidence);
             const promotion = summaries[v.id]?.discountEvidence
               ?.filter((e) => e.purchaseCondition === "普通单件购买")
               .sort((a, b) => b.discountPercent - a.discountPercent)[0];
-            const minimum = discountedMinimum(offer),
+            const minimum = historicalDisplayMinimum(v, offer, evidence),
               loaded = loadedCountries.includes(v.country);
             return (
               <article className="wt-sale-cart-row" key={v.id}>
@@ -221,8 +238,8 @@ export function SaleCart({
                     <input
                       type="checkbox"
                       aria-label={t("将{0}计入本轮购车计划", vehicleName(v))}
-                      checked={selected}
-                      disabled={!enabled}
+                      checked={selected && !owned}
+                      disabled={!enabled || owned}
                       onChange={(e) =>
                         savePreferences({
                           ...preferences.items,
@@ -233,12 +250,16 @@ export function SaleCart({
                       }
                     />
                   </label>
-                  {tile(v)}
+                  <div className="wt-sale-cart-tile">
+                    {tile(v)}
+                    {owned && <GameTag tone="emerald">{t("已拥有")}</GameTag>}
+                  </div>
                 </div>
                 <div className="wt-sale-cart-price wt-sale-cart-original">
                   <strong>
                     {currency === "CNY" ? priceText(price, currency) : t("常规金鹰价")}
                   </strong>
+                  {owned && <small>{t("已拥有 · 不计入合计")}</small>}
                   <small>
                     {currency === "CNY" ? t("整包原价") : t("常规金鹰价格")} ·{" "}
                     {priceDate(quote?.checkedAt ?? null)}
@@ -251,12 +272,12 @@ export function SaleCart({
                         ? t("读取失败")
                         : t("读取中…")
                       : minimum
-                        ? priceText(minimum.amountMinor, offer!.currency)
+                        ? `${minimum.evidenceKind === "official_announcement_derived" ? "≈ " : ""}${priceText(minimum.amountMinor, currency)}`
                         : t("待核实")}
                   </b>
                   <small>
                     {minimum
-                      ? priceDate(minimum.observedAt)
+                      ? `${priceDate(minimum.observedAt)}${minimum.evidenceKind === "official_announcement_derived" ? t(" · 公告折扣估算") : ""}`
                       : promotion
                         ? t("曾优惠 {0}%，金额待核实", promotion.discountPercent)
                         : offer
@@ -265,21 +286,19 @@ export function SaleCart({
                   </small>
                 </div>
                 <div className="wt-sale-cart-observations">
-                  {offer && <MiniPriceTrend offer={offer} />}
-                  <span>
-                    {loaded
-                      ? t("{0} 次采样", offer?.sampleCount || 0)
-                      : priceError
-                        ? t("读取失败")
-                        : t("读取中…")}
-                  </span>
-                  <small>
-                    {offer && offer.sampleCount > 1
-                      ? t("自 {0}", priceDate(offer.firstObservedAt))
-                      : t("走势积累中")}
-                  </small>
-                  <button className="quiet-button" onClick={() => setHistory(v)}>
-                    {t("查看历史 ↗")}
+                  <button
+                    className="wt-price-trend-link"
+                    onClick={() => setHistory(v)}
+                    aria-label={t("展开{0}历史价格详情", vehicleName(v))}
+                  >
+                    <MiniPriceTrend points={points} />
+                    <small>
+                      {points.length
+                        ? `${priceDate(points[0].observedAt)} — ${priceDate(points.at(-1)!.observedAt)}${points.some((p) => p.evidenceKind === "official_announcement_derived") ? t(" · 含估算") : ""}`
+                        : loaded
+                          ? t("尚无历史记录")
+                          : t("读取中…")}
+                    </small>
                   </button>
                 </div>
                 <div className="wt-sale-cart-event">
@@ -288,6 +307,11 @@ export function SaleCart({
                       <strong>{event.title}</strong>
                       <span>{saleCountdown(event, now)}</span>
                       <small className="wt-sale-cart-event-detail">{saleRange(event)}</small>
+                      {event.startNotBefore && (
+                        <small className="wt-sale-cart-event-detail">
+                          {t("预计接续游戏内折扣结束后，具体开始以公告为准")}
+                        </small>
+                      )}
                       <small className="wt-sale-cart-event-detail">
                         {event.status === "predicted"
                           ? t("预测窗口，名单未公布")
@@ -343,6 +367,7 @@ export function SaleCart({
             {totals.missing
               ? t("{0} 辆缺少有效报价，未计入小计", totals.missing)
               : t("按原价合计；历史活动价不参与展示和合计")}
+            {totals.owned > 0 && t(" · {0} 辆已拥有，已免计", totals.owned)}
             {totals.duplicates > 0 && t(" · {0} 个重复礼包已去重", totals.duplicates)}
           </small>
         </div>
@@ -355,7 +380,9 @@ export function SaleCart({
                   vehicles.map((v) => [
                     v.id,
                     {
-                      selected: !vehicles.every((x) => preferences.items[x.id]?.selected !== false),
+                      selected: !vehicles
+                        .filter((x) => !workspace?.ownedVehicleIds.has(x.id))
+                        .every((x) => preferences.items[x.id]?.selected !== false),
                     },
                   ]),
                 ),

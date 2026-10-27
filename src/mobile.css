@@ -3623,3 +3623,18 @@
     font-size: 13px;
   }
 }
+
+@media (max-width: 800px) {
+  .calculator.wt-sale-cart-modal .wt-sale-cart-tile {
+    flex-wrap: wrap;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-observations .wt-price-mini {
+    display: block;
+    width: 115px;
+    height: 38px;
+  }
+  .calculator.wt-sale-cart-modal .wt-price-trend-link small {
+    max-width: 115px;
+    font-size: 10px;
+  }
+}
