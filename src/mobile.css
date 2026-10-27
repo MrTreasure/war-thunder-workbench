@@ -3674,13 +3674,6 @@
   .wt-career-toolbar .wt-player-read-status { margin-left: 0; }
   .wt-record-player:has(> .wt-player-medals) { grid-template-columns: auto minmax(0, 1fr); }
   .wt-record-player > .wt-player-medals { grid-column: 1 / -1; width: 100%; }
-  .wt-record-page .wt-player-medals-trigger { width: 100%; padding-inline: 0; }
-  .wt-player-medals-names { flex: 1; }
-  .wt-player-medals-names > span { max-width: 100%; }
-  .wt-player-medals-list { grid-template-columns: minmax(0, 1fr); }
-}
-@media (max-width: 1200px) and (min-width: 801px) {
-  .wt-player-medals-names { display: none; }
 }
 @media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
   .wt-record-page .wt-record-main-tabs > button > span {

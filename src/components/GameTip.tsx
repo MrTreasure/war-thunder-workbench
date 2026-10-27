@@ -4,7 +4,17 @@ import type { ReactNode } from "react";
 import "./game-tip.css";
 
 /** Read-only top-layer popup: hovering, keyboard focus and tapping never change table geometry. */
-export function GameTip({ label, children }: { label: string; children: ReactNode }) {
+export function GameTip({
+  label,
+  children,
+  icon,
+  className = "",
+}: {
+  label: string;
+  children: ReactNode;
+  icon?: ReactNode;
+  className?: string;
+}) {
   const id = useId();
   const trigger = useRef<HTMLButtonElement>(null);
   const popup = useRef<HTMLDivElement>(null);
@@ -88,7 +98,7 @@ export function GameTip({ label, children }: { label: string; children: ReactNod
       <button
         ref={trigger}
         type="button"
-        className="wt-game-tip-trigger"
+        className={`wt-game-tip-trigger ${className}`}
         aria-label={`${label}说明`}
         aria-describedby={open ? id : undefined}
         aria-expanded={open}
@@ -114,18 +124,20 @@ export function GameTip({ label, children }: { label: string; children: ReactNod
           }
         }}
       >
-        <svg
-          viewBox="0 0 20 20"
-          width="18"
-          height="18"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.4"
-          aria-hidden="true"
-        >
-          <circle cx="10" cy="10" r="7" />
-          <path d="M10 9v5M10 6v1" />
-        </svg>
+        {icon ?? (
+          <svg
+            viewBox="0 0 20 20"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            aria-hidden="true"
+          >
+            <circle cx="10" cy="10" r="7" />
+            <path d="M10 9v5M10 6v1" />
+          </svg>
+        )}
       </button>
       {open &&
         host &&

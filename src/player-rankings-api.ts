@@ -26,6 +26,7 @@ export type PlayerMedal = {
 export type PlayerMedals = { items: PlayerMedal[]; unmatchedCount: number };
 export type PlayerDetails = {
   medals?: PlayerMedals | null;
+  stale?: boolean;
   uid: string;
   snapshotId: string;
   fetchedAt: string;

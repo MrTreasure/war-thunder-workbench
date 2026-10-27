@@ -1012,6 +1012,9 @@ export function PlayerStats() {
             <PlayerMedals
               key={`medals:${profile.snapshotId}`}
               medals={publicDetails.data?.medals}
+              busy={publicDetails.busy}
+              error={publicDetails.error}
+              retry={publicDetails.retry}
             />
             <div className="wt-record-player-actions" aria-label="玩家资料操作">
               <GameAccountBinding
