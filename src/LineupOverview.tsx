@@ -17,11 +17,7 @@ export function LineupSummary({
   catalog: CatalogIndex;
 }) {
   return (
-    <ol
-      className="lineup-summary-slots"
-      tabIndex={0}
-      aria-label={`${lineup.name} 的槽位预览，可横向滚动`}
-    >
+    <ol className="lineup-summary-slots" tabIndex={0} aria-label={`${lineup.name} 的槽位预览`}>
       {lineup.slots
         .slice(
           0,

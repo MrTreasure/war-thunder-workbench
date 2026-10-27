@@ -29,14 +29,14 @@ export type GameTagProps = {
 export function GameTag({
   children,
   tagId,
-  tone = "silver",
+  tone = "red",
   selected = false,
   disabled = false,
   animated = true,
   motionOverride = tone === "rainbow",
   onClick,
 }: GameTagProps) {
-  const finish = gameTagTones[tone] || gameTagTones.silver;
+  const finish = gameTagTones[tone] || gameTagTones.red;
   const style = {
     "--wt-tag-tint": finish.tint,
     "--wt-tag-text": finish.text,

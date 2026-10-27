@@ -1,5 +1,5 @@
 import { TagSelector, type TagChoice } from "./components/TagSelector";
-import { useTagCatalog } from "./game-tag-catalog";
+import { useTagCatalog, tagLabel } from "./game-tag-catalog";
 import { useGameTagAccess } from "./game-tag-access";
 // Fetch status and identity reset synchronize the current request/account with the UI.
 /* oxlint-disable react/set-state-in-effect */
@@ -10,6 +10,7 @@ import { Modal } from "./Modal";
 import { GameSelect } from "./components/GameSelect";
 import { VehicleTile } from "./VehicleTile";
 import { LineupTag } from "./LineupTag";
+import type { GameTagTone } from "./components/GameTag";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
 import {
   communityRequest,
@@ -89,7 +90,7 @@ export function LineupShareImage({
       </div>
       <div className="wt-share-labels">
         {post.tags.map((id) => (
-          <LineupTag key={id} id={id} tone={post.tagTones?.[id] || "original"} />
+          <LineupTag key={id} id={id} tone={post.tagTones?.[id] || "red"} />
         ))}
       </div>
       {text.trim() && (
@@ -264,32 +265,6 @@ export function LineupShareTools({
   const account = useWorkbenchAccount();
   const userId = account.session?.user?.id;
   const [mode, setMode] = useState<Mode>(defaultMode === "ab" ? "ab" : "rb");
-  const [choices, setChoices] = useState<TagChoice[]>([]);
-  const tagAccess = useGameTagAccess();
-  const tagCatalog = useTagCatalog("lineup");
-  const tags = useMemo(() => choices.map((choice) => choice.id), [choices]);
-  const tagTones = useMemo(
-    () => Object.fromEntries(choices.map((choice) => [choice.id, choice.tone])),
-    [choices],
-  );
-  const [post, setPost] = useState<CommunityPost | null>(null);
-  const [identity, setIdentity] = useState({ author: "游客", authorId: "" });
-  const [busy, setBusy] = useState(false);
-  const [error, setError] = useState("");
-  const [image, setImage] = useState(false);
-  useEffect(() => {
-    setIdentity({ author: "游客", authorId: "" });
-    setPost(null);
-    setChoices([]);
-    if (!userId) return;
-    const abort = new AbortController();
-    void communityRequest<{ author: string; authorId: string }>("identity", undefined, abort.signal)
-      .then(setIdentity)
-      .catch(() => {
-        if (!abort.signal.aborted) setIdentity({ author: "玩家", authorId: "" });
-      });
-    return () => abort.abort();
-  }, [userId]);
   const rating = lineupRatings(lineup, units, bootstrap.lineup).find((r) => r.mode === mode)!;
   const selected = lineup.slots.flatMap((id) => (id && units.has(id) ? [units.get(id)!] : []));
   const composition = selected.every((u) => u.side === "research")
@@ -301,6 +276,40 @@ export function LineupShareTools({
         : selected.some((u) => u.kind === "gold")
           ? "mixed-ge"
           : "mixed-event";
+  const [choices, setChoices] = useState<TagChoice[]>([]);
+  const [includeComposition, setIncludeComposition] = useState(true);
+  const [compositionTone, setCompositionTone] = useState<GameTagTone>("red");
+  const tagAccess = useGameTagAccess();
+  const tagCatalog = useTagCatalog("lineup");
+  const tags = useMemo(() => choices.map((choice) => choice.id), [choices]);
+  const tagTones = useMemo(
+    () =>
+      Object.fromEntries([
+        ...choices.map((choice) => [choice.id, choice.tone]),
+        ...(includeComposition ? [[composition, compositionTone]] : []),
+      ]),
+    [choices, includeComposition, composition, compositionTone],
+  );
+  const [post, setPost] = useState<CommunityPost | null>(null);
+  const [identity, setIdentity] = useState({ author: "游客", authorId: "" });
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+  const [image, setImage] = useState(false);
+  useEffect(() => {
+    setIdentity({ author: "游客", authorId: "" });
+    setPost(null);
+    setChoices([]);
+    setIncludeComposition(true);
+    setCompositionTone("red");
+    if (!userId) return;
+    const abort = new AbortController();
+    void communityRequest<{ author: string; authorId: string }>("identity", undefined, abort.signal)
+      .then(setIdentity)
+      .catch(() => {
+        if (!abort.signal.aborted) setIdentity({ author: "玩家", authorId: "" });
+      });
+    return () => abort.abort();
+  }, [userId]);
   const preview = useMemo<CommunityPost>(
     () =>
       post || {
@@ -311,7 +320,7 @@ export function LineupShareTools({
         mode,
         activeAircraft: lineup.activeAircraft || "",
         slots: lineup.slots,
-        tags: [composition, ...tags],
+        tags: includeComposition ? [composition, ...tags] : tags,
         tagTones,
         step: rating.step,
         rating: rating.label,
@@ -329,6 +338,7 @@ export function LineupShareTools({
       code,
       mode,
       composition,
+      includeComposition,
       tags,
       tagTones,
       rating.step,
@@ -357,6 +367,7 @@ export function LineupShareTools({
         mode,
         activeAircraft: lineup.activeAircraft || "",
         tags,
+        includeComposition,
         tagTones,
       });
       setPost(value);
@@ -393,7 +404,7 @@ export function LineupShareTools({
       </label>
       <div className="wt-community-section-title">
         <span>队列标签 · 最多选择 5 个</span>
-        <small>{tags.length}/5</small>
+        <small>{tags.length + Number(includeComposition)}/5</small>
       </div>
       <p className="calc-note">
         {account.session?.role === "superadmin"
@@ -413,22 +424,34 @@ export function LineupShareTools({
         </p>
       )}
       <TagSelector
-        options={tagCatalog.options}
+        options={[
+          ...tagCatalog.options,
+          {
+            id: composition,
+            label: tagLabel(composition, tagCatalog.items) || composition,
+            group: "队列标签",
+            family: "queue",
+          },
+        ]}
         loading={tagCatalog.loading}
         error={tagCatalog.error}
         onRetry={tagCatalog.refresh}
-        value={choices}
+        value={
+          includeComposition ? [{ id: composition, tone: compositionTone }, ...choices] : choices
+        }
         allowedTones={tagAccess.allowedTones}
         max={5}
         label="队列标签"
         disabled={busy}
         onChange={(value) => {
-          setChoices(value);
+          const inferred = value.find((choice) => choice.id === composition);
+          setIncludeComposition(!!inferred);
+          if (inferred) setCompositionTone(inferred.tone);
+          setChoices(value.filter((choice) => choice.id !== composition));
           setPost(null);
         }}
       />
       <div className="wt-community-actions">
-        <LineupTag id={composition} />
         <strong>
           {communityMode(lineup.battleType, mode)} · {rating.label}
         </strong>

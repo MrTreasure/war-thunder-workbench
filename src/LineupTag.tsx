@@ -5,7 +5,7 @@ import type { GameTagProps } from "./components/GameTag";
 /** Lineup registry adapter; visual and interactive behavior belongs to GameTag. */
 export function LineupTag({
   id,
-  tone = "original",
+  tone = "red",
   ...props
 }: { id: string } & Omit<GameTagProps, "children">) {
   const catalogue = useTagCatalog();
