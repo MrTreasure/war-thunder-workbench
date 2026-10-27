@@ -2571,3 +2571,54 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-country-breakdown .wt-country-elite { gap: 4px; }
 .wt-player-medals-trigger > img { width: 32px; height: 40px; object-fit: contain; }
 .wt-player-medals-list > li > img { width: 40px; height: 48px; flex: 0 0 40px; object-fit: contain; }
+
+/* finesse · career collection dashboard · product · density=9
+ * War Thunder slate/gold; independent column stacks, compact missing-data states. */
+.wt-career-dashboard {
+  display: grid;
+  grid-template-columns: minmax(280px, .8fr) minmax(0, 1.6fr);
+  align-items: start;
+  gap: 16px;
+  margin-top: 16px;
+}
+.wt-career-performance,
+.wt-career-collection { display: grid; gap: 16px; min-width: 0; }
+.wt-career-dashboard .wt-record-panel { padding: 16px 18px; border-radius: 4px; }
+.wt-career-dashboard .wt-record-heading { margin-bottom: 10px; gap: 10px; }
+.wt-career-dashboard .wt-record-heading h2 { font-size: 15px; font-weight: 500; }
+.wt-career-dashboard .wt-record-heading > span { font-size: 11px; }
+.wt-career-dashboard .wt-radar { display: grid; align-content: start; }
+.wt-career-dashboard .wt-radar > svg { width: min(100%, 290px); max-height: none; margin-inline: auto; }
+.wt-career-dashboard .wt-radar summary { min-height: 32px; display: flex; align-items: center; gap: 5px; list-style: none; }
+.wt-career-dashboard .wt-radar summary::before { content: "▸"; }
+.wt-career-dashboard .wt-radar details[open] > summary::before { content: "▾"; }
+.wt-career-dashboard .wt-record-branch-grid { grid-template-columns: minmax(0, 1fr); gap: 0; margin: 0; }
+.wt-career-dashboard .wt-record-branch-grid > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; padding-block: 10px; }
+.wt-career-dashboard .wt-record-branch-grid > div + div { border-top: 1px solid var(--wt-record-line); }
+.wt-career-dashboard .wt-record-branch-summary { display: contents; }
+.wt-career-dashboard .wt-record-branch-summary h3 { grid-column: 1; margin: 0; }
+.wt-career-dashboard .wt-record-branch-summary strong { grid-column: 2; grid-row: span 2; font-size: 25px; }
+.wt-career-dashboard .wt-record-branch-grid small { grid-column: 1; margin-top: -7px; }
+.wt-career-dashboard .wt-country-heading { display: flex; flex-wrap: wrap; }
+.wt-career-dashboard .wt-country-heading h2 { margin-right: auto; }
+.wt-career-dashboard .wt-country-heading .wt-select { width: 132px; min-height: 38px; font-size: 13px; }
+.wt-ownership-legend { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px 16px; padding-bottom: 6px; font-size: 11px; color: var(--wt-record-muted); }
+.wt-ownership-legend > :last-child { color: var(--wt-record-gold); }
+.wt-career-dashboard .wt-country-breakdown { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
+.wt-career-dashboard .wt-country-breakdown > div { grid-template-columns: 22px minmax(0, 1fr) 76px 90px; min-height: 43px; gap: 7px; padding-block: 8px; }
+.wt-career-dashboard .wt-country-name { font-size: 13px; }
+.wt-career-dashboard .wt-country-owned-count { text-align: right; }
+.wt-career-dashboard .wt-country-owned-count > b,
+.wt-career-dashboard .wt-country-elite > strong { font-size: 18px; font-weight: 600; }
+.wt-career-dashboard .wt-country-elite { margin: 0; gap: 3px; }
+.wt-career-dashboard .wt-country-elite img { width: 15px; height: 15px; }
+.wt-career-dashboard .wt-career-comparison { gap: 0; }
+.wt-career-dashboard .wt-career-comparison .wt-record-fine { margin: 0; padding-block: 4px; }
+.wt-career-dashboard .wt-career-comparison th,
+.wt-career-dashboard .wt-career-comparison td { padding: 10px 6px; font-size: 12px; }
+.wt-career-dashboard .wt-career-comparison tr > :first-child { padding-left: 0; }
+.wt-career-dashboard .wt-career-comparison tr > :last-child { padding-right: 0; }
+@media (min-width: 801px) and (max-width: 1250px) {
+  .wt-career-dashboard { grid-template-columns: minmax(260px, .8fr) minmax(0, 1.2fr); }
+  .wt-career-dashboard .wt-country-breakdown { grid-template-columns: minmax(0, 1fr); }
+}

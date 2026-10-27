@@ -104,92 +104,9 @@ export function PlayerCareerOverview({
             </div>
           </>
         )}
-        <div className="wt-career-charts">
-          {counters?.radar && <PlayerRadar axes={counters.radar} />}
-          <section className="wt-record-panel wt-career-comparison">
-            <div className="wt-record-heading">
-              <h2>
-                近期与生涯
-                <GameTip label="近期与生涯">
-                  差异仅与自身生涯均值比较，不代表连续涨跌或最近几局结果。
-                  {career && recent && (
-                    <p>
-                      累计 {num(career.counters.battles)} 场 · 近期 {num(recent.counters.battles)}{" "}
-                      场。
-                    </p>
-                  )}
-                  {read.data?.registeredAt && (
-                    <p>
-                      注册于 {new Date(read.data.registeredAt * 1000).toLocaleDateString("zh-CN")}
-                    </p>
-                  )}
-                </GameTip>
-              </h2>
-              <span>{scope?.label || "同一统计范围"}</span>
-            </div>
-            {career && recent ? (
-              <>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>指标</th>
-                      <th>生涯累计</th>
-                      <th>官方近期</th>
-                      <th>差异</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {[
-                      "victories_battles",
-                      "averageScore",
-                      "averageRelativePosition",
-                      "average_active_kills_by_spawn",
-                    ].map((key) => {
-                      const a = career.metrics[key]?.value,
-                        b = recent.metrics[key]?.value;
-                      if (a == null && b == null) return null;
-                      const delta = a != null && b != null ? b - a : null;
-                      const percent =
-                        key === "victories_battles" || key === "averageRelativePosition";
-                      const labels: Record<string, string> = {
-                        victories_battles: "胜率",
-                        averageScore: "平均得分",
-                        averageRelativePosition: "队内相对位置",
-                        average_active_kills_by_spawn: "击毁／出击",
-                      };
-                      return (
-                        <tr key={key}>
-                          <th>{labels[key]}</th>
-                          <td>{rankingValue(a, key)}</td>
-                          <td>{rankingValue(b, key)}</td>
-                          <td
-                            className={
-                              delta == null || delta === 0
-                                ? ""
-                                : delta > 0
-                                  ? "wt-career-up"
-                                  : "wt-career-down"
-                            }
-                          >
-                            {delta == null
-                              ? "—"
-                              : `${delta > 0 ? "+" : ""}${(delta * (percent ? 100 : 1)).toFixed(2)}${percent ? " 个百分点" : ""}`}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </>
-            ) : (
-              <p className="wt-record-fine">
-                {read.busy ? "正在补充近期统计…" : "当前范围缺少可比较的近期数据。"}
-              </p>
-            )}
-          </section>
-        </div>
-        <div className="wt-career-inventory">
-          <div className="wt-record-career">
+        <div className="wt-career-dashboard">
+          <div className="wt-career-performance">
+            {counters?.radar && <PlayerRadar axes={counters.radar} />}
             {base && base.branches.length > 0 && (
               <section className="wt-record-panel wt-record-branch-panel">
                 <div className="wt-record-heading">
@@ -223,7 +140,90 @@ export function PlayerCareerOverview({
                 </div>
               </section>
             )}
-            <CountryOwnership profile={profile} />
+          </div>
+          <div className="wt-career-collection">
+            <CountryOwnership key={profile.snapshotId} profile={profile} />
+            <section className="wt-record-panel wt-career-comparison">
+              <div className="wt-record-heading">
+                <h2>
+                  近期与生涯
+                  <GameTip label="近期与生涯">
+                    差异仅与自身生涯均值比较，不代表连续涨跌或最近几局结果。
+                    {career && recent && (
+                      <p>
+                        累计 {num(career.counters.battles)} 场 · 近期 {num(recent.counters.battles)}{" "}
+                        场。
+                      </p>
+                    )}
+                    {read.data?.registeredAt && (
+                      <p>
+                        注册于 {new Date(read.data.registeredAt * 1000).toLocaleDateString("zh-CN")}
+                      </p>
+                    )}
+                  </GameTip>
+                </h2>
+                <span>{scope?.label || "同一统计范围"}</span>
+              </div>
+              {career && recent ? (
+                <>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>指标</th>
+                        <th>生涯累计</th>
+                        <th>官方近期</th>
+                        <th>差异</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        "victories_battles",
+                        "averageScore",
+                        "averageRelativePosition",
+                        "average_active_kills_by_spawn",
+                      ].map((key) => {
+                        const a = career.metrics[key]?.value,
+                          b = recent.metrics[key]?.value;
+                        if (a == null && b == null) return null;
+                        const delta = a != null && b != null ? b - a : null;
+                        const percent =
+                          key === "victories_battles" || key === "averageRelativePosition";
+                        const labels: Record<string, string> = {
+                          victories_battles: "胜率",
+                          averageScore: "平均得分",
+                          averageRelativePosition: "队内相对位置",
+                          average_active_kills_by_spawn: "击毁／出击",
+                        };
+                        return (
+                          <tr key={key}>
+                            <th>{labels[key]}</th>
+                            <td>{rankingValue(a, key)}</td>
+                            <td>{rankingValue(b, key)}</td>
+                            <td
+                              className={
+                                delta == null || delta === 0
+                                  ? ""
+                                  : delta > 0
+                                    ? "wt-career-up"
+                                    : "wt-career-down"
+                              }
+                            >
+                              {delta == null
+                                ? "—"
+                                : `${delta > 0 ? "+" : ""}${(delta * (percent ? 100 : 1)).toFixed(2)}${percent ? " 个百分点" : ""}`}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </>
+              ) : (
+                <p className="wt-record-fine">
+                  {read.busy ? "正在补充近期统计…" : "当前范围缺少可比较的近期数据。"}
+                </p>
+              )}
+            </section>
           </div>
         </div>
       </div>
