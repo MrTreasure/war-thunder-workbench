@@ -22,7 +22,7 @@
 - 国际站：`https://wt.mrtreasure.cc/`，部署独立 Workers Static Assets，Worker 保持 `war-thunder-workbench` 原名。
 - 2026-10-24 用户澄清：独立 Render 预览站并未停用，已迁至 Cloudflare Workers。预览地址为 `https://render.mrtreasure.cc/war-thunder-trees/`，可用于用户验收；不得将其当作正式站或国际站。先前对 Render 域名的全面禁用已撤销。
 - `deploy:qmuse` 用于正式站；`deploy:cf` 用于国际站。`deploy:preview` 仅发布独立 Render 预览；遵循 CF Workers 现行资源先于 HTML、哈希资源保留、鉴权及边缘校验流程，不恢复 NAS 对外托管。
-- 用户要求预览时，先发布独立 Render 预览并等待明确验收；确认前禁止更新 QMuse、国际站、线上图床资料索引及后端现行数据。尚未发布的本地构建不能宣称已在线。发布前保留构建、Git 版本及必要回滚材料。
+- 用户要求预览时，先发布独立 Render 预览并等待明确验收；确认前禁止更新 QMuse、国际站、线上图床资料索引及后端现行数据。尚未发布的本地构建不能宣称已在线。2026-10-27 用户取消历史发布回滚材料留存：以 Git 记录为准，发布完成后清理临时构建副本与回滚包；保留必要校验结果，线上旧哈希资源仍供已打开页面使用。
 - 国际站 SEO canonical 与 Web Analytics 继续对应 wt 域名；后台“页面分析”保持直达该站统计。
 - 国际站发布使用 `feat/seo-localized-pages` 的多语言工作区，合并 main 后补充英、俄、日文案，不得以中文 main 构建覆盖国际站。
 - 2026-10-24 QMuse 90800278 曾因「未声明 WASM」被拒；按用户要求补充结构化用途清单、文件 NOTICE、加载入口注释及官方 CLI 清单核对后，仅重试一次，90800422 / 部署 36900195 的最终审核为 PASSED、部署为 DEPLOYED，已验证线上版本；静态子扫描仍保留 WASM 告警，不能声称所有扫描均通过。此为历史发布记录；后续用户已改为后端原生计算，当前前端不得包含 WASM。

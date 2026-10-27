@@ -12,12 +12,23 @@
   padding: 26px 28px 36px;
   color: var(--wt-record-ink);
   font:
-    14px/1.6 system-ui,
+    14px/1.6 WTSymbols,
+    system-ui,
     sans-serif;
   min-width: 0;
 }
 .wt-record-page * {
   box-sizing: border-box;
+}
+/* Keep official vehicle markers while ordinary text retains the stats UI font. */
+.wt-record-vehicle b,
+.wt-record-page .wt-vehicle-card-heading h3,
+.wt-vehicle-record-identity h3,
+.wt-garage-detail > header h2,
+.wt-vehicle-record-dialog > .calc-header h2,
+.wt-chart-vehicle-name,
+.wt-poster-vehicle-title h3 {
+  font-family: WTSymbols, system-ui, sans-serif;
 }
 .wt-record-page h1,
 .wt-record-page h2,
@@ -2272,7 +2283,7 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-owned-garage .calc-header { flex-shrink: 0; padding: 18px 24px; }
 .wt-owned-garage .calc-header h2 { font-size: 20px; overflow-wrap: anywhere; }
 .wt-owned-garage .calc-header p { color: var(--wt-record-muted); font-size: 12px; }
-.wt-owned-content { min-height: 0; overflow: auto; padding: 20px 24px; font: 14px/1.6 system-ui, sans-serif; }
+.wt-owned-content { min-height: 0; overflow: auto; padding: 20px 24px; font: 14px/1.6 WTSymbols, system-ui, sans-serif; }
 .wt-owned-content input { color: var(--wt-record-ink); background: transparent; border: 1px solid var(--wt-record-line); border-radius: 4px; padding: 10px 12px; min-height: 44px; min-width: 0; width: 100%; font: inherit; }
 .wt-owned-summary { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; margin-bottom: 20px; color: var(--wt-record-muted); font-size: 12px; }
 .wt-owned-summary strong { color: var(--wt-record-ink); font-size: 25px; }
