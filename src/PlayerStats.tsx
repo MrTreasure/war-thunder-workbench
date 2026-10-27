@@ -1,5 +1,7 @@
+import { GameTip } from "./components/GameTip";
 import { buildReportRequest } from "./player-report-request";
 import { ExtraQueryCredits } from "./ExtraQueryCredits";
+import { PlayerMedals } from "./PlayerMedals";
 import { GameAccountBinding } from "./GameAccountBinding";
 import { readPublicResource } from "./public-resource-api";
 import { queryTask, pendingQuery, resumeQuery, forgetQuery } from "./player-query-task";
@@ -50,6 +52,7 @@ import {
   type LeaderboardData,
   type LeaderboardPlayer,
 } from "./player-leaderboards-cache";
+import { GameTabs } from "./components/GameTabs";
 import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
 import {
@@ -169,7 +172,7 @@ export function PlayerStats() {
   const [profile, setProfile] = useState<PlayerProfile | null>(null),
     [mode, setMode] = useState("rb"),
     [tab, setTab] = useState(route.view || "overview");
-  const publicDetails = usePlayerRead<PlayerDetails>(profile, "details", false);
+  const publicDetails = usePlayerRead<PlayerDetails>(profile, "details", !!profile);
   const freshVehicleDetails =
     profile &&
     publicDetails.data &&
@@ -809,7 +812,29 @@ export function PlayerStats() {
     <div className="wt-record-page">
       <header className="wt-record-page-title">
         <div>
-          <h1>个人战绩档案</h1>
+          <h1>
+            个人战绩档案
+            <button
+              type="button"
+              className="wt-game-tip-trigger"
+              aria-label="战绩统计说明"
+              title="战绩统计说明"
+              onClick={() => setShowRules(true)}
+            >
+              <svg
+                viewBox="0 0 20 20"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                aria-hidden="true"
+              >
+                <circle cx="10" cy="10" r="7" />
+                <path d="M10 9v5M10 6v1" />
+              </svg>
+            </button>
+          </h1>
           <p>查看生涯表现和官方排位，生成你的个人战报。</p>
         </div>
         <div className="wt-record-account">
@@ -882,16 +907,18 @@ export function PlayerStats() {
           <section className="wt-record-panel">
             <div className="wt-record-heading">
               <h2>
-                最近查询 <span>{recentPlayers.length}</span>
+                最近查询
+                <GameTip label="最近查询">
+                  本机保留最近 16
+                  位玩家的已查资料，点击直接查看，不发起新查询；需要最新资料时使用强制刷新。
+                </GameTip>
+                <span>{recentPlayers.length}</span>
               </h2>
               {!!recentPlayers.length && (
                 <button onClick={() => setRecentPlayers(clearStatsQueryHistory())}>清空记录</button>
               )}
             </div>
-            <p className="wt-record-fine">
-              本机保留最近 16
-              位玩家的已查资料，点击直接查看，不发起新查询；需要最新资料时使用强制刷新。
-            </p>
+
             {recentPlayers.length ? (
               <div className="wt-record-recent">
                 {recentPlayers.map((p) => (
@@ -917,7 +944,14 @@ export function PlayerStats() {
           <section className="wt-record-panel">
             <div className="wt-record-heading">
               <h2>
-                官方排行榜 <span>TOP 30</span>
+                官方排行榜
+                <GameTip label="官方排行榜">
+                  按官方累计击毁数整理，点击后按已核验 UID 查询；缓存命中免费，新查询遵守上方额度。
+                  {board && (
+                    <p>榜单快照采集于 {statsDate(board.fetchedAt)} · 官方累计榜，非实时更新。</p>
+                  )}
+                </GameTip>
+                <span>TOP 30</span>
               </h2>
               {board && (
                 <a href={board.sources[0]} target="_blank" rel="noopener noreferrer">
@@ -952,9 +986,7 @@ export function PlayerStats() {
                 ))}
               </fieldset>
             </div>
-            <p className="wt-record-fine">
-              按官方累计击毁数整理，点击后按已核验 UID 查询；缓存命中免费，新查询遵守上方额度。
-            </p>
+
             {board ? (
               <>
                 <ol className="wt-record-leaders">
@@ -968,9 +1000,6 @@ export function PlayerStats() {
                     </li>
                   ))}
                 </ol>
-                <p className="wt-record-fine">
-                  榜单快照采集于 {statsDate(board.fetchedAt)} · 官方累计榜，非实时更新。
-                </p>
               </>
             ) : (
               <p className="wt-record-empty">该榜单暂未获取，请稍后再试或直接输入昵称。</p>
@@ -991,6 +1020,10 @@ export function PlayerStats() {
                 等级 {num(profile.level)} · UID {profile.uid}
               </p>
             </div>
+            <PlayerMedals
+              key={`medals:${profile.snapshotId}`}
+              medals={publicDetails.data?.medals}
+            />
             <div className="wt-record-player-actions" aria-label="玩家资料操作">
               <GameAccountBinding
                 key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
@@ -1024,40 +1057,56 @@ export function PlayerStats() {
               <small>强制刷新计入新查询次数</small>
             </div>
           </section>
-          <div className="wt-record-tabs" aria-label="战绩视图">
-            <button aria-pressed={tab === "overview"} onClick={() => changeTab("overview")}>
-              生涯总览
-            </button>
-            <button aria-pressed={tab === "rankings"} onClick={() => changeTab("rankings")}>
-              排位数据
-            </button>
-            <button aria-pressed={tab === "report"} onClick={() => changeTab("report")}>
-              个人战报 <small>TOP 5</small>
-            </button>
-            <div className="wt-record-modes">
-              {profile.modes.map((m) => (
-                <button
-                  key={m.id}
-                  disabled={
-                    tab === "report" &&
-                    (busy ||
-                      exportBusy ||
-                      (!!report && ["queued", "running"].includes(report.status)))
-                  }
-                  aria-pressed={mode === m.id}
-                  onClick={() => {
-                    setMode(m.id);
-                    setViewingHistory(false);
-                    setVehiclePage(1);
-                    setReport(null);
-                  }}
-                >
-                  {statsModeNames[m.id]}
-                </button>
-              ))}
-            </div>
+          <div className="wt-record-tabs">
+            <GameTabs
+              id="stats-view"
+              panelId="stats-results"
+              className="wt-record-main-tabs"
+              label="战绩视图"
+              value={tab}
+              items={[
+                { value: "overview", label: "生涯总览" },
+                { value: "rankings", label: "排位数据" },
+                {
+                  value: "report",
+                  label: (
+                    <>
+                      个人战报 <small>TOP 5</small>
+                    </>
+                  ),
+                },
+              ]}
+              onValueChange={changeTab}
+            />
+            <GameTabs
+              id="stats-mode"
+              panelId="stats-results"
+              className="wt-record-modes"
+              label="战斗模式"
+              value={mode}
+              items={profile.modes.map((m) => ({
+                value: m.id,
+                label: statsModeNames[m.id],
+                disabled:
+                  tab === "report" &&
+                  (busy ||
+                    exportBusy ||
+                    (!!report && ["queued", "running"].includes(report.status))),
+              }))}
+              onValueChange={(value) => {
+                setMode(value);
+                setViewingHistory(false);
+                setVehiclePage(1);
+                setReport(null);
+              }}
+            />
           </div>
-          <div className="wt-record-results">
+          <div
+            className="wt-record-results"
+            id="stats-results"
+            role="tabpanel"
+            aria-labelledby={`stats-view-${tab}-tab`}
+          >
             <PlayerCareerOverview
               key={`career:${profile.snapshotId}`}
               profile={profile}
@@ -1079,7 +1128,12 @@ export function PlayerStats() {
                 <section className="wt-record-panel wt-record-table-panel">
                   <div className="wt-record-heading">
                     <h2>
-                      载具战绩 <span>{filtered.length} 辆</span>
+                      载具战绩{" "}
+                      <GameTip label="载具战绩">
+                        单车对空、对地、对海 K/D
+                        分别使用该车死亡次数。银狮为助手累计获得统计，不是当前余额或扣除维修补给后的净收入，数据取自助手统计，建议以游戏内记录为准。“—”代表未返回。
+                      </GameTip>
+                      <span>{filtered.length} 辆</span>
                     </h2>
                     <span>
                       {statsModeNames[mode]} · 仅展示已出击载具
@@ -1291,17 +1345,20 @@ export function PlayerStats() {
                       saveVehiclePageSize(size);
                     }}
                   />
-                  <p className="wt-record-fine">
-                    单车对空、对地、对海 K/D
-                    分别使用该车死亡次数。银狮为助手累计获得统计，不是当前余额或扣除维修补给后的净收入，数据取自助手统计，建议以游戏内记录为准。“—”代表未返回。
-                  </p>
                 </section>
                 <PlayerTypeUsage profile={profile} mode={mode} active={tab === "overview"} />
               </>
             ) : (
               <div className="wt-record-report-layout">
                 <aside className="wt-record-panel wt-report-controls">
-                  <h2>定制你的战报</h2>
+                  <h2>
+                    定制你的战报
+                    <GameTip label="定制你的战报">
+                      <p>筛选和选图不扣次数。点击生成时使用一次战报额度，生成失败会退回。</p>
+                      <p>更换背景和重复保存不扣次；更换分析风格或自定义内容会生成新战报。</p>
+                      {viewingHistory && <p>正在查看已存战报。调整筛选可为当前玩家配置新战报。</p>}
+                    </GameTip>
+                  </h2>
                   <p>选好范围、点评风格与背景，再一起生成。</p>
                   <div className="wt-report-filters" aria-label="战报载具筛选">
                     <label>
@@ -1387,14 +1444,6 @@ export function PlayerStats() {
                       </div>
                     )}
                   </div>
-                  <p className="wt-record-fine">
-                    筛选和选图不扣次数。点击生成时使用一次战报额度，生成失败会退回。
-                  </p>
-                  {viewingHistory && (
-                    <p className="wt-record-fine">
-                      正在查看已存战报。调整筛选可为当前玩家配置新战报。
-                    </p>
-                  )}
                   <div className="wt-record-heading">
                     <h3>战雷官方背景</h3>
                     <span>{config?.assets.backgrounds.length || 0} 张</span>
@@ -1517,9 +1566,6 @@ export function PlayerStats() {
                   >
                     我的战报
                   </button>
-                  <p className="wt-record-fine">
-                    更换背景和重复保存不扣次；更换分析风格或自定义内容会生成新战报。
-                  </p>
                 </aside>
                 <div className="wt-report-stage">
                   <div className="wt-report-caption">
@@ -1582,12 +1628,6 @@ export function PlayerStats() {
               </div>
             )}
           </div>
-          <footer className="wt-record-footer">
-            {profile.notice}{" "}
-            <button className="wt-record-link" onClick={() => setShowRules(true)}>
-              效率分与 K/D 说明
-            </button>
-          </footer>
         </>
       )}
       {displayProfile && selectedVehicle && (
@@ -1620,6 +1660,7 @@ export function PlayerStats() {
           close={() => setShowRules(false)}
           className="wt-record-rules wt-data-notes-dialog"
         >
+          {profile?.notice && <p>{profile.notice}</p>}
           <StatsDataNotes />
         </Modal>
       )}

@@ -164,3 +164,52 @@
     animation: none;
   }
 }
+
+/* Official profile frameHeaderTabs.tpl/shopFilter header tokens, pinned game source. */
+.wt-record-page {
+  --wt-stats-tab-idle: #908f8f;
+  --wt-stats-tab-ink: #e0e0e0;
+  --wt-stats-tab-selected: #b2391d;
+  --wt-stats-tab-hover: #6a221199;
+  --wt-stats-tab-pressed: #313a41;
+}
+/* Career tabs use the same game shopFilter surface as the vehicle dialog. */
+.wt-record-page .wt-game-tabs > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-height: 46px;
+  padding: 10px 16px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--wt-stats-tab-idle);
+  font: 500 14px/1.3 var(--wt-sans);
+  white-space: nowrap;
+}
+.wt-record-page .wt-game-tabs > button[aria-selected="true"] {
+  background: transparent;
+  color: var(--wt-stats-tab-ink);
+  border-bottom-color: var(--wt-stats-tab-selected);
+}
+.wt-record-page .wt-game-tabs > button:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: -2px;
+}
+.wt-record-page .wt-game-tabs > button:active:not(:disabled) {
+  background: var(--wt-stats-tab-pressed);
+}
+.wt-record-page .wt-game-tabs > button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+@media (hover: hover) {
+  .wt-record-page .wt-game-tabs > button:hover:not(:disabled) {
+    background: transparent;
+    border-bottom-color: var(--wt-stats-tab-hover);
+    color: var(--wt-stats-tab-ink);
+  }
+}

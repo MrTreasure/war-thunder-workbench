@@ -1,3 +1,4 @@
+import { GameTip } from "./components/GameTip";
 import { useId } from "react";
 import type { RadarAxis } from "./player-stats-api";
 import { statsRatio } from "./player-stats-api";
@@ -15,7 +16,12 @@ export function PlayerRadar({ axes }: { axes: RadarAxis[] }) {
   return (
     <section className="wt-record-panel wt-radar">
       <div className="wt-record-heading">
-        <h2>六维能力画像</h2>
+        <h2>
+          六维能力画像
+          <GameTip label="六维能力画像">
+            比值按 x/(1+x) 换算，胜率直接使用百分比。缺失项目留空，不代表零分；不是全服百分位。
+          </GameTip>
+        </h2>
         <span>同一模式</span>
       </div>
       {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role -- This labelled inline SVG is the chart, not a replaceable HTML image. */}
@@ -61,7 +67,7 @@ export function PlayerRadar({ axes }: { axes: RadarAxis[] }) {
         })}
       </svg>
       <details>
-        <summary>查看数值与换算说明</summary>
+        <summary>查看数值</summary>
         <div className="wt-radar-values">
           {axes.map((a) => (
             <div key={a.label}>
@@ -74,7 +80,6 @@ export function PlayerRadar({ axes }: { axes: RadarAxis[] }) {
             </div>
           ))}
         </div>
-        <p>比值按 x/(1+x) 换算，胜率直接使用百分比。缺失项目留空，不代表零分；不是全服百分位。</p>
       </details>
     </section>
   );
