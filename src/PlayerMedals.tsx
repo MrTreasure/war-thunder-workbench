@@ -28,13 +28,20 @@ function MedalBadge({
       label={medalName(medal)}
       className="wt-player-medal"
       icon={
-        <img
-          src={fallback ? image.fallbackUrl : image.url}
-          width={16}
-          height={16}
-          alt=""
-          onError={() => (fallback ? unavailable(medal.id) : setFallback(true))}
-        />
+        <span className="wt-player-medal-art">
+          <img
+            src={fallback ? image.fallbackUrl : image.url}
+            width={24}
+            height={24}
+            alt=""
+            onError={() => (fallback ? unavailable(medal.id) : setFallback(true))}
+          />
+          <span
+            className="wt-player-medal-luster"
+            aria-hidden="true"
+            style={{ maskImage: `url("${fallback ? image.fallbackUrl : image.url}")` }}
+          />
+        </span>
       }
     >
       <p>{t("{0} · 已获得", [statsCountryLabel(medal.country)])}</p>
@@ -60,7 +67,8 @@ export function PlayerMedals({
   const trigger = useRef<HTMLButtonElement>(null);
   const strip = useRef<HTMLDivElement>(null);
   const [failed, setFailed] = useState<string[]>([]);
-  const [limit, setLimit] = useState(4);
+  const [columns, setColumns] = useState(4);
+  const limit = Math.min(48, columns * 2 - 2);
   const owned = medals?.items.filter((item) => medalImages.has(item.id)) || [];
   const available = owned.filter((item) => !failed.includes(item.id));
   const visible = available.slice(0, limit);
@@ -68,8 +76,8 @@ export function PlayerMedals({
     const element = strip.current;
     if (!element) return;
     const measure = () => {
-      const step = matchMedia("(pointer: coarse)").matches ? 36 : 28;
-      setLimit(Math.max(1, Math.min(24, Math.floor((element.clientWidth - 48) / step))));
+      const step = matchMedia("(pointer: coarse)").matches ? 48 : 36;
+      setColumns(Math.max(2, Math.floor((element.clientWidth + 4) / step)));
     };
     measure();
     const observer = new ResizeObserver(measure);
@@ -107,7 +115,12 @@ export function PlayerMedals({
   const countries = [...new Set(owned.map((item) => item.country))];
   const filtered = available.filter((item) => country === "all" || item.country === country);
   return (
-    <div className="wt-player-medals" ref={strip} aria-label={t("已获勋章 {0} 枚", [count])}>
+    <div
+      className="wt-player-medals"
+      ref={strip}
+      data-rows={visible.length + 2 <= columns ? 1 : 2}
+      aria-label={t("已获勋章 {0} 枚", [count])}
+    >
       {visible.map((item) => (
         <MedalBadge key={item.id} medal={item} unavailable={unavailable} />
       ))}

@@ -2545,47 +2545,85 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-record-page .wt-player-read-status > button:hover:not(:disabled) { color: var(--wt-record-ink); background: transparent; }
 .wt-player-read-status > button > span { color: var(--wt-record-gold); font-size: 18px; }
 
-/* finesse component · earned medals · game artwork at text size; top-layer hover/tap hints. */
+/* finesse component · earned medals · two rows of larger original artwork with masked metal sweeps. */
 .wt-record-player:has(> .wt-player-medals) { grid-template-columns: auto minmax(150px, auto) minmax(0, 1fr) auto; }
-.wt-player-medals { display: flex; align-items: center; gap: 4px; min-width: 0; width: 100%; min-height: 28px; justify-self: stretch; font-size: 16px; }
+.wt-player-medals {
+  --wt-medal-cell: 32px;
+  display: grid; grid-template-columns: repeat(auto-fill, var(--wt-medal-cell));
+  grid-template-rows: var(--wt-medal-cell); align-content: center; align-items: center;
+  gap: 4px; min-width: 0; width: 100%; justify-self: stretch;
+}
+.wt-player-medals[data-rows="2"] { grid-template-rows: repeat(2, var(--wt-medal-cell)); }
 .wt-record-page .wt-player-medals .wt-player-medal,
 .wt-player-medals-list button.wt-player-medal {
-  display: inline-flex; align-items: center; justify-content: center; flex: 0 0 24px;
-  width: 24px; height: 28px; min-height: 28px; margin: 0; padding: 4px;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; min-height: 32px; margin: 0; padding: 4px;
   border: 0; border-radius: 2px; background: transparent; box-shadow: none; cursor: help;
 }
-.wt-player-medal > img { display: block; flex: 0 0 16px; width: 16px; height: 16px; object-fit: contain; animation: wt-medal-glow 5.2s ease-in-out infinite; }
-.wt-player-medal:nth-of-type(3n+2) > img,
-.wt-player-medals-list li:nth-child(3n+2) img { animation-delay: -1.8s; }
-.wt-player-medal:nth-of-type(3n) > img,
-.wt-player-medals-list li:nth-child(3n) img { animation-delay: -3.6s; }
-@keyframes wt-medal-glow {
-  0%, 65%, 100% { filter: brightness(1.03) drop-shadow(0 0 1px color-mix(in srgb, var(--wt-gold) 22%, transparent)); }
-  82% { filter: brightness(1.35) drop-shadow(0 0 3px color-mix(in srgb, var(--wt-gold) 64%, transparent)); }
+.wt-player-medal-art {
+  --wt-medal-shine-duration: 3.8s; --wt-medal-shine-delay: -.4s;
+  position: relative; display: block; flex: 0 0 24px; width: 24px; height: 24px; isolation: isolate;
+}
+.wt-player-medal-art > img { display: block; width: 24px; height: 24px; object-fit: contain; }
+.wt-player-medal-luster {
+  position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+  mask-size: contain; mask-repeat: no-repeat; mask-position: center; mix-blend-mode: screen;
+}
+.wt-player-medal-luster::before,
+.wt-player-medal-luster::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
+.wt-player-medal-luster::before {
+  background: linear-gradient(115deg, transparent 24%, color-mix(in srgb, var(--wt-gold) 45%, transparent) 40%, var(--wt-ink) 49%, var(--wt-ink) 52%, color-mix(in srgb, var(--wt-gold) 60%, transparent) 60%, transparent 76%);
+  animation: wt-medal-metal-sweep var(--wt-medal-shine-duration) ease-in-out infinite;
+  animation-delay: var(--wt-medal-shine-delay);
+}
+.wt-player-medal-luster::after {
+  background:
+    radial-gradient(ellipse 5% 23% at 52% 72%, var(--wt-ink) 25%, transparent 90%),
+    radial-gradient(ellipse 23% 5% at 52% 72%, var(--wt-ink) 25%, transparent 90%),
+    radial-gradient(ellipse 4% 16% at 48% 35%, var(--wt-ink) 20%, transparent 90%),
+    radial-gradient(ellipse 16% 4% at 48% 35%, var(--wt-ink) 20%, transparent 90%);
+  animation: wt-medal-metal-glint 3.2s linear infinite;
+  animation-delay: var(--wt-medal-shine-delay);
+}
+.wt-player-medal:nth-of-type(4n+2) .wt-player-medal-art,
+.wt-player-medals-list li:nth-child(4n+2) .wt-player-medal-art { --wt-medal-shine-delay: -1.3s; --wt-medal-shine-duration: 3.6s; }
+.wt-player-medal:nth-of-type(4n+3) .wt-player-medal-art,
+.wt-player-medals-list li:nth-child(4n+3) .wt-player-medal-art { --wt-medal-shine-delay: -2.6s; --wt-medal-shine-duration: 4.1s; }
+.wt-player-medal:nth-of-type(4n) .wt-player-medal-art,
+.wt-player-medals-list li:nth-child(4n) .wt-player-medal-art { --wt-medal-shine-delay: -3.2s; --wt-medal-shine-duration: 4.4s; }
+@keyframes wt-medal-metal-sweep {
+  0%, 12% { opacity: 0; transform: translateX(-115%); }
+  22%, 62% { opacity: .92; }
+  76%, 100% { opacity: 0; transform: translateX(115%); }
+}
+@keyframes wt-medal-metal-glint {
+  0%, 16%, 48%, 70%, 100% { opacity: 0; }
+  20%, 28%, 54%, 60% { opacity: 1; }
+  24%, 51%, 64% { opacity: .12; }
 }
 .wt-record-page .wt-player-medals-trigger,
 .wt-record-page .wt-player-medals-retry {
-  flex: 0 0 auto; min-height: 28px; height: 28px; padding: 2px 5px; border: 0;
+  grid-column: span 2; min-height: 32px; height: 32px; padding: 2px 5px; border: 0;
   border-radius: 2px; background: transparent; box-shadow: none; color: var(--wt-record-muted);
   font-size: 12px; line-height: 1.4; font-variant-numeric: tabular-nums;
 }
-.wt-player-medals-trigger { margin-left: 2px; }
+.wt-record-page .wt-player-medals-retry { grid-column: 1 / -1; justify-self: start; }
 .wt-player-medal:focus-visible,
 .wt-player-medals-trigger:focus-visible,
 .wt-player-medals-retry:focus-visible { outline: 2px solid var(--wt-gold); outline-offset: -1px; }
 .wt-player-medal:active { translate: 0 1px; }
-.wt-player-medals-loading { display: block; width: 76px; height: 16px; opacity: .5; background: repeating-linear-gradient(90deg, var(--wt-line) 0 16px, transparent 16px 28px); }
+.wt-player-medals-loading { grid-column: span 2; display: block; width: 68px; height: 24px; opacity: .5; background: repeating-linear-gradient(90deg, var(--wt-line) 0 24px, transparent 24px 36px); }
 @media (hover: hover) {
   .wt-record-page .wt-player-medals .wt-player-medal:hover,
   .wt-player-medals-list button.wt-player-medal:hover { background: var(--wt-gold-soft); }
-  .wt-player-medal:hover > img { animation-play-state: paused; filter: brightness(1.35) drop-shadow(0 0 3px var(--wt-gold)); }
 }
 @media (pointer: coarse) {
-  .wt-record-page .wt-player-medals .wt-player-medal { flex-basis: 32px; width: 32px; height: 32px; min-height: 32px; padding: 8px; }
-  .wt-record-page .wt-player-medals-trigger { min-width: 36px; min-height: 32px; height: 32px; }
+  .wt-player-medals { --wt-medal-cell: 44px; }
+  .wt-record-page .wt-player-medals .wt-player-medal { width: 44px; height: 44px; min-height: 44px; padding: 10px; }
+  .wt-record-page .wt-player-medals-trigger, .wt-record-page .wt-player-medals-retry { min-height: 44px; height: 44px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .wt-player-medal > img { animation: none; filter: drop-shadow(0 0 1px color-mix(in srgb, var(--wt-gold) 25%, transparent)); }
+  .wt-player-medal-luster::before, .wt-player-medal-luster::after { animation: none; opacity: 0; }
 }
 .calculator.wt-player-medals-dialog {
   width: min(760px, calc(100vw - 24px)); height: fit-content; max-height: calc(100dvh - 32px);
@@ -2596,7 +2634,7 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-player-medals-controls > .wt-select { width: 180px; }
 .wt-player-medals-list { display: grid; grid-template-columns: repeat(auto-fill, 36px); gap: 4px; justify-content: start; list-style: none; padding: 0; margin: 0; overflow: auto; }
 .wt-player-medals-list > li { display: flex; align-items: center; min-width: 0; }
-.wt-player-medals-list button.wt-player-medal { flex-basis: 36px; width: 36px; height: 36px; min-height: 36px; padding: 10px; }
+.wt-player-medals-list button.wt-player-medal { flex-basis: 36px; width: 36px; height: 36px; min-height: 36px; padding: 6px; }
 .wt-record-page .wt-binding-read-status > span { display: inline-grid; place-items: center; width: 16px; height: 16px; border: 1px solid currentColor; border-radius: 50%; margin-right: 5px; color: var(--wt-record-gold); font-size: 11px; }
 
 .wt-career-scope-field { display: grid; gap: 5px; min-width: 150px; color: var(--wt-record-muted); font-size: 12px; }
