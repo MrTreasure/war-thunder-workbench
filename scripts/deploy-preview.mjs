@@ -25,6 +25,12 @@ if (args.includes("--dry-run")) {
   );
 } else {
   run(["run", "publish"]);
-  run(["--dir", "/vol1/1000/workspace/cloudflare-sites", "run", "publish:render"]);
+  run([
+    "--dir",
+    "/vol1/1000/workspace/cloudflare-sites",
+    "run",
+    "publish:render",
+    "--skip-edge-verification",
+  ]);
   console.log("Render preview deployed: https://render.mrtreasure.cc/war-thunder-trees/");
 }

@@ -25,5 +25,25 @@ export type Workspace = {
   reload: () => Promise<void>;
   open: () => void;
 };
+/** One account's synchronization controller can restart without remounting pages. */
+export function createWorkspaceStore(userId: string) {
+  let snapshot: Workspace | null = null;
+  const listeners = new Set<() => void>();
+  return {
+    getSnapshot: () => snapshot,
+    subscribe: (listener: () => void) => {
+      listeners.add(listener);
+      return () => {
+        listeners.delete(listener);
+      };
+    },
+    publish: (next: Workspace) => {
+      if (next.userId !== userId) throw Error("云端数据所属账号不一致。");
+      if (snapshot === next) return;
+      snapshot = next;
+      listeners.forEach((listener) => listener());
+    },
+  };
+}
 export const WorkspaceContext = createContext<Workspace | null>(null);
 export const useAccountWorkspace = () => useContext(WorkspaceContext);

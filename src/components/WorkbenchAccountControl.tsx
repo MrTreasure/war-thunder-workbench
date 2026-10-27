@@ -3,7 +3,7 @@ import { HeyboxAccountDialog } from "./HeyboxAccountDialog";
 import { useWorkbenchAccount } from "../WorkbenchAccount";
 import { StatsAccountMenu } from "./StatsAccountMenu";
 export function WorkbenchAccountControl() {
-  const { session, busy, error, clearError, login, logout } = useWorkbenchAccount();
+  const { session, busy, initializing, error, clearError, login, logout } = useWorkbenchAccount();
   const [heybox, setHeybox] = useState<"bind" | null>(null);
   return (
     <div className="wt-header-account">
@@ -19,10 +19,10 @@ export function WorkbenchAccountControl() {
         <button
           type="button"
           className="wt-header-login"
-          disabled={busy}
+          disabled={busy || initializing}
           onClick={() => void login()}
         >
-          {busy ? "登录中…" : "登录"}
+          {initializing ? "账号加载中…" : busy ? "登录中…" : "登录"}
         </button>
       )}
       {heybox && <HeyboxAccountDialog purpose="bind" close={() => setHeybox(null)} />}

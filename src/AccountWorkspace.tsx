@@ -1,11 +1,23 @@
 import { readPricePreferences, savePricePreferences } from "./sale-price-api";
 import { saleWatchKey } from "./sale-watch-storage";
-import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import {
+  memo,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+  type ReactNode,
+} from "react";
 import {
   WorkspaceContext,
+  createWorkspaceStore,
   workspaceKey,
   type GameBinding,
   type WorkspaceDocument,
+  type Workspace,
 } from "./workspace-context";
 import { statsRequest, StatsError, statsCategoryNames } from "./player-stats-api";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
@@ -34,13 +46,23 @@ const message = (e: unknown) => (e instanceof Error ? e.message : "云端同步�
 export function AccountWorkspaceProvider({ children }: { children: ReactNode }) {
   const { session } = useWorkbenchAccount();
   const userId = session?.user?.id || "";
+  const store = useMemo(() => createWorkspaceStore(userId), [userId]);
+  const workspace = useSyncExternalStore(store.subscribe, store.getSnapshot, store.getSnapshot);
   return (
-    <AccountWorkspace key={userId || "guest"} userId={userId}>
+    <WorkspaceContext.Provider value={workspace}>
+      <AccountWorkspace key={userId || "guest"} userId={userId} publish={store.publish} />
       {children}
-    </AccountWorkspace>
+    </WorkspaceContext.Provider>
   );
 }
-function AccountWorkspace({ children, userId }: { children: ReactNode; userId: string }) {
+// Only account-owned state is keyed. The application shell and route stay mounted.
+const AccountWorkspace = memo(function AccountWorkspace({
+  userId,
+  publish,
+}: {
+  userId: string;
+  publish: (workspace: Workspace) => void;
+}) {
   const [tabId, setTabId] = useState(() => {
     try {
       const key = "wt-account-workspace-tab-v1";
@@ -399,23 +421,23 @@ function AccountWorkspace({ children, userId }: { children: ReactNode; userId: s
     a.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
+  useLayoutEffect(() => {
+    publish({
+      userId,
+      ready: !!snapshot,
+      consented: !!snapshot?.consented,
+      documents,
+      binding: snapshot?.binding || null,
+      ownedVehicleIds,
+      status,
+      error,
+      save,
+      reload: load,
+      open: () => setOpen(true),
+    });
+  });
   return (
-    <WorkspaceContext.Provider
-      value={{
-        userId,
-        ready: !!snapshot,
-        consented: !!snapshot?.consented,
-        documents,
-        binding: snapshot?.binding || null,
-        ownedVehicleIds,
-        status,
-        error,
-        save,
-        reload: load,
-        open: () => setOpen(true),
-      }}
-    >
-      {children}
+    <>
       {open && userId && (
         <Modal
           title="云端数据"
@@ -613,6 +635,6 @@ function AccountWorkspace({ children, userId }: { children: ReactNode; userId: s
           </div>
         </Modal>
       )}
-    </WorkspaceContext.Provider>
+    </>
   );
-}
+});

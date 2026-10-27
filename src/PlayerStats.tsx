@@ -150,7 +150,12 @@ export function PlayerStats() {
     [leaderBranch, setLeaderBranch] = useState("ground");
   const board = leaderboards.boards.find((b) => b.mode === leaderMode && b.branch === leaderBranch);
   const [config, setConfig] = useState<StatsConfig | null>(null);
-  const { session, refreshSession: refreshAccountSession, identityVersion } = useWorkbenchAccount();
+  const {
+    session,
+    initializing: accountInitializing,
+    refreshSession: refreshAccountSession,
+    identityVersion,
+  } = useWorkbenchAccount();
   const [nickname, setNickname] = useState(route.player || lastStatsNickname()),
     [candidates, setCandidates] = useState<PlayerCandidate[]>([]),
     [queryId, setQueryId] = useState("");
@@ -309,7 +314,7 @@ export function PlayerStats() {
     },
     [navigate, route.player, route.view],
   );
-  const hasSession = !!session;
+  const hasSession = !!session && !accountInitializing;
   useEffect(() => {
     if (!hasSession || route.player || resumedQuery.current || !pendingQuery()) return;
     resumedQuery.current = true;
@@ -384,6 +389,7 @@ export function PlayerStats() {
     void navigate({ search: {}, replace: true });
   }
   async function performSearch(nick: string) {
+    if (accountInitializing || busy || !session) return;
     const value = nick.trim();
     if (value.length < 2) return;
     rememberStatsNickname(value);
@@ -424,7 +430,7 @@ export function PlayerStats() {
     }
   }
   async function chooseLeader(player: LeaderboardPlayer) {
-    if (busy || !session) return;
+    if (accountInitializing || busy || !session) return;
     const id = ++generation.current,
       c = controller();
     setBusy(true);
@@ -560,6 +566,7 @@ export function PlayerStats() {
     return () => c.abort();
   }, []);
   useEffect(() => {
+    if (accountInitializing) return;
     const c = new AbortController(),
       active = requests.current;
     active.add(c);
@@ -604,9 +611,9 @@ export function PlayerStats() {
       c.abort();
       active.forEach((item) => item.abort());
     };
-    // The route's initial player is a one-time explicit deep link.
+    // Start the initial deep link only after account restoration settles.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [accountInitializing]);
   useEffect(() => {
     if (!report || !["queued", "running"].includes(report.status)) return;
     const c = new AbortController();
@@ -851,9 +858,9 @@ export function PlayerStats() {
         />
         <button
           className="wt-record-primary"
-          disabled={busy || !session || nickname.trim().length < 2}
+          disabled={accountInitializing || busy || !session || nickname.trim().length < 2}
         >
-          {busy ? "正在查询…" : "搜索玩家"}
+          {accountInitializing ? "账号加载中…" : busy ? "正在查询…" : "搜索玩家"}
         </button>
         {(profile || candidates.length > 0 || busy || route.player) && (
           <button type="button" className="wt-record-back" onClick={returnToSearch}>
@@ -977,7 +984,10 @@ export function PlayerStats() {
                 <ol className="wt-record-leaders">
                   {board.players.map((p) => (
                     <li key={p.rank}>
-                      <button disabled={!session || busy} onClick={() => void chooseLeader(p)}>
+                      <button
+                        disabled={accountInitializing || !session || busy}
+                        onClick={() => void chooseLeader(p)}
+                      >
                         <span className="wt-record-rank">{String(p.rank).padStart(2, "0")}</span>
                         <b>{p.nickname}</b>
                         <span aria-hidden="true">→</span>
