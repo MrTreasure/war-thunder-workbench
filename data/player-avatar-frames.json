@@ -1,0 +1,605 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-27T11:38:03.942373+00:00",
+  "source": {
+    "assetCommit": "ea96f3af75afe1d858f80ac13f212db218bc69ca",
+    "directory": "images.vromfs.bin_u/images/avatar_frames",
+    "basis": "Original game PNGs; same pinned game asset source as existing portraits. CDN bytes checked against git blob SHA and SHA-256."
+  },
+  "items": [
+    {
+      "id": "frame_armored_apex",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_armored_apex.png",
+      "bytes": 291006,
+      "sha256": "72d5aca079ce4c35a2e10b421f29a6147e55aee977b27493991b276da9de8554",
+      "gitBlobSha": "cb59343de1f54ea2b3453b6c03195c1b563d135b",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_crystal_shards",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_crystal_shards.png",
+      "bytes": 308113,
+      "sha256": "d66aaaa98a0710a3dcb89b91cf4aadf9bae989a7457ac31b23b7976a78b00b04",
+      "gitBlobSha": "1a604e1f91ceadf72efc46a9e2f5234890085d9a",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_event_xmas_2024",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_event_xmas_2024.png",
+      "bytes": 109656,
+      "sha256": "ed0359c80aafb097a369ac3258b8a43db01e68f7242d6001081c06d5d9091517",
+      "gitBlobSha": "0ff095ae94b0586fcbd544e878facf7e6e6c0e01",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_goalpost",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_goalpost.png",
+      "bytes": 140887,
+      "sha256": "9b7c8e067bf47abdc71c6f097b1965504e37fe25340d1238b8321a969594d97a",
+      "gitBlobSha": "7752ffca2a927f7154a5b19b6966e9ab7d349601",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_gold_vintage",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_gold_vintage.png",
+      "bytes": 320998,
+      "sha256": "ee815da1e63f6784506f069d5823236b1e528ac434e92ef41b1d849441f34620",
+      "gitBlobSha": "732f3ad600c5360b453e39148c5e3e406e030895",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_halloween_pumpkins",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_halloween_pumpkins.png",
+      "bytes": 326670,
+      "sha256": "4a7f88e681ad3e9c9d70fe1b3701c91c12124710bedf7f2a8cf86721e7fe9e46",
+      "gitBlobSha": "4d7cc25a002d68b9b8e4daf8c39fb26290fe091b",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_halloween_witch",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_halloween_witch.png",
+      "bytes": 143373,
+      "sha256": "4676144cf557436ce7d02def270f347bcf5e7aff6b01a84ad38b726578d6b65c",
+      "gitBlobSha": "128d87c68f357725286feb0b40512b26c75029d4",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_lunar_ny_dragons",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_lunar_ny_dragons.png",
+      "bytes": 227096,
+      "sha256": "593b6089a893a208d60707fbcc2c2f6683f01d6b5e058799c24b39cc6f79f1d0",
+      "gitBlobSha": "2129886fa7c245ae2d759df20be00d7489d7166f",
+      "width": 618,
+      "height": 618
+    },
+    {
+      "id": "frame_metal_flat_bronze",
+      "url": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_metal_flat_bronze.png",
+      "bytes": 24048,
+      "sha256": "4835a0b51d33a7445d460c101226a983d7b1adebfbb64892b1975697afe4b311",
+      "gitBlobSha": "561074734b14ac82c2401220d578932737df9d99",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_metal_flat_golden",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_metal_flat_golden.png",
+      "bytes": 28981,
+      "sha256": "79c7796da3c1f2f695c572c8336563cf8fe712fbf7622132557af326581f9d8b",
+      "gitBlobSha": "6d5679b5011c2d28ae1fae93a8dd83240c20f18f",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_metal_flat_silver",
+      "url": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_metal_flat_silver.png",
+      "bytes": 18104,
+      "sha256": "365d4521b9cc6a66c7935c3c9acf74257ef9911abf2333372dc39289f7a9ab27",
+      "gitBlobSha": "8640adf63f86fc92f96a36d1979e37e55a711f4d",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_metal_golden_red_inlay",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_metal_golden_red_inlay.png",
+      "bytes": 57153,
+      "sha256": "c3c4c192ed4215592ef91624866efe2c428c6830d1e645b662a1c2fef16afcb5",
+      "gitBlobSha": "566d4a0a707ff251318341c90bb7e8fc10f4b8be",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_metal_silver_inlay",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_metal_silver_inlay.png",
+      "bytes": 42789,
+      "sha256": "2d393902553ef0eee3ac1144fc61e41cacff3e366d9126dae02877ba1d6efc2a",
+      "gitBlobSha": "c6ba2048cbf6af5e132226ed510a63ee36ec99df",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_metal_textured_bronze",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_metal_textured_bronze.png",
+      "bytes": 36136,
+      "sha256": "1f84295b3155dbab556992e983fd54aba96a1091778d50c1fe17d9f40afdb3cb",
+      "gitBlobSha": "d904862f03eb9393494ccabecde4db942247cdbc",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_metal_textured_golden",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_metal_textured_golden.png",
+      "bytes": 38309,
+      "sha256": "c974e8557d26e261c1695463b8aaad30a32c8a94e9405825311ca6df116164dc",
+      "gitBlobSha": "0004720affaad6e12f69aa8916cdaa271cdb88cd",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_metal_textured_silver",
+      "url": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_metal_textured_silver.png",
+      "bytes": 23556,
+      "sha256": "924311f36869347e5ddffd9919989bcd88c41cc19d8a25c7be3923c452340141",
+      "gitBlobSha": "7f99e3d759bd2797754f480c23bc4cf163646696",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_neon_blue",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_neon_blue.png",
+      "bytes": 16949,
+      "sha256": "b248c09858cb44259bee6caaf44d2e6b3adf6d771b34e337ff2cdcd426984e5d",
+      "gitBlobSha": "b22f6a3532bd55552ff153697b354aa7a677015b",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_neon_double_blue",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_neon_double_blue.png",
+      "bytes": 22962,
+      "sha256": "c4d71777a5555e74d2cfd5de1746cfee326a0a7d85dda65c3639e645ff02c1d2",
+      "gitBlobSha": "87e0af75841392b81c8698b38b72ff158a1333db",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_neon_double_bluered",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_neon_double_bluered.png",
+      "bytes": 26891,
+      "sha256": "6ea635d241b0c69b32e9ec47efc9df74ccb05c8ac10698a96b556bdcb4e97a56",
+      "gitBlobSha": "d4439ca59b6277e458a32c6d2485eccd9044243b",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_neon_double_green",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_neon_double_green.png",
+      "bytes": 25707,
+      "sha256": "f8d8d02dbebd011905573b9ee026a743ee1af79fe46b239b52172286fc279e6a",
+      "gitBlobSha": "7ecfcf187dfe896688593e6d023e38f38c41614d",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_neon_double_red",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_neon_double_red.png",
+      "bytes": 26661,
+      "sha256": "de78e09ed3a19739651e04c5af2b028ee0affbadc18fa44be1cc071d22353db5",
+      "gitBlobSha": "eee7331a2bbf9a24701c576afe05067be8360b14",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_neon_green",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_neon_green.png",
+      "bytes": 19330,
+      "sha256": "5a43f410a4d0cacf0ca14008a1ce4870c08ec493ebe3fda628fa7b9129acce51",
+      "gitBlobSha": "803dde9b151573e486c38c183dadf02f3d413b3f",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_neon_multicolored",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_neon_multicolored.png",
+      "bytes": 121754,
+      "sha256": "c026672f4014f59c38e7017d5824cd1f82a881c9bc33559b802a9ee957c24112",
+      "gitBlobSha": "1450e20c1d680ea0567e8249f21363f3addf0a93",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_neon_orange",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_neon_orange.png",
+      "bytes": 18362,
+      "sha256": "08430c278809ca0c4c26b020b383d144dd35bb15bb248f0e988d5ff499c8f8ff",
+      "gitBlobSha": "78f11f723c12691f4dbbfcef700dbee5d5554309",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_neon_purple",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_neon_purple.png",
+      "bytes": 17962,
+      "sha256": "a8325acfb748bf1f3fa6cd31321cd32e314e4d695e3635ec6820e6f50964c6c8",
+      "gitBlobSha": "c6868fa9c9e3a17656bd6fd54ecbcdb723ebf60e",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_neon_red",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_neon_red.png",
+      "bytes": 19589,
+      "sha256": "ea7b5f56038d1094e39e730d62cb990fffaba2c00f79bd43c9819fb1888be3e2",
+      "gitBlobSha": "36d4f3433e16d0b7e88de3a148efda1a99ee0a41",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_ny_2026",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_ny_2026.png",
+      "bytes": 420221,
+      "sha256": "1b193f6c3c46f2d39d534f7bb4d7f933593907e7ffb2ea96953e22bb1e5635a2",
+      "gitBlobSha": "e7327a1814415b141b3230a27c42f37d7dad37be",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_pancakes",
+      "url": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_pancakes.png",
+      "bytes": 420479,
+      "sha256": "9b3ad02e0478117be85dac12d97fe29f419c6f9a4723e4e02854c20c4b1166a3",
+      "gitBlobSha": "7921454c2f3088fb6d9cb10ef847de7b66832355",
+      "width": 620,
+      "height": 616
+    },
+    {
+      "id": "frame_silver_figured",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_silver_figured.png",
+      "bytes": 31874,
+      "sha256": "c3429ccd462c5ffb58cddb11780a5b46ec5a7f9a55e989ad1b492c0e5e9d29e5",
+      "gitBlobSha": "144dcc17e849458c6ac47c6fe36ebcd6f146f577",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_silver_figured_blue_inlay",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_silver_figured_blue_inlay.png",
+      "bytes": 51128,
+      "sha256": "9f2a035f3ff977a81b55657539fbf3e0aabbbd1f082bf6913edeaf37e421db91",
+      "gitBlobSha": "d1eb4d4b3ea8dcd113302566296361f64757829a",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_silver_figured_star_inlay",
+      "url": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_silver_figured_star_inlay.png",
+      "bytes": 107106,
+      "sha256": "656bf898ea189c3ac1be83c7f72cf14044def4b7c3285e636a9872cb24d3e258",
+      "gitBlobSha": "eec1af1044e5bc5f6c286e4620420d0781382c26",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_silver_figured_textured",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_silver_figured_textured.png",
+      "bytes": 55512,
+      "sha256": "1bf771d9513d5aa17746dfe2ff528bd18968be0ed6fa8ae55bccce0faaac1fe8",
+      "gitBlobSha": "918438526192367e49d80d285b6f4e160f7f68d5",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_simple_corner_accent_grey",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_simple_corner_accent_grey.png",
+      "bytes": 16020,
+      "sha256": "20cc583396b752894fc9f6a7e9ffbaf1a088d56c428bba4488ad3691deaee34b",
+      "gitBlobSha": "8445981d08dc1ee78c0b3d4c11410f29d752f13b",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_simple_corner_accent_orange",
+      "url": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_simple_corner_accent_orange.png",
+      "bytes": 17129,
+      "sha256": "1598cdcd0153722fb67d7253fb64a038e7814e53a9bbc82d2e2b6c0909df6f9e",
+      "gitBlobSha": "f72d53a9fd960a087cef51401fbc9d52412a314b",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_simple_corner_accent_redorange",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_simple_corner_accent_redorange.png",
+      "bytes": 15691,
+      "sha256": "8874455b13b61101237a30613d38fa3074bf45c051718ad166c6d7f65c98e1ab",
+      "gitBlobSha": "2e55f045c79a4248d1c98b39e440af8d5839c146",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_simple_diagonal_stripes_grey",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_simple_diagonal_stripes_grey.png",
+      "bytes": 28902,
+      "sha256": "99b9f8ccd85d8be9d7ebe48f90060dbc0018ee92781805c91393a8542aa422db",
+      "gitBlobSha": "c7ddbdcb6981e92f0e385682a45090cb3daad231",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_simple_diagonal_stripes_red_yellow",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_simple_diagonal_stripes_red_yellow.png",
+      "bytes": 33080,
+      "sha256": "f656aad7c325cb32ef87786489ed956a781213a7a66cc13a86ed32b9932e6924",
+      "gitBlobSha": "02eaf58e3a5c49288f08529739eabe2872294a17",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_simple_diagonal_stripes_teal",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_simple_diagonal_stripes_teal.png",
+      "bytes": 31713,
+      "sha256": "e4bd0dcf87baa666f0d2bb5a93908145b9ab1595e69fa62c6a557ffaefbcc7cd",
+      "gitBlobSha": "d86bd8925041cdbc9f2f490c4521c68a540a0609",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_simple_dottet_line_blue",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_simple_dottet_line_blue.png",
+      "bytes": 18935,
+      "sha256": "58c6a7dfc0c0d37cc3d1f0be1525dd0838ca6d3894919a25cecc8a9749d55f91",
+      "gitBlobSha": "abde3c064f9b7edac6cc54fa9c52828d293e46f7",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_simple_dottet_line_orange",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_simple_dottet_line_orange.png",
+      "bytes": 17208,
+      "sha256": "7225f786ec049ef4a8f0a1c804817a664c855a8cbb8631a638beb2149a05aee1",
+      "gitBlobSha": "f6e544d089ad6dfe6e5dcb5e8ce0301f9aa9ca7a",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_simple_dottet_line_red",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_simple_dottet_line_red.png",
+      "bytes": 21596,
+      "sha256": "92c9a0184d9fd1feb08ace6bf90741b03f4234c46d6acaeed14b407d04a608a3",
+      "gitBlobSha": "d3f535aa3c6730f4321d6d38775ca18281396812",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_simple_dottet_line_turquoise",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_simple_dottet_line_turquoise.png",
+      "bytes": 17056,
+      "sha256": "c87f617eac0c1806ed0ba2233beb3c9ee0550b6df2f7c488cd95edf76b83c236",
+      "gitBlobSha": "1eba131469eddb1ecdf1d3f4003b305fcbe7fbc2",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_simple_solid_black",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_simple_solid_black.png",
+      "bytes": 4893,
+      "sha256": "f8c747a91d0a9daa2eb5b920085c64d31b3c4dcab3cf39bc85383c0bff5a2a1c",
+      "gitBlobSha": "337b5e3f5d18ce0b933c26899acc1ced7af1d683",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_simple_solid_grey",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_simple_solid_grey.png",
+      "bytes": 15340,
+      "sha256": "8705f34c30cb48ac216703c587834a3d82a71bb5a5f15e2e01c3a36ef60b0df8",
+      "gitBlobSha": "ac8804b897180c7786bfd68d0b69b0b4fa893883",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_simple_solid_orange",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_simple_solid_orange.png",
+      "bytes": 10515,
+      "sha256": "243fb6144185f3afad675d0cf4e70586823b2fc231aa5a58547a9bfbb7500e85",
+      "gitBlobSha": "ade6ad9ec8012c1fbd57c6a8a65123da3f456260",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_simple_solid_red",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_simple_solid_red.png",
+      "bytes": 8980,
+      "sha256": "c7f88131a957b0b7072619a6dc2f7ab8b64f50d828b94268069fb020474aa2e9",
+      "gitBlobSha": "1d7800e35ea6b76806ba53a6b7820240c61d085e",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_tank_football_2026",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_tank_football_2026.png",
+      "bytes": 284928,
+      "sha256": "37450b02bf9eef86333abab6a46f75e46499176a7ef97d33f5c1ff149b82cd63",
+      "gitBlobSha": "da042ec4113e8ff8d906953321aae8210f9a1cc0",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_thunder_ammo_box",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_thunder_ammo_box.png",
+      "bytes": 366994,
+      "sha256": "b2fd0a7d28575f5d2484eeed9071b819cea5af6dd4d5f02fbeb58f02e0eff4f8",
+      "gitBlobSha": "6ca03d3139d48a8c939dcc105f07b2a248b32777",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_thunder_cup_2025",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_thunder_cup_2025.png",
+      "bytes": 221350,
+      "sha256": "d1a03c418a2e0da6be96d95231f3bab9f1e209508120fbe65728b739bb31bb33",
+      "gitBlobSha": "53e77df70a5e10e4265c69dabf7bc58ef37d03bc",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_titan",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_titan.png",
+      "bytes": 189200,
+      "sha256": "75bd8b78340c5190a588b7aab2f9effa76b871ed55ff37d11907004aa1fa6ed9",
+      "gitBlobSha": "68812914ad26361a5a902437d28f648e71fde547",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_top_secret",
+      "url": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_top_secret.png",
+      "bytes": 265530,
+      "sha256": "0d520280f08f74161bdb6f57c4e2768acac7255c641a7306f02133b0115c1ba7",
+      "gitBlobSha": "2c1bfaca0486c08f2f8a9b49a5746e1dd7c9a6a1",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_veteran",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_veteran.png",
+      "bytes": 403808,
+      "sha256": "7b6abafe9e5c7793a07c9220477221d3c7e2aeabd1ac5a82b55524339db3168a",
+      "gitBlobSha": "b510027b85101c755c0eb63117738b03749b933e",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_winterwarrior",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_winterwarrior.png",
+      "bytes": 368088,
+      "sha256": "561ae1d871b172ef9af0f77c7d1662bfef3e8aadc0980f42aca6fb3ecf77a89f",
+      "gitBlobSha": "8cd5eaf68f5ac01f88b0b2085960ce36155d4e70",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_wooden_bronze_insert_black",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_wooden_bronze_insert_black.png",
+      "bytes": 15863,
+      "sha256": "6e72d3504e6978aa58209629c77b71fbd4d16a5101b0339991af40475893b85f",
+      "gitBlobSha": "162c593c886c07d90bb6c4d0cdd2b60ef71a20ea",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_wooden_flat_cherry",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_wooden_flat_cherry.png",
+      "bytes": 3821,
+      "sha256": "b70aa5bbe54f9d4aefc4903d1e5df8e8c7ea95c585d1e9be49172894f762d5dc",
+      "gitBlobSha": "6e04eb2c6bb1396a1de4653b61214a9132b4beba",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_wooden_flat_ebony",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_wooden_flat_ebony.png",
+      "bytes": 3531,
+      "sha256": "7d35722165aaf5d90f1824df606fa6e49ee1ebb8bb4ad808f6b5485180e257d2",
+      "gitBlobSha": "fa4b63d6600af252a76c2b1295fe47aed471350c",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_wooden_flat_pine",
+      "url": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_wooden_flat_pine.png",
+      "bytes": 3686,
+      "sha256": "5d292f092a42501f8776484d61d32d1104a8958c0cc2e0681753a7bf9b32f068",
+      "gitBlobSha": "ef83173ad4d3b9fb0633bb35bdca487f4bea0533",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_wooden_flat_walnut",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_wooden_flat_walnut.png",
+      "bytes": 3612,
+      "sha256": "c93dd439a9fee687769534f39ecfe50f0d8d85bdd65ec70240ecf2f47a1c0efb",
+      "gitBlobSha": "4f42d6fdd0e06c60300893a3dff793a1855e11c0",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_wooden_golden_insert_pine",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_wooden_golden_insert_pine.png",
+      "bytes": 26335,
+      "sha256": "81013376f7b642417454225c6f8993ac890298c11af745915f1884796d0d7e1b",
+      "gitBlobSha": "23c025da09e7f9a5abbfb92961063f5406ad37f8",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_wooden_golden_insert_walnut",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_wooden_golden_insert_walnut.png",
+      "bytes": 25365,
+      "sha256": "6df6bb72b79cba24f91d25d3e89e6e1b31995c46612a4430ae8a49a231ac603a",
+      "gitBlobSha": "5eb91710c75d59c93fdced3d21773050e48047d5",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_wooden_silver_insert_cherry",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_wooden_silver_insert_cherry.png",
+      "bytes": 8380,
+      "sha256": "83c16acd44c8bf108351910819330c5500d39283ee86f30ff847e7ce740a51dd",
+      "gitBlobSha": "de84b7d10aa757dfe2a90c322a8a85b8690ae6b7",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_wooden_silver_insert_grey",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_wooden_silver_insert_grey.png",
+      "bytes": 8210,
+      "sha256": "28f858f48f8de9678914cd37474cd4d2ff4a6bdd56fa825b6f73bb34a1971b76",
+      "gitBlobSha": "01e21aefa5ca8aec0ae12280a8041a885dc7769d",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_wooden_silver_insert_pine",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_wooden_silver_insert_pine.png",
+      "bytes": 11122,
+      "sha256": "2aebc657c487a6d350b781db8a7096321024a51ba387b47eaacfaa81a201792b",
+      "gitBlobSha": "02f75bfdb291412184ad5a1b447319367269db12",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_wooden_silver_insert_walnut",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_wooden_silver_insert_walnut.png",
+      "bytes": 9399,
+      "sha256": "e957f1cf78c3fab23bcfee066e8b59cc197d8fcd3eb53d5f6777f71a1e87fbff",
+      "gitBlobSha": "7507e56b5993ada764933bab5a0abb26c11cdc29",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_wooden_textured_black",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_wooden_textured_black.png",
+      "bytes": 18763,
+      "sha256": "e5624285a674922bd1064d845e806d35b4142616d60abcc5fcc53f31dfed9208",
+      "gitBlobSha": "30114eb3a3cf29017b553fd6c5a0e3f02da56acf",
+      "width": 616,
+      "height": 616
+    },
+    {
+      "id": "frame_wooden_textured_cherry",
+      "url": "https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@ea96f3af75afe1d858f80ac13f212db218bc69ca/images.vromfs.bin_u/images/avatar_frames/frame_wooden_textured_cherry.png",
+      "bytes": 22118,
+      "sha256": "0d353e4b4b63382c58e6a99d9910a0535a397e78bb99a75317faecf852783f61",
+      "gitBlobSha": "23f3b0b2ad05d3f88ffc79803d4941034c1eba71",
+      "width": 616,
+      "height": 616
+    }
+  ]
+}

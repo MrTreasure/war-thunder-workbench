@@ -19,12 +19,12 @@ export function PlayerMedals({ medals }: { medals?: Medals | null }) {
   const [country, setCountry] = useState("all");
   const trigger = useRef<HTMLButtonElement>(null);
   const [failed, setFailed] = useState<string[]>([]);
-  const visible =
-    medals?.items.filter((item) => medalImages.has(item.id) && !failed.includes(item.id)) || [];
+  const owned = medals?.items.filter((item) => medalImages.has(item.id)) || [];
+  const visible = owned.filter((item) => !failed.includes(item.id));
   if (!visible.length) return null;
-  const count = visible.length;
-  const countries = [...new Set(visible.map((item) => item.country))];
-  const filtered = visible.filter((item) => country === "all" || item.country === country);
+  const count = owned.length;
+  const countries = [...new Set(owned.map((item) => item.country))];
+  const filtered = owned.filter((item) => country === "all" || item.country === country);
   const close = () => {
     setOpen(false);
     requestAnimationFrame(() => trigger.current?.focus({ preventScroll: true }));
@@ -76,6 +76,8 @@ export function PlayerMedals({ medals }: { medals?: Medals | null }) {
                   src={medalImages.get(item.id)}
                   width={40}
                   height={48}
+                  hidden={failed.includes(item.id)}
+                  loading="lazy"
                   alt=""
                   onError={() => setFailed((ids) => [...ids, item.id])}
                 />

@@ -2634,3 +2634,10 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
   .wt-career-dashboard { grid-template-columns: minmax(260px, .8fr) minmax(0, 1.2fr); }
   .wt-career-dashboard .wt-country-breakdown { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* finesse · game avatar · equipped original frame, no synthetic fallback. */
+.wt-player-avatar-portrait { position: absolute; inset: 0; display: grid; place-items: center; overflow: hidden; border-radius: inherit; }
+.wt-player-avatar-portrait > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.wt-player-avatar-framed { border-color: transparent; background: transparent; border-radius: 0; overflow: visible; }
+.wt-player-avatar-framed .wt-player-avatar-portrait { inset: 8.5%; border-radius: 3px; }
+.wt-player-avatar > img.wt-player-avatar-frame { object-fit: contain; z-index: 1; pointer-events: none; }

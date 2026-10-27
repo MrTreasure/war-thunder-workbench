@@ -1,3 +1,4 @@
+import { PlayerAvatar } from "./PlayerAvatar";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { statsCountryFlag } from "./stats-country";
 import type { CSSProperties } from "react";
@@ -15,7 +16,12 @@ import {
   statsBranchTarget,
   statsReportScopeLabel,
 } from "./player-stats-api";
-import { reportChartData, reportSummary, reportEfficiencyMaximum, reportSiteWatermark } from "./player-report-design";
+import {
+  reportChartData,
+  reportSummary,
+  reportEfficiencyMaximum,
+  reportSiteWatermark,
+} from "./player-report-design";
 import type { ReportTheme } from "./player-report-design";
 export function PlayerReport({
   report,
@@ -60,18 +66,11 @@ export function PlayerReport({
       <div className="wt-poster-eyebrow">{voice.kicker}</div>
       <h2 className="wt-poster-headline">{report.review?.title || "你的战地记录"}</h2>
       <header className="wt-poster-identity">
-        <span className="wt-player-avatar">
-          <span aria-hidden="true">{Array.from(p.player.nickname)[0]}</span>
-          {p.player.avatar && (
-            <img
-              src={p.player.avatar}
-              alt={p.player.nickname + "的游戏头像"}
-              onError={(e) => {
-                e.currentTarget.hidden = true;
-              }}
-            />
-          )}
-        </span>
+        <PlayerAvatar
+          url={p.player.avatar}
+          name={p.player.nickname}
+          frameKey={p.player.avatarFrameKey}
+        />
         <div>
           <h3>{p.player.nickname}</h3>
           <span>
@@ -182,47 +181,54 @@ export function PlayerReport({
       {p.top5.map((v, i) => {
         const flag = statsCountryFlag(v.country);
         return (
-        <section className="wt-poster-vehicle" key={v.id}>
-          <span className="wt-poster-place">{String(i + 1).padStart(2, "0")}</span>
-          <img src={v.image} alt={vehicleDisplayName(v.name)} loading="lazy" />
-          <div className="wt-poster-vehicle-info">
-            <div className="wt-poster-vehicle-title">
-              <h3>
-                {flag && <img className="wt-poster-country-flag" src={flag.url} alt={`${flag.name}科技树`} loading="lazy" />}
-                <span>{vehicleDisplayName(v.name)}</span>
-              </h3>
-              <span>
-                <b>{n(v.efficiency)}</b> 效率{v.smallSample ? " · 场次不足" : ""}
-              </span>
-            </div>
-            <div className="wt-poster-vehicle-values">
-              <span>
-                <b>{n(v.battles)}</b> 场
-              </span>
-              <span>
-                <b>{v.winRate == null ? "—" : v.winRate.toFixed(2) + "%"}</b> 胜率
-              </span>
-              <span>
-                对空 <b>{r(v.airKd)}</b>
-              </span>
-              <span>
-                对地 <b>{r(v.groundKd)}</b>
-              </span>
-              {v.category !== "ground" &&
-                (v.navalKd != null || v.category === "ships" || v.category === "boats") && (
-                  <span>
-                    对海 <b>{r(v.navalKd)}</b>
-                  </span>
-                )}
-              <span className="wt-poster-silver" title="累计获得银狮，非净收入">
-                <span className="wt-silver-amount">
-                  <img src={statsSilverIcon} alt="累计银狮" />
-                  <b>{statsSilver(v.silverLions)}</b>
+          <section className="wt-poster-vehicle" key={v.id}>
+            <span className="wt-poster-place">{String(i + 1).padStart(2, "0")}</span>
+            <img src={v.image} alt={vehicleDisplayName(v.name)} loading="lazy" />
+            <div className="wt-poster-vehicle-info">
+              <div className="wt-poster-vehicle-title">
+                <h3>
+                  {flag && (
+                    <img
+                      className="wt-poster-country-flag"
+                      src={flag.url}
+                      alt={`${flag.name}科技树`}
+                      loading="lazy"
+                    />
+                  )}
+                  <span>{vehicleDisplayName(v.name)}</span>
+                </h3>
+                <span>
+                  <b>{n(v.efficiency)}</b> 效率{v.smallSample ? " · 场次不足" : ""}
                 </span>
-              </span>
+              </div>
+              <div className="wt-poster-vehicle-values">
+                <span>
+                  <b>{n(v.battles)}</b> 场
+                </span>
+                <span>
+                  <b>{v.winRate == null ? "—" : v.winRate.toFixed(2) + "%"}</b> 胜率
+                </span>
+                <span>
+                  对空 <b>{r(v.airKd)}</b>
+                </span>
+                <span>
+                  对地 <b>{r(v.groundKd)}</b>
+                </span>
+                {v.category !== "ground" &&
+                  (v.navalKd != null || v.category === "ships" || v.category === "boats") && (
+                    <span>
+                      对海 <b>{r(v.navalKd)}</b>
+                    </span>
+                  )}
+                <span className="wt-poster-silver" title="累计获得银狮，非净收入">
+                  <span className="wt-silver-amount">
+                    <img src={statsSilverIcon} alt="累计银狮" />
+                    <b>{statsSilver(v.silverLions)}</b>
+                  </span>
+                </span>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
         );
       })}
       <section className="wt-poster-speech">

@@ -1,3 +1,4 @@
+import { PlayerAvatar as Avatar } from "./PlayerAvatar";
 import { GameTip } from "./components/GameTip";
 import { buildReportRequest } from "./player-report-request";
 import { ExtraQueryCredits } from "./ExtraQueryCredits";
@@ -82,22 +83,6 @@ import type {
   Background,
   PlayerVehicle,
 } from "./player-stats-api";
-function Avatar({ url, name }: { url: string | null; name: string }) {
-  return (
-    <span className="wt-player-avatar">
-      <span aria-hidden="true">{Array.from(name)[0]}</span>
-      {url && (
-        <img
-          src={url}
-          alt={`${name}的游戏头像`}
-          onError={(event) => {
-            event.currentTarget.hidden = true;
-          }}
-        />
-      )}
-    </span>
-  );
-}
 function VehicleRow({
   vehicle: v,
   countryName,
@@ -929,7 +914,7 @@ export function PlayerStats() {
                       void openSavedProfile(p);
                     }}
                   >
-                    <Avatar url={p.avatar} name={p.nickname} />
+                    <Avatar url={p.avatar} name={p.nickname} frameKey={p.avatarFrameKey} />
                     <span>
                       <b>{p.nickname}</b>
                       <small>{statsDate(p.fetchedAt)}</small>
@@ -1010,7 +995,11 @@ export function PlayerStats() {
       {profile && (
         <>
           <section className="wt-record-player">
-            <Avatar url={profile.avatar} name={profile.nickname} />
+            <Avatar
+              url={profile.avatar}
+              name={profile.nickname}
+              frameKey={profile.avatarFrameKey}
+            />
             <div className="wt-record-player-identity">
               <h2>
                 {profile.clanTag && <small>{profile.clanTag} </small>}
