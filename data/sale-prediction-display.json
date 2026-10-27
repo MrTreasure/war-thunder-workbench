@@ -2,7 +2,23 @@
   "schemaVersion": 1,
   "highDistanceDays": 0,
   "mediumDistanceDays": 2,
-  "labels": { "high": "较高", "medium": "一般", "low": "较低" },
-  "shortLabels": { "high": "高", "medium": "中", "low": "低" },
-  "notice": "按候选日期与历史推算参考日的距离划分相对可能性，不是经过统计校准的概率；过往日期及周末不作为新的开始候选。"
+  "labels": {
+    "high": "较高",
+    "medium": "一般",
+    "low": "较低"
+  },
+  "shortLabels": {
+    "high": "高",
+    "medium": "中",
+    "low": "低"
+  },
+  "notice": "按候选日期与历史推算参考日的距离划分相对可能性，不是经过统计校准的概率；过往日期及周末不作为新的开始候选。",
+  "sequentialPhases": [
+    {
+      "family": "anniversary",
+      "beforeChannel": "ge",
+      "afterChannel": "pack",
+      "percentOff": 50
+    }
+  ]
 }

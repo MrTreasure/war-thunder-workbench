@@ -24,6 +24,7 @@ import {
   saleEventNote,
   saleActivity,
   projectSaleForecast,
+  constrainSaleForecast,
   saleStartCandidates,
 } from "./sale-calendar-model";
 import type { SaleCalendarData, SaleEvent, SaleVehicle } from "./sale-calendar-model";
@@ -334,7 +335,10 @@ export function SaleCalendar() {
   const events = useMemo(
     () =>
       (data?.events || []).flatMap((event) => {
-        const projected = projectSaleForecast(event, Date.parse(today + "T00:00:00+08:00"));
+        const projected = projectSaleForecast(
+          constrainSaleForecast(event, data?.events || []),
+          Date.parse(today + "T00:00:00+08:00"),
+        );
         return projected ? [projected] : [];
       }),
     [data, today],

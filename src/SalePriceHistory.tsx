@@ -2,7 +2,13 @@ import { useEffect, useMemo, useState } from "react";
 import { Modal } from "./Modal";
 import { GameSelect } from "./components/GameSelect";
 import { readPriceHistory } from "./sale-price-api";
-import { priceDate, priceText, groupedOffers, discountedMinimum } from "./sale-price-model";
+import {
+  priceDate,
+  priceText,
+  groupedOffers,
+  historicalDisplayPoints,
+  historicalDisplayMinimum,
+} from "./sale-price-model";
 import type { PriceOffer, PricePoint, PriceSummary } from "./sale-price-model";
 import type { SaleVehicle } from "./sale-calendar-model";
 
@@ -10,14 +16,12 @@ export function PriceChart({ offer, days }: { offer: PriceOffer; days: number })
   const [focus, setFocus] = useState<PricePoint | null>(null);
   const [clock] = useState(() => Date.now());
   const cutoff = days ? clock - days * 86_400_000 : 0;
-  const points = offer.points.filter(
-    (p) => Date.parse(p.observedAt) >= cutoff && p.evidenceKind !== "official_announcement_derived",
-  );
+  const points = offer.points.filter((p) => Date.parse(p.observedAt) >= cutoff);
   if (points.length < 2)
     return (
       <div className="wt-price-chart-empty">
         {points.length ? "首次记录，价格走势积累中" : "此时间范围暂无实测报价"}
-        <small>已记录 {points.length} 个观测点；不以公告折扣补画价格。</small>
+        <small>已记录 {points.length} 个历史点，公告估算与实测报价分别标识。</small>
       </div>
     );
   const width = 840,
@@ -37,14 +41,16 @@ export function PriceChart({ offer, days }: { offer: PriceOffer; days: number })
     left +
     ((time - times[0]) / Math.max(1, times[times.length - 1] - times[0])) * (width - left - right);
   const y = (amount: number) => top + ((maxY - amount) / (maxY - minY)) * (height - top - bottom);
-  // Join only close observations; the unsampled time between old announcements is unknown.
-  const paths = points.map((p, i) =>
-    i &&
-    p.contentVersion === points[i - 1].contentVersion &&
-    times[i] - times[i - 1] <= 36 * 3_600_000
-      ? `M${x(times[i - 1])},${y(points[i - 1].amountMinor)}H${x(times[i])}V${y(p.amountMinor)}`
-      : "",
-  );
+  const paths = points.slice(1).map((p, index) => {
+    const previous = points[index];
+    return (
+      <path
+        key={index}
+        d={`M${x(times[index])},${y(previous.amountMinor)}L${x(times[index + 1])},${y(p.amountMinor)}`}
+        className={`wt-price-step ${p.evidenceKind === "official_announcement_derived" || previous.evidenceKind === "official_announcement_derived" ? "is-estimate" : ""}`}
+      />
+    );
+  });
   return (
     <div className="wt-price-chart">
       <svg
@@ -77,13 +83,16 @@ export function PriceChart({ offer, days }: { offer: PriceOffer; days: number })
             className="wt-price-low-line"
           />
         )}
-        <path d={paths.join(" ")} className="wt-price-step" />
+        {paths}
         {points.map((p, i) => (
           <circle
             key={p.observedAt + p.contentVersion}
             cx={x(times[i])}
             cy={y(p.amountMinor)}
             r={focus === p ? 6 : 4}
+            className={
+              p.evidenceKind === "official_announcement_derived" ? "is-estimate" : undefined
+            }
             tabIndex={0}
             onFocus={() => setFocus(p)}
             onMouseEnter={() => setFocus(p)}
@@ -91,6 +100,7 @@ export function PriceChart({ offer, days }: { offer: PriceOffer; days: number })
           >
             <title>
               {priceDate(p.observedAt)} · {priceText(p.amountMinor, offer.currency)}
+              {p.evidenceKind === "official_announcement_derived" ? "（公告折扣估算）" : ""}
             </title>
           </circle>
         ))}
@@ -102,14 +112,16 @@ export function PriceChart({ offer, days }: { offer: PriceOffer; days: number })
         </text>
       </svg>
       <div className="wt-price-chart-caption">
-        <span>● 实测报价　 ┄ 最低采样价</span>
+        <span>● 实测报价　 ○ 公告折扣估算</span>
         <span>
           {focus
             ? `${priceDate(focus.observedAt)} · ${priceText(focus.amountMinor, offer.currency)}`
             : "聚焦数据点查看报价"}
         </span>
       </div>
-      <small>间隔超过 36 小时或商品内容版本不同的记录不连线；空白时段价格未知。</small>
+      <small>
+        折线连接已知记录，不代表间隔期间持续该价；空心点与虚线按资料原价和公告折扣估算，非当时实售价。
+      </small>
     </div>
   );
 }
@@ -136,7 +148,7 @@ export function SalePriceHistory({
     [error, setError] = useState("");
   const [loading, setLoading] = useState(true),
     [reload, setReload] = useState(0);
-  const [days, setDays] = useState(180),
+  const [days, setDays] = useState(0),
     [offerId, setOfferId] = useState("");
   useEffect(() => {
     const c = new AbortController();
@@ -158,14 +170,37 @@ export function SalePriceHistory({
     return () => c.abort();
   }, [vehicle.id, reload]);
   const offers = useMemo(() => groupedOffers(data || undefined), [data]);
-  const offer = offers.find((o) => o.id === offerId) || offers[0];
-  const minimum = discountedMinimum(offer);
+  const offer: PriceOffer | undefined =
+    offers.find((o) => o.id === offerId) ||
+    offers[0] ||
+    (data?.discountEvidence?.some((e) => e.purchaseCondition === "普通单件购买") &&
+    vehicle.originalPrice
+      ? {
+          id: "announcement-reference",
+          title: vehicle.name,
+          currency: vehicle.originalPrice.currency,
+          platform: "gaijin_pc",
+          region: "unknown",
+          conditions: "普通单件购买",
+          contentVersion: "reference",
+          latest: null,
+          minimum: null,
+          firstObservedAt: null,
+          sampleCount: 0,
+          available: false,
+          points: [],
+        }
+      : undefined);
+  const minimum = historicalDisplayMinimum(vehicle, offer, data?.discountEvidence);
+  const displayPoints = useMemo(
+    () => historicalDisplayPoints(vehicle, offer, data?.discountEvidence),
+    [vehicle, offer, data],
+  );
   const [clock] = useState(() => Date.now());
   const rows = useMemo(
     () =>
-      offer?.points.filter((p) => !days || Date.parse(p.observedAt) >= clock - days * 86_400_000) ||
-      [],
-    [offer, days, clock],
+      displayPoints.filter((p) => !days || Date.parse(p.observedAt) >= clock - days * 86_400_000),
+    [displayPoints, days, clock],
   );
   return (
     <Modal
@@ -194,7 +229,7 @@ export function SalePriceHistory({
             {data?.offers.length ? "已显示最近记录，正在更新完整历史…" : "正在读取价格记录…"}
           </output>
         )}
-        {!loading && data && !data.offers.length && (
+        {!loading && data && !data.offers.length && !offer && (
           <p className="wt-price-history-empty">尚无可核实的商品价格；后续成功核对后开始记录。</p>
         )}
         {offer && (
@@ -208,7 +243,7 @@ export function SalePriceHistory({
                     setOfferId(value);
                   }}
                 >
-                  {offers.map((o) => (
+                  {(offers.length ? offers : [offer]).map((o) => (
                     <option key={o.id} value={o.id}>
                       {o.title} · {o.currency} · {o.conditions}
                     </option>
@@ -242,12 +277,16 @@ export function SalePriceHistory({
                 <small>{priceDate((offer.lastRecorded || offer.latest)?.checkedAt ?? null)}</small>
               </div>
               <div>
-                <small>已核实的折扣采样最低</small>
+                <small>历史低价 / 公告估算</small>
                 <strong>
-                  {minimum ? priceText(minimum.amountMinor, offer.currency) : "历史低价待核实"}
+                  {minimum
+                    ? `${minimum.evidenceKind === "official_announcement_derived" ? "≈ " : ""}${priceText(minimum.amountMinor, offer.currency)}`
+                    : "历史低价待核实"}
                 </strong>
                 <small>
-                  {minimum ? priceDate(minimum.observedAt) : "原价快照不能代表历史最低"}
+                  {minimum
+                    ? `${priceDate(minimum.observedAt)}${minimum.evidenceKind === "official_announcement_derived" ? " · 按资料原价估算" : " · 实测报价"}`
+                    : "原价快照不能代表历史最低"}
                 </small>
               </div>
               <div>
@@ -266,11 +305,17 @@ export function SalePriceHistory({
                     </a>
                     <span>
                       {priceDate(e.startAt || null)} — {priceDate(e.endAt || null)} · 优惠{" "}
-                      {e.discountPercent}% · {e.purchaseCondition}
+                      {e.discountPercent}%{e.estimateOnly ? "（公告最高力度，估算）" : ""} ·{" "}
+                      {e.purchaseCondition}
                     </span>
                     <small>
                       {e.amountMinor == null
-                        ? "当时人民币金额未核实，不从当前原价反推。"
+                        ? e.purchaseCondition === "普通单件购买" &&
+                          historicalDisplayPoints(vehicle, offer, [e]).some(
+                            (p) => p.evidenceKind === "official_announcement_derived",
+                          )
+                          ? `按资料原价估算 ≈ ${priceText(historicalDisplayPoints(vehicle, offer, [e]).find((p) => p.evidenceKind === "official_announcement_derived")!.amountMinor, e.currency)}；当时实售价未核实。`
+                          : "仅适用于所示购买条件，不计单件历史低价。"
                         : priceText(e.amountMinor, e.currency)}
                     </small>
                   </article>
@@ -283,7 +328,7 @@ export function SalePriceHistory({
                 ；采样尚未覆盖完整促销历史。
               </p>
             )}
-            <PriceChart offer={offer} days={days} />
+            <PriceChart offer={{ ...offer, points: displayPoints, minimum }} days={days} />
             <details className="wt-price-records" open>
               <summary>价格记录与来源（{rows.length}）</summary>
               {offer.truncated && <p>图表与下表展示最近4096次观测；最低价按全部已保存记录计算。</p>}
@@ -306,7 +351,7 @@ export function SalePriceHistory({
                         <td>{priceText(p.amountMinor, offer.currency)}</td>
                         <td>
                           {p.evidenceKind === "official_announcement_derived"
-                            ? "公告条件参考，不计实测最低"
+                            ? "公告折扣估算，非实售价"
                             : p.evidenceKind === "catalog_quote"
                               ? "目录核验价"
                               : "直接报价"}

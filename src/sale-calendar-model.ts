@@ -14,6 +14,7 @@ export type SaleEvent = {
   startCandidates?: string[];
   predictionVersion?: string;
   predictionReferenceStartAt?: string;
+  startNotBefore?: string;
   endWindow?: string[];
   countries: string[];
   categories: string[];
@@ -182,7 +183,12 @@ export function saleStartCandidates(event: SaleEvent, now: number): SaleStartCan
         : [];
   }
   return [...new Map(values.map((at) => [beijingDayKey(at), at])).entries()]
-    .filter(([day]) => day >= today && ![0, 6].includes(new Date(day).getUTCDay()))
+    .filter(
+      ([day, at]) =>
+        day >= today &&
+        (!event.startNotBefore || Date.parse(at) >= Date.parse(event.startNotBefore)) &&
+        ![0, 6].includes(new Date(day).getUTCDay()),
+    )
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([day, at]) => {
       const distance = Math.abs(Date.parse(day) - Date.parse(reference)) / 86400000;
@@ -201,6 +207,40 @@ export function saleStartCandidates(event: SaleEvent, now: number): SaleStartCan
         preferred: day === beijingDayKey(event.startAt),
       };
     });
+}
+/** Known phase end constrains the forecast; it does not confirm the next start. */
+export function constrainSaleForecast(event: SaleEvent, events: SaleEvent[]): SaleEvent {
+  if (event.status !== "predicted") return event;
+  const rule = predictionDisplay.sequentialPhases.find(
+    (r) => r.family === event.family && event.channels.includes(r.afterChannel as SaleChannel),
+  );
+  if (!rule) return event;
+  const ends = events
+    .filter(
+      (e) =>
+        e.status === "confirmed" &&
+        e.family === event.family &&
+        e.year === event.year &&
+        e.discounts.some(
+          (d) => d.channel === rule.beforeChannel && d.percentOff === rule.percentOff,
+        ),
+    )
+    .map((e) => Date.parse(e.endAt))
+    .filter(Number.isFinite);
+  if (!ends.length) return event;
+  const boundary = Math.max(...ends);
+  const candidates = (event.startCandidates || []).filter((at) => Date.parse(at) >= boundary);
+  return {
+    ...event,
+    startNotBefore: new Date(boundary).toISOString(),
+    ...(event.startCandidates ? { startCandidates: candidates } : {}),
+    startWindow: [
+      new Date(
+        Math.max(boundary, Date.parse(event.startWindow?.[0] || event.startAt)),
+      ).toISOString(),
+      event.startWindow?.[1] || event.startAt,
+    ],
+  };
 }
 export function projectSaleForecast(event: SaleEvent, now: number): SaleEvent | null {
   if (event.status === "confirmed") return event;
