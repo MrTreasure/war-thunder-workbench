@@ -14,6 +14,7 @@ export function GameTabs<T extends string>({
   items,
   onValueChange,
   className = "",
+  panelId,
 }: {
   id?: string;
   label: string;
@@ -21,6 +22,7 @@ export function GameTabs<T extends string>({
   items: readonly GameTab<T>[];
   onValueChange: (value: T) => void;
   className?: string;
+  panelId?: string;
 }) {
   const generated = useId(),
     prefix = id || generated,
@@ -37,7 +39,7 @@ export function GameTabs<T extends string>({
           type="button"
           role="tab"
           id={`${prefix}-${item.value}-tab`}
-          aria-controls={`${prefix}-${item.value}-panel`}
+          aria-controls={panelId || `${prefix}-${item.value}-panel`}
           aria-selected={value === item.value}
           tabIndex={value === item.value ? 0 : -1}
           disabled={item.disabled}

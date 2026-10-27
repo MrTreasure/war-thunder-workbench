@@ -55,7 +55,15 @@ export function GameAccountBinding({ profile }: { profile: PlayerProfile }) {
   if (!session?.user?.id || !workspace?.ready) return null;
   if (current)
     return current.uid === profile.uid && refreshError ? (
-      <output>{localize(refreshError)}</output>
+      <button
+        type="button"
+        className="wt-binding-read-status"
+        title={localize(refreshError)}
+        aria-label={t("已绑定，{0}", [localize(refreshError)])}
+        onClick={() => workspace.open()}
+      >
+        <span aria-hidden="true">!</span> {t("已绑定")}
+      </button>
     ) : null;
   const available = session ? statsAvailableRequests(session, "valuation") : 0;
   const remaining = !session

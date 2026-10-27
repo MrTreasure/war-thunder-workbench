@@ -1,7 +1,8 @@
-import { localize } from "./i18n/core";
 import { statsNumber as num } from "./player-stats-api";
 import { useLocale } from "./i18n/react";
-import { t } from "./i18n/core";
+import { t, localize } from "./i18n/core";
+import { GameTip } from "./components/GameTip";
+import { PlayerReadStatus } from "./PlayerReadStatus";
 import { useEffect, useRef, useState } from "react";
 import { GameSelect } from "./components/GameSelect";
 import { statsDate } from "./player-stats-api";
@@ -31,14 +32,24 @@ export function RankDistribution({ data, metric }: { data: PlayerRank; metric: s
     difference == null
       ? "—"
       : percentMetric
-        ? t("{0}{1} 个百分点", [difference > 0 ? "+" : "", (difference * 100).toFixed(1)])
+        ? t("{0}{1} 个百分点", [
+            localize(difference > 0 ? "+" : ""),
+            localize((difference * 100).toFixed(1)),
+          ])
         : differencePercent != null
           ? `${differencePercent > 0 ? "+" : ""}${differencePercent.toFixed(1)}%`
           : rankingValue(difference, metric);
   return (
     <section className="wt-record-panel wt-rank-distribution">
       <header className="wt-rank-chart-heading">
-        <h2>{t("分位对照")}</h2>
+        <h2>
+          {t("分位对照")}
+          <GameTip label={t("分位对照")}>
+            {t(
+              "分位值按从低到高排列，50% 分位为中位数。参考条取自有限名次抽样，不代表完整人数分布；同分名次可能并列。",
+            )}
+          </GameTip>
+        </h2>
         <span>{t("官方榜表抽样")}</span>
       </header>
       {localize(
@@ -127,11 +138,6 @@ export function RankDistribution({ data, metric }: { data: PlayerRank; metric: s
                 </p>
               </aside>
             </div>
-            <p className="wt-record-fine wt-rank-chart-note">
-              {t(
-                "分位值按从低到高排列，50% 分位为中位数。参考条取自有限名次抽样，不代表完整人数分布；同分名次可能并列。",
-              )}
-            </p>
           </>
         ) : (
           <p className="wt-rank-reference-state">
@@ -159,7 +165,6 @@ export function PlayerRankings({
   active: boolean;
 }) {
   useLocale();
-
   const [branch, setBranch] = useState("ground");
   const [period, setPeriod] = useState("career"),
     [indicator, setIndicator] = useState("averageScore");
@@ -189,7 +194,28 @@ export function PlayerRankings({
     <div className="wt-rankings" aria-label={t("排位数据")}>
       <div className="wt-rank-intro">
         <div>
-          <h2>{t("排位数据")}</h2>
+          <h2>
+            {t("排位数据")}
+            <GameTip label={t("排位数据")}>
+              {localize(
+                data ? (
+                  <>
+                    <span>
+                      {localize(data.stale ? t("正在展示已保存排位 ·") : "")}
+                      {localize(
+                        data.fetchedAt
+                          ? t("排位采集于 {0}", [localize(statsDate(data.fetchedAt))])
+                          : t("尚无有效排位记录"),
+                      )}
+                    </span>
+                    <span>{localize(data.notice)}</span>
+                  </>
+                ) : (
+                  t("选择指标，查看名次与同范围玩家的分位对照。")
+                ),
+              )}
+            </GameTip>
+          </h2>
           <p>{t("选择指标，查看名次与同范围玩家的分位对照。")}</p>
         </div>
         <span>{t("官方榜内位置")}</span>
@@ -237,6 +263,7 @@ export function PlayerRankings({
             <option value="recent">{t("官方近期")}</option>
           </GameSelect>
         </label>
+        <PlayerReadStatus read={read} label={t("排位数据")} localOnly={profile.localOnly} />
       </div>
       {localize(
         read.busy && !data && (
@@ -245,14 +272,7 @@ export function PlayerRankings({
           </output>
         ),
       )}
-      {localize(
-        read.error && (
-          <div className="wt-rank-error" role="alert">
-            <span>{localize(read.error)}</span>
-            {localize(!profile.localOnly && <button onClick={read.retry}>{t("重试")}</button>)}
-          </div>
-        ),
-      )}
+
       {localize(
         data && (
           <>
@@ -276,7 +296,22 @@ export function PlayerRankings({
             <div className="wt-rank-analysis-layout">
               <RankDistribution data={data} metric={indicator} />
               <aside className="wt-record-panel wt-rank-scope-note">
-                <h3>{t("统计范围")}</h3>
+                <h3>
+                  {t("统计范围")}
+                  <GameTip label={t("统计范围")}>
+                    {localize(" ")}
+                    <p>{t("榜表人数仅代表该指标的统计记录，不等于全部注册玩家。")}</p>
+                    <p>
+                      {localize(
+                        indicator === "averageRelativePosition"
+                          ? t("队内相对位置衡量单局队内表现，数值越高通常越靠前。")
+                          : indicator === "average_active_kills_by_spawn"
+                            ? t("该项击毁统计包含玩家与机器人，不等于仅对玩家的击毁。")
+                            : t("所选对局范围与载具分类不同，陆战对局也包含其中的航空出击。"),
+                      )}
+                    </p>
+                  </GameTip>
+                </h3>
                 <dl>
                   <div>
                     <dt>{t("对局")}</dt>
@@ -295,28 +330,7 @@ export function PlayerRankings({
                     <dd>{t("官方榜表")}</dd>
                   </div>
                 </dl>
-                <p>{t("榜表人数仅代表该指标的统计记录，不等于全部注册玩家。")}</p>
-                <p>
-                  {localize(
-                    indicator === "averageRelativePosition"
-                      ? t("队内相对位置衡量单局队内表现，数值越高通常越靠前。")
-                      : indicator === "average_active_kills_by_spawn"
-                        ? t("该项击毁统计包含玩家与机器人，不等于仅对玩家的击毁。")
-                        : t("所选对局范围与载具分类不同，陆战对局也包含其中的航空出击。"),
-                  )}
-                </p>
               </aside>
-            </div>
-            <div className="wt-rank-source">
-              <span>
-                {localize(data.stale ? t("正在展示已保存排位 · ") : "")}
-                {localize(
-                  data.fetchedAt
-                    ? t("排位采集于 {0}", [statsDate(data.fetchedAt)])
-                    : t("尚无有效排位记录"),
-                )}
-              </span>
-              <span>{localize(data.notice)}</span>
             </div>
           </>
         ),

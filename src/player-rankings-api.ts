@@ -19,7 +19,14 @@ export type CareerScope = {
   label: string;
   periods: Partial<Record<"career" | "recent", CareerPeriod>>;
 };
+export type PlayerMedal = {
+  id: string;
+  country: string;
+  names: Partial<Record<"zh-CN" | "en" | "ru" | "ja", string>>;
+};
+export type PlayerMedals = { items: PlayerMedal[]; unmatchedCount: number };
 export type PlayerDetails = {
+  medals?: PlayerMedals | null;
   uid: string;
   snapshotId: string;
   fetchedAt: string;

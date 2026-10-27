@@ -2493,3 +2493,81 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-valuation-section-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; }
 .wt-valuation-section-heading > span { color: var(--wt-record-muted); font-size: 12px; }
 .wt-valuation-market-link { display: inline-block; color: var(--wt-record-gold); margin-top: 4px; }
+
+/* Profile navigation shares the game tab component instead of page-wide pressed buttons. */
+.wt-record-tabs {
+  align-items: flex-end;
+  gap: 12px;
+  padding-bottom: 0;
+}
+.wt-record-main-tabs { border-bottom: 0; }
+.wt-record-main-tabs small { font-size: 10px; color: var(--wt-record-muted); }
+.wt-record-modes.wt-game-tabs {
+  gap: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.wt-player-read-status {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  margin-left: auto;
+  color: var(--wt-record-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.wt-record-page .wt-player-read-status > button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 6px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--wt-record-muted);
+  font: inherit;
+}
+.wt-record-page .wt-player-read-status > button:hover:not(:disabled) { color: var(--wt-record-ink); background: transparent; }
+.wt-player-read-status > button > span { color: var(--wt-record-gold); font-size: 18px; }
+
+/* Earned medals occupy the open identity area, without reserving an empty collection. */
+.wt-record-player:has(> .wt-player-medals) { grid-template-columns: auto minmax(150px, auto) minmax(0, 1fr) auto; }
+.wt-player-medals { min-width: 0; justify-self: start; }
+.wt-record-page .wt-player-medals-trigger {
+  display: flex; align-items: center; gap: 10px; min-width: 0; max-width: 100%;
+  padding: 7px 10px; border-color: transparent; border-radius: 0;
+  background: transparent; box-shadow: none; color: var(--wt-record-muted); font-size: 12px;
+}
+.wt-player-medals-trigger > .wt-control-icon { width: 24px; height: 24px; opacity: .85; }
+.wt-player-medals-trigger b { color: var(--wt-record-gold); margin-left: 5px; font-size: 17px; }
+.wt-player-medals-names { display: grid; min-width: 0; gap: 2px; text-align: left; }
+.wt-player-medals-names > span { display: block; max-width: 160px; overflow: hidden; text-overflow: ellipsis; font-size: 11px; }
+.calculator.wt-player-medals-dialog {
+  width: min(760px, calc(100vw - 24px)); height: fit-content; max-height: calc(100dvh - 32px);
+  display: flex; flex-direction: column; padding: 18px; overflow: hidden;
+}
+.wt-player-medals-dialog .calc-header { flex-shrink: 0; }
+.wt-player-medals-controls { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-block: 14px; color: var(--wt-muted); font-size: 12px; }
+.wt-player-medals-controls > .wt-select { width: 180px; }
+.wt-player-medals-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 20px; list-style: none; padding: 0; overflow: auto; }
+.wt-player-medals-list > li { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 14px 0; border-top: 1px solid var(--wt-line); }
+.wt-player-medals-list > li > .wt-control-icon { width: 30px; height: 30px; flex-basis: 30px; opacity: .8; }
+.wt-player-medals-list > li > div { display: grid; gap: 5px; min-width: 0; }
+.wt-player-medals-list strong { font-size: 14px; font-weight: 500; color: var(--wt-ink); overflow-wrap: anywhere; }
+.wt-player-medals-list small { color: var(--wt-muted); font-size: 11px; }
+.wt-record-page .wt-binding-read-status > span { display: inline-grid; place-items: center; width: 16px; height: 16px; border: 1px solid currentColor; border-radius: 50%; margin-right: 5px; color: var(--wt-record-gold); font-size: 11px; }
+
+.wt-career-scope-field { display: grid; gap: 5px; min-width: 150px; color: var(--wt-record-muted); font-size: 12px; }
+.wt-career-scope-field > span { display: inline-flex; align-items: center; }
+.wt-career-scope-field .wt-select { min-height: 44px; font-size: 14px; }
+.wt-record-heading h2, .wt-type-heading h2, .wt-rank-chart-heading h2 { display: flex; align-items: center; }
+.wt-country-elite-total { color: var(--wt-record-muted); font-size: 11px; white-space: nowrap; }
+.wt-country-breakdown { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+.wt-country-heading > .wt-player-read-status { flex-basis: auto; }
+.wt-country-breakdown .wt-country-elite { gap: 4px; }
+.wt-player-medals-trigger > img { width: 32px; height: 40px; object-fit: contain; }
+.wt-player-medals-list > li > img { width: 40px; height: 48px; flex: 0 0 40px; object-fit: contain; }

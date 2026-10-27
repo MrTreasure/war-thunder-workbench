@@ -1,0 +1,112 @@
+import { useLocale } from "./i18n/react";
+import { t, localize, getLocale } from "./i18n/core";
+import { useRef, useState } from "react";
+import { Modal } from "./Modal";
+import imageRegistry from "../data/player-medal-images.json";
+import { GameSelect } from "./components/GameSelect";
+import { statsCountryLabel } from "./stats-country";
+import type { PlayerMedals as Medals, PlayerMedal } from "./player-rankings-api";
+
+const medalImages = new Map(
+  (imageRegistry.items as { id: string; url: string }[]).map((item) => [item.id, item.url]),
+);
+
+function medalName(medal: PlayerMedal) {
+  return medal.names[getLocale()] || medal.names.en || t("已获勋章");
+}
+
+/** Renders earned unlocks only. An absent old snapshot is not an empty medal collection. */
+export function PlayerMedals({ medals }: { medals?: Medals | null }) {
+  useLocale();
+  const [open, setOpen] = useState(false);
+  const [country, setCountry] = useState("all");
+  const trigger = useRef<HTMLButtonElement>(null);
+  const [failed, setFailed] = useState<string[]>([]);
+  const visible =
+    medals?.items.filter((item) => medalImages.has(item.id) && !failed.includes(item.id)) || [];
+  if (!visible.length) return null;
+  const count = visible.length;
+  const countries = [...new Set(visible.map((item) => item.country))];
+  const filtered = visible.filter((item) => country === "all" || item.country === country);
+  const close = () => {
+    setOpen(false);
+    requestAnimationFrame(() => trigger.current?.focus({ preventScroll: true }));
+  };
+  return (
+    <div className="wt-player-medals">
+      <button
+        type="button"
+        className="wt-player-medals-trigger"
+        ref={trigger}
+        aria-haspopup="dialog"
+        onClick={() => setOpen(true)}
+        title={t("查看已获勋章")}
+      >
+        <img
+          src={medalImages.get(visible[0].id)}
+          width={32}
+          height={40}
+          alt=""
+          onError={() => setFailed((ids) => [...ids, visible[0].id])}
+        />
+        <span>
+          {t("已获勋章")}
+          <b>{localize(count)}</b>
+        </span>
+        <span className="wt-player-medals-names" aria-hidden="true">
+          {localize(
+            visible
+              .slice(0, 2)
+              .map((item) => <span key={item.id}>{localize(medalName(item))}</span>),
+          )}
+        </span>
+        <span aria-hidden="true">›</span>
+      </button>
+      {localize(
+        open && (
+          <Modal
+            title={t("已获勋章 · {0}", [localize(count)])}
+            close={close}
+            className="wt-player-medals-dialog"
+          >
+            <div className="wt-player-medals-controls">
+              <GameSelect aria-label={t("勋章所属国家")} value={country} onValueChange={setCountry}>
+                <option value="all">{t("全部国家")}</option>
+                {localize(
+                  countries.map((id) => (
+                    <option key={id} value={id}>
+                      {localize(statsCountryLabel(id))}
+                    </option>
+                  )),
+                )}
+              </GameSelect>
+              <span>
+                {localize(filtered.length)}
+                {t("枚")}
+              </span>
+            </div>
+            <ul className="wt-player-medals-list">
+              {localize(
+                filtered.map((item) => (
+                  <li key={item.id}>
+                    <img
+                      src={medalImages.get(item.id)}
+                      width={40}
+                      height={48}
+                      alt=""
+                      onError={() => setFailed((ids) => [...ids, item.id])}
+                    />
+                    <div>
+                      <strong>{localize(medalName(item))}</strong>
+                      <small>{localize(statsCountryLabel(item.country))}</small>
+                    </div>
+                  </li>
+                )),
+              )}
+            </ul>
+          </Modal>
+        ),
+      )}
+    </div>
+  );
+}

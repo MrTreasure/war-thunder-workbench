@@ -1,0 +1,27 @@
+/* Read-only game hints use the owning dialog's top layer and never change layout. */
+.wt-game-tip-trigger,
+.wt-record-page .wt-game-tip-trigger {
+  display: inline-flex; justify-content: center; align-items: center;
+  vertical-align: middle; flex: 0 0 28px; width: 28px; height: 28px; min-height: 28px;
+  padding: 4px; margin-left: 4px; border: 0; border-radius: 0;
+  background: transparent; box-shadow: none; color: var(--wt-muted); cursor: help;
+}
+.wt-record-page .wt-game-tip-trigger:hover,
+.wt-game-tip-trigger:hover { background: transparent; color: var(--wt-ink); }
+.wt-game-tip-trigger:focus-visible { outline: 2px solid var(--wt-gold); outline-offset: -2px; }
+.wt-game-tip-popup {
+  position: fixed; inset: auto; margin: 0; box-sizing: border-box; padding: 14px 16px;
+  border: 1px solid var(--wt-strong-line); border-radius: 0;
+  background: var(--wt-page); color: var(--wt-body);
+  box-shadow: var(--wt-shadow); font: 400 13px/1.65 var(--wt-sans);
+  overflow: auto; overflow-wrap: anywhere; overscroll-behavior: contain;
+}
+.wt-game-tip-popup::backdrop { background: transparent; }
+.wt-game-tip-popup > strong { display: block; color: var(--wt-ink); font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+.wt-game-tip-body p { margin: 0; }
+.wt-game-tip-body p + p { margin-top: 8px; }
+@media (pointer: coarse) {
+  .wt-game-tip-trigger, .wt-record-page .wt-game-tip-trigger {
+    width: 44px; height: 44px; min-height: 44px; flex-basis: 44px; padding: 12px;
+  }
+}

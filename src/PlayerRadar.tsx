@@ -1,9 +1,11 @@
 import { useLocale } from "./i18n/react";
-import { localize, t } from "./i18n/core";
+import { t, localize } from "./i18n/core";
+import { GameTip } from "./components/GameTip";
 import { useId } from "react";
 import type { RadarAxis } from "./player-stats-api";
 import { statsRatio } from "./player-stats-api";
 export function PlayerRadar({ axes }: { axes: RadarAxis[] }) {
+  useLocale();
   const locale = useLocale();
 
   const id = useId();
@@ -19,7 +21,14 @@ export function PlayerRadar({ axes }: { axes: RadarAxis[] }) {
   return (
     <section className="wt-record-panel wt-radar">
       <div className="wt-record-heading">
-        <h2>{t("六维能力画像")}</h2>
+        <h2>
+          {t("六维能力画像")}
+          <GameTip label={t("六维能力画像")}>
+            {t(
+              "比值按 x/(1+x) 换算，胜率直接使用百分比。缺失项目留空，不代表零分；不是全服百分位。",
+            )}
+          </GameTip>
+        </h2>
         <span>{t("同一模式")}</span>
       </div>
       {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role -- This labelled inline SVG is the chart, not a replaceable HTML image. */}
@@ -105,7 +114,7 @@ export function PlayerRadar({ axes }: { axes: RadarAxis[] }) {
         )}
       </svg>
       <details>
-        <summary>{t("查看数值与换算说明")}</summary>
+        <summary>{t("查看数值")}</summary>
         <div className="wt-radar-values">
           {localize(
             axes.map((a) => (
@@ -120,9 +129,6 @@ export function PlayerRadar({ axes }: { axes: RadarAxis[] }) {
             )),
           )}
         </div>
-        <p>
-          {t("比值按 x/(1+x) 换算，胜率直接使用百分比。缺失项目留空，不代表零分；不是全服百分位。")}
-        </p>
       </details>
     </section>
   );

@@ -1,6 +1,7 @@
-import { getLocale } from "./i18n/core";
 import { useLocale } from "./i18n/react";
-import { localize, t } from "./i18n/core";
+import { t, localize, getLocale } from "./i18n/core";
+import { PlayerReadStatus } from "./PlayerReadStatus";
+import { GameTip } from "./components/GameTip";
 import { useState } from "react";
 import { GameSelect } from "./components/GameSelect";
 import { statsDate, statsNumber as num } from "./player-stats-api";
@@ -18,7 +19,6 @@ export function PlayerTypeUsage({
   active: boolean;
 }) {
   useLocale();
-
   const read = usePlayerRead<PlayerDetails>(profile, "details", active);
   const [group, setGroup] = useState("pvp_played"),
     [expanded, setExpanded] = useState(false);
@@ -38,8 +38,22 @@ export function PlayerTypeUsage({
     <section className="wt-record-panel wt-type-usage">
       <header className="wt-type-heading">
         <div>
-          <h2>{t("载具类型与游玩时长")}</h2>
-          <p>{t("按当前战斗模式，查看各类载具的使用记录。")}</p>
+          <h2>
+            {t("载具类型与游玩时长")}
+            <GameTip label={t("载具类型与游玩时长")}>
+              {t(
+                "分类使用时长不含排队时间；占比以已返回分类的时长合计为基数，玩法场次不可按载具类型相加。未返回的数据记为“—”。",
+              )}
+              {localize(
+                read.data && (
+                  <span>
+                    {t("采集于")}
+                    {localize(statsDate(read.data.fetchedAt))}
+                  </span>
+                ),
+              )}
+            </GameTip>
+          </h2>
         </div>
         {localize(
           groups.length > 0 && (
@@ -61,18 +75,15 @@ export function PlayerTypeUsage({
             </GameSelect>
           ),
         )}
+        {localize(
+          (read.busy || read.error) && (
+            <PlayerReadStatus read={read} label={t("分类统计")} localOnly={profile.localOnly} />
+          ),
+        )}
       </header>
       {localize(
         read.busy && !read.data && (
           <output className="wt-rank-loading">{t("正在补充分类统计…")}</output>
-        ),
-      )}
-      {localize(
-        read.error && (
-          <div className="wt-rank-error" role="alert">
-            <span>{localize(read.error)}</span>
-            {localize(!profile.localOnly && <button onClick={read.retry}>{t("重试")}</button>)}
-          </div>
         ),
       )}
       {localize(
@@ -81,6 +92,7 @@ export function PlayerTypeUsage({
             <div className="wt-type-summary">
               <span>
                 {t("已记录时长")}
+                {localize(" ")}
                 <b>
                   {localize(hours(total))} <small>{t("小时")}</small>
                 </b>
@@ -117,9 +129,10 @@ export function PlayerTypeUsage({
                       <tr key={role.id}>
                         <th scope="row">{localize(role.label)}</th>
                         <td
-                          aria-label={localize(
-                            `${localize(role.label)} ${localize(hours(role.seconds))} 小时`,
-                          )}
+                          aria-label={t("{0} {1} 小时", [
+                            localize(role.label),
+                            localize(hours(role.seconds)),
+                          ])}
                         >
                           <div className="wt-type-duration">
                             <span>
@@ -148,7 +161,9 @@ export function PlayerTypeUsage({
                   aria-expanded={expanded}
                   onClick={() => setExpanded((value) => !value)}
                 >
-                  {localize(expanded ? "收起分类" : `展开全部 ${localize(roles.length)} 类`)}
+                  {localize(
+                    expanded ? t("收起分类") : t("展开全部 {0} 类", [localize(roles.length)]),
+                  )}
                 </button>
               ),
             )}
@@ -159,19 +174,6 @@ export function PlayerTypeUsage({
           )
         ),
       )}
-      <footer className="wt-type-note">
-        {t(
-          "分类使用时长不含排队时间；占比以已返回分类的时长合计为基数，玩法场次不可按载具类型相加。未返回的数据记为“—”。",
-        )}
-        {localize(
-          read.data && (
-            <span>
-              {t("采集于")}
-              {localize(statsDate(read.data.fetchedAt))}
-            </span>
-          ),
-        )}
-      </footer>
     </section>
   );
 }
