@@ -90,7 +90,7 @@ export function LineupShareImage({
       </div>
       <div className="wt-share-labels">
         {post.tags.map((id) => (
-          <LineupTag key={id} id={id} tone={post.tagTones?.[id] || "red"} />
+          <LineupTag key={id} id={id} tone={post.tagTones?.[id] || "original"} />
         ))}
       </div>
       {text.trim() && (
