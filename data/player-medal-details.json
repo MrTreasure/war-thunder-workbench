@@ -1,0 +1,4117 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "ea96f3af75afe1d858f80ac13f212db218bc69ca",
+  "parserVersion": 1,
+  "semantics": "localized_game_configuration_outline_not_verbatim_game_ui",
+  "sources": [
+    {
+      "path": "char.vromfs.bin_u/config/unlocks.blkx",
+      "url": "https://github.com/gszabi99/War-Thunder-Datamine/blob/ea96f3af75afe1d858f80ac13f212db218bc69ca/char.vromfs.bin_u/config/unlocks.blkx",
+      "sha256": "7d013a09cfc5561dc25a60e81b881b61af62ebbc4bb8f066b2514d0aa6e86f32",
+      "bytes": 5021236
+    },
+    {
+      "path": "lang.vromfs.bin_u/lang/unlocks_medals.csv",
+      "url": "https://github.com/gszabi99/War-Thunder-Datamine/blob/ea96f3af75afe1d858f80ac13f212db218bc69ca/lang.vromfs.bin_u/lang/unlocks_medals.csv",
+      "sha256": "565f7d43dc3effd647ef9c20d5ab69af099b7eb7a54a8640524c53bdafb225f2",
+      "bytes": 245349
+    },
+    {
+      "path": "lang.vromfs.bin_u/lang/unlocks_conditions.csv",
+      "url": "https://github.com/gszabi99/War-Thunder-Datamine/blob/ea96f3af75afe1d858f80ac13f212db218bc69ca/lang.vromfs.bin_u/lang/unlocks_conditions.csv",
+      "sha256": "039a9bd38010c245df0716debf1e194bcdf427254c93e8642a62d190a170ae92",
+      "bytes": 287214
+    }
+  ],
+  "items": [
+    {
+      "id": "fr_legion_order_commander",
+      "country": "france",
+      "objective": "击毁玩家载具：累计 15,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_legion_order_officer",
+      "country": "france",
+      "objective": "击毁玩家载具：累计 10,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_legion_order_cavalier",
+      "country": "france",
+      "objective": "击毁玩家载具：累计 5,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_liberation_order",
+      "country": "france",
+      "objective": "击毁玩家载具：累计 20,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_military_medal",
+      "country": "france",
+      "objective": "获得胜利：累计 2,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_merit_order_commander",
+      "country": "france",
+      "objective": "获得胜利：累计 5,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_merit_order_officer",
+      "country": "france",
+      "objective": "获得胜利：累计 2,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_merit_order_cavalier",
+      "country": "france",
+      "objective": "获得胜利：累计 1,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_war_cross",
+      "country": "france",
+      "objective": "获得胜利：累计 1,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "载具匹配等级：0–15（游戏内部编号，非界面 BR）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_foreign_theaters_cross",
+      "country": "france",
+      "objective": "获得胜利：累计 1,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "载具匹配等级：至少 16（游戏内部编号，非界面 BR）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_valour_cross",
+      "country": "france",
+      "objective": "获得胜利：累计 10,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_wound_medal",
+      "country": "france",
+      "objective": "击毁玩家载具：累计 200",
+      "conditions": [
+        "自身载具处于严重损伤状态",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_resistance_medal",
+      "country": "france",
+      "objective": "获得胜利：累计 4,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_merit_navy_order_commander",
+      "country": "france",
+      "objective": "对水面单位造成伤害：累计 800,000",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇",
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_merit_navy_order_officer",
+      "country": "france",
+      "objective": "对水面单位造成伤害：累计 400,000",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇",
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_merit_navy_order_cavalier",
+      "country": "france",
+      "objective": "对水面单位造成伤害：累计 200,000",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇",
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_volunteer_cross",
+      "country": "france",
+      "objective": "累计协助击毁玩家载具 300 次",
+      "conditions": [],
+      "multipliers": {},
+      "description": null,
+      "notes": [
+        "关联战斗奖励：fr_volunteer_cross_streak。"
+      ]
+    },
+    {
+      "id": "fr_volunteer_resistance_cross",
+      "country": "france",
+      "objective": "击毁玩家载具：累计 500",
+      "conditions": [
+        "目标：德国",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_air_medal",
+      "country": "france",
+      "objective": "击毁玩家载具：累计 4,000",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_fighter_cross",
+      "country": "france",
+      "objective": "获得单场玩家击毁榜第一且至少击毁 2 个目标的战斗奖励，累计 100 次",
+      "conditions": [],
+      "multipliers": {},
+      "description": null,
+      "notes": [
+        "关联战斗奖励：fr_fighter_cross_streak。"
+      ]
+    },
+    {
+      "id": "fr_africa_medal",
+      "country": "france",
+      "objective": "获得胜利：累计 500",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "指定地图之一（游戏地图 ID）：arcade_africa_seashore / avg_africa_desert / avg_tunisia_desert / arcade_africa_canyon",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_war_medal",
+      "country": "france",
+      "objective": "击毁玩家载具：累计 1,000",
+      "conditions": [
+        "目标：德国 / 意大利",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_italian_medal",
+      "country": "france",
+      "objective": "击毁玩家载具：累计 200",
+      "conditions": [
+        "指定地图之一（游戏地图 ID）：sicily / avg_lazzaro_italy / avg_lazzaro_italy_new_city",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_liberated_medal",
+      "country": "france",
+      "objective": "击毁玩家载具：累计 1,000",
+      "conditions": [
+        "目标：德国 / 意大利",
+        "指定地图之一（游戏地图 ID）：avg_sector_montmedy / dover_strait / avg_normandy / normandy",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_service_medal",
+      "country": "france",
+      "objective": "参加战斗：累计 12,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_korea_medal",
+      "country": "france",
+      "objective": "击毁玩家载具：累计 100",
+      "conditions": [
+        "指定地图之一（游戏地图 ID）：korea / avg_korea_lake",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_indochina_medal",
+      "country": "france",
+      "objective": "击毁玩家载具：累计 100",
+      "conditions": [
+        "指定地图之一（游戏地图 ID）：zhengzhou / arcade_zhang_park / arcade_rice_terraces",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "fr_middle_east_medal",
+      "country": "france",
+      "objective": "获得胜利：累计 500",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "指定地图之一（游戏地图 ID）：avg_egypt_sinai / avg_syria",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_savoy_officer_order",
+      "country": "italy",
+      "objective": "参加战斗：累计 20,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_savoy_cavalier_order",
+      "country": "italy",
+      "objective": "参加战斗：累计 10,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_crown_officer_order",
+      "country": "italy",
+      "objective": "获得胜利：累计 10,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_crown_cavalier_order",
+      "country": "italy",
+      "objective": "获得胜利：累计 5,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_merit",
+      "country": "italy",
+      "objective": "击毁玩家载具：累计 20,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_military_valor_medal_gold",
+      "country": "italy",
+      "objective": "击毁玩家载具：累计 10,000",
+      "conditions": [
+        "使用：地面载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_military_valor_medal_silver",
+      "country": "italy",
+      "objective": "击毁玩家载具：累计 5,000",
+      "conditions": [
+        "使用：地面载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_warrior",
+      "country": "italy",
+      "objective": "击毁玩家载具：累计 1,000",
+      "conditions": [
+        "使用：地面载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_air_valor_medal_gold",
+      "country": "italy",
+      "objective": "击毁玩家载具：累计 10,000",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_air_valor_medal_silver",
+      "country": "italy",
+      "objective": "击毁玩家载具：累计 5,000",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_sky",
+      "country": "italy",
+      "objective": "击毁玩家载具：累计 1,000",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_navy_valor_medal_gold",
+      "country": "italy",
+      "objective": "对水面单位造成伤害：累计 800,000",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇",
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_navy_valor_medal_silver",
+      "country": "italy",
+      "objective": "对水面单位造成伤害：累计 400,000",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇",
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_navy_valor_medal_bronze",
+      "country": "italy",
+      "objective": "对水面单位造成伤害：累计 200,000",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇",
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_ger_eagle_order_3_class",
+      "country": "italy",
+      "objective": "获得胜利：累计 2,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：德国",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_ger_eagle_order_4_class",
+      "country": "italy",
+      "objective": "获得胜利：累计 1,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：德国",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_ger_eagle_order_5_class",
+      "country": "italy",
+      "objective": "获得胜利：累计 500",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：德国",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_ger_merit_medal_silver",
+      "country": "italy",
+      "objective": "参加战斗：累计 1,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：德国",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_ger_merit_medal_bronze",
+      "country": "italy",
+      "objective": "参加战斗：累计 500",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：德国",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_tanker_badge_gold",
+      "country": "italy",
+      "objective": "击毁玩家载具：累计 500",
+      "conditions": [
+        "使用：地面载具",
+        "载具匹配等级：至少 16（游戏内部编号，非界面 BR）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_tanker_badge_silver",
+      "country": "italy",
+      "objective": "击毁玩家载具：累计 500",
+      "conditions": [
+        "使用：地面载具",
+        "载具匹配等级：0–15（游戏内部编号，非界面 BR）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_torpedo_bomber_badge",
+      "country": "italy",
+      "objective": "击毁玩家载具：累计 100",
+      "conditions": [
+        "使用：航空载具",
+        "使用鱼雷",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_interceptor_badge",
+      "country": "italy",
+      "objective": "击毁玩家载具：累计 300",
+      "conditions": [
+        "使用：航空载具",
+        "目标：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_dive_bomber_badge",
+      "country": "italy",
+      "objective": "击毁玩家载具：累计 150",
+      "conditions": [
+        "使用：俯冲轰炸机",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_bomber_badge",
+      "country": "italy",
+      "objective": "轰炸基地（千克）：累计 100,000",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_attacker_badge",
+      "country": "italy",
+      "objective": "摧毁地面目标：累计 500",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_wound_badge",
+      "country": "italy",
+      "objective": "占领据点：累计 200",
+      "conditions": [
+        "自身载具处于严重损伤状态",
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "it_africa_medal",
+      "country": "italy",
+      "objective": "获得胜利：累计 500",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "指定地图之一（游戏地图 ID）：arcade_africa_seashore / avg_africa_desert / avg_tunisia_desert / arcade_africa_canyon",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ge_cross_gold",
+      "country": "germany",
+      "objective": "获得胜利：累计 5,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ger_knight_cross_oak_swords_diamonds",
+      "country": "germany",
+      "objective": "击毁玩家载具：累计 20,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ge_knight_cross_oak_swords",
+      "country": "germany",
+      "objective": "击毁玩家载具：累计 15,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ge_knight_cross_oak",
+      "country": "germany",
+      "objective": "击毁玩家载具：累计 10,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ge_knight_cross",
+      "country": "germany",
+      "objective": "击毁玩家载具：累计 3,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ge_iron_cross_1_class",
+      "country": "germany",
+      "objective": "击毁玩家载具：累计 2,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ge_iron_cross_2_class",
+      "country": "germany",
+      "objective": "击毁玩家载具：累计 1,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ge_roll_honor",
+      "country": "germany",
+      "objective": "击毁玩家载具：累计 300",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ger_roll_of_honor_kriegsmarine",
+      "country": "germany",
+      "objective": "对水面单位造成伤害：累计 200,000",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇",
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ger_roll_of_honor_army",
+      "country": "germany",
+      "objective": "击毁玩家载具：累计 300",
+      "conditions": [
+        "使用：地面载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ger_wound_badge_gold",
+      "country": "germany",
+      "objective": "击毁玩家载具：累计 100",
+      "conditions": [
+        "自身载具处于严重损伤状态",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ger_wound_badge_silver",
+      "country": "germany",
+      "objective": "击毁玩家载具：累计 50",
+      "conditions": [
+        "自身载具处于着火状态",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ge_wound_badge",
+      "country": "germany",
+      "objective": "占领据点：累计 200",
+      "conditions": [
+        "自身载具处于严重损伤状态",
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ger_wermacht_service_special_class",
+      "country": "germany",
+      "objective": "参加战斗：累计 10,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ger_wermacht_service_2_class",
+      "country": "germany",
+      "objective": "参加战斗：累计 5,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ger_wermacht_service_3_class",
+      "country": "germany",
+      "objective": "参加战斗：累计 2,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ger_panzer_badge_silver",
+      "country": "germany",
+      "objective": "获得胜利：累计 100",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 1 名",
+        "使用：轻型坦克 / 中型坦克 / 重型坦克",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ger_panzer_badge_bronze",
+      "country": "germany",
+      "objective": "获得胜利：累计 100",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 1 名",
+        "使用：坦克歼击车",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ger_air_defence_badge",
+      "country": "germany",
+      "objective": "击毁玩家载具：累计 300",
+      "conditions": [
+        "使用：地面载具",
+        "目标：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ger_blockade_runner_badge",
+      "country": "germany",
+      "objective": "对水面单位造成伤害：累计 100,000",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇",
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ger_sboote_badge",
+      "country": "germany",
+      "objective": "获得胜利：累计 100",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "使用：鱼雷艇",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ger_destroyer_badge",
+      "country": "germany",
+      "objective": "获得胜利：累计 100",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "使用：驱逐舰",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ger_minesweeper_badge",
+      "country": "germany",
+      "objective": "获得胜利：累计 100",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "使用：猎潜艇 / 布雷艇 / 炮艇",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ger_fleet_badge",
+      "country": "germany",
+      "objective": "获得胜利：累计 100",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "使用：轻巡洋舰 / 重巡洋舰 / 战列巡洋舰 / 战列舰",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ger_pilot_badge",
+      "country": "germany",
+      "objective": "参加战斗：累计 300",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ger_honorary_luftwaffe_badge",
+      "country": "germany",
+      "objective": "解锁德国航空载具的 6 级",
+      "conditions": [],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ger_radio_operator_badge",
+      "country": "germany",
+      "objective": "击毁玩家载具：累计 50",
+      "conditions": [
+        "使用：固定翼飞机",
+        "使用机枪手视角",
+        "目标：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_sun",
+      "country": "japan",
+      "objective": "击毁玩家载具：累计 20,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_rising_sun_order_6_class",
+      "country": "japan",
+      "objective": "击毁玩家载具：累计 15,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_rising_sun_order_7_class",
+      "country": "japan",
+      "objective": "击毁玩家载具：累计 10,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_rising_sun_order_8_class",
+      "country": "japan",
+      "objective": "击毁玩家载具：累计 7,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_golden_kite_order_4_class",
+      "country": "japan",
+      "objective": "击毁玩家载具：累计 5,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_gold",
+      "country": "japan",
+      "objective": "击毁玩家载具：累计 3,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_golden_kite_order_6_class",
+      "country": "japan",
+      "objective": "击毁玩家载具：累计 2,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_golden_kite_order_7_class",
+      "country": "japan",
+      "objective": "击毁玩家载具：累计 1,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_merit",
+      "country": "japan",
+      "objective": "获得胜利：累计 1,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "载具匹配等级：至少 16（游戏内部编号，非界面 BR）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_bukochosho_2_class",
+      "country": "japan",
+      "objective": "获得胜利：累计 1,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "载具匹配等级：0–15（游戏内部编号，非界面 BR）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_sacred_treasure_order_5_class",
+      "country": "japan",
+      "objective": "获得胜利：累计 10,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_sacred_treasure_order_6_class",
+      "country": "japan",
+      "objective": "获得胜利：累计 5,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_sacred_treasure_order_7_class",
+      "country": "japan",
+      "objective": "获得胜利：累计 3,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_sacred_treasure_order_8_class",
+      "country": "japan",
+      "objective": "获得胜利：累计 1,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_tank_gun_badge",
+      "country": "japan",
+      "objective": "击毁玩家载具：累计 1,000",
+      "conditions": [
+        "使用：地面载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_tanker_badge",
+      "country": "japan",
+      "objective": "击毁玩家载具：累计 500",
+      "conditions": [
+        "使用：地面载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_jaaf_officer_badge",
+      "country": "japan",
+      "objective": "击毁玩家载具：累计 1,000",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_jaaf_nco_badge",
+      "country": "japan",
+      "objective": "击毁玩家载具：累计 500",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_wound_badge_gold",
+      "country": "japan",
+      "objective": "击毁玩家载具：累计 100",
+      "conditions": [
+        "自身载具处于严重损伤状态",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_wound_badge_silver",
+      "country": "japan",
+      "objective": "占领据点：累计 200",
+      "conditions": [
+        "自身载具处于严重损伤状态",
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_navy_pilot_badge_1_class",
+      "country": "japan",
+      "objective": "击毁玩家载具：累计 500",
+      "conditions": [
+        "使用：海军航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_navy_pilot_badge_2_class",
+      "country": "japan",
+      "objective": "击毁玩家载具：累计 300",
+      "conditions": [
+        "使用：海军航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_damage_control_badge",
+      "country": "japan",
+      "objective": "击毁玩家载具：累计 50",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇",
+        "自身载具处于着火状态",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_seamanship_badge",
+      "country": "japan",
+      "objective": "对水面单位造成伤害：累计 400,000",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇",
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_reservist_badge",
+      "country": "japan",
+      "objective": "参加战斗：累计 3,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "使用：蓝水舰艇 / 近岸舰艇（本场出击载具范围）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_gunner_bomber_badge",
+      "country": "japan",
+      "objective": "击毁玩家载具：累计 50",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇",
+        "使用辅助武器",
+        "目标为玩家载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "jap_torpedoman_badge",
+      "country": "japan",
+      "objective": "击毁玩家载具：累计 300",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇",
+        "使用鱼雷",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "raaf_victoria_cross",
+      "country": "britain",
+      "objective": "击毁玩家载具：累计 20,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "raaf_service_order",
+      "country": "britain",
+      "objective": "击毁玩家载具：累计 15,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "uk_long_service_medal_army",
+      "country": "britain",
+      "objective": "参加战斗：累计 5,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：地面载具（本场出击载具范围）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "uk_long_service_medal_air",
+      "country": "britain",
+      "objective": "参加战斗：累计 5,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "uk_air_efficiency_medal",
+      "country": "britain",
+      "objective": "参加战斗：累计 3,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "uk_long_service_medal_navy",
+      "country": "britain",
+      "objective": "参加战斗：累计 5,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：蓝水舰艇 / 近岸舰艇（本场出击载具范围）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "raaf_flying_cross",
+      "country": "britain",
+      "objective": "击毁玩家载具：累计 4,000",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "uk_army_medal",
+      "country": "britain",
+      "objective": "击毁玩家载具：累计 10,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "uk_air_cross",
+      "country": "britain",
+      "objective": "获得单场空中击毁榜第一且至少达到 12 击毁进度的战斗奖励，累计 100 次",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": [
+        "该战斗奖励的击毁进度倍率：街机 ×1、历史 ×2、全真 ×3。",
+        "对应战斗奖励的配置包含机器人目标。",
+        "关联战斗奖励：heroic_fighter。"
+      ]
+    },
+    {
+      "id": "uk_army_cross",
+      "country": "britain",
+      "objective": "击毁玩家载具：累计 4,000",
+      "conditions": [
+        "使用：地面载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "uk_service_cross_rosette",
+      "country": "britain",
+      "objective": "获得胜利：累计 10,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "uk_service_cross",
+      "country": "britain",
+      "objective": "获得胜利：累计 5,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "uk_conduct_medal",
+      "country": "britain",
+      "objective": "获得胜利：累计 3,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "uk_conspicious_gallantry_medal",
+      "country": "britain",
+      "objective": "获得胜利：累计 1,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "uk_flying_medal",
+      "country": "britain",
+      "objective": "击毁玩家载具：累计 500",
+      "conditions": [
+        "使用：航空载具",
+        "目标：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "uk_korean_medal",
+      "country": "britain",
+      "objective": "击毁玩家载具：累计 100",
+      "conditions": [
+        "指定地图之一（游戏地图 ID）：korea / avg_korea_lake",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "uk_air_medal",
+      "country": "britain",
+      "objective": "击毁玩家载具：累计 2,000",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "raaf_war_medal",
+      "country": "britain",
+      "objective": "参加战斗：累计 10,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "raaf_39_45_star",
+      "country": "britain",
+      "objective": "击毁玩家载具：累计 1,000",
+      "conditions": [
+        "目标：德国 / 意大利 / 日本",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "uk_atlantic_star",
+      "country": "britain",
+      "objective": "对水面单位造成伤害：累计 200,000",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇",
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "uk_air_crew_europe_star",
+      "country": "britain",
+      "objective": "轰炸基地（千克）：累计 100,000",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "uk_african_star",
+      "country": "britain",
+      "objective": "获得胜利：累计 500",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "指定地图之一（游戏地图 ID）：arcade_africa_seashore / avg_africa_desert / avg_tunisia_desert / arcade_africa_canyon / air_africa_desert",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "raaf_pacific",
+      "country": "britain",
+      "objective": "获得胜利：累计 500",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "指定地图之一（游戏地图 ID）：guadalcanal / port_moresby / avg_guadalcanal",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "uk_italy_star",
+      "country": "britain",
+      "objective": "击毁玩家载具：累计 200",
+      "conditions": [
+        "指定地图之一（游戏地图 ID）：sicily / avg_lazzaro_italy / avg_lazzaro_italy_new_city",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "raaf_france_germany",
+      "country": "britain",
+      "objective": "获得胜利：累计 500",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "指定地图之一（游戏地图 ID）：avg_sector_montmedy / avg_normandy / avg_rheinland / normandy / avg_berlin / ruhr / berlin",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_honor_medal_army",
+      "country": "usa",
+      "objective": "获得胜利：累计 10,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：地面载具（本场出击载具范围）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_honor_medal_navy",
+      "country": "usa",
+      "objective": "获得胜利：累计 10,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：蓝水舰艇 / 近岸舰艇（本场出击载具范围）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_honor_medal_air",
+      "country": "usa",
+      "objective": "获得胜利：累计 10,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_service_cross",
+      "country": "usa",
+      "objective": "击毁玩家载具：累计 10,000",
+      "conditions": [
+        "使用：地面载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_navy_cross_2",
+      "country": "usa",
+      "objective": "击毁玩家载具：累计 10,000",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_air_cross",
+      "country": "usa",
+      "objective": "击毁玩家载具：累计 10,000",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_service_medal_army",
+      "country": "usa",
+      "objective": "获得胜利：累计 5,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：地面载具（本场出击载具范围）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_service_medal_navy",
+      "country": "usa",
+      "objective": "获得胜利：累计 5,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：蓝水舰艇 / 近岸舰艇（本场出击载具范围）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_service_medal_air",
+      "country": "usa",
+      "objective": "获得胜利：累计 5,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_silver_star",
+      "country": "usa",
+      "objective": "击毁玩家载具：累计 10,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_merits",
+      "country": "usa",
+      "objective": "击毁玩家载具：累计 5,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_flying_cross_1_class",
+      "country": "usa",
+      "objective": "击毁玩家载具：累计 5,000",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_bronze_star_2",
+      "country": "usa",
+      "objective": "获得单场玩家击毁榜第一且至少击毁 5 个目标的战斗奖励，累计 100 次",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": [
+        "对应奖励要求本场无阵亡。",
+        "对应战斗奖励的配置包含机器人目标。",
+        "关联战斗奖励：heroic_survivor。"
+      ]
+    },
+    {
+      "id": "usa_heart",
+      "country": "usa",
+      "objective": "击毁玩家载具：累计 100",
+      "conditions": [
+        "自身载具处于严重损伤状态",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_air_1_class",
+      "country": "usa",
+      "objective": "击毁玩家载具：累计 3,000",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_commendation_medal_army_2",
+      "country": "usa",
+      "objective": "获得胜利：累计 1,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：地面载具（本场出击载具范围）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_commendation_medal_navy",
+      "country": "usa",
+      "objective": "对水面单位造成伤害：累计 800,000",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇",
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_commendation_medal_air",
+      "country": "usa",
+      "objective": "获得胜利：累计 1,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_conduct",
+      "country": "usa",
+      "objective": "参加战斗：累计 3,000",
+      "conditions": [
+        "使用：地面载具（本场出击载具范围）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_conduct_medal_navy",
+      "country": "usa",
+      "objective": "参加战斗：累计 3,000",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇（本场出击载具范围）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_conduct_medal_air",
+      "country": "usa",
+      "objective": "参加战斗：累计 3,000",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_pacific",
+      "country": "usa",
+      "objective": "击毁玩家载具：累计 500",
+      "conditions": [
+        "目标：日本",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_europe",
+      "country": "usa",
+      "objective": "击毁玩家载具：累计 500",
+      "conditions": [
+        "目标：德国 / 意大利",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_wwii_medal",
+      "country": "usa",
+      "objective": "击毁玩家载具：累计 1,000",
+      "conditions": [
+        "目标：德国 / 意大利 / 日本",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_korean_medal",
+      "country": "usa",
+      "objective": "击毁玩家载具：累计 100",
+      "conditions": [
+        "指定地图之一（游戏地图 ID）：korea / avg_korea_lake",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_sign_bombardier",
+      "country": "usa",
+      "objective": "轰炸基地（千克）：累计 100,000",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_sign_gunner",
+      "country": "usa",
+      "objective": "击毁玩家载具：累计 50",
+      "conditions": [
+        "使用：固定翼飞机",
+        "使用机枪手视角",
+        "目标：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_sign_pilot",
+      "country": "usa",
+      "objective": "击毁玩家载具：累计 300",
+      "conditions": [
+        "使用：航空载具",
+        "目标：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "usa_sign_pilot_navy",
+      "country": "usa",
+      "objective": "击毁玩家载具：累计 500",
+      "conditions": [
+        "使用：海军航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_red_banner_order",
+      "country": "ussr",
+      "objective": "击毁玩家载具：累计 20,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_patriotic_war_1_class",
+      "country": "ussr",
+      "objective": "参加战斗：累计 20,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_patriotic_war_2_class",
+      "country": "ussr",
+      "objective": "参加战斗：累计 10,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_red_star_order",
+      "country": "ussr",
+      "objective": "击毁玩家载具：累计 10,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_glory_order_1_class",
+      "country": "ussr",
+      "objective": "获得胜利：累计 10,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_glory_order_2_class",
+      "country": "ussr",
+      "objective": "获得胜利：累计 5,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_glory_order_3_class",
+      "country": "ussr",
+      "objective": "获得胜利：累计 3,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_hero",
+      "country": "ussr",
+      "objective": "获得单场玩家击毁榜第一且至少击毁 5 个目标的战斗奖励，累计 500 次",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": [
+        "对应奖励要求本场无阵亡。",
+        "对应战斗奖励的配置包含机器人目标。",
+        "关联战斗奖励：heroic_survivor。"
+      ]
+    },
+    {
+      "id": "ussr_valor_medal",
+      "country": "ussr",
+      "objective": "击毁玩家载具：累计 5,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_ushakov_medal",
+      "country": "ussr",
+      "objective": "对水面单位造成伤害：累计 400,000",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇",
+        "载具匹配等级：至少 10（游戏内部编号，非界面 BR）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_for_battle_merit_medal",
+      "country": "ussr",
+      "objective": "击毁玩家载具：累计 3,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_nakhimov_medal",
+      "country": "ussr",
+      "objective": "对水面单位造成伤害：累计 400,000",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇",
+        "载具匹配等级：0–9（游戏内部编号，非界面 BR）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_leningrad_def_medal",
+      "country": "ussr",
+      "objective": "击毁玩家载具：累计 100",
+      "conditions": [
+        "指定地图之一（游戏地图 ID）：air_ladoga",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_moscow_def_medal",
+      "country": "ussr",
+      "objective": "击毁玩家载具：累计 100",
+      "conditions": [
+        "指定地图之一（游戏地图 ID）：moscow / avg_volokolamsk",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_stalingrad_def_medal",
+      "country": "ussr",
+      "objective": "击毁玩家载具：累计 100",
+      "conditions": [
+        "指定地图之一（游戏地图 ID）：stalingrad / stalingrad_w / avg_stalingrad_factory",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_caucasus_def_medal",
+      "country": "ussr",
+      "objective": "获得胜利：累计 500",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "指定地图之一（游戏地图 ID）：krymsk / mozdok / mozdok_winter / avg_mozdok / avg_krymsk / avg_port_novorossiysk",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_for_victory_over_germany_medal",
+      "country": "ussr",
+      "objective": "击毁玩家载具：累计 1,000",
+      "conditions": [
+        "目标：德国 / 意大利",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_for_victory_over_japan_medal",
+      "country": "ussr",
+      "objective": "击毁玩家载具：累计 500",
+      "conditions": [
+        "目标：日本",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_berlin_capture_medal",
+      "country": "ussr",
+      "objective": "占领据点：累计 500",
+      "conditions": [
+        "指定地图之一（游戏地图 ID）：avg_berlin / berlin",
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_tank_shooting_badge",
+      "country": "ussr",
+      "objective": "击毁玩家载具：累计 200",
+      "conditions": [
+        "目标距离条件：800 米（距离判定方向以游戏内为准）",
+        "使用：地面载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_tanker_badge",
+      "country": "ussr",
+      "objective": "击毁玩家载具：累计 300",
+      "conditions": [
+        "使用：地面载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_air_badge",
+      "country": "ussr",
+      "objective": "击毁玩家载具：累计 300",
+      "conditions": [
+        "使用：航空载具",
+        "目标：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_navy_badge",
+      "country": "ussr",
+      "objective": "对水面单位造成伤害：累计 200,000",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇",
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_antiaircraft_badge",
+      "country": "ussr",
+      "objective": "击毁玩家载具：累计 300",
+      "conditions": [
+        "使用：地面载具",
+        "目标：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_torpedoman_badge",
+      "country": "ussr",
+      "objective": "击毁玩家载具：累计 300",
+      "conditions": [
+        "使用：蓝水舰艇 / 近岸舰艇",
+        "使用鱼雷",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "ussr_victory_75_medal",
+      "country": "ussr",
+      "objective": null,
+      "conditions": [],
+      "multipliers": {},
+      "description": null,
+      "notes": [
+        "游戏配置未提供常规获取条件；不能据此判断目前是否仍可获取。"
+      ]
+    },
+    {
+      "id": "cn_precious_tripod_order_4_class",
+      "country": "china",
+      "objective": "获得胜利：累计 10,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_precious_tripod_order_5_class",
+      "country": "china",
+      "objective": "获得胜利：累计 8,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_precious_tripod_order_6_class",
+      "country": "china",
+      "objective": "获得胜利：累计 5,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_precious_tripod_order_7_class",
+      "country": "china",
+      "objective": "获得胜利：累计 4,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_precious_tripod_order_8_class",
+      "country": "china",
+      "objective": "获得胜利：累计 3,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_precious_tripod_order_9_class",
+      "country": "china",
+      "objective": "获得胜利：累计 1,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_cloud_banner_order_4_class",
+      "country": "china",
+      "objective": "击毁玩家载具：累计 20,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_cloud_banner_order_5_class",
+      "country": "china",
+      "objective": "击毁玩家载具：累计 15,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_cloud_banner_order_6_class",
+      "country": "china",
+      "objective": "击毁玩家载具：累计 12,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_cloud_banner_order_7_class",
+      "country": "china",
+      "objective": "击毁玩家载具：累计 10,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_cloud_banner_order_8_class",
+      "country": "china",
+      "objective": "击毁玩家载具：累计 5,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_cloud_banner_order_9_class",
+      "country": "china",
+      "objective": "击毁玩家载具：累计 3,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_loyalty_diligence_order",
+      "country": "china",
+      "objective": "参加战斗：累计 10,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_cosmic_diagram_order",
+      "country": "china",
+      "objective": "参加战斗：累计 5,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_book_nature_order",
+      "country": "china",
+      "objective": "参加战斗：累计 3,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_sublime_commencement_order",
+      "country": "china",
+      "objective": "参加战斗：累计 1,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_independence_freedom_order_2_class",
+      "country": "china",
+      "objective": "击毁玩家载具：累计 2,000",
+      "conditions": [
+        "目标：日本",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_independence_freedom_order_3_class",
+      "country": "china",
+      "objective": "击毁玩家载具：累计 1,000",
+      "conditions": [
+        "目标：日本",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_honour_renaissance_order_1_class",
+      "country": "china",
+      "objective": "击毁玩家载具：累计 4,000",
+      "conditions": [
+        "使用：航空载具",
+        "目标：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_honour_renaissance_order_2_class",
+      "country": "china",
+      "objective": "击毁玩家载具：累计 2,000",
+      "conditions": [
+        "使用：航空载具",
+        "目标：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_honour_renaissance_order_3_class",
+      "country": "china",
+      "objective": "击毁玩家载具：累计 1,000",
+      "conditions": [
+        "使用：航空载具",
+        "目标：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_independence_freedom_medal",
+      "country": "china",
+      "objective": "击毁玩家载具：累计 500",
+      "conditions": [
+        "目标：日本",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_armed_forces_medal_a1",
+      "country": "china",
+      "objective": "击毁玩家载具：累计 500",
+      "conditions": [
+        "使用：地面载具",
+        "载具匹配等级：至少 16（游戏内部编号，非界面 BR）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_brilliant_light_medal_a1",
+      "country": "china",
+      "objective": "击毁玩家载具：累计 500",
+      "conditions": [
+        "使用：地面载具",
+        "载具匹配等级：0–15（游戏内部编号，非界面 BR）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_victorious_garrison_medal_a1",
+      "country": "china",
+      "objective": "占领据点：累计 300",
+      "conditions": [
+        "使用：地面载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_star_medal",
+      "country": "china",
+      "objective": "击毁玩家载具：累计 500",
+      "conditions": [
+        "使用：航空载具",
+        "载具匹配等级：至少 16（游戏内部编号，非界面 BR）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_awe_inspiring_medal_a1",
+      "country": "china",
+      "objective": "轰炸基地（千克）：累计 100,000",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_distinguished_service_medal_a1",
+      "country": "china",
+      "objective": "参加战斗：累计 3,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_exemplary_medal_a1",
+      "country": "china",
+      "objective": "参加战斗：累计 1,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_korea_medal",
+      "country": "china",
+      "objective": "击毁玩家载具：累计 100",
+      "conditions": [
+        "指定地图之一（游戏地图 ID）：korea / avg_korea_lake",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "cn_pla_award",
+      "country": "china",
+      "objective": "获得胜利：累计 100",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "指定地图之一（游戏地图 ID）：arcade_asia_4roads / arcade_rice_terraces / zhengzhou",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_grand_sword_cross",
+      "country": "sweden",
+      "objective": "击毁玩家载具：累计 20,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_sword_cross",
+      "country": "sweden",
+      "objective": "击毁玩家载具：累计 15,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_sword_medal",
+      "country": "sweden",
+      "objective": "击毁玩家载具：累计 12,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_valor_medal_gold",
+      "country": "sweden",
+      "objective": "击毁玩家载具：累计 10,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_valor_medal_silver",
+      "country": "sweden",
+      "objective": "击毁玩家载具：累计 5,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_zeal_integrity_medal",
+      "country": "sweden",
+      "objective": "参加战斗：累计 1,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_wounded_medal_silver",
+      "country": "sweden",
+      "objective": "击毁玩家载具：累计 100",
+      "conditions": [
+        "自身载具处于严重损伤状态",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_merit_medal_gold",
+      "country": "sweden",
+      "objective": "获得胜利：累计 5,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_merit_medal_silver",
+      "country": "sweden",
+      "objective": "获得胜利：累计 3,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_conscript_medal",
+      "country": "sweden",
+      "objective": "解锁瑞典载具的 6 级",
+      "conditions": [],
+      "multipliers": {},
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_reserve_officer_medal_gold",
+      "country": "sweden",
+      "objective": "获得胜利：累计 1,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "载具匹配等级：至少 16（游戏内部编号，非界面 BR）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_reserve_officer_medal_silver",
+      "country": "sweden",
+      "objective": "获得胜利：累计 1,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "载具匹配等级：0–15（游戏内部编号，非界面 BR）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_national_defense_medal_gold_rosette",
+      "country": "sweden",
+      "objective": "参加战斗：累计 20,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_national_defense_medal_gold",
+      "country": "sweden",
+      "objective": "参加战斗：累计 10,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_national_defense_medal_silver",
+      "country": "sweden",
+      "objective": "参加战斗：累计 5,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_national_defense_medal_bronze",
+      "country": "sweden",
+      "objective": "参加战斗：累计 2,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_international_service_medal",
+      "country": "sweden",
+      "objective": "获得胜利：累计 500",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "指定地图之一（游戏地图 ID）：avg_egypt_sinai / avg_syria / air_afghan",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_pilot_badge_gold",
+      "country": "sweden",
+      "objective": "击毁玩家载具：累计 500",
+      "conditions": [
+        "使用：航空载具",
+        "目标：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_pilot_badge_silver",
+      "country": "sweden",
+      "objective": "击毁玩家载具：累计 300",
+      "conditions": [
+        "使用：航空载具",
+        "目标：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "sw_air_gunner_badge",
+      "country": "sweden",
+      "objective": "击毁玩家载具：累计 50",
+      "conditions": [
+        "使用：固定翼飞机",
+        "使用机枪手视角",
+        "目标：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "il_medal_of_valour",
+      "country": "israel",
+      "objective": "击毁玩家载具：累计 20,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "il_medal_of_courage",
+      "country": "israel",
+      "objective": "击毁玩家载具：累计 10,000",
+      "conditions": [
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "il_medal_for_distinguished_service",
+      "country": "israel",
+      "objective": "获得胜利：累计 10,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "队内名次前 3 名",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "il_chief_of_staff_citation",
+      "country": "israel",
+      "objective": "参加战斗：累计 20,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "il_territorial_command_citation",
+      "country": "israel",
+      "objective": "参加战斗：累计 15,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "il_divisional_commander_citation",
+      "country": "israel",
+      "objective": "参加战斗：累计 10,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "il_brigade_commander_citation",
+      "country": "israel",
+      "objective": "参加战斗：累计 7,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "il_peace_for_galilee_war",
+      "country": "israel",
+      "objective": "击毁玩家载具：累计 5,000",
+      "conditions": [
+        "使用 7 级或以上载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "il_war_of_attrition",
+      "country": "israel",
+      "objective": "获得胜利：累计 2,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "使用 5 级或以上载具（本场至少一辆出击载具满足）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "il_yom_kippur_war",
+      "country": "israel",
+      "objective": "击毁玩家载具：累计 3,000",
+      "conditions": [
+        "使用 6 级或以上载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "il_sinai_campaign",
+      "country": "israel",
+      "objective": "击毁玩家载具：累计 1,000",
+      "conditions": [
+        "使用 4 级或以上载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "il_six_day_war",
+      "country": "israel",
+      "objective": "击毁玩家载具：累计 2,000",
+      "conditions": [
+        "使用 5 级或以上载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "il_nazi_fighter_decoration",
+      "country": "israel",
+      "objective": "击毁玩家载具：累计 1,000",
+      "conditions": [
+        "目标：德国 / 意大利",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "il_war_of_independence",
+      "country": "israel",
+      "objective": "获得胜利：累计 1,000",
+      "conditions": [
+        "战斗活跃度至少 60%",
+        "使用 4 级或以上载具（本场至少一辆出击载具满足）",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "il_operational_service_badge",
+      "country": "israel",
+      "objective": "购买 1 辆 7 级或以上的以色列载具",
+      "conditions": [],
+      "multipliers": {},
+      "description": null,
+      "notes": [
+        "此条件含高级载具适用标记，其具体范围尚未核实，请以游戏内为准。"
+      ]
+    },
+    {
+      "id": "il_armored_corps_tank_officer_insignia",
+      "country": "israel",
+      "objective": "击毁玩家载具：累计 300",
+      "conditions": [
+        "使用：地面载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    },
+    {
+      "id": "il_metal_pilot_wings_insignia",
+      "country": "israel",
+      "objective": "击毁玩家载具：累计 300",
+      "conditions": [
+        "使用：航空载具",
+        "在线战斗中完成"
+      ],
+      "multipliers": {
+        "ab": 1,
+        "rb": 2,
+        "sb": 3
+      },
+      "description": null,
+      "notes": []
+    }
+  ]
+}

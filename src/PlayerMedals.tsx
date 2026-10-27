@@ -1,12 +1,12 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { lazy, Suspense, useLayoutEffect, useRef, useState } from "react";
 import { Modal } from "./Modal";
 import imageRegistry from "../data/player-medal-images.json";
 import { GameSelect } from "./components/GameSelect";
-import { GameTip } from "./components/GameTip";
 import { statsCountryLabel } from "./stats-country";
 import type { PlayerMedals as Medals, PlayerMedal } from "./player-rankings-api";
 
 const medalImages = new Map(imageRegistry.items.map((item) => [item.id, item]));
+const PlayerMedalDetails = lazy(() => import("./PlayerMedalDetails"));
 
 function medalName(medal: PlayerMedal) {
   return medal.names["zh-CN"] || medal.names.en || "已获勋章";
@@ -15,24 +15,40 @@ function medalName(medal: PlayerMedal) {
 function MedalBadge({
   medal,
   unavailable,
+  inspect,
 }: {
   medal: PlayerMedal;
   unavailable: (id: string) => void;
+  inspect: (medal: PlayerMedal, trigger: HTMLButtonElement) => void;
 }) {
   const [fallback, setFallback] = useState(false);
+  const [failed, setFailed] = useState(false);
   const image = medalImages.get(medal.id)!;
   return (
-    <GameTip
-      label={medalName(medal)}
+    <button
+      type="button"
+      aria-label={`${medalName(medal)}，点击放大查看详情`}
+      aria-haspopup="dialog"
+      title={medalName(medal)}
       className="wt-player-medal"
-      icon={
+      onClick={(event) => inspect(medal, event.currentTarget)}
+    >
+      {failed ? (
+        <span aria-hidden="true">?</span>
+      ) : (
         <span className="wt-player-medal-art">
           <img
             src={fallback ? image.fallbackUrl : image.url}
             width={24}
             height={24}
             alt=""
-            onError={() => (fallback ? unavailable(medal.id) : setFallback(true))}
+            onError={() => {
+              if (!fallback) setFallback(true);
+              else {
+                setFailed(true);
+                unavailable(medal.id);
+              }
+            }}
           />
           <span
             className="wt-player-medal-luster"
@@ -40,10 +56,8 @@ function MedalBadge({
             style={{ maskImage: `url("${fallback ? image.fallbackUrl : image.url}")` }}
           />
         </span>
-      }
-    >
-      <p>{statsCountryLabel(medal.country)} · 已获得</p>
-    </GameTip>
+      )}
+    </button>
   );
 }
 
@@ -60,6 +74,9 @@ export function PlayerMedals({
   retry?: () => void;
 }) {
   const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState<PlayerMedal | null>(null);
+  const selectedTrigger = useRef<HTMLButtonElement | null>(null);
+  const [imageAttempt, setImageAttempt] = useState(0);
   const [country, setCountry] = useState("all");
   const trigger = useRef<HTMLButtonElement>(null);
   const strip = useRef<HTMLDivElement>(null);
@@ -86,6 +103,17 @@ export function PlayerMedals({
     setOpen(false);
     requestAnimationFrame(() => trigger.current?.focus({ preventScroll: true }));
   };
+  const inspect = (medal: PlayerMedal, button: HTMLButtonElement) => {
+    selectedTrigger.current = button;
+    setSelected(medal);
+  };
+  const closeDetails = () => {
+    setSelected(null);
+    requestAnimationFrame(() => {
+      const button = selectedTrigger.current;
+      (button?.isConnected ? button : trigger.current)?.focus({ preventScroll: true });
+    });
+  };
   if (!owned.length) {
     if (busy)
       return (
@@ -105,7 +133,7 @@ export function PlayerMedals({
   }
   const count = owned.length;
   const countries = [...new Set(owned.map((item) => item.country))];
-  const filtered = available.filter((item) => country === "all" || item.country === country);
+  const filtered = owned.filter((item) => country === "all" || item.country === country);
   return (
     <div
       className="wt-player-medals"
@@ -114,7 +142,7 @@ export function PlayerMedals({
       aria-label={`已获勋章 ${count} 枚`}
     >
       {visible.map((item) => (
-        <MedalBadge key={item.id} medal={item} unavailable={unavailable} />
+        <MedalBadge key={item.id} medal={item} unavailable={unavailable} inspect={inspect} />
       ))}
       <button
         type="button"
@@ -145,15 +173,39 @@ export function PlayerMedals({
           <ul className="wt-player-medals-list">
             {filtered.map((item) => (
               <li key={item.id}>
-                <MedalBadge medal={item} unavailable={unavailable} />
+                <MedalBadge
+                  key={imageAttempt}
+                  medal={item}
+                  unavailable={unavailable}
+                  inspect={inspect}
+                />
               </li>
             ))}
           </ul>
           {failed.length > 0 && (
-            <button type="button" className="wt-player-medals-retry" onClick={() => setFailed([])}>
+            <button
+              type="button"
+              className="wt-player-medals-retry"
+              onClick={() => {
+                setFailed([]);
+                setImageAttempt((value) => value + 1);
+              }}
+            >
               重新加载图标
             </button>
           )}
+        </Modal>
+      )}
+      {selected && (
+        <Modal
+          title={medalName(selected)}
+          subtitle={`${statsCountryLabel(selected.country)} · 已获得`}
+          close={closeDetails}
+          className="wt-player-medal-detail-dialog"
+        >
+          <Suspense fallback={<output>正在读取勋章详情…</output>}>
+            <PlayerMedalDetails medal={selected} />
+          </Suspense>
         </Modal>
       )}
     </div>
