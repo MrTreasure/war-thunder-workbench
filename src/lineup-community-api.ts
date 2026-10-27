@@ -40,10 +40,8 @@ export async function communityRequest<T>(
   body?: unknown,
   signal?: AbortSignal,
 ): Promise<T> {
-  const namespace =
-    import.meta.env.VITE_WT_CATALOG_SOURCE === "preview"
-      ? "lineup-community-preview"
-      : "lineup-community";
+  // The static catalog preview does not select a different community database.
+  const namespace = "lineup-community";
   const response = await fetch(`${settings.apiBaseUrl}/${namespace}/${path}`, {
     method: body === undefined ? "GET" : "POST",
     headers: statsHeaders(),

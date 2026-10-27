@@ -31,7 +31,8 @@
   font-size: 12px;
 }
 .lineup-toolbar :is(select, .wt-select) {
-  min-height: 44px;
+  height: 36px;
+  min-height: 36px;
   padding-inline: 10px 26px;
   font-size: 14px;
 }
@@ -55,10 +56,14 @@
 }
 .lineup-import-action {
   align-self: end;
+  height: 36px;
+  min-height: 36px;
+  padding: 6px 12px;
+  font-size: 13px;
   white-space: nowrap;
 }
-.lineup-page :is(button, input:not([type="radio"]), :is(select, .wt-select), .quiet-button) {
-  min-height: 44px;
+.lineup-page :is(input:not([type="radio"]), select, .wt-select) {
+  min-height: 36px;
 }
 .lineup-page input:not([type="radio"]),
 .lineup-page :is(select, .wt-select) {

@@ -80,15 +80,17 @@ export function LineupSummaryRatings({
   return (
     <div className="lineup-summary-ratings" aria-label={t("队列不同模式权重")}>
       {localize(
-        lineupRatings(lineup, units, rules).map((value) => (
-          <span
-            key={value.mode}
-            title={value.note}
-            aria-label={`${modes[value.mode]}：${value.label}。${value.note}`}
-          >
-            {localize(value.mode.toUpperCase())} <strong>{localize(value.label)}</strong>
-          </span>
-        )),
+        lineupRatings(lineup, units, rules)
+          .filter((value) => value.mode !== "sb")
+          .map((value) => (
+            <span
+              key={value.mode}
+              title={value.note}
+              aria-label={`${modes[value.mode]}：${value.label}。${value.note}`}
+            >
+              {localize(value.mode.toUpperCase())} <strong>{localize(value.label)}</strong>
+            </span>
+          )),
       )}
     </div>
   );
@@ -104,28 +106,30 @@ export function LineupRatingsView({
   return (
     <div className="lineup-ratings" aria-label={t("不同模式的队列权重")}>
       {localize(
-        ratings.map((value) => (
-          <div key={value.mode} className="lineup-rating">
-            <span>
-              {localize(modes[value.mode])} {localize(value.mode.toUpperCase())}
-            </span>
-            <strong>{localize(value.label)}</strong>
-            <p>{localize(value.note)}</p>
-            {localize(
-              value.excluded.length > 0 && (
-                <details>
-                  <summary>
-                    {localize(value.excluded.length)}
-                    {t("辆不参与此模式计算")}
-                  </summary>
-                  <p>
-                    {localize(value.excluded.map((id) => units.get(id)?.name || id).join("、"))}
-                  </p>
-                </details>
-              ),
-            )}
-          </div>
-        )),
+        ratings
+          .filter((value) => value.mode !== "sb")
+          .map((value) => (
+            <div key={value.mode} className="lineup-rating">
+              <span>
+                {localize(modes[value.mode])} {localize(value.mode.toUpperCase())}
+              </span>
+              <strong>{localize(value.label)}</strong>
+              <p>{localize(value.note)}</p>
+              {localize(
+                value.excluded.length > 0 && (
+                  <details>
+                    <summary>
+                      {localize(value.excluded.length)}
+                      {t("辆不参与此模式计算")}
+                    </summary>
+                    <p>
+                      {localize(value.excluded.map((id) => units.get(id)?.name || id).join("、"))}
+                    </p>
+                  </details>
+                ),
+              )}
+            </div>
+          )),
       )}
     </div>
   );
@@ -142,7 +146,7 @@ export function LineupRulesNotes({ rules }: { rules: LineupRules }) {
       </p>
       <p>
         {t(
-          "陆战 RB 的固定翼飞机采用陆战专用权重，直升机使用 RB 权重；陆战 AB 的机库固定翼飞机与直升机不计入。海战的飞机不得超过最高舰艇一档，超限飞机不可出击。SB 不据此生成普通匹配权重。",
+          "陆战 RB 的固定翼飞机采用陆战专用权重，直升机使用 RB 权重；陆战 AB 的机库固定翼飞机与直升机不计入。海战的飞机不得超过最高舰艇一档，超限飞机不可出击。",
         )}
       </p>
       <p>

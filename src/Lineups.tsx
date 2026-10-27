@@ -42,7 +42,7 @@ export function Lineups({
   payload,
   chooseCountry,
   defaultBattle,
-  mode,
+  mode: selectedMode,
   setMode,
   progress,
   error,
@@ -60,6 +60,7 @@ export function Lineups({
   retry: () => void;
 }) {
   useLocale();
+  const mode: Mode = selectedMode === "sb" ? "rb" : selectedMode;
   const routeCountry = useRouterState({
     select: (state) => (state.location.search as { country?: string }).country,
   });
@@ -121,11 +122,13 @@ export function Lineups({
             {t("卡片权重")}
             <GameSelect value={mode} onValueChange={(value) => setMode(value as Mode)}>
               {localize(
-                Object.entries(modes).map(([id, name]) => (
-                  <option key={id} value={id}>
-                    {localize(name)} {localize(id.toUpperCase())}
-                  </option>
-                )),
+                Object.entries(modes)
+                  .filter(([id]) => id !== "sb")
+                  .map(([id, name]) => (
+                    <option key={id} value={id}>
+                      {localize(name)} {localize(id.toUpperCase())}
+                    </option>
+                  )),
               )}
             </GameSelect>
           </label>
@@ -650,42 +653,60 @@ function CountryLineups({
                   saved.map((row) => (
                     <article className="lineup-saved-row" key={row.id}>
                       <div className="lineup-card-heading">
-                        <div>
-                          <h3>{localize(row.name || t("未命名队列"))}</h3>
+                        <div className="lineup-card-info">
+                          <h3 title={row.name}>{localize(row.name || t("未命名队列"))}</h3>
                           <p className="calc-note">
                             {localize(battleNames[row.battleType])} ·{" "}
                             {localize(row.slots.filter(Boolean).length)} /{localize(" ")}
                             {localize(rules.maxSlots)}
                             {t("辆")}
                           </p>
+                          <LineupSummaryRatings lineup={row} units={units} rules={rules} />
                         </div>
-                        <LineupSummaryRatings lineup={row} units={units} rules={rules} />
-                        <button
-                          className="quiet-button lineup-card-share"
-                          aria-label={t("分享 {0}", [localize(row.name)])}
-                          disabled={copying}
-                          onClick={() => shareLineup(row)}
-                        >
-                          {t("分享")}
-                        </button>
+
+                        <div className="lineup-card-actions">
+                          <GameSelect
+                            className="lineup-card-mobile-actions"
+                            aria-label={t("队列操作")}
+                            value=""
+                            onValueChange={(action) => {
+                              if (action === "share") void shareLineup(row);
+                              else if (action === "edit") edit(row);
+                              else if (action === "delete") setDeleting(row.id);
+                            }}
+                          >
+                            <option value="">{t("操作")}</option>
+                            <option value="share" disabled={copying}>
+                              {t("分享")}
+                            </option>
+                            <option value="edit">{t("编辑队列")}</option>
+                            <option value="delete">{t("删除")}</option>
+                          </GameSelect>
+                          <button
+                            className="quiet-button lineup-card-share"
+                            aria-label={t("分享 {0}", [localize(row.name)])}
+                            disabled={copying}
+                            onClick={() => shareLineup(row)}
+                          >
+                            {t("分享")}
+                          </button>
+                          <button
+                            className="quiet-button"
+                            aria-label={t("编辑 {0}", [localize(row.name)])}
+                            onClick={() => edit(row)}
+                          >
+                            {t("编辑队列")}
+                          </button>
+                          <button
+                            className="quiet-button"
+                            aria-label={t("删除 {0}", [localize(row.name)])}
+                            onClick={() => setDeleting(row.id)}
+                          >
+                            {t("删除")}
+                          </button>
+                        </div>
                       </div>
                       <LineupSummary lineup={row} units={units} mode={mode} catalog={catalog} />
-                      <footer className="lineup-card-actions">
-                        <button
-                          className="quiet-button"
-                          aria-label={t("编辑 {0}", [localize(row.name)])}
-                          onClick={() => edit(row)}
-                        >
-                          {t("编辑队列")}
-                        </button>
-                        <button
-                          className="quiet-button"
-                          aria-label={t("删除 {0}", [localize(row.name)])}
-                          onClick={() => setDeleting(row.id)}
-                        >
-                          {t("删除")}
-                        </button>
-                      </footer>
                     </article>
                   )),
                 )}
@@ -788,11 +809,7 @@ function CountryLineups({
                   </div>
                 </details>
               </div>
-              <p className="calc-note">
-                {t(
-                  "同一队列同时计算街机 AB、历史 RB 和全真 SB。“卡片权重”仅切换卡片显示，不改变计算；全真以活动名单或房间范围为准。",
-                )}
-              </p>
+
               <div className="lineup-configure">
                 <section className="lineup-roster" aria-label={t("乘员槽位")}>
                   <div className="lineup-section-heading">
