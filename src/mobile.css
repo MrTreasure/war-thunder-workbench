@@ -3663,6 +3663,22 @@
   }
 }
 
+@media (max-width: 800px) {
+  .calculator.wt-player-medal-detail-dialog {
+    position: fixed; inset: 0; margin: auto; height: fit-content;
+    width: calc(100vw - 24px); max-height: calc(100dvh - 24px); padding: 14px; overflow: hidden;
+  }
+  .wt-player-medal-detail-dialog .calc-header { position: static; padding: 0 0 12px; }
+  .wt-player-medal-detail-dialog .calc-header h2 { font-size: 18px; }
+  .wt-player-medal-detail-body { grid-template-columns: minmax(0, 1fr); gap: 12px; padding-top: 8px; }
+  .wt-player-medal-detail-art { min-height: 160px; }
+  .wt-player-medal-detail-art > img { width: 160px; height: 160px; }
+}
+@media (pointer: coarse) {
+  .wt-player-medals-list { grid-template-columns: repeat(auto-fill, 44px); }
+  .wt-player-medals-list button.wt-player-medal { flex-basis: 44px; width: 44px; height: 44px; min-height: 44px; padding: 10px; }
+}
+
 /* Career navigation keeps each tab on one line and the medals beside identity. */
 @media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
   .wt-record-tabs { gap: 8px; padding-bottom: 0; }

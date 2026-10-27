@@ -1,5 +1,11 @@
 # War Thunder Workbench
 
+## 交付与验收（2026-10-27 最新要求）
+
+- 完成代码和必要代码检查后部署独立预览，立即给老大预览地址，由老大自行检查。
+- 不主动做视觉验收、Playwright 截图验收或全量边缘校验，不把这些步骤作为交付门槛；覆盖此前自动截图和全量边缘验收要求。仅老大后续明确要求时执行。
+- 保留类型、lint、数据、地图编辑器和构建检查，以及资源先于 HTML、旧哈希保留、鉴权与凭据隔离要求。发布工具如默认包含全量边缘校验，应使用可关闭该步骤的发布路径。
+
 ## Wiki 数据资源更新（2026-10-24 用户确认）
 
 - 科技树资料允许发布到既有 Git 图床，固定入口 `war-thunder/catalog/manifest.js`，各国数据文件名包含内容哈希。通过公共版本索引取得完整提交 ID，校验字节数、SHA-256、国家及 schema，按文本解析固定 JSON 字面量，不执行远程 JavaScript。保留本地国家模块和已验证缓存作为回退，canonical 数据仍在 data/*.json。
@@ -33,9 +39,10 @@
 - React + Vite + TypeScript 7, using the supplied QMuse template configuration,
   TanStack file routes and Tailwind v4. Use pnpm and keep exact dependency versions.
 - Run `pnpm run typecheck`, `pnpm run lint`, `pnpm run check:data`, and
-  `pnpm run build` for routine verification. UI acceptance includes Playwright screenshot verification for this project,
-  explicitly authorized by the user on 2026-10-25. Preserve manual native-client
-  acceptance for capabilities that Browser Mock cannot prove.
+  `pnpm run build` for routine code verification. As requested on 2026-10-27,
+  deploy the preview after code checks and give the user its URL for manual
+  acceptance. Do not run visual/screenshot acceptance or full edge verification
+  unless the user explicitly requests it again.
 - All vehicle-specific data, prices, prerequisites, ranks, BR, flags,
   modification costs and provenance belong in `data/*.json`, not JSX.
 - Pack prices use verified official CNY amounts in integer cents from
@@ -416,7 +423,7 @@
 
 ## 文档示例账号（2026-10-24）
 
-- 普通测试账号显示名为 `WT_Workbench_Demo`，仅用于登录验证与 README 实站截图，不授予管理员权限。
+- 测试账号显示名为 `WT_Workbench_Demo`，用于登录验证、功能验收及实站截图。2026-10-26 用户明确授权将该既有测试账号设为超级管理员；保持原账号身份与游戏关联，凭据仍仅保留本机，不随截图或文档公开。
 - 经用户指定，示例关联游戏昵称 `starfall21740`（联队标签 `[Kflan]`），游戏 UID `129393650`；这是防误绑关联，不代表官方身份认证。
 - 登录凭据仅保存在本机私有凭据中。公开文档仅记录显示名、用途和公开游戏资料，不记录登录邮箱、密码、会话、凭据位置或索引。
 - 截图使用真实公开数据，不手填或改写战绩；仅更新实际补拍图片的采集时间和来源，保留旧图原始记录。

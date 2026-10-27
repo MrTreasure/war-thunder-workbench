@@ -2558,7 +2558,7 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-player-medals-list button.wt-player-medal {
   display: inline-flex; align-items: center; justify-content: center;
   width: 32px; height: 32px; min-height: 32px; margin: 0; padding: 4px;
-  border: 0; border-radius: 2px; background: transparent; box-shadow: none; cursor: help;
+  border: 0; border-radius: 2px; background: transparent; box-shadow: none; cursor: zoom-in;
 }
 .wt-player-medal-art {
   --wt-medal-shine-duration: 3.8s; --wt-medal-shine-delay: -.4s;
@@ -2635,6 +2635,38 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-player-medals-list { display: grid; grid-template-columns: repeat(auto-fill, 36px); gap: 4px; justify-content: start; list-style: none; padding: 0; margin: 0; overflow: auto; }
 .wt-player-medals-list > li { display: flex; align-items: center; min-width: 0; }
 .wt-player-medals-list button.wt-player-medal { flex-basis: 36px; width: 36px; height: 36px; min-height: 36px; padding: 6px; }
+.calculator.wt-player-medal-detail-dialog {
+  position: fixed; inset: 0; margin: auto;
+  width: min(780px, calc(100vw - 24px)); height: fit-content; max-height: calc(100dvh - 32px);
+  display: flex; flex-direction: column; padding: 18px; overflow: hidden;
+}
+.wt-player-medal-detail-dialog .calc-header { flex-shrink: 0; gap: 16px; align-items: start; }
+.wt-player-medal-detail-dialog .calc-header > div { min-width: 0; }
+.wt-player-medal-detail-dialog .calc-header h2 { overflow-wrap: anywhere; }
+.wt-player-medal-detail-dialog .calc-header button { min-height: 44px; flex-shrink: 0; }
+.wt-player-medal-detail-body {
+  display: grid; grid-template-columns: minmax(160px, .7fr) minmax(0, 1.3fr);
+  gap: 24px; overflow: auto; min-height: 0; padding-top: 20px;
+}
+.wt-player-medal-detail-art {
+  display: grid; place-items: center; align-self: start; min-height: 256px;
+  background: radial-gradient(ellipse, var(--wt-gold-soft), transparent 72%);
+}
+.wt-player-medal-detail-art > img { display: block; width: min(100%, 256px); height: 256px; object-fit: contain; }
+.wt-player-medal-detail-info { min-width: 0; font-size: 14px; line-height: 1.7; overflow-wrap: anywhere; }
+.wt-player-medal-detail-info h3 { margin: 0 0 8px; font-size: 14px; color: var(--wt-gold); }
+.wt-player-medal-detail-info p { margin: 0 0 10px; }
+.wt-player-medal-detail-info ul { margin: 8px 0 12px; padding-left: 20px; }
+.wt-player-medal-detail-info li + li { margin-top: 4px; }
+.wt-player-medal-detail-info section + section { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--wt-line); }
+.wt-player-medal-english, .wt-player-medal-detail-note, .wt-player-medal-detail-source { color: var(--wt-muted); font-size: 12px; }
+.wt-player-medal-objective { color: var(--wt-ink); font-weight: 600; }
+.wt-player-medal-multipliers { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 6px; }
+.wt-player-medal-multipliers > div { flex: 1; min-width: 65px; padding: 6px 10px; background: var(--wt-gold-soft); }
+.wt-player-medal-multipliers dt { font-size: 12px; color: var(--wt-muted); }
+.wt-player-medal-multipliers dd { margin: 0; color: var(--wt-gold); font-size: 18px; font-variant-numeric: tabular-nums; }
+.wt-player-medal-detail-source { margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--wt-line); }
+.wt-player-medal-detail-source a { display: inline-flex; align-items: center; min-height: 44px; margin-right: 16px; color: var(--wt-gold); text-decoration: underline; text-underline-offset: 3px; }
 .wt-record-page .wt-binding-read-status > span { display: inline-grid; place-items: center; width: 16px; height: 16px; border: 1px solid currentColor; border-radius: 50%; margin-right: 5px; color: var(--wt-record-gold); font-size: 11px; }
 
 .wt-career-scope-field { display: grid; gap: 5px; min-width: 150px; color: var(--wt-record-muted); font-size: 12px; }

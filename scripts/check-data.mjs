@@ -5,6 +5,7 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import "./check-map-atlas.mjs";
 import "./check-ground-maps.mjs";
+import "./check-player-medal-details.mjs";
 import { checkVehicleReference } from "./check-vehicle-reference.mjs";
 const root = fileURLToPath(new URL("../", import.meta.url));
 const read = async (path) => JSON.parse(await readFile(resolve(root, path), "utf8"));

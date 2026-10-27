@@ -1,5 +1,5 @@
 import { appBasePath, pathLocale } from "./i18n/urls";
-import { getLocale } from "./i18n/core";
+import { t, getLocale } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { localize } from "./i18n/core";
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
@@ -18,6 +18,7 @@ import type { StatsSession } from "./player-stats-api";
 type Account = {
   session: StatsSession | null;
   busy: boolean;
+  initializing: boolean;
   error: string;
   identityVersion: number;
   clearError: () => void;
@@ -32,6 +33,7 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
 
   const [session, setSession] = useState<StatsSession | null>(null);
   const [busy, setBusy] = useState(false);
+  const [initializing, setInitializing] = useState(true);
   const [error, setError] = useState("");
   const [identityVersion, setIdentityVersion] = useState(0);
   const acceptedIdentity = useRef<string | null | undefined>(undefined);
@@ -162,14 +164,21 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
       ) {
         sessionStorage.setItem("wt-auth-silent-attempt-v1", String(Date.now()));
         await redirectLogin(true);
+        return false;
       }
+      return true;
     }
     if (!restoring.current) {
       restoring.current = true;
-      void restore().catch((failure: unknown) => {
-        setError(failure instanceof Error ? failure.message : "无法恢复登录，请重试。");
-        void refreshSession().catch(() => {});
-      });
+      void restore()
+        .then((ready) => {
+          if (ready) setInitializing(false);
+        })
+        .catch(async (failure: unknown) => {
+          setError(failure instanceof Error ? failure.message : t("无法恢复登录，请重试。"));
+          await refreshSession().catch(() => {});
+          setInitializing(false);
+        });
     }
     const storage = (event: StorageEvent) => {
       if (
@@ -323,6 +332,7 @@ export function WorkbenchAccountProvider({ children }: { children: ReactNode }) 
       value={{
         session,
         busy,
+        initializing,
         error,
         identityVersion,
         clearError: () => setError(""),
