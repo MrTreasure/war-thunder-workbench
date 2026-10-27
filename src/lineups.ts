@@ -1,3 +1,5 @@
+import type { TagChoice } from "./components/TagSelector";
+import tagTheme from "../data/game-tag-theme.json";
 import type { CountryPayload, LineupRules, Mode, Vehicle } from "./models";
 import { indexTree } from "./planner";
 import { object } from "./validation";
@@ -8,6 +10,8 @@ export interface Lineup {
   slots: (string | null)[];
   battleType: BattleType;
   activeAircraft: string | null;
+  /** Undefined means never tagged; an empty list is an intentional removal. */
+  shareTags?: TagChoice[];
 }
 export interface LineupVehicle extends Vehicle {
   category: string;
@@ -38,6 +42,17 @@ export function validLineups(value: unknown, maxSlots: number): value is Lineup[
         row.name.length <= 80 &&
         ["air", "ground", "naval"].includes(String(row.battleType)) &&
         (row.activeAircraft === null || typeof row.activeAircraft === "string") &&
+        (row.shareTags === undefined ||
+          (Array.isArray(row.shareTags) &&
+            row.shareTags.length <= 8 &&
+            row.shareTags.every(
+              (tag) =>
+                object(tag) &&
+                typeof tag.id === "string" &&
+                typeof tag.tone === "string" &&
+                Object.hasOwn(tagTheme.tones, tag.tone),
+            ) &&
+            new Set(row.shareTags.map((tag) => tag.id)).size === row.shareTags.length)) &&
         Array.isArray(row.slots) &&
         row.slots.length === maxSlots &&
         row.slots.every((id) => id === null || (typeof id === "string" && id.length > 0)) &&

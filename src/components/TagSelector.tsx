@@ -99,7 +99,7 @@ function TagFormDialog({
       !allowedTones.includes(row.tone) ||
       !options.some((option) => option.id === row.id && option.active !== false),
   );
-  const canSave = !loading && !error && !duplicates && !invalid;
+  const canSave = !loading && !error && !duplicates && !invalid && filled.length <= max;
   const blank = rows.some((row) => !row.id);
   return (
     <div

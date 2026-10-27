@@ -31,7 +31,7 @@ export type GameTagProps = {
 export function GameTag({
   children,
   tagId,
-  tone = "red",
+  tone = "silver",
   selected = false,
   disabled = false,
   animated = true,
@@ -39,7 +39,7 @@ export function GameTag({
   onClick,
 }: GameTagProps) {
   useLocale();
-  const finish = gameTagTones[tone] || gameTagTones.red;
+  const finish = gameTagTones[tone] || gameTagTones.silver;
   const style = {
     "--wt-tag-tint": finish.tint,
     "--wt-tag-text": finish.text,

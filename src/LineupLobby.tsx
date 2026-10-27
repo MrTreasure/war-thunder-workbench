@@ -623,6 +623,10 @@ function SaveCommunityLineup({ post, close }: { post: CommunityPost; close: () =
                     slots: [...post.slots],
                     battleType: post.battle,
                     activeAircraft: post.activeAircraft || null,
+                    shareTags: post.tags.map((id) => ({
+                      id,
+                      tone: post.tagTones?.[id] || "original",
+                    })),
                   },
                 ])
               )
