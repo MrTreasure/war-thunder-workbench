@@ -17,6 +17,8 @@ type Counter = {
   researchable: number | null;
   researchOwned: number;
   researchElite: number;
+  premiumOwned?: number | null;
+  premiumTotal?: number | null;
 };
 type OwnershipData = {
   uid: string;
@@ -37,6 +39,12 @@ function allCategories(categories: Record<string, Counter>): Counter | null {
     .map(([, value]) => value);
   if (!counters.length) return null;
   return {
+    premiumOwned: counters.some((c) => c.premiumOwned == null)
+      ? null
+      : counters.reduce((n, c) => n + c.premiumOwned!, 0),
+    premiumTotal: counters.some((c) => c.premiumTotal == null)
+      ? null
+      : counters.reduce((n, c) => n + c.premiumTotal!, 0),
     researchOwned: counters.reduce((n, c) => n + c.researchOwned, 0),
     researchElite: counters.reduce((n, c) => n + c.researchElite, 0),
     researchable: counters.some((c) => c.researchable == null)
@@ -93,7 +101,7 @@ export function CountryOwnership({ profile }: { profile: PlayerProfile }) {
           <GameTip label={t("各国拥有载具")}>
             <p>
               {t(
-                "已研发与精英均以当前常规科技树可研发总数为分母；包含未出战载具，金鹰、礼包及其他特种载具不计入进度与毕业。组合载具按一个项目计数。",
+                "常规载具展示已拥有 / 当前可研发总数；高级载具单独统计金鹰、礼包及目录中其他高级载具的已拥有 / 收录总数。高级载具不参与常规科技树毕业判定；完全体状态不等于高级载具。包含未出战载具，组合载具去重计数。",
               )}
             </p>
             <p>
@@ -127,7 +135,7 @@ export function CountryOwnership({ profile }: { profile: PlayerProfile }) {
             )),
           )}
         </GameSelect>
-        <span>{t("已研发 / 总数 · 精英 / 总数")}</span>
+
         {localize(
           (busy || error) && (
             <PlayerReadStatus
@@ -137,6 +145,10 @@ export function CountryOwnership({ profile }: { profile: PlayerProfile }) {
             />
           ),
         )}
+      </div>
+      <div className="wt-ownership-legend" aria-hidden="true">
+        <span>{t("常规载具 · 已拥有 / 总数")}</span>
+        <span>{t("高级载具 · 已拥有 / 总数")}</span>
       </div>
       <div className="wt-record-countries wt-country-breakdown">
         {localize(
@@ -170,17 +182,16 @@ export function CountryOwnership({ profile }: { profile: PlayerProfile }) {
                     ),
                   )}
                 </span>
-                <span className="wt-country-owned-count">
+                <span className="wt-country-owned-count" aria-label={t("常规载具")}>
                   <b>{localize(num(count?.researchOwned))}</b>
                   <small> / {localize(num(count?.researchable))}</small>
                 </span>
-                <small className="wt-country-elite">
+                <small className="wt-country-elite" aria-label={t("高级载具")}>
                   <img src={statsGoldenEaglesIcon} alt="" />
-                  <span>{t("精英")}</span>
-                  <strong>{localize(num(count?.researchElite))}</strong>
+                  <strong>{localize(num(count?.premiumOwned))}</strong>
                   <span className="wt-country-elite-total">
                     {" "}
-                    / {localize(num(count?.researchable))}
+                    / {localize(num(count?.premiumTotal))}
                   </span>
                 </small>
               </div>

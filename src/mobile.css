@@ -3688,3 +3688,23 @@
     text-overflow: ellipsis; white-space: nowrap;
   }
 }
+
+/* Career panels follow content height; ownership stays a readable numeric ledger. */
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-career-dashboard { grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 12px; }
+  .wt-career-performance, .wt-career-collection { gap: 12px; }
+  .wt-career-dashboard .wt-record-panel { padding: 14px; }
+  .wt-career-dashboard .wt-country-heading .wt-select { min-height: 44px; font-size: 16px; }
+  .wt-career-dashboard .wt-radar > svg { width: min(100%, 270px); }
+  .wt-career-dashboard .wt-radar summary { min-height: 44px; }
+}
+@media (max-width: 600px) {
+  .wt-career-dashboard .wt-country-breakdown { grid-template-columns: minmax(0, 1fr); }
+  .wt-career-dashboard .wt-country-breakdown > div { grid-template-columns: 22px minmax(0, 1fr) 68px 82px; gap: 5px; }
+  .wt-career-dashboard .wt-country-name { font-size: 12px; }
+  .wt-career-dashboard .wt-country-heading h2 { font-size: 14px; }
+  .wt-career-dashboard .wt-country-heading .wt-select { width: 120px; }
+  .wt-career-dashboard .wt-career-comparison th,
+  .wt-career-dashboard .wt-career-comparison td { font-size: 11px; padding: 9px 3px; white-space: normal; }
+  .wt-ownership-legend { justify-content: flex-start; gap: 6px 12px; font-size: 10px; }
+}

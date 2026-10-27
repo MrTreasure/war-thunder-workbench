@@ -3072,5 +3072,8 @@
   "暂不可用": "Unavailable",
   "采集于 {0}": "Collected {0}",
   "{0}暂不可用，重试。{1}": "{0} unavailable. Retry. {1}",
-  "{0}说明": "{0} help"
+  "{0}说明": "{0} help",
+  "常规载具 · 已拥有 / 总数": "Regular · owned / total",
+  "高级载具 · 已拥有 / 总数": "Premium · owned / total",
+  "常规载具展示已拥有 / 当前可研发总数；高级载具单独统计金鹰、礼包及目录中其他高级载具的已拥有 / 收录总数。高级载具不参与常规科技树毕业判定；完全体状态不等于高级载具。包含未出战载具，组合载具去重计数。": "Regular vehicles show owned / currently researchable. Premium vehicles separately show owned / catalog total, including Golden Eagle, pack and other premium vehicles. Premium vehicles do not count toward regular tree completion; spaded status is separate from premium status. Unplayed vehicles are included and combined units are deduplicated."
 }
