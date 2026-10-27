@@ -2573,22 +2573,32 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-player-medals-list > li > img { width: 40px; height: 48px; flex: 0 0 40px; object-fit: contain; }
 
 /* finesse · career collection dashboard · product · density=9
- * War Thunder slate/gold; independent column stacks, compact missing-data states. */
+ * War Thunder slate/gold; shared aligned grid rows, compact missing-data states. */
 .wt-career-dashboard {
   display: grid;
   grid-template-columns: minmax(280px, .8fr) minmax(0, 1.6fr);
-  align-items: start;
+  grid-template-areas: "ability collection" "branches comparison";
+  align-items: stretch;
   gap: 16px;
   margin-top: 16px;
 }
-.wt-career-performance,
-.wt-career-collection { display: grid; gap: 16px; min-width: 0; }
+
+.wt-career-dashboard > .wt-radar { grid-area: ability; }
+.wt-career-dashboard > .wt-record-country-panel { grid-area: collection; }
+.wt-career-dashboard > .wt-record-branch-panel { grid-area: branches; }
+.wt-career-dashboard > .wt-career-comparison { grid-area: comparison; }
+.wt-career-dashboard[data-has-radar="false"] { grid-template-areas: "collection collection" "branches comparison"; }
+.wt-career-dashboard[data-has-comparison="false"] { grid-template-areas: "ability collection" "branches branches" "comparison comparison"; }
+.wt-career-dashboard[data-has-radar="false"][data-has-comparison="false"] { grid-template-areas: "collection collection" "branches branches" "comparison comparison"; }
+.wt-career-dashboard[data-has-comparison="false"] .wt-record-branch-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 24px; }
+.wt-career-dashboard[data-has-comparison="false"] .wt-record-branch-grid > div { border-top: 0; }
+
 .wt-career-dashboard .wt-record-panel { padding: 16px 18px; border-radius: 4px; }
 .wt-career-dashboard .wt-record-heading { margin-bottom: 10px; gap: 10px; }
 .wt-career-dashboard .wt-record-heading h2 { font-size: 15px; font-weight: 500; }
 .wt-career-dashboard .wt-record-heading > span { font-size: 11px; }
-.wt-career-dashboard .wt-radar { display: grid; align-content: start; }
-.wt-career-dashboard .wt-radar > svg { width: min(100%, 290px); max-height: none; margin-inline: auto; }
+.wt-career-dashboard .wt-radar { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+.wt-career-dashboard .wt-radar > svg { width: min(100%, 290px); max-height: none; margin-inline: auto; align-self: center; }
 .wt-career-dashboard .wt-radar summary { min-height: 32px; display: flex; align-items: center; gap: 5px; list-style: none; }
 .wt-career-dashboard .wt-radar summary::before { content: "▸"; }
 .wt-career-dashboard .wt-radar details[open] > summary::before { content: "▾"; }
@@ -2613,6 +2623,8 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-career-dashboard .wt-country-elite { margin: 0; gap: 3px; }
 .wt-career-dashboard .wt-country-elite img { width: 15px; height: 15px; }
 .wt-career-dashboard .wt-career-comparison { gap: 0; }
+.wt-career-dashboard .wt-career-comparison table { margin-bottom: auto; }
+.wt-career-dashboard .wt-record-branch-grid > div { min-height: 62px; }
 .wt-career-dashboard .wt-career-comparison .wt-record-fine { margin: 0; padding-block: 4px; }
 .wt-career-dashboard .wt-career-comparison th,
 .wt-career-dashboard .wt-career-comparison td { padding: 10px 6px; font-size: 12px; }

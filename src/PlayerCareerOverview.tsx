@@ -125,151 +125,152 @@ export function PlayerCareerOverview({
             </>
           ),
         )}
-        <div className="wt-career-dashboard">
-          <div className="wt-career-performance">
-            {localize(counters?.radar && <PlayerRadar axes={counters.radar} />)}
-            {localize(
-              base && base.branches.length > 0 && (
-                <section className="wt-record-panel wt-record-branch-panel">
-                  <div className="wt-record-heading">
-                    <h2>
-                      {t("载具分类 K/D")}
-                      <GameTip label={t("载具分类 K/D")}>
-                        {t("仅以对应军种单车的击毁、死亡汇总；与上方按对局类型统计的范围不同。")}
-                      </GameTip>
-                    </h2>
-                    <span>{t("当前模式 · 累计单车记录")}</span>
-                  </div>
-                  <div className="wt-record-branch-grid">
-                    {localize(
-                      base.branches.map((b) => (
-                        <div key={b.id}>
-                          <div className="wt-record-branch-summary">
-                            <h3>
-                              <img
-                                className="wt-branch-icon"
-                                src={statsArmyIcon(armyBase, b.id)}
-                                alt=""
-                              />
-                              {localize(b.label)}
-                            </h3>
-                            <strong>{localize(ratio(statsBranchKd(b)))}</strong>
-                          </div>
-                          <small>
-                            {localize(statsBranchTarget(b.id))} K/D · {localize(b.vehicleCount)}
-                            {t("辆已出击")}
-                          </small>
+        <div
+          className="wt-career-dashboard"
+          data-has-radar={!!counters?.radar}
+          data-has-comparison={!!(career && recent)}
+        >
+          {localize(counters?.radar && <PlayerRadar axes={counters.radar} />)}
+          <CountryOwnership key={profile.snapshotId} profile={profile} />
+          {localize(
+            base && base.branches.length > 0 && (
+              <section className="wt-record-panel wt-record-branch-panel">
+                <div className="wt-record-heading">
+                  <h2>
+                    {t("载具分类 K/D")}
+                    <GameTip label={t("载具分类 K/D")}>
+                      {t("仅以对应军种单车的击毁、死亡汇总；与上方按对局类型统计的范围不同。")}
+                    </GameTip>
+                  </h2>
+                  <span>{t("当前模式 · 累计单车记录")}</span>
+                </div>
+                <div className="wt-record-branch-grid">
+                  {localize(
+                    base.branches.map((b) => (
+                      <div key={b.id}>
+                        <div className="wt-record-branch-summary">
+                          <h3>
+                            <img
+                              className="wt-branch-icon"
+                              src={statsArmyIcon(armyBase, b.id)}
+                              alt=""
+                            />
+                            {localize(b.label)}
+                          </h3>
+                          <strong>{localize(ratio(statsBranchKd(b)))}</strong>
                         </div>
-                      )),
-                    )}
-                  </div>
-                </section>
+                        <small>
+                          {localize(statsBranchTarget(b.id))} K/D · {localize(b.vehicleCount)}
+                          {t("辆已出击")}
+                        </small>
+                      </div>
+                    )),
+                  )}
+                </div>
+              </section>
+            ),
+          )}
+
+          <section className="wt-record-panel wt-career-comparison">
+            <div className="wt-record-heading">
+              <h2>
+                {t("近期与生涯")}
+                <GameTip label={t("近期与生涯")}>
+                  {t("差异仅与自身生涯均值比较，不代表连续涨跌或最近几局结果。")}
+                  {localize(
+                    career && recent && (
+                      <p>
+                        {t("累计")}
+                        {localize(num(career.counters.battles))}
+                        {t("场 · 近期")}
+                        {localize(num(recent.counters.battles))}
+                        {localize(" ")}
+                        {t("场。")}
+                      </p>
+                    ),
+                  )}
+                  {localize(
+                    read.data?.registeredAt && (
+                      <p>
+                        {t("注册于")}
+                        {localize(
+                          new Date(read.data.registeredAt * 1000).toLocaleDateString(getLocale()),
+                        )}
+                      </p>
+                    ),
+                  )}
+                </GameTip>
+              </h2>
+              <span>{localize(scope?.label || t("同一统计范围"))}</span>
+            </div>
+            {localize(
+              career && recent ? (
+                <>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>{t("指标")}</th>
+                        <th>{t("生涯累计")}</th>
+                        <th>{t("官方近期")}</th>
+                        <th>{t("差异")}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {localize(
+                        [
+                          "victories_battles",
+                          "averageScore",
+                          "averageRelativePosition",
+                          "average_active_kills_by_spawn",
+                        ].map((key) => {
+                          const a = career.metrics[key]?.value,
+                            b = recent.metrics[key]?.value;
+                          if (a == null && b == null) return null;
+                          const delta = a != null && b != null ? b - a : null;
+                          const percent =
+                            key === "victories_battles" || key === "averageRelativePosition";
+                          const labels: Record<string, string> = {
+                            victories_battles: t("胜率"),
+                            averageScore: t("平均得分"),
+                            averageRelativePosition: t("队内相对位置"),
+                            average_active_kills_by_spawn: t("击毁／出击"),
+                          };
+                          return (
+                            <tr key={key}>
+                              <th>{localize(labels[key])}</th>
+                              <td>{localize(rankingValue(a, key))}</td>
+                              <td>{localize(rankingValue(b, key))}</td>
+                              <td
+                                className={
+                                  delta == null || delta === 0
+                                    ? ""
+                                    : delta > 0
+                                      ? "wt-career-up"
+                                      : "wt-career-down"
+                                }
+                              >
+                                {localize(
+                                  delta == null
+                                    ? "—"
+                                    : `${delta > 0 ? "+" : ""}${(delta * (percent ? 100 : 1)).toFixed(2)}${percent ? t("个百分点") : ""}`,
+                                )}
+                              </td>
+                            </tr>
+                          );
+                        }),
+                      )}
+                    </tbody>
+                  </table>
+                </>
+              ) : (
+                <p className="wt-record-fine">
+                  {localize(
+                    read.busy ? t("正在补充近期统计…") : t("当前范围缺少可比较的近期数据。"),
+                  )}
+                </p>
               ),
             )}
-          </div>
-          <div className="wt-career-collection">
-            <CountryOwnership key={profile.snapshotId} profile={profile} />
-            <section className="wt-record-panel wt-career-comparison">
-              <div className="wt-record-heading">
-                <h2>
-                  {t("近期与生涯")}
-                  <GameTip label={t("近期与生涯")}>
-                    {t("差异仅与自身生涯均值比较，不代表连续涨跌或最近几局结果。")}
-                    {localize(
-                      career && recent && (
-                        <p>
-                          {t("累计")}
-                          {localize(num(career.counters.battles))}
-                          {t("场 · 近期")}
-                          {localize(num(recent.counters.battles))}
-                          {localize(" ")}
-                          {t("场。")}
-                        </p>
-                      ),
-                    )}
-                    {localize(
-                      read.data?.registeredAt && (
-                        <p>
-                          {t("注册于")}
-                          {localize(
-                            new Date(read.data.registeredAt * 1000).toLocaleDateString(getLocale()),
-                          )}
-                        </p>
-                      ),
-                    )}
-                  </GameTip>
-                </h2>
-                <span>{localize(scope?.label || t("同一统计范围"))}</span>
-              </div>
-              {localize(
-                career && recent ? (
-                  <>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>{t("指标")}</th>
-                          <th>{t("生涯累计")}</th>
-                          <th>{t("官方近期")}</th>
-                          <th>{t("差异")}</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {localize(
-                          [
-                            "victories_battles",
-                            "averageScore",
-                            "averageRelativePosition",
-                            "average_active_kills_by_spawn",
-                          ].map((key) => {
-                            const a = career.metrics[key]?.value,
-                              b = recent.metrics[key]?.value;
-                            if (a == null && b == null) return null;
-                            const delta = a != null && b != null ? b - a : null;
-                            const percent =
-                              key === "victories_battles" || key === "averageRelativePosition";
-                            const labels: Record<string, string> = {
-                              victories_battles: t("胜率"),
-                              averageScore: t("平均得分"),
-                              averageRelativePosition: t("队内相对位置"),
-                              average_active_kills_by_spawn: t("击毁／出击"),
-                            };
-                            return (
-                              <tr key={key}>
-                                <th>{localize(labels[key])}</th>
-                                <td>{localize(rankingValue(a, key))}</td>
-                                <td>{localize(rankingValue(b, key))}</td>
-                                <td
-                                  className={
-                                    delta == null || delta === 0
-                                      ? ""
-                                      : delta > 0
-                                        ? "wt-career-up"
-                                        : "wt-career-down"
-                                  }
-                                >
-                                  {localize(
-                                    delta == null
-                                      ? "—"
-                                      : `${delta > 0 ? "+" : ""}${(delta * (percent ? 100 : 1)).toFixed(2)}${percent ? t("个百分点") : ""}`,
-                                  )}
-                                </td>
-                              </tr>
-                            );
-                          }),
-                        )}
-                      </tbody>
-                    </table>
-                  </>
-                ) : (
-                  <p className="wt-record-fine">
-                    {localize(
-                      read.busy ? t("正在补充近期统计…") : t("当前范围缺少可比较的近期数据。"),
-                    )}
-                  </p>
-                ),
-              )}
-            </section>
-          </div>
+          </section>
         </div>
       </div>
     </div>
