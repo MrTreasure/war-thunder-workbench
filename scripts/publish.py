@@ -1,14 +1,12 @@
 """Publish this Vite build to the existing Muse route, assets before atomic HTML.
-Keep old content-addressed assets for already-open sessions; backup changed entry files.
+Keep old content-addressed assets for already-open sessions; versions live in Git.
 """
 from pathlib import Path
-from datetime import datetime
 import shutil,os,json,hashlib,gzip,subprocess
 root=Path(__file__).resolve().parents[1]
 dist=root/'dist'
 destination=Path('/vol1/1000/appdata/nginx/public/resume/muse/war-thunder-trees')
 workspace=Path('/home/Treasure/.picoclaw/workspace/war-thunder-tree')
-backup=Path('/vol1/1000/appdata/war-thunder-trees/backups')/('react-'+datetime.now().strftime('%Y%m%d-%H%M%S'))
 subprocess.run(['node','scripts/check-data.mjs'],cwd=root,check=True)
 content=(dist/'index.html').read_bytes()
 if b'/assets/' not in content or b'id="root"' not in content:raise RuntimeError('Run pnpm run build before publishing')
@@ -16,9 +14,6 @@ if b'/assets/' not in content or b'id="root"' not in content:raise RuntimeError(
 manifest=json.loads((root/'src/generated/manifest.json').read_text())
 if manifest['schemaVersion']!=3:raise RuntimeError('Expected country data manifest v3')
 subprocess.run(['node','scripts/check-build.mjs'],cwd=root,check=True)
-backup.mkdir(parents=True,mode=0o700)
-for path,name in [(destination/'index.html','published-index.html'),(destination/'index.html.gz','published-index.html.gz'),(workspace/'build.py','muse-build.py'),(workspace/'index.html','muse-index.html')]:
- if path.exists():shutil.copy2(path,backup/name)
 def atomic(path,data,mode=0o644):
  path.parent.mkdir(parents=True,exist_ok=True,mode=0o755)
  temp=path.with_name(path.name+'.next');temp.write_bytes(data);temp.chmod(mode);os.replace(temp,path)
@@ -26,8 +21,6 @@ destination.mkdir(parents=True,exist_ok=True,mode=0o755);destination.chmod(0o755
 for file in sorted(dist.rglob('*'),key=lambda path:(path.suffix.lower()=='.html',str(path))):
  if not file.is_file() or file==dist/'index.html':continue
  target=destination/file.relative_to(dist)
- if file.suffix.lower()=='.html' and target.exists():
-  saved=backup/'entries'/file.relative_to(dist);saved.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(target,saved)
  atomic(target,file.read_bytes());atomic(target.with_name(target.name+'.gz'),gzip.compress(file.read_bytes(),mtime=0))
  atomic(workspace/file.relative_to(dist),file.read_bytes())
 atomic(destination/'index.html.gz',gzip.compress(content,mtime=0));atomic(destination/'index.html',content)
@@ -47,5 +40,5 @@ print('Built React static assets. Publish with pnpm run publish from the canonic
 '''
 atomic(workspace/'build.py',compat.encode(),0o755)
 atomic(workspace/'index.html',content)
-record={'project':str(root),'destination':str(destination),'backup':str(backup),'sha256':hashlib.sha256(content).hexdigest(),'assets':sum(p.is_file() for p in dist.rglob('*'))}
-(backup/'publication.json').write_text(json.dumps(record,indent=2)+'\n');print(json.dumps(record))
+record={'project':str(root),'destination':str(destination),'sha256':hashlib.sha256(content).hexdigest(),'assets':sum(p.is_file() for p in dist.rglob('*'))}
+print(json.dumps(record))
