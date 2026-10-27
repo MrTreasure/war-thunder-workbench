@@ -38,7 +38,7 @@ export async function exportLineupImage(source: HTMLElement, signal: AbortSignal
   await approveGameTags(tags, postId, signal);
   const caption = source.querySelector(".wt-share-note p")?.textContent || "";
   if (caption.trim()) {
-    await approveLineupCaption(caption, signal, "export");
+    await approveLineupCaption(caption, signal, "export", postId);
     if (caption !== (source.querySelector(".wt-share-note p")?.textContent || ""))
       throw new Error(t("文字说明已修改，请重新生成图片。"));
   }

@@ -157,7 +157,7 @@ export function LineupImageDialog({
     setReviewing(true);
     setError("");
     try {
-      await approveLineupCaption(value, signal.signal);
+      await approveLineupCaption(value, signal.signal, "preview", post.id.startsWith("L-") ? post.id : "");
       if (!signal.signal.aborted) setApprovedText(value);
     } catch (cause) {
       if (!signal.signal.aborted) {
