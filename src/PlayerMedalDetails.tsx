@@ -10,7 +10,7 @@ const artwork = new Map(images.items.map((item) => [item.id, item]));
 /** Static public game descriptions; ownership still comes exclusively from player details. */
 export default function PlayerMedalDetails({ medal }: { medal: PlayerMedal }) {
   const item = details.get(medal.id);
-  const image = artwork.get(medal.id);
+  const image = artwork.get(medal.id)?.detail;
   const [imageState, setImageState] = useState<"primary" | "fallback" | "failed">("primary");
   return (
     <div className="wt-player-medal-detail-body">
@@ -93,6 +93,12 @@ export default function PlayerMedalDetails({ medal }: { medal: PlayerMedal }) {
           <a href={registry.sources[1].url} target="_blank" rel="noreferrer">
             查看说明来源
           </a>
+          <p>图片来自社区游戏资源镜像，非官方直供。</p>
+          {image && (
+            <a href={image.fallbackUrl} target="_blank" rel="noreferrer">
+              查看图片来源
+            </a>
+          )}
         </footer>
       </div>
     </div>

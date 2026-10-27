@@ -9,6 +9,24 @@ const [details, images] = await Promise.all([
 ]);
 assert.equal(details.schemaVersion, 1);
 assert.equal(details.sourceCommit, images.source.assetCommit);
+assert.equal(images.source.hosting, "third-party-game-resource-mirror");
+assert(Number.isFinite(Date.parse(images.detailCheckedAt)));
+for (const image of images.items) {
+  const detail = image.detail;
+  assert.equal(image.width, 128);
+  assert.equal(image.height, 128);
+  assert.equal(detail.width, 256);
+  assert.equal(detail.height, 256);
+  assert(Number.isSafeInteger(detail.bytes) && detail.bytes > 0);
+  assert.match(detail.sha256, /^[a-f0-9]{64}$/);
+  assert.match(detail.gitBlobSha, /^[a-f0-9]{40}$/);
+  const path = `${images.source.assetCommit}/${images.source.directory}/${image.id}_big.png`;
+  assert.equal(
+    detail.fallbackUrl,
+    `https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/${path}`,
+  );
+  assert.equal(detail.url, `https://cdn.jsdelivr.net/gh/gszabi99/War-Thunder-Datamine@${path}`);
+}
 assert.match(details.sourceCommit, /^[a-f0-9]{40}$/);
 assert.equal(details.semantics, "localized_game_configuration_outline_not_verbatim_game_ui");
 assert.equal(details.sources.length, 3);
