@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "game-tags-v2",
+  "policyVersion": "game-tags-v3",
   "levels": [
     {
       "tone": "bronze",
@@ -25,7 +25,7 @@
   ],
   "king": {
     "level": 100,
-    "rbBattles": 1000
+    "rbBattles": 10000
   },
   "rainbow": "existing-superadmin",
   "superadmin": "all-styles"
