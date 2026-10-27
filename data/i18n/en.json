@@ -3047,5 +3047,6 @@
   "（公告最高力度，估算）": "(announced maximum, estimate)",
   "按资料原价估算 ≈ {0}；当时实售价未核实。": "Estimated from catalog regular price ≈ {0}; the historical sale quote is unverified.",
   "仅适用于所示购买条件，不计单件历史低价。": "Applies only to the stated purchase conditions; excluded from individual historical lows.",
-  "公告折扣估算，非实售价": "Announcement estimate, not a sale quote"
+  "公告折扣估算，非实售价": "Announcement estimate, not a sale quote",
+  "同时购买至少两件公告名单内礼包": "Buy at least two listed packs together"
 }
