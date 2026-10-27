@@ -607,40 +607,58 @@ function CountryLineups({
               {saved.map((row) => (
                 <article className="lineup-saved-row" key={row.id}>
                   <div className="lineup-card-heading">
-                    <div>
-                      <h3>{row.name || "未命名队列"}</h3>
+                    <div className="lineup-card-info">
+                      <h3 title={row.name}>{row.name || "未命名队列"}</h3>
                       <p className="calc-note">
                         {battleNames[row.battleType]} · {row.slots.filter(Boolean).length} /{" "}
                         {rules.maxSlots} 辆
                       </p>
+                      <LineupSummaryRatings lineup={row} units={units} rules={rules} />
                     </div>
-                    <LineupSummaryRatings lineup={row} units={units} rules={rules} />
-                    <button
-                      className="quiet-button lineup-card-share"
-                      aria-label={`分享 ${row.name}`}
-                      disabled={copying}
-                      onClick={() => shareLineup(row)}
-                    >
-                      分享
-                    </button>
+
+                    <div className="lineup-card-actions">
+                      <GameSelect
+                        className="lineup-card-mobile-actions"
+                        aria-label="队列操作"
+                        value=""
+                        onValueChange={(action) => {
+                          if (action === "share") void shareLineup(row);
+                          else if (action === "edit") edit(row);
+                          else if (action === "delete") setDeleting(row.id);
+                        }}
+                      >
+                        <option value="">操作</option>
+                        <option value="share" disabled={copying}>
+                          分享
+                        </option>
+                        <option value="edit">编辑队列</option>
+                        <option value="delete">删除</option>
+                      </GameSelect>
+                      <button
+                        className="quiet-button lineup-card-share"
+                        aria-label={`分享 ${row.name}`}
+                        disabled={copying}
+                        onClick={() => shareLineup(row)}
+                      >
+                        分享
+                      </button>
+                      <button
+                        className="quiet-button"
+                        aria-label={`编辑 ${row.name}`}
+                        onClick={() => edit(row)}
+                      >
+                        编辑队列
+                      </button>
+                      <button
+                        className="quiet-button"
+                        aria-label={`删除 ${row.name}`}
+                        onClick={() => setDeleting(row.id)}
+                      >
+                        删除
+                      </button>
+                    </div>
                   </div>
                   <LineupSummary lineup={row} units={units} mode={mode} catalog={catalog} />
-                  <footer className="lineup-card-actions">
-                    <button
-                      className="quiet-button"
-                      aria-label={`编辑 ${row.name}`}
-                      onClick={() => edit(row)}
-                    >
-                      编辑队列
-                    </button>
-                    <button
-                      className="quiet-button"
-                      aria-label={`删除 ${row.name}`}
-                      onClick={() => setDeleting(row.id)}
-                    >
-                      删除
-                    </button>
-                  </footer>
                 </article>
               ))}
             </div>
