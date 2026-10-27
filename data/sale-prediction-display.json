@@ -18,7 +18,10 @@
       "family": "anniversary",
       "beforeChannel": "ge",
       "afterChannel": "pack",
-      "percentOff": 50
+      "beforePhase": "ingame",
+      "afterPhase": "store",
+      "confidenceAnchor": "confirmed_previous_phase_end",
+      "mediumDistanceDays": 1
     }
   ]
 }

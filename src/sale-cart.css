@@ -251,10 +251,6 @@
 .wt-price-grid {
   stroke: var(--wt-line);
 }
-.wt-price-low-line {
-  stroke: var(--wt-gold);
-  stroke-dasharray: 5 4;
-}
 .wt-price-step {
   stroke: var(--wt-gold);
   stroke-width: 2;
@@ -405,20 +401,25 @@
 }
 
 .wt-sale-cart-tile {
+  position: relative;
+  width: 228px;
+  flex: 0 0 228px;
   display: flex;
   align-items: center;
-  gap: 8px;
   min-width: 0;
 }
 .wt-sale-cart-tile > .wt-game-card {
   flex: 0 0 228px;
 }
 .wt-sale-cart-tile > .wt-game-tag {
-  flex: 0 0 auto;
+  position: absolute;
+  inset: 2px auto auto 2px;
+  z-index: 2;
+  pointer-events: none;
 }
 .wt-sale-cart-row,
 .wt-sale-cart-columns {
-  grid-template-columns: 350px minmax(120px, 1fr) minmax(125px, 1fr) 160px minmax(175px, 1.4fr) 70px;
+  grid-template-columns: 262px minmax(120px, 1fr) minmax(125px, 1fr) 160px minmax(175px, 1.4fr) 70px;
 }
 .wt-sale-cart-modal.calculator {
   width: min(1520px, calc(100vw - 40px));
@@ -465,7 +466,7 @@
 @media (max-width: 1250px) and (min-width: 801px) {
   .wt-sale-cart-row,
   .wt-sale-cart-columns {
-    grid-template-columns: 350px minmax(110px, 1fr) minmax(120px, 1fr) 70px;
+    grid-template-columns: 262px minmax(110px, 1fr) minmax(120px, 1fr) 70px;
   }
   .wt-sale-cart-columns span:nth-child(4),
   .wt-sale-cart-columns span:nth-child(5) {
