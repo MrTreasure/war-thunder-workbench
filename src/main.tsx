@@ -4,8 +4,10 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider } from "@tanstack/react-router";
 import { getRouter } from "./router";
 import "./styles.css";
+import { registerImageCache } from "./image-cache";
 
 const router = getRouter();
+registerImageCache();
 
 function reportFatalReactError(error: unknown, errorInfo: { componentStack?: string }) {
   window.__MUSE_PREVIEW_ERROR_CAPTURE__?.reportError(error, {

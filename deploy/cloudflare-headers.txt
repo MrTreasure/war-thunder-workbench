@@ -9,6 +9,13 @@
   ! Cache-Control
   Cache-Control: public, max-age=31536000, immutable
 
+/wt-image-cache-sw.js
+  ! Cache-Control
+  Cache-Control: no-cache, max-age=0, must-revalidate
+  Service-Worker-Allowed: /
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'none'; script-src 'self'; connect-src https://static.encyclopedia.warthunder.com https://staticfiles.warthunder.com
+
 /about/*
   ! Cache-Control
   Cache-Control: public, max-age=0, must-revalidate, no-transform
