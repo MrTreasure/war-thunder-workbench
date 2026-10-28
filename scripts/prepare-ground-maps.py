@@ -24,13 +24,16 @@ for m in maps:
   with Image.open(src) as im:width,height=im.size
   m['thumbnails'].append({'layoutId':r['布局ID'],'name':r['布局名称'],'image':asset(src,'dom'),'width':width,'height':height,'sourceSha256':hashlib.sha256(src.read_bytes()).hexdigest()})
  names=alias.get(m['id'],[m['name'].split(' • ')[0].split(' - ')[0]])
- # Winter maps must not silently inherit routes for a different season.
- if 'snow' in m['id']:names=[m['name']]
+ # Seasonal variants resolve guides through seasonalVariants in the frontend.
+ if m['id'].endswith('_snow'):names=[m['name']]
  m['guides']=[g for g in posts if any(n in g['title'] for n in names)]
  m['legacyGuideIds']=[g['id'] for g in current['guides'] if g['source'] in {v['source'] for v in m['guides']}]
  assert m['thumbnails'] and all(t['layoutId'] in {l['id'] for l in m['layouts']} for t in m['thumbnails'])
 assert len(maps)==55 and sum(len(m['thumbnails']) for m in maps)==77
-result={'schemaVersion':1,'source':'用户提供的陆战地图与 DOM 点位导出，2026-10-21','hosting':'Cloudflare R2 / wt-map-atlas','contourIntervalM':5,'majorContourIntervalM':25,'icons':icons,'maps':maps}
+variants=[{'mapId':m['id'],'sourceMapId':m['id'][:-5],
+           'layouts':{l['id']:l['id'].replace('_snow','',1) for l in m['layouts']}}
+          for m in maps if m['id'].endswith('_snow')]
+result={'schemaVersion':1,'source':'用户提供的陆战地图与 DOM 点位导出，2026-10-21','hosting':'Cloudflare R2 / wt-map-atlas','contourIntervalM':5,'majorContourIntervalM':25,'icons':icons,'maps':maps,'seasonalVariants':variants}
 pathlib.Path('data/ground-maps.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
 # Correct world-Z direction and rebuild previews over unmodified source terrain.
 subprocess.run([sys.executable,str(pathlib.Path(__file__).with_name('correct-ground-map-projection.py')),
