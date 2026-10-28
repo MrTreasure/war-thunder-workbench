@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
+import { relativeClockSnapshot, subscribeRelativeClock } from "./relative-time-clock";
 
 const units: [Intl.RelativeTimeFormatUnit, number][] = [
   ["year", 365 * 86400],
@@ -16,12 +17,12 @@ export function RelativeTime({
   value: string;
   interactive?: boolean;
 }) {
-  const [now, setNow] = useState(Date.now);
+  const now = useSyncExternalStore(
+    subscribeRelativeClock,
+    relativeClockSnapshot,
+    relativeClockSnapshot,
+  );
   const [showDate, setShowDate] = useState(false);
-  useEffect(() => {
-    const timer = setInterval(() => setNow(Date.now()), 60000);
-    return () => clearInterval(timer);
-  }, []);
   const timestamp = Date.parse(value);
   if (!Number.isFinite(timestamp)) return <>—</>;
   const seconds = (timestamp - now) / 1000;

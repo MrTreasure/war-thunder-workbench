@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { RefreshTextAction } from "./RefreshTextAction";
 import type { PlayerProfile } from "./player-stats-api";
 
 export function PlayerRefreshAction({
@@ -27,35 +28,14 @@ export function PlayerRefreshAction({
     return () => clearTimeout(timer);
   }, [profile.expiresAt, profile.stale]);
   return (
-    <span className="wt-record-refresh-action">
-      <button
-        type="button"
-        className="wt-record-player-refresh"
-        data-expired={expired || undefined}
-        aria-busy={busy}
-        title="重新获取官方资料"
-        disabled={disabled}
-        onClick={refresh}
-      >
-        <svg
-          viewBox="0 0 20 20"
-          width="16"
-          height="16"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          aria-hidden="true"
-        >
-          <path
-            d="M16.5 7A7 7 0 1 0 17 11M16.5 2.5V7H12"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-        <span aria-live="polite">
-          {busy ? "正在获取…" : expired ? "缓存已过期，点击刷新" : "强制刷新"}
-        </span>
-      </button>
-    </span>
+    <RefreshTextAction
+      busy={busy}
+      disabled={disabled}
+      refresh={refresh}
+      highlighted={expired}
+      title="重新获取官方资料"
+      label={expired ? "缓存已过期，点击刷新" : "强制刷新"}
+      busyLabel="正在获取…"
+    />
   );
 }

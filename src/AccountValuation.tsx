@@ -1,5 +1,6 @@
 import { visibleValuation } from "./valuation-visibility";
 import { RelativeTime } from "./RelativeTime";
+import { RefreshTextAction } from "./RefreshTextAction";
 import { statsAvailableRequests } from "./player-stats-api";
 import { useVehicleCatalog } from "./vehicle-catalog";
 import { VehicleTile } from "./VehicleTile";
@@ -475,7 +476,7 @@ export function AccountValuation({
   );
   const value = useMemo(() => visibleValuation(storedValue), [storedValue]);
   const [cacheNotice, setCacheNotice] = useState(
-    storedValue?.localStale ? "正在展示此前保存的估值，可在详情中重新估值。" : "",
+    storedValue?.localStale ? "正在展示此前保存的估值，点击刷新估值。" : "",
   );
   const [researchPage, setResearchPage] = useState(1);
   const [checking, setChecking] = useState(false);
@@ -560,7 +561,7 @@ export function AccountValuation({
       if (!c.signal.aborted) setChecking(false);
     }
   }
-  async function calculate() {
+  async function calculate(showDetails = true) {
     if (busy) return;
     const c = new AbortController();
     request.current = c;
@@ -577,7 +578,7 @@ export function AccountValuation({
         if (!cacheValuation(cacheScope, profile, result))
           setCacheNotice("估值已计算，本地缓存未能保存。");
         else setCacheNotice("");
-        setOpen(true);
+        if (showDetails) setOpen(true);
       }
     } catch (failure) {
       if (!c.signal.aborted)
@@ -690,7 +691,19 @@ export function AccountValuation({
           估值于 <RelativeTime value={value.calculatedAt} />
         </small>
       )}
-      {cacheNotice && <small>{cacheNotice}</small>}
+      {value && (
+        <RefreshTextAction
+          busy={busy}
+          disabled={!session || busy || checking || !!profile.localOnly}
+          refresh={() => void calculate(false)}
+          highlighted={
+            !!storedValue?.localStale || value.snapshotId !== profile.snapshotId || !!cacheNotice
+          }
+          title={cacheNotice || "刷新估值"}
+          label="刷新估值"
+          busyLabel="正在更新估值…"
+        />
+      )}
       {error && !open && (
         <small className="wt-record-error" role="alert">
           {error}
@@ -1225,7 +1238,6 @@ export function AccountValuation({
             </div>
           )}
           <footer className="wt-valuation-section">
-            {cacheNotice && <output>{cacheNotice}</output>}
             {error && (
               <p className="wt-record-error" role="alert">
                 {error}
@@ -1235,7 +1247,7 @@ export function AccountValuation({
               type="button"
               className="wt-record-link"
               disabled={!session || busy || checking || profile.localOnly}
-              title="重新估值使用估值额度，失败时保留此前估值"
+              title={cacheNotice || "重新估值使用估值额度，失败时保留此前估值"}
               onClick={() => void calculate()}
             >
               {busy ? "正在重新估值…" : "重新估值"}
