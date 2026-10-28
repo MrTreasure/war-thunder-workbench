@@ -39,6 +39,22 @@ export function PlayerCareerOverview({
     selected?.counters || (period === "career" && selectedBranch === "combined" ? base : null);
   const career = scope?.periods.career,
     recent = scope?.periods.recent;
+  const hasComparison = !!(
+    career &&
+    recent &&
+    [
+      "victories_battles",
+      "averageScore",
+      "averageRelativePosition",
+      "average_active_kills_by_spawn",
+    ].some((key) => {
+      const a = career.metrics[key]?.value,
+        b = recent.metrics[key]?.value;
+      if (a == null || b == null || !Number.isFinite(a) || !Number.isFinite(b)) return false;
+      const scale = key === "victories_battles" || key === "averageRelativePosition" ? 100 : 1;
+      return Number(((b - a) * scale).toFixed(2)) !== 0;
+    })
+  );
   if (!active) return null;
   return (
     <div className="wt-career-overview">
@@ -107,7 +123,7 @@ export function PlayerCareerOverview({
         <div
           className="wt-career-dashboard"
           data-has-radar={!!counters?.radar}
-          data-has-comparison={!!(career && recent)}
+          data-has-comparison={hasComparison}
         >
           {counters?.radar && <PlayerRadar axes={counters.radar} />}
           <CountryOwnership key={profile.snapshotId} profile={profile} />
@@ -145,28 +161,28 @@ export function PlayerCareerOverview({
             </section>
           )}
 
-          <section className="wt-record-panel wt-career-comparison">
-            <div className="wt-record-heading">
-              <h2>
-                近期与生涯
-                <GameTip label="近期与生涯">
-                  差异仅与自身生涯均值比较，不代表连续涨跌或最近几局结果。
-                  {career && recent && (
-                    <p>
-                      累计 {num(career.counters.battles)} 场 · 近期 {num(recent.counters.battles)}{" "}
-                      场。
-                    </p>
-                  )}
-                  {read.data?.registeredAt && (
-                    <p>
-                      注册于 {new Date(read.data.registeredAt * 1000).toLocaleDateString("zh-CN")}
-                    </p>
-                  )}
-                </GameTip>
-              </h2>
-              <span>{scope?.label || "同一统计范围"}</span>
-            </div>
-            {career && recent ? (
+          {hasComparison && career && recent && (
+            <section className="wt-record-panel wt-career-comparison">
+              <div className="wt-record-heading">
+                <h2>
+                  近期与生涯
+                  <GameTip label="近期与生涯">
+                    差异仅与自身生涯均值比较，不代表连续涨跌或最近几局结果。
+                    {career && recent && (
+                      <p>
+                        累计 {num(career.counters.battles)} 场 · 近期 {num(recent.counters.battles)}{" "}
+                        场。
+                      </p>
+                    )}
+                    {read.data?.registeredAt && (
+                      <p>
+                        注册于 {new Date(read.data.registeredAt * 1000).toLocaleDateString("zh-CN")}
+                      </p>
+                    )}
+                  </GameTip>
+                </h2>
+                <span>{scope?.label || "同一统计范围"}</span>
+              </div>
               <>
                 <table>
                   <thead>
@@ -220,12 +236,8 @@ export function PlayerCareerOverview({
                   </tbody>
                 </table>
               </>
-            ) : (
-              <p className="wt-record-fine">
-                {read.busy ? "正在补充近期统计…" : "当前范围缺少可比较的近期数据。"}
-              </p>
-            )}
-          </section>
+            </section>
+          )}
         </div>
       </div>
     </div>

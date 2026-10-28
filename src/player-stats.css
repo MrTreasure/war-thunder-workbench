@@ -2722,8 +2722,8 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-career-dashboard > .wt-record-branch-panel { grid-area: branches; }
 .wt-career-dashboard > .wt-career-comparison { grid-area: comparison; }
 .wt-career-dashboard[data-has-radar="false"] { grid-template-areas: "collection collection" "branches comparison"; }
-.wt-career-dashboard[data-has-comparison="false"] { grid-template-areas: "ability collection" "branches branches" "comparison comparison"; }
-.wt-career-dashboard[data-has-radar="false"][data-has-comparison="false"] { grid-template-areas: "collection collection" "branches branches" "comparison comparison"; }
+.wt-career-dashboard[data-has-comparison="false"] { grid-template-areas: "ability collection" "branches branches"; }
+.wt-career-dashboard[data-has-radar="false"][data-has-comparison="false"] { grid-template-areas: "collection collection" "branches branches"; }
 .wt-career-dashboard[data-has-comparison="false"] .wt-record-branch-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 24px; }
 .wt-career-dashboard[data-has-comparison="false"] .wt-record-branch-grid > div { border-top: 0; }
 

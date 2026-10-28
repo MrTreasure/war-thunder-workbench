@@ -3709,6 +3709,8 @@
 @media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
   .wt-career-dashboard, .wt-career-dashboard[data-has-radar="false"], .wt-career-dashboard[data-has-comparison="false"] { grid-template-columns: minmax(0, 1fr); grid-template-areas: "ability" "collection" "branches" "comparison"; gap: 12px; margin-top: 12px; }
   .wt-career-dashboard[data-has-radar="false"], .wt-career-dashboard[data-has-radar="false"][data-has-comparison="false"] { grid-template-areas: "collection" "branches" "comparison"; }
+  .wt-career-dashboard[data-has-comparison="false"] { grid-template-areas: "ability" "collection" "branches"; }
+  .wt-career-dashboard[data-has-radar="false"][data-has-comparison="false"] { grid-template-areas: "collection" "branches"; }
   .wt-career-dashboard[data-has-comparison="false"] .wt-record-branch-grid { grid-template-columns: minmax(0, 1fr); }
   .wt-career-dashboard[data-has-comparison="false"] .wt-record-branch-grid > div + div { border-top: 1px solid var(--wt-record-line); }
   .wt-career-dashboard .wt-record-panel { padding: 14px; }
