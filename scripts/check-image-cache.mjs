@@ -47,12 +47,13 @@ const listeners = {};
 let network = 0;
 let offline = false;
 let opaque = false;
+let failures = 0;
 let now = Date.now();
-function imageResponse() {
+function imageResponse(isOpaque = opaque) {
   const response = new Response("<svg/>", { headers: { "Content-Type": "image/svg+xml" } });
-  if (opaque) {
+  if (isOpaque) {
     Object.defineProperty(response, "type", { value: "opaque" });
-    Object.defineProperty(response, "clone", { value: imageResponse });
+    Object.defineProperty(response, "clone", { value: () => imageResponse(isOpaque) });
   }
   return response;
 }
@@ -77,9 +78,17 @@ runInNewContext(
         return now;
       }
     },
-    async fetch(request) {
+    async fetch(input, options) {
+      const request = new Request(input, options);
       network++;
       assert.equal(request.credentials, "omit");
+      // Node does not enforce this service-worker main-fetch precondition.
+      if (request.mode === "no-cors" && request.redirect !== "follow")
+        throw TypeError('Request mode is "no-cors" but redirect mode is not "follow"');
+      if (failures > 0) {
+        failures--;
+        throw Error("image cache path failed");
+      }
       if (offline) throw Error("offline");
       return imageResponse();
     },
@@ -99,7 +108,7 @@ assert(stores.has("private-cart"));
 
 const icon = "https://static.encyclopedia.warthunder.com/gui_skin/item_type_rp.svg";
 function dispatch(url, destination = "image", options = {}) {
-  const request = new Request(url, options);
+  const request = new Request(url, { mode: "no-cors", ...options });
   Object.defineProperty(request, "destination", { value: destination });
   const waits = [];
   let response;
@@ -154,14 +163,14 @@ for (let i = 0; i < 50; i++) {
   now++;
   await dispatch(`https://static.encyclopedia.warthunder.com/gui_skin/check_${i}.svg`).finish();
 }
-assert(stores.get("wt-public-images-v1-icons").size <= 48, "Icon cache is bounded");
+assert(stores.get("wt-public-images-v2-icons").size <= 48, "Icon cache is bounded");
 opaque = true;
 for (let i = 0; i < 45; i++) {
   now++;
   await dispatch(`https://static.encyclopedia.warthunder.com/slots/check_${i}.png`).finish();
 }
 assert(
-  stores.get("wt-public-images-v1-vehicles").size <= 40,
+  stores.get("wt-public-images-v2-vehicles").size <= 40,
   "Opaque image quota padding has its own bound",
 );
 opaque = false;
@@ -172,6 +181,16 @@ assert.equal(
   "Quota failures preserve image display",
 );
 assert(stores.has("private-cart"));
+rejectWrites = false;
+failures = 1;
+const failedImage =
+  "https://static.encyclopedia.warthunder.com/images/wellington_mk1c_luftwaffe.png";
+assert.equal(
+  await (await dispatch(failedImage).finish()).text(),
+  "<svg/>",
+  "A failed cache path falls back to a no-cors/follow image request",
+);
+assert.equal(failures, 0);
 self.location = new URL("https://render.qmuse.pub/wt-image-cache-sw.js");
 assert.equal(dispatch(icon).response, undefined);
 console.log(

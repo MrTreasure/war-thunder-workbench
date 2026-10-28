@@ -1,6 +1,6 @@
 /* Public images only. Never cache application HTML, API responses or account data. */
 const PREFIX = "wt-public-images-";
-const VERSION = PREFIX + "v1";
+const VERSION = PREFIX + "v2";
 const META = VERSION + "-meta";
 const DAY = 86400000;
 const GROUPS = {
@@ -97,7 +97,8 @@ function refresh(request, group, event) {
   if (pending.has(request.url)) return pending.get(request.url).then((response) => response.clone());
   const operation = (async () => {
     // Public CDN loads remain anonymous, including cross-origin no-cors image loads.
-    const response = await fetch(new Request(request, { credentials: "omit", redirect: "error" }));
+    // Service-worker fetch requires redirect=follow for no-cors image requests.
+    const response = await fetch(new Request(request, { credentials: "omit", redirect: "follow" }));
     const publicImage = response.type === "opaque" || (
       response.ok && response.headers.get("content-type")?.startsWith("image/") &&
       !/no-store|private/i.test(response.headers.get("cache-control") || "")
@@ -148,5 +149,8 @@ self.addEventListener("activate", (event) => event.waitUntil((async () => {
 })()));
 self.addEventListener("fetch", (event) => {
   const group = groupFor(event.request);
-  if (group) event.respondWith(load(event, group));
+  if (group) event.respondWith(load(event, group).catch(() =>
+    // A failed cache path must retain normal anonymous image-loading behavior.
+    fetch(event.request, { credentials: "omit", redirect: "follow" })
+  ));
 });
