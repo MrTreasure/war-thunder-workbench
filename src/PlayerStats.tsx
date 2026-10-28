@@ -4,6 +4,7 @@ import { buildReportRequest } from "./player-report-request";
 import { ExtraQueryCredits } from "./ExtraQueryCredits";
 import { PlayerMedals } from "./PlayerMedals";
 import { PlayerAccountFacts } from "./PlayerAccountFacts";
+import { RelativeTime } from "./RelativeTime";
 import { GameAccountBinding } from "./GameAccountBinding";
 import { readPublicResource } from "./public-resource-api";
 import { queryTask, pendingQuery, resumeQuery, forgetQuery } from "./player-query-task";
@@ -925,7 +926,9 @@ export function PlayerStats() {
                     <Avatar url={p.avatar} name={p.nickname} frameKey={p.avatarFrameKey} />
                     <span>
                       <b>{p.nickname}</b>
-                      <small>{statsDate(p.fetchedAt)}</small>
+                      <small>
+                        <RelativeTime value={p.fetchedAt} />
+                      </small>
                     </span>
                   </button>
                 ))}
@@ -1019,7 +1022,11 @@ export function PlayerStats() {
               <p>
                 等级 {num(profile.level)} · UID {profile.uid}
               </p>
-              <PlayerAccountFacts details={publicDetails.data} loading={publicDetails.busy} />
+              <PlayerAccountFacts
+                key={profile.uid}
+                details={publicDetails.data}
+                loading={publicDetails.busy}
+              />
             </div>
             <PlayerMedals
               key={`medals:${profile.snapshotId}`}
