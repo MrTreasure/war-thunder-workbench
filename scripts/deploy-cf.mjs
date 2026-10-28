@@ -34,8 +34,13 @@ try {
 const runtime = process.env.WT_CF_RUNTIME || "/vol1/1000/appdata/war-thunder-trees/cloudflare";
 const dryRun = process.argv.slice(2).includes("--dry-run");
 const verifyOnly = process.argv.slice(2).includes("--verify-only");
-if (process.argv.slice(2).some((arg) => !["--dry-run", "--verify-only"].includes(arg)))
-  throw Error("Usage: pnpm run deploy:cf [--dry-run | --verify-only]");
+const skipEdgeVerification = process.argv.slice(2).includes("--skip-edge-verification");
+if (
+  process.argv
+    .slice(2)
+    .some((arg) => !["--dry-run", "--verify-only", "--skip-edge-verification"].includes(arg))
+)
+  throw Error("Usage: pnpm run deploy:cf [--dry-run | --verify-only | --skip-edge-verification]");
 function run(args) {
   const result = spawnSync("pnpm", args, {
     cwd: root,
@@ -45,7 +50,7 @@ function run(args) {
   if (result.status !== 0) throw Error(`pnpm ${args.join(" ")} failed`);
 }
 if (verifyOnly) {
-  if (dryRun) throw Error("Choose dry-run or verify-only");
+  if (dryRun || skipEdgeVerification) throw Error("Choose verify-only without other flags");
   await verifyWorker(await readFile(resolve(runtime, "staging/index.html"), "utf8"));
   process.exit(0);
 }
@@ -169,7 +174,11 @@ run([
 ]);
 if (!dryRun) {
   await cp(resolve(stage, "assets"), archive, { recursive: true });
-  await verifyWorker(html);
+  if (skipEdgeVerification)
+    console.log(
+      "Cloudflare deployment completed; public asset verification skipped by user preference. Manual acceptance pending: https://wt.mrtreasure.cc/",
+    );
+  else await verifyWorker(html);
 }
 
 async function verifyWorker(html) {

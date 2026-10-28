@@ -1,10 +1,13 @@
-import { visibleValuation } from "./valuation-visibility";
-import { statsAvailableRequests } from "./player-stats-api";
-import { t, getLocale, localize, vehicleName, decimalSeparator } from "./i18n/core";
 import { useLocale } from "./i18n/react";
+import { t, localize, getLocale } from "./i18n/core";
+import { visibleValuation } from "./valuation-visibility";
+import { RelativeTime } from "./RelativeTime";
+import { RefreshTextAction } from "./RefreshTextAction";
+import { statsAvailableRequests } from "./player-stats-api";
 import { useVehicleCatalog } from "./vehicle-catalog";
 import { VehicleTile } from "./VehicleTile";
 import type { VehicleTileUnit } from "./VehicleTile";
+import { vehicleDisplayName } from "./vehicle-display-name";
 import { useEffect, useId, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import type { ReactNode } from "react";
 import { GameSelect } from "./components/GameSelect";
@@ -17,13 +20,7 @@ import {
   valuationCacheScope,
 } from "./account-valuation-cache";
 import { Modal } from "./Modal";
-import {
-  StatsError,
-  statsRequest,
-  statsDate,
-  statsNumber,
-  statsCategoryNames,
-} from "./player-stats-api";
+import { StatsError, statsRequest, statsNumber, statsCategoryNames } from "./player-stats-api";
 import type { PlayerProfile, StatsSession } from "./player-stats-api";
 import { sortValuationPrices } from "./account-valuation-sort";
 import { statsCountryId, statsCountryMatches, statsCountryLabel } from "./stats-country";
@@ -44,8 +41,6 @@ const hiddenInitialVehicles = new Set(
 type Item = VehicleTileUnit & { country: string; category: string; owned?: boolean };
 type ScenarioKey = "normal" | "discount" | "secondHand";
 const scenarioKeys: ScenarioKey[] = ["normal", "discount", "secondHand"];
-const scenarioLabel = (key: ScenarioKey) =>
-  key === "secondHand" ? t("参考价值") : t(valuationRules.scenarios[key].label);
 type UnpricedItem = Partial<Item> & {
   id: string;
   name: string;
@@ -74,6 +69,7 @@ export type Valuation = {
   calculatedAt: string;
   cached: boolean;
   localCached?: boolean;
+  localStale?: boolean;
   policyVersion?: string;
   excluded?: (Item & { reason: string; source?: string | null })[];
   manual?: (Item & {
@@ -133,11 +129,10 @@ export type Valuation = {
   notice: string;
 };
 export function valuationMoney(cents: number | null, symbol = "¥") {
-  useLocale();
   if (cents == null || !Number.isSafeInteger(cents)) return t("待核价");
   const value = BigInt(cents);
   const absolute = value < 0n ? -value : value;
-  return `${symbol}${value < 0n ? "-" : ""}${(absolute / 100n).toLocaleString(getLocale())}${decimalSeparator()}${String(absolute % 100n).padStart(2, "0")}`;
+  return `${symbol}${value < 0n ? "-" : ""}${(absolute / 100n).toLocaleString(getLocale())}.${String(absolute % 100n).padStart(2, "0")}`;
 }
 function valuationTotal(cents: number | null) {
   if (cents == null || !Number.isSafeInteger(cents)) return t("待核价");
@@ -151,7 +146,7 @@ function valuationUnitPrice(cents: number) {
   const fraction = String(value % 100n)
     .padStart(2, "0")
     .replace(/0+$/, "");
-  return `¥${(value / 100n).toLocaleString(getLocale())}${fraction ? decimalSeparator() + fraction : ""}`;
+  return `¥${(value / 100n).toLocaleString(getLocale())}${fraction ? "." + fraction : ""}`;
 }
 function ValuationVehicle({
   item,
@@ -162,13 +157,14 @@ function ValuationVehicle({
   showCountry?: boolean;
   showRank?: boolean;
 }) {
+  useLocale();
   return (
     <VehicleTile
       unit={item}
       href={"https://wiki.warthunder.com/unit/" + encodeURIComponent(item.id)}
       owned={item.owned ?? false}
       showRank={showRank}
-      countryLabel={showCountry ? localize(statsCountryLabel(item.country)) : undefined}
+      countryLabel={showCountry ? statsCountryLabel(item.country) : undefined}
     />
   );
 }
@@ -191,6 +187,7 @@ function ProductCard({
   price: ReactNode;
   children: ReactNode;
 }) {
+  useLocale();
   return (
     <article
       className={`wt-valuation-product${vehicleKind === "pack" && items.length > 1 ? " wt-valuation-product-pack" : ""}`}
@@ -208,27 +205,31 @@ function ProductCard({
               }}
               owned={owned}
               showRank
-              countryLabel={localize(statsCountryLabel(item.country))}
+              countryLabel={statsCountryLabel(item.country)}
             />
           )),
         )}
       </div>
       <div className="wt-valuation-product-body">
         <small className="wt-valuation-product-kind">
-          {vehicleKind === "pack" ? (
-            <a href={source} target="_blank" rel="noreferrer">
-              {localize(kind)} ↗
-            </a>
-          ) : (
-            localize(kind)
+          {localize(
+            vehicleKind === "pack" ? (
+              <a href={source} target="_blank" rel="noreferrer">
+                {localize(kind)} ↗
+              </a>
+            ) : (
+              kind
+            ),
           )}
         </small>
-        {vehicleKind === "pack" && items.length > 1 && (
-          <h4>
-            <a href={source} target="_blank" rel="noreferrer">
-              {t(title)} <span aria-hidden="true">↗</span>
-            </a>
-          </h4>
+        {localize(
+          vehicleKind === "pack" && items.length > 1 && (
+            <h4>
+              <a href={source} target="_blank" rel="noreferrer">
+                {localize(vehicleDisplayName(title))} <span aria-hidden="true">↗</span>
+              </a>
+            </h4>
+          ),
         )}
         <strong className="wt-valuation-product-price">{localize(price)}</strong>
         <div className="wt-valuation-product-notes">{localize(children)}</div>
@@ -253,6 +254,7 @@ function subscribeProductColumns(listener: () => void) {
   return () => queries.forEach((query) => query.removeEventListener("change", listener));
 }
 function ProductShelf({ children }: { children: ReactNode[] }) {
+  useLocale();
   const [expanded, setExpanded] = useState(false);
   const columns = useSyncExternalStore(subscribeProductColumns, productColumns, () => 2);
   const id = useId(),
@@ -267,6 +269,7 @@ function ProductShelf({ children }: { children: ReactNode[] }) {
           <div className="wt-valuation-shelf-actions">
             <small>
               {t("显示")}
+              {localize(" ")}
               {localize(visible.length)} / {localize(children.length)}
               {t("个")}
             </small>
@@ -296,6 +299,7 @@ function VehicleDetailPagination({
   onChange: (page: number) => void;
   label: string;
 }) {
+  useLocale();
   return (
     <nav className="wt-valuation-pagination" aria-label={t("{0}分页", [localize(label)])}>
       <button
@@ -315,6 +319,7 @@ function VehicleDetailPagination({
           Array.from({ length: pages }, (_, i) => (
             <option key={i + 1} value={i + 1}>
               {t("第")}
+              {localize(" ")}
               {localize(i + 1)} / {localize(pages)}
               {t("页")}
             </option>
@@ -363,6 +368,7 @@ function VehicleDetailFilters({
   label: string;
   unit: string;
 }) {
+  useLocale();
   return (
     <div className="wt-valuation-filters">
       <label>
@@ -409,8 +415,10 @@ function VehicleDetailFilters({
       </label>
       <output>
         {t("筛选")}
+        {localize(" ")}
         {localize(count)} / {localize(total)} {localize(unit)}
         {t("· 每页 10")}
+        {localize(" ")}
         {localize(unit)}
         {t("· 研发点降序")}
       </output>
@@ -419,6 +427,7 @@ function VehicleDetailFilters({
   );
 }
 function ValueComposition({ scenario, label }: { scenario: Scenario; label: string }) {
+  useLocale();
   const parts = [
     { name: t("研发点"), cents: scenario.rpCents, color: "#d9b868" },
     { name: t("金鹰载具"), cents: scenario.geCents, color: "#78aba8" },
@@ -514,7 +523,9 @@ export function AccountValuation({
     cachedValuation(cacheScope, profile),
   );
   const value = useMemo(() => visibleValuation(storedValue), [storedValue]);
-  const [cacheNotice, setCacheNotice] = useState("");
+  const [cacheNotice, setCacheNotice] = useState(
+    storedValue?.localStale ? t("正在展示此前保存的估值，点击刷新估值。") : "",
+  );
   const [researchPage, setResearchPage] = useState(1);
   const [checking, setChecking] = useState(false);
   const [open, setOpen] = useState(false),
@@ -544,7 +555,7 @@ export function AccountValuation({
       ? t("不限次")
       : available === 0
         ? t("今日额度已达上限")
-        : t("{0} 次", [available]);
+        : t("{0} 次", [localize(available)]);
   async function openCached() {
     if (!value || checking) return;
     const c = new AbortController();
@@ -560,26 +571,31 @@ export function AccountValuation({
         c.signal,
       );
       if (!c.signal.aborted) {
+        if (current.player.uid !== profile.uid) throw Error(t("估值玩家身份不一致，请重新查询。"));
         setValue(current);
-        cacheValuation(cacheScope, profile, current);
-        setCacheNotice("");
+        cacheValuation(cacheScope, { uid: profile.uid, snapshotId: current.snapshotId }, current);
+        setCacheNotice(
+          current.snapshotId === profile.snapshotId
+            ? ""
+            : t("正在展示此前资料的估值，可点击重新估值更新。"),
+        );
       }
     } catch (failure) {
       if (!c.signal.aborted) {
+        if (failure instanceof StatsError && failure.code === "CACHE_STALE") {
+          setCacheNotice(t("估值资料或价格已更新，当前保留此前估值；点击重新估值更新。"));
+          return;
+        }
         if (
           !(failure instanceof StatsError) ||
-          ![
-            "CACHE_STALE",
-            "QUERY_REQUIRED",
-            "INVALID_TICKET",
-            "LOGIN_EXPIRED",
-            "VALUATION_NOT_FOUND",
-          ].includes(failure.code)
+          !["QUERY_REQUIRED", "INVALID_TICKET", "LOGIN_EXPIRED", "VALUATION_NOT_FOUND"].includes(
+            failure.code,
+          )
         ) {
           setCacheNotice(t("暂时无法校验最新规则，当前展示已保存估值；联网后重新打开会再校验。"));
           return;
         }
-        forgetCachedValuation(cacheScope, profile);
+        forgetCachedValuation(cacheScope, { uid: profile.uid, snapshotId: value.snapshotId });
         setValue(null);
         setOpen(false);
         setCacheNotice("");
@@ -593,7 +609,7 @@ export function AccountValuation({
       if (!c.signal.aborted) setChecking(false);
     }
   }
-  async function calculate() {
+  async function calculate(showDetails = true) {
     if (busy) return;
     const c = new AbortController();
     request.current = c;
@@ -610,7 +626,7 @@ export function AccountValuation({
         if (!cacheValuation(cacheScope, profile, result))
           setCacheNotice(t("估值已计算，本地缓存未能保存。"));
         else setCacheNotice("");
-        setOpen(true);
+        if (showDetails) setOpen(true);
       }
     } catch (failure) {
       if (!c.signal.aborted)
@@ -633,8 +649,7 @@ export function AccountValuation({
           rank: researchRank,
         }),
       )
-      .sort((a, b) => (b.rp ?? -1) - (a.rp ?? -1) || a.name.localeCompare(b.name, getLocale())) ||
-    [];
+      .sort((a, b) => (b.rp ?? -1) - (a.rp ?? -1) || a.name.localeCompare(b.name, "zh-CN")) || [];
   const researchPages = Math.max(1, Math.ceil(filteredResearch.length / 10));
   const currentResearchPage = Math.min(researchPage, researchPages);
   const visibleResearch = filteredResearch.slice(
@@ -697,21 +712,26 @@ export function AccountValuation({
       <button
         className="wt-valuation-trigger"
         disabled={!session || busy || checking}
+        aria-label={
+          value
+            ? t("查看已估值 {0}", [localize(valuationTotal(value.scenarios.normal.knownCents))])
+            : undefined
+        }
+        aria-busy={busy || checking}
         onClick={() => (value ? void openCached() : void calculate())}
       >
         {localize(
-          busy || checking ? (
+          value ? (
+            <>
+              <b>{localize(valuationTotal(value.scenarios.normal.knownCents))}</b>
+              <span aria-hidden="true">›</span>
+            </>
+          ) : busy || checking ? (
             checking ? (
               t("正在校验估值缓存…")
             ) : (
               t("正在计算估值…")
             )
-          ) : value ? (
-            <>
-              {t("账号估值")}
-              <b>{localize(valuationTotal(value.scenarios.normal.knownCents))}</b>
-              <span aria-hidden="true">›</span>
-            </>
           ) : (
             t("账号估值")
           ),
@@ -721,13 +741,38 @@ export function AccountValuation({
         !value && (
           <small>
             {t("可用次数 ·")}
+            {localize(" ")}
             {localize(session ? remaining : "—")}
           </small>
         ),
       )}
-      {localize(cacheNotice && <small>{localize(cacheNotice)}</small>)}
       {localize(
-        error && (
+        value && (
+          <small className="wt-valuation-updated">
+            <span>
+              {t("估值于")}
+              {localize(" ")}
+              <RelativeTime value={value.calculatedAt} />
+            </span>
+            <RefreshTextAction
+              busy={busy}
+              disabled={!session || busy || checking || !!profile.localOnly}
+              refresh={() => void calculate(false)}
+              highlighted={
+                !!storedValue?.localStale ||
+                value.snapshotId !== profile.snapshotId ||
+                !!cacheNotice
+              }
+              title={cacheNotice || t("刷新估值")}
+              label={t("刷新估值")}
+              busyLabel={t("正在更新估值…")}
+              iconOnly
+            />
+          </small>
+        ),
+      )}
+      {localize(
+        error && !open && (
           <small className="wt-record-error" role="alert">
             {localize(error)}
           </small>
@@ -781,642 +826,720 @@ export function AccountValuation({
               )}
             </div>
             <div className="wt-valuation-tabs" role="tablist" aria-label={t("账号估值视图")}>
-              {(
-                [
-                  ["overview", t("估值总览")],
-                  ["details", t("载具明细")],
-                ] as const
-              ).map(([id, label]) => (
-                <button
-                  key={id}
-                  type="button"
-                  role="tab"
-                  id={`${tabId}-${id}-tab`}
-                  aria-selected={valuationTab === id}
-                  aria-controls={`${tabId}-${id}-panel`}
-                  tabIndex={valuationTab === id ? 0 : -1}
-                  onClick={() => setValuationTab(id)}
-                  onKeyDown={(event) => {
-                    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
-                    event.preventDefault();
-                    const next =
-                      event.key === "Home"
-                        ? "overview"
-                        : event.key === "End"
-                          ? "details"
-                          : id === "overview"
+              {localize(
+                (
+                  [
+                    ["overview", t("估值总览")],
+                    ["details", t("载具明细")],
+                  ] as const
+                ).map(([id, label]) => (
+                  <button
+                    key={id}
+                    type="button"
+                    role="tab"
+                    id={`${tabId}-${id}-tab`}
+                    aria-selected={valuationTab === id}
+                    aria-controls={`${tabId}-${id}-panel`}
+                    tabIndex={valuationTab === id ? 0 : -1}
+                    onClick={() => setValuationTab(id)}
+                    onKeyDown={(event) => {
+                      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+                      event.preventDefault();
+                      const next =
+                        event.key === "Home"
+                          ? "overview"
+                          : event.key === "End"
                             ? "details"
-                            : "overview";
-                    setValuationTab(next);
-                    document.getElementById(`${tabId}-${next}-tab`)?.focus();
-                  }}
-                >
-                  {label}
-                </button>
-              ))}
+                            : id === "overview"
+                              ? "details"
+                              : "overview";
+                      setValuationTab(next);
+                      document.getElementById(`${tabId}-${next}-tab`)?.focus();
+                    }}
+                  >
+                    {localize(label)}
+                  </button>
+                )),
+              )}
             </div>
-            {valuationTab === "overview" && (
-              <div
-                role="tabpanel"
-                id={`${tabId}-overview-panel`}
-                aria-labelledby={`${tabId}-overview-tab`}
-              >
-                <section className="wt-valuation-dashboard" aria-label={t("价值概览")}>
-                  <fieldset className="wt-valuation-scenarios" aria-label={t("选择价值类型")}>
+            {localize(
+              valuationTab === "overview" && (
+                <div
+                  role="tabpanel"
+                  id={`${tabId}-overview-panel`}
+                  aria-labelledby={`${tabId}-overview-tab`}
+                >
+                  <section className="wt-valuation-dashboard" aria-label={t("价值概览")}>
+                    <fieldset className="wt-valuation-scenarios" aria-label={t("选择价值类型")}>
+                      {localize(
+                        scenarioKeys.map((key) => (
+                          <button
+                            type="button"
+                            key={key}
+                            aria-pressed={scenarioKey === key}
+                            onClick={() => setScenarioKey(key)}
+                          >
+                            <span>{localize(valuationRules.scenarios[key].label)}</span>
+                            <strong>
+                              {localize(valuationTotal(value.scenarios[key].knownCents))}
+                            </strong>
+                          </button>
+                        )),
+                      )}
+                    </fieldset>
                     {localize(
-                      scenarioKeys.map((key) => (
-                        <button
-                          type="button"
-                          key={key}
-                          aria-pressed={scenarioKey === key}
-                          onClick={() => setScenarioKey(key)}
-                        >
-                          <span>{localize(scenarioLabel(key))}</span>
-                          <strong>
-                            {localize(valuationTotal(value.scenarios[key].knownCents))}
-                          </strong>
-                        </button>
-                      )),
-                    )}
-                  </fieldset>
-                  {localize(
-                    selectedScenario && selectedRule && (
-                      <div className="wt-valuation-summary">
-                        <div className="wt-valuation-current" aria-live="polite" aria-atomic="true">
-                          <span className="wt-valuation-eyebrow">
-                            {localize(scenarioLabel(scenarioKey))} · CNY
-                          </span>
-                          <strong className="wt-valuation-amount">
-                            {localize(valuationTotal(selectedScenario.knownCents))}
-                          </strong>
-                          <output className="wt-valuation-price-status">
-                            {localize(
-                              selectedScenario.totalCents == null
-                                ? t("已核价金额，未计价项目另列")
-                                : t("已核价合计"),
-                            )}
-                          </output>
-                          <dl className="wt-valuation-rate-note">
-                            <div>
-                              <dt>{t("陆战 / 直升机")}</dt>
-                              <dd>
-                                {localize(valuationUnitPrice(selectedRule.rpCents.ground))}
-                                {t("/ 万 RP")}
-                              </dd>
-                            </div>
-                            <div>
-                              <dt>{t("飞机")}</dt>
-                              <dd>
-                                {localize(valuationUnitPrice(selectedRule.rpCents.aviation))}
-                                {t("/ 万 RP")}
-                              </dd>
-                            </div>
-                            <div>
-                              <dt>{t("金鹰 / 礼包")}</dt>
-                              <dd>
-                                {localize(
-                                  selectedRule.purchasePercent === 100
-                                    ? t("按原价")
-                                    : t("按原价 {0} 折", [
-                                        localize(selectedRule.purchasePercent / 10),
-                                      ]),
-                                )}
-                              </dd>
-                            </div>
-                          </dl>
+                      selectedScenario && selectedRule && (
+                        <div className="wt-valuation-summary">
+                          <div
+                            className="wt-valuation-current"
+                            aria-live="polite"
+                            aria-atomic="true"
+                          >
+                            <span className="wt-valuation-eyebrow">
+                              {localize(valuationRules.scenarios[scenarioKey].label)} · CNY
+                            </span>
+                            <strong className="wt-valuation-amount">
+                              {localize(valuationTotal(selectedScenario.knownCents))}
+                            </strong>
+                            <output className="wt-valuation-price-status">
+                              {localize(
+                                selectedScenario.totalCents == null
+                                  ? t("已核价金额，未计价项目另列")
+                                  : t("已核价合计"),
+                              )}
+                            </output>
+                            <dl className="wt-valuation-rate-note">
+                              <div>
+                                <dt>{t("陆战 / 直升机")}</dt>
+                                <dd>
+                                  {localize(valuationUnitPrice(selectedRule.rpCents.ground))}
+                                  {t("/ 万 RP")}
+                                </dd>
+                              </div>
+                              <div>
+                                <dt>{t("飞机")}</dt>
+                                <dd>
+                                  {localize(valuationUnitPrice(selectedRule.rpCents.aviation))}
+                                  {t("/ 万 RP")}
+                                </dd>
+                              </div>
+                              <div>
+                                <dt>{t("金鹰 / 礼包")}</dt>
+                                <dd>
+                                  {localize(
+                                    selectedRule.purchasePercent === 100
+                                      ? t("按原价")
+                                      : t("按原价 {0} 折", [
+                                          localize(selectedRule.purchasePercent / 10),
+                                        ]),
+                                  )}
+                                </dd>
+                              </div>
+                            </dl>
+                          </div>
+                          <ValueComposition
+                            scenario={selectedScenario}
+                            label={valuationRules.scenarios[scenarioKey].label}
+                          />
                         </div>
-                        <ValueComposition
-                          scenario={selectedScenario}
-                          label={scenarioLabel(scenarioKey)}
-                        />
-                      </div>
+                      ),
+                    )}
+                  </section>
+                  <details className="wt-valuation-basis">
+                    <summary>
+                      {t("估值依据与计算规则")}
+                      {localize(" ")}
+                      <span>
+                        {localize(
+                          value.ownership?.fetchedAt ? (
+                            <>
+                              {t("车库核验")}
+                              {localize(" ")}
+                              <RelativeTime value={value.ownership.fetchedAt} />
+                            </>
+                          ) : (
+                            t("出战记录与当前前置推算")
+                          ),
+                        )}
+                      </span>
+                    </summary>
+                    <p>
+                      {localize(
+                        value.ownership?.verified
+                          ? t(
+                              "依据官方公开车库中的已拥有载具计算，包含未出战载具。研发点按已拥有载具去重汇总，不额外推算未持有的前置。",
+                            )
+                          : t("根据出战记录与当前研发前置推算，尚未核验完整已拥有清单。"),
+                      )}
+                      {localize(" ")}
+                      {t("同一载具、同一礼包只计算一次。")}
+                      {localize(value.ownership?.notice)}
+                    </p>
+                    <p>
+                      {t(
+                        "各价值口径的研发点单价与购入价比例见总览，按当前已保存规则计算。正常价值、折扣价值与参考价值分别展示，不代表实际成交价。",
+                      )}
+                    </p>
+                    <p>
+                      {t("金鹰按 ¥189／5000 GE 换算，共")}
+                      {localize(" ")}
+                      {localize(statsNumber(value.geTotal))}
+                      {localize(" ")}
+                      {t(
+                        "GE。礼包采用已核验人民币整包原价，保留查价日期；特殊载具优先单列，不重复计入金鹰或礼包。金额按各分项汇总后四舍五入到分。",
+                      )}
+                    </p>
+                  </details>
+                  <div className="wt-valuation-overview-counts">
+                    <div>
+                      <span>{t("估值载具")}</span>
+                      <strong>
+                        {localize(statsNumber(value.ownership?.ownedCount ?? value.observedCount))}
+                      </strong>
+                    </div>
+                    <div>
+                      <span>{t("金鹰与礼包")}</span>
+                      <strong>{localize(value.gold.length + value.packs.length)}</strong>
+                    </div>
+                    <div>
+                      <span>{t("特殊市场载具")}</span>
+                      <strong>{localize(value.market.length)}</strong>
+                    </div>
+                    <div>
+                      <span>{t("待核价项目")}</span>
+                      <strong>{localize(value.unpriced.length)}</strong>
+                    </div>
+                  </div>
+                  <p className="wt-valuation-overview-note">
+                    {t(
+                      "人民币参考金额与 GJN 市场报价分别展示。已核实的低门槛赠送载具参考价值为 0；未核验的市场价格不参与合计。",
+                    )}
+                  </p>
+                  <button
+                    className="wt-valuation-view-details"
+                    onClick={() => setValuationTab("details")}
+                  >
+                    {t("查看载具明细")}
+                  </button>
+                </div>
+              ),
+            )}
+            {localize(
+              valuationTab === "details" && (
+                <div
+                  role="tabpanel"
+                  id={`${tabId}-details-panel`}
+                  aria-labelledby={`${tabId}-details-tab`}
+                >
+                  <div className="wt-valuation-detail-toolbar">
+                    <label>
+                      <span className="wt-valuation-detail-label">{t("明细类别")}</span>
+                      <GameSelect value={detailKind} onValueChange={setDetailKind}>
+                        <option value="all">{t("全部类别")}</option>
+                        <option value="gold">{t("金鹰载具")}</option>
+                        <option value="pack">{t("礼包载具")}</option>
+                        <option value="market">{t("市场载具")}</option>
+                        <option value="manual">{t("特殊与赠送载具")}</option>
+                        <option value="excluded">{t("不计入估值")}</option>
+                        <option value="research">{t("研发点明细")}</option>
+                        <option value="unpriced">{t("待核价")}</option>
+                      </GameSelect>
+                    </label>
+                  </div>
+                  {localize(
+                    (detailKind === "all" || detailKind === "gold") && (
+                      <section className="wt-valuation-section">
+                        <h3>
+                          {t("金鹰载具 ·")}
+                          {localize(" ")}
+                          {localize(value.gold.length)}
+                        </h3>
+                        {localize(
+                          value.gold.length ? (
+                            <ProductShelf>
+                              {localize(
+                                sortValuationPrices(value.gold).map((v) => (
+                                  <ProductCard
+                                    key={v.id}
+                                    owned={!!value.ownership?.verified}
+                                    vehicleKind="gold"
+                                    title={v.name}
+                                    source={v.source}
+                                    items={[v]}
+                                    kind={t("{0} · 金鹰载具", [
+                                      localize(statsCategoryNames[v.category] || v.category),
+                                    ])}
+                                    price={valuationMoney(v.amountCents)}
+                                  >
+                                    {localize(
+                                      v.checkedAt && (
+                                        <small>
+                                          {t("核验")}
+                                          {localize(" ")}
+                                          <RelativeTime value={v.checkedAt} />
+                                        </small>
+                                      ),
+                                    )}
+                                  </ProductCard>
+                                )),
+                              )}
+                            </ProductShelf>
+                          ) : (
+                            <p>{t("出战记录中未识别到金鹰载具。")}</p>
+                          ),
+                        )}
+                      </section>
                     ),
                   )}
-                </section>
-                <details className="wt-valuation-basis">
-                  <summary>
-                    {t("估值依据与计算规则")}
-                    {localize(" ")}
-                    <span>
-                      {localize(
-                        value.ownership?.fetchedAt
-                          ? t("车库核验 {0}", [localize(statsDate(value.ownership.fetchedAt))])
-                          : t("出战记录与当前前置推算"),
-                      )}
-                    </span>
-                  </summary>
-                  <p>
-                    {localize(
-                      value.ownership?.verified
-                        ? t(
-                            "依据官方公开车库中的已拥有载具计算，包含未出战载具。研发点按已拥有载具去重汇总，不额外推算未持有的前置。",
-                          )
-                        : t("根据出战记录与当前研发前置推算，尚未核验完整已拥有清单。"),
-                    )}
-                    {localize(" ")}
-                    {t("同一载具、同一礼包只计算一次。")}
-                    {localize(value.ownership?.notice)}
-                  </p>
-                  <p>
-                    {t(
-                      "各价值口径的研发点单价与购入价比例见总览，按当前已保存规则计算。正常价值、折扣价值与参考价值分别展示，不代表实际成交价。",
-                    )}
-                  </p>
-                  <p>
-                    {t("金鹰按 ¥189／5000 GE 换算，共")}
-                    {localize(statsNumber(value.geTotal))}
-                    {localize(" ")}
-                    {t(
-                      "GE。礼包采用已核验人民币整包原价，保留查价日期；特殊载具优先单列，不重复计入金鹰或礼包。金额按各分项汇总后四舍五入到分。",
-                    )}
-                  </p>
-                </details>
-                <div className="wt-valuation-overview-counts">
-                  <div>
-                    <span>{t("估值载具")}</span>
-                    <strong>
-                      {statsNumber(value.ownership?.ownedCount ?? value.observedCount)}
-                    </strong>
-                  </div>
-                  <div>
-                    <span>{t("金鹰与礼包")}</span>
-                    <strong>{value.gold.length + value.packs.length}</strong>
-                  </div>
-                  <div>
-                    <span>{t("特殊市场载具")}</span>
-                    <strong>{value.market.length}</strong>
-                  </div>
-                  <div>
-                    <span>{t("待核价项目")}</span>
-                    <strong>{value.unpriced.length}</strong>
-                  </div>
-                </div>
-                <p className="wt-valuation-overview-note">
-                  {t(
-                    "人民币参考金额与 GJN 市场报价分别展示。已核实的低门槛赠送载具参考价值为 0；未核验的市场价格不参与合计。",
-                  )}{" "}
-                </p>
-                <button
-                  className="wt-valuation-view-details"
-                  onClick={() => setValuationTab("details")}
-                >
-                  {t("查看载具明细")}
-                </button>
-              </div>
-            )}
-            {valuationTab === "details" && (
-              <div
-                role="tabpanel"
-                id={`${tabId}-details-panel`}
-                aria-labelledby={`${tabId}-details-tab`}
-              >
-                <div className="wt-valuation-detail-toolbar">
-                  <label>
-                    <span className="wt-valuation-detail-label">{t("明细类别")}</span>
-                    <GameSelect value={detailKind} onValueChange={setDetailKind}>
-                      <option value="all">{t("全部类别")}</option>
-                      <option value="gold">{t("金鹰载具")}</option>
-                      <option value="pack">{t("礼包载具")}</option>
-                      <option value="market">{t("市场载具")}</option>
-                      <option value="manual">{t("特殊与赠送载具")}</option>
-                      <option value="excluded">{t("不计入估值")}</option>
-                      <option value="research">{t("研发点明细")}</option>
-                      <option value="unpriced">{t("待核价")}</option>
-                    </GameSelect>
-                  </label>
-                </div>
-                {(detailKind === "all" || detailKind === "gold") && (
-                  <section className="wt-valuation-section">
-                    <h3>
-                      {t("金鹰载具 ·")}
-                      {localize(value.gold.length)}
-                    </h3>
-                    {localize(
-                      value.gold.length ? (
+                  {localize(
+                    (detailKind === "all" || detailKind === "pack") && (
+                      <section className="wt-valuation-section">
+                        <h3>
+                          {t("礼包载具 ·")}
+                          {localize(" ")}
+                          {localize(value.packs.length)}
+                          {t("个礼包")}
+                        </h3>
+                        {localize(
+                          value.packs.length ? (
+                            <ProductShelf>
+                              {localize(
+                                sortValuationPrices(value.packs)
+                                  .sort(
+                                    (a, b) =>
+                                      Number(a.vehicles.length > 1) - Number(b.vehicles.length > 1),
+                                  )
+                                  .map((p) => (
+                                    <ProductCard
+                                      key={p.productId}
+                                      owned={!!value.ownership?.verified}
+                                      vehicleKind="pack"
+                                      title={p.title}
+                                      source={p.source}
+                                      items={p.vehicles}
+                                      kind={t("整包原价 · 已识别 {0} 辆", [
+                                        localize(p.vehicles.length),
+                                      ])}
+                                      price={valuationMoney(p.amountCents)}
+                                    >
+                                      <small>
+                                        {localize(
+                                          p.checkedAt ? (
+                                            <>
+                                              {t("核验")}
+                                              {localize(" ")}
+                                              <RelativeTime value={p.checkedAt} />
+                                            </>
+                                          ) : (
+                                            t("尚无有效报价")
+                                          ),
+                                        )}
+                                      </small>
+                                    </ProductCard>
+                                  )),
+                              )}
+                            </ProductShelf>
+                          ) : (
+                            <p>{t("出战记录中未识别到礼包载具。")}</p>
+                          ),
+                        )}
+                      </section>
+                    ),
+                  )}
+                  {localize(
+                    (detailKind === "all" || detailKind === "market") && (
+                      <section className="wt-valuation-section">
+                        <div className="wt-valuation-section-heading">
+                          <h3>
+                            {t("市场特殊载具 ·")}
+                            {localize(" ")}
+                            {localize(value.market.length)}
+                          </h3>
+                          <span>{t("GJN 报价单列")}</span>
+                        </div>
+                        <p>
+                          {t(
+                            "点击详情到官方市场查看当前买卖报价，沿用浏览器已有的市场登录状态。本站不自动查询或轮询，市场报价不计入人民币参考金额。",
+                          )}
+                        </p>
+                        {localize(
+                          value.market.length ? (
+                            <ProductShelf>
+                              {localize(
+                                value.market.map((v) => (
+                                  <ProductCard
+                                    key={v.id}
+                                    owned={!!value.ownership?.verified}
+                                    vehicleKind="market"
+                                    title={v.name}
+                                    source={v.source}
+                                    items={[v]}
+                                    kind={t("Gaijin 官方市场")}
+                                    price={t("查看官方市场报价")}
+                                  >
+                                    <a
+                                      className="wt-valuation-market-link"
+                                      href={v.source}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                    >
+                                      {t("查看市场详情 ↗")}
+                                    </a>
+                                    <small>
+                                      {t(
+                                        "报价对应可交易载具券，已激活载具不等同于可出售的载具券。",
+                                      )}
+                                    </small>
+                                  </ProductCard>
+                                )),
+                              )}
+                            </ProductShelf>
+                          ) : (
+                            <p>{t("未识别到市场特殊载具。")}</p>
+                          ),
+                        )}
+                      </section>
+                    ),
+                  )}
+                  {localize(
+                    (detailKind === "all" || detailKind === "manual") && !!value.manual?.length && (
+                      <section className="wt-valuation-section">
+                        <h3>
+                          {t("特殊与赠送载具 ·")}
+                          {localize(" ")}
+                          {localize(value.manual.length)}
+                          {t("辆")}
+                        </h3>
+                        <p>
+                          {t(
+                            "按已核验的获取门槛与定价规则展示；明确低门槛赠送载具的参考价值为 0，不附加稀有溢价。",
+                          )}
+                        </p>
                         <ProductShelf>
                           {localize(
-                            sortValuationPrices(value.gold).map((v) => (
+                            value.manual.map((item) => (
                               <ProductCard
-                                key={v.id}
+                                key={item.id}
                                 owned={!!value.ownership?.verified}
-                                vehicleKind="gold"
-                                title={vehicleName(v)}
-                                source={v.source}
-                                items={[v]}
-                                kind={t("{0} · 金鹰载具", [
-                                  localize(statsCategoryNames[v.category] || v.category),
+                                title={item.name}
+                                source={
+                                  item.source ||
+                                  "https://wiki.warthunder.com/unit/" + encodeURIComponent(item.id)
+                                }
+                                items={[item]}
+                                kind={t("{0} · 自定义", [
+                                  localize(valuationRules.scenarios[scenarioKey].label),
                                 ])}
-                                price={valuationMoney(v.amountCents)}
+                                price={valuationMoney(item.prices[scenarioKey])}
                               >
-                                {localize(
-                                  v.checkedAt && (
-                                    <small>
-                                      {t("核验")}
-                                      {localize(statsDate(v.checkedAt))}
-                                    </small>
-                                  ),
-                                )}
+                                <span>
+                                  {localize(
+                                    Object.values(item.prices).every((price) => price === 0)
+                                      ? t("低门槛赠送载具，参考价值为 0。")
+                                      : item.reason,
+                                  )}
+                                </span>
                               </ProductCard>
                             )),
                           )}
                         </ProductShelf>
-                      ) : (
-                        <p>{t("出战记录中未识别到金鹰载具。")}</p>
-                      ),
-                    )}
-                  </section>
-                )}
-                {(detailKind === "all" || detailKind === "pack") && (
-                  <section className="wt-valuation-section">
-                    <h3>
-                      {t("礼包载具 ·")}
-                      {localize(value.packs.length)}
-                      {t("个礼包")}
-                    </h3>
-                    {localize(
-                      value.packs.length ? (
-                        <ProductShelf>
-                          {localize(
-                            sortValuationPrices(value.packs)
-                              .sort(
-                                (a, b) =>
-                                  Number(a.vehicles.length > 1) - Number(b.vehicles.length > 1),
-                              )
-                              .map((p) => (
-                                <ProductCard
-                                  key={p.productId}
-                                  owned={!!value.ownership?.verified}
-                                  vehicleKind="pack"
-                                  title={p.title}
-                                  source={p.source}
-                                  items={p.vehicles}
-                                  kind={t("整包原价 · 已识别 {0} 辆", [
-                                    localize(p.vehicles.length),
-                                  ])}
-                                  price={valuationMoney(p.amountCents)}
-                                >
-                                  <small>
-                                    {localize(
-                                      p.checkedAt
-                                        ? t("核验 {0}", [localize(statsDate(p.checkedAt))])
-                                        : t("尚无有效报价"),
-                                    )}
-                                  </small>
-                                </ProductCard>
-                              )),
-                          )}
-                        </ProductShelf>
-                      ) : (
-                        <p>{t("出战记录中未识别到礼包载具。")}</p>
-                      ),
-                    )}
-                  </section>
-                )}
-                {(detailKind === "all" || detailKind === "market") && (
-                  <section className="wt-valuation-section">
-                    <div className="wt-valuation-section-heading">
-                      <h3>
-                        {t("市场特殊载具")} · {value.market.length}
-                      </h3>
-                      <span>{t("GJN 报价单列")}</span>
-                    </div>
-                    <p>
-                      {t(
-                        "点击详情到官方市场查看当前买卖报价，沿用浏览器已有的市场登录状态。本站不自动查询或轮询，市场报价不计入人民币参考金额。",
-                      )}
-                    </p>
-                    {value.market.length ? (
-                      <ProductShelf>
-                        {value.market.map((v) => (
-                          <ProductCard
-                            key={v.id}
-                            owned={!!value.ownership?.verified}
-                            vehicleKind="market"
-                            title={vehicleName(v)}
-                            source={v.source}
-                            items={[v]}
-                            kind={t("Gaijin 官方市场")}
-                            price={t("查看官方市场报价")}
-                          >
-                            <a
-                              className="wt-valuation-market-link"
-                              href={v.source}
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              {t("查看市场详情 ↗")}
-                            </a>
-                            <small>
-                              {t("报价对应可交易载具券，已激活载具不等同于可出售的载具券。")}
-                            </small>
-                          </ProductCard>
-                        ))}
-                      </ProductShelf>
-                    ) : (
-                      <p>{t("未识别到市场特殊载具。")}</p>
-                    )}
-                  </section>
-                )}
-                {localize(
-                  (detailKind === "all" || detailKind === "manual") && !!value.manual?.length && (
-                    <section className="wt-valuation-section">
-                      <h3>
-                        {t("特殊与赠送载具 ·")}
-                        {localize(value.manual.length)}
-                        {t("辆")}
-                      </h3>
-                      <p>
-                        {t(
-                          "按已核验的获取门槛与定价规则展示；明确低门槛赠送载具的参考价值为 0，不附加稀有溢价。",
-                        )}
-                      </p>
-                      <ProductShelf>
-                        {localize(
-                          value.manual.map((item) => (
-                            <ProductCard
-                              key={item.id}
-                              owned={!!value.ownership?.verified}
-                              title={vehicleName(item)}
-                              source={
-                                item.source ||
-                                "https://wiki.warthunder.com/unit/" + encodeURIComponent(item.id)
-                              }
-                              items={[item]}
-                              kind={t("{0} · 自定义", [localize(scenarioLabel(scenarioKey))])}
-                              price={valuationMoney(item.prices[scenarioKey])}
-                            >
-                              <span>
-                                {Object.values(item.prices).every((price) => price === 0)
-                                  ? t("低门槛赠送载具，参考价值为 0。")
-                                  : localize(item.reason)}
-                              </span>
-                            </ProductCard>
-                          )),
-                        )}
-                      </ProductShelf>
-                    </section>
-                  ),
-                )}
-                {localize(
-                  (detailKind === "all" || detailKind === "excluded") &&
-                    !!visibleExcluded.length && (
-                      <details className="wt-valuation-section">
-                        <summary>
-                          {t("不参与估值的隐藏／特殊载具 ·")}
-                          {localize(visibleExcluded.length)}
-                        </summary>
-                        <p>{t("以下载具按已保存规则排除，不计入研发点、金鹰、礼包或其他价值。")}</p>
-                        <div className="wt-valuation-research">
-                          {localize(
-                            visibleExcluded.map((item) => (
-                              <article key={item.id}>
-                                <ValuationVehicle item={item} />
-                                <div>
-                                  <span className="wt-valuation-unpriced-reason">
-                                    {localize(item.reason)}
-                                  </span>
-                                </div>
-                              </article>
-                            )),
-                          )}
-                        </div>
-                      </details>
+                      </section>
                     ),
-                )}
-                {(detailKind === "all" || detailKind === "research") && (
-                  <details
-                    className="wt-valuation-section"
-                    onToggle={(event) => setShowResearch(event.currentTarget.open)}
-                  >
-                    <summary>
-                      {t("研发点明细 ·")}
-                      {localize(value.researchCount)}
-                      {t("辆（")}
-                      {localize(value.ownership?.verified ? t("已拥有") : t("含推算前置"))}）
-                    </summary>
-                    <p>
-                      {localize(
-                        Object.entries(value.rpByCategory)
-                          .map(
-                            ([cat, rp]) =>
-                              `${statsCategoryNames[cat] || cat} ${statsNumber(rp)} RP`,
-                          )
-                          .join(" · ") || t("暂无已核实研发点"),
-                      )}
-                    </p>
-                    {localize(
-                      showResearch && (
-                        <VehicleDetailFilters
-                          items={value.research}
-                          filters={{
-                            country: researchCountry,
-                            category: researchCategory,
-                            rank: researchRank,
-                          }}
-                          onChange={(field, selected) => {
-                            ({
-                              country: setResearchCountry,
-                              category: setResearchCategory,
-                              rank: setResearchRank,
-                            })[field](selected);
-                            setResearchPage(1);
-                          }}
-                          count={filteredResearch.length}
-                          total={value.researchCount}
-                          page={currentResearchPage}
-                          pages={researchPages}
-                          onPageChange={setResearchPage}
-                          label={t("研发点明细")}
-                          unit={t("辆")}
-                        />
+                  )}
+                  {localize(
+                    (detailKind === "all" || detailKind === "excluded") &&
+                      !!visibleExcluded.length && (
+                        <details className="wt-valuation-section">
+                          <summary>
+                            {t("不参与估值的隐藏／特殊载具 ·")}
+                            {localize(" ")}
+                            {localize(visibleExcluded.length)}
+                          </summary>
+                          <p>
+                            {t("以下载具按已保存规则排除，不计入研发点、金鹰、礼包或其他价值。")}
+                          </p>
+                          <div className="wt-valuation-research">
+                            {localize(
+                              visibleExcluded.map((item) => (
+                                <article key={item.id}>
+                                  <ValuationVehicle item={item} />
+                                  <div>
+                                    <span className="wt-valuation-unpriced-reason">
+                                      {localize(item.reason)}
+                                    </span>
+                                  </div>
+                                </article>
+                              )),
+                            )}
+                          </div>
+                        </details>
                       ),
-                    )}
-                    {localize(
-                      showResearch && !filteredResearch.length && (
-                        <output>{t("没有符合筛选条件的载具。")}</output>
-                      ),
-                    )}
-                    {localize(
-                      showResearch && (
-                        <div className="wt-valuation-research">
-                          {localize(
-                            visibleResearch.map((v) => (
-                              <article key={v.id}>
-                                <ValuationVehicle
-                                  item={v}
-                                  showCountry={researchCountry === "all"}
-                                  showRank={researchRank === "all"}
-                                />
-                                <div>
-                                  <small>
-                                    {localize(
-                                      v.owned
-                                        ? v.observed
-                                          ? t("已拥有 · 有出战记录")
-                                          : t("已拥有 · 未出战")
-                                        : v.observed
-                                          ? t("有出战记录")
-                                          : t("根据当前前置推算"),
-                                    )}
-                                  </small>
-                                  <strong>{localize(statsNumber(v.rp))} RP</strong>
-                                  <small>
-                                    {localize(
-                                      v.rpCheckedAt
-                                        ? t("核验 {0}", [localize(statsDate(v.rpCheckedAt))])
-                                        : t("研发点待核验"),
-                                    )}
-                                  </small>
-                                </div>
-                              </article>
-                            )),
-                          )}
-                        </div>
-                      ),
-                    )}
-                  </details>
-                )}
-                {localize(
-                  (detailKind === "all" || detailKind === "unpriced") &&
-                    !!value.unpriced.length && (
+                  )}
+                  {localize(
+                    (detailKind === "all" || detailKind === "research") && (
                       <details
                         className="wt-valuation-section"
-                        onToggle={(event) => setShowUnpriced(event.currentTarget.open)}
+                        onToggle={(event) => setShowResearch(event.currentTarget.open)}
                       >
                         <summary>
-                          {t("未计价项目 ·")}
-                          {localize(value.unpriced.length)}
+                          {t("研发点明细 ·")}
+                          {localize(" ")}
+                          {localize(value.researchCount)}
+                          {t("辆（")}
+                          {localize(value.ownership?.verified ? t("已拥有") : t("含推算前置"))}）
                         </summary>
-                        <p>{t("以下项目资料或价格尚未核实，未按零元计入估值。")}</p>
+                        <p>
+                          {localize(
+                            Object.entries(value.rpByCategory)
+                              .map(
+                                ([cat, rp]) =>
+                                  `${statsCategoryNames[cat] || cat} ${statsNumber(rp)} RP`,
+                              )
+                              .join(" · ") || t("暂无已核实研发点"),
+                          )}
+                        </p>
                         {localize(
-                          showUnpriced && (
+                          showResearch && (
                             <VehicleDetailFilters
-                              items={unpricedVehicles}
-                              filters={unpricedFilters}
-                              onChange={(field, selected) => {
-                                setUnpricedFilters((previous) => ({
-                                  ...previous,
-                                  [field]: selected,
-                                }));
-                                setUnpricedPage(1);
+                              items={value.research}
+                              filters={{
+                                country: researchCountry,
+                                category: researchCategory,
+                                rank: researchRank,
                               }}
-                              count={filteredUnpriced.length}
-                              total={value.unpriced.length}
-                              page={currentUnpricedPage}
-                              pages={unpricedPages}
-                              onPageChange={setUnpricedPage}
-                              label={t("未计价项目")}
-                              unit={t("项")}
+                              onChange={(field, selected) => {
+                                ({
+                                  country: setResearchCountry,
+                                  category: setResearchCategory,
+                                  rank: setResearchRank,
+                                })[field](selected);
+                                setResearchPage(1);
+                              }}
+                              count={filteredResearch.length}
+                              total={value.researchCount}
+                              page={currentResearchPage}
+                              pages={researchPages}
+                              onPageChange={setResearchPage}
+                              label={t("研发点明细")}
+                              unit={t("辆")}
                             />
                           ),
                         )}
                         {localize(
-                          showUnpriced && !filteredUnpriced.length && (
-                            <output>{t("没有符合筛选条件的项目。")}</output>
+                          showResearch && !filteredResearch.length && (
+                            <output>{t("没有符合筛选条件的载具。")}</output>
                           ),
                         )}
                         {localize(
-                          showUnpriced && (
-                            <div className="wt-valuation-research wt-valuation-unpriced">
+                          showResearch && (
+                            <div className="wt-valuation-research">
                               {localize(
-                                visibleUnpriced.map((v, i) => {
-                                  const vehicles = v.vehicles?.length ? v.vehicles : [v];
-                                  return (
-                                    <article
-                                      key={v.id + i}
-                                      className={
-                                        vehicles.length > 1
-                                          ? "wt-valuation-research-group"
-                                          : undefined
-                                      }
-                                    >
-                                      <div className="wt-valuation-unpriced-art">
+                                visibleResearch.map((v) => (
+                                  <article key={v.id}>
+                                    <ValuationVehicle
+                                      item={v}
+                                      showCountry={researchCountry === "all"}
+                                      showRank={researchRank === "all"}
+                                    />
+                                    <div>
+                                      <small>
                                         {localize(
-                                          vehicles.map((item) => (
-                                            <ValuationVehicle
-                                              showCountry={unpricedFilters.country === "all"}
-                                              showRank={unpricedFilters.rank === "all"}
-                                              key={item.id}
-                                              item={{
-                                                id: item.id,
-                                                name: item.name,
-                                                country: item.country || "",
-                                                category: item.category || "",
-                                              }}
-                                            />
-                                          )),
+                                          v.owned
+                                            ? v.observed
+                                              ? t("已拥有 · 有出战记录")
+                                              : t("已拥有 · 未出战")
+                                            : v.observed
+                                              ? t("有出战记录")
+                                              : t("根据当前前置推算"),
                                         )}
-                                      </div>
-                                      <div>
-                                        {vehicles.length > 1 && (
-                                          <h4>
-                                            {localize(
-                                              v.rpSource ? (
-                                                <a
-                                                  href={v.rpSource}
-                                                  target="_blank"
-                                                  rel="noreferrer"
-                                                >
-                                                  {vehicleName(v)}
-                                                </a>
-                                              ) : (
-                                                v.name
-                                              ),
-                                            )}
-                                          </h4>
-                                        )}
+                                      </small>
+                                      <strong>{localize(statsNumber(v.rp))} RP</strong>
+                                      <small>
                                         {localize(
-                                          v.owned && (
-                                            <small>
-                                              {localize(
-                                                v.observed
-                                                  ? t("已拥有 · 有出战记录")
-                                                  : t("已拥有 · 未出战"),
-                                              )}
-                                            </small>
+                                          v.rpCheckedAt ? (
+                                            <>
+                                              {t("核验")}
+                                              {localize(" ")}
+                                              <RelativeTime value={v.rpCheckedAt} />
+                                            </>
+                                          ) : (
+                                            t("研发点待核验")
                                           ),
                                         )}
-                                        {localize(
-                                          v.rp != null && (
-                                            <strong>{localize(statsNumber(v.rp))} RP</strong>
-                                          ),
-                                        )}
-                                        <span className="wt-valuation-unpriced-reason">
-                                          {localize(v.reason)}
-                                        </span>
-                                        {localize(
-                                          v.rpCheckedAt && (
-                                            <small>
-                                              {t("研发点核验")}
-                                              {localize(statsDate(v.rpCheckedAt))}
-                                            </small>
-                                          ),
-                                        )}
-                                      </div>
-                                    </article>
-                                  );
-                                }),
+                                      </small>
+                                    </div>
+                                  </article>
+                                )),
                               )}
                             </div>
                           ),
                         )}
                       </details>
                     ),
-                )}
-              </div>
+                  )}
+                  {localize(
+                    (detailKind === "all" || detailKind === "unpriced") &&
+                      !!value.unpriced.length && (
+                        <details
+                          className="wt-valuation-section"
+                          onToggle={(event) => setShowUnpriced(event.currentTarget.open)}
+                        >
+                          <summary>
+                            {t("未计价项目 ·")}
+                            {localize(" ")}
+                            {localize(value.unpriced.length)}
+                          </summary>
+                          <p>{t("以下项目资料或价格尚未核实，未按零元计入估值。")}</p>
+                          {localize(
+                            showUnpriced && (
+                              <VehicleDetailFilters
+                                items={unpricedVehicles}
+                                filters={unpricedFilters}
+                                onChange={(field, selected) => {
+                                  setUnpricedFilters((previous) => ({
+                                    ...previous,
+                                    [field]: selected,
+                                  }));
+                                  setUnpricedPage(1);
+                                }}
+                                count={filteredUnpriced.length}
+                                total={value.unpriced.length}
+                                page={currentUnpricedPage}
+                                pages={unpricedPages}
+                                onPageChange={setUnpricedPage}
+                                label={t("未计价项目")}
+                                unit={t("项")}
+                              />
+                            ),
+                          )}
+                          {localize(
+                            showUnpriced && !filteredUnpriced.length && (
+                              <output>{t("没有符合筛选条件的项目。")}</output>
+                            ),
+                          )}
+                          {localize(
+                            showUnpriced && (
+                              <div className="wt-valuation-research wt-valuation-unpriced">
+                                {localize(
+                                  visibleUnpriced.map((v, i) => {
+                                    const vehicles = v.vehicles?.length ? v.vehicles : [v];
+                                    return (
+                                      <article
+                                        key={v.id + i}
+                                        className={
+                                          vehicles.length > 1
+                                            ? "wt-valuation-research-group"
+                                            : undefined
+                                        }
+                                      >
+                                        <div className="wt-valuation-unpriced-art">
+                                          {localize(
+                                            vehicles.map((item) => (
+                                              <ValuationVehicle
+                                                showCountry={unpricedFilters.country === "all"}
+                                                showRank={unpricedFilters.rank === "all"}
+                                                key={item.id}
+                                                item={{
+                                                  id: item.id,
+                                                  name: item.name,
+                                                  country: item.country || "",
+                                                  category: item.category || "",
+                                                }}
+                                              />
+                                            )),
+                                          )}
+                                        </div>
+                                        <div>
+                                          {localize(
+                                            vehicles.length > 1 && (
+                                              <h4>
+                                                {localize(
+                                                  v.rpSource ? (
+                                                    <a
+                                                      href={v.rpSource}
+                                                      target="_blank"
+                                                      rel="noreferrer"
+                                                    >
+                                                      {localize(v.name)}
+                                                    </a>
+                                                  ) : (
+                                                    v.name
+                                                  ),
+                                                )}
+                                              </h4>
+                                            ),
+                                          )}
+                                          {localize(
+                                            v.owned && (
+                                              <small>
+                                                {localize(
+                                                  v.observed
+                                                    ? t("已拥有 · 有出战记录")
+                                                    : t("已拥有 · 未出战"),
+                                                )}
+                                              </small>
+                                            ),
+                                          )}
+                                          {localize(
+                                            v.rp != null && (
+                                              <strong>{localize(statsNumber(v.rp))} RP</strong>
+                                            ),
+                                          )}
+                                          <span className="wt-valuation-unpriced-reason">
+                                            {localize(v.reason)}
+                                          </span>
+                                          {localize(
+                                            v.rpCheckedAt && (
+                                              <small>
+                                                {t("研发点核验")}
+                                                {localize(" ")}
+                                                <RelativeTime value={v.rpCheckedAt} />
+                                              </small>
+                                            ),
+                                          )}
+                                        </div>
+                                      </article>
+                                    );
+                                  }),
+                                )}
+                              </div>
+                            ),
+                          )}
+                        </details>
+                      ),
+                  )}
+                </div>
+              ),
             )}
             <footer className="wt-valuation-section">
-              {localize(cacheNotice && <output>{localize(cacheNotice)}</output>)}
+              {localize(
+                error && (
+                  <p className="wt-record-error" role="alert">
+                    {localize(error)}
+                  </p>
+                ),
+              )}
+              <button
+                type="button"
+                className="wt-record-link"
+                disabled={!session || busy || checking || profile.localOnly}
+                title={cacheNotice || t("重新估值使用估值额度，失败时保留此前估值")}
+                onClick={() => void calculate()}
+              >
+                {localize(busy ? t("正在重新估值…") : t("重新估值"))}
+              </button>
               <p>{localize(valuationRules.notice)}</p>
               <small>
                 {t("资料采集")}
-                {localize(statsDate(value.fetchedAt))}
+                {localize(" ")}
+                <RelativeTime value={value.fetchedAt} />
                 {t("· 估值计算")}
-                {localize(statsDate(value.calculatedAt))}
+                {localize(" ")}
+                <RelativeTime value={value.calculatedAt} />
                 {localize(
                   value.localCached
-                    ? t(" · 浏览器估值缓存，本次不扣次")
-                    : value.cached && t(" · 已命中估值缓存，本次不扣次"),
+                    ? t("· 浏览器估值缓存，本次不扣次")
+                    : value.cached && t("· 已命中估值缓存，本次不扣次"),
                 )}
               </small>
             </footer>

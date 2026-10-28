@@ -1,18 +1,15 @@
+import { useLocale } from "./i18n/react";
+import { t, localize } from "./i18n/core";
 import { notifyGameTagAccess } from "./game-tag-access";
 import { statsAvailableRequests } from "./player-stats-api";
-import { localize } from "./i18n/core";
-import type { PlayerProfile } from "./player-stats-api";
-import { useLocale } from "./i18n/react";
-import { t } from "./i18n/core";
 import { useEffect, useRef, useState } from "react";
 import { useAccountWorkspace } from "./workspace-context";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
-import { statsRequest } from "./player-stats-api";
+import { statsRequest, type PlayerProfile } from "./player-stats-api";
 import { Modal } from "./Modal";
 
 export function GameAccountBinding({ profile }: { profile: PlayerProfile }) {
   useLocale();
-
   const workspace = useAccountWorkspace();
   const { session, refreshSession } = useWorkbenchAccount();
   const [open, setOpen] = useState(false),
@@ -54,16 +51,27 @@ export function GameAccountBinding({ profile }: { profile: PlayerProfile }) {
   ]);
   if (!session?.user?.id || !workspace?.ready) return null;
   if (current)
-    return current.uid === profile.uid && refreshError ? (
-      <button
-        type="button"
+    return current.uid === profile.uid ? (
+      <output
         className="wt-binding-read-status"
-        title={localize(refreshError)}
-        aria-label={t("已绑定，{0}", [localize(refreshError)])}
-        onClick={() => workspace.open()}
+        title={refreshError || undefined}
+        aria-label={refreshError ? t("已绑定，{0}", [localize(refreshError)]) : undefined}
       >
-        <span aria-hidden="true">!</span> {t("已绑定")}
-      </button>
+        <svg
+          className="wt-binding-icon"
+          viewBox="0 0 20 20"
+          width="14"
+          height="14"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          aria-hidden="true"
+        >
+          <circle cx="10" cy="10" r="7.5" />
+          <path d="m6.3 10 2.4 2.5 5-5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        {t("已绑定")}
+      </output>
     ) : null;
   const available = session ? statsAvailableRequests(session, "valuation") : 0;
   const remaining = !session
@@ -72,11 +80,12 @@ export function GameAccountBinding({ profile }: { profile: PlayerProfile }) {
       ? t("不限次")
       : available === 0
         ? t("今日额度已达上限")
-        : t("{0} 次", [available]);
+        : t("{0} 次", [localize(available)]);
   return (
     <>
       <button
-        className="wt-record-link"
+        type="button"
+        className="wt-binding-action"
         disabled={profile.localOnly || busy}
         onClick={() => {
           if (!workspace.consented) {
@@ -88,88 +97,108 @@ export function GameAccountBinding({ profile }: { profile: PlayerProfile }) {
           setOpen(true);
         }}
       >
-        {t("绑定游戏账号")}
-      </button>
-      {open && (
-        <Modal
-          title={t("绑定游戏账号")}
-          close={() => {
-            if (!busy) setOpen(false);
-          }}
-          className="wt-account-dialog"
+        <svg
+          className="wt-binding-icon"
+          viewBox="0 0 20 20"
+          width="14"
+          height="14"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          aria-hidden="true"
         >
-          <form
-            className="wt-account-form"
-            onSubmit={async (e) => {
-              e.preventDefault();
-              if (uid !== profile.uid || busy) return;
-              setBusy(true);
-              setError("");
-              try {
-                await statsRequest("account/game-binding", {
-                  uid: profile.uid,
-                  ownerKey: "user:" + workspace.userId,
-                  confirmedUid: uid,
-                  snapshotId: profile.snapshotId,
-                  requestId: request.current,
-                });
-                await workspace.reload();
-                notifyGameTagAccess();
-                await refreshSession();
-                setOpen(false);
-                request.current = `bind_${crypto.randomUUID().replaceAll("-", "")}`;
-              } catch (e) {
-                setError(e instanceof Error ? e.message : t("绑定失败，请重试。"));
-              } finally {
-                setBusy(false);
-              }
+          <path
+            d="m8 12 4-4M7.2 7.7l1.6-1.6a3.6 3.6 0 0 1 5.1 5.1l-1.6 1.6M12.8 12.3l-1.6 1.6a3.6 3.6 0 0 1-5.1-5.1l1.6-1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+        {t("绑定账号")}
+      </button>
+      {localize(
+        open && (
+          <Modal
+            title={t("绑定游戏账号")}
+            close={() => {
+              if (!busy) setOpen(false);
             }}
+            className="wt-account-dialog"
           >
-            <p>
-              {t("当前玩家：")}
-              <strong>{profile.nickname}</strong>
-              <br />
-              UID：{profile.uid}
-            </p>
-            <p>
-              {t(
-                "请勿绑定他人游戏账号。绑定后将使用该账号的车库数据标记已拥有载具，并影响你的研发路线及研发点计算。此操作用于防止误绑，不代表官方身份认证。",
-              )}
-            </p>
-            <p>
-              {t(
-                "本次导入优先使用每日免费次数，用完后扣额外点数；同一请求重试不会重复扣次。可用次数：",
-              )}
-              {localize(remaining)}
-              {t("。读取保存的关联车库不重复扣次。")}
-            </p>
-            <label>
-              {t("请重新输入当前玩家 UID 以确认")}
-              <input
-                value={uid}
-                onChange={(e) => setUid(e.target.value)}
-                placeholder={profile.uid}
-                inputMode="numeric"
-                autoComplete="off"
-                maxLength={20}
-                required
-                disabled={busy}
-              />
-            </label>
-            <small>
-              {t("黑桃在本站表示已拥有。公开车库以最近成功采集的时间为准，刷新失败会保留原数据。")}
-            </small>
-            {localize(error && <p role="alert">{localize(error)}</p>)}
-            <div className="wt-account-actions">
-              <button disabled={busy || uid !== profile.uid} type="submit">
-                {localize(busy ? t("正在读取车库…") : t("确认绑定"))}
-              </button>
-              <button disabled={busy} type="button" onClick={() => setOpen(false)}>
-                {t("取消")}
-              </button>
-            </div>
-          </form>
-        </Modal>
+            <form
+              className="wt-account-form"
+              onSubmit={async (e) => {
+                e.preventDefault();
+                if (uid !== profile.uid || busy) return;
+                setBusy(true);
+                setError("");
+                try {
+                  await statsRequest("account/game-binding", {
+                    uid: profile.uid,
+                    ownerKey: "user:" + workspace.userId,
+                    confirmedUid: uid,
+                    snapshotId: profile.snapshotId,
+                    requestId: request.current,
+                  });
+                  await workspace.reload();
+                  notifyGameTagAccess();
+                  await refreshSession();
+                  setOpen(false);
+                  request.current = `bind_${crypto.randomUUID().replaceAll("-", "")}`;
+                } catch (e) {
+                  setError(e instanceof Error ? e.message : t("绑定失败，请重试。"));
+                } finally {
+                  setBusy(false);
+                }
+              }}
+            >
+              <p>
+                {t("当前玩家：")}
+                <strong>{localize(profile.nickname)}</strong>
+                <br />
+                UID：{localize(profile.uid)}
+              </p>
+              <p>
+                {t(
+                  "请勿绑定他人游戏账号。绑定后将使用该账号的车库数据标记已拥有载具，并影响你的研发路线及研发点计算。此操作用于防止误绑，不代表官方身份认证。",
+                )}
+              </p>
+              <p>
+                {t(
+                  "本次导入优先使用每日免费次数，用完后扣额外点数；同一请求重试不会重复扣次。可用次数：",
+                )}
+                {localize(remaining)}
+                {t("。读取保存的关联车库不重复扣次。")}
+              </p>
+              <label>
+                {t("请重新输入当前玩家 UID 以确认")}
+                <input
+                  value={uid}
+                  onChange={(e) => setUid(e.target.value)}
+                  placeholder={profile.uid}
+                  inputMode="numeric"
+                  autoComplete="off"
+                  maxLength={20}
+                  required
+                  disabled={busy}
+                />
+              </label>
+              <small>
+                {t(
+                  "黑桃在本站表示已拥有。公开车库以最近成功采集的时间为准，刷新失败会保留原数据。",
+                )}
+              </small>
+              {localize(error && <p role="alert">{localize(error)}</p>)}
+              <div className="wt-account-actions">
+                <button disabled={busy || uid !== profile.uid} type="submit">
+                  {localize(busy ? t("正在读取车库…") : t("确认绑定"))}
+                </button>
+                <button disabled={busy} type="button" onClick={() => setOpen(false)}>
+                  {t("取消")}
+                </button>
+              </div>
+            </form>
+          </Modal>
+        ),
       )}
     </>
   );
@@ -177,7 +206,6 @@ export function GameAccountBinding({ profile }: { profile: PlayerProfile }) {
 const unlinkPhrase = "我再也不绑定别人的账号了";
 export function UnlinkGameAccount({ close }: { close: () => void }) {
   useLocale();
-
   const workspace = useAccountWorkspace();
   const [text, setText] = useState(""),
     [busy, setBusy] = useState(false),
@@ -219,7 +247,7 @@ export function UnlinkGameAccount({ close }: { close: () => void }) {
         }}
       >
         <p>
-          {binding.nickname} · UID {binding.uid}
+          {localize(binding.nickname)} · UID {localize(binding.uid)}
         </p>
         <p>{t("解除后，不再自动应用该账号的拥有载具。研发计划、购物车和出击队列会保留。")}</p>
         <label>

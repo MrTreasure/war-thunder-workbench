@@ -1,6 +1,6 @@
-import { t, localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
-import { readPricePreferences, savePricePreferences } from "./sale-price-api";
+import { t, localize } from "./i18n/core";
+import { readPricePreferences } from "./sale-price-api";
 import { saleWatchKey } from "./sale-watch-storage";
 import {
   memo,
@@ -32,8 +32,11 @@ function documentLabel(key: string) {
   if (key === saleWatchKey) return t("折扣载具关注列表");
   if (key === "wt-workbench-cart-v1") return t("研发购物车");
   const [kind, part, country] = key.split(":");
-  if (kind === "wt-lineups-v1") return t("{0} · 出击队列", [statsCountryLabel(part)]);
-  return t("{0} · {1}计划", [statsCountryLabel(country), statsCategoryNames[part] || t("研发")]);
+  if (kind === "wt-lineups-v1") return t("{0} · 出击队列", [localize(statsCountryLabel(part))]);
+  return t("{0} · {1}计划", [
+    localize(statsCountryLabel(country)),
+    localize(statsCategoryNames[part] || t("研发")),
+  ]);
 }
 type Pending = Record<string, { value: unknown; revision: number }>;
 type Snapshot = {
@@ -47,7 +50,6 @@ type Snapshot = {
 const message = (e: unknown) => (e instanceof Error ? e.message : t("云端同步失败，请重试。"));
 export function AccountWorkspaceProvider({ children }: { children: ReactNode }) {
   useLocale();
-
   const { session } = useWorkbenchAccount();
   const userId = session?.user?.id || "";
   const store = useMemo(() => createWorkspaceStore(userId), [userId]);
@@ -55,7 +57,7 @@ export function AccountWorkspaceProvider({ children }: { children: ReactNode }) 
   return (
     <WorkspaceContext.Provider value={workspace}>
       <AccountWorkspace key={userId || "guest"} userId={userId} publish={store.publish} />
-      {children}
+      {localize(children)}
     </WorkspaceContext.Provider>
   );
 }
@@ -112,7 +114,6 @@ const AccountWorkspace = memo(function AccountWorkspace({
   const [conflict, setConflict] = useState<{ key: string; remote: WorkspaceDocument } | null>(null);
   const [importKeys, setImportKeys] = useState<string[]>([]);
   const [selectedImports, setSelectedImports] = useState<string[]>([]);
-  const [deleteConfirm, setDeleteConfirm] = useState(false);
   const controller = useRef(new AbortController());
   const flight = useRef(false);
   const outboxReady = useRef(false);
@@ -448,222 +449,192 @@ const AccountWorkspace = memo(function AccountWorkspace({
   });
   return (
     <>
-      {open && userId && (
-        <Modal
-          title={t("云端数据")}
-          subtitle={error ? t("同步需要处理") : undefined}
-          close={() => setOpen(false)}
-          className="wt-account-dialog"
-        >
-          <div className="wt-account-form">
-            {!snapshot ? (
-              <button onClick={() => void run(load)}>{t("重新读取云端")}</button>
-            ) : !snapshot.consented ? (
-              <>
-                <h3>{t("用户协议与数据说明")}</h3>
-                <p>{localize(snapshot.notice)}</p>
-                <a
-                  href="https://api.mrtreasure.cc/wt-stats/v1/auth/terms"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {t("阅读用户协议与数据说明 ·")}
-                  {localize(snapshot.version)}
-                </a>
-                <label className="wt-agreement-check">
-                  <input
-                    type="checkbox"
-                    checked={agreed}
-                    onChange={(e) => setAgreed(e.target.checked)}
-                  />
-                  {t("我已阅读并同意，启用账号云端功能")}
-                </label>
-                <button
-                  disabled={!agreed || busy}
-                  onClick={() =>
-                    void run(async () => {
-                      await statsRequest("account/consent", {
-                        version: snapshot.version,
-                        accepted: true,
-                        ownerKey: "user:" + userId,
-                      });
-                      await load();
-                    })
-                  }
-                >
-                  {t("确认并启用")}
-                </button>
-              </>
-            ) : (
-              <>
-                <p>
-                  {t(
-                    "研发计划、购物车与出击队列随账号同步。本机游客数据保持独立。待同步内容在当前设备按账号暂存，恢复网络后继续。",
-                  )}
-                </p>
-                {snapshot.binding && (
-                  <p>
-                    {t("关联账号：")}
-                    {snapshot.binding.nickname} · UID {snapshot.binding.uid}
-                    <br />
-                    {t("车库采集于")}
-                    {localize(new Date(snapshot.binding.fetchedAt).toLocaleString())}
-                    {t("。车库刷新请到该玩家战绩页操作。")}
-                  </p>
-                )}
-                <div className="wt-account-actions">
-                  <button
-                    disabled={busy || sending}
-                    onClick={() =>
-                      void run(async () => {
-                        await load();
-                        setError("");
-                      })
-                    }
-                  >
-                    {t("重试同步")}
-                  </button>
-                  <button disabled={busy} onClick={inspectLocal}>
-                    {t("导入本机游客数据")}
-                  </button>
-                  <button disabled={busy} onClick={() => void run(exportData)}>
-                    {t("导出云端数据")}
-                  </button>
-                </div>
-                {localize(
-                  importKeys.length > 0 && (
-                    <section>
-                      <h3>{t("选择要导入的本机数据")}</h3>
-                      <p>{t("同名内容会替换当前账号云端版本，原游客数据不会删除。")}</p>
-                      {localize(
-                        importKeys.map((k) => (
-                          <label className="wt-agreement-check" key={k}>
-                            <input
-                              type="checkbox"
-                              checked={selectedImports.includes(k)}
-                              onChange={(e) =>
-                                setSelectedImports((old) =>
-                                  e.target.checked ? [...old, k] : old.filter((v) => v !== k),
-                                )
-                              }
-                            />
-                            {localize(documentLabel(k))}
-                            {localize(documents[k]?.value ? t("（已有云端内容）") : "")}
-                          </label>
-                        )),
+      {localize(
+        open && userId && (
+          <Modal
+            title={t("云端数据")}
+            subtitle={error ? t("同步需要处理") : undefined}
+            close={() => setOpen(false)}
+            className="wt-account-dialog"
+          >
+            <div className="wt-account-form">
+              {localize(
+                !snapshot ? (
+                  <button onClick={() => void run(load)}>{t("重新读取云端")}</button>
+                ) : !snapshot.consented ? (
+                  <>
+                    <h3>{t("用户协议与数据说明")}</h3>
+                    <p>{localize(snapshot.notice)}</p>
+                    <a
+                      href="https://api.mrtreasure.cc/wt-stats/v1/auth/terms"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {t("阅读用户协议与数据说明 ·")}
+                      {localize(" ")}
+                      {localize(snapshot.version)}
+                    </a>
+                    <label className="wt-agreement-check">
+                      <input
+                        type="checkbox"
+                        checked={agreed}
+                        onChange={(e) => setAgreed(e.target.checked)}
+                      />
+                      {t("我已阅读并同意，启用账号云端功能")}
+                    </label>
+                    <button
+                      disabled={!agreed || busy}
+                      onClick={() =>
+                        void run(async () => {
+                          await statsRequest("account/consent", {
+                            version: snapshot.version,
+                            accepted: true,
+                            ownerKey: "user:" + userId,
+                          });
+                          await load();
+                        })
+                      }
+                    >
+                      {t("确认并启用")}
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <p>
+                      {t(
+                        "研发计划、购物车与出击队列随账号同步。本机游客数据保持独立。待同步内容在当前设备按账号暂存，恢复网络后继续。",
                       )}
+                    </p>
+                    {localize(
+                      snapshot.binding && (
+                        <p>
+                          {t("关联账号：")}
+                          {localize(snapshot.binding.nickname)} · UID{" "}
+                          {localize(snapshot.binding.uid)}
+                          <br />
+                          {t("车库采集于")}
+                          {localize(" ")}
+                          {localize(new Date(snapshot.binding.fetchedAt).toLocaleString())}
+                          {t("。车库刷新请到该玩家战绩页操作。")}
+                        </p>
+                      ),
+                    )}
+                    <div className="wt-account-actions">
                       <button
-                        disabled={busy || !selectedImports.length}
+                        disabled={busy || sending}
                         onClick={() =>
                           void run(async () => {
-                            for (const key of selectedImports) {
-                              const raw = localStorage.getItem(key);
-                              if (raw) save(key, JSON.parse(raw));
-                            }
-                            setImportKeys([]);
+                            await load();
+                            setError("");
                           })
                         }
                       >
-                        {t("确认导入所选内容")}
+                        {t("重试同步")}
                       </button>
-                    </section>
-                  ),
-                )}
-                {localize(
-                  conflict && (
-                    <section>
-                      <h3>{t("另一设备更新了此内容")}</h3>
-                      <p>
-                        {localize(documentLabel(conflict.key))}
-                        {t("。本机待保存内容仍保留，请选择。")}
-                      </p>
-                      <div className="wt-account-actions">
-                        <button
-                          disabled={busy || sending}
-                          onClick={() =>
-                            void run(async () => {
-                              const next = { ...current.current.pending };
-                              delete next[conflict.key];
-                              storePending(next);
-                              setConflict(null);
-                              await load();
-                            })
-                          }
-                        >
-                          {t("使用云端版本")}
-                        </button>
-                        <button
-                          disabled={busy || sending}
-                          onClick={() =>
-                            void run(async () => {
-                              const old = current.current.pending[conflict.key];
-                              if (old)
-                                storePending({
-                                  ...current.current.pending,
-                                  [conflict.key]: { ...old, revision: conflict.remote.revision },
-                                });
-                              setConflict(null);
-                            })
-                          }
-                        >
-                          {t("用本机版本覆盖")}
-                        </button>
-                      </div>
-                    </section>
-                  ),
-                )}
-                <details>
-                  <summary>{t("删除云端计划数据")}</summary>
-                  <p>
-                    {t(
-                      "清空研发计划、购物车、购车勾选及出击队列。不会解除游戏账号关联或删除游客本地数据。",
+                      <button disabled={busy} onClick={inspectLocal}>
+                        {t("导入本机游客数据")}
+                      </button>
+                      <button disabled={busy} onClick={() => void run(exportData)}>
+                        {t("导出云端数据")}
+                      </button>
+                    </div>
+                    {localize(
+                      importKeys.length > 0 && (
+                        <section>
+                          <h3>{t("选择要导入的本机数据")}</h3>
+                          <p>{t("同名内容会替换当前账号云端版本，原游客数据不会删除。")}</p>
+                          {localize(
+                            importKeys.map((k) => (
+                              <label className="wt-agreement-check" key={k}>
+                                <input
+                                  type="checkbox"
+                                  checked={selectedImports.includes(k)}
+                                  onChange={(e) =>
+                                    setSelectedImports((old) =>
+                                      e.target.checked ? [...old, k] : old.filter((v) => v !== k),
+                                    )
+                                  }
+                                />
+                                {localize(documentLabel(k))}
+                                {localize(documents[k]?.value ? t("（已有云端内容）") : "")}
+                              </label>
+                            )),
+                          )}
+                          <button
+                            disabled={busy || !selectedImports.length}
+                            onClick={() =>
+                              void run(async () => {
+                                for (const key of selectedImports) {
+                                  const raw = localStorage.getItem(key);
+                                  if (raw) save(key, JSON.parse(raw));
+                                }
+                                setImportKeys([]);
+                              })
+                            }
+                          >
+                            {t("确认导入所选内容")}
+                          </button>
+                        </section>
+                      ),
                     )}
-                  </p>
-                  <label className="wt-agreement-check">
-                    <input
-                      type="checkbox"
-                      checked={deleteConfirm}
-                      onChange={(e) => setDeleteConfirm(e.target.checked)}
-                    />
-                    {t("确认删除当前账号的云端计划数据")}
-                  </label>
-                  <button
-                    disabled={!deleteConfirm || busy || sending}
-                    onClick={() =>
-                      void run(async () => {
-                        const pricePreferences = await readPricePreferences();
-                        await savePricePreferences(
-                          { revision: pricePreferences.revision, items: {} },
-                          "user:" + userId,
-                        );
-                        localStorage.removeItem(
-                          "wt-sale-cart-preferences-v1:user:" + userId + ":pending",
-                        );
-                        window.dispatchEvent(new Event("wt-sale-preferences-cleared"));
-                        await statsRequest("account/workspace/clear", {
-                          confirmed: true,
-                          ownerKey: "user:" + userId,
-                        });
-                        storePending({});
-                        setConflict(null);
-                        setDeleteConfirm(false);
-                        await load();
-                      })
-                    }
-                  >
-                    {t("删除云端计划数据")}
-                  </button>
-                </details>
-              </>
-            )}
-            {localize(
-              cacheWarning && Object.keys(pending).length > 0 && (
-                <output>{localize(cacheWarning)}</output>
-              ),
-            )}
-            {localize(error && <p role="alert">{localize(error)}</p>)}
-          </div>
-        </Modal>
+                    {localize(
+                      conflict && (
+                        <section>
+                          <h3>{t("另一设备更新了此内容")}</h3>
+                          <p>
+                            {localize(documentLabel(conflict.key))}
+                            {t("。本机待保存内容仍保留，请选择。")}
+                          </p>
+                          <div className="wt-account-actions">
+                            <button
+                              disabled={busy || sending}
+                              onClick={() =>
+                                void run(async () => {
+                                  const next = { ...current.current.pending };
+                                  delete next[conflict.key];
+                                  storePending(next);
+                                  setConflict(null);
+                                  await load();
+                                })
+                              }
+                            >
+                              {t("使用云端版本")}
+                            </button>
+                            <button
+                              disabled={busy || sending}
+                              onClick={() =>
+                                void run(async () => {
+                                  const old = current.current.pending[conflict.key];
+                                  if (old)
+                                    storePending({
+                                      ...current.current.pending,
+                                      [conflict.key]: {
+                                        ...old,
+                                        revision: conflict.remote.revision,
+                                      },
+                                    });
+                                  setConflict(null);
+                                })
+                              }
+                            >
+                              {t("用本机版本覆盖")}
+                            </button>
+                          </div>
+                        </section>
+                      ),
+                    )}
+                  </>
+                ),
+              )}
+              {localize(
+                cacheWarning && Object.keys(pending).length > 0 && (
+                  <output>{localize(cacheWarning)}</output>
+                ),
+              )}
+              {localize(error && <p role="alert">{localize(error)}</p>)}
+            </div>
+          </Modal>
+        ),
       )}
     </>
   );

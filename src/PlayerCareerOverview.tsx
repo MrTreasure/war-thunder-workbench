@@ -32,7 +32,6 @@ export function PlayerCareerOverview({
   armyBase?: string;
 }) {
   useLocale();
-
   const read = usePlayerRead<PlayerDetails>(profile, "details", active);
   const [branch, setBranch] = useState("combined"),
     [period, setPeriod] = useState<"career" | "recent">("career");
@@ -43,6 +42,22 @@ export function PlayerCareerOverview({
     selected?.counters || (period === "career" && selectedBranch === "combined" ? base : null);
   const career = scope?.periods.career,
     recent = scope?.periods.recent;
+  const hasComparison = !!(
+    career &&
+    recent &&
+    [
+      "victories_battles",
+      "averageScore",
+      "averageRelativePosition",
+      "average_active_kills_by_spawn",
+    ].some((key) => {
+      const a = career.metrics[key]?.value,
+        b = recent.metrics[key]?.value;
+      if (a == null || b == null || !Number.isFinite(a) || !Number.isFinite(b)) return false;
+      const scale = key === "victories_battles" || key === "averageRelativePosition" ? 100 : 1;
+      return Number(((b - a) * scale).toFixed(2)) !== 0;
+    })
+  );
   if (!active) return null;
   return (
     <div className="wt-career-overview">
@@ -128,7 +143,7 @@ export function PlayerCareerOverview({
         <div
           className="wt-career-dashboard"
           data-has-radar={!!counters?.radar}
-          data-has-comparison={!!(career && recent)}
+          data-has-comparison={hasComparison}
         >
           {localize(counters?.radar && <PlayerRadar axes={counters.radar} />)}
           <CountryOwnership key={profile.snapshotId} profile={profile} />
@@ -171,40 +186,45 @@ export function PlayerCareerOverview({
             ),
           )}
 
-          <section className="wt-record-panel wt-career-comparison">
-            <div className="wt-record-heading">
-              <h2>
-                {t("近期与生涯")}
-                <GameTip label={t("近期与生涯")}>
-                  {t("差异仅与自身生涯均值比较，不代表连续涨跌或最近几局结果。")}
-                  {localize(
-                    career && recent && (
-                      <p>
-                        {t("累计")}
-                        {localize(num(career.counters.battles))}
-                        {t("场 · 近期")}
-                        {localize(num(recent.counters.battles))}
-                        {localize(" ")}
-                        {t("场。")}
-                      </p>
-                    ),
-                  )}
-                  {localize(
-                    read.data?.registeredAt && (
-                      <p>
-                        {t("注册于")}
-                        {localize(
-                          new Date(read.data.registeredAt * 1000).toLocaleDateString(getLocale()),
-                        )}
-                      </p>
-                    ),
-                  )}
-                </GameTip>
-              </h2>
-              <span>{localize(scope?.label || t("同一统计范围"))}</span>
-            </div>
-            {localize(
-              career && recent ? (
+          {localize(
+            hasComparison && career && recent && (
+              <section className="wt-record-panel wt-career-comparison">
+                <div className="wt-record-heading">
+                  <h2>
+                    {t("近期与生涯")}
+                    <GameTip label={t("近期与生涯")}>
+                      {t("差异仅与自身生涯均值比较，不代表连续涨跌或最近几局结果。")}
+                      {localize(
+                        career && recent && (
+                          <p>
+                            {t("累计")}
+                            {localize(" ")}
+                            {localize(num(career.counters.battles))}
+                            {t("场 · 近期")}
+                            {localize(" ")}
+                            {localize(num(recent.counters.battles))}
+                            {localize(" ")}
+                            {t("场。")}
+                          </p>
+                        ),
+                      )}
+                      {localize(
+                        read.data?.registeredAt && (
+                          <p>
+                            {t("注册于")}
+                            {localize(" ")}
+                            {localize(
+                              new Date(read.data.registeredAt * 1000).toLocaleDateString(
+                                getLocale(),
+                              ),
+                            )}
+                          </p>
+                        ),
+                      )}
+                    </GameTip>
+                  </h2>
+                  <span>{localize(scope?.label || t("同一统计范围"))}</span>
+                </div>
                 <>
                   <table>
                     <thead>
@@ -262,15 +282,9 @@ export function PlayerCareerOverview({
                     </tbody>
                   </table>
                 </>
-              ) : (
-                <p className="wt-record-fine">
-                  {localize(
-                    read.busy ? t("正在补充近期统计…") : t("当前范围缺少可比较的近期数据。"),
-                  )}
-                </p>
-              ),
-            )}
-          </section>
+              </section>
+            ),
+          )}
         </div>
       </div>
     </div>

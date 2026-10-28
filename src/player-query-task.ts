@@ -11,12 +11,12 @@ type QueryJob<T> = PendingQuery & {
   contentSafetyVersion?: string;
 };
 const KEY = "wt-stats-pending-query-v1";
-const stages: Record<string, () => string> = {
-  queued: () => t("查询已排队，无需重复提交…"),
-  cache: () => t("正在检查已有资料…"),
-  waiting: () => t("正在等待官方查询通道…"),
-  fetching: () => t("正在读取官方资料…"),
-  moderating: () => t("正在整理资料并审核显示内容…"),
+const stages: Record<string, string> = {
+  queued: t("查询已排队，无需重复提交…"),
+  cache: t("正在检查已有资料…"),
+  waiting: t("正在等待官方查询通道…"),
+  fetching: t("正在读取官方资料…"),
+  moderating: t("正在整理资料并审核显示内容…"),
 };
 export function pendingQuery(): PendingQuery | null {
   try {
@@ -142,7 +142,7 @@ async function follow<T>(
       forgetQuery(task.id);
       return { ...job.result, contentSafetyVersion: job.contentSafetyVersion };
     }
-    progress(stages[job.stage]?.() || t("查询正在处理中…"));
+    progress(stages[job.stage] || t("查询正在处理中…"));
     const stage = job.status + ":" + job.stage;
     unchanged = stage === previousStage ? unchanged + 1 : 0;
     previousStage = stage;
@@ -157,7 +157,7 @@ export async function queryTask<T>(
   kind: QueryKind,
   payload: unknown,
   signal: AbortSignal,
-  progress: (text: string) => void,
+  progress: (text: string) => void = () => {},
 ): Promise<T> {
   progress(t("正在提交查询任务…"));
   const job = await statsRequest<QueryJob<T>>(
@@ -168,7 +168,10 @@ export async function queryTask<T>(
   remember(job);
   return follow<T>(job, signal, progress);
 }
-export async function resumeQuery<T>(signal: AbortSignal, progress: (text: string) => void) {
+export async function resumeQuery<T>(
+  signal: AbortSignal,
+  progress: (text: string) => void = () => {},
+) {
   const task = pendingQuery();
   if (!task) return null;
   progress(t("正在恢复上次查询任务…"));

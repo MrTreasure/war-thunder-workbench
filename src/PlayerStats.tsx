@@ -1,16 +1,17 @@
-import { PlayerAvatar as Avatar } from "./PlayerAvatar";
-import type { ReportStyle } from "./player-report-style";
-import type { LeaderboardData, LeaderboardPlayer } from "./player-leaderboards-cache";
 import { useLocale } from "./i18n/react";
-import { t, localize, vehicleName, vehicleSearchText } from "./i18n/core";
+import { t, localize } from "./i18n/core";
+import { PlayerAvatar as Avatar } from "./PlayerAvatar";
 import { GameTip } from "./components/GameTip";
 import { buildReportRequest } from "./player-report-request";
 import { ExtraQueryCredits } from "./ExtraQueryCredits";
 import { PlayerMedals } from "./PlayerMedals";
+import { PlayerAccountFacts } from "./PlayerAccountFacts";
+import { RelativeTime } from "./RelativeTime";
+import { PlayerRefreshAction } from "./PlayerRefreshAction";
 import { GameAccountBinding } from "./GameAccountBinding";
 import { readPublicResource } from "./public-resource-api";
 import { queryTask, pendingQuery, resumeQuery, forgetQuery } from "./player-query-task";
-
+import { vehicleDisplayName } from "./vehicle-display-name";
 import { statsCountryMatches, statsCountryLabel } from "./stats-country";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
@@ -38,7 +39,7 @@ import type { PlayerDetails } from "./player-rankings-api";
 import { AccountValuation } from "./AccountValuation";
 import { PlayerReport } from "./PlayerReport";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
-import { reportStyle, reportStyles } from "./player-report-style";
+import { reportStyle, reportStyles, type ReportStyle } from "./player-report-style";
 import { StatsDataNotes } from "./StatsDataNotes";
 import {
   defaultReportTheme,
@@ -54,6 +55,8 @@ import {
   cachedLeaderboards,
   cacheLeaderboards,
   validLeaderboards,
+  type LeaderboardData,
+  type LeaderboardPlayer,
 } from "./player-leaderboards-cache";
 import { GameTabs } from "./components/GameTabs";
 import { GameSelect } from "./components/GameSelect";
@@ -65,7 +68,6 @@ import {
   statsSilver,
   statsSilverIcon,
   statsRatio as ratio,
-  statsDate,
   statsModeNames,
   statsReportScopeLabel,
   lastStatsNickname,
@@ -97,23 +99,22 @@ function VehicleRow({
   select: () => void;
 }) {
   useLocale();
-
   return (
     <tr>
-      <td aria-label={vehicleName(v)}>
+      <td aria-label={vehicleDisplayName(v.name)}>
         <a
           className="wt-record-vehicle"
           href={"https://wiki.warthunder.com/unit/" + encodeURIComponent(v.id)}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={t("{0} 官方 Wiki（新标签页打开）", [vehicleName(v)])}
+          aria-label={t("{0} 官方 Wiki（新标签页打开）", [localize(vehicleDisplayName(v.name))])}
           title={t("在新标签页打开官方 Wiki")}
         >
           <img src={v.thumbnail} alt="" loading="lazy" />
           <span>
-            <b>{vehicleName(v)}</b>
+            <b>{localize(vehicleDisplayName(v.name))}</b>
             <small>
-              {localize(v.rank && t("{0} 级 · ", [v.rank]))}
+              {localize(v.rank && t("{0} 级 · ", [localize(v.rank)]))}
               {localize(countryName)}
             </small>
           </span>
@@ -135,7 +136,7 @@ function VehicleRow({
       <td className="wt-silver">
         <span className="wt-silver-amount">
           <img src={statsSilverIcon} alt={t("银狮")} />
-          <span title={t("累计银狮：{0}", [statsSilver(v.silverLions)])}>
+          <span title={t("累计银狮：{0}", [localize(statsSilver(v.silverLions))])}>
             {localize(compactSilver(v.silverLions))}
           </span>
         </span>
@@ -145,10 +146,8 @@ function VehicleRow({
 }
 export function PlayerStats() {
   useLocale();
-
   const route = useSearch({ from: "/_workbench/stats" });
   const navigate = useNavigate({ from: "/stats" });
-  const [queryProgress, setQueryProgress] = useState("");
   const resumedQuery = useRef(false);
   const [recentPlayers, setRecentPlayers] = useState(statsQueryHistory);
   const [leaderboards, setLeaderboards] = useState(cachedLeaderboards);
@@ -202,9 +201,10 @@ export function PlayerStats() {
   useEffect(() => {
     setTab(route.view || "overview");
   }, [route.view]);
-  const [busy, setBusy] = useState(false),
-    [error, setError] = useState(""),
-    [notice, setNotice] = useState("");
+  const [busyAction, setBusyAction] = useState<"query" | "refresh" | "report" | null>(null);
+  const busy = busyAction !== null;
+  const [error, setError] = useState(""),
+    [queryFeedback, setQueryFeedback] = useState("");
   const [search, setSearch] = useState(""),
     [category, setCategory] = useState("all"),
     [vehicleCountry, setVehicleCountry] = useState("all"),
@@ -316,7 +316,7 @@ export function PlayerStats() {
       setViewingHistory(false);
       setBackground("auto");
       setCandidates([]);
-      setNotice(p.stale ? p.staleReason || t("官方查询繁忙，正在展示此前采集的资料。") : "");
+      setQueryFeedback("");
     },
     [navigate, route.player, route.view],
   );
@@ -326,18 +326,18 @@ export function PlayerStats() {
     resumedQuery.current = true;
     const c = controller(),
       id = ++generation.current;
-    setBusy(true);
+    setBusyAction(pendingQuery()?.kind === "refresh" ? "refresh" : "query");
     void resumeQuery<
       | PlayerProfile
       | { items: PlayerCandidate[]; queryId: string; stale?: boolean; staleReason?: string }
-    >(c.signal, setQueryProgress)
+    >(c.signal)
       .then((value) => {
         if (!value || c.signal.aborted || id !== generation.current) return;
         if ("items" in value.result) {
           setQueryId(value.result.queryId);
           setCandidates(value.result.items);
           if (value.result.stale)
-            setNotice(value.result.staleReason || t("正在展示已保存的搜索结果。"));
+            setQueryFeedback(value.result.staleReason || t("正在展示已保存的搜索结果。"));
         } else loadProfile(value.result);
         void refreshSession();
       })
@@ -347,7 +347,7 @@ export function PlayerStats() {
       })
       .finally(() => {
         requests.current.delete(c);
-        if (!c.signal.aborted && id === generation.current) setBusy(false);
+        if (!c.signal.aborted && id === generation.current) setBusyAction(null);
       });
     return () => {
       c.abort();
@@ -355,10 +355,9 @@ export function PlayerStats() {
     };
   }, [hasSession, route.player, loadProfile, refreshSession]);
   async function openSavedProfile(p: PlayerProfile) {
-    setQueryProgress("");
     const id = ++generation.current,
       c = controller();
-    setBusy(true);
+    setBusyAction("query");
     setError("");
     try {
       const restored = await statsRequest<PlayerProfile>(
@@ -369,7 +368,6 @@ export function PlayerStats() {
       if (c.signal.aborted || id !== generation.current) return;
       if (restored.uid !== p.uid) throw new Error(t("保存的玩家身份不一致，请重新查询。"));
       loadProfile(restored);
-      setNotice(t("已打开保存的查询记录，本次不扣查询次数；采集时间见下方。"));
     } catch (failure) {
       if (c.signal.aborted || id !== generation.current) return;
       setError(
@@ -379,20 +377,20 @@ export function PlayerStats() {
       );
     } finally {
       requests.current.delete(c);
-      if (id === generation.current) setBusy(false);
+      if (id === generation.current) setBusyAction(null);
     }
   }
   function returnToSearch() {
     generation.current++;
     requests.current.forEach((c) => c.abort());
     exportController.current?.abort();
-    setBusy(false);
+    setBusyAction(null);
     setProfile(null);
     setCandidates([]);
     setReport(null);
     setHistory(null);
     setError("");
-    setNotice("");
+    setQueryFeedback("");
     setTab("overview");
     void navigate({ search: {}, replace: true });
   }
@@ -403,9 +401,9 @@ export function PlayerStats() {
     rememberStatsNickname(value);
     const id = ++generation.current,
       c = controller();
-    setBusy(true);
+    setBusyAction("query");
     setError("");
-    setNotice("");
+    setQueryFeedback("");
     try {
       const result = await queryTask<{
         items: PlayerCandidate[];
@@ -413,18 +411,13 @@ export function PlayerStats() {
         cached: boolean;
         stale?: boolean;
         staleReason?: string;
-      }>(
-        "search",
-        { nickname: value, requestId: "query_" + crypto.randomUUID() },
-        c.signal,
-        setQueryProgress,
-      );
+      }>("search", { nickname: value, requestId: "query_" + crypto.randomUUID() }, c.signal);
       if (c.signal.aborted || id !== generation.current) return;
       setQueryId(result.queryId);
       setCandidates(result.items);
-      if (!result.items.length) setNotice(t("没有找到玩家，请检查昵称与平台后缀。"));
+      if (!result.items.length) setQueryFeedback(t("没有找到玩家，请检查昵称与平台后缀。"));
       else if (result.stale)
-        setNotice(result.staleReason || t("正在展示已保存的搜索结果，请核对玩家 UID。"));
+        setQueryFeedback(result.staleReason || t("正在展示已保存的搜索结果，请核对玩家 UID。"));
       setProfile(null);
     } catch (failure) {
       if (!c.signal.aborted && id === generation.current)
@@ -432,7 +425,7 @@ export function PlayerStats() {
     } finally {
       requests.current.delete(c);
       if (!c.signal.aborted && id === generation.current) {
-        setBusy(false);
+        setBusyAction(null);
         void refreshSession();
       }
     }
@@ -441,9 +434,9 @@ export function PlayerStats() {
     if (accountInitializing || busy || !session) return;
     const id = ++generation.current,
       c = controller();
-    setBusy(true);
+    setBusyAction("query");
     setError("");
-    setNotice("");
+    setQueryFeedback("");
     setNickname(player.nickname);
     setCandidates([]);
     setQueryId("");
@@ -460,7 +453,6 @@ export function PlayerStats() {
           requestId: "query_" + crypto.randomUUID(),
         },
         c.signal,
-        setQueryProgress,
       );
       if (!c.signal.aborted && id === generation.current) {
         loadProfile(result);
@@ -494,7 +486,7 @@ export function PlayerStats() {
     } finally {
       requests.current.delete(c);
       if (!c.signal.aborted && id === generation.current) {
-        setBusy(false);
+        setBusyAction(null);
         void refreshSession();
       }
     }
@@ -502,22 +494,17 @@ export function PlayerStats() {
   async function choose(p: PlayerCandidate) {
     const id = ++generation.current,
       c = controller();
-    setBusy(true);
+    setBusyAction("query");
     setError("");
     try {
-      const value = await queryTask<PlayerProfile>(
-        "select",
-        { queryId, uid: p.uid },
-        c.signal,
-        setQueryProgress,
-      );
+      const value = await queryTask<PlayerProfile>("select", { queryId, uid: p.uid }, c.signal);
       if (!c.signal.aborted && id === generation.current) loadProfile(value);
     } catch (failure) {
       if (!c.signal.aborted) setError(failure instanceof Error ? failure.message : t("查询失败。"));
     } finally {
       requests.current.delete(c);
       if (!c.signal.aborted) {
-        setBusy(false);
+        setBusyAction(null);
         void refreshSession();
       }
     }
@@ -526,9 +513,9 @@ export function PlayerStats() {
     if (!profile || busy) return;
     const id = ++generation.current,
       c = controller();
-    setBusy(true);
+    setBusyAction("refresh");
     setError("");
-    setNotice("");
+    setQueryFeedback("");
     try {
       const value = await queryTask<PlayerProfile>(
         "refresh",
@@ -537,7 +524,6 @@ export function PlayerStats() {
           requestId: "refresh_" + crypto.randomUUID(),
         },
         c.signal,
-        setQueryProgress,
       );
       if (c.signal.aborted || id !== generation.current) return;
       setProfile(value);
@@ -547,14 +533,13 @@ export function PlayerStats() {
       if (!value.modes.some((m) => m.id === mode)) setMode(value.modes[0]?.id || "rb");
       setReport(null);
       setViewingHistory(false);
-      setNotice(t("已重新获取官方资料。"));
     } catch (failure) {
       if (!c.signal.aborted && id === generation.current)
         setError(failure instanceof Error ? failure.message : t("刷新失败，原资料仍可查看。"));
     } finally {
       requests.current.delete(c);
       if (!c.signal.aborted && id === generation.current) {
-        setBusy(false);
+        setBusyAction(null);
         void refreshSession();
       }
     }
@@ -578,6 +563,9 @@ export function PlayerStats() {
     const c = new AbortController(),
       active = requests.current;
     active.add(c);
+    const openingPlayer =
+      !!(route.player || (route.snapshot && route.uid)) && !resumedQuery.current;
+    if (openingPlayer) setBusyAction("query");
     void Promise.all([readPublicResource<StatsConfig>("config", c.signal), refreshSession()])
       .then(async ([cfg]) => {
         if (c.signal.aborted) return;
@@ -614,6 +602,9 @@ export function PlayerStats() {
       .catch((failure) => {
         if (!c.signal.aborted)
           setError(failure instanceof Error ? failure.message : t("服务暂时不可用。"));
+      })
+      .finally(() => {
+        if (openingPlayer && !c.signal.aborted) setBusyAction(null);
       });
     return () => {
       c.abort();
@@ -649,25 +640,23 @@ export function PlayerStats() {
     previousIdentity.current = identityVersion;
     clearRankingMemory();
     forgetQuery();
-    setQueryProgress("");
     setSelectedVehicle(null);
     setVehicleShare(null);
     generation.current++;
     requests.current.forEach((request) => request.abort());
     exportController.current?.abort();
-    setBusy(false);
+    setBusyAction(null);
     setProfile(null);
     setCandidates([]);
     setReport(null);
     setHistory(null);
     setQueryId("");
-    setNotice(t("账号状态已更新，请重新选择玩家。"));
+    setQueryFeedback(t("账号状态已更新，请重新选择玩家。"));
   }, [identityVersion]);
   async function generate() {
-    setQueryProgress("");
     if (!profile || viewingHistory || !eligible.length) return;
     const c = controller();
-    setBusy(true);
+    setBusyAction("report");
     setError("");
     try {
       const value = await statsRequest<StatsReport>(
@@ -689,7 +678,7 @@ export function PlayerStats() {
     } finally {
       requests.current.delete(c);
       if (!c.signal.aborted) {
-        setBusy(false);
+        setBusyAction(null);
         void refreshSession();
       }
     }
@@ -749,7 +738,8 @@ export function PlayerStats() {
         (category === "all" || v.category === category) &&
         statsCountryMatches(v.country, vehicleCountry) &&
         (vehicleRank === "all" || (v.rank || "unknown") === vehicleRank) &&
-        (!search || vehicleSearchText(v).toLowerCase().includes(search.toLowerCase())),
+        (!search ||
+          (vehicleDisplayName(v.name) + " " + v.id).toLowerCase().includes(search.toLowerCase())),
     )
     .sort((a, b) => (vehicleSort ? comparePlayerVehicles(a, b, vehicleSort) : 0));
   const vehiclePages = Math.max(1, Math.ceil(filtered.length / vehiclePageSize));
@@ -807,6 +797,10 @@ export function PlayerStats() {
       });
     return () => c.abort();
   }, [bg, tab, canReadBackground]);
+  const queryLoading =
+    accountInitializing || busyAction === "query" || (busyAction === "refresh" && !profile);
+  const reportLoading =
+    busyAction === "report" || !!(report && ["queued", "running"].includes(report.status));
   return (
     <div className="wt-record-page">
       <header className="wt-record-page-title">
@@ -870,10 +864,20 @@ export function PlayerStats() {
           autoComplete="off"
         />
         <button
-          className="wt-record-primary"
+          className="wt-record-primary wt-record-query-submit"
+          aria-busy={queryLoading}
           disabled={accountInitializing || busy || !session || nickname.trim().length < 2}
         >
-          {localize(accountInitializing ? t("账号加载中…") : busy ? t("正在查询…") : t("搜索玩家"))}
+          {localize(queryLoading && <span className="wt-control-spinner" aria-hidden="true" />)}
+          <span aria-live="polite">
+            {localize(
+              accountInitializing
+                ? t("账号加载中…")
+                : queryLoading
+                  ? t("正在查询…")
+                  : t("搜索玩家"),
+            )}
+          </span>
         </button>
         {localize(
           (profile || candidates.length > 0 || busy || route.player) && (
@@ -884,20 +888,17 @@ export function PlayerStats() {
         )}
       </form>
       {localize(
-        busy && queryProgress && (
-          <output className="wt-record-notice" aria-live="polite">
-            {localize(queryProgress)}
-          </output>
-        ),
-      )}
-      {localize(
         error && (
           <p className="wt-record-error" role="alert">
             {localize(error)}
           </p>
         ),
       )}
-      {localize(notice && <output className="wt-record-notice">{localize(notice)}</output>)}
+      {localize(
+        queryFeedback && (
+          <output className="wt-record-query-feedback">{localize(queryFeedback)}</output>
+        ),
+      )}
       {localize(
         !!candidates.length && (
           <section className="wt-record-candidates">
@@ -945,19 +946,23 @@ export function PlayerStats() {
                   <div className="wt-record-recent">
                     {localize(
                       recentPlayers.map((p) => (
-                        <button
-                          key={p.uid}
-                          disabled={busy}
-                          onClick={() => {
-                            void openSavedProfile(p);
-                          }}
-                        >
-                          <Avatar url={p.avatar} name={p.nickname} frameKey={p.avatarFrameKey} />
-                          <span>
-                            <b>{localize(p.nickname)}</b>
-                            <small>{localize(statsDate(p.fetchedAt))}</small>
-                          </span>
-                        </button>
+                        <div key={p.uid} className="wt-record-recent-entry">
+                          <button
+                            disabled={busy}
+                            onClick={() => {
+                              void openSavedProfile(p);
+                            }}
+                          >
+                            <Avatar url={p.avatar} name={p.nickname} frameKey={p.avatarFrameKey} />
+                            <span>
+                              <b>{localize(p.nickname)}</b>
+                              <span className="wt-record-recent-time-space" aria-hidden="true" />
+                            </span>
+                          </button>
+                          <small>
+                            <RelativeTime value={p.fetchedAt} />
+                          </small>
+                        </div>
                       )),
                     )}
                   </div>
@@ -980,7 +985,8 @@ export function PlayerStats() {
                       board && (
                         <p>
                           {t("榜单快照采集于")}
-                          {localize(statsDate(board.fetchedAt))}
+                          {localize(" ")}
+                          <RelativeTime value={board.fetchedAt} />
                           {t("· 官方累计榜，非实时更新。")}
                         </p>
                       ),
@@ -1064,11 +1070,17 @@ export function PlayerStats() {
         profile && (
           <>
             <section className="wt-record-player">
-              <Avatar
-                url={profile.avatar}
-                name={profile.nickname}
-                frameKey={profile.avatarFrameKey}
-              />
+              <div className="wt-record-player-avatar">
+                <Avatar
+                  url={profile.avatar}
+                  name={profile.nickname}
+                  frameKey={profile.avatarFrameKey}
+                />
+                <GameAccountBinding
+                  key={`binding:${profile.snapshotId}:${session?.user?.id || "guest"}`}
+                  profile={profile}
+                />
+              </div>
               <div className="wt-record-player-identity">
                 <h2>
                   {localize(profile.clanTag && <small>{localize(profile.clanTag)} </small>)}
@@ -1076,8 +1088,14 @@ export function PlayerStats() {
                 </h2>
                 <p>
                   {t("等级")}
+                  {localize(" ")}
                   {localize(num(profile.level))} · UID {localize(profile.uid)}
                 </p>
+                <PlayerAccountFacts
+                  key={profile.uid}
+                  details={publicDetails.data}
+                  loading={publicDetails.busy}
+                />
               </div>
               <PlayerMedals
                 key={`medals:${profile.snapshotId}`}
@@ -1087,25 +1105,8 @@ export function PlayerStats() {
                 retry={publicDetails.retry}
               />
               <div className="wt-record-player-actions" aria-label={t("玩家资料操作")}>
-                <GameAccountBinding
-                  key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
-                  profile={profile}
-                />
-                <button
-                  className="wt-record-player-refresh"
-                  title={t("重新获取官方资料，计入新查询次数")}
-                  disabled={
-                    profile.localOnly ||
-                    busy ||
-                    exportBusy ||
-                    (!!report && ["queued", "running"].includes(report.status))
-                  }
-                  onClick={() => void forceRefresh()}
-                >
-                  {localize(busy ? t("正在获取…") : t("强制刷新"))}
-                </button>
                 <AccountValuation
-                  key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
+                  key={`valuation:${profile.snapshotId}:${session?.user?.id || "guest"}`}
                   profile={profile}
                   session={session}
                   onSessionChange={refreshSession}
@@ -1114,10 +1115,28 @@ export function PlayerStats() {
               <div className="wt-record-source">
                 <span>
                   {t("采集于")}
-                  {localize(statsDate(profile.fetchedAt))} ·{localize(" ")}
-                  {localize(profile.cached ? t("已命中缓存，本次不扣查询次数") : t("官方助手资料"))}
+                  {localize(" ")}
+                  <RelativeTime value={profile.fetchedAt} /> ·{localize(" ")}
+                  {localize(
+                    profile.stale
+                      ? t("正在展示此前资料")
+                      : profile.cached
+                        ? t("已命中缓存，本次不扣查询次数")
+                        : t("官方助手资料"),
+                  )}
                 </span>
-                <small>{t("强制刷新计入新查询次数")}</small>
+                <PlayerRefreshAction
+                  key={`refresh:${profile.snapshotId}`}
+                  profile={profile}
+                  busy={busyAction === "refresh"}
+                  disabled={
+                    !!profile.localOnly ||
+                    busy ||
+                    exportBusy ||
+                    (!!report && ["queued", "running"].includes(report.status))
+                  }
+                  refresh={() => void forceRefresh()}
+                />
               </div>
             </section>
             <div className="wt-record-tabs">
@@ -1135,6 +1154,7 @@ export function PlayerStats() {
                     label: (
                       <>
                         {t("个人战报")}
+                        {localize(" ")}
                         <small>TOP 5</small>
                       </>
                     ),
@@ -1206,11 +1226,17 @@ export function PlayerStats() {
                           </span>
                         </h2>
                         <span>
-                          {localize(statsModeNames[mode])} {t("· 仅展示已出击载具")}
+                          {localize(statsModeNames[mode])}
+                          {t("· 仅展示已出击载具")}
                           {localize(
-                            freshVehicleDetails
-                              ? t(" · 采集于 {0}", [statsDate(freshVehicleDetails.fetchedAt)])
-                              : "",
+                            freshVehicleDetails && (
+                              <>
+                                {localize(" ")}
+                                {t("· 采集于")}
+                                {localize(" ")}
+                                <RelativeTime value={freshVehicleDetails.fetchedAt} />
+                              </>
+                            ),
                           )}
                         </span>
                       </div>
@@ -1302,7 +1328,9 @@ export function PlayerStats() {
                           {localize(
                             vehicleColumns.map(([key, label]) => (
                               <option key={key} value={key}>
-                                {t("按{0}排序", [localize(label)])}
+                                {t("按")}
+                                {localize(label)}
+                                {t("排序")}
                               </option>
                             )),
                           )}
@@ -1315,7 +1343,7 @@ export function PlayerStats() {
                             if (vehicleSort) sortVehicles(vehicleSort.key, true);
                           }}
                           aria-label={t("切换为{0}排列载具战绩", [
-                            vehicleSort?.direction === "desc" ? t("升序") : t("降序"),
+                            localize(vehicleSort?.direction === "desc" ? t("升序") : t("降序")),
                           ])}
                         >
                           {localize(
@@ -1391,7 +1419,9 @@ export function PlayerStats() {
                                           type="button"
                                           className="wt-record-sort"
                                           onClick={() => sortVehicles(key, true)}
-                                          title={t("按{0}排序，点击切换升序或降序", [label])}
+                                          title={t("按{0}排序，点击切换升序或降序", [
+                                            localize(label),
+                                          ])}
                                         >
                                           {localize(label)}
                                           <span aria-hidden="true">
@@ -1568,7 +1598,8 @@ export function PlayerStats() {
                       <div className="wt-record-heading">
                         <h3>{t("战雷官方背景")}</h3>
                         <span>
-                          {localize(config?.assets.backgrounds.length || 0)} {t("张")}
+                          {localize(config?.assets.backgrounds.length || 0)}
+                          {t("张")}
                         </span>
                       </div>
                       <button
@@ -1671,7 +1702,8 @@ export function PlayerStats() {
                         )}
                       </div>
                       <button
-                        className="wt-record-primary"
+                        className="wt-record-primary wt-record-button-loading"
+                        aria-busy={reportLoading}
                         disabled={
                           busy ||
                           viewingHistory ||
@@ -1682,7 +1714,12 @@ export function PlayerStats() {
                         onClick={() => void generate()}
                       >
                         {localize(
-                          report?.status === "queued" || report?.status === "running"
+                          reportLoading && (
+                            <span className="wt-control-spinner" aria-hidden="true" />
+                          ),
+                        )}
+                        {localize(
+                          reportLoading
                             ? t("正在生成战报与点评…")
                             : report?.status === "ready"
                               ? t("取用相同配置战报")
@@ -1745,7 +1782,8 @@ export function PlayerStats() {
                               )}
                             </p>
                             <strong>
-                              {localize(eligible.length)} {t("辆有出击记录的载具")}
+                              {localize(eligible.length)}
+                              {t("辆有出击记录的载具")}
                             </strong>
                             <p>
                               {localize(
@@ -1756,7 +1794,6 @@ export function PlayerStats() {
                             </p>
                             <small>
                               {localize(reportStyle(analysisStyle).label)}
-                              {localize(" ")}
                               {t("· 点击生成后，数据与点评一起完成。")}
                             </small>
                           </div>
@@ -1865,7 +1902,7 @@ export function PlayerStats() {
                   >
                     <b>{localize(item.payload.player.nickname)}</b>
                     <span>
-                      {localize(statsModeNames[item.payload.mode])} ·{localize(" ")}
+                      {localize(statsModeNames[item.payload.mode])} ·{" "}
                       {localize(statsReportScopeLabel(item.payload))} ·{localize(" ")}
                       {localize(reportStyle(item.payload.analysis?.style).label)} ·{localize(" ")}
                       {localize(
@@ -1876,7 +1913,13 @@ export function PlayerStats() {
                             : t("处理中"),
                       )}
                     </span>
-                    <small>{localize(item.createdAt && statsDate(item.createdAt))}</small>
+                    <small>
+                      {localize(
+                        item.createdAt && (
+                          <RelativeTime value={item.createdAt} interactive={false} />
+                        ),
+                      )}
+                    </small>
                   </button>
                 ))
               ) : (

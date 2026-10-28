@@ -225,7 +225,7 @@ function readEntries(): Entry[] {
           integer(entry.savedAt) &&
           integer(entry.expiresAt) &&
           entry.savedAt <= now + 60000 &&
-          entry.expiresAt > now &&
+          entry.expiresAt > entry.savedAt &&
           entry.expiresAt <= entry.savedAt + TTL &&
           valid(entry.value) &&
           entry.value.player.uid === entry.uid &&
@@ -241,14 +241,22 @@ export function cachedValuation(
   profile: Pick<PlayerProfile, "uid" | "snapshotId">,
 ): Valuation | null {
   if (!scope) return null;
-  const found = readEntries().find(
-    (entry) =>
-      entry.scope === scope &&
-      entry.uid === profile.uid &&
-      entry.snapshotId === profile.snapshotId &&
-      signature(entry.value.rules) === signature(rules),
-  );
-  return found ? { ...found.value, cached: true, localCached: true } : null;
+  // Expiry describes freshness. A valid saved valuation remains readable as history.
+  const matches = readEntries()
+    .filter((entry) => entry.scope === scope && entry.uid === profile.uid)
+    .sort((a, b) => b.savedAt - a.savedAt);
+  const found = matches.find((entry) => entry.snapshotId === profile.snapshotId) || matches[0];
+  return found
+    ? {
+        ...found.value,
+        cached: true,
+        localCached: true,
+        localStale:
+          found.expiresAt <= Date.now() ||
+          found.snapshotId !== profile.snapshotId ||
+          signature(found.value.rules) !== signature(rules),
+      }
+    : null;
 }
 export function cacheValuation(
   scope: string | null,

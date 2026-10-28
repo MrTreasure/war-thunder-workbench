@@ -1,5 +1,5 @@
 import { useLocale } from "./i18n/react";
-import { t, getLocale } from "./i18n/core";
+import { t, localize, getLocale } from "./i18n/core";
 import { lazy, Suspense, useLayoutEffect, useRef, useState } from "react";
 import { Modal } from "./Modal";
 import imageRegistry from "../data/player-medal-images.json";
@@ -23,41 +23,44 @@ function MedalBadge({
   unavailable: (id: string) => void;
   inspect: (medal: PlayerMedal, trigger: HTMLButtonElement) => void;
 }) {
+  useLocale();
   const [fallback, setFallback] = useState(false);
   const [failed, setFailed] = useState(false);
   const image = medalImages.get(medal.id)!;
   return (
     <button
       type="button"
-      aria-label={t("{0}，点击放大查看详情", [medalName(medal)])}
+      aria-label={t("{0}，点击放大查看详情", [localize(medalName(medal))])}
       aria-haspopup="dialog"
       title={medalName(medal)}
       className="wt-player-medal"
       onClick={(event) => inspect(medal, event.currentTarget)}
     >
-      {failed ? (
-        <span aria-hidden="true">?</span>
-      ) : (
-        <span className="wt-player-medal-art">
-          <img
-            src={fallback ? image.fallbackUrl : image.url}
-            width={24}
-            height={24}
-            alt=""
-            onError={() => {
-              if (!fallback) setFallback(true);
-              else {
-                setFailed(true);
-                unavailable(medal.id);
-              }
-            }}
-          />
-          <span
-            className="wt-player-medal-luster"
-            aria-hidden="true"
-            style={{ maskImage: `url("${fallback ? image.fallbackUrl : image.url}")` }}
-          />
-        </span>
+      {localize(
+        failed ? (
+          <span aria-hidden="true">?</span>
+        ) : (
+          <span className="wt-player-medal-art">
+            <img
+              src={fallback ? image.fallbackUrl : image.url}
+              width={24}
+              height={24}
+              alt=""
+              onError={() => {
+                if (!fallback) setFallback(true);
+                else {
+                  setFailed(true);
+                  unavailable(medal.id);
+                }
+              }}
+            />
+            <span
+              className="wt-player-medal-luster"
+              aria-hidden="true"
+              style={{ maskImage: `url("${fallback ? image.fallbackUrl : image.url}")` }}
+            />
+          </span>
+        ),
       )}
     </button>
   );
@@ -85,10 +88,9 @@ export function PlayerMedals({
   const strip = useRef<HTMLDivElement>(null);
   const [failed, setFailed] = useState<string[]>([]);
   const [columns, setColumns] = useState(4);
-  const limit = Math.min(48, columns * 2 - 2);
   const owned = medals?.items.filter((item) => medalImages.has(item.id)) || [];
-  const available = owned.filter((item) => !failed.includes(item.id));
-  const visible = available.slice(0, limit);
+  const overflowing = owned.length > columns * 2;
+  const visible = owned.slice(0, overflowing ? columns * 2 - 2 : columns * 2);
   useLayoutEffect(() => {
     const element = strip.current;
     if (!element) return;
@@ -146,81 +148,98 @@ export function PlayerMedals({
     <div
       className="wt-player-medals"
       ref={strip}
-      data-rows={visible.length + 2 <= columns ? 1 : 2}
-      aria-label={t("已获勋章 {0} 枚", [count])}
+      data-rows={visible.length + (overflowing ? 2 : 0) <= columns ? 1 : 2}
+      aria-label={t("已获勋章 {0} 枚", [localize(count)])}
     >
-      {visible.map((item) => (
-        <MedalBadge key={item.id} medal={item} unavailable={unavailable} inspect={inspect} />
-      ))}
-      <button
-        type="button"
-        className="wt-player-medals-trigger"
-        ref={trigger}
-        aria-haspopup="dialog"
-        aria-label={t("查看已获勋章 · {0}", [count])}
-        onClick={() => setOpen(true)}
-        title={t("查看已获勋章 · {0}", [count])}
-      >
-        {visible.length < count ? `+${count - visible.length}` : count}
-      </button>
-      {open && (
-        <Modal
-          title={t("已获勋章 · {0}", [count])}
-          close={close}
-          className="wt-player-medals-dialog"
-        >
-          <div className="wt-player-medals-controls">
-            <GameSelect aria-label={t("勋章所属国家")} value={country} onValueChange={setCountry}>
-              <option value="all">{t("全部国家")}</option>
-              {countries.map((id) => (
-                <option key={id} value={id}>
-                  {statsCountryLabel(id)}
-                </option>
-              ))}
-            </GameSelect>
-            <span>
-              {t("{0} 枚", [
-                owned.filter((item) => country === "all" || item.country === country).length,
-              ])}
-            </span>
-          </div>
-          <ul className="wt-player-medals-list">
-            {filtered.map((item) => (
-              <li key={item.id}>
-                <MedalBadge
-                  key={imageAttempt}
-                  medal={item}
-                  unavailable={unavailable}
-                  inspect={inspect}
-                />
-              </li>
-            ))}
-          </ul>
-          {failed.length > 0 && (
-            <button
-              type="button"
-              className="wt-player-medals-retry"
-              onClick={() => {
-                setFailed([]);
-                setImageAttempt((value) => value + 1);
-              }}
-            >
-              {t("重新加载图标")}
-            </button>
-          )}
-        </Modal>
+      {localize(
+        visible.map((item) => (
+          <MedalBadge key={item.id} medal={item} unavailable={unavailable} inspect={inspect} />
+        )),
       )}
-      {selected && (
-        <Modal
-          title={medalName(selected)}
-          subtitle={t("{0} · 已获得", [statsCountryLabel(selected.country)])}
-          close={closeDetails}
-          className="wt-player-medal-detail-dialog"
-        >
-          <Suspense fallback={<output>{t("正在读取勋章详情…")}</output>}>
-            <PlayerMedalDetails medal={selected} />
-          </Suspense>
-        </Modal>
+      {localize(
+        overflowing && (
+          <button
+            type="button"
+            className="wt-player-medals-trigger"
+            ref={trigger}
+            aria-haspopup="dialog"
+            aria-label={t("查看已获勋章 · {0}", [localize(count)])}
+            onClick={() => setOpen(true)}
+            title={t("查看已获勋章 · {0}", [localize(count)])}
+          >
+            +{localize(count - visible.length)}
+          </button>
+        ),
+      )}
+      {localize(
+        open && (
+          <Modal
+            title={t("已获勋章 · {0}", [localize(count)])}
+            close={close}
+            className="wt-player-medals-dialog"
+          >
+            <div className="wt-player-medals-controls">
+              <GameSelect aria-label={t("勋章所属国家")} value={country} onValueChange={setCountry}>
+                <option value="all">{t("全部国家")}</option>
+                {localize(
+                  countries.map((id) => (
+                    <option key={id} value={id}>
+                      {localize(statsCountryLabel(id))}
+                    </option>
+                  )),
+                )}
+              </GameSelect>
+              <span>
+                {localize(
+                  owned.filter((item) => country === "all" || item.country === country).length,
+                )}
+                {t("枚")}
+              </span>
+            </div>
+            <ul className="wt-player-medals-list">
+              {localize(
+                filtered.map((item) => (
+                  <li key={item.id}>
+                    <MedalBadge
+                      key={imageAttempt}
+                      medal={item}
+                      unavailable={unavailable}
+                      inspect={inspect}
+                    />
+                  </li>
+                )),
+              )}
+            </ul>
+            {localize(
+              failed.length > 0 && (
+                <button
+                  type="button"
+                  className="wt-player-medals-retry"
+                  onClick={() => {
+                    setFailed([]);
+                    setImageAttempt((value) => value + 1);
+                  }}
+                >
+                  {t("重新加载图标")}
+                </button>
+              ),
+            )}
+          </Modal>
+        ),
+      )}
+      {localize(
+        selected && (
+          <Modal
+            title={medalName(selected)}
+            subtitle={t("{0} · 已获得", [localize(statsCountryLabel(selected.country))])}
+            close={closeDetails}
+            className="wt-player-medal-detail-dialog"
+          >
+            <Suspense fallback={<output>{t("正在读取勋章详情…")}</output>}>
+              <PlayerMedalDetails medal={selected} />
+            </Suspense>
+          </Modal>
+        ),
       )}
     </div>
   );
