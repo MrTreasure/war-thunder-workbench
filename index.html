@@ -1,46 +1,121 @@
 <!doctype html>
-<html lang="zh-CN" class="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#171c22"><!-- wt-loading-appearance:start --><style>:root{--wt-loading-background-image:url("https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_logo_eng_a98e2d250b72a68a4c6073f0d30db010.jpg");--wt-loading-background-position:50% 50%}</style><script>(function (defaults, api) {
-  var key = "wt-workbench-appearance-v1", ttl = 300000;
+<html lang="zh-CN" class="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#171c22"><!-- wt-loading-appearance:start --><style>:root{--wt-loading-background-image:url("https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_logo_eng_a98e2d250b72a68a4c6073f0d30db010.jpg");--wt-loading-background-position:50% 50%}</style><script>(function bootAppearance(defaults, api) {
+  if (document.documentElement.dataset.wtAppearanceReady === "1") return;
+  document.documentElement.dataset.wtAppearanceReady = "1";
+  var key = "wt-workbench-appearance-v1",
+    ttl = 300000;
   function valid(value) {
-    if (!value || typeof value.theme !== "string" || !Number.isInteger(value.positionX) || !Number.isInteger(value.positionY) || value.positionX < 0 || value.positionX > 100 || value.positionY < 0 || value.positionY > 100) return false;
-    try { var url = new URL(value.backgroundUrl); return url.protocol === "https:" && url.host === "staticfiles.warthunder.com" && !url.username && !url.password && !url.search && !url.hash && /^\/upload\/image\/(?:[A-Za-z0-9_.\/!()-]|%20)+\.(jpg|jpeg|png|webp)$/i.test(url.pathname); } catch (_) { return false; }
+    if (
+      !value ||
+      typeof value.theme !== "string" ||
+      !Number.isInteger(value.positionX) ||
+      !Number.isInteger(value.positionY) ||
+      value.positionX < 0 ||
+      value.positionX > 100 ||
+      value.positionY < 0 ||
+      value.positionY > 100
+    )
+      return false;
+    try {
+      var url = new URL(value.backgroundUrl);
+      return (
+        url.protocol === "https:" &&
+        url.host === "staticfiles.warthunder.com" &&
+        !url.username &&
+        !url.password &&
+        !url.search &&
+        !url.hash &&
+        /^\/upload\/image\/(?:[A-Za-z0-9_./!()-]|%20)+\.(jpg|jpeg|png|webp)$/i.test(url.pathname)
+      );
+    } catch {
+      return false;
+    }
   }
   var appliedUrl;
   function apply(value) {
     appliedUrl = value.backgroundUrl;
-    document.documentElement.style.setProperty("--wt-loading-background-image", "url(" + JSON.stringify(value.backgroundUrl) + ")");
-    document.documentElement.style.setProperty("--wt-loading-background-position", value.positionX + "% " + value.positionY + "%");
+    document.documentElement.style.setProperty(
+      "--wt-loading-background-image",
+      "url(" + JSON.stringify(value.backgroundUrl) + ")",
+    );
+    document.documentElement.style.setProperty(
+      "--wt-loading-background-position",
+      value.positionX + "% " + value.positionY + "%",
+    );
   }
   apply(defaults);
   var cached;
-  try { cached = JSON.parse(localStorage.getItem(key) || "null"); } catch (_) {}
+  try {
+    cached = JSON.parse(localStorage.getItem(key) || "null");
+  } catch {}
   if (cached && valid(cached.value)) {
     apply(cached.value);
     var previousImage = new Image();
-    previousImage.onerror = function () { if (appliedUrl === cached.value.backgroundUrl) apply(defaults); };
+    previousImage.onerror = function () {
+      if (appliedUrl === cached.value.backgroundUrl) apply(defaults);
+    };
     previousImage.src = cached.value.backgroundUrl;
   }
-  if (cached && valid(cached.value) && cached.savedAt <= Date.now() && Date.now() - cached.savedAt < ttl) return;
-  fetch(api + "/public-data/manifest/appearance", { credentials: "omit", signal: AbortSignal.timeout(5000) })
-    .then(function (response) { if (!response.ok) throw new Error("appearance"); return response.json(); })
+  if (
+    cached &&
+    valid(cached.value) &&
+    cached.savedAt <= Date.now() &&
+    Date.now() - cached.savedAt < ttl
+  )
+    return;
+  fetch(api + "/public-data/manifest/appearance", {
+    credentials: "omit",
+    signal: AbortSignal.timeout(5000),
+  })
+    .then(function (response) {
+      if (!response.ok) throw new Error("appearance");
+      return response.json();
+    })
     .then(async function (manifest) {
-      if (manifest.schemaVersion !== 1 || manifest.resource !== "appearance" || !/^[a-f0-9]{64}$/.test(manifest.sha256) || manifest.path !== "public-data/objects/" + manifest.sha256 || !Number.isSafeInteger(manifest.bytes) || manifest.bytes < 1 || manifest.bytes > 16384) throw new Error("appearance manifest");
-      var response = await fetch(api + "/" + manifest.path, { credentials: "omit", cache: "force-cache", signal: AbortSignal.timeout(5000) });
+      if (
+        manifest.schemaVersion !== 1 ||
+        manifest.resource !== "appearance" ||
+        !/^[a-f0-9]{64}$/.test(manifest.sha256) ||
+        manifest.path !== "public-data/objects/" + manifest.sha256 ||
+        !Number.isSafeInteger(manifest.bytes) ||
+        manifest.bytes < 1 ||
+        manifest.bytes > 16384
+      )
+        throw new Error("appearance manifest");
+      var response = await fetch(api + "/" + manifest.path, {
+        credentials: "omit",
+        cache: "force-cache",
+        signal: AbortSignal.timeout(5000),
+      });
       if (!response.ok) throw new Error("appearance object");
       var bytes = await response.arrayBuffer();
-      var hash = Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", bytes))).map(function (v) { return v.toString(16).padStart(2, "0"); }).join("");
-      if (bytes.byteLength !== manifest.bytes || hash !== manifest.sha256) throw new Error("appearance hash");
+      var hash = Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", bytes)))
+        .map(function (v) {
+          return v.toString(16).padStart(2, "0");
+        })
+        .join("");
+      if (bytes.byteLength !== manifest.bytes || hash !== manifest.sha256)
+        throw new Error("appearance hash");
       return JSON.parse(new TextDecoder().decode(bytes));
     })
     .then(function (value) {
       if (!valid(value)) return;
       var image = new Image();
-      image.onload = function () { apply(value); try { localStorage.setItem(key, JSON.stringify({ value: value, savedAt: Date.now() })); } catch (_) {} };
-      image.onerror = function () { /* Preserve the previous artwork on a failed update. */ };
+      image.onload = function () {
+        apply(value);
+        try {
+          localStorage.setItem(key, JSON.stringify({ value: value, savedAt: Date.now() }));
+        } catch {}
+      };
+      image.onerror = function () {
+        /* Preserve the previous artwork on a failed update. */
+      };
       image.src = value.backgroundUrl;
-    }).catch(function () { /* The built-in or last saved theme remains available. */ });
-})({"theme":"Sky Odyssey","backgroundUrl":"https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_logo_eng_a98e2d250b72a68a4c6073f0d30db010.jpg","positionX":50,"positionY":50}, "https://api.mrtreasure.cc/wt-stats/v1");
-</script><!-- wt-loading-appearance:end --><meta name="description" content="战争雷霆玩家工作台：十国科技树、研发报价、出击队列、陆战地图与战术编辑、战绩查询、账号估值和折扣日历"><title>战雷工作台 · 战绩查询、科技树、走线与账号价值 | War Thunder Workbench</title><meta property="og:type" content="website"><meta property="og:title" content="战争雷霆 · 研发工作台"><meta property="og:description" content="研发规划、阵容配置、地图编辑、战绩查询、账号估值与折扣日历"><meta property="og:image" content="https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_logo_eng_a98e2d250b72a68a4c6073f0d30db010.jpg"><meta property="og:image:width" content="1920"><meta property="og:image:height" content="1080"><meta property="og:image:alt" content="War Thunder Sky Odyssey 官方壁纸，战机编队飞越群山"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_logo_eng_a98e2d250b72a68a4c6073f0d30db010.jpg"><link rel="icon" type="image/x-icon" href="https://warthunder.com/i/favicons/favicon.ico"><link rel="preconnect" href="https://warthunder.com"><link rel="preconnect" href="https://staticfiles.warthunder.com"><link rel="preconnect" href="https://wiki.warthunder.com"><link rel="preconnect" href="https://static.encyclopedia.warthunder.com"><style>html,body{margin:0;background:#151a20}*{box-sizing:border-box}
+    })
+    .catch(function () {
+      /* The built-in or last saved theme remains available. */
+    });
+})({"theme":"Sky Odyssey","backgroundUrl":"https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_logo_eng_a98e2d250b72a68a4c6073f0d30db010.jpg","positionX":50,"positionY":50}, "https://api.mrtreasure.cc/wt-stats/v1");</script><!-- wt-loading-appearance:end --><meta name="description" content="战争雷霆玩家工作台：十国科技树、研发报价、出击队列、陆战地图与战术编辑、战绩查询、账号估值和折扣日历"><title>战雷工作台 · 战绩查询、科技树、走线与账号价值 | War Thunder Workbench</title><meta property="og:type" content="website"><meta property="og:title" content="战争雷霆 · 研发工作台"><meta property="og:description" content="研发规划、阵容配置、地图编辑、战绩查询、账号估值与折扣日历"><meta property="og:image" content="https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_logo_eng_a98e2d250b72a68a4c6073f0d30db010.jpg"><meta property="og:image:width" content="1920"><meta property="og:image:height" content="1080"><meta property="og:image:alt" content="War Thunder Sky Odyssey 官方壁纸，战机编队飞越群山"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_logo_eng_a98e2d250b72a68a4c6073f0d30db010.jpg"><link rel="icon" type="image/x-icon" href="https://warthunder.com/i/favicons/favicon.ico"><link rel="preconnect" href="https://warthunder.com"><link rel="preconnect" href="https://staticfiles.warthunder.com"><link rel="preconnect" href="https://wiki.warthunder.com"><link rel="preconnect" href="https://static.encyclopedia.warthunder.com"><style>html,body{margin:0;background:#151a20}*{box-sizing:border-box}
 .wt-loading {
   position: relative;
   display: flex;

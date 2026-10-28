@@ -43,6 +43,8 @@
 
 ## 项目实现约束
 
+- 2026-10-28 QMuse 使用平台页面入口，背景初始化必须由共享工作台入口执行，不能只依赖 `index.html`；早期 HTML 与运行时共用幂等初始化。国家解析 Worker 仅用于同源资源，QMuse 跨域静态资源直接回退主线程校验解析；构造及运行失败不能阻断载具加载。
+
 - React + Vite + TypeScript 7, using the supplied QMuse template configuration,
   TanStack file routes and Tailwind v4. Use pnpm and keep exact dependency versions.
 - Run `pnpm run typecheck`, `pnpm run lint`, `pnpm run check:data`, and

@@ -1,3 +1,4 @@
+import "../workbench-appearance";
 import { AppFooter } from "../components/AppFooter";
 import { useLocale } from "../i18n/react";
 import { AccountWorkspaceProvider } from "../AccountWorkspace";

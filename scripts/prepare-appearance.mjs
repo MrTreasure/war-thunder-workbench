@@ -1,10 +1,9 @@
 import { readFile, writeFile } from "node:fs/promises";
+import { bootAppearance } from "../src/boot-appearance.mjs";
 export async function prepareAppearance(root) {
   const config = JSON.parse(await readFile(`${root}/data/workbench-appearance.json`, "utf8"));
   const api = JSON.parse(await readFile(`${root}/src/config/player-stats.json`, "utf8"));
-  const code = (await readFile(`${root}/scripts/boot-appearance.js`, "utf8"))
-    .replace("__WT_APPEARANCE_DEFAULT__", JSON.stringify(config))
-    .replace("__WT_APPEARANCE_API__", JSON.stringify(api.apiBaseUrl));
+  const code = `(${bootAppearance.toString()})(${JSON.stringify(config)}, ${JSON.stringify(api.apiBaseUrl)});`;
   const start = "<!-- wt-loading-appearance:start -->",
     end = "<!-- wt-loading-appearance:end -->";
   const block = `${start}<style>:root{--wt-loading-background-image:url(${JSON.stringify(config.backgroundUrl)});--wt-loading-background-position:${config.positionX}% ${config.positionY}%}</style><script>${code}</script>${end}`;

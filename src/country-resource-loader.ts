@@ -1,52 +1,19 @@
 import { t, localize } from "./i18n/core";
+import { canUseCountryWorker, createCountryDecoder } from "./country-resource-decoder";
 import { countryModules } from "./generated/country-modules";
 import { readCatalogAsset, parseDataTransport } from "./remote-catalog";
 import type { DataFile } from "./data-loader";
 import { decodeCountryResource } from "./country-csv-decode";
 import { sha256 } from "@noble/hashes/sha2.js";
 import { bytesToHex } from "@noble/hashes/utils.js";
-let worker: Worker | null = null,
-  disabled = false,
-  serial = 0;
-const waiting = new Map<
-  number,
-  { resolve: (value: unknown) => void; reject: (error: Error) => void }
->();
-async function decode(csv: string, entry: DataFile): Promise<unknown> {
-  if (typeof Worker === "undefined" || disabled) return decodeCountryResource(csv, entry);
-  try {
-    if (!worker) {
-      worker = new Worker(new URL("./country-csv-worker.ts", import.meta.url), { type: "module" });
-      worker.onmessage = (event) => {
-        const item = waiting.get(event.data.id);
-        if (!item) return;
-        waiting.delete(event.data.id);
-        if (event.data.error) item.reject(Error(event.data.error));
-        else item.resolve(event.data.value);
-      };
-      worker.onerror = () => {
-        disabled = true;
-        worker?.terminate();
-        worker = null;
-        for (const item of waiting.values()) item.reject(Error("CSV worker unavailable"));
-        waiting.clear();
-      };
-    }
-    return await new Promise((resolve, reject) => {
-      const id = ++serial;
-      waiting.set(id, { resolve, reject });
-      try {
-        worker!.postMessage({ id, csv, entry });
-      } catch (error) {
-        waiting.delete(id);
-        reject(error);
-      }
-    });
-  } catch (error) {
-    if (disabled) return decodeCountryResource(csv, entry);
-    throw error;
-  }
-}
+const decode = createCountryDecoder(
+  // QMuse serves modules from a different origin and restricts workers. Avoid
+  // constructing one there; the verified fallback still populates IndexedDB.
+  typeof Worker !== "undefined" && canUseCountryWorker(import.meta.url, location.origin)
+    ? () => new Worker(new URL("./country-csv-worker.ts", import.meta.url), { type: "module" })
+    : null,
+  decodeCountryResource,
+);
 export async function loadCountryResource(entry: DataFile): Promise<unknown> {
   let csv: unknown;
   if (entry.remote) {
