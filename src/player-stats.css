@@ -1618,6 +1618,7 @@
   font-size: 11px;
   color: var(--wt-record-muted);
 }
+.wt-valuation-updated { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
 .wt-record-page .wt-valuation-trigger {
   color: var(--wt-record-gold);
   border-color: var(--wt-record-gold);
@@ -2458,6 +2459,7 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-record-page .wt-record-refresh-action > button[data-expired], .wt-record-page .wt-record-refresh-action > button:hover:not(:disabled) { color: var(--wt-record-gold); }
 .wt-record-page .wt-record-refresh-action > button:hover:not(:disabled) > span { text-decoration: underline; text-underline-offset: 3px; }
 .wt-record-page .wt-record-refresh-action > button:focus-visible { outline: 2px solid var(--wt-record-gold); outline-offset: 3px; }
+.wt-record-page .wt-record-refresh-action.is-icon-only > button { justify-content: center; width: 24px; min-width: 24px; }
 .wt-record-player-refresh[aria-busy="true"] > svg { animation: wt-control-spin 900ms linear infinite; }
 @media (prefers-reduced-motion: reduce) {
   .wt-record-player-refresh[aria-busy="true"] > svg { animation: none; }

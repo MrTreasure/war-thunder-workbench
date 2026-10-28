@@ -3683,6 +3683,7 @@
 @media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
   .wt-record-page .wt-record-player-facts button { min-height: 44px; }
   .wt-record-page .wt-record-refresh-action > button { min-height: 44px; }
+  .wt-record-page .wt-record-refresh-action.is-icon-only > button { width: 44px; min-width: 44px; }
   .wt-record-page .wt-record-player-avatar > .wt-binding-action { min-height: 44px; }
   .wt-record-page button.wt-relative-time { min-height: 44px; }
   .wt-record-recent-entry { --wt-recent-avatar-size: 56px; }

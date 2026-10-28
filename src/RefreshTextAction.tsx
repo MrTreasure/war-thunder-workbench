@@ -6,6 +6,7 @@ export function RefreshTextAction({
   busyLabel,
   title,
   highlighted = false,
+  iconOnly = false,
 }: {
   busy: boolean;
   disabled: boolean;
@@ -14,14 +15,16 @@ export function RefreshTextAction({
   busyLabel: string;
   title: string;
   highlighted?: boolean;
+  iconOnly?: boolean;
 }) {
   return (
-    <span className="wt-record-refresh-action">
+    <span className={`wt-record-refresh-action${iconOnly ? " is-icon-only" : ""}`}>
       <button
         type="button"
         className="wt-record-player-refresh"
         data-expired={highlighted || undefined}
         aria-busy={busy}
+        aria-label={iconOnly ? (busy ? busyLabel : label) : undefined}
         title={title}
         disabled={disabled}
         onClick={refresh}
@@ -41,7 +44,9 @@ export function RefreshTextAction({
             strokeLinejoin="round"
           />
         </svg>
-        <span aria-live="polite">{busy ? busyLabel : label}</span>
+        <span className={iconOnly ? "sr-only" : undefined} aria-live="polite">
+          {busy ? busyLabel : label}
+        </span>
       </button>
     </span>
   );

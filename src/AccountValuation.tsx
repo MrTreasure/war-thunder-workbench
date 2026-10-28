@@ -687,22 +687,23 @@ export function AccountValuation({
       </button>
       {!value && <small>可用次数 · {session ? remaining : "—"}</small>}
       {value && (
-        <small>
-          估值于 <RelativeTime value={value.calculatedAt} />
+        <small className="wt-valuation-updated">
+          <span>
+            估值于 <RelativeTime value={value.calculatedAt} />
+          </span>
+          <RefreshTextAction
+            busy={busy}
+            disabled={!session || busy || checking || !!profile.localOnly}
+            refresh={() => void calculate(false)}
+            highlighted={
+              !!storedValue?.localStale || value.snapshotId !== profile.snapshotId || !!cacheNotice
+            }
+            title={cacheNotice || "刷新估值"}
+            label="刷新估值"
+            busyLabel="正在更新估值…"
+            iconOnly
+          />
         </small>
-      )}
-      {value && (
-        <RefreshTextAction
-          busy={busy}
-          disabled={!session || busy || checking || !!profile.localOnly}
-          refresh={() => void calculate(false)}
-          highlighted={
-            !!storedValue?.localStale || value.snapshotId !== profile.snapshotId || !!cacheNotice
-          }
-          title={cacheNotice || "刷新估值"}
-          label="刷新估值"
-          busyLabel="正在更新估值…"
-        />
       )}
       {error && !open && (
         <small className="wt-record-error" role="alert">
