@@ -2434,6 +2434,10 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 /* Player dossier: identity, aligned actions, then provenance. */
 .wt-record-player { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 14px 18px; border-radius: 2px; }
 .wt-record-player-identity { min-width: 0; }
+.wt-record-player-facts { display: grid; gap: 3px; margin: 6px 0 0; color: var(--wt-record-muted); font-size: 12px; line-height: 1.5; }
+.wt-record-player-facts > div { display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.wt-record-player-facts dt { font-weight: 400; }
+.wt-record-player-facts dd { margin: 0; font-variant-numeric: tabular-nums; }
 .wt-record-player-actions { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: flex-end; gap: 8px; }
 .wt-record-page .wt-record-player-actions > button,
 .wt-record-page .wt-record-player-actions .wt-valuation-trigger { min-height: 44px; padding: 10px 14px; border: 1px solid var(--wt-record-line); border-radius: 2px; background: #293238; color: var(--wt-record-ink); font-size: 12px; line-height: 1.5; text-decoration: none; box-shadow: none; }
