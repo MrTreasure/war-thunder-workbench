@@ -66,7 +66,6 @@ import {
   statsSilver,
   statsSilverIcon,
   statsRatio as ratio,
-  statsDate,
   statsModeNames,
   statsReportScopeLabel,
   lastStatsNickname,
@@ -917,21 +916,23 @@ export function PlayerStats() {
             {recentPlayers.length ? (
               <div className="wt-record-recent">
                 {recentPlayers.map((p) => (
-                  <button
-                    key={p.uid}
-                    disabled={busy}
-                    onClick={() => {
-                      void openSavedProfile(p);
-                    }}
-                  >
-                    <Avatar url={p.avatar} name={p.nickname} frameKey={p.avatarFrameKey} />
-                    <span>
-                      <b>{p.nickname}</b>
-                      <small>
-                        <RelativeTime value={p.fetchedAt} />
-                      </small>
-                    </span>
-                  </button>
+                  <div key={p.uid} className="wt-record-recent-entry">
+                    <button
+                      disabled={busy}
+                      onClick={() => {
+                        void openSavedProfile(p);
+                      }}
+                    >
+                      <Avatar url={p.avatar} name={p.nickname} frameKey={p.avatarFrameKey} />
+                      <span>
+                        <b>{p.nickname}</b>
+                        <span className="wt-record-recent-time-space" aria-hidden="true" />
+                      </span>
+                    </button>
+                    <small>
+                      <RelativeTime value={p.fetchedAt} />
+                    </small>
+                  </div>
                 ))}
               </div>
             ) : (
@@ -945,7 +946,10 @@ export function PlayerStats() {
                 <GameTip label="官方排行榜">
                   按官方累计击毁数整理，点击后按已核验 UID 查询；缓存命中免费，新查询遵守上方额度。
                   {board && (
-                    <p>榜单快照采集于 {statsDate(board.fetchedAt)} · 官方累计榜，非实时更新。</p>
+                    <p>
+                      榜单快照采集于 <RelativeTime value={board.fetchedAt} /> ·
+                      官方累计榜，非实时更新。
+                    </p>
                   )}
                 </GameTip>
                 <span>TOP 30</span>
@@ -1050,7 +1054,7 @@ export function PlayerStats() {
             </div>
             <div className="wt-record-source">
               <span>
-                采集于 {statsDate(profile.fetchedAt)} ·{" "}
+                采集于 <RelativeTime value={profile.fetchedAt} /> ·{" "}
                 {profile.cached ? "已命中缓存，本次不扣查询次数" : "官方助手资料"}
               </span>
               <PlayerRefreshAction
@@ -1147,9 +1151,12 @@ export function PlayerStats() {
                     </h2>
                     <span>
                       {statsModeNames[mode]} · 仅展示已出击载具
-                      {freshVehicleDetails
-                        ? ` · 采集于 ${statsDate(freshVehicleDetails.fetchedAt)}`
-                        : ""}
+                      {freshVehicleDetails && (
+                        <>
+                          {" "}
+                          · 采集于 <RelativeTime value={freshVehicleDetails.fetchedAt} />
+                        </>
+                      )}
                     </span>
                   </div>
                   <div className="wt-record-filters">
@@ -1703,7 +1710,9 @@ export function PlayerStats() {
                       ? "未生成"
                       : "处理中"}
                 </span>
-                <small>{item.createdAt && statsDate(item.createdAt)}</small>
+                <small>
+                  {item.createdAt && <RelativeTime value={item.createdAt} interactive={false} />}
+                </small>
               </button>
             ))
           ) : (

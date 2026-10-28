@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { RelativeTime } from "./RelativeTime";
 import type { PlayerDetails } from "./player-rankings-api";
 
 /** Reuse the current snapshot's details; never trigger another player query. */
@@ -9,7 +10,7 @@ export function PlayerAccountFacts({
   details: PlayerDetails | null;
   loading: boolean;
 }) {
-  const [showHours, setShowHours] = useState(false);
+  const [showHours, setShowHours] = useState(true);
   const registered = details?.registeredAt;
   const date = registered != null && registered > 0 ? new Date(registered * 1000) : null;
   const validDate = date && Number.isFinite(date.getTime()) ? date : null;
@@ -26,13 +27,7 @@ export function PlayerAccountFacts({
     <dl className="wt-record-player-facts">
       <div>
         <dt>注册时间</dt>
-        <dd>
-          {validDate ? (
-            <time dateTime={validDate.toISOString()}>{validDate.toLocaleDateString("zh-CN")}</time>
-          ) : (
-            unavailable
-          )}
-        </dd>
+        <dd>{validDate ? <RelativeTime value={validDate.toISOString()} /> : unavailable}</dd>
       </div>
       <div>
         <dt>服役时长</dt>

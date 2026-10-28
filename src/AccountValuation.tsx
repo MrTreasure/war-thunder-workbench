@@ -1,4 +1,5 @@
 import { visibleValuation } from "./valuation-visibility";
+import { RelativeTime } from "./RelativeTime";
 import { statsAvailableRequests } from "./player-stats-api";
 import { useVehicleCatalog } from "./vehicle-catalog";
 import { VehicleTile } from "./VehicleTile";
@@ -16,13 +17,7 @@ import {
   valuationCacheScope,
 } from "./account-valuation-cache";
 import { Modal } from "./Modal";
-import {
-  StatsError,
-  statsRequest,
-  statsDate,
-  statsNumber,
-  statsCategoryNames,
-} from "./player-stats-api";
+import { StatsError, statsRequest, statsNumber, statsCategoryNames } from "./player-stats-api";
 import type { PlayerProfile, StatsSession } from "./player-stats-api";
 import { sortValuationPrices } from "./account-valuation-sort";
 import { statsCountryId, statsCountryMatches, statsCountryLabel } from "./stats-country";
@@ -690,7 +685,11 @@ export function AccountValuation({
         )}
       </button>
       {!value && <small>可用次数 · {session ? remaining : "—"}</small>}
-      {value && <small>估值于 {statsDate(value.calculatedAt)}</small>}
+      {value && (
+        <small>
+          估值于 <RelativeTime value={value.calculatedAt} />
+        </small>
+      )}
       {cacheNotice && <small>{cacheNotice}</small>}
       {error && !open && (
         <small className="wt-record-error" role="alert">
@@ -834,9 +833,13 @@ export function AccountValuation({
                 <summary>
                   估值依据与计算规则{" "}
                   <span>
-                    {value.ownership?.fetchedAt
-                      ? `车库核验 ${statsDate(value.ownership.fetchedAt)}`
-                      : "出战记录与当前前置推算"}
+                    {value.ownership?.fetchedAt ? (
+                      <>
+                        车库核验 <RelativeTime value={value.ownership.fetchedAt} />
+                      </>
+                    ) : (
+                      "出战记录与当前前置推算"
+                    )}
                   </span>
                 </summary>
                 <p>
@@ -920,7 +923,11 @@ export function AccountValuation({
                           kind={`${statsCategoryNames[v.category] || v.category} · 金鹰载具`}
                           price={valuationMoney(v.amountCents)}
                         >
-                          {v.checkedAt && <small>核验 {statsDate(v.checkedAt)}</small>}
+                          {v.checkedAt && (
+                            <small>
+                              核验 <RelativeTime value={v.checkedAt} />
+                            </small>
+                          )}
                         </ProductCard>
                       ))}
                     </ProductShelf>
@@ -950,7 +957,13 @@ export function AccountValuation({
                             price={valuationMoney(p.amountCents)}
                           >
                             <small>
-                              {p.checkedAt ? `核验 ${statsDate(p.checkedAt)}` : "尚无有效报价"}
+                              {p.checkedAt ? (
+                                <>
+                                  核验 <RelativeTime value={p.checkedAt} />
+                                </>
+                              ) : (
+                                "尚无有效报价"
+                              )}
                             </small>
                           </ProductCard>
                         ))}
@@ -1109,7 +1122,13 @@ export function AccountValuation({
                             </small>
                             <strong>{statsNumber(v.rp)} RP</strong>
                             <small>
-                              {v.rpCheckedAt ? `核验 ${statsDate(v.rpCheckedAt)}` : "研发点待核验"}
+                              {v.rpCheckedAt ? (
+                                <>
+                                  核验 <RelativeTime value={v.rpCheckedAt} />
+                                </>
+                              ) : (
+                                "研发点待核验"
+                              )}
                             </small>
                           </div>
                         </article>
@@ -1191,7 +1210,9 @@ export function AccountValuation({
                               {v.rp != null && <strong>{statsNumber(v.rp)} RP</strong>}
                               <span className="wt-valuation-unpriced-reason">{v.reason}</span>
                               {v.rpCheckedAt && (
-                                <small>研发点核验 {statsDate(v.rpCheckedAt)}</small>
+                                <small>
+                                  研发点核验 <RelativeTime value={v.rpCheckedAt} />
+                                </small>
                               )}
                             </div>
                           </article>
@@ -1221,7 +1242,8 @@ export function AccountValuation({
             </button>
             <p>{valuationRules.notice}</p>
             <small>
-              资料采集 {statsDate(value.fetchedAt)} · 估值计算 {statsDate(value.calculatedAt)}
+              资料采集 <RelativeTime value={value.fetchedAt} /> · 估值计算{" "}
+              <RelativeTime value={value.calculatedAt} />
               {value.localCached
                 ? " · 浏览器估值缓存，本次不扣次"
                 : value.cached && " · 已命中估值缓存，本次不扣次"}

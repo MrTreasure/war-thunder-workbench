@@ -33,7 +33,7 @@ export function PlayerRefreshAction({
         className="wt-record-player-refresh"
         data-expired={expired || undefined}
         aria-busy={busy}
-        title="重新获取官方资料，计入新查询次数"
+        title="重新获取官方资料"
         disabled={disabled}
         onClick={refresh}
       >
@@ -56,7 +56,6 @@ export function PlayerRefreshAction({
           {busy ? "正在获取…" : expired ? "缓存已过期，点击刷新" : "强制刷新"}
         </span>
       </button>
-      <small>计入新查询次数</small>
     </span>
   );
 }
