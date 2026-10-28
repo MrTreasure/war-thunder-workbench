@@ -1,33 +1,30 @@
-/** Emit only the dedicated Render preview catalog. Does not touch the live API pointer or Git CDN. */
+/** Only the isolated Render index is published here; production data is untouched. */
 import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { resolve } from "node:path";
-const root = resolve(import.meta.dirname, "..");
+const root = resolve(import.meta.dirname, ".."),
+  directory = resolve(root, "dist/preview-catalog");
 const manifest = JSON.parse(await readFile(resolve(root, "src/generated/manifest.json"), "utf8"));
-const directory = resolve(root, "dist/preview-catalog");
+const sha = (body) => createHash("sha256").update(body).digest("hex");
+if (manifest.schemaVersion !== 4) throw Error("Expected CSV catalog");
 await rm(directory, { recursive: true, force: true });
 await mkdir(resolve(directory, "countries"), { recursive: true });
-const sha = (text) => createHash("sha256").update(text).digest("hex");
 for (const [country, entry] of Object.entries(manifest.countries)) {
-  if (!new RegExp(`^country-${country}\\.[a-f0-9]{16}\\.js$`).test(entry.file))
-    throw Error("Invalid preview country transport");
-  const text = await readFile(
-    resolve(root, "data/generated/countries", entry.file.replace(/\.js$/, ".json")),
-    "utf8",
-  );
-  if (Buffer.byteLength(text) !== entry.bytes || sha(text) !== entry.sha256)
-    throw Error("Preview country hash mismatch");
-  // The URL hashes the emitted JS bytes; entry.sha256/bytes still verify canonical JSON.
-  const transport = `export default ${JSON.stringify(text)};\n`;
-  entry.file = `country-${country}.${sha(transport).slice(0, 16)}.js`;
-  await writeFile(resolve(directory, "countries", entry.file), transport);
+  const text = await readFile(resolve(root, "data/generated/countries", entry.key + ".js"), "utf8");
+  if (
+    entry.file !== `country-${country}.${sha(text).slice(0, 16)}.js` ||
+    sha(text) !== entry.transportSha256 ||
+    Buffer.byteLength(text) !== entry.transportBytes
+  )
+    throw Error("Country JS transport mismatch");
+  await writeFile(resolve(directory, "countries", entry.file), text);
 }
-const index = `export default ${JSON.stringify(manifest)};\n`;
-const indexFile = `manifest.${sha(index).slice(0, 16)}.js`;
+const index = `export default ${JSON.stringify(manifest)};\n`,
+  indexFile = `manifest.${sha(index).slice(0, 16)}.js`;
 await writeFile(resolve(directory, indexFile), index);
 await writeFile(resolve(directory, "manifest.js"), index);
 await writeFile(
   resolve(directory, "pointer.js"),
   `export default ${JSON.stringify({ available: true, repository: "MrTreasure/oss-files", commit: sha(index).slice(0, 40), manifest: { path: "war-thunder/catalog/" + indexFile, sha256: sha(index), bytes: Buffer.byteLength(index) } })};\n`,
 );
-console.log("Prepared independently hashed preview data; production pointers are unchanged.");
+console.log("Prepared CSV JS preview catalog; production pointers unchanged.");

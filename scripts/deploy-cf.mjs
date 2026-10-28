@@ -5,6 +5,7 @@ import { spawnSync } from "node:child_process";
 import { cp, mkdir, readdir, rm, stat, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { cleanRetiredVehicleAssets } from "./clean-retired-vehicle-assets.mjs";
 
 setDefaultResultOrder("ipv4first");
 const root = fileURLToPath(new URL("../", import.meta.url));
@@ -137,6 +138,9 @@ await rm(stage, { recursive: true, force: true });
 await cp(resolve(root, "dist"), stage, { recursive: true });
 // Keep old immutable assets so tabs from the previous release can finish lazy imports.
 await cp(archive, resolve(stage, "assets"), { recursive: true });
+console.log(
+  `Retired vehicle payloads excluded: ${(await cleanRetiredVehicleAssets(stage, resolve(root, "dist"))).length}`,
+);
 await cp(resolve(root, "deploy/cloudflare-headers.txt"), resolve(stage, "_headers"));
 const files = await readdir(stage, { recursive: true });
 let count = 0;
@@ -174,6 +178,7 @@ run([
 ]);
 if (!dryRun) {
   await cp(resolve(stage, "assets"), archive, { recursive: true });
+  await cleanRetiredVehicleAssets(archive, resolve(root, "dist"), { flatAssets: true });
   if (skipEdgeVerification)
     console.log(
       "Cloudflare deployment completed; public asset verification skipped by user preference. Manual acceptance pending: https://wt.mrtreasure.cc/",

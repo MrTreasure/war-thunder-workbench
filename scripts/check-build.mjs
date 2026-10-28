@@ -1,67 +1,55 @@
 import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
-import { resolve, relative } from "node:path";
+import { resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { createHash } from "node:crypto";
-const root = fileURLToPath(new URL("../", import.meta.url));
-const dist = resolve(root, "dist");
+import { decodeCsv, restoreCountry } from "../src/country-csv.mjs";
+const root = fileURLToPath(new URL("../", import.meta.url)),
+  dist = resolve(root, "dist");
 const manifest = JSON.parse(await readFile(resolve(root, "src/generated/manifest.json"), "utf8"));
-const files = await readdir(dist, { recursive: true });
+const files = await readdir(dist, { recursive: true }),
+  html = await readFile(resolve(dist, "index.html"), "utf8");
+assert.equal(manifest.schemaVersion, 4);
 assert(
-  !files.some((file) => /\.(wasm|wat)$/.test(file)),
-  "Efficiency is calculated by the server; publish no client runtime",
+  !files.some((file) => /\.(?:wasm|wat|json|csv|gz)$/.test(file)),
+  "Publish only JS-wrapped CSV data, no browser scoring runtime",
 );
-
 assert(
-  !files.some((file) => file.endsWith(".json")),
-  "Published build must not contain JSON files",
+  !files.some((file) => /^assets\/vehicle-facts-/.test(file)),
+  "No duplicate legacy vehicle directory",
 );
-const html = await readFile(resolve(dist, "index.html"), "utf8");
-const atlasModules = files.filter((file) => /^assets\/MapAtlas\.[^/]+\.js$/.test(file));
-assert.equal(atlasModules.length, 1, "Expected one lazy guide page module");
-assert(!html.includes(atlasModules[0]), "Hidden guide page must not be preloaded");
-const published = [];
+const atlas = files.filter((file) => /^assets\/MapAtlas\.[^/]+\.js$/.test(file));
+assert.equal(atlas.length, 1);
+assert(!html.includes(atlas[0]));
 for (const [country, entry] of Object.entries(manifest.countries)) {
   const prefix = entry.file.replace(/\.js$/, ".");
-  const candidates = files.filter(
-    (file) => file.startsWith(`assets/${prefix}`) && file.endsWith(".js"),
+  const matches = files.filter(
+    (file) => file.startsWith("assets/" + prefix) && file.endsWith(".js"),
   );
-  assert.equal(candidates.length, 1, `Expected one separate JS module for ${country}`);
-  const path = resolve(dist, candidates[0]);
-  assert(
-    !html.includes(candidates[0]),
-    `Country ${country} must not be preloaded on initial render`,
-  );
-  const { default: text } = await import(pathToFileURL(path).href);
-  assert.equal(typeof text, "string");
-  assert.equal(Buffer.byteLength(text), entry.bytes);
-  assert.equal(createHash("sha256").update(text).digest("hex"), entry.sha256);
-  assert.equal(JSON.parse(text).country, country);
-  published.push(relative(dist, path));
+  assert.equal(matches.length, 1, `One country JS module: ${country}`);
+  assert(!html.includes(matches[0]), "Country bodies must remain lazy");
+  const { default: csv } = await import(pathToFileURL(resolve(dist, matches[0])).href);
+  assert.equal(typeof csv, "string");
+  assert.equal(Buffer.byteLength(csv), entry.bytes);
+  assert.equal(createHash("sha256").update(csv).digest("hex"), entry.sha256);
+  const value = restoreCountry(decodeCsv(csv), entry),
+    canonical = JSON.parse(
+      await readFile(resolve(root, "data/generated/countries", entry.key + ".json"), "utf8"),
+    );
+  assert.deepEqual(value, canonical, `Lossless complete country CSV: ${country}`);
 }
-assert.equal(files.filter((file) => /assets\/country-.*\.js$/.test(file)).length, 10);
-const factModules = files.filter((file) => /^assets\/vehicle-facts-[a-z]+\.[a-f0-9]{16}\.[^/]+\.js$/.test(file));
-assert.equal(factModules.length, 10, "Expected ten small lazy vehicle metadata modules");
-for (const file of factModules) {
-  assert(!html.includes(file), "Vehicle metadata must not be preloaded at startup");
-  const { default: text } = await import(pathToFileURL(resolve(dist, file)).href);
-  const hash = createHash("sha256").update(text).digest("hex");
-  assert(file.includes(hash.slice(0, 16)), "Vehicle metadata content hash must match its filename");
-  const body = JSON.parse(text);
-  assert.equal(body.schemaVersion, 1);
-  assert(body.items.length > 0);
-  for (const unit of body.items) {
-    assert.equal(unit.country, body.country);
-    assert(unit.br && Object.hasOwn(unit, "role"));
-    assert(!("wikiDetails" in unit) && !("modifications" in unit), "Metadata excludes full detail and modification bodies");
-  }
-}
+const countryModules = files.filter((file) =>
+  /^assets\/country-(?:usa|germany|ussr|britain|japan|china|italy|france|sweden|israel)\..*\.js$/.test(
+    file,
+  ),
+);
+assert.equal(countryModules.length, 10);
 console.log(
   JSON.stringify({
-    countryJsModules: published.length,
+    countryCsvJsModules: countryModules.length,
+    legacyVehicleModules: 0,
     jsonFilesPublished: 0,
-    verifiedCanonicalHashes: published.length,
+    verifiedCompleteCountries: 10,
   }),
 );
-
 await import("./check-seo.mjs");

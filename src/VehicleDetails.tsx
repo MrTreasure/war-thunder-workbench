@@ -12,6 +12,7 @@ import { VehicleLoadouts } from "./VehicleLoadouts";
 import { GameIcon } from "./components/GameIcon";
 import { GameButton, GameLinkButton } from "./components/GameButton";
 import { GameTabs, type GameTab } from "./components/GameTabs";
+import { VehicleSaleCartAction } from "./VehicleSaleCartAction";
 type DetailTab = "tags" | "performance" | "statistics" | "loadouts" | "information" | "route";
 export function VehicleDetails({
   unit,
@@ -123,6 +124,13 @@ export function VehicleDetails({
             <GameButton icon="performance" onClick={onParts}>
               {t("研发配件")}
             </GameButton>
+            <VehicleSaleCartAction
+              key={`${country}:${category}:${unit.id}`}
+              unit={unit}
+              catalog={catalog}
+              country={country}
+              category={category}
+            />
             {unit.store && (
               <GameLinkButton
                 tone="ghost"

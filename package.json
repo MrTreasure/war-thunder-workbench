@@ -39,7 +39,7 @@
     "i18n:check": "node scripts/i18n-workflow.mjs check",
     "refresh:wallpapers": "node scripts/collect-wallpapers.mjs",
     "build:heybox-preview": "node scripts/build-heybox-static-preview.mjs",
-    "check:map-routes": "node scripts/check-map-recommendations.mjs"
+    "check:map-routes": "node --experimental-strip-types scripts/check-map-recommendations.mjs"
   },
   "dependencies": {
     "@noble/hashes": "2.4.0",

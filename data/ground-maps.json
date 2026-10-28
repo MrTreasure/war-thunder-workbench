@@ -40015,5 +40015,59 @@
     "contourSvgTransform": "matrix(1 0 0 -1 0 1000)",
     "thumbnailDerivation": "Original DOM layout association; reprojected native marks over original base texture, WebP quality 90",
     "evidence": "User supplied in-game comparison: American Desert and Berlin, 2026-10-21"
-  }
+  },
+  "seasonalVariants": [
+    {
+      "mapId": "avg_ardennes_snow",
+      "sourceMapId": "avg_ardennes",
+      "layouts": {
+        "ardennes_snow_dom": "ardennes_dom",
+        "ardennes_snow_02_dom": "ardennes_02_dom",
+        "ardennes_snow_bttl": "ardennes_bttl",
+        "ardennes_snow_conq1": "ardennes_conq1",
+        "ardennes_snow_conq2": "ardennes_conq2",
+        "ardennes_snow_conq3": "ardennes_conq3"
+      }
+    },
+    {
+      "mapId": "avg_poland_snow",
+      "sourceMapId": "avg_poland",
+      "layouts": {
+        "poland_snow_dom": "poland_dom",
+        "poland_snow_02_dom": "poland_02_dom",
+        "poland_snow_bttl": "poland_bttl",
+        "poland_snow_conq1": "poland_conq1",
+        "poland_snow_conq2": "poland_conq2",
+        "poland_snow_conq3": "poland_conq3",
+        "poland_snow_02_bttl": "poland_02_bttl",
+        "poland_snow_02_conq1": "poland_02_conq1",
+        "poland_snow_02_conq2": "poland_02_conq2",
+        "poland_snow_02_conq3": "poland_02_conq3"
+      }
+    },
+    {
+      "mapId": "avg_sector_montmedy_snow",
+      "sourceMapId": "avg_sector_montmedy",
+      "layouts": {
+        "sector_montmedy_snow_dom": "sector_montmedy_dom",
+        "sector_montmedy_snow_02_dom": "sector_montmedy_02_dom",
+        "sector_montmedy_snow_bttl": "sector_montmedy_bttl",
+        "sector_montmedy_snow_conq1": "sector_montmedy_conq1",
+        "sector_montmedy_snow_conq2": "sector_montmedy_conq2",
+        "sector_montmedy_snow_conq3": "sector_montmedy_conq3",
+        "sector_montmedy_snow_02_bttl": "sector_montmedy_02_bttl"
+      }
+    },
+    {
+      "mapId": "avg_soviet_suburban_snow",
+      "sourceMapId": "avg_soviet_suburban",
+      "layouts": {
+        "soviet_suburban_snow_dom": "soviet_suburban_dom",
+        "soviet_suburban_snow_bttl": "soviet_suburban_bttl",
+        "soviet_suburban_snow_conq1": "soviet_suburban_conq1",
+        "soviet_suburban_snow_conq2": "soviet_suburban_conq2",
+        "soviet_suburban_snow_conq3": "soviet_suburban_conq3"
+      }
+    }
+  ]
 }

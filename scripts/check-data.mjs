@@ -1,3 +1,4 @@
+import { encodeCsv, countryBody } from "../src/country-csv.mjs";
 import { readFile, readdir } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -399,7 +400,7 @@ for (const id of ids) {
 }
 assert.equal(missing, 0, `${missing} vehicles have not had modification data checked`);
 // Each country file contains every category and exactly the union of its modifications.
-assert.equal(manifest.schemaVersion, 3);
+assert.equal(manifest.schemaVersion, 4);
 assert.deepEqual(Object.keys(manifest.countries).sort(), Object.keys(catalog.countries).sort());
 assert.deepEqual(
   (await readdir(resolve(root, "src/generated/countries"))).sort(),
@@ -409,17 +410,19 @@ assert.deepEqual(
 );
 for (const [country, entry] of Object.entries(manifest.countries)) {
   assert.equal(entry.key, `country-${country}`);
-  const raw = await readFile(
-    resolve(root, "data/generated/countries", entry.file.replace(/\.js$/, ".json")),
-  );
+  const raw = await readFile(resolve(root, "data/generated/countries", entry.key + ".json"));
   const module = await readFile(
     resolve(root, "src/generated/countries", entry.file.replace(/\.js$/, ".ts")),
     "utf8",
   );
-  assert.equal(module, `export default ${JSON.stringify(raw.toString("utf8"))};\n`);
-  assert.equal(raw.byteLength, entry.bytes);
-  assert.equal(createHash("sha256").update(raw).digest("hex"), entry.sha256);
-  const payload = JSON.parse(raw);
+  const payload = JSON.parse(raw),
+    csv = encodeCsv(countryBody(payload));
+  assert.equal(entry.format, "csv-js-v1");
+  assert.equal(module, `export default ${JSON.stringify(csv)};\n`);
+  assert.equal(Buffer.byteLength(csv), entry.bytes);
+  assert.equal(createHash("sha256").update(csv).digest("hex"), entry.sha256);
+  assert.equal(Buffer.byteLength(module), entry.transportBytes);
+  assert.equal(createHash("sha256").update(module).digest("hex"), entry.transportSha256);
   assert.equal(payload.schemaVersion, 2);
   assert.equal(payload.country, country);
   assert.equal(payload.checkedAt, catalog.checkedAt);

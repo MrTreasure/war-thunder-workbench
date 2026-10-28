@@ -1,4 +1,5 @@
 import catalog from "../data/map-recommendations.json";
+import { sharedMapRoute } from "./ground-map-sharing";
 
 const files = import.meta.glob<string>("../data/map-recommendations/*.svg", {
   eager: true,
@@ -11,13 +12,11 @@ export function recommendedRoute(
   layoutId: string,
   team: number,
 ): RecommendedRoute | undefined {
-  const route = catalog.routes.find(
-    (r) => r.mapId === mapId && r.layoutId === layoutId && r.team === team,
-  );
+  const route = sharedMapRoute(catalog.routes, mapId, layoutId, team);
   if (!route) return undefined;
   const url = files[`../data/map-recommendations/${route.svg}`];
   return url ? { ...route, url } : undefined;
 }
-export function hasRecommendedRoutes(mapId: string) {
-  return catalog.routes.some((r) => r.mapId === mapId);
+export function hasRecommendedRoutes(mapId: string, layoutId: string) {
+  return !!sharedMapRoute(catalog.routes, mapId, layoutId, 1);
 }

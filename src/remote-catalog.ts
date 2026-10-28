@@ -15,7 +15,6 @@ type Pointer = {
   manifest: { path: string; sha256: string; bytes: number };
 };
 let remembered: { commit: string; manifest: DataManifest } | null = null;
-
 // Transport modules contain a single JSON literal. Fetch them as text and parse
 // that literal; remote JavaScript is never executed or imported into the app.
 export function parseDataTransport(text: string): unknown {
@@ -60,7 +59,7 @@ export async function readCatalogAsset(
       });
       if (!response.ok) throw new Error(t("资料资源暂时无法读取。"));
       const bytes = new Uint8Array(await response.arrayBuffer());
-      if (bytes.byteLength > 20 * 1024 * 1024) throw new Error(t("资料资源超过大小限制。"));
+      if (bytes.byteLength > 64 * 1024 * 1024) throw new Error(t("资料资源超过大小限制。"));
       return new TextDecoder("utf-8", { fatal: true }).decode(bytes);
     } catch (error) {
       if (signal?.aborted) throw error;
@@ -106,7 +105,7 @@ export async function readRemoteCatalog(signal?: AbortSignal): Promise<DataManif
   )
     throw new Error(t("资料版本索引校验失败。"));
   const value = parseDataTransport(text);
-  if (!object(value) || value.schemaVersion !== 3 || !object(value.countries))
+  if (!object(value) || value.schemaVersion !== 4 || !object(value.countries))
     throw new Error(t("资料版本格式无效。"));
   const countries: Record<string, DataFile> = {};
   for (const country of [
@@ -125,24 +124,25 @@ export async function readRemoteCatalog(signal?: AbortSignal): Promise<DataManif
     if (
       !object(entry) ||
       entry.key !== `country-${country}` ||
-      typeof entry.file !== "string" ||
-      !new RegExp(`^country-${country}\\.[a-f0-9]{16}\\.js$`).test(entry.file) ||
-      typeof entry.sha256 !== "string" ||
-      !/^[a-f0-9]{64}$/.test(entry.sha256) ||
-      typeof entry.bytes !== "number" ||
+      entry.format !== "csv-js-v1" ||
+      !/^[a-f0-9]{64}$/.test(String(entry.sha256)) ||
+      !/^[a-f0-9]{64}$/.test(String(entry.transportSha256)) ||
+      entry.file !== `country-${country}.${String(entry.transportSha256).slice(0, 16)}.js` ||
       !Number.isSafeInteger(entry.bytes) ||
-      entry.bytes < 1 ||
-      entry.bytes > 16 * 1024 * 1024
+      Number(entry.bytes) < 1 ||
+      Number(entry.bytes) > 64 * 1024 * 1024 ||
+      !Number.isSafeInteger(entry.transportBytes) ||
+      Number(entry.transportBytes) < 1 ||
+      Number(entry.transportBytes) > 64 * 1024 * 1024 ||
+      typeof entry.checkedAt !== "string" ||
+      !Number.isFinite(Date.parse(entry.checkedAt))
     )
-      throw new Error(t("国家资料索引不完整。"));
+      throw Error(t("国家CSV索引无效"));
     countries[country] = {
-      key: entry.key,
-      file: entry.file,
-      sha256: entry.sha256,
-      bytes: entry.bytes,
-      remote: { commit: pointer.commit, path: `${hosting.countryDirectory}/${entry.file}` },
-    };
+      ...entry,
+      remote: { commit: pointer.commit, path: hosting.countryDirectory + "/" + entry.file },
+    } as unknown as DataFile;
   }
-  remembered = { commit: pointer.commit, manifest: { schemaVersion: 3, countries } };
+  remembered = { commit: pointer.commit, manifest: { schemaVersion: 4, countries } };
   return remembered.manifest;
 }

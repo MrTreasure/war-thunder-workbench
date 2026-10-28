@@ -16,6 +16,7 @@ import { CONTOUR_IMAGE_TRANSFORM, referenceGrid } from "./ground-map-projection"
 import { Link, Navigate, useNavigate } from "@tanstack/react-router";
 import atlas from "../data/ground-maps.json";
 import { recommendedRoute, hasRecommendedRoutes } from "./map-recommendations";
+import { sharedMapGuides } from "./ground-map-sharing";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { Route } from "./routes/_workbench.maps";
 import { Route as DetailRoute } from "./routes/_workbench.maps_.$mapId";
@@ -44,13 +45,17 @@ export function MapAtlas() {
     (m) => m.id === search.map || m.legacyGuideIds.includes(search.map || ""),
   );
   const cards = atlas.maps
-    .flatMap((map) => map.thumbnails.map((thumb) => ({ map, thumb })))
+    .flatMap((map) =>
+      map.thumbnails.map((thumb) => ({ map, thumb, guides: sharedMapGuides(map.id) })),
+    )
     .filter(
-      ({ map, thumb }) =>
+      ({ map, thumb, guides }) =>
         normalize(
-          [map.name, map.english, map.id, thumb.name, ...map.guides.map((g) => g.title)].join(" "),
+          [map.name, map.english, map.id, thumb.name, ...guides.map((g) => g.title)].join(" "),
         ).includes(normalize(query)) &&
-        (!onlyGuides || map.guides.length || (isSuperAdmin && hasRecommendedRoutes(map.id))),
+        (!onlyGuides ||
+          guides.length ||
+          (isSuperAdmin && hasRecommendedRoutes(map.id, thumb.layoutId))),
     );
   if (selected)
     return (
@@ -99,7 +104,7 @@ export function MapAtlas() {
       </div>
       <section className="ground-gallery" aria-label={t("地图列表")}>
         {localize(
-          cards.map(({ map, thumb }) => (
+          cards.map(({ map, thumb, guides }) => (
             <Link
               className="ground-card"
               key={thumb.layoutId}
@@ -119,12 +124,12 @@ export function MapAtlas() {
                   decoding="async"
                 />
                 {localize(
-                  isSuperAdmin && hasRecommendedRoutes(map.id) ? (
+                  isSuperAdmin && hasRecommendedRoutes(map.id, thumb.layoutId) ? (
                     <span className="ground-guide-badge">{t("推荐走线")}</span>
-                  ) : map.guides.length > 0 ? (
+                  ) : guides.length > 0 ? (
                     <span className="ground-guide-badge">
                       {t("攻略")}
-                      {localize(map.guides.length)}
+                      {localize(guides.length)}
                     </span>
                   ) : null,
                 )}
@@ -247,6 +252,7 @@ function GroundDetail({
   const { session } = useWorkbenchAccount();
   const isSuperAdmin = session?.role === "superadmin";
   const layout = map.layouts.find((l) => l.id === layoutId) || map.layouts[0];
+  const guides = sharedMapGuides(map.id);
   const [contours, setContours] = useState(true),
     [points, setPoints] = useState(true),
     [grid, setGrid] = useState(false),
@@ -741,15 +747,15 @@ function GroundDetail({
         <section className="ground-related">
           <h3>
             {t("关联攻略")}
-            <span>{localize(map.guides.length)}</span>
+            <span>{localize(guides.length)}</span>
           </h3>
           {localize(
-            map.guides.length ? (
+            guides.length ? (
               <>
                 <p>{t("同一地图的不同布局、季节及更新版本可能有差异，以原帖为准。")}</p>
                 <div>
                   {localize(
-                    map.guides.map((g) => (
+                    guides.map((g) => (
                       <a key={g.source} href={g.source} target="_blank" rel="noopener noreferrer">
                         <span>{localize(g.title)}</span>
                         <small>

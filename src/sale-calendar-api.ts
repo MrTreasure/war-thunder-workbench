@@ -1,6 +1,7 @@
 import { t } from "./i18n/core";
 import { readPublicResource } from "./public-resource-api";
 import type { SaleCalendarData, SaleVehicle } from "./sale-calendar-model";
+import { vehicleStore } from "./vehicle-store";
 const KEY = "wt-sale-read-cache-v3";
 const CALENDAR_KEY = "wt-sale-calendar-cache-v1";
 type Entry = { value: unknown; savedAt: number; expiresAt: number };
@@ -127,13 +128,57 @@ async function loadPublicSaleData(path: string): Promise<unknown> {
   }
   const query = new URLSearchParams(path.split("?")[1]);
   const country = query.get("country") || "china";
-  const data = await readPublicResource<{
-    country: string;
-    items: SaleVehicle[];
-    checkedAt: string;
-  }>("vehicles-" + country);
-  if (data.country !== country || !Array.isArray(data.items))
-    throw new Error(t("载具目录格式异常。"));
+  const state = await vehicleStore.ensure(country);
+  const data: { country: string; items: SaleVehicle[]; checkedAt: string } = {
+    country,
+    items: [],
+    checkedAt: state.value.checkedAt,
+  };
+  for (const [category, tree] of Object.entries(state.value.trees))
+    for (const rank of tree?.ranks || [])
+      for (const node of [...rank.research, ...rank.special])
+        for (const unit of node.members) {
+          const channel =
+            unit.kind === "squadron"
+              ? "excluded"
+              : unit.market
+                ? "market"
+                : unit.store
+                  ? "pack"
+                  : unit.side === "research"
+                    ? "sl"
+                    : unit.kind === "gold" || (unit.premium && unit.price !== null)
+                      ? "ge"
+                      : "unknown";
+          data.items.push({
+            id: unit.id,
+            name: unit.name,
+            nameEn: unit.nameEn || "",
+            country,
+            category,
+            channel,
+            image: unit.thumbnailUrl || unit.imageUrl,
+            rank: unit.rank,
+            store: unit.store,
+            market: unit.market,
+            originalPrice:
+              channel === "ge"
+                ? {
+                    currency: "GE",
+                    amount: unit.price,
+                    checkedAt: state.value.checkedAt,
+                    source: state.value.sources?.[category]?.url || null,
+                  }
+                : channel === "pack"
+                  ? {
+                      currency: "CNY",
+                      amount: unit.packPrice?.regularAmountCents ?? null,
+                      checkedAt: unit.packPrice?.checkedAt ?? null,
+                      source: unit.packPrice?.source || unit.store,
+                    }
+                  : null,
+          });
+        }
   const category = query.get("category") || "all",
     rank = query.get("rank") || "all";
   const search = (query.get("q") || "").toLowerCase().replace(/ /g, "").slice(0, 80);

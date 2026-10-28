@@ -1,9 +1,9 @@
-import { prepareVehicleFacts } from "./prepare-vehicle-facts.mjs";
 import { prepareAppearance } from "./prepare-appearance.mjs";
 import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { resolve } from "node:path";
+import { countryBody, encodeCsv } from "../src/country-csv.mjs";
 const root = fileURLToPath(new URL("../", import.meta.url));
 await prepareAppearance(root);
 const json = async (name) => JSON.parse(await readFile(resolve(root, "data", name), "utf8"));
@@ -137,7 +137,10 @@ await mkdir(resolve(root, "src/generated/countries"), { recursive: true });
 await mkdir(resolve(root, "data/generated/countries"), { recursive: true });
 await mkdir(resolve(root, "src/generated"), { recursive: true });
 await mkdir(resolve(root, "data/generated"), { recursive: true });
-await prepareVehicleFacts(root, catalog);
+await rm(resolve(root, "src/generated/csv"), { recursive: true, force: true });
+await rm(resolve(root, "src/generated/csv-resource-urls.ts"), { force: true });
+await rm(resolve(root, "src/generated/vehicle-facts"), { recursive: true, force: true });
+await rm(resolve(root, "src/generated/vehicle-fact-modules.ts"), { force: true });
 // The complete snapshot is for build-time checks only; it is never published.
 await writeFile(resolve(root, "data/generated/catalog.json"), JSON.stringify(catalog) + "\n");
 const { trees: allTrees, audit, ...metadata } = catalog;
@@ -152,21 +155,34 @@ const bootstrap = {
     ]),
   ),
 };
-const manifest = { schemaVersion: 3, countries: {} };
+const manifest = { schemaVersion: 4, countries: {} };
 const countryModules = [];
-async function emit(key, body) {
-  const content = JSON.stringify(body) + "\n",
-    sha256 = createHash("sha256").update(content).digest("hex");
-  const stem = `${key}.${sha256.slice(0, 16)}`;
-  const file = `${stem}.js`;
-  // JSON remains the canonical/cache representation; only JS transport is published.
-  await writeFile(resolve(root, "data/generated/countries", `${stem}.json`), content);
+async function emit(country, body) {
+  const csv = encodeCsv(countryBody(body));
+  const transport = `export default ${JSON.stringify(csv)};\n`;
+  const sha256 = createHash("sha256").update(csv).digest("hex");
+  const transportSha256 = createHash("sha256").update(transport).digest("hex");
+  const key = `country-${country}`,
+    stem = key + "." + transportSha256.slice(0, 16),
+    file = stem + ".js";
   await writeFile(
-    resolve(root, "src/generated/countries", `${stem}.ts`),
-    `export default ${JSON.stringify(content)};\n`,
+    resolve(root, "data/generated/countries", key + ".json"),
+    JSON.stringify(body) + "\n",
   );
+  await writeFile(resolve(root, "data/generated/countries", key + ".js"), transport);
+  await writeFile(resolve(root, "src/generated/countries", stem + ".ts"), transport);
   countryModules.push(`${JSON.stringify(key)}: () => import("./countries/${stem}")`);
-  return { key, file, sha256, bytes: Buffer.byteLength(content) };
+  return {
+    key,
+    format: "csv-js-v1",
+    file,
+    sha256,
+    bytes: Buffer.byteLength(csv),
+    transportSha256,
+    transportBytes: Buffer.byteLength(transport),
+    checkedAt: body.checkedAt,
+    sources: body.sources,
+  };
 }
 for (const country of Object.keys(catalog.countries)) {
   const nationTrees = {};
@@ -193,7 +209,7 @@ for (const country of Object.keys(catalog.countries)) {
                 : row;
           }
   }
-  manifest.countries[country] = await emit(`country-${country}`, {
+  const payload = {
     schemaVersion: 2,
     country,
     checkedAt: catalog.checkedAt,
@@ -201,7 +217,8 @@ for (const country of Object.keys(catalog.countries)) {
     trees: nationTrees,
     modifications: units,
     lineupCodes: lineupCodebook.countries[country],
-  });
+  };
+  manifest.countries[country] = await emit(country, payload);
 }
 await writeFile(
   resolve(root, "src/generated/manifest.json"),
