@@ -1,65 +1,335 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "countries": {
     "usa": {
       "key": "country-usa",
-      "file": "country-usa.297929854f2f56ed.js",
-      "sha256": "297929854f2f56ede3e8ef5d791b70533d7ef841dee038202bac8827e9096a71",
-      "bytes": 7929213
+      "format": "csv-js-v1",
+      "file": "country-usa.4d0661d8d1afdc73.js",
+      "sha256": "303343bfffd9935279df14d830d350204f9a8fbc2cbf5a14017ac2567dad10bb",
+      "bytes": 2677017,
+      "transportSha256": "4d0661d8d1afdc73b0cb1ddddd8be5f778c447c9dcd49fee42a5b348bc9171b3",
+      "transportBytes": 2719964,
+      "checkedAt": "2026-10-20T09:15:28.530Z",
+      "sources": {
+        "ground": {
+          "url": "https://wiki.warthunder.com/ground",
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+        },
+        "aviation": {
+          "url": "https://wiki.warthunder.com/aviation",
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+        },
+        "ships": {
+          "url": "https://wiki.warthunder.com/ships",
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+        },
+        "boats": {
+          "url": "https://wiki.warthunder.com/boats",
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+        },
+        "helicopters": {
+          "url": "https://wiki.warthunder.com/helicopters",
+          "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
+          "checkedAt": "2026-10-20T09:15:28.530Z"
+        }
+      }
     },
     "germany": {
       "key": "country-germany",
-      "file": "country-germany.dc0cb91ebc72cd62.js",
-      "sha256": "dc0cb91ebc72cd62fcc01b32b4cb166d007651ead80af9ab5cf56caf4eb1e820",
-      "bytes": 7098856
+      "format": "csv-js-v1",
+      "file": "country-germany.a82e26d6da2b1d2b.js",
+      "sha256": "0a1fb96d5c3be3a1790eece29fb3a81736962c85cc6fa4c2d238fcd119fbccdf",
+      "bytes": 2492541,
+      "transportSha256": "a82e26d6da2b1d2b2771ec24b1f8d13e8b8929736161c90470963e8dcbf0fce1",
+      "transportBytes": 2532889,
+      "checkedAt": "2026-10-20T09:15:28.530Z",
+      "sources": {
+        "ground": {
+          "url": "https://wiki.warthunder.com/ground",
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+        },
+        "aviation": {
+          "url": "https://wiki.warthunder.com/aviation",
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+        },
+        "ships": {
+          "url": "https://wiki.warthunder.com/ships",
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+        },
+        "boats": {
+          "url": "https://wiki.warthunder.com/boats",
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+        },
+        "helicopters": {
+          "url": "https://wiki.warthunder.com/helicopters",
+          "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
+          "checkedAt": "2026-10-20T09:15:28.530Z"
+        }
+      }
     },
     "ussr": {
       "key": "country-ussr",
-      "file": "country-ussr.45a77aef4dc50c64.js",
-      "sha256": "45a77aef4dc50c64135fc320acd323de87c8dce4dc8f3c17e516cc1ab491367b",
-      "bytes": 8093845
+      "format": "csv-js-v1",
+      "file": "country-ussr.b4ab92d80dc8443c.js",
+      "sha256": "de97b025a63cdc26cf3b87c40138638d5b691c583c6707c86606ca1db823abb0",
+      "bytes": 2698551,
+      "transportSha256": "b4ab92d80dc8443c0604ed19ec667cc78ad768aa75d7ea8d8bde9cf8ca32e983",
+      "transportBytes": 2742824,
+      "checkedAt": "2026-10-20T09:15:28.530Z",
+      "sources": {
+        "ground": {
+          "url": "https://wiki.warthunder.com/ground",
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+        },
+        "aviation": {
+          "url": "https://wiki.warthunder.com/aviation",
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+        },
+        "ships": {
+          "url": "https://wiki.warthunder.com/ships",
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+        },
+        "boats": {
+          "url": "https://wiki.warthunder.com/boats",
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+        },
+        "helicopters": {
+          "url": "https://wiki.warthunder.com/helicopters",
+          "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
+          "checkedAt": "2026-10-20T09:15:28.530Z"
+        }
+      }
     },
     "britain": {
       "key": "country-britain",
-      "file": "country-britain.7b029fabb1f54f8f.js",
-      "sha256": "7b029fabb1f54f8fa78bc30de908f9d6adf2b4d7f2c6e5c4aa505d306e6b2322",
-      "bytes": 6592662
+      "format": "csv-js-v1",
+      "file": "country-britain.73d50ad27a4bdcf3.js",
+      "sha256": "8a90ac3290c504e76c9632ea6580e33b7b3469418830666b57081cc60dfa3ad5",
+      "bytes": 2383433,
+      "transportSha256": "73d50ad27a4bdcf3ef9bbb55c239834d577ab64d1f73f05567d7827a74ddce6e",
+      "transportBytes": 2421909,
+      "checkedAt": "2026-10-20T09:15:28.530Z",
+      "sources": {
+        "ground": {
+          "url": "https://wiki.warthunder.com/ground",
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+        },
+        "aviation": {
+          "url": "https://wiki.warthunder.com/aviation",
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+        },
+        "ships": {
+          "url": "https://wiki.warthunder.com/ships",
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+        },
+        "boats": {
+          "url": "https://wiki.warthunder.com/boats",
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+        },
+        "helicopters": {
+          "url": "https://wiki.warthunder.com/helicopters",
+          "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
+          "checkedAt": "2026-10-20T09:15:28.530Z"
+        }
+      }
     },
     "japan": {
       "key": "country-japan",
-      "file": "country-japan.fc9b9f200add9427.js",
-      "sha256": "fc9b9f200add9427eb2073b07fe85ac072594c88d1d1b50a23b75f72c4450e0e",
-      "bytes": 4988539
+      "format": "csv-js-v1",
+      "file": "country-japan.8c60d9e3b981d2ca.js",
+      "sha256": "0ab3f1d8cbc08c8ccf84129f0ef981777106ff568c76a3269b3bf37812722f2c",
+      "bytes": 1847878,
+      "transportSha256": "8c60d9e3b981d2cace7f553132d7d7da500f1fe3ab3ec62240f50c0756085e03",
+      "transportBytes": 1877954,
+      "checkedAt": "2026-10-20T09:15:28.530Z",
+      "sources": {
+        "ground": {
+          "url": "https://wiki.warthunder.com/ground",
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+        },
+        "aviation": {
+          "url": "https://wiki.warthunder.com/aviation",
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+        },
+        "ships": {
+          "url": "https://wiki.warthunder.com/ships",
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+        },
+        "boats": {
+          "url": "https://wiki.warthunder.com/boats",
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+        },
+        "helicopters": {
+          "url": "https://wiki.warthunder.com/helicopters",
+          "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
+          "checkedAt": "2026-10-20T09:15:28.530Z"
+        }
+      }
     },
     "china": {
       "key": "country-china",
-      "file": "country-china.0a59820ebd8ddc73.js",
-      "sha256": "0a59820ebd8ddc73a8633656c09de8d941af9824c0ba4f5575d7b96bf1fbee31",
-      "bytes": 3397985
+      "format": "csv-js-v1",
+      "file": "country-china.1e6c540608bec4f0.js",
+      "sha256": "f6058d564be816b1fc43c00ac8283e53a23a4a2e0a518a58740409ed0b1ee0ff",
+      "bytes": 1273522,
+      "transportSha256": "1e6c540608bec4f04da5d3c44ed9b756b30a3d669dcf8a8ff75880f771ce28da",
+      "transportBytes": 1296202,
+      "checkedAt": "2026-10-20T09:15:28.530Z",
+      "sources": {
+        "ground": {
+          "url": "https://wiki.warthunder.com/ground",
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+        },
+        "aviation": {
+          "url": "https://wiki.warthunder.com/aviation",
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+        },
+        "ships": {
+          "url": "https://wiki.warthunder.com/ships",
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+        },
+        "boats": {
+          "url": "https://wiki.warthunder.com/boats",
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+        },
+        "helicopters": {
+          "url": "https://wiki.warthunder.com/helicopters",
+          "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
+          "checkedAt": "2026-10-20T09:15:28.530Z"
+        }
+      }
     },
     "italy": {
       "key": "country-italy",
-      "file": "country-italy.e6858b7dcc618ed3.js",
-      "sha256": "e6858b7dcc618ed372b10a1acf0a8c596ffc71fdc91025a4665ab7ef04752983",
-      "bytes": 4578762
+      "format": "csv-js-v1",
+      "file": "country-italy.ee822550953f26e0.js",
+      "sha256": "e121c3ef1a42475f20af1eb7a609be31b795e12c0546e1c37ae66eaf9e3ad0e9",
+      "bytes": 1799519,
+      "transportSha256": "ee822550953f26e0615d180454d166dbe958c9ef856e771211b6fe6c169928ab",
+      "transportBytes": 1829143,
+      "checkedAt": "2026-10-20T09:15:28.530Z",
+      "sources": {
+        "ground": {
+          "url": "https://wiki.warthunder.com/ground",
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+        },
+        "aviation": {
+          "url": "https://wiki.warthunder.com/aviation",
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+        },
+        "ships": {
+          "url": "https://wiki.warthunder.com/ships",
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+        },
+        "boats": {
+          "url": "https://wiki.warthunder.com/boats",
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+        },
+        "helicopters": {
+          "url": "https://wiki.warthunder.com/helicopters",
+          "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
+          "checkedAt": "2026-10-20T09:15:28.530Z"
+        }
+      }
     },
     "france": {
       "key": "country-france",
-      "file": "country-france.76bfbef6a9e10992.js",
-      "sha256": "76bfbef6a9e10992a53a9400fbf00133c258d48253042cfccf6fde3db3df9556",
-      "bytes": 4654519
+      "format": "csv-js-v1",
+      "file": "country-france.77c258ce2933ee76.js",
+      "sha256": "613b9ca03fdc3ff1fc400a95a150a15b1a227e4a195da79f0d350b19311b7dfe",
+      "bytes": 1781006,
+      "transportSha256": "77c258ce2933ee76119a7af8c7247cf06334daedba1584f3514a7eb367ebfbf5",
+      "transportBytes": 1810217,
+      "checkedAt": "2026-10-20T09:15:28.530Z",
+      "sources": {
+        "ground": {
+          "url": "https://wiki.warthunder.com/ground",
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+        },
+        "aviation": {
+          "url": "https://wiki.warthunder.com/aviation",
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+        },
+        "ships": {
+          "url": "https://wiki.warthunder.com/ships",
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+        },
+        "boats": {
+          "url": "https://wiki.warthunder.com/boats",
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+        },
+        "helicopters": {
+          "url": "https://wiki.warthunder.com/helicopters",
+          "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
+          "checkedAt": "2026-10-20T09:15:28.530Z"
+        }
+      }
     },
     "sweden": {
       "key": "country-sweden",
-      "file": "country-sweden.11e9a25190644338.js",
-      "sha256": "11e9a251906443384cd3483503d0d3fdf48e92a6331f18bd98ba1e84d9a61f43",
-      "bytes": 2711971
+      "format": "csv-js-v1",
+      "file": "country-sweden.d70b0108b4ed5a5d.js",
+      "sha256": "5f2501671cdb298ebaa45d06813a6369f6087fd78c06b1d8354726806998c1a0",
+      "bytes": 1032924,
+      "transportSha256": "d70b0108b4ed5a5d4df9e468f1b7403f4dc336fafee8f3c6d3b8a16c744b928a",
+      "transportBytes": 1051426,
+      "checkedAt": "2026-10-20T09:15:28.530Z",
+      "sources": {
+        "ground": {
+          "url": "https://wiki.warthunder.com/ground",
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+        },
+        "aviation": {
+          "url": "https://wiki.warthunder.com/aviation",
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+        },
+        "ships": {
+          "url": "https://wiki.warthunder.com/ships",
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+        },
+        "boats": {
+          "url": "https://wiki.warthunder.com/boats",
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+        },
+        "helicopters": {
+          "url": "https://wiki.warthunder.com/helicopters",
+          "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
+          "checkedAt": "2026-10-20T09:15:28.530Z"
+        }
+      }
     },
     "israel": {
       "key": "country-israel",
-      "file": "country-israel.5ecef4ef6e8247a4.js",
-      "sha256": "5ecef4ef6e8247a4a8f294a9b8c9e3ad8cb68efe9594d46f272562211649e740",
-      "bytes": 2251882
+      "format": "csv-js-v1",
+      "file": "country-israel.a4a9d55751804a73.js",
+      "sha256": "73b66c3e2fe5247fa057c58126bfd29d920a1e987580d88e36dd1d0b3bec3de2",
+      "bytes": 852874,
+      "transportSha256": "a4a9d55751804a731c12920fee1b63c5bee4da9ecb733e6c8eee02eac2808d5c",
+      "transportBytes": 867046,
+      "checkedAt": "2026-10-20T09:15:28.530Z",
+      "sources": {
+        "ground": {
+          "url": "https://wiki.warthunder.com/ground",
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+        },
+        "aviation": {
+          "url": "https://wiki.warthunder.com/aviation",
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+        },
+        "ships": {
+          "url": "https://wiki.warthunder.com/ships",
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+        },
+        "boats": {
+          "url": "https://wiki.warthunder.com/boats",
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+        },
+        "helicopters": {
+          "url": "https://wiki.warthunder.com/helicopters",
+          "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
+          "checkedAt": "2026-10-20T09:15:28.530Z"
+        }
+      }
     }
   }
 }

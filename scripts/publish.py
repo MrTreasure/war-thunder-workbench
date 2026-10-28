@@ -12,7 +12,7 @@ content=(dist/'index.html').read_bytes()
 if b'/assets/' not in content or b'id="root"' not in content:raise RuntimeError('Run pnpm run build before publishing')
 # Ensure dist contains the current generated data, not an older successful build.
 manifest=json.loads((root/'src/generated/manifest.json').read_text())
-if manifest['schemaVersion']!=3:raise RuntimeError('Expected country data manifest v3')
+if manifest['schemaVersion']!=4:raise RuntimeError('Expected CSV country data manifest v4')
 subprocess.run(['node','scripts/check-build.mjs'],cwd=root,check=True)
 def atomic(path,data,mode=0o644):
  path.parent.mkdir(parents=True,exist_ok=True,mode=0o755)
@@ -23,6 +23,8 @@ for file in sorted(dist.rglob('*'),key=lambda path:(path.suffix.lower()=='.html'
  target=destination/file.relative_to(dist)
  atomic(target,file.read_bytes());atomic(target.with_name(target.name+'.gz'),gzip.compress(file.read_bytes(),mtime=0))
  atomic(workspace/file.relative_to(dist),file.read_bytes())
+# The new data format retires old vehicle payloads; other hashed app assets remain.
+subprocess.run(['node','scripts/clean-retired-vehicle-assets.mjs',str(destination),str(workspace)],cwd=root,check=True)
 atomic(destination/'index.html.gz',gzip.compress(content,mtime=0));atomic(destination/'index.html',content)
 # Keep Muse's compatibility entry pointed at the new canonical React project.
 workspace.mkdir(parents=True,exist_ok=True)

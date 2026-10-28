@@ -4,9 +4,6 @@ src/generated/*
 !src/generated/bootstrap.json
 !src/generated/manifest.json
 !src/generated/country-modules.ts
-!src/generated/vehicle-fact-modules.ts
-!src/generated/vehicle-facts/
-!src/generated/vehicle-facts/*.ts
 !src/generated/countries/
 !src/generated/countries/*.ts
 .finesse/

@@ -1,4 +1,4 @@
-import { registerCountryVehicles } from "./vehicle-catalog";
+import { vehicleStore } from "./vehicle-store";
 import { Chevron } from "./components/Chevron";
 import { useAccountWorkspace } from "./workspace-context";
 import { vehicleDisplayName } from "./vehicle-display-name";
@@ -18,14 +18,13 @@ import { VehicleImage } from "./VehicleImage";
 import { VehicleDetails } from "./VehicleDetails";
 import { Modal } from "./Modal";
 import { WarThunderLoading } from "./Loading";
-import { dataCache, cacheLabel } from "./data-cache";
-import { readRemoteCatalog } from "./remote-catalog";
+import { cacheLabel } from "./data-cache";
 import type { CacheBackend } from "./data-cache";
 import { initialSelection, rememberSelection } from "./selection";
 import { object } from "./validation";
 import { workbenchPage } from "./features";
 import manifestData from "./generated/manifest.json";
-const manifest: DataManifest = { ...manifestData, schemaVersion: 3 };
+const manifest = manifestData as DataManifest;
 import { readJson, useStored } from "./storage";
 import { validCart } from "./quotes";
 import bootstrapData from "./generated/bootstrap.json";
@@ -76,36 +75,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
     updateSearchMetadata(page);
   }, [page]);
   const currentKey = country;
-  const [remoteManifest, setRemoteManifest] = useState<DataManifest | null>(null);
-  const countryEntry = remoteManifest?.countries[country] || manifest.countries[country] || null;
-  useEffect(() => {
-    if (
-      import.meta.env.VITE_WT_CATALOG_SOURCE === "bundled" ||
-      garagePage ||
-      !country ||
-      ["maps", "stats", "sales", "decals", "disclaimer"].includes(page)
-    )
-      return;
-    const controller = new AbortController();
-    const refresh = () => {
-      if (document.hidden) return;
-      void readRemoteCatalog(controller.signal)
-        .then((value) => {
-          if (value && !controller.signal.aborted) setRemoteManifest(value);
-        })
-        .catch(() => {
-          /* Keep the last verified index or bundled baseline. */
-        });
-    };
-    refresh();
-    window.addEventListener("focus", refresh);
-    document.addEventListener("visibilitychange", refresh);
-    return () => {
-      controller.abort();
-      window.removeEventListener("focus", refresh);
-      document.removeEventListener("visibilitychange", refresh);
-    };
-  }, [country, page, garagePage]);
+  const countryEntry = manifest.countries[country] || null;
   const [loadedCountry, setLoadedCountry] = useState<{
     key: string;
     value: CountryPayload;
@@ -146,57 +116,45 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (
       garagePage ||
-      page === "maps" ||
-      page === "stats" ||
-      page === "sales" ||
-      page === "decals" ||
-      page === "disclaimer" ||
+      ["maps", "stats", "sales", "decals", "disclaimer"].includes(page) ||
       !country ||
       !countryEntry
     )
       return;
-    const controller = new AbortController();
-    const valid = (value: unknown): value is CountryPayload => {
-      if (
-        !object(value) ||
-        value.schemaVersion !== 2 ||
-        value.country !== country ||
-        typeof value.checkedAt !== "string" ||
-        !object(value.trees) ||
-        !object(value.modifications) ||
-        !object(value.lineupCodes)
-      )
-        return false;
-      const trees = value.trees;
-      return (
-        Object.keys(trees).length === Object.keys(bootstrap.categories).length &&
-        Object.keys(bootstrap.categories).every((kind) => {
-          const tree = trees[kind];
-          return bootstrap.availability[kind][country]
-            ? object(tree) && Array.isArray(tree.ranks)
-            : tree === null;
-        })
-      );
+    let active = true;
+    const receive = () => {
+      const next = vehicleStore.getCountry(country);
+      if (active && next?.full)
+        setLoadedCountry((previous) =>
+          previous?.value === next.value
+            ? previous
+            : { key: country, value: next.value, cache: next.saved },
+        );
     };
-    dataCache
-      .load<CountryPayload>(countryEntry, valid, controller.signal, (value) =>
-        setCountryProgress({ ...value, key: currentKey }),
-      )
-      .then((result) => {
-        if (!controller.signal.aborted) {
-          registerCountryVehicles(result.value);
-          setLoadedCountry({ key: currentKey, value: result.value, cache: result.saved });
-        }
-      })
+    const unsubscribe = vehicleStore.subscribe(receive);
+    receive();
+    void vehicleStore
+      .ensure(country)
+      .then(receive)
       .catch((error) => {
-        if (!controller.signal.aborted)
+        if (active)
           setCountryError({
-            key: currentKey,
+            key: country,
             message: error instanceof Error ? error.message : "载具资料读取失败",
           });
       });
-    return () => controller.abort();
-  }, [country, currentKey, countryEntry, countryRetry, bootstrap, page, garagePage]);
+    const refresh = () => {
+      if (!document.hidden) void vehicleStore.revalidate(country);
+    };
+    window.addEventListener("focus", refresh);
+    document.addEventListener("visibilitychange", refresh);
+    return () => {
+      active = false;
+      unsubscribe();
+      window.removeEventListener("focus", refresh);
+      document.removeEventListener("visibilitychange", refresh);
+    };
+  }, [country, countryEntry, countryRetry, page, garagePage]);
   function chooseCountry(value: string) {
     if (value !== country) {
       setCountryError(null);

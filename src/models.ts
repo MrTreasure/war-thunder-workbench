@@ -272,6 +272,6 @@ export interface CountryPayload {
   lineupCodes: Record<string, string>;
 }
 export interface DataManifest {
-  schemaVersion: 3;
+  schemaVersion: 4;
   countries: Record<string, import("./data-loader").DataFile>;
 }
