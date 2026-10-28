@@ -2667,7 +2667,8 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-player-medal-multipliers dd { margin: 0; color: var(--wt-gold); font-size: 18px; font-variant-numeric: tabular-nums; }
 .wt-player-medal-detail-source { margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--wt-line); }
 .wt-player-medal-detail-source a { display: inline-flex; align-items: center; min-height: 44px; margin-right: 16px; color: var(--wt-gold); text-decoration: underline; text-underline-offset: 3px; }
-.wt-record-page .wt-binding-read-status > span { display: inline-grid; place-items: center; width: 16px; height: 16px; border: 1px solid currentColor; border-radius: 50%; margin-right: 5px; color: var(--wt-record-gold); font-size: 11px; }
+.wt-binding-read-status { display: inline-flex; align-items: center; align-self: center; gap: 5px; padding: 3px 8px; border-radius: 2px; background: var(--wt-gold-soft); color: var(--wt-record-gold); font-size: 12px; line-height: 1.5; }
+.wt-binding-read-status > span { display: inline-grid; place-items: center; width: 16px; height: 16px; border: 1px solid currentColor; border-radius: 50%; font-size: 11px; }
 
 .wt-career-scope-field { display: grid; gap: 5px; min-width: 150px; color: var(--wt-record-muted); font-size: 12px; }
 .wt-career-scope-field > span { display: inline-flex; align-items: center; }

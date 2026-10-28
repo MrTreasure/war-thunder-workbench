@@ -1,4 +1,4 @@
-import { readPricePreferences, savePricePreferences } from "./sale-price-api";
+import { readPricePreferences } from "./sale-price-api";
 import { saleWatchKey } from "./sale-watch-storage";
 import {
   memo,
@@ -107,7 +107,6 @@ const AccountWorkspace = memo(function AccountWorkspace({
   const [conflict, setConflict] = useState<{ key: string; remote: WorkspaceDocument } | null>(null);
   const [importKeys, setImportKeys] = useState<string[]>([]);
   const [selectedImports, setSelectedImports] = useState<string[]>([]);
-  const [deleteConfirm, setDeleteConfirm] = useState(false);
   const controller = useRef(new AbortController());
   const flight = useRef(false);
   const outboxReady = useRef(false);
@@ -588,46 +587,6 @@ const AccountWorkspace = memo(function AccountWorkspace({
                     </div>
                   </section>
                 )}
-                <details>
-                  <summary>删除云端计划数据</summary>
-                  <p>
-                    清空研发计划、购物车、购车勾选及出击队列。不会解除游戏账号关联或删除游客本地数据。
-                  </p>
-                  <label className="wt-agreement-check">
-                    <input
-                      type="checkbox"
-                      checked={deleteConfirm}
-                      onChange={(e) => setDeleteConfirm(e.target.checked)}
-                    />
-                    确认删除当前账号的云端计划数据
-                  </label>
-                  <button
-                    disabled={!deleteConfirm || busy || sending}
-                    onClick={() =>
-                      void run(async () => {
-                        const pricePreferences = await readPricePreferences();
-                        await savePricePreferences(
-                          { revision: pricePreferences.revision, items: {} },
-                          "user:" + userId,
-                        );
-                        localStorage.removeItem(
-                          "wt-sale-cart-preferences-v1:user:" + userId + ":pending",
-                        );
-                        window.dispatchEvent(new Event("wt-sale-preferences-cleared"));
-                        await statsRequest("account/workspace/clear", {
-                          confirmed: true,
-                          ownerKey: "user:" + userId,
-                        });
-                        storePending({});
-                        setConflict(null);
-                        setDeleteConfirm(false);
-                        await load();
-                      })
-                    }
-                  >
-                    删除云端计划数据
-                  </button>
-                </details>
               </>
             )}
             {cacheWarning && Object.keys(pending).length > 0 && <output>{cacheWarning}</output>}
