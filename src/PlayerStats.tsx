@@ -1028,7 +1028,7 @@ export function PlayerStats() {
             />
             <div className="wt-record-player-actions" aria-label="玩家资料操作">
               <GameAccountBinding
-                key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
+                key={`binding:${profile.snapshotId}:${session?.user?.id || "guest"}`}
                 profile={profile}
               />
               <button
@@ -1045,7 +1045,7 @@ export function PlayerStats() {
                 {busy ? "正在获取…" : "强制刷新"}
               </button>
               <AccountValuation
-                key={`${profile.snapshotId}:${session?.user?.id || "guest"}`}
+                key={`valuation:${profile.snapshotId}:${session?.user?.id || "guest"}`}
                 profile={profile}
                 session={session}
                 onSessionChange={refreshSession}

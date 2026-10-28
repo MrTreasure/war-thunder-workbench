@@ -82,10 +82,9 @@ export function PlayerMedals({
   const strip = useRef<HTMLDivElement>(null);
   const [failed, setFailed] = useState<string[]>([]);
   const [columns, setColumns] = useState(4);
-  const limit = Math.min(48, columns * 2 - 2);
   const owned = medals?.items.filter((item) => medalImages.has(item.id)) || [];
-  const available = owned.filter((item) => !failed.includes(item.id));
-  const visible = available.slice(0, limit);
+  const overflowing = owned.length > columns * 2;
+  const visible = owned.slice(0, overflowing ? columns * 2 - 2 : columns * 2);
   useLayoutEffect(() => {
     const element = strip.current;
     if (!element) return;
@@ -138,23 +137,25 @@ export function PlayerMedals({
     <div
       className="wt-player-medals"
       ref={strip}
-      data-rows={visible.length + 2 <= columns ? 1 : 2}
+      data-rows={visible.length + (overflowing ? 2 : 0) <= columns ? 1 : 2}
       aria-label={`已获勋章 ${count} 枚`}
     >
       {visible.map((item) => (
         <MedalBadge key={item.id} medal={item} unavailable={unavailable} inspect={inspect} />
       ))}
-      <button
-        type="button"
-        className="wt-player-medals-trigger"
-        ref={trigger}
-        aria-haspopup="dialog"
-        aria-label={`查看已获勋章 · ${count}`}
-        onClick={() => setOpen(true)}
-        title={`查看已获勋章 · ${count}`}
-      >
-        {visible.length < count ? `+${count - visible.length}` : count}
-      </button>
+      {overflowing && (
+        <button
+          type="button"
+          className="wt-player-medals-trigger"
+          ref={trigger}
+          aria-haspopup="dialog"
+          aria-label={`查看已获勋章 · ${count}`}
+          onClick={() => setOpen(true)}
+          title={`查看已获勋章 · ${count}`}
+        >
+          +{count - visible.length}
+        </button>
+      )}
       {open && (
         <Modal title={`已获勋章 · ${count}`} close={close} className="wt-player-medals-dialog">
           <div className="wt-player-medals-controls">
