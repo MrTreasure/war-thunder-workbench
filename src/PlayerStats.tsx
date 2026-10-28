@@ -5,6 +5,7 @@ import { ExtraQueryCredits } from "./ExtraQueryCredits";
 import { PlayerMedals } from "./PlayerMedals";
 import { PlayerAccountFacts } from "./PlayerAccountFacts";
 import { RelativeTime } from "./RelativeTime";
+import { PlayerRefreshAction } from "./PlayerRefreshAction";
 import { GameAccountBinding } from "./GameAccountBinding";
 import { readPublicResource } from "./public-resource-api";
 import { queryTask, pendingQuery, resumeQuery, forgetQuery } from "./player-query-task";
@@ -1040,19 +1041,6 @@ export function PlayerStats() {
                 key={`binding:${profile.snapshotId}:${session?.user?.id || "guest"}`}
                 profile={profile}
               />
-              <button
-                className="wt-record-player-refresh"
-                title="重新获取官方资料，计入新查询次数"
-                disabled={
-                  profile.localOnly ||
-                  busy ||
-                  exportBusy ||
-                  (!!report && ["queued", "running"].includes(report.status))
-                }
-                onClick={() => void forceRefresh()}
-              >
-                {busy ? "正在获取…" : "强制刷新"}
-              </button>
               <AccountValuation
                 key={`valuation:${profile.snapshotId}:${session?.user?.id || "guest"}`}
                 profile={profile}
@@ -1065,7 +1053,18 @@ export function PlayerStats() {
                 采集于 {statsDate(profile.fetchedAt)} ·{" "}
                 {profile.cached ? "已命中缓存，本次不扣查询次数" : "官方助手资料"}
               </span>
-              <small>强制刷新计入新查询次数</small>
+              <PlayerRefreshAction
+                key={`refresh:${profile.snapshotId}`}
+                profile={profile}
+                busy={busy}
+                disabled={
+                  !!profile.localOnly ||
+                  busy ||
+                  exportBusy ||
+                  (!!report && ["queued", "running"].includes(report.status))
+                }
+                refresh={() => void forceRefresh()}
+              />
             </div>
           </section>
           <div className="wt-record-tabs">

@@ -71,6 +71,7 @@ export type Valuation = {
   calculatedAt: string;
   cached: boolean;
   localCached?: boolean;
+  localStale?: boolean;
   policyVersion?: string;
   excluded?: (Item & { reason: string; source?: string | null })[];
   manual?: (Item & {
@@ -478,7 +479,9 @@ export function AccountValuation({
     cachedValuation(cacheScope, profile),
   );
   const value = useMemo(() => visibleValuation(storedValue), [storedValue]);
-  const [cacheNotice, setCacheNotice] = useState("");
+  const [cacheNotice, setCacheNotice] = useState(
+    storedValue?.localStale ? "正在展示此前保存的估值，可在详情中重新估值。" : "",
+  );
   const [researchPage, setResearchPage] = useState(1);
   const [checking, setChecking] = useState(false);
   const [open, setOpen] = useState(false),
@@ -524,26 +527,31 @@ export function AccountValuation({
         c.signal,
       );
       if (!c.signal.aborted) {
+        if (current.player.uid !== profile.uid) throw Error("估值玩家身份不一致，请重新查询。");
         setValue(current);
-        cacheValuation(cacheScope, profile, current);
-        setCacheNotice("");
+        cacheValuation(cacheScope, { uid: profile.uid, snapshotId: current.snapshotId }, current);
+        setCacheNotice(
+          current.snapshotId === profile.snapshotId
+            ? ""
+            : "正在展示此前资料的估值，可点击重新估值更新。",
+        );
       }
     } catch (failure) {
       if (!c.signal.aborted) {
+        if (failure instanceof StatsError && failure.code === "CACHE_STALE") {
+          setCacheNotice("估值资料或价格已更新，当前保留此前估值；点击重新估值更新。");
+          return;
+        }
         if (
           !(failure instanceof StatsError) ||
-          ![
-            "CACHE_STALE",
-            "QUERY_REQUIRED",
-            "INVALID_TICKET",
-            "LOGIN_EXPIRED",
-            "VALUATION_NOT_FOUND",
-          ].includes(failure.code)
+          !["QUERY_REQUIRED", "INVALID_TICKET", "LOGIN_EXPIRED", "VALUATION_NOT_FOUND"].includes(
+            failure.code,
+          )
         ) {
           setCacheNotice("暂时无法校验最新规则，当前展示已保存估值；联网后重新打开会再校验。");
           return;
         }
-        forgetCachedValuation(cacheScope, profile);
+        forgetCachedValuation(cacheScope, { uid: profile.uid, snapshotId: value.snapshotId });
         setValue(null);
         setOpen(false);
         setCacheNotice("");
@@ -660,26 +668,31 @@ export function AccountValuation({
       <button
         className="wt-valuation-trigger"
         disabled={!session || busy || checking}
+        aria-label={
+          value ? `查看已估值 ${valuationTotal(value.scenarios.normal.knownCents)}` : undefined
+        }
+        aria-busy={busy || checking}
         onClick={() => (value ? void openCached() : void calculate())}
       >
-        {busy || checking ? (
+        {value ? (
+          <>
+            <b>{valuationTotal(value.scenarios.normal.knownCents)}</b>
+            <span aria-hidden="true">›</span>
+          </>
+        ) : busy || checking ? (
           checking ? (
             "正在校验估值缓存…"
           ) : (
             "正在计算估值…"
           )
-        ) : value ? (
-          <>
-            账号估值 <b>{valuationTotal(value.scenarios.normal.knownCents)}</b>
-            <span aria-hidden="true">›</span>
-          </>
         ) : (
           "账号估值"
         )}
       </button>
       {!value && <small>可用次数 · {session ? remaining : "—"}</small>}
+      {value && <small>估值于 {statsDate(value.calculatedAt)}</small>}
       {cacheNotice && <small>{cacheNotice}</small>}
-      {error && (
+      {error && !open && (
         <small className="wt-record-error" role="alert">
           {error}
         </small>
@@ -1192,6 +1205,20 @@ export function AccountValuation({
           )}
           <footer className="wt-valuation-section">
             {cacheNotice && <output>{cacheNotice}</output>}
+            {error && (
+              <p className="wt-record-error" role="alert">
+                {error}
+              </p>
+            )}
+            <button
+              type="button"
+              className="wt-record-link"
+              disabled={!session || busy || checking || profile.localOnly}
+              title="重新估值使用估值额度，失败时保留此前估值"
+              onClick={() => void calculate()}
+            >
+              {busy ? "正在重新估值…" : "重新估值"}
+            </button>
             <p>{valuationRules.notice}</p>
             <small>
               资料采集 {statsDate(value.fetchedAt)} · 估值计算 {statsDate(value.calculatedAt)}
