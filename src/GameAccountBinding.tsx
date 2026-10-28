@@ -54,7 +54,19 @@ export function GameAccountBinding({ profile }: { profile: PlayerProfile }) {
         title={refreshError || undefined}
         aria-label={refreshError ? `已绑定，${refreshError}` : undefined}
       >
-        {refreshError && <span aria-hidden="true">!</span>}
+        <svg
+          className="wt-binding-icon"
+          viewBox="0 0 20 20"
+          width="14"
+          height="14"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          aria-hidden="true"
+        >
+          <circle cx="10" cy="10" r="7.5" />
+          <path d="m6.3 10 2.4 2.5 5-5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
         已绑定
       </output>
     ) : null;
@@ -69,7 +81,8 @@ export function GameAccountBinding({ profile }: { profile: PlayerProfile }) {
   return (
     <>
       <button
-        className="wt-record-link"
+        type="button"
+        className="wt-binding-action"
         disabled={profile.localOnly || busy}
         onClick={() => {
           if (!workspace.consented) {
@@ -81,7 +94,23 @@ export function GameAccountBinding({ profile }: { profile: PlayerProfile }) {
           setOpen(true);
         }}
       >
-        绑定游戏账号
+        <svg
+          className="wt-binding-icon"
+          viewBox="0 0 20 20"
+          width="14"
+          height="14"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          aria-hidden="true"
+        >
+          <path
+            d="m8 12 4-4M7.2 7.7l1.6-1.6a3.6 3.6 0 0 1 5.1 5.1l-1.6 1.6M12.8 12.3l-1.6 1.6a3.6 3.6 0 0 1-5.1-5.1l1.6-1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+        绑定账号
       </button>
       {open && (
         <Modal

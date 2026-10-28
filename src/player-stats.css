@@ -6,6 +6,7 @@
   --wt-record-elite-gold: #fdc85d;
   --wt-record-muted: #b1bab9;
   --wt-record-ink: #ecece4;
+  --wt-record-success: #87cfa4;
   max-width: 1440px;
   width: 100%;
   margin-inline: auto;
@@ -147,8 +148,7 @@
   color: var(--wt-record-muted);
   margin-left: 6px;
 }
-.wt-record-error,
-.wt-record-notice {
+.wt-record-error {
   display: block;
   padding: 12px 16px;
   margin: 14px 0;
@@ -158,11 +158,9 @@
   color: #f4c5ac;
   font-size: 13px;
 }
-.wt-record-notice {
-  border-color: #4e6c60;
-  background: #273831;
-  color: #bdd8c6;
-}
+.wt-record-query-feedback { display: block; margin: 0 0 16px; color: var(--wt-record-muted); font-size: 12px; }
+.wt-record-query-submit, .wt-record-button-loading { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.wt-record-query-submit > .wt-control-spinner, .wt-record-button-loading > .wt-control-spinner { width: 16px; height: 16px; flex-basis: 16px; }
 .wt-record-welcome {
   padding: 80px 20px;
   text-align: center;
@@ -2438,6 +2436,7 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 /* Player dossier: identity, aligned actions, then provenance. */
 .wt-record-player { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 14px 18px; border-radius: 2px; }
 .wt-record-player-identity { min-width: 0; }
+.wt-record-player-avatar { display: flex; flex-direction: column; align-items: center; justify-self: start; align-self: center; gap: 6px; width: 68px; }
 .wt-record-player-facts { display: grid; gap: 3px; margin: 6px 0 0; color: var(--wt-record-muted); font-size: 12px; line-height: 1.5; }
 .wt-record-player-facts > div { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
 .wt-record-player-facts dt { font-weight: 400; }
@@ -2459,6 +2458,10 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-record-page .wt-record-refresh-action > button[data-expired], .wt-record-page .wt-record-refresh-action > button:hover:not(:disabled) { color: var(--wt-record-gold); }
 .wt-record-page .wt-record-refresh-action > button:hover:not(:disabled) > span { text-decoration: underline; text-underline-offset: 3px; }
 .wt-record-page .wt-record-refresh-action > button:focus-visible { outline: 2px solid var(--wt-record-gold); outline-offset: 3px; }
+.wt-record-player-refresh[aria-busy="true"] > svg { animation: wt-control-spin 900ms linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .wt-record-player-refresh[aria-busy="true"] > svg { animation: none; }
+}
 .wt-record-page button.wt-relative-time { display: inline-flex; align-items: center; vertical-align: baseline; min-height: 24px; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; color: inherit; font: inherit; line-height: inherit; text-decoration: underline dotted; text-underline-offset: 3px; }
 .wt-record-page button.wt-relative-time:hover { color: var(--wt-record-gold); }
 .wt-record-page button.wt-relative-time:focus-visible { outline: 2px solid var(--wt-record-gold); outline-offset: 3px; }
@@ -2686,8 +2689,11 @@ a.wt-record-vehicle:focus-visible { outline: 2px solid var(--wt-record-gold); ou
 .wt-player-medal-multipliers dd { margin: 0; color: var(--wt-gold); font-size: 18px; font-variant-numeric: tabular-nums; }
 .wt-player-medal-detail-source { margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--wt-line); }
 .wt-player-medal-detail-source a { display: inline-flex; align-items: center; min-height: 44px; margin-right: 16px; color: var(--wt-gold); text-decoration: underline; text-underline-offset: 3px; }
-.wt-binding-read-status { display: inline-flex; align-items: center; align-self: center; gap: 5px; padding: 3px 8px; border-radius: 2px; background: var(--wt-gold-soft); color: var(--wt-record-gold); font-size: 12px; line-height: 1.5; }
-.wt-binding-read-status > span { display: inline-grid; place-items: center; width: 16px; height: 16px; border: 1px solid currentColor; border-radius: 50%; font-size: 11px; }
+.wt-binding-read-status { display: inline-flex; align-items: center; gap: 4px; padding: 3px 4px; border-radius: 2px; background: color-mix(in srgb, var(--wt-record-success) 12%, transparent); color: var(--wt-record-success); font-size: 11px; line-height: 1.5; white-space: nowrap; }
+.wt-binding-icon { flex: 0 0 14px; }
+.wt-record-page .wt-record-player-avatar > .wt-binding-action { display: inline-flex; align-items: center; justify-content: center; gap: 4px; min-height: 24px; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; color: var(--wt-record-success); font-size: 11px; line-height: 1.5; }
+.wt-record-page .wt-record-player-avatar > .wt-binding-action:hover:not(:disabled) { text-decoration: underline; text-underline-offset: 3px; }
+.wt-record-page .wt-record-player-avatar > .wt-binding-action:focus-visible { outline-color: var(--wt-record-success); }
 
 .wt-career-scope-field { display: grid; gap: 5px; min-width: 150px; color: var(--wt-record-muted); font-size: 12px; }
 .wt-career-scope-field > span { display: inline-flex; align-items: center; }

@@ -144,7 +144,6 @@ function VehicleRow({
 export function PlayerStats() {
   const route = useSearch({ from: "/_workbench/stats" });
   const navigate = useNavigate({ from: "/stats" });
-  const [queryProgress, setQueryProgress] = useState("");
   const resumedQuery = useRef(false);
   const [recentPlayers, setRecentPlayers] = useState(statsQueryHistory);
   const [leaderboards, setLeaderboards] = useState(cachedLeaderboards);
@@ -198,9 +197,10 @@ export function PlayerStats() {
   useEffect(() => {
     setTab(route.view || "overview");
   }, [route.view]);
-  const [busy, setBusy] = useState(false),
-    [error, setError] = useState(""),
-    [notice, setNotice] = useState("");
+  const [busyAction, setBusyAction] = useState<"query" | "refresh" | "report" | null>(null);
+  const busy = busyAction !== null;
+  const [error, setError] = useState(""),
+    [queryFeedback, setQueryFeedback] = useState("");
   const [search, setSearch] = useState(""),
     [category, setCategory] = useState("all"),
     [vehicleCountry, setVehicleCountry] = useState("all"),
@@ -312,7 +312,7 @@ export function PlayerStats() {
       setViewingHistory(false);
       setBackground("auto");
       setCandidates([]);
-      setNotice(p.stale ? p.staleReason || "官方查询繁忙，正在展示此前采集的资料。" : "");
+      setQueryFeedback("");
     },
     [navigate, route.player, route.view],
   );
@@ -322,18 +322,18 @@ export function PlayerStats() {
     resumedQuery.current = true;
     const c = controller(),
       id = ++generation.current;
-    setBusy(true);
+    setBusyAction(pendingQuery()?.kind === "refresh" ? "refresh" : "query");
     void resumeQuery<
       | PlayerProfile
       | { items: PlayerCandidate[]; queryId: string; stale?: boolean; staleReason?: string }
-    >(c.signal, setQueryProgress)
+    >(c.signal)
       .then((value) => {
         if (!value || c.signal.aborted || id !== generation.current) return;
         if ("items" in value.result) {
           setQueryId(value.result.queryId);
           setCandidates(value.result.items);
           if (value.result.stale)
-            setNotice(value.result.staleReason || "正在展示已保存的搜索结果。");
+            setQueryFeedback(value.result.staleReason || "正在展示已保存的搜索结果。");
         } else loadProfile(value.result);
         void refreshSession();
       })
@@ -343,7 +343,7 @@ export function PlayerStats() {
       })
       .finally(() => {
         requests.current.delete(c);
-        if (!c.signal.aborted && id === generation.current) setBusy(false);
+        if (!c.signal.aborted && id === generation.current) setBusyAction(null);
       });
     return () => {
       c.abort();
@@ -351,10 +351,9 @@ export function PlayerStats() {
     };
   }, [hasSession, route.player, loadProfile, refreshSession]);
   async function openSavedProfile(p: PlayerProfile) {
-    setQueryProgress("");
     const id = ++generation.current,
       c = controller();
-    setBusy(true);
+    setBusyAction("query");
     setError("");
     try {
       const restored = await statsRequest<PlayerProfile>(
@@ -365,7 +364,6 @@ export function PlayerStats() {
       if (c.signal.aborted || id !== generation.current) return;
       if (restored.uid !== p.uid) throw new Error("保存的玩家身份不一致，请重新查询。");
       loadProfile(restored);
-      setNotice("已打开保存的查询记录，本次不扣查询次数；采集时间见下方。");
     } catch (failure) {
       if (c.signal.aborted || id !== generation.current) return;
       setError(
@@ -373,20 +371,20 @@ export function PlayerStats() {
       );
     } finally {
       requests.current.delete(c);
-      if (id === generation.current) setBusy(false);
+      if (id === generation.current) setBusyAction(null);
     }
   }
   function returnToSearch() {
     generation.current++;
     requests.current.forEach((c) => c.abort());
     exportController.current?.abort();
-    setBusy(false);
+    setBusyAction(null);
     setProfile(null);
     setCandidates([]);
     setReport(null);
     setHistory(null);
     setError("");
-    setNotice("");
+    setQueryFeedback("");
     setTab("overview");
     void navigate({ search: {}, replace: true });
   }
@@ -397,9 +395,9 @@ export function PlayerStats() {
     rememberStatsNickname(value);
     const id = ++generation.current,
       c = controller();
-    setBusy(true);
+    setBusyAction("query");
     setError("");
-    setNotice("");
+    setQueryFeedback("");
     try {
       const result = await queryTask<{
         items: PlayerCandidate[];
@@ -407,18 +405,13 @@ export function PlayerStats() {
         cached: boolean;
         stale?: boolean;
         staleReason?: string;
-      }>(
-        "search",
-        { nickname: value, requestId: "query_" + crypto.randomUUID() },
-        c.signal,
-        setQueryProgress,
-      );
+      }>("search", { nickname: value, requestId: "query_" + crypto.randomUUID() }, c.signal);
       if (c.signal.aborted || id !== generation.current) return;
       setQueryId(result.queryId);
       setCandidates(result.items);
-      if (!result.items.length) setNotice("没有找到玩家，请检查昵称与平台后缀。");
+      if (!result.items.length) setQueryFeedback("没有找到玩家，请检查昵称与平台后缀。");
       else if (result.stale)
-        setNotice(result.staleReason || "正在展示已保存的搜索结果，请核对玩家 UID。");
+        setQueryFeedback(result.staleReason || "正在展示已保存的搜索结果，请核对玩家 UID。");
       setProfile(null);
     } catch (failure) {
       if (!c.signal.aborted && id === generation.current)
@@ -426,7 +419,7 @@ export function PlayerStats() {
     } finally {
       requests.current.delete(c);
       if (!c.signal.aborted && id === generation.current) {
-        setBusy(false);
+        setBusyAction(null);
         void refreshSession();
       }
     }
@@ -435,9 +428,9 @@ export function PlayerStats() {
     if (accountInitializing || busy || !session) return;
     const id = ++generation.current,
       c = controller();
-    setBusy(true);
+    setBusyAction("query");
     setError("");
-    setNotice("");
+    setQueryFeedback("");
     setNickname(player.nickname);
     setCandidates([]);
     setQueryId("");
@@ -454,7 +447,6 @@ export function PlayerStats() {
           requestId: "query_" + crypto.randomUUID(),
         },
         c.signal,
-        setQueryProgress,
       );
       if (!c.signal.aborted && id === generation.current) {
         loadProfile(result);
@@ -488,7 +480,7 @@ export function PlayerStats() {
     } finally {
       requests.current.delete(c);
       if (!c.signal.aborted && id === generation.current) {
-        setBusy(false);
+        setBusyAction(null);
         void refreshSession();
       }
     }
@@ -496,22 +488,17 @@ export function PlayerStats() {
   async function choose(p: PlayerCandidate) {
     const id = ++generation.current,
       c = controller();
-    setBusy(true);
+    setBusyAction("query");
     setError("");
     try {
-      const value = await queryTask<PlayerProfile>(
-        "select",
-        { queryId, uid: p.uid },
-        c.signal,
-        setQueryProgress,
-      );
+      const value = await queryTask<PlayerProfile>("select", { queryId, uid: p.uid }, c.signal);
       if (!c.signal.aborted && id === generation.current) loadProfile(value);
     } catch (failure) {
       if (!c.signal.aborted) setError(failure instanceof Error ? failure.message : "查询失败。");
     } finally {
       requests.current.delete(c);
       if (!c.signal.aborted) {
-        setBusy(false);
+        setBusyAction(null);
         void refreshSession();
       }
     }
@@ -520,9 +507,9 @@ export function PlayerStats() {
     if (!profile || busy) return;
     const id = ++generation.current,
       c = controller();
-    setBusy(true);
+    setBusyAction("refresh");
     setError("");
-    setNotice("");
+    setQueryFeedback("");
     try {
       const value = await queryTask<PlayerProfile>(
         "refresh",
@@ -531,7 +518,6 @@ export function PlayerStats() {
           requestId: "refresh_" + crypto.randomUUID(),
         },
         c.signal,
-        setQueryProgress,
       );
       if (c.signal.aborted || id !== generation.current) return;
       setProfile(value);
@@ -541,14 +527,13 @@ export function PlayerStats() {
       if (!value.modes.some((m) => m.id === mode)) setMode(value.modes[0]?.id || "rb");
       setReport(null);
       setViewingHistory(false);
-      setNotice("已重新获取官方资料。");
     } catch (failure) {
       if (!c.signal.aborted && id === generation.current)
         setError(failure instanceof Error ? failure.message : "刷新失败，原资料仍可查看。");
     } finally {
       requests.current.delete(c);
       if (!c.signal.aborted && id === generation.current) {
-        setBusy(false);
+        setBusyAction(null);
         void refreshSession();
       }
     }
@@ -572,6 +557,8 @@ export function PlayerStats() {
     const c = new AbortController(),
       active = requests.current;
     active.add(c);
+    const openingPlayer = !!(route.player || (route.snapshot && route.uid)) && !resumedQuery.current;
+    if (openingPlayer) setBusyAction("query");
     void Promise.all([readPublicResource<StatsConfig>("config", c.signal), refreshSession()])
       .then(async ([cfg]) => {
         if (c.signal.aborted) return;
@@ -608,6 +595,9 @@ export function PlayerStats() {
       .catch((failure) => {
         if (!c.signal.aborted)
           setError(failure instanceof Error ? failure.message : "服务暂时不可用。");
+      })
+      .finally(() => {
+        if (openingPlayer && !c.signal.aborted) setBusyAction(null);
       });
     return () => {
       c.abort();
@@ -643,25 +633,23 @@ export function PlayerStats() {
     previousIdentity.current = identityVersion;
     clearRankingMemory();
     forgetQuery();
-    setQueryProgress("");
     setSelectedVehicle(null);
     setVehicleShare(null);
     generation.current++;
     requests.current.forEach((request) => request.abort());
     exportController.current?.abort();
-    setBusy(false);
+    setBusyAction(null);
     setProfile(null);
     setCandidates([]);
     setReport(null);
     setHistory(null);
     setQueryId("");
-    setNotice("账号状态已更新，请重新选择玩家。");
+    setQueryFeedback("账号状态已更新，请重新选择玩家。");
   }, [identityVersion]);
   async function generate() {
-    setQueryProgress("");
     if (!profile || viewingHistory || !eligible.length) return;
     const c = controller();
-    setBusy(true);
+    setBusyAction("report");
     setError("");
     try {
       const value = await statsRequest<StatsReport>(
@@ -683,7 +671,7 @@ export function PlayerStats() {
     } finally {
       requests.current.delete(c);
       if (!c.signal.aborted) {
-        setBusy(false);
+        setBusyAction(null);
         void refreshSession();
       }
     }
@@ -802,6 +790,10 @@ export function PlayerStats() {
       });
     return () => c.abort();
   }, [bg, tab, canReadBackground]);
+  const queryLoading =
+    accountInitializing || busyAction === "query" || (busyAction === "refresh" && !profile);
+  const reportLoading =
+    busyAction === "report" || !!(report && ["queued", "running"].includes(report.status));
   return (
     <div className="wt-record-page">
       <header className="wt-record-page-title">
@@ -859,10 +851,14 @@ export function PlayerStats() {
           autoComplete="off"
         />
         <button
-          className="wt-record-primary"
+          className="wt-record-primary wt-record-query-submit"
+          aria-busy={queryLoading}
           disabled={accountInitializing || busy || !session || nickname.trim().length < 2}
         >
-          {accountInitializing ? "账号加载中…" : busy ? "正在查询…" : "搜索玩家"}
+          {queryLoading && <span className="wt-control-spinner" aria-hidden="true" />}
+          <span aria-live="polite">
+            {accountInitializing ? "账号加载中…" : queryLoading ? "正在查询…" : "搜索玩家"}
+          </span>
         </button>
         {(profile || candidates.length > 0 || busy || route.player) && (
           <button type="button" className="wt-record-back" onClick={returnToSearch}>
@@ -870,17 +866,12 @@ export function PlayerStats() {
           </button>
         )}
       </form>
-      {busy && queryProgress && (
-        <output className="wt-record-notice" aria-live="polite">
-          {queryProgress}
-        </output>
-      )}
       {error && (
         <p className="wt-record-error" role="alert">
           {error}
         </p>
       )}
-      {notice && <output className="wt-record-notice">{notice}</output>}
+      {queryFeedback && <output className="wt-record-query-feedback">{queryFeedback}</output>}
       {!!candidates.length && (
         <section className="wt-record-candidates">
           <h2>确认玩家</h2>
@@ -1014,11 +1005,17 @@ export function PlayerStats() {
       {profile && (
         <>
           <section className="wt-record-player">
-            <Avatar
-              url={profile.avatar}
-              name={profile.nickname}
-              frameKey={profile.avatarFrameKey}
-            />
+            <div className="wt-record-player-avatar">
+              <Avatar
+                url={profile.avatar}
+                name={profile.nickname}
+                frameKey={profile.avatarFrameKey}
+              />
+              <GameAccountBinding
+                key={`binding:${profile.snapshotId}:${session?.user?.id || "guest"}`}
+                profile={profile}
+              />
+            </div>
             <div className="wt-record-player-identity">
               <h2>
                 {profile.clanTag && <small>{profile.clanTag} </small>}
@@ -1041,10 +1038,6 @@ export function PlayerStats() {
               retry={publicDetails.retry}
             />
             <div className="wt-record-player-actions" aria-label="玩家资料操作">
-              <GameAccountBinding
-                key={`binding:${profile.snapshotId}:${session?.user?.id || "guest"}`}
-                profile={profile}
-              />
               <AccountValuation
                 key={`valuation:${profile.snapshotId}:${session?.user?.id || "guest"}`}
                 profile={profile}
@@ -1055,12 +1048,16 @@ export function PlayerStats() {
             <div className="wt-record-source">
               <span>
                 采集于 <RelativeTime value={profile.fetchedAt} /> ·{" "}
-                {profile.cached ? "已命中缓存，本次不扣查询次数" : "官方助手资料"}
+                {profile.stale
+                  ? "正在展示此前资料"
+                  : profile.cached
+                    ? "已命中缓存，本次不扣查询次数"
+                    : "官方助手资料"}
               </span>
               <PlayerRefreshAction
                 key={`refresh:${profile.snapshotId}`}
                 profile={profile}
-                busy={busy}
+                busy={busyAction === "refresh"}
                 disabled={
                   !!profile.localOnly ||
                   busy ||
@@ -1549,7 +1546,8 @@ export function PlayerStats() {
                     )}
                   </div>
                   <button
-                    className="wt-record-primary"
+                    className="wt-record-primary wt-record-button-loading"
+                    aria-busy={reportLoading}
                     disabled={
                       busy ||
                       viewingHistory ||
@@ -1559,7 +1557,8 @@ export function PlayerStats() {
                     }
                     onClick={() => void generate()}
                   >
-                    {report?.status === "queued" || report?.status === "running"
+                    {reportLoading && <span className="wt-control-spinner" aria-hidden="true" />}
+                    {reportLoading
                       ? "正在生成战报与点评…"
                       : report?.status === "ready"
                         ? "取用相同配置战报"

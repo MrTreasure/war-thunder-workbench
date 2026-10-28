@@ -104,13 +104,13 @@ async function follow<T>(task: PendingQuery, signal: AbortSignal, progress: (tex
   }
   throw new Error("查询仍在后台处理中，刷新页面可继续查看任务状态。");
 }
-export async function queryTask<T>(kind: QueryKind, payload: unknown, signal: AbortSignal, progress: (text: string) => void): Promise<T> {
+export async function queryTask<T>(kind: QueryKind, payload: unknown, signal: AbortSignal, progress: (text: string) => void = () => {}): Promise<T> {
   progress("正在提交查询任务…");
   const job = await statsRequest<QueryJob<T>>("queries", { kind, payload, requestId: "task_" + crypto.randomUUID() }, signal);
   remember(job);
   return follow<T>(job, signal, progress);
 }
-export async function resumeQuery<T>(signal: AbortSignal, progress: (text: string) => void) {
+export async function resumeQuery<T>(signal: AbortSignal, progress: (text: string) => void = () => {}) {
   const task = pendingQuery();
   if (!task) return null;
   progress("正在恢复上次查询任务…");
