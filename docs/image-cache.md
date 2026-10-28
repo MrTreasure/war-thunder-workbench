@@ -6,7 +6,7 @@
 
 - 只接管 GET 图片请求，且路径必须在官方 CDN 的公开范围内：`static.encyclopedia.warthunder.com/gui_skin/`、`/images/`、`/slots/`，以及 `staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/`。
 - 请求带查询参数、Authorization、Range、显式 no-store/reload 时不接管；HTML、脚本、API、账号资料、Canvas 的显式 fetch 和地图文件保留现有规则。
-- 请求使用匿名凭据，不跟随重定向。首次打开按需下载，命中后直接返回 CacheStorage 中的图片。可读图片七天后、opaque 图片一天后，在继续显示已缓存图片的同时后台更新；离线时保留旧图。
+- 请求使用匿名凭据，按浏览器图片请求的要求跟随重定向。首次打开按需下载，命中后直接返回 CacheStorage 中的图片。可读图片七天后、opaque 图片一天后，在继续显示已缓存图片的同时后台更新；离线时保留旧图。缓存链路失败时使用普通匿名图片请求回退。
 - 图标最多 48 项，载具／勋章图片最多 96 项，壁纸最多 2 项；按最近访问时间淘汰。所有分组的 opaque 响应合计最多 40 项，因为浏览器对不可读跨域响应可能计入明显高于实际图片大小的配额。限制为条目数，不将不可读响应伪称为已测量字节数。
 - 写入不阻塞新图片显示。存储不可用时继续普通网络加载；配额错误只淘汰本组最旧的部分图片。更新仅清理 `wt-public-images-*` 命名空间的旧缓存，永不删除载具 IndexedDB、购物车、档案、队列、地图计划或其他 CacheStorage。
 - 不预下载整国图片。首次注册在页面 load 后进行，激活后接管后续图片请求，不强制刷新页面。Service Worker 入口必须 revalidate，哈希 JS／CSS 继续沿用既有 immutable HTTP 缓存。
