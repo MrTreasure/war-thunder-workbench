@@ -1,3 +1,4 @@
+import "../workbench-appearance";
 import { AppFooter } from "../components/AppFooter";
 import { AccountWorkspaceProvider } from "../AccountWorkspace";
 import { Outlet, createFileRoute } from "@tanstack/react-router";
