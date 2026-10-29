@@ -1,9 +1,13 @@
 import { t, getLocale } from "./i18n/core";
-import type { SaleVehicle } from "./sale-calendar-model";
+import type { SaleEvent, SaleVehicle } from "./sale-calendar-model";
 
 export type PricePoint = {
   observedAt: string;
   contentVersion?: string;
+  eventId?: string;
+  effectiveUntil?: string | null;
+  available?: boolean;
+  discountPercent?: number | null;
   amountMinor: number;
   regularAmountMinor: number | null;
   sourceUrl: string;
@@ -32,6 +36,7 @@ export type PriceOffer = {
 export type DiscountEvidence = {
   title: string;
   sourceUrl: string;
+  checkedAt?: string;
   startAt?: string | null;
   endAt?: string | null;
   discountPercent: number;
@@ -41,6 +46,106 @@ export type DiscountEvidence = {
   productId?: string | null;
   estimateOnly?: boolean;
 };
+function availablePricePoints(offer: PriceOffer | undefined, now: number) {
+  if (!offer?.available || offer.conditions !== "普通单件购买") return [];
+  return [offer.latest, offer.lastRecorded, ...offer.points, ...(offer.previewPoints || [])]
+    .filter(
+      (point): point is PricePoint =>
+        !!point &&
+        point.evidenceKind !== "official_announcement_derived" &&
+        point.available !== false &&
+        Date.parse(point.observedAt) <= now &&
+        (!point.effectiveUntil || Date.parse(point.effectiveUntil) > now),
+    )
+    .sort((a, b) => Date.parse(b.observedAt) - Date.parse(a.observedAt));
+}
+/** A valid regular quote remains visible outside promotion windows, with its check date. */
+export function latestAvailablePrice(offer: PriceOffer | undefined, now: number) {
+  return availablePricePoints(offer, now)[0] || null;
+}
+/** Only measured quotes from the active, matched activity qualify as its current price. */
+export function currentActivityPrice(
+  offer: PriceOffer | undefined,
+  event: SaleEvent | undefined,
+  now: number,
+) {
+  if (
+    !offer?.available ||
+    offer.conditions !== "普通单件购买" ||
+    !event ||
+    event.status !== "confirmed"
+  )
+    return null;
+  const start = Date.parse(event.startAt),
+    end = Date.parse(event.endAt);
+  if (!(start <= now && now < end)) return null;
+  return (
+    availablePricePoints(offer, now).filter((point) => {
+      const observed = Date.parse(point.observedAt);
+      return (
+        observed >= start &&
+        observed <= now &&
+        observed < end &&
+        (!point.eventId || point.eventId === event.id) &&
+        (!point.effectiveUntil || Date.parse(point.effectiveUntil) > now)
+      );
+    })[0] || null
+  );
+}
+/** Reuse an official rate for the same active quote, never infer one from rounded CNY amounts. */
+export function currentActivityDiscount(
+  offer: PriceOffer | undefined,
+  event: SaleEvent | undefined,
+  now: number,
+) {
+  const quote = currentActivityPrice(offer, event, now);
+  if (!quote || !event) return null;
+  const matched = availablePricePoints(offer, now).find(
+    (point) =>
+      Date.parse(point.observedAt) >= Date.parse(event.startAt) &&
+      Date.parse(point.observedAt) < Date.parse(event.endAt) &&
+      (!point.eventId || point.eventId === event.id) &&
+      point.amountMinor === quote.amountMinor &&
+      (point.regularAmountMinor == null ||
+        quote.regularAmountMinor == null ||
+        point.regularAmountMinor === quote.regularAmountMinor) &&
+      Number.isInteger(point.discountPercent) &&
+      (point.discountPercent ?? 0) > 0 &&
+      (point.discountPercent ?? 100) < 100,
+  );
+  return matched?.discountPercent ?? null;
+}
+/** A recorded quote in this promotion's window takes precedence over estimates. */
+export function observedPromotionPrice(offer: PriceOffer | undefined, evidence: DiscountEvidence) {
+  if (
+    !offer ||
+    offer.currency !== evidence.currency ||
+    offer.conditions !== evidence.purchaseCondition ||
+    (evidence.productId && offer.productId && evidence.productId !== offer.productId) ||
+    !evidence.startAt ||
+    !evidence.endAt
+  )
+    return null;
+  const start = Date.parse(evidence.startAt),
+    end = Date.parse(evidence.endAt);
+  return (
+    [
+      offer.latest,
+      offer.lastRecorded,
+      offer.minimum,
+      ...offer.points,
+      ...(offer.previewPoints || []),
+    ]
+      .filter(
+        (point): point is PricePoint =>
+          !!point &&
+          point.evidenceKind !== "official_announcement_derived" &&
+          Date.parse(point.observedAt) >= start &&
+          Date.parse(point.observedAt) < end,
+      )
+      .sort((a, b) => Date.parse(b.observedAt) - Date.parse(a.observedAt))[0] || null
+  );
+}
 /** Same SKU is one selectable product. Content versions remain attached to points. */
 export function groupedOffers(summary?: PriceSummary): PriceOffer[] {
   const groups = new Map<string, PriceOffer[]>();
@@ -207,7 +312,8 @@ export function historicalDisplayPoints(
         !e.startAt ||
         Date.parse(e.startAt) > Date.now() ||
         e.discountPercent <= 0 ||
-        e.discountPercent >= 100
+        e.discountPercent >= 100 ||
+        observedPromotionPrice(offer, e)
       )
         continue;
       const amount = Number((BigInt(quote.amount) * BigInt(100 - e.discountPercent) + 50n) / 100n);
@@ -233,17 +339,18 @@ export function historicalDisplayMinimum(
   const points = historicalDisplayPoints(vehicle, offer, evidence);
   const observed = discountedMinimum(offer);
   if (observed) points.push(observed);
+  const candidates = points.filter(
+    (p) => p === observed || (p.regularAmountMinor != null && p.amountMinor < p.regularAmountMinor),
+  );
+  const measured = candidates.filter(
+    (point) => point.evidenceKind !== "official_announcement_derived",
+  );
   return (
-    points
-      .filter(
-        (p) =>
-          p === observed || (p.regularAmountMinor != null && p.amountMinor < p.regularAmountMinor),
-      )
-      .sort(
-        (a, b) =>
-          a.amountMinor - b.amountMinor ||
-          Number(a.evidenceKind === "official_announcement_derived") -
-            Number(b.evidenceKind === "official_announcement_derived"),
-      )[0] || null
+    (measured.length ? measured : candidates).sort(
+      (a, b) =>
+        a.amountMinor - b.amountMinor ||
+        Number(a.evidenceKind === "official_announcement_derived") -
+          Number(b.evidenceKind === "official_announcement_derived"),
+    )[0] || null
   );
 }

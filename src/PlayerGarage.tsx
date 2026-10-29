@@ -9,7 +9,9 @@ import {
   type VehicleSortKey,
 } from "./player-vehicle-sort";
 import valuationRules from "../data/account-valuation-rules.json";
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
+import { useAccountWorkspace } from "./workspace-context";
 import catalog from "../data/catalog-settings.json";
 import { GameSelect } from "./components/GameSelect";
 import { Modal } from "./Modal";
@@ -37,6 +39,10 @@ export function PlayerGarage({
 }) {
   useLocale();
   const read = usePlayerRead<OwnedGarage>(profile, "garage", true);
+  const syncOwnedGarage = useAccountWorkspace()?.syncOwnedGarage;
+  useEffect(() => {
+    if (read.data) syncOwnedGarage?.(read.data);
+  }, [read.data, syncOwnedGarage]);
   const details = usePlayerRead<PlayerDetails>(profile, "details", true);
   const detailRecords =
     details.data && Date.parse(details.data.fetchedAt) >= Date.parse(profile.fetchedAt)

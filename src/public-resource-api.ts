@@ -14,6 +14,16 @@ const memory = new Map<string, { value: unknown; until: number }>();
 const pending = new Map<string, Promise<unknown>>();
 const writes = new Map<string, Promise<void>>();
 const prefix = "wt-public-resources-v1:";
+// Public quotes use the shared live data, including on the Render preview.
+// An isolated quote dataset is selected only by an explicit build option.
+const previewPrices =
+  import.meta.env.VITE_WT_CATALOG_SOURCE === "preview" &&
+  import.meta.env.VITE_WT_PRICE_SOURCE === "preview";
+const priceResource = /^(prices-|price-history-)/;
+const storedName = (resource: string) =>
+  priceResource.test(resource)
+    ? `${resource}.${previewPrices ? "preview" : "production"}`
+    : resource;
 function deadline<T>(request: Promise<T>, milliseconds: number, message: string): Promise<T> {
   let timer: ReturnType<typeof setTimeout>;
   const timeout = new Promise<never>((_, reject) => {
@@ -42,10 +52,11 @@ async function directory() {
   });
 }
 async function stored(resource: string): Promise<Saved | null> {
+  const name = storedName(resource);
   try {
     return await deadline(
       (async () => {
-        const file = await (await (await directory()).getFileHandle(resource + ".json")).getFile();
+        const file = await (await (await directory()).getFileHandle(name + ".json")).getFile();
         if (file.size > 2_200_000) throw new Error(t("缓存文件过大"));
         return JSON.parse(await file.text()) as Saved;
       })(),
@@ -56,20 +67,21 @@ async function stored(resource: string): Promise<Saved | null> {
     /* OPFS may be unavailable in private browsing or storage-limited contexts. */
   }
   try {
-    const text = localStorage.getItem(prefix + resource);
+    const text = localStorage.getItem(prefix + name);
     return text && text.length <= 2_200_000 ? JSON.parse(text) : null;
   } catch {
     return null;
   }
 }
 function persist(resource: string, saved: Saved) {
+  const name = storedName(resource);
   const previous = writes.get(resource) || Promise.resolve();
   const write = previous
     .catch(() => {})
     .then(async () => {
       const text = JSON.stringify(saved);
       try {
-        const file = await (await directory()).getFileHandle(resource + ".json", { create: true });
+        const file = await (await directory()).getFileHandle(name + ".json", { create: true });
         const output = await file.createWritable();
         try {
           await output.write(text);
@@ -83,7 +95,7 @@ function persist(resource: string, saved: Saved) {
         /* Only this resource's fallback key may be overwritten. */
       }
       try {
-        localStorage.setItem(prefix + resource, text);
+        localStorage.setItem(prefix + name, text);
       } catch {
         /* Never evict user-owned data. */
       }
@@ -114,8 +126,7 @@ async function load(resource: string) {
   const signal = AbortSignal.timeout(15_000);
   const old = await stored(resource);
   const base =
-    import.meta.env.VITE_WT_CATALOG_SOURCE === "preview" &&
-    /^(prices-|price-history-)/.test(resource)
+    previewPrices && priceResource.test(resource)
       ? settings.apiBaseUrl + "/sales-prices-preview/prices"
       : settings.apiBaseUrl;
   try {

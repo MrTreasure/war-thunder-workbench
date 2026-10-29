@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
 import { DOMParser } from "linkedom";
 import { sharedMapGuides, sharedMapIdentity, sharedMapRoute } from "../src/ground-map-sharing.ts";
+import { displayMapMarks } from "../src/ground-map-marks.ts";
+import { MapRouteCache } from "../src/map-route-cache.ts";
 const root = new URL("../", import.meta.url);
 const read = async (path) => JSON.parse(await readFile(new URL(path, root), "utf8"));
 const { routes } = await read("data/map-recommendations.json");
@@ -124,4 +126,89 @@ assert(
 );
 console.log(
   `Recommended routes: ${routes.length} SVGs, ${pairs.size} layouts, ${new Set(routes.map((r) => r.mapId)).size} maps; ${variantIds.size} seasonal variants reuse ${sharedLayouts} team routes; mission/side, projection and safe SVG checks passed.`,
+);
+
+// Real mission exports contain both exact repeats and mode-specific positions.
+for (const map of maps)
+  for (const layout of map.layouts) {
+    const original = structuredClone(layout.marks);
+    const marks = displayMapMarks(layout.marks);
+    const captures = marks.filter((m) => m.kind === "capture");
+    assert.equal(new Set(captures.map((m) => `${m.team}:${m.label}`)).size, captures.length);
+    assert.deepEqual(layout.marks, original, "Display must preserve original mission records");
+    for (const mark of captures)
+      assert.equal(
+        mark,
+        layout.marks.find(
+          (m) => m.kind === "capture" && m.team === mark.team && m.label === mark.label,
+        ),
+      );
+  }
+const africa = maps
+  .find((m) => m.id === "avg_africa_desert")
+  .layouts.find((l) => l.id === "africa_desert_dom");
+assert.equal(displayMapMarks(africa.marks).filter((m) => m.label === "B").length, 1);
+const spawn = { kind: "spawn", team: 1, label: "出生点", x: 0.1, y: 0.2 };
+assert.equal(displayMapMarks([spawn, { ...spawn }, { ...spawn, x: 0.3 }]).length, 2);
+
+let indexCalls = 0,
+  svgCalls = 0;
+let fail = false;
+const cache = new MapRouteCache({
+  index: async () => {
+    indexCalls++;
+    return routes;
+  },
+  svg: async () => {
+    svgCalls++;
+    if (fail) throw Error("temporary failure");
+    return new Blob(["<svg/>"]);
+  },
+});
+try {
+  const route = routes[0];
+  const args = ["release-one", route.mapId, route.layoutId, route.team];
+  const key = cache.key(...args);
+  const release = cache.retain(key);
+  const [a, b] = await Promise.all([cache.load(...args), cache.load(...args)]);
+  assert.equal(a, b, "Concurrent loads must share one SVG");
+  assert.equal(indexCalls, 1);
+  assert.equal(svgCalls, 1);
+  for (let i = 0; i < 5; i++) {
+    assert.equal(cache.peek(key).route.url, a.url);
+    assert.equal(await cache.load(...args), a, "Visibility toggles must reuse the object URL");
+  }
+  assert.equal(svgCalls, 1, "Toggling must not download again");
+  await cache.load(args[0], args[1], args[2], route.team === 1 ? 2 : 1);
+  assert.equal(indexCalls, 1, "Both teams share the coverage index");
+  assert.equal(svgCalls, 2);
+  fail = true;
+  await assert.rejects(cache.load("release-two", ...args.slice(1)), /temporary failure/);
+  fail = false;
+  const other = await cache.load("release-two", ...args.slice(1));
+  assert.notEqual(other.url, a.url, "A new release must not use the old SVG");
+  release();
+  cache.dispose();
+  assert.equal(cache.peek(key), null, "Identity change must discard cached routes");
+  await assert.rejects(cache.load(...args), { name: "AbortError" });
+} finally {
+  cache.dispose();
+}
+let finish;
+const late = new MapRouteCache({
+  index: async () => routes,
+  svg: () =>
+    new Promise((resolve) => {
+      finish = resolve;
+    }),
+});
+const r = routes[0];
+const pending = late.load("late", r.mapId, r.layoutId, r.team);
+await new Promise((resolve) => setImmediate(resolve));
+late.dispose();
+finish(new Blob(["<svg/>"]));
+await assert.rejects(pending, { name: "AbortError" });
+assert.equal(late.peek(late.key("late", r.mapId, r.layoutId, r.team)), null);
+console.log(
+  "Route session cache: shared requests, instant reuse, team warm-up, retry, release/identity isolation; mission capture deduplication passed.",
 );

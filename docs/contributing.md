@@ -1,6 +1,5 @@
 # 项目维护说明
 
-本文供希望参与完善项目的朋友参考。使用介绍见 [README](../README.md)。
 
 ## 本地运行
 
@@ -14,20 +13,20 @@ pnpm dev
 开发地址为 `http://localhost:5178`。开发命令会先从仓库的规范 JSON 生成国家模块，不要求先联网刷新游戏数据。
 
 ```bash
-pnpm run check        # 类型、Lint 与数据一致性
+pnpm run check        # 类型、Lint、数据、地图编辑器／走线、平台启动与图片缓存
 pnpm run build        # 构建并检查产物与十国数据哈希
 pnpm run preview      # http://localhost:4178
 ```
 
-可分别运行 `pnpm run typecheck`、`pnpm run lint`、`pnpm run check:data`。页面入口为 `#/tree` 与 `#/lineups`；国家、军种和模式可通过外层查询参数指定，例如 `?country=china&category=ground&mode=rb#/tree`。
+可分别运行 `pnpm run typecheck`、`pnpm run lint`、`pnpm run check:data`。页面入口包括 `#/tree`、`#/lineups`、`#/stats`、`#/maps`、`#/sales`；国家、军种和模式可通过外层查询参数指定，例如 `?country=china&category=ground&mode=rb#/tree`。
 
-地图与攻略入口及资料提取方式见[攻略页维护说明](route-guides.md)。
+地图运行机制见[地图维护](ground-maps.md)，来源提取和限频见[攻略采集](route-guides.md)，网页移动端行为见[移动端说明](mobile.md)。
 
 ### 部署
 
 `pnpm run build` 输出静态文件到 `dist/`，可部署到支持相对静态资源路径的站点。上传全部构建资源后再切换 HTML，并保留旧哈希资源供已打开的页面继续使用。国家资料随哈希 JS 模块发布，**不发布独立 JSON 文件**。
 
-本仓库采用 QMuse 模板，Vite 插件统一由 `@qmuse/vite-config` 配置。使用 QMuse 时，应绑定自己的应用，再通过 qmuse-cli 导入；`.qmuse/` 为本地平台配置，不纳入 Git。`publish` / `release` 脚本是原维护环境的专用发布流程，不能直接作为通用部署命令使用。
+本仓库采用 QMuse 模板，Vite 插件统一由 `@qmuse/vite-config` 配置。项目只更新既有 QMuse 绑定，不自行创建或手工修改绑定；`.qmuse/` 为本地平台配置，不纳入 Git。检查后使用 `pnpm run deploy:preview` 交付独立预览，正式发布等待用户确认；`publish` / `release` 是底层步骤，不代表公网已上线。目标与操作边界见[发布说明](../deploy/README.md)。
 
 ## 数据与计算
 
@@ -50,8 +49,8 @@ pnpm run preview      # http://localhost:4178
 | `data/localization.json` | 原版简体中文映射与来源 |
 | `data/lineup-rules.json`、`lineup-codebook.json` | 分房规则与稳定分享编码 |
 | `src/routes/` | TanStack 文件路由 |
-| `src/Workbench.tsx` | 共享状态与国家资料加载 |
-| `src/generated/` | 生成的导航清单与国家 JS 运输模块 |
+| `src/Workbench.tsx`、`src/vehicle-store.ts` | 工作台状态与统一国家快照 |
+| `src/generated/` | 生成的导航清单与完整国家 CSV JS 模块 |
 | `scripts/`、`schema/` | 采集、构建、校验与数据结构 |
 | `docs/screenshots/`、`docs/examples/` | 功能图片与示例队列 |
 
@@ -70,7 +69,9 @@ pnpm run build
 
 研发进度、配件进度、购物车与队列分别保存在当前浏览器。工具会检查已下载资料是否完整；自动清理过期资料时，不会删除个人进度或队列。
 
-游客记录不跨浏览器或域名同步。登录并确认协议后，研发计划、研发购物车和出击队列可通过账号同步；地图方案与折扣关注仍保存在当前浏览器。关联游戏账号的公开车库可辅助标记已拥有载具，但不代表配件全满。清除站点数据前请确认同步或导出备份。
+游客记录不跨浏览器或域名同步。登录并确认协议后，研发计划、研发购物车、出击队列和折扣关注可通过账号同步；地图方案仍保存在当前浏览器。关联游戏账号的公开车库可辅助标记已拥有载具，但不代表配件全满。清除站点数据前请确认同步或导出备份。
+
+完整国家资料使用共享 `vehicleStore` 和独立 IndexedDB 缓存，不再读取旧 OPFS／localStorage 国家大包或单独的展示资料。缓存清理与账号状态、购物车、队列和地图方案隔离，详见[国家资料加载](vehicle-catalog-loading.md)。
 
 ## 参与贡献
 

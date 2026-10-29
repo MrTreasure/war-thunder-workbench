@@ -1,65 +1,32 @@
 import { useLocale } from "./i18n/react";
-import { t, vehicleName } from "./i18n/core";
+import { t, localize, vehicleName, vehicleSearchText } from "./i18n/core";
 import { useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
 import { Modal } from "./Modal";
 import { GameSelect } from "./components/GameSelect";
 import { useAccountWorkspace } from "./workspace-context";
-import { nextSale, saleCountdown, saleRange } from "./sale-calendar-model";
+import { matchesSale, nextSale, saleCountdown, saleRange } from "./sale-calendar-model";
 import type { SaleEvent, SaleVehicle } from "./sale-calendar-model";
 import { readPriceSummary } from "./sale-price-api";
 import {
   cartTotals,
+  currentActivityPrice,
+  currentActivityDiscount,
+  latestAvailablePrice,
   priceDate,
   priceText,
   primaryOffer,
-  historicalDisplayPoints,
   historicalDisplayMinimum,
 } from "./sale-price-model";
 import { GameTag } from "./components/GameTag";
-import type { PricePoint, PriceSummary } from "./sale-price-model";
+import { GameTip } from "./components/GameTip";
+import type { PriceSummary } from "./sale-price-model";
 import { useSalePricePreferences } from "./use-sale-price-preferences";
 import { SalePriceHistory } from "./SalePriceHistory";
+import { activityPricePoints } from "./sale-activity-prices";
+import { SaleActivityChart } from "./SaleActivityChart";
 import "./sale-cart.css";
 
-function MiniPriceTrend({ points }: { points: PricePoint[] }) {
-  useLocale();
-  if (!points.length) return <span className="wt-price-mini-empty">{t("暂无历史价格")}</span>;
-  const low = Math.min(...points.map((p) => p.amountMinor)),
-    high = Math.max(...points.map((p) => p.amountMinor));
-  const start = Date.parse(points[0].observedAt),
-    span = Math.max(1, Date.parse(points.at(-1)!.observedAt) - start);
-  const x = (at: string) => 5 + ((Date.parse(at) - start) / span) * 150;
-  const y = (amount: number) => 36 - ((amount - low) / Math.max(high - low, high * 0.12, 1)) * 28;
-  return (
-    <svg className="wt-price-mini" viewBox="0 0 160 44" aria-hidden="true">
-      {points.slice(1).map((p, index) => {
-        const previous = points[index];
-        return (
-          <path
-            key={index}
-            d={`M${x(previous.observedAt)},${y(previous.amountMinor)}L${x(p.observedAt)},${y(p.amountMinor)}`}
-            className={
-              p.evidenceKind === "official_announcement_derived" ||
-              previous.evidenceKind === "official_announcement_derived"
-                ? "is-estimate"
-                : undefined
-            }
-          />
-        );
-      })}
-      {points.map((p, i) => (
-        <circle
-          key={i}
-          cx={x(p.observedAt)}
-          cy={y(p.amountMinor)}
-          r="2.5"
-          className={p.evidenceKind === "official_announcement_derived" ? "is-estimate" : undefined}
-        />
-      ))}
-    </svg>
-  );
-}
 function download(value: unknown) {
   const url = URL.createObjectURL(
     new Blob([JSON.stringify(value, null, 2)], { type: "application/json" }),
@@ -92,6 +59,7 @@ export function SaleCart({
   tile: (vehicle: SaleVehicle) => ReactNode;
 }) {
   useLocale();
+
   const workspace = useAccountWorkspace(),
     preferences = useSalePricePreferences();
   const [summaries, setSummaries] = useState<Record<string, PriceSummary>>({}),
@@ -106,6 +74,10 @@ export function SaleCart({
     () => [...new Set(vehicles.map((v) => v.country))].sort().join(","),
     [vehicles],
   );
+  const refreshOwnedGarage = workspace?.refreshOwnedGarage;
+  useEffect(() => {
+    void refreshOwnedGarage?.().catch(() => {});
+  }, [refreshOwnedGarage]);
   useEffect(() => {
     const c = new AbortController();
     for (const country of countries.split(",").filter(Boolean)) {
@@ -119,7 +91,7 @@ export function SaleCart({
           setLoadedCountries((old) => [...new Set([...old, country])]);
         })
         .catch(() => {
-          if (!c.signal.aborted) setPriceError(t("部分历史记录读取失败，原价清单仍可使用。"));
+          if (!c.signal.aborted) setPriceError(t("部分价格记录读取失败，原价清单仍可使用。"));
         });
     }
     return () => c.abort();
@@ -130,7 +102,7 @@ export function SaleCart({
     );
   const totals = cartTotals(vehicles, preferences.items, workspace?.ownedVehicleIds);
   const rows = vehicles.filter((v) => {
-    if (!(v.name + v.nameEn).toLowerCase().includes(query.toLowerCase())) return false;
+    if (!vehicleSearchText(v).toLowerCase().includes(query.toLowerCase())) return false;
     if (filter === "owned") return !!workspace?.ownedVehicleIds.has(v.id);
     if (filter === "unpurchased") return !workspace?.ownedVehicleIds.has(v.id);
     if (filter === "unknown") return !v.originalPrice?.amount;
@@ -143,7 +115,7 @@ export function SaleCart({
       subtitle={
         workspace?.userId
           ? t(
-              "载具沿用账号关注列表；购车勾选按账号保存。已拥有载具不计费，其余按原价合计；活动价格仅供历史查询。",
+              "载具沿用账号关注列表；购车勾选按账号保存。已拥有载具不计费，其余按原价合计；当前活动价与史低价单独展示。",
             )
           : t("游客清单保存在本浏览器。按原价分别合计整包人民币与金鹰价格。")
       }
@@ -164,7 +136,7 @@ export function SaleCart({
           <GameSelect value={filter} onValueChange={setFilter}>
             <option value="all">
               {t("全部载具（")}
-              {vehicles.length}）
+              {localize(vehicles.length)}）
             </option>
             <option value="unpurchased">{t("尚未拥有")}</option>
             <option value="owned">{t("已拥有")}</option>
@@ -173,36 +145,45 @@ export function SaleCart({
         </label>
         <button onClick={add}>{t("＋ 添加载具")}</button>
       </div>
-      {(error || priceError || preferences.error) && (
-        <div className="wt-sale-cart-errors" role="alert">
-          {error || priceError || preferences.error}
-          {priceError && (
-            <button
-              onClick={() => {
-                setPriceError("");
-                setRetry((v) => v + 1);
-              }}
-            >
-              {t("重试历史资料")}
-            </button>
-          )}
-          {preferences.error && (
-            <>
-              <button onClick={() => download({ pending: preferences.exportPending(), vehicles })}>
-                {t("导出待同步记录")}
-              </button>
-              <button onClick={() => void preferences.reload()}>{t("重新读取云端")}</button>
-            </>
-          )}
-        </div>
+      {localize(
+        (error || priceError || preferences.error) && (
+          <div className="wt-sale-cart-errors" role="alert">
+            {localize(error || priceError || preferences.error)}
+            {localize(
+              priceError && (
+                <button
+                  onClick={() => {
+                    setPriceError("");
+                    setRetry((v) => v + 1);
+                  }}
+                >
+                  {t("重试价格资料")}
+                </button>
+              ),
+            )}
+            {localize(
+              preferences.error && (
+                <>
+                  <button
+                    onClick={() => download({ pending: preferences.exportPending(), vehicles })}
+                  >
+                    {t("导出待同步记录")}
+                  </button>
+                  <button onClick={() => void preferences.reload()}>{t("重新读取云端")}</button>
+                </>
+              ),
+            )}
+          </div>
+        ),
       )}
       <div className="wt-sale-cart-scroll">
         <div className="wt-sale-cart-columns" aria-hidden="true">
           <span>{t("购车计划 / 载具")}</span>
+          <span>{t("标签")}</span>
           <span>{t("原价")}</span>
-          <span>{t("历史低价")}</span>
-          <span>{t("历史走势")}</span>
-          <span>{t("活动窗口")}</span>
+          <span>{t("当前活动价")}</span>
+          <span className="wt-sale-cart-trend-heading">{t("历史走势")}</span>
+          <span className="wt-sale-cart-event-heading">{t("活动窗口")}</span>
           <span>{t("操作")}</span>
         </div>
         {!vehicles.length ? (
@@ -225,19 +206,51 @@ export function SaleCart({
             const selected = preferences.items[v.id]?.selected !== false;
             const owned = !!workspace?.ownedVehicleIds.has(v.id);
             const evidence = summaries[v.id]?.discountEvidence || [];
-            const points = historicalDisplayPoints(v, offer, evidence);
+            const points = activityPricePoints(v, offer, evidence, events, now);
             const promotion = summaries[v.id]?.discountEvidence
               ?.filter((e) => e.purchaseCondition === "普通单件购买")
               .sort((a, b) => b.discountPercent - a.discountPercent)[0];
             const minimum = historicalDisplayMinimum(v, offer, evidence),
               loaded = loadedCountries.includes(v.country);
+            const currentEvent = events
+              .filter(
+                (e) =>
+                  e.status === "confirmed" &&
+                  matchesSale(v, e) &&
+                  Date.parse(e.startAt) <= now &&
+                  now < Date.parse(e.endAt),
+              )
+              .sort((a, b) => Date.parse(b.startAt) - Date.parse(a.startAt))[0];
+            const currentPrice =
+              offer?.currency === currency ? currentActivityPrice(offer, currentEvent, now) : null;
+            const regularPrice =
+              !currentEvent && offer?.currency === currency
+                ? latestAvailablePrice(offer, now)
+                : null;
+            const displayPrice =
+              currentPrice?.amountMinor ??
+              regularPrice?.amountMinor ??
+              (!currentEvent ? price : null);
+            const discount = currentPrice
+              ? currentActivityDiscount(offer, currentEvent, now)
+              : null;
+            const showDiscount = discount !== null;
+            const currentText = !currentEvent
+              ? priceText(displayPrice, currency)
+              : !loaded
+                ? priceError
+                  ? t("读取失败")
+                  : t("读取中…")
+                : currentPrice
+                  ? priceText(currentPrice.amountMinor, currency)
+                  : t("待核价");
             return (
               <article className="wt-sale-cart-row" key={v.id}>
                 <div className="wt-sale-cart-vehicle">
                   <label>
                     <input
                       type="checkbox"
-                      aria-label={t("将{0}计入本轮购车计划", vehicleName(v))}
+                      aria-label={t("将{0}计入本轮购车计划", [vehicleName(v)])}
                       checked={selected && !owned}
                       disabled={!enabled || owned}
                       onChange={(e) =>
@@ -250,85 +263,177 @@ export function SaleCart({
                       }
                     />
                   </label>
-                  <div className="wt-sale-cart-tile">
-                    {tile(v)}
-                    {owned && <GameTag tone="emerald">{t("已拥有")}</GameTag>}
-                  </div>
+                  <div className="wt-sale-cart-tile">{localize(tile(v))}</div>
+                </div>
+                <div className="wt-sale-cart-labels">
+                  {localize(owned && <GameTag tone="emerald">{t("已拥有")}</GameTag>)}
+                  {localize(
+                    showDiscount && (
+                      <GameTag tone="red" animated={false}>
+                        -{localize(discount)}%
+                      </GameTag>
+                    ),
+                  )}
                 </div>
                 <div className="wt-sale-cart-price wt-sale-cart-original">
-                  <strong>
-                    {currency === "CNY" ? priceText(price, currency) : t("常规金鹰价")}
-                  </strong>
-                  {owned && <small>{t("已拥有 · 不计入合计")}</small>}
-                  <small>
-                    {currency === "CNY" ? t("整包原价") : t("常规金鹰价格")} ·{" "}
-                    {priceDate(quote?.checkedAt ?? null)}
-                  </small>
+                  <GameTip
+                    label={t("原价")}
+                    triggerLabel={t("原价 {0}，查看核验时间", [priceText(price, currency)])}
+                    className="wt-sale-cart-price-tip"
+                    icon={<strong>{localize(priceText(price, currency))}</strong>}
+                  >
+                    <p>
+                      {localize(currency === "CNY" ? t("整包原价") : t("常规金鹰价格"))} ·
+                      {localize(" ")}
+                      {localize(priceDate(quote?.checkedAt ?? null))}
+                    </p>
+                    {localize(owned && <p>{t("已拥有 · 不计入合计")}</p>)}
+                  </GameTip>
                 </div>
-                <div className="wt-sale-cart-price">
-                  <b data-label={t("历史低价") + " · "}>
-                    {!loaded
-                      ? priceError
-                        ? t("读取失败")
-                        : t("读取中…")
-                      : minimum
-                        ? `${minimum.evidenceKind === "official_announcement_derived" ? "≈ " : ""}${priceText(minimum.amountMinor, currency)}`
-                        : t("待核实")}
-                  </b>
-                  <small>
-                    {minimum
-                      ? `${priceDate(minimum.observedAt)}${minimum.evidenceKind === "official_announcement_derived" ? t(" · 公告折扣估算") : ""}`
-                      : promotion
-                        ? t("曾优惠 {0}%，金额待核实", promotion.discountPercent)
-                        : offer
-                          ? t("仅有原价采样，非历史最低")
-                          : t("尚无报价记录")}
-                  </small>
+                <div
+                  className="wt-sale-cart-price wt-sale-cart-current"
+                  aria-label={t("当前活动价")}
+                >
+                  <div className="wt-sale-cart-price-line">
+                    <GameTip
+                      label={t("当前价格")}
+                      triggerLabel={t("当前价格 {0}，查看价格说明", [currentText])}
+                      className="wt-sale-cart-price-tip"
+                      icon={
+                        <b
+                          data-label={t("当前活动价 · ")}
+                          className={displayPrice !== null ? "wt-sale-cart-amount" : undefined}
+                        >
+                          {localize(currentText)}
+                        </b>
+                      }
+                    >
+                      <p>
+                        {localize(
+                          currentPrice
+                            ? t("{0} · 官方实采", [priceDate(currentPrice.checkedAt)])
+                            : currentEvent
+                              ? t("活动进行中，等待有效报价")
+                              : regularPrice
+                                ? t("常规售价 · {0}", [priceDate(regularPrice.checkedAt)])
+                                : price !== null
+                                  ? t("已知原价 · {0}", [priceDate(quote?.checkedAt ?? null)])
+                                  : t("暂无有效报价"),
+                        )}
+                      </p>
+                      {localize(
+                        showDiscount && (
+                          <p>
+                            {t("本期官方标注优惠")}
+                            {localize(discount)}%
+                          </p>
+                        ),
+                      )}
+                    </GameTip>
+                    <GameTip
+                      label={t("史低记录")}
+                      triggerLabel={t("史低 {0}，查看历史来源", [
+                        minimum
+                          ? t("{0}{1}", [
+                              minimum.evidenceKind === "official_announcement_derived"
+                                ? t("估算") + " "
+                                : "",
+                              priceText(minimum.amountMinor, currency),
+                            ])
+                          : t("待核实"),
+                      ])}
+                      className="wt-sale-cart-price-tip"
+                      icon={
+                        <span className="wt-sale-cart-low">
+                          {t("史低")}
+                          {localize(" ")}
+                          <span className={minimum ? "wt-sale-cart-amount" : undefined}>
+                            {localize(
+                              !loaded
+                                ? priceError
+                                  ? t("读取失败")
+                                  : t("读取中…")
+                                : minimum
+                                  ? `${minimum.evidenceKind === "official_announcement_derived" ? "≈ " : ""}${priceText(minimum.amountMinor, currency)}`
+                                  : t("待核实"),
+                            )}
+                          </span>
+                        </span>
+                      }
+                    >
+                      <p>
+                        {localize(
+                          minimum
+                            ? t("史低记录 {0}{1}", [
+                                priceDate(minimum.observedAt),
+                                minimum.evidenceKind === "official_announcement_derived"
+                                  ? " · " + t("公告折扣估算")
+                                  : "",
+                              ])
+                            : promotion
+                              ? t("曾优惠 {0}%，金额待核实", [promotion.discountPercent])
+                              : offer
+                                ? t("仅有原价采样，非历史最低")
+                                : t("尚无报价记录"),
+                        )}
+                      </p>
+                    </GameTip>
+                  </div>
                 </div>
                 <div className="wt-sale-cart-observations">
-                  <button
-                    className="wt-price-trend-link"
-                    onClick={() => setHistory(v)}
-                    aria-label={t("展开{0}历史价格详情", vehicleName(v))}
-                  >
-                    <MiniPriceTrend points={points} />
-                    <small>
-                      {points.length
-                        ? `${priceDate(points[0].observedAt)} — ${priceDate(points.at(-1)!.observedAt)}${points.some((p) => p.evidenceKind === "official_announcement_derived") ? t(" · 含估算") : ""}`
-                        : loaded
-                          ? t("尚无历史记录")
-                          : t("读取中…")}
-                    </small>
-                  </button>
+                  <SaleActivityChart
+                    points={points}
+                    currency={currency}
+                    title={vehicleName(v)}
+                    compact
+                    onActivate={() => setHistory(v)}
+                  />
                 </div>
                 <div className="wt-sale-cart-event">
-                  {event ? (
-                    <>
-                      <strong>{event.title}</strong>
-                      <span>{saleCountdown(event, now)}</span>
-                      <small className="wt-sale-cart-event-detail">{saleRange(event)}</small>
-                      {event.startNotBefore && (
-                        <small className="wt-sale-cart-event-detail">
-                          {t("预计接续游戏内折扣结束后，具体开始以公告为准")}
-                        </small>
-                      )}
-                      <small className="wt-sale-cart-event-detail">
-                        {event.status === "predicted"
-                          ? t("预测窗口，名单未公布")
-                          : event.vehicleIds.includes(v.id)
-                            ? t("已核对参与名单")
-                            : t("需核对活动适用名单")}
-                      </small>
-                    </>
-                  ) : (
-                    <small>{t("暂无匹配的活动窗口")}</small>
+                  {localize(
+                    event ? (
+                      <GameTip
+                        label={t("活动窗口")}
+                        triggerLabel={t("{0}，{1}，查看具体时间窗口", [
+                          localize(event.title),
+                          localize(saleCountdown(event, now)),
+                        ])}
+                        className="wt-sale-cart-event-tip"
+                        icon={
+                          <>
+                            <strong>{localize(event.title)}</strong>
+                            <span>{localize(saleCountdown(event, now))}</span>
+                          </>
+                        }
+                      >
+                        <p>{localize(saleRange(event))}</p>
+                        {localize(
+                          event.startNotBefore && (
+                            <p>{t("预计接续游戏内折扣结束后，具体开始以公告为准")}</p>
+                          ),
+                        )}
+                        <p>
+                          {localize(
+                            event.status === "predicted"
+                              ? t("预测窗口，名单未公布")
+                              : event.vehicleIds.includes(v.id)
+                                ? t("已核对参与名单")
+                                : t("需核对活动适用名单"),
+                          )}
+                        </p>
+                      </GameTip>
+                    ) : (
+                      <small>{t("暂无匹配的活动窗口")}</small>
+                    ),
                   )}
                 </div>
                 <div className="wt-sale-cart-actions">
-                  {v.store && (
-                    <a href={v.store} target="_blank" rel="noreferrer">
-                      {t("官方购买 ↗")}
-                    </a>
+                  {localize(
+                    v.store && (
+                      <a href={v.store} target="_blank" rel="noreferrer">
+                        {t("官方购买 ↗")}
+                      </a>
+                    ),
                   )}
                   <button
                     disabled={!ready}
@@ -337,7 +442,7 @@ export function SaleCart({
                       if (save(vehicles.filter((x) => x.id !== v.id)))
                         setRemoved({ vehicle: v, index });
                     }}
-                    aria-label={t("移除{0}", vehicleName(v))}
+                    aria-label={t("移除{0}", [vehicleName(v)])}
                   >
                     {t("移除")}
                   </button>
@@ -351,24 +456,29 @@ export function SaleCart({
         <div>
           <strong>
             {t("已选")}
-            {totals.selected} {t("辆 ·")}
-            {totals.products} {t("件商品")}
+            {localize(totals.selected)} {t("辆 ·")}
+            {localize(totals.products)} {t("件商品")}
           </strong>
           <span>
-            {totals.conflicts ? (
-              t("报价冲突，暂不能合计")
-            ) : (
-              <>
-                {priceText(totals.cny, "CNY")} <small>＋</small> {priceText(totals.ge, "GE")}
-              </>
+            {localize(
+              totals.conflicts ? (
+                t("报价冲突，暂不能合计")
+              ) : (
+                <>
+                  {localize(priceText(totals.cny, "CNY"))} <small>＋</small>{" "}
+                  {localize(priceText(totals.ge, "GE"))}
+                </>
+              ),
             )}
           </span>
           <small>
-            {totals.missing
-              ? t("{0} 辆缺少有效报价，未计入小计", totals.missing)
-              : t("按原价合计；历史活动价不参与展示和合计")}
-            {totals.owned > 0 && t(" · {0} 辆已拥有，已免计", totals.owned)}
-            {totals.duplicates > 0 && t(" · {0} 个重复礼包已去重", totals.duplicates)}
+            {localize(
+              totals.missing
+                ? t("{0} 辆缺少有效报价，未计入小计", [totals.missing])
+                : t("按原价合计；当前活动价与史低价仅供参考"),
+            )}
+            {localize(totals.owned > 0 && t(" · {0} 辆已拥有，已免计", [totals.owned]))}
+            {localize(totals.duplicates > 0 && t(" · {0} 个重复礼包已去重", [totals.duplicates]))}
           </small>
         </div>
         <div>
@@ -408,7 +518,7 @@ export function SaleCart({
       {removed && (
         <output className="wt-sale-cart-undo">
           {t("已移除")}
-          {removed.vehicle.name}
+          {vehicleName(removed.vehicle)}
           <button
             disabled={!ready}
             onClick={() => {
@@ -425,13 +535,16 @@ export function SaleCart({
           </button>
         </output>
       )}
-      {history && (
-        <SalePriceHistory
-          key={history.id}
-          vehicle={history}
-          summary={summaries[history.id]}
-          close={() => setHistory(null)}
-        />
+      {localize(
+        history && (
+          <SalePriceHistory
+            key={history.id}
+            vehicle={history}
+            events={events}
+            summary={summaries[history.id]}
+            close={() => setHistory(null)}
+          />
+        ),
       )}
     </Modal>
   );

@@ -11,11 +11,16 @@ export function GameTip({
   children,
   icon,
   className = "",
+  onActivate,
+  triggerLabel,
 }: {
   label: string;
   children: ReactNode;
   icon?: ReactNode;
   className?: string;
+  /** Keep the trigger's primary action while showing read-only details on hover/focus. */
+  onActivate?: () => void;
+  triggerLabel?: string;
 }) {
   useLocale();
   const id = useId();
@@ -102,7 +107,7 @@ export function GameTip({
         ref={trigger}
         type="button"
         className={`wt-game-tip-trigger ${className}`}
-        aria-label={t("{0}说明", [localize(label)])}
+        aria-label={triggerLabel || t("{0}说明", [localize(label)])}
         aria-describedby={open ? id : undefined}
         aria-expanded={open}
         onPointerEnter={(event) => {
@@ -115,7 +120,12 @@ export function GameTip({
           if (event.currentTarget.matches(":focus-visible")) show();
         }}
         onBlur={leave}
-        onClick={show}
+        onClick={() => {
+          if (onActivate) {
+            setOpen(false);
+            onActivate();
+          } else show();
+        }}
         onKeyDown={(event) => {
           if (open && ["ArrowDown", "ArrowUp", "PageDown", "PageUp"].includes(event.key)) {
             event.preventDefault();

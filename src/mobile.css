@@ -3200,20 +3200,29 @@
     display: none;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-row {
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 4px 8px;
     padding: 10px 0;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-vehicle {
     grid-column: 1 / -1;
+    grid-row: 1;
     gap: 8px;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-labels {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    align-items: flex-start;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-labels:empty {
+    display: none;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-original {
     display: none;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-price {
-    grid-column: 1;
-    grid-row: 2;
+    grid-column: 1 / -1;
+    grid-row: 3;
     gap: 2px;
     font-size: 12px;
   }
@@ -3222,12 +3231,15 @@
     font-weight: normal;
     color: var(--wt-muted);
   }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-current b::before {
+    content: attr(data-label);
+  }
   .calculator.wt-sale-cart-modal .wt-sale-cart-price small {
     font-size: 10px;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-observations {
-    grid-column: 2;
-    grid-row: 2;
+    grid-column: 1 / -1;
+    grid-row: 4;
     align-items: flex-end;
     gap: 0;
   }
@@ -3241,7 +3253,7 @@
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-event {
     grid-column: 1;
-    grid-row: 3;
+    grid-row: 5;
     gap: 0;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-event strong {
@@ -3254,9 +3266,14 @@
   .calculator.wt-sale-cart-modal .wt-sale-cart-event-detail {
     display: none;
   }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-price-tip,
+  .calculator.wt-sale-cart-modal .wt-sale-cart-event-tip {
+    min-height: 44px;
+    padding: 0;
+  }
   .calculator.wt-sale-cart-modal .wt-sale-cart-actions {
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 5;
     flex-direction: row;
     align-items: center;
     gap: 8px;
@@ -3661,7 +3678,10 @@
   .calculator.wt-sale-cart-modal .wt-sale-cart-observations .wt-price-mini {
     display: block;
     width: 115px;
-    height: 38px;
+    height: 44px;
+  }
+  .calculator.wt-sale-cart-modal .wt-activity-chart-mini {
+    width: 115px;
   }
   .calculator.wt-sale-cart-modal .wt-price-trend-link small {
     max-width: 115px;
