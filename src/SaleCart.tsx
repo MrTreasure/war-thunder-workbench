@@ -331,7 +331,7 @@ export function SaleCart({
                     <MiniPriceTrend points={points} />
                     <small>
                       {points.length
-                        ? `${priceDate(points[0].observedAt)} — ${priceDate(points.at(-1)!.observedAt)}${points.some((p) => p.evidenceKind === "official_announcement_derived") ? " · 含估算" : ""}`
+                        ? `${priceDate(points[0].observedAt)} — ${priceDate(points.at(-1)!.observedAt)}`
                         : loaded
                           ? "尚无历史记录"
                           : "读取中…"}
