@@ -117,9 +117,10 @@ export function validateMapSnapshot(v: unknown): v is MapSnapshot {
         !id(l.id) ||
         layouts.has(l.id) ||
         typeof l.name !== "string" ||
-        !Array.isArray(l.crop) ||
-        l.crop.length !== 4 ||
-        !l.crop.every(finite) ||
+        !(
+          l.crop === null ||
+          (Array.isArray(l.crop) && l.crop.length === 4 && l.crop.every(finite))
+        ) ||
         !Array.isArray(l.marks) ||
         !l.marks.every(
           (p) =>
