@@ -9,56 +9,22 @@ import { readPriceSummary } from "./sale-price-api";
 import {
   cartTotals,
   currentActivityPrice,
+  currentActivityDiscount,
   latestAvailablePrice,
   priceDate,
   priceText,
   primaryOffer,
-  historicalDisplayPoints,
   historicalDisplayMinimum,
 } from "./sale-price-model";
 import { GameTag } from "./components/GameTag";
-import type { PricePoint, PriceSummary } from "./sale-price-model";
+import { GameTip } from "./components/GameTip";
+import type { PriceSummary } from "./sale-price-model";
 import { useSalePricePreferences } from "./use-sale-price-preferences";
 import { SalePriceHistory } from "./SalePriceHistory";
+import { activityPricePoints } from "./sale-activity-prices";
+import { SaleActivityChart } from "./SaleActivityChart";
 import "./sale-cart.css";
 
-function MiniPriceTrend({ points }: { points: PricePoint[] }) {
-  if (!points.length) return <span className="wt-price-mini-empty">暂无历史价格</span>;
-  const low = Math.min(...points.map((p) => p.amountMinor)),
-    high = Math.max(...points.map((p) => p.amountMinor));
-  const start = Date.parse(points[0].observedAt),
-    span = Math.max(1, Date.parse(points.at(-1)!.observedAt) - start);
-  const x = (at: string) => 5 + ((Date.parse(at) - start) / span) * 150;
-  const y = (amount: number) => 36 - ((amount - low) / Math.max(high - low, high * 0.12, 1)) * 28;
-  return (
-    <svg className="wt-price-mini" viewBox="0 0 160 44" aria-hidden="true">
-      {points.slice(1).map((p, index) => {
-        const previous = points[index];
-        return (
-          <path
-            key={index}
-            d={`M${x(previous.observedAt)},${y(previous.amountMinor)}L${x(p.observedAt)},${y(p.amountMinor)}`}
-            className={
-              p.evidenceKind === "official_announcement_derived" ||
-              previous.evidenceKind === "official_announcement_derived"
-                ? "is-estimate"
-                : undefined
-            }
-          />
-        );
-      })}
-      {points.map((p, i) => (
-        <circle
-          key={i}
-          cx={x(p.observedAt)}
-          cy={y(p.amountMinor)}
-          r="2.5"
-          className={p.evidenceKind === "official_announcement_derived" ? "is-estimate" : undefined}
-        />
-      ))}
-    </svg>
-  );
-}
 function download(value: unknown) {
   const url = URL.createObjectURL(
     new Blob([JSON.stringify(value, null, 2)], { type: "application/json" }),
@@ -104,6 +70,10 @@ export function SaleCart({
     () => [...new Set(vehicles.map((v) => v.country))].sort().join(","),
     [vehicles],
   );
+  const refreshOwnedGarage = workspace?.refreshOwnedGarage;
+  useEffect(() => {
+    void refreshOwnedGarage?.().catch(() => {});
+  }, [refreshOwnedGarage]);
   useEffect(() => {
     const c = new AbortController();
     for (const country of countries.split(",").filter(Boolean)) {
@@ -218,7 +188,7 @@ export function SaleCart({
             const selected = preferences.items[v.id]?.selected !== false;
             const owned = !!workspace?.ownedVehicleIds.has(v.id);
             const evidence = summaries[v.id]?.discountEvidence || [];
-            const points = historicalDisplayPoints(v, offer, evidence);
+            const points = activityPricePoints(v, offer, evidence, events, now);
             const promotion = summaries[v.id]?.discountEvidence
               ?.filter((e) => e.purchaseCondition === "普通单件购买")
               .sort((a, b) => b.discountPercent - a.discountPercent)[0];
@@ -243,6 +213,19 @@ export function SaleCart({
               currentPrice?.amountMinor ??
               regularPrice?.amountMinor ??
               (!currentEvent ? price : null);
+            const discount = currentPrice
+              ? currentActivityDiscount(offer, currentEvent, now)
+              : null;
+            const showDiscount = discount !== null;
+            const currentText = !currentEvent
+              ? priceText(displayPrice, currency)
+              : !loaded
+                ? priceError
+                  ? "读取失败"
+                  : "读取中…"
+                : currentPrice
+                  ? priceText(currentPrice.amountMinor, currency)
+                  : "待核价";
             return (
               <article className="wt-sale-cart-row" key={v.id}>
                 <div className="wt-sale-cart-vehicle">
@@ -268,95 +251,112 @@ export function SaleCart({
                   </div>
                 </div>
                 <div className="wt-sale-cart-price wt-sale-cart-original">
-                  <strong>{currency === "CNY" ? priceText(price, currency) : "常规金鹰价"}</strong>
-                  {owned && <small>已拥有 · 不计入合计</small>}
-                  <small>
-                    {currency === "CNY" ? "整包原价" : "常规金鹰价格"} ·{" "}
-                    {priceDate(quote?.checkedAt ?? null)}
-                  </small>
+                  <GameTip
+                    label="原价"
+                    triggerLabel={`原价 ${priceText(price, currency)}，查看核验时间`}
+                    className="wt-sale-cart-price-tip"
+                    icon={<strong>{priceText(price, currency)}</strong>}
+                  >
+                    <p>
+                      {currency === "CNY" ? "整包原价" : "常规金鹰价格"} ·{" "}
+                      {priceDate(quote?.checkedAt ?? null)}
+                    </p>
+                    {owned && <p>已拥有 · 不计入合计</p>}
+                  </GameTip>
                 </div>
                 <div className="wt-sale-cart-price wt-sale-cart-current" aria-label="当前活动价">
                   <div className="wt-sale-cart-price-line">
-                    <b className={displayPrice !== null ? "wt-sale-cart-amount" : undefined}>
-                      {!currentEvent
-                        ? priceText(displayPrice, currency)
-                        : !loaded
-                          ? priceError
-                            ? "读取失败"
-                            : "读取中…"
-                          : currentPrice
-                            ? priceText(currentPrice.amountMinor, currency)
-                            : "待核价"}
-                    </b>
-                    <span className="wt-sale-cart-low" aria-label="史低价">
-                      史低{" "}
-                      <span className={minimum ? "wt-sale-cart-amount" : undefined}>
-                        {!loaded
-                          ? priceError
-                            ? "读取失败"
-                            : "读取中…"
-                          : minimum
-                            ? `${minimum.evidenceKind === "official_announcement_derived" ? "≈ " : ""}${priceText(minimum.amountMinor, currency)}`
-                            : "待核实"}
-                      </span>
-                    </span>
+                    <GameTip
+                      label="当前价格"
+                      triggerLabel={`当前价格 ${currentText}，查看价格说明`}
+                      className="wt-sale-cart-price-tip"
+                      icon={
+                        <b className={displayPrice !== null ? "wt-sale-cart-amount" : undefined}>
+                          {currentText}
+                        </b>
+                      }
+                    >
+                      <p>
+                        {currentPrice
+                          ? `${priceDate(currentPrice.checkedAt)} · 官方实采`
+                          : currentEvent
+                            ? "活动进行中，等待有效报价"
+                            : regularPrice
+                              ? `常规售价 · ${priceDate(regularPrice.checkedAt)}`
+                              : price !== null
+                                ? `已知原价 · ${priceDate(quote?.checkedAt ?? null)}`
+                                : "暂无有效报价"}
+                      </p>
+                      {showDiscount && <p>本期官方标注优惠 {discount}%</p>}
+                    </GameTip>
+                    {showDiscount && (
+                      <GameTag tone="red" animated={false}>
+                        -{discount}%
+                      </GameTag>
+                    )}
+                    <GameTip
+                      label="史低记录"
+                      triggerLabel={`史低 ${minimum ? `${minimum.evidenceKind === "official_announcement_derived" ? "估算 " : ""}${priceText(minimum.amountMinor, currency)}` : "待核实"}，查看历史来源`}
+                      className="wt-sale-cart-price-tip"
+                      icon={
+                        <span className="wt-sale-cart-low">
+                          史低{" "}
+                          <span className={minimum ? "wt-sale-cart-amount" : undefined}>
+                            {!loaded
+                              ? priceError
+                                ? "读取失败"
+                                : "读取中…"
+                              : minimum
+                                ? `${minimum.evidenceKind === "official_announcement_derived" ? "≈ " : ""}${priceText(minimum.amountMinor, currency)}`
+                                : "待核实"}
+                          </span>
+                        </span>
+                      }
+                    >
+                      <p>
+                        {minimum
+                          ? `史低记录 ${priceDate(minimum.observedAt)}${minimum.evidenceKind === "official_announcement_derived" ? " · 公告折扣估算" : ""}`
+                          : promotion
+                            ? `曾优惠 ${promotion.discountPercent}%，金额待核实`
+                            : offer
+                              ? "仅有原价采样，非历史最低"
+                              : "尚无报价记录"}
+                      </p>
+                    </GameTip>
                   </div>
-                  <small>
-                    {currentPrice
-                      ? `${priceDate(currentPrice.checkedAt)} · 官方实采`
-                      : currentEvent
-                        ? "活动进行中，等待有效报价"
-                        : regularPrice
-                          ? `常规售价 · ${priceDate(regularPrice.checkedAt)}`
-                          : price !== null
-                            ? `已知原价 · ${priceDate(quote?.checkedAt ?? null)}`
-                            : "暂无有效报价"}
-                  </small>
-                  <small className="wt-sale-cart-low-detail">
-                    {minimum
-                      ? `史低记录 ${priceDate(minimum.observedAt)}${minimum.evidenceKind === "official_announcement_derived" ? " · 公告折扣估算" : ""}`
-                      : promotion
-                        ? `曾优惠 ${promotion.discountPercent}%，金额待核实`
-                        : offer
-                          ? "仅有原价采样，非历史最低"
-                          : "尚无报价记录"}
-                  </small>
                 </div>
                 <div className="wt-sale-cart-observations">
-                  <button
-                    className="wt-price-trend-link"
-                    onClick={() => setHistory(v)}
-                    aria-label={`展开${v.name}历史价格详情`}
-                  >
-                    <MiniPriceTrend points={points} />
-                    <small>
-                      {points.length
-                        ? `${priceDate(points[0].observedAt)} — ${priceDate(points.at(-1)!.observedAt)}`
-                        : loaded
-                          ? "尚无历史记录"
-                          : "读取中…"}
-                    </small>
-                  </button>
+                  <SaleActivityChart
+                    points={points}
+                    currency={currency}
+                    title={v.name}
+                    compact
+                    onActivate={() => setHistory(v)}
+                  />
                 </div>
                 <div className="wt-sale-cart-event">
                   {event ? (
-                    <>
-                      <strong>{event.title}</strong>
-                      <span>{saleCountdown(event, now)}</span>
-                      <small className="wt-sale-cart-event-detail">{saleRange(event)}</small>
-                      {event.startNotBefore && (
-                        <small className="wt-sale-cart-event-detail">
-                          预计接续游戏内折扣结束后，具体开始以公告为准
-                        </small>
-                      )}
-                      <small className="wt-sale-cart-event-detail">
+                    <GameTip
+                      label="活动窗口"
+                      triggerLabel={`${event.title}，${saleCountdown(event, now)}，查看具体时间窗口`}
+                      className="wt-sale-cart-event-tip"
+                      icon={
+                        <>
+                          <strong>{event.title}</strong>
+                          <span>{saleCountdown(event, now)}</span>
+                        </>
+                      }
+                    >
+                      <p>{saleRange(event)}</p>
+                      {event.startNotBefore && <p>预计接续游戏内折扣结束后，具体开始以公告为准</p>}
+                      <p>
                         {event.status === "predicted"
                           ? "预测窗口，名单未公布"
                           : event.vehicleIds.includes(v.id)
                             ? "已核对参与名单"
                             : "需核对活动适用名单"}
-                      </small>
-                    </>
+                      </p>
+                    </GameTip>
                   ) : (
                     <small>暂无匹配的活动窗口</small>
                   )}
@@ -463,6 +463,7 @@ export function SaleCart({
         <SalePriceHistory
           key={history.id}
           vehicle={history}
+          events={events}
           summary={summaries[history.id]}
           close={() => setHistory(null)}
         />

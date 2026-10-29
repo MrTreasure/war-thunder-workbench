@@ -10,120 +10,20 @@ import {
   historicalDisplayMinimum,
   observedPromotionPrice,
 } from "./sale-price-model";
-import type { PriceOffer, PricePoint, PriceSummary } from "./sale-price-model";
-import type { SaleVehicle } from "./sale-calendar-model";
+import type { PriceOffer, PriceSummary } from "./sale-price-model";
+import type { SaleEvent, SaleVehicle } from "./sale-calendar-model";
 
-export function PriceChart({ offer, days }: { offer: PriceOffer; days: number }) {
-  const [focus, setFocus] = useState<PricePoint | null>(null);
-  const [clock] = useState(() => Date.now());
-  const cutoff = days ? clock - days * 86_400_000 : 0;
-  const points = offer.points.filter((p) => Date.parse(p.observedAt) >= cutoff);
-  if (points.length < 2)
-    return (
-      <div className="wt-price-chart-empty">
-        {points.length ? "首次记录，价格走势积累中" : "此时间范围暂无实测报价"}
-        <small>已记录 {points.length} 个历史点，公告估算与实测报价分别标识。</small>
-      </div>
-    );
-  const width = 840,
-    height = 240,
-    left = 76,
-    right = 24,
-    top = 24,
-    bottom = 38;
-  const times = points.map((p) => Date.parse(p.observedAt)),
-    amounts = points.map((p) => p.amountMinor);
-  const low = Math.min(...amounts, offer.minimum?.amountMinor ?? Infinity);
-  const high = Math.max(...amounts);
-  const span = Math.max(high - low, high * 0.12, 1),
-    minY = Math.max(0, low - span * 0.2),
-    maxY = high + span * 0.2;
-  const x = (time: number) =>
-    left +
-    ((time - times[0]) / Math.max(1, times[times.length - 1] - times[0])) * (width - left - right);
-  const y = (amount: number) => top + ((maxY - amount) / (maxY - minY)) * (height - top - bottom);
-  const paths = points.slice(1).map((p, index) => {
-    const previous = points[index];
-    return (
-      <path
-        key={index}
-        d={`M${x(times[index])},${y(previous.amountMinor)}L${x(times[index + 1])},${y(p.amountMinor)}`}
-        className={`wt-price-step ${p.evidenceKind === "official_announcement_derived" || previous.evidenceKind === "official_announcement_derived" ? "is-estimate" : ""}`}
-      />
-    );
-  });
-  return (
-    <div className="wt-price-chart">
-      <svg
-        viewBox={`0 0 ${width} ${height}`}
-        aria-label={`${offer.title}价格观测图，横轴为日期，纵轴为${offer.currency === "CNY" ? "整包人民币价格" : "金鹰价格"}。详细数据见下表。`}
-      >
-        {[0, 0.5, 1].map((r) => {
-          const amount = Math.round(minY + (maxY - minY) * r);
-          return (
-            <g key={r}>
-              <line
-                x1={left}
-                x2={width - right}
-                y1={y(amount)}
-                y2={y(amount)}
-                className="wt-price-grid"
-              />
-              <text x={left - 8} y={y(amount) + 4} textAnchor="end">
-                {priceText(amount, offer.currency)}
-              </text>
-            </g>
-          );
-        })}
+import { activityPricePoints } from "./sale-activity-prices";
+import { SaleActivityChart } from "./SaleActivityChart";
 
-        {paths}
-        {points.map((p, i) => (
-          <circle
-            key={p.observedAt + p.contentVersion}
-            cx={x(times[i])}
-            cy={y(p.amountMinor)}
-            r={focus === p ? 6 : 4}
-            className={
-              p.evidenceKind === "official_announcement_derived" ? "is-estimate" : undefined
-            }
-            tabIndex={0}
-            onFocus={() => setFocus(p)}
-            onMouseEnter={() => setFocus(p)}
-            aria-label={`${priceDate(p.observedAt)}，${priceText(p.amountMinor, offer.currency)}`}
-          >
-            <title>
-              {priceDate(p.observedAt)} · {priceText(p.amountMinor, offer.currency)}
-              {p.evidenceKind === "official_announcement_derived" ? "（公告折扣估算）" : ""}
-            </title>
-          </circle>
-        ))}
-        <text x={left} y={height - 10}>
-          {priceDate(points[0].observedAt)}
-        </text>
-        <text x={width - right} y={height - 10} textAnchor="end">
-          {priceDate(points[points.length - 1].observedAt)}
-        </text>
-      </svg>
-      <div className="wt-price-chart-caption">
-        <span>● 实测报价　 ○ 公告折扣估算</span>
-        <span>
-          {focus
-            ? `${priceDate(focus.observedAt)} · ${priceText(focus.amountMinor, offer.currency)}`
-            : "聚焦数据点查看报价"}
-        </span>
-      </div>
-      <small>
-        折线连接已知记录，不代表间隔期间持续该价；空心点与虚线按资料原价和公告折扣估算，非当时实售价。
-      </small>
-    </div>
-  );
-}
 export function SalePriceHistory({
   vehicle,
+  events,
   close,
   summary,
 }: {
   vehicle: SaleVehicle;
+  events: SaleEvent[];
   close: () => void;
   summary?: PriceSummary;
 }) {
@@ -187,15 +87,15 @@ export function SalePriceHistory({
         : undefined),
     [offers, offerId, data?.discountEvidence, vehicle],
   );
-  const minimum = historicalDisplayMinimum(vehicle, offer, data?.discountEvidence);
+  const minimum = historicalDisplayMinimum(vehicle, offer, data?.discountEvidence || []);
   const displayPoints = useMemo(
-    () => historicalDisplayPoints(vehicle, offer, data?.discountEvidence),
-    [vehicle, offer, data],
+    () => activityPricePoints(vehicle, offer, data?.discountEvidence, events),
+    [vehicle, offer, data, events],
   );
   const [clock] = useState(() => Date.now());
   const rows = useMemo(
     () =>
-      displayPoints.filter((p) => !days || Date.parse(p.observedAt) >= clock - days * 86_400_000),
+      displayPoints.filter((p) => !days || Date.parse(p.activityDate) >= clock - days * 86_400_000),
     [displayPoints, days, clock],
   );
   return (
@@ -326,15 +226,15 @@ export function SalePriceHistory({
                 ；采样尚未覆盖完整促销历史。
               </p>
             )}
-            <PriceChart offer={{ ...offer, points: displayPoints, minimum }} days={days} />
+            <SaleActivityChart points={rows} currency={offer.currency} title={offer.title} />
             <details className="wt-price-records" open>
-              <summary>价格记录与来源（{rows.length}）</summary>
-              {offer.truncated && <p>图表与下表展示最近4096次观测；最低价按全部已保存记录计算。</p>}
+              <summary>活动价格与来源（{rows.length}）</summary>
+              {offer.truncated && <p>活动价格由已保存的最近4096次观测及官方公告整理。</p>}
               <div className="wt-price-record-table">
                 <table>
                   <thead>
                     <tr>
-                      <th>观测日期</th>
+                      <th>活动 / 开始日期</th>
                       <th>{offer.currency === "CNY" ? "整包价格" : "金鹰价格"}</th>
                       <th>依据</th>
                       <th>来源</th>
@@ -342,11 +242,16 @@ export function SalePriceHistory({
                   </thead>
                   <tbody>
                     {[...rows].reverse().map((p) => (
-                      <tr key={p.observedAt + p.sourceUrl + p.contentVersion}>
+                      <tr key={p.activityId}>
                         <td>
-                          <time dateTime={p.observedAt}>{priceDate(p.observedAt)}</time>
+                          {p.activityTitle}
+                          <br />
+                          <time dateTime={p.activityDate}>{priceDate(p.activityDate)}</time>
                         </td>
-                        <td>{priceText(p.amountMinor, offer.currency)}</td>
+                        <td>
+                          {p.evidenceKind === "official_announcement_derived" ? "≈ " : ""}
+                          {priceText(p.amountMinor, offer.currency)}
+                        </td>
                         <td>
                           {p.evidenceKind === "official_announcement_derived"
                             ? "公告折扣估算，非实售价"

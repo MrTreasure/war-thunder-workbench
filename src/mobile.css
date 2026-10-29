@@ -3226,6 +3226,11 @@
   .calculator.wt-sale-cart-modal .wt-sale-cart-event-detail {
     display: none;
   }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-price-tip,
+  .calculator.wt-sale-cart-modal .wt-sale-cart-event-tip {
+    min-height: 44px;
+    padding: 0;
+  }
   .calculator.wt-sale-cart-modal .wt-sale-cart-actions {
     grid-column: 2;
     grid-row: 4;
@@ -3633,7 +3638,10 @@
   .calculator.wt-sale-cart-modal .wt-sale-cart-observations .wt-price-mini {
     display: block;
     width: 115px;
-    height: 38px;
+    height: 44px;
+  }
+  .calculator.wt-sale-cart-modal .wt-activity-chart-mini {
+    width: 115px;
   }
   .calculator.wt-sale-cart-modal .wt-price-trend-link small {
     max-width: 115px;

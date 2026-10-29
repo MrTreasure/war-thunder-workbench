@@ -6,6 +6,7 @@ export type PricePoint = {
   eventId?: string;
   effectiveUntil?: string | null;
   available?: boolean;
+  discountPercent?: number | null;
   amountMinor: number;
   regularAmountMinor: number | null;
   sourceUrl: string;
@@ -34,6 +35,7 @@ export type PriceOffer = {
 export type DiscountEvidence = {
   title: string;
   sourceUrl: string;
+  checkedAt?: string;
   startAt?: string | null;
   endAt?: string | null;
   discountPercent: number;
@@ -88,6 +90,29 @@ export function currentActivityPrice(
       );
     })[0] || null
   );
+}
+/** Reuse an official rate for the same active quote, never infer one from rounded CNY amounts. */
+export function currentActivityDiscount(
+  offer: PriceOffer | undefined,
+  event: SaleEvent | undefined,
+  now: number,
+) {
+  const quote = currentActivityPrice(offer, event, now);
+  if (!quote || !event) return null;
+  const matched = availablePricePoints(offer, now).find(
+    (point) =>
+      Date.parse(point.observedAt) >= Date.parse(event.startAt) &&
+      Date.parse(point.observedAt) < Date.parse(event.endAt) &&
+      (!point.eventId || point.eventId === event.id) &&
+      point.amountMinor === quote.amountMinor &&
+      (point.regularAmountMinor == null ||
+        quote.regularAmountMinor == null ||
+        point.regularAmountMinor === quote.regularAmountMinor) &&
+      Number.isInteger(point.discountPercent) &&
+      (point.discountPercent ?? 0) > 0 &&
+      (point.discountPercent ?? 100) < 100,
+  );
+  return matched?.discountPercent ?? null;
 }
 /** A recorded quote in this promotion's window takes precedence over estimates. */
 export function observedPromotionPrice(offer: PriceOffer | undefined, evidence: DiscountEvidence) {

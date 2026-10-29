@@ -19,7 +19,15 @@ import {
   type WorkspaceDocument,
   type Workspace,
 } from "./workspace-context";
-import { statsRequest, StatsError, statsCategoryNames } from "./player-stats-api";
+import {
+  statsRequest,
+  StatsError,
+  statsCategoryNames,
+  type PlayerProfile,
+} from "./player-stats-api";
+import { mergeOwnedGarage, preferOwnedBinding } from "./owned-garage";
+import type { OwnedGarage } from "./player-rankings-api";
+import type { OwnedGarageSnapshot } from "./owned-garage";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { Modal } from "./Modal";
 import { statsCountryLabel } from "./stats-country";
@@ -190,6 +198,40 @@ const AccountWorkspace = memo(function AccountWorkspace({
     };
   }, [pendingKey, importGuestDefaults]);
   const prompted = useRef(new Set<string>());
+  const garageFlight = useRef<Promise<void> | null>(null);
+  const syncOwnedGarage = useCallback((garage: OwnedGarageSnapshot) => {
+    const previous = current.current.snapshot;
+    if (!previous || controller.current.signal.aborted) return;
+    const binding = mergeOwnedGarage(previous.binding, garage);
+    if (binding === previous.binding) return;
+    const next = { ...previous, binding };
+    current.current.snapshot = next;
+    setSnapshot(next);
+  }, []);
+  const refreshOwnedGarage = useCallback(() => {
+    if (garageFlight.current) return garageFlight.current;
+    const uid = current.current.snapshot?.binding?.uid;
+    if (!userId || !uid) return Promise.resolve();
+    const signal = controller.current.signal;
+    const job = statsRequest<PlayerProfile>("account/game-binding/profile", undefined, signal)
+      .then(async (profile) => {
+        if (signal.aborted || profile.uid !== uid || current.current.snapshot?.binding?.uid !== uid)
+          return;
+        const garage = await statsRequest<OwnedGarage>(
+          `players/${encodeURIComponent(profile.snapshotId)}/garage`,
+          undefined,
+          signal,
+        );
+        if (garage.uid !== uid || garage.snapshotId !== profile.snapshotId)
+          throw Error("车库身份不一致，已保留原拥有状态。");
+        if (!signal.aborted) syncOwnedGarage(garage);
+      })
+      .finally(() => {
+        if (garageFlight.current === job) garageFlight.current = null;
+      });
+    garageFlight.current = job;
+    return job;
+  }, [userId, syncOwnedGarage]);
   const load = useCallback(
     async (preserveDocuments = false) => {
       if (!userId) return;
@@ -200,6 +242,7 @@ const AccountWorkspace = memo(function AccountWorkspace({
       );
       if (data.ownerKey !== "user:" + userId) throw Error("登录账号已变化，已停止读取旧账号数据。");
       if (!controller.current.signal.aborted) {
+        data.binding = preferOwnedBinding(data.binding, current.current.snapshot?.binding || null);
         if (preserveDocuments && current.current.snapshot)
           data.documents = [
             ...current.current.snapshot.documents.filter((d) => d.key !== saleWatchKey),
@@ -225,11 +268,18 @@ const AccountWorkspace = memo(function AccountWorkspace({
       });
     return () => c.abort();
   }, [userId, load]);
+  const bindingUid = snapshot?.binding?.uid;
+  useEffect(() => {
+    if (bindingUid) void refreshOwnedGarage().catch(() => {});
+  }, [bindingUid, refreshOwnedGarage]);
   // Refresh on return to this page. No background official queries or interval polling.
   useEffect(() => {
     if (!userId) return;
     const refresh = () => {
-      if (!document.hidden && !flight.current) void load(true).catch((e) => setError(message(e)));
+      if (!document.hidden && !flight.current)
+        void load(true)
+          .then(refreshOwnedGarage)
+          .catch((e) => setError(message(e)));
     };
     window.addEventListener("focus", refresh);
     document.addEventListener("visibilitychange", refresh);
@@ -237,7 +287,7 @@ const AccountWorkspace = memo(function AccountWorkspace({
       window.removeEventListener("focus", refresh);
       document.removeEventListener("visibilitychange", refresh);
     };
-  }, [userId, load]);
+  }, [userId, load, refreshOwnedGarage]);
   function save(key: string, value: unknown) {
     const s = current.current.snapshot;
     if (!outboxReady.current) throw Error("正在准备本机同步队列，请稍后重试。");
@@ -432,6 +482,8 @@ const AccountWorkspace = memo(function AccountWorkspace({
       error,
       save,
       reload: load,
+      refreshOwnedGarage,
+      syncOwnedGarage,
       open: () => setOpen(true),
     });
   });

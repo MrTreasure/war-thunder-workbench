@@ -1,4 +1,5 @@
 import { createContext, useContext } from "react";
+import type { OwnedGarageSnapshot } from "./owned-garage";
 export type WorkspaceDocument = { key: string; value: unknown; revision: number };
 export type GameBinding = {
   uid: string;
@@ -23,6 +24,8 @@ export type Workspace = {
   error: string;
   save: (key: string, value: unknown) => void;
   reload: () => Promise<void>;
+  refreshOwnedGarage: () => Promise<void>;
+  syncOwnedGarage: (garage: OwnedGarageSnapshot) => void;
   open: () => void;
 };
 /** One account's synchronization controller can restart without remounting pages. */
