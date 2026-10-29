@@ -65,10 +65,10 @@
 .wt-sale-cart-row,
 .wt-sale-cart-columns {
   display: grid;
-  grid-template-columns: 262px minmax(130px, 1fr) minmax(112px, 0.9fr) minmax(112px, 0.85fr) minmax(
-      185px,
-      1.5fr
-    ) 82px;
+  grid-template-columns: 262px minmax(100px, 0.8fr) minmax(120px, 1fr) minmax(
+      120px,
+      1fr
+    ) 140px minmax(175px, 1.4fr) 70px;
   gap: 12px;
   align-items: center;
 }
@@ -306,30 +306,6 @@
   padding: 9px 12px;
   border-bottom: 1px solid var(--wt-line);
 }
-@media (max-width: 1150px) {
-  .wt-sale-cart-row,
-  .wt-sale-cart-columns {
-    grid-template-columns: 262px minmax(120px, 1fr) minmax(110px, 1fr) 80px;
-  }
-  .wt-sale-cart-columns span:nth-child(4),
-  .wt-sale-cart-columns span:nth-child(5) {
-    display: none;
-  }
-  .wt-sale-cart-observations {
-    grid-column: 2;
-    grid-row: auto;
-  }
-  .wt-sale-cart-event {
-    grid-column: 3 / 5;
-  }
-  .wt-sale-cart-actions {
-    grid-column: 4;
-    grid-row: 1;
-  }
-  .wt-sale-cart-row {
-    position: relative;
-  }
-}
 .wt-price-mini {
   width: 108px;
   height: 32px;
@@ -417,10 +393,6 @@
   z-index: 2;
   pointer-events: none;
 }
-.wt-sale-cart-row,
-.wt-sale-cart-columns {
-  grid-template-columns: 262px minmax(120px, 1fr) minmax(125px, 1fr) 160px minmax(175px, 1.4fr) 70px;
-}
 .wt-sale-cart-modal.calculator {
   width: min(1520px, calc(100vw - 40px));
 }
@@ -466,20 +438,22 @@
 @media (max-width: 1250px) and (min-width: 801px) {
   .wt-sale-cart-row,
   .wt-sale-cart-columns {
-    grid-template-columns: 262px minmax(110px, 1fr) minmax(120px, 1fr) 70px;
+    grid-template-columns: 262px minmax(85px, 0.8fr) minmax(100px, 1fr) minmax(100px, 1fr) 70px;
   }
-  .wt-sale-cart-columns span:nth-child(4),
-  .wt-sale-cart-columns span:nth-child(5) {
+  .wt-sale-cart-columns span:nth-child(5),
+  .wt-sale-cart-columns span:nth-child(6) {
     display: none;
   }
   .wt-sale-cart-observations {
-    grid-column: 2;
+    grid-column: 2 / 4;
+    grid-row: 2;
   }
   .wt-sale-cart-event {
-    grid-column: 3 / 5;
+    grid-column: 4 / 6;
+    grid-row: 2;
   }
   .wt-sale-cart-actions {
-    grid-column: 4;
+    grid-column: 5;
     grid-row: 1;
   }
 }

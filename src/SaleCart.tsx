@@ -3,11 +3,12 @@ import type { ReactNode } from "react";
 import { Modal } from "./Modal";
 import { GameSelect } from "./components/GameSelect";
 import { useAccountWorkspace } from "./workspace-context";
-import { nextSale, saleCountdown, saleRange } from "./sale-calendar-model";
+import { matchesSale, nextSale, saleCountdown, saleRange } from "./sale-calendar-model";
 import type { SaleEvent, SaleVehicle } from "./sale-calendar-model";
 import { readPriceSummary } from "./sale-price-api";
 import {
   cartTotals,
+  currentActivityPrice,
   priceDate,
   priceText,
   primaryOffer,
@@ -115,7 +116,7 @@ export function SaleCart({
           setLoadedCountries((old) => [...new Set([...old, country])]);
         })
         .catch(() => {
-          if (!c.signal.aborted) setPriceError("部分历史记录读取失败，原价清单仍可使用。");
+          if (!c.signal.aborted) setPriceError("部分价格记录读取失败，原价清单仍可使用。");
         });
     }
     return () => c.abort();
@@ -138,7 +139,7 @@ export function SaleCart({
       title="我的购物车"
       subtitle={
         workspace?.userId
-          ? "载具沿用账号关注列表；购车勾选按账号保存。已拥有载具不计费，其余按原价合计；活动价格仅供历史查询。"
+          ? "载具沿用账号关注列表；购车勾选按账号保存。已拥有载具不计费，其余按原价合计；当前活动价与史低价单独展示。"
           : "游客清单保存在本浏览器。按原价分别合计整包人民币与金鹰价格。"
       }
       close={close}
@@ -174,7 +175,7 @@ export function SaleCart({
                 setRetry((v) => v + 1);
               }}
             >
-              重试历史资料
+              重试价格资料
             </button>
           )}
           {preferences.error && (
@@ -191,7 +192,8 @@ export function SaleCart({
         <div className="wt-sale-cart-columns" aria-hidden="true">
           <span>购车计划 / 载具</span>
           <span>原价</span>
-          <span>历史低价</span>
+          <span>当前活动价</span>
+          <span>史低价</span>
           <span>历史走势</span>
           <span>活动窗口</span>
           <span>操作</span>
@@ -222,6 +224,17 @@ export function SaleCart({
               .sort((a, b) => b.discountPercent - a.discountPercent)[0];
             const minimum = historicalDisplayMinimum(v, offer, evidence),
               loaded = loadedCountries.includes(v.country);
+            const currentEvent = events
+              .filter(
+                (e) =>
+                  e.status === "confirmed" &&
+                  matchesSale(v, e) &&
+                  Date.parse(e.startAt) <= now &&
+                  now < Date.parse(e.endAt),
+              )
+              .sort((a, b) => Date.parse(b.startAt) - Date.parse(a.startAt))[0];
+            const currentPrice =
+              offer?.currency === currency ? currentActivityPrice(offer, currentEvent, now) : null;
             return (
               <article className="wt-sale-cart-row" key={v.id}>
                 <div className="wt-sale-cart-vehicle">
@@ -254,7 +267,27 @@ export function SaleCart({
                     {priceDate(quote?.checkedAt ?? null)}
                   </small>
                 </div>
-                <div className="wt-sale-cart-price">
+                <div className="wt-sale-cart-price wt-sale-cart-current" aria-label="当前活动价">
+                  <b>
+                    {!currentEvent
+                      ? "暂无活动"
+                      : !loaded
+                        ? priceError
+                          ? "读取失败"
+                          : "读取中…"
+                        : currentPrice
+                          ? priceText(currentPrice.amountMinor, currency)
+                          : "待核价"}
+                  </b>
+                  <small>
+                    {currentPrice
+                      ? `${priceDate(currentPrice.checkedAt)} · 官方实采`
+                      : currentEvent
+                        ? "活动进行中，等待有效报价"
+                        : "暂无进行中的匹配活动"}
+                  </small>
+                </div>
+                <div className="wt-sale-cart-price wt-sale-cart-low" aria-label="史低价">
                   <b>
                     {!loaded
                       ? priceError
@@ -353,7 +386,7 @@ export function SaleCart({
           <small>
             {totals.missing
               ? `${totals.missing} 辆缺少有效报价，未计入小计`
-              : "按原价合计；历史活动价不参与展示和合计"}
+              : "按原价合计；当前活动价与史低价仅供参考"}
             {totals.owned > 0 && ` · ${totals.owned} 辆已拥有，已免计`}
             {totals.duplicates > 0 && ` · ${totals.duplicates} 个重复礼包已去重`}
           </small>

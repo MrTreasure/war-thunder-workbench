@@ -3170,7 +3170,7 @@
     display: none;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-row {
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 4px 8px;
     padding: 10px 0;
   }
@@ -3188,16 +3188,24 @@
     font-size: 12px;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-price b::before {
-    content: "历史低价 · ";
     font-weight: normal;
     color: var(--wt-muted);
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-current b::before {
+    content: "当前活动价 · ";
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-low {
+    grid-column: 2;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-low b::before {
+    content: "史低价 · ";
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-price small {
     font-size: 10px;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-observations {
-    grid-column: 2;
-    grid-row: 2;
+    grid-column: 1 / -1;
+    grid-row: 3;
     align-items: flex-end;
     gap: 0;
   }
@@ -3211,7 +3219,7 @@
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-event {
     grid-column: 1;
-    grid-row: 3;
+    grid-row: 4;
     gap: 0;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-event strong {
@@ -3226,7 +3234,7 @@
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-actions {
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 4;
     flex-direction: row;
     align-items: center;
     gap: 8px;
