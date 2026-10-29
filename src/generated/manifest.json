@@ -4,330 +4,1530 @@
     "usa": {
       "key": "country-usa",
       "format": "csv-js-v1",
-      "file": "country-usa.4d0661d8d1afdc73.js",
-      "sha256": "303343bfffd9935279df14d830d350204f9a8fbc2cbf5a14017ac2567dad10bb",
-      "bytes": 2677017,
-      "transportSha256": "4d0661d8d1afdc73b0cb1ddddd8be5f778c447c9dcd49fee42a5b348bc9171b3",
-      "transportBytes": 2719964,
+      "file": "country-usa.c070ffe26bc96825.js",
+      "sha256": "5194e0a6fe727c4c727bd47f6b7ce5e2154b174a51667718f996e86b75fbaa67",
+      "bytes": 2677310,
+      "transportSha256": "c070ffe26bc96825ff34dda641565342686ea3e20c14fbde612b280cbe3b5db1",
+      "transportBytes": 2720279,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
           "url": "https://wiki.warthunder.com/ground",
-          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "aviation": {
           "url": "https://wiki.warthunder.com/aviation",
-          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "ships": {
           "url": "https://wiki.warthunder.com/ships",
-          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "boats": {
           "url": "https://wiki.warthunder.com/boats",
-          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "helicopters": {
           "url": "https://wiki.warthunder.com/helicopters",
           "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
-          "checkedAt": "2026-10-20T09:15:28.530Z"
+          "checkedAt": "2026-10-20T09:15:28.530Z",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         }
       }
     },
     "germany": {
       "key": "country-germany",
       "format": "csv-js-v1",
-      "file": "country-germany.a82e26d6da2b1d2b.js",
-      "sha256": "0a1fb96d5c3be3a1790eece29fb3a81736962c85cc6fa4c2d238fcd119fbccdf",
-      "bytes": 2492541,
-      "transportSha256": "a82e26d6da2b1d2b2771ec24b1f8d13e8b8929736161c90470963e8dcbf0fce1",
-      "transportBytes": 2532889,
+      "file": "country-germany.159f74c303182bc7.js",
+      "sha256": "05314abb3a6ef628aa9eb09c0cf2f1b992f58a614ac45a2b5b4f9ac40a4cfec8",
+      "bytes": 2492679,
+      "transportSha256": "159f74c303182bc7cbdde7011b2ec59c30f103d38d978af54c6dc8e424a14dd7",
+      "transportBytes": 2533039,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
           "url": "https://wiki.warthunder.com/ground",
-          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "aviation": {
           "url": "https://wiki.warthunder.com/aviation",
-          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "ships": {
           "url": "https://wiki.warthunder.com/ships",
-          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "boats": {
           "url": "https://wiki.warthunder.com/boats",
-          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "helicopters": {
           "url": "https://wiki.warthunder.com/helicopters",
           "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
-          "checkedAt": "2026-10-20T09:15:28.530Z"
+          "checkedAt": "2026-10-20T09:15:28.530Z",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         }
       }
     },
     "ussr": {
       "key": "country-ussr",
       "format": "csv-js-v1",
-      "file": "country-ussr.b4ab92d80dc8443c.js",
-      "sha256": "de97b025a63cdc26cf3b87c40138638d5b691c583c6707c86606ca1db823abb0",
-      "bytes": 2698551,
-      "transportSha256": "b4ab92d80dc8443c0604ed19ec667cc78ad768aa75d7ea8d8bde9cf8ca32e983",
-      "transportBytes": 2742824,
+      "file": "country-ussr.ab9747d2920e9a65.js",
+      "sha256": "f02896338d64523d1bdd8ca6d822863f6620a1e002054e2a4aa39b7adc6950c9",
+      "bytes": 2698861,
+      "transportSha256": "ab9747d2920e9a6544e216eeb3b27137b88d82a9521dff327424596ea94b3953",
+      "transportBytes": 2743158,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
           "url": "https://wiki.warthunder.com/ground",
-          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "aviation": {
           "url": "https://wiki.warthunder.com/aviation",
-          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "ships": {
           "url": "https://wiki.warthunder.com/ships",
-          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "boats": {
           "url": "https://wiki.warthunder.com/boats",
-          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "helicopters": {
           "url": "https://wiki.warthunder.com/helicopters",
           "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
-          "checkedAt": "2026-10-20T09:15:28.530Z"
+          "checkedAt": "2026-10-20T09:15:28.530Z",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         }
       }
     },
     "britain": {
       "key": "country-britain",
       "format": "csv-js-v1",
-      "file": "country-britain.73d50ad27a4bdcf3.js",
-      "sha256": "8a90ac3290c504e76c9632ea6580e33b7b3469418830666b57081cc60dfa3ad5",
-      "bytes": 2383433,
-      "transportSha256": "73d50ad27a4bdcf3ef9bbb55c239834d577ab64d1f73f05567d7827a74ddce6e",
-      "transportBytes": 2421909,
+      "file": "country-britain.15de43ab7fab0844.js",
+      "sha256": "80cf9821b9158eda9968e5bab59af9f93f3db99c3220f8b1119a9205df1e6bd0",
+      "bytes": 2383621,
+      "transportSha256": "15de43ab7fab08441b8d8bf3618f2842376abd272e585c2ed61abb6492dadbcb",
+      "transportBytes": 2422113,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
           "url": "https://wiki.warthunder.com/ground",
-          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "aviation": {
           "url": "https://wiki.warthunder.com/aviation",
-          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "ships": {
           "url": "https://wiki.warthunder.com/ships",
-          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "boats": {
           "url": "https://wiki.warthunder.com/boats",
-          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "helicopters": {
           "url": "https://wiki.warthunder.com/helicopters",
           "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
-          "checkedAt": "2026-10-20T09:15:28.530Z"
+          "checkedAt": "2026-10-20T09:15:28.530Z",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         }
       }
     },
     "japan": {
       "key": "country-japan",
       "format": "csv-js-v1",
-      "file": "country-japan.8c60d9e3b981d2ca.js",
-      "sha256": "0ab3f1d8cbc08c8ccf84129f0ef981777106ff568c76a3269b3bf37812722f2c",
-      "bytes": 1847878,
-      "transportSha256": "8c60d9e3b981d2cace7f553132d7d7da500f1fe3ab3ec62240f50c0756085e03",
-      "transportBytes": 1877954,
+      "file": "country-japan.5491a2553e42af99.js",
+      "sha256": "92f20a33c6fd726f31a9acf6f55af0f377d49d08cc2ec303e7b6284dd0b35927",
+      "bytes": 1847937,
+      "transportSha256": "5491a2553e42af9968e0600072095331a7295e2c334c70bbe03e6c657b00681b",
+      "transportBytes": 1878019,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
           "url": "https://wiki.warthunder.com/ground",
-          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "aviation": {
           "url": "https://wiki.warthunder.com/aviation",
-          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "ships": {
           "url": "https://wiki.warthunder.com/ships",
-          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "boats": {
           "url": "https://wiki.warthunder.com/boats",
-          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "helicopters": {
           "url": "https://wiki.warthunder.com/helicopters",
           "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
-          "checkedAt": "2026-10-20T09:15:28.530Z"
+          "checkedAt": "2026-10-20T09:15:28.530Z",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         }
       }
     },
     "china": {
       "key": "country-china",
       "format": "csv-js-v1",
-      "file": "country-china.1e6c540608bec4f0.js",
-      "sha256": "f6058d564be816b1fc43c00ac8283e53a23a4a2e0a518a58740409ed0b1ee0ff",
-      "bytes": 1273522,
-      "transportSha256": "1e6c540608bec4f04da5d3c44ed9b756b30a3d669dcf8a8ff75880f771ce28da",
-      "transportBytes": 1296202,
+      "file": "country-china.ad176ad3af30a70f.js",
+      "sha256": "22c7a517a7c2e92718853fedefb217d9b55a9aa155a099c192df4a218d7167da",
+      "bytes": 1273749,
+      "transportSha256": "ad176ad3af30a70f0b8a592e9d8877c6d2615faeccfb7d6c7be0476e5be0250e",
+      "transportBytes": 1296447,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
           "url": "https://wiki.warthunder.com/ground",
-          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "aviation": {
           "url": "https://wiki.warthunder.com/aviation",
-          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "ships": {
           "url": "https://wiki.warthunder.com/ships",
-          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "boats": {
           "url": "https://wiki.warthunder.com/boats",
-          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "helicopters": {
           "url": "https://wiki.warthunder.com/helicopters",
           "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
-          "checkedAt": "2026-10-20T09:15:28.530Z"
+          "checkedAt": "2026-10-20T09:15:28.530Z",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         }
       }
     },
     "italy": {
       "key": "country-italy",
       "format": "csv-js-v1",
-      "file": "country-italy.ee822550953f26e0.js",
-      "sha256": "e121c3ef1a42475f20af1eb7a609be31b795e12c0546e1c37ae66eaf9e3ad0e9",
-      "bytes": 1799519,
-      "transportSha256": "ee822550953f26e0615d180454d166dbe958c9ef856e771211b6fe6c169928ab",
-      "transportBytes": 1829143,
+      "file": "country-italy.58297df3f6f63c36.js",
+      "sha256": "7b943be690709b85889de5c97d6edcb91d6df64ab46926c52484941ccd9c8c9b",
+      "bytes": 1799632,
+      "transportSha256": "58297df3f6f63c36de7d410477adcae4d9174b7c679ce584fbf530f280f69b9e",
+      "transportBytes": 1829264,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
           "url": "https://wiki.warthunder.com/ground",
-          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "aviation": {
           "url": "https://wiki.warthunder.com/aviation",
-          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "ships": {
           "url": "https://wiki.warthunder.com/ships",
-          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "boats": {
           "url": "https://wiki.warthunder.com/boats",
-          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "helicopters": {
           "url": "https://wiki.warthunder.com/helicopters",
           "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
-          "checkedAt": "2026-10-20T09:15:28.530Z"
+          "checkedAt": "2026-10-20T09:15:28.530Z",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         }
       }
     },
     "france": {
       "key": "country-france",
       "format": "csv-js-v1",
-      "file": "country-france.77c258ce2933ee76.js",
-      "sha256": "613b9ca03fdc3ff1fc400a95a150a15b1a227e4a195da79f0d350b19311b7dfe",
-      "bytes": 1781006,
-      "transportSha256": "77c258ce2933ee76119a7af8c7247cf06334daedba1584f3514a7eb367ebfbf5",
-      "transportBytes": 1810217,
+      "file": "country-france.29e1664b2acf33cf.js",
+      "sha256": "60ae978beca3b1f11728f9afd56a4950532c8e7c7d998f70683f79f466e847a7",
+      "bytes": 1781348,
+      "transportSha256": "29e1664b2acf33cf49fdba94389f05364e5b8ee5d035c3b3578e6008fc678ff1",
+      "transportBytes": 1810585,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
           "url": "https://wiki.warthunder.com/ground",
-          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "aviation": {
           "url": "https://wiki.warthunder.com/aviation",
-          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "ships": {
           "url": "https://wiki.warthunder.com/ships",
-          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "boats": {
           "url": "https://wiki.warthunder.com/boats",
-          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "helicopters": {
           "url": "https://wiki.warthunder.com/helicopters",
           "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
-          "checkedAt": "2026-10-20T09:15:28.530Z"
+          "checkedAt": "2026-10-20T09:15:28.530Z",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         }
       }
     },
     "sweden": {
       "key": "country-sweden",
       "format": "csv-js-v1",
-      "file": "country-sweden.d70b0108b4ed5a5d.js",
-      "sha256": "5f2501671cdb298ebaa45d06813a6369f6087fd78c06b1d8354726806998c1a0",
-      "bytes": 1032924,
-      "transportSha256": "d70b0108b4ed5a5d4df9e468f1b7403f4dc336fafee8f3c6d3b8a16c744b928a",
-      "transportBytes": 1051426,
+      "file": "country-sweden.1a67ee9b8bbc3d13.js",
+      "sha256": "c4028cc8ac51777f9a1aac49fafff66f0d34a396cfbda9d80c29cb6263bb4986",
+      "bytes": 1032993,
+      "transportSha256": "1a67ee9b8bbc3d13c54d27a2869cd4cbeb36a047a8bd713b084d7035d4beb6c7",
+      "transportBytes": 1051501,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
           "url": "https://wiki.warthunder.com/ground",
-          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "aviation": {
           "url": "https://wiki.warthunder.com/aviation",
-          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "ships": {
           "url": "https://wiki.warthunder.com/ships",
-          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "boats": {
           "url": "https://wiki.warthunder.com/boats",
-          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "helicopters": {
           "url": "https://wiki.warthunder.com/helicopters",
           "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
-          "checkedAt": "2026-10-20T09:15:28.530Z"
+          "checkedAt": "2026-10-20T09:15:28.530Z",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         }
       }
     },
     "israel": {
       "key": "country-israel",
       "format": "csv-js-v1",
-      "file": "country-israel.a4a9d55751804a73.js",
-      "sha256": "73b66c3e2fe5247fa057c58126bfd29d920a1e987580d88e36dd1d0b3bec3de2",
-      "bytes": 852874,
-      "transportSha256": "a4a9d55751804a731c12920fee1b63c5bee4da9ecb733e6c8eee02eac2808d5c",
-      "transportBytes": 867046,
+      "file": "country-israel.e4a6c35220672f26.js",
+      "sha256": "553d67bcd4f4dac12c0b35fffde411ff862d1731d5175399194a289ad785efdb",
+      "bytes": 852989,
+      "transportSha256": "e4a6c35220672f268e6b3c70805531167dc9baacb6322209042a34bc1acc11d3",
+      "transportBytes": 867171,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
           "url": "https://wiki.warthunder.com/ground",
-          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64"
+          "sha256": "c1356d6e80fdeffdd2f7971dd7b80d932d02b5c648f015d4b499d89d762ddb64",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "aviation": {
           "url": "https://wiki.warthunder.com/aviation",
-          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01"
+          "sha256": "6cc97b27a95259ef24e6b8795b12b2780089227f5be452d7f452443ebf0eee01",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "ships": {
           "url": "https://wiki.warthunder.com/ships",
-          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3"
+          "sha256": "280488895412813beaadce0a5d510206288ff6179df67ae108840f0c70e0c4c3",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "boats": {
           "url": "https://wiki.warthunder.com/boats",
-          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f"
+          "sha256": "9bc00681dd1817b55aa72a3b0e368925f676adcf8f46ceb817c2b86c7b820e7f",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         },
         "helicopters": {
           "url": "https://wiki.warthunder.com/helicopters",
           "sha256": "68305203ed2a268e8185f98f7cf26e6ad270b6ee21dade116c78a0d2f72c4b4c",
-          "checkedAt": "2026-10-20T09:15:28.530Z"
+          "checkedAt": "2026-10-20T09:15:28.530Z",
+          "br": {
+            "authority": "official-implemented",
+            "version": "2.59.0.92",
+            "source": "https://warthunder.com/en/game/changelog/current/1913",
+            "checkedAt": "2026-10-29T12:48:13.496Z",
+            "sha256": "ba1ff03eb57454782b68ddcaa7498b5fc87aed70c9f69f89c6224cd459b172e3",
+            "sheets": [
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+                "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
+                "checkedAt": "2026-10-29T12:47:54.929Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+                "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
+                "checkedAt": "2026-10-29T12:48:04.306Z"
+              },
+              {
+                "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+                "sha256": "4b4aaf2adf9313a2432159776a6668c01df1cd3a06048e524fe9d77ebb24f9d5",
+                "checkedAt": "2026-10-29T12:48:13.496Z"
+              }
+            ]
+          }
         }
       }
     }
