@@ -75,6 +75,23 @@ pnpm run build
 
 ## 参与贡献
 
+### QMuse 模板与原生工具链
+
+对照本机 `rainy-wallpaper` 模板（2026-10-29）：共享配置均为 `@qmuse/vite-config` 1.0.13，TypeScript 均为 7.0.2；其 `tsc` 启动器直接运行 Go 原生编译器，即原 tsgo 实现。战雷已使用 Vite 8.3.4 与 Oxlint 1.88.0，继续保留精确版本和锁文件。
+
+- 共享 QMuse 配置是唯一插件入口，Vite 8 已使用原生 TypeScript 路径解析，不重复注册 React、Router、Tailwind 或路径插件。
+- 原生类型检查启用增量缓存，位于各工作区自己的 `artifacts/cache/typescript/`；Vite 优化器缓存位于 `artifacts/cache/vite/`，防止共用 `node_modules` 的主分支与国际分支互相覆盖缓存。
+- `check` 通过 `typecheck` 生成路由一次；独立 `build` 仍保留路由生成、完整类型及数据检查。缓存不关闭诊断，源代码、配置或编译器变化仍须重新检查。
+- 缓存和耗时报告仅保留本机，不进入 Git、QMuse 上传或静态发布。需要完整重新检查时可运行 `pnpm exec tsc --noEmit --incremental false`。
+
+本地对比检查耗时（运行于对应工作区，串行执行以避免互相争用 CPU）：
+
+```sh
+pnpm run benchmark:toolchain --report artifacts/toolchain/local.json
+```
+
+报告记录真实工具版本、首次耗时及随后两次的平均耗时；只衡量类型检查和 lint，不代表页面加载提速，也不运行浏览器或业务采集。
+
 欢迎提交功能建议、数据问题与修复。反馈数据问题时，请附上国家、军种、载具名称、模式、游戏版本和可核对来源；界面问题请附截图与屏幕尺寸。
 
 提交代码前运行 `pnpm run check` 与 `pnpm run build`。载具数据和来源应维护在 `data/*.json`，不要写进 JSX；同时保留已有存储格式与分享码兼容性。开发约定见 [AGENTS.md](../AGENTS.md)，视觉与共用组件规则见 [style.md](../style.md)。
