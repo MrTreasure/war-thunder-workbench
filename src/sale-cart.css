@@ -415,13 +415,30 @@
   flex-direction: column;
   gap: 2px;
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   min-height: 60px;
   padding: 0;
   border: 0;
   background: transparent;
   box-shadow: none;
   text-align: left;
+  white-space: normal;
   cursor: pointer;
+}
+.wt-price-trend-link small,
+.wt-sale-cart-event > strong,
+.wt-sale-cart-event > span,
+.wt-sale-cart-event > small {
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+.wt-price-trend-link small {
+  display: block;
+  width: 100%;
 }
 .wt-price-trend-link:hover {
   color: var(--wt-gold);
@@ -433,6 +450,7 @@
 .wt-price-trend-link .wt-price-mini {
   width: 100%;
   height: 44px;
+  flex-shrink: 0;
 }
 .wt-price-mini-empty {
   display: grid;
