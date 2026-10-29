@@ -1,16 +1,17 @@
 # War Thunder Workbench
 
+
 ## 交付与验收（2026-10-27 最新要求）
 
 - 完成代码和必要代码检查后部署独立预览，立即给老大预览地址，由老大自行检查。
 - 不主动做视觉验收、Playwright 截图验收或全量边缘校验，不把这些步骤作为交付门槛；覆盖此前自动截图和全量边缘验收要求。仅老大后续明确要求时执行。
-- 保留类型、lint、数据、地图编辑器和构建检查，以及资源先于 HTML、旧哈希保留、鉴权与凭据隔离要求。发布工具如默认包含全量边缘校验，应使用可关闭该步骤的发布路径。
+- 保留类型、lint、数据、地图编辑器和构建检查，以及资源先于 HTML、旧哈希保留、鉴权与凭据隔离要求。发布工具如默认包含全量边缘校验，应使用可关闭该步骤的发布路径。仅用户明确要求浏览器验收时执行，报告须区分浏览器、SDK Mock 与真机，不把模拟授权或截图当作原生能力通过。
 
 ## 国家资料加载重构（2026-10-28 用户确认）
 
 - 每国一个完整 CSV 数据包，仍由固定 JS 文本封装并沿用原国家动态模块发布方式；网络由托管层压缩。Canonical data/*.json 保持原样。
 - 服务端国家清单 schema 4 / csv-js-v1；前端统一 vehicleStore，IndexedDB 存已解析国家快照，本地先展示、后台检查哈希更新；不可用时降级 GET 缓存和内存。
-- 本次全新格式不兼容旧载具数据，升级清除旧载具 OPFS/localStorage/IndexedDB 缓存及旧发布数据资源；账号、购物车、计划、队列与地图方案必须保留。此条覆盖下文旧 JSON 文本缓存及 OPFS 优先的载具数据约定。
+- 本次全新格式不兼容旧载具数据，升级清除旧载具 OPFS/localStorage/IndexedDB 缓存及旧发布数据资源；账号、购物车、计划、队列与地图方案必须保留。旧载具缓存只作定向清理，不恢复旧格式读取。
 - 后台按国家/军种/字段选择采集与独立发布，仅重建变更国家，保持来源、未知值、追加式编码、限频和人工发布要求。
 
 ## Wiki 数据资源更新（2026-10-24 用户确认）
@@ -20,25 +21,24 @@
 - 载具详情增加基础资料、获取与价格，以及 RP/银狮获取百分比；配件信息继续在配件研发中展示。匿名读取公开 Wiki，不携带用户登录态。2026-10-24 用户明确要求采集默认并发 10、随机等待：各工作线程随机等待 6～10 秒，同域名请求入口按 0.8～1.2 秒错峰；遇限流、登录或验证停止，不绕过验证。已有且完整的字段与来源时间必须复用，缺少配件布局或 RP/银狮收益倍率时才补采；同一辆车的缺失项共用一次页面读取。来源倍率与玩家作战效率评分分别保存，未知不补零。
 
 
-### 下次 Wiki 采集：飞机挂载（2026-10-25 用户要求）
+### Wiki 性能与挂载采集：后续约束
 
-- 下一次手动 Wiki 采集必须同时采集飞机挂载资料；本次约定不授权立即启动采集或新建定时任务。执行前先读 `docs/wiki-collection-next-run.md`，补齐解析及校验，再启动原有采集入口。
+- 2026-10-27 已完成已验证原件的离线性能与挂载复采。后续手动采集仍须包含挂载资料，执行前先读 `docs/wiki-collection-next-run.md`，核对解析、完整性与原件复用；不因历史授权自动启动新采集或定时任务。
 - 范围包含可用武器／吊舱／副油箱、挂载数量或组合、挂点兼容表、重量、总挂载及左右翼载重限制，以及页面实际提供的武器参数与官方图片来源。武器解锁配件与实际挂载选项分别存储，不将配件研发记录冒充完整挂载资料。
 - 调整本地脚本与后台采集的完整性判断：缺少挂载资料的飞机不能因配件、布局及收益倍率齐全而跳过。同一页面读取同时补齐缺失字段；优先解析可验证的已存页面，禁止重新抓取已经完整且有来源证明的资料。
 - 每条记录保留载具唯一 ID、来源 URL、实际采集时间、原始页面哈希与解析版本；区分确实无挂载、Wiki 未提供、解析失败、尚未采集，未知值不得补零。仅保留官方公开的挂点与限制，不推断完整游戏挂载互斥规则。
 - 保持匿名读取、默认并发 10、线程随机 6～10 秒和同域名 0.8～1.2 秒错峰；遇限制立即暂停。后台采集入口及日志需明确包含挂载范围，资料发布仍由管理员手动确认。
 
-## 指令文件与站点约定（2026-10-23 更新）
+## 指令文件与站点约定（2026-10-29 整理）
 
 - 本文件 `AGENTS.md` 是 Codex 的唯一项目指令入口；原 `AGENT.md` 规则已合并到本文件，不再维护第二份指令。`AGENT.md` 不得提交或上传，必须保持 Git 忽略。
 - 正式站：`https://render.qmuse.pub/p/muse/8645013411493394`，只更新既有 QMuse 应用。
 - 国际站：`https://wt.mrtreasure.cc/`，部署独立 Workers Static Assets，Worker 保持 `war-thunder-workbench` 原名。
-- 2026-10-24 用户澄清：独立 Render 预览站并未停用，已迁至 Cloudflare Workers。预览地址为 `https://render.mrtreasure.cc/war-thunder-trees/`，可用于用户验收；不得将其当作正式站或国际站。先前对 Render 域名的全面禁用已撤销。
+- 独立 Render 预览由 Cloudflare Workers 托管，地址为 `https://render.mrtreasure.cc/war-thunder-trees/`；不得当作正式站或国际站。Render 的 `/muse/*` 和 `/_muse-index/*` 返回 404，不保留兼容跳转。
 - `deploy:qmuse` 用于正式站；`deploy:cf` 用于国际站。`deploy:preview` 仅发布独立 Render 预览；遵循 CF Workers 现行资源先于 HTML、哈希资源保留、鉴权及边缘校验流程，不恢复 NAS 对外托管。
 - 用户要求预览时，先发布独立 Render 预览并等待明确验收；确认前禁止更新 QMuse、国际站、线上图床资料索引及后端现行数据。尚未发布的本地构建不能宣称已在线。2026-10-27 用户取消历史发布回滚材料留存：以 Git 记录为准，发布完成后清理临时构建副本与回滚包；保留必要校验结果，线上旧哈希资源仍供已打开页面使用。
 - 国际站 SEO canonical 与 Web Analytics 继续对应 wt 域名；后台“页面分析”保持直达该站统计。
 - 国际站发布使用 `feat/seo-localized-pages` 的多语言工作区，合并 main 后补充英、俄、日文案，不得以中文 main 构建覆盖国际站。
-- 2026-10-24 QMuse 90800278 曾因「未声明 WASM」被拒；按用户要求补充结构化用途清单、文件 NOTICE、加载入口注释及官方 CLI 清单核对后，仅重试一次，90800422 / 部署 36900195 的最终审核为 PASSED、部署为 DEPLOYED，已验证线上版本；静态子扫描仍保留 WASM 告警，不能声称所有扫描均通过。此为历史发布记录；后续用户已改为后端原生计算，当前前端不得包含 WASM。
 - 旧 `../war-thunder-trees/` 和 NAS Muse 目录仅作历史存档，不是发布目标。
 
 ## 项目实现约束
@@ -73,11 +73,13 @@
 - Include all five categories: ground, aviation, helicopters, ships and boats.
   Helicopters use their own tree and Helicopter rank gates; keep their game
   Simplified Chinese names and append their share codes without renumbering.
-- Prefer OPFS for verified JSON caches and fall back to localStorage. Cache quota
-  eviction may only remove `wt-data-cache-v1:*` entries, never carts or profiles.
+- Complete country snapshots use IndexedDB with HTTP GET cache and memory
+  fallback. Never restore retired country OPFS/localStorage caches; targeted
+  migration cleanup must preserve carts, profiles, lineups and map plans.
 - Keep source JSON canonical. `data/generated/catalog.json` is a private build
-  validation output; publish one hashed lazy JS module per country. Canonical
-  data and verified cache bodies remain JSON; never publish standalone JSON files.
+  validation output; publish one hashed lazy CSV JS module per country.
+  Canonical source remains JSON; cache parsed country snapshots in IndexedDB.
+  Never publish standalone data JSON or CSV files.
 - Images and the favicon must use their original official HTTPS URLs, not local
   copies or embedded flag data. Keep the font same-origin under the existing CSP.
 - `pnpm run refresh` updates JSON; it must not publish. Build and publish only
@@ -112,7 +114,8 @@
   `WorkbenchProvider` holds country loading and shared state across pages.
   Preserve TanStack history state when synchronizing legacy outer query params.
 - `src/styles.css` is the template/Tailwind entry, `src/workbench.css` contains
-  existing workbench rules. Keep legacy localStorage/OPFS and RP behavior.
+  existing workbench rules. Preserve user storage and RP behavior; country
+  data caches follow the current schema 4 migration rules.
 - Place `CreatorLink` in the top-right header of both research-tree and lineup
   pages. Use the supplied QMuse logo and invite link; do not duplicate its full promotion block in other content. The shared page footer
   carries the separately requested QMuse Vibecoding platform attribution. Keep it responsive without horizontal overflow.
@@ -145,9 +148,10 @@
 
 - All workbench CSS custom properties use `--wt-*` to avoid template/Tailwind
   `--muted` and `--accent` collisions. The bundled font uses a relative asset URL.
-- Country modules dynamically import canonical JSON text only after selection.
-  Keep SHA256, byte-length and schema checks before caching/using that text.
-  Loading is indeterminate while native import runs; never fake byte progress.
+- Country modules dynamically import CSV JS text only after selection. Verify
+  transport and CSV SHA256/byte lengths, then validate decoded country/schema
+  before storing parsed snapshots. Remote JS is parsed as a fixed literal,
+  never executed. Native import progress is indeterminate; never fake bytes.
 - `scripts/check-build.mjs` verifies all ten emitted JS payload hashes and blocks
   standalone JSON output. It runs after build and before static publication.
 
@@ -189,10 +193,10 @@
   Allow direct access to `#/maps` and `#/maps/$mapId` without any outer query
   flag. Keep old root `?guides=1` links opening maps for compatibility; the
   normal root continues to open the research tree.
-- Guide summaries, CDN image metadata, sources and collection audit live in
-  `data/map-atlas.json`; load them with the guide component only after entry.
-  Publish them as JS, never a separate JSON file. Opening guides must not load
-  a remembered country's vehicle payload.
+- Legacy atlas summaries and collection audit retain canonical inputs in
+  `data/map-atlas.json`; never publish them as standalone static JSON. Current
+  map metadata comes from the versioned API after map entry. Map pages must
+  not load a remembered country's vehicle payload.
 - `pnpm run refresh:guides` uses Playwright to extract the original atlas and
   inspect the public author collection. Visits are serial, at least 6 seconds
   apart (7 seconds by default), with a 6-hour snapshot cooldown, bounded scrolling
@@ -214,8 +218,9 @@
 - Before resuming archive body checks, read `docs/guide-collection-checkpoint.md`
   and the persisted `articleRetryAfter`; update the checkpoint after continuation.
 
-- Public `#/maps` displays the ground-map atlas. Canonical map metadata
-  lives in `data/ground-maps.json`; keep the page lazy and do not load country data.
+- Public `#/maps` displays the ground-map atlas. Canonical import metadata
+  remains in `data/ground-maps.json`; runtime uses the versioned map API,
+  isolated in preview until acceptance. Keep pages lazy, without country data.
   User-provided map imagery is an exception to the official-image rule: archive it in
   the existing GitHub `MrTreasure/oss-files` image repository, pin full commit IDs
   in raw/CDN URLs and keep the existing R2 addresses as fallback sources.
@@ -339,8 +344,6 @@
   typography for SVG and PNG export. Never accept arbitrary CSS/font URLs from
   imported plans; load the required same-origin font before PNG rendering.
 
-- 2026-10-23 用户明确例外：战雷独立 Worker `war-thunder-workbench` 保持原名，不添加 `c137-` 前缀，不为命名迁移或重新创建它。
-
 ## 源码提交与本地研究资料约束
 
 ## 前后端提交边界
@@ -410,7 +413,7 @@
 
 - After agreement confirmation, account saves are automatic and silent. Never open the cloud-data/import panel merely because a user logged in, and do not show successful sync status in the header or menu. The panel remains available on explicit request.
 - First account use may automatically import valid guest plans only into missing cloud keys. Cloud documents, deletion tombstones and pending account edits win; retain the guest originals and prevent automatic import into another account once claimed.
-- Full garages live under 出击队列 → 我的车库 at `#/lineups/garage`, require login on both frontend and backend, and use the shared VehicleTile from the research tree with filters, modes, sorting and pagination. Statistical vehicle cards are reserved for explicit battle-performance views. Default to the linked game account; unlinked users get a stats/binding entry. Old stats garage links redirect. Garage and its details use page content, not dialogs; anonymous local lineups remain available. Do not load country trees on the garage route.
+- Full garages live under 出击队列 → 我的车库 at `#/lineups/garage`, require login on both frontend and backend, and use the shared VehicleTile from the research tree with filters, modes, sorting and pagination. Statistical vehicle cards are reserved for explicit battle-performance views. Default to the linked game account; unlinked users get a stats/binding entry. Old stats garage links redirect. Garage and its details use page content, not dialogs; anonymous local lineups remain available. Load only requested countries through the shared complete-country store; do not restore separate vehicle-facts payloads or load all ten countries.
 - Owned spades use the original `item_icon_elite_slot.png` card-body watermark and game colors recorded in `data/account-workspace.json`, behind vehicle art/text. Do not restore a boxed corner badge. Keep original HTTPS asset URLs and provenance.
 
 ## 贴花查询暂缓（2026-10-24）
@@ -473,9 +476,9 @@
 - 页脚明确显示“本应用通过 QMuse Vibecoding 平台搭建”，链接为 `https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB`，带外跳符号、新窗口与 `noopener noreferrer`。顶部共享 CreatorLink 保留；本项是用户要求的独立平台署名，不重复整块推广组件。
 - `style.md` 是本应用视觉方案与组件使用规范；新增或修改界面应先读取。两站视觉组件保持一致，国际站新增文案及名称、数值格式必须补齐英／俄／日。
 
-## 公共载具元数据与本地筛选（2026-10-25）
+## 共享载具资料与本地筛选（2026-10-28 更新）
 
-- 统一使用 `src/vehicle-catalog.ts` 与按国家的 `vehicles-*` 公共资源补全名称、等级、获取类型、RP、BR、载具类型及整包价格；数据由同一份 canonical 科技树生成。页面／列表集中请求，组件仅订阅内存数据；同一 canonical 数据按国家另生成小型 `vehicle-facts-*` JS 展示投影作哈希核验回退，完整科技树与配件仍按原模块懒加载；复用公共资源内容哈希、OPFS 与请求合并。不得为了显示车库或估值加载全量科技树／配件。
+- 全站通过 `vehicleStore` 和 `src/vehicle-catalog.ts` 共享完整国家快照，补全名称、等级、获取类型、RP、BR、载具类型及整包价格。页面集中按实际需要加载国家，组件只订阅内存数据；不再生成或读取单独 `vehicles-*`／`vehicle-facts-*` 展示包，不为车库、估值或卡片预加载十国资料。国家包与缓存规则见本文 schema 4 约定。
 - 科技树已加载的核验国家资料也登记到公共展示目录；资料完整的科技树对象保留其当前核验字段。未指定模式时采用历史 RB，已指定模式则保留该模式，不臆造 BR。
 - 已有可核验的礼包人民币报价必须传给共用组件，不同时显示金额和“暂无报价”；只展示整包价格与核对日期，金鹰和人民币分别处理。
 - 科技树国家、军种、模式、特殊载具筛选与搜索保留在 `wt-workbench-selection-v1`，兼容原两字段记录；回访优先恢复本地选择，前进后退保留路由语义。Logo 返回 `#/tree`。
@@ -515,12 +518,6 @@
 - 小程序详情、筛选、协议及关联确认使用带返回的独立详情页面，保留来源页滚动和草稿，不用弹窗／底部抽屉。返回研发首页清除载具选择，载具研发与配件研发输入分别管理。
 - 顶部按官方 SDK 窗口安全区域避让状态栏与宿主胶囊，窗口变化时更新；测量前保留顶部空间。前台同账号复核不重挂页面或中断查询，真实切号仍须丢弃旧私人响应。
 - 小程序保留“体验工作台完整能力”入口，指向现有 QMuse 主站；外部网页打不开时提供可选中、可复制的真实地址，不使用未文档化的宿主跳转协议。
-
-## 截图验收授权（2026-10-25，仅本项目）
-
-- 用户明确允许本项目在开发和交付时使用 Playwright 进行浏览器交互、布局检查与截图验收；不再需要为本项目每轮截图重复询问。此授权不扩展到其他项目。
-- 网页和黑盒小程序的 Browser Mock 应按实际可用环境分别验证；报告须标明浏览器／SDK Mock／真机环境，不把模拟授权、测试资料或浏览器截图冒充小黑盒真实登录和真机通过。
-- 截图、日志与最终验收报告保存在本机忽略的 `artifacts/`，对敏感身份、凭据与开发票据做隔离，截图不包含调试二维码或原始鉴权日志。汇总通过项、缺陷修复、未通过项及验证范围后交付用户。
 
 ## 小程序正式 API 通道（2026-10-25 用户明确要求）
 
@@ -564,11 +561,11 @@
 
 ## 地图推荐走线（2026-10-26）
 
-- 地图详情“推荐走线”按钮、列表推荐角标、只读图层及 PNG 导出叠加仅 `session.role === "superadmin"` 可用，超管默认开启；未确认身份、普通用户及匿名用户不请求路线 SVG。移除地图左下角的推荐来源与参考说明浮层，加载／缺失／重试状态放在超管按钮的状态与提示中；按 canonical 地图／任务布局／己方队伍精确匹配，不把其他布局或对面路线作为回退。当前无匹配时禁用超管按钮并提供提示；切换该图层不重置摄像机，不写入用户 OPFS 方案或完成快照。
+- 地图详情“推荐走线”按钮、列表推荐角标、只读图层及 PNG 导出叠加仅 `session.role === "superadmin"` 可用，超管默认开启；未确认身份、普通用户及匿名用户不请求路线 SVG。移除地图左下角的推荐来源与参考说明浮层，加载／缺失／重试状态放在超管按钮的状态与提示中；按 canonical 地图／任务布局／己方队伍精确匹配，不把其他布局或对面路线作为回退。当前无匹配时显示“暂无走线”提示；开关只控制显隐，不取消下载或销毁已加载图层，不重置摄像机，不写入用户 OPFS 方案或完成快照。
 - 2026-10-28 用户要求同一地图的冬季版复用攻略和走线 SVG；`data/ground-maps.json` 的 `seasonalVariants` 明确关联地图及任务布局。攻略按地图家族合并去重，SVG 按关联布局和相同队伍复用同一个文件及配准矩阵；校验地图边界、裁切与已有推荐布局的点位一致，禁止回退到其他布局或敌方走线。用户编辑方案仍按原地图／布局／队伍隔离。
-- 数据在 `data/map-recommendations.json` 与可信 `data/map-recommendations/*.svg`；源码攻略与原始配准材料仍只在本机 artifacts。用导入脚本校验底图哈希、点位与出生方向，SVG 仅允许静态几何和内部箭头引用。构建为 JS 索引与同源哈希 SVG，不发布独立 JSON 或原始素材包。
+- `data/map-recommendations.json` 与可信 SVG 只作规范导入和校验输入，原始攻略与配准材料留本机。运行时经鉴权 API 读取索引和 SVG，校验版本、字节数与哈希；构建不得公开推荐 SVG、独立资料 JSON 或原始包。会话内存按身份和 releaseId 隔离、最多24个上下文，保护当前项，身份切换释放；当前布局双方预读，显隐不重下。外部服务 AK 与工作台超管 UI 权限分别校验，不赋予写入或发布权限。
 - SVG 像素至完整地图的矩阵与 PNG 导出共用，不再做 Y 反射；跟随布局裁切与地图缩放。来源与版本资料保留于 canonical 索引及关联攻略，不再显示左下角说明。导出当前开启的图层，加载失败必须报错，不能静默漏掉推荐走线。
-- `pnpm run check:map-routes` 已加入常规 check；检查双向完整性、唯一队伍映射、现行布局、非反射矩阵与可信 SVG 引用。2271 号测试基地未收录到现有地图目录前不映射到其他地图。
+- `pnpm run check:map-routes` 属于常规 check，覆盖双向完整性、布局与队伍、矩阵、安全 SVG、会话缓存和点位去重。原始任务可能合并多种模式：默认占领点按种类／队伍／标签保留首条，出生点仅去除精确重复；SVG 和 PNG 使用同一结果，保留全部原件。2271 号测试基地未收录前不映射到其他地图。
 
 - 2026-10-26 内容审查补充：后台独立记录提交原文与真实提交身份，管理员可查看并通过统一账号系统封禁／解封整个工作台应用权限，保留操作人、原因与时间。不封禁其他应用，不删除历史数据。匿名设备不得冒充注册账号；后台审查接口必须同时验证可信反向代理和现行超级管理员会话。
 
@@ -576,11 +573,11 @@
 
 - 2026-10-26 标签验收更新：皮肤按青铜／白银／黄金／翡翠／钻石／王者／七彩闪烁扩展，登记于 `data/game-tag-theme.json`，与文案独立选择。`#/tag-preview` 为独立样式验收页，不启动账号会话或国家数据加载（公共外观配置可照常读取）。官方原版用原始底纹与 RGB 乘色复现，不使用灰度／色相滤镜改造；本轮不修改大厅标签协议或暗示自选皮肤已存到后端。
 
-- 2026-10-26 标签后续修订：皮肤选择必须保留官方原色与官方红色；自定义七档具有分别对应的材质层，原版不叠加。用户明确要求七彩为持续播放的特权效果，不设暂停／静态入口，并允许该特效覆盖现有全局减少动态效果规则。验收必须比较真实前后帧及色彩变化，不能仅检查 animation-name；皮肤预览不代表已实现账号特权授权或大厅配色持久化。
+- 2026-10-26 标签后续修订：皮肤选择必须保留官方原色与官方红色；自定义七档具有分别对应的材质层，原版不叠加。用户明确要求七彩为持续播放的特权效果，不设暂停／静态入口，并允许该特效覆盖现有全局减少动态效果规则。仅用户明确要求动效验收时比较真实前后帧及色彩变化，不能仅检查 animation-name；皮肤预览不代表已实现账号特权授权或大厅配色持久化。
 
 - 2026-10-26 标签验收继续修订：补充独立基本颜色组（按最新选择为黄、绿、蓝、紫、粉、橙、黑7色；去掉基础红，官方红色另组保留），保留官方原版组和七档材质组。材质保留明显的镜面／拉丝／切面效果，全部材质层沿原始 alpha 轮廓连续覆盖至前端尖角，使用 overlay 保住黑色外框和透明孔洞，不使用矩形裁切造成左侧断层，也不在轮廓外画出亮线；七彩特权动效保持连续。官方称号文案按官方公告来源持续扩充（现有78条），保持来源、语言和稳定ID，提供本地搜索，不冒充当前客户端全量目录。
 
-- 2026-10-26 七彩补充：标签全宽显示完整鲜艳色谱，整体持续变色，左端同步变化；禁止放大渐变造成局部黄色占大面积。保留低强度扫光，减少白色遮盖，必须验证实际帧与左端像素变化。
+- 2026-10-26 七彩补充：标签全宽显示完整鲜艳色谱，整体持续变色，左端同步变化；禁止放大渐变造成局部黄色占大面积。保留低强度扫光，减少白色遮盖；用户明确要求动效验收时验证实际帧与左端像素变化。
 
 - 2026-10-26 标签权限接入：独立 `TagSelector` 受控组件将文案和外观分开，由调用方提供选项、上限及服务端可选样式。官方原版和7种基础色默认可选；青铜1／白银25／黄金50／翡翠75／钻石100级逐级累加，王者还需历史RB总战斗满1000次，七彩只复用现有超级管理员权限。按当前绑定UID的最新服务端快照实时派生，绑定／资料更新后刷新，不额外查询官方或扣额度；解绑换绑不得沿用旧UID资格。发布与本地导出均后端复核，历史发布快照保留原配色。`#/tag-preview` 本轮按用户最新要求接入共享账号和选择组件，允许启动会话，但不得加载国家载具资料。正式站保持不更新，仅隔离社区后端及独立Render预览更新。
 

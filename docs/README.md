@@ -1,0 +1,48 @@
+# 文档索引
+
+维护日期：2026-10-29。这里列出当前有效的说明；旧方案和逐次发布回执不再作为操作指南。
+
+## 使用与接入
+
+| 文档 | 读者与用途 |
+| --- | --- |
+| [项目介绍](../README.md) | 功能入口、截图、来源与版权 |
+| [使用说明](usage.zh-CN.md) · [English](usage.en.md) · [Русский](usage.ru.md) · [日本語](usage.ja.md) | 玩家操作说明 |
+| [移动端操作](mobile.md) | 网页响应式行为与人工检查要点 |
+| [战绩与个人战报](player-stats.md) | 当前能力、数据含义、查询及导出限制 |
+
+## 开发与发布
+
+| 文档 | 维护范围 |
+| --- | --- |
+| [开发与贡献](contributing.md) | 本地启动、检查、数据更新与存储边界 |
+| [项目约束](../AGENTS.md) | 用户确认的实施与交付规则，维护 Agent 的唯一项目指令入口 |
+| [视觉与组件规范](../style.md) | 共享组件、地图和移动端界面规则 |
+| [发布说明](../deploy/README.md) | 预览、QMuse、国际站与发布顺序 |
+| [SEO 与站点分析](deployment-seo.md) | 多语言静态介绍、canonical 与统计边界 |
+| [黑盒工坊子应用](../apps/war-thunder-heybox/README.md) | 独立构建、SDK、账号与原生能力边界 |
+
+## 资料维护
+
+| 主题 | 文档 |
+| --- | --- |
+| 国家包与缓存 | [国家载具资料加载](vehicle-catalog-loading.md)、[科技树资料资源](catalog-resources.md)、[直升机](helicopters.md) |
+| Wiki 采集 | [性能与挂载采集](wiki-collection-next-run.md)，保留手动采集与发布门控 |
+| 地图与攻略 | [地图维护](ground-maps.md)、[攻略来源与提取](route-guides.md)、[采集停点](guide-collection-checkpoint.md) |
+| 战绩 | [效率评分说明](player-stats-efficiency.md)、[近期记录限制](player-stats-recent-matches.md)、[勋章](player-medals.md) |
+| 折扣 | [日历维护](sales-calendar.md)、[价格与购物车](sale-price-history.md) |
+| 素材 | [图片缓存](image-cache.md)、[壁纸目录](wallpaper-catalog.md)、[导出水印](export-watermark.md) |
+| 人工检查 | [账号检查](account-acceptance.md)、[截图来源](screenshots/README.md) |
+| 暂缓功能 | [贴花查询](decal-query.md)，当前入口关闭 |
+
+## 宣传资料
+
+[小黑盒战绩介绍](heybox/战雷战绩查询与个人战报.md) · [地图与绘图介绍](heybox/战雷陆战地图与走线编辑.md) · [折扣日历介绍](heybox/战雷折扣日历.md) · [小红书文案](xiaohongshu.md)。配图来源统一见截图清单，宣传稿不替代接口或发布说明。
+
+## 维护约定
+
+- 对外接入契约只在根目录 API 文档维护，不要求调用方查找本机源码；实现说明放在对应主题文档。
+- 发布地址、命令和权限以发布说明及项目约束为准。隔离预览通过不表示正式站已更新。
+- 来源核对时间、文档修订时间和版本发布时间分别记录。截图保留真实来源与原拍摄时间，不随文档整理刷新日期。
+- 过期方案已从当前文档树移除，必要原件经哈希校验后在本机保留。私有研究、后端实施细节和验收原件不建立公开归档，也不随前端上传。
+- 文档修改检查相对链接、命令和约束一致性；应用代码变更再执行常规检查、构建与预览交付。文档整理不触发游戏采集、正式发布或自动调度。

@@ -77,8 +77,8 @@ Announced events and historical forecasts are distinguished, with relative confi
 ## Languages and storage
 
 - The international site supports Simplified Chinese, English, Russian and Japanese. QMuse primarily uses Chinese. Screenshots show Chinese UI; capture dates are recorded in the [screenshot index](docs/screenshots/README.md).
-- Guests keep progress, carts and lineups in their browser. Signed-in research plans, research carts and lineups can sync across devices.
-- Map plans and sale watchlists stay local; export backups when needed. Public game-data queries do not require your Gaijin password.
+- Guests keep progress, carts, lineups and sale watchlists in their browser. Signed-in research plans, research carts, lineups and sale watchlists can sync across devices.
+- Map plans stay local; export backups when needed. Public game-data queries do not require your Gaijin password.
 
 ## Guides and feedback
 

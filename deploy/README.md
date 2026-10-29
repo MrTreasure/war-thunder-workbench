@@ -1,65 +1,60 @@
-# Nginx 预览资源缓存
+# 发布说明
 
-`nginx-war-thunder-assets.inc` 在 `render.mrtreasure.cc` 的 server 块内引入，仅匹配 `/muse/war-thunder-trees/assets/`。
+维护日期：2026-10-29。静态页面由 Cloudflare 或既有 QMuse 应用提供；NAS 目录仅作发布输入，不是公开站点。
 
-```nginx
-include /etc/nginx/sites/war-thunder-assets.inc;
+## 目标与授权
+
+| 目标 | 地址 | 命令与边界 |
+| --- | --- | --- |
+| 独立预览 | `https://render.mrtreasure.cc/war-thunder-trees/` | `pnpm run deploy:preview`；代码检查后交用户人工确认 |
+| QMuse 正式站 | `https://render.qmuse.pub/p/muse/8645013411493394` | `pnpm run deploy:qmuse`；预览确认并明确授权后更新既有应用 |
+| 国际站 | `https://wt.mrtreasure.cc/` | `pnpm run deploy:cf`；仅在多语言工作区、获授权后发布 |
+
+Render 的 `/muse/*` 与 `/_muse-index/*` 已停用并返回 404，不提供兼容跳转。QMuse 地址中的平台 `/p/muse/` 不受此规则影响。
+
+国际站 Worker 保持 `war-thunder-workbench` 原名。预览使用既有共享 Render Worker，不新建部署项目；不能用中文主分支覆盖国际站的英／俄／日内容。
+
+## 检查与预览
+
+```sh
+pnpm run check
+pnpm run build
+
+# 仅检查和构建，不上传
+pnpm run deploy:preview --dry-run
+
+# 发布独立预览；命令自身也运行检查与构建
+pnpm run deploy:preview
 ```
 
-主 HTML 继续使用原有的 `no-store`，使新版本入口立即生效。带内容哈希的 JS、CSS、字体使用一年缓存；发布时保留旧文件，已打开的页面可以继续使用原版本资源。
+`check` 包含类型、lint、数据、地图编辑器、走线、平台启动与图片缓存检查。预览命令启用独立地图 API 和 CSV 预览资料，不切换正式资料索引或后端现行数据。
 
-`pnpm run publish` 为所有构建资源生成 `.gz` 文件。配置启用 `gzip_static`、`gzip_vary` 和 `gzip_proxied any`，让经过代理的请求也能使用预压缩资源。修改前备份原配置，先执行 `nginx -t`，通过后再平滑加载配置。
+发布完成后立即给用户预览链接。默认不运行视觉检查、浏览器截图或全量边缘校验；预览发布脚本已关闭全量边缘校验。界面由用户人工确认，仅明确要求时另做浏览器检查。保留必需的资源、鉴权与凭据隔离检查。
 
-## 2026-10-20 核对
+## 正式发布
 
-- 原 `/muse/` 规则把哈希资源也设为 `no-store`，导致浏览器和 CDN 无法正常复用。
-- 带 `Via` 请求头时，原配置不返回压缩资源；调整后返回预压缩内容，并保留安全响应头。
-- 14 个构建文件已从 Nginx 逐个读取核对；13 个资源的压缩内容解压后与构建一致，HTML 仍禁止缓存。
-- 中国资料原文件 735,523 字节，预压缩传输 55,009 字节；字体由 169,352 字节压缩到 89,229 字节。
-- 公网已返回 `CF-Cache-Status: HIT`，但测试中仍出现 TLS 握手和传输超时。压缩与缓存改善传输量和重复访问，不能保证跨境线路的首次加载耗时。
+QMuse 仅更新原绑定应用，`.qmuse/project.json` 由 CLI 管理。`import:qmuse` 只导入，不等于公开部署；`deploy:qmuse` 包含导入、平台发布与状态核对。没有预览确认和正式发布授权时，两者都不执行。
 
-## 首屏脚本
+国际站命令要求多语言工作区，使用 wt 域名的 canonical 和专属统计。范围与配置见 [SEO 与站点分析](../docs/deployment-seo.md)。
 
-四个轻量路由设置 `codeSplitGroupings: []`，让共用工作台直接进入应用入口，避免为跳转页、布局和页面适配层依次请求脚本。应用脚本从 7 个减少为 1 个，预压缩约 148 KB。
-
-十国资料继续按选择动态加载，未选国家时不加载资料；国家文件校验、缓存和分享码规则保持兼容。仍使用 QMuse 提供的单一 Vite 插件配置。
-
-## 源站耗时与文件缓存
-
-2026-10-20 在同一预览服务启用了以下配置：
-
-- `nginx-render-timing.conf`：在 `http` 上下文声明 JSON 日志格式，安装为 `sites/render-timing.conf`，由现有 `sites/*.conf` 加载。
-- `nginx-render-observability.inc`：在 render 站点内替换原来的 `access_log` 声明。保留原日志，并增加 `render_timing.log`；两个日志都使用 32 KB 缓冲，最长 1 秒写出。
-- `nginx-war-thunder-assets.inc`：仅为不可变的哈希资源缓存文件描述符与元数据，最多 512 项；60 秒校验，不缓存文件不存在等错误。HTML 不使用文件缓存。
-
-站点中的日志声明为：
-
-```nginx
-include /etc/nginx/sites/render-observability.inc;
+```sh
+# 以下 dry-run 不发布；同样须满足对应工作区与本地绑定条件
+pnpm run deploy:qmuse --dry-run
+pnpm run deploy:cf --dry-run
 ```
 
-耗时日志记录状态码、实际传输字节、请求耗时、连接复用次数、压缩编码和 Cloudflare 的 `CF-Ray`。不记录查询参数、Cookie 或认证头。保留原访问日志的既有格式，已有日志处理工具仍可读取。
+`pnpm run publish` 和 `release` 是维护环境的底层步骤，单独运行不表示 Cloudflare 已上线；日常预览使用完整的 `deploy:preview`。
 
-`request_seconds` 测量 Nginx 接收请求至向其客户端发送完响应的时间；此处客户端通常是本机隧道，不等于用户浏览器的完整下载时间。命中 CDN 缓存的请求不会到达源站，因此也不会产生新的源站记录。`gzip_static` 直接发送预压缩文件时，`gzip_ratio` 可以为空，应以传输字节和 `content_encoding` 为准。
+## 资源与恢复
 
-### 本次验证
+1. 只上传允许的构建产物，先上传不可变资源，再切换 HTML；源码、凭据、后端、原始资料与研究目录不进入静态上传。
+2. HTML 使用 no-store 或重新验证，哈希 JS／CSS／字体／国家资源使用不可变缓存。旧静态哈希保留给已打开页面；退休评分 WASM 和旧载具格式按专门清理规则处理。
+3. 图片提交和文件必须实际存在，再更新资料指针。发布页与资料发布是独立操作，采集完成不自动发布。
+4. 失败时读回真实发布状态，按 Git 版本恢复需要的入口；不能把上传成功写作用户验收通过。完成后清理临时构建副本与回滚包，保留必要检查记录。
+5. 后端属于独立私有服务；前端发布不附带后端提交、上传或数据库切换。
 
-- 配置语法检查通过，使用平滑重载生效。
-- 14 个构建文件从源站读取后与本地逐一比对一致，13 个资源均返回 gzip，HTML 保持 `no-store`，安全响应头仍在。
-- 源站请求约 0.7～3.9 毫秒；缺失文件返回 404，未被标为不可变资源。
-- 15 个核对请求均写入合法的 JSON 耗时日志，查询参数未进入新日志。
-- 主脚本公网请求命中 CDN，gzip 传输 148,482 字节，TLS 建连约 3.3 秒、首字节约 3.6 秒、总耗时约 12.9 秒。IPv6 的一次请求及后续 IPv4 HTML 请求均在 TLS 握手阶段超时，尚未到达源站。
-- 隧道检查时有 4 条连接，均接入洛杉矶。缓存命中的脚本传输不经过源站隧道，当前证据不足以支持更换隧道协议或强制地址族；此次保留现有隧道设置。
-- 其他 Muse 页面未发现可复用同等缓存策略的哈希脚本或样式；不为可原地更新的文件设置一年不可变缓存。
+## 目录中的历史配置
 
-这些测量来自部署机器，不能代替不同地区用户的访问结果。缓存和源站设置已经生效，公网耗时仍需结合用户地区与 CDN 链路判断。未调整 worker、连接数、内存或付费 CDN 服务。
+`nginx-*.inc`、`nginx-render-timing.conf` 是旧 NAS 静态站配置样本，保留供本地历史排查，不是现行 Cloudflare 发布输入。不要按旧文档安装 include、重载 Nginx 或恢复已停用的公开路由。当前边缘响应头由 Cloudflare 发布配置管理，`cloudflare-headers.txt` 为项目规则样本。
 
-### 回退
-
-本次配置备份位于部署机器的 `appdata/war-thunder-trees/backups/nginx-observability-20261020-143305/`，`manifest.json` 记录哪些文件原先存在。
-
-回退时恢复备份中的 `render.conf` 和 `war-thunder-assets.inc`，移除本次新增的 `render-timing.conf` 与 `render-observability.inc`，随后执行 `docker exec static-server nginx -t`；通过后执行 `docker exec static-server nginx -s reload`。应用静态文件无需重新发布。
-
-## 战绩战报图片下载
-
-`nginx-war-thunder-assets.inc` 现在同时包含应用 HTML 所在目录的精确前缀规则。仅本应用的 `connect-src` 放行战绩 API、原生载具图及固定版本游戏图标所用的可信域名，供 CORS 图片读取与 PNG 导出；不会修改其他 render 应用的策略。HTML 仍为 no-store，哈希资源仍由更长的 assets 前缀处理。修改 include 前备份，`nginx -t` 成功后平滑加载。
+完整约束见 [AGENTS.md](../AGENTS.md)，维护入口见 [文档索引](../docs/README.md)。

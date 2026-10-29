@@ -103,7 +103,7 @@ Save the image once generation is complete. Saving again or changing the backgro
 
 ### Sign-in and cross-device saving
 
-Guests keep local research plans, carts, lineups and map tools. After sign-in, research plans, research carts and lineups save automatically to the server for use across devices. Map drawing plans remain in the current browser. First use requires agreement to the user terms. Use a different password from your game account and other sites; no Gaijin password or game verification code is requested.
+Guests keep local research plans, carts, lineups and map tools. After sign-in, research plans, research carts, lineups and sale watchlists save automatically to the server for use across devices. Map drawing plans remain in the current browser. First use requires agreement to the user terms. Use a different password from your game account and other sites; no Gaijin password or game verification code is requested.
 
 ## Feature guide
 
@@ -278,5 +278,5 @@ Click the page's **Sales calendar heading** to open a high-resolution annual ref
 - Incomplete data is flagged for verification; unknown RP is never silently treated as zero.
 - Example lineups and tactical routes demonstrate features, not guaranteed optimal tactics. Tactical markers are intended for communication and guide creation.
 - Contours, reference grids and briefing points help interpret maps but cannot replace in-battle judgments about traversability, cover and positions.
-- Guest research plans, lineups and carts remain in the current browser. After login and agreement acceptance, account plans can sync across devices. Existing cloud data takes priority and importing guest data does not overwrite it. Map plans remain local; collection of completed drawing JSON is described in the data notice.
+- Guest research plans, lineups and carts remain in the current browser. After login and agreement acceptance, account plans and sale watchlists can sync across devices. Existing cloud data takes priority and importing guest data does not overwrite it. Map plans remain local; collection of completed drawing JSON is described in the data notice.
 - Linking a game account requires re-entering its UID to prevent mistakes. In this app, the spade means owned; owned vehicles are skipped in vehicle RP calculations, without implying all modifications are researched. Unlink from the username menu by typing the exact Chinese confirmation shown: “我再也不绑定别人的账号了”. Confirm synchronization or export a backup before clearing browser data.
