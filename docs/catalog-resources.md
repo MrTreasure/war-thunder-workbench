@@ -3,6 +3,8 @@
 
 国家资料保留 canonical JSON，发布时生成 JavaScript 文本资源，存放在既有 Git 图床。固定入口为 `war-thunder/catalog/manifest.js`，各国文件位于 `war-thunder/catalog/countries/`，文件名带内容哈希。
 
+GitHub 仓库建议、jsDelivr 单文件访问、包目录与整仓回退的限制分别见 [Git 与 CDN 限制](git-cdn-limits.md)。50 MB 不能解释为仓库内所有文件的统一可用性上限。
+
 前端通过低频公共版本索引取得固定提交 ID，再读取对应提交中的资源。资源只作为文本解析，不执行图床 JavaScript；读取前后校验字节数、SHA-256、版本及国家。各国资源包含该国所有军种、配件及既有分享编号。原有打包模块作为基线回退保留。
 
 版本索引使用短缓存；不可变数据文件使用长缓存。完整国家资料由共享 vehicleStore 管理，优先使用 IndexedDB 已解析快照，不可用时退回 GET 缓存与内存，不再将国家大包写入 OPFS/localStorage。小型公共版本指针仍有独立缓存。不影响购物车、研究进度、出击队列和账号资料。进入相关页面或窗口重新获得焦点时核对版本，更新失败保留已经显示的数据。
