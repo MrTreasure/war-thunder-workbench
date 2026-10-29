@@ -23,6 +23,10 @@
 
 地图图床为 [MrTreasure/oss-files](https://github.com/MrTreasure/oss-files)，资源目录 `war-thunder/ground-maps/v1/`，主 CDN 为 jsDelivr。固定完整提交 ID 与内容哈希，实际地址从发布清单读取；不硬编码某次提交为永远的现行版本。
 
+仓库总大小不直接决定单文件是否可读；包目录、单文件和整仓回退的区别见 [Git 与 CDN 限制](git-cdn-limits.md)。地图压缩另以实际传输体积、解码和放大效果评估。
+
+WebP／AVIF、SVG 的 HTTP 压缩以及等高线整数差分编码的离线比较见 [地图压缩与等高线数据化](map-image-compression.md)。该评估未更改线上格式，不将普通坐标 JSON 或实验解码器纳入发布包。
+
 依次使用主地址、GitHub 原始地址、记录中已有的 R2 备用。`sha256` 对应主文件，`sourceSha256` 保留原件身份，`fallbackSha256` 对应字节可能不同的备用文件。旧方向错误的 DOM 合成图不能作为缩略图回退。
 
 原始 ZIP、巨大等高线坐标 JSON、采集截图与配准原件不进入前端 Git、QMuse 或静态包。图床只存已确认可公开的素材；不存后端、凭据或玩家生成图片。
@@ -67,13 +71,13 @@ v = (maxZ - worldZ) / (maxZ - minZ)
 
 ## 资料维护与检查
 
-| 资料 | 维护输入 |
-| --- | --- |
-| 地图、布局、投影、图片来源与季节关联 | `data/ground-maps.json` |
-| 适配路线身份与可信导入 SVG | `data/map-recommendations.json`、`data/map-recommendations/` |
-| 旧高清图集及摘要 | `data/map-atlas.json` |
-| 补充合集目录与核对状态 | `data/map-collections.json`、`data/map-collection-settings.json` |
-| 原游戏图标、项目符号、线型来源与字体 | 地图编辑器对应登记表和受控字体清单 |
+| 资料                                 | 维护输入                                                         |
+| ------------------------------------ | ---------------------------------------------------------------- |
+| 地图、布局、投影、图片来源与季节关联 | `data/ground-maps.json`                                          |
+| 适配路线身份与可信导入 SVG           | `data/map-recommendations.json`、`data/map-recommendations/`     |
+| 旧高清图集及摘要                     | `data/map-atlas.json`                                            |
+| 补充合集目录与核对状态               | `data/map-collections.json`、`data/map-collection-settings.json` |
+| 原游戏图标、项目符号、线型来源与字体 | 地图编辑器对应登记表和受控字体清单                               |
 
 上述文件是规范输入及导入校验依据，不表示运行时将它们作为独立 JSON 或公开走线 SVG 发布。预览控制台维护资源 URL、草稿、核对、发布和服务 AK；正式数据切换仍需用户确认。
 

@@ -4,36 +4,37 @@
 
 ## 使用与接入
 
-| 文档 | 读者与用途 |
-| --- | --- |
-| [项目介绍](../README.md) | 功能入口、截图、来源与版权 |
-| [使用说明](usage.zh-CN.md) · [English](usage.en.md) · [Русский](usage.ru.md) · [日本語](usage.ja.md) | 玩家操作说明 |
-| [移动端操作](mobile.md) | 网页响应式行为与人工检查要点 |
-| [战绩与个人战报](player-stats.md) | 当前能力、数据含义、查询及导出限制 |
+| 文档                                                                                                 | 读者与用途                                                    |
+| ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| [项目介绍](../README.md)                                                                             | 功能入口、截图、来源与版权                                    |
+| [使用说明](usage.zh-CN.md) · [English](usage.en.md) · [Русский](usage.ru.md) · [日本語](usage.ja.md) | 玩家操作说明                                                  |
+| [移动端操作](mobile.md)                                                                              | 网页响应式行为与人工检查要点                                  |
+| [战绩与个人战报](player-stats.md)                                                                    | 当前能力、数据含义、查询及导出限制                            |
 
 ## 开发与发布
 
-| 文档 | 维护范围 |
-| --- | --- |
-| [开发与贡献](contributing.md) | 本地启动、检查、数据更新与存储边界 |
-| [项目约束](../AGENTS.md) | 用户确认的实施与交付规则，维护 Agent 的唯一项目指令入口 |
-| [视觉与组件规范](../style.md) | 共享组件、地图和移动端界面规则 |
-| [发布说明](../deploy/README.md) | 预览、QMuse、国际站与发布顺序 |
-| [SEO 与站点分析](deployment-seo.md) | 多语言静态介绍、canonical 与统计边界 |
-| [黑盒工坊子应用](../apps/war-thunder-heybox/README.md) | 独立构建、SDK、账号与原生能力边界 |
+| 文档                                                   | 维护范围                                                |
+| ------------------------------------------------------ | ------------------------------------------------------- |
+| [开发与贡献](contributing.md)                          | 本地启动、检查、数据更新与存储边界                      |
+| [项目约束](../AGENTS.md)                               | 用户确认的实施与交付规则，维护 Agent 的唯一项目指令入口 |
+| [视觉与组件规范](../style.md)                          | 共享组件、地图和移动端界面规则                          |
+| [发布说明](../deploy/README.md)                        | 预览、QMuse、国际站与发布顺序                           |
+| [SEO 与站点分析](deployment-seo.md)                    | 多语言静态介绍、canonical 与统计边界                    |
+| [黑盒工坊子应用](../apps/war-thunder-heybox/README.md) | 独立构建、SDK、账号与原生能力边界                       |
 
 ## 资料维护
 
-| 主题 | 文档 |
-| --- | --- |
-| 国家包与缓存 | [国家载具资料加载](vehicle-catalog-loading.md)、[科技树资料资源](catalog-resources.md)、[直升机](helicopters.md) |
-| Wiki 采集 | [性能与挂载采集](wiki-collection-next-run.md)，保留手动采集与发布门控 |
-| 地图与攻略 | [地图维护](ground-maps.md)、[攻略来源与提取](route-guides.md)、[采集停点](guide-collection-checkpoint.md) |
-| 战绩 | [效率评分说明](player-stats-efficiency.md)、[近期记录限制](player-stats-recent-matches.md)、[勋章](player-medals.md) |
-| 折扣 | [日历维护](sales-calendar.md)、[价格与购物车](sale-price-history.md) |
-| 素材 | [图片缓存](image-cache.md)、[壁纸目录](wallpaper-catalog.md)、[导出水印](export-watermark.md) |
-| 人工检查 | [账号检查](account-acceptance.md)、[截图来源](screenshots/README.md) |
-| 暂缓功能 | [贴花查询](decal-query.md)，当前入口关闭 |
+| 主题            | 文档                                                                                                                                                      |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 国家包与缓存    | [国家载具资料加载](vehicle-catalog-loading.md)、[科技树资料资源](catalog-resources.md)、[直升机](helicopters.md)                                          |
+| Git 与 CDN 限制 | [GitHub／jsDelivr 限制与回退机制](git-cdn-limits.md)                                                                                                      |
+| Wiki 采集       | [性能与挂载采集](wiki-collection-next-run.md)，保留手动采集与发布门控                                                                                     |
+| 地图与攻略      | [地图维护](ground-maps.md)、[压缩与等高线数据化](map-image-compression.md)、[攻略来源与提取](route-guides.md)、[采集停点](guide-collection-checkpoint.md) |
+| 战绩            | [效率评分说明](player-stats-efficiency.md)、[近期记录限制](player-stats-recent-matches.md)、[勋章](player-medals.md)                                      |
+| 折扣            | [日历维护](sales-calendar.md)、[价格与购物车](sale-price-history.md)                                                                                      |
+| 素材            | [图片缓存](image-cache.md)、[壁纸目录](wallpaper-catalog.md)、[导出水印](export-watermark.md)                                                             |
+| 人工检查        | [账号检查](account-acceptance.md)、[截图来源](screenshots/README.md)                                                                                      |
+| 暂缓功能        | [贴花查询](decal-query.md)，当前入口关闭                                                                                                                  |
 
 ## 宣传资料
 
