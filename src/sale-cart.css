@@ -65,10 +65,10 @@
 .wt-sale-cart-row,
 .wt-sale-cart-columns {
   display: grid;
-  grid-template-columns: 262px minmax(100px, 0.8fr) minmax(120px, 1fr) minmax(
-      120px,
-      1fr
-    ) 140px minmax(175px, 1.4fr) 70px;
+  grid-template-columns: 262px minmax(100px, 0.8fr) minmax(230px, 1.8fr) 140px minmax(
+      175px,
+      1.4fr
+    ) 70px;
   gap: 12px;
   align-items: center;
 }
@@ -120,6 +120,20 @@
 }
 .wt-sale-cart-price strong {
   font-size: 17px;
+}
+.wt-sale-cart-price-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+}
+.wt-sale-cart-low {
+  font-size: 11px;
+  color: var(--wt-muted);
+}
+.wt-sale-cart-amount,
+.wt-sale-cart-original strong {
+  color: var(--wt-gold);
 }
 .wt-sale-cart-price small,
 .wt-sale-cart-event small,
@@ -438,22 +452,22 @@
 @media (max-width: 1250px) and (min-width: 801px) {
   .wt-sale-cart-row,
   .wt-sale-cart-columns {
-    grid-template-columns: 262px minmax(85px, 0.8fr) minmax(100px, 1fr) minmax(100px, 1fr) 70px;
+    grid-template-columns: 262px minmax(85px, 0.8fr) minmax(210px, 1.8fr) 70px;
   }
-  .wt-sale-cart-columns span:nth-child(5),
-  .wt-sale-cart-columns span:nth-child(6) {
+  .wt-sale-cart-columns span:nth-child(4),
+  .wt-sale-cart-columns span:nth-child(5) {
     display: none;
   }
   .wt-sale-cart-observations {
-    grid-column: 2 / 4;
+    grid-column: 2;
     grid-row: 2;
   }
   .wt-sale-cart-event {
-    grid-column: 4 / 6;
+    grid-column: 3 / 5;
     grid-row: 2;
   }
   .wt-sale-cart-actions {
-    grid-column: 5;
+    grid-column: 4;
     grid-row: 1;
   }
 }

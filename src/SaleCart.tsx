@@ -193,7 +193,6 @@ export function SaleCart({
           <span>购车计划 / 载具</span>
           <span>原价</span>
           <span>当前活动价</span>
-          <span>史低价</span>
           <span>历史走势</span>
           <span>活动窗口</span>
           <span>操作</span>
@@ -268,17 +267,31 @@ export function SaleCart({
                   </small>
                 </div>
                 <div className="wt-sale-cart-price wt-sale-cart-current" aria-label="当前活动价">
-                  <b>
-                    {!currentEvent
-                      ? "暂无活动"
-                      : !loaded
-                        ? priceError
-                          ? "读取失败"
-                          : "读取中…"
-                        : currentPrice
-                          ? priceText(currentPrice.amountMinor, currency)
-                          : "待核价"}
-                  </b>
+                  <div className="wt-sale-cart-price-line">
+                    <b className={currentPrice ? "wt-sale-cart-amount" : undefined}>
+                      {!currentEvent
+                        ? "暂无活动"
+                        : !loaded
+                          ? priceError
+                            ? "读取失败"
+                            : "读取中…"
+                          : currentPrice
+                            ? priceText(currentPrice.amountMinor, currency)
+                            : "待核价"}
+                    </b>
+                    <span className="wt-sale-cart-low" aria-label="史低价">
+                      史低{" "}
+                      <span className={minimum ? "wt-sale-cart-amount" : undefined}>
+                        {!loaded
+                          ? priceError
+                            ? "读取失败"
+                            : "读取中…"
+                          : minimum
+                            ? `${minimum.evidenceKind === "official_announcement_derived" ? "≈ " : ""}${priceText(minimum.amountMinor, currency)}`
+                            : "待核实"}
+                      </span>
+                    </span>
+                  </div>
                   <small>
                     {currentPrice
                       ? `${priceDate(currentPrice.checkedAt)} · 官方实采`
@@ -286,20 +299,9 @@ export function SaleCart({
                         ? "活动进行中，等待有效报价"
                         : "暂无进行中的匹配活动"}
                   </small>
-                </div>
-                <div className="wt-sale-cart-price wt-sale-cart-low" aria-label="史低价">
-                  <b>
-                    {!loaded
-                      ? priceError
-                        ? "读取失败"
-                        : "读取中…"
-                      : minimum
-                        ? `${minimum.evidenceKind === "official_announcement_derived" ? "≈ " : ""}${priceText(minimum.amountMinor, currency)}`
-                        : "待核实"}
-                  </b>
-                  <small>
+                  <small className="wt-sale-cart-low-detail">
                     {minimum
-                      ? `${priceDate(minimum.observedAt)}${minimum.evidenceKind === "official_announcement_derived" ? " · 公告折扣估算" : ""}`
+                      ? `史低记录 ${priceDate(minimum.observedAt)}${minimum.evidenceKind === "official_announcement_derived" ? " · 公告折扣估算" : ""}`
                       : promotion
                         ? `曾优惠 ${promotion.discountPercent}%，金额待核实`
                         : offer

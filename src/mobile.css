@@ -3182,7 +3182,7 @@
     display: none;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-price {
-    grid-column: 1;
+    grid-column: 1 / -1;
     grid-row: 2;
     gap: 2px;
     font-size: 12px;
@@ -3193,12 +3193,6 @@
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-current b::before {
     content: "当前活动价 · ";
-  }
-  .calculator.wt-sale-cart-modal .wt-sale-cart-low {
-    grid-column: 2;
-  }
-  .calculator.wt-sale-cart-modal .wt-sale-cart-low b::before {
-    content: "史低价 · ";
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-price small {
     font-size: 10px;
