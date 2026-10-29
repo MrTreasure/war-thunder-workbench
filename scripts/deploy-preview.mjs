@@ -6,10 +6,14 @@ const root = fileURLToPath(new URL("../", import.meta.url));
 const args = process.argv.slice(2);
 if (args.some((arg) => arg !== "--dry-run"))
   throw Error("Usage: pnpm run deploy:preview [--dry-run]");
+const priceSource = process.env.VITE_WT_PRICE_SOURCE || "production";
+if (!["production", "preview"].includes(priceSource))
+  throw Error("VITE_WT_PRICE_SOURCE must be production or preview");
 const env = {
   ...process.env,
   WT_DEPLOY_TARGET: "preview",
   VITE_WT_CATALOG_SOURCE: "preview",
+  VITE_WT_PRICE_SOURCE: priceSource,
   WT_SITE_URL: "https://wt.mrtreasure.cc/",
 };
 function run(args) {

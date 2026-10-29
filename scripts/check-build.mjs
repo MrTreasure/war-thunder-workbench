@@ -21,6 +21,18 @@ assert(
 const atlas = files.filter((file) => /^assets\/MapAtlas\.[^/]+\.js$/.test(file));
 assert.equal(atlas.length, 1);
 assert(!html.includes(atlas[0]));
+const publicResources = files.filter((file) =>
+  /^assets\/public-resource-api\.[^/]+\.js$/.test(file),
+);
+assert.equal(publicResources.length, 1, "One shared public-resource reader");
+assert.equal(
+  (await readFile(resolve(dist, publicResources[0]), "utf8")).includes(
+    "/sales-prices-preview/prices",
+  ),
+  process.env.VITE_WT_CATALOG_SOURCE === "preview" &&
+    process.env.VITE_WT_PRICE_SOURCE === "preview",
+  "Public quotes must use production unless the isolated price source is explicitly selected",
+);
 assert(
   !files.some((file) => /(?:^|\/)\d+-\d+[.-][^/]*\.svg$/.test(file)),
   "Recommended route SVGs must be fetched through authenticated API, never published as static assets",

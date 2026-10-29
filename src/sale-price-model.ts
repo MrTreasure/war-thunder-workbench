@@ -5,6 +5,7 @@ export type PricePoint = {
   contentVersion?: string;
   eventId?: string;
   effectiveUntil?: string | null;
+  available?: boolean;
   amountMinor: number;
   regularAmountMinor: number | null;
   sourceUrl: string;
@@ -42,6 +43,23 @@ export type DiscountEvidence = {
   productId?: string | null;
   estimateOnly?: boolean;
 };
+function availablePricePoints(offer: PriceOffer | undefined, now: number) {
+  if (!offer?.available || offer.conditions !== "普通单件购买") return [];
+  return [offer.latest, offer.lastRecorded, ...offer.points, ...(offer.previewPoints || [])]
+    .filter(
+      (point): point is PricePoint =>
+        !!point &&
+        point.evidenceKind !== "official_announcement_derived" &&
+        point.available !== false &&
+        Date.parse(point.observedAt) <= now &&
+        (!point.effectiveUntil || Date.parse(point.effectiveUntil) > now),
+    )
+    .sort((a, b) => Date.parse(b.observedAt) - Date.parse(a.observedAt));
+}
+/** A valid regular quote remains visible outside promotion windows, with its check date. */
+export function latestAvailablePrice(offer: PriceOffer | undefined, now: number) {
+  return availablePricePoints(offer, now)[0] || null;
+}
 /** Only measured quotes from the active, matched activity qualify as its current price. */
 export function currentActivityPrice(
   offer: PriceOffer | undefined,
@@ -59,19 +77,16 @@ export function currentActivityPrice(
     end = Date.parse(event.endAt);
   if (!(start <= now && now < end)) return null;
   return (
-    [offer.latest, offer.lastRecorded, ...offer.points, ...(offer.previewPoints || [])]
-      .filter((point): point is PricePoint => {
-        if (!point || point.evidenceKind === "official_announcement_derived") return false;
-        const observed = Date.parse(point.observedAt);
-        return (
-          observed >= start &&
-          observed <= now &&
-          observed < end &&
-          (!point.eventId || point.eventId === event.id) &&
-          (!point.effectiveUntil || Date.parse(point.effectiveUntil) > now)
-        );
-      })
-      .sort((a, b) => Date.parse(b.observedAt) - Date.parse(a.observedAt))[0] || null
+    availablePricePoints(offer, now).filter((point) => {
+      const observed = Date.parse(point.observedAt);
+      return (
+        observed >= start &&
+        observed <= now &&
+        observed < end &&
+        (!point.eventId || point.eventId === event.id) &&
+        (!point.effectiveUntil || Date.parse(point.effectiveUntil) > now)
+      );
+    })[0] || null
   );
 }
 /** A recorded quote in this promotion's window takes precedence over estimates. */

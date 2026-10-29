@@ -9,6 +9,7 @@ import { readPriceSummary } from "./sale-price-api";
 import {
   cartTotals,
   currentActivityPrice,
+  latestAvailablePrice,
   priceDate,
   priceText,
   primaryOffer,
@@ -234,6 +235,14 @@ export function SaleCart({
               .sort((a, b) => Date.parse(b.startAt) - Date.parse(a.startAt))[0];
             const currentPrice =
               offer?.currency === currency ? currentActivityPrice(offer, currentEvent, now) : null;
+            const regularPrice =
+              !currentEvent && offer?.currency === currency
+                ? latestAvailablePrice(offer, now)
+                : null;
+            const displayPrice =
+              currentPrice?.amountMinor ??
+              regularPrice?.amountMinor ??
+              (!currentEvent ? price : null);
             return (
               <article className="wt-sale-cart-row" key={v.id}>
                 <div className="wt-sale-cart-vehicle">
@@ -268,9 +277,9 @@ export function SaleCart({
                 </div>
                 <div className="wt-sale-cart-price wt-sale-cart-current" aria-label="当前活动价">
                   <div className="wt-sale-cart-price-line">
-                    <b className={currentPrice ? "wt-sale-cart-amount" : undefined}>
+                    <b className={displayPrice !== null ? "wt-sale-cart-amount" : undefined}>
                       {!currentEvent
-                        ? "暂无活动"
+                        ? priceText(displayPrice, currency)
                         : !loaded
                           ? priceError
                             ? "读取失败"
@@ -297,7 +306,11 @@ export function SaleCart({
                       ? `${priceDate(currentPrice.checkedAt)} · 官方实采`
                       : currentEvent
                         ? "活动进行中，等待有效报价"
-                        : "暂无进行中的匹配活动"}
+                        : regularPrice
+                          ? `常规售价 · ${priceDate(regularPrice.checkedAt)}`
+                          : price !== null
+                            ? `已知原价 · ${priceDate(quote?.checkedAt ?? null)}`
+                            : "暂无有效报价"}
                   </small>
                   <small className="wt-sale-cart-low-detail">
                     {minimum
