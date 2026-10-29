@@ -1,0 +1,21 @@
+/* All routes reuse bootAppearance's verified image and crop position. */
+.workbench-layout {
+  --wt-workbench-background-image:
+    linear-gradient(#111a22c9, #111a22e0), var(--wt-loading-background-image);
+  --wt-workbench-background-position: center, var(--wt-loading-background-position, center);
+}
+.workbench-layout,
+.workbench-layout .tree-viewport,
+.workbench-layout .app-shell.fullscreen-fallback,
+.workbench-layout .ground-workspace[data-editing="true"] {
+  background-color: #191f26;
+  background-image: var(--wt-workbench-background-image);
+  background-position: var(--wt-workbench-background-position);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* Page shells reveal the shared artwork; cards and map layers keep their surfaces. */
+.workbench-content .app-shell:not(.fullscreen-fallback),
+.workbench-content .lineup-page {
+  background-color: transparent;
+}

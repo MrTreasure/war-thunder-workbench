@@ -25,6 +25,7 @@
 @import "./lineup-browser.css";
 @import "./mobile.css";
 @import "./game-select.css";
+@import "./workbench-background.css";
 @source "../src";
 
 @custom-variant dark (&:is(.dark *));
