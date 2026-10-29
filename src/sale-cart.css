@@ -65,7 +65,7 @@
 .wt-sale-cart-row,
 .wt-sale-cart-columns {
   display: grid;
-  grid-template-columns: 262px minmax(100px, 0.8fr) minmax(280px, 1.8fr) 140px minmax(
+  grid-template-columns: 262px 100px minmax(90px, 0.8fr) minmax(210px, 1.8fr) 140px minmax(
       175px,
       1.4fr
     ) 70px;
@@ -109,6 +109,7 @@
   flex: 0 0 228px;
 }
 .wt-sale-cart-price,
+.wt-sale-cart-labels,
 .wt-sale-cart-event,
 .wt-sale-cart-observations,
 .wt-sale-cart-actions {
@@ -117,6 +118,10 @@
   gap: 4px;
   min-width: 0;
   font-variant-numeric: tabular-nums;
+}
+.wt-sale-cart-labels {
+  align-items: flex-start;
+  gap: 6px;
 }
 .wt-sale-cart-price strong {
   font-size: 17px;
@@ -424,12 +429,6 @@
 .wt-sale-cart-tile > .wt-game-card {
   flex: 0 0 228px;
 }
-.wt-sale-cart-tile > .wt-game-tag {
-  position: absolute;
-  inset: 2px auto auto 2px;
-  z-index: 2;
-  pointer-events: none;
-}
 .wt-sale-cart-modal.calculator {
   width: min(1520px, calc(100vw - 40px));
 }
@@ -517,22 +516,22 @@
 @media (max-width: 1250px) and (min-width: 801px) {
   .wt-sale-cart-row,
   .wt-sale-cart-columns {
-    grid-template-columns: 262px minmax(85px, 0.8fr) minmax(210px, 1.8fr) 70px;
+    grid-template-columns: 262px 90px minmax(80px, 0.8fr) minmax(160px, 1.8fr) 60px;
   }
-  .wt-sale-cart-columns span:nth-child(4),
-  .wt-sale-cart-columns span:nth-child(5) {
+  .wt-sale-cart-trend-heading,
+  .wt-sale-cart-event-heading {
     display: none;
   }
   .wt-sale-cart-observations {
-    grid-column: 2;
+    grid-column: 3;
     grid-row: 2;
   }
   .wt-sale-cart-event {
-    grid-column: 3 / 5;
+    grid-column: 4 / 6;
     grid-row: 2;
   }
   .wt-sale-cart-actions {
-    grid-column: 4;
+    grid-column: 5;
     grid-row: 1;
   }
 }

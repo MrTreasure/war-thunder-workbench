@@ -162,10 +162,11 @@ export function SaleCart({
       <div className="wt-sale-cart-scroll">
         <div className="wt-sale-cart-columns" aria-hidden="true">
           <span>购车计划 / 载具</span>
+          <span>标签</span>
           <span>原价</span>
           <span>当前活动价</span>
-          <span>历史走势</span>
-          <span>活动窗口</span>
+          <span className="wt-sale-cart-trend-heading">历史走势</span>
+          <span className="wt-sale-cart-event-heading">活动窗口</span>
           <span>操作</span>
         </div>
         {!vehicles.length ? (
@@ -245,10 +246,15 @@ export function SaleCart({
                       }
                     />
                   </label>
-                  <div className="wt-sale-cart-tile">
-                    {tile(v)}
-                    {owned && <GameTag tone="emerald">已拥有</GameTag>}
-                  </div>
+                  <div className="wt-sale-cart-tile">{tile(v)}</div>
+                </div>
+                <div className="wt-sale-cart-labels">
+                  {owned && <GameTag tone="emerald">已拥有</GameTag>}
+                  {showDiscount && (
+                    <GameTag tone="red" animated={false}>
+                      -{discount}%
+                    </GameTag>
+                  )}
                 </div>
                 <div className="wt-sale-cart-price wt-sale-cart-original">
                   <GameTip
@@ -289,11 +295,6 @@ export function SaleCart({
                       </p>
                       {showDiscount && <p>本期官方标注优惠 {discount}%</p>}
                     </GameTip>
-                    {showDiscount && (
-                      <GameTag tone="red" animated={false}>
-                        -{discount}%
-                      </GameTag>
-                    )}
                     <GameTip
                       label="史低记录"
                       triggerLabel={`史低 ${minimum ? `${minimum.evidenceKind === "official_announcement_derived" ? "估算 " : ""}${priceText(minimum.amountMinor, currency)}` : "待核实"}，查看历史来源`}
