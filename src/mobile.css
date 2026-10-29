@@ -2,6 +2,36 @@
  * C=collapsible-tools+single-column-dialogs · D=disclosure-feedback · E=matte · SOUL=7 SPECTACLE=1 DENSITY=7 */
 /* One set of controls serves both layouts; CSS controls visibility at the breakpoint. */
 @media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .app-header .app-identity,
+  .app-header .creator-promo,
+  .app-header .app-repository-link {
+    display: none;
+  }
+  .app-header .app-header-inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .app-header .mobile-page-navigation {
+    grid-column: 1;
+  }
+  .app-header .app-header-actions {
+    grid-column: 2;
+  }
+  .app-header .app-header-actions .wt-account-trigger {
+    max-width: clamp(104px, 34vw, 160px);
+    min-width: 0;
+  }
+  .app-header .wt-account-trigger > .wt-account-name {
+    display: block;
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 96px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .app-header .wt-account-chevron {
+    display: none;
+  }
   .atlas-page {
     padding: 20px max(12px, env(safe-area-inset-right, 0px)) 24px
       max(12px, env(safe-area-inset-left, 0px));
