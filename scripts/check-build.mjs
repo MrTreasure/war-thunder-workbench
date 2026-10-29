@@ -21,6 +21,10 @@ assert(
 const atlas = files.filter((file) => /^assets\/MapAtlas\.[^/]+\.js$/.test(file));
 assert.equal(atlas.length, 1);
 assert(!html.includes(atlas[0]));
+assert(
+  !files.some((file) => /(?:^|\/)\d+-\d+[.-][^/]*\.svg$/.test(file)),
+  "Recommended route SVGs must be fetched through authenticated API, never published as static assets",
+);
 for (const [country, entry] of Object.entries(manifest.countries)) {
   const prefix = entry.file.replace(/\.js$/, ".");
   const matches = files.filter(

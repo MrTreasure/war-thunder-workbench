@@ -11,19 +11,49 @@ import { renderMapPng } from "./map-editor-export";
 import { mapView } from "./map-editor-model";
 import { CONTOUR_IMAGE_TRANSFORM, referenceGrid } from "./ground-map-projection";
 import { Link, Navigate, useNavigate } from "@tanstack/react-router";
-import atlas from "../data/ground-maps.json";
-import { recommendedRoute, hasRecommendedRoutes } from "./map-recommendations";
-import { sharedMapGuides } from "./ground-map-sharing";
+import { mapGuides, routeIdentity } from "./map-data-api";
+import type { GroundAtlas, GroundMap, MapSnapshot, MapRoute } from "./map-data-api";
+import { useMapCatalog, useMapRouteCoverage, useMapRoute } from "./map-data-store";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { Route } from "./routes/_workbench.maps";
 import { Route as DetailRoute } from "./routes/_workbench.maps_.$mapId";
 
-type GroundMap = (typeof atlas.maps)[number];
+function MapDataStatus({ error, retry }: { error: string; retry: () => void }) {
+  return (
+    <output className="ground-source-note">
+      {error || "正在读取地图资料…"} <button onClick={retry}>重试</button>
+    </output>
+  );
+}
+export function MapAtlas() {
+  const data = useMapCatalog();
+  if (!data.snapshot)
+    return (
+      <main className="ground-page">
+        <h1>陆战地图</h1>
+        <MapDataStatus error={data.error} retry={data.retry} />
+      </main>
+    );
+  return (
+    <>
+      {data.error && (
+        <MapDataStatus error={`更新失败，保留已载入版本：${data.error}`} retry={data.retry} />
+      )}
+      <MapAtlasContent snapshot={data.snapshot} />
+    </>
+  );
+}
+function hasRoute(atlas: GroundAtlas, routes: MapRoute[], mapId: string, layoutId: string) {
+  const identity = routeIdentity(atlas, mapId, layoutId);
+  return routes.some((r) => r.mapId === identity.mapId && r.layoutId === identity.layoutId);
+}
 const normalize = (s: string) =>
   s.normalize("NFKC").toLowerCase().replaceAll("日曜", "日耀").replaceAll("马奇诺", "马其诺");
-export function MapAtlas() {
+function MapAtlasContent({ snapshot }: { snapshot: MapSnapshot }) {
+  const atlas = snapshot.atlas;
   const { session } = useWorkbenchAccount();
   const isSuperAdmin = session?.role === "superadmin";
+  const coverage = useMapRouteCoverage(snapshot.releaseId, isSuperAdmin);
   const search = Route.useSearch();
   const navigate = useNavigate({ from: "/maps" });
   const query = search.q || "";
@@ -41,7 +71,7 @@ export function MapAtlas() {
   );
   const cards = atlas.maps
     .flatMap((map) =>
-      map.thumbnails.map((thumb) => ({ map, thumb, guides: sharedMapGuides(map.id) })),
+      map.thumbnails.map((thumb) => ({ map, thumb, guides: mapGuides(atlas, map.id) })),
     )
     .filter(
       ({ map, thumb, guides }) =>
@@ -50,7 +80,7 @@ export function MapAtlas() {
         ).includes(normalize(query)) &&
         (!onlyGuides ||
           guides.length ||
-          (isSuperAdmin && hasRecommendedRoutes(map.id, thumb.layoutId))),
+          (isSuperAdmin && hasRoute(atlas, coverage, map.id, thumb.layoutId))),
     );
   if (selected)
     return (
@@ -106,7 +136,7 @@ export function MapAtlas() {
                 loading="lazy"
                 decoding="async"
               />
-              {isSuperAdmin && hasRecommendedRoutes(map.id, thumb.layoutId) ? (
+              {isSuperAdmin && hasRoute(atlas, coverage, map.id, thumb.layoutId) ? (
                 <span className="ground-guide-badge">推荐走线</span>
               ) : guides.length > 0 ? (
                 <span className="ground-guide-badge">攻略 {guides.length}</span>
@@ -143,6 +173,25 @@ export function MapAtlas() {
   );
 }
 export function GroundMapPage() {
+  const data = useMapCatalog();
+  if (!data.snapshot)
+    return (
+      <main className="ground-page">
+        <h1>陆战地图</h1>
+        <MapDataStatus error={data.error} retry={data.retry} />
+      </main>
+    );
+  return (
+    <>
+      {data.error && (
+        <MapDataStatus error={`更新失败，保留已载入版本：${data.error}`} retry={data.retry} />
+      )}
+      <GroundMapContent snapshot={data.snapshot} />
+    </>
+  );
+}
+function GroundMapContent({ snapshot }: { snapshot: MapSnapshot }) {
+  const atlas = snapshot.atlas;
   const { mapId } = DetailRoute.useParams();
   const search = DetailRoute.useSearch();
   const navigate = useNavigate({ from: "/maps/$mapId" });
@@ -166,6 +215,8 @@ export function GroundMapPage() {
     <main className="ground-page ground-detail-page" aria-label={`${map.name}地图详情`}>
       <GroundDetail
         key={map.id}
+        atlas={atlas}
+        releaseId={snapshot.releaseId}
         back={back}
         map={map}
         layoutId={search.side}
@@ -198,6 +249,8 @@ export function GroundMapPage() {
   );
 }
 function GroundDetail({
+  atlas,
+  releaseId,
   back,
   map,
   layoutId,
@@ -206,6 +259,8 @@ function GroundDetail({
   openProject,
   choose,
 }: {
+  atlas: GroundAtlas;
+  releaseId: string;
   back: ReactNode;
   map: GroundMap;
   layoutId?: string;
@@ -217,17 +272,41 @@ function GroundDetail({
   const { session } = useWorkbenchAccount();
   const isSuperAdmin = session?.role === "superadmin";
   const layout = map.layouts.find((l) => l.id === layoutId) || map.layouts[0];
-  const guides = sharedMapGuides(map.id);
+  const baseGuides = mapGuides(atlas, map.id);
   const [contours, setContours] = useState(true),
     [points, setPoints] = useState(true),
     [grid, setGrid] = useState(false),
     [cropped, setCropped] = useState(true);
   const [recommendations, setRecommendations] = useState(true);
-  const route = isSuperAdmin ? recommendedRoute(map.id, layout.id, team) : undefined;
   const [routeState, setRouteState] = useState({ id: "", status: "loading" });
   const [routeRetry, setRouteRetry] = useState(0);
+  const routeData = useMapRoute(
+    releaseId,
+    map.id,
+    layout.id,
+    team,
+    isSuperAdmin && recommendations,
+    routeRetry,
+  );
+  const route = routeData.route;
+  const guides =
+    route && !baseGuides.some((g) => g.source === route.sourceUrl)
+      ? [
+          ...baseGuides,
+          {
+            title: route.title,
+            source: route.sourceUrl,
+            edition: route.sourceDate.slice(0, 4) || "来源待核对",
+          },
+        ]
+      : baseGuides;
   const routeKey = `${route?.id || "none"}:${routeRetry}`;
-  const routeStatus = routeState.id === routeKey ? routeState.status : "loading";
+  const routeStatus =
+    routeData.status === "loaded"
+      ? routeState.id === routeKey
+        ? routeState.status
+        : "loading"
+      : routeData.status;
   const [zoom, setZoom] = useState(1),
     [offset, setOffset] = useState({ x: 0, y: 0 });
   const [failed, setFailed] = useState(false),
@@ -341,21 +420,28 @@ function GroundDetail({
         {isSuperAdmin && (
           <button
             aria-pressed={recommendations && !!route}
-            aria-busy={recommendations && !!route && routeStatus === "loading"}
-            disabled={!route}
+            aria-busy={recommendations && routeStatus === "loading"}
             title={
-              !route
-                ? "当前布局与出生侧暂无匹配的推荐走线"
-                : routeStatus === "error"
-                  ? "推荐走线加载失败，点击重试"
-                  : "显示或隐藏推荐走线"
+              routeStatus === "error"
+                ? routeData.error || "推荐走线加载失败，点击重试"
+                : routeStatus === "loading"
+                  ? "正在读取推荐走线"
+                  : routeStatus === "empty" && recommendations
+                    ? "当前布局与出生侧暂无匹配的推荐走线"
+                    : "显示或隐藏推荐走线"
             }
             onClick={() => {
               if (recommendations && routeStatus === "error") setRouteRetry((v) => v + 1);
               else setRecommendations((v) => !v);
             }}
           >
-            推荐走线
+            {routeStatus === "loading" && recommendations
+              ? "读取走线…"
+              : routeStatus === "error"
+                ? "走线重试"
+                : routeStatus === "empty" && recommendations
+                  ? "暂无走线"
+                  : "推荐走线"}
           </button>
         )}
         {[

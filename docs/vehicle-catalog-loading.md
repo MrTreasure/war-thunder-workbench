@@ -1,5 +1,6 @@
 # 国家载具资料加载（schema 4）
 
+
 ## 资源与版本
 
 Canonical 资料仍在 data/*.json。每国只生成一个完整 JS 资源：
