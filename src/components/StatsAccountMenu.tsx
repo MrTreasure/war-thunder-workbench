@@ -80,7 +80,7 @@ export function StatsAccountMenu({
         }}
       >
         <AccountAvatar user={session?.user} />
-        <span>{name}</span>
+        <span className="wt-account-name">{name}</span>
         <Chevron className="wt-account-chevron" />
       </button>
       <div
