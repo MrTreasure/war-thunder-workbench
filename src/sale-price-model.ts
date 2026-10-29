@@ -40,6 +40,37 @@ export type DiscountEvidence = {
   productId?: string | null;
   estimateOnly?: boolean;
 };
+/** A recorded quote in this promotion's window takes precedence over estimates. */
+export function observedPromotionPrice(offer: PriceOffer | undefined, evidence: DiscountEvidence) {
+  if (
+    !offer ||
+    offer.currency !== evidence.currency ||
+    offer.conditions !== evidence.purchaseCondition ||
+    (evidence.productId && offer.productId && evidence.productId !== offer.productId) ||
+    !evidence.startAt ||
+    !evidence.endAt
+  )
+    return null;
+  const start = Date.parse(evidence.startAt),
+    end = Date.parse(evidence.endAt);
+  return (
+    [
+      offer.latest,
+      offer.lastRecorded,
+      offer.minimum,
+      ...offer.points,
+      ...(offer.previewPoints || []),
+    ]
+      .filter(
+        (point): point is PricePoint =>
+          !!point &&
+          point.evidenceKind !== "official_announcement_derived" &&
+          Date.parse(point.observedAt) >= start &&
+          Date.parse(point.observedAt) < end,
+      )
+      .sort((a, b) => Date.parse(b.observedAt) - Date.parse(a.observedAt))[0] || null
+  );
+}
 /** Same SKU is one selectable product. Content versions remain attached to points. */
 export function groupedOffers(summary?: PriceSummary): PriceOffer[] {
   const groups = new Map<string, PriceOffer[]>();
@@ -204,7 +235,8 @@ export function historicalDisplayPoints(
         !e.startAt ||
         Date.parse(e.startAt) > Date.now() ||
         e.discountPercent <= 0 ||
-        e.discountPercent >= 100
+        e.discountPercent >= 100 ||
+        observedPromotionPrice(offer, e)
       )
         continue;
       const amount = Number((BigInt(quote.amount) * BigInt(100 - e.discountPercent) + 50n) / 100n);
@@ -230,17 +262,18 @@ export function historicalDisplayMinimum(
   const points = historicalDisplayPoints(vehicle, offer, evidence);
   const observed = discountedMinimum(offer);
   if (observed) points.push(observed);
+  const candidates = points.filter(
+    (p) => p === observed || (p.regularAmountMinor != null && p.amountMinor < p.regularAmountMinor),
+  );
+  const measured = candidates.filter(
+    (point) => point.evidenceKind !== "official_announcement_derived",
+  );
   return (
-    points
-      .filter(
-        (p) =>
-          p === observed || (p.regularAmountMinor != null && p.amountMinor < p.regularAmountMinor),
-      )
-      .sort(
-        (a, b) =>
-          a.amountMinor - b.amountMinor ||
-          Number(a.evidenceKind === "official_announcement_derived") -
-            Number(b.evidenceKind === "official_announcement_derived"),
-      )[0] || null
+    (measured.length ? measured : candidates).sort(
+      (a, b) =>
+        a.amountMinor - b.amountMinor ||
+        Number(a.evidenceKind === "official_announcement_derived") -
+          Number(b.evidenceKind === "official_announcement_derived"),
+    )[0] || null
   );
 }

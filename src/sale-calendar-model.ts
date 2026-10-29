@@ -10,6 +10,7 @@ export type SaleEvent = {
   startAt: string;
   endAt: string;
   startPrecision?: string;
+  endPrecision?: string;
   startWindow?: string[];
   startCandidates?: string[];
   predictionVersion?: string;
@@ -111,6 +112,15 @@ const dateFormatter = new Intl.DateTimeFormat("zh-CN", {
   day: "2-digit",
 });
 export const saleDate = (value: string) => dateFormatter.format(new Date(value));
+const preciseDateFormatter = new Intl.DateTimeFormat("zh-CN", {
+  timeZone: "Asia/Shanghai",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  hourCycle: "h23",
+});
+export const saleDateTime = (value: string) => preciseDateFormatter.format(new Date(value));
 function startCandidateRanges(candidates: string[]): string {
   const dates = [
     ...new Map(candidates.map((value) => [beijingDayKey(value), value])).values(),
@@ -137,7 +147,13 @@ function startCandidateRanges(candidates: string[]): string {
 export function saleRange(event: SaleEvent): string {
   if (event.status === "predicted" && event.startWindow && event.endWindow)
     return `可能于 ${event.startCandidates?.length ? startCandidateRanges(event.startCandidates) : `${saleDate(event.startWindow[0])}—${saleDate(event.startWindow[1])}`} 开始 · 可能于 ${saleDate(event.endWindow[0])}—${saleDate(event.endWindow[1])} 结束`;
-  return `${saleDate(event.startAt)}—${saleDate(event.endAt)}`;
+  const start =
+    event.startPrecision === "minute" ? saleDateTime(event.startAt) : saleDate(event.startAt);
+  const end =
+    (event.endPrecision || event.startPrecision) === "minute"
+      ? saleDateTime(event.endAt)
+      : saleDate(event.endAt);
+  return `${start}—${end}${event.startPrecision === "minute" ? "（北京时间）" : ""}`;
 }
 export function saleRate(event: SaleEvent, channel?: string): string {
   const rates = [

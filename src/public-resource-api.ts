@@ -114,6 +114,7 @@ async function load(resource: string) {
   const old = await stored(resource);
   const base =
     import.meta.env.VITE_WT_CATALOG_SOURCE === "preview" &&
+    import.meta.env.VITE_WT_PRICE_SOURCE !== "production" &&
     /^(prices-|price-history-)/.test(resource)
       ? settings.apiBaseUrl + "/sales-prices-preview/prices"
       : settings.apiBaseUrl;

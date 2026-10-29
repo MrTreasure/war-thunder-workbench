@@ -8,6 +8,7 @@ import {
   groupedOffers,
   historicalDisplayPoints,
   historicalDisplayMinimum,
+  observedPromotionPrice,
 } from "./sale-price-model";
 import type { PriceOffer, PricePoint, PriceSummary } from "./sale-price-model";
 import type { SaleVehicle } from "./sale-calendar-model";
@@ -304,14 +305,16 @@ export function SalePriceHistory({
                       {e.purchaseCondition}
                     </span>
                     <small>
-                      {e.amountMinor == null
-                        ? e.purchaseCondition === "普通单件购买" &&
-                          historicalDisplayPoints(vehicle, offer, [e]).some(
-                            (p) => p.evidenceKind === "official_announcement_derived",
-                          )
-                          ? `按资料原价估算 ≈ ${priceText(historicalDisplayPoints(vehicle, offer, [e]).find((p) => p.evidenceKind === "official_announcement_derived")!.amountMinor, e.currency)}；当时实售价未核实。`
-                          : "仅适用于所示购买条件，不计单件历史低价。"
-                        : priceText(e.amountMinor, e.currency)}
+                      {observedPromotionPrice(offer, e)
+                        ? `实采报价 ${priceText(observedPromotionPrice(offer, e)!.amountMinor, e.currency)} · ${priceDate(observedPromotionPrice(offer, e)!.checkedAt)}`
+                        : e.amountMinor == null
+                          ? e.purchaseCondition === "普通单件购买" &&
+                            historicalDisplayPoints(vehicle, offer, [e]).some(
+                              (p) => p.evidenceKind === "official_announcement_derived",
+                            )
+                            ? `按资料原价估算 ≈ ${priceText(historicalDisplayPoints(vehicle, offer, [e]).find((p) => p.evidenceKind === "official_announcement_derived")!.amountMinor, e.currency)}；当时实售价未核实。`
+                            : "仅适用于所示购买条件，不计单件历史低价。"
+                          : priceText(e.amountMinor, e.currency)}
                     </small>
                   </article>
                 ))}
