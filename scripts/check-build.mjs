@@ -21,17 +21,29 @@ assert(
 const atlas = files.filter((file) => /^assets\/MapAtlas\.[^/]+\.js$/.test(file));
 assert.equal(atlas.length, 1);
 assert(!html.includes(atlas[0]));
-const publicResources = files.filter((file) =>
-  /^assets\/public-resource-api\.[^/]+\.js$/.test(file),
+// Rollup can merge this shared module into another chunk for QMuse builds.
+// Identify the actual reader by its cache namespace and manifest endpoint.
+const emittedScripts = await Promise.all(
+  files
+    .filter((file) => /^assets\/.*\.js$/.test(file))
+    .map(async (file) => ({ file, body: await readFile(resolve(dist, file), "utf8") })),
+);
+const publicResources = emittedScripts.filter(
+  ({ body }) =>
+    /(["'`])wt-public-resources-v1:\1/.test(body) && body.includes("public-data/manifest/"),
 );
 assert.equal(publicResources.length, 1, "One shared public-resource reader");
 assert.equal(
-  (await readFile(resolve(dist, publicResources[0]), "utf8")).includes(
-    "/sales-prices-preview/prices",
-  ),
+  publicResources[0].body.includes("/sales-prices-preview/prices"),
   process.env.VITE_WT_CATALOG_SOURCE === "preview" &&
     process.env.VITE_WT_PRICE_SOURCE === "preview",
   "Public quotes must use production unless the isolated price source is explicitly selected",
+);
+assert.equal(
+  emittedScripts.some(({ body }) => body.includes("/sales-prices-preview/prices")),
+  process.env.VITE_WT_CATALOG_SOURCE === "preview" &&
+    process.env.VITE_WT_PRICE_SOURCE === "preview",
+  "No other emitted chunk may silently select isolated public quotes",
 );
 assert(
   !files.some((file) => /(?:^|\/)\d+-\d+[.-][^/]*\.svg$/.test(file)),
