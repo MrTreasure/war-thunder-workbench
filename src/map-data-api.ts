@@ -22,9 +22,8 @@ export type MapRoute = {
   pointError: number;
   svg: { path: string; sha256: string; bytes: number };
 };
-export const mapAPIBase =
-  settings.apiBaseUrl +
-  (import.meta.env.VITE_WT_CATALOG_SOURCE === "preview" ? "/map-data-preview" : "");
+// Maps use the deployed versioned endpoint independently of the vehicle catalog channel.
+export const mapAPIBase = `${settings.apiBaseUrl}/map-data-preview`;
 const hash = (bytes: Uint8Array) => bytesToHex(sha256(bytes));
 const record = (v: unknown): v is Record<string, unknown> =>
   !!v && typeof v === "object" && !Array.isArray(v);
