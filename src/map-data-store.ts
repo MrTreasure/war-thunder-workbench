@@ -8,6 +8,23 @@ import {
 } from "./map-data-api";
 import type { MapSnapshot, MapRoute } from "./map-data-api";
 import { statsHeaders } from "./player-stats-api";
+import { MapRouteCache } from "./map-route-cache";
+import type { LoadedMapRoute } from "./map-route-cache";
+
+let routeOwner = "";
+let routesCache: MapRouteCache | null = null;
+function routeCache(authorization: string) {
+  if (routeOwner !== authorization) {
+    routesCache?.dispose();
+    routesCache = null;
+    routeOwner = authorization;
+  }
+  if (!authorization) return null;
+  return (routesCache ??= new MapRouteCache({
+    index: (releaseId, signal) => fetchMapRoutes(releaseId, signal),
+    svg: fetchMapRouteSVG,
+  }));
+}
 
 type State = { snapshot: MapSnapshot | null; loading: boolean; error: string };
 let state: State = { snapshot: null, loading: true, error: "" };
@@ -123,16 +140,20 @@ export function useMapRouteCoverage(releaseId: string, enabled: boolean) {
   const [saved, setSaved] = useState<{ key: string; routes: MapRoute[] }>({ key: "", routes: [] });
   const authorization = statsHeaders().Authorization || "";
   const key = `${authorization}:${releaseId}`;
+  const cache = routeCache(enabled ? authorization : "");
   useEffect(() => {
-    if (!enabled || !authorization || !releaseId) return;
-    const c = new AbortController();
-    void fetchMapRoutes(releaseId, AbortSignal.any([c.signal, AbortSignal.timeout(20000)]))
+    if (!cache || !releaseId) return;
+    let active = true;
+    void cache
+      .index(releaseId)
       .then((routes) => {
-        if (!c.signal.aborted) setSaved({ key, routes });
+        if (active) setSaved({ key, routes });
       })
       .catch(() => {});
-    return () => c.abort();
-  }, [key, enabled, authorization, releaseId]);
+    return () => {
+      active = false;
+    };
+  }, [key, cache, releaseId]);
   return enabled && authorization && saved.key === key ? saved.routes : [];
 }
 export function useMapRoute(
@@ -145,31 +166,23 @@ export function useMapRoute(
 ) {
   const authorization = statsHeaders().Authorization || "";
   const key = `${authorization}:${releaseId}:${mapId}:${layoutId}:${team}:${retry}`;
+  const cache = routeCache(enabled ? authorization : "");
+  const cacheKey = cache?.key(releaseId, mapId, layoutId, team) || "";
   const [saved, setSaved] = useState<{
     key: string;
-    route: (MapRoute & { url: string }) | undefined;
+    route: LoadedMapRoute | undefined;
     status: string;
     error: string;
   }>({ key: "", route: undefined, status: "loading", error: "" });
   useEffect(() => {
-    if (!enabled || !authorization) return;
-    const controller = new AbortController();
-    let url = "";
-    const signal = AbortSignal.any([controller.signal, AbortSignal.timeout(25000)]);
+    if (!cache) return;
+    let active = true;
+    const release = cache.retain(cacheKey);
     void (async () => {
-      const routes = await fetchMapRoutes(releaseId, signal, mapId, layoutId, team);
-      if (!routes.length) {
-        if (!controller.signal.aborted)
-          setSaved({ key, route: undefined, status: "empty", error: "" });
-        return;
-      }
-      const route = routes[0];
-      const blob = await fetchMapRouteSVG(route, releaseId, signal);
-      if (controller.signal.aborted) return;
-      url = URL.createObjectURL(blob);
-      setSaved({ key, route: { ...route, url }, status: "loaded", error: "" });
+      const route = await cache.load(releaseId, mapId, layoutId, team);
+      if (active) setSaved({ key, route, status: route ? "loaded" : "empty", error: "" });
     })().catch((e) => {
-      if (!controller.signal.aborted)
+      if (active)
         setSaved({
           key,
           route: undefined,
@@ -177,14 +190,15 @@ export function useMapRoute(
           error: e instanceof Error ? e.message : "推荐走线读取失败",
         });
     });
+    // Only the other side of this mission is warmed, after authorization.
+    void cache.load(releaseId, mapId, layoutId, team === 1 ? 2 : 1).catch(() => {});
     return () => {
-      controller.abort();
-      if (url) URL.revokeObjectURL(url);
+      active = false;
+      release();
     };
-  }, [key, enabled, authorization, releaseId, mapId, layoutId, team]);
+  }, [key, cache, cacheKey, releaseId, mapId, layoutId, team]);
   return enabled && authorization
-    ? saved.key === key
-      ? saved
-      : { route: undefined, status: "loading", error: "" }
+    ? cache?.peek(cacheKey) ||
+        (saved.key === key ? saved : { route: undefined, status: "loading", error: "" })
     : { route: undefined, status: "empty", error: "" };
 }

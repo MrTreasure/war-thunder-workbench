@@ -10,6 +10,7 @@ import type { EditorContext, MapProject } from "./map-editor-model";
 import { renderMapPng } from "./map-editor-export";
 import { mapView } from "./map-editor-model";
 import { CONTOUR_IMAGE_TRANSFORM, referenceGrid } from "./ground-map-projection";
+import { displayMapMarks } from "./ground-map-marks";
 import { Link, Navigate, useNavigate } from "@tanstack/react-router";
 import { mapGuides, routeIdentity } from "./map-data-api";
 import type { GroundAtlas, GroundMap, MapSnapshot, MapRoute } from "./map-data-api";
@@ -272,6 +273,8 @@ function GroundDetail({
   const { session } = useWorkbenchAccount();
   const isSuperAdmin = session?.role === "superadmin";
   const layout = map.layouts.find((l) => l.id === layoutId) || map.layouts[0];
+  const marks = displayMapMarks(layout.marks);
+  const routeContext = routeIdentity(atlas, map.id, layout.id);
   const baseGuides = mapGuides(atlas, map.id);
   const [contours, setContours] = useState(true),
     [points, setPoints] = useState(true),
@@ -282,10 +285,10 @@ function GroundDetail({
   const [routeRetry, setRouteRetry] = useState(0);
   const routeData = useMapRoute(
     releaseId,
-    map.id,
-    layout.id,
+    routeContext.mapId,
+    routeContext.layoutId,
     team,
-    isSuperAdmin && recommendations,
+    isSuperAdmin,
     routeRetry,
   );
   const route = routeData.route;
@@ -300,7 +303,7 @@ function GroundDetail({
           },
         ]
       : baseGuides;
-  const routeKey = `${route?.id || "none"}:${routeRetry}`;
+  const routeKey = `${route?.url || "none"}:${routeRetry}`;
   const routeStatus =
     routeData.status === "loaded"
       ? routeState.id === routeKey
@@ -422,9 +425,9 @@ function GroundDetail({
             aria-pressed={recommendations && !!route}
             aria-busy={recommendations && routeStatus === "loading"}
             title={
-              routeStatus === "error"
+              recommendations && routeStatus === "error"
                 ? routeData.error || "推荐走线加载失败，点击重试"
-                : routeStatus === "loading"
+                : recommendations && routeStatus === "loading"
                   ? "正在读取推荐走线"
                   : routeStatus === "empty" && recommendations
                     ? "当前布局与出生侧暂无匹配的推荐走线"
@@ -437,7 +440,7 @@ function GroundDetail({
           >
             {routeStatus === "loading" && recommendations
               ? "读取走线…"
-              : routeStatus === "error"
+              : recommendations && routeStatus === "error"
                 ? "走线重试"
                 : routeStatus === "empty" && recommendations
                   ? "暂无走线"
@@ -572,9 +575,11 @@ function GroundDetail({
                     onFailure={() => setFailed(true)}
                   />
                 )}
-                {recommendations && route && (
+                {route && (
                   <g
                     className="ground-recommended-layer"
+                    visibility={recommendations ? "visible" : "hidden"}
+                    aria-hidden={!recommendations}
                     pointerEvents="none"
                     aria-label="推荐走线图层"
                   >
@@ -599,7 +604,7 @@ function GroundDetail({
                   </g>
                 )}
                 {points &&
-                  layout.marks.map((mark, i) => {
+                  marks.map((mark, i) => {
                     const size = markerScale * (mark.kind === "spawn" ? 0.047 : 0.029);
                     const key =
                       mark.kind === "spawn"
@@ -716,7 +721,7 @@ function GroundDetail({
                     zoom,
                     bounds: map.bounds,
                     reference: map.grid.default_reference,
-                    marks: layout.marks,
+                    marks,
                     builtinIcons: atlas.icons,
                     editorIcons: editorIconAssets,
                   },
