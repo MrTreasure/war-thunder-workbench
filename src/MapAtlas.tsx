@@ -71,13 +71,36 @@ function MapAtlasContent({ snapshot }: { snapshot: MapSnapshot }) {
   const coverage = useMapRouteCoverage(snapshot.releaseId, isSuperAdmin);
   const search = Route.useSearch();
   const navigate = useNavigate({ from: "/maps" });
-  const query = search.q || "";
+  const routeQuery = search.q || "";
+  const [query, setQuery] = useState(routeQuery);
+  const [composing, setComposing] = useState(false);
+  const pendingQuery = useRef<string | null>(null);
   const onlyGuides = !!search.hasGuides;
-  const setQuery = (q: string) =>
-    void navigate({ search: { ...search, q: q || undefined }, replace: true, resetScroll: false });
+  useEffect(() => {
+    // Acknowledging our own navigation must not replace newer input with an older value.
+    if (pendingQuery.current === routeQuery) {
+      pendingQuery.current = null;
+      return;
+    }
+    pendingQuery.current = null;
+    setQuery(routeQuery);
+  }, [routeQuery]);
+  useEffect(() => {
+    // Keep IME composition local; routing during it can commit the unfinished pinyin.
+    if (composing || query === routeQuery || pendingQuery.current !== null) return;
+    const timer = window.setTimeout(() => {
+      pendingQuery.current = query;
+      void navigate({
+        search: (previous: typeof search) => ({ ...previous, q: query || undefined }),
+        replace: true,
+        resetScroll: false,
+      });
+    }, 200);
+    return () => window.clearTimeout(timer);
+  }, [query, routeQuery, composing, navigate]);
   const setOnlyGuides = (value: boolean) =>
     void navigate({
-      search: { ...search, hasGuides: value || undefined },
+      search: (previous: typeof search) => ({ ...previous, hasGuides: value || undefined }),
       replace: true,
       resetScroll: false,
     });
@@ -143,6 +166,11 @@ function MapAtlasContent({ snapshot }: { snapshot: MapSnapshot }) {
             placeholder={t("搜索地图名称、英文名或攻略")}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
+            onCompositionStart={() => setComposing(true)}
+            onCompositionEnd={(e) => {
+              setQuery(e.currentTarget.value);
+              setComposing(false);
+            }}
           />
         </label>
         <button aria-pressed={onlyGuides} onClick={() => setOnlyGuides(!onlyGuides)}>
@@ -159,7 +187,7 @@ function MapAtlasContent({ snapshot }: { snapshot: MapSnapshot }) {
             key={thumb.layoutId}
             to="/maps/$mapId"
             params={{ mapId: map.id }}
-            search={{ side: thumb.layoutId, q: search.q, hasGuides: search.hasGuides }}
+            search={{ side: thumb.layoutId, q: query || undefined, hasGuides: search.hasGuides }}
           >
             <div className="ground-card-image">
               <GroundThumbnail
