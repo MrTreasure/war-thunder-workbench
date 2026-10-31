@@ -119,22 +119,47 @@ export function SaleCart({
       <div className="wt-sale-cart-toolbar">
         <label className="wt-sale-cart-search">
           <span className="sr-only">搜索购物车</span>
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="搜索已加入的载具"
-          />
+          <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="搜索载具" />
         </label>
         <label>
           <span className="sr-only">筛选购物车</span>
-          <GameSelect value={filter} onValueChange={setFilter}>
+          <GameSelect
+            value={filter}
+            onValueChange={setFilter}
+            aria-label="筛选购物车"
+            renderValue={(value) => (
+              <>
+                <span className="wt-sale-cart-desktop-only">
+                  {value === "all"
+                    ? `全部载具（${vehicles.length}）`
+                    : value === "unpurchased"
+                      ? "尚未拥有"
+                      : value === "owned"
+                        ? "已拥有"
+                        : "资料待核对"}
+                </span>
+                <span className="wt-sale-cart-mobile-only">
+                  {value === "all"
+                    ? `全部（${vehicles.length}）`
+                    : value === "unpurchased"
+                      ? "未拥有"
+                      : value === "owned"
+                        ? "已拥有"
+                        : "待核对"}
+                </span>
+              </>
+            )}
+          >
             <option value="all">全部载具（{vehicles.length}）</option>
             <option value="unpurchased">尚未拥有</option>
             <option value="owned">已拥有</option>
             <option value="unknown">资料待核对</option>
           </GameSelect>
         </label>
-        <button onClick={add}>＋ 添加载具</button>
+        <button className="wt-sale-cart-add" onClick={add} aria-label="添加购物车载具">
+          <span aria-hidden="true">＋</span>
+          <span className="wt-sale-cart-desktop-only"> 添加载具</span>
+        </button>
       </div>
       {(error || priceError || preferences.error) && (
         <div className="wt-sale-cart-errors" role="alert">
@@ -363,6 +388,13 @@ export function SaleCart({
                   )}
                 </div>
                 <div className="wt-sale-cart-actions">
+                  <button
+                    className="wt-sale-cart-mobile-only"
+                    onClick={() => setHistory(v)}
+                    aria-label={`查看${v.name}价格记录`}
+                  >
+                    价格
+                  </button>
                   {v.store && (
                     <a href={v.store} target="_blank" rel="noreferrer">
                       官方购买 ↗
@@ -386,9 +418,10 @@ export function SaleCart({
         )}
       </div>
       <footer className="wt-sale-cart-footer">
-        <div>
+        <div className="wt-sale-cart-summary">
           <strong>
-            已选 {totals.selected} 辆 · {totals.products} 件商品
+            已选 {totals.selected} 辆
+            <span className="wt-sale-cart-desktop-only"> · {totals.products} 件商品</span>
           </strong>
           <span>
             {totals.conflicts ? (
@@ -399,7 +432,9 @@ export function SaleCart({
               </>
             )}
           </span>
-          <small>
+          <small
+            className={totals.missing ? "wt-sale-cart-total-warning" : "wt-sale-cart-total-note"}
+          >
             {totals.missing
               ? `${totals.missing} 辆缺少有效报价，未计入小计`
               : "按原价合计；当前活动价与史低价仅供参考"}
@@ -407,7 +442,7 @@ export function SaleCart({
             {totals.duplicates > 0 && ` · ${totals.duplicates} 个重复礼包已去重`}
           </small>
         </div>
-        <div>
+        <div className="wt-sale-cart-footer-actions">
           <button
             disabled={!enabled}
             onClick={() =>
@@ -425,7 +460,8 @@ export function SaleCart({
               )
             }
           >
-            全选 / 取消
+            <span className="wt-sale-cart-desktop-only">全选 / 取消</span>
+            <span className="wt-sale-cart-mobile-only">全选</span>
           </button>
           <button
             onClick={() =>
@@ -437,7 +473,8 @@ export function SaleCart({
               })
             }
           >
-            导出清单
+            <span className="wt-sale-cart-desktop-only">导出清单</span>
+            <span className="wt-sale-cart-mobile-only">导出</span>
           </button>
         </div>
       </footer>

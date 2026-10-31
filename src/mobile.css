@@ -3180,27 +3180,55 @@
     font-size: 18px;
   }
   .calculator.wt-sale-cart-modal > .calc-header p {
-    font-size: 11px;
-    line-height: 1.5;
-    max-width: 34em;
+    display: none;
+  }
+  .calculator.wt-sale-cart-modal[open] {
+    height: calc(100dvh - 16px);
+  }
+  .calculator.wt-sale-cart-modal > .calc-header {
+    padding: 4px 12px;
+    align-items: center;
+  }
+  .calculator.wt-sale-cart-modal > .calc-header > .wt-game-button {
+    width: 44px;
+    min-width: 44px;
+    padding: 0;
+  }
+  .calculator.wt-sale-cart-modal > .calc-header .wt-button-label,
+  .calculator.wt-sale-cart-modal .wt-sale-cart-desktop-only {
+    display: none;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-mobile-only {
+    display: inline-flex;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-toolbar {
-    padding: 12px;
+    padding: 8px 12px;
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 8px;
+    grid-template-columns: minmax(0, 1fr) 108px 44px;
+    gap: 6px;
   }
-  .calculator.wt-sale-cart-modal .wt-sale-cart-search {
-    grid-column: 1 / -1;
+  .calculator.wt-sale-cart-modal .wt-sale-cart-toolbar > label {
+    min-width: 0;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-toolbar .wt-select {
+    width: 100%;
+    padding-inline: 8px;
+    font-size: 14px;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-add {
+    padding: 0;
+    font-size: 24px;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-scroll {
+    flex: 1 1 auto;
     padding: 0 12px;
+    overscroll-behavior: contain;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-columns {
     display: none;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 4px 8px;
     padding: 10px 0;
   }
@@ -3210,8 +3238,10 @@
     gap: 8px;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-labels {
-    grid-column: 1 / -1;
-    grid-row: 2;
+    grid-column: 1;
+    grid-row: 3;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: flex-start;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-labels:empty {
@@ -3222,7 +3252,7 @@
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-price {
     grid-column: 1 / -1;
-    grid-row: 3;
+    grid-row: 2;
     gap: 2px;
     font-size: 12px;
   }
@@ -3231,38 +3261,13 @@
     color: var(--wt-muted);
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-current b::before {
-    content: "当前活动价 · ";
+    content: "现价 · ";
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-price small {
     font-size: 10px;
   }
-  .calculator.wt-sale-cart-modal .wt-sale-cart-observations {
-    grid-column: 1 / -1;
-    grid-row: 4;
-    align-items: flex-end;
-    gap: 0;
-  }
-  .calculator.wt-sale-cart-modal .wt-sale-cart-observations > small,
-  .calculator.wt-sale-cart-modal .wt-sale-cart-observations > span,
-  .calculator.wt-sale-cart-modal .wt-price-mini {
-    display: none;
-  }
-  .calculator.wt-sale-cart-modal .wt-sale-cart-observations button {
-    align-self: flex-end;
-  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-observations,
   .calculator.wt-sale-cart-modal .wt-sale-cart-event {
-    grid-column: 1;
-    grid-row: 5;
-    gap: 0;
-  }
-  .calculator.wt-sale-cart-modal .wt-sale-cart-event strong {
-    font-size: 11px;
-  }
-  .calculator.wt-sale-cart-modal .wt-sale-cart-event span {
-    font-size: 10px;
-    color: var(--wt-muted);
-  }
-  .calculator.wt-sale-cart-modal .wt-sale-cart-event-detail {
     display: none;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-price-tip,
@@ -3272,10 +3277,10 @@
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-actions {
     grid-column: 2;
-    grid-row: 5;
+    grid-row: 3;
     flex-direction: row;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
     font-size: 11px;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-actions a {
@@ -3284,17 +3289,33 @@
     min-height: 44px;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-footer {
-    padding: 10px 12px;
-    gap: 6px;
-    flex-direction: column;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 8px 12px;
+    gap: 8px;
+    align-items: center;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-footer > div:last-child {
     justify-content: flex-end;
-    gap: 8px;
+    gap: 4px;
   }
-  .calculator.wt-sale-cart-modal .wt-sale-cart-footer span {
-    font-size: 20px;
+  .calculator.wt-sale-cart-modal .wt-sale-cart-summary > strong {
+    font-size: 11px;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-summary > span {
+    font-size: 16px;
+    overflow-wrap: anywhere;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-footer-actions button {
+    padding-inline: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-footer-actions span {
+    font-size: inherit;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-total-note {
+    display: none;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-footer small {
     font-size: 10px;
@@ -3674,17 +3695,15 @@
   .calculator.wt-sale-cart-modal .wt-sale-cart-tile {
     flex-wrap: wrap;
   }
-  .calculator.wt-sale-cart-modal .wt-sale-cart-observations .wt-price-mini {
-    display: block;
-    width: 115px;
-    height: 44px;
+  .wt-sales-heading > div:first-child > p,
+  .wt-sales-heading .wt-sale-attribution,
+  .wt-sale-title-button > span,
+  .wt-sales-page > .wt-sales-topline,
+  .wt-sale-reading-guide > summary > span {
+    display: none;
   }
-  .calculator.wt-sale-cart-modal .wt-activity-chart-mini {
-    width: 115px;
-  }
-  .calculator.wt-sale-cart-modal .wt-price-trend-link small {
-    max-width: 115px;
-    font-size: 10px;
+  .wt-sales-heading {
+    margin-bottom: 8px;
   }
 }
 
