@@ -158,16 +158,14 @@ export function useMapRouteCoverage(releaseId: string, enabled: boolean) {
 }
 export function useMapRoute(
   releaseId: string,
-  mapId: string,
-  layoutId: string,
-  team: number,
+  routeId: string,
   enabled: boolean,
   retry: number,
 ) {
   const authorization = statsHeaders().Authorization || "";
-  const key = `${authorization}:${releaseId}:${mapId}:${layoutId}:${team}:${retry}`;
-  const cache = routeCache(enabled ? authorization : "");
-  const cacheKey = cache?.key(releaseId, mapId, layoutId, team) || "";
+  const key = `${authorization}:${releaseId}:${routeId}:${retry}`;
+  const cache = routeCache(authorization);
+  const cacheKey = cache?.routeKey(releaseId, routeId) || "";
   const [saved, setSaved] = useState<{
     key: string;
     route: LoadedMapRoute | undefined;
@@ -175,11 +173,11 @@ export function useMapRoute(
     error: string;
   }>({ key: "", route: undefined, status: "loading", error: "" });
   useEffect(() => {
-    if (!cache) return;
+    if (!cache || !enabled || !routeId) return;
     let active = true;
     const release = cache.retain(cacheKey);
     void (async () => {
-      const route = await cache.load(releaseId, mapId, layoutId, team);
+      const route = await cache.loadById(releaseId, routeId);
       if (active) setSaved({ key, route, status: route ? "loaded" : "empty", error: "" });
     })().catch((e) => {
       if (active)
@@ -190,15 +188,17 @@ export function useMapRoute(
           error: e instanceof Error ? e.message : "推荐走线读取失败",
         });
     });
-    // Only the other side of this mission is warmed, after authorization.
-    void cache.load(releaseId, mapId, layoutId, team === 1 ? 2 : 1).catch(() => {});
     return () => {
       active = false;
       release();
     };
-  }, [key, cache, cacheKey, releaseId, mapId, layoutId, team]);
-  return enabled && authorization
-    ? cache?.peek(cacheKey) ||
-        (saved.key === key ? saved : { route: undefined, status: "loading", error: "" })
+  }, [key, cache, cacheKey, releaseId, routeId, enabled]);
+  if (!authorization || !routeId) return { route: undefined, status: "empty", error: "" };
+  const retained = cache?.peek(cacheKey);
+  if (retained) return retained;
+  return enabled
+    ? saved.key === key
+      ? saved
+      : { route: undefined, status: "loading", error: "" }
     : { route: undefined, status: "empty", error: "" };
 }

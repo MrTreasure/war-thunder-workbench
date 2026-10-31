@@ -15,6 +15,7 @@ import { Link, Navigate, useNavigate } from "@tanstack/react-router";
 import { mapGuides, routeIdentity } from "./map-data-api";
 import type { GroundAtlas, GroundMap, MapSnapshot, MapRoute } from "./map-data-api";
 import { useMapCatalog, useMapRouteCoverage, useMapRoute } from "./map-data-store";
+import { routesForContext, selectedMapRoute } from "./map-route-selection";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { Route } from "./routes/_workbench.maps";
 import { Route as DetailRoute } from "./routes/_workbench.maps_.$mapId";
@@ -25,6 +26,45 @@ function MapDataStatus({ error, retry }: { error: string; retry: () => void }) {
       {error || "正在读取地图资料…"} <button onClick={retry}>重试</button>
     </output>
   );
+}
+function RouteText({ markdown }: { markdown: string }) {
+  return (
+    <div className="ground-route-text">
+      {markdown.split(/\n\s*\n/).filter(Boolean).map((block, index) => {
+        const content = block.trim();
+        if (content.startsWith("### ")) return <h5 key={index}>{content.slice(4)}</h5>;
+        if (content.startsWith("## ")) return <h4 key={index}>{content.slice(3)}</h4>;
+        if (content.startsWith("# ")) return <h4 key={index}>{content.slice(2)}</h4>;
+        if (content.startsWith("|")) {
+          const rows = content.split("\n").map((line) => line.trim().replace(/^\||\|$/g, "").split("|"));
+          const headings = rows[0];
+          return (
+            <div className="ground-route-table" key={index}>
+              <table>
+                <thead><tr>{headings.map((heading, i) => <th key={i}>{heading.trim()}</th>)}</tr></thead>
+                <tbody>
+                  {rows.slice(2).map((cells, row) => (
+                    <tr key={row}>{cells.map((cell, i) => <td key={i}>{cell.trim()}</td>)}</tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          );
+        }
+        return <p key={index}>{content.replace(/^[-*] /gm, "• ")}</p>;
+      })}
+    </div>
+  );
+}
+function routeEvidenceLabel(route: MapRoute) {
+  return route.evidenceStatus === "observed-friendly-route-with-inferred-enemy-branches"
+    ? "己方走法有来源演示；敌方分支含地形推演"
+    : route.evidenceStatus || "依据待核对";
+}
+function routeSpawnLabel(route: MapRoute) {
+  if (route.spawnSide?.startsWith("blue")) return "原作者蓝方出生侧";
+  if (route.spawnSide?.startsWith("red")) return "原作者红方出生侧";
+  return route.spawnSide || `队伍 ${route.team} 出生侧`;
 }
 export function MapAtlas() {
   const data = useMapCatalog();
@@ -309,14 +349,24 @@ function GroundDetail({
     [grid, setGrid] = useState(false),
     [cropped, setCropped] = useState(true);
   const [recommendations, setRecommendations] = useState(true);
+  const [routeChoice, setRouteChoice] = useState({ context: "", id: "" });
   const [routeState, setRouteState] = useState({ id: "", status: "loading" });
   const [routeRetry, setRouteRetry] = useState(0);
-  const routeData = useMapRoute(
-    releaseId,
+  const routeContextKey = `${releaseId}:${routeContext.mapId}:${routeContext.layoutId}:${team}`;
+  const routeOptions = routesForContext(
+    useMapRouteCoverage(releaseId, isSuperAdmin),
     routeContext.mapId,
     routeContext.layoutId,
     team,
-    isSuperAdmin,
+  );
+  const selectedRoute = selectedMapRoute(
+    routeOptions,
+    routeChoice.context === routeContextKey ? routeChoice.id : "",
+  );
+  const routeData = useMapRoute(
+    releaseId,
+    selectedRoute?.id || "",
+    isSuperAdmin && recommendations,
     routeRetry,
   );
   const route = routeData.route;
@@ -448,6 +498,23 @@ function GroundDetail({
         </GameSelect>
       </label>
       <div className="ground-layer-toggles">
+        {isSuperAdmin && routeOptions.length > 0 && (
+          <label>
+            <span>攻略方案</span>
+            <GameSelect
+              aria-label="推荐走线攻略方案"
+              value={selectedRoute?.id || ""}
+              onValueChange={(id) => setRouteChoice({ context: routeContextKey, id })}
+            >
+              {routeOptions.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.title} · {routeSpawnLabel(item)}
+                  {item.guideVersion ? ` · v${item.guideVersion}` : ""}
+                </option>
+              ))}
+            </GameSelect>
+          </label>
+        )}
         {isSuperAdmin && (
           <button
             aria-pressed={recommendations && !!route}
@@ -802,6 +869,29 @@ function GroundDetail({
             {map.contours.native_sample_m} m。
           </p>
         </details>
+        {isSuperAdmin && selectedRoute && (
+          <section className="ground-route-guide" aria-label="所选推荐走线文字攻略">
+            <h3>{selectedRoute.title}</h3>
+            <p className="ground-route-source">
+              {routeSpawnLabel(selectedRoute)} · {layout.name}
+              {selectedRoute.sourceVersion ? ` · ${selectedRoute.sourceVersion}` : ""}
+              {!selectedRoute.sourceVersion && selectedRoute.guideVersion
+                ? ` · 攻略版本 ${selectedRoute.guideVersion}`
+                : ""}
+              {selectedRoute.sourceDate ? ` · 来源 ${selectedRoute.sourceDate}` : ""}
+            </p>
+            {selectedRoute.evidenceStatus && <p>{routeEvidenceLabel(selectedRoute)}</p>}
+            {selectedRoute.sourceSummary && <p>{selectedRoute.sourceSummary}</p>}
+            {selectedRoute.tacticsMarkdown ? (
+              <RouteText markdown={selectedRoute.tacticsMarkdown} />
+            ) : (
+              <p>这条走线暂未附带文字说明，请对照来源查看。</p>
+            )}
+            <a href={selectedRoute.sourceUrl} target="_blank" rel="noopener noreferrer">
+              查看来源 ↗
+            </a>
+          </section>
+        )}
         <section className="ground-related">
           <h3>
             关联攻略 <span>{guides.length}</span>

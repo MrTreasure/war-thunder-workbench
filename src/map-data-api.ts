@@ -3,12 +3,14 @@ import { sha256 } from "@noble/hashes/sha2.js";
 import { bytesToHex } from "@noble/hashes/utils.js";
 import settings from "./config/player-stats.json";
 import { statsHeaders } from "./player-stats-api";
+import { isMapGuideSourceURL } from "./map-route-sources";
 
 export type GroundAtlas = typeof bundledAtlas;
 export type GroundMap = GroundAtlas["maps"][number];
 export type MapSnapshot = { releaseId: string; atlas: GroundAtlas };
 export type MapRoute = {
   id: string;
+  routeId?: string;
   mapId: string;
   layoutId: string;
   team: number;
@@ -21,6 +23,15 @@ export type MapRoute = {
   matrix: number[];
   pointError: number;
   svg: { path: string; sha256: string; bytes: number };
+  guideVersion?: number;
+  tacticsMarkdown?: string;
+  sourceSummary?: string;
+  sourceData?: Record<string, unknown>;
+  spawnSide?: string;
+  sourceVersion?: string;
+  evidenceStatus?: string;
+  sourceTimes?: number[];
+  side?: string;
 };
 // Maps use the deployed versioned endpoint independently of the vehicle catalog channel.
 export const mapAPIBase = `${settings.apiBaseUrl}/map-data-preview`;
@@ -232,6 +243,7 @@ function validRoute(v: unknown): v is MapRoute {
   if (
     !record(v) ||
     !id(v.id) ||
+    (v.routeId !== undefined && v.routeId !== v.id) ||
     !id(v.mapId) ||
     !id(v.layoutId) ||
     ![1, 2].includes(Number(v.team)) ||
@@ -243,7 +255,23 @@ function validRoute(v: unknown): v is MapRoute {
     !finite(v.height) ||
     v.height <= 0 ||
     typeof v.sourceUrl !== "string" ||
-    !/^https:\/\/www\.xiaoheihe\.cn\/app\/bbs\/link\/[A-Za-z0-9]+$/.test(v.sourceUrl) ||
+    !isMapGuideSourceURL(v.sourceUrl) ||
+    (v.guideVersion !== undefined &&
+      (!Number.isInteger(v.guideVersion) || Number(v.guideVersion) < 1)) ||
+    (v.tacticsMarkdown !== undefined &&
+      (typeof v.tacticsMarkdown !== "string" || v.tacticsMarkdown.length > 32000)) ||
+    (v.sourceSummary !== undefined &&
+      (typeof v.sourceSummary !== "string" || v.sourceSummary.length > 1000)) ||
+    (v.sourceData !== undefined && !record(v.sourceData)) ||
+    (v.spawnSide !== undefined && (typeof v.spawnSide !== "string" || v.spawnSide.length > 100)) ||
+    (v.side !== undefined && (typeof v.side !== "string" || v.side.length > 100)) ||
+    (v.sourceVersion !== undefined &&
+      (typeof v.sourceVersion !== "string" || v.sourceVersion.length > 100)) ||
+    (v.evidenceStatus !== undefined &&
+      (typeof v.evidenceStatus !== "string" || v.evidenceStatus.length > 100)) ||
+    (v.sourceTimes !== undefined &&
+      (!Array.isArray(v.sourceTimes) ||
+        !v.sourceTimes.every((n: unknown) => finite(n) && n >= 0))) ||
     !record(v.svg)
   )
     return false;
@@ -267,6 +295,7 @@ export async function fetchMapRoutes(
   if (!authorization) throw new Error("请登录后读取推荐走线");
   const q = new URLSearchParams({
     releaseId,
+    guideSchema: "2",
     ...(mapId && layoutId ? { mapId, layoutId } : {}),
     ...(team ? { team: String(team) } : {}),
   });
@@ -278,7 +307,8 @@ export async function fetchMapRoutes(
     value.releaseId !== releaseId ||
     !Array.isArray(value.items) ||
     value.items.length > 1000 ||
-    !value.items.every(validRoute)
+    !value.items.every(validRoute) ||
+    new Set(value.items.map((route: MapRoute) => route.id)).size !== value.items.length
   )
     throw new Error("走线索引格式无效");
   return value.items;
