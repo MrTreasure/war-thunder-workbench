@@ -3316,15 +3316,19 @@
     gap: 8px;
     font-size: 12px;
   }
-  .calculator.wt-sale-cart-modal .wt-sale-cart-actions > button {
-    align-self: center;
-    padding-inline: 8px;
-    white-space: nowrap;
-  }
-  .calculator.wt-sale-cart-modal .wt-sale-cart-actions a {
+  .calculator.wt-sale-cart-modal .wt-sale-cart-actions > :is(button, a) {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    align-self: center;
+    box-sizing: border-box;
+    height: 44px;
     min-height: 44px;
+    min-width: 44px;
+    padding: 0 8px;
+    margin: 0;
+    font: inherit;
+    line-height: 1.2;
     white-space: nowrap;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-footer {
