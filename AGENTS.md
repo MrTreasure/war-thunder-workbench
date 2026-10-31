@@ -1,5 +1,8 @@
 # War Thunder Workbench
 
+文档入口：[文档索引](docs/README.md)，部署使用 [发布说明](deploy/README.md)。本文件只维护现行实施约束，已替代的方案以 Git 历史或本机私有记录留存。
+
+- 2026-10-31 用户要求接入文档与 Agent Prompt 不在 GitHub 公开。它们只保存在被忽略的 `artifacts/private-api-docs/`，不得恢复为跟踪文件、公开链接或应用源码上传内容。按需在会话中单独交付，不把私有文档内容复制到公开维护说明中。
 
 ## 交付与验收（2026-10-27 最新要求）
 
