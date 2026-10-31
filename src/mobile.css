@@ -2,19 +2,18 @@
  * C=collapsible-tools+single-column-dialogs · D=disclosure-feedback · E=matte · SOUL=7 SPECTACLE=1 DENSITY=7 */
 /* One set of controls serves both layouts; CSS controls visibility at the breakpoint. */
 @media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
-  .app-header .app-identity,
   .app-header .creator-promo,
   .app-header .app-repository-link {
     display: none;
   }
   .app-header .app-header-inner {
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: 44px minmax(0, 1fr) auto;
   }
   .app-header .mobile-page-navigation {
-    grid-column: 1;
+    grid-column: 2;
   }
   .app-header .app-header-actions {
-    grid-column: 2;
+    grid-column: 3;
   }
   .app-header .app-header-actions .wt-account-trigger {
     max-width: clamp(104px, 34vw, 160px);
@@ -3228,18 +3227,39 @@
     display: none;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-row {
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 4px 8px;
+    grid-template-columns: minmax(0, 258px) minmax(92px, 1fr);
+    gap: 4px 10px;
     padding: 10px 0;
+    align-items: start;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-vehicle {
-    grid-column: 1 / -1;
+    grid-column: 1;
     grid-row: 1;
-    gap: 8px;
+    gap: 6px;
+    padding-bottom: 0;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-tile,
+  .calculator.wt-sale-cart-modal .wt-sale-cart-tile > .wt-game-card {
+    width: 100%;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .calculator.wt-sale-cart-modal .wt-game-card > .unit-name {
+    max-width: calc(100% - 12px);
+    font-size: clamp(16px, 4.5vw, 20px);
+  }
+  .calculator.wt-sale-cart-modal .wt-game-card .unit-art {
+    max-width: 55%;
+  }
+  .calculator.wt-sale-cart-modal .wt-game-card .wt-game-card-cost {
+    font-size: 18px;
+  }
+  .calculator.wt-sale-cart-modal .wt-game-card-caption-context {
+    display: none;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-labels {
     grid-column: 1;
-    grid-row: 3;
+    grid-row: 2;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -3251,10 +3271,21 @@
     display: none;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-price {
-    grid-column: 1 / -1;
-    grid-row: 2;
+    grid-column: 2;
+    grid-row: 1;
     gap: 2px;
     font-size: 12px;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-price-line {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-current {
+    align-items: flex-end;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-low {
+    font-size: 10px;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-price b::before {
     font-weight: normal;
@@ -3277,11 +3308,14 @@
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-actions {
     grid-column: 2;
-    grid-row: 3;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-    font-size: 11px;
+    grid-row: 2;
+    align-items: flex-end;
+  }
+  .calculator.wt-sale-cart-modal .wt-sale-cart-actions > .wt-select {
+    width: 92px;
+    max-width: 100%;
+    padding-inline: 8px;
+    font-size: 12px;
   }
   .calculator.wt-sale-cart-modal .wt-sale-cart-actions a {
     display: flex;

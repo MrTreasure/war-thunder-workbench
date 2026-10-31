@@ -105,6 +105,13 @@ export function SaleCart({
     return true;
   });
   const enabled = ready && preferences.ready;
+  const allSelected = vehicles
+    .filter((v) => !workspace?.ownedVehicleIds.has(v.id))
+    .every((v) => preferences.items[v.id]?.selected !== false);
+  function removeVehicle(vehicle: SaleVehicle) {
+    const index = vehicles.findIndex((item) => item.id === vehicle.id);
+    if (save(vehicles.filter((item) => item.id !== vehicle.id))) setRemoved({ vehicle, index });
+  }
   return (
     <Modal
       title="我的购物车"
@@ -388,25 +395,40 @@ export function SaleCart({
                   )}
                 </div>
                 <div className="wt-sale-cart-actions">
-                  <button
+                  <GameSelect
                     className="wt-sale-cart-mobile-only"
-                    onClick={() => setHistory(v)}
-                    aria-label={`查看${v.name}价格记录`}
+                    value=""
+                    renderValue={() => "操作"}
+                    aria-label={`${v.name}购物车操作`}
+                    onValueChange={(action) => {
+                      if (action === "history") setHistory(v);
+                      if (action === "buy" && v.store)
+                        window.open(v.store, "_blank", "noopener,noreferrer");
+                      if (action === "remove" && ready) removeVehicle(v);
+                    }}
                   >
-                    价格
-                  </button>
+                    <option value="history">价格记录</option>
+                    <option value="buy" disabled={!v.store}>
+                      官方购买 ↗
+                    </option>
+                    <option value="remove" disabled={!ready}>
+                      移除载具
+                    </option>
+                  </GameSelect>
                   {v.store && (
-                    <a href={v.store} target="_blank" rel="noreferrer">
+                    <a
+                      className="wt-sale-cart-desktop-only"
+                      href={v.store}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       官方购买 ↗
                     </a>
                   )}
                   <button
+                    className="wt-sale-cart-desktop-only"
                     disabled={!ready}
-                    onClick={() => {
-                      const index = vehicles.findIndex((x) => x.id === v.id);
-                      if (save(vehicles.filter((x) => x.id !== v.id)))
-                        setRemoved({ vehicle: v, index });
-                    }}
+                    onClick={() => removeVehicle(v)}
                     aria-label={`移除${v.name}`}
                   >
                     移除
@@ -451,9 +473,7 @@ export function SaleCart({
                   vehicles.map((v) => [
                     v.id,
                     {
-                      selected: !vehicles
-                        .filter((x) => !workspace?.ownedVehicleIds.has(x.id))
-                        .every((x) => preferences.items[x.id]?.selected !== false),
+                      selected: !allSelected,
                     },
                   ]),
                 ),
@@ -461,7 +481,7 @@ export function SaleCart({
             }
           >
             <span className="wt-sale-cart-desktop-only">全选 / 取消</span>
-            <span className="wt-sale-cart-mobile-only">全选</span>
+            <span className="wt-sale-cart-mobile-only">{allSelected ? "取消" : "全选"}</span>
           </button>
           <button
             onClick={() =>
