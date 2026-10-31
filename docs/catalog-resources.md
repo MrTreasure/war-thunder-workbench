@@ -1,5 +1,6 @@
 # 科技树静态资料与载具详情
 
+当前国家包格式与缓存规则见 [国家载具资料加载](vehicle-catalog-loading.md)。
 
 国家资料保留 canonical JSON，发布时生成 JavaScript 文本资源，存放在既有 Git 图床。固定入口为 `war-thunder/catalog/manifest.js`，各国文件位于 `war-thunder/catalog/countries/`，文件名带内容哈希。
 

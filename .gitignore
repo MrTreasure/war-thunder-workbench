@@ -23,6 +23,11 @@ __pycache__/
 *.py[cod]
 artifacts/
 
+# API handoff documents are private local material, never source uploads.
+/API.md
+/API_AGENT_PROMPT.md
+/VEHICLE_AGENT_PROMPT.md
+
 # Generated standalone design review
 public/design/player-stats/
 

@@ -6,6 +6,7 @@
 
 **[正式站 · QMuse](https://render.qmuse.pub/p/muse/8645013411493394)** · **[国际站](https://wt.mrtreasure.cc/)** · [完整使用说明](docs/usage.zh-CN.md)
 
+开发与维护：[文档索引](docs/README.md)。
 
 ## 科技树与载具资料
 
