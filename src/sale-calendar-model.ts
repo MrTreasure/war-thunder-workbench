@@ -64,34 +64,7 @@ export const saleChannels: Record<string, string> = {
   excluded: "联队载具",
   unknown: "购买方式待核对",
 };
-export function matchesSale(vehicle: SaleVehicle, event: SaleEvent): boolean {
-  if (["market", "excluded", "unknown"].includes(vehicle.channel)) return false;
-  if (event.countries.length && !event.countries.includes(vehicle.country)) return false;
-  if (event.categories.length && !event.categories.includes(vehicle.category)) return false;
-  if (event.excludedVehicleIds.includes(vehicle.id)) return false;
-  if (event.coverage === "explicit" && !event.vehicleIds.includes(vehicle.id)) return false;
-  return (
-    event.channels.includes(vehicle.channel as SaleChannel) ||
-    (event.channels.includes("bundle") && ["pack", "ge"].includes(vehicle.channel))
-  );
-}
-export function nextSale(vehicle: SaleVehicle, events: SaleEvent[], now: number): SaleEvent | null {
-  return (
-    events
-      .filter(
-        (event) =>
-          matchesSale(vehicle, event) &&
-          Date.parse(
-            event.status === "predicted" ? event.endWindow?.[1] || event.endAt : event.endAt,
-          ) > now,
-      )
-      .sort(
-        (a, b) =>
-          Math.max(now, Date.parse(a.startAt)) - Math.max(now, Date.parse(b.startAt)) ||
-          Number(a.status === "predicted") - Number(b.status === "predicted"),
-      )[0] || null
-  );
-}
+export { matchesSale, nextSale } from "./sale-event-matching";
 export function saleCountdown(event: SaleEvent, now: number): string {
   const predicted = event.status === "predicted";
   const earliest = predicted ? saleStartCandidates(event, now)[0] : undefined;

@@ -216,8 +216,7 @@ export function SaleCart({
           <p className="wt-sale-cart-empty">当前筛选没有匹配载具。</p>
         ) : (
           rows.map((v) => {
-            const offer = primaryOffer(summaries[v.id]),
-              event = nextSale(v, events, now);
+            const offer = primaryOffer(summaries[v.id]);
             const quote = v.originalPrice,
               price = quote?.amount ?? null,
               currency = quote?.currency || "CNY";
@@ -225,6 +224,8 @@ export function SaleCart({
             const owned = !!workspace?.ownedVehicleIds.has(v.id);
             const evidence = summaries[v.id]?.discountEvidence || [];
             const points = activityPricePoints(v, offer, evidence, events, now);
+            const evidencedActivityIds = points.map((point) => point.activityId);
+            const event = nextSale(v, events, now, evidencedActivityIds);
             const promotion = summaries[v.id]?.discountEvidence
               ?.filter((e) => e.purchaseCondition === "普通单件购买")
               .sort((a, b) => b.discountPercent - a.discountPercent)[0];
@@ -234,7 +235,7 @@ export function SaleCart({
               .filter(
                 (e) =>
                   e.status === "confirmed" &&
-                  matchesSale(v, e) &&
+                  matchesSale(v, e, evidencedActivityIds) &&
                   Date.parse(e.startAt) <= now &&
                   now < Date.parse(e.endAt),
               )
