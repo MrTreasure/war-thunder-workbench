@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reject pushes whose reachable history contains local-only analysis files."""
+"""Reject pushes whose history contains local-only analysis or API handoff documents."""
 import fnmatch
 from pathlib import PurePosixPath
 import subprocess
@@ -7,6 +7,9 @@ import sys
 
 PATTERNS = (
     "artifacts/*",
+    "API.md",
+    "API_AGENT_PROMPT.md",
+    "VEHICLE_AGENT_PROMPT.md",
     "docs/player-stats-efficiency-comparison.md",
     "docs/player-stats-efficiency-inference.md",
     "docs/player-stats-public-rating-formulas.md",
@@ -56,7 +59,7 @@ def main():
     for revision in set(revisions):
         blocked.update(check(revision))
     if blocked:
-        print("Push blocked: local-only research exists in the proposed history:", file=sys.stderr)
+        print("Push blocked: local-only material exists in the proposed history:", file=sys.stderr)
         for name in sorted(blocked):
             print("  " + name, file=sys.stderr)
         print("Keep local copies and remove these paths from history before pushing.", file=sys.stderr)
