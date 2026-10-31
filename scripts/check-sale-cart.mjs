@@ -5,6 +5,192 @@ import { stripTypeScriptTypes } from "node:module";
 import { activityChartGeometry, activityPricePoints } from "../src/sale-activity-prices.ts";
 import { mergeOwnedGarage, preferOwnedBinding } from "../src/owned-garage.ts";
 import { SalePreferenceDraft } from "../src/sale-preference-draft.ts";
+import { matchesSale, nextSale } from "../src/sale-event-matching.ts";
+import participation from "../data/sale-event-participation.json" with { type: "json" };
+
+const codebook = JSON.parse(
+  await readFile(new URL("../data/lineup-codebook.json", import.meta.url)),
+);
+const knownVehicleIds = new Set(
+  Object.values(codebook.countries).flatMap((country) => Object.values(country)),
+);
+assert.equal(participation.schemaVersion, 1);
+for (const record of participation.events) {
+  assert(/^https:\/\/warthunder\.com\/en\/news\/\d+/.test(record.sourceUrl));
+  assert(/^[a-f0-9]{64}$/.test(record.sourceSha256));
+  assert(Number.isFinite(Date.parse(record.checkedAt)));
+  assert(
+    record.vehicleIds.every((id) => knownVehicleIds.has(id)),
+    "historical lists must use stable vehicle IDs",
+  );
+}
+
+// A nearby themed promotion cannot stand in for a vehicle's discount history.
+const forecastVehicle = {
+  id: "ordinary-pack",
+  country: "britain",
+  category: "ground",
+  channel: "pack",
+};
+const pastBlackFriday = {
+  id: "black-friday-store-2025",
+  family: "black-friday",
+  phase: "store",
+  year: 2025,
+  status: "confirmed",
+  startAt: "2025-11-28T11:00:00Z",
+  endAt: "2025-12-05T11:00:00Z",
+  coverage: "selected",
+  channels: ["pack", "bundle"],
+  countries: [],
+  categories: [],
+  vehicleIds: [],
+  excludedVehicleIds: [],
+  sources: [],
+};
+const nextBlackFriday = {
+  ...pastBlackFriday,
+  id: "black-friday-store-2026",
+  year: 2026,
+  status: "predicted",
+  startAt: "2026-11-27T11:00:00Z",
+  endAt: "2026-12-04T11:00:00Z",
+};
+const pastWinter = {
+  ...pastBlackFriday,
+  id: "winter-store-2025",
+  family: "winter",
+  channels: ["pack"],
+  startAt: "2025-12-24T11:00:00Z",
+  endAt: "2026-01-02T11:00:00Z",
+};
+const nextWinter = {
+  ...pastWinter,
+  id: "winter-store-2026",
+  year: 2026,
+  status: "predicted",
+  startAt: "2026-12-24T11:00:00Z",
+  endAt: "2027-01-02T11:00:00Z",
+};
+const forecastNow = Date.parse("2026-11-03T12:00:00Z");
+const forecastEvents = [pastBlackFriday, nextBlackFriday, pastWinter, nextWinter];
+assert.equal(
+  matchesSale(forecastVehicle, pastBlackFriday),
+  false,
+  "an empty selected list is not every pack",
+);
+assert.equal(
+  nextSale(forecastVehicle, forecastEvents, forecastNow),
+  null,
+  "unknown participation must remain unknown",
+);
+assert.equal(
+  nextSale(forecastVehicle, forecastEvents, forecastNow, [pastWinter.id])?.id,
+  nextWinter.id,
+  "winter evidence must skip the nearer Black Friday event",
+);
+assert.equal(
+  nextSale(forecastVehicle, forecastEvents, forecastNow, [pastBlackFriday.id])?.id,
+  nextBlackFriday.id,
+  "a vehicle with Black Friday evidence may match Black Friday",
+);
+assert.equal(
+  nextSale(
+    forecastVehicle,
+    [nextBlackFriday, { ...pastBlackFriday, vehicleIds: [forecastVehicle.id] }],
+    forecastNow,
+  )?.id,
+  nextBlackFriday.id,
+  "a verified historical vehicle list also supports the forecast",
+);
+assert.equal(
+  nextSale(forecastVehicle, [nextBlackFriday], forecastNow, [nextBlackFriday.id]),
+  null,
+  "a forecast cannot be its own participation evidence",
+);
+assert.equal(
+  nextSale(
+    forecastVehicle,
+    [nextBlackFriday, { ...pastBlackFriday, phase: "ingame" }],
+    forecastNow,
+    [pastBlackFriday.id],
+  ),
+  null,
+  "different purchase phases cannot supply forecast evidence",
+);
+assert.equal(
+  nextSale(
+    forecastVehicle,
+    [nextBlackFriday, { ...pastBlackFriday, excludedVehicleIds: [forecastVehicle.id] }],
+    forecastNow,
+    [pastBlackFriday.id],
+  ),
+  null,
+  "explicit vehicle exclusions win over price evidence",
+);
+assert.equal(
+  matchesSale(forecastVehicle, { ...pastBlackFriday, coverage: "explicit" }, [pastBlackFriday.id]),
+  false,
+  "a complete official list must not be expanded by mismatched evidence",
+);
+assert.equal(
+  matchesSale(forecastVehicle, { ...pastBlackFriday, coverage: "unexpected" }),
+  false,
+  "unknown coverage cannot widen eligibility",
+);
+const geVehicle = { ...forecastVehicle, channel: "ge" };
+const geHistory = {
+  ...pastWinter,
+  phase: "ingame",
+  coverage: "all-except-exclusions",
+  channels: ["ge"],
+};
+const geForecast = {
+  ...nextWinter,
+  phase: "ingame",
+  coverage: "all-except-exclusions",
+  channels: ["ge"],
+};
+assert.equal(
+  nextSale(geVehicle, [geHistory, geForecast, pastBlackFriday, nextBlackFriday], forecastNow)?.id,
+  geForecast.id,
+  "a broad GE promotion remains eligible without treating themed bundles as all GE vehicles",
+);
+assert.equal(
+  matchesSale(geVehicle, { ...geHistory, channels: ["bundle"] }),
+  false,
+  "bundle coverage is not a blanket single-vehicle discount",
+);
+const officialBlackFriday = {
+  ...pastBlackFriday,
+  sources: [{ url: participation.events[0].sourceUrl }],
+};
+for (const id of participation.events[0].vehicleIds) {
+  const namedVehicle = { ...forecastVehicle, id };
+  assert.equal(
+    nextSale(namedVehicle, [officialBlackFriday, nextBlackFriday], forecastNow)?.id,
+    nextBlackFriday.id,
+    "the verified official Black Friday list remains eligible",
+  );
+  assert.equal(
+    matchesSale(namedVehicle, { ...officialBlackFriday, excludedVehicleIds: [id] }),
+    false,
+    "the historical supplement cannot bypass an explicit exclusion",
+  );
+}
+assert.equal(
+  matchesSale(forecastVehicle, officialBlackFriday),
+  false,
+  "the official Black Friday list cannot expand to ordinary packs",
+);
+assert.equal(
+  matchesSale({ ...forecastVehicle, id: "ka_50" }, pastBlackFriday),
+  false,
+  "the historical supplement requires the matching official source",
+);
+console.log(
+  "Sale forecast matching passed: per-vehicle history, themed lists, source pins, channels, phases and exclusions.",
+);
 
 // Isolate pure quote/cart rules from browser locale initialization. The actual
 // model is compiled unchanged except for its UI translation import; locale

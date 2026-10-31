@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "events": [
+    {
+      "eventId": "black-friday-store-2025",
+      "sourceUrl": "https://warthunder.com/en/news/9824-shop-its-time-for-black-friday-in-war-thunder-en",
+      "checkedAt": "2026-10-31T13:27:43.866Z",
+      "sourceSha256": "30518d18e7d748f4c005caf080764b17dadefec4850c0733027a395e2d112532",
+      "singlePackDiscountPercent": 30,
+      "bundleDiscountPercent": 50,
+      "vehicleIds": [
+        "ka_50",
+        "us_m18_hellcat_black_cat",
+        "uk_a_43_black_prince",
+        "p-61a_1"
+      ],
+      "note": "官方公告分别列出 Black Shark、M18 Black Cat、A43 Black Prince、P-61 Black Widow；单包30%，组合50%。P-61组合清单写A-11、单包清单写A-1，以游戏唯一ID p-61a_1记录，不新增载具或改写原价。"
+    }
+  ]
+}

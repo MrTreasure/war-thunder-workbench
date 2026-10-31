@@ -173,6 +173,9 @@ importers:
       '@vitejs/plugin-react':
         specifier: 5.2.0
         version: 5.2.0(supports-color@10.2.2)(vite@8.3.4(@types/node@22.16.5)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1))
+      jsqr:
+        specifier: 1.4.0
+        version: 1.4.0
       linkedom:
         specifier: 0.18.13
         version: 0.18.13
@@ -208,17 +211,17 @@ importers:
         version: 19.3.1
       react-dom:
         specifier: 19.3.1
-        version: 19.3.1
+        version: 19.3.1(react@19.3.1)
     devDependencies:
       '@types/react':
         specifier: 19.3.0
         version: 19.3.0
       '@types/react-dom':
         specifier: 19.3.0
-        version: 19.3.0
+        version: 19.3.0(@types/react@19.3.0)
       '@vitejs/plugin-react':
         specifier: 5.2.0
-        version: 5.2.0
+        version: 5.2.0(supports-color@10.2.2)(vite@8.3.4(@types/node@22.16.5)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1))
       sharp:
         specifier: 0.34.5
         version: 0.34.5
@@ -1983,6 +1986,9 @@ packages:
     resolution: {integrity: sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==}
     engines: {node: '>=6'}
     hasBin: true
+
+  jsqr@1.4.0:
+    resolution: {integrity: sha512-dxLob7q65Xg2DvstYkRpkYtmKm2sPJ9oFhrhmudT1dZvNFFTlroai3AWSpLey/w5vMcLBXRgOJsbXpdN9HzU/A==}
 
   kleur@4.1.5:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
@@ -3870,6 +3876,8 @@ snapshots:
   jsesc@3.1.0: {}
 
   json5@2.2.3: {}
+
+  jsqr@1.4.0: {}
 
   kleur@4.1.5: {}
 
