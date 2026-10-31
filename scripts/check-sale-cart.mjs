@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { activityChartGeometry, activityPricePoints } from "../src/sale-activity-prices.ts";
 import { cartTotals, currentActivityDiscount } from "../src/sale-price-model.ts";
 import { mergeOwnedGarage, preferOwnedBinding } from "../src/owned-garage.ts";
+import { SalePreferenceDraft } from "../src/sale-preference-draft.ts";
 
 const now = Date.parse("2026-10-29T12:00:00Z");
 const vehicle = {
@@ -203,4 +204,176 @@ assert.equal(total.cny, 0n, "owned vehicle must leave cart total immediately");
 assert.equal(total.owned, 1);
 console.log(
   "Sale cart checks passed: activity grouping/dates/amounts, area geometry, official discount, bound garage and totals.",
+);
+
+// Only mocked persistence: verify batching at close rather than at every click.
+const storedDrafts = new Map();
+const draftStorage = {
+  getItem: (key) => storedDrafts.get(key) ?? null,
+  setItem: (key, value) => storedDrafts.set(key, value),
+  removeItem: (key) => storedDrafts.delete(key),
+};
+let cloudPlan = { revision: 7, items: {} };
+const writes = [];
+let acknowledge;
+const draftRemote = {
+  read: async () => structuredClone(cloudPlan),
+  write: (value) => {
+    writes.push(structuredClone(value));
+    return new Promise((resolve, reject) => {
+      acknowledge = { resolve, reject };
+    });
+  },
+};
+const plan = new SalePreferenceDraft("user:fixture", draftStorage, draftRemote);
+await plan.load();
+plan.stage({ [vehicle.id]: { selected: false } });
+assert.equal(
+  plan.getSnapshot().items[vehicle.id].selected,
+  false,
+  "checkbox must change before any request",
+);
+assert.equal(
+  cartTotals([vehicle], plan.getSnapshot().items).selected,
+  0,
+  "totals must follow optimistic selection",
+);
+plan.stage({ [vehicle.id]: { selected: true } });
+await plan.flush();
+assert.equal(writes.length, 0, "returning to the initial selection needs no write");
+plan.stage({ [vehicle.id]: { selected: false } });
+plan.stage({ [vehicle.id]: { selected: false }, second: { selected: false } });
+assert.equal(writes.length, 0, "staging several clicks must not POST");
+const closing = plan.flush();
+assert.equal(writes.length, 1, "close sends one final document");
+assert.equal(plan.flush(), closing, "close and unmount must share the same request");
+assert.deepEqual(writes[0].items, plan.getSnapshot().items);
+cloudPlan = { revision: 8, items: writes[0].items };
+acknowledge.resolve(cloudPlan);
+await closing;
+assert.equal(draftStorage.getItem(plan.pendingKey), null, "acknowledged draft is cleared");
+
+plan.stage({ [vehicle.id]: { selected: true } });
+const failure = plan.flush();
+acknowledge.reject(new Error("fixture network failure"));
+await failure;
+assert.ok(draftStorage.getItem(plan.pendingKey), "failed writes retain pending selections");
+const retryPlan = new SalePreferenceDraft("user:fixture", draftStorage, draftRemote);
+await retryPlan.load();
+assert.equal(writes.length, 2, "reopening must read but must not auto-POST pending changes");
+assert.equal(retryPlan.getSnapshot().items[vehicle.id].selected, true);
+assert.ok(retryPlan.getSnapshot().error.includes("上次同步失败"));
+const retryClose = retryPlan.flush();
+cloudPlan = { revision: 9, items: writes[2].items };
+acknowledge.resolve(cloudPlan);
+await retryClose;
+
+retryPlan.stage({ [vehicle.id]: { selected: false } });
+const earlierClose = retryPlan.flush();
+retryPlan.stage({ [vehicle.id]: { selected: false }, latest: { selected: false } });
+const laterClose = retryPlan.flush();
+cloudPlan = { revision: 10, items: writes[3].items };
+acknowledge.resolve(cloudPlan);
+await earlierClose;
+assert.equal(writes.length, 5, "a later close must submit edits made during the previous save");
+assert.equal(writes[4].revision, 10, "later draft uses the acknowledged revision");
+assert.equal(
+  writes[4].items.latest.selected,
+  false,
+  "late acknowledgement cannot erase newer edits",
+);
+cloudPlan = { revision: 11, items: writes[4].items };
+acknowledge.resolve(cloudPlan);
+await laterClose;
+
+const conflict = new SalePreferenceDraft("user:conflict", draftStorage, draftRemote);
+draftStorage.setItem(
+  conflict.pendingKey,
+  JSON.stringify({ revision: 5, items: { conflicting: { selected: false } } }),
+);
+await conflict.load();
+await conflict.flush();
+assert.equal(writes.length, 5, "revision conflict must not overwrite the cloud");
+assert.equal(conflict.getSnapshot().ready, false);
+assert.ok(JSON.parse(conflict.exportPending()).items.conflicting);
+assert.ok(conflict.pendingKey !== retryPlan.pendingKey, "pending storage remains owner scoped");
+const guestPlan = new SalePreferenceDraft("", draftStorage);
+await guestPlan.load();
+guestPlan.stage({ guest: { selected: false } });
+await guestPlan.flush();
+assert.equal(writes.length, 5, "guest selection stays local");
+assert.equal(
+  JSON.parse(draftStorage.getItem("wt-sale-cart-preferences-v1:guest")).guest.selected,
+  false,
+);
+let finishInitialRead;
+const earlyClose = new SalePreferenceDraft("user:early", draftStorage, {
+  ...draftRemote,
+  read: () =>
+    new Promise((resolve) => {
+      finishInitialRead = resolve;
+    }),
+});
+draftStorage.setItem(
+  earlyClose.pendingKey,
+  JSON.stringify({ revision: 11, items: { early: { selected: false } } }),
+);
+const initialRead = earlyClose.load();
+const closeBeforeRead = earlyClose.flush();
+assert.equal(writes.length, 5);
+finishInitialRead(cloudPlan);
+await initialRead;
+assert.equal(
+  writes.length,
+  6,
+  "close during initial reading still flushes the restored draft afterward",
+);
+acknowledge.resolve({ revision: 12, items: writes[5].items });
+await closeBeforeRead;
+cloudPlan = { revision: 12, items: {} };
+const revertedPlan = new SalePreferenceDraft("user:reverted", draftStorage, draftRemote);
+await revertedPlan.load();
+revertedPlan.stage({ [vehicle.id]: { selected: false } });
+const beforeRevert = revertedPlan.flush();
+revertedPlan.stage({ [vehicle.id]: { selected: true } });
+const afterRevert = revertedPlan.flush();
+cloudPlan = { revision: 13, items: writes[6].items };
+acknowledge.resolve(cloudPlan);
+await beforeRevert;
+assert.equal(
+  JSON.parse(draftStorage.getItem(revertedPlan.pendingKey)).items[vehicle.id].selected,
+  true,
+  "reverting during a save must still retain the newer selection durably",
+);
+acknowledge.resolve({ revision: 14, items: writes[7].items });
+await afterRevert;
+let sessionVersion = 0,
+  guardedReads = 0;
+cloudPlan = { revision: 14, items: {} };
+const guarded = new SalePreferenceDraft("user:identity", draftStorage, {
+  ...draftRemote,
+  read: async () => {
+    guardedReads++;
+    return structuredClone(cloudPlan);
+  },
+  captureIdentity: () => {
+    const version = sessionVersion;
+    return () => sessionVersion === version;
+  },
+});
+await guarded.load();
+guarded.stage({ [vehicle.id]: { selected: false } });
+const guardedWrite = guarded.flush();
+guarded.stage({ [vehicle.id]: { selected: false }, newer: { selected: false } });
+const guardedLoad = guarded.load(),
+  guardedClose = guarded.flush();
+const writesBeforeSwitch = writes.length;
+sessionVersion++;
+acknowledge.resolve({ revision: 15, items: writes.at(-1).items });
+await Promise.all([guardedWrite, guardedLoad, guardedClose]);
+assert.equal(guardedReads, 1, "a queued load cannot read a new account's preferences");
+assert.equal(writes.length, writesBeforeSwitch, "queued saves must stop when the session changes");
+assert.equal(JSON.parse(draftStorage.getItem(guarded.pendingKey)).items.newer.selected, false);
+console.log(
+  "Sale preference drafts passed: immediate selection/totals, close batching, duplicate/early close, failure retention, deferred retry, late edits, revision/owner isolation and local guests.",
 );

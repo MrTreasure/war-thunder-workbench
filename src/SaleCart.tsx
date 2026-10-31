@@ -120,7 +120,10 @@ export function SaleCart({
           ? "载具沿用账号关注列表；购车勾选按账号保存。已拥有载具不计费，其余按原价合计；当前活动价与史低价单独展示。"
           : "游客清单保存在本浏览器。按原价分别合计整包人民币与金鹰价格。"
       }
-      close={close}
+      close={() => {
+        close();
+        void preferences.flush();
+      }}
       className="wt-sale-cart-modal"
     >
       <div className="wt-sale-cart-toolbar">
