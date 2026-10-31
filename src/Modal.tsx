@@ -41,7 +41,7 @@ export function Modal({
           <h2 id={titleId}>{title}</h2>
           <p>{subtitle}</p>
         </div>
-        <GameButton tone="ghost" icon="close" onClick={close}>
+        <GameButton tone="ghost" icon="close" onClick={close} aria-label={t("关闭")}>
           {t("关闭")}
         </GameButton>
       </header>

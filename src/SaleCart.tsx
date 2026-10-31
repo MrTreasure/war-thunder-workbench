@@ -109,6 +109,13 @@ export function SaleCart({
     return true;
   });
   const enabled = ready && preferences.ready;
+  const allSelected = vehicles
+    .filter((v) => !workspace?.ownedVehicleIds.has(v.id))
+    .every((v) => preferences.items[v.id]?.selected !== false);
+  function removeVehicle(vehicle: SaleVehicle) {
+    const index = vehicles.findIndex((item) => item.id === vehicle.id);
+    if (save(vehicles.filter((item) => item.id !== vehicle.id))) setRemoved({ vehicle, index });
+  }
   return (
     <Modal
       title={t("我的购物车")}
@@ -119,7 +126,10 @@ export function SaleCart({
             )
           : t("游客清单保存在本浏览器。按原价分别合计整包人民币与金鹰价格。")
       }
-      close={close}
+      close={() => {
+        close();
+        void preferences.flush();
+      }}
       className="wt-sale-cart-modal"
     >
       <div className="wt-sale-cart-toolbar">
@@ -128,22 +138,48 @@ export function SaleCart({
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder={t("搜索已加入的载具")}
+            placeholder={t("搜索载具")}
           />
         </label>
         <label>
           <span className="sr-only">{t("筛选购物车")}</span>
-          <GameSelect value={filter} onValueChange={setFilter}>
-            <option value="all">
-              {t("全部载具（")}
-              {localize(vehicles.length)}）
-            </option>
+          <GameSelect
+            value={filter}
+            onValueChange={setFilter}
+            aria-label={t("筛选购物车")}
+            renderValue={(value) => (
+              <>
+                <span className="wt-sale-cart-desktop-only">
+                  {value === "all"
+                    ? t("全部载具（{0}）", [vehicles.length])
+                    : value === "unpurchased"
+                      ? t("尚未拥有")
+                      : value === "owned"
+                        ? t("已拥有")
+                        : t("资料待核对")}
+                </span>
+                <span className="wt-sale-cart-mobile-only">
+                  {value === "all"
+                    ? t("全部（{0}）", [vehicles.length])
+                    : value === "unpurchased"
+                      ? t("未拥有")
+                      : value === "owned"
+                        ? t("已拥有")
+                        : t("待核对")}
+                </span>
+              </>
+            )}
+          >
+            <option value="all">{t("全部载具（{0}）", [vehicles.length])}</option>
             <option value="unpurchased">{t("尚未拥有")}</option>
             <option value="owned">{t("已拥有")}</option>
             <option value="unknown">{t("资料待核对")}</option>
           </GameSelect>
         </label>
-        <button onClick={add}>{t("＋ 添加载具")}</button>
+        <button className="wt-sale-cart-add" onClick={add} aria-label={t("添加购物车载具")}>
+          <span aria-hidden="true">＋</span>
+          <span className="wt-sale-cart-desktop-only">{t(" 添加载具")}</span>
+        </button>
       </div>
       {localize(
         (error || priceError || preferences.error) && (
@@ -301,7 +337,7 @@ export function SaleCart({
                       className="wt-sale-cart-price-tip"
                       icon={
                         <b
-                          data-label={t("当前活动价 · ")}
+                          data-label={t("现价 · ")}
                           className={displayPrice !== null ? "wt-sale-cart-amount" : undefined}
                         >
                           {localize(currentText)}
@@ -428,20 +464,21 @@ export function SaleCart({
                   )}
                 </div>
                 <div className="wt-sale-cart-actions">
-                  {localize(
-                    v.store && (
-                      <a href={v.store} target="_blank" rel="noreferrer">
-                        {t("官方购买 ↗")}
-                      </a>
-                    ),
+                  <button
+                    className="wt-sale-cart-mobile-only"
+                    onClick={() => setHistory(v)}
+                    aria-label={t("查看{0}价格记录", [vehicleName(v)])}
+                  >
+                    {t("价格记录")}
+                  </button>
+                  {v.store && (
+                    <a href={v.store} target="_blank" rel="noreferrer">
+                      {t("官方购买 ↗")}
+                    </a>
                   )}
                   <button
                     disabled={!ready}
-                    onClick={() => {
-                      const index = vehicles.findIndex((x) => x.id === v.id);
-                      if (save(vehicles.filter((x) => x.id !== v.id)))
-                        setRemoved({ vehicle: v, index });
-                    }}
+                    onClick={() => removeVehicle(v)}
                     aria-label={t("移除{0}", [vehicleName(v)])}
                   >
                     {t("移除")}
@@ -453,11 +490,12 @@ export function SaleCart({
         )}
       </div>
       <footer className="wt-sale-cart-footer">
-        <div>
+        <div className="wt-sale-cart-summary">
           <strong>
-            {t("已选")}
-            {localize(totals.selected)} {t("辆 ·")}
-            {localize(totals.products)} {t("件商品")}
+            {t("已选 {0} 辆", [totals.selected])}
+            <span className="wt-sale-cart-desktop-only">
+              {t(" · {0} 件商品", [totals.products])}
+            </span>
           </strong>
           <span>
             {localize(
@@ -471,17 +509,17 @@ export function SaleCart({
               ),
             )}
           </span>
-          <small>
-            {localize(
-              totals.missing
-                ? t("{0} 辆缺少有效报价，未计入小计", [totals.missing])
-                : t("按原价合计；当前活动价与史低价仅供参考"),
-            )}
-            {localize(totals.owned > 0 && t(" · {0} 辆已拥有，已免计", [totals.owned]))}
-            {localize(totals.duplicates > 0 && t(" · {0} 个重复礼包已去重", [totals.duplicates]))}
+          <small
+            className={totals.missing ? "wt-sale-cart-total-warning" : "wt-sale-cart-total-note"}
+          >
+            {totals.missing
+              ? t("{0} 辆缺少有效报价，未计入小计", [totals.missing])
+              : t("按原价合计；当前活动价与史低价仅供参考")}
+            {totals.owned > 0 && t(" · {0} 辆已拥有，已免计", [totals.owned])}
+            {totals.duplicates > 0 && t(" · {0} 个重复礼包已去重", [totals.duplicates])}
           </small>
         </div>
-        <div>
+        <div className="wt-sale-cart-footer-actions">
           <button
             disabled={!enabled}
             onClick={() =>
@@ -490,16 +528,15 @@ export function SaleCart({
                   vehicles.map((v) => [
                     v.id,
                     {
-                      selected: !vehicles
-                        .filter((x) => !workspace?.ownedVehicleIds.has(x.id))
-                        .every((x) => preferences.items[x.id]?.selected !== false),
+                      selected: !allSelected,
                     },
                   ]),
                 ),
               )
             }
           >
-            {t("全选 / 取消")}
+            <span className="wt-sale-cart-desktop-only">{t("全选 / 取消")}</span>
+            <span className="wt-sale-cart-mobile-only">{allSelected ? t("取消") : t("全选")}</span>
           </button>
           <button
             onClick={() =>
@@ -511,7 +548,8 @@ export function SaleCart({
               })
             }
           >
-            {t("导出清单")}
+            <span className="wt-sale-cart-desktop-only">{t("导出清单")}</span>
+            <span className="wt-sale-cart-mobile-only">{t("导出")}</span>
           </button>
         </div>
       </footer>

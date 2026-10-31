@@ -48,6 +48,9 @@
 .wt-sale-cart-search input {
   width: 100%;
 }
+.wt-sale-cart-modal .wt-sale-cart-mobile-only {
+  display: none;
+}
 .wt-sale-cart-modal input:not([type="checkbox"]),
 .wt-price-history-modal input {
   min-height: 36px;
@@ -212,6 +215,10 @@
   font-size: 21px;
   color: var(--wt-gold);
   font-variant-numeric: tabular-nums;
+}
+.wt-sale-cart-footer .wt-sale-cart-desktop-only {
+  font: inherit;
+  color: inherit;
 }
 .wt-sale-cart-footer small {
   font-size: 11px;
