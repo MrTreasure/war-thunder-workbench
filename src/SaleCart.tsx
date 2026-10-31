@@ -395,38 +395,19 @@ export function SaleCart({
                   )}
                 </div>
                 <div className="wt-sale-cart-actions">
-                  <GameSelect
+                  <button
                     className="wt-sale-cart-mobile-only"
-                    value=""
-                    renderValue={() => "操作"}
-                    aria-label={`${v.name}购物车操作`}
-                    onValueChange={(action) => {
-                      if (action === "history") setHistory(v);
-                      if (action === "buy" && v.store)
-                        window.open(v.store, "_blank", "noopener,noreferrer");
-                      if (action === "remove" && ready) removeVehicle(v);
-                    }}
+                    onClick={() => setHistory(v)}
+                    aria-label={`查看${v.name}价格记录`}
                   >
-                    <option value="history">价格记录</option>
-                    <option value="buy" disabled={!v.store}>
-                      官方购买 ↗
-                    </option>
-                    <option value="remove" disabled={!ready}>
-                      移除载具
-                    </option>
-                  </GameSelect>
+                    价格记录
+                  </button>
                   {v.store && (
-                    <a
-                      className="wt-sale-cart-desktop-only"
-                      href={v.store}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
+                    <a href={v.store} target="_blank" rel="noreferrer">
                       官方购买 ↗
                     </a>
                   )}
                   <button
-                    className="wt-sale-cart-desktop-only"
                     disabled={!ready}
                     onClick={() => removeVehicle(v)}
                     aria-label={`移除${v.name}`}
