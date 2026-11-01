@@ -3,7 +3,7 @@ import { sha256 } from "@noble/hashes/sha2.js";
 import { bytesToHex } from "@noble/hashes/utils.js";
 import settings from "./config/player-stats.json";
 import { statsHeaders } from "./player-stats-api";
-import { isMapGuideSourceURL } from "./map-route-sources";
+import { validMapRoute } from "./map-route-validation";
 
 export type GroundAtlas = typeof bundledAtlas;
 export type GroundMap = GroundAtlas["maps"][number];
@@ -31,7 +31,7 @@ export type MapRoute = {
   sourceVersion?: string;
   evidenceStatus?: string;
   sourceTimes?: number[];
-  side?: string;
+  side?: string | number;
 };
 // Maps use the deployed versioned endpoint independently of the vehicle catalog channel.
 export const mapAPIBase = `${settings.apiBaseUrl}/map-data-preview`;
@@ -239,51 +239,6 @@ export async function fetchMapSnapshot(signal: AbortSignal): Promise<MapSnapshot
   if (!validateMapSnapshot(snapshot)) throw new Error("地图资料格式或资源地址无效");
   return snapshot;
 }
-function validRoute(v: unknown): v is MapRoute {
-  if (
-    !record(v) ||
-    !id(v.id) ||
-    (v.routeId !== undefined && v.routeId !== v.id) ||
-    !id(v.mapId) ||
-    !id(v.layoutId) ||
-    ![1, 2].includes(Number(v.team)) ||
-    !Array.isArray(v.matrix) ||
-    v.matrix.length !== 6 ||
-    !v.matrix.every(finite) ||
-    !finite(v.width) ||
-    v.width <= 0 ||
-    !finite(v.height) ||
-    v.height <= 0 ||
-    typeof v.sourceUrl !== "string" ||
-    !isMapGuideSourceURL(v.sourceUrl) ||
-    (v.guideVersion !== undefined &&
-      (!Number.isInteger(v.guideVersion) || Number(v.guideVersion) < 1)) ||
-    (v.tacticsMarkdown !== undefined &&
-      (typeof v.tacticsMarkdown !== "string" || v.tacticsMarkdown.length > 32000)) ||
-    (v.sourceSummary !== undefined &&
-      (typeof v.sourceSummary !== "string" || v.sourceSummary.length > 1000)) ||
-    (v.sourceData !== undefined && !record(v.sourceData)) ||
-    (v.spawnSide !== undefined && (typeof v.spawnSide !== "string" || v.spawnSide.length > 100)) ||
-    (v.side !== undefined && (typeof v.side !== "string" || v.side.length > 100)) ||
-    (v.sourceVersion !== undefined &&
-      (typeof v.sourceVersion !== "string" || v.sourceVersion.length > 100)) ||
-    (v.evidenceStatus !== undefined &&
-      (typeof v.evidenceStatus !== "string" || v.evidenceStatus.length > 100)) ||
-    (v.sourceTimes !== undefined &&
-      (!Array.isArray(v.sourceTimes) ||
-        !v.sourceTimes.every((n: unknown) => finite(n) && n >= 0))) ||
-    !record(v.svg)
-  )
-    return false;
-  return (
-    v.matrix[0] * v.matrix[3] - v.matrix[1] * v.matrix[2] > 0 &&
-    digest(v.svg.sha256) &&
-    v.svg.path === `map-guides/assets/${v.svg.sha256}.svg` &&
-    finite(v.svg.bytes) &&
-    v.svg.bytes > 0 &&
-    v.svg.bytes <= 262144
-  );
-}
 export async function fetchMapRoutes(
   releaseId: string,
   signal: AbortSignal,
@@ -307,7 +262,7 @@ export async function fetchMapRoutes(
     value.releaseId !== releaseId ||
     !Array.isArray(value.items) ||
     value.items.length > 1000 ||
-    !value.items.every(validRoute) ||
+    !value.items.every(validMapRoute) ||
     new Set(value.items.map((route: MapRoute) => route.id)).size !== value.items.length
   )
     throw new Error("走线索引格式无效");

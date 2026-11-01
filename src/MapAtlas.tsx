@@ -30,29 +30,47 @@ function MapDataStatus({ error, retry }: { error: string; retry: () => void }) {
 function RouteText({ markdown }: { markdown: string }) {
   return (
     <div className="ground-route-text">
-      {markdown.split(/\n\s*\n/).filter(Boolean).map((block, index) => {
-        const content = block.trim();
-        if (content.startsWith("### ")) return <h5 key={index}>{content.slice(4)}</h5>;
-        if (content.startsWith("## ")) return <h4 key={index}>{content.slice(3)}</h4>;
-        if (content.startsWith("# ")) return <h4 key={index}>{content.slice(2)}</h4>;
-        if (content.startsWith("|")) {
-          const rows = content.split("\n").map((line) => line.trim().replace(/^\||\|$/g, "").split("|"));
-          const headings = rows[0];
-          return (
-            <div className="ground-route-table" key={index}>
-              <table>
-                <thead><tr>{headings.map((heading, i) => <th key={i}>{heading.trim()}</th>)}</tr></thead>
-                <tbody>
-                  {rows.slice(2).map((cells, row) => (
-                    <tr key={row}>{cells.map((cell, i) => <td key={i}>{cell.trim()}</td>)}</tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          );
-        }
-        return <p key={index}>{content.replace(/^[-*] /gm, "• ")}</p>;
-      })}
+      {markdown
+        .split(/\n\s*\n/)
+        .filter(Boolean)
+        .map((block, index) => {
+          const content = block.trim();
+          if (content.startsWith("### ")) return <h5 key={index}>{content.slice(4)}</h5>;
+          if (content.startsWith("## ")) return <h4 key={index}>{content.slice(3)}</h4>;
+          if (content.startsWith("# ")) return <h4 key={index}>{content.slice(2)}</h4>;
+          if (content.startsWith("|")) {
+            const rows = content.split("\n").map((line) =>
+              line
+                .trim()
+                .replace(/^\||\|$/g, "")
+                .split("|"),
+            );
+            const headings = rows[0];
+            return (
+              <div className="ground-route-table" key={index}>
+                <table>
+                  <thead>
+                    <tr>
+                      {headings.map((heading, i) => (
+                        <th key={i}>{heading.trim()}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {rows.slice(2).map((cells, row) => (
+                      <tr key={row}>
+                        {cells.map((cell, i) => (
+                          <td key={i}>{cell.trim()}</td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            );
+          }
+          return <p key={index}>{content.replace(/^[-*] /gm, "• ")}</p>;
+        })}
     </div>
   );
 }
@@ -144,7 +162,7 @@ function MapAtlasContent({ snapshot }: { snapshot: MapSnapshot }) {
         ).includes(normalize(query)) &&
         (!onlyGuides ||
           guides.length ||
-          (isSuperAdmin && hasRoute(atlas, coverage, map.id, thumb.layoutId))),
+          (isSuperAdmin && hasRoute(atlas, coverage.routes, map.id, thumb.layoutId))),
     );
   if (selected)
     return (
@@ -187,6 +205,9 @@ function MapAtlasContent({ snapshot }: { snapshot: MapSnapshot }) {
         </button>
         <span>{cards.length} 个三点占领布局</span>
       </div>
+      {coverage.status === "error" && (
+        <MapDataStatus error={coverage.error} retry={coverage.retry} />
+      )}
       <section className="ground-gallery" aria-label="地图列表">
         {cards.map(({ map, thumb, guides }) => (
           <Link
@@ -205,7 +226,7 @@ function MapAtlasContent({ snapshot }: { snapshot: MapSnapshot }) {
                 loading="lazy"
                 decoding="async"
               />
-              {isSuperAdmin && hasRoute(atlas, coverage, map.id, thumb.layoutId) ? (
+              {isSuperAdmin && hasRoute(atlas, coverage.routes, map.id, thumb.layoutId) ? (
                 <span className="ground-guide-badge">推荐走线</span>
               ) : guides.length > 0 ? (
                 <span className="ground-guide-badge">攻略 {guides.length}</span>
@@ -353,8 +374,9 @@ function GroundDetail({
   const [routeState, setRouteState] = useState({ id: "", status: "loading" });
   const [routeRetry, setRouteRetry] = useState(0);
   const routeContextKey = `${releaseId}:${routeContext.mapId}:${routeContext.layoutId}:${team}`;
+  const coverage = useMapRouteCoverage(releaseId, isSuperAdmin);
   const routeOptions = routesForContext(
-    useMapRouteCoverage(releaseId, isSuperAdmin),
+    coverage.routes,
     routeContext.mapId,
     routeContext.layoutId,
     team,
@@ -383,11 +405,13 @@ function GroundDetail({
       : baseGuides;
   const routeKey = `${route?.url || "none"}:${routeRetry}`;
   const routeStatus =
-    routeData.status === "loaded"
-      ? routeState.id === routeKey
-        ? routeState.status
-        : "loading"
-      : routeData.status;
+    coverage.status === "loading" || coverage.status === "error"
+      ? coverage.status
+      : routeData.status === "loaded"
+        ? routeState.id === routeKey
+          ? routeState.status
+          : "loading"
+        : routeData.status;
   const [zoom, setZoom] = useState(1),
     [offset, setOffset] = useState({ x: 0, y: 0 });
   const [failed, setFailed] = useState(false),
@@ -521,7 +545,7 @@ function GroundDetail({
             aria-busy={recommendations && routeStatus === "loading"}
             title={
               recommendations && routeStatus === "error"
-                ? routeData.error || "推荐走线加载失败，点击重试"
+                ? coverage.error || routeData.error || "推荐走线加载失败，点击重试"
                 : recommendations && routeStatus === "loading"
                   ? "正在读取推荐走线"
                   : routeStatus === "empty" && recommendations
@@ -529,8 +553,10 @@ function GroundDetail({
                     : "显示或隐藏推荐走线"
             }
             onClick={() => {
-              if (recommendations && routeStatus === "error") setRouteRetry((v) => v + 1);
-              else setRecommendations((v) => !v);
+              if (recommendations && routeStatus === "error") {
+                if (coverage.status === "error") coverage.retry();
+                else setRouteRetry((v) => v + 1);
+              } else setRecommendations((v) => !v);
             }}
           >
             {routeStatus === "loading" && recommendations

@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { readFile, readdir } from "node:fs/promises";
 import { DOMParser } from "linkedom";
 import { sharedMapGuides, sharedMapIdentity, sharedMapRoute } from "../src/ground-map-sharing.ts";
@@ -6,6 +7,7 @@ import { displayMapMarks } from "../src/ground-map-marks.ts";
 import { MapRouteCache } from "../src/map-route-cache.ts";
 import { routesForContext, selectedMapRoute } from "../src/map-route-selection.ts";
 import { isMapGuideSourceURL } from "../src/map-route-sources.ts";
+import { validMapRoute } from "../src/map-route-validation.ts";
 for (const source of [
   "https://www.xiaoheihe.cn/app/bbs/link/166293424",
   "https://www.bilibili.com/video/BV1158z6FEW6/",
@@ -123,6 +125,30 @@ for (const route of routes) {
   assert(/^https:\/\/www\.xiaoheihe\.cn\/app\/bbs\/link\/\d+$/.test(route.sourceUrl));
   assert(/^\d+-\d+\.svg$/.test(route.svg));
   const svg = await readFile(new URL("data/map-recommendations/" + route.svg, root), "utf8");
+  const sha256 = createHash("sha256").update(svg).digest("hex");
+  const apiRoute = {
+    ...route,
+    svg: {
+      path: `map-guides/assets/${sha256}.svg`,
+      sha256,
+      bytes: Buffer.byteLength(svg),
+    },
+  };
+  assert(validMapRoute(apiRoute), `${route.id}: API must accept the existing numeric side`);
+  assert(
+    validMapRoute({
+      ...apiRoute,
+      side: "east",
+      guideVersion: 2,
+      sourceUrl: "https://www.bilibili.com/video/BV1158z6FEW6/",
+    }),
+    "New guide side/source must be accepted",
+  );
+  assert(
+    !validMapRoute({ ...apiRoute, side: 0 }),
+    "Invalid numeric source ordinal must be rejected",
+  );
+  assert(!validMapRoute({ ...apiRoute, side: {} }), "Malformed side must be rejected");
   assert(
     !/<!DOCTYPE|<!ENTITY|<script|<foreignObject|\bon\w+=|\bhref=|javascript:|data:|https?:/i.test(
       svg.replace("http://www.w3.org/2000/svg", ""),

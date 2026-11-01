@@ -137,9 +137,14 @@ export function useMapCatalog() {
   };
 }
 export function useMapRouteCoverage(releaseId: string, enabled: boolean) {
-  const [saved, setSaved] = useState<{ key: string; routes: MapRoute[] }>({ key: "", routes: [] });
+  const [attempt, setAttempt] = useState(0);
+  const [saved, setSaved] = useState<{ key: string; routes: MapRoute[]; error: string }>({
+    key: "",
+    routes: [],
+    error: "",
+  });
   const authorization = statsHeaders().Authorization || "";
-  const key = `${authorization}:${releaseId}`;
+  const key = `${authorization}:${releaseId}:${attempt}`;
   const cache = routeCache(enabled ? authorization : "");
   useEffect(() => {
     if (!cache || !releaseId) return;
@@ -147,21 +152,36 @@ export function useMapRouteCoverage(releaseId: string, enabled: boolean) {
     void cache
       .index(releaseId)
       .then((routes) => {
-        if (active) setSaved({ key, routes });
+        if (active) setSaved({ key, routes, error: "" });
       })
-      .catch(() => {});
+      .catch((error) => {
+        if (active)
+          setSaved({
+            key,
+            routes: [],
+            error: error instanceof Error ? error.message : "走线索引读取失败",
+          });
+      });
     return () => {
       active = false;
     };
   }, [key, cache, releaseId]);
-  return enabled && authorization && saved.key === key ? saved.routes : [];
+  const current = enabled && authorization && saved.key === key;
+  return {
+    routes: current ? saved.routes : [],
+    status:
+      !enabled || !authorization
+        ? "empty"
+        : !current
+          ? "loading"
+          : saved.error
+            ? "error"
+            : "loaded",
+    error: current ? saved.error : "",
+    retry: () => setAttempt((value) => value + 1),
+  };
 }
-export function useMapRoute(
-  releaseId: string,
-  routeId: string,
-  enabled: boolean,
-  retry: number,
-) {
+export function useMapRoute(releaseId: string, routeId: string, enabled: boolean, retry: number) {
   const authorization = statsHeaders().Authorization || "";
   const key = `${authorization}:${releaseId}:${routeId}:${retry}`;
   const cache = routeCache(authorization);
