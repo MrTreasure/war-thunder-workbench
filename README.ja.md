@@ -4,7 +4,7 @@
 
 技術ツリーの確認、研究計画、編成の保存に。戦績の確認、マップへのルート描画、セールのチェックもまとめて使えます。
 
-**[メインサイト · QMuse](https://render.qmuse.pub/p/muse/8645013411493394)** · **[国際サイト](https://wt.mrtreasure.cc/ja/)** · [使い方ガイド](docs/usage.ja.md)
+**[メインサイト · QMuse](https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB&chInfo=junliang)** · **[国際サイト](https://wt.mrtreasure.cc/ja/)** · [使い方ガイド](docs/usage.ja.md)
 
 ## 技術ツリーと兵器詳細
 

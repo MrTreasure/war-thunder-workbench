@@ -4,7 +4,7 @@
 
 Изучайте деревья техники, планируйте исследование и собирайте наборы. Проверяйте статистику, рисуйте маршруты на картах и следите за скидками.
 
-**[Основной сайт · QMuse](https://render.qmuse.pub/p/muse/8645013411493394)** · **[Международный сайт](https://wt.mrtreasure.cc/ru/)** · [Руководство](docs/usage.ru.md)
+**[Основной сайт · QMuse](https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB&chInfo=junliang)** · **[Международный сайт](https://wt.mrtreasure.cc/ru/)** · [Руководство](docs/usage.ru.md)
 
 ## Деревья техники и сведения о машинах
 

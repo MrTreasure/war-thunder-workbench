@@ -33,7 +33,7 @@ export function DisclaimerPage() {
         <p className="wt-app-platform-credit">
           本应用通过{" "}
           <a
-            href="https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB"
+            href="https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB&chInfo=junliang"
             target="_blank"
             rel="noopener noreferrer"
           >

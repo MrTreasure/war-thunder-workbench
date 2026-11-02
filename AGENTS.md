@@ -477,7 +477,7 @@
 - 组件适配已知资料；字段缺失保持未知，不补零、不臆造 BR／币价，不因渲染单个组件请求数据或全量加载十国资料。载具稳定 ID、已有本地存储键、分享码、筛选与排序行为保持兼容。
 - 估值第三种场景统一显示“参考价值”；原 API、缓存及规则键 `secondHand` 保留，金额、费率与估值算法不因文案修改而改变。
 - 科技树隐藏共享页脚，其余页面由 `AppFooter` 在正常滚动内容底部展示精简入口，完整声明见独立免责声明页；不得做成固定遮挡条或改变地图编辑器画布尺寸。
-- 页脚明确显示“本应用通过 QMuse Vibecoding 平台搭建”，链接为 `https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB`，带外跳符号、新窗口与 `noopener noreferrer`。顶部共享 CreatorLink 保留；本项是用户要求的独立平台署名，不重复整块推广组件。
+- 页脚明确显示“本应用通过 QMuse Vibecoding 平台搭建”，链接为 `https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB&chInfo=junliang`，带外跳符号、新窗口与 `noopener noreferrer`。顶部共享 CreatorLink 保留；本项是用户要求的独立平台署名，不重复整块推广组件。
 - `style.md` 是本应用视觉方案与组件使用规范；新增或修改界面应先读取。两站视觉组件保持一致，国际站新增文案及名称、数值格式必须补齐英／俄／日。
 
 ## 共享载具资料与本地筛选（2026-10-28 更新）
