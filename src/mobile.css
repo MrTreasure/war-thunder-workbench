@@ -4004,7 +4004,7 @@
   .wt-mount-requirements > div:first-child > .wt-mount-weapon-filters > label:first-child { grid-column: 1; }
   .wt-mount-requirements > div:first-child > .wt-mount-weapon-filters > label:last-child { grid-column: 2 / -1; }
   .wt-mount-summary-strip { gap: 10px; }
-  .wt-mount-preview-slots > li { flex-basis: 108px; width: 108px; }
+  .wt-mount-preview-slots > li { flex-basis: 108px; width: 108px; min-width: 108px; }
 }
 
 @media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {

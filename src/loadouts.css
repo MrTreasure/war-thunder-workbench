@@ -580,13 +580,15 @@ nav.wt-mount-tabs { overflow-x: auto; }
 .wt-mount-summary-strip .vehicle-card { margin: 0; }
 .wt-mount-preview-slots { display: flex; flex-wrap: nowrap; align-items: stretch; gap: 8px; margin: 0; padding: 0; list-style: none; }
 .wt-mount-recommendation-list .wt-mount-preview-slots { padding: 0; line-height: 1.4; }
-.wt-mount-preview-slots > li { display: flex; flex: 0 0 112px; width: 112px; }
+/* A GameTip trigger defaults to flex-basis: 28px for info icons.
+   Keep each roster slot a block so that default cannot shrink its weapon card. */
+.wt-mount-preview-slots > li { display: block; flex: 0 0 112px; width: 112px; min-width: 112px; }
 /* finesse · component: loadout-plan-card · product · existing slate/gold tokens */
 .wt-mount-page button.wt-mount-preview-weapon,
-.wt-mount-preview-slots .wt-mount-preview-weapon { display: grid; grid-template-columns: 26px minmax(0,1fr); grid-template-rows: auto 1fr; column-gap: 6px; row-gap: 5px; align-items: center; justify-content: start; width: 100%; height: auto; min-height: 0; margin: 0; padding: 7px; color: var(--wt-ink); background: var(--wt-raised); border: 1px solid var(--wt-line); border-radius: 0; font-size: 12px; line-height: 1.45; white-space: normal; }
+.wt-mount-preview-slots .wt-mount-preview-weapon { display: grid; grid-template-columns: 26px minmax(0,1fr); grid-template-rows: auto 1fr; column-gap: 6px; row-gap: 5px; align-items: center; justify-content: start; box-sizing: border-box; flex: none; width: 100%; min-width: 100%; height: auto; min-height: 0; margin: 0; padding: 7px; color: var(--wt-ink); background: var(--wt-raised); border: 1px solid var(--wt-line); border-radius: 0; font-size: 12px; line-height: 1.45; white-space: normal; }
 .wt-mount-preview-top { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; gap: 6px; font-size: 11px; font-variant-numeric: tabular-nums; }
 .wt-mount-preview-label { color: var(--wt-muted); white-space: nowrap; }
-.wt-mount-preview-name { display: block; min-width: 0; min-height: 0; overflow: visible; white-space: normal; overflow-wrap: anywhere; text-align: left; }
+.wt-mount-preview-name { display: block; min-width: 0; min-height: 0; overflow: visible; white-space: normal; overflow-wrap: anywhere; word-break: normal; text-align: left; }
 .wt-mount-preview-weapon > img { width: 26px; height: 26px; flex: none; object-fit: contain; }
 .wt-mount-preview-weapon > svg { width: 26px; height: 26px; flex: none; }
 .wt-mount-page .wt-mount-saved, .wt-mount-shared-list { display: grid; grid-template-columns: minmax(0,1fr); gap: 12px; margin-top: 16px; }
