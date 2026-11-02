@@ -26,7 +26,7 @@ export function AppFooter() {
         </a>
         <nav aria-label={t("切换站点")}>
           <a
-            href="https://render.qmuse.pub/p/muse/8645013411493394"
+            href="https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB&chInfo=junliang"
             aria-current={main ? "page" : undefined}
           >
             {t("主站")}
@@ -39,7 +39,7 @@ export function AppFooter() {
         </nav>
         <span className="wt-app-platform-credit">
           <a
-            href="https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB"
+            href="https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB&chInfo=junliang"
             target="_blank"
             rel="noopener noreferrer"
           >

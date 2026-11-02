@@ -1,6 +1,6 @@
 # 功能图片
 
-[正式站](https://render.qmuse.pub/p/muse/8645013411493394) · [国际站](https://wt.mrtreasure.cc/)
+[正式站](https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB&chInfo=junliang) · [国际站](https://wt.mrtreasure.cc/)
 
 图片中的进度、单价与队列均为示例设置。五组队列及分享码见 [示例队列](../examples/lineups.json)。
 

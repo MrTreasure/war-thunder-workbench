@@ -8,7 +8,7 @@ export function CreatorLink() {
     <div className="creator-promo" aria-label={t("QMuse 创作平台")}>
       <Button asChild variant="ghost" className="creator-promo-link">
         <a
-          href="https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB"
+          href="https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB&chInfo=junliang"
           aria-label={t("QMuse，让灵感触手可及（新窗口打开）")}
           target="_blank"
           rel="noopener noreferrer"
