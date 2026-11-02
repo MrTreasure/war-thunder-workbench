@@ -3570,9 +3570,173 @@
       "era": "cold-war",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "videoAdvice": [
+        {
+          "id": "BV1SPmEBJE3y:end:16:author",
+          "caseId": null,
+          "sourceTime": 1698.171184,
+          "sourceTimeRange": [
+            1698.171184,
+            1716.566761
+          ],
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "text": "作者提醒防护分析看似脆，实际仍可能跳弹，整体建议绕侧攻击。图中是原车栅栏与实体装甲遮蔽下的前侧俯视，不能推断被遮挡部分，也不保证侧面任意部位必穿。",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "author-general-recommendation-not-independent-test",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "id": "BV1SPmEBJE3y:end:16:author",
+            "caseId": null,
+            "sourceTime": 1698.171184,
+            "sourceTimeRange": [
+              1698.171184,
+              1716.566761
+            ],
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "text": "原生标题确认Strv 103C。作者形容防护分析看似脆、实际容易跳弹，整体建议绕侧面攻击；1705实际UI为M1128 Wolfpack/M900/0米522mm，但口播未证明侧面每个部位必穿，也未记录独立试射成功。",
+            "polarity": "conditional-or-mixed",
+            "mechanism": "author-general-recommendation-not-independent-test",
+            "sourceClaimNotCanonicalFact": true,
+            "evidence": [
+              {
+                "text": "不然很容易被反杀",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1697.647063,
+                "lastObservedMediaTime": 1698.171184,
+                "firstObservedAt": "2026-11-02T16:10:24.493Z",
+                "lastObservedAt": "2026-11-02T16:10:24.746Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "摇完之后还有个更阴间的车",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1698.671615,
+                "lastObservedMediaTime": 1700.150963,
+                "firstObservedAt": "2026-11-02T16:10:24.999Z",
+                "lastObservedAt": "2026-11-02T16:10:25.756Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "是一个铲车",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1700.646645,
+                "lastObservedMediaTime": 1701.155654,
+                "firstObservedAt": "2026-11-02T16:10:26.009Z",
+                "lastObservedAt": "2026-11-02T16:10:26.263Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "整个车长得都非常的扁",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1701.685027,
+                "lastObservedMediaTime": 1702.700169,
+                "firstObservedAt": "2026-11-02T16:10:26.520Z",
+                "lastObservedAt": "2026-11-02T16:10:27.030Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "在防护分析里面好像很脆",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1703.193263,
+                "lastObservedMediaTime": 1704.124051,
+                "firstObservedAt": "2026-11-02T16:10:27.282Z",
+                "lastObservedAt": "2026-11-02T16:10:27.793Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "但实际上因为这个车非常大",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1704.645569,
+                "lastObservedMediaTime": 1706.106805,
+                "firstObservedAt": "2026-11-02T16:10:28.052Z",
+                "lastObservedAt": "2026-11-02T16:10:28.818Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "非常容易跳弹",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1706.530013,
+                "lastObservedMediaTime": 1706.980574,
+                "firstObservedAt": "2026-11-02T16:10:29.073Z",
+                "lastObservedAt": "2026-11-02T16:10:29.326Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "所以正面遇到这个车真的非常的恶心",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1707.488668,
+                "lastObservedMediaTime": 1709.015322,
+                "firstObservedAt": "2026-11-02T16:10:29.579Z",
+                "lastObservedAt": "2026-11-02T16:10:30.337Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "我的建议就是侧面一炮打死",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1709.503577,
+                "lastObservedMediaTime": 1711.004813,
+                "firstObservedAt": "2026-11-02T16:10:30.590Z",
+                "lastObservedAt": "2026-11-02T16:10:31.356Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "那那么聊完之后啊",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1711.508057,
+                "lastObservedMediaTime": 1712.015765,
+                "firstObservedAt": "2026-11-02T16:10:31.611Z",
+                "lastObservedAt": "2026-11-02T16:10:31.864Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "瑞典剩下的车就没有什么阴间",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1712.530208,
+                "lastObservedMediaTime": 1714.037021,
+                "firstObservedAt": "2026-11-02T16:10:32.116Z",
+                "lastObservedAt": "2026-11-02T16:10:32.874Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "特别也难打的了吧",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1714.553317,
+                "lastObservedMediaTime": 1714.553317,
+                "firstObservedAt": "2026-11-02T16:10:33.128Z",
+                "lastObservedAt": "2026-11-02T16:10:33.128Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "所以瑞典车咱们就先聊到这了",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1715.057515,
+                "lastObservedMediaTime": 1716.566761,
+                "firstObservedAt": "2026-11-02T16:10:33.380Z",
+                "lastObservedAt": "2026-11-02T16:10:34.140Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              }
+            ],
+            "vehicleId": "sw_strv_103c",
+            "relatedCaseId": "sw_strv_103c:BV1SPmEBJE3y:1705000",
+            "relatedCaseRelationship": "same-spoken-chapter/static-UI-context; not independently verified successful shot"
+          },
+          "vehicleId": "sw_strv_103c",
+          "relatedCaseId": "sw_strv_103c:BV1SPmEBJE3y:1705000",
+          "relatedCaseRelationship": "same-spoken-chapter/static-UI-context; not independently verified successful shot",
+          "label": "正面容易跳弹，优先绕侧",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "time": 1698.171184
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "status": "primary-view-with-author-advice-no-pins",
       "wikiUrl": "https://wiki.warthunder.com/unit/sw_strv_103c",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-20261102/snapshots/sw_strv_103c.json",
@@ -3592,7 +3756,136 @@
         "note": "仅主炮面板；待发弹耗尽后的持续装填不可套用自动装填标称值。"
       },
       "collectedAt": "2026-11-02",
-      "weaknessEvidenceStatus": "general-context-only"
+      "weaknessEvidenceStatus": "general-context-only",
+      "testCases": [
+        {
+          "id": "sw_strv_103c:BV1SPmEBJE3y:1705000",
+          "vehicleId": "sw_strv_103c",
+          "sourceTime": 1705,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerVehicleId": "us_m1128_wolfpack",
+          "attackerEnglishName": "M1128 Wolfpack",
+          "shell": "M900",
+          "sourceShellLabelOriginal": "M900",
+          "shellType": null,
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 522,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "17e550b9cdbeed9f6b7141014aeeac5b134512656fd2a36c82350b45cb0b569e",
+          "proofSHA256": "99fdd960b2940d670de04432b610fcf14e0d98a4b59fb12c17f857df3f656a83",
+          "attackUICropSHA256": "4daef845c6c9f9f76117c8289fa6d62a29f72e5b5b4051dad6a4bfaa52806132",
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
+          "notes": [
+            "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
+          ],
+          "attacker": "M1128 Wolfpack",
+          "shellTypeCode": null,
+          "shellTypeLabel": null,
+          "impactAngleDegrees": null,
+          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed"
+        }
+      ],
+      "testCaseEvidence": {
+        "sw_strv_103c:BV1SPmEBJE3y:1705000": {
+          "id": "sw_strv_103c:BV1SPmEBJE3y:1705000",
+          "vehicleId": "sw_strv_103c",
+          "sourceTime": 1705,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerVehicleId": "us_m1128_wolfpack",
+          "attackerEnglishName": "M1128 Wolfpack",
+          "shell": "M900",
+          "sourceShellLabelOriginal": "M900",
+          "shellType": null,
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 522,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "17e550b9cdbeed9f6b7141014aeeac5b134512656fd2a36c82350b45cb0b569e",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/024.json",
+          "proofSHA256": "99fdd960b2940d670de04432b610fcf14e0d98a4b59fb12c17f857df3f656a83",
+          "attackUICrop": "artifacts/tank-weakpoints-expansion-20261102/video-batches/parsed-BV1SPmEBJE3y-primary1198-end-batch-003/sw_strv_103c-attack-ui-native.webp",
+          "attackUICropSHA256": "4daef845c6c9f9f76117c8289fa6d62a29f72e5b5b4051dad6a4bfaa52806132",
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
+          "notes": [
+            "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
+          ]
+        }
+      },
+      "testContextEvidence": {
+        "id": "sw_strv_103c:BV1SPmEBJE3y:1705000",
+        "vehicleId": "sw_strv_103c",
+        "sourceTime": 1705,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "attackerVehicleId": "us_m1128_wolfpack",
+        "attackerEnglishName": "M1128 Wolfpack",
+        "shell": "M900",
+        "sourceShellLabelOriginal": "M900",
+        "shellType": null,
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 522,
+        "sourceGameVersion": null,
+        "actualShotObserved": false,
+        "outcome": null,
+        "sourceFrameSHA256": "17e550b9cdbeed9f6b7141014aeeac5b134512656fd2a36c82350b45cb0b569e",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/024.json",
+        "proofSHA256": "99fdd960b2940d670de04432b610fcf14e0d98a4b59fb12c17f857df3f656a83",
+        "attackUICrop": "artifacts/tank-weakpoints-expansion-20261102/video-batches/parsed-BV1SPmEBJE3y-primary1198-end-batch-003/sw_strv_103c-attack-ui-native.webp",
+        "attackUICropSHA256": "4daef845c6c9f9f76117c8289fa6d62a29f72e5b5b4051dad6a4bfaa52806132",
+        "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
+        "notes": [
+          "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
+        ]
+      },
+      "frontSummary": "作者提醒防护分析看似脆，实际仍可能跳弹，整体建议绕侧攻击。图中是原车栅栏与实体装甲遮蔽下的前侧俯视，不能推断被遮挡部分，也不保证侧面任意部位必穿。",
+      "frontSummaryAdviceIDs": [
+        "BV1SPmEBJE3y:end:16:author"
+      ],
+      "completeIllustration": false,
+      "missingEvidence": [
+        "清晰正面视角待补；原装栅栏局部遮蔽区域没有已核对的可见分析。",
+        "暂无经核对的局部标点。"
+      ],
+      "testContext": {
+        "attacker": "M1128 Wolfpack",
+        "attackerVehicleId": "us_m1128_wolfpack",
+        "shell": "M900",
+        "shellTypeCode": null,
+        "shellTypeLabel": null,
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 522,
+        "impactAngleDegrees": null,
+        "sourceTime": 1705,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "sourceGameVersion": null,
+        "caseId": "sw_strv_103c:BV1SPmEBJE3y:1705000",
+        "note": "原生静态已应用UI条件；防护分布计算进度不等于击穿概率，未声称独立试射成功。"
+      },
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Sweden-Flat-Vehicle-title-probe-1705.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/024.json",
+      "captureSHA256": "2638cecdf4f73ca3f3dcfc5d7b5cc16bbb29bcca856e4b4e1fa7dbbe62245773",
+      "originalFrameSHA256": "17e550b9cdbeed9f6b7141014aeeac5b134512656fd2a36c82350b45cb0b569e",
+      "time": 1705,
+      "crop": [
+        300,
+        150,
+        1150,
+        660
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageQuality": "1080p",
+      "imageView": "front",
+      "imageViewDetail": "front-three-quarter",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "前侧俯视防护分析；原装栅栏及实体装甲局部遮蔽绿区，不推断被遮挡区域。",
+      "mainImageUsable": true,
+      "coverageNotice": "前侧俯视分析 · 正面视角待补",
+      "coverageStatus": "partial-oblique-front-analysis"
     },
     {
       "id": "germ_leopard_1a5",
@@ -6003,9 +6296,110 @@
       "eraBasis": "按已核对的具体技术改型形成时期归类。",
       "collectedAt": "2026-11-02T08:59:24.617Z",
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "videoAdvice": [
+        {
+          "id": "BV1SPmEBJE3y:end:11:author:second",
+          "caseId": null,
+          "sourceTime": 1523.5,
+          "sourceTimeRange": [
+            1523.5,
+            1532.695747
+          ],
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "text": "作者认为车体相对可穿、炮塔较难处理，并以M1作类比。应结合实际弹药和入射角选择车体，不把这条建议解释为任何位置都能稳定击穿。",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "author-general-recommendation-not-independent-test",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "id": "BV1SPmEBJE3y:end:11:author:second",
+            "caseId": null,
+            "sourceTime": 1523.5,
+            "sourceTimeRange": [
+              1523.5,
+              1532.695747
+            ],
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "text": "原生标题确认Chieftain Mk 10（酋长Mk10）。作者说它同样是车体相对可穿、炮塔难打，并类比M1；1524.033实际UI为M60A3 TTS/M774/0米372mm。未观察到本帧独立成功试射，不把部位建议扩为必穿。",
+            "polarity": "conditional-or-mixed",
+            "mechanism": "author-general-recommendation-not-independent-test",
+            "sourceClaimNotCanonicalFact": true,
+            "evidence": [
+              {
+                "text": "只能打穿车体",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1524.492091,
+                "lastObservedMediaTime": 1524.971827,
+                "firstObservedAt": "2026-11-02T16:08:53.294Z",
+                "lastObservedAt": "2026-11-02T16:08:53.550Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1418-1528-normal-playback-subtitles.json"
+              },
+              {
+                "text": "炮塔非常的不好打",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1525.355532,
+                "lastObservedMediaTime": 1526.381286,
+                "firstObservedAt": "2026-11-02T16:08:53.806Z",
+                "lastObservedAt": "2026-11-02T16:08:54.319Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1418-1528-normal-playback-subtitles.json"
+              },
+              {
+                "text": "这一点就有点类似于美系的M1",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1526.888725,
+                "lastObservedMediaTime": 1528.420769,
+                "firstObservedAt": "2026-11-02T16:08:54.575Z",
+                "lastObservedAt": "2026-11-02T16:08:55.334Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1418-1528-normal-playback-subtitles.json"
+              },
+              {
+                "text": "也就是车体好打",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1528.816111,
+                "lastObservedMediaTime": 1529.323385,
+                "firstObservedAt": "2026-11-02T16:08:56.789Z",
+                "lastObservedAt": "2026-11-02T16:08:57.042Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1527-1637-normal-playback-subtitles.json"
+              },
+              {
+                "text": "炮塔硬的要死的设计",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1529.801479,
+                "lastObservedMediaTime": 1530.758748,
+                "firstObservedAt": "2026-11-02T16:08:57.294Z",
+                "lastObservedAt": "2026-11-02T16:08:57.808Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1527-1637-normal-playback-subtitles.json"
+              },
+              {
+                "text": "所以英系坦克咱们就先聊到这儿了",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1531.276166,
+                "lastObservedMediaTime": 1532.695747,
+                "firstObservedAt": "2026-11-02T16:08:58.063Z",
+                "lastObservedAt": "2026-11-02T16:08:58.821Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1527-1637-normal-playback-subtitles.json"
+              }
+            ],
+            "vehicleId": "uk_chieftain_mk_10",
+            "relatedCaseId": "uk_chieftain_mk_10:BV1SPmEBJE3y:1524033",
+            "relatedCaseRelationship": "same-spoken-chapter/static-UI-context; not independently verified successful shot"
+          },
+          "vehicleId": "uk_chieftain_mk_10",
+          "relatedCaseId": "uk_chieftain_mk_10:BV1SPmEBJE3y:1524033",
+          "relatedCaseRelationship": "same-spoken-chapter/static-UI-context; not independently verified successful shot",
+          "label": "车体优先，避免随意打炮塔",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "time": 1523.5
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "status": "primary-view-with-author-advice-no-pins",
       "wikiUrl": "https://wiki.warthunder.com/unit/uk_chieftain_mk_10",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-003-20261102/snapshots/uk_chieftain_mk_10.json",
@@ -6026,8 +6420,131 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。"
-      ]
+        "暂无经核对的局部标点；本次原片防护颜色仅适用于所列条件。"
+      ],
+      "testCases": [
+        {
+          "id": "uk_chieftain_mk_10:BV1SPmEBJE3y:1524033",
+          "vehicleId": "uk_chieftain_mk_10",
+          "sourceTime": 1524.033,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerVehicleId": "us_m60a3_tts",
+          "attackerEnglishName": "M60A3 TTS",
+          "shell": "M774",
+          "sourceShellLabelOriginal": "M774",
+          "shellType": null,
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 372,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "4b5216f6b0228da3fafccbebb800f08f4a0314da1c29a874b4661b7be3aaa45e",
+          "proofSHA256": "a67f92a76fd3e64be2c65c2507975cd87199cac48a41f4130bdd7ce2a3d259cb",
+          "attackUICropSHA256": "c468d518be1a51469df281517eca2a22be24a556d24b4d7a893b19452fd30cb6",
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
+          "notes": [
+            "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
+          ],
+          "attacker": "M60A3 TTS",
+          "shellTypeCode": null,
+          "shellTypeLabel": null,
+          "impactAngleDegrees": null,
+          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed"
+        }
+      ],
+      "testCaseEvidence": {
+        "uk_chieftain_mk_10:BV1SPmEBJE3y:1524033": {
+          "id": "uk_chieftain_mk_10:BV1SPmEBJE3y:1524033",
+          "vehicleId": "uk_chieftain_mk_10",
+          "sourceTime": 1524.033,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerVehicleId": "us_m60a3_tts",
+          "attackerEnglishName": "M60A3 TTS",
+          "shell": "M774",
+          "sourceShellLabelOriginal": "M774",
+          "shellType": null,
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 372,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "4b5216f6b0228da3fafccbebb800f08f4a0314da1c29a874b4661b7be3aaa45e",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/023.json",
+          "proofSHA256": "a67f92a76fd3e64be2c65c2507975cd87199cac48a41f4130bdd7ce2a3d259cb",
+          "attackUICrop": "artifacts/tank-weakpoints-expansion-20261102/video-batches/parsed-BV1SPmEBJE3y-primary1198-end-batch-003/uk_chieftain_mk_10-attack-ui-native.webp",
+          "attackUICropSHA256": "c468d518be1a51469df281517eca2a22be24a556d24b4d7a893b19452fd30cb6",
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
+          "notes": [
+            "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
+          ]
+        }
+      },
+      "testContextEvidence": {
+        "id": "uk_chieftain_mk_10:BV1SPmEBJE3y:1524033",
+        "vehicleId": "uk_chieftain_mk_10",
+        "sourceTime": 1524.033,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "attackerVehicleId": "us_m60a3_tts",
+        "attackerEnglishName": "M60A3 TTS",
+        "shell": "M774",
+        "sourceShellLabelOriginal": "M774",
+        "shellType": null,
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 372,
+        "sourceGameVersion": null,
+        "actualShotObserved": false,
+        "outcome": null,
+        "sourceFrameSHA256": "4b5216f6b0228da3fafccbebb800f08f4a0314da1c29a874b4661b7be3aaa45e",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/023.json",
+        "proofSHA256": "a67f92a76fd3e64be2c65c2507975cd87199cac48a41f4130bdd7ce2a3d259cb",
+        "attackUICrop": "artifacts/tank-weakpoints-expansion-20261102/video-batches/parsed-BV1SPmEBJE3y-primary1198-end-batch-003/uk_chieftain_mk_10-attack-ui-native.webp",
+        "attackUICropSHA256": "c468d518be1a51469df281517eca2a22be24a556d24b4d7a893b19452fd30cb6",
+        "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
+        "notes": [
+          "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
+        ]
+      },
+      "frontSummary": "作者认为车体相对可穿、炮塔较难处理，并以M1作类比。应结合实际弹药和入射角选择车体，不把这条建议解释为任何位置都能稳定击穿。",
+      "frontSummaryAdviceIDs": [
+        "BV1SPmEBJE3y:end:11:author:second"
+      ],
+      "completeIllustration": false,
+      "testContext": {
+        "attacker": "M60A3 TTS",
+        "attackerVehicleId": "us_m60a3_tts",
+        "shell": "M774",
+        "shellTypeCode": null,
+        "shellTypeLabel": null,
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 372,
+        "impactAngleDegrees": null,
+        "sourceTime": 1524.033,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "sourceGameVersion": null,
+        "caseId": "uk_chieftain_mk_10:BV1SPmEBJE3y:1524033",
+        "note": "原生静态已应用UI条件；防护分布计算进度不等于击穿概率，未声称独立试射成功。"
+      },
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Britain-Late-MBT-title-probe-1524.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/023.json",
+      "captureSHA256": "52a98ae2038e793ae9b1f370b3a1fff1f21bae9586891a21617d85b924bcc17f",
+      "originalFrameSHA256": "4b5216f6b0228da3fafccbebb800f08f4a0314da1c29a874b4661b7be3aaa45e",
+      "time": 1524.033,
+      "crop": [
+        710,
+        230,
+        495,
+        410
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageQuality": "1080p",
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "无UI面板覆盖目标；炮管等原生实体保留",
+      "mainImageUsable": true
     },
     {
       "id": "us_m60a2",
@@ -7844,9 +8361,128 @@
       "eraBasis": "Olifant Mk2于2004年从Mk1B升级，增加热成像、动力与前部防护，但旧底盘仍限制防护与机动。",
       "collectedAt": "2026-11-02T09:05:47.804Z",
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "videoAdvice": [
+        {
+          "id": "BV1SPmEBJE3y:end:11:author",
+          "caseId": null,
+          "sourceTime": 1510.21484,
+          "sourceTimeRange": [
+            1510.21484,
+            1523.5
+          ],
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "text": "作者称美系9.0钢针较难穿透其炮塔，车体相对更容易处理。这个部位建议不等于所有弹药与角度都能击穿车体，也不是已观察到的独立试射结果。",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "author-general-recommendation-not-independent-test",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "id": "BV1SPmEBJE3y:end:11:author",
+            "caseId": null,
+            "sourceTime": 1510.21484,
+            "sourceTimeRange": [
+              1510.21484,
+              1523.5
+            ],
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "text": "原生标题确认Olifant Mk.2（号角Mk2）。作者称美系9.0钢针不容易穿其炮塔，车体相对可穿；1518实际UI为M60A3 TTS/M774/0米372mm。口述难穿不是该帧独立试射失败，更不是该车型所有弹药和角度都打不穿。",
+            "polarity": "conditional-or-mixed",
+            "mechanism": "author-general-recommendation-not-independent-test",
+            "sourceClaimNotCanonicalFact": true,
+            "evidence": [
+              {
+                "text": "接下来的英系车又是非常脆",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1510.21484,
+                "lastObservedMediaTime": 1511.592494,
+                "firstObservedAt": "2026-11-02T16:08:45.894Z",
+                "lastObservedAt": "2026-11-02T16:08:46.652Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1418-1528-normal-playback-subtitles.json"
+              },
+              {
+                "text": "又是被同拳中炮弹乱穿的存在",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1512.107931,
+                "lastObservedMediaTime": 1513.628024,
+                "firstObservedAt": "2026-11-02T16:08:46.905Z",
+                "lastObservedAt": "2026-11-02T16:08:47.668Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1418-1528-normal-playback-subtitles.json"
+              },
+              {
+                "text": "这样的情况会一直只持续到英系",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1514.141733,
+                "lastObservedMediaTime": 1515.655586,
+                "firstObservedAt": "2026-11-02T16:08:47.921Z",
+                "lastObservedAt": "2026-11-02T16:08:48.680Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1418-1528-normal-playback-subtitles.json"
+              },
+              {
+                "text": "九点几左右的权重",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1516.154528,
+                "lastObservedMediaTime": 1516.677221,
+                "firstObservedAt": "2026-11-02T16:08:48.934Z",
+                "lastObservedAt": "2026-11-02T16:08:49.188Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1418-1528-normal-playback-subtitles.json"
+              },
+              {
+                "text": "比方说到了英系九点3号角坦克",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1517.168203,
+                "lastObservedMediaTime": 1519.173063,
+                "firstObservedAt": "2026-11-02T16:08:49.441Z",
+                "lastObservedAt": "2026-11-02T16:08:50.455Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1418-1528-normal-playback-subtitles.json"
+              },
+              {
+                "text": "美系9.0的钢针就没有那么好穿他的炮塔了",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1519.660036,
+                "lastObservedMediaTime": 1521.630675,
+                "firstObservedAt": "2026-11-02T16:08:50.708Z",
+                "lastObservedAt": "2026-11-02T16:08:51.738Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1418-1528-normal-playback-subtitles.json"
+              },
+              {
+                "text": "只能打穿他的车体",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1522.169371,
+                "lastObservedMediaTime": 1523.047497,
+                "firstObservedAt": "2026-11-02T16:08:52.004Z",
+                "lastObservedAt": "2026-11-02T16:08:52.524Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1418-1528-normal-playback-subtitles.json"
+              },
+              {
+                "text": "长坦克也是这样",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1523.471513,
+                "lastObservedMediaTime": 1523.990479,
+                "firstObservedAt": "2026-11-02T16:08:52.781Z",
+                "lastObservedAt": "2026-11-02T16:08:53.039Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1418-1528-normal-playback-subtitles.json"
+              }
+            ],
+            "vehicleId": "uk_olifant_mk_2",
+            "relatedCaseId": "uk_olifant_mk_2:BV1SPmEBJE3y:1518000",
+            "relatedCaseRelationship": "same-spoken-chapter/static-UI-context; not independently verified successful shot"
+          },
+          "vehicleId": "uk_olifant_mk_2",
+          "relatedCaseId": "uk_olifant_mk_2:BV1SPmEBJE3y:1518000",
+          "relatedCaseRelationship": "same-spoken-chapter/static-UI-context; not independently verified successful shot",
+          "label": "车体优先，炮塔较难处理",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "time": 1510.21484
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "status": "primary-view-with-author-advice-no-pins",
       "wikiUrl": "https://wiki.warthunder.com/unit/uk_olifant_mk_2",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-005-20261102/snapshots/uk_olifant_mk_2.json",
@@ -7868,8 +8504,131 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。"
-      ]
+        "暂无经核对的局部标点；本次原片防护颜色仅适用于所列条件。"
+      ],
+      "testCases": [
+        {
+          "id": "uk_olifant_mk_2:BV1SPmEBJE3y:1518000",
+          "vehicleId": "uk_olifant_mk_2",
+          "sourceTime": 1518,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerVehicleId": "us_m60a3_tts",
+          "attackerEnglishName": "M60A3 TTS",
+          "shell": "M774",
+          "sourceShellLabelOriginal": "M774",
+          "shellType": null,
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 372,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "b0ca8baee9ecdd60a54dd499ebe7f5217eb80a3937a1a0d269dbc3d7240512ea",
+          "proofSHA256": "4817238323f2efadff4063693dace134f7afcf065109213f8e2bafd1b4eb6a1d",
+          "attackUICropSHA256": "297f74bd7a66c715a7e08d296628b2dbe81b1c1a83084913918acde16913f17c",
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
+          "notes": [
+            "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
+          ],
+          "attacker": "M60A3 TTS",
+          "shellTypeCode": null,
+          "shellTypeLabel": null,
+          "impactAngleDegrees": null,
+          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed"
+        }
+      ],
+      "testCaseEvidence": {
+        "uk_olifant_mk_2:BV1SPmEBJE3y:1518000": {
+          "id": "uk_olifant_mk_2:BV1SPmEBJE3y:1518000",
+          "vehicleId": "uk_olifant_mk_2",
+          "sourceTime": 1518,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerVehicleId": "us_m60a3_tts",
+          "attackerEnglishName": "M60A3 TTS",
+          "shell": "M774",
+          "sourceShellLabelOriginal": "M774",
+          "shellType": null,
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 372,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "b0ca8baee9ecdd60a54dd499ebe7f5217eb80a3937a1a0d269dbc3d7240512ea",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/022.json",
+          "proofSHA256": "4817238323f2efadff4063693dace134f7afcf065109213f8e2bafd1b4eb6a1d",
+          "attackUICrop": "artifacts/tank-weakpoints-expansion-20261102/video-batches/parsed-BV1SPmEBJE3y-primary1198-end-batch-003/uk_olifant_mk_2-attack-ui-native.webp",
+          "attackUICropSHA256": "297f74bd7a66c715a7e08d296628b2dbe81b1c1a83084913918acde16913f17c",
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
+          "notes": [
+            "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
+          ]
+        }
+      },
+      "testContextEvidence": {
+        "id": "uk_olifant_mk_2:BV1SPmEBJE3y:1518000",
+        "vehicleId": "uk_olifant_mk_2",
+        "sourceTime": 1518,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "attackerVehicleId": "us_m60a3_tts",
+        "attackerEnglishName": "M60A3 TTS",
+        "shell": "M774",
+        "sourceShellLabelOriginal": "M774",
+        "shellType": null,
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 372,
+        "sourceGameVersion": null,
+        "actualShotObserved": false,
+        "outcome": null,
+        "sourceFrameSHA256": "b0ca8baee9ecdd60a54dd499ebe7f5217eb80a3937a1a0d269dbc3d7240512ea",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/022.json",
+        "proofSHA256": "4817238323f2efadff4063693dace134f7afcf065109213f8e2bafd1b4eb6a1d",
+        "attackUICrop": "artifacts/tank-weakpoints-expansion-20261102/video-batches/parsed-BV1SPmEBJE3y-primary1198-end-batch-003/uk_olifant_mk_2-attack-ui-native.webp",
+        "attackUICropSHA256": "297f74bd7a66c715a7e08d296628b2dbe81b1c1a83084913918acde16913f17c",
+        "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
+        "notes": [
+          "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
+        ]
+      },
+      "frontSummary": "作者称美系9.0钢针较难穿透其炮塔，车体相对更容易处理。这个部位建议不等于所有弹药与角度都能击穿车体，也不是已观察到的独立试射结果。",
+      "frontSummaryAdviceIDs": [
+        "BV1SPmEBJE3y:end:11:author"
+      ],
+      "completeIllustration": false,
+      "testContext": {
+        "attacker": "M60A3 TTS",
+        "attackerVehicleId": "us_m60a3_tts",
+        "shell": "M774",
+        "shellTypeCode": null,
+        "shellTypeLabel": null,
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 372,
+        "impactAngleDegrees": null,
+        "sourceTime": 1518,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "sourceGameVersion": null,
+        "caseId": "uk_olifant_mk_2:BV1SPmEBJE3y:1518000",
+        "note": "原生静态已应用UI条件；防护分布计算进度不等于击穿概率，未声称独立试射成功。"
+      },
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Britain-Olifant-family-title-probe-1518.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/022.json",
+      "captureSHA256": "65f797ec831074d9585b80e7348455bb6f0dab7273a69bee8e326d3bd86ff393",
+      "originalFrameSHA256": "b0ca8baee9ecdd60a54dd499ebe7f5217eb80a3937a1a0d269dbc3d7240512ea",
+      "time": 1518,
+      "crop": [
+        705,
+        205,
+        500,
+        450
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageQuality": "1080p",
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "无UI面板覆盖目标；炮管等原生实体保留",
+      "mainImageUsable": true
     },
     {
       "id": "us_mbt_70",
@@ -13106,6 +13865,675 @@
       "mainViewNote": "真实绿色装甲着色可见首下及炮塔部分区域；大块说明浮层遮挡右侧炮塔与车体区域，未遮部分仍能展示正面。",
       "mainImageUsable": true,
       "pins": []
+    },
+    {
+      "id": "ussr_t_80u",
+      "name": "T-80U",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": null,
+      "eraStatus": "insufficient-unit-page-era-evidence",
+      "eraBasis": "原页说明为苏联中型坦克，但未给出该精确型号研发或服役年代；时代保持未知，不借用T-80U-E1史实。",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_80u",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/spm-tail-two-exact-20261103/snapshots/ussr_t_80u.json",
+      "wikiSnapshotSHA256": "7ae8a3c6234fb56bd1dee1a4ed8599f82fe711e899f51864f756044f4082a7f6",
+      "collectedAt": "2026-11-02T17:27:23.066Z",
+      "wikiSummary": "Wiki称T-80U采用新炮塔与Kontakt-5反应装甲，对破甲及动能弹均有较强防护；低矮轮廓、机动与火力较均衡，但被击穿后的生存性及倒车速度仍有限。主炮125毫米2A46M-1，自动装填面板6秒。",
+      "wikiPoints": [
+        "原页防护描述为整体背景，没有指出炮盾、驾驶员观察窗或车体下首等局部弱点位置。",
+        "被击穿后生存性和倒车速度是原页明确提及的不足，不能据此声称某弹种必定一击击毁。",
+        "自动装填6秒是主炮面板值，不使用后续机枪装填值，也不冒充无限连续射击结论。"
+      ],
+      "reload": {
+        "display": "6 秒（自动装填）",
+        "gun": "125 mm 2A46M-1 cannon",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 6,
+        "mechanism": "automatic",
+        "note": "仅主炮首段；自动装填面板值不表示无限持续射击。"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "testCases": [
+        {
+          "id": "ussr_t_80u:BV1SPmEBJE3y:1206000",
+          "vehicleId": "ussr_t_80u",
+          "sourceTime": 1206,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerVehicleId": "germ_leopard_2a6",
+          "attackerEnglishName": "Leopard 2A6",
+          "shell": "DM53",
+          "sourceShellLabelOriginal": "DM53",
+          "shellType": null,
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 653,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "ed1312232b325400b3967e815a9c4cb55e8a5600ad1a491ad98c2af2d810dd00",
+          "proofSHA256": "702fcd6a920acba6e2441222f058debe0c3641bd330da063697899584935fde3",
+          "attackUICropSHA256": "a4c23e46a5872420bc25f4e242cb4831a9877121de7dcd24b27553e2782ede1e",
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
+          "notes": [
+            "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
+          ],
+          "attacker": "Leopard 2A6",
+          "shellTypeCode": null,
+          "shellTypeLabel": null,
+          "impactAngleDegrees": null,
+          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed"
+        }
+      ],
+      "testCaseEvidence": {
+        "ussr_t_80u:BV1SPmEBJE3y:1206000": {
+          "id": "ussr_t_80u:BV1SPmEBJE3y:1206000",
+          "vehicleId": "ussr_t_80u",
+          "sourceTime": 1206,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerVehicleId": "germ_leopard_2a6",
+          "attackerEnglishName": "Leopard 2A6",
+          "shell": "DM53",
+          "sourceShellLabelOriginal": "DM53",
+          "shellType": null,
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 653,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "ed1312232b325400b3967e815a9c4cb55e8a5600ad1a491ad98c2af2d810dd00",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/021.json",
+          "proofSHA256": "702fcd6a920acba6e2441222f058debe0c3641bd330da063697899584935fde3",
+          "attackUICrop": "artifacts/tank-weakpoints-expansion-20261102/video-batches/parsed-BV1SPmEBJE3y-primary1198-end-batch-003/ussr_t_80u-attack-ui-native.webp",
+          "attackUICropSHA256": "a4c23e46a5872420bc25f4e242cb4831a9877121de7dcd24b27553e2782ede1e",
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
+          "notes": [
+            "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
+          ],
+          "wikiSourceProof": {
+            "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_80u",
+            "gameVersion": "2.59.0.92",
+            "collectedAt": "2026-11-02T17:27:23.066Z",
+            "snapshot": "artifacts/tank-weakpoints-expansion-20261102/verification/spm-tail-two-exact-20261103/snapshots/ussr_t_80u.json",
+            "snapshotSha256": "7ae8a3c6234fb56bd1dee1a4ed8599f82fe711e899f51864f756044f4082a7f6",
+            "textSha256": "f4a3e5696e9608916be5c03206e08c0e4442b384e0166addb19ca98a47e97b9d",
+            "htmlSha256": "0bc52be3ad17e9e1958d1b4d485f0a39f229b775c3611078f50ae6dc23a926bc",
+            "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/spm-tail-two-exact-20261103/snapshots/ussr_t_80u.html",
+            "captureMethod": "Playwright Chromium navigation",
+            "reusedSnapshot": false,
+            "parserVersion": "wiki-unit-exact-spm-tail-v1"
+          }
+        }
+      },
+      "testContextEvidence": {
+        "id": "ussr_t_80u:BV1SPmEBJE3y:1206000",
+        "vehicleId": "ussr_t_80u",
+        "sourceTime": 1206,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "attackerVehicleId": "germ_leopard_2a6",
+        "attackerEnglishName": "Leopard 2A6",
+        "shell": "DM53",
+        "sourceShellLabelOriginal": "DM53",
+        "shellType": null,
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 653,
+        "sourceGameVersion": null,
+        "actualShotObserved": false,
+        "outcome": null,
+        "sourceFrameSHA256": "ed1312232b325400b3967e815a9c4cb55e8a5600ad1a491ad98c2af2d810dd00",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/021.json",
+        "proofSHA256": "702fcd6a920acba6e2441222f058debe0c3641bd330da063697899584935fde3",
+        "attackUICrop": "artifacts/tank-weakpoints-expansion-20261102/video-batches/parsed-BV1SPmEBJE3y-primary1198-end-batch-003/ussr_t_80u-attack-ui-native.webp",
+        "attackUICropSHA256": "a4c23e46a5872420bc25f4e242cb4831a9877121de7dcd24b27553e2782ede1e",
+        "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
+        "notes": [
+          "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
+        ]
+      },
+      "videoAdvice": [
+        {
+          "id": "BV1SPmEBJE3y:end:0:author",
+          "caseId": null,
+          "sourceTime": 1198.024852,
+          "sourceTimeRange": [
+            1198.024852,
+            1226.857011
+          ],
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "text": "作者以接触5车型为例提醒：M829A2、DM53也只是有概率击穿。仍优先考虑下首，高穿深钢针只是在打偏时增加补救机会，不保证稳定穿透。",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "author-general-recommendation-not-independent-test",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "id": "BV1SPmEBJE3y:end:0:author",
+            "caseId": null,
+            "sourceTime": 1198.024852,
+            "sourceTimeRange": [
+              1198.024852,
+              1226.857011
+            ],
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "text": "承接T72B（1989）：作者明确补充，即使使用其所述650多穿深钢针也不一定稳定穿透；随后将接触5车型举为T90A/T80U，称M829A2与DM53只是有概率击穿，不能稳穿。因此整体建议仍优先打下首，高穿深钢针只是在打偏时增加补救机会。不能把前段“至少DM53”删去后续不稳穿限定。",
+            "polarity": "conditional-or-mixed",
+            "mechanism": "author-general-recommendation-not-independent-test",
+            "sourceClaimNotCanonicalFact": true,
+            "evidence": [
+              {
+                "text": "打他至少得上苏系DM53这种",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1198.024852,
+                "lastObservedMediaTime": 1198.024852,
+                "firstObservedAt": "2026-11-02T16:03:52.794Z",
+                "lastObservedAt": "2026-11-02T16:03:52.794Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1090-1200-normal-playback-subtitles.json"
+              },
+              {
+                "text": "650多穿深的钢针",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1198.530236,
+                "lastObservedMediaTime": 1199.440678,
+                "firstObservedAt": "2026-11-02T16:03:53.051Z",
+                "lastObservedAt": "2026-11-02T16:03:53.569Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1090-1200-normal-playback-subtitles.json"
+              },
+              {
+                "text": "即使是这样",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1199.957689,
+                "lastObservedMediaTime": 1200.479031,
+                "firstObservedAt": "2026-11-02T16:03:53.824Z",
+                "lastObservedAt": "2026-11-02T16:03:54.082Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1090-1200-normal-playback-subtitles.json"
+              },
+              {
+                "text": "也不一定能稳定打穿",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1200.912134,
+                "lastObservedMediaTime": 1201.838526,
+                "firstObservedAt": "2026-11-02T16:06:04.162Z",
+                "lastObservedAt": "2026-11-02T16:06:04.667Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1200-1310-normal-playback-subtitles.json"
+              },
+              {
+                "text": "而和他类似",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1202.350516,
+                "lastObservedMediaTime": 1202.350516,
+                "firstObservedAt": "2026-11-02T16:06:04.921Z",
+                "lastObservedAt": "2026-11-02T16:06:04.921Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1200-1310-normal-playback-subtitles.json"
+              },
+              {
+                "text": "使用接触五的车非常的多",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1202.853249,
+                "lastObservedMediaTime": 1204.372589,
+                "firstObservedAt": "2026-11-02T16:06:05.174Z",
+                "lastObservedAt": "2026-11-02T16:06:05.930Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1200-1310-normal-playback-subtitles.json"
+              },
+              {
+                "text": "像早期的T90A系列和T80U系列",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1204.874493,
+                "lastObservedMediaTime": 1206.895421,
+                "firstObservedAt": "2026-11-02T16:06:06.181Z",
+                "lastObservedAt": "2026-11-02T16:06:07.193Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1200-1310-normal-playback-subtitles.json"
+              },
+              {
+                "text": "都是使用的接触五装备",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1207.411975,
+                "lastObservedMediaTime": 1208.799188,
+                "firstObservedAt": "2026-11-02T16:06:07.446Z",
+                "lastObservedAt": "2026-11-02T16:06:08.210Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1200-1310-normal-playback-subtitles.json"
+              },
+              {
+                "text": "这个爆炸防御装甲的坦克手上都是五六百抗穿",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1209.26515,
+                "lastObservedMediaTime": 1211.798894,
+                "firstObservedAt": "2026-11-02T16:06:08.467Z",
+                "lastObservedAt": "2026-11-02T16:06:09.739Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1200-1310-normal-playback-subtitles.json"
+              },
+              {
+                "text": "美系的M829A2和德系的DM53",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1212.322378,
+                "lastObservedMediaTime": 1214.228113,
+                "firstObservedAt": "2026-11-02T16:06:09.994Z",
+                "lastObservedAt": "2026-11-02T16:06:11.007Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1200-1310-normal-playback-subtitles.json"
+              },
+              {
+                "text": "都是有概率的",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1214.738757,
+                "lastObservedMediaTime": 1215.228476,
+                "firstObservedAt": "2026-11-02T16:06:11.270Z",
+                "lastObservedAt": "2026-11-02T16:06:11.529Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1200-1310-normal-playback-subtitles.json"
+              },
+              {
+                "text": "能打穿",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1215.649231,
+                "lastObservedMediaTime": 1215.649231,
+                "firstObservedAt": "2026-11-02T16:06:11.785Z",
+                "lastObservedAt": "2026-11-02T16:06:11.785Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1200-1310-normal-playback-subtitles.json"
+              },
+              {
+                "text": "但是不能稳穿",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1216.15978,
+                "lastObservedMediaTime": 1216.616901,
+                "firstObservedAt": "2026-11-02T16:06:12.041Z",
+                "lastObservedAt": "2026-11-02T16:06:12.298Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1200-1310-normal-playback-subtitles.json"
+              },
+              {
+                "text": "所以大家都说打苏系车能打裤裆就打裤裆",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1217.096954,
+                "lastObservedMediaTime": 1219.503746,
+                "firstObservedAt": "2026-11-02T16:06:12.551Z",
+                "lastObservedAt": "2026-11-02T16:06:13.823Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1200-1310-normal-playback-subtitles.json"
+              },
+              {
+                "text": "但是如果你手抖的情况下打偏了",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1220.020379,
+                "lastObservedMediaTime": 1221.49807,
+                "firstObservedAt": "2026-11-02T16:06:14.076Z",
+                "lastObservedAt": "2026-11-02T16:06:14.839Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1200-1310-normal-playback-subtitles.json"
+              },
+              {
+                "text": "高于600多穿的钢针",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1221.97102,
+                "lastObservedMediaTime": 1223.020696,
+                "firstObservedAt": "2026-11-02T16:06:15.095Z",
+                "lastObservedAt": "2026-11-02T16:06:15.622Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1200-1310-normal-playback-subtitles.json"
+              },
+              {
+                "text": "能在你运气好的情况下多捞一个人头反杀对面",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1223.508051,
+                "lastObservedMediaTime": 1225.879395,
+                "firstObservedAt": "2026-11-02T16:06:15.883Z",
+                "lastObservedAt": "2026-11-02T16:06:17.160Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1200-1310-normal-playback-subtitles.json"
+              },
+              {
+                "text": "那那么聊完了苏系的坦克",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1226.337509,
+                "lastObservedMediaTime": 1227.384819,
+                "firstObservedAt": "2026-11-02T16:06:17.415Z",
+                "lastObservedAt": "2026-11-02T16:06:17.927Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1200-1310-normal-playback-subtitles.json"
+              }
+            ],
+            "vehicleId": "ussr_t_80u",
+            "relatedCaseId": "ussr_t_80u:BV1SPmEBJE3y:1206000",
+            "relatedCaseRelationship": "same-spoken-chapter/static-UI-context; not independently verified successful shot"
+          },
+          "vehicleId": "ussr_t_80u",
+          "relatedCaseId": "ussr_t_80u:BV1SPmEBJE3y:1206000",
+          "relatedCaseRelationship": "same-spoken-chapter/static-UI-context; not independently verified successful shot",
+          "label": "下首优先，高穿深也不保证稳定击穿",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "time": 1198.024852
+        }
+      ],
+      "frontSummary": "作者以接触5车型为例提醒：M829A2、DM53也只是有概率击穿。仍优先考虑下首，高穿深钢针只是在打偏时增加补救机会，不保证稳定穿透。",
+      "frontSummaryAdviceIDs": [
+        "BV1SPmEBJE3y:end:0:author"
+      ],
+      "completeIllustration": false,
+      "pins": [],
+      "status": "video-reviewed-awaiting-front-image",
+      "missingEvidence": [
+        "暂无可用的清洁正面主图；已有后效透视原帧仅作为独立来源证据。"
+      ],
+      "testContext": {
+        "attacker": "Leopard 2A6",
+        "attackerVehicleId": "germ_leopard_2a6",
+        "shell": "DM53",
+        "shellTypeCode": null,
+        "shellTypeLabel": null,
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 653,
+        "impactAngleDegrees": null,
+        "sourceTime": 1206,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "sourceGameVersion": null,
+        "caseId": "ussr_t_80u:BV1SPmEBJE3y:1206000",
+        "note": "原生静态已应用UI条件；防护分布计算进度不等于击穿概率，未声称独立试射成功。"
+      }
+    },
+    {
+      "id": "il_merkava_mk_1b",
+      "name": "Merkava Mk.1B",
+      "role": "主战坦克",
+      "country": "israel",
+      "countryName": "以色列",
+      "rank": 6,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "cold-war",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "原页明确该Mk.1升级套件构思于1983年，吸收1982年黎巴嫩战争经验；按该技术形成时期归cold-war，不以2014年退役或游戏上线时间归类。",
+      "wikiUrl": "https://wiki.warthunder.com/unit/il_merkava_mk_1b",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/spm-tail-two-exact-20261103/snapshots/il_merkava_mk_1b.json",
+      "wikiSnapshotSHA256": "f47d7f4e658a8cb80a6286d0c9c6a3656a7f4576ebd349977dcb0db1b158c777",
+      "collectedAt": "2026-11-02T17:27:29.347Z",
+      "wikiSummary": "Merkava Mk.1B为1983年构思的Mk.1升级型，增加内置烟幕发射器与新弹种。Wiki说明前置发动机能吸收正面来弹并保护乘员，但也提高发动机损坏及起火风险；配热像、激光告警与烟幕，机动性弱于不少西方坦克。105毫米Sharir炮基础至王牌装填8.7至6.7秒。",
+      "wikiPoints": [
+        "前置发动机提供正面乘员保护，也增加发动机失效和起火风险；原页没有提供可点击弱点坐标或具体射角。",
+        "激光告警与烟幕辅助生存，不等同于装甲可抵挡所有弹种。",
+        "主炮待发弹6发；装填8.7至6.7秒来自主炮首段，不能与机枪装填混淆。"
+      ],
+      "reload": {
+        "display": "8.7 → 6.7 秒",
+        "gun": "105 mm Sharir cannon",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）；待发弹耗尽后不能视作无限持续射击。"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "testCases": [
+        {
+          "id": "il_merkava_mk_1b:BV1SPmEBJE3y:1735000",
+          "vehicleId": "il_merkava_mk_1b",
+          "sourceTime": 1735,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerVehicleId": "us_m1128_wolfpack",
+          "attackerEnglishName": "M1128 Wolfpack",
+          "shell": "M900",
+          "sourceShellLabelOriginal": "M900",
+          "shellType": null,
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 522,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "190fec14651096636b313537d495aa0060ca047d2a590ad696c8f2ba4a7214f8",
+          "proofSHA256": "15552d0ee6648ec42e3b8f985a334f76af790af4df80a496cbca56d0a333356d",
+          "attackUICropSHA256": "b204fff55c32420e49e28916b2bd885b65aa8ccb099a4b56529fd513699d4295",
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
+          "notes": [
+            "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
+          ],
+          "attacker": "M1128 Wolfpack",
+          "shellTypeCode": null,
+          "shellTypeLabel": null,
+          "impactAngleDegrees": null,
+          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed"
+        }
+      ],
+      "testCaseEvidence": {
+        "il_merkava_mk_1b:BV1SPmEBJE3y:1735000": {
+          "id": "il_merkava_mk_1b:BV1SPmEBJE3y:1735000",
+          "vehicleId": "il_merkava_mk_1b",
+          "sourceTime": 1735,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerVehicleId": "us_m1128_wolfpack",
+          "attackerEnglishName": "M1128 Wolfpack",
+          "shell": "M900",
+          "sourceShellLabelOriginal": "M900",
+          "shellType": null,
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 522,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "190fec14651096636b313537d495aa0060ca047d2a590ad696c8f2ba4a7214f8",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/025.json",
+          "proofSHA256": "15552d0ee6648ec42e3b8f985a334f76af790af4df80a496cbca56d0a333356d",
+          "attackUICrop": "artifacts/tank-weakpoints-expansion-20261102/video-batches/parsed-BV1SPmEBJE3y-primary1198-end-batch-003/il_merkava_mk_1b-attack-ui-native.webp",
+          "attackUICropSHA256": "b204fff55c32420e49e28916b2bd885b65aa8ccb099a4b56529fd513699d4295",
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
+          "notes": [
+            "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
+          ],
+          "wikiSourceProof": {
+            "wikiUrl": "https://wiki.warthunder.com/unit/il_merkava_mk_1b",
+            "gameVersion": "2.59.0.92",
+            "collectedAt": "2026-11-02T17:27:29.347Z",
+            "snapshot": "artifacts/tank-weakpoints-expansion-20261102/verification/spm-tail-two-exact-20261103/snapshots/il_merkava_mk_1b.json",
+            "snapshotSha256": "f47d7f4e658a8cb80a6286d0c9c6a3656a7f4576ebd349977dcb0db1b158c777",
+            "textSha256": "37efa0e3f4b48cc76b9ca966a736aaa6bd367c7bcc31b17ae6633151c39928e5",
+            "htmlSha256": "82254f789a807da3b30896c2e972506fa5b66c69355b409839e3e4086700a5a0",
+            "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/spm-tail-two-exact-20261103/snapshots/il_merkava_mk_1b.html",
+            "captureMethod": "Playwright Chromium navigation",
+            "reusedSnapshot": false,
+            "parserVersion": "wiki-unit-exact-spm-tail-v1"
+          }
+        }
+      },
+      "testContextEvidence": {
+        "id": "il_merkava_mk_1b:BV1SPmEBJE3y:1735000",
+        "vehicleId": "il_merkava_mk_1b",
+        "sourceTime": 1735,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "attackerVehicleId": "us_m1128_wolfpack",
+        "attackerEnglishName": "M1128 Wolfpack",
+        "shell": "M900",
+        "sourceShellLabelOriginal": "M900",
+        "shellType": null,
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 522,
+        "sourceGameVersion": null,
+        "actualShotObserved": false,
+        "outcome": null,
+        "sourceFrameSHA256": "190fec14651096636b313537d495aa0060ca047d2a590ad696c8f2ba4a7214f8",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/025.json",
+        "proofSHA256": "15552d0ee6648ec42e3b8f985a334f76af790af4df80a496cbca56d0a333356d",
+        "attackUICrop": "artifacts/tank-weakpoints-expansion-20261102/video-batches/parsed-BV1SPmEBJE3y-primary1198-end-batch-003/il_merkava_mk_1b-attack-ui-native.webp",
+        "attackUICropSHA256": "b204fff55c32420e49e28916b2bd885b65aa8ccb099a4b56529fd513699d4295",
+        "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
+        "notes": [
+          "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
+        ]
+      },
+      "videoAdvice": [
+        {
+          "id": "BV1SPmEBJE3y:end:17:author",
+          "caseId": null,
+          "sourceTime": 1717.083035,
+          "sourceTimeRange": [
+            1717.083035,
+            1737.757421
+          ],
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "text": "作者对梅卡瓦车族提醒：相较同权重车辆防护较脆，但前置发动机可能吸收穿透后效。不能据此保证一发击毁，也不能把这个家族提醒当作其他改型都已独立测试。",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "author-general-recommendation-not-independent-test",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "id": "BV1SPmEBJE3y:end:17:author",
+            "caseId": null,
+            "sourceTime": 1717.083035,
+            "sourceTimeRange": [
+              1717.083035,
+              1737.757421
+            ],
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "text": "原生标题确认Merkava Mk.1B。作者称梅卡瓦相对同权重防护脆，但前置发动机容易吸收后效；1735本目标UI为M1128 Wolfpack/M900/0米522mm。一般家族提醒与本目标静态UI分开，不套成其他Merkava改型独立已验证案例。",
+            "polarity": "conditional-or-mixed",
+            "mechanism": "author-general-recommendation-not-independent-test",
+            "sourceClaimNotCanonicalFact": true,
+            "evidence": [
+              {
+                "text": "接下来直接说一下以色列",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1717.083035,
+                "lastObservedMediaTime": 1718.094231,
+                "firstObservedAt": "2026-11-02T16:10:34.396Z",
+                "lastObservedAt": "2026-11-02T16:10:34.903Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "他这个系的车就非常的离谱了",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1718.611524,
+                "lastObservedMediaTime": 1720.125463,
+                "firstObservedAt": "2026-11-02T16:10:35.158Z",
+                "lastObservedAt": "2026-11-02T16:10:35.920Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "基本上都是买来的坦克",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1720.639306,
+                "lastObservedMediaTime": 1721.650503,
+                "firstObservedAt": "2026-11-02T16:10:36.176Z",
+                "lastObservedAt": "2026-11-02T16:10:36.685Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "比方说他这个绍特坦克对应的应该是英国的",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1722.169931,
+                "lastObservedMediaTime": 1724.201236,
+                "firstObservedAt": "2026-11-02T16:10:36.937Z",
+                "lastObservedAt": "2026-11-02T16:10:37.956Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "百夫长击球所对应的应该是美系的M163",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1724.722573,
+                "lastObservedMediaTime": 1727.305633,
+                "firstObservedAt": "2026-11-02T16:10:38.212Z",
+                "lastObservedAt": "2026-11-02T16:10:39.503Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "然后马加赫对应的应该是美国的M60",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1727.810609,
+                "lastObservedMediaTime": 1729.922567,
+                "firstObservedAt": "2026-11-02T16:10:39.761Z",
+                "lastObservedAt": "2026-11-02T16:10:40.813Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "然后帝朗应该对应的是T54",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1730.340492,
+                "lastObservedMediaTime": 1731.864655,
+                "firstObservedAt": "2026-11-02T16:10:41.069Z",
+                "lastObservedAt": "2026-11-02T16:10:41.828Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "只有梅卡瓦是以色列自己产的",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1732.370163,
+                "lastObservedMediaTime": 1733.885903,
+                "firstObservedAt": "2026-11-02T16:10:42.080Z",
+                "lastObservedAt": "2026-11-02T16:10:42.846Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "而梅卡瓦这从严重是非常脆的",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1734.368074,
+                "lastObservedMediaTime": 1735.74327,
+                "firstObservedAt": "2026-11-02T16:10:43.098Z",
+                "lastObservedAt": "2026-11-02T16:10:43.855Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "但是前面放了个发动机",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1736.263039,
+                "lastObservedMediaTime": 1737.269279,
+                "firstObservedAt": "2026-11-02T16:10:44.109Z",
+                "lastObservedAt": "2026-11-02T16:10:44.615Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              },
+              {
+                "text": "容易吞后效",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "firstObservedMediaTime": 1737.757421,
+                "lastObservedMediaTime": 1737.757421,
+                "firstObservedAt": "2026-11-02T16:10:44.867Z",
+                "lastObservedAt": "2026-11-02T16:10:44.867Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+              }
+            ],
+            "vehicleId": "il_merkava_mk_1b",
+            "relatedCaseId": "il_merkava_mk_1b:BV1SPmEBJE3y:1735000",
+            "relatedCaseRelationship": "same-spoken-chapter/static-UI-context; not independently verified successful shot"
+          },
+          "vehicleId": "il_merkava_mk_1b",
+          "relatedCaseId": "il_merkava_mk_1b:BV1SPmEBJE3y:1735000",
+          "relatedCaseRelationship": "same-spoken-chapter/static-UI-context; not independently verified successful shot",
+          "label": "前置发动机可能吸收后效",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "time": 1717.083035
+        }
+      ],
+      "frontSummary": "作者对梅卡瓦车族提醒：相较同权重车辆防护较脆，但前置发动机可能吸收穿透后效。不能据此保证一发击毁，也不能把这个家族提醒当作其他改型都已独立测试。",
+      "frontSummaryAdviceIDs": [
+        "BV1SPmEBJE3y:end:17:author"
+      ],
+      "completeIllustration": false,
+      "pins": [],
+      "status": "video-reviewed-awaiting-front-image",
+      "missingEvidence": [
+        "暂无可用的清洁正面主图；已有后效透视原帧仅作为独立来源证据。"
+      ],
+      "testContext": {
+        "attacker": "M1128 Wolfpack",
+        "attackerVehicleId": "us_m1128_wolfpack",
+        "shell": "M900",
+        "shellTypeCode": null,
+        "shellTypeLabel": null,
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 522,
+        "impactAngleDegrees": null,
+        "sourceTime": 1735,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "sourceGameVersion": null,
+        "caseId": "il_merkava_mk_1b:BV1SPmEBJE3y:1735000",
+        "note": "原生静态已应用UI条件；防护分布计算进度不等于击穿概率，未声称独立试射成功。"
+      }
     }
   ],
   "eraPolicy": "按具体型号／改型所处年代分类，BR 另作筛选；本批为冷战样例。",
@@ -13113,8 +14541,8 @@
     "targetCount": 226,
     "rankTankCount": 216,
     "isSupplementCount": 10,
-    "wikiReviewedCount": 133,
-    "illustratedCount": 26,
+    "wikiReviewedCount": 135,
+    "illustratedCount": 29,
     "countries": [
       {
         "country": "usa",
@@ -13250,7 +14678,7 @@
     "lastUpdated": "2026-11-02",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 24,
+    "illustratedTargetCount": 27,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,
