@@ -586,7 +586,7 @@ function LoadoutPage({ owner }: { owner: string }) {
           ＋ 添加挂载
         </button>
       </div>
-      <nav className="wt-mount-tabs" aria-label="挂载工具">
+      <nav className="wt-lineup-sections wt-mount-tabs" aria-label="挂载工具">
         {(
           [
             ["saved", `我的挂载（${saved.length}）`],
@@ -596,6 +596,7 @@ function LoadoutPage({ owner }: { owner: string }) {
         ).map(([key, label]) => (
           <button
             key={key}
+            className="wt-lineup-section-link"
             aria-pressed={tab === key}
             onClick={() => {
               setTab(key);
@@ -1180,9 +1181,7 @@ function LoadoutPage({ owner }: { owner: string }) {
             ))}
           </div>
           {storageStatus.loading && <p aria-live="polite">正在读取云端挂载…</p>}
-          {draft && !saved.some((p) => p.id === draft.id && p.updatedAt === draft.updatedAt) && (
-            <button onClick={() => openPlan(draft)}>继续未保存的草稿</button>
-          )}
+
           {!!myShares.length && (
             <section className="wt-mount-shared-list">
               <h3>我的大厅推荐</h3>
@@ -1216,11 +1215,16 @@ function LoadoutPage({ owner }: { owner: string }) {
               ))}
             </section>
           )}
-          {owner !== "guest" && (
-            <button className="quiet-button" onClick={() => workspace?.open()}>
-              查看账号同步状态
-            </button>
-          )}
+          <div className="wt-mount-list-actions">
+            {draft && !saved.some((p) => p.id === draft.id && p.updatedAt === draft.updatedAt) && (
+              <button onClick={() => openPlan(draft)}>继续未保存的草稿</button>
+            )}
+            {owner !== "guest" && (
+              <button className="quiet-button" onClick={() => workspace?.open()}>
+                查看账号同步状态
+              </button>
+            )}
+          </div>
         </section>
       )}
       {selecting && (

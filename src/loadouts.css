@@ -52,23 +52,8 @@
   background: var(--wt-service-red);
   border-color: var(--wt-service-red);
 }
-.wt-mount-tabs {
-  display: flex;
-  gap: 4px;
-  margin-bottom: 18px;
-  border-bottom: 1px solid var(--wt-line);
-  padding-bottom: 8px;
-  overflow-x: auto;
-}
-.wt-mount-tabs button {
-  white-space: nowrap;
-  background: transparent;
-  border-color: transparent;
-}
-.wt-mount-tabs button[aria-pressed="true"] {
-  color: var(--wt-gold);
-  border-bottom-color: var(--wt-gold);
-}
+nav.wt-mount-tabs { overflow-x: auto; }
+.wt-mount-list-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 20px; }
 .wt-mount-toolbar {
   display: flex;
   gap: 12px;
