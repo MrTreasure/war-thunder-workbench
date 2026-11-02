@@ -748,26 +748,29 @@ function GroundDetail({
                     onFailure={() => setFailed(true)}
                   />
                 )}
-                {route && (
-                  <g
-                    className="ground-recommended-layer"
-                    visibility={recommendations ? "visible" : "hidden"}
-                    aria-hidden={!recommendations}
-                    pointerEvents="none"
-                    aria-label="推荐走线图层"
-                  >
-                    <image
-                      key={routeKey}
-                      href={route.url}
-                      width={route.width}
-                      height={route.height}
-                      transform={`matrix(${route.matrix.join(" ")})`}
-                      preserveAspectRatio="none"
-                      onLoad={() => setRouteState({ id: routeKey, status: "loaded" })}
-                      onError={() => setRouteState({ id: routeKey, status: "error" })}
-                    />
-                  </g>
-                )}
+              </g>
+              {/* Guide text and arrows may extend beyond the mission's terrain crop. */}
+              {route && (
+                <g
+                  className="ground-recommended-layer"
+                  visibility={recommendations ? "visible" : "hidden"}
+                  aria-hidden={!recommendations}
+                  pointerEvents="none"
+                  aria-label="推荐走线图层"
+                >
+                  <image
+                    key={routeKey}
+                    href={route.url}
+                    width={route.width}
+                    height={route.height}
+                    transform={`matrix(${route.matrix.join(" ")})`}
+                    preserveAspectRatio="none"
+                    onLoad={() => setRouteState({ id: routeKey, status: "loaded" })}
+                    onError={() => setRouteState({ id: routeKey, status: "error" })}
+                  />
+                </g>
+              )}
+              <g clipPath={`url(#${clipId})`}>
                 {grid && (
                   <g
                     className="ground-grid-lines"

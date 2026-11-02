@@ -188,6 +188,7 @@ export async function renderMapPng(
     ctx.drawImage(images.get(scene.contourImage.url)!, 0, 0, 1000, 1000);
     ctx.restore();
   }
+  ctx.restore(); // Release the terrain crop before drawing guide annotations.
   if (scene.recommendation) {
     const route = scene.recommendation;
     ctx.save();
@@ -196,6 +197,10 @@ export async function renderMapPng(
     ctx.drawImage(images.get(route.asset.url)!, 0, 0, route.width, route.height);
     ctx.restore();
   }
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(scene.mapFrame.x, scene.mapFrame.y, scene.mapFrame.w, scene.mapFrame.h);
+  ctx.clip();
   if (scene.grid) {
     const lines = referenceGrid(scene.bounds, scene.reference);
     ctx.save();
