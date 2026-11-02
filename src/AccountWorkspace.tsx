@@ -35,8 +35,8 @@ import { Modal } from "./Modal";
 import { statsCountryLabel } from "./stats-country";
 import { collectGuestDefaults } from "./workspace-guest-defaults";
 import "./account-workspace.css";
-
 function documentLabel(key: string) {
+  if (key === "wt-loadouts-v1") return t("模拟挂载方案");
   if (key === saleWatchKey) return t("折扣载具关注列表");
   if (key === "wt-workbench-cart-v1") return t("研发购物车");
   const [kind, part, country] = key.split(":");
@@ -46,7 +46,13 @@ function documentLabel(key: string) {
     localize(statsCategoryNames[part] || t("研发")),
   ]);
 }
-type Pending = Record<string, { value: unknown; revision: number }>;
+type Pending = Record<
+  string,
+  {
+    value: unknown;
+    revision: number;
+  }
+>;
 type Snapshot = {
   ownerKey: string;
   version: string;
@@ -104,7 +110,13 @@ const AccountWorkspace = memo(function AccountWorkspace({
                 workspaceKey(k) &&
                 v &&
                 typeof v === "object" &&
-                Number.isSafeInteger((v as { revision: unknown }).revision),
+                Number.isSafeInteger(
+                  (
+                    v as {
+                      revision: unknown;
+                    }
+                  ).revision,
+                ),
             ),
           ) as Pending)
         : {};
@@ -119,7 +131,10 @@ const AccountWorkspace = memo(function AccountWorkspace({
   const [agreed, setAgreed] = useState(false);
   const [busy, setBusy] = useState(false);
   const [sending, setSending] = useState(false);
-  const [conflict, setConflict] = useState<{ key: string; remote: WorkspaceDocument } | null>(null);
+  const [conflict, setConflict] = useState<{
+    key: string;
+    remote: WorkspaceDocument;
+  } | null>(null);
   const [importKeys, setImportKeys] = useState<string[]>([]);
   const [selectedImports, setSelectedImports] = useState<string[]>([]);
   const controller = useRef(new AbortController());

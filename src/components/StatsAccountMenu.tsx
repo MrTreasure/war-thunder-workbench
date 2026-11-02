@@ -10,7 +10,6 @@ import { lazy, Suspense, useEffect, useId, useRef, useState } from "react";
 import { AccountAvatar } from "../AccountAvatar";
 import type { AvatarOption } from "./AccountAvatarPicker";
 const AccountAvatarPicker = lazy(() => import("./AccountAvatarPicker"));
-
 export function StatsAccountMenu({
   name,
   onLogout,
@@ -33,7 +32,9 @@ export function StatsAccountMenu({
   useEffect(() => {
     if (!avatarEditor) return;
     let live = true;
-    void statsRequest<{ linked: AvatarOption[] }>("auth/avatars")
+    void statsRequest<{
+      linked: AvatarOption[];
+    }>("auth/avatars")
       .then((value) => {
         if (live) setLinkedAvatars(value.linked);
       })
@@ -90,7 +91,12 @@ export function StatsAccountMenu({
         className="wt-account-popover"
         onToggle={(event) => setOpen(event.newState === "open")}
       >
-        <p>{name}</p>
+        <p className="wt-account-identity">
+          <span>{name}</span>
+          {(session?.role === "superadmin" || session?.user?.isSuperAdmin) && (
+            <span className="wt-account-role">{t("超级管理员")}</span>
+          )}
+        </p>
         <button
           type="button"
           onClick={() => {

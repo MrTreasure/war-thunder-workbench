@@ -3,7 +3,7 @@ import { useLocale } from "../i18n/react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import "./app-footer.css";
 
-/** Compact shared footer; the immersive research tree has no footer. */
+/** Shared bottom layout track; the immersive research tree has no footer. */
 export function AppFooter() {
   useLocale();
   const pathname = useRouterState({ select: (state) => state.location.pathname });

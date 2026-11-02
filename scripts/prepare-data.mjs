@@ -171,7 +171,7 @@ async function emit(country, body) {
   );
   await writeFile(resolve(root, "data/generated/countries", key + ".js"), transport);
   await writeFile(resolve(root, "src/generated/countries", stem + ".ts"), transport);
-  countryModules.push(`${JSON.stringify(key)}: () => import("./countries/${stem}")`);
+  countryModules.push(`${JSON.stringify(key)}: () => import("./countries/${stem}.ts")`);
   return {
     key,
     format: "csv-js-v1",

@@ -10,6 +10,7 @@ import hashlib
 import json
 import re
 import sys
+from pathlib import Path
 
 PARSER_VERSION = 'wiki-performance-loadouts-v3'
 VOID = {'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}
@@ -198,7 +199,12 @@ def weapon_parameters(popover):
     return weapon_id,source,parameters
 
 def loadouts(doc, uid, proof, category):
-    result={**provenance(uid,proof),'status':'not_provided','limits':[],'presets':[],'hardpoints':[],'compatibility':[]}
+    result={**provenance(uid,proof),'status':'not_provided','limits':[],'presets':[],'hardpoints':[],'compatibility':[], 'rulesSchemaVersion':1, 'rules':[], 'constraintNotes':[]}
+    rule_file = Path(__file__).resolve().parents[1] / 'data/loadout-rules.json'
+    registry = json.loads(rule_file.read_text())
+    if registry.get('schemaVersion') != 1:
+        raise ValueError('Unsupported loadout rule registry')
+    result['rules'] = registry.get('vehicles', {}).get(uid, [])
     if category not in ('aviation','helicopters'):
         result['status']='not_applicable'; return result
     header=doc.find(lambda n:n.cls('block-header') and n.text=='Suspended armament')
@@ -207,6 +213,11 @@ def loadouts(doc, uid, proof, category):
         explicit=doc.find(lambda n:'has no suspended armament' in n.text.lower() and len(n.text)<250)
         result['status']='none' if explicit else 'not_provided'; return result
     section=header.parent
+    # Preserve explicit constraint prose for review; absence is not permission.
+    for note in section.all(lambda n:n.tag in ('p','li') and not n.find(lambda c:'data-feature-popover' in c.attrs)):
+        if len(note.text) <= 3000 and re.search(r'cannot|incompatib|mutually|requires?|occupies|blocked', note.text, re.I):
+            if note.text not in result['constraintNotes']:
+                result['constraintNotes'].append(note.text)
     for line in section.all(lambda n:n.cls('game-unit_chars-line') or n.cls('game-unit_chars-subline')):
         value=line.find(lambda n:n.cls('game-unit_chars-value'))
         nodes=[c for c in line.children if isinstance(c,Node)]

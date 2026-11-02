@@ -26,8 +26,8 @@ function WorkbenchLayout() {
                 data-scroll-restoration-id="workbench-content"
               >
                 <Outlet />
-                <AppFooter />
               </div>
+              <AppFooter />
             </WorkbenchProvider>
           </AccountWorkspaceProvider>
         </WorkbenchAccountProvider>

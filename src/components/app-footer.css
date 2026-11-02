@@ -1,10 +1,16 @@
 /* finesse component: existing workbench tokens, compact utility footer. */
 .wt-app-footer {
+  flex: none;
+  width: 100%;
   padding: 8px 24px max(8px, env(safe-area-inset-bottom, 0px));
   border-top: 1px solid var(--wt-line);
   color: var(--wt-muted);
   background: var(--wt-page);
   font: 400 11px/1.6 var(--wt-sans);
+}
+/* The map editor already occupies the whole frame below the shared header. */
+.workbench-layout:has(.ground-workspace[data-editing="true"]) > .wt-app-footer {
+  display: none;
 }
 .wt-app-footer-inner {
   max-width: 1512px;

@@ -210,11 +210,11 @@
     "ussr": {
       "key": "country-ussr",
       "format": "csv-js-v1",
-      "file": "country-ussr.ab9747d2920e9a65.js",
-      "sha256": "f02896338d64523d1bdd8ca6d822863f6620a1e002054e2a4aa39b7adc6950c9",
-      "bytes": 2698861,
-      "transportSha256": "ab9747d2920e9a6544e216eeb3b27137b88d82a9521dff327424596ea94b3953",
-      "transportBytes": 2743158,
+      "file": "country-ussr.68b5830f8b6aaeea.js",
+      "sha256": "84c696c8d2f8f8a6c4afcf725dc96c7c953dcf39c370ba1a655ffdc12b41572a",
+      "bytes": 2699295,
+      "transportSha256": "68b5830f8b6aaeeaaa16dbd88e87a15ca5d35d55e6e70068d8e1b3c34ffb6748",
+      "transportBytes": 2743602,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {

@@ -5,11 +5,10 @@ import { GameSelect } from "./GameSelect";
 export function PageNavigation({
   page,
 }: {
-  page: "tree" | "lineups" | "maps" | "stats" | "sales" | "decals" | "disclaimer";
+  page: "tree" | "lineups" | "maps" | "stats" | "sales" | "decals" | "disclaimer" | "loadouts";
 }) {
   const navigate = useNavigate();
   useLocale();
-
   return (
     <>
       <nav className="page-navigation" aria-label={t("工具页面")}>
@@ -32,6 +31,13 @@ export function PageNavigation({
         <Link to="/sales" preload={false} aria-current={page === "sales" ? "page" : undefined}>
           {t("折扣日历")}
         </Link>
+        <Link
+          to="/loadouts"
+          preload={false}
+          aria-current={page === "loadouts" ? "page" : undefined}
+        >
+          {t("模拟挂载")}
+        </Link>
       </nav>
       <nav className="mobile-page-navigation" aria-label={t("工具页面")}>
         <GameSelect
@@ -44,7 +50,8 @@ export function PageNavigation({
                 next === "lineups" ||
                 next === "maps" ||
                 next === "stats" ||
-                next === "sales") &&
+                next === "sales" ||
+                next === "loadouts") &&
               next !== page
             )
               void navigate({ to: next === "lineups" ? "/lineups/lobby" : `/${next}` });
@@ -60,6 +67,7 @@ export function PageNavigation({
           <option value="maps">{t("陆战地图")}</option>
           <option value="stats">{t("战绩查询")}</option>
           <option value="sales">{t("折扣日历")}</option>
+          <option value="loadouts">{t("模拟挂载")}</option>
         </GameSelect>
       </nav>
     </>

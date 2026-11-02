@@ -443,3 +443,6 @@
 
 .wt-home-link { display: inline-flex; flex: none; align-items: center; min-height: 44px; color: inherit; }
 .wt-home-link:focus-visible { outline: 2px solid var(--wt-gold); outline-offset: 3px; }
+
+.wt-account-identity { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.wt-account-role { color: var(--wt-gold); font-size: 12px; }

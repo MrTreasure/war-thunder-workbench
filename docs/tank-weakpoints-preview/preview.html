@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="description" content="各国坦克弱点图文资料：高清正面画面、Wiki 资料、主炮装填时间与视频推荐攻击位置。">
+    <title>坦克弱点 · 图文样例</title>
+    <link rel="preload" href="./assets/__SYMBOL_FONT__" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="__STYLE__">
+    <script defer src="__SCRIPT__"></script>
+  </head>
+  <body>
+    <header class="shell-header">
+      <a href="./#/maps" class="back">← 返回工作台</a>
+      <span class="brand">坦克弱点<span>图文样例</span></span>
+      <span class="review-badge">待老大确认</span>
+    </header>
+    <main>
+      <div class="intro">
+        <p class="eyebrow">WAR THUNDER / ARMOUR STUDY</p>
+        <h1>坦克正面弱点图解</h1>
+        <p>高清正面画面，搭配官方 Wiki 资料与视频推荐攻击位置。点击编号查看说明。</p>
+      </div>
+      <section class="filters" aria-label="筛选弱点资料">
+        <div class="filter-control"><span id="country-label" class="sr-only">国家</span><div id="countries"></div></div>
+        <div class="filter-control"><span id="rank-label" class="sr-only">等级</span><div id="ranks"></div></div>
+        <div class="filter-control"><span id="era-label" class="sr-only">年代</span><div id="eras"></div></div>
+        <div class="filter-control vehicle-filter"><span id="vehicle-label" class="sr-only">车型</span><div id="vehicles"></div></div>
+        <label class="family-filter"><input id="include-is" type="checkbox">IS 系列补充<span>不限等级</span></label>
+      </section>
+      <p id="result-count" class="result-count" role="status"></p>
+      <section id="empty-state" class="empty-state" hidden><h2>暂无符合筛选的资料</h2><p>该分类尚未收录已核对的高清正面图，可调整筛选查看现有资料。</p><button id="reset-filters" type="button">重置筛选</button></section>
+      <section id="study" class="study" aria-labelledby="vehicle-name">
+        <div class="figure-column">
+          <header class="figure-header">
+            <div><h2 id="vehicle-name"></h2><p id="vehicle-role"></p></div>
+            <div class="figure-actions"><div id="image-views" class="image-views" role="group" aria-label="图像视图" hidden></div><button id="toggle-original" type="button" aria-pressed="false">查看完整原始帧</button><a id="evidence-full" target="_blank" rel="noopener noreferrer" hidden>打开高清原帧 ↗</a></div>
+          </header>
+          <div class="photo-stage" id="photo-stage">
+            <img id="photo" alt="" width="1100" height="690"><p id="image-status" class="image-status" role="status" hidden></p>
+            <div id="pins" class="annotation-layer"></div>
+          </div>
+          <p id="figure-caption" class="figure-caption"></p>
+          <div id="pin-buttons" class="pin-buttons" aria-label="按区域查看说明"></div>
+          <section class="explanation" aria-live="polite" aria-atomic="true"><p id="point-kind" class="eyebrow">选中标注</p><h3 id="point-title"></h3><p id="point-detail"></p></section>
+        </div>
+        <aside class="evidence">
+          <section><p class="eyebrow">阅读要点 · 官方 Wiki</p><p id="wiki-summary"></p><ul id="wiki-points"></ul></section>
+          <section class="reload-panel"><h3>主炮装填</h3><p id="reload-time" class="reload-time"></p><p id="reload-gun"></p><p id="reload-note"></p></section>
+          <section id="test-section" hidden><h3>视频测试</h3><dl class="test-context"><dt>测试车辆</dt><dd id="test-attacker"></dd><dt>测试炮弹</dt><dd id="test-shell"></dd><dt>弹种类型</dt><dd id="test-shell-type"></dd><dt>演示穿深</dt><dd id="test-penetration"></dd></dl><p id="test-note" hidden></p><a id="test-link" hidden target="_blank" rel="noopener noreferrer"></a></section>
+          <section id="video-section"><h3>视频攻击位置与建议</h3><div id="video-advice"></div></section>
+        </aside>
+      </section>
+      <section id="source-section" class="sources" aria-labelledby="sources-heading"><h2 id="sources-heading">来源与核对记录</h2><div id="sources"></div><p>Wiki 与视频分别标明来源；点击视频时间可跳转至对应讲解。</p></section>
+    </main>
+    <footer>《战争雷霆》游戏内资料 · 采集核对：2026-11-02 · 双站正式页面暂未接入本样例</footer>
+  </body>
+</html>

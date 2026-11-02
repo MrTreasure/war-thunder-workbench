@@ -1,3 +1,4 @@
+import { loadoutKey, validLoadoutPlans } from "./loadouts";
 import { saleWatchKey, normalizeSaleWatch } from "./sale-watch-storage";
 import { workspaceKey } from "./workspace-context";
 import type { WorkspaceDocument } from "./workspace-context";
@@ -16,6 +17,8 @@ export function collectGuestDefaults(
   const marker = `wt-account-workspace-v1:${userId}:automatic-import`;
   if (!userId) return {};
   const imported = !!storage.getItem(marker);
+  const mountMarker = `wt-account-workspace-v1:${userId}:loadout-import`;
+  const importedMounts = !!storage.getItem(mountMarker);
   const watchMarker = `wt-account-workspace-v1:${userId}:sale-watch-import`;
   const importedWatch = !!storage.getItem(watchMarker);
   const claimKey = "wt-account-workspace-v1:guest-import-owners";
@@ -28,6 +31,20 @@ export function collectGuestDefaults(
   }
   const next: Defaults = {};
   for (const key of Object.keys(storage).filter(workspaceKey)) {
+    if (key === loadoutKey) {
+      if (importedMounts || pendingKeys.includes(key) || (owners[key] && owners[key] !== userId))
+        continue;
+      try {
+        const value = JSON.parse(storage.getItem(key) || "null");
+        if (!validLoadoutPlans(value) || !value.length || documents.some((d) => d.key === key))
+          continue;
+        owners[key] = userId;
+        next[key] = { value, revision: 0 };
+      } catch {
+        /* Invalid guest plans remain local. */
+      }
+      continue;
+    }
     if (key === saleWatchKey) {
       if (importedWatch || pendingKeys.includes(key) || (owners[key] && owners[key] !== userId))
         continue;
@@ -80,5 +97,6 @@ export function collectGuestDefaults(
   storage.setItem(claimKey, JSON.stringify(owners));
   storage.setItem(marker, "1");
   storage.setItem(watchMarker, "1");
+  storage.setItem(mountMarker, "1");
   return next;
 }

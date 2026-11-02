@@ -1,0 +1,635 @@
+/* finesse · product · existing War Thunder shell · dense game loadout workspace */
+.wt-mount-page {
+  max-width: 1560px;
+  margin-inline: auto;
+  padding: 20px 24px 32px;
+  color: var(--wt-ink);
+}
+.wt-mount-heading,
+.wt-mount-plan-title,
+.wt-mount-board-top,
+.wt-mount-actions,
+.wt-mount-pagination {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+}
+.wt-mount-heading {
+  margin-bottom: 16px;
+}
+.wt-mount-heading h2 {
+  font-size: 22px;
+  margin: 0;
+}
+.wt-mount-heading p,
+.wt-mount-coverage {
+  color: var(--wt-muted);
+  font-size: 12px;
+  margin: 4px 0;
+}
+.wt-mount-page button:not(.vehicle-card) {
+  min-height: 36px;
+  padding: 6px 12px;
+  border: 1px solid var(--wt-line);
+  background: var(--wt-raised);
+  color: var(--wt-ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  border-radius: 3px;
+}
+.wt-mount-page button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.wt-mount-page button:focus-visible,
+.wt-mount-page input:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 2px;
+}
+.wt-mount-page button.primary-button {
+  background: var(--wt-service-red);
+  border-color: var(--wt-service-red);
+}
+nav.wt-mount-tabs { overflow-x: auto; }
+.wt-mount-list-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 20px; }
+.wt-mount-toolbar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: end;
+  margin: 16px 0;
+}
+.wt-mount-page label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: var(--wt-muted);
+  font-size: 12px;
+  min-width: 0;
+}
+.wt-mount-toolbar label {
+  min-width: 150px;
+  flex: 1;
+}
+.wt-mount-toolbar label:nth-child(3) {
+  flex: 2;
+}
+.wt-mount-page input,
+.wt-mount-page textarea {
+  font: inherit;
+  color: var(--wt-ink);
+  background: var(--wt-surface);
+  padding: 9px 10px;
+  border: 1px solid var(--wt-line);
+  border-radius: 3px;
+  min-width: 0;
+}
+.wt-mount-plan-title {
+  justify-content: start;
+  margin: 20px 0;
+}
+.wt-mount-plan-title > label {
+  flex: 1;
+  max-width: 440px;
+}
+.wt-mount-state {
+  font-size: 12px;
+  color: var(--wt-gold);
+  white-space: nowrap;
+}
+.wt-mount-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 290px;
+  gap: 16px;
+  align-items: start;
+}
+.wt-mount-board {
+  background: var(--wt-surface);
+  border: 1px solid var(--wt-line);
+  padding: 18px;
+  min-height: 360px;
+}
+.wt-mount-board-top h3,
+.wt-mount-summary h3 {
+  margin: 0;
+  font-size: 15px;
+}
+.wt-mount-board-top > span {
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.wt-mount-stations {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding: 28px 0;
+}
+.wt-mount-page .wt-mount-station {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  width: 138px;
+  min-height: 190px;
+  background: var(--wt-panel);
+  text-align: center;
+  border-top: 3px solid var(--wt-line);
+}
+.wt-mount-page .wt-mount-station[aria-pressed="true"] {
+  border-color: var(--wt-gold);
+}
+.wt-mount-station[data-conflict="true"] {
+  border-color: var(--wt-service-red);
+}
+.wt-mount-station-number {
+  align-self: stretch;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+.wt-mount-station small {
+  color: var(--wt-muted);
+  font-weight: 400;
+}
+.wt-mount-station strong {
+  font-size: 12px;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+.wt-mount-station img {
+  object-fit: contain;
+}
+.wt-mount-summary {
+  border: 1px solid var(--wt-line);
+  background: var(--wt-surface);
+  padding: 16px;
+}
+.wt-mount-summary dl {
+  font-size: 12px;
+}
+.wt-mount-summary dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 10px 0;
+}
+.wt-mount-summary dt {
+  color: var(--wt-muted);
+}
+.wt-mount-summary dd {
+  margin: 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.wt-mount-summary ul {
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--wt-line);
+}
+.wt-mount-summary li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+  padding: 8px 0;
+}
+.wt-mount-summary li strong {
+  white-space: nowrap;
+}
+.wt-mount-provenance {
+  font-size: 12px;
+  color: var(--wt-muted);
+  border-top: 1px solid var(--wt-line);
+  margin-top: 12px;
+  padding-top: 10px;
+}
+.wt-mount-provenance h4 {
+  margin: 0 0 8px;
+  color: var(--wt-ink);
+  font-weight: 500;
+}
+.wt-mount-page .wt-mount-station:disabled {
+  opacity: 1;
+  color: var(--wt-muted);
+  background: var(--wt-surface);
+  border-style: dashed;
+}
+.wt-mount-source-name {
+  margin: 4px 6px 10px;
+  color: var(--wt-muted);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.wt-mount-weapon-parameters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 0 22px;
+  margin: 10px 6px 0;
+  font-size: 13px;
+}
+.wt-mount-weapon-parameters > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  border-top: 1px solid var(--wt-line);
+}
+.wt-mount-weapon-parameters dt { color: var(--wt-muted); }
+.wt-mount-weapon-parameters dd { margin: 0; text-align: right; overflow-wrap: anywhere; }
+.wt-mount-vehicle-menu .wt-select-option {
+  min-height: 100px;
+}
+.wt-mount-vehicle-menu .wt-game-card {
+  margin-block: 4px 14px;
+}
+.wt-mount-actions {
+  position: sticky;
+  bottom: 0;
+  margin-top: 16px;
+  padding: 10px;
+  background: var(--wt-panel);
+  border-top: 1px solid var(--wt-line);
+  justify-content: start;
+  z-index: 2;
+}
+.wt-mount-action-spacer {
+  flex: 1;
+}
+.wt-mount-error {
+  color: #f0a69b;
+  background: var(--wt-surface);
+  padding: 10px 12px;
+  border-inline-start: 3px solid var(--wt-service-red);
+  font-size: 13px;
+}
+.wt-mount-error button {
+  margin-inline-start: 12px;
+}
+.wt-mount-warning {
+  color: var(--wt-gold);
+  font-size: 12px;
+}
+.wt-mount-message {
+  font-size: 13px;
+  color: var(--wt-ink);
+}
+.wt-mount-empty {
+  padding: 36px 20px;
+  border: 1px dashed var(--wt-line);
+  margin: 16px 0;
+  color: var(--wt-muted);
+}
+.wt-mount-presets > button {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  text-align: left;
+  gap: 8px;
+  width: 100%;
+  margin-top: 10px;
+}
+.wt-mount-presets > button[aria-pressed="true"] {
+  border-color: var(--wt-gold);
+}
+.wt-mount-presets > button span {
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.wt-mount-requirements > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 130px auto;
+  align-items: end;
+  gap: 12px;
+  margin: 12px 0;
+  max-width: 850px;
+}
+.wt-mount-find h3 {
+  font-size: 17px;
+}
+.wt-mount-find > p {
+  color: var(--wt-muted);
+  font-size: 13px;
+}
+.wt-mount-results,
+.wt-mount-saved {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.wt-mount-results article,
+.wt-mount-saved article {
+  min-width: 0;
+  padding: 14px;
+  background: var(--wt-surface);
+  border: 1px solid var(--wt-line);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 12px;
+}
+.wt-mount-saved h4 {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.wt-mount-saved p {
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.wt-mount-saved article > div:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.wt-mount-page .vehicle-tile {
+  font-size: inherit;
+}
+.wt-mount-pagination {
+  justify-content: center;
+  margin: 18px;
+}
+.calculator.wt-mount-picker,
+.calculator.wt-mount-share {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(740px, calc(100vw - 24px));
+  height: fit-content;
+  max-height: calc(100dvh - 28px);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--wt-surface);
+}
+.wt-mount-picker-tools {
+  display: flex;
+  gap: 10px;
+  padding: 14px;
+}
+.wt-mount-picker-tools input {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  background: var(--wt-panel);
+  color: var(--wt-ink);
+  border: 1px solid var(--wt-line);
+  padding: 9px;
+}
+.wt-mount-weapon-list {
+  overflow: auto;
+  min-height: 0;
+  padding: 0 14px 14px;
+}
+.wt-mount-weapon-list article {
+  border: 1px solid var(--wt-line);
+  padding: 10px;
+  margin: 8px 0;
+}
+.wt-mount-weapon-list article > button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  color: var(--wt-ink);
+  padding: 6px;
+  cursor: pointer;
+}
+.wt-mount-weapon-list button span {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.wt-mount-weapon-list small {
+  color: var(--wt-muted);
+}
+.wt-mount-weapon-list img {
+  object-fit: contain;
+}
+.wt-mount-share > label,
+.wt-mount-share > p,
+.wt-mount-share > section,
+.wt-mount-share > div:not(.calc-header) {
+  margin: 12px 16px;
+}
+.wt-mount-share textarea {
+  display: block;
+  width: 100%;
+  min-height: 130px;
+  resize: vertical;
+  font: 12px monospace;
+  background: var(--wt-panel);
+  color: var(--wt-ink);
+  padding: 10px;
+  border: 1px solid var(--wt-line);
+  box-sizing: border-box;
+}
+.wt-mount-share > button {
+  margin: 12px 16px;
+  align-self: start;
+}
+.wt-mount-share > div > button + button {
+  margin-left: 8px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wt-mount-page * {
+    scroll-behavior: auto;
+    transition: none;
+  }
+}
+
+.calculator.wt-mount-picker:not([open]),
+.calculator.wt-mount-share:not([open]) {
+  display: none;
+}
+
+.wt-mount-desktop-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.wt-mount-mobile-actions {
+  display: none;
+}
+
+/* finesse · product · list-first loadout workbench, shared game cards */
+.wt-mount-workspace { grid-template-columns: minmax(0, 1fr); }
+.wt-mount-board, .wt-mount-summary { width: 100%; min-width: 0; box-sizing: border-box; }
+.wt-mount-summary { display: grid; grid-template-columns: minmax(220px, 1fr) minmax(260px, 2fr); gap: 12px 28px; }
+.wt-mount-summary > h3, .wt-mount-summary > .wt-mount-provenance, .wt-mount-summary > .wt-mount-error { grid-column: 1 / -1; }
+.wt-mount-stations { display: grid; grid-template-columns: repeat(auto-fit,minmax(138px,1fr)); align-items: stretch; }
+.wt-mount-page .wt-mount-station { width: 100%; min-width: 0; min-height: 220px; box-sizing: border-box; }
+.wt-mount-page .wt-mount-station strong { width: 100%; max-width: 100%; min-width: 0; white-space: normal; overflow-wrap: anywhere; word-break: break-word; line-height: 1.5; }
+.wt-mount-station > small:last-child { margin-top: auto; }
+.wt-mount-editor-toolbar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-block: 14px; }
+.wt-mount-editor-toolbar .wt-select { min-width: 140px; margin-left: auto; }
+.wt-mount-country { display: inline-flex; gap: 8px; align-items: center; min-width: 0; }
+.wt-mount-country img { width: 24px; height: 18px; object-fit: contain; flex-shrink: 0; }
+.wt-mount-heading > div:first-child { margin-right: auto; }
+.wt-mount-section-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-block: 14px; }
+.wt-mount-section-heading h3, .wt-mount-section-heading h4 { margin: 0; }
+.wt-mount-section-heading > span, .wt-mount-note { font-size: 12px; color: var(--wt-muted); line-height: 1.7; }
+.wt-mount-defaults { margin-block: 20px; }
+.wt-mount-default-list, .wt-mount-recommendation-list { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,300px),1fr)); gap: 16px; }
+.wt-mount-default-list article, .wt-mount-recommendation-list article { padding: 16px; border: 1px solid var(--wt-line); background: var(--wt-surface); min-width: 0; }
+.wt-mount-default-list header { display: flex; gap: 12px; align-items: center; justify-content: space-between; }
+.wt-mount-default-list h4, .wt-mount-recommendation-list h4 { margin: 0 0 12px; overflow-wrap: anywhere; }
+.wt-mount-default-list ul { list-style: none; margin: 0; padding: 0; }
+.wt-mount-default-list li { margin-top: 10px; }
+.wt-mount-recommendation-list .vehicle-card { margin-bottom: 20px; }
+.wt-mount-recommendation-list ul { padding-left: 18px; line-height: 1.7; }
+.wt-mount-tag-list { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-block: 10px; }
+.wt-mount-shared-list article { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; padding: 12px 0; border-top: 1px solid var(--wt-line); }
+.wt-mount-shared-list article > span { flex: 1 1 200px; }
+.wt-mount-shared-list .wt-mount-tag-list { flex: 1 1 100%; }
+.wt-mount-login { padding-block: 56px; text-align: center; }
+.wt-mount-login p { color: var(--wt-muted); margin-block: 20px; }
+.calculator.wt-mount-vehicle-picker { inset: 0; margin: auto; width: min(960px,calc(100vw - 24px)); height: min(760px,calc(100dvh - 32px)); max-height: calc(100dvh - 32px); padding: 0; display: flex; flex-direction: column; overflow: hidden; }
+.wt-mount-vehicle-picker .wt-mount-toolbar { display: grid; grid-template-columns: minmax(140px,1fr) 120px minmax(180px,2fr); margin: 16px; flex-shrink: 0; }
+.wt-mount-vehicle-picker .wt-mount-toolbar label { min-width: 0; }
+.wt-mount-vehicle-picker > p { margin-inline: 16px; }
+.wt-mount-model-grid { min-height: 0; overflow: auto; display: grid; grid-template-columns: repeat(auto-fill,minmax(250px,1fr)); gap: 18px 12px; padding: 14px 16px 28px; align-content: start; }
+.wt-mount-model-choice { min-height: 102px; display: flex; justify-content: center; padding-bottom: 14px; }
+.wt-mount-model-choice .vehicle-card { flex-shrink: 0; }
+.calculator.wt-mount-vehicle-picker:not([open]) { display: none; }
+.wt-mount-saved article > .vehicle-card { margin-block: 4px 18px; }
+.wt-mount-saved article > div:last-child { display: flex; flex-wrap: wrap; gap: 6px; }
+.wt-mount-saved h4 { overflow-wrap: anywhere; }
+
+/* Compact hardpoint rail and three explicit source-side rows. */
+.wt-mount-point-strip { display: grid; grid-template-columns: repeat(var(--wt-point-count),minmax(0,1fr)); gap: 8px; align-items: stretch; padding: 18px 0; }
+.wt-mount-point { display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-width: 0; gap: 6px; padding: 8px 3px; background: var(--wt-panel); border: 1px solid var(--wt-line); border-top: 3px solid var(--wt-line); }
+.wt-mount-point[data-selected="true"] { border-color: var(--wt-gold); }
+.wt-mount-point[data-conflict="true"] { border-color: var(--wt-service-red); }
+.wt-mount-point[data-unavailable="true"] { background: transparent; border-style: dashed; }
+.wt-mount-page .wt-mount-point .wt-mount-point-select,
+.wt-mount-page .wt-mount-point .wt-mount-point-empty { width: 100%; min-width: 0; padding: 4px 0; border: 0; background: transparent; font-size: 12px; white-space: nowrap; }
+.wt-mount-page .wt-mount-point .wt-mount-point-icon { flex: none; width: 100%; height: 44px; min-height: 44px; margin: 0; padding: 3px; border: 0; background: transparent; }
+.wt-mount-page .wt-mount-point .wt-mount-point-empty { height: 44px; min-height: 44px; font-size: 24px; color: var(--wt-muted); }
+.wt-mount-point-icon img { display: block; margin: auto; max-width: 100%; object-fit: contain; }
+.wt-mount-point small { font-size: 11px; line-height: 1.5; color: var(--wt-muted); white-space: nowrap; }
+.wt-mount-point-strip .wt-game-tip-trigger:focus-visible { outline-offset: -2px; }
+.wt-mount-regions { display: grid; gap: 0; border-top: 1px solid var(--wt-line); }
+.wt-mount-region { display: grid; grid-template-columns: 56px minmax(0,1fr); align-items: baseline; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--wt-line); }
+.wt-mount-region h4 { margin: 0; font-size: 13px; color: var(--wt-muted); font-weight: 400; }
+.wt-mount-region ul { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; margin: 0; padding: 0; list-style: none; }
+.wt-mount-region li { min-width: 0; }
+.wt-mount-page .wt-mount-region button { display: inline-flex; gap: 8px; align-items: baseline; border: 0; padding: 4px 0; background: transparent; text-align: left; }
+.wt-mount-region button > span { color: var(--wt-muted); white-space: nowrap; font-size: 12px; }
+.wt-mount-region strong { white-space: normal; overflow-wrap: anywhere; font-size: 12px; font-weight: 400; }
+.wt-mount-weapon-row { display: flex; align-items: center; gap: 12px; padding: 10px; background: var(--wt-raised); border: 1px solid var(--wt-line); border-radius: 3px; }
+.wt-mount-weapon-row .wt-mount-weapon-select { display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1 1 220px; text-align: left; background: transparent; border-color: transparent; padding: 0; }
+.wt-mount-weapon-select > img { flex: none; }
+.wt-mount-weapon-title { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.wt-mount-weapon-title strong { font-size: 13px; overflow-wrap: anywhere; }
+.wt-mount-weapon-brief { flex: 1 1 300px; display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0; font-size: 12px; }
+.wt-mount-weapon-brief > div { display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: baseline; }
+.wt-mount-weapon-brief dt { color: var(--wt-muted); }
+.wt-mount-weapon-brief dd { margin: 0; color: var(--wt-ink); white-space: nowrap; }
+.wt-mount-weapon-row .wt-mount-compare-choice { display: flex; flex-direction: row; align-items: center; gap: 6px; flex-shrink: 0; min-height: 44px; font-size: 12px; cursor: pointer; }
+.wt-mount-compare-choice input { width: 18px; height: 18px; accent-color: var(--wt-gold); }
+.wt-mount-weapon-more { margin-top: 10px; font-size: 12px; }
+.wt-mount-weapon-more summary { padding: 6px; cursor: pointer; color: var(--wt-muted); }
+.wt-mount-weapon-more > a { display: inline-block; margin: 10px 6px; }
+.wt-mount-weapon-more:not([open]) > :not(summary) { display: none; }
+.calculator.wt-mount-picker { width: min(1040px,calc(100vw - 24px)); }
+.wt-mount-picker-tools { align-items: center; flex-wrap: wrap; }
+.wt-mount-page button.wt-mount-compare-dock { position: fixed; right: max(20px,env(safe-area-inset-right,0px)); z-index: 80; display: inline-flex; align-items: center; gap: 12px; padding: 12px 18px; min-height: 48px; border: 1px solid var(--wt-gold); background: var(--wt-page); color: var(--wt-gold); box-shadow: var(--wt-shadow); font-size: 14px; }
+.calculator.wt-mount-compare { inset: 0; margin: auto; width: min(1460px,calc(100vw - 24px)); height: fit-content; max-height: calc(100dvh - 28px); padding: 0; display: flex; flex-direction: column; background: var(--wt-surface); }
+.calculator.wt-mount-compare:not([open]) { display: none; }
+.wt-mount-compare-tools { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px; font-size: 12px; color: var(--wt-muted); }
+.wt-mount-compare-scroll { min-height: 0; overflow: auto; overscroll-behavior: contain; margin: 0 16px 16px; }
+.wt-mount-compare table { width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 0; font-size: 13px; }
+.wt-mount-compare th, .wt-mount-compare td { padding: 12px; text-align: left; border-bottom: 1px solid var(--wt-line); border-right: 1px solid var(--wt-line); background: var(--wt-surface); overflow-wrap: anywhere; }
+.wt-mount-compare thead th { position: sticky; top: 0; z-index: 2; vertical-align: top; background: var(--wt-panel); }
+.wt-mount-compare tr > :first-child { position: sticky; left: 0; width: 140px; z-index: 1; color: var(--wt-muted); }
+.wt-mount-compare thead tr > :first-child { z-index: 3; }
+.wt-mount-compare thead strong { display: block; margin-block: 6px 10px; font-weight: 500; }
+.wt-mount-compare thead img { object-fit: contain; }
+.wt-game-tip-body .wt-mount-weapon-parameters { display: block; margin: 10px 0; }
+.wt-game-tip-body .wt-mount-source-name { margin-inline: 0; }
+
+.wt-mount-weapon-filters { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; margin-block: 12px; }
+.wt-mount-weapon-filters > label { display: grid; gap: 6px; min-width: 180px; font-size: 12px; color: var(--wt-muted); }
+
+/* Shared alignment: picker filters and weapon requirements share one desktop row. */
+.wt-mount-picker .wt-mount-picker-tools { display: grid; grid-template-columns: minmax(160px,1fr) minmax(130px,160px) minmax(160px,190px) auto auto; align-items: end; gap: 12px; padding: 14px; }
+.wt-mount-picker-tools > .wt-mount-weapon-filters,
+.wt-mount-requirements > div > .wt-mount-weapon-filters { display: contents; }
+.wt-mount-picker-tools label { min-width: 0; }
+.wt-mount-picker-tools input { width: 100%; min-height: 36px; }
+.wt-mount-picker-tools .wt-mount-weapon-filters > label { min-width: 0; }
+.wt-mount-page .wt-mount-weapon-row .wt-mount-weapon-select { border: 0; background: transparent; padding: 4px 0; }
+.wt-mount-requirements > div { max-width: none; }
+.wt-mount-requirements > div:first-child { grid-template-columns: minmax(130px,1fr) minmax(110px,.7fr) minmax(140px,.8fr) minmax(200px,1.7fr) 80px auto; }
+.wt-mount-requirements .wt-mount-weapon-filters > label { min-width: 0; }
+.wt-mount-weapon-option { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.wt-mount-weapon-option > img, .wt-mount-weapon-option > svg { flex: none; object-fit: contain; }
+.wt-mount-weapon-option > span { min-width: 0; white-space: normal; overflow-wrap: anywhere; }
+.wt-mount-weapon-menu .wt-select-option { min-height: 44px; }
+.wt-mount-recommendation-list { grid-template-columns: minmax(0,1fr); }
+.wt-mount-summary-strip { display: flex; align-items: start; gap: 12px; min-width: 0; overflow-x: auto; padding-bottom: 10px; }
+.wt-mount-summary-aircraft { flex: none; padding-top: 8px; }
+.wt-mount-summary-strip .vehicle-card { margin: 0; }
+.wt-mount-preview-slots { display: flex; flex-wrap: nowrap; align-items: stretch; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.wt-mount-recommendation-list .wt-mount-preview-slots { padding: 0; line-height: 1.4; }
+/* A GameTip trigger defaults to flex-basis: 28px for info icons.
+   Keep each roster slot a block so that default cannot shrink its weapon card. */
+.wt-mount-preview-slots > li { display: block; flex: none; font-size: 12px; width: clamp(128px,calc(var(--wt-weapon-label-width,12em) + 16px),224px); min-width: 128px; max-width: 224px; }
+/* finesse · component: loadout-plan-card · product · existing slate/gold tokens */
+.wt-mount-page button.wt-mount-preview-weapon,
+.wt-mount-preview-slots .wt-mount-preview-weapon { display: grid; grid-template-columns: minmax(0,1fr); grid-template-rows: auto auto auto; gap: 5px; align-items: center; justify-content: start; box-sizing: border-box; flex: none; width: 100%; min-width: 100%; height: auto; min-height: 0; margin: 0; padding: 7px; color: var(--wt-ink); background: var(--wt-raised); border: 1px solid var(--wt-line); border-radius: 0; font-size: 12px; line-height: 1.45; white-space: normal; }
+.wt-mount-preview-top { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; gap: 6px; font-size: 11px; font-variant-numeric: tabular-nums; }
+.wt-mount-preview-label { color: var(--wt-muted); white-space: nowrap; }
+.wt-mount-preview-name { display: block; min-width: 0; min-height: 0; overflow: visible; white-space: normal; overflow-wrap: anywhere; word-break: normal; text-align: center; }
+.wt-mount-preview-weapon > img { justify-self: center; width: 36px; height: 28px; flex: none; object-fit: contain; }
+.wt-mount-preview-weapon > svg { justify-self: center; width: 36px; height: 28px; flex: none; }
+.wt-mount-page .wt-mount-saved, .wt-mount-shared-list { display: grid; grid-template-columns: minmax(0,1fr); gap: 12px; margin-top: 16px; }
+.wt-mount-shared-list > h3 { margin: 12px 0 0; }
+.wt-mount-page article.wt-mount-plan-card,
+.wt-mount-recommendation-list article.wt-mount-plan-card { display: grid; grid-template-columns: minmax(0,1fr); align-items: stretch; gap: 12px; min-width: 0; margin: 0; padding: 14px 16px; border: 1px solid var(--wt-line); background: var(--wt-surface); }
+.wt-mount-card-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; min-width: 0; }
+.wt-mount-card-heading h4 { margin: 0; font-size: 15px; font-weight: 600; line-height: 1.5; white-space: normal; overflow-wrap: anywhere; }
+.wt-mount-card-heading .wt-mount-tag-list { margin: 0; }
+.wt-mount-card-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding-top: 10px; border-top: 1px solid var(--wt-line); }
+.wt-mount-card-footer > p { margin: 0; color: var(--wt-muted); font-size: 12px; line-height: 1.5; }
+.wt-mount-card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.wt-mount-card-actions > button, .wt-mount-card-actions > a { white-space: nowrap; }
+.wt-mount-page .wt-mount-card-actions > button:first-child { border-color: var(--wt-strong-line); color: var(--wt-gold); }
+@media (hover: hover) {
+  .wt-mount-page button.wt-mount-preview-weapon:hover, .wt-mount-preview-slots .wt-mount-preview-weapon:hover { background: var(--wt-panel); border-color: var(--wt-strong-line); }
+}
+.wt-mount-preview-slots .wt-mount-preview-weapon:focus-visible { outline: 2px solid var(--wt-gold); outline-offset: -2px; }
+.wt-mount-preview-slots .wt-mount-preview-weapon:active { background: var(--wt-panel); }
+
+.wt-mount-picker-tools input,
+.wt-mount-picker-tools .wt-select,
+.wt-mount-picker-tools > button,
+.wt-mount-requirements input,
+.wt-mount-requirements .wt-select { min-height: 40px; }
+
+.wt-mount-card-identity { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; min-width: 0; }
+.wt-mount-recommended-state { flex: none; padding: 2px 7px; border: 1px solid var(--wt-gold); color: var(--wt-gold); background: var(--wt-panel); font-size: 11px; line-height: 1.5; white-space: nowrap; }
+
+.wt-mount-bombing { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--wt-line); min-width: 0; }
+.wt-mount-bombing h4 { margin: 0; font-size: 14px; }
+.wt-mount-bombing .wt-mount-section-heading { align-items: baseline; flex-wrap: wrap; gap: 8px; }
+.wt-mount-page .wt-mount-bombing-reference { display: flex; flex-direction: row; align-items: center; gap: 8px; margin-block: 12px; color: var(--wt-ink); }
+.wt-mount-bombing-reference input { accent-color: var(--wt-gold); width: 18px; height: 18px; }
+.wt-mount-bombing-scroll { overflow-x: auto; min-width: 0; }
+.wt-mount-bombing table { width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; }
+.wt-mount-bombing th, .wt-mount-bombing td { padding: 9px 6px; border-bottom: 1px solid var(--wt-line); text-align: left; vertical-align: top; }
+.wt-mount-bombing thead th { color: var(--wt-muted); font-weight: 400; }
+.wt-mount-bombing tr[data-relevant] { background: var(--wt-panel); }
+.wt-mount-bombing tr[data-relevant] > th { color: var(--wt-gold); }
+.wt-mount-bombing small { display: block; color: var(--wt-muted); font-size: 11px; font-weight: 400; margin-top: 4px; }
+.wt-mount-bombing summary { cursor: pointer; padding-block: 4px; }
+.wt-mount-bombing td ul { padding-left: 16px; }
+.wt-mount-bombing .wt-mount-weapon-more > a { display: block; }
