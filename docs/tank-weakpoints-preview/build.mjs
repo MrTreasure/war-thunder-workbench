@@ -20,6 +20,15 @@ for(const model of data.models){
   const frame=JSON.parse(await readFile(resolve(captures,model.frameSnapshot+".json"),"utf8"));
   if(wiki.url!==model.wikiUrl||wiki.status!==200||wiki.challenge||!norm(wiki.title).includes(norm(model.name)))throw Error("Wiki source identity not verified");
   if(!wiki.text.includes(model.wikiGameVersion))throw Error("Wiki version mismatch");
+  const weapon=wiki.text.slice(wiki.text.indexOf("Armaments\n")).split("Available ammunition")[0];
+  if(!weapon.includes(model.reload.gun.replace(" 主炮"," cannon")))throw Error("Wrong main gun");
+  const reload=weapon.match(/Reload\n(?:basic crew → aces\n)?([\d.]+)(?: → ([\d.]+))? s/);
+  if(!reload)throw Error("Missing main-gun reload source");
+  if(model.reload.mechanism==="automatic"){
+    if(!weapon.includes("Autoloader")||Number(reload[1])!==model.reload.seconds||reload[2])throw Error("Automatic reload mismatch");
+  }else if(Number(reload[1])!==model.reload.basicSeconds||Number(reload[2])!==model.reload.aceSeconds)throw Error("Crew reload mismatch");
+  if(model.imageView!=="front"||model.imageQuality!=="1080p60"||!frame.text.includes("1080P 60帧"))throw Error("Display frame quality not verified");
+
   if(!frame.url.startsWith(data.source.url)||frame.error||frame.challenge||Math.abs(frame.decode.mediaTime-model.time)>.2)throw Error("Video frame time or source not verified");
   const raw=await readFile(resolve(captures,model.frame));
   if(raw.readUInt32BE(16)!==1920||raw.readUInt32BE(20)!==1080)throw Error("Unexpected video dimensions");
@@ -28,14 +37,16 @@ for(const model of data.models){
   for(const pin of model.pins)if(![pin.x,pin.y].every(n=>Number.isFinite(n)&&n>=0&&n<=1))throw Error("Invalid annotation position");
   for(const [kind,filter]of [["photo",`crop=${w}:${h}:${x}:${y}`],["raw",null]]){
     const temporary=resolve(assets,`${model.id}-${kind}.next.webp`);
-    execFileSync("ffmpeg",["-hide_banner","-loglevel","error","-i",resolve(captures,model.frame),...(filter?["-vf",filter]:[]),"-frames:v","1","-c:v","libwebp","-quality","90","-y",temporary]);
+    execFileSync("ffmpeg",["-hide_banner","-loglevel","error","-i",resolve(captures,model.frame),...(filter?["-vf",filter]:[]),"-frames:v","1","-c:v","libwebp","-lossless","1","-compression_level","6","-y",temporary]);
     const body=await readFile(temporary),file=`weakpoints-${model.id}-${kind}.${hash(body).slice(0,16)}.webp`;
     await rename(temporary,resolve(assets,file));report.publishedFiles.push({file,bytes:body.length,sha256:hash(body)});
     model[kind==="photo"?"imageUrl":"rawUrl"]=`./assets/${file}`;
   }
   model.sourceFrameSHA256=hash(raw);
-  report.models.push({id:model.id,wikiUrl:wiki.url,frameTime:frame.decode.mediaTime,frameSHA256:hash(raw),frameSize:raw.length});
+  report.models.push({id:model.id,wikiUrl:wiki.url,frameTime:frame.decode.mediaTime,frameSHA256:hash(raw),frameSize:raw.length,reload:model.reload,imageQuality:model.imageQuality});
   delete model.wikiSnapshot;delete model.frameSnapshot;delete model.frame;
+  delete model.overview;delete model.comparison;delete model.limits;delete model.ammo;delete model.evidenceFrames;
+  for(const advice of model.videoAdvice)delete advice.evidence;
 }
 const css=await readFile(new URL("preview.css",import.meta.url));
 const js=Buffer.from("const SAMPLE = "+JSON.stringify(data)+";\n"+await readFile(new URL("preview.js",import.meta.url),"utf8"));

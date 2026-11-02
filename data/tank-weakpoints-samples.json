@@ -19,14 +19,14 @@
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_54_1947",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshot": "046",
-      "frameSnapshot": "043",
-      "frame": "t54-front-1111.png",
-      "time": 1111,
+      "frameSnapshot": "054",
+      "frame": "t54-front-hd-1111.png",
+      "time": 1111.033,
       "crop": [
-        560,
-        180,
-        1100,
-        690
+        570,
+        160,
+        800,
+        540
       ],
       "ammo": {
         "attacker": "T95",
@@ -35,23 +35,61 @@
         "panelPenetrationMm": 255
       },
       "overview": "先分清炮盾热区与首上。相邻位置的结果可能完全不同。",
-      "wikiSummary": "Wiki 提醒正面存在跳弹陷阱，并给出车体首上基础装甲 120 mm。基础厚度不能直接替代倾斜后的防护。",
+      "wikiSummary": "T-54 家族的首个型号，配备 100 mm D-10T 坦克炮。Wiki 提醒炮塔正面存在跳弹陷阱。",
       "comparison": "视频的炮盾绿色热区与首上红色取样点应分开理解；Wiki 提及的跳弹陷阱不能与直接击穿混为同一种机理。",
       "limits": "该帧首上取样点显示“无法击穿”，入射角 57°、攻击方位角 0°，对 T13 的等效厚度显示 341 mm。这是该位置与该弹种的结果。",
       "pins": [
         {
-          "x": 0.361,
-          "y": 0.23,
-          "label": "炮盾附近 · 条件热区",
-          "detail": "视频中炮盾附近呈绿色热区。它只反映该弹种与镜头设置下的防护分析，不能据此保证每个位置都能一发击毁。",
+          "x": 0.48387,
+          "y": 0.33093,
+          "label": "炮盾附近",
+          "detail": "视频在炮盾附近展示绿色热区；与 Wiki 提及的炮塔正面跳弹陷阱分开理解。",
           "kind": "conditional"
         },
         {
-          "x": 0.373,
-          "y": 0.39,
-          "label": "首上取样点 · 无法击穿",
-          "detail": "图中红色准星位于车体首上，该帧明确显示 T13 无法击穿。不要把炮盾的绿色结论扩展到整片车体正面。",
+          "x": 0.50037,
+          "y": 0.53537,
+          "label": "车体首上",
+          "detail": "该视频的首上取样点显示无法击穿。炮盾附近的结果不能直接套用到首上。",
           "kind": "avoid"
+        }
+      ],
+      "imageView": "front",
+      "imageQuality": "1080p60",
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "wikiPoints": [
+        "乘员 4 人；首上基础厚度 120 mm，炮塔正面基础厚度 200 mm。",
+        "正面炮塔较坚固；Wiki 建议注意正面跳弹陷阱，并利用掩体应对破甲弹。"
+      ],
+      "reload": {
+        "gun": "100 mm D-10T 主炮",
+        "display": "9.7 → 7.5 秒",
+        "basicSeconds": 9.7,
+        "aceSeconds": 7.5,
+        "mechanism": "manual",
+        "note": "基础乘员 → 王牌乘员（Wiki 面板）。"
+      },
+      "videoAdvice": [
+        {
+          "label": "炮盾下方的跳弹陷阱",
+          "text": "作者指出，炮盾下方仍有可利用的正面弱点；这一位置与首上装甲本身不同。",
+          "time": 1112,
+          "evidence": {
+            "snapshots": [
+              "065",
+              "066",
+              "072"
+            ],
+            "frames": [
+              "analysis-t54-1112.png",
+              "analysis-t54-1113.png",
+              "analysis-t54-1114.png"
+            ],
+            "type": "author-recommendation"
+          }
         }
       ]
     },
@@ -63,14 +101,14 @@
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_62m1",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshot": "049",
-      "frameSnapshot": "047",
-      "frame": "t62m1-front-1151.png",
-      "time": 1151.033,
+      "frameSnapshot": "055",
+      "frame": "t62m1-front-hd-1151.png",
+      "time": 1151,
       "crop": [
-        560,
-        180,
-        1100,
-        690
+        575,
+        195,
+        800,
+        540
       ],
       "ammo": {
         "attacker": "M47",
@@ -79,23 +117,59 @@
         "panelPenetrationMm": 320
       },
       "overview": "优先识别下首与加装装甲覆盖区，别把整个正面当成同一块装甲。",
-      "wikiSummary": "Wiki 明确说明正面车体与炮塔装有 BDD 加装装甲，增强了相应区域的防护。这与未被相同装甲包覆盖的位置需要分别判断。",
+      "wikiSummary": "T-62 的升级型，车体首上与炮塔正面有 BDD 加装装甲，配备 115 mm U-5TS 滑膛炮。",
       "comparison": "视频取样位于下部车体，在 M431、0 m 条件下显示可穿。它不能被用来证明 BDD 装甲块同样容易击穿，也不能套到原型 T-62。",
       "limits": "画面勾选了“垂直入射角包含镜头角度”；该点提示入射角 60°、攻击方位角 1°。不将这张热图外推为所有距离、所有视角的通用弱点图。",
       "pins": [
         {
-          "x": 0.403,
-          "y": 0.478,
-          "label": "下首取样点 · 本帧可穿",
-          "detail": "原始画面在此处给出绿色准星与“能够击穿”提示。测试条件为 M47 的 M431、0 米；损伤列表是防护分析的预期伤害，不是实战击杀统计。",
+          "x": 0.53537,
+          "y": 0.583,
+          "label": "车体下首",
+          "detail": "视频在下首位置展示击穿与内部毁伤；对应片段可从右侧时间链接打开。",
           "kind": "observed"
         },
         {
-          "x": 0.421,
-          "y": 0.315,
-          "label": "BDD 装甲块 · 独立判断",
-          "detail": "炮塔前方的附加装甲块与下首取样点不是相同结构。Wiki 的加装防护描述只支持分区域判断，不能拿下首结果替代装甲块测试。",
+          "x": 0.56012,
+          "y": 0.37472,
+          "label": "BDD 加装装甲",
+          "detail": "炮塔前方的马蹄形装甲块是 BDD 加装装甲覆盖区，与下首是不同结构。",
           "kind": "context"
+        }
+      ],
+      "imageView": "front",
+      "imageQuality": "1080p60",
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "wikiPoints": [
+        "乘员 4 人；车体基础装甲为 100 / 80 / 45 mm（前／侧／后）。",
+        "BDD 装甲位于车体首上及炮塔前部的马蹄形装甲块；与未覆盖位置分开识别。"
+      ],
+      "reload": {
+        "gun": "115 mm U-5TS 主炮",
+        "display": "10.4 → 8.0 秒",
+        "basicSeconds": 10.4,
+        "aceSeconds": 8,
+        "mechanism": "manual",
+        "note": "基础乘员 → 王牌乘员（Wiki 面板）。"
+      },
+      "videoAdvice": [
+        {
+          "label": "车体下首 · 视频演示",
+          "text": "作者在车体下首展示可击穿位置；炮塔与首上的 BDD 覆盖区需另行选择落点。",
+          "time": 1151,
+          "evidence": {
+            "snapshots": [
+              "055",
+              "068"
+            ],
+            "frames": [
+              "t62m1-front-hd-1151.png",
+              "analysis-t62-1154.png"
+            ],
+            "type": "demonstrated-attack-location"
+          }
         }
       ]
     },
@@ -107,39 +181,97 @@
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_72a",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshot": "009",
-      "frameSnapshot": "048",
-      "frame": "t72a-front-1173.png",
-      "time": 1173,
+      "frameSnapshot": "080",
+      "frame": "t72a-front-hd-1169-final.png",
+      "time": 1169.033,
       "crop": [
-        450,
-        80,
-        1000,
-        800
+        350,
+        155,
+        1140,
+        780
       ],
-      "ammo": {
-        "attacker": "T-72A",
-        "shell": "3BM22",
-        "rangeM": 0,
-        "panelPenetrationMm": 425
-      },
       "overview": "把入射位置和内部毁伤路径放在一起看，保留具体弹种条件。",
-      "wikiSummary": "Wiki 明确描述复合装甲、3 人乘员与自动装弹机；面板上的基础厚度不是复合装甲完整的等效防护数值。",
-      "comparison": "视频展示 3BM22、0 m 下的入射和内部毁伤。Wiki 没有给出此取样点的精确等效值，不能用面板数字独立证明作者口述的“约 400 mm”。",
-      "limits": "这张图是防护分析的透视毁伤画面。它支持观察这一发的入射通道与受损部位，不代表首上每个位置都能穿，也不等于一发必然殉爆。",
+      "wikiSummary": "T-72 家族的第二个型号，炮塔采用复合装甲，配备 125 mm 2A46 主炮与自动装弹机。",
       "pins": [
         {
-          "x": 0.425,
-          "y": 0.59,
-          "label": "本发入射位置",
-          "detail": "彩色命中痕迹位于前部驾驶员区域。保留 3BM22、0 米与视频镜头角度条件；不把此位置宣传为任意弹种均可穿的通用弱点。",
+          "x": 0.50702,
+          "y": 0.51026,
+          "label": "驾驶员附近",
+          "detail": "炮塔下方的车体正面区域。视频稍后在驾驶员附近展示命中和内部毁伤。",
           "kind": "observed"
         },
         {
-          "x": 0.596,
-          "y": 0.35,
-          "label": "内部毁伤路径",
-          "detail": "橙色破片轨迹与红色受损部位显示本次模拟的内部影响。乘员、部件损伤与弹药殉爆是不同结果，本帧没有提供殉爆概率。",
-          "kind": "context"
+          "x": 0.48684,
+          "y": 0.75769,
+          "label": "车体下首",
+          "detail": "视频将下首与首上、炮塔分开讲解，指出下首相对薄弱。",
+          "kind": "conditional"
+        }
+      ],
+      "imageView": "front",
+      "imageQuality": "1080p60",
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "wikiPoints": [
+        "乘员 3 人；自动装弹机首发弹药架为 22 发。",
+        "炮塔采用石英芯复合装甲；Wiki 装甲面板的基础厚度不等于复合装甲总防护。",
+        "倒车速度 4 km/h，车体转向与加速表现是 Wiki 提及的使用短板。"
+      ],
+      "reload": {
+        "gun": "125 mm 2A46 主炮",
+        "display": "7.0 秒",
+        "seconds": 7,
+        "mechanism": "automatic",
+        "note": "自动装弹机；Wiki 列示装填时间为 7 秒。"
+      },
+      "videoAdvice": [
+        {
+          "label": "驾驶员区域 · 视频演示",
+          "text": "作者随后向车体正面的驾驶员区域射击并展示内部毁伤，可结合正面图定位。",
+          "time": 1173,
+          "evidence": {
+            "snapshots": [
+              "048",
+              "064"
+            ],
+            "frames": [
+              "t72a-front-1173.png",
+              "analysis-t72-1175.png"
+            ],
+            "type": "demonstrated-attack-location"
+          }
+        },
+        {
+          "label": "下首相对薄弱",
+          "text": "作者指出，首上与炮塔较硬，下首相对薄弱；可结合正面图寻找下首位置。",
+          "time": 1169,
+          "evidence": {
+            "snapshots": [
+              "070"
+            ],
+            "frames": [
+              "analysis-t72-1169.png"
+            ],
+            "type": "author-commentary"
+          }
+        }
+      ],
+      "evidenceFrames": [
+        {
+          "frame": "t72a-front-1173.png",
+          "frameSnapshot": "048",
+          "time": 1173,
+          "ammo": {
+            "attacker": "T-72A",
+            "shell": "3BM22",
+            "rangeM": 0,
+            "panelPenetrationMm": 425
+          },
+          "comparison": "视频展示 3BM22、0 m 下的入射和内部毁伤。Wiki 没有给出此取样点的精确等效值，不能用面板数字独立证明作者口述的“约 400 mm”。",
+          "limits": "这张图是防护分析的透视毁伤画面。它支持观察这一发的入射通道与受损部位，不代表首上每个位置都能穿，也不等于一发必然殉爆。",
+          "view": "damage-xray"
         }
       ]
     }
