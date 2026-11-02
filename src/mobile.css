@@ -1014,6 +1014,16 @@
     padding: 8px;
     font-size: 12px;
   }
+  .ground-layer-toggles .ground-guide-choice {
+    flex-basis: 100%;
+    max-width: none;
+    width: 100%;
+  }
+  .ground-detail-toolbar > .ground-edit-toggle {
+    grid-row: 3;
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
   .ground-stage {
     height: min(76dvh, calc(100vw - 18px));
     min-height: 0;

@@ -21,6 +21,7 @@ export type MapRoute = {
   team: number;
   title: string;
   label: string;
+  sourceTitle?: string;
   sourceUrl: string;
   sourceDate: string;
   width: number;

@@ -172,7 +172,8 @@
   gap: 8px;
 }
 .ground-detail-toolbar {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
@@ -262,6 +263,79 @@
 .ground-layer-toggles .wt-select {
   max-width: min(340px, 55vw);
 }
+.ground-layer-toggles .ground-guide-choice {
+  flex: 1 1 180px;
+  max-width: 320px;
+  min-width: 0;
+}
+.ground-guide-choice > span {
+  flex-shrink: 0;
+}
+.ground-layer-toggles .ground-route-choice {
+  flex: 0 1 190px;
+  min-width: 0;
+}
+.ground-controls .ground-route-choice .wt-select.wt-select {
+  min-width: 0;
+  max-width: 150px;
+}
+.ground-controls .ground-guide-choice .wt-select.wt-select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+.ground-guide-options .wt-select-option > span:last-child {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.ground-layer-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.ground-layer-trigger[aria-expanded="true"] .wt-chevron {
+  transform: rotate(180deg);
+}
+.ground-layer-menu {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  padding: 6px;
+  width: 200px;
+  max-width: calc(100vw - 16px);
+  overflow: auto;
+  border: 1px solid var(--wt-strong-line);
+  background: var(--wt-surface);
+  color: var(--wt-ink);
+  box-shadow: var(--wt-shadow);
+  font: 14px/1.4 var(--wt-sans);
+}
+.ground-layer-menu::backdrop {
+  background: transparent;
+}
+.ground-layer-menu label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+.ground-layer-menu label:hover,
+.ground-layer-menu label:focus-within {
+  background: var(--wt-raised);
+}
+.ground-layer-menu input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--wt-gold);
+}
+.ground-layer-trigger:focus-visible,
+.ground-layer-menu input:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 2px;
+}
 .ground-route-guide {
   margin-top: 16px;
   padding: 18px;
@@ -301,6 +375,26 @@
   gap: 6px;
   flex-wrap: wrap;
   margin-left: auto;
+  align-items: center;
+  flex: 1 1 320px;
+  min-width: 0;
+}
+@media (min-width: 801px) and (max-width: 1400px) {
+  .ground-detail-toolbar {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+  }
+  .ground-detail-toolbar > .ground-controls {
+    grid-row: 2;
+    grid-column: 1 / -1;
+  }
+  .ground-detail-toolbar > .ground-edit-toggle {
+    grid-row: 1;
+    grid-column: 2;
+  }
+  .ground-detail-toolbar > .ground-original {
+    grid-row: 1;
+    grid-column: 3;
+  }
 }
 @media (min-width: 801px) and (pointer: fine) {
   .ground-detail-toolbar :is(button, .wt-select, .ground-back, .ground-original) {

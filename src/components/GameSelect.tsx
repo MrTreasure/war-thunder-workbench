@@ -27,6 +27,7 @@ type Props = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "value" | "onChange" 
   children: ReactNode;
   renderOption?: (value: string) => ReactNode;
   renderValue?: (value: string) => ReactNode;
+  menuClassName?: string;
 };
 
 function text(children: ReactNode): string {
@@ -63,6 +64,7 @@ export function GameSelect({
   children,
   renderOption,
   renderValue,
+  menuClassName = "",
   className = "",
   disabled,
   id,
@@ -225,7 +227,7 @@ export function GameSelect({
           <div
             id={menuId}
             ref={menu}
-            className="wt-select-menu"
+            className={`wt-select-menu ${menuClassName}`}
             popover="auto"
             role="listbox"
             tabIndex={-1}
