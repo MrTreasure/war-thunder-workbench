@@ -72,7 +72,15 @@ for (const model of data.models) {
     if (!isPng && !isWebp) throw Error("Capture must be PNG or WebP");
     const dimensions = isPng ? { width: raw.readUInt32BE(16), height: raw.readUInt32BE(20) } : JSON.parse(execFileSync("ffprobe", ["-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "json", framePath], { encoding: "utf8" })).streams[0];
     const { width, height } = dimensions;
-    if (width < 1920 || height < 1080 || frame.decode.width !== width || frame.decode.height !== height || model.imageView !== "front") throw Error("Verified HD front view required: " + model.id);
+    if (width < 1920 || height < 1080 || model.imageView !== "front") throw Error("Verified HD front view required: " + model.id);
+    if (frame.decode.width !== width || frame.decode.height !== height) {
+      const transform = model.frameCaptureTransform;
+      const scale = width / frame.decode.width;
+      if (!transform || transform.kind !== "downsample" || !(scale > 0 && scale < 1)
+        || transform.sourceWidth !== frame.decode.width || transform.sourceHeight !== frame.decode.height
+        || transform.width !== width || transform.height !== height || !Number.isFinite(transform.scale) || Math.abs(transform.scale - scale) > 1e-8
+        || Math.abs(frame.decode.height * scale - height) > 1e-6) throw Error("Verified proportional downsample required; upscaling is forbidden: " + model.id);
+    }
     model.sourceDimensions = [width, height];
     const [x, y, w, h] = model.crop;
     if (!model.crop.every(Number.isInteger) || x < 0 || y < 0 || w <= 0 || h <= 0 || x + w > width || y + h > height) throw Error("Invalid crop");

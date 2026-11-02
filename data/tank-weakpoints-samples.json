@@ -4156,14 +4156,85 @@
       "rank": 7,
       "scopeRole": "medium_tank",
       "scopeStatus": "in-requested-scope",
-      "era": null,
+      "era": "modern",
       "eraStatus": "pending-exact-variant-date-review",
-      "eraBasis": "具体改型技术形成时期证据尚未核实；不按采购、交付或游戏加入日期补年代。",
+      "eraBasis": "Wiki确认Type90基型衍生，沿用已核对技术类别",
       "collectedAt": "2026-11-02T09:04:34.022Z",
-      "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "pins": [
+        {
+          "x": 0.6,
+          "y": 0.53,
+          "label": "画面右侧车体",
+          "detail": "65秒本段明确指出该侧命中更危险，透视显示乘员受损；此点在60主图仅标同一可见区域，条件绑定65秒JM33/500米，非主图同帧击中效果。",
+          "caseId": "jp_type_90b:BV1CueU6cECo:65017",
+          "mainImageMatch": "different-segment",
+          "mechanism": "conditional-crew-damage"
+        },
+        {
+          "x": 0.37,
+          "y": 0.5,
+          "label": "油箱侧：后效可能不足",
+          "detail": "55秒圈示的画面左侧车体区域，作者说明钢针可能打不出后效；这是负向提醒，不当作稳定击杀弱点。",
+          "caseId": "jp_type_90b:BV1CueU6cECo:55017",
+          "kind": "avoid",
+          "mainImageMatch": "different-segment",
+          "mechanism": "negative-low-postpenetration"
+        }
+      ],
+      "videoAdvice": [
+        {
+          "caseId": "jp_type_90b:BV1CueU6cECo:55017",
+          "sourceTime": 55.016687,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "different-segment",
+          "mechanism": "negative-low-postpenetration",
+          "text": "JM33、500米条件：车体画面左侧油箱区域，钢针命中后可能缺乏后效，不能当作稳定秒杀点。",
+          "label": "油箱区域：负向后效提醒",
+          "time": 55.016687,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/"
+        },
+        {
+          "caseId": "jp_type_90b:BV1CueU6cECo:65017",
+          "sourceTime": 65.016687,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "different-segment",
+          "mechanism": "conditional-crew-damage",
+          "text": "JM33、500米条件：命中车体画面右侧更危险；本段透视演示了该侧乘员受损。",
+          "label": "乘员区域：条件性伤害演示",
+          "time": 65.016687,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/"
+        },
+        {
+          "caseId": "jp_type_90b:BV1CueU6cECo:95000",
+          "sourceTime": 95,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "different-segment",
+          "mechanism": "negative-low-postpenetration",
+          "text": "JM33、500米条件：侧面油箱区域命中后可能被油箱影响后效，不宜视为稳定击杀位置。",
+          "label": "油箱区域：负向后效提醒",
+          "time": 95,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/"
+        },
+        {
+          "caseId": "jp_type_90b:BV1CueU6cECo:100017",
+          "sourceTime": 100.016687,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "different-segment",
+          "mechanism": "conditional-crew-damage",
+          "text": "JM33、500米条件：从另一侧航向角打入乘员区域更危险，作者指出容易导致全车损失。",
+          "label": "乘员区域：条件性伤害演示",
+          "time": 100.016687,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/"
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00",
+        "gameVersion": null
+      },
+      "status": "review-sample",
       "wikiUrl": "https://wiki.warthunder.com/unit/jp_type_90b",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-004-20261102/snapshots/jp_type_90b.json",
@@ -4181,12 +4252,347 @@
         "mechanism": "automatic",
         "note": "仅解析主炮首段；主炮自动装填面板值不代表无限持续射击。"
       },
-      "weaknessEvidenceStatus": "general-context-only",
+      "weaknessEvidenceStatus": "conditional-explicit-location",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。",
         "具体改型年代待核实，era保留null。"
-      ]
+      ],
+      "sourceGameVersion": null,
+      "videoGameVersion": null,
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/JPN-Type-90-B/JPN-Type-90-B-60.016687-source-4K.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/020.json",
+      "time": 60.016687,
+      "crop": [
+        1320,
+        520,
+        1200,
+        860
+      ],
+      "testCases": [
+        {
+          "id": "jp_type_90b:BV1CueU6cECo:55017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 55.016687,
+          "attacker": "Type 90 (B)",
+          "shell": "JM33",
+          "distanceMeters": 500,
+          "sourceGameVersion": null,
+          "verificationStatus": "verified",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "displayedPenetrationMm": null,
+          "impactAngleDegrees": null
+        },
+        {
+          "id": "jp_type_90b:BV1CueU6cECo:65017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 65.016687,
+          "attacker": "Type 90 (B)",
+          "shell": "JM33",
+          "distanceMeters": 500,
+          "sourceGameVersion": null,
+          "verificationStatus": "verified",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "displayedPenetrationMm": null,
+          "impactAngleDegrees": null
+        },
+        {
+          "id": "jp_type_90b:BV1CueU6cECo:95000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 95,
+          "attacker": "Type 90 (B)",
+          "shell": "JM33",
+          "distanceMeters": 500,
+          "sourceGameVersion": null,
+          "verificationStatus": "verified",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "displayedPenetrationMm": null,
+          "impactAngleDegrees": null
+        },
+        {
+          "id": "jp_type_90b:BV1CueU6cECo:100017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 100.016687,
+          "attacker": "Type 90 (B)",
+          "shell": "JM33",
+          "distanceMeters": 500,
+          "sourceGameVersion": null,
+          "verificationStatus": "verified",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "displayedPenetrationMm": null,
+          "impactAngleDegrees": null
+        },
+        {
+          "id": "jp_type_90b:BV1CueU6cECo:60017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 60.016687,
+          "attacker": "Type 90 (B)",
+          "shell": "JM33",
+          "distanceMeters": 500,
+          "sourceGameVersion": null,
+          "verificationStatus": "verified",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "displayedPenetrationMm": null,
+          "impactAngleDegrees": null
+        }
+      ],
+      "testCaseEvidence": {
+        "jp_type_90b:BV1CueU6cECo:55017": {
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/011.json",
+          "proofSnapshotSHA256": "2c9b34481236eb44d7d193527c66bafa8756b7c3b246d7a14d9feb07af4a4dbf",
+          "conditionEvidence": "Normal player on-frame JM33 demonstration label and attack-source UI; main60 independently native-cropped.",
+          "ammunitionDisplay": {
+            "typeEvidence": {
+              "typeOriginal": "Armor-Piercing Fin-Stabilized Discarding Sabot shot",
+              "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/jp_type_10.html",
+              "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6",
+              "proofSnippet": "<span>JM33</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-Piercing Fin-Stabilized Discarding Sabot shot</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=&quot;border-end&quot; style=&quot;font-size: .8em; width: 40%;&quot;&gt;Distance / Angle of attack&lt;/th&gt;&lt;th&gt;0°&lt;/th&gt;&lt;th&gt;30°&lt;/th&gt;&lt;th&gt;60°&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;border-end&quot;&gt;10 m&lt;/th&gt;&lt",
+              "typeCode": "APFSDS",
+              "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+              "collectedAt": "2026-11-02T06:15:56.671Z"
+            },
+            "frameEvidence": {
+              "sourceFrameFile": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/JPN-Type-90-B/JPN-Type-90-B-55.016687.webp",
+              "sourceFrameSHA256": "a596101ce7d0a8e52d76d43f361c06907f2ab0a7de742c8362866f07b63bf105",
+              "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/011.json",
+              "caseRecordPath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/JPN-Type-90-B/records.json",
+              "caseRecordSha256": "ebc9c96a56b1b866b6ceebe34d221d730b0345fbd3fbb4c798f67179e938c77a"
+            }
+          }
+        },
+        "jp_type_90b:BV1CueU6cECo:65017": {
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/012.json",
+          "proofSnapshotSHA256": "97db0d7549a6283163c33f046da92bc62e88fcc303e18f101e0c4a1532d638e5",
+          "conditionEvidence": "Normal player on-frame JM33 demonstration label and attack-source UI; main60 independently native-cropped.",
+          "ammunitionDisplay": {
+            "typeEvidence": {
+              "typeOriginal": "Armor-Piercing Fin-Stabilized Discarding Sabot shot",
+              "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/jp_type_10.html",
+              "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6",
+              "proofSnippet": "<span>JM33</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-Piercing Fin-Stabilized Discarding Sabot shot</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=&quot;border-end&quot; style=&quot;font-size: .8em; width: 40%;&quot;&gt;Distance / Angle of attack&lt;/th&gt;&lt;th&gt;0°&lt;/th&gt;&lt;th&gt;30°&lt;/th&gt;&lt;th&gt;60°&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;border-end&quot;&gt;10 m&lt;/th&gt;&lt",
+              "typeCode": "APFSDS",
+              "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+              "collectedAt": "2026-11-02T06:15:56.671Z"
+            },
+            "frameEvidence": {
+              "sourceFrameFile": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/JPN-Type-90-B/JPN-Type-90-B-65.016687.webp",
+              "sourceFrameSHA256": "5bf46d2cfda44094e9113b87c3ea7143242fe276c740ed011af0bd5f137903fb",
+              "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/012.json",
+              "caseRecordPath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/JPN-Type-90-B/records.json",
+              "caseRecordSha256": "ebc9c96a56b1b866b6ceebe34d221d730b0345fbd3fbb4c798f67179e938c77a"
+            }
+          }
+        },
+        "jp_type_90b:BV1CueU6cECo:95000": {
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/021.json",
+          "proofSnapshotSHA256": "cbdf2b88df25f3fd996bf820599a99b898d775b7eee6bf5cb03c64798c89d4cd",
+          "conditionEvidence": "Normal player on-frame JM33 demonstration label and attack-source UI; main60 independently native-cropped.",
+          "ammunitionDisplay": {
+            "typeEvidence": {
+              "typeOriginal": "Armor-Piercing Fin-Stabilized Discarding Sabot shot",
+              "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/jp_type_10.html",
+              "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6",
+              "proofSnippet": "<span>JM33</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-Piercing Fin-Stabilized Discarding Sabot shot</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=&quot;border-end&quot; style=&quot;font-size: .8em; width: 40%;&quot;&gt;Distance / Angle of attack&lt;/th&gt;&lt;th&gt;0°&lt;/th&gt;&lt;th&gt;30°&lt;/th&gt;&lt;th&gt;60°&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;border-end&quot;&gt;10 m&lt;/th&gt;&lt",
+              "typeCode": "APFSDS",
+              "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+              "collectedAt": "2026-11-02T06:15:56.671Z"
+            },
+            "frameEvidence": {
+              "sourceFrameFile": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/JPN-Type-90-B/JPN-Type-90-B-95.webp",
+              "sourceFrameSHA256": "6c25fa235ef0bd9fd251995bd2b65358aeb757db03db696d04746b7b1388967a",
+              "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/021.json",
+              "caseRecordPath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/JPN-Type-90-B/records.json",
+              "caseRecordSha256": "ebc9c96a56b1b866b6ceebe34d221d730b0345fbd3fbb4c798f67179e938c77a"
+            }
+          }
+        },
+        "jp_type_90b:BV1CueU6cECo:100017": {
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/022.json",
+          "proofSnapshotSHA256": "6b71c720cf77cbcf618c0efb03e0003cae53b64138935f4b6ee5520c97c5ea66",
+          "conditionEvidence": "Normal player on-frame JM33 demonstration label and attack-source UI; main60 independently native-cropped.",
+          "ammunitionDisplay": {
+            "typeEvidence": {
+              "typeOriginal": "Armor-Piercing Fin-Stabilized Discarding Sabot shot",
+              "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/jp_type_10.html",
+              "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6",
+              "proofSnippet": "<span>JM33</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-Piercing Fin-Stabilized Discarding Sabot shot</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=&quot;border-end&quot; style=&quot;font-size: .8em; width: 40%;&quot;&gt;Distance / Angle of attack&lt;/th&gt;&lt;th&gt;0°&lt;/th&gt;&lt;th&gt;30°&lt;/th&gt;&lt;th&gt;60°&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;border-end&quot;&gt;10 m&lt;/th&gt;&lt",
+              "typeCode": "APFSDS",
+              "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+              "collectedAt": "2026-11-02T06:15:56.671Z"
+            },
+            "frameEvidence": {
+              "sourceFrameFile": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/JPN-Type-90-B/JPN-Type-90-B-100.016687.webp",
+              "sourceFrameSHA256": "b8fdac07ff4c9ad498579c42357bbe3a4852705a96513b23ece0cd1f3cb8ea3b",
+              "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/022.json",
+              "caseRecordPath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/JPN-Type-90-B/records.json",
+              "caseRecordSha256": "ebc9c96a56b1b866b6ceebe34d221d730b0345fbd3fbb4c798f67179e938c77a"
+            }
+          }
+        },
+        "jp_type_90b:BV1CueU6cECo:60017": {
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/020.json",
+          "proofSnapshotSHA256": "8fe8524e17cc1922c7cd7306c04c8fc4b8d1909bb74f8b4d5f89c83062c41e6a",
+          "conditionEvidence": "Normal player on-frame JM33 demonstration label and attack-source UI; main60 independently native-cropped.",
+          "ammunitionDisplay": {
+            "typeEvidence": {
+              "typeOriginal": "Armor-Piercing Fin-Stabilized Discarding Sabot shot",
+              "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/jp_type_10.html",
+              "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6",
+              "proofSnippet": "<span>JM33</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-Piercing Fin-Stabilized Discarding Sabot shot</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=&quot;border-end&quot; style=&quot;font-size: .8em; width: 40%;&quot;&gt;Distance / Angle of attack&lt;/th&gt;&lt;th&gt;0°&lt;/th&gt;&lt;th&gt;30°&lt;/th&gt;&lt;th&gt;60°&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;border-end&quot;&gt;10 m&lt;/th&gt;&lt",
+              "typeCode": "APFSDS",
+              "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+              "collectedAt": "2026-11-02T06:15:56.671Z"
+            },
+            "frameEvidence": {
+              "sourceFrameFile": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/JPN-Type-90-B/JPN-Type-90-B-60.016687-main.webp",
+              "sourceFrameSHA256": "2412320bf846ff624d3e2f4419cca11167a55e0fb11e809c8ae845c7e1fcce9b",
+              "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/020.json",
+              "caseRecordPath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/JPN-Type-90-B/records.json",
+              "caseRecordSha256": "ebc9c96a56b1b866b6ceebe34d221d730b0345fbd3fbb4c798f67179e938c77a"
+            }
+          },
+          "captureTransformEvidence": {
+            "proofSnapshot": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/020.json",
+            "proofSnapshotSHA256": "8fe8524e17cc1922c7cd7306c04c8fc4b8d1909bb74f8b4d5f89c83062c41e6a",
+            "decode": {
+              "mediaTime": 60.016687,
+              "currentTime": 60.359835,
+              "width": 3840,
+              "height": 2160
+            },
+            "webpWidth": 1920,
+            "webpHeight": 1080,
+            "webpSHA256": "bff8c38de15c20d49aaf4b0ebcc12ef0c7f54ba3facadc40e641cb9f9c256c2d"
+          },
+          "nativeResolutionEvidence": {
+            "sourceImage": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/JPN-Type-90-B/JPN-Type-90-B-60.016687-source-4K.webp",
+            "sourceWebpSHA256": "3ec9ac4abc65742c3fb3b62280f4d05970068c68e469272aa09d9c77db92a339",
+            "sourceProofSHA256": "8fe8524e17cc1922c7cd7306c04c8fc4b8d1909bb74f8b4d5f89c83062c41e6a",
+            "sourceWidth": 3840,
+            "sourceHeight": 2160,
+            "previousDownsampleImage": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/JPN-Type-90-B/JPN-Type-90-B-60.016687-main.webp",
+            "previousTransform": {
+              "kind": "downsample",
+              "sourceWidth": 3840,
+              "sourceHeight": 2160,
+              "width": 1920,
+              "height": 1080,
+              "scale": 0.5
+            },
+            "scaledRgbSHA256": "20ce79e06dcab87c80e4fab3fa8ca0dc073105852e5e9c23ac546c53957f0c88",
+            "previousRgbSHA256": "20ce79e06dcab87c80e4fab3fa8ca0dc073105852e5e9c23ac546c53957f0c88",
+            "sourceDecodeNotModified": true
+          },
+          "eraRelationshipEvidence": {
+            "sourceAudit": "artifacts/tank-weakpoints-expansion-20261102/verification/type90b-era-audit-20261102/records.json",
+            "sourceAuditSHA256": "c182993613b0b3802b8c2d4a95a60f6503f8aa835948d51e94bde59932435649",
+            "records": [
+              {
+                "vehicleId": "jp_type_90b",
+                "proposedEra": "modern",
+                "decision": "supported-as-project-base-variant-era-inheritance",
+                "eraBasis": "已有Type 90按本项目分类为modern。独立B型Wiki直接说明其为Type 90专用扫雷滚轮挂点衍生，沿用同样120毫米炮、4秒自动装填和JM33；主要变化为首下10毫米安装板及不兼容推土铲，未出现另一技术代际替换证据。因此B型继承已核实基型的项目年代类别modern，不声称B型有已核实的具体研发年份。",
+                "relation": {
+                  "baseVehicleId": "jp_type_90",
+                  "baseAcceptedProjectEra": "modern",
+                  "variantRelationship": "specialized Type 92 mine-roller mounting variant",
+                  "sameTechnicalSystems": [
+                    "120 mm main gun",
+                    "4-second autoloader",
+                    "JM33 ammunition"
+                  ],
+                  "statedSignificantDifference": [
+                    "10 mm lower-front mounting plates",
+                    "mine roller mounts exclude dozer attachment"
+                  ]
+                },
+                "boundaries": [
+                  "这是本项目已有基型年代类别的关系推导，不是仅用1990服役年建立普适的冷战/现代边界。",
+                  "不根据Type90名称数字、采购年份、游戏上架年份推断。",
+                  "B型具体技术改型研发/公开日期仍未知，不制造精确年份。",
+                  "年代类别继承不意味着防护数据、安装板效果或弱点证据可跨型号复制。",
+                  "本次只提议标准jp_type_90b；不自动改Fuji/◍外观衍生对象。"
+                ],
+                "evidence": [
+                  {
+                    "url": "https://wiki.warthunder.com/unit/jp_type_90",
+                    "collectedAt": "2026-11-02T08:14:15.262Z",
+                    "snapshot": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-20261102/snapshots/jp_type_90.json",
+                    "snapshotSha256": "7918110cd6935f9bae961a26cda8008849e07291819536de117e0bc5656a1bae",
+                    "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-20261102/snapshots/jp_type_90.html",
+                    "htmlSha256": "683e12caa7aa5b9a15f1dbd8cf8e686846193390ed2fb9bc56a1a11607053e62",
+                    "directQuotes": [
+                      "initially accepted into service in 1990"
+                    ]
+                  },
+                  {
+                    "url": "https://wiki.warthunder.com/unit/jp_type_90b",
+                    "collectedAt": "2026-11-02T09:04:34.022Z",
+                    "snapshot": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-004-20261102/snapshots/jp_type_90b.json",
+                    "snapshotSha256": "9946ec7f1ae859d8b1c25f42e2b473b96efb3b192e7e64528eefa2aab39c3e0e",
+                    "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-004-20261102/snapshots/jp_type_90b.html",
+                    "htmlSha256": "c32011f0c5e014119329cdf10a8091a1798a49249d33028844254cf5eb7cc45d",
+                    "directQuotes": [
+                      "specialized variant of the Type 90 MBT",
+                      "only significant difference",
+                      "10 mm mounting plates"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "rootAccepted": true,
+            "noExactVariantYearClaim": true,
+            "noWeakpointInheritance": true
+          }
+        }
+      },
+      "overview": "本段以JM33、500米为例。正面命中画面右侧车体更容易伤及乘员；画面左侧油箱区域则可能削弱后效，不能看到绿色就当作稳定击杀点。侧面同样要区分油箱与乘员区：作者演示的乘员侧命中可造成全车损失或使其丧失反击能力。",
+      "testContext": {
+        "attacker": "Type 90 (B)",
+        "shell": "JM33",
+        "sourceTime": 60.016687,
+        "note": "主图为60秒正面外观；正向区域说明来自65秒，负向油箱提醒来自55秒，侧面证据另列，不当作主图同帧击中。",
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "displayedPenetrationMm": null,
+        "distanceMeters": 500,
+        "impactAngleDegrees": null
+      },
+      "imageView": "front",
+      "imageQuality": "4K",
+      "sourceDimensions": [
+        3840,
+        2160
+      ],
+      "completeIllustration": true,
+      "limits": "标点只用于60秒本帧crop中的可见区域，不把65秒透视乘员坐标直接投影为独立细小孔洞。；目前只有1处正向正面位置和1处负向油箱区域提醒；侧面建议保留独立证据不硬套正面。；版本未独立读出，留null；所有条件不泛化其他弹药距离。",
+      "testContextEvidence": {
+        "sourceTime": 60.016687,
+        "ammunitionDisplay": {
+          "typeEvidence": {
+            "typeOriginal": "Armor-Piercing Fin-Stabilized Discarding Sabot shot",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/jp_type_10.html",
+            "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6",
+            "proofSnippet": "<span>JM33</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-Piercing Fin-Stabilized Discarding Sabot shot</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=&quot;border-end&quot; style=&quot;font-size: .8em; width: 40%;&quot;&gt;Distance / Angle of attack&lt;/th&gt;&lt;th&gt;0°&lt;/th&gt;&lt;th&gt;30°&lt;/th&gt;&lt;th&gt;60°&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;border-end&quot;&gt;10 m&lt;/th&gt;&lt",
+            "typeCode": "APFSDS",
+            "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+            "collectedAt": "2026-11-02T06:15:56.671Z"
+          },
+          "frameEvidence": {
+            "sourceFrameFile": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/JPN-Type-90-B/JPN-Type-90-B-60.016687-main.webp",
+            "sourceFrameSHA256": "2412320bf846ff624d3e2f4419cca11167a55e0fb11e809c8ae845c7e1fcce9b",
+            "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/020.json",
+            "caseRecordPath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/JPN-Type-90-B/records.json",
+            "caseRecordSha256": "ebc9c96a56b1b866b6ceebe34d221d730b0345fbd3fbb4c798f67179e938c77a"
+          }
+        }
+      }
     },
     {
       "id": "sw_t_72m1",
@@ -5910,6 +6316,869 @@
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
       ]
+    },
+    {
+      "id": "cn_wz_1001",
+      "name": "WZ1001(E) LCT",
+      "role": "主战坦克",
+      "country": "china",
+      "countryName": "中国",
+      "rank": 8,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "WZ1001(E)LCT是2000年代ZTZ99A前身原型，装L/54长身管125毫米炮及混合车体/炮塔。",
+      "collectedAt": "2026-11-02T09:54:31.849Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/cn_wz_1001",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-009-20261102/snapshots/cn_wz_1001.json",
+      "wikiSnapshotSHA256": "4f5817f12c47769f5f493ddf8db7ae5e06728f6e0691b61b83d8095c3a15c42a",
+      "wikiSummary": "WZ1001(E)LCT是2000年代ZTZ99A前身原型，装L/54长身管125毫米炮及混合车体/炮塔。",
+      "wikiPoints": [
+        "原文泛称继承两个设计的缺点，但未给位置，不能直接复制99A/99III弱点。"
+      ],
+      "reload": {
+        "display": "自动装填 7 秒",
+        "gun": "125 mm L/54 cannon",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 7,
+        "mechanism": "automatic",
+        "note": "仅解析主炮首段；主炮自动装填面板值不代表无限持续射击。"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "fr_leopard_2a5nl",
+      "name": "Leopard 2A5NL",
+      "role": "主战坦克",
+      "country": "france",
+      "countryName": "法国",
+      "rank": 8,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "荷兰豹2A5NL源于1993年启动的升级，保留L/44炮，改进防护、观瞄和电子系统。",
+      "collectedAt": "2026-11-02T09:54:39.766Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/fr_leopard_2a5nl",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-009-20261102/snapshots/fr_leopard_2a5nl.json",
+      "wikiSnapshotSHA256": "34116a50014e3628f224fbd2fa21dd260033bfba75503e135e4a600acdf7d26f",
+      "wikiSummary": "荷兰豹2A5NL源于1993年启动的升级，保留L/44炮，改进防护、观瞄和电子系统。",
+      "wikiPoints": [
+        "原文称大多数薄弱区域未改变，但没有具体位置，不以此自动套用德系2A5。",
+        "向后开火受限为操炮约束。"
+      ],
+      "reload": {
+        "display": "7.8 → 6 秒",
+        "gun": "120 mm Rh120 L/44 cannon",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "germ_leopard_2a5",
+      "name": "Leopard 2A5",
+      "role": "主战坦克",
+      "country": "germany",
+      "countryName": "德国",
+      "rank": 8,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "豹2A5为90年代改型，楔形间隙附甲覆盖炮塔正面及前侧，主炮仍为120毫米L/44。",
+      "collectedAt": "2026-11-02T09:54:07.120Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-009-20261102/snapshots/germ_leopard_2a5.json",
+      "wikiSnapshotSHA256": "7e1e9599a48ee9fc797af42e2e64d1e02b9d5a228139da4972692baed498e9d1",
+      "wikiSummary": "豹2A5为90年代改型，楔形间隙附甲覆盖炮塔正面及前侧，主炮仍为120毫米L/44。",
+      "wikiPoints": [
+        "Wiki明确说外层设计避免将穿甲杆偏转入车体，不把楔形外观标作跳弹陷阱。",
+        "2A5不能误报为2A6的L/55炮；本页未明示具体局部弱点。"
+      ],
+      "reload": {
+        "display": "7.8 → 6 秒",
+        "gun": "120 mm Rh120 L/44 cannon",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "explicit-protection-context",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "il_merkava_mk_4b",
+      "name": "Merkava Mk.4B",
+      "role": "主战坦克",
+      "country": "israel",
+      "countryName": "以色列",
+      "rank": 8,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "梅卡瓦4B于90年代末开发，具有新火控、模块化复合装甲及信息系统，重量增加限制机动。",
+      "collectedAt": "2026-11-02T09:54:56.199Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/il_merkava_mk_4b",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-009-20261102/snapshots/il_merkava_mk_4b.json",
+      "wikiSnapshotSHA256": "223f4385565bf8b01e92c28f2019d2c54a1101cb08a95fedb990c9a19c0577e9",
+      "wikiSummary": "梅卡瓦4B于90年代末开发，具有新火控、模块化复合装甲及信息系统，重量增加限制机动。",
+      "wikiPoints": [
+        "原文800至1200毫米炮塔正面对NERA的防护概述不作通用弹道保证。",
+        "本页没有明确可定位局部弱点。"
+      ],
+      "reload": {
+        "display": "6.5 → 5 秒",
+        "gun": "120 mm IMI MG251-LR cannon",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "sw_leopard_2a4_fin",
+      "name": "▄Leopard 2A4",
+      "role": "主战坦克",
+      "country": "sweden",
+      "countryName": "瑞典",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "cold-war",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "芬兰豹2A4采用1985年形成的2A4技术型，主要增加电台/储物等；Wiki明确携弹超过16发时剩余弹药存于车体前部。",
+      "collectedAt": "2026-11-02T09:54:48.041Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/sw_leopard_2a4_fin",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-009-20261102/snapshots/sw_leopard_2a4_fin.json",
+      "wikiSnapshotSHA256": "bce219cb72b3bee7c1faf83cb444890945de60304e983eaac8a888b7e2e5eb4f",
+      "wikiSummary": "芬兰豹2A4采用1985年形成的2A4技术型，主要增加电台/储物等；Wiki明确携弹超过16发时剩余弹药存于车体前部。",
+      "wikiPoints": [
+        "时代按2A4技术型号，不按2003采购年。",
+        "超过16发为本精确车型原文条件，车体弹药对强APFSDS与串联ATGM有风险，无坐标或必然引爆保证。"
+      ],
+      "reload": {
+        "display": "7.8 → 6 秒",
+        "gun": "120 mm Rh120 L/44 cannon",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "explicit-location",
+      "qualitativeWeakpoints": [
+        {
+          "locationZh": "车体前部弹药储存区",
+          "statementZh": "携弹超过16发时，剩余弹药进入该区域，强APFSDS/串联ATGM有威胁；不推断坐标。"
+        }
+      ],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "uk_m1a2_sep3_abrams",
+      "name": "M1A2",
+      "role": "主战坦克",
+      "country": "britain",
+      "countryName": "英国",
+      "rank": 8,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": null,
+      "eraStatus": "pending-exact-variant-date-review",
+      "eraBasis": "本页只含采购/交付等日期，具体技术改型形成日期不足，保留null。",
+      "collectedAt": "2026-11-02T09:54:23.511Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/uk_m1a2_sep3_abrams",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-009-20261102/snapshots/uk_m1a2_sep3_abrams.json",
+      "wikiSnapshotSHA256": "8d39fc26b65f0a5d339fb8069d38022e30bb735c15496af81187fd116318ca39",
+      "wikiSummary": "英系澳大利亚M1A2SEPv3强化炮塔/车体防护并使用KEWA2，但重量增加降低机动。",
+      "wikiPoints": [
+        "本页只明确2022采购合同，没有技术改型形成日期，不用采购年判年代。",
+        "原文没有明确局部弱点。"
+      ],
+      "reload": {
+        "display": "6.5 → 5 秒",
+        "gun": "120 mm M256 cannon",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。",
+        "具体改型年代待核实，era保留null。"
+      ]
+    },
+    {
+      "id": "us_m1_abrams",
+      "name": "M1 Abrams",
+      "role": "主战坦克",
+      "country": "usa",
+      "countryName": "美国",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "cold-war",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "M1艾布拉姆斯的XM1方案于1976年选定，采用105毫米M68A1，防护与机动较M60改善。",
+      "collectedAt": "2026-11-02T09:54:00.944Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/us_m1_abrams",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-009-20261102/snapshots/us_m1_abrams.json",
+      "wikiSnapshotSHA256": "4f6887aabef1a0d126a7c745b5fe93f3742fce144e9db0fcec48a983dd68f1e3",
+      "wikiSummary": "M1艾布拉姆斯的XM1方案于1976年选定，采用105毫米M68A1，防护与机动较M60改善。",
+      "wikiPoints": [
+        "本页讨论攻击敌方弱点，不是自身局部弱点；不推断具体击穿位置。"
+      ],
+      "reload": {
+        "display": "6.5 → 5 秒",
+        "gun": "105 mm M68A1 cannon",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "ussr_t_72b_1989",
+      "name": "T-72B (1989)",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "cold-war",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "T72B1989型以Kontakt5 ERA及炮塔侧附加复合装甲增强防护，主炮7秒自动装填。",
+      "collectedAt": "2026-11-02T09:54:15.569Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_72b_1989",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-009-20261102/snapshots/ussr_t_72b_1989.json",
+      "wikiSnapshotSHA256": "bbed8b0024eb768f97c45880620af5d0e7fd73538aa7a025df23a0c9f1617fc0",
+      "wikiSummary": "T72B1989型以Kontakt5 ERA及炮塔侧附加复合装甲增强防护，主炮7秒自动装填。",
+      "wikiPoints": [
+        "对APFSDS有防护效果不等于任何弹种和角度均可抵挡。",
+        "倒车慢限制撤退，不是局部装甲坐标。"
+      ],
+      "reload": {
+        "display": "自动装填 7 秒",
+        "gun": "125 mm 2A46M cannon",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 7,
+        "mechanism": "automatic",
+        "note": "仅解析主炮首段；主炮自动装填面板值不代表无限持续射击。"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "cn_ztz_96b",
+      "name": "ZTZ96B",
+      "role": "主战坦克",
+      "country": "china",
+      "countryName": "中国",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "ZTZ96B为2016年公开的坦克两项比赛升级型，改进动力、传动、主炮及火控；主炮125毫米Type99A，6.7秒自动装填、22发待发弹。",
+      "collectedAt": "2026-11-02T10:21:13.811Z",
+      "pins": [
+        {
+          "x": 0.30869565217391304,
+          "y": 0.5266666666666666,
+          "sourcePixel": {
+            "x": 882,
+            "y": 478
+          },
+          "label": "画面左侧车灯附近",
+          "detail": "画面左侧车灯附近未覆盖爆炸反应装甲；本帧DTC10-125、500米条件。",
+          "caseId": "cn_ztz_96b:BV1AhpF6aEDU:60033",
+          "mainImageMatch": "same-frame",
+          "mechanism": "conditional-frontal-penetration"
+        },
+        {
+          "x": 0.6434782608695652,
+          "y": 0.5266666666666666,
+          "sourcePixel": {
+            "x": 1036,
+            "y": 478
+          },
+          "label": "画面右侧车灯附近",
+          "detail": "画面右侧车灯附近未覆盖爆炸反应装甲；本帧DTC10-125、500米条件。",
+          "caseId": "cn_ztz_96b:BV1AhpF6aEDU:60033",
+          "mainImageMatch": "same-frame",
+          "mechanism": "conditional-frontal-penetration"
+        }
+      ],
+      "videoAdvice": [
+        {
+          "caseId": "cn_ztz_96b:BV1AhpF6aEDU:55000",
+          "sourceTime": 55,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "different-segment",
+          "mechanism": "fuel-postpenetration-context",
+          "text": "DTC10-125、500米条件：若未命中驾驶员，前部油箱可能削弱后效，不能把绿色当作稳定秒杀。",
+          "time": 55,
+          "sourceUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/",
+          "label": "前部油箱：后效提醒"
+        },
+        {
+          "caseId": "cn_ztz_96b:BV1AhpF6aEDU:75033",
+          "sourceTime": 75.033312,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "different-segment",
+          "mechanism": "conditional-side-penetration",
+          "text": "DTC10-125、500米条件：侧面暴露时，常规钢针也可造成重创。",
+          "time": 75.033312,
+          "sourceUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/",
+          "label": "侧面暴露：条件性风险"
+        },
+        {
+          "caseId": "cn_ztz_96b:BV1AhpF6aEDU:90033",
+          "sourceTime": 90.033312,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "different-segment",
+          "mechanism": "combat-example-separate-case",
+          "text": "独立90秒实战片段：独立实战死亡回放为3BM60穿透示例，攻击方具体车型及实际距离未独立读明，不能沿用DTC10-125测试条件。",
+          "time": 90.033312,
+          "sourceUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/",
+          "label": "独立实战示例：条件未知"
+        },
+        {
+          "caseId": "cn_ztz_96b:BV1AhpF6aEDU:60033",
+          "sourceTime": 60.033312,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "same-frame",
+          "mechanism": "conditional-frontal-penetration",
+          "text": "DTC10-125、500米条件：首上左右车灯附近缺乏爆炸反应装甲覆盖，防护能力更弱。",
+          "time": 60.033312,
+          "sourceUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/",
+          "label": "首上车灯区域：同一类薄弱处"
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1AhpF6aEDU/",
+        "title": "共和国の赛场之花【雷批大学习/ZTZ96B】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-10-06T16:02:39+08:00",
+        "gameVersion": null
+      },
+      "status": "review-sample",
+      "wikiUrl": "https://wiki.warthunder.com/unit/cn_ztz_96b",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/ztz96b-20261102/snapshots/cn_ztz_96b.json",
+      "wikiSnapshotSHA256": "8ec23f70739b1b59375cbed48927f4ff46f82d832f3734e4709ebb22d0c720cf",
+      "wikiSummary": "ZTZ96B为2016年公开的坦克两项比赛升级型，改进动力、传动、主炮及火控；主炮125毫米Type99A，6.7秒自动装填、22发待发弹。",
+      "wikiPoints": [
+        "原文指出包括正面在内存在多处弱点、内部布局紧密，承受还击能力有限，但未指明炮盾/首下等具体位置。",
+        "不从ZTZ96或96A复制局部弱点；本页总体风险不转换成任意弹药必穿坐标。",
+        "年代依据2016具体升级型公开，而非游戏引入日期。"
+      ],
+      "reload": {
+        "display": "自动装填 6.7 秒",
+        "gun": "125 mm Type 99A cannon",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 6.7,
+        "mechanism": "automatic",
+        "note": "仅解析主炮首段；主炮自动装填面板值不代表无限持续射击。"
+      },
+      "weaknessEvidenceStatus": "conditional-explicit-location",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ],
+      "sourceGameVersion": null,
+      "videoGameVersion": null,
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/CHN-ZTZ-96B/CHN-ZTZ-96B-60.033312-main.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/036.json",
+      "time": 60.033312,
+      "crop": [
+        740,
+        320,
+        460,
+        300
+      ],
+      "testCases": [
+        {
+          "id": "cn_ztz_96b:BV1AhpF6aEDU:55000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/",
+          "sourceTime": 55,
+          "attacker": "ZTZ96B",
+          "shell": "DTC10-125",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 566,
+          "impactAngleDegrees": null,
+          "sourceGameVersion": null,
+          "verificationStatus": "verified"
+        },
+        {
+          "id": "cn_ztz_96b:BV1AhpF6aEDU:75033",
+          "sourceUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/",
+          "sourceTime": 75.033312,
+          "attacker": "ZTZ96B",
+          "shell": "DTC10-125",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 566,
+          "impactAngleDegrees": null,
+          "sourceGameVersion": null,
+          "verificationStatus": "verified"
+        },
+        {
+          "id": "cn_ztz_96b:BV1AhpF6aEDU:90033",
+          "sourceUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/",
+          "sourceTime": 90.033312,
+          "attacker": null,
+          "shell": "3BM60",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "distanceMeters": null,
+          "displayedPenetrationMm": null,
+          "impactAngleDegrees": null,
+          "sourceGameVersion": null,
+          "verificationStatus": "verified"
+        },
+        {
+          "id": "cn_ztz_96b:BV1AhpF6aEDU:60033",
+          "sourceUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/",
+          "sourceTime": 60.033312,
+          "attacker": "ZTZ96B",
+          "shell": "DTC10-125",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 566,
+          "impactAngleDegrees": null,
+          "sourceGameVersion": null,
+          "verificationStatus": "verified"
+        }
+      ],
+      "testCaseEvidence": {
+        "cn_ztz_96b:BV1AhpF6aEDU:55000": {
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/031.json",
+          "proofSnapshotSHA256": "e9769b61041d6d9f4c966b3cbf807264f594266c835d727a307518de26c1078a",
+          "conditionEvidence": "Normal player attack-source UI plus author on-frame demo label; native main60 attacker crop read DTC10-125/500m/566mm.",
+          "typeEvidence": {
+            "shell": "DTC10-125",
+            "typeCode": "APFSDS",
+            "typeLabel": "尾翼稳定脱壳穿甲弹",
+            "typeOriginal": "Armor-Piercing Fin-Stabilized Discarding Sabot shot",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ztz96b-20261102/snapshots/cn_ztz_96b.html",
+            "sourceHtmlSHA256": "7c1f99610a046eae0cfba71af1835e077a5d57787dfa192404f257b63e7266b1",
+            "proofSnippet": "DTC10-125&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;game-unit_popover-content&quot;&gt;&lt;div style=&quot;font-size: .9em&quot;&gt;&lt;div class=&quot;mb-1&quot;&gt;Armor-Piercing Fin-Stabilized Discarding Sabot shot&lt;/div&gt;&lt;button type=&quot;button&quot; class=&quot;border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info&quot; tabindex=&quot;-1&quot; data-bs-toggle=&quot;popover&quot; data-bs-title=&quot;Armor penetration&quot; data-bs-content=&quot;&amp;lt;div&amp;gt;&amp;lt;div class=&amp;quot;form-text text-center&amp;quot;&amp;gt;Kinetic&amp;lt;/div&amp;gt;&amp;lt;table class=&amp;quot;w-100 text-center&amp;quot;&amp;gt;&amp;lt;tr class=&amp;quot;border-bottom&am"
+          }
+        },
+        "cn_ztz_96b:BV1AhpF6aEDU:75033": {
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/034.json",
+          "proofSnapshotSHA256": "30b389e26a43fdb0ad2d763cdfd9bfa23b48b32f03848572d95fc8617eac251c",
+          "conditionEvidence": "Normal player attack-source UI plus author on-frame demo label; native main60 attacker crop read DTC10-125/500m/566mm.",
+          "typeEvidence": {
+            "shell": "DTC10-125",
+            "typeCode": "APFSDS",
+            "typeLabel": "尾翼稳定脱壳穿甲弹",
+            "typeOriginal": "Armor-Piercing Fin-Stabilized Discarding Sabot shot",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ztz96b-20261102/snapshots/cn_ztz_96b.html",
+            "sourceHtmlSHA256": "7c1f99610a046eae0cfba71af1835e077a5d57787dfa192404f257b63e7266b1",
+            "proofSnippet": "DTC10-125&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;game-unit_popover-content&quot;&gt;&lt;div style=&quot;font-size: .9em&quot;&gt;&lt;div class=&quot;mb-1&quot;&gt;Armor-Piercing Fin-Stabilized Discarding Sabot shot&lt;/div&gt;&lt;button type=&quot;button&quot; class=&quot;border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info&quot; tabindex=&quot;-1&quot; data-bs-toggle=&quot;popover&quot; data-bs-title=&quot;Armor penetration&quot; data-bs-content=&quot;&amp;lt;div&amp;gt;&amp;lt;div class=&amp;quot;form-text text-center&amp;quot;&amp;gt;Kinetic&amp;lt;/div&amp;gt;&amp;lt;table class=&amp;quot;w-100 text-center&amp;quot;&amp;gt;&amp;lt;tr class=&amp;quot;border-bottom&am"
+          }
+        },
+        "cn_ztz_96b:BV1AhpF6aEDU:90033": {
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/027.json",
+          "proofSnapshotSHA256": "0c666f4c031d997a151a363d5da01758f9e9776c83657f090abccfe4dce0d5b0",
+          "conditionEvidence": "Combat kill replay, separate context; no exact attacker or actual range asserted.",
+          "typeEvidence": {
+            "shell": "3BM60",
+            "typeCode": "APFSDS",
+            "typeLabel": "尾翼稳定脱壳穿甲弹",
+            "typeOriginal": "Armor-Piercing Fin-Stabilized Discarding Sabot shot",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-008-20261102/snapshots/ussr_t_72b3_arena_m.html",
+            "sourceHtmlSHA256": "c0635cb9499861c90f2870858be11f2814184077b3a8bd2365aa6ce18d6a6a8c",
+            "proofSnippet": "3BM60&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;game-unit_popover-content&quot;&gt;&lt;div style=&quot;font-size: .9em&quot;&gt;&lt;div class=&quot;mb-1&quot;&gt;Armor-Piercing Fin-Stabilized Discarding Sabot shot&lt;/div&gt;&lt;button type=&quot;button&quot; class=&quot;border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info&quot; tabindex=&quot;-1&quot; data-bs-toggle=&quot;popover&quot; data-bs-title=&quot;Armor penetration&quot; data-bs-content=&quot;&amp;lt;div&amp;gt;&amp;lt;div class=&amp;quot;form-text text-center&amp;quot;&amp;gt;Kinetic&amp;lt;/div&amp;gt;&amp;lt;table class=&amp;quot;w-100 text-center&amp;quot;&amp;gt;&amp;lt;tr class=&amp;quot;border-bottom&amp;qu"
+          }
+        },
+        "cn_ztz_96b:BV1AhpF6aEDU:60033": {
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/036.json",
+          "proofSnapshotSHA256": "b25ff29e47bf0f86ecb948eefe454c6208aac7d5efb98b5e03f3aa38eeafe0d2",
+          "conditionEvidence": "Normal player attack-source UI plus author on-frame demo label; native main60 attacker crop read DTC10-125/500m/566mm.",
+          "typeEvidence": {
+            "shell": "DTC10-125",
+            "typeCode": "APFSDS",
+            "typeLabel": "尾翼稳定脱壳穿甲弹",
+            "typeOriginal": "Armor-Piercing Fin-Stabilized Discarding Sabot shot",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ztz96b-20261102/snapshots/cn_ztz_96b.html",
+            "sourceHtmlSHA256": "7c1f99610a046eae0cfba71af1835e077a5d57787dfa192404f257b63e7266b1",
+            "proofSnippet": "DTC10-125&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;game-unit_popover-content&quot;&gt;&lt;div style=&quot;font-size: .9em&quot;&gt;&lt;div class=&quot;mb-1&quot;&gt;Armor-Piercing Fin-Stabilized Discarding Sabot shot&lt;/div&gt;&lt;button type=&quot;button&quot; class=&quot;border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info&quot; tabindex=&quot;-1&quot; data-bs-toggle=&quot;popover&quot; data-bs-title=&quot;Armor penetration&quot; data-bs-content=&quot;&amp;lt;div&amp;gt;&amp;lt;div class=&amp;quot;form-text text-center&amp;quot;&amp;gt;Kinetic&amp;lt;/div&amp;gt;&amp;lt;table class=&amp;quot;w-100 text-center&amp;quot;&amp;gt;&amp;lt;tr class=&amp;quot;border-bottom&am"
+          }
+        }
+      },
+      "overview": "以ZTZ96B发射DTC10-125、500米为例，首上左右车灯周围缺乏爆炸反应装甲覆盖，是明确标出的薄弱区域。前部油箱有时会削弱穿透后效，因此命中前部不等于稳定秒杀；油箱受损也可能带来装填和动力损失。侧面航向角暴露同样危险，需与正面测试分别理解。",
+      "testContext": {
+        "attacker": "ZTZ96B",
+        "shell": "DTC10-125",
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "displayedPenetrationMm": 566,
+        "distanceMeters": 500,
+        "impactAngleDegrees": null,
+        "sourceTime": 60.033312,
+        "note": "60秒主帧对应DTC10-125、500米条件；90秒3BM60实战为另一片段，攻击车型与实际距离未核实。"
+      },
+      "imageView": "front",
+      "imageQuality": "1080p",
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "completeIllustration": true,
+      "positiveWeakpointClassCount": 1,
+      "limits": "主图全帧1920x1080；车辆在原片中较小，裁图保留原始细节，不做AI补绘或放大伪造。；左右灯为同一类薄弱区域；未声称所有弹种和距离都能击穿。；90秒3BM60实战单独记录，不与DTC10-125/500m主测试混用。；版本未独立读取留null。"
+    },
+    {
+      "id": "germ_leopard_2a7v",
+      "name": "Leopard 2A7V",
+      "role": "主战坦克",
+      "country": "germany",
+      "countryName": "德国",
+      "rank": 8,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "2010年代中期提出该具体改进标准，2019年10月公开；不以2021年交付日期单独归类。",
+      "collectedAt": "2026-11-02T11:08:10.378Z",
+      "pins": [
+        {
+          "x": 0.48333333333333334,
+          "y": 0.25476190476190474,
+          "sourcePixel": {
+            "x": 950,
+            "y": 397
+          },
+          "label": "炮闩方向（炮根）",
+          "detail": "546秒明确建议瞄炮闩，本帧在炮根方向标示；不是把炮管开口宣称为独立装甲孔。",
+          "caseId": "germ_leopard_2a7v:BV1CueU6cECo:546000",
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "different-segment",
+          "mechanism": "conditional-gun-disable"
+        },
+        {
+          "x": 0.47833333333333333,
+          "y": 0.530952380952381,
+          "sourcePixel": {
+            "x": 947,
+            "y": 513
+          },
+          "label": "首下／裤裆",
+          "detail": "543秒明确列出裤裆，定位到540主图可见的首下中央；命中后效仍受内衬及前部布局影响，不保证全车损失。",
+          "caseId": "germ_leopard_2a7v:BV1CueU6cECo:543017",
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "different-segment",
+          "mechanism": "conditional-frontal-penetration"
+        }
+      ],
+      "videoAdvice": [
+        {
+          "caseId": "germ_leopard_2a7v:BV1CueU6cECo:543017",
+          "sourceTime": 543.016687,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "different-segment",
+          "mechanism": "conditional-frontal-penetration-or-disable",
+          "text": "富士90B/JM33、500米（本帧面板472毫米）：有效应对位置仍为裤裆与脖子；需理解为本段JM33/500米条件。",
+          "time": 543.016687,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "label": "首下／脖子：条件性建议"
+        },
+        {
+          "caseId": "germ_leopard_2a7v:BV1CueU6cECo:546000",
+          "sourceTime": 546,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "different-segment",
+          "mechanism": "conditional-gun-disable",
+          "text": "富士90B/JM33、500米（本帧面板472毫米）：作者建议瞄炮闩方向，目的是争取失能，不保证全车损失。",
+          "time": 546,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "label": "炮闩方向：条件性失能"
+        },
+        {
+          "caseId": "germ_leopard_2a7v:BV1CueU6cECo:560017",
+          "sourceTime": 560.016687,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "different-segment",
+          "mechanism": "negative-postpenetration-or-armor-context",
+          "text": "富士90B/JM33、500米（本帧面板472毫米）：A7内衬会影响后效，打得太靠车体前部容易让对手保留反击能力。",
+          "time": 560.016687,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "label": "内衬／前部：负向后效提醒"
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00",
+        "gameVersion": null
+      },
+      "status": "review-sample",
+      "wikiUrl": "https://wiki.warthunder.com/unit/germ_leopard_2a7v",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/leopard2a7v-20261102/snapshots/germ_leopard_2a7v.json",
+      "wikiSnapshotSHA256": "faacedc46901e206f286e89c6bfa829fb19c8609fdebe9961323ae0b105a733b",
+      "wikiSummary": "豹2A7V为2010年代中期提出、2019年公开的改进型，主炮面板为120毫米Rh120 L/55 A1，基础至王牌装填7.8至6秒、待发弹15发。",
+      "wikiPoints": [
+        "车体正面模块化附甲增强对APFSDS防护；指挥官、炮长和驾驶员配第三代热成像。",
+        "可选防地雷装甲使重量从64吨增至约67吨并影响速度，不能把该选装状态假定为所有视频都有。",
+        "正文简写L/55，主炮字段保留实际面板L/55 A1；不误报为2A6或2A5。",
+        "本页未直接给出具体局部薄弱位置；独立视频中A7V弱点仅绑定本精确型号，不套2A5/2A4M。"
+      ],
+      "reload": {
+        "display": "7.8 → 6 秒",
+        "gun": "120 mm Rh120 L/55 A1 cannon",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "conditional-explicit-location",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ],
+      "sourceGameVersion": null,
+      "videoGameVersion": null,
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/GER-Leopard-2A7V/GER-Leopard-2A7V-540-main.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/058.json",
+      "time": 540,
+      "crop": [
+        660,
+        290,
+        600,
+        420
+      ],
+      "testCases": [
+        {
+          "id": "germ_leopard_2a7v:BV1CueU6cECo:543017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 543.016687,
+          "attacker": "Type 90 (B) \"Fuji\"",
+          "attackerVehicleId": "jp_type_90b_camo",
+          "shell": "JM33",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "impactAngleDegrees": null,
+          "sourceGameVersion": null,
+          "verificationStatus": "verified"
+        },
+        {
+          "id": "germ_leopard_2a7v:BV1CueU6cECo:546000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 546,
+          "attacker": "Type 90 (B) \"Fuji\"",
+          "attackerVehicleId": "jp_type_90b_camo",
+          "shell": "JM33",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "impactAngleDegrees": null,
+          "sourceGameVersion": null,
+          "verificationStatus": "verified"
+        },
+        {
+          "id": "germ_leopard_2a7v:BV1CueU6cECo:560017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 560.016687,
+          "attacker": "Type 90 (B) \"Fuji\"",
+          "attackerVehicleId": "jp_type_90b_camo",
+          "shell": "JM33",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "impactAngleDegrees": null,
+          "sourceGameVersion": null,
+          "verificationStatus": "verified"
+        },
+        {
+          "id": "germ_leopard_2a7v:BV1CueU6cECo:540000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 540,
+          "attacker": "Type 90 (B) \"Fuji\"",
+          "attackerVehicleId": "jp_type_90b_camo",
+          "shell": "JM33",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "impactAngleDegrees": null,
+          "sourceGameVersion": null,
+          "verificationStatus": "verified"
+        }
+      ],
+      "testCaseEvidence": {
+        "germ_leopard_2a7v:BV1CueU6cECo:543017": {
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/088.json",
+          "proofSnapshotSHA256": "395d4afeea068cd5fd46b6610f7720a7f5168c63ab76293f12a0226e9cb6d4cb",
+          "conditionEvidence": "On-frame JM33/500m label and attack-source controls. Main540 read independently;546 controls cropped and read independently.",
+          "typeEvidence": {
+            "typeOriginal": "Armor-Piercing Fin-Stabilized Discarding Sabot shot",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/jp_type_10.html",
+            "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6",
+            "proofSnippet": "<span>JM33</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-Piercing Fin-Stabilized Discarding Sabot shot</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=&quot;border-end&quot; style=&quot;font-size: .8em; width: 40%;&quot;&gt;Distance / Angle of attack&lt;/th&gt;&lt;th&gt;0°&lt;/th&gt;&lt;th&gt;30°&lt;/th&gt;&lt;th&gt;60°&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;border-end&quot;&gt;10 m&lt;/th&gt;&lt",
+            "typeCode": "APFSDS",
+            "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+            "collectedAt": "2026-11-02T06:15:56.671Z"
+          }
+        },
+        "germ_leopard_2a7v:BV1CueU6cECo:546000": {
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/089.json",
+          "proofSnapshotSHA256": "d471fedf3312ffab5e090c8d7150700689e109db73d840063263b06522f9bf4b",
+          "conditionEvidence": "On-frame JM33/500m label and attack-source controls. Main540 read independently;546 controls cropped and read independently.",
+          "typeEvidence": {
+            "typeOriginal": "Armor-Piercing Fin-Stabilized Discarding Sabot shot",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/jp_type_10.html",
+            "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6",
+            "proofSnippet": "<span>JM33</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-Piercing Fin-Stabilized Discarding Sabot shot</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=&quot;border-end&quot; style=&quot;font-size: .8em; width: 40%;&quot;&gt;Distance / Angle of attack&lt;/th&gt;&lt;th&gt;0°&lt;/th&gt;&lt;th&gt;30°&lt;/th&gt;&lt;th&gt;60°&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;border-end&quot;&gt;10 m&lt;/th&gt;&lt",
+            "typeCode": "APFSDS",
+            "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+            "collectedAt": "2026-11-02T06:15:56.671Z"
+          }
+        },
+        "germ_leopard_2a7v:BV1CueU6cECo:560017": {
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/063.json",
+          "proofSnapshotSHA256": "46903aeadf44e754c62f864c003ea726e34aeced3be1876fea68e85eebb9f8f3",
+          "conditionEvidence": "On-frame JM33/500m label and attack-source controls. Main540 read independently;546 controls cropped and read independently.",
+          "typeEvidence": {
+            "typeOriginal": "Armor-Piercing Fin-Stabilized Discarding Sabot shot",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/jp_type_10.html",
+            "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6",
+            "proofSnippet": "<span>JM33</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-Piercing Fin-Stabilized Discarding Sabot shot</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=&quot;border-end&quot; style=&quot;font-size: .8em; width: 40%;&quot;&gt;Distance / Angle of attack&lt;/th&gt;&lt;th&gt;0°&lt;/th&gt;&lt;th&gt;30°&lt;/th&gt;&lt;th&gt;60°&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;border-end&quot;&gt;10 m&lt;/th&gt;&lt",
+            "typeCode": "APFSDS",
+            "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+            "collectedAt": "2026-11-02T06:15:56.671Z"
+          }
+        },
+        "germ_leopard_2a7v:BV1CueU6cECo:540000": {
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/058.json",
+          "proofSnapshotSHA256": "cdc6795dce8d1e20e64aad50ee39b8bac20b4d5dbbc742ffecf69b6af6706044",
+          "conditionEvidence": "On-frame JM33/500m label and attack-source controls. Main540 read independently;546 controls cropped and read independently.",
+          "typeEvidence": {
+            "typeOriginal": "Armor-Piercing Fin-Stabilized Discarding Sabot shot",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/jp_type_10.html",
+            "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6",
+            "proofSnippet": "<span>JM33</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-Piercing Fin-Stabilized Discarding Sabot shot</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=&quot;border-end&quot; style=&quot;font-size: .8em; width: 40%;&quot;&gt;Distance / Angle of attack&lt;/th&gt;&lt;th&gt;0°&lt;/th&gt;&lt;th&gt;30°&lt;/th&gt;&lt;th&gt;60°&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;border-end&quot;&gt;10 m&lt;/th&gt;&lt",
+            "typeCode": "APFSDS",
+            "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+            "collectedAt": "2026-11-02T06:15:56.671Z"
+          }
+        }
+      },
+      "overview": "本段以富士B发射JM33、500米为例，作者建议关注首下与炮塔连接处；由于脖子较难瞄准，实用选择是瞄炮闩方向。A7V的内衬会削弱后效，打得太靠车体前部可能让对手继续反击；侧面炮塔前部也不能一概视为可穿透区域。",
+      "testContext": {
+        "attacker": "Type 90 (B) \"Fuji\"",
+        "shell": "JM33",
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "displayedPenetrationMm": 472,
+        "distanceMeters": 500,
+        "impactAngleDegrees": null,
+        "sourceTime": 540,
+        "note": "主图为540秒；首下及炮闩建议分别来自543／546秒，560秒内衬后效提醒另列。"
+      },
+      "imageView": "front",
+      "imageQuality": "1080p",
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "completeIllustration": true,
+      "limits": "主图540秒，正向建议分别来自543/546秒；各自测试case同帧，但与主图不同片段，字段已分开。；炮闩标点表示炮根对应方向，不保证JM33命中任何炮盾位置都能伤及炮闩。；未沿用到2A4/2A4M/2A5；不同改型各自归档。；源版本未独立读取留null，不能泛化所有弹药距离。"
     }
   ],
   "eraPolicy": "按具体型号／改型所处年代分类，BR 另作筛选；本批为冷战样例。",
@@ -5917,8 +7186,8 @@
     "targetCount": 226,
     "rankTankCount": 216,
     "isSupplementCount": 10,
-    "wikiReviewedCount": 114,
-    "illustratedCount": 8,
+    "wikiReviewedCount": 124,
+    "illustratedCount": 11,
     "countries": [
       {
         "country": "usa",
@@ -6054,9 +7323,9 @@
     "lastUpdated": "2026-11-02",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 6,
+    "illustratedTargetCount": 9,
     "legacyIllustratedCount": 1,
-    "completeIllustratedTargetCount": 5,
+    "completeIllustratedTargetCount": 8,
     "supplementalRequestedCount": 4,
     "supplementalWikiReviewedCount": 4,
     "supplementalIllustratedCount": 1,
