@@ -25,15 +25,33 @@ const report = { models: [], publishedFiles: [], noRemoteRequests: true };
 for (const model of data.models) {
   if (model.scopeRole === "light_tank" && model.specialistWeakpointVerified !== true) throw Error("Scout/light vehicle needs verified specialist weakpoint evidence");
   if (!/^[a-z0-9_]+$/.test(model.id)) throw Error("Unsafe model identity");
-  if (model.wikiUrl !== `https://wiki.warthunder.com/unit/${model.id}`) throw Error("Wrong Wiki variant");
+  const cases = new Map();
+  for (const item of model.testCases || []) {
+    if (typeof item.id !== "string" || !item.id.startsWith(model.id + ":") || cases.has(item.id)) throw Error("Invalid or duplicate test case: " + model.id);
+    if (!Number.isFinite(item.sourceTime) || item.sourceTime < 0 || !item.sourceUrl?.startsWith("https://")) throw Error("Missing test-case source: " + model.id);
+    for (const key of ["distanceMeters", "displayedPenetrationMm"]) if (item[key] != null && (!Number.isFinite(item[key]) || item[key] < 0)) throw Error("Invalid test-case measurement: " + model.id);
+    cases.set(item.id, item);
+  }
+  for (const advice of model.videoAdvice || []) {
+    if (advice.caseId == null) continue;
+    const item = cases.get(advice.caseId);
+    if (!item) throw Error("Advice refers to another or missing test case: " + model.id);
+    if (!Number.isFinite(advice.sourceTime)) throw Error("Missing advice source time: " + model.id);
+    if (advice.conditionMatch === "same-frame" && Math.abs(advice.sourceTime - item.sourceTime) > .2) throw Error("Advice and test case are not the same frame: " + model.id);
+  }
+  const wikiUnitId = model.wikiUnitId || model.id;
+  if (wikiUnitId.toLowerCase() !== model.id || model.wikiUrl !== `https://wiki.warthunder.com/unit/${wikiUnitId}`) throw Error("Wrong Wiki variant: " + model.id);
   const wikiPath = model.wikiSnapshotPath ? privatePath(model.wikiSnapshotPath) : resolve(captures, model.wikiSnapshot + ".json");
   const wikiBytes = await readFile(wikiPath);
   if (model.wikiSnapshotSHA256 && hash(wikiBytes) !== model.wikiSnapshotSHA256) throw Error("Wiki proof hash mismatch");
   const wiki = JSON.parse(wikiBytes);
   if (wiki.url !== model.wikiUrl || wiki.status !== 200 || wiki.challenge || !norm(wiki.title).includes(norm(model.name))) throw Error("Wiki source identity not verified");
   if (!wiki.text.includes(model.wikiGameVersion)) throw Error("Wiki version mismatch");
-  const weapon = wiki.text.slice(wiki.text.indexOf("Armaments\n")).split("Available ammunition")[0];
-  if (!weapon.includes(model.reload.gun.replace(" 主炮", " cannon"))) throw Error("Wrong main gun: " + model.id);
+  const armamentStart = wiki.text.indexOf("Armaments\n");
+  const armaments = armamentStart < 0 ? "" : wiki.text.slice(armamentStart);
+  const gunStart = armaments.indexOf(model.reload.gun.replace(" 主炮", " cannon"));
+  if (gunStart < 0) throw Error("Wrong main gun: " + model.id);
+  const weapon = armaments.slice(gunStart).split("Available ammunition")[0];
   const reload = weapon.match(/Reload\n(?:basic crew → aces\n)?([\d.]+)(?: → ([\d.]+))? s/);
   if (!reload) throw Error("Missing main-gun reload source");
   if (model.reload.mechanism === "automatic") {
@@ -78,7 +96,7 @@ for (const model of data.models) {
     Object.assign(item, { illustrated: true, frameTime: frame.decode.mediaTime, frameSHA256: hash(raw), sourceFrameSHA256: model.sourceFrameSHA256, frameSize: raw.length, imageQuality: model.imageQuality });
   } else if (model.pins?.length) throw Error("Do not publish pins without their matching front image");
   report.models.push(item);
-  for (const key of ["wikiSnapshot", "wikiSnapshotPath", "wikiSnapshotSHA256", "frameSnapshot", "frameSnapshotPath", "frame", "framePath", "testContextEvidence", "captureSHA256", "originalFrameSHA256", "overview", "comparison", "limits", "ammo", "evidenceFrames"]) delete model[key];
+  for (const key of ["wikiSnapshot", "wikiSnapshotPath", "wikiSnapshotSHA256", "frameSnapshot", "frameSnapshotPath", "frame", "framePath", "testContextEvidence", "testCaseEvidence", "captureSHA256", "originalFrameSHA256", "overview", "comparison", "limits", "ammo", "evidenceFrames"]) delete model[key];
   for (const advice of model.videoAdvice || []) delete advice.evidence;
 }
 if (/\/vol1\/|\/home\/|artifacts\//.test(JSON.stringify(data))) throw Error("Private evidence paths must not enter the public sample payload");
