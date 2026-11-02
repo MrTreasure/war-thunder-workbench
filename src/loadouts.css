@@ -28,7 +28,7 @@
   font-size: 12px;
   margin: 4px 0;
 }
-.wt-mount-page button {
+.wt-mount-page button:not(.vehicle-card) {
   min-height: 36px;
   padding: 6px 12px;
   border: 1px solid var(--wt-line);
@@ -473,3 +473,47 @@
 .wt-mount-mobile-actions {
   display: none;
 }
+
+/* finesse · product · list-first loadout workbench, shared game cards */
+.wt-mount-workspace { grid-template-columns: minmax(0, 1fr); }
+.wt-mount-board, .wt-mount-summary { width: 100%; min-width: 0; box-sizing: border-box; }
+.wt-mount-summary { display: grid; grid-template-columns: minmax(220px, 1fr) minmax(260px, 2fr); gap: 12px 28px; }
+.wt-mount-summary > h3, .wt-mount-summary > .wt-mount-provenance, .wt-mount-summary > .wt-mount-error { grid-column: 1 / -1; }
+.wt-mount-stations { display: grid; grid-template-columns: repeat(auto-fit,minmax(138px,1fr)); align-items: stretch; }
+.wt-mount-page .wt-mount-station { width: 100%; min-width: 0; min-height: 220px; box-sizing: border-box; }
+.wt-mount-page .wt-mount-station strong { width: 100%; max-width: 100%; min-width: 0; white-space: normal; overflow-wrap: anywhere; word-break: break-word; line-height: 1.5; }
+.wt-mount-station > small:last-child { margin-top: auto; }
+.wt-mount-editor-toolbar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-block: 14px; }
+.wt-mount-editor-toolbar .wt-select { min-width: 140px; margin-left: auto; }
+.wt-mount-country { display: inline-flex; gap: 8px; align-items: center; min-width: 0; }
+.wt-mount-country img { width: 24px; height: 18px; object-fit: contain; flex-shrink: 0; }
+.wt-mount-heading > div:first-child { margin-right: auto; }
+.wt-mount-section-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-block: 14px; }
+.wt-mount-section-heading h3, .wt-mount-section-heading h4 { margin: 0; }
+.wt-mount-section-heading > span, .wt-mount-note { font-size: 12px; color: var(--wt-muted); line-height: 1.7; }
+.wt-mount-defaults { margin-block: 20px; }
+.wt-mount-default-list, .wt-mount-recommendation-list { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,300px),1fr)); gap: 16px; }
+.wt-mount-default-list article, .wt-mount-recommendation-list article { padding: 16px; border: 1px solid var(--wt-line); background: var(--wt-surface); min-width: 0; }
+.wt-mount-default-list header { display: flex; gap: 12px; align-items: center; justify-content: space-between; }
+.wt-mount-default-list h4, .wt-mount-recommendation-list h4 { margin: 0 0 12px; overflow-wrap: anywhere; }
+.wt-mount-default-list ul { list-style: none; margin: 0; padding: 0; }
+.wt-mount-default-list li { margin-top: 10px; }
+.wt-mount-recommendation-list .vehicle-card { margin-bottom: 20px; }
+.wt-mount-recommendation-list ul { padding-left: 18px; line-height: 1.7; }
+.wt-mount-tag-list { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-block: 10px; }
+.wt-mount-shared-list article { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; padding: 12px 0; border-top: 1px solid var(--wt-line); }
+.wt-mount-shared-list article > span { flex: 1 1 200px; }
+.wt-mount-shared-list .wt-mount-tag-list { flex: 1 1 100%; }
+.wt-mount-login { padding-block: 56px; text-align: center; }
+.wt-mount-login p { color: var(--wt-muted); margin-block: 20px; }
+.calculator.wt-mount-vehicle-picker { inset: 0; margin: auto; width: min(960px,calc(100vw - 24px)); height: min(760px,calc(100dvh - 32px)); max-height: calc(100dvh - 32px); padding: 0; display: flex; flex-direction: column; overflow: hidden; }
+.wt-mount-vehicle-picker .wt-mount-toolbar { display: grid; grid-template-columns: minmax(140px,1fr) 120px minmax(180px,2fr); margin: 16px; flex-shrink: 0; }
+.wt-mount-vehicle-picker .wt-mount-toolbar label { min-width: 0; }
+.wt-mount-vehicle-picker > p { margin-inline: 16px; }
+.wt-mount-model-grid { min-height: 0; overflow: auto; display: grid; grid-template-columns: repeat(auto-fill,minmax(250px,1fr)); gap: 18px 12px; padding: 14px 16px 28px; align-content: start; }
+.wt-mount-model-choice { min-height: 102px; display: flex; justify-content: center; padding-bottom: 14px; }
+.wt-mount-model-choice .vehicle-card { flex-shrink: 0; }
+.calculator.wt-mount-vehicle-picker:not([open]) { display: none; }
+.wt-mount-saved article > .vehicle-card { margin-block: 4px 18px; }
+.wt-mount-saved article > div:last-child { display: flex; flex-wrap: wrap; gap: 6px; }
+.wt-mount-saved h4 { overflow-wrap: anywhere; }

@@ -17,13 +17,17 @@ import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { useAccountWorkspace } from "./workspace-context";
 import { loadoutRequest } from "./loadout-api";
 import { useLoadoutPlans } from "./loadout-storage";
+import { LoadoutPresets } from "./LoadoutPresets";
+import { readRemoteLoadout, type LoadoutShare, type LoadoutVehicle } from "./loadout-shares";
+import { TagSelector, freeTagTones, type TagChoice } from "./components/TagSelector";
+import { gameTagOptions } from "./game-tag-options";
+import { GameTag } from "./components/GameTag";
+import { LoadoutHall } from "./LoadoutHall";
 import {
   checkLoadout,
   hasConfigurableLoadout,
   stationLoadoutOptions,
   loadoutRevision,
-  decodeLoadout,
-  encodeLoadout,
   optionKey,
   presetKey,
   validLoadoutPlan,
@@ -55,6 +59,18 @@ type WeaponIndex = {
   version: string;
 };
 const countries = bootstrap.countries as Record<string, string>;
+const countryLabel = (id: string) =>
+  id && countries[id] ? (
+    <span className="wt-mount-country">
+      <img
+        src={bootstrap.flags[id as keyof typeof bootstrap.flags]}
+        alt=""
+        width={24}
+        height={18}
+      />
+      <span>{countries[id]}</span>
+    </span>
+  ) : null;
 const kg = (value: number | null) =>
   value === null ? "未知" : `${value.toLocaleString("zh-CN", { maximumFractionDigits: 3 })} 千克`;
 const planOrNull = (value: unknown): value is LoadoutPlan | null => {
@@ -83,9 +99,25 @@ function makePlan(unit: VehicleFacts, country: string, data: WikiLoadouts): Load
 }
 
 export function LoadoutWorkbench() {
-  const { session } = useWorkbenchAccount();
+  const account = useWorkbenchAccount();
+  const { session } = account;
   const workspace = useAccountWorkspace();
   const owner = session?.user?.id || "guest";
+  if (!session?.user)
+    return (
+      <main className="wt-mount-page wt-mount-login">
+        <h2>模拟挂载</h2>
+        <p>登录后创建、保存和分享挂载方案。</p>
+        <button
+          className="primary-button"
+          disabled={account.initializing || account.busy}
+          onClick={() => void account.login()}
+        >
+          {account.initializing ? "正在恢复登录…" : account.busy ? "正在登录…" : "登录并继续"}
+        </button>
+        {account.error && <p role="alert">{account.error}</p>}
+      </main>
+    );
   if (
     (owner !== "guest" && workspace?.userId !== owner) ||
     (owner === "guest" && !!workspace?.userId)
@@ -102,9 +134,10 @@ function LoadoutPage({ owner }: { owner: string }) {
   const workspace = useAccountWorkspace();
   const navigate = useNavigate();
   const search = useRouterState({
-    select: (s) => s.location.search as { share?: string; country?: string; vehicle?: string },
+    select: (s) =>
+      s.location.search as { recommendation?: string; country?: string; vehicle?: string },
   });
-  const [tab, setTab] = useState<"editor" | "search" | "saved">("editor");
+  const [tab, setTab] = useState<"editor" | "search" | "saved" | "hall">("saved");
   const [country, setCountry] = useState(() =>
     search.country && Object.hasOwn(countries, search.country) ? search.country : "",
   );
@@ -134,6 +167,11 @@ function LoadoutPage({ owner }: { owner: string }) {
   const [picker, setPicker] = useState(false);
   const [importing, setImporting] = useState(false);
   const [share, setShare] = useState("");
+  const [sharePlan, setSharePlan] = useState<LoadoutPlan | null>(null);
+  const [shareTags, setShareTags] = useState<TagChoice[]>([]);
+  const [selecting, setSelecting] = useState<"new" | "replace" | null>(null);
+  const [summaries, setSummaries] = useState<Record<string, LoadoutVehicle>>({});
+  const [myShares, setMyShares] = useState<LoadoutShare[]>([]);
   const [importText, setImportText] = useState("");
   const [pending, setPending] = useState<LoadoutPlan | null>(null);
   const [busy, setBusy] = useState(false);
@@ -156,6 +194,45 @@ function LoadoutPage({ owner }: { owner: string }) {
       ),
     [facts, country],
   );
+  useEffect(() => {
+    const controller = new AbortController();
+    void loadoutRequest<{ items: LoadoutShare[] }>(
+      "shares/mine",
+      undefined,
+      controller.signal,
+    ).then(
+      (value) => {
+        if (!controller.signal.aborted) setMyShares(value.items);
+      },
+      (e: unknown) => {
+        if (!controller.signal.aborted) setError(e instanceof Error ? e.message : "推荐读取失败。");
+      },
+    );
+    return () => controller.abort();
+  }, [owner]);
+  const savedVehicleIDs = useMemo(
+    () => [...new Set(saved.map((p) => p.vehicleId))].sort().join(","),
+    [saved],
+  );
+  useEffect(() => {
+    if (!savedVehicleIDs) return;
+    const controller = new AbortController();
+    void loadoutRequest<{ items: LoadoutVehicle[] }>(
+      "vehicles",
+      { ids: savedVehicleIDs.split(",") },
+      controller.signal,
+    ).then(
+      (value) => {
+        if (!controller.signal.aborted)
+          setSummaries(Object.fromEntries(value.items.map((item) => [item.id, item])));
+      },
+      (e: unknown) => {
+        if (!controller.signal.aborted)
+          setError(e instanceof Error ? e.message : "机型资料读取失败。");
+      },
+    );
+    return () => controller.abort();
+  }, [savedVehicleIDs]);
   const unit =
     units.find((u) => u.id === vehicle) || (pinnedUnit?.id === vehicle ? pinnedUnit : undefined);
   const data = activeData;
@@ -243,15 +320,15 @@ function LoadoutPage({ owner }: { owner: string }) {
     [setWorkingPlan],
   );
   useEffect(() => {
-    if (!search.share || importedSearch.current === search.share) return;
-    importedSearch.current = search.share;
+    if (!search.recommendation || importedSearch.current === search.recommendation) return;
+    importedSearch.current = search.recommendation;
     let active = true;
-    void decodeLoadout(search.share).then(
+    void readRemoteLoadout(search.recommendation).then(
       (p) => {
         if (active) {
           setPending({ ...p, name: "导入挂载方案" });
           setImporting(true);
-          setImportText(search.share!);
+          setImportText(search.recommendation!);
         }
       },
       (e: unknown) => active && setError(e instanceof Error ? e.message : "分享内容读取失败。"),
@@ -259,7 +336,7 @@ function LoadoutPage({ owner }: { owner: string }) {
     return () => {
       active = false;
     };
-  }, [search.share]);
+  }, [search.recommendation]);
   useEffect(() => {
     if (!search.country || !search.vehicle || !Object.hasOwn(countries, search.country)) return;
     let active = true;
@@ -300,9 +377,12 @@ function LoadoutPage({ owner }: { owner: string }) {
     const selected = units.find((u) => u.id === id);
     if (!selected?.wikiDetails?.loadouts) return;
     if (plan) saveDraft(plan);
-    openPlan(makePlan(selected, country, selected.wikiDetails.loadouts));
+    const next = makePlan(selected, country, selected.wikiDetails.loadouts);
+    if (selecting === "replace" && plan) next.id = plan.id;
+    openPlan(next);
+    setSelecting(null);
   };
-  const commit = () => {
+  const commit = async () => {
     if (!plan || !data || !plan.name.trim()) return;
     if (loadoutRevision(data) !== plan.sourceHash) {
       setError("请先确认按当前资料重新核对，再保存方案。");
@@ -322,7 +402,7 @@ function LoadoutPage({ owner }: { owner: string }) {
     const list = saved.some((p) => p.id === next.id)
       ? saved.map((p) => (p.id === next.id ? next : p))
       : [...saved, next];
-    if (savePlans(list)) {
+    if (await savePlans(list)) {
       setWorkingPlan(next);
       setError("");
       setMessage(
@@ -332,15 +412,36 @@ function LoadoutPage({ owner }: { owner: string }) {
       );
     }
   };
-  const exportPlan = async (source: LoadoutPlan) => {
+  const exportPlan = (source: LoadoutPlan) => {
+    setSharePlan(source);
+    setShare("");
+    setShareTags([]);
+    setError("");
+  };
+  const publishShare = async () => {
+    if (!sharePlan) return;
     setBusy(true);
     setError("");
     try {
-      setShare(await encodeLoadout({ ...source, name: "挂载方案" }));
+      const remote = await loadoutRequest<LoadoutShare>("shares", {
+        plan: sharePlan,
+        listed: true,
+        tags: shareTags,
+      });
+      setShare(remote.id);
+      void refreshShares();
     } catch (e) {
       setError(e instanceof Error ? e.message : "分享失败。");
     } finally {
       setBusy(false);
+    }
+  };
+  const refreshShares = async () => {
+    try {
+      const value = await loadoutRequest<{ items: LoadoutShare[] }>("shares/mine");
+      setMyShares(value.items);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "分享读取失败。");
     }
   };
   const downloadPlan = (source: LoadoutPlan) => {
@@ -372,23 +473,17 @@ function LoadoutPage({ owner }: { owner: string }) {
       setWorkingPlan(null);
       setVehicle("");
       setTab("saved");
+      void navigate({ to: "/loadouts", search: {}, replace: true });
     }
   };
   const readImport = async () => {
     setBusy(true);
     setError("");
     try {
-      let text = importText.trim();
-      if (text.startsWith("https://")) {
-        const url = new URL(text);
-        const query = url.hash.split("?")[1] || url.search;
-        text = new URLSearchParams(query).get("share") || "";
-      }
-      if (text.startsWith("{")) {
-        const value: unknown = JSON.parse(text);
-        if (!validLoadoutPlan(value)) throw Error("挂载文件格式不正确。");
-        setPending({ ...value, name: "导入挂载方案" });
-      } else setPending({ ...(await decodeLoadout(text)), name: "导入挂载方案" });
+      if (!importText.trim()) throw Error("请先选择挂载备份文件。");
+      const value: unknown = JSON.parse(importText);
+      if (!validLoadoutPlan(value)) throw Error("挂载备份文件格式不正确。");
+      setPending({ ...value, name: "导入挂载方案" });
     } catch (e) {
       setError(e instanceof Error ? e.message : "分享内容读取失败。");
     } finally {
@@ -456,20 +551,6 @@ function LoadoutPage({ owner }: { owner: string }) {
       updatedAt: now,
     });
   };
-  const shareUrl = () => {
-    const url = new URL(location.href);
-    url.search = "";
-    url.hash = `/loadouts?share=${encodeURIComponent(share)}`;
-    return url.href;
-  };
-  const copy = async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setMessage("已复制。");
-    } catch {
-      setMessage("请选中文字手动复制。");
-    }
-  };
   const candidates =
     data?.compatibility.filter(
       (o) =>
@@ -488,8 +569,8 @@ function LoadoutPage({ owner }: { owner: string }) {
     <main className="wt-mount-page">
       <div className="wt-mount-heading">
         <div>
-          <h2>模拟挂载</h2>
-          <p>按挂点配装，或从武器需求寻找机型</p>
+          <h2>{tab === "editor" ? "配置挂载" : "模拟挂载"}</h2>
+          <p>我的挂载 · 云端保存与应用内推荐</p>
         </div>
         <button
           className="quiet-button"
@@ -501,13 +582,16 @@ function LoadoutPage({ owner }: { owner: string }) {
         >
           导入方案
         </button>
+        <button className="primary-button" onClick={() => setSelecting("new")}>
+          ＋ 添加挂载
+        </button>
       </div>
       <nav className="wt-mount-tabs" aria-label="挂载工具">
         {(
           [
-            ["editor", "选机配装"],
+            ["saved", `我的挂载（${saved.length}）`],
+            ["hall", "挂载大厅"],
             ["search", "按挂载找机型"],
-            ["saved", `我的方案（${saved.length}）`],
           ] as const
         ).map(([key, label]) => (
           <button
@@ -516,6 +600,7 @@ function LoadoutPage({ owner }: { owner: string }) {
             onClick={() => {
               setTab(key);
               if (key === "search") void fetchWeapons();
+              if (key === "saved") void refreshShares();
             }}
           >
             {label}
@@ -539,105 +624,19 @@ function LoadoutPage({ owner }: { owner: string }) {
       )}
       {tab === "editor" && (
         <>
-          <section className="wt-mount-toolbar" aria-label="选择机型">
-            <label>
-              国家
-              <GameSelect
-                value={country}
-                onValueChange={(value) => {
-                  if (plan) saveDraft(plan);
-                  opening.current++;
-                  setActiveData(null);
-                  setPinnedUnit(null);
-                  setCountry(value);
-                  setVehicle("");
-                  setWorkingPlan(null);
-                  setStation("");
-                }}
-              >
-                <option value="">选择国家</option>
-                {Object.entries(countries).map(([id, name]) => (
-                  <option key={id} value={id}>
-                    {name}
-                  </option>
-                ))}
-              </GameSelect>
-            </label>
-            <label>
-              等级
-              <GameSelect
-                value={rank}
-                onValueChange={(value) => {
-                  setRank(value);
-                  if (plan && value && unit?.rank !== value) {
-                    opening.current++;
-                    setWorkingPlan(null);
-                    setVehicle("");
-                    setActiveData(null);
-                    setPinnedUnit(null);
-                  }
-                }}
-              >
-                <option value="">全部等级</option>
-                {loadoutRanks.map((value) => (
-                  <option key={value} value={value}>
-                    {value} 级
-                  </option>
-                ))}
-              </GameSelect>
-            </label>
-            <label>
-              搜索机型
-              <input
-                value={vehicleQuery}
-                placeholder="名称或型号"
-                onChange={(e) => setVehicleQuery(e.target.value)}
-              />
-            </label>
-            <label>
-              机型
-              <GameSelect
-                value={vehicle}
-                onValueChange={chooseVehicle}
-                menuClassName="wt-mount-vehicle-menu"
-                renderOption={(value) => {
-                  const choice = units.find((u) => u.id === value);
-                  return choice ? (
-                    <VehicleTile
-                      unit={choice}
-                      mode={mode}
-                      footerLabel={`${choice.rank} 级`}
-                      showPackPrice={false}
-                    />
-                  ) : null;
-                }}
-              >
-                <option value="">选择飞机或直升机</option>
-                {units
-                  .filter(
-                    (u) =>
-                      (!rank || u.rank === rank) &&
-                      (u.id === vehicle ||
-                        `${u.name} ${u.nameEn || ""} ${u.id}`
-                          .toLowerCase()
-                          .includes(vehicleQuery.toLowerCase())),
-                  )
-                  .map((u) => (
-                    <option key={u.id} value={u.id}>
-                      {u.name}
-                    </option>
-                  ))}
-              </GameSelect>
-            </label>
-            <label>
-              权重模式
-              <GameSelect value={mode} onValueChange={(v) => setMode(v as Mode)}>
-                <option value="ab">街机 AB</option>
-                <option value="rb">历史 RB</option>
-                <option value="sb">全真 SB</option>
-              </GameSelect>
-            </label>
-          </section>
+          <div className="wt-mount-editor-toolbar">
+            <button onClick={() => secondaryAction("back")}>← 返回挂载列表</button>
+            <button onClick={() => setSelecting("replace")}>重新选择机型</button>
+            <GameSelect
+              aria-label="权重模式"
+              value={mode}
+              onValueChange={(v) => setMode(v as Mode)}
+            >
+              <option value="ab">街机 AB</option>
+              <option value="rb">历史 RB</option>
+              <option value="sb">全真 SB</option>
+            </GameSelect>
+          </div>
           {!plan && draft && (
             <button className="quiet-button" onClick={() => openPlan(draft)}>
               继续本地草稿 · {draft.name}
@@ -797,27 +796,10 @@ function LoadoutPage({ owner }: { owner: string }) {
                       </div>
                     </>
                   ) : (
-                    <div className="wt-mount-presets">
-                      <h3>挂载预设</h3>
-                      <p>该机资料提供完整预设，选择其中一组配置。</p>
-                      {data.presets.map((p) => (
-                        <button
-                          key={p.id}
-                          aria-pressed={plan.preset === presetKey(p)}
-                          onClick={() => mutate({ ...plan, mounts: [], preset: presetKey(p) })}
-                        >
-                          <strong>{p.label}</strong>
-                          <span>
-                            {p.items
-                              .map(
-                                (item) =>
-                                  `${loadoutWeaponName(item.name)} × ${item.count ?? "未知"}`,
-                              )
-                              .join(" · ")}
-                          </span>
-                        </button>
-                      ))}
-                    </div>
+                    <LoadoutPresets
+                      data={data}
+                      onUse={(key) => mutate({ ...plan, mounts: [], preset: key })}
+                    />
                   )}
                 </section>
                 <aside className="wt-mount-summary" aria-label="配置汇总">
@@ -882,6 +864,12 @@ function LoadoutPage({ owner }: { owner: string }) {
                   </section>
                 </aside>
               </div>
+              {data.hardpoints.length > 0 && (
+                <LoadoutPresets
+                  data={data}
+                  onUse={(key) => mutate({ ...plan, mounts: [], preset: key })}
+                />
+              )}
               <div className="wt-mount-actions">
                 <div className="wt-mount-desktop-actions">
                   <button disabled={!history.length} onClick={() => secondaryAction("undo")}>
@@ -913,10 +901,14 @@ function LoadoutPage({ owner }: { owner: string }) {
                   disabled={busy || !!check?.issues.length}
                   onClick={() => void exportPlan(plan)}
                 >
-                  分享
+                  发布到大厅
                 </button>
-                <button className="primary-button" onClick={commit}>
-                  保存方案
+                <button
+                  className="primary-button"
+                  disabled={storageStatus.sending}
+                  onClick={() => void commit()}
+                >
+                  {storageStatus.sending ? "正在保存…" : "保存方案"}
                 </button>
               </div>
             </>
@@ -1016,6 +1008,8 @@ function LoadoutPage({ owner }: { owner: string }) {
                 <label>
                   国家
                   <GameSelect
+                    renderValue={countryLabel}
+                    renderOption={countryLabel}
                     value={searchCountry}
                     disabled={busy}
                     onValueChange={(v) => {
@@ -1127,30 +1121,30 @@ function LoadoutPage({ owner }: { owner: string }) {
           )}
         </section>
       )}
+      {tab === "hall" && (
+        <LoadoutHall onUse={(value) => openPlan({ ...value, id: crypto.randomUUID() })} />
+      )}
       {tab === "saved" && (
         <section>
           <div className="wt-mount-heading">
             <h3>我的挂载方案</h3>
-            <button
-              onClick={() => {
-                setTab("editor");
-                setVehicle("");
-                setWorkingPlan(null);
-              }}
-            >
-              ＋ 新建方案
-            </button>
+            <button onClick={() => void refreshShares()}>刷新我的推荐</button>
           </div>
-          {!saved.length && (
-            <div className="wt-mount-empty">还没有保存方案。选择机型配置，或导入分享码开始。</div>
+          {!saved.length && !storageStatus.loading && (
+            <div className="wt-mount-empty">
+              还没有保存的挂载。点击“添加挂载”，选好机型后开始配置。
+            </div>
           )}
           <div className="wt-mount-saved">
             {saved.map((p) => (
               <article key={p.id}>
                 <h4>{p.name}</h4>
                 <VehicleTile
-                  unit={facts.get(p.vehicleId) || { id: p.vehicleId, name: p.vehicleId }}
-                  showAcquisition={facts.has(p.vehicleId)}
+                  unit={
+                    facts.get(p.vehicleId) ||
+                    summaries[p.vehicleId] || { id: p.vehicleId, name: p.vehicleId }
+                  }
+                  showAcquisition={facts.has(p.vehicleId) || !!summaries[p.vehicleId]}
                   countryLabel={countries[p.country]}
                 />
                 <p>
@@ -1171,12 +1165,12 @@ function LoadoutPage({ owner }: { owner: string }) {
                     复制
                   </button>
                   <button disabled={busy} onClick={() => void exportPlan(p)}>
-                    分享
+                    发布到大厅
                   </button>
                   <button
                     onClick={() => {
                       if (confirm(`删除“${p.name}”？`))
-                        savePlans(saved.filter((n) => n.id !== p.id));
+                        void savePlans(saved.filter((n) => n.id !== p.id));
                     }}
                   >
                     删除
@@ -1185,12 +1179,128 @@ function LoadoutPage({ owner }: { owner: string }) {
               </article>
             ))}
           </div>
+          {storageStatus.loading && <p aria-live="polite">正在读取云端挂载…</p>}
+          {draft && !saved.some((p) => p.id === draft.id && p.updatedAt === draft.updatedAt) && (
+            <button onClick={() => openPlan(draft)}>继续未保存的草稿</button>
+          )}
+          {!!myShares.length && (
+            <section className="wt-mount-shared-list">
+              <h3>我的大厅推荐</h3>
+              {myShares.map((item) => (
+                <article key={item.id}>
+                  <span>{item.plan.name}</span>
+                  <div className="wt-mount-tag-list">
+                    {item.tags?.map((tag) => (
+                      <GameTag key={tag.id} tagId={tag.id} tone={tag.tone}>
+                        {gameTagOptions.find((t) => t.id === tag.id)?.label || tag.id}
+                      </GameTag>
+                    ))}
+                  </div>
+                  <button onClick={() => openPlan({ ...item.plan, id: crypto.randomUUID() })}>
+                    打开配置
+                  </button>
+                  <button
+                    onClick={async () => {
+                      if (!confirm("撤回后，挂载大厅和该机型推荐将移除此方案。确定撤回？")) return;
+                      try {
+                        await loadoutRequest("shares/" + item.id + "/remove", {});
+                        await refreshShares();
+                      } catch (e) {
+                        setError(e instanceof Error ? e.message : "撤回失败。");
+                      }
+                    }}
+                  >
+                    撤回推荐
+                  </button>
+                </article>
+              ))}
+            </section>
+          )}
           {owner !== "guest" && (
             <button className="quiet-button" onClick={() => workspace?.open()}>
               查看账号同步状态
             </button>
           )}
         </section>
+      )}
+      {selecting && (
+        <Modal
+          title={selecting === "replace" ? "重新选择机型" : "添加挂载 · 选择机型"}
+          close={() => setSelecting(null)}
+          className="wt-mount-vehicle-picker"
+        >
+          {selecting === "replace" && (
+            <p className="wt-mount-note">
+              选择其他机型后将清空当前挂载；已保存的方案在再次保存前保持原样。
+            </p>
+          )}
+          <div className="wt-mount-toolbar">
+            <label>
+              国家
+              <GameSelect
+                value={country}
+                renderValue={countryLabel}
+                renderOption={countryLabel}
+                onValueChange={setCountry}
+              >
+                <option value="">选择国家</option>
+                {Object.entries(countries).map(([id, name]) => (
+                  <option key={id} value={id}>
+                    {name}
+                  </option>
+                ))}
+              </GameSelect>
+            </label>
+            <label>
+              等级
+              <GameSelect value={rank} onValueChange={setRank}>
+                <option value="">全部等级</option>
+                {loadoutRanks.map((value) => (
+                  <option key={value} value={value}>
+                    {value} 级
+                  </option>
+                ))}
+              </GameSelect>
+            </label>
+            <label>
+              搜索机型
+              <input
+                value={vehicleQuery}
+                placeholder="名称或型号"
+                onChange={(e) => setVehicleQuery(e.target.value)}
+              />
+            </label>
+          </div>
+          {loadState.loading && <p aria-live="polite">正在读取该国资料…</p>}
+          {loadState.error && (
+            <p role="alert">
+              {loadState.error}
+              <button onClick={retry}>重试</button>
+            </p>
+          )}
+          <div className="wt-mount-model-grid">
+            {units
+              .filter(
+                (u) =>
+                  (!rank || u.rank === rank) &&
+                  (u.name + " " + u.nameEn + " " + u.id)
+                    .toLowerCase()
+                    .includes(vehicleQuery.toLowerCase()),
+              )
+              .map((u) => (
+                <div key={u.id} className="wt-mount-model-choice">
+                  <VehicleTile
+                    unit={u}
+                    mode={mode}
+                    footerLabel={u.rank + " 级"}
+                    showPackPrice={false}
+                    onSelect={() => chooseVehicle(u.id)}
+                  />
+                </div>
+              ))}
+          </div>
+          {!country && <p className="wt-mount-note">先选择国家，再选择可挂载的机型。</p>}
+        </Modal>
       )}
       {picker && data && plan && (
         <Modal
@@ -1251,27 +1361,38 @@ function LoadoutPage({ owner }: { owner: string }) {
       )}
       {importing && (
         <Modal
-          title="导入挂载方案"
+          title={pending && search.recommendation ? "查看推荐挂载" : "导入挂载备份"}
           close={() => {
             setImporting(false);
             setPending(null);
           }}
           className="wt-mount-share"
         >
-          <label>
-            分享码或分享链接
-            <textarea
-              value={importText}
-              maxLength={100000}
-              onChange={(e) => {
-                setImportText(e.target.value);
-                setPending(null);
-              }}
-            />
-          </label>
-          <button disabled={busy} onClick={() => void readImport()}>
-            {busy ? "读取中…" : "读取预览"}
-          </button>
+          {!pending && (
+            <label>
+              选择挂载备份文件
+              <input
+                type="file"
+                accept=".wtloadout.json,.json,application/json"
+                onChange={async (e) => {
+                  const file = e.target.files?.[0];
+                  if (!file) return;
+                  if (file.size > 256 * 1024) {
+                    setError("备份文件不能超过256 KiB。");
+                    return;
+                  }
+                  setImportText(await file.text());
+                  setPending(null);
+                }}
+              />
+            </label>
+          )}
+          {error && <p role="alert">{error}</p>}
+          {!pending && (
+            <button disabled={busy} onClick={() => void readImport()}>
+              {busy ? "读取中…" : "读取预览"}
+            </button>
+          )}
           {pending && (
             <section>
               <h3>{pending.name}</h3>
@@ -1293,22 +1414,42 @@ function LoadoutPage({ owner }: { owner: string }) {
           )}
         </Modal>
       )}
-      {share && (
+      {sharePlan && (
         <Modal
-          title="分享挂载方案"
-          subtitle="分享内容是当前方案的固定快照，原方案后续修改不会改变它。"
-          close={() => setShare("")}
+          title="发布到挂载大厅"
+          subtitle="方案会关联到该机型详情中的挂载推荐，仅在应用内部展示。"
+          close={() => setSharePlan(null)}
           className="wt-mount-share"
         >
-          <p>方案按 Wiki 已知规则规划，实际配件解锁与未公开限制需在游戏中核对。</p>
-          <label>
-            分享码
-            <textarea readOnly value={share} onFocus={(e) => e.target.select()} />
-          </label>
-          <div>
-            <button onClick={() => void copy(share)}>复制分享码</button>
-            <button onClick={() => void copy(shareUrl())}>复制分享链接</button>
-          </div>
+          <p>为这套挂载选择用途标签，最多5个。私人方案名称不会作为公开标题。</p>
+          {error && (
+            <p role="alert" className="wt-mount-error">
+              {error}
+            </p>
+          )}
+          <TagSelector
+            options={gameTagOptions}
+            value={shareTags}
+            allowedTones={freeTagTones}
+            max={5}
+            label="挂载标签"
+            disabled={busy}
+            onChange={(value) => {
+              setShareTags(value);
+              setShare("");
+            }}
+          />
+          {share ? (
+            <output>已发布到大厅，并关联该机型的挂载推荐。</output>
+          ) : (
+            <button
+              className="primary-button"
+              disabled={busy || !shareTags.length}
+              onClick={() => void publishShare()}
+            >
+              {busy ? "正在发布…" : "确认发布"}
+            </button>
+          )}
         </Modal>
       )}
     </main>

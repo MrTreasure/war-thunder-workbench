@@ -3964,3 +3964,17 @@
     white-space: nowrap;
   }
 }
+
+/* Loadout list and full-row editor. */
+@media (max-width:800px) {
+ .wt-mount-summary { display: block; }
+ .wt-mount-stations { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); overflow: visible; }
+ .wt-mount-page .wt-mount-station { min-height: 200px; }
+ .wt-mount-heading { flex-wrap: wrap; }
+ .wt-mount-editor-toolbar .wt-select { margin-left: 0; }
+ .calculator.wt-mount-vehicle-picker { width: calc(100vw - 16px); height: calc(100dvh - 16px); max-height: calc(100dvh - 16px); }
+ .wt-mount-vehicle-picker .wt-mount-toolbar { grid-template-columns: minmax(0,1fr) 110px; gap: 10px; }
+ .wt-mount-vehicle-picker .wt-mount-toolbar label:last-child { grid-column: 1/-1; }
+ .wt-mount-model-grid { grid-template-columns: repeat(auto-fit,minmax(min(100%,232px),1fr)); }
+ .wt-mount-section-heading { flex-wrap: wrap; }
+}

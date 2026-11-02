@@ -1,6 +1,6 @@
 /** Derive the preview read model from existing prepared Wiki country data.
  * No network request or independent collection is performed. */
-import { readFile, writeFile, mkdir, rename } from "node:fs/promises";
+import { readFile, writeFile, mkdir, rename, chmod } from "node:fs/promises";
 import { resolve, dirname } from "node:path";
 const root = resolve(import.meta.dirname, "..");
 const output = process.argv[2];
@@ -42,8 +42,28 @@ for (const [category, nations] of Object.entries(catalog.trees)) {
 }
 if (!rows.length) throw Error("Empty prepared catalog.");
 await mkdir(dirname(resolve(output)), { recursive: true });
-await writeFile(resolve(output) + ".next", JSON.stringify({ schemaVersion: 1, rows }));
+const sharing = JSON.parse(await readFile(resolve(root, "data/lineup-sharing-tags.json"), "utf8"));
+const vehicleTags = JSON.parse(await readFile(resolve(root, "data/vehicle-tags.json"), "utf8"));
+const titles = JSON.parse(await readFile(resolve(root, "data/game-tag-texts.json"), "utf8"));
+const theme = JSON.parse(await readFile(resolve(root, "data/game-tag-theme.json"), "utf8"));
+const tagIDs = [
+  ...new Set(
+    [...sharing.tags.filter((tag) => !tag.system), ...vehicleTags.tags, ...titles.titles].map(
+      (tag) => tag.id,
+    ),
+  ),
+];
+await writeFile(
+  resolve(output) + ".next",
+  JSON.stringify({
+    schemaVersion: 1,
+    rows,
+    tagIDs,
+    tagTones: ["original", "red", ...theme.basicColors],
+  }),
+);
 await rename(resolve(output) + ".next", resolve(output));
+await chmod(resolve(output), 0o644);
 console.log(
   `Prepared ${rows.length} Wiki aircraft/heli records for isolated preview; no collection performed.`,
 );

@@ -12,7 +12,16 @@ import { GameIcon } from "./components/GameIcon";
 import { GameButton, GameLinkButton } from "./components/GameButton";
 import { GameTabs, type GameTab } from "./components/GameTabs";
 import { VehicleSaleCartAction } from "./VehicleSaleCartAction";
-type DetailTab = "tags" | "performance" | "statistics" | "loadouts" | "information" | "route";
+import { LoadoutRecommendations } from "./LoadoutRecommendations";
+import { hasConfigurableLoadout } from "./loadouts";
+type DetailTab =
+  | "tags"
+  | "performance"
+  | "statistics"
+  | "loadouts"
+  | "recommendations"
+  | "information"
+  | "route";
 export function VehicleDetails({
   unit,
   catalog,
@@ -55,6 +64,9 @@ export function VehicleDetails({
     { value: "statistics", label: "性能数值", icon: "details" },
     ...(["aviation", "helicopters"].includes(category)
       ? [{ value: "loadouts" as const, label: "武器挂载", icon: "loadout" as const }]
+      : []),
+    ...(hasConfigurableLoadout(unit.wikiDetails?.loadouts)
+      ? [{ value: "recommendations" as const, label: "挂载推荐", icon: "loadout" as const }]
       : []),
     { value: "information", label: "资料与收益", icon: "details" },
     ...(unit.side === "research"
@@ -183,6 +195,8 @@ export function VehicleDetails({
               />
             ) : item.value === "loadouts" ? (
               <VehicleLoadouts unit={unit} />
+            ) : item.value === "recommendations" ? (
+              <LoadoutRecommendations key={unit.id} unit={unit} country={country} />
             ) : item.value === "information" ? (
               <VehicleWikiFacts unit={unit} />
             ) : (
