@@ -922,9 +922,6 @@ function GroundDetail({
             ) : (
               <p>这条走线暂未附带文字说明，请对照来源查看。</p>
             )}
-            <a href={selectedRoute.sourceUrl} target="_blank" rel="noopener noreferrer">
-              查看来源 ↗
-            </a>
           </section>
         )}
         <section className="ground-related">
