@@ -347,7 +347,7 @@
         "mechanism": "manual",
         "display": "10.4 → 8 秒",
         "basicSeconds": 10.4,
-        "aceSeconds": 8.0,
+        "aceSeconds": 8,
         "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
       },
       "pins": [],
@@ -377,7 +377,7 @@
         "mechanism": "manual",
         "display": "19.5 → 15 秒",
         "basicSeconds": 19.5,
-        "aceSeconds": 15.0,
+        "aceSeconds": 15,
         "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
       },
       "pins": [],
@@ -401,14 +401,18 @@
       "wikiSnapshotPath": "artifacts/vehicle-weakpoints-20261102/027.json",
       "wikiSnapshotSHA256": "99f4ed0db3dd1fe9ed510d3602db6e16c7b8ab338966745aad6f4fb7c27a6708",
       "wikiSummary": "IS-4M正面传统弹防护较强，适当小角度摆车可增强车体防护；勿把它描述为无条件不可击穿。",
-      "wikiPoints": [],
+      "wikiPoints": [
+        "IS-4M正面传统弹防护较强，适当小角度摆车可增强车体防护；勿把它描述为无条件不可击穿。",
+        "精确视频帧身份已核对，Wiki概述未提供可直接标注的局部弱点。"
+      ],
       "reload": {
-        "gun": "122 mm D-25T 主炮",
-        "mechanism": "manual",
         "display": "27.1 → 20.8 秒",
+        "gun": "122 mm D-25T cannon",
         "basicSeconds": 27.1,
         "aceSeconds": 20.8,
-        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员 → 王牌乘员（Wiki主炮面板）；机枪装填不计入。"
       },
       "pins": [],
       "videoAdvice": [],
@@ -432,13 +436,18 @@
       "wikiSnapshotPath": "artifacts/vehicle-weakpoints-20261102/037.json",
       "wikiSnapshotSHA256": "8e940aa96aa793858f11cd8c8ea33092a820f31a3fe89004fad66a5b93ab5259",
       "wikiSummary": "IS-7楔形首上与厚侧甲提供防护；Wiki提醒少量薄弱点及大口径武器威胁，辅助装填待发弹6发。",
-      "wikiPoints": [],
+      "wikiPoints": [
+        "IS-7楔形首上与厚侧甲提供防护；Wiki提醒少量薄弱点及大口径武器威胁，辅助装填待发弹6发。",
+        "精确视频帧身份已核对，Wiki概述未提供可直接标注的局部弱点。"
+      ],
       "reload": {
-        "gun": "130 mm S-70 主炮",
+        "display": "辅助装填 10 秒",
+        "gun": "130 mm S-70 cannon",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 10,
         "mechanism": "automatic",
-        "display": "10 秒",
-        "seconds": 10.0,
-        "note": "6 发待发弹的辅助装填为 10 秒；待发弹耗尽后不能按此持续射速理解。"
+        "note": "Wiki面板标为Autoloader，正文说明为传送带辅助装填：6发待发弹，耗尽后的补充与持续射击不能套用10秒。"
       },
       "pins": [],
       "videoAdvice": [],
@@ -498,7 +507,7 @@
         "mechanism": "manual",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
       },
       "pins": [],
@@ -528,7 +537,7 @@
         "mechanism": "manual",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
       },
       "pins": [],
@@ -557,7 +566,7 @@
         "gun": "120 mm TKG 主炮",
         "mechanism": "automatic",
         "display": "4 秒",
-        "seconds": 4.0,
+        "seconds": 4,
         "note": "自动装填；Wiki 主炮面板。"
       },
       "pins": [],
@@ -615,7 +624,7 @@
         "gun": "120 mm CN120-26 F1 主炮",
         "mechanism": "automatic",
         "display": "5 秒",
-        "seconds": 5.0,
+        "seconds": 5,
         "note": "自动装填；Wiki 主炮面板。"
       },
       "pins": [],
@@ -645,7 +654,7 @@
         "mechanism": "manual",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
       },
       "pins": [],
@@ -675,7 +684,7 @@
         "mechanism": "manual",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
       },
       "pins": [],
@@ -705,7 +714,7 @@
         "mechanism": "manual",
         "display": "9.1 → 7 秒",
         "basicSeconds": 9.1,
-        "aceSeconds": 7.0,
+        "aceSeconds": 7,
         "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
       },
       "pins": [
@@ -783,14 +792,18 @@
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/ussr_is_2_1943.json",
       "wikiSnapshotSHA256": "db5199249f7c3c677009191c496e59e5d9e3f516cbd145deadb9e5bd018246fd",
       "wikiSummary": "早期IS-2与IS-1防护相近，但122炮装填明显更慢；只保留该早期车型的原文。",
-      "wikiPoints": [],
+      "wikiPoints": [
+        "早期IS-2与IS-1防护相近，但122炮装填明显更慢；只保留该早期车型的原文。",
+        "精确视频帧身份已核对，Wiki概述未提供可直接标注的局部弱点。"
+      ],
       "reload": {
-        "gun": "122 mm D-25T 主炮",
-        "mechanism": "manual",
         "display": "27.1 → 20.8 秒",
+        "gun": "122 mm D-25T cannon",
         "basicSeconds": 27.1,
         "aceSeconds": 20.8,
-        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员 → 王牌乘员（Wiki主炮面板）；机枪装填不计入。"
       },
       "pins": [],
       "videoAdvice": [],
@@ -819,8 +832,8 @@
         "gun": "122 mm D-25T 主炮",
         "mechanism": "manual",
         "display": "26 → 20 秒",
-        "basicSeconds": 26.0,
-        "aceSeconds": 20.0,
+        "basicSeconds": 26,
+        "aceSeconds": 20,
         "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
       },
       "pins": [
@@ -909,14 +922,18 @@
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/ussr_is_6.json",
       "wikiSnapshotSHA256": "7c8269b47d8fe8fe93372a734c61c089964a47a3e546d212dd3c9a007556ddd4",
       "wikiSummary": "IS-6倾斜厚甲对传统弹防护较强；本次页面概述没有明确局部弱点坐标。",
-      "wikiPoints": [],
+      "wikiPoints": [
+        "IS-6倾斜厚甲对传统弹防护较强；本次页面概述没有明确局部弱点坐标。",
+        "精确视频帧身份已核对，Wiki概述未提供可直接标注的局部弱点。"
+      ],
       "reload": {
-        "gun": "122 mm D-30T 主炮",
-        "mechanism": "manual",
         "display": "20.5 → 15.8 秒",
+        "gun": "122 mm D-30T cannon",
         "basicSeconds": 20.5,
         "aceSeconds": 15.8,
-        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员 → 王牌乘员（Wiki主炮面板）；机枪装填不计入。"
       },
       "pins": [],
       "videoAdvice": [],
@@ -946,7 +963,7 @@
         "mechanism": "manual",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
       },
       "pins": [],
@@ -976,7 +993,7 @@
         "mechanism": "manual",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
       },
       "pins": [],
@@ -1010,7 +1027,7 @@
         "display": "6.5 → 5 秒",
         "gun": "120 mm M256 主炮",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "seconds": null,
         "mechanism": "manual",
         "note": "基础乘员 → 王牌乘员（Wiki主炮面板）；机枪装填不计入。"
@@ -1041,7 +1058,7 @@
         "display": "7.8 → 6 秒",
         "gun": "120 mm Rh120 L/44 主炮",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "seconds": null,
         "mechanism": "manual",
         "note": "基础乘员 → 王牌乘员（Wiki主炮面板）；机枪装填不计入。"
@@ -1060,7 +1077,7 @@
       "country": "ussr",
       "countryName": "苏联",
       "rank": 7,
-      "era": "cold-war",
+      "era": "modern",
       "scopeRole": "medium_tank",
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_80ue1",
       "wikiGameVersion": "2.59.0.92",
@@ -1085,6 +1102,456 @@
       "status": "wiki-reviewed-awaiting-clean-front",
       "collectedAt": "2026-11-02",
       "weaknessEvidenceStatus": "general-context-only"
+    },
+    {
+      "id": "cn_ztz_96",
+      "name": "ZTZ96",
+      "role": "主战坦克",
+      "country": "china",
+      "countryName": "中国",
+      "rank": 6,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/cn_ztz_96",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-20261102/snapshots/cn_ztz_96.json",
+      "wikiSnapshotSHA256": "d6fc6dfccf95e3941467722cbc5fe85b50c9d84e1198ec372ff11b7811c56d6f",
+      "wikiSummary": "ZTZ96采用125毫米Type 88C炮、7秒自动装填及22发待发弹；炮塔脸颊和首上使用复合装甲，Wiki概述称机动与防护一般。",
+      "wikiPoints": [
+        "精确型号为初期ZTZ96，不与配有ERA和热成像的ZTZ96A合并。",
+        "复合装甲部位描述属于防护背景，不是已证实的局部弱点。"
+      ],
+      "reload": {
+        "display": "自动装填 7 秒",
+        "gun": "125 mm Type 88C cannon",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 7,
+        "mechanism": "automatic",
+        "note": "仅主炮面板；待发弹耗尽后的持续装填不可套用自动装填标称值。"
+      },
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only"
+    },
+    {
+      "id": "fr_amx_30_b2",
+      "name": "AMX-30B2",
+      "role": "主战坦克",
+      "country": "france",
+      "countryName": "法国",
+      "rank": 6,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/fr_amx_30_b2",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-20261102/snapshots/fr_amx_30_b2.json",
+      "wikiSnapshotSHA256": "48cdc828d8d2b3eaa69a42fabe4a1c73c0eb3bb3ee293007be34ffa3e441f7c5",
+      "wikiSummary": "AMX-30B2采用105毫米CN105 F1炮，基础至王牌装填8.7至6.7秒；配热成像和激光测距，但缺少双向稳定器。",
+      "wikiPoints": [
+        "Wiki建议支援、远距离和侧翼使用，运动或短停开火有风险。",
+        "本页概述没有明确可直接标注的局部装甲弱点。"
+      ],
+      "reload": {
+        "display": "8.7 → 6.7 秒",
+        "gun": "105 mm CN105 F1 cannon",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅主炮面板；待发弹耗尽后的持续装填不可套用自动装填标称值。"
+      },
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only"
+    },
+    {
+      "id": "il_magach_6r",
+      "name": "Magach 6R",
+      "role": "主战坦克",
+      "country": "israel",
+      "countryName": "以色列",
+      "rank": 6,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/il_magach_6r",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-20261102/snapshots/il_magach_6r.json",
+      "wikiSnapshotSHA256": "ac0fbf0a987f9004f976f0cb915bfa8acaa4dab6f2b49b148522f8d1a0a4414c",
+      "wikiSummary": "马加奇6R采用105毫米Sharir炮，基础至王牌装填8.7至6.7秒；配Blazer反应装甲与稳定器，但无热成像。",
+      "wikiPoints": [
+        "Wiki明确提醒对APDS/APFSDS防护较差，这属于弹种相关整体防护背景。",
+        "未指出具体局部击穿位置，不补造弱点坐标。"
+      ],
+      "reload": {
+        "display": "8.7 → 6.7 秒",
+        "gun": "105 mm Sharir cannon",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅主炮面板；待发弹耗尽后的持续装填不可套用自动装填标称值。"
+      },
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only"
+    },
+    {
+      "id": "it_c1_ariete_preserie",
+      "name": "Ariete (P)",
+      "role": "主战坦克",
+      "country": "italy",
+      "countryName": "意大利",
+      "rank": 7,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/it_c1_ariete_preserie",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-20261102/snapshots/it_c1_ariete_preserie.json",
+      "wikiSnapshotSHA256": "f7611b5a16dc8bba3f37d2198db50a68e6ba7cd9963dfe8b11f5d7cc9e2cf2cf",
+      "wikiSummary": "公羊预生产型Ariete (P)采用120毫米OTO Breda 120/44炮，基础至王牌装填7.8至6秒；Wiki指出其装备与量产型不同。",
+      "wikiPoints": [
+        "精确型号为预生产型，不能复用量产公羊的附加装甲或弱点结论。",
+        "概述评价机动和防护，未明确局部弱点。"
+      ],
+      "reload": {
+        "display": "7.8 → 6 秒",
+        "gun": "120 mm OTO Breda 120/44 cannon",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅主炮面板；待发弹耗尽后的持续装填不可套用自动装填标称值。"
+      },
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only"
+    },
+    {
+      "id": "jp_type_90",
+      "name": "Type 90",
+      "role": "主战坦克",
+      "country": "japan",
+      "countryName": "日本",
+      "rank": 7,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/jp_type_90",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-20261102/snapshots/jp_type_90.json",
+      "wikiSnapshotSHA256": "7918110cd6935f9bae961a26cda8008849e07291819536de117e0bc5656a1bae",
+      "wikiSummary": "90式采用120毫米Type 90 L/44炮与4秒自动装填，待发弹18发；Wiki概述重点为火控、机动与火力，没有指明局部弱点。",
+      "wikiPoints": [
+        "4秒自动装填来自主炮面板，不是机枪装填。",
+        "外形与豹2A4相似不表示弱点相同，不能直接复用豹2A4标注。"
+      ],
+      "reload": {
+        "display": "自动装填 4 秒",
+        "gun": "120 mm Type 90 L/44 cannon",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 4,
+        "mechanism": "automatic",
+        "note": "仅主炮面板；待发弹耗尽后的持续装填不可套用自动装填标称值。"
+      },
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only"
+    },
+    {
+      "id": "sw_strv_103c",
+      "name": "Strv 103C",
+      "role": "主战坦克",
+      "country": "sweden",
+      "countryName": "瑞典",
+      "rank": 6,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/sw_strv_103c",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-20261102/snapshots/sw_strv_103c.json",
+      "wikiSnapshotSHA256": "5f7514d4dcdce6ca485056d4f631fb167b7af060c3e9c962018309f55bcbf4b3",
+      "wikiSummary": "Strv 103C采用105毫米L74炮与4秒自动装填；首前栅栏用于抵御HEAT/HEAT-FS，侧裙及推土铲增强部分防护。",
+      "wikiPoints": [
+        "依靠车体瞄准、液气悬挂及低轮廓使用地形。",
+        "推土铲、栅栏是明确的防护背景，不能反推相邻位置必然可击穿。"
+      ],
+      "reload": {
+        "display": "自动装填 4 秒",
+        "gun": "105 mm L74 cannon",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 4,
+        "mechanism": "automatic",
+        "note": "仅主炮面板；待发弹耗尽后的持续装填不可套用自动装填标称值。"
+      },
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only"
+    },
+    {
+      "id": "germ_leopard_1a5",
+      "name": "Leopard 1A5",
+      "role": "主战坦克",
+      "country": "germany",
+      "countryName": "德国",
+      "rank": 6,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/germ_leopard_1a5",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-western-20261102/snapshots/germ_leopard_1a5.json",
+      "wikiSnapshotSHA256": "3ed39d455d6884d027eef68adbf16cb71b0a6462407835b84ecd604804fcefb7",
+      "wikiSummary": "豹1A5采用105毫米L7A3炮，基础至王牌装填8.7至6.7秒；配热成像、激光测距和EMES 18火控。",
+      "wikiPoints": [
+        "Wiki历史段提及计划兼容120毫米炮，但游戏主炮面板明确是105毫米L7A3，不误报为120毫米。",
+        "本页概述没有直接给出可标注的局部装甲弱点。"
+      ],
+      "reload": {
+        "display": "8.7 → 6.7 秒",
+        "gun": "105 mm L7A3 cannon",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "collectedAt": "2026-11-02T08:22:10.095Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "尚缺该精确车型的视频试射证据及弹种、距离、角度、版本上下文。"
+      ]
+    },
+    {
+      "id": "germ_leopard_i_a1",
+      "name": "Leopard A1A1",
+      "role": "主战坦克",
+      "country": "germany",
+      "countryName": "德国",
+      "rank": 6,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/germ_leopard_i_a1",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-western-20261102/snapshots/germ_leopard_i_a1.json",
+      "wikiSnapshotSHA256": "6646e4f744037fc6cb68c00f993aedb2129af7f67bc75407376f13ed1b536558",
+      "wikiSummary": "豹A1A1采用105毫米L7A3炮与双向稳定器，基础至王牌装填8.7至6.7秒；Wiki将其描述为注重机动和伏击、炮塔防护略有增强的车型。",
+      "wikiPoints": [
+        "canonical展示名Leopard A1A1；Wiki正文使用Leopard 1A1A1称呼，URL精确匹配germ_leopard_i_a1。",
+        "建议伏击属于战术背景，未直接给出局部弱点。"
+      ],
+      "reload": {
+        "display": "8.7 → 6.7 秒",
+        "gun": "105 mm L7A3 cannon",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "collectedAt": "2026-11-02T08:22:02.301Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "尚缺该精确车型的视频试射证据及弹种、距离、角度、版本上下文。"
+      ]
+    },
+    {
+      "id": "uk_chieftain_mk_3",
+      "name": "Chieftain Mk 3",
+      "role": "主战坦克",
+      "country": "britain",
+      "countryName": "英国",
+      "rank": 6,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/uk_chieftain_mk_3",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-western-20261102/snapshots/uk_chieftain_mk_3.json",
+      "wikiSnapshotSHA256": "a6aaabe56bbcb5e465e1b984e415a0a43b3afaae4dc442e39e0e7eb82472da0a",
+      "wikiSummary": "酋长Mk 3采用120毫米L11A5炮，基础至王牌装填9.7至7.5秒；Wiki明确指出首下薄弱、炮塔防护较强。",
+      "wikiPoints": [
+        "首下为明确部位弱点；没有可保证击穿的弹种、角度、距离或坐标。",
+        "不将该部位结论无证据扩展至所有酋长改型。"
+      ],
+      "reload": {
+        "display": "9.7 → 7.5 秒",
+        "gun": "120 mm Ordnance BL Tk. L11A5 cannon",
+        "basicSeconds": 9.7,
+        "aceSeconds": 7.5,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "collectedAt": "2026-11-02T08:22:18.473Z",
+      "weaknessEvidenceStatus": "explicit-location",
+      "qualitativeWeakpoints": [
+        {
+          "locationZh": "首下装甲板",
+          "statementZh": "Wiki直接指出lower front plate weak spot。",
+          "limits": "未给出弹种、距离、角度或坐标。"
+        }
+      ],
+      "missingEvidence": [
+        "尚缺该精确车型的视频试射证据及弹种、距离、角度、版本上下文。"
+      ]
+    },
+    {
+      "id": "uk_chieftain_mk_5",
+      "name": "Chieftain Mk 5",
+      "role": "主战坦克",
+      "country": "britain",
+      "countryName": "英国",
+      "rank": 6,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/uk_chieftain_mk_5",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-western-20261102/snapshots/uk_chieftain_mk_5.json",
+      "wikiSnapshotSHA256": "156824a313fb84c106108a8df4a4b1c7b064a005a24ba5eee68a1a469ca7184c",
+      "wikiSummary": "酋长Mk 5采用120毫米L11A5炮，基础至王牌装填9.7至7.5秒；Wiki明确指出首下较脆弱，可被许多坦克击穿。",
+      "wikiPoints": [
+        "换装760马力发动机后，Wiki仍指出机动不足。",
+        "首下是该精确车型本页直接给出的部位证据；不推断穿深阈值、射击角度或坐标。"
+      ],
+      "reload": {
+        "display": "9.7 → 7.5 秒",
+        "gun": "120 mm Ordnance BL Tk. L11A5 cannon",
+        "basicSeconds": 9.7,
+        "aceSeconds": 7.5,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "collectedAt": "2026-11-02T08:22:26.649Z",
+      "weaknessEvidenceStatus": "explicit-location",
+      "qualitativeWeakpoints": [
+        {
+          "locationZh": "首下装甲板",
+          "statementZh": "Wiki直接指出首下脆弱，可被许多坦克击穿。",
+          "limits": "未给出具体坦克/弹种、距离、角度或坐标。"
+        }
+      ],
+      "missingEvidence": [
+        "尚缺该精确车型的视频试射证据及弹种、距离、角度、版本上下文。"
+      ]
+    },
+    {
+      "id": "us_m60a1",
+      "name": "M60A1 (AOS)",
+      "role": "主战坦克",
+      "country": "usa",
+      "countryName": "美国",
+      "rank": 6,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/us_m60a1",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-western-20261102/snapshots/us_m60a1.json",
+      "wikiSnapshotSHA256": "1bd81b78d53d9d9b4316dd5215194228078d84fbb42cd6bc7943a8dc6b808a92",
+      "wikiSummary": "M60A1 (AOS)采用105毫米M68炮与双向稳定器，基础至王牌装填8.7至6.7秒；Wiki明确提醒基础装甲难以抵御APFSDS，侧甲易受机关炮威胁。",
+      "wikiPoints": [
+        "精确车型为加装稳定器的AOS，不与RISE(P)或M60A3混用。",
+        "侧甲对机关炮脆弱是定性部位证据；没有具体弹种、角度、距离和可保证击穿的坐标。"
+      ],
+      "reload": {
+        "display": "8.7 → 6.7 秒",
+        "gun": "105 mm M68 cannon",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "collectedAt": "2026-11-02T08:21:47.896Z",
+      "weaknessEvidenceStatus": "explicit-location",
+      "qualitativeWeakpoints": [
+        {
+          "locationZh": "侧面装甲",
+          "statementZh": "Wiki明确称侧甲易受机关炮威胁。",
+          "limits": "未指定机关炮型号、弹药、距离或角度。"
+        }
+      ],
+      "missingEvidence": [
+        "尚缺该精确车型的视频试射证据及弹种、距离、角度、版本上下文。"
+      ]
+    },
+    {
+      "id": "us_m60a3_tts",
+      "name": "M60A3 TTS",
+      "role": "主战坦克",
+      "country": "usa",
+      "countryName": "美国",
+      "rank": 6,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/us_m60a3_tts",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-western-20261102/snapshots/us_m60a3_tts.json",
+      "wikiSnapshotSHA256": "5df7cccd678f7f8978621919ea510400697dd3b9a181986e3aa7e0d7f500b067",
+      "wikiSummary": "M60A3 TTS采用105毫米M68炮，基础至王牌装填8.7至6.7秒；增加热成像与激光测距，Wiki仍提醒防护与机动受到M60平台限制。",
+      "wikiPoints": [
+        "热成像与火控优势适合支援，但不能据此推断装甲无弱点。",
+        "本页概述没有直接明确的局部薄弱位置，不能套用AOS侧甲结论。"
+      ],
+      "reload": {
+        "display": "8.7 → 6.7 秒",
+        "gun": "105 mm M68 cannon",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "collectedAt": "2026-11-02T08:21:53.959Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "尚缺该精确车型的视频试射证据及弹种、距离、角度、版本上下文。"
+      ]
     }
   ],
   "eraPolicy": "按具体型号／改型所处年代分类，BR 另作筛选；本批为冷战样例。",
@@ -1092,7 +1559,7 @@
     "targetCount": 226,
     "rankTankCount": 216,
     "isSupplementCount": 10,
-    "wikiReviewedCount": 23,
+    "wikiReviewedCount": 35,
     "illustratedCount": 5,
     "countries": [
       {

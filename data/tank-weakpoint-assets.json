@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
+  "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -9,17 +9,17 @@
         "path": "images/USSR/USSR-T-54-1947-front.webp",
         "sha256": "720bc74c405938db5780cac7d4fc8f30a639abe37c60a79d7c000ce2abe9c178",
         "bytes": 308384,
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-front.webp",
-        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-front.webp",
-        "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea"
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-front.webp",
+        "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea"
       },
       "raw": {
         "path": "images/USSR/USSR-T-54-1947-full.webp",
         "sha256": "0d1f7096cb543ca57333c3523250fbeb7d5422586e0044d6c6cdeab57b5a5018",
         "bytes": 1476928,
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-full.webp",
-        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-full.webp",
-        "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea"
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-full.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-full.webp",
+        "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea"
       }
     },
     "ussr_t_62m1": {
@@ -27,17 +27,17 @@
         "path": "images/USSR/USSR-T-62M-1-front.webp",
         "sha256": "cc6cb00ef244bb002c2711e4a540a8862c452764c87a284b2829cf67e67dbf8a",
         "bytes": 281844,
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62M-1-front.webp",
-        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62M-1-front.webp",
-        "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea"
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62M-1-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62M-1-front.webp",
+        "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea"
       },
       "raw": {
         "path": "images/USSR/USSR-T-62M-1-full.webp",
         "sha256": "84af8e83d3b7402829c5a0eed543b20675f6bf79185fc30476e3dc5ee34cb0ed",
         "bytes": 1184666,
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62M-1-full.webp",
-        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62M-1-full.webp",
-        "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea"
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62M-1-full.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62M-1-full.webp",
+        "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea"
       }
     },
     "ussr_t_72a": {
@@ -45,17 +45,17 @@
         "path": "images/USSR/USSR-T-72A-front.webp",
         "sha256": "ab4b392a92abd4307f27c2cba44f909530dbfeafba4f266a0a86f52771bcc6e2",
         "bytes": 453400,
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-front.webp",
-        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-front.webp",
-        "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea"
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-front.webp",
+        "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea"
       },
       "raw": {
         "path": "images/USSR/USSR-T-72A-full.webp",
         "sha256": "8f3963fc399309031556ecca8688645800cb4c6f9a8b65021d9b84a98982822b",
         "bytes": 796346,
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-full.webp",
-        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-full.webp",
-        "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea"
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-full.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-full.webp",
+        "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea"
       }
     },
     "ussr_is_1": {
@@ -63,17 +63,17 @@
         "path": "images/USSR/USSR-IS-1-front.webp",
         "sha256": "d6b387744a126913a99c8107e8c0707a377c321513922b856deadacb938b4fd0",
         "bytes": 244554,
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-1-front.webp",
-        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-1-front.webp",
-        "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea"
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-1-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-1-front.webp",
+        "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea"
       },
       "raw": {
         "path": "images/USSR/USSR-IS-1-full.webp",
         "sha256": "3b4510a43c2b7adff4c5a082bfcb6e0b7892b87d671967ec419665278ab46765",
         "bytes": 1584458,
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-1-full.webp",
-        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-1-full.webp",
-        "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea"
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-1-full.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-1-full.webp",
+        "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea"
       }
     },
     "ussr_is_3": {
@@ -81,17 +81,17 @@
         "path": "images/USSR/USSR-IS-3-front.webp",
         "sha256": "42cf58cf875ecab4902de3ebd8d57b775d622d5298b7e37ae6f788c91402291e",
         "bytes": 217848,
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-3-front.webp",
-        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-3-front.webp",
-        "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea"
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-3-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-3-front.webp",
+        "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea"
       },
       "raw": {
         "path": "images/USSR/USSR-IS-3-full.webp",
         "sha256": "26afec149579cd99346e6d4f98ce99cdb995e6e1d195e8f44b5d5d6ed7d62d69",
         "bytes": 1523050,
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-3-full.webp",
-        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-3-full.webp",
-        "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea"
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-3-full.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-3-full.webp",
+        "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea"
       }
     }
   },
@@ -121,9 +121,9 @@
       "country": "USA",
       "vehicleEnglishName": "M1A1 Click-Bait",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USA/USA-M1A1-Click-Bait-01m10s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USA/USA-M1A1-Click-Bait-01m10s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USA/USA-M1A1-Click-Bait-01m10s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USA/USA-M1A1-Click-Bait-01m10s.webp"
     },
     {
       "id": "df9e57f27c3256a50a2c27760ce69fed793e7d6d039c4adcc1eb45abaa16735c",
@@ -152,9 +152,9 @@
       "country": "USA",
       "vehicleEnglishName": "M1A1 Click-Bait",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USA/USA-M1A1-Click-Bait-01m20s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USA/USA-M1A1-Click-Bait-01m20s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USA/USA-M1A1-Click-Bait-01m20s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USA/USA-M1A1-Click-Bait-01m20s.webp"
     },
     {
       "id": "6f7ca3d3b48c902472459916c90dce3ae93b3b42b5eaaa6f309d60b67e285eb7",
@@ -183,9 +183,9 @@
       "country": "USA",
       "vehicleEnglishName": "M1A1 Click-Bait",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USA/USA-M1A1-Click-Bait-01m40s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USA/USA-M1A1-Click-Bait-01m40s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USA/USA-M1A1-Click-Bait-01m40s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USA/USA-M1A1-Click-Bait-01m40s.webp"
     },
     {
       "id": "6329804b36271b706f307e13f32419655085694d25b7c0036d7fa52e4aa2ba6b",
@@ -212,9 +212,9 @@
       "country": "USA",
       "vehicleEnglishName": "M1A1 Click-Bait",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USA/USA-M1A1-Click-Bait-01m55s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USA/USA-M1A1-Click-Bait-01m55s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USA/USA-M1A1-Click-Bait-01m55s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USA/USA-M1A1-Click-Bait-01m55s.webp"
     },
     {
       "id": "6b4af318fe81ecfd6e356c5463fe5544d592efa24f9de138295210b755425460",
@@ -241,9 +241,9 @@
       "country": "USA",
       "vehicleEnglishName": "M1A1 Click-Bait",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USA/USA-M1A1-Click-Bait-01m58s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USA/USA-M1A1-Click-Bait-01m58s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USA/USA-M1A1-Click-Bait-01m58s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USA/USA-M1A1-Click-Bait-01m58s.webp"
     },
     {
       "id": "9a1f595ccf47fc0d7426036ecb9fe676f336af37f46997eed4492484eabd809f",
@@ -270,9 +270,9 @@
       "country": "USA",
       "vehicleEnglishName": "M1A1 Click-Bait",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USA/USA-M1A1-Click-Bait-02m01s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USA/USA-M1A1-Click-Bait-02m01s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USA/USA-M1A1-Click-Bait-02m01s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USA/USA-M1A1-Click-Bait-02m01s.webp"
     },
     {
       "id": "35e08653c9f46781c811f5a7e11f1e11c5c07dc35cfca2dded17467a149ef2fa",
@@ -299,9 +299,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-80U-E1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-02m40s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-02m40s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-02m40s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-02m40s.webp"
     },
     {
       "id": "a792a58f8ce8ef7628431c35411a784ba5d5f4cd89fb410042434b49667179d8",
@@ -330,9 +330,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-80U-E1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-02m45s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-02m45s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-02m45s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-02m45s.webp"
     },
     {
       "id": "5adb92029d907b317e8155639e310b0d228d7e40345800c90f107c81d05df34f",
@@ -361,9 +361,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-80U-E1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-02m55s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-02m55s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-02m55s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-02m55s.webp"
     },
     {
       "id": "13868e1cdaf8edee9f1889d51d802ff65dc2004416f09a37947e5383db921eab",
@@ -390,9 +390,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-80U-E1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-02m57s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-02m57s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-02m57s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-02m57s.webp"
     },
     {
       "source": {
@@ -421,9 +421,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-80U-E1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-03m00s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-03m00s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m00s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m00s.webp"
     },
     {
       "id": "38fb8da32362499b89b56059465897dd10a19b442da4692a1912fadb56f11eeb",
@@ -450,9 +450,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-80U-E1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-03m05s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-03m05s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m05s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m05s.webp"
     },
     {
       "id": "85686663ea6d882ab6646bda58cb2ce4caf3f3186a53ca91d050fc2d19cb06dd",
@@ -479,9 +479,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-80U-E1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-03m07s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-03m07s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m07s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m07s.webp"
     },
     {
       "id": "e5f5602513edb32768d033ffc3b6161ebad11936a9ff125799712c2c3de5b157",
@@ -508,9 +508,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-80U-E1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-03m10s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-03m10s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m10s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m10s.webp"
     },
     {
       "id": "aad87c0ef7da02cccae82f852dd6d9331b3a73a97bd8bd85936a21572032d473",
@@ -537,9 +537,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-80U-E1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-03m20s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-03m20s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m20s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m20s.webp"
     },
     {
       "id": "5bc823ff2b65a21d698af09297ccc3532a55b966556ca5659baa8ecfeec353a1",
@@ -566,9 +566,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-80U-E1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-03m23s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-03m23s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m23s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m23s.webp"
     },
     {
       "id": "68c1a492a3a1d8221d8721d4f3a27cb40495addcfe1449ca9e6984f08c86f76c",
@@ -595,9 +595,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-80U-E1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-03m31s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-03m31s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m31s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m31s.webp"
     },
     {
       "id": "40b335f80e7468fd45c43e9dccca4b40a0a1140bee2c7d655b2036c9af993d54",
@@ -624,9 +624,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-80U-E1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-03m40s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-80U-E1-03m40s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m40s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m40s.webp"
     },
     {
       "id": "65b3011ce9bc5b93f52775cfd04947f676054b4618e5372c119bec91d5c441a7",
@@ -655,9 +655,9 @@
       "country": "USA",
       "vehicleEnglishName": "T32",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USA/USA-T32-05m00s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USA/USA-T32-05m00s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USA/USA-T32-05m00s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USA/USA-T32-05m00s.webp"
     },
     {
       "source": {
@@ -686,9 +686,9 @@
       "country": "USA",
       "vehicleEnglishName": "M60A3 TTS",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USA/USA-M60A3-TTS-06m40s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USA/USA-M60A3-TTS-06m40s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USA/USA-M60A3-TTS-06m40s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USA/USA-M60A3-TTS-06m40s.webp"
     },
     {
       "id": "8acebc65a05ea2e60691d5571281858b471a27c42f75844e9f3252cb450383a5",
@@ -717,9 +717,9 @@
       "country": "GER",
       "vehicleEnglishName": "Leopard 2 (PzBtl 123)",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/GER/GER-Leopard-2-PzBtl-123-06m40s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/GER/GER-Leopard-2-PzBtl-123-06m40s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GER/GER-Leopard-2-PzBtl-123-06m40s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GER/GER-Leopard-2-PzBtl-123-06m40s.webp"
     },
     {
       "source": {
@@ -748,9 +748,9 @@
       "country": "GER",
       "vehicleEnglishName": "Maus",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/GER/GER-Maus-10m00s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/GER/GER-Maus-10m00s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GER/GER-Maus-10m00s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GER/GER-Maus-10m00s.webp"
     },
     {
       "source": {
@@ -779,9 +779,9 @@
       "country": "GER",
       "vehicleEnglishName": "Jagdpanther G1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/GER/GER-Jagdpanther-G1-13m20s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/GER/GER-Jagdpanther-G1-13m20s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GER/GER-Jagdpanther-G1-13m20s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GER/GER-Jagdpanther-G1-13m20s.webp"
     },
     {
       "id": "34b1bb4c60e0e060e68b577672b43ab1f81d78f8434ec3d012ca61a5ff4ab4d7",
@@ -810,9 +810,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-34 (1940)",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-34-1940-15m00s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-34-1940-15m00s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-34-1940-15m00s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-34-1940-15m00s.webp"
     },
     {
       "id": "86173fe5e6dc9412efa352e7c5adc1811dcdc1b2a69cbc97433c3067c68d9384",
@@ -841,9 +841,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-34-85 (ZiS-S-53)",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-34-85-ZiS-S-53-15m24s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-34-85-ZiS-S-53-15m24s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-34-85-ZiS-S-53-15m24s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-34-85-ZiS-S-53-15m24s.webp"
     },
     {
       "id": "35e94cb923b1d0b1dbf3d10855e825f0825e0cec2d7ced5b2c8f95cc513e2f8d",
@@ -872,9 +872,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-44",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-44-15m36s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-44-15m36s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-44-15m36s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-44-15m36s.webp"
     },
     {
       "id": "779c8fe00618e17fdadd878a19ed6ea401858f45f794b495ecb180ad397da64a",
@@ -903,9 +903,9 @@
       "country": "USSR",
       "vehicleEnglishName": "KV-1 (L-11)",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-KV-1-L-11-15m50s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-KV-1-L-11-15m50s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-KV-1-L-11-15m50s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-KV-1-L-11-15m50s.webp"
     },
     {
       "id": "355af7e4a85f1a6b73ddf97584528062b513a046d6bbe853423a138c58401634",
@@ -934,9 +934,9 @@
       "country": "USSR",
       "vehicleEnglishName": "KV-2 (1939)",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-KV-2-1939-16m10s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-KV-2-1939-16m10s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-KV-2-1939-16m10s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-KV-2-1939-16m10s.webp"
     },
     {
       "id": "f8621fcdf39a7be4d6043a91e43a3268f153f8ac593b9d2485fb411a44301072",
@@ -965,9 +965,9 @@
       "country": "USSR",
       "vehicleEnglishName": "IS-1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-1-16m30s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-1-16m30s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-1-16m30s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-1-16m30s.webp"
     },
     {
       "source": {
@@ -996,9 +996,9 @@
       "country": "USSR",
       "vehicleEnglishName": "IS-1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-1-16m50s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-1-16m50s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-1-16m50s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-1-16m50s.webp"
     },
     {
       "source": {
@@ -1027,9 +1027,9 @@
       "country": "USSR",
       "vehicleEnglishName": "IS-2 (1943)",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-2-1943-16m55s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-2-1943-16m55s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-2-1943-16m55s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-2-1943-16m55s.webp"
     },
     {
       "source": {
@@ -1058,9 +1058,9 @@
       "country": "USSR",
       "vehicleEnglishName": "IS-3",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-3-17m02s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-3-17m02s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-3-17m02s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-3-17m02s.webp"
     },
     {
       "source": {
@@ -1089,9 +1089,9 @@
       "country": "USSR",
       "vehicleEnglishName": "IS-4M",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-4M-17m06s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-4M-17m06s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-4M-17m06s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-4M-17m06s.webp"
     },
     {
       "id": "0b466236f64fd7a9e5278209fc2ce2bad84e3559489847389fbd57904bf3104c",
@@ -1120,9 +1120,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-10A",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-10A-17m55s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-10A-17m55s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-10A-17m55s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-10A-17m55s.webp"
     },
     {
       "id": "902778c6fe322812dd6f530a39741529f8836d43cba4b78ba2a3d54dd86c5254",
@@ -1151,9 +1151,9 @@
       "country": "USSR",
       "vehicleEnglishName": "Object 279",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-Object-279-18m20s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-Object-279-18m20s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-Object-279-18m20s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-Object-279-18m20s.webp"
     },
     {
       "id": "87284eeb2bf68e4b7c592fbbda9daff7c1bb2f45dc7c52efe6656e362e208b2a",
@@ -1182,9 +1182,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-54 (1947)",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-18m25s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-18m25s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-18m25s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-18m25s.webp"
     },
     {
       "id": "995bc50e2e152facf93b91b2b0655f2f5b6b1956a70562cb990a03e81deef9ec",
@@ -1213,9 +1213,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-54 (1947)",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-18m31s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-18m31s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-18m31s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-18m31s.webp"
     },
     {
       "id": "e476f78cd6788662077f4fec279ef7277658e447992cf462cb9fb03a6b11c5aa",
@@ -1244,9 +1244,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-54 (1947)",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-18m32s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-18m32s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-18m32s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-18m32s.webp"
     },
     {
       "id": "20884a1f247399f573706a49806ce8b1c6063b8d17d213d48acfc3a94442d51a",
@@ -1275,9 +1275,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-54 (1947)",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-18m33s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-18m33s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-18m33s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-18m33s.webp"
     },
     {
       "id": "a5e31e758a6ec1c071580ee78621867fa0bc243ece4c142c61b421a7722c37a6",
@@ -1306,9 +1306,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-54 (1947)",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-18m34s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-18m34s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-18m34s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-18m34s.webp"
     },
     {
       "id": "4209d8c6016962d057a1e5bba2c533fdba32e66f52a1824752d340dfbef760ee",
@@ -1337,9 +1337,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-54 (1947)",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-18m35s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-18m35s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-18m35s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-18m35s.webp"
     },
     {
       "id": "c9d919040776fe57351f4146876a2e66e5b67cf0463e95cda393a6f6d13d8f70",
@@ -1368,9 +1368,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-62",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62-18m37s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62-18m37s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62-18m37s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62-18m37s.webp"
     },
     {
       "id": "8aed6f4515b8e96fa83899b45e043b088ae403c73382964c926b930c2b0f197e",
@@ -1399,9 +1399,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-54 (1947)",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-19m05s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-19m05s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-19m05s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-19m05s.webp"
     },
     {
       "id": "797a057ae89e2756b36dea17577b6528dd5048b5990862801fd77cefb599754f",
@@ -1430,9 +1430,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-55AMD-1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-55AMD-1-19m10s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-55AMD-1-19m10s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-55AMD-1-19m10s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-55AMD-1-19m10s.webp"
     },
     {
       "id": "b31f5b171a2ed107dafbccf9be095226adc651ec7e8c506a0b6bfae4c301cd17",
@@ -1461,9 +1461,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-62M-1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62M-1-19m11s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62M-1-19m11s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62M-1-19m11s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62M-1-19m11s.webp"
     },
     {
       "id": "c03f3e4ef57034717fe93ec4ddfa23c03c0d01d0b50a3e243fab7ab9537a5e66",
@@ -1492,9 +1492,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-62M-1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62M-1-19m12s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62M-1-19m12s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62M-1-19m12s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62M-1-19m12s.webp"
     },
     {
       "id": "6b2bd1a0f1d659f8f5d22e55a09cfd6437605c5b43d70e1ff001f89ba91ba0c3",
@@ -1523,9 +1523,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-62M-1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62M-1-19m13s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62M-1-19m13s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62M-1-19m13s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62M-1-19m13s.webp"
     },
     {
       "id": "cbe3d4195470a15de0f4f038d44d105a6633753ce227d210e4445964bfaa6d95",
@@ -1554,9 +1554,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-62M-1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62M-1-19m14s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62M-1-19m14s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62M-1-19m14s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62M-1-19m14s.webp"
     },
     {
       "id": "ac14681289d77e8ce3e99b3f5dfa3e4b55016fc157dbc66f87a6ea2d927051f9",
@@ -1585,9 +1585,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-62M-1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62M-1-19m16s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62M-1-19m16s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62M-1-19m16s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62M-1-19m16s.webp"
     },
     {
       "id": "e41569632806a9e090c2d2dc2db4dfb5a6868ef757236a1c111c0ef7a102a571",
@@ -1616,9 +1616,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-72A",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-19m27s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-19m27s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-19m27s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-19m27s.webp"
     },
     {
       "id": "1dbde6d3ee084c2ab594d1a48c2c627ee12e0649e26fa8c4f43b8795a2849e4a",
@@ -1647,9 +1647,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-72A",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-19m30s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-19m30s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-19m30s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-19m30s.webp"
     },
     {
       "id": "cb45ce82225b9a5a0c4107e2c2d9472b5acd3af3ca8d0ce12c51f1b3439811ea",
@@ -1678,9 +1678,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-72A",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-19m31s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-19m31s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-19m31s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-19m31s.webp"
     },
     {
       "id": "9fa10e7b03c828a8ad1547b462df69a724609a0527b9d623d435fa020b4df9b2",
@@ -1709,9 +1709,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-72A",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-19m32s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-19m32s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-19m32s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-19m32s.webp"
     },
     {
       "id": "df42e72be6b32bf8b866d6188a05376ab64b3e191345aea2ff8d2ce49748effe",
@@ -1740,9 +1740,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-72A",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-19m33s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-19m33s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-19m33s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-19m33s.webp"
     },
     {
       "id": "aecaabd02d7880c616e76bcbf36c56872aaed5859f5b0c266b8fa1465d59aae1",
@@ -1771,9 +1771,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-72A",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-19m35s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-19m35s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-19m35s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-19m35s.webp"
     },
     {
       "id": "a90b6f38b4f106ae6ba459c609919fa6525fbff8419f04d164c26dbe4ead61f5",
@@ -1802,9 +1802,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-72B",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72B-19m40s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72B-19m40s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72B-19m40s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72B-19m40s.webp"
     },
     {
       "id": "f75ba978e36e735031e50426afd04f9ac452f9276939a48877ff082932522f36",
@@ -1833,9 +1833,9 @@
       "country": "USSR",
       "vehicleEnglishName": "SU-152",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-SU-152-20m40s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-SU-152-20m40s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-SU-152-20m40s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-SU-152-20m40s.webp"
     },
     {
       "source": {
@@ -1864,9 +1864,9 @@
       "country": "USSR",
       "vehicleEnglishName": "SU-122-54",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-SU-122-54-20m50s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-SU-122-54-20m50s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-SU-122-54-20m50s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-SU-122-54-20m50s.webp"
     },
     {
       "source": {
@@ -1895,9 +1895,9 @@
       "country": "USSR",
       "vehicleEnglishName": "Object 906",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-Object-906-22m30s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-Object-906-22m30s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-Object-906-22m30s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-Object-906-22m30s.webp"
     },
     {
       "source": {
@@ -1926,9 +1926,9 @@
       "country": "GBR",
       "vehicleEnglishName": "Churchill VII",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/GBR/GBR-Churchill-VII-24m10s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/GBR/GBR-Churchill-VII-24m10s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GBR/GBR-Churchill-VII-24m10s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GBR/GBR-Churchill-VII-24m10s.webp"
     },
     {
       "source": {
@@ -1957,9 +1957,9 @@
       "country": "JPN",
       "vehicleEnglishName": "Chi-Ha Kai",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/JPN/JPN-Chi-Ha-Kai-25m50s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/JPN/JPN-Chi-Ha-Kai-25m50s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/JPN/JPN-Chi-Ha-Kai-25m50s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/JPN/JPN-Chi-Ha-Kai-25m50s.webp"
     },
     {
       "source": {
@@ -1988,9 +1988,9 @@
       "country": "FRA",
       "vehicleEnglishName": "AMX-50 Foch",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/FRA/FRA-AMX-50-Foch-27m30s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/FRA/FRA-AMX-50-Foch-27m30s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/FRA/FRA-AMX-50-Foch-27m30s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/FRA/FRA-AMX-50-Foch-27m30s.webp"
     },
     {
       "source": {
@@ -2019,9 +2019,9 @@
       "country": "USA",
       "vehicleEnglishName": "M1A1 Click-Bait",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USA/USA-M1A1-Click-Bait-01m00s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USA/USA-M1A1-Click-Bait-01m00s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USA/USA-M1A1-Click-Bait-01m00s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USA/USA-M1A1-Click-Bait-01m00s.webp"
     },
     {
       "id": "d6b387744a126913a99c8107e8c0707a377c321513922b856deadacb938b4fd0",
@@ -2038,9 +2038,9 @@
       "country": "USSR",
       "vehicleEnglishName": "IS-1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-1-front.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-1-front.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-1-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-1-front.webp"
     },
     {
       "source": {
@@ -2072,9 +2072,9 @@
       "country": "USSR",
       "vehicleEnglishName": "IS-1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-1-full.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-1-full.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-1-full.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-1-full.webp"
     },
     {
       "id": "42cf58cf875ecab4902de3ebd8d57b775d622d5298b7e37ae6f788c91402291e",
@@ -2091,9 +2091,9 @@
       "country": "USSR",
       "vehicleEnglishName": "IS-3",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-3-front.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-3-front.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-3-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-3-front.webp"
     },
     {
       "source": {
@@ -2125,9 +2125,9 @@
       "country": "USSR",
       "vehicleEnglishName": "IS-3",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-3-full.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-3-full.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-3-full.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-3-full.webp"
     },
     {
       "id": "4370cdd200d676bf7f0381e55e7125afd304859b4f14722c094ef539774701b5",
@@ -2158,9 +2158,9 @@
       "country": "USSR",
       "vehicleEnglishName": "IS-4M",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-4M-17m20s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-4M-17m20s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-4M-17m20s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-4M-17m20s.webp"
     },
     {
       "id": "ff9ddc3fe89bec9cbe84693f317fed9070e3bf4cafff8066ba5923bab4355056",
@@ -2191,9 +2191,9 @@
       "country": "USSR",
       "vehicleEnglishName": "IS-6",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-6-17m26s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-6-17m26s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-6-17m26s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-6-17m26s.webp"
     },
     {
       "id": "ed6f361767725895f5ebfded6ec5bb1113589e7b0d10cbccabc5651ab0f9314c",
@@ -2224,9 +2224,9 @@
       "country": "USSR",
       "vehicleEnglishName": "IS-7",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-7-17m50s.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-IS-7-17m50s.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-7-17m50s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-IS-7-17m50s.webp"
     },
     {
       "id": "720bc74c405938db5780cac7d4fc8f30a639abe37c60a79d7c000ce2abe9c178",
@@ -2243,9 +2243,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-54 (1947)",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-front.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-front.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-front.webp"
     },
     {
       "id": "0d1f7096cb543ca57333c3523250fbeb7d5422586e0044d6c6cdeab57b5a5018",
@@ -2275,9 +2275,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-54 (1947)",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-full.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-54-1947-full.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-full.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-54-1947-full.webp"
     },
     {
       "id": "cc6cb00ef244bb002c2711e4a540a8862c452764c87a284b2829cf67e67dbf8a",
@@ -2294,9 +2294,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-62M-1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62M-1-front.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62M-1-front.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62M-1-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62M-1-front.webp"
     },
     {
       "id": "84af8e83d3b7402829c5a0eed543b20675f6bf79185fc30476e3dc5ee34cb0ed",
@@ -2326,9 +2326,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-62M-1",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62M-1-full.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-62M-1-full.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62M-1-full.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-62M-1-full.webp"
     },
     {
       "id": "ab4b392a92abd4307f27c2cba44f909530dbfeafba4f266a0a86f52771bcc6e2",
@@ -2345,9 +2345,9 @@
       "country": "USSR",
       "vehicleEnglishName": "T-72A",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-front.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-front.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-front.webp"
     },
     {
       "id": "8f3963fc399309031556ecca8688645800cb4c6f9a8b65021d9b84a98982822b",
@@ -2377,9 +2377,306 @@
       "country": "USSR",
       "vehicleEnglishName": "T-72A",
       "vehicleIdentityStatus": "confirmed",
-      "commit": "ea7666e01e09e1c3e9e8073ce529df8bfc633eea",
-      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-full.webp",
-      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ea7666e01e09e1c3e9e8073ce529df8bfc633eea/images/USSR/USSR-T-72A-full.webp"
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-full.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-72A-full.webp"
+    },
+    {
+      "id": "6f544bd6f18ce8bead3a7511d22df47b3dc6c5b466946ebf57cecc944250fd50",
+      "path": "images/USSR/USSR-T-80U-E1-03m02s.webp",
+      "sha256": "6f544bd6f18ce8bead3a7511d22df47b3dc6c5b466946ebf57cecc944250fd50",
+      "bytes": 2228958,
+      "sourceFrameSHA256": "b496f550b22ccfb252e5e700f14f784791ee3b0370773db63a19731bd218e9de",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00"
+      },
+      "mediaTime": 182.033,
+      "actualTime": 182.033,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "status": "confirmed-source-evidence-main-image-pending",
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "vehicleId": "ussr_t_80ue1",
+      "vehicleEnglishName": "T-80U-E1",
+      "country": "USSR",
+      "vehicleIdentityStatus": "confirmed",
+      "proofSnapshotSHA256": "6c1e4074a40324920be7b4372c6f2840d2d8a6ce72d7e2f9a2f29eb454180a0e",
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m02s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m02s.webp"
+    },
+    {
+      "id": "78be4f67bda738ed0e817562e2c9e3b10d4862e49c1c97c59948f4010484fbfb",
+      "path": "images/USSR/USSR-T-80U-E1-03m25s.webp",
+      "sha256": "78be4f67bda738ed0e817562e2c9e3b10d4862e49c1c97c59948f4010484fbfb",
+      "bytes": 1745068,
+      "sourceFrameSHA256": "2fdf4d60160f3a3d31f7341217f97a635bcbcbeb414634de57890794ca08f751",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00"
+      },
+      "mediaTime": 205,
+      "actualTime": 205,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "status": "confirmed-source-evidence-main-image-pending",
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "vehicleId": "ussr_t_80ue1",
+      "vehicleEnglishName": "T-80U-E1",
+      "country": "USSR",
+      "vehicleIdentityStatus": "confirmed",
+      "proofSnapshotSHA256": "a53ad746d8e9ce51b0f9579765f84d4ff20ea4c9786bd4162a66acb444bea52b",
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m25s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m25s.webp"
+    },
+    {
+      "id": "5e2d08985516b7d4c631c53b71861047b52e48e75ca1c3bd7eb1b7352573e006",
+      "path": "images/USSR/USSR-T-80U-E1-03m45s.webp",
+      "sha256": "5e2d08985516b7d4c631c53b71861047b52e48e75ca1c3bd7eb1b7352573e006",
+      "bytes": 2013520,
+      "sourceFrameSHA256": "519bcbc1d109ba42f10d828fadfa23b93203fc33980e2d29de89fc088aa5044b",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00"
+      },
+      "mediaTime": 225,
+      "actualTime": 225,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "status": "confirmed-source-evidence-main-image-pending",
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "vehicleId": "ussr_t_80ue1",
+      "vehicleEnglishName": "T-80U-E1",
+      "country": "USSR",
+      "vehicleIdentityStatus": "confirmed",
+      "proofSnapshotSHA256": "b02b4857f811d16040fafefd6ee333acee9a6527c039edde16ba173f05cf6ddf",
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m45s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/USSR/USSR-T-80U-E1-03m45s.webp"
+    },
+    {
+      "id": "455f8543d90633302ddd7d009d421fed9106e68bae460a245226ca14ecbcd962",
+      "path": "images/GER/GER-Leopard-2-PzBtl-123-06m00s.webp",
+      "sha256": "455f8543d90633302ddd7d009d421fed9106e68bae460a245226ca14ecbcd962",
+      "bytes": 2415844,
+      "sourceFrameSHA256": "6b0e05033c39e1d4e8d2595c4fcbe18448dbee0cc0cd9f0022b67773b363dcac",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00"
+      },
+      "mediaTime": 360,
+      "actualTime": 360,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "status": "confirmed-source-evidence-main-image-pending",
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "vehicleId": "germ_leopard_2a4_pzbtl_123",
+      "vehicleEnglishName": "Leopard 2 (PzBtl 123)",
+      "country": "GER",
+      "vehicleIdentityStatus": "confirmed",
+      "proofSnapshotSHA256": "d2be60b315be10ae1c1469062867ceb95dfc352f0e003282ba1d7111bf051b4a",
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GER/GER-Leopard-2-PzBtl-123-06m00s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GER/GER-Leopard-2-PzBtl-123-06m00s.webp"
+    },
+    {
+      "id": "817b3d0b6e0cd15f7c2e4ce8aac116302035ff4a77ddce628a9cc87f6236ffe7",
+      "path": "images/GER/GER-Leopard-2-PzBtl-123-06m20s.webp",
+      "sha256": "817b3d0b6e0cd15f7c2e4ce8aac116302035ff4a77ddce628a9cc87f6236ffe7",
+      "bytes": 1833900,
+      "sourceFrameSHA256": "b61513f085078907ca7c2ebc9c923ec36cee1fae3ed0c7d04a202abcc69bffa2",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00"
+      },
+      "mediaTime": 380.017,
+      "actualTime": 380.017,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "status": "confirmed-source-evidence-main-image-pending",
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "vehicleId": "germ_leopard_2a4_pzbtl_123",
+      "vehicleEnglishName": "Leopard 2 (PzBtl 123)",
+      "country": "GER",
+      "vehicleIdentityStatus": "confirmed",
+      "proofSnapshotSHA256": "f7660485850b97125798dc511684fb0de4d3c5eb7ec79a6daa641b7d46f1215d",
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GER/GER-Leopard-2-PzBtl-123-06m20s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GER/GER-Leopard-2-PzBtl-123-06m20s.webp"
+    },
+    {
+      "id": "79a8524d936a7cc1e3e1caec88e33fbe7793eafe880a0b36cb95194bc82bcc81",
+      "path": "images/GER/GER-Leopard-2-PzBtl-123-06m45s.webp",
+      "sha256": "79a8524d936a7cc1e3e1caec88e33fbe7793eafe880a0b36cb95194bc82bcc81",
+      "bytes": 1760738,
+      "sourceFrameSHA256": "2c59632622947fc06c01ec1177a7d580546a7113cf6bfbec2851c8de72ef4b7f",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00"
+      },
+      "mediaTime": 405.033,
+      "actualTime": 405.033,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "status": "confirmed-source-evidence-main-image-pending",
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "vehicleId": "germ_leopard_2a4_pzbtl_123",
+      "vehicleEnglishName": "Leopard 2 (PzBtl 123)",
+      "country": "GER",
+      "vehicleIdentityStatus": "confirmed",
+      "proofSnapshotSHA256": "e5e41b873254bc20bab3a1c38bef640ec7adf3e56d9319ae3e40d6d95a222c77",
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GER/GER-Leopard-2-PzBtl-123-06m45s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GER/GER-Leopard-2-PzBtl-123-06m45s.webp"
+    },
+    {
+      "id": "b27be669e4c3480ff5689e8798909f2e6a9bb7415b74653a84e4d934358c5c25",
+      "path": "images/GER/GER-Leopard-2-PzBtl-123-07m00s.webp",
+      "sha256": "b27be669e4c3480ff5689e8798909f2e6a9bb7415b74653a84e4d934358c5c25",
+      "bytes": 1742364,
+      "sourceFrameSHA256": "364e212c024ca84cd6f57af78a0c6191d357020b9d372c7587742bd1fd6b2b4d",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00"
+      },
+      "mediaTime": 420.017,
+      "actualTime": 420.017,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "status": "confirmed-source-evidence-main-image-pending",
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "vehicleId": "germ_leopard_2a4_pzbtl_123",
+      "vehicleEnglishName": "Leopard 2 (PzBtl 123)",
+      "country": "GER",
+      "vehicleIdentityStatus": "confirmed",
+      "proofSnapshotSHA256": "0695563c715f398ccb71669d9ba42d503bd0c4cb53904989bb30405f3b14e068",
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GER/GER-Leopard-2-PzBtl-123-07m00s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GER/GER-Leopard-2-PzBtl-123-07m00s.webp"
+    },
+    {
+      "id": "9e039e17d5cde2c0bf4fc956d2c354214bf13edc8829e1c68833491507df942e",
+      "path": "images/GER/GER-Leopard-2-PzBtl-123-06m10s.webp",
+      "sha256": "9e039e17d5cde2c0bf4fc956d2c354214bf13edc8829e1c68833491507df942e",
+      "bytes": 2220262,
+      "sourceFrameSHA256": "b3b377981760d37b90759eeafd3d080ad3d98ac9e74f46186d92eb019e9d4683",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00"
+      },
+      "mediaTime": 370.017,
+      "actualTime": 370.017,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "status": "confirmed-source-evidence-main-image-pending",
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "vehicleId": "germ_leopard_2a4_pzbtl_123",
+      "vehicleEnglishName": "Leopard 2 (PzBtl 123)",
+      "country": "GER",
+      "vehicleIdentityStatus": "confirmed",
+      "proofSnapshotSHA256": "bb360ef97097b9a7e48bc527cf96ffe9a87f4881752ddb010aa1fd3775141ceb",
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GER/GER-Leopard-2-PzBtl-123-06m10s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GER/GER-Leopard-2-PzBtl-123-06m10s.webp"
+    },
+    {
+      "id": "e9f7ae1465fb6f6b0b834d831a8c467ca762a08c78dcd83e74f61ac951e6ba2e",
+      "path": "images/GER/GER-Leopard-2-PzBtl-123-06m30s.webp",
+      "sha256": "e9f7ae1465fb6f6b0b834d831a8c467ca762a08c78dcd83e74f61ac951e6ba2e",
+      "bytes": 2052564,
+      "sourceFrameSHA256": "6ef3c97bc354ae420fc6d20ed217c17369ffa58fd22a3e3807675952ce1f58f6",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00"
+      },
+      "mediaTime": 390,
+      "actualTime": 390,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "status": "confirmed-source-evidence-main-image-pending",
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "vehicleId": "germ_leopard_2a4_pzbtl_123",
+      "vehicleEnglishName": "Leopard 2 (PzBtl 123)",
+      "country": "GER",
+      "vehicleIdentityStatus": "confirmed",
+      "proofSnapshotSHA256": "e372858a567c18bfa7840698a3c64d8f1cf066e3991391bf45e1f07247238302",
+      "commit": "ad7d090aab803808147b5881ded7564b2ca3a7ea",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GER/GER-Leopard-2-PzBtl-123-06m30s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ad7d090aab803808147b5881ded7564b2ca3a7ea/images/GER/GER-Leopard-2-PzBtl-123-06m30s.webp"
     }
   ]
 }

@@ -40,6 +40,6 @@ node --check docs/tank-weakpoints-preview/preview.js
 
 ## 2026-11-02 筛选与图片命名
 
-国家、等级、年代采用与科技树一致的紧凑下拉交互；国家触发器与展开选项均使用 `data/flags.json` 中的官方国旗地址，国家名来自 canonical 清单。IS 系列另含开关保留。
+国家、等级、年代、车型采用与科技树一致的紧凑下拉交互，箭头使用同一 SVG 几何；“全部国家”不显示国旗，其余国家触发器与展开选项均使用 `data/flags.json` 中的官方国旗地址，国家名来自 canonical 清单。IS 系列另含开关保留。
 
 图床图片命名为国家英文简称、完整英文型号和视角／时间，例如 `USSR-IS-3-front.webp`、`USA-M1A1-Click-Bait-01m10s.webp`，文件名不使用哈希；哈希只作数据校验。未核实车型的素材留在资料草稿中，确认后再按具体型号归档。
