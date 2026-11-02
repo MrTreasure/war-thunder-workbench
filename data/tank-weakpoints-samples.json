@@ -805,18 +805,90 @@
         "mechanism": "manual",
         "note": "基础乘员 → 王牌乘员（Wiki主炮面板）；机枪装填不计入。"
       },
-      "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-video",
+      "pins": [
+        {
+          "x": 0.468,
+          "y": 0.751,
+          "label": "裤裆／下首",
+          "detail": "1012本帧下首中央；1014字幕明确列出裤裆。",
+          "kind": "observed"
+        },
+        {
+          "x": 0.581,
+          "y": 0.323,
+          "label": "炮塔脸颊",
+          "detail": "1012本帧炮盾旁脸颊绿色区域；1014字幕“脸”。",
+          "kind": "observed"
+        },
+        {
+          "x": 0.584,
+          "y": 0.094,
+          "label": "头包",
+          "detail": "1012本帧炮塔顶部头包；1014字幕“头包”。",
+          "kind": "observed"
+        }
+      ],
+      "videoAdvice": [
+        {
+          "label": "裤裆、头包与脸颊",
+          "text": "1012秒说明IS2和IS1弱点差不多，1014秒明确“依旧是裤裆头包脸”。",
+          "time": 1014.033,
+          "evidence": {
+            "type": "author-recommendation",
+            "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/"
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00",
+        "gameVersion": "2.49.0.98"
+      },
+      "status": "review-sample",
       "collectedAt": "2026-11-02",
-      "weaknessEvidenceStatus": "general-context-only",
+      "weaknessEvidenceStatus": "explicit-location",
       "country": "ussr",
       "countryName": "苏联",
       "rank": 4,
       "family": "is",
       "era": "ww2",
-      "scopeRole": "heavy_tank"
+      "scopeRole": "heavy_tank",
+      "sourceGameVersion": "2.49.0.98",
+      "videoGameVersion": "2.49.0.98",
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/is-focused/USSR-IS-2-1943-1012.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/is-focused/002.json",
+      "time": 1012,
+      "imageView": "front",
+      "imageQuality": "1080p",
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "crop": [
+        660,
+        180,
+        620,
+        510
+      ],
+      "overview": "1012秒说明IS2和IS1弱点差不多，1014秒明确“依旧是裤裆头包脸”。",
+      "limits": "主图是略俯视的正面外观，非透视；不是平视正交角度。；UV只针对1012秒本条裁图。0米M62条件，不能泛化全部弹种和角度。",
+      "completeIllustration": true,
+      "testContext": {
+        "attacker": "M4A2 (76) W",
+        "shell": "M62",
+        "sourceTime": 1012,
+        "note": null
+      },
+      "testContextEvidence": {
+        "sourceFrameSHA256": "c391b0a63ed8e52a57f5dc5a57f9ccba61af1890e056ec4118850e7465e85b86",
+        "sourceWebpSHA256": "3fbebb36e7a25c12c01629d373aea893e3150e618312a5af943244d038ea7f51",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is-focused/002.json",
+        "proofSnapshotSHA256": "991cfbb16300aafae6f11685ca4ca8d97ff09ed7b0e388a4eec60a01be56e0bc",
+        "sourceTime": 1012,
+        "sameFrameAsMainImage": true
+      }
     },
     {
       "id": "ussr_is_3",
@@ -936,17 +1008,67 @@
         "note": "基础乘员 → 王牌乘员（Wiki主炮面板）；机枪装填不计入。"
       },
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-video",
+      "videoAdvice": [
+        {
+          "label": "概括性防护演示，点位待补",
+          "text": "1060秒字幕“非常的脆很好打”，1055秒炮塔两侧有防护演示命中着色；本批未取得明确点名位置的完整推荐句。",
+          "time": 1060.017,
+          "evidence": {
+            "type": "general-statement-only",
+            "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/"
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00",
+        "gameVersion": "2.49.0.98"
+      },
+      "status": "pending-specific-recommendation",
       "collectedAt": "2026-11-02",
-      "weaknessEvidenceStatus": "general-context-only",
+      "weaknessEvidenceStatus": "pending-specific-recommendation",
       "country": "ussr",
       "countryName": "苏联",
       "rank": 5,
       "family": "is",
       "era": "ww2",
-      "scopeRole": "heavy_tank"
+      "scopeRole": "heavy_tank",
+      "sourceGameVersion": "2.49.0.98",
+      "videoGameVersion": "2.49.0.98",
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/is-focused/USSR-IS-6-1050.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/is-focused/007.json",
+      "time": 1050,
+      "imageView": "front",
+      "imageQuality": "1080p",
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "crop": [
+        690,
+        290,
+        520,
+        330
+      ],
+      "overview": "1060秒字幕“非常的脆很好打”，1055秒炮塔两侧有防护演示命中着色；本批未取得明确点名位置的完整推荐句。",
+      "limits": "1050秒车辆正面未被遮挡，但左侧炮弹下拉菜单打开。；不将1055秒着色或1060秒透视弹片效果当作无条件推荐。；未把另一帧绿色命中点硬套到1050主图，所以pins留空。",
+      "completeIllustration": false,
+      "testContext": {
+        "attacker": "IS-6",
+        "shell": "BR-471D",
+        "sourceTime": 1055.017,
+        "note": "测试条件来自1055秒，不把1050秒打开炮弹选择菜单的悬停选项当已确认弹种。"
+      },
+      "testContextEvidence": {
+        "sourceFrameSHA256": "5d0f352a11b1ae3f55a431c1db6f5a4ba1c3d4c5223efa7808613b8e29ebb3d3",
+        "sourceWebpSHA256": "61463a1307d6556933c7b26ddc3ade68b839450bb907d9602c409e8ca4ff55a0",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is-focused/008.json",
+        "proofSnapshotSHA256": "e96a56e76967abce42c639c549e846fa1357c68ba2434bd05f13fc92b38087a4",
+        "sourceTime": 1055.017,
+        "sameFrameAsMainImage": false
+      }
     },
     {
       "id": "uk_challenger_ii",
@@ -1560,7 +1682,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 35,
-    "illustratedCount": 5,
+    "illustratedCount": 7,
     "countries": [
       {
         "country": "usa",
@@ -1696,8 +1818,9 @@
     "lastUpdated": "2026-11-02",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 4,
-    "legacyIllustratedCount": 1
+    "illustratedTargetCount": 6,
+    "legacyIllustratedCount": 1,
+    "completeIllustratedTargetCount": 5
   },
   "countries": [
     {
