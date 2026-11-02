@@ -95,7 +95,22 @@
       "country": "ussr",
       "countryName": "苏联",
       "rank": 5,
-      "scopeRole": "medium_tank"
+      "scopeRole": "medium_tank",
+      "testContext": {
+        "attacker": "T95",
+        "shell": "T13",
+        "sourceTime": 1111.033,
+        "note": null
+      },
+      "testContextEvidence": {
+        "sourceFrameFile": "artifacts/vehicle-weakpoints-20261102/t54-front-hd-1111.png",
+        "sourceFrameSHA256": "9bac3df0f60bf74ee9818fbbb8eb1b521de6f8fad036c75c8abf8e1117786a3a",
+        "proofSnapshot": "artifacts/vehicle-weakpoints-20261102/054.json",
+        "proofSnapshotSHA256": "a7e00db321d8342f757290f4ee6c5e557e0fd552cfd175f6c3a5b4c774d1d058",
+        "nativeLeftPanelCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/test-context-review/t54.webp",
+        "cropSHA256": "a6b503b01faa8aebc27f5555de93642a81666daa15cdde10fca687aefe70bbd4",
+        "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette"
+      }
     },
     {
       "id": "ussr_t_62m1",
@@ -179,7 +194,22 @@
       "country": "ussr",
       "countryName": "苏联",
       "rank": 6,
-      "scopeRole": "medium_tank"
+      "scopeRole": "medium_tank",
+      "testContext": {
+        "attacker": "M47",
+        "shell": "M431",
+        "sourceTime": 1151,
+        "note": null
+      },
+      "testContextEvidence": {
+        "sourceFrameFile": "artifacts/vehicle-weakpoints-20261102/t62m1-front-hd-1151.png",
+        "sourceFrameSHA256": "aad74445c9c20313bb4f7bddc1601132b39548e24b50269b57c4d465fb966493",
+        "proofSnapshot": "artifacts/vehicle-weakpoints-20261102/055.json",
+        "proofSnapshotSHA256": "1f8dcc0f200e7cab1de7206b9d76a60cf8c6d3bbbdb0bc9d090c843445e7a938",
+        "nativeLeftPanelCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/test-context-review/t62m1.webp",
+        "cropSHA256": "6cae5d3c8bab8944196ade40d1b6d3fc0d8703d0cfe0fa6e1fc7ddeab414b21d",
+        "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette"
+      }
     },
     {
       "id": "ussr_t_72a",
@@ -285,7 +315,22 @@
       "country": "ussr",
       "countryName": "苏联",
       "rank": 6,
-      "scopeRole": "medium_tank"
+      "scopeRole": "medium_tank",
+      "testContext": {
+        "attacker": "T-72A",
+        "shell": "3BM22",
+        "sourceTime": 1173,
+        "note": "测试车辆与炮弹来自 19:33 测试片段，正面主图取自 19:29。"
+      },
+      "testContextEvidence": {
+        "sourceFrameFile": "artifacts/vehicle-weakpoints-20261102/t72a-front-1173.png",
+        "sourceFrameSHA256": "e004234281c8a309857fbd9cbfcdd58851295c506d54bde1071d86dd42b04097",
+        "proofSnapshot": "artifacts/vehicle-weakpoints-20261102/048.json",
+        "proofSnapshotSHA256": "81fe9693aa203d9da85ed7fb1943c6fe32e2b07fa55891224504b4601378c98d",
+        "nativeLeftPanelCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/test-context-review/t72test.webp",
+        "cropSHA256": "444938757b57bd43f14238ebc942b0ddc35a5f548bf10d66dde1d93012650d6e",
+        "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette"
+      }
     },
     {
       "id": "ussr_t_62",
@@ -712,7 +757,22 @@
         650,
         440
       ],
-      "scopeRole": "heavy_tank"
+      "scopeRole": "heavy_tank",
+      "testContext": {
+        "attacker": "M4A2 (76) W",
+        "shell": "M62",
+        "sourceTime": 1000.017,
+        "note": null
+      },
+      "testContextEvidence": {
+        "sourceFrameFile": "artifacts/tank-weakpoints-expansion-20261102/sources/is-series-1000.png",
+        "sourceFrameSHA256": "c37e03e02f30ff4e9a184a16917347caf693556093f901f26af9b704cd09aeb9",
+        "proofSnapshot": "artifacts/tank-weakpoints-expansion-20261102/sources/014.json",
+        "proofSnapshotSHA256": "f550363a984da88c3144db8ec5acbf38d38097d02ba68874923e2b2285370c8c",
+        "nativeLeftPanelCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/test-context-review/is1.webp",
+        "cropSHA256": "9e13a491c4023adb040d2437dab1dc1e807c1100c2b02710a39cb3a9f800d340",
+        "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette"
+      }
     },
     {
       "id": "ussr_is_2_1943",
@@ -823,7 +883,22 @@
         650,
         430
       ],
-      "scopeRole": "heavy_tank"
+      "scopeRole": "heavy_tank",
+      "testContext": {
+        "attacker": "M4A2 (76) W",
+        "shell": "M62",
+        "sourceTime": 1020,
+        "note": null
+      },
+      "testContextEvidence": {
+        "sourceFrameFile": "artifacts/tank-weakpoints-expansion-20261102/sources/is-series-1020.png",
+        "sourceFrameSHA256": "ba1e068c3ae7fa30c0de8aecdb5161d37ff9d95cbc9ee3f4a15131938d447e90",
+        "proofSnapshot": "artifacts/tank-weakpoints-expansion-20261102/sources/016.json",
+        "proofSnapshotSHA256": "019775d00989fceb30b4c00576f446bd1817fb49087586e5a0984450fa66f851",
+        "nativeLeftPanelCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/test-context-review/is3.webp",
+        "cropSHA256": "adb7fde47c69f73ad07d4f7607edfe4763465cb1be5ba225f3945476e9547997",
+        "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette"
+      }
     },
     {
       "id": "ussr_is_6",
@@ -977,6 +1052,39 @@
       "status": "wiki-reviewed-awaiting-verified-weakpoint",
       "collectedAt": "2026-11-02",
       "weaknessEvidenceStatus": "general-context-only"
+    },
+    {
+      "id": "ussr_t_80ue1",
+      "name": "T-80U-E1",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 7,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_80ue1",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/ussr_t_80ue1.json",
+      "wikiSnapshotSHA256": "0d5274813602599a1b7ee193f1ab9f4f665defd82d036d1a86e5fcb30dd1858f",
+      "wikiSummary": "T-80U-E1：T-80BV车体结合退役T-80UD炮塔的升级型，车体装Kontakt-5爆炸反应装甲，配第二代热成像和改进自动装弹机。Wiki指出正面防护较强，但内部布局紧凑导致生存性较低、倒车较慢；没有明确点名可直接标注的正面局部弱点。",
+      "wikiPoints": [],
+      "reload": {
+        "display": "自动装填 6 秒",
+        "gun": "125 mm 2A46M-4 主炮",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 6,
+        "mechanism": "automatic",
+        "note": "Wiki明确Autoloader、主炮6秒、28发First-order、总载弹45发。正文说明装填不取决于乘员状态；待发弹补充时间未给出，不把6秒外推为全部45发持续射击。",
+        "firstOrderRounds": 28,
+        "totalRounds": 45
+      },
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-clean-front",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only"
     }
   ],
   "eraPolicy": "按具体型号／改型所处年代分类，BR 另作筛选；本批为冷战样例。",
@@ -984,7 +1092,7 @@
     "targetCount": 226,
     "rankTankCount": 216,
     "isSupplementCount": 10,
-    "wikiReviewedCount": 22,
+    "wikiReviewedCount": 23,
     "illustratedCount": 5,
     "countries": [
       {
@@ -1123,5 +1231,57 @@
     "optionalSpecialistReconCount": 107,
     "illustratedTargetCount": 4,
     "legacyIllustratedCount": 1
-  }
+  },
+  "countries": [
+    {
+      "id": "usa",
+      "name": "美国",
+      "flagUrl": "https://wiki.warthunder.com/static/country_svg/country_usa.svg"
+    },
+    {
+      "id": "germany",
+      "name": "德国",
+      "flagUrl": "https://wiki.warthunder.com/static/country_svg/country_germany.svg"
+    },
+    {
+      "id": "ussr",
+      "name": "苏联",
+      "flagUrl": "https://wiki.warthunder.com/static/country_svg/country_ussr.svg"
+    },
+    {
+      "id": "britain",
+      "name": "英国",
+      "flagUrl": "https://wiki.warthunder.com/static/country_svg/country_britain.svg"
+    },
+    {
+      "id": "japan",
+      "name": "日本",
+      "flagUrl": "https://wiki.warthunder.com/static/country_svg/country_japan.svg"
+    },
+    {
+      "id": "china",
+      "name": "中国",
+      "flagUrl": "https://wiki.warthunder.com/static/country_svg/country_china.svg"
+    },
+    {
+      "id": "italy",
+      "name": "意大利",
+      "flagUrl": "https://wiki.warthunder.com/static/country_svg/country_italy.svg"
+    },
+    {
+      "id": "france",
+      "name": "法国",
+      "flagUrl": "https://wiki.warthunder.com/static/country_svg/country_france.svg"
+    },
+    {
+      "id": "sweden",
+      "name": "瑞典",
+      "flagUrl": "https://wiki.warthunder.com/static/country_svg/country_sweden.svg"
+    },
+    {
+      "id": "israel",
+      "name": "以色列",
+      "flagUrl": "https://wiki.warthunder.com/static/country_svg/country_israel.svg"
+    }
+  ]
 }

@@ -1,6 +1,8 @@
 // This standalone review uses the built data literal. It makes no API or account requests.
 const $ = (id) => document.getElementById(id);
 const countries = { usa: "美国", germany: "德国", ussr: "苏联", britain: "英国", japan: "日本", china: "中国", italy: "意大利", france: "法国", sweden: "瑞典", israel: "以色列" };
+const countryEntries = SAMPLE.countries || [];
+const filterSelects = [];
 const eras = [["all", "全部年代"], ["ww2", "二战"], ["cold-war", "冷战"], ["modern", "现代"]];
 let selected = -1;
 let point = 0;
@@ -59,6 +61,19 @@ function render() {
   $("reload-time").textContent = model.reload?.display || "待核对";
   $("reload-gun").textContent = model.reload?.gun || "";
   $("reload-note").textContent = model.reload?.note || "";
+  const test = model.testContext;
+  const hasVideoTest = !!(model.frame || test || (source.url && model.videoAdvice?.length));
+  $("test-section").hidden = !hasVideoTest;
+  $("test-attacker").textContent = test?.attacker?.trim() || "来源未显示／待核对";
+  $("test-shell").textContent = test?.shell?.trim() || "来源未显示／待核对";
+  $("test-note").textContent = test?.note || "";
+  $("test-note").hidden = !test?.note;
+  const testHref = Number.isFinite(test?.sourceTime) ? videoUrl(source, test.sourceTime) : null;
+  $("test-link").hidden = !testHref;
+  if (testHref) {
+    $("test-link").href = testHref;
+    $("test-link").textContent = `查看测试片段 ${Math.floor(test.sourceTime / 60)}:${String(Math.floor(test.sourceTime % 60)).padStart(2, "0")} ↗`;
+  } else $("test-link").removeAttribute("href");
   $("video-section").hidden = !model.videoAdvice?.length;
   $("video-advice").replaceChildren(...(model.videoAdvice || []).map((advice) => {
     const article = element("article", undefined, "advice");
@@ -127,33 +142,122 @@ function updateList(preferredId) {
   $("empty-state").hidden = !!visible.length;
   const illustrated = visible.filter((model) => model.imageUrl).length;
   $("result-count").textContent = `${visible.length} 辆资料 · ${illustrated} 辆已配正面图 · ${visible.length - illustrated} 辆待补图${includeIs ? " · 已包含 IS 系列补充" : ""}`;
-  document.querySelectorAll("[data-filter]").forEach((button) => {
-    const active = button.dataset.value === ({ country, rank, era }[button.dataset.filter]);
-    button.setAttribute("aria-pressed", String(active));
-    if (button.dataset.filter === "era") { if (active) button.setAttribute("aria-current", "true"); else button.removeAttribute("aria-current"); }
-  });
+  filterSelects.forEach((control) => control.sync());
   const currentId = preferredId || SAMPLE.models[selected]?.id;
   const next = visible.find((model) => model.id === currentId) || visible[0];
   select(next ? SAMPLE.models.indexOf(next) : -1);
 }
-function addFilter(host, kind, value, title) {
-  const button = element("button", title); button.type = "button";
-  button.dataset.filter = kind; button.dataset.value = value;
-  button.addEventListener("click", () => {
+// Standalone equivalent of components/GameSelect: trigger focus + top-layer listbox.
+function createFilter(host, kind, entries, labelledBy) {
+  const trigger = element("button", undefined, "wt-select");
+  trigger.type = "button"; trigger.id = `${kind}-trigger`;
+  trigger.setAttribute("role", "combobox"); trigger.setAttribute("aria-haspopup", "listbox");
+  trigger.setAttribute("aria-labelledby", `${labelledBy} ${kind}-value`);
+  const valueLabel = element("span", undefined, "wt-select-label"); valueLabel.id = `${kind}-value`;
+  const chevron = element("span", "⌄", "wt-select-chevron"); chevron.setAttribute("aria-hidden", "true");
+  trigger.append(valueLabel, chevron);
+  const menu = element("div", undefined, "wt-select-menu"); menu.id = `${kind}-menu`;
+  menu.setAttribute("role", "listbox"); menu.setAttribute("popover", "auto");
+  menu.setAttribute("aria-labelledby", trigger.id); menu.hidden = true;
+  $(host).append(trigger, menu);
+  let open = false, active = 0, search = "", searchAt = 0;
+  const current = () => ({ country, rank, era }[kind]);
+  function content(entry) {
+    const row = element("span", undefined, "select-option-label");
+    const flags = entry.flagUrl ? [entry.flagUrl] : entry.value === "all" && kind === "country" ? countryEntries.slice(0, 3).map((item) => item.flagUrl).filter(Boolean) : [];
+    if (flags.length) {
+      const icons = element("span", undefined, flags.length > 1 ? "country-flags" : "country-icon");
+      icons.setAttribute("aria-hidden", "true");
+      flags.forEach((url) => { const image = element("img"); image.src = url; image.alt = ""; image.width = 24; image.height = 18; icons.append(image); });
+      row.append(icons);
+    }
+    row.append(element("span", entry.label)); return row;
+  }
+  const options = entries.map((entry, index) => {
+    const option = element("div", undefined, "wt-select-option"); option.id = `${menu.id}-${index}`;
+    option.setAttribute("role", "option"); option.tabIndex = -1;
+    option.append(element("span", "", "wt-select-check"), content(entry));
+    option.addEventListener("pointerdown", (event) => event.preventDefault());
+    option.addEventListener("pointermove", (event) => { if (event.pointerType === "mouse") setActive(index); });
+    option.addEventListener("click", () => choose(index));
+    menu.append(option); return option;
+  });
+  function setActive(index) {
+    active = index;
+    options.forEach((option, i) => option.setAttribute("data-active", String(i === active)));
+    trigger.setAttribute("aria-activedescendant", options[active].id);
+    options[active].scrollIntoView({ block: "nearest" });
+  }
+  function sync() {
+    const chosen = entries.findIndex((entry) => entry.value === current());
+    valueLabel.replaceChildren(content(entries[Math.max(0, chosen)]));
+    options.forEach((option, index) => {
+      option.setAttribute("aria-selected", String(index === chosen));
+      option.children[0].textContent = index === chosen ? "✓" : "";
+    });
+    trigger.setAttribute("aria-expanded", String(open));
+  }
+  function close() {
+    open = false;
+    if (menu.hidePopover && !menu.hidden) menu.hidePopover();
+    menu.hidden = true; trigger.setAttribute("aria-expanded", "false"); trigger.removeAttribute("aria-activedescendant");
+  }
+  function place() {
+    if (!open) return;
+    const rect = trigger.getBoundingClientRect(), viewport = window.visualViewport;
+    const left = viewport?.offsetLeft || 0, top = viewport?.offsetTop || 0;
+    const width = viewport?.width || document.documentElement.clientWidth, height = viewport?.height || window.innerHeight;
+    const below = top + height - rect.bottom - 12, above = rect.top - top - 12;
+    const up = below < Math.min(menu.scrollHeight, 240) && above > below;
+    const popupWidth = Math.min(Math.max(rect.width, kind === "country" ? 196 : 160), width - 16);
+    const maxHeight = Math.max(44, Math.min(344, up ? above : below));
+    Object.assign(menu.style, { width: `${popupWidth}px`, maxHeight: `${maxHeight}px`, left: `${Math.max(left + 8, Math.min(rect.left, left + width - popupWidth - 8))}px`, top: `${up ? Math.max(top + 8, rect.top - Math.min(menu.scrollHeight, maxHeight) - 4) : rect.bottom + 4}px` });
+  }
+  function show(index = entries.findIndex((entry) => entry.value === current())) {
+    filterSelects.forEach((control) => control.close());
+    open = true; menu.hidden = false; menu.showPopover?.();
+    trigger.setAttribute("aria-expanded", "true"); place(); setActive(Math.max(0, index));
+  }
+  function choose(index) {
+    const value = entries[index].value;
     if (kind === "country") country = value;
     if (kind === "rank") rank = value;
     if (kind === "era") era = value;
-    updateList();
+    close(); updateList(); trigger.focus({ preventScroll: true });
+  }
+  trigger.addEventListener("click", () => open ? close() : show());
+  trigger.addEventListener("blur", close);
+  trigger.addEventListener("keydown", (event) => {
+    event.stopPropagation();
+    const chosen = Math.max(0, entries.findIndex((entry) => entry.value === current()));
+    if (["ArrowDown", "ArrowUp", "Home", "End", "Enter", " ", "Escape"].includes(event.key)) {
+      event.preventDefault();
+      if (event.key === "Escape") close();
+      else if (event.key === "Enter" || event.key === " ") { if (open) choose(active); else show(); }
+      else {
+        const index = event.key === "Home" ? 0 : event.key === "End" ? entries.length - 1 : ((open ? active : chosen) + (event.key === "ArrowDown" ? 1 : -1) + entries.length) % entries.length;
+        if (open) setActive(index); else show(event.key === "Home" || event.key === "End" ? index : chosen);
+      }
+    } else if (event.key === "Tab") close();
+    else if (event.key.length === 1 && !event.ctrlKey && !event.metaKey && !event.altKey) {
+      const now = Date.now(); search = now - searchAt > 700 ? event.key : search + event.key; searchAt = now;
+      const repeated = [...search].every((char) => char === search[0]);
+      const needle = (repeated ? search[0] : search).toLocaleLowerCase();
+      const start = repeated ? (open ? active : chosen) + 1 : (open ? active : chosen);
+      const index = entries.map((_, offset) => (start + offset) % entries.length).find((i) => entries[i].label.toLocaleLowerCase().startsWith(needle));
+      if (index !== undefined) { event.preventDefault(); if (open) setActive(index); else show(index); }
+    }
   });
-  $(host).append(button);
+  menu.addEventListener("toggle", (event) => { if (event.newState === "closed" && open) close(); });
+  document.addEventListener("pointerdown", (event) => { if (open && !menu.contains(event.target) && !trigger.contains(event.target)) close(); });
+  window.addEventListener("resize", place);
+  window.addEventListener("scroll", (event) => { if (event.target !== menu) place(); }, true);
+  window.visualViewport?.addEventListener("resize", place); window.visualViewport?.addEventListener("scroll", place);
+  filterSelects.push({ sync, close }); sync();
 }
-addFilter("countries", "country", "all", "全部国家");
-for (const code of new Set(SAMPLE.models.map((model) => model.country || "unknown"))) {
-  const model = SAMPLE.models.find((entry) => entry.country === code);
-  addFilter("countries", "country", code, model?.countryName || countries[code] || (code === "unknown" ? "国家待标注" : code));
-}
-for (const [value, label] of [["all", "全部等级"], ["6", "VI 级"], ["7", "VII 级"], ["8", "VIII 级"]]) addFilter("ranks", "rank", value, label);
-for (const [value, label] of eras) addFilter("eras", "era", value, label);
+createFilter("countries", "country", [{ value: "all", label: "全部国家" }, ...countryEntries.map((entry) => ({ value: entry.id, label: entry.name, flagUrl: entry.flagUrl }))], "country-label");
+createFilter("ranks", "rank", [["all", "全部等级"], ["6", "VI 级"], ["7", "VII 级"], ["8", "VIII 级"]].map(([value, label]) => ({ value, label })), "rank-label");
+createFilter("eras", "era", eras.map(([value, label]) => ({ value, label })), "era-label");
 function fromHash() {
   const id = new URLSearchParams(location.hash.slice(1)).get("vehicle");
   const model = SAMPLE.models.find((entry) => entry.id === id);

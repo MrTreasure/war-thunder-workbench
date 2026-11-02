@@ -77,7 +77,7 @@ for (const model of data.models) {
     Object.assign(item, { illustrated: true, frameTime: frame.decode.mediaTime, frameSHA256: hash(raw), sourceFrameSHA256: model.sourceFrameSHA256, frameSize: raw.length, imageQuality: model.imageQuality });
   } else if (model.pins?.length) throw Error("Do not publish pins without their matching front image");
   report.models.push(item);
-  for (const key of ["wikiSnapshot", "wikiSnapshotPath", "wikiSnapshotSHA256", "frameSnapshot", "frameSnapshotPath", "frame", "framePath", "captureSHA256", "originalFrameSHA256", "overview", "comparison", "limits", "ammo", "evidenceFrames"]) delete model[key];
+  for (const key of ["wikiSnapshot", "wikiSnapshotPath", "wikiSnapshotSHA256", "frameSnapshot", "frameSnapshotPath", "frame", "framePath", "testContextEvidence", "captureSHA256", "originalFrameSHA256", "overview", "comparison", "limits", "ammo", "evidenceFrames"]) delete model[key];
   for (const advice of model.videoAdvice || []) delete advice.evidence;
 }
 const css = await readFile(new URL("preview.css", import.meta.url));

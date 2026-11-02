@@ -22,9 +22,10 @@
         <p>高清正面画面，搭配官方 Wiki 资料与视频推荐攻击位置。点击编号查看说明。</p>
       </div>
       <section class="filters" aria-label="筛选弱点资料">
-        <div class="filter-row"><span id="country-label" class="filter-label">国家</span><div id="countries" class="filter-buttons" role="group" aria-labelledby="country-label"></div></div>
-        <div class="filter-row"><span id="rank-label" class="filter-label">等级</span><div id="ranks" class="filter-buttons" role="group" aria-labelledby="rank-label"></div><label class="family-filter"><input id="include-is" type="checkbox">另含 IS 系列补充（不限等级）</label></div>
-        <nav id="eras" class="era-nav" aria-label="按年代分类"></nav>
+        <div class="filter-control"><span id="country-label" class="filter-label">国家</span><div id="countries"></div></div>
+        <div class="filter-control"><span id="rank-label" class="filter-label">等级</span><div id="ranks"></div></div>
+        <div class="filter-control"><span id="era-label" class="filter-label">年代</span><div id="eras"></div></div>
+        <label class="family-filter"><input id="include-is" type="checkbox">IS 系列补充<span>不限等级</span></label>
       </section>
       <p id="result-count" class="result-count" role="status"></p>
       <section id="empty-state" class="empty-state" hidden><h2>暂无符合筛选的资料</h2><p>该分类尚未收录已核对的高清正面图，可调整筛选查看现有资料。</p><button id="reset-filters" type="button">重置筛选</button></section>
@@ -46,6 +47,7 @@
         <aside class="evidence">
           <section><p class="eyebrow">阅读要点 · 官方 Wiki</p><p id="wiki-summary"></p><ul id="wiki-points"></ul></section>
           <section class="reload-panel"><h3>主炮装填</h3><p id="reload-time" class="reload-time"></p><p id="reload-gun"></p><p id="reload-note"></p></section>
+          <section id="test-section" hidden><h3>视频测试</h3><dl class="test-context"><dt>测试车辆</dt><dd id="test-attacker"></dd><dt>测试炮弹</dt><dd id="test-shell"></dd></dl><p id="test-note" hidden></p><a id="test-link" hidden target="_blank" rel="noopener noreferrer"></a></section>
           <section id="video-section"><h3>视频攻击位置与建议</h3><div id="video-advice"></div></section>
         </aside>
       </section>
