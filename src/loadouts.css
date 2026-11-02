@@ -541,7 +541,6 @@ nav.wt-mount-tabs { overflow-x: auto; }
 .wt-mount-weapon-more:not([open]) > :not(summary) { display: none; }
 .calculator.wt-mount-picker { width: min(1040px,calc(100vw - 24px)); }
 .wt-mount-picker-tools { align-items: center; flex-wrap: wrap; }
-.wt-mount-picker:has(.wt-mount-compare-dock) .wt-mount-weapon-list { padding-bottom: 80px; }
 .wt-mount-page button.wt-mount-compare-dock { position: fixed; right: max(20px,env(safe-area-inset-right,0px)); z-index: 80; display: inline-flex; align-items: center; gap: 12px; padding: 12px 18px; min-height: 48px; border: 1px solid var(--wt-gold); background: var(--wt-page); color: var(--wt-gold); box-shadow: var(--wt-shadow); font-size: 14px; }
 .calculator.wt-mount-compare { inset: 0; margin: auto; width: min(1460px,calc(100vw - 24px)); height: fit-content; max-height: calc(100dvh - 28px); padding: 0; display: flex; flex-direction: column; background: var(--wt-surface); }
 .calculator.wt-mount-compare:not([open]) { display: none; }

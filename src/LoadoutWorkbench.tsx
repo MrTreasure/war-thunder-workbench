@@ -1267,8 +1267,11 @@ function LoadoutPage({ owner }: { owner: string }) {
               value={weaponQuery}
               onChange={(e) => setWeaponQuery(e.target.value)}
             />
-            <span className="wt-mount-note">最多对比6个导弹型号</span>
+            <span className="wt-mount-note">
+              已选 {compared.length}/6 个对比型号，返回配置后查看对比
+            </span>
             <button onClick={() => applyOption(null)}>卸下挂载</button>
+            <button onClick={() => setPicker(false)}>返回配置</button>
           </div>
           <div className="wt-mount-weapon-list">
             {candidates.map((option) => {
@@ -1333,13 +1336,6 @@ function LoadoutPage({ owner }: { owner: string }) {
             })}
             {!candidates.length && <p>没有匹配的可装选项。</p>}
           </div>
-          {!!compared.length && !comparisonOpen && (
-            <LoadoutCompareDock
-              count={compared.length}
-              inDialog
-              onOpen={() => setComparisonOpen(true)}
-            />
-          )}
         </Modal>
       )}
       {importing && (

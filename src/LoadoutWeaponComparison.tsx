@@ -7,18 +7,9 @@ import {
   missileComparisonRows,
   type ComparedMissile,
 } from "./loadout-weapon-details";
-export function LoadoutCompareDock({
-  count,
-  inDialog = false,
-  onOpen,
-}: {
-  count: number;
-  inDialog?: boolean;
-  onOpen: () => void;
-}) {
+export function LoadoutCompareDock({ count, onOpen }: { count: number; onOpen: () => void }) {
   const [offset, setOffset] = useState(16);
   useLayoutEffect(() => {
-    if (inDialog) return;
     const footer = document.querySelector<HTMLElement>(".wt-app-footer");
     if (!footer) return;
     const observer = new ResizeObserver(() =>
@@ -26,12 +17,12 @@ export function LoadoutCompareDock({
     );
     observer.observe(footer);
     return () => observer.disconnect();
-  }, [inDialog]);
+  }, []);
   return (
     <button
       type="button"
       className="wt-mount-compare-dock"
-      style={{ bottom: inDialog ? 16 : offset }}
+      style={{ bottom: offset }}
       onClick={onOpen}
     >
       对比导弹{" "}
