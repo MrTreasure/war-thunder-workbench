@@ -46,6 +46,7 @@ const sharing = JSON.parse(await readFile(resolve(root, "data/lineup-sharing-tag
 const vehicleTags = JSON.parse(await readFile(resolve(root, "data/vehicle-tags.json"), "utf8"));
 const titles = JSON.parse(await readFile(resolve(root, "data/game-tag-texts.json"), "utf8"));
 const theme = JSON.parse(await readFile(resolve(root, "data/game-tag-theme.json"), "utf8"));
+const tagPolicy = JSON.parse(await readFile(resolve(root, "data/game-tag-access.json"), "utf8"));
 const tagIDs = [
   ...new Set(
     [...sharing.tags.filter((tag) => !tag.system), ...vehicleTags.tags, ...titles.titles].map(
@@ -59,7 +60,9 @@ await writeFile(
     schemaVersion: 1,
     rows,
     tagIDs,
-    tagTones: ["original", "red", ...theme.basicColors],
+    tagTones: Object.keys(theme.tones),
+    tagBase: ["original", "red", ...theme.basicColors],
+    tagPolicy,
   }),
 );
 await rename(resolve(output) + ".next", resolve(output));

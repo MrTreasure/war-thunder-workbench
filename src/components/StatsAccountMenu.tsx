@@ -87,7 +87,12 @@ export function StatsAccountMenu({
         className="wt-account-popover"
         onToggle={(event) => setOpen(event.newState === "open")}
       >
-        <p>{name}</p>
+        <p className="wt-account-identity">
+          <span>{name}</span>
+          {(session?.role === "superadmin" || session?.user?.isSuperAdmin) && (
+            <span className="wt-account-role">超级管理员</span>
+          )}
+        </p>
         <button
           type="button"
           onClick={() => {

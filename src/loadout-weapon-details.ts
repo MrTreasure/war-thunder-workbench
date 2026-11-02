@@ -9,10 +9,16 @@ export const missileBriefFields = [
 export const isComparableMissile = (option: Pick<WikiLoadoutOption, "name">) =>
   /\bmissiles?\b/i.test(option.name);
 export function missileBrief(parameters: WikiWeaponParameter[]) {
-  return missileBriefFields.map((field) => ({
-    ...field,
-    value: parameters.find((parameter) => parameter.id === field.id)?.value?.trim() || null,
-  }));
+  const value = (id: string) =>
+    parameters.find((parameter) => parameter.id === id)?.value?.trim() || null;
+  const lock = [
+    { id: "lock-range-in-rear-aspect", label: "尾锁距离" },
+    { id: "lock-range", label: "锁定距离" },
+    { id: "lock-range-in-all-aspect", label: "全向锁定距离" },
+  ].find((field) => value(field.id));
+  return [missileBriefFields[0], ...(lock ? [lock] : []), missileBriefFields[2]]
+    .map((field) => ({ ...field, value: value(field.id) }))
+    .filter((field) => field.value !== null);
 }
 export type ComparedMissile = {
   key: string;

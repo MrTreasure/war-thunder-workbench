@@ -26,6 +26,44 @@ import {
   isComparableMissile,
 } from "../src/loadout-weapon-details.ts";
 
+import { matchesWeaponFilters, availableWeaponFamilies } from "../src/loadout-weapon-filters.ts";
+
+assert(matchesWeaponFilters("PL-12 air-to-air missiles", "missile", "pl"));
+assert(matchesWeaponFilters("R-27ER1 air-to-air missiles", "missile", "r"));
+assert(matchesWeaponFilters("RVV-AE air-to-air missiles", "missile", "r"));
+assert(!matchesWeaponFilters("RBS 70 missiles", "missile", "r"));
+assert(matchesWeaponFilters("AIM-54C Phoenix air-to-air missiles", "missile", "phoenix"));
+assert(matchesWeaponFilters("AIM-54C", "missile", "phoenix"));
+assert(matchesWeaponFilters("GBU-8", "bomb", "gbu"));
+assert(!matchesWeaponFilters("Mk.108 cannons", "", "mk"));
+const mixed = "AIM-9M Sidewinder air-to-air missiles2 × GBU-12 Paveway II bombs";
+assert(matchesWeaponFilters(mixed, "missile", "sidewinder"));
+assert(matchesWeaponFilters(mixed, "bomb", "gbu"));
+assert.deepEqual(
+  availableWeaponFamilies([mixed], "bomb").map((family) => family.id),
+  ["gbu", "paveway"],
+);
+assert(!matchesWeaponFilters("PL-12 air-to-air missiles", "missile", "unknown-family"));
+assert.deepEqual(missileBrief([]), [], "missing summary values are omitted");
+const locks = [
+  { id: "lock-range", label: "锁定距离", value: "16 km" },
+  { id: "lock-range-in-all-aspect", label: "全向锁定距离", value: "5 km" },
+];
+assert.deepEqual(missileBrief(locks), [{ id: "lock-range", label: "锁定距离", value: "16 km" }]);
+assert.equal(
+  missileBrief([...locks, { id: "lock-range-in-rear-aspect", label: "尾锁距离", value: "11 km" }])
+    .length,
+  1,
+);
+assert.equal(
+  missileBrief([
+    ...locks,
+    { id: "lock-range-in-rear-aspect", label: "尾锁距离", value: "11 km" },
+  ])[0].id,
+  "lock-range-in-rear-aspect",
+);
+assert.equal(missileBrief([locks[1]])[0].label, "全向锁定距离");
+
 const catalog = JSON.parse(
   await readFile(new URL("../data/vehicle-details.json", import.meta.url)),
 );

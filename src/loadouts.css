@@ -524,8 +524,8 @@ nav.wt-mount-tabs { overflow-x: auto; }
 .wt-mount-page .wt-mount-region button { display: inline-flex; gap: 8px; align-items: baseline; border: 0; padding: 4px 0; background: transparent; text-align: left; }
 .wt-mount-region button > span { color: var(--wt-muted); white-space: nowrap; font-size: 12px; }
 .wt-mount-region strong { white-space: normal; overflow-wrap: anywhere; font-size: 12px; font-weight: 400; }
-.wt-mount-weapon-row { display: flex; align-items: center; gap: 12px; }
-.wt-mount-weapon-row .wt-mount-weapon-select { display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1 1 220px; text-align: left; background: var(--wt-raised); padding: 10px; }
+.wt-mount-weapon-row { display: flex; align-items: center; gap: 12px; padding: 10px; background: var(--wt-raised); border: 1px solid var(--wt-line); border-radius: 3px; }
+.wt-mount-weapon-row .wt-mount-weapon-select { display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1 1 220px; text-align: left; background: transparent; border-color: transparent; padding: 0; }
 .wt-mount-weapon-select > img { flex: none; }
 .wt-mount-weapon-title { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
 .wt-mount-weapon-title strong { font-size: 13px; overflow-wrap: anywhere; }
@@ -555,3 +555,6 @@ nav.wt-mount-tabs { overflow-x: auto; }
 .wt-mount-compare thead img { object-fit: contain; }
 .wt-game-tip-body .wt-mount-weapon-parameters { display: block; margin: 10px 0; }
 .wt-game-tip-body .wt-mount-source-name { margin-inline: 0; }
+
+.wt-mount-weapon-filters { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; margin-block: 12px; }
+.wt-mount-weapon-filters > label { display: grid; gap: 6px; min-width: 180px; font-size: 12px; color: var(--wt-muted); }

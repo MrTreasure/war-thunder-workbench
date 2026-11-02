@@ -7,7 +7,7 @@ export function LoadoutWeaponBrief({ option }: { option: WikiLoadoutOption }) {
     <dl className="wt-mount-weapon-brief" aria-label="武器主要参数">
       {fields.map((field) => (
         <div key={field.id}>
-          <dt>{field.label}</dt>
+          <dt className={field.id === "guidance" ? "sr-only" : undefined}>{field.label}</dt>
           <dd>{field.value ? loadoutParameterValue(field.value) : "未知"}</dd>
         </div>
       ))}

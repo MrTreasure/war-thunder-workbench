@@ -1,7 +1,17 @@
 {
   "schemaVersion": 1,
   "basis": "Interface translations of generic Wiki weapon terms; model designations and original source names are preserved.",
-  "ranks": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"],
+  "ranks": [
+    "I",
+    "II",
+    "III",
+    "IV",
+    "V",
+    "VI",
+    "VII",
+    "VIII",
+    "IX"
+  ],
   "terms": {
     "air-to-air missiles": "空对空导弹",
     "air-to-air missile": "空对空导弹",
@@ -61,5 +71,158 @@
     "TV": "电视",
     "Yes": "是",
     "No": "否"
-  }
+  },
+  "weaponTypes": [
+    {
+      "id": "missile",
+      "label": "导弹",
+      "pattern": "\\bmissiles?\\b|\\b(?:AIM|AGM|PL|RVV|Kh|R)[- ]?\\d"
+    },
+    {
+      "id": "bomb",
+      "label": "炸弹",
+      "pattern": "\\bbombs?\\b|\\b(?:E?GBU|KAB|FAB|JDAM|Paveway)[- \\d]"
+    },
+    {
+      "id": "rocket",
+      "label": "火箭弹",
+      "pattern": "\\brockets?\\b"
+    },
+    {
+      "id": "gun",
+      "label": "机枪／航炮吊舱",
+      "pattern": "\\b(?:gunpods?|gun pods?|cannons?|machine guns?)\\b"
+    },
+    {
+      "id": "tank",
+      "label": "副油箱",
+      "pattern": "\\b(?:drop|fuel) tanks?\\b"
+    },
+    {
+      "id": "torpedo",
+      "label": "鱼雷",
+      "pattern": "\\btorpedoes?\\b"
+    },
+    {
+      "id": "countermeasure",
+      "label": "对抗措施",
+      "pattern": "\\b(?:countermeasures?|chaff|flares?)\\b"
+    }
+  ],
+  "weaponFamilies": [
+    {
+      "id": "pl",
+      "label": "PL 系列",
+      "type": "missile",
+      "pattern": "\\bPL[- ]?\\d"
+    },
+    {
+      "id": "r",
+      "label": "R／RVV 系列",
+      "type": "missile",
+      "pattern": "\\bR[- ]?\\d|\\bRVV[- ]"
+    },
+    {
+      "id": "phoenix",
+      "label": "AIM-54 不死鸟",
+      "type": "missile",
+      "pattern": "\\bAIM[- ]?54[A-Z\\d-]*\\b|\\bPhoenix\\b"
+    },
+    {
+      "id": "sidewinder",
+      "label": "AIM-9 响尾蛇",
+      "type": "missile",
+      "pattern": "\\bAIM[- ]?9[A-Z\\d-]*\\b|\\bSidewinder\\b"
+    },
+    {
+      "id": "sparrow",
+      "label": "AIM-7 麻雀",
+      "type": "missile",
+      "pattern": "\\bAIM[- ]?7[A-Z\\d-]*\\b|\\bSparrow\\b"
+    },
+    {
+      "id": "amraam",
+      "label": "AIM-120 系列",
+      "type": "missile",
+      "pattern": "\\bAIM[- ]?120[A-Z\\d-]*\\b|\\bAMRAAM\\b"
+    },
+    {
+      "id": "kh",
+      "label": "Kh 系列",
+      "type": "missile",
+      "pattern": "\\bKh[- ]?\\d"
+    },
+    {
+      "id": "agm",
+      "label": "AGM 系列",
+      "type": "missile",
+      "pattern": "\\bAGM[- ]?\\d"
+    },
+    {
+      "id": "rb",
+      "label": "RB／RBS 系列",
+      "type": "missile",
+      "pattern": "\\bRBS?[- ]?\\d"
+    },
+    {
+      "id": "magic",
+      "label": "魔术系列",
+      "type": "missile",
+      "pattern": "\\bMagic\\b"
+    },
+    {
+      "id": "mica",
+      "label": "MICA 系列",
+      "type": "missile",
+      "pattern": "\\bMICA\\b"
+    },
+    {
+      "id": "r530",
+      "label": "R.530／超 530",
+      "type": "missile",
+      "pattern": "\\b(?:Super\\s*)?R?\\.?530\\b"
+    },
+    {
+      "id": "gbu",
+      "label": "GBU／EGBU 系列",
+      "type": "bomb",
+      "pattern": "\\bE?GBU[- ]?\\d"
+    },
+    {
+      "id": "jdam",
+      "label": "JDAM 系列",
+      "type": "bomb",
+      "pattern": "\\bJDAM\\b"
+    },
+    {
+      "id": "paveway",
+      "label": "铺路系列",
+      "type": "bomb",
+      "pattern": "\\bPaveway\\b"
+    },
+    {
+      "id": "kab",
+      "label": "KAB 系列",
+      "type": "bomb",
+      "pattern": "\\bKAB[- ]?\\d"
+    },
+    {
+      "id": "fab",
+      "label": "FAB／OFAB 系列",
+      "type": "bomb",
+      "pattern": "\\bO?FAB[- ]?\\d"
+    },
+    {
+      "id": "mk",
+      "label": "Mk 系列",
+      "type": "bomb",
+      "pattern": "\\bMk[. -]*\\d"
+    },
+    {
+      "id": "anm",
+      "label": "AN-M 系列",
+      "type": "bomb",
+      "pattern": "\\bAN[- ]?M\\d"
+    }
+  ]
 }

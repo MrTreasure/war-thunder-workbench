@@ -19,7 +19,10 @@ import { loadoutRequest } from "./loadout-api";
 import { useLoadoutPlans } from "./loadout-storage";
 import { LoadoutPresets } from "./LoadoutPresets";
 import { readRemoteLoadout, type LoadoutShare, type LoadoutVehicle } from "./loadout-shares";
-import { TagSelector, freeTagTones, type TagChoice } from "./components/TagSelector";
+import { TagSelector, type TagChoice } from "./components/TagSelector";
+import { useGameTagAccess } from "./game-tag-access";
+import { LoadoutWeaponFilters } from "./LoadoutWeaponFilters";
+import { matchesWeaponFilters } from "./loadout-weapon-filters";
 import { gameTagOptions } from "./game-tag-options";
 import { GameTag } from "./components/GameTag";
 import { LoadoutHall } from "./LoadoutHall";
@@ -142,6 +145,7 @@ export function LoadoutWorkbench() {
 
 function LoadoutPage({ owner }: { owner: string }) {
   const workspace = useAccountWorkspace();
+  const tagAccess = useGameTagAccess("loadouts");
   const navigate = useNavigate();
   const search = useRouterState({
     select: (s) =>
@@ -172,6 +176,8 @@ function LoadoutPage({ owner }: { owner: string }) {
   const [future, setFuture] = useState<LoadoutPlan[]>([]);
   const [station, setStation] = useState("");
   const [weaponQuery, setWeaponQuery] = useState("");
+  const [weaponType, setWeaponType] = useState("");
+  const [weaponFamily, setWeaponFamily] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [picker, setPicker] = useState(false);
@@ -188,6 +194,8 @@ function LoadoutPage({ owner }: { owner: string }) {
   const [pending, setPending] = useState<LoadoutPlan | null>(null);
   const [busy, setBusy] = useState(false);
   const [weaponLookup, setWeaponLookup] = useState("");
+  const [lookupType, setLookupType] = useState("");
+  const [lookupFamily, setLookupFamily] = useState("");
   const [weapons, setWeapons] = useState<WeaponIndex | null>(null);
   const [requirements, setRequirements] = useState<Requirement[]>([{ weapon: "", count: 1 }]);
   const [searchCountry, setSearchCountry] = useState("");
@@ -563,12 +571,15 @@ function LoadoutPage({ owner }: { owner: string }) {
       updatedAt: now,
     });
   };
-  const candidates =
-    data?.compatibility.filter(
-      (o) =>
-        o.stations.some((s) => s.hardpointId === station) &&
-        matchesLoadoutText(o.name, weaponQuery),
+  const stationOptions =
+    data?.compatibility.filter((option) =>
+      option.stations.some((point) => point.hardpointId === station),
     ) || [];
+  const candidates = stationOptions.filter(
+    (option) =>
+      matchesLoadoutText(option.name, weaponQuery) &&
+      matchesWeaponFilters(option.name, weaponType, weaponFamily),
+  );
   const retry = () => {
     setLoadState({ error: "", loading: true });
     void vehicleStore
@@ -740,6 +751,8 @@ function LoadoutPage({ owner }: { owner: string }) {
                         onChoose={(id) => {
                           setStation(id);
                           setWeaponQuery("");
+                          setWeaponType("");
+                          setWeaponFamily("");
                           setPicker(true);
                         }}
                       />
@@ -883,6 +896,15 @@ function LoadoutPage({ owner }: { owner: string }) {
                   onChange={(e) => setWeaponLookup(e.target.value)}
                 />
               </label>
+              <LoadoutWeaponFilters
+                names={weapons.weapons.map((weapon) => weapon.name)}
+                type={lookupType}
+                family={lookupFamily}
+                onChange={(type, family) => {
+                  setLookupType(type);
+                  setLookupFamily(family);
+                }}
+              />
               <div className="wt-mount-requirements">
                 {requirements.map((r, index) => (
                   <div key={index}>
@@ -903,7 +925,10 @@ function LoadoutPage({ owner }: { owner: string }) {
                           ...weapons.weapons.filter((w) => w.key === r.weapon),
                           ...weapons.weapons
                             .filter(
-                              (w) => w.key !== r.weapon && matchesLoadoutText(w.name, weaponLookup),
+                              (w) =>
+                                w.key !== r.weapon &&
+                                matchesLoadoutText(w.name, weaponLookup) &&
+                                matchesWeaponFilters(w.name, lookupType, lookupFamily),
                             )
                             .slice(0, 120),
                         ].map((w) => (
@@ -1273,6 +1298,16 @@ function LoadoutPage({ owner }: { owner: string }) {
             <button onClick={() => applyOption(null)}>卸下挂载</button>
             <button onClick={() => setPicker(false)}>返回配置</button>
           </div>
+          <LoadoutWeaponFilters
+            names={stationOptions.map((option) => option.name)}
+            type={weaponType}
+            family={weaponFamily}
+            onChange={(type, family) => {
+              setWeaponType(type);
+              setWeaponFamily(family);
+            }}
+          />
+          {!candidates.length && <p className="wt-mount-note">当前挂点没有符合筛选条件的挂载。</p>}
           <div className="wt-mount-weapon-list">
             {candidates.map((option) => {
               const next = [
@@ -1409,7 +1444,10 @@ function LoadoutPage({ owner }: { owner: string }) {
           <TagSelector
             options={gameTagOptions}
             value={shareTags}
-            allowedTones={freeTagTones}
+            allowedTones={tagAccess.allowedTones}
+            loading={tagAccess.loading}
+            error={tagAccess.error}
+            onRetry={tagAccess.refresh}
             max={5}
             label="挂载标签"
             disabled={busy}
@@ -1423,7 +1461,7 @@ function LoadoutPage({ owner }: { owner: string }) {
           ) : (
             <button
               className="primary-button"
-              disabled={busy || !shareTags.length}
+              disabled={busy || tagAccess.loading || !!tagAccess.error || !shareTags.length}
               onClick={() => void publishShare()}
             >
               {busy ? "正在发布…" : "确认发布"}

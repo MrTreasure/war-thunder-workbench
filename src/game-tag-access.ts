@@ -1,5 +1,6 @@
 /* oxlint-disable react/set-state-in-effect */
 import { useCallback, useEffect, useState } from "react";
+import { loadoutRequest } from "./loadout-api";
 import { communityRequest } from "./lineup-community-api";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { useAccountWorkspace } from "./workspace-context";
@@ -17,7 +18,7 @@ export type GameTagAccess = {
 };
 const updated = "wt-game-tag-access-updated";
 export const notifyGameTagAccess = () => window.dispatchEvent(new Event(updated));
-export function useGameTagAccess() {
+export function useGameTagAccess(source: "community" | "loadouts" = "community") {
   const account = useWorkbenchAccount();
   const workspace = useAccountWorkspace();
   const key = `${account.session?.user?.id || "guest"}:${account.identityVersion}:${workspace?.binding?.uid || ""}:${workspace?.binding?.fetchedAt || ""}`;
@@ -43,7 +44,11 @@ export function useGameTagAccess() {
   useEffect(() => {
     const controller = new AbortController();
     setState({ key, access: null, error: "", loading: true });
-    void communityRequest<GameTagAccess>("tags/access", undefined, controller.signal)
+    void (source === "loadouts" ? loadoutRequest : communityRequest)<GameTagAccess>(
+      "tags/access",
+      undefined,
+      controller.signal,
+    )
       .then((access) => {
         if (!controller.signal.aborted) setState({ key, access, error: "", loading: false });
       })
@@ -57,7 +62,7 @@ export function useGameTagAccess() {
           });
       });
     return () => controller.abort();
-  }, [key, revision]);
+  }, [key, revision, source]);
   const access = state.key === key ? state.access : null;
   return {
     access,
