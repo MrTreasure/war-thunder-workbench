@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "4aa199c1c38bbef14d64382340d28300c1200157",
+  "commit": "c80bbef65418739c89a37edaaeb2e55c3bba2e38",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -398,6 +398,78 @@
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4aa199c1c38bbef14d64382340d28300c1200157/images/CHN/CHN-ZTZ99A-front.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4aa199c1c38bbef14d64382340d28300c1200157/images/CHN/CHN-ZTZ99A-front.webp",
         "commit": "4aa199c1c38bbef14d64382340d28300c1200157"
+      }
+    },
+    "germ_leopard_2a4_pzbtl_123": {
+      "raw": {
+        "path": "images/GER/GER-Leopard-2-PzBtl-123-07m00s.webp",
+        "sha256": "b27be669e4c3480ff5689e8798909f2e6a9bb7415b74653a84e4d934358c5c25",
+        "bytes": 1742364,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@d2a87d690e0e0156abecfaec19ef4a0d6c9cdf0f/images/GER/GER-Leopard-2-PzBtl-123-07m00s.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/d2a87d690e0e0156abecfaec19ef4a0d6c9cdf0f/images/GER/GER-Leopard-2-PzBtl-123-07m00s.webp",
+        "commit": "d2a87d690e0e0156abecfaec19ef4a0d6c9cdf0f"
+      },
+      "photo": {
+        "path": "images/GER/GER-Leopard-2-PzBtl-123-front.webp",
+        "sha256": "d2407ed01d35360e9603d6072cac2e67caefe8700d9adf81982352f43bb447ac",
+        "bytes": 266316,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/GER/GER-Leopard-2-PzBtl-123-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/GER/GER-Leopard-2-PzBtl-123-front.webp",
+        "commit": "c80bbef65418739c89a37edaaeb2e55c3bba2e38"
+      }
+    },
+    "ussr_t_80ue1": {
+      "raw": {
+        "path": "images/USSR/USSR-T-80U-E1-03m23s.webp",
+        "sha256": "5bc823ff2b65a21d698af09297ccc3532a55b966556ca5659baa8ecfeec353a1",
+        "bytes": 1715684,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@d2a87d690e0e0156abecfaec19ef4a0d6c9cdf0f/images/USSR/USSR-T-80U-E1-03m23s.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/d2a87d690e0e0156abecfaec19ef4a0d6c9cdf0f/images/USSR/USSR-T-80U-E1-03m23s.webp",
+        "commit": "d2a87d690e0e0156abecfaec19ef4a0d6c9cdf0f"
+      },
+      "photo": {
+        "path": "images/USSR/USSR-T-80U-E1-front.webp",
+        "sha256": "5fed59648031339da73c42adf4e9964d23dcb1186938501dd136448d1a17c63c",
+        "bytes": 292690,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USSR/USSR-T-80U-E1-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USSR/USSR-T-80U-E1-front.webp",
+        "commit": "c80bbef65418739c89a37edaaeb2e55c3bba2e38"
+      }
+    },
+    "us_xm_803": {
+      "raw": {
+        "path": "images/USA/USA-XM803-case-07m39s-capture-20261103.webp",
+        "sha256": "23ef0a056dba35d2ee4195da3cf8d3df983f1c0b79fb96a0ddefae2320f0fbc8",
+        "bytes": 1067062,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USA/USA-XM803-case-07m39s-capture-20261103.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USA/USA-XM803-case-07m39s-capture-20261103.webp",
+        "commit": "c80bbef65418739c89a37edaaeb2e55c3bba2e38"
+      },
+      "photo": {
+        "path": "images/USA/USA-XM803-front.webp",
+        "sha256": "705688de6a2dfd735fcd2246ae9cb4f2695bb60aca563f8c99561cea8a1b89aa",
+        "bytes": 256660,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USA/USA-XM803-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USA/USA-XM803-front.webp",
+        "commit": "c80bbef65418739c89a37edaaeb2e55c3bba2e38"
+      }
+    },
+    "us_m60a3_tts": {
+      "raw": {
+        "path": "images/USA/USA-M60A3-TTS-case-06m37s-capture-20261103.webp",
+        "sha256": "d884903e3fa5b179c3d262205c960bd1073ee9b5f81e45ba992dd49585961a53",
+        "bytes": 1220230,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USA/USA-M60A3-TTS-case-06m37s-capture-20261103.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USA/USA-M60A3-TTS-case-06m37s-capture-20261103.webp",
+        "commit": "c80bbef65418739c89a37edaaeb2e55c3bba2e38"
+      },
+      "photo": {
+        "path": "images/USA/USA-M60A3-TTS-front.webp",
+        "sha256": "2aa653f5047669307efcf45c16f30ce23e583e726ea4619c89bd5f5278afdc28",
+        "bytes": 251220,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USA/USA-M60A3-TTS-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USA/USA-M60A3-TTS-front.webp",
+        "commit": "c80bbef65418739c89a37edaaeb2e55c3bba2e38"
       }
     }
   },
@@ -7005,6 +7077,236 @@
       "commit": "4aa199c1c38bbef14d64382340d28300c1200157",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4aa199c1c38bbef14d64382340d28300c1200157/images/CHN/CHN-ZTZ99A-front.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4aa199c1c38bbef14d64382340d28300c1200157/images/CHN/CHN-ZTZ99A-front.webp"
+    },
+    {
+      "id": "d2407ed01d35360e9603d6072cac2e67caefe8700d9adf81982352f43bb447ac",
+      "path": "images/GER/GER-Leopard-2-PzBtl-123-front.webp",
+      "sha256": "d2407ed01d35360e9603d6072cac2e67caefe8700d9adf81982352f43bb447ac",
+      "bytes": 266316,
+      "width": 640,
+      "height": 380,
+      "vehicleId": "germ_leopard_2a4_pzbtl_123",
+      "vehicleEnglishName": "Leopard 2 (PzBtl 123)",
+      "country": "GER",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00"
+      },
+      "sourceFrameSHA256": "364e212c024ca84cd6f57af78a0c6191d357020b9d372c7587742bd1fd6b2b4d",
+      "proofSnapshotSHA256": "0695563c715f398ccb71669d9ba42d503bd0c4cb53904989bb30405f3b14e068",
+      "mediaTime": 420.017,
+      "actualTime": 420.017,
+      "caseId": "germ_leopard_2a4_pzbtl_123:BV1PUAezbE1p:420017",
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "photo"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": true,
+      "sceneKind": "front-native-green-regions",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "crop": [
+        650,
+        250,
+        640,
+        380
+      ],
+      "commit": "c80bbef65418739c89a37edaaeb2e55c3bba2e38",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/GER/GER-Leopard-2-PzBtl-123-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/GER/GER-Leopard-2-PzBtl-123-front.webp"
+    },
+    {
+      "id": "5fed59648031339da73c42adf4e9964d23dcb1186938501dd136448d1a17c63c",
+      "path": "images/USSR/USSR-T-80U-E1-front.webp",
+      "sha256": "5fed59648031339da73c42adf4e9964d23dcb1186938501dd136448d1a17c63c",
+      "bytes": 292690,
+      "width": 615,
+      "height": 440,
+      "vehicleId": "ussr_t_80ue1",
+      "vehicleEnglishName": "T-80U-E1",
+      "country": "USSR",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28"
+      },
+      "sourceFrameSHA256": "290eea618480e382b07242fdc4f9de5325c5dcb43810e7d8b9f6f7ad067b189c",
+      "proofSnapshotSHA256": "58a07c98c4d5d15ada42eb02f50ff3dca61e5a8e625d6ecdab0d458a9179bce2",
+      "mediaTime": 203.017,
+      "actualTime": 203.017,
+      "caseId": "ussr_t_80ue1:BV1PUAezbE1p:203017",
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "photo"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": true,
+      "sceneKind": "front-native-green-regions",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "crop": [
+        650,
+        215,
+        615,
+        440
+      ],
+      "commit": "c80bbef65418739c89a37edaaeb2e55c3bba2e38",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USSR/USSR-T-80U-E1-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USSR/USSR-T-80U-E1-front.webp"
+    },
+    {
+      "id": "23ef0a056dba35d2ee4195da3cf8d3df983f1c0b79fb96a0ddefae2320f0fbc8",
+      "path": "images/USA/USA-XM803-case-07m39s-capture-20261103.webp",
+      "sha256": "23ef0a056dba35d2ee4195da3cf8d3df983f1c0b79fb96a0ddefae2320f0fbc8",
+      "bytes": 1067062,
+      "width": 1920,
+      "height": 1080,
+      "vehicleId": "us_xm_803",
+      "vehicleEnglishName": "XM803",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "sourceFrameSHA256": "4ee3998e376e6c8e1922bbec52721effc8d42d92e7d9c9cb8cbd6d9b23b4338f",
+      "proofSnapshotSHA256": "ac208b58514a346ab924431e58bfa3507ad2f31cc3b84b6675cbb86d005fd775",
+      "mediaTime": 459.033,
+      "actualTime": 459.033,
+      "caseId": "us_xm_803:BV1SPmEBJE3y:459033",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": false,
+      "sceneKind": "front-native-green-regions",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "commit": "c80bbef65418739c89a37edaaeb2e55c3bba2e38",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USA/USA-XM803-case-07m39s-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USA/USA-XM803-case-07m39s-capture-20261103.webp"
+    },
+    {
+      "id": "705688de6a2dfd735fcd2246ae9cb4f2695bb60aca563f8c99561cea8a1b89aa",
+      "path": "images/USA/USA-XM803-front.webp",
+      "sha256": "705688de6a2dfd735fcd2246ae9cb4f2695bb60aca563f8c99561cea8a1b89aa",
+      "bytes": 256660,
+      "width": 670,
+      "height": 560,
+      "vehicleId": "us_xm_803",
+      "vehicleEnglishName": "XM803",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "sourceFrameSHA256": "4ee3998e376e6c8e1922bbec52721effc8d42d92e7d9c9cb8cbd6d9b23b4338f",
+      "proofSnapshotSHA256": "ac208b58514a346ab924431e58bfa3507ad2f31cc3b84b6675cbb86d005fd775",
+      "mediaTime": 459.033,
+      "actualTime": 459.033,
+      "caseId": "us_xm_803:BV1SPmEBJE3y:459033",
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "photo"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": true,
+      "sceneKind": "front-native-green-regions",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "crop": [
+        620,
+        140,
+        670,
+        560
+      ],
+      "commit": "c80bbef65418739c89a37edaaeb2e55c3bba2e38",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USA/USA-XM803-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USA/USA-XM803-front.webp"
+    },
+    {
+      "id": "d884903e3fa5b179c3d262205c960bd1073ee9b5f81e45ba992dd49585961a53",
+      "path": "images/USA/USA-M60A3-TTS-case-06m37s-capture-20261103.webp",
+      "sha256": "d884903e3fa5b179c3d262205c960bd1073ee9b5f81e45ba992dd49585961a53",
+      "bytes": 1220230,
+      "width": 1920,
+      "height": 1080,
+      "vehicleId": "us_m60a3_tts",
+      "vehicleEnglishName": "M60A3 TTS",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "sourceFrameSHA256": "d20106ca105a2bb567de4b8990fe46a5f402b8a63e02c00225e95695c4f79085",
+      "proofSnapshotSHA256": "fe81529670310227fcc7d8fc1f65cd2acae406ced0c1ec830b0b1d35eee033b3",
+      "mediaTime": 397.017,
+      "actualTime": 397.017,
+      "caseId": "us_m60a3_tts:BV1SPmEBJE3y:397017",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": false,
+      "sceneKind": "front-native-green-regions",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "commit": "c80bbef65418739c89a37edaaeb2e55c3bba2e38",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USA/USA-M60A3-TTS-case-06m37s-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USA/USA-M60A3-TTS-case-06m37s-capture-20261103.webp"
+    },
+    {
+      "id": "2aa653f5047669307efcf45c16f30ce23e583e726ea4619c89bd5f5278afdc28",
+      "path": "images/USA/USA-M60A3-TTS-front.webp",
+      "sha256": "2aa653f5047669307efcf45c16f30ce23e583e726ea4619c89bd5f5278afdc28",
+      "bytes": 251220,
+      "width": 640,
+      "height": 475,
+      "vehicleId": "us_m60a3_tts",
+      "vehicleEnglishName": "M60A3 TTS",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "sourceFrameSHA256": "d20106ca105a2bb567de4b8990fe46a5f402b8a63e02c00225e95695c4f79085",
+      "proofSnapshotSHA256": "fe81529670310227fcc7d8fc1f65cd2acae406ced0c1ec830b0b1d35eee033b3",
+      "mediaTime": 397.017,
+      "actualTime": 397.017,
+      "caseId": "us_m60a3_tts:BV1SPmEBJE3y:397017",
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "photo"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": true,
+      "sceneKind": "front-native-green-regions",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "crop": [
+        620,
+        185,
+        640,
+        475
+      ],
+      "commit": "c80bbef65418739c89a37edaaeb2e55c3bba2e38",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USA/USA-M60A3-TTS-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/c80bbef65418739c89a37edaaeb2e55c3bba2e38/images/USA/USA-M60A3-TTS-front.webp"
     }
   ]
 }
