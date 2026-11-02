@@ -1,6 +1,6 @@
 /* Public images only. Never cache application HTML, API responses or account data. */
 const PREFIX = "wt-public-images-";
-const VERSION = PREFIX + "v2";
+const VERSION = PREFIX + "v3";
 const META = VERSION + "-meta";
 const DAY = 86400000;
 const GROUPS = {
@@ -94,12 +94,15 @@ function serialize(action) {
 }
 
 function refresh(request, group, event) {
-  if (pending.has(request.url)) return pending.get(request.url).then((response) => response.clone());
+  // The same image may be requested by a plain <img> and a CORS canvas image.
+  // An in-flight opaque no-cors result cannot satisfy the latter request.
+  const key = request.mode + "\n" + request.url;
+  if (pending.has(key)) return pending.get(key).then((response) => response.clone());
   const operation = (async () => {
     // Public CDN loads remain anonymous, including cross-origin no-cors image loads.
     // Service-worker fetch requires redirect=follow for no-cors image requests.
     const response = await fetch(new Request(request, { credentials: "omit", redirect: "follow" }));
-    const publicImage = response.type === "opaque" || (
+    const publicImage = (response.type === "opaque" && request.mode === "no-cors") || (
       response.ok && response.headers.get("content-type")?.startsWith("image/") &&
       !/no-store|private/i.test(response.headers.get("cache-control") || "")
     );
@@ -107,8 +110,8 @@ function refresh(request, group, event) {
     if (publicImage) event.waitUntil(serialize(() => store(request, response.clone(), group)));
     return response;
   })();
-  pending.set(request.url, operation);
-  void operation.finally(() => pending.delete(request.url)).catch(() => {});
+  pending.set(key, operation);
+  void operation.finally(() => pending.delete(key)).catch(() => {});
   return operation.then((response) => response.clone());
 }
 
@@ -118,6 +121,10 @@ async function load(event, group) {
     const cache = await caches.open(group.name);
     const meta = await caches.open(META);
     const [cached, info] = await Promise.all([cache.match(request.url), meta.match(request.url)]);
+    if (cached?.type === "opaque" && request.mode !== "no-cors") {
+      await remove(cache, meta, request);
+      return refresh(request, group, event);
+    }
     if (cached && info) {
       const record = await info.json();
       // Opaque HTTP errors cannot be inspected; revalidate them at least daily.
