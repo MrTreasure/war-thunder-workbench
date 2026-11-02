@@ -18,7 +18,11 @@ function element(tag, text, className) {
   if (className) node.className = className;
   return node;
 }
-function sourceOf(model) { return model.source || SAMPLE.source || {}; }
+function sourceOf(model) {
+  if (model.source) return model.source;
+  if (model.source === null || (!model.imageUrl && !model.rawUrl && !model.frame)) return {};
+  return SAMPLE.source || {};
+}
 function selectedEvidence(model) { return model?.protectionEvidence?.find((item) => item.id === evidenceId) || null; }
 function shellTypeLabel(test) {
   const code = test?.shellTypeCode?.trim();

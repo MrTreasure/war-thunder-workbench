@@ -2427,7 +2427,28 @@
         "mechanism": "manual",
         "note": "基础乘员→王牌乘员（Wiki主炮面板）"
       },
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.537,
+          "y": 0.534,
+          "label": "中间连接处",
+          "detail": "作者建议正面优先瞄炮塔与车体中央连接处（脖子）。",
+          "kind": "conditional",
+          "adviceId": "BV1PUAezbE1p:662000-716000:clickbait-later:0",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "sourceTime": 662.086039
+        },
+        {
+          "x": 0.537,
+          "y": 0.72,
+          "label": "首下正中央",
+          "detail": "作者建议瞄首下正中央，避开左右两侧会吸收钢针后效的油箱。",
+          "kind": "conditional",
+          "adviceId": "BV1PUAezbE1p:662000-716000:clickbait-later:0",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "sourceTime": 662.086039
+        }
+      ],
       "videoAdvice": [
         {
           "caseId": null,
@@ -2551,7 +2572,7 @@
         "publishedAt": "2026-02-28T22:59:24+08:00",
         "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
       },
-      "status": "primary-view-with-author-advice-no-pins",
+      "status": "source-confirmed-partial-frontal-pins",
       "collectedAt": "2026-11-02",
       "weaknessEvidenceStatus": "general-context-only",
       "testCases": [
@@ -2671,7 +2692,9 @@
       "imageViewDetail": "front",
       "mainViewKind": "protection-analysis",
       "mainViewNote": "真实绿色装甲着色可见脖子附近和首下中央；浮层遮挡右侧车体与履带，中央区域仍可见。",
-      "mainImageUsable": true
+      "mainImageUsable": true,
+      "coverageStatus": "partial-verified-frontal-pins",
+      "coverageNotice": "已有局部推荐点 · 正面覆盖待补"
     },
     {
       "id": "germ_leopard_2a4_pzbtl_123",
@@ -13123,7 +13146,7 @@
         "publishedAt": "2026-02-28T22:59:24+08:00",
         "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
       },
-      "status": "primary-view-with-author-advice-no-pins",
+      "status": "source-confirmed-partial-frontal-pins",
       "completeIllustration": false,
       "testContext": {
         "attacker": "Leopard 2A5",
@@ -13190,7 +13213,20 @@
       "mainViewKind": "protection-analysis",
       "mainViewNote": "真实绿色装甲区域覆盖首下及部分炮塔、观察窗附近；说明浮层挨着右侧，少量遮挡右侧边缘。",
       "mainImageUsable": true,
-      "pins": []
+      "pins": [
+        {
+          "x": 0.524,
+          "y": 0.4625,
+          "label": "炮闩正下方",
+          "detail": "作者建议瞄炮闩正下方，即炮管根部下方的连接区域。",
+          "kind": "conditional",
+          "adviceId": "BV1PUAezbE1p:434000-460000:canadian-a4m:0",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "sourceTime": 434.063211
+        }
+      ],
+      "coverageStatus": "partial-verified-frontal-pins",
+      "coverageNotice": "已有局部推荐点 · 正面覆盖待补"
     },
     {
       "id": "il_merkava_mk_3_raam_segol",
@@ -13797,7 +13833,7 @@
         "publishedAt": "2026-02-28T22:59:24+08:00",
         "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
       },
-      "status": "primary-view-with-author-advice-no-pins",
+      "status": "source-confirmed-partial-frontal-pins",
       "completeIllustration": false,
       "testContext": {
         "attacker": "Leopard 2A5",
@@ -13864,7 +13900,30 @@
       "mainViewKind": "protection-analysis",
       "mainViewNote": "真实绿色装甲着色可见首下及炮塔部分区域；大块说明浮层遮挡右侧炮塔与车体区域，未遮部分仍能展示正面。",
       "mainImageUsable": true,
-      "pins": []
+      "pins": [
+        {
+          "x": 0.49,
+          "y": 0.74,
+          "label": "首下装甲板",
+          "detail": "作者优先建议较大的首下，并称首下左右两侧也可考虑。",
+          "kind": "conditional",
+          "adviceId": "BV1PUAezbE1p:234000-281000:khalid:0",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "sourceTime": 234.876105
+        },
+        {
+          "x": 0.489091,
+          "y": 0.485437,
+          "label": "炮塔下缘连接区",
+          "detail": "作者将炮塔与车体中央连接处（脖子）列为可考虑落点。",
+          "kind": "conditional",
+          "adviceId": "BV1PUAezbE1p:234000-281000:khalid:0",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "sourceTime": 234.876105
+        }
+      ],
+      "coverageStatus": "partial-verified-frontal-pins",
+      "coverageNotice": "已有局部推荐点 · 正面覆盖待补"
     },
     {
       "id": "ussr_t_80u",
@@ -14534,6 +14593,848 @@
         "caseId": "il_merkava_mk_1b:BV1SPmEBJE3y:1735000",
         "note": "原生静态已应用UI条件；防护分布计算进度不等于击穿概率，未声称独立试射成功。"
       }
+    },
+    {
+      "id": "fr_leclerc_azur",
+      "name": "Leclerc AZUR",
+      "role": "主战坦克",
+      "country": "france",
+      "countryName": "法国",
+      "rank": 8,
+      "era": null,
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/fr_leclerc_azur",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/fr_leclerc_azur.json",
+      "wikiSnapshotSHA256": "016118c84e8dee2ccef270f4e151f1e592415b5e36c9fcff1a757002866b6827",
+      "wikiSummary": "AZUR套件以侧面反应装甲及发动机周围格栅增强对破甲战斗部的防护。 主炮120 mm CN120-26 F1 cannon，自动装填 5 秒。",
+      "wikiPoints": [
+        "侧面反应装甲对常见尾翼稳定脱壳穿甲弹保护有限；不能据此断言任意动能弹必穿。",
+        "附甲增加重量并使机动略降；原页未给精确射击坐标。"
+      ],
+      "reload": {
+        "gun": "120 mm CN120-26 F1 cannon",
+        "display": "自动装填 5 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 5.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T11:42:48.746Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原页未给出AZUR精确改型形成日期。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "sw_strv_122b_plus",
+      "name": "Strv 122B+",
+      "role": "主战坦克",
+      "country": "sweden",
+      "countryName": "瑞典",
+      "rank": 8,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/sw_strv_122b_plus",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/sw_strv_122b_plus.json",
+      "wikiSnapshotSHA256": "abe5c9ae9dc546400e57b39a2cba2e737d7fb6c12bb5a7e9b359afda67fbd17b",
+      "wikiSummary": "Strv 122B+是约2010–2011年的防护技术验证方案，增强对化学能弹和聚能装药导弹的防护。 主炮120 mm kan Strv 122，7.8 → 6 秒。",
+      "wikiPoints": [
+        "原文称车体对动能弹仍有脆弱区域，适合隐蔽车体、仅露炮塔射击。",
+        "未明确车体具体弱点坐标或射角，不从其他Strv 122型复制。"
+      ],
+      "reload": {
+        "gun": "120 mm kan Strv 122",
+        "display": "7.8 → 6 秒",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6.0,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T11:42:42.317Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明示原型预计2010–2011年制造。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "fr_amx_30_super",
+      "name": "AMX-30 Super",
+      "role": "主战坦克",
+      "country": "france",
+      "countryName": "法国",
+      "rank": 6,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/fr_amx_30_super",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/fr_amx_30_super.json",
+      "wikiSnapshotSHA256": "b01c015ce7eee8f6faaf92c185ea7d86e89e91ffac3dd6aa9cd0beb87687d2df",
+      "wikiSummary": "AMX-30 Super是1980年代末针对AMX-30B的升级套件，改善发动机、传动、火控与热像并加入双向稳定器。 主炮105 mm CN105 F1 cannon，8.7 → 6.7 秒。",
+      "wikiPoints": [
+        "原页未明确该型局部装甲弱点，不从AMX-30其他变体移植。",
+        "同轴20毫米机关炮被机枪取代；主炮装填必须与机枪面板分开。"
+      ],
+      "reload": {
+        "gun": "105 mm CN105 F1 cannon",
+        "display": "8.7 → 6.7 秒",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T17:51:02.607Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明确现代化套件形成于1980年代末。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "fr_amx_40",
+      "name": "AMX-40",
+      "role": "主战坦克",
+      "country": "france",
+      "countryName": "法国",
+      "rank": 7,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/fr_amx_40",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/fr_amx_40.json",
+      "wikiSnapshotSHA256": "682248220b6cbc94326432e2752288524338955ca190566511f2cdf3ba0ef395",
+      "wikiSummary": "AMX-40是1980年开始研发的出口原型，改善正面复合装甲并兼顾机动与120毫米火力。 主炮120 mm CN120-25 G1 cannon，8.7 → 6.7 秒。",
+      "wikiPoints": [
+        "原文提醒正面防护改善不代表免疫，同级对手仍可能击穿。",
+        "未提供具体弹种、射角或局部坐标；不以名义厚度推定必穿。"
+      ],
+      "reload": {
+        "gun": "120 mm CN120-25 G1 cannon",
+        "display": "8.7 → 6.7 秒",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T17:51:09.280Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明确1980年开始研发、1983年完成首辆原型。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "fr_embt",
+      "name": "EMBT (France)",
+      "role": "主战坦克",
+      "country": "france",
+      "countryName": "法国",
+      "rank": 8,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/fr_embt",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/fr_embt.json",
+      "wikiSnapshotSHA256": "ca266f66d1b8fd30c44261629a711383addfbfd21720a65e8d3bb11c7aff052f",
+      "wikiSummary": "2018年EMBT结合勒克莱尔炮塔与豹2车体，兼具自动装填及改善的车体防护。 主炮120 mm CN120-26 F1 cannon，自动装填 5 秒。",
+      "wikiPoints": [
+        "较勒克莱尔车体防护改善，以机动与操纵为代价；没有车长热像。",
+        "原文区分2018与2022年版本，不将后者改进复制到本型。"
+      ],
+      "reload": {
+        "gun": "120 mm CN120-26 F1 cannon",
+        "display": "自动装填 5 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 5.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T17:51:17.607Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "gameDisplayName": "▄EMBT",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明示2017年项目开始，2018年合成并公开。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "fr_leclerc_sxxi",
+      "name": "Leclerc SXXI",
+      "role": "主战坦克",
+      "country": "france",
+      "countryName": "法国",
+      "rank": 8,
+      "era": null,
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/fr_leclerc_sxxi",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/fr_leclerc_sxxi.json",
+      "wikiSnapshotSHA256": "6826ed5b76c5ca25fc48780491e375964d3b08074ab076ac4479bb52a2927282",
+      "wikiSummary": "勒克莱尔SXXI增强炮塔正面模块化复合装甲，并在炮手瞄具下增设防护。 主炮120 mm CN120-26 F1 cannon，自动装填 5 秒。",
+      "wikiPoints": [
+        "原文称炮塔正面防护较强，但未给出可验证的局部射击弱点。",
+        "车长HL120周视镜具热像及激光测距，支持猎歼；装备描述不是射击结果。"
+      ],
+      "reload": {
+        "gun": "120 mm CN120-26 F1 cannon",
+        "display": "自动装填 5 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 5.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T17:51:25.921Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原页未给SXXI形成或研发年份。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "fr_leopard_2a4nl",
+      "name": "Leopard 2A4NL",
+      "role": "主战坦克",
+      "country": "france",
+      "countryName": "法国",
+      "rank": 7,
+      "era": null,
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/fr_leopard_2a4nl",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/fr_leopard_2a4nl.json",
+      "wikiSnapshotSHA256": "c4c96ea22161d5699909b1996a1c570f0da8b9076e7549cb89c43ed3f3ecd0e9",
+      "wikiSummary": "荷兰豹2A4NL更换烟幕发射器、机枪、无线电及驾驶员夜视等设备。 主炮120 mm Rh120 L/44 cannon，7.8 → 6 秒。",
+      "wikiPoints": [
+        "原文称仅16发弹药受泄压板保护，装甲有多个弱点但未列坐标。",
+        "不将德军豹2A4的局部弱点直接作为本型实测。"
+      ],
+      "reload": {
+        "gun": "120 mm Rh120 L/44 cannon",
+        "display": "7.8 → 6 秒",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6.0,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T17:51:33.874Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "1985为豹2A4基础型生产年，1979为荷兰采购年；未给精确NL改型形成日期。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "fr_leopard_2a4nl_les",
+      "name": "Leopard 2 (OTCo)",
+      "role": "主战坦克",
+      "country": "france",
+      "countryName": "法国",
+      "rank": 7,
+      "era": null,
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/fr_leopard_2a4nl_les",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/fr_leopard_2a4nl_les.json",
+      "wikiSnapshotSHA256": "1ffdc2b861117459ab7c0ee21da227f09aee7458c960553f45e2fe8b1871179f",
+      "wikiSummary": "豹2OTCo为荷兰训练单位版本，配可拆卸网布伪装套件及不同涂装。 主炮120 mm Rh120 L/44 cannon，7.8 → 6 秒。",
+      "wikiPoints": [
+        "原文称仅16发弹药受泄压板保护，装甲存在弱点但未给局部位置。",
+        "训练组织成立时间不等于车辆技术形成时间。"
+      ],
+      "reload": {
+        "gun": "120 mm Rh120 L/44 cannon",
+        "display": "7.8 → 6 秒",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6.0,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T17:51:42.079Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文1969及2001是训练组织历史，不能用作该车辆改型形成年代。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "fr_leopard_2a6nl",
+      "name": "Leopard 2A6NL",
+      "role": "主战坦克",
+      "country": "france",
+      "countryName": "法国",
+      "rank": 8,
+      "era": null,
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/fr_leopard_2a6nl",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/fr_leopard_2a6nl.json",
+      "wikiSnapshotSHA256": "c68253f36b7d696b6027adf85ea772ee1e143936329e792475c84912618f73ad",
+      "wikiSummary": "荷兰豹2A6NL以长身管120毫米炮改善弹道，更换烟幕及机枪装备。 主炮120 mm Rh120 L/55 cannon，7.8 → 6 秒。",
+      "wikiPoints": [
+        "原文称生存性一般且有较多装甲弱点，未列局部坐标。",
+        "车体后部较高使向后射击受限；不等于正面必穿。"
+      ],
+      "reload": {
+        "gun": "120 mm Rh120 L/55 cannon",
+        "display": "7.8 → 6 秒",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6.0,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T17:51:50.367Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "2015为租赁/改装叙述，未给出精确NL技术形成日期；不按采购年份定时代。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "sw_leopard_2a6nl",
+      "name": "Leopard 2A6 (Sweden)",
+      "role": "主战坦克",
+      "country": "sweden",
+      "countryName": "瑞典",
+      "rank": 8,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/sw_leopard_2a6nl",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/sw_leopard_2a6nl.json",
+      "wikiSnapshotSHA256": "26c3116f5b0a281e4c5a213704939effdd9bd75b54d202c8cf2184c0ac14ff17",
+      "wikiSummary": "芬兰豹2A6装备长身管120毫米炮、DM53弹及炮塔楔形附加装甲。 主炮120 mm Rh120 L/55 cannon，7.8 → 6 秒。",
+      "wikiPoints": [
+        "原文明示炮盾较脆弱，但没有具体坐标、弹种或角度条件。",
+        "抬高的车体后部会妨碍向后射击；车长具独立热像瞄具。"
+      ],
+      "reload": {
+        "gun": "120 mm Rh120 L/55 cannon",
+        "display": "7.8 → 6 秒",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6.0,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T17:51:58.580Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "gameDisplayName": "▄Leopard 2A6",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明示豹2A6在2000年代初开始生产，芬兰版本没有另述技术升级。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "sw_strv121b_christian2",
+      "name": "Christian II",
+      "role": "主战坦克",
+      "country": "sweden",
+      "countryName": "瑞典",
+      "rank": 7,
+      "era": null,
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/sw_strv121b_christian2",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/sw_strv121b_christian2.json",
+      "wikiSnapshotSHA256": "28c9c71ebc3ecd1965e510ba2f0321bf6d2b5ae382a7296993fe19595771ea51",
+      "wikiSummary": "Christian II为Strv121升级验证车，改善烟幕、炮塔电气、倒车摄像及维护便利性。 主炮120 mm kan Strv 121，7.8 → 6 秒。",
+      "wikiPoints": [
+        "原文建议隐蔽车体并利用炮塔较强防护，配合地形短暂露头射击。",
+        "没有可验证局部坐标，不将炮塔整体较强解读为所有弹种无法击穿。"
+      ],
+      "reload": {
+        "gun": "120 mm kan Strv 121",
+        "display": "7.8 → 6 秒",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6.0,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T17:52:06.663Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文2004国防法及2000年代入库未明确本升级型形成日期。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "sw_t_80u",
+      "name": "T 80 U",
+      "role": "主战坦克",
+      "country": "sweden",
+      "countryName": "瑞典",
+      "rank": 8,
+      "era": null,
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/sw_t_80u",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/sw_t_80u.json",
+      "wikiSnapshotSHA256": "a5b516f50d1ef7257da4919564a743fa8efb54100e6ac1e081590ab6121b41a6",
+      "wikiSummary": "瑞典T80U参与新坦克试验；相对苏联版本缺少3BM46，仍保留转盘自动装填结构。 主炮125 mm 2A46M-1 cannon，自动装填 6 秒。",
+      "wikiPoints": [
+        "原文明示弹药架较脆弱，转盘装填使弹药在车内较暴露；未给外部命中坐标。",
+        "不能从原文对苏联版本的比较推导任意弹种、角度均会引爆。"
+      ],
+      "reload": {
+        "gun": "125 mm 2A46M-1 cannon",
+        "display": "自动装填 6 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 6.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T17:52:14.942Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "1991–1994仅为瑞典试验时间，原文未给精确T80U研发或形成日期。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "il_centurion_shot_kal_d",
+      "name": "Sho't Kal Dalet",
+      "role": "主战坦克",
+      "country": "israel",
+      "countryName": "以色列",
+      "rank": 6,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/il_centurion_shot_kal_d",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/il_centurion_shot_kal_d.json",
+      "wikiSnapshotSHA256": "6f2bcee3330a08ce7c4d8a5c27f2690d71481da9888a6f4a7711d18dfb78b87c",
+      "wikiSummary": "肖特卡尔Dalet为1984年改型，改善火控与Blazer反应装甲布置。 主炮105 mm Sharir cannon，8.7 → 6.7 秒。",
+      "wikiPoints": [
+        "原文明确侧面防护较差，至多抵御重机枪，仍没有具体射角及局部坐标。",
+        "机动平庸；热像、火控与炮弹选择不应误当防护能力。"
+      ],
+      "reload": {
+        "gun": "105 mm Sharir cannon",
+        "display": "8.7 → 6.7 秒",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T17:52:23.098Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明确该改型出现于1984年。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "il_magach_6b_gal",
+      "name": "Magach 6B Gal",
+      "role": "主战坦克",
+      "country": "israel",
+      "countryName": "以色列",
+      "rank": 6,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/il_magach_6b_gal",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/il_magach_6b_gal.json",
+      "wikiSnapshotSHA256": "4814cce3f75cbdf638b8bcd7eeeff1f28b5e8d7c5ffc1af3d593fdab0520db60",
+      "wikiSummary": "马加奇6B Gal升级火控与光电设备，以Blazer反应装甲增强防破甲弹和导弹能力。 主炮105 mm Sharir cannon，8.7 → 6.7 秒。",
+      "wikiPoints": [
+        "原文认为机动和倒车有限，反应装甲提供一定防护，不等于抵挡所有弹种。",
+        "未提供局部弱点坐标；不复制后续Gal Batash的装甲与动力改进。"
+      ],
+      "reload": {
+        "gun": "105 mm Sharir cannon",
+        "display": "8.7 → 6.7 秒",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T17:52:31.253Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明示该升级在1990年代之前形成。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "il_magach_6b_gal_batash",
+      "name": "Gal Batash",
+      "role": "主战坦克",
+      "country": "israel",
+      "countryName": "以色列",
+      "rank": 6,
+      "era": null,
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/il_magach_6b_gal_batash",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/il_magach_6b_gal_batash.json",
+      "wikiSnapshotSHA256": "946c84916a597dd1a130a1ea969047b7d4b2b63c1a2e81ae712d56166443e307",
+      "wikiSummary": "马加奇6B Gal Batash改善附加装甲与动力，保留Gal火控；主要用于后方与预备部队。 主炮105 mm Sharir cannon，8.7 → 6.7 秒。",
+      "wikiPoints": [
+        "原文称炮塔对聚能装药及旧式导弹有一定防护，但脱壳及尾翼稳定脱壳穿甲弹仍可穿透薄弱区域。",
+        "薄弱区域未列具体位置或射击条件；机动和倒车仍有限。"
+      ],
+      "reload": {
+        "gun": "105 mm Sharir cannon",
+        "display": "8.7 → 6.7 秒",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T17:52:39.399Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原页没有给出精确Gal Batash形成日期。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "il_magach_6c",
+      "name": "Magach 6C",
+      "role": "主战坦克",
+      "country": "israel",
+      "countryName": "以色列",
+      "rank": 6,
+      "era": null,
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/il_magach_6c",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/il_magach_6c.json",
+      "wikiSnapshotSHA256": "ce3e909ca5fd1f6d873eefd82defe3b99dd7f1c2a947e8d81616b547c4243922",
+      "wikiSummary": "马加奇6C基于M60A3，配炮手热像、激光告警、额外烟幕及增强反应装甲。 主炮105 mm Sharir cannon，8.7 → 6.7 秒。",
+      "wikiPoints": [
+        "原文明示附加装甲不能防御常见尾翼稳定脱壳穿甲弹；未列局部坐标。",
+        "建议支援作战并利用俯角与丘陵隐蔽车体；名义防护数值不能替代试射。"
+      ],
+      "reload": {
+        "gun": "105 mm Sharir cannon",
+        "display": "8.7 → 6.7 秒",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T17:52:47.789Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原页未给出精确6C研发或形成日期。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "il_magach_7c",
+      "name": "Magach 7C",
+      "role": "主战坦克",
+      "country": "israel",
+      "countryName": "以色列",
+      "rank": 6,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/il_magach_7c",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/il_magach_7c.json",
+      "wikiSnapshotSHA256": "417714387d91d6aaf6f44326bf436f97c117ab3a7b02cf3ae8553c3d2df7bb5a",
+      "wikiSummary": "马加奇7C在1990年代研发，采用被动附加装甲并升级动力、传动与火控。 主炮105 mm Sharir cannon，8.7 → 6.7 秒。",
+      "wikiPoints": [
+        "原文称较前型改善对动能与破甲弹的防护，但没有具体局部弱点证据。",
+        "第二代热像与新尾翼稳定脱壳穿甲弹属于火力能力，不是本车防护试射结果。"
+      ],
+      "reload": {
+        "gun": "105 mm Sharir cannon",
+        "display": "8.7 → 6.7 秒",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T17:52:55.908Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明确C型于1990年代研发；未给出更精确年份。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "il_merkava_mk_1",
+      "name": "Merkava Mk.1",
+      "role": "主战坦克",
+      "country": "israel",
+      "countryName": "以色列",
+      "rank": 6,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/il_merkava_mk_1",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/il_merkava_mk_1.json",
+      "wikiSnapshotSHA256": "ddddfe85229bf2b3376f8bc74abb5e9fc38794fa2f80bf5b45eb3c7a592db51c",
+      "wikiSummary": "梅卡瓦Mk.1在1974年进行原型试验，以前置发动机及车尾舱门贯彻乘员保护设计。 主炮105 mm Sharir cannon，8.7 → 6.7 秒。",
+      "wikiPoints": [
+        "原文称前置发动机可吸收正面来弹、保护乘员，但增加发动机失效及起火风险。",
+        "机动弱于不少西方坦克；未提供可验证的局部弱点坐标。"
+      ],
+      "reload": {
+        "gun": "105 mm Sharir cannon",
+        "display": "8.7 → 6.7 秒",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T17:53:04.016Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明确1974年原型试验，1979年12月服役。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "il_merkava_mk_2b_early",
+      "name": "Merkava Mk.2B",
+      "role": "主战坦克",
+      "country": "israel",
+      "countryName": "以色列",
+      "rank": 6,
+      "era": null,
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/il_merkava_mk_2b_early",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/il_merkava_mk_2b_early.json",
+      "wikiSnapshotSHA256": "0a74a11ea031ccd0086485fd12c0bf8826fc90a4196bd73c24416963d08e029a",
+      "wikiSummary": "梅卡瓦Mk.2B增加车体和炮塔侧面复合屏，改善对破甲弹及反坦克导弹的防护。 主炮105 mm Sharir cannon，8.7 → 6.7 秒。",
+      "wikiPoints": [
+        "前置发动机有助于正面保护乘员，同时提高发动机损坏和起火风险。",
+        "防护改善不是全向免疫；原页未列具体坐标，Mk2家族年份不代填Mk2B形成时间。"
+      ],
+      "reload": {
+        "gun": "105 mm Sharir cannon",
+        "display": "8.7 → 6.7 秒",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T17:53:12.374Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "1983–1989明确属于Mk2家族生产，原文未给精确Mk2B形成日期。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "il_merkava_mk_2d",
+      "name": "Merkava Mk.2D",
+      "role": "主战坦克",
+      "country": "israel",
+      "countryName": "以色列",
+      "rank": 6,
+      "era": null,
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/il_merkava_mk_2d",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/il_merkava_mk_2d.json",
+      "wikiSnapshotSHA256": "7619907e3ce7bd544606e5fd38d8e1bea466001d1e51b708d611bf68234ff589",
+      "wikiSummary": "梅卡瓦Mk.2D采用可替换的模块化复合附加装甲，增强车体及炮塔防护。 主炮105 mm Sharir cannon，8.7 → 6.7 秒。",
+      "wikiPoints": [
+        "原文建议利用地形隐蔽车体并发挥炮塔防护及低轮廓优势。",
+        "与Mk4的定性比较不是等效厚度证据，也不转移Mk4局部弱点到本型。"
+      ],
+      "reload": {
+        "gun": "105 mm Sharir cannon",
+        "display": "8.7 → 6.7 秒",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T17:53:20.561Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原页未给出精确Mk2D形成日期。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
     }
   ],
   "eraPolicy": "按具体型号／改型所处年代分类，BR 另作筛选；本批为冷战样例。",
@@ -14541,7 +15442,7 @@
     "targetCount": 226,
     "rankTankCount": 216,
     "isSupplementCount": 10,
-    "wikiReviewedCount": 135,
+    "wikiReviewedCount": 155,
     "illustratedCount": 29,
     "countries": [
       {
