@@ -59,8 +59,11 @@ function renderPoint() {
     return;
   }
   const pin = SAMPLE.models[selected]?.pins?.[point];
-  $("point-title").textContent = pin?.label || "尚无标注";
-  $("point-detail").textContent = pin?.detail || "该车型的攻击位置说明尚未补充。";
+  const model = SAMPLE.models[selected];
+  const summary = model?.frontSummary || model?.videoAdvice?.[0]?.text;
+  if (!pin && summary) $("point-kind").textContent = "整体打法";
+  $("point-title").textContent = pin?.label || (summary ? "视频打法摘要" : "尚无标注");
+  $("point-detail").textContent = pin?.detail || summary || "该车型的攻击位置说明尚未补充。";
   for (const host of [$("pins"), $("pin-buttons")])
     [...host.children].forEach((button, index) => button.setAttribute("aria-pressed", String(index === point)));
 }
@@ -76,7 +79,7 @@ function render() {
   const source = sourceOf(model);
   const evidence = selectedEvidence(model);
   const imageViews = $("image-views");
-  const views = [{ id: null, label: "外观与标注" }, ...(model.protectionEvidence || [])];
+  const views = [{ id: null, label: model.mainViewKind === "protection-analysis" ? "防护分析" : "外观与标注" }, ...(model.protectionEvidence || [])];
   imageViews.hidden = views.length < 2;
   imageViews.replaceChildren(...views.map((view) => {
     const button = element("button", view.label);
@@ -138,7 +141,7 @@ function render() {
   };
   if (imageUrl) image.src = imageUrl;
   else { image.removeAttribute("src"); imageMissing("高清正面图尚未归档，此车型资料仍在补充。"); }
-  image.alt = model.name + (evidence ? ` · ${evidence.label} · 原视频防护分析画面` : showRaw ? "原始防护分析视频帧" : "正面防护分析截图与区域标注");
+  image.alt = model.name + (evidence ? ` · ${evidence.label} · 原视频防护分析画面` : showRaw ? "原始防护分析视频帧" : model.mainViewKind === "protection-analysis" ? "正面防护分析原图" : "正面截图与区域说明");
   image.width = evidence?.sourceDimensions?.[0] || (showRaw ? (model.sourceDimensions?.[0] || 1920) : (model.crop?.[2] || 1100));
   image.height = evidence?.sourceDimensions?.[1] || (showRaw ? (model.sourceDimensions?.[1] || 1080) : (model.crop?.[3] || 690));
   $("toggle-original").hidden = !!evidence || !(model.imageUrl && model.rawUrl);
@@ -147,7 +150,8 @@ function render() {
   $("evidence-full").hidden = !evidence;
   if (evidence) $("evidence-full").href = evidence.rawUrl || evidence.imageUrl;
   else $("evidence-full").removeAttribute("href");
-  $("figure-caption").textContent = evidence ? evidence.caption : imageUrl ? `画面：${source.author || "来源见下方"} / 《战争雷霆》。${showRaw ? "当前为完整原始帧。" : "金色编号为讲解标注。"}原始游戏热图颜色取决于当时的弹种与视角。` : "图像资料待补充，不以其他车型画面代替。";
+  const imageDescription = showRaw ? "当前为完整原始帧。" : model.mainViewKind === "protection-analysis" ? "原视频防护分析，保留游戏原始着色。" : model.pins?.length ? "金色编号为讲解标注。" : "原视频载具外观。";
+  $("figure-caption").textContent = evidence ? evidence.caption : imageUrl ? `画面：${source.author || "来源见下方"} / 《战争雷霆》。${imageDescription}防护分析颜色对应当时的弹种与视角，条件见视频测试。` : "图像资料待补充，不以其他车型画面代替。";
   $("pins").hidden = !!evidence || showRaw || !imageUrl;
   $("pins").replaceChildren();
   $("pin-buttons").replaceChildren();

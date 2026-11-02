@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "9d1da63c8a758766a30d48dd3adee98cb054ec62",
+  "commit": "0514380fa673b8ffc607381b869f8e2528123c53",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -254,6 +254,96 @@
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@6ba738974442a71f8eb94e54fc32a9e9d093843f/images/GBR/GBR-Challenger-Mk-3-front.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/6ba738974442a71f8eb94e54fc32a9e9d093843f/images/GBR/GBR-Challenger-Mk-3-front.webp",
         "commit": "6ba738974442a71f8eb94e54fc32a9e9d093843f"
+      }
+    },
+    "fr_msc": {
+      "raw": {
+        "path": "images/FRA/FRA-MSC-case-09m00s-capture-20261102.webp",
+        "sha256": "d0653c5f62d1c52d7a98486f7c49b0891c0d3bc7ff546e6f6a31584df02e8b31",
+        "bytes": 1932414,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/FRA/FRA-MSC-case-09m00s-capture-20261102.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/FRA/FRA-MSC-case-09m00s-capture-20261102.webp",
+        "commit": "0514380fa673b8ffc607381b869f8e2528123c53"
+      },
+      "photo": {
+        "path": "images/FRA/FRA-MSC-front.webp",
+        "sha256": "75685e070d5f99f7703891cb0ebc5791a71026fa150cf519298f76f6d4a23e8b",
+        "bytes": 157928,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/FRA/FRA-MSC-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/FRA/FRA-MSC-front.webp",
+        "commit": "0514380fa673b8ffc607381b869f8e2528123c53"
+      }
+    },
+    "germ_leopard_2a4m_can": {
+      "raw": {
+        "path": "images/GER/GER-Leopard-2A4M-CAN-case-07m20s-capture-20261102.webp",
+        "sha256": "61c21743957c62effd2e55ea678ed24aecaf7a2fba4712cb36a453501fee6abd",
+        "bytes": 2157254,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/GER/GER-Leopard-2A4M-CAN-case-07m20s-capture-20261102.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/GER/GER-Leopard-2A4M-CAN-case-07m20s-capture-20261102.webp",
+        "commit": "0514380fa673b8ffc607381b869f8e2528123c53"
+      },
+      "photo": {
+        "path": "images/GER/GER-Leopard-2A4M-CAN-front.webp",
+        "sha256": "5837a7020558cd5a2bf768f8ded65e1a51206587b28c6f33bb87519a6379d1db",
+        "bytes": 271248,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/GER/GER-Leopard-2A4M-CAN-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/GER/GER-Leopard-2A4M-CAN-front.webp",
+        "commit": "0514380fa673b8ffc607381b869f8e2528123c53"
+      }
+    },
+    "it_c1_ariete_certezza": {
+      "raw": {
+        "path": "images/ITA/ITA-Ariete-Certezza-case-12m50s-capture-20261102.webp",
+        "sha256": "3f0ccb54e4d38603d06be42e1970f3412a2f875d86a24bcb7c0b575f0fa3adb7",
+        "bytes": 1987596,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/ITA/ITA-Ariete-Certezza-case-12m50s-capture-20261102.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/ITA/ITA-Ariete-Certezza-case-12m50s-capture-20261102.webp",
+        "commit": "0514380fa673b8ffc607381b869f8e2528123c53"
+      },
+      "photo": {
+        "path": "images/ITA/ITA-Ariete-Certezza-front.webp",
+        "sha256": "8bbf3e10a34e13a3de76ed5fdbd554691f9e2113acfa86092aea8325af2ccb7a",
+        "bytes": 260238,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/ITA/ITA-Ariete-Certezza-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/ITA/ITA-Ariete-Certezza-front.webp",
+        "commit": "0514380fa673b8ffc607381b869f8e2528123c53"
+      }
+    },
+    "uk_khalid": {
+      "raw": {
+        "path": "images/GBR/GBR-Khalid-case-04m00s-capture-20261102.webp",
+        "sha256": "2e322f6aad196f4c2b2292bbbfc504a258897bb8c47d3ed93dcb657a83b414d4",
+        "bytes": 1872352,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/GBR/GBR-Khalid-case-04m00s-capture-20261102.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/GBR/GBR-Khalid-case-04m00s-capture-20261102.webp",
+        "commit": "0514380fa673b8ffc607381b869f8e2528123c53"
+      },
+      "photo": {
+        "path": "images/GBR/GBR-Khalid-front.webp",
+        "sha256": "407a3749ce42ae7f8529afcc73171d18128df9549f6eb2fd373013ffc456e495",
+        "bytes": 261958,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/GBR/GBR-Khalid-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/GBR/GBR-Khalid-front.webp",
+        "commit": "0514380fa673b8ffc607381b869f8e2528123c53"
+      }
+    },
+    "us_m1a1_hc_usmc": {
+      "raw": {
+        "path": "images/USA/USA-M1A1-Click-Bait-case-11m20s-capture-20261102.webp",
+        "sha256": "53f317eefc5c32275a7e748d2674dfd0751c552a479a0cf6ae975f5ee3e8035c",
+        "bytes": 1916068,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/USA/USA-M1A1-Click-Bait-case-11m20s-capture-20261102.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/USA/USA-M1A1-Click-Bait-case-11m20s-capture-20261102.webp",
+        "commit": "0514380fa673b8ffc607381b869f8e2528123c53"
+      },
+      "photo": {
+        "path": "images/USA/USA-M1A1-Click-Bait-front.webp",
+        "sha256": "9b7b0856a3856c3f5c1d5f657a743ebb9bfae3300820cb4a71f0c1eaa3f63bb8",
+        "bytes": 244438,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/USA/USA-M1A1-Click-Bait-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/USA/USA-M1A1-Click-Bait-front.webp",
+        "commit": "0514380fa673b8ffc607381b869f8e2528123c53"
       }
     }
   },
@@ -6171,6 +6261,468 @@
       "commit": "9d1da63c8a758766a30d48dd3adee98cb054ec62",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9d1da63c8a758766a30d48dd3adee98cb054ec62/images/GBR/GBR-Challenger-Mk-3-JM33-protection-analysis.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9d1da63c8a758766a30d48dd3adee98cb054ec62/images/GBR/GBR-Challenger-Mk-3-JM33-protection-analysis.webp"
+    },
+    {
+      "id": "d0653c5f62d1c52d7a98486f7c49b0891c0d3bc7ff546e6f6a31584df02e8b31",
+      "path": "images/FRA/FRA-MSC-case-09m00s-capture-20261102.webp",
+      "sha256": "d0653c5f62d1c52d7a98486f7c49b0891c0d3bc7ff546e6f6a31584df02e8b31",
+      "bytes": 1932414,
+      "width": 1920,
+      "height": 1080,
+      "vehicleId": "fr_msc",
+      "vehicleEnglishName": "MSC",
+      "country": "FRA",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "sourceFrameSHA256": "33ffb811b313176e22684c63531f8b51f6e7a3d2bb95d8985a0ee25c906aa7d8",
+      "proofSnapshotSHA256": "40e9fa2ffb632c743679174f13a6acac258ffda396023f3b3d32e36ec5a49867",
+      "mediaTime": 540,
+      "actualTime": 540,
+      "caseId": "fr_msc:BV1PUAezbE1p:540000",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": false,
+      "sceneKind": "protection-colour-map",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "commit": "0514380fa673b8ffc607381b869f8e2528123c53",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/FRA/FRA-MSC-case-09m00s-capture-20261102.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/FRA/FRA-MSC-case-09m00s-capture-20261102.webp"
+    },
+    {
+      "id": "61c21743957c62effd2e55ea678ed24aecaf7a2fba4712cb36a453501fee6abd",
+      "path": "images/GER/GER-Leopard-2A4M-CAN-case-07m20s-capture-20261102.webp",
+      "sha256": "61c21743957c62effd2e55ea678ed24aecaf7a2fba4712cb36a453501fee6abd",
+      "bytes": 2157254,
+      "width": 1920,
+      "height": 1080,
+      "vehicleId": "germ_leopard_2a4m_can",
+      "vehicleEnglishName": "Leopard 2A4M",
+      "country": "GER",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "sourceFrameSHA256": "0db49a571108f55e73fc259fc9087136af22afea5c5eafed5a6e36b6948c46b7",
+      "proofSnapshotSHA256": "99ac5308c2880647c1796d2b05b1314f8aefca8fa8eabd690147f10be90400f5",
+      "mediaTime": 440.017,
+      "actualTime": 440.017,
+      "caseId": "germ_leopard_2a4m_can:BV1PUAezbE1p:440017",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": false,
+      "sceneKind": "protection-colour-map",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "commit": "0514380fa673b8ffc607381b869f8e2528123c53",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/GER/GER-Leopard-2A4M-CAN-case-07m20s-capture-20261102.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/GER/GER-Leopard-2A4M-CAN-case-07m20s-capture-20261102.webp"
+    },
+    {
+      "id": "3f0ccb54e4d38603d06be42e1970f3412a2f875d86a24bcb7c0b575f0fa3adb7",
+      "path": "images/ITA/ITA-Ariete-Certezza-case-12m50s-capture-20261102.webp",
+      "sha256": "3f0ccb54e4d38603d06be42e1970f3412a2f875d86a24bcb7c0b575f0fa3adb7",
+      "bytes": 1987596,
+      "width": 1920,
+      "height": 1080,
+      "vehicleId": "it_c1_ariete_certezza",
+      "vehicleEnglishName": "Ariete Certezza",
+      "country": "ITA",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "sourceFrameSHA256": "86f702da1fc5c4260cecff7655e1c650939577ec1d54d603eccac59fc51bd05d",
+      "proofSnapshotSHA256": "11517df4b91981477a87bab78140f615968723261f195cd3094e12b00f6829c3",
+      "mediaTime": 770.017,
+      "actualTime": 770.017,
+      "caseId": "it_c1_ariete_certezza:BV1PUAezbE1p:770017",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": false,
+      "sceneKind": "exterior",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "commit": "0514380fa673b8ffc607381b869f8e2528123c53",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/ITA/ITA-Ariete-Certezza-case-12m50s-capture-20261102.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/ITA/ITA-Ariete-Certezza-case-12m50s-capture-20261102.webp"
+    },
+    {
+      "id": "e61b734a0315d4171e56f305c2cbe8c13bdc36085fb7deebc8a5baae20eef8af",
+      "path": "images/ITA/ITA-Ariete-Certezza-case-13m10s-capture-20261102.webp",
+      "sha256": "e61b734a0315d4171e56f305c2cbe8c13bdc36085fb7deebc8a5baae20eef8af",
+      "bytes": 1834248,
+      "width": 1920,
+      "height": 1080,
+      "vehicleId": "it_c1_ariete_certezza",
+      "vehicleEnglishName": "Ariete Certezza",
+      "country": "ITA",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "sourceFrameSHA256": "3afcaaa75f65b250421cd3cf4c4c56f7003ad15c361abcaf8821a7e61b020436",
+      "proofSnapshotSHA256": "b7398888bbbf68583d68805b487cc901c20e8bbd7b158ba3337e82cd11e8cb07",
+      "mediaTime": 790.033,
+      "actualTime": 790.033,
+      "caseId": "it_c1_ariete_certezza:BV1PUAezbE1p:790033",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": false,
+      "sceneKind": "exterior",
+      "visibleView": "oblique-front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "commit": "0514380fa673b8ffc607381b869f8e2528123c53",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/ITA/ITA-Ariete-Certezza-case-13m10s-capture-20261102.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/ITA/ITA-Ariete-Certezza-case-13m10s-capture-20261102.webp"
+    },
+    {
+      "id": "5cd17df2a9001fc9147cfb3c55a6a77d5b818b428b55485b313088307e5f1bc1",
+      "path": "images/GBR/GBR-Challenger-2-OES-case-12m20s-capture-20261102.webp",
+      "sha256": "5cd17df2a9001fc9147cfb3c55a6a77d5b818b428b55485b313088307e5f1bc1",
+      "bytes": 1540688,
+      "width": 1920,
+      "height": 1080,
+      "vehicleId": "uk_challenger_2_megatron",
+      "vehicleEnglishName": "Challenger 2 OES",
+      "country": "GBR",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "sourceFrameSHA256": "928dafc2efbbbda3eca8c08d63d8a217c8be3d76e5b437d916c3ecc3a40b8ee8",
+      "proofSnapshotSHA256": "c54580a9e2697f61bab577ce0d465c061e4518e2679437ca46e782479be52746",
+      "mediaTime": 740.017,
+      "actualTime": 740.017,
+      "caseId": "uk_challenger_2_megatron:BV1PUAezbE1p:740017",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": false,
+      "sceneKind": "post-hit-xray",
+      "visibleView": "oblique-front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "commit": "0514380fa673b8ffc607381b869f8e2528123c53",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/GBR/GBR-Challenger-2-OES-case-12m20s-capture-20261102.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/GBR/GBR-Challenger-2-OES-case-12m20s-capture-20261102.webp"
+    },
+    {
+      "id": "2e322f6aad196f4c2b2292bbbfc504a258897bb8c47d3ed93dcb657a83b414d4",
+      "path": "images/GBR/GBR-Khalid-case-04m00s-capture-20261102.webp",
+      "sha256": "2e322f6aad196f4c2b2292bbbfc504a258897bb8c47d3ed93dcb657a83b414d4",
+      "bytes": 1872352,
+      "width": 1920,
+      "height": 1080,
+      "vehicleId": "uk_khalid",
+      "vehicleEnglishName": "Khalid",
+      "country": "GBR",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "sourceFrameSHA256": "852ee665bd4d65deb6af9e50a28dbfaf6252c80e3515194e80c73822605a1295",
+      "proofSnapshotSHA256": "5f7bf787fd1c1f7f9dd0383f026d986327da94d9a83aff02dfa8fa9fc4be07d2",
+      "mediaTime": 240,
+      "actualTime": 240,
+      "caseId": "uk_khalid:BV1PUAezbE1p:240000",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": false,
+      "sceneKind": "protection-colour-map",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "commit": "0514380fa673b8ffc607381b869f8e2528123c53",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/GBR/GBR-Khalid-case-04m00s-capture-20261102.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/GBR/GBR-Khalid-case-04m00s-capture-20261102.webp"
+    },
+    {
+      "id": "53f317eefc5c32275a7e748d2674dfd0751c552a479a0cf6ae975f5ee3e8035c",
+      "path": "images/USA/USA-M1A1-Click-Bait-case-11m20s-capture-20261102.webp",
+      "sha256": "53f317eefc5c32275a7e748d2674dfd0751c552a479a0cf6ae975f5ee3e8035c",
+      "bytes": 1916068,
+      "width": 1920,
+      "height": 1080,
+      "vehicleId": "us_m1a1_hc_usmc",
+      "vehicleEnglishName": "M1A1 Click-Bait",
+      "country": "USA",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "sourceFrameSHA256": "bc355cd16819e1ab09d5c242e1716e77333c1a1e3f0dd071b415338203191310",
+      "proofSnapshotSHA256": "d45ecbf90838212faac78d2fbe8247e1c5f4db4f47a668e20a5cc0e0b83cf2dc",
+      "mediaTime": 680.017,
+      "actualTime": 680.017,
+      "caseId": "us_m1a1_hc_usmc:BV1PUAezbE1p:680017",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": false,
+      "sceneKind": "protection-colour-map",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "commit": "0514380fa673b8ffc607381b869f8e2528123c53",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/USA/USA-M1A1-Click-Bait-case-11m20s-capture-20261102.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/USA/USA-M1A1-Click-Bait-case-11m20s-capture-20261102.webp"
+    },
+    {
+      "id": "75685e070d5f99f7703891cb0ebc5791a71026fa150cf519298f76f6d4a23e8b",
+      "path": "images/FRA/FRA-MSC-front.webp",
+      "sha256": "75685e070d5f99f7703891cb0ebc5791a71026fa150cf519298f76f6d4a23e8b",
+      "bytes": 157928,
+      "width": 412,
+      "height": 350,
+      "vehicleId": "fr_msc",
+      "vehicleEnglishName": "MSC",
+      "country": "FRA",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "sourceFrameSHA256": "33ffb811b313176e22684c63531f8b51f6e7a3d2bb95d8985a0ee25c906aa7d8",
+      "proofSnapshotSHA256": "40e9fa2ffb632c743679174f13a6acac258ffda396023f3b3d32e36ec5a49867",
+      "mediaTime": 540,
+      "actualTime": 540,
+      "caseId": "fr_msc:BV1PUAezbE1p:540000",
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "photo"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": true,
+      "sceneKind": "protection-colour-map",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "crop": [
+        725,
+        262,
+        412,
+        350
+      ],
+      "commit": "0514380fa673b8ffc607381b869f8e2528123c53",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/FRA/FRA-MSC-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/FRA/FRA-MSC-front.webp"
+    },
+    {
+      "id": "5837a7020558cd5a2bf768f8ded65e1a51206587b28c6f33bb87519a6379d1db",
+      "path": "images/GER/GER-Leopard-2A4M-CAN-front.webp",
+      "sha256": "5837a7020558cd5a2bf768f8ded65e1a51206587b28c6f33bb87519a6379d1db",
+      "bytes": 271248,
+      "width": 500,
+      "height": 400,
+      "vehicleId": "germ_leopard_2a4m_can",
+      "vehicleEnglishName": "Leopard 2A4M",
+      "country": "GER",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "sourceFrameSHA256": "0db49a571108f55e73fc259fc9087136af22afea5c5eafed5a6e36b6948c46b7",
+      "proofSnapshotSHA256": "99ac5308c2880647c1796d2b05b1314f8aefca8fa8eabd690147f10be90400f5",
+      "mediaTime": 440.017,
+      "actualTime": 440.017,
+      "caseId": "germ_leopard_2a4m_can:BV1PUAezbE1p:440017",
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "photo"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": true,
+      "sceneKind": "protection-colour-map",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "crop": [
+        700,
+        225,
+        500,
+        400
+      ],
+      "commit": "0514380fa673b8ffc607381b869f8e2528123c53",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/GER/GER-Leopard-2A4M-CAN-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/GER/GER-Leopard-2A4M-CAN-front.webp"
+    },
+    {
+      "id": "8bbf3e10a34e13a3de76ed5fdbd554691f9e2113acfa86092aea8325af2ccb7a",
+      "path": "images/ITA/ITA-Ariete-Certezza-front.webp",
+      "sha256": "8bbf3e10a34e13a3de76ed5fdbd554691f9e2113acfa86092aea8325af2ccb7a",
+      "bytes": 260238,
+      "width": 588,
+      "height": 425,
+      "vehicleId": "it_c1_ariete_certezza",
+      "vehicleEnglishName": "Ariete Certezza",
+      "country": "ITA",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "sourceFrameSHA256": "86f702da1fc5c4260cecff7655e1c650939577ec1d54d603eccac59fc51bd05d",
+      "proofSnapshotSHA256": "11517df4b91981477a87bab78140f615968723261f195cd3094e12b00f6829c3",
+      "mediaTime": 770.017,
+      "actualTime": 770.017,
+      "caseId": "it_c1_ariete_certezza:BV1PUAezbE1p:770017",
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "photo"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": true,
+      "sceneKind": "exterior",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "crop": [
+        675,
+        212,
+        588,
+        425
+      ],
+      "commit": "0514380fa673b8ffc607381b869f8e2528123c53",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/ITA/ITA-Ariete-Certezza-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/ITA/ITA-Ariete-Certezza-front.webp"
+    },
+    {
+      "id": "407a3749ce42ae7f8529afcc73171d18128df9549f6eb2fd373013ffc456e495",
+      "path": "images/GBR/GBR-Khalid-front.webp",
+      "sha256": "407a3749ce42ae7f8529afcc73171d18128df9549f6eb2fd373013ffc456e495",
+      "bytes": 261958,
+      "width": 550,
+      "height": 412,
+      "vehicleId": "uk_khalid",
+      "vehicleEnglishName": "Khalid",
+      "country": "GBR",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "sourceFrameSHA256": "852ee665bd4d65deb6af9e50a28dbfaf6252c80e3515194e80c73822605a1295",
+      "proofSnapshotSHA256": "5f7bf787fd1c1f7f9dd0383f026d986327da94d9a83aff02dfa8fa9fc4be07d2",
+      "mediaTime": 240,
+      "actualTime": 240,
+      "caseId": "uk_khalid:BV1PUAezbE1p:240000",
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "photo"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": true,
+      "sceneKind": "protection-colour-map",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "crop": [
+        688,
+        212,
+        550,
+        412
+      ],
+      "commit": "0514380fa673b8ffc607381b869f8e2528123c53",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/GBR/GBR-Khalid-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/GBR/GBR-Khalid-front.webp"
+    },
+    {
+      "id": "9b7b0856a3856c3f5c1d5f657a743ebb9bfae3300820cb4a71f0c1eaa3f63bb8",
+      "path": "images/USA/USA-M1A1-Click-Bait-front.webp",
+      "sha256": "9b7b0856a3856c3f5c1d5f657a743ebb9bfae3300820cb4a71f0c1eaa3f63bb8",
+      "bytes": 244438,
+      "width": 550,
+      "height": 412,
+      "vehicleId": "us_m1a1_hc_usmc",
+      "vehicleEnglishName": "M1A1 Click-Bait",
+      "country": "USA",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "sourceFrameSHA256": "bc355cd16819e1ab09d5c242e1716e77333c1a1e3f0dd071b415338203191310",
+      "proofSnapshotSHA256": "d45ecbf90838212faac78d2fbe8247e1c5f4db4f47a668e20a5cc0e0b83cf2dc",
+      "mediaTime": 680.017,
+      "actualTime": 680.017,
+      "caseId": "us_m1a1_hc_usmc:BV1PUAezbE1p:680017",
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "photo"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": true,
+      "sceneKind": "protection-colour-map",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "crop": [
+        662,
+        212,
+        550,
+        412
+      ],
+      "commit": "0514380fa673b8ffc607381b869f8e2528123c53",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/USA/USA-M1A1-Click-Bait-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/USA/USA-M1A1-Click-Bait-front.webp"
     }
   ]
 }

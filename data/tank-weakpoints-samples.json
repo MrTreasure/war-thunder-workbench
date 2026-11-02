@@ -2192,11 +2192,250 @@
         "note": "基础乘员→王牌乘员（Wiki主炮面板）"
       },
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-verified-weakpoint",
+      "videoAdvice": [
+        {
+          "caseId": null,
+          "sourceTime": 40.584142,
+          "sourceTimeRange": [
+            40,
+            88
+          ],
+          "sourceTimeBasis": "observed editorial segment start, not precise cue",
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "polarity": "context",
+          "mechanism": "anatomy",
+          "text": "视频先介绍观瞄、头顶、炮闩、炮盾、炮管、脖子、观察窗以及首上、首下等俗称，便于理解后续落点。",
+          "conditionHint": null,
+          "sourceClaimNotCanonicalFact": true,
+          "id": "BV1PUAezbE1p:040000-088000:part-names:0",
+          "label": "部位名称导读",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 40.584142,
+          "evidence": {
+            "caseId": null,
+            "sourceTime": 40.584142,
+            "sourceTimeRange": [
+              40,
+              88
+            ],
+            "sourceTimeBasis": "observed editorial segment start, not precise cue",
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "polarity": "context",
+            "mechanism": "anatomy",
+            "text": "本段只是指认观瞄、炮盾、炮管、连接处、观察窗和首上首下等名词，不能把名词本身当推荐。",
+            "conditionHint": null,
+            "sourceClaimNotCanonicalFact": true
+          }
+        },
+        {
+          "caseId": null,
+          "sourceTime": 89.152613,
+          "sourceTimeRange": [
+            88,
+            130
+          ],
+          "sourceTimeBasis": "observed editorial segment start, not precise cue",
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "general-side-rear-heuristic",
+          "text": "侧面遇敌，可瞄炮塔连接处正下方的吊篮区域；从车尾攻击时，作者建议利用尾部薄装甲打对穿，争取整车杀伤。这是作者以该车示范的一般经验。",
+          "conditionHint": null,
+          "sourceClaimNotCanonicalFact": true,
+          "id": "BV1PUAezbE1p:088000-130000:side-rear:0",
+          "label": "侧面与车尾的一般打法",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 89.152613,
+          "evidence": {
+            "caseId": null,
+            "sourceTime": 89.152613,
+            "sourceTimeRange": [
+              88,
+              130
+            ],
+            "sourceTimeBasis": "observed editorial segment start, not precise cue",
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "polarity": "conditional-or-mixed",
+            "mechanism": "general-side-rear-heuristic",
+            "text": "以标题党作外观示例，作者泛称侧面炮塔连接处下方及车尾可造成后效；是一般经验，不是正面精准试射。",
+            "conditionHint": null,
+            "sourceClaimNotCanonicalFact": true
+          }
+        },
+        {
+          "caseId": null,
+          "sourceTime": 662.086039,
+          "sourceTimeRange": [
+            662,
+            716
+          ],
+          "sourceTimeBasis": "observed editorial segment start, not precise cue",
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "center-neck-and-fuel-limit",
+          "text": "正面优先打中间脖子，或首下正中央，作者认为可造成整车杀伤。首上稍有角度就可能跳弹；首下左右两侧油箱会吸收钢针后效，尽量避开。炮闩正面也不推荐，耳轴会挡住大量后效。",
+          "conditionHint": {
+            "shellLabel": "DM33",
+            "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+          },
+          "sourceClaimNotCanonicalFact": true,
+          "id": "BV1PUAezbE1p:662000-716000:clickbait-later:0",
+          "label": "正面打脖子或首下中央",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 662.086039,
+          "evidence": {
+            "caseId": null,
+            "sourceTime": 662.086039,
+            "sourceTimeRange": [
+              662,
+              716
+            ],
+            "sourceTimeBasis": "observed editorial segment start, not precise cue",
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "polarity": "conditional-or-mixed",
+            "mechanism": "center-neck-and-fuel-limit",
+            "text": "作者明确称标题党，建议中间连接处或首下中央，提醒两侧油箱与耳轴影响后效。该重复段没有新标题帧，不伪作又一已确认车型。",
+            "conditionHint": {
+              "shellLabel": "DM33",
+              "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+            },
+            "sourceClaimNotCanonicalFact": true
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "status": "primary-view-with-author-advice-no-pins",
       "collectedAt": "2026-11-02",
-      "weaknessEvidenceStatus": "general-context-only"
+      "weaknessEvidenceStatus": "general-context-only",
+      "testCases": [
+        {
+          "id": "us_m1a1_hc_usmc:BV1PUAezbE1p:680017",
+          "vehicleId": "us_m1a1_hc_usmc",
+          "targetIdentityStatus": "confirmed-target-title",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 680.017,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "bc355cd16819e1ab09d5c242e1716e77333c1a1e3f0dd071b415338203191310",
+          "proofSHA256": "d45ecbf90838212faac78d2fbe8247e1c5f4db4f47a668e20a5cc0e0b83cf2dc",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "actualShotObserved": false,
+          "outcome": null,
+          "notes": [
+            "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+          ],
+          "attacker": "Leopard 2A5",
+          "shellTypeCode": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "impactAngleDegrees": null,
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+        }
+      ],
+      "testCaseEvidence": {
+        "us_m1a1_hc_usmc:BV1PUAezbE1p:680017": {
+          "id": "us_m1a1_hc_usmc:BV1PUAezbE1p:680017",
+          "vehicleId": "us_m1a1_hc_usmc",
+          "targetIdentityStatus": "confirmed-target-title",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 680.017,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "bc355cd16819e1ab09d5c242e1716e77333c1a1e3f0dd071b415338203191310",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/057.json",
+          "proofSHA256": "d45ecbf90838212faac78d2fbe8247e1c5f4db4f47a668e20a5cc0e0b83cf2dc",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "actualShotObserved": false,
+          "outcome": null,
+          "notes": [
+            "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+          ]
+        }
+      },
+      "completeIllustration": false,
+      "testContext": {
+        "attacker": "Leopard 2A5",
+        "attackerVehicleId": "germ_leopard_2a5",
+        "shell": "DM33",
+        "shellTypeCode": null,
+        "shellTypeLabel": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "impactAngleDegrees": null,
+        "sourceTime": 680.017,
+        "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "sourceGameVersion": null,
+        "caseId": "us_m1a1_hc_usmc:BV1PUAezbE1p:680017",
+        "note": "对应当前所选原视频帧的独立UI条件；绿色仅是该条件的防护分析，不是实战必杀保证。"
+      },
+      "testContextEvidence": {
+        "id": "us_m1a1_hc_usmc:BV1PUAezbE1p:680017",
+        "vehicleId": "us_m1a1_hc_usmc",
+        "targetIdentityStatus": "confirmed-target-title",
+        "attackerEnglishName": "Leopard 2A5",
+        "attackerVehicleId": "germ_leopard_2a5",
+        "shell": "DM33",
+        "shellType": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceTime": 680.017,
+        "sourceGameVersion": null,
+        "sourceFrameSHA256": "bc355cd16819e1ab09d5c242e1716e77333c1a1e3f0dd071b415338203191310",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/057.json",
+        "proofSHA256": "d45ecbf90838212faac78d2fbe8247e1c5f4db4f47a668e20a5cc0e0b83cf2dc",
+        "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+        "actualShotObserved": false,
+        "outcome": null,
+        "notes": [
+          "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+        ]
+      },
+      "missingEvidence": [
+        "暂无经核对的具体局部标点；按作者建议与原片条件理解，不以绿色推断必穿小孔。"
+      ],
+      "frontSummary": "正面优先打中间连接处，也可打首下正中央，避开左右两侧会吸收钢针后效的油箱。首上稍有角度就可能跳弹；炮闩正面受耳轴阻挡，后效较差，不宜作为主要射击选择。",
+      "frontSummaryAdviceIDs": [
+        "BV1PUAezbE1p:662000-716000:clickbait-later:0"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/USA-M1A1-family-candidate-0680.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/057.json",
+      "captureSHA256": "53f317eefc5c32275a7e748d2674dfd0751c552a479a0cf6ae975f5ee3e8035c",
+      "originalFrameSHA256": "bc355cd16819e1ab09d5c242e1716e77333c1a1e3f0dd071b415338203191310",
+      "time": 680.017,
+      "crop": [
+        662,
+        212,
+        550,
+        412
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageQuality": "1080p",
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "真实绿色装甲着色可见脖子附近和首下中央；浮层遮挡右侧车体与履带，中央区域仍可见。",
+      "mainImageUsable": true
     },
     {
       "id": "germ_leopard_2a4_pzbtl_123",
@@ -2223,11 +2462,239 @@
         "note": "基础乘员→王牌乘员（Wiki主炮面板）"
       },
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-verified-weakpoint",
+      "videoAdvice": [
+        {
+          "caseId": "germ_leopard_2a4_pzbtl_123:BV1PUAezbE1p:405033",
+          "sourceTime": 405.033,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "unknown",
+          "polarity": "negative",
+          "mechanism": "conditional-ammo-and-breech",
+          "text": "不优先打作者所指的火控一侧炮塔脸：火控设备会吸收大部分后效。另一侧炮塔脸也可能只打掉装填手，难以直接击毁。",
+          "provenance": "Existing exactframe/normal caption reviewed; no exterior UV generated.",
+          "id": "BV1PUAezbE1p:348000-434000:pz123:0",
+          "label": "避开火控一侧炮塔脸",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 405.033,
+          "evidence": {
+            "caseId": "germ_leopard_2a4_pzbtl_123:BV1PUAezbE1p:405033",
+            "sourceTime": 405.033,
+            "conditionMatch": "same-frame",
+            "mainImageMatch": "unknown",
+            "polarity": "negative",
+            "mechanism": "conditional-ammo-and-breech",
+            "text": "作者明确不建议当前侧火控区域，认为后效易被吸收。",
+            "provenance": "Existing exactframe/normal caption reviewed; no exterior UV generated."
+          }
+        },
+        {
+          "caseId": "germ_leopard_2a4_pzbtl_123:BV1PUAezbE1p:420017",
+          "sourceTime": 420.017,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "unknown",
+          "polarity": "positive-conditional",
+          "mechanism": "conditional-ammo-and-breech",
+          "text": "打炮闩下方或观察窗，避开炮闩正中间；作者提醒正中命中可能没有预期效果。",
+          "provenance": "Existing exactframe/normal caption reviewed; no exterior UV generated.",
+          "id": "BV1PUAezbE1p:348000-434000:pz123:1",
+          "label": "瞄准炮闩下方",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 420.017,
+          "evidence": {
+            "caseId": "germ_leopard_2a4_pzbtl_123:BV1PUAezbE1p:420017",
+            "sourceTime": 420.017,
+            "conditionMatch": "same-frame",
+            "mainImageMatch": "unknown",
+            "polarity": "positive-conditional",
+            "mechanism": "conditional-ammo-and-breech",
+            "text": "作者明确推荐炮闩下方，不能改成整个炮盾或正中任意位置。",
+            "provenance": "Existing exactframe/normal caption reviewed; no exterior UV generated."
+          }
+        },
+        {
+          "caseId": null,
+          "sourceTime": 348.139469,
+          "sourceTimeRange": [
+            348,
+            434
+          ],
+          "sourceTimeBasis": "observed editorial segment start, not precise cue",
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "conditional-ammo-and-breech",
+          "text": "优先打车体；对方带弹超过15发、车体存弹时，可打作者指示的右侧弹药位，该处没有泄压结构，击中弹药可直接引爆。若该弹架为空，仍以车体为主要目标。炮塔火控一侧易吸收后效，另一侧可能只损失装填手；炮闩要打下方或观察窗，避开正中。",
+          "conditionHint": {
+            "shellLabel": "DM33",
+            "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+          },
+          "sourceClaimNotCanonicalFact": true,
+          "id": "BV1PUAezbE1p:348000-434000:pz123:2",
+          "label": "车体弹药与炮塔选择",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 348.139469,
+          "evidence": {
+            "caseId": null,
+            "sourceTime": 348.139469,
+            "sourceTimeRange": [
+              348,
+              434
+            ],
+            "sourceTimeBasis": "observed editorial segment start, not precise cue",
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "polarity": "conditional-or-mixed",
+            "mechanism": "conditional-ammo-and-breech",
+            "text": "作者区分弹药放置和空弹架：特定装载才适用弹药位；火控和装填手一侧的后效有局限。420秒明确建议炮闩下方，中心位置并非无条件推荐。",
+            "conditionHint": {
+              "shellLabel": "DM33",
+              "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+            },
+            "sourceClaimNotCanonicalFact": true
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "status": "video-reviewed-awaiting-front-image",
       "collectedAt": "2026-11-02",
-      "weaknessEvidenceStatus": "general-context-only"
+      "weaknessEvidenceStatus": "general-context-only",
+      "testCases": [
+        {
+          "id": "germ_leopard_2a4_pzbtl_123:BV1PUAezbE1p:405033",
+          "vehicleId": "germ_leopard_2a4_pzbtl_123",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 405.033,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "2c59632622947fc06c01ec1177a7d580546a7113cf6bfbec2851c8de72ef4b7f",
+          "proofSHA256": "e5e41b873254bc20bab3a1c38bef640ec7adf3e56d9319ae3e40d6d95a222c77",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "notes": [
+            "DM33类型未新找独立匹配proof留null，不能拿其它口径记录补穿深。"
+          ],
+          "attacker": "Leopard 2A5",
+          "shellTypeCode": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "impactAngleDegrees": null,
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+        },
+        {
+          "id": "germ_leopard_2a4_pzbtl_123:BV1PUAezbE1p:420017",
+          "vehicleId": "germ_leopard_2a4_pzbtl_123",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 420.017,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "364e212c024ca84cd6f57af78a0c6191d357020b9d372c7587742bd1fd6b2b4d",
+          "proofSHA256": "0695563c715f398ccb71669d9ba42d503bd0c4cb53904989bb30405f3b14e068",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "notes": [
+            "DM33类型未新找独立匹配proof留null，不能拿其它口径记录补穿深。"
+          ],
+          "attacker": "Leopard 2A5",
+          "shellTypeCode": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "impactAngleDegrees": null,
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+        }
+      ],
+      "testCaseEvidence": {
+        "germ_leopard_2a4_pzbtl_123:BV1PUAezbE1p:405033": {
+          "id": "germ_leopard_2a4_pzbtl_123:BV1PUAezbE1p:405033",
+          "vehicleId": "germ_leopard_2a4_pzbtl_123",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 405.033,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "2c59632622947fc06c01ec1177a7d580546a7113cf6bfbec2851c8de72ef4b7f",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/model-proposals/009.json",
+          "proofSHA256": "e5e41b873254bc20bab3a1c38bef640ec7adf3e56d9319ae3e40d6d95a222c77",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "notes": [
+            "DM33类型未新找独立匹配proof留null，不能拿其它口径记录补穿深。"
+          ]
+        },
+        "germ_leopard_2a4_pzbtl_123:BV1PUAezbE1p:420017": {
+          "id": "germ_leopard_2a4_pzbtl_123:BV1PUAezbE1p:420017",
+          "vehicleId": "germ_leopard_2a4_pzbtl_123",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 420.017,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "364e212c024ca84cd6f57af78a0c6191d357020b9d372c7587742bd1fd6b2b4d",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/model-proposals/010.json",
+          "proofSHA256": "0695563c715f398ccb71669d9ba42d503bd0c4cb53904989bb30405f3b14e068",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "notes": [
+            "DM33类型未新找独立匹配proof留null，不能拿其它口径记录补穿深。"
+          ]
+        }
+      },
+      "completeIllustration": false,
+      "testContext": {
+        "attacker": "Leopard 2A5",
+        "shell": "DM33",
+        "shellTypeCode": null,
+        "shellTypeLabel": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "impactAngleDegrees": null,
+        "sourceTime": 405.033,
+        "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "sourceGameVersion": null,
+        "caseId": "germ_leopard_2a4_pzbtl_123:BV1PUAezbE1p:405033",
+        "note": "原视频独立防护分析UI条件，未据静态绿色区域推断实战命中后效；作者未测试的一般建议另列。"
+      },
+      "testContextEvidence": {
+        "id": "germ_leopard_2a4_pzbtl_123:BV1PUAezbE1p:405033",
+        "vehicleId": "germ_leopard_2a4_pzbtl_123",
+        "attackerEnglishName": "Leopard 2A5",
+        "attackerVehicleId": "germ_leopard_2a5",
+        "shell": "DM33",
+        "shellType": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceTime": 405.033,
+        "sourceGameVersion": null,
+        "sourceFrameSHA256": "2c59632622947fc06c01ec1177a7d580546a7113cf6bfbec2851c8de72ef4b7f",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/model-proposals/009.json",
+        "proofSHA256": "e5e41b873254bc20bab3a1c38bef640ec7adf3e56d9319ae3e40d6d95a222c77",
+        "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+        "notes": [
+          "DM33类型未新找独立匹配proof留null，不能拿其它口径记录补穿深。"
+        ]
+      },
+      "missingEvidence": [
+        "暂无与这些建议逐一对应的可见部位标点；防护分析条件仅适用于各自案例。"
+      ],
+      "frontSummary": "正面可瞄炮闩下方或观察窗，避开炮闩正中。火控一侧炮塔脸容易吸收后效，另一侧也可能只损失装填手。车体存弹时可攻击视频指示的右侧弹药位；弹架为空时仍优先考虑车体。",
+      "frontSummaryAdviceIDs": [
+        "BV1PUAezbE1p:348000-434000:pz123:0",
+        "BV1PUAezbE1p:348000-434000:pz123:1",
+        "BV1PUAezbE1p:348000-434000:pz123:2"
+      ]
     },
     {
       "id": "ussr_t_80ue1",
@@ -2256,11 +2723,392 @@
         "totalRounds": 45
       },
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-clean-front",
+      "videoAdvice": [
+        {
+          "caseId": null,
+          "sourceTime": 160.073602,
+          "sourceTimeRange": [
+            160,
+            180
+          ],
+          "sourceTimeBasis": "observed editorial segment start, not precise cue",
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "negative-trunnion-update",
+          "text": "作者以DM33作讲解基准，提醒增加耳轴后，原先攻击炮周的收益降低，不再优先推荐该区域。",
+          "conditionHint": {
+            "shellLabel": "DM33",
+            "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+          },
+          "sourceClaimNotCanonicalFact": true,
+          "id": "BV1PUAezbE1p:160000-180000:t80-trunnion:0",
+          "label": "炮周后效受耳轴影响",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 160.073602,
+          "evidence": {
+            "caseId": null,
+            "sourceTime": 160.073602,
+            "sourceTimeRange": [
+              160,
+              180
+            ],
+            "sourceTimeBasis": "observed editorial segment start, not precise cue",
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "polarity": "conditional-or-mixed",
+            "mechanism": "negative-trunnion-update",
+            "text": "实际目标T80UE1；作者称耳轴变化后旧炮周围打法收益降低，只露头等条件下另论。",
+            "conditionHint": {
+              "shellLabel": "DM33",
+              "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+            },
+            "sourceClaimNotCanonicalFact": true
+          }
+        },
+        {
+          "caseId": "ussr_t_80ue1:BV1PUAezbE1p:187033",
+          "sourceTime": 187.033,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "unknown",
+          "polarity": "positive-conditional",
+          "mechanism": "positive-neck-driver-triangle",
+          "text": "可打脖子，作者称有机会造成整车杀伤，但缝隙小，对瞄准要求高。",
+          "provenance": "Existing exactframe/normal caption reviewed; no exterior UV generated.",
+          "id": "BV1PUAezbE1p:180000-198000:t80-neck-window:0",
+          "label": "小脖子备选",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 187.033,
+          "evidence": {
+            "caseId": "ussr_t_80ue1:BV1PUAezbE1p:187033",
+            "sourceTime": 187.033,
+            "conditionMatch": "same-frame",
+            "mainImageMatch": "unknown",
+            "polarity": "positive-conditional",
+            "mechanism": "positive-neck-driver-triangle",
+            "text": "脖子小且不易瞄准，作者建议可考虑该处。",
+            "provenance": "Existing exactframe/normal caption reviewed; no exterior UV generated."
+          }
+        },
+        {
+          "caseId": "ussr_t_80ue1:BV1PUAezbE1p:190000",
+          "sourceTime": 190,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "unknown",
+          "polarity": "positive-conditional",
+          "mechanism": "positive-neck-driver-triangle",
+          "text": "优先考虑驾驶员观察窗的三角区，作者认为该处可造成整车杀伤。",
+          "provenance": "Existing exactframe/normal caption reviewed; no exterior UV generated.",
+          "id": "BV1PUAezbE1p:180000-198000:t80-neck-window:1",
+          "label": "驾驶员观察窗三角区",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 190,
+          "evidence": {
+            "caseId": "ussr_t_80ue1:BV1PUAezbE1p:190000",
+            "sourceTime": 190,
+            "conditionMatch": "same-frame",
+            "mainImageMatch": "unknown",
+            "polarity": "positive-conditional",
+            "mechanism": "positive-neck-driver-triangle",
+            "text": "作者指出驾驶员观察窗三角区可作为攻击选择。",
+            "provenance": "Existing exactframe/normal caption reviewed; no exterior UV generated."
+          }
+        },
+        {
+          "caseId": null,
+          "sourceTime": 180.391339,
+          "sourceTimeRange": [
+            180,
+            198
+          ],
+          "sourceTimeBasis": "observed editorial segment start, not precise cue",
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "positive-neck-driver-triangle",
+          "text": "作者优先推荐驾驶员观察窗三角区；也可打脖子，两处均被其描述为可造成整车杀伤，但脖子缝小，瞄准不稳时较难命中。",
+          "conditionHint": {
+            "shellLabel": "DM33",
+            "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+          },
+          "sourceClaimNotCanonicalFact": true,
+          "id": "BV1PUAezbE1p:180000-198000:t80-neck-window:2",
+          "label": "观察窗优先，脖子备选",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 180.391339,
+          "evidence": {
+            "caseId": null,
+            "sourceTime": 180.391339,
+            "sourceTimeRange": [
+              180,
+              198
+            ],
+            "sourceTimeBasis": "observed editorial segment start, not precise cue",
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "polarity": "conditional-or-mixed",
+            "mechanism": "positive-neck-driver-triangle",
+            "text": "建议脖子或驾驶员观察窗三角区；作者认为观察窗为较优选择，但目标小，不保证所有射击都击毁。",
+            "conditionHint": {
+              "shellLabel": "DM33",
+              "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+            },
+            "sourceClaimNotCanonicalFact": true
+          }
+        },
+        {
+          "caseId": "ussr_t_80ue1:BV1PUAezbE1p:203017",
+          "sourceTime": 203.017,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "unknown",
+          "polarity": "negative",
+          "mechanism": "positive-center-with-negative-fuel",
+          "text": "打首下时瞄中央，避开左右两侧油箱，油箱会吸收后效。",
+          "provenance": "Existing exactframe/normal caption reviewed; no exterior UV generated.",
+          "id": "BV1PUAezbE1p:198000-234000:t80-center-cupola:0",
+          "label": "首下避开两侧油箱",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 203.017,
+          "evidence": {
+            "caseId": "ussr_t_80ue1:BV1PUAezbE1p:203017",
+            "sourceTime": 203.017,
+            "conditionMatch": "same-frame",
+            "mainImageMatch": "unknown",
+            "polarity": "negative",
+            "mechanism": "positive-center-with-negative-fuel",
+            "text": "首下中央与两侧油箱须区分；避免直接把两侧当稳定后效位置。",
+            "provenance": "Existing exactframe/normal caption reviewed; no exterior UV generated."
+          }
+        },
+        {
+          "caseId": null,
+          "sourceTime": 202.504553,
+          "sourceTimeRange": [
+            198,
+            234
+          ],
+          "sourceTimeBasis": "observed editorial segment start, not precise cue",
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "positive-center-with-negative-fuel",
+          "text": "车体可见时，打首下中央，避开会吸收后效的左右油箱；若对方趴在坑里、首下无法攻击而头顶露出较多，可改打露出的头顶，作者认为后效可观。",
+          "conditionHint": {
+            "shellLabel": "DM33",
+            "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+          },
+          "sourceClaimNotCanonicalFact": true,
+          "id": "BV1PUAezbE1p:198000-234000:t80-center-cupola:1",
+          "label": "首下中央与露头机会",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 202.504553,
+          "evidence": {
+            "caseId": null,
+            "sourceTime": 202.504553,
+            "sourceTimeRange": [
+              198,
+              234
+            ],
+            "sourceTimeBasis": "observed editorial segment start, not precise cue",
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "polarity": "conditional-or-mixed",
+            "mechanism": "positive-center-with-negative-fuel",
+            "text": "首下应避开两侧油箱；露出头顶时才考虑相应区域，不能把两侧油箱当稳定秒杀位置。",
+            "conditionHint": {
+              "shellLabel": "DM33",
+              "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+            },
+            "sourceClaimNotCanonicalFact": true
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "status": "video-reviewed-awaiting-front-image",
       "collectedAt": "2026-11-02",
-      "weaknessEvidenceStatus": "general-context-only"
+      "weaknessEvidenceStatus": "general-context-only",
+      "testCases": [
+        {
+          "id": "ussr_t_80ue1:BV1PUAezbE1p:187033",
+          "vehicleId": "ussr_t_80ue1",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 187.033,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "858b6573eec6554b43f3ad2983c0db8d0db53460c45a823f67c28a732e005950",
+          "proofSHA256": "622b2a751cc14c439b22f0fb0129f980631d7a33933345dc5f5b88e1b2f9ba53",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "notes": [
+            "DM33类型未新找独立匹配proof留null，不能拿其它口径记录补穿深。"
+          ],
+          "attacker": "Leopard 2A5",
+          "shellTypeCode": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "impactAngleDegrees": null,
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+        },
+        {
+          "id": "ussr_t_80ue1:BV1PUAezbE1p:190000",
+          "vehicleId": "ussr_t_80ue1",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 190,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "966dc5a818eec9e8d840cf36e35206ebc12572f3e9ae4df6e727cd3798c1eff8",
+          "proofSHA256": "ec320fd3a2d4c34f78283eb78f73797850b4bcf7111ba7023ea516b90e37d3ee",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "notes": [
+            "DM33类型未新找独立匹配proof留null，不能拿其它口径记录补穿深。"
+          ],
+          "attacker": "Leopard 2A5",
+          "shellTypeCode": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "impactAngleDegrees": null,
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+        },
+        {
+          "id": "ussr_t_80ue1:BV1PUAezbE1p:203017",
+          "vehicleId": "ussr_t_80ue1",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 203.017,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "290eea618480e382b07242fdc4f9de5325c5dcb43810e7d8b9f6f7ad067b189c",
+          "proofSHA256": "58a07c98c4d5d15ada42eb02f50ff3dca61e5a8e625d6ecdab0d458a9179bce2",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "notes": [
+            "DM33类型未新找独立匹配proof留null，不能拿其它口径记录补穿深。"
+          ],
+          "attacker": "Leopard 2A5",
+          "shellTypeCode": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "impactAngleDegrees": null,
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+        }
+      ],
+      "testCaseEvidence": {
+        "ussr_t_80ue1:BV1PUAezbE1p:187033": {
+          "id": "ussr_t_80ue1:BV1PUAezbE1p:187033",
+          "vehicleId": "ussr_t_80ue1",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 187.033,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "858b6573eec6554b43f3ad2983c0db8d0db53460c45a823f67c28a732e005950",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/next-batch/015.json",
+          "proofSHA256": "622b2a751cc14c439b22f0fb0129f980631d7a33933345dc5f5b88e1b2f9ba53",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "notes": [
+            "DM33类型未新找独立匹配proof留null，不能拿其它口径记录补穿深。"
+          ]
+        },
+        "ussr_t_80ue1:BV1PUAezbE1p:190000": {
+          "id": "ussr_t_80ue1:BV1PUAezbE1p:190000",
+          "vehicleId": "ussr_t_80ue1",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 190,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "966dc5a818eec9e8d840cf36e35206ebc12572f3e9ae4df6e727cd3798c1eff8",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/next-batch/016.json",
+          "proofSHA256": "ec320fd3a2d4c34f78283eb78f73797850b4bcf7111ba7023ea516b90e37d3ee",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "notes": [
+            "DM33类型未新找独立匹配proof留null，不能拿其它口径记录补穿深。"
+          ]
+        },
+        "ussr_t_80ue1:BV1PUAezbE1p:203017": {
+          "id": "ussr_t_80ue1:BV1PUAezbE1p:203017",
+          "vehicleId": "ussr_t_80ue1",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 203.017,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "290eea618480e382b07242fdc4f9de5325c5dcb43810e7d8b9f6f7ad067b189c",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/next-batch/017.json",
+          "proofSHA256": "58a07c98c4d5d15ada42eb02f50ff3dca61e5a8e625d6ecdab0d458a9179bce2",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "notes": [
+            "DM33类型未新找独立匹配proof留null，不能拿其它口径记录补穿深。"
+          ]
+        }
+      },
+      "completeIllustration": false,
+      "testContext": {
+        "attacker": "Leopard 2A5",
+        "shell": "DM33",
+        "shellTypeCode": null,
+        "shellTypeLabel": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "impactAngleDegrees": null,
+        "sourceTime": 187.033,
+        "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "sourceGameVersion": null,
+        "caseId": "ussr_t_80ue1:BV1PUAezbE1p:187033",
+        "note": "原视频独立防护分析UI条件，未据静态绿色区域推断实战命中后效；作者未测试的一般建议另列。"
+      },
+      "testContextEvidence": {
+        "id": "ussr_t_80ue1:BV1PUAezbE1p:187033",
+        "vehicleId": "ussr_t_80ue1",
+        "attackerEnglishName": "Leopard 2A5",
+        "attackerVehicleId": "germ_leopard_2a5",
+        "shell": "DM33",
+        "shellType": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceTime": 187.033,
+        "sourceGameVersion": null,
+        "sourceFrameSHA256": "858b6573eec6554b43f3ad2983c0db8d0db53460c45a823f67c28a732e005950",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/next-batch/015.json",
+        "proofSHA256": "622b2a751cc14c439b22f0fb0129f980631d7a33933345dc5f5b88e1b2f9ba53",
+        "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+        "notes": [
+          "DM33类型未新找独立匹配proof留null，不能拿其它口径记录补穿深。"
+        ]
+      },
+      "missingEvidence": [
+        "暂无与这些建议逐一对应的可见部位标点；防护分析条件仅适用于各自案例。"
+      ],
+      "frontSummary": "正面优先瞄驾驶员观察窗三角区，脖子也可考虑，但缝隙小、难瞄准。打首下时选中央，避开会吸收后效的左右油箱；炮周受耳轴影响，收益降低。对方躲在坑里且头顶露出较多时，可考虑露出的头顶。",
+      "frontSummaryAdviceIDs": [
+        "BV1PUAezbE1p:160000-180000:t80-trunnion:0",
+        "BV1PUAezbE1p:180000-198000:t80-neck-window:0",
+        "BV1PUAezbE1p:180000-198000:t80-neck-window:1",
+        "BV1PUAezbE1p:180000-198000:t80-neck-window:2",
+        "BV1PUAezbE1p:198000-234000:t80-center-cupola:0",
+        "BV1PUAezbE1p:198000-234000:t80-center-cupola:1"
+      ]
     },
     {
       "id": "cn_ztz_96",
@@ -5880,9 +6728,58 @@
       "eraBasis": "现有unit页面没有足够明确的具体技术改型形成日期；不以采购、改装交付或游戏引入日期推断。",
       "collectedAt": "2026-11-02T09:07:18.006Z",
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "videoAdvice": [
+        {
+          "caseId": null,
+          "sourceTime": 460.663906,
+          "sourceTimeRange": [
+            460,
+            510
+          ],
+          "sourceTimeBasis": "observed editorial segment start, not precise cue",
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "positive-right-hull-negative-fuel",
+          "text": "优先打作者指示的右侧车体，或瞄脖子、观察窗；避开左侧油箱，油箱可能吸收后效。首上容易跳弹。炮塔脸在400多毫米穿深时不建议尝试，500多毫米可尝试，但作者提醒实战仍常打不穿；炮闩周围也不推荐。",
+          "conditionHint": {
+            "shellLabel": "DM33",
+            "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+          },
+          "sourceClaimNotCanonicalFact": true,
+          "id": "BV1PUAezbE1p:460000-510000:fuji:0",
+          "label": "打右侧车体，避开油箱与首上",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 460.663906,
+          "evidence": {
+            "caseId": null,
+            "sourceTime": 460.663906,
+            "sourceTimeRange": [
+              460,
+              510
+            ],
+            "sourceTimeBasis": "observed editorial segment start, not precise cue",
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "polarity": "conditional-or-mixed",
+            "mechanism": "positive-right-hull-negative-fuel",
+            "text": "作者点名富士，提醒首上角度跳弹与油箱后效；倾向画面右侧车体，未验证新主图几何，不画点。",
+            "conditionHint": {
+              "shellLabel": "DM33",
+              "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+            },
+            "sourceClaimNotCanonicalFact": true
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "status": "video-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-006-20261102/snapshots/jp_type_90b_camo.json",
@@ -5904,8 +6801,14 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。",
-        "具体改型年代待核实，era保留null。"
+        "暂无与这些建议逐一对应的可见部位标点；防护分析条件仅适用于各自案例。"
+      ],
+      "testCases": [],
+      "testCaseEvidence": {},
+      "completeIllustration": false,
+      "frontSummary": "优先打视频指示的右侧车体，或瞄脖子、观察窗，避开左侧油箱和容易跳弹的首上。炮塔脸在400多毫米穿深时不推荐尝试，500多毫米虽可尝试，实战仍可能打不穿；炮闩周围也不优先。",
+      "frontSummaryAdviceIDs": [
+        "BV1PUAezbE1p:460000-510000:fuji:0"
       ]
     },
     {
@@ -6084,9 +6987,58 @@
       "eraBasis": "MSC为1986年展示的勒克莱尔概念验证原型，配6秒自动装填与泄压板，Wiki明确指出首下脆弱。",
       "collectedAt": "2026-11-02T09:49:02.774Z",
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "videoAdvice": [
+        {
+          "caseId": null,
+          "sourceTime": 510.018916,
+          "sourceTimeRange": [
+            510,
+            546
+          ],
+          "sourceTimeBasis": "observed editorial segment start, not precise cue",
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "conditional-ammo-negative-fuel",
+          "text": "优先打车体，按作者指示选择右侧，避开包住弹药的油箱；字幕没有说明右侧具体边界，需结合视频定位。炮塔可击及后部弹药架，但泄压结构可能保住车辆，命中弹药不保证击毁。",
+          "conditionHint": {
+            "shellLabel": "DM33",
+            "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+          },
+          "sourceClaimNotCanonicalFact": true,
+          "id": "BV1PUAezbE1p:510000-546000:leclerc:0",
+          "label": "正面打法与油箱避让",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 510.018916,
+          "evidence": {
+            "caseId": null,
+            "sourceTime": 510.018916,
+            "sourceTimeRange": [
+              510,
+              546
+            ],
+            "sourceTimeBasis": "observed editorial segment start, not precise cue",
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "polarity": "conditional-or-mixed",
+            "mechanism": "conditional-ammo-negative-fuel",
+            "text": "作者讨论勒克莱尔的弹药架泄压和油箱后效，不建议直接照搬豹子弹药位；说到右侧，但没有此段标题帧不能确定具体改型。",
+            "conditionHint": {
+              "shellLabel": "DM33",
+              "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+            },
+            "sourceClaimNotCanonicalFact": true
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "status": "primary-view-with-author-advice-no-pins",
       "wikiUrl": "https://wiki.warthunder.com/unit/fr_msc",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-007-20261102/snapshots/fr_msc.json",
@@ -6113,8 +7065,126 @@
         }
       ],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。"
-      ]
+        "暂无经核对的具体局部标点；按作者建议与原片条件理解，不以绿色推断必穿小孔。"
+      ],
+      "testCases": [
+        {
+          "id": "fr_msc:BV1PUAezbE1p:540000",
+          "vehicleId": "fr_msc",
+          "targetIdentityStatus": "confirmed-target-title",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 540,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "33ffb811b313176e22684c63531f8b51f6e7a3d2bb95d8985a0ee25c906aa7d8",
+          "proofSHA256": "40e9fa2ffb632c743679174f13a6acac258ffda396023f3b3d32e36ec5a49867",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "actualShotObserved": false,
+          "outcome": null,
+          "notes": [
+            "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+          ],
+          "previousDraftId": "unresolved-leclerc-family:BV1PUAezbE1p:540000",
+          "attacker": "Leopard 2A5",
+          "shellTypeCode": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "impactAngleDegrees": null,
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+        }
+      ],
+      "testCaseEvidence": {
+        "fr_msc:BV1PUAezbE1p:540000": {
+          "id": "fr_msc:BV1PUAezbE1p:540000",
+          "vehicleId": "fr_msc",
+          "targetIdentityStatus": "confirmed-target-title",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 540,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "33ffb811b313176e22684c63531f8b51f6e7a3d2bb95d8985a0ee25c906aa7d8",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/053.json",
+          "proofSHA256": "40e9fa2ffb632c743679174f13a6acac258ffda396023f3b3d32e36ec5a49867",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "actualShotObserved": false,
+          "outcome": null,
+          "notes": [
+            "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+          ],
+          "previousDraftId": "unresolved-leclerc-family:BV1PUAezbE1p:540000"
+        }
+      },
+      "completeIllustration": false,
+      "testContext": {
+        "attacker": "Leopard 2A5",
+        "attackerVehicleId": "germ_leopard_2a5",
+        "shell": "DM33",
+        "shellTypeCode": null,
+        "shellTypeLabel": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "impactAngleDegrees": null,
+        "sourceTime": 540,
+        "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "sourceGameVersion": null,
+        "caseId": "fr_msc:BV1PUAezbE1p:540000",
+        "note": "对应当前所选原视频帧的独立UI条件；绿色仅是该条件的防护分析，不是实战必杀保证。"
+      },
+      "testContextEvidence": {
+        "id": "fr_msc:BV1PUAezbE1p:540000",
+        "vehicleId": "fr_msc",
+        "targetIdentityStatus": "confirmed-target-title",
+        "attackerEnglishName": "Leopard 2A5",
+        "attackerVehicleId": "germ_leopard_2a5",
+        "shell": "DM33",
+        "shellType": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceTime": 540,
+        "sourceGameVersion": null,
+        "sourceFrameSHA256": "33ffb811b313176e22684c63531f8b51f6e7a3d2bb95d8985a0ee25c906aa7d8",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/053.json",
+        "proofSHA256": "40e9fa2ffb632c743679174f13a6acac258ffda396023f3b3d32e36ec5a49867",
+        "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+        "actualShotObserved": false,
+        "outcome": null,
+        "notes": [
+          "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+        ],
+        "previousDraftId": "unresolved-leclerc-family:BV1PUAezbE1p:540000"
+      },
+      "frontSummary": "正面优先打车体，按视频指示选择右侧并避开包住弹药的油箱，具体边界需结合原片定位。炮塔虽可击及后部弹药架，但泄压结构可能保住车辆，命中弹药不保证击毁。",
+      "frontSummaryAdviceIDs": [
+        "BV1PUAezbE1p:510000-546000:leclerc:0"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/France-Leclerc-family-candidate-0540.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/053.json",
+      "captureSHA256": "d0653c5f62d1c52d7a98486f7c49b0891c0d3bc7ff546e6f6a31584df02e8b31",
+      "originalFrameSHA256": "33ffb811b313176e22684c63531f8b51f6e7a3d2bb95d8985a0ee25c906aa7d8",
+      "time": 540,
+      "crop": [
+        725,
+        262,
+        412,
+        350
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageQuality": "1080p",
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "正面车体及炮塔有真实绿色装甲着色；右侧说明浮层贴近并部分遮挡右侧轮廓，炮管不在主体前方完整伸出。",
+      "mainImageUsable": true
     },
     {
       "id": "germ_leopard_2k",
@@ -6212,9 +7282,266 @@
       "eraBasis": "本页未明确具体技术改型形成日期；采购/服役/活动引入日期不足，不推断。",
       "collectedAt": "2026-11-02T09:48:54.670Z",
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "videoAdvice": [
+        {
+          "caseId": null,
+          "sourceTime": 751.036571,
+          "sourceTimeRange": [
+            751,
+            822
+          ],
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "author-general-recommendation",
+          "text": "优先打面积较大的首下；作者指示的首下左侧可杀伤乘员，命中存弹处可引爆弹药。内部空旷，随意穿透可能没有有效后效。首上有角度时可能跳弹，炮塔脸收益较低；另可考虑观察窗，但作者提醒该处射角较刁钻。",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "caseId": null,
+            "sourceTime": 751.036571,
+            "sourceTimeRange": [
+              751,
+              822
+            ],
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "polarity": "conditional-or-mixed",
+            "mechanism": "author-general-recommendation",
+            "text": "作者对公羊坚定信念建议考虑较大的首下，首上角度可能跳弹；后段提及首下画面左侧与乘员/弹药后效。内部空旷可导致过穿，炮塔正面价值有限。785秒“智商检测条”仍属同一辆公羊，不是中国车型。",
+            "sourceClaimNotCanonicalFact": true,
+            "evidence": [
+              {
+                "text": "这个母羊的话",
+                "firstObservedMediaTime": 751.036571,
+                "lastObservedMediaTime": 751.882621,
+                "firstObservedAt": "2026-11-02T14:32:57.252Z",
+                "lastObservedAt": "2026-11-02T14:32:57.753Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "这个母羊那是出了名的脆",
+                "firstObservedMediaTime": 752.871658,
+                "lastObservedMediaTime": 753.846012,
+                "firstObservedAt": "2026-11-02T14:32:58.255Z",
+                "lastObservedAt": "2026-11-02T14:32:58.757Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "但是呢他这个内构是没有细化的",
+                "firstObservedMediaTime": 754.731825,
+                "lastObservedMediaTime": 757.741327,
+                "firstObservedAt": "2026-11-02T14:32:59.260Z",
+                "lastObservedAt": "2026-11-02T14:33:00.770Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "你看他这个内扣是没有细化的",
+                "firstObservedMediaTime": 758.581448,
+                "lastObservedMediaTime": 759.584311,
+                "firstObservedAt": "2026-11-02T14:33:01.274Z",
+                "lastObservedAt": "2026-11-02T14:33:01.776Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "它里面非常的空",
+                "firstObservedMediaTime": 760.593177,
+                "lastObservedMediaTime": 760.593177,
+                "firstObservedAt": "2026-11-02T14:33:02.282Z",
+                "lastObservedAt": "2026-11-02T14:33:02.282Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "就是说你一炮打进去",
+                "firstObservedMediaTime": 761.520971,
+                "lastObservedMediaTime": 763.369313,
+                "firstObservedAt": "2026-11-02T14:33:02.806Z",
+                "lastObservedAt": "2026-11-02T14:33:03.815Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "你很可能就是过穿",
+                "firstObservedMediaTime": 764.231297,
+                "lastObservedMediaTime": 765.189222,
+                "firstObservedAt": "2026-11-02T14:33:04.316Z",
+                "lastObservedAt": "2026-11-02T14:33:04.821Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "而且你屁也没打到",
+                "firstObservedMediaTime": 766.187057,
+                "lastObservedMediaTime": 767.116155,
+                "firstObservedAt": "2026-11-02T14:33:05.328Z",
+                "lastObservedAt": "2026-11-02T14:33:05.834Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "要不就是打这边",
+                "firstObservedMediaTime": 768.162955,
+                "lastObservedMediaTime": 770.049027,
+                "firstObservedAt": "2026-11-02T14:33:06.339Z",
+                "lastObservedAt": "2026-11-02T14:33:07.344Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "反正这个裤裆还是比较大的",
+                "firstObservedMediaTime": 775.815187,
+                "lastObservedMediaTime": 776.767071,
+                "firstObservedAt": "2026-11-02T14:33:10.362Z",
+                "lastObservedAt": "2026-11-02T14:33:10.867Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "所以说你打这个裤裆就行",
+                "firstObservedMediaTime": 777.574267,
+                "lastObservedMediaTime": 778.535536,
+                "firstObservedAt": "2026-11-02T14:33:11.371Z",
+                "lastObservedAt": "2026-11-02T14:33:11.874Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "拉",
+                "firstObservedMediaTime": 779.546773,
+                "lastObservedMediaTime": 779.546773,
+                "firstObservedAt": "2026-11-02T14:33:12.378Z",
+                "lastObservedAt": "2026-11-02T14:33:12.378Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "你还要挑战一下他手上这里有角度的跳弹",
+                "firstObservedMediaTime": 780.537592,
+                "lastObservedMediaTime": 784.238136,
+                "firstObservedAt": "2026-11-02T14:33:12.879Z",
+                "lastObservedAt": "2026-11-02T14:33:14.891Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "然后这边的话有条杠还是智商检测条",
+                "firstObservedMediaTime": 785.214553,
+                "lastObservedMediaTime": 788.152695,
+                "firstObservedAt": "2026-11-02T14:33:15.401Z",
+                "lastObservedAt": "2026-11-02T14:33:16.915Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "你看往这里守下",
+                "firstObservedMediaTime": 789.148066,
+                "lastObservedMediaTime": 790.10928,
+                "firstObservedAt": "2026-11-02T14:33:17.416Z",
+                "lastObservedAt": "2026-11-02T14:33:17.918Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "左边这一戳的话",
+                "firstObservedMediaTime": 791.032447,
+                "lastObservedMediaTime": 791.032447,
+                "firstObservedAt": "2026-11-02T14:33:18.420Z",
+                "lastObservedAt": "2026-11-02T14:33:18.420Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "对面三个排位坐直接死",
+                "firstObservedMediaTime": 792.910828,
+                "lastObservedMediaTime": 793.922455,
+                "firstObservedAt": "2026-11-02T14:33:19.425Z",
+                "lastObservedAt": "2026-11-02T14:33:19.928Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "然后火箭车",
+                "firstObservedMediaTime": 794.920053,
+                "lastObservedMediaTime": 795.92434,
+                "firstObservedAt": "2026-11-02T14:33:20.430Z",
+                "lastObservedAt": "2026-11-02T14:33:20.933Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "然后往这边打的话",
+                "firstObservedMediaTime": 796.904334,
+                "lastObservedMediaTime": 797.714245,
+                "firstObservedAt": "2026-11-02T14:33:21.436Z",
+                "lastObservedAt": "2026-11-02T14:33:21.937Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "哎他堆放的弹药这里直接爆了",
+                "firstObservedMediaTime": 799.629927,
+                "lastObservedMediaTime": 801.611232,
+                "firstObservedAt": "2026-11-02T14:33:22.942Z",
+                "lastObservedAt": "2026-11-02T14:33:23.946Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "哎呦火全车我不用打这个脸",
+                "firstObservedMediaTime": 802.598292,
+                "lastObservedMediaTime": 804.430368,
+                "firstObservedAt": "2026-11-02T14:33:24.448Z",
+                "lastObservedAt": "2026-11-02T14:33:25.456Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "你看这个",
+                "firstObservedMediaTime": 805.386343,
+                "lastObservedMediaTime": 806.359992,
+                "firstObservedAt": "2026-11-02T14:33:25.962Z",
+                "lastObservedAt": "2026-11-02T14:33:26.467Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "这价值太低了",
+                "firstObservedMediaTime": 808.365832,
+                "lastObservedMediaTime": 809.324,
+                "firstObservedAt": "2026-11-02T14:33:27.472Z",
+                "lastObservedAt": "2026-11-02T14:33:27.974Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "看不值得嗯",
+                "firstObservedMediaTime": 810.291337,
+                "lastObservedMediaTime": 812.216679,
+                "firstObservedAt": "2026-11-02T14:33:28.477Z",
+                "lastObservedAt": "2026-11-02T14:33:29.482Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "还还有个就是嘛抽这边这个关下窗",
+                "firstObservedMediaTime": 813.238063,
+                "lastObservedMediaTime": 816.188917,
+                "firstObservedAt": "2026-11-02T14:33:29.985Z",
+                "lastObservedAt": "2026-11-02T14:33:31.509Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "我这个角度这个角度比较刁钻",
+                "firstObservedMediaTime": 818.995929,
+                "lastObservedMediaTime": 820.936834,
+                "firstObservedAt": "2026-11-02T14:33:33.018Z",
+                "lastObservedAt": "2026-11-02T14:33:34.027Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "这里是概览图",
+                "firstObservedMediaTime": 821.934914,
+                "lastObservedMediaTime": 821.934914,
+                "firstObservedAt": "2026-11-02T14:33:34.529Z",
+                "lastObservedAt": "2026-11-02T14:33:34.529Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              }
+            ]
+          },
+          "id": "BV1PUAezbE1p:751000-822000:ariete-certezza:0",
+          "label": "首下优先，避免空穿",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 751.036571
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "status": "primary-view-with-author-advice-no-pins",
       "wikiUrl": "https://wiki.warthunder.com/unit/it_c1_ariete_certezza",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-007-20261102/snapshots/it_c1_ariete_certezza.json",
@@ -6236,9 +7563,171 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。",
-        "具体改型年代待核实，era保留null。"
-      ]
+        "暂无经核对的具体局部标点；按作者建议与原片条件理解，不以绿色推断必穿小孔。"
+      ],
+      "testCases": [
+        {
+          "id": "it_c1_ariete_certezza:BV1PUAezbE1p:770017",
+          "vehicleId": "it_c1_ariete_certezza",
+          "targetIdentityStatus": "confirmed-target-title",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 770.017,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "86f702da1fc5c4260cecff7655e1c650939577ec1d54d603eccac59fc51bd05d",
+          "proofSHA256": "11517df4b91981477a87bab78140f615968723261f195cd3094e12b00f6829c3",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "actualShotObserved": false,
+          "outcome": null,
+          "notes": [
+            "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+          ],
+          "attacker": "Leopard 2A5",
+          "shellTypeCode": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "impactAngleDegrees": null,
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+        },
+        {
+          "id": "it_c1_ariete_certezza:BV1PUAezbE1p:790033",
+          "vehicleId": "it_c1_ariete_certezza",
+          "targetIdentityStatus": "confirmed-target-title",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 790.033,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "3afcaaa75f65b250421cd3cf4c4c56f7003ad15c361abcaf8821a7e61b020436",
+          "proofSHA256": "b7398888bbbf68583d68805b487cc901c20e8bbd7b158ba3337e82cd11e8cb07",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "actualShotObserved": false,
+          "outcome": null,
+          "notes": [
+            "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+          ],
+          "attacker": "Leopard 2A5",
+          "shellTypeCode": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "impactAngleDegrees": null,
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+        }
+      ],
+      "testCaseEvidence": {
+        "it_c1_ariete_certezza:BV1PUAezbE1p:770017": {
+          "id": "it_c1_ariete_certezza:BV1PUAezbE1p:770017",
+          "vehicleId": "it_c1_ariete_certezza",
+          "targetIdentityStatus": "confirmed-target-title",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 770.017,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "86f702da1fc5c4260cecff7655e1c650939577ec1d54d603eccac59fc51bd05d",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/061.json",
+          "proofSHA256": "11517df4b91981477a87bab78140f615968723261f195cd3094e12b00f6829c3",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "actualShotObserved": false,
+          "outcome": null,
+          "notes": [
+            "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+          ]
+        },
+        "it_c1_ariete_certezza:BV1PUAezbE1p:790033": {
+          "id": "it_c1_ariete_certezza:BV1PUAezbE1p:790033",
+          "vehicleId": "it_c1_ariete_certezza",
+          "targetIdentityStatus": "confirmed-target-title",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 790.033,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "3afcaaa75f65b250421cd3cf4c4c56f7003ad15c361abcaf8821a7e61b020436",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/063.json",
+          "proofSHA256": "b7398888bbbf68583d68805b487cc901c20e8bbd7b158ba3337e82cd11e8cb07",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "actualShotObserved": false,
+          "outcome": null,
+          "notes": [
+            "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+          ]
+        }
+      },
+      "completeIllustration": false,
+      "testContext": {
+        "attacker": "Leopard 2A5",
+        "attackerVehicleId": "germ_leopard_2a5",
+        "shell": "DM33",
+        "shellTypeCode": null,
+        "shellTypeLabel": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "impactAngleDegrees": null,
+        "sourceTime": 770.017,
+        "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "sourceGameVersion": null,
+        "caseId": "it_c1_ariete_certezza:BV1PUAezbE1p:770017",
+        "note": "当前主图为正面外观，条件来自本帧实际菜单；不能将绿色准星或说明文字当作装甲着色。"
+      },
+      "testContextEvidence": {
+        "id": "it_c1_ariete_certezza:BV1PUAezbE1p:770017",
+        "vehicleId": "it_c1_ariete_certezza",
+        "targetIdentityStatus": "confirmed-target-title",
+        "attackerEnglishName": "Leopard 2A5",
+        "attackerVehicleId": "germ_leopard_2a5",
+        "shell": "DM33",
+        "shellType": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceTime": 770.017,
+        "sourceGameVersion": null,
+        "sourceFrameSHA256": "86f702da1fc5c4260cecff7655e1c650939577ec1d54d603eccac59fc51bd05d",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/061.json",
+        "proofSHA256": "11517df4b91981477a87bab78140f615968723261f195cd3094e12b00f6829c3",
+        "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+        "actualShotObserved": false,
+        "outcome": null,
+        "notes": [
+          "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+        ]
+      },
+      "frontSummary": "正面优先打面积较大的首下，视频指示的首下左侧可杀伤乘员，命中存弹处可引爆弹药。内部空旷，随意穿透可能没有有效后效；首上有角度易跳弹，炮塔脸收益较低，观察窗射角也较刁钻。",
+      "frontSummaryAdviceIDs": [
+        "BV1PUAezbE1p:751000-822000:ariete-certezza:0"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/Italy-Ariete-family-candidate-0770.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/061.json",
+      "captureSHA256": "3f0ccb54e4d38603d06be42e1970f3412a2f875d86a24bcb7c0b575f0fa3adb7",
+      "originalFrameSHA256": "86f702da1fc5c4260cecff7655e1c650939577ec1d54d603eccac59fc51bd05d",
+      "time": 770.017,
+      "crop": [
+        675,
+        212,
+        588,
+        425
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageQuality": "1080p",
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "mainViewKind": "exterior",
+      "mainViewNote": "正常外观模型，绿色仅见准星与说明文字，不是绿色装甲覆盖。正面车体及炮塔完整；说明浮层贴近右下缘。",
+      "mainImageUsable": true
     },
     {
       "id": "jp_type_90b_sm",
@@ -9185,6 +10674,885 @@
         "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/"
       },
       "pins": []
+    },
+    {
+      "id": "germ_leopard_2a4m_can",
+      "name": "Leopard 2A4M",
+      "role": "主战坦克",
+      "country": "germany",
+      "countryName": "德国",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "加拿大豹2A4M CAN为2009至2010年具体升级标准，增加炮塔及车体复合附甲、尾部格栅、改进火控和热成像；主炮120毫米Rh120L/44，装填7.8至6秒、待发弹15发。",
+      "wikiSummary": "加拿大豹2A4M CAN为2009至2010年具体升级标准，增加炮塔及车体复合附甲、尾部格栅、改进火控和热成像；主炮120毫米Rh120L/44，装填7.8至6秒、待发弹15发。",
+      "wikiPoints": [
+        "技术依据2009合同规定的具体改装标准及2010完成升级，不以2007采购年定年代。",
+        "Wiki只列化学能威胁防护提升与泄压板，没有明确局部弱点；不从A7V/其他A4变体复制。"
+      ],
+      "wikiUrl": "https://wiki.warthunder.com/unit/germ_leopard_2a4m_can",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/PUA-exact-wiki-gap-20261102/snapshots/germ_leopard_2a4m_can.json",
+      "wikiSnapshotSHA256": "298bb27a496c80d6e117a57a4321a5fa347aa12e0dae5857e071cdbe8bf50c05",
+      "collectedAt": "2026-11-02T15:51:57.957Z",
+      "reload": {
+        "display": "7.8 → 6 秒",
+        "gun": "120 mm Rh120 L/44 cannon",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "testCases": [
+        {
+          "id": "germ_leopard_2a4m_can:BV1PUAezbE1p:440017",
+          "vehicleId": "germ_leopard_2a4m_can",
+          "targetIdentityStatus": "confirmed-target-title",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 440.017,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "0db49a571108f55e73fc259fc9087136af22afea5c5eafed5a6e36b6948c46b7",
+          "proofSHA256": "99ac5308c2880647c1796d2b05b1314f8aefca8fa8eabd690147f10be90400f5",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "actualShotObserved": false,
+          "outcome": null,
+          "notes": [
+            "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+          ],
+          "attacker": "Leopard 2A5",
+          "shellTypeCode": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred",
+          "impactAngleDegrees": null
+        }
+      ],
+      "testCaseEvidence": {
+        "germ_leopard_2a4m_can:BV1PUAezbE1p:440017": {
+          "id": "germ_leopard_2a4m_can:BV1PUAezbE1p:440017",
+          "vehicleId": "germ_leopard_2a4m_can",
+          "targetIdentityStatus": "confirmed-target-title",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 440.017,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "0db49a571108f55e73fc259fc9087136af22afea5c5eafed5a6e36b6948c46b7",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/049.json",
+          "proofSHA256": "99ac5308c2880647c1796d2b05b1314f8aefca8fa8eabd690147f10be90400f5",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "actualShotObserved": false,
+          "outcome": null,
+          "notes": [
+            "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+          ]
+        }
+      },
+      "videoAdvice": [
+        {
+          "caseId": null,
+          "sourceTime": 434.063211,
+          "sourceTimeRange": [
+            434,
+            460
+          ],
+          "sourceTimeBasis": "observed editorial segment start, not precise cue",
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "spoken-window-breech",
+          "text": "正面优先瞄观察窗或炮闩正下方。炮塔脸比普通A4稍硬；作者不建议打首上，演示中出现未击穿，别把首上当作稳定穿透位置。",
+          "conditionHint": {
+            "shellLabel": "DM33",
+            "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+          },
+          "sourceClaimNotCanonicalFact": true,
+          "id": "BV1PUAezbE1p:434000-460000:canadian-a4m:0",
+          "label": "观察窗与炮闩下方",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 434.063211,
+          "evidence": {
+            "caseId": null,
+            "sourceTime": 434.063211,
+            "sourceTimeRange": [
+              434,
+              460
+            ],
+            "sourceTimeBasis": "observed editorial segment start, not precise cue",
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "polarity": "conditional-or-mixed",
+            "mechanism": "spoken-window-breech",
+            "text": "作者称枫叶豹，提示观察窗及炮闩下方，认为首上可能出现不理想结果；没有本批精确目标标题证据，不套到PzBtl123。",
+            "conditionHint": {
+              "shellLabel": "DM33",
+              "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+            },
+            "sourceClaimNotCanonicalFact": true
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "status": "primary-view-with-author-advice-no-pins",
+      "completeIllustration": false,
+      "testContext": {
+        "attacker": "Leopard 2A5",
+        "attackerVehicleId": "germ_leopard_2a5",
+        "shell": "DM33",
+        "shellTypeCode": null,
+        "shellTypeLabel": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "impactAngleDegrees": null,
+        "sourceTime": 440.017,
+        "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "sourceGameVersion": null,
+        "caseId": "germ_leopard_2a4m_can:BV1PUAezbE1p:440017",
+        "note": "对应当前所选原视频帧的独立UI条件；绿色仅是该条件的防护分析，不是实战必杀保证。"
+      },
+      "testContextEvidence": {
+        "id": "germ_leopard_2a4m_can:BV1PUAezbE1p:440017",
+        "vehicleId": "germ_leopard_2a4m_can",
+        "targetIdentityStatus": "confirmed-target-title",
+        "attackerEnglishName": "Leopard 2A5",
+        "attackerVehicleId": "germ_leopard_2a5",
+        "shell": "DM33",
+        "shellType": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceTime": 440.017,
+        "sourceGameVersion": null,
+        "sourceFrameSHA256": "0db49a571108f55e73fc259fc9087136af22afea5c5eafed5a6e36b6948c46b7",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/049.json",
+        "proofSHA256": "99ac5308c2880647c1796d2b05b1314f8aefca8fa8eabd690147f10be90400f5",
+        "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+        "actualShotObserved": false,
+        "outcome": null,
+        "notes": [
+          "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+        ]
+      },
+      "missingEvidence": [
+        "暂无经核对的具体局部标点；按作者建议与原片条件理解，不以绿色推断必穿小孔。"
+      ],
+      "frontSummary": "正面优先瞄观察窗或炮闩正下方。炮塔脸比普通A4稍硬，不宜随意选择炮塔正面落点；首上也不推荐，视频演示出现未击穿。先找清观察窗和炮闩下方的位置，再选择射击机会。",
+      "frontSummaryAdviceIDs": [
+        "BV1PUAezbE1p:434000-460000:canadian-a4m:0"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/Germany-Leopard-2A4M-candidate-0440.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/049.json",
+      "captureSHA256": "61c21743957c62effd2e55ea678ed24aecaf7a2fba4712cb36a453501fee6abd",
+      "originalFrameSHA256": "0db49a571108f55e73fc259fc9087136af22afea5c5eafed5a6e36b6948c46b7",
+      "time": 440.017,
+      "crop": [
+        700,
+        225,
+        500,
+        400
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageQuality": "1080p",
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "真实绿色装甲区域覆盖首下及部分炮塔、观察窗附近；说明浮层挨着右侧，少量遮挡右侧边缘。",
+      "mainImageUsable": true,
+      "pins": []
+    },
+    {
+      "id": "il_merkava_mk_3_raam_segol",
+      "name": "Ra'am Sagol",
+      "role": "主战坦克",
+      "country": "israel",
+      "countryName": "以色列",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "Ra'am Sagol即“Purple Thunder/紫色雷霆”，为90年代梅卡瓦Mk3上的试验电光主动防护系统；120毫米IMI MG251炮，装填7.8至6秒、待发弹5发。",
+      "wikiSummary": "Ra'am Sagol即“Purple Thunder/紫色雷霆”，为90年代梅卡瓦Mk3上的试验电光主动防护系统；120毫米IMI MG251炮，装填7.8至6秒、待发弹5发。",
+      "wikiPoints": [
+        "系统告警来袭方向，游戏中由玩家决定机动和放烟，不等于Trophy式硬杀伤拦截。",
+        "Wiki明确指出前置发动机虽可能承受车体正面命中，也增加发动机故障和起火风险；没有具体穿深/瞄点或射击条件。",
+        "年代依据90年代该具体试验系统装车测试，不以游戏引入年份分类。"
+      ],
+      "wikiUrl": "https://wiki.warthunder.com/unit/il_merkava_mk_3_raam_segol",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/PUA-exact-wiki-gap-20261102/snapshots/il_merkava_mk_3_raam_segol.json",
+      "wikiSnapshotSHA256": "265eb429348c529c3b9d0fb657d4e14804a9d19f534eb2e4aeab4a3d68731296",
+      "collectedAt": "2026-11-02T15:52:03.648Z",
+      "reload": {
+        "display": "7.8 → 6 秒",
+        "gun": "120 mm IMI MG251 cannon",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "explicit-location",
+      "qualitativeWeakpoints": [],
+      "testCases": [],
+      "testCaseEvidence": {},
+      "videoAdvice": [
+        {
+          "caseId": null,
+          "sourceTime": 607.351399,
+          "sourceTimeRange": [
+            607,
+            662
+          ],
+          "sourceTimeBasis": "observed editorial segment start, not precise cue",
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "family-candidate",
+          "text": "按作者的钢针基准，正面瞄首上中央，作者称可一发击毁；前置发动机挡在车体内，偏向右侧收益较低。破甲弹正面难以击穿，作者建议避战。不要追求炮塔脸后效：炮闩和火控设备会阻挡；对方卖头时，改打炮闩。",
+          "conditionHint": {
+            "shellLabel": "DM33",
+            "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+          },
+          "sourceClaimNotCanonicalFact": true,
+          "id": "BV1PUAezbE1p:607000-662000:israel-frontengine:0",
+          "label": "钢针打首上中央，破甲弹避战",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 607.351399,
+          "evidence": {
+            "caseId": null,
+            "sourceTime": 607.351399,
+            "sourceTimeRange": [
+              607,
+              662
+            ],
+            "sourceTimeBasis": "observed editorial segment start, not precise cue",
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "polarity": "conditional-or-mixed",
+            "mechanism": "family-candidate",
+            "text": "作者仅说以色列前置发动机车辆，讨论油箱/发动机和炮塔后效；不从布局自动补梅卡瓦某型号。",
+            "conditionHint": {
+              "shellLabel": "DM33",
+              "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+            },
+            "sourceClaimNotCanonicalFact": true
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "status": "video-reviewed-awaiting-front-image",
+      "completeIllustration": false,
+      "missingEvidence": [
+        "暂无与这些建议逐一对应的可见部位标点；防护分析条件仅适用于各自案例。"
+      ],
+      "frontSummary": "以钢针正面对射时优先瞄首上中央，偏向右侧收益较低。破甲弹正面难以击穿，宜避战；炮塔脸的后效容易被炮闩及火控设备阻挡。对方卖头时，可改打炮闩。",
+      "frontSummaryAdviceIDs": [
+        "BV1PUAezbE1p:607000-662000:israel-frontengine:0"
+      ]
+    },
+    {
+      "id": "uk_challenger_2_megatron",
+      "name": "Challenger 2 OES",
+      "role": "主战坦克",
+      "country": "britain",
+      "countryName": "英国",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": null,
+      "eraStatus": "pending-exact-variant-date-review",
+      "eraBasis": "原页未明确OES技术改型形成日期，保留null；不把背景战事年代或游戏引入年替代。",
+      "wikiSummary": "当前Wiki标题Challenger 2 OES，遗留unit ID为uk_challenger_2_megatron；基于TES的城市作战附甲方案，120毫米L30A1炮，装填6.5至5秒、待发弹4发。",
+      "wikiPoints": [
+        "Wiki明确提醒首下弱点仍存在，建议隐蔽车体；这为OES精确页直接证据，不从TES/Mk3继承。",
+        "附甲和ERA提高防护但未升级发动机，机动下降。",
+        "本页没有明确OES技术形成日期，且Iraq2002背景文字不作为精确年代事实；保留null。可另按已核TES现代技术衍生关系申请类别推导。",
+        "OES与TES的名称不可因Megatron历史称呼混并，当前unit URL/标题关系分别保留。"
+      ],
+      "wikiUrl": "https://wiki.warthunder.com/unit/uk_challenger_2_megatron",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/PUA-exact-wiki-gap-20261102/snapshots/uk_challenger_2_megatron.json",
+      "wikiSnapshotSHA256": "1b99400297489d69bcaf603f3803d469bd96f560115843eefd185d84f73f1e68",
+      "collectedAt": "2026-11-02T15:52:11.789Z",
+      "reload": {
+        "display": "6.5 → 5 秒",
+        "gun": "120 mm L30A1 cannon",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "explicit-location",
+      "qualitativeWeakpoints": [],
+      "testCases": [
+        {
+          "id": "uk_challenger_2_megatron:BV1PUAezbE1p:740017",
+          "vehicleId": "uk_challenger_2_megatron",
+          "targetIdentityStatus": "confirmed-target-title",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 740.017,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "928dafc2efbbbda3eca8c08d63d8a217c8be3d76e5b437d916c3ecc3a40b8ee8",
+          "proofSHA256": "c54580a9e2697f61bab577ce0d465c061e4518e2679437ca46e782479be52746",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "actualShotObserved": false,
+          "outcome": null,
+          "notes": [
+            "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+          ],
+          "attacker": "Leopard 2A5",
+          "shellTypeCode": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred",
+          "impactAngleDegrees": null
+        }
+      ],
+      "testCaseEvidence": {
+        "uk_challenger_2_megatron:BV1PUAezbE1p:740017": {
+          "id": "uk_challenger_2_megatron:BV1PUAezbE1p:740017",
+          "vehicleId": "uk_challenger_2_megatron",
+          "targetIdentityStatus": "confirmed-target-title",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 740.017,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "928dafc2efbbbda3eca8c08d63d8a217c8be3d76e5b437d916c3ecc3a40b8ee8",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/059.json",
+          "proofSHA256": "c54580a9e2697f61bab577ce0d465c061e4518e2679437ca46e782479be52746",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "actualShotObserved": false,
+          "outcome": null,
+          "notes": [
+            "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+          ]
+        }
+      },
+      "videoAdvice": [
+        {
+          "caseId": null,
+          "sourceTime": 716.638567,
+          "sourceTimeRange": [
+            716,
+            735.9
+          ],
+          "sourceTimeBasis": "observed editorial segment start, not precise cue",
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "negative-heat-effect",
+          "text": "使用破甲弹时，作者建议避免正面对射：附加反应装甲会吸收射流。首下也不推荐，既贴有反应装甲，底盘内部又缺少有价值目标。",
+          "conditionHint": {
+            "shellLabel": "DM33",
+            "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+          },
+          "sourceClaimNotCanonicalFact": true,
+          "id": "BV1PUAezbE1p:716000-735900:challenger-oes:0",
+          "label": "破甲弹正面避战",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 716.638567,
+          "evidence": {
+            "caseId": null,
+            "sourceTime": 716.638567,
+            "sourceTimeRange": [
+              716,
+              735.9
+            ],
+            "sourceTimeBasis": "observed editorial segment start, not precise cue",
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "polarity": "conditional-or-mixed",
+            "mechanism": "negative-heat-effect",
+            "text": "自动字幕疑称挑2OES，描述爆反对化学弹及首下后效的影响；身份待验证，绝不因为类似缩写归成TES。",
+            "conditionHint": {
+              "shellLabel": "DM33",
+              "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+            },
+            "sourceClaimNotCanonicalFact": true
+          }
+        },
+        {
+          "caseId": null,
+          "sourceTime": 716.638567,
+          "sourceTimeRange": [
+            735.9,
+            751
+          ],
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "author-general-recommendation",
+          "text": "正面考虑观察窗附近及作者指示的中央小缝，不优先打炮闩。车辆稍微侧身后该位置更难命中；首下内部目标少且有反应装甲，作者不推荐。",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "caseId": null,
+            "sourceTime": 716.638567,
+            "sourceTimeRange": [
+              735.9,
+              751
+            ],
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "polarity": "conditional-or-mixed",
+            "mechanism": "author-general-recommendation",
+            "text": "作者不建议用破甲弹对付OES附加反应装甲，也不推荐首下；提及观察窗区域及中央小间隙，斜角时有难度。这是作者的条件性位置建议，不把740秒静态UI当作逐点独立成功试射。",
+            "sourceClaimNotCanonicalFact": true,
+            "evidence": [
+              {
+                "text": "小2OES",
+                "firstObservedMediaTime": 716.638567,
+                "lastObservedMediaTime": 717.646437,
+                "firstObservedAt": "2026-11-02T14:32:38.466Z",
+                "lastObservedAt": "2026-11-02T14:32:38.969Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0625-0735-normal-playback-subtitles.json"
+              },
+              {
+                "text": "如果你是那个被迫的话",
+                "firstObservedMediaTime": 719.610961,
+                "lastObservedMediaTime": 720.534278,
+                "firstObservedAt": "2026-11-02T14:32:39.977Z",
+                "lastObservedAt": "2026-11-02T14:32:40.482Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0625-0735-normal-playback-subtitles.json"
+              },
+              {
+                "text": "那这种伪破遇遇到的话",
+                "firstObservedMediaTime": 721.53474,
+                "lastObservedMediaTime": 722.539571,
+                "firstObservedAt": "2026-11-02T14:32:40.983Z",
+                "lastObservedAt": "2026-11-02T14:32:41.485Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0625-0735-normal-playback-subtitles.json"
+              },
+              {
+                "text": "我建议你赶紧跑",
+                "firstObservedMediaTime": 723.537346,
+                "lastObservedMediaTime": 723.537346,
+                "firstObservedAt": "2026-11-02T14:32:41.987Z",
+                "lastObservedAt": "2026-11-02T14:32:41.987Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0625-0735-normal-playback-subtitles.json"
+              },
+              {
+                "text": "直接被吸完了",
+                "firstObservedMediaTime": 724.549616,
+                "lastObservedMediaTime": 725.557424,
+                "firstObservedAt": "2026-11-02T14:32:42.489Z",
+                "lastObservedAt": "2026-11-02T14:32:43.002Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0625-0735-normal-playback-subtitles.json"
+              },
+              {
+                "text": "全身上下全是爆反",
+                "firstObservedMediaTime": 726.402066,
+                "lastObservedMediaTime": 727.295021,
+                "firstObservedAt": "2026-11-02T14:32:43.507Z",
+                "lastObservedAt": "2026-11-02T14:32:44.011Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0625-0735-normal-playback-subtitles.json"
+              },
+              {
+                "text": "因为这边全贴满裤裆",
+                "firstObservedMediaTime": 728.215614,
+                "lastObservedMediaTime": 729.167653,
+                "firstObservedAt": "2026-11-02T14:32:44.514Z",
+                "lastObservedAt": "2026-11-02T14:32:45.018Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0625-0735-normal-playback-subtitles.json"
+              },
+              {
+                "text": "这里不建议打",
+                "firstObservedMediaTime": 730.188354,
+                "lastObservedMediaTime": 730.188354,
+                "firstObservedAt": "2026-11-02T14:32:45.523Z",
+                "lastObservedAt": "2026-11-02T14:32:45.523Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0625-0735-normal-playback-subtitles.json"
+              },
+              {
+                "text": "因为他底盘没放什么东西",
+                "firstObservedMediaTime": 730.853888,
+                "lastObservedMediaTime": 732.707357,
+                "firstObservedAt": "2026-11-02T14:32:46.626Z",
+                "lastObservedAt": "2026-11-02T14:32:47.635Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "而且他这也贴满了爆反",
+                "firstObservedMediaTime": 733.620277,
+                "lastObservedMediaTime": 734.55424,
+                "firstObservedAt": "2026-11-02T14:32:48.138Z",
+                "lastObservedAt": "2026-11-02T14:32:48.639Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "那那就只能往这个观察窗这边打",
+                "firstObservedMediaTime": 735.526259,
+                "lastObservedMediaTime": 736.521106,
+                "firstObservedAt": "2026-11-02T14:32:49.146Z",
+                "lastObservedAt": "2026-11-02T14:32:49.649Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "Watch it all falling apart like this",
+                "firstObservedMediaTime": 737.609856,
+                "lastObservedMediaTime": 738.572378,
+                "firstObservedAt": "2026-11-02T14:32:50.203Z",
+                "lastObservedAt": "2026-11-02T14:32:50.705Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "Is what you asked for",
+                "firstObservedMediaTime": 739.422453,
+                "lastObservedMediaTime": 740.442305,
+                "firstObservedAt": "2026-11-02T14:32:51.210Z",
+                "lastObservedAt": "2026-11-02T14:32:51.716Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "你看一发一发火",
+                "firstObservedMediaTime": 741.429574,
+                "lastObservedMediaTime": 742.449776,
+                "firstObservedAt": "2026-11-02T14:32:52.219Z",
+                "lastObservedAt": "2026-11-02T14:32:52.723Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "一拳去",
+                "firstObservedMediaTime": 743.377669,
+                "lastObservedMediaTime": 743.377669,
+                "firstObservedAt": "2026-11-02T14:32:53.227Z",
+                "lastObservedAt": "2026-11-02T14:32:53.227Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "后山不建议打",
+                "firstObservedMediaTime": 744.300582,
+                "lastObservedMediaTime": 744.300582,
+                "firstObservedAt": "2026-11-02T14:32:53.734Z",
+                "lastObservedAt": "2026-11-02T14:32:53.734Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "就往这边中间那个小点缝",
+                "firstObservedMediaTime": 745.2704,
+                "lastObservedMediaTime": 746.275003,
+                "firstObservedAt": "2026-11-02T14:32:54.238Z",
+                "lastObservedAt": "2026-11-02T14:32:54.739Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "让他稍微侧一点的话",
+                "firstObservedMediaTime": 747.114975,
+                "lastObservedMediaTime": 748.114453,
+                "firstObservedAt": "2026-11-02T14:32:55.241Z",
+                "lastObservedAt": "2026-11-02T14:32:55.745Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              },
+              {
+                "text": "你看打起来比较困难啊",
+                "firstObservedMediaTime": 749.038805,
+                "lastObservedMediaTime": 750.038246,
+                "firstObservedAt": "2026-11-02T14:32:56.247Z",
+                "lastObservedAt": "2026-11-02T14:32:56.750Z",
+                "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/BV1PUAezbE1p-0730-0840-normal-playback-subtitles.json"
+              }
+            ]
+          },
+          "id": "BV1PUAezbE1p:735900-751000:oes-continuation:0",
+          "label": "观察窗与中央小缝",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 716.638567
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "status": "video-reviewed-awaiting-front-image",
+      "completeIllustration": false,
+      "testContext": {
+        "attacker": "Leopard 2A5",
+        "shell": "DM33",
+        "shellTypeCode": null,
+        "shellTypeLabel": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "impactAngleDegrees": null,
+        "sourceTime": 740.017,
+        "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "sourceGameVersion": null,
+        "caseId": "uk_challenger_2_megatron:BV1PUAezbE1p:740017",
+        "note": "原视频独立防护分析UI条件，未据静态绿色区域推断实战命中后效；作者未测试的一般建议另列。"
+      },
+      "testContextEvidence": {
+        "id": "uk_challenger_2_megatron:BV1PUAezbE1p:740017",
+        "vehicleId": "uk_challenger_2_megatron",
+        "targetIdentityStatus": "confirmed-target-title",
+        "attackerEnglishName": "Leopard 2A5",
+        "attackerVehicleId": "germ_leopard_2a5",
+        "shell": "DM33",
+        "shellType": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceTime": 740.017,
+        "sourceGameVersion": null,
+        "sourceFrameSHA256": "928dafc2efbbbda3eca8c08d63d8a217c8be3d76e5b437d916c3ecc3a40b8ee8",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/059.json",
+        "proofSHA256": "c54580a9e2697f61bab577ce0d465c061e4518e2679437ca46e782479be52746",
+        "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+        "actualShotObserved": false,
+        "outcome": null,
+        "notes": [
+          "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+        ]
+      },
+      "missingEvidence": [
+        "暂无与这些建议逐一对应的可见部位标点；防护分析条件仅适用于各自案例。"
+      ],
+      "frontSummary": "破甲弹正面对射不推荐，附加反应装甲会吸收射流。首下既有反应装甲，内部又缺少有价值目标，也不优先。可考虑观察窗附近及视频指示的中央小缝，避开炮闩；车辆稍微侧身后更难命中。",
+      "frontSummaryAdviceIDs": [
+        "BV1PUAezbE1p:716000-735900:challenger-oes:0",
+        "BV1PUAezbE1p:735900-751000:oes-continuation:0"
+      ]
+    },
+    {
+      "id": "uk_khalid",
+      "name": "Khalid",
+      "role": "主战坦克",
+      "country": "britain",
+      "countryName": "英国",
+      "rank": 6,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "cold-war",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "原页明确源于1970年代Shir研发，1979年伊朗革命时原型研发受阻；按技术项目形成时期归cold-war，不用后来的游戏上线或采购年份。",
+      "wikiSummary": "哈立德FV4030/2源于1970年代面向伊朗的Shir项目，后由约旦采用；Wiki称其为酋长Mk5的系统升级型，配1200马力发动机及后期Mk10火控。主炮120毫米Ordnance BL Tk.L11A5，基础至王牌装填9.7至7.5秒、待发弹17发。",
+      "wikiPoints": [
+        "技术项目在1979年伊朗革命前已发展，不以游戏引入年份或采购年决定冷战分类。",
+        "Wiki提醒防护效果有限且缺少复合装甲，但未指明局部弱点位置、命中角度或具体弹种条件。",
+        "不从酋长Mk5/Mk10、挑战者1或后续Shir变体复制弱点或防护数值。"
+      ],
+      "wikiUrl": "https://wiki.warthunder.com/unit/uk_khalid",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/khalid-20261102/snapshots/uk_khalid.json",
+      "wikiSnapshotSHA256": "370e181857ae1b6881948a508fbbc69ed58fb1db77d4cd6ee43fee203e1d0f69",
+      "collectedAt": "2026-11-02T14:36:45.872Z",
+      "reload": {
+        "display": "9.7 → 7.5 秒",
+        "gun": "120 mm Ordnance BL Tk. L11A5 cannon",
+        "basicSeconds": 9.7,
+        "aceSeconds": 7.5,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "testCases": [
+        {
+          "id": "uk_khalid:BV1PUAezbE1p:240000",
+          "vehicleId": "uk_khalid",
+          "targetIdentityStatus": "confirmed-target-title",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 240,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "852ee665bd4d65deb6af9e50a28dbfaf6252c80e3515194e80c73822605a1295",
+          "proofSHA256": "5f7bf787fd1c1f7f9dd0383f026d986327da94d9a83aff02dfa8fa9fc4be07d2",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "actualShotObserved": false,
+          "outcome": null,
+          "notes": [
+            "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+          ],
+          "attacker": "Leopard 2A5",
+          "shellTypeCode": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred",
+          "impactAngleDegrees": null
+        }
+      ],
+      "testCaseEvidence": {
+        "uk_khalid:BV1PUAezbE1p:240000": {
+          "id": "uk_khalid:BV1PUAezbE1p:240000",
+          "vehicleId": "uk_khalid",
+          "targetIdentityStatus": "confirmed-target-title",
+          "attackerEnglishName": "Leopard 2A5",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "shell": "DM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 240,
+          "sourceGameVersion": null,
+          "sourceFrameSHA256": "852ee665bd4d65deb6af9e50a28dbfaf6252c80e3515194e80c73822605a1295",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/047.json",
+          "proofSHA256": "5f7bf787fd1c1f7f9dd0383f026d986327da94d9a83aff02dfa8fa9fc4be07d2",
+          "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+          "actualShotObserved": false,
+          "outcome": null,
+          "notes": [
+            "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+          ]
+        }
+      },
+      "videoAdvice": [
+        {
+          "caseId": null,
+          "sourceTime": 234.876105,
+          "sourceTimeRange": [
+            234,
+            281
+          ],
+          "sourceTimeBasis": "observed editorial segment start, not precise cue",
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "spoken-location-list",
+          "text": "优先考虑较大的首下，也可瞄观察窗、脖子、炮闩两侧或露出的头顶；作者认为穿入后常有整车杀伤效果。首上不推荐。与需要避开油箱的车型不同，作者认为该车首下左右两侧也可打，不必专门躲油箱。",
+          "conditionHint": {
+            "shellLabel": "DM33",
+            "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+          },
+          "sourceClaimNotCanonicalFact": true,
+          "id": "BV1PUAezbE1p:234000-281000:khalid:0",
+          "label": "首下、观察窗与脖子",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "time": 234.876105,
+          "evidence": {
+            "caseId": null,
+            "sourceTime": 234.876105,
+            "sourceTimeRange": [
+              234,
+              281
+            ],
+            "sourceTimeBasis": "observed editorial segment start, not precise cue",
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "polarity": "conditional-or-mixed",
+            "mechanism": "spoken-location-list",
+            "text": "作者点名哈立德，提出头顶、炮周两侧、脖子、观察窗、首下等位置并提醒首上；尚无本批目标标题验证，不写精确坐标或型号case。",
+            "conditionHint": {
+              "shellLabel": "DM33",
+              "basis": "Narrator160s states baseline only; NOT applied as a verified case without actualUI."
+            },
+            "sourceClaimNotCanonicalFact": true
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28T22:59:24+08:00",
+        "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
+      },
+      "status": "primary-view-with-author-advice-no-pins",
+      "completeIllustration": false,
+      "testContext": {
+        "attacker": "Leopard 2A5",
+        "attackerVehicleId": "germ_leopard_2a5",
+        "shell": "DM33",
+        "shellTypeCode": null,
+        "shellTypeLabel": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "impactAngleDegrees": null,
+        "sourceTime": 240,
+        "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "sourceGameVersion": null,
+        "caseId": "uk_khalid:BV1PUAezbE1p:240000",
+        "note": "对应当前所选原视频帧的独立UI条件；绿色仅是该条件的防护分析，不是实战必杀保证。"
+      },
+      "testContextEvidence": {
+        "id": "uk_khalid:BV1PUAezbE1p:240000",
+        "vehicleId": "uk_khalid",
+        "targetIdentityStatus": "confirmed-target-title",
+        "attackerEnglishName": "Leopard 2A5",
+        "attackerVehicleId": "germ_leopard_2a5",
+        "shell": "DM33",
+        "shellType": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceTime": 240,
+        "sourceGameVersion": null,
+        "sourceFrameSHA256": "852ee665bd4d65deb6af9e50a28dbfaf6252c80e3515194e80c73822605a1295",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/047.json",
+        "proofSHA256": "5f7bf787fd1c1f7f9dd0383f026d986327da94d9a83aff02dfa8fa9fc4be07d2",
+        "evidenceKind": "actual-native-UI-and-target-title-reviewed",
+        "actualShotObserved": false,
+        "outcome": null,
+        "notes": [
+          "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+        ]
+      },
+      "missingEvidence": [
+        "暂无经核对的具体局部标点；按作者建议与原片条件理解，不以绿色推断必穿小孔。"
+      ],
+      "frontSummary": "正面优先考虑较大的首下，也可瞄观察窗、脖子、炮闩两侧或露出的头顶，首上不推荐。视频认为穿入这些区域后有较好的乘员杀伤效果；首下左右两侧也可考虑，不必专门躲避油箱。",
+      "frontSummaryAdviceIDs": [
+        "BV1PUAezbE1p:234000-281000:khalid:0"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/UK-Khalid-candidate-0240.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/existing-cases-next-20261102/047.json",
+      "captureSHA256": "2e322f6aad196f4c2b2292bbbfc504a258897bb8c47d3ed93dcb657a83b414d4",
+      "originalFrameSHA256": "852ee665bd4d65deb6af9e50a28dbfaf6252c80e3515194e80c73822605a1295",
+      "time": 240,
+      "crop": [
+        688,
+        212,
+        550,
+        412
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageQuality": "1080p",
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "真实绿色装甲着色可见首下及炮塔部分区域；大块说明浮层遮挡右侧炮塔与车体区域，未遮部分仍能展示正面。",
+      "mainImageUsable": true,
+      "pins": []
     }
   ],
   "eraPolicy": "按具体型号／改型所处年代分类，BR 另作筛选；本批为冷战样例。",
@@ -9192,8 +11560,8 @@
     "targetCount": 226,
     "rankTankCount": 216,
     "isSupplementCount": 10,
-    "wikiReviewedCount": 129,
-    "illustratedCount": 14,
+    "wikiReviewedCount": 133,
+    "illustratedCount": 19,
     "countries": [
       {
         "country": "usa",
@@ -9329,7 +11697,7 @@
     "lastUpdated": "2026-11-02",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 12,
+    "illustratedTargetCount": 17,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,
