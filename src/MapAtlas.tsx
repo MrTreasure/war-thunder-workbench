@@ -818,28 +818,31 @@ function GroundDetail({
                     />
                   ),
                 )}
-                {localize(
-                  route && (
-                    <g
-                      className="ground-recommended-layer"
-                      visibility={recommendations ? "visible" : "hidden"}
-                      aria-hidden={!recommendations}
-                      pointerEvents="none"
-                      aria-label={t("推荐走线图层")}
-                    >
-                      <image
-                        key={routeKey}
-                        href={route.url}
-                        width={route.width}
-                        height={route.height}
-                        transform={`matrix(${route.matrix.join(" ")})`}
-                        preserveAspectRatio="none"
-                        onLoad={() => setRouteState({ id: routeKey, status: "loaded" })}
-                        onError={() => setRouteState({ id: routeKey, status: "error" })}
-                      />
-                    </g>
-                  ),
-                )}
+              </g>
+              {/* Guide annotations remain outside the mission terrain crop. */}
+              {localize(
+                route && (
+                  <g
+                    className="ground-recommended-layer"
+                    visibility={recommendations ? "visible" : "hidden"}
+                    aria-hidden={!recommendations}
+                    pointerEvents="none"
+                    aria-label={t("推荐走线图层")}
+                  >
+                    <image
+                      key={routeKey}
+                      href={route.url}
+                      width={route.width}
+                      height={route.height}
+                      transform={`matrix(${route.matrix.join(" ")})`}
+                      preserveAspectRatio="none"
+                      onLoad={() => setRouteState({ id: routeKey, status: "loaded" })}
+                      onError={() => setRouteState({ id: routeKey, status: "error" })}
+                    />
+                  </g>
+                ),
+              )}
+              <g clipPath={`url(#${clipId})`}>
                 {localize(
                   grid && (
                     <g
