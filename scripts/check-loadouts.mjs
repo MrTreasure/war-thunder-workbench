@@ -118,11 +118,95 @@ assert.equal(
   "source revisions must not be conflated",
 );
 
+import {
+  massGrams,
+  bombTntGrams,
+  blastDamage,
+  loadoutBombs,
+  allocateBases,
+  bombingRules,
+} from "../src/loadout-bombing.ts";
+assert.equal(massGrams("1,500 kg"), 1_500_000);
+assert.equal(massGrams("675 g"), 675);
+assert.equal(massGrams("unknown"), null);
+assert.equal(
+  bombTntGrams([
+    { id: "explosive-type", value: "Comp. H6" },
+    { id: "explosive-mass", value: "100 kg" },
+  ]),
+  null,
+  "filler mass is not TNT equivalence",
+);
+assert.equal(
+  bombTntGrams([
+    { id: "explosive-type", value: "TNT" },
+    { id: "explosive-mass", value: "38 kg" },
+  ]),
+  38_000,
+);
+assert.equal(bombTntGrams([{ id: "tnt-equivalent", value: "117.6 kg" }]), 117_600);
+assert.equal(
+  bombTntGrams([
+    { id: "tnt-equivalent", value: "2 kg" },
+    { id: "tnt-equivalent", value: "5 kg" },
+  ]),
+  null,
+  "mixed parameter sets must not be attributed to one bomb",
+);
+assert.equal(blastDamage(500_000), 10_000);
+assert.equal(blastDamage(600_000), 11_250);
+assert.equal(blastDamage(100_000_000), null, "do not extrapolate beyond verified curve");
+assert.equal(
+  bombingRules.verifiedFullGameDamage,
+  false,
+  "configuration reference must not claim full game damage",
+);
+assert.equal(bombingRules.tiers.length, 6);
+assert(bombingRules.tiers.every((tier) => tier.hitPoints > 0));
+for (let i = 1; i < bombingRules.tntToBlastDamage.length; i++)
+  assert(bombingRules.tntToBlastDamage[i][0] > bombingRules.tntToBlastDamage[i - 1][0]);
+const bombGroup = (damage, count) => ({
+  key: String(damage),
+  name: "fixture bomb",
+  grams: 1000,
+  damage,
+  count,
+});
+assert.equal(
+  allocateBases([bombGroup(600, 2)], 1000).count,
+  1,
+  "whole bomb overkill cannot spill to another base",
+);
+assert.equal(
+  allocateBases([bombGroup(600, 2), bombGroup(400, 2)], 1000).count,
+  2,
+  "mixed bombs may complete separate bases",
+);
+assert.equal(
+  allocateBases([bombGroup(1500, 2)], 1000).count,
+  2,
+  "two large bombs cannot make three separate base hits",
+);
+assert.equal(
+  allocateBases([bombGroup(null, 10)], 1000).count,
+  0,
+  "unknown damage cannot create confirmed capacity",
+);
+
 const catalog = JSON.parse(
   await readFile(new URL("../data/vehicle-details.json", import.meta.url)),
 );
 const source = catalog.vehicles.su_24m.loadouts;
 const su30 = catalog.vehicles.su_30mkk.loadouts;
+const bombRack = su30.compatibility.find((item) => item.weaponId === "100kg_ofab100");
+const bombPayload = loadoutBombs(
+  su30,
+  [{ station: bombRack.stations[0].hardpointId, option: optionKey(bombRack) }],
+  null,
+);
+assert.equal(bombPayload.grams, 228_000, "six-bomb rack count must apply once, not twice");
+assert.equal(bombPayload.items[0].count, 6);
+
 assert(stationLoadoutOptions(su30, "t1-s1").some((option) => /PL-8/.test(option.name)));
 assert(
   !stationLoadoutOptions(su30, "t1-s8").some((option) => /PL-8/.test(option.name)),

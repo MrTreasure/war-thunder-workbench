@@ -19,6 +19,7 @@ import { loadoutRequest } from "./loadout-api";
 import { useLoadoutPlans } from "./loadout-storage";
 import { LoadoutPresets } from "./LoadoutPresets";
 import { loadoutLibrary } from "./loadout-library";
+import { LoadoutBombing } from "./LoadoutBombing";
 import { LoadoutPlanCard } from "./LoadoutPlanCard";
 import { readRemoteLoadout, type LoadoutShare } from "./loadout-shares";
 import { TagSelector, type TagChoice } from "./components/TagSelector";
@@ -825,6 +826,13 @@ function LoadoutPage({ owner }: { owner: string }) {
                       ))}
                     </ul>
                   )}
+                  <LoadoutBombing
+                    data={data}
+                    mounts={plan.mounts}
+                    preset={plan.preset}
+                    rating={unit?.br?.rb}
+                    mode={mode}
+                  />
                   <section className="wt-mount-provenance">
                     <h4>规则与来源</h4>
                     {check?.limitations.map((text) => (

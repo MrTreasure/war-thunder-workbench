@@ -617,3 +617,19 @@ nav.wt-mount-tabs { overflow-x: auto; }
 
 .wt-mount-card-identity { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; min-width: 0; }
 .wt-mount-recommended-state { flex: none; padding: 2px 7px; border: 1px solid var(--wt-gold); color: var(--wt-gold); background: var(--wt-panel); font-size: 11px; line-height: 1.5; white-space: nowrap; }
+
+.wt-mount-bombing { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--wt-line); min-width: 0; }
+.wt-mount-bombing h4 { margin: 0; font-size: 14px; }
+.wt-mount-bombing .wt-mount-section-heading { align-items: baseline; flex-wrap: wrap; gap: 8px; }
+.wt-mount-page .wt-mount-bombing-reference { display: flex; flex-direction: row; align-items: center; gap: 8px; margin-block: 12px; color: var(--wt-ink); }
+.wt-mount-bombing-reference input { accent-color: var(--wt-gold); width: 18px; height: 18px; }
+.wt-mount-bombing-scroll { overflow-x: auto; min-width: 0; }
+.wt-mount-bombing table { width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; }
+.wt-mount-bombing th, .wt-mount-bombing td { padding: 9px 6px; border-bottom: 1px solid var(--wt-line); text-align: left; vertical-align: top; }
+.wt-mount-bombing thead th { color: var(--wt-muted); font-weight: 400; }
+.wt-mount-bombing tr[data-relevant] { background: var(--wt-panel); }
+.wt-mount-bombing tr[data-relevant] > th { color: var(--wt-gold); }
+.wt-mount-bombing small { display: block; color: var(--wt-muted); font-size: 11px; font-weight: 400; margin-top: 4px; }
+.wt-mount-bombing summary { cursor: pointer; padding-block: 4px; }
+.wt-mount-bombing td ul { padding-left: 16px; }
+.wt-mount-bombing .wt-mount-weapon-more > a { display: block; }

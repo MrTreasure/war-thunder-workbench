@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "scope": "air-rb-four-respawning",
+  "label": "空历 · 常见四战区（可刷新）",
+  "model": "blast-curve-reference",
+  "verifiedFullGameDamage": false,
+  "modelNote": "配置爆炸曲线参考，不计燃烧、破片、落点损失及特殊地图修正，不作为保证摧毁数量。",
+  "checkedAt": "2026-11-02T15:50:35.747943+00:00",
+  "sourceCommit": "45e481081dc29e89ae11485cc1bb252247c44c5d",
+  "sources": [
+    {
+      "url": "https://github.com/gszabi99/War-Thunder-Datamine/blob/45e481081dc29e89ae11485cc1bb252247c44c5d/mis.vromfs.bin_u/gamedata/missions/templates/enduring_confrontation/bdt_bases_destroy_template.blkx",
+      "bytes": 155587,
+      "sha256": "d378921c875c7ef37be78bd00b542c8df352e7ccc14386ec3798b65b9f18b8e0"
+    },
+    {
+      "url": "https://github.com/gszabi99/War-Thunder-Datamine/blob/45e481081dc29e89ae11485cc1bb252247c44c5d/aces.vromfs.bin_u/gamedata/damage_model/explosive.blkx",
+      "bytes": 49624,
+      "sha256": "aed2f0892e4613324fb60a0da6acfb1f5678eeb6f2bac7e25be5ccf45fbb767d"
+    }
+  ],
+  "referenceUrl": "https://forum.warthunder.com/t/261685",
+  "tiers": [
+    {
+      "rankMin": 0,
+      "rankMax": 3,
+      "brMin": 1,
+      "brMax": 2,
+      "hitPoints": 4000.0
+    },
+    {
+      "rankMin": 4,
+      "rankMax": 7,
+      "brMin": 2.3,
+      "brMax": 3.3,
+      "hitPoints": 6000.0
+    },
+    {
+      "rankMin": 8,
+      "rankMax": 11,
+      "brMin": 3.7,
+      "brMax": 4.7,
+      "hitPoints": 10000.0
+    },
+    {
+      "rankMin": 12,
+      "rankMax": 16,
+      "brMin": 5,
+      "brMax": 6.3,
+      "hitPoints": 16000.0
+    },
+    {
+      "rankMin": 17,
+      "rankMax": 20,
+      "brMin": 6.7,
+      "brMax": 7.7,
+      "hitPoints": 22000.0
+    },
+    {
+      "rankMin": 21,
+      "rankMax": 50,
+      "brMin": 8,
+      "brMax": null,
+      "hitPoints": 25900.0
+    }
+  ],
+  "tntToBlastDamage": [
+    [
+      0.002,
+      15.0
+    ],
+    [
+      0.005,
+      20.0
+    ],
+    [
+      0.008,
+      25.0
+    ],
+    [
+      0.01,
+      30.0
+    ],
+    [
+      0.013,
+      35.0
+    ],
+    [
+      0.03,
+      70.0
+    ],
+    [
+      0.1,
+      110.0
+    ],
+    [
+      0.2,
+      130.0
+    ],
+    [
+      0.6,
+      250.0
+    ],
+    [
+      3.0,
+      350.0
+    ],
+    [
+      8.0,
+      450.0
+    ],
+    [
+      15.0,
+      550.0
+    ],
+    [
+      25.0,
+      1100.0
+    ],
+    [
+      40.0,
+      1500.0
+    ],
+    [
+      80.0,
+      1900.0
+    ],
+    [
+      120.0,
+      2500.0
+    ],
+    [
+      250.0,
+      4200.0
+    ],
+    [
+      500.0,
+      10000.0
+    ],
+    [
+      700.0,
+      12500.0
+    ],
+    [
+      1000.0,
+      15000.0
+    ],
+    [
+      1500.0,
+      21000.0
+    ],
+    [
+      3500.0,
+      30000.0
+    ],
+    [
+      5000.0,
+      30500.0
+    ],
+    [
+      6000.0,
+      31000.0
+    ]
+  ]
+}
