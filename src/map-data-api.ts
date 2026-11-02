@@ -3,12 +3,19 @@ import { sha256 } from "@noble/hashes/sha2.js";
 import { bytesToHex } from "@noble/hashes/utils.js";
 import settings from "./config/player-stats.json";
 import { statsHeaders } from "./player-stats-api";
+import { validMapRoute } from "./map-route-validation";
+import { isMapGuideSourceURL } from "./map-route-sources";
+import { relatedMapGuides } from "./map-related-guides";
 
-export type GroundAtlas = typeof bundledAtlas;
-export type GroundMap = GroundAtlas["maps"][number];
+export type MapGuideSource = { title: string; source: string; edition: string };
+export type GroundMap = (typeof bundledAtlas)["maps"][number] & {
+  guideSources?: MapGuideSource[];
+};
+export type GroundAtlas = Omit<typeof bundledAtlas, "maps"> & { maps: GroundMap[] };
 export type MapSnapshot = { releaseId: string; atlas: GroundAtlas };
 export type MapRoute = {
   id: string;
+  routeId?: string;
   mapId: string;
   layoutId: string;
   team: number;
@@ -21,6 +28,15 @@ export type MapRoute = {
   matrix: number[];
   pointError: number;
   svg: { path: string; sha256: string; bytes: number };
+  guideVersion?: number;
+  tacticsMarkdown?: string;
+  sourceSummary?: string;
+  sourceData?: Record<string, unknown>;
+  spawnSide?: string;
+  sourceVersion?: string;
+  evidenceStatus?: string;
+  sourceTimes?: number[];
+  side?: string | number;
 };
 // Maps use the deployed versioned endpoint independently of the vehicle catalog channel.
 export const mapAPIBase = `${settings.apiBaseUrl}/map-data-preview`;
@@ -141,6 +157,18 @@ export function validateMapSnapshot(v: unknown): v is MapSnapshot {
     )
       return false;
     if (
+      m.guideSources !== undefined &&
+      (!Array.isArray(m.guideSources) ||
+        !m.guideSources.every(
+          (g) =>
+            record(g) &&
+            typeof g.title === "string" &&
+            typeof g.edition === "string" &&
+            isMapGuideSourceURL(g.source),
+        ))
+    )
+      return false;
+    if (
       !m.guides.every(
         (g) =>
           record(g) &&
@@ -160,13 +188,7 @@ export function validateMapSnapshot(v: unknown): v is MapSnapshot {
   );
 }
 export function mapGuides(atlas: GroundAtlas, mapId: string) {
-  const family = atlas.seasonalVariants.find((v) => v.mapId === mapId)?.sourceMapId || mapId;
-  const guides = atlas.maps
-    .filter(
-      (m) => (atlas.seasonalVariants.find((v) => v.mapId === m.id)?.sourceMapId || m.id) === family,
-    )
-    .flatMap((m) => m.guides);
-  return [...new Map(guides.map((g) => [g.source, g])).values()];
+  return relatedMapGuides(atlas, mapId);
 }
 export function routeIdentity(atlas: GroundAtlas, mapId: string, layoutId: string) {
   const v = atlas.seasonalVariants.find((v) => v.mapId === mapId);
@@ -228,34 +250,6 @@ export async function fetchMapSnapshot(signal: AbortSignal): Promise<MapSnapshot
   if (!validateMapSnapshot(snapshot)) throw new Error("地图资料格式或资源地址无效");
   return snapshot;
 }
-function validRoute(v: unknown): v is MapRoute {
-  if (
-    !record(v) ||
-    !id(v.id) ||
-    !id(v.mapId) ||
-    !id(v.layoutId) ||
-    ![1, 2].includes(Number(v.team)) ||
-    !Array.isArray(v.matrix) ||
-    v.matrix.length !== 6 ||
-    !v.matrix.every(finite) ||
-    !finite(v.width) ||
-    v.width <= 0 ||
-    !finite(v.height) ||
-    v.height <= 0 ||
-    typeof v.sourceUrl !== "string" ||
-    !/^https:\/\/www\.xiaoheihe\.cn\/app\/bbs\/link\/[A-Za-z0-9]+$/.test(v.sourceUrl) ||
-    !record(v.svg)
-  )
-    return false;
-  return (
-    v.matrix[0] * v.matrix[3] - v.matrix[1] * v.matrix[2] > 0 &&
-    digest(v.svg.sha256) &&
-    v.svg.path === `map-guides/assets/${v.svg.sha256}.svg` &&
-    finite(v.svg.bytes) &&
-    v.svg.bytes > 0 &&
-    v.svg.bytes <= 262144
-  );
-}
 export async function fetchMapRoutes(
   releaseId: string,
   signal: AbortSignal,
@@ -267,6 +261,7 @@ export async function fetchMapRoutes(
   if (!authorization) throw new Error("请登录后读取推荐走线");
   const q = new URLSearchParams({
     releaseId,
+    guideSchema: "2",
     ...(mapId && layoutId ? { mapId, layoutId } : {}),
     ...(team ? { team: String(team) } : {}),
   });
@@ -278,7 +273,8 @@ export async function fetchMapRoutes(
     value.releaseId !== releaseId ||
     !Array.isArray(value.items) ||
     value.items.length > 1000 ||
-    !value.items.every(validRoute)
+    !value.items.every(validMapRoute) ||
+    new Set(value.items.map((route: MapRoute) => route.id)).size !== value.items.length
   )
     throw new Error("走线索引格式无效");
   return value.items;

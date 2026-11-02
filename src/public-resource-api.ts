@@ -1,6 +1,9 @@
 import { t } from "./i18n/core";
 import settings from "./config/player-stats.json";
 
+// Embedded admin clients use their existing anonymous same-origin public route.
+const apiBaseUrl = import.meta.env.VITE_WT_PUBLIC_API_BASE || settings.apiBaseUrl;
+
 type Manifest = {
   schemaVersion: number;
   resource: string;
@@ -127,8 +130,8 @@ async function load(resource: string) {
   const old = await stored(resource);
   const base =
     previewPrices && priceResource.test(resource)
-      ? settings.apiBaseUrl + "/sales-prices-preview/prices"
-      : settings.apiBaseUrl;
+      ? apiBaseUrl + "/sales-prices-preview/prices"
+      : apiBaseUrl;
   try {
     // No account/device headers: these read models are identical for every visitor.
     const response = await fetch(`${base}/public-data/manifest/${resource}`, {

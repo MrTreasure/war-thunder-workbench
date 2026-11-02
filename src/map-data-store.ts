@@ -137,9 +137,14 @@ export function useMapCatalog() {
   };
 }
 export function useMapRouteCoverage(releaseId: string, enabled: boolean) {
-  const [saved, setSaved] = useState<{ key: string; routes: MapRoute[] }>({ key: "", routes: [] });
+  const [attempt, setAttempt] = useState(0);
+  const [saved, setSaved] = useState<{ key: string; routes: MapRoute[]; error: string }>({
+    key: "",
+    routes: [],
+    error: "",
+  });
   const authorization = statsHeaders().Authorization || "";
-  const key = `${authorization}:${releaseId}`;
+  const key = `${authorization}:${releaseId}:${attempt}`;
   const cache = routeCache(enabled ? authorization : "");
   useEffect(() => {
     if (!cache || !releaseId) return;
@@ -147,27 +152,40 @@ export function useMapRouteCoverage(releaseId: string, enabled: boolean) {
     void cache
       .index(releaseId)
       .then((routes) => {
-        if (active) setSaved({ key, routes });
+        if (active) setSaved({ key, routes, error: "" });
       })
-      .catch(() => {});
+      .catch((error) => {
+        if (active)
+          setSaved({
+            key,
+            routes: [],
+            error: error instanceof Error ? error.message : "走线索引读取失败",
+          });
+      });
     return () => {
       active = false;
     };
   }, [key, cache, releaseId]);
-  return enabled && authorization && saved.key === key ? saved.routes : [];
+  const current = enabled && authorization && saved.key === key;
+  return {
+    routes: current ? saved.routes : [],
+    status:
+      !enabled || !authorization
+        ? "empty"
+        : !current
+          ? "loading"
+          : saved.error
+            ? "error"
+            : "loaded",
+    error: current ? saved.error : "",
+    retry: () => setAttempt((value) => value + 1),
+  };
 }
-export function useMapRoute(
-  releaseId: string,
-  mapId: string,
-  layoutId: string,
-  team: number,
-  enabled: boolean,
-  retry: number,
-) {
+export function useMapRoute(releaseId: string, routeId: string, enabled: boolean, retry: number) {
   const authorization = statsHeaders().Authorization || "";
-  const key = `${authorization}:${releaseId}:${mapId}:${layoutId}:${team}:${retry}`;
-  const cache = routeCache(enabled ? authorization : "");
-  const cacheKey = cache?.key(releaseId, mapId, layoutId, team) || "";
+  const key = `${authorization}:${releaseId}:${routeId}:${retry}`;
+  const cache = routeCache(authorization);
+  const cacheKey = cache?.routeKey(releaseId, routeId) || "";
   const [saved, setSaved] = useState<{
     key: string;
     route: LoadedMapRoute | undefined;
@@ -175,11 +193,11 @@ export function useMapRoute(
     error: string;
   }>({ key: "", route: undefined, status: "loading", error: "" });
   useEffect(() => {
-    if (!cache) return;
+    if (!cache || !enabled || !routeId) return;
     let active = true;
     const release = cache.retain(cacheKey);
     void (async () => {
-      const route = await cache.load(releaseId, mapId, layoutId, team);
+      const route = await cache.loadById(releaseId, routeId);
       if (active) setSaved({ key, route, status: route ? "loaded" : "empty", error: "" });
     })().catch((e) => {
       if (active)
@@ -190,15 +208,17 @@ export function useMapRoute(
           error: e instanceof Error ? e.message : "推荐走线读取失败",
         });
     });
-    // Only the other side of this mission is warmed, after authorization.
-    void cache.load(releaseId, mapId, layoutId, team === 1 ? 2 : 1).catch(() => {});
     return () => {
       active = false;
       release();
     };
-  }, [key, cache, cacheKey, releaseId, mapId, layoutId, team]);
-  return enabled && authorization
-    ? cache?.peek(cacheKey) ||
-        (saved.key === key ? saved : { route: undefined, status: "loading", error: "" })
+  }, [key, cache, cacheKey, releaseId, routeId, enabled]);
+  if (!authorization || !routeId) return { route: undefined, status: "empty", error: "" };
+  const retained = cache?.peek(cacheKey);
+  if (retained) return retained;
+  return enabled
+    ? saved.key === key
+      ? saved
+      : { route: undefined, status: "loading", error: "" }
     : { route: undefined, status: "empty", error: "" };
 }

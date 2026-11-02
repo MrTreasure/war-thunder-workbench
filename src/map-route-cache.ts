@@ -23,6 +23,10 @@ export class MapRouteCache {
     return JSON.stringify([releaseId, mapId, layoutId, team]);
   }
 
+  routeKey(releaseId: string, routeId: string) {
+    return JSON.stringify([releaseId, routeId]);
+  }
+
   index(releaseId: string) {
     if (this.controller.signal.aborted) return Promise.reject(this.controller.signal.reason);
     let request = this.indexes.get(releaseId);
@@ -92,6 +96,38 @@ export class MapRouteCache {
           this.controller.signal.throwIfAborted();
           loaded = { ...route, url: URL.createObjectURL(blob) };
         }
+        this.saved.set(key, loaded);
+        this.trim();
+        return loaded;
+      })().finally(() => this.pending.delete(key));
+      this.pending.set(key, request);
+    }
+    return request;
+  }
+
+  loadById(releaseId: string, routeId: string) {
+    if (this.controller.signal.aborted) return Promise.reject(this.controller.signal.reason);
+    const key = this.routeKey(releaseId, routeId);
+    if (this.saved.has(key)) {
+      const route = this.saved.get(key);
+      this.saved.delete(key);
+      this.saved.set(key, route);
+      return Promise.resolve(route);
+    }
+    let request = this.pending.get(key);
+    if (!request) {
+      request = (async () => {
+        const routes = await this.index(releaseId);
+        this.controller.signal.throwIfAborted();
+        const route = routes.find((r) => r.id === routeId);
+        if (!route) return undefined;
+        const blob = await this.reads.svg(
+          route,
+          releaseId,
+          AbortSignal.any([this.controller.signal, AbortSignal.timeout(20000)]),
+        );
+        this.controller.signal.throwIfAborted();
+        const loaded = { ...route, url: URL.createObjectURL(blob) };
         this.saved.set(key, loaded);
         this.trim();
         return loaded;

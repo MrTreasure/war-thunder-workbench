@@ -252,6 +252,50 @@
   width: auto;
   min-width: 0;
 }
+.ground-layer-toggles label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.ground-layer-toggles .wt-select {
+  max-width: min(340px, 55vw);
+}
+.ground-route-guide {
+  margin-top: 16px;
+  padding: 18px;
+  border: 1px solid #68747c70;
+  border-radius: 6px;
+  background: var(--wt-surface);
+  line-height: 1.65;
+}
+.ground-route-guide h3,
+.ground-route-text :is(h4, h5) {
+  margin: 0 0 8px;
+}
+.ground-route-guide .ground-route-source {
+  color: var(--wt-muted);
+  font-size: 13px;
+}
+.ground-route-text p {
+  white-space: pre-line;
+}
+.ground-route-table {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.ground-route-table table {
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.ground-route-table :is(th, td) {
+  border: 1px solid #68747c70;
+  padding: 6px 8px;
+  text-align: left;
+  min-width: 105px;
+  vertical-align: top;
+}
 .ground-layer-toggles {
   display: flex;
   gap: 6px;

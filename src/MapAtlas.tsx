@@ -15,9 +15,11 @@ import { mapView } from "./map-editor-model";
 import { CONTOUR_IMAGE_TRANSFORM, referenceGrid } from "./ground-map-projection";
 import { displayMapMarks } from "./ground-map-marks";
 import { Link, Navigate, useNavigate } from "@tanstack/react-router";
-import { mapGuides, routeIdentity } from "./map-data-api";
+import { routeIdentity } from "./map-data-api";
 import type { GroundAtlas, GroundMap, MapSnapshot, MapRoute } from "./map-data-api";
 import { useMapCatalog, useMapRouteCoverage, useMapRoute } from "./map-data-store";
+import { availableRouteLayouts, routesForContext, selectedMapRoute } from "./map-route-selection";
+import { relatedMapGuides, mapGuideSourceLabel } from "./map-related-guides";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { Route } from "./routes/_workbench.maps";
 import { Route as DetailRoute } from "./routes/_workbench.maps_.$mapId";
@@ -30,6 +32,63 @@ function MapDataStatus({ error, retry }: { error: string; retry: () => void }) {
       {localize(error || t("正在读取地图资料…"))} <button onClick={retry}>{t("重试")}</button>
     </output>
   );
+}
+function RouteText({ markdown }: { markdown: string }) {
+  return (
+    <div className="ground-route-text">
+      {markdown
+        .split(/\n\s*\n/)
+        .filter(Boolean)
+        .map((block, index) => {
+          const content = block.trim();
+          if (content.startsWith("### ")) return <h5 key={index}>{content.slice(4)}</h5>;
+          if (content.startsWith("## ")) return <h4 key={index}>{content.slice(3)}</h4>;
+          if (content.startsWith("# ")) return <h4 key={index}>{content.slice(2)}</h4>;
+          if (content.startsWith("|")) {
+            const rows = content.split("\n").map((line) =>
+              line
+                .trim()
+                .replace(/^\||\|$/g, "")
+                .split("|"),
+            );
+            const headings = rows[0];
+            return (
+              <div className="ground-route-table" key={index}>
+                <table>
+                  <thead>
+                    <tr>
+                      {headings.map((heading, i) => (
+                        <th key={i}>{heading.trim()}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {rows.slice(2).map((cells, row) => (
+                      <tr key={row}>
+                        {cells.map((cell, i) => (
+                          <td key={i}>{cell.trim()}</td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            );
+          }
+          return <p key={index}>{content.replace(/^[-*] /gm, "• ")}</p>;
+        })}
+    </div>
+  );
+}
+function routeEvidenceLabel(route: MapRoute) {
+  return route.evidenceStatus === "observed-friendly-route-with-inferred-enemy-branches"
+    ? t("己方走法有来源演示；敌方分支含地形推演")
+    : route.evidenceStatus || t("依据待核对");
+}
+function routeSpawnLabel(route: MapRoute) {
+  if (route.spawnSide?.startsWith("blue")) return t("原作者蓝方出生侧");
+  if (route.spawnSide?.startsWith("red")) return t("原作者红方出生侧");
+  return route.spawnSide || t("队伍 {0} 出生侧", [route.team]);
 }
 export function MapAtlas() {
   useLocale();
@@ -109,7 +168,11 @@ function MapAtlasContent({ snapshot }: { snapshot: MapSnapshot }) {
   );
   const cards = atlas.maps
     .flatMap((map) =>
-      map.thumbnails.map((thumb) => ({ map, thumb, guides: mapGuides(atlas, map.id) })),
+      map.thumbnails.map((thumb) => ({
+        map,
+        thumb,
+        guides: relatedMapGuides(atlas, map.id, coverage.routes),
+      })),
     )
     .filter(
       ({ map, thumb, guides }) =>
@@ -126,7 +189,7 @@ function MapAtlasContent({ snapshot }: { snapshot: MapSnapshot }) {
         ).includes(normalize(query)) &&
         (!onlyGuides ||
           guides.length ||
-          (isSuperAdmin && hasRoute(atlas, coverage, map.id, thumb.layoutId))),
+          (isSuperAdmin && hasRoute(atlas, coverage.routes, map.id, thumb.layoutId))),
     );
   if (selected)
     return (
@@ -180,6 +243,9 @@ function MapAtlasContent({ snapshot }: { snapshot: MapSnapshot }) {
           {localize(cards.length)} {t("个三点占领布局")}
         </span>
       </div>
+      {coverage.status === "error" && (
+        <MapDataStatus error={coverage.error} retry={coverage.retry} />
+      )}
       <section className="ground-gallery" aria-label={t("地图列表")}>
         {cards.map(({ map, thumb, guides }) => (
           <Link
@@ -198,16 +264,13 @@ function MapAtlasContent({ snapshot }: { snapshot: MapSnapshot }) {
                 loading="lazy"
                 decoding="async"
               />
-              {localize(
-                isSuperAdmin && hasRoute(atlas, coverage, map.id, thumb.layoutId) ? (
-                  <span className="ground-guide-badge">{t("推荐走线")}</span>
-                ) : guides.length > 0 ? (
-                  <span className="ground-guide-badge">
-                    {t("攻略")}
-                    {localize(guides.length)}
-                  </span>
-                ) : null,
-              )}
+              {isSuperAdmin && hasRoute(atlas, coverage.routes, map.id, thumb.layoutId) ? (
+                <span className="ground-guide-badge">{t("推荐走线")}</span>
+              ) : guides.length > 0 ? (
+                <span className="ground-guide-badge">
+                  {t("攻略")} {guides.length}
+                </span>
+              ) : null}
             </div>
             <div className="ground-card-caption">
               <strong>{map.name}</strong>
@@ -360,41 +423,44 @@ function GroundDetail({
   const layout = map.layouts.find((l) => l.id === layoutId) || map.layouts[0];
   const marks = displayMapMarks(layout.marks);
   const routeContext = routeIdentity(atlas, map.id, layout.id);
-  const baseGuides = mapGuides(atlas, map.id);
   const [contours, setContours] = useState(true),
     [points, setPoints] = useState(true),
     [grid, setGrid] = useState(false),
     [cropped, setCropped] = useState(true);
   const [recommendations, setRecommendations] = useState(true);
+  const [routeChoice, setRouteChoice] = useState({ context: "", id: "" });
   const [routeState, setRouteState] = useState({ id: "", status: "loading" });
   const [routeRetry, setRouteRetry] = useState(0);
-  const routeData = useMapRoute(
-    releaseId,
+  const routeContextKey = `${releaseId}:${routeContext.mapId}:${routeContext.layoutId}:${team}`;
+  const coverage = useMapRouteCoverage(releaseId, isSuperAdmin);
+  const guideLayouts = availableRouteLayouts(atlas, map, coverage.routes, team);
+  const guides = relatedMapGuides(atlas, map.id, coverage.routes);
+  const routeOptions = routesForContext(
+    coverage.routes,
     routeContext.mapId,
     routeContext.layoutId,
     team,
-    isSuperAdmin,
+  );
+  const selectedRoute = selectedMapRoute(
+    routeOptions,
+    routeChoice.context === routeContextKey ? routeChoice.id : "",
+  );
+  const routeData = useMapRoute(
+    releaseId,
+    selectedRoute?.id || "",
+    isSuperAdmin && recommendations,
     routeRetry,
   );
   const route = routeData.route;
-  const guides =
-    route && !baseGuides.some((g) => g.source === route.sourceUrl)
-      ? [
-          ...baseGuides,
-          {
-            title: route.title,
-            source: route.sourceUrl,
-            edition: route.sourceDate.slice(0, 4) || t("来源待核对"),
-          },
-        ]
-      : baseGuides;
   const routeKey = `${route?.url || "none"}:${routeRetry}`;
   const routeStatus =
-    routeData.status === "loaded"
-      ? routeState.id === routeKey
-        ? routeState.status
-        : "loading"
-      : routeData.status;
+    coverage.status === "loading" || coverage.status === "error"
+      ? coverage.status
+      : routeData.status === "loaded"
+        ? routeState.id === routeKey
+          ? routeState.status
+          : "loading"
+        : routeData.status;
   const [zoom, setZoom] = useState(1),
     [offset, setOffset] = useState({ x: 0, y: 0 });
   const [failed, setFailed] = useState(false),
@@ -517,56 +583,83 @@ function GroundDetail({
         </GameSelect>
       </label>
       <div className="ground-layer-toggles">
-        {localize(
-          isSuperAdmin && (
+        {isSuperAdmin &&
+          coverage.status === "loaded" &&
+          routeOptions.length === 0 &&
+          guideLayouts.length > 0 && (
             <button
-              aria-pressed={recommendations && !!route}
-              aria-busy={recommendations && routeStatus === "loading"}
-              title={
-                recommendations && routeStatus === "error"
-                  ? routeData.error || t("推荐走线加载失败，点击重试")
-                  : recommendations && routeStatus === "loading"
-                    ? t("正在读取推荐走线")
-                    : routeStatus === "empty" && recommendations
-                      ? t("当前布局与出生侧暂无匹配的推荐走线")
-                      : t("显示或隐藏推荐走线")
-              }
               onClick={() => {
-                if (recommendations && routeStatus === "error") setRouteRetry((v) => v + 1);
-                else setRecommendations((v) => !v);
-              }}
-            >
-              {localize(
-                routeStatus === "loading" && recommendations
-                  ? t("读取走线…")
-                  : recommendations && routeStatus === "error"
-                    ? t("走线重试")
-                    : routeStatus === "empty" && recommendations
-                      ? t("暂无走线")
-                      : t("推荐走线"),
-              )}
-            </button>
-          ),
-        )}
-        {localize(
-          [
-            [t("等高线"), contours, setContours],
-            [t("点位"), points, setPoints],
-            [t("参考网格"), grid, setGrid],
-            [t("布局范围"), cropped, setCropped],
-          ].map(([name, value, set]) => (
-            <button
-              key={name as string}
-              aria-pressed={value as boolean}
-              onClick={() => {
+                editorRef.current?.finish();
                 reset();
-                (set as (v: boolean) => void)(!value);
+                choose(guideLayouts[0].id);
               }}
             >
-              {localize(name as string)}
+              {t("当前布局暂无走线，查看已收录布局：{0}", [localize(guideLayouts[0].name)])}
             </button>
-          )),
+          )}
+        {isSuperAdmin && routeOptions.length > 0 && (
+          <label>
+            <span>{t("攻略方案")}</span>
+            <GameSelect
+              aria-label={t("推荐走线攻略方案")}
+              value={selectedRoute?.id || ""}
+              onValueChange={(id) => setRouteChoice({ context: routeContextKey, id })}
+            >
+              {routeOptions.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.title} · {routeSpawnLabel(item)}
+                  {item.guideVersion ? ` · v${item.guideVersion}` : ""}
+                </option>
+              ))}
+            </GameSelect>
+          </label>
         )}
+        {isSuperAdmin && (
+          <button
+            aria-pressed={recommendations && !!route}
+            aria-busy={recommendations && routeStatus === "loading"}
+            title={
+              recommendations && routeStatus === "error"
+                ? coverage.error || routeData.error || t("推荐走线加载失败，点击重试")
+                : recommendations && routeStatus === "loading"
+                  ? t("正在读取推荐走线")
+                  : routeStatus === "empty" && recommendations
+                    ? t("当前布局与出生侧暂无匹配的推荐走线")
+                    : t("显示或隐藏推荐走线")
+            }
+            onClick={() => {
+              if (recommendations && routeStatus === "error") {
+                if (coverage.status === "error") coverage.retry();
+                else setRouteRetry((v) => v + 1);
+              } else setRecommendations((v) => !v);
+            }}
+          >
+            {routeStatus === "loading" && recommendations
+              ? t("读取走线…")
+              : recommendations && routeStatus === "error"
+                ? t("走线重试")
+                : routeStatus === "empty" && recommendations
+                  ? t("暂无走线")
+                  : t("推荐走线")}
+          </button>
+        )}
+        {[
+          [t("等高线"), contours, setContours],
+          [t("点位"), points, setPoints],
+          [t("参考网格"), grid, setGrid],
+          [t("布局范围"), cropped, setCropped],
+        ].map(([name, value, set]) => (
+          <button
+            key={name as string}
+            aria-pressed={value as boolean}
+            onClick={() => {
+              reset();
+              (set as (v: boolean) => void)(!value);
+            }}
+          >
+            {name as string}
+          </button>
+        ))}
       </div>
     </div>
   );
@@ -941,31 +1034,46 @@ function GroundDetail({
             {localize(map.contours.native_sample_m)} m。
           </p>
         </details>
+        {isSuperAdmin && selectedRoute && (
+          <section className="ground-route-guide" aria-label={t("所选推荐走线文字攻略")}>
+            <h3>{selectedRoute.title}</h3>
+            <p className="ground-route-source">
+              {routeSpawnLabel(selectedRoute)} · {layout.name}
+              {selectedRoute.sourceVersion ? ` · ${selectedRoute.sourceVersion}` : ""}
+              {!selectedRoute.sourceVersion && selectedRoute.guideVersion
+                ? t(" · 攻略版本 {0}", [selectedRoute.guideVersion])
+                : ""}
+              {selectedRoute.sourceDate ? t(" · 来源 {0}", [selectedRoute.sourceDate]) : ""}
+            </p>
+            {selectedRoute.evidenceStatus && <p>{routeEvidenceLabel(selectedRoute)}</p>}
+            {selectedRoute.sourceSummary && <p>{selectedRoute.sourceSummary}</p>}
+            {selectedRoute.tacticsMarkdown ? (
+              <RouteText markdown={selectedRoute.tacticsMarkdown} />
+            ) : (
+              <p>{t("这条走线暂未附带文字说明，请对照来源查看。")}</p>
+            )}
+          </section>
+        )}
         <section className="ground-related">
           <h3>
-            {t("关联攻略")}
-            <span>{localize(guides.length)}</span>
+            {t("关联攻略")} <span>{guides.length}</span>
           </h3>
-          {localize(
-            guides.length ? (
-              <>
-                <p>{t("同一地图的不同布局、季节及更新版本可能有差异，以原帖为准。")}</p>
-                <div>
-                  {localize(
-                    guides.map((g) => (
-                      <a key={g.source} href={g.source} target="_blank" rel="noopener noreferrer">
-                        <span>{localize(g.title)}</span>
-                        <small>
-                          {localize(g.edition)} {t("· 原帖 ↗")}
-                        </small>
-                      </a>
-                    )),
-                  )}
-                </div>
-              </>
-            ) : (
-              <p>{t("暂未收录这张地图的关联攻略。")}</p>
-            ),
+          {guides.length ? (
+            <>
+              <p>{t("同一地图的不同布局、季节及更新版本可能有差异，以原帖为准。")}</p>
+              <div>
+                {guides.map((g) => (
+                  <a key={g.source} href={g.source} target="_blank" rel="noopener noreferrer">
+                    <span>{g.title}</span>
+                    <small>
+                      {g.edition} · {t(mapGuideSourceLabel(g.source))} · {t("原帖 ↗")}
+                    </small>
+                  </a>
+                ))}
+              </div>
+            </>
+          ) : (
+            <p>{t("暂未收录这张地图的关联攻略。")}</p>
           )}
         </section>
       </div>
