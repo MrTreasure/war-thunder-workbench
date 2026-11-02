@@ -2210,7 +2210,7 @@
       "weaknessEvidenceStatus": "explicit-location",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺视频试射上下文与可验证局部坐标；Wiki正文不是完整穿透模拟。"
+        "各试射命中角度未提供；T34/T14E3片段未独立读出游戏版本。"
       ],
       "testCases": [
         {
@@ -4157,7 +4157,7 @@
       "scopeRole": "medium_tank",
       "scopeStatus": "in-requested-scope",
       "era": "modern",
-      "eraStatus": "pending-exact-variant-date-review",
+      "eraStatus": "reviewed-base-variant-relationship",
       "eraBasis": "Wiki确认Type90基型衍生，沿用已核对技术类别",
       "collectedAt": "2026-11-02T09:04:34.022Z",
       "pins": [
@@ -4255,8 +4255,8 @@
       "weaknessEvidenceStatus": "conditional-explicit-location",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。",
-        "具体改型年代待核实，era保留null。"
+        "B型具体技术改型年份尚未核实；时代类别已按基型衍生关系核对为现代。",
+        "试射显示穿深、命中角度及游戏版本未独立读出，保持null。"
       ],
       "sourceGameVersion": null,
       "videoGameVersion": null,
@@ -6766,7 +6766,8 @@
       "weaknessEvidenceStatus": "conditional-explicit-location",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。"
+        "源游戏版本与命中角度未独立读出，保持null。",
+        "90秒3BM60实战片段的攻击载具、距离及显示穿深未确认；与主测试分别保存。"
       ],
       "sourceGameVersion": null,
       "videoGameVersion": null,
@@ -7026,7 +7027,7 @@
       "weaknessEvidenceStatus": "conditional-explicit-location",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。"
+        "源游戏版本与命中角度未独立读出，保持null。"
       ],
       "sourceGameVersion": null,
       "videoGameVersion": null,
