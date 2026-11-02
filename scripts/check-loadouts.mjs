@@ -10,7 +10,14 @@ import {
   encodeLoadout,
   decodeLoadout,
   validLoadoutPlan,
+  hasConfigurableLoadout,
+  stationLoadoutOptions,
 } from "../src/loadouts.ts";
+import {
+  loadoutWeaponName,
+  loadoutParameterValue,
+  matchesLoadoutText,
+} from "../src/loadout-presentation.ts";
 
 const catalog = JSON.parse(
   await readFile(new URL("../data/vehicle-details.json", import.meta.url)),
@@ -38,6 +45,13 @@ const option = (name, points, weight = 10, count = 1) => ({
 const a = option("Weapon A", ["t1-s1"]),
   b = option("Weapon B", ["t1-s1"]);
 const contested = { ...base, compatibility: [a, b] };
+assert(hasConfigurableLoadout(contested));
+assert(!hasConfigurableLoadout({ ...contested, status: "not_provided" }));
+assert(!hasConfigurableLoadout({ ...contested, compatibility: [] }));
+assert.equal(stationLoadoutOptions(contested, "t1-s2").length, 0);
+assert.equal(loadoutWeaponName("2000 lb LDGP Mk 84 bomb"), "2000 磅 LDGP Mk 84 炸弹");
+assert.equal(loadoutParameterValue("IR+IOG+GNSS"), "红外 + 惯性制导 + 卫星导航");
+assert(matchesLoadoutText("GBU-12 Paveway II guided bomb", "制导炸弹"));
 assert.equal(
   solveLoadout(contested, [
     { weapon: weaponKey(a.name), count: 1 },

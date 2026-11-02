@@ -215,9 +215,52 @@
 .wt-mount-summary li strong {
   white-space: nowrap;
 }
-.wt-mount-summary details {
+.wt-mount-provenance {
   font-size: 12px;
   color: var(--wt-muted);
+  border-top: 1px solid var(--wt-line);
+  margin-top: 12px;
+  padding-top: 10px;
+}
+.wt-mount-provenance h4 {
+  margin: 0 0 8px;
+  color: var(--wt-ink);
+  font-weight: 500;
+}
+.wt-mount-page .wt-mount-station:disabled {
+  opacity: 1;
+  color: var(--wt-muted);
+  background: var(--wt-surface);
+  border-style: dashed;
+}
+.wt-mount-source-name {
+  margin: 4px 6px 10px;
+  color: var(--wt-muted);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.wt-mount-weapon-parameters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 0 22px;
+  margin: 10px 6px 0;
+  font-size: 13px;
+}
+.wt-mount-weapon-parameters > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  border-top: 1px solid var(--wt-line);
+}
+.wt-mount-weapon-parameters dt { color: var(--wt-muted); }
+.wt-mount-weapon-parameters dd { margin: 0; text-align: right; overflow-wrap: anywhere; }
+.wt-mount-vehicle-menu .wt-select-option {
+  min-height: 100px;
+}
+.wt-mount-vehicle-menu .wt-game-card {
+  margin-block: 4px 14px;
 }
 .wt-mount-actions {
   position: sticky;

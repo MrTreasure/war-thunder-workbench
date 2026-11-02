@@ -5,7 +5,12 @@ import { useVehicleCatalog, type VehicleFacts } from "./vehicle-catalog";
 import { vehicleStore } from "./vehicle-store";
 import bootstrap from "./generated/bootstrap.json";
 import { GameSelect } from "./components/GameSelect";
-import { WeaponParameters } from "./components/WeaponParameters";
+import {
+  loadoutRanks,
+  loadoutWeaponName,
+  loadoutParameterValue,
+  matchesLoadoutText,
+} from "./loadout-presentation";
 import { Modal } from "./Modal";
 import { useStored } from "./storage";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
@@ -14,6 +19,8 @@ import { loadoutRequest } from "./loadout-api";
 import { useLoadoutPlans } from "./loadout-storage";
 import {
   checkLoadout,
+  hasConfigurableLoadout,
+  stationLoadoutOptions,
   loadoutRevision,
   decodeLoadout,
   encodeLoadout,
@@ -49,7 +56,7 @@ type WeaponIndex = {
 };
 const countries = bootstrap.countries as Record<string, string>;
 const kg = (value: number | null) =>
-  value === null ? "未知" : `${value.toLocaleString("zh-CN", { maximumFractionDigits: 3 })} kg`;
+  value === null ? "未知" : `${value.toLocaleString("zh-CN", { maximumFractionDigits: 3 })} 千克`;
 const planOrNull = (value: unknown): value is LoadoutPlan | null => {
   if (value === null || validLoadoutPlan(value)) return true;
   if (!value || typeof value !== "object") return false;
@@ -107,6 +114,7 @@ function LoadoutPage({ owner }: { owner: string }) {
   const [pinnedUnit, setPinnedUnit] = useState<VehicleFacts | null>(null);
   const opening = useRef(0);
   const [vehicleQuery, setVehicleQuery] = useState("");
+  const [rank, setRank] = useState("");
   const [mode, setMode] = useState<Mode>("rb");
   const [plan, setPlan] = useState<LoadoutPlan | null>(null);
   const [draft, saveDraft, draftError] = useStored(
@@ -134,13 +142,17 @@ function LoadoutPage({ owner }: { owner: string }) {
   const [requirements, setRequirements] = useState<Requirement[]>([{ weapon: "", count: 1 }]);
   const [searchCountry, setSearchCountry] = useState("");
   const [searchCategory, setSearchCategory] = useState("");
+  const [searchRank, setSearchRank] = useState("");
   const [results, setResults] = useState<SearchResults | null>(null);
   const request = useRef<AbortController | null>(null);
   const importedSearch = useRef("");
   const units = useMemo(
     () =>
       [...facts.values()].filter(
-        (u) => u.country === country && ["aviation", "helicopters"].includes(u.category || ""),
+        (u) =>
+          u.country === country &&
+          ["aviation", "helicopters"].includes(u.category || "") &&
+          hasConfigurableLoadout(u.wikiDetails?.loadouts),
       ),
     [facts, country],
   );
@@ -414,7 +426,13 @@ function LoadoutPage({ owner }: { owner: string }) {
       setResults(
         await loadoutRequest<SearchResults>(
           "search",
-          { requirements, country: searchCountry, category: searchCategory, offset },
+          {
+            requirements,
+            country: searchCountry,
+            category: searchCategory,
+            rank: searchRank,
+            offset,
+          },
           controller.signal,
         ),
       );
@@ -456,7 +474,7 @@ function LoadoutPage({ owner }: { owner: string }) {
     data?.compatibility.filter(
       (o) =>
         o.stations.some((s) => s.hardpointId === station) &&
-        o.name.toLowerCase().includes(weaponQuery.toLowerCase()),
+        matchesLoadoutText(o.name, weaponQuery),
     ) || [];
   const retry = () => {
     setLoadState({ error: "", loading: true });
@@ -546,6 +564,29 @@ function LoadoutPage({ owner }: { owner: string }) {
               </GameSelect>
             </label>
             <label>
+              等级
+              <GameSelect
+                value={rank}
+                onValueChange={(value) => {
+                  setRank(value);
+                  if (plan && value && unit?.rank !== value) {
+                    opening.current++;
+                    setWorkingPlan(null);
+                    setVehicle("");
+                    setActiveData(null);
+                    setPinnedUnit(null);
+                  }
+                }}
+              >
+                <option value="">全部等级</option>
+                {loadoutRanks.map((value) => (
+                  <option key={value} value={value}>
+                    {value} 级
+                  </option>
+                ))}
+              </GameSelect>
+            </label>
+            <label>
               搜索机型
               <input
                 value={vehicleQuery}
@@ -555,20 +596,35 @@ function LoadoutPage({ owner }: { owner: string }) {
             </label>
             <label>
               机型
-              <GameSelect value={vehicle} onValueChange={chooseVehicle}>
+              <GameSelect
+                value={vehicle}
+                onValueChange={chooseVehicle}
+                menuClassName="wt-mount-vehicle-menu"
+                renderOption={(value) => {
+                  const choice = units.find((u) => u.id === value);
+                  return choice ? (
+                    <VehicleTile
+                      unit={choice}
+                      mode={mode}
+                      footerLabel={`${choice.rank} 级`}
+                      showPackPrice={false}
+                    />
+                  ) : null;
+                }}
+              >
                 <option value="">选择飞机或直升机</option>
                 {units
                   .filter(
                     (u) =>
-                      u.id === vehicle ||
-                      `${u.name} ${u.nameEn || ""} ${u.id}`
-                        .toLowerCase()
-                        .includes(vehicleQuery.toLowerCase()),
+                      (!rank || u.rank === rank) &&
+                      (u.id === vehicle ||
+                        `${u.name} ${u.nameEn || ""} ${u.id}`
+                          .toLowerCase()
+                          .includes(vehicleQuery.toLowerCase())),
                   )
                   .map((u) => (
                     <option key={u.id} value={u.id}>
                       {u.name}
-                      {u.wikiDetails?.loadouts?.status === "available" ? "" : " · 资料待补齐"}
                     </option>
                   ))}
               </GameSelect>
@@ -612,7 +668,7 @@ function LoadoutPage({ owner }: { owner: string }) {
           {unit && data?.status === "available" && plan && (
             <>
               <section className="wt-mount-plan-title">
-                <VehicleTile unit={unit} mode={mode} showRank />
+                <VehicleTile unit={unit} mode={mode} footerLabel={`${unit.rank} 级`} />
                 <label>
                   方案名称
                   <input
@@ -662,7 +718,7 @@ function LoadoutPage({ owner }: { owner: string }) {
                     <>
                       <div className="wt-mount-board-top">
                         <h3>自定义挂载</h3>
-                        <span title="仅表示来源编号和翼侧，不表示机体真实比例">挂点示意</span>
+                        <span>挂点示意 · 按来源编号与翼侧排列</span>
                       </div>
                       <div className="wt-mount-stations">
                         {data.hardpoints.map((point) => {
@@ -674,12 +730,15 @@ function LoadoutPage({ owner }: { owner: string }) {
                               o.stations.some((s) => s.hardpointId === point.id),
                           );
                           const conflict = check?.issues.some((i) => i.stations.includes(point.id));
+                          const available = stationLoadoutOptions(data, point.id).length > 0;
                           return (
                             <button
                               key={point.id}
                               className="wt-mount-station"
                               data-side={point.side}
                               data-conflict={conflict || undefined}
+                              disabled={!available}
+                              aria-label={`挂点 ${point.label}，${available ? "选择挂载" : "不可挂载，当前资料无可用选项"}`}
                               aria-pressed={point.id === station}
                               onClick={() => {
                                 setStation(point.id);
@@ -688,6 +747,7 @@ function LoadoutPage({ owner }: { owner: string }) {
                               }}
                               onContextMenu={(e) => {
                                 e.preventDefault();
+                                if (!available) return;
                                 setStation(point.id);
                                 setPicker(true);
                               }}
@@ -714,10 +774,22 @@ function LoadoutPage({ owner }: { owner: string }) {
                                 />
                               )}
                               <strong>
-                                {chosen?.name || (mount ? "原挂载已失效" : "＋ 选择挂载")}
+                                {chosen
+                                  ? loadoutWeaponName(chosen.name)
+                                  : !available
+                                    ? "不可挂载"
+                                    : mount
+                                      ? "原挂载已失效"
+                                      : "＋ 选择挂载"}
                               </strong>
                               <small>
-                                {chosen ? kg(chosen.weightKg) : mount ? "请重新选择" : "空挂点"}
+                                {chosen
+                                  ? kg(chosen.weightKg)
+                                  : !available
+                                    ? "当前资料无可用选项"
+                                    : mount
+                                      ? "请重新选择"
+                                      : "空挂点"}
                               </small>
                             </button>
                           );
@@ -737,7 +809,10 @@ function LoadoutPage({ owner }: { owner: string }) {
                           <strong>{p.label}</strong>
                           <span>
                             {p.items
-                              .map((item) => `${item.name} × ${item.count ?? "?"}`)
+                              .map(
+                                (item) =>
+                                  `${loadoutWeaponName(item.name)} × ${item.count ?? "未知"}`,
+                              )
                               .join(" · ")}
                           </span>
                         </button>
@@ -756,7 +831,9 @@ function LoadoutPage({ owner }: { owner: string }) {
                       <div key={l.id}>
                         <dt>{l.label}</dt>
                         <dd>
-                          {l.value === null ? "未知" : `${l.value.toLocaleString()} ${l.unit}`}
+                          {l.value === null
+                            ? "未知"
+                            : `${l.value.toLocaleString()} ${loadoutParameterValue(l.unit)}`}
                         </dd>
                       </div>
                     ))}
@@ -782,7 +859,7 @@ function LoadoutPage({ owner }: { owner: string }) {
                   <ul>
                     {check?.weapons.map((w) => (
                       <li key={w.key}>
-                        <span>{w.name}</span>
+                        <span>{loadoutWeaponName(w.name)}</span>
                         <strong>× {w.count}</strong>
                       </li>
                     ))}
@@ -794,15 +871,15 @@ function LoadoutPage({ owner }: { owner: string }) {
                       ))}
                     </ul>
                   )}
-                  <details>
-                    <summary>规则与来源</summary>
+                  <section className="wt-mount-provenance">
+                    <h4>规则与来源</h4>
                     {check?.limitations.map((text) => (
                       <p key={text}>{text}</p>
                     ))}
                     <a href={data.source} target="_blank" rel="noopener noreferrer">
                       官方 Wiki · {data.checkedAt.slice(0, 10)} ↗
                     </a>
-                  </details>
+                  </section>
                 </aside>
               </div>
               <div className="wt-mount-actions">
@@ -885,14 +962,12 @@ function LoadoutPage({ owner }: { owner: string }) {
                           ...weapons.weapons.filter((w) => w.key === r.weapon),
                           ...weapons.weapons
                             .filter(
-                              (w) =>
-                                w.key !== r.weapon &&
-                                w.name.toLowerCase().includes(weaponLookup.toLowerCase()),
+                              (w) => w.key !== r.weapon && matchesLoadoutText(w.name, weaponLookup),
                             )
                             .slice(0, 120),
                         ].map((w) => (
                           <option key={w.key} value={w.key}>
-                            {w.name}
+                            {loadoutWeaponName(w.name)}
                           </option>
                         ))}
                       </GameSelect>
@@ -957,6 +1032,24 @@ function LoadoutPage({ owner }: { owner: string }) {
                   </GameSelect>
                 </label>
                 <label>
+                  等级
+                  <GameSelect
+                    value={searchRank}
+                    disabled={busy}
+                    onValueChange={(value) => {
+                      setSearchRank(value);
+                      setResults(null);
+                    }}
+                  >
+                    <option value="">全部等级</option>
+                    {loadoutRanks.map((value) => (
+                      <option key={value} value={value}>
+                        {value} 级
+                      </option>
+                    ))}
+                  </GameSelect>
+                </label>
+                <label>
                   军种
                   <GameSelect
                     value={searchCategory}
@@ -997,7 +1090,7 @@ function LoadoutPage({ owner }: { owner: string }) {
                     <VehicleTile
                       unit={result.vehicle}
                       mode={mode}
-                      showRank
+                      footerLabel={`${result.vehicle.rank} 级`}
                       countryLabel={countries[result.vehicle.country]}
                     />
                     <span className="wt-mount-state">已知规则通过</span>
@@ -1060,7 +1153,7 @@ function LoadoutPage({ owner }: { owner: string }) {
                   showAcquisition={facts.has(p.vehicleId)}
                   countryLabel={countries[p.country]}
                 />
-                <p title={`${p.sourceDate} · ${p.sourceHash}`}>
+                <p>
                   来源资料 {p.sourceDate.slice(0, 10)} ·{" "}
                   {p.preset ? "预设组合" : `${p.mounts.length} 个挂点`}
                 </p>
@@ -1121,22 +1214,33 @@ function LoadoutPage({ owner }: { owner: string }) {
                 { station, option: optionKey(option) },
               ];
               const issues = checkLoadout(data, next).issues;
+              const blocked = issues.some((issue) => issue.code !== "wing-max-difference");
               return (
                 <article key={option.optionId} data-conflict={!!issues.length || undefined}>
-                  <button onClick={() => applyOption(option)}>
+                  <button disabled={blocked} onClick={() => applyOption(option)}>
                     {option.imageUrl && (
                       <img src={option.imageUrl} alt="" width={48} height={36} loading="lazy" />
                     )}
                     <span>
-                      <strong>{option.name}</strong>
+                      <strong>{loadoutWeaponName(option.name)}</strong>
                       <small>{kg(option.weightKg)}</small>
                     </span>
                   </button>
+                  {loadoutWeaponName(option.name) !== option.name && (
+                    <p className="wt-mount-source-name">来源名称：{option.name}</p>
+                  )}
                   {issues.length > 0 && (
                     <p className="wt-mount-warning">{issues.map((i) => i.message).join(" ")}</p>
                   )}
                   {option.parameters.length > 0 && (
-                    <WeaponParameters name={option.name} parameters={option.parameters} />
+                    <dl className="wt-mount-weapon-parameters" aria-label="详细参数">
+                      {option.parameters.map((parameter) => (
+                        <div key={parameter.id}>
+                          <dt>{parameter.label}</dt>
+                          <dd>{loadoutParameterValue(parameter.value)}</dd>
+                        </div>
+                      ))}
+                    </dl>
                   )}
                 </article>
               );

@@ -26,6 +26,17 @@ export type LoadoutCheck = {
   limitations: string[];
 };
 export const loadoutKey = "wt-loadouts-v1";
+export const stationLoadoutOptions = (data: WikiLoadouts, station: string) =>
+  data.compatibility.filter((option) =>
+    option.stations.some((entry) => entry.hardpointId === station),
+  );
+export const hasConfigurableLoadout = (data?: WikiLoadouts) =>
+  !!data &&
+  data.status === "available" &&
+  (data.hardpoints.some((point) => stationLoadoutOptions(data, point.id).length > 0) ||
+    data.presets.some((preset) =>
+      preset.items.some((item) => item.count === null || item.count > 0),
+    ));
 const clean = (text: string) => text.normalize("NFKC").replace(/\s+/g, " ").trim();
 export const weaponKey = (name: string) =>
   clean(name)
