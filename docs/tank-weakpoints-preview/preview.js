@@ -175,6 +175,12 @@ function render() {
   const records = [];
   if (source.url) records.push(sourceLink(source.title || "视频来源", videoUrl(source, model.time), [source.author, source.publishedAt, source.gameVersion ? `游戏版本 ${source.gameVersion}` : null, Number.isFinite(model.time) ? `${Math.floor(model.time / 60)}:${String(Math.floor(model.time % 60)).padStart(2, "0")}` : null, model.imageQuality].filter(Boolean).join(" · ")));
   if (model.wikiUrl) records.push(sourceLink("官方 Wiki · " + model.name, model.wikiUrl, `核对日期 ${model.collectedAt || SAMPLE.collectedAt || "待补充"} · 车型、装甲与主炮装填资料${model.wikiGameVersion ? ` · 游戏版本 ${model.wikiGameVersion}` : ""}`));
+  const ammoReferences = new Map();
+  for (const item of [test, ...(model.testCases || [])]) {
+    const reference = item?.shellTypeReference;
+    if (reference?.url) ammoReferences.set(reference.url + ":" + reference.officialShellName, reference);
+  }
+  for (const reference of ammoReferences.values()) records.push(sourceLink("测试弹种资料 · " + (reference.sourceShellLabelOriginal || reference.officialShellName), reference.url, ["官方 Wiki", reference.mainGun, reference.gameVersion ? `游戏版本 ${reference.gameVersion}` : null].filter(Boolean).join(" · ")));
   if (evidence) records.push(sourceLink("防护分析截图 · " + evidence.label, videoUrl({ url: test?.sourceUrl }, evidence.sourceTime), [evidence.caption, Number.isFinite(evidence.sourceTime) ? `${Math.floor(evidence.sourceTime / 60)}:${String(Math.floor(evidence.sourceTime % 60)).padStart(2, "0")}` : null].filter(Boolean).join(" · ")));
   $("sources").replaceChildren(...records);
   renderPoint();

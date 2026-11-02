@@ -21,6 +21,16 @@ function privatePath(path) {
   if (!target.startsWith(resolve(project, "artifacts") + sep)) throw Error("Source proof must stay in local artifacts");
   return target;
 }
+function validateShellTypeReference(item, originalCase) {
+  const reference = item?.shellTypeReference;
+  if (!reference) return;
+  const attacker = item.attackerVehicleId || originalCase?.attackerVehicleId;
+  if (reference.sourceBasis !== "official-Wiki-reference" || !attacker
+    || reference.attackerVehicleId !== attacker || reference.url !== `https://wiki.warthunder.com/unit/${attacker}`
+    || reference.sourceShellLabelOriginal !== item.shell || item.rawUIType !== null
+    || !item.shellTypeCode || !Number.isFinite(Date.parse(reference.checkedAt))
+    || !reference.mainGun || !reference.officialShellName) throw Error("Ammunition reference must match the exact attacker and source shell");
+}
 const report = { models: [], publishedFiles: [], noRemoteRequests: true };
 for (const model of data.models) {
   if (model.scopeRole === "light_tank" && model.specialistWeakpointVerified !== true) throw Error("Scout/light vehicle needs verified specialist weakpoint evidence");
@@ -30,8 +40,10 @@ for (const model of data.models) {
     if (typeof item.id !== "string" || !item.id.startsWith(model.id + ":") || cases.has(item.id)) throw Error("Invalid or duplicate test case: " + model.id);
     if (!Number.isFinite(item.sourceTime) || item.sourceTime < 0 || !item.sourceUrl?.startsWith("https://")) throw Error("Missing test-case source: " + model.id);
     for (const key of ["distanceMeters", "displayedPenetrationMm"]) if (item[key] != null && (!Number.isFinite(item[key]) || item[key] < 0)) throw Error("Invalid test-case measurement: " + model.id);
+    validateShellTypeReference(item);
     cases.set(item.id, item);
   }
+  validateShellTypeReference(model.testContext, cases.get(model.testContext?.caseId));
   for (const advice of model.videoAdvice || []) {
     if (advice.kind === "author-general-front-ammunition-recommendation") {
       const evidence = advice.evidence?.sourceEvidence;

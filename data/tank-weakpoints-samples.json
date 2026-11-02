@@ -1559,8 +1559,20 @@
             "实际UI条件独立读取，非口述组句推导；静态分析不声称成功试射。"
           ],
           "attacker": "Type 90B (Fuji)",
-          "shellTypeCode": null,
-          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+          "shellTypeCode": "APFSDS",
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "jp_type_90b_camo",
+            "mainGun": "120 mm Type 90 L/44 cannon",
+            "officialShellName": "JM33",
+            "sourceShellLabelOriginal": "JM33"
+          }
         }
       ],
       "testCaseEvidence": {
@@ -1593,8 +1605,8 @@
         "attacker": "Type 90B (Fuji)",
         "attackerVehicleId": "jp_type_90b_camo",
         "shell": "JM33",
-        "shellTypeCode": null,
-        "shellTypeLabel": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 500,
         "displayedPenetrationMm": 472,
         "impactAngleDegrees": null,
@@ -1602,7 +1614,18 @@
         "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
         "sourceGameVersion": null,
         "caseId": "cn_ztz_99a:BV1CueU6cECo:900000",
-        "note": "本帧原生防护分析条件；静态绿色区域不代表独立成功试射。"
+        "note": "本帧原生防护分析条件；静态绿色区域不代表独立成功试射。",
+        "rawUIType": null,
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "jp_type_90b_camo",
+          "mainGun": "120 mm Type 90 L/44 cannon",
+          "officialShellName": "JM33",
+          "sourceShellLabelOriginal": "JM33"
+        }
       },
       "testContextEvidence": {
         "id": "cn_ztz_99a:BV1CueU6cECo:900000",
@@ -2597,10 +2620,22 @@
             "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
           ],
           "attacker": "Leopard 2A5",
-          "shellTypeCode": null,
+          "shellTypeCode": "APFSDS",
           "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
           "impactAngleDegrees": null,
-          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "germ_leopard_2a5",
+            "mainGun": "120 mm Rh120 L/44 cannon",
+            "officialShellName": "DM33",
+            "sourceShellLabelOriginal": "DM33"
+          }
         }
       ],
       "testCaseEvidence": {
@@ -2632,8 +2667,8 @@
         "attacker": "Leopard 2A5",
         "attackerVehicleId": "germ_leopard_2a5",
         "shell": "DM33",
-        "shellTypeCode": null,
-        "shellTypeLabel": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 500,
         "displayedPenetrationMm": 472,
         "impactAngleDegrees": null,
@@ -2641,7 +2676,18 @@
         "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
         "sourceGameVersion": null,
         "caseId": "us_m1a1_hc_usmc:BV1PUAezbE1p:680017",
-        "note": "对应当前所选原视频帧的独立UI条件；绿色仅是该条件的防护分析，不是实战必杀保证。"
+        "note": "对应当前所选原视频帧的独立UI条件；绿色仅是该条件的防护分析，不是实战必杀保证。",
+        "rawUIType": null,
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "mainGun": "120 mm Rh120 L/44 cannon",
+          "officialShellName": "DM33",
+          "sourceShellLabelOriginal": "DM33"
+        }
       },
       "testContextEvidence": {
         "id": "us_m1a1_hc_usmc:BV1PUAezbE1p:680017",
@@ -2842,10 +2888,22 @@
             "DM33类型未新找独立匹配proof留null，不能拿其它口径记录补穿深。"
           ],
           "attacker": "Leopard 2A5",
-          "shellTypeCode": null,
+          "shellTypeCode": "APFSDS",
           "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
           "impactAngleDegrees": null,
-          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "germ_leopard_2a5",
+            "mainGun": "120 mm Rh120 L/44 cannon",
+            "officialShellName": "DM33",
+            "sourceShellLabelOriginal": "DM33"
+          }
         },
         {
           "id": "germ_leopard_2a4_pzbtl_123:BV1PUAezbE1p:420017",
@@ -2865,10 +2923,22 @@
             "DM33类型未新找独立匹配proof留null，不能拿其它口径记录补穿深。"
           ],
           "attacker": "Leopard 2A5",
-          "shellTypeCode": null,
+          "shellTypeCode": "APFSDS",
           "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
           "impactAngleDegrees": null,
-          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "germ_leopard_2a5",
+            "mainGun": "120 mm Rh120 L/44 cannon",
+            "officialShellName": "DM33",
+            "sourceShellLabelOriginal": "DM33"
+          }
         }
       ],
       "testCaseEvidence": {
@@ -2916,8 +2986,8 @@
         "attacker": "Leopard 2A5",
         "attackerVehicleId": "germ_leopard_2a5",
         "shell": "DM33",
-        "shellTypeCode": null,
-        "shellTypeLabel": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 500,
         "displayedPenetrationMm": 472,
         "impactAngleDegrees": null,
@@ -2925,7 +2995,18 @@
         "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
         "sourceGameVersion": null,
         "caseId": "germ_leopard_2a4_pzbtl_123:BV1PUAezbE1p:420017",
-        "note": "对应所选原生防护分析帧的已应用UI条件；绿色范围不代表任意角度或炮弹均可击穿，未声称实战成功命中。"
+        "note": "对应所选原生防护分析帧的已应用UI条件；绿色范围不代表任意角度或炮弹均可击穿，未声称实战成功命中。",
+        "rawUIType": null,
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "mainGun": "120 mm Rh120 L/44 cannon",
+          "officialShellName": "DM33",
+          "sourceShellLabelOriginal": "DM33"
+        }
       },
       "testContextEvidence": {
         "id": "germ_leopard_2a4_pzbtl_123:BV1PUAezbE1p:420017",
@@ -3233,10 +3314,22 @@
             "DM33类型未新找独立匹配proof留null，不能拿其它口径记录补穿深。"
           ],
           "attacker": "Leopard 2A5",
-          "shellTypeCode": null,
+          "shellTypeCode": "APFSDS",
           "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
           "impactAngleDegrees": null,
-          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "germ_leopard_2a5",
+            "mainGun": "120 mm Rh120 L/44 cannon",
+            "officialShellName": "DM33",
+            "sourceShellLabelOriginal": "DM33"
+          }
         },
         {
           "id": "ussr_t_80ue1:BV1PUAezbE1p:190000",
@@ -3256,10 +3349,22 @@
             "DM33类型未新找独立匹配proof留null，不能拿其它口径记录补穿深。"
           ],
           "attacker": "Leopard 2A5",
-          "shellTypeCode": null,
+          "shellTypeCode": "APFSDS",
           "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
           "impactAngleDegrees": null,
-          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "germ_leopard_2a5",
+            "mainGun": "120 mm Rh120 L/44 cannon",
+            "officialShellName": "DM33",
+            "sourceShellLabelOriginal": "DM33"
+          }
         },
         {
           "id": "ussr_t_80ue1:BV1PUAezbE1p:203017",
@@ -3279,10 +3384,22 @@
             "DM33类型未新找独立匹配proof留null，不能拿其它口径记录补穿深。"
           ],
           "attacker": "Leopard 2A5",
-          "shellTypeCode": null,
+          "shellTypeCode": "APFSDS",
           "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
           "impactAngleDegrees": null,
-          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "germ_leopard_2a5",
+            "mainGun": "120 mm Rh120 L/44 cannon",
+            "officialShellName": "DM33",
+            "sourceShellLabelOriginal": "DM33"
+          }
         }
       ],
       "testCaseEvidence": {
@@ -3349,8 +3466,8 @@
         "attacker": "Leopard 2A5",
         "attackerVehicleId": "germ_leopard_2a5",
         "shell": "DM33",
-        "shellTypeCode": null,
-        "shellTypeLabel": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 500,
         "displayedPenetrationMm": 472,
         "impactAngleDegrees": null,
@@ -3358,7 +3475,18 @@
         "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
         "sourceGameVersion": null,
         "caseId": "ussr_t_80ue1:BV1PUAezbE1p:203017",
-        "note": "对应所选原生防护分析帧的已应用UI条件；绿色范围不代表任意角度或炮弹均可击穿，未声称实战成功命中。"
+        "note": "对应所选原生防护分析帧的已应用UI条件；绿色范围不代表任意角度或炮弹均可击穿，未声称实战成功命中。",
+        "rawUIType": null,
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "mainGun": "120 mm Rh120 L/44 cannon",
+          "officialShellName": "DM33",
+          "sourceShellLabelOriginal": "DM33"
+        }
       },
       "testContextEvidence": {
         "id": "ussr_t_80ue1:BV1PUAezbE1p:203017",
@@ -3804,10 +3932,21 @@
             "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
           ],
           "attacker": "M1128 Wolfpack",
-          "shellTypeCode": null,
-          "shellTypeLabel": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
           "impactAngleDegrees": null,
-          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed"
+          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/us_m1128_wolfpack",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "us_m1128_wolfpack",
+            "mainGun": "105 mm M68A1E8 cannon",
+            "officialShellName": "M900",
+            "sourceShellLabelOriginal": "M900"
+          }
         }
       ],
       "testCaseEvidence": {
@@ -3875,8 +4014,8 @@
         "attacker": "M1128 Wolfpack",
         "attackerVehicleId": "us_m1128_wolfpack",
         "shell": "M900",
-        "shellTypeCode": null,
-        "shellTypeLabel": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 0,
         "displayedPenetrationMm": 522,
         "impactAngleDegrees": null,
@@ -3884,7 +4023,18 @@
         "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
         "sourceGameVersion": null,
         "caseId": "sw_strv_103c:BV1SPmEBJE3y:1705000",
-        "note": "原生静态已应用UI条件；防护分布计算进度不等于击穿概率，未声称独立试射成功。"
+        "note": "原生静态已应用UI条件；防护分布计算进度不等于击穿概率，未声称独立试射成功。",
+        "rawUIType": null,
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/us_m1128_wolfpack",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "us_m1128_wolfpack",
+          "mainGun": "105 mm M68A1E8 cannon",
+          "officialShellName": "M900",
+          "sourceShellLabelOriginal": "M900"
+        }
       },
       "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Sweden-Flat-Vehicle-title-probe-1705.webp",
       "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/024.json",
@@ -4524,10 +4674,21 @@
             "notFromAttackSourceFlag": true
           },
           "attacker": "M60A3 TTS",
-          "shellTypeCode": null,
-          "shellTypeLabel": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
           "impactAngleDegrees": null,
-          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed"
+          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/us_m60a3_tts",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "us_m60a3_tts",
+            "mainGun": "105 mm M68 cannon",
+            "officialShellName": "M735",
+            "sourceShellLabelOriginal": "M735"
+          }
         }
       ],
       "testCaseEvidence": {
@@ -4577,8 +4738,8 @@
         "attacker": "M60A3 TTS",
         "attackerVehicleId": "us_m60a3_tts",
         "shell": "M735",
-        "shellTypeCode": null,
-        "shellTypeLabel": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 500,
         "displayedPenetrationMm": 284,
         "impactAngleDegrees": null,
@@ -4586,7 +4747,18 @@
         "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
         "sourceGameVersion": null,
         "caseId": "us_m60a3_tts:BV1SPmEBJE3y:397017",
-        "note": "397.017秒原生已应用UI：M735、500米、284毫米；绿色仅对应本帧条件。390秒改进型反应装甲口述属于车族背景，不是该车型同帧试射结论。"
+        "note": "397.017秒原生已应用UI：M735、500米、284毫米；绿色仅对应本帧条件。390秒改进型反应装甲口述属于车族背景，不是该车型同帧试射结论。",
+        "rawUIType": null,
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/us_m60a3_tts",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "us_m60a3_tts",
+          "mainGun": "105 mm M68 cannon",
+          "officialShellName": "M735",
+          "sourceShellLabelOriginal": "M735"
+        }
       },
       "testContextEvidence": {
         "id": "us_m60a3_tts:BV1SPmEBJE3y:397017",
@@ -6469,10 +6641,21 @@
             "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
           ],
           "attacker": "M60A3 TTS",
-          "shellTypeCode": null,
-          "shellTypeLabel": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
           "impactAngleDegrees": null,
-          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed"
+          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/us_m60a3_tts",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "us_m60a3_tts",
+            "mainGun": "105 mm M68 cannon",
+            "officialShellName": "M774",
+            "sourceShellLabelOriginal": "M774"
+          }
         }
       ],
       "testCaseEvidence": {
@@ -6536,8 +6719,8 @@
         "attacker": "M60A3 TTS",
         "attackerVehicleId": "us_m60a3_tts",
         "shell": "M774",
-        "shellTypeCode": null,
-        "shellTypeLabel": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 0,
         "displayedPenetrationMm": 372,
         "impactAngleDegrees": null,
@@ -6545,7 +6728,18 @@
         "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
         "sourceGameVersion": null,
         "caseId": "uk_chieftain_mk_10:BV1SPmEBJE3y:1524033",
-        "note": "原生静态已应用UI条件；防护分布计算进度不等于击穿概率，未声称独立试射成功。"
+        "note": "原生静态已应用UI条件；防护分布计算进度不等于击穿概率，未声称独立试射成功。",
+        "rawUIType": null,
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/us_m60a3_tts",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "us_m60a3_tts",
+          "mainGun": "105 mm M68 cannon",
+          "officialShellName": "M774",
+          "sourceShellLabelOriginal": "M774"
+        }
       },
       "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Britain-Late-MBT-title-probe-1524.webp",
       "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/023.json",
@@ -7663,8 +7857,8 @@
         "attacker": "T-54 (1949)",
         "attackerVehicleId": "ussr_t_54_1949",
         "shell": "3BM8",
-        "shellTypeCode": null,
-        "shellTypeLabel": null,
+        "shellTypeCode": "APDS",
+        "shellTypeLabel": "脱壳穿甲弹",
         "distanceMeters": 0,
         "displayedPenetrationMm": 336,
         "impactAngleDegrees": null,
@@ -7672,7 +7866,18 @@
         "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
         "sourceGameVersion": null,
         "caseId": "us_xm_803:BV1SPmEBJE3y:459033",
-        "note": "对应所选原生防护分析帧的已应用UI条件；绿色范围不代表任意角度或炮弹均可击穿，未声称实战成功命中。"
+        "note": "对应所选原生防护分析帧的已应用UI条件；绿色范围不代表任意角度或炮弹均可击穿，未声称实战成功命中。",
+        "rawUIType": null,
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/ussr_t_54_1949",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "ussr_t_54_1949",
+          "mainGun": "100 mm D-10T cannon",
+          "officialShellName": "3BM-8",
+          "sourceShellLabelOriginal": "3BM8"
+        }
       },
       "testCases": [
         {
@@ -7696,10 +7901,21 @@
             "静态已应用UI条件，不等于作者组句的每一条都已成功试射。"
           ],
           "attacker": "T-54 (1949)",
-          "shellTypeCode": null,
-          "shellTypeLabel": null,
+          "shellTypeCode": "APDS",
+          "shellTypeLabel": "脱壳穿甲弹",
           "impactAngleDegrees": null,
-          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed"
+          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/ussr_t_54_1949",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "ussr_t_54_1949",
+            "mainGun": "100 mm D-10T cannon",
+            "officialShellName": "3BM-8",
+            "sourceShellLabelOriginal": "3BM8"
+          }
         }
       ],
       "testCaseEvidence": {
@@ -8231,8 +8447,20 @@
           ],
           "supersedesCaseId": "jp_tkx_prot:BV1CueU6cECo:809000",
           "attacker": "TKX (P)",
-          "shellTypeCode": null,
-          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+          "shellTypeCode": "APFSDS",
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/jp_type_10_prototype",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "jp_type_10_prototype",
+            "mainGun": "120 mm TKG cannon",
+            "officialShellName": "JM33",
+            "sourceShellLabelOriginal": "JM33"
+          }
         }
       ],
       "testCaseEvidence": {
@@ -8266,8 +8494,8 @@
         "attacker": "TKX (P)",
         "attackerVehicleId": "jp_type_10_prototype",
         "shell": "JM33",
-        "shellTypeCode": null,
-        "shellTypeLabel": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 500,
         "displayedPenetrationMm": 472,
         "impactAngleDegrees": null,
@@ -8275,7 +8503,18 @@
         "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
         "sourceGameVersion": null,
         "caseId": "jp_type_10_prototype:BV1CueU6cECo:809000",
-        "note": "本帧原生防护分析条件；静态绿色区域不代表独立成功试射。"
+        "note": "本帧原生防护分析条件；静态绿色区域不代表独立成功试射。",
+        "rawUIType": null,
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/jp_type_10_prototype",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "jp_type_10_prototype",
+          "mainGun": "120 mm TKG cannon",
+          "officialShellName": "JM33",
+          "sourceShellLabelOriginal": "JM33"
+        }
       },
       "testContextEvidence": {
         "id": "jp_type_10_prototype:BV1CueU6cECo:809000",
@@ -8553,10 +8792,21 @@
             "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
           ],
           "attacker": "M60A3 TTS",
-          "shellTypeCode": null,
-          "shellTypeLabel": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
           "impactAngleDegrees": null,
-          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed"
+          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/us_m60a3_tts",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "us_m60a3_tts",
+            "mainGun": "105 mm M68 cannon",
+            "officialShellName": "M774",
+            "sourceShellLabelOriginal": "M774"
+          }
         }
       ],
       "testCaseEvidence": {
@@ -8620,8 +8870,8 @@
         "attacker": "M60A3 TTS",
         "attackerVehicleId": "us_m60a3_tts",
         "shell": "M774",
-        "shellTypeCode": null,
-        "shellTypeLabel": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 0,
         "displayedPenetrationMm": 372,
         "impactAngleDegrees": null,
@@ -8629,7 +8879,18 @@
         "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
         "sourceGameVersion": null,
         "caseId": "uk_olifant_mk_2:BV1SPmEBJE3y:1518000",
-        "note": "原生静态已应用UI条件；防护分布计算进度不等于击穿概率，未声称独立试射成功。"
+        "note": "原生静态已应用UI条件；防护分布计算进度不等于击穿概率，未声称独立试射成功。",
+        "rawUIType": null,
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/us_m60a3_tts",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "us_m60a3_tts",
+          "mainGun": "105 mm M68 cannon",
+          "officialShellName": "M774",
+          "sourceShellLabelOriginal": "M774"
+        }
       },
       "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Britain-Olifant-family-title-probe-1518.webp",
       "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/022.json",
@@ -9198,10 +9459,22 @@
           ],
           "previousDraftId": "unresolved-leclerc-family:BV1PUAezbE1p:540000",
           "attacker": "Leopard 2A5",
-          "shellTypeCode": null,
+          "shellTypeCode": "APFSDS",
           "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
           "impactAngleDegrees": null,
-          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "germ_leopard_2a5",
+            "mainGun": "120 mm Rh120 L/44 cannon",
+            "officialShellName": "DM33",
+            "sourceShellLabelOriginal": "DM33"
+          }
         }
       ],
       "testCaseEvidence": {
@@ -9234,8 +9507,8 @@
         "attacker": "Leopard 2A5",
         "attackerVehicleId": "germ_leopard_2a5",
         "shell": "DM33",
-        "shellTypeCode": null,
-        "shellTypeLabel": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 500,
         "displayedPenetrationMm": 472,
         "impactAngleDegrees": null,
@@ -9243,7 +9516,18 @@
         "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
         "sourceGameVersion": null,
         "caseId": "fr_msc:BV1PUAezbE1p:540000",
-        "note": "对应当前所选原视频帧的独立UI条件；绿色仅是该条件的防护分析，不是实战必杀保证。"
+        "note": "对应当前所选原视频帧的独立UI条件；绿色仅是该条件的防护分析，不是实战必杀保证。",
+        "rawUIType": null,
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "mainGun": "120 mm Rh120 L/44 cannon",
+          "officialShellName": "DM33",
+          "sourceShellLabelOriginal": "DM33"
+        }
       },
       "testContextEvidence": {
         "id": "fr_msc:BV1PUAezbE1p:540000",
@@ -9696,10 +9980,22 @@
             "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
           ],
           "attacker": "Leopard 2A5",
-          "shellTypeCode": null,
+          "shellTypeCode": "APFSDS",
           "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
           "impactAngleDegrees": null,
-          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "germ_leopard_2a5",
+            "mainGun": "120 mm Rh120 L/44 cannon",
+            "officialShellName": "DM33",
+            "sourceShellLabelOriginal": "DM33"
+          }
         },
         {
           "id": "it_c1_ariete_certezza:BV1PUAezbE1p:790033",
@@ -9722,10 +10018,22 @@
             "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
           ],
           "attacker": "Leopard 2A5",
-          "shellTypeCode": null,
+          "shellTypeCode": "APFSDS",
           "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
           "impactAngleDegrees": null,
-          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "germ_leopard_2a5",
+            "mainGun": "120 mm Rh120 L/44 cannon",
+            "officialShellName": "DM33",
+            "sourceShellLabelOriginal": "DM33"
+          }
         }
       ],
       "testCaseEvidence": {
@@ -9779,8 +10087,8 @@
         "attacker": "Leopard 2A5",
         "attackerVehicleId": "germ_leopard_2a5",
         "shell": "DM33",
-        "shellTypeCode": null,
-        "shellTypeLabel": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 500,
         "displayedPenetrationMm": 472,
         "impactAngleDegrees": null,
@@ -9788,7 +10096,18 @@
         "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
         "sourceGameVersion": null,
         "caseId": "it_c1_ariete_certezza:BV1PUAezbE1p:770017",
-        "note": "当前主图为正面外观，条件来自本帧实际菜单；不能将绿色准星或说明文字当作装甲着色。"
+        "note": "当前主图为正面外观，条件来自本帧实际菜单；不能将绿色准星或说明文字当作装甲着色。",
+        "rawUIType": null,
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "mainGun": "120 mm Rh120 L/44 cannon",
+          "officialShellName": "DM33",
+          "sourceShellLabelOriginal": "DM33"
+        }
       },
       "testContextEvidence": {
         "id": "it_c1_ariete_certezza:BV1PUAezbE1p:770017",
@@ -10415,8 +10734,20 @@
             "实际UI条件独立读取，非口述组句推导；静态分析不声称成功试射。"
           ],
           "attacker": "Type 90B (Fuji)",
-          "shellTypeCode": null,
-          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+          "shellTypeCode": "APFSDS",
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "jp_type_90b_camo",
+            "mainGun": "120 mm Type 90 L/44 cannon",
+            "officialShellName": "JM33",
+            "sourceShellLabelOriginal": "JM33"
+          }
         }
       ],
       "testCaseEvidence": {
@@ -10449,8 +10780,8 @@
         "attacker": "Type 90B (Fuji)",
         "attackerVehicleId": "jp_type_90b_camo",
         "shell": "JM33",
-        "shellTypeCode": null,
-        "shellTypeLabel": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 500,
         "displayedPenetrationMm": 472,
         "impactAngleDegrees": null,
@@ -10458,7 +10789,18 @@
         "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
         "sourceGameVersion": null,
         "caseId": "it_ariete_amv_pt1:BV1CueU6cECo:852017",
-        "note": "本帧原生防护分析条件；静态绿色区域不代表独立成功试射。"
+        "note": "本帧原生防护分析条件；静态绿色区域不代表独立成功试射。",
+        "rawUIType": null,
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "jp_type_90b_camo",
+          "mainGun": "120 mm Type 90 L/44 cannon",
+          "officialShellName": "JM33",
+          "sourceShellLabelOriginal": "JM33"
+        }
       },
       "testContextEvidence": {
         "id": "it_ariete_amv_pt1:BV1CueU6cECo:852017",
@@ -13065,10 +13407,22 @@
             "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
           ],
           "attacker": "Leopard 2A5",
-          "shellTypeCode": null,
+          "shellTypeCode": "APFSDS",
           "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
           "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred",
-          "impactAngleDegrees": null
+          "impactAngleDegrees": null,
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "germ_leopard_2a5",
+            "mainGun": "120 mm Rh120 L/44 cannon",
+            "officialShellName": "DM33",
+            "sourceShellLabelOriginal": "DM33"
+          }
         }
       ],
       "testCaseEvidence": {
@@ -13152,8 +13506,8 @@
         "attacker": "Leopard 2A5",
         "attackerVehicleId": "germ_leopard_2a5",
         "shell": "DM33",
-        "shellTypeCode": null,
-        "shellTypeLabel": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 500,
         "displayedPenetrationMm": 472,
         "impactAngleDegrees": null,
@@ -13161,7 +13515,18 @@
         "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
         "sourceGameVersion": null,
         "caseId": "germ_leopard_2a4m_can:BV1PUAezbE1p:440017",
-        "note": "对应当前所选原视频帧的独立UI条件；绿色仅是该条件的防护分析，不是实战必杀保证。"
+        "note": "对应当前所选原视频帧的独立UI条件；绿色仅是该条件的防护分析，不是实战必杀保证。",
+        "rawUIType": null,
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "mainGun": "120 mm Rh120 L/44 cannon",
+          "officialShellName": "DM33",
+          "sourceShellLabelOriginal": "DM33"
+        }
       },
       "testContextEvidence": {
         "id": "germ_leopard_2a4m_can:BV1PUAezbE1p:440017",
@@ -13382,10 +13747,22 @@
             "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
           ],
           "attacker": "Leopard 2A5",
-          "shellTypeCode": null,
+          "shellTypeCode": "APFSDS",
           "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
           "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred",
-          "impactAngleDegrees": null
+          "impactAngleDegrees": null,
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "germ_leopard_2a5",
+            "mainGun": "120 mm Rh120 L/44 cannon",
+            "officialShellName": "DM33",
+            "sourceShellLabelOriginal": "DM33"
+          }
         }
       ],
       "testCaseEvidence": {
@@ -13654,8 +14031,8 @@
       "testContext": {
         "attacker": "Leopard 2A5",
         "shell": "DM33",
-        "shellTypeCode": null,
-        "shellTypeLabel": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 500,
         "displayedPenetrationMm": 472,
         "impactAngleDegrees": null,
@@ -13663,7 +14040,18 @@
         "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
         "sourceGameVersion": null,
         "caseId": "uk_challenger_2_megatron:BV1PUAezbE1p:740017",
-        "note": "原视频独立防护分析UI条件，未据静态绿色区域推断实战命中后效；作者未测试的一般建议另列。"
+        "note": "原视频独立防护分析UI条件，未据静态绿色区域推断实战命中后效；作者未测试的一般建议另列。",
+        "rawUIType": null,
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "mainGun": "120 mm Rh120 L/44 cannon",
+          "officialShellName": "DM33",
+          "sourceShellLabelOriginal": "DM33"
+        }
       },
       "testContextEvidence": {
         "id": "uk_challenger_2_megatron:BV1PUAezbE1p:740017",
@@ -13752,10 +14140,22 @@
             "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
           ],
           "attacker": "Leopard 2A5",
-          "shellTypeCode": null,
+          "shellTypeCode": "APFSDS",
           "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
           "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred",
-          "impactAngleDegrees": null
+          "impactAngleDegrees": null,
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "germ_leopard_2a5",
+            "mainGun": "120 mm Rh120 L/44 cannon",
+            "officialShellName": "DM33",
+            "sourceShellLabelOriginal": "DM33"
+          }
         }
       ],
       "testCaseEvidence": {
@@ -13839,8 +14239,8 @@
         "attacker": "Leopard 2A5",
         "attackerVehicleId": "germ_leopard_2a5",
         "shell": "DM33",
-        "shellTypeCode": null,
-        "shellTypeLabel": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 500,
         "displayedPenetrationMm": 472,
         "impactAngleDegrees": null,
@@ -13848,7 +14248,18 @@
         "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
         "sourceGameVersion": null,
         "caseId": "uk_khalid:BV1PUAezbE1p:240000",
-        "note": "对应当前所选原视频帧的独立UI条件；绿色仅是该条件的防护分析，不是实战必杀保证。"
+        "note": "对应当前所选原视频帧的独立UI条件；绿色仅是该条件的防护分析，不是实战必杀保证。",
+        "rawUIType": null,
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "mainGun": "120 mm Rh120 L/44 cannon",
+          "officialShellName": "DM33",
+          "sourceShellLabelOriginal": "DM33"
+        }
       },
       "testContextEvidence": {
         "id": "uk_khalid:BV1PUAezbE1p:240000",
@@ -13989,10 +14400,21 @@
             "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
           ],
           "attacker": "Leopard 2A6",
-          "shellTypeCode": null,
-          "shellTypeLabel": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
           "impactAngleDegrees": null,
-          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed"
+          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_2a6",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "germ_leopard_2a6",
+            "mainGun": "120 mm Rh120 L/55 cannon",
+            "officialShellName": "DM53",
+            "sourceShellLabelOriginal": "DM53"
+          }
         }
       ],
       "testCaseEvidence": {
@@ -14279,8 +14701,8 @@
         "attacker": "Leopard 2A6",
         "attackerVehicleId": "germ_leopard_2a6",
         "shell": "DM53",
-        "shellTypeCode": null,
-        "shellTypeLabel": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 0,
         "displayedPenetrationMm": 653,
         "impactAngleDegrees": null,
@@ -14288,7 +14710,18 @@
         "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
         "sourceGameVersion": null,
         "caseId": "ussr_t_80u:BV1SPmEBJE3y:1206000",
-        "note": "原生静态已应用UI条件；防护分布计算进度不等于击穿概率，未声称独立试射成功。"
+        "note": "原生静态已应用UI条件；防护分布计算进度不等于击穿概率，未声称独立试射成功。",
+        "rawUIType": null,
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/germ_leopard_2a6",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "germ_leopard_2a6",
+          "mainGun": "120 mm Rh120 L/55 cannon",
+          "officialShellName": "DM53",
+          "sourceShellLabelOriginal": "DM53"
+        }
       }
     },
     {
@@ -14355,10 +14788,21 @@
             "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
           ],
           "attacker": "M1128 Wolfpack",
-          "shellTypeCode": null,
-          "shellTypeLabel": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
           "impactAngleDegrees": null,
-          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed"
+          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed",
+          "rawUIType": null,
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/us_m1128_wolfpack",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "us_m1128_wolfpack",
+            "mainGun": "105 mm M68A1E8 cannon",
+            "officialShellName": "M900",
+            "sourceShellLabelOriginal": "M900"
+          }
         }
       ],
       "testCaseEvidence": {
@@ -14582,8 +15026,8 @@
         "attacker": "M1128 Wolfpack",
         "attackerVehicleId": "us_m1128_wolfpack",
         "shell": "M900",
-        "shellTypeCode": null,
-        "shellTypeLabel": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 0,
         "displayedPenetrationMm": 522,
         "impactAngleDegrees": null,
@@ -14591,7 +15035,18 @@
         "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
         "sourceGameVersion": null,
         "caseId": "il_merkava_mk_1b:BV1SPmEBJE3y:1735000",
-        "note": "原生静态已应用UI条件；防护分布计算进度不等于击穿概率，未声称独立试射成功。"
+        "note": "原生静态已应用UI条件；防护分布计算进度不等于击穿概率，未声称独立试射成功。",
+        "rawUIType": null,
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/us_m1128_wolfpack",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "us_m1128_wolfpack",
+          "mainGun": "105 mm M68A1E8 cannon",
+          "officialShellName": "M900",
+          "sourceShellLabelOriginal": "M900"
+        }
       }
     },
     {
@@ -17124,6 +17579,1318 @@
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
       ]
+    },
+    {
+      "id": "us_m1a2_abrams",
+      "name": "M1A2 Abrams",
+      "role": "主战坦克",
+      "country": "usa",
+      "countryName": "美国",
+      "rank": 7,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/us_m1a2_abrams",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/us_m1a2_abrams.json",
+      "wikiSnapshotSHA256": "6cffc23ef30ae52a359a94c4a81d23d8034911f0fb884333caffc7f42db73b62",
+      "wikiSummary": "M1A2强化炮塔装甲、车长全景热像及车际信息系统。 主炮120 mm M256 cannon，6.5 → 5 秒。",
+      "wikiPoints": [
+        "原文明示车体对较弱尾翼稳定脱壳穿甲弹仍脆弱，建议地形遮蔽车体。",
+        "增重略降机动与极速；未给具体坐标或射角条件。"
+      ],
+      "reload": {
+        "gun": "120 mm M256 cannon",
+        "display": "6.5 → 5 秒",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5.0,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:22:44.797Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明示1992年开始生产该改型。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "us_m1a2_sep2_abrams_trophy",
+      "name": "M1A2 (Trophy-HV)",
+      "role": "主战坦克",
+      "country": "usa",
+      "countryName": "美国",
+      "rank": 8,
+      "era": null,
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/us_m1a2_sep2_abrams_trophy",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/us_m1a2_sep2_abrams_trophy.json",
+      "wikiSnapshotSHA256": "759247ac6d7ac20346a472ae548d34152305fb2ec390aefddbae6c227dc88c37",
+      "wikiSummary": "M1A2Trophy-HV增加硬杀伤主动防护，具六次对抗装置及较强炮塔防护。 主炮120 mm M256 cannon，6.5 → 5 秒。",
+      "wikiPoints": [
+        "原文称可对抗周向导弹威胁，不代表无限弹药或所有威胁均能拦截。",
+        "69.5吨增重降低机动；未提供局部弱点坐标。"
+      ],
+      "reload": {
+        "gun": "120 mm M256 cannon",
+        "display": "6.5 → 5 秒",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5.0,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:22:51.123Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "2018为供货合同、2020为部署演习，未给精确Trophy改型技术形成日期。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "us_m1_abrams_kvt",
+      "name": "M1 KVT",
+      "role": "主战坦克",
+      "country": "usa",
+      "countryName": "美国",
+      "rank": 7,
+      "era": null,
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/us_m1_abrams_kvt",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/us_m1_abrams_kvt.json",
+      "wikiSnapshotSHA256": "d34bde62a57ddb5301e42ff1bd91c18637826bc32fd241abda58fa526398fd3c",
+      "wikiSummary": "游戏M1KVT采用M1底盘模拟苏式外观，与实车采用M1A1的配置不同。 主炮105 mm M68A1 cannon，6.5 → 5 秒。",
+      "wikiPoints": [
+        "外部反应装甲块与红外探照灯为仿制装饰，不当作真实防护或观瞄能力。",
+        "本页未提供局部弱点或射击坐标。"
+      ],
+      "reload": {
+        "gun": "105 mm M68A1 cannon",
+        "display": "6.5 → 5 秒",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5.0,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:22:59.319Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "本页未给游戏M1底盘KVT配置技术形成日期，不能套用实车M1A1改装史。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "us_m60a3_slep",
+      "name": "M60 AMBT",
+      "role": "主战坦克",
+      "country": "usa",
+      "countryName": "美国",
+      "rank": 7,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/us_m60a3_slep",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/us_m60a3_slep.json",
+      "wikiSnapshotSHA256": "492102349671243f0c64a99348a9ce388972d2d0242f96c3ba38557114faffd3",
+      "wikiSummary": "M60AMBT升级1200马力动力、现代火控及120毫米滑膛炮。 主炮120 mm M256 cannon，8.7 → 6.7 秒。",
+      "wikiPoints": [
+        "原文强调装甲一般，可抵抗部分破甲弹及最大30毫米机关炮，但未给弹种射角条件。",
+        "适合二线支援与侧袭；不能把定性概述转为全向防护保证。"
+      ],
+      "reload": {
+        "gun": "120 mm M256 cannon",
+        "display": "8.7 → 6.7 秒",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:23:07.525Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明示StandartBio在2011年开发AMBT现代化项目。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "us_merkava_mk_1",
+      "name": "Merkava Mk.1 (USA)",
+      "role": "主战坦克",
+      "country": "usa",
+      "countryName": "美国",
+      "rank": 6,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/us_merkava_mk_1",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/us_merkava_mk_1.json",
+      "wikiSnapshotSHA256": "cd4765b9d9ae39fa8da38c7d122be5df44b74a1bb192c9de8fca96d7dcfa020a",
+      "wikiSummary": "美树梅卡瓦Mk1以前置发动机及后部通道强调乘员生存性，属于2019活动载具。 主炮105 mm Sharir cannon，8.7 → 6.7 秒。",
+      "wikiPoints": [
+        "原页解释前置发动机的乘员保护设计目的，没有给出局部弱点坐标。",
+        "不从以色列树页面补入本页没有的射击结论。"
+      ],
+      "reload": {
+        "gun": "105 mm Sharir cannon",
+        "display": "8.7 → 6.7 秒",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:23:15.685Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "gameDisplayName": "▃Merkava Mk.1",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "本精确页将Mk1研发置于1973战争经验之后、1979服役之前的设计过程。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "us_merkava_mk_2b_late",
+      "name": "Merkava Mk.2B (USA)",
+      "role": "主战坦克",
+      "country": "usa",
+      "countryName": "美国",
+      "rank": 6,
+      "era": null,
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/us_merkava_mk_2b_late",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/us_merkava_mk_2b_late.json",
+      "wikiSnapshotSHA256": "dc4137a10f47684f44722ef3ea715d078f4bcd2daaf2d63c1fb88c569cd8958f",
+      "wikiSummary": "美树梅卡瓦Mk2B增加车体及炮塔侧复合屏，配热像、激光告警及较多烟幕。 主炮105 mm Sharir cannon，8.7 → 6.7 秒。",
+      "wikiPoints": [
+        "前置发动机保护正面乘员，同时增加发动机失效及起火风险。",
+        "机动弱于不少西方型，未提供具体局部坐标，不与早期以色列型合并证据。"
+      ],
+      "reload": {
+        "gun": "105 mm Sharir cannon",
+        "display": "8.7 → 6.7 秒",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:23:23.892Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "gameDisplayName": "▃Merkava Mk.2B",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "1983–1989为基础Mk2生产，未给精确后期Mk2B形成日期。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "us_merkava_mk_3d",
+      "name": "Merkava Mk.3D (USA)",
+      "role": "主战坦克",
+      "country": "usa",
+      "countryName": "美国",
+      "rank": 7,
+      "era": null,
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/us_merkava_mk_3d",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/us_merkava_mk_3d.json",
+      "wikiSnapshotSHA256": "8240482fd6df3328ef6e94fb1e6311ddf55c45a002b8ad12b0a5d9c207acc194",
+      "wikiSummary": "梅卡瓦Mk3D在炮塔侧面增加模块化复合装甲，并强化履带。 主炮120 mm IMI MG251 cannon，7.8 → 6 秒。",
+      "wikiPoints": [
+        "原文以乘员分散及炮塔无储弹解释较好的击穿后生存性，不等于命中必然生还。",
+        "模块可兼具间隙及复合装甲作用；本页没有局部弱点或坐标。"
+      ],
+      "reload": {
+        "gun": "120 mm IMI MG251 cannon",
+        "display": "7.8 → 6 秒",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6.0,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:23:32.134Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "gameDisplayName": "▃Merkava Mk.3D",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "2000为首次使用年份，原文未给精确Mk3D技术形成日期。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "ussr_is_1_kit_3rank",
+      "name": "IS-1 ('45)",
+      "role": "重型坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 3,
+      "era": "ww2",
+      "scopeRole": "heavy_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_is_1_kit_3rank",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/ussr_is_1_kit_3rank.json",
+      "wikiSnapshotSHA256": "d7ece57af08473bc392565ff57875bee1377ea6110d02b7ea7cf04ef40a0a8f2",
+      "wikiSummary": "IS1（45）为战争末期综合外观配置，包含识别条纹、伪装网及附加履带。 主炮85 mm D-5T cannon，9.1 → 7 秒。",
+      "wikiPoints": [
+        "原文明示炮塔较车体防护差，乘员布局紧凑增加首发被毁风险。",
+        "没有具体射击坐标，不将任何弹种命中炮塔一概视为必毁。"
+      ],
+      "reload": {
+        "gun": "85 mm D-5T cannon",
+        "display": "9.1 → 7 秒",
+        "basicSeconds": 9.1,
+        "aceSeconds": 7.0,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:23:40.333Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明示该配置为战争末期苏军坦克综合外观，源于1943年研发IS1。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ],
+      "family": "is"
+    },
+    {
+      "id": "ussr_is_2_1944",
+      "name": "IS-2 (1944)",
+      "role": "重型坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 4,
+      "era": "ww2",
+      "scopeRole": "heavy_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_is_2_1944",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/ussr_is_2_1944.json",
+      "wikiSnapshotSHA256": "3f69d595aeaf4699e135533b7dffcb87f1c73fafbf24c2fdbcec7d1ec855ac37",
+      "wikiSummary": "IS2（1944）采用连续倾斜首上并保留122毫米炮，正面防护较早型改善。 主炮122 mm D-25T cannon，27.1 → 20.8 秒。",
+      "wikiPoints": [
+        "长装填要求谨慎选择射击时机，侧重每发命中。",
+        "原页倒车作战建议属战术背景，附加网架仅针对部分破甲弹，不是保证防穿。"
+      ],
+      "reload": {
+        "gun": "122 mm D-25T cannon",
+        "display": "27.1 → 20.8 秒",
+        "basicSeconds": 27.1,
+        "aceSeconds": 20.8,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:23:48.488Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原页明确1944改型在1945年5月前制造。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ],
+      "family": "is"
+    },
+    {
+      "id": "ussr_is_2_1944_321",
+      "name": "IS-2 No.321",
+      "role": "重型坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 4,
+      "era": null,
+      "scopeRole": "heavy_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_is_2_1944_321",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/ussr_is_2_1944_321.json",
+      "wikiSnapshotSHA256": "92f32de475dd7f11cf453af61bce3aa041ecd062933f802bd686fb3613f7c45d",
+      "wikiSummary": "IS2No321与1944型功能近似，但缺少挡泥板及可研发笼式附甲。 主炮122 mm D-25T cannon，27.1 → 20.8 秒。",
+      "wikiPoints": [
+        "原文明示大炮口制退器使炮管易被攻击，长装填难应对多个敌人。",
+        "建议紧随前线支援；不照搬原文夸张的一发摧毁描述为通用结果。"
+      ],
+      "reload": {
+        "gun": "122 mm D-25T cannon",
+        "display": "27.1 → 20.8 秒",
+        "basicSeconds": 27.1,
+        "aceSeconds": 20.8,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:23:56.751Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "本精确No321是多辆战时车辆的综合活动形象，未给独立技术形成日期。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ],
+      "family": "is"
+    },
+    {
+      "id": "ussr_is_2_1944_revenge",
+      "name": "IS-2 \"Revenge\"",
+      "role": "重型坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 4,
+      "era": "ww2",
+      "scopeRole": "heavy_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_is_2_1944_revenge",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/ussr_is_2_1944_revenge.json",
+      "wikiSnapshotSHA256": "8eb18faa67f62e11ba9eab63e6dc7be907195bc2bb3acf31dfc065c597cf1221",
+      "wikiSummary": "IS2复仇为1944型历史纪念版本，倾斜首上改善防护，但没有普通型可选网架附甲。 主炮122 mm D-25T cannon，27.1 → 20.8 秒。",
+      "wikiPoints": [
+        "长装填要求每发谨慎，倒车战术只作原文背景，不保证安全。",
+        "不将原文一击摧毁的夸张表达作为全部对手通用结果。"
+      ],
+      "reload": {
+        "gun": "122 mm D-25T cannon",
+        "display": "27.1 → 20.8 秒",
+        "basicSeconds": 27.1,
+        "aceSeconds": 20.8,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:24:04.819Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明示为战时历史纪念涂装的1944型，背景记述1943阵亡及后续波美拉尼亚战役。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ],
+      "family": "is"
+    },
+    {
+      "id": "ussr_is_2m_kit_4rank",
+      "name": "IS-2M (Be Prepared!)",
+      "role": "重型坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 4,
+      "era": null,
+      "scopeRole": "heavy_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_is_2m_kit_4rank",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/ussr_is_2m_kit_4rank.json",
+      "wikiSnapshotSHA256": "9475f0efabbbdfdb8dbc74108b0341c31a729b3d9e474b510b4fa9e14b582c09",
+      "wikiSummary": "IS2M（时刻准备着）沿用战后升级车设计，配122毫米炮并增加储弹及改进观瞄。 主炮122 mm D-25T cannon，27.1 → 20.8 秒。",
+      "wikiPoints": [
+        "原文明示装填极慢、机动有限，未列局部弱点或坐标。",
+        "1957背景属于基础型，不以游戏引入日期代填精确外观型技术时代。"
+      ],
+      "reload": {
+        "gun": "122 mm D-25T cannon",
+        "display": "27.1 → 20.8 秒",
+        "basicSeconds": 27.1,
+        "aceSeconds": 20.8,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:24:13.020Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "1957为基础IS2M现代化年份，本精确BePrepared外观未给独立技术形成日期。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ],
+      "family": "is"
+    },
+    {
+      "id": "ussr_object_292",
+      "name": "Object 292",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 7,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_object_292",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/ussr_object_292.json",
+      "wikiSnapshotSHA256": "39ccf80ed6b0c4b3378955aa4c5d4a41292d2ab7de7c41ed74309a67c79fb2aa",
+      "wikiSummary": "292工程为苏联末期152毫米炮试验平台，采用T80系列车体与炮塔混合设计。 主炮152 mm LP-83 cannon，自动装填 10 秒。",
+      "wikiPoints": [
+        "原文称并非同级最佳防护，未命中或无效射击后的长间隔风险较高。",
+        "没有反应装甲及防空机枪；不把外形相近视为与T80U同一防护配置。"
+      ],
+      "reload": {
+        "gun": "152 mm LP-83 cannon",
+        "display": "自动装填 10 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 10.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:24:21.238Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文将该152毫米炮试验项目明确置于苏联末期研发。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "ussr_t_64_b_1984",
+      "name": "T-64B",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 7,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_64_b_1984",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/ussr_t_64_b_1984.json",
+      "wikiSnapshotSHA256": "1a89d68906d6c61b76a69e0219d089e354ca94d47de7dc5d54765b9fd04367cf",
+      "wikiSummary": "T64B改进复合装甲、火控、125毫米炮及自动装填，并可研发Kontakt1附甲。 主炮125 mm 2A46M-1 cannon，自动装填 6 秒。",
+      "wikiPoints": [
+        "原文称动力不足，低轮廓有利利用掩体；未指明可验证局部弱点。",
+        "反应装甲为可研发配置，不默认所有车辆已安装；不把三层装甲等同任意弹种免疫。"
+      ],
+      "reload": {
+        "gun": "125 mm 2A46M-1 cannon",
+        "display": "自动装填 6 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 6.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:24:29.494Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "本页明确1985年起首上升级及早期车辆加16毫米附甲的技术变更。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "ussr_t_72av_turms",
+      "name": "T-72AV (TURMS-T)",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 7,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_72av_turms",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/ussr_t_72av_turms.json",
+      "wikiSnapshotSHA256": "c9527cd30797dccbeb818961057f8ebbc46c2572af0c990948492b47cc2de264",
+      "wikiSummary": "T72AVTURMST采用意大利火控及炮手、车长热像，改善目标发现能力。 主炮125 mm 2A46 cannon，自动装填 7 秒。",
+      "wikiPoints": [
+        "原文称装甲弱于T72B，倒车仅约4公里每小时，垂直炮控慢。",
+        "适合狙击与二线支援，未给局部弱点坐标，不移植其他T72型防护结果。"
+      ],
+      "reload": {
+        "gun": "125 mm 2A46 cannon",
+        "display": "自动装填 7 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 7.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:24:37.746Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明示1998–2000年完成TURMST标准改造。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "ussr_t_72b3_2011",
+      "name": "T-72B3",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 7,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_72b3_2011",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/ussr_t_72b3_2011.json",
+      "wikiSnapshotSHA256": "121f2169d9b4518ac3b6f3b7aee08d3e1660b44a6f67c7a1b416d240fdf6eefe",
+      "wikiSummary": "T72B3改善火控与炮手热像，并有后续动力及操纵升级。 主炮125 mm 2A46M-5 cannon，自动装填 7 秒。",
+      "wikiPoints": [
+        "倒车极慢仍是原文指出的主要不足；没有局部弱点坐标。",
+        "原文混述2016后B3M技术背景，不把所有后续装备默认安装于基础方案。"
+      ],
+      "reload": {
+        "gun": "125 mm 2A46M-5 cannon",
+        "display": "自动装填 7 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 7.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:24:45.981Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明示2010年用T90系列部件改造库存T72B。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "ussr_t_72b3_arena",
+      "name": "T-72B3 \"Arena\"",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 7,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_72b3_arena",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/ussr_t_72b3_arena.json",
+      "wikiSnapshotSHA256": "bd306ed7ca6b13714b9eba5e5c32d188eb7585c44418b28272406efd09617dab",
+      "wikiSummary": "T72B3Arena增加ArenaE主动防护，但相对标准B3A缺少侧面Relikt且发动机更弱。 主炮125 mm 2A46M-5 cannon，自动装填 7 秒。",
+      "wikiPoints": [
+        "主动防护对抗装置数量减少，不等于无限拦截。",
+        "倒车慢、俯角受限，未提供可验证局部射击坐标。"
+      ],
+      "reload": {
+        "gun": "125 mm 2A46M-5 cannon",
+        "display": "自动装填 7 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 7.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:24:54.182Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明示2013年展示搭载ArenaE的T72B3验证车。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "ussr_t_72m2_moderna",
+      "name": "T-72M2 Moderna",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 7,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_72m2_moderna",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/ussr_t_72m2_moderna.json",
+      "wikiSnapshotSHA256": "b42579ecd216db69dad566c26f5e4ff6e7cde0096e59b2f2e8e8dacde0de276b",
+      "wikiSummary": "斯洛伐克T72M2Moderna结合升级125毫米炮、法国热像、模块装甲及30毫米副炮。 主炮125 mm 2A46MS cannon，自动装填 7 秒。",
+      "wikiPoints": [
+        "原页未给局部弱点或坐标，不把新装甲概述推成全向必防。",
+        "30毫米炮为副武器，主炮装填仅取125毫米炮面板。"
+      ],
+      "reload": {
+        "gun": "125 mm 2A46MS cannon",
+        "display": "自动装填 7 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 7.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:25:02.345Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明确1992后研发并于1994年展出。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "ussr_t_80b",
+      "name": "T-80B",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 7,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_80b",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/ussr_t_80b.json",
+      "wikiSnapshotSHA256": "44fa03fff872b63aa914fc4a7967c5c9d5b93618cf9b7c2a81655e7ba799400d",
+      "wikiSummary": "T80B改善燃气轮机动力、火控与复合装甲，首上附加高硬度装甲板。 主炮125 mm 2A46M-1 cannon，自动装填 6 秒。",
+      "wikiPoints": [
+        "本页侧重装甲结构与机动改善，没有局部弱点坐标或试射。",
+        "不能因外形近似T64B就继承其局部防护结果。"
+      ],
+      "reload": {
+        "gun": "125 mm 2A46M-1 cannon",
+        "display": "自动装填 6 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 6.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:25:10.527Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "本精确原页将T80B生产起点写为1976，保留原文证据不套用其他T80年代。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "ussr_t_80bvm",
+      "name": "T-80BVM",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 8,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_80bvm",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/ussr_t_80bvm.json",
+      "wikiSnapshotSHA256": "a0971add8a4e1ed49afd196e44b899d43457f7d4de2f06834bf291351073b6ef",
+      "wikiSummary": "T80BVM增加Relikt反应装甲、改进炮控热像与弹药兼容性，并用1250马力动力。 主炮125 mm 2A46M-1 cannon，自动装填 6 秒。",
+      "wikiPoints": [
+        "原文概述动能与化学能防护改善，没有给出局部弱点或具体射击条件。",
+        "不同生产批次侧面套件不同，不默认历史段所有新装备均在基础游戏方案中。"
+      ],
+      "reload": {
+        "gun": "125 mm 2A46M-1 cannon",
+        "display": "自动装填 6 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 6.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:25:18.757Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明确2010年代后期进行BVM升级。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "us_m1a2_sep3_abrams",
+      "name": "M1A2 SEPv3",
+      "role": "主战坦克",
+      "country": "usa",
+      "countryName": "美国",
+      "rank": 8,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/us_m1a2_sep3_abrams",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-005-20261103/snapshots/us_m1a2_sep3_abrams.json",
+      "wikiSnapshotSHA256": "b54f1186f043bf464b486faae7ec42b236759f6ef5a755d6a696aea733730a35",
+      "wikiSummary": "M1A2SEPv3改善车体和炮塔防护、数字系统与弹药编程，新增M1147可编程高爆弹。 主炮120 mm M256 cannon，6.5 → 5 秒。",
+      "wikiPoints": [
+        "原文称对尾翼稳定脱壳穿甲弹防护改善，但未给局部弱点或实测坐标。",
+        "69.8吨增重降低机动"
+      ],
+      "reload": {
+        "gun": "120 mm M256 cannon",
+        "display": "6.5 → 5 秒",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5.0,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T10:04:40.080Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明示2015年10月在AUSA展示精确SEPv3。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "ussr_t_80ud",
+      "name": "T-80UD",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 7,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_80ud",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-005-20261103/snapshots/ussr_t_80ud.json",
+      "wikiSnapshotSHA256": "2f8f72cde1859d033b9393e38951b4a9d3f5e7f3474da71bb332223df4d58cc5",
+      "wikiSummary": "T80UD用1000马力6TD柴油发动机替换燃气轮机，保留较强正面防护与自动装填。 主炮125 mm 2A46M-1 cannon，自动装填 6 秒。",
+      "wikiPoints": [
+        "原文称机动下降，没有热像及3BM46，但未给局部弱点坐标。",
+        "不因正面近似T80U而继承其他型号的局部实测结果。"
+      ],
+      "reload": {
+        "gun": "125 mm 2A46M-1 cannon",
+        "display": "自动装填 6 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 6.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:27:49.039Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明确1985年形成柴油动力T80UD。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "ussr_t_80ue1_sm",
+      "name": "Т-80U-Е1 (USSR)",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 7,
+      "era": null,
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_80ue1_sm",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-005-20261103/snapshots/ussr_t_80ue1_sm.json",
+      "wikiSnapshotSHA256": "b5adcb96d805d83fdeb60cb94a76aaa23b248f643a9de96eed8da91b267edcc1",
+      "wikiSummary": "T80UE1活动版除专属外观外与普通高级型一致，配第二代热像、改进装填机及Kontakt5。 主炮125 mm 2A46M-4 cannon，自动装填 6 秒。",
+      "wikiPoints": [
+        "原文指出紧凑布局导致生存性较低，倒车速度慢。",
+        "自动装填不受乘员状态影响，面板值不代表无限持续射击；没有局部坐标。"
+      ],
+      "reload": {
+        "gun": "125 mm 2A46M-4 cannon",
+        "display": "自动装填 6 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 6.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:27:55.309Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "gameDisplayName": "◍Т-80U-Е1",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "本型为2025活动外观版本；2005为基础UE1服役年，原文未给本精确配置形成日期。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "ussr_t_80uk",
+      "name": "T-80UK",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 7,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_80uk",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-005-20261103/snapshots/ussr_t_80uk.json",
+      "wikiSnapshotSHA256": "df9d501234b1aa3596cfcdc74669838e5c20a6a778f9548e15553ea8e202bcb1",
+      "wikiSummary": "T80UK游戏型为指挥坦克评估原型，加入热像、Shtora1软杀伤及通信火控。 主炮125 mm 2A46M-1 cannon，自动装填 6 秒。",
+      "wikiPoints": [
+        "原文指出量产认证型并未安装Shtora1，与游戏原型需分开。",
+        "软杀伤不是硬杀伤拦截；本页没有局部弱点或射击坐标。"
+      ],
+      "reload": {
+        "gun": "125 mm 2A46M-1 cannon",
+        "display": "自动装填 6 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 6.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:28:03.509Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明示该指挥型评估原型在1980年代测试。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "ussr_t_80um2",
+      "name": "T-80UM2",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 7,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_80um2",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-005-20261103/snapshots/ussr_t_80um2.json",
+      "wikiSnapshotSHA256": "29002751345c0259cd9b194c181336584adf94c6917e5bb50dfcb75fd318b44f",
+      "wikiSummary": "T80UM2原型增加Drozd硬杀伤主动防护以应对来袭导弹。 主炮125 mm 2A46M-1 cannon，自动装填 6 秒。",
+      "wikiPoints": [
+        "原文指出没有热像，火控能力较弱；主动防护不代表所有方向、所有弹种均免疫。",
+        "未给局部弱点坐标，不从T80U补入未出现的射击结论。"
+      ],
+      "reload": {
+        "gun": "125 mm 2A46M-1 cannon",
+        "display": "自动装填 6 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 6.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:28:11.635Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明示1990年代后期制造该升级原型并在1997年演示。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "ussr_t_80u_yt_cup_2019",
+      "name": "T-80U (USSR)",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 7,
+      "era": null,
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_80u_yt_cup_2019",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-005-20261103/snapshots/ussr_t_80u_yt_cup_2019.json",
+      "wikiSnapshotSHA256": "2e3f6fa6aa4983782b61bc6a2f7ba1880737c1634d71176fcbe9b8c9b48a0cb8",
+      "wikiSummary": "T80UYouTube Cup主要以专属涂装区别于普通T80U。 主炮125 mm 2A46M-1 cannon，自动装填 6 秒。",
+      "wikiPoints": [
+        "本页明确紧凑的苏式内部布局及俯角限制，在特定情形增加暴露风险。",
+        "没有具体坐标、弹种或角度条件；赛事年份不作技术时代依据。"
+      ],
+      "reload": {
+        "gun": "125 mm 2A46M-1 cannon",
+        "display": "自动装填 6 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 6.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:28:19.845Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "gameDisplayName": "␙T-80U",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "本精确赛事型为2019奖品；1980年代技术改造属于基础T80U，未代填外观型技术年代。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "ussr_t_90a",
+      "name": "T-90A",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 7,
+      "era": null,
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_90a",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-005-20261103/snapshots/ussr_t_90a.json",
+      "wikiSnapshotSHA256": "eed3065f448ea9579f7ecbcb42734289fcee291c275b01d38b2dbef06a52e26a",
+      "wikiSummary": "T90A结合125毫米炮、热像、Kontakt5装甲与Shtora1红外干扰。 主炮125 mm 2A46M-5 cannon，自动装填 7 秒。",
+      "wikiPoints": [
+        "原文建议隐蔽车体支援，倒车慢使近战风险较高。",
+        "Shtora只对部分半自动视线制导导弹起作用，不是硬杀伤；没有局部坐标。"
+      ],
+      "reload": {
+        "gun": "125 mm 2A46M-5 cannon",
+        "display": "自动装填 7 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 7.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:28:28.009Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "本精确页未给T90A研发、形成或生产年份。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "ussr_t_90m_2020",
+      "name": "T-90M",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 8,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_90m_2020",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-005-20261103/snapshots/ussr_t_90m_2020.json",
+      "wikiSnapshotSHA256": "375e0f460dcdb9b41b80a739fd4406d1a3f76574ed639c3f41816f8d897df83f",
+      "wikiSummary": "T90M重新设计焊接炮塔、火控及弹药布局，并换用Relikt装甲与新动力。 主炮125 mm 2A46M-5 cannon，自动装填 7 秒。",
+      "wikiPoints": [
+        "原文明确倒车速度不足仍存在，未给局部弱点坐标。",
+        "装填与储弹布局改善不等于击穿后必然生还。"
+      ],
+      "reload": {
+        "gun": "125 mm 2A46M-5 cannon",
+        "display": "自动装填 7 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 7.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:28:36.222Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明示重新设计炮塔、火控、动力及装填布局的T90M在2017年首次出现。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "ussr_t_90m_arena_m",
+      "name": "T-90M (Arena-M)",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 8,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_90m_arena_m",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-005-20261103/snapshots/ussr_t_90m_arena_m.json",
+      "wikiSnapshotSHA256": "7e0158f58ddb16ffe78ecf4f0008b88931926f3c15b11d8d7bf42bfd8f872a9a",
+      "wikiSummary": "T90MArenaM将主动防护整合到车体外形范围内，并调整模块与对抗装置布置。 主炮125 mm 2A46M-5 cannon，自动装填 7 秒。",
+      "wikiPoints": [
+        "原文称即使有防破片内衬，击穿仍容易损伤关键模块及乘员。",
+        "功重比及倒车限制机动；主动防护不等于任意弹种或无限攻击免疫。"
+      ],
+      "reload": {
+        "gun": "125 mm 2A46M-5 cannon",
+        "display": "自动装填 7 秒",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 7.0,
+        "mechanism": "automatic",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:28:44.470Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明示2023年相关专利、2025年2月首原型、2026年试验和生产。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "us_xm1_chrysler",
+      "name": "XM1 (Chrysler)",
+      "role": "主战坦克",
+      "country": "usa",
+      "countryName": "美国",
+      "rank": 6,
+      "era": "cold-war",
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/us_xm1_chrysler",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-005-20261103/snapshots/us_xm1_chrysler.json",
+      "wikiSnapshotSHA256": "926f3cc272a3d28ce84da8deda93898cbed8881f977640387871ff9921064fe6",
+      "wikiSummary": "XM1克莱斯勒原型以燃气轮机、热像与激光测距兼顾机动及远距离作战。 主炮105 mm M68 cannon，8.7 → 6.7 秒。",
+      "wikiPoints": [
+        "原文明示装甲较弱，但宽敞内部及炮塔尾舱泄压板有助生存。",
+        "历史115毫米炮800米防护指标是设计目标，不是本游戏实测保证。"
+      ],
+      "reload": {
+        "gun": "105 mm M68 cannon",
+        "display": "8.7 → 6.7 秒",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:28:52.670Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "原文明确1971后研发并在1976年2月提交克莱斯勒原型试验。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
+    },
+    {
+      "id": "us_xm1_gm",
+      "name": "XM1 (GM)",
+      "role": "主战坦克",
+      "country": "usa",
+      "countryName": "美国",
+      "rank": 6,
+      "era": null,
+      "scopeRole": "medium_tank",
+      "pins": [],
+      "videoAdvice": [],
+      "source": null,
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/us_xm1_gm",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-005-20261103/snapshots/us_xm1_gm.json",
+      "wikiSnapshotSHA256": "6f320284bb17207ce3cd05d24d0efbed8b6108c7773ec0b8f8f2253a19ad6fb9",
+      "wikiSummary": "XM1GM原型强调速度及机动，以热像、液气悬挂及车长驾驶员夜视辅助作战。 主炮105 mm M68 cannon，8.7 → 6.7 秒。",
+      "wikiPoints": [
+        "原文建议利用机动攻击敌方弱点，不将该建议当成本车局部防护证据。",
+        "履带噪声较明显；没有可验证局部弱点坐标或试射条件。"
+      ],
+      "reload": {
+        "gun": "105 mm M68 cannon",
+        "display": "8.7 → 6.7 秒",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
+      },
+      "collectedAt": "2026-11-02T18:29:00.882Z",
+      "weaknessEvidenceStatus": "general-context-only",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "scopeStatus": "in-requested-scope",
+      "eraBasis": "本精确GM页面未给研发、形成或生产年份，不从克莱斯勒原型页面补入。",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "暂无已验证的主图及对应局部标点。"
+      ]
     }
   ],
   "eraPolicy": "按具体型号／改型所处年代分类，BR 另作筛选；本批为冷战样例。",
@@ -17131,7 +18898,7 @@
     "targetCount": 226,
     "rankTankCount": 216,
     "isSupplementCount": 10,
-    "wikiReviewedCount": 195,
+    "wikiReviewedCount": 226,
     "illustratedCount": 29,
     "countries": [
       {
