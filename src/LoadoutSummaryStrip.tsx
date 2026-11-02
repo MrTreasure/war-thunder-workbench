@@ -1,9 +1,10 @@
+import type { CSSProperties } from "react";
 import type { LoadoutPreview, LoadoutVehicle } from "./loadout-shares";
 import { VehicleTile } from "./VehicleTile";
 import { GameTip } from "./components/GameTip";
 import { GameIcon } from "./components/GameIcon";
 import { LoadoutWeaponDetails } from "./LoadoutWeaponDetails";
-import { loadoutWeaponName } from "./loadout-presentation";
+import { loadoutWeaponName, loadoutWeaponLabelWidth } from "./loadout-presentation";
 
 export function LoadoutSummaryStrip({
   vehicle,
@@ -23,7 +24,14 @@ export function LoadoutSummaryStrip({
         {!!preview?.items.length && (
           <ul className="wt-mount-preview-slots">
             {preview.items.map((item, index) => (
-              <li key={`${item.station}-${index}`}>
+              <li
+                key={`${item.station}-${index}`}
+                style={
+                  {
+                    "--wt-weapon-label-width": `${loadoutWeaponLabelWidth(item.name)}em`,
+                  } as CSSProperties
+                }
+              >
                 <GameTip
                   className="wt-mount-preview-weapon"
                   label={`${item.label} · ${loadoutWeaponName(item.name)}`}

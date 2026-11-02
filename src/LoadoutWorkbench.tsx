@@ -18,6 +18,7 @@ import { useAccountWorkspace } from "./workspace-context";
 import { loadoutRequest } from "./loadout-api";
 import { useLoadoutPlans } from "./loadout-storage";
 import { LoadoutPresets } from "./LoadoutPresets";
+import { loadoutLibrary } from "./loadout-library";
 import { LoadoutPlanCard } from "./LoadoutPlanCard";
 import { readRemoteLoadout, type LoadoutShare } from "./loadout-shares";
 import { TagSelector, type TagChoice } from "./components/TagSelector";
@@ -190,6 +191,8 @@ function LoadoutPage({ owner }: { owner: string }) {
   const [shareTags, setShareTags] = useState<TagChoice[]>([]);
   const [selecting, setSelecting] = useState<"new" | "replace" | null>(null);
   const [myShares, setMyShares] = useState<LoadoutShare[]>([]);
+  const [sharesLoading, setSharesLoading] = useState(true);
+  const library = useMemo(() => loadoutLibrary(saved, myShares), [saved, myShares]);
   const [importText, setImportText] = useState("");
   const [pending, setPending] = useState<LoadoutPlan | null>(null);
   const [busy, setBusy] = useState(false);
@@ -216,18 +219,19 @@ function LoadoutPage({ owner }: { owner: string }) {
   );
   useEffect(() => {
     const controller = new AbortController();
-    void loadoutRequest<{ items: LoadoutShare[] }>(
-      "shares/mine",
-      undefined,
-      controller.signal,
-    ).then(
-      (value) => {
-        if (!controller.signal.aborted) setMyShares(value.items);
-      },
-      (e: unknown) => {
-        if (!controller.signal.aborted) setError(e instanceof Error ? e.message : "推荐读取失败。");
-      },
-    );
+    void loadoutRequest<{ items: LoadoutShare[] }>("shares/mine", undefined, controller.signal)
+      .then(
+        (value) => {
+          if (!controller.signal.aborted) setMyShares(value.items);
+        },
+        (e: unknown) => {
+          if (!controller.signal.aborted)
+            setError(e instanceof Error ? e.message : "推荐读取失败。");
+        },
+      )
+      .finally(() => {
+        if (!controller.signal.aborted) setSharesLoading(false);
+      });
     return () => controller.abort();
   }, [owner]);
   const unit =
@@ -434,11 +438,26 @@ function LoadoutPage({ owner }: { owner: string }) {
     }
   };
   const refreshShares = async () => {
+    setSharesLoading(true);
     try {
       const value = await loadoutRequest<{ items: LoadoutShare[] }>("shares/mine");
       setMyShares(value.items);
     } catch (e) {
       setError(e instanceof Error ? e.message : "分享读取失败。");
+    } finally {
+      setSharesLoading(false);
+    }
+  };
+  const withdrawShares = async (items: LoadoutShare[]) => {
+    if (!confirm("撤回后，挂载大厅和该机型推荐将移除此方案。确定撤回？")) return;
+    setBusy(true);
+    try {
+      for (const item of items) await loadoutRequest("shares/" + item.id + "/remove", {});
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "撤回失败。");
+    } finally {
+      await refreshShares();
+      setBusy(false);
     }
   };
   const downloadPlan = (source: LoadoutPlan) => {
@@ -1098,9 +1117,11 @@ function LoadoutPage({ owner }: { owner: string }) {
         <section>
           <div className="wt-mount-heading">
             <h3>我的挂载方案</h3>
-            <button onClick={() => void refreshShares()}>刷新我的推荐</button>
+            <button disabled={sharesLoading || busy} onClick={() => void refreshShares()}>
+              {sharesLoading ? "刷新中…" : "刷新推荐状态"}
+            </button>
           </div>
-          {!saved.length && !storageStatus.loading && (
+          {!library.length && !storageStatus.loading && !sharesLoading && (
             <div className="wt-mount-empty">
               还没有保存的挂载。点击“添加挂载”，选好机型后开始配置。
             </div>
@@ -1112,89 +1133,73 @@ function LoadoutPage({ owner }: { owner: string }) {
             </p>
           )}
           <div className="wt-mount-saved">
-            {saved.map((p) => (
-              <LoadoutPlanCard
-                key={p.id}
-                title={p.name}
-                vehicle={
-                  storageStatus.summaries[p.id]?.vehicle || {
-                    ...(facts.get(p.vehicleId) || { id: p.vehicleId, name: p.vehicleId }),
-                    country: p.country,
-                  }
-                }
-                preview={storageStatus.summaries[p.id]?.preview}
-                meta={
-                  <>
-                    {countries[p.country]} · {p.preset ? "预设组合" : `${p.mounts.length} 个挂点`} ·
-                    来源 {p.sourceDate.slice(0, 10)}
-                  </>
-                }
-              >
-                <button onClick={() => openPlan(p)}>编辑</button>
-                <button
-                  onClick={() =>
-                    openPlan({
-                      ...p,
-                      id: crypto.randomUUID(),
-                      name: `${p.name.slice(0, 74)} · 副本`,
-                    })
-                  }
-                >
-                  复制
-                </button>
-                <button disabled={busy} onClick={() => void exportPlan(p)}>
-                  发布到大厅
-                </button>
-                <button
-                  onClick={() => {
-                    if (confirm(`删除“${p.name}”？`))
-                      void savePlans(saved.filter((n) => n.id !== p.id));
-                  }}
-                >
-                  删除
-                </button>
-              </LoadoutPlanCard>
-            ))}
-          </div>
-          {storageStatus.loading && <p aria-live="polite">正在读取云端挂载…</p>}
-
-          {!!myShares.length && (
-            <section className="wt-mount-shared-list">
-              <h3>我的大厅推荐</h3>
-              {myShares.map((item) => (
+            {library.map(({ plan: p, saved: isSaved, recommendations }) => {
+              const recommendation = recommendations[0];
+              return (
                 <LoadoutPlanCard
-                  key={item.id}
-                  title={item.plan.name}
-                  vehicle={item.vehicle}
-                  preview={item.preview}
-                  tags={item.tags}
+                  key={isSaved ? p.id : `recommended:${p.id}`}
+                  title={p.name}
+                  vehicle={
+                    storageStatus.summaries[p.id]?.vehicle ||
+                    recommendation?.vehicle || {
+                      ...(facts.get(p.vehicleId) || { id: p.vehicleId, name: p.vehicleId }),
+                      country: p.country,
+                    }
+                  }
+                  preview={storageStatus.summaries[p.id]?.preview || recommendation?.preview}
+                  recommended={!!recommendation}
+                  tags={recommendation?.tags}
                   meta={
                     <>
-                      {item.plan.preset ? "预设组合" : `${item.plan.mounts.length} 个挂点`} · 发布于{" "}
-                      {item.createdAt.slice(0, 10)}
+                      {countries[p.country]} · {p.preset ? "预设组合" : `${p.mounts.length} 个挂点`}{" "}
+                      · 来源 {p.sourceDate.slice(0, 10)}
                     </>
                   }
                 >
-                  <button onClick={() => openPlan({ ...item.plan, id: crypto.randomUUID() })}>
-                    打开配置
+                  <button onClick={() => openPlan(isSaved ? p : { ...p, id: crypto.randomUUID() })}>
+                    {isSaved ? "编辑" : "打开配置"}
                   </button>
-                  <button
-                    onClick={async () => {
-                      if (!confirm("撤回后，挂载大厅和该机型推荐将移除此方案。确定撤回？")) return;
-                      try {
-                        await loadoutRequest("shares/" + item.id + "/remove", {});
-                        await refreshShares();
-                      } catch (e) {
-                        setError(e instanceof Error ? e.message : "撤回失败。");
+                  {isSaved && (
+                    <button
+                      onClick={() =>
+                        openPlan({
+                          ...p,
+                          id: crypto.randomUUID(),
+                          name: `${p.name.slice(0, 74)} · 副本`,
+                        })
                       }
-                    }}
-                  >
-                    撤回推荐
-                  </button>
+                    >
+                      复制
+                    </button>
+                  )}
+                  {recommendation ? (
+                    <button
+                      disabled={busy || sharesLoading}
+                      onClick={() => void withdrawShares(recommendations)}
+                    >
+                      撤回推荐
+                    </button>
+                  ) : (
+                    <button disabled={busy || sharesLoading} onClick={() => void exportPlan(p)}>
+                      发布到大厅
+                    </button>
+                  )}
+                  {isSaved && (
+                    <button
+                      onClick={() => {
+                        if (confirm(`删除“${p.name}”？`))
+                          void savePlans(saved.filter((item) => item.id !== p.id));
+                      }}
+                    >
+                      删除
+                    </button>
+                  )}
                 </LoadoutPlanCard>
-              ))}
-            </section>
-          )}
+              );
+            })}
+          </div>
+          {storageStatus.loading && <p aria-live="polite">正在读取云端挂载…</p>}
+
           <div className="wt-mount-list-actions">
             {draft && !saved.some((p) => p.id === draft.id && p.updatedAt === draft.updatedAt) && (
               <button onClick={() => openPlan(draft)}>继续未保存的草稿</button>

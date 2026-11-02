@@ -69,6 +69,55 @@ assert.equal(
 );
 assert.equal(missileBrief([locks[1]])[0].label, "全向锁定距离");
 
+import { loadoutLibrary, loadoutConfigurationKey } from "../src/loadout-library.ts";
+const libraryPlan = {
+  id: "private",
+  name: "私人标题",
+  country: "china",
+  vehicleId: "su_30mkk",
+  sourceHash: "source-v1",
+  preset: null,
+  mounts: [
+    { station: "t1-s1", option: "a" },
+    { station: "t1-s2", option: "b" },
+  ],
+};
+const libraryShare = {
+  id: "public",
+  listed: true,
+  plan: {
+    ...libraryPlan,
+    id: "public",
+    name: "公开标题",
+    mounts: [...libraryPlan.mounts].reverse(),
+  },
+  tags: [],
+};
+assert.equal(loadoutConfigurationKey(libraryPlan), loadoutConfigurationKey(libraryShare.plan));
+let libraryRows = loadoutLibrary([libraryPlan], [libraryShare]);
+assert.equal(libraryRows.length, 1, "saved plan and its recommendation render once");
+assert.equal(libraryRows[0].plan.name, "私人标题");
+assert.equal(libraryRows[0].recommendations.length, 1);
+assert.equal(
+  loadoutLibrary([libraryPlan], [{ ...libraryShare, listed: false }])[0].recommendations.length,
+  0,
+);
+assert.equal(
+  loadoutLibrary([], [libraryShare]).length,
+  1,
+  "recommended equipment remains accessible after private deletion",
+);
+assert.equal(
+  loadoutLibrary([{ ...libraryPlan, mounts: [] }], [libraryShare]).length,
+  2,
+  "editing equipment must not label an old recommendation as the new configuration",
+);
+assert.equal(
+  loadoutLibrary([{ ...libraryPlan, sourceHash: "source-v2" }], [libraryShare]).length,
+  2,
+  "source revisions must not be conflated",
+);
+
 const catalog = JSON.parse(
   await readFile(new URL("../data/vehicle-details.json", import.meta.url)),
 );

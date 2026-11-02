@@ -11,6 +11,7 @@ export function LoadoutPlanCard({
   preview,
   tags,
   meta,
+  recommended = false,
   children,
 }: {
   title: string;
@@ -18,12 +19,16 @@ export function LoadoutPlanCard({
   preview?: LoadoutPreview;
   tags?: TagChoice[];
   meta: ReactNode;
+  recommended?: boolean;
   children: ReactNode;
 }) {
   return (
     <article className="wt-mount-plan-card">
       <header className="wt-mount-card-heading">
-        <h4>{title}</h4>
+        <div className="wt-mount-card-identity">
+          <h4>{title}</h4>
+          {recommended && <span className="wt-mount-recommended-state">已推荐</span>}
+        </div>
         {!!tags?.length && <LoadoutTags tags={tags} />}
       </header>
       <LoadoutSummaryStrip vehicle={vehicle} preview={preview} />

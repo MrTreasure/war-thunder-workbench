@@ -33,3 +33,19 @@ export const matchesLoadoutText = (original: string, query: string) =>
   searchableWeaponText(`${original} ${loadoutWeaponName(original)}`).includes(
     searchableWeaponText(query),
   );
+
+/** Approximate inline text width in em; a bounded CSS track handles font fallback differences. */
+export function loadoutWeaponLabelWidth(original: string) {
+  return [...loadoutWeaponName(original).normalize("NFKC")].reduce(
+    (width, letter) =>
+      width +
+      (/[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u.test(letter)
+        ? 1
+        : /[MW@]/.test(letter)
+          ? 0.85
+          : /[il.,' ]/.test(letter)
+            ? 0.28
+            : 0.56),
+    0,
+  );
+}
