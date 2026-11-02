@@ -24,6 +24,10 @@ export function validMapRoute(v: unknown): v is MapRoute {
     v.height <= 0 ||
     typeof v.sourceUrl !== "string" ||
     !isMapGuideSourceURL(v.sourceUrl) ||
+    (v.sourceTitle !== undefined &&
+      (typeof v.sourceTitle !== "string" ||
+        !v.sourceTitle.trim() ||
+        v.sourceTitle.length > 1000)) ||
     (v.guideVersion !== undefined &&
       (!Number.isInteger(v.guideVersion) || Number(v.guideVersion) < 1)) ||
     (v.tacticsMarkdown !== undefined &&

@@ -3346,5 +3346,7 @@
   "走线索引读取失败": "Failed to load the route index",
   "走线索引格式无效": "Invalid route index format",
   "· 攻略版本 {0}": "· Guide version {0}",
-  "· 来源 {0}": "· Source {0}"
+  "· 来源 {0}": "· Source {0}",
+  "走法": "Route",
+  "同一攻略的不同走法": "Routes from this guide"
 }

@@ -10,7 +10,7 @@ import {
   routesForContext,
   selectedMapRoute,
 } from "../src/map-route-selection.ts";
-import { relatedMapGuides } from "../src/map-related-guides.ts";
+import { relatedMapGuides, mapRouteSourceTitle } from "../src/map-related-guides.ts";
 import { isMapGuideSourceURL } from "../src/map-route-sources.ts";
 import { validMapRoute } from "../src/map-route-validation.ts";
 for (const source of [
@@ -48,6 +48,21 @@ const alaskaRoutes = [1, 2].map((team) => ({
   sourceUrl: alaskaSource,
   sourceDate: "2025-12-01",
 }));
+assert.equal(mapRouteSourceTitle(alaskaRoutes[0]), "地图冲刺之【阿拉斯加】");
+assert.equal(
+  mapRouteSourceTitle({ ...alaskaRoutes[0], sourceTitle: "作者更新后的视频标题" }),
+  "作者更新后的视频标题",
+  "API source titles take priority over the compatibility title records",
+);
+assert.equal(
+  mapRouteSourceTitle({ ...alaskaRoutes[0], sourceData: { source: { title: "来源原始标题" } } }),
+  "来源原始标题",
+);
+assert.equal(
+  mapRouteSourceTitle(routes[0]),
+  routes[0].title,
+  "Legacy posts retain their post titles",
+);
 assert.equal(
   relatedMapGuides(atlas, alaska.id, alaskaRoutes).length,
   1,

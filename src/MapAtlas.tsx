@@ -4,6 +4,7 @@ import { localize, t } from "./i18n/core";
 /* Interactive SVG map owns arrow-key pan and Home reset; native HTML has no map widget. */
 /* oxlint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex */
 import { GameSelect } from "./components/GameSelect";
+import { MapLayerMenu } from "./components/MapLayerMenu";
 import { useEffect, useId, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { GroundThumbnail, GroundSvgImage, rotateAsset } from "./map-assets";
@@ -19,7 +20,7 @@ import { routeIdentity } from "./map-data-api";
 import type { GroundAtlas, GroundMap, MapSnapshot, MapRoute } from "./map-data-api";
 import { useMapCatalog, useMapRouteCoverage, useMapRoute } from "./map-data-store";
 import { availableRouteLayouts, routesForContext, selectedMapRoute } from "./map-route-selection";
-import { relatedMapGuides, mapGuideSourceLabel } from "./map-related-guides";
+import { relatedMapGuides, mapGuideSourceLabel, mapRouteSourceTitle } from "./map-related-guides";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { Route } from "./routes/_workbench.maps";
 import { Route as DetailRoute } from "./routes/_workbench.maps_.$mapId";
@@ -445,6 +446,8 @@ function GroundDetail({
     routeOptions,
     routeChoice.context === routeContextKey ? routeChoice.id : "",
   );
+  const sourceOptions = [...new Map(routeOptions.map((item) => [item.sourceUrl, item])).values()];
+  const sourceRoutes = routeOptions.filter((item) => item.sourceUrl === selectedRoute?.sourceUrl);
   const routeData = useMapRoute(
     releaseId,
     selectedRoute?.id || "",
@@ -598,17 +601,37 @@ function GroundDetail({
             </button>
           )}
         {isSuperAdmin && routeOptions.length > 0 && (
-          <label>
+          <label className="ground-guide-choice">
             <span>{t("攻略方案")}</span>
             <GameSelect
               aria-label={t("推荐走线攻略方案")}
+              value={selectedRoute?.sourceUrl || ""}
+              title={selectedRoute ? mapRouteSourceTitle(selectedRoute) : ""}
+              menuClassName="ground-guide-options"
+              onValueChange={(sourceUrl) => {
+                const item = routeOptions.find((item) => item.sourceUrl === sourceUrl);
+                if (item) setRouteChoice({ context: routeContextKey, id: item.id });
+              }}
+            >
+              {sourceOptions.map((item) => (
+                <option key={item.sourceUrl} value={item.sourceUrl}>
+                  {mapRouteSourceTitle(item)}
+                </option>
+              ))}
+            </GameSelect>
+          </label>
+        )}
+        {isSuperAdmin && sourceRoutes.length > 1 && (
+          <label className="ground-route-choice">
+            <span>{t("走法")}</span>
+            <GameSelect
+              aria-label={t("同一攻略的不同走法")}
               value={selectedRoute?.id || ""}
               onValueChange={(id) => setRouteChoice({ context: routeContextKey, id })}
             >
-              {routeOptions.map((item) => (
+              {sourceRoutes.map((item) => (
                 <option key={item.id} value={item.id}>
-                  {item.title} · {routeSpawnLabel(item)}
-                  {item.guideVersion ? ` · v${item.guideVersion}` : ""}
+                  {item.title.split(/[：:]/)[0].replace(`${map.name} · `, "")}
                 </option>
               ))}
             </GameSelect>
@@ -643,23 +666,43 @@ function GroundDetail({
                   : t("推荐走线")}
           </button>
         )}
-        {[
-          [t("等高线"), contours, setContours],
-          [t("点位"), points, setPoints],
-          [t("参考网格"), grid, setGrid],
-          [t("布局范围"), cropped, setCropped],
-        ].map(([name, value, set]) => (
-          <button
-            key={name as string}
-            aria-pressed={value as boolean}
-            onClick={() => {
-              reset();
-              (set as (v: boolean) => void)(!value);
-            }}
-          >
-            {name as string}
-          </button>
-        ))}
+        <MapLayerMenu
+          label={t("图层")}
+          layers={[
+            {
+              label: t("等高线"),
+              checked: contours,
+              toggle: () => {
+                reset();
+                setContours(!contours);
+              },
+            },
+            {
+              label: t("点位"),
+              checked: points,
+              toggle: () => {
+                reset();
+                setPoints(!points);
+              },
+            },
+            {
+              label: t("参考网格"),
+              checked: grid,
+              toggle: () => {
+                reset();
+                setGrid(!grid);
+              },
+            },
+            {
+              label: t("布局范围"),
+              checked: cropped,
+              toggle: () => {
+                reset();
+                setCropped(!cropped);
+              },
+            },
+          ]}
+        />
       </div>
     </div>
   );
