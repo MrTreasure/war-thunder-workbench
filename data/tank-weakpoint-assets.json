@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "112ec63197bb6bc8621b04b1aacc372dcb4ce647",
+  "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -722,6 +722,78 @@
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@112ec63197bb6bc8621b04b1aacc372dcb4ce647/images/USA/USA-M1-Abrams-front.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/112ec63197bb6bc8621b04b1aacc372dcb4ce647/images/USA/USA-M1-Abrams-front.webp",
         "commit": "112ec63197bb6bc8621b04b1aacc372dcb4ce647"
+      }
+    },
+    "ussr_t_62": {
+      "raw": {
+        "path": "images/USSR/USSR-T-62-source-18m38s-033ms-native1080p-capture-20261103.webp",
+        "sha256": "3110d4021d2726f2668574bf1433d2dbecc61a3e0cd26681f289c72cf21e76fe",
+        "bytes": 1180586,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/USSR/USSR-T-62-source-18m38s-033ms-native1080p-capture-20261103.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/USSR/USSR-T-62-source-18m38s-033ms-native1080p-capture-20261103.webp",
+        "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684"
+      },
+      "photo": {
+        "path": "images/USSR/USSR-T-62-front.webp",
+        "sha256": "fed1064f11866947b50d53bc7eacaa4f37e6316ed655c3126dfcd62a1af128ff",
+        "bytes": 256968,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/USSR/USSR-T-62-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/USSR/USSR-T-62-front.webp",
+        "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684"
+      }
+    },
+    "germ_leopard_2av": {
+      "raw": {
+        "path": "images/GER/GER-Leopard-2-AV-source-07m15s-017ms-native2160p-capture-20261103.webp",
+        "sha256": "ff1b2929679040c0135e723504008670a3eafb109bafa78812e9f886d8da2cc8",
+        "bytes": 2208438,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-AV-source-07m15s-017ms-native2160p-capture-20261103.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-AV-source-07m15s-017ms-native2160p-capture-20261103.webp",
+        "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684"
+      },
+      "photo": {
+        "path": "images/GER/GER-Leopard-2-AV-front.webp",
+        "sha256": "4b65eac6ff234e21596fe71e6f5a9a6a8e1883d3b87eb341364f0ed0003aa6c0",
+        "bytes": 487270,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-AV-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-AV-front.webp",
+        "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684"
+      }
+    },
+    "germ_leopard_2a4": {
+      "raw": {
+        "path": "images/GER/GER-Leopard-2-A4-source-07m30s-033ms-native1080p-capture-20261103.webp",
+        "sha256": "d12fc858fbfed840236a897d1ee4bc0ae581bc358d0f9bcb54b97165f40bc4e1",
+        "bytes": 1269080,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A4-source-07m30s-033ms-native1080p-capture-20261103.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A4-source-07m30s-033ms-native1080p-capture-20261103.webp",
+        "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684"
+      },
+      "photo": {
+        "path": "images/GER/GER-Leopard-2-A4-front.webp",
+        "sha256": "c09a32f05b159cc1c7577d7680e44ad9f8056900f6c176beb8d09132ae097567",
+        "bytes": 222278,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A4-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A4-front.webp",
+        "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684"
+      }
+    },
+    "germ_leopard_2a5": {
+      "raw": {
+        "path": "images/GER/GER-Leopard-2-A5-source-08m35s-033ms-native1080p-capture-20261103.webp",
+        "sha256": "f0c9c3549acfaf3cb43a0971976beee2b236940028cbc6b6851cf0a399af6ae3",
+        "bytes": 1250984,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A5-source-08m35s-033ms-native1080p-capture-20261103.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A5-source-08m35s-033ms-native1080p-capture-20261103.webp",
+        "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684"
+      },
+      "photo": {
+        "path": "images/GER/GER-Leopard-2-A5-front.webp",
+        "sha256": "d3c862878b00701695f18844e7594ec0c2a75b98901b110b0ff5b0a9a3f389d7",
+        "bytes": 205454,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A5-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A5-front.webp",
+        "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684"
       }
     }
   },
@@ -9353,6 +9425,687 @@
       "commit": "112ec63197bb6bc8621b04b1aacc372dcb4ce647",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@112ec63197bb6bc8621b04b1aacc372dcb4ce647/images/USA/USA-M1-Abrams-front.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/112ec63197bb6bc8621b04b1aacc372dcb4ce647/images/USA/USA-M1-Abrams-front.webp"
+    },
+    {
+      "path": "images/USSR/USSR-T-10M-source-18m08s-033ms-native1080p-capture-20261103.webp",
+      "sha256": "26004171831bce027c055f3e8af2ef474a7fcd57474b1981df85ae620b3bbc6a",
+      "bytes": 1162444,
+      "width": 1920,
+      "height": 1080,
+      "vehicleId": "ussr_t_10m",
+      "country": "USSR",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "caseId": "ussr_t_10m:BV1SPmEBJE3y:1088033",
+      "mediaTime": 1088.033,
+      "sourceTime": 1088.033,
+      "sourceFrameSHA256": "49be064887897a56a55eefd76bfd58dd4e8e8947f7e2c2ef30928be54c1a7d79",
+      "proofSnapshotSHA256": "d80ef30fd47593a5b96fc19e1be8d11745003e23054586cf95df7bf6f41f98c9",
+      "sourceGameVersion": "2.51.0.65",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "sceneKind": "opaque-armour-penetration-map",
+      "visibleView": "steep-top-front",
+      "hasGreenArmourMap": true,
+      "id": "26004171831bce027c055f3e8af2ef474a7fcd57474b1981df85ae620b3bbc6a",
+      "actualTime": 1088.033,
+      "encoding": "source-webp-preserved",
+      "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/USSR/USSR-T-10M-source-18m08s-033ms-native1080p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/USSR/USSR-T-10M-source-18m08s-033ms-native1080p-capture-20261103.webp"
+    },
+    {
+      "path": "images/USSR/USSR-T-62-source-18m38s-033ms-native1080p-capture-20261103.webp",
+      "sha256": "3110d4021d2726f2668574bf1433d2dbecc61a3e0cd26681f289c72cf21e76fe",
+      "bytes": 1180586,
+      "width": 1920,
+      "height": 1080,
+      "vehicleId": "ussr_t_62",
+      "country": "USSR",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "caseId": "ussr_t_62:BV1SPmEBJE3y:1118033",
+      "mediaTime": 1118.033,
+      "sourceTime": 1118.033,
+      "sourceFrameSHA256": "76a5f7dc7e4408b8b08569d51fd4428e5dc126e22f001de2ab7ca5bf184457bc",
+      "proofSnapshotSHA256": "b2aca4c6aaf8d0f2659dd02c9aa8fdc8c35778b7b3ba07837f94345b98ddb363",
+      "sourceGameVersion": "2.51.0.65",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "sceneKind": "opaque-armour-penetration-map",
+      "visibleView": "elevated-front",
+      "hasGreenArmourMap": true,
+      "id": "3110d4021d2726f2668574bf1433d2dbecc61a3e0cd26681f289c72cf21e76fe",
+      "actualTime": 1118.033,
+      "encoding": "source-webp-preserved",
+      "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/USSR/USSR-T-62-source-18m38s-033ms-native1080p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/USSR/USSR-T-62-source-18m38s-033ms-native1080p-capture-20261103.webp"
+    },
+    {
+      "path": "images/USSR/USSR-T-62M-1-source-19m09s-native1080p-capture-20261103.webp",
+      "sha256": "fa2e821f59f65009a0ec3a34a000fbf420eed96680d65849200ccb66c6728c73",
+      "bytes": 1534086,
+      "width": 1920,
+      "height": 1080,
+      "vehicleId": "ussr_t_62m1",
+      "country": "USSR",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "caseId": null,
+      "mediaTime": 1149,
+      "sourceTime": 1149,
+      "sourceFrameSHA256": "38c8a80470d7b66bed31b0505efea5b166b6463ca133b7adf68e652f6dbea939",
+      "proofSnapshotSHA256": "d0baa13a811b3f9a3eea8c46cf99dd4f1975f2c0c3043ee5bf85beab0f4af827",
+      "sourceGameVersion": null,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "sceneKind": "material-armour-preview-cutaway",
+      "visibleView": "front",
+      "hasGreenArmourMap": false,
+      "id": "fa2e821f59f65009a0ec3a34a000fbf420eed96680d65849200ccb66c6728c73",
+      "actualTime": 1149,
+      "encoding": "source-webp-preserved",
+      "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/USSR/USSR-T-62M-1-source-19m09s-native1080p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/USSR/USSR-T-62M-1-source-19m09s-native1080p-capture-20261103.webp"
+    },
+    {
+      "path": "images/USSR/USSR-T-62-front.webp",
+      "sha256": "fed1064f11866947b50d53bc7eacaa4f37e6316ed655c3126dfcd62a1af128ff",
+      "bytes": 256968,
+      "width": 750,
+      "height": 460,
+      "vehicleId": "ussr_t_62",
+      "country": "USSR",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "caseId": "ussr_t_62:BV1SPmEBJE3y:1118033",
+      "mediaTime": 1118.033,
+      "sourceTime": 1118.033,
+      "sourceFrameSHA256": "76a5f7dc7e4408b8b08569d51fd4428e5dc126e22f001de2ab7ca5bf184457bc",
+      "proofSnapshotSHA256": "b2aca4c6aaf8d0f2659dd02c9aa8fdc8c35778b7b3ba07837f94345b98ddb363",
+      "sourceGameVersion": "2.51.0.65",
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "primary-crop"
+      ],
+      "purpose": "primary-protection-analysis",
+      "mainImageUsable": true,
+      "sceneKind": "opaque-armour-penetration-map",
+      "visibleView": "elevated-front",
+      "hasGreenArmourMap": true,
+      "crop": [
+        650,
+        220,
+        750,
+        460
+      ],
+      "mainViewKind": "protection-analysis",
+      "id": "fed1064f11866947b50d53bc7eacaa4f37e6316ed655c3126dfcd62a1af128ff",
+      "actualTime": 1118.033,
+      "encoding": "lossless-webp",
+      "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/USSR/USSR-T-62-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/USSR/USSR-T-62-front.webp"
+    },
+    {
+      "vehicleId": "germ_leopard_2av",
+      "country": "GER",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "caseId": "germ_leopard_2av:BV1CueU6cECo:435017",
+      "mediaTime": 435.016687,
+      "sourceTime": 435.016687,
+      "sourceFrameSHA256": "17725f36d485da5978121f87bd7b4df42583d6345642e795e641d61a28eb496f",
+      "proofSnapshotSHA256": "cef4c5ce51615fdf25df2c99a6c261563f7aaa7c482aa92400de15eae62e37be",
+      "sourceGameVersion": null,
+      "sceneKind": "opaque-solid-armour-penetration-map",
+      "visibleView": "front",
+      "hasGreenArmourMap": true,
+      "path": "images/GER/GER-Leopard-2-AV-source-07m15s-017ms-native2160p-capture-20261103.webp",
+      "sha256": "ff1b2929679040c0135e723504008670a3eafb109bafa78812e9f886d8da2cc8",
+      "bytes": 2208438,
+      "width": 3840,
+      "height": 2160,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "id": "ff1b2929679040c0135e723504008670a3eafb109bafa78812e9f886d8da2cc8",
+      "actualTime": 435.016687,
+      "encoding": "source-webp-preserved",
+      "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-AV-source-07m15s-017ms-native2160p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-AV-source-07m15s-017ms-native2160p-capture-20261103.webp"
+    },
+    {
+      "vehicleId": "germ_leopard_2av",
+      "country": "GER",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "caseId": "germ_leopard_2av:BV1CueU6cECo:435017",
+      "mediaTime": 435.016687,
+      "sourceTime": 435.016687,
+      "sourceFrameSHA256": "17725f36d485da5978121f87bd7b4df42583d6345642e795e641d61a28eb496f",
+      "proofSnapshotSHA256": "cef4c5ce51615fdf25df2c99a6c261563f7aaa7c482aa92400de15eae62e37be",
+      "sourceGameVersion": null,
+      "sceneKind": "opaque-solid-armour-penetration-map",
+      "visibleView": "front",
+      "hasGreenArmourMap": true,
+      "path": "images/GER/GER-Leopard-2-AV-front.webp",
+      "sha256": "4b65eac6ff234e21596fe71e6f5a9a6a8e1883d3b87eb341364f0ed0003aa6c0",
+      "bytes": 487270,
+      "width": 1650,
+      "height": 900,
+      "crop": [
+        1260,
+        450,
+        1650,
+        900
+      ],
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "primary-crop"
+      ],
+      "purpose": "primary-protection-analysis",
+      "mainImageUsable": true,
+      "mainViewKind": "protection-analysis",
+      "id": "4b65eac6ff234e21596fe71e6f5a9a6a8e1883d3b87eb341364f0ed0003aa6c0",
+      "actualTime": 435.016687,
+      "encoding": "lossless-webp",
+      "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-AV-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-AV-front.webp"
+    },
+    {
+      "vehicleId": "germ_leopard_2a4",
+      "country": "GER",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "caseId": "germ_leopard_2a4:BV1CueU6cECo:450033",
+      "mediaTime": 450.033312,
+      "sourceTime": 450.033312,
+      "sourceFrameSHA256": "5fa4138f421238918e9a9981b75b199df444021bb1aff11bf52b2dc6a9751db8",
+      "proofSnapshotSHA256": "cba5568c6fe06a9f185d18733874414a6a13e72b3bdb57564296034c970c1b95",
+      "sourceGameVersion": null,
+      "sceneKind": "opaque-solid-armour-penetration-map",
+      "visibleView": "front",
+      "hasGreenArmourMap": true,
+      "path": "images/GER/GER-Leopard-2-A4-source-07m30s-033ms-native1080p-capture-20261103.webp",
+      "sha256": "d12fc858fbfed840236a897d1ee4bc0ae581bc358d0f9bcb54b97165f40bc4e1",
+      "bytes": 1269080,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "id": "d12fc858fbfed840236a897d1ee4bc0ae581bc358d0f9bcb54b97165f40bc4e1",
+      "actualTime": 450.033312,
+      "encoding": "source-webp-preserved",
+      "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A4-source-07m30s-033ms-native1080p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A4-source-07m30s-033ms-native1080p-capture-20261103.webp"
+    },
+    {
+      "vehicleId": "germ_leopard_2a4",
+      "country": "GER",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "caseId": "germ_leopard_2a4:BV1CueU6cECo:450033",
+      "mediaTime": 450.033312,
+      "sourceTime": 450.033312,
+      "sourceFrameSHA256": "5fa4138f421238918e9a9981b75b199df444021bb1aff11bf52b2dc6a9751db8",
+      "proofSnapshotSHA256": "cba5568c6fe06a9f185d18733874414a6a13e72b3bdb57564296034c970c1b95",
+      "sourceGameVersion": null,
+      "sceneKind": "opaque-solid-armour-penetration-map",
+      "visibleView": "front",
+      "hasGreenArmourMap": true,
+      "path": "images/GER/GER-Leopard-2-A4-front.webp",
+      "sha256": "c09a32f05b159cc1c7577d7680e44ad9f8056900f6c176beb8d09132ae097567",
+      "bytes": 222278,
+      "width": 750,
+      "height": 450,
+      "crop": [
+        650,
+        220,
+        750,
+        450
+      ],
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "primary-crop"
+      ],
+      "purpose": "primary-protection-analysis",
+      "mainImageUsable": true,
+      "mainViewKind": "protection-analysis",
+      "id": "c09a32f05b159cc1c7577d7680e44ad9f8056900f6c176beb8d09132ae097567",
+      "actualTime": 450.033312,
+      "encoding": "lossless-webp",
+      "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A4-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A4-front.webp"
+    },
+    {
+      "vehicleId": "germ_leopard_2a4",
+      "country": "GER",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "caseId": null,
+      "mediaTime": 458,
+      "sourceTime": 458,
+      "sourceFrameSHA256": "3c52be1188cb278b28262e99664605fa5346627f5cbf90567ebbffce53f255b4",
+      "proofSnapshotSHA256": "1f8387d092612a25d33298cbaf1a38751a90e9c7185978e312d358ba0d6a3f56",
+      "sourceGameVersion": null,
+      "sceneKind": "module-xray-hit-simulation",
+      "visibleView": "front",
+      "hasGreenArmourMap": false,
+      "path": "images/GER/GER-Leopard-2-A4-source-07m38s-stored720p-capture-20261103.webp",
+      "sha256": "984d3f87cd301c5a1827bacaf03796992cce7842da1e16a2bf113b1d34a7dc25",
+      "bytes": 718792,
+      "width": 1280,
+      "height": 720,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "nativeResized": true,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "encoding": "historical-downscaled-webp",
+      "id": "984d3f87cd301c5a1827bacaf03796992cce7842da1e16a2bf113b1d34a7dc25",
+      "actualTime": 458,
+      "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A4-source-07m38s-stored720p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A4-source-07m38s-stored720p-capture-20261103.webp"
+    },
+    {
+      "vehicleId": "germ_leopard_2a4",
+      "country": "GER",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "caseId": null,
+      "mediaTime": 472,
+      "sourceTime": 472,
+      "sourceFrameSHA256": "a2727db6e9940291e1601a1240e84b433f9fdb91b4357905b04638cc14ecd469",
+      "proofSnapshotSHA256": "d97d622c9205b3f2156735528d0a111e984f9afb0a6dcbc0717b2b87333a9811",
+      "sourceGameVersion": null,
+      "sceneKind": "module-xray-hit-simulation",
+      "visibleView": "front",
+      "hasGreenArmourMap": false,
+      "path": "images/GER/GER-Leopard-2-A4-source-07m52s-stored720p-capture-20261103.webp",
+      "sha256": "0d884329d4e11d2fde211b6ee818bb62132f886dd2e781a85eb3ff0970828144",
+      "bytes": 727946,
+      "width": 1280,
+      "height": 720,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "nativeResized": true,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "encoding": "historical-downscaled-webp",
+      "id": "0d884329d4e11d2fde211b6ee818bb62132f886dd2e781a85eb3ff0970828144",
+      "actualTime": 472,
+      "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A4-source-07m52s-stored720p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A4-source-07m52s-stored720p-capture-20261103.webp"
+    },
+    {
+      "vehicleId": "germ_leopard_2a4",
+      "country": "GER",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "caseId": null,
+      "mediaTime": 485,
+      "sourceTime": 485,
+      "sourceFrameSHA256": "e445e6e5c64179f6399a30e4bba384c8bb744b99378df7f6f04ff398b9b26824",
+      "proofSnapshotSHA256": "c0a53112ab63b6fa7d1ed5c04bc17e1fa04aaf302082521c80d97eea8108f11c",
+      "sourceGameVersion": null,
+      "sceneKind": "opaque-solid-armour-penetration-map",
+      "visibleView": "front",
+      "hasGreenArmourMap": true,
+      "path": "images/GER/GER-Leopard-2-A4-source-08m05s-stored720p-capture-20261103.webp",
+      "sha256": "a2bac511d7560243fc035d54bb68a5dbcd3eb485dddd6fca82db1d12bf7310e4",
+      "bytes": 472336,
+      "width": 1280,
+      "height": 720,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "nativeResized": true,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "encoding": "historical-downscaled-webp",
+      "id": "a2bac511d7560243fc035d54bb68a5dbcd3eb485dddd6fca82db1d12bf7310e4",
+      "actualTime": 485,
+      "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A4-source-08m05s-stored720p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A4-source-08m05s-stored720p-capture-20261103.webp"
+    },
+    {
+      "vehicleId": "germ_leopard_2a4m_can",
+      "country": "GER",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "caseId": null,
+      "mediaTime": 495,
+      "sourceTime": 495,
+      "sourceFrameSHA256": "f245507ab88797cf8cee4f993c4084a49fc5a9d6dc22cf84f654e267ff99b430",
+      "proofSnapshotSHA256": "27b711bb6170dfafb3cf0a690f089013b2f35cc9291d81d257f5b3c31d44a587",
+      "sourceGameVersion": null,
+      "sceneKind": "opaque-solid-armour-penetration-map",
+      "visibleView": "front",
+      "hasGreenArmourMap": true,
+      "path": "images/GER/GER-Leopard-2-A4M-CAN-source-08m15s-stored720p-capture-20261103.webp",
+      "sha256": "7b49d2f72c51f43874999979e22d1226fe6f86580b8f7a29dc4167206f08697c",
+      "bytes": 544308,
+      "width": 1280,
+      "height": 720,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "nativeResized": true,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "encoding": "historical-downscaled-webp",
+      "id": "7b49d2f72c51f43874999979e22d1226fe6f86580b8f7a29dc4167206f08697c",
+      "actualTime": 495,
+      "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A4M-CAN-source-08m15s-stored720p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A4M-CAN-source-08m15s-stored720p-capture-20261103.webp"
+    },
+    {
+      "vehicleId": "germ_leopard_2a5",
+      "country": "GER",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "caseId": null,
+      "mediaTime": 505.033312,
+      "sourceTime": 505.033312,
+      "sourceFrameSHA256": "552251877b85cfde68ffffef5b842cc9d10bf90c25afec9b813318f5292a8a65",
+      "proofSnapshotSHA256": "910591eaa9a02210463d584293fe69c67d4c531307c78aeef535f5c9ddbb0a08",
+      "sourceGameVersion": null,
+      "sceneKind": "opaque-solid-armour-penetration-map",
+      "visibleView": "front",
+      "hasGreenArmourMap": true,
+      "path": "images/GER/GER-Leopard-2-A5-source-08m25s-033ms-stored720p-capture-20261103.webp",
+      "sha256": "f49a7c2b44a7850ecb11dca42c9fbf50d016d56d2fbe7413c90dd91dff67d00c",
+      "bytes": 720562,
+      "width": 1280,
+      "height": 720,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "nativeResized": true,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "encoding": "historical-downscaled-webp",
+      "id": "f49a7c2b44a7850ecb11dca42c9fbf50d016d56d2fbe7413c90dd91dff67d00c",
+      "actualTime": 505.033312,
+      "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A5-source-08m25s-033ms-stored720p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A5-source-08m25s-033ms-stored720p-capture-20261103.webp"
+    },
+    {
+      "vehicleId": "germ_leopard_2a5",
+      "country": "GER",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "caseId": null,
+      "mediaTime": 515.033312,
+      "sourceTime": 515.033312,
+      "sourceFrameSHA256": "60c53277e98a21dd43ecec74b5168ee7170aad1419469b583def391a06324774",
+      "proofSnapshotSHA256": "c2fffde1266e615059362fe2e5b5725ae9c98be050463be5c3a2fa4fb8e27e67",
+      "sourceGameVersion": null,
+      "sceneKind": "opaque-solid-armour-penetration-map",
+      "visibleView": "front",
+      "hasGreenArmourMap": true,
+      "path": "images/GER/GER-Leopard-2-A5-source-08m35s-033ms-stored720p-capture-20261103.webp",
+      "sha256": "9a3fe4af5107a6765cbc0ecfa1625ea4ccbfaacdd64abffb09d9fb300dabeae3",
+      "bytes": 735098,
+      "width": 1280,
+      "height": 720,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "nativeResized": true,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "encoding": "historical-downscaled-webp",
+      "id": "9a3fe4af5107a6765cbc0ecfa1625ea4ccbfaacdd64abffb09d9fb300dabeae3",
+      "actualTime": 515.033312,
+      "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A5-source-08m35s-033ms-stored720p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A5-source-08m35s-033ms-stored720p-capture-20261103.webp"
+    },
+    {
+      "vehicleId": "germ_leopard_2a5",
+      "country": "GER",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "caseId": null,
+      "mediaTime": 520,
+      "sourceTime": 520,
+      "sourceFrameSHA256": "40c0c9e2fdc7db143b8809a26abb88b882e6cbbfa39bc74832619a78e4714548",
+      "proofSnapshotSHA256": "5b04f0099b808af5abeedc357386ace7a2e311c77625afb9460226fee4450090",
+      "sourceGameVersion": null,
+      "sceneKind": "opaque-solid-armour-penetration-map",
+      "visibleView": "front",
+      "hasGreenArmourMap": true,
+      "path": "images/GER/GER-Leopard-2-A5-source-08m40s-stored720p-capture-20261103.webp",
+      "sha256": "871d8722862e6e510e78220ea1c1618939086d4a773f50246202ca9dca9656a7",
+      "bytes": 738054,
+      "width": 1280,
+      "height": 720,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "nativeResized": true,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "encoding": "historical-downscaled-webp",
+      "id": "871d8722862e6e510e78220ea1c1618939086d4a773f50246202ca9dca9656a7",
+      "actualTime": 520,
+      "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A5-source-08m40s-stored720p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A5-source-08m40s-stored720p-capture-20261103.webp"
+    },
+    {
+      "vehicleId": "germ_leopard_2a5",
+      "country": "GER",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "caseId": "germ_leopard_2a5:BV1CueU6cECo:515033",
+      "mediaTime": 515.033312,
+      "sourceTime": 515.033312,
+      "sourceFrameSHA256": "db60039867959c75517a9c97e654881473a78129bd7d554495665125e8230f2c",
+      "proofSnapshotSHA256": "cd9c7f04ca709b8c6f67542174a55081e5c36f8f99163dfe553f2462d4d62450",
+      "sourceGameVersion": null,
+      "sceneKind": "opaque-solid-armour-penetration-map",
+      "visibleView": "front",
+      "hasGreenArmourMap": true,
+      "path": "images/GER/GER-Leopard-2-A5-source-08m35s-033ms-native1080p-capture-20261103.webp",
+      "sha256": "f0c9c3549acfaf3cb43a0971976beee2b236940028cbc6b6851cf0a399af6ae3",
+      "bytes": 1250984,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "resolutionUpgradeOnly": true,
+      "newDistinctPoints": 0,
+      "sameOldActualTime": 515.033312,
+      "id": "f0c9c3549acfaf3cb43a0971976beee2b236940028cbc6b6851cf0a399af6ae3",
+      "actualTime": 515.033312,
+      "encoding": "source-webp-preserved",
+      "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A5-source-08m35s-033ms-native1080p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A5-source-08m35s-033ms-native1080p-capture-20261103.webp"
+    },
+    {
+      "vehicleId": "germ_leopard_2a5",
+      "country": "GER",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "caseId": "germ_leopard_2a5:BV1CueU6cECo:515033",
+      "mediaTime": 515.033312,
+      "sourceTime": 515.033312,
+      "sourceFrameSHA256": "db60039867959c75517a9c97e654881473a78129bd7d554495665125e8230f2c",
+      "proofSnapshotSHA256": "cd9c7f04ca709b8c6f67542174a55081e5c36f8f99163dfe553f2462d4d62450",
+      "sourceGameVersion": null,
+      "sceneKind": "opaque-solid-armour-penetration-map",
+      "visibleView": "front",
+      "hasGreenArmourMap": true,
+      "path": "images/GER/GER-Leopard-2-A5-front.webp",
+      "sha256": "d3c862878b00701695f18844e7594ec0c2a75b98901b110b0ff5b0a9a3f389d7",
+      "bytes": 205454,
+      "width": 750,
+      "height": 430,
+      "crop": [
+        650,
+        230,
+        750,
+        430
+      ],
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "primary-crop"
+      ],
+      "purpose": "primary-protection-analysis",
+      "mainImageUsable": true,
+      "mainViewKind": "protection-analysis",
+      "resolutionUpgradeOnly": true,
+      "newDistinctPoints": 0,
+      "sameOldActualTime": 515.033312,
+      "id": "d3c862878b00701695f18844e7594ec0c2a75b98901b110b0ff5b0a9a3f389d7",
+      "actualTime": 515.033312,
+      "encoding": "lossless-webp",
+      "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A5-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A5-front.webp"
     }
   ]
 }

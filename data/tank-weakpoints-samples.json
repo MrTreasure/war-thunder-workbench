@@ -432,15 +432,176 @@
       },
       "pins": [],
       "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-video",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "status": "partial-frontal-guide",
       "collectedAt": "2026-11-02",
       "weaknessEvidenceStatus": "general-context-only",
       "country": "ussr",
       "countryName": "苏联",
       "rank": 6,
       "era": "cold-war",
-      "scopeRole": "medium_tank"
+      "scopeRole": "medium_tank",
+      "testCases": [
+        {
+          "attackerVehicleId": "us_t95",
+          "attackerVisibleTitle": "T95",
+          "attackerCountry": "usa",
+          "shell": "T13",
+          "shellType": null,
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 253,
+          "sourceGameVersion": "2.51.0.65",
+          "actualShotObserved": false,
+          "outcome": null,
+          "id": "ussr_t_62:BV1SPmEBJE3y:1118033",
+          "vehicleId": "ussr_t_62",
+          "sourceTime": 1118.033,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attacker": "T95",
+          "sourceShellLabelOriginal": "T13",
+          "rawUIType": null,
+          "shellTypeCode": "APCBC",
+          "shellTypeLabel": "被帽风帽穿甲弹",
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "76a5f7dc7e4408b8b08569d51fd4428e5dc126e22f001de2ab7ca5bf184457bc",
+          "impactAngleDegrees": null,
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/us_t95",
+            "checkedAt": "2026-11-02T21:06:12.604319+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "us_t95",
+            "mainGun": "105 mm T5E1 cannon",
+            "officialShellName": "T13",
+            "sourceShellLabelOriginal": "T13"
+          }
+        }
+      ],
+      "testCaseEvidence": {
+        "ussr_t_62:BV1SPmEBJE3y:1118033": {
+          "originalRecord": {
+            "vehicleId": "ussr_t_62",
+            "canonicalName": "T-62",
+            "country": "ussr",
+            "actualNativeTitle": "T-62",
+            "identityBasis": "actual header matches canonical exact variant; source Soviet vehicle discussion, no attacker-flag inference",
+            "identityCaveat": null,
+            "sourceURL": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+            "actualMediaTime": 1118.033,
+            "playerCurrentTime": 1118.116924,
+            "timeBasis": "verified proof.decode.mediaTime",
+            "nativeDimensions": [
+              1920,
+              1080
+            ],
+            "webpPath": "artifacts/tank-weakpoints-expansion-20261102/sources/spm-three-budgeted-v5-20261103/source-candidate-T62-1118.webp",
+            "webpBytes": 1180586,
+            "webpSHA256": "3110d4021d2726f2668574bf1433d2dbecc61a3e0cd26681f289c72cf21e76fe",
+            "historicalDecodedPNG_SHA256": "76a5f7dc7e4408b8b08569d51fd4428e5dc126e22f001de2ab7ca5bf184457bc",
+            "originalPNGAvailability": "historical SHA only; native WebP retained",
+            "proofPath": "artifacts/tank-weakpoints-expansion-20261102/sources/spm-three-budgeted-v5-20261103/003.json",
+            "proofSHA256": "b2aca4c6aaf8d0f2659dd02c9aa8fdc8c35778b7b3ba07837f94345b98ddb363",
+            "contextPath": "artifacts/tank-weakpoints-expansion-20261102/sources/spm-three-budgeted-v5-20261103/003-context.png",
+            "contextSHA256": "1a8a6890b88483686914a1187da7b2573e7f6c3a037b8762afd97bc19006eba5",
+            "sceneKind": "opaque-armour-penetration-map",
+            "hasGreenArmorMap": true,
+            "moduleXray": false,
+            "view": "elevated-front",
+            "testContext": {
+              "attackerVehicleId": "us_t95",
+              "attackerVisibleTitle": "T95",
+              "attackerCountry": "usa",
+              "shell": "T13",
+              "shellType": null,
+              "distanceMeters": 0,
+              "displayedPenetrationMm": 253,
+              "sourceGameVersion": "2.51.0.65",
+              "actualShotObserved": false,
+              "outcome": null
+            },
+            "calculationProgressPercent": null,
+            "disposition": "main-candidate",
+            "pins": [],
+            "complete": false
+          },
+          "ammoReferenceStatus": "official-exact-attacker-type-reference-not-video-UI",
+          "officialWikiTypeProof": {
+            "wikiUrl": "https://wiki.warthunder.com/unit/us_t95",
+            "actualURL": "https://wiki.warthunder.com/unit/us_t95",
+            "title": "T95 | War Thunder Wiki",
+            "status": 200,
+            "capturedAt": "2026-11-02T10:11:07.262Z",
+            "checkedAt": "2026-11-02T21:06:12.604319+00:00",
+            "gameVersion": "2.59.0.92",
+            "rawHtmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/us_t95.html",
+            "htmlSHA256": "bfeaf573d254326c7a0fd690f002c409aa7f559dfb63af3597c06fb15dfb7a30",
+            "rawSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/us_t95.json",
+            "snapshotSHA256": "438a7106b98a4aa979bb75a32e50ab371f8b9a78ff97b9f9ddb2ef17275b679a",
+            "textSHA256": "b4d0aa534948df149b536b3333f5af51067b71c6dca9b0d7cd6c56944fdc0fb7",
+            "popoverPath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-005-20261103/rawproof/us_t95--T13.popover.html",
+            "popoverSHA256": "1a4000270a8e95a29a92270132242c32c466a5a01dd822e940919dc1f9e3762b",
+            "rawElementPath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-005-20261103/rawproof/us_t95--T13.element.html",
+            "rawElementSHA256": "b96f38d07cf449e633d4fe013537a819d17baf6ae3e6150a7bd7f65e81aeca47",
+            "captureMethod": "Playwright Chromium navigation",
+            "reusedSnapshot": true
+          }
+        }
+      },
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/spm-three-budgeted-v5-20261103/source-candidate-T62-1118.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/spm-three-budgeted-v5-20261103/003.json",
+      "captureSHA256": "3110d4021d2726f2668574bf1433d2dbecc61a3e0cd26681f289c72cf21e76fe",
+      "originalFrameSHA256": "76a5f7dc7e4408b8b08569d51fd4428e5dc126e22f001de2ab7ca5bf184457bc",
+      "time": 1118.033,
+      "crop": [
+        650,
+        220,
+        750,
+        460
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "elevated-front",
+      "imageQuality": "1080p",
+      "mainImageUsable": true,
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "略俯前向防护分析，车辆没有提示框遮挡；不推断未测角度或实战后效。",
+      "completeIllustration": false,
+      "coverageStatus": "partial-frontal-guide",
+      "coverageNotice": "前向防护分析 · 区域指引待补",
+      "testContext": {
+        "attacker": "T95",
+        "attackerVehicleId": "us_t95",
+        "shell": "T13",
+        "rawUIType": null,
+        "shellTypeCode": "APCBC",
+        "shellTypeLabel": "被帽风帽穿甲弹",
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 253,
+        "sourceTime": 1118.033,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "sourceGameVersion": "2.51.0.65",
+        "caseId": "ussr_t_62:BV1SPmEBJE3y:1118033",
+        "note": "同帧静态UI输入条件；无独立成功试射记录，绿色不保证实战后效。",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/us_t95",
+          "checkedAt": "2026-11-02T21:06:12.604319+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "us_t95",
+          "mainGun": "105 mm T5E1 cannon",
+          "officialShellName": "T13",
+          "sourceShellLabelOriginal": "T13"
+        }
+      }
     },
     {
       "id": "ussr_t_10m",
@@ -470,7 +631,84 @@
       "countryName": "苏联",
       "rank": 6,
       "era": "cold-war",
-      "scopeRole": "heavy_tank"
+      "scopeRole": "heavy_tank",
+      "testCases": [
+        {
+          "attackerVehicleId": "us_m103",
+          "attackerVisibleTitle": "M103",
+          "attackerCountry": "usa",
+          "shell": "M469",
+          "shellType": null,
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 380,
+          "sourceGameVersion": "2.51.0.65",
+          "actualShotObserved": false,
+          "outcome": null,
+          "id": "ussr_t_10m:BV1SPmEBJE3y:1088033",
+          "vehicleId": "ussr_t_10m",
+          "sourceTime": 1088.033,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attacker": "M103",
+          "sourceShellLabelOriginal": "M469",
+          "rawUIType": null,
+          "shellTypeCode": null,
+          "shellTypeLabel": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "49be064887897a56a55eefd76bfd58dd4e8e8947f7e2c2ef30928be54c1a7d79",
+          "impactAngleDegrees": null,
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot"
+        }
+      ],
+      "testCaseEvidence": {
+        "ussr_t_10m:BV1SPmEBJE3y:1088033": {
+          "originalRecord": {
+            "vehicleId": "ussr_t_10m",
+            "canonicalName": "T-10M",
+            "country": "ussr",
+            "actualNativeTitle": "T-10M",
+            "identityBasis": "actual header matches canonical exact variant; source Soviet vehicle discussion, no attacker-flag inference",
+            "identityCaveat": "T10M1088 precedes available archived subtitle range; exact title clear, no invented prior cue",
+            "sourceURL": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+            "actualMediaTime": 1088.033,
+            "playerCurrentTime": 1088.112529,
+            "timeBasis": "verified proof.decode.mediaTime",
+            "nativeDimensions": [
+              1920,
+              1080
+            ],
+            "webpPath": "artifacts/tank-weakpoints-expansion-20261102/sources/spm-three-budgeted-v5-20261103/source-candidate-T10M-1088.webp",
+            "webpBytes": 1162444,
+            "webpSHA256": "26004171831bce027c055f3e8af2ef474a7fcd57474b1981df85ae620b3bbc6a",
+            "historicalDecodedPNG_SHA256": "49be064887897a56a55eefd76bfd58dd4e8e8947f7e2c2ef30928be54c1a7d79",
+            "originalPNGAvailability": "historical SHA only; native WebP retained",
+            "proofPath": "artifacts/tank-weakpoints-expansion-20261102/sources/spm-three-budgeted-v5-20261103/002.json",
+            "proofSHA256": "d80ef30fd47593a5b96fc19e1be8d11745003e23054586cf95df7bf6f41f98c9",
+            "contextPath": "artifacts/tank-weakpoints-expansion-20261102/sources/spm-three-budgeted-v5-20261103/002-context.png",
+            "contextSHA256": "b01eb1f89862f267ce5e77f671659d3e0286ad730c6a1cc08e06f60c4bc596a0",
+            "sceneKind": "opaque-armour-penetration-map",
+            "hasGreenArmorMap": true,
+            "moduleXray": false,
+            "view": "steep-top-front",
+            "testContext": {
+              "attackerVehicleId": "us_m103",
+              "attackerVisibleTitle": "M103",
+              "attackerCountry": "usa",
+              "shell": "M469",
+              "shellType": null,
+              "distanceMeters": 0,
+              "displayedPenetrationMm": 380,
+              "sourceGameVersion": "2.51.0.65",
+              "actualShotObserved": false,
+              "outcome": null
+            },
+            "calculationProgressPercent": null,
+            "disposition": "source-only-steep-view",
+            "pins": [],
+            "complete": false
+          },
+          "ammoReferenceStatus": "pending-exact-official-reference-no-type-inferred"
+        }
+      }
     },
     {
       "id": "ussr_is_4m",
@@ -12196,8 +12434,13 @@
       "collectedAt": "2026-11-02T09:54:07.120Z",
       "pins": [],
       "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "status": "partial-frontal-guide",
       "wikiUrl": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-009-20261102/snapshots/germ_leopard_2a5.json",
@@ -12220,7 +12463,149 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-a5-resolution-upgrade-v7-20261103/Leopard2A5-existing-keypoint-HD-515.033312.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-a5-resolution-upgrade-v7-20261103/002.json",
+      "captureSHA256": "f0c9c3549acfaf3cb43a0971976beee2b236940028cbc6b6851cf0a399af6ae3",
+      "originalFrameSHA256": "db60039867959c75517a9c97e654881473a78129bd7d554495665125e8230f2c",
+      "time": 515.033312,
+      "crop": [
+        650,
+        230,
+        750,
+        430
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "imageQuality": "1080p",
+      "mainImageUsable": true,
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "正面防护分析；提示框位于车辆轮廓外，不遮挡车辆。",
+      "completeIllustration": false,
+      "coverageStatus": "partial-frontal-guide",
+      "coverageNotice": "正面防护分析 · 区域指引待补",
+      "testContext": {
+        "attacker": "90式战车B型（富士教导团）",
+        "attackerVehicleId": "jp_type_90b_camo",
+        "shell": "JM33",
+        "rawUIType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "jp_type_90b_camo",
+          "mainGun": "120 mm Type 90 L/44 cannon",
+          "officialShellName": "JM33",
+          "sourceShellLabelOriginal": "JM33"
+        },
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceTime": 515.033312,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "sourceGameVersion": null,
+        "caseId": "germ_leopard_2a5:BV1CueU6cECo:515033",
+        "note": "主图同帧静态UI条件；游戏版本右缘被截断，完整版本未知；不保证实战后效。"
+      },
+      "testCases": [
+        {
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerVisibleTitle": "90式战车B型（富士教导团）",
+          "attackerCountry": "japan",
+          "shell": "JM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "sourceVersionCaveat": "right edge clipped; no Wiki version substitution",
+          "actualShotObserved": false,
+          "outcome": null,
+          "id": "germ_leopard_2a5:BV1CueU6cECo:515033",
+          "vehicleId": "germ_leopard_2a5",
+          "sourceTime": 515.033312,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "attacker": "90式战车B型（富士教导团）",
+          "sourceShellLabelOriginal": "JM33",
+          "rawUIType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "jp_type_90b_camo",
+            "mainGun": "120 mm Type 90 L/44 cannon",
+            "officialShellName": "JM33",
+            "sourceShellLabelOriginal": "JM33"
+          },
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "db60039867959c75517a9c97e654881473a78129bd7d554495665125e8230f2c",
+          "impactAngleDegrees": null,
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot"
+        }
+      ],
+      "testCaseEvidence": {
+        "germ_leopard_2a5:BV1CueU6cECo:515033": {
+          "originalRecord": {
+            "vehicleId": "germ_leopard_2a5",
+            "country": "germany",
+            "actualNativeTargetTitle": "豹2A5",
+            "identityBasis": "actual target header reads豹2A5; source德/瑞country section and prior identical-point QC; archivedA5/A6/PSO group narration confirms context only, not stand-alone variant proof",
+            "sourceURL": "https://www.bilibili.com/video/BV1CueU6cECo/",
+            "actualMediaTime": 515.033312,
+            "playerCurrentTime": 515.092632,
+            "timeBasis": "verified proof.decode.mediaTime",
+            "nativeDimensions": [
+              1920,
+              1080
+            ],
+            "storedDimensions": [
+              1920,
+              1080
+            ],
+            "nativeResized": false,
+            "webpPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-a5-resolution-upgrade-v7-20261103/Leopard2A5-existing-keypoint-HD-515.033312.webp",
+            "webpBytes": 1250984,
+            "webpSHA256": "f0c9c3549acfaf3cb43a0971976beee2b236940028cbc6b6851cf0a399af6ae3",
+            "historicalDecodedPNG_SHA256": "db60039867959c75517a9c97e654881473a78129bd7d554495665125e8230f2c",
+            "proofPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-a5-resolution-upgrade-v7-20261103/002.json",
+            "proofSHA256": "cd9c7f04ca709b8c6f67542174a55081e5c36f8f99163dfe553f2462d4d62450",
+            "contextPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-a5-resolution-upgrade-v7-20261103/002-context.png",
+            "contextSHA256": "94a2c21995d1b6c5ee3e594b8e1ed48fff8a17cba99a32b049baec6feb643ff9",
+            "sceneKind": "opaque-solid-armour-penetration-map",
+            "hasGreenArmorMap": true,
+            "moduleXray": false,
+            "view": "front",
+            "occlusion": "none; no tooltip over vehicle",
+            "testContext": {
+              "attackerVehicleId": "jp_type_90b_camo",
+              "attackerVisibleTitle": "90式战车B型（富士教导团）",
+              "attackerCountry": "japan",
+              "shell": "JM33",
+              "shellType": null,
+              "distanceMeters": 500,
+              "displayedPenetrationMm": 472,
+              "sourceGameVersion": null,
+              "sourceVersionCaveat": "right edge clipped; no Wiki version substitution",
+              "actualShotObserved": false,
+              "outcome": null
+            },
+            "calculationProgressPercent": null,
+            "pins": [],
+            "sameOldActualTime": 515.033312,
+            "resolutionUpgradeOnly": true,
+            "newDistinctPoints": 0
+          },
+          "typeReferenceBasis": "Reused exact jp_type_90b_camo JM33 official reference; not original UI type"
+        }
+      }
     },
     {
       "id": "il_merkava_mk_4b",
@@ -18901,8 +19286,13 @@
       "scopeRole": "medium_tank",
       "pins": [],
       "videoAdvice": [],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "status": "partial-frontal-guide",
       "wikiUrl": "https://wiki.warthunder.com/unit/germ_leopard_2a4",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-002-20261103/snapshots/germ_leopard_2a4.json",
@@ -18924,13 +19314,145 @@
       "collectedAt": "2026-11-02T18:07:38.967Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "原文明确该型在1985–1992年分批制造。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/GER-Leopard-2A4-HD-0450.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/084.json",
+      "captureSHA256": "d12fc858fbfed840236a897d1ee4bc0ae581bc358d0f9bcb54b97165f40bc4e1",
+      "originalFrameSHA256": "5fa4138f421238918e9a9981b75b199df444021bb1aff11bf52b2dc6a9751db8",
+      "time": 450.033312,
+      "crop": [
+        650,
+        220,
+        750,
+        450
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "imageQuality": "1080p",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "正面防护分析；提示框遮挡右下车体与履带区域，不推断遮挡区。",
+      "coverageStatus": "partial-frontal-guide",
+      "coverageNotice": "正面防护分析 · 右下局部遮挡",
+      "testContext": {
+        "attacker": "90 式战车 B 型（富士教导团）",
+        "attackerVehicleId": "jp_type_90b_camo",
+        "shell": "JM33",
+        "rawUIType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "jp_type_90b_camo",
+          "mainGun": "120 mm Type 90 L/44 cannon",
+          "officialShellName": "JM33",
+          "sourceShellLabelOriginal": "JM33"
+        },
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceTime": 450.033312,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "sourceGameVersion": null,
+        "caseId": "germ_leopard_2a4:BV1CueU6cECo:450033",
+        "note": "主图同帧静态UI条件；游戏版本右缘被截断，完整版本未知；不保证实战后效。"
+      },
+      "testCases": [
+        {
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerCountry": "japan",
+          "shell": "JM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "id": "germ_leopard_2a4:BV1CueU6cECo:450033",
+          "vehicleId": "germ_leopard_2a4",
+          "sourceTime": 450.033312,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "attacker": "90 式战车 B 型（富士教导团）",
+          "sourceShellLabelOriginal": "JM33",
+          "rawUIType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "jp_type_90b_camo",
+            "mainGun": "120 mm Type 90 L/44 cannon",
+            "officialShellName": "JM33",
+            "sourceShellLabelOriginal": "JM33"
+          },
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "5fa4138f421238918e9a9981b75b199df444021bb1aff11bf52b2dc6a9751db8",
+          "impactAngleDegrees": null,
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot"
+        }
+      ],
+      "testCaseEvidence": {
+        "germ_leopard_2a4:BV1CueU6cECo:450033": {
+          "originalRecord": {
+            "vehicleId": "germ_leopard_2a4",
+            "country": "germany",
+            "actualNativeTargetTitle": "豹2A4",
+            "identityBasis": "actual header + original German/Swedish country section + canonical exact unmarked title; not left Japanese attack flag, not auto-mapped121",
+            "identityCaveat": null,
+            "sourceURL": "https://www.bilibili.com/video/BV1CueU6cECo/",
+            "actualMediaTime": 450.033312,
+            "timeBasis": "proof.decode.mediaTime; stored transport resolution distinct from original decode",
+            "nativeDecodedDimensions": [
+              1920,
+              1080
+            ],
+            "storedDimensions": [
+              1920,
+              1080
+            ],
+            "transportDownscaled": false,
+            "webpPath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/GER-Leopard-2A4-HD-0450.webp",
+            "webpBytes": 1269080,
+            "webpSHA256": "d12fc858fbfed840236a897d1ee4bc0ae581bc358d0f9bcb54b97165f40bc4e1",
+            "historicalDecodedPNG_SHA256": "5fa4138f421238918e9a9981b75b199df444021bb1aff11bf52b2dc6a9751db8",
+            "proofPath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/084.json",
+            "proofSHA256": "cba5568c6fe06a9f185d18733874414a6a13e72b3bdb57564296034c970c1b95",
+            "testContext": {
+              "attackerVehicleId": "jp_type_90b_camo",
+              "attackerCountry": "japan",
+              "shell": "JM33",
+              "shellType": null,
+              "distanceMeters": 500,
+              "displayedPenetrationMm": 472,
+              "sourceGameVersion": null,
+              "actualShotObserved": false,
+              "outcome": null
+            },
+            "sceneKind": "opaque-solid-armour-penetration-map",
+            "hasGreenArmorMap": true,
+            "moduleXray": false,
+            "view": "front",
+            "calculationProgressPercent": null,
+            "disposition": "main-candidate",
+            "pins": [],
+            "complete": false
+          },
+          "typeReferenceBasis": "Reused exact jp_type_90b_camo JM33 official reference; not original UI type"
+        }
+      }
     },
     {
       "id": "germ_leopard_2a4m_can_sm",
@@ -19071,8 +19593,13 @@
       "scopeRole": "medium_tank",
       "pins": [],
       "videoAdvice": [],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "status": "partial-frontal-guide",
       "wikiUrl": "https://wiki.warthunder.com/unit/germ_leopard_2av",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-002-20261103/snapshots/germ_leopard_2av.json",
@@ -19094,13 +19621,142 @@
       "collectedAt": "2026-11-02T18:08:11.662Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "原文明确1977年向美方展示105毫米炮原型。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-av-budgeted-v6-20261103/source-candidate-Leopard2AV-0435.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-av-budgeted-v6-20261103/002.json",
+      "captureSHA256": "ff1b2929679040c0135e723504008670a3eafb109bafa78812e9f886d8da2cc8",
+      "originalFrameSHA256": "17725f36d485da5978121f87bd7b4df42583d6345642e795e641d61a28eb496f",
+      "time": 435.016687,
+      "crop": [
+        1260,
+        450,
+        1650,
+        900
+      ],
+      "sourceDimensions": [
+        3840,
+        2160
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "imageQuality": "4k",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "正面防护分析；提示框位于车辆轮廓外，不遮挡车辆。",
+      "coverageStatus": "partial-frontal-guide",
+      "coverageNotice": "正面防护分析 · 区域指引待补",
+      "testContext": {
+        "attacker": "90式战车B型（富士教导团）",
+        "attackerVehicleId": "jp_type_90b_camo",
+        "shell": "JM33",
+        "rawUIType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "jp_type_90b_camo",
+          "mainGun": "120 mm Type 90 L/44 cannon",
+          "officialShellName": "JM33",
+          "sourceShellLabelOriginal": "JM33"
+        },
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceTime": 435.016687,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "sourceGameVersion": null,
+        "caseId": "germ_leopard_2av:BV1CueU6cECo:435017",
+        "note": "主图同帧静态UI条件；游戏版本右缘被截断，完整版本未知；不保证实战后效。"
+      },
+      "testCases": [
+        {
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerCountry": "japan",
+          "attackerVisibleTitle": "90式战车B型（富士教导团）",
+          "shell": "JM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "sourceVersionCaveat": "full version right edge clipped; not filled from Wiki",
+          "actualShotObserved": false,
+          "outcome": null,
+          "id": "germ_leopard_2av:BV1CueU6cECo:435017",
+          "vehicleId": "germ_leopard_2av",
+          "sourceTime": 435.016687,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "attacker": "90式战车B型（富士教导团）",
+          "sourceShellLabelOriginal": "JM33",
+          "rawUIType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "jp_type_90b_camo",
+            "mainGun": "120 mm Type 90 L/44 cannon",
+            "officialShellName": "JM33",
+            "sourceShellLabelOriginal": "JM33"
+          },
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "17725f36d485da5978121f87bd7b4df42583d6345642e795e641d61a28eb496f",
+          "impactAngleDegrees": null,
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot"
+        }
+      ],
+      "testCaseEvidence": {
+        "germ_leopard_2av:BV1CueU6cECo:435017": {
+          "originalRecord": {
+            "vehicleId": "germ_leopard_2av",
+            "country": "germany",
+            "actualNativeTargetTitle": "豹2AV",
+            "identityBasis": "native header clearly ends 豹2AV plus archived425.965167–433.058173 explicitly names豹2av; unique canonical match, attacker90B separate",
+            "sourceURL": "https://www.bilibili.com/video/BV1CueU6cECo/",
+            "actualMediaTime": 435.016687,
+            "timeBasis": "verified proof.decode.mediaTime",
+            "nativeDimensions": [
+              3840,
+              2160
+            ],
+            "webpPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-av-budgeted-v6-20261103/source-candidate-Leopard2AV-0435.webp",
+            "webpBytes": 2208438,
+            "webpSHA256": "ff1b2929679040c0135e723504008670a3eafb109bafa78812e9f886d8da2cc8",
+            "historicalDecodedPNG_SHA256": "17725f36d485da5978121f87bd7b4df42583d6345642e795e641d61a28eb496f",
+            "proofPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-av-budgeted-v6-20261103/002.json",
+            "proofSHA256": "cef4c5ce51615fdf25df2c99a6c261563f7aaa7c482aa92400de15eae62e37be",
+            "sceneKind": "opaque-solid-armour-penetration-map",
+            "hasGreenArmorMap": true,
+            "moduleXray": false,
+            "view": "front",
+            "occlusion": "tooltip adjacent image-right, outside vehicle silhouette",
+            "testContext": {
+              "attackerVehicleId": "jp_type_90b_camo",
+              "attackerCountry": "japan",
+              "attackerVisibleTitle": "90式战车B型（富士教导团）",
+              "shell": "JM33",
+              "shellType": null,
+              "distanceMeters": 500,
+              "displayedPenetrationMm": 472,
+              "sourceGameVersion": null,
+              "sourceVersionCaveat": "full version right edge clipped; not filled from Wiki",
+              "actualShotObserved": false,
+              "outcome": null
+            },
+            "calculationProgressPercent": null,
+            "pins": []
+          },
+          "typeReferenceBasis": "Reused exact jp_type_90b_camo JM33 official reference; not original UI type"
+        }
+      }
     },
     {
       "id": "germ_leopard_2pl",
@@ -21435,7 +22091,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 40,
+    "illustratedCount": 44,
     "countries": [
       {
         "country": "usa",
@@ -21571,7 +22227,7 @@
     "lastUpdated": "2026-11-02",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 38,
+    "illustratedTargetCount": 42,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,
