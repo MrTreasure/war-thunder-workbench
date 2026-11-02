@@ -1,0 +1,148 @@
+{
+  "schema": 1,
+  "status": "review-samples",
+  "scope": "War Thunder game only",
+  "collectedAt": "2026-11-02",
+  "source": {
+    "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+    "author": "罗非鱼解说",
+    "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+    "publishedAt": "2025-12-12",
+    "gameVersion": "2.51.0.65"
+  },
+  "models": [
+    {
+      "id": "ussr_t_54_1947",
+      "name": "T-54（1947）",
+      "role": "中型坦克",
+      "era": "cold-war",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_54_1947",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshot": "046",
+      "frameSnapshot": "043",
+      "frame": "t54-front-1111.png",
+      "time": 1111,
+      "crop": [
+        560,
+        180,
+        1100,
+        690
+      ],
+      "ammo": {
+        "attacker": "T95",
+        "shell": "T13",
+        "rangeM": 0,
+        "panelPenetrationMm": 255
+      },
+      "overview": "先分清炮盾热区与首上。相邻位置的结果可能完全不同。",
+      "wikiSummary": "Wiki 提醒正面存在跳弹陷阱，并给出车体首上基础装甲 120 mm。基础厚度不能直接替代倾斜后的防护。",
+      "comparison": "视频的炮盾绿色热区与首上红色取样点应分开理解；Wiki 提及的跳弹陷阱不能与直接击穿混为同一种机理。",
+      "limits": "该帧首上取样点显示“无法击穿”，入射角 57°、攻击方位角 0°，对 T13 的等效厚度显示 341 mm。这是该位置与该弹种的结果。",
+      "pins": [
+        {
+          "x": 0.361,
+          "y": 0.23,
+          "label": "炮盾附近 · 条件热区",
+          "detail": "视频中炮盾附近呈绿色热区。它只反映该弹种与镜头设置下的防护分析，不能据此保证每个位置都能一发击毁。",
+          "kind": "conditional"
+        },
+        {
+          "x": 0.373,
+          "y": 0.39,
+          "label": "首上取样点 · 无法击穿",
+          "detail": "图中红色准星位于车体首上，该帧明确显示 T13 无法击穿。不要把炮盾的绿色结论扩展到整片车体正面。",
+          "kind": "avoid"
+        }
+      ]
+    },
+    {
+      "id": "ussr_t_62m1",
+      "name": "T-62M-1",
+      "role": "中型坦克 · BDD 加装装甲",
+      "era": "cold-war",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_62m1",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshot": "049",
+      "frameSnapshot": "047",
+      "frame": "t62m1-front-1151.png",
+      "time": 1151.033,
+      "crop": [
+        560,
+        180,
+        1100,
+        690
+      ],
+      "ammo": {
+        "attacker": "M47",
+        "shell": "M431",
+        "rangeM": 0,
+        "panelPenetrationMm": 320
+      },
+      "overview": "优先识别下首与加装装甲覆盖区，别把整个正面当成同一块装甲。",
+      "wikiSummary": "Wiki 明确说明正面车体与炮塔装有 BDD 加装装甲，增强了相应区域的防护。这与未被相同装甲包覆盖的位置需要分别判断。",
+      "comparison": "视频取样位于下部车体，在 M431、0 m 条件下显示可穿。它不能被用来证明 BDD 装甲块同样容易击穿，也不能套到原型 T-62。",
+      "limits": "画面勾选了“垂直入射角包含镜头角度”；该点提示入射角 60°、攻击方位角 1°。不将这张热图外推为所有距离、所有视角的通用弱点图。",
+      "pins": [
+        {
+          "x": 0.403,
+          "y": 0.478,
+          "label": "下首取样点 · 本帧可穿",
+          "detail": "原始画面在此处给出绿色准星与“能够击穿”提示。测试条件为 M47 的 M431、0 米；损伤列表是防护分析的预期伤害，不是实战击杀统计。",
+          "kind": "observed"
+        },
+        {
+          "x": 0.421,
+          "y": 0.315,
+          "label": "BDD 装甲块 · 独立判断",
+          "detail": "炮塔前方的附加装甲块与下首取样点不是相同结构。Wiki 的加装防护描述只支持分区域判断，不能拿下首结果替代装甲块测试。",
+          "kind": "context"
+        }
+      ]
+    },
+    {
+      "id": "ussr_t_72a",
+      "name": "T-72A",
+      "role": "主战坦克 · 复合装甲",
+      "era": "cold-war",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_72a",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshot": "009",
+      "frameSnapshot": "048",
+      "frame": "t72a-front-1173.png",
+      "time": 1173,
+      "crop": [
+        450,
+        80,
+        1000,
+        800
+      ],
+      "ammo": {
+        "attacker": "T-72A",
+        "shell": "3BM22",
+        "rangeM": 0,
+        "panelPenetrationMm": 425
+      },
+      "overview": "把入射位置和内部毁伤路径放在一起看，保留具体弹种条件。",
+      "wikiSummary": "Wiki 明确描述复合装甲、3 人乘员与自动装弹机；面板上的基础厚度不是复合装甲完整的等效防护数值。",
+      "comparison": "视频展示 3BM22、0 m 下的入射和内部毁伤。Wiki 没有给出此取样点的精确等效值，不能用面板数字独立证明作者口述的“约 400 mm”。",
+      "limits": "这张图是防护分析的透视毁伤画面。它支持观察这一发的入射通道与受损部位，不代表首上每个位置都能穿，也不等于一发必然殉爆。",
+      "pins": [
+        {
+          "x": 0.425,
+          "y": 0.59,
+          "label": "本发入射位置",
+          "detail": "彩色命中痕迹位于前部驾驶员区域。保留 3BM22、0 米与视频镜头角度条件；不把此位置宣传为任意弹种均可穿的通用弱点。",
+          "kind": "observed"
+        },
+        {
+          "x": 0.596,
+          "y": 0.35,
+          "label": "内部毁伤路径",
+          "detail": "橙色破片轨迹与红色受损部位显示本次模拟的内部影响。乘员、部件损伤与弹药殉爆是不同结果，本帧没有提供殉爆概率。",
+          "kind": "context"
+        }
+      ]
+    }
+  ],
+  "eraPolicy": "按具体型号／改型所处年代分类，BR 另作筛选；本批为冷战样例。"
+}
