@@ -90,7 +90,7 @@ runInNewContext(
         throw Error("image cache path failed");
       }
       if (offline) throw Error("offline");
-      return imageResponse();
+      return imageResponse(opaque && request.mode === "no-cors");
     },
   },
 );
@@ -163,16 +163,29 @@ for (let i = 0; i < 50; i++) {
   now++;
   await dispatch(`https://static.encyclopedia.warthunder.com/gui_skin/check_${i}.svg`).finish();
 }
-assert(stores.get("wt-public-images-v2-icons").size <= 48, "Icon cache is bounded");
+assert(stores.get("wt-public-images-v3-icons").size <= 48, "Icon cache is bounded");
 opaque = true;
 for (let i = 0; i < 45; i++) {
   now++;
   await dispatch(`https://static.encyclopedia.warthunder.com/slots/check_${i}.png`).finish();
 }
 assert(
-  stores.get("wt-public-images-v2-vehicles").size <= 40,
+  stores.get("wt-public-images-v3-vehicles").size <= 40,
   "Opaque image quota padding has its own bound",
 );
+const beforeCors = network;
+const recovered = await dispatch(
+  "https://static.encyclopedia.warthunder.com/slots/check_44.png", "image", { mode: "cors" },
+).finish();
+assert.notEqual(recovered.type, "opaque", "A CORS image must not receive a cached opaque response");
+assert.equal(network, beforeCors + 1, "An incompatible cached image is fetched again");
+const mixedUrl = "https://static.encyclopedia.warthunder.com/images/mode_mixed.png";
+const beforeMixed = network;
+const noCorsImage = dispatch(mixedUrl);
+const corsImage = dispatch(mixedUrl, "image", { mode: "cors" });
+await noCorsImage.finish();
+assert.notEqual((await corsImage.finish()).type, "opaque", "In-flight images retain their request mode");
+assert.equal(network, beforeMixed + 2, "CORS and no-cors downloads cannot be coalesced");
 opaque = false;
 rejectWrites = true;
 assert.equal(
