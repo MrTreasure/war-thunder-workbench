@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="robots" content="noindex,nofollow">
-    <meta name="description" content="苏联冷战坦克弱点图文样例：高清正面画面、Wiki 资料、主炮装填时间与视频推荐攻击位置。">
+    <meta name="description" content="各国坦克弱点图文资料：高清正面画面、Wiki 资料、主炮装填时间与视频推荐攻击位置。">
     <title>坦克弱点 · 图文样例</title>
     <link rel="stylesheet" href="__STYLE__">
     <script defer src="__SCRIPT__"></script>
@@ -18,26 +18,28 @@
     <main>
       <div class="intro">
         <p class="eyebrow">WAR THUNDER / ARMOUR STUDY</p>
-        <h1>苏联 · 冷战坦克弱点</h1>
+        <h1>坦克正面弱点图解</h1>
         <p>高清正面画面，搭配官方 Wiki 资料与视频推荐攻击位置。点击编号查看说明。</p>
       </div>
-      <nav class="era-nav" aria-label="按年代分类">
-        <button disabled>二战<span>后续补充</span></button>
-        <button aria-current="page">冷战<span>3 辆样例</span></button>
-        <button disabled>现代<span>后续补充</span></button>
-      </nav>
+      <section class="filters" aria-label="筛选弱点资料">
+        <div class="filter-row"><span id="country-label" class="filter-label">国家</span><div id="countries" class="filter-buttons" role="group" aria-labelledby="country-label"></div></div>
+        <div class="filter-row"><span id="rank-label" class="filter-label">等级</span><div id="ranks" class="filter-buttons" role="group" aria-labelledby="rank-label"></div><label class="family-filter"><input id="include-is" type="checkbox">另含 IS 系列补充（不限等级）</label></div>
+        <nav id="eras" class="era-nav" aria-label="按年代分类"></nav>
+      </section>
+      <p id="result-count" class="result-count" role="status"></p>
+      <section id="empty-state" class="empty-state" hidden><h2>暂无符合筛选的资料</h2><p>该分类尚未收录已核对的高清正面图，可调整筛选查看现有资料。</p><button id="reset-filters" type="button">重置筛选</button></section>
       <div id="vehicles" class="vehicle-nav" aria-label="选择坦克"></div>
-      <section class="study" aria-labelledby="vehicle-name">
+      <section id="study" class="study" aria-labelledby="vehicle-name">
         <div class="figure-column">
           <header class="figure-header">
             <div><h2 id="vehicle-name"></h2><p id="vehicle-role"></p></div>
             <button id="toggle-original" type="button" aria-pressed="false">查看完整原始帧</button>
           </header>
           <div class="photo-stage" id="photo-stage">
-            <img id="photo" alt="" width="1100" height="690">
+            <img id="photo" alt="" width="1100" height="690"><p id="image-status" class="image-status" role="status" hidden></p>
             <div id="pins" class="annotation-layer"></div>
           </div>
-          <p class="figure-caption">画面：罗非鱼解说 / 《战争雷霆》。金色编号为讲解标注；原始游戏热图颜色取决于当时的弹种与视角。</p>
+          <p id="figure-caption" class="figure-caption"></p>
           <div id="pin-buttons" class="pin-buttons" aria-label="按区域查看说明"></div>
           <section class="explanation" aria-live="polite" aria-atomic="true"><p class="eyebrow">选中标注</p><h3 id="point-title"></h3><p id="point-detail"></p></section>
         </div>
@@ -47,7 +49,7 @@
           <section id="video-section"><h3>视频攻击位置与建议</h3><div id="video-advice"></div></section>
         </aside>
       </section>
-      <section class="sources" aria-labelledby="sources-heading"><h2 id="sources-heading">来源与核对记录</h2><div id="sources"></div><p>Wiki 与视频分别标明来源；点击视频时间可跳转至对应讲解。</p></section>
+      <section id="source-section" class="sources" aria-labelledby="sources-heading"><h2 id="sources-heading">来源与核对记录</h2><div id="sources"></div><p>Wiki 与视频分别标明来源；点击视频时间可跳转至对应讲解。</p></section>
     </main>
     <footer>《战争雷霆》游戏内资料 · 采集核对：2026-11-02 · 双站正式页面暂未接入本样例</footer>
   </body>

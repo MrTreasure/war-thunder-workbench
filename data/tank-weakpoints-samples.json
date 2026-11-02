@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "status": "review-samples",
-  "scope": "War Thunder game only",
+  "scope": "War Thunder game only; ten-country Rank VI–VIII tank coverage with additional USSR IS series",
   "collectedAt": "2026-11-02",
   "source": {
     "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
@@ -91,7 +91,11 @@
             "type": "author-recommendation"
           }
         }
-      ]
+      ],
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 5,
+      "scopeRole": "medium_tank"
     },
     {
       "id": "ussr_t_62m1",
@@ -171,7 +175,11 @@
             "type": "demonstrated-attack-location"
           }
         }
-      ]
+      ],
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 6,
+      "scopeRole": "medium_tank"
     },
     {
       "id": "ussr_t_72a",
@@ -273,8 +281,847 @@
           "limits": "这张图是防护分析的透视毁伤画面。它支持观察这一发的入射通道与受损部位，不代表首上每个位置都能穿，也不等于一发必然殉爆。",
           "view": "damage-xray"
         }
-      ]
+      ],
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 6,
+      "scopeRole": "medium_tank"
+    },
+    {
+      "id": "ussr_t_62",
+      "name": "T-62",
+      "role": "中型／主战坦克",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_62",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/vehicle-weakpoints-20261102/004.json",
+      "wikiSnapshotSHA256": "dada4b2b3b2242c58f68cc3ac124aa6c239d85abe63522c743eb98afa7463839",
+      "wikiSummary": "115毫米滑膛炮T-62；保留Wiki原文，不扩展成整族弱点。",
+      "wikiPoints": [],
+      "reload": {
+        "gun": "115 mm U-5TS 主炮",
+        "mechanism": "manual",
+        "display": "10.4 → 8 秒",
+        "basicSeconds": 10.4,
+        "aceSeconds": 8.0,
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-video",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 6,
+      "era": "cold-war",
+      "scopeRole": "medium_tank"
+    },
+    {
+      "id": "ussr_t_10m",
+      "name": "T-10M",
+      "role": "重型坦克",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_10m",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/vehicle-weakpoints-20261102/020.json",
+      "wikiSnapshotSHA256": "9166f08299e2570e4fb2826a1cceda96ccde3993e9cd1a58a3152ff386a98a3a",
+      "wikiSummary": "T-10M保留为VI级重坦独立车型，不纳入IS系列补充。",
+      "wikiPoints": [],
+      "reload": {
+        "gun": "122 mm M-62-T2S 主炮",
+        "mechanism": "manual",
+        "display": "19.5 → 15 秒",
+        "basicSeconds": 19.5,
+        "aceSeconds": 15.0,
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-video",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 6,
+      "era": "cold-war",
+      "scopeRole": "heavy_tank"
+    },
+    {
+      "id": "ussr_is_4m",
+      "name": "IS-4M",
+      "role": "重型坦克",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_is_4m",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/vehicle-weakpoints-20261102/027.json",
+      "wikiSnapshotSHA256": "99f4ed0db3dd1fe9ed510d3602db6e16c7b8ab338966745aad6f4fb7c27a6708",
+      "wikiSummary": "IS-4M正面传统弹防护较强，适当小角度摆车可增强车体防护；勿把它描述为无条件不可击穿。",
+      "wikiPoints": [],
+      "reload": {
+        "gun": "122 mm D-25T 主炮",
+        "mechanism": "manual",
+        "display": "27.1 → 20.8 秒",
+        "basicSeconds": 27.1,
+        "aceSeconds": 20.8,
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-video",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 5,
+      "family": "is",
+      "era": "cold-war",
+      "scopeRole": "heavy_tank"
+    },
+    {
+      "id": "ussr_is_7",
+      "name": "IS-7",
+      "role": "重型坦克",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_is_7",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/vehicle-weakpoints-20261102/037.json",
+      "wikiSnapshotSHA256": "8e940aa96aa793858f11cd8c8ea33092a820f31a3fe89004fad66a5b93ab5259",
+      "wikiSummary": "IS-7楔形首上与厚侧甲提供防护；Wiki提醒少量薄弱点及大口径武器威胁，辅助装填待发弹6发。",
+      "wikiPoints": [],
+      "reload": {
+        "gun": "130 mm S-70 主炮",
+        "mechanism": "automatic",
+        "display": "10 秒",
+        "seconds": 10.0,
+        "note": "6 发待发弹的辅助装填为 10 秒；待发弹耗尽后不能按此持续射速理解。"
+      },
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-video",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 6,
+      "family": "is",
+      "era": "cold-war",
+      "scopeRole": "heavy_tank"
+    },
+    {
+      "id": "ussr_object_279",
+      "name": "Object 279",
+      "role": "重型坦克",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_object_279",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/vehicle-weakpoints-20261102/038.json",
+      "wikiSnapshotSHA256": "9d2873041ec03b0c400708fdb75f5aec31cec5a9b989b5169c8fd9e18414cc78",
+      "wikiSummary": "Object 279作为VI级重坦独立车型，不因为苏系血统而列入IS系列。",
+      "wikiPoints": [],
+      "reload": {
+        "gun": "130 mm M-65 主炮",
+        "mechanism": "manual",
+        "display": "11.1 → 8.6 秒",
+        "basicSeconds": 11.1,
+        "aceSeconds": 8.6,
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-video",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 6,
+      "era": "cold-war",
+      "scopeRole": "heavy_tank"
+    },
+    {
+      "id": "us_m1a2_sep_abrams",
+      "name": "M1A2 SEP",
+      "role": "中型／主战坦克",
+      "wikiUrl": "https://wiki.warthunder.com/unit/us_m1a2_sep_abrams",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/us_m1a2_sep_abrams.json",
+      "wikiSnapshotSHA256": "5700c671bb3d9ba5344db72938b8831a3e42c066d28916fdb4ce839e86dfb220",
+      "wikiSummary": "SEP增强观瞄并可加装TUSK侧面防护；Wiki仍明确提示车体易受较早APFSDS威胁，宜遮蔽车体。",
+      "wikiPoints": [],
+      "reload": {
+        "gun": "120 mm M256 主炮",
+        "mechanism": "manual",
+        "display": "6.5 → 5 秒",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5.0,
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-video",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "explicit-location",
+      "country": "usa",
+      "countryName": "美国",
+      "rank": 8,
+      "era": "modern",
+      "scopeRole": "medium_tank"
+    },
+    {
+      "id": "germ_leopard_2a6",
+      "name": "Leopard 2A6",
+      "role": "中型／主战坦克",
+      "wikiUrl": "https://wiki.warthunder.com/unit/germ_leopard_2a6",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/germ_leopard_2a6.json",
+      "wikiSnapshotSHA256": "778ff68ff319c23daee181e7191af639827ee2263ddf050fc7d04c83f562067e",
+      "wikiSummary": "豹2A6换装L/55炮；本次页面摘要未提供明确可标注的局部弱点，不能照搬豹2A4图。",
+      "wikiPoints": [],
+      "reload": {
+        "gun": "120 mm Rh120 L/55 主炮",
+        "mechanism": "manual",
+        "display": "7.8 → 6 秒",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6.0,
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-video",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only",
+      "country": "germany",
+      "countryName": "德国",
+      "rank": 8,
+      "era": "modern",
+      "scopeRole": "medium_tank"
+    },
+    {
+      "id": "jp_type_10",
+      "name": "Type 10",
+      "role": "中型／主战坦克",
+      "wikiUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/jp_type_10.json",
+      "wikiSnapshotSHA256": "d21d21e6620a0f79cec0f6f8158b36166ec9cca708ded4659198b010d55b45fb",
+      "wikiSummary": "10式主炮自动装填4秒；Wiki提醒待发弹补充慢、防护不及部分顶级主战坦克。",
+      "wikiPoints": [],
+      "reload": {
+        "gun": "120 mm TKG 主炮",
+        "mechanism": "automatic",
+        "display": "4 秒",
+        "seconds": 4.0,
+        "note": "自动装填；Wiki 主炮面板。"
+      },
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-video",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only",
+      "country": "japan",
+      "countryName": "日本",
+      "rank": 8,
+      "era": "modern",
+      "scopeRole": "medium_tank"
+    },
+    {
+      "id": "cn_ztz_99a",
+      "name": "ZTZ99A",
+      "role": "中型／主战坦克",
+      "wikiUrl": "https://wiki.warthunder.com/unit/cn_ztz_99a",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/cn_ztz_99a.json",
+      "wikiSnapshotSHA256": "ecee9d52c58af60b7a3e7197bbec3462af1b522d704e62ca455b671da0779fd2",
+      "wikiSummary": "99A更大炮塔和新动力系统；页面概述未提供明确可标注的局部弱点。",
+      "wikiPoints": [],
+      "reload": {
+        "gun": "125 mm Type 99A 主炮",
+        "mechanism": "automatic",
+        "display": "6.7 秒",
+        "seconds": 6.7,
+        "note": "自动装填；Wiki 主炮面板。"
+      },
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-video",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only",
+      "country": "china",
+      "countryName": "中国",
+      "rank": 8,
+      "era": "modern",
+      "scopeRole": "medium_tank"
+    },
+    {
+      "id": "fr_leclerc_s1",
+      "name": "Leclerc",
+      "role": "中型／主战坦克",
+      "wikiUrl": "https://wiki.warthunder.com/unit/fr_leclerc_s1",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/fr_leclerc_s1.json",
+      "wikiSnapshotSHA256": "24fdf1f0701036da834130cd887407af0e4af4a5b0ea4e79edd4529f772630af",
+      "wikiSummary": "勒克莱尔炮盾是Wiki明确指出的薄弱处，可导致炮闩受损；近距离更容易被针对。",
+      "wikiPoints": [],
+      "reload": {
+        "gun": "120 mm CN120-26 F1 主炮",
+        "mechanism": "automatic",
+        "display": "5 秒",
+        "seconds": 5.0,
+        "note": "自动装填；Wiki 主炮面板。"
+      },
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-video",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "explicit-location",
+      "country": "france",
+      "countryName": "法国",
+      "rank": 8,
+      "era": "modern",
+      "scopeRole": "medium_tank"
+    },
+    {
+      "id": "sw_strv_122",
+      "name": "Strv 122A",
+      "role": "中型／主战坦克",
+      "wikiUrl": "https://wiki.warthunder.com/unit/sw_strv_122",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/sw_strv_122.json",
+      "wikiSnapshotSHA256": "de032e5802b83f26fad7a0a2f51bf531ac11cff79e5ceaf137af52dde8337f26",
+      "wikiSummary": "122A采用楔形间隙附加装甲；Wiki说明外层设计避免把穿甲杆导向车体，不能将楔形外观直接称为跳弹陷阱。",
+      "wikiPoints": [],
+      "reload": {
+        "gun": "120 mm kan Strv 122",
+        "mechanism": "manual",
+        "display": "7.8 → 6 秒",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6.0,
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-video",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "explicit-protection-context",
+      "country": "sweden",
+      "countryName": "瑞典",
+      "rank": 8,
+      "era": "modern",
+      "scopeRole": "medium_tank"
+    },
+    {
+      "id": "il_merkava_mk_4m",
+      "name": "Merkava Mk.4M",
+      "role": "中型／主战坦克",
+      "wikiUrl": "https://wiki.warthunder.com/unit/il_merkava_mk_4m",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/il_merkava_mk_4m.json",
+      "wikiSnapshotSHA256": "11a91068c2881d7957ee7dd3dd84a450680c7c403befb662698dadea53cf23e6",
+      "wikiSummary": "梅卡瓦4M装备Trophy主动防护；Wiki提醒其并不提供无限保护，不宜长时间暴露。",
+      "wikiPoints": [],
+      "reload": {
+        "gun": "120 mm IMI MG251-LR 主炮",
+        "mechanism": "manual",
+        "display": "6.5 → 5 秒",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5.0,
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-video",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only",
+      "country": "israel",
+      "countryName": "以色列",
+      "rank": 8,
+      "era": "modern",
+      "scopeRole": "medium_tank"
+    },
+    {
+      "id": "ussr_is_1",
+      "name": "IS-1",
+      "role": "重型坦克",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_is_1",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/ussr_is_1.json",
+      "wikiSnapshotSHA256": "7ace618b8ab8164bcd69e2a0a1dfd80f462ad97eec32dc750e2dcadd0d4bf9dc",
+      "wikiSummary": "IS-1下首是Wiki明确指出的薄弱处；不将同一结论无证据套至全部IS改型。",
+      "wikiPoints": [],
+      "reload": {
+        "gun": "85 mm D-5T 主炮",
+        "mechanism": "manual",
+        "display": "9.1 → 7 秒",
+        "basicSeconds": 9.1,
+        "aceSeconds": 7.0,
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "pins": [
+        {
+          "x": 0.47692,
+          "y": 0.43764,
+          "label": "驾驶员观察窗",
+          "detail": "字幕明确点名；车体首上中央观察窗",
+          "kind": "observed"
+        }
+      ],
+      "videoAdvice": [
+        {
+          "label": "驾驶员观察窗",
+          "text": "作者明确建议观察车体首上中央的驾驶员观察窗；Wiki 另提到下首薄弱，两个部位分开理解。",
+          "time": 1000,
+          "evidence": {
+            "candidate": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/candidates.json",
+            "analysisFrames": []
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "status": "review-sample",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "explicit-location",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 3,
+      "family": "is",
+      "era": "ww2",
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/is-series-1000.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/014.json",
+      "time": 1000.017,
+      "imageView": "front",
+      "imageQuality": "1080p",
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "crop": [
+        650,
+        220,
+        650,
+        440
+      ],
+      "scopeRole": "heavy_tank"
+    },
+    {
+      "id": "ussr_is_2_1943",
+      "name": "IS-2",
+      "role": "重型坦克",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_is_2_1943",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/ussr_is_2_1943.json",
+      "wikiSnapshotSHA256": "db5199249f7c3c677009191c496e59e5d9e3f516cbd145deadb9e5bd018246fd",
+      "wikiSummary": "早期IS-2与IS-1防护相近，但122炮装填明显更慢；只保留该早期车型的原文。",
+      "wikiPoints": [],
+      "reload": {
+        "gun": "122 mm D-25T 主炮",
+        "mechanism": "manual",
+        "display": "27.1 → 20.8 秒",
+        "basicSeconds": 27.1,
+        "aceSeconds": 20.8,
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-video",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 4,
+      "family": "is",
+      "era": "ww2",
+      "scopeRole": "heavy_tank"
+    },
+    {
+      "id": "ussr_is_3",
+      "name": "IS-3",
+      "role": "重型坦克",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_is_3",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/ussr_is_3.json",
+      "wikiSnapshotSHA256": "bf0f6e3bdfbe0149ece4d740ca962b7403ccba5bdd7e29e38265fb9a44e2a197",
+      "wikiSummary": "IS-3首上楔形装甲宜正面对敌；Wiki明确提到跳弹陷阱、炮塔座圈击穿风险，并提示侧后防护较弱。",
+      "wikiPoints": [],
+      "reload": {
+        "gun": "122 mm D-25T 主炮",
+        "mechanism": "manual",
+        "display": "26 → 20 秒",
+        "basicSeconds": 26.0,
+        "aceSeconds": 20.0,
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "pins": [
+        {
+          "x": 0.45231,
+          "y": 0.45116,
+          "label": "炮管根部下方",
+          "detail": "正面图定位炮管根部；1022秒解说明确指向此处。",
+          "kind": "observed"
+        }
+      ],
+      "videoAdvice": [
+        {
+          "label": "炮管根部下方",
+          "text": "作者在 76 mm M62 演示中指出炮管根部下方的一小块区域；Wiki 亦提到炮塔座圈与跳弹风险。",
+          "time": 1022,
+          "evidence": {
+            "candidate": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/candidates.json",
+            "analysisFrames": [
+              {
+                "file": "artifacts/tank-weakpoints-expansion-20261102/sources/is-series-1022.png",
+                "proofSnapshot": "artifacts/tank-weakpoints-expansion-20261102/sources/018.json",
+                "actualTime": 1022.017,
+                "width": 1920,
+                "height": 1080,
+                "sha256": "71bb2fbfbf7356085aa2b8a9b57ac5597e1268ec560c04b5fd17bfc10bb367be",
+                "usableMainImage": false,
+                "view": "elevated-front-xray-analysis"
+              }
+            ]
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "status": "review-sample",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "explicit-location",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 5,
+      "family": "is",
+      "era": "cold-war",
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/is-series-1020.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/016.json",
+      "time": 1020,
+      "imageView": "front",
+      "imageQuality": "1080p",
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "crop": [
+        650,
+        220,
+        650,
+        430
+      ],
+      "scopeRole": "heavy_tank"
+    },
+    {
+      "id": "ussr_is_6",
+      "name": "IS-6",
+      "role": "重型坦克",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_is_6",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/ussr_is_6.json",
+      "wikiSnapshotSHA256": "7c8269b47d8fe8fe93372a734c61c089964a47a3e546d212dd3c9a007556ddd4",
+      "wikiSummary": "IS-6倾斜厚甲对传统弹防护较强；本次页面概述没有明确局部弱点坐标。",
+      "wikiPoints": [],
+      "reload": {
+        "gun": "122 mm D-30T 主炮",
+        "mechanism": "manual",
+        "display": "20.5 → 15.8 秒",
+        "basicSeconds": 20.5,
+        "aceSeconds": 15.8,
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-video",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 5,
+      "family": "is",
+      "era": "ww2",
+      "scopeRole": "heavy_tank"
+    },
+    {
+      "id": "uk_challenger_ii",
+      "name": "Challenger 2",
+      "role": "中型／主战坦克",
+      "wikiUrl": "https://wiki.warthunder.com/unit/uk_challenger_ii",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/uk_challenger_ii.json",
+      "wikiSnapshotSHA256": "0eedd875d9375d5fa5b19dd898ecbd46888c8540be2c8523cf83f44263428314",
+      "wikiSummary": "挑战者2驾驶员舱盖是Wiki明确指出的弱点，建议保持隐蔽车体姿态。",
+      "wikiPoints": [],
+      "reload": {
+        "gun": "120 mm L30A1 主炮",
+        "mechanism": "manual",
+        "display": "6.5 → 5 秒",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5.0,
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-video",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "explicit-location",
+      "country": "britain",
+      "countryName": "英国",
+      "rank": 7,
+      "era": "modern",
+      "scopeRole": "medium_tank"
+    },
+    {
+      "id": "it_c1_ariete",
+      "name": "Ariete",
+      "role": "中型／主战坦克",
+      "wikiUrl": "https://wiki.warthunder.com/unit/it_c1_ariete",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/it_c1_ariete.json",
+      "wikiSnapshotSHA256": "5ca2c9fcc61f5211a385db2dde4730cd93fa24d12a56c92e7a64cbe760cb2efd",
+      "wikiSummary": "公羊可解锁WAR附甲并有较强火力；页面摘要没有明确可直接标注的局部弱点。",
+      "wikiPoints": [],
+      "reload": {
+        "gun": "120 mm OTO Breda 120/44 主炮",
+        "mechanism": "manual",
+        "display": "6.5 → 5 秒",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5.0,
+        "note": "基础乘员 → 王牌乘员（Wiki 主炮面板）。"
+      },
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-video",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only",
+      "country": "italy",
+      "countryName": "意大利",
+      "rank": 7,
+      "era": "modern",
+      "scopeRole": "medium_tank"
+    },
+    {
+      "id": "us_m1a1_hc_usmc",
+      "name": "M1A1 Click-Bait",
+      "role": "主战坦克",
+      "country": "usa",
+      "countryName": "美国",
+      "rank": 7,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "wikiUrl": "https://wiki.warthunder.com/unit/us_m1a1_hc_usmc",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/us_m1a1_hc_usmc.json",
+      "wikiSnapshotSHA256": "346d427ca7a037b6ff0590c54b00c70cfbf72da17bb809ea87eb60e8e4811e8e",
+      "wikiSummary": "M1A1 Click-Bait为美国海军陆战队M1A1HC型的高级载具，配备AN/VLQ-8A软杀伤主动防护；Wiki概述强调机动与装填，但未给出明确局部弱点。",
+      "wikiPoints": [],
+      "reload": {
+        "display": "6.5 → 5 秒",
+        "gun": "120 mm M256 主炮",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5.0,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员 → 王牌乘员（Wiki主炮面板）；机枪装填不计入。"
+      },
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-verified-weakpoint",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only"
+    },
+    {
+      "id": "germ_leopard_2a4_pzbtl_123",
+      "name": "Leopard 2 (PzBtl 123)",
+      "role": "主战坦克",
+      "country": "germany",
+      "countryName": "德国",
+      "rank": 7,
+      "era": "modern",
+      "scopeRole": "medium_tank",
+      "wikiUrl": "https://wiki.warthunder.com/unit/germ_leopard_2a4_pzbtl_123",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/germ_leopard_2a4_pzbtl_123.json",
+      "wikiSnapshotSHA256": "63d1fb6ae472daeb3f654cde7a242696d019d2de08d8e20e789085409446dce5",
+      "wikiSummary": "Leopard 2 (PzBtl 123)为德国123坦克营涂装的豹2A4型高级载具，配备120毫米Rh120 L/44炮、泄压板和含NERA的复合装甲；Wiki概述未给出明确局部弱点。",
+      "wikiPoints": [],
+      "reload": {
+        "display": "7.8 → 6 秒",
+        "gun": "120 mm Rh120 L/44 主炮",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6.0,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员 → 王牌乘员（Wiki主炮面板）；机枪装填不计入。"
+      },
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-verified-weakpoint",
+      "collectedAt": "2026-11-02",
+      "weaknessEvidenceStatus": "general-context-only"
     }
   ],
-  "eraPolicy": "按具体型号／改型所处年代分类，BR 另作筛选；本批为冷战样例。"
+  "eraPolicy": "按具体型号／改型所处年代分类，BR 另作筛选；本批为冷战样例。",
+  "coverage": {
+    "targetCount": 226,
+    "rankTankCount": 216,
+    "isSupplementCount": 10,
+    "wikiReviewedCount": 22,
+    "illustratedCount": 5,
+    "countries": [
+      {
+        "country": "usa",
+        "name": "美国",
+        "tankCount": 29,
+        "rankCounts": {
+          "VI": 12,
+          "VII": 13,
+          "VIII": 4
+        },
+        "pendingTDCount": 2,
+        "pendingSPAACount": 10,
+        "optionalSpecialistReconCount": 14
+      },
+      {
+        "country": "germany",
+        "name": "德国",
+        "tankCount": 22,
+        "rankCounts": {
+          "VI": 8,
+          "VII": 7,
+          "VIII": 7
+        },
+        "pendingTDCount": 4,
+        "pendingSPAACount": 9,
+        "optionalSpecialistReconCount": 14
+      },
+      {
+        "country": "ussr",
+        "name": "苏联",
+        "tankCount": 33,
+        "rankCounts": {
+          "VI": 12,
+          "VII": 17,
+          "VIII": 4
+        },
+        "pendingTDCount": 6,
+        "pendingSPAACount": 10,
+        "optionalSpecialistReconCount": 11
+      },
+      {
+        "country": "britain",
+        "name": "英国",
+        "tankCount": 29,
+        "rankCounts": {
+          "VI": 11,
+          "VII": 14,
+          "VIII": 4
+        },
+        "pendingTDCount": 2,
+        "pendingSPAACount": 10,
+        "optionalSpecialistReconCount": 11
+      },
+      {
+        "country": "japan",
+        "name": "日本",
+        "tankCount": 13,
+        "rankCounts": {
+          "VI": 4,
+          "VII": 5,
+          "VIII": 4
+        },
+        "pendingTDCount": 0,
+        "pendingSPAACount": 7,
+        "optionalSpecialistReconCount": 10
+      },
+      {
+        "country": "china",
+        "name": "中国",
+        "tankCount": 24,
+        "rankCounts": {
+          "VI": 9,
+          "VII": 9,
+          "VIII": 6
+        },
+        "pendingTDCount": 3,
+        "pendingSPAACount": 8,
+        "optionalSpecialistReconCount": 8
+      },
+      {
+        "country": "italy",
+        "name": "意大利",
+        "tankCount": 11,
+        "rankCounts": {
+          "VI": 4,
+          "VII": 5,
+          "VIII": 2
+        },
+        "pendingTDCount": 2,
+        "pendingSPAACount": 7,
+        "optionalSpecialistReconCount": 13
+      },
+      {
+        "country": "france",
+        "name": "法国",
+        "tankCount": 18,
+        "rankCounts": {
+          "VI": 7,
+          "VII": 4,
+          "VIII": 7
+        },
+        "pendingTDCount": 1,
+        "pendingSPAACount": 6,
+        "optionalSpecialistReconCount": 9
+      },
+      {
+        "country": "sweden",
+        "name": "瑞典",
+        "tankCount": 14,
+        "rankCounts": {
+          "VI": 6,
+          "VII": 3,
+          "VIII": 5
+        },
+        "pendingTDCount": 2,
+        "pendingSPAACount": 9,
+        "optionalSpecialistReconCount": 13
+      },
+      {
+        "country": "israel",
+        "name": "以色列",
+        "tankCount": 23,
+        "rankCounts": {
+          "VI": 15,
+          "VII": 4,
+          "VIII": 4
+        },
+        "pendingTDCount": 1,
+        "pendingSPAACount": 5,
+        "optionalSpecialistReconCount": 4
+      }
+    ],
+    "lastUpdated": "2026-11-02",
+    "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
+    "optionalSpecialistReconCount": 107,
+    "illustratedTargetCount": 4,
+    "legacyIllustratedCount": 1
+  }
 }

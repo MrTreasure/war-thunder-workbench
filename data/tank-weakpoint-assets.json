@@ -1,0 +1,1903 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
+  "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+  "formatPolicy": "webp-only",
+  "models": {
+    "ussr_t_54_1947": {
+      "photo": {
+        "path": "images/display/720bc74c405938db5780cac7d4fc8f30a639abe37c60a79d7c000ce2abe9c178.webp",
+        "sha256": "720bc74c405938db5780cac7d4fc8f30a639abe37c60a79d7c000ce2abe9c178",
+        "bytes": 308384,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/display/720bc74c405938db5780cac7d4fc8f30a639abe37c60a79d7c000ce2abe9c178.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/display/720bc74c405938db5780cac7d4fc8f30a639abe37c60a79d7c000ce2abe9c178.webp",
+        "commit": "a3122bfea8023fa56f01b3fca6751e9054566216"
+      },
+      "raw": {
+        "path": "images/captures/0d1f7096cb543ca57333c3523250fbeb7d5422586e0044d6c6cdeab57b5a5018.webp",
+        "sha256": "0d1f7096cb543ca57333c3523250fbeb7d5422586e0044d6c6cdeab57b5a5018",
+        "bytes": 1476928,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/0d1f7096cb543ca57333c3523250fbeb7d5422586e0044d6c6cdeab57b5a5018.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/0d1f7096cb543ca57333c3523250fbeb7d5422586e0044d6c6cdeab57b5a5018.webp",
+        "commit": "a3122bfea8023fa56f01b3fca6751e9054566216"
+      }
+    },
+    "ussr_t_62m1": {
+      "photo": {
+        "path": "images/display/cc6cb00ef244bb002c2711e4a540a8862c452764c87a284b2829cf67e67dbf8a.webp",
+        "sha256": "cc6cb00ef244bb002c2711e4a540a8862c452764c87a284b2829cf67e67dbf8a",
+        "bytes": 281844,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/display/cc6cb00ef244bb002c2711e4a540a8862c452764c87a284b2829cf67e67dbf8a.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/display/cc6cb00ef244bb002c2711e4a540a8862c452764c87a284b2829cf67e67dbf8a.webp",
+        "commit": "a3122bfea8023fa56f01b3fca6751e9054566216"
+      },
+      "raw": {
+        "path": "images/captures/84af8e83d3b7402829c5a0eed543b20675f6bf79185fc30476e3dc5ee34cb0ed.webp",
+        "sha256": "84af8e83d3b7402829c5a0eed543b20675f6bf79185fc30476e3dc5ee34cb0ed",
+        "bytes": 1184666,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/84af8e83d3b7402829c5a0eed543b20675f6bf79185fc30476e3dc5ee34cb0ed.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/84af8e83d3b7402829c5a0eed543b20675f6bf79185fc30476e3dc5ee34cb0ed.webp",
+        "commit": "a3122bfea8023fa56f01b3fca6751e9054566216"
+      }
+    },
+    "ussr_t_72a": {
+      "photo": {
+        "path": "images/display/ab4b392a92abd4307f27c2cba44f909530dbfeafba4f266a0a86f52771bcc6e2.webp",
+        "sha256": "ab4b392a92abd4307f27c2cba44f909530dbfeafba4f266a0a86f52771bcc6e2",
+        "bytes": 453400,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/display/ab4b392a92abd4307f27c2cba44f909530dbfeafba4f266a0a86f52771bcc6e2.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/display/ab4b392a92abd4307f27c2cba44f909530dbfeafba4f266a0a86f52771bcc6e2.webp",
+        "commit": "a3122bfea8023fa56f01b3fca6751e9054566216"
+      },
+      "raw": {
+        "path": "images/captures/8f3963fc399309031556ecca8688645800cb4c6f9a8b65021d9b84a98982822b.webp",
+        "sha256": "8f3963fc399309031556ecca8688645800cb4c6f9a8b65021d9b84a98982822b",
+        "bytes": 796346,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/8f3963fc399309031556ecca8688645800cb4c6f9a8b65021d9b84a98982822b.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/8f3963fc399309031556ecca8688645800cb4c6f9a8b65021d9b84a98982822b.webp",
+        "commit": "a3122bfea8023fa56f01b3fca6751e9054566216"
+      }
+    },
+    "ussr_is_1": {
+      "photo": {
+        "path": "images/display/d6b387744a126913a99c8107e8c0707a377c321513922b856deadacb938b4fd0.webp",
+        "sha256": "d6b387744a126913a99c8107e8c0707a377c321513922b856deadacb938b4fd0",
+        "bytes": 244554,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/display/d6b387744a126913a99c8107e8c0707a377c321513922b856deadacb938b4fd0.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/display/d6b387744a126913a99c8107e8c0707a377c321513922b856deadacb938b4fd0.webp",
+        "commit": "a3122bfea8023fa56f01b3fca6751e9054566216"
+      },
+      "raw": {
+        "path": "images/captures/3b4510a43c2b7adff4c5a082bfcb6e0b7892b87d671967ec419665278ab46765.webp",
+        "sha256": "3b4510a43c2b7adff4c5a082bfcb6e0b7892b87d671967ec419665278ab46765",
+        "bytes": 1584458,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/3b4510a43c2b7adff4c5a082bfcb6e0b7892b87d671967ec419665278ab46765.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/3b4510a43c2b7adff4c5a082bfcb6e0b7892b87d671967ec419665278ab46765.webp",
+        "commit": "a3122bfea8023fa56f01b3fca6751e9054566216"
+      }
+    },
+    "ussr_is_3": {
+      "photo": {
+        "path": "images/display/42cf58cf875ecab4902de3ebd8d57b775d622d5298b7e37ae6f788c91402291e.webp",
+        "sha256": "42cf58cf875ecab4902de3ebd8d57b775d622d5298b7e37ae6f788c91402291e",
+        "bytes": 217848,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/display/42cf58cf875ecab4902de3ebd8d57b775d622d5298b7e37ae6f788c91402291e.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/display/42cf58cf875ecab4902de3ebd8d57b775d622d5298b7e37ae6f788c91402291e.webp",
+        "commit": "a3122bfea8023fa56f01b3fca6751e9054566216"
+      },
+      "raw": {
+        "path": "images/captures/26afec149579cd99346e6d4f98ce99cdb995e6e1d195e8f44b5d5d6ed7d62d69.webp",
+        "sha256": "26afec149579cd99346e6d4f98ce99cdb995e6e1d195e8f44b5d5d6ed7d62d69",
+        "bytes": 1523050,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/26afec149579cd99346e6d4f98ce99cdb995e6e1d195e8f44b5d5d6ed7d62d69.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/26afec149579cd99346e6d4f98ce99cdb995e6e1d195e8f44b5d5d6ed7d62d69.webp",
+        "commit": "a3122bfea8023fa56f01b3fca6751e9054566216"
+      }
+    }
+  },
+  "assets": [
+    {
+      "id": "e476f78cd6788662077f4fec279ef7277658e447992cf462cb9fb03a6b11c5aa",
+      "path": "images/captures/e476f78cd6788662077f4fec279ef7277658e447992cf462cb9fb03a6b11c5aa.webp",
+      "sha256": "e476f78cd6788662077f4fec279ef7277658e447992cf462cb9fb03a6b11c5aa",
+      "bytes": 524604,
+      "width": 1280,
+      "height": 720,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1112,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "24d61b63ccebc97a59b821458341dffb2305922942eb18546f67235b7dbc6d5f",
+      "sourceBytes": 1165699,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/e476f78cd6788662077f4fec279ef7277658e447992cf462cb9fb03a6b11c5aa.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/e476f78cd6788662077f4fec279ef7277658e447992cf462cb9fb03a6b11c5aa.webp"
+    },
+    {
+      "id": "20884a1f247399f573706a49806ce8b1c6063b8d17d213d48acfc3a94442d51a",
+      "path": "images/captures/20884a1f247399f573706a49806ce8b1c6063b8d17d213d48acfc3a94442d51a.webp",
+      "sha256": "20884a1f247399f573706a49806ce8b1c6063b8d17d213d48acfc3a94442d51a",
+      "bytes": 531690,
+      "width": 1280,
+      "height": 720,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1113,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "51563364cfb4d5236ca2e34d56a9c58768e7ec691b09b2407097bf0b363ac6ce",
+      "sourceBytes": 1220032,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/20884a1f247399f573706a49806ce8b1c6063b8d17d213d48acfc3a94442d51a.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/20884a1f247399f573706a49806ce8b1c6063b8d17d213d48acfc3a94442d51a.webp"
+    },
+    {
+      "id": "a5e31e758a6ec1c071580ee78621867fa0bc243ece4c142c61b421a7722c37a6",
+      "path": "images/captures/a5e31e758a6ec1c071580ee78621867fa0bc243ece4c142c61b421a7722c37a6.webp",
+      "sha256": "a5e31e758a6ec1c071580ee78621867fa0bc243ece4c142c61b421a7722c37a6",
+      "bytes": 511736,
+      "width": 1280,
+      "height": 720,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1114,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "2d4e26005447e6b275a12f34ed1cc78916f38f8080763dc0e7f5b8508dcee44c",
+      "sourceBytes": 1154319,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/a5e31e758a6ec1c071580ee78621867fa0bc243ece4c142c61b421a7722c37a6.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/a5e31e758a6ec1c071580ee78621867fa0bc243ece4c142c61b421a7722c37a6.webp"
+    },
+    {
+      "id": "c9d919040776fe57351f4146876a2e66e5b67cf0463e95cda393a6f6d13d8f70",
+      "path": "images/captures/c9d919040776fe57351f4146876a2e66e5b67cf0463e95cda393a6f6d13d8f70.webp",
+      "sha256": "c9d919040776fe57351f4146876a2e66e5b67cf0463e95cda393a6f6d13d8f70",
+      "bytes": 483540,
+      "width": 1280,
+      "height": 720,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1117,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "9cbd5ec9a77b2132f504763004e7bfb49e28863f87c0888a13495ef6183f067b",
+      "sourceBytes": 1067608,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/c9d919040776fe57351f4146876a2e66e5b67cf0463e95cda393a6f6d13d8f70.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/c9d919040776fe57351f4146876a2e66e5b67cf0463e95cda393a6f6d13d8f70.webp"
+    },
+    {
+      "id": "797a057ae89e2756b36dea17577b6528dd5048b5990862801fd77cefb599754f",
+      "path": "images/captures/797a057ae89e2756b36dea17577b6528dd5048b5990862801fd77cefb599754f.webp",
+      "sha256": "797a057ae89e2756b36dea17577b6528dd5048b5990862801fd77cefb599754f",
+      "bytes": 638890,
+      "width": 1280,
+      "height": 720,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1150,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "4d437ea824f38988bb136b6d023c19fc8402f14d96c77b70a9bcdf96e24ddeca",
+      "sourceBytes": 1369116,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/797a057ae89e2756b36dea17577b6528dd5048b5990862801fd77cefb599754f.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/797a057ae89e2756b36dea17577b6528dd5048b5990862801fd77cefb599754f.webp"
+    },
+    {
+      "id": "c03f3e4ef57034717fe93ec4ddfa23c03c0d01d0b50a3e243fab7ab9537a5e66",
+      "path": "images/captures/c03f3e4ef57034717fe93ec4ddfa23c03c0d01d0b50a3e243fab7ab9537a5e66.webp",
+      "sha256": "c03f3e4ef57034717fe93ec4ddfa23c03c0d01d0b50a3e243fab7ab9537a5e66",
+      "bytes": 589136,
+      "width": 1280,
+      "height": 720,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1152,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "ab07feec13d60fc2fc7f44b3185f9f5b24244f2b082af70627bc5e8059216ac1",
+      "sourceBytes": 1283114,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/c03f3e4ef57034717fe93ec4ddfa23c03c0d01d0b50a3e243fab7ab9537a5e66.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/c03f3e4ef57034717fe93ec4ddfa23c03c0d01d0b50a3e243fab7ab9537a5e66.webp"
+    },
+    {
+      "id": "6b2bd1a0f1d659f8f5d22e55a09cfd6437605c5b43d70e1ff001f89ba91ba0c3",
+      "path": "images/captures/6b2bd1a0f1d659f8f5d22e55a09cfd6437605c5b43d70e1ff001f89ba91ba0c3.webp",
+      "sha256": "6b2bd1a0f1d659f8f5d22e55a09cfd6437605c5b43d70e1ff001f89ba91ba0c3",
+      "bytes": 549976,
+      "width": 1280,
+      "height": 720,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1153,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "acb35fdb4c0c8f52ccaf21505dff1e66e26c075324458030eae8d664087e8ad3",
+      "sourceBytes": 1217176,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/6b2bd1a0f1d659f8f5d22e55a09cfd6437605c5b43d70e1ff001f89ba91ba0c3.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/6b2bd1a0f1d659f8f5d22e55a09cfd6437605c5b43d70e1ff001f89ba91ba0c3.webp"
+    },
+    {
+      "id": "cbe3d4195470a15de0f4f038d44d105a6633753ce227d210e4445964bfaa6d95",
+      "path": "images/captures/cbe3d4195470a15de0f4f038d44d105a6633753ce227d210e4445964bfaa6d95.webp",
+      "sha256": "cbe3d4195470a15de0f4f038d44d105a6633753ce227d210e4445964bfaa6d95",
+      "bytes": 488198,
+      "width": 1280,
+      "height": 720,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1154,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "b233dcb4c039a5d8cc7f10c774b10f6665bfb1205b413451c62bd954c80a8c27",
+      "sourceBytes": 1102948,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/cbe3d4195470a15de0f4f038d44d105a6633753ce227d210e4445964bfaa6d95.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/cbe3d4195470a15de0f4f038d44d105a6633753ce227d210e4445964bfaa6d95.webp"
+    },
+    {
+      "id": "e41569632806a9e090c2d2dc2db4dfb5a6868ef757236a1c111c0ef7a102a571",
+      "path": "images/captures/e41569632806a9e090c2d2dc2db4dfb5a6868ef757236a1c111c0ef7a102a571.webp",
+      "sha256": "e41569632806a9e090c2d2dc2db4dfb5a6868ef757236a1c111c0ef7a102a571",
+      "bytes": 565138,
+      "width": 1280,
+      "height": 720,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1167,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "78ca2171ebd8ee0609de159937585bcc15d05862438d2ca68356c37f41ad00b3",
+      "sourceBytes": 1245907,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/e41569632806a9e090c2d2dc2db4dfb5a6868ef757236a1c111c0ef7a102a571.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/e41569632806a9e090c2d2dc2db4dfb5a6868ef757236a1c111c0ef7a102a571.webp"
+    },
+    {
+      "id": "87067e86c0ad80c978bf8508d8b6731b1272c52e81e2de26c343c8788cb9a9fa",
+      "path": "images/captures/87067e86c0ad80c978bf8508d8b6731b1272c52e81e2de26c343c8788cb9a9fa.webp",
+      "sha256": "87067e86c0ad80c978bf8508d8b6731b1272c52e81e2de26c343c8788cb9a9fa",
+      "bytes": 416932,
+      "width": 1280,
+      "height": 720,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1168,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "9f7d7a30c2a674151b1fa3bc16d031a0b455248f80ab93143dea54d70012265d",
+      "sourceBytes": 912218,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/87067e86c0ad80c978bf8508d8b6731b1272c52e81e2de26c343c8788cb9a9fa.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/87067e86c0ad80c978bf8508d8b6731b1272c52e81e2de26c343c8788cb9a9fa.webp"
+    },
+    {
+      "id": "78e3a121b65118c1252f2e006ad3c47105f586270105c9291f22c2308e5f432a",
+      "path": "images/captures/78e3a121b65118c1252f2e006ad3c47105f586270105c9291f22c2308e5f432a.webp",
+      "sha256": "78e3a121b65118c1252f2e006ad3c47105f586270105c9291f22c2308e5f432a",
+      "bytes": 416898,
+      "width": 1280,
+      "height": 720,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1169,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "0612a41cc9b0ed2b842e07212ed63ea909fc534a0b7671f013709d4ec30f0550",
+      "sourceBytes": 912235,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/78e3a121b65118c1252f2e006ad3c47105f586270105c9291f22c2308e5f432a.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/78e3a121b65118c1252f2e006ad3c47105f586270105c9291f22c2308e5f432a.webp"
+    },
+    {
+      "id": "aecaabd02d7880c616e76bcbf36c56872aaed5859f5b0c266b8fa1465d59aae1",
+      "path": "images/captures/aecaabd02d7880c616e76bcbf36c56872aaed5859f5b0c266b8fa1465d59aae1.webp",
+      "sha256": "aecaabd02d7880c616e76bcbf36c56872aaed5859f5b0c266b8fa1465d59aae1",
+      "bytes": 535554,
+      "width": 1280,
+      "height": 720,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1175,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "0983c9323ce99df135b93bc6cdba99177f9f0f0c3e766e9fe51bc8f8f9d73761",
+      "sourceBytes": 1184876,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/aecaabd02d7880c616e76bcbf36c56872aaed5859f5b0c266b8fa1465d59aae1.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/aecaabd02d7880c616e76bcbf36c56872aaed5859f5b0c266b8fa1465d59aae1.webp"
+    },
+    {
+      "id": "86173fe5e6dc9412efa352e7c5adc1811dcdc1b2a69cbc97433c3067c68d9384",
+      "path": "images/captures/86173fe5e6dc9412efa352e7c5adc1811dcdc1b2a69cbc97433c3067c68d9384.webp",
+      "sha256": "86173fe5e6dc9412efa352e7c5adc1811dcdc1b2a69cbc97433c3067c68d9384",
+      "bytes": 1414018,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 924,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "2a2f76c3274179107eac97ee2d2896b815773359b38d976bddc4fc5ebe4dab4e",
+      "sourceBytes": 3046477,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/86173fe5e6dc9412efa352e7c5adc1811dcdc1b2a69cbc97433c3067c68d9384.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/86173fe5e6dc9412efa352e7c5adc1811dcdc1b2a69cbc97433c3067c68d9384.webp"
+    },
+    {
+      "id": "35e94cb923b1d0b1dbf3d10855e825f0825e0cec2d7ced5b2c8f95cc513e2f8d",
+      "path": "images/captures/35e94cb923b1d0b1dbf3d10855e825f0825e0cec2d7ced5b2c8f95cc513e2f8d.webp",
+      "sha256": "35e94cb923b1d0b1dbf3d10855e825f0825e0cec2d7ced5b2c8f95cc513e2f8d",
+      "bytes": 1410544,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 936,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "043c9534fbf277a963d235ead1a020b0eee941d0b53183be447f1f0964ad7a97",
+      "sourceBytes": 3045952,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/35e94cb923b1d0b1dbf3d10855e825f0825e0cec2d7ced5b2c8f95cc513e2f8d.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/35e94cb923b1d0b1dbf3d10855e825f0825e0cec2d7ced5b2c8f95cc513e2f8d.webp"
+    },
+    {
+      "id": "ed6f361767725895f5ebfded6ec5bb1113589e7b0d10cbccabc5651ab0f9314c",
+      "path": "images/captures/ed6f361767725895f5ebfded6ec5bb1113589e7b0d10cbccabc5651ab0f9314c.webp",
+      "sha256": "ed6f361767725895f5ebfded6ec5bb1113589e7b0d10cbccabc5651ab0f9314c",
+      "bytes": 1471730,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": "ussr_is_7",
+      "status": "needs-front-main-image",
+      "approximateTimeSeconds": 1070,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "e690c6cfbe628cef7c257ce5be7da64fa26f2662e7955c5c5f25e71c0137496d",
+      "sourceBytes": 3124308,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "mediaTime": 1070.033,
+      "view": "elevated-front-protection-analysis",
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/ed6f361767725895f5ebfded6ec5bb1113589e7b0d10cbccabc5651ab0f9314c.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/ed6f361767725895f5ebfded6ec5bb1113589e7b0d10cbccabc5651ab0f9314c.webp"
+    },
+    {
+      "id": "4209d8c6016962d057a1e5bba2c533fdba32e66f52a1824752d340dfbef760ee",
+      "path": "images/captures/4209d8c6016962d057a1e5bba2c533fdba32e66f52a1824752d340dfbef760ee.webp",
+      "sha256": "4209d8c6016962d057a1e5bba2c533fdba32e66f52a1824752d340dfbef760ee",
+      "bytes": 1402454,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1115,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "014936fa4fb43ef7383d84692637cdf60a49f3ba557ecdfc23534d4e767057ab",
+      "sourceBytes": 2952667,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/4209d8c6016962d057a1e5bba2c533fdba32e66f52a1824752d340dfbef760ee.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/4209d8c6016962d057a1e5bba2c533fdba32e66f52a1824752d340dfbef760ee.webp"
+    },
+    {
+      "id": "8aed6f4515b8e96fa83899b45e043b088ae403c73382964c926b930c2b0f197e",
+      "path": "images/captures/8aed6f4515b8e96fa83899b45e043b088ae403c73382964c926b930c2b0f197e.webp",
+      "sha256": "8aed6f4515b8e96fa83899b45e043b088ae403c73382964c926b930c2b0f197e",
+      "bytes": 1205224,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1145,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "dc44519051a6ead93e39e2e835538193081fdfd25f4a03a158bb7f37252adcb5",
+      "sourceBytes": 2687678,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/8aed6f4515b8e96fa83899b45e043b088ae403c73382964c926b930c2b0f197e.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/8aed6f4515b8e96fa83899b45e043b088ae403c73382964c926b930c2b0f197e.webp"
+    },
+    {
+      "id": "ac14681289d77e8ce3e99b3f5dfa3e4b55016fc157dbc66f87a6ea2d927051f9",
+      "path": "images/captures/ac14681289d77e8ce3e99b3f5dfa3e4b55016fc157dbc66f87a6ea2d927051f9.webp",
+      "sha256": "ac14681289d77e8ce3e99b3f5dfa3e4b55016fc157dbc66f87a6ea2d927051f9",
+      "bytes": 1037846,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1156,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "27334a864de429a71989f10aede82f3d0bac70fed18a5ab8ca2aacf376d9b126",
+      "sourceBytes": 2296299,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/ac14681289d77e8ce3e99b3f5dfa3e4b55016fc157dbc66f87a6ea2d927051f9.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/ac14681289d77e8ce3e99b3f5dfa3e4b55016fc157dbc66f87a6ea2d927051f9.webp"
+    },
+    {
+      "id": "1dbde6d3ee084c2ab594d1a48c2c627ee12e0649e26fa8c4f43b8795a2849e4a",
+      "path": "images/captures/1dbde6d3ee084c2ab594d1a48c2c627ee12e0649e26fa8c4f43b8795a2849e4a.webp",
+      "sha256": "1dbde6d3ee084c2ab594d1a48c2c627ee12e0649e26fa8c4f43b8795a2849e4a",
+      "bytes": 1417034,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1170,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "72ab8fdb5c4e723d85f04b127b76b18d3dcd265fa6ae71f72d5699824990f25f",
+      "sourceBytes": 2966657,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/1dbde6d3ee084c2ab594d1a48c2c627ee12e0649e26fa8c4f43b8795a2849e4a.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/1dbde6d3ee084c2ab594d1a48c2c627ee12e0649e26fa8c4f43b8795a2849e4a.webp"
+    },
+    {
+      "id": "65b3011ce9bc5b93f52775cfd04947f676054b4618e5372c119bec91d5c441a7",
+      "path": "images/captures/65b3011ce9bc5b93f52775cfd04947f676054b4618e5372c119bec91d5c441a7.webp",
+      "sha256": "65b3011ce9bc5b93f52775cfd04947f676054b4618e5372c119bec91d5c441a7",
+      "bytes": 1498102,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 300,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "d891ede46e122e7b00b3a0b3348fb8bed038b4ca1bf0768d405b6f87bffa2189",
+      "sourceBytes": 3111914,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/65b3011ce9bc5b93f52775cfd04947f676054b4618e5372c119bec91d5c441a7.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/65b3011ce9bc5b93f52775cfd04947f676054b4618e5372c119bec91d5c441a7.webp"
+    },
+    {
+      "id": "34b1bb4c60e0e060e68b577672b43ab1f81d78f8434ec3d012ca61a5ff4ab4d7",
+      "path": "images/captures/34b1bb4c60e0e060e68b577672b43ab1f81d78f8434ec3d012ca61a5ff4ab4d7.webp",
+      "sha256": "34b1bb4c60e0e060e68b577672b43ab1f81d78f8434ec3d012ca61a5ff4ab4d7",
+      "bytes": 1690826,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 900,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "66e4583cd2c2c7edc48a98469c5275527e4f634140bca7d8e5521b0041faa284",
+      "sourceBytes": 3368984,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/34b1bb4c60e0e060e68b577672b43ab1f81d78f8434ec3d012ca61a5ff4ab4d7.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/34b1bb4c60e0e060e68b577672b43ab1f81d78f8434ec3d012ca61a5ff4ab4d7.webp"
+    },
+    {
+      "id": "779c8fe00618e17fdadd878a19ed6ea401858f45f794b495ecb180ad397da64a",
+      "path": "images/captures/779c8fe00618e17fdadd878a19ed6ea401858f45f794b495ecb180ad397da64a.webp",
+      "sha256": "779c8fe00618e17fdadd878a19ed6ea401858f45f794b495ecb180ad397da64a",
+      "bytes": 1664244,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 950,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "2ebd3efb8605097ae9b567b03254bcfabbdb877ff2c88e9cc72eb42d9f28124c",
+      "sourceBytes": 3402988,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/779c8fe00618e17fdadd878a19ed6ea401858f45f794b495ecb180ad397da64a.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/779c8fe00618e17fdadd878a19ed6ea401858f45f794b495ecb180ad397da64a.webp"
+    },
+    {
+      "id": "355af7e4a85f1a6b73ddf97584528062b513a046d6bbe853423a138c58401634",
+      "path": "images/captures/355af7e4a85f1a6b73ddf97584528062b513a046d6bbe853423a138c58401634.webp",
+      "sha256": "355af7e4a85f1a6b73ddf97584528062b513a046d6bbe853423a138c58401634",
+      "bytes": 1674820,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 970,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "39a40a39fa1af4d4d163ea10dd88e3bb0a9ab6ca25a35dc7b0b0ccc1e2c7932f",
+      "sourceBytes": 3358181,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/355af7e4a85f1a6b73ddf97584528062b513a046d6bbe853423a138c58401634.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/355af7e4a85f1a6b73ddf97584528062b513a046d6bbe853423a138c58401634.webp"
+    },
+    {
+      "id": "f8621fcdf39a7be4d6043a91e43a3268f153f8ac593b9d2485fb411a44301072",
+      "path": "images/captures/f8621fcdf39a7be4d6043a91e43a3268f153f8ac593b9d2485fb411a44301072.webp",
+      "sha256": "f8621fcdf39a7be4d6043a91e43a3268f153f8ac593b9d2485fb411a44301072",
+      "bytes": 1805974,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 990,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "958b433bc10ece12d40c338455775e72826b7958991768d07d27e7d42bcb9f59",
+      "sourceBytes": 3640320,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/f8621fcdf39a7be4d6043a91e43a3268f153f8ac593b9d2485fb411a44301072.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/f8621fcdf39a7be4d6043a91e43a3268f153f8ac593b9d2485fb411a44301072.webp"
+    },
+    {
+      "id": "4370cdd200d676bf7f0381e55e7125afd304859b4f14722c094ef539774701b5",
+      "path": "images/captures/4370cdd200d676bf7f0381e55e7125afd304859b4f14722c094ef539774701b5.webp",
+      "sha256": "4370cdd200d676bf7f0381e55e7125afd304859b4f14722c094ef539774701b5",
+      "bytes": 1546836,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": "ussr_is_4m",
+      "status": "needs-exact-recommendation",
+      "approximateTimeSeconds": 1040,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "2f2af35170f8a73d43f7f6eab665a1b9a95234b1392cd1b1160c9e5dcd837fd3",
+      "sourceBytes": 3211441,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "mediaTime": 1040,
+      "view": "front-exterior-protection-analysis",
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/4370cdd200d676bf7f0381e55e7125afd304859b4f14722c094ef539774701b5.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/4370cdd200d676bf7f0381e55e7125afd304859b4f14722c094ef539774701b5.webp"
+    },
+    {
+      "id": "902778c6fe322812dd6f530a39741529f8836d43cba4b78ba2a3d54dd86c5254",
+      "path": "images/captures/902778c6fe322812dd6f530a39741529f8836d43cba4b78ba2a3d54dd86c5254.webp",
+      "sha256": "902778c6fe322812dd6f530a39741529f8836d43cba4b78ba2a3d54dd86c5254",
+      "bytes": 1691944,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1100,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "6feb56eb2095bbec5a5c1b18f6d40244373e15f849ffc90b63bb36b48f754b8e",
+      "sourceBytes": 3480251,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/902778c6fe322812dd6f530a39741529f8836d43cba4b78ba2a3d54dd86c5254.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/902778c6fe322812dd6f530a39741529f8836d43cba4b78ba2a3d54dd86c5254.webp"
+    },
+    {
+      "id": "f75ba978e36e735031e50426afd04f9ac452f9276939a48877ff082932522f36",
+      "path": "images/captures/f75ba978e36e735031e50426afd04f9ac452f9276939a48877ff082932522f36.webp",
+      "sha256": "f75ba978e36e735031e50426afd04f9ac452f9276939a48877ff082932522f36",
+      "bytes": 1659858,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1240,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "86cb3207afb791b0649a22024e3dfa53b87ac7ad95744350884b5095c0fa9a08",
+      "sourceBytes": 3411101,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/f75ba978e36e735031e50426afd04f9ac452f9276939a48877ff082932522f36.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/f75ba978e36e735031e50426afd04f9ac452f9276939a48877ff082932522f36.webp"
+    },
+    {
+      "id": "ff9ddc3fe89bec9cbe84693f317fed9070e3bf4cafff8066ba5923bab4355056",
+      "path": "images/captures/ff9ddc3fe89bec9cbe84693f317fed9070e3bf4cafff8066ba5923bab4355056.webp",
+      "sha256": "ff9ddc3fe89bec9cbe84693f317fed9070e3bf4cafff8066ba5923bab4355056",
+      "bytes": 952038,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": "ussr_is_6",
+      "status": "needs-exact-recommendation",
+      "approximateTimeSeconds": 1046,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "52a756b66c9663593c68ce3bd87af2ea3f6c4dce1075f92b0a90e1c381c90ca4",
+      "sourceBytes": 2124061,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "mediaTime": 1046,
+      "view": "front-three-quarter-exterior",
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/ff9ddc3fe89bec9cbe84693f317fed9070e3bf4cafff8066ba5923bab4355056.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/ff9ddc3fe89bec9cbe84693f317fed9070e3bf4cafff8066ba5923bab4355056.webp"
+    },
+    {
+      "id": "0b466236f64fd7a9e5278209fc2ce2bad84e3559489847389fbd57904bf3104c",
+      "path": "images/captures/0b466236f64fd7a9e5278209fc2ce2bad84e3559489847389fbd57904bf3104c.webp",
+      "sha256": "0b466236f64fd7a9e5278209fc2ce2bad84e3559489847389fbd57904bf3104c",
+      "bytes": 1258694,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1075,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "879dac73be5ef21f7199eddd09e220ee742a933f1c1dee4ef69c92aac5a6b208",
+      "sourceBytes": 2699433,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/0b466236f64fd7a9e5278209fc2ce2bad84e3559489847389fbd57904bf3104c.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/0b466236f64fd7a9e5278209fc2ce2bad84e3559489847389fbd57904bf3104c.webp"
+    },
+    {
+      "id": "87284eeb2bf68e4b7c592fbbda9daff7c1bb2f45dc7c52efe6656e362e208b2a",
+      "path": "images/captures/87284eeb2bf68e4b7c592fbbda9daff7c1bb2f45dc7c52efe6656e362e208b2a.webp",
+      "sha256": "87284eeb2bf68e4b7c592fbbda9daff7c1bb2f45dc7c52efe6656e362e208b2a",
+      "bytes": 1293392,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1105,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "8639942bb64721fb1e60e30b44b1e65e350c325437fa01134e8b10b7f36bbc64",
+      "sourceBytes": 2765131,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/87284eeb2bf68e4b7c592fbbda9daff7c1bb2f45dc7c52efe6656e362e208b2a.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/87284eeb2bf68e4b7c592fbbda9daff7c1bb2f45dc7c52efe6656e362e208b2a.webp"
+    },
+    {
+      "id": "995bc50e2e152facf93b91b2b0655f2f5b6b1956a70562cb990a03e81deef9ec",
+      "path": "images/captures/995bc50e2e152facf93b91b2b0655f2f5b6b1956a70562cb990a03e81deef9ec.webp",
+      "sha256": "995bc50e2e152facf93b91b2b0655f2f5b6b1956a70562cb990a03e81deef9ec",
+      "bytes": 1415056,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1111,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "1f3adad72ebdddbe659950a88dc8e09b9d7ae25ce7e17621d2e21dadc53c66b7",
+      "sourceBytes": 2941086,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/995bc50e2e152facf93b91b2b0655f2f5b6b1956a70562cb990a03e81deef9ec.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/995bc50e2e152facf93b91b2b0655f2f5b6b1956a70562cb990a03e81deef9ec.webp"
+    },
+    {
+      "id": "0d1f7096cb543ca57333c3523250fbeb7d5422586e0044d6c6cdeab57b5a5018",
+      "path": "images/captures/0d1f7096cb543ca57333c3523250fbeb7d5422586e0044d6c6cdeab57b5a5018.webp",
+      "sha256": "0d1f7096cb543ca57333c3523250fbeb7d5422586e0044d6c6cdeab57b5a5018",
+      "bytes": 1476928,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": "ussr_t_54_1947",
+      "status": "review-sample",
+      "mediaTime": 1111.033,
+      "proofSnapshotSHA256": "a7e00db321d8342f757290f4ee6c5e557e0fd552cfd175f6c3a5b4c774d1d058",
+      "sourceFrameSHA256": "9bac3df0f60bf74ee9818fbbb8eb1b521de6f8fad036c75c8abf8e1117786a3a",
+      "sourceBytes": 3049693,
+      "encoding": "lossless-webp",
+      "roles": [
+        "raw",
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/0d1f7096cb543ca57333c3523250fbeb7d5422586e0044d6c6cdeab57b5a5018.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/0d1f7096cb543ca57333c3523250fbeb7d5422586e0044d6c6cdeab57b5a5018.webp"
+    },
+    {
+      "id": "b31f5b171a2ed107dafbccf9be095226adc651ec7e8c506a0b6bfae4c301cd17",
+      "path": "images/captures/b31f5b171a2ed107dafbccf9be095226adc651ec7e8c506a0b6bfae4c301cd17.webp",
+      "sha256": "b31f5b171a2ed107dafbccf9be095226adc651ec7e8c506a0b6bfae4c301cd17",
+      "bytes": 1122934,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1151,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "4220afc429f91444e6b1915e251227052e761cfdb3cf5618d64e0119157dcf5a",
+      "sourceBytes": 2455820,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/b31f5b171a2ed107dafbccf9be095226adc651ec7e8c506a0b6bfae4c301cd17.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/b31f5b171a2ed107dafbccf9be095226adc651ec7e8c506a0b6bfae4c301cd17.webp"
+    },
+    {
+      "id": "84af8e83d3b7402829c5a0eed543b20675f6bf79185fc30476e3dc5ee34cb0ed",
+      "path": "images/captures/84af8e83d3b7402829c5a0eed543b20675f6bf79185fc30476e3dc5ee34cb0ed.webp",
+      "sha256": "84af8e83d3b7402829c5a0eed543b20675f6bf79185fc30476e3dc5ee34cb0ed",
+      "bytes": 1184666,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": "ussr_t_62m1",
+      "status": "review-sample",
+      "mediaTime": 1151,
+      "proofSnapshotSHA256": "1f8dcc0f200e7cab1de7206b9d76a60cf8c6d3bbbdb0bc9d090c843445e7a938",
+      "sourceFrameSHA256": "aad74445c9c20313bb4f7bddc1601132b39548e24b50269b57c4d465fb966493",
+      "sourceBytes": 2572220,
+      "encoding": "lossless-webp",
+      "roles": [
+        "raw",
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/84af8e83d3b7402829c5a0eed543b20675f6bf79185fc30476e3dc5ee34cb0ed.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/84af8e83d3b7402829c5a0eed543b20675f6bf79185fc30476e3dc5ee34cb0ed.webp"
+    },
+    {
+      "id": "df42e72be6b32bf8b866d6188a05376ab64b3e191345aea2ff8d2ce49748effe",
+      "path": "images/captures/df42e72be6b32bf8b866d6188a05376ab64b3e191345aea2ff8d2ce49748effe.webp",
+      "sha256": "df42e72be6b32bf8b866d6188a05376ab64b3e191345aea2ff8d2ce49748effe",
+      "bytes": 1487394,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1173,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "e004234281c8a309857fbd9cbfcdd58851295c506d54bde1071d86dd42b04097",
+      "sourceBytes": 3023161,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/df42e72be6b32bf8b866d6188a05376ab64b3e191345aea2ff8d2ce49748effe.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/df42e72be6b32bf8b866d6188a05376ab64b3e191345aea2ff8d2ce49748effe.webp"
+    },
+    {
+      "id": "a90b6f38b4f106ae6ba459c609919fa6525fbff8419f04d164c26dbe4ead61f5",
+      "path": "images/captures/a90b6f38b4f106ae6ba459c609919fa6525fbff8419f04d164c26dbe4ead61f5.webp",
+      "sha256": "a90b6f38b4f106ae6ba459c609919fa6525fbff8419f04d164c26dbe4ead61f5",
+      "bytes": 1338356,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1180,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "e5cd1a9454b2994bdd4a42d60451746ecb26711c99e5cd2e3ee07591c103df59",
+      "sourceBytes": 2828941,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/a90b6f38b4f106ae6ba459c609919fa6525fbff8419f04d164c26dbe4ead61f5.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/a90b6f38b4f106ae6ba459c609919fa6525fbff8419f04d164c26dbe4ead61f5.webp"
+    },
+    {
+      "id": "8f3963fc399309031556ecca8688645800cb4c6f9a8b65021d9b84a98982822b",
+      "path": "images/captures/8f3963fc399309031556ecca8688645800cb4c6f9a8b65021d9b84a98982822b.webp",
+      "sha256": "8f3963fc399309031556ecca8688645800cb4c6f9a8b65021d9b84a98982822b",
+      "bytes": 796346,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": "ussr_t_72a",
+      "status": "review-sample",
+      "mediaTime": 1169.033,
+      "proofSnapshotSHA256": "5d9a05b64e8e3474190b0926d314ef144c4300b6d4aeedb8bf883c6c73c4f934",
+      "sourceFrameSHA256": "c0e2fdcbfaa2d49e7a9088b969cb0ad552e0734cb967264458de01f42da0f5b4",
+      "sourceBytes": 1780672,
+      "encoding": "lossless-webp",
+      "roles": [
+        "raw",
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/8f3963fc399309031556ecca8688645800cb4c6f9a8b65021d9b84a98982822b.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/8f3963fc399309031556ecca8688645800cb4c6f9a8b65021d9b84a98982822b.webp"
+    },
+    {
+      "id": "cb45ce82225b9a5a0c4107e2c2d9472b5acd3af3ca8d0ce12c51f1b3439811ea",
+      "path": "images/captures/cb45ce82225b9a5a0c4107e2c2d9472b5acd3af3ca8d0ce12c51f1b3439811ea.webp",
+      "sha256": "cb45ce82225b9a5a0c4107e2c2d9472b5acd3af3ca8d0ce12c51f1b3439811ea",
+      "bytes": 1289878,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1171,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "2640c5d711fa475d90ec652f3d8a6e737ab9b09f74716cc20551b318efc354a5",
+      "sourceBytes": 2846592,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/cb45ce82225b9a5a0c4107e2c2d9472b5acd3af3ca8d0ce12c51f1b3439811ea.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/cb45ce82225b9a5a0c4107e2c2d9472b5acd3af3ca8d0ce12c51f1b3439811ea.webp"
+    },
+    {
+      "id": "9fa10e7b03c828a8ad1547b462df69a724609a0527b9d623d435fa020b4df9b2",
+      "path": "images/captures/9fa10e7b03c828a8ad1547b462df69a724609a0527b9d623d435fa020b4df9b2.webp",
+      "sha256": "9fa10e7b03c828a8ad1547b462df69a724609a0527b9d623d435fa020b4df9b2",
+      "bytes": 1255956,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "vehicleId": null,
+      "status": "candidate-unverified-identity",
+      "approximateTimeSeconds": 1172,
+      "timeBasis": "legacy-filename-estimate-not-frame-proof",
+      "sourceFrameSHA256": "d34c4dbc960965122384a8e5399bd5c19ac18debf9a9122c093e676e5ec06684",
+      "sourceBytes": 2734776,
+      "encoding": "lossless-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/9fa10e7b03c828a8ad1547b462df69a724609a0527b9d623d435fa020b4df9b2.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/9fa10e7b03c828a8ad1547b462df69a724609a0527b9d623d435fa020b4df9b2.webp"
+    },
+    {
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28"
+      },
+      "width": 1920,
+      "height": 1080,
+      "status": "hd-front-ready-needs-specific-weakpoint",
+      "vehicleId": "us_m1a1_hc_usmc",
+      "id": "1565197f4bea34166347088164ec93ef00e739d31fed98f76e50f8f539981c7c",
+      "path": "images/captures/1565197f4bea34166347088164ec93ef00e739d31fed98f76e50f8f539981c7c.webp",
+      "sha256": "1565197f4bea34166347088164ec93ef00e739d31fed98f76e50f8f539981c7c",
+      "bytes": 2236088,
+      "sourceFrameSHA256": "af59b19b6cd26332f9be4db57ffc040deba704019f3c454d5cab0c2ce9001b7c",
+      "sourceBytes": 4270065,
+      "encoding": "lossless-webp",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "mediaTime": 60,
+      "proofSnapshotSHA256": "7b4259cd3cd92222f8f111c31f9ba9582f865d8baab188a2ce822460e3f55e4c",
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/1565197f4bea34166347088164ec93ef00e739d31fed98f76e50f8f539981c7c.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/1565197f4bea34166347088164ec93ef00e739d31fed98f76e50f8f539981c7c.webp"
+    },
+    {
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28"
+      },
+      "width": 1920,
+      "height": 1080,
+      "status": "candidate-unverified-identity",
+      "vehicleId": null,
+      "id": "717fddde5acc19baa6894f320181423e89abaa768e785b7c19f0b5ef34f2be43",
+      "path": "images/captures/717fddde5acc19baa6894f320181423e89abaa768e785b7c19f0b5ef34f2be43.webp",
+      "sha256": "717fddde5acc19baa6894f320181423e89abaa768e785b7c19f0b5ef34f2be43",
+      "bytes": 2196896,
+      "sourceFrameSHA256": "388191d45c00f1ef19ea91c3c951f17b71de066fa99c3519a4e2cbf4241a80a6",
+      "sourceBytes": 4260952,
+      "encoding": "lossless-webp",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "mediaTime": 180.033,
+      "proofSnapshotSHA256": "a85274289972e3dd0eca71b2bc1790670b78027c7c66dc337d593155df07613d",
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/717fddde5acc19baa6894f320181423e89abaa768e785b7c19f0b5ef34f2be43.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/717fddde5acc19baa6894f320181423e89abaa768e785b7c19f0b5ef34f2be43.webp"
+    },
+    {
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "width": 1920,
+      "height": 1080,
+      "status": "ready-for-wiki-merge",
+      "vehicleId": "ussr_is_1",
+      "approximateTimeSeconds": 1000,
+      "timeBasis": "filename-estimate-unless-exact-proof-supplied",
+      "id": "3b4510a43c2b7adff4c5a082bfcb6e0b7892b87d671967ec419665278ab46765",
+      "path": "images/captures/3b4510a43c2b7adff4c5a082bfcb6e0b7892b87d671967ec419665278ab46765.webp",
+      "sha256": "3b4510a43c2b7adff4c5a082bfcb6e0b7892b87d671967ec419665278ab46765",
+      "bytes": 1584458,
+      "sourceFrameSHA256": "c37e03e02f30ff4e9a184a16917347caf693556093f901f26af9b704cd09aeb9",
+      "sourceBytes": 3224768,
+      "encoding": "lossless-webp",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "raw",
+        "source-frame"
+      ],
+      "mediaTime": 1000.017,
+      "view": "front-exterior-protection-analysis",
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/3b4510a43c2b7adff4c5a082bfcb6e0b7892b87d671967ec419665278ab46765.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/3b4510a43c2b7adff4c5a082bfcb6e0b7892b87d671967ec419665278ab46765.webp"
+    },
+    {
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "width": 1920,
+      "height": 1080,
+      "status": "candidate-unverified-identity",
+      "vehicleId": null,
+      "approximateTimeSeconds": 1010,
+      "timeBasis": "filename-estimate-unless-exact-proof-supplied",
+      "id": "d82134ae00048d6322882c35e9a6d8cff06c580b26d67e4c5c7d715329220643",
+      "path": "images/captures/d82134ae00048d6322882c35e9a6d8cff06c580b26d67e4c5c7d715329220643.webp",
+      "sha256": "d82134ae00048d6322882c35e9a6d8cff06c580b26d67e4c5c7d715329220643",
+      "bytes": 1553158,
+      "sourceFrameSHA256": "94f9c90662641b5fab19afaa7ce26d374bc6997225ca35eef4bae727cb4411e4",
+      "sourceBytes": 3197412,
+      "encoding": "lossless-webp",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/d82134ae00048d6322882c35e9a6d8cff06c580b26d67e4c5c7d715329220643.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/d82134ae00048d6322882c35e9a6d8cff06c580b26d67e4c5c7d715329220643.webp"
+    },
+    {
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "width": 1920,
+      "height": 1080,
+      "status": "candidate-unverified-identity",
+      "vehicleId": null,
+      "approximateTimeSeconds": 1015,
+      "timeBasis": "filename-estimate-unless-exact-proof-supplied",
+      "id": "dde9a1b43820c440964ed9ddb25d3f5385e12691eb74125e636df8ac0c3ca4b3",
+      "path": "images/captures/dde9a1b43820c440964ed9ddb25d3f5385e12691eb74125e636df8ac0c3ca4b3.webp",
+      "sha256": "dde9a1b43820c440964ed9ddb25d3f5385e12691eb74125e636df8ac0c3ca4b3",
+      "bytes": 1402616,
+      "sourceFrameSHA256": "ddf89e591653a807ea72bf7a84b109a0c482af80419ed177fc011cab4864e1cf",
+      "sourceBytes": 3025929,
+      "encoding": "lossless-webp",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/dde9a1b43820c440964ed9ddb25d3f5385e12691eb74125e636df8ac0c3ca4b3.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/dde9a1b43820c440964ed9ddb25d3f5385e12691eb74125e636df8ac0c3ca4b3.webp"
+    },
+    {
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "width": 1920,
+      "height": 1080,
+      "status": "ready-for-wiki-merge",
+      "vehicleId": "ussr_is_3",
+      "approximateTimeSeconds": 1020,
+      "timeBasis": "filename-estimate-unless-exact-proof-supplied",
+      "id": "26afec149579cd99346e6d4f98ce99cdb995e6e1d195e8f44b5d5d6ed7d62d69",
+      "path": "images/captures/26afec149579cd99346e6d4f98ce99cdb995e6e1d195e8f44b5d5d6ed7d62d69.webp",
+      "sha256": "26afec149579cd99346e6d4f98ce99cdb995e6e1d195e8f44b5d5d6ed7d62d69",
+      "bytes": 1523050,
+      "sourceFrameSHA256": "ba1e068c3ae7fa30c0de8aecdb5161d37ff9d95cbc9ee3f4a15131938d447e90",
+      "sourceBytes": 3155623,
+      "encoding": "lossless-webp",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "raw",
+        "source-frame"
+      ],
+      "mediaTime": 1020,
+      "view": "front-exterior",
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/26afec149579cd99346e6d4f98ce99cdb995e6e1d195e8f44b5d5d6ed7d62d69.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/26afec149579cd99346e6d4f98ce99cdb995e6e1d195e8f44b5d5d6ed7d62d69.webp"
+    },
+    {
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "width": 1920,
+      "height": 1080,
+      "status": "candidate-unverified-identity",
+      "vehicleId": null,
+      "approximateTimeSeconds": 1022,
+      "timeBasis": "filename-estimate-unless-exact-proof-supplied",
+      "id": "2503e4c5480e662f99d725ac01c853e0e2d1e022cdeef3e7d38954b2677c3be6",
+      "path": "images/captures/2503e4c5480e662f99d725ac01c853e0e2d1e022cdeef3e7d38954b2677c3be6.webp",
+      "sha256": "2503e4c5480e662f99d725ac01c853e0e2d1e022cdeef3e7d38954b2677c3be6",
+      "bytes": 1225194,
+      "sourceFrameSHA256": "71bb2fbfbf7356085aa2b8a9b57ac5597e1268ec560c04b5fd17bfc10bb367be",
+      "sourceBytes": 2742462,
+      "encoding": "lossless-webp",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/2503e4c5480e662f99d725ac01c853e0e2d1e022cdeef3e7d38954b2677c3be6.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/2503e4c5480e662f99d725ac01c853e0e2d1e022cdeef3e7d38954b2677c3be6.webp"
+    },
+    {
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "width": 1920,
+      "height": 1080,
+      "status": "candidate-unverified-identity",
+      "vehicleId": null,
+      "approximateTimeSeconds": 1026,
+      "timeBasis": "filename-estimate-unless-exact-proof-supplied",
+      "id": "2c48dc528e585abd91659dd679b075294cdbad0582d33121b47aadb1b706b636",
+      "path": "images/captures/2c48dc528e585abd91659dd679b075294cdbad0582d33121b47aadb1b706b636.webp",
+      "sha256": "2c48dc528e585abd91659dd679b075294cdbad0582d33121b47aadb1b706b636",
+      "bytes": 1268950,
+      "sourceFrameSHA256": "2b0c61d79400fbed891a536eb1143ceb569ec89a1b4473a8e40b4415351f1de9",
+      "sourceBytes": 2813955,
+      "encoding": "lossless-webp",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/2c48dc528e585abd91659dd679b075294cdbad0582d33121b47aadb1b706b636.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/2c48dc528e585abd91659dd679b075294cdbad0582d33121b47aadb1b706b636.webp"
+    },
+    {
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "width": 1920,
+      "height": 1080,
+      "status": "candidate-unverified-identity",
+      "vehicleId": null,
+      "approximateTimeSeconds": 400,
+      "timeBasis": "filename-estimate-unless-exact-proof-supplied",
+      "id": "bbd1141feee9931ffe1a875c6e5f094dc5e7751171cc32f56e0bb068d7ad93c1",
+      "path": "images/captures/bbd1141feee9931ffe1a875c6e5f094dc5e7751171cc32f56e0bb068d7ad93c1.webp",
+      "sha256": "bbd1141feee9931ffe1a875c6e5f094dc5e7751171cc32f56e0bb068d7ad93c1",
+      "bytes": 1485250,
+      "sourceFrameSHA256": "5551bade7cf57e8bb6a73428ffcedce70b87e5801959159d953af6481f1986fc",
+      "sourceBytes": 3150575,
+      "encoding": "lossless-webp",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/bbd1141feee9931ffe1a875c6e5f094dc5e7751171cc32f56e0bb068d7ad93c1.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/bbd1141feee9931ffe1a875c6e5f094dc5e7751171cc32f56e0bb068d7ad93c1.webp"
+    },
+    {
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "width": 1920,
+      "height": 1080,
+      "status": "candidate-unverified-identity",
+      "vehicleId": null,
+      "approximateTimeSeconds": 600,
+      "timeBasis": "filename-estimate-unless-exact-proof-supplied",
+      "id": "e36dd41abb22c6a0591ae2986a9f656ed235a2a008d4a3c472c614d7ff0436fd",
+      "path": "images/captures/e36dd41abb22c6a0591ae2986a9f656ed235a2a008d4a3c472c614d7ff0436fd.webp",
+      "sha256": "e36dd41abb22c6a0591ae2986a9f656ed235a2a008d4a3c472c614d7ff0436fd",
+      "bytes": 1390102,
+      "sourceFrameSHA256": "bf24477cc3b1a0435d7170fcb44af88d5bb874c439aff6e81c88de9828444181",
+      "sourceBytes": 2943307,
+      "encoding": "lossless-webp",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/e36dd41abb22c6a0591ae2986a9f656ed235a2a008d4a3c472c614d7ff0436fd.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/e36dd41abb22c6a0591ae2986a9f656ed235a2a008d4a3c472c614d7ff0436fd.webp"
+    },
+    {
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "width": 1920,
+      "height": 1080,
+      "status": "candidate-unverified-identity",
+      "vehicleId": null,
+      "approximateTimeSeconds": 800,
+      "timeBasis": "filename-estimate-unless-exact-proof-supplied",
+      "id": "2dfdde7f3122af5b063e693fb7adf6585c2aa92a8c20c8048ff27e974b453278",
+      "path": "images/captures/2dfdde7f3122af5b063e693fb7adf6585c2aa92a8c20c8048ff27e974b453278.webp",
+      "sha256": "2dfdde7f3122af5b063e693fb7adf6585c2aa92a8c20c8048ff27e974b453278",
+      "bytes": 1315518,
+      "sourceFrameSHA256": "709f03f604d9f18a1ddebea15081b86fb5350021c2d010d52f3e2d251abc8f0f",
+      "sourceBytes": 2788537,
+      "encoding": "lossless-webp",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/2dfdde7f3122af5b063e693fb7adf6585c2aa92a8c20c8048ff27e974b453278.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/2dfdde7f3122af5b063e693fb7adf6585c2aa92a8c20c8048ff27e974b453278.webp"
+    },
+    {
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "width": 1920,
+      "height": 1080,
+      "status": "candidate-unverified-identity",
+      "vehicleId": null,
+      "approximateTimeSeconds": 1250,
+      "timeBasis": "filename-estimate-unless-exact-proof-supplied",
+      "id": "d2c1153ccbaeb44df3e40959192b4ef4c42942f537b16e4140f26af048930c7a",
+      "path": "images/captures/d2c1153ccbaeb44df3e40959192b4ef4c42942f537b16e4140f26af048930c7a.webp",
+      "sha256": "d2c1153ccbaeb44df3e40959192b4ef4c42942f537b16e4140f26af048930c7a",
+      "bytes": 1564882,
+      "sourceFrameSHA256": "afa670dcfade93057363f69474bef0547c1f00bf0e7957a869fcbf592176796e",
+      "sourceBytes": 3282248,
+      "encoding": "lossless-webp",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/d2c1153ccbaeb44df3e40959192b4ef4c42942f537b16e4140f26af048930c7a.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/d2c1153ccbaeb44df3e40959192b4ef4c42942f537b16e4140f26af048930c7a.webp"
+    },
+    {
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "width": 1920,
+      "height": 1080,
+      "status": "candidate-unverified-identity",
+      "vehicleId": null,
+      "approximateTimeSeconds": 1350,
+      "timeBasis": "filename-estimate-unless-exact-proof-supplied",
+      "id": "2659ac8f04780c1d161dcaeff85117f613c0c1252b0b1f285b27307bcc0af4d1",
+      "path": "images/captures/2659ac8f04780c1d161dcaeff85117f613c0c1252b0b1f285b27307bcc0af4d1.webp",
+      "sha256": "2659ac8f04780c1d161dcaeff85117f613c0c1252b0b1f285b27307bcc0af4d1",
+      "bytes": 1311880,
+      "sourceFrameSHA256": "395caff85aa9ec1ed1126176a7c299aea509bda91e861e46c7983531f4cf2496",
+      "sourceBytes": 2775074,
+      "encoding": "lossless-webp",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/2659ac8f04780c1d161dcaeff85117f613c0c1252b0b1f285b27307bcc0af4d1.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/2659ac8f04780c1d161dcaeff85117f613c0c1252b0b1f285b27307bcc0af4d1.webp"
+    },
+    {
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "width": 1920,
+      "height": 1080,
+      "status": "candidate-unverified-identity",
+      "vehicleId": null,
+      "approximateTimeSeconds": 1450,
+      "timeBasis": "filename-estimate-unless-exact-proof-supplied",
+      "id": "296607b3a1e6234a37bccd17bead5b8b71fcc5717352afaf512d67f651647672",
+      "path": "images/captures/296607b3a1e6234a37bccd17bead5b8b71fcc5717352afaf512d67f651647672.webp",
+      "sha256": "296607b3a1e6234a37bccd17bead5b8b71fcc5717352afaf512d67f651647672",
+      "bytes": 1510052,
+      "sourceFrameSHA256": "11723cac981332aebe716244d7af8a328a9b9ce7fdbd92c4d04565dd11ef1486",
+      "sourceBytes": 3081477,
+      "encoding": "lossless-webp",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/296607b3a1e6234a37bccd17bead5b8b71fcc5717352afaf512d67f651647672.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/296607b3a1e6234a37bccd17bead5b8b71fcc5717352afaf512d67f651647672.webp"
+    },
+    {
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "width": 1920,
+      "height": 1080,
+      "status": "candidate-unverified-identity",
+      "vehicleId": null,
+      "approximateTimeSeconds": 1550,
+      "timeBasis": "filename-estimate-unless-exact-proof-supplied",
+      "id": "39cd5672a37d3a20e475099e0f906c5000a26d7d4b848ca3edd6b278ea3f0bff",
+      "path": "images/captures/39cd5672a37d3a20e475099e0f906c5000a26d7d4b848ca3edd6b278ea3f0bff.webp",
+      "sha256": "39cd5672a37d3a20e475099e0f906c5000a26d7d4b848ca3edd6b278ea3f0bff",
+      "bytes": 1596234,
+      "sourceFrameSHA256": "516aaef1ad33b666700867bdebc26a48baa704592f2de751954dba80158cac0d",
+      "sourceBytes": 3292859,
+      "encoding": "lossless-webp",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/39cd5672a37d3a20e475099e0f906c5000a26d7d4b848ca3edd6b278ea3f0bff.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/39cd5672a37d3a20e475099e0f906c5000a26d7d4b848ca3edd6b278ea3f0bff.webp"
+    },
+    {
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12"
+      },
+      "width": 1920,
+      "height": 1080,
+      "status": "candidate-unverified-identity",
+      "vehicleId": null,
+      "approximateTimeSeconds": 1650,
+      "timeBasis": "filename-estimate-unless-exact-proof-supplied",
+      "id": "0f47d766029ea997502986f3570f6c4aa4d51c02a5e3e8159907fa6e57168df1",
+      "path": "images/captures/0f47d766029ea997502986f3570f6c4aa4d51c02a5e3e8159907fa6e57168df1.webp",
+      "sha256": "0f47d766029ea997502986f3570f6c4aa4d51c02a5e3e8159907fa6e57168df1",
+      "bytes": 1668852,
+      "sourceFrameSHA256": "a557793ca1ee8257ebbe075362d558bc6adc6766671170d8f88c7a4832139dda",
+      "sourceBytes": 3359502,
+      "encoding": "lossless-webp",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/0f47d766029ea997502986f3570f6c4aa4d51c02a5e3e8159907fa6e57168df1.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/0f47d766029ea997502986f3570f6c4aa4d51c02a5e3e8159907fa6e57168df1.webp"
+    },
+    {
+      "id": "720bc74c405938db5780cac7d4fc8f30a639abe37c60a79d7c000ce2abe9c178",
+      "path": "images/display/720bc74c405938db5780cac7d4fc8f30a639abe37c60a79d7c000ce2abe9c178.webp",
+      "sha256": "720bc74c405938db5780cac7d4fc8f30a639abe37c60a79d7c000ce2abe9c178",
+      "bytes": 308384,
+      "kind": "front-view-crop-webp",
+      "encoding": "lossless-webp",
+      "roles": [
+        "photo"
+      ],
+      "vehicleId": "ussr_t_54_1947",
+      "status": "review-sample",
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/display/720bc74c405938db5780cac7d4fc8f30a639abe37c60a79d7c000ce2abe9c178.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/display/720bc74c405938db5780cac7d4fc8f30a639abe37c60a79d7c000ce2abe9c178.webp"
+    },
+    {
+      "id": "cc6cb00ef244bb002c2711e4a540a8862c452764c87a284b2829cf67e67dbf8a",
+      "path": "images/display/cc6cb00ef244bb002c2711e4a540a8862c452764c87a284b2829cf67e67dbf8a.webp",
+      "sha256": "cc6cb00ef244bb002c2711e4a540a8862c452764c87a284b2829cf67e67dbf8a",
+      "bytes": 281844,
+      "kind": "front-view-crop-webp",
+      "encoding": "lossless-webp",
+      "roles": [
+        "photo"
+      ],
+      "vehicleId": "ussr_t_62m1",
+      "status": "review-sample",
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/display/cc6cb00ef244bb002c2711e4a540a8862c452764c87a284b2829cf67e67dbf8a.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/display/cc6cb00ef244bb002c2711e4a540a8862c452764c87a284b2829cf67e67dbf8a.webp"
+    },
+    {
+      "id": "ab4b392a92abd4307f27c2cba44f909530dbfeafba4f266a0a86f52771bcc6e2",
+      "path": "images/display/ab4b392a92abd4307f27c2cba44f909530dbfeafba4f266a0a86f52771bcc6e2.webp",
+      "sha256": "ab4b392a92abd4307f27c2cba44f909530dbfeafba4f266a0a86f52771bcc6e2",
+      "bytes": 453400,
+      "kind": "front-view-crop-webp",
+      "encoding": "lossless-webp",
+      "roles": [
+        "photo"
+      ],
+      "vehicleId": "ussr_t_72a",
+      "status": "review-sample",
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/display/ab4b392a92abd4307f27c2cba44f909530dbfeafba4f266a0a86f52771bcc6e2.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/display/ab4b392a92abd4307f27c2cba44f909530dbfeafba4f266a0a86f52771bcc6e2.webp"
+    },
+    {
+      "id": "d6b387744a126913a99c8107e8c0707a377c321513922b856deadacb938b4fd0",
+      "path": "images/display/d6b387744a126913a99c8107e8c0707a377c321513922b856deadacb938b4fd0.webp",
+      "sha256": "d6b387744a126913a99c8107e8c0707a377c321513922b856deadacb938b4fd0",
+      "bytes": 244554,
+      "kind": "front-view-crop-webp",
+      "encoding": "lossless-webp",
+      "roles": [
+        "photo"
+      ],
+      "vehicleId": "ussr_is_1",
+      "status": "review-sample",
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/display/d6b387744a126913a99c8107e8c0707a377c321513922b856deadacb938b4fd0.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/display/d6b387744a126913a99c8107e8c0707a377c321513922b856deadacb938b4fd0.webp"
+    },
+    {
+      "id": "42cf58cf875ecab4902de3ebd8d57b775d622d5298b7e37ae6f788c91402291e",
+      "path": "images/display/42cf58cf875ecab4902de3ebd8d57b775d622d5298b7e37ae6f788c91402291e.webp",
+      "sha256": "42cf58cf875ecab4902de3ebd8d57b775d622d5298b7e37ae6f788c91402291e",
+      "bytes": 217848,
+      "kind": "front-view-crop-webp",
+      "encoding": "lossless-webp",
+      "roles": [
+        "photo"
+      ],
+      "vehicleId": "ussr_is_3",
+      "status": "review-sample",
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/display/42cf58cf875ecab4902de3ebd8d57b775d622d5298b7e37ae6f788c91402291e.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/display/42cf58cf875ecab4902de3ebd8d57b775d622d5298b7e37ae6f788c91402291e.webp"
+    },
+    {
+      "id": "8acebc65a05ea2e60691d5571281858b471a27c42f75844e9f3252cb450383a5",
+      "path": "images/captures/8acebc65a05ea2e60691d5571281858b471a27c42f75844e9f3252cb450383a5.webp",
+      "sha256": "8acebc65a05ea2e60691d5571281858b471a27c42f75844e9f3252cb450383a5",
+      "bytes": 2238062,
+      "sourceFrameSHA256": "141d2b23ad492531830e7687d6bd694e8d2db0cf87842d7cc9b84089776cf4c9",
+      "sourceBytes": 4294650,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "encoding": "lossless-webp",
+      "status": "candidate-unverified-identity",
+      "vehicleId": null,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28"
+      },
+      "mediaTime": 400.017,
+      "width": 1920,
+      "height": 1080,
+      "proofSnapshotSHA256": "db4f097867801335044fab49175103e6debf6220832e554b59cac4a43dc4f337",
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/8acebc65a05ea2e60691d5571281858b471a27c42f75844e9f3252cb450383a5.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/8acebc65a05ea2e60691d5571281858b471a27c42f75844e9f3252cb450383a5.webp"
+    },
+    {
+      "id": "0abab528eacce710f857213be6deaee8cffb6fd1e6f6297b440799b5ebc36779",
+      "path": "images/captures/0abab528eacce710f857213be6deaee8cffb6fd1e6f6297b440799b5ebc36779.webp",
+      "sha256": "0abab528eacce710f857213be6deaee8cffb6fd1e6f6297b440799b5ebc36779",
+      "bytes": 376048,
+      "sourceFrameSHA256": "eaaa8eee2b2e9454c2a2300b07173e56924f9050a6e44f0a69cf2f371b41b361",
+      "sourceBytes": 803299,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "encoding": "lossless-webp",
+      "status": "candidate-unverified-identity",
+      "vehicleId": null,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28"
+      },
+      "mediaTime": 150,
+      "width": 1920,
+      "height": 1080,
+      "proofSnapshotSHA256": "cf745c7cd2361bcb465bdaf7be1fe0e79160bfafb5acb51ae84fa01cb5fa3aae",
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/0abab528eacce710f857213be6deaee8cffb6fd1e6f6297b440799b5ebc36779.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/0abab528eacce710f857213be6deaee8cffb6fd1e6f6297b440799b5ebc36779.webp"
+    },
+    {
+      "id": "6f7ca3d3b48c902472459916c90dce3ae93b3b42b5eaaa6f309d60b67e285eb7",
+      "path": "images/captures/6f7ca3d3b48c902472459916c90dce3ae93b3b42b5eaaa6f309d60b67e285eb7.webp",
+      "sha256": "6f7ca3d3b48c902472459916c90dce3ae93b3b42b5eaaa6f309d60b67e285eb7",
+      "bytes": 1719084,
+      "sourceFrameSHA256": "8ea24b001881db92a9fe263cb12911ba2c0c32cfd00207150710aad45660e358",
+      "sourceBytes": 3441461,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "encoding": "lossless-webp",
+      "status": "candidate-unverified-identity",
+      "vehicleId": null,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28"
+      },
+      "mediaTime": 100.017,
+      "width": 1920,
+      "height": 1080,
+      "proofSnapshotSHA256": "41bf21706dd003dd65ee7ec94ba8d8936e0434129f0932f1f06b31e896cefc44",
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/6f7ca3d3b48c902472459916c90dce3ae93b3b42b5eaaa6f309d60b67e285eb7.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/6f7ca3d3b48c902472459916c90dce3ae93b3b42b5eaaa6f309d60b67e285eb7.webp"
+    },
+    {
+      "id": "a792a58f8ce8ef7628431c35411a784ba5d5f4cd89fb410042434b49667179d8",
+      "path": "images/captures/a792a58f8ce8ef7628431c35411a784ba5d5f4cd89fb410042434b49667179d8.webp",
+      "sha256": "a792a58f8ce8ef7628431c35411a784ba5d5f4cd89fb410042434b49667179d8",
+      "bytes": 2067696,
+      "sourceFrameSHA256": "2639313786024b6e2318f91da10a15ea88a7b77c3feb99902708a2f4bb668d6e",
+      "sourceBytes": 4054000,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "encoding": "lossless-webp",
+      "status": "candidate-unverified-identity",
+      "vehicleId": null,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28"
+      },
+      "mediaTime": 165.017,
+      "width": 1920,
+      "height": 1080,
+      "proofSnapshotSHA256": "88ad4e4716728d420e11b81d46d653fbf6a6357ca0bb237099a6dc403b3e97f1",
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/a792a58f8ce8ef7628431c35411a784ba5d5f4cd89fb410042434b49667179d8.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/a792a58f8ce8ef7628431c35411a784ba5d5f4cd89fb410042434b49667179d8.webp"
+    },
+    {
+      "id": "5adb92029d907b317e8155639e310b0d228d7e40345800c90f107c81d05df34f",
+      "path": "images/captures/5adb92029d907b317e8155639e310b0d228d7e40345800c90f107c81d05df34f.webp",
+      "sha256": "5adb92029d907b317e8155639e310b0d228d7e40345800c90f107c81d05df34f",
+      "bytes": 1915100,
+      "sourceFrameSHA256": "4c5b6354dd57a072243c22a163db691ffb1a25555c835ff56a0c1ed1ebe9b75e",
+      "sourceBytes": 3763731,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "encoding": "lossless-webp",
+      "status": "candidate-unverified-identity",
+      "vehicleId": null,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28"
+      },
+      "mediaTime": 175,
+      "width": 1920,
+      "height": 1080,
+      "proofSnapshotSHA256": "d62acddcd393faf649778e949c2b6bb9b55eaaf2c15e491f7e9c4403d3da0191",
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/5adb92029d907b317e8155639e310b0d228d7e40345800c90f107c81d05df34f.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/5adb92029d907b317e8155639e310b0d228d7e40345800c90f107c81d05df34f.webp"
+    },
+    {
+      "id": "df9e57f27c3256a50a2c27760ce69fed793e7d6d039c4adcc1eb45abaa16735c",
+      "path": "images/captures/df9e57f27c3256a50a2c27760ce69fed793e7d6d039c4adcc1eb45abaa16735c.webp",
+      "sha256": "df9e57f27c3256a50a2c27760ce69fed793e7d6d039c4adcc1eb45abaa16735c",
+      "bytes": 1970562,
+      "sourceFrameSHA256": "475f70db4c3d2f7069d88223424eb41dd81386d90d388b1519b75f168a9f51f9",
+      "sourceBytes": 3903266,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "encoding": "lossless-webp",
+      "status": "candidate-unverified-identity",
+      "vehicleId": null,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "title": "购入次顶礼包车不会打弱点的看过来！！！",
+        "author": "GPU馄饨",
+        "publishedAt": "2026-02-28"
+      },
+      "mediaTime": 80,
+      "width": 1920,
+      "height": 1080,
+      "proofSnapshotSHA256": "f033f6cc3457d29bf900725af1428db5f0689fe13a9088ce95f5cad4580ce63b",
+      "commit": "a3122bfea8023fa56f01b3fca6751e9054566216",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/df9e57f27c3256a50a2c27760ce69fed793e7d6d039c4adcc1eb45abaa16735c.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a3122bfea8023fa56f01b3fca6751e9054566216/images/captures/df9e57f27c3256a50a2c27760ce69fed793e7d6d039c4adcc1eb45abaa16735c.webp"
+    }
+  ]
+}
