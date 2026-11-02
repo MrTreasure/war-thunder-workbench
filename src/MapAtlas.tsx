@@ -12,10 +12,11 @@ import { mapView } from "./map-editor-model";
 import { CONTOUR_IMAGE_TRANSFORM, referenceGrid } from "./ground-map-projection";
 import { displayMapMarks } from "./ground-map-marks";
 import { Link, Navigate, useNavigate } from "@tanstack/react-router";
-import { mapGuides, routeIdentity } from "./map-data-api";
+import { routeIdentity } from "./map-data-api";
 import type { GroundAtlas, GroundMap, MapSnapshot, MapRoute } from "./map-data-api";
 import { useMapCatalog, useMapRouteCoverage, useMapRoute } from "./map-data-store";
-import { routesForContext, selectedMapRoute } from "./map-route-selection";
+import { availableRouteLayouts, routesForContext, selectedMapRoute } from "./map-route-selection";
+import { relatedMapGuides, mapGuideSourceLabel } from "./map-related-guides";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { Route } from "./routes/_workbench.maps";
 import { Route as DetailRoute } from "./routes/_workbench.maps_.$mapId";
@@ -153,7 +154,11 @@ function MapAtlasContent({ snapshot }: { snapshot: MapSnapshot }) {
   );
   const cards = atlas.maps
     .flatMap((map) =>
-      map.thumbnails.map((thumb) => ({ map, thumb, guides: mapGuides(atlas, map.id) })),
+      map.thumbnails.map((thumb) => ({
+        map,
+        thumb,
+        guides: relatedMapGuides(atlas, map.id, coverage.routes),
+      })),
     )
     .filter(
       ({ map, thumb, guides }) =>
@@ -364,7 +369,6 @@ function GroundDetail({
   const layout = map.layouts.find((l) => l.id === layoutId) || map.layouts[0];
   const marks = displayMapMarks(layout.marks);
   const routeContext = routeIdentity(atlas, map.id, layout.id);
-  const baseGuides = mapGuides(atlas, map.id);
   const [contours, setContours] = useState(true),
     [points, setPoints] = useState(true),
     [grid, setGrid] = useState(false),
@@ -375,6 +379,8 @@ function GroundDetail({
   const [routeRetry, setRouteRetry] = useState(0);
   const routeContextKey = `${releaseId}:${routeContext.mapId}:${routeContext.layoutId}:${team}`;
   const coverage = useMapRouteCoverage(releaseId, isSuperAdmin);
+  const guideLayouts = availableRouteLayouts(atlas, map, coverage.routes, team);
+  const guides = relatedMapGuides(atlas, map.id, coverage.routes);
   const routeOptions = routesForContext(
     coverage.routes,
     routeContext.mapId,
@@ -392,17 +398,6 @@ function GroundDetail({
     routeRetry,
   );
   const route = routeData.route;
-  const guides =
-    route && !baseGuides.some((g) => g.source === route.sourceUrl)
-      ? [
-          ...baseGuides,
-          {
-            title: route.title,
-            source: route.sourceUrl,
-            edition: route.sourceDate.slice(0, 4) || "来源待核对",
-          },
-        ]
-      : baseGuides;
   const routeKey = `${route?.url || "none"}:${routeRetry}`;
   const routeStatus =
     coverage.status === "loading" || coverage.status === "error"
@@ -522,6 +517,20 @@ function GroundDetail({
         </GameSelect>
       </label>
       <div className="ground-layer-toggles">
+        {isSuperAdmin &&
+          coverage.status === "loaded" &&
+          routeOptions.length === 0 &&
+          guideLayouts.length > 0 && (
+            <button
+              onClick={() => {
+                editorRef.current?.finish();
+                reset();
+                choose(guideLayouts[0].id);
+              }}
+            >
+              当前布局暂无走线，查看已收录布局：{guideLayouts[0].name}
+            </button>
+          )}
         {isSuperAdmin && routeOptions.length > 0 && (
           <label>
             <span>攻略方案</span>
@@ -929,7 +938,9 @@ function GroundDetail({
                 {guides.map((g) => (
                   <a key={g.source} href={g.source} target="_blank" rel="noopener noreferrer">
                     <span>{g.title}</span>
-                    <small>{g.edition} · 原帖 ↗</small>
+                    <small>
+                      {g.edition} · {mapGuideSourceLabel(g.source)} · 原帖 ↗
+                    </small>
                   </a>
                 ))}
               </div>

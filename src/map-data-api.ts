@@ -4,9 +4,14 @@ import { bytesToHex } from "@noble/hashes/utils.js";
 import settings from "./config/player-stats.json";
 import { statsHeaders } from "./player-stats-api";
 import { validMapRoute } from "./map-route-validation";
+import { isMapGuideSourceURL } from "./map-route-sources";
+import { relatedMapGuides } from "./map-related-guides";
 
-export type GroundAtlas = typeof bundledAtlas;
-export type GroundMap = GroundAtlas["maps"][number];
+export type MapGuideSource = { title: string; source: string; edition: string };
+export type GroundMap = (typeof bundledAtlas)["maps"][number] & {
+  guideSources?: MapGuideSource[];
+};
+export type GroundAtlas = Omit<typeof bundledAtlas, "maps"> & { maps: GroundMap[] };
 export type MapSnapshot = { releaseId: string; atlas: GroundAtlas };
 export type MapRoute = {
   id: string;
@@ -152,6 +157,18 @@ export function validateMapSnapshot(v: unknown): v is MapSnapshot {
     )
       return false;
     if (
+      m.guideSources !== undefined &&
+      (!Array.isArray(m.guideSources) ||
+        !m.guideSources.every(
+          (g) =>
+            record(g) &&
+            typeof g.title === "string" &&
+            typeof g.edition === "string" &&
+            isMapGuideSourceURL(g.source),
+        ))
+    )
+      return false;
+    if (
       !m.guides.every(
         (g) =>
           record(g) &&
@@ -171,13 +188,7 @@ export function validateMapSnapshot(v: unknown): v is MapSnapshot {
   );
 }
 export function mapGuides(atlas: GroundAtlas, mapId: string) {
-  const family = atlas.seasonalVariants.find((v) => v.mapId === mapId)?.sourceMapId || mapId;
-  const guides = atlas.maps
-    .filter(
-      (m) => (atlas.seasonalVariants.find((v) => v.mapId === m.id)?.sourceMapId || m.id) === family,
-    )
-    .flatMap((m) => m.guides);
-  return [...new Map(guides.map((g) => [g.source, g])).values()];
+  return relatedMapGuides(atlas, mapId);
 }
 export function routeIdentity(atlas: GroundAtlas, mapId: string, layoutId: string) {
   const v = atlas.seasonalVariants.find((v) => v.mapId === mapId);

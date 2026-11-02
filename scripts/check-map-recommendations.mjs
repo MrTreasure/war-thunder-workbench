@@ -5,7 +5,12 @@ import { DOMParser } from "linkedom";
 import { sharedMapGuides, sharedMapIdentity, sharedMapRoute } from "../src/ground-map-sharing.ts";
 import { displayMapMarks } from "../src/ground-map-marks.ts";
 import { MapRouteCache } from "../src/map-route-cache.ts";
-import { routesForContext, selectedMapRoute } from "../src/map-route-selection.ts";
+import {
+  availableRouteLayouts,
+  routesForContext,
+  selectedMapRoute,
+} from "../src/map-route-selection.ts";
+import { relatedMapGuides } from "../src/map-related-guides.ts";
 import { isMapGuideSourceURL } from "../src/map-route-sources.ts";
 import { validMapRoute } from "../src/map-route-validation.ts";
 for (const source of [
@@ -31,6 +36,47 @@ const root = new URL("../", import.meta.url);
 const read = async (path) => JSON.parse(await readFile(new URL(path, root), "utf8"));
 const { routes } = await read("data/map-recommendations.json");
 const { maps, seasonalVariants } = await read("data/ground-maps.json");
+const atlas = { maps, seasonalVariants };
+const alaska = maps.find((map) => map.id === "avg_alaska_town");
+const alaskaSource = "https://www.bilibili.com/video/BV1mU3g6zEh8/";
+const alaskaRoutes = [1, 2].map((team) => ({
+  id: `alaska-${team}`,
+  mapId: alaska.id,
+  layoutId: "alaska_town_dom",
+  team,
+  title: "阿拉斯加城市攻略",
+  sourceUrl: alaskaSource,
+  sourceDate: "2025-12-01",
+}));
+assert.equal(
+  relatedMapGuides(atlas, alaska.id, alaskaRoutes).length,
+  1,
+  "Related Bilibili sources must not depend on a downloaded SVG or selected side",
+);
+const publicAtlas = {
+  ...atlas,
+  maps: maps.map((map) =>
+    map === alaska
+      ? {
+          ...map,
+          guideSources: [{ title: "阿拉斯加城市攻略", source: alaskaSource, edition: "2025" }],
+        }
+      : map,
+  ),
+};
+assert.equal(
+  relatedMapGuides(publicAtlas, alaska.id)[0].source,
+  alaskaSource,
+  "Public source metadata must work without requesting protected route files",
+);
+assert.equal(relatedMapGuides(publicAtlas, alaska.id, alaskaRoutes).length, 1);
+const maginot = maps.find((map) => map.id === "avg_sector_montmedy");
+assert.deepEqual(
+  availableRouteLayouts(atlas, maginot, routes, 1).map((layout) => layout.id),
+  ["sector_montmedy_02_dom"],
+  "Offer the actual Maginot layout without overlaying it on the default layout",
+);
+assert.equal(routesForContext(routes, maginot.id, "sector_montmedy_dom", 1).length, 0);
 const variantIds = new Set();
 let sharedLayouts = 0;
 for (const variant of seasonalVariants) {
