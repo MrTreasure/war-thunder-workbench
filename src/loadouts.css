@@ -502,3 +502,57 @@ nav.wt-mount-tabs { overflow-x: auto; }
 .wt-mount-saved article > .vehicle-card { margin-block: 4px 18px; }
 .wt-mount-saved article > div:last-child { display: flex; flex-wrap: wrap; gap: 6px; }
 .wt-mount-saved h4 { overflow-wrap: anywhere; }
+
+/* Compact hardpoint rail and three explicit source-side rows. */
+.wt-mount-point-strip { display: grid; grid-template-columns: repeat(var(--wt-point-count),minmax(0,1fr)); gap: 8px; align-items: stretch; padding: 18px 0; }
+.wt-mount-point { display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-width: 0; gap: 6px; padding: 8px 3px; background: var(--wt-panel); border: 1px solid var(--wt-line); border-top: 3px solid var(--wt-line); }
+.wt-mount-point[data-selected="true"] { border-color: var(--wt-gold); }
+.wt-mount-point[data-conflict="true"] { border-color: var(--wt-service-red); }
+.wt-mount-point[data-unavailable="true"] { background: transparent; border-style: dashed; }
+.wt-mount-page .wt-mount-point .wt-mount-point-select,
+.wt-mount-page .wt-mount-point .wt-mount-point-empty { width: 100%; min-width: 0; padding: 4px 0; border: 0; background: transparent; font-size: 12px; white-space: nowrap; }
+.wt-mount-page .wt-mount-point .wt-mount-point-icon { flex: none; width: 100%; height: 44px; min-height: 44px; margin: 0; padding: 3px; border: 0; background: transparent; }
+.wt-mount-page .wt-mount-point .wt-mount-point-empty { height: 44px; min-height: 44px; font-size: 24px; color: var(--wt-muted); }
+.wt-mount-point-icon img { display: block; margin: auto; max-width: 100%; object-fit: contain; }
+.wt-mount-point small { font-size: 11px; line-height: 1.5; color: var(--wt-muted); white-space: nowrap; }
+.wt-mount-point-strip .wt-game-tip-trigger:focus-visible { outline-offset: -2px; }
+.wt-mount-regions { display: grid; gap: 0; border-top: 1px solid var(--wt-line); }
+.wt-mount-region { display: grid; grid-template-columns: 56px minmax(0,1fr); align-items: baseline; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--wt-line); }
+.wt-mount-region h4 { margin: 0; font-size: 13px; color: var(--wt-muted); font-weight: 400; }
+.wt-mount-region ul { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; margin: 0; padding: 0; list-style: none; }
+.wt-mount-region li { min-width: 0; }
+.wt-mount-page .wt-mount-region button { display: inline-flex; gap: 8px; align-items: baseline; border: 0; padding: 4px 0; background: transparent; text-align: left; }
+.wt-mount-region button > span { color: var(--wt-muted); white-space: nowrap; font-size: 12px; }
+.wt-mount-region strong { white-space: normal; overflow-wrap: anywhere; font-size: 12px; font-weight: 400; }
+.wt-mount-weapon-row { display: flex; align-items: center; gap: 12px; }
+.wt-mount-weapon-row .wt-mount-weapon-select { display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1 1 220px; text-align: left; background: var(--wt-raised); padding: 10px; }
+.wt-mount-weapon-select > img { flex: none; }
+.wt-mount-weapon-title { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.wt-mount-weapon-title strong { font-size: 13px; overflow-wrap: anywhere; }
+.wt-mount-weapon-brief { flex: 1 1 300px; display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0; font-size: 12px; }
+.wt-mount-weapon-brief > div { display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: baseline; }
+.wt-mount-weapon-brief dt { color: var(--wt-muted); }
+.wt-mount-weapon-brief dd { margin: 0; color: var(--wt-ink); white-space: nowrap; }
+.wt-mount-weapon-row .wt-mount-compare-choice { display: flex; flex-direction: row; align-items: center; gap: 6px; flex-shrink: 0; min-height: 44px; font-size: 12px; cursor: pointer; }
+.wt-mount-compare-choice input { width: 18px; height: 18px; accent-color: var(--wt-gold); }
+.wt-mount-weapon-more { margin-top: 10px; font-size: 12px; }
+.wt-mount-weapon-more summary { padding: 6px; cursor: pointer; color: var(--wt-muted); }
+.wt-mount-weapon-more > a { display: inline-block; margin: 10px 6px; }
+.wt-mount-weapon-more:not([open]) > :not(summary) { display: none; }
+.calculator.wt-mount-picker { width: min(1040px,calc(100vw - 24px)); }
+.wt-mount-picker-tools { align-items: center; flex-wrap: wrap; }
+.wt-mount-picker:has(.wt-mount-compare-dock) .wt-mount-weapon-list { padding-bottom: 80px; }
+.wt-mount-page button.wt-mount-compare-dock { position: fixed; right: max(20px,env(safe-area-inset-right,0px)); z-index: 80; display: inline-flex; align-items: center; gap: 12px; padding: 12px 18px; min-height: 48px; border: 1px solid var(--wt-gold); background: var(--wt-page); color: var(--wt-gold); box-shadow: var(--wt-shadow); font-size: 14px; }
+.calculator.wt-mount-compare { inset: 0; margin: auto; width: min(1460px,calc(100vw - 24px)); height: fit-content; max-height: calc(100dvh - 28px); padding: 0; display: flex; flex-direction: column; background: var(--wt-surface); }
+.calculator.wt-mount-compare:not([open]) { display: none; }
+.wt-mount-compare-tools { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px; font-size: 12px; color: var(--wt-muted); }
+.wt-mount-compare-scroll { min-height: 0; overflow: auto; overscroll-behavior: contain; margin: 0 16px 16px; }
+.wt-mount-compare table { width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 0; font-size: 13px; }
+.wt-mount-compare th, .wt-mount-compare td { padding: 12px; text-align: left; border-bottom: 1px solid var(--wt-line); border-right: 1px solid var(--wt-line); background: var(--wt-surface); overflow-wrap: anywhere; }
+.wt-mount-compare thead th { position: sticky; top: 0; z-index: 2; vertical-align: top; background: var(--wt-panel); }
+.wt-mount-compare tr > :first-child { position: sticky; left: 0; width: 140px; z-index: 1; color: var(--wt-muted); }
+.wt-mount-compare thead tr > :first-child { z-index: 3; }
+.wt-mount-compare thead strong { display: block; margin-block: 6px 10px; font-weight: 500; }
+.wt-mount-compare thead img { object-fit: contain; }
+.wt-game-tip-body .wt-mount-weapon-parameters { display: block; margin: 10px 0; }
+.wt-game-tip-body .wt-mount-source-name { margin-inline: 0; }

@@ -23,12 +23,22 @@ import { TagSelector, freeTagTones, type TagChoice } from "./components/TagSelec
 import { gameTagOptions } from "./game-tag-options";
 import { GameTag } from "./components/GameTag";
 import { LoadoutHall } from "./LoadoutHall";
+import { LoadoutStationBoard } from "./LoadoutStationBoard";
+import { LoadoutWeaponBrief, LoadoutWeaponDetails } from "./LoadoutWeaponDetails";
+import { LoadoutCompareDock, LoadoutWeaponComparison } from "./LoadoutWeaponComparison";
+import {
+  comparedMissile,
+  isComparableMissile,
+  selectComparedMissile,
+  missileComparisonLimit,
+  type ComparedMissile,
+} from "./loadout-weapon-details";
 import {
   checkLoadout,
   hasConfigurableLoadout,
-  stationLoadoutOptions,
   loadoutRevision,
   optionKey,
+  weaponKey,
   presetKey,
   validLoadoutPlan,
   type LoadoutPlan,
@@ -165,6 +175,8 @@ function LoadoutPage({ owner }: { owner: string }) {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [picker, setPicker] = useState(false);
+  const [compared, setCompared] = useState<ComparedMissile[]>([]);
+  const [comparisonOpen, setComparisonOpen] = useState(false);
   const [importing, setImporting] = useState(false);
   const [share, setShare] = useState("");
   const [sharePlan, setSharePlan] = useState<LoadoutPlan | null>(null);
@@ -720,81 +732,17 @@ function LoadoutPage({ owner }: { owner: string }) {
                         <h3>自定义挂载</h3>
                         <span>挂点示意 · 按来源编号与翼侧排列</span>
                       </div>
-                      <div className="wt-mount-stations">
-                        {data.hardpoints.map((point) => {
-                          const mount = plan.mounts.find((m) => m.station === point.id);
-                          const chosen = data.compatibility.find(
-                            (o) =>
-                              mount &&
-                              optionKey(o) === mount.option &&
-                              o.stations.some((s) => s.hardpointId === point.id),
-                          );
-                          const conflict = check?.issues.some((i) => i.stations.includes(point.id));
-                          const available = stationLoadoutOptions(data, point.id).length > 0;
-                          return (
-                            <button
-                              key={point.id}
-                              className="wt-mount-station"
-                              data-side={point.side}
-                              data-conflict={conflict || undefined}
-                              disabled={!available}
-                              aria-label={`挂点 ${point.label}，${available ? "选择挂载" : "不可挂载，当前资料无可用选项"}`}
-                              aria-pressed={point.id === station}
-                              onClick={() => {
-                                setStation(point.id);
-                                setWeaponQuery("");
-                                setPicker(true);
-                              }}
-                              onContextMenu={(e) => {
-                                e.preventDefault();
-                                if (!available) return;
-                                setStation(point.id);
-                                setPicker(true);
-                              }}
-                            >
-                              <span className="wt-mount-station-number">
-                                挂点 {point.label}
-                                <small>
-                                  {point.side === "left"
-                                    ? "左翼"
-                                    : point.side === "right"
-                                      ? "右翼"
-                                      : point.side === "center"
-                                        ? "机身"
-                                        : "位置待核对"}
-                                </small>
-                              </span>
-                              {chosen?.imageUrl && (
-                                <img
-                                  src={chosen.imageUrl}
-                                  alt=""
-                                  width={64}
-                                  height={44}
-                                  loading="lazy"
-                                />
-                              )}
-                              <strong>
-                                {chosen
-                                  ? loadoutWeaponName(chosen.name)
-                                  : !available
-                                    ? "不可挂载"
-                                    : mount
-                                      ? "原挂载已失效"
-                                      : "＋ 选择挂载"}
-                              </strong>
-                              <small>
-                                {chosen
-                                  ? kg(chosen.weightKg)
-                                  : !available
-                                    ? "当前资料无可用选项"
-                                    : mount
-                                      ? "请重新选择"
-                                      : "空挂点"}
-                              </small>
-                            </button>
-                          );
-                        })}
-                      </div>
+                      <LoadoutStationBoard
+                        data={data}
+                        mounts={plan.mounts}
+                        selected={station}
+                        conflicts={new Set(check?.issues.flatMap((issue) => issue.stations) || [])}
+                        onChoose={(id) => {
+                          setStation(id);
+                          setWeaponQuery("");
+                          setPicker(true);
+                        }}
+                      />
                     </>
                   ) : (
                     <LoadoutPresets
@@ -1319,6 +1267,7 @@ function LoadoutPage({ owner }: { owner: string }) {
               value={weaponQuery}
               onChange={(e) => setWeaponQuery(e.target.value)}
             />
+            <span className="wt-mount-note">最多对比6个导弹型号</span>
             <button onClick={() => applyOption(null)}>卸下挂载</button>
           </div>
           <div className="wt-mount-weapon-list">
@@ -1329,38 +1278,68 @@ function LoadoutPage({ owner }: { owner: string }) {
               ];
               const issues = checkLoadout(data, next).issues;
               const blocked = issues.some((issue) => issue.code !== "wing-max-difference");
+              const comparisonSelected = compared.some(
+                (item) => item.key === weaponKey(option.name),
+              );
               return (
                 <article key={option.optionId} data-conflict={!!issues.length || undefined}>
-                  <button disabled={blocked} onClick={() => applyOption(option)}>
-                    {option.imageUrl && (
-                      <img src={option.imageUrl} alt="" width={48} height={36} loading="lazy" />
+                  <div className="wt-mount-weapon-row">
+                    <button
+                      className="wt-mount-weapon-select"
+                      disabled={blocked}
+                      onClick={() => applyOption(option)}
+                    >
+                      {option.imageUrl && (
+                        <img src={option.imageUrl} alt="" width={48} height={36} loading="lazy" />
+                      )}
+                      <span className="wt-mount-weapon-title">
+                        <strong>{loadoutWeaponName(option.name)}</strong>
+                        <small>{kg(option.weightKg)}</small>
+                      </span>
+                    </button>
+                    {(isComparableMissile(option) ||
+                      option.parameters.some((p) => p.id === "guidance")) && (
+                      <LoadoutWeaponBrief option={option} />
                     )}
-                    <span>
-                      <strong>{loadoutWeaponName(option.name)}</strong>
-                      <small>{kg(option.weightKg)}</small>
-                    </span>
-                  </button>
-                  {loadoutWeaponName(option.name) !== option.name && (
-                    <p className="wt-mount-source-name">来源名称：{option.name}</p>
-                  )}
+                    {isComparableMissile(option) && (
+                      <label className="wt-mount-compare-choice">
+                        <input
+                          type="checkbox"
+                          checked={comparisonSelected}
+                          disabled={
+                            compared.length >= missileComparisonLimit && !comparisonSelected
+                          }
+                          onChange={(event) => {
+                            const enabled = event.target.checked;
+                            const item = comparedMissile(option, data);
+                            setCompared((old) => selectComparedMissile(old, item, enabled));
+                          }}
+                        />
+                        对比
+                      </label>
+                    )}
+                  </div>
                   {issues.length > 0 && (
-                    <p className="wt-mount-warning">{issues.map((i) => i.message).join(" ")}</p>
+                    <p className="wt-mount-warning">
+                      {issues.map((issue) => issue.message).join(" ")}
+                    </p>
                   )}
-                  {option.parameters.length > 0 && (
-                    <dl className="wt-mount-weapon-parameters" aria-label="详细参数">
-                      {option.parameters.map((parameter) => (
-                        <div key={parameter.id}>
-                          <dt>{parameter.label}</dt>
-                          <dd>{loadoutParameterValue(parameter.value)}</dd>
-                        </div>
-                      ))}
-                    </dl>
-                  )}
+                  <details className="wt-mount-weapon-more">
+                    <summary>详细参数与来源</summary>
+                    <LoadoutWeaponDetails option={option} />
+                  </details>
                 </article>
               );
             })}
             {!candidates.length && <p>没有匹配的可装选项。</p>}
           </div>
+          {!!compared.length && !comparisonOpen && (
+            <LoadoutCompareDock
+              count={compared.length}
+              inDialog
+              onOpen={() => setComparisonOpen(true)}
+            />
+          )}
         </Modal>
       )}
       {importing && (
@@ -1455,6 +1434,17 @@ function LoadoutPage({ owner }: { owner: string }) {
             </button>
           )}
         </Modal>
+      )}
+      {!!compared.length && !picker && !comparisonOpen && (
+        <LoadoutCompareDock count={compared.length} onOpen={() => setComparisonOpen(true)} />
+      )}
+      {comparisonOpen && (
+        <LoadoutWeaponComparison
+          items={compared}
+          onRemove={(key) => setCompared((old) => old.filter((item) => item.key !== key))}
+          onClear={() => setCompared([])}
+          close={() => setComparisonOpen(false)}
+        />
       )}
     </main>
   );

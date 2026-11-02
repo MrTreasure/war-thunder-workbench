@@ -18,11 +18,55 @@ import {
   loadoutParameterValue,
   matchesLoadoutText,
 } from "../src/loadout-presentation.ts";
+import {
+  missileBrief,
+  comparedMissile,
+  selectComparedMissile,
+  missileComparisonRows,
+  isComparableMissile,
+} from "../src/loadout-weapon-details.ts";
 
 const catalog = JSON.parse(
   await readFile(new URL("../data/vehicle-details.json", import.meta.url)),
 );
 const source = catalog.vehicles.su_24m.loadouts;
+const r73 = catalog.vehicles.j_11.loadouts.compatibility.find((option) =>
+  option.name.includes("R-73E"),
+);
+const brief = missileBrief(r73.parameters);
+assert.equal(brief.find((field) => field.id === "lock-range-in-rear-aspect").value, "11 km");
+assert.equal(
+  brief.find((field) => field.id === "launch-range").value,
+  "30 km",
+  "launch range must not be confused with maximum overload",
+);
+assert(isComparableMissile(r73));
+assert(!isComparableMissile({ name: "GBU-12 guided bomb" }));
+const compared = comparedMissile(r73, source);
+let comparison = [];
+for (let index = 0; index < 7; index++)
+  comparison = selectComparedMissile(
+    comparison,
+    { ...compared, key: "fixture-" + index, name: "Fixture " + index + " missiles" },
+    true,
+  );
+assert.equal(comparison.length, 6, "comparison has a hard six-model cap");
+comparison = selectComparedMissile(comparison, comparison[0], true);
+assert.equal(comparison.length, 6, "selecting the same model is idempotent");
+comparison = selectComparedMissile(comparison, comparison[0], false);
+assert.equal(comparison.length, 5);
+assert.equal(
+  comparedMissile({ ...r73, name: "2 × " + r73.name }, source).key,
+  compared.key,
+  "rack counts do not identify distinct missiles",
+);
+const missing = missileComparisonRows([{ ...compared, parameters: [] }]);
+assert(
+  missing.every((row) => row.values[0] === null),
+  "unknown parameters remain unknown",
+);
+assert.deepEqual(compared.parameters, r73.parameters);
+assert.notEqual(compared.parameters, r73.parameters, "comparison keeps its own source snapshot");
 const base = {
   ...source,
   rules: [],

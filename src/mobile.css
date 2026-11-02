@@ -3978,3 +3978,20 @@
  .wt-mount-model-grid { grid-template-columns: repeat(auto-fit,minmax(min(100%,232px),1fr)); }
  .wt-mount-section-heading { flex-wrap: wrap; }
 }
+
+/* Single hardpoint rail and reachable missile comparison. */
+@media (max-width:800px) {
+ .wt-mount-point-strip { grid-template-columns: repeat(var(--wt-point-count),minmax(54px,1fr)); overflow-x: auto; padding-bottom: 14px; }
+ .wt-mount-page .wt-mount-point button.wt-mount-point-select,
+ .wt-mount-page .wt-mount-regions .wt-mount-region button { min-height: 44px; }
+ .wt-mount-region { grid-template-columns: 40px minmax(0,1fr); gap: 8px; }
+ .wt-mount-weapon-row { flex-wrap: wrap; gap: 8px; }
+ .wt-mount-weapon-row .wt-mount-weapon-select { flex-basis: calc(100% - 76px); }
+ .wt-mount-weapon-row .wt-mount-weapon-brief { order: 3; flex-basis: 100%; gap: 8px 14px; padding: 6px; }
+ .wt-mount-weapon-row .wt-mount-compare-choice { margin-left: auto; }
+ .wt-mount-picker-tools .wt-mount-note { display: none; }
+ .wt-mount-page button.wt-mount-compare-dock { right: max(12px,env(safe-area-inset-right,0px)); padding: 10px 14px; }
+ .calculator.wt-mount-compare { width: calc(100vw - 12px); max-height: calc(100dvh - 12px); }
+ .wt-mount-compare-tools { flex-wrap: wrap; }
+ .wt-mount-compare-scroll { margin-inline: 8px; }
+}
