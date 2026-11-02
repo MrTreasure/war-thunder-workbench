@@ -1,4 +1,5 @@
 /* oxlint-disable jsx-a11y/no-noninteractive-tabindex -- Horizontal tables remain keyboard-scrollable. */
+import { useVehicleFacts } from "./vehicle-catalog";
 import type { Vehicle } from "./models";
 import { WeaponParameters } from "./components/WeaponParameters";
 import { GameIcon } from "./components/GameIcon";
@@ -7,6 +8,8 @@ const amount = (value: number | null | undefined) =>
     ? "—"
     : value.toLocaleString("zh-CN", { maximumFractionDigits: 3 });
 export function VehicleLoadouts({ unit }: { unit: Vehicle }) {
+  const facts = useVehicleFacts();
+  const country = facts.get(unit.id)?.country || "";
   const data = unit.wikiDetails?.loadouts;
   return (
     <section className="wt-loadouts" aria-label="飞机挂载资料">
@@ -167,6 +170,14 @@ export function VehicleLoadouts({ unit }: { unit: Vehicle }) {
             挂点兼容表不等于可同时装配的完整方案。武器互斥、配件解锁与载荷限制以游戏为准；未提供的重量保持未知。
           </p>
         </>
+      )}
+      {data?.status === "available" && (
+        <a
+          className="quiet-button"
+          href={`#/loadouts?country=${encodeURIComponent(country)}&vehicle=${encodeURIComponent(unit.id)}`}
+        >
+          模拟配置挂载 ↗
+        </a>
       )}
       {data && (
         <a className="wt-dossier-provenance" href={data.source} target="_blank" rel="noreferrer">

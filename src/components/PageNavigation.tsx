@@ -3,7 +3,7 @@ import { GameSelect } from "./GameSelect";
 export function PageNavigation({
   page,
 }: {
-  page: "tree" | "lineups" | "maps" | "stats" | "sales" | "decals" | "disclaimer";
+  page: "tree" | "lineups" | "maps" | "stats" | "sales" | "decals" | "disclaimer" | "loadouts";
 }) {
   const navigate = useNavigate();
   return (
@@ -28,6 +28,13 @@ export function PageNavigation({
         <Link to="/sales" preload={false} aria-current={page === "sales" ? "page" : undefined}>
           折扣日历
         </Link>
+        <Link
+          to="/loadouts"
+          preload={false}
+          aria-current={page === "loadouts" ? "page" : undefined}
+        >
+          模拟挂载
+        </Link>
       </nav>
       <nav className="mobile-page-navigation" aria-label="工具页面">
         <GameSelect
@@ -40,7 +47,8 @@ export function PageNavigation({
                 next === "lineups" ||
                 next === "maps" ||
                 next === "stats" ||
-                next === "sales") &&
+                next === "sales" ||
+                next === "loadouts") &&
               next !== page
             )
               void navigate({ to: next === "lineups" ? "/lineups/lobby" : `/${next}` });
@@ -56,6 +64,7 @@ export function PageNavigation({
           <option value="maps">陆战地图</option>
           <option value="stats">战绩查询</option>
           <option value="sales">折扣日历</option>
+          <option value="loadouts">模拟挂载</option>
         </GameSelect>
       </nav>
     </>

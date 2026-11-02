@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "vehicles": {
+    "su_24m": [
+      {
+        "id": "su24m-kh29te-kab500krm",
+        "kind": "exclusive",
+        "weapons": ["Kh-29TE missiles", "500 kg KAB-500Kr-M guided bomb"],
+        "message": "Kh-29TE 与 KAB-500Kr-M 不能同时挂载。",
+        "source": "https://wiki.warthunder.com/mechanics/4777-custom-loadouts-editor",
+        "checkedAt": "2026-11-02"
+      }
+    ]
+  }
+}

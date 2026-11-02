@@ -10,6 +10,7 @@
 | [使用说明](usage.zh-CN.md) · [English](usage.en.md) · [Русский](usage.ru.md) · [日本語](usage.ja.md) | 玩家操作说明                                                  |
 | [移动端操作](mobile.md)                                                                              | 网页响应式行为与人工检查要点                                  |
 | [战绩与个人战报](player-stats.md)                                                                    | 当前能力、数据含义、查询及导出限制                            |
+| [模拟挂载](loadouts.md)                                                                             | 挂点编辑、武器反查、方案保存分享与来源边界                    |
 
 ## 开发与发布
 

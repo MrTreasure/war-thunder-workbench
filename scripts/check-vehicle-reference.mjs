@@ -85,6 +85,21 @@ export function checkVehicleReference(vehicles) {
       unique(data.hardpoints, "id");
       unique(data.compatibility, "optionId");
       unique(data.presets, "id");
+      assert([undefined, 1].includes(data.rulesSchemaVersion));
+      for (const note of data.constraintNotes || [])
+        assert(typeof note === "string" && note.length <= 3000);
+      unique(data.rules || [], "id");
+      for (const rule of data.rules || []) {
+        assert.match(rule.id, /^[a-zA-Z0-9_-]{1,100}$/);
+        assert.equal(rule.kind, "exclusive");
+        assert(
+          Array.isArray(rule.weapons) && rule.weapons.length >= 2 && rule.weapons.length <= 12,
+        );
+        for (const name of rule.weapons) text(name);
+        text(rule.message);
+        assert.match(rule.source, /^https:\/\/wiki\.warthunder\.com\//);
+        assert(Number.isFinite(Date.parse(rule.checkedAt)));
+      }
       const points = new Set(data.hardpoints.map((point) => point.id));
       for (const point of data.hardpoints) {
         text(point.id);

@@ -14,6 +14,7 @@ import { Route as WorkbenchRouteImport } from './routes/_workbench'
 import { Route as WorkbenchDecalsRouteImport } from './routes/_workbench.decals'
 import { Route as WorkbenchDisclaimerRouteImport } from './routes/_workbench.disclaimer'
 import { Route as WorkbenchLineupsRouteImport } from './routes/_workbench.lineups'
+import { Route as WorkbenchLoadoutsRouteImport } from './routes/_workbench.loadouts'
 import { Route as WorkbenchMapsRouteImport } from './routes/_workbench.maps'
 import { Route as WorkbenchSalesRouteImport } from './routes/_workbench.sales'
 import { Route as WorkbenchStatsRouteImport } from './routes/_workbench.stats'
@@ -46,6 +47,11 @@ const WorkbenchDisclaimerRoute = WorkbenchDisclaimerRouteImport.update({
 const WorkbenchLineupsRoute = WorkbenchLineupsRouteImport.update({
   id: '/lineups',
   path: '/lineups',
+  getParentRoute: () => WorkbenchRoute,
+} as any)
+const WorkbenchLoadoutsRoute = WorkbenchLoadoutsRouteImport.update({
+  id: '/loadouts',
+  path: '/loadouts',
   getParentRoute: () => WorkbenchRoute,
 } as any)
 const WorkbenchMapsRoute = WorkbenchMapsRouteImport.update({
@@ -99,6 +105,7 @@ export interface FileRoutesByFullPath {
   '/decals': typeof WorkbenchDecalsRoute
   '/disclaimer': typeof WorkbenchDisclaimerRoute
   '/lineups': typeof WorkbenchLineupsRoute
+  '/loadouts': typeof WorkbenchLoadoutsRoute
   '/maps': typeof WorkbenchMapsRoute
   '/sales': typeof WorkbenchSalesRoute
   '/stats': typeof WorkbenchStatsRoute
@@ -114,6 +121,7 @@ export interface FileRoutesByTo {
   '/decals': typeof WorkbenchDecalsRoute
   '/disclaimer': typeof WorkbenchDisclaimerRoute
   '/lineups': typeof WorkbenchLineupsRoute
+  '/loadouts': typeof WorkbenchLoadoutsRoute
   '/maps': typeof WorkbenchMapsRoute
   '/sales': typeof WorkbenchSalesRoute
   '/stats': typeof WorkbenchStatsRoute
@@ -131,6 +139,7 @@ export interface FileRoutesById {
   '/_workbench/decals': typeof WorkbenchDecalsRoute
   '/_workbench/disclaimer': typeof WorkbenchDisclaimerRoute
   '/_workbench/lineups': typeof WorkbenchLineupsRoute
+  '/_workbench/loadouts': typeof WorkbenchLoadoutsRoute
   '/_workbench/maps': typeof WorkbenchMapsRoute
   '/_workbench/sales': typeof WorkbenchSalesRoute
   '/_workbench/stats': typeof WorkbenchStatsRoute
@@ -148,6 +157,7 @@ export interface FileRouteTypes {
     | '/decals'
     | '/disclaimer'
     | '/lineups'
+    | '/loadouts'
     | '/maps'
     | '/sales'
     | '/stats'
@@ -163,6 +173,7 @@ export interface FileRouteTypes {
     | '/decals'
     | '/disclaimer'
     | '/lineups'
+    | '/loadouts'
     | '/maps'
     | '/sales'
     | '/stats'
@@ -179,6 +190,7 @@ export interface FileRouteTypes {
     | '/_workbench/decals'
     | '/_workbench/disclaimer'
     | '/_workbench/lineups'
+    | '/_workbench/loadouts'
     | '/_workbench/maps'
     | '/_workbench/sales'
     | '/_workbench/stats'
@@ -230,6 +242,13 @@ declare module '@tanstack/react-router' {
       path: '/lineups'
       fullPath: '/lineups'
       preLoaderRoute: typeof WorkbenchLineupsRouteImport
+      parentRoute: typeof WorkbenchRoute
+    }
+    '/_workbench/loadouts': {
+      id: '/_workbench/loadouts'
+      path: '/loadouts'
+      fullPath: '/loadouts'
+      preLoaderRoute: typeof WorkbenchLoadoutsRouteImport
       parentRoute: typeof WorkbenchRoute
     }
     '/_workbench/maps': {
@@ -302,6 +321,7 @@ interface WorkbenchRouteChildren {
   WorkbenchDecalsRoute: typeof WorkbenchDecalsRoute
   WorkbenchDisclaimerRoute: typeof WorkbenchDisclaimerRoute
   WorkbenchLineupsRoute: typeof WorkbenchLineupsRoute
+  WorkbenchLoadoutsRoute: typeof WorkbenchLoadoutsRoute
   WorkbenchMapsRoute: typeof WorkbenchMapsRoute
   WorkbenchSalesRoute: typeof WorkbenchSalesRoute
   WorkbenchStatsRoute: typeof WorkbenchStatsRoute
@@ -317,6 +337,7 @@ const WorkbenchRouteChildren: WorkbenchRouteChildren = {
   WorkbenchDecalsRoute: WorkbenchDecalsRoute,
   WorkbenchDisclaimerRoute: WorkbenchDisclaimerRoute,
   WorkbenchLineupsRoute: WorkbenchLineupsRoute,
+  WorkbenchLoadoutsRoute: WorkbenchLoadoutsRoute,
   WorkbenchMapsRoute: WorkbenchMapsRoute,
   WorkbenchSalesRoute: WorkbenchSalesRoute,
   WorkbenchStatsRoute: WorkbenchStatsRoute,

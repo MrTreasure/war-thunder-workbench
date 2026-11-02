@@ -47,6 +47,16 @@ export interface WikiLoadoutOption {
   parameters: WikiWeaponParameter[];
 }
 export interface WikiLoadouts extends WikiReferenceSource {
+  rulesSchemaVersion?: 1;
+  constraintNotes?: string[];
+  rules?: {
+    id: string;
+    kind: "exclusive";
+    weapons: string[];
+    message: string;
+    source: string;
+    checkedAt: string;
+  }[];
   limits: { id: string; label: string; value: number | null; unit: string }[];
   presets: {
     id: string;

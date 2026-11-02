@@ -3849,3 +3849,118 @@
   .wt-career-dashboard .wt-career-comparison td { font-size: 11px; padding: 9px 3px; white-space: normal; }
   .wt-ownership-legend { justify-content: flex-start; gap: 6px 12px; font-size: 10px; }
 }
+
+/* Simulated loadouts: compact mobile workspace. */
+@media (max-width: 800px) {
+  .wt-mount-page {
+    padding: 12px 12px 20px;
+  }
+  .wt-mount-heading p {
+    display: none;
+  }
+  .wt-mount-heading h2 {
+    font-size: 18px;
+  }
+  .wt-mount-toolbar {
+    gap: 8px;
+  }
+  .wt-mount-toolbar label {
+    min-width: calc(50% - 8px);
+  }
+  .wt-mount-toolbar label:nth-child(3) {
+    flex-basis: 100%;
+  }
+  .wt-mount-page input,
+  .wt-mount-page textarea {
+    font-size: 16px;
+  }
+  .wt-mount-page button {
+    min-height: 44px;
+  }
+  .wt-mount-plan-title {
+    align-items: start;
+    flex-wrap: wrap;
+  }
+  .wt-mount-plan-title > label {
+    flex-basis: 100%;
+  }
+  .wt-mount-workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .wt-mount-board {
+    padding: 12px;
+    min-height: 0;
+  }
+  .wt-mount-stations {
+    justify-content: start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 14px 0;
+  }
+  .wt-mount-page .wt-mount-station {
+    flex: 0 0 130px;
+  }
+  .wt-mount-summary {
+    padding: 12px;
+  }
+  .wt-mount-summary dl {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 14px;
+  }
+  .wt-mount-summary dl > div {
+    display: block;
+  }
+  .wt-mount-summary dd {
+    text-align: left;
+    margin-top: 4px;
+  }
+  .wt-mount-actions {
+    gap: 6px;
+    flex-wrap: wrap;
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+  }
+  .wt-mount-actions button {
+    padding: 5px 8px;
+  }
+  .wt-mount-action-spacer {
+    display: none;
+  }
+  .wt-mount-requirements > div {
+    grid-template-columns: minmax(0, 1fr) 84px auto;
+    gap: 6px;
+  }
+  .wt-mount-requirements button {
+    padding: 4px;
+  }
+  .wt-mount-results,
+  .wt-mount-saved {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .calculator.wt-mount-picker {
+    width: 100%;
+    max-height: 100dvh;
+    height: 100dvh;
+  }
+  .wt-mount-find > p {
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 800px) {
+  .wt-mount-desktop-actions {
+    display: none;
+  }
+  .wt-mount-mobile-actions {
+    display: block;
+    flex: 1;
+    min-width: 0;
+    max-width: 170px;
+  }
+  .wt-mount-actions {
+    flex-wrap: nowrap;
+  }
+  .wt-mount-actions > button {
+    white-space: nowrap;
+  }
+}

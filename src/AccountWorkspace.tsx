@@ -35,6 +35,7 @@ import { collectGuestDefaults } from "./workspace-guest-defaults";
 import "./account-workspace.css";
 
 function documentLabel(key: string) {
+  if (key === "wt-loadouts-v1") return "模拟挂载方案";
   if (key === saleWatchKey) return "折扣载具关注列表";
   if (key === "wt-workbench-cart-v1") return "研发购物车";
   const [kind, part, country] = key.split(":");
