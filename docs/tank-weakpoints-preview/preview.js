@@ -82,7 +82,7 @@ function render() {
   $("test-penetration").textContent = penetrationLabel(test);
   $("test-note").textContent = test?.note || "";
   $("test-note").hidden = !test?.note;
-  const testHref = Number.isFinite(test?.sourceTime) ? videoUrl(source, test.sourceTime) : null;
+  const testHref = Number.isFinite(test?.sourceTime) ? videoUrl({ url: test.sourceUrl || source.url }, test.sourceTime) : null;
   $("test-link").hidden = !testHref;
   if (testHref) {
     $("test-link").href = testHref;

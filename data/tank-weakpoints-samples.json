@@ -494,29 +494,120 @@
         "mechanism": "manual",
         "note": "基础乘员→王牌乘员（Wiki主炮面板）"
       },
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.4791666666666667,
+          "y": 0.5279069767441861,
+          "sourcePixel": {
+            "x": 960,
+            "y": 437
+          },
+          "label": "炮管下方小方格",
+          "detail": "车体正前方炮管下的小方格区域，引导位置按1026真实外观重新定位；不是把IS3或透视乘员坐标套来。炮弹/角度及后效须看各自案例。",
+          "caseId": "ussr_is_4m:BV1SPmEBJE3y:1029000",
+          "mainImageMatch": "different-segment",
+          "mechanism": "conditional-specific-frontal-region"
+        }
+      ],
       "videoAdvice": [
         {
-          "label": "T34实心弹演示",
-          "text": "1036秒目标是IS-4M，攻击方为美系T34、T14E3、0米（面板283毫米）。作者说明即使击穿，实心弹的后效仍可能有限；这是该片段的条件性结论。",
-          "caseId": "ussr_is_4m:BV1SPmEBJE3y:1036000",
-          "sourceTime": 1036,
-          "time": 1036,
+          "caseId": "ussr_is_4m:BV1SPmEBJE3y:1029000",
+          "sourceTime": 1028.022,
+          "conditionMatch": "verified-continuous-segment",
+          "mainImageMatch": "different-segment",
+          "text": "炮管下方的小方格是作者明确指出的位置；其讲解要求至少约250穿深，不能把这当所有角度的固定硬阈值。",
+          "mechanism": "conditional-specific-frontal-region",
+          "evidenceInterval": [
+            1028.022,
+            1033.559
+          ],
+          "label": "炮管下方小方格条件建议",
           "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
-          "conditionMatch": "same-frame",
-          "mainImageMatch": "unknown",
-          "mechanism": "direct-penetration-conditional"
+          "time": 1028.022,
+          "evidence": {
+            "advice": {
+              "caseId": "ussr_is_4m:BV1SPmEBJE3y:1029000",
+              "sourceTime": 1028.022,
+              "conditionMatch": "verified-continuous-segment",
+              "mainImageMatch": "different-segment",
+              "text": "炮管下方的小方格是作者明确指出的位置；其讲解要求至少约250穿深，不能把这当所有角度的固定硬阈值。",
+              "mechanism": "conditional-specific-frontal-region",
+              "evidenceInterval": [
+                1028.022,
+                1033.559
+              ]
+            },
+            "continuousSubtitleProof": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/USSR-IS-4M-1020-1050-normal-playback-subtitles.json",
+              "sha256": "44e665a27996dcbbece5c3d494107a65ad38159b9ac650a2f7378616093b5c6a"
+            }
+          }
         },
         {
-          "label": "猎虎装药弹片段",
-          "text": "1040秒目标仍是IS-4M，攻击方换为Jagdtiger猎虎、PzGr.、0米（面板252毫米）。作者用这类装药弹说明正面击穿门槛；不是虎王在攻击IS-3，也不能据此给其它炮弹下通用结论。",
-          "caseId": "ussr_is_4m:BV1SPmEBJE3y:1040000",
-          "sourceTime": 1040,
-          "time": 1040,
+          "caseId": "ussr_is_4m:BV1SPmEBJE3y:1035000",
+          "sourceTime": 1034.565,
+          "conditionMatch": "verified-continuous-segment",
+          "mainImageMatch": "different-segment",
+          "text": "即使打穿，作者指出T34的T14E3后效不理想，不能承诺一发全车损失。",
+          "mechanism": "negative-postpenetration-effect",
+          "evidenceInterval": [
+            1033.559,
+            1037.084
+          ],
+          "label": "T14E3穿透后效提醒",
           "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
-          "conditionMatch": "same-frame",
-          "mainImageMatch": "unknown",
-          "mechanism": "direct-penetration-conditional"
+          "time": 1034.565,
+          "evidence": {
+            "advice": {
+              "caseId": "ussr_is_4m:BV1SPmEBJE3y:1035000",
+              "sourceTime": 1034.565,
+              "conditionMatch": "verified-continuous-segment",
+              "mainImageMatch": "different-segment",
+              "text": "即使打穿，作者指出T34的T14E3后效不理想，不能承诺一发全车损失。",
+              "mechanism": "negative-postpenetration-effect",
+              "evidenceInterval": [
+                1033.559,
+                1037.084
+              ]
+            },
+            "continuousSubtitleProof": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/USSR-IS-4M-1020-1050-normal-playback-subtitles.json",
+              "sha256": "44e665a27996dcbbece5c3d494107a65ad38159b9ac650a2f7378616093b5c6a"
+            }
+          }
+        },
+        {
+          "caseId": "ussr_is_4m:BV1SPmEBJE3y:1042000",
+          "sourceTime": 1041.61,
+          "conditionMatch": "verified-continuous-segment",
+          "mainImageMatch": "different-segment",
+          "text": "作者以猎虎PzGr. APC作正面高毁伤装药弹示例；不是虎王炮弹，也不是T14E3的同一种后效。",
+          "mechanism": "conditional-high-postpenetration-demonstration",
+          "evidenceInterval": [
+            1039.096,
+            1046.133
+          ],
+          "label": "猎虎PzGr.毁伤示例",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "time": 1041.61,
+          "evidence": {
+            "advice": {
+              "caseId": "ussr_is_4m:BV1SPmEBJE3y:1042000",
+              "sourceTime": 1041.61,
+              "conditionMatch": "verified-continuous-segment",
+              "mainImageMatch": "different-segment",
+              "text": "作者以猎虎PzGr. APC作正面高毁伤装药弹示例；不是虎王炮弹，也不是T14E3的同一种后效。",
+              "mechanism": "conditional-high-postpenetration-demonstration",
+              "evidenceInterval": [
+                1039.096,
+                1046.133
+              ]
+            },
+            "continuousSubtitleProof": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/USSR-IS-4M-1020-1050-normal-playback-subtitles.json",
+              "sha256": "44e665a27996dcbbece5c3d494107a65ad38159b9ac650a2f7378616093b5c6a"
+            }
+          }
         }
       ],
       "source": {
@@ -525,7 +616,7 @@
         "author": "罗非鱼解说",
         "publishedAt": "2025-12-12T18:28:48+08:00"
       },
-      "status": "wiki-reviewed-awaiting-video",
+      "status": "review-sample",
       "collectedAt": "2026-11-02",
       "weaknessEvidenceStatus": "general-context-only",
       "country": "ussr",
@@ -536,123 +627,301 @@
       "scopeRole": "heavy_tank",
       "testCases": [
         {
-          "id": "ussr_is_4m:BV1SPmEBJE3y:1036000",
+          "id": "ussr_is_4m:BV1SPmEBJE3y:1026000",
+          "vehicleId": "ussr_is_4m",
+          "sourceTime": 1026,
           "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
-          "sourceTime": 1036,
-          "attacker": "T34",
+          "attackerEnglishName": "T34",
+          "attackerCountry": "USA",
           "shell": "T14E3",
+          "sourceShellLabelOriginal": "T14E3",
+          "normalizedShellName": "T14E3",
+          "shellType": "APCBC",
+          "shellTypeEvidence": {
+            "key": "T14E3",
+            "sourceUrl": "https://wiki.warthunder.com/unit/us_t34"
+          },
+          "sourceShellTypeLabelOriginal": null,
+          "sourceShellNormalizationStatus": "verified-type-proof",
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 283,
+          "sourceGameVersion": "2.49.0.98",
+          "proofSHA256": "8655f3af86056c791909718ca1745598a867e05249257007be3d8a640f7bbb0e",
+          "sourceFrameSHA256": "9bfc9bf8174299dbaa599b7fa22de9bdf7382ed4365228d25a04c647dc82f916",
+          "frameSha256": "86c983a563c6d7b5ccd5852101e61c4c7ad684fa49c6bec2cd80d9bc377f02b8",
+          "conditionSource": "Actual selected left attack-source menu; IS7 original shell label independently cropped, no standard-round code or HEATFS inferred.",
+          "attacker": "T34",
+          "shellTypeCode": "APCBC",
+          "shellTypeLabel": "被帽风帽穿甲弹",
+          "impactAngleDegrees": null,
+          "verificationStatus": "verified"
+        },
+        {
+          "id": "ussr_is_4m:BV1SPmEBJE3y:1029000",
+          "vehicleId": "ussr_is_4m",
+          "sourceTime": 1029,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerEnglishName": "T34",
+          "attackerCountry": "USA",
+          "shell": "T14E3",
+          "sourceShellLabelOriginal": "T14E3",
+          "normalizedShellName": "T14E3",
+          "shellType": "APCBC",
+          "shellTypeEvidence": {
+            "key": "T14E3",
+            "sourceUrl": "https://wiki.warthunder.com/unit/us_t34"
+          },
+          "sourceShellTypeLabelOriginal": null,
+          "sourceShellNormalizationStatus": "verified-type-proof",
           "distanceMeters": 0,
           "displayedPenetrationMm": 283,
           "sourceGameVersion": null,
-          "verificationStatus": "verified",
+          "proofSHA256": "89076fd5f43d01dabc9c0a7468f5a876f86c39d8f90d5622abeba2aceb1e351f",
+          "sourceFrameSHA256": "2e63235fd35f4a93f8ad98e830f057a7dbb311e8d2f9607c82988ba950061f0d",
+          "frameSha256": "8bbb94bfbe9eae8cd89b58d99ca28ada71d761d7ca3b8215b25e46936854cdf2",
+          "conditionSource": "Actual selected left attack-source menu; IS7 original shell label independently cropped, no standard-round code or HEATFS inferred.",
+          "attacker": "T34",
           "shellTypeCode": "APCBC",
           "shellTypeLabel": "被帽风帽穿甲弹",
-          "impactAngleDegrees": null
+          "impactAngleDegrees": null,
+          "verificationStatus": "verified"
         },
         {
-          "id": "ussr_is_4m:BV1SPmEBJE3y:1040000",
+          "id": "ussr_is_4m:BV1SPmEBJE3y:1035000",
+          "vehicleId": "ussr_is_4m",
+          "sourceTime": 1035,
           "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
-          "sourceTime": 1040,
-          "attacker": "Jagdtiger",
+          "attackerEnglishName": "T34",
+          "attackerCountry": "USA",
+          "shell": "T14E3",
+          "sourceShellLabelOriginal": "T14E3",
+          "normalizedShellName": "T14E3",
+          "shellType": "APCBC",
+          "shellTypeEvidence": {
+            "key": "T14E3",
+            "sourceUrl": "https://wiki.warthunder.com/unit/us_t34"
+          },
+          "sourceShellTypeLabelOriginal": null,
+          "sourceShellNormalizationStatus": "verified-type-proof",
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 283,
+          "sourceGameVersion": null,
+          "proofSHA256": "69689078fa35575f2fd6dcbe1e0aa2ae96de476326055131b487f878073a8e2b",
+          "sourceFrameSHA256": "baaeee4aee47a65398195bf2d3280c29c1a7886817662b94a269913066541b33",
+          "frameSha256": "0a6eb1b82f6acdcf33f3ab6da366f6b4cd92bfbe57db05e652a45e78137f64fe",
+          "conditionSource": "Actual selected left attack-source menu; IS7 original shell label independently cropped, no standard-round code or HEATFS inferred.",
+          "attacker": "T34",
+          "shellTypeCode": "APCBC",
+          "shellTypeLabel": "被帽风帽穿甲弹",
+          "impactAngleDegrees": null,
+          "verificationStatus": "verified"
+        },
+        {
+          "id": "ussr_is_4m:BV1SPmEBJE3y:1042000",
+          "vehicleId": "ussr_is_4m",
+          "sourceTime": 1042,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerEnglishName": "Jagdtiger",
+          "attackerCountry": "GER",
           "shell": "PzGr.",
+          "sourceShellLabelOriginal": "PzGr.",
+          "normalizedShellName": "PzGr.",
+          "shellType": "APC",
+          "shellTypeEvidence": {
+            "key": "PzGr.",
+            "sourceUrl": "https://wiki.warthunder.com/unit/germ_panzerjager_tiger"
+          },
+          "sourceShellTypeLabelOriginal": null,
+          "sourceShellNormalizationStatus": "verified-type-proof",
           "distanceMeters": 0,
           "displayedPenetrationMm": 252,
           "sourceGameVersion": null,
-          "verificationStatus": "verified",
+          "proofSHA256": "2821df8fc3587e907f581ba54ff573a9b8edc31632401ea7e1d738b2b4fb8fd1",
+          "sourceFrameSHA256": "467518d3fbda5eadfb629d3745ed0d6ed1b91ac6b71860f69384df48729e1d1d",
+          "frameSha256": "2b3d7646691493abbb488bd64fc509461c09b2c882814f52e250bd8538b3e1cf",
+          "conditionSource": "Actual selected left attack-source menu; IS7 original shell label independently cropped, no standard-round code or HEATFS inferred.",
+          "attacker": "Jagdtiger",
           "shellTypeCode": "APC",
           "shellTypeLabel": "被帽穿甲弹",
-          "impactAngleDegrees": null
+          "impactAngleDegrees": null,
+          "verificationStatus": "verified"
         }
       ],
       "testCaseEvidence": {
-        "ussr_is_4m:BV1SPmEBJE3y:1036000": {
-          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/007.json",
-          "proofSnapshotSHA256": "59e5e6f6d4b27e897d5510f722b97f2b1fd69011d1cd7451c57bbabb53e7ce8e",
-          "sourceFrameSHA256": "dbfae8589980fb1377127bf9bdd86aa6afbf8f6ae0e73ff1b1a44689c251de9f",
-          "framePath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/USSR-IS-4M-1036.webp",
-          "sourceTime": 1036,
-          "ammunitionDisplay": {
-            "caseId": "ussr_is_4m:BV1SPmEBJE3y:1036000",
-            "frameEvidence": {
-              "sourceFrameFile": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/USSR-IS-4M-1036.webp",
-              "sourceFrameSHA256": "dbfae8589980fb1377127bf9bdd86aa6afbf8f6ae0e73ff1b1a44689c251de9f",
-              "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/007.json",
-              "caseRecordPath": "artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/records.json",
-              "caseRecordSha256": "bccd2f1e1956ce14abe010ccbd43ec0d69a1605f0a64e31ded451402fc2a04e9"
-            },
-            "typeEvidence": {
-              "typeOriginal": "Armor-piercing capped ballistic capped shell",
-              "typeCode": "APCBC",
-              "sourceUrl": "https://wiki.warthunder.com/unit/us_t34",
-              "collectedAt": "2026-11-02T10:11:30.225Z",
-              "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/us_t34.html",
-              "sourceHtmlSha256": "4b1ed988e57efe42c79fa0c81943b4d609e739cbac392bc5ad2f9a1144a25efb",
-              "proofSnippet": "<span>T14E3</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-piercing capped ballistic capped shell</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=&quot;border-end&quot; style=&quot;font-size: .8em; width: 40%;&quot;&gt;Distance / Angle of attack&lt;/th&gt;&lt;th&gt;0°&lt;/th&gt;&lt;th&gt;30°&lt;/th&gt;&lt;th&g",
-              "wikiShellLabel": "T14E3"
-            }
-          }
+        "ussr_is_4m:BV1SPmEBJE3y:1026000": {
+          "id": "ussr_is_4m:BV1SPmEBJE3y:1026000",
+          "vehicleId": "ussr_is_4m",
+          "sourceTime": 1026,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerEnglishName": "T34",
+          "attackerCountry": "USA",
+          "shell": "T14E3",
+          "sourceShellLabelOriginal": "T14E3",
+          "normalizedShellName": "T14E3",
+          "shellType": "APCBC",
+          "shellTypeEvidence": {
+            "file": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/type-proofs.json",
+            "key": "T14E3",
+            "sourceUrl": "https://wiki.warthunder.com/unit/us_t34"
+          },
+          "sourceShellTypeLabelOriginal": null,
+          "sourceShellNormalizationStatus": "verified-type-proof",
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 283,
+          "sourceGameVersion": "2.49.0.98",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/019.json",
+          "proofSHA256": "8655f3af86056c791909718ca1745598a867e05249257007be3d8a640f7bbb0e",
+          "sourceFrameSHA256": "9bfc9bf8174299dbaa599b7fa22de9bdf7382ed4365228d25a04c647dc82f916",
+          "frameSha256": "86c983a563c6d7b5ccd5852101e61c4c7ad684fa49c6bec2cd80d9bc377f02b8",
+          "conditionSource": "Actual selected left attack-source menu; IS7 original shell label independently cropped, no standard-round code or HEATFS inferred."
         },
-        "ussr_is_4m:BV1SPmEBJE3y:1040000": {
-          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/008.json",
-          "proofSnapshotSHA256": "e936a9fd0c1b3e56dda767a4168214f5cfc86f7320297e01a5c21d0140212e79",
-          "sourceFrameSHA256": "2f2af35170f8a73d43f7f6eab665a1b9a95234b1392cd1b1160c9e5dcd837fd3",
-          "framePath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/USSR-IS-4M-1040.webp",
-          "sourceTime": 1040,
-          "ammunitionDisplay": {
-            "caseId": "ussr_is_4m:BV1SPmEBJE3y:1040000",
-            "frameEvidence": {
-              "sourceFrameFile": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/USSR-IS-4M-1040.webp",
-              "sourceFrameSHA256": "2f2af35170f8a73d43f7f6eab665a1b9a95234b1392cd1b1160c9e5dcd837fd3",
-              "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/008.json",
-              "caseRecordPath": "artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/records.json",
-              "caseRecordSha256": "bccd2f1e1956ce14abe010ccbd43ec0d69a1605f0a64e31ded451402fc2a04e9"
-            },
-            "typeEvidence": {
-              "typeOriginal": "Armor-piercing capped shell",
-              "typeCode": "APC",
-              "sourceUrl": "https://wiki.warthunder.com/unit/germ_panzerjager_tiger",
-              "collectedAt": "2026-11-02T10:11:38.425Z",
-              "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/germ_panzerjager_tiger.html",
-              "sourceHtmlSha256": "f7ca060d6022bf495f79bb2217048412b220d8e4d50af1ce8daa7775886fe1e4",
-              "proofSnippet": "<span>PzGr</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-piercing capped shell</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;High-explosive fragmentation&lt;/div&gt;&lt;div class=&quot;fw-bold text-center&quot;&gt;11.5&amp;nbsp;mm&lt;/div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=&quot;border-en",
-              "wikiShellLabel": "PzGr"
-            }
-          }
+        "ussr_is_4m:BV1SPmEBJE3y:1029000": {
+          "id": "ussr_is_4m:BV1SPmEBJE3y:1029000",
+          "vehicleId": "ussr_is_4m",
+          "sourceTime": 1029,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerEnglishName": "T34",
+          "attackerCountry": "USA",
+          "shell": "T14E3",
+          "sourceShellLabelOriginal": "T14E3",
+          "normalizedShellName": "T14E3",
+          "shellType": "APCBC",
+          "shellTypeEvidence": {
+            "file": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/type-proofs.json",
+            "key": "T14E3",
+            "sourceUrl": "https://wiki.warthunder.com/unit/us_t34"
+          },
+          "sourceShellTypeLabelOriginal": null,
+          "sourceShellNormalizationStatus": "verified-type-proof",
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 283,
+          "sourceGameVersion": null,
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/025.json",
+          "proofSHA256": "89076fd5f43d01dabc9c0a7468f5a876f86c39d8f90d5622abeba2aceb1e351f",
+          "sourceFrameSHA256": "2e63235fd35f4a93f8ad98e830f057a7dbb311e8d2f9607c82988ba950061f0d",
+          "frameSha256": "8bbb94bfbe9eae8cd89b58d99ca28ada71d761d7ca3b8215b25e46936854cdf2",
+          "conditionSource": "Actual selected left attack-source menu; IS7 original shell label independently cropped, no standard-round code or HEATFS inferred."
+        },
+        "ussr_is_4m:BV1SPmEBJE3y:1035000": {
+          "id": "ussr_is_4m:BV1SPmEBJE3y:1035000",
+          "vehicleId": "ussr_is_4m",
+          "sourceTime": 1035,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerEnglishName": "T34",
+          "attackerCountry": "USA",
+          "shell": "T14E3",
+          "sourceShellLabelOriginal": "T14E3",
+          "normalizedShellName": "T14E3",
+          "shellType": "APCBC",
+          "shellTypeEvidence": {
+            "file": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/type-proofs.json",
+            "key": "T14E3",
+            "sourceUrl": "https://wiki.warthunder.com/unit/us_t34"
+          },
+          "sourceShellTypeLabelOriginal": null,
+          "sourceShellNormalizationStatus": "verified-type-proof",
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 283,
+          "sourceGameVersion": null,
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/026.json",
+          "proofSHA256": "69689078fa35575f2fd6dcbe1e0aa2ae96de476326055131b487f878073a8e2b",
+          "sourceFrameSHA256": "baaeee4aee47a65398195bf2d3280c29c1a7886817662b94a269913066541b33",
+          "frameSha256": "0a6eb1b82f6acdcf33f3ab6da366f6b4cd92bfbe57db05e652a45e78137f64fe",
+          "conditionSource": "Actual selected left attack-source menu; IS7 original shell label independently cropped, no standard-round code or HEATFS inferred."
+        },
+        "ussr_is_4m:BV1SPmEBJE3y:1042000": {
+          "id": "ussr_is_4m:BV1SPmEBJE3y:1042000",
+          "vehicleId": "ussr_is_4m",
+          "sourceTime": 1042,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerEnglishName": "Jagdtiger",
+          "attackerCountry": "GER",
+          "shell": "PzGr.",
+          "sourceShellLabelOriginal": "PzGr.",
+          "normalizedShellName": "PzGr.",
+          "shellType": "APC",
+          "shellTypeEvidence": {
+            "file": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/type-proofs.json",
+            "key": "PzGr.",
+            "sourceUrl": "https://wiki.warthunder.com/unit/germ_panzerjager_tiger"
+          },
+          "sourceShellTypeLabelOriginal": null,
+          "sourceShellNormalizationStatus": "verified-type-proof",
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 252,
+          "sourceGameVersion": null,
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/027.json",
+          "proofSHA256": "2821df8fc3587e907f581ba54ff573a9b8edc31632401ea7e1d738b2b4fb8fd1",
+          "sourceFrameSHA256": "467518d3fbda5eadfb629d3745ed0d6ed1b91ac6b71860f69384df48729e1d1d",
+          "frameSha256": "2b3d7646691493abbb488bd64fc509461c09b2c882814f52e250bd8538b3e1cf",
+          "conditionSource": "Actual selected left attack-source menu; IS7 original shell label independently cropped, no standard-round code or HEATFS inferred."
         }
       },
       "testContext": {
         "attacker": "T34",
         "shell": "T14E3",
-        "sourceTime": 1036,
-        "note": "17:16为T34/T14E3，17:20另为猎虎/PzGr.，分别见下方片段；正面图待补",
         "shellTypeCode": "APCBC",
         "shellTypeLabel": "被帽风帽穿甲弹",
-        "displayedPenetrationMm": 283,
         "distanceMeters": 0,
-        "impactAngleDegrees": null
+        "displayedPenetrationMm": 283,
+        "impactAngleDegrees": null,
+        "sourceTime": 1026,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "sourceGameVersion": "2.49.0.98",
+        "caseId": "ussr_is_4m:BV1SPmEBJE3y:1026000",
+        "note": "视频案例独立条件，不泛化其他弹药/角度。"
       },
       "testContextEvidence": {
-        "ammunitionDisplay": {
-          "caseId": "ussr_is_4m:BV1SPmEBJE3y:1036000",
-          "frameEvidence": {
-            "sourceFrameFile": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/USSR-IS-4M-1036.webp",
-            "sourceFrameSHA256": "dbfae8589980fb1377127bf9bdd86aa6afbf8f6ae0e73ff1b1a44689c251de9f",
-            "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/007.json",
-            "caseRecordPath": "artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/records.json",
-            "caseRecordSha256": "bccd2f1e1956ce14abe010ccbd43ec0d69a1605f0a64e31ded451402fc2a04e9"
-          },
-          "typeEvidence": {
-            "typeOriginal": "Armor-piercing capped ballistic capped shell",
-            "typeCode": "APCBC",
-            "sourceUrl": "https://wiki.warthunder.com/unit/us_t34",
-            "collectedAt": "2026-11-02T10:11:30.225Z",
-            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/us_t34.html",
-            "sourceHtmlSha256": "4b1ed988e57efe42c79fa0c81943b4d609e739cbac392bc5ad2f9a1144a25efb",
-            "proofSnippet": "<span>T14E3</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-piercing capped ballistic capped shell</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=&quot;border-end&quot; style=&quot;font-size: .8em; width: 40%;&quot;&gt;Distance / Angle of attack&lt;/th&gt;&lt;th&gt;0°&lt;/th&gt;&lt;th&gt;30°&lt;/th&gt;&lt;th&g",
-            "wikiShellLabel": "T14E3"
-          }
-        }
-      }
+        "id": "ussr_is_4m:BV1SPmEBJE3y:1026000",
+        "vehicleId": "ussr_is_4m",
+        "sourceTime": 1026,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "attackerEnglishName": "T34",
+        "attackerCountry": "USA",
+        "shell": "T14E3",
+        "sourceShellLabelOriginal": "T14E3",
+        "normalizedShellName": "T14E3",
+        "shellType": "APCBC",
+        "shellTypeEvidence": {
+          "file": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/type-proofs.json",
+          "key": "T14E3",
+          "sourceUrl": "https://wiki.warthunder.com/unit/us_t34"
+        },
+        "sourceShellTypeLabelOriginal": null,
+        "sourceShellNormalizationStatus": "verified-type-proof",
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 283,
+        "sourceGameVersion": "2.49.0.98",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/019.json",
+        "proofSHA256": "8655f3af86056c791909718ca1745598a867e05249257007be3d8a640f7bbb0e",
+        "sourceFrameSHA256": "9bfc9bf8174299dbaa599b7fa22de9bdf7382ed4365228d25a04c647dc82f916",
+        "frameSha256": "86c983a563c6d7b5ccd5852101e61c4c7ad684fa49c6bec2cd80d9bc377f02b8",
+        "conditionSource": "Actual selected left attack-source menu; IS7 original shell label independently cropped, no standard-round code or HEATFS inferred."
+      },
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/USSR-IS-4M-native-front-1026.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/019.json",
+      "captureSHA256": "86c983a563c6d7b5ccd5852101e61c4c7ad684fa49c6bec2cd80d9bc377f02b8",
+      "originalFrameSHA256": "9bfc9bf8174299dbaa599b7fa22de9bdf7382ed4365228d25a04c647dc82f916",
+      "time": 1026,
+      "crop": [
+        730,
+        210,
+        480,
+        430
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "1080p",
+      "mainImageUsable": true,
+      "completeIllustration": true,
+      "missingEvidence": [
+        "部分试射游戏版本及命中角度未独立读出，维持null；不得泛化所有弹药后效。"
+      ],
+      "limits": "1026烧字聊完IS3是转场语，真实顶部目标IS-4M，不改成IS3。；侧面/钢针/破甲弹是作者一般弹种建议，本批未有这些弹药精确试射case，不伪造。",
+      "imageViewDetail": "front-slightly-elevated"
     },
     {
       "id": "ussr_is_7",
@@ -677,9 +946,48 @@
         "note": "Wiki面板标为Autoloader，正文说明为传送带辅助装填：6发待发弹，耗尽后的补充与持续射击不能套用10秒。"
       },
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-video",
+      "videoAdvice": [
+        {
+          "caseId": "ussr_is_7:BV1SPmEBJE3y:1070033",
+          "sourceTime": 1068.993,
+          "conditionMatch": "verified-continuous-segment",
+          "mainImageMatch": "different-segment",
+          "text": "作者建议在该权重考虑破甲弹等弹种；本帧是D-54破甲弹0米380毫米防护分析演示，没有在该段明确命名某个局部弱点。",
+          "mechanism": "ammo-choice-and-penetration-context-not-specific-spot",
+          "evidenceInterval": [
+            1063.463,
+            1074.033
+          ],
+          "label": "弹种选择与穿透演示",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "time": 1068.993,
+          "evidence": {
+            "advice": {
+              "caseId": "ussr_is_7:BV1SPmEBJE3y:1070033",
+              "sourceTime": 1068.993,
+              "conditionMatch": "verified-continuous-segment",
+              "mainImageMatch": "different-segment",
+              "text": "作者建议在该权重考虑破甲弹等弹种；本帧是D-54破甲弹0米380毫米防护分析演示，没有在该段明确命名某个局部弱点。",
+              "mechanism": "ammo-choice-and-penetration-context-not-specific-spot",
+              "evidenceInterval": [
+                1063.463,
+                1074.033
+              ]
+            },
+            "continuousSubtitleProof": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/USSR-IS-7-1063-1091-normal-playback-subtitles.json",
+              "sha256": "d954b6fb4dbd8922b0ed3fac7b90df044ba43cef5a6baf0b48a28ac29c93e79f"
+            }
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "status": "view-only-pending-specific-recommendation",
       "collectedAt": "2026-11-02",
       "weaknessEvidenceStatus": "general-context-only",
       "country": "ussr",
@@ -687,7 +995,122 @@
       "rank": 6,
       "family": "is",
       "era": "cold-war",
-      "scopeRole": "heavy_tank"
+      "scopeRole": "heavy_tank",
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/USSR-IS-7-identity-and-front-1062.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/029.json",
+      "captureSHA256": "af6c280b209b506de9b0b4d433941c9ce140e47fca771e3967769b12c38bb418",
+      "originalFrameSHA256": "8ed03a92d446de0277b24c7a606bd590a1b6f3de7d285442220b1723b9bd40ef",
+      "time": 1062,
+      "crop": [
+        690,
+        180,
+        590,
+        500
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "1080p",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "testCases": [
+        {
+          "id": "ussr_is_7:BV1SPmEBJE3y:1070033",
+          "vehicleId": "ussr_is_7",
+          "sourceTime": 1070.033,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerEnglishName": "Object 140",
+          "attackerCountry": "USSR",
+          "shell": "D-54 破甲弹",
+          "sourceShellLabelOriginal": "D-54 破甲弹",
+          "normalizedShellName": null,
+          "shellType": null,
+          "shellTypeEvidence": null,
+          "sourceShellTypeLabelOriginal": "破甲弹",
+          "sourceShellNormalizationStatus": "original-label-only-no-guessed-3BK-code",
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 380,
+          "sourceGameVersion": null,
+          "proofSHA256": "9b48348ede1cf31a61dd8bfe66f940adbc4eaeff36008deb61690a39b0a2b4d4",
+          "sourceFrameSHA256": "e690c6cfbe628cef7c257ce5be7da64fa26f2662e7955c5c5f25e71c0137496d",
+          "frameSha256": "7e53e7f892b3c4309c2b473a09e8f8a31d8a1088805d506bece5eac60a0f23c6",
+          "conditionSource": "Actual selected left attack-source menu; IS7 original shell label independently cropped, no standard-round code or HEATFS inferred.",
+          "attacker": "Object 140",
+          "shellTypeCode": null,
+          "shellTypeLabel": null,
+          "impactAngleDegrees": null,
+          "verificationStatus": "verified"
+        }
+      ],
+      "testCaseEvidence": {
+        "ussr_is_7:BV1SPmEBJE3y:1070033": {
+          "id": "ussr_is_7:BV1SPmEBJE3y:1070033",
+          "vehicleId": "ussr_is_7",
+          "sourceTime": 1070.033,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerEnglishName": "Object 140",
+          "attackerCountry": "USSR",
+          "shell": "D-54 破甲弹",
+          "sourceShellLabelOriginal": "D-54 破甲弹",
+          "normalizedShellName": null,
+          "shellType": null,
+          "shellTypeEvidence": null,
+          "sourceShellTypeLabelOriginal": "破甲弹",
+          "sourceShellNormalizationStatus": "original-label-only-no-guessed-3BK-code",
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 380,
+          "sourceGameVersion": null,
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/023.json",
+          "proofSHA256": "9b48348ede1cf31a61dd8bfe66f940adbc4eaeff36008deb61690a39b0a2b4d4",
+          "sourceFrameSHA256": "e690c6cfbe628cef7c257ce5be7da64fa26f2662e7955c5c5f25e71c0137496d",
+          "frameSha256": "7e53e7f892b3c4309c2b473a09e8f8a31d8a1088805d506bece5eac60a0f23c6",
+          "conditionSource": "Actual selected left attack-source menu; IS7 original shell label independently cropped, no standard-round code or HEATFS inferred."
+        }
+      },
+      "missingEvidence": [
+        "本段未明确命名具体局部弱点；规范弹药型号及弹型未知。"
+      ],
+      "limits": "1070为高俯视防护分析，绿色不自动成为1062外观本角度的必穿位置。；1075真实目标已是T10A，完全排除IS7案例。；旧17m50s filename-estimate帧条件不套新1070。；规范弹药型号、HEATFS类型未证实留null；原始显示标签完整保留。",
+      "testContext": {
+        "attacker": "Object 140",
+        "shell": "D-54 破甲弹",
+        "shellTypeCode": null,
+        "shellTypeLabel": null,
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 380,
+        "impactAngleDegrees": null,
+        "sourceTime": 1070.033,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "sourceGameVersion": null,
+        "caseId": "ussr_is_7:BV1SPmEBJE3y:1070033",
+        "note": "主图1062秒下拉未应用，不作为试射条件；这里展示1070.033秒独立案例：Object 140原标签D-54破甲弹、0米380毫米，规范型号和弹型未知。"
+      },
+      "testContextEvidence": {
+        "id": "ussr_is_7:BV1SPmEBJE3y:1070033",
+        "vehicleId": "ussr_is_7",
+        "sourceTime": 1070.033,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "attackerEnglishName": "Object 140",
+        "attackerCountry": "USSR",
+        "shell": "D-54 破甲弹",
+        "sourceShellLabelOriginal": "D-54 破甲弹",
+        "normalizedShellName": null,
+        "shellType": null,
+        "shellTypeEvidence": null,
+        "sourceShellTypeLabelOriginal": "破甲弹",
+        "sourceShellNormalizationStatus": "original-label-only-no-guessed-3BK-code",
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 380,
+        "sourceGameVersion": null,
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/023.json",
+        "proofSHA256": "9b48348ede1cf31a61dd8bfe66f940adbc4eaeff36008deb61690a39b0a2b4d4",
+        "sourceFrameSHA256": "e690c6cfbe628cef7c257ce5be7da64fa26f2662e7955c5c5f25e71c0137496d",
+        "frameSha256": "7e53e7f892b3c4309c2b473a09e8f8a31d8a1088805d506bece5eac60a0f23c6",
+        "conditionSource": "Actual selected left attack-source menu; IS7 original shell label independently cropped, no standard-round code or HEATFS inferred."
+      },
+      "imageViewDetail": "front-elevated"
     },
     {
       "id": "ussr_object_279",
@@ -6582,9 +7005,45 @@
       "eraBasis": "M1艾布拉姆斯的XM1方案于1976年选定，采用105毫米M68A1，防护与机动较M60改善。",
       "collectedAt": "2026-11-02T09:54:00.944Z",
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "videoAdvice": [
+        {
+          "caseId": "us_m1_abrams:BV1CueU6cECo:370000",
+          "sourceTime": 370,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "unknown",
+          "mainImageMatchNote": "No clean main image selected.",
+          "text": "如果非要打裆的话，瞄准中间比较稳妥。",
+          "mechanism": "conditional-lower-front-center-recommendation",
+          "polarity": "positive-conditional",
+          "note": "明确条件句，仅下首正中，不泛化所有中间位置。",
+          "exactVisibleDOMSubtitle": "瞄准中间比较稳妥",
+          "subtitleEvidenceSelector": "bili-subtitle-x-subtitle-panel-major-group",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "time": 370,
+          "evidence": {
+            "caseId": "us_m1_abrams:BV1CueU6cECo:370000",
+            "sourceTime": 370,
+            "conditionMatch": "same-frame",
+            "mainImageMatch": "unknown",
+            "mainImageMatchNote": "No clean main image selected.",
+            "text": "如果非要打裆的话，瞄准中间比较稳妥。",
+            "mechanism": "conditional-lower-front-center-recommendation",
+            "polarity": "positive-conditional",
+            "note": "明确条件句，仅下首正中，不泛化所有中间位置。",
+            "exactVisibleDOMSubtitle": "瞄准中间比较稳妥",
+            "subtitleEvidenceSelector": "bili-subtitle-x-subtitle-panel-major-group",
+            "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/056.json"
+          },
+          "label": "首下中央条件建议"
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "status": "video-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/us_m1_abrams",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-009-20261102/snapshots/us_m1_abrams.json",
@@ -6605,8 +7064,143 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。"
-      ]
+        "尚未绑定经审核的清洁正面主图和对应外部区域坐标。"
+      ],
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "testCases": [
+        {
+          "id": "us_m1_abrams:BV1CueU6cECo:370000",
+          "vehicleId": "us_m1_abrams",
+          "attackerVehicleId": "jp_type_90",
+          "attackerEnglishName": "Type 90",
+          "attackerCountry": "JPN",
+          "shell": "JM33",
+          "shellType": "APFSDS",
+          "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+          "shellTypeEvidence": {
+            "key": "JM33",
+            "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+            "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6"
+          },
+          "distanceMeters": 300,
+          "displayedPenetrationMm": 476,
+          "sourceTime": 370,
+          "sourceGameVersion": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceFrameSHA256": "fbb63726db3e931bcbeffeb94e8462887ddeb04c0f31781c4d1d1383cd3028a3",
+          "proofSHA256": "3fff5c3b169b389f1885d7de1a7f9f401997559963a55ab54b411d9f50428859",
+          "conditionSource": "Actual selected attack-source vehicle/shell/distance/penetration UI read from this frame; not the author heading",
+          "headingDistanceMeters": 500,
+          "conditionConflict": {
+            "kind": "heading-vs-game-ui",
+            "headingDistanceMeters": 500,
+            "actualUIDistanceMeters": 300,
+            "actualUIPenetrationMm": 476,
+            "preferred": "actual-game-ui",
+            "note": "作者烧字500米，但M1帧实际游戏菜单300米；不抹平矛盾。"
+          },
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "attacker": "Type 90",
+          "impactAngleDegrees": null,
+          "verificationStatus": "verified"
+        }
+      ],
+      "testCaseEvidence": {
+        "us_m1_abrams:BV1CueU6cECo:370000": {
+          "id": "us_m1_abrams:BV1CueU6cECo:370000",
+          "vehicleId": "us_m1_abrams",
+          "attackerVehicleId": "jp_type_90",
+          "attackerEnglishName": "Type 90",
+          "attackerCountry": "JPN",
+          "shell": "JM33",
+          "shellType": "APFSDS",
+          "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+          "shellTypeEvidence": {
+            "file": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/type-proofs.json",
+            "key": "JM33",
+            "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+            "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6"
+          },
+          "distanceMeters": 300,
+          "displayedPenetrationMm": 476,
+          "sourceTime": 370,
+          "sourceGameVersion": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceFrameSHA256": "fbb63726db3e931bcbeffeb94e8462887ddeb04c0f31781c4d1d1383cd3028a3",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/056.json",
+          "proofSHA256": "3fff5c3b169b389f1885d7de1a7f9f401997559963a55ab54b411d9f50428859",
+          "conditionSource": "Actual selected attack-source vehicle/shell/distance/penetration UI read from this frame; not the author heading",
+          "headingDistanceMeters": 500,
+          "conditionConflict": {
+            "kind": "heading-vs-game-ui",
+            "headingDistanceMeters": 500,
+            "actualUIDistanceMeters": 300,
+            "actualUIPenetrationMm": 476,
+            "preferred": "actual-game-ui",
+            "note": "作者烧字500米，但M1帧实际游戏菜单300米；不抹平矛盾。"
+          }
+        }
+      },
+      "limits": "4K仅提升原件分辨率，不改变透视画面的主图适用性。；所有具体建议逐case绑定，版本未独立读出留null。；IPM1比较句不是独立正向射击证明。",
+      "testContext": {
+        "attacker": "Type 90",
+        "attackerVehicleId": "jp_type_90",
+        "shell": "JM33",
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "distanceMeters": 300,
+        "displayedPenetrationMm": 476,
+        "impactAngleDegrees": null,
+        "sourceTime": 370,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "sourceGameVersion": null,
+        "caseId": "us_m1_abrams:BV1CueU6cECo:370000",
+        "note": "仅视频370秒案例，尚未绑定主图：实际游戏UI为Type 90/JM33、300米、476毫米，作者烧字写500米；保留冲突，以实际UI为本案例条件，不统一为500米。未来独立主图不自动继承该条件。",
+        "conditionConflict": {
+          "kind": "heading-vs-game-ui",
+          "headingDistanceMeters": 500,
+          "actualUIDistanceMeters": 300,
+          "actualUIPenetrationMm": 476,
+          "preferred": "actual-game-ui",
+          "note": "作者烧字500米，但M1帧实际游戏菜单300米；不抹平矛盾。"
+        }
+      },
+      "testContextEvidence": {
+        "id": "us_m1_abrams:BV1CueU6cECo:370000",
+        "vehicleId": "us_m1_abrams",
+        "attackerVehicleId": "jp_type_90",
+        "attackerEnglishName": "Type 90",
+        "attackerCountry": "JPN",
+        "shell": "JM33",
+        "shellType": "APFSDS",
+        "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+        "shellTypeEvidence": {
+          "file": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/type-proofs.json",
+          "key": "JM33",
+          "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+          "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6"
+        },
+        "distanceMeters": 300,
+        "displayedPenetrationMm": 476,
+        "sourceTime": 370,
+        "sourceGameVersion": null,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "sourceFrameSHA256": "fbb63726db3e931bcbeffeb94e8462887ddeb04c0f31781c4d1d1383cd3028a3",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/056.json",
+        "proofSHA256": "3fff5c3b169b389f1885d7de1a7f9f401997559963a55ab54b411d9f50428859",
+        "conditionSource": "Actual selected attack-source vehicle/shell/distance/penetration UI read from this frame; not the author heading",
+        "headingDistanceMeters": 500,
+        "conditionConflict": {
+          "kind": "heading-vs-game-ui",
+          "headingDistanceMeters": 500,
+          "actualUIDistanceMeters": 300,
+          "actualUIPenetrationMm": 476,
+          "preferred": "actual-game-ui",
+          "note": "作者烧字500米，但M1帧实际游戏菜单300米；不抹平矛盾。"
+        }
+      }
     },
     {
       "id": "ussr_t_72b_1989",
@@ -7180,6 +7774,1227 @@
       ],
       "completeIllustration": true,
       "limits": "主图540秒，正向建议分别来自543/546秒；各自测试case同帧，但与主图不同片段，字段已分开。；炮闩标点表示炮根对应方向，不保证JM33命中任何炮盾位置都能伤及炮闩。；未沿用到2A4/2A4M/2A5；不同改型各自归档。；源版本未独立读取留null，不能泛化所有弹药距离。"
+    },
+    {
+      "id": "us_m1_ip_abrams",
+      "name": "IPM1",
+      "role": "主战坦克",
+      "country": "usa",
+      "countryName": "美国",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "cold-war",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "IPM1为1984至86年生产的改进型，保留105毫米M68A1炮，基础至王牌装填6.5至5秒、待发弹22发，增强炮塔脸颊复合装甲。",
+      "collectedAt": "2026-11-02T12:54:27.857Z",
+      "wikiUrl": "https://wiki.warthunder.com/unit/us_m1_ip_abrams",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/abrams-three-20261102/snapshots/us_m1_ip_abrams.json",
+      "wikiSnapshotSHA256": "84d03d8e0100fb3b26703f52202eabb070c64ae51be0327b361a0c57c99a7de9",
+      "wikiSummary": "IPM1为1984至86年生产的改进型，保留105毫米M68A1炮，基础至王牌装填6.5至5秒、待发弹22发，增强炮塔脸颊复合装甲。",
+      "wikiPoints": [
+        "Wiki直接指出车体装甲未改善，大面积炮塔座圈仍是显著弱点。",
+        "炮塔脸颊防护提升不代表座圈或车体同步增强；没有具体弹种、角度、距离或坐标。",
+        "本型不是120毫米M1A1，M900攻击能力不作为自身防护阈值。"
+      ],
+      "reload": {
+        "display": "6.5 → 5 秒",
+        "gun": "105 mm M68A1 cannon",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "explicit-location",
+      "qualitativeWeakpoints": [],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "status": "video-reviewed-awaiting-front-image",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "testCases": [
+        {
+          "id": "us_m1_ip_abrams:BV1CueU6cECo:380017",
+          "vehicleId": "us_m1_ip_abrams",
+          "attackerVehicleId": "jp_type_90b",
+          "attackerEnglishName": "Type 90 (B)",
+          "attackerCountry": "JPN",
+          "shell": "JM33",
+          "shellType": "APFSDS",
+          "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+          "shellTypeEvidence": {
+            "key": "JM33",
+            "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+            "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6"
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 380.016687,
+          "sourceGameVersion": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceFrameSHA256": "fa8978c4c9d04926baa2ee2ed88f2f5c4ac426f650f379569a837579b3b8cc17",
+          "proofSHA256": "ba32e02b472135e8eb6c45f9b0af5a80cb2764d161dda38c466b2d4e33117c89",
+          "conditionSource": "Actual selected attack-source vehicle/shell/distance/penetration UI read from this frame; not the author heading",
+          "headingDistanceMeters": 500,
+          "conditionConflict": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "attacker": "Type 90 (B)",
+          "impactAngleDegrees": null,
+          "verificationStatus": "verified"
+        },
+        {
+          "id": "us_m1_ip_abrams:BV1CueU6cECo:390017",
+          "vehicleId": "us_m1_ip_abrams",
+          "attackerVehicleId": "jp_type_90b",
+          "attackerEnglishName": "Type 90 (B)",
+          "attackerCountry": "JPN",
+          "shell": "JM33",
+          "shellType": "APFSDS",
+          "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+          "shellTypeEvidence": {
+            "key": "JM33",
+            "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+            "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6"
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 390.016687,
+          "sourceGameVersion": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceFrameSHA256": "8cbc7d8ebfadb09a3b1a2696c1120186ae2cf977ff88c3e4aea623f17feb886a",
+          "proofSHA256": "bab57cd42d1c08e450ef6f13206dc5c39f2bf469927cfc1f37f081930927c1fb",
+          "conditionSource": "Actual selected attack-source vehicle/shell/distance/penetration UI read from this frame; not the author heading",
+          "headingDistanceMeters": 500,
+          "conditionConflict": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "attacker": "Type 90 (B)",
+          "impactAngleDegrees": null,
+          "verificationStatus": "verified"
+        }
+      ],
+      "testCaseEvidence": {
+        "us_m1_ip_abrams:BV1CueU6cECo:380017": {
+          "id": "us_m1_ip_abrams:BV1CueU6cECo:380017",
+          "vehicleId": "us_m1_ip_abrams",
+          "attackerVehicleId": "jp_type_90b",
+          "attackerEnglishName": "Type 90 (B)",
+          "attackerCountry": "JPN",
+          "shell": "JM33",
+          "shellType": "APFSDS",
+          "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+          "shellTypeEvidence": {
+            "file": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/type-proofs.json",
+            "key": "JM33",
+            "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+            "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6"
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 380.016687,
+          "sourceGameVersion": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceFrameSHA256": "fa8978c4c9d04926baa2ee2ed88f2f5c4ac426f650f379569a837579b3b8cc17",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/029.json",
+          "proofSHA256": "ba32e02b472135e8eb6c45f9b0af5a80cb2764d161dda38c466b2d4e33117c89",
+          "conditionSource": "Actual selected attack-source vehicle/shell/distance/penetration UI read from this frame; not the author heading",
+          "headingDistanceMeters": 500,
+          "conditionConflict": null
+        },
+        "us_m1_ip_abrams:BV1CueU6cECo:390017": {
+          "id": "us_m1_ip_abrams:BV1CueU6cECo:390017",
+          "vehicleId": "us_m1_ip_abrams",
+          "attackerVehicleId": "jp_type_90b",
+          "attackerEnglishName": "Type 90 (B)",
+          "attackerCountry": "JPN",
+          "shell": "JM33",
+          "shellType": "APFSDS",
+          "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+          "shellTypeEvidence": {
+            "file": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/type-proofs.json",
+            "key": "JM33",
+            "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+            "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6"
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 390.016687,
+          "sourceGameVersion": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceFrameSHA256": "8cbc7d8ebfadb09a3b1a2696c1120186ae2cf977ff88c3e4aea623f17feb886a",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/057.json",
+          "proofSHA256": "bab57cd42d1c08e450ef6f13206dc5c39f2bf469927cfc1f37f081930927c1fb",
+          "conditionSource": "Actual selected attack-source vehicle/shell/distance/penetration UI read from this frame; not the author heading",
+          "headingDistanceMeters": 500,
+          "conditionConflict": null
+        }
+      },
+      "videoAdvice": [
+        {
+          "caseId": "us_m1_ip_abrams:BV1CueU6cECo:380017",
+          "sourceTime": 380.016687,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "unknown",
+          "mainImageMatchNote": "No clean main image selected.",
+          "text": "本段表示右脸在正常交战距离难以击穿。",
+          "mechanism": "negative-turret-cheek-penetration",
+          "polarity": "negative",
+          "note": "右脸方向/具体区域未另定UV；不从这句推导其它脸一定可穿。",
+          "exactVisibleDOMSubtitle": "可以看到右脸在正常交战距离",
+          "subtitleEvidenceSelector": "bili-subtitle-x-subtitle-panel-major-group",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "time": 380.016687,
+          "evidence": {
+            "caseId": "us_m1_ip_abrams:BV1CueU6cECo:380017",
+            "sourceTime": 380.016687,
+            "conditionMatch": "same-frame",
+            "mainImageMatch": "unknown",
+            "mainImageMatchNote": "No clean main image selected.",
+            "text": "本段表示右脸在正常交战距离难以击穿。",
+            "mechanism": "negative-turret-cheek-penetration",
+            "polarity": "negative",
+            "note": "右脸方向/具体区域未另定UV；不从这句推导其它脸一定可穿。",
+            "exactVisibleDOMSubtitle": "可以看到右脸在正常交战距离",
+            "subtitleEvidenceSelector": "bili-subtitle-x-subtitle-panel-major-group",
+            "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/029.json"
+          },
+          "label": "炮塔右脸：负向提醒"
+        },
+        {
+          "caseId": "us_m1_ip_abrams:BV1CueU6cECo:390017",
+          "sourceTime": 390.016687,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "unknown",
+          "mainImageMatchNote": "No clean main image selected.",
+          "text": "车体和脖子的防护与前述M1基本一致。",
+          "mechanism": "comparative-context-not-independent-shot-recommendation",
+          "polarity": "comparison",
+          "note": "保留为比较，不把M1的推荐自动复制成IPM1独立完成攻略。",
+          "exactVisibleDOMSubtitle": "车体和脖子的防护与10.7的基本一致",
+          "subtitleEvidenceSelector": "bili-subtitle-x-subtitle-panel-major-group",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "time": 390.016687,
+          "evidence": {
+            "caseId": "us_m1_ip_abrams:BV1CueU6cECo:390017",
+            "sourceTime": 390.016687,
+            "conditionMatch": "same-frame",
+            "mainImageMatch": "unknown",
+            "mainImageMatchNote": "No clean main image selected.",
+            "text": "车体和脖子的防护与前述M1基本一致。",
+            "mechanism": "comparative-context-not-independent-shot-recommendation",
+            "polarity": "comparison",
+            "note": "保留为比较，不把M1的推荐自动复制成IPM1独立完成攻略。",
+            "exactVisibleDOMSubtitle": "车体和脖子的防护与10.7的基本一致",
+            "subtitleEvidenceSelector": "bili-subtitle-x-subtitle-panel-major-group",
+            "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/057.json"
+          },
+          "label": "车体与座圈：比较说明"
+        }
+      ],
+      "missingEvidence": [
+        "尚未绑定经审核的清洁正面主图和对应外部区域坐标。"
+      ],
+      "limits": "4K仅提升原件分辨率，不改变透视画面的主图适用性。；所有具体建议逐case绑定，版本未独立读出留null。；IPM1比较句不是独立正向射击证明。",
+      "testContext": {
+        "attacker": "Type 90 (B)",
+        "attackerVehicleId": "jp_type_90b",
+        "shell": "JM33",
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "impactAngleDegrees": null,
+        "sourceTime": 380.016687,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "sourceGameVersion": null,
+        "caseId": "us_m1_ip_abrams:BV1CueU6cECo:380017",
+        "note": "仅展示已验证的视频案例条件，尚未绑定主图；其他建议仍以各自案例和连续片段来源为准，不继承到未来独立主图。"
+      },
+      "testContextEvidence": {
+        "id": "us_m1_ip_abrams:BV1CueU6cECo:380017",
+        "vehicleId": "us_m1_ip_abrams",
+        "attackerVehicleId": "jp_type_90b",
+        "attackerEnglishName": "Type 90 (B)",
+        "attackerCountry": "JPN",
+        "shell": "JM33",
+        "shellType": "APFSDS",
+        "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+        "shellTypeEvidence": {
+          "file": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/type-proofs.json",
+          "key": "JM33",
+          "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+          "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6"
+        },
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceTime": 380.016687,
+        "sourceGameVersion": null,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "sourceFrameSHA256": "fa8978c4c9d04926baa2ee2ed88f2f5c4ac426f650f379569a837579b3b8cc17",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/029.json",
+        "proofSHA256": "ba32e02b472135e8eb6c45f9b0af5a80cb2764d161dda38c466b2d4e33117c89",
+        "conditionSource": "Actual selected attack-source vehicle/shell/distance/penetration UI read from this frame; not the author heading",
+        "headingDistanceMeters": 500,
+        "conditionConflict": null
+      },
+      "pins": []
+    },
+    {
+      "id": "us_m1a1_aim_abrams",
+      "name": "M1A1 SA",
+      "role": "主战坦克",
+      "country": "usa",
+      "countryName": "美国",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": null,
+      "eraStatus": "pending-exact-variant-date-review",
+      "eraBasis": "只给出AIM/SA现代化功能及2007年服役，没有具体技术改型形成日期；不以采购/服役代填。",
+      "collectedAt": "2026-11-02T12:54:33.672Z",
+      "wikiUrl": "https://wiki.warthunder.com/unit/us_m1a1_aim_abrams",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/abrams-three-20261102/snapshots/us_m1a1_aim_abrams.json",
+      "wikiSnapshotSHA256": "12bdbf9149de37511bbc8218cb52841b693364bc8190545670e849f0dad4ac7e",
+      "wikiSummary": "当前Wiki标题M1A1 SA，遗留unit ID仍为us_m1a1_aim_abrams；正文直接说明AIM改装车亦称SA，采用120毫米M256炮，装填6.5至5秒、待发弹17发。",
+      "wikiPoints": [
+        "SA与AIM别名由该精确页直接关联，不能把HC或Clickbait资料混入。",
+        "本页说明增加传感器和通信平台、改进装甲阵列与火控，但没有直接指定局部薄弱位置。",
+        "2007年为澳军服役日期，不能代替技术改型形成日期，时代暂null。",
+        "KEW与M829A1是攻击弹药比较，不替视频实际弹种或穿深。"
+      ],
+      "reload": {
+        "display": "6.5 → 5 秒",
+        "gun": "120 mm M256 cannon",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "status": "video-reviewed-awaiting-front-image",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "testCases": [
+        {
+          "id": "us_m1a1_aim_abrams:BV1CueU6cECo:405017",
+          "vehicleId": "us_m1a1_aim_abrams",
+          "attackerVehicleId": "jp_type_90b",
+          "attackerEnglishName": "Type 90 (B)",
+          "attackerCountry": "JPN",
+          "shell": "JM33",
+          "shellType": "APFSDS",
+          "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+          "shellTypeEvidence": {
+            "key": "JM33",
+            "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+            "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6"
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 405.016687,
+          "sourceGameVersion": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceFrameSHA256": "db01a4bc955b0fefb8f205d2a07d5f48be6bdb6a618ab7c546027bc49d9c09b1",
+          "proofSHA256": "54b7be2fcaf37e4f62e9516dc509a7a0b7b7e00537dce6842590482de0dbd52e",
+          "conditionSource": "Actual selected attack-source vehicle/shell/distance/penetration UI read from this frame; not the author heading",
+          "headingDistanceMeters": 500,
+          "conditionConflict": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "attacker": "Type 90 (B)",
+          "impactAngleDegrees": null,
+          "verificationStatus": "verified"
+        },
+        {
+          "id": "us_m1a1_aim_abrams:BV1CueU6cECo:410033",
+          "vehicleId": "us_m1a1_aim_abrams",
+          "attackerVehicleId": "jp_type_90b",
+          "attackerEnglishName": "Type 90 (B)",
+          "attackerCountry": "JPN",
+          "shell": "JM33",
+          "shellType": "APFSDS",
+          "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+          "shellTypeEvidence": {
+            "key": "JM33",
+            "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+            "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6"
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 410.033312,
+          "sourceGameVersion": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceFrameSHA256": "3efee14cd7dbcda0dece7cb7098b66261e73554d55ff908dc98639aef8c3da3e",
+          "proofSHA256": "386f607d95c3b7136a3d112bb03f8bc991fbc2dc6cdf895c636ffccb9be6a922",
+          "conditionSource": "Actual selected attack-source vehicle/shell/distance/penetration UI read from this frame; not the author heading",
+          "headingDistanceMeters": 500,
+          "conditionConflict": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "attacker": "Type 90 (B)",
+          "impactAngleDegrees": null,
+          "verificationStatus": "verified"
+        }
+      ],
+      "testCaseEvidence": {
+        "us_m1a1_aim_abrams:BV1CueU6cECo:405017": {
+          "id": "us_m1a1_aim_abrams:BV1CueU6cECo:405017",
+          "vehicleId": "us_m1a1_aim_abrams",
+          "attackerVehicleId": "jp_type_90b",
+          "attackerEnglishName": "Type 90 (B)",
+          "attackerCountry": "JPN",
+          "shell": "JM33",
+          "shellType": "APFSDS",
+          "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+          "shellTypeEvidence": {
+            "file": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/type-proofs.json",
+            "key": "JM33",
+            "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+            "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6"
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 405.016687,
+          "sourceGameVersion": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceFrameSHA256": "db01a4bc955b0fefb8f205d2a07d5f48be6bdb6a618ab7c546027bc49d9c09b1",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/031.json",
+          "proofSHA256": "54b7be2fcaf37e4f62e9516dc509a7a0b7b7e00537dce6842590482de0dbd52e",
+          "conditionSource": "Actual selected attack-source vehicle/shell/distance/penetration UI read from this frame; not the author heading",
+          "headingDistanceMeters": 500,
+          "conditionConflict": null
+        },
+        "us_m1a1_aim_abrams:BV1CueU6cECo:410033": {
+          "id": "us_m1a1_aim_abrams:BV1CueU6cECo:410033",
+          "vehicleId": "us_m1a1_aim_abrams",
+          "attackerVehicleId": "jp_type_90b",
+          "attackerEnglishName": "Type 90 (B)",
+          "attackerCountry": "JPN",
+          "shell": "JM33",
+          "shellType": "APFSDS",
+          "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+          "shellTypeEvidence": {
+            "file": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/type-proofs.json",
+            "key": "JM33",
+            "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+            "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6"
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceTime": 410.033312,
+          "sourceGameVersion": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceFrameSHA256": "3efee14cd7dbcda0dece7cb7098b66261e73554d55ff908dc98639aef8c3da3e",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/059.json",
+          "proofSHA256": "386f607d95c3b7136a3d112bb03f8bc991fbc2dc6cdf895c636ffccb9be6a922",
+          "conditionSource": "Actual selected attack-source vehicle/shell/distance/penetration UI read from this frame; not the author heading",
+          "headingDistanceMeters": 500,
+          "conditionConflict": null
+        }
+      },
+      "videoAdvice": [
+        {
+          "caseId": "us_m1a1_aim_abrams:BV1CueU6cECo:405017",
+          "sourceTime": 405.016687,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "unknown",
+          "mainImageMatchNote": "No clean main image selected.",
+          "text": "本段表示两侧脸都没有打穿的可能。",
+          "mechanism": "negative-bilateral-cheek-penetration",
+          "polarity": "negative",
+          "note": "仅此弹种/距离演示条件，不解读为对所有炮弹绝对免疫。",
+          "exactVisibleDOMSubtitle": "可以看到无论是哪边的脸都没有打穿的可能了",
+          "subtitleEvidenceSelector": "bili-subtitle-x-subtitle-panel-major-group",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "time": 405.016687,
+          "evidence": {
+            "caseId": "us_m1a1_aim_abrams:BV1CueU6cECo:405017",
+            "sourceTime": 405.016687,
+            "conditionMatch": "same-frame",
+            "mainImageMatch": "unknown",
+            "mainImageMatchNote": "No clean main image selected.",
+            "text": "本段表示两侧脸都没有打穿的可能。",
+            "mechanism": "negative-bilateral-cheek-penetration",
+            "polarity": "negative",
+            "note": "仅此弹种/距离演示条件，不解读为对所有炮弹绝对免疫。",
+            "exactVisibleDOMSubtitle": "可以看到无论是哪边的脸都没有打穿的可能了",
+            "subtitleEvidenceSelector": "bili-subtitle-x-subtitle-panel-major-group",
+            "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/031.json"
+          },
+          "label": "炮塔双脸：负向提醒"
+        },
+        {
+          "caseId": "us_m1a1_aim_abrams:BV1CueU6cECo:410033",
+          "sourceTime": 410.033312,
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "unknown",
+          "mainImageMatchNote": "No clean main image selected.",
+          "text": "正面遇到时，作者建议先损坏火炮，或攻击脖子与车体正中间。",
+          "mechanism": "conditional-gun-disable-or-neck-center-hull-recommendation",
+          "polarity": "positive-conditional",
+          "note": "损坏火炮并非明确炮闩穿透，本段不给炮闩独立孔洞标点。",
+          "exactVisibleDOMSubtitle": "正面遇到了要么坏炮",
+          "subtitleEvidenceSelector": "bili-subtitle-x-subtitle-panel-major-group",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "time": 410.033312,
+          "evidence": {
+            "caseId": "us_m1a1_aim_abrams:BV1CueU6cECo:410033",
+            "sourceTime": 410.033312,
+            "conditionMatch": "same-frame",
+            "mainImageMatch": "unknown",
+            "mainImageMatchNote": "No clean main image selected.",
+            "text": "正面遇到时，作者建议先损坏火炮，或攻击脖子与车体正中间。",
+            "mechanism": "conditional-gun-disable-or-neck-center-hull-recommendation",
+            "polarity": "positive-conditional",
+            "note": "损坏火炮并非明确炮闩穿透，本段不给炮闩独立孔洞标点。",
+            "exactVisibleDOMSubtitle": "正面遇到了要么坏炮",
+            "subtitleEvidenceSelector": "bili-subtitle-x-subtitle-panel-major-group",
+            "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/059.json"
+          },
+          "label": "火炮与车体中央应对"
+        }
+      ],
+      "missingEvidence": [
+        "尚未绑定经审核的清洁正面主图和对应外部区域坐标。"
+      ],
+      "limits": "4K仅提升原件分辨率，不改变透视画面的主图适用性。；所有具体建议逐case绑定，版本未独立读出留null。；IPM1比较句不是独立正向射击证明。",
+      "testContext": {
+        "attacker": "Type 90 (B)",
+        "attackerVehicleId": "jp_type_90b",
+        "shell": "JM33",
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "impactAngleDegrees": null,
+        "sourceTime": 405.016687,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "sourceGameVersion": null,
+        "caseId": "us_m1a1_aim_abrams:BV1CueU6cECo:405017",
+        "note": "仅展示已验证的视频案例条件，尚未绑定主图；其他建议仍以各自案例和连续片段来源为准，不继承到未来独立主图。"
+      },
+      "testContextEvidence": {
+        "id": "us_m1a1_aim_abrams:BV1CueU6cECo:405017",
+        "vehicleId": "us_m1a1_aim_abrams",
+        "attackerVehicleId": "jp_type_90b",
+        "attackerEnglishName": "Type 90 (B)",
+        "attackerCountry": "JPN",
+        "shell": "JM33",
+        "shellType": "APFSDS",
+        "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+        "shellTypeEvidence": {
+          "file": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/type-proofs.json",
+          "key": "JM33",
+          "sourceUrl": "https://wiki.warthunder.com/unit/jp_type_10",
+          "sourceHtmlSha256": "d1de576e5c0c1b6a761b34cc06e060717aa425be0d8d1b713b15b095a7d2b4b6"
+        },
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceTime": 405.016687,
+        "sourceGameVersion": null,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "sourceFrameSHA256": "db01a4bc955b0fefb8f205d2a07d5f48be6bdb6a618ab7c546027bc49d9c09b1",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/031.json",
+        "proofSHA256": "54b7be2fcaf37e4f62e9516dc509a7a0b7b7e00537dce6842590482de0dbd52e",
+        "conditionSource": "Actual selected attack-source vehicle/shell/distance/penetration UI read from this frame; not the author heading",
+        "headingDistanceMeters": 500,
+        "conditionConflict": null
+      },
+      "pins": []
+    },
+    {
+      "id": "uk_ttd",
+      "name": "TTD",
+      "role": "主战坦克",
+      "country": "britain",
+      "countryName": "英国",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "TTD为南非坦克技术验证车，1980年代项目延续至1992年完成原型；主炮105毫米GT3，基础至王牌装填8.7至6.7秒，待发弹16发。",
+      "collectedAt": "2026-11-02T13:17:54.549Z",
+      "wikiUrl": "https://wiki.warthunder.com/unit/uk_ttd",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/british-enemies-20261102/snapshots/uk_ttd.json",
+      "wikiSnapshotSHA256": "3d6832dff73533211221357044d739339f34e807aaf782cbcd157bd4ae26d5ee",
+      "wikiSummary": "TTD为南非坦克技术验证车，1980年代项目延续至1992年完成原型；主炮105毫米GT3，基础至王牌装填8.7至6.7秒，待发弹16发。",
+      "wikiPoints": [
+        "Wiki提醒体积大、装甲防护一般，城市环境使用困难，但没有直接指定局部弱点。",
+        "DM63属于本车攻击弹药能力，不能当作本车被击穿条件。",
+        "年代以1992完成的具体原型为依据，项目始于80年代与具体原型时间分别保存。"
+      ],
+      "reload": {
+        "display": "8.7 → 6.7 秒",
+        "gun": "105 mm GT-3 cannon",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "status": "video-reviewed-awaiting-front-image",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "testCases": [
+        {
+          "id": "uk_ttd:BV1CueU6cECo:713017",
+          "vehicleId": "uk_ttd",
+          "sourceTime": 713.016687,
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerEnglishName": "Type 90 (B) \"Fuji\"",
+          "attackerCountry": "JPN",
+          "shell": "JM33",
+          "shellType": "APFSDS",
+          "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "conditionSource": "Actual per-model native4K attack-source UI read; independent native-attack.webp proof.",
+          "nativeAttackCropSHA256": "7b4debf9a418850866d5bd3ab9da1464f056e6bfe84494e37894fde759c31213",
+          "proofSHA256": "34fd184be2f9a29e3b3dd1994b86f9b4049ffc27c1a1a4427c86ab86e0600100",
+          "sourceFrameSHA256": "67da6896c1a793e8566b8837baa075526c1180bade737259aa9cf0d5a6f8b970",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "attacker": "Type 90 (B) \"Fuji\"",
+          "impactAngleDegrees": null,
+          "verificationStatus": "verified"
+        }
+      ],
+      "testCaseEvidence": {
+        "uk_ttd:BV1CueU6cECo:713017": {
+          "id": "uk_ttd:BV1CueU6cECo:713017",
+          "vehicleId": "uk_ttd",
+          "sourceTime": 713.016687,
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerEnglishName": "Type 90 (B) \"Fuji\"",
+          "attackerCountry": "JPN",
+          "shell": "JM33",
+          "shellType": "APFSDS",
+          "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+          "shellTypeProof": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/type-proofs.json",
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "conditionSource": "Actual per-model native4K attack-source UI read; independent native-attack.webp proof.",
+          "nativeAttackCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/offline-analysis/uk_ttd-native-attack.webp",
+          "nativeAttackCropSHA256": "7b4debf9a418850866d5bd3ab9da1464f056e6bfe84494e37894fde759c31213",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/010.json",
+          "proofSHA256": "34fd184be2f9a29e3b3dd1994b86f9b4049ffc27c1a1a4427c86ab86e0600100",
+          "sourceFrameSHA256": "67da6896c1a793e8566b8837baa075526c1180bade737259aa9cf0d5a6f8b970",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/"
+        }
+      },
+      "videoAdvice": [
+        {
+          "text": "炮塔规则不等于容易击穿，本段提醒打炮塔可能未击穿并遭反击。",
+          "sourceTime": 707.514,
+          "mechanism": "negative-turret-resistance",
+          "polarity": "negative",
+          "caseId": "uk_ttd:BV1CueU6cECo:713017",
+          "conditionMatch": "verified-continuous-segment",
+          "mainImageMatch": "unknown",
+          "conditionMatchEvidence": {
+            "sha256": "6807d784d5806ca341b460160b60188862866a85b5fec5db5807d02695616d9e",
+            "targetWindow": [
+              702,
+              716.1
+            ],
+            "note": "0.5秒正常播放实际currentTime采样，显示文字起止为观测边界，不冒充精确字幕起止。"
+          },
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "time": 707.514,
+          "evidence": {
+            "text": "炮塔规则不等于容易击穿，本段提醒打炮塔可能未击穿并遭反击。",
+            "sourceTime": 707.514,
+            "mechanism": "negative-turret-resistance",
+            "polarity": "negative",
+            "caseId": "uk_ttd:BV1CueU6cECo:713017",
+            "conditionMatch": "verified-continuous-segment",
+            "mainImageMatch": "unknown",
+            "conditionMatchEvidence": {
+              "continuousSubtitleFile": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/multination-enemies-0701-0756-normal-playback-subtitles.json",
+              "sha256": "6807d784d5806ca341b460160b60188862866a85b5fec5db5807d02695616d9e",
+              "targetWindow": [
+                702,
+                716.1
+              ],
+              "note": "0.5秒正常播放实际currentTime采样，显示文字起止为观测边界，不冒充精确字幕起止。"
+            }
+          },
+          "label": "炮塔防护提醒"
+        },
+        {
+          "text": "遇到本段TTD，作者建议攻击车体。",
+          "sourceTime": 713.549,
+          "mechanism": "conditional-hull-recommendation",
+          "polarity": "positive-conditional",
+          "caseId": "uk_ttd:BV1CueU6cECo:713017",
+          "conditionMatch": "verified-continuous-segment",
+          "mainImageMatch": "unknown",
+          "conditionMatchEvidence": {
+            "sha256": "6807d784d5806ca341b460160b60188862866a85b5fec5db5807d02695616d9e",
+            "targetWindow": [
+              702,
+              716.1
+            ],
+            "note": "0.5秒正常播放实际currentTime采样，显示文字起止为观测边界，不冒充精确字幕起止。"
+          },
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "time": 713.549,
+          "evidence": {
+            "text": "遇到本段TTD，作者建议攻击车体。",
+            "sourceTime": 713.549,
+            "mechanism": "conditional-hull-recommendation",
+            "polarity": "positive-conditional",
+            "caseId": "uk_ttd:BV1CueU6cECo:713017",
+            "conditionMatch": "verified-continuous-segment",
+            "mainImageMatch": "unknown",
+            "conditionMatchEvidence": {
+              "continuousSubtitleFile": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/multination-enemies-0701-0756-normal-playback-subtitles.json",
+              "sha256": "6807d784d5806ca341b460160b60188862866a85b5fec5db5807d02695616d9e",
+              "targetWindow": [
+                702,
+                716.1
+              ],
+              "note": "0.5秒正常播放实际currentTime采样，显示文字起止为观测边界，不冒充精确字幕起止。"
+            }
+          },
+          "label": "车体攻击建议"
+        }
+      ],
+      "missingEvidence": [
+        "尚未绑定经审核的清洁正面主图和对应外部区域坐标。"
+      ],
+      "limits": "",
+      "testContext": {
+        "attacker": "Type 90 (B) \"Fuji\"",
+        "attackerVehicleId": "jp_type_90b_camo",
+        "shell": "JM33",
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "impactAngleDegrees": null,
+        "sourceTime": 713.016687,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "sourceGameVersion": null,
+        "caseId": "uk_ttd:BV1CueU6cECo:713017",
+        "note": "仅展示已验证的视频案例条件，尚未绑定主图；其他建议仍以各自案例和连续片段来源为准，不继承到未来独立主图。"
+      },
+      "testContextEvidence": {
+        "id": "uk_ttd:BV1CueU6cECo:713017",
+        "vehicleId": "uk_ttd",
+        "sourceTime": 713.016687,
+        "attackerVehicleId": "jp_type_90b_camo",
+        "attackerEnglishName": "Type 90 (B) \"Fuji\"",
+        "attackerCountry": "JPN",
+        "shell": "JM33",
+        "shellType": "APFSDS",
+        "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+        "shellTypeProof": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/type-proofs.json",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceGameVersion": null,
+        "conditionSource": "Actual per-model native4K attack-source UI read; independent native-attack.webp proof.",
+        "nativeAttackCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/offline-analysis/uk_ttd-native-attack.webp",
+        "nativeAttackCropSHA256": "7b4debf9a418850866d5bd3ab9da1464f056e6bfe84494e37894fde759c31213",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/010.json",
+        "proofSHA256": "34fd184be2f9a29e3b3dd1994b86f9b4049ffc27c1a1a4427c86ab86e0600100",
+        "sourceFrameSHA256": "67da6896c1a793e8566b8837baa075526c1180bade737259aa9cf0d5a6f8b970",
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/"
+      },
+      "pins": []
+    },
+    {
+      "id": "uk_challenger_mk_3",
+      "name": "Challenger Mk.3",
+      "role": "主战坦克",
+      "country": "britain",
+      "countryName": "英国",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "cold-war",
+      "eraStatus": "reviewed-base-variant-relationship",
+      "eraBasis": "按已核对Challenger基型衍生关系归入冷战技术类别；Mk3具体形成年份未知，不继承其他改型弱点。",
+      "collectedAt": "2026-11-02T13:17:46.409Z",
+      "wikiUrl": "https://wiki.warthunder.com/unit/uk_challenger_mk_3",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/british-enemies-20261102/snapshots/uk_challenger_mk_3.json",
+      "wikiSnapshotSHA256": "88e8a10274616c1b917ed653ece40749fa0b451545a9f963ada7ad6fce83d1a8",
+      "wikiSummary": "挑战者Mk3保留Mk2的120毫米L11A5炮和发动机，基础至王牌装填6.5至5秒、待发弹4发；新增首下与侧面ROMORA反应装甲和弹药储存区钢装甲。",
+      "wikiPoints": [
+        "首下ERA及弹药区附甲是本精确车型的防护配置，不把Mk2首下弱点不经验证直接复制。",
+        "本页未给具体技术改型形成日期，不能用游戏引入年份推断，年代保留null。",
+        "增重降低机动与加速，没有明确局部击穿位置与射击条件。"
+      ],
+      "reload": {
+        "display": "6.5 → 5 秒",
+        "gun": "120 mm L11A5 cannon",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "explicit-protection-context",
+      "qualitativeWeakpoints": [],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1tQ8t6TE9h/",
+        "title": "大英真正的顶级防主站——挑战者 mk3",
+        "author": "辅-辅",
+        "publishedAt": "2026-08-23T20:58:43+08:00"
+      },
+      "status": "review-sample",
+      "completeIllustration": true,
+      "mainImageUsable": true,
+      "testCases": [
+        {
+          "id": "uk_challenger_mk_3:BV1CueU6cECo:727017",
+          "vehicleId": "uk_challenger_mk_3",
+          "sourceTime": 727.016687,
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerEnglishName": "Type 90 (B) \"Fuji\"",
+          "attackerCountry": "JPN",
+          "shell": "JM33",
+          "shellType": "APFSDS",
+          "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "conditionSource": "Actual per-model native4K attack-source UI read; independent native-attack.webp proof.",
+          "nativeAttackCropSHA256": "076f73a705ce02a84ca2227db0d2ce217c239d463a8e9cc2d95cacd82cc50709",
+          "proofSHA256": "6db75ce5701f28fbb8e4cbcb8e6c76f75c3d939656432be77f06df3d76119c85",
+          "sourceFrameSHA256": "336e8f1abfba92d7248e8d744f087cf2127f61b60eec1b3ceb17e0506af93820",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "attacker": "Type 90 (B) \"Fuji\"",
+          "impactAngleDegrees": null,
+          "verificationStatus": "verified"
+        }
+      ],
+      "testCaseEvidence": {
+        "uk_challenger_mk_3:BV1CueU6cECo:727017": {
+          "id": "uk_challenger_mk_3:BV1CueU6cECo:727017",
+          "vehicleId": "uk_challenger_mk_3",
+          "sourceTime": 727.016687,
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerEnglishName": "Type 90 (B) \"Fuji\"",
+          "attackerCountry": "JPN",
+          "shell": "JM33",
+          "shellType": "APFSDS",
+          "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+          "shellTypeProof": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/type-proofs.json",
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "conditionSource": "Actual per-model native4K attack-source UI read; independent native-attack.webp proof.",
+          "nativeAttackCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/offline-analysis/uk_challenger_mk_3-native-attack.webp",
+          "nativeAttackCropSHA256": "076f73a705ce02a84ca2227db0d2ce217c239d463a8e9cc2d95cacd82cc50709",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/011.json",
+          "proofSHA256": "6db75ce5701f28fbb8e4cbcb8e6c76f75c3d939656432be77f06df3d76119c85",
+          "sourceFrameSHA256": "336e8f1abfba92d7248e8d744f087cf2127f61b60eec1b3ceb17e0506af93820",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/"
+        }
+      },
+      "videoAdvice": [
+        {
+          "text": "本段Mk3画面说明正面车体与炮塔对JM33防护不足。",
+          "sourceTime": 723.602,
+          "mechanism": "conditional-frontal-penetration-context",
+          "polarity": "context",
+          "caseId": "uk_challenger_mk_3:BV1CueU6cECo:727017",
+          "conditionMatch": "verified-continuous-segment",
+          "mainImageMatch": "different-source",
+          "conditionMatchEvidence": {
+            "sha256": "6807d784d5806ca341b460160b60188862866a85b5fec5db5807d02695616d9e",
+            "targetWindow": [
+              717,
+              732.7
+            ],
+            "note": "0.5秒正常播放实际currentTime采样，显示文字起止为观测边界，不冒充精确字幕起止。"
+          },
+          "mainImageMatchNote": "试射/建议与主图来自独立视频，互不替代来源时间或版本。",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "time": 723.602,
+          "evidence": {
+            "text": "本段Mk3画面说明正面车体与炮塔对JM33防护不足。",
+            "sourceTime": 723.602,
+            "mechanism": "conditional-frontal-penetration-context",
+            "polarity": "context",
+            "caseId": "uk_challenger_mk_3:BV1CueU6cECo:727017",
+            "conditionMatch": "verified-continuous-segment",
+            "mainImageMatch": "different-source",
+            "conditionMatchEvidence": {
+              "continuousSubtitleFile": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/multination-enemies-0701-0756-normal-playback-subtitles.json",
+              "sha256": "6807d784d5806ca341b460160b60188862866a85b5fec5db5807d02695616d9e",
+              "targetWindow": [
+                717,
+                732.7
+              ],
+              "note": "0.5秒正常播放实际currentTime采样，显示文字起止为观测边界，不冒充精确字幕起止。"
+            },
+            "mainImageMatchNote": "试射/建议与主图来自独立视频，互不替代来源时间或版本。"
+          },
+          "label": "正面防护说明"
+        },
+        {
+          "text": "作者建议攻击炮塔画面左侧，使其丧失作战能力；烧字明确以正对我们的方向为准。",
+          "sourceTime": 727.125,
+          "mechanism": "conditional-viewer-left-turret-disable",
+          "polarity": "positive-conditional",
+          "caseId": "uk_challenger_mk_3:BV1CueU6cECo:727017",
+          "conditionMatch": "verified-continuous-segment",
+          "mainImageMatch": "different-source",
+          "conditionMatchEvidence": {
+            "sha256": "6807d784d5806ca341b460160b60188862866a85b5fec5db5807d02695616d9e",
+            "targetWindow": [
+              717,
+              732.7
+            ],
+            "note": "0.5秒正常播放实际currentTime采样，显示文字起止为观测边界，不冒充精确字幕起止。"
+          },
+          "mainImageMatchNote": "试射/建议与主图来自独立视频，互不替代来源时间或版本。",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "time": 727.125,
+          "evidence": {
+            "text": "作者建议攻击炮塔画面左侧，使其丧失作战能力；烧字明确以正对我们的方向为准。",
+            "sourceTime": 727.125,
+            "mechanism": "conditional-viewer-left-turret-disable",
+            "polarity": "positive-conditional",
+            "caseId": "uk_challenger_mk_3:BV1CueU6cECo:727017",
+            "conditionMatch": "verified-continuous-segment",
+            "mainImageMatch": "different-source",
+            "conditionMatchEvidence": {
+              "continuousSubtitleFile": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/multination-enemies-0701-0756-normal-playback-subtitles.json",
+              "sha256": "6807d784d5806ca341b460160b60188862866a85b5fec5db5807d02695616d9e",
+              "targetWindow": [
+                717,
+                732.7
+              ],
+              "note": "0.5秒正常播放实际currentTime采样，显示文字起止为观测边界，不冒充精确字幕起止。"
+            },
+            "mainImageMatchNote": "试射/建议与主图来自独立视频，互不替代来源时间或版本。"
+          },
+          "label": "炮塔画面左侧失能建议"
+        }
+      ],
+      "missingEvidence": [
+        "源游戏版本与命中角度未独立读出，保持null；主图俯视，未标不可见首下。"
+      ],
+      "limits": "",
+      "testContext": {
+        "attacker": "Type 90 (B) \"Fuji\"",
+        "attackerVehicleId": "jp_type_90b_camo",
+        "shell": "JM33",
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "impactAngleDegrees": null,
+        "sourceTime": 727.016687,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "sourceGameVersion": null,
+        "caseId": "uk_challenger_mk_3:BV1CueU6cECo:727017",
+        "note": "本主图来自辅-辅视频50.033312秒高俯视外观，无本主图试射条件。以下条件只对应馒头Emoil视频727.016687秒独立案例；两来源、版本和时间不得混用。"
+      },
+      "testContextEvidence": {
+        "id": "uk_challenger_mk_3:BV1CueU6cECo:727017",
+        "vehicleId": "uk_challenger_mk_3",
+        "sourceTime": 727.016687,
+        "attackerVehicleId": "jp_type_90b_camo",
+        "attackerEnglishName": "Type 90 (B) \"Fuji\"",
+        "attackerCountry": "JPN",
+        "shell": "JM33",
+        "shellType": "APFSDS",
+        "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+        "shellTypeProof": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/type-proofs.json",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceGameVersion": null,
+        "conditionSource": "Actual per-model native4K attack-source UI read; independent native-attack.webp proof.",
+        "nativeAttackCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/offline-analysis/uk_challenger_mk_3-native-attack.webp",
+        "nativeAttackCropSHA256": "076f73a705ce02a84ca2227db0d2ce217c239d463a8e9cc2d95cacd82cc50709",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/011.json",
+        "proofSHA256": "6db75ce5701f28fbb8e4cbcb8e6c76f75c3d939656432be77f06df3d76119c85",
+        "sourceFrameSHA256": "336e8f1abfba92d7248e8d744f087cf2127f61b60eec1b3ceb17e0506af93820",
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/"
+      },
+      "pins": [
+        {
+          "x": 0.4166666666666667,
+          "y": 0.34545454545454546,
+          "sourcePixel": {
+            "x": 900,
+            "y": 490
+          },
+          "label": "炮塔画面左侧",
+          "detail": "主图为俯视正前方，此点仅引导至可见的炮塔画面左侧前脸装甲区域，避开烟幕弹发射器；不是精确必穿孔。未标不可见首下；建议与试射来自独立视频，条件分别记录。",
+          "caseId": "uk_challenger_mk_3:BV1CueU6cECo:727017",
+          "mainImageMatch": "different-source",
+          "mechanism": "conditional-viewer-left-turret-disable"
+        }
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/Britain-Challenger-Mk3-front-scout-0050.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/008.json",
+      "captureSHA256": "2cad1c6c2da6bba32e30983a096c04dc2c0728117220d3e0de0afdc4137e593e",
+      "originalFrameSHA256": "f26813aff0a4ff52c1255bc40786d7a994b6ebb12f9b5782d4760780825edb95",
+      "time": 50.033312,
+      "crop": [
+        650,
+        300,
+        600,
+        550
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "1080p",
+      "imageViewDetail": "front-elevated-high-angle"
+    },
+    {
+      "id": "uk_challenger_2_tes",
+      "name": "Challenger 2 TES",
+      "role": "主战坦克",
+      "country": "britain",
+      "countryName": "英国",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "挑战者2TES技术验证车于2013年公开、2016年展示改进装甲设计；120毫米L30A1炮，基础至王牌装填6.5至5秒、待发弹4发。",
+      "collectedAt": "2026-11-02T13:17:39.923Z",
+      "wikiUrl": "https://wiki.warthunder.com/unit/uk_challenger_2_tes",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/british-enemies-20261102/snapshots/uk_challenger_2_tes.json",
+      "wikiSnapshotSHA256": "9073c1affd61aeea33edbc0fb8f9a2924dab92af9f827f74ddfc7b075c9d1671",
+      "wikiSummary": "挑战者2TES技术验证车于2013年公开、2016年展示改进装甲设计；120毫米L30A1炮，基础至王牌装填6.5至5秒、待发弹4发。",
+      "wikiPoints": [
+        "反应/复合/格栅装甲组合针对化学能威胁与IED，不能将原文宣传性“最佳防护”理解为所有弹药不可击穿。",
+        "顶部干扰板明显，较易暴露位置；同发动机加重使加速和转向下降，属于辨识与机动风险，不是局部击穿坐标。",
+        "本页未明确炮盾或首下等局部弱点，不复制其他挑战者型号。"
+      ],
+      "reload": {
+        "display": "6.5 → 5 秒",
+        "gun": "120 mm L30A1 cannon",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "status": "video-reviewed-awaiting-front-image",
+      "completeIllustration": false,
+      "mainImageUsable": false,
+      "testCases": [
+        {
+          "id": "uk_challenger_2_tes:BV1CueU6cECo:745000",
+          "vehicleId": "uk_challenger_2_tes",
+          "sourceTime": 745,
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerEnglishName": "Type 90 (B) \"Fuji\"",
+          "attackerCountry": "JPN",
+          "shell": "JM33",
+          "shellType": "APFSDS",
+          "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "conditionSource": "Actual per-model native4K attack-source UI read; independent native-attack.webp proof.",
+          "nativeAttackCropSHA256": "de6071d70bbb2ad629d1030d46b35668f6efb50a1461dab11620ece1c0248ba9",
+          "proofSHA256": "610936f5e667b6cd474154a7769996e2f7885150df7deacc030e4a70a8fd3552",
+          "sourceFrameSHA256": "9b82a4a6b2ee29f210551032899e2fadc00b456d5543051e4369e0ba19462490",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "attacker": "Type 90 (B) \"Fuji\"",
+          "impactAngleDegrees": null,
+          "verificationStatus": "verified"
+        }
+      ],
+      "testCaseEvidence": {
+        "uk_challenger_2_tes:BV1CueU6cECo:745000": {
+          "id": "uk_challenger_2_tes:BV1CueU6cECo:745000",
+          "vehicleId": "uk_challenger_2_tes",
+          "sourceTime": 745,
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerEnglishName": "Type 90 (B) \"Fuji\"",
+          "attackerCountry": "JPN",
+          "shell": "JM33",
+          "shellType": "APFSDS",
+          "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+          "shellTypeProof": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/type-proofs.json",
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "conditionSource": "Actual per-model native4K attack-source UI read; independent native-attack.webp proof.",
+          "nativeAttackCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/offline-analysis/uk_challenger_2_tes-native-attack.webp",
+          "nativeAttackCropSHA256": "de6071d70bbb2ad629d1030d46b35668f6efb50a1461dab11620ece1c0248ba9",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/012.json",
+          "proofSHA256": "610936f5e667b6cd474154a7769996e2f7885150df7deacc030e4a70a8fd3552",
+          "sourceFrameSHA256": "9b82a4a6b2ee29f210551032899e2fadc00b456d5543051e4369e0ba19462490",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/"
+        }
+      },
+      "videoAdvice": [
+        {
+          "text": "本段TES相较挑战者一的炮塔与首上更能抵挡JM33；不应任意打脸或首上。",
+          "sourceTime": 740.19,
+          "mechanism": "negative-turret-face-upper-front-resistance",
+          "polarity": "negative",
+          "caseId": "uk_challenger_2_tes:BV1CueU6cECo:745000",
+          "conditionMatch": "verified-continuous-segment",
+          "mainImageMatch": "unknown",
+          "conditionMatchEvidence": {
+            "sha256": "6807d784d5806ca341b460160b60188862866a85b5fec5db5807d02695616d9e",
+            "targetWindow": [
+              735,
+              754.8
+            ],
+            "note": "0.5秒正常播放实际currentTime采样，显示文字起止为观测边界，不冒充精确字幕起止。"
+          },
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "time": 740.19,
+          "evidence": {
+            "text": "本段TES相较挑战者一的炮塔与首上更能抵挡JM33；不应任意打脸或首上。",
+            "sourceTime": 740.19,
+            "mechanism": "negative-turret-face-upper-front-resistance",
+            "polarity": "negative",
+            "caseId": "uk_challenger_2_tes:BV1CueU6cECo:745000",
+            "conditionMatch": "verified-continuous-segment",
+            "mainImageMatch": "unknown",
+            "conditionMatchEvidence": {
+              "continuousSubtitleFile": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/multination-enemies-0701-0756-normal-playback-subtitles.json",
+              "sha256": "6807d784d5806ca341b460160b60188862866a85b5fec5db5807d02695616d9e",
+              "targetWindow": [
+                735,
+                754.8
+              ],
+              "note": "0.5秒正常播放实际currentTime采样，显示文字起止为观测边界，不冒充精确字幕起止。"
+            }
+          },
+          "label": "炮塔与首上防护提醒"
+        },
+        {
+          "text": "作者指出首下与炮闩区域是两种应对位置。原自动字幕写炮栓，烧字作炮闩；不解释为炮盾任意位置。",
+          "sourceTime": 745.232,
+          "mechanism": "conditional-lower-front-or-breech-region-recommendation",
+          "polarity": "positive-conditional",
+          "caseId": "uk_challenger_2_tes:BV1CueU6cECo:745000",
+          "conditionMatch": "verified-continuous-segment",
+          "mainImageMatch": "unknown",
+          "conditionMatchEvidence": {
+            "sha256": "6807d784d5806ca341b460160b60188862866a85b5fec5db5807d02695616d9e",
+            "targetWindow": [
+              735,
+              754.8
+            ],
+            "note": "0.5秒正常播放实际currentTime采样，显示文字起止为观测边界，不冒充精确字幕起止。"
+          },
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "time": 745.232,
+          "evidence": {
+            "text": "作者指出首下与炮闩区域是两种应对位置。原自动字幕写炮栓，烧字作炮闩；不解释为炮盾任意位置。",
+            "sourceTime": 745.232,
+            "mechanism": "conditional-lower-front-or-breech-region-recommendation",
+            "polarity": "positive-conditional",
+            "caseId": "uk_challenger_2_tes:BV1CueU6cECo:745000",
+            "conditionMatch": "verified-continuous-segment",
+            "mainImageMatch": "unknown",
+            "conditionMatchEvidence": {
+              "continuousSubtitleFile": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/multination-enemies-0701-0756-normal-playback-subtitles.json",
+              "sha256": "6807d784d5806ca341b460160b60188862866a85b5fec5db5807d02695616d9e",
+              "targetWindow": [
+                735,
+                754.8
+              ],
+              "note": "0.5秒正常播放实际currentTime采样，显示文字起止为观测边界，不冒充精确字幕起止。"
+            }
+          },
+          "label": "首下与炮闩区域建议"
+        }
+      ],
+      "missingEvidence": [
+        "尚未绑定经审核的清洁正面主图和对应外部区域坐标。"
+      ],
+      "limits": "",
+      "testContext": {
+        "attacker": "Type 90 (B) \"Fuji\"",
+        "attackerVehicleId": "jp_type_90b_camo",
+        "shell": "JM33",
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "impactAngleDegrees": null,
+        "sourceTime": 745,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "sourceGameVersion": null,
+        "caseId": "uk_challenger_2_tes:BV1CueU6cECo:745000",
+        "note": "仅展示已验证的视频案例条件，尚未绑定主图；其他建议仍以各自案例和连续片段来源为准，不继承到未来独立主图。"
+      },
+      "testContextEvidence": {
+        "id": "uk_challenger_2_tes:BV1CueU6cECo:745000",
+        "vehicleId": "uk_challenger_2_tes",
+        "sourceTime": 745,
+        "attackerVehicleId": "jp_type_90b_camo",
+        "attackerEnglishName": "Type 90 (B) \"Fuji\"",
+        "attackerCountry": "JPN",
+        "shell": "JM33",
+        "shellType": "APFSDS",
+        "shellTypeZh": "尾翼稳定脱壳穿甲弹",
+        "shellTypeProof": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/type-proofs.json",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceGameVersion": null,
+        "conditionSource": "Actual per-model native4K attack-source UI read; independent native-attack.webp proof.",
+        "nativeAttackCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/offline-analysis/uk_challenger_2_tes-native-attack.webp",
+        "nativeAttackCropSHA256": "de6071d70bbb2ad629d1030d46b35668f6efb50a1461dab11620ece1c0248ba9",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/012.json",
+        "proofSHA256": "610936f5e667b6cd474154a7769996e2f7885150df7deacc030e4a70a8fd3552",
+        "sourceFrameSHA256": "9b82a4a6b2ee29f210551032899e2fadc00b456d5543051e4369e0ba19462490",
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/"
+      },
+      "pins": []
     }
   ],
   "eraPolicy": "按具体型号／改型所处年代分类，BR 另作筛选；本批为冷战样例。",
@@ -7187,8 +9002,8 @@
     "targetCount": 226,
     "rankTankCount": 216,
     "isSupplementCount": 10,
-    "wikiReviewedCount": 124,
-    "illustratedCount": 11,
+    "wikiReviewedCount": 129,
+    "illustratedCount": 14,
     "countries": [
       {
         "country": "usa",
@@ -7324,9 +9139,9 @@
     "lastUpdated": "2026-11-02",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 9,
+    "illustratedTargetCount": 12,
     "legacyIllustratedCount": 1,
-    "completeIllustratedTargetCount": 8,
+    "completeIllustratedTargetCount": 10,
     "supplementalRequestedCount": 4,
     "supplementalWikiReviewedCount": 4,
     "supplementalIllustratedCount": 1,
