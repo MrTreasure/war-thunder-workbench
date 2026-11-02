@@ -7563,7 +7563,8 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无经核对的具体局部标点；按作者建议与原片条件理解，不以绿色推断必穿小孔。"
+        "暂无经核对的具体局部标点；按作者建议与原片条件理解，不以绿色推断必穿小孔。",
+        "当前仅有正面外观图与绿色瞄准十字，尚无经核对的绿色可击穿区域图。"
       ],
       "testCases": [
         {
@@ -7727,7 +7728,9 @@
       "imageViewDetail": "front",
       "mainViewKind": "exterior",
       "mainViewNote": "正常外观模型，绿色仅见准星与说明文字，不是绿色装甲覆盖。正面车体及炮塔完整；说明浮层贴近右下缘。",
-      "mainImageUsable": true
+      "mainImageUsable": true,
+      "coverageStatus": "front-exterior-green-analysis-pending",
+      "coverageNotice": "绿色防护分析图待补"
     },
     {
       "id": "jp_type_90b_sm",
