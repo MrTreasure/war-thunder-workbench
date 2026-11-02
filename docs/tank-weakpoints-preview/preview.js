@@ -18,6 +18,18 @@ function element(tag, text, className) {
   return node;
 }
 function sourceOf(model) { return model.source || SAMPLE.source || {}; }
+function shellTypeLabel(test) {
+  const code = test?.shellTypeCode?.trim();
+  const label = test?.shellTypeLabel?.trim();
+  return [code, label && label !== code ? label : null].filter(Boolean).join(" · ") || "来源未显示／待核对";
+}
+function penetrationLabel(test) {
+  const penetration = test?.displayedPenetrationMm;
+  const distance = test?.distanceMeters;
+  return Number.isFinite(penetration)
+    ? `${penetration} 毫米${Number.isFinite(distance) ? `（${distance} 米）` : "（距离待核对）"}`
+    : `来源未显示／待核对${Number.isFinite(distance) ? `（${distance} 米）` : ""}`;
+}
 function isSupplement(model) { return String(model.family || "").toLowerCase() === "is" && !(Number(model.rank) >= 6); }
 function matches(model) {
   if (country !== "all" && (model.country || "unknown") !== country) return false;
@@ -66,6 +78,8 @@ function render() {
   $("test-section").hidden = !hasVideoTest;
   $("test-attacker").textContent = test?.attacker?.trim() || "来源未显示／待核对";
   $("test-shell").textContent = test?.shell?.trim() || "来源未显示／待核对";
+  $("test-shell-type").textContent = shellTypeLabel(test);
+  $("test-penetration").textContent = penetrationLabel(test);
   $("test-note").textContent = test?.note || "";
   $("test-note").hidden = !test?.note;
   const testHref = Number.isFinite(test?.sourceTime) ? videoUrl(source, test.sourceTime) : null;
@@ -78,9 +92,12 @@ function render() {
   $("video-advice").replaceChildren(...(model.videoAdvice || []).map((advice) => {
     const article = element("article", undefined, "advice");
     article.append(element("h4", advice.label), element("p", advice.text));
-    const href = videoUrl(source, advice.time);
+    const testCase = model.testCases?.find((item) => item.id === advice.caseId);
+    if (testCase) article.append(element("p", [testCase.attacker || "攻击车辆待核对", testCase.shell || "炮弹待核对", testCase.shellTypeCode || "弹种待核对", penetrationLabel(testCase)].join(" · "), "case-summary"));
+    const adviceTime = Number.isFinite(advice.sourceTime) ? advice.sourceTime : advice.time;
+    const href = videoUrl({ url: advice.sourceUrl || testCase?.sourceUrl || source.url }, adviceTime);
     if (href) {
-      const link = element("a", Number.isFinite(advice.time) ? `${Math.floor(advice.time / 60)}:${String(Math.floor(advice.time % 60)).padStart(2, "0")} ↗` : "查看视频 ↗");
+      const link = element("a", Number.isFinite(adviceTime) ? `${Math.floor(adviceTime / 60)}:${String(Math.floor(adviceTime % 60)).padStart(2, "0")} ↗` : "查看视频 ↗");
       link.href = href; link.target = "_blank"; link.rel = "noopener noreferrer";
       article.append(link);
     }
@@ -150,7 +167,7 @@ function createFilter(host, kind, entries, labelledBy) {
   const valueLabel = element("span", undefined, "wt-select-label"); valueLabel.id = `${kind}-value`;
   // Exact geometry and dimensions from src/components/Chevron.tsx.
   const chevron = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  for (const [name, value] of Object.entries({ class: "wt-chevron wt-select-chevron country-chevron", width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", "aria-hidden": "true", focusable: "false" })) chevron.setAttribute(name, value);
+  for (const [name, value] of Object.entries({ class: `wt-chevron wt-select-chevron${kind === "country" ? " country-chevron" : ""}`, width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", "aria-hidden": "true", focusable: "false" })) chevron.setAttribute(name, value);
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
   for (const [name, value] of Object.entries({ d: "m4 6 4 4 4-4", stroke: "currentColor", "stroke-width": "1.75", "stroke-linecap": "round", "stroke-linejoin": "round" })) path.setAttribute(name, value);
   chevron.append(path);

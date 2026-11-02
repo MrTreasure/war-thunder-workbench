@@ -32,7 +32,7 @@
         "attacker": "T95",
         "shell": "T13",
         "rangeM": 0,
-        "panelPenetrationMm": 255
+        "panelPenetrationMm": 253
       },
       "overview": "先分清炮盾热区与首上。相邻位置的结果可能完全不同。",
       "wikiSummary": "T-54 家族的首个型号，配备 100 mm D-10T 坦克炮。Wiki 提醒炮塔正面存在跳弹陷阱。",
@@ -100,7 +100,12 @@
         "attacker": "T95",
         "shell": "T13",
         "sourceTime": 1111.033,
-        "note": null
+        "note": null,
+        "shellTypeCode": "APCBC",
+        "shellTypeLabel": "被帽风帽穿甲弹",
+        "displayedPenetrationMm": 253,
+        "distanceMeters": 0,
+        "impactAngleDegrees": null
       },
       "testContextEvidence": {
         "sourceFrameFile": "artifacts/vehicle-weakpoints-20261102/t54-front-hd-1111.png",
@@ -109,7 +114,29 @@
         "proofSnapshotSHA256": "a7e00db321d8342f757290f4ee6c5e557e0fd552cfd175f6c3a5b4c774d1d058",
         "nativeLeftPanelCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/test-context-review/t54.webp",
         "cropSHA256": "a6b503b01faa8aebc27f5555de93642a81666daa15cdde10fca687aefe70bbd4",
-        "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette"
+        "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette",
+        "ammunitionDisplay": {
+          "caseId": "ussr_t_54_1947:BV1SPmEBJE3y:1111033",
+          "frameEvidence": {
+            "sourceFrameFile": "artifacts/vehicle-weakpoints-20261102/t54-front-hd-1111.png",
+            "sourceFrameSHA256": "9bac3df0f60bf74ee9818fbbb8eb1b521de6f8fad036c75c8abf8e1117786a3a",
+            "proofSnapshot": "artifacts/vehicle-weakpoints-20261102/054.json",
+            "proofSnapshotSHA256": "a7e00db321d8342f757290f4ee6c5e557e0fd552cfd175f6c3a5b4c774d1d058",
+            "nativeLeftPanelCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/test-context-review/t54.webp",
+            "cropSHA256": "a6b503b01faa8aebc27f5555de93642a81666daa15cdde10fca687aefe70bbd4",
+            "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette"
+          },
+          "typeEvidence": {
+            "typeOriginal": "Armor-piercing capped ballistic capped shell",
+            "typeCode": "APCBC",
+            "sourceUrl": "https://wiki.warthunder.com/unit/us_t95",
+            "collectedAt": "2026-11-02T10:11:07.262Z",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/us_t95.html",
+            "sourceHtmlSha256": "bfeaf573d254326c7a0fd690f002c409aa7f559dfb63af3597c06fb15dfb7a30",
+            "proofSnippet": "<span>T13</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-piercing capped ballistic capped shell</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;High-explosive fragmentation&lt;/div&gt;&lt;div class=&quot;fw-bold text-center&quot;&gt;4.8&amp;nbsp;mm&lt;/div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=",
+            "wikiShellLabel": "T13"
+          }
+        }
       }
     },
     {
@@ -199,7 +226,12 @@
         "attacker": "M47",
         "shell": "M431",
         "sourceTime": 1151,
-        "note": null
+        "note": null,
+        "shellTypeCode": "HEATFS",
+        "shellTypeLabel": "尾翼稳定破甲弹",
+        "displayedPenetrationMm": 320,
+        "distanceMeters": 0,
+        "impactAngleDegrees": null
       },
       "testContextEvidence": {
         "sourceFrameFile": "artifacts/vehicle-weakpoints-20261102/t62m1-front-hd-1151.png",
@@ -208,7 +240,29 @@
         "proofSnapshotSHA256": "1f8dcc0f200e7cab1de7206b9d76a60cf8c6d3bbbdb0bc9d090c843445e7a938",
         "nativeLeftPanelCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/test-context-review/t62m1.webp",
         "cropSHA256": "6cae5d3c8bab8944196ade40d1b6d3fc0d8703d0cfe0fa6e1fc7ddeab414b21d",
-        "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette"
+        "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette",
+        "ammunitionDisplay": {
+          "caseId": "ussr_t_62m1:BV1SPmEBJE3y:1151000",
+          "frameEvidence": {
+            "sourceFrameFile": "artifacts/vehicle-weakpoints-20261102/t62m1-front-hd-1151.png",
+            "sourceFrameSHA256": "aad74445c9c20313bb4f7bddc1601132b39548e24b50269b57c4d465fb966493",
+            "proofSnapshot": "artifacts/vehicle-weakpoints-20261102/055.json",
+            "proofSnapshotSHA256": "1f8dcc0f200e7cab1de7206b9d76a60cf8c6d3bbbdb0bc9d090c843445e7a938",
+            "nativeLeftPanelCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/test-context-review/t62m1.webp",
+            "cropSHA256": "6cae5d3c8bab8944196ade40d1b6d3fc0d8703d0cfe0fa6e1fc7ddeab414b21d",
+            "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette"
+          },
+          "typeEvidence": {
+            "typeOriginal": "High explosive anti-tank fin stabilized shell",
+            "typeCode": "HEATFS",
+            "sourceUrl": "https://wiki.warthunder.com/unit/us_m47_patton_ii",
+            "collectedAt": "2026-11-02T10:11:14.034Z",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/us_m47_patton_ii.html",
+            "sourceHtmlSha256": "ac7399eb9aea4e3450011923eacce5af40d4db3e3b960d198ef9eebf852f0633",
+            "proofSnippet": "<span>M431 shell</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">High explosive anti-tank fin stabilized shell</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Cumulative jet&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th&gt;0°&lt;/th&gt;&lt;th&gt;30°&lt;/th&gt;&lt;th&gt;60°&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;320&amp;nbsp;mm&lt;/td&gt;&lt;td&gt;277&amp;nbsp;mm&lt;/td&gt;&",
+            "wikiShellLabel": "M431 shell"
+          }
+        }
       }
     },
     {
@@ -320,7 +374,12 @@
         "attacker": "T-72A",
         "shell": "3BM22",
         "sourceTime": 1173,
-        "note": "测试车辆与炮弹来自 19:33 测试片段，正面主图取自 19:29。"
+        "note": "测试车辆与炮弹来自 19:33 测试片段，正面主图取自 19:29。",
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "displayedPenetrationMm": 425,
+        "distanceMeters": 0,
+        "impactAngleDegrees": null
       },
       "testContextEvidence": {
         "sourceFrameFile": "artifacts/vehicle-weakpoints-20261102/t72a-front-1173.png",
@@ -329,7 +388,28 @@
         "proofSnapshotSHA256": "81fe9693aa203d9da85ed7fb1943c6fe32e2b07fa55891224504b4601378c98d",
         "nativeLeftPanelCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/test-context-review/t72test.webp",
         "cropSHA256": "444938757b57bd43f14238ebc942b0ddc35a5f548bf10d66dde1d93012650d6e",
-        "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette"
+        "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette",
+        "ammunitionDisplay": {
+          "caseId": "ussr_t_72a:BV1SPmEBJE3y:1173000",
+          "frameEvidence": {
+            "sourceFrameFile": "artifacts/vehicle-weakpoints-20261102/t72a-front-1173.png",
+            "sourceFrameSHA256": "e004234281c8a309857fbd9cbfcdd58851295c506d54bde1071d86dd42b04097",
+            "proofSnapshot": "artifacts/vehicle-weakpoints-20261102/048.json",
+            "proofSnapshotSHA256": "81fe9693aa203d9da85ed7fb1943c6fe32e2b07fa55891224504b4601378c98d",
+            "nativeLeftPanelCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/test-context-review/t72test.webp",
+            "cropSHA256": "444938757b57bd43f14238ebc942b0ddc35a5f548bf10d66dde1d93012650d6e",
+            "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette"
+          },
+          "typeEvidence": {
+            "typeOriginal": "Armor-Piercing Fin-Stabilized Discarding Sabot shot",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-001-20261102/snapshots/it_t_72m1.html",
+            "sourceHtmlSha256": "8feab50b2eacac6dd26e50382f551d54720b2999e0b8d78e8da6ebe74b0e0cde",
+            "proofSnippet": "<span>3BM22</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-Piercing Fin-Stabilized Discarding Sabot shot</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=&quot;border-end&quot; style=&quot;font-size: .8em; width: 40%;&quot;&gt;Distance / Angle of attack&lt;/th&gt;&lt;th&gt;0°&lt;/th&gt;&lt;th&gt;30°&lt;/th&gt;&lt;th&gt;60°&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th class=&quot;border-end&quot;&gt;10 m&lt;/th&gt;&l",
+            "typeCode": "APFSDS",
+            "sourceUrl": "https://wiki.warthunder.com/unit/it_t_72m1",
+            "collectedAt": "2026-11-02T08:57:05.168Z"
+          }
+        }
       }
     },
     {
@@ -464,7 +544,10 @@
           "distanceMeters": 0,
           "displayedPenetrationMm": 283,
           "sourceGameVersion": null,
-          "verificationStatus": "verified"
+          "verificationStatus": "verified",
+          "shellTypeCode": "APCBC",
+          "shellTypeLabel": "被帽风帽穿甲弹",
+          "impactAngleDegrees": null
         },
         {
           "id": "ussr_is_4m:BV1SPmEBJE3y:1040000",
@@ -475,7 +558,10 @@
           "distanceMeters": 0,
           "displayedPenetrationMm": 252,
           "sourceGameVersion": null,
-          "verificationStatus": "verified"
+          "verificationStatus": "verified",
+          "shellTypeCode": "APC",
+          "shellTypeLabel": "被帽穿甲弹",
+          "impactAngleDegrees": null
         }
       ],
       "testCaseEvidence": {
@@ -484,21 +570,88 @@
           "proofSnapshotSHA256": "59e5e6f6d4b27e897d5510f722b97f2b1fd69011d1cd7451c57bbabb53e7ce8e",
           "sourceFrameSHA256": "dbfae8589980fb1377127bf9bdd86aa6afbf8f6ae0e73ff1b1a44689c251de9f",
           "framePath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/USSR-IS-4M-1036.webp",
-          "sourceTime": 1036
+          "sourceTime": 1036,
+          "ammunitionDisplay": {
+            "caseId": "ussr_is_4m:BV1SPmEBJE3y:1036000",
+            "frameEvidence": {
+              "sourceFrameFile": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/USSR-IS-4M-1036.webp",
+              "sourceFrameSHA256": "dbfae8589980fb1377127bf9bdd86aa6afbf8f6ae0e73ff1b1a44689c251de9f",
+              "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/007.json",
+              "caseRecordPath": "artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/records.json",
+              "caseRecordSha256": "bccd2f1e1956ce14abe010ccbd43ec0d69a1605f0a64e31ded451402fc2a04e9"
+            },
+            "typeEvidence": {
+              "typeOriginal": "Armor-piercing capped ballistic capped shell",
+              "typeCode": "APCBC",
+              "sourceUrl": "https://wiki.warthunder.com/unit/us_t34",
+              "collectedAt": "2026-11-02T10:11:30.225Z",
+              "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/us_t34.html",
+              "sourceHtmlSha256": "4b1ed988e57efe42c79fa0c81943b4d609e739cbac392bc5ad2f9a1144a25efb",
+              "proofSnippet": "<span>T14E3</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-piercing capped ballistic capped shell</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=&quot;border-end&quot; style=&quot;font-size: .8em; width: 40%;&quot;&gt;Distance / Angle of attack&lt;/th&gt;&lt;th&gt;0°&lt;/th&gt;&lt;th&gt;30°&lt;/th&gt;&lt;th&g",
+              "wikiShellLabel": "T14E3"
+            }
+          }
         },
         "ussr_is_4m:BV1SPmEBJE3y:1040000": {
           "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/008.json",
           "proofSnapshotSHA256": "e936a9fd0c1b3e56dda767a4168214f5cfc86f7320297e01a5c21d0140212e79",
           "sourceFrameSHA256": "2f2af35170f8a73d43f7f6eab665a1b9a95234b1392cd1b1160c9e5dcd837fd3",
           "framePath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/USSR-IS-4M-1040.webp",
-          "sourceTime": 1040
+          "sourceTime": 1040,
+          "ammunitionDisplay": {
+            "caseId": "ussr_is_4m:BV1SPmEBJE3y:1040000",
+            "frameEvidence": {
+              "sourceFrameFile": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/USSR-IS-4M-1040.webp",
+              "sourceFrameSHA256": "2f2af35170f8a73d43f7f6eab665a1b9a95234b1392cd1b1160c9e5dcd837fd3",
+              "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/008.json",
+              "caseRecordPath": "artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/records.json",
+              "caseRecordSha256": "bccd2f1e1956ce14abe010ccbd43ec0d69a1605f0a64e31ded451402fc2a04e9"
+            },
+            "typeEvidence": {
+              "typeOriginal": "Armor-piercing capped shell",
+              "typeCode": "APC",
+              "sourceUrl": "https://wiki.warthunder.com/unit/germ_panzerjager_tiger",
+              "collectedAt": "2026-11-02T10:11:38.425Z",
+              "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/germ_panzerjager_tiger.html",
+              "sourceHtmlSha256": "f7ca060d6022bf495f79bb2217048412b220d8e4d50af1ce8daa7775886fe1e4",
+              "proofSnippet": "<span>PzGr</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-piercing capped shell</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;High-explosive fragmentation&lt;/div&gt;&lt;div class=&quot;fw-bold text-center&quot;&gt;11.5&amp;nbsp;mm&lt;/div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=&quot;border-en",
+              "wikiShellLabel": "PzGr"
+            }
+          }
         }
       },
       "testContext": {
         "attacker": "T34",
         "shell": "T14E3",
         "sourceTime": 1036,
-        "note": "17:16为T34/T14E3，17:20另为猎虎/PzGr.，分别见下方片段；正面图待补"
+        "note": "17:16为T34/T14E3，17:20另为猎虎/PzGr.，分别见下方片段；正面图待补",
+        "shellTypeCode": "APCBC",
+        "shellTypeLabel": "被帽风帽穿甲弹",
+        "displayedPenetrationMm": 283,
+        "distanceMeters": 0,
+        "impactAngleDegrees": null
+      },
+      "testContextEvidence": {
+        "ammunitionDisplay": {
+          "caseId": "ussr_is_4m:BV1SPmEBJE3y:1036000",
+          "frameEvidence": {
+            "sourceFrameFile": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/USSR-IS-4M-1036.webp",
+            "sourceFrameSHA256": "dbfae8589980fb1377127bf9bdd86aa6afbf8f6ae0e73ff1b1a44689c251de9f",
+            "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/007.json",
+            "caseRecordPath": "artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/records.json",
+            "caseRecordSha256": "bccd2f1e1956ce14abe010ccbd43ec0d69a1605f0a64e31ded451402fc2a04e9"
+          },
+          "typeEvidence": {
+            "typeOriginal": "Armor-piercing capped ballistic capped shell",
+            "typeCode": "APCBC",
+            "sourceUrl": "https://wiki.warthunder.com/unit/us_t34",
+            "collectedAt": "2026-11-02T10:11:30.225Z",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/us_t34.html",
+            "sourceHtmlSha256": "4b1ed988e57efe42c79fa0c81943b4d609e739cbac392bc5ad2f9a1144a25efb",
+            "proofSnippet": "<span>T14E3</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-piercing capped ballistic capped shell</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=&quot;border-end&quot; style=&quot;font-size: .8em; width: 40%;&quot;&gt;Distance / Angle of attack&lt;/th&gt;&lt;th&gt;0°&lt;/th&gt;&lt;th&gt;30°&lt;/th&gt;&lt;th&g",
+            "wikiShellLabel": "T14E3"
+          }
+        }
       }
     },
     {
@@ -845,7 +998,12 @@
         "attacker": "M4A2 (76) W",
         "shell": "M62",
         "sourceTime": 1000.017,
-        "note": null
+        "note": null,
+        "shellTypeCode": "APCBC",
+        "shellTypeLabel": "被帽风帽穿甲弹",
+        "displayedPenetrationMm": 149,
+        "distanceMeters": 0,
+        "impactAngleDegrees": null
       },
       "testContextEvidence": {
         "sourceFrameFile": "artifacts/tank-weakpoints-expansion-20261102/sources/is-series-1000.png",
@@ -854,7 +1012,29 @@
         "proofSnapshotSHA256": "f550363a984da88c3144db8ec5acbf38d38097d02ba68874923e2b2285370c8c",
         "nativeLeftPanelCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/test-context-review/is1.webp",
         "cropSHA256": "9e13a491c4023adb040d2437dab1dc1e807c1100c2b02710a39cb3a9f800d340",
-        "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette"
+        "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette",
+        "ammunitionDisplay": {
+          "caseId": "ussr_is_1:BV1SPmEBJE3y:1000017",
+          "frameEvidence": {
+            "sourceFrameFile": "artifacts/tank-weakpoints-expansion-20261102/sources/is-series-1000.png",
+            "sourceFrameSHA256": "c37e03e02f30ff4e9a184a16917347caf693556093f901f26af9b704cd09aeb9",
+            "proofSnapshot": "artifacts/tank-weakpoints-expansion-20261102/sources/014.json",
+            "proofSnapshotSHA256": "f550363a984da88c3144db8ec5acbf38d38097d02ba68874923e2b2285370c8c",
+            "nativeLeftPanelCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/test-context-review/is1.webp",
+            "cropSHA256": "9e13a491c4023adb040d2437dab1dc1e807c1100c2b02710a39cb3a9f800d340",
+            "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette"
+          },
+          "typeEvidence": {
+            "typeOriginal": "Armor-piercing capped ballistic capped shell",
+            "typeCode": "APCBC",
+            "sourceUrl": "https://wiki.warthunder.com/unit/us_m4a2_76w_sherman",
+            "collectedAt": "2026-11-02T10:11:22.019Z",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/us_m4a2_76w_sherman.html",
+            "sourceHtmlSha256": "29f04d3f7e1b1c02ea8a96fc625290fb2692e86669c49d2ad6f2a6d259a139b0",
+            "proofSnippet": "<span>M62 shell</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-piercing capped ballistic capped shell</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;High-explosive fragmentation&lt;/div&gt;&lt;div class=&quot;fw-bold text-center&quot;&gt;3.2&amp;nbsp;mm&lt;/div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th ",
+            "wikiShellLabel": "M62 shell"
+          }
+        }
       }
     },
     {
@@ -953,7 +1133,12 @@
         "attacker": "M4A2 (76) W",
         "shell": "M62",
         "sourceTime": 1012,
-        "note": null
+        "note": null,
+        "shellTypeCode": "APCBC",
+        "shellTypeLabel": "被帽风帽穿甲弹",
+        "displayedPenetrationMm": 149,
+        "distanceMeters": 0,
+        "impactAngleDegrees": null
       },
       "testContextEvidence": {
         "sourceFrameSHA256": "c391b0a63ed8e52a57f5dc5a57f9ccba61af1890e056ec4118850e7465e85b86",
@@ -961,7 +1146,34 @@
         "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is-focused/002.json",
         "proofSnapshotSHA256": "991cfbb16300aafae6f11685ca4ca8d97ff09ed7b0e388a4eec60a01be56e0bc",
         "sourceTime": 1012,
-        "sameFrameAsMainImage": true
+        "sameFrameAsMainImage": true,
+        "ammunitionDisplay": {
+          "caseId": "ussr_is_2_1943:BV1SPmEBJE3y:1012000",
+          "frameEvidence": {
+            "contextSource": "data/tank-weakpoints-samples.json",
+            "contextSourceSha256": "b5c1a0105aa53f73f039d52ec6f47106a2d680d88e0f945e787a78cf01f30a53"
+          },
+          "typeEvidence": {
+            "typeOriginal": "Armor-piercing capped ballistic capped shell",
+            "typeCode": "APCBC",
+            "sourceUrl": "https://wiki.warthunder.com/unit/us_m4a2_76w_sherman",
+            "collectedAt": "2026-11-02T10:11:22.019Z",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/us_m4a2_76w_sherman.html",
+            "sourceHtmlSha256": "29f04d3f7e1b1c02ea8a96fc625290fb2692e86669c49d2ad6f2a6d259a139b0",
+            "proofSnippet": "<span>M62 shell</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-piercing capped ballistic capped shell</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;High-explosive fragmentation&lt;/div&gt;&lt;div class=&quot;fw-bold text-center&quot;&gt;3.2&amp;nbsp;mm&lt;/div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th ",
+            "wikiShellLabel": "M62 shell"
+          }
+        },
+        "rootNativePanelVerification": {
+          "authority": "root-independent-native-panel-review",
+          "reviewedAt": "2026-11-02T10:25:38.828Z",
+          "sourceTime": 1012,
+          "displayedPenetrationMm": 149,
+          "distanceMeters": 0,
+          "panelCrop": "artifacts/tank-weakpoints-ingestion-20261102/root-panel-audit/USSR-IS-2-1943-1012.webp",
+          "panelCropSHA256": "b1b78ae8e9bf72618d8b7f321f0b664d02e5db6ccc357265d3001ac78a842da4",
+          "unknownDoesNotInvalidatePriorVerifiedValues": true
+        }
       }
     },
     {
@@ -1045,7 +1257,12 @@
         "attacker": "M4A2 (76) W",
         "shell": "M62",
         "sourceTime": 1020,
-        "note": "仅对应17:00片段；后续猎虎演示的目标是IS-4M"
+        "note": "仅对应17:00片段；后续猎虎演示的目标是IS-4M",
+        "shellTypeCode": "APCBC",
+        "shellTypeLabel": "被帽风帽穿甲弹",
+        "displayedPenetrationMm": 149,
+        "distanceMeters": 0,
+        "impactAngleDegrees": null
       },
       "testContextEvidence": {
         "sourceFrameFile": "artifacts/tank-weakpoints-expansion-20261102/sources/is-series-1020.png",
@@ -1054,7 +1271,29 @@
         "proofSnapshotSHA256": "019775d00989fceb30b4c00576f446bd1817fb49087586e5a0984450fa66f851",
         "nativeLeftPanelCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/test-context-review/is3.webp",
         "cropSHA256": "adb7fde47c69f73ad07d4f7607edfe4763465cb1be5ba225f3945476e9547997",
-        "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette"
+        "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette",
+        "ammunitionDisplay": {
+          "caseId": "ussr_is_3:BV1SPmEBJE3y:1020000",
+          "frameEvidence": {
+            "sourceFrameFile": "artifacts/tank-weakpoints-expansion-20261102/sources/is-series-1020.png",
+            "sourceFrameSHA256": "ba1e068c3ae7fa30c0de8aecdb5161d37ff9d95cbc9ee3f4a15131938d447e90",
+            "proofSnapshot": "artifacts/tank-weakpoints-expansion-20261102/sources/016.json",
+            "proofSnapshotSHA256": "019775d00989fceb30b4c00576f446bd1817fb49087586e5a0984450fa66f851",
+            "nativeLeftPanelCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/test-context-review/is3.webp",
+            "cropSHA256": "adb7fde47c69f73ad07d4f7607edfe4763465cb1be5ba225f3945476e9547997",
+            "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette"
+          },
+          "typeEvidence": {
+            "typeOriginal": "Armor-piercing capped ballistic capped shell",
+            "typeCode": "APCBC",
+            "sourceUrl": "https://wiki.warthunder.com/unit/us_m4a2_76w_sherman",
+            "collectedAt": "2026-11-02T10:11:22.019Z",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/us_m4a2_76w_sherman.html",
+            "sourceHtmlSha256": "29f04d3f7e1b1c02ea8a96fc625290fb2692e86669c49d2ad6f2a6d259a139b0",
+            "proofSnippet": "<span>M62 shell</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-piercing capped ballistic capped shell</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;High-explosive fragmentation&lt;/div&gt;&lt;div class=&quot;fw-bold text-center&quot;&gt;3.2&amp;nbsp;mm&lt;/div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th ",
+            "wikiShellLabel": "M62 shell"
+          }
+        }
       },
       "sourceGameVersion": "2.49.0.98",
       "videoGameVersion": "2.49.0.98",
@@ -1086,7 +1325,10 @@
           "distanceMeters": 0,
           "displayedPenetrationMm": 149,
           "sourceGameVersion": "2.49.0.98",
-          "verificationStatus": "verified"
+          "verificationStatus": "verified",
+          "shellTypeCode": "APCBC",
+          "shellTypeLabel": "被帽风帽穿甲弹",
+          "impactAngleDegrees": null
         },
         {
           "id": "ussr_is_3:BV1SPmEBJE3y:1022017",
@@ -1097,7 +1339,10 @@
           "distanceMeters": 0,
           "displayedPenetrationMm": 149,
           "sourceGameVersion": null,
-          "verificationStatus": "verified"
+          "verificationStatus": "verified",
+          "shellTypeCode": "APCBC",
+          "shellTypeLabel": "被帽风帽穿甲弹",
+          "impactAngleDegrees": null
         }
       ],
       "testCaseEvidence": {
@@ -1106,7 +1351,27 @@
           "proofSnapshotSHA256": "fba34f7134b60813e65de299f373fedfd2266c6eae167f25eddcce349e97ce7d",
           "sourceFrameSHA256": "71bb2fbfbf7356085aa2b8a9b57ac5597e1268ec560c04b5fd17bfc10bb367be",
           "framePath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/USSR-IS-3-1022.017-reused.webp",
-          "sourceTime": 1022.017
+          "sourceTime": 1022.017,
+          "ammunitionDisplay": {
+            "caseId": "ussr_is_3:BV1SPmEBJE3y:1022017",
+            "frameEvidence": {
+              "sourceFrameFile": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/USSR-IS-3-1022.017-reused.webp",
+              "sourceFrameSHA256": "71bb2fbfbf7356085aa2b8a9b57ac5597e1268ec560c04b5fd17bfc10bb367be",
+              "proofSnapshot": "artifacts/tank-weakpoints-expansion-20261102/sources/018.json",
+              "caseRecordPath": "artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/records.json",
+              "caseRecordSha256": "bccd2f1e1956ce14abe010ccbd43ec0d69a1605f0a64e31ded451402fc2a04e9"
+            },
+            "typeEvidence": {
+              "typeOriginal": "Armor-piercing capped ballistic capped shell",
+              "typeCode": "APCBC",
+              "sourceUrl": "https://wiki.warthunder.com/unit/us_m4a2_76w_sherman",
+              "collectedAt": "2026-11-02T10:11:22.019Z",
+              "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/us_m4a2_76w_sherman.html",
+              "sourceHtmlSha256": "29f04d3f7e1b1c02ea8a96fc625290fb2692e86669c49d2ad6f2a6d259a139b0",
+              "proofSnippet": "<span>M62 shell</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-piercing capped ballistic capped shell</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;High-explosive fragmentation&lt;/div&gt;&lt;div class=&quot;fw-bold text-center&quot;&gt;3.2&amp;nbsp;mm&lt;/div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th ",
+              "wikiShellLabel": "M62 shell"
+            }
+          }
         },
         "ussr_is_3:BV1SPmEBJE3y:1020000": {
           "sourceFrameFile": "artifacts/tank-weakpoints-expansion-20261102/sources/is-series-1020.png",
@@ -1115,7 +1380,29 @@
           "proofSnapshotSHA256": "019775d00989fceb30b4c00576f446bd1817fb49087586e5a0984450fa66f851",
           "nativeLeftPanelCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/test-context-review/is3.webp",
           "cropSHA256": "adb7fde47c69f73ad07d4f7607edfe4763465cb1be5ba225f3945476e9547997",
-          "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette"
+          "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette",
+          "ammunitionDisplay": {
+            "caseId": "ussr_is_3:BV1SPmEBJE3y:1020000",
+            "frameEvidence": {
+              "sourceFrameFile": "artifacts/tank-weakpoints-expansion-20261102/sources/is-series-1020.png",
+              "sourceFrameSHA256": "ba1e068c3ae7fa30c0de8aecdb5161d37ff9d95cbc9ee3f4a15131938d447e90",
+              "proofSnapshot": "artifacts/tank-weakpoints-expansion-20261102/sources/016.json",
+              "proofSnapshotSHA256": "019775d00989fceb30b4c00576f446bd1817fb49087586e5a0984450fa66f851",
+              "nativeLeftPanelCrop": "artifacts/tank-weakpoints-expansion-20261102/sources/test-context-review/is3.webp",
+              "cropSHA256": "adb7fde47c69f73ad07d4f7607edfe4763465cb1be5ba225f3945476e9547997",
+              "readBasis": "native-resolution attack-source vehicle selector and shell selector, not target title or silhouette"
+            },
+            "typeEvidence": {
+              "typeOriginal": "Armor-piercing capped ballistic capped shell",
+              "typeCode": "APCBC",
+              "sourceUrl": "https://wiki.warthunder.com/unit/us_m4a2_76w_sherman",
+              "collectedAt": "2026-11-02T10:11:22.019Z",
+              "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/us_m4a2_76w_sherman.html",
+              "sourceHtmlSha256": "29f04d3f7e1b1c02ea8a96fc625290fb2692e86669c49d2ad6f2a6d259a139b0",
+              "proofSnippet": "<span>M62 shell</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-piercing capped ballistic capped shell</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;High-explosive fragmentation&lt;/div&gt;&lt;div class=&quot;fw-bold text-center&quot;&gt;3.2&amp;nbsp;mm&lt;/div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th ",
+              "wikiShellLabel": "M62 shell"
+            }
+          }
         }
       }
     },
@@ -1193,7 +1480,12 @@
         "attacker": "IS-6",
         "shell": "BR-471D",
         "sourceTime": 1055.017,
-        "note": "测试条件来自1055秒，不把1050秒打开炮弹选择菜单的悬停选项当已确认弹种。"
+        "note": "测试条件来自1055秒，不把1050秒打开炮弹选择菜单的悬停选项当已确认弹种。",
+        "shellTypeCode": "APCBC",
+        "shellTypeLabel": "被帽风帽穿甲弹",
+        "displayedPenetrationMm": 215,
+        "distanceMeters": 500,
+        "impactAngleDegrees": null
       },
       "testContextEvidence": {
         "sourceFrameSHA256": "5d0f352a11b1ae3f55a431c1db6f5a4ba1c3d4c5223efa7808613b8e29ebb3d3",
@@ -1201,7 +1493,33 @@
         "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is-focused/008.json",
         "proofSnapshotSHA256": "e96a56e76967abce42c639c549e846fa1357c68ba2434bd05f13fc92b38087a4",
         "sourceTime": 1055.017,
-        "sameFrameAsMainImage": false
+        "sameFrameAsMainImage": false,
+        "ammunitionDisplay": {
+          "caseId": "ussr_is_6:BV1SPmEBJE3y:1055017",
+          "frameEvidence": {
+            "contextSource": "data/tank-weakpoints-samples.json",
+            "contextSourceSha256": "b5c1a0105aa53f73f039d52ec6f47106a2d680d88e0f945e787a78cf01f30a53"
+          },
+          "typeEvidence": {
+            "typeOriginal": "Armor-piercing capped ballistic capped shell",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/ussr_is_3.html",
+            "sourceHtmlSha256": "34764827910691aa3772916e1d05ba132e1e6cd44470634e596aca7bf3c0f764",
+            "proofSnippet": "<span>BR-471D</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-piercing capped ballistic capped shell</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;High-explosive fragmentation&lt;/div&gt;&lt;div class=&quot;fw-bold text-center&quot;&gt;4.9&amp;nbsp;mm&lt;/div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=&quot;border-end&quot; style=&quot;font-size: .8em; width: 40%;&quot;&gt;Distance / Angle of att",
+            "typeCode": "APCBC",
+            "sourceUrl": "https://wiki.warthunder.com/unit/ussr_is_3",
+            "collectedAt": "2026-11-02T06:17:02.266Z"
+          }
+        },
+        "rootNativePanelVerification": {
+          "authority": "root-independent-native-panel-review",
+          "reviewedAt": "2026-11-02T10:25:38.829Z",
+          "sourceTime": 1055.017,
+          "displayedPenetrationMm": 215,
+          "distanceMeters": 500,
+          "panelCrop": "artifacts/tank-weakpoints-ingestion-20261102/root-panel-audit/USSR-IS-6-1055.017.webp",
+          "panelCropSHA256": "a665436ecaa1b5f0203f6cb578a1acaf2d7d1f42f9759938d42dfa19b2d140b0",
+          "unknownDoesNotInvalidatePriorVerifiedValues": true
+        }
       }
     },
     {
@@ -1904,7 +2222,10 @@
           "distanceMeters": 0,
           "displayedPenetrationMm": 104,
           "sourceGameVersion": "2.49.0.98",
-          "verificationStatus": "verified"
+          "verificationStatus": "verified",
+          "shellTypeCode": "APCBC",
+          "shellTypeLabel": "被帽风帽穿甲弹",
+          "impactAngleDegrees": null
         },
         {
           "id": "germ_pzkpfw_vi_ausf_b_tiger_iih:BV1SPmEBJE3y:566017",
@@ -1915,7 +2236,10 @@
           "distanceMeters": 0,
           "displayedPenetrationMm": 283,
           "sourceGameVersion": null,
-          "verificationStatus": "verified"
+          "verificationStatus": "verified",
+          "shellTypeCode": "APCBC",
+          "shellTypeLabel": "被帽风帽穿甲弹",
+          "impactAngleDegrees": null
         }
       ],
       "testCaseEvidence": {
@@ -1924,14 +2248,54 @@
           "proofSnapshotSHA256": "eaf32c3b3802772010ab67981d5fa37248318920c8ecda7a6d7e25ce0779fe5c",
           "sourceFrameSHA256": "468f05c41c1b74281438a30f860aed40542b226247ea5f3f1498a6ef973486d0",
           "framePath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/GER-Tiger-II-H-562.webp",
-          "sourceTime": 562
+          "sourceTime": 562,
+          "ammunitionDisplay": {
+            "caseId": "germ_pzkpfw_vi_ausf_b_tiger_iih:BV1SPmEBJE3y:562000",
+            "frameEvidence": {
+              "sourceFrameFile": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/GER-Tiger-II-H-562.webp",
+              "sourceFrameSHA256": "468f05c41c1b74281438a30f860aed40542b226247ea5f3f1498a6ef973486d0",
+              "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/023.json",
+              "caseRecordPath": "artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/records.json",
+              "caseRecordSha256": "bccd2f1e1956ce14abe010ccbd43ec0d69a1605f0a64e31ded451402fc2a04e9"
+            },
+            "typeEvidence": {
+              "typeOriginal": "Armor-piercing capped ballistic capped shell",
+              "typeCode": "APCBC",
+              "sourceUrl": "https://wiki.warthunder.com/unit/us_m4a3e2_sherman_jumbo",
+              "collectedAt": "2026-11-02T10:11:46.535Z",
+              "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/us_m4a3e2_sherman_jumbo.html",
+              "sourceHtmlSha256": "80f676ff3f90c044e6caef0427a05015fe652593813b81316f5f279beba657d4",
+              "proofSnippet": "<span>M61 shot</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-piercing capped ballistic capped shell</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;High-explosive fragmentation&lt;/div&gt;&lt;div class=&quot;fw-bold text-center&quot;&gt;3.2&amp;nbsp;mm&lt;/div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th c",
+              "wikiShellLabel": "M61 shot"
+            }
+          }
         },
         "germ_pzkpfw_vi_ausf_b_tiger_iih:BV1SPmEBJE3y:566017": {
           "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/025.json",
           "proofSnapshotSHA256": "ca0468e17ded4f8257237f1d00bb73ff5111fa357d487150207a19340c1b6c1d",
           "sourceFrameSHA256": "6213be16b983ba33df003c0fac4222c1eb35e7e32d0f33062def7c4191567c56",
           "framePath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/GER-Tiger-II-H-566.017.webp",
-          "sourceTime": 566.017
+          "sourceTime": 566.017,
+          "ammunitionDisplay": {
+            "caseId": "germ_pzkpfw_vi_ausf_b_tiger_iih:BV1SPmEBJE3y:566017",
+            "frameEvidence": {
+              "sourceFrameFile": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/GER-Tiger-II-H-566.017.webp",
+              "sourceFrameSHA256": "6213be16b983ba33df003c0fac4222c1eb35e7e32d0f33062def7c4191567c56",
+              "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/025.json",
+              "caseRecordPath": "artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/records.json",
+              "caseRecordSha256": "bccd2f1e1956ce14abe010ccbd43ec0d69a1605f0a64e31ded451402fc2a04e9"
+            },
+            "typeEvidence": {
+              "typeOriginal": "Armor-piercing capped ballistic capped shell",
+              "typeCode": "APCBC",
+              "sourceUrl": "https://wiki.warthunder.com/unit/us_t34",
+              "collectedAt": "2026-11-02T10:11:30.225Z",
+              "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/us_t34.html",
+              "sourceHtmlSha256": "4b1ed988e57efe42c79fa0c81943b4d609e739cbac392bc5ad2f9a1144a25efb",
+              "proofSnippet": "<span>T14E3</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-piercing capped ballistic capped shell</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th class=&quot;border-end&quot; style=&quot;font-size: .8em; width: 40%;&quot;&gt;Distance / Angle of attack&lt;/th&gt;&lt;th&gt;0°&lt;/th&gt;&lt;th&gt;30°&lt;/th&gt;&lt;th&g",
+              "wikiShellLabel": "T14E3"
+            }
+          }
         }
       },
       "sourceGameVersion": "2.49.0.98",
@@ -1956,9 +2320,36 @@
         "attacker": "M4A3E2",
         "shell": "M61",
         "sourceTime": 562,
-        "note": "562秒主图的M61显示未穿；T34/T14E3的正向条件说明来自566秒起另一个片段。"
+        "note": "562秒主图的M61显示未穿；T34/T14E3的正向条件说明来自566秒起另一个片段。",
+        "shellTypeCode": "APCBC",
+        "shellTypeLabel": "被帽风帽穿甲弹",
+        "displayedPenetrationMm": 104,
+        "distanceMeters": 0,
+        "impactAngleDegrees": null
       },
-      "limits": "原视频局部穿深条件不能泛化全部距离角度。；不沿用到Sla16或105改型。；P主图有浮窗遮挡；H主图略俯视正面非透视。"
+      "limits": "原视频局部穿深条件不能泛化全部距离角度。；不沿用到Sla16或105改型。；P主图有浮窗遮挡；H主图略俯视正面非透视。",
+      "testContextEvidence": {
+        "ammunitionDisplay": {
+          "caseId": "germ_pzkpfw_vi_ausf_b_tiger_iih:BV1SPmEBJE3y:562000",
+          "frameEvidence": {
+            "sourceFrameFile": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/GER-Tiger-II-H-562.webp",
+            "sourceFrameSHA256": "468f05c41c1b74281438a30f860aed40542b226247ea5f3f1498a6ef973486d0",
+            "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/023.json",
+            "caseRecordPath": "artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/records.json",
+            "caseRecordSha256": "bccd2f1e1956ce14abe010ccbd43ec0d69a1605f0a64e31ded451402fc2a04e9"
+          },
+          "typeEvidence": {
+            "typeOriginal": "Armor-piercing capped ballistic capped shell",
+            "typeCode": "APCBC",
+            "sourceUrl": "https://wiki.warthunder.com/unit/us_m4a3e2_sherman_jumbo",
+            "collectedAt": "2026-11-02T10:11:46.535Z",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/us_m4a3e2_sherman_jumbo.html",
+            "sourceHtmlSha256": "80f676ff3f90c044e6caef0427a05015fe652593813b81316f5f279beba657d4",
+            "proofSnippet": "<span>M61 shot</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-piercing capped ballistic capped shell</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;High-explosive fragmentation&lt;/div&gt;&lt;div class=&quot;fw-bold text-center&quot;&gt;3.2&amp;nbsp;mm&lt;/div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th c",
+            "wikiShellLabel": "M61 shot"
+          }
+        }
+      }
     },
     {
       "id": "germ_pzkpfw_vi_ausf_b_tiger_iih_kwk46",
@@ -2113,7 +2504,10 @@
           "distanceMeters": 0,
           "displayedPenetrationMm": 104,
           "sourceGameVersion": null,
-          "verificationStatus": "verified"
+          "verificationStatus": "verified",
+          "shellTypeCode": "APCBC",
+          "shellTypeLabel": "被帽风帽穿甲弹",
+          "impactAngleDegrees": null
         }
       ],
       "testCaseEvidence": {
@@ -2122,14 +2516,61 @@
           "proofSnapshotSHA256": "f777033a07a7410e7f0e033384c1d94beb24c0026988a4fc864accfddf9e8efd",
           "sourceFrameSHA256": "abfbc80c169e2943dd61ff8274b0a2b6a006277ee1707353589ae3929e246417",
           "framePath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/GER-Tiger-II-Nr-1-50-556.webp",
-          "sourceTime": 556
+          "sourceTime": 556,
+          "ammunitionDisplay": {
+            "caseId": "germ_pzkpfw_vi_ausf_b_tiger_iip:BV1SPmEBJE3y:556000",
+            "frameEvidence": {
+              "sourceFrameFile": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/GER-Tiger-II-Nr-1-50-556.webp",
+              "sourceFrameSHA256": "abfbc80c169e2943dd61ff8274b0a2b6a006277ee1707353589ae3929e246417",
+              "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/021.json",
+              "caseRecordPath": "artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/records.json",
+              "caseRecordSha256": "bccd2f1e1956ce14abe010ccbd43ec0d69a1605f0a64e31ded451402fc2a04e9"
+            },
+            "typeEvidence": {
+              "typeOriginal": "Armor-piercing capped ballistic capped shell",
+              "typeCode": "APCBC",
+              "sourceUrl": "https://wiki.warthunder.com/unit/us_m4a3e2_sherman_jumbo",
+              "collectedAt": "2026-11-02T10:11:46.535Z",
+              "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/us_m4a3e2_sherman_jumbo.html",
+              "sourceHtmlSha256": "80f676ff3f90c044e6caef0427a05015fe652593813b81316f5f279beba657d4",
+              "proofSnippet": "<span>M61 shot</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-piercing capped ballistic capped shell</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;High-explosive fragmentation&lt;/div&gt;&lt;div class=&quot;fw-bold text-center&quot;&gt;3.2&amp;nbsp;mm&lt;/div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th c",
+              "wikiShellLabel": "M61 shot"
+            }
+          }
         }
       },
       "testContext": {
         "attacker": "M4A3E2",
         "shell": "M61",
         "sourceTime": 556,
-        "note": "对应09:16片段，清洁正面图待补"
+        "note": "对应09:16片段，清洁正面图待补",
+        "shellTypeCode": "APCBC",
+        "shellTypeLabel": "被帽风帽穿甲弹",
+        "displayedPenetrationMm": 104,
+        "distanceMeters": 0,
+        "impactAngleDegrees": null
+      },
+      "testContextEvidence": {
+        "ammunitionDisplay": {
+          "caseId": "germ_pzkpfw_vi_ausf_b_tiger_iip:BV1SPmEBJE3y:556000",
+          "frameEvidence": {
+            "sourceFrameFile": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/GER-Tiger-II-Nr-1-50-556.webp",
+            "sourceFrameSHA256": "abfbc80c169e2943dd61ff8274b0a2b6a006277ee1707353589ae3929e246417",
+            "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/021.json",
+            "caseRecordPath": "artifacts/tank-weakpoints-expansion-20261102/sources/is3-tiger-audit-20261102/records.json",
+            "caseRecordSha256": "bccd2f1e1956ce14abe010ccbd43ec0d69a1605f0a64e31ded451402fc2a04e9"
+          },
+          "typeEvidence": {
+            "typeOriginal": "Armor-piercing capped ballistic capped shell",
+            "typeCode": "APCBC",
+            "sourceUrl": "https://wiki.warthunder.com/unit/us_m4a3e2_sherman_jumbo",
+            "collectedAt": "2026-11-02T10:11:46.535Z",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/ammunition-display-20261102/snapshots/us_m4a3e2_sherman_jumbo.html",
+            "sourceHtmlSha256": "80f676ff3f90c044e6caef0427a05015fe652593813b81316f5f279beba657d4",
+            "proofSnippet": "<span>M61 shot</span></div><div class=\"game-unit_popover-content\"><div style=\"font-size: .9em\"><div class=\"mb-1\">Armor-piercing capped ballistic capped shell</div><button type=\"button\" class=\"border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info\" tabindex=\"-1\" data-bs-toggle=\"popover\" data-bs-title=\"Armor penetration\" data-bs-content=\"&lt;div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;High-explosive fragmentation&lt;/div&gt;&lt;div class=&quot;fw-bold text-center&quot;&gt;3.2&amp;nbsp;mm&lt;/div&gt;&lt;div class=&quot;form-text text-center&quot;&gt;Kinetic&lt;/div&gt;&lt;table class=&quot;w-100 text-center&quot;&gt;&lt;tr class=&quot;border-bottom&quot;&gt;&lt;th c",
+            "wikiShellLabel": "M61 shot"
+          }
+        }
       }
     },
     {
@@ -4597,6 +5038,878 @@
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
       ]
+    },
+    {
+      "id": "cn_mbt2000",
+      "name": "MBT-2000",
+      "role": "主战坦克",
+      "country": "china",
+      "countryName": "中国",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "MBT2000于2000年定型、2001年展示，具7秒自动装填、较强倒车与原地转向；Wiki称防护不及配FY4的ZTZ96A。",
+      "collectedAt": "2026-11-02T09:48:46.431Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/cn_mbt2000",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-007-20261102/snapshots/cn_mbt2000.json",
+      "wikiSnapshotSHA256": "d5038ceaba2ee5c1117084afab3b115d4b200b478d3f4a25ea0cd1eb71d4d51c",
+      "wikiSummary": "MBT2000于2000年定型、2001年展示，具7秒自动装填、较强倒车与原地转向；Wiki称防护不及配FY4的ZTZ96A。",
+      "wikiPoints": [
+        "防护比较不提供具体击穿位置，不从ZTZ96A复制弱点。"
+      ],
+      "reload": {
+        "display": "自动装填 7 秒",
+        "gun": "125 mm ZPT98 cannon",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 7,
+        "mechanism": "automatic",
+        "note": "仅解析主炮首段；主炮自动装填面板值不代表无限持续射击。"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "fr_msc",
+      "name": "MSC",
+      "role": "主战坦克",
+      "country": "france",
+      "countryName": "法国",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "cold-war",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "MSC为1986年展示的勒克莱尔概念验证原型，配6秒自动装填与泄压板，Wiki明确指出首下脆弱。",
+      "collectedAt": "2026-11-02T09:49:02.774Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/fr_msc",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-007-20261102/snapshots/fr_msc.json",
+      "wikiSnapshotSHA256": "d007298aad699a44368fe6480475d1822a633108b1a145ada490aa0f319b953f",
+      "wikiSummary": "MSC为1986年展示的勒克莱尔概念验证原型，配6秒自动装填与泄压板，Wiki明确指出首下脆弱。",
+      "wikiPoints": [
+        "本型原型年代与1991量产勒克莱尔分开，不以量产年代替代。",
+        "首下为直接位置证据，无具体射击条件或坐标。"
+      ],
+      "reload": {
+        "display": "自动装填 6 秒",
+        "gun": "120 mm CN120-26 cannon",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 6,
+        "mechanism": "automatic",
+        "note": "仅解析主炮首段；主炮自动装填面板值不代表无限持续射击。"
+      },
+      "weaknessEvidenceStatus": "explicit-location",
+      "qualitativeWeakpoints": [
+        {
+          "locationZh": "首下装甲板",
+          "statementZh": "Wiki直接指出vulnerable lower front plate。"
+        }
+      ],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "germ_leopard_2k",
+      "name": "Leopard 2K",
+      "role": "主战坦克",
+      "country": "germany",
+      "countryName": "德国",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "cold-war",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "豹2K为1970至75年原型项目，以薄甲换取机动与120毫米火力；Wiki称可被同代炮弹在广泛部位击穿。",
+      "collectedAt": "2026-11-02T09:48:13.655Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/germ_leopard_2k",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-007-20261102/snapshots/germ_leopard_2k.json",
+      "wikiSnapshotSHA256": "9104092427dad67a0777034c5bc2f4e6274c813bda290d8a89315f6e71590596",
+      "wikiSummary": "豹2K为1970至75年原型项目，以薄甲换取机动与120毫米火力；Wiki称可被同代炮弹在广泛部位击穿。",
+      "wikiPoints": [
+        "整体薄甲概述不变成任何炮弹、角度、距离都必穿的保证。",
+        "原文提到攻击T72AV首上属于本车攻击能力，不是自身弱点。"
+      ],
+      "reload": {
+        "display": "8.7 → 6.7 秒",
+        "gun": "120 mm Rh120 L/44 cannon",
+        "basicSeconds": 8.7,
+        "aceSeconds": 6.7,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "il_sabra_mk1",
+      "name": "Sabra Mk.I",
+      "role": "主战坦克",
+      "country": "israel",
+      "countryName": "以色列",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "SabraMk1为90年代末M60现代化改型，采用120毫米MG253炮与Knight火控；装甲主要应对部分ATGM和HEAT。",
+      "collectedAt": "2026-11-02T09:49:19.266Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/il_sabra_mk1",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-007-20261102/snapshots/il_sabra_mk1.json",
+      "wikiSnapshotSHA256": "c9492f9f8cced01848a1b6e7bd704ad0ec5fb51334e7b5d3b13d77c6de7616f1",
+      "wikiSummary": "SabraMk1为90年代末M60现代化改型，采用120毫米MG253炮与Knight火控；装甲主要应对部分ATGM和HEAT。",
+      "wikiPoints": [
+        "不把后续土耳其MkII采购/交付当MkI技术日期。",
+        "没有给出局部击穿位置，对动能防护不作额外推断。"
+      ],
+      "reload": {
+        "display": "7.8 → 6 秒",
+        "gun": "120 mm IMI MG253 cannon",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "it_c1_ariete_certezza",
+      "name": "Ariete Certezza",
+      "role": "主战坦克",
+      "country": "italy",
+      "countryName": "意大利",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": null,
+      "eraStatus": "pending-exact-variant-date-review",
+      "eraBasis": "本页未明确具体技术改型形成日期；采购/服役/活动引入日期不足，不推断。",
+      "collectedAt": "2026-11-02T09:48:54.670Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/it_c1_ariete_certezza",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-007-20261102/snapshots/it_c1_ariete_certezza.json",
+      "wikiSnapshotSHA256": "ed8e7b61dbc140b560e04f1cf264e33b7da4b934d0da382f7bfd1623a70116b5",
+      "wikiSummary": "公羊Certezza配WAR炮塔正面附甲与DM53，Wiki提醒其他装甲部位防护较差。",
+      "wikiPoints": [
+        "2014排气管改装原因仅原文推测，不作为确定技术日期。",
+        "没有更精确的具体弱点位置，不把WAR防护泛化到车体和侧面。"
+      ],
+      "reload": {
+        "display": "6.5 → 5 秒",
+        "gun": "120 mm OTO Breda 120/44 cannon",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。",
+        "具体改型年代待核实，era保留null。"
+      ]
+    },
+    {
+      "id": "jp_type_90b_sm",
+      "name": "◍Type 90 (B)",
+      "role": "主战坦克",
+      "country": "japan",
+      "countryName": "日本",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": null,
+      "eraStatus": "pending-exact-variant-date-review",
+      "eraBasis": "本页未明确具体技术改型形成日期；采购/服役/活动引入日期不足，不推断。",
+      "collectedAt": "2026-11-02T09:48:38.188Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/jp_type_90b_sm",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-007-20261102/snapshots/jp_type_90b_sm.json",
+      "wikiSnapshotSHA256": "886311b6aee588575b19e859de27d82cb7903309927499578b6c3fe2995e149a",
+      "wikiSummary": "◍90式B为Senrai Maidens外观版本，Wiki称技术性能与既有高级B型相同，主炮4秒自动装填。",
+      "wikiPoints": [
+        "2026活动是外观引入，不定义技术年代；B型形成时间本页未明，era=null。",
+        "炮塔尾弹药有泄压板提升部分命中时生存性；不能当作弹药架永不致死。"
+      ],
+      "reload": {
+        "display": "自动装填 4 秒",
+        "gun": "120 mm Type 90 L/44 cannon",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 4,
+        "mechanism": "automatic",
+        "note": "仅解析主炮首段；主炮自动装填面板值不代表无限持续射击。"
+      },
+      "weaknessEvidenceStatus": "explicit-protection-context",
+      "qualitativeWeakpoints": [
+        {
+          "locationZh": "炮塔尾弹药区泄压板",
+          "statementZh": "泄压板改善该区域弹药命中时生存性，不提供无条件免死保证。"
+        }
+      ],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。",
+        "具体改型年代待核实，era保留null。"
+      ]
+    },
+    {
+      "id": "sw_strv_121",
+      "name": "Strv 121",
+      "role": "主战坦克",
+      "country": "sweden",
+      "countryName": "瑞典",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": null,
+      "eraStatus": "pending-exact-variant-date-review",
+      "eraBasis": "本页未明确具体技术改型形成日期；采购/服役/活动引入日期不足，不推断。",
+      "collectedAt": "2026-11-02T09:49:11.007Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/sw_strv_121",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-007-20261102/snapshots/sw_strv_121.json",
+      "wikiSnapshotSHA256": "5931968631213cc4f6ef31efc88f56b558f7e803c1e1e360323ac3ba86f586fe",
+      "wikiSummary": "Strv121为瑞典豹2A4，Wiki直接提醒车体相对炮塔较脆弱，适合隐蔽车体远距交战。",
+      "wikiPoints": [
+        "1994租赁与交付不决定技术年代；瑞典通信/灯具改动形成时间不明，era=null。",
+        "不从其他国家豹2A4直接套用弹药区条件。"
+      ],
+      "reload": {
+        "display": "7.8 → 6 秒",
+        "gun": "120 mm kan Strv 121",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "explicit-location",
+      "qualitativeWeakpoints": [
+        {
+          "locationZh": "车体",
+          "statementZh": "Wiki明确称车体相对炮塔较脆弱；仅定性区域。"
+        }
+      ],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。",
+        "具体改型年代待核实，era保留null。"
+      ]
+    },
+    {
+      "id": "uk_challenger_1",
+      "name": "Challenger Mk.2",
+      "role": "主战坦克",
+      "country": "britain",
+      "countryName": "英国",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "cold-war",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "挑战者Mk2为1985至86年生产改型，Wiki明确称车体和首下脆弱，强炮塔宜利用地形隐蔽车体。",
+      "collectedAt": "2026-11-02T09:48:29.982Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/uk_challenger_1",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-007-20261102/snapshots/uk_challenger_1.json",
+      "wikiSnapshotSHA256": "8c416e5864bca2344eb846c9960701c9a016ef026da7e1415e569dd4c7eadbd1",
+      "wikiSummary": "挑战者Mk2为1985至86年生产改型，Wiki明确称车体和首下脆弱，强炮塔宜利用地形隐蔽车体。",
+      "wikiPoints": [
+        "车体/首下为直接部位证据，未给具体弹种、距离与角度。",
+        "发动机隆起限制向后开火，属于操炮约束。"
+      ],
+      "reload": {
+        "display": "6.5 → 5 秒",
+        "gun": "120 mm L11A5 cannon",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "explicit-location",
+      "qualitativeWeakpoints": [
+        {
+          "locationZh": "车体及首下装甲板",
+          "statementZh": "Wiki直接指出vulnerable hull and lower front plate。"
+        }
+      ],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "us_m60_120s",
+      "name": "120S",
+      "role": "主战坦克",
+      "country": "usa",
+      "countryName": "美国",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "120S于1999年开始开发、2001年公开原型，采用M1A1炮塔与M60车体；Wiki明确提醒车体装甲难应对同场炮火，原发动机也拖慢机动。",
+      "collectedAt": "2026-11-02T09:48:07.151Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/us_m60_120s",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-007-20261102/snapshots/us_m60_120s.json",
+      "wikiSnapshotSHA256": "c2195b332e6f81c25091ded6eea14cb7f72ce177cef48e91d5bd81a47e8b4e67",
+      "wikiSummary": "120S于1999年开始开发、2001年公开原型，采用M1A1炮塔与M60车体；Wiki明确提醒车体装甲难应对同场炮火，原发动机也拖慢机动。",
+      "wikiPoints": [
+        "炮塔防护优势不转移到M60车体；车体为定性风险区域，无保证击穿条件。"
+      ],
+      "reload": {
+        "display": "6.5 → 5 秒",
+        "gun": "120 mm M256 cannon",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "explicit-location",
+      "qualitativeWeakpoints": [
+        {
+          "locationZh": "M60车体",
+          "statementZh": "Wiki明确说M60车体装甲难以应对同场炮火；非全条件必穿。"
+        }
+      ],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "ussr_t_72b",
+      "name": "T-72B",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 7,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": null,
+      "eraStatus": "pending-exact-variant-date-review",
+      "eraBasis": "本页未明确具体技术改型形成日期；采购/服役/活动引入日期不足，不推断。",
+      "collectedAt": "2026-11-02T09:48:21.775Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_72b",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-007-20261102/snapshots/ussr_t_72b.json",
+      "wikiSnapshotSHA256": "a5f51dc3553b58a40fa0dc5f09776df8fabdcc46f6d573d3c9189fcd493f79b7",
+      "wikiSummary": "T72B增加车体正面20毫米附甲、改进火控和炮射导弹能力，但缺热成像且倒车慢。",
+      "wikiPoints": [
+        "本页未给出具体技术型号形成日期，不以游戏引入年判断时代。",
+        "未给明确局部弱点，不从其他T72变体复制。"
+      ],
+      "reload": {
+        "display": "自动装填 7 秒",
+        "gun": "125 mm 2A46M cannon",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 7,
+        "mechanism": "automatic",
+        "note": "仅解析主炮首段；主炮自动装填面板值不代表无限持续射击。"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。",
+        "具体改型年代待核实，era保留null。"
+      ]
+    },
+    {
+      "id": "cn_vt_4",
+      "name": "VT4",
+      "role": "主战坦克",
+      "country": "china",
+      "countryName": "中国",
+      "rank": 8,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "VT4在2012年展示概念、2014年展示完成车，主炮面板125毫米ZPT98自动装填6.7秒。",
+      "collectedAt": "2026-11-02T09:51:44.039Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/cn_vt_4",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-008-20261102/snapshots/cn_vt_4.json",
+      "wikiSnapshotSHA256": "262ece330d653a90c1d6a140bc58ea300ead960cab6ec71eb65a0252981853ce",
+      "wikiSummary": "VT4在2012年展示概念、2014年展示完成车，主炮面板125毫米ZPT98自动装填6.7秒。",
+      "wikiPoints": [
+        "正文称ZPT98A而面板为ZPT98，主炮字段保留实际面板，不擅自添A。",
+        "原文泛称较大的脆弱区域但未给位置，不能据此标坐标。"
+      ],
+      "reload": {
+        "display": "自动装填 6.7 秒",
+        "gun": "125 mm ZPT98 cannon",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 6.7,
+        "mechanism": "automatic",
+        "note": "仅解析主炮首段；主炮自动装填面板值不代表无限持续射击。"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "fr_leclerc_s2",
+      "name": "Leclerc S2",
+      "role": "主战坦克",
+      "country": "france",
+      "countryName": "法国",
+      "rank": 8,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "勒克莱尔S2在1997年替代S1生产，具5秒自动装填；Wiki明确指出车体多处弱点，隐蔽车体后炮闩仍暴露。",
+      "collectedAt": "2026-11-02T09:52:00.451Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/fr_leclerc_s2",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-008-20261102/snapshots/fr_leclerc_s2.json",
+      "wikiSnapshotSHA256": "f0ea4e3ebea619ed69338efd149504b8329202bdecafc0c6f6862fa643c982fd",
+      "wikiSummary": "勒克莱尔S2在1997年替代S1生产，具5秒自动装填；Wiki明确指出车体多处弱点，隐蔽车体后炮闩仍暴露。",
+      "wikiPoints": [
+        "炮闩为原文直接指出的隐蔽车体后残留风险，未给具体击穿条件。",
+        "车体弱点仅区域描述，不能补坐标；不从S1复制炮盾结论。"
+      ],
+      "reload": {
+        "display": "自动装填 5 秒",
+        "gun": "120 mm CN120-26 F1 cannon",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 5,
+        "mechanism": "automatic",
+        "note": "仅解析主炮首段；主炮自动装填面板值不代表无限持续射击。"
+      },
+      "weaknessEvidenceStatus": "explicit-location",
+      "qualitativeWeakpoints": [
+        {
+          "locationZh": "炮闩",
+          "statementZh": "隐蔽车体可遮蔽多数脆弱区域，但炮闩除外。"
+        },
+        {
+          "locationZh": "车体",
+          "statementZh": "近战城市环境下许多车体弱点可见并可被瞄准；未给细分位置。"
+        }
+      ],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "germ_embt",
+      "name": "◄EMBT",
+      "role": "主战坦克",
+      "country": "germany",
+      "countryName": "德国",
+      "rank": 8,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "德系EMBT为2017至18年将勒克莱尔S1炮塔与豹2底盘结合的验证车，自动装填5秒。",
+      "collectedAt": "2026-11-02T09:51:11.209Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/germ_embt",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-008-20261102/snapshots/germ_embt.json",
+      "wikiSnapshotSHA256": "32501d0bf04a76a353e59f94b5664baf4a871acb77ad4a9e7e7aaf17d193a1de",
+      "wikiSummary": "德系EMBT为2017至18年将勒克莱尔S1炮塔与豹2底盘结合的验证车，自动装填5秒。",
+      "wikiPoints": [
+        "2018型不同于2022年全新炮塔版本，不能互套。",
+        "相对豹2A7V防护降低为整体比较，没有具体局部弱点。"
+      ],
+      "reload": {
+        "display": "自动装填 5 秒",
+        "gun": "120 mm CN120-26 F1 cannon",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 5,
+        "mechanism": "automatic",
+        "note": "仅解析主炮首段；主炮自动装填面板值不代表无限持续射击。"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "il_leopard_2a6_hel",
+      "name": "◐Leopard 2HEL",
+      "role": "主战坦克",
+      "country": "israel",
+      "countryName": "以色列",
+      "rank": 8,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "希腊豹2HEL在2003年后基于2A6研发，增进火控通信热成像及车体前部防护；Wiki直接提醒驾驶员附近弹药架风险。",
+      "collectedAt": "2026-11-02T09:52:16.878Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/il_leopard_2a6_hel",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-008-20261102/snapshots/il_leopard_2a6_hel.json",
+      "wikiSnapshotSHA256": "56d33eec61f4343ded3c431c32aeac0ed4bc55db250a0edf1c388060352888d0",
+      "wikiSummary": "希腊豹2HEL在2003年后基于2A6研发，增进火控通信热成像及车体前部防护；Wiki直接提醒驾驶员附近弹药架风险。",
+      "wikiPoints": [
+        "技术升级本身包括增强车体防护，不以2008服役年作为唯一分类依据。",
+        "驾驶员附近弹药架为明确位置，未提供具体携弹阈值或引爆条件。",
+        "侧后向俯仰/转动限制属于操炮约束，不是装甲局部弱点。"
+      ],
+      "reload": {
+        "display": "7.8 → 6 秒",
+        "gun": "120 mm Rh120 L/55 cannon",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "explicit-location",
+      "qualitativeWeakpoints": [
+        {
+          "locationZh": "驾驶员附近弹药架",
+          "statementZh": "Wiki直接称该弹药架是主要缺点之一；无具体坐标、携弹条件或击穿阈值。"
+        }
+      ],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "it_ariete_amv_pt1",
+      "name": "Ariete AMV",
+      "role": "主战坦克",
+      "country": "italy",
+      "countryName": "意大利",
+      "rank": 8,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "公羊AMVPT1为2022年展示的升级原型，重点改善机动，但没有之前车型的WAR附甲选项。",
+      "collectedAt": "2026-11-02T09:51:52.205Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/it_ariete_amv_pt1",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-008-20261102/snapshots/it_ariete_amv_pt1.json",
+      "wikiSnapshotSHA256": "f730c533f3f3a55280b33c57a89f3ea22d4ea47155cd099edd34b80274b43f06",
+      "wikiSummary": "公羊AMVPT1为2022年展示的升级原型，重点改善机动，但没有之前车型的WAR附甲选项。",
+      "wikiPoints": [
+        "2022为本具体升级原型展示，不沿用基础公羊晚冷战年代。",
+        "缺WAR为具体配置限制，不推断因此任意位置必穿。"
+      ],
+      "reload": {
+        "display": "6.5 → 5 秒",
+        "gun": "120 mm OTO Breda 120/44 cannon",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "jp_leopard_2ri",
+      "name": "Leopard 2RI",
+      "role": "主战坦克",
+      "country": "japan",
+      "countryName": "日本",
+      "rank": 8,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "印尼豹2RI基于2010年Revolution方案升级，配AMAP模块附甲，Wiki提醒动能弹仍可能穿透。",
+      "collectedAt": "2026-11-02T09:51:35.824Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/jp_leopard_2ri",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-008-20261102/snapshots/jp_leopard_2ri.json",
+      "wikiSnapshotSHA256": "0b2187c0b9dc7912057e61fd3fbfc4103db90d3f4e759bcb0805c16ef8326783",
+      "wikiSummary": "印尼豹2RI基于2010年Revolution方案升级，配AMAP模块附甲，Wiki提醒动能弹仍可能穿透。",
+      "wikiPoints": [
+        "现代化依据2010方案，不是2013采购或2016交付年。",
+        "初次贯穿后的生存机会不保证能还击；没有具体局部坐标。"
+      ],
+      "reload": {
+        "display": "7.8 → 6 秒",
+        "gun": "120 mm Rh120 L/44 cannon",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "sw_strv_122b_plss",
+      "name": "Strv 122B PLSS",
+      "role": "主战坦克",
+      "country": "sweden",
+      "countryName": "瑞典",
+      "rank": 8,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "Strv122BPLSS为2005至06年试验的桅杆观瞄改型，Wiki直接指出炮盾和炮塔座圈仍脆弱，但面积较小。",
+      "collectedAt": "2026-11-02T09:52:08.598Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/sw_strv_122b_plss",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-008-20261102/snapshots/sw_strv_122b_plss.json",
+      "wikiSnapshotSHA256": "06e036b96212bffa4d3e14c21943e65a0b3966e1f1489ffbd5b359fa542461b3",
+      "wikiSummary": "Strv122BPLSS为2005至06年试验的桅杆观瞄改型，Wiki直接指出炮盾和炮塔座圈仍脆弱，但面积较小。",
+      "wikiPoints": [
+        "炮盾与座圈为精确型号本页直接部位证据，不当作所有入射条件必穿。",
+        "伸缩观瞄提供观察优势，不等于炮塔防护无弱点。"
+      ],
+      "reload": {
+        "display": "7.8 → 6 秒",
+        "gun": "120 mm kan Strv 122",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "explicit-location",
+      "qualitativeWeakpoints": [
+        {
+          "locationZh": "炮盾",
+          "statementZh": "Wiki称仍脆弱，目标较小，未给具体弹种/角度/坐标。"
+        },
+        {
+          "locationZh": "炮塔座圈",
+          "statementZh": "Wiki直接列为脆弱部位，但面积较小。"
+        }
+      ],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "uk_challenger_2_lep",
+      "name": "Challenger 3 TD",
+      "role": "主战坦克",
+      "country": "britain",
+      "countryName": "英国",
+      "rank": 8,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": null,
+      "eraStatus": "pending-exact-variant-date-review",
+      "eraBasis": "原页没有足够的具体技术改型形成日期；不以采购/游戏引入年推断。",
+      "collectedAt": "2026-11-02T09:51:27.609Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/uk_challenger_2_lep",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-008-20261102/snapshots/uk_challenger_2_lep.json",
+      "wikiSnapshotSHA256": "078a107b1860e8aa736855502aac28244d9a16c5afb656de624bcd3621e74139",
+      "wikiSummary": "挑战者3TD为莱茵金属的挑战者2升级验证车，配120毫米Rh120 L/55A1及改进观瞄/弹药储存。",
+      "wikiPoints": [
+        "本页未给具体技术改型日期，era保留null。",
+        "没有明确局部弱点，不从旧挑战者车型复制首下结论。"
+      ],
+      "reload": {
+        "display": "7.8 → 6 秒",
+        "gun": "120 mm Rh120 L/55 A1 cannon",
+        "basicSeconds": 7.8,
+        "aceSeconds": 6,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。",
+        "具体改型年代待核实，era保留null。"
+      ]
+    },
+    {
+      "id": "us_m1a2_sep2_abrams",
+      "name": "M1A2 SEPv2",
+      "role": "主战坦克",
+      "country": "usa",
+      "countryName": "美国",
+      "rank": 8,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "M1A2SEPv2在2000年代升级观瞄、电子与辅助动力，增加CROWS及ARATII，额外重量降低机动。",
+      "collectedAt": "2026-11-02T09:51:05.914Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/us_m1a2_sep2_abrams",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-008-20261102/snapshots/us_m1a2_sep2_abrams.json",
+      "wikiSnapshotSHA256": "19a9e3ab5065e78d92b129e95f782dbfe9695454e44f029993a5bf0bdbcf9c36",
+      "wikiSummary": "M1A2SEPv2在2000年代升级观瞄、电子与辅助动力，增加CROWS及ARATII，额外重量降低机动。",
+      "wikiPoints": [
+        "本型2008年服役前的具体技术升级已处于2000年代；不以游戏版本为年代。",
+        "本页未明确局部弱点，不把侧ERA推断为动能防护保证。"
+      ],
+      "reload": {
+        "display": "6.5 → 5 秒",
+        "gun": "120 mm M256 cannon",
+        "basicSeconds": 6.5,
+        "aceSeconds": 5,
+        "seconds": null,
+        "mechanism": "manual",
+        "note": "基础乘员→王牌乘员（Wiki主炮面板）"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
+    },
+    {
+      "id": "ussr_t_72b3_arena_m",
+      "name": "T-72B3A",
+      "role": "主战坦克",
+      "country": "ussr",
+      "countryName": "苏联",
+      "rank": 8,
+      "scopeRole": "medium_tank",
+      "scopeStatus": "in-requested-scope",
+      "era": "modern",
+      "eraStatus": "reviewed-unit-prose",
+      "eraBasis": "T72B3A在2013至2021年进行ArenaM展示与试验，用主动防护替代侧面第二层Relikt选装。",
+      "collectedAt": "2026-11-02T09:51:19.441Z",
+      "pins": [],
+      "videoAdvice": [],
+      "source": {},
+      "status": "wiki-reviewed-awaiting-front-image",
+      "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_72b3_arena_m",
+      "wikiGameVersion": "2.59.0.92",
+      "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-008-20261102/snapshots/ussr_t_72b3_arena_m.json",
+      "wikiSnapshotSHA256": "fd8db1815d7b5e8e155f30769ee1180911b83e434caed0aabe9ebe04fa6c5a86",
+      "wikiSummary": "T72B3A在2013至2021年进行ArenaM展示与试验，用主动防护替代侧面第二层Relikt选装。",
+      "wikiPoints": [
+        "ArenaM针对ATGM/RPG，不能拦截大多数动能穿甲弹；不是全威胁保护。",
+        "慢倒车为机动弱项，不是装甲局部坐标。"
+      ],
+      "reload": {
+        "display": "自动装填 7 秒",
+        "gun": "125 mm 2A46M-5 cannon",
+        "basicSeconds": null,
+        "aceSeconds": null,
+        "seconds": 7,
+        "mechanism": "automatic",
+        "note": "仅解析主炮首段；主炮自动装填面板值不代表无限持续射击。"
+      },
+      "weaknessEvidenceStatus": "general-context-only",
+      "qualitativeWeakpoints": [],
+      "missingEvidence": [
+        "缺精确视频试射上下文及可验证局部坐标。"
+      ]
     }
   ],
   "eraPolicy": "按具体型号／改型所处年代分类，BR 另作筛选；本批为冷战样例。",
@@ -4604,7 +5917,7 @@
     "targetCount": 226,
     "rankTankCount": 216,
     "isSupplementCount": 10,
-    "wikiReviewedCount": 94,
+    "wikiReviewedCount": 114,
     "illustratedCount": 8,
     "countries": [
       {
