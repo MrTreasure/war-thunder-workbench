@@ -11656,6 +11656,438 @@
           "time": 60.033312,
           "sourceUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/",
           "label": "首上车灯区域：同一类薄弱处"
+        },
+        {
+          "id": "cn_ztz_96b:BV1AhpF6aEDU:45067:front-upper",
+          "caseId": "cn_ztz_96b:BV1AhpF6aEDU:45067",
+          "sourceTime": 45.066687,
+          "sourceTimeRange": [
+            45.217996,
+            49.804607
+          ],
+          "conditionMatch": "same-frame",
+          "mainImageMatch": "unknown",
+          "text": "作者在这一防护分析条件下称96B首上不能在正常交战距离抵挡自身主力弹药；本帧实际为ZTZ96B/DTC10-125/500米566毫米，不是所有钢针、距离或角度必穿的保证。",
+          "mechanism": "conditional-front-upper-protection-insufficiency",
+          "mainImageRelationshipNote": "旧主图来源未在本QC重新比对；明确新增独立case/camera，不替换主图、不复用旧pins。",
+          "label": "首上防护：自身主力弹药条件",
+          "sourceUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/",
+          "time": 45.066687,
+          "evidence": {
+            "burnedCaptionVisibleInFrame": "所以它的首上装甲不能在正常距离抵挡自身主力弹药的攻击",
+            "normalUISubtitleObservations": [
+              {
+                "observedAt": "2026-11-02T18:52:17.235Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 45.217996,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "所以他的手上装甲不能在正常距离",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:17.488Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 45.714542,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "所以他的手上装甲不能在正常距离",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:17.741Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 46.229481,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "所以他的手上装甲不能在正常距离",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:17.993Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 46.729591,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "所以他的手上装甲不能在正常距离",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:18.246Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 47.241081,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "所以他的手上装甲不能在正常距离",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:18.499Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 47.749697,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "抵挡自身主力弹药的攻击",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:18.757Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 48.260193,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "抵挡自身主力弹药的攻击",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:19.010Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 48.76615,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "抵挡自身主力弹药的攻击",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:19.270Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 49.282567,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "抵挡自身主力弹药的攻击",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:19.530Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 49.804607,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "他的车体前部有一个比较大的油箱",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              }
+            ],
+            "timelineFile": "artifacts/tank-weakpoints-expansion-20261102/sources/bilibili-public-v4-20261103/Emoil-ZTZ96B-first60-density-normal-playback-subtitles.json",
+            "timelineSHA256": "69184b6e1859cb7f8560bb41f8141b92b36540bbc178389c487869cc869f4817",
+            "note": "DOM字幕时间为正常播放采样，不冒充45.066687帧精确cue轴；本帧烧字为同句直接证据。"
+          }
+        },
+        {
+          "id": "cn_ztz_96b:BV1AhpF6aEDU:fuel-effect",
+          "caseId": null,
+          "sourceTime": 49.804607,
+          "sourceTimeRange": [
+            49.804607,
+            56.435217
+          ],
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "text": "随后作者提醒车体前部大油箱可能吸收后效：若未打中驾驶员，仍有概率凭油箱吃下一发。这是独立后效提醒，不能因绿色区域就声称一发击杀。",
+          "mechanism": "author-general-postpenetration-risk",
+          "mainImageRelationshipNote": "旧主图来源未在本QC重新比对；明确新增独立case/camera，不替换主图、不复用旧pins。",
+          "label": "前部油箱：后效提醒",
+          "sourceUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/",
+          "time": 49.804607,
+          "evidence": {
+            "normalUISubtitleObservations": [
+              {
+                "observedAt": "2026-11-02T18:52:19.530Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 49.804607,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "他的车体前部有一个比较大的油箱",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:19.789Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 50.333341,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "他的车体前部有一个比较大的油箱",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:20.044Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 50.824992,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "他的车体前部有一个比较大的油箱",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:20.296Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 51.340596,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "他的车体前部有一个比较大的油箱",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:20.551Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 51.837011,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "他的车体前部有一个比较大的油箱",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:20.804Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 52.352211,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "对面如果没打到驾驶员的话",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:21.056Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 52.863567,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "对面如果没打到驾驶员的话",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:21.309Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 53.363093,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "对面如果没打到驾驶员的话",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:21.565Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 53.885731,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "对面如果没打到驾驶员的话",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:21.822Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 54.380637,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "我们有概率凭借油香硬吃一发",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:22.075Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 54.894294,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "我们有概率凭借油香硬吃一发",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:22.331Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 55.413371,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "我们有概率凭借油香硬吃一发",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:22.588Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 55.914055,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "我们有概率凭借油香硬吃一发",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              },
+              {
+                "observedAt": "2026-11-02T18:52:22.840Z",
+                "actualPageUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/?t=0&vd_source=b295cb9de242c95f5512f44a4b2e262d",
+                "currentTime": 56.435217,
+                "duration": 847,
+                "width": 1280,
+                "height": 720,
+                "playbackRate": 2,
+                "paused": false,
+                "ended": false,
+                "readyState": 4,
+                "subtitle": "同时手上左右两侧的车灯没有爆",
+                "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                "subtitleStatus": "visible-normal-subtitle",
+                "activeCues": []
+              }
+            ],
+            "timelineFile": "artifacts/tank-weakpoints-expansion-20261102/sources/bilibili-public-v4-20261103/Emoil-ZTZ96B-first60-density-normal-playback-subtitles.json",
+            "timelineSHA256": "69184b6e1859cb7f8560bb41f8141b92b36540bbc178389c487869cc869f4817"
+          }
         }
       ],
       "source": {
@@ -11758,6 +12190,41 @@
           "impactAngleDegrees": null,
           "sourceGameVersion": null,
           "verificationStatus": "verified"
+        },
+        {
+          "id": "cn_ztz_96b:BV1AhpF6aEDU:45067",
+          "vehicleId": "cn_ztz_96b",
+          "sourceTime": 45.066687,
+          "sourceUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/",
+          "attackerVehicleId": "cn_ztz_96b",
+          "attackerEnglishName": "ZTZ96B",
+          "attackerCountry": "CHN",
+          "sourceShellLabelOriginal": "DTC10-125",
+          "shell": "DTC10-125",
+          "shellType": null,
+          "rawUIType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 566,
+          "sourceGameVersion": "2.59.0.44",
+          "actualUIObserved": true,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "cceff14fb4665e2926cca162ec28fcfa15aeae7d54fc3c64084eef6d09b2d33d",
+          "attacker": "ZTZ96B",
+          "impactAngleDegrees": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/cn_ztz_96b",
+            "checkedAt": "2026-11-02T19:05:35.761980+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "cn_ztz_96b",
+            "mainGun": "125 mm Type 99A cannon",
+            "officialShellName": "DTC10-125",
+            "sourceShellLabelOriginal": "DTC10-125"
+          },
+          "verificationStatus": "native-applied-UI-static-no-successful-shot-claimed"
         }
       ],
       "testCaseEvidence": {
@@ -11816,6 +12283,102 @@
             "sourceHtmlSHA256": "7c1f99610a046eae0cfba71af1835e077a5d57787dfa192404f257b63e7266b1",
             "proofSnippet": "DTC10-125&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;game-unit_popover-content&quot;&gt;&lt;div style=&quot;font-size: .9em&quot;&gt;&lt;div class=&quot;mb-1&quot;&gt;Armor-Piercing Fin-Stabilized Discarding Sabot shot&lt;/div&gt;&lt;button type=&quot;button&quot; class=&quot;border rounded-1 px-2 py-1 w-100 bg-transparent mb-2 penetration-info&quot; tabindex=&quot;-1&quot; data-bs-toggle=&quot;popover&quot; data-bs-title=&quot;Armor penetration&quot; data-bs-content=&quot;&amp;lt;div&amp;gt;&amp;lt;div class=&amp;quot;form-text text-center&amp;quot;&amp;gt;Kinetic&amp;lt;/div&amp;gt;&amp;lt;table class=&amp;quot;w-100 text-center&amp;quot;&amp;gt;&amp;lt;tr class=&amp;quot;border-bottom&am"
           }
+        },
+        "cn_ztz_96b:BV1AhpF6aEDU:45067": {
+          "id": "cn_ztz_96b:BV1AhpF6aEDU:45067",
+          "vehicleId": "cn_ztz_96b",
+          "sourceTime": 45.066687,
+          "sourceUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/",
+          "attackerVehicleId": "cn_ztz_96b",
+          "attackerEnglishName": "ZTZ96B",
+          "attackerCountry": "CHN",
+          "attackerEvidence": "native left attack-source vehicle selector, not video title or author driven vehicle",
+          "sourceShellLabelOriginal": "DTC10-125",
+          "shell": "DTC10-125",
+          "shellType": null,
+          "rawUIType": null,
+          "shellTypeEvidence": null,
+          "shellTypeNote": "所读UI只显示弹药名称，未给类型；不从名称/记忆归一APFSDS。",
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 566,
+          "sourceGameVersion": "2.59.0.44",
+          "actualUIObserved": true,
+          "actualShotObserved": false,
+          "outcome": null,
+          "evidenceKind": "native-solid-exterior-protection-distribution",
+          "sourceFrameSHA256": "cceff14fb4665e2926cca162ec28fcfa15aeae7d54fc3c64084eef6d09b2d33d",
+          "webpSHA256": "d1b73bbdeaca31483d0faab6995b4c90a712354efa525837e219e8022034dbda",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/bilibili-public-v4-20261103/016.json",
+          "proofSHA256": "fee1d935242d7c0ba890c01fddb315e6c04dff9224b8d477e9f6434e6898dec5",
+          "nativeUIProof": "artifacts/tank-weakpoints-expansion-20261102/sources/bilibili-public-v4-20261103/offline-ZTZ96B-first60/native-ui-title-version-proof.webp",
+          "nativeUIProofSHA256": "d7652eff54043ddaae34e73f1a5105d020f2d822e50be1be1aff748e5fc0d41e",
+          "UIProofLayout": [
+            {
+              "sourceCropPixels": [
+                0,
+                0,
+                720,
+                1150
+              ],
+              "destinationPixels": [
+                0,
+                0,
+                720,
+                1150
+              ]
+            },
+            {
+              "sourceCropPixels": [
+                3120,
+                0,
+                720,
+                100
+              ],
+              "destinationPixels": [
+                0,
+                1150,
+                720,
+                100
+              ]
+            }
+          ],
+          "independentSource": {
+            "url": "https://www.bilibili.com/video/BV1AhpF6aEDU/",
+            "title": "共和国の赛场之花【雷批大学习/ZTZ96B】",
+            "author": "馒头Emoil",
+            "authorType": "user-original-author-not-official-staff",
+            "publishedAt": "2026-10-06T16:02:39+08:00"
+          },
+          "wikiShellTypeReferenceProof": {
+            "wikiUrl": "https://wiki.warthunder.com/unit/cn_ztz_96b",
+            "actualURL": "https://wiki.warthunder.com/unit/cn_ztz_96b",
+            "title": "ZTZ96B | War Thunder Wiki",
+            "status": 200,
+            "capturedAt": "2026-11-02T10:21:13.811Z",
+            "checkedAt": "2026-11-02T19:05:35.761980+00:00",
+            "gameVersion": "2.59.0.92",
+            "rawHtmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/ztz96b-20261102/snapshots/cn_ztz_96b.html",
+            "htmlSHA256": "7c1f99610a046eae0cfba71af1835e077a5d57787dfa192404f257b63e7266b1",
+            "rawSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/ztz96b-20261102/snapshots/cn_ztz_96b.json",
+            "snapshotSHA256": "8ec23f70739b1b59375cbed48927f4ff46f82d832f3734e4709ebb22d0c720cf",
+            "textSHA256": "bc684177471c726c5853e58eeacb9dc56dd05b8ee6d26980f124f7da48b55e7a",
+            "popoverPath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-002-20261103/rawproof/cn_ztz_96b--DTC10-125.popover.html",
+            "popoverSHA256": "779018722c56033878cf5a6afab1521c742f721d418b4afae48f4b92331a66fb",
+            "rawElementPath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-002-20261103/rawproof/cn_ztz_96b--DTC10-125.element.html",
+            "rawElementSHA256": "d69defd4bed0b5716d0f354f58fc85fb05da153d3e5b981b52407c77b42f37b0",
+            "captureMethod": "Playwright Chromium navigation",
+            "reusedSnapshot": true
+          },
+          "sourceRestrictions": {
+            "authorExplicitNoRepostObserved": false,
+            "restrictionEvidence": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/bilibili-public-v4-20261103/003.json",
+              "sha256": "02a9f11320fbcc13111237ef4d59b9452117f17326194739b65e15ee513e2c43"
+            },
+            "authorPublicDisclaimer": "个人观点，仅供参考",
+            "license": "unknown-no-permission-inferred",
+            "archiveEligibility": "candidate-for-root-review-only"
+          }
         }
       },
       "overview": "以ZTZ96B发射DTC10-125、500米为例，首上左右车灯周围缺乏爆炸反应装甲覆盖，是明确标出的薄弱区域。前部油箱有时会削弱穿透后效，因此命中前部不等于稳定秒杀；油箱受损也可能带来装填和动力损失。侧面航向角暴露同样危险，需与正面测试分别理解。",
@@ -11838,7 +12401,42 @@
       ],
       "completeIllustration": true,
       "positiveWeakpointClassCount": 1,
-      "limits": "主图全帧1920x1080；车辆在原片中较小，裁图保留原始细节，不做AI补绘或放大伪造。；左右灯为同一类薄弱区域；未声称所有弹种和距离都能击穿。；90秒3BM60实战单独记录，不与DTC10-125/500m主测试混用。；版本未独立读取留null。"
+      "limits": "主图全帧1920x1080；车辆在原片中较小，裁图保留原始细节，不做AI补绘或放大伪造。；左右灯为同一类薄弱区域；未声称所有弹种和距离都能击穿。；90秒3BM60实战单独记录，不与DTC10-125/500m主测试混用。；版本未独立读取留null。",
+      "protectionEvidence": [
+        {
+          "id": "dtc10-125-45067",
+          "label": "DTC10-125 · 500米",
+          "caseId": "cn_ztz_96b:BV1AhpF6aEDU:45067",
+          "assetPath": "images/CHN/CHN-ZTZ96B-DTC10-125-00m45s-protection.webp",
+          "rawAssetPath": "images/CHN/CHN-ZTZ96B-DTC10-125-00m45s-4k-capture-20261103.webp",
+          "crop": [
+            1500,
+            650,
+            820,
+            650
+          ],
+          "sourceTime": 45.066687,
+          "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/bilibili-public-v4-20261103/CHN-ZTZ96B-frontal-green-native45-0045.webp",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/bilibili-public-v4-20261103/016.json",
+          "frameSnapshotSHA256": "fee1d935242d7c0ba890c01fddb315e6c04dff9224b8d477e9f6434e6898dec5",
+          "sourceGameVersion": "2.59.0.44",
+          "source": {
+            "url": "https://www.bilibili.com/video/BV1AhpF6aEDU/",
+            "title": "共和国の赛场之花【雷批大学习/ZTZ96B】",
+            "author": "馒头Emoil",
+            "authorType": "user-original-author-not-official-staff",
+            "publishedAt": "2026-10-06T16:02:39+08:00"
+          },
+          "sourceUrl": "https://www.bilibili.com/video/BV1AhpF6aEDU/",
+          "view": "front-elevated-protection-analysis",
+          "hideExistingPins": true,
+          "pins": [],
+          "mainImageMatch": "different-segment",
+          "caption": "馒头Emoil · 2026-10-06 · 原视频4K帧 · 游戏版本2.59.0.44",
+          "description": "作者在本段分析96B首上对自身主力弹药的防护；前部油箱后效另见视频建议。",
+          "conditionNote": "原片提示框覆盖车体右缘和部分履带。"
+        }
+      ]
     },
     {
       "id": "germ_leopard_2a7v",
@@ -14803,6 +15401,40 @@
             "officialShellName": "M900",
             "sourceShellLabelOriginal": "M900"
           }
+        },
+        {
+          "id": "il_merkava_mk_1b:BV1SPmEBJE3y:1733000",
+          "vehicleId": "il_merkava_mk_1b",
+          "sourceTime": 1733,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerVehicleId": "us_m1128_wolfpack",
+          "attackerEnglishName": "M1128 Wolfpack",
+          "sourceShellLabelOriginal": "M900",
+          "shell": "M900",
+          "rawUIType": null,
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 522,
+          "sourceGameVersion": "2.51.0.65",
+          "actualUIObserved": true,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "ff1ae85393d82729caacfcd06fb3850a9df7c7e75156565f4be438fe22a6a669",
+          "attacker": "M1128 Wolfpack",
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/us_m1128_wolfpack",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "us_m1128_wolfpack",
+            "mainGun": "105 mm M68A1E8 cannon",
+            "officialShellName": "M900",
+            "sourceShellLabelOriginal": "M900"
+          },
+          "impactAngleDegrees": null,
+          "verificationStatus": "native-applied-UI-static-no-successful-shot-claimed"
         }
       ],
       "testCaseEvidence": {
@@ -14843,31 +15475,236 @@
             "reusedSnapshot": false,
             "parserVersion": "wiki-unit-exact-spm-tail-v1"
           }
+        },
+        "il_merkava_mk_1b:BV1SPmEBJE3y:1733000": {
+          "id": "il_merkava_mk_1b:BV1SPmEBJE3y:1733000",
+          "vehicleId": "il_merkava_mk_1b",
+          "sourceTime": 1733,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "attackerVehicleId": "us_m1128_wolfpack",
+          "attackerEnglishName": "M1128 Wolfpack",
+          "sourceShellLabelOriginal": "M900",
+          "shell": "M900",
+          "rawUIType": null,
+          "shellType": "APFSDS",
+          "shellTypeEvidence": {
+            "file": "artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-001-20261103/snapshots/us_m1128_wolfpack.html",
+            "sha256": "af2123e0233d4ef77f4b3a6a89599f8ef456fb41ec22681a662816ed726c0f7d",
+            "sourceUrl": "https://wiki.warthunder.com/unit/us_m1128_wolfpack",
+            "round": "M900",
+            "typeOriginal": "Armor-Piercing Fin-Stabilized Discarding Sabot shot",
+            "evidenceKind": "exact-round-official-Wiki-popover-in-matched-attacker-unit",
+            "reuseOnlyTypeNotShotValues": true
+          },
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 522,
+          "sourceGameVersion": "2.51.0.65",
+          "actualUIObserved": true,
+          "actualShotObserved": false,
+          "outcome": null,
+          "evidenceKind": "native-pre-shot-exterior-with-applied-attack-UI",
+          "sourceFrameSHA256": "ff1ae85393d82729caacfcd06fb3850a9df7c7e75156565f4be438fe22a6a669",
+          "webpSHA256": "974681f4ff2e5538a11b9c843507d6ac3f98c88a63e4370b4d2bd702fb01bd7c",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/bilibili-public-v4-20261103/gpu-author/021.json",
+          "proofSHA256": "a09f4248c685ffda97a8c9adc1d8e859b4177a947edf2a9c9060e4dacc508d6f",
+          "nativeReadProof": "artifacts/tank-weakpoints-expansion-20261102/sources/bilibili-public-v4-20261103/gpu-author/offline-Merkava-Mk1B-1733/native-UI-title-version-identity-audit.webp",
+          "nativeReadProofSHA256": "16d5acb99fb460278348468ae8d811f9000911ef1ef1e26e8520c241962bd6ba",
+          "sourceRawFieldNormalization": "B shellType held derived APFSDS; public raw UI shellType remains null; official reference separate.",
+          "officialWikiTypeProof": {
+            "wikiUrl": "https://wiki.warthunder.com/unit/us_m1128_wolfpack",
+            "actualURL": "https://wiki.warthunder.com/unit/us_m1128_wolfpack",
+            "title": "M1128 Wolfpack | War Thunder Wiki",
+            "status": 200,
+            "capturedAt": "2026-11-02T18:31:45.534Z",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "rawHtmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-001-20261103/snapshots/us_m1128_wolfpack.html",
+            "htmlSHA256": "af2123e0233d4ef77f4b3a6a89599f8ef456fb41ec22681a662816ed726c0f7d",
+            "rawSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-001-20261103/snapshots/us_m1128_wolfpack.json",
+            "snapshotSHA256": "cd39682e65b0fe7c401133f204ea9439b25faa87d25d12b97dea28e7a606d928",
+            "textSHA256": "1a7913a415a24e019f03b553747c86bed0f3437d45dea30131d860a0a5a3eeae",
+            "popoverPath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-001-20261103/rawproof/us_m1128_wolfpack--M900.popover.html",
+            "popoverSHA256": "a7154f93bf361c92aca1d27314e05f7c91f3f74ec25c97cfc8ac207c8a0e34d7",
+            "rawElementPath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-001-20261103/rawproof/us_m1128_wolfpack--M900.element.html",
+            "rawElementSHA256": "87edcaa5e377f708c26f43462115dc527338b83be4665f4b01e081b5c7484b63",
+            "captureMethod": "Playwright Chromium navigation",
+            "reusedSnapshot": false
+          },
+          "generalAuthorContext": [
+            {
+              "id": "il_merkava_mk_1b:BV1SPmEBJE3y:engine-context",
+              "caseId": null,
+              "relatedCaseId": "il_merkava_mk_1b:BV1SPmEBJE3y:1733000",
+              "sourceTimeRange": [
+                1732.370163,
+                1737.757421
+              ],
+              "conditionMatch": "unknown",
+              "mainImageMatch": "unknown",
+              "mechanism": "author-general-front-engine-postpenetration-warning",
+              "text": "作者称梅卡瓦为以色列自产，相对同权重较脆，但前置发动机容易吸收后效。此句是生存性提醒，没有指出一个本帧可精确落点的必穿位置；不据此画发动机弱点或保证M900一发击杀。",
+              "sourceClaimNotCanonicalFact": true,
+              "evidence": {
+                "rawBatch": "artifacts/tank-weakpoints-expansion-20261102/video-batches/BV1SPmEBJE3y-primary1198-end-batch-002.json",
+                "rawBatchSHA256": "b06e84f9bdb248b2b84a44f44ec10d7c332c43abd1a51929deda24fb365a8fcd",
+                "subtitleObservedRuns": [
+                  {
+                    "text": "只有梅卡瓦是以色列自己产的",
+                    "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                    "firstObservedMediaTime": 1732.370163,
+                    "lastObservedMediaTime": 1733.885903,
+                    "firstObservedAt": "2026-11-02T16:10:42.080Z",
+                    "lastObservedAt": "2026-11-02T16:10:42.846Z",
+                    "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+                  },
+                  {
+                    "text": "而梅卡瓦这从严重是非常脆的",
+                    "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                    "firstObservedMediaTime": 1734.368074,
+                    "lastObservedMediaTime": 1735.74327,
+                    "firstObservedAt": "2026-11-02T16:10:43.098Z",
+                    "lastObservedAt": "2026-11-02T16:10:43.855Z",
+                    "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+                  },
+                  {
+                    "text": "但是前面放了个发动机",
+                    "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                    "firstObservedMediaTime": 1736.263039,
+                    "lastObservedMediaTime": 1737.269279,
+                    "firstObservedAt": "2026-11-02T16:10:44.109Z",
+                    "lastObservedAt": "2026-11-02T16:10:44.615Z",
+                    "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+                  },
+                  {
+                    "text": "容易吞后效",
+                    "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                    "firstObservedMediaTime": 1737.757421,
+                    "lastObservedMediaTime": 1737.757421,
+                    "firstObservedAt": "2026-11-02T16:10:44.867Z",
+                    "lastObservedAt": "2026-11-02T16:10:44.867Z",
+                    "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+                  }
+                ]
+              },
+              "pins": [],
+              "mainImageRelationshipNote": "同一已核目标的章节一般提醒，不是当前外观帧独立局部试射。"
+            }
+          ]
         }
       },
       "testContextEvidence": {
-        "id": "il_merkava_mk_1b:BV1SPmEBJE3y:1735000",
+        "id": "il_merkava_mk_1b:BV1SPmEBJE3y:1733000",
         "vehicleId": "il_merkava_mk_1b",
-        "sourceTime": 1735,
+        "sourceTime": 1733,
         "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
         "attackerVehicleId": "us_m1128_wolfpack",
         "attackerEnglishName": "M1128 Wolfpack",
-        "shell": "M900",
         "sourceShellLabelOriginal": "M900",
-        "shellType": null,
+        "shell": "M900",
+        "rawUIType": null,
+        "shellType": "APFSDS",
+        "shellTypeEvidence": {
+          "file": "artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-001-20261103/snapshots/us_m1128_wolfpack.html",
+          "sha256": "af2123e0233d4ef77f4b3a6a89599f8ef456fb41ec22681a662816ed726c0f7d",
+          "sourceUrl": "https://wiki.warthunder.com/unit/us_m1128_wolfpack",
+          "round": "M900",
+          "typeOriginal": "Armor-Piercing Fin-Stabilized Discarding Sabot shot",
+          "evidenceKind": "exact-round-official-Wiki-popover-in-matched-attacker-unit",
+          "reuseOnlyTypeNotShotValues": true
+        },
         "distanceMeters": 0,
         "displayedPenetrationMm": 522,
-        "sourceGameVersion": null,
+        "sourceGameVersion": "2.51.0.65",
+        "actualUIObserved": true,
         "actualShotObserved": false,
         "outcome": null,
-        "sourceFrameSHA256": "190fec14651096636b313537d495aa0060ca047d2a590ad696c8f2ba4a7214f8",
-        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/025.json",
-        "proofSHA256": "15552d0ee6648ec42e3b8f985a334f76af790af4df80a496cbca56d0a333356d",
-        "attackUICrop": "artifacts/tank-weakpoints-expansion-20261102/video-batches/parsed-BV1SPmEBJE3y-primary1198-end-batch-003/il_merkava_mk_1b-attack-ui-native.webp",
-        "attackUICropSHA256": "b204fff55c32420e49e28916b2bd885b65aa8ccb099a4b56529fd513699d4295",
-        "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
-        "notes": [
-          "只读实际菜单已应用条件，原帧正在计算防护分布的百分比不当击穿率。弹种类型、版本未另读证明留null。"
+        "evidenceKind": "native-pre-shot-exterior-with-applied-attack-UI",
+        "sourceFrameSHA256": "ff1ae85393d82729caacfcd06fb3850a9df7c7e75156565f4be438fe22a6a669",
+        "webpSHA256": "974681f4ff2e5538a11b9c843507d6ac3f98c88a63e4370b4d2bd702fb01bd7c",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/bilibili-public-v4-20261103/gpu-author/021.json",
+        "proofSHA256": "a09f4248c685ffda97a8c9adc1d8e859b4177a947edf2a9c9060e4dacc508d6f",
+        "nativeReadProof": "artifacts/tank-weakpoints-expansion-20261102/sources/bilibili-public-v4-20261103/gpu-author/offline-Merkava-Mk1B-1733/native-UI-title-version-identity-audit.webp",
+        "nativeReadProofSHA256": "16d5acb99fb460278348468ae8d811f9000911ef1ef1e26e8520c241962bd6ba",
+        "sourceRawFieldNormalization": "B shellType held derived APFSDS; public raw UI shellType remains null; official reference separate.",
+        "officialWikiTypeProof": {
+          "wikiUrl": "https://wiki.warthunder.com/unit/us_m1128_wolfpack",
+          "actualURL": "https://wiki.warthunder.com/unit/us_m1128_wolfpack",
+          "title": "M1128 Wolfpack | War Thunder Wiki",
+          "status": 200,
+          "capturedAt": "2026-11-02T18:31:45.534Z",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "rawHtmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-001-20261103/snapshots/us_m1128_wolfpack.html",
+          "htmlSHA256": "af2123e0233d4ef77f4b3a6a89599f8ef456fb41ec22681a662816ed726c0f7d",
+          "rawSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-001-20261103/snapshots/us_m1128_wolfpack.json",
+          "snapshotSHA256": "cd39682e65b0fe7c401133f204ea9439b25faa87d25d12b97dea28e7a606d928",
+          "textSHA256": "1a7913a415a24e019f03b553747c86bed0f3437d45dea30131d860a0a5a3eeae",
+          "popoverPath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-001-20261103/rawproof/us_m1128_wolfpack--M900.popover.html",
+          "popoverSHA256": "a7154f93bf361c92aca1d27314e05f7c91f3f74ec25c97cfc8ac207c8a0e34d7",
+          "rawElementPath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-001-20261103/rawproof/us_m1128_wolfpack--M900.element.html",
+          "rawElementSHA256": "87edcaa5e377f708c26f43462115dc527338b83be4665f4b01e081b5c7484b63",
+          "captureMethod": "Playwright Chromium navigation",
+          "reusedSnapshot": false
+        },
+        "generalAuthorContext": [
+          {
+            "id": "il_merkava_mk_1b:BV1SPmEBJE3y:engine-context",
+            "caseId": null,
+            "relatedCaseId": "il_merkava_mk_1b:BV1SPmEBJE3y:1733000",
+            "sourceTimeRange": [
+              1732.370163,
+              1737.757421
+            ],
+            "conditionMatch": "unknown",
+            "mainImageMatch": "unknown",
+            "mechanism": "author-general-front-engine-postpenetration-warning",
+            "text": "作者称梅卡瓦为以色列自产，相对同权重较脆，但前置发动机容易吸收后效。此句是生存性提醒，没有指出一个本帧可精确落点的必穿位置；不据此画发动机弱点或保证M900一发击杀。",
+            "sourceClaimNotCanonicalFact": true,
+            "evidence": {
+              "rawBatch": "artifacts/tank-weakpoints-expansion-20261102/video-batches/BV1SPmEBJE3y-primary1198-end-batch-002.json",
+              "rawBatchSHA256": "b06e84f9bdb248b2b84a44f44ec10d7c332c43abd1a51929deda24fb365a8fcd",
+              "subtitleObservedRuns": [
+                {
+                  "text": "只有梅卡瓦是以色列自己产的",
+                  "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                  "firstObservedMediaTime": 1732.370163,
+                  "lastObservedMediaTime": 1733.885903,
+                  "firstObservedAt": "2026-11-02T16:10:42.080Z",
+                  "lastObservedAt": "2026-11-02T16:10:42.846Z",
+                  "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+                },
+                {
+                  "text": "而梅卡瓦这从严重是非常脆的",
+                  "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                  "firstObservedMediaTime": 1734.368074,
+                  "lastObservedMediaTime": 1735.74327,
+                  "firstObservedAt": "2026-11-02T16:10:43.098Z",
+                  "lastObservedAt": "2026-11-02T16:10:43.855Z",
+                  "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+                },
+                {
+                  "text": "但是前面放了个发动机",
+                  "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                  "firstObservedMediaTime": 1736.263039,
+                  "lastObservedMediaTime": 1737.269279,
+                  "firstObservedAt": "2026-11-02T16:10:44.109Z",
+                  "lastObservedAt": "2026-11-02T16:10:44.615Z",
+                  "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+                },
+                {
+                  "text": "容易吞后效",
+                  "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+                  "firstObservedMediaTime": 1737.757421,
+                  "lastObservedMediaTime": 1737.757421,
+                  "firstObservedAt": "2026-11-02T16:10:44.867Z",
+                  "lastObservedAt": "2026-11-02T16:10:44.867Z",
+                  "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1636-end-normal-playback-subtitles.json"
+                }
+              ]
+            },
+            "pins": [],
+            "mainImageRelationshipNote": "同一已核目标的章节一般提醒，不是当前外观帧独立局部试射。"
+          }
         ]
       },
       "videoAdvice": [
@@ -15018,7 +15855,7 @@
       ],
       "completeIllustration": false,
       "pins": [],
-      "status": "video-reviewed-awaiting-front-image",
+      "status": "front-exterior-green-analysis-pending",
       "missingEvidence": [
         "暂无可用的清洁正面主图；已有后效透视原帧仅作为独立来源证据。"
       ],
@@ -15026,17 +15863,10 @@
         "attacker": "M1128 Wolfpack",
         "attackerVehicleId": "us_m1128_wolfpack",
         "shell": "M900",
+        "shellType": null,
+        "rawUIType": null,
         "shellTypeCode": "APFSDS",
         "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
-        "distanceMeters": 0,
-        "displayedPenetrationMm": 522,
-        "impactAngleDegrees": null,
-        "sourceTime": 1735,
-        "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
-        "sourceGameVersion": null,
-        "caseId": "il_merkava_mk_1b:BV1SPmEBJE3y:1735000",
-        "note": "原生静态已应用UI条件；防护分布计算进度不等于击穿概率，未声称独立试射成功。",
-        "rawUIType": null,
         "shellTypeReference": {
           "sourceBasis": "official-Wiki-reference",
           "url": "https://wiki.warthunder.com/unit/us_m1128_wolfpack",
@@ -15046,8 +15876,39 @@
           "mainGun": "105 mm M68A1E8 cannon",
           "officialShellName": "M900",
           "sourceShellLabelOriginal": "M900"
-        }
-      }
+        },
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 522,
+        "impactAngleDegrees": null,
+        "sourceTime": 1733,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "sourceGameVersion": "2.51.0.65",
+        "caseId": "il_merkava_mk_1b:BV1SPmEBJE3y:1733000",
+        "note": "1733秒本主图已应用UI条件；M900类型来自精确攻击载具官方Wiki参考，原片UI类型未知；未声称实战成功。"
+      },
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/bilibili-public-v4-20261103/gpu-author/ISR-Merkava1B-candidate-front-pre-shot-1733.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/bilibili-public-v4-20261103/gpu-author/021.json",
+      "captureSHA256": "974681f4ff2e5538a11b9c843507d6ac3f98c88a63e4370b4d2bd702fb01bd7c",
+      "originalFrameSHA256": "ff1ae85393d82729caacfcd06fb3850a9df7c7e75156565f4be438fe22a6a669",
+      "time": 1733,
+      "crop": [
+        650,
+        160,
+        720,
+        570
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front-slightly-elevated",
+      "mainViewKind": "exterior",
+      "mainViewNote": "实心灰色正面略俯视，无提示框遮挡；不是绿色可穿区域图。",
+      "imageQuality": "1080p",
+      "mainImageUsable": true,
+      "coverageStatus": "front-exterior-green-analysis-pending",
+      "coverageNotice": "已补外观主图 · 绿色防护分析待补"
     },
     {
       "id": "fr_leclerc_azur",
@@ -15076,7 +15937,7 @@
         "display": "自动装填 5 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 5.0,
+        "seconds": 5,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -15117,7 +15978,7 @@
         "gun": "120 mm kan Strv 122",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -15244,7 +16105,7 @@
         "display": "自动装填 5 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 5.0,
+        "seconds": 5,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -15287,7 +16148,7 @@
         "display": "自动装填 5 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 5.0,
+        "seconds": 5,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -15328,7 +16189,7 @@
         "gun": "120 mm Rh120 L/44 cannon",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -15370,7 +16231,7 @@
         "gun": "120 mm Rh120 L/44 cannon",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -15412,7 +16273,7 @@
         "gun": "120 mm Rh120 L/55 cannon",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -15454,7 +16315,7 @@
         "gun": "120 mm Rh120 L/55 cannon",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -15497,7 +16358,7 @@
         "gun": "120 mm kan Strv 121",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -15540,7 +16401,7 @@
         "display": "自动装填 6 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 6.0,
+        "seconds": 6,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -15918,7 +16779,7 @@
         "display": "自动装填 7 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 7.0,
+        "seconds": 7,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -15959,7 +16820,7 @@
         "gun": "120 mm M256 cannon",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -16002,7 +16863,7 @@
         "display": "自动装填 7 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 7.0,
+        "seconds": 7,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -16045,7 +16906,7 @@
         "display": "自动装填 6 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 6.0,
+        "seconds": 6,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -16087,7 +16948,7 @@
         "display": "自动装填 6 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 6.0,
+        "seconds": 6,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -16213,7 +17074,7 @@
         "display": "自动装填 7 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 7.0,
+        "seconds": 7,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -16255,7 +17116,7 @@
         "display": "自动装填 7 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 7.0,
+        "seconds": 7,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -16297,7 +17158,7 @@
         "display": "自动装填 7 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 7.0,
+        "seconds": 7,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -16339,7 +17200,7 @@
         "display": "自动装填 7 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 7.0,
+        "seconds": 7,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -16380,7 +17241,7 @@
         "gun": "120 mm Rh120 L/44 cannon",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -16422,7 +17283,7 @@
         "gun": "120 mm Rh120 L/44 cannon",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -16465,7 +17326,7 @@
         "gun": "120 mm Rh120 L/44 cannon",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -16507,7 +17368,7 @@
         "gun": "120 mm Rh120 L/44 cannon",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -16550,7 +17411,7 @@
         "gun": "105 mm L7A3 cannon",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -16592,7 +17453,7 @@
         "gun": "120 mm Rh120 L/44 cannon",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -16635,7 +17496,7 @@
         "display": "自动装填 4 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 4.0,
+        "seconds": 4,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -16677,7 +17538,7 @@
         "display": "自动装填 6 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 6.0,
+        "seconds": 6,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -16719,7 +17580,7 @@
         "display": "自动装填 4 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 4.0,
+        "seconds": 4,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -16760,7 +17621,7 @@
         "gun": "120 mm IMI MG251 cannon",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -16802,7 +17663,7 @@
         "gun": "120 mm IMI MG251 cannon",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -16844,7 +17705,7 @@
         "gun": "120 mm IMI MG251-LR cannon",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -16886,7 +17747,7 @@
         "gun": "120 mm Rh120 L/55 A1 cannon",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -16928,7 +17789,7 @@
         "gun": "120 mm rifled Arjun cannon",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -17013,7 +17874,7 @@
         "gun": "120 mm L11A5 cannon",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -17055,7 +17916,7 @@
         "gun": "120 mm L30A1 cannon",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -17097,7 +17958,7 @@
         "gun": "120 mm L30A1 cannon",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -17139,7 +18000,7 @@
         "gun": "120 mm L30A1 cannon",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -17181,7 +18042,7 @@
         "gun": "120 mm L30A1 cannon",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -17224,7 +18085,7 @@
         "gun": "120 mm L30A1 cannon",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -17267,7 +18128,7 @@
         "gun": "120 mm M256 cannon",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -17310,7 +18171,7 @@
         "gun": "120 mm L11A5 cannon",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -17353,7 +18214,7 @@
         "display": "自动装填 7 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 7.0,
+        "seconds": 7,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -17394,7 +18255,7 @@
         "gun": "120 mm L11A5 cannon",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -17436,7 +18297,7 @@
         "gun": "120 mm M256 cannon",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -17478,7 +18339,7 @@
         "gun": "120 mm M256 cannon",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -17521,7 +18382,7 @@
         "gun": "120 mm M256 cannon",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -17563,7 +18424,7 @@
         "gun": "120 mm M256 cannon",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -17606,7 +18467,7 @@
         "gun": "120 mm M256 cannon",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -17648,7 +18509,7 @@
         "gun": "120 mm M256 cannon",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -17690,7 +18551,7 @@
         "gun": "105 mm M68A1 cannon",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -17860,7 +18721,7 @@
         "gun": "120 mm IMI MG251 cannon",
         "display": "7.8 → 6 秒",
         "basicSeconds": 7.8,
-        "aceSeconds": 6.0,
+        "aceSeconds": 6,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -17903,7 +18764,7 @@
         "gun": "85 mm D-5T cannon",
         "display": "9.1 → 7 秒",
         "basicSeconds": 9.1,
-        "aceSeconds": 7.0,
+        "aceSeconds": 7,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -18119,7 +18980,7 @@
         "display": "自动装填 10 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 10.0,
+        "seconds": 10,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -18161,7 +19022,7 @@
         "display": "自动装填 6 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 6.0,
+        "seconds": 6,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -18203,7 +19064,7 @@
         "display": "自动装填 7 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 7.0,
+        "seconds": 7,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -18245,7 +19106,7 @@
         "display": "自动装填 7 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 7.0,
+        "seconds": 7,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -18287,7 +19148,7 @@
         "display": "自动装填 7 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 7.0,
+        "seconds": 7,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -18329,7 +19190,7 @@
         "display": "自动装填 7 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 7.0,
+        "seconds": 7,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -18371,7 +19232,7 @@
         "display": "自动装填 6 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 6.0,
+        "seconds": 6,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -18413,7 +19274,7 @@
         "display": "自动装填 6 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 6.0,
+        "seconds": 6,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -18454,7 +19315,7 @@
         "gun": "120 mm M256 cannon",
         "display": "6.5 → 5 秒",
         "basicSeconds": 6.5,
-        "aceSeconds": 5.0,
+        "aceSeconds": 5,
         "seconds": null,
         "mechanism": "manual",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
@@ -18497,7 +19358,7 @@
         "display": "自动装填 6 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 6.0,
+        "seconds": 6,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -18539,7 +19400,7 @@
         "display": "自动装填 6 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 6.0,
+        "seconds": 6,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -18582,7 +19443,7 @@
         "display": "自动装填 6 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 6.0,
+        "seconds": 6,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -18624,7 +19485,7 @@
         "display": "自动装填 6 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 6.0,
+        "seconds": 6,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -18666,7 +19527,7 @@
         "display": "自动装填 6 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 6.0,
+        "seconds": 6,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -18709,7 +19570,7 @@
         "display": "自动装填 7 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 7.0,
+        "seconds": 7,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -18751,7 +19612,7 @@
         "display": "自动装填 7 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 7.0,
+        "seconds": 7,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -18793,7 +19654,7 @@
         "display": "自动装填 7 秒",
         "basicSeconds": null,
         "aceSeconds": null,
-        "seconds": 7.0,
+        "seconds": 7,
         "mechanism": "automatic",
         "note": "仅本页主炮面板；不将待发弹耗尽后的持续装填等同于标称值。"
       },
@@ -18899,7 +19760,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 29,
+    "illustratedCount": 30,
     "countries": [
       {
         "country": "usa",
@@ -19035,7 +19896,7 @@
     "lastUpdated": "2026-11-02",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 27,
+    "illustratedTargetCount": 28,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,

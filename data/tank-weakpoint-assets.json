@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "64cb55ff89bed14685d3e749a897c4b2d747bd35",
+  "commit": "ede1a8a1171283f4f28175a520558b49d911e222",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -524,6 +524,24 @@
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@d7b18c47f27bafdbdd05b86aea9f661920f0e5de/images/SWE/SWE-Strv-103C-front.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/d7b18c47f27bafdbdd05b86aea9f661920f0e5de/images/SWE/SWE-Strv-103C-front.webp",
         "commit": "d7b18c47f27bafdbdd05b86aea9f661920f0e5de"
+      }
+    },
+    "il_merkava_mk_1b": {
+      "raw": {
+        "path": "images/ISR/ISR-Merkava-Mk-1B-M900-28m53s-native1080p-capture-20261103.webp",
+        "sha256": "974681f4ff2e5538a11b9c843507d6ac3f98c88a63e4370b4d2bd702fb01bd7c",
+        "bytes": 1339144,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ede1a8a1171283f4f28175a520558b49d911e222/images/ISR/ISR-Merkava-Mk-1B-M900-28m53s-native1080p-capture-20261103.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ede1a8a1171283f4f28175a520558b49d911e222/images/ISR/ISR-Merkava-Mk-1B-M900-28m53s-native1080p-capture-20261103.webp",
+        "commit": "ede1a8a1171283f4f28175a520558b49d911e222"
+      },
+      "photo": {
+        "path": "images/ISR/ISR-Merkava-Mk-1B-front.webp",
+        "sha256": "5cccdcf7abb79730558f403daac25565042364c412aa8d574c39be7af9026dbe",
+        "bytes": 318338,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ede1a8a1171283f4f28175a520558b49d911e222/images/ISR/ISR-Merkava-Mk-1B-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ede1a8a1171283f4f28175a520558b49d911e222/images/ISR/ISR-Merkava-Mk-1B-front.webp",
+        "commit": "ede1a8a1171283f4f28175a520558b49d911e222"
       }
     }
   },
@@ -7878,6 +7896,245 @@
       "commit": "64cb55ff89bed14685d3e749a897c4b2d747bd35",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@64cb55ff89bed14685d3e749a897c4b2d747bd35/images/ISR/ISR-Merkava-Mk-3-Raam-Sagol-source-10m20s-capture-20261103.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/64cb55ff89bed14685d3e749a897c4b2d747bd35/images/ISR/ISR-Merkava-Mk-3-Raam-Sagol-source-10m20s-capture-20261103.webp"
+    },
+    {
+      "vehicleId": "cn_ztz_96b",
+      "vehicleEnglishName": "ZTZ96B",
+      "country": "CHN",
+      "caseId": "cn_ztz_96b:BV1AhpF6aEDU:45067",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1AhpF6aEDU/",
+        "title": "共和国の赛场之花【雷批大学习/ZTZ96B】",
+        "author": "馒头Emoil",
+        "authorType": "user-original-author-not-official-staff",
+        "publishedAt": "2026-10-06T16:02:39+08:00"
+      },
+      "mediaTime": 45.066687,
+      "sourceTime": 45.066687,
+      "sourceFrameSHA256": "cceff14fb4665e2926cca162ec28fcfa15aeae7d54fc3c64084eef6d09b2d33d",
+      "proofSnapshotSHA256": "fee1d935242d7c0ba890c01fddb315e6c04dff9224b8d477e9f6434e6898dec5",
+      "sourceGameVersion": "2.59.0.44",
+      "sceneKind": "protection-colour-map",
+      "visibleView": "front-elevated",
+      "hasGreenArmourMap": true,
+      "mainImageUsable": false,
+      "completeIllustration": false,
+      "path": "images/CHN/CHN-ZTZ96B-DTC10-125-00m45s-4k-capture-20261103.webp",
+      "sha256": "d1b73bbdeaca31483d0faab6995b4c90a712354efa525837e219e8022034dbda",
+      "bytes": 1889788,
+      "width": 3840,
+      "height": 2160,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "additional-protection-source-frame",
+      "id": "d1b73bbdeaca31483d0faab6995b4c90a712354efa525837e219e8022034dbda",
+      "actualTime": 45.066687,
+      "encoding": "lossless-webp",
+      "commit": "ede1a8a1171283f4f28175a520558b49d911e222",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ede1a8a1171283f4f28175a520558b49d911e222/images/CHN/CHN-ZTZ96B-DTC10-125-00m45s-4k-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ede1a8a1171283f4f28175a520558b49d911e222/images/CHN/CHN-ZTZ96B-DTC10-125-00m45s-4k-capture-20261103.webp"
+    },
+    {
+      "vehicleId": "cn_ztz_96b",
+      "vehicleEnglishName": "ZTZ96B",
+      "country": "CHN",
+      "caseId": "cn_ztz_96b:BV1AhpF6aEDU:45067",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1AhpF6aEDU/",
+        "title": "共和国の赛场之花【雷批大学习/ZTZ96B】",
+        "author": "馒头Emoil",
+        "authorType": "user-original-author-not-official-staff",
+        "publishedAt": "2026-10-06T16:02:39+08:00"
+      },
+      "mediaTime": 45.066687,
+      "sourceTime": 45.066687,
+      "sourceFrameSHA256": "cceff14fb4665e2926cca162ec28fcfa15aeae7d54fc3c64084eef6d09b2d33d",
+      "proofSnapshotSHA256": "fee1d935242d7c0ba890c01fddb315e6c04dff9224b8d477e9f6434e6898dec5",
+      "sourceGameVersion": "2.59.0.44",
+      "sceneKind": "protection-colour-map",
+      "visibleView": "front-elevated",
+      "hasGreenArmourMap": true,
+      "mainImageUsable": false,
+      "completeIllustration": false,
+      "path": "images/CHN/CHN-ZTZ96B-DTC10-125-00m45s-protection.webp",
+      "sha256": "672518b41a11e171b02a08039368ddf5a164889cbc75c8e86d1cdea58046b683",
+      "bytes": 272180,
+      "width": 820,
+      "height": 650,
+      "kind": "protection-analysis-crop-webp",
+      "roles": [
+        "protection-crop"
+      ],
+      "purpose": "additional-protection-evidence",
+      "crop": [
+        1500,
+        650,
+        820,
+        650
+      ],
+      "encoding": "lossless-webp",
+      "id": "672518b41a11e171b02a08039368ddf5a164889cbc75c8e86d1cdea58046b683",
+      "actualTime": 45.066687,
+      "commit": "ede1a8a1171283f4f28175a520558b49d911e222",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ede1a8a1171283f4f28175a520558b49d911e222/images/CHN/CHN-ZTZ96B-DTC10-125-00m45s-protection.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ede1a8a1171283f4f28175a520558b49d911e222/images/CHN/CHN-ZTZ96B-DTC10-125-00m45s-protection.webp"
+    },
+    {
+      "vehicleId": "il_merkava_mk_1b",
+      "country": "ISR",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "caseId": "il_merkava_mk_1b:BV1SPmEBJE3y:1733000",
+      "mediaTime": 1733,
+      "sourceTime": 1733,
+      "sourceFrameSHA256": "ff1ae85393d82729caacfcd06fb3850a9df7c7e75156565f4be438fe22a6a669",
+      "proofSnapshotSHA256": "a09f4248c685ffda97a8c9adc1d8e859b4177a947edf2a9c9060e4dacc508d6f",
+      "sourceGameVersion": "2.51.0.65",
+      "sceneKind": "exterior",
+      "visibleView": "front-slightly-elevated",
+      "hasGreenArmourMap": false,
+      "completeIllustration": false,
+      "path": "images/ISR/ISR-Merkava-Mk-1B-M900-28m53s-native1080p-capture-20261103.webp",
+      "sha256": "974681f4ff2e5538a11b9c843507d6ac3f98c88a63e4370b4d2bd702fb01bd7c",
+      "bytes": 1339144,
+      "width": 1920,
+      "height": 1080,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "id": "974681f4ff2e5538a11b9c843507d6ac3f98c88a63e4370b4d2bd702fb01bd7c",
+      "actualTime": 1733,
+      "encoding": "lossless-webp",
+      "commit": "ede1a8a1171283f4f28175a520558b49d911e222",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ede1a8a1171283f4f28175a520558b49d911e222/images/ISR/ISR-Merkava-Mk-1B-M900-28m53s-native1080p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ede1a8a1171283f4f28175a520558b49d911e222/images/ISR/ISR-Merkava-Mk-1B-M900-28m53s-native1080p-capture-20261103.webp"
+    },
+    {
+      "vehicleId": "il_merkava_mk_1b",
+      "country": "ISR",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "caseId": "il_merkava_mk_1b:BV1SPmEBJE3y:1733000",
+      "mediaTime": 1733,
+      "sourceTime": 1733,
+      "sourceFrameSHA256": "ff1ae85393d82729caacfcd06fb3850a9df7c7e75156565f4be438fe22a6a669",
+      "proofSnapshotSHA256": "a09f4248c685ffda97a8c9adc1d8e859b4177a947edf2a9c9060e4dacc508d6f",
+      "sourceGameVersion": "2.51.0.65",
+      "sceneKind": "exterior",
+      "visibleView": "front-slightly-elevated",
+      "hasGreenArmourMap": false,
+      "completeIllustration": false,
+      "path": "images/ISR/ISR-Merkava-Mk-1B-front.webp",
+      "sha256": "5cccdcf7abb79730558f403daac25565042364c412aa8d574c39be7af9026dbe",
+      "bytes": 318338,
+      "width": 720,
+      "height": 570,
+      "crop": [
+        650,
+        160,
+        720,
+        570
+      ],
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "primary-crop"
+      ],
+      "encoding": "lossless-webp",
+      "purpose": "primary-exterior-view",
+      "mainImageUsable": true,
+      "mainViewKind": "exterior",
+      "id": "5cccdcf7abb79730558f403daac25565042364c412aa8d574c39be7af9026dbe",
+      "actualTime": 1733,
+      "commit": "ede1a8a1171283f4f28175a520558b49d911e222",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ede1a8a1171283f4f28175a520558b49d911e222/images/ISR/ISR-Merkava-Mk-1B-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ede1a8a1171283f4f28175a520558b49d911e222/images/ISR/ISR-Merkava-Mk-1B-front.webp"
+    },
+    {
+      "path": "images/USSR/USSR-T-80U-source-20m04s-native720p-capture-20261103.webp",
+      "sha256": "a8b572106fa45248c254c3920f46e7ca41b12fdb8afef73170acbcf7e693c200",
+      "bytes": 527656,
+      "width": 1280,
+      "height": 720,
+      "vehicleId": "ussr_t_80u",
+      "country": "USSR",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "caseId": null,
+      "mediaTime": 1204,
+      "sourceTime": 1204,
+      "sourceFrameSHA256": "d0bfcf9a25afa3f7083d26db072ea1ca2cd1bf4d5537f6865773ea3da1742b0b",
+      "proofSnapshotSHA256": "b9569531f75d8f803ad944549e2400b8503eb48f80382352302edffcbe02d705",
+      "sourceGameVersion": null,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "sceneKind": "xray",
+      "visibleView": "internal-oblique-partial",
+      "mainImageUsable": false,
+      "hasGreenArmourMap": false,
+      "completeIllustration": false,
+      "id": "a8b572106fa45248c254c3920f46e7ca41b12fdb8afef73170acbcf7e693c200",
+      "actualTime": 1204,
+      "encoding": "lossless-webp",
+      "commit": "ede1a8a1171283f4f28175a520558b49d911e222",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ede1a8a1171283f4f28175a520558b49d911e222/images/USSR/USSR-T-80U-source-20m04s-native720p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ede1a8a1171283f4f28175a520558b49d911e222/images/USSR/USSR-T-80U-source-20m04s-native720p-capture-20261103.webp"
+    },
+    {
+      "path": "images/USSR/USSR-T-72B3-source-20m12s-native1080p-capture-20261103.webp",
+      "sha256": "a33a4bcaabd802f8b47fcb907bf3d230051b1d280b958cc2b0c7f7d6a3e7d6c5",
+      "bytes": 1452708,
+      "width": 1920,
+      "height": 1080,
+      "vehicleId": "ussr_t_72b3_2011",
+      "country": "USSR",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "caseId": null,
+      "mediaTime": 1212,
+      "sourceTime": 1212,
+      "sourceFrameSHA256": "e02a97659329d54a2e902cfb1836c8d1bc14e9c99a30142eb7cdf4adb7a3b15b",
+      "proofSnapshotSHA256": "ce412f10bd6e451c3a3c6e91881728432a531257d79ed4f22cc44c090e363ee0",
+      "sourceGameVersion": null,
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "sceneKind": "xray",
+      "visibleView": "internal-xray",
+      "mainImageUsable": false,
+      "hasGreenArmourMap": false,
+      "completeIllustration": false,
+      "id": "a33a4bcaabd802f8b47fcb907bf3d230051b1d280b958cc2b0c7f7d6a3e7d6c5",
+      "actualTime": 1212,
+      "encoding": "lossless-webp",
+      "commit": "ede1a8a1171283f4f28175a520558b49d911e222",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@ede1a8a1171283f4f28175a520558b49d911e222/images/USSR/USSR-T-72B3-source-20m12s-native1080p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/ede1a8a1171283f4f28175a520558b49d911e222/images/USSR/USSR-T-72B3-source-20m12s-native1080p-capture-20261103.webp"
     }
   ]
 }
