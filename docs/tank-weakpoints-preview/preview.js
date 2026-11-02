@@ -126,26 +126,20 @@ function render() {
   if (source.url) records.push(sourceLink(source.title || "视频来源", videoUrl(source, model.time), [source.author, source.publishedAt, source.gameVersion ? `游戏版本 ${source.gameVersion}` : null, Number.isFinite(model.time) ? `${Math.floor(model.time / 60)}:${String(Math.floor(model.time % 60)).padStart(2, "0")}` : null, model.imageQuality].filter(Boolean).join(" · ")));
   if (model.wikiUrl) records.push(sourceLink("官方 Wiki · " + model.name, model.wikiUrl, `核对日期 ${model.collectedAt || SAMPLE.collectedAt || "待补充"} · 车型、装甲与主炮装填资料${model.wikiGameVersion ? ` · 游戏版本 ${model.wikiGameVersion}` : ""}`));
   $("sources").replaceChildren(...records);
-  [...$("vehicles").children].forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.id === model.id)));
   renderPoint();
 }
 function select(index) { selected = index; point = 0; original = false; render(); }
 function updateList(preferredId) {
   const visible = SAMPLE.models.filter(matches);
-  $("vehicles").replaceChildren(...visible.map((model) => {
-    const button = element("button", model.name + (!model.imageUrl && !model.rawUrl ? " · 待补图" : ""));
-    button.type = "button"; button.dataset.id = model.id;
-    button.addEventListener("click", () => { select(SAMPLE.models.indexOf(model)); location.hash = `vehicle=${model.id}`; });
-    return button;
-  }));
   for (const id of ["study", "source-section"]) $(id).hidden = !visible.length;
   $("empty-state").hidden = !!visible.length;
   const illustrated = visible.filter((model) => model.imageUrl).length;
   $("result-count").textContent = `${visible.length} 辆资料 · ${illustrated} 辆已配正面图 · ${visible.length - illustrated} 辆待补图${includeIs ? " · 已包含 IS 系列补充" : ""}`;
-  filterSelects.forEach((control) => control.sync());
   const currentId = preferredId || SAMPLE.models[selected]?.id;
   const next = visible.find((model) => model.id === currentId) || visible[0];
   select(next ? SAMPLE.models.indexOf(next) : -1);
+  vehicleSelect.setOptions(visible.map((model) => ({ value: model.id, label: model.name + (!model.imageUrl && !model.rawUrl ? " · 待补图" : "") })));
+  filterSelects.forEach((control) => control.sync());
 }
 // Standalone equivalent of components/GameSelect: trigger focus + top-layer listbox.
 function createFilter(host, kind, entries, labelledBy) {
@@ -154,34 +148,44 @@ function createFilter(host, kind, entries, labelledBy) {
   trigger.setAttribute("role", "combobox"); trigger.setAttribute("aria-haspopup", "listbox");
   trigger.setAttribute("aria-labelledby", `${labelledBy} ${kind}-value`);
   const valueLabel = element("span", undefined, "wt-select-label"); valueLabel.id = `${kind}-value`;
-  const chevron = element("span", "⌄", "wt-select-chevron"); chevron.setAttribute("aria-hidden", "true");
+  // Exact geometry and dimensions from src/components/Chevron.tsx.
+  const chevron = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  for (const [name, value] of Object.entries({ class: "wt-chevron wt-select-chevron country-chevron", width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", "aria-hidden": "true", focusable: "false" })) chevron.setAttribute(name, value);
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  for (const [name, value] of Object.entries({ d: "m4 6 4 4 4-4", stroke: "currentColor", "stroke-width": "1.75", "stroke-linecap": "round", "stroke-linejoin": "round" })) path.setAttribute(name, value);
+  chevron.append(path);
   trigger.append(valueLabel, chevron);
   const menu = element("div", undefined, "wt-select-menu"); menu.id = `${kind}-menu`;
   menu.setAttribute("role", "listbox"); menu.setAttribute("popover", "auto");
   menu.setAttribute("aria-labelledby", trigger.id); menu.hidden = true;
   $(host).append(trigger, menu);
   let open = false, active = 0, search = "", searchAt = 0;
-  const current = () => ({ country, rank, era }[kind]);
+  const current = () => kind === "vehicle" ? SAMPLE.models[selected]?.id || "" : ({ country, rank, era }[kind]);
   function content(entry) {
     const row = element("span", undefined, "select-option-label");
-    const flags = entry.flagUrl ? [entry.flagUrl] : entry.value === "all" && kind === "country" ? countryEntries.slice(0, 3).map((item) => item.flagUrl).filter(Boolean) : [];
+    const flags = entry.flagUrl ? [entry.flagUrl] : [];
     if (flags.length) {
-      const icons = element("span", undefined, flags.length > 1 ? "country-flags" : "country-icon");
+      const icons = element("span", undefined, "country-icon");
       icons.setAttribute("aria-hidden", "true");
       flags.forEach((url) => { const image = element("img"); image.src = url; image.alt = ""; image.width = 24; image.height = 18; icons.append(image); });
       row.append(icons);
     }
     row.append(element("span", entry.label)); return row;
   }
-  const options = entries.map((entry, index) => {
+  let options = [];
+  function setOptions(nextEntries) {
+    close(); entries = nextEntries;
+    options = entries.map((entry, index) => {
     const option = element("div", undefined, "wt-select-option"); option.id = `${menu.id}-${index}`;
     option.setAttribute("role", "option"); option.tabIndex = -1;
     option.append(element("span", "", "wt-select-check"), content(entry));
     option.addEventListener("pointerdown", (event) => event.preventDefault());
     option.addEventListener("pointermove", (event) => { if (event.pointerType === "mouse") setActive(index); });
     option.addEventListener("click", () => choose(index));
-    menu.append(option); return option;
-  });
+    return option;
+    });
+    menu.replaceChildren(...options); sync();
+  }
   function setActive(index) {
     active = index;
     options.forEach((option, i) => option.setAttribute("data-active", String(i === active)));
@@ -190,7 +194,8 @@ function createFilter(host, kind, entries, labelledBy) {
   }
   function sync() {
     const chosen = entries.findIndex((entry) => entry.value === current());
-    valueLabel.replaceChildren(content(entries[Math.max(0, chosen)]));
+    trigger.disabled = !entries.length;
+    valueLabel.replaceChildren(content(entries[Math.max(0, chosen)] || { label: "暂无符合条件的车型" }));
     options.forEach((option, index) => {
       option.setAttribute("aria-selected", String(index === chosen));
       option.children[0].textContent = index === chosen ? "✓" : "";
@@ -214,21 +219,25 @@ function createFilter(host, kind, entries, labelledBy) {
     Object.assign(menu.style, { width: `${popupWidth}px`, maxHeight: `${maxHeight}px`, left: `${Math.max(left + 8, Math.min(rect.left, left + width - popupWidth - 8))}px`, top: `${up ? Math.max(top + 8, rect.top - Math.min(menu.scrollHeight, maxHeight) - 4) : rect.bottom + 4}px` });
   }
   function show(index = entries.findIndex((entry) => entry.value === current())) {
+    if (!entries.length) return;
     filterSelects.forEach((control) => control.close());
     open = true; menu.hidden = false; menu.showPopover?.();
     trigger.setAttribute("aria-expanded", "true"); place(); setActive(Math.max(0, index));
   }
   function choose(index) {
+    if (!entries[index]) return;
     const value = entries[index].value;
     if (kind === "country") country = value;
     if (kind === "rank") rank = value;
     if (kind === "era") era = value;
-    close(); updateList(); trigger.focus({ preventScroll: true });
+    if (kind === "vehicle") location.hash = `vehicle=${value}`;
+    close(); updateList(kind === "vehicle" ? value : undefined); trigger.focus({ preventScroll: true });
   }
   trigger.addEventListener("click", () => open ? close() : show());
   trigger.addEventListener("blur", close);
   trigger.addEventListener("keydown", (event) => {
     event.stopPropagation();
+    if (!entries.length) return;
     const chosen = Math.max(0, entries.findIndex((entry) => entry.value === current()));
     if (["ArrowDown", "ArrowUp", "Home", "End", "Enter", " ", "Escape"].includes(event.key)) {
       event.preventDefault();
@@ -253,11 +262,13 @@ function createFilter(host, kind, entries, labelledBy) {
   window.addEventListener("resize", place);
   window.addEventListener("scroll", (event) => { if (event.target !== menu) place(); }, true);
   window.visualViewport?.addEventListener("resize", place); window.visualViewport?.addEventListener("scroll", place);
-  filterSelects.push({ sync, close }); sync();
+  const control = { sync, close, setOptions };
+  filterSelects.push(control); setOptions(entries); return control;
 }
 createFilter("countries", "country", [{ value: "all", label: "全部国家" }, ...countryEntries.map((entry) => ({ value: entry.id, label: entry.name, flagUrl: entry.flagUrl }))], "country-label");
 createFilter("ranks", "rank", [["all", "全部等级"], ["6", "VI 级"], ["7", "VII 级"], ["8", "VIII 级"]].map(([value, label]) => ({ value, label })), "rank-label");
 createFilter("eras", "era", eras.map(([value, label]) => ({ value, label })), "era-label");
+const vehicleSelect = createFilter("vehicles", "vehicle", [], "vehicle-label");
 function fromHash() {
   const id = new URLSearchParams(location.hash.slice(1)).get("vehicle");
   const model = SAMPLE.models.find((entry) => entry.id === id);

@@ -123,3 +123,11 @@ footer { max-width:1560px; margin:24px auto 0; padding:20px; border-top:1px soli
 .test-context dd { margin:0; overflow-wrap:anywhere; }
 #test-link { font-size:12px; font-variant-numeric:tabular-nums; }
 #test-note { margin-bottom:6px; }
+
+/* Match the shared Chevron SVG and the tree's country-chevron placement. */
+.wt-chevron { display:block; flex:none; width:16px; height:16px; overflow:visible; }
+.wt-select-chevron.country-chevron { flex:0 0 16px; margin-left:auto; color:var(--wt-muted); }
+.country-icon img { width:24px; height:16px; }
+#vehicles .wt-select { width:230px; }
+.wt-select:disabled { opacity:.55; cursor:not-allowed; }
+@media (max-width:800px) { #vehicles .wt-select { width:100%; }.vehicle-filter { flex-basis:100%; } }
