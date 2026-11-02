@@ -269,6 +269,14 @@ export function solveLoadout(
     needs.some((r) => !Number.isSafeInteger(r.count) || r.count > 10000)
   )
     return { state: "unmatched" };
+  if (
+    (data.rules || []).some(
+      (rule) =>
+        rule.kind === "exclusive" &&
+        rule.weapons.every((name) => needs.some((need) => need.weapon === weaponKey(name))),
+    )
+  )
+    return { state: "unmatched" };
   if (!data.hardpoints.length) {
     for (const preset of data.presets) {
       const check = checkLoadout(data, [], presetKey(preset));
