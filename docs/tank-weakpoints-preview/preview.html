@@ -35,7 +35,7 @@
         <div class="figure-column">
           <header class="figure-header">
             <div><h2 id="vehicle-name"></h2><p id="vehicle-role"></p></div>
-            <button id="toggle-original" type="button" aria-pressed="false">查看完整原始帧</button>
+            <div class="figure-actions"><div id="image-views" class="image-views" role="group" aria-label="图像视图" hidden></div><button id="toggle-original" type="button" aria-pressed="false">查看完整原始帧</button><a id="evidence-full" target="_blank" rel="noopener noreferrer" hidden>打开高清原帧 ↗</a></div>
           </header>
           <div class="photo-stage" id="photo-stage">
             <img id="photo" alt="" width="1100" height="690"><p id="image-status" class="image-status" role="status" hidden></p>
@@ -43,7 +43,7 @@
           </div>
           <p id="figure-caption" class="figure-caption"></p>
           <div id="pin-buttons" class="pin-buttons" aria-label="按区域查看说明"></div>
-          <section class="explanation" aria-live="polite" aria-atomic="true"><p class="eyebrow">选中标注</p><h3 id="point-title"></h3><p id="point-detail"></p></section>
+          <section class="explanation" aria-live="polite" aria-atomic="true"><p id="point-kind" class="eyebrow">选中标注</p><h3 id="point-title"></h3><p id="point-detail"></p></section>
         </div>
         <aside class="evidence">
           <section><p class="eyebrow">阅读要点 · 官方 Wiki</p><p id="wiki-summary"></p><ul id="wiki-points"></ul></section>

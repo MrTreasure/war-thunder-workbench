@@ -511,6 +511,59 @@
       ],
       "videoAdvice": [
         {
+          "id": "ussr_is_4m:BV1SPmEBJE3y:author-front-ammo-advice",
+          "caseId": null,
+          "kind": "author-general-front-ammunition-recommendation",
+          "label": "正面整体打法 · 弹种选择",
+          "text": "作者建议正面优先使用钢针或破甲弹。使用装药弹时可以绕侧；正面则以猎虎这类高穿深、高毁伤炮弹为例。T34的T14E3即使穿透，后效也可能不足。",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "sourceTime": 1037.084,
+          "sourceTimeRange": [
+            1037.084,
+            1046.133
+          ],
+          "conditionMatch": "narrated-recommendation",
+          "mainImageMatch": "different-segment",
+          "evidence": {
+            "sourceEvidence": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/USSR-IS-4M-1020-1050-normal-playback-subtitles.json",
+              "sha256": "44e665a27996dcbbece5c3d494107a65ad38159b9ac650a2f7378616093b5c6a",
+              "kind": "normal-player-continuous-DOM-sampling",
+              "precision": "actual observed currentTime; not exact cue axis"
+            },
+            "sourceWords": [
+              {
+                "observedTime": 1037.083896,
+                "text": "所以想打这个车"
+              },
+              {
+                "observedTime": 1038.089922,
+                "text": "要要么钢针破甲弹"
+              },
+              {
+                "observedTime": 1039.095515,
+                "text": "要么打侧面装药弹"
+              },
+              {
+                "observedTime": 1040.604212,
+                "text": "想正面击穿"
+              },
+              {
+                "observedTime": 1041.609851,
+                "text": "至少也得猎虎这种"
+              },
+              {
+                "observedTime": 1042.615102,
+                "text": "也就是这种高穿深的超压弹"
+              },
+              {
+                "observedTime": 1044.627481,
+                "text": "只要击穿就是死一车"
+              }
+            ]
+          }
+        },
+        {
           "caseId": "ussr_is_4m:BV1SPmEBJE3y:1029000",
           "sourceTime": 1028.022,
           "conditionMatch": "verified-continuous-segment",
@@ -921,7 +974,32 @@
         "部分试射游戏版本及命中角度未独立读出，维持null；不得泛化所有弹药后效。"
       ],
       "limits": "1026烧字聊完IS3是转场语，真实顶部目标IS-4M，不改成IS3。；侧面/钢针/破甲弹是作者一般弹种建议，本批未有这些弹药精确试射case，不伪造。",
-      "imageViewDetail": "front-slightly-elevated"
+      "imageViewDetail": "front-slightly-elevated",
+      "protectionEvidence": [
+        {
+          "id": "t14e3-1029",
+          "label": "T14E3 · 可击穿区域",
+          "caseId": "ussr_is_4m:BV1SPmEBJE3y:1029000",
+          "assetPath": "images/USSR/USSR-IS-4M-T14E3-protection-analysis.webp",
+          "sourceTime": 1029,
+          "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/USSR-IS-4M-attack-evidence-1029.webp",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/025.json",
+          "frameSnapshotSHA256": "89076fd5f43d01dabc9c0a7468f5a876f86c39d8f90d5622abeba2aceb1e351f",
+          "caption": "原视频防护分析：T34 / T14E3 APCBC，0米，283毫米。图中为普通穿甲弹的局部绿色区域；钢针、破甲弹打法另见作者建议。",
+          "description": "这张原帧展示T14E3在IS-4M正面的局部可击穿区域。作者另建议使用钢针或破甲弹处理正面，正在补充对应弹种的绿色区域原片。",
+          "conditionNote": "当前测试条件对应所选防护分析原帧；作者一般弹种建议单列。",
+          "sourceGameVersion": null,
+          "view": "front-elevated-protection-analysis",
+          "rawAssetPath": "images/USSR/USSR-IS-4M-case-1029-capture-20261102.webp",
+          "crop": [
+            730,
+            250,
+            500,
+            450
+          ]
+        }
+      ],
+      "defaultEvidenceId": "t14e3-1029"
     },
     {
       "id": "ussr_is_7",
@@ -947,6 +1025,59 @@
       },
       "pins": [],
       "videoAdvice": [
+        {
+          "id": "ussr_is_7:BV1SPmEBJE3y:author-front-ammo-advice",
+          "caseId": null,
+          "kind": "author-general-front-ammunition-recommendation",
+          "label": "正面整体打法 · 弹种选择",
+          "text": "作者指出装药穿甲弹能打的正面弱区较少，建议改用破甲弹；这个权重还可选择脱壳穿甲弹、钢针或导弹处理正面。",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "sourceTime": 1063.463,
+          "sourceTimeRange": [
+            1063.463,
+            1074.033
+          ],
+          "conditionMatch": "narrated-recommendation",
+          "mainImageMatch": "different-segment",
+          "evidence": {
+            "sourceEvidence": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/USSR-IS-7-1063-1091-normal-playback-subtitles.json",
+              "sha256": "d954b6fb4dbd8922b0ed3fac7b90df044ba43cef5a6baf0b48a28ac29c93e79f",
+              "kind": "normal-player-continuous-DOM-sampling",
+              "precision": "actual observed currentTime; not exact cue axis"
+            },
+            "sourceWords": [
+              {
+                "observedTime": 1063.46273,
+                "text": "这个车的话"
+              },
+              {
+                "observedTime": 1063.965305,
+                "text": "装药弹能打穿的弱点非常非常的"
+              },
+              {
+                "observedTime": 1066.478792,
+                "text": "但是他的权重在8.3"
+              },
+              {
+                "observedTime": 1067.485978,
+                "text": "使用穿甲弹跟他打"
+              },
+              {
+                "observedTime": 1068.993005,
+                "text": "我直接上破甲弹不好吗"
+              },
+              {
+                "observedTime": 1070.509424,
+                "text": "而且他这个权重不仅仅有破甲弹"
+              },
+              {
+                "observedTime": 1072.016334,
+                "text": "还有脱穿钢针导弹"
+              }
+            ]
+          }
+        },
         {
           "caseId": "ussr_is_7:BV1SPmEBJE3y:1070033",
           "sourceTime": 1068.993,
@@ -1032,14 +1163,14 @@
           "sourceShellNormalizationStatus": "original-label-only-no-guessed-3BK-code",
           "distanceMeters": 0,
           "displayedPenetrationMm": 380,
-          "sourceGameVersion": null,
+          "sourceGameVersion": "2.51.0.65",
           "proofSHA256": "9b48348ede1cf31a61dd8bfe66f940adbc4eaeff36008deb61690a39b0a2b4d4",
           "sourceFrameSHA256": "e690c6cfbe628cef7c257ce5be7da64fa26f2662e7955c5c5f25e71c0137496d",
           "frameSha256": "7e53e7f892b3c4309c2b473a09e8f8a31d8a1088805d506bece5eac60a0f23c6",
           "conditionSource": "Actual selected left attack-source menu; IS7 original shell label independently cropped, no standard-round code or HEATFS inferred.",
           "attacker": "Object 140",
           "shellTypeCode": null,
-          "shellTypeLabel": null,
+          "shellTypeLabel": "破甲弹（原片标注，细分待核）",
           "impactAngleDegrees": null,
           "verificationStatus": "verified"
         }
@@ -1066,7 +1197,13 @@
           "proofSHA256": "9b48348ede1cf31a61dd8bfe66f940adbc4eaeff36008deb61690a39b0a2b4d4",
           "sourceFrameSHA256": "e690c6cfbe628cef7c257ce5be7da64fa26f2662e7955c5c5f25e71c0137496d",
           "frameSha256": "7e53e7f892b3c4309c2b473a09e8f8a31d8a1088805d506bece5eac60a0f23c6",
-          "conditionSource": "Actual selected left attack-source menu; IS7 original shell label independently cropped, no standard-round code or HEATFS inferred."
+          "conditionSource": "Actual selected left attack-source menu; IS7 original shell label independently cropped, no standard-round code or HEATFS inferred.",
+          "sourceGameVersionEvidence": {
+            "read": "2.51.0.65",
+            "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/USSR-IS-7-visible-front-proof-1070.webp",
+            "frameSHA256": "7e53e7f892b3c4309c2b473a09e8f8a31d8a1088805d506bece5eac60a0f23c6",
+            "scope": "this case only"
+          }
         }
       },
       "missingEvidence": [
@@ -1077,13 +1214,13 @@
         "attacker": "Object 140",
         "shell": "D-54 破甲弹",
         "shellTypeCode": null,
-        "shellTypeLabel": null,
+        "shellTypeLabel": "破甲弹（原片标注，细分待核）",
         "distanceMeters": 0,
         "displayedPenetrationMm": 380,
         "impactAngleDegrees": null,
         "sourceTime": 1070.033,
         "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
-        "sourceGameVersion": null,
+        "sourceGameVersion": "2.51.0.65",
         "caseId": "ussr_is_7:BV1SPmEBJE3y:1070033",
         "note": "主图1062秒下拉未应用，不作为试射条件；这里展示1070.033秒独立案例：Object 140原标签D-54破甲弹、0米380毫米，规范型号和弹型未知。"
       },
@@ -1110,7 +1247,32 @@
         "frameSha256": "7e53e7f892b3c4309c2b473a09e8f8a31d8a1088805d506bece5eac60a0f23c6",
         "conditionSource": "Actual selected left attack-source menu; IS7 original shell label independently cropped, no standard-round code or HEATFS inferred."
       },
-      "imageViewDetail": "front-elevated"
+      "imageViewDetail": "front-elevated",
+      "protectionEvidence": [
+        {
+          "id": "d54-1070",
+          "label": "破甲弹 · 可击穿区域",
+          "caseId": "ussr_is_7:BV1SPmEBJE3y:1070033",
+          "assetPath": "images/USSR/USSR-IS-7-D-54-protection-analysis.webp",
+          "sourceTime": 1070.033,
+          "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/USSR-IS-7-visible-front-proof-1070.webp",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/front-exteriors-next-20261102/023.json",
+          "frameSnapshotSHA256": "9b48348ede1cf31a61dd8bfe66f940adbc4eaeff36008deb61690a39b0a2b4d4",
+          "caption": "原视频防护分析：140工程 / D-54破甲弹，0米，380毫米；版本2.51.0.65。画面为俯视前方，绿色是该次分析的可击穿区域。",
+          "description": "这张原帧展示破甲弹在IS-7正面的大面积绿色区域，保留了所选炮弹、距离和原始视角。钢针、脱壳弹及导弹是作者同时给出的整体弹种建议。",
+          "conditionNote": "当前测试条件对应所选防护分析原帧；作者一般弹种建议单列。",
+          "sourceGameVersion": "2.51.0.65",
+          "view": "front-elevated-protection-analysis",
+          "rawAssetPath": "images/USSR/USSR-IS-7-case-1070p033-capture-20261102.webp",
+          "crop": [
+            720,
+            160,
+            560,
+            680
+          ]
+        }
+      ],
+      "defaultEvidenceId": "d54-1070"
     },
     {
       "id": "ussr_object_279",
@@ -8572,8 +8734,8 @@
         "author": "辅-辅",
         "publishedAt": "2026-08-23T20:58:43+08:00"
       },
-      "status": "review-sample",
-      "completeIllustration": true,
+      "status": "partial-frontal-guide",
+      "completeIllustration": false,
       "mainImageUsable": true,
       "testCases": [
         {
@@ -8708,7 +8870,8 @@
         }
       ],
       "missingEvidence": [
-        "源游戏版本与命中角度未独立读出，保持null；主图俯视，未标不可见首下。"
+        "源游戏版本与命中角度未独立读出，保持null；主图俯视，未标不可见首下。",
+        "现有标注仅覆盖画面左侧炮塔；其他正面攻击区域与伤害效果仍待补充来源。"
       ],
       "limits": "",
       "testContext": {
@@ -8780,7 +8943,34 @@
       ],
       "imageView": "front",
       "imageQuality": "1080p",
-      "imageViewDetail": "front-elevated-high-angle"
+      "imageViewDetail": "front-elevated-high-angle",
+      "coverageStatus": "partial-frontal-coverage",
+      "coverageNotice": "正面覆盖待补",
+      "protectionEvidence": [
+        {
+          "id": "jm33-727",
+          "label": "JM33 · 正面防护分析",
+          "caseId": "uk_challenger_mk_3:BV1CueU6cECo:727017",
+          "assetPath": "images/GBR/GBR-Challenger-Mk-3-JM33-protection-analysis.webp",
+          "sourceTime": 727.016687,
+          "framePath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/Britain-Challenger-Mk3-727-native4K.webp",
+          "frameSnapshotPath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/011.json",
+          "frameSnapshotSHA256": "6db75ce5701f28fbb8e4cbcb8e6c76f75c3d939656432be77f06df3d76119c85",
+          "caption": "原视频防护分析：90式B“富士” / JM33 APFSDS，500米，472毫米。绿色显示该案例、该视角的可击穿区域。",
+          "description": "原片展示了炮塔和车体正面的穿透预览；作者优先推荐炮塔画面左侧，以使其丧失作战能力。其他部位的具体伤害效果继续补证。",
+          "conditionNote": "当前为727秒的防护分析案例；外观图来自另一视频，条件分别保存。",
+          "sourceGameVersion": null,
+          "view": "front-protection-analysis",
+          "rawAssetPath": "images/GBR/GBR-Challenger-Mk-3-0727-4k.webp",
+          "crop": [
+            1470,
+            520,
+            900,
+            800
+          ]
+        }
+      ],
+      "defaultEvidenceId": "jm33-727"
     },
     {
       "id": "uk_challenger_2_tes",
@@ -9141,7 +9331,7 @@
     "optionalSpecialistReconCount": 107,
     "illustratedTargetCount": 12,
     "legacyIllustratedCount": 1,
-    "completeIllustratedTargetCount": 10,
+    "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,
     "supplementalWikiReviewedCount": 4,
     "supplementalIllustratedCount": 1,

@@ -33,6 +33,10 @@ for (const model of data.models) {
     cases.set(item.id, item);
   }
   for (const advice of model.videoAdvice || []) {
+    if (advice.kind === "author-general-front-ammunition-recommendation") {
+      const evidence = advice.evidence?.sourceEvidence;
+      if (advice.caseId != null || !Number.isFinite(advice.sourceTime) || !advice.sourceUrl?.startsWith("https://") || !evidence?.file || hash(await readFile(privatePath(evidence.file))) !== evidence.sha256) throw Error("General ammunition advice needs its own verified source, without an invented test case");
+    }
     if (advice.caseId == null) continue;
     const item = cases.get(advice.caseId);
     if (!item) throw Error("Advice refers to another or missing test case: " + model.id);
@@ -103,6 +107,39 @@ for (const model of data.models) {
     model.sourceFrameSHA256 = model.originalFrameSHA256 || hash(raw);
     Object.assign(item, { illustrated: true, frameTime: frame.decode.mediaTime, frameSHA256: hash(raw), sourceFrameSHA256: model.sourceFrameSHA256, frameSize: raw.length, imageQuality: model.imageQuality });
   } else if (model.pins?.length) throw Error("Do not publish pins without their matching front image");
+  const evidenceIds = new Set();
+  for (const evidence of model.protectionEvidence || []) {
+    if (!/^[a-z0-9-]+$/.test(evidence.id) || evidenceIds.has(evidence.id)) throw Error("Invalid protection evidence identity");
+    evidenceIds.add(evidence.id);
+    const testCase = cases.get(evidence.caseId);
+    const hosted = registry?.assets?.find((asset) => asset.path === evidence.assetPath);
+    const original = registry?.assets?.find((asset) => asset.path === (evidence.rawAssetPath || evidence.assetPath));
+    if (!testCase || !hosted || !original || hosted.vehicleId !== model.id || original.vehicleId !== model.id || Math.abs(testCase.sourceTime - evidence.sourceTime) > .000001) throw Error("Protection screenshot and case mismatch");
+    const framePath = privatePath(evidence.framePath);
+    let body = await readFile(framePath);
+    const proofBytes = await readFile(privatePath(evidence.frameSnapshotPath));
+    const proof = JSON.parse(proofBytes);
+    if (hash(body) !== original.sha256 || body.length !== original.bytes || hash(proofBytes) !== evidence.frameSnapshotSHA256) throw Error("Protection screenshot byte/proof mismatch");
+    if (!proof.url.startsWith(testCase.sourceUrl) || proof.error || proof.blocked || proof.challenge || !proof.decode || Math.abs(proof.decode.mediaTime - evidence.sourceTime) > .000001) throw Error("Protection screenshot source/time mismatch");
+    if (original.width !== proof.decode.width || original.height !== proof.decode.height || original.width < 1920 || original.height < 1080) throw Error("Native HD protection screenshot required");
+    if (evidence.crop) {
+      const [x, y, w, h] = evidence.crop;
+      if (evidence.crop.length !== 4 || !evidence.crop.every(Number.isInteger) || x < 0 || y < 0 || w <= 0 || h <= 0 || x + w > original.width || y + h > original.height || hosted.width !== w || hosted.height !== h) throw Error("Invalid protection screenshot crop");
+      body = execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-i", framePath, "-vf", `crop=${w}:${h}:${x}:${y}`, "-frames:v", "1", "-c:v", "libwebp", "-lossless", "1", "-compression_level", "6", "-f", "webp", "pipe:1"]);
+    }
+    if (hash(body) !== hosted.sha256 || body.length !== hosted.bytes) throw Error("Protection crop differs from its pinned asset");
+    for (const asset of [hosted, original]) for (const url of [asset.url, asset.rawUrl]) if (!/^[a-f0-9]{40}$/.test(asset.commit) || !url?.startsWith("https://") || !url.includes(asset.commit)) throw Error("Unpinned protection screenshot");
+    const file = `weakpoints-${model.id}-evidence-${evidence.id}.${hosted.sha256.slice(0, 16)}.webp`;
+    await writeFile(resolve(assets, file), body);
+    report.publishedFiles.push({ file, bytes: body.length, sha256: hosted.sha256, modelId: model.id, evidenceId: evidence.id, kind: "protection-evidence" });
+    evidence.imageUrl = hosted.url;
+    evidence.imageFallbackUrl = hosted.rawUrl;
+    evidence.rawUrl = original.url;
+    evidence.rawFallbackUrl = original.rawUrl;
+    evidence.sourceDimensions = [hosted.width, hosted.height];
+    for (const key of ["framePath", "frameSnapshotPath", "frameSnapshotSHA256"]) delete evidence[key];
+  }
+  if (model.defaultEvidenceId && !evidenceIds.has(model.defaultEvidenceId)) throw Error("Default protection screenshot is missing");
   report.models.push(item);
   for (const key of ["wikiSnapshot", "wikiSnapshotPath", "wikiSnapshotSHA256", "frameSnapshot", "frameSnapshotPath", "frame", "framePath", "testContextEvidence", "testCaseEvidence", "captureSHA256", "originalFrameSHA256", "overview", "comparison", "limits", "ammo", "evidenceFrames"]) delete model[key];
   for (const advice of model.videoAdvice || []) delete advice.evidence;

@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "6ba738974442a71f8eb94e54fc32a9e9d093843f",
+  "commit": "9d1da63c8a758766a30d48dd3adee98cb054ec62",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -6053,6 +6053,124 @@
       "commit": "6ba738974442a71f8eb94e54fc32a9e9d093843f",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@6ba738974442a71f8eb94e54fc32a9e9d093843f/images/USSR/USSR-IS-7-case-1070p033-capture-20261102.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/6ba738974442a71f8eb94e54fc32a9e9d093843f/images/USSR/USSR-IS-7-case-1070p033-capture-20261102.webp"
+    },
+    {
+      "id": "fa9d628b5ae6d4bca9e15360f43f2656b31c344d92e9293a09a212a03cda9e08",
+      "path": "images/USSR/USSR-IS-4M-T14E3-protection-analysis.webp",
+      "sha256": "fa9d628b5ae6d4bca9e15360f43f2656b31c344d92e9293a09a212a03cda9e08",
+      "bytes": 189590,
+      "width": 500,
+      "height": 450,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "sourceFrameSHA256": "2e63235fd35f4a93f8ad98e830f057a7dbb311e8d2f9607c82988ba950061f0d",
+      "parentSHA256": "8bbb94bfbe9eae8cd89b58d99ca28ada71d761d7ca3b8215b25e46936854cdf2",
+      "proofSnapshotSHA256": "89076fd5f43d01dabc9c0a7468f5a876f86c39d8f90d5622abeba2aceb1e351f",
+      "mediaTime": 1029,
+      "crop": [
+        730,
+        250,
+        500,
+        450
+      ],
+      "country": "USSR",
+      "vehicleId": "ussr_is_4m",
+      "vehicleEnglishName": "IS-4M",
+      "sourceGameVersion": null,
+      "kind": "protection-analysis-crop-webp",
+      "roles": [
+        "protection-proof"
+      ],
+      "encoding": "lossless-webp",
+      "vehicleIdentityStatus": "confirmed",
+      "mainImageUsable": false,
+      "inOriginalScope": true,
+      "commit": "9d1da63c8a758766a30d48dd3adee98cb054ec62",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9d1da63c8a758766a30d48dd3adee98cb054ec62/images/USSR/USSR-IS-4M-T14E3-protection-analysis.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9d1da63c8a758766a30d48dd3adee98cb054ec62/images/USSR/USSR-IS-4M-T14E3-protection-analysis.webp"
+    },
+    {
+      "id": "7ede67fac6939fa88f76f05b4e51a64cf1366c2018fa15da637f92df3fc5c2cb",
+      "path": "images/USSR/USSR-IS-7-D-54-protection-analysis.webp",
+      "sha256": "7ede67fac6939fa88f76f05b4e51a64cf1366c2018fa15da637f92df3fc5c2cb",
+      "bytes": 301150,
+      "width": 560,
+      "height": 680,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "sourceFrameSHA256": "e690c6cfbe628cef7c257ce5be7da64fa26f2662e7955c5c5f25e71c0137496d",
+      "parentSHA256": "7e53e7f892b3c4309c2b473a09e8f8a31d8a1088805d506bece5eac60a0f23c6",
+      "proofSnapshotSHA256": "9b48348ede1cf31a61dd8bfe66f940adbc4eaeff36008deb61690a39b0a2b4d4",
+      "mediaTime": 1070.033,
+      "crop": [
+        720,
+        160,
+        560,
+        680
+      ],
+      "country": "USSR",
+      "vehicleId": "ussr_is_7",
+      "vehicleEnglishName": "IS-7",
+      "sourceGameVersion": "2.51.0.65",
+      "kind": "protection-analysis-crop-webp",
+      "roles": [
+        "protection-proof"
+      ],
+      "encoding": "lossless-webp",
+      "vehicleIdentityStatus": "confirmed",
+      "mainImageUsable": false,
+      "inOriginalScope": true,
+      "commit": "9d1da63c8a758766a30d48dd3adee98cb054ec62",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9d1da63c8a758766a30d48dd3adee98cb054ec62/images/USSR/USSR-IS-7-D-54-protection-analysis.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9d1da63c8a758766a30d48dd3adee98cb054ec62/images/USSR/USSR-IS-7-D-54-protection-analysis.webp"
+    },
+    {
+      "id": "363537fd52c4215db0d8bf79936622f5e4f76757db5990fd7875ab1e557d4392",
+      "path": "images/GBR/GBR-Challenger-Mk-3-JM33-protection-analysis.webp",
+      "sha256": "363537fd52c4215db0d8bf79936622f5e4f76757db5990fd7875ab1e557d4392",
+      "bytes": 397370,
+      "width": 900,
+      "height": 800,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00",
+        "gameVersion": null
+      },
+      "sourceFrameSHA256": "336e8f1abfba92d7248e8d744f087cf2127f61b60eec1b3ceb17e0506af93820",
+      "parentSHA256": "eb7539fee03807f6b2e7f59d60b89a9a77b22ebb181a3ea99da685363c44e95c",
+      "proofSnapshotSHA256": "6db75ce5701f28fbb8e4cbcb8e6c76f75c3d939656432be77f06df3d76119c85",
+      "mediaTime": 727.016687,
+      "crop": [
+        1470,
+        520,
+        900,
+        800
+      ],
+      "country": "GBR",
+      "vehicleId": "uk_challenger_mk_3",
+      "vehicleEnglishName": "Challenger Mk.3",
+      "sourceGameVersion": null,
+      "kind": "protection-analysis-crop-webp",
+      "roles": [
+        "protection-proof"
+      ],
+      "encoding": "lossless-webp",
+      "vehicleIdentityStatus": "confirmed",
+      "mainImageUsable": false,
+      "inOriginalScope": true,
+      "commit": "9d1da63c8a758766a30d48dd3adee98cb054ec62",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9d1da63c8a758766a30d48dd3adee98cb054ec62/images/GBR/GBR-Challenger-Mk-3-JM33-protection-analysis.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9d1da63c8a758766a30d48dd3adee98cb054ec62/images/GBR/GBR-Challenger-Mk-3-JM33-protection-analysis.webp"
     }
   ]
 }

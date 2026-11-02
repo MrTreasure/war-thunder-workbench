@@ -7,6 +7,7 @@ const eras = [["all", "全部年代"], ["ww2", "二战"], ["cold-war", "冷战"]
 let selected = -1;
 let point = 0;
 let original = false;
+let evidenceId = null;
 let country = "all";
 let rank = "all";
 let era = "all";
@@ -18,6 +19,7 @@ function element(tag, text, className) {
   return node;
 }
 function sourceOf(model) { return model.source || SAMPLE.source || {}; }
+function selectedEvidence(model) { return model?.protectionEvidence?.find((item) => item.id === evidenceId) || null; }
 function shellTypeLabel(test) {
   const code = test?.shellTypeCode?.trim();
   const label = test?.shellTypeLabel?.trim();
@@ -49,6 +51,13 @@ function sourceLink(title, href, detail) {
   return article;
 }
 function renderPoint() {
+  const evidence = selectedEvidence(SAMPLE.models[selected]);
+  $("point-kind").textContent = evidence ? "防护分析证据" : "选中标注";
+  if (evidence) {
+    $("point-title").textContent = evidence.label;
+    $("point-detail").textContent = evidence.description;
+    return;
+  }
   const pin = SAMPLE.models[selected]?.pins?.[point];
   $("point-title").textContent = pin?.label || "尚无标注";
   $("point-detail").textContent = pin?.detail || "该车型的攻击位置说明尚未补充。";
@@ -65,23 +74,35 @@ function render() {
   const model = SAMPLE.models[selected];
   if (!model) return;
   const source = sourceOf(model);
+  const evidence = selectedEvidence(model);
+  const imageViews = $("image-views");
+  const views = [{ id: null, label: "外观与标注" }, ...(model.protectionEvidence || [])];
+  imageViews.hidden = views.length < 2;
+  imageViews.replaceChildren(...views.map((view) => {
+    const button = element("button", view.label);
+    button.type = "button";
+    button.setAttribute("aria-pressed", String(view.id === evidenceId));
+    button.addEventListener("click", () => { evidenceId = view.id; original = false; render(); });
+    return button;
+  }));
   $("vehicle-name").textContent = model.name;
-  const metadata = [model.role, model.countryName || countries[model.country], model.rank ? `Rank ${model.rank}` : null, isSupplement(model) ? "IS 系列补充" : null].filter(Boolean);
+  const metadata = [model.role, model.countryName || countries[model.country], model.rank ? `Rank ${model.rank}` : null, isSupplement(model) ? "IS 系列补充" : null, model.coverageNotice].filter(Boolean);
   $("vehicle-role").textContent = metadata.join(" · ");
   $("wiki-summary").textContent = model.wikiSummary || "Wiki 要点待核对。";
   $("wiki-points").replaceChildren(...(model.wikiPoints || []).map((text) => element("li", text)));
   $("reload-time").textContent = model.reload?.display || "待核对";
   $("reload-gun").textContent = model.reload?.gun || "";
   $("reload-note").textContent = model.reload?.note || "";
-  const test = model.testContext;
+  const test = evidence ? model.testCases?.find((item) => item.id === evidence.caseId) : model.testContext;
   const hasVideoTest = !!(model.frame || test || (source.url && model.videoAdvice?.length));
   $("test-section").hidden = !hasVideoTest;
   $("test-attacker").textContent = test?.attacker?.trim() || "来源未显示／待核对";
   $("test-shell").textContent = test?.shell?.trim() || "来源未显示／待核对";
   $("test-shell-type").textContent = shellTypeLabel(test);
   $("test-penetration").textContent = penetrationLabel(test);
-  $("test-note").textContent = test?.note || "";
-  $("test-note").hidden = !test?.note;
+  const testNote = evidence ? evidence.conditionNote : test?.note;
+  $("test-note").textContent = testNote || "";
+  $("test-note").hidden = !testNote;
   const testHref = Number.isFinite(test?.sourceTime) ? videoUrl({ url: test.sourceUrl || source.url }, test.sourceTime) : null;
   $("test-link").hidden = !testHref;
   if (testHref) {
@@ -106,10 +127,10 @@ function render() {
   const image = $("photo");
   const rawOnly = !model.imageUrl && !!model.rawUrl;
   const showRaw = original || rawOnly;
-  const imageUrl = showRaw ? model.rawUrl : model.imageUrl;
+  const imageUrl = evidence?.imageUrl || (showRaw ? model.rawUrl : model.imageUrl);
   image.hidden = !imageUrl;
   $("image-status").hidden = !!imageUrl;
-  const fallbackUrl = showRaw ? model.rawFallbackUrl : model.imageFallbackUrl;
+  const fallbackUrl = evidence?.imageFallbackUrl || (showRaw ? model.rawFallbackUrl : model.imageFallbackUrl);
   let triedFallback = false;
   image.onerror = () => {
     if (fallbackUrl && !triedFallback) { triedFallback = true; image.src = fallbackUrl; return; }
@@ -117,16 +138,20 @@ function render() {
   };
   if (imageUrl) image.src = imageUrl;
   else { image.removeAttribute("src"); imageMissing("高清正面图尚未归档，此车型资料仍在补充。"); }
-  image.alt = model.name + (showRaw ? "原始防护分析视频帧" : "正面防护分析截图与区域标注");
-  image.width = showRaw ? (model.sourceDimensions?.[0] || 1920) : (model.crop?.[2] || 1100);
-  image.height = showRaw ? (model.sourceDimensions?.[1] || 1080) : (model.crop?.[3] || 690);
-  $("toggle-original").hidden = !(model.imageUrl && model.rawUrl);
+  image.alt = model.name + (evidence ? ` · ${evidence.label} · 原视频防护分析画面` : showRaw ? "原始防护分析视频帧" : "正面防护分析截图与区域标注");
+  image.width = evidence?.sourceDimensions?.[0] || (showRaw ? (model.sourceDimensions?.[0] || 1920) : (model.crop?.[2] || 1100));
+  image.height = evidence?.sourceDimensions?.[1] || (showRaw ? (model.sourceDimensions?.[1] || 1080) : (model.crop?.[3] || 690));
+  $("toggle-original").hidden = !!evidence || !(model.imageUrl && model.rawUrl);
   $("toggle-original").textContent = original ? "返回标注图" : "查看完整原始帧";
   $("toggle-original").setAttribute("aria-pressed", String(original));
-  $("figure-caption").textContent = imageUrl ? `画面：${source.author || "来源见下方"} / 《战争雷霆》。${showRaw ? "当前为完整原始帧。" : "金色编号为讲解标注。"}原始游戏热图颜色取决于当时的弹种与视角。` : "图像资料待补充，不以其他车型画面代替。";
-  $("pins").hidden = showRaw || !imageUrl;
+  $("evidence-full").hidden = !evidence;
+  if (evidence) $("evidence-full").href = evidence.rawUrl || evidence.imageUrl;
+  else $("evidence-full").removeAttribute("href");
+  $("figure-caption").textContent = evidence ? evidence.caption : imageUrl ? `画面：${source.author || "来源见下方"} / 《战争雷霆》。${showRaw ? "当前为完整原始帧。" : "金色编号为讲解标注。"}原始游戏热图颜色取决于当时的弹种与视角。` : "图像资料待补充，不以其他车型画面代替。";
+  $("pins").hidden = !!evidence || showRaw || !imageUrl;
   $("pins").replaceChildren();
   $("pin-buttons").replaceChildren();
+  $("pin-buttons").hidden = !!evidence;
   (model.pins || []).forEach((pin, index) => {
     const marker = element("button", undefined, "pin");
     marker.type = "button";
@@ -142,10 +167,11 @@ function render() {
   const records = [];
   if (source.url) records.push(sourceLink(source.title || "视频来源", videoUrl(source, model.time), [source.author, source.publishedAt, source.gameVersion ? `游戏版本 ${source.gameVersion}` : null, Number.isFinite(model.time) ? `${Math.floor(model.time / 60)}:${String(Math.floor(model.time % 60)).padStart(2, "0")}` : null, model.imageQuality].filter(Boolean).join(" · ")));
   if (model.wikiUrl) records.push(sourceLink("官方 Wiki · " + model.name, model.wikiUrl, `核对日期 ${model.collectedAt || SAMPLE.collectedAt || "待补充"} · 车型、装甲与主炮装填资料${model.wikiGameVersion ? ` · 游戏版本 ${model.wikiGameVersion}` : ""}`));
+  if (evidence) records.push(sourceLink("防护分析截图 · " + evidence.label, videoUrl({ url: test?.sourceUrl }, evidence.sourceTime), [evidence.caption, Number.isFinite(evidence.sourceTime) ? `${Math.floor(evidence.sourceTime / 60)}:${String(Math.floor(evidence.sourceTime % 60)).padStart(2, "0")}` : null].filter(Boolean).join(" · ")));
   $("sources").replaceChildren(...records);
   renderPoint();
 }
-function select(index) { selected = index; point = 0; original = false; render(); }
+function select(index) { selected = index; point = 0; original = false; evidenceId = SAMPLE.models[index]?.defaultEvidenceId || null; render(); }
 function updateList(preferredId) {
   const visible = SAMPLE.models.filter(matches);
   for (const id of ["study", "source-section"]) $(id).hidden = !visible.length;

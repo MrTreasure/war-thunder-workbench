@@ -37,6 +37,12 @@ h1 { font-size:clamp(24px,3vw,34px); letter-spacing:.01em; line-height:1.3; marg
 .figure-header h2 { font-size:23px; margin-bottom:0; }
 .figure-header p { margin:0; color:var(--wt-muted); font-size:12px; }
 .figure-header button { font-size:12px; padding:6px 12px; flex-shrink:0; }
+.figure-actions { display:flex; align-items:center; justify-content:flex-end; gap:8px; flex-wrap:wrap; margin-left:auto; }
+.image-views { display:flex; flex-wrap:wrap; gap:4px; }
+.image-views button { min-height:36px; }
+.image-views button[aria-pressed=true] { color:var(--wt-gold); border-color:var(--wt-gold); background:#302d22; }
+#evidence-full { font-size:12px; padding:6px 0; }
+@media(max-width:600px) { .figure-header { flex-wrap:wrap; }.figure-actions { width:100%; justify-content:flex-start; }.figure-actions .image-views button { max-width:none; min-height:44px; }.figure-actions #evidence-full { display:flex; align-items:center; min-height:44px; } }
 .photo-stage { position:relative; width:100%; background:#090e11; border:1px solid var(--wt-line); }
 .photo-stage > img { display:block; width:100%; height:auto; }
 .annotation-layer { position:absolute; inset:0; pointer-events:none; }
