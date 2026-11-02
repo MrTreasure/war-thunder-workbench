@@ -18,14 +18,14 @@ import { useAccountWorkspace } from "./workspace-context";
 import { loadoutRequest } from "./loadout-api";
 import { useLoadoutPlans } from "./loadout-storage";
 import { LoadoutPresets } from "./LoadoutPresets";
-import { readRemoteLoadout, type LoadoutShare, type LoadoutVehicle } from "./loadout-shares";
+import { LoadoutPlanCard } from "./LoadoutPlanCard";
+import { readRemoteLoadout, type LoadoutShare } from "./loadout-shares";
 import { TagSelector, type TagChoice } from "./components/TagSelector";
 import { useGameTagAccess } from "./game-tag-access";
 import { GameIcon } from "./components/GameIcon";
 import { LoadoutWeaponFilters } from "./LoadoutWeaponFilters";
 import { matchesWeaponFilters } from "./loadout-weapon-filters";
 import { gameTagOptions } from "./game-tag-options";
-import { GameTag } from "./components/GameTag";
 import { LoadoutHall } from "./LoadoutHall";
 import { LoadoutStationBoard } from "./LoadoutStationBoard";
 import { LoadoutWeaponBrief, LoadoutWeaponDetails } from "./LoadoutWeaponDetails";
@@ -189,7 +189,6 @@ function LoadoutPage({ owner }: { owner: string }) {
   const [sharePlan, setSharePlan] = useState<LoadoutPlan | null>(null);
   const [shareTags, setShareTags] = useState<TagChoice[]>([]);
   const [selecting, setSelecting] = useState<"new" | "replace" | null>(null);
-  const [summaries, setSummaries] = useState<Record<string, LoadoutVehicle>>({});
   const [myShares, setMyShares] = useState<LoadoutShare[]>([]);
   const [importText, setImportText] = useState("");
   const [pending, setPending] = useState<LoadoutPlan | null>(null);
@@ -231,29 +230,6 @@ function LoadoutPage({ owner }: { owner: string }) {
     );
     return () => controller.abort();
   }, [owner]);
-  const savedVehicleIDs = useMemo(
-    () => [...new Set(saved.map((p) => p.vehicleId))].sort().join(","),
-    [saved],
-  );
-  useEffect(() => {
-    if (!savedVehicleIDs) return;
-    const controller = new AbortController();
-    void loadoutRequest<{ items: LoadoutVehicle[] }>(
-      "vehicles",
-      { ids: savedVehicleIDs.split(",") },
-      controller.signal,
-    ).then(
-      (value) => {
-        if (!controller.signal.aborted)
-          setSummaries(Object.fromEntries(value.items.map((item) => [item.id, item])));
-      },
-      (e: unknown) => {
-        if (!controller.signal.aborted)
-          setError(e instanceof Error ? e.message : "机型资料读取失败。");
-      },
-    );
-    return () => controller.abort();
-  }, [savedVehicleIDs]);
   const unit =
     units.find((u) => u.id === vehicle) || (pinnedUnit?.id === vehicle ? pinnedUnit : undefined);
   const data = activeData;
@@ -1129,48 +1105,55 @@ function LoadoutPage({ owner }: { owner: string }) {
               还没有保存的挂载。点击“添加挂载”，选好机型后开始配置。
             </div>
           )}
+          {storageStatus.previewError && (
+            <p role="alert" className="wt-mount-error">
+              {storageStatus.previewError}
+              <button onClick={() => void storageStatus.reload()}>刷新资料</button>
+            </p>
+          )}
           <div className="wt-mount-saved">
             {saved.map((p) => (
-              <article key={p.id}>
-                <h4>{p.name}</h4>
-                <VehicleTile
-                  unit={
-                    facts.get(p.vehicleId) ||
-                    summaries[p.vehicleId] || { id: p.vehicleId, name: p.vehicleId }
+              <LoadoutPlanCard
+                key={p.id}
+                title={p.name}
+                vehicle={
+                  storageStatus.summaries[p.id]?.vehicle || {
+                    ...(facts.get(p.vehicleId) || { id: p.vehicleId, name: p.vehicleId }),
+                    country: p.country,
                   }
-                  showAcquisition={facts.has(p.vehicleId) || !!summaries[p.vehicleId]}
-                  countryLabel={countries[p.country]}
-                />
-                <p>
-                  来源资料 {p.sourceDate.slice(0, 10)} ·{" "}
-                  {p.preset ? "预设组合" : `${p.mounts.length} 个挂点`}
-                </p>
-                <div>
-                  <button onClick={() => openPlan(p)}>编辑</button>
-                  <button
-                    onClick={() =>
-                      openPlan({
-                        ...p,
-                        id: crypto.randomUUID(),
-                        name: `${p.name.slice(0, 74)} · 副本`,
-                      })
-                    }
-                  >
-                    复制
-                  </button>
-                  <button disabled={busy} onClick={() => void exportPlan(p)}>
-                    发布到大厅
-                  </button>
-                  <button
-                    onClick={() => {
-                      if (confirm(`删除“${p.name}”？`))
-                        void savePlans(saved.filter((n) => n.id !== p.id));
-                    }}
-                  >
-                    删除
-                  </button>
-                </div>
-              </article>
+                }
+                preview={storageStatus.summaries[p.id]?.preview}
+                meta={
+                  <>
+                    {countries[p.country]} · {p.preset ? "预设组合" : `${p.mounts.length} 个挂点`} ·
+                    来源 {p.sourceDate.slice(0, 10)}
+                  </>
+                }
+              >
+                <button onClick={() => openPlan(p)}>编辑</button>
+                <button
+                  onClick={() =>
+                    openPlan({
+                      ...p,
+                      id: crypto.randomUUID(),
+                      name: `${p.name.slice(0, 74)} · 副本`,
+                    })
+                  }
+                >
+                  复制
+                </button>
+                <button disabled={busy} onClick={() => void exportPlan(p)}>
+                  发布到大厅
+                </button>
+                <button
+                  onClick={() => {
+                    if (confirm(`删除“${p.name}”？`))
+                      void savePlans(saved.filter((n) => n.id !== p.id));
+                  }}
+                >
+                  删除
+                </button>
+              </LoadoutPlanCard>
             ))}
           </div>
           {storageStatus.loading && <p aria-live="polite">正在读取云端挂载…</p>}
@@ -1179,15 +1162,19 @@ function LoadoutPage({ owner }: { owner: string }) {
             <section className="wt-mount-shared-list">
               <h3>我的大厅推荐</h3>
               {myShares.map((item) => (
-                <article key={item.id}>
-                  <span>{item.plan.name}</span>
-                  <div className="wt-mount-tag-list">
-                    {item.tags?.map((tag) => (
-                      <GameTag key={tag.id} tagId={tag.id} tone={tag.tone}>
-                        {gameTagOptions.find((t) => t.id === tag.id)?.label || tag.id}
-                      </GameTag>
-                    ))}
-                  </div>
+                <LoadoutPlanCard
+                  key={item.id}
+                  title={item.plan.name}
+                  vehicle={item.vehicle}
+                  preview={item.preview}
+                  tags={item.tags}
+                  meta={
+                    <>
+                      {item.plan.preset ? "预设组合" : `${item.plan.mounts.length} 个挂点`} · 发布于{" "}
+                      {item.createdAt.slice(0, 10)}
+                    </>
+                  }
+                >
                   <button onClick={() => openPlan({ ...item.plan, id: crypto.randomUUID() })}>
                     打开配置
                   </button>
@@ -1204,7 +1191,7 @@ function LoadoutPage({ owner }: { owner: string }) {
                   >
                     撤回推荐
                   </button>
-                </article>
+                </LoadoutPlanCard>
               ))}
             </section>
           )}

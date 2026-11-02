@@ -2,7 +2,14 @@ import { useEffect, useState, useRef } from "react";
 import { useAccountWorkspace } from "./workspace-context";
 import { loadoutRequest } from "./loadout-api";
 import { loadoutKey, validLoadoutPlans, type LoadoutPlan } from "./loadouts";
-type Document = { value: LoadoutPlan[]; revision: number; ownerKey: string };
+import type { LoadoutPreview, LoadoutVehicle } from "./loadout-shares";
+type Document = {
+  value: LoadoutPlan[];
+  revision: number;
+  ownerKey: string;
+  summaries?: Record<string, { vehicle?: LoadoutVehicle; preview: LoadoutPreview }>;
+  previewError?: string;
+};
 function readDocument(value: unknown): Document {
   if (!value || typeof value !== "object") throw Error("云端方案格式不正确，未覆盖当前草稿。");
   const doc = value as Document;
@@ -102,5 +109,17 @@ export function useLoadoutPlans(owner: string) {
       if (alive.current) setLoading(false);
     }
   };
-  return [document?.value || [], save, error, { sending, remote: true, reload, loading }] as const;
+  return [
+    document?.value || [],
+    save,
+    error,
+    {
+      sending,
+      remote: true,
+      reload,
+      loading,
+      summaries: document?.summaries || {},
+      previewError: document?.previewError || "",
+    },
+  ] as const;
 }

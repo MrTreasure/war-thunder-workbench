@@ -30,14 +30,16 @@ export function LoadoutSummaryStrip({
                   triggerLabel={`查看${item.label}的挂载详情`}
                   icon={
                     <>
-                      <span className="wt-mount-preview-label">{item.label}</span>
+                      <span className="wt-mount-preview-top">
+                        <span className="wt-mount-preview-label">{item.label}</span>
+                        <span>× {item.count ?? "未知"}</span>
+                      </span>
                       {item.imageUrl ? (
                         <img src={item.imageUrl} alt="" width={48} height={40} loading="lazy" />
                       ) : (
                         <GameIcon name="loadout" />
                       )}
                       <span className="wt-mount-preview-name">{loadoutWeaponName(item.name)}</span>
-                      <span>× {item.count ?? "未知"}</span>
                     </>
                   }
                 >

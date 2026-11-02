@@ -3,9 +3,8 @@ import bootstrap from "./generated/bootstrap.json";
 import { loadoutRequest } from "./loadout-api";
 import type { LoadoutShare } from "./loadout-shares";
 import type { LoadoutPlan } from "./loadouts";
-import { LoadoutSummaryStrip } from "./LoadoutSummaryStrip";
+import { LoadoutPlanCard } from "./LoadoutPlanCard";
 import { GameSelect } from "./components/GameSelect";
-import { LoadoutTags } from "./LoadoutTags";
 export function LoadoutHall({ onUse }: { onUse: (plan: LoadoutPlan) => void }) {
   const [items, setItems] = useState<LoadoutShare[]>([]),
     [country, setCountry] = useState(""),
@@ -90,16 +89,21 @@ export function LoadoutHall({ onUse }: { onUse: (plan: LoadoutPlan) => void }) {
       )}
       <div className="wt-mount-recommendation-list">
         {items.map((item) => (
-          <article key={item.id}>
-            <h4>{item.plan.name}</h4>
-            <LoadoutSummaryStrip vehicle={item.vehicle} preview={item.preview} />
-            <LoadoutTags tags={item.tags || []} />
-            <p>
-              {item.plan.preset ? "来源预设" : `${item.plan.mounts.length} 个挂点`} · 资料日期{" "}
-              {item.plan.sourceDate.slice(0, 10)}
-            </p>
+          <LoadoutPlanCard
+            key={item.id}
+            title={item.plan.name}
+            vehicle={item.vehicle}
+            preview={item.preview}
+            tags={item.tags}
+            meta={
+              <>
+                {item.plan.preset ? "来源预设" : `${item.plan.mounts.length} 个挂点`} · 资料{" "}
+                {item.plan.sourceDate.slice(0, 10)}
+              </>
+            }
+          >
             <button onClick={() => onUse(item.plan)}>查看并使用</button>
-          </article>
+          </LoadoutPlanCard>
         ))}
       </div>
       <div className="wt-mount-pagination">

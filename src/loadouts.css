@@ -575,21 +575,40 @@ nav.wt-mount-tabs { overflow-x: auto; }
 .wt-mount-weapon-option > span { min-width: 0; white-space: normal; overflow-wrap: anywhere; }
 .wt-mount-weapon-menu .wt-select-option { min-height: 44px; }
 .wt-mount-recommendation-list { grid-template-columns: minmax(0,1fr); }
-.wt-mount-summary-strip { display: flex; align-items: start; gap: 14px; overflow-x: auto; padding-bottom: 20px; }
+.wt-mount-summary-strip { display: flex; align-items: start; gap: 12px; min-width: 0; overflow-x: auto; padding-bottom: 10px; }
 .wt-mount-summary-aircraft { flex: none; padding-top: 8px; }
 .wt-mount-summary-strip .vehicle-card { margin: 0; }
-.wt-mount-preview-slots { display: flex; flex-wrap: nowrap; align-items: stretch; gap: 8px; margin: 0; list-style: none; }
+.wt-mount-preview-slots { display: flex; flex-wrap: nowrap; align-items: stretch; gap: 8px; margin: 0; padding: 0; list-style: none; }
 .wt-mount-recommendation-list .wt-mount-preview-slots { padding: 0; line-height: 1.4; }
-.wt-mount-preview-slots > li { flex: 0 0 96px; width: 96px; }
+.wt-mount-preview-slots > li { display: flex; flex: 0 0 112px; width: 112px; }
+/* finesse · component: loadout-plan-card · product · existing slate/gold tokens */
 .wt-mount-page button.wt-mount-preview-weapon,
-.wt-mount-preview-slots .wt-mount-preview-weapon { display: flex; flex-direction: column; gap: 5px; align-items: center; justify-content: start; width: 100%; height: 148px; margin: 0; padding: 8px; color: var(--wt-ink); background: var(--wt-raised); border: 1px solid var(--wt-line); border-radius: 0; font-size: 12px; }
-.wt-mount-preview-weapon > img { flex: none; object-fit: contain; }
+.wt-mount-preview-slots .wt-mount-preview-weapon { display: grid; grid-template-columns: 26px minmax(0,1fr); grid-template-rows: auto 1fr; column-gap: 6px; row-gap: 5px; align-items: center; justify-content: start; width: 100%; height: auto; min-height: 0; margin: 0; padding: 7px; color: var(--wt-ink); background: var(--wt-raised); border: 1px solid var(--wt-line); border-radius: 0; font-size: 12px; line-height: 1.45; white-space: normal; }
+.wt-mount-preview-top { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; gap: 6px; font-size: 11px; font-variant-numeric: tabular-nums; }
 .wt-mount-preview-label { color: var(--wt-muted); white-space: nowrap; }
-.wt-mount-preview-name { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; min-height: 34px; }
+.wt-mount-preview-name { display: block; min-width: 0; min-height: 0; overflow: visible; white-space: normal; overflow-wrap: anywhere; text-align: left; }
+.wt-mount-preview-weapon > img { width: 26px; height: 26px; flex: none; object-fit: contain; }
+.wt-mount-preview-weapon > svg { width: 26px; height: 26px; flex: none; }
+.wt-mount-page .wt-mount-saved, .wt-mount-shared-list { display: grid; grid-template-columns: minmax(0,1fr); gap: 12px; margin-top: 16px; }
+.wt-mount-shared-list > h3 { margin: 12px 0 0; }
+.wt-mount-page article.wt-mount-plan-card,
+.wt-mount-recommendation-list article.wt-mount-plan-card { display: grid; grid-template-columns: minmax(0,1fr); align-items: stretch; gap: 12px; min-width: 0; margin: 0; padding: 14px 16px; border: 1px solid var(--wt-line); background: var(--wt-surface); }
+.wt-mount-card-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; min-width: 0; }
+.wt-mount-card-heading h4 { margin: 0; font-size: 15px; font-weight: 600; line-height: 1.5; white-space: normal; overflow-wrap: anywhere; }
+.wt-mount-card-heading .wt-mount-tag-list { margin: 0; }
+.wt-mount-card-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding-top: 10px; border-top: 1px solid var(--wt-line); }
+.wt-mount-card-footer > p { margin: 0; color: var(--wt-muted); font-size: 12px; line-height: 1.5; }
+.wt-mount-card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.wt-mount-card-actions > button, .wt-mount-card-actions > a { white-space: nowrap; }
+.wt-mount-page .wt-mount-card-actions > button:first-child { border-color: var(--wt-strong-line); color: var(--wt-gold); }
+@media (hover: hover) {
+  .wt-mount-page button.wt-mount-preview-weapon:hover, .wt-mount-preview-slots .wt-mount-preview-weapon:hover { background: var(--wt-panel); border-color: var(--wt-strong-line); }
+}
+.wt-mount-preview-slots .wt-mount-preview-weapon:focus-visible { outline: 2px solid var(--wt-gold); outline-offset: -2px; }
+.wt-mount-preview-slots .wt-mount-preview-weapon:active { background: var(--wt-panel); }
 
 .wt-mount-picker-tools input,
 .wt-mount-picker-tools .wt-select,
 .wt-mount-picker-tools > button,
 .wt-mount-requirements input,
 .wt-mount-requirements .wt-select { min-height: 40px; }
-.wt-mount-preview-weapon > svg { flex: none; width: 48px; height: 40px; }

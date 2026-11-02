@@ -4004,5 +4004,15 @@
   .wt-mount-requirements > div:first-child > .wt-mount-weapon-filters > label:first-child { grid-column: 1; }
   .wt-mount-requirements > div:first-child > .wt-mount-weapon-filters > label:last-child { grid-column: 2 / -1; }
   .wt-mount-summary-strip { gap: 10px; }
-  .wt-mount-preview-slots > li { flex-basis: 88px; width: 88px; }
+  .wt-mount-preview-slots > li { flex-basis: 108px; width: 108px; }
+}
+
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-mount-page article.wt-mount-plan-card,
+  .wt-mount-recommendation-list article.wt-mount-plan-card { padding: 12px; gap: 10px; }
+  .wt-mount-card-heading { align-items: start; gap: 8px; }
+  .wt-mount-card-heading h4 { font-size: 14px; }
+  .wt-mount-card-footer { align-items: start; }
+  .wt-mount-card-actions { width: 100%; gap: 8px; }
+  .wt-mount-page .wt-mount-card-actions > button, .wt-mount-card-actions > a { min-height: 44px; }
 }

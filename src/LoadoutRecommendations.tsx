@@ -3,9 +3,8 @@ import type { Vehicle } from "./models";
 import { loadoutRequest } from "./loadout-api";
 import type { LoadoutShare } from "./loadout-shares";
 import { loadoutRevision } from "./loadouts";
-import { LoadoutSummaryStrip } from "./LoadoutSummaryStrip";
+import { LoadoutPlanCard } from "./LoadoutPlanCard";
 import { LoadoutPresets } from "./LoadoutPresets";
-import { LoadoutTags } from "./LoadoutTags";
 import "./loadouts.css";
 export function LoadoutRecommendations({ unit, country }: { unit: Vehicle; country: string }) {
   const [items, setItems] = useState<LoadoutShare[]>([]),
@@ -69,17 +68,20 @@ export function LoadoutRecommendations({ unit, country }: { unit: Vehicle; count
       <div className="wt-mount-recommendation-list">
         {items.map((item) => {
           return (
-            <article key={item.id}>
-              <h4>{item.plan.name}</h4>
-              <LoadoutTags tags={item.tags || []} />
-              <LoadoutSummaryStrip preview={item.preview} />
+            <LoadoutPlanCard
+              key={item.id}
+              title={item.plan.name}
+              preview={item.preview}
+              tags={item.tags}
+              meta={`资料 ${item.plan.sourceDate.slice(0, 10)}`}
+            >
               {!item.preview?.sourceChanged && item.plan.sourceHash !== loadoutRevision(data) && (
                 <p className="wt-mount-warning">来源版本已更新，打开后需重新核对。</p>
               )}
               <a className="quiet-button" href={`#/loadouts?recommendation=${item.id}`}>
                 查看并使用
               </a>
-            </article>
+            </LoadoutPlanCard>
           );
         })}
       </div>
