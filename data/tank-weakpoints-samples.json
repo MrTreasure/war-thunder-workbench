@@ -1293,16 +1293,405 @@
         "note": "基础乘员→王牌乘员（Wiki主炮面板）"
       },
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-video",
+      "videoAdvice": [
+        {
+          "id": "ussr_object_279:BV1SPmEBJE3y:general-front-armour-guidance",
+          "label": "钢针对车体的条件提醒",
+          "text": "作者称279车体在原视频权重环境下可被钢针击穿；没有给出可精确标注的推荐落点，不据此视为任意弹种必穿。",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "sourceTime": 1099.462699,
+          "caseId": null,
+          "relatedCaseId": "ussr_object_279:BV1SPmEBJE3y:1102033",
+          "conditionMatch": "verified-continuous-segment-not-independent-same-frame-shot",
+          "kind": "author-general-front-ammunition-recommendation",
+          "sourceTimeRange": [
+            1092.483999,
+            1103.392312
+          ],
+          "evidence": {
+            "sourceEvidence": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1090-1200-normal-playback-subtitles.json",
+              "sha256": "69af0a26e388843c933a2c9da8d151509ed485e0a21d30ce7f13b97db7032465",
+              "kind": "normal-player-continuous-DOM-sampling"
+            },
+            "sourceWords": [
+              {
+                "observedMediaTime": 1092.483999,
+                "text": "苏联最后一个重坦应该就是279了"
+              },
+              {
+                "observedMediaTime": 1094.968437,
+                "text": "这个车距说是防核工程"
+              },
+              {
+                "observedMediaTime": 1096.458132,
+                "text": "硬是真的硬"
+              },
+              {
+                "observedMediaTime": 1097.421202,
+                "text": "但是他的权重在9.0"
+              },
+              {
+                "observedMediaTime": 1099.462699,
+                "text": "车体能被钢针乱穿"
+              },
+              {
+                "observedMediaTime": 1100.472871,
+                "text": "这车要是权重再低一点"
+              },
+              {
+                "observedMediaTime": 1101.99161,
+                "text": "我都不敢想有多无敌"
+              },
+              {
+                "observedMediaTime": 1103.392312,
+                "text": "那那么聊完了279"
+              }
+            ]
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "status": "partial-frontal-guide",
       "collectedAt": "2026-11-02",
       "weaknessEvidenceStatus": "general-context-only",
       "country": "ussr",
       "countryName": "苏联",
       "rank": 6,
       "era": "cold-war",
-      "scopeRole": "heavy_tank"
+      "scopeRole": "heavy_tank",
+      "testCases": [
+        {
+          "id": "ussr_object_279:BV1SPmEBJE3y:1094000",
+          "vehicleId": "ussr_object_279",
+          "attackerVehicleId": "us_m60a3_tts",
+          "attackerVisibleTitle": "M60A3 TTS",
+          "attackerCountry": "usa",
+          "shell": "M774",
+          "shellType": null,
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 372,
+          "sourceGameVersion": "2.51.0.65",
+          "sourceTime": 1094,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "rawUIType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/us_m60a3_tts",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "us_m60a3_tts",
+            "mainGun": "105 mm M68 cannon",
+            "officialShellName": "M774",
+            "sourceShellLabelOriginal": "M774"
+          },
+          "attacker": "M60A3 TTS",
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "75881e5f6c0fbddb0f2ef2b516cbdfccbc7c4a56235b95cd1942016ab6b28dd5",
+          "sourceShellLabelOriginal": "M774",
+          "impactAngleDegrees": null,
+          "calculationStatus": "in-progress-map-not-complete",
+          "calculationProgressPercent": 72,
+          "calculationProgressIsPenetrationProbability": false,
+          "evidenceKind": "actual-UI-inputs-not-successful-shot-or-complete-map",
+          "conditionNote": "防护分布仍在计算；百分比仅为计算进度，不是击穿率或完成结果。"
+        },
+        {
+          "id": "ussr_object_279:BV1SPmEBJE3y:1102033",
+          "vehicleId": "ussr_object_279",
+          "attackerVehicleId": "us_m60a3_tts",
+          "attackerVisibleTitle": "M60A3 TTS",
+          "attackerCountry": "usa",
+          "shell": "M774",
+          "shellType": null,
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 372,
+          "sourceGameVersion": "2.51.0.65",
+          "sourceTime": 1102.033,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "rawUIType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/us_m60a3_tts",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "us_m60a3_tts",
+            "mainGun": "105 mm M68 cannon",
+            "officialShellName": "M774",
+            "sourceShellLabelOriginal": "M774"
+          },
+          "attacker": "M60A3 TTS",
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "6c0ee18a305ddcf39283cc085ba464725d84e29807108f262250873e91192bf1",
+          "sourceShellLabelOriginal": "M774",
+          "impactAngleDegrees": null,
+          "calculationStatus": "no-progress-indicator-visible",
+          "calculationProgressPercent": null,
+          "calculationProgressIsPenetrationProbability": false,
+          "evidenceKind": "actual-UI-inputs-not-successful-shot-or-complete-map",
+          "conditionNote": "本帧未见计算中提示，不据此推断100%完成或实战后效。"
+        }
+      ],
+      "testCaseEvidence": {
+        "ussr_object_279:BV1SPmEBJE3y:1094000": {
+          "originalRecord": {
+            "frameId": "ussr_object_279:BV1SPmEBJE3y:1094000",
+            "vehicleId": "ussr_object_279",
+            "canonicalName": "Object 279",
+            "country": "ussr",
+            "visibleNativeTargetTitle": "279 工程",
+            "identityStatus": "native-title-matched-current-canonical-not-1989-or-B3",
+            "sourceURL": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+            "actualMediaTime": 1094,
+            "playerCurrentTime": 1094.059463,
+            "nativeDimensions": [
+              1920,
+              1080
+            ],
+            "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/object279-t72b-front-20261103/USSR-Object279-budgeted-front-1094.webp",
+            "webpBytes": 1314558,
+            "webpSHA256": "f411cd264d4172affa808dc485b647e936cb0bd44e59da8da5c6b0c93bd3a112",
+            "proofPath": "artifacts/tank-weakpoints-expansion-20261102/sources/object279-t72b-front-20261103/002.json",
+            "proofSHA256": "5fa427fc27f29e192388f2dc45daa8aa947f650360a24379fb1c6f56119c23a3",
+            "historicalDecodedPNG_SHA256": "75881e5f6c0fbddb0f2ef2b516cbdfccbc7c4a56235b95cd1942016ab6b28dd5",
+            "originalPNGAvailability": "historical hash only; retained original is native WebP",
+            "analysisPath": "artifacts/tank-weakpoints-expansion-20261102/sources/object279-t72b-front-20261103/USSR-Object279-budgeted-front-1094.analysis720.webp",
+            "analysisSHA256": "6f29bc90b5d6e3476d3f73d347b3e3b34328ea7950123be67f4e1ba48d4e122f",
+            "sceneKind": "opaque-solid-armour-penetration-map",
+            "hasGreenArmorMap": true,
+            "moduleXray": false,
+            "view": "near-level-front",
+            "tooltipOcclusion": "right adjacent to outer edge; no central vehicle overlap",
+            "calculationProgressPercent": 72,
+            "calculationProgressIsPenetrationProbability": false,
+            "calculationStatus": "in-progress-map-not-complete",
+            "testContext": {
+              "id": "ussr_object_279:BV1SPmEBJE3y:1094000",
+              "vehicleId": "ussr_object_279",
+              "attackerVehicleId": "us_m60a3_tts",
+              "attackerVisibleTitle": "M60A3 TTS",
+              "attackerCountry": "usa",
+              "shell": "M774",
+              "shellType": null,
+              "distanceMeters": 0,
+              "displayedPenetrationMm": 372,
+              "sourceGameVersion": "2.51.0.65",
+              "sourceTime": 1094,
+              "sourceURL": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+              "actualShotObserved": false,
+              "outcome": null,
+              "basis": "independently read left attack-source UI; shell type not displayed"
+            },
+            "pins": [],
+            "normalSubtitleEvidence": [
+              {
+                "observedMediaTime": 1092.483999,
+                "text": "苏联最后一个重坦应该就是279了"
+              },
+              {
+                "observedMediaTime": 1094.968437,
+                "text": "这个车距说是防核工程"
+              },
+              {
+                "observedMediaTime": 1096.458132,
+                "text": "硬是真的硬"
+              },
+              {
+                "observedMediaTime": 1097.421202,
+                "text": "但是他的权重在9.0"
+              },
+              {
+                "observedMediaTime": 1099.462699,
+                "text": "车体能被钢针乱穿"
+              },
+              {
+                "observedMediaTime": 1100.472871,
+                "text": "这车要是权重再低一点"
+              },
+              {
+                "observedMediaTime": 1101.99161,
+                "text": "我都不敢想有多无敌"
+              },
+              {
+                "observedMediaTime": 1103.392312,
+                "text": "那那么聊完了279"
+              }
+            ],
+            "normalSubtitleBasis": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1090-1200-normal-playback-subtitles.json",
+              "sha256": "69af0a26e388843c933a2c9da8d151509ed485e0a21d30ce7f13b97db7032465"
+            },
+            "sourceRestriction": {
+              "authorLicence": "unknown-not-inferred",
+              "explicitAuthorNoRepostObserved": false,
+              "absenceOfNoticeIsNotPermission": true
+            },
+            "internalReviewHold": true
+          },
+          "officialWikiTypeProof": null
+        },
+        "ussr_object_279:BV1SPmEBJE3y:1102033": {
+          "originalRecord": {
+            "frameId": "ussr_object_279:BV1SPmEBJE3y:1102033",
+            "vehicleId": "ussr_object_279",
+            "canonicalName": "Object 279",
+            "country": "ussr",
+            "visibleNativeTargetTitle": "279 工程",
+            "identityStatus": "native-title-matched-current-canonical-not-1989-or-B3",
+            "sourceURL": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+            "actualMediaTime": 1102.033,
+            "playerCurrentTime": 1102.124003,
+            "nativeDimensions": [
+              1920,
+              1080
+            ],
+            "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/object279-t72b-front-20261103/USSR-Object279-budgeted-front-1102.webp",
+            "webpBytes": 1690262,
+            "webpSHA256": "58431f916db027f7ee59ab777190e4473f28fc8e25946d53d5099d805b201190",
+            "proofPath": "artifacts/tank-weakpoints-expansion-20261102/sources/object279-t72b-front-20261103/003.json",
+            "proofSHA256": "4b42e4e3b59e9c66d4d528772f7d78cbf423c8f07e9bddaad52f009bf221800d",
+            "historicalDecodedPNG_SHA256": "6c0ee18a305ddcf39283cc085ba464725d84e29807108f262250873e91192bf1",
+            "originalPNGAvailability": "historical hash only; retained original is native WebP",
+            "analysisPath": "artifacts/tank-weakpoints-expansion-20261102/sources/object279-t72b-front-20261103/USSR-Object279-budgeted-front-1102.analysis720.webp",
+            "analysisSHA256": "b5ff651b2ea3f6c5794d722e94f4d2565d908f3845724eefdfa6b2257807a123",
+            "sceneKind": "opaque-solid-armour-penetration-map",
+            "hasGreenArmorMap": true,
+            "moduleXray": false,
+            "view": "elevated-front",
+            "tooltipOcclusion": "none",
+            "calculationProgressPercent": null,
+            "calculationProgressIsPenetrationProbability": false,
+            "calculationStatus": "no-progress-indicator-visible",
+            "testContext": {
+              "id": "ussr_object_279:BV1SPmEBJE3y:1102033",
+              "vehicleId": "ussr_object_279",
+              "attackerVehicleId": "us_m60a3_tts",
+              "attackerVisibleTitle": "M60A3 TTS",
+              "attackerCountry": "usa",
+              "shell": "M774",
+              "shellType": null,
+              "distanceMeters": 0,
+              "displayedPenetrationMm": 372,
+              "sourceGameVersion": "2.51.0.65",
+              "sourceTime": 1102.033,
+              "sourceURL": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+              "actualShotObserved": false,
+              "outcome": null,
+              "basis": "independently read left attack-source UI; shell type not displayed"
+            },
+            "pins": [],
+            "normalSubtitleEvidence": [
+              {
+                "observedMediaTime": 1092.483999,
+                "text": "苏联最后一个重坦应该就是279了"
+              },
+              {
+                "observedMediaTime": 1094.968437,
+                "text": "这个车距说是防核工程"
+              },
+              {
+                "observedMediaTime": 1096.458132,
+                "text": "硬是真的硬"
+              },
+              {
+                "observedMediaTime": 1097.421202,
+                "text": "但是他的权重在9.0"
+              },
+              {
+                "observedMediaTime": 1099.462699,
+                "text": "车体能被钢针乱穿"
+              },
+              {
+                "observedMediaTime": 1100.472871,
+                "text": "这车要是权重再低一点"
+              },
+              {
+                "observedMediaTime": 1101.99161,
+                "text": "我都不敢想有多无敌"
+              },
+              {
+                "observedMediaTime": 1103.392312,
+                "text": "那那么聊完了279"
+              }
+            ],
+            "normalSubtitleBasis": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1090-1200-normal-playback-subtitles.json",
+              "sha256": "69af0a26e388843c933a2c9da8d151509ed485e0a21d30ce7f13b97db7032465"
+            },
+            "sourceRestriction": {
+              "authorLicence": "unknown-not-inferred",
+              "explicitAuthorNoRepostObserved": false,
+              "absenceOfNoticeIsNotPermission": true
+            },
+            "internalReviewHold": true
+          },
+          "officialWikiTypeProof": null
+        }
+      },
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/object279-t72b-front-20261103/USSR-Object279-budgeted-front-1102.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/object279-t72b-front-20261103/003.json",
+      "captureSHA256": "58431f916db027f7ee59ab777190e4473f28fc8e25946d53d5099d805b201190",
+      "originalFrameSHA256": "6c0ee18a305ddcf39283cc085ba464725d84e29807108f262250873e91192bf1",
+      "time": 1102.033,
+      "crop": [
+        680,
+        220,
+        710,
+        420
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "elevated-front",
+      "imageQuality": "1080p",
+      "mainImageUsable": true,
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "略俯正面防护分析，未见计算中提示；绿色不保证后效。",
+      "completeIllustration": false,
+      "coverageStatus": "partial-frontal-guide",
+      "coverageNotice": "正面防护分析 · 区域指引待补",
+      "testContext": {
+        "attacker": "M60A3 TTS",
+        "attackerVehicleId": "us_m60a3_tts",
+        "shell": "M774",
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/us_m60a3_tts",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "us_m60a3_tts",
+          "mainGun": "105 mm M68 cannon",
+          "officialShellName": "M774",
+          "sourceShellLabelOriginal": "M774"
+        },
+        "rawUIType": null,
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 372,
+        "sourceTime": 1102.033,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "sourceGameVersion": "2.51.0.65",
+        "impactAngleDegrees": null,
+        "caseId": "ussr_object_279:BV1SPmEBJE3y:1102033",
+        "note": "本帧未见计算中提示，不据此推断100%完成或实战后效。"
+      },
+      "frontSummary": "作者称279车体在原视频权重环境下可被钢针击穿；没有给出可精确标注的推荐落点，不据此视为任意弹种必穿。"
     },
     {
       "id": "us_m1a2_sep_abrams",
@@ -9172,8 +9561,78 @@
       "missingEvidence": [
         "暂无与这些建议逐一对应的可见部位标点；防护分析条件仅适用于各自案例。"
       ],
-      "testCases": [],
-      "testCaseEvidence": {},
+      "testCases": [
+        {
+          "id": "jp_type_90b_camo:BV1PUAezbE1p:470033",
+          "vehicleId": "jp_type_90b_camo",
+          "sourceTime": 470.033,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "attackerEnglishName": "Leopard 2A5",
+          "sourceShellLabelOriginal": "DM33",
+          "shell": "DM33",
+          "rawUIType": null,
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": "2.53.0.109",
+          "actualUIObserved": true,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "4b9130ec05f36e615ae6f71478fb615700db0b00945935fee4adf72da891d259",
+          "sceneKind": "solid-armor-penetration-map",
+          "visibleView": "steep-overhead-oblique",
+          "hasGreenArmorMap": true,
+          "notLevelFrontEvidence": true,
+          "impactAngleDegrees": null,
+          "attacker": "Leopard 2A5",
+          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "germ_leopard_2a5",
+            "mainGun": "120 mm Rh120 L/44 cannon",
+            "officialShellName": "DM33",
+            "sourceShellLabelOriginal": "DM33"
+          },
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
+          "conditionNote": "陡俯视防护分布参考，不代表平视正面或实战后效。"
+        }
+      ],
+      "testCaseEvidence": {
+        "jp_type_90b_camo:BV1PUAezbE1p:470033": {
+          "id": "jp_type_90b_camo:BV1PUAezbE1p:470033",
+          "vehicleId": "jp_type_90b_camo",
+          "sourceTime": 470.033,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "attackerEnglishName": "Leopard 2A5",
+          "sourceShellLabelOriginal": "DM33",
+          "shell": "DM33",
+          "rawUIType": null,
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": "2.53.0.109",
+          "actualUIObserved": true,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "4b9130ec05f36e615ae6f71478fb615700db0b00945935fee4adf72da891d259",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/six-front-budgeted-20261103/006.json",
+          "proofSHA256": "25a35e88e53435958c7db27782e4d45add578647693f9f8b58d9931d319dda79",
+          "sceneKind": "solid-armor-penetration-map",
+          "visibleView": "steep-overhead-oblique",
+          "hasGreenArmorMap": true,
+          "notLevelFrontEvidence": true,
+          "notes": [
+            "只记录当帧攻击UI；俯视角不能当水平正面必穿，绿色也不保证后效/击杀。"
+          ]
+        }
+      },
       "completeIllustration": false,
       "frontSummary": "优先打视频指示的右侧车体，或瞄脖子、观察窗，避开左侧油箱和容易跳弹的首上。炮塔脸在400多毫米穿深时不推荐尝试，500多毫米虽可尝试，实战仍可能打不穿；炮闩周围也不优先。",
       "frontSummaryAdviceIDs": [
@@ -9316,9 +9775,27 @@
       "eraBasis": "MBT2000于2000年定型、2001年展示，具7秒自动装填、较强倒车与原地转向；Wiki称防护不及配FY4的ZTZ96A。",
       "collectedAt": "2026-11-02T09:48:46.431Z",
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "videoAdvice": [
+        {
+          "id": "cn_mbt2000:BV1CueU6cECo:author-family-guidance",
+          "label": "炮塔两侧规避提醒",
+          "text": "作者将MBT-2000与哈立德类分组，建议避开炮塔两边。",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 878,
+          "caseId": null,
+          "relatedCaseId": "cn_mbt2000:BV1CueU6cECo:878000",
+          "conditionMatch": "family-author-context-not-independent-same-frame-test",
+          "mainImageMatch": "same-source-different-observation",
+          "kind": "author-general-family-recommendation"
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "status": "partial-frontal-guide",
       "wikiUrl": "https://wiki.warthunder.com/unit/cn_mbt2000",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-007-20261102/snapshots/cn_mbt2000.json",
@@ -9340,7 +9817,123 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
-      ]
+      ],
+      "testCases": [
+        {
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerVisibleTitle": "90 式战车 B 型（富士教导团）",
+          "attackerCountry": "japan",
+          "basis": "left attack-source UI; not filming account own vehicle",
+          "shell": "JM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "sourceGameVersionPartial": "2.59.0.9… (right edge clipped)",
+          "actualShotObserved": false,
+          "outcome": null,
+          "id": "cn_mbt2000:BV1CueU6cECo:878000",
+          "vehicleId": "cn_mbt2000",
+          "sourceTime": 878,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceFrameSHA256": "e63e57bf3eb1322ccac5f54582c06a6dde00ccf40381ff286bb44850bae9c2c4",
+          "actualUIObserved": true,
+          "rawUIType": null,
+          "impactAngleDegrees": null,
+          "attacker": "90 式战车 B 型（富士教导团）",
+          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "jp_type_90b_camo",
+            "mainGun": "120 mm Type 90 L/44 cannon",
+            "officialShellName": "JM33",
+            "sourceShellLabelOriginal": "JM33"
+          },
+          "sourceShellLabelOriginal": "JM33",
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot"
+        }
+      ],
+      "testCaseEvidence": {
+        "cn_mbt2000:BV1CueU6cECo:878000": {
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerVisibleTitle": "90 式战车 B 型（富士教导团）",
+          "attackerCountry": "japan",
+          "basis": "left attack-source UI; not filming account own vehicle",
+          "shell": "JM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "sourceGameVersionPartial": "2.59.0.9… (right edge clipped)",
+          "actualShotObserved": false,
+          "outcome": null,
+          "id": "cn_mbt2000:BV1CueU6cECo:878000",
+          "vehicleId": "cn_mbt2000",
+          "sourceTime": 878,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceFrameSHA256": "e63e57bf3eb1322ccac5f54582c06a6dde00ccf40381ff286bb44850bae9c2c4",
+          "proofSnapshot": "artifacts/tank-weakpoints-expansion-20261102/sources/six-front-budgeted-20261103/021.json",
+          "proofSHA256": "4eb4a362361482bb2ae3942d4ded438349148fac301cf4af1f0d1b4f60330d6f",
+          "actualUIObserved": true
+        }
+      },
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/six-front-budgeted-20261103/CHN-MBT2000-remaining-front-sample-0878.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/six-front-budgeted-20261103/021.json",
+      "captureSHA256": "c7540b1c67d4a63cf2d7c505078215e6c8d4cf6ec4c47a4f0318a31c1ccdfdde",
+      "originalFrameSHA256": "e63e57bf3eb1322ccac5f54582c06a6dde00ccf40381ff286bb44850bae9c2c4",
+      "time": 878,
+      "crop": [
+        690,
+        260,
+        700,
+        400
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "正面防护分析；右侧提示框遮挡部分炮塔及车体，仅展示可见区域。",
+      "imageQuality": "1080p",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "coverageStatus": "partial-frontal-guide",
+      "coverageNotice": "正面防护分析 · 右侧遮挡",
+      "testContext": {
+        "attacker": "90 式战车 B 型（富士教导团）",
+        "attackerVehicleId": "jp_type_90b_camo",
+        "shell": "JM33",
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "jp_type_90b_camo",
+          "mainGun": "120 mm Type 90 L/44 cannon",
+          "officialShellName": "JM33",
+          "sourceShellLabelOriginal": "JM33"
+        },
+        "rawUIType": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "impactAngleDegrees": null,
+        "sourceTime": 878,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "sourceGameVersion": null,
+        "caseId": "cn_mbt2000:BV1CueU6cECo:878000",
+        "note": "主图同帧静态UI条件；作者的一般建议另列，绿色不保证实战后效。",
+        "sourceGameVersionPartial": "2.59.0.9… (right edge clipped)"
+      },
+      "frontSummary": "作者将MBT-2000与哈立德类分组，建议避开炮塔两边。"
     },
     {
       "id": "fr_msc",
@@ -10358,9 +10951,75 @@
       "eraBasis": "本页未明确具体技术改型形成日期；采购/服役/活动引入日期不足，不推断。",
       "collectedAt": "2026-11-02T09:48:21.775Z",
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "videoAdvice": [
+        {
+          "id": "ussr_t_72b:BV1SPmEBJE3y:general-front-armour-guidance",
+          "label": "反应装甲与高穿深弹种",
+          "text": "作者称T-72B的反应装甲令破甲弹更难穿透，首上防护提升；即使用M900也不容易，建议考虑M829A1这类更高穿深钢针。口述“600多”与本帧UI的600毫米分别保留。",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "sourceTime": 1184.079201,
+          "caseId": null,
+          "relatedCaseId": "ussr_t_72b:BV1SPmEBJE3y:1184000",
+          "conditionMatch": "verified-continuous-segment-not-independent-same-frame-shot",
+          "kind": "author-general-front-ammunition-recommendation",
+          "sourceTimeRange": [
+            1175.34868,
+            1186.615969
+          ],
+          "evidence": {
+            "sourceEvidence": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1090-1200-normal-playback-subtitles.json",
+              "sha256": "69af0a26e388843c933a2c9da8d151509ed485e0a21d30ce7f13b97db7032465",
+              "kind": "normal-player-continuous-DOM-sampling"
+            },
+            "sourceWords": [
+              {
+                "observedMediaTime": 1175.34868,
+                "text": "T72B的话"
+              },
+              {
+                "observedMediaTime": 1176.386931,
+                "text": "开始使用爆炸反应装甲"
+              },
+              {
+                "observedMediaTime": 1177.927617,
+                "text": "破甲弹更不好穿了"
+              },
+              {
+                "observedMediaTime": 1178.934413,
+                "text": "手上也开始拿到四五百抗穿"
+              },
+              {
+                "observedMediaTime": 1180.828568,
+                "text": "哪怕是换成美系的M900"
+              },
+              {
+                "observedMediaTime": 1182.650247,
+                "text": "当真的不是非常好穿"
+              },
+              {
+                "observedMediaTime": 1184.079201,
+                "text": "想好打穿的话"
+              },
+              {
+                "observedMediaTime": 1185.121685,
+                "text": "至少要换成M829A1"
+              },
+              {
+                "observedMediaTime": 1186.615969,
+                "text": "这种600多穿深的钢针"
+              }
+            ]
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00"
+      },
+      "status": "partial-frontal-guide",
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_72b",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-007-20261102/snapshots/ussr_t_72b.json",
@@ -10384,7 +11043,380 @@
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。",
         "具体改型年代待核实，era保留null。"
-      ]
+      ],
+      "testCases": [
+        {
+          "id": "ussr_t_72b:BV1SPmEBJE3y:1177000",
+          "vehicleId": "ussr_t_72b",
+          "attackerVehicleId": "ussr_t_72b",
+          "attackerVisibleTitle": "T-72B",
+          "attackerCountry": "ussr",
+          "shell": "3BM42",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 445,
+          "sourceGameVersion": "2.51.0.65",
+          "sourceTime": 1177,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "rawUIType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/ussr_t_72b",
+            "checkedAt": "2026-11-02T19:59:07.111071+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "ussr_t_72b",
+            "mainGun": "125 mm 2A46M cannon",
+            "officialShellName": "3BM42",
+            "sourceShellLabelOriginal": "3BM42"
+          },
+          "attacker": "T-72B",
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "48334e587181d5597a0be88d87b0af34505ea26de1ac46997a17274e3213b36c",
+          "sourceShellLabelOriginal": "3BM42",
+          "impactAngleDegrees": null,
+          "calculationStatus": "in-progress-map-not-complete",
+          "calculationProgressPercent": 2,
+          "calculationProgressIsPenetrationProbability": false,
+          "evidenceKind": "actual-UI-inputs-not-successful-shot-or-complete-map",
+          "conditionNote": "防护分布仍在计算；百分比仅为计算进度，不是击穿率或完成结果。"
+        },
+        {
+          "id": "ussr_t_72b:BV1SPmEBJE3y:1184000",
+          "vehicleId": "ussr_t_72b",
+          "attackerVehicleId": "us_m1a1_abrams",
+          "attackerVisibleTitle": "M1A1",
+          "attackerCountry": "usa",
+          "shell": "M829A1",
+          "shellType": null,
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 600,
+          "sourceGameVersion": "2.51.0.65",
+          "sourceTime": 1184,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "rawUIType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/us_m1a1_abrams",
+            "checkedAt": "2026-11-02T19:59:07.111071+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "us_m1a1_abrams",
+            "mainGun": "120 mm M256 cannon",
+            "officialShellName": "M829A1",
+            "sourceShellLabelOriginal": "M829A1"
+          },
+          "attacker": "M1A1",
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "44e26cc0cf8a8a5715a77366fbce64e373482b83d341cb156f33ba5cc8f8c0bc",
+          "sourceShellLabelOriginal": "M829A1",
+          "impactAngleDegrees": null,
+          "calculationStatus": "no-progress-indicator-visible",
+          "calculationProgressPercent": null,
+          "calculationProgressIsPenetrationProbability": false,
+          "evidenceKind": "actual-UI-inputs-not-successful-shot-or-complete-map",
+          "conditionNote": "本帧未见计算中提示，不据此推断100%完成或实战后效。"
+        }
+      ],
+      "testCaseEvidence": {
+        "ussr_t_72b:BV1SPmEBJE3y:1177000": {
+          "originalRecord": {
+            "frameId": "ussr_t_72b:BV1SPmEBJE3y:1177000",
+            "vehicleId": "ussr_t_72b",
+            "canonicalName": "T-72B",
+            "country": "ussr",
+            "visibleNativeTargetTitle": "T-72B",
+            "identityStatus": "native-title-matched-current-canonical-not-1989-or-B3",
+            "sourceURL": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+            "actualMediaTime": 1177,
+            "playerCurrentTime": 1177.063626,
+            "nativeDimensions": [
+              1920,
+              1080
+            ],
+            "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/object279-t72b-front-20261103/USSR-T72B-budgeted-front-1177.webp",
+            "webpBytes": 1248984,
+            "webpSHA256": "dbe1292c11fbc43d897e998cfe9871acbae6655c946605e5647481eba3cd467c",
+            "proofPath": "artifacts/tank-weakpoints-expansion-20261102/sources/object279-t72b-front-20261103/004.json",
+            "proofSHA256": "2d333d99f793f6bfd0bd2cb5ea0fe42a79cd28cffbc492445f7fe981b9d22b06",
+            "historicalDecodedPNG_SHA256": "48334e587181d5597a0be88d87b0af34505ea26de1ac46997a17274e3213b36c",
+            "originalPNGAvailability": "historical hash only; retained original is native WebP",
+            "analysisPath": "artifacts/tank-weakpoints-expansion-20261102/sources/object279-t72b-front-20261103/USSR-T72B-budgeted-front-1177.analysis720.webp",
+            "analysisSHA256": "a6f0ffed36b2b7571acf8064edfbc8b99886b5d39a13842909d7a87cf789b729",
+            "sceneKind": "opaque-solid-armour-penetration-map",
+            "hasGreenArmorMap": true,
+            "moduleXray": false,
+            "view": "near-level-front",
+            "tooltipOcclusion": "right hull/track edge occluded",
+            "calculationProgressPercent": 2,
+            "calculationProgressIsPenetrationProbability": false,
+            "calculationStatus": "in-progress-map-not-complete",
+            "testContext": {
+              "id": "ussr_t_72b:BV1SPmEBJE3y:1177000",
+              "vehicleId": "ussr_t_72b",
+              "attackerVehicleId": "ussr_t_72b",
+              "attackerVisibleTitle": "T-72B",
+              "attackerCountry": "ussr",
+              "shell": "3BM42",
+              "shellType": null,
+              "distanceMeters": 500,
+              "displayedPenetrationMm": 445,
+              "sourceGameVersion": "2.51.0.65",
+              "sourceTime": 1177,
+              "sourceURL": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+              "actualShotObserved": false,
+              "outcome": null,
+              "basis": "independently read left attack-source UI; shell type not displayed"
+            },
+            "pins": [],
+            "normalSubtitleEvidence": [
+              {
+                "observedMediaTime": 1175.34868,
+                "text": "T72B的话"
+              },
+              {
+                "observedMediaTime": 1176.386931,
+                "text": "开始使用爆炸反应装甲"
+              },
+              {
+                "observedMediaTime": 1177.927617,
+                "text": "破甲弹更不好穿了"
+              },
+              {
+                "observedMediaTime": 1178.934413,
+                "text": "手上也开始拿到四五百抗穿"
+              },
+              {
+                "observedMediaTime": 1180.828568,
+                "text": "哪怕是换成美系的M900"
+              },
+              {
+                "observedMediaTime": 1182.650247,
+                "text": "当真的不是非常好穿"
+              },
+              {
+                "observedMediaTime": 1184.079201,
+                "text": "想好打穿的话"
+              },
+              {
+                "observedMediaTime": 1185.121685,
+                "text": "至少要换成M829A1"
+              },
+              {
+                "observedMediaTime": 1186.615969,
+                "text": "这种600多穿深的钢针"
+              }
+            ],
+            "normalSubtitleBasis": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1090-1200-normal-playback-subtitles.json",
+              "sha256": "69af0a26e388843c933a2c9da8d151509ed485e0a21d30ce7f13b97db7032465"
+            },
+            "sourceRestriction": {
+              "authorLicence": "unknown-not-inferred",
+              "explicitAuthorNoRepostObserved": false,
+              "absenceOfNoticeIsNotPermission": true
+            },
+            "internalReviewHold": true
+          },
+          "officialWikiTypeProof": {
+            "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_72b",
+            "actualURL": "https://wiki.warthunder.com/unit/ussr_t_72b",
+            "title": "T-72B | War Thunder Wiki",
+            "status": 200,
+            "capturedAt": "2026-11-02T09:48:21.775Z",
+            "checkedAt": "2026-11-02T19:59:07.111071+00:00",
+            "gameVersion": "2.59.0.92",
+            "rawHtmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-007-20261102/snapshots/ussr_t_72b.html",
+            "htmlSHA256": "fc8a3cbc8af85763f866879a9863b2e31c4b7fc4cfc99e6837a457507fd7b42d",
+            "rawSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-007-20261102/snapshots/ussr_t_72b.json",
+            "snapshotSHA256": "a5f51dc3553b58a40fa0dc5f09776df8fabdcc46f6d573d3c9189fcd493f79b7",
+            "textSHA256": "8dff347d0c1be2cf7d507d5d7b8b69d99f086d2a6deadcee9fd54dacb97d2675",
+            "popoverPath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-003-20261103/rawproof/ussr_t_72b--3BM42.popover.html",
+            "popoverSHA256": "e97ba0b61ddd22fddac54b875c6d8f08933cba1d625de163a49b558627b0ada4",
+            "rawElementPath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-003-20261103/rawproof/ussr_t_72b--3BM42.element.html",
+            "rawElementSHA256": "40e0e0d599f8e26b6ca64c7fb49f4c5718fbb5ad7ab74960f913d89cc4dd8026",
+            "captureMethod": "Playwright Chromium navigation",
+            "reusedSnapshot": true
+          }
+        },
+        "ussr_t_72b:BV1SPmEBJE3y:1184000": {
+          "originalRecord": {
+            "frameId": "ussr_t_72b:BV1SPmEBJE3y:1184000",
+            "vehicleId": "ussr_t_72b",
+            "canonicalName": "T-72B",
+            "country": "ussr",
+            "visibleNativeTargetTitle": "T-72B",
+            "identityStatus": "native-title-matched-current-canonical-not-1989-or-B3",
+            "sourceURL": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+            "actualMediaTime": 1184,
+            "playerCurrentTime": 1184.054728,
+            "nativeDimensions": [
+              1920,
+              1080
+            ],
+            "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/object279-t72b-front-20261103/USSR-T72B-budgeted-front-1184.webp",
+            "webpBytes": 1112762,
+            "webpSHA256": "a9d4541f5b02d03bc31d9bd71089db92defd5ed5fc54dcab7271c5310e5f4ba8",
+            "proofPath": "artifacts/tank-weakpoints-expansion-20261102/sources/object279-t72b-front-20261103/005.json",
+            "proofSHA256": "9058e104f4c1898cf774524eb030f02f100cf34adc72498bf394297303f9427b",
+            "historicalDecodedPNG_SHA256": "44e26cc0cf8a8a5715a77366fbce64e373482b83d341cb156f33ba5cc8f8c0bc",
+            "originalPNGAvailability": "historical hash only; retained original is native WebP",
+            "analysisPath": "artifacts/tank-weakpoints-expansion-20261102/sources/object279-t72b-front-20261103/USSR-T72B-budgeted-front-1184.analysis720.webp",
+            "analysisSHA256": "8afdf5882312149d312fede265fff1e8cd4f185d86ee9547ee0899daa38a6d75",
+            "sceneKind": "opaque-solid-armour-penetration-map",
+            "hasGreenArmorMap": true,
+            "moduleXray": false,
+            "view": "near-level-front",
+            "tooltipOcclusion": "right hull/track edge occluded",
+            "calculationProgressPercent": null,
+            "calculationProgressIsPenetrationProbability": false,
+            "calculationStatus": "no-progress-indicator-visible",
+            "testContext": {
+              "id": "ussr_t_72b:BV1SPmEBJE3y:1184000",
+              "vehicleId": "ussr_t_72b",
+              "attackerVehicleId": "us_m1a1_abrams",
+              "attackerVisibleTitle": "M1A1",
+              "attackerCountry": "usa",
+              "shell": "M829A1",
+              "shellType": null,
+              "distanceMeters": 0,
+              "displayedPenetrationMm": 600,
+              "sourceGameVersion": "2.51.0.65",
+              "sourceTime": 1184,
+              "sourceURL": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+              "actualShotObserved": false,
+              "outcome": null,
+              "basis": "independently read left attack-source UI; shell type not displayed"
+            },
+            "pins": [],
+            "normalSubtitleEvidence": [
+              {
+                "observedMediaTime": 1175.34868,
+                "text": "T72B的话"
+              },
+              {
+                "observedMediaTime": 1176.386931,
+                "text": "开始使用爆炸反应装甲"
+              },
+              {
+                "observedMediaTime": 1177.927617,
+                "text": "破甲弹更不好穿了"
+              },
+              {
+                "observedMediaTime": 1178.934413,
+                "text": "手上也开始拿到四五百抗穿"
+              },
+              {
+                "observedMediaTime": 1180.828568,
+                "text": "哪怕是换成美系的M900"
+              },
+              {
+                "observedMediaTime": 1182.650247,
+                "text": "当真的不是非常好穿"
+              },
+              {
+                "observedMediaTime": 1184.079201,
+                "text": "想好打穿的话"
+              },
+              {
+                "observedMediaTime": 1185.121685,
+                "text": "至少要换成M829A1"
+              },
+              {
+                "observedMediaTime": 1186.615969,
+                "text": "这种600多穿深的钢针"
+              }
+            ],
+            "normalSubtitleBasis": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1090-1200-normal-playback-subtitles.json",
+              "sha256": "69af0a26e388843c933a2c9da8d151509ed485e0a21d30ce7f13b97db7032465"
+            },
+            "sourceRestriction": {
+              "authorLicence": "unknown-not-inferred",
+              "explicitAuthorNoRepostObserved": false,
+              "absenceOfNoticeIsNotPermission": true
+            },
+            "internalReviewHold": true
+          },
+          "officialWikiTypeProof": {
+            "wikiUrl": "https://wiki.warthunder.com/unit/us_m1a1_abrams",
+            "actualURL": "https://wiki.warthunder.com/unit/us_m1a1_abrams",
+            "title": "M1A1 | War Thunder Wiki",
+            "status": 200,
+            "capturedAt": "2026-11-02T18:17:02.803Z",
+            "checkedAt": "2026-11-02T19:59:07.111071+00:00",
+            "gameVersion": "2.59.0.92",
+            "rawHtmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-003-20261103/snapshots/us_m1a1_abrams.html",
+            "htmlSHA256": "423e64dfc1878ca746a1f222a249e3c6d2906ce1961590a648f2b012aeadc270",
+            "rawSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-003-20261103/snapshots/us_m1a1_abrams.json",
+            "snapshotSHA256": "cfe16fbc7193429a3ecec69cde9be2579d2b8142ded3f56ab61d946f2002a9de",
+            "textSHA256": "50d248b3dfc82ce23b51db7acd2b03257466cc47d6117264ea872101e7778492",
+            "popoverPath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-003-20261103/rawproof/us_m1a1_abrams--M829A1.popover.html",
+            "popoverSHA256": "760175a454a14093c7cb918688f117172d3f9de6a1759ca490d0a7cf6c457e8c",
+            "rawElementPath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-003-20261103/rawproof/us_m1a1_abrams--M829A1.element.html",
+            "rawElementSHA256": "7341dde6b90e018396eed6c9c6f1dbd85df00efbfc8f752e9eb04aeaf055d80a",
+            "captureMethod": "Playwright Chromium navigation",
+            "reusedSnapshot": true
+          }
+        }
+      },
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/object279-t72b-front-20261103/USSR-T72B-budgeted-front-1184.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/object279-t72b-front-20261103/005.json",
+      "captureSHA256": "a9d4541f5b02d03bc31d9bd71089db92defd5ed5fc54dcab7271c5310e5f4ba8",
+      "originalFrameSHA256": "44e26cc0cf8a8a5715a77366fbce64e373482b83d341cb156f33ba5cc8f8c0bc",
+      "time": 1184,
+      "crop": [
+        650,
+        225,
+        750,
+        425
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "near-level-front",
+      "imageQuality": "1080p",
+      "mainImageUsable": true,
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "正面防护分析；右缘车体及履带被提示框局部遮挡，不推断遮挡区。",
+      "completeIllustration": false,
+      "coverageStatus": "partial-frontal-guide",
+      "coverageNotice": "正面防护分析 · 右缘局部遮挡",
+      "testContext": {
+        "attacker": "M1A1",
+        "attackerVehicleId": "us_m1a1_abrams",
+        "shell": "M829A1",
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/us_m1a1_abrams",
+          "checkedAt": "2026-11-02T19:59:07.111071+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "us_m1a1_abrams",
+          "mainGun": "120 mm M256 cannon",
+          "officialShellName": "M829A1",
+          "sourceShellLabelOriginal": "M829A1"
+        },
+        "rawUIType": null,
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 600,
+        "sourceTime": 1184,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "sourceGameVersion": "2.51.0.65",
+        "impactAngleDegrees": null,
+        "caseId": "ussr_t_72b:BV1SPmEBJE3y:1184000",
+        "note": "本帧未见计算中提示，不据此推断100%完成或实战后效。"
+      },
+      "frontSummary": "作者称T-72B的反应装甲令破甲弹更难穿透，首上防护提升；即使用M900也不容易，建议考虑M829A1这类更高穿深钢针。口述“600多”与本帧UI的600毫米分别保留。"
     },
     {
       "id": "cn_vt_4",
@@ -11371,7 +12403,7 @@
         "author": "馒头Emoil",
         "publishedAt": "2026-09-18T17:56:17+08:00"
       },
-      "status": "video-reviewed-awaiting-front-image",
+      "status": "partial-frontal-guide",
       "wikiUrl": "https://wiki.warthunder.com/unit/us_m1_abrams",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-009-20261102/snapshots/us_m1_abrams.json",
@@ -11395,7 +12427,7 @@
         "尚未绑定经审核的清洁正面主图和对应外部区域坐标。"
       ],
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "testCases": [
         {
           "id": "us_m1_abrams:BV1CueU6cECo:370000",
@@ -11433,6 +12465,45 @@
           "attacker": "Type 90",
           "impactAngleDegrees": null,
           "verificationStatus": "verified"
+        },
+        {
+          "attackerVehicleId": "jp_type_90",
+          "attackerVisibleTitle": "90式战车",
+          "attackerCountry": "japan",
+          "shell": "JM33",
+          "shellType": null,
+          "distanceMeters": 300,
+          "displayedPenetrationMm": 476,
+          "burnedInDistanceMeters": 500,
+          "burnedInDistanceConflictsWithUI": true,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "id": "us_m1_abrams:BV1CueU6cECo:347000",
+          "vehicleId": "us_m1_abrams",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 347,
+          "attacker": "90 式战车",
+          "attackerEnglishName": "Type 90",
+          "rawUIType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/jp_type_90",
+            "checkedAt": "2026-11-02T20:40:15.887059+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "jp_type_90",
+            "mainGun": "120 mm Type 90 L/44 cannon",
+            "officialShellName": "JM33",
+            "sourceShellLabelOriginal": "JM33"
+          },
+          "sourceShellLabelOriginal": "JM33",
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "62182786d4240dd6d2f2604b4de6b889124810051c091e64af989ed801453047",
+          "impactAngleDegrees": null,
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
+          "conditionNote": "实际攻击UI为300米、476毫米；视频烧字为500米，两者存在冲突，分别保留。"
         }
       ],
       "testCaseEvidence": {
@@ -11469,31 +12540,108 @@
             "preferred": "actual-game-ui",
             "note": "作者烧字500米，但M1帧实际游戏菜单300米；不抹平矛盾。"
           }
+        },
+        "us_m1_abrams:BV1CueU6cECo:347000": {
+          "originalRecord": {
+            "auditIndex": 16,
+            "vehicleId": "us_m1_abrams",
+            "canonicalName": "M1 Abrams",
+            "country": "usa",
+            "actualNativeTargetTitle": "M1",
+            "identityStatus": "actual-native-header-matched-current-canonical",
+            "identityBasis": "US enemy chapter + target header with no British marker; never Japanese attacker flag",
+            "sourceChapterEvidence": "章节 ·美系敌人\n1080P 高清\n倍速\n字幕\n1",
+            "sourceURL": "https://www.bilibili.com/video/BV1CueU6cECo/",
+            "actualMediaTime": 347,
+            "playerCurrentTime": 347.056656,
+            "timeBasis": "proof decode.mediaTime verified; not filename or outer query",
+            "nativeDimensions": [
+              1920,
+              1080
+            ],
+            "webpPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/USA-clean-only-scout-0347.webp",
+            "webpBytes": 1298530,
+            "webpSHA256": "235b129ae468b844657fee4a7268fe1e7a05d0c244d6cb3aaf735a1c3617dbb7",
+            "historicalDecodedPNG_SHA256": "62182786d4240dd6d2f2604b4de6b889124810051c091e64af989ed801453047",
+            "originalPNGAvailability": "historical SHA only verified here; retained native original WebP not recreated",
+            "proofPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/020.json",
+            "proofSHA256": "ad072b64302408d27606a37eb03bd3dfce282eef81b17f1192d2baeffdb3b06a",
+            "analysisPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/USA-clean-only-scout-0347.analysis.jpg",
+            "analysisSHA256": "c582dfab4e0fa0462aa1c3bf20e2de874b98dec61326939194e9aaa2319e9f08",
+            "sceneKind": "opaque-solid-armour-penetration-map",
+            "hasGreenArmorMap": true,
+            "moduleXray": false,
+            "view": "front",
+            "testContext": {
+              "attackerVehicleId": "jp_type_90",
+              "attackerVisibleTitle": "90式战车",
+              "attackerCountry": "japan",
+              "shell": "JM33",
+              "shellType": null,
+              "distanceMeters": 300,
+              "displayedPenetrationMm": 476,
+              "burnedInDistanceMeters": 500,
+              "burnedInDistanceConflictsWithUI": true,
+              "sourceGameVersion": null,
+              "actualShotObserved": false,
+              "outcome": null
+            },
+            "calculationProgressPercent": null,
+            "calculationStatus": "no-progress-indicator-visible; no calculation-progress percent treated as probability",
+            "occlusion": "right tooltip overlaps vehicle; 347 tooltip lower than 337/341",
+            "disposition": "new-M1-main-candidate",
+            "pins": [],
+            "complete": false
+          },
+          "officialWikiTypeProof": {
+            "wikiUrl": "https://wiki.warthunder.com/unit/jp_type_90",
+            "actualURL": "https://wiki.warthunder.com/unit/jp_type_90",
+            "title": "Type 90 | War Thunder Wiki",
+            "status": 200,
+            "capturedAt": "2026-11-02T08:14:15.262Z",
+            "checkedAt": "2026-11-02T20:40:15.887059+00:00",
+            "gameVersion": "2.59.0.92",
+            "rawHtmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-20261102/snapshots/jp_type_90.html",
+            "htmlSHA256": "683e12caa7aa5b9a15f1dbd8cf8e686846193390ed2fb9bc56a1a11607053e62",
+            "rawSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-20261102/snapshots/jp_type_90.json",
+            "snapshotSHA256": "7918110cd6935f9bae961a26cda8008849e07291819536de117e0bc5656a1bae",
+            "textSHA256": "97f24adfb97af0e018a934fb2b380be53a5aebb942a511e343b90cfae6802822",
+            "popoverPath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-004-20261103/rawproof/jp_type_90--JM33.popover.html",
+            "popoverSHA256": "536abe1c0371f7d77b0e2dd2173a59c76830aaa1fbd1858c562f8d971f464671",
+            "rawElementPath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/verification/ammo-reference-batch-004-20261103/rawproof/jp_type_90--JM33.element.html",
+            "rawElementSHA256": "2ee67006d4dbeeba3f6201b54e5b8f6fb9eb4711d96bb1913be2ca6fc999e17f",
+            "captureMethod": "Playwright Chromium navigation",
+            "reusedSnapshot": true
+          }
         }
       },
       "limits": "4K仅提升原件分辨率，不改变透视画面的主图适用性。；所有具体建议逐case绑定，版本未独立读出留null。；IPM1比较句不是独立正向射击证明。",
       "testContext": {
-        "attacker": "Type 90",
+        "attacker": "90 式战车",
         "attackerVehicleId": "jp_type_90",
         "shell": "JM33",
         "shellTypeCode": "APFSDS",
         "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/jp_type_90",
+          "checkedAt": "2026-11-02T20:40:15.887059+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "jp_type_90",
+          "mainGun": "120 mm Type 90 L/44 cannon",
+          "officialShellName": "JM33",
+          "sourceShellLabelOriginal": "JM33"
+        },
+        "rawUIType": null,
         "distanceMeters": 300,
         "displayedPenetrationMm": 476,
-        "impactAngleDegrees": null,
-        "sourceTime": 370,
+        "sourceTime": 347,
         "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
         "sourceGameVersion": null,
-        "caseId": "us_m1_abrams:BV1CueU6cECo:370000",
-        "note": "仅视频370秒案例，尚未绑定主图：实际游戏UI为Type 90/JM33、300米、476毫米，作者烧字写500米；保留冲突，以实际UI为本案例条件，不统一为500米。未来独立主图不自动继承该条件。",
-        "conditionConflict": {
-          "kind": "heading-vs-game-ui",
-          "headingDistanceMeters": 500,
-          "actualUIDistanceMeters": 300,
-          "actualUIPenetrationMm": 476,
-          "preferred": "actual-game-ui",
-          "note": "作者烧字500米，但M1帧实际游戏菜单300米；不抹平矛盾。"
-        }
+        "burnedInDistanceMeters": 500,
+        "burnedInDistanceConflictsWithUI": true,
+        "caseId": "us_m1_abrams:BV1CueU6cECo:347000",
+        "note": "实际攻击UI为300米、476毫米；视频烧字为500米，两者存在冲突，分别保留。"
       },
       "testContextEvidence": {
         "id": "us_m1_abrams:BV1CueU6cECo:370000",
@@ -11528,7 +12676,29 @@
           "preferred": "actual-game-ui",
           "note": "作者烧字500米，但M1帧实际游戏菜单300米；不抹平矛盾。"
         }
-      }
+      },
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/USA-clean-only-scout-0347.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/020.json",
+      "captureSHA256": "235b129ae468b844657fee4a7268fe1e7a05d0c244d6cb3aaf735a1c3617dbb7",
+      "originalFrameSHA256": "62182786d4240dd6d2f2604b4de6b889124810051c091e64af989ed801453047",
+      "time": 347,
+      "crop": [
+        650,
+        210,
+        750,
+        450
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "正面防护分析；右下提示框遮挡局部车体与履带，不推断遮挡区。",
+      "imageQuality": "1080p",
+      "coverageStatus": "partial-frontal-guide",
+      "coverageNotice": "正面防护分析 · 右下提示框局部遮挡"
     },
     {
       "id": "ussr_t_72b_1989",
@@ -12741,9 +13911,9 @@
         "author": "馒头Emoil",
         "publishedAt": "2026-09-18T17:56:17+08:00"
       },
-      "status": "video-reviewed-awaiting-front-image",
+      "status": "partial-frontal-guide",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "testCases": [
         {
           "id": "us_m1_ip_abrams:BV1CueU6cECo:380017",
@@ -12936,12 +14106,11 @@
         "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 500,
         "displayedPenetrationMm": 472,
-        "impactAngleDegrees": null,
         "sourceTime": 380.016687,
         "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
         "sourceGameVersion": null,
         "caseId": "us_m1_ip_abrams:BV1CueU6cECo:380017",
-        "note": "仅展示已验证的视频案例条件，尚未绑定主图；其他建议仍以各自案例和连续片段来源为准，不继承到未来独立主图。"
+        "note": "主图同帧已核UI条件；右侧提示框有局部遮挡，绿色不保证后效。"
       },
       "testContextEvidence": {
         "id": "us_m1_ip_abrams:BV1CueU6cECo:380017",
@@ -12970,7 +14139,29 @@
         "headingDistanceMeters": 500,
         "conditionConflict": null
       },
-      "pins": []
+      "pins": [],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/USA-Abrams-identity-evidence-0380.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/029.json",
+      "captureSHA256": "fbabcc6532753663d8f9d002ab4296fc2ad53fed3807128bfed485e8dfd33a05",
+      "originalFrameSHA256": "fa8978c4c9d04926baa2ee2ed88f2f5c4ac426f650f379569a837579b3b8cc17",
+      "time": 380.016687,
+      "crop": [
+        650,
+        210,
+        750,
+        450
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "正面防护分析；画面右侧提示框局部遮挡，不推断不可见区域。",
+      "imageQuality": "1080p",
+      "coverageStatus": "partial-frontal-guide",
+      "coverageNotice": "正面防护分析 · 提示框局部遮挡"
     },
     {
       "id": "us_m1a1_aim_abrams",
@@ -13013,9 +14204,9 @@
         "author": "馒头Emoil",
         "publishedAt": "2026-09-18T17:56:17+08:00"
       },
-      "status": "video-reviewed-awaiting-front-image",
+      "status": "partial-frontal-guide",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "testCases": [
         {
           "id": "us_m1a1_aim_abrams:BV1CueU6cECo:405017",
@@ -13208,12 +14399,11 @@
         "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 500,
         "displayedPenetrationMm": 472,
-        "impactAngleDegrees": null,
         "sourceTime": 405.016687,
         "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
         "sourceGameVersion": null,
         "caseId": "us_m1a1_aim_abrams:BV1CueU6cECo:405017",
-        "note": "仅展示已验证的视频案例条件，尚未绑定主图；其他建议仍以各自案例和连续片段来源为准，不继承到未来独立主图。"
+        "note": "主图同帧已核UI条件；右侧提示框有局部遮挡，绿色不保证后效。"
       },
       "testContextEvidence": {
         "id": "us_m1a1_aim_abrams:BV1CueU6cECo:405017",
@@ -13242,7 +14432,29 @@
         "headingDistanceMeters": 500,
         "conditionConflict": null
       },
-      "pins": []
+      "pins": [],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/USA-Abrams-identity-evidence-0405.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/031.json",
+      "captureSHA256": "b60f36485984402674ef2d075780abaed638200acec5bdc18ff225f3670fe33c",
+      "originalFrameSHA256": "db01a4bc955b0fefb8f205d2a07d5f48be6bdb6a618ab7c546027bc49d9c09b1",
+      "time": 405.016687,
+      "crop": [
+        650,
+        210,
+        750,
+        450
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "正面防护分析；画面右侧提示框局部遮挡，不推断不可见区域。",
+      "imageQuality": "1080p",
+      "coverageStatus": "partial-frontal-guide",
+      "coverageNotice": "正面防护分析 · 提示框局部遮挡"
     },
     {
       "id": "uk_ttd",
@@ -13284,9 +14496,9 @@
         "author": "馒头Emoil",
         "publishedAt": "2026-09-18T17:56:17+08:00"
       },
-      "status": "video-reviewed-awaiting-front-image",
+      "status": "partial-frontal-guide",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "testCases": [
         {
           "id": "uk_ttd:BV1CueU6cECo:713017",
@@ -13427,12 +14639,11 @@
         "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 500,
         "displayedPenetrationMm": 472,
-        "impactAngleDegrees": null,
         "sourceTime": 713.016687,
         "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
         "sourceGameVersion": null,
         "caseId": "uk_ttd:BV1CueU6cECo:713017",
-        "note": "仅展示已验证的视频案例条件，尚未绑定主图；其他建议仍以各自案例和连续片段来源为准，不继承到未来独立主图。"
+        "note": "主图同帧已核UI条件；右侧提示框有局部遮挡，绿色不保证后效。"
       },
       "testContextEvidence": {
         "id": "uk_ttd:BV1CueU6cECo:713017",
@@ -13456,7 +14667,29 @@
         "sourceFrameSHA256": "67da6896c1a793e8566b8837baa075526c1180bade737259aa9cf0d5a6f8b970",
         "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/"
       },
-      "pins": []
+      "pins": [],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/UK-enemy-target-proof-0713.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/010.json",
+      "captureSHA256": "16d48ed3377fa416de2116504b5fbd926da78bd5eac615c8c610a7b48c648826",
+      "originalFrameSHA256": "67da6896c1a793e8566b8837baa075526c1180bade737259aa9cf0d5a6f8b970",
+      "time": 713.016687,
+      "crop": [
+        1260,
+        400,
+        1560,
+        900
+      ],
+      "sourceDimensions": [
+        3840,
+        2160
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "正面防护分析；画面右侧提示框局部遮挡，不推断不可见区域。",
+      "imageQuality": "2160p",
+      "coverageStatus": "partial-frontal-guide",
+      "coverageNotice": "正面防护分析 · 提示框局部遮挡"
     },
     {
       "id": "uk_challenger_mk_3",
@@ -13776,9 +15009,9 @@
         "author": "馒头Emoil",
         "publishedAt": "2026-09-18T17:56:17+08:00"
       },
-      "status": "video-reviewed-awaiting-front-image",
+      "status": "partial-frontal-guide",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "testCases": [
         {
           "id": "uk_challenger_2_tes:BV1CueU6cECo:745000",
@@ -13919,12 +15152,11 @@
         "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
         "distanceMeters": 500,
         "displayedPenetrationMm": 472,
-        "impactAngleDegrees": null,
         "sourceTime": 745,
         "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
         "sourceGameVersion": null,
         "caseId": "uk_challenger_2_tes:BV1CueU6cECo:745000",
-        "note": "仅展示已验证的视频案例条件，尚未绑定主图；其他建议仍以各自案例和连续片段来源为准，不继承到未来独立主图。"
+        "note": "主图同帧已核UI条件；右侧提示框有局部遮挡，绿色不保证后效。"
       },
       "testContextEvidence": {
         "id": "uk_challenger_2_tes:BV1CueU6cECo:745000",
@@ -13948,7 +15180,29 @@
         "sourceFrameSHA256": "9b82a4a6b2ee29f210551032899e2fadc00b456d5543051e4369e0ba19462490",
         "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/"
       },
-      "pins": []
+      "pins": [],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/UK-enemy-target-proof-0745.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/012.json",
+      "captureSHA256": "6cb7471411a8622202c6a17a3fe7f9ed434b40f03030bb1e1b3dff1cb262327f",
+      "originalFrameSHA256": "9b82a4a6b2ee29f210551032899e2fadc00b456d5543051e4369e0ba19462490",
+      "time": 745,
+      "crop": [
+        1260,
+        400,
+        1560,
+        900
+      ],
+      "sourceDimensions": [
+        3840,
+        2160
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "正面防护分析；画面右侧提示框局部遮挡，不推断不可见区域。",
+      "imageQuality": "2160p",
+      "coverageStatus": "partial-frontal-guide",
+      "coverageNotice": "正面防护分析 · 提示框局部遮挡"
     },
     {
       "id": "germ_leopard_2a4m_can",
@@ -14225,8 +15479,78 @@
       },
       "weaknessEvidenceStatus": "explicit-location",
       "qualitativeWeakpoints": [],
-      "testCases": [],
-      "testCaseEvidence": {},
+      "testCases": [
+        {
+          "id": "il_merkava_mk_3_raam_segol:BV1PUAezbE1p:629033",
+          "vehicleId": "il_merkava_mk_3_raam_segol",
+          "sourceTime": 629.033,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "attackerEnglishName": "Leopard 2A5",
+          "sourceShellLabelOriginal": "DM33",
+          "shell": "DM33",
+          "rawUIType": null,
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": "2.53.0.109",
+          "actualUIObserved": true,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "17ae70c5cb53d4536ba9901d494ace0cbf17fad622f1689b3b59dfd9a3e93ecc",
+          "sceneKind": "solid-armor-penetration-map",
+          "visibleView": "steep-overhead-oblique",
+          "hasGreenArmorMap": true,
+          "notLevelFrontEvidence": true,
+          "impactAngleDegrees": null,
+          "attacker": "Leopard 2A5",
+          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "germ_leopard_2a5",
+            "mainGun": "120 mm Rh120 L/44 cannon",
+            "officialShellName": "DM33",
+            "sourceShellLabelOriginal": "DM33"
+          },
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot",
+          "conditionNote": "陡俯视参考；防护分布仍在计算，96%为计算进度，不能解读为击穿率。"
+        }
+      ],
+      "testCaseEvidence": {
+        "il_merkava_mk_3_raam_segol:BV1PUAezbE1p:629033": {
+          "id": "il_merkava_mk_3_raam_segol:BV1PUAezbE1p:629033",
+          "vehicleId": "il_merkava_mk_3_raam_segol",
+          "sourceTime": 629.033,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "attackerEnglishName": "Leopard 2A5",
+          "sourceShellLabelOriginal": "DM33",
+          "shell": "DM33",
+          "rawUIType": null,
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": "2.53.0.109",
+          "actualUIObserved": true,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "17ae70c5cb53d4536ba9901d494ace0cbf17fad622f1689b3b59dfd9a3e93ecc",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/six-front-budgeted-20261103/010.json",
+          "proofSHA256": "d4bbec6ed7110740b311a85474c3de73536b2ef03f55afb7572d9930b5335c58",
+          "sceneKind": "solid-armor-penetration-map",
+          "visibleView": "steep-overhead-oblique",
+          "hasGreenArmorMap": true,
+          "notLevelFrontEvidence": true,
+          "notes": [
+            "只记录当帧攻击UI；俯视角不能当水平正面必穿，绿色也不保证后效/击杀。"
+          ]
+        }
+      },
       "videoAdvice": [
         {
           "caseId": null,
@@ -14361,6 +15685,84 @@
             "officialShellName": "DM33",
             "sourceShellLabelOriginal": "DM33"
           }
+        },
+        {
+          "id": "uk_challenger_2_megatron:BV1PUAezbE1p:732000",
+          "vehicleId": "uk_challenger_2_megatron",
+          "sourceTime": 732,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "attackerEnglishName": "Leopard 2A5",
+          "sourceShellLabelOriginal": "DM33",
+          "shell": "DM33",
+          "rawUIType": null,
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": "2.53.0.109",
+          "actualUIObserved": true,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "9b986bfce5fcc30bf48f7007a39d91984509df794ddbbd789942cebfd1aa28a6",
+          "sceneKind": "solid-armor-penetration-map",
+          "visibleView": "front-three-quarter",
+          "hasGreenArmorMap": true,
+          "notLevelFrontEvidence": false,
+          "impactAngleDegrees": null,
+          "attacker": "Leopard 2A5",
+          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "germ_leopard_2a5",
+            "mainGun": "120 mm Rh120 L/44 cannon",
+            "officialShellName": "DM33",
+            "sourceShellLabelOriginal": "DM33"
+          },
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot"
+        },
+        {
+          "id": "uk_challenger_2_megatron:BV1PUAezbE1p:747000",
+          "vehicleId": "uk_challenger_2_megatron",
+          "sourceTime": 747,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "attackerEnglishName": "Leopard 2A5",
+          "sourceShellLabelOriginal": "DM33",
+          "shell": "DM33",
+          "rawUIType": null,
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": "2.53.0.109",
+          "actualUIObserved": true,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "1fcc32c3dcd7f571600ca8a7ea5556a4be4ccc159561346e70d1dcde9380cbd4",
+          "sceneKind": "solid-armor-penetration-map",
+          "visibleView": "near-frontal-slight-oblique",
+          "hasGreenArmorMap": true,
+          "notLevelFrontEvidence": false,
+          "impactAngleDegrees": null,
+          "attacker": "Leopard 2A5",
+          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "germ_leopard_2a5",
+            "mainGun": "120 mm Rh120 L/44 cannon",
+            "officialShellName": "DM33",
+            "sourceShellLabelOriginal": "DM33"
+          },
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot"
         }
       ],
       "testCaseEvidence": {
@@ -14384,6 +15786,62 @@
           "outcome": null,
           "notes": [
             "实际UI条件，不等同独立正向试射；弹种类型/版本未读出留null。"
+          ]
+        },
+        "uk_challenger_2_megatron:BV1PUAezbE1p:732000": {
+          "id": "uk_challenger_2_megatron:BV1PUAezbE1p:732000",
+          "vehicleId": "uk_challenger_2_megatron",
+          "sourceTime": 732,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "attackerEnglishName": "Leopard 2A5",
+          "sourceShellLabelOriginal": "DM33",
+          "shell": "DM33",
+          "rawUIType": null,
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": "2.53.0.109",
+          "actualUIObserved": true,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "9b986bfce5fcc30bf48f7007a39d91984509df794ddbbd789942cebfd1aa28a6",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/six-front-budgeted-20261103/012.json",
+          "proofSHA256": "ad5f65b8acf7029e56253d81c63d9f50d27b14ba3153f8004f605f731967d3ac",
+          "sceneKind": "solid-armor-penetration-map",
+          "visibleView": "front-three-quarter",
+          "hasGreenArmorMap": true,
+          "notLevelFrontEvidence": false,
+          "notes": [
+            "只记录当帧攻击UI；俯视角不能当水平正面必穿，绿色也不保证后效/击杀。"
+          ]
+        },
+        "uk_challenger_2_megatron:BV1PUAezbE1p:747000": {
+          "id": "uk_challenger_2_megatron:BV1PUAezbE1p:747000",
+          "vehicleId": "uk_challenger_2_megatron",
+          "sourceTime": 747,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "attackerVehicleId": "germ_leopard_2a5",
+          "attackerEnglishName": "Leopard 2A5",
+          "sourceShellLabelOriginal": "DM33",
+          "shell": "DM33",
+          "rawUIType": null,
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": "2.53.0.109",
+          "actualUIObserved": true,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "1fcc32c3dcd7f571600ca8a7ea5556a4be4ccc159561346e70d1dcde9380cbd4",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/six-front-budgeted-20261103/013.json",
+          "proofSHA256": "8973d0fc6950b91b5adb9d64478d46ba078304675a6214b752b5e68b8235ff4f",
+          "sceneKind": "solid-armor-penetration-map",
+          "visibleView": "near-frontal-slight-oblique",
+          "hasGreenArmorMap": true,
+          "notLevelFrontEvidence": false,
+          "notes": [
+            "只记录当帧攻击UI；俯视角不能当水平正面必穿，绿色也不保证后效/击杀。"
           ]
         }
       },
@@ -14624,22 +16082,14 @@
         "publishedAt": "2026-02-28T22:59:24+08:00",
         "sourceRestriction": "No explicit no-repost observed in saved normal page; independent license not claimed."
       },
-      "status": "video-reviewed-awaiting-front-image",
+      "status": "partial-frontal-guide",
       "completeIllustration": false,
       "testContext": {
         "attacker": "Leopard 2A5",
+        "attackerVehicleId": "germ_leopard_2a5",
         "shell": "DM33",
         "shellTypeCode": "APFSDS",
         "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
-        "distanceMeters": 500,
-        "displayedPenetrationMm": 472,
-        "impactAngleDegrees": null,
-        "sourceTime": 740.017,
-        "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
-        "sourceGameVersion": null,
-        "caseId": "uk_challenger_2_megatron:BV1PUAezbE1p:740017",
-        "note": "原视频独立防护分析UI条件，未据静态绿色区域推断实战命中后效；作者未测试的一般建议另列。",
-        "rawUIType": null,
         "shellTypeReference": {
           "sourceBasis": "official-Wiki-reference",
           "url": "https://wiki.warthunder.com/unit/germ_leopard_2a5",
@@ -14649,7 +16099,16 @@
           "mainGun": "120 mm Rh120 L/44 cannon",
           "officialShellName": "DM33",
           "sourceShellLabelOriginal": "DM33"
-        }
+        },
+        "rawUIType": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "impactAngleDegrees": null,
+        "sourceTime": 747,
+        "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+        "sourceGameVersion": "2.53.0.109",
+        "caseId": "uk_challenger_2_megatron:BV1PUAezbE1p:747000",
+        "note": "主图同帧静态UI条件；作者的一般建议另列，绿色不保证实战后效。"
       },
       "testContextEvidence": {
         "id": "uk_challenger_2_megatron:BV1PUAezbE1p:740017",
@@ -14680,7 +16139,31 @@
       "frontSummaryAdviceIDs": [
         "BV1PUAezbE1p:716000-735900:challenger-oes:0",
         "BV1PUAezbE1p:735900-751000:oes-continuation:0"
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/six-front-budgeted-20261103/GBR-ChallengerOES-remaining-front-sample-0747.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/six-front-budgeted-20261103/013.json",
+      "captureSHA256": "61d07b3720e934e7559c163cdd9aff7a05f15b617c2b799311087d2124ce4172",
+      "originalFrameSHA256": "1fcc32c3dcd7f571600ca8a7ea5556a4be4ccc159561346e70d1dcde9380cbd4",
+      "time": 747,
+      "crop": [
+        500,
+        230,
+        800,
+        600
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "near-frontal-slight-oblique",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "近正面略斜防护分析；右缘提示框靠近前脸与履带，不推断遮挡区域。",
+      "imageQuality": "1080p",
+      "mainImageUsable": true,
+      "pins": [],
+      "coverageStatus": "partial-frontal-guide",
+      "coverageNotice": "近正面防护分析 · 区域指引待补"
     },
     {
       "id": "uk_khalid",
@@ -15920,9 +17403,27 @@
       "era": null,
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "videoAdvice": [
+        {
+          "id": "fr_leclerc_azur:BV1CueU6cECo:author-family-guidance",
+          "label": "避开保险杠与炮塔两侧",
+          "text": "作者对勒克莱尔家族的建议是避开车体前方保险杠及炮塔两侧；这是家族范围建议，并非每个改型独立试射。",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 774,
+          "caseId": null,
+          "relatedCaseId": "fr_leclerc_azur:BV1CueU6cECo:774000",
+          "conditionMatch": "family-author-context-not-independent-same-frame-test",
+          "mainImageMatch": "same-source-different-observation",
+          "kind": "author-general-family-recommendation"
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "status": "partial-frontal-guide",
       "wikiUrl": "https://wiki.warthunder.com/unit/fr_leclerc_azur",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/fr_leclerc_azur.json",
@@ -15944,13 +17445,187 @@
       "collectedAt": "2026-11-02T11:42:48.746Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "原页未给出AZUR精确改型形成日期。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
-      ]
+      ],
+      "testCases": [
+        {
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerVisibleTitle": "90 式战车 B 型（富士教导团）",
+          "attackerCountry": "japan",
+          "basis": "left attack-source UI; not filming account own vehicle",
+          "shell": "JM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "sourceGameVersionPartial": "2.59.0.9… (right edge clipped)",
+          "actualShotObserved": false,
+          "outcome": null,
+          "id": "fr_leclerc_azur:BV1CueU6cECo:774000",
+          "vehicleId": "fr_leclerc_azur",
+          "sourceTime": 774,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceFrameSHA256": "a251ec1b563df3476ecf128f33901346e10c933e87ad665cd56174c0249c64df",
+          "actualUIObserved": true,
+          "rawUIType": null,
+          "impactAngleDegrees": null,
+          "attacker": "90 式战车 B 型（富士教导团）",
+          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "jp_type_90b_camo",
+            "mainGun": "120 mm Type 90 L/44 cannon",
+            "officialShellName": "JM33",
+            "sourceShellLabelOriginal": "JM33"
+          },
+          "sourceShellLabelOriginal": "JM33",
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot"
+        },
+        {
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerVisibleTitle": "90 式战车 B 型（富士教导团）",
+          "attackerCountry": "japan",
+          "basis": "left attack-source UI; not filming account own vehicle",
+          "shell": "JM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "sourceGameVersionPartial": "2.59.0.9… (right edge clipped)",
+          "actualShotObserved": false,
+          "outcome": null,
+          "id": "fr_leclerc_azur:BV1CueU6cECo:779000",
+          "vehicleId": "fr_leclerc_azur",
+          "sourceTime": 779,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceFrameSHA256": "d2276d4b9bee86a6ebb4058ab50574cf6b49c5857d1e041f37ac940c9f4bc22d",
+          "actualUIObserved": true,
+          "rawUIType": null,
+          "impactAngleDegrees": null,
+          "attacker": "90 式战车 B 型（富士教导团）",
+          "verificationStatus": "source-reported-native-UI-no-successful-shot-claimed",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "jp_type_90b_camo",
+            "mainGun": "120 mm Type 90 L/44 cannon",
+            "officialShellName": "JM33",
+            "sourceShellLabelOriginal": "JM33"
+          },
+          "sourceShellLabelOriginal": "JM33",
+          "evidenceKind": "actual-UI-applied-conditions-not-independent-successful-shot"
+        }
+      ],
+      "testCaseEvidence": {
+        "fr_leclerc_azur:BV1CueU6cECo:774000": {
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerVisibleTitle": "90 式战车 B 型（富士教导团）",
+          "attackerCountry": "japan",
+          "basis": "left attack-source UI; not filming account own vehicle",
+          "shell": "JM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "sourceGameVersionPartial": "2.59.0.9… (right edge clipped)",
+          "actualShotObserved": false,
+          "outcome": null,
+          "id": "fr_leclerc_azur:BV1CueU6cECo:774000",
+          "vehicleId": "fr_leclerc_azur",
+          "sourceTime": 774,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceFrameSHA256": "a251ec1b563df3476ecf128f33901346e10c933e87ad665cd56174c0249c64df",
+          "proofSnapshot": "artifacts/tank-weakpoints-expansion-20261102/sources/six-front-budgeted-20261103/017.json",
+          "proofSHA256": "c688db7f737eca10286ebe9b345e39d0f2877ef001d3bd5b149dc7ad4854a8f8",
+          "actualUIObserved": true
+        },
+        "fr_leclerc_azur:BV1CueU6cECo:779000": {
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerVisibleTitle": "90 式战车 B 型（富士教导团）",
+          "attackerCountry": "japan",
+          "basis": "left attack-source UI; not filming account own vehicle",
+          "shell": "JM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "sourceGameVersionPartial": "2.59.0.9… (right edge clipped)",
+          "actualShotObserved": false,
+          "outcome": null,
+          "id": "fr_leclerc_azur:BV1CueU6cECo:779000",
+          "vehicleId": "fr_leclerc_azur",
+          "sourceTime": 779,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceFrameSHA256": "d2276d4b9bee86a6ebb4058ab50574cf6b49c5857d1e041f37ac940c9f4bc22d",
+          "proofSnapshot": "artifacts/tank-weakpoints-expansion-20261102/sources/six-front-budgeted-20261103/018.json",
+          "proofSHA256": "f88939ad234fa3e2ae1dfe573c332116a45ae40a4c8a0c7db94fae7d5fbb206d",
+          "actualUIObserved": true
+        }
+      },
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/six-front-budgeted-20261103/FRA-LeclercAZUR-remaining-front-sample-0774.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/six-front-budgeted-20261103/017.json",
+      "captureSHA256": "a3ee6eb21d67be058be266575a95cf7a6b4e53539352aa08f828a883d0d34156",
+      "originalFrameSHA256": "a251ec1b563df3476ecf128f33901346e10c933e87ad665cd56174c0249c64df",
+      "time": 774,
+      "crop": [
+        690,
+        260,
+        650,
+        400
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "前视防护分析，车辆无遮挡；绿色仅为当前UI条件下的防护分布，不保证后效。",
+      "imageQuality": "1080p",
+      "coverageStatus": "partial-frontal-guide",
+      "coverageNotice": "正面防护分析 · 区域指引待补",
+      "testContext": {
+        "attacker": "90 式战车 B 型（富士教导团）",
+        "attackerVehicleId": "jp_type_90b_camo",
+        "shell": "JM33",
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "jp_type_90b_camo",
+          "mainGun": "120 mm Type 90 L/44 cannon",
+          "officialShellName": "JM33",
+          "sourceShellLabelOriginal": "JM33"
+        },
+        "rawUIType": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "impactAngleDegrees": null,
+        "sourceTime": 774,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "sourceGameVersion": null,
+        "caseId": "fr_leclerc_azur:BV1CueU6cECo:774000",
+        "note": "主图同帧静态UI条件；作者的一般建议另列，绿色不保证实战后效。",
+        "sourceGameVersionPartial": "2.59.0.9… (right edge clipped)"
+      },
+      "frontSummary": "作者对勒克莱尔家族的建议是避开车体前方保险杠及炮塔两侧；这是家族范围建议，并非每个改型独立试射。"
     },
     {
       "id": "sw_strv_122b_plus",
@@ -19760,7 +21435,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 30,
+    "illustratedCount": 40,
     "countries": [
       {
         "country": "usa",
@@ -19896,7 +21571,7 @@
     "lastUpdated": "2026-11-02",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 28,
+    "illustratedTargetCount": 38,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,
