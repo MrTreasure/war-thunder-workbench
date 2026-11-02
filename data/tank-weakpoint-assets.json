@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "0514380fa673b8ffc607381b869f8e2528123c53",
+  "commit": "4aa199c1c38bbef14d64382340d28300c1200157",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -344,6 +344,60 @@
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/USA/USA-M1A1-Click-Bait-front.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/USA/USA-M1A1-Click-Bait-front.webp",
         "commit": "0514380fa673b8ffc607381b869f8e2528123c53"
+      }
+    },
+    "jp_type_10_prototype": {
+      "raw": {
+        "path": "images/JPN/JPN-TKX-P-full.webp",
+        "sha256": "15412a934cd6a50d325241f72ee3ed00ef246a789154cd31cd5af7c730fc2cb7",
+        "bytes": 1264982,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4aa199c1c38bbef14d64382340d28300c1200157/images/JPN/JPN-TKX-P-full.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4aa199c1c38bbef14d64382340d28300c1200157/images/JPN/JPN-TKX-P-full.webp",
+        "commit": "4aa199c1c38bbef14d64382340d28300c1200157"
+      },
+      "photo": {
+        "path": "images/JPN/JPN-TKX-P-front.webp",
+        "sha256": "fa9ec0a0122d741d094b9eb44ebcbbda2780c4774a6ea7e0628c2b25df954d97",
+        "bytes": 191444,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4aa199c1c38bbef14d64382340d28300c1200157/images/JPN/JPN-TKX-P-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4aa199c1c38bbef14d64382340d28300c1200157/images/JPN/JPN-TKX-P-front.webp",
+        "commit": "4aa199c1c38bbef14d64382340d28300c1200157"
+      }
+    },
+    "it_ariete_amv_pt1": {
+      "raw": {
+        "path": "images/ITA/ITA-Ariete-AMV-full.webp",
+        "sha256": "1aec4ff871d70100a8ee233a85755971e2b85a52065a0e241abe90a682d1acb8",
+        "bytes": 1311088,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4aa199c1c38bbef14d64382340d28300c1200157/images/ITA/ITA-Ariete-AMV-full.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4aa199c1c38bbef14d64382340d28300c1200157/images/ITA/ITA-Ariete-AMV-full.webp",
+        "commit": "4aa199c1c38bbef14d64382340d28300c1200157"
+      },
+      "photo": {
+        "path": "images/ITA/ITA-Ariete-AMV-front.webp",
+        "sha256": "d4cab3bfd893ee464669a51a596d3b9935113ebff35598f5a0ea3eaa781ca1c2",
+        "bytes": 190316,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4aa199c1c38bbef14d64382340d28300c1200157/images/ITA/ITA-Ariete-AMV-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4aa199c1c38bbef14d64382340d28300c1200157/images/ITA/ITA-Ariete-AMV-front.webp",
+        "commit": "4aa199c1c38bbef14d64382340d28300c1200157"
+      }
+    },
+    "cn_ztz_99a": {
+      "raw": {
+        "path": "images/CHN/CHN-ZTZ99A-full.webp",
+        "sha256": "dc1eb11562ae0cbcad4d1d968939dea042c729e9b372705ac92c639f7d4a9d63",
+        "bytes": 1282944,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4aa199c1c38bbef14d64382340d28300c1200157/images/CHN/CHN-ZTZ99A-full.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4aa199c1c38bbef14d64382340d28300c1200157/images/CHN/CHN-ZTZ99A-full.webp",
+        "commit": "4aa199c1c38bbef14d64382340d28300c1200157"
+      },
+      "photo": {
+        "path": "images/CHN/CHN-ZTZ99A-front.webp",
+        "sha256": "d365c92834d734761d6e425292eb0766e93c2529fd2d6da84f72fb8dfba148df",
+        "bytes": 180262,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4aa199c1c38bbef14d64382340d28300c1200157/images/CHN/CHN-ZTZ99A-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4aa199c1c38bbef14d64382340d28300c1200157/images/CHN/CHN-ZTZ99A-front.webp",
+        "commit": "4aa199c1c38bbef14d64382340d28300c1200157"
       }
     }
   },
@@ -6723,6 +6777,234 @@
       "commit": "0514380fa673b8ffc607381b869f8e2528123c53",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@0514380fa673b8ffc607381b869f8e2528123c53/images/USA/USA-M1A1-Click-Bait-front.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/0514380fa673b8ffc607381b869f8e2528123c53/images/USA/USA-M1A1-Click-Bait-front.webp"
+    },
+    {
+      "id": "15412a934cd6a50d325241f72ee3ed00ef246a789154cd31cd5af7c730fc2cb7",
+      "path": "images/JPN/JPN-TKX-P-full.webp",
+      "sha256": "15412a934cd6a50d325241f72ee3ed00ef246a789154cd31cd5af7c730fc2cb7",
+      "bytes": 1264982,
+      "width": 1920,
+      "height": 1080,
+      "vehicleId": "jp_type_10_prototype",
+      "vehicleEnglishName": "TKX (P)",
+      "country": "JPN",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "sourceFrameSHA256": "beccff3a323957c8946e03cd2dab9b099ca1d8ab6a109363e97c6cbe551cdd49",
+      "proofSnapshotSHA256": "7dcf8289bb5c375a64c22cd262e25fb8317d0f0d37795868651c7fdb3a061e37",
+      "mediaTime": 809,
+      "actualTime": 809,
+      "caseId": "jp_type_10_prototype:BV1CueU6cECo:809000",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": false,
+      "sceneKind": "front-native-green-regions",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "commit": "4aa199c1c38bbef14d64382340d28300c1200157",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4aa199c1c38bbef14d64382340d28300c1200157/images/JPN/JPN-TKX-P-full.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4aa199c1c38bbef14d64382340d28300c1200157/images/JPN/JPN-TKX-P-full.webp"
+    },
+    {
+      "id": "fa9ec0a0122d741d094b9eb44ebcbbda2780c4774a6ea7e0628c2b25df954d97",
+      "path": "images/JPN/JPN-TKX-P-front.webp",
+      "sha256": "fa9ec0a0122d741d094b9eb44ebcbbda2780c4774a6ea7e0628c2b25df954d97",
+      "bytes": 191444,
+      "width": 650,
+      "height": 460,
+      "vehicleId": "jp_type_10_prototype",
+      "vehicleEnglishName": "TKX (P)",
+      "country": "JPN",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "sourceFrameSHA256": "beccff3a323957c8946e03cd2dab9b099ca1d8ab6a109363e97c6cbe551cdd49",
+      "proofSnapshotSHA256": "7dcf8289bb5c375a64c22cd262e25fb8317d0f0d37795868651c7fdb3a061e37",
+      "mediaTime": 809,
+      "actualTime": 809,
+      "caseId": "jp_type_10_prototype:BV1CueU6cECo:809000",
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "photo"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": true,
+      "sceneKind": "front-native-green-regions",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "crop": [
+        640,
+        190,
+        650,
+        460
+      ],
+      "commit": "4aa199c1c38bbef14d64382340d28300c1200157",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4aa199c1c38bbef14d64382340d28300c1200157/images/JPN/JPN-TKX-P-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4aa199c1c38bbef14d64382340d28300c1200157/images/JPN/JPN-TKX-P-front.webp"
+    },
+    {
+      "id": "1aec4ff871d70100a8ee233a85755971e2b85a52065a0e241abe90a682d1acb8",
+      "path": "images/ITA/ITA-Ariete-AMV-full.webp",
+      "sha256": "1aec4ff871d70100a8ee233a85755971e2b85a52065a0e241abe90a682d1acb8",
+      "bytes": 1311088,
+      "width": 1920,
+      "height": 1080,
+      "vehicleId": "it_ariete_amv_pt1",
+      "vehicleEnglishName": "Ariete AMV",
+      "country": "ITA",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "sourceFrameSHA256": "b0debbb3c9ab88767663d1513e5dbd76d58dce65b64d9fc6b455e1e267f1728c",
+      "proofSnapshotSHA256": "606c3d6bf454d859829d10054ecefbfc1faa61f87a903df2d4b5eae18679ad7a",
+      "mediaTime": 852.016687,
+      "actualTime": 852.016687,
+      "caseId": "it_ariete_amv_pt1:BV1CueU6cECo:852017",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": false,
+      "sceneKind": "front-native-green-regions",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "commit": "4aa199c1c38bbef14d64382340d28300c1200157",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4aa199c1c38bbef14d64382340d28300c1200157/images/ITA/ITA-Ariete-AMV-full.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4aa199c1c38bbef14d64382340d28300c1200157/images/ITA/ITA-Ariete-AMV-full.webp"
+    },
+    {
+      "id": "d4cab3bfd893ee464669a51a596d3b9935113ebff35598f5a0ea3eaa781ca1c2",
+      "path": "images/ITA/ITA-Ariete-AMV-front.webp",
+      "sha256": "d4cab3bfd893ee464669a51a596d3b9935113ebff35598f5a0ea3eaa781ca1c2",
+      "bytes": 190316,
+      "width": 650,
+      "height": 460,
+      "vehicleId": "it_ariete_amv_pt1",
+      "vehicleEnglishName": "Ariete AMV",
+      "country": "ITA",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "sourceFrameSHA256": "b0debbb3c9ab88767663d1513e5dbd76d58dce65b64d9fc6b455e1e267f1728c",
+      "proofSnapshotSHA256": "606c3d6bf454d859829d10054ecefbfc1faa61f87a903df2d4b5eae18679ad7a",
+      "mediaTime": 852.016687,
+      "actualTime": 852.016687,
+      "caseId": "it_ariete_amv_pt1:BV1CueU6cECo:852017",
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "photo"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": true,
+      "sceneKind": "front-native-green-regions",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "crop": [
+        640,
+        190,
+        650,
+        460
+      ],
+      "commit": "4aa199c1c38bbef14d64382340d28300c1200157",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4aa199c1c38bbef14d64382340d28300c1200157/images/ITA/ITA-Ariete-AMV-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4aa199c1c38bbef14d64382340d28300c1200157/images/ITA/ITA-Ariete-AMV-front.webp"
+    },
+    {
+      "id": "dc1eb11562ae0cbcad4d1d968939dea042c729e9b372705ac92c639f7d4a9d63",
+      "path": "images/CHN/CHN-ZTZ99A-full.webp",
+      "sha256": "dc1eb11562ae0cbcad4d1d968939dea042c729e9b372705ac92c639f7d4a9d63",
+      "bytes": 1282944,
+      "width": 1920,
+      "height": 1080,
+      "vehicleId": "cn_ztz_99a",
+      "vehicleEnglishName": "ZTZ99A",
+      "country": "CHN",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "sourceFrameSHA256": "21f9a1e5c114f77d8ea9b647c12fb78ed805a4f3b0d3b015dfdb440049c8c65d",
+      "proofSnapshotSHA256": "f6d86159abb7077b64f2234c2108ae42a9df65222acf086249ea7b949fe4e2ad",
+      "mediaTime": 900,
+      "actualTime": 900,
+      "caseId": "cn_ztz_99a:BV1CueU6cECo:900000",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": false,
+      "sceneKind": "front-native-green-regions",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "commit": "4aa199c1c38bbef14d64382340d28300c1200157",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4aa199c1c38bbef14d64382340d28300c1200157/images/CHN/CHN-ZTZ99A-full.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4aa199c1c38bbef14d64382340d28300c1200157/images/CHN/CHN-ZTZ99A-full.webp"
+    },
+    {
+      "id": "d365c92834d734761d6e425292eb0766e93c2529fd2d6da84f72fb8dfba148df",
+      "path": "images/CHN/CHN-ZTZ99A-front.webp",
+      "sha256": "d365c92834d734761d6e425292eb0766e93c2529fd2d6da84f72fb8dfba148df",
+      "bytes": 180262,
+      "width": 650,
+      "height": 460,
+      "vehicleId": "cn_ztz_99a",
+      "vehicleEnglishName": "ZTZ99A",
+      "country": "CHN",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "sourceFrameSHA256": "21f9a1e5c114f77d8ea9b647c12fb78ed805a4f3b0d3b015dfdb440049c8c65d",
+      "proofSnapshotSHA256": "f6d86159abb7077b64f2234c2108ae42a9df65222acf086249ea7b949fe4e2ad",
+      "mediaTime": 900,
+      "actualTime": 900,
+      "caseId": "cn_ztz_99a:BV1CueU6cECo:900000",
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "photo"
+      ],
+      "encoding": "lossless-webp",
+      "mainImageUsable": true,
+      "sceneKind": "front-native-green-regions",
+      "visibleView": "front",
+      "vehicleIdentityStatus": "confirmed",
+      "inOriginalScope": true,
+      "crop": [
+        640,
+        190,
+        650,
+        460
+      ],
+      "commit": "4aa199c1c38bbef14d64382340d28300c1200157",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4aa199c1c38bbef14d64382340d28300c1200157/images/CHN/CHN-ZTZ99A-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4aa199c1c38bbef14d64382340d28300c1200157/images/CHN/CHN-ZTZ99A-front.webp"
     }
   ]
 }

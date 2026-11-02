@@ -1411,16 +1411,252 @@
         "note": "自动装填；Wiki 主炮面板。"
       },
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-video",
+      "videoAdvice": [
+        {
+          "id": "BV1CueU6cECo:tail:5:general",
+          "caseId": null,
+          "sourceTime": 883.698224,
+          "sourceTimeRange": [
+            883.698224,
+            908.266228
+          ],
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "text": "作者对96／99／VT4系列建议转向首下、炮塔顶部和三角区，提醒靠近炮闩的耳轴可能吸收炮弹。本帧目标为ZTZ99A；不同区域与作者的群体经验分别保留，不将它们描述成同一个必穿孔洞。",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "author-general-region-and-postpenetration-advice",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": [
+            {
+              "text": "然后是我们的9699系列",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 883.698224,
+              "lastObservedMediaTime": 885.736867,
+              "firstObservedAt": "2026-11-02T16:31:46.365Z",
+              "lastObservedAt": "2026-11-02T16:31:47.385Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0864-0974-normal-playback-subtitles.json"
+            },
+            {
+              "text": "因为手上有更好的装甲",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 886.236277,
+              "lastObservedMediaTime": 887.269549,
+              "firstObservedAt": "2026-11-02T16:31:47.639Z",
+              "lastObservedAt": "2026-11-02T16:31:48.154Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0864-0974-normal-playback-subtitles.json"
+            },
+            {
+              "text": "所以无法在手上造成有效的伤害",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 887.787113,
+              "lastObservedMediaTime": 889.84566,
+              "firstObservedAt": "2026-11-02T16:31:48.409Z",
+              "lastObservedAt": "2026-11-02T16:31:49.442Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0864-0974-normal-playback-subtitles.json"
+            },
+            {
+              "text": "但是和俄联邦存在一样的问题",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 890.36478,
+              "lastObservedMediaTime": 891.911586,
+              "firstObservedAt": "2026-11-02T16:31:49.699Z",
+              "lastObservedAt": "2026-11-02T16:31:50.469Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0864-0974-normal-playback-subtitles.json"
+            },
+            {
+              "text": "甚至是俄联邦的弱点放大版本",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 892.42038,
+              "lastObservedMediaTime": 894.472763,
+              "firstObservedAt": "2026-11-02T16:31:50.729Z",
+              "lastObservedAt": "2026-11-02T16:31:51.753Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0864-0974-normal-playback-subtitles.json"
+            },
+            {
+              "text": "炮栓头皮以及裤裆的弱区更大",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 894.9407,
+              "lastObservedMediaTime": 897.674984,
+              "firstObservedAt": "2026-11-02T16:31:52.010Z",
+              "lastObservedAt": "2026-11-02T16:31:53.372Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0864-0974-normal-playback-subtitles.json"
+            },
+            {
+              "text": "所以在应对中系载具时",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 898.169959,
+              "lastObservedMediaTime": 899.661043,
+              "firstObservedAt": "2026-11-02T16:31:53.627Z",
+              "lastObservedAt": "2026-11-02T16:31:54.386Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0864-0974-normal-playback-subtitles.json"
+            },
+            {
+              "text": "依旧是瞄裤裆头皮以及三角区进行攻击",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 900.146147,
+              "lastObservedMediaTime": 903.214715,
+              "firstObservedAt": "2026-11-02T16:31:54.638Z",
+              "lastObservedAt": "2026-11-02T16:31:56.168Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0864-0974-normal-playback-subtitles.json"
+            },
+            {
+              "text": "就是注意不要打到靠近炮栓的耳轴区域",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 903.668806,
+              "lastObservedMediaTime": 906.212661,
+              "firstObservedAt": "2026-11-02T16:31:56.420Z",
+              "lastObservedAt": "2026-11-02T16:31:57.692Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0864-0974-normal-playback-subtitles.json"
+            },
+            {
+              "text": "会被吞炮弹",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 906.730102,
+              "lastObservedMediaTime": 908.266228,
+              "firstObservedAt": "2026-11-02T16:31:57.947Z",
+              "lastObservedAt": "2026-11-02T16:31:58.711Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0864-0974-normal-playback-subtitles.json"
+            }
+          ],
+          "testContext": null,
+          "relatedCaseId": "cn_ztz_99a:BV1CueU6cECo:900000",
+          "relatedCaseRelationship": "same-narrated-chapter-but-group-claim-not-individual-successful-shot",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/"
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "status": "native-front-protection-analysis-with-author-advice",
       "collectedAt": "2026-11-02",
-      "weaknessEvidenceStatus": "general-context-only",
+      "weaknessEvidenceStatus": "native-front-analysis-with-author-family-context",
       "country": "china",
       "countryName": "中国",
       "rank": 8,
       "era": "modern",
-      "scopeRole": "medium_tank"
+      "scopeRole": "medium_tank",
+      "testCases": [
+        {
+          "id": "cn_ztz_99a:BV1CueU6cECo:900000",
+          "vehicleId": "cn_ztz_99a",
+          "sourceTime": 900,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerEnglishName": "Type 90B (Fuji)",
+          "shell": "JM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "21f9a1e5c114f77d8ea9b647c12fb78ed805a4f3b0d3b015dfdb440049c8c65d",
+          "proofSHA256": "f6d86159abb7077b64f2234c2108ae42a9df65222acf086249ea7b949fe4e2ad",
+          "notes": [
+            "实际UI条件独立读取，非口述组句推导；静态分析不声称成功试射。"
+          ],
+          "attacker": "Type 90B (Fuji)",
+          "shellTypeCode": null,
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+        }
+      ],
+      "testCaseEvidence": {
+        "cn_ztz_99a:BV1CueU6cECo:900000": {
+          "id": "cn_ztz_99a:BV1CueU6cECo:900000",
+          "vehicleId": "cn_ztz_99a",
+          "sourceTime": 900,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerEnglishName": "Type 90B (Fuji)",
+          "shell": "JM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "21f9a1e5c114f77d8ea9b647c12fb78ed805a4f3b0d3b015dfdb440049c8c65d",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/049.json",
+          "proofSHA256": "f6d86159abb7077b64f2234c2108ae42a9df65222acf086249ea7b949fe4e2ad",
+          "attackUICrop": "artifacts/tank-weakpoints-expansion-20261102/video-batches/parsed-BV1CueU6cECo-tail755-1019-batch-003-identities/cn_ztz_99a-attack-ui-native.webp",
+          "attackUICropSHA256": "6be9737f9d2d87fed7f73639cb943a780913d7db9131f41f776d117ce5500af0",
+          "notes": [
+            "实际UI条件独立读取，非口述组句推导；静态分析不声称成功试射。"
+          ]
+        }
+      },
+      "completeIllustration": false,
+      "testContext": {
+        "attacker": "Type 90B (Fuji)",
+        "attackerVehicleId": "jp_type_90b_camo",
+        "shell": "JM33",
+        "shellTypeCode": null,
+        "shellTypeLabel": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "impactAngleDegrees": null,
+        "sourceTime": 900,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "sourceGameVersion": null,
+        "caseId": "cn_ztz_99a:BV1CueU6cECo:900000",
+        "note": "本帧原生防护分析条件；静态绿色区域不代表独立成功试射。"
+      },
+      "testContextEvidence": {
+        "id": "cn_ztz_99a:BV1CueU6cECo:900000",
+        "vehicleId": "cn_ztz_99a",
+        "sourceTime": 900,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "attackerVehicleId": "jp_type_90b_camo",
+        "attackerEnglishName": "Type 90B (Fuji)",
+        "shell": "JM33",
+        "shellType": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceGameVersion": null,
+        "actualShotObserved": false,
+        "outcome": null,
+        "sourceFrameSHA256": "21f9a1e5c114f77d8ea9b647c12fb78ed805a4f3b0d3b015dfdb440049c8c65d",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/049.json",
+        "proofSHA256": "f6d86159abb7077b64f2234c2108ae42a9df65222acf086249ea7b949fe4e2ad",
+        "attackUICrop": "artifacts/tank-weakpoints-expansion-20261102/video-batches/parsed-BV1CueU6cECo-tail755-1019-batch-003-identities/cn_ztz_99a-attack-ui-native.webp",
+        "attackUICropSHA256": "6be9737f9d2d87fed7f73639cb943a780913d7db9131f41f776d117ce5500af0",
+        "notes": [
+          "实际UI条件独立读取，非口述组句推导；静态分析不声称成功试射。"
+        ]
+      },
+      "frontSummary": "作者对96／99／VT4系列建议转向首下、炮塔顶部和三角区，提醒靠近炮闩的耳轴可能吸收炮弹。本帧目标为ZTZ99A；不同区域与作者的群体经验分别保留，不将它们描述成同一个必穿孔洞。",
+      "frontSummaryAdviceIDs": [
+        "BV1CueU6cECo:tail:5:general"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/CHN-ZTZ-family-identity-probe-0900.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/049.json",
+      "captureSHA256": "dc1eb11562ae0cbcad4d1d968939dea042c729e9b372705ac92c639f7d4a9d63",
+      "originalFrameSHA256": "21f9a1e5c114f77d8ea9b647c12fb78ed805a4f3b0d3b015dfdb440049c8c65d",
+      "time": 900,
+      "crop": [
+        640,
+        190,
+        650,
+        460
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageQuality": "1080p",
+      "imageView": "front",
+      "imageViewDetail": "front-native-green-regions",
+      "mainViewKind": "protection-analysis",
+      "mainImageUsable": true,
+      "mainViewNote": "原视频实际绿色防护区域，保留原生像素；不添加或扩大游戏着色。",
+      "coverageStatus": "partial-front-analysis-no-verified-pins",
+      "coverageNotice": "已有绿色防护分析 · 局部标点待补",
+      "missingEvidence": [
+        "暂无独立正向试射结果及已核对的局部UV标点，不计完整图解。"
+      ]
     },
     {
       "id": "fr_leclerc_s1",
@@ -6430,9 +6666,154 @@
       "eraBasis": "现有unit页面没有足够明确的具体技术改型形成日期；不以采购、改装交付或游戏引入日期推断。",
       "collectedAt": "2026-11-02T09:05:56.037Z",
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "videoAdvice": [
+        {
+          "id": "BV1CueU6cECo:tail:2:general",
+          "caseId": null,
+          "sourceTime": 796.894113,
+          "sourceTimeRange": [
+            796.894113,
+            826.164353
+          ],
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "text": "作者对这组日系车型更推荐炮塔与车体连接处，提醒车首横条和油箱可能使射击后效变差。画面目标已核为TKX（P）；这些是作者的条件性经验，绿色分析不等于每个角度都能一击击毁。",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "author-general-region-and-postpenetration-advice",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": [
+            {
+              "text": "九零的防护在开头介绍过了",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 796.894113,
+              "lastObservedMediaTime": 798.437799,
+              "firstObservedAt": "2026-11-02T16:31:01.480Z",
+              "lastObservedAt": "2026-11-02T16:31:02.243Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "我们就不说了",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 798.948857,
+              "lastObservedMediaTime": 799.913156,
+              "firstObservedAt": "2026-11-02T16:31:02.496Z",
+              "lastObservedAt": "2026-11-02T16:31:03.001Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "主要有问题的就是两辆徐氏以及一辆原型车",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 800.401238,
+              "lastObservedMediaTime": 802.93639,
+              "firstObservedAt": "2026-11-02T16:31:03.252Z",
+              "lastObservedAt": "2026-11-02T16:31:04.516Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "它们跟乐扣有点类似",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 803.449241,
+              "lastObservedMediaTime": 804.970933,
+              "firstObservedAt": "2026-11-02T16:31:04.770Z",
+              "lastObservedAt": "2026-11-02T16:31:05.529Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "车体正面都有一条保险杠",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 805.472074,
+              "lastObservedMediaTime": 807.029427,
+              "firstObservedAt": "2026-11-02T16:31:05.785Z",
+              "lastObservedAt": "2026-11-02T16:31:06.560Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "搭上去是一点用没有的",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 807.541283,
+              "lastObservedMediaTime": 808.546184,
+              "firstObservedAt": "2026-11-02T16:31:06.814Z",
+              "lastObservedAt": "2026-11-02T16:31:07.319Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "打这三辆车最有用的就是脖子打",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 809.037808,
+              "lastObservedMediaTime": 811.575881,
+              "firstObservedAt": "2026-11-02T16:31:07.571Z",
+              "lastObservedAt": "2026-11-02T16:31:08.835Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "车体可能会被油箱吸后效或者打低了",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 812.051539,
+              "lastObservedMediaTime": 814.595073,
+              "firstObservedAt": "2026-11-02T16:31:09.088Z",
+              "lastObservedAt": "2026-11-02T16:31:10.358Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "导致后效不够",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 815.090549,
+              "lastObservedMediaTime": 815.614522,
+              "firstObservedAt": "2026-11-02T16:31:10.616Z",
+              "lastObservedAt": "2026-11-02T16:31:10.873Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "但日系顶级主战通病就是脖子非常薄",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 816.128555,
+              "lastObservedMediaTime": 818.229743,
+              "firstObservedAt": "2026-11-02T16:31:11.129Z",
+              "lastObservedAt": "2026-11-02T16:31:12.184Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "从这里打进去不是死了就是废了",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 818.747393,
+              "lastObservedMediaTime": 821.093061,
+              "firstObservedAt": "2026-11-02T16:31:12.443Z",
+              "lastObservedAt": "2026-11-02T16:31:13.749Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "所以碰到日系内战",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 821.620025,
+              "lastObservedMediaTime": 822.629805,
+              "firstObservedAt": "2026-11-02T16:31:14.003Z",
+              "lastObservedAt": "2026-11-02T16:31:14.519Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "知道该怎么拷打对面的日系了吗",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 823.171932,
+              "lastObservedMediaTime": 826.164353,
+              "firstObservedAt": "2026-11-02T16:31:14.778Z",
+              "lastObservedAt": "2026-11-02T16:31:16.320Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            }
+          ],
+          "testContext": null,
+          "relatedCaseId": "jp_type_10_prototype:BV1CueU6cECo:809000",
+          "relatedCaseRelationship": "same-narrated-chapter-but-group-claim-not-individual-successful-shot",
+          "identityClarification": "809 native target and attacker both TKX(P), exact jp_type_10_prototype; group narration does not validate other Type10/TKX variants.",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/"
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "status": "native-front-protection-analysis-with-author-advice",
       "wikiUrl": "https://wiki.warthunder.com/unit/jp_type_10_prototype",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-005-20261102/snapshots/jp_type_10_prototype.json",
@@ -6451,7 +6832,7 @@
         "mechanism": "automatic",
         "note": "仅解析主炮首段；主炮自动装填面板值不代表无限持续射击。"
       },
-      "weaknessEvidenceStatus": "explicit-location",
+      "weaknessEvidenceStatus": "native-front-analysis-with-author-family-context",
       "qualitativeWeakpoints": [
         {
           "locationZh": "炮塔侧面",
@@ -6459,9 +6840,128 @@
         }
       ],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。",
+        "暂无独立正向试射结果及已核对的局部UV标点，不计完整图解。",
         "具体改型年代待核实，era保留null。"
-      ]
+      ],
+      "testCases": [
+        {
+          "id": "jp_type_10_prototype:BV1CueU6cECo:809000",
+          "vehicleId": "jp_type_10_prototype",
+          "sourceTime": 809,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "attackerVehicleId": "jp_type_10_prototype",
+          "attackerEnglishName": "TKX (P)",
+          "shell": "JM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "beccff3a323957c8946e03cd2dab9b099ca1d8ab6a109363e97c6cbe551cdd49",
+          "proofSHA256": "7dcf8289bb5c375a64c22cd262e25fb8317d0f0d37795868651c7fdb3a061e37",
+          "notes": [
+            "实际UI条件独立读取，非口述组句推导；静态分析不声称成功试射。"
+          ],
+          "supersedesCaseId": "jp_tkx_prot:BV1CueU6cECo:809000",
+          "attacker": "TKX (P)",
+          "shellTypeCode": null,
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+        }
+      ],
+      "testCaseEvidence": {
+        "jp_type_10_prototype:BV1CueU6cECo:809000": {
+          "id": "jp_type_10_prototype:BV1CueU6cECo:809000",
+          "vehicleId": "jp_type_10_prototype",
+          "sourceTime": 809,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "attackerVehicleId": "jp_type_10_prototype",
+          "attackerEnglishName": "TKX (P)",
+          "shell": "JM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "beccff3a323957c8946e03cd2dab9b099ca1d8ab6a109363e97c6cbe551cdd49",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/046.json",
+          "proofSHA256": "7dcf8289bb5c375a64c22cd262e25fb8317d0f0d37795868651c7fdb3a061e37",
+          "attackUICrop": "artifacts/tank-weakpoints-expansion-20261102/video-batches/parsed-BV1CueU6cECo-tail755-1019-batch-004-identity-correction/jp_type_10_prototype-attack-ui-native.webp",
+          "attackUICropSHA256": "04ccdc140493a1fec77507449c9e59e3c1ed10315177ec69bdbc817a63c6a983",
+          "notes": [
+            "实际UI条件独立读取，非口述组句推导；静态分析不声称成功试射。"
+          ],
+          "supersedesCaseId": "jp_tkx_prot:BV1CueU6cECo:809000"
+        }
+      },
+      "completeIllustration": false,
+      "testContext": {
+        "attacker": "TKX (P)",
+        "attackerVehicleId": "jp_type_10_prototype",
+        "shell": "JM33",
+        "shellTypeCode": null,
+        "shellTypeLabel": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "impactAngleDegrees": null,
+        "sourceTime": 809,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "sourceGameVersion": null,
+        "caseId": "jp_type_10_prototype:BV1CueU6cECo:809000",
+        "note": "本帧原生防护分析条件；静态绿色区域不代表独立成功试射。"
+      },
+      "testContextEvidence": {
+        "id": "jp_type_10_prototype:BV1CueU6cECo:809000",
+        "vehicleId": "jp_type_10_prototype",
+        "sourceTime": 809,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "attackerVehicleId": "jp_type_10_prototype",
+        "attackerEnglishName": "TKX (P)",
+        "shell": "JM33",
+        "shellType": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceGameVersion": null,
+        "actualShotObserved": false,
+        "outcome": null,
+        "sourceFrameSHA256": "beccff3a323957c8946e03cd2dab9b099ca1d8ab6a109363e97c6cbe551cdd49",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/046.json",
+        "proofSHA256": "7dcf8289bb5c375a64c22cd262e25fb8317d0f0d37795868651c7fdb3a061e37",
+        "attackUICrop": "artifacts/tank-weakpoints-expansion-20261102/video-batches/parsed-BV1CueU6cECo-tail755-1019-batch-004-identity-correction/jp_type_10_prototype-attack-ui-native.webp",
+        "attackUICropSHA256": "04ccdc140493a1fec77507449c9e59e3c1ed10315177ec69bdbc817a63c6a983",
+        "notes": [
+          "实际UI条件独立读取，非口述组句推导；静态分析不声称成功试射。"
+        ],
+        "supersedesCaseId": "jp_tkx_prot:BV1CueU6cECo:809000"
+      },
+      "frontSummary": "作者对这组日系车型更推荐炮塔与车体连接处，提醒车首横条和油箱可能使射击后效变差。画面目标已核为TKX（P）；这些是作者的条件性经验，绿色分析不等于每个角度都能一击击毁。",
+      "frontSummaryAdviceIDs": [
+        "BV1CueU6cECo:tail:2:general"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/JPN-TKX-family-identity-probe-0809.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/046.json",
+      "captureSHA256": "15412a934cd6a50d325241f72ee3ed00ef246a789154cd31cd5af7c730fc2cb7",
+      "originalFrameSHA256": "beccff3a323957c8946e03cd2dab9b099ca1d8ab6a109363e97c6cbe551cdd49",
+      "time": 809,
+      "crop": [
+        640,
+        190,
+        650,
+        460
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageQuality": "1080p",
+      "imageView": "front",
+      "imageViewDetail": "front-native-green-regions",
+      "mainViewKind": "protection-analysis",
+      "mainImageUsable": true,
+      "mainViewNote": "原视频实际绿色防护区域，保留原生像素；不添加或扩大游戏着色。",
+      "coverageStatus": "partial-front-analysis-no-verified-pins",
+      "coverageNotice": "已有绿色防护分析 · 局部标点待补"
     },
     {
       "id": "sw_leopard_1a5no",
@@ -8152,9 +8652,117 @@
       "eraBasis": "公羊AMVPT1为2022年展示的升级原型，重点改善机动，但没有之前车型的WAR附甲选项。",
       "collectedAt": "2026-11-02T09:51:52.205Z",
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "videoAdvice": [
+        {
+          "id": "BV1CueU6cECo:tail:3:general",
+          "caseId": null,
+          "sourceTime": 834.250857,
+          "sourceTimeRange": [
+            834.250857,
+            856.54822
+          ],
+          "conditionMatch": "unknown",
+          "mainImageMatch": "unknown",
+          "text": "作者对公羊系列建议优先攻击画面所指的车体左侧，并提醒夹缝位置后效可能不理想。这里的绿色分析图对应公羊AMV，测试为富士90式B／JM33／500米472毫米，不能用于“坚定信念”等其他改型。",
+          "polarity": "conditional-or-mixed",
+          "mechanism": "author-general-region-and-postpenetration-advice",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": [
+            {
+              "text": "其实我觉得除了那辆匈牙利A7没必要讲异性",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 834.250857,
+              "lastObservedMediaTime": 837.309989,
+              "firstObservedAt": "2026-11-02T16:31:20.406Z",
+              "lastObservedAt": "2026-11-02T16:31:21.977Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "你问我为什么",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 837.811122,
+              "lastObservedMediaTime": 838.83973,
+              "firstObservedAt": "2026-11-02T16:31:22.231Z",
+              "lastObservedAt": "2026-11-02T16:31:22.748Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "你说呢",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 839.374859,
+              "lastObservedMediaTime": 840.333904,
+              "firstObservedAt": "2026-11-02T16:31:23.009Z",
+              "lastObservedAt": "2026-11-02T16:31:23.515Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "只要不算太倒霉",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 842.36961,
+              "lastObservedMediaTime": 842.874971,
+              "firstObservedAt": "2026-11-02T16:31:24.527Z",
+              "lastObservedAt": "2026-11-02T16:31:24.783Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "打到夹缝那一块",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 843.417243,
+              "lastObservedMediaTime": 844.415833,
+              "firstObservedAt": "2026-11-02T16:31:25.048Z",
+              "lastObservedAt": "2026-11-02T16:31:25.569Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "我觉得各位应对公羊应该还是轻轻松松",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 844.888031,
+              "lastObservedMediaTime": 848.416645,
+              "firstObservedAt": "2026-11-02T16:31:25.826Z",
+              "lastObservedAt": "2026-11-02T16:31:27.619Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "打公羊跟豹子有点像",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 850.942139,
+              "lastObservedMediaTime": 851.967676,
+              "firstObservedAt": "2026-11-02T16:31:28.884Z",
+              "lastObservedAt": "2026-11-02T16:31:29.389Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "尽量打车体左侧",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 852.474647,
+              "lastObservedMediaTime": 853.483317,
+              "firstObservedAt": "2026-11-02T16:31:29.644Z",
+              "lastObservedAt": "2026-11-02T16:31:30.150Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            },
+            {
+              "text": "然后好像没什么可以说的了",
+              "selectorUsed": ".bili-subtitle-x-subtitle-panel-major-group",
+              "firstObservedMediaTime": 853.995617,
+              "lastObservedMediaTime": 856.54822,
+              "firstObservedAt": "2026-11-02T16:31:30.402Z",
+              "lastObservedAt": "2026-11-02T16:31:31.682Z",
+              "proofFile": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-multination-0755-0865-normal-playback-subtitles.json"
+            }
+          ],
+          "testContext": null,
+          "relatedCaseId": "it_ariete_amv_pt1:BV1CueU6cECo:852017",
+          "relatedCaseRelationship": "same-narrated-chapter-but-group-claim-not-individual-successful-shot",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/"
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "status": "native-front-protection-analysis-with-author-advice",
       "wikiUrl": "https://wiki.warthunder.com/unit/it_ariete_amv_pt1",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-008-20261102/snapshots/it_ariete_amv_pt1.json",
@@ -8173,11 +8781,127 @@
         "mechanism": "manual",
         "note": "基础乘员→王牌乘员（Wiki主炮面板）"
       },
-      "weaknessEvidenceStatus": "general-context-only",
+      "weaknessEvidenceStatus": "native-front-analysis-with-author-family-context",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。"
-      ]
+        "暂无独立正向试射结果及已核对的局部UV标点，不计完整图解。"
+      ],
+      "testCases": [
+        {
+          "id": "it_ariete_amv_pt1:BV1CueU6cECo:852017",
+          "vehicleId": "it_ariete_amv_pt1",
+          "sourceTime": 852.016687,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerEnglishName": "Type 90B (Fuji)",
+          "shell": "JM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "b0debbb3c9ab88767663d1513e5dbd76d58dce65b64d9fc6b455e1e267f1728c",
+          "proofSHA256": "606c3d6bf454d859829d10054ecefbfc1faa61f87a903df2d4b5eae18679ad7a",
+          "notes": [
+            "实际UI条件独立读取，非口述组句推导；静态分析不声称成功试射。"
+          ],
+          "attacker": "Type 90B (Fuji)",
+          "shellTypeCode": null,
+          "verificationStatus": "source-reported-native-UI-no-shot-outcome-inferred"
+        }
+      ],
+      "testCaseEvidence": {
+        "it_ariete_amv_pt1:BV1CueU6cECo:852017": {
+          "id": "it_ariete_amv_pt1:BV1CueU6cECo:852017",
+          "vehicleId": "it_ariete_amv_pt1",
+          "sourceTime": 852.016687,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerEnglishName": "Type 90B (Fuji)",
+          "shell": "JM33",
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "b0debbb3c9ab88767663d1513e5dbd76d58dce65b64d9fc6b455e1e267f1728c",
+          "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/047.json",
+          "proofSHA256": "606c3d6bf454d859829d10054ecefbfc1faa61f87a903df2d4b5eae18679ad7a",
+          "attackUICrop": "artifacts/tank-weakpoints-expansion-20261102/video-batches/parsed-BV1CueU6cECo-tail755-1019-batch-003-identities/it_ariete_amv_pt1-attack-ui-native.webp",
+          "attackUICropSHA256": "90a1a8c38fe6cf0c1fb3a4a4a119585a115804197399062e8edd185465f0f7d6",
+          "notes": [
+            "实际UI条件独立读取，非口述组句推导；静态分析不声称成功试射。"
+          ]
+        }
+      },
+      "completeIllustration": false,
+      "testContext": {
+        "attacker": "Type 90B (Fuji)",
+        "attackerVehicleId": "jp_type_90b_camo",
+        "shell": "JM33",
+        "shellTypeCode": null,
+        "shellTypeLabel": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "impactAngleDegrees": null,
+        "sourceTime": 852.016687,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "sourceGameVersion": null,
+        "caseId": "it_ariete_amv_pt1:BV1CueU6cECo:852017",
+        "note": "本帧原生防护分析条件；静态绿色区域不代表独立成功试射。"
+      },
+      "testContextEvidence": {
+        "id": "it_ariete_amv_pt1:BV1CueU6cECo:852017",
+        "vehicleId": "it_ariete_amv_pt1",
+        "sourceTime": 852.016687,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "attackerVehicleId": "jp_type_90b_camo",
+        "attackerEnglishName": "Type 90B (Fuji)",
+        "shell": "JM33",
+        "shellType": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceGameVersion": null,
+        "actualShotObserved": false,
+        "outcome": null,
+        "sourceFrameSHA256": "b0debbb3c9ab88767663d1513e5dbd76d58dce65b64d9fc6b455e1e267f1728c",
+        "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/047.json",
+        "proofSHA256": "606c3d6bf454d859829d10054ecefbfc1faa61f87a903df2d4b5eae18679ad7a",
+        "attackUICrop": "artifacts/tank-weakpoints-expansion-20261102/video-batches/parsed-BV1CueU6cECo-tail755-1019-batch-003-identities/it_ariete_amv_pt1-attack-ui-native.webp",
+        "attackUICropSHA256": "90a1a8c38fe6cf0c1fb3a4a4a119585a115804197399062e8edd185465f0f7d6",
+        "notes": [
+          "实际UI条件独立读取，非口述组句推导；静态分析不声称成功试射。"
+        ]
+      },
+      "frontSummary": "作者对公羊系列建议优先攻击画面所指的车体左侧，并提醒夹缝位置后效可能不理想。这里的绿色分析图对应公羊AMV，测试为富士90式B／JM33／500米472毫米，不能用于“坚定信念”等其他改型。",
+      "frontSummaryAdviceIDs": [
+        "BV1CueU6cECo:tail:3:general"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/ITA-Ariete-identity-probe-0852.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/047.json",
+      "captureSHA256": "1aec4ff871d70100a8ee233a85755971e2b85a52065a0e241abe90a682d1acb8",
+      "originalFrameSHA256": "b0debbb3c9ab88767663d1513e5dbd76d58dce65b64d9fc6b455e1e267f1728c",
+      "time": 852.016687,
+      "crop": [
+        640,
+        190,
+        650,
+        460
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageQuality": "1080p",
+      "imageView": "front",
+      "imageViewDetail": "front-native-green-regions",
+      "mainViewKind": "protection-analysis",
+      "mainImageUsable": true,
+      "mainViewNote": "原视频实际绿色防护区域，保留原生像素；不添加或扩大游戏着色。",
+      "coverageStatus": "partial-front-analysis-no-verified-pins",
+      "coverageNotice": "已有绿色防护分析 · 局部标点待补"
     },
     {
       "id": "jp_leopard_2ri",
@@ -11700,7 +12424,7 @@
     "lastUpdated": "2026-11-02",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 17,
+    "illustratedTargetCount": 20,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,
