@@ -431,7 +431,130 @@
         "note": "基础乘员→王牌乘员（Wiki主炮面板）"
       },
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "ussr_t_62:source-local-advice:batch002",
+          "label": "炮塔正面的条件性弱区",
+          "text": "作者点名T-62仍有早期苏系炮塔正面弱区；跨车型的观察窗讲述未转换成这张图的精确点位。",
+          "caseId": "ussr_t_62:BV1SPmEBJE3y:1118033",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "sourceTime": 1118.393767,
+          "conditionMatch": "verified-continuous-segment-not-independent-same-frame-shot",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "sourceEvidence": [
+              {
+                "subtitlePath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/SPm-primary-1090-1200-normal-playback-subtitles.json",
+                "subtitleSHA256": "69af0a26e388843c933a2c9da8d151509ed485e0a21d30ce7f13b97db7032465",
+                "requestedObservedWindow": [
+                  1111,
+                  1145
+                ],
+                "sourceWords": [
+                  {
+                    "firstObservedMediaTime": 1111.469731,
+                    "lastObservedMediaTime": 1111.469731,
+                    "sourceWords": "这个车的车体变得非常非常的硬"
+                  },
+                  {
+                    "firstObservedMediaTime": 1111.958249,
+                    "lastObservedMediaTime": 1114.449533,
+                    "sourceWords": "但是苏联车炮塔脸部装甲脆的弱点它依旧存在"
+                  },
+                  {
+                    "firstObservedMediaTime": 1114.939276,
+                    "lastObservedMediaTime": 1116.925309,
+                    "sourceWords": "可以说苏联早期最明显的弱点"
+                  },
+                  {
+                    "firstObservedMediaTime": 1117.426459,
+                    "lastObservedMediaTime": 1117.8959,
+                    "sourceWords": "基本上大部分车都有"
+                  },
+                  {
+                    "firstObservedMediaTime": 1118.393767,
+                    "lastObservedMediaTime": 1119.380505,
+                    "sourceWords": "哪怕到了T62"
+                  },
+                  {
+                    "firstObservedMediaTime": 1119.867175,
+                    "lastObservedMediaTime": 1120.372663,
+                    "sourceWords": "依旧还有这个弱点"
+                  },
+                  {
+                    "firstObservedMediaTime": 1120.815585,
+                    "lastObservedMediaTime": 1122.359398,
+                    "sourceWords": "其次就是驾驶员观察窗这个弱点"
+                  },
+                  {
+                    "firstObservedMediaTime": 1122.858905,
+                    "lastObservedMediaTime": 1124.840162,
+                    "sourceWords": "这里可以说是冷战之后最大的弱点"
+                  },
+                  {
+                    "firstObservedMediaTime": 1125.362265,
+                    "lastObservedMediaTime": 1127.18424,
+                    "sourceWords": "哪怕是你到了最后期的T90M"
+                  },
+                  {
+                    "firstObservedMediaTime": 1127.638897,
+                    "lastObservedMediaTime": 1128.615495,
+                    "sourceWords": "依旧还是会有这样的弱点"
+                  },
+                  {
+                    "firstObservedMediaTime": 1129.135367,
+                    "lastObservedMediaTime": 1130.145558,
+                    "sourceWords": "你要是想玩神挡杀神"
+                  },
+                  {
+                    "firstObservedMediaTime": 1130.672733,
+                    "lastObservedMediaTime": 1131.176633,
+                    "sourceWords": "就想办法换个炮"
+                  },
+                  {
+                    "firstObservedMediaTime": 1131.709331,
+                    "lastObservedMediaTime": 1133.053187,
+                    "sourceWords": "然后从观察窗这里面打进去"
+                  },
+                  {
+                    "firstObservedMediaTime": 1133.566287,
+                    "lastObservedMediaTime": 1134.060822,
+                    "sourceWords": "不过这些都是题外话了"
+                  },
+                  {
+                    "firstObservedMediaTime": 1134.582603,
+                    "lastObservedMediaTime": 1135.552389,
+                    "sourceWords": "我们接着回归正题"
+                  },
+                  {
+                    "firstObservedMediaTime": 1136.061779,
+                    "lastObservedMediaTime": 1137.007095,
+                    "sourceWords": "当进入冷战之后"
+                  },
+                  {
+                    "firstObservedMediaTime": 1137.505943,
+                    "lastObservedMediaTime": 1138.989923,
+                    "sourceWords": "使用钢针和破甲弹的车会越来越多"
+                  },
+                  {
+                    "firstObservedMediaTime": 1139.494139,
+                    "lastObservedMediaTime": 1142.069099,
+                    "sourceWords": "而早期的苏联坦克基本上都是扛不住破甲弹的"
+                  },
+                  {
+                    "firstObservedMediaTime": 1142.584477,
+                    "lastObservedMediaTime": 1144.620203,
+                    "sourceWords": "这一点和美系早期的巴顿系列坦克是差不多的"
+                  }
+                ],
+                "timePrecision": "normal playback observation intervals, not exact subtitle onset/end"
+              }
+            ],
+            "proposalFile": "artifacts/region-proposals-batch002-20261103/proposals.json",
+            "proposalSHA256": "6c85676613f4c0c6d431e960bda7c588d0a33543acbd1767a26b1e3a7f67cded"
+          }
+        }
+      ],
       "source": {
         "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
         "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
@@ -12432,8 +12555,107 @@
       "eraStatus": "reviewed-unit-prose",
       "eraBasis": "豹2A5为90年代改型，楔形间隙附甲覆盖炮塔正面及前侧，主炮仍为120毫米L/44。",
       "collectedAt": "2026-11-02T09:54:07.120Z",
-      "pins": [],
-      "videoAdvice": [],
+      "pins": [
+        {
+          "x": 0.41333333333333333,
+          "y": 0.6558139534883721,
+          "label": "车体首下",
+          "detail": "作者所说“裤裆”的瞄准区域，按本图JM33／500米条件查看。",
+          "kind": "conditional",
+          "adviceId": "germ_leopard_2a5:source-local-advice:batch002",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 511.935157
+        },
+        {
+          "x": 0.41333333333333333,
+          "y": 0.40232558139534885,
+          "label": "炮根附近",
+          "detail": "作者建议瞄炮闩；这里标其对应的炮根外部位置，不表示内部炮闩精确坐标，也不保证击毁。",
+          "kind": "conditional",
+          "adviceId": "germ_leopard_2a5:source-local-advice:batch002",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 511.935157
+        }
+      ],
+      "videoAdvice": [
+        {
+          "id": "germ_leopard_2a5:source-local-advice:batch002",
+          "label": "优先车体首下与炮闩",
+          "text": "作者对A5/A6/PSO这一组建议正面优先瞄车体首下和炮闩。此处只关联画面已确认的豹2A5及本图条件，不视作独立成功试射。",
+          "caseId": "germ_leopard_2a5:BV1CueU6cECo:515033",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 511.935157,
+          "conditionMatch": "verified-continuous-segment-not-independent-same-frame-shot",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "sourceEvidence": [
+              {
+                "subtitlePath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-whole-0436-0546-normal-playback-subtitles.json",
+                "subtitleSHA256": "79709e1372d056bb9158c4c18eade3e30ba437bbef67bb2551121d59b70d3f27",
+                "requestedObservedWindow": [
+                  500,
+                  525
+                ],
+                "sourceWords": [
+                  {
+                    "firstObservedMediaTime": 500.990718,
+                    "lastObservedMediaTime": 504.033763,
+                    "sourceWords": "然后是A5A6以及PSO这三辆车"
+                  },
+                  {
+                    "firstObservedMediaTime": 504.549807,
+                    "lastObservedMediaTime": 506.50088,
+                    "sourceWords": "对gm33的抗性卡在一个临界值"
+                  },
+                  {
+                    "firstObservedMediaTime": 506.989764,
+                    "lastObservedMediaTime": 510.4065,
+                    "sourceWords": "他们的车体首上gm33不能稳定击穿炮塔"
+                  },
+                  {
+                    "firstObservedMediaTime": 510.934483,
+                    "lastObservedMediaTime": 511.418232,
+                    "sourceWords": "则是完全不能穿"
+                  },
+                  {
+                    "firstObservedMediaTime": 511.935157,
+                    "lastObservedMediaTime": 514.389091,
+                    "sourceWords": "应对这一类车正面尽量打裤裆和炮栓"
+                  },
+                  {
+                    "firstObservedMediaTime": 514.897702,
+                    "lastObservedMediaTime": 515.922113,
+                    "sourceWords": "实在来不及瞄准的话"
+                  },
+                  {
+                    "firstObservedMediaTime": 516.446059,
+                    "lastObservedMediaTime": 518.42917,
+                    "sourceWords": "就只能赌gm33不要演你了"
+                  },
+                  {
+                    "firstObservedMediaTime": 518.942281,
+                    "lastObservedMediaTime": 520.4505,
+                    "sourceWords": "如果敌人车体带了角度"
+                  },
+                  {
+                    "firstObservedMediaTime": 520.975113,
+                    "lastObservedMediaTime": 522.49077,
+                    "sourceWords": "就一定不要打他的手上了"
+                  },
+                  {
+                    "firstObservedMediaTime": 522.981359,
+                    "lastObservedMediaTime": 524.498654,
+                    "sourceWords": "就算穿了你的后效也是不够瘫痪他的"
+                  }
+                ],
+                "timePrecision": "normal playback observation intervals, not exact subtitle onset/end"
+              }
+            ],
+            "proposalFile": "artifacts/region-proposals-batch002-20261103/proposals.json",
+            "proposalSHA256": "6c85676613f4c0c6d431e960bda7c588d0a33543acbd1767a26b1e3a7f67cded"
+          }
+        }
+      ],
       "source": {
         "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
         "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
@@ -19285,7 +19507,105 @@
       "era": "cold-war",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "germ_leopard_2a4:source-local-advice:batch002",
+          "label": "车体右侧的后效风险",
+          "text": "作者提醒少带弹时车体右侧可能为空，击穿未必一击致命，并不建议赌炮塔脸。",
+          "caseId": "germ_leopard_2a4:BV1CueU6cECo:450033",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 460.597123,
+          "conditionMatch": "verified-continuous-segment-not-independent-same-frame-shot",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "sourceEvidence": [
+              {
+                "subtitlePath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-whole-0436-0546-normal-playback-subtitles.json",
+                "subtitleSHA256": "79709e1372d056bb9158c4c18eade3e30ba437bbef67bb2551121d59b70d3f27",
+                "requestedObservedWindow": [
+                  449,
+                  485
+                ],
+                "sourceWords": [
+                  {
+                    "firstObservedMediaTime": 449.476151,
+                    "lastObservedMediaTime": 449.476151,
+                    "sourceWords": "然后是我们的A4121系列"
+                  },
+                  {
+                    "firstObservedMediaTime": 449.973021,
+                    "lastObservedMediaTime": 453.473495,
+                    "sourceWords": "可以看到正面对我们的炮弹基本没有抵御能力"
+                  },
+                  {
+                    "firstObservedMediaTime": 459.090235,
+                    "lastObservedMediaTime": 460.100659,
+                    "sourceWords": "但需要注意的是"
+                  },
+                  {
+                    "firstObservedMediaTime": 460.597123,
+                    "lastObservedMediaTime": 463.146583,
+                    "sourceWords": "实战中打击车体右侧大概率不能一击致命"
+                  },
+                  {
+                    "firstObservedMediaTime": 463.65344,
+                    "lastObservedMediaTime": 465.635959,
+                    "sourceWords": "有经验的豹二基本只带16发"
+                  },
+                  {
+                    "firstObservedMediaTime": 466.147423,
+                    "lastObservedMediaTime": 468.164893,
+                    "sourceWords": "导致车体右侧是空的"
+                  },
+                  {
+                    "firstObservedMediaTime": 468.686321,
+                    "lastObservedMediaTime": 469.688611,
+                    "sourceWords": "然后是炮塔防御"
+                  },
+                  {
+                    "firstObservedMediaTime": 470.192093,
+                    "lastObservedMediaTime": 471.715246,
+                    "sourceWords": "在这里我只能再三强调"
+                  },
+                  {
+                    "firstObservedMediaTime": 472.237993,
+                    "lastObservedMediaTime": 472.729517,
+                    "sourceWords": "没事"
+                  },
+                  {
+                    "firstObservedMediaTime": 473.239702,
+                    "lastObservedMediaTime": 476.687159,
+                    "sourceWords": "不要闲的无聊去赌豹子那个魔法的要死的脸"
+                  },
+                  {
+                    "firstObservedMediaTime": 477.181546,
+                    "lastObservedMediaTime": 478.703312,
+                    "sourceWords": "尽量打靠泡摔那一块不好吗"
+                  },
+                  {
+                    "firstObservedMediaTime": 479.248026,
+                    "lastObservedMediaTime": 480.74113,
+                    "sourceWords": "豹子全身最硬的地方"
+                  },
+                  {
+                    "firstObservedMediaTime": 481.260998,
+                    "lastObservedMediaTime": 482.784272,
+                    "sourceWords": "就他那个B脸对着这里打"
+                  },
+                  {
+                    "firstObservedMediaTime": 483.275352,
+                    "lastObservedMediaTime": 484.810934,
+                    "sourceWords": "是想玩什么奇怪的play吗"
+                  }
+                ],
+                "timePrecision": "normal playback observation intervals, not exact subtitle onset/end"
+              }
+            ],
+            "proposalFile": "artifacts/region-proposals-batch002-20261103/proposals.json",
+            "proposalSHA256": "6c85676613f4c0c6d431e960bda7c588d0a33543acbd1767a26b1e3a7f67cded"
+          }
+        }
+      ],
       "source": {
         "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
         "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
@@ -19592,7 +19912,101 @@
       "era": "cold-war",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "germ_leopard_2av:source-local-advice:batch002",
+          "label": "前部油箱与后效",
+          "text": "作者提醒豹2AV的前部油箱容易吸收炮弹，命中后可能仅起火，需留意后效。",
+          "caseId": "germ_leopard_2av:BV1CueU6cECo:435017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 437.915231,
+          "conditionMatch": "verified-continuous-segment-not-independent-same-frame-shot",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "sourceEvidence": [
+              {
+                "subtitlePath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-whole-0327-0437-normal-playback-subtitles.json",
+                "subtitleSHA256": "a6ee757e13b4b25e81d86b59a87fd2f2a8de958e9383575556cfaee66c0f24c2",
+                "requestedObservedWindow": [
+                  425,
+                  437
+                ],
+                "sourceWords": [
+                  {
+                    "firstObservedMediaTime": 425.965167,
+                    "lastObservedMediaTime": 428.54882,
+                    "sourceWords": "首先是很多人可能会轻视的豹2av"
+                  },
+                  {
+                    "firstObservedMediaTime": 429.043798,
+                    "lastObservedMediaTime": 433.058173,
+                    "sourceWords": "这辆车的防护能力在gm33面前的确不够看"
+                  },
+                  {
+                    "firstObservedMediaTime": 436.143526,
+                    "lastObservedMediaTime": 436.642762,
+                    "sourceWords": "但是他拥有一个巨大的车体"
+                  }
+                ],
+                "timePrecision": "normal playback observation intervals, not exact subtitle onset/end"
+              },
+              {
+                "subtitlePath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/Emoil-whole-0436-0546-normal-playback-subtitles.json",
+                "subtitleSHA256": "79709e1372d056bb9158c4c18eade3e30ba437bbef67bb2551121d59b70d3f27",
+                "requestedObservedWindow": [
+                  436,
+                  447
+                ],
+                "sourceWords": [
+                  {
+                    "firstObservedMediaTime": 436.402792,
+                    "lastObservedMediaTime": 437.417967,
+                    "sourceWords": "但是他拥有一个巨大的车体"
+                  },
+                  {
+                    "firstObservedMediaTime": 437.915231,
+                    "lastObservedMediaTime": 438.433218,
+                    "sourceWords": "前部油箱"
+                  },
+                  {
+                    "firstObservedMediaTime": 438.941569,
+                    "lastObservedMediaTime": 440.959286,
+                    "sourceWords": "实战的时候非常容易吞炮弹"
+                  },
+                  {
+                    "firstObservedMediaTime": 441.479888,
+                    "lastObservedMediaTime": 441.972274,
+                    "sourceWords": "导致几着火"
+                  },
+                  {
+                    "firstObservedMediaTime": 442.448115,
+                    "lastObservedMediaTime": 442.95264,
+                    "sourceWords": "什么都没换"
+                  },
+                  {
+                    "firstObservedMediaTime": 443.467729,
+                    "lastObservedMediaTime": 444.491469,
+                    "sourceWords": "然后被对面反杀"
+                  },
+                  {
+                    "firstObservedMediaTime": 445.003684,
+                    "lastObservedMediaTime": 445.487563,
+                    "sourceWords": "各位遇到了的话"
+                  },
+                  {
+                    "firstObservedMediaTime": 446.003106,
+                    "lastObservedMediaTime": 446.971424,
+                    "sourceWords": "请注意这一点"
+                  }
+                ],
+                "timePrecision": "normal playback observation intervals, not exact subtitle onset/end"
+              }
+            ],
+            "proposalFile": "artifacts/region-proposals-batch002-20261103/proposals.json",
+            "proposalSHA256": "6c85676613f4c0c6d431e960bda7c588d0a33543acbd1767a26b1e3a7f67cded"
+          }
+        }
+      ],
       "source": {
         "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
         "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
