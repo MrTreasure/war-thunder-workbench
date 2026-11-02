@@ -108,12 +108,16 @@ for (const model of data.models) {
   for (const advice of model.videoAdvice || []) delete advice.evidence;
 }
 if (/\/vol1\/|\/home\/|artifacts\//.test(JSON.stringify(data))) throw Error("Private evidence paths must not enter the public sample payload");
-const css = await readFile(new URL("preview.css", import.meta.url));
+const symbols = await readFile(resolve(project, "src/assets/WTSymbols.ttf"));
+const fontFile = `weakpoints-symbols.${hash(symbols).slice(0, 16)}.ttf`;
+await writeFile(resolve(assets, fontFile), symbols);
+report.supportFiles = [{ file: fontFile, bytes: symbols.length, sha256: hash(symbols), kind: "symbol-font" }];
+const css = Buffer.from((await readFile(new URL("preview.css", import.meta.url), "utf8")).replaceAll("__SYMBOL_FONT__", fontFile));
 const js = Buffer.from("const SAMPLE = " + JSON.stringify(data) + ";\n" + await readFile(new URL("preview.js", import.meta.url), "utf8"));
 const cssFile = `weakpoints-preview.${hash(css).slice(0, 16)}.css`, jsFile = `weakpoints-preview.${hash(js).slice(0, 16)}.js`;
 await writeFile(resolve(assets, cssFile), css); await writeFile(resolve(assets, jsFile), js);
-const html = (await readFile(new URL("preview.html", import.meta.url), "utf8")).replace("__STYLE__", "./assets/" + cssFile).replace("__SCRIPT__", "./assets/" + jsFile);
-if (/__STYLE__|__SCRIPT__|<script(?![^>]*src=)/.test(html)) throw Error("Unresolved or inline script");
+const html = (await readFile(new URL("preview.html", import.meta.url), "utf8")).replace("__STYLE__", "./assets/" + cssFile).replace("__SCRIPT__", "./assets/" + jsFile).replaceAll("__SYMBOL_FONT__", fontFile);
+if (/__STYLE__|__SCRIPT__|__SYMBOL_FONT__|<script(?![^>]*src=)/.test(html)) throw Error("Unresolved or inline script");
 await writeFile(resolve(out, "weakpoints-preview.html"), html);
 await writeFile(resolve(captures, "build-report.json"), JSON.stringify(report, null, 2) + "\n");
 console.log(JSON.stringify({ output: out, wikiModels: report.models.length, illustratedModels: report.models.filter((m) => m.illustrated).length, images: report.publishedFiles.length, imageBytes: report.publishedFiles.reduce((n, f) => n + f.bytes, 0) }));

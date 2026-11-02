@@ -1,6 +1,12 @@
 :root { color-scheme: dark; --wt-page:#13191d; --wt-panel:#1a2329; --wt-raised:#222e36; --wt-ink:#f0eee6; --wt-muted:#a9b5bc; --wt-line:#37474f; --wt-strong-line:#59656b; --wt-gold:#e4c477; }
+@font-face {
+  font-family:WTSymbols;
+  src:url("./__SYMBOL_FONT__") format("truetype");
+  font-display:block;
+  unicode-range:U+22E0,U+2417,U+2419,U+2420,U+2580,U+2582-2585,U+25C4,U+25CA-25CD,U+25D0,U+25D4,U+25D7-25D8,U+25E1-25E2,U+25E5,U+F059;
+}
 * { box-sizing:border-box; }
-body { margin:0; background:var(--wt-page); color:var(--wt-ink); font:15px/1.6 "Droid Sans Fallback","Noto Sans CJK SC",system-ui,sans-serif; }
+body { margin:0; background:var(--wt-page); color:var(--wt-ink); font:15px/1.6 WTSymbols,"Droid Sans Fallback","Noto Sans CJK SC",system-ui,sans-serif; }
 button,a { -webkit-tap-highlight-color:transparent; }
 button { font:inherit; cursor:pointer; color:inherit; border:1px solid var(--wt-line); background:var(--wt-panel); border-radius:3px; min-height:44px; }
 button:hover { background:var(--wt-raised); }
@@ -110,7 +116,7 @@ footer { max-width:1560px; margin:24px auto 0; padding:20px; border-top:1px soli
 .wt-select[aria-expanded=true] { border-color:var(--wt-gold); background:var(--wt-raised); }
 .wt-select[aria-expanded=true] .wt-select-chevron { transform:rotate(180deg); }
 .wt-select:focus-visible { outline:2px solid var(--wt-gold); outline-offset:2px; }
-.wt-select-menu { position:fixed; inset:auto; width:max-content; max-width:calc(100vw - 16px); margin:0; padding:4px; overflow:auto; overscroll-behavior:contain; scrollbar-width:thin; border:1px solid var(--wt-line); border-radius:0; background:#1a2329; box-shadow:inset 0 1px 0 #ffffff10,0 10px 28px #0009; color:var(--wt-ink); font:13px/1.4 "Droid Sans Fallback","Noto Sans CJK SC",system-ui,sans-serif; z-index:100; }
+.wt-select-menu { position:fixed; inset:auto; width:max-content; max-width:calc(100vw - 16px); margin:0; padding:4px; overflow:auto; overscroll-behavior:contain; scrollbar-width:thin; border:1px solid var(--wt-line); border-radius:0; background:#1a2329; box-shadow:inset 0 1px 0 #ffffff10,0 10px 28px #0009; color:var(--wt-ink); font:13px/1.4 WTSymbols,"Droid Sans Fallback","Noto Sans CJK SC",system-ui,sans-serif; z-index:100; }
 .wt-select-menu::backdrop { background:transparent; }
 .wt-select-option { display:flex; align-items:center; gap:8px; min-height:34px; padding:6px 9px; border:1px solid transparent; border-bottom-color:var(--wt-line); cursor:pointer; user-select:none; }
 .wt-select-check { flex:0 0 13px; color:var(--wt-gold); }
