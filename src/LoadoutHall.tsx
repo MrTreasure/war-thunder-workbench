@@ -3,7 +3,7 @@ import bootstrap from "./generated/bootstrap.json";
 import { loadoutRequest } from "./loadout-api";
 import type { LoadoutShare } from "./loadout-shares";
 import type { LoadoutPlan } from "./loadouts";
-import { VehicleTile } from "./VehicleTile";
+import { LoadoutSummaryStrip } from "./LoadoutSummaryStrip";
 import { GameSelect } from "./components/GameSelect";
 import { LoadoutTags } from "./LoadoutTags";
 export function LoadoutHall({ onUse }: { onUse: (plan: LoadoutPlan) => void }) {
@@ -92,13 +92,7 @@ export function LoadoutHall({ onUse }: { onUse: (plan: LoadoutPlan) => void }) {
         {items.map((item) => (
           <article key={item.id}>
             <h4>{item.plan.name}</h4>
-            {item.vehicle && (
-              <VehicleTile
-                unit={item.vehicle}
-                showPackPrice={false}
-                footerLabel={`${item.vehicle.rank} 级`}
-              />
-            )}
+            <LoadoutSummaryStrip vehicle={item.vehicle} preview={item.preview} />
             <LoadoutTags tags={item.tags || []} />
             <p>
               {item.plan.preset ? "来源预设" : `${item.plan.mounts.length} 个挂点`} · 资料日期{" "}

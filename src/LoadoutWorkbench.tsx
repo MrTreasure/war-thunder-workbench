@@ -21,6 +21,7 @@ import { LoadoutPresets } from "./LoadoutPresets";
 import { readRemoteLoadout, type LoadoutShare, type LoadoutVehicle } from "./loadout-shares";
 import { TagSelector, type TagChoice } from "./components/TagSelector";
 import { useGameTagAccess } from "./game-tag-access";
+import { GameIcon } from "./components/GameIcon";
 import { LoadoutWeaponFilters } from "./LoadoutWeaponFilters";
 import { matchesWeaponFilters } from "./loadout-weapon-filters";
 import { gameTagOptions } from "./game-tag-options";
@@ -67,7 +68,7 @@ type SearchResults = {
   version: string;
 };
 type WeaponIndex = {
-  weapons: { key: string; name: string }[];
+  weapons: { key: string; name: string; imageUrl: string | null }[];
   coverage: { available: number; notProvided: number; total: number };
   version: string;
 };
@@ -580,6 +581,20 @@ function LoadoutPage({ owner }: { owner: string }) {
       matchesLoadoutText(option.name, weaponQuery) &&
       matchesWeaponFilters(option.name, weaponType, weaponFamily),
   );
+  const weaponOption = (key: string) => {
+    const weapon = weapons?.weapons.find((item) => item.key === key);
+    if (!weapon) return null;
+    return (
+      <span className="wt-mount-weapon-option">
+        {weapon.imageUrl ? (
+          <img src={weapon.imageUrl} alt="" width={36} height={28} loading="lazy" />
+        ) : (
+          <GameIcon name="loadout" />
+        )}
+        <span>{loadoutWeaponName(weapon.name)}</span>
+      </span>
+    );
+  };
   const retry = () => {
     setLoadState({ error: "", loading: true });
     void vehicleStore
@@ -888,31 +903,38 @@ function LoadoutPage({ owner }: { owner: string }) {
           )}
           {weapons && (
             <>
-              <label>
-                搜索武器目录
-                <input
-                  value={weaponLookup}
-                  placeholder="名称或型号，例如 AIM-9"
-                  onChange={(e) => setWeaponLookup(e.target.value)}
-                />
-              </label>
-              <LoadoutWeaponFilters
-                names={weapons.weapons.map((weapon) => weapon.name)}
-                type={lookupType}
-                family={lookupFamily}
-                onChange={(type, family) => {
-                  setLookupType(type);
-                  setLookupFamily(family);
-                }}
-              />
               <div className="wt-mount-requirements">
                 {requirements.map((r, index) => (
                   <div key={index}>
+                    {index === 0 && (
+                      <>
+                        <label>
+                          搜索武器目录
+                          <input
+                            value={weaponLookup}
+                            placeholder="名称或型号，例如 AIM-9"
+                            onChange={(e) => setWeaponLookup(e.target.value)}
+                          />
+                        </label>
+                        <LoadoutWeaponFilters
+                          names={weapons.weapons.map((weapon) => weapon.name)}
+                          type={lookupType}
+                          family={lookupFamily}
+                          onChange={(type, family) => {
+                            setLookupType(type);
+                            setLookupFamily(family);
+                          }}
+                        />
+                      </>
+                    )}
                     <label>
                       武器
                       <GameSelect
                         value={r.weapon}
                         disabled={busy}
+                        menuClassName="wt-mount-weapon-menu"
+                        renderOption={(key) => weaponOption(key)}
+                        renderValue={(key) => weaponOption(key)}
                         onValueChange={(value) => {
                           setResults(null);
                           setRequirements((old) =>
@@ -923,14 +945,12 @@ function LoadoutPage({ owner }: { owner: string }) {
                         <option value="">选择具体型号</option>
                         {[
                           ...weapons.weapons.filter((w) => w.key === r.weapon),
-                          ...weapons.weapons
-                            .filter(
-                              (w) =>
-                                w.key !== r.weapon &&
-                                matchesLoadoutText(w.name, weaponLookup) &&
-                                matchesWeaponFilters(w.name, lookupType, lookupFamily),
-                            )
-                            .slice(0, 120),
+                          ...weapons.weapons.filter(
+                            (w) =>
+                              w.key !== r.weapon &&
+                              matchesLoadoutText(w.name, weaponLookup) &&
+                              matchesWeaponFilters(w.name, lookupType, lookupFamily),
+                          ),
                         ].map((w) => (
                           <option key={w.key} value={w.key}>
                             {loadoutWeaponName(w.name)}
@@ -1286,27 +1306,27 @@ function LoadoutPage({ owner }: { owner: string }) {
           className="wt-mount-picker"
         >
           <div className="wt-mount-picker-tools">
-            <input
-              aria-label="搜索挂载武器"
-              placeholder="搜索名称或型号"
-              value={weaponQuery}
-              onChange={(e) => setWeaponQuery(e.target.value)}
+            <label>
+              搜索
+              <input
+                aria-label="搜索挂载武器"
+                placeholder="名称或型号，如 PL8"
+                value={weaponQuery}
+                onChange={(e) => setWeaponQuery(e.target.value)}
+              />
+            </label>
+            <LoadoutWeaponFilters
+              names={stationOptions.map((option) => option.name)}
+              type={weaponType}
+              family={weaponFamily}
+              onChange={(type, family) => {
+                setWeaponType(type);
+                setWeaponFamily(family);
+              }}
             />
-            <span className="wt-mount-note">
-              已选 {compared.length}/6 个对比型号，返回配置后查看对比
-            </span>
             <button onClick={() => applyOption(null)}>卸下挂载</button>
             <button onClick={() => setPicker(false)}>返回配置</button>
           </div>
-          <LoadoutWeaponFilters
-            names={stationOptions.map((option) => option.name)}
-            type={weaponType}
-            family={weaponFamily}
-            onChange={(type, family) => {
-              setWeaponType(type);
-              setWeaponFamily(family);
-            }}
-          />
           {!candidates.length && <p className="wt-mount-note">当前挂点没有符合筛选条件的挂载。</p>}
           <div className="wt-mount-weapon-list">
             {candidates.map((option) => {

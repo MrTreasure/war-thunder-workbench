@@ -1,7 +1,19 @@
+import type { WikiWeaponParameter } from "./models";
 import type { VehicleTileUnit } from "./VehicleTile";
 import { loadoutRequest } from "./loadout-api";
 import { validLoadoutPlan, type LoadoutPlan } from "./loadouts";
 import type { TagChoice } from "./components/TagSelector";
+export type LoadoutPreviewItem = {
+  station: string;
+  label: string;
+  name: string;
+  imageUrl: string | null;
+  count: number | null;
+  weightKg: number | null;
+  parameters: WikiWeaponParameter[];
+  source: string | null;
+};
+export type LoadoutPreview = { sourceChanged: boolean; items: LoadoutPreviewItem[] };
 export type LoadoutShare = {
   id: string;
   plan: LoadoutPlan;
@@ -9,6 +21,7 @@ export type LoadoutShare = {
   createdAt: string;
   tags: TagChoice[];
   vehicle?: LoadoutVehicle;
+  preview?: LoadoutPreview;
 };
 export type LoadoutVehicle = VehicleTileUnit & { country: string };
 export async function readRemoteLoadout(id: string, signal?: AbortSignal) {

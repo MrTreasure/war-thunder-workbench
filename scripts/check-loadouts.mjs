@@ -29,6 +29,11 @@ import {
 import { matchesWeaponFilters, availableWeaponFamilies } from "../src/loadout-weapon-filters.ts";
 
 assert(matchesWeaponFilters("PL-12 air-to-air missiles", "missile", "pl"));
+assert(matchesWeaponFilters("PL-8 air-to-air missiles", "missile", "pl"));
+assert(matchesWeaponFilters("PL-8B air-to-air missiles", "missile", "pl"));
+assert(matchesLoadoutText("PL-8B air-to-air missiles", "PL8"));
+assert(matchesLoadoutText("AIM-54C Phoenix air-to-air missiles", "AIM 54"));
+
 assert(matchesWeaponFilters("R-27ER1 air-to-air missiles", "missile", "r"));
 assert(matchesWeaponFilters("RVV-AE air-to-air missiles", "missile", "r"));
 assert(!matchesWeaponFilters("RBS 70 missiles", "missile", "r"));
@@ -68,6 +73,13 @@ const catalog = JSON.parse(
   await readFile(new URL("../data/vehicle-details.json", import.meta.url)),
 );
 const source = catalog.vehicles.su_24m.loadouts;
+const su30 = catalog.vehicles.su_30mkk.loadouts;
+assert(stationLoadoutOptions(su30, "t1-s1").some((option) => /PL-8/.test(option.name)));
+assert(
+  !stationLoadoutOptions(su30, "t1-s8").some((option) => /PL-8/.test(option.name)),
+  "family filtering must not invent station compatibility",
+);
+
 const r73 = catalog.vehicles.j_11.loadouts.compatibility.find((option) =>
   option.name.includes("R-73E"),
 );

@@ -14,7 +14,11 @@ export function LoadoutWeaponBrief({ option }: { option: WikiLoadoutOption }) {
     </dl>
   );
 }
-export function LoadoutWeaponDetails({ option }: { option: WikiLoadoutOption }) {
+export function LoadoutWeaponDetails({
+  option,
+}: {
+  option: Pick<WikiLoadoutOption, "name" | "parameters" | "source">;
+}) {
   return (
     <>
       <p className="wt-mount-source-name">来源名称：{option.name}</p>

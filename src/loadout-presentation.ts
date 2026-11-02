@@ -24,5 +24,12 @@ export function loadoutParameterValue(original: string) {
         `${value} ${{ "m/s": "米/秒", km: "千米", m: "米", s: "秒", g: "克" }[unit]}`,
     );
 }
+const searchableWeaponText = (value: string) =>
+  value
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/[\s\p{Dash_Punctuation}]+/gu, "");
 export const matchesLoadoutText = (original: string, query: string) =>
-  `${original} ${loadoutWeaponName(original)}`.toLowerCase().includes(query.toLowerCase().trim());
+  searchableWeaponText(`${original} ${loadoutWeaponName(original)}`).includes(
+    searchableWeaponText(query),
+  );

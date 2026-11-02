@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import type { Vehicle } from "./models";
 import { loadoutRequest } from "./loadout-api";
 import type { LoadoutShare } from "./loadout-shares";
-import { checkLoadout, loadoutRevision } from "./loadouts";
-import { loadoutWeaponName } from "./loadout-presentation";
+import { loadoutRevision } from "./loadouts";
+import { LoadoutSummaryStrip } from "./LoadoutSummaryStrip";
 import { LoadoutPresets } from "./LoadoutPresets";
 import { LoadoutTags } from "./LoadoutTags";
 import "./loadouts.css";
@@ -68,19 +68,12 @@ export function LoadoutRecommendations({ unit, country }: { unit: Vehicle; count
       )}
       <div className="wt-mount-recommendation-list">
         {items.map((item) => {
-          const check = checkLoadout(data, item.plan.mounts, item.plan.preset);
           return (
             <article key={item.id}>
               <h4>{item.plan.name}</h4>
               <LoadoutTags tags={item.tags || []} />
-              <ul>
-                {check.weapons.map((weapon) => (
-                  <li key={weapon.key}>
-                    {loadoutWeaponName(weapon.name)} × {weapon.count}
-                  </li>
-                ))}
-              </ul>
-              {item.plan.sourceHash !== loadoutRevision(data) && (
+              <LoadoutSummaryStrip preview={item.preview} />
+              {!item.preview?.sourceChanged && item.plan.sourceHash !== loadoutRevision(data) && (
                 <p className="wt-mount-warning">来源版本已更新，打开后需重新核对。</p>
               )}
               <a className="quiet-button" href={`#/loadouts?recommendation=${item.id}`}>
