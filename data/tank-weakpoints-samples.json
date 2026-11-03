@@ -5251,10 +5251,116 @@
       "rank": 6,
       "era": "cold-war",
       "scopeRole": "medium_tank",
-      "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "pins": [
+        {
+          "x": 0.365,
+          "y": 0.35,
+          "label": "画面左侧炮塔脸颊绿色区",
+          "detail": "仅当前30毫米APDS/500米面板条件下可见外表绿色覆盖参考，非单点试射，非普遍免疫，非整辆全绿。 当前面板穿甲威力79毫米；分布完成状态未知。",
+          "kind": "external-region-reference",
+          "caseId": "fr_amx_30_b2:v318-conditions-32-5",
+          "sourceUrl": "https://www.bilibili.com/video/BV1YSuL64E3b/",
+          "sourceTime": 32.5,
+          "mainImageTime": 32.5,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested",
+          "evidence": {
+            "originalPNG_SHA256": "48d37cb5907ed8ee4f9c3c90a733255b9f35c5ad3233026ba3006528181b4751",
+            "sourceTime": 32.5
+          }
+        },
+        {
+          "x": 0.59,
+          "y": 0.35,
+          "label": "画面右侧炮塔脸颊绿色区",
+          "detail": "仅当前30毫米APDS/500米面板条件下可见外表绿色覆盖参考，非单点试射，非普遍免疫，非整辆全绿。 当前面板穿甲威力79毫米；分布完成状态未知。",
+          "kind": "external-region-reference",
+          "caseId": "fr_amx_30_b2:v318-conditions-32-5",
+          "sourceUrl": "https://www.bilibili.com/video/BV1YSuL64E3b/",
+          "sourceTime": 32.5,
+          "mainImageTime": 32.5,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested",
+          "evidence": {
+            "originalPNG_SHA256": "48d37cb5907ed8ee4f9c3c90a733255b9f35c5ad3233026ba3006528181b4751",
+            "sourceTime": 32.5
+          }
+        },
+        {
+          "x": 0.36,
+          "y": 0.18,
+          "label": "顶部凸起绿色区",
+          "detail": "仅当前30毫米APDS/500米面板条件下可见外表绿色覆盖参考，非单点试射，非普遍免疫，非整辆全绿。 当前面板穿甲威力79毫米；分布完成状态未知。",
+          "kind": "external-region-reference",
+          "caseId": "fr_amx_30_b2:v318-conditions-32-5",
+          "sourceUrl": "https://www.bilibili.com/video/BV1YSuL64E3b/",
+          "sourceTime": 32.5,
+          "mainImageTime": 32.5,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested",
+          "evidence": {
+            "originalPNG_SHA256": "48d37cb5907ed8ee4f9c3c90a733255b9f35c5ad3233026ba3006528181b4751",
+            "sourceTime": 32.5
+          }
+        }
+      ],
+      "videoAdvice": [
+        {
+          "id": "v318-amx30b2-author-face",
+          "label": "作者防护概述及画面差异",
+          "text": "作者称面对30毫米脱壳穿甲弹主要是脸部可穿；当前画面还可见车体正面横条绿色，与该概述不完全一致，不将作者说法当作完整防护结论。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1YSuL64E3b/",
+          "sourceTime": 31.31,
+          "sourcePublishedAt": "2026-08-09",
+          "sourceGameVersion": "2.57.1.70",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "kind": "attributed-author-commentary-not-tested-result",
+            "timeRanges": [
+              {
+                "start": 31.31,
+                "end": 37.84
+              }
+            ],
+            "actualShotObserved": false
+          }
+        },
+        {
+          "id": "v318-amx30b2-author-top",
+          "label": "作者提示：顶部脆弱",
+          "text": "作者提示顶部较脆弱；仅作者建议，未获得相同试射条件下的命中或乘员后效验证，100秒实战帧不能补成32.5秒条件的试射结果。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1YSuL64E3b/",
+          "sourceTime": 96.73,
+          "sourcePublishedAt": "2026-08-09",
+          "sourceGameVersion": "2.57.1.70",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "kind": "attributed-author-commentary-not-tested-result",
+            "timeRanges": [
+              {
+                "start": 96.73,
+                "end": 102.87
+              }
+            ],
+            "actualShotObserved": false
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1YSuL64E3b/",
+        "title": "战雷法系区九门——AMX 30B2",
+        "author": "没钱的抽屉",
+        "publishedAt": "2026-08-09",
+        "kind": "video",
+        "gameVersion": "2.57.1.70"
+      },
+      "status": "partial-frontal-guide",
       "wikiUrl": "https://wiki.warthunder.com/unit/fr_amx_30_b2",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-20261102/snapshots/fr_amx_30_b2.json",
@@ -5274,7 +5380,159 @@
         "note": "基础乘员→王牌乘员（Wiki主炮面板）"
       },
       "collectedAt": "2026-11-02",
-      "weaknessEvidenceStatus": "general-context-only"
+      "weaknessEvidenceStatus": "general-context-only",
+      "sourceVersion": "2.57.1.70",
+      "sourceGameVersion": "2.57.1.70",
+      "relatedSources": [
+        {
+          "url": "https://www.bilibili.com/video/BV1YSuL64E3b/",
+          "title": "战雷法系区九门——AMX 30B2",
+          "author": "没钱的抽屉",
+          "publishedAt": "2026-08-09",
+          "kind": "video",
+          "gameVersion": "2.57.1.70",
+          "time": 32.5
+        }
+      ],
+      "testCases": [
+        {
+          "id": "fr_amx_30_b2:v318-conditions-32-5",
+          "label": "当前防护分布条件（完成状态未知）",
+          "vehicleId": "fr_amx_30_b2",
+          "sourceKind": "video",
+          "sourceUrl": "https://www.bilibili.com/video/BV1YSuL64E3b/",
+          "sourceTime": 32.5,
+          "sourcePublishedAt": "2026-08-09",
+          "attacker": "BTR-82AT",
+          "attackerDisplayName": "BTR-82AT",
+          "attackerVehicleId": null,
+          "shell": "30 毫米 APDS",
+          "exactDesignation": null,
+          "rawUIType": "APDS",
+          "shellTypeCode": "APDS",
+          "shellTypeLabel": "脱壳穿甲弹",
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 79,
+          "targetAngleDegrees": null,
+          "impactAngleDegrees": null,
+          "azimuthDegrees": null,
+          "equivalentArmorMm": null,
+          "predictionOnly": true,
+          "prediction": null,
+          "sourceFrameSHA256": "48d37cb5907ed8ee4f9c3c90a733255b9f35c5ad3233026ba3006528181b4751",
+          "sourceVersion": "2.57.1.70",
+          "sourceGameVersion": "2.57.1.70",
+          "actualShotObserved": false,
+          "actualPenetration": null,
+          "kill": null,
+          "nativeTargetRawLabel": "AMX 30B2",
+          "distributionProgressPercent": null,
+          "distributionCompletionStatus": "unknown",
+          "note": "仅原生UI当前条件；无具体弹药型号、单点结果、角度或等效厚度，未确认分布完成。"
+        }
+      ],
+      "testContext": {
+        "label": "当前防护分布条件（完成状态未知）",
+        "vehicleId": "fr_amx_30_b2",
+        "sourceKind": "video",
+        "sourceUrl": "https://www.bilibili.com/video/BV1YSuL64E3b/",
+        "sourceTime": 32.5,
+        "sourcePublishedAt": "2026-08-09",
+        "attacker": "BTR-82AT",
+        "attackerDisplayName": "BTR-82AT",
+        "attackerVehicleId": null,
+        "shell": "30 毫米 APDS",
+        "exactDesignation": null,
+        "rawUIType": "APDS",
+        "shellTypeCode": "APDS",
+        "shellTypeLabel": "脱壳穿甲弹",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 79,
+        "targetAngleDegrees": null,
+        "impactAngleDegrees": null,
+        "azimuthDegrees": null,
+        "equivalentArmorMm": null,
+        "predictionOnly": true,
+        "prediction": null,
+        "sourceFrameSHA256": "48d37cb5907ed8ee4f9c3c90a733255b9f35c5ad3233026ba3006528181b4751",
+        "sourceVersion": "2.57.1.70",
+        "sourceGameVersion": "2.57.1.70",
+        "actualShotObserved": false,
+        "actualPenetration": null,
+        "kill": null,
+        "nativeTargetRawLabel": "AMX 30B2",
+        "distributionProgressPercent": null,
+        "distributionCompletionStatus": "unknown",
+        "note": "仅原生UI当前条件；无具体弹药型号、单点结果、角度或等效厚度，未确认分布完成。",
+        "caseId": "fr_amx_30_b2:v318-conditions-32-5"
+      },
+      "completeIllustration": false,
+      "distributionCompletionStatus": "unknown",
+      "coverageStatus": "partial-frontal-guide",
+      "coverageNotice": "当前条件绿色覆盖参考 · 完成状态未知",
+      "mainImageUsable": true,
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "当前条件外表绿色覆盖；分布完成状态未知，非逐点实射。主体原生560×460、未放大；完整原帧2844×1600可查看。",
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "imageQuality": "native-small-subject",
+      "mainQualityNotice": "主体为原生560×460裁切，未放大；完整原帧2844×1600可查看，不称高清完整弱点图。",
+      "crop": [
+        1160,
+        450,
+        560,
+        460
+      ],
+      "sourceDimensions": [
+        2844,
+        1600
+      ],
+      "time": 32.5,
+      "originalFrameSHA256": "48d37cb5907ed8ee4f9c3c90a733255b9f35c5ad3233026ba3006528181b4751",
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/france-front-v309-20261104/source2/capture-1.png",
+      "missingEvidence": [
+        "分布完成状态未知；具体弹药型号、单点结果及未覆盖细节待核对。"
+      ],
+      "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v316-20261104/frame-proof-32.5s.json",
+      "frameSnapshotSHA256": "fab43e29ef774072f8721b63a354d8ee94eb429307e2f52440cfb817d479ddc0",
+      "captureSHA256": "48d37cb5907ed8ee4f9c3c90a733255b9f35c5ad3233026ba3006528181b4751",
+      "testContextEvidence": {
+        "sourceFrameFile": "artifacts/tank-weakpoints-expansion-20261102/sources/france-front-v309-20261104/source2/capture-1.png",
+        "sourceFrameSHA256": "48d37cb5907ed8ee4f9c3c90a733255b9f35c5ad3233026ba3006528181b4751",
+        "proofSnapshot": "artifacts/tank-weakpoints-image-pack-v316-20261104/frame-proof-32.5s.json",
+        "proofSnapshotSHA256": "fab43e29ef774072f8721b63a354d8ee94eb429307e2f52440cfb817d479ddc0",
+        "nativeLeftPanelCrop": "artifacts/weakpoints-amx30b2-review-v313-20261104/ui-native-crop.webp",
+        "cropSHA256": "004a15805da87299dc368d992248c02e3308b963e426215144647f679557733a",
+        "readBasis": "native-resolution target, attack-source vehicle and shell selectors read in QA313; raw APDS label, no exact ammunition designation",
+        "ammunitionDisplay": {
+          "caseId": "fr_amx_30_b2:v318-conditions-32-5",
+          "frameEvidence": {
+            "sourceFrameFile": "artifacts/tank-weakpoints-expansion-20261102/sources/france-front-v309-20261104/source2/capture-1.png",
+            "sourceFrameSHA256": "48d37cb5907ed8ee4f9c3c90a733255b9f35c5ad3233026ba3006528181b4751",
+            "proofSnapshot": "artifacts/tank-weakpoints-image-pack-v316-20261104/frame-proof-32.5s.json",
+            "proofSnapshotSHA256": "fab43e29ef774072f8721b63a354d8ee94eb429307e2f52440cfb817d479ddc0",
+            "nativeLeftPanelCrop": "artifacts/weakpoints-amx30b2-review-v313-20261104/ui-native-crop.webp",
+            "cropSHA256": "004a15805da87299dc368d992248c02e3308b963e426215144647f679557733a",
+            "readBasis": "native-resolution target, attack-source vehicle and shell selectors read in QA313; raw APDS label, no exact ammunition designation"
+          },
+          "typeEvidence": {
+            "sourceBasis": "native-UI-raw-type",
+            "typeOriginal": "APDS",
+            "typeCode": "APDS",
+            "sourceUrl": "https://www.bilibili.com/video/BV1YSuL64E3b/",
+            "sourceTime": 32.5,
+            "exactDesignation": null,
+            "QAReportSHA256": "cd27b02f111d1d89bed8c6fca77ec1da2240189d66ecefb0606647e9fd067fa6"
+          }
+        }
+      },
+      "testCaseEvidence": {
+        "fr_amx_30_b2:v318-conditions-32-5": {
+          "originalPNG_SHA256": "48d37cb5907ed8ee4f9c3c90a733255b9f35c5ad3233026ba3006528181b4751",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v316-20261104/frame-proof-32.5s.json",
+          "sourceOnly": false
+        }
+      }
     },
     {
       "id": "il_magach_6r",
@@ -8124,8 +8382,39 @@
       "eraBasis": "按已核对的具体技术改型形成时期归类。",
       "collectedAt": "2026-11-02T08:58:35.396Z",
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
+      "videoAdvice": [
+        {
+          "id": "v318-amx32-105-author-armour",
+          "label": "作者观点：正面防护偏弱",
+          "text": "作者认为AMX-32（105）的正面防护偏弱；这是作者概述，所采实战画面未提供可复核的正面防护试射条件或局部弱点结果。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1WLKe6QEw2/",
+          "sourceTime": 90.669,
+          "sourcePublishedAt": "2026-07-22",
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "kind": "attributed-author-commentary",
+            "timeRanges": [
+              {
+                "start": 90.669,
+                "end": 94.529
+              }
+            ],
+            "actualShotObserved": false
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1WLKe6QEw2/",
+        "title": "法系牢九门——amx32/105",
+        "author": "没钱的抽屉",
+        "publishedAt": "2026-07-22",
+        "kind": "video",
+        "gameVersion": null
+      },
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/fr_amx_32_105",
       "wikiGameVersion": "2.59.0.92",
@@ -8148,6 +8437,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
+      ],
+      "relatedSources": [
+        {
+          "url": "https://www.bilibili.com/video/BV1WLKe6QEw2/",
+          "title": "法系牢九门——amx32/105",
+          "author": "没钱的抽屉",
+          "publishedAt": "2026-07-22",
+          "kind": "video",
+          "gameVersion": null,
+          "time": 90.669
+        }
       ]
     },
     {
@@ -28654,8 +28954,47 @@
       "era": null,
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
-      "source": null,
+      "videoAdvice": [
+        {
+          "id": "v310-xm1gm-author-armour-advice",
+          "label": "作者建议：不要依赖装甲承伤",
+          "text": "作者建议不要依赖XM1 GM的装甲承伤；其对小口径武器及部分低穿深化学弹的防护描述没有在所采画面中得到试射验证。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1X3zXBAER7/",
+          "sourceTime": 245.189,
+          "sourcePublishedAt": "2026-01-29",
+          "sourceGameVersion": "2.53.0.63",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "attributed-narration-not-test",
+          "evidence": {
+            "kind": "attributed-author-narration",
+            "timeRanges": [
+              {
+                "from": 245.189,
+                "to": 248.22
+              },
+              {
+                "from": 446.76,
+                "to": 455.21
+              }
+            ],
+            "captionBodySHA256": "46c1d24e44a256f70c4a52fad3d8bf0aa2b74f75d68eb62cf530c0fd508f19bf",
+            "QAReportSHA256": "aa33a709dc0b592f0705473585e8258832508f8c805afcf22ee4a43ce2ccb0be",
+            "actualShotObserved": false,
+            "editorialParaphrase": true
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1X3zXBAER7/",
+        "title": "【战争雷霆】“蛙趣，是幽默老资历礼包”XM1(GM) 历史&简评&实战",
+        "author": null,
+        "publishedAt": "2026-01-29",
+        "kind": "video",
+        "gameVersion": "2.53.0.63"
+      },
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/us_xm1_gm",
       "wikiGameVersion": "2.59.0.92",
@@ -28684,6 +29023,18 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "url": "https://www.bilibili.com/video/BV1X3zXBAER7/",
+          "title": "【战争雷霆】“蛙趣，是幽默老资历礼包”XM1(GM) 历史&简评&实战",
+          "author": null,
+          "publishedAt": "2026-01-29",
+          "kind": "video",
+          "gameVersion": "2.53.0.63",
+          "time": 245.189,
+          "scopeNote": "原生界面确认XM1 GM；本段为机库展示与作者防护观点，未展示试射。"
+        }
       ]
     }
   ],
@@ -28693,7 +29044,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 56,
+    "illustratedCount": 57,
     "countries": [
       {
         "country": "usa",
@@ -28829,7 +29180,7 @@
     "lastUpdated": "2026-11-02",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 54,
+    "illustratedTargetCount": 55,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,

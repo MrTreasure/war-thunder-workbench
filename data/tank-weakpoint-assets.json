@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "019b8fcf6874f0fa836af29e5598ff325296797d",
+  "commit": "c609ed270bdd900a7621bbbf093778e08852835f",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -1010,6 +1010,24 @@
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@019b8fcf6874f0fa836af29e5598ff325296797d/images/CHN/CHN-ZTZ96A-P-full.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/019b8fcf6874f0fa836af29e5598ff325296797d/images/CHN/CHN-ZTZ96A-P-full.webp",
         "commit": "019b8fcf6874f0fa836af29e5598ff325296797d"
+      }
+    },
+    "fr_amx_30_b2": {
+      "photo": {
+        "path": "images/FRA/FRA-AMX-30B2-front.webp",
+        "sha256": "534ce1216ccbf0f95bce1bcad7cb3eb1a1c6708c452bbdff906ca30c4202e9bc",
+        "bytes": 260384,
+        "commit": "c609ed270bdd900a7621bbbf093778e08852835f",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@c609ed270bdd900a7621bbbf093778e08852835f/images/FRA/FRA-AMX-30B2-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/c609ed270bdd900a7621bbbf093778e08852835f/images/FRA/FRA-AMX-30B2-front.webp"
+      },
+      "raw": {
+        "path": "images/FRA/FRA-AMX-30B2-full.webp",
+        "sha256": "d5189e0ab8db3929dd27c378e88f4321414438adbb4d1549da12fdba2e260aad",
+        "bytes": 1252874,
+        "commit": "c609ed270bdd900a7621bbbf093778e08852835f",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@c609ed270bdd900a7621bbbf093778e08852835f/images/FRA/FRA-AMX-30B2-full.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/c609ed270bdd900a7621bbbf093778e08852835f/images/FRA/FRA-AMX-30B2-full.webp"
       }
     }
   },
@@ -13477,6 +13495,258 @@
       "commit": "019b8fcf6874f0fa836af29e5598ff325296797d",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@019b8fcf6874f0fa836af29e5598ff325296797d/images/CHN/CHN-ZTZ96A-P-source-114s.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/019b8fcf6874f0fa836af29e5598ff325296797d/images/CHN/CHN-ZTZ96A-P-source-114s.webp"
+    },
+    {
+      "filename": "FRA-AMX-30B2-front.webp",
+      "path": "images/FRA/FRA-AMX-30B2-front.webp",
+      "vehicleId": "fr_amx_30_b2",
+      "country": "FRA",
+      "kind": "photo",
+      "width": 560,
+      "height": 460,
+      "bytes": 260384,
+      "sha256": "534ce1216ccbf0f95bce1bcad7cb3eb1a1c6708c452bbdff906ca30c4202e9bc",
+      "optimizedSHA256": "534ce1216ccbf0f95bce1bcad7cb3eb1a1c6708c452bbdff906ca30c4202e9bc",
+      "preCompressionBytes": 260384,
+      "preCompressionSHA256": "534ce1216ccbf0f95bce1bcad7cb3eb1a1c6708c452bbdff906ca30c4202e9bc",
+      "sourcePNG": {
+        "sha256": "48d37cb5907ed8ee4f9c3c90a733255b9f35c5ad3233026ba3006528181b4751",
+        "bytes": 6037325,
+        "width": 2844,
+        "height": 1600
+      },
+      "sourceFrameSHA256": "48d37cb5907ed8ee4f9c3c90a733255b9f35c5ad3233026ba3006528181b4751",
+      "sourceTime": 32.5,
+      "actualMediaTimeBefore": 32.5,
+      "actualMediaTimeAfter": 32.5,
+      "crop": [
+        1160,
+        450,
+        560,
+        460
+      ],
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "sourceDerivationKey": "ca559bf278ea21c6c1cd1bf41278c3b2ef4564f9a351a5b84f2f718a8b8c37ba",
+      "derivationKey": "5e384660a8e384f409c4fe27ac645f88aa5d0a563f8597512c479304ccfcd26e",
+      "nativeResized": false,
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "distributionProgress": null,
+      "distributionCompletion": "unknown",
+      "calculationCompletionStatus": "unknown",
+      "sceneKind": "protection-distribution",
+      "purpose": "partial-reference",
+      "commit": "c609ed270bdd900a7621bbbf093778e08852835f",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@c609ed270bdd900a7621bbbf093778e08852835f/images/FRA/FRA-AMX-30B2-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/c609ed270bdd900a7621bbbf093778e08852835f/images/FRA/FRA-AMX-30B2-front.webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1YSuL64E3b/",
+        "title": "战雷法系区九门——AMX 30B2",
+        "author": "没钱的抽屉",
+        "publishedAt": "2026-08-09",
+        "kind": "video",
+        "gameVersion": "2.57.1.70",
+        "bvid": "BV1YSuL64E3b"
+      },
+      "sourceKind": "video",
+      "proofSnapshotSHA256": "fab43e29ef774072f8721b63a354d8ee94eb429307e2f52440cfb817d479ddc0",
+      "id": "534ce1216ccbf0f95bce1bcad7cb3eb1a1c6708c452bbdff906ca30c4202e9bc"
+    },
+    {
+      "filename": "FRA-AMX-30B2-full.webp",
+      "path": "images/FRA/FRA-AMX-30B2-full.webp",
+      "vehicleId": "fr_amx_30_b2",
+      "country": "FRA",
+      "kind": "raw",
+      "width": 2844,
+      "height": 1600,
+      "bytes": 1252874,
+      "sha256": "d5189e0ab8db3929dd27c378e88f4321414438adbb4d1549da12fdba2e260aad",
+      "optimizedSHA256": "d5189e0ab8db3929dd27c378e88f4321414438adbb4d1549da12fdba2e260aad",
+      "preCompressionBytes": 2788944,
+      "preCompressionSHA256": "ce353061771e56f9e8ef74e321b4c5d24baa49beffbbcd56666a4fbe9705960c",
+      "sourcePNG": {
+        "sha256": "48d37cb5907ed8ee4f9c3c90a733255b9f35c5ad3233026ba3006528181b4751",
+        "bytes": 6037325,
+        "width": 2844,
+        "height": 1600
+      },
+      "sourceFrameSHA256": "48d37cb5907ed8ee4f9c3c90a733255b9f35c5ad3233026ba3006528181b4751",
+      "sourceTime": 32.5,
+      "actualMediaTimeBefore": 32.5,
+      "actualMediaTimeAfter": 32.5,
+      "crop": [
+        0,
+        0,
+        2844,
+        1600
+      ],
+      "lossless": false,
+      "quality": 98,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": false,
+        "quality": 98,
+        "compression_level": 6
+      },
+      "sourceDerivationKey": "14bd114feba907e55372e8f5ca730ce8d2cef00220787129b1ebbc8105a8827a",
+      "derivationKey": "08c5124fb0371924cba1533af227bbefe414e1da6d27d23dbb2aee5e87416980",
+      "nativeResized": false,
+      "mainImageUsable": false,
+      "completeIllustration": false,
+      "distributionProgress": null,
+      "distributionCompletion": "unknown",
+      "calculationCompletionStatus": "unknown",
+      "sceneKind": "protection-distribution",
+      "purpose": "partial-reference",
+      "commit": "c609ed270bdd900a7621bbbf093778e08852835f",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@c609ed270bdd900a7621bbbf093778e08852835f/images/FRA/FRA-AMX-30B2-full.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/c609ed270bdd900a7621bbbf093778e08852835f/images/FRA/FRA-AMX-30B2-full.webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1YSuL64E3b/",
+        "title": "战雷法系区九门——AMX 30B2",
+        "author": "没钱的抽屉",
+        "publishedAt": "2026-08-09",
+        "kind": "video",
+        "gameVersion": "2.57.1.70",
+        "bvid": "BV1YSuL64E3b"
+      },
+      "sourceKind": "video",
+      "proofSnapshotSHA256": "fab43e29ef774072f8721b63a354d8ee94eb429307e2f52440cfb817d479ddc0",
+      "id": "d5189e0ab8db3929dd27c378e88f4321414438adbb4d1549da12fdba2e260aad"
+    },
+    {
+      "filename": "FRA-AMX-30B2-source-36-8s.webp",
+      "path": "images/FRA/FRA-AMX-30B2-source-36-8s.webp",
+      "vehicleId": "fr_amx_30_b2",
+      "country": "FRA",
+      "kind": "source-evidence-native",
+      "width": 2844,
+      "height": 1600,
+      "bytes": 1388538,
+      "sha256": "43273ab730c171bb399afd0bbba41a64f6325f97699ec1f50cc55e931707a61e",
+      "optimizedSHA256": "43273ab730c171bb399afd0bbba41a64f6325f97699ec1f50cc55e931707a61e",
+      "preCompressionBytes": 2974642,
+      "preCompressionSHA256": "36091b85075fafb29b921ba2e59cd4333ba3b1193ef1c122edb9e023e6606b8a",
+      "sourcePNG": {
+        "sha256": "1c4cbb3d18a9856883d3a5e9683ce564ac0e45fa74f3c6442a909f4730480c8f",
+        "bytes": 6267159,
+        "width": 2844,
+        "height": 1600
+      },
+      "sourceFrameSHA256": "1c4cbb3d18a9856883d3a5e9683ce564ac0e45fa74f3c6442a909f4730480c8f",
+      "sourceTime": 36.8,
+      "actualMediaTimeBefore": 36.8,
+      "actualMediaTimeAfter": 36.8,
+      "crop": [
+        0,
+        0,
+        2844,
+        1600
+      ],
+      "lossless": false,
+      "quality": 98,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": false,
+        "quality": 98,
+        "compression_level": 6
+      },
+      "sourceDerivationKey": "f07e503da7d7529e80455fc35529bf87b04cad3a8f899e45c4687f7b81f50d8a",
+      "derivationKey": "61f1f334dd2b81cf70f020ad51a7ade9c4a019938e40bef804f1f3e5614aed55",
+      "nativeResized": false,
+      "mainImageUsable": false,
+      "completeIllustration": false,
+      "distributionProgress": null,
+      "distributionCompletion": "unknown",
+      "calculationCompletionStatus": "unknown",
+      "sceneKind": "protection-distribution",
+      "purpose": "source-evidence-only",
+      "commit": "c609ed270bdd900a7621bbbf093778e08852835f",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@c609ed270bdd900a7621bbbf093778e08852835f/images/FRA/FRA-AMX-30B2-source-36-8s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/c609ed270bdd900a7621bbbf093778e08852835f/images/FRA/FRA-AMX-30B2-source-36-8s.webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1YSuL64E3b/",
+        "title": "战雷法系区九门——AMX 30B2",
+        "author": "没钱的抽屉",
+        "publishedAt": "2026-08-09",
+        "kind": "video",
+        "gameVersion": "2.57.1.70",
+        "bvid": "BV1YSuL64E3b"
+      },
+      "sourceKind": "video",
+      "proofSnapshotSHA256": "7b992e0b9cb57f83f4077e71ffc0f7ea500ab5cb2c5c81b3783af3a0b646f1dd",
+      "id": "43273ab730c171bb399afd0bbba41a64f6325f97699ec1f50cc55e931707a61e"
+    },
+    {
+      "filename": "FRA-AMX-30B2-source-100s.webp",
+      "path": "images/FRA/FRA-AMX-30B2-source-100s.webp",
+      "vehicleId": "fr_amx_30_b2",
+      "country": "FRA",
+      "kind": "source-evidence-native",
+      "width": 2844,
+      "height": 1600,
+      "bytes": 1500660,
+      "sha256": "a220e2ed0dee40ba478eac84e50769bd408261c9c1a8a60e4d8f38f4156d0cc2",
+      "optimizedSHA256": "a220e2ed0dee40ba478eac84e50769bd408261c9c1a8a60e4d8f38f4156d0cc2",
+      "preCompressionBytes": 1500660,
+      "preCompressionSHA256": "a220e2ed0dee40ba478eac84e50769bd408261c9c1a8a60e4d8f38f4156d0cc2",
+      "sourcePNG": {
+        "sha256": "9b1c28c12293bccd8e7a234dfd170ec933eb3770b687739586206343a8b2d2d9",
+        "bytes": 3611740,
+        "width": 2844,
+        "height": 1600
+      },
+      "sourceFrameSHA256": "9b1c28c12293bccd8e7a234dfd170ec933eb3770b687739586206343a8b2d2d9",
+      "sourceTime": 100,
+      "actualMediaTimeBefore": 100,
+      "actualMediaTimeAfter": 100,
+      "crop": [
+        0,
+        0,
+        2844,
+        1600
+      ],
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "sourceDerivationKey": "603c49764889ae9804f5187b7cf1df18572007dd67fa8b8225c6b03fca54a39f",
+      "derivationKey": "fe71fd8f5da6d50f2554dbd2fc0f7ed3134d18920a745164a69021d3639effc5",
+      "nativeResized": false,
+      "mainImageUsable": false,
+      "completeIllustration": false,
+      "distributionProgress": null,
+      "distributionCompletion": "unknown",
+      "calculationCompletionStatus": "unknown",
+      "sceneKind": "combat",
+      "purpose": "source-evidence-only",
+      "commit": "c609ed270bdd900a7621bbbf093778e08852835f",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@c609ed270bdd900a7621bbbf093778e08852835f/images/FRA/FRA-AMX-30B2-source-100s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/c609ed270bdd900a7621bbbf093778e08852835f/images/FRA/FRA-AMX-30B2-source-100s.webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1YSuL64E3b/",
+        "title": "战雷法系区九门——AMX 30B2",
+        "author": "没钱的抽屉",
+        "publishedAt": "2026-08-09",
+        "kind": "video",
+        "gameVersion": "2.57.1.70",
+        "bvid": "BV1YSuL64E3b"
+      },
+      "sourceKind": "video",
+      "proofSnapshotSHA256": "14fc411f72a3ae6682a67bee7352441faaf7ac605c6138bac8fd5be5fb459ee4",
+      "id": "a220e2ed0dee40ba478eac84e50769bd408261c9c1a8a60e4d8f38f4156d0cc2"
     }
   ]
 }
