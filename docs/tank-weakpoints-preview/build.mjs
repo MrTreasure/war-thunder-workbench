@@ -11,12 +11,55 @@ const out = resolve(process.argv[3] || resolve(captures, "build"));
 const assets = resolve(out, "assets");
 await mkdir(assets, { recursive: true });
 const hash = (body) => createHash("sha256").update(body).digest("hex");
+const startedAt = performance.now();
 const imageByteLimit = 2_000_000;
+const deliveryQualities = [98, 97, 95, 92, 90, 86, 82, 75, 68, 60, 50];
+const cacheDirectory = resolve(captures, "image-derivations-v1");
+await mkdir(cacheDirectory, { recursive: true });
+const cacheStats = { hits: 0, misses: 0, inputBytes: 0 };
+const isWebpBody = (body) => body.toString("ascii", 0, 4) === "RIFF" && body.toString("ascii", 8, 12) === "WEBP";
+// Source intermediates retain the exact lossless bytes used by the registry gate.
+// Delivery entries additionally enforce the public size limit on every read.
+async function cachedImage(identity, produce, delivery = false) {
+  const derivationKey = hash(JSON.stringify({ version: 1, imageByteLimit, deliveryQualities, encoder: "ffmpeg-libwebp-compression6", ...identity }));
+  const file = resolve(cacheDirectory, derivationKey + ".webp");
+  const metadataFile = resolve(cacheDirectory, derivationKey + ".json");
+  try {
+    const metadata = JSON.parse(await readFile(metadataFile, "utf8"));
+    const body = await readFile(file);
+    if (metadata?.derivationKey === derivationKey && metadata.bytes === body.length && metadata.sha256 === hash(body)
+      && isWebpBody(body) && (!delivery || body.length <= imageByteLimit)
+      && (!delivery || (metadata.lossless === true && metadata.quality == null) || (metadata.lossless === false && deliveryQualities.includes(metadata.quality)))) {
+      cacheStats.hits++;
+      return { body, lossless: metadata.lossless, quality: metadata.quality, derivationKey, inputSHA256: identity.inputSHA256 };
+    }
+  } catch (error) {
+    if (error.code !== "ENOENT" && !(error instanceof SyntaxError)) throw error;
+  }
+  cacheStats.misses++;
+  const result = await produce();
+  if (!isWebpBody(result.body) || (delivery && result.body.length > imageByteLimit)) throw Error("Invalid cached WebP output");
+  const metadata = { derivationKey, inputSHA256: identity.inputSHA256, bytes: result.body.length, sha256: hash(result.body), lossless: result.lossless, quality: result.quality };
+  await writeFile(file + ".next", result.body); await rename(file + ".next", file);
+  await writeFile(metadataFile + ".next", JSON.stringify(metadata)); await rename(metadataFile + ".next", metadataFile);
+  return { ...result, derivationKey, inputSHA256: identity.inputSHA256 };
+}
+async function sourceImage(framePath, identity, filter) {
+  const raw = await readFile(framePath);
+  cacheStats.inputBytes += raw.length;
+  return (await cachedImage({ ...identity, inputSHA256: hash(raw), filter, stage: "source" }, async () => ({
+    body: !filter && isWebpBody(raw) ? raw : execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-i", framePath, ...(filter ? ["-vf", filter] : []), "-frames:v", "1", "-c:v", "libwebp", "-lossless", "1", "-compression_level", "6", "-f", "webp", "pipe:1"], { maxBuffer: 32_000_000 }),
+  }))).body;
+}
 async function optimizeDelivery(path) {
+  const input = await readFile(path);
+  return cachedImage({ stage: "delivery", inputSHA256: hash(input) }, () => encodeDelivery(path), true);
+}
+async function encodeDelivery(path) {
   let body = await readFile(path);
   if (body.toString("ascii", 0, 4) !== "RIFF" || body.toString("ascii", 8, 12) !== "WEBP") throw Error("Delivery input must be WebP");
   if (body.length <= imageByteLimit) return { body, lossless: true };
-  for (const quality of [98, 97, 95, 92, 90, 86, 82, 75, 68, 60, 50]) {
+  for (const quality of deliveryQualities) {
     body = execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-i", path, "-frames:v", "1", "-c:v", "libwebp", "-lossless", "0", "-q:v", String(quality), "-compression_level", "6", "-f", "webp", "pipe:1"], { maxBuffer: 32_000_000 });
     if (body.length <= imageByteLimit) return { body, lossless: false, quality };
   }
@@ -198,10 +241,10 @@ for (const model of data.models) {
     const photoFilter = x === 0 && y === 0 && w === width && h === height ? null : `crop=${w}:${h}:${x}:${y}`;
     for (const [kind, filter] of [["photo", photoFilter], ["raw", null]]) {
       const temporary = resolve(assets, `${model.id}-${kind}.next.webp`);
-      if (!filter && isWebp) await copyFile(framePath, temporary);
-      else execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-i", framePath, ...(filter ? ["-vf", filter] : []), "-frames:v", "1", "-c:v", "libwebp", "-lossless", "1", "-compression_level", "6", "-y", temporary]);
-      const sourceBody = await readFile(temporary), sourceDigest = hash(sourceBody);
       const hosted = registry?.models?.[model.id]?.[kind];
+      const sourceBody = await sourceImage(framePath, { modelId: model.id, kind, hosted, asset: registry?.assets?.find((entry) => entry.path === hosted?.path) }, filter);
+      await writeFile(temporary, sourceBody);
+      const sourceDigest = hash(sourceBody);
       if (hosted) {
         const asset = registry.assets.find((entry) => entry.path === hosted.path);
         if ((asset?.preCompressionSHA256 || hosted.sha256) !== sourceDigest || (asset?.preCompressionBytes || hosted.bytes) !== sourceBody.length || !/^[a-f0-9]{40}$/.test(hosted.commit)) throw Error("Pinned image identity mismatch");
@@ -209,7 +252,7 @@ for (const model of data.models) {
       }
       const delivery = await optimizeDelivery(temporary), body = delivery.body, digest = hash(body), file = `weakpoints-${model.id}-${kind}.${digest.slice(0, 16)}.webp`;
       await writeFile(temporary, body);await rename(temporary, resolve(assets, file));
-      report.publishedFiles.push({ file, bytes: body.length, sha256: digest, modelId: model.id, kind, sourceSHA256: sourceDigest, lossless: delivery.lossless, quality: delivery.quality });
+      report.publishedFiles.push({ file, bytes: body.length, sha256: digest, modelId: model.id, kind, sourceSHA256: sourceDigest, sourceBytes: sourceBody.length, inputSHA256: hash(raw), derivationKey: delivery.derivationKey, lossless: delivery.lossless, quality: delivery.quality });
       model[kind === "photo" ? "imageUrl" : "rawUrl"] = `./assets/${file}`;
       const fallbacks = deliveryFallbacks(digest);
       model[kind === "photo" ? "imageFallbackUrls" : "rawFallbackUrls"] = fallbacks;
@@ -241,7 +284,7 @@ for (const model of data.models) {
     if (evidence.crop) {
       const [x, y, w, h] = evidence.crop;
       if (evidence.crop.length !== 4 || !evidence.crop.every(Number.isInteger) || x < 0 || y < 0 || w <= 0 || h <= 0 || x + w > original.width || y + h > original.height || hosted.width !== w || hosted.height !== h) throw Error("Invalid protection screenshot crop");
-      body = execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-i", framePath, "-vf", `crop=${w}:${h}:${x}:${y}`, "-frames:v", "1", "-c:v", "libwebp", "-lossless", "1", "-compression_level", "6", "-f", "webp", "pipe:1"], { maxBuffer: 32_000_000 });
+      body = await sourceImage(framePath, { modelId: model.id, kind: "protection-evidence", evidenceId: evidence.id, hosted, original }, `crop=${w}:${h}:${x}:${y}`);
     }
     if (hash(body) !== (hosted.preCompressionSHA256 || hosted.sha256) || body.length !== (hosted.preCompressionBytes || hosted.bytes)) throw Error("Protection crop differs from its pinned asset");
     for (const asset of [hosted, original]) for (const url of [asset.url, asset.rawUrl]) if (!/^[a-f0-9]{40}$/.test(asset.commit) || !url?.startsWith("https://") || !url.includes(asset.commit)) throw Error("Unpinned protection screenshot");
@@ -249,13 +292,13 @@ for (const model of data.models) {
     await writeFile(temporary, body);const delivery = await optimizeDelivery(temporary);body = delivery.body;
     const digest = hash(body), file = `weakpoints-${model.id}-evidence-${evidence.id}.${digest.slice(0, 16)}.webp`;
     await writeFile(temporary, body);await rename(temporary, resolve(assets, file));
-    report.publishedFiles.push({ file, bytes: body.length, sha256: digest, sourceSHA256, modelId: model.id, evidenceId: evidence.id, kind: "protection-evidence", lossless: delivery.lossless, quality: delivery.quality });
+    report.publishedFiles.push({ file, bytes: body.length, sha256: digest, sourceSHA256, inputSHA256: hash(await readFile(framePath)), derivationKey: delivery.derivationKey, modelId: model.id, evidenceId: evidence.id, kind: "protection-evidence", lossless: delivery.lossless, quality: delivery.quality });
     evidence.imageUrl = `./assets/${file}`;
     evidence.imageFallbackUrls = deliveryFallbacks(digest);evidence.imageFallbackUrl = evidence.imageFallbackUrls[0] || null;
     const rawTemporary = resolve(assets, `${model.id}-evidence-${evidence.id}-raw.next.webp`);
     await copyFile(framePath, rawTemporary);const rawDelivery = await optimizeDelivery(rawTemporary), rawDigest = hash(rawDelivery.body), rawFile = `weakpoints-${model.id}-evidence-${evidence.id}-raw.${rawDigest.slice(0, 16)}.webp`;
     await writeFile(rawTemporary, rawDelivery.body);await rename(rawTemporary, resolve(assets, rawFile));
-    report.publishedFiles.push({ file: rawFile, bytes: rawDelivery.body.length, sha256: rawDigest, modelId: model.id, evidenceId: evidence.id, kind: "protection-evidence-raw" });
+    report.publishedFiles.push({ file: rawFile, bytes: rawDelivery.body.length, sha256: rawDigest, modelId: model.id, evidenceId: evidence.id, kind: "protection-evidence-raw", sourceSHA256: rawDelivery.inputSHA256, derivationKey: rawDelivery.derivationKey, lossless: rawDelivery.lossless, quality: rawDelivery.quality });
     evidence.rawUrl = `./assets/${rawFile}`;
     evidence.rawFallbackUrls = deliveryFallbacks(rawDigest);evidence.rawFallbackUrl = evidence.rawFallbackUrls[0] || null;
     evidence.sourceDimensions = [hosted.width, hosted.height];
@@ -280,5 +323,6 @@ await writeFile(resolve(assets, cssFile), css); await writeFile(resolve(assets, 
 const html = (await readFile(new URL("preview.html", import.meta.url), "utf8")).replace("__STYLE__", "./assets/" + cssFile).replace("__SCRIPT__", "./assets/" + jsFile).replaceAll("__SYMBOL_FONT__", fontFile);
 if (/__STYLE__|__SCRIPT__|__SYMBOL_FONT__|<script(?![^>]*src=)/.test(html)) throw Error("Unresolved or inline script");
 await writeFile(resolve(out, "weakpoints-preview.html"), html);
+report.imageCache = { ...cacheStats, durationMs: Math.round(performance.now() - startedAt) };
 await writeFile(resolve(captures, "build-report.json"), JSON.stringify(report, null, 2) + "\n");
-console.log(JSON.stringify({ output: out, wikiModels: report.models.length, illustratedModels: report.models.filter((m) => m.illustrated).length, images: report.publishedFiles.length, imageBytes: report.publishedFiles.reduce((n, f) => n + f.bytes, 0) }));
+console.log(JSON.stringify({ output: out, imageCache: report.imageCache, wikiModels: report.models.length, illustratedModels: report.models.filter((m) => m.illustrated).length, images: report.publishedFiles.length, imageBytes: report.publishedFiles.reduce((n, f) => n + f.bytes, 0) }));

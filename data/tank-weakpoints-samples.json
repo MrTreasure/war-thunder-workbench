@@ -9324,6 +9324,29 @@
           "label": "优先炮塔，避开空旷车体",
           "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
           "time": 447.898517
+        },
+        {
+          "id": "us_xm_803:author-guidance:v48",
+          "label": "作者观点：防护与生存性",
+          "text": "Wiki 作者 -_Dozer_- 提醒 XM803 车体和侧后防护薄弱，三人乘员布局紧凑，贯穿可能导致严重损失；建议遮蔽车体，利用机动和倒车快速脱离。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourcePublishedAt": "2025-03-13",
+          "sourceUrl": "https://wiki.warthunder.com/2487-xm803-the-forgotten-vanguard",
+          "caseId": null,
+          "sourceClaim": true,
+          "sourceClaimNotCanonicalFact": true,
+          "sourceGameVersion": null,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "evidence": {
+            "QCManifestSHA256": "620b6f153ed7030c384787bc16ef5bab2e2a3fc6487fe15b151b448e282641ed",
+            "QCProposalsSHA256": "3d53f8cb50d61ac30e89c3e09502c8ba2cbcb8e8715f36e35b78ff977cce0b9a",
+            "sourceSealSHA256": "3db3e5f153156b838f25d12a1e8c6ab29e641cc36594b73624c15402287b23d8",
+            "sourceProof": {
+              "path": "artifacts/weakpoints-wiki-article-qc-v47-20261103/records.json",
+              "sha256": "1526c95cc65a6715c671b38bd8e48a959310f8e094a92133e3c73dff66ac1739"
+            }
+          }
         }
       ],
       "source": {
@@ -9493,6 +9516,17 @@
       "frontSummary": "作者不建议打车体，尤其是首下：内部空旷，后效可能只损坏油箱；更倾向攻击炮塔。",
       "frontSummaryAdviceIDs": [
         "BV1SPmEBJE3y:head:10:author"
+      ],
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/2487-xm803-the-forgotten-vanguard",
+          "title": "XM803: The Forgotten Vanguard",
+          "author": "-_Dozer_-",
+          "publishedAt": "2025-03-13",
+          "time": null,
+          "scopeNote": "作者归因文字；非独立试射，原文私有归档。"
+        }
       ]
     },
     {
@@ -12770,6 +12804,39 @@
             "privacy": "raw-images-and-full-transcript-private-never-public",
             "notActualTest": true
           }
+        },
+        {
+          "id": "fr_leclerc_s2:protection-preview-advice:v55",
+          "label": "防护分析预览：局部差异",
+          "text": "Ablertius 的勒克莱尔 S2 防护分析展示了局部防护差异：以勒克莱尔 S2 发射 OFL 120 F1、距离 500 米（界面穿深 567 毫米）为条件，作者所称炮塔左侧的悬停点显示无法击穿，炮塔右侧与首下的悬停点显示能够击穿。这些是防护分析预览，不能推广为整块装甲结论；提示中的预计伤害也不代表实射结果。",
+          "sourceKind": "video-author-advice",
+          "sourceUrl": "https://www.bilibili.com/video/BV1Jir9BXELq/",
+          "author": "Ablertius",
+          "sourceTime": 355.083,
+          "time": 355.083,
+          "sourceTimeBasis": "first-observed-sample-reference-not-exact-subtitle-cue",
+          "sourceTimesSeconds": [
+            355.083,
+            359,
+            373.033
+          ],
+          "caseId": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "source-protection-preview-only",
+          "mainImageMatch": "unknown",
+          "testKind": "protection-preview",
+          "actualShot": false,
+          "rawShellType": null,
+          "sourceGameVersion": null,
+          "distanceM": 500,
+          "uiPenetrationMm": 567,
+          "sourcePublishedAt": "2026-01-18 01:11:40",
+          "evidence": {
+            "sourceProof": {
+              "path": "artifacts/weakpoints-s2-preview-reclassification-v54-20261103/proposals.json",
+              "sha256": "521d261cc98d6b31dbed1ea4a076d92022966c35402c22b49497a7bf553f9b75"
+            }
+          }
         }
       ],
       "source": {},
@@ -12815,6 +12882,15 @@
           "publishedAt": "2025-06-21T20:24:27+08:00",
           "time": 424.356887,
           "scopeNote": "作者对比观点；测试条件未核验"
+        },
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1Jir9BXELq/",
+          "title": "法兰西的“奠基者”——勒克莱尔S2全方位解析",
+          "author": "Ablertius",
+          "publishedAt": "2026-01-18 01:11:40",
+          "time": 355.083,
+          "scopeNote": "防护分析预览；355.083为参考样本时间而非精确字幕起点，非实射；原图及截图仅私有归档。"
         }
       ]
     },
@@ -16117,6 +16193,33 @@
             "proofSnapshot": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/059.json"
           },
           "label": "火炮与车体中央应对"
+        },
+        {
+          "id": "us_m1a1_aim_abrams:historical-author-guidance:v55",
+          "label": "历史 AIM 文章：首下提醒",
+          "text": "MarksmanOfDoom 的 2025 年 AIM 文章认为首下较弱。文章对应现显示为 M1A1 SA 的同一载具 ID；历史 AIM 文章与当前配置尚未核对，缺少改名日期及配置等价证明。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourcePublishedAt": "2025-09-20T20:32:10+00:00",
+          "sourceUrl": "https://wiki.warthunder.com/3293-m1a1-aim-austrailian-freebrams",
+          "sourceSubjectName": "M1A1 AIM",
+          "currentDisplayName": "M1A1 SA",
+          "caseId": null,
+          "sourceClaim": true,
+          "sourceClaimNotCanonicalFact": true,
+          "sourceGameVersion": null,
+          "conditionMatch": "historical-article-current-configuration-unverified",
+          "mainImageMatch": "unknown",
+          "notCurrentPenetrationTest": true,
+          "renameDate": null,
+          "configurationEquivalenceVerified": false,
+          "evidence": {
+            "QCProposalsSHA256": "68e2f7ce29a9bb66dbb40d8841ce119a5dac763b70babd892e2f884cf02f9d24",
+            "sourceProof": {
+              "path": "artifacts/weakpoints-wiki-article-qc-v51-20261103/records.json",
+              "sha256": "4c667533743f87e9497851e1eca08866e40ba13c6c650be66d10e364fba3f6e1"
+            }
+          }
         }
       ],
       "missingEvidence": [
@@ -16186,7 +16289,18 @@
       "mainViewNote": "正面防护分析；画面右侧提示框局部遮挡，不推断不可见区域。",
       "imageQuality": "1080p",
       "coverageStatus": "partial-frontal-guide",
-      "coverageNotice": "正面防护分析 · 提示框局部遮挡"
+      "coverageNotice": "正面防护分析 · 提示框局部遮挡",
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/3293-m1a1-aim-austrailian-freebrams",
+          "title": "M1A1 AIM: Austrailian Freebrams",
+          "author": "MarksmanOfDoom",
+          "publishedAt": "2025-09-20T20:32:10+00:00",
+          "time": null,
+          "scopeNote": "历史 AIM 文章；当前 SA 配置未核对，非当前穿甲试验；原文私有归档。"
+        }
+      ]
     },
     {
       "id": "uk_ttd",
