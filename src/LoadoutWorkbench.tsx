@@ -1,3 +1,4 @@
+import { rating as vehicleRating } from "./vehicle-labels";
 import { getLocale } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { t } from "./i18n/core";
@@ -868,8 +869,10 @@ function LoadoutPage({ owner }: { owner: string }) {
                     data={data}
                     mounts={plan.mounts}
                     preset={plan.preset}
-                    rating={unit?.br?.rb}
+                    airRbRating={unit ? vehicleRating(unit, "rb") : undefined}
                     category={unit?.category ?? undefined}
+                    premium={unit?.premium}
+                    role={unit?.role}
                     mode={mode}
                   />
                   <section className="wt-mount-provenance">

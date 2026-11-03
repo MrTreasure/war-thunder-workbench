@@ -3,7 +3,12 @@ import { t, getLocale } from "./i18n/core";
 import { useMemo } from "react";
 import type { WikiLoadouts } from "./models";
 import type { Mount } from "./loadouts";
-import { estimateBombingTiers, bombingRules, loadoutBombs } from "./loadout-bombing";
+import {
+  estimateBombingTiers,
+  bombingRules,
+  loadoutBombs,
+  bombingRewardCoefficient,
+} from "./loadout-bombing";
 import { matchesWeaponFilters } from "./loadout-weapon-filters";
 import { loadoutWeaponName } from "./intl-loadout-presentation";
 const kg = (grams: number) =>
@@ -17,20 +22,24 @@ export function LoadoutBombing({
   data,
   mounts,
   preset,
-  rating,
+  airRbRating,
   mode,
   category,
+  premium,
+  role,
 }: {
   data: WikiLoadouts;
   mounts: Mount[];
   preset: string | null;
-  rating: string | number | undefined;
+  airRbRating: string | undefined;
   mode: string;
   category?: string;
+  premium?: boolean;
+  role?: string | null;
 }) {
   useLocale();
   const payload = useMemo(() => loadoutBombs(data, mounts, preset), [data, mounts, preset]);
-  const rows = useMemo(() => estimateBombingTiers(payload, rating), [payload, rating]);
+  const rows = useMemo(() => estimateBombingTiers(payload, airRbRating), [payload, airRbRating]);
   const capable =
     data.compatibility.some((option) => matchesWeaponFilters(option.name, "bomb", "")) ||
     data.presets.some((item) =>
@@ -39,9 +48,13 @@ export function LoadoutBombing({
   if (!capable || category === "helicopters") return null;
   const current = rows.filter((row) => row.relevant);
   const other = current.length ? rows.filter((row) => !row.relevant) : [];
-  const br = rating === undefined || rating === "" ? NaN : Number(rating);
+  const br = airRbRating === undefined || airRbRating === "" ? NaN : Number(airRbRating);
   const selected = payload.items.length > 0 || payload.unknown.length > 0;
   const bombCount = payload.items.reduce((sum, item) => sum + item.count, 0);
+  const reward = payload.completeDamage
+    ? bombingRewardCoefficient(payload.damage, premium, role)
+    : null;
+  const number = (value: number) => value.toLocaleString(getLocale(), { maximumFractionDigits: 3 });
   const table = (entries: Estimate[], label: string) => (
     <div className="wt-mount-bombing-scroll">
       <table aria-label={label}>
@@ -59,12 +72,16 @@ export function LoadoutBombing({
               <th scope="row">{bracket(row)}</th>
               <td className="wt-mount-bombing-hp">
                 <span className="wt-mount-bombing-mobile-label">{t("耐久")}</span>
-                {row.hitPoints.toLocaleString(getLocale())} HP
+                {number(row.hitPoints)} HP
+                <small className="wt-mount-bombing-threshold">
+                  {t("自毁门槛")}
+                  {number(row.burnoutHitPoints)}
+                </small>
               </td>
               <td className="wt-mount-bombing-count">
                 <strong>
                   {row.count !== null
-                    ? t("约 {0} 个", [row.count])
+                    ? t("{0} 个", [row.count])
                     : row.status === "empty"
                       ? t("先选择炸弹")
                       : row.status === "unknown"
@@ -72,6 +89,9 @@ export function LoadoutBombing({
                         : t("待核验")}
                 </strong>
                 {row.status === "partial" && <small>{t("仅含已知炸弹")}</small>}
+                {row.count !== null && row.directAllocation.count < row.allocation.count && (
+                  <small>{t("含燃烧后摧毁")}</small>
+                )}
                 {!row.allocation.optimal && <small>{t("已找到的分配")}</small>}
               </td>
               <td className="wt-mount-bombing-packs">
@@ -101,7 +121,7 @@ export function LoadoutBombing({
                     {row.status === "empty"
                       ? "—"
                       : row.status === "unconfirmed"
-                        ? t("现有伤害口径不足以确认实际炸区数量")
+                        ? t("剩余挂载资料不足以确认完整战区数量")
                         : t("缺少可用的完整配弹数据")}
                   </span>
                 )}
@@ -137,6 +157,20 @@ export function LoadoutBombing({
           <span>{t("飞机空历权重")}</span>
           <strong>{Number.isFinite(br) && br >= 1 ? br.toFixed(1) : t("未知")}</strong>
         </div>
+        <div>
+          <span>{t("炸弹合计伤害")}</span>
+          <strong>{payload.items.length ? number(payload.damage) : "—"}</strong>
+          {!payload.completeDamage && <small>{t("已知部分")}</small>}
+        </div>
+        <div>
+          <span>{t("战区收益系数")}</span>
+          <strong>
+            {reward === null
+              ? "—"
+              : `${reward.toLocaleString(getLocale(), { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ×`}
+          </strong>
+          <small>{t("按炸弹部分计算")}</small>
+        </div>
       </div>
       {!!payload.items.length && (
         <div className="wt-mount-bombing-payload">
@@ -148,6 +182,10 @@ export function LoadoutBombing({
               <small>
                 {kg(item.grams)}
                 {t("千克 TNT／枚")}
+              </small>
+              <small>
+                {t("单枚伤害")}
+                {item.damage === null ? t("未知") : number(item.damage)}
               </small>
             </div>
           ))}
@@ -173,20 +211,24 @@ export function LoadoutBombing({
         </details>
       )}
       <p className="wt-mount-bombing-caveat">
-        {t("数量为估算，战区专用毁伤口径尚未核验；\u201C待核验\u201D不代表实际只能炸 0 个。")}
+        {t("按炸弹全部有效命中估算，包含战区燃烧后摧毁；特殊地图不套用此规则。")}
       </p>
       <details className="wt-mount-bombing-sources">
         <summary>{t("计算口径与来源")}</summary>
-        <p>{t("按房间最高 BR 选择战区耐久，再逐枚分配炸弹；多余伤害不转移到下一个战区。")}</p>
         <p>
           {t(
-            "目前使用已知 TNT 当量对应的通用爆炸伤害，尚未确认其是否完整对应战区扣血。燃烧、破片、落点及特殊地图修正不在当前模型内。",
+            "按房间最高 BR 选择战区耐久；剩余 HP 达到 10% 的燃烧自毁门槛时即可停止配弹，逐枚分配，多余伤害不转移到下一战区。",
+          )}
+        </p>
+        <p>
+          {t(
+            "普通高爆炸弹按游戏伤害曲线和战区装甲参数计算。收益系数复用游戏挂载算法与界面显示口径，结合金币机和战斗机属性；它不是实际银狮或研发点收益。",
           )}
         </p>
         <p>{t("燃烧弹及资料不完整的组合保留未知，不补零。")}</p>
-        {bombingRules.sources.map((source, index) => (
+        {bombingRules.sources.map((source) => (
           <a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer">
-            {index === 0 ? t("游戏战区耐久模板") : t("游戏爆炸曲线配置")}
+            {t(source.label)}
             {t("（公开镜像）\u2197")}
           </a>
         ))}

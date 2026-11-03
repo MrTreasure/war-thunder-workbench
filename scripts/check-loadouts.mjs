@@ -126,6 +126,8 @@ import {
   allocateBases,
   bombingRules,
   estimateBombingTiers,
+  baseBombDamage,
+  bombingRewardCoefficient,
 } from "../src/loadout-bombing.ts";
 assert.equal(massGrams("1,500 kg"), 1_500_000);
 assert.equal(massGrams("675 g"), 675);
@@ -214,12 +216,40 @@ const fabEstimate = estimateBombingTiers(
   "10.3",
 );
 assert.equal(fabEstimate.filter((row) => row.relevant).length, 1);
-assert.equal(fabEstimate.at(-1).status, "unconfirmed");
+assert.equal(fabEstimate.at(-1).status, "estimated");
+assert.equal(fabEstimate.at(-1).burnoutHitPoints, 23_310);
+assert.equal(fabEstimate.at(-1).directAllocation.count, 0);
 assert.equal(
   fabEstimate.at(-1).count,
-  null,
-  "an unverified zero must not become a real-game inability claim",
+  1,
+  "two FAB-1500M-54 bombs cross the native burnout threshold",
 );
+assert.equal(fabEstimate.at(-1).allocation.packs[0][0], 2);
+assert.equal(baseBombDamage(675_000), 12_187.5);
+assert(
+  Math.abs(baseBombDamage(750) - 68.33333333333333) < 1e-8,
+  "small bombs must apply the bombing-zone armour gate",
+);
+assert.equal(
+  estimateBombingTiers({ items: [bombGroup(fabDamage, 1)], unknown: [], grams: 675000 }, "10.3").at(
+    -1,
+  ).count,
+  0,
+);
+assert.equal(
+  estimateBombingTiers(
+    { items: [bombGroup(fabDamage, 1)], unknown: ["unknown bomb"], grams: 675000 },
+    "10.3",
+  ).at(-1).count,
+  null,
+);
+assert.equal(bombingRewardCoefficient(18000, false, "bomber"), 10);
+assert.equal(bombingRewardCoefficient(18000, true, "fighter"), 8);
+assert.equal(bombingRewardCoefficient(200000, true, "fighter"), 3);
+assert.equal(bombingRewardCoefficient(0, false, "bomber"), null);
+assert.equal(bombingRewardCoefficient(24375, undefined, "fighter"), null);
+assert(Math.abs(bombingRewardCoefficient(24375, true, "fighter") - 7.657706821480405) < 1e-8);
+
 const partialEstimate = estimateBombingTiers(
   { items: [bombGroup(30_000, 2)], unknown: ["missing bomb"], grams: 2000 },
   "10.3",
