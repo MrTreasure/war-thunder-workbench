@@ -124,10 +124,12 @@ function render() {
     article.append(element("h4", advice.label), element("p", advice.text));
     const testCase = model.testCases?.find((item) => item.id === advice.caseId);
     if (testCase) article.append(element("p", [testCase.attacker || "攻击车辆待核对", testCase.shell || "炮弹待核对", testCase.shellTypeCode || "弹种待核对", penetrationLabel(testCase)].join(" · "), "case-summary"));
-    const adviceTime = Number.isFinite(advice.sourceTime) ? advice.sourceTime : advice.time;
+    const articleAdvice = advice.sourceKind === "article-text";
+    const staticAdvice = articleAdvice || advice.sourceKind === "forum-image";
+    const adviceTime = staticAdvice ? null : Number.isFinite(advice.sourceTime) ? advice.sourceTime : advice.time;
     const href = videoUrl({ url: advice.sourceUrl || testCase?.sourceUrl || source.url }, adviceTime);
     if (href) {
-      const link = element("a", Number.isFinite(adviceTime) ? `${Math.floor(adviceTime / 60)}:${String(Math.floor(adviceTime % 60)).padStart(2, "0")} ↗` : advice.sourceKind === "forum-image" || staticSource ? "查看原帖 ↗" : "查看视频 ↗");
+      const link = element("a", Number.isFinite(adviceTime) ? `${Math.floor(adviceTime / 60)}:${String(Math.floor(adviceTime % 60)).padStart(2, "0")} ↗` : articleAdvice ? "查看原文 ↗" : advice.sourceKind === "forum-image" || staticSource ? "查看原帖 ↗" : "查看视频 ↗");
       link.href = href; link.target = "_blank"; link.rel = "noopener noreferrer";
       article.append(link);
     }

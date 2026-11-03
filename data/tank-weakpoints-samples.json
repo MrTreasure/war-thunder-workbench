@@ -2166,7 +2166,30 @@
         "note": "自动装填；Wiki 主炮面板。"
       },
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "jp_type_10:wiki-article:7181:self",
+          "label": "文章作者观点：防护与生存性",
+          "text": "作者认为10式车体复合装甲覆盖有限、首下较薄；炮塔侧面防护弱。其三人乘员布局使车体受击失去两人时风险较高，炮塔受击则可能因乘员分隔保留战斗能力。以上为作者防护与生存性建议，不能当作特定弹药、距离下的已验证穿透或必杀结论。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourceUrl": "https://wiki.warthunder.com/7181-type-10-modern-samurai",
+          "sourcePublishedAt": "2026-06-29T18:30:45+00:00",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "article-author-guidance-unverified-test",
+          "sourceGameVersion": null,
+          "caseId": null,
+          "evidence": {
+            "sourcePostProof": {
+              "URL": "https://wiki.warthunder.com/7181-type-10-modern-samurai",
+              "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-audit-v2-20261103/type10-article.json",
+              "snapshotSHA256": "9e5369fd48955fb6a24e86712db58a0eea94a8685e7bd97585287a1e4f0b893d",
+              "capturedAt": "2026-11-03T04:44:02.185Z"
+            },
+            "coverageBasis": "exact article subject"
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-video",
       "collectedAt": "2026-11-02",
@@ -2175,7 +2198,18 @@
       "countryName": "日本",
       "rank": 8,
       "era": "modern",
-      "scopeRole": "medium_tank"
+      "scopeRole": "medium_tank",
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/7181-type-10-modern-samurai",
+          "title": "Type 10: Modern Samurai",
+          "author": "MrHaddock1",
+          "publishedAt": "2026-06-29T18:30:45+00:00",
+          "time": null,
+          "scopeNote": "Wiki投稿作者观点，非unit基础数据；测试条件未核验"
+        }
+      ]
     },
     {
       "id": "cn_ztz_99a",
@@ -12659,7 +12693,32 @@
       "eraBasis": "M1A2SEPv2在2000年代升级观瞄、电子与辅助动力，增加CROWS及ARATII，额外重量降低机动。",
       "collectedAt": "2026-11-02T09:51:05.914Z",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "us_m1a2_sep2_abrams:wiki-article:7181:enemy",
+          "label": "文章作者观点：对抗位置建议",
+          "text": "针对文章链接所指的M1A2 SEPv2，作者建议关注首下和座圈；侧射炮塔下方，后射发动机以争取失能后绕侧。此为作者建议，未核验特定弹药、距离或毁伤结果，不泛用于其他M1改型。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourceUrl": "https://wiki.warthunder.com/7181-type-10-modern-samurai",
+          "sourcePublishedAt": "2026-06-29T18:30:45+00:00",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "article-author-guidance-unverified-test",
+          "sourceGameVersion": null,
+          "caseId": null,
+          "evidence": {
+            "sourcePostProof": {
+              "URL": "https://wiki.warthunder.com/7181-type-10-modern-samurai",
+              "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-enemy-source-v3-20261103/article.json",
+              "snapshotSHA256": "d3172958a34acd662b1bcfa9321d6f3838a854c678274cdf27654687fccaed00",
+              "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-enemy-source-v3-20261103/article.html",
+              "htmlSHA256": "a143e0a12bf90faf3d349bdc056b623d931d561a692ff3b148b171bb320d8fcc",
+              "capturedAt": "2026-11-03T04:49:16.875Z"
+            },
+            "coverageBasis": "exact enemy unit hyperlink; not family expansion"
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/us_m1a2_sep2_abrams",
@@ -12684,6 +12743,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/7181-type-10-modern-samurai",
+          "title": "Type 10: Modern Samurai",
+          "author": "MrHaddock1",
+          "publishedAt": "2026-06-29T18:30:45+00:00",
+          "time": null,
+          "scopeNote": "Wiki投稿作者观点，非unit基础数据；测试条件未核验"
+        }
       ]
     },
     {
@@ -14596,6 +14666,30 @@
             "privacy": "raw-images-and-full-transcript-private-never-public",
             "notActualTest": true
           }
+        },
+        {
+          "id": "germ_leopard_2a7v:wiki-article:7181:enemy",
+          "label": "文章作者观点：对抗位置建议",
+          "text": "作者建议关注首下，车体遮蔽时尝试炮管上方的顶部装甲；亦建议先打炮闩或炮管争取绕侧。顶部建议明确提到Type 10弹，非同帧试射结论。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourceUrl": "https://wiki.warthunder.com/7181-type-10-modern-samurai",
+          "sourcePublishedAt": "2026-06-29T18:30:45+00:00",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "article-author-guidance-unverified-test",
+          "sourceGameVersion": null,
+          "caseId": null,
+          "evidence": {
+            "sourcePostProof": {
+              "URL": "https://wiki.warthunder.com/7181-type-10-modern-samurai",
+              "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-enemy-source-v3-20261103/article.json",
+              "snapshotSHA256": "d3172958a34acd662b1bcfa9321d6f3838a854c678274cdf27654687fccaed00",
+              "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-enemy-source-v3-20261103/article.html",
+              "htmlSHA256": "a143e0a12bf90faf3d349bdc056b623d931d561a692ff3b148b171bb320d8fcc",
+              "capturedAt": "2026-11-03T04:49:16.875Z"
+            },
+            "coverageBasis": "exact enemy unit hyperlink; not family expansion"
+          }
         }
       ],
       "source": {
@@ -14791,6 +14885,15 @@
           "publishedAt": "2025-06-21T20:24:27+08:00",
           "time": 156.806748,
           "scopeNote": "作者对比观点；测试条件未核验"
+        },
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/7181-type-10-modern-samurai",
+          "title": "Type 10: Modern Samurai",
+          "author": "MrHaddock1",
+          "publishedAt": "2026-06-29T18:30:45+00:00",
+          "time": null,
+          "scopeNote": "Wiki投稿作者观点，非unit基础数据；测试条件未核验"
         }
       ]
     },
@@ -24303,6 +24406,54 @@
             "privacy": "raw-images-and-full-transcript-private-never-public",
             "notActualTest": true
           }
+        },
+        {
+          "id": "ussr_t_90m_2020:wiki-article:7181:enemy",
+          "label": "文章作者观点：对抗位置建议",
+          "text": "作者建议关注首下或炮管炮闩上方，侧射炮塔下方，后射发动机方向。原文声称高后效，只作为作者建议保存，不能当作已验证必杀。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourceUrl": "https://wiki.warthunder.com/7181-type-10-modern-samurai",
+          "sourcePublishedAt": "2026-06-29T18:30:45+00:00",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "article-author-guidance-unverified-test",
+          "sourceGameVersion": null,
+          "caseId": null,
+          "evidence": {
+            "sourcePostProof": {
+              "URL": "https://wiki.warthunder.com/7181-type-10-modern-samurai",
+              "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-enemy-source-v3-20261103/article.json",
+              "snapshotSHA256": "d3172958a34acd662b1bcfa9321d6f3838a854c678274cdf27654687fccaed00",
+              "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-enemy-source-v3-20261103/article.html",
+              "htmlSHA256": "a143e0a12bf90faf3d349bdc056b623d931d561a692ff3b148b171bb320d8fcc",
+              "capturedAt": "2026-11-03T04:49:16.875Z"
+            },
+            "coverageBasis": "exact enemy unit hyperlink; not family expansion"
+          }
+        },
+        {
+          "id": "ussr_t_90m_2020:wiki-article:2949:self",
+          "label": "文章作者观点：防护与生存性",
+          "text": "作者认为T-90M炮塔与正面复合装甲及反应装甲防护较强，但侧后方向薄弱。三人乘员和炮塔下方弹药轮盘布局使车体被穿透后可能产生连锁损失；建议减少车体暴露。仅为作者一般建议，未证实特定弹药距离下的局部穿透或必杀。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourceUrl": "https://wiki.warthunder.com/2949-t-90m-teeth-of-the-modern-bear",
+          "sourcePublishedAt": "2025-04-19T19:23:21+00:00",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "article-author-guidance-unverified-test",
+          "sourceGameVersion": null,
+          "caseId": null,
+          "evidence": {
+            "sourcePostProof": {
+              "URL": "https://wiki.warthunder.com/2949-t-90m-teeth-of-the-modern-bear",
+              "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round3-20261103/t90m-article.json",
+              "snapshotSHA256": "06b931c0bb79fa0de64fb86ab58518832849a898d33e635ca90f6eb37b295856",
+              "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round3-20261103/t90m-article.html",
+              "htmlSHA256": "92bb02d7597fd44954a6ae34fad7ad3ffbdab0fc5be8ab85d78ca4608a3ccb07",
+              "capturedAt": "2026-11-03T04:57:57.831Z"
+            },
+            "coverageBasis": "exact article subject"
+          }
         }
       ],
       "source": null,
@@ -24344,6 +24495,24 @@
           "publishedAt": "2025-06-21T20:24:27+08:00",
           "time": 80.575727,
           "scopeNote": "作者对比观点；测试条件未核验"
+        },
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/7181-type-10-modern-samurai",
+          "title": "Type 10: Modern Samurai",
+          "author": "MrHaddock1",
+          "publishedAt": "2026-06-29T18:30:45+00:00",
+          "time": null,
+          "scopeNote": "Wiki投稿作者观点，非unit基础数据；测试条件未核验"
+        },
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/2949-t-90m-teeth-of-the-modern-bear",
+          "title": "T-90M: Teeth of the Modern Bear",
+          "author": "-_Dozer_-",
+          "publishedAt": "2025-04-19T19:23:21+00:00",
+          "time": null,
+          "scopeNote": "Wiki投稿作者观点，非unit基础数据；测试条件未核验"
         }
       ]
     },

@@ -78,6 +78,15 @@ for (const model of data.models) {
   validateShellTypeReference(model.testContext, cases.get(model.testContext?.caseId));
   if (model.testContext?.sourceKind === "forum-image") validateStaticCase(model.testContext);
   for (const advice of model.videoAdvice || []) {
+    if (advice.sourceKind === "article-text") {
+      let articleUrl;
+      try { articleUrl = new URL(advice.sourceUrl); } catch { throw Error("Article advice needs a source URL"); }
+      if (advice.sourceTime !== null || advice.caseId !== null || advice.sourceClaimNotCanonicalFact !== true
+        || articleUrl.protocol !== "https:" || articleUrl.hostname !== "wiki.warthunder.com"
+        || !/^\/(?:\d+-[^/]+|tips\/\d+)\/?$/.test(articleUrl.pathname)
+        || !Number.isFinite(Date.parse(advice.sourcePublishedAt))) throw Error("Article commentary needs its actual publication date and no invented test clock");
+      continue;
+    }
     if (advice.sourceKind === "forum-image") {
       const related = cases.get(advice.caseId || advice.relatedCaseId);
       if (advice.sourceTime !== null || !isForumPostUrl(advice.sourceUrl)

@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "01348f607ca8c832c0a428cecbedaae7e150f63d",
+  "commit": "77b67b19661062aacd886bd690d78061d0e194f8",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -11947,6 +11947,54 @@
       "commit": "01348f607ca8c832c0a428cecbedaae7e150f63d",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@01348f607ca8c832c0a428cecbedaae7e150f63d/images/USSR/USSR-T-90A-historical-front.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/01348f607ca8c832c0a428cecbedaae7e150f63d/images/USSR/USSR-T-90A-historical-front.webp"
+    },
+    {
+      "path": "images/JPN/JPN-Type-10-article-suspension-reference-20260629-native1919x1079.webp",
+      "sha256": "80cd4e0b69d570830a5f6190040afe989eb6e41c90226b0f2dd998eb784ea61a",
+      "bytes": 2541370,
+      "width": 1919,
+      "height": 1079,
+      "sourceDimensions": [
+        1919,
+        1079
+      ],
+      "nativeResized": false,
+      "vehicleId": "jp_type_10",
+      "country": "JPN",
+      "source": {
+        "kind": "article-image",
+        "url": "https://wiki.warthunder.com/7181-type-10-modern-samurai",
+        "imageUrl": "https://wiki.warthunder.com/images/c4cddb96a5e08da04fbfb7cd1d3b4579.jpg",
+        "title": "Type 10: Modern Samurai",
+        "author": "MrHaddock1",
+        "publishedAt": "2026-06-29T18:30:45+00:00"
+      },
+      "sourceKind": "article-image",
+      "sourceTime": null,
+      "mediaTime": null,
+      "sourcePublishedAt": "2026-06-29T18:30:45+00:00",
+      "sourceImageUrl": "https://wiki.warthunder.com/images/c4cddb96a5e08da04fbfb7cd1d3b4579.jpg",
+      "sourceFrameSHA256": "77909dba70cd13b12d0f94f4ab7e679cc684f291a0216e4c0fd8637bf6cd72ae",
+      "sourceFrameHashKind": "source-original-jpeg",
+      "proofSnapshotSHA256": "9e5369fd48955fb6a24e86712db58a0eea94a8685e7bd97585287a1e4f0b893d",
+      "sourceGameVersion": null,
+      "caseId": null,
+      "kind": "source-static-image-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "sceneKind": "game-exterior-illustration",
+      "visibleView": "front-low-angle-tilted-hull-turret-turned",
+      "sourceCaption": "A Type 10 using its controllable suspension to get an incredibly low angle",
+      "identityBasis": "single image exact source caption; not native target UI",
+      "mainImageUsable": false,
+      "hasGreenArmourMap": false,
+      "encoding": "source-webp-preserved",
+      "id": "80cd4e0b69d570830a5f6190040afe989eb6e41c90226b0f2dd998eb784ea61a",
+      "commit": "77b67b19661062aacd886bd690d78061d0e194f8",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@77b67b19661062aacd886bd690d78061d0e194f8/images/JPN/JPN-Type-10-article-suspension-reference-20260629-native1919x1079.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/77b67b19661062aacd886bd690d78061d0e194f8/images/JPN/JPN-Type-10-article-suspension-reference-20260629-native1919x1079.webp"
     }
   ]
 }
