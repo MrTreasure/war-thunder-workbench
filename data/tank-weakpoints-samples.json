@@ -2342,6 +2342,15 @@
           "publishedAt": "2026-06-29T18:30:45+00:00",
           "time": null,
           "scopeNote": "Wiki投稿作者观点，非unit基础数据；测试条件未核验"
+        },
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1TBqqBkEYB/",
+          "title": "【战争雷霆】以不变应对万变！阳光开朗的明星主战-10式/TKX新手简评与教学",
+          "author": "Mori772",
+          "publishedAt": "2025-12-20",
+          "time": null,
+          "scopeNote": "10式/TKX联合评测资料；未作为本页局部弱点实测证据"
         }
       ]
     },
@@ -22150,6 +22159,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1GB1SB6EqW/",
+          "title": "【战争雷霆】教你和可靠的老成萝莉前辈玩-ztz99III|二期改新手简评与教学",
+          "author": "Mori772",
+          "publishedAt": "2025-11-08",
+          "time": null,
+          "scopeNote": "二期/三期联合评测资料；单帧改型未核实；未作为本页局部弱点实测证据"
+        }
       ]
     },
     {
@@ -23051,6 +23071,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1TBqqBkEYB/",
+          "title": "【战争雷霆】以不变应对万变！阳光开朗的明星主战-10式/TKX新手简评与教学",
+          "author": "Mori772",
+          "publishedAt": "2025-12-20",
+          "time": null,
+          "scopeNote": "10式/TKX联合评测资料；未作为本页局部弱点实测证据"
+        }
       ]
     },
     {
@@ -24712,6 +24743,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV16oFfzEEV8/",
+          "title": "【战争雷霆】生不逢时的坦克-T72B3竞技场-都怪这BMPT乱世害人呀-新手简评与教学",
+          "author": "Mori772",
+          "publishedAt": "2026-02-08",
+          "time": null,
+          "scopeNote": "单车评价资料；未作为本页局部弱点实测证据"
+        }
       ]
     },
     {
