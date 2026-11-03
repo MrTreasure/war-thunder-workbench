@@ -11652,7 +11652,48 @@
       "eraBasis": "MBT70为60年代美德联合项目，采用152毫米炮导合一武器和7.5秒自动装填；Wiki概述强调火力、机动与防护均衡。",
       "collectedAt": "2026-11-02T09:05:23.210Z",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v247-us_mbt_70-90.38",
+          "label": "作者观点：炮塔弹药风险",
+          "text": "鸡蛋壳w提醒，高穿钢针击穿炮塔后可能引爆弹药；这是作者观点，本轮未确认对应实射。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1UxttzjEnY/",
+          "sourceTime": 90.38,
+          "sourcePublishedAt": "2025-08-09",
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-claim-only",
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV1UxttzjEnY/",
+            "sourceTime": 90.38,
+            "kind": "attributed-author-observation",
+            "actualShotObserved": false
+          }
+        },
+        {
+          "id": "v247-us_mbt_70-95.68",
+          "label": "作者观点：炮盾局部防护",
+          "text": "鸡蛋壳w认为炮盾局部较硬，未给出已核实的具体弹种门槛，不能推广到整个炮盾。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1UxttzjEnY/",
+          "sourceTime": 95.68,
+          "sourcePublishedAt": "2025-08-09",
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-claim-only",
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV1UxttzjEnY/",
+            "sourceTime": 95.68,
+            "kind": "attributed-author-observation",
+            "actualShotObserved": false
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/us_mbt_70",
@@ -11677,6 +11718,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1UxttzjEnY/",
+          "title": "【战争雷霆】钢针和装填毁了这车—MBT70简评与实战",
+          "author": "鸡蛋壳w",
+          "publishedAt": "2025-08-09",
+          "time": 90.38,
+          "scopeNote": "仅归属作者观点与局部模拟观察；未确认实射，不构成全域结论。"
+        }
       ]
     },
     {
@@ -19388,7 +19440,18 @@
         }
       ],
       "coverageStatus": "partial-frontal-guide",
-      "coverageNotice": "近正面防护分析 · 2处条件性可见绿区参考（非逐点实射）"
+      "coverageNotice": "近正面防护分析 · 2处条件性可见绿区参考（非逐点实射）",
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1HxfSBRE4S/",
+          "title": "英格兰之盾——挑战者2 OES全方位解析（补档）",
+          "author": "Ablertius",
+          "publishedAt": "2026-02-25",
+          "time": 316,
+          "scopeNote": "OES系列解析；具体载具版本尚未确认，未套用测试结论"
+        }
+      ]
     },
     {
       "id": "uk_khalid",
@@ -21093,7 +21156,77 @@
       "era": "cold-war",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v239-amx30super-point-244",
+          "label": "单点预测（非实射）：车体首下正面中部单点",
+          "text": "早試的视频中，BMP-3以30毫米APDS、300米、界面穿深80毫米对首下单点预测“击穿几率较低”；不是必穿或实射结论。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": "fr_amx_30_super:v239-point-244",
+          "sourceUrl": "https://www.bilibili.com/video/BV15C6wBAEdx/",
+          "sourceTime": 244,
+          "sourcePublishedAt": "2026-01-29",
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "same-frame",
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV15C6wBAEdx/",
+            "sourceTime": 244,
+            "originalPNG_SHA256": "959e00118454d499344bceab18457063987c88637b25c55f5ba658fd370fc44d",
+            "kind": "single-point-protection-prediction",
+            "officialWikiReferences": [
+              "https://wiki.warthunder.com/unit/ussr_bmp_3"
+            ]
+          }
+        },
+        {
+          "id": "v239-amx30super-point-260",
+          "label": "单点预测（非实射）：车长观察塔正面单点",
+          "text": "早試的视频中，BMP-3以30毫米APDS、300米、界面穿深80毫米对车长观察塔正面单点预测“能够击穿”；未验证实射。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": "fr_amx_30_super:v239-point-260",
+          "sourceUrl": "https://www.bilibili.com/video/BV15C6wBAEdx/",
+          "sourceTime": 260,
+          "sourcePublishedAt": "2026-01-29",
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "same-frame",
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV15C6wBAEdx/",
+            "sourceTime": 260,
+            "originalPNG_SHA256": "2014163c31fe92471cbb83450c126cad22c2fa819e4869a2424dbe00242bacc9",
+            "kind": "single-point-protection-prediction",
+            "officialWikiReferences": [
+              "https://wiki.warthunder.com/unit/ussr_bmp_3"
+            ]
+          }
+        },
+        {
+          "id": "v239-amx30super-point-278",
+          "label": "单点预测（非实射）：炮塔侧面中部单点",
+          "text": "早試的视频中，XM800T以20毫米APDS、300米、界面穿深53毫米对炮塔侧面单点预测“能够击穿”；未验证实射。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": "fr_amx_30_super:v239-point-278",
+          "sourceUrl": "https://www.bilibili.com/video/BV15C6wBAEdx/",
+          "sourceTime": 278,
+          "sourcePublishedAt": "2026-01-29",
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "same-frame",
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV15C6wBAEdx/",
+            "sourceTime": 278,
+            "originalPNG_SHA256": "3d9fa8b076dd755909a067f2b66156f726942056eb9ee51a173c788ef25feb43",
+            "kind": "single-point-protection-prediction",
+            "officialWikiReferences": [
+              "https://wiki.warthunder.com/unit/us_xm_800t"
+            ]
+          }
+        }
+      ],
       "source": null,
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/fr_amx_30_super",
@@ -21123,7 +21256,170 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
-      ]
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV15C6wBAEdx/",
+          "title": "高卢龙骑兵：超级AMX 30 评测与实战思路",
+          "author": "早試",
+          "publishedAt": "2026-01-29",
+          "time": 260,
+          "scopeNote": "单点防护分析预测；目标名未在原生界面显示，非实射或全区域结论"
+        }
+      ],
+      "testCases": [
+        {
+          "id": "fr_amx_30_super:v239-point-244",
+          "label": "单点预测（非实射）：车体首下正面中部单点",
+          "sourceKind": "video",
+          "sourceUrl": "https://www.bilibili.com/video/BV15C6wBAEdx/",
+          "sourceTime": 244,
+          "sourcePublishedAt": "2026-01-29",
+          "attacker": "BMP-3",
+          "attackerDisplayName": "BMP-3",
+          "attackerVehicleId": "ussr_bmp_3",
+          "shell": "30 毫米 APDS",
+          "exactDesignation": null,
+          "rawUIType": "APDS",
+          "shellTypeCode": "APDS",
+          "shellTypeLabel": "脱壳穿甲弹",
+          "distanceMeters": 300,
+          "displayedPenetrationMm": 80,
+          "targetAngleDegrees": null,
+          "impactAngleDegrees": 34,
+          "azimuthDegrees": 0,
+          "equivalentArmorMm": 83,
+          "equivalentArmorBasis": "single selected point for the displayed APDS; not plate thickness",
+          "predictionOnly": true,
+          "prediction": "击穿几率较低",
+          "predictedDamageComponents": [
+            "驾驶员",
+            "油箱"
+          ],
+          "sourceFrameSHA256": "959e00118454d499344bceab18457063987c88637b25c55f5ba658fd370fc44d",
+          "sourceVersion": null,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "actualPenetration": null,
+          "kill": null,
+          "targetIdentityBasis": "video-title-and-segment",
+          "nativeTargetRawLabel": null,
+          "note": "单点防护分析预测，非实射；目标由视频标题和片段识别，原生目标名未显示。数值仅适用于本帧所选点，入射角不是车体摆角。"
+        },
+        {
+          "id": "fr_amx_30_super:v239-point-260",
+          "label": "单点预测（非实射）：车长观察塔正面单点",
+          "sourceKind": "video",
+          "sourceUrl": "https://www.bilibili.com/video/BV15C6wBAEdx/",
+          "sourceTime": 260,
+          "sourcePublishedAt": "2026-01-29",
+          "attacker": "BMP-3",
+          "attackerDisplayName": "BMP-3",
+          "attackerVehicleId": "ussr_bmp_3",
+          "shell": "30 毫米 APDS",
+          "exactDesignation": null,
+          "rawUIType": "APDS",
+          "shellTypeCode": "APDS",
+          "shellTypeLabel": "脱壳穿甲弹",
+          "distanceMeters": 300,
+          "displayedPenetrationMm": 80,
+          "targetAngleDegrees": null,
+          "impactAngleDegrees": 3,
+          "azimuthDegrees": 0,
+          "equivalentArmorMm": 60,
+          "equivalentArmorBasis": "single selected point for the displayed APDS; not plate thickness",
+          "predictionOnly": true,
+          "prediction": "能够击穿",
+          "predictedDamageComponents": [
+            "车长"
+          ],
+          "sourceFrameSHA256": "2014163c31fe92471cbb83450c126cad22c2fa819e4869a2424dbe00242bacc9",
+          "sourceVersion": null,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "actualPenetration": null,
+          "kill": null,
+          "targetIdentityBasis": "video-title-and-segment",
+          "nativeTargetRawLabel": null,
+          "note": "单点防护分析预测，非实射；目标由视频标题和片段识别，原生目标名未显示。数值仅适用于本帧所选点，入射角不是车体摆角。"
+        },
+        {
+          "id": "fr_amx_30_super:v239-point-278",
+          "label": "单点预测（非实射）：炮塔侧面中部单点",
+          "sourceKind": "video",
+          "sourceUrl": "https://www.bilibili.com/video/BV15C6wBAEdx/",
+          "sourceTime": 278,
+          "sourcePublishedAt": "2026-01-29",
+          "attacker": "XM800T",
+          "attackerDisplayName": "XM800T",
+          "attackerVehicleId": "us_xm_800t",
+          "shell": "20 毫米 APDS",
+          "exactDesignation": null,
+          "rawUIType": "APDS",
+          "shellTypeCode": "APDS",
+          "shellTypeLabel": "脱壳穿甲弹",
+          "distanceMeters": 300,
+          "displayedPenetrationMm": 53,
+          "targetAngleDegrees": null,
+          "impactAngleDegrees": 30,
+          "azimuthDegrees": 97,
+          "equivalentArmorMm": 42,
+          "equivalentArmorBasis": "single selected point for the displayed APDS; not plate thickness",
+          "predictionOnly": true,
+          "prediction": "能够击穿",
+          "predictedDamageComponents": [
+            "炮手",
+            "炮闩"
+          ],
+          "sourceFrameSHA256": "3d9fa8b076dd755909a067f2b66156f726942056eb9ee51a173c788ef25feb43",
+          "sourceVersion": null,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "actualPenetration": null,
+          "kill": null,
+          "targetIdentityBasis": "video-title-and-segment",
+          "nativeTargetRawLabel": null,
+          "note": "单点防护分析预测，非实射；目标由视频标题和片段识别，原生目标名未显示。数值仅适用于本帧所选点，入射角不是车体摆角。"
+        }
+      ],
+      "testContext": {
+        "label": "单点预测（非实射）：车长观察塔正面单点",
+        "sourceKind": "video",
+        "sourceUrl": "https://www.bilibili.com/video/BV15C6wBAEdx/",
+        "sourceTime": 260,
+        "sourcePublishedAt": "2026-01-29",
+        "attacker": "BMP-3",
+        "attackerDisplayName": "BMP-3",
+        "attackerVehicleId": "ussr_bmp_3",
+        "shell": "30 毫米 APDS",
+        "exactDesignation": null,
+        "rawUIType": "APDS",
+        "shellTypeCode": "APDS",
+        "shellTypeLabel": "脱壳穿甲弹",
+        "distanceMeters": 300,
+        "displayedPenetrationMm": 80,
+        "targetAngleDegrees": null,
+        "impactAngleDegrees": 3,
+        "azimuthDegrees": 0,
+        "equivalentArmorMm": 60,
+        "equivalentArmorBasis": "single selected point for the displayed APDS; not plate thickness",
+        "predictionOnly": true,
+        "prediction": "能够击穿",
+        "predictedDamageComponents": [
+          "车长"
+        ],
+        "sourceFrameSHA256": "2014163c31fe92471cbb83450c126cad22c2fa819e4869a2424dbe00242bacc9",
+        "sourceVersion": null,
+        "sourceGameVersion": null,
+        "actualShotObserved": false,
+        "actualPenetration": null,
+        "kill": null,
+        "targetIdentityBasis": "video-title-and-segment",
+        "nativeTargetRawLabel": null,
+        "note": "单点防护分析预测，非实射；目标由视频标题和片段识别，原生目标名未显示。数值仅适用于本帧所选点，入射角不是车体摆角。",
+        "caseId": "fr_amx_30_super:v239-point-260"
+      }
     },
     {
       "id": "fr_amx_40",
@@ -23310,7 +23606,28 @@
       "era": "modern",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v247-germ_leopard_2pl-120",
+          "label": "作者观察：炮塔观察设备附近",
+          "text": "罗非鱼解说提示炮塔一侧观察设备附近防护较弱。演示条件为豹2PL使用DM53、0米、界面穿深623毫米；仅为局部模拟，未确认实射或所有窗口均可击穿。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1nQ5e6iEPP/",
+          "sourceTime": 120,
+          "sourcePublishedAt": "2026-05-15",
+          "sourceGameVersion": "2.55.1.102",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-claim-only",
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV1nQ5e6iEPP/",
+            "sourceTime": 120,
+            "kind": "attributed-author-observation",
+            "actualShotObserved": false
+          }
+        }
+      ],
       "source": null,
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/germ_leopard_2pl",
@@ -23340,6 +23657,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1nQ5e6iEPP/",
+          "title": "战争雷霆：德系开线机豹2A4M的难兄难弟！来自波兰的联队坦克豹2PL实力到底咋样？和豹2A4M有什么区别？要不要研发？",
+          "author": "罗非鱼解说",
+          "publishedAt": "2026-05-15",
+          "time": 120,
+          "scopeNote": "仅归属作者观点与局部模拟观察；未确认实射，不构成全域结论。"
+        }
       ]
     },
     {
@@ -23992,6 +24320,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1HxfSBRE4S/",
+          "title": "英格兰之盾——挑战者2 OES全方位解析（补档）",
+          "author": "Ablertius",
+          "publishedAt": "2026-02-25",
+          "time": 316,
+          "scopeNote": "OES系列解析；具体载具版本尚未确认，未套用测试结论"
+        }
       ]
     },
     {
