@@ -10404,7 +10404,32 @@
       "eraBasis": "按已核对的具体技术改型形成时期归类。",
       "collectedAt": "2026-11-02T09:04:17.664Z",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v229-t64a-single-point",
+          "label": "视频防护分析预测",
+          "text": "NekoChocola的视频在TAM2IP使用DM23、500米、界面穿深330毫米时，首上所选单点提示“能够击穿”；仅预测，未证实实射穿透或击毁。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": "ussr_t_64a_1971:v230-video-point-prediction-107_5",
+          "sourceCaseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1nNgj6gEAS/",
+          "sourceTime": 107.5,
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "source-frame-single-point-prediction",
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV1nNgj6gEAS/",
+            "sourceTime": 107.5,
+            "originalPNG_SHA256": "6c5206e29b905c5a8a690e34fdd85e6f7bd252e46edb88bd26c518cf0b285c69",
+            "kind": "single-point-protection-prediction",
+            "officialWikiReferences": [
+              "https://wiki.warthunder.com/unit/germ_thyssen_henschel_tam_2ip"
+            ]
+          },
+          "sourcePublishedAt": "2026-08-12"
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_64a_1971",
@@ -10433,7 +10458,126 @@
       ],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
-      ]
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1nNgj6gEAS/",
+          "title": "【战争雷霆】“三代主站坦克先驱者”T-64A 1971型评测",
+          "author": "NekoChocola",
+          "publishedAt": "2026-08-12",
+          "time": 107.5,
+          "scopeNote": "单点防护分析预测，非实际穿透或击毁证明"
+        }
+      ],
+      "testCases": [
+        {
+          "id": "ussr_t_64a_1971:v230-video-point-prediction-107_5",
+          "sourceKind": "video",
+          "sourceUrl": "https://www.bilibili.com/video/BV1nNgj6gEAS/",
+          "sourceTime": 107.5,
+          "sourcePublishedAt": "2026-08-12",
+          "attacker": "TAM 2IP",
+          "attackerDisplayName": "TAM 2IP",
+          "attackerVehicleId": "germ_thyssen_henschel_tam_2ip",
+          "shell": "DM23",
+          "rawUIType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹（官方Wiki引用）",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "germ_thyssen_henschel_tam_2ip",
+            "url": "https://wiki.warthunder.com/unit/germ_thyssen_henschel_tam_2ip",
+            "sourceShellLabelOriginal": "DM23",
+            "checkedAt": "2026-11-03T18:47:02.803Z",
+            "mainGun": "105 mm FMK.4 Modelo 1L cannon",
+            "officialShellName": "DM23",
+            "wikiGameVersion": "2.59.0.92",
+            "referenceDistanceMeters": 500,
+            "referenceAngleDegrees": 0,
+            "referencePenetrationMm": 330
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 330,
+          "targetAngleDegrees": null,
+          "impactAngleDegrees": 66,
+          "azimuthDegrees": 1,
+          "equivalentArmorMm": 240,
+          "equivalentArmorBasis": "single selected point against DM23; not raw plate thickness",
+          "predictionOnly": true,
+          "prediction": "能够击穿",
+          "predictedDamageComponents": [
+            "驾驶员",
+            "油箱",
+            "装弹机",
+            "炮手",
+            "方向机",
+            "弹药架"
+          ],
+          "sourceFrameSHA256": "6c5206e29b905c5a8a690e34fdd85e6f7bd252e46edb88bd26c518cf0b285c69",
+          "sourceVersion": null,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "actualPenetration": null,
+          "kill": null,
+          "targetIdentityBasis": "video-title-and-segment",
+          "nativeTargetRawLabel": null,
+          "note": "本帧首上所选点为防护分析模拟预测；目标依据视频标题与99–110秒片段识别，原生目标名未显示。不代表整面可穿或实际穿透、击毁；66°为该点入射角，非车体摆角。APFSDS类别来自独立官方Wiki引用，视频原UI弹种类别未知。"
+        }
+      ],
+      "testContext": {
+        "sourceKind": "video",
+        "sourceUrl": "https://www.bilibili.com/video/BV1nNgj6gEAS/",
+        "sourceTime": 107.5,
+        "sourcePublishedAt": "2026-08-12",
+        "attacker": "TAM 2IP",
+        "attackerDisplayName": "TAM 2IP",
+        "attackerVehicleId": "germ_thyssen_henschel_tam_2ip",
+        "shell": "DM23",
+        "rawUIType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹（官方Wiki引用）",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "attackerVehicleId": "germ_thyssen_henschel_tam_2ip",
+          "url": "https://wiki.warthunder.com/unit/germ_thyssen_henschel_tam_2ip",
+          "sourceShellLabelOriginal": "DM23",
+          "checkedAt": "2026-11-03T18:47:02.803Z",
+          "mainGun": "105 mm FMK.4 Modelo 1L cannon",
+          "officialShellName": "DM23",
+          "wikiGameVersion": "2.59.0.92",
+          "referenceDistanceMeters": 500,
+          "referenceAngleDegrees": 0,
+          "referencePenetrationMm": 330
+        },
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 330,
+        "targetAngleDegrees": null,
+        "impactAngleDegrees": 66,
+        "azimuthDegrees": 1,
+        "equivalentArmorMm": 240,
+        "equivalentArmorBasis": "single selected point against DM23; not raw plate thickness",
+        "predictionOnly": true,
+        "prediction": "能够击穿",
+        "predictedDamageComponents": [
+          "驾驶员",
+          "油箱",
+          "装弹机",
+          "炮手",
+          "方向机",
+          "弹药架"
+        ],
+        "sourceFrameSHA256": "6c5206e29b905c5a8a690e34fdd85e6f7bd252e46edb88bd26c518cf0b285c69",
+        "sourceVersion": null,
+        "sourceGameVersion": null,
+        "actualShotObserved": false,
+        "actualPenetration": null,
+        "kill": null,
+        "targetIdentityBasis": "video-title-and-segment",
+        "nativeTargetRawLabel": null,
+        "note": "本帧首上所选点为防护分析模拟预测；目标依据视频标题与99–110秒片段识别，原生目标名未显示。不代表整面可穿或实际穿透、击毁；66°为该点入射角，非车体摆角。APFSDS类别来自独立官方Wiki引用，视频原UI弹种类别未知。",
+        "caseId": "ussr_t_64a_1971:v230-video-point-prediction-107_5"
+      }
     },
     {
       "id": "cn_object_122tm",
@@ -24796,7 +24940,56 @@
       "era": "cold-war",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v229-t64b-window",
+          "label": "作者示意：观察窗",
+          "text": "鸡蛋壳w以不同钢针的正面防护示意将观察窗附近标红，提示可留意该局部；这是作者示意，非独立实射。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceCaseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1sTUoBREBA/",
+          "sourceTime": 104,
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-illustration-unverified-test",
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV1sTUoBREBA/",
+            "sourceTime": 104,
+            "originalPNG_SHA256": "33f85aa6d45f4c7cc45206af37bbebecbc0966ff43f3dee5688bcf470b54f1ba",
+            "kind": "author-protection-illustration",
+            "officialWikiReferences": [
+              "https://wiki.warthunder.com/unit/ussr_t_64_b_1984"
+            ]
+          },
+          "sourcePublishedAt": "2025-11-29"
+        },
+        {
+          "id": "v229-t64b-tow2",
+          "label": "作者示意：TOW2局部防护",
+          "text": "鸡蛋壳w的TOW2（标注800穿）示意中，炮盾中央及首下等局部呈绿色；仅作者示意，未证实实射穿透。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceCaseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1sTUoBREBA/",
+          "sourceTime": 119,
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-illustration-unverified-test",
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV1sTUoBREBA/",
+            "sourceTime": 119,
+            "originalPNG_SHA256": "6005c57cab72281548154c1c3ac03af35f17530a6ecaec53e09eee687c37eb39",
+            "kind": "author-protection-illustration",
+            "officialWikiReferences": [
+              "https://wiki.warthunder.com/unit/ussr_t_64_b_1984"
+            ]
+          },
+          "sourcePublishedAt": "2025-11-29"
+        }
+      ],
       "source": null,
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_64_b_1984",
@@ -24826,6 +25019,26 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV15s6vBsERk/",
+          "title": "打穿防住64b，芒果在手全枪毙【T-64B】",
+          "author": "彗殒_Starfall",
+          "publishedAt": "2026-02-02",
+          "time": null,
+          "scopeNote": "实战评价来源索引；非局部弱点实测证明"
+        },
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1sTUoBREBA/",
+          "title": "专治冷战思维，你套上就打了吧？—T64BV简评与实战",
+          "author": "鸡蛋壳w",
+          "publishedAt": "2025-11-29",
+          "time": 104,
+          "scopeNote": "作者声明T-64BV改装语境；官方同unit有ERA改装，截图实际配置未独立核实"
+        }
       ]
     },
     {
