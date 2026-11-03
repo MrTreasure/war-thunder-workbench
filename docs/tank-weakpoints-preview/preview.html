@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="__STYLE__">
     <script defer src="__SCRIPT__"></script>
   </head>
-  <body>
+  <body class="workbench-layout">
     <header class="shell-header">
       <a href="./#/maps" class="back">← 返回工作台</a>
       <span class="brand">坦克弱点<span>图文样例</span></span>
@@ -25,12 +25,12 @@
       <section class="filters" aria-label="筛选弱点资料">
         <div class="filter-control"><span id="country-label" class="sr-only">国家</span><div id="countries"></div></div>
         <div class="filter-control"><span id="rank-label" class="sr-only">等级</span><div id="ranks"></div></div>
-        <div class="filter-control"><span id="era-label" class="sr-only">年代</span><div id="eras"></div></div>
         <div class="filter-control vehicle-filter"><span id="vehicle-label" class="sr-only">车型</span><div id="vehicles"></div></div>
-        <label class="family-filter"><input id="include-is" type="checkbox">IS 系列补充<span>不限等级</span></label>
+        <label for="vehicle-search" class="sr-only">搜索坦克名称或型号</label>
+        <input id="vehicle-search" class="vehicle-search" type="search" placeholder="搜索坦克名称或型号" autocomplete="off">
       </section>
       <p id="result-count" class="result-count" role="status"></p>
-      <section id="empty-state" class="empty-state" hidden><h2>暂无符合筛选的资料</h2><p>该分类尚未收录已核对的高清正面图，可调整筛选查看现有资料。</p><button id="reset-filters" type="button">重置筛选</button></section>
+      <section id="empty-state" class="empty-state" hidden><h2>暂无匹配的坦克</h2><p>可调整名称、型号或筛选条件后继续查找。</p><button id="reset-filters" type="button">重置筛选</button></section>
       <section id="study" class="study" aria-labelledby="vehicle-name">
         <div class="figure-column">
           <header class="figure-header">

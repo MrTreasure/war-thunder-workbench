@@ -1,17 +1,16 @@
-// This standalone review uses the built data literal. It makes no API or account requests.
+// Weakpoint data comes from the built literal; only the shared public appearance bootstrap uses an API.
 const $ = (id) => document.getElementById(id);
 const countries = { usa: "美国", germany: "德国", ussr: "苏联", britain: "英国", japan: "日本", china: "中国", italy: "意大利", france: "法国", sweden: "瑞典", israel: "以色列" };
 const countryEntries = SAMPLE.countries || [];
 const filterSelects = [];
-const eras = [["all", "全部年代"], ["ww2", "二战"], ["cold-war", "冷战"], ["modern", "现代"]];
 let selected = -1;
 let point = 0;
 let original = false;
 let evidenceId = null;
 let country = "all";
 let rank = "all";
-let era = "all";
-let includeIs = false;
+let searchQuery = "";
+let composing = false;
 let imageLoadTimer;
 let imageLoadGeneration = 0;
 function element(tag, text, className) {
@@ -38,12 +37,19 @@ function penetrationLabel(test) {
     ? `${penetration} 毫米${Number.isFinite(distance) ? `（${distance} 米）` : "（距离待核对）"}`
     : `来源未显示／待核对${Number.isFinite(distance) ? `（${distance} 米）` : ""}`;
 }
-function isSupplement(model) { return String(model.family || "").toLowerCase() === "is" && !(Number(model.rank) >= 6); }
+function roleIcon(model) {
+  if (!["heavy", "medium", "light", "td", "aa"].includes(model?.roleIconKey)) return null;
+  const icon = element("span", undefined, `wt-game-role ${model.roleIconKey}`);
+  icon.setAttribute("aria-hidden", "true");
+  if (model.roleLabel) icon.title = model.roleLabel;
+  return icon;
+}
+function searchKey(value) { return String(value || "").normalize("NFKC").toLocaleLowerCase().replace(/[\s\p{P}\p{S}]/gu, ""); }
 function matches(model) {
   if (country !== "all" && (model.country || "unknown") !== country) return false;
-  if (era !== "all" && model.era !== era) return false;
-  if (isSupplement(model)) return includeIs;
-  return rank === "all" || Number(model.rank) === Number(rank);
+  if (rank !== "all" && Number(model.rank) !== Number(rank)) return false;
+  const needle = searchKey(searchQuery);
+  return !needle || [model.name, model.englishName, model.nameEn, model.nameZhCN, model.id, model.modelId].some((value) => searchKey(value).includes(needle));
 }
 function videoUrl(source, time) {
   if (!source.url) return null;
@@ -97,8 +103,8 @@ function render() {
     button.addEventListener("click", () => { evidenceId = view.id; original = false; render(); });
     return button;
   }));
-  $("vehicle-name").textContent = model.name;
-  const metadata = [model.role, model.countryName || countries[model.country], model.rank ? `Rank ${model.rank}` : null, isSupplement(model) ? "IS 系列补充" : null, model.coverageNotice].filter(Boolean);
+  $("vehicle-name").replaceChildren(...[roleIcon(model), element("span", model.name)].filter(Boolean));
+  const metadata = [model.roleLabel || model.role, model.countryName || countries[model.country], model.rank ? `${model.rankLabel || model.rank} 级` : null, model.coverageNotice].filter(Boolean);
   $("vehicle-role").textContent = metadata.join(" · ");
   $("wiki-summary").textContent = model.wikiSummary || "Wiki 要点待核对。";
   $("wiki-points").replaceChildren(...(model.wikiPoints || []).map((text) => element("li", text)));
@@ -108,7 +114,7 @@ function render() {
   const test = evidence ? model.testCases?.find((item) => item.id === evidence.caseId) : model.testContext;
   const hasVideoTest = !!test || (!articleImage && !!(model.frame || (source.url && model.videoAdvice?.some((advice) => advice.sourceKind !== "article-text"))));
   $("test-section").hidden = !hasVideoTest;
-  $("test-attacker").textContent = test?.attacker?.trim() || "来源未显示／待核对";
+  $("test-attacker").textContent = (test?.attackerDisplayName || test?.attacker)?.trim() || "来源未显示／待核对";
   $("test-shell").textContent = test?.shell?.trim() || "来源未显示／待核对";
   $("test-shell-type").textContent = shellTypeLabel(test);
   $("test-penetration").textContent = penetrationLabel(test);
@@ -127,7 +133,7 @@ function render() {
     const article = element("article", undefined, "advice");
     article.append(element("h4", advice.label), element("p", advice.text));
     const testCase = model.testCases?.find((item) => item.id === advice.caseId);
-    if (testCase) article.append(element("p", [testCase.attacker || "攻击车辆待核对", testCase.shell || "炮弹待核对", testCase.shellTypeCode || "弹种待核对", penetrationLabel(testCase)].join(" · "), "case-summary"));
+    if (testCase) article.append(element("p", [testCase.attackerDisplayName || testCase.attacker || "攻击车辆待核对", testCase.shell || "炮弹待核对", testCase.shellTypeCode || "弹种待核对", penetrationLabel(testCase)].join(" · "), "case-summary"));
     const articleAdvice = advice.sourceKind === "article-text";
     const staticAdvice = articleAdvice || advice.sourceKind === "forum-image";
     const adviceTime = staticAdvice ? null : Number.isFinite(advice.sourceTime) ? advice.sourceTime : advice.time;
@@ -224,11 +230,15 @@ function updateList(preferredId) {
   for (const id of ["study", "source-section"]) $(id).hidden = !visible.length;
   $("empty-state").hidden = !!visible.length;
   const illustrated = visible.filter((model) => model.imageUrl).length;
-  $("result-count").textContent = `${visible.length} 辆资料 · ${illustrated} 辆已配正面图 · ${visible.length - illustrated} 辆待补图${includeIs ? " · 已包含 IS 系列补充" : ""}`;
+  $("result-count").textContent = `${visible.length} 辆资料 · ${illustrated} 辆已配正面图 · ${visible.length - illustrated} 辆待补图`;
   const currentId = preferredId || SAMPLE.models[selected]?.id;
   const next = visible.find((model) => model.id === currentId) || visible[0];
-  select(next ? SAMPLE.models.indexOf(next) : -1);
-  vehicleSelect.setOptions(visible.map((model) => ({ value: model.id, label: model.name + (!model.imageUrl && !model.rawUrl ? " · 待补图" : "") })));
+  const nextIndex = next ? SAMPLE.models.indexOf(next) : -1;
+  if (nextIndex !== selected) {
+    if (next) select(nextIndex);
+    else { selected = -1; clearTimeout(imageLoadTimer); ++imageLoadGeneration; }
+  }
+  vehicleSelect.setOptions(visible.map((model) => ({ value: model.id, roleIconKey: model.roleIconKey, roleLabel: model.roleLabel, label: model.name + (!model.imageUrl && !model.rawUrl ? " · 待补图" : "") })));
   filterSelects.forEach((control) => control.sync());
 }
 // Standalone equivalent of components/GameSelect: trigger focus + top-layer listbox.
@@ -250,7 +260,7 @@ function createFilter(host, kind, entries, labelledBy) {
   menu.setAttribute("aria-labelledby", trigger.id); menu.hidden = true;
   $(host).append(trigger, menu);
   let open = false, active = 0, search = "", searchAt = 0;
-  const current = () => kind === "vehicle" ? SAMPLE.models[selected]?.id || "" : ({ country, rank, era }[kind]);
+  const current = () => kind === "vehicle" ? SAMPLE.models[selected]?.id || "" : ({ country, rank }[kind]);
   function content(entry) {
     const row = element("span", undefined, "select-option-label");
     const flags = entry.flagUrl ? [entry.flagUrl] : [];
@@ -260,6 +270,8 @@ function createFilter(host, kind, entries, labelledBy) {
       flags.forEach((url) => { const image = element("img"); image.src = url; image.alt = ""; image.width = 24; image.height = 18; icons.append(image); });
       row.append(icons);
     }
+    const icon = roleIcon(entry);
+    if (icon) row.append(icon);
     row.append(element("span", entry.label)); return row;
   }
   let options = [];
@@ -319,7 +331,6 @@ function createFilter(host, kind, entries, labelledBy) {
     const value = entries[index].value;
     if (kind === "country") country = value;
     if (kind === "rank") rank = value;
-    if (kind === "era") era = value;
     if (kind === "vehicle") location.hash = `vehicle=${value}`;
     close(); updateList(kind === "vehicle" ? value : undefined); trigger.focus({ preventScroll: true });
   }
@@ -356,20 +367,29 @@ function createFilter(host, kind, entries, labelledBy) {
   filterSelects.push(control); setOptions(entries); return control;
 }
 createFilter("countries", "country", [{ value: "all", label: "全部国家" }, ...countryEntries.map((entry) => ({ value: entry.id, label: entry.name, flagUrl: entry.flagUrl }))], "country-label");
-createFilter("ranks", "rank", [["all", "全部等级"], ["6", "VI 级"], ["7", "VII 级"], ["8", "VIII 级"]].map(([value, label]) => ({ value, label })), "rank-label");
-createFilter("eras", "era", eras.map(([value, label]) => ({ value, label })), "era-label");
+const romanRanks = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
+const ranks = [...new Set(SAMPLE.models.map((model) => Number(model.rank)).filter((value) => Number.isInteger(value) && value > 0))].sort((a, b) => a - b);
+createFilter("ranks", "rank", [{ value: "all", label: "全部等级" }, ...ranks.map((value) => ({ value: String(value), label: `${romanRanks[value] || value} 级` }))], "rank-label");
 const vehicleSelect = createFilter("vehicles", "vehicle", [], "vehicle-label");
 function fromHash() {
   const id = new URLSearchParams(location.hash.slice(1)).get("vehicle");
   const model = SAMPLE.models.find((entry) => entry.id === id);
   if (model && !matches(model)) {
-    country = "all"; rank = "all"; era = "all";
-    if (isSupplement(model)) { includeIs = true; $("include-is").checked = true; }
+    country = "all"; rank = "all"; searchQuery = "";
+    $("vehicle-search").value = "";
   }
   updateList(id);
 }
-$("include-is").addEventListener("change", () => { includeIs = $("include-is").checked; updateList(); });
-$("reset-filters").addEventListener("click", () => { country = "all"; rank = "all"; era = "all"; includeIs = false; $("include-is").checked = false; updateList(); });
+const searchInput = $("vehicle-search");
+searchInput.addEventListener("compositionstart", () => { composing = true; });
+searchInput.addEventListener("compositionend", () => {
+  composing = false; searchQuery = searchInput.value; updateList();
+});
+searchInput.addEventListener("input", (event) => {
+  if (composing || event.isComposing) return;
+  searchQuery = searchInput.value; updateList();
+});
+$("reset-filters").addEventListener("click", () => { country = "all"; rank = "all"; searchQuery = ""; searchInput.value = ""; updateList(); });
 $("toggle-original").addEventListener("click", () => { original = !original; render(); });
 window.addEventListener("hashchange", fromHash);
 fromHash();

@@ -3,6 +3,7 @@ import { resolve, basename, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
+import { bootAppearance } from "../../src/boot-appearance.mjs";
 
 process.umask(0o077);
 const project = fileURLToPath(new URL("../../", import.meta.url));
@@ -324,13 +325,57 @@ for (const model of data.models) {
 }
 if (data.coverage?.illustratedCount !== report.models.filter((model) => model.illustrated).length) throw Error("Illustration total must match the verified main images, including supplemental samples");
 if (report.publishedFiles.some((file) => file.bytes > imageByteLimit)) throw Error("Published image exceeds 2 MB");
+// Use the same canonical vehicle names and localization match as prepare-data.mjs.
+// Apply presentation after source-title verification; original research names stay intact.
+const [treeData, localization, taxonomy] = await Promise.all(["trees.json", "localization.json", "taxonomy.json"].map(async (file) => JSON.parse(await readFile(resolve(project, "data", file), "utf8"))));
+const cleanName = (name) => name.replace(/[\u200B\uFEFF]/g, "").trim();
+const aliasKey = (name) => cleanName(name).normalize("NFKC").toLocaleLowerCase().replace(/[\s\p{P}\p{S}]/gu, "");
+const vehicleNames = new Map(), aliases = new Map();
+const rankNumbers = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6, VII: 7, VIII: 8, IX: 9 };
+const roleKeys = { heavy_tank: "heavy", medium_tank: "medium", light_tank: "light", tank_destroyer: "td", spaa: "aa" };
+for (const trees of Object.values(treeData.trees)) for (const [countryId, tree] of Object.entries(trees)) {
+  for (const tier of tree?.ranks || []) for (const node of [...tier.research, ...tier.special]) for (const unit of node.members) {
+    const proof = localization.vehicles[unit.id];
+    const name = cleanName(proof?.nameEn === unit.name && proof.nameZhCN ? proof.nameZhCN : unit.name);
+    const entry = { name, nameEn: cleanName(unit.name), role: unit.role, rank: rankNumbers[tier.rank], rankLabel: tier.rank, country: countryId, localized: !!(proof?.nameEn === unit.name && proof.nameZhCN) };
+    vehicleNames.set(unit.id, entry);
+    for (const raw of [unit.name, name]) {
+      const key = aliasKey(raw), choices = aliases.get(key) || new Set();
+      choices.add(name); aliases.set(key, choices);
+    }
+  }
+}
+function localizeAttacker(test, relatedCase) {
+  if (!test) return;
+  const entry = vehicleNames.get(test.attackerVehicleId || relatedCase?.attackerVehicleId);
+  const choices = test.attacker ? aliases.get(aliasKey(test.attacker)) : null;
+  if (entry) test.attackerDisplayName = entry.name;
+  else if (choices?.size === 1) test.attackerDisplayName = [...choices][0];
+}
+const presentationRoles = {};
+for (const model of data.models) {
+  const entry = vehicleNames.get(model.id);
+  if (!entry?.localized || !entry.name || !roleKeys[entry.role]) throw Error("Missing canonical tree presentation: " + model.id);
+  if (Number(model.rank) !== entry.rank || model.country !== entry.country) throw Error("Tree rank/country differs from guide: " + model.id);
+  model.englishName ||= model.name;
+  model.name = entry.name; model.nameZhCN = entry.name; model.nameEn = entry.nameEn;
+  model.roleIconKey = roleKeys[entry.role]; model.roleLabel = taxonomy.roles[entry.role]; model.rankLabel = entry.rankLabel;
+  presentationRoles[entry.role] = (presentationRoles[entry.role] || 0) + 1;
+  for (const test of model.testCases || []) localizeAttacker(test);
+  localizeAttacker(model.testContext, model.testCases?.find((test) => test.id === model.testContext?.caseId));
+}
+report.presentation = { locale: "zh-CN", vehicleNamesMatched: data.models.length, roles: presentationRoles, ranks: [...new Set(data.models.map((model) => Number(model.rank)))].sort((a, b) => a - b) };
 if (/\/vol1\/|\/home\/|artifacts\//.test(JSON.stringify(data))) throw Error("Private evidence paths must not enter the public sample payload");
 const symbols = await readFile(resolve(project, "src/assets/WTSymbols.ttf"));
 const fontFile = `weakpoints-symbols.${hash(symbols).slice(0, 16)}.ttf`;
 await writeFile(resolve(assets, fontFile), symbols);
 report.supportFiles = [{ file: fontFile, bytes: symbols.length, sha256: hash(symbols), kind: "symbol-font" }];
-const css = Buffer.from((await readFile(new URL("preview.css", import.meta.url), "utf8")).replaceAll("__SYMBOL_FONT__", fontFile));
-const js = Buffer.from("const SAMPLE = " + JSON.stringify(data) + ";\n" + await readFile(new URL("preview.js", import.meta.url), "utf8"));
+const appearance = JSON.parse(await readFile(resolve(project, "data/workbench-appearance.json"), "utf8"));
+const { apiBaseUrl } = JSON.parse(await readFile(resolve(project, "src/config/player-stats.json"), "utf8"));
+const backgroundCss = await readFile(resolve(project, "src/workbench-background.css"), "utf8");
+const backgroundDefaults = `:root{--wt-loading-background-image:url(${JSON.stringify(appearance.backgroundUrl)});--wt-loading-background-position:${appearance.positionX}% ${appearance.positionY}%}`;
+const css = Buffer.from(backgroundDefaults + "\n" + (await readFile(new URL("preview.css", import.meta.url), "utf8")).replaceAll("__SYMBOL_FONT__", fontFile) + "\n" + backgroundCss);
+const js = Buffer.from("const SAMPLE = " + JSON.stringify(data) + `;\n(${bootAppearance.toString()})(${JSON.stringify(appearance)},${JSON.stringify(apiBaseUrl)});\n` + await readFile(new URL("preview.js", import.meta.url), "utf8"));
 const cssFile = `weakpoints-preview.${hash(css).slice(0, 16)}.css`, jsFile = `weakpoints-preview.${hash(js).slice(0, 16)}.js`;
 await writeFile(resolve(assets, cssFile), css); await writeFile(resolve(assets, jsFile), js);
 const html = (await readFile(new URL("preview.html", import.meta.url), "utf8")).replace("__STYLE__", "./assets/" + cssFile).replace("__SCRIPT__", "./assets/" + jsFile).replaceAll("__SYMBOL_FONT__", fontFile);
