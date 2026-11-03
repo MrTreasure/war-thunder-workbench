@@ -4,11 +4,11 @@
     "usa": {
       "key": "country-usa",
       "format": "csv-js-v1",
-      "file": "country-usa.c070ffe26bc96825.js",
-      "sha256": "5194e0a6fe727c4c727bd47f6b7ce5e2154b174a51667718f996e86b75fbaa67",
-      "bytes": 2677310,
-      "transportSha256": "c070ffe26bc96825ff34dda641565342686ea3e20c14fbde612b280cbe3b5db1",
-      "transportBytes": 2720279,
+      "file": "country-usa.502de74b45998c1c.js",
+      "sha256": "8ce299fca22ef7db991a0ffde690cbf555fce4611b347eff060037385223d344",
+      "bytes": 2677166,
+      "transportSha256": "502de74b45998c1c0ebf1a52c2a1ec997727c67cb1f6a13b3f7be257e1294424",
+      "transportBytes": 2720123,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
@@ -26,7 +26,22 @@
                 "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
                 "checkedAt": "2026-10-29T12:48:04.306Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/ground",
+              "checkedAt": "2026-11-03T04:53:28.080Z",
+              "sha256": "36970e861c4102488a96777fd519088508cd976b8cb3ba8ccdcfcb29e77182df",
+              "bytes": 1336258,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 258,
+              "updatedFields": 260,
+              "modes": [
+                "ab",
+                "rb",
+                "sb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "aviation": {
@@ -44,7 +59,21 @@
                 "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
                 "checkedAt": "2026-10-29T12:47:54.929Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/aviation",
+              "checkedAt": "2026-11-03T04:53:25.592Z",
+              "sha256": "7afb7c96ffc7d7dd67e13bdcac2a4235327176a1b193d7f6ec1669f9e8d76a15",
+              "bytes": 1478771,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 3,
+              "updatedFields": 3,
+              "modes": [
+                "sb",
+                "trb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "ships": {
@@ -107,11 +136,11 @@
     "germany": {
       "key": "country-germany",
       "format": "csv-js-v1",
-      "file": "country-germany.159f74c303182bc7.js",
-      "sha256": "05314abb3a6ef628aa9eb09c0cf2f1b992f58a614ac45a2b5b4f9ac40a4cfec8",
-      "bytes": 2492679,
-      "transportSha256": "159f74c303182bc7cbdde7011b2ec59c30f103d38d978af54c6dc8e424a14dd7",
-      "transportBytes": 2533039,
+      "file": "country-germany.3a20d0f7f3408eec.js",
+      "sha256": "2cc8721a40874e81192f65afe91385d38635dd548b9f3899d41bb2853f2d1120",
+      "bytes": 2492535,
+      "transportSha256": "3a20d0f7f3408eec15c817e367b7f4a6e40b940b1fa57cf5ce5f524c5c97c40c",
+      "transportBytes": 2532883,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
@@ -129,7 +158,22 @@
                 "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
                 "checkedAt": "2026-10-29T12:48:04.306Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/ground",
+              "checkedAt": "2026-11-03T04:53:28.080Z",
+              "sha256": "36970e861c4102488a96777fd519088508cd976b8cb3ba8ccdcfcb29e77182df",
+              "bytes": 1336258,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 258,
+              "updatedFields": 260,
+              "modes": [
+                "ab",
+                "rb",
+                "sb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "aviation": {
@@ -147,7 +191,21 @@
                 "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
                 "checkedAt": "2026-10-29T12:47:54.929Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/aviation",
+              "checkedAt": "2026-11-03T04:53:25.592Z",
+              "sha256": "7afb7c96ffc7d7dd67e13bdcac2a4235327176a1b193d7f6ec1669f9e8d76a15",
+              "bytes": 1478771,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 3,
+              "updatedFields": 3,
+              "modes": [
+                "sb",
+                "trb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "ships": {
@@ -210,11 +268,11 @@
     "ussr": {
       "key": "country-ussr",
       "format": "csv-js-v1",
-      "file": "country-ussr.68b5830f8b6aaeea.js",
-      "sha256": "84c696c8d2f8f8a6c4afcf725dc96c7c953dcf39c370ba1a655ffdc12b41572a",
-      "bytes": 2699295,
-      "transportSha256": "68b5830f8b6aaeeaaa16dbd88e87a15ca5d35d55e6e70068d8e1b3c34ffb6748",
-      "transportBytes": 2743602,
+      "file": "country-ussr.7c7ad10852bbd2ee.js",
+      "sha256": "651768b990732054efc31ff207946849891652b19b508d6562a6717a2cd6816a",
+      "bytes": 2699151,
+      "transportSha256": "7c7ad10852bbd2ee29a627a710cbb9202a979e36eb47e28ac3654a5a241fd8f8",
+      "transportBytes": 2743446,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
@@ -232,7 +290,22 @@
                 "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
                 "checkedAt": "2026-10-29T12:48:04.306Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/ground",
+              "checkedAt": "2026-11-03T04:53:28.080Z",
+              "sha256": "36970e861c4102488a96777fd519088508cd976b8cb3ba8ccdcfcb29e77182df",
+              "bytes": 1336258,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 258,
+              "updatedFields": 260,
+              "modes": [
+                "ab",
+                "rb",
+                "sb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "aviation": {
@@ -250,7 +323,21 @@
                 "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
                 "checkedAt": "2026-10-29T12:47:54.929Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/aviation",
+              "checkedAt": "2026-11-03T04:53:25.592Z",
+              "sha256": "7afb7c96ffc7d7dd67e13bdcac2a4235327176a1b193d7f6ec1669f9e8d76a15",
+              "bytes": 1478771,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 3,
+              "updatedFields": 3,
+              "modes": [
+                "sb",
+                "trb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "ships": {
@@ -313,11 +400,11 @@
     "britain": {
       "key": "country-britain",
       "format": "csv-js-v1",
-      "file": "country-britain.15de43ab7fab0844.js",
-      "sha256": "80cf9821b9158eda9968e5bab59af9f93f3db99c3220f8b1119a9205df1e6bd0",
-      "bytes": 2383621,
-      "transportSha256": "15de43ab7fab08441b8d8bf3618f2842376abd272e585c2ed61abb6492dadbcb",
-      "transportBytes": 2422113,
+      "file": "country-britain.83e131e7bbbf9c56.js",
+      "sha256": "12ca46fd5c3bb2145e9f0407d6423fc7f9e36c795828483ad4599b82c567ecfd",
+      "bytes": 2383453,
+      "transportSha256": "83e131e7bbbf9c568c3b1fda3d1233c53de1814ed4a9a872c855b301f98bf81c",
+      "transportBytes": 2421931,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
@@ -335,7 +422,22 @@
                 "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
                 "checkedAt": "2026-10-29T12:48:04.306Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/ground",
+              "checkedAt": "2026-11-03T04:53:28.080Z",
+              "sha256": "36970e861c4102488a96777fd519088508cd976b8cb3ba8ccdcfcb29e77182df",
+              "bytes": 1336258,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 258,
+              "updatedFields": 260,
+              "modes": [
+                "ab",
+                "rb",
+                "sb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "aviation": {
@@ -353,7 +455,21 @@
                 "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
                 "checkedAt": "2026-10-29T12:47:54.929Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/aviation",
+              "checkedAt": "2026-11-03T04:53:25.592Z",
+              "sha256": "7afb7c96ffc7d7dd67e13bdcac2a4235327176a1b193d7f6ec1669f9e8d76a15",
+              "bytes": 1478771,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 3,
+              "updatedFields": 3,
+              "modes": [
+                "sb",
+                "trb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "ships": {
@@ -416,11 +532,11 @@
     "japan": {
       "key": "country-japan",
       "format": "csv-js-v1",
-      "file": "country-japan.5491a2553e42af99.js",
-      "sha256": "92f20a33c6fd726f31a9acf6f55af0f377d49d08cc2ec303e7b6284dd0b35927",
-      "bytes": 1847937,
-      "transportSha256": "5491a2553e42af9968e0600072095331a7295e2c334c70bbe03e6c657b00681b",
-      "transportBytes": 1878019,
+      "file": "country-japan.494c21a90f0f3702.js",
+      "sha256": "954f294b28bd11abea7673bcdb884b71fe116cd09d4f93c69b42831bf10c7770",
+      "bytes": 1847889,
+      "transportSha256": "494c21a90f0f370209978871e7db450a6d889b0b3c16e5bf71b0373a65da384f",
+      "transportBytes": 1877967,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
@@ -438,7 +554,22 @@
                 "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
                 "checkedAt": "2026-10-29T12:48:04.306Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/ground",
+              "checkedAt": "2026-11-03T04:53:28.080Z",
+              "sha256": "36970e861c4102488a96777fd519088508cd976b8cb3ba8ccdcfcb29e77182df",
+              "bytes": 1336258,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 258,
+              "updatedFields": 260,
+              "modes": [
+                "ab",
+                "rb",
+                "sb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "aviation": {
@@ -456,7 +587,21 @@
                 "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
                 "checkedAt": "2026-10-29T12:47:54.929Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/aviation",
+              "checkedAt": "2026-11-03T04:53:25.592Z",
+              "sha256": "7afb7c96ffc7d7dd67e13bdcac2a4235327176a1b193d7f6ec1669f9e8d76a15",
+              "bytes": 1478771,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 3,
+              "updatedFields": 3,
+              "modes": [
+                "sb",
+                "trb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "ships": {
@@ -519,11 +664,11 @@
     "china": {
       "key": "country-china",
       "format": "csv-js-v1",
-      "file": "country-china.ad176ad3af30a70f.js",
-      "sha256": "22c7a517a7c2e92718853fedefb217d9b55a9aa155a099c192df4a218d7167da",
-      "bytes": 1273749,
-      "transportSha256": "ad176ad3af30a70f0b8a592e9d8877c6d2615faeccfb7d6c7be0476e5be0250e",
-      "transportBytes": 1296447,
+      "file": "country-china.bebbcbbf7ac000f1.js",
+      "sha256": "1cc6f4fde73945d8fd36556dcb4c9c0f1a0bc608eceaf8e67dee758ff7aa991c",
+      "bytes": 1273522,
+      "transportSha256": "bebbcbbf7ac000f1ac2cf670aa1dc26c5cb90ceb036bcd4cc58d5e7bd12f4b05",
+      "transportBytes": 1296202,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
@@ -541,7 +686,22 @@
                 "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
                 "checkedAt": "2026-10-29T12:48:04.306Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/ground",
+              "checkedAt": "2026-11-03T04:53:28.080Z",
+              "sha256": "36970e861c4102488a96777fd519088508cd976b8cb3ba8ccdcfcb29e77182df",
+              "bytes": 1336258,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 258,
+              "updatedFields": 260,
+              "modes": [
+                "ab",
+                "rb",
+                "sb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "aviation": {
@@ -559,7 +719,21 @@
                 "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
                 "checkedAt": "2026-10-29T12:47:54.929Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/aviation",
+              "checkedAt": "2026-11-03T04:53:25.592Z",
+              "sha256": "7afb7c96ffc7d7dd67e13bdcac2a4235327176a1b193d7f6ec1669f9e8d76a15",
+              "bytes": 1478771,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 3,
+              "updatedFields": 3,
+              "modes": [
+                "sb",
+                "trb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "ships": {
@@ -622,11 +796,11 @@
     "italy": {
       "key": "country-italy",
       "format": "csv-js-v1",
-      "file": "country-italy.58297df3f6f63c36.js",
-      "sha256": "7b943be690709b85889de5c97d6edcb91d6df64ab46926c52484941ccd9c8c9b",
-      "bytes": 1799632,
-      "transportSha256": "58297df3f6f63c36de7d410477adcae4d9174b7c679ce584fbf530f280f69b9e",
-      "transportBytes": 1829264,
+      "file": "country-italy.af522cd858ee0c3d.js",
+      "sha256": "a129e7bcbce69684d2baac83625474e9fbbf1ab095408e3ba9d7550e27bc3f20",
+      "bytes": 1799560,
+      "transportSha256": "af522cd858ee0c3d47e6407533450243bfc4b91e795ddfa5118f878e522297e2",
+      "transportBytes": 1829186,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
@@ -644,7 +818,22 @@
                 "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
                 "checkedAt": "2026-10-29T12:48:04.306Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/ground",
+              "checkedAt": "2026-11-03T04:53:28.080Z",
+              "sha256": "36970e861c4102488a96777fd519088508cd976b8cb3ba8ccdcfcb29e77182df",
+              "bytes": 1336258,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 258,
+              "updatedFields": 260,
+              "modes": [
+                "ab",
+                "rb",
+                "sb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "aviation": {
@@ -662,7 +851,21 @@
                 "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
                 "checkedAt": "2026-10-29T12:47:54.929Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/aviation",
+              "checkedAt": "2026-11-03T04:53:25.592Z",
+              "sha256": "7afb7c96ffc7d7dd67e13bdcac2a4235327176a1b193d7f6ec1669f9e8d76a15",
+              "bytes": 1478771,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 3,
+              "updatedFields": 3,
+              "modes": [
+                "sb",
+                "trb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "ships": {
@@ -725,11 +928,11 @@
     "france": {
       "key": "country-france",
       "format": "csv-js-v1",
-      "file": "country-france.29e1664b2acf33cf.js",
-      "sha256": "60ae978beca3b1f11728f9afd56a4950532c8e7c7d998f70683f79f466e847a7",
-      "bytes": 1781348,
-      "transportSha256": "29e1664b2acf33cf49fdba94389f05364e5b8ee5d035c3b3578e6008fc678ff1",
-      "transportBytes": 1810585,
+      "file": "country-france.fb9518e5ab137fc3.js",
+      "sha256": "f54e1bf5a9d407148a7e98a6f84276a5a7ccb75c58e746da5f0c89fe1dbe5aff",
+      "bytes": 1781219,
+      "transportSha256": "fb9518e5ab137fc3a939ea360ad344db584f195d248f23cb1560d4e7e311bf3b",
+      "transportBytes": 1810446,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
@@ -747,7 +950,22 @@
                 "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
                 "checkedAt": "2026-10-29T12:48:04.306Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/ground",
+              "checkedAt": "2026-11-03T04:53:28.080Z",
+              "sha256": "36970e861c4102488a96777fd519088508cd976b8cb3ba8ccdcfcb29e77182df",
+              "bytes": 1336258,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 258,
+              "updatedFields": 260,
+              "modes": [
+                "ab",
+                "rb",
+                "sb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "aviation": {
@@ -765,7 +983,21 @@
                 "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
                 "checkedAt": "2026-10-29T12:47:54.929Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/aviation",
+              "checkedAt": "2026-11-03T04:53:25.592Z",
+              "sha256": "7afb7c96ffc7d7dd67e13bdcac2a4235327176a1b193d7f6ec1669f9e8d76a15",
+              "bytes": 1478771,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 3,
+              "updatedFields": 3,
+              "modes": [
+                "sb",
+                "trb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "ships": {
@@ -828,11 +1060,11 @@
     "sweden": {
       "key": "country-sweden",
       "format": "csv-js-v1",
-      "file": "country-sweden.1a67ee9b8bbc3d13.js",
-      "sha256": "c4028cc8ac51777f9a1aac49fafff66f0d34a396cfbda9d80c29cb6263bb4986",
-      "bytes": 1032993,
-      "transportSha256": "1a67ee9b8bbc3d13c54d27a2869cd4cbeb36a047a8bd713b084d7035d4beb6c7",
-      "transportBytes": 1051501,
+      "file": "country-sweden.5acb94642d5790fc.js",
+      "sha256": "e59b93d526960e221aa0bbc41123a7b2d8526f9be5db0085224b12c5b3735aee",
+      "bytes": 1032901,
+      "transportSha256": "5acb94642d5790fc66d9f1acceccf48ab8d9d2b7c0b714a8a56942dd61014ba8",
+      "transportBytes": 1051401,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
@@ -850,7 +1082,22 @@
                 "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
                 "checkedAt": "2026-10-29T12:48:04.306Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/ground",
+              "checkedAt": "2026-11-03T04:53:28.080Z",
+              "sha256": "36970e861c4102488a96777fd519088508cd976b8cb3ba8ccdcfcb29e77182df",
+              "bytes": 1336258,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 258,
+              "updatedFields": 260,
+              "modes": [
+                "ab",
+                "rb",
+                "sb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "aviation": {
@@ -868,7 +1115,21 @@
                 "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
                 "checkedAt": "2026-10-29T12:47:54.929Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/aviation",
+              "checkedAt": "2026-11-03T04:53:25.592Z",
+              "sha256": "7afb7c96ffc7d7dd67e13bdcac2a4235327176a1b193d7f6ec1669f9e8d76a15",
+              "bytes": 1478771,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 3,
+              "updatedFields": 3,
+              "modes": [
+                "sb",
+                "trb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "ships": {
@@ -931,11 +1192,11 @@
     "israel": {
       "key": "country-israel",
       "format": "csv-js-v1",
-      "file": "country-israel.e4a6c35220672f26.js",
-      "sha256": "553d67bcd4f4dac12c0b35fffde411ff862d1731d5175399194a289ad785efdb",
-      "bytes": 852989,
-      "transportSha256": "e4a6c35220672f268e6b3c70805531167dc9baacb6322209042a34bc1acc11d3",
-      "transportBytes": 867171,
+      "file": "country-israel.19b2df6f2e996cc6.js",
+      "sha256": "cabd946eff24893a69b720394db80473d583c31935c1ce935768ebf033c4793a",
+      "bytes": 852943,
+      "transportSha256": "19b2df6f2e996cc683863f4ed4d0b4f395f5120434f12ee95627364c6c79a8d7",
+      "transportBytes": 867121,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {
@@ -953,7 +1214,22 @@
                 "sha256": "56f502fc44aca565a0a4bc4ff05853cbe1115bdaa27d50becbd8e33319f580f6",
                 "checkedAt": "2026-10-29T12:48:04.306Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/ground",
+              "checkedAt": "2026-11-03T04:53:28.080Z",
+              "sha256": "36970e861c4102488a96777fd519088508cd976b8cb3ba8ccdcfcb29e77182df",
+              "bytes": 1336258,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 258,
+              "updatedFields": 260,
+              "modes": [
+                "ab",
+                "rb",
+                "sb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "aviation": {
@@ -971,7 +1247,21 @@
                 "sha256": "115406dfc65e7e767cf722e90a7c115c4db69c57b3ccc16b0f243b1119eb1cff",
                 "checkedAt": "2026-10-29T12:47:54.929Z"
               }
-            ]
+            ],
+            "wikiSupplement": {
+              "url": "https://wiki.warthunder.com/aviation",
+              "checkedAt": "2026-11-03T04:53:25.592Z",
+              "sha256": "7afb7c96ffc7d7dd67e13bdcac2a4235327176a1b193d7f6ec1669f9e8d76a15",
+              "bytes": 1478771,
+              "scope": "Existing mode fields not covered by the implemented official final table; explicit official targets remain authoritative.",
+              "updatedVehicles": 3,
+              "updatedFields": 3,
+              "modes": [
+                "sb",
+                "trb"
+              ],
+              "fieldAudit": "data/battle-rating-reconciliation.json"
+            }
           }
         },
         "ships": {
