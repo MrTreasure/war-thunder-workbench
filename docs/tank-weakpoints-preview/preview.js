@@ -66,7 +66,7 @@ function renderPoint() {
   const model = SAMPLE.models[selected];
   const summary = model?.frontSummary || model?.videoAdvice?.[0]?.text;
   if (!pin && summary) $("point-kind").textContent = "整体打法";
-  $("point-title").textContent = pin?.label || (summary ? (sourceOf(model || {}).kind === "forum-image" ? "来源打法摘要" : "视频打法摘要") : "尚无标注");
+  $("point-title").textContent = pin?.label || (summary ? (["forum-image", "article-image"].includes(sourceOf(model || {}).kind) ? "来源打法摘要" : "视频打法摘要") : "尚无标注");
   $("point-detail").textContent = pin?.detail || summary || "该车型的攻击位置说明尚未补充。";
   for (const host of [$("pins"), $("pin-buttons")])
     [...host.children].forEach((button, index) => button.setAttribute("aria-pressed", String(index === point)));
@@ -81,10 +81,12 @@ function render() {
   const model = SAMPLE.models[selected];
   if (!model) return;
   const source = sourceOf(model);
-  const staticSource = source.kind === "forum-image";
+  const articleImage = source.kind === "article-image";
+  const staticSource = source.kind === "forum-image" || articleImage;
+  const authorDiagram = model.mainViewKind === "author-diagram";
   const evidence = selectedEvidence(model);
   const imageViews = $("image-views");
-  const views = [{ id: null, label: model.mainViewKind === "protection-analysis" ? "防护分析" : "外观与标注" }, ...(model.protectionEvidence || [])];
+  const views = [{ id: null, label: authorDiagram ? "作者防护示意" : model.mainViewKind === "protection-analysis" ? "防护分析" : "外观与标注" }, ...(model.protectionEvidence || [])];
   imageViews.hidden = views.length < 2;
   imageViews.replaceChildren(...views.map((view) => {
     const button = element("button", view.label);
@@ -102,7 +104,7 @@ function render() {
   $("reload-gun").textContent = model.reload?.gun || "";
   $("reload-note").textContent = model.reload?.note || "";
   const test = evidence ? model.testCases?.find((item) => item.id === evidence.caseId) : model.testContext;
-  const hasVideoTest = !!(model.frame || test || (source.url && model.videoAdvice?.length));
+  const hasVideoTest = !!test || (!articleImage && !!(model.frame || (source.url && model.videoAdvice?.some((advice) => advice.sourceKind !== "article-text"))));
   $("test-section").hidden = !hasVideoTest;
   $("test-attacker").textContent = test?.attacker?.trim() || "来源未显示／待核对";
   $("test-shell").textContent = test?.shell?.trim() || "来源未显示／待核对";
@@ -149,7 +151,7 @@ function render() {
   };
   if (imageUrl) image.src = imageUrl;
   else { image.removeAttribute("src"); imageMissing("高清正面图尚未归档，此车型资料仍在补充。"); }
-  image.alt = model.name + (evidence ? ` · ${evidence.label} · 防护分析画面` : showRaw ? staticSource ? "原帖完整防护分析截图" : "原始防护分析视频帧" : model.mainViewKind === "protection-analysis" ? "正面防护分析原图" : "正面截图与区域说明");
+  image.alt = model.name + (evidence ? ` · ${evidence.label} · 防护分析画面` : authorDiagram ? "原文章作者正面防护示意图" : showRaw ? staticSource ? "原帖完整防护分析截图" : "原始防护分析视频帧" : model.mainViewKind === "protection-analysis" ? "正面防护分析原图" : "正面截图与区域说明");
   image.width = evidence?.sourceDimensions?.[0] || (showRaw ? (model.sourceDimensions?.[0] || 1920) : (model.crop?.[2] || 1100));
   image.height = evidence?.sourceDimensions?.[1] || (showRaw ? (model.sourceDimensions?.[1] || 1080) : (model.crop?.[3] || 690));
   $("toggle-original").hidden = !!evidence || !(model.imageUrl && model.rawUrl);
@@ -158,7 +160,7 @@ function render() {
   $("evidence-full").hidden = !evidence;
   if (evidence) $("evidence-full").href = evidence.rawUrl || evidence.imageUrl;
   else $("evidence-full").removeAttribute("href");
-  const imageDescription = showRaw ? "当前为完整原始画面。" : model.mainViewKind === "protection-analysis" ? `${staticSource ? "原帖截图" : "原视频"}防护分析，保留游戏原始着色。` : model.pins?.length ? "金色编号为讲解标注。" : "来源载具外观。";
+  const imageDescription = authorDiagram ? "原文章作者防护示意图，保留作者分区、数值和箭头；不是游戏绿色击穿分析或已核验的试射结果。" : showRaw ? "当前为完整原始画面。" : model.mainViewKind === "protection-analysis" ? `${staticSource ? "原帖截图" : "原视频"}防护分析，保留游戏原始着色。` : model.pins?.length ? "金色编号为讲解标注。" : "来源载具外观。";
   const versionDescription = staticSource && source.gameVersion ? `截图版本 ${source.gameVersion}。` : "";
   $("figure-caption").textContent = evidence ? evidence.caption : imageUrl ? `画面：${source.author || "来源见下方"} / 《战争雷霆》。${imageDescription}${versionDescription}防护分析颜色对应当时的弹种与视角，条件见来源测试。` : "图像资料待补充，不以其他车型画面代替。";
   $("pins").hidden = !!evidence || showRaw || !imageUrl;
@@ -178,8 +180,8 @@ function render() {
     $("pins").append(marker); $("pin-buttons").append(alternative);
   });
   const records = [];
-  if (source.url) records.push(sourceLink(source.title || (staticSource ? "原帖来源" : "视频来源"), videoUrl(source, model.time), [source.author, source.publishedAt, source.gameVersion ? `游戏版本 ${source.gameVersion}` : null, Number.isFinite(model.time) ? `${Math.floor(model.time / 60)}:${String(Math.floor(model.time % 60)).padStart(2, "0")}` : null, model.imageQuality].filter(Boolean).join(" · ")));
-  if (staticSource && source.imageUrl) records.push(sourceLink("原帖公开图片", source.imageUrl, "原始附件；高清归档保留同一截图的原生尺寸。"));
+  if (source.url) records.push(sourceLink(source.title || (articleImage ? "文章来源" : staticSource ? "原帖来源" : "视频来源"), videoUrl(source, staticSource ? null : model.time), [source.author, source.publishedAt, source.gameVersion ? `游戏版本 ${source.gameVersion}` : null, !staticSource && Number.isFinite(model.time) ? `${Math.floor(model.time / 60)}:${String(Math.floor(model.time % 60)).padStart(2, "0")}` : null, model.imageQuality].filter(Boolean).join(" · ")));
+  if (staticSource && source.imageUrl) records.push(sourceLink(articleImage ? "文章原始图片" : "原帖公开图片", source.imageUrl, articleImage ? "保留作者原始图片尺寸与标注；图中数值不作为Wiki基础数据或弹药实测穿深。" : "原始附件；高清归档保留同一截图的原生尺寸。"));
   const sourceUrls = new Set([source.url].filter(Boolean));
   for (const related of model.relatedSources || []) {
     if (!related.url || sourceUrls.has(related.url)) continue;

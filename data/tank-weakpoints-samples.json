@@ -2693,16 +2693,89 @@
         "note": "基础乘员→王牌乘员（Wiki主炮面板）"
       },
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-video",
+      "videoAdvice": [
+        {
+          "id": "il_merkava_mk_4m:wiki-article:1817:author-guidance",
+          "label": "文章作者观点：防护与生存性",
+          "text": "作者认为梅卡瓦Mk.4M面对现代动能弹时正面多处可能被击穿，首下虽可穿却可能较少伤及乘员。车体上部受击可能损坏前置发动机；座圈受击可能伤及炮塔乘员。其化学弹防护及内部布局的后效需与动能弹分开理解；这些是作者概括，未绑定已验证弹药、距离或命中角度。 作者图注另称：画面左下被破甲弹命中时可能未穿透但溅伤散热器，画面右下可能产生超压；图中未给出可核验的具体炮弹、距离及版本。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourcePublishedAt": "2025-01-22T19:21:18+00:00",
+          "sourceUrl": "https://wiki.warthunder.com/1817-merkava-mk-4m-meil-ruach-a-comprehensive-guide",
+          "caseId": null,
+          "conditionMatch": "article-author-guidance-unverified-test",
+          "sourceClaimNotCanonicalFact": true,
+          "sourceGameVersion": null,
+          "evidence": {
+            "sourcePostProof": {
+              "URL": "https://wiki.warthunder.com/1817-merkava-mk-4m-meil-ruach-a-comprehensive-guide",
+              "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round4-20261103/merkava-article.json",
+              "snapshotSHA256": "7848539b4ffdba50f029348918a0d54f5b12b26c8a4682f7384d24fc1de39f9b",
+              "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round4-20261103/merkava-article.html",
+              "htmlSHA256": "5c6a294994889d2c021f564a8793de390634701f1de20601cc31ea95d9607aa8",
+              "capturedAt": "2026-11-03T05:22:54.668Z"
+            },
+            "independentQC": {
+              "file": "artifacts/weakpoints-wiki-article-qc-v26-20261103/records.json",
+              "sha256": "cfe18d74f7e57dd07c6e8f1e00235dcaaed7871a0b02a4c3c0bdf3b38c90563d"
+            }
+          }
+        }
+      ],
+      "source": {
+        "kind": "article-image",
+        "url": "https://wiki.warthunder.com/1817-merkava-mk-4m-meil-ruach-a-comprehensive-guide",
+        "imageUrl": "https://wiki.warthunder.com/images/52d3b5fc13a53a9811a36debda5b9e21.jpg",
+        "title": "Merkava Mk.4M Meil Ruach — A comprehensive guide",
+        "author": "nornfang058",
+        "publishedAt": "2025-01-22T19:21:18+00:00"
+      },
+      "status": "author-diagram-unverified-test",
       "collectedAt": "2026-11-02",
       "weaknessEvidenceStatus": "general-context-only",
       "country": "israel",
       "countryName": "以色列",
       "rank": 8,
       "era": "modern",
-      "scopeRole": "medium_tank"
+      "scopeRole": "medium_tank",
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round4-20261103/52d3b5fc13a53a9811a36debda5b9e21.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-ingestion-20261102/merkava4m-author-diagram-v26/article-image-proof.json",
+      "frameSnapshotSHA256": "80c8fdf0e6afaf002ca106ca2e546a9a659fa5f0146f08c4e0c4690d229d120b",
+      "captureSHA256": "2e47fb782999dfdd7e7dd8a74b143fe8f4cad9591d7b1e1e1359615d7859aba2",
+      "originalFrameSHA256": "81d60ffe1be1c3603fd4c74369dd752f3fd903092876216346291f6f3c189f59",
+      "originalFrameHashKind": "source-original-jpeg",
+      "time": null,
+      "crop": [
+        0,
+        0,
+        3659,
+        2058
+      ],
+      "sourceDimensions": [
+        3659,
+        2058
+      ],
+      "imageView": "front",
+      "imageViewDetail": "author-frontal-diagram",
+      "imageQuality": "原始作者图3659×2058",
+      "mainImageUsable": true,
+      "mainViewKind": "author-diagram",
+      "figureNote": "文章作者绘制的防护分区示意图，保留原始颜色、数字及箭头标注；不是游戏原生绿色防护分析，也不是独立试射结果。",
+      "mainViewNote": "文章作者绘制的防护分区示意图，保留原始颜色、数字及箭头标注；不是游戏原生绿色防护分析，也不是独立试射结果。",
+      "frontSummary": "作者示意图（非游戏绿图）。作者认为梅卡瓦Mk.4M面对现代动能弹时正面多处可能被击穿，首下虽可穿却可能较少伤及乘员。车体上部受击可能损坏前置发动机；座圈受击可能伤及炮塔乘员。其化学弹防护及内部布局的后效需与动能弹分开理解；这些是作者概括，未绑定已验证弹药、距离或命中角度。 作者图注另称：画面左下被破甲弹命中时可能未穿透但溅伤散热器，画面右下可能产生超压；图中未给出可核验的具体炮弹、距离及版本。",
+      "completeIllustration": false,
+      "testContext": null,
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/1817-merkava-mk-4m-meil-ruach-a-comprehensive-guide",
+          "title": "Merkava Mk.4M Meil Ruach — A comprehensive guide",
+          "author": "nornfang058",
+          "publishedAt": "2025-01-22T19:21:18+00:00",
+          "time": null,
+          "scopeNote": "Wiki投稿作者观点与作者示意图，非游戏绿图或已验证试射"
+        }
+      ]
     },
     {
       "id": "ussr_is_1",
@@ -24785,7 +24858,7 @@
     "lastUpdated": "2026-11-02",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 47,
+    "illustratedTargetCount": 48,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,

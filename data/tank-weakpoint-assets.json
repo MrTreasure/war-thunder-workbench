@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "77b67b19661062aacd886bd690d78061d0e194f8",
+  "commit": "609bdb0b3af8effe602424edc33e11d07e9bcbb3",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -884,6 +884,24 @@
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@01348f607ca8c832c0a428cecbedaae7e150f63d/images/USSR/USSR-T-90A-historical-front.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/01348f607ca8c832c0a428cecbedaae7e150f63d/images/USSR/USSR-T-90A-historical-front.webp",
         "commit": "01348f607ca8c832c0a428cecbedaae7e150f63d"
+      }
+    },
+    "il_merkava_mk_4m": {
+      "raw": {
+        "path": "images/ISR/ISR-Merkava-Mk-4M-author-frontal-diagram-20250122-native3659x2058.webp",
+        "sha256": "2e47fb782999dfdd7e7dd8a74b143fe8f4cad9591d7b1e1e1359615d7859aba2",
+        "bytes": 2167352,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@609bdb0b3af8effe602424edc33e11d07e9bcbb3/images/ISR/ISR-Merkava-Mk-4M-author-frontal-diagram-20250122-native3659x2058.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/609bdb0b3af8effe602424edc33e11d07e9bcbb3/images/ISR/ISR-Merkava-Mk-4M-author-frontal-diagram-20250122-native3659x2058.webp",
+        "commit": "609bdb0b3af8effe602424edc33e11d07e9bcbb3"
+      },
+      "photo": {
+        "path": "images/ISR/ISR-Merkava-Mk-4M-author-frontal-diagram-20250122-native3659x2058.webp",
+        "sha256": "2e47fb782999dfdd7e7dd8a74b143fe8f4cad9591d7b1e1e1359615d7859aba2",
+        "bytes": 2167352,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@609bdb0b3af8effe602424edc33e11d07e9bcbb3/images/ISR/ISR-Merkava-Mk-4M-author-frontal-diagram-20250122-native3659x2058.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/609bdb0b3af8effe602424edc33e11d07e9bcbb3/images/ISR/ISR-Merkava-Mk-4M-author-frontal-diagram-20250122-native3659x2058.webp",
+        "commit": "609bdb0b3af8effe602424edc33e11d07e9bcbb3"
       }
     }
   },
@@ -11995,6 +12013,150 @@
       "commit": "77b67b19661062aacd886bd690d78061d0e194f8",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@77b67b19661062aacd886bd690d78061d0e194f8/images/JPN/JPN-Type-10-article-suspension-reference-20260629-native1919x1079.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/77b67b19661062aacd886bd690d78061d0e194f8/images/JPN/JPN-Type-10-article-suspension-reference-20260629-native1919x1079.webp"
+    },
+    {
+      "path": "images/USSR/USSR-T-90M-article-labelled-cover-context-20250419-native1920x1080.webp",
+      "sha256": "ddb0028fa19e493fdaa54e6e7d88275d7b3353914c56c29d0d2ff4140f8fbb4f",
+      "bytes": 1846476,
+      "width": 1920,
+      "height": 1080,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "nativeResized": false,
+      "vehicleId": "ussr_t_90m_2020",
+      "country": "USSR",
+      "source": {
+        "kind": "article-image",
+        "url": "https://wiki.warthunder.com/2949-t-90m-teeth-of-the-modern-bear",
+        "imageUrl": "https://wiki.warthunder.com/images/5f2b0741ac3ef36fd2f48d4d55daae72.jpg",
+        "title": "T-90M: Teeth of the Modern Bear",
+        "author": "-_Dozer_-",
+        "publishedAt": "2025-04-19T19:23:21+00:00"
+      },
+      "sourceKind": "article-image",
+      "sourceTime": null,
+      "mediaTime": null,
+      "sourcePublishedAt": "2025-04-19T19:23:21+00:00",
+      "sourceImageUrl": "https://wiki.warthunder.com/images/5f2b0741ac3ef36fd2f48d4d55daae72.jpg",
+      "sourceFrameSHA256": "8f294ee8a73537be33a2a0160dd3da87da474d8749dbf4e1cbb3e19a558b6b38",
+      "sourceFrameHashKind": "source-original-jpeg",
+      "proofSnapshotSHA256": "06b931c0bb79fa0de64fb86ab58518832849a898d33e635ca90f6eb37b295856",
+      "caseId": null,
+      "sourceGameVersion": null,
+      "kind": "source-static-image-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "sceneKind": "author-title-overlay-game-cover",
+      "visibleView": "oblique-front-cover",
+      "identityConfidence": "image-labelled-source-exact",
+      "sourceCaption": "Article leading image; no caption. Image identity/view/test fields require independent QC.",
+      "mainImageUsable": false,
+      "hasGreenArmourMap": false,
+      "id": "ddb0028fa19e493fdaa54e6e7d88275d7b3353914c56c29d0d2ff4140f8fbb4f",
+      "commit": "609bdb0b3af8effe602424edc33e11d07e9bcbb3",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@609bdb0b3af8effe602424edc33e11d07e9bcbb3/images/USSR/USSR-T-90M-article-labelled-cover-context-20250419-native1920x1080.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/609bdb0b3af8effe602424edc33e11d07e9bcbb3/images/USSR/USSR-T-90M-article-labelled-cover-context-20250419-native1920x1080.webp"
+    },
+    {
+      "path": "images/USSR/USSR-T-90M-article-captioned-Xray-context-20250419-native1530x512.webp",
+      "sha256": "cdb1a256f5827bc0c7338f8ae872ab89338f492ef15eb79d48c2a6427504aaaa",
+      "bytes": 821616,
+      "width": 1530,
+      "height": 512,
+      "sourceDimensions": [
+        1530,
+        512
+      ],
+      "nativeResized": false,
+      "vehicleId": "ussr_t_90m_2020",
+      "country": "USSR",
+      "source": {
+        "kind": "article-image",
+        "url": "https://wiki.warthunder.com/2949-t-90m-teeth-of-the-modern-bear",
+        "imageUrl": "https://wiki.warthunder.com/images/566bdbbe52cb019b63515fdd4f3a17b2.jpg",
+        "title": "T-90M: Teeth of the Modern Bear",
+        "author": "-_Dozer_-",
+        "publishedAt": "2025-04-19T19:23:21+00:00"
+      },
+      "sourceKind": "article-image",
+      "sourceTime": null,
+      "mediaTime": null,
+      "sourcePublishedAt": "2025-04-19T19:23:21+00:00",
+      "sourceImageUrl": "https://wiki.warthunder.com/images/566bdbbe52cb019b63515fdd4f3a17b2.jpg",
+      "sourceFrameSHA256": "f9d930faf20a1a1ade4e3052574b755b11fc9095d4e26b5d7d76dca3a2501f76",
+      "sourceFrameHashKind": "source-original-jpeg",
+      "proofSnapshotSHA256": "06b931c0bb79fa0de64fb86ab58518832849a898d33e635ca90f6eb37b295856",
+      "caseId": null,
+      "sourceGameVersion": null,
+      "kind": "source-static-image-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "sceneKind": "side-oblique-armour-xray-material-view",
+      "visibleView": "side-oblique",
+      "identityConfidence": "source-caption-attributed-exact",
+      "sourceCaption": "Caption: X-ray view inside the T90M with and without the ERA and spall liners. (Additional ERA package equipped.)",
+      "mainImageUsable": false,
+      "hasGreenArmourMap": false,
+      "id": "cdb1a256f5827bc0c7338f8ae872ab89338f492ef15eb79d48c2a6427504aaaa",
+      "commit": "609bdb0b3af8effe602424edc33e11d07e9bcbb3",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@609bdb0b3af8effe602424edc33e11d07e9bcbb3/images/USSR/USSR-T-90M-article-captioned-Xray-context-20250419-native1530x512.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/609bdb0b3af8effe602424edc33e11d07e9bcbb3/images/USSR/USSR-T-90M-article-captioned-Xray-context-20250419-native1530x512.webp"
+    },
+    {
+      "path": "images/ISR/ISR-Merkava-Mk-4M-author-frontal-diagram-20250122-native3659x2058.webp",
+      "sha256": "2e47fb782999dfdd7e7dd8a74b143fe8f4cad9591d7b1e1e1359615d7859aba2",
+      "bytes": 2167352,
+      "width": 3659,
+      "height": 2058,
+      "sourceDimensions": [
+        3659,
+        2058
+      ],
+      "nativeResized": false,
+      "vehicleId": "il_merkava_mk_4m",
+      "country": "ISR",
+      "source": {
+        "kind": "article-image",
+        "url": "https://wiki.warthunder.com/1817-merkava-mk-4m-meil-ruach-a-comprehensive-guide",
+        "imageUrl": "https://wiki.warthunder.com/images/52d3b5fc13a53a9811a36debda5b9e21.jpg",
+        "title": "Merkava Mk.4M Meil Ruach — A comprehensive guide",
+        "author": "nornfang058",
+        "publishedAt": "2025-01-22T19:21:18+00:00"
+      },
+      "sourceKind": "article-image",
+      "sourceTime": null,
+      "mediaTime": null,
+      "sourcePublishedAt": "2025-01-22T19:21:18+00:00",
+      "sourceImageUrl": "https://wiki.warthunder.com/images/52d3b5fc13a53a9811a36debda5b9e21.jpg",
+      "sourceFrameSHA256": "81d60ffe1be1c3603fd4c74369dd752f3fd903092876216346291f6f3c189f59",
+      "sourceFrameHashKind": "source-original-jpeg",
+      "proofSnapshotSHA256": "80c8fdf0e6afaf002ca106ca2e546a9a659fa5f0146f08c4e0c4690d229d120b",
+      "sourceGameVersion": null,
+      "caseId": null,
+      "kind": "author-diagram-webp",
+      "roles": [
+        "source-frame",
+        "primary-view"
+      ],
+      "purpose": "primary-author-diagram",
+      "sceneKind": "author-edited-frontal-KE-HEAT-armour-value-diagram",
+      "visibleView": "front-single-vehicle-author-diagram",
+      "mainImageUsable": true,
+      "mainViewKind": "author-diagram",
+      "hasGreenArmourMap": false,
+      "authorColourOverlay": true,
+      "sourceCaption": "* HEAT shells that hit the lower left will non-pen but damage the radiator via splash damage, and HEAT shells that hit the lower right will overpressure.",
+      "encoding": "source-webp-preserved",
+      "id": "2e47fb782999dfdd7e7dd8a74b143fe8f4cad9591d7b1e1e1359615d7859aba2",
+      "commit": "609bdb0b3af8effe602424edc33e11d07e9bcbb3",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@609bdb0b3af8effe602424edc33e11d07e9bcbb3/images/ISR/ISR-Merkava-Mk-4M-author-frontal-diagram-20250122-native3659x2058.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/609bdb0b3af8effe602424edc33e11d07e9bcbb3/images/ISR/ISR-Merkava-Mk-4M-author-frontal-diagram-20250122-native3659x2058.webp"
     }
   ]
 }

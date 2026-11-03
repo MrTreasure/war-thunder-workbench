@@ -31,12 +31,38 @@ function isForumPostUrl(value) {
       && /^\/t\/[^/]+\/\d+\/\d+\/?$/.test(url.pathname);
   } catch { return false; }
 }
+function isArticleUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" && url.hostname === "wiki.warthunder.com"
+      && /^\/(?:\d+-[^/]+|tips\/\d+)\/?$/.test(url.pathname);
+  } catch { return false; }
+}
 function validateStaticCase(item) {
   if (item.sourceTime !== null || !isForumPostUrl(item.sourceUrl)
     || !item.sourceImageUrl?.startsWith("https://")
     || !Number.isFinite(Date.parse(item.sourcePublishedAt))) throw Error("Static screenshot needs a post, image and publication date, without a video time");
 }
 async function validateStaticFrame(proof, source, digest) {
+  if (source.kind === "article-image") {
+    if (proof.kind !== "article-image" || !isArticleUrl(source.url) || proof.url !== source.url
+      || proof.sourceImageUrl !== source.imageUrl || proof.sourcePublishedAt !== source.publishedAt
+      || !Number.isFinite(Date.parse(proof.sourcePublishedAt)) || !Number.isFinite(Date.parse(proof.capturedAt))
+      || proof.image?.sha256 !== digest || !proof.sourcePacket?.file || !proof.sourcePageProof?.file) throw Error("Article image provenance is incomplete");
+    const packetBytes = await readFile(privatePath(proof.sourcePacket.file));
+    const pageBytes = await readFile(privatePath(proof.sourcePageProof.file));
+    if (hash(packetBytes) !== proof.sourcePacket.sha256 || hash(pageBytes) !== proof.sourcePageProof.sha256) throw Error("Article image source proof changed");
+    const record = JSON.parse(packetBytes).records?.find((entry) => entry.webpSHA256 === digest);
+    const page = JSON.parse(pageBytes);
+    if (!record || record.status !== 200 || record.sourceArticle !== source.url || record.url !== source.imageUrl
+      || record.articlePublishedAt !== source.publishedAt || record.capturedAt !== proof.capturedAt
+      || record.sourceTime !== null || record.sourceguard?.challenge !== false || record.nativeResized !== false
+      || record.sourceOriginalSHA256 !== proof.originalImageSHA256
+      || record.sourcePostProof?.snapshotSHA256 !== proof.sourcePageProof.sha256
+      || page.url !== source.url || page.status !== 200 || page.blocked || page.error
+      || record.dimensions?.width !== proof.image.width || record.dimensions?.height !== proof.image.height) throw Error("Article image differs from the captured original");
+    return proof.image;
+  }
   if (proof.kind !== "forum-image" || proof.url !== source.url || !isForumPostUrl(proof.url)
     || proof.sourceImageUrl !== source.imageUrl || proof.sourcePublishedAt !== source.publishedAt
     || !Number.isFinite(Date.parse(proof.sourcePublishedAt)) || !Number.isFinite(Date.parse(proof.capturedAt))
@@ -79,11 +105,8 @@ for (const model of data.models) {
   if (model.testContext?.sourceKind === "forum-image") validateStaticCase(model.testContext);
   for (const advice of model.videoAdvice || []) {
     if (advice.sourceKind === "article-text") {
-      let articleUrl;
-      try { articleUrl = new URL(advice.sourceUrl); } catch { throw Error("Article advice needs a source URL"); }
       if (advice.sourceTime !== null || advice.caseId !== null || advice.sourceClaimNotCanonicalFact !== true
-        || articleUrl.protocol !== "https:" || articleUrl.hostname !== "wiki.warthunder.com"
-        || !/^\/(?:\d+-[^/]+|tips\/\d+)\/?$/.test(articleUrl.pathname)
+        || !isArticleUrl(advice.sourceUrl)
         || !Number.isFinite(Date.parse(advice.sourcePublishedAt))) throw Error("Article commentary needs its actual publication date and no invented test clock");
       continue;
     }
@@ -129,7 +152,8 @@ for (const model of data.models) {
     const proofPath = model.frameSnapshotPath ? privatePath(model.frameSnapshotPath) : resolve(captures, model.frameSnapshot + ".json");
     const proofBytes = await readFile(proofPath);
     const frame = JSON.parse(proofBytes);
-    const staticImage = source?.kind === "forum-image";
+    const staticImage = source?.kind === "forum-image" || source?.kind === "article-image";
+    if (source?.kind === "article-image" && (model.mainViewKind !== "author-diagram" || model.completeIllustration !== false || model.pins?.length || model.testContext != null)) throw Error("Author diagram cannot invent a tested green map or completed illustration");
     if (frame.error || frame.challenge || frame.blocked) throw Error("Source capture was blocked: " + model.id);
     if (staticImage) {
       if (model.time !== null || !model.frameSnapshotSHA256 || hash(proofBytes) !== model.frameSnapshotSHA256) throw Error("Static image must retain its proof hash and null video time");
@@ -155,7 +179,8 @@ for (const model of data.models) {
     const [x, y, w, h] = model.crop;
     if (!model.crop.every(Number.isInteger) || x < 0 || y < 0 || w <= 0 || h <= 0 || x + w > width || y + h > height) throw Error("Invalid crop");
     for (const pin of model.pins) if (![pin.x, pin.y].every((n) => Number.isFinite(n) && n >= 0 && n <= 1)) throw Error("Invalid annotation position");
-    for (const [kind, filter] of [["photo", `crop=${w}:${h}:${x}:${y}`], ["raw", null]]) {
+    const photoFilter = x === 0 && y === 0 && w === width && h === height ? null : `crop=${w}:${h}:${x}:${y}`;
+    for (const [kind, filter] of [["photo", photoFilter], ["raw", null]]) {
       const temporary = resolve(assets, `${model.id}-${kind}.next.webp`);
       if (!filter && isWebp) await copyFile(framePath, temporary);
       else execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-i", framePath, ...(filter ? ["-vf", filter] : []), "-frames:v", "1", "-c:v", "libwebp", "-lossless", "1", "-compression_level", "6", "-y", temporary]);
@@ -171,7 +196,7 @@ for (const model of data.models) {
       if (hosted) model[kind === "photo" ? "imageFallbackUrl" : "rawFallbackUrl"] = hosted.rawUrl;
     }
     model.sourceFrameSHA256 = model.originalFrameSHA256 || hash(raw);
-    Object.assign(item, { illustrated: true, sourceKind: staticImage ? "forum-image" : "video", frameTime: staticImage ? null : frame.decode.mediaTime, sourcePublishedAt: staticImage ? source.publishedAt : undefined, frameSHA256: hash(raw), sourceFrameSHA256: model.sourceFrameSHA256, frameSize: raw.length, imageQuality: model.imageQuality });
+    Object.assign(item, { illustrated: true, sourceKind: staticImage ? source.kind : "video", frameTime: staticImage ? null : frame.decode.mediaTime, sourcePublishedAt: staticImage ? source.publishedAt : undefined, frameSHA256: hash(raw), sourceFrameSHA256: model.sourceFrameSHA256, frameSize: raw.length, imageQuality: model.imageQuality });
   } else if (model.pins?.length) throw Error("Do not publish pins without their matching front image");
   const evidenceIds = new Set();
   for (const evidence of model.protectionEvidence || []) {
