@@ -5320,7 +5320,30 @@
       "era": "modern",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v268-ariete-p-spall-liner-64.5",
+          "label": "视频内构观察：防崩落衬层",
+          "text": "视频在车库内构筛选中展示防崩落衬层；该画面不含击穿测试，不能据此判断对某种炮弹的防护效果。",
+          "kind": "source-armor-component-observation",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1dZ8Q6JEfv/",
+          "sourceTime": 64.5,
+          "sourcePublishedAt": "2026-08-26",
+          "sourceVersion": null,
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "source-ui-observation-only",
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV1dZ8Q6JEfv/",
+            "sourceTime": 64.5,
+            "kind": "garage-internal-component-filter-observation",
+            "actualShotObserved": false,
+            "currentWikiIndependentConfirmation": null
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/it_c1_ariete_preserie",
@@ -5342,7 +5365,18 @@
         "note": "基础乘员→王牌乘员（Wiki主炮面板）"
       },
       "collectedAt": "2026-11-02",
-      "weaknessEvidenceStatus": "general-context-only"
+      "weaknessEvidenceStatus": "general-context-only",
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1dZ8Q6JEfv/",
+          "title": "战雷意系仌九门「公羊P」高于豹2A4的顶点 饱受冷门与偏见",
+          "author": "梦醒_official",
+          "publishedAt": "2026-08-26",
+          "time": 64.5,
+          "scopeNote": "车库内构筛选的防崩落衬层观察；未提供攻击条件或实射，不作为弱点或弹种防护结论。"
+        }
+      ]
     },
     {
       "id": "jp_type_90",
@@ -15242,7 +15276,31 @@
       "eraBasis": "梅卡瓦4B于90年代末开发，具有新火控、模块化复合装甲及信息系统，重量增加限制机动。",
       "collectedAt": "2026-11-02T09:54:56.199Z",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v273-merkava4b-turret-neck-187.42",
+          "label": "作者建议：炮塔连接处",
+          "text": "作者建议留意炮塔与车体连接处；本段没有可复核的攻击车、炮弹及距离条件，不能据此认定必穿。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1TofzYLEJA/",
+          "sourceTime": 187.42,
+          "sourcePublishedAt": "2025-01-29",
+          "sourceVersion": "2.43.0.68",
+          "sourceGameVersion": "2.43.0.68",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-commentary-only",
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV1TofzYLEJA/",
+            "sourceTime": 187.42,
+            "sourceEndTime": 190.78,
+            "kind": "qualitative-author-commentary",
+            "actualShotObserved": false,
+            "currentWikiIndependentConfirmation": null
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/il_merkava_mk_4b",
@@ -15267,6 +15325,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1TofzYLEJA/",
+          "title": "内部系统大升级梅卡瓦 Mk.4B《战争雷霆》〔载具简评〕",
+          "author": "克虏伯kluub",
+          "publishedAt": "2025-01-29",
+          "time": 187.42,
+          "scopeNote": "作者关于炮塔与车体连接处的定性观点；非防护分析，未提供攻击条件或实射，不作为已验证弱点结论。"
+        }
       ]
     },
     {
@@ -21901,7 +21970,28 @@
       "era": null,
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v264-christian2-point-181",
+          "label": "正面单点预测（非实射）",
+          "text": "视频中，M1A1（“标题党”号）使用M829A2、0米、界面穿深629毫米，对正面未标定单点预测“能够击穿”；该点显示等效装甲293毫米、局部入射角50°及攻击方位角1°，不是实射或整个正面可穿结论。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": "sw_strv121b_christian2:v264-point-181",
+          "sourceUrl": "https://www.bilibili.com/video/BV1TJ2XBVEXB/",
+          "sourceTime": 181,
+          "sourcePublishedAt": "2025-12-06",
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "same-frame",
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV1TJ2XBVEXB/",
+            "sourceTime": 181,
+            "originalPNG_SHA256": "37776497a2dcf97973650992d50edc115fdde739c1201a5cbc08bdf8730df827",
+            "kind": "single-point-protection-prediction"
+          }
+        }
+      ],
       "source": null,
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/sw_strv121b_christian2",
@@ -21931,7 +22021,136 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
-      ]
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1TJ2XBVEXB/",
+          "title": "战争雷霆：瑞典两台礼包坦克CV90105和瑞版豹2A4的Strv121B哪个更适合开线？",
+          "author": "罗非鱼解说",
+          "publishedAt": "2025-12-06",
+          "time": 181,
+          "scopeNote": "原生防护分析单点预测；未观察对应实射，选中点精确位置未标定。"
+        }
+      ],
+      "testCases": [
+        {
+          "id": "sw_strv121b_christian2:v264-point-181",
+          "label": "正面单点预测（非实射）",
+          "sourceKind": "video",
+          "sourceUrl": "https://www.bilibili.com/video/BV1TJ2XBVEXB/",
+          "sourceTime": 181,
+          "sourcePublishedAt": "2025-12-06",
+          "attacker": "M1A1（“标题党”号）",
+          "attackerDisplayName": "M1A1（“标题党”号）",
+          "attackerVehicleId": "us_m1a1_hc_usmc",
+          "shell": "M829A2",
+          "exactDesignation": "M829A2",
+          "rawUIType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "us_m1a1_hc_usmc",
+            "url": "https://wiki.warthunder.com/unit/us_m1a1_hc_usmc",
+            "sourceShellLabelOriginal": "M829A2",
+            "checkedAt": "2026-11-02T06:58:43.534Z",
+            "mainGun": "120 mm M256 cannon",
+            "officialShellName": "M829A2",
+            "wikiGameVersion": "2.59.0.92",
+            "referenceDistanceMeters": 10,
+            "referenceAngleDegrees": 0,
+            "referencePenetrationMm": 629,
+            "note": "官方10米参考值，与视频0米界面数值分别记录；不视为来源版本一致性证明。"
+          },
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 629,
+          "targetAngleDegrees": null,
+          "impactAngleDegrees": 50,
+          "azimuthDegrees": 1,
+          "equivalentArmorMm": 293,
+          "equivalentArmorBasis": "single selected point for displayed M829A2; not plate thickness",
+          "predictionOnly": true,
+          "prediction": "能够击穿",
+          "predictedDamageComponents": [
+            "油箱",
+            "炮手",
+            "驾驶员",
+            "车长",
+            "发动机",
+            "传动机构",
+            "方向机",
+            "弹药架"
+          ],
+          "sourceFrameSHA256": "37776497a2dcf97973650992d50edc115fdde739c1201a5cbc08bdf8730df827",
+          "sourceVersion": null,
+          "sourceGameVersion": null,
+          "actualShotObserved": false,
+          "actualPenetration": null,
+          "kill": null,
+          "targetIdentityBasis": "native Strv 121B plus exact official localization same-key mapping",
+          "nativeTargetRawLabel": "Strv 121B",
+          "note": "仅防护分析单点预测，未观察对应实射；选中点精确位置未标定，不构成炮盾、首下或全部正面可穿结论。"
+        }
+      ],
+      "testContext": {
+        "label": "正面单点预测（非实射）",
+        "sourceKind": "video",
+        "sourceUrl": "https://www.bilibili.com/video/BV1TJ2XBVEXB/",
+        "sourceTime": 181,
+        "sourcePublishedAt": "2025-12-06",
+        "attacker": "M1A1（“标题党”号）",
+        "attackerDisplayName": "M1A1（“标题党”号）",
+        "attackerVehicleId": "us_m1a1_hc_usmc",
+        "shell": "M829A2",
+        "exactDesignation": "M829A2",
+        "rawUIType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "attackerVehicleId": "us_m1a1_hc_usmc",
+          "url": "https://wiki.warthunder.com/unit/us_m1a1_hc_usmc",
+          "sourceShellLabelOriginal": "M829A2",
+          "checkedAt": "2026-11-02T06:58:43.534Z",
+          "mainGun": "120 mm M256 cannon",
+          "officialShellName": "M829A2",
+          "wikiGameVersion": "2.59.0.92",
+          "referenceDistanceMeters": 10,
+          "referenceAngleDegrees": 0,
+          "referencePenetrationMm": 629,
+          "note": "官方10米参考值，与视频0米界面数值分别记录；不视为来源版本一致性证明。"
+        },
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 629,
+        "targetAngleDegrees": null,
+        "impactAngleDegrees": 50,
+        "azimuthDegrees": 1,
+        "equivalentArmorMm": 293,
+        "equivalentArmorBasis": "single selected point for displayed M829A2; not plate thickness",
+        "predictionOnly": true,
+        "prediction": "能够击穿",
+        "predictedDamageComponents": [
+          "油箱",
+          "炮手",
+          "驾驶员",
+          "车长",
+          "发动机",
+          "传动机构",
+          "方向机",
+          "弹药架"
+        ],
+        "sourceFrameSHA256": "37776497a2dcf97973650992d50edc115fdde739c1201a5cbc08bdf8730df827",
+        "sourceVersion": null,
+        "sourceGameVersion": null,
+        "actualShotObserved": false,
+        "actualPenetration": null,
+        "kill": null,
+        "targetIdentityBasis": "native Strv 121B plus exact official localization same-key mapping",
+        "nativeTargetRawLabel": "Strv 121B",
+        "note": "仅防护分析单点预测，未观察对应实射；选中点精确位置未标定，不构成炮盾、首下或全部正面可穿结论。",
+        "caseId": "sw_strv121b_christian2:v264-point-181"
+      }
     },
     {
       "id": "sw_t_80u",
@@ -22762,10 +22981,75 @@
       "rank": 7,
       "era": null,
       "scopeRole": "medium_tank",
-      "pins": [],
-      "videoAdvice": [],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "pins": [
+        {
+          "x": 0.480645,
+          "y": 0.757143,
+          "label": "车体下部参考",
+          "detail": "仅111秒当前分布的外表区域参考；分布计算完成状态未确认，未见该点独立实射，不据颜色推断击毁或油箱爆炸。",
+          "kind": "external-region-reference",
+          "caseId": "cn_ztz_96a_prot:v281-point-111",
+          "sourceUrl": "https://www.bilibili.com/video/BV1uhjc6fE3e/",
+          "sourceTime": 111,
+          "mainImageTime": 111,
+          "adviceId": "v281-ztz96ap-advice-111",
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        }
+      ],
+      "videoAdvice": [
+        {
+          "id": "v281-ztz96ap-advice-98",
+          "label": "首上所选点：预测无法击穿",
+          "text": "98秒防护分析中，原型车使用125-I、0米、界面穿深466毫米，首上所选点预测“无法击穿”，显示等效549毫米、入射角67°、方位角0°；仅该点预测，非实射或整块首上保证。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": "cn_ztz_96a_prot:v281-point-98",
+          "sourceUrl": "https://www.bilibili.com/video/BV1uhjc6fE3e/",
+          "sourceTime": 98,
+          "sourcePublishedAt": "2026-06-18",
+          "sourceGameVersion": "2.55.1.159",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "same-frame",
+          "evidence": {
+            "kind": "single-point-protection-prediction",
+            "sourceTime": 98,
+            "originalPNG_SHA256": "ae5883797f2bde9b63c31ad9d7ff929f70448762c3d2abc21e81980254bbb876",
+            "actualShotObserved": false,
+            "sourceEvidenceTime": null
+          }
+        },
+        {
+          "id": "v281-ztz96ap-advice-111",
+          "label": "作者建议：车体下部",
+          "text": "作者建议关注车体下部，111秒当前分布可见下部绿色；分布计算完成状态未确认，未见逐点实射。114秒内构画面的约100毫米是作者说法，不是可读原生单点实测，也不能据此认定油箱必炸。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": "cn_ztz_96a_prot:v281-point-111",
+          "sourceUrl": "https://www.bilibili.com/video/BV1uhjc6fE3e/",
+          "sourceTime": 111,
+          "sourcePublishedAt": "2026-06-18",
+          "sourceGameVersion": "2.55.1.159",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "same-frame-overlay-plus-author-continuous-segment",
+          "evidence": {
+            "kind": "author-commentary-and-visible-exterior-region",
+            "sourceTime": 111,
+            "originalPNG_SHA256": "6c375edb4f9c601e3eac232e904efcac6bec2a1b24b4ddc89cead329b31f2a83",
+            "actualShotObserved": false,
+            "sourceEvidenceTime": 114
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1uhjc6fE3e/",
+        "title": "战争雷霆：曾经中系唯一的7级开线车96A原型车实力到底怎么样？老战狼们都是怎么用它开完的中系的？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2026-06-18",
+        "kind": "video",
+        "gameVersion": "2.55.1.159"
+      },
+      "status": "partial-frontal-guide",
       "wikiUrl": "https://wiki.warthunder.com/unit/cn_ztz_96a_prot",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-002-20261103/snapshots/cn_ztz_96a_prot.json",
@@ -22787,13 +23071,251 @@
       "collectedAt": "2026-11-02T18:07:14.254Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "原文未给精确针鼻炮塔原型形成日期，不能用量产型年份代填。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无已验证的主图及对应局部标点。"
-      ]
+        "分布计算完成状态未确认；未见逐点实射或可复核后效。"
+      ],
+      "sourceVersion": "2.55.1.159",
+      "sourceGameVersion": "2.55.1.159",
+      "relatedSources": [
+        {
+          "url": "https://www.bilibili.com/video/BV1uhjc6fE3e/",
+          "title": "战争雷霆：曾经中系唯一的7级开线车96A原型车实力到底怎么样？老战狼们都是怎么用它开完的中系的？",
+          "author": "罗非鱼解说",
+          "publishedAt": "2026-06-18",
+          "kind": "video",
+          "gameVersion": "2.55.1.159",
+          "time": 111,
+          "scopeNote": "原型车原生防护分析；111秒分布计算完成状态未知。"
+        }
+      ],
+      "testCases": [
+        {
+          "id": "cn_ztz_96a_prot:v281-point-98",
+          "label": "首上所选单点预测",
+          "vehicleId": "cn_ztz_96a_prot",
+          "sourceKind": "video",
+          "sourceUrl": "https://www.bilibili.com/video/BV1uhjc6fE3e/",
+          "sourceTime": 98,
+          "sourcePublishedAt": "2026-06-18",
+          "attacker": "ZTZ96A 原型车",
+          "attackerDisplayName": "ZTZ96A 原型车",
+          "attackerVehicleId": "cn_ztz_96a_prot",
+          "shell": "125-I",
+          "exactDesignation": "125-I",
+          "rawUIType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "cn_ztz_96a_prot",
+            "url": "https://wiki.warthunder.com/unit/cn_ztz_96a_prot",
+            "sourceShellLabelOriginal": "125-I",
+            "checkedAt": "2026-11-02T18:07:14.254Z",
+            "mainGun": "125 mm Type 88C cannon",
+            "officialShellName": "Type 1985-I APFSDS",
+            "wikiGameVersion": "2.59.0.92",
+            "referenceDistanceMeters": 10,
+            "referenceAngleDegrees": 0,
+            "referencePenetrationMm": 466,
+            "note": "官方当前10米0°参考，与视频0米界面数值及旧版本分别记录；别名依据独立的同键本地化证据。"
+          },
+          "localizationReference": {
+            "sourceBasis": "community-preserved-game-localization",
+            "entryKey": "units_weaponry:125mm_125_1",
+            "sourceLabel": "Game localization files preserved by community datamine (not an official API)",
+            "url": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/6142de74d1e9a7125f0fd7e6517d4af7411db29e/lang.vromfs.bin_u/lang/units_weaponry.csv",
+            "commit": "6142de74d1e9a7125f0fd7e6517d4af7411db29e",
+            "checkedAt": "2026-10-23T05:49:13.649563+00:00",
+            "sha256": "a446dbac593abe8ea4ddeab9330f7e1aaa622c83cf2872feecbfc61cbe64954a",
+            "bytes": 3860613,
+            "english": "Type 1985-I APFSDS",
+            "chineseRaw": "125-I",
+            "aliasBasis": "same-stable-game-localization-key-not-equal-penetration"
+          },
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 466,
+          "targetAngleDegrees": null,
+          "impactAngleDegrees": 67,
+          "azimuthDegrees": 0,
+          "equivalentArmorMm": 549,
+          "predictionOnly": true,
+          "prediction": "无法击穿",
+          "sourceFrameSHA256": "ae5883797f2bde9b63c31ad9d7ff929f70448762c3d2abc21e81980254bbb876",
+          "sourceVersion": "2.55.1.159",
+          "sourceGameVersion": "2.55.1.159",
+          "actualShotObserved": false,
+          "actualPenetration": null,
+          "kill": null,
+          "nativeTargetRawLabel": "ZTZ96A 原型车",
+          "distributionProgressPercent": 23,
+          "distributionCompletionStatus": "unknown",
+          "note": "仅98秒首上选中点预测，不能扩展至整块首上；23%分布不是主图。"
+        },
+        {
+          "id": "cn_ztz_96a_prot:v281-point-111",
+          "label": "正面分布当前条件（完成状态未确认）",
+          "vehicleId": "cn_ztz_96a_prot",
+          "sourceKind": "video",
+          "sourceUrl": "https://www.bilibili.com/video/BV1uhjc6fE3e/",
+          "sourceTime": 111,
+          "sourcePublishedAt": "2026-06-18",
+          "attacker": "ZTZ96A 原型车",
+          "attackerDisplayName": "ZTZ96A 原型车",
+          "attackerVehicleId": "cn_ztz_96a_prot",
+          "shell": "125-I",
+          "exactDesignation": "125-I",
+          "rawUIType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "cn_ztz_96a_prot",
+            "url": "https://wiki.warthunder.com/unit/cn_ztz_96a_prot",
+            "sourceShellLabelOriginal": "125-I",
+            "checkedAt": "2026-11-02T18:07:14.254Z",
+            "mainGun": "125 mm Type 88C cannon",
+            "officialShellName": "Type 1985-I APFSDS",
+            "wikiGameVersion": "2.59.0.92",
+            "referenceDistanceMeters": 10,
+            "referenceAngleDegrees": 0,
+            "referencePenetrationMm": 466,
+            "note": "官方当前10米0°参考，与视频0米界面数值及旧版本分别记录；别名依据独立的同键本地化证据。"
+          },
+          "localizationReference": {
+            "sourceBasis": "community-preserved-game-localization",
+            "entryKey": "units_weaponry:125mm_125_1",
+            "sourceLabel": "Game localization files preserved by community datamine (not an official API)",
+            "url": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/6142de74d1e9a7125f0fd7e6517d4af7411db29e/lang.vromfs.bin_u/lang/units_weaponry.csv",
+            "commit": "6142de74d1e9a7125f0fd7e6517d4af7411db29e",
+            "checkedAt": "2026-10-23T05:49:13.649563+00:00",
+            "sha256": "a446dbac593abe8ea4ddeab9330f7e1aaa622c83cf2872feecbfc61cbe64954a",
+            "bytes": 3860613,
+            "english": "Type 1985-I APFSDS",
+            "chineseRaw": "125-I",
+            "aliasBasis": "same-stable-game-localization-key-not-equal-penetration"
+          },
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 466,
+          "targetAngleDegrees": null,
+          "impactAngleDegrees": null,
+          "azimuthDegrees": null,
+          "equivalentArmorMm": null,
+          "predictionOnly": true,
+          "prediction": null,
+          "sourceFrameSHA256": "6c375edb4f9c601e3eac232e904efcac6bec2a1b24b4ddc89cead329b31f2a83",
+          "sourceVersion": "2.55.1.159",
+          "sourceGameVersion": "2.55.1.159",
+          "actualShotObserved": false,
+          "actualPenetration": null,
+          "kill": null,
+          "nativeTargetRawLabel": "ZTZ96A 原型车",
+          "distributionProgressPercent": null,
+          "distributionCompletionStatus": "unknown",
+          "note": "111秒只记录当前分布条件；未见单点结果，不能沿用98秒的结果或角度，不是逐点实射。"
+        }
+      ],
+      "testContext": {
+        "label": "正面分布当前条件（完成状态未确认）",
+        "vehicleId": "cn_ztz_96a_prot",
+        "sourceKind": "video",
+        "sourceUrl": "https://www.bilibili.com/video/BV1uhjc6fE3e/",
+        "sourceTime": 111,
+        "sourcePublishedAt": "2026-06-18",
+        "attacker": "ZTZ96A 原型车",
+        "attackerDisplayName": "ZTZ96A 原型车",
+        "attackerVehicleId": "cn_ztz_96a_prot",
+        "shell": "125-I",
+        "exactDesignation": "125-I",
+        "rawUIType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "attackerVehicleId": "cn_ztz_96a_prot",
+          "url": "https://wiki.warthunder.com/unit/cn_ztz_96a_prot",
+          "sourceShellLabelOriginal": "125-I",
+          "checkedAt": "2026-11-02T18:07:14.254Z",
+          "mainGun": "125 mm Type 88C cannon",
+          "officialShellName": "Type 1985-I APFSDS",
+          "wikiGameVersion": "2.59.0.92",
+          "referenceDistanceMeters": 10,
+          "referenceAngleDegrees": 0,
+          "referencePenetrationMm": 466,
+          "note": "官方当前10米0°参考，与视频0米界面数值及旧版本分别记录；别名依据独立的同键本地化证据。"
+        },
+        "localizationReference": {
+          "sourceBasis": "community-preserved-game-localization",
+          "entryKey": "units_weaponry:125mm_125_1",
+          "sourceLabel": "Game localization files preserved by community datamine (not an official API)",
+          "url": "https://raw.githubusercontent.com/gszabi99/War-Thunder-Datamine/6142de74d1e9a7125f0fd7e6517d4af7411db29e/lang.vromfs.bin_u/lang/units_weaponry.csv",
+          "commit": "6142de74d1e9a7125f0fd7e6517d4af7411db29e",
+          "checkedAt": "2026-10-23T05:49:13.649563+00:00",
+          "sha256": "a446dbac593abe8ea4ddeab9330f7e1aaa622c83cf2872feecbfc61cbe64954a",
+          "bytes": 3860613,
+          "english": "Type 1985-I APFSDS",
+          "chineseRaw": "125-I",
+          "aliasBasis": "same-stable-game-localization-key-not-equal-penetration"
+        },
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 466,
+        "targetAngleDegrees": null,
+        "impactAngleDegrees": null,
+        "azimuthDegrees": null,
+        "equivalentArmorMm": null,
+        "predictionOnly": true,
+        "prediction": null,
+        "sourceFrameSHA256": "6c375edb4f9c601e3eac232e904efcac6bec2a1b24b4ddc89cead329b31f2a83",
+        "sourceVersion": "2.55.1.159",
+        "sourceGameVersion": "2.55.1.159",
+        "actualShotObserved": false,
+        "actualPenetration": null,
+        "kill": null,
+        "nativeTargetRawLabel": "ZTZ96A 原型车",
+        "distributionProgressPercent": null,
+        "distributionCompletionStatus": "unknown",
+        "note": "111秒只记录当前分布条件；未见单点结果，不能沿用98秒的结果或角度，不是逐点实射。",
+        "caseId": "cn_ztz_96a_prot:v281-point-111"
+      },
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/china-front-v274-20261104/continuation/video/capture-2.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v280-20261104/frame-proof-111s.json",
+      "frameSnapshotSHA256": "c1e4d03540f3b732d36d4ba56d413d18166ce7298025b51909142587339ee097",
+      "captureSHA256": "6c375edb4f9c601e3eac232e904efcac6bec2a1b24b4ddc89cead329b31f2a83",
+      "originalFrameSHA256": "6c375edb4f9c601e3eac232e904efcac6bec2a1b24b4ddc89cead329b31f2a83",
+      "time": 111,
+      "crop": [
+        1470,
+        390,
+        930,
+        840
+      ],
+      "sourceDimensions": [
+        3840,
+        2160
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "imageQuality": "4K",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "正面区域参考 · 分布计算完成状态未确认；非逐点实射。",
+      "distributionCompletionStatus": "unknown",
+      "coverageStatus": "partial-frontal-guide",
+      "coverageNotice": "正面区域参考 · 分布计算完成状态未确认",
+      "testCaseEvidence": {
+        "cn_ztz_96a_prot:v281-point-98": {
+          "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v280-20261104/frame-proof-98s.json",
+          "originalPNG_SHA256": "ae5883797f2bde9b63c31ad9d7ff929f70448762c3d2abc21e81980254bbb876",
+          "sourceOnly": true
+        },
+        "cn_ztz_96a_prot:v281-point-111": {
+          "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v280-20261104/frame-proof-111s.json",
+          "originalPNG_SHA256": "6c375edb4f9c601e3eac232e904efcac6bec2a1b24b4ddc89cead329b31f2a83",
+          "sourceOnly": false
+        }
+      }
     },
     {
       "id": "cn_ztz_99",
@@ -28115,7 +28637,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 55,
+    "illustratedCount": 56,
     "countries": [
       {
         "country": "usa",
@@ -28251,7 +28773,7 @@
     "lastUpdated": "2026-11-02",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 53,
+    "illustratedTargetCount": 54,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,

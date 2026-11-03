@@ -208,7 +208,7 @@ function render() {
   const imageDescription = authorDiagram ? "原文章作者防护示意图，保留作者分区、数值和箭头；不是游戏绿色击穿分析或已核验的试射结果。" : armorLayout ? `${showRaw ? "当前为完整高清画面。" : ""}原游戏装甲布局，配色仅区分装甲构件或厚度，不表示可击穿或不可击穿。` : protectionPreview ? `${showRaw ? "当前为完整高清画面。" : ""}原视频单点防护预览，准星与提示仅对应当次位置；不是整片装甲着色或实射结果。` : showRaw ? "当前为完整高清画面。" : model.mainViewKind === "protection-analysis" ? `${staticSource ? "原帖截图" : "原视频"}防护分析，保留游戏原有防护分区。` : model.pins?.length ? "金色编号为讲解标注。" : "来源载具外观。";
   const versionDescription = staticSource && source.gameVersion ? `截图版本 ${source.gameVersion}。` : "";
   const analysisConditions = authorDiagram || armorLayout ? "" : protectionPreview ? "该点条件见来源测试。" : "防护分析颜色对应当时的弹种与视角，条件见来源测试。";
-  $("figure-caption").textContent = evidence ? evidence.caption : imageUrl ? `画面：${source.author || "来源见下方"} / 《战争雷霆》。${imageDescription}${versionDescription}${analysisConditions}` : "图像资料待补充，不以其他车型画面代替。";
+  $("figure-caption").textContent = evidence ? evidence.caption : imageUrl ? `画面：${source.author || "来源见下方"} / 《战争雷霆》。${imageDescription}${versionDescription}${analysisConditions}${model.mainViewNote ? ` ${model.mainViewNote}` : ""}` : "图像资料待补充，不以其他车型画面代替。";
   $("pins").hidden = !!evidence || showRaw || !imageUrl;
   $("pins").replaceChildren();
   $("pin-buttons").replaceChildren();
