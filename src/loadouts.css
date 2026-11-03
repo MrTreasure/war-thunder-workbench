@@ -618,18 +618,38 @@ nav.wt-mount-tabs { overflow-x: auto; }
 .wt-mount-card-identity { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; min-width: 0; }
 .wt-mount-recommended-state { flex: none; padding: 2px 7px; border: 1px solid var(--wt-gold); color: var(--wt-gold); background: var(--wt-panel); font-size: 11px; line-height: 1.5; white-space: nowrap; }
 
-.wt-mount-bombing { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--wt-line); min-width: 0; }
+/* finesse · component: bombing estimate · existing product tokens · automatic results */
+.wt-mount-summary > .wt-mount-bombing { grid-column: 1 / -1; min-width: 0; margin-top: 2px; padding-top: 16px; border-top: 1px solid var(--wt-line); }
 .wt-mount-bombing h4 { margin: 0; font-size: 14px; }
-.wt-mount-bombing .wt-mount-section-heading { align-items: baseline; flex-wrap: wrap; gap: 8px; }
-.wt-mount-page .wt-mount-bombing-reference { display: flex; flex-direction: row; align-items: center; gap: 8px; margin-block: 12px; color: var(--wt-ink); }
-.wt-mount-bombing-reference input { accent-color: var(--wt-gold); width: 18px; height: 18px; }
-.wt-mount-bombing-scroll { overflow-x: auto; min-width: 0; }
-.wt-mount-bombing table { width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; }
-.wt-mount-bombing th, .wt-mount-bombing td { padding: 9px 6px; border-bottom: 1px solid var(--wt-line); text-align: left; vertical-align: top; }
+.wt-mount-bombing .wt-mount-section-heading { align-items: baseline; flex-wrap: wrap; gap: 8px 16px; }
+.wt-mount-bombing .wt-mount-section-heading > span { color: var(--wt-muted); font-size: 12px; }
+.wt-mount-bombing-metrics { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px 24px; margin-top: 14px; }
+.wt-mount-bombing-metrics > div { display: grid; gap: 5px; min-width: 0; }
+.wt-mount-bombing-metrics span { color: var(--wt-muted); font-size: 12px; }
+.wt-mount-bombing-metrics strong { font-size: 18px; line-height: 1.4; font-variant-numeric: tabular-nums; }
+.wt-mount-bombing-payload { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 12px; }
+.wt-mount-bombing-payload > div { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; font-size: 12px; min-width: 0; }
+.wt-mount-bombing-payload span { overflow-wrap: anywhere; }
+.wt-mount-bombing-payload small { color: var(--wt-muted); font-size: 12px; }
+.wt-mount-bombing-caption { margin: 16px 0 8px; font-size: 12px; color: var(--wt-gold); }
+.wt-mount-bombing-scroll { min-width: 0; }
+.wt-mount-bombing table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 12px; font-variant-numeric: tabular-nums; }
 .wt-mount-bombing thead th { color: var(--wt-muted); font-weight: 400; }
+.wt-mount-bombing th, .wt-mount-bombing td { padding: 10px 12px; border-bottom: 1px solid var(--wt-line); text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.wt-mount-bombing th:first-child { width: 18%; }
+.wt-mount-bombing th:nth-child(2) { width: 18%; }
+.wt-mount-bombing th:nth-child(3) { width: 18%; }
 .wt-mount-bombing tr[data-relevant] { background: var(--wt-panel); }
-.wt-mount-bombing tr[data-relevant] > th { color: var(--wt-gold); }
-.wt-mount-bombing small { display: block; color: var(--wt-muted); font-size: 11px; font-weight: 400; margin-top: 4px; }
-.wt-mount-bombing summary { cursor: pointer; padding-block: 4px; }
-.wt-mount-bombing td ul { padding-left: 16px; }
-.wt-mount-bombing .wt-mount-weapon-more > a { display: block; }
+.wt-mount-bombing-count strong { font-size: 16px; line-height: 1.4; color: var(--wt-gold); }
+.wt-mount-bombing-count small { display: block; color: var(--wt-muted); font-size: 11px; margin-top: 4px; }
+.wt-mount-bombing-packs > div { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+.wt-mount-bombing-packs > div > span { flex: none; color: var(--wt-muted); font-size: 11px; }
+.wt-mount-bombing-packs p { min-width: 0; margin: 0; line-height: 1.5; }
+.wt-mount-bombing-mobile-label { display: none; }
+.wt-mount-bombing summary { cursor: pointer; padding-block: 8px; font-size: 12px; color: var(--wt-muted); }
+.wt-mount-bombing summary:focus-visible { outline: 2px solid var(--wt-gold); outline-offset: 2px; }
+.wt-mount-bombing-other { margin-top: 4px; }
+.wt-mount-bombing-caveat { margin: 10px 0 0; color: var(--wt-muted); font-size: 12px; line-height: 1.6; }
+.wt-mount-bombing-sources p { margin: 6px 0; color: var(--wt-muted); font-size: 12px; line-height: 1.6; }
+.wt-mount-bombing-sources a { display: block; margin: 6px 0; font-size: 12px; }
+@media (hover: hover) { .wt-mount-bombing summary:hover { color: var(--wt-ink); } }
