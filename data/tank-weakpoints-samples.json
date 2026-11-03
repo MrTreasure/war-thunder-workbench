@@ -774,6 +774,32 @@
               "sha256": "5a060b2bbea2e15fa317b196562c784b150031886bbcf809c3469221e3166686"
             }
           }
+        },
+        {
+          "id": "ussr_t_10m:wiki3019:author-guidance",
+          "label": "文章作者观点：装甲与交战建议",
+          "text": "MarksmanOfDoom建议M60A2对抗T-10M时，破甲弹或导弹可关注驾驶员观察口、炮手瞄具；也提及破甲弹打首下或绕侧，以及高爆弹打指挥塔或车底。此为作者建议，未验证后效。",
+          "sourceKind": "article-text",
+          "sourceUrl": "https://wiki.warthunder.com/3019-m60a2-the-starship-of-the-united-states",
+          "sourcePublishedAt": "2025-08-04T12:51:04+00:00",
+          "sourceTime": null,
+          "sourceGameVersion": null,
+          "caseId": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "article-author-guidance-unverified-test",
+          "evidence": {
+            "sourcePostProof": {
+              "URL": "https://wiki.warthunder.com/3019-m60a2-the-starship-of-the-united-states",
+              "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round10-20261103/m60a2-article.json",
+              "snapshotSHA256": "d9fe6371d24a41f91e5c2b9e46a1c3b6e33c49ec5d0b150e3869bb1cacd9ac07",
+              "capturedAt": "2026-11-03T05:55:50.579Z"
+            },
+            "unitURL": "https://wiki.warthunder.com/unit/ussr_t_10m",
+            "QC": {
+              "file": "artifacts/weakpoints-wiki-article-qc-v34-20261103/proposals.json",
+              "sha256": "dc57df6c3e02af74d113a19b43003b757dc8b02b5fbeadf7ba222b038b8530f8"
+            }
+          }
         }
       ],
       "source": {},
@@ -905,6 +931,15 @@
           "publishedAt": "2025-03-10T10:00:00+00:00",
           "time": null,
           "scopeNote": "Wiki投稿作者观点；按原文弹种条件区分，非unit基础数据或已验证试射"
+        },
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/3019-m60a2-the-starship-of-the-united-states",
+          "title": "M60A2: The Starship of the United States",
+          "author": "MarksmanOfDoom",
+          "publishedAt": "2025-08-04T12:51:04+00:00",
+          "time": null,
+          "scopeNote": "MarksmanOfDoom文章作者观点；仅本条标明的精确车型，不是已验证试射或Wiki基础数据"
         }
       ]
     },
@@ -6674,7 +6709,34 @@
       "eraBasis": "按已核对的具体技术改型形成时期归类。",
       "collectedAt": "2026-11-02T08:56:56.912Z",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "cn_type_59d:wiki3019:author-guidance",
+          "label": "文章作者观点：装甲与交战建议",
+          "text": "MarksmanOfDoom建议M60A2对抗ZTZ59D1时，以破甲弹或MGM-51瞄准首上未覆盖反应装甲处，或绕至侧面。此为作者建议，未观察对应试射。",
+          "sourceKind": "article-text",
+          "sourceUrl": "https://wiki.warthunder.com/3019-m60a2-the-starship-of-the-united-states",
+          "sourcePublishedAt": "2025-08-04T12:51:04+00:00",
+          "sourceTime": null,
+          "sourceGameVersion": null,
+          "caseId": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "article-author-guidance-unverified-test",
+          "evidence": {
+            "sourcePostProof": {
+              "URL": "https://wiki.warthunder.com/3019-m60a2-the-starship-of-the-united-states",
+              "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round10-20261103/m60a2-article.json",
+              "snapshotSHA256": "d9fe6371d24a41f91e5c2b9e46a1c3b6e33c49ec5d0b150e3869bb1cacd9ac07",
+              "capturedAt": "2026-11-03T05:55:50.579Z"
+            },
+            "unitURL": "https://wiki.warthunder.com/unit/cn_type_59d",
+            "QC": {
+              "file": "artifacts/weakpoints-wiki-article-qc-v34-20261103/proposals.json",
+              "sha256": "dc57df6c3e02af74d113a19b43003b757dc8b02b5fbeadf7ba222b038b8530f8"
+            }
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/cn_type_59d",
@@ -6699,6 +6761,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/3019-m60a2-the-starship-of-the-united-states",
+          "title": "M60A2: The Starship of the United States",
+          "author": "MarksmanOfDoom",
+          "publishedAt": "2025-08-04T12:51:04+00:00",
+          "time": null,
+          "scopeNote": "MarksmanOfDoom文章作者观点；仅本条标明的精确车型，不是已验证试射或Wiki基础数据"
+        }
       ]
     },
     {
@@ -6921,7 +6994,37 @@
       "eraBasis": "具体改型技术形成时期证据尚未核实；不按采购、交付或游戏加入日期补年代。",
       "collectedAt": "2026-11-02T08:56:48.792Z",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "jp_type_74:wiki-article:3227:author-guidance",
+          "label": "文章作者观点：装甲与推土铲",
+          "text": "OddPhenomena认为74式(E)装甲较弱，车体侧后方需警惕机关炮；正面偶发跳弹及推土铲带来的保护不应依赖。这是2025年文章建议，未验证具体弹药与距离下的穿透。",
+          "sourceKind": "article-text",
+          "sourceUrl": "https://wiki.warthunder.com/3227-type-74-e-the-bulldozing-samurai",
+          "sourcePublishedAt": "2025-05-22T18:20:17+00:00",
+          "sourceTime": null,
+          "sourceGameVersion": null,
+          "caseId": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "article-author-guidance-unverified-test",
+          "evidence": {
+            "sourcePostProof": {
+              "URL": "https://wiki.warthunder.com/3227-type-74-e-the-bulldozing-samurai",
+              "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round7-20261103/type74e-article.json",
+              "snapshotSHA256": "60dbdf41aa3a96c613513c0882336c659425c64b37f1348f0d200666615b6dd5",
+              "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round7-20261103/type74e-article.html",
+              "htmlSHA256": "ba83e4a8c42de1ab101671ed4bec2e287990a4df0a14927c1dbdef2033f7a6b8",
+              "capturedAt": "2026-11-03T05:39:06.744Z"
+            },
+            "unitURL": "https://wiki.warthunder.com/unit/jp_type_74",
+            "localizationSHA256": "f1399dc23d871c4181e17fe2c090c720eea0c944f5c8edff86380b540095b629",
+            "QC": {
+              "file": "artifacts/weakpoints-wiki-article-qc-v30-20261103/proposals.json",
+              "sha256": "15b5696bb2a618a2a889e28b8b32154646792d0b8f3bb1657948308832caac55"
+            }
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/jp_type_74",
@@ -6947,6 +7050,17 @@
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。",
         "具体改型年代待核实，era保留null。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/3227-type-74-e-the-bulldozing-samurai",
+          "title": "Type 74 (E) - The Bulldozing Samurai",
+          "author": "OddPhenomena",
+          "publishedAt": "2025-05-22T18:20:17+00:00",
+          "time": null,
+          "scopeNote": "Wiki投稿作者观点，仅Type74(E)，非基础数据或已验证试射"
+        }
       ]
     },
     {
@@ -7459,7 +7573,33 @@
       "eraBasis": "具体改型技术形成时期证据尚未核实；不按采购、交付或游戏加入日期补年代。",
       "collectedAt": "2026-11-02T08:57:37.975Z",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "us_t95e1:wiki2256:author-guidance",
+          "label": "文章作者观点：装甲与生存性",
+          "text": "-_Dozer_-：作者认为T95E1正面面对脱壳弹及破甲弹时仍脆弱，侧后装甲更薄；紧凑的乘员与弹药布局会放大穿透后的损失。此为文章概括，未提供局部试射证据。",
+          "sourceKind": "article-text",
+          "sourceUrl": "https://wiki.warthunder.com/2256-t95e1-a-cold-war-prototype",
+          "sourcePublishedAt": "2025-02-24T10:30:00+00:00",
+          "sourceTime": null,
+          "sourceGameVersion": null,
+          "caseId": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "article-author-guidance-unverified-test",
+          "evidence": {
+            "QC": {
+              "file": "artifacts/weakpoints-wiki-article-qc-v32-20261103/proposals.json",
+              "sha256": "757365ba5c830e79218cb52d9726462ab92e377560c1e409a55a669179a71dee"
+            },
+            "sourcePostProof": {
+              "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round9-20261103/t95e1-article.json",
+              "snapshotSHA256": "02316617daa819da87c513c6a01d30530d5ef1e2cdb9d26de4b2178704dcccd4",
+              "capturedAt": "2026-11-03T05:47:21.846Z",
+              "URL": "https://wiki.warthunder.com/2256-t95e1-a-cold-war-prototype"
+            }
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/us_t95e1",
@@ -7484,6 +7624,17 @@
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。",
         "具体改型年代待核实，era保留null。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/2256-t95e1-a-cold-war-prototype",
+          "title": "T95E1: A Cold War Prototype",
+          "author": "-_Dozer_-",
+          "publishedAt": "2025-02-24T10:30:00+00:00",
+          "time": null,
+          "scopeNote": "作者归属转述，非实测击穿或当前版本基础数据"
+        }
       ]
     },
     {
@@ -7993,7 +8144,34 @@
       "eraBasis": "按已核对的具体技术改型形成时期归类。",
       "collectedAt": "2026-11-02T08:58:59.908Z",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "us_m60a2:wiki3019:author-guidance",
+          "label": "文章作者观点：装甲与交战建议",
+          "text": "MarksmanOfDoom认为，M60A2车体正面下部面对脱壳弹与破甲弹时较脆弱，命中可能波及弹药；部分常规全口径弹可能在炮塔正面两侧跳弹。此为作者概括，未验证具体弹药与距离。",
+          "sourceKind": "article-text",
+          "sourceUrl": "https://wiki.warthunder.com/3019-m60a2-the-starship-of-the-united-states",
+          "sourcePublishedAt": "2025-08-04T12:51:04+00:00",
+          "sourceTime": null,
+          "sourceGameVersion": null,
+          "caseId": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "article-author-guidance-unverified-test",
+          "evidence": {
+            "sourcePostProof": {
+              "URL": "https://wiki.warthunder.com/3019-m60a2-the-starship-of-the-united-states",
+              "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round10-20261103/m60a2-article.json",
+              "snapshotSHA256": "d9fe6371d24a41f91e5c2b9e46a1c3b6e33c49ec5d0b150e3869bb1cacd9ac07",
+              "capturedAt": "2026-11-03T05:55:50.579Z"
+            },
+            "unitURL": "https://wiki.warthunder.com/unit/us_m60a2",
+            "QC": {
+              "file": "artifacts/weakpoints-wiki-article-qc-v34-20261103/proposals.json",
+              "sha256": "dc57df6c3e02af74d113a19b43003b757dc8b02b5fbeadf7ba222b038b8530f8"
+            }
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/us_m60a2",
@@ -8022,6 +8200,17 @@
       ],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/3019-m60a2-the-starship-of-the-united-states",
+          "title": "M60A2: The Starship of the United States",
+          "author": "MarksmanOfDoom",
+          "publishedAt": "2025-08-04T12:51:04+00:00",
+          "time": null,
+          "scopeNote": "MarksmanOfDoom文章作者观点；仅本条标明的精确车型，不是已验证试射或Wiki基础数据"
+        }
       ]
     },
     {
@@ -19904,7 +20093,35 @@
       "era": null,
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "il_merkava_mk_2d:BV1azYxztEHh:author-guidance",
+          "label": "视频作者观点：局部瞄准建议",
+          "text": "第一巴图鲁-Bin：作者建议留意炮管下方及发动机偏左区域，并提醒后者受角度影响。此为作者经验，非通用击穿保证。",
+          "sourceKind": "video-author-advice",
+          "sourceUrl": "https://www.bilibili.com/video/BV1azYxztEHh/",
+          "sourcePublishedAt": "2025-08-18T22:21:54+08:00",
+          "sourceTime": 36.033,
+          "sourceGameVersion": null,
+          "caseId": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "evidence": {
+            "QC": {
+              "file": "artifacts/weakpoints-video-private-qc-v31-20261103/proposals.json",
+              "sha256": "08f22244fdb86ac6467134d7ea7c76f0e81a4c9bc071e4a35439efee5e7ad17a"
+            },
+            "sourcePostProof": {
+              "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/bili-nonussr-v28/007.json",
+              "snapshotSHA256": "8688bdd242dbb6988db5d97966d378bd3a6d45fb842e6922e3c12cb859152581",
+              "capturedAt": "2026-11-03T05:40:39.723Z",
+              "URL": "https://www.bilibili.com/video/BV1azYxztEHh/"
+            }
+          },
+          "sourceTimeBasis": "sampled-frame",
+          "timePrecision": "参考已核样本帧36.033秒，并非整条建议的精确字幕cue时间。"
+        }
+      ],
       "source": null,
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/il_merkava_mk_2d",
@@ -19934,6 +20151,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1azYxztEHh/",
+          "title": "战雷新手向-10.0梅卡瓦礼包弱点及如何防止防反杀-梅卡瓦-陆历10.0载具打法第一集",
+          "author": "第一巴图鲁-Bin",
+          "publishedAt": "2025-08-18T22:21:54+08:00",
+          "time": 36.033,
+          "scopeNote": "作者归属转述，非实测击穿或当前版本基础数据"
+        }
       ]
     },
     {

@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "8bf4f116d46e7c9a9c3efd01ebe29964d2cf87d0",
+  "commit": "6163d894a2740f934d2d0ac5ff29e9fd5a4ff43e",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -12251,6 +12251,53 @@
       "commit": "8bf4f116d46e7c9a9c3efd01ebe29964d2cf87d0",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@8bf4f116d46e7c9a9c3efd01ebe29964d2cf87d0/images/USA/USA-M60A1-AOS-article-model-reference-20250310-native666x618.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/8bf4f116d46e7c9a9c3efd01ebe29964d2cf87d0/images/USA/USA-M60A1-AOS-article-model-reference-20250310-native666x618.webp"
+    },
+    {
+      "path": "images/JPN/JPN-Type-74-E-article-suspension-reference-20250522-native1920x1080.webp",
+      "sha256": "e1b175d20f19a7afd3eb44fe9e1dc2c23f4d0f4087d10802ef6ab368889e3576",
+      "bytes": 1774122,
+      "width": 1920,
+      "height": 1080,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "nativeResized": false,
+      "vehicleId": "jp_type_74",
+      "country": "JPN",
+      "source": {
+        "kind": "article-image",
+        "url": "https://wiki.warthunder.com/3227-type-74-e-the-bulldozing-samurai",
+        "imageUrl": "https://wiki.warthunder.com/images/9a4f82184c7ce8d342d52679c7915ab3.jpg",
+        "title": "Type 74 (E) - The Bulldozing Samurai",
+        "author": "OddPhenomena",
+        "publishedAt": "2025-05-22T18:20:17+00:00"
+      },
+      "sourceKind": "article-image",
+      "sourceTime": null,
+      "mediaTime": null,
+      "sourcePublishedAt": "2025-05-22T18:20:17+00:00",
+      "sourceImageUrl": "https://wiki.warthunder.com/images/9a4f82184c7ce8d342d52679c7915ab3.jpg",
+      "sourceFrameSHA256": "0b067fbd56060a6a5586939a7de3b167e6fa5c422e6256904e07c803c1860d3d",
+      "sourceFrameHashKind": "source-original-jpeg",
+      "proofSnapshotSHA256": "60dbdf41aa3a96c613513c0882336c659425c64b37f1348f0d200666615b6dd5",
+      "sourceGameVersion": null,
+      "caseId": null,
+      "kind": "source-static-image-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "sceneKind": "game-exterior-illustration",
+      "visibleView": "front-quarter-oblique-tilted-hull",
+      "mainImageUsable": false,
+      "hasGreenArmourMap": false,
+      "identityBasis": "Image-specific caption explicitly Type74(E), local canonical localization confirms jp_type_74=Type74(E). No native test title.",
+      "sourceCaption": "The rising sun shines on a Type 74 (E)!",
+      "id": "e1b175d20f19a7afd3eb44fe9e1dc2c23f4d0f4087d10802ef6ab368889e3576",
+      "commit": "6163d894a2740f934d2d0ac5ff29e9fd5a4ff43e",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@6163d894a2740f934d2d0ac5ff29e9fd5a4ff43e/images/JPN/JPN-Type-74-E-article-suspension-reference-20250522-native1920x1080.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/6163d894a2740f934d2d0ac5ff29e9fd5a4ff43e/images/JPN/JPN-Type-74-E-article-suspension-reference-20250522-native1920x1080.webp"
     }
   ]
 }

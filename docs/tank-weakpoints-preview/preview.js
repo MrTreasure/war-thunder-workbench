@@ -162,7 +162,8 @@ function render() {
   else $("evidence-full").removeAttribute("href");
   const imageDescription = authorDiagram ? "原文章作者防护示意图，保留作者分区、数值和箭头；不是游戏绿色击穿分析或已核验的试射结果。" : showRaw ? "当前为完整原始画面。" : model.mainViewKind === "protection-analysis" ? `${staticSource ? "原帖截图" : "原视频"}防护分析，保留游戏原始着色。` : model.pins?.length ? "金色编号为讲解标注。" : "来源载具外观。";
   const versionDescription = staticSource && source.gameVersion ? `截图版本 ${source.gameVersion}。` : "";
-  $("figure-caption").textContent = evidence ? evidence.caption : imageUrl ? `画面：${source.author || "来源见下方"} / 《战争雷霆》。${imageDescription}${versionDescription}防护分析颜色对应当时的弹种与视角，条件见来源测试。` : "图像资料待补充，不以其他车型画面代替。";
+  const analysisConditions = authorDiagram ? "" : "防护分析颜色对应当时的弹种与视角，条件见来源测试。";
+  $("figure-caption").textContent = evidence ? evidence.caption : imageUrl ? `画面：${source.author || "来源见下方"} / 《战争雷霆》。${imageDescription}${versionDescription}${analysisConditions}` : "图像资料待补充，不以其他车型画面代替。";
   $("pins").hidden = !!evidence || showRaw || !imageUrl;
   $("pins").replaceChildren();
   $("pin-buttons").replaceChildren();
