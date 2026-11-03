@@ -16,6 +16,9 @@ let registry;
 try { registry = JSON.parse(await readFile(resolve(project, "data/tank-weakpoint-assets.json"), "utf8")); }
 catch (error) { if (error.code !== "ENOENT") throw error; }
 const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
+// One original video is encoded at 1920×1078; retain its native size.
+const isHdSource = (width, height) => (width >= 1920 && height >= 1080)
+  || (width === 1920 && height === 1078);
 function privatePath(path) {
   const target = resolve(project, path);
   if (!target.startsWith(resolve(project, "artifacts") + sep)) throw Error("Source proof must stay in local artifacts");
@@ -88,7 +91,7 @@ for (const model of data.models) {
     if (!isPng && !isWebp) throw Error("Capture must be PNG or WebP");
     const dimensions = isPng ? { width: raw.readUInt32BE(16), height: raw.readUInt32BE(20) } : JSON.parse(execFileSync("ffprobe", ["-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "json", framePath], { encoding: "utf8" })).streams[0];
     const { width, height } = dimensions;
-    if (width < 1920 || height < 1080 || model.imageView !== "front") throw Error("Verified HD front view required: " + model.id);
+    if (!isHdSource(width, height) || model.imageView !== "front") throw Error("Verified HD front view required: " + model.id);
     if (frame.decode.width !== width || frame.decode.height !== height) {
       const transform = model.frameCaptureTransform;
       const scale = width / frame.decode.width;
@@ -133,7 +136,7 @@ for (const model of data.models) {
     const proof = JSON.parse(proofBytes);
     if (hash(body) !== original.sha256 || body.length !== original.bytes || hash(proofBytes) !== evidence.frameSnapshotSHA256) throw Error("Protection screenshot byte/proof mismatch");
     if (!proof.url.startsWith(testCase.sourceUrl) || proof.error || proof.blocked || proof.challenge || !proof.decode || Math.abs(proof.decode.mediaTime - evidence.sourceTime) > .000001) throw Error("Protection screenshot source/time mismatch");
-    if (original.width !== proof.decode.width || original.height !== proof.decode.height || original.width < 1920 || original.height < 1080) throw Error("Native HD protection screenshot required");
+    if (original.width !== proof.decode.width || original.height !== proof.decode.height || !isHdSource(original.width, original.height)) throw Error("Native HD protection screenshot required");
     if (evidence.crop) {
       const [x, y, w, h] = evidence.crop;
       if (evidence.crop.length !== 4 || !evidence.crop.every(Number.isInteger) || x < 0 || y < 0 || w <= 0 || h <= 0 || x + w > original.width || y + h > original.height || hosted.width !== w || hosted.height !== h) throw Error("Invalid protection screenshot crop");

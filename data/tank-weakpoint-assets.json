@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
+  "commit": "b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -794,6 +794,42 @@
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A5-front.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A5-front.webp",
         "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684"
+      }
+    },
+    "ussr_t_80bvm": {
+      "raw": {
+        "path": "images/USSR/USSR-T-80BVM-source-09m30s-033ms-native1080p-capture-20261103.webp",
+        "sha256": "b7ba293ea08393fd97e919a59d473ea96d237be7ab6819668877680656155d5d",
+        "bytes": 1173386,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80BVM-source-09m30s-033ms-native1080p-capture-20261103.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80BVM-source-09m30s-033ms-native1080p-capture-20261103.webp",
+        "commit": "b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366"
+      },
+      "photo": {
+        "path": "images/USSR/USSR-T-80BVM-front.webp",
+        "sha256": "c0182c3923b37e199460e3984be31ab86ac0484cc67d7aef7e4bd975266410f7",
+        "bytes": 123846,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80BVM-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80BVM-front.webp",
+        "commit": "b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366"
+      }
+    },
+    "ussr_t_80b": {
+      "raw": {
+        "path": "images/USSR/USSR-T-80B-source-10m00s-033ms-native2160p-capture-20261103.webp",
+        "sha256": "459e4ea795a83a657a6e0497d44ed140eeb0f126b46aed579ec4e543edc6eb9e",
+        "bytes": 3475442,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80B-source-10m00s-033ms-native2160p-capture-20261103.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80B-source-10m00s-033ms-native2160p-capture-20261103.webp",
+        "commit": "b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366"
+      },
+      "photo": {
+        "path": "images/USSR/USSR-T-80B-front.webp",
+        "sha256": "55d28977a48df8e96ae6bcf62320bc3627c301c5ed55058b6df981e98fa24aad",
+        "bytes": 470188,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80B-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80B-front.webp",
+        "commit": "b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366"
       }
     }
   },
@@ -10106,6 +10142,262 @@
       "commit": "a21409182233f0da79f2c89ce5c65c645f5fb684",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A5-front.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a21409182233f0da79f2c89ce5c65c645f5fb684/images/GER/GER-Leopard-2-A5-front.webp"
+    },
+    {
+      "vehicleId": "ussr_t_80bvm",
+      "country": "USSR",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "caseId": "ussr_t_80bvm:BV1CueU6cECo:570033",
+      "mediaTime": 570.033312,
+      "sourceTime": 570.033312,
+      "sourceGameVersion": null,
+      "sceneKind": "opaque-solid-armour-penetration-map",
+      "visibleView": "front",
+      "hasGreenArmourMap": true,
+      "resolutionUpgradeOnly": true,
+      "newDistinctPoints": 0,
+      "path": "images/USSR/USSR-T-80BVM-source-09m30s-033ms-native1080p-capture-20261103.webp",
+      "sha256": "b7ba293ea08393fd97e919a59d473ea96d237be7ab6819668877680656155d5d",
+      "bytes": 1173386,
+      "width": 1920,
+      "height": 1080,
+      "sourceFrameSHA256": "a03742ae954d53aa4fafefcb0e616490e1f34d76e8d2749f9c3c019349d05ac0",
+      "proofSnapshotSHA256": "9c85d59e2c354852081ddf31a488bfd1bcb1d461c5a554434dbd10089b0130be",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "nativeResized": false,
+      "id": "b7ba293ea08393fd97e919a59d473ea96d237be7ab6819668877680656155d5d",
+      "actualTime": 570.033312,
+      "encoding": "source-webp-preserved",
+      "commit": "b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80BVM-source-09m30s-033ms-native1080p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80BVM-source-09m30s-033ms-native1080p-capture-20261103.webp"
+    },
+    {
+      "vehicleId": "ussr_t_80bvm",
+      "country": "USSR",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "caseId": "ussr_t_80bvm:BV1CueU6cECo:570033",
+      "mediaTime": 570.033312,
+      "sourceTime": 570.033312,
+      "sourceGameVersion": null,
+      "sceneKind": "opaque-solid-armour-penetration-map",
+      "visibleView": "front",
+      "hasGreenArmourMap": true,
+      "resolutionUpgradeOnly": true,
+      "newDistinctPoints": 0,
+      "path": "images/USSR/USSR-T-80BVM-front.webp",
+      "sha256": "c0182c3923b37e199460e3984be31ab86ac0484cc67d7aef7e4bd975266410f7",
+      "bytes": 123846,
+      "width": 510,
+      "height": 330,
+      "sourceFrameSHA256": "a03742ae954d53aa4fafefcb0e616490e1f34d76e8d2749f9c3c019349d05ac0",
+      "proofSnapshotSHA256": "9c85d59e2c354852081ddf31a488bfd1bcb1d461c5a554434dbd10089b0130be",
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "primary-crop"
+      ],
+      "purpose": "primary-protection-analysis",
+      "mainImageUsable": true,
+      "nativeResized": false,
+      "crop": [
+        690,
+        300,
+        510,
+        330
+      ],
+      "mainViewKind": "protection-analysis",
+      "id": "c0182c3923b37e199460e3984be31ab86ac0484cc67d7aef7e4bd975266410f7",
+      "actualTime": 570.033312,
+      "encoding": "lossless-webp",
+      "commit": "b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80BVM-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80BVM-front.webp"
+    },
+    {
+      "vehicleId": "ussr_t_80bvm",
+      "country": "USSR",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "caseId": "ussr_t_80bvm:BV1CueU6cECo:570033",
+      "mediaTime": 570.033312,
+      "sourceTime": 570.033312,
+      "sourceGameVersion": null,
+      "sceneKind": "opaque-solid-armour-penetration-map",
+      "visibleView": "front",
+      "hasGreenArmourMap": true,
+      "resolutionUpgradeOnly": true,
+      "newDistinctPoints": 0,
+      "path": "images/USSR/USSR-T-80BVM-source-09m30s-033ms-stored720p-capture-20261103.webp",
+      "sha256": "ef4ac79da3821ad4c640eca4a0703fdeae61a8bd653f43e8f98e3c8546b17b9d",
+      "bytes": 690394,
+      "width": 1280,
+      "height": 720,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "nativeResized": true,
+      "sourceFrameSHA256": "a71c378491dd499474c05b2882a28f198720da1592601984234a370720215ced",
+      "proofSnapshotSHA256": "1f3362cd5222dcb8252631ecb7146cf215cb23ea31a75b85be018e9d92afeee3",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "encoding": "historical-downscaled-webp",
+      "id": "ef4ac79da3821ad4c640eca4a0703fdeae61a8bd653f43e8f98e3c8546b17b9d",
+      "actualTime": 570.033312,
+      "commit": "b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80BVM-source-09m30s-033ms-stored720p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80BVM-source-09m30s-033ms-stored720p-capture-20261103.webp"
+    },
+    {
+      "vehicleId": "ussr_t_80b",
+      "country": "USSR",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "caseId": "ussr_t_80b:BV1CueU6cECo:600033",
+      "mediaTime": 600.033312,
+      "sourceTime": 600.033312,
+      "sourceGameVersion": null,
+      "sceneKind": "opaque-solid-armour-penetration-map",
+      "visibleView": "front",
+      "hasGreenArmourMap": true,
+      "resolutionUpgradeOnly": true,
+      "newDistinctPoints": 0,
+      "path": "images/USSR/USSR-T-80B-source-10m00s-033ms-native2160p-capture-20261103.webp",
+      "sha256": "459e4ea795a83a657a6e0497d44ed140eeb0f126b46aed579ec4e543edc6eb9e",
+      "bytes": 3475442,
+      "width": 3840,
+      "height": 2160,
+      "sourceFrameSHA256": "e92e82f00c68c91d2a551e590f58536acedfbe879b8fc3f85a0179aeb2dac60f",
+      "proofSnapshotSHA256": "64df7cf751912bcb1c2504b924630fde3991ca895f2744a14a3b88c6834642c6",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "nativeResized": false,
+      "id": "459e4ea795a83a657a6e0497d44ed140eeb0f126b46aed579ec4e543edc6eb9e",
+      "actualTime": 600.033312,
+      "encoding": "source-webp-preserved",
+      "commit": "b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80B-source-10m00s-033ms-native2160p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80B-source-10m00s-033ms-native2160p-capture-20261103.webp"
+    },
+    {
+      "vehicleId": "ussr_t_80b",
+      "country": "USSR",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "caseId": "ussr_t_80b:BV1CueU6cECo:600033",
+      "mediaTime": 600.033312,
+      "sourceTime": 600.033312,
+      "sourceGameVersion": null,
+      "sceneKind": "opaque-solid-armour-penetration-map",
+      "visibleView": "front",
+      "hasGreenArmourMap": true,
+      "resolutionUpgradeOnly": true,
+      "newDistinctPoints": 0,
+      "path": "images/USSR/USSR-T-80B-front.webp",
+      "sha256": "55d28977a48df8e96ae6bcf62320bc3627c301c5ed55058b6df981e98fa24aad",
+      "bytes": 470188,
+      "width": 1260,
+      "height": 820,
+      "sourceFrameSHA256": "e92e82f00c68c91d2a551e590f58536acedfbe879b8fc3f85a0179aeb2dac60f",
+      "proofSnapshotSHA256": "64df7cf751912bcb1c2504b924630fde3991ca895f2744a14a3b88c6834642c6",
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "primary-crop"
+      ],
+      "purpose": "primary-protection-analysis",
+      "mainImageUsable": true,
+      "nativeResized": false,
+      "crop": [
+        1400,
+        550,
+        1260,
+        820
+      ],
+      "mainViewKind": "protection-analysis",
+      "id": "55d28977a48df8e96ae6bcf62320bc3627c301c5ed55058b6df981e98fa24aad",
+      "actualTime": 600.033312,
+      "encoding": "lossless-webp",
+      "commit": "b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80B-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80B-front.webp"
+    },
+    {
+      "vehicleId": "ussr_t_80b",
+      "country": "USSR",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "caseId": "ussr_t_80b:BV1CueU6cECo:600033",
+      "mediaTime": 600.033312,
+      "sourceTime": 600.033312,
+      "sourceGameVersion": null,
+      "sceneKind": "opaque-solid-armour-penetration-map",
+      "visibleView": "front",
+      "hasGreenArmourMap": true,
+      "resolutionUpgradeOnly": true,
+      "newDistinctPoints": 0,
+      "path": "images/USSR/USSR-T-80B-source-10m00s-033ms-stored720p-capture-20261103.webp",
+      "sha256": "a14c568b0157ff1e172f8ea105be11b878438f388fae8c5a00d54228614c7f22",
+      "bytes": 727854,
+      "width": 1280,
+      "height": 720,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "nativeResized": true,
+      "sourceFrameSHA256": "99c60b1118a93f5d2d9df561d8783baae7d8f9d858cb33644e78ce8e23351af5",
+      "proofSnapshotSHA256": "6038e2d5d9548ee4e5157adc5606c48688a6243b7ce0bcc3050e37c1ce15747b",
+      "kind": "source-video-frame-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "encoding": "historical-downscaled-webp",
+      "id": "a14c568b0157ff1e172f8ea105be11b878438f388fae8c5a00d54228614c7f22",
+      "actualTime": 600.033312,
+      "commit": "b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80B-source-10m00s-033ms-stored720p-capture-20261103.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b8a11ca8fbbe893634f4dbfc523c4ee7de3fe366/images/USSR/USSR-T-80B-source-10m00s-033ms-stored720p-capture-20261103.webp"
     }
   ]
 }

@@ -21960,9 +21960,80 @@
       "era": "cold-war",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "videoAdvice": [
+        {
+          "id": "ussr_t_80b:BV1CueU6cECo:family-author-guidance",
+          "label": "接触一车族首上的应急选择",
+          "text": "作者将首上列为紧急时可尝试的选择，平时仍建议避开；这是接触一车族的条件性概述，不代表本车首上稳定可穿。",
+          "caseId": null,
+          "relatedCaseId": "ussr_t_80b:BV1CueU6cECo:600033",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 593.897909,
+          "conditionMatch": "verified-family-segment-not-independent-same-frame-shot",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "sourceEvidence": {
+              "path": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-t80-resolution-upgrade-v11-20261103/reused-original-subtitles.json",
+              "sha256": "a4c87270bbce8c6a1b54dbbcfa5edec9f9be720cec8ef85e81e38ef19edc966f",
+              "observations": [
+                {
+                  "observedMediaTime": 585.323592,
+                  "observedAt": "2026-11-02T16:37:58.451Z",
+                  "rawSubtitle": "首先是主要爆反为接触一的主战"
+                },
+                {
+                  "observedMediaTime": 587.857196,
+                  "observedAt": "2026-11-02T16:37:59.719Z",
+                  "rawSubtitle": "这一类锅盖头的手上"
+                },
+                {
+                  "observedMediaTime": 589.400983,
+                  "observedAt": "2026-11-02T16:38:00.488Z",
+                  "rawSubtitle": "不能很好的抵御gm33的攻击"
+                },
+                {
+                  "observedMediaTime": 591.867311,
+                  "observedAt": "2026-11-02T16:38:01.757Z",
+                  "rawSubtitle": "实战中正面遇到紧急情况"
+                },
+                {
+                  "observedMediaTime": 593.897909,
+                  "observedAt": "2026-11-02T16:38:02.776Z",
+                  "rawSubtitle": "可以尝试直接攻击他们的手上"
+                },
+                {
+                  "observedMediaTime": 595.95059,
+                  "observedAt": "2026-11-02T16:38:03.797Z",
+                  "rawSubtitle": "当然能不打"
+                },
+                {
+                  "observedMediaTime": 596.9544,
+                  "observedAt": "2026-11-02T16:38:04.302Z",
+                  "rawSubtitle": "手上尽量还是别打"
+                },
+                {
+                  "observedMediaTime": 598.969013,
+                  "observedAt": "2026-11-02T16:38:05.313Z",
+                  "rawSubtitle": "只是应对这一类车辆"
+                },
+                {
+                  "observedMediaTime": 600.471836,
+                  "observedAt": "2026-11-02T16:38:06.080Z",
+                  "rawSubtitle": "我们能多一种攻击选择"
+                }
+              ],
+              "boundary": "observed samples, not exact cue bounds"
+            }
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "status": "partial-frontal-guide",
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_80b",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/ussr_t_80b.json",
@@ -21984,13 +22055,286 @@
       "collectedAt": "2026-11-02T18:25:10.527Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "本精确原页将T80B生产起点写为1976，保留原文证据不套用其他T80年代。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-t80-resolution-upgrade-v11-20261103/T80B-existing-keypoint-HD-600.033312.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-t80-resolution-upgrade-v11-20261103/003.json",
+      "captureSHA256": "459e4ea795a83a657a6e0497d44ed140eeb0f126b46aed579ec4e543edc6eb9e",
+      "originalFrameSHA256": "e92e82f00c68c91d2a551e590f58536acedfbe879b8fc3f85a0179aeb2dac60f",
+      "time": 600.033312,
+      "crop": [
+        1400,
+        550,
+        1260,
+        820
+      ],
+      "sourceDimensions": [
+        3840,
+        2160
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "imageQuality": "4k",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "正面防护分析；提示框遮挡画面右半车辆区域，不还原或推断遮挡部分。",
+      "coverageStatus": "partial-frontal-guide",
+      "coverageNotice": "正面防护分析 · 右侧提示框遮挡",
+      "testContext": {
+        "attacker": "90式战车B型（富士教导团）",
+        "attackerVehicleId": "jp_type_90b_camo",
+        "shell": "JM33",
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "jp_type_90b_camo",
+          "mainGun": "120 mm Type 90 L/44 cannon",
+          "officialShellName": "JM33",
+          "sourceShellLabelOriginal": "JM33"
+        },
+        "rawUIType": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceTime": 600.033312,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "sourceGameVersion": null,
+        "caseId": "ussr_t_80b:BV1CueU6cECo:600033",
+        "note": "同旧时间点高清恢复的静态UI条件；完整游戏版本未知，无独立成功试射。"
+      },
+      "testCases": [
+        {
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerVisibleTitle": "90式战车B型（富士教导团）",
+          "attackerCountry": "japan",
+          "shell": "JM33",
+          "shellType": null,
+          "rawUIType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "sourceVersionCaveat": "right clipped; no Wiki substitution",
+          "actualShotObserved": false,
+          "outcome": null,
+          "id": "ussr_t_80b:BV1CueU6cECo:600033",
+          "vehicleId": "ussr_t_80b",
+          "sourceTime": 600.033312,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "attacker": "90式战车B型（富士教导团）",
+          "sourceShellLabelOriginal": "JM33",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "jp_type_90b_camo",
+            "mainGun": "120 mm Type 90 L/44 cannon",
+            "officialShellName": "JM33",
+            "sourceShellLabelOriginal": "JM33"
+          },
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "e92e82f00c68c91d2a551e590f58536acedfbe879b8fc3f85a0179aeb2dac60f",
+          "impactAngleDegrees": null,
+          "evidenceKind": "static-UI-input-same-existing-point-resolution-recovery-not-new-shot",
+          "resolutionUpgradeOnly": true,
+          "newDistinctPoints": 0,
+          "currentTooltip": {
+            "verbatimOutcome": "击穿几率较低",
+            "impactAngleDegrees": 3,
+            "attackAzimuthDegrees": 0,
+            "effectiveArmourMm": 507,
+            "isNumericProbability": false,
+            "isObservedSuccessfulShot": false
+          },
+          "conditionNote": "当前提示为“击穿几率较低”，仅定性；507毫米为等效装甲，不是炮弹穿深，不能换算数字概率或实射结果。"
+        }
+      ],
+      "testCaseEvidence": {
+        "ussr_t_80b:BV1CueU6cECo:600033": {
+          "originalRecord": {
+            "vehicleId": "ussr_t_80b",
+            "country": "ussr",
+            "actualNativeTargetTitle": "T-80B",
+            "identityBasis": "Actual native target header, independently matches canonical unique variant; not left attacker flag",
+            "sourceURL": "https://www.bilibili.com/video/BV1CueU6cECo/",
+            "actualMediaTime": 600.033312,
+            "playerCurrentTime": 600.36468,
+            "timeBasis": "verified native decode mediaTime",
+            "nativeDimensions": [
+              3840,
+              2160
+            ],
+            "storedDimensions": [
+              3840,
+              2160
+            ],
+            "nativeResized": false,
+            "webpPath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/emoi-t80-resolution-upgrade-v11-20261103/T80B-existing-keypoint-HD-600.033312.webp",
+            "webpBytes": 3475442,
+            "webpSHA256": "459e4ea795a83a657a6e0497d44ed140eeb0f126b46aed579ec4e543edc6eb9e",
+            "historicalDecodedPNG_SHA256": "e92e82f00c68c91d2a551e590f58536acedfbe879b8fc3f85a0179aeb2dac60f",
+            "proofPath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/emoi-t80-resolution-upgrade-v11-20261103/003.json",
+            "proofSHA256": "64df7cf751912bcb1c2504b924630fde3991ca895f2744a14a3b88c6834642c6",
+            "contextPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-t80-resolution-upgrade-v11-20261103/003-context.png",
+            "contextSHA256": "d01bcc186522a66e9eaa89771189e60529fa58d6bf73888436c72ca47c5bfb55",
+            "sceneKind": "opaque-solid-armour-penetration-map",
+            "hasGreenArmorMap": true,
+            "moduleXray": false,
+            "view": "front",
+            "occlusion": "tooltip covers screen-right vehicle region; preserved, no reconstruction",
+            "testContext": {
+              "attackerVehicleId": "jp_type_90b_camo",
+              "attackerVisibleTitle": "90式战车B型（富士教导团）",
+              "attackerCountry": "japan",
+              "shell": "JM33",
+              "shellType": null,
+              "rawUIType": null,
+              "distanceMeters": 500,
+              "displayedPenetrationMm": 472,
+              "sourceGameVersion": null,
+              "sourceVersionCaveat": "right clipped; no Wiki substitution",
+              "actualShotObserved": false,
+              "outcome": null
+            },
+            "sourcePublishedAt": "2026-09-18T17:56:17+08:00",
+            "sourceRestriction": "no-explicit-no-repost-observed; licence unknown, absence not permission",
+            "sameOldActualTime": 600.033312,
+            "resolutionUpgradeOnly": true,
+            "newDistinctPoints": 0,
+            "sourcePacket": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-t80-resolution-upgrade-v11-20261103/proof.json",
+            "sourcePacketSHA256": "e552ac2be7649e58ef7c8174636cf23b3d1d10e01f274301a1f79f8209797b81",
+            "authorEvidence": {
+              "path": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-t80-resolution-upgrade-v11-20261103/reused-original-subtitles.json",
+              "sha256": "a4c87270bbce8c6a1b54dbbcfa5edec9f9be720cec8ef85e81e38ef19edc966f",
+              "observations": [
+                {
+                  "observedMediaTime": 585.323592,
+                  "observedAt": "2026-11-02T16:37:58.451Z",
+                  "rawSubtitle": "首先是主要爆反为接触一的主战"
+                },
+                {
+                  "observedMediaTime": 587.857196,
+                  "observedAt": "2026-11-02T16:37:59.719Z",
+                  "rawSubtitle": "这一类锅盖头的手上"
+                },
+                {
+                  "observedMediaTime": 589.400983,
+                  "observedAt": "2026-11-02T16:38:00.488Z",
+                  "rawSubtitle": "不能很好的抵御gm33的攻击"
+                },
+                {
+                  "observedMediaTime": 591.867311,
+                  "observedAt": "2026-11-02T16:38:01.757Z",
+                  "rawSubtitle": "实战中正面遇到紧急情况"
+                },
+                {
+                  "observedMediaTime": 593.897909,
+                  "observedAt": "2026-11-02T16:38:02.776Z",
+                  "rawSubtitle": "可以尝试直接攻击他们的手上"
+                },
+                {
+                  "observedMediaTime": 595.95059,
+                  "observedAt": "2026-11-02T16:38:03.797Z",
+                  "rawSubtitle": "当然能不打"
+                },
+                {
+                  "observedMediaTime": 596.9544,
+                  "observedAt": "2026-11-02T16:38:04.302Z",
+                  "rawSubtitle": "手上尽量还是别打"
+                },
+                {
+                  "observedMediaTime": 598.969013,
+                  "observedAt": "2026-11-02T16:38:05.313Z",
+                  "rawSubtitle": "只是应对这一类车辆"
+                },
+                {
+                  "observedMediaTime": 600.471836,
+                  "observedAt": "2026-11-02T16:38:06.080Z",
+                  "rawSubtitle": "我们能多一种攻击选择"
+                }
+              ],
+              "boundary": "observed samples, not exact cue bounds"
+            },
+            "pins": [],
+            "authorAdvice": {
+              "label": "接触一车族首上的应急选择",
+              "text": "作者称主要使用接触一的车族在紧急情况下可尝试首上，同时仍建议能不打首上就不打；这是有条件家族建议。原自动字幕“手上/gm33”应结合画面理解，保留原文。",
+              "time": 593.898,
+              "scope": "family-conditional recommendation, not per-pixel proof"
+            },
+            "currentTooltip": {
+              "verbatimOutcome": "击穿几率较低",
+              "impactAngleDegrees": 3,
+              "attackAzimuthDegrees": 0,
+              "effectiveArmourMm": 507,
+              "isNumericProbability": false,
+              "isObservedSuccessfulShot": false
+            }
+          },
+          "old720SourceRecord": {
+            "frameIndex": 8,
+            "vehicleId": "ussr_t_80b",
+            "actualNativeTargetTitle": "T-80B",
+            "identityBasis": "Native actual target header 防护分析 T-80B; unique canonical variant",
+            "sourceURL": "https://www.bilibili.com/video/BV1CueU6cECo/",
+            "actualMediaTime": 600.033312,
+            "playerCurrentTime": 600.112171,
+            "nativeDimensions": [
+              1920,
+              1080
+            ],
+            "storedDimensions": [
+              1280,
+              720
+            ],
+            "webpPath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/UNKNOWN-JPN-enemy-section-0600.webp",
+            "webpSHA256": "a14c568b0157ff1e172f8ea105be11b878438f388fae8c5a00d54228614c7f22",
+            "webpSHAVerified": true,
+            "historicalDecodedPNG_SHA256": "99c60b1118a93f5d2d9df561d8783baae7d8f9d858cb33644e78ce8e23351af5",
+            "historicalDecodedPNGAvailability": "historical hash; no original PNG bytes reconstructed",
+            "proofPath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/041.json",
+            "proofSHA256": "6038e2d5d9548ee4e5157adc5606c48688a6243b7ce0bcc3050e37c1ce15747b",
+            "proofSHAVerified": true,
+            "actualDecode": {
+              "mediaTime": 600.033312,
+              "currentTime": 600.112171,
+              "width": 1920,
+              "height": 1080
+            },
+            "sourcePublishedAt": "2026-09-18T17:56:17+08:00",
+            "sourceRestriction": "no-explicit-no-repost-observed",
+            "authorLicence": "unknown-not-inferred",
+            "sceneKind": "opaque-solid-armour-map-with-tooltip",
+            "mainImageCandidate": false,
+            "disposition": "identity-and-facts-only720",
+            "testContext": {
+              "shell": "JM33",
+              "rawUIType": null,
+              "shellType": null,
+              "distanceMeters": 500,
+              "displayedPenetrationMm": 472,
+              "actualShotObserved": false,
+              "outcome": null
+            },
+            "pins": [],
+            "budget": {
+              "noNewSampling": true,
+              "historicDistinctNotReset": true
+            }
+          },
+          "typeReferenceBasis": "Reused exact jp_type_90b_camo JM33 official reference"
+        }
+      },
+      "frontSummary": "作者将首上列为紧急时可尝试的选择，平时仍建议避开；这是接触一车族的条件性概述，不代表本车首上稳定可穿。"
     },
     {
       "id": "ussr_t_80bvm",
@@ -22001,10 +22345,58 @@
       "rank": 8,
       "era": "modern",
       "scopeRole": "medium_tank",
-      "pins": [],
-      "videoAdvice": [],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "pins": [
+        {
+          "x": 0.52,
+          "y": 0.71,
+          "caseId": "ussr_t_80bvm:BV1CueU6cECo:570033",
+          "adviceId": "ussr_t_80bvm:BV1CueU6cECo:family-author-guidance",
+          "sourceTime": 571.177329,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "label": "车体首下",
+          "detail": "作者概括常见打法为首下和三角区；此点只标本图可见首下，按JM33／500米条件查看，并非精确实射落点。",
+          "kind": "conditional"
+        }
+      ],
+      "videoAdvice": [
+        {
+          "id": "ussr_t_80bvm:BV1CueU6cECo:family-author-guidance",
+          "label": "首下与三角区：作者概括",
+          "text": "作者在本段概括苏系锅盖头常见打法为“裤裆和三角区”；这是家族一般建议，不能视为逐点成功实测。",
+          "caseId": null,
+          "relatedCaseId": "ussr_t_80bvm:BV1CueU6cECo:570033",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 571.177329,
+          "conditionMatch": "verified-family-segment-not-independent-same-frame-shot",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "sourceEvidence": {
+              "path": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-t80-resolution-upgrade-v11-20261103/reused-original-subtitles.json",
+              "sha256": "a4c87270bbce8c6a1b54dbbcfa5edec9f9be720cec8ef85e81e38ef19edc966f",
+              "observations": [
+                {
+                  "observedMediaTime": 570.170647,
+                  "observedAt": "2026-11-02T16:37:50.851Z",
+                  "rawSubtitle": "可能所有人都知道该怎么打"
+                },
+                {
+                  "observedMediaTime": 571.177329,
+                  "observedAt": "2026-11-02T16:37:51.355Z",
+                  "rawSubtitle": "无非就是打裤裆和三角区"
+                }
+              ],
+              "boundary": "observed samples, not exact cue bounds"
+            }
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+        "author": "馒头Emoil",
+        "publishedAt": "2026-09-18T17:56:17+08:00"
+      },
+      "status": "partial-frontal-guide",
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_80bvm",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/ussr_t_80bvm.json",
@@ -22026,13 +22418,234 @@
       "collectedAt": "2026-11-02T18:25:18.757Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "原文明确2010年代后期进行BVM升级。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-t80-resolution-upgrade-v11-20261103/T80BVM-existing-keypoint-HD-570.033312.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-t80-resolution-upgrade-v11-20261103/002.json",
+      "captureSHA256": "b7ba293ea08393fd97e919a59d473ea96d237be7ab6819668877680656155d5d",
+      "originalFrameSHA256": "a03742ae954d53aa4fafefcb0e616490e1f34d76e8d2749f9c3c019349d05ac0",
+      "time": 570.033312,
+      "crop": [
+        690,
+        300,
+        510,
+        330
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "imageQuality": "1080p",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "正面防护分析，车辆无遮挡。",
+      "coverageStatus": "partial-frontal-guide",
+      "coverageNotice": "正面防护分析 · 区域指引待补",
+      "testContext": {
+        "attacker": "90式战车B型（富士教导团）",
+        "attackerVehicleId": "jp_type_90b_camo",
+        "shell": "JM33",
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
+          "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+          "gameVersion": "2.59.0.92",
+          "attackerVehicleId": "jp_type_90b_camo",
+          "mainGun": "120 mm Type 90 L/44 cannon",
+          "officialShellName": "JM33",
+          "sourceShellLabelOriginal": "JM33"
+        },
+        "rawUIType": null,
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 472,
+        "sourceTime": 570.033312,
+        "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+        "sourceGameVersion": null,
+        "caseId": "ussr_t_80bvm:BV1CueU6cECo:570033",
+        "note": "同旧时间点高清恢复的静态UI条件；完整游戏版本未知，无独立成功试射。"
+      },
+      "testCases": [
+        {
+          "attackerVehicleId": "jp_type_90b_camo",
+          "attackerVisibleTitle": "90式战车B型（富士教导团）",
+          "attackerCountry": "japan",
+          "shell": "JM33",
+          "shellType": null,
+          "rawUIType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 472,
+          "sourceGameVersion": null,
+          "sourceVersionCaveat": "right clipped; no Wiki substitution",
+          "actualShotObserved": false,
+          "outcome": null,
+          "id": "ussr_t_80bvm:BV1CueU6cECo:570033",
+          "vehicleId": "ussr_t_80bvm",
+          "sourceTime": 570.033312,
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "attacker": "90式战车B型（富士教导团）",
+          "sourceShellLabelOriginal": "JM33",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/jp_type_90b_camo",
+            "checkedAt": "2026-11-02T18:32:35.372534+00:00",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "jp_type_90b_camo",
+            "mainGun": "120 mm Type 90 L/44 cannon",
+            "officialShellName": "JM33",
+            "sourceShellLabelOriginal": "JM33"
+          },
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "a03742ae954d53aa4fafefcb0e616490e1f34d76e8d2749f9c3c019349d05ac0",
+          "impactAngleDegrees": null,
+          "evidenceKind": "static-UI-input-same-existing-point-resolution-recovery-not-new-shot",
+          "resolutionUpgradeOnly": true,
+          "newDistinctPoints": 0
+        }
+      ],
+      "testCaseEvidence": {
+        "ussr_t_80bvm:BV1CueU6cECo:570033": {
+          "originalRecord": {
+            "vehicleId": "ussr_t_80bvm",
+            "country": "ussr",
+            "actualNativeTargetTitle": "T-80BVM",
+            "identityBasis": "Actual native target header, independently matches canonical unique variant; not left attacker flag",
+            "sourceURL": "https://www.bilibili.com/video/BV1CueU6cECo/",
+            "actualMediaTime": 570.033312,
+            "playerCurrentTime": 570.085808,
+            "timeBasis": "verified native decode mediaTime",
+            "nativeDimensions": [
+              1920,
+              1080
+            ],
+            "storedDimensions": [
+              1920,
+              1080
+            ],
+            "nativeResized": false,
+            "webpPath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/emoi-t80-resolution-upgrade-v11-20261103/T80BVM-existing-keypoint-HD-570.033312.webp",
+            "webpBytes": 1173386,
+            "webpSHA256": "b7ba293ea08393fd97e919a59d473ea96d237be7ab6819668877680656155d5d",
+            "historicalDecodedPNG_SHA256": "a03742ae954d53aa4fafefcb0e616490e1f34d76e8d2749f9c3c019349d05ac0",
+            "proofPath": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-expansion-20261102/sources/emoi-t80-resolution-upgrade-v11-20261103/002.json",
+            "proofSHA256": "9c85d59e2c354852081ddf31a488bfd1bcb1d461c5a554434dbd10089b0130be",
+            "contextPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-t80-resolution-upgrade-v11-20261103/002-context.png",
+            "contextSHA256": "62da1de13bdbdc572fc4bc6258caa80b740f38e76cc70e45e7c8618feb0767c8",
+            "sceneKind": "opaque-solid-armour-penetration-map",
+            "hasGreenArmorMap": true,
+            "moduleXray": false,
+            "view": "front",
+            "occlusion": "none",
+            "testContext": {
+              "attackerVehicleId": "jp_type_90b_camo",
+              "attackerVisibleTitle": "90式战车B型（富士教导团）",
+              "attackerCountry": "japan",
+              "shell": "JM33",
+              "shellType": null,
+              "rawUIType": null,
+              "distanceMeters": 500,
+              "displayedPenetrationMm": 472,
+              "sourceGameVersion": null,
+              "sourceVersionCaveat": "right clipped; no Wiki substitution",
+              "actualShotObserved": false,
+              "outcome": null
+            },
+            "sourcePublishedAt": "2026-09-18T17:56:17+08:00",
+            "sourceRestriction": "no-explicit-no-repost-observed; licence unknown, absence not permission",
+            "sameOldActualTime": 570.033312,
+            "resolutionUpgradeOnly": true,
+            "newDistinctPoints": 0,
+            "sourcePacket": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-t80-resolution-upgrade-v11-20261103/proof.json",
+            "sourcePacketSHA256": "e552ac2be7649e58ef7c8174636cf23b3d1d10e01f274301a1f79f8209797b81",
+            "authorEvidence": {
+              "path": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-t80-resolution-upgrade-v11-20261103/reused-original-subtitles.json",
+              "sha256": "a4c87270bbce8c6a1b54dbbcfa5edec9f9be720cec8ef85e81e38ef19edc966f",
+              "observations": [
+                {
+                  "observedMediaTime": 570.170647,
+                  "observedAt": "2026-11-02T16:37:50.851Z",
+                  "rawSubtitle": "可能所有人都知道该怎么打"
+                },
+                {
+                  "observedMediaTime": 571.177329,
+                  "observedAt": "2026-11-02T16:37:51.355Z",
+                  "rawSubtitle": "无非就是打裤裆和三角区"
+                }
+              ],
+              "boundary": "observed samples, not exact cue bounds"
+            },
+            "pins": [],
+            "authorAdvice": {
+              "label": "首下与三角区：作者概括",
+              "text": "作者在本段概括苏系锅盖头常见打法为“裤裆和三角区”；这是家族一般建议，不能视为逐点成功实测。",
+              "time": 571.177,
+              "scope": "family recommendation near exact frame; no precise hit coordinate"
+            }
+          },
+          "old720SourceRecord": {
+            "frameIndex": 7,
+            "vehicleId": "ussr_t_80bvm",
+            "actualNativeTargetTitle": "T-80BVM",
+            "identityBasis": "Native actual target header 防护分析 T-80BVM; unique canonical variant",
+            "sourceURL": "https://www.bilibili.com/video/BV1CueU6cECo/",
+            "actualMediaTime": 570.033312,
+            "playerCurrentTime": 570.111964,
+            "nativeDimensions": [
+              1920,
+              1080
+            ],
+            "storedDimensions": [
+              1280,
+              720
+            ],
+            "webpPath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/UNKNOWN-enemy-0570.webp",
+            "webpSHA256": "ef4ac79da3821ad4c640eca4a0703fdeae61a8bd653f43e8f98e3c8546b17b9d",
+            "webpSHAVerified": true,
+            "historicalDecodedPNG_SHA256": "a71c378491dd499474c05b2882a28f198720da1592601984234a370720215ced",
+            "historicalDecodedPNGAvailability": "historical hash; no original PNG bytes reconstructed",
+            "proofPath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/064.json",
+            "proofSHA256": "1f3362cd5222dcb8252631ecb7146cf215cb23ea31a75b85be018e9d92afeee3",
+            "proofSHAVerified": true,
+            "actualDecode": {
+              "mediaTime": 570.033312,
+              "currentTime": 570.111964,
+              "width": 1920,
+              "height": 1080
+            },
+            "sourcePublishedAt": "2026-09-18T17:56:17+08:00",
+            "sourceRestriction": "no-explicit-no-repost-observed",
+            "authorLicence": "unknown-not-inferred",
+            "sceneKind": "opaque-solid-armour-map",
+            "mainImageCandidate": false,
+            "disposition": "identity-and-facts-only720",
+            "testContext": {
+              "shell": "JM33",
+              "rawUIType": null,
+              "shellType": null,
+              "distanceMeters": 500,
+              "displayedPenetrationMm": 472,
+              "actualShotObserved": false,
+              "outcome": null
+            },
+            "pins": [],
+            "budget": {
+              "noNewSampling": true,
+              "historicDistinctNotReset": true
+            }
+          },
+          "typeReferenceBasis": "Reused exact jp_type_90b_camo JM33 official reference"
+        }
+      },
+      "frontSummary": "作者在本段概括苏系锅盖头常见打法为“裤裆和三角区”；这是家族一般建议，不能视为逐点成功实测。"
     },
     {
       "id": "us_m1a2_sep3_abrams",
@@ -22505,7 +23118,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 44,
+    "illustratedCount": 46,
     "countries": [
       {
         "country": "usa",
@@ -22641,7 +23254,7 @@
     "lastUpdated": "2026-11-02",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 42,
+    "illustratedTargetCount": 44,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,
