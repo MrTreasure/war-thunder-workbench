@@ -11613,7 +11613,22 @@
       "eraStatus": "reviewed-unit-prose",
       "eraBasis": "MSC为1986年展示的勒克莱尔概念验证原型，配6秒自动装填与泄压板，Wiki明确指出首下脆弱。",
       "collectedAt": "2026-11-02T09:49:02.774Z",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.55,
+          "y": 0.68,
+          "label": "车体正面可见区",
+          "detail": "540秒主图车体正面此处可见绿色，仅作豹2A5使用DM33、500米、面板472毫米条件下的外表参考；不代表整板必穿或实射后效，字幕“右侧”边界未明确，不能据此定位内部油箱及弹药。",
+          "kind": "conditional",
+          "caseId": "fr_msc:BV1PUAezbE1p:540000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "sourceTime": 540,
+          "mainImageTime": 540,
+          "adviceId": "BV1PUAezbE1p:510000-546000:leclerc:0",
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        }
+      ],
       "videoAdvice": [
         {
           "caseId": null,
@@ -11834,7 +11849,8 @@
       "imageViewDetail": "front",
       "mainViewKind": "protection-analysis",
       "mainViewNote": "正面车体及炮塔有真实绿色装甲着色；右侧说明浮层贴近并部分遮挡右侧轮廓，炮管不在主体前方完整伸出。",
-      "mainImageUsable": true
+      "mainImageUsable": true,
+      "coverageNotice": "正面防护分析 · 1处条件性可见区域参考（非逐点实射）"
     },
     {
       "id": "germ_leopard_2k",
@@ -16777,7 +16793,22 @@
         "headingDistanceMeters": 500,
         "conditionConflict": null
       },
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.415,
+          "y": 0.65,
+          "label": "车体中央下部",
+          "detail": "405秒主图车体中央下部此处可见绿色，仅作90式B使用JM33、500米、面板472毫米条件下的外表参考；不是整板必穿或实射后效，历史AIM文章与当前配置仍未核对，不能据此定位内部成员和弹药。",
+          "kind": "conditional",
+          "caseId": "us_m1a1_aim_abrams:BV1CueU6cECo:405017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 405.016687,
+          "mainImageTime": 405.016687,
+          "adviceId": null,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        }
+      ],
       "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/USA-Abrams-identity-evidence-0405.webp",
       "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/031.json",
       "captureSHA256": "b60f36485984402674ef2d075780abaed638200acec5bdc18ff225f3670fe33c",
@@ -16799,7 +16830,7 @@
       "mainViewNote": "正面防护分析；画面右侧提示框局部遮挡，不推断不可见区域。",
       "imageQuality": "1080p",
       "coverageStatus": "partial-frontal-guide",
-      "coverageNotice": "正面防护分析 · 提示框局部遮挡",
+      "coverageNotice": "正面防护分析 · 1处条件性外表参考（非实射）",
       "relatedSources": [
         {
           "kind": "article",
