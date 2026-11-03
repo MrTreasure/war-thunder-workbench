@@ -73,8 +73,9 @@ function renderPoint() {
   const pin = SAMPLE.models[selected]?.pins?.[point];
   const model = SAMPLE.models[selected];
   const summary = model?.frontSummary || model?.videoAdvice?.[0]?.text;
+  const summaryTitle = !model?.frontSummary && model?.videoAdvice?.[0]?.sourceKind === "article-text" ? "文章打法摘要" : ["forum-image", "article-image"].includes(sourceOf(model || {}).kind) ? "来源打法摘要" : "视频打法摘要";
   if (!pin && summary) $("point-kind").textContent = "整体打法";
-  $("point-title").textContent = pin?.label || (summary ? (["forum-image", "article-image"].includes(sourceOf(model || {}).kind) ? "来源打法摘要" : "视频打法摘要") : "尚无标注");
+  $("point-title").textContent = pin?.label || (summary ? summaryTitle : "尚无标注");
   $("point-detail").textContent = pin?.detail || summary || "该车型的攻击位置说明尚未补充。";
   for (const host of [$("pins"), $("pin-buttons")])
     [...host.children].forEach((button, index) => button.setAttribute("aria-pressed", String(index === point)));

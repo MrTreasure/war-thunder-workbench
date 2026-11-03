@@ -24281,7 +24281,52 @@
       "era": "modern",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "ussr_t_72m2_moderna:wiki-article:9231:author-guidance",
+          "label": "文章作者建议：正面防护薄弱处",
+          "text": "作者将首下、驾驶员观察口与炮塔顶部列为薄弱处，图注称M1 Abrams使用M774。配图为机库画面与作者标记，未展示原生弹药设置；这些是文章作者的说明，未作为独立试射结果，高清主图待补。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourcePublishedAt": "2026-11-02T21:42:52+00:00",
+          "sourceAuthor": "turtlyorca@live",
+          "sourceUrl": "https://wiki.warthunder.com/9231-t-72m2-moderna-slovak-surprise",
+          "sourceGameVersion": null,
+          "caseId": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "article-author-guidance-unverified-test",
+          "evidence": {
+            "sourcePostProof": {
+              "URL": "https://wiki.warthunder.com/9231-t-72m2-moderna-slovak-surprise",
+              "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-search-v116-20261103/moderna.json",
+              "snapshotSHA256": "40af4f603b5ea69aaee604c13b34f8451508fe4deb2fcc57e26874fe828b673f",
+              "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-search-v116-20261103/moderna.html",
+              "htmlSHA256": "d94aea39c71c8d1aac7e1f06ad391d6e9da753cfb00fdd6f39b93eb44b868872",
+              "capturedAt": "2026-11-03T12:52:36.247Z"
+            },
+            "exactUnitURL": "https://wiki.warthunder.com/unit/ussr_t_72m2_moderna",
+            "QC": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-search-v116-20261103/proposals.json",
+              "sha256": "a6cee1fb97789fd12dd83a7218c24c8ff3748b7b09f8153db06b6d12e4af2235"
+            },
+            "sourceImageObservation": {
+              "file": "artifacts/weakpoints-moderna-source-v118-20261103/records.json",
+              "sha256": "1d63ae3d46369e77f8abf3a9c99cb97abf58f3debe2fe5cf5f9c4d3eacd9ee13",
+              "sourceManifest": "artifacts/weakpoints-moderna-source-v118-20261103/manifest.json",
+              "sourceManifestSHA256": "81d129bd4c709b23853f64fff3bf5008d4b9e3c213e9c94c772e46c92ed8f9c3",
+              "originalSHA256": "87d86869abefe2cad90b7e5e95b2c82e49b2c480be4e4d2b984e40b921f71dbf",
+              "originalWidth": 1259,
+              "originalHeight": 548,
+              "mainImageUsable": false,
+              "nativeProtectionAnalysisVerified": false,
+              "captionConditionsNotIndependentlyVerified": true,
+              "distanceMeters": null,
+              "gameVersion": null
+            }
+          },
+          "sourceDistanceMeters": null
+        }
+      ],
       "source": null,
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_72m2_moderna",
@@ -24311,6 +24356,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "url": "https://wiki.warthunder.com/9231-t-72m2-moderna-slovak-surprise",
+          "title": "T-72M2 Moderna: Slovak Surprise",
+          "author": "turtlyorca@live",
+          "publishedAt": "2026-11-02T21:42:52+00:00",
+          "kind": "article",
+          "time": null,
+          "scopeNote": "Wiki投稿作者观点；图注弹种条件未作为独立试射。原图1259×548，作者示意，未达到高清主图要求。"
+        }
       ]
     },
     {
