@@ -2639,6 +2639,26 @@
             "privacy": "raw-images-and-full-transcript-private-never-public",
             "notActualTest": true
           }
+        },
+        {
+          "id": "fr_leclerc_s1:author-guidance:v41",
+          "label": "作者观点：防护与生存性",
+          "text": "Ablertius 的勒克莱尔 S1 解析以防护分析展示正面差异，车体首下及作者所称炮塔右侧的示例防护较弱；这些是选定弹药与距离下的预估，不代表实战击穿结果。",
+          "sourceKind": "video-author-advice",
+          "sourceTime": 328.548233,
+          "sourcePublishedAt": "2026-01-10 18:45:28",
+          "sourceUrl": "https://www.bilibili.com/video/BV1vN6mBdEBT/",
+          "caseId": null,
+          "sourceClaim": true,
+          "sourceClaimNotCanonicalFact": true,
+          "sourceGameVersion": null,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "evidence": {
+            "sourcePacketSHA256": "d2bf3968a3faa0f58d2540acd55f56bce61cc7f14cecace37fa8b03a252cadfc",
+            "QCManifestSHA256": "30aceb6cc132c94a9c893c994b876b3984d7f73bdb44b1e34e628fa80e3d62f8",
+            "QCProposalsSHA256": "084e500093ee70279ab6578aeddc8295de7c563fa6950356d12950b377762b49"
+          },
+          "sourceTimeNote": "防护段首次观察样本时间；不是精确字幕 cue。目标 S1 为视频来源归因，画面悬停结果为预估。"
         }
       ],
       "source": {},
@@ -2659,6 +2679,15 @@
           "publishedAt": "2025-06-21T20:24:27+08:00",
           "time": 424.356887,
           "scopeNote": "作者对比观点；测试条件未核验"
+        },
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1vN6mBdEBT/",
+          "title": "法棍发射器：媲美俄联邦？——勒克莱尔S1全方位解析_游戏热门视频",
+          "author": "Ablertius",
+          "publishedAt": "2026-01-10 18:45:28",
+          "time": 328.548233,
+          "scopeNote": "作者归因文字；非独立试射，原文私有归档。"
         }
       ]
     },
@@ -3365,6 +3394,25 @@
             "type": "general-statement-only",
             "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/"
           }
+        },
+        {
+          "id": "ussr_is_6:author-guidance:v46",
+          "label": "作者观点：防护与生存性",
+          "text": "PurplestPie 在 2025-05-28 的 IS-6 文章中认为，倾斜正面装甲与适当摆角有助于抵御动能弹，但火箭和破甲弹仍构成威胁；断履带后较慢的炮塔转速会增加被绕侧风险。此为作者的历史模式经验转述，不是实测试射结论。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourcePublishedAt": "2025-05-28T15:15:00+00:00",
+          "sourceUrl": "https://wiki.warthunder.com/3179-is-6-a-soviet-steel-titan",
+          "caseId": null,
+          "sourceClaim": true,
+          "sourceClaimNotCanonicalFact": true,
+          "sourceGameVersion": null,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "evidence": {
+            "QCManifestSHA256": "50e0146db1077765069513404f3cd0469d1f4a70ad6f84088eaacb78a3ed29a7",
+            "QCProposalsSHA256": "d82d71797dd3c3846d63ed98707e03906cbdc865b9708acf5f969508dfce0b43",
+            "sourceSealSHA256": "f47b1e20d5b775dec5210ca9acbc49f776660c1a2dbaf985e067f23a0639f3a1"
+          }
         }
       ],
       "source": {
@@ -3447,7 +3495,18 @@
           "panelCropSHA256": "a665436ecaa1b5f0203f6cb578a1acaf2d7d1f42f9759938d42dfa19b2d140b0",
           "unknownDoesNotInvalidatePriorVerifiedValues": true
         }
-      }
+      },
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/3179-is-6-a-soviet-steel-titan",
+          "title": "IS-6: A Soviet Steel Titan",
+          "author": "PurplestPie",
+          "publishedAt": "2025-05-28T15:15:00+00:00",
+          "time": null,
+          "scopeNote": "作者归因文字；非独立试射，原文私有归档。"
+        }
+      ]
     },
     {
       "id": "uk_challenger_ii",
@@ -4366,6 +4425,25 @@
             },
             "sourceClaimNotCanonicalFact": true
           }
+        },
+        {
+          "id": "ussr_t_80ue1:author-guidance:v46",
+          "label": "作者观点：防护与生存性",
+          "text": "作者称复合装甲与 Kontakt-5 对化学弹有较好防护，并对动能弹有所帮助；指出首下及炮旁可损伤炮闩的区域为弱点，乘员紧凑且仅三人，穿透后生存性较低；自动装弹机受损可能引起弹药爆炸并影响装填。 此为作者经验评论，不是独立实测，排他性穿透说法未经验证。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourcePublishedAt": "2025-04-28T07:58:55+00:00",
+          "sourceUrl": "https://wiki.warthunder.com/2773-t-80u-e1-t-80-with-a-bigger-turret",
+          "caseId": null,
+          "sourceClaim": true,
+          "sourceClaimNotCanonicalFact": true,
+          "sourceGameVersion": null,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "evidence": {
+            "QCManifestSHA256": "c9ddbc3d19fc489d4bc8d2fa93ebf600ffc88f4e47c714dcabaaeff31e8be272",
+            "QCProposalsSHA256": "da85492c16ab4cb71a804d81b6f7fb4fe429b711b8635c9c8f543edf93484a7d",
+            "sourceSealSHA256": "f47b1e20d5b775dec5210ca9acbc49f776660c1a2dbaf985e067f23a0639f3a1"
+          }
         }
       ],
       "source": {
@@ -4622,7 +4700,18 @@
       "mainViewKind": "protection-analysis",
       "mainViewNote": "提示框覆盖车体右侧下部/履带，主要炮塔及车体正面绿区仍可辨；保留原帧查看上下文",
       "imageQuality": "1080p",
-      "mainImageUsable": true
+      "mainImageUsable": true,
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/2773-t-80u-e1-t-80-with-a-bigger-turret",
+          "title": "Т-80U-Е1: T-80 with a bigger turret",
+          "author": "Gerbil99999999",
+          "publishedAt": "2025-04-28T07:58:55+00:00",
+          "time": null,
+          "scopeNote": "作者归因文字；非独立试射，原文私有归档。"
+        }
+      ]
     },
     {
       "id": "cn_ztz_96",
@@ -5803,6 +5892,25 @@
           "label": "M60车族炮塔与弹种建议",
           "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
           "time": 358.30007
+        },
+        {
+          "id": "us_m60a3_tts:author-guidance:v46",
+          "label": "作者观点：防护与生存性",
+          "text": "-_Dozer_- 在2025年4月14日的美系M60A3 TTS文章中提醒：高大轮廓、炮塔座圈及车长塔容易暴露，现代尾翼稳定脱壳穿甲弹仍构成威胁；作者建议利用掩体隐藏车体并在二线支援。以上为作者经验概述，不是独立实射结论。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourcePublishedAt": "2025-04-14T12:00:00+00:00",
+          "sourceUrl": "https://wiki.warthunder.com/2764-m60a3-tts-iron-sentinel",
+          "caseId": null,
+          "sourceClaim": true,
+          "sourceClaimNotCanonicalFact": true,
+          "sourceGameVersion": null,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "evidence": {
+            "QCManifestSHA256": "ba9f3c7d8877d16a05757e70b2507928110246144ae5bc6545ec8be426756830",
+            "QCProposalsSHA256": "20189c1a31915dd82db51ff97a8811dc3f2da2115151e05e3e6d01e5340790bc",
+            "sourceSealSHA256": "3db3e5f153156b838f25d12a1e8c6ab29e641cc36594b73624c15402287b23d8"
+          }
         }
       ],
       "source": {
@@ -6001,6 +6109,17 @@
       "frontSummary": "作者对M60车族建议：普通装药穿甲弹可考虑炮塔和头包，原始装甲较难抵挡破甲弹或钢针。随后提到加装反应装甲改进型的破甲防护，但这是车族背景，不作为M60A3 TTS同型防护结论。",
       "frontSummaryAdviceIDs": [
         "BV1SPmEBJE3y:head:7:author"
+      ],
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/2764-m60a3-tts-iron-sentinel",
+          "title": "M60A3 TTS: Iron Sentinel",
+          "author": "-_Dozer_-",
+          "publishedAt": "2025-04-14T12:00:00+00:00",
+          "time": null,
+          "scopeNote": "作者归因文字；非独立试射，原文私有归档。"
+        }
       ]
     },
     {
@@ -12007,7 +12126,27 @@
       "eraBasis": "120S于1999年开始开发、2001年公开原型，采用M1A1炮塔与M60车体；Wiki明确提醒车体装甲难应对同场炮火，原发动机也拖慢机动。",
       "collectedAt": "2026-11-02T09:48:07.151Z",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "us_m60_120s:author-guidance:v41",
+          "label": "作者观点：防护与生存性",
+          "text": "文章作者认为老式车体及炮塔与车体连接区域易受威胁，建议借地形遮蔽车体、在二线远距离支援，并谨慎选择掩体与撤退路线。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourcePublishedAt": "2025-04-18T11:26:03+00:00",
+          "sourceUrl": "https://wiki.warthunder.com/2857-120s-relic-reborn",
+          "caseId": null,
+          "sourceClaim": true,
+          "sourceClaimNotCanonicalFact": true,
+          "sourceGameVersion": null,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "evidence": {
+            "sourcePacketSHA256": "44844abb3c42a105ebca6eb05a0c8bbe3ab51c24ecea956566a0cc036512fa9f",
+            "QCManifestSHA256": "6c952f8419c6eff755ab619e1f8e89d43cc276030bb87f979a48503cc7567573",
+            "QCProposalsSHA256": "7a542df1587ba69d366679721be164df49fb631b16c89a5aab3ec3fb990289ac"
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/us_m60_120s",
@@ -12036,6 +12175,17 @@
       ],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/2857-120s-relic-reborn",
+          "title": "120S: Relic Reborn | War Thunder Wiki",
+          "author": "-_Dozer_-",
+          "publishedAt": "2025-04-18T11:26:03+00:00",
+          "time": null,
+          "scopeNote": "作者归因文字；非独立试射，原文私有归档。"
+        }
       ]
     },
     {
