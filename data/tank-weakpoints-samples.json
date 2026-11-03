@@ -430,7 +430,36 @@
         "aceSeconds": 8,
         "note": "基础乘员→王牌乘员（Wiki主炮面板）"
       },
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.333,
+          "y": 0.293,
+          "label": "炮塔正面绿区",
+          "detail": "炮管左上方的炮塔正面可见局部绿色表面，取点避开炮管及黄色斑块；仅对应本帧T95、T13、0米防护分析，不代表整个炮塔均可穿，未见此点独立实射，也不推断炮闩或乘员后效。",
+          "kind": "conditional",
+          "caseId": "ussr_t_62:BV1SPmEBJE3y:1118033",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "sourceTime": 1118.033,
+          "mainImageTime": 1118.033,
+          "adviceId": null,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        },
+        {
+          "x": 0.513,
+          "y": 0.526,
+          "label": "车体上部绿区",
+          "detail": "炮管右侧车体上部可见连续绿色表面，取点避开车灯、炮管与履带；仅作本帧T95、T13、0米及略俯前向姿态的外表参考，不能扩展至整块车体，更不能由颜色推断击毁或弹药爆炸。",
+          "kind": "conditional",
+          "caseId": "ussr_t_62:BV1SPmEBJE3y:1118033",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "sourceTime": 1118.033,
+          "mainImageTime": 1118.033,
+          "adviceId": null,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        }
+      ],
       "videoAdvice": [
         {
           "id": "ussr_t_62:source-local-advice:batch002",
@@ -699,7 +728,7 @@
       "mainViewNote": "略俯前向防护分析，车辆没有提示框遮挡；不推断未测角度或实战后效。",
       "completeIllustration": false,
       "coverageStatus": "partial-frontal-guide",
-      "coverageNotice": "前向防护分析 · 区域指引待补",
+      "coverageNotice": "前向防护分析 · 2处条件性外表参考（非逐点实射）",
       "testContext": {
         "attacker": "T95",
         "attackerVehicleId": "us_t95",
@@ -3447,7 +3476,7 @@
         "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
         "author": "罗非鱼解说",
         "publishedAt": "2025-12-12T18:28:48+08:00",
-        "gameVersion": "2.49.0.98"
+        "gameVersion": "2.51.0.65"
       },
       "status": "pending-specific-recommendation",
       "collectedAt": "2026-11-02",
@@ -3458,8 +3487,8 @@
       "family": "is",
       "era": "ww2",
       "scopeRole": "heavy_tank",
-      "sourceGameVersion": "2.49.0.98",
-      "videoGameVersion": "2.49.0.98",
+      "sourceGameVersion": "2.51.0.65",
+      "videoGameVersion": "2.51.0.65",
       "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/is-focused/USSR-IS-6-1050.webp",
       "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/is-focused/007.json",
       "time": 1050,
@@ -3487,7 +3516,9 @@
         "shellTypeLabel": "被帽风帽穿甲弹",
         "displayedPenetrationMm": 215,
         "distanceMeters": 500,
-        "impactAngleDegrees": null
+        "impactAngleDegrees": null,
+        "caseId": "ussr_is_6:BV1SPmEBJE3y:1055017:v97-preview",
+        "sourceGameVersion": "2.51.0.65"
       },
       "testContextEvidence": {
         "sourceFrameSHA256": "5d0f352a11b1ae3f55a431c1db6f5a4ba1c3d4c5223efa7808613b8e29ebb3d3",
@@ -3532,6 +3563,76 @@
           "publishedAt": "2025-05-28T15:15:00+00:00",
           "time": null,
           "scopeNote": "作者归因文字；非独立试射，原文私有归档。"
+        }
+      ],
+      "testCases": [
+        {
+          "id": "ussr_is_6:BV1SPmEBJE3y:1055017:v97-preview",
+          "vehicleId": "ussr_is_6",
+          "attacker": "IS-6",
+          "attackerVehicleId": "ussr_is_6",
+          "shell": "BR-471D",
+          "sourceShellLabelOriginal": "BR-471D",
+          "rawUIType": null,
+          "shellType": null,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 215,
+          "impactAngleDegrees": 22,
+          "attackAzimuthDegrees": 0,
+          "sourceGameVersion": "2.51.0.65",
+          "sourceTime": 1055.017,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "sourceFrameSHA256": "61463a1307d6556933c7b26ddc3ade68b839450bb907d9602c409e8ca4ff55a0",
+          "actualUIObserved": true,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sceneKind": "protection-preview",
+          "evidenceKind": "protection-analysis-hover-prediction",
+          "prediction": "penetration-predicted",
+          "predictedDamage": "炮闩",
+          "note": "单准星UI预测；未观察到独立实射，炮闩不是实际伤害或内部定位点，不代表整板绿色。",
+          "shellTypeCode": "APCBC",
+          "shellTypeLabel": "被帽风帽穿甲弹",
+          "shellTypeBasis": "existing-accepted-same-vehicle-same-shell-testContext; native UI type absent"
+        }
+      ],
+      "testCaseEvidence": {
+        "ussr_is_6:BV1SPmEBJE3y:1055017:v97-preview": {
+          "derivedProof": {
+            "file": "artifacts/tank-weakpoints-expansion-20261102/sources/is-focused/008.json",
+            "sha256": "e96a56e76967abce42c639c549e846fa1357c68ba2434bd05f13fc92b38087a4"
+          },
+          "sourcePacket": {
+            "file": "artifacts/weakpoints-is6-evidence-v97-20261103/records.json",
+            "sha256": "ababedc582f4125867190908834960819cce90e7a64677573904a94e42e8cb22"
+          },
+          "versionProof": {
+            "file": "artifacts/weakpoints-is6-evidence-v97-20261103/version-errata.json",
+            "sha256": "d453e05c7a5cf665231b3ff7115f01f3eef8f3b2c6b683d0f8e23f0a396fd7cd"
+          },
+          "targetIdentityBasis": "existing-single-vehicle-frame-manifest-and-native-QC"
+        }
+      },
+      "protectionEvidence": [
+        {
+          "id": "is6-v97-1055017-preview",
+          "label": "BR-471D · 单准星防护预览",
+          "caseId": "ussr_is_6:BV1SPmEBJE3y:1055017:v97-preview",
+          "assetPath": "images/USSR/USSR-IS-6-BR-471D-preview-17m35s.webp",
+          "rawAssetPath": "images/USSR/USSR-IS-6-17m35s.webp",
+          "sourceTime": 1055.017,
+          "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/is-focused/USSR-IS-6-1055.017.webp",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/is-focused/008.json",
+          "frameSnapshotSHA256": "e96a56e76967abce42c639c549e846fa1357c68ba2434bd05f13fc92b38087a4",
+          "sourceGameVersion": "2.51.0.65",
+          "view": "single-cursor-protection-preview",
+          "caption": "IS-6 / BR-471D，500米、215毫米、22°、方位0°。仅该准星处预测能够击穿及炮闩损伤，非实射结果，不代表整板绿色，不套用1050秒主图坐标。",
+          "crop": [
+            690,
+            290,
+            520,
+            330
+          ]
         }
       ]
     },
@@ -18472,9 +18573,38 @@
       "mainViewNote": "近正面略斜防护分析；右缘提示框靠近前脸与履带，不推断遮挡区域。",
       "imageQuality": "1080p",
       "mainImageUsable": true,
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.535,
+          "y": 0.293,
+          "label": "车体上沿中央绿区",
+          "detail": "747秒近正面略斜图中，炮管后方车体上沿可见绿色小区。仅作豹2A5、DM33、500米、面板472毫米条件参考，不将准星绿色扩为整板；未证实此点实射、乘员后效或观察窗精确边界。",
+          "kind": "conditional",
+          "caseId": "uk_challenger_2_megatron:BV1PUAezbE1p:747000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "sourceTime": 747,
+          "mainImageTime": 747,
+          "adviceId": null,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        },
+        {
+          "x": 0.49,
+          "y": 0.516,
+          "label": "首下绿区（不优先）",
+          "detail": "747秒首下中央可见绿色矩形，避开右侧提示框。仅适用于豹2A5、DM33、500米、面板472毫米的防护预览；作者不优先首下，绿色不保证击穿后效，也不能移用于破甲弹或其他角度。",
+          "kind": "conditional",
+          "caseId": "uk_challenger_2_megatron:BV1PUAezbE1p:747000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "sourceTime": 747,
+          "mainImageTime": 747,
+          "adviceId": null,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        }
+      ],
       "coverageStatus": "partial-frontal-guide",
-      "coverageNotice": "近正面防护分析 · 区域指引待补"
+      "coverageNotice": "近正面防护分析 · 2处条件性可见绿区参考（非逐点实射）"
     },
     {
       "id": "uk_khalid",
@@ -21485,7 +21615,36 @@
       "rank": 7,
       "era": "cold-war",
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.4,
+          "y": 0.49,
+          "label": "首上可见区",
+          "detail": "炮塔下方车体上段可见连续绿色表面，取点避开炮管、准星及右下提示框；仅对应本帧JM33、500米的正面防护分析，不代表整板均可穿，也没有此点独立实射或内部毁伤证据。",
+          "kind": "conditional",
+          "caseId": "germ_leopard_2a4:BV1CueU6cECo:450033",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 450.033312,
+          "mainImageTime": 450.033312,
+          "adviceId": null,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        },
+        {
+          "x": 0.387,
+          "y": 0.662,
+          "label": "首下可见区",
+          "detail": "车体正面下段中央可见绿色表面，取点避开左侧圆形部件、履带及右下遮挡；仅作JM33、500米与本帧姿态的条件性外表参考，不能由颜色推定击毁、乘员伤亡或弹药爆炸。",
+          "kind": "conditional",
+          "caseId": "germ_leopard_2a4:BV1CueU6cECo:450033",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 450.033312,
+          "mainImageTime": 450.033312,
+          "adviceId": null,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        }
+      ],
       "videoAdvice": [
         {
           "id": "germ_leopard_2a4:source-local-advice:batch002",
@@ -21641,7 +21800,7 @@
       "mainViewKind": "protection-analysis",
       "mainViewNote": "正面防护分析；提示框遮挡右下车体与履带区域，不推断遮挡区。",
       "coverageStatus": "partial-frontal-guide",
-      "coverageNotice": "正面防护分析 · 右下局部遮挡",
+      "coverageNotice": "正面防护分析 · 2处条件性外表参考（非逐点实射）",
       "testContext": {
         "attacker": "90 式战车 B 型（富士教导团）",
         "attackerVehicleId": "jp_type_90b_camo",

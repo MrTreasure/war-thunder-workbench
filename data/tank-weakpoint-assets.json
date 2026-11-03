@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "a387c2e47b0852516c015274cffe43b3cda4c88e",
+  "commit": "e3add4e3b9db66f43bc603bb30acee95b4bd41cf",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -3705,7 +3705,10 @@
         "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
         "author": "罗非鱼解说",
         "publishedAt": "2025-12-12T18:28:48+08:00",
-        "gameVersion": "2.49.0.98"
+        "gameVersion": "2.51.0.65",
+        "gameVersionCorrectedFrom": "2.49.0.98",
+        "gameVersionCorrectionBasis": "native frame UI; source bytes unchanged",
+        "gameVersionProofSHA256": "d453e05c7a5cf665231b3ff7115f01f3eef8f3b2c6b683d0f8e23f0a396fd7cd"
       },
       "mediaTime": 1050,
       "actualTime": 1050,
@@ -3739,7 +3742,10 @@
         "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
         "author": "罗非鱼解说",
         "publishedAt": "2025-12-12T18:28:48+08:00",
-        "gameVersion": "2.49.0.98"
+        "gameVersion": "2.51.0.65",
+        "gameVersionCorrectedFrom": "2.49.0.98",
+        "gameVersionCorrectionBasis": "native frame UI; source bytes unchanged",
+        "gameVersionProofSHA256": "ababedc582f4125867190908834960819cce90e7a64677573904a94e42e8cb22"
       },
       "mediaTime": 1055.017,
       "actualTime": 1055.017,
@@ -3844,7 +3850,10 @@
         "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
         "author": "罗非鱼解说",
         "publishedAt": "2025-12-12T18:28:48+08:00",
-        "gameVersion": "2.49.0.98"
+        "gameVersion": "2.51.0.65",
+        "gameVersionCorrectedFrom": "2.49.0.98",
+        "gameVersionCorrectionBasis": "native frame UI; source bytes unchanged",
+        "gameVersionProofSHA256": "d453e05c7a5cf665231b3ff7115f01f3eef8f3b2c6b683d0f8e23f0a396fd7cd"
       },
       "mediaTime": 1050,
       "actualTime": 1050,
@@ -12691,6 +12700,51 @@
       "commit": "a387c2e47b0852516c015274cffe43b3cda4c88e",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a387c2e47b0852516c015274cffe43b3cda4c88e/images/USSR/USSR-T-90M-forum-post216-20260610-front-crop720x470.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a387c2e47b0852516c015274cffe43b3cda4c88e/images/USSR/USSR-T-90M-forum-post216-20260610-front-crop720x470.webp"
+    },
+    {
+      "path": "images/USSR/USSR-IS-6-BR-471D-preview-17m35s.webp",
+      "sha256": "fb99cf5761c78ca2352bce6ce849542fe64d736c979b6fc1929030b7bf9cc074",
+      "bytes": 155800,
+      "width": 520,
+      "height": 330,
+      "vehicleId": "ussr_is_6",
+      "country": "USSR",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+        "title": "超级旷世巨作！萌新别划走，一个视频告诉你战争雷霆各系二战/冷战坦克弱点都在哪？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-12-12T18:28:48+08:00",
+        "gameVersion": "2.51.0.65",
+        "kind": "video"
+      },
+      "sourceKind": "video",
+      "sourceTime": 1055.017,
+      "mediaTime": 1055.017,
+      "sourceFrameSHA256": "61463a1307d6556933c7b26ddc3ade68b839450bb907d9602c409e8ca4ff55a0",
+      "proofSnapshotSHA256": "e96a56e76967abce42c639c549e846fa1357c68ba2434bd05f13fc92b38087a4",
+      "sourceGameVersion": "2.51.0.65",
+      "caseId": "ussr_is_6:BV1SPmEBJE3y:1055017:v97-preview",
+      "kind": "secondary-protection-preview-crop",
+      "roles": [
+        "secondary-protection-preview"
+      ],
+      "purpose": "secondary-protection-preview",
+      "mainImageUsable": false,
+      "hasGreenArmourMap": false,
+      "hasGreenHitIndicator": true,
+      "nativeResized": false,
+      "sceneKind": "protection-preview",
+      "crop": [
+        690,
+        290,
+        520,
+        330
+      ],
+      "id": "fb99cf5761c78ca2352bce6ce849542fe64d736c979b6fc1929030b7bf9cc074",
+      "encoding": "lossless-webp",
+      "commit": "e3add4e3b9db66f43bc603bb30acee95b4bd41cf",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@e3add4e3b9db66f43bc603bb30acee95b4bd41cf/images/USSR/USSR-IS-6-BR-471D-preview-17m35s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/e3add4e3b9db66f43bc603bb30acee95b4bd41cf/images/USSR/USSR-IS-6-BR-471D-preview-17m35s.webp"
     }
   ]
 }
