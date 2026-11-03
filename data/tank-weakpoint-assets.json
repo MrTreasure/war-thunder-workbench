@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "e3add4e3b9db66f43bc603bb30acee95b4bd41cf",
+  "commit": "42994b18d0dfcb14bba9fd3eeca6f48e78c0f585",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -938,6 +938,42 @@
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a387c2e47b0852516c015274cffe43b3cda4c88e/images/USSR/USSR-T-90M-forum-post216-20260610-front-crop720x470.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a387c2e47b0852516c015274cffe43b3cda4c88e/images/USSR/USSR-T-90M-forum-post216-20260610-front-crop720x470.webp",
         "commit": "a387c2e47b0852516c015274cffe43b3cda4c88e"
+      }
+    },
+    "cn_ztz_88b": {
+      "raw": {
+        "path": "images/CHN/CHN-ZTZ88B-native-00m20s.webp",
+        "sha256": "c3016690b64388eef98d55946e888940b6c66c00728b2fbd5554ce6df13becea",
+        "bytes": 1079066,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9b1403d0d3ab2e685ff5582d81ebeae8deca7c5c/images/CHN/CHN-ZTZ88B-native-00m20s.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9b1403d0d3ab2e685ff5582d81ebeae8deca7c5c/images/CHN/CHN-ZTZ88B-native-00m20s.webp",
+        "commit": "9b1403d0d3ab2e685ff5582d81ebeae8deca7c5c"
+      },
+      "photo": {
+        "path": "images/CHN/CHN-ZTZ88B-front-00m20s.webp",
+        "sha256": "f049bc34b6a720381a9348d22fbeb55b2cf501e8e1cbb5ab0e4d04328eab0514",
+        "bytes": 316968,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9b1403d0d3ab2e685ff5582d81ebeae8deca7c5c/images/CHN/CHN-ZTZ88B-front-00m20s.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9b1403d0d3ab2e685ff5582d81ebeae8deca7c5c/images/CHN/CHN-ZTZ88B-front-00m20s.webp",
+        "commit": "9b1403d0d3ab2e685ff5582d81ebeae8deca7c5c"
+      }
+    },
+    "cn_type_59d": {
+      "raw": {
+        "path": "images/CHN/CHN-ZTZ59D1-native-00m16s.webp",
+        "sha256": "1d27bdef1cc9d4d185a7f31d3fc64ef08a73ef90a4873f5c3029cfd2c077d6bb",
+        "bytes": 1261648,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@42994b18d0dfcb14bba9fd3eeca6f48e78c0f585/images/CHN/CHN-ZTZ59D1-native-00m16s.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/42994b18d0dfcb14bba9fd3eeca6f48e78c0f585/images/CHN/CHN-ZTZ59D1-native-00m16s.webp",
+        "commit": "42994b18d0dfcb14bba9fd3eeca6f48e78c0f585"
+      },
+      "photo": {
+        "path": "images/CHN/CHN-ZTZ59D1-front-00m16s.webp",
+        "sha256": "e3a05b13faa59357949b144f0de19db01a0f11c8bd17154852acfced3215c9bd",
+        "bytes": 242878,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@42994b18d0dfcb14bba9fd3eeca6f48e78c0f585/images/CHN/CHN-ZTZ59D1-front-00m16s.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/42994b18d0dfcb14bba9fd3eeca6f48e78c0f585/images/CHN/CHN-ZTZ59D1-front-00m16s.webp",
+        "commit": "42994b18d0dfcb14bba9fd3eeca6f48e78c0f585"
       }
     }
   },
@@ -12745,6 +12781,206 @@
       "commit": "e3add4e3b9db66f43bc603bb30acee95b4bd41cf",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@e3add4e3b9db66f43bc603bb30acee95b4bd41cf/images/USSR/USSR-IS-6-BR-471D-preview-17m35s.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/e3add4e3b9db66f43bc603bb30acee95b4bd41cf/images/USSR/USSR-IS-6-BR-471D-preview-17m35s.webp"
+    },
+    {
+      "path": "images/CHN/CHN-ZTZ88B-front-00m20s.webp",
+      "sha256": "f049bc34b6a720381a9348d22fbeb55b2cf501e8e1cbb5ab0e4d04328eab0514",
+      "bytes": 316968,
+      "width": 900,
+      "height": 620,
+      "vehicleId": "cn_ztz_88b",
+      "country": "CHN",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1WuGv6TEq2/",
+        "title": "中系庸九门之88B：仅个人观点",
+        "author": "游毛贼2",
+        "publishedAt": "2026-05-23T10:50:21+08:00",
+        "kind": "video",
+        "gameVersion": "2.55.1.122"
+      },
+      "sourceKind": "video",
+      "sourceTime": 20,
+      "mediaTime": 20,
+      "actualTime": 20,
+      "sourceFrameSHA256": "3eaec3a2d1241366c158f8c9876fa31e8991f1618d0fa0f403ecc58e13ac8608",
+      "proofSnapshotSHA256": "4095555187e35fadaa21f10b159c5b92a23be654cdfa17b9cb08a1b2203c1bc3",
+      "sourceGameVersion": "2.55.1.122",
+      "caseId": "cn_ztz_88b:BV1WuGv6TEq2:20000",
+      "kind": "primary-protection-preview-crop",
+      "roles": [
+        "primary-protection-preview"
+      ],
+      "purpose": "primary-protection-preview",
+      "mainImageUsable": true,
+      "hasGreenArmourMap": false,
+      "hasGreenHitIndicator": false,
+      "nativeResized": false,
+      "sceneKind": "protection-preview",
+      "encoding": "lossless-webp",
+      "crop": [
+        570,
+        165,
+        900,
+        620
+      ],
+      "sourceFrameHashBasis": "original-native-PNG",
+      "sourceNativeWebPSHA256": "c3016690b64388eef98d55946e888940b6c66c00728b2fbd5554ce6df13becea",
+      "id": "f049bc34b6a720381a9348d22fbeb55b2cf501e8e1cbb5ab0e4d04328eab0514",
+      "commit": "9b1403d0d3ab2e685ff5582d81ebeae8deca7c5c",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9b1403d0d3ab2e685ff5582d81ebeae8deca7c5c/images/CHN/CHN-ZTZ88B-front-00m20s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9b1403d0d3ab2e685ff5582d81ebeae8deca7c5c/images/CHN/CHN-ZTZ88B-front-00m20s.webp"
+    },
+    {
+      "path": "images/CHN/CHN-ZTZ88B-native-00m20s.webp",
+      "sha256": "c3016690b64388eef98d55946e888940b6c66c00728b2fbd5554ce6df13becea",
+      "bytes": 1079066,
+      "width": 1920,
+      "height": 1078,
+      "vehicleId": "cn_ztz_88b",
+      "country": "CHN",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1WuGv6TEq2/",
+        "title": "中系庸九门之88B：仅个人观点",
+        "author": "游毛贼2",
+        "publishedAt": "2026-05-23T10:50:21+08:00",
+        "kind": "video",
+        "gameVersion": "2.55.1.122"
+      },
+      "sourceKind": "video",
+      "sourceTime": 20,
+      "mediaTime": 20,
+      "actualTime": 20,
+      "sourceFrameSHA256": "3eaec3a2d1241366c158f8c9876fa31e8991f1618d0fa0f403ecc58e13ac8608",
+      "proofSnapshotSHA256": "4095555187e35fadaa21f10b159c5b92a23be654cdfa17b9cb08a1b2203c1bc3",
+      "sourceGameVersion": "2.55.1.122",
+      "caseId": "cn_ztz_88b:BV1WuGv6TEq2:20000",
+      "kind": "source-evidence-native",
+      "roles": [
+        "native-source-evidence"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "hasGreenArmourMap": false,
+      "hasGreenHitIndicator": false,
+      "nativeResized": false,
+      "sceneKind": "protection-preview",
+      "encoding": "source-webp-preserved",
+      "sourceFrameHashBasis": "original-native-PNG",
+      "sourceNativeWebPSHA256": "c3016690b64388eef98d55946e888940b6c66c00728b2fbd5554ce6df13becea",
+      "id": "c3016690b64388eef98d55946e888940b6c66c00728b2fbd5554ce6df13becea",
+      "commit": "9b1403d0d3ab2e685ff5582d81ebeae8deca7c5c",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9b1403d0d3ab2e685ff5582d81ebeae8deca7c5c/images/CHN/CHN-ZTZ88B-native-00m20s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9b1403d0d3ab2e685ff5582d81ebeae8deca7c5c/images/CHN/CHN-ZTZ88B-native-00m20s.webp"
+    },
+    {
+      "path": "images/CHN/CHN-ZTZ59D1-front-00m16s.webp",
+      "sha256": "e3a05b13faa59357949b144f0de19db01a0f11c8bd17154852acfced3215c9bd",
+      "bytes": 242878,
+      "width": 560,
+      "height": 450,
+      "vehicleId": "cn_type_59d",
+      "country": "CHN",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUVu6BEWR/",
+        "title": "牢中神九门59D1仅个人观点",
+        "author": "游毛贼2",
+        "publishedAt": "2026-05-30",
+        "publishedAtDOM": "2026-05-30 13:11:42",
+        "timezoneSpecifiedByDOM": null,
+        "kind": "video",
+        "gameVersion": "2.55.1.136"
+      },
+      "sourceKind": "video",
+      "sourceTime": 16.069614,
+      "mediaTime": 16.07,
+      "actualTime": 16.069614,
+      "sourceFrameSHA256": "39ec815f312adce674c7ce36c6625a5d52afd218e6b47da10f21dd91e0742be1",
+      "sourceFrameHashBasis": "original-native-PNG",
+      "sourceNativeWebPSHA256": "1d27bdef1cc9d4d185a7f31d3fc64ef08a73ef90a4873f5c3029cfd2c077d6bb",
+      "proofSnapshotSHA256": "6bf7aa231e0e20c5506027e176898d0b9aef51f9098ffdb738351d3c1c39eb4d",
+      "sourceGameVersion": "2.55.1.136",
+      "caseId": null,
+      "kind": "primary-armor-layout-crop",
+      "roles": [
+        "primary-armor-layout"
+      ],
+      "purpose": "primary-armor-layout",
+      "mainImageUsable": true,
+      "hasGreenArmourMap": false,
+      "hasGreenHitIndicator": false,
+      "colorSemantics": "armor-thickness-and-material-only",
+      "nativeResized": false,
+      "sceneKind": "armor-layout",
+      "encoding": "lossless-webp",
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "compression_level": 6
+      },
+      "backgroundOtherVehiclePresent": true,
+      "backgroundOccludesTarget": false,
+      "crop": [
+        700,
+        190,
+        560,
+        450
+      ],
+      "id": "e3a05b13faa59357949b144f0de19db01a0f11c8bd17154852acfced3215c9bd",
+      "commit": "42994b18d0dfcb14bba9fd3eeca6f48e78c0f585",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@42994b18d0dfcb14bba9fd3eeca6f48e78c0f585/images/CHN/CHN-ZTZ59D1-front-00m16s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/42994b18d0dfcb14bba9fd3eeca6f48e78c0f585/images/CHN/CHN-ZTZ59D1-front-00m16s.webp"
+    },
+    {
+      "path": "images/CHN/CHN-ZTZ59D1-native-00m16s.webp",
+      "sha256": "1d27bdef1cc9d4d185a7f31d3fc64ef08a73ef90a4873f5c3029cfd2c077d6bb",
+      "bytes": 1261648,
+      "width": 1920,
+      "height": 1078,
+      "vehicleId": "cn_type_59d",
+      "country": "CHN",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUVu6BEWR/",
+        "title": "牢中神九门59D1仅个人观点",
+        "author": "游毛贼2",
+        "publishedAt": "2026-05-30",
+        "publishedAtDOM": "2026-05-30 13:11:42",
+        "timezoneSpecifiedByDOM": null,
+        "kind": "video",
+        "gameVersion": "2.55.1.136"
+      },
+      "sourceKind": "video",
+      "sourceTime": 16.069614,
+      "mediaTime": 16.07,
+      "actualTime": 16.069614,
+      "sourceFrameSHA256": "39ec815f312adce674c7ce36c6625a5d52afd218e6b47da10f21dd91e0742be1",
+      "sourceFrameHashBasis": "original-native-PNG",
+      "sourceNativeWebPSHA256": "1d27bdef1cc9d4d185a7f31d3fc64ef08a73ef90a4873f5c3029cfd2c077d6bb",
+      "proofSnapshotSHA256": "6bf7aa231e0e20c5506027e176898d0b9aef51f9098ffdb738351d3c1c39eb4d",
+      "sourceGameVersion": "2.55.1.136",
+      "caseId": null,
+      "kind": "source-evidence-native",
+      "roles": [
+        "native-source-evidence"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "hasGreenArmourMap": false,
+      "hasGreenHitIndicator": false,
+      "colorSemantics": "armor-thickness-and-material-only",
+      "nativeResized": false,
+      "sceneKind": "armor-layout",
+      "encoding": "lossless-webp",
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "compression_level": 6
+      },
+      "backgroundOtherVehiclePresent": true,
+      "backgroundOccludesTarget": false,
+      "id": "1d27bdef1cc9d4d185a7f31d3fc64ef08a73ef90a4873f5c3029cfd2c077d6bb",
+      "commit": "42994b18d0dfcb14bba9fd3eeca6f48e78c0f585",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@42994b18d0dfcb14bba9fd3eeca6f48e78c0f585/images/CHN/CHN-ZTZ59D1-native-00m16s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/42994b18d0dfcb14bba9fd3eeca6f48e78c0f585/images/CHN/CHN-ZTZ59D1-native-00m16s.webp"
     }
   ]
 }

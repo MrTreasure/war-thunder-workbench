@@ -6840,8 +6840,15 @@
       "collectedAt": "2026-11-02T08:52:58.282Z",
       "pins": [],
       "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1WuGv6TEq2/",
+        "title": "中系庸九门之88B：仅个人观点",
+        "author": "游毛贼2",
+        "publishedAt": "2026-05-23T10:50:21+08:00",
+        "kind": "video",
+        "gameVersion": "2.55.1.122"
+      },
+      "status": "primary-protection-preview-no-pins",
       "wikiUrl": "https://wiki.warthunder.com/unit/cn_ztz_88b",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-six-nations-20261102/snapshots/cn_ztz_88b.json",
@@ -6862,8 +6869,109 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "局部弱点视频试射与精确弹药/距离/角度上下文待核对。"
-      ]
+        "尚缺正向可击穿弱点的实射证据。",
+        "尚缺不同弹药或角度的独立复核；本帧弹药、距离与单点角度已记录。",
+        "本帧无独立目标标题；目标身份依据同视频10秒原生标题、20秒作者字幕和外观连续性。"
+      ],
+      "sourceKind": "video",
+      "sourceGameVersion": "2.55.1.122",
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/ztz88b-bilibili-v132-20261103/ZTZ88B-10-20.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-ingestion-20261102/ztz88b-main-v136/proof-normalized.json",
+      "captureSHA256": "c3016690b64388eef98d55946e888940b6c66c00728b2fbd5554ce6df13becea",
+      "originalFrameSHA256": "3eaec3a2d1241366c158f8c9876fa31e8991f1618d0fa0f403ecc58e13ac8608",
+      "time": 20,
+      "crop": [
+        570,
+        165,
+        900,
+        620
+      ],
+      "sourceDimensions": [
+        1920,
+        1078
+      ],
+      "imageQuality": "native-1920x1078",
+      "imageView": "front",
+      "mainViewKind": "protection-preview",
+      "mainViewNote": "ZTZ88B正面防护预览：同车DTW1-105（APFSDS），500米、界面穿深330毫米；黄色准星所指单点显示“击穿几率较低”。未观察实射，不能作为已验证弱点或全正面结论。来源游戏版本2.55.1.122。 目标身份由同视频10秒原生“改装-ZTZ88B”、20秒作者88B字幕和外观连续性确认；20秒没有独立原生目标标题。绿色线条不代表整片装甲可击穿。",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "testContext": {
+        "id": "cn_ztz_88b:BV1WuGv6TEq2:20000",
+        "vehicleId": "cn_ztz_88b",
+        "attacker": "ZTZ88B",
+        "attackerVehicleId": "cn_ztz_88b",
+        "shell": "DTW1-105",
+        "sourceShellLabelOriginal": "DTW1-105",
+        "rawUIType": "APFSDS - 尾翼稳定脱壳穿甲弹",
+        "shellType": "APFSDS",
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeBasis": "native UI at same-video 10s modification screen; no Wiki alias inferred",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 330,
+        "impactAngleDegrees": 65,
+        "attackAzimuthDegrees": 3,
+        "equivalentArmorMm": 300,
+        "sourceGameVersion": "2.55.1.122",
+        "sourceTime": 20,
+        "sourceUrl": "https://www.bilibili.com/video/BV1WuGv6TEq2/",
+        "sourceFrameSHA256": "3eaec3a2d1241366c158f8c9876fa31e8991f1618d0fa0f403ecc58e13ac8608",
+        "actualUIObserved": true,
+        "actualShotObserved": false,
+        "outcome": null,
+        "sceneKind": "protection-preview",
+        "evidenceKind": "protection-analysis-hover-prediction",
+        "prediction": "low-penetration-chance",
+        "predictedDamage": null,
+        "targetIdentityStatus": "same-video-continuity-and-appearance",
+        "targetIdentityNote": "Same-source same-vehicle modification title at 10s and frontal protection-preview at20s; left panel is explicitly attacker, not a separately printed target title. Model appearance consistent with ZTZ88B.",
+        "note": "黄色准星仅单点“击穿几率较低”；65°/3°/等效300毫米仅该点；无实射与推荐标点。",
+        "caseId": "cn_ztz_88b:BV1WuGv6TEq2:20000",
+        "sourceFrameHashBasis": "original-native-PNG",
+        "sourceNativeWebPSHA256": "c3016690b64388eef98d55946e888940b6c66c00728b2fbd5554ce6df13becea"
+      },
+      "testCases": [
+        {
+          "id": "cn_ztz_88b:BV1WuGv6TEq2:20000",
+          "vehicleId": "cn_ztz_88b",
+          "attacker": "ZTZ88B",
+          "attackerVehicleId": "cn_ztz_88b",
+          "shell": "DTW1-105",
+          "sourceShellLabelOriginal": "DTW1-105",
+          "rawUIType": "APFSDS - 尾翼稳定脱壳穿甲弹",
+          "shellType": "APFSDS",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeBasis": "native UI at same-video 10s modification screen; no Wiki alias inferred",
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 330,
+          "impactAngleDegrees": 65,
+          "attackAzimuthDegrees": 3,
+          "equivalentArmorMm": 300,
+          "sourceGameVersion": "2.55.1.122",
+          "sourceTime": 20,
+          "sourceUrl": "https://www.bilibili.com/video/BV1WuGv6TEq2/",
+          "sourceFrameSHA256": "3eaec3a2d1241366c158f8c9876fa31e8991f1618d0fa0f403ecc58e13ac8608",
+          "actualUIObserved": true,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sceneKind": "protection-preview",
+          "evidenceKind": "protection-analysis-hover-prediction",
+          "prediction": "low-penetration-chance",
+          "predictedDamage": null,
+          "targetIdentityStatus": "same-video-continuity-and-appearance",
+          "targetIdentityNote": "Same-source same-vehicle modification title at 10s and frontal protection-preview at20s; left panel is explicitly attacker, not a separately printed target title. Model appearance consistent with ZTZ88B.",
+          "note": "黄色准星仅单点“击穿几率较低”；65°/3°/等效300毫米仅该点；无实射与推荐标点。",
+          "sourceFrameHashBasis": "original-native-PNG",
+          "sourceNativeWebPSHA256": "c3016690b64388eef98d55946e888940b6c66c00728b2fbd5554ce6df13becea"
+        }
+      ],
+      "coverageStatus": "single-point-protection-preview",
+      "coverageNotice": "仅单点防护预测，暂无实射弱点标注",
+      "frontSummary": "原帧黄色准星对应部位提示“击穿几率较低”；这是DTW1-105、500米、330毫米下的单点预测，未观察实射，不作为正向弱点推荐。",
+      "sourceNativeWebPSHA256": "c3016690b64388eef98d55946e888940b6c66c00728b2fbd5554ce6df13becea",
+      "sourceFrameHashBasis": "original-native-PNG"
     },
     {
       "id": "fr_amx_32",
@@ -7113,8 +7221,17 @@
           }
         }
       ],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PUVu6BEWR/",
+        "title": "牢中神九门59D1仅个人观点",
+        "author": "游毛贼2",
+        "publishedAt": "2026-05-30",
+        "publishedAtDOM": "2026-05-30 13:11:42",
+        "timezoneSpecifiedByDOM": null,
+        "kind": "video",
+        "gameVersion": "2.55.1.136"
+      },
+      "status": "primary-armor-layout-no-pins",
       "wikiUrl": "https://wiki.warthunder.com/unit/cn_type_59d",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-001-20261102/snapshots/cn_type_59d.json",
@@ -7136,7 +7253,7 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。"
+        "尚缺可验证防护分析或实射结果及对应弹药、距离与局部坐标。"
       ],
       "relatedSources": [
         {
@@ -7148,7 +7265,38 @@
           "time": null,
           "scopeNote": "MarksmanOfDoom文章作者观点；仅本条标明的精确车型，不是已验证试射或Wiki基础数据"
         }
-      ]
+      ],
+      "sourceKind": "video",
+      "sourceGameVersion": "2.55.1.136",
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/ztz59d1-bilibili-v139-20261103/ZTZ59D1-4-16.07.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-ingestion-20261102/ztz59d1-main-v141/proof-normalized.json",
+      "captureSHA256": "1d27bdef1cc9d4d185a7f31d3fc64ef08a73ef90a4873f5c3029cfd2c077d6bb",
+      "originalFrameSHA256": "39ec815f312adce674c7ce36c6625a5d52afd218e6b47da10f21dd91e0742be1",
+      "sourceNativeWebPSHA256": "1d27bdef1cc9d4d185a7f31d3fc64ef08a73ef90a4873f5c3029cfd2c077d6bb",
+      "sourceFrameHashBasis": "original-native-PNG",
+      "time": 16.069614,
+      "mediaTime": 16.07,
+      "actualTime": 16.069614,
+      "crop": [
+        700,
+        190,
+        560,
+        450
+      ],
+      "sourceDimensions": [
+        1920,
+        1078
+      ],
+      "imageQuality": "native-1920x1078",
+      "imageView": "front",
+      "mainViewKind": "armor-layout",
+      "mainViewNote": "ZTZ59D1机库近正前略俯视装甲布局（游戏版本2.55.1.136）。颜色为装甲厚度／材质显示，不表示可穿或不可穿；未展示射手、弹药、距离或实射结果。原生背景他车不属于标注目标。",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "coverageStatus": "armor-layout-context-only",
+      "coverageNotice": "机库装甲布局，暂无实射弱点标注",
+      "frontSummary": "ZTZ59D1近正前机库装甲布局。颜色仅表示装甲厚度／材质，不表示可击穿或不可击穿；没有射手、弹药、距离及实射结果。来源游戏版本2.55.1.136，与Wiki版本分别记录。",
+      "imageViewDetail": "near-front-slightly-elevated"
     },
     {
       "id": "fr_amx_30_b2_brenus",
@@ -26702,7 +26850,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 52,
+    "illustratedCount": 54,
     "countries": [
       {
         "country": "usa",
@@ -26838,7 +26986,7 @@
     "lastUpdated": "2026-11-02",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 50,
+    "illustratedTargetCount": 52,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,
