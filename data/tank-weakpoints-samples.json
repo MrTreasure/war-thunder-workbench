@@ -2304,7 +2304,34 @@
         "seconds": 6.7,
         "note": "自动装填；Wiki 主炮面板。"
       },
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.49231,
+          "y": 0.72826,
+          "label": "首下",
+          "adviceId": "BV1CueU6cECo:tail:5:general",
+          "caseId": "cn_ztz_99a:BV1CueU6cECo:900000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 900,
+          "detail": "作者对96／99系列建议瞄首下；此点指向本帧ZTZ99A可见的车体首下中央，仅为位置参考。当前UI为90式战车B型（富士教导团）/JM33/500米，不代表该点已实射或保证击穿。",
+          "kind": "conditional",
+          "annotationSemantics": "conditional-visible-region-reference-from-family-advice",
+          "actualShotObserved": false
+        },
+        {
+          "x": 0.56308,
+          "y": 0.4587,
+          "label": "炮塔顶部前缘",
+          "adviceId": "BV1CueU6cECo:tail:5:general",
+          "caseId": "cn_ztz_99a:BV1CueU6cECo:900000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 900,
+          "detail": "作者对96／99系列建议瞄炮塔顶部；此点仅指向本帧可见的炮塔顶部前缘窄带，完整顶板受正面视角遮挡。不是整片顶板弱区或成功试射证明；俯仰、命中部位与弹药变化需另核。",
+          "kind": "conditional",
+          "annotationSemantics": "conditional-visible-region-reference-from-family-advice",
+          "actualShotObserved": false
+        }
+      ],
       "videoAdvice": [
         {
           "id": "BV1CueU6cECo:tail:5:general",
@@ -2570,7 +2597,7 @@
       "mainImageUsable": true,
       "mainViewNote": "原视频实际绿色防护区域，保留原生像素；不添加或扩大游戏着色。",
       "coverageStatus": "partial-front-analysis-no-verified-pins",
-      "coverageNotice": "已有绿色防护分析 · 局部标点待补",
+      "coverageNotice": "已有绿色防护分析 · 首下及可见顶部前缘2处条件性参考；三角区与耳轴未可靠定位，未观察到独立实射后效。",
       "missingEvidence": [
         "暂无独立正向试射结果及已核对的局部UV标点，不计完整图解。"
       ]
@@ -3908,7 +3935,34 @@
         "mechanism": "manual",
         "note": "基础乘员→王牌乘员（Wiki主炮面板）"
       },
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.49375,
+          "y": 0.376316,
+          "detail": "作者在420.542549秒及426.282793秒建议打炮闩下方、避开正中。点位仅指420.017秒主图中炮口下方可见外表区域，供寻找作者建议方向；不声称看见或精确定位内部炮闩，也不把整个炮盾都算作推荐。当前为Leopard 2A5、DM33、500米防护分析，尚无此点独立实射后效。",
+          "kind": "conditional",
+          "adviceId": "BV1PUAezbE1p:348000-434000:pz123:1",
+          "caseId": "germ_leopard_2a4_pzbtl_123:BV1PUAezbE1p:420017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "sourceTime": 420.017,
+          "label": "炮口下方",
+          "annotationSemantics": "author-breech-direction-advice-visible-exterior-region-reference-not-internal-position-not-shot",
+          "actualShotObserved": false
+        },
+        {
+          "x": 0.482031,
+          "y": 0.7,
+          "detail": "作者384.829422秒称车体较脆、392.189091秒建议打车体；本点仅选择420.017秒主图真实绿色着色且未被提示框遮挡的首下中央作外表区域参考。该时间并非392秒姿态，不迁移当时角度或后效；不把中央当作作者所指右侧弹药内部精确位置，不保证弹药引爆或击毁。当前条件为Leopard 2A5、DM33、500米防护分析，并非该点实射。",
+          "kind": "conditional",
+          "adviceId": "BV1PUAezbE1p:348000-434000:pz123:2",
+          "caseId": "germ_leopard_2a4_pzbtl_123:BV1PUAezbE1p:420017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "sourceTime": 392.189091,
+          "label": "首下中央",
+          "annotationSemantics": "author-hull-advice-mapped-to-main-frame-visible-green-region-not-pointwise-tested",
+          "actualShotObserved": false
+        }
+      ],
       "videoAdvice": [
         {
           "caseId": "germ_leopard_2a4_pzbtl_123:BV1PUAezbE1p:405033",
@@ -4198,7 +4252,8 @@
       "mainViewKind": "protection-analysis",
       "mainViewNote": "提示框覆盖车体右侧下部/履带，主要炮塔及车体正面绿区仍可辨；保留原帧查看上下文",
       "imageQuality": "1080p",
-      "mainImageUsable": true
+      "mainImageUsable": true,
+      "coverageNotice": "正面防护分析 · 炮口下方与首下中央2处条件性外表参考；内部炮闩、右侧弹药与观察窗未精确定位，不迁移不同姿态后效。"
     },
     {
       "id": "ussr_t_80ue1",
@@ -4226,7 +4281,34 @@
         "firstOrderRounds": 28,
         "totalRounds": 45
       },
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.536585,
+          "y": 0.704545,
+          "detail": "作者建议首下可见时选中央、避开两侧；此点仅标示203.017秒主图中可见的首下中央。该帧为Leopard 2A5、DM33、500米原生防护分析，绿色及提示框不是独立实射，不能保证击穿或击毁；不标出不可见油箱内部位置。",
+          "kind": "conditional",
+          "adviceId": "BV1PUAezbE1p:198000-234000:t80-center-cupola:1",
+          "caseId": "ussr_t_80ue1:BV1PUAezbE1p:203017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "sourceTime": 202.504553,
+          "label": "首下中央",
+          "annotationSemantics": "author-advice-reference-on-main-frame-visible-region-not-pointwise-tested",
+          "actualShotObserved": false
+        },
+        {
+          "x": 0.365854,
+          "y": 0.434091,
+          "detail": "作者187.033秒指出脖子可作为备选、但缝小难瞄。此点仅映射当前203.017秒主图左侧可见的炮塔与车体连接缝；187.033秒是另一俯角，不把其防护分析提示或后效迁移为当前坐标实测，也不保证整车杀伤。",
+          "kind": "conditional",
+          "adviceId": "BV1PUAezbE1p:180000-198000:t80-neck-window:0",
+          "caseId": "ussr_t_80ue1:BV1PUAezbE1p:187033",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PUAezbE1p/",
+          "sourceTime": 187.033,
+          "label": "炮塔与车体连接缝",
+          "annotationSemantics": "different-angle-author-advice-mapped-to-main-frame-visible-region-not-pointwise-tested",
+          "actualShotObserved": false
+        }
+      ],
       "videoAdvice": [
         {
           "caseId": null,
@@ -4711,7 +4793,8 @@
           "time": null,
           "scopeNote": "作者归因文字；非独立试射，原文私有归档。"
         }
-      ]
+      ],
+      "coverageNotice": "正面防护分析 · 首下中央与连接缝2处条件性参考；观察窗三角区未可靠定位，俯视与顶部机会属于不同姿态，不迁移逐点后效。"
     },
     {
       "id": "cn_ztz_96",
@@ -9890,7 +9973,21 @@
       "eraStatus": "pending-exact-variant-date-review",
       "eraBasis": "现有unit页面没有足够明确的具体技术改型形成日期；不以采购、改装交付或游戏引入日期推断。",
       "collectedAt": "2026-11-02T09:05:56.037Z",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.503077,
+          "y": 0.55,
+          "label": "炮塔与车体连接处",
+          "adviceId": "BV1CueU6cECo:tail:2:general",
+          "caseId": "jp_type_10_prototype:BV1CueU6cECo:809000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 809,
+          "detail": "作者同帧建议这组日系车型优先瞄准“脖子”；此点标示本帧可见的炮塔与车体连接区域。TKX(P)使用JM33、500米的原生防护分析画面在附近呈绿色。族群建议不是TKX(P)该点的独立实射结论，不能保证击穿后效或一击击毁。",
+          "kind": "conditional",
+          "annotationSemantics": "conditional-visible-connection-reference-from-family-advice",
+          "actualShotObserved": false
+        }
+      ],
       "videoAdvice": [
         {
           "id": "BV1CueU6cECo:tail:2:general",
@@ -10209,7 +10306,7 @@
       "mainImageUsable": true,
       "mainViewNote": "原视频实际绿色防护区域，保留原生像素；不添加或扩大游戏着色。",
       "coverageStatus": "partial-front-analysis-no-verified-pins",
-      "coverageNotice": "已有绿色防护分析 · 局部标点待补"
+      "coverageNotice": "已有绿色防护分析 · 炮塔与车体连接处1处条件性参考；未观察到独立实射后效，具体改型年代仍待核实。"
     },
     {
       "id": "sw_leopard_1a5no",
@@ -12995,7 +13092,47 @@
       "eraStatus": "reviewed-unit-prose",
       "eraBasis": "公羊AMVPT1为2022年展示的升级原型，重点改善机动，但没有之前车型的WAR附甲选项。",
       "collectedAt": "2026-11-02T09:51:52.205Z",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.407692,
+          "y": 0.58913,
+          "label": "首上",
+          "adviceId": null,
+          "caseId": "it_ariete_amv_pt1:BV1CueU6cECo:852017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 852.016687,
+          "detail": "该局部在本帧原生防护分析中显示绿色。仅供富士90式B／JM33／500米、显示472毫米穿深条件下参考；不是独立实射命中、击穿或击毁证明，不保证整块装甲或其他角度、距离、弹种结果。",
+          "kind": "conditional",
+          "annotationSemantics": "current-frame-green-region-reference-not-actual-shot",
+          "actualShotObserved": false
+        },
+        {
+          "x": 0.461538,
+          "y": 0.686957,
+          "label": "首下",
+          "adviceId": null,
+          "caseId": "it_ariete_amv_pt1:BV1CueU6cECo:852017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 852.016687,
+          "detail": "该局部在本帧原生防护分析中显示绿色。仅供富士90式B／JM33／500米、显示472毫米穿深条件下参考；不是独立实射命中、击穿或击毁证明，不保证整块装甲或其他角度、距离、弹种结果。",
+          "kind": "conditional",
+          "annotationSemantics": "current-frame-green-region-reference-not-actual-shot",
+          "actualShotObserved": false
+        },
+        {
+          "x": 0.607692,
+          "y": 0.415217,
+          "label": "画面右侧炮塔正面",
+          "adviceId": null,
+          "caseId": "it_ariete_amv_pt1:BV1CueU6cECo:852017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 852.016687,
+          "detail": "该局部在本帧原生防护分析中显示绿色。仅供富士90式B／JM33／500米、显示472毫米穿深条件下参考；不是独立实射命中、击穿或击毁证明，不保证整块装甲或其他角度、距离、弹种结果。",
+          "kind": "conditional",
+          "annotationSemantics": "current-frame-green-region-reference-not-actual-shot",
+          "actualShotObserved": false
+        }
+      ],
       "videoAdvice": [
         {
           "id": "BV1CueU6cECo:tail:3:general",
@@ -13268,7 +13405,7 @@
       "mainImageUsable": true,
       "mainViewNote": "原视频实际绿色防护区域，保留原生像素；不添加或扩大游戏着色。",
       "coverageStatus": "partial-front-analysis-no-verified-pins",
-      "coverageNotice": "已有绿色防护分析 · 局部标点待补"
+      "coverageNotice": "已有绿色防护分析 · 3处本帧绿色区域参考；族级左侧与夹缝建议未唯一定位，未观察到独立实射后效。"
     },
     {
       "id": "jp_leopard_2ri",
