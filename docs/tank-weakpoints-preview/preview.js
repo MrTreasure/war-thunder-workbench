@@ -88,9 +88,27 @@ function imageMissing(message) {
   $("image-status").textContent = message;
   $("image-status").hidden = false;
 }
+function renderBaseReference(model) {
+  const host = $("base-reference");
+  const ref = model.baseVehicleReference;
+  const base = ref && SAMPLE.models.find((entry) => entry.id === ref.vehicleId);
+  host.hidden = !!(model.imageUrl || model.rawUrl) || !base;
+  host.replaceChildren();
+  if (host.hidden) return;
+  const title = element("h3", "基础车型图解");
+  const note = element("p", `${ref.note} 参考图解属于${base.name}，不等同本车实拍。`);
+  const link = element("a", `查看${base.name}图解 →`);
+  link.href = "#vehicle=" + encodeURIComponent(base.id);
+  const official = element("a", "官方依据 ↗");
+  official.href = ref.targetWikiURL;
+  official.target = "_blank";
+  official.rel = "noopener noreferrer";
+  host.replaceChildren(title, note, link, official);
+}
 function render() {
   const model = SAMPLE.models[selected];
   if (!model) return;
+  renderBaseReference(model);
   const source = sourceOf(model);
   const articleImage = source.kind === "article-image";
   const staticSource = source.kind === "forum-image" || articleImage;

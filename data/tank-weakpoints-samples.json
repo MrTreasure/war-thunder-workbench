@@ -9400,7 +9400,16 @@
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。",
         "具体改型年代待核实，era保留null。"
-      ]
+      ],
+      "baseVehicleReference": {
+        "vehicleId": "germ_leopard_2a4",
+        "basis": "official-wiki-identical-except-appearance",
+        "targetWikiURL": "https://wiki.warthunder.com/unit/it_leopard_2a4",
+        "actualcheckedAt": "2026-11-02T09:04:50.411Z",
+        "gameVersion": "2.59.0.92",
+        "sourceHTMLSHA": "ac1ac8a7db01b63d7541d0f947d80499357d2e456b4b4db86000ae311548150f",
+        "note": "官方Wiki说明匈牙利版本与德国版本仅独有涂装不同。"
+      }
     },
     {
       "id": "jp_type_90b",
@@ -22418,7 +22427,16 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
-      ]
+      ],
+      "baseVehicleReference": {
+        "vehicleId": "cn_mbt2000",
+        "basis": "official-wiki-protection-equivalence",
+        "targetWikiURL": "https://wiki.warthunder.com/unit/cn_al_khalid_1",
+        "actualcheckedAt": "2026-11-02T18:06:10.160Z",
+        "gameVersion": "2.59.0.92",
+        "sourceHTMLSHA": "c9928543456e04a7db51184329e614d7dc74065bf44c449edd21be75c3620fd4",
+        "note": "官方Wiki说明本车与MBT-2000在游戏中的操控、火力和防护相同。"
+      }
     },
     {
       "id": "cn_m1a2t",
@@ -22503,7 +22521,16 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
-      ]
+      ],
+      "baseVehicleReference": {
+        "vehicleId": "cn_mbt2000",
+        "basis": "official-wiki-identical-except-appearance",
+        "targetWikiURL": "https://wiki.warthunder.com/unit/cn_mbt2000_sm",
+        "actualcheckedAt": "2026-11-02T18:06:25.003Z",
+        "gameVersion": "2.59.0.92",
+        "sourceHTMLSHA": "0231082f7a1bbd60fee2ae1af5dee021fd8f7c173e06f4377f65e8d25d7d1028",
+        "note": "官方Wiki说明本车除主题外观差异外，与基础车型相同。"
+      }
     },
     {
       "id": "cn_oplot_t",
@@ -23210,7 +23237,16 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
-      ]
+      ],
+      "baseVehicleReference": {
+        "vehicleId": "germ_leopard_2a4m_can",
+        "basis": "official-wiki-identical-except-appearance",
+        "targetWikiURL": "https://wiki.warthunder.com/unit/germ_leopard_2a4m_can_sm",
+        "actualcheckedAt": "2026-11-02T18:07:46.965Z",
+        "gameVersion": "2.59.0.92",
+        "sourceHTMLSHA": "3ea9445c2b279b150a911d797039ff4b6a6aaec1c589dbaee83dec1ca16bdf56",
+        "note": "官方Wiki说明本车除主题外观差异外，与基础车型相同。"
+      }
     },
     {
       "id": "germ_leopard_2a5_pso",
@@ -24331,7 +24367,16 @@
           "time": 316,
           "scopeNote": "OES系列解析；具体载具版本尚未确认，未套用测试结论"
         }
-      ]
+      ],
+      "baseVehicleReference": {
+        "vehicleId": "uk_challenger_2_megatron",
+        "basis": "official-wiki-identical-except-appearance",
+        "targetWikiURL": "https://wiki.warthunder.com/unit/uk_challenger_2_megatron_sm",
+        "actualcheckedAt": "2026-11-02T18:16:13.575Z",
+        "gameVersion": "2.59.0.92",
+        "sourceHTMLSHA": "e609eb12626b7609281749e138f1a3d82383bff119ae869dbb481bc79f69830e",
+        "note": "官方Wiki说明本车除主题外观差异外，与基础车型相同。"
+      }
     },
     {
       "id": "uk_challenger_ii_yt_cup_2019",
@@ -24417,7 +24462,16 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
-      ]
+      ],
+      "baseVehicleReference": {
+        "vehicleId": "us_m1a1_aim_abrams",
+        "basis": "official-wiki-identical-except-appearance",
+        "targetWikiURL": "https://wiki.warthunder.com/unit/uk_m1a1_aim_abrams",
+        "actualcheckedAt": "2026-11-02T18:16:30.002Z",
+        "gameVersion": "2.59.0.92",
+        "sourceHTMLSHA": "34dc0e40f3a3f9d51e468dc270c17295868489519577863507bec1abea9127d6",
+        "note": "官方Wiki说明本车除视觉差异外，与美国科技树对应车型相同。"
+      }
     },
     {
       "id": "uk_shir_2",
@@ -25096,7 +25150,18 @@
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
       ],
-      "family": "is"
+      "family": "is",
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV118ZtYuEd3/",
+          "title": "不是，杠2 1944型到底该怎么玩？？",
+          "author": "Kelley-Stock",
+          "publishedAt": "2025-04-01",
+          "time": null,
+          "scopeNote": "1944型教学来源；视频分辨率未达到图解采集标准，未转用测试数据。"
+        }
+      ]
     },
     {
       "id": "ussr_is_2_1944_321",
@@ -25225,7 +25290,18 @@
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
       ],
-      "family": "is"
+      "family": "is",
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1xSn36cEhm/",
+          "title": "【战争雷霆】脸皮这么薄还玩露出？IS2M/1944真的只有抖爱慕玩-超详细新手教学测评和实战",
+          "author": "Mori772",
+          "publishedAt": "2026-10-18",
+          "time": 269,
+          "scopeNote": "作者以IS-2M为主题；原生目标型号未确认，画面不足以作为正面图解。"
+        }
+      ]
     },
     {
       "id": "ussr_object_292",
@@ -26910,7 +26986,16 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
-      ]
+      ],
+      "baseVehicleReference": {
+        "vehicleId": "ussr_t_80ue1",
+        "basis": "official-wiki-identical-except-appearance",
+        "targetWikiURL": "https://wiki.warthunder.com/unit/ussr_t_80ue1_sm",
+        "actualcheckedAt": "2026-11-02T18:27:55.309Z",
+        "gameVersion": "2.59.0.92",
+        "sourceHTMLSHA": "9a592b2f609339f21dba4f59c62051acdf0d5ed9f4234e62a2c06df24af32358",
+        "note": "官方Wiki说明本车除主题外观差异外，与基础车型相同。"
+      }
     },
     {
       "id": "ussr_t_80uk",

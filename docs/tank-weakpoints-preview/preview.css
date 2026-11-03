@@ -231,3 +231,8 @@ footer { max-width:1560px; margin:24px auto 0; padding:20px; border-top:1px soli
 .vehicle-search::placeholder { color:var(--wt-muted); }
 .vehicle-search:focus-visible { outline:2px solid var(--wt-gold); outline-offset:2px; }
 @media (max-width:800px) { .vehicle-search { width:100%; min-height:44px; } }
+
+.base-reference { border: 1px solid var(--wt-border, #69705b); padding: 12px 14px; border-radius: 6px; }
+.base-reference h3 { margin: 0 0 6px; font-size: 1rem; }
+.base-reference p { margin: 0 0 8px; font-size: .9rem; line-height: 1.6; }
+.base-reference a { display: inline-block; min-height: 44px; margin-inline-end: 16px; padding-block: 10px; }
