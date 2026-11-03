@@ -24,6 +24,34 @@ function privatePath(path) {
   if (!target.startsWith(resolve(project, "artifacts") + sep)) throw Error("Source proof must stay in local artifacts");
   return target;
 }
+function isForumPostUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" && url.hostname === "forum.warthunder.com"
+      && /^\/t\/[^/]+\/\d+\/\d+\/?$/.test(url.pathname);
+  } catch { return false; }
+}
+function validateStaticCase(item) {
+  if (item.sourceTime !== null || !isForumPostUrl(item.sourceUrl)
+    || !item.sourceImageUrl?.startsWith("https://")
+    || !Number.isFinite(Date.parse(item.sourcePublishedAt))) throw Error("Static screenshot needs a post, image and publication date, without a video time");
+}
+async function validateStaticFrame(proof, source, digest) {
+  if (proof.kind !== "forum-image" || proof.url !== source.url || !isForumPostUrl(proof.url)
+    || proof.sourceImageUrl !== source.imageUrl || proof.sourcePublishedAt !== source.publishedAt
+    || !Number.isFinite(Date.parse(proof.sourcePublishedAt)) || !Number.isFinite(Date.parse(proof.capturedAt))
+    || proof.image?.sha256 !== digest || !proof.sourcePacket?.file || !proof.sourcePageProof?.file) throw Error("Static screenshot provenance is incomplete");
+  const packetBytes = await readFile(privatePath(proof.sourcePacket.file));
+  const pageBytes = await readFile(privatePath(proof.sourcePageProof.file));
+  if (hash(packetBytes) !== proof.sourcePacket.sha256 || hash(pageBytes) !== proof.sourcePageProof.sha256) throw Error("Static screenshot source proof changed");
+  const record = JSON.parse(packetBytes).imageRecords?.find((entry) => entry.webpSHA256 === digest);
+  if (!record || record.sourcePost !== source.url || record.originalImageURL !== source.imageUrl
+    || record.postedAt !== source.publishedAt || record.collectedAt !== proof.capturedAt
+    || record.accessBlocked !== false || record.mediaTime !== null
+    || record.parentDOMProofSHA256 !== proof.sourcePageProof.sha256
+    || record.dimensions?.width !== proof.image.width || record.dimensions?.height !== proof.image.height) throw Error("Static screenshot differs from the public attachment record");
+  return proof.image;
+}
 function validateShellTypeReference(item, originalCase) {
   const reference = item?.shellTypeReference;
   if (!reference) return;
@@ -41,13 +69,21 @@ for (const model of data.models) {
   const cases = new Map();
   for (const item of model.testCases || []) {
     if (typeof item.id !== "string" || !item.id.startsWith(model.id + ":") || cases.has(item.id)) throw Error("Invalid or duplicate test case: " + model.id);
-    if (!Number.isFinite(item.sourceTime) || item.sourceTime < 0 || !item.sourceUrl?.startsWith("https://")) throw Error("Missing test-case source: " + model.id);
+    if (item.sourceKind === "forum-image") validateStaticCase(item);
+    else if ((item.sourceKind && item.sourceKind !== "video") || !Number.isFinite(item.sourceTime) || item.sourceTime < 0 || !item.sourceUrl?.startsWith("https://")) throw Error("Missing test-case source: " + model.id);
     for (const key of ["distanceMeters", "displayedPenetrationMm"]) if (item[key] != null && (!Number.isFinite(item[key]) || item[key] < 0)) throw Error("Invalid test-case measurement: " + model.id);
     validateShellTypeReference(item);
     cases.set(item.id, item);
   }
   validateShellTypeReference(model.testContext, cases.get(model.testContext?.caseId));
+  if (model.testContext?.sourceKind === "forum-image") validateStaticCase(model.testContext);
   for (const advice of model.videoAdvice || []) {
+    if (advice.sourceKind === "forum-image") {
+      const related = cases.get(advice.caseId || advice.relatedCaseId);
+      if (advice.sourceTime !== null || !isForumPostUrl(advice.sourceUrl)
+        || (advice.caseId && !related) || !Number.isFinite(Date.parse(advice.sourcePublishedAt || related?.sourcePublishedAt))) throw Error("Static advice must retain its post provenance and null video time");
+      continue;
+    }
     if (advice.kind === "author-general-front-ammunition-recommendation") {
       const evidence = advice.evidence?.sourceEvidence;
       if (advice.caseId != null || !Number.isFinite(advice.sourceTime) || !advice.sourceUrl?.startsWith("https://") || !evidence?.file || hash(await readFile(privatePath(evidence.file))) !== evidence.sha256) throw Error("General ammunition advice needs its own verified source, without an invented test case");
@@ -82,23 +118,29 @@ for (const model of data.models) {
     if (model.frame && basename(model.frame) !== model.frame) throw Error("Unsafe image reference");
     const framePath = model.framePath ? privatePath(model.framePath) : resolve(captures, model.frame);
     const proofPath = model.frameSnapshotPath ? privatePath(model.frameSnapshotPath) : resolve(captures, model.frameSnapshot + ".json");
-    const frame = JSON.parse(await readFile(proofPath, "utf8"));
-    if (!source?.url || !frame.url.startsWith(source.url) || frame.error || frame.challenge || frame.blocked || !frame.decode || Math.abs(frame.decode.mediaTime - model.time) > .2) throw Error("Video frame source/time not verified: " + model.id);
+    const proofBytes = await readFile(proofPath);
+    const frame = JSON.parse(proofBytes);
+    const staticImage = source?.kind === "forum-image";
+    if (frame.error || frame.challenge || frame.blocked) throw Error("Source capture was blocked: " + model.id);
+    if (staticImage) {
+      if (model.time !== null || !model.frameSnapshotSHA256 || hash(proofBytes) !== model.frameSnapshotSHA256) throw Error("Static image must retain its proof hash and null video time");
+    } else if (!source?.url || !frame.url?.startsWith(source.url) || !frame.decode || !Number.isFinite(model.time) || Math.abs(frame.decode.mediaTime - model.time) > .2) throw Error("Video frame source/time not verified: " + model.id);
     const raw = await readFile(framePath);
     if (model.captureSHA256 && hash(raw) !== model.captureSHA256) throw Error("Capture image hash mismatch");
+    const geometry = staticImage ? await validateStaticFrame(frame, source, hash(raw)) : frame.decode;
     const isPng = raw.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
     const isWebp = raw.toString("ascii", 0, 4) === "RIFF" && raw.toString("ascii", 8, 12) === "WEBP";
     if (!isPng && !isWebp) throw Error("Capture must be PNG or WebP");
     const dimensions = isPng ? { width: raw.readUInt32BE(16), height: raw.readUInt32BE(20) } : JSON.parse(execFileSync("ffprobe", ["-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "json", framePath], { encoding: "utf8" })).streams[0];
     const { width, height } = dimensions;
     if (!isHdSource(width, height) || model.imageView !== "front") throw Error("Verified HD front view required: " + model.id);
-    if (frame.decode.width !== width || frame.decode.height !== height) {
+    if (geometry.width !== width || geometry.height !== height) {
       const transform = model.frameCaptureTransform;
-      const scale = width / frame.decode.width;
-      if (!transform || transform.kind !== "downsample" || !(scale > 0 && scale < 1)
-        || transform.sourceWidth !== frame.decode.width || transform.sourceHeight !== frame.decode.height
+      const scale = width / geometry.width;
+      if (staticImage || !transform || transform.kind !== "downsample" || !(scale > 0 && scale < 1)
+        || transform.sourceWidth !== geometry.width || transform.sourceHeight !== geometry.height
         || transform.width !== width || transform.height !== height || !Number.isFinite(transform.scale) || Math.abs(transform.scale - scale) > 1e-8
-        || Math.abs(frame.decode.height * scale - height) > 1e-6) throw Error("Verified proportional downsample required; upscaling is forbidden: " + model.id);
+        || Math.abs(geometry.height * scale - height) > 1e-6) throw Error("Verified proportional downsample required; upscaling is forbidden: " + model.id);
     }
     model.sourceDimensions = [width, height];
     const [x, y, w, h] = model.crop;
@@ -120,27 +162,31 @@ for (const model of data.models) {
       if (hosted) model[kind === "photo" ? "imageFallbackUrl" : "rawFallbackUrl"] = hosted.rawUrl;
     }
     model.sourceFrameSHA256 = model.originalFrameSHA256 || hash(raw);
-    Object.assign(item, { illustrated: true, frameTime: frame.decode.mediaTime, frameSHA256: hash(raw), sourceFrameSHA256: model.sourceFrameSHA256, frameSize: raw.length, imageQuality: model.imageQuality });
+    Object.assign(item, { illustrated: true, sourceKind: staticImage ? "forum-image" : "video", frameTime: staticImage ? null : frame.decode.mediaTime, sourcePublishedAt: staticImage ? source.publishedAt : undefined, frameSHA256: hash(raw), sourceFrameSHA256: model.sourceFrameSHA256, frameSize: raw.length, imageQuality: model.imageQuality });
   } else if (model.pins?.length) throw Error("Do not publish pins without their matching front image");
   const evidenceIds = new Set();
   for (const evidence of model.protectionEvidence || []) {
     if (!/^[a-z0-9-]+$/.test(evidence.id) || evidenceIds.has(evidence.id)) throw Error("Invalid protection evidence identity");
     evidenceIds.add(evidence.id);
     const testCase = cases.get(evidence.caseId);
+    const staticEvidence = testCase?.sourceKind === "forum-image";
     const hosted = registry?.assets?.find((asset) => asset.path === evidence.assetPath);
     const original = registry?.assets?.find((asset) => asset.path === (evidence.rawAssetPath || evidence.assetPath));
-    if (!testCase || !hosted || !original || hosted.vehicleId !== model.id || original.vehicleId !== model.id || Math.abs(testCase.sourceTime - evidence.sourceTime) > .000001) throw Error("Protection screenshot and case mismatch");
+    if (!testCase || !hosted || !original || hosted.vehicleId !== model.id || original.vehicleId !== model.id
+      || (staticEvidence ? evidence.sourceTime !== null : !Number.isFinite(evidence.sourceTime) || Math.abs(testCase.sourceTime - evidence.sourceTime) > .000001)) throw Error("Protection screenshot and case mismatch");
     const framePath = privatePath(evidence.framePath);
     let body = await readFile(framePath);
     const proofBytes = await readFile(privatePath(evidence.frameSnapshotPath));
     const proof = JSON.parse(proofBytes);
     if (hash(body) !== original.sha256 || body.length !== original.bytes || hash(proofBytes) !== evidence.frameSnapshotSHA256) throw Error("Protection screenshot byte/proof mismatch");
-    if (!proof.url.startsWith(testCase.sourceUrl) || proof.error || proof.blocked || proof.challenge || !proof.decode || Math.abs(proof.decode.mediaTime - evidence.sourceTime) > .000001) throw Error("Protection screenshot source/time mismatch");
-    if (original.width !== proof.decode.width || original.height !== proof.decode.height || !isHdSource(original.width, original.height)) throw Error("Native HD protection screenshot required");
+    if (proof.error || proof.blocked || proof.challenge) throw Error("Protection screenshot source was blocked");
+    const geometry = staticEvidence ? await validateStaticFrame(proof, { url: testCase.sourceUrl, imageUrl: testCase.sourceImageUrl, publishedAt: testCase.sourcePublishedAt }, hash(body)) : proof.decode;
+    if (!staticEvidence && (!proof.url?.startsWith(testCase.sourceUrl) || !geometry || Math.abs(geometry.mediaTime - evidence.sourceTime) > .000001)) throw Error("Protection screenshot source/time mismatch");
+    if (original.width !== geometry.width || original.height !== geometry.height || !isHdSource(original.width, original.height)) throw Error("Native HD protection screenshot required");
     if (evidence.crop) {
       const [x, y, w, h] = evidence.crop;
       if (evidence.crop.length !== 4 || !evidence.crop.every(Number.isInteger) || x < 0 || y < 0 || w <= 0 || h <= 0 || x + w > original.width || y + h > original.height || hosted.width !== w || hosted.height !== h) throw Error("Invalid protection screenshot crop");
-      body = execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-i", framePath, "-vf", `crop=${w}:${h}:${x}:${y}`, "-frames:v", "1", "-c:v", "libwebp", "-lossless", "1", "-compression_level", "6", "-f", "webp", "pipe:1"]);
+      body = execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-i", framePath, "-vf", `crop=${w}:${h}:${x}:${y}`, "-frames:v", "1", "-c:v", "libwebp", "-lossless", "1", "-compression_level", "6", "-f", "webp", "pipe:1"], { maxBuffer: 32 * 1024 * 1024 });
     }
     if (hash(body) !== hosted.sha256 || body.length !== hosted.bytes) throw Error("Protection crop differs from its pinned asset");
     for (const asset of [hosted, original]) for (const url of [asset.url, asset.rawUrl]) if (!/^[a-f0-9]{40}$/.test(asset.commit) || !url?.startsWith("https://") || !url.includes(asset.commit)) throw Error("Unpinned protection screenshot");

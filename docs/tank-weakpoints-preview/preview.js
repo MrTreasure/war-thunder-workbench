@@ -66,7 +66,7 @@ function renderPoint() {
   const model = SAMPLE.models[selected];
   const summary = model?.frontSummary || model?.videoAdvice?.[0]?.text;
   if (!pin && summary) $("point-kind").textContent = "整体打法";
-  $("point-title").textContent = pin?.label || (summary ? "视频打法摘要" : "尚无标注");
+  $("point-title").textContent = pin?.label || (summary ? (sourceOf(model || {}).kind === "forum-image" ? "来源打法摘要" : "视频打法摘要") : "尚无标注");
   $("point-detail").textContent = pin?.detail || summary || "该车型的攻击位置说明尚未补充。";
   for (const host of [$("pins"), $("pin-buttons")])
     [...host.children].forEach((button, index) => button.setAttribute("aria-pressed", String(index === point)));
@@ -81,6 +81,7 @@ function render() {
   const model = SAMPLE.models[selected];
   if (!model) return;
   const source = sourceOf(model);
+  const staticSource = source.kind === "forum-image";
   const evidence = selectedEvidence(model);
   const imageViews = $("image-views");
   const views = [{ id: null, label: model.mainViewKind === "protection-analysis" ? "防护分析" : "外观与标注" }, ...(model.protectionEvidence || [])];
@@ -110,11 +111,12 @@ function render() {
   const testNote = evidence ? evidence.conditionNote : test?.note;
   $("test-note").textContent = testNote || "";
   $("test-note").hidden = !testNote;
-  const testHref = Number.isFinite(test?.sourceTime) ? videoUrl({ url: test.sourceUrl || source.url }, test.sourceTime) : null;
+  const staticTest = test?.sourceKind === "forum-image";
+  const testHref = staticTest ? videoUrl({ url: test.sourceUrl || source.url }) : Number.isFinite(test?.sourceTime) ? videoUrl({ url: test.sourceUrl || source.url }, test.sourceTime) : null;
   $("test-link").hidden = !testHref;
   if (testHref) {
     $("test-link").href = testHref;
-    $("test-link").textContent = `查看测试片段 ${Math.floor(test.sourceTime / 60)}:${String(Math.floor(test.sourceTime % 60)).padStart(2, "0")} ↗`;
+    $("test-link").textContent = staticTest ? "查看原帖证据 ↗" : `查看测试片段 ${Math.floor(test.sourceTime / 60)}:${String(Math.floor(test.sourceTime % 60)).padStart(2, "0")} ↗`;
   } else $("test-link").removeAttribute("href");
   $("video-section").hidden = !model.videoAdvice?.length;
   $("video-advice").replaceChildren(...(model.videoAdvice || []).map((advice) => {
@@ -125,7 +127,7 @@ function render() {
     const adviceTime = Number.isFinite(advice.sourceTime) ? advice.sourceTime : advice.time;
     const href = videoUrl({ url: advice.sourceUrl || testCase?.sourceUrl || source.url }, adviceTime);
     if (href) {
-      const link = element("a", Number.isFinite(adviceTime) ? `${Math.floor(adviceTime / 60)}:${String(Math.floor(adviceTime % 60)).padStart(2, "0")} ↗` : "查看视频 ↗");
+      const link = element("a", Number.isFinite(adviceTime) ? `${Math.floor(adviceTime / 60)}:${String(Math.floor(adviceTime % 60)).padStart(2, "0")} ↗` : advice.sourceKind === "forum-image" || staticSource ? "查看原帖 ↗" : "查看视频 ↗");
       link.href = href; link.target = "_blank"; link.rel = "noopener noreferrer";
       article.append(link);
     }
@@ -145,7 +147,7 @@ function render() {
   };
   if (imageUrl) image.src = imageUrl;
   else { image.removeAttribute("src"); imageMissing("高清正面图尚未归档，此车型资料仍在补充。"); }
-  image.alt = model.name + (evidence ? ` · ${evidence.label} · 原视频防护分析画面` : showRaw ? "原始防护分析视频帧" : model.mainViewKind === "protection-analysis" ? "正面防护分析原图" : "正面截图与区域说明");
+  image.alt = model.name + (evidence ? ` · ${evidence.label} · 防护分析画面` : showRaw ? staticSource ? "原帖完整防护分析截图" : "原始防护分析视频帧" : model.mainViewKind === "protection-analysis" ? "正面防护分析原图" : "正面截图与区域说明");
   image.width = evidence?.sourceDimensions?.[0] || (showRaw ? (model.sourceDimensions?.[0] || 1920) : (model.crop?.[2] || 1100));
   image.height = evidence?.sourceDimensions?.[1] || (showRaw ? (model.sourceDimensions?.[1] || 1080) : (model.crop?.[3] || 690));
   $("toggle-original").hidden = !!evidence || !(model.imageUrl && model.rawUrl);
@@ -154,8 +156,9 @@ function render() {
   $("evidence-full").hidden = !evidence;
   if (evidence) $("evidence-full").href = evidence.rawUrl || evidence.imageUrl;
   else $("evidence-full").removeAttribute("href");
-  const imageDescription = showRaw ? "当前为完整原始帧。" : model.mainViewKind === "protection-analysis" ? "原视频防护分析，保留游戏原始着色。" : model.pins?.length ? "金色编号为讲解标注。" : "原视频载具外观。";
-  $("figure-caption").textContent = evidence ? evidence.caption : imageUrl ? `画面：${source.author || "来源见下方"} / 《战争雷霆》。${imageDescription}防护分析颜色对应当时的弹种与视角，条件见视频测试。` : "图像资料待补充，不以其他车型画面代替。";
+  const imageDescription = showRaw ? "当前为完整原始画面。" : model.mainViewKind === "protection-analysis" ? `${staticSource ? "原帖截图" : "原视频"}防护分析，保留游戏原始着色。` : model.pins?.length ? "金色编号为讲解标注。" : "来源载具外观。";
+  const versionDescription = staticSource && source.gameVersion ? `截图版本 ${source.gameVersion}。` : "";
+  $("figure-caption").textContent = evidence ? evidence.caption : imageUrl ? `画面：${source.author || "来源见下方"} / 《战争雷霆》。${imageDescription}${versionDescription}防护分析颜色对应当时的弹种与视角，条件见来源测试。` : "图像资料待补充，不以其他车型画面代替。";
   $("pins").hidden = !!evidence || showRaw || !imageUrl;
   $("pins").replaceChildren();
   $("pin-buttons").replaceChildren();
@@ -173,7 +176,8 @@ function render() {
     $("pins").append(marker); $("pin-buttons").append(alternative);
   });
   const records = [];
-  if (source.url) records.push(sourceLink(source.title || "视频来源", videoUrl(source, model.time), [source.author, source.publishedAt, source.gameVersion ? `游戏版本 ${source.gameVersion}` : null, Number.isFinite(model.time) ? `${Math.floor(model.time / 60)}:${String(Math.floor(model.time % 60)).padStart(2, "0")}` : null, model.imageQuality].filter(Boolean).join(" · ")));
+  if (source.url) records.push(sourceLink(source.title || (staticSource ? "原帖来源" : "视频来源"), videoUrl(source, model.time), [source.author, source.publishedAt, source.gameVersion ? `游戏版本 ${source.gameVersion}` : null, Number.isFinite(model.time) ? `${Math.floor(model.time / 60)}:${String(Math.floor(model.time % 60)).padStart(2, "0")}` : null, model.imageQuality].filter(Boolean).join(" · ")));
+  if (staticSource && source.imageUrl) records.push(sourceLink("原帖公开图片", source.imageUrl, "原始附件；高清归档保留同一截图的原生尺寸。"));
   if (model.wikiUrl) records.push(sourceLink("官方 Wiki · " + model.name, model.wikiUrl, `核对日期 ${model.collectedAt || SAMPLE.collectedAt || "待补充"} · 车型、装甲与主炮装填资料${model.wikiGameVersion ? ` · 游戏版本 ${model.wikiGameVersion}` : ""}`));
   const ammoReferences = new Map();
   for (const item of [test, ...(model.testCases || [])]) {
