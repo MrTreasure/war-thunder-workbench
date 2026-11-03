@@ -4935,10 +4935,41 @@
       "rank": 6,
       "era": "modern",
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "id": "ztz96-lower-front-local-thickness",
+          "x": 0.355,
+          "y": 0.6224489795918368,
+          "sourcePixel": {
+            "x": 934,
+            "y": 485
+          },
+          "label": "首下局部厚度",
+          "detail": "本图鼠标指向的首下局部：轧制均质装甲（战后）60毫米，垂直倾角51°，入射角54°，等效厚度102毫米。仅为本帧装甲观测，不是测试穿透或攻击建议，也不是弹药性能。",
+          "kind": "conditional",
+          "caseId": null,
+          "adviceId": null,
+          "sourceKind": "armor-observation",
+          "sourceUrl": "https://www.bilibili.com/video/BV1m8Lf6DEYp/",
+          "sourceTime": 11,
+          "actualShotObserved": false,
+          "mainImageMatch": "same-frame",
+          "mainImageTime": 11,
+          "annotationSemantics": "same-frame-armor-thickness-reference-not-penetration"
+        }
+      ],
       "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1m8Lf6DEYp/",
+        "title": "中系夯九门：老九六仅个人观点",
+        "author": "游毛贼2",
+        "publishedAt": "2026-06-18",
+        "publishedAtDOM": "2026-06-18 13:09:19",
+        "timezoneSpecifiedByDOM": null,
+        "kind": "video",
+        "gameVersion": "2.55.1.165"
+      },
+      "status": "primary-armor-layout-with-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/cn_ztz_96",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-20261102/snapshots/cn_ztz_96.json",
@@ -4958,7 +4989,249 @@
         "note": "仅主炮面板；待发弹耗尽后的持续装填不可套用自动装填标称值。"
       },
       "collectedAt": "2026-11-02",
-      "weaknessEvidenceStatus": "general-context-only"
+      "weaknessEvidenceStatus": "general-context-only",
+      "sourceKind": "video",
+      "sourceGameVersion": "2.55.1.165",
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/ztz96-bilibili-v144-20261103/ZTZ96-5-11.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-ingestion-20261102/ztz96-main-v147/proof-11s.json",
+      "captureSHA256": "d5e8c7629bcee6feeef9105b019aeedf6de4e4b0ab3dc6886fb6b3e7f7e606de",
+      "originalFrameSHA256": "9463580fe377c7656eac360d37240b65bec026b1d420a28b001754490c5308aa",
+      "sourceNativeWebPSHA256": "d5e8c7629bcee6feeef9105b019aeedf6de4e4b0ab3dc6886fb6b3e7f7e606de",
+      "sourceFrameHashBasis": "original-native-PNG",
+      "time": 11,
+      "mediaTime": 11,
+      "actualTime": 11,
+      "crop": [
+        650,
+        180,
+        800,
+        490
+      ],
+      "sourceDimensions": [
+        1920,
+        1078
+      ],
+      "imageQuality": "native-1920x1078",
+      "imageView": "front",
+      "imageViewDetail": "near-front-slightly-elevated",
+      "mainViewKind": "armor-layout",
+      "mainViewNote": "近正前略俯视装甲布局；颜色表示材质/厚度，非可击穿区域。局部首下厚度仅为本帧观测。",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "coverageStatus": "armor-layout-and-single-point-preview",
+      "coverageNotice": "装甲布局及独立单点预测，未观察实射",
+      "frontSummary": "近正前略俯视装甲布局，主图颜色仅表示装甲厚度／材质；首下标记是同帧局部厚度参考。可切换至PGZ09机炮API-T、500米单点防护预测，模块名单仅为预测，未观察实射及实际伤害；不代表整车可穿区域或完整弱点。",
+      "missingEvidence": [
+        "尚缺实射与实际损伤观察。",
+        "其他弹种、视角及完整弱点证据仍待补充；现有单点预测不能代表整车防护。"
+      ],
+      "testContext": null,
+      "testCases": [
+        {
+          "id": "cn_ztz_96:BV1m8Lf6DEYp:14000",
+          "vehicleId": "cn_ztz_96",
+          "kind": "protection-preview",
+          "sourceTime": 14,
+          "sourceUrl": "https://www.bilibili.com/video/BV1m8Lf6DEYp/",
+          "sourceGameVersion": "2.55.1.165",
+          "attacker": "PGZ09",
+          "attackerEnglishName": "PGZ09",
+          "attackerVehicleId": "cn_pgz_09",
+          "attackerCountry": "CHN",
+          "shell": "API-T",
+          "sourceShellLabelOriginal": "35 毫米 API-T",
+          "normalizedShellName": "API-T",
+          "shellType": "API-T",
+          "shellTypeCode": "API-T",
+          "shellTypeLabel": "穿甲燃烧曳光弹",
+          "shellTypeReference": {
+            "url": "https://wiki.warthunder.com/unit/cn_pgz_09",
+            "checkedAt": "2026-11-03T14:25:51.500Z",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "cn_pgz_09",
+            "mainGun": "2 x 35 mm PG99-35-2 cannon",
+            "officialShellName": "API-T",
+            "sourceLabel": "Armor-piercing incendiary tracer shell",
+            "sourceBasis": "official-Wiki-reference",
+            "sourceShellLabelOriginal": "API-T"
+          },
+          "caliberMm": 35,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 62,
+          "impactAngleDegrees": 3,
+          "attackerAzimuthDegrees": 1,
+          "equivalentArmorMm": 30,
+          "resultRaw": "能够击穿",
+          "predictedPenetration": true,
+          "actualPenetration": null,
+          "actualShotObserved": false,
+          "shotObserved": false,
+          "damage": null,
+          "actualDamage": null,
+          "outcome": null,
+          "kill": null,
+          "predictedModules": [
+            "油箱",
+            "炮闩",
+            "装弹机",
+            "弹药架",
+            "车长",
+            "高低机",
+            "炮手",
+            "方向机",
+            "火控系统"
+          ],
+          "sourceFrameSHA256": "8bcdbdbe33a6eb8c43c897d73884f707c87072d200ea95548a438b9962b83a07",
+          "frameSha256": "fd88c9995375a0b6125a8dab5a6c1cd28521813cbd1ee7bac6c310d6b461a2ca",
+          "proofSHA256": "16284a344a74921f0ad0f2cf65eb77e7b79513541cdc00207880def658a8314f",
+          "verificationStatus": "source-reported-native-UI-prediction-no-shot",
+          "conditionSource": "14s原生单点预测；未实射，模块列表仅为预测。Wiki独立型号释义不代替视频参数。",
+          "sourceKind": "video",
+          "rawUIType": null,
+          "sourceNativeWebPSHA256": "fd88c9995375a0b6125a8dab5a6c1cd28521813cbd1ee7bac6c310d6b461a2ca",
+          "actualUIObserved": true
+        }
+      ],
+      "testCaseEvidence": {
+        "cn_ztz_96:BV1m8Lf6DEYp:14000": {
+          "id": "cn_ztz_96:BV1m8Lf6DEYp:14000",
+          "vehicleId": "cn_ztz_96",
+          "kind": "protection-preview",
+          "sourceTime": 14,
+          "sourceUrl": "https://www.bilibili.com/video/BV1m8Lf6DEYp/",
+          "sourceGameVersion": "2.55.1.165",
+          "attacker": "PGZ09",
+          "attackerEnglishName": "PGZ09",
+          "attackerVehicleId": "cn_pgz_09",
+          "attackerCountry": "CHN",
+          "shell": "API-T",
+          "sourceShellLabelOriginal": "35 毫米 API-T",
+          "normalizedShellName": "API-T",
+          "shellType": "API-T",
+          "shellTypeCode": "API-T",
+          "shellTypeLabel": "穿甲燃烧曳光弹",
+          "shellTypeReference": {
+            "url": "https://wiki.warthunder.com/unit/cn_pgz_09",
+            "checkedAt": "2026-11-03T14:25:51.500Z",
+            "gameVersion": "2.59.0.92",
+            "attackerVehicleId": "cn_pgz_09",
+            "mainGun": "2 x 35 mm PG99-35-2 cannon",
+            "officialShellName": "API-T",
+            "sourceLabel": "Armor-piercing incendiary tracer shell",
+            "sourceBasis": "official-Wiki-reference",
+            "sourceShellLabelOriginal": "API-T"
+          },
+          "caliberMm": 35,
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 62,
+          "impactAngleDegrees": 3,
+          "attackerAzimuthDegrees": 1,
+          "equivalentArmorMm": 30,
+          "resultRaw": "能够击穿",
+          "predictedPenetration": true,
+          "actualPenetration": null,
+          "actualShotObserved": false,
+          "shotObserved": false,
+          "damage": null,
+          "actualDamage": null,
+          "outcome": null,
+          "kill": null,
+          "predictedModules": [
+            "油箱",
+            "炮闩",
+            "装弹机",
+            "弹药架",
+            "车长",
+            "高低机",
+            "炮手",
+            "方向机",
+            "火控系统"
+          ],
+          "sourceFrameSHA256": "8bcdbdbe33a6eb8c43c897d73884f707c87072d200ea95548a438b9962b83a07",
+          "frameSha256": "fd88c9995375a0b6125a8dab5a6c1cd28521813cbd1ee7bac6c310d6b461a2ca",
+          "proofSHA256": "16284a344a74921f0ad0f2cf65eb77e7b79513541cdc00207880def658a8314f",
+          "verificationStatus": "source-reported-native-UI-prediction-no-shot",
+          "conditionSource": "14s原生单点预测；未实射，模块列表仅为预测。Wiki独立型号释义不代替视频参数。",
+          "proofSnapshot": "artifacts/tank-weakpoints-ingestion-20261102/ztz96-main-v147/proof-14s.json",
+          "analysisSnapshot": "artifacts/weakpoints-ztz96-analysis-v146-20261103/records.json",
+          "wikiSnapshot": {
+            "path": "artifacts/weakpoints-ztz96-wiki-v145-20261103/cn_pgz_09.json",
+            "bytes": 5116,
+            "sha256": "84ca7d4f06465aa3d6fdaa8704bb98a8b0b8ab402c45a1d328a5800028087177"
+          },
+          "wikiPenetrationReference": {
+            "scope": "official Wiki belt table, independent of video parameters",
+            "headerOriginal": "Armor penetration (mm) at a distance:",
+            "distancesM": [
+              10,
+              100,
+              500,
+              1000,
+              1500,
+              2000
+            ],
+            "penetrationMm": [
+              75,
+              72,
+              62,
+              51,
+              42,
+              35
+            ],
+            "angleDegrees": null,
+            "angleOriginal": null,
+            "rows": [
+              {
+                "belt": "Default",
+                "filling": "API-T/HEI-T"
+              },
+              {
+                "belt": "DKG01A",
+                "filling": "HEI-T/HEI-T/HEI-T/API-T"
+              },
+              {
+                "belt": "DKP01A",
+                "filling": "API-T/API-T/API-T/HEI-T"
+              }
+            ],
+            "element": {
+              "path": "artifacts/weakpoints-ztz96-wiki-v145-20261103/pgz09-belts.element.html",
+              "bytes": 24933,
+              "sha256": "841e9ba9bc2c0219cc65b9bf9d1a343377ad492b12ece921093a4c6d75d88881"
+            }
+          },
+          "sourceKind": "video",
+          "rawUIType": null,
+          "sourceNativeWebPSHA256": "fd88c9995375a0b6125a8dab5a6c1cd28521813cbd1ee7bac6c310d6b461a2ca",
+          "actualUIObserved": true
+        }
+      },
+      "protectionEvidence": [
+        {
+          "id": "ztz96-front-preview",
+          "label": "PGZ09 API-T · 500米单点预测",
+          "caseId": "cn_ztz_96:BV1m8Lf6DEYp:14000",
+          "assetPath": "images/CHN/CHN-ZTZ96-preview-00m14s.webp",
+          "rawAssetPath": "images/CHN/CHN-ZTZ96-preview-native-00m14s.webp",
+          "sourceTime": 14,
+          "sourceUrl": "https://www.bilibili.com/video/BV1m8Lf6DEYp/",
+          "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/ztz96-bilibili-v144-20261103/ZTZ96-2-14.webp",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-ingestion-20261102/ztz96-main-v147/proof-14s.json",
+          "frameSnapshotSHA256": "16284a344a74921f0ad0f2cf65eb77e7b79513541cdc00207880def658a8314f",
+          "crop": [
+            650,
+            130,
+            820,
+            590
+          ],
+          "sourceGameVersion": "2.55.1.165",
+          "view": "front-elevated-protection-preview",
+          "caption": "同视频ZTZ96目标；PGZ09 / 35毫米API-T，500米，显示穿深62毫米。绿色准星为单点预测，非全车可穿区域。",
+          "description": "原生提示“能够击穿”；入射3°、方位1°、该点等效30毫米。模块列表仅预测，未观察实射或实际伤害。",
+          "conditionNote": "独立14秒条件；不套用11秒装甲厚度提示。目标身份依据同视频连续目标及11秒原生标题。",
+          "actualShotObserved": false
+        }
+      ]
     },
     {
       "id": "fr_amx_30_b2",
@@ -26850,7 +27123,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 54,
+    "illustratedCount": 55,
     "countries": [
       {
         "country": "usa",
@@ -26986,7 +27259,7 @@
     "lastUpdated": "2026-11-02",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 52,
+    "illustratedTargetCount": 53,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,

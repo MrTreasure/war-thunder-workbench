@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "42994b18d0dfcb14bba9fd3eeca6f48e78c0f585",
+  "commit": "153890a19fc3db059b6be28fe8a0c092b15a424a",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -974,6 +974,24 @@
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@42994b18d0dfcb14bba9fd3eeca6f48e78c0f585/images/CHN/CHN-ZTZ59D1-front-00m16s.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/42994b18d0dfcb14bba9fd3eeca6f48e78c0f585/images/CHN/CHN-ZTZ59D1-front-00m16s.webp",
         "commit": "42994b18d0dfcb14bba9fd3eeca6f48e78c0f585"
+      }
+    },
+    "cn_ztz_96": {
+      "raw": {
+        "path": "images/CHN/CHN-ZTZ96-front-native-00m11s.webp",
+        "sha256": "d5e8c7629bcee6feeef9105b019aeedf6de4e4b0ab3dc6886fb6b3e7f7e606de",
+        "bytes": 1080342,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@153890a19fc3db059b6be28fe8a0c092b15a424a/images/CHN/CHN-ZTZ96-front-native-00m11s.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/153890a19fc3db059b6be28fe8a0c092b15a424a/images/CHN/CHN-ZTZ96-front-native-00m11s.webp",
+        "commit": "153890a19fc3db059b6be28fe8a0c092b15a424a"
+      },
+      "photo": {
+        "path": "images/CHN/CHN-ZTZ96-front-00m11s.webp",
+        "sha256": "6373a58e8a7efaa194ca248b919c7bd9fa519c8b10a1306a27eb171c7a705d84",
+        "bytes": 262594,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@153890a19fc3db059b6be28fe8a0c092b15a424a/images/CHN/CHN-ZTZ96-front-00m11s.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/153890a19fc3db059b6be28fe8a0c092b15a424a/images/CHN/CHN-ZTZ96-front-00m11s.webp",
+        "commit": "153890a19fc3db059b6be28fe8a0c092b15a424a"
       }
     }
   },
@@ -12981,6 +12999,222 @@
       "commit": "42994b18d0dfcb14bba9fd3eeca6f48e78c0f585",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@42994b18d0dfcb14bba9fd3eeca6f48e78c0f585/images/CHN/CHN-ZTZ59D1-native-00m16s.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/42994b18d0dfcb14bba9fd3eeca6f48e78c0f585/images/CHN/CHN-ZTZ59D1-native-00m16s.webp"
+    },
+    {
+      "path": "images/CHN/CHN-ZTZ96-front-00m11s.webp",
+      "sha256": "6373a58e8a7efaa194ca248b919c7bd9fa519c8b10a1306a27eb171c7a705d84",
+      "bytes": 262594,
+      "width": 800,
+      "height": 490,
+      "vehicleId": "cn_ztz_96",
+      "country": "CHN",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1m8Lf6DEYp/",
+        "title": "中系夯九门：老九六仅个人观点",
+        "author": "游毛贼2",
+        "publishedAt": "2026-06-18",
+        "publishedAtDOM": "2026-06-18 13:09:19",
+        "timezoneSpecifiedByDOM": null,
+        "kind": "video",
+        "gameVersion": "2.55.1.165"
+      },
+      "sourceKind": "video",
+      "sourceTime": 11,
+      "mediaTime": 11,
+      "actualTime": 11,
+      "sourceFrameSHA256": "9463580fe377c7656eac360d37240b65bec026b1d420a28b001754490c5308aa",
+      "sourceFrameHashBasis": "original-native-PNG",
+      "sourceNativeWebPSHA256": "d5e8c7629bcee6feeef9105b019aeedf6de4e4b0ab3dc6886fb6b3e7f7e606de",
+      "proofSnapshotSHA256": "e0590c18775e2e434706737a07aae970b4ce3a3e62d667dcdd889a7f1856b1b4",
+      "sourceGameVersion": "2.55.1.165",
+      "caseId": null,
+      "kind": "photo",
+      "roles": [
+        "main-photo"
+      ],
+      "purpose": "armor-layout-context",
+      "mainImageUsable": true,
+      "hasGreenArmourMap": false,
+      "hasGreenHitIndicator": false,
+      "colorSemantics": "armor-thickness-and-material-only",
+      "nativeResized": false,
+      "sceneKind": "armor-layout",
+      "encoding": "lossless-webp",
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "compression_level": 6
+      },
+      "actualShotObserved": false,
+      "crop": [
+        650,
+        180,
+        800,
+        490
+      ],
+      "id": "6373a58e8a7efaa194ca248b919c7bd9fa519c8b10a1306a27eb171c7a705d84",
+      "commit": "153890a19fc3db059b6be28fe8a0c092b15a424a",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@153890a19fc3db059b6be28fe8a0c092b15a424a/images/CHN/CHN-ZTZ96-front-00m11s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/153890a19fc3db059b6be28fe8a0c092b15a424a/images/CHN/CHN-ZTZ96-front-00m11s.webp"
+    },
+    {
+      "path": "images/CHN/CHN-ZTZ96-front-native-00m11s.webp",
+      "sha256": "d5e8c7629bcee6feeef9105b019aeedf6de4e4b0ab3dc6886fb6b3e7f7e606de",
+      "bytes": 1080342,
+      "width": 1920,
+      "height": 1078,
+      "vehicleId": "cn_ztz_96",
+      "country": "CHN",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1m8Lf6DEYp/",
+        "title": "中系夯九门：老九六仅个人观点",
+        "author": "游毛贼2",
+        "publishedAt": "2026-06-18",
+        "publishedAtDOM": "2026-06-18 13:09:19",
+        "timezoneSpecifiedByDOM": null,
+        "kind": "video",
+        "gameVersion": "2.55.1.165"
+      },
+      "sourceKind": "video",
+      "sourceTime": 11,
+      "mediaTime": 11,
+      "actualTime": 11,
+      "sourceFrameSHA256": "9463580fe377c7656eac360d37240b65bec026b1d420a28b001754490c5308aa",
+      "sourceFrameHashBasis": "original-native-PNG",
+      "sourceNativeWebPSHA256": "d5e8c7629bcee6feeef9105b019aeedf6de4e4b0ab3dc6886fb6b3e7f7e606de",
+      "proofSnapshotSHA256": "e0590c18775e2e434706737a07aae970b4ce3a3e62d667dcdd889a7f1856b1b4",
+      "sourceGameVersion": "2.55.1.165",
+      "caseId": null,
+      "kind": "source-evidence-native",
+      "roles": [
+        "native-source-evidence"
+      ],
+      "purpose": "armor-layout-context",
+      "mainImageUsable": false,
+      "hasGreenArmourMap": false,
+      "hasGreenHitIndicator": false,
+      "colorSemantics": "armor-thickness-and-material-only",
+      "nativeResized": false,
+      "sceneKind": "armor-layout",
+      "encoding": "lossless-webp",
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "compression_level": 6
+      },
+      "actualShotObserved": false,
+      "id": "d5e8c7629bcee6feeef9105b019aeedf6de4e4b0ab3dc6886fb6b3e7f7e606de",
+      "commit": "153890a19fc3db059b6be28fe8a0c092b15a424a",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@153890a19fc3db059b6be28fe8a0c092b15a424a/images/CHN/CHN-ZTZ96-front-native-00m11s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/153890a19fc3db059b6be28fe8a0c092b15a424a/images/CHN/CHN-ZTZ96-front-native-00m11s.webp"
+    },
+    {
+      "path": "images/CHN/CHN-ZTZ96-preview-00m14s.webp",
+      "sha256": "cd3aa5a0076e113bbbf01379e08ea9365dbda49f9770dd6505f7e63d5d52e62a",
+      "bytes": 265498,
+      "width": 820,
+      "height": 590,
+      "vehicleId": "cn_ztz_96",
+      "country": "CHN",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1m8Lf6DEYp/",
+        "title": "中系夯九门：老九六仅个人观点",
+        "author": "游毛贼2",
+        "publishedAt": "2026-06-18",
+        "publishedAtDOM": "2026-06-18 13:09:19",
+        "timezoneSpecifiedByDOM": null,
+        "kind": "video",
+        "gameVersion": "2.55.1.165"
+      },
+      "sourceKind": "video",
+      "sourceTime": 14,
+      "mediaTime": 14,
+      "actualTime": 14,
+      "sourceFrameSHA256": "8bcdbdbe33a6eb8c43c897d73884f707c87072d200ea95548a438b9962b83a07",
+      "sourceFrameHashBasis": "original-native-PNG",
+      "sourceNativeWebPSHA256": "fd88c9995375a0b6125a8dab5a6c1cd28521813cbd1ee7bac6c310d6b461a2ca",
+      "proofSnapshotSHA256": "16284a344a74921f0ad0f2cf65eb77e7b79513541cdc00207880def658a8314f",
+      "sourceGameVersion": "2.55.1.165",
+      "caseId": "cn_ztz_96:BV1m8Lf6DEYp:14000",
+      "kind": "protection-evidence",
+      "roles": [
+        "protection-evidence"
+      ],
+      "purpose": "single-point-protection-preview",
+      "mainImageUsable": false,
+      "hasGreenArmourMap": false,
+      "hasGreenHitIndicator": true,
+      "colorSemantics": "single-point-preview-not-region-map",
+      "nativeResized": false,
+      "sceneKind": "protection-preview",
+      "encoding": "lossless-webp",
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "compression_level": 6
+      },
+      "actualShotObserved": false,
+      "crop": [
+        650,
+        130,
+        820,
+        590
+      ],
+      "id": "cd3aa5a0076e113bbbf01379e08ea9365dbda49f9770dd6505f7e63d5d52e62a",
+      "commit": "153890a19fc3db059b6be28fe8a0c092b15a424a",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@153890a19fc3db059b6be28fe8a0c092b15a424a/images/CHN/CHN-ZTZ96-preview-00m14s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/153890a19fc3db059b6be28fe8a0c092b15a424a/images/CHN/CHN-ZTZ96-preview-00m14s.webp"
+    },
+    {
+      "path": "images/CHN/CHN-ZTZ96-preview-native-00m14s.webp",
+      "sha256": "fd88c9995375a0b6125a8dab5a6c1cd28521813cbd1ee7bac6c310d6b461a2ca",
+      "bytes": 1103954,
+      "width": 1920,
+      "height": 1078,
+      "vehicleId": "cn_ztz_96",
+      "country": "CHN",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1m8Lf6DEYp/",
+        "title": "中系夯九门：老九六仅个人观点",
+        "author": "游毛贼2",
+        "publishedAt": "2026-06-18",
+        "publishedAtDOM": "2026-06-18 13:09:19",
+        "timezoneSpecifiedByDOM": null,
+        "kind": "video",
+        "gameVersion": "2.55.1.165"
+      },
+      "sourceKind": "video",
+      "sourceTime": 14,
+      "mediaTime": 14,
+      "actualTime": 14,
+      "sourceFrameSHA256": "8bcdbdbe33a6eb8c43c897d73884f707c87072d200ea95548a438b9962b83a07",
+      "sourceFrameHashBasis": "original-native-PNG",
+      "sourceNativeWebPSHA256": "fd88c9995375a0b6125a8dab5a6c1cd28521813cbd1ee7bac6c310d6b461a2ca",
+      "proofSnapshotSHA256": "16284a344a74921f0ad0f2cf65eb77e7b79513541cdc00207880def658a8314f",
+      "sourceGameVersion": "2.55.1.165",
+      "caseId": "cn_ztz_96:BV1m8Lf6DEYp:14000",
+      "kind": "source-evidence-native",
+      "roles": [
+        "native-source-evidence"
+      ],
+      "purpose": "single-point-protection-preview",
+      "mainImageUsable": false,
+      "hasGreenArmourMap": false,
+      "hasGreenHitIndicator": true,
+      "colorSemantics": "single-point-preview-not-region-map",
+      "nativeResized": false,
+      "sceneKind": "protection-preview",
+      "encoding": "lossless-webp",
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "compression_level": 6
+      },
+      "actualShotObserved": false,
+      "id": "fd88c9995375a0b6125a8dab5a6c1cd28521813cbd1ee7bac6c310d6b461a2ca",
+      "commit": "153890a19fc3db059b6be28fe8a0c092b15a424a",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@153890a19fc3db059b6be28fe8a0c092b15a424a/images/CHN/CHN-ZTZ96-preview-native-00m14s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/153890a19fc3db059b6be28fe8a0c092b15a424a/images/CHN/CHN-ZTZ96-preview-native-00m14s.webp"
     }
   ]
 }
