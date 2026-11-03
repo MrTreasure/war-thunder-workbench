@@ -745,7 +745,37 @@
         "note": "基础乘员→王牌乘员（Wiki主炮面板）"
       },
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "ussr_t_10m:wiki-article:2331:author-guidance",
+          "label": "文章作者建议：防护与生存性",
+          "text": "作者认为T-10M驾驶员舱盖、首下及炮塔上部和炮手瞄具附近存在薄弱处，面对化学弹和部分脱壳弹时不能仅依赖正面装甲；车内弹药散布也增加被穿透后的风险。这些是文章建议，非本次已观察试射。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourcePublishedAt": "2025-03-10T10:00:00+00:00",
+          "sourceUrl": "https://wiki.warthunder.com/2331-t-10m-the-last-soviet-heavy",
+          "sourceGameVersion": null,
+          "caseId": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "article-author-guidance-unverified-test",
+          "evidence": {
+            "sourcePostProof": {
+              "URL": "https://wiki.warthunder.com/2331-t-10m-the-last-soviet-heavy",
+              "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round5-20261103/t10m-article.json",
+              "snapshotSHA256": "1f1422e733d23d1353c32c121b5e109e751c915b82a5b55709641dd6419cc2b4",
+              "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round5-20261103/t10m-article.html",
+              "htmlSHA256": "95ca7c20b5a11bc9eab0edd9b7a0ee8f0790c57e7b981ba76f4613be500568c7",
+              "capturedAt": "2026-11-03T05:29:25.121Z"
+            },
+            "exactUnitURL": "https://wiki.warthunder.com/unit/ussr_t_10m",
+            "canonicalAliasProof": null,
+            "QC": {
+              "file": "artifacts/weakpoints-wiki-article-qc-v28-20261103/proposals.json",
+              "sha256": "5a060b2bbea2e15fa317b196562c784b150031886bbcf809c3469221e3166686"
+            }
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-video",
       "collectedAt": "2026-11-02",
@@ -865,7 +895,18 @@
             "captureMethod": "Playwright Chromium navigation"
           }
         }
-      }
+      },
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/2331-t-10m-the-last-soviet-heavy",
+          "title": "T-10M: The Last Soviet Heavy",
+          "author": "Sekator5",
+          "publishedAt": "2025-03-10T10:00:00+00:00",
+          "time": null,
+          "scopeNote": "Wiki投稿作者观点；按原文弹种条件区分，非unit基础数据或已验证试射"
+        }
+      ]
     },
     {
       "id": "ussr_is_4m",
@@ -5115,7 +5156,41 @@
       "era": "cold-war",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "germ_leopard_i_a1:wiki-article:2331:author-guidance",
+          "label": "文章作者建议：按弹种区分的瞄准思路",
+          "text": "Sekator5在豹A1A1段按BR-472、3BM-11讨论瞄准，并对3BM-11首下左右区域提出不同后效说法；这些是作者建议，未验证。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourcePublishedAt": "2025-03-10T10:00:00+00:00",
+          "sourceUrl": "https://wiki.warthunder.com/2331-t-10m-the-last-soviet-heavy",
+          "sourceGameVersion": null,
+          "caseId": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "article-author-guidance-unverified-test",
+          "evidence": {
+            "sourcePostProof": {
+              "URL": "https://wiki.warthunder.com/2331-t-10m-the-last-soviet-heavy",
+              "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round5-20261103/t10m-article.json",
+              "snapshotSHA256": "1f1422e733d23d1353c32c121b5e109e751c915b82a5b55709641dd6419cc2b4",
+              "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round5-20261103/t10m-article.html",
+              "htmlSHA256": "95ca7c20b5a11bc9eab0edd9b7a0ee8f0790c57e7b981ba76f4613be500568c7",
+              "capturedAt": "2026-11-03T05:29:25.121Z"
+            },
+            "exactUnitURL": "https://wiki.warthunder.com/unit/germ_leopard_I_a1",
+            "canonicalAliasProof": {
+              "sha256": "f1399dc23d871c4181e17fe2c090c720eea0c944f5c8edff86380b540095b629",
+              "jsonPointer": "/vehicles/germ_leopard_i_a1",
+              "sourceUnitURLPreserved": "https://wiki.warthunder.com/unit/germ_leopard_I_a1"
+            },
+            "QC": {
+              "file": "artifacts/weakpoints-wiki-article-qc-v28-20261103/proposals.json",
+              "sha256": "5a060b2bbea2e15fa317b196562c784b150031886bbcf809c3469221e3166686"
+            }
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/germ_leopard_i_a1",
@@ -5141,6 +5216,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "尚缺该精确车型的视频试射证据及弹种、距离、角度、版本上下文。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/2331-t-10m-the-last-soviet-heavy",
+          "title": "T-10M: The Last Soviet Heavy",
+          "author": "Sekator5",
+          "publishedAt": "2025-03-10T10:00:00+00:00",
+          "time": null,
+          "scopeNote": "Wiki投稿作者观点；按原文弹种条件区分，非unit基础数据或已验证试射"
+        }
       ]
     },
     {
@@ -5153,7 +5239,37 @@
       "era": "cold-war",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "uk_chieftain_mk_3:wiki-article:2331:author-guidance",
+          "label": "文章作者建议：按弹种区分的瞄准思路",
+          "text": "Sekator5建议BR-472参考首下或炮手瞄具；3BM-11参考右炮塔脸及车体中部略左。段标题兼称Mk.3/Mk.5，仅链接Mk.3，不据此给Mk.5建立精确测试。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourcePublishedAt": "2025-03-10T10:00:00+00:00",
+          "sourceUrl": "https://wiki.warthunder.com/2331-t-10m-the-last-soviet-heavy",
+          "sourceGameVersion": null,
+          "caseId": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "article-author-guidance-unverified-test",
+          "evidence": {
+            "sourcePostProof": {
+              "URL": "https://wiki.warthunder.com/2331-t-10m-the-last-soviet-heavy",
+              "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round5-20261103/t10m-article.json",
+              "snapshotSHA256": "1f1422e733d23d1353c32c121b5e109e751c915b82a5b55709641dd6419cc2b4",
+              "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round5-20261103/t10m-article.html",
+              "htmlSHA256": "95ca7c20b5a11bc9eab0edd9b7a0ee8f0790c57e7b981ba76f4613be500568c7",
+              "capturedAt": "2026-11-03T05:29:25.121Z"
+            },
+            "exactUnitURL": "https://wiki.warthunder.com/unit/uk_chieftain_mk_3",
+            "canonicalAliasProof": null,
+            "QC": {
+              "file": "artifacts/weakpoints-wiki-article-qc-v28-20261103/proposals.json",
+              "sha256": "5a060b2bbea2e15fa317b196562c784b150031886bbcf809c3469221e3166686"
+            }
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/uk_chieftain_mk_3",
@@ -5185,6 +5301,17 @@
       ],
       "missingEvidence": [
         "尚缺该精确车型的视频试射证据及弹种、距离、角度、版本上下文。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/2331-t-10m-the-last-soviet-heavy",
+          "title": "T-10M: The Last Soviet Heavy",
+          "author": "Sekator5",
+          "publishedAt": "2025-03-10T10:00:00+00:00",
+          "time": null,
+          "scopeNote": "Wiki投稿作者观点；按原文弹种条件区分，非unit基础数据或已验证试射"
+        }
       ]
     },
     {
@@ -5241,7 +5368,37 @@
       "era": "cold-war",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "us_m60a1:wiki-article:2331:author-guidance",
+          "label": "文章作者建议：按弹种区分的瞄准思路",
+          "text": "Sekator5针对M60A1建议BR-472参考指挥塔中部或座圈；3BM-11另讨论车体上下装甲、车体右侧和靠炮盾的炮塔脸。均属未实测的作者建议。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourcePublishedAt": "2025-03-10T10:00:00+00:00",
+          "sourceUrl": "https://wiki.warthunder.com/2331-t-10m-the-last-soviet-heavy",
+          "sourceGameVersion": null,
+          "caseId": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "article-author-guidance-unverified-test",
+          "evidence": {
+            "sourcePostProof": {
+              "URL": "https://wiki.warthunder.com/2331-t-10m-the-last-soviet-heavy",
+              "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round5-20261103/t10m-article.json",
+              "snapshotSHA256": "1f1422e733d23d1353c32c121b5e109e751c915b82a5b55709641dd6419cc2b4",
+              "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round5-20261103/t10m-article.html",
+              "htmlSHA256": "95ca7c20b5a11bc9eab0edd9b7a0ee8f0790c57e7b981ba76f4613be500568c7",
+              "capturedAt": "2026-11-03T05:29:25.121Z"
+            },
+            "exactUnitURL": "https://wiki.warthunder.com/unit/us_m60a1",
+            "canonicalAliasProof": null,
+            "QC": {
+              "file": "artifacts/weakpoints-wiki-article-qc-v28-20261103/proposals.json",
+              "sha256": "5a060b2bbea2e15fa317b196562c784b150031886bbcf809c3469221e3166686"
+            }
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/us_m60a1",
@@ -5273,6 +5430,17 @@
       ],
       "missingEvidence": [
         "尚缺该精确车型的视频试射证据及弹种、距离、角度、版本上下文。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/2331-t-10m-the-last-soviet-heavy",
+          "title": "T-10M: The Last Soviet Heavy",
+          "author": "Sekator5",
+          "publishedAt": "2025-03-10T10:00:00+00:00",
+          "time": null,
+          "scopeNote": "Wiki投稿作者观点；按原文弹种条件区分，非unit基础数据或已验证试射"
+        }
       ]
     },
     {
@@ -6588,7 +6756,37 @@
       "eraBasis": "具体改型技术形成时期证据尚未核实；不按采购、交付或游戏加入日期补年代。",
       "collectedAt": "2026-11-02T08:56:24.148Z",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "germ_mkpz_m48a2ga2:wiki-article:2331:author-guidance",
+          "label": "文章作者建议：按弹种区分的瞄准思路",
+          "text": "Sekator5建议：BR-472可参考首下、靠炮盾的炮塔脸和低位指挥塔；3BM-11则讨论车体右侧。属于历史文章建议，未验证穿透或后效。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourcePublishedAt": "2025-03-10T10:00:00+00:00",
+          "sourceUrl": "https://wiki.warthunder.com/2331-t-10m-the-last-soviet-heavy",
+          "sourceGameVersion": null,
+          "caseId": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "article-author-guidance-unverified-test",
+          "evidence": {
+            "sourcePostProof": {
+              "URL": "https://wiki.warthunder.com/2331-t-10m-the-last-soviet-heavy",
+              "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round5-20261103/t10m-article.json",
+              "snapshotSHA256": "1f1422e733d23d1353c32c121b5e109e751c915b82a5b55709641dd6419cc2b4",
+              "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round5-20261103/t10m-article.html",
+              "htmlSHA256": "95ca7c20b5a11bc9eab0edd9b7a0ee8f0790c57e7b981ba76f4613be500568c7",
+              "capturedAt": "2026-11-03T05:29:25.121Z"
+            },
+            "exactUnitURL": "https://wiki.warthunder.com/unit/germ_mkpz_m48a2ga2",
+            "canonicalAliasProof": null,
+            "QC": {
+              "file": "artifacts/weakpoints-wiki-article-qc-v28-20261103/proposals.json",
+              "sha256": "5a060b2bbea2e15fa317b196562c784b150031886bbcf809c3469221e3166686"
+            }
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/germ_mkpz_m48a2ga2",
@@ -6614,6 +6812,17 @@
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。",
         "具体改型年代待核实，era保留null。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/2331-t-10m-the-last-soviet-heavy",
+          "title": "T-10M: The Last Soviet Heavy",
+          "author": "Sekator5",
+          "publishedAt": "2025-03-10T10:00:00+00:00",
+          "time": null,
+          "scopeNote": "Wiki投稿作者观点；按原文弹种条件区分，非unit基础数据或已验证试射"
+        }
       ]
     },
     {
@@ -23179,6 +23388,64 @@
             "privacy": "raw-images-and-full-transcript-private-never-public",
             "notActualTest": true
           }
+        },
+        {
+          "id": "ussr_t_80bvm:BV1pPtXzBEHS:author-guidance",
+          "label": "视频作者建议：先破坏炮闩",
+          "text": "第一巴图鲁-Bin认为，T-80BVM正面的首下与观察窗可选区域较小，较低命中还可能仅伤驾驶员；其建议先破坏炮闩以降低反击风险。此为2025年作者建议，未由这三个静态样本证实击毁或炮闩损毁。",
+          "sourceKind": "video-author-advice",
+          "sourceUrl": "https://www.bilibili.com/video/BV1pPtXzBEHS/",
+          "sourceTime": 27.279815,
+          "sourceTimeRange": [
+            27.279815,
+            97.173132
+          ],
+          "sourceObservedRanges": [
+            {
+              "start": 27.279815,
+              "end": 51.575255,
+              "topic": "lower front small; low hit driver only"
+            },
+            {
+              "start": 56.997751,
+              "end": 73.168008,
+              "topic": "observation window and small green region"
+            },
+            {
+              "start": 76.45073,
+              "end": 97.173132,
+              "topic": "prioritize breech"
+            }
+          ],
+          "timePrecision": "原字幕DOM观测范围，非精确cue边界",
+          "sourcePublishedAt": "2025-08-12T10:08:02+08:00",
+          "sourceGameVersion": null,
+          "caseId": null,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionsUnknown": true,
+          "evidence": {
+            "QC": {
+              "file": "artifacts/weakpoints-video-private-qc-v29-20261103/proposals.json",
+              "sha256": "fcd99ab2a5ad6fc18c701626a654776bb648a2d07d2dd0160b92ccdf7f5d46db"
+            },
+            "sourcePacket": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/bili-weakness-v27/sourcepacket.json",
+              "sha256": "c052afbf87b67c19b0d749e1a6a80b53b2658393628a24974c25791a59ddc007"
+            },
+            "identityConfidence": "source-attributed-title-not-independent-native-target-label",
+            "subtitleProofs": [
+              {
+                "file": "artifacts/tank-weakpoints-expansion-20261102/sources/bili-weakness-v27/opening-weakness-locator-normal-playback-subtitles.json",
+                "sha256": "e9f551d9f316592d70f22a5d21066e2c912eb9d22bd14363987c173a9147ed1d"
+              },
+              {
+                "file": "artifacts/tank-weakpoints-expansion-20261102/sources/bili-weakness-v27/weakness-locator55-normal-playback-subtitles.json",
+                "sha256": "188a7d761843b8da5087992940eec69c050d5528ff2ecb5168827aa5e0093f46"
+              }
+            ],
+            "noIndependentShot": true
+          }
         }
       ],
       "source": {
@@ -23446,6 +23713,15 @@
           "publishedAt": "2025-06-21T20:24:27+08:00",
           "time": 185.156283,
           "scopeNote": "作者对比观点；测试条件未核验"
+        },
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1pPtXzBEHS/",
+          "title": "战雷新手向-锅盖头弱点及如何防止魔法-T-80BVM-陆历12.0载具打法第一集",
+          "author": "第一巴图鲁-Bin",
+          "publishedAt": "2025-08-12T10:08:02+08:00",
+          "time": 27.279815,
+          "scopeNote": "视频作者观点；车型为来源归属，非独立试射，字幕为观测时间"
         }
       ]
     },
@@ -24722,7 +24998,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 49,
+    "illustratedCount": 50,
     "countries": [
       {
         "country": "usa",

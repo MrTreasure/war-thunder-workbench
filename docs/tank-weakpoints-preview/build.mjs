@@ -239,6 +239,7 @@ for (const model of data.models) {
   for (const key of ["wikiSnapshot", "wikiSnapshotPath", "wikiSnapshotSHA256", "frameSnapshot", "frameSnapshotPath", "frame", "framePath", "testContextEvidence", "testCaseEvidence", "captureSHA256", "originalFrameSHA256", "overview", "comparison", "limits", "ammo", "evidenceFrames"]) delete model[key];
   for (const advice of model.videoAdvice || []) delete advice.evidence;
 }
+if (data.coverage?.illustratedCount !== report.models.filter((model) => model.illustrated).length) throw Error("Illustration total must match the verified main images, including supplemental samples");
 if (/\/vol1\/|\/home\/|artifacts\//.test(JSON.stringify(data))) throw Error("Private evidence paths must not enter the public sample payload");
 const symbols = await readFile(resolve(project, "src/assets/WTSymbols.ttf"));
 const fontFile = `weakpoints-symbols.${hash(symbols).slice(0, 16)}.ttf`;

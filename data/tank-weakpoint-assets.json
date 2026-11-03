@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "609bdb0b3af8effe602424edc33e11d07e9bcbb3",
+  "commit": "8bf4f116d46e7c9a9c3efd01ebe29964d2cf87d0",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -12157,6 +12157,100 @@
       "commit": "609bdb0b3af8effe602424edc33e11d07e9bcbb3",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@609bdb0b3af8effe602424edc33e11d07e9bcbb3/images/ISR/ISR-Merkava-Mk-4M-author-frontal-diagram-20250122-native3659x2058.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/609bdb0b3af8effe602424edc33e11d07e9bcbb3/images/ISR/ISR-Merkava-Mk-4M-author-frontal-diagram-20250122-native3659x2058.webp"
+    },
+    {
+      "path": "images/GER/GER-M48A2-G-A2-article-model-reference-20250310-native665x618.webp",
+      "sha256": "5c13ecd8aa84714e88853e4961555400be2f7b8cdd68073db3b78ed303c8f7b6",
+      "bytes": 185942,
+      "width": 665,
+      "height": 618,
+      "sourceDimensions": [
+        665,
+        618
+      ],
+      "nativeResized": false,
+      "vehicleId": "germ_mkpz_m48a2ga2",
+      "country": "GER",
+      "source": {
+        "kind": "article-image",
+        "url": "https://wiki.warthunder.com/2331-t-10m-the-last-soviet-heavy",
+        "imageUrl": "https://wiki.warthunder.com/images/ec987b03bd2b607a73995fb5e683a7c2.jpg",
+        "title": "T-10M: The Last Soviet Heavy",
+        "author": "Sekator5",
+        "publishedAt": "2025-03-10T10:00:00+00:00"
+      },
+      "sourceKind": "article-image",
+      "sourceTime": null,
+      "mediaTime": null,
+      "sourcePublishedAt": "2025-03-10T10:00:00+00:00",
+      "sourceImageUrl": "https://wiki.warthunder.com/images/ec987b03bd2b607a73995fb5e683a7c2.jpg",
+      "sourceFrameSHA256": "6a943cf8ae01a39d586bd7be16cf500affabc9952973b075eb79f580e62c2741",
+      "sourceFrameHashKind": "source-original-jpeg",
+      "proofSnapshotSHA256": "1f1422e733d23d1353c32c121b5e109e751c915b82a5b55709641dd6419cc2b4",
+      "caseId": null,
+      "sourceGameVersion": null,
+      "kind": "source-static-image-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "sceneKind": "front-exterior-model-illustration",
+      "visibleView": "front-model-illustration-low-resolution",
+      "mainImageUsable": false,
+      "hasGreenArmourMap": false,
+      "identityBasis": "Adjacent exact unit link and visually consistent frontal model; no native target selector.",
+      "targetUnitURL": "https://wiki.warthunder.com/unit/germ_mkpz_m48a2ga2",
+      "id": "5c13ecd8aa84714e88853e4961555400be2f7b8cdd68073db3b78ed303c8f7b6",
+      "commit": "8bf4f116d46e7c9a9c3efd01ebe29964d2cf87d0",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@8bf4f116d46e7c9a9c3efd01ebe29964d2cf87d0/images/GER/GER-M48A2-G-A2-article-model-reference-20250310-native665x618.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/8bf4f116d46e7c9a9c3efd01ebe29964d2cf87d0/images/GER/GER-M48A2-G-A2-article-model-reference-20250310-native665x618.webp"
+    },
+    {
+      "path": "images/USA/USA-M60A1-AOS-article-model-reference-20250310-native666x618.webp",
+      "sha256": "7d386b48be1636999455015f6608fac655365c74547f317e92b74daa64c7f896",
+      "bytes": 188198,
+      "width": 666,
+      "height": 618,
+      "sourceDimensions": [
+        666,
+        618
+      ],
+      "nativeResized": false,
+      "vehicleId": "us_m60a1",
+      "country": "USA",
+      "source": {
+        "kind": "article-image",
+        "url": "https://wiki.warthunder.com/2331-t-10m-the-last-soviet-heavy",
+        "imageUrl": "https://wiki.warthunder.com/images/5223da6c3e00209f7c1aa64b0b0f3f99.jpg",
+        "title": "T-10M: The Last Soviet Heavy",
+        "author": "Sekator5",
+        "publishedAt": "2025-03-10T10:00:00+00:00"
+      },
+      "sourceKind": "article-image",
+      "sourceTime": null,
+      "mediaTime": null,
+      "sourcePublishedAt": "2025-03-10T10:00:00+00:00",
+      "sourceImageUrl": "https://wiki.warthunder.com/images/5223da6c3e00209f7c1aa64b0b0f3f99.jpg",
+      "sourceFrameSHA256": "01326b6ea8e8f2f4d3767461d68a4e0ef47c312db85978532fe0954d90984dae",
+      "sourceFrameHashKind": "source-original-jpeg",
+      "proofSnapshotSHA256": "1f1422e733d23d1353c32c121b5e109e751c915b82a5b55709641dd6419cc2b4",
+      "caseId": null,
+      "sourceGameVersion": null,
+      "kind": "source-static-image-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "sceneKind": "front-exterior-model-illustration",
+      "visibleView": "front-model-illustration-low-resolution",
+      "mainImageUsable": false,
+      "hasGreenArmourMap": false,
+      "identityBasis": "Adjacent exact unit link and visually consistent frontal model; no native target selector.",
+      "targetUnitURL": "https://wiki.warthunder.com/unit/us_m60a1",
+      "id": "7d386b48be1636999455015f6608fac655365c74547f317e92b74daa64c7f896",
+      "commit": "8bf4f116d46e7c9a9c3efd01ebe29964d2cf87d0",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@8bf4f116d46e7c9a9c3efd01ebe29964d2cf87d0/images/USA/USA-M60A1-AOS-article-model-reference-20250310-native666x618.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/8bf4f116d46e7c9a9c3efd01ebe29964d2cf87d0/images/USA/USA-M60A1-AOS-article-model-reference-20250310-native666x618.webp"
     }
   ]
 }
