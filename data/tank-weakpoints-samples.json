@@ -20991,7 +20991,94 @@
       "era": "cold-war",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v192-amx40-lower-front",
+          "label": "作者观点：首下",
+          "text": "RedS_阿宅将AMX40首下列为正面防护较薄的部位，认为正面对抗时可留意该处；非独立实射。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1BDrKYtEir/",
+          "sourceTime": 97,
+          "sourcePublishedAt": "2025-01-06",
+          "sourceGameVersion": null,
+          "conditionMatch": "author-opinion-unverified-test",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV1BDrKYtEir/",
+            "sourceTime": 97,
+            "kind": "author-opinion-not-test",
+            "originalPNG_SHA256": "fe9103de30596c6cf0862e8e2e51095a4ab20a2f3b51a8cf26fc1101ef58576f"
+          }
+        },
+        {
+          "id": "v192-amx40-angle-caution",
+          "label": "作者观点：正面与大角度",
+          "text": "RedS_阿宅认为AMX40正面多数位置较弱，但部分大角度区域容易跳弹；并非所有正面位置均可击穿。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1BDrKYtEir/",
+          "sourceTime": 104,
+          "sourcePublishedAt": "2025-01-06",
+          "sourceGameVersion": null,
+          "conditionMatch": "author-opinion-unverified-test",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV1BDrKYtEir/",
+            "sourceTime": 104,
+            "kind": "author-opinion-not-test",
+            "originalPNG_SHA256": "298880915f9d2baf9ef463dcc475e607e46384fb5ce7f1c2dfd67e8dc72cafc2"
+          }
+        },
+        {
+          "id": "v192-amx40-he-window",
+          "label": "作者观点：车长观察窗与高爆弹",
+          "text": "RedS_阿宅提醒高耸的车长观察窗可能受高爆弹威胁并引发超压；仅为作者建议，未验证必然结果。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1BDrKYtEir/",
+          "sourceTime": 107.952945,
+          "sourcePublishedAt": "2025-01-06",
+          "sourceGameVersion": null,
+          "conditionMatch": "author-opinion-unverified-test",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV1BDrKYtEir/",
+            "sourceTime": 107.952945,
+            "kind": "author-opinion-not-test"
+          },
+          "sourceTimeRange": [
+            107.952945,
+            111.9781
+          ]
+        },
+        {
+          "id": "v192-amx40-side-autocannon",
+          "label": "作者观点：机炮侧击",
+          "text": "急急先让我急认为AMX40侧面较弱，机炮侧击也可能构成威胁；具体弹种、距离及命中条件未验证。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1ukNBetEP1/",
+          "sourceTime": 79.853052,
+          "sourcePublishedAt": "2025-02-12",
+          "sourceGameVersion": null,
+          "conditionMatch": "author-opinion-unverified-test",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV1ukNBetEP1/",
+            "sourceTime": 79.853052,
+            "kind": "author-opinion-not-test"
+          },
+          "sourceTimeRange": [
+            79.853052,
+            83.068708
+          ]
+        }
+      ],
       "source": null,
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/fr_amx_40",
@@ -21021,6 +21108,26 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1BDrKYtEir/",
+          "title": "【战争雷霆】髪国“鸭子”超进化，AMX40游戏内简介.",
+          "author": "RedS_阿宅",
+          "publishedAt": "2025-01-06",
+          "time": 97,
+          "scopeNote": "作者防护概述与部位建议；非独立试射"
+        },
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1ukNBetEP1/",
+          "title": "【战争雷霆】想开法系？那你最好用它 AMX40简评",
+          "author": "急急先让我急",
+          "publishedAt": "2025-02-12",
+          "time": 79.853052,
+          "scopeNote": "作者侧面防护观点；非独立试射"
+        }
       ]
     },
     {
