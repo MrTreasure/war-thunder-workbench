@@ -10516,7 +10516,36 @@
       "eraStatus": "reviewed-unit-prose",
       "eraBasis": "Olifant Mk2于2004年从Mk1B升级，增加热成像、动力与前部防护，但旧底盘仍限制防护与机动。",
       "collectedAt": "2026-11-02T09:05:47.804Z",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.42,
+          "y": 0.5777777777777777,
+          "label": "车体正面上部",
+          "detail": "炮管下方偏左的车体正面可见绿色表面，可作为本帧M774、0米条件下的外部定位参考；炮管及上缘附件遮住部分区域，不向遮挡内延伸。作者稍后建议优先车体，但本帧并非实射，不能保证击穿或致毁。",
+          "kind": "conditional",
+          "caseId": "uk_olifant_mk_2:BV1SPmEBJE3y:1518000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "sourceTime": 1518,
+          "mainImageTime": 1518,
+          "adviceId": "BV1SPmEBJE3y:end:11:author",
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        },
+        {
+          "x": 0.51,
+          "y": 0.7777777777777778,
+          "label": "车体正面下部",
+          "detail": "车体正面下部中央偏右可见绿色表面，取点避开中央准星与两侧履带。仅适用于本帧M774、0米和当前姿态；作者后续车体建议属于同段口述，不是此点后效，勿推及整板或猜测内部乘员、弹药。",
+          "kind": "conditional",
+          "caseId": "uk_olifant_mk_2:BV1SPmEBJE3y:1518000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "sourceTime": 1518,
+          "mainImageTime": 1518,
+          "adviceId": "BV1SPmEBJE3y:end:11:author",
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        }
+      ],
       "videoAdvice": [
         {
           "id": "BV1SPmEBJE3y:end:11:author",
@@ -10806,7 +10835,8 @@
       "imageViewDetail": "front",
       "mainViewKind": "protection-analysis",
       "mainViewNote": "无UI面板覆盖目标；炮管等原生实体保留",
-      "mainImageUsable": true
+      "mainImageUsable": true,
+      "coverageNotice": "正面防护分析 · 2处条件性车体外表参考（非逐点实射）"
     },
     {
       "id": "us_mbt_70",
@@ -16892,7 +16922,36 @@
         "sourceFrameSHA256": "67da6896c1a793e8566b8837baa075526c1180bade737259aa9cf0d5a6f8b970",
         "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/"
       },
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.38,
+          "y": 0.59,
+          "label": "车体正面中部",
+          "detail": "车体正面中部可见绿色外表参考，避开画面右侧提示框。对应90式战车B型（富士教导团）JM33、500米静态防护分析；未见此点逐点实射，绿色不保证击穿或致毁，不能据此定位内部乘员与弹药。",
+          "kind": "conditional",
+          "caseId": "uk_ttd:BV1CueU6cECo:713017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 713.016687,
+          "mainImageTime": 713.016687,
+          "adviceId": null,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        },
+        {
+          "x": 0.4,
+          "y": 0.735,
+          "label": "车体正面下缘",
+          "detail": "车体正面下缘可见绿色外表参考，与中部仅作外观分区。对应90式战车B型（富士教导团）JM33、500米静态防护分析；不将绿色准星推广为整板可穿，未见此点实射后效，也不延伸到不可见车底。",
+          "kind": "conditional",
+          "caseId": "uk_ttd:BV1CueU6cECo:713017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 713.016687,
+          "mainImageTime": 713.016687,
+          "adviceId": null,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        }
+      ],
       "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/UK-enemy-target-proof-0713.webp",
       "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/010.json",
       "captureSHA256": "16d48ed3377fa416de2116504b5fbd926da78bd5eac615c8c610a7b48c648826",
@@ -16914,7 +16973,7 @@
       "mainViewNote": "正面防护分析；画面右侧提示框局部遮挡，不推断不可见区域。",
       "imageQuality": "2160p",
       "coverageStatus": "partial-frontal-guide",
-      "coverageNotice": "正面防护分析 · 提示框局部遮挡"
+      "coverageNotice": "正面防护分析 · 右侧提示框遮挡 · 2处条件性车体外表参考（非逐点实射）"
     },
     {
       "id": "uk_challenger_mk_3",
@@ -21831,7 +21890,36 @@
       "rank": 7,
       "era": "cold-war",
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.47,
+          "y": 0.31,
+          "label": "炮塔正面可见区",
+          "detail": "炮口右上侧可见连续绿色外表，取点避开炮口、炮管及右侧准星；仅作JM33、500米与当前正面姿态的静态参考，不代表整座炮塔均可穿，也不推断炮闩或乘员位置，未见此点独立实射。",
+          "kind": "conditional",
+          "caseId": "germ_leopard_2av:BV1CueU6cECo:435017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 435.016687,
+          "mainImageTime": 435.016687,
+          "adviceId": null,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        },
+        {
+          "x": 0.4,
+          "y": 0.63,
+          "label": "首下可见区",
+          "detail": "车体正面下段中央可见连续绿色表面，取点避开履带与边缘；仅对应本帧JM33、500米的防护分析，不代表命中即可击毁。作者另时段提醒前油箱可能吸收后效，但不能据此指定内部油箱坐标。",
+          "kind": "conditional",
+          "caseId": "germ_leopard_2av:BV1CueU6cECo:435017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 435.016687,
+          "mainImageTime": 435.016687,
+          "adviceId": "germ_leopard_2av:source-local-advice:batch002",
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        }
+      ],
       "videoAdvice": [
         {
           "id": "germ_leopard_2av:source-local-advice:batch002",
@@ -21983,7 +22071,7 @@
       "mainViewKind": "protection-analysis",
       "mainViewNote": "正面防护分析；提示框位于车辆轮廓外，不遮挡车辆。",
       "coverageStatus": "partial-frontal-guide",
-      "coverageNotice": "正面防护分析 · 区域指引待补",
+      "coverageNotice": "正面防护分析 · 2处条件性外表参考（非逐点实射）",
       "testContext": {
         "attacker": "90式战车B型（富士教导团）",
         "attackerVehicleId": "jp_type_90b_camo",
@@ -23972,7 +24060,36 @@
       "rank": 7,
       "era": "cold-war",
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.375,
+          "y": 0.265,
+          "label": "炮塔正面可见区",
+          "detail": "炮口左上侧、黄色准星右上方可见连续绿色表面，取点避开炮口与准星；仅作本帧JM33、500米静态防护分析的外表参考，不能推广到整座炮塔，也不推断炮闩或乘员位置，未见此点独立实射。",
+          "kind": "conditional",
+          "caseId": "ussr_t_80b:BV1CueU6cECo:600033",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 600.033312,
+          "mainImageTime": 600.033312,
+          "adviceId": null,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        },
+        {
+          "x": 0.35,
+          "y": 0.52,
+          "label": "首上可见区",
+          "detail": "画面左半车体首上、附加块下沿可见绿色表面，仅作JM33、500米及当前姿态的外部参考。作者较早的接触一车族口述仅称紧急时可尝试、平时尽量避开；不代表本车首上稳定可穿，不延伸至右侧提示框遮挡区。",
+          "kind": "conditional",
+          "caseId": "ussr_t_80b:BV1CueU6cECo:600033",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 600.033312,
+          "mainImageTime": 600.033312,
+          "adviceId": "ussr_t_80b:BV1CueU6cECo:family-author-guidance",
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        }
+      ],
       "videoAdvice": [
         {
           "id": "ussr_t_80b:BV1CueU6cECo:family-author-guidance",
@@ -24096,7 +24213,7 @@
       "mainViewKind": "protection-analysis",
       "mainViewNote": "正面防护分析；提示框遮挡画面右半车辆区域，不还原或推断遮挡部分。",
       "coverageStatus": "partial-frontal-guide",
-      "coverageNotice": "正面防护分析 · 右侧提示框遮挡",
+      "coverageNotice": "正面防护分析 · 2处条件性外表参考 · 右侧提示框遮挡（非逐点实射）",
       "testContext": {
         "attacker": "90式战车B型（富士教导团）",
         "attackerVehicleId": "jp_type_90b_camo",
