@@ -26847,6 +26847,26 @@
             },
             "verifiedShot": false
           }
+        },
+        {
+          "id": "v170-t90m-green-prediction-74",
+          "label": "视频防护分析观察",
+          "kind": "video-author-advice",
+          "text": "视频版本2.47.0.14中，ZTZ99A使用DTC10-125（APFSDS），距离500米、界面显示穿深566毫米时，T-90M车体正面下部、两履带内缘之间的可见横向区域呈绿色防护预测，可作为该条件下的瞄点参考。未证实实际穿透或击毁；角度、遮挡和版本变化需另行核对。",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1zhKQzyEpL/",
+          "sourceTime": 74.086042,
+          "sourcePublishedAt": "2025-06-26",
+          "sourceGameVersion": "2.47.0.14",
+          "conditionMatch": "source-frame-green-protection-prediction",
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV1zhKQzyEpL/",
+            "sourceTime": 74.086042,
+            "originalPNG_SHA256": "f3a80a167c8521c169e53e4ccac476f098f14accce615b376451a094bb0f751f",
+            "kind": "green-protection-prediction-region",
+            "officialWikiUrl": "https://wiki.warthunder.com/unit/cn_ztz_99a"
+          }
         }
       ],
       "source": {
@@ -26932,6 +26952,15 @@
           "publishedAt": "2025-08-07",
           "time": 36.4,
           "scopeNote": "作者部位建议；非独立试射结论"
+        },
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1zhKQzyEpL/",
+          "title": "【战争雷霆】调大敌人引擎声和顶级房主战通用弱点公式",
+          "author": "炸萝卜丸子--",
+          "publishedAt": "2025-06-26",
+          "time": 74.086042,
+          "scopeNote": "视频版本2.47.0.14防护分析预测观察；非实际穿透或击毁证明"
         }
       ],
       "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/t90m-forum-evidence-v71/T-90M-front-original.webp",
