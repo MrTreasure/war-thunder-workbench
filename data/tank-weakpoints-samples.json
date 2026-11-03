@@ -2666,7 +2666,7 @@
       "coverageStatus": "partial-front-analysis-no-verified-pins",
       "coverageNotice": "已有绿色防护分析 · 首下及可见顶部前缘2处条件性参考；三角区与耳轴未可靠定位，未观察到独立实射后效。",
       "missingEvidence": [
-        "暂无独立正向试射结果及已核对的局部UV标点，不计完整图解。"
+        "已提供2处条件性外表参考；尚未观察到独立正向试射结果；精确选点结果与未覆盖区域待核对；三角区与耳轴未可靠定位，不计完整图解。来源游戏版本未确认。局部入射角未知。"
       ]
     },
     {
@@ -6514,7 +6514,7 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无经核对的具体局部标点；族群弹种建议不等于每个改型都已实际试射。"
+        "已提供3处条件性外表参考；精确选点结果与未覆盖区域待核对；未观察到逐点实射；族群弹种建议不等于每个改型都已实际试射。来源游戏版本未确认。局部入射角未知。"
       ],
       "time": 397.017,
       "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/USA-M60-ERA-title-probe-0397.webp",
@@ -8953,7 +8953,7 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无经核对的局部标点；本次原片防护颜色仅适用于所列条件。"
+        "已提供2处条件性外表参考；精确选点结果与未覆盖区域待核对；未观察到逐点实射；本次原片防护颜色仅适用于所列条件。来源游戏版本未确认。局部入射角未知。"
       ],
       "testCases": [
         {
@@ -10279,7 +10279,7 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无经核对的局部标点；炮塔建议需结合原视频角度及弹药条件理解。"
+        "已提供2处条件性外表参考；精确选点结果与未覆盖区域待核对；未观察到逐点实射；炮塔建议需结合原视频角度及弹药条件理解。来源游戏版本未确认。局部入射角未知。"
       ],
       "time": 459.033,
       "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-batch-v2-20261102/USA-XM803-candidate-title-probe-0459.webp",
@@ -11159,7 +11159,7 @@
         }
       ],
       "missingEvidence": [
-        "暂无独立正向试射结果及已核对的局部UV标点，不计完整图解。",
+        "已提供1处条件性外表参考；尚未观察到独立正向试射结果；精确选点结果与未覆盖区域待核对，不计完整图解。来源游戏版本未确认。局部入射角未知。",
         "具体改型年代待核实，era保留null。"
       ],
       "testCases": [
@@ -11532,7 +11532,7 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无经核对的局部标点；本次原片防护颜色仅适用于所列条件。"
+        "已提供2处条件性外表参考；精确选点结果与未覆盖区域待核对；未观察到逐点实射；本次原片防护颜色仅适用于所列条件。来源游戏版本未确认。局部入射角未知。"
       ],
       "testCases": [
         {
@@ -12275,7 +12275,7 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。"
+        "已提供2处条件性外表参考；精确视频选点验证上下文与未覆盖区域待核对；未观察到逐点实射；右侧遮挡区域未覆盖。来源游戏版本未确认。局部入射角未知。"
       ],
       "testCases": [
         {
@@ -12501,7 +12501,7 @@
         }
       ],
       "missingEvidence": [
-        "暂无经核对的具体局部标点；按作者建议与原片条件理解，不以绿色推断必穿小孔。"
+        "已提供1处条件性外表参考；精确选点结果与未覆盖区域待核对；未观察到逐点实射；按作者建议与原片条件理解，不以绿色推断必穿小孔；右侧局部遮挡区域未覆盖。来源游戏版本未确认。局部入射角未知。"
       ],
       "testCases": [
         {
@@ -12660,7 +12660,30 @@
       "eraBasis": "豹2K为1970至75年原型项目，以薄甲换取机动与120毫米火力；Wiki称可被同代炮弹在广泛部位击穿。",
       "collectedAt": "2026-11-02T09:48:13.655Z",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v296-leopard2k-author-demo-90-5",
+          "label": "作者演示参考：机炮防护",
+          "text": "作者以豹2K为主题展示机炮防护；画面所选BMP-2M、30毫米APFSDS、500米、95毫米条件下，所选点提示无法击穿。原生目标名被遮挡，保留为作者演示参考，不推广全正面或其他弹种。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV13znp6qEKY/",
+          "sourceTime": 90.5,
+          "sourcePublishedAt": "2026-10-23",
+          "sourceVersion": null,
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-theme-only-native-target-name-obscured",
+          "evidence": {
+            "kind": "author-demonstration-reference-not-canonical-test",
+            "sourceTime": 90.5,
+            "sourceFramePublic": false,
+            "nativeTargetIdentityConfirmed": false,
+            "actualShotObserved": false
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/germ_leopard_2k",
@@ -12685,6 +12708,19 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
+      ],
+      "relatedSources": [
+        {
+          "url": "https://www.bilibili.com/video/BV13znp6qEKY/",
+          "title": "“装甲无用论的又一受害者”——豹2K",
+          "author": "梦醒_official",
+          "publishedAt": "2026-10-23",
+          "kind": "video",
+          "time": 90.5,
+          "sourceVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "scopeNote": "标题主题归属；原生目标名被遮挡，不能原生排除2A4/PL；仅作者演示参考。"
+        }
       ]
     },
     {
@@ -13590,7 +13626,7 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。",
+        "已提供3处条件性外表参考；精确视频选点验证上下文与未覆盖区域待核对；未观察到逐点实射；右缘遮挡区域未覆盖。局部入射角未知。",
         "具体改型年代待核实，era保留null。"
       ],
       "testCases": [
@@ -14432,7 +14468,7 @@
       "weaknessEvidenceStatus": "native-front-analysis-with-author-family-context",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无独立正向试射结果及已核对的局部UV标点，不计完整图解。"
+        "已提供3处条件性外表参考；尚未观察到独立正向试射结果；精确选点结果与未覆盖区域待核对；族级左侧与夹缝建议未唯一定位，不计完整图解。来源游戏版本未确认。局部入射角未知。"
       ],
       "testCases": [
         {
@@ -15529,7 +15565,7 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "尚未绑定经审核的清洁正面主图和对应外部区域坐标。"
+        "已提供2处条件性外表参考；精确选点结果与未覆盖区域待核对；未观察到逐点实射；未覆盖或遮挡区域不作推断，不计完整图解。来源游戏版本未确认。局部入射角未知。"
       ],
       "completeIllustration": false,
       "mainImageUsable": true,
@@ -17283,7 +17319,7 @@
         }
       ],
       "missingEvidence": [
-        "尚未绑定经审核的清洁正面主图和对应外部区域坐标。"
+        "已提供2处条件性外表参考；精确选点结果与未覆盖区域待核对；未观察到逐点实射；未覆盖或遮挡区域不作推断，不计完整图解。来源游戏版本未确认。局部入射角未知。"
       ],
       "limits": "4K仅提升原件分辨率，不改变透视画面的主图适用性。；所有具体建议逐case绑定，版本未独立读出留null。；IPM1比较句不是独立正向射击证明。",
       "testContext": {
@@ -17632,7 +17668,7 @@
         }
       ],
       "missingEvidence": [
-        "尚未绑定经审核的清洁正面主图和对应外部区域坐标。"
+        "已提供1处条件性外表参考；精确选点结果与未覆盖区域待核对；未观察到逐点实射；未覆盖或遮挡区域不作推断，不计完整图解。来源游戏版本未确认。局部入射角未知。"
       ],
       "limits": "4K仅提升原件分辨率，不改变透视画面的主图适用性。；所有具体建议逐case绑定，版本未独立读出留null。；IPM1比较句不是独立正向射击证明。",
       "testContext": {
@@ -17898,7 +17934,7 @@
         }
       ],
       "missingEvidence": [
-        "尚未绑定经审核的清洁正面主图和对应外部区域坐标。"
+        "已提供2处条件性外表参考；精确选点结果与未覆盖区域待核对；未观察到逐点实射；未覆盖或遮挡区域不作推断，不计完整图解。来源游戏版本未确认。局部入射角未知。"
       ],
       "limits": "",
       "testContext": {
@@ -18440,7 +18476,7 @@
         }
       ],
       "missingEvidence": [
-        "尚未绑定经审核的清洁正面主图和对应外部区域坐标。"
+        "已提供2处条件性外表参考；精确选点结果与未覆盖区域待核对；未观察到逐点实射；未覆盖或遮挡区域不作推断，不计完整图解。来源游戏版本未确认。局部入射角未知。"
       ],
       "limits": "",
       "testContext": {
@@ -20908,7 +20944,7 @@
       "eraBasis": "原页未给出AZUR精确改型形成日期。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无已验证的主图及对应局部标点。"
+        "已提供2处条件性外表参考；精确选点结果与未覆盖区域待核对；未观察到逐点实射；未覆盖或遮挡区域不作推断，不计完整图解。来源游戏版本未确认。局部入射角未知。"
       ],
       "testCases": [
         {
@@ -22995,6 +23031,26 @@
           "adviceId": "v281-ztz96ap-advice-111",
           "actualShotObserved": false,
           "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        },
+        {
+          "x": 0.43609,
+          "y": 0.586111,
+          "label": "炮周左下外表",
+          "detail": "本帧画面左下炮周可见绿色表面，仅当前125-I、0米、界面466毫米条件；未独立选点验证，不推广整个炮盾、任意弹种或实射后效。",
+          "kind": "external-region-reference",
+          "caseId": "cn_ztz_96a_prot:v281-point-111",
+          "sourceUrl": "https://www.bilibili.com/video/BV1uhjc6fE3e/",
+          "sourceTime": 111,
+          "mainImageTime": 111,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested",
+          "evidence": {
+            "originalPNG_SHA256": "6c375edb4f9c601e3eac232e904efcac6bec2a1b24b4ddc89cead329b31f2a83",
+            "parentImageSHA256": "52925ab416aba0e35863ef8d1d341c0f9a8f237691b93b29c5cf64f611cca7fb",
+            "sourceTime": 111,
+            "kind": "current-frame-visible-exterior-reference",
+            "actualShotObserved": false
+          }
         }
       ],
       "videoAdvice": [
@@ -23583,7 +23639,7 @@
       "eraBasis": "原文明确该型在1985–1992年分批制造。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无已验证的主图及对应局部标点。"
+        "已提供2处条件性外表参考；精确选点结果与未覆盖区域待核对；未观察到逐点实射；未覆盖或遮挡区域不作推断，不计完整图解。来源游戏版本未确认。局部入射角未知。"
       ],
       "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/GER-Leopard-2A4-HD-0450.webp",
       "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/non-ussr-next-20261102/084.json",
@@ -24022,7 +24078,7 @@
       "eraBasis": "原文明确1977年向美方展示105毫米炮原型。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无已验证的主图及对应局部标点。"
+        "已提供2处条件性外表参考；精确选点结果与未覆盖区域待核对；未观察到逐点实射；未覆盖或遮挡区域不作推断，不计完整图解。来源游戏版本未确认。局部入射角未知。"
       ],
       "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-av-budgeted-v6-20261103/source-candidate-Leopard2AV-0435.webp",
       "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-av-budgeted-v6-20261103/002.json",
@@ -26394,7 +26450,7 @@
       "eraBasis": "本精确原页将T80B生产起点写为1976，保留原文证据不套用其他T80年代。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无已验证的主图及对应局部标点。"
+        "已提供2处条件性外表参考；精确选点结果与未覆盖区域待核对；未观察到逐点实射；未覆盖或遮挡区域不作推断，不计完整图解。来源游戏版本未确认。局部入射角未知。"
       ],
       "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-t80-resolution-upgrade-v11-20261103/T80B-existing-keypoint-HD-600.033312.webp",
       "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-t80-resolution-upgrade-v11-20261103/003.json",
@@ -27748,7 +27804,7 @@
       "eraBasis": "本精确页未给T90A研发、形成或生产年份。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无已验证的主图及对应局部标点。"
+        "已提供2处条件性外表参考；精确选点结果与未覆盖区域待核对；未观察到逐点实射；仅为2025年5月历史版本静态条件参考，非当前版本保证。局部入射角未知。"
       ],
       "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/forum-new-topics-v15/public-ui-continuation/post18-shot220950.webp",
       "frameSnapshotPath": "artifacts/tank-weakpoints-ingestion-20261102/forum-t90a-static-main/forum-post18-image3-proof.json",
@@ -28315,7 +28371,7 @@
       "eraBasis": "原文明示重新设计炮塔、火控、动力及装填布局的T90M在2017年首次出现。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无已验证的主图及对应局部标点。"
+        "已提供2处条件性外表参考；精确选点结果与未覆盖区域待核对；未观察到逐点实射；目标依据原帖作者说明，图中无独立目标名牌。来源游戏版本未确认。局部入射角未知。"
       ],
       "relatedSources": [
         {
