@@ -12,6 +12,8 @@ let country = "all";
 let rank = "all";
 let era = "all";
 let includeIs = false;
+let imageLoadTimer;
+let imageLoadGeneration = 0;
 function element(tag, text, className) {
   const node = document.createElement(tag);
   if (text !== undefined) node.textContent = text;
@@ -143,24 +145,38 @@ function render() {
   const imageUrl = evidence?.imageUrl || (showRaw ? model.rawUrl : model.imageUrl);
   image.hidden = !imageUrl;
   $("image-status").hidden = !!imageUrl;
-  const fallbackUrl = evidence?.imageFallbackUrl || (showRaw ? model.rawFallbackUrl : model.imageFallbackUrl);
-  let triedFallback = false;
-  image.onerror = () => {
-    if (fallbackUrl && !triedFallback) { triedFallback = true; image.src = fallbackUrl; return; }
-    imageMissing("高清正面图加载失败，请稍后重试；此图暂不显示标注。");
+  const fallbacks = evidence?.imageFallbackUrls || (showRaw ? model.rawFallbackUrls : model.imageFallbackUrls)
+    || [evidence?.imageFallbackUrl || (showRaw ? model.rawFallbackUrl : model.imageFallbackUrl)];
+  const candidates = [...new Set([imageUrl, ...fallbacks].filter(Boolean))];
+  const generation = ++imageLoadGeneration;
+  clearTimeout(imageLoadTimer);
+  let candidateIndex = 0;
+  const loadCandidate = () => {
+    if (generation !== imageLoadGeneration) return;
+    clearTimeout(imageLoadTimer);
+    image.src = candidates[candidateIndex];
+    imageLoadTimer = setTimeout(() => { if (generation === imageLoadGeneration) nextCandidate(); }, 12000);
   };
-  if (imageUrl) image.src = imageUrl;
+  const nextCandidate = () => {
+    if (generation !== imageLoadGeneration) return;
+    clearTimeout(imageLoadTimer);
+    if (++candidateIndex < candidates.length) loadCandidate();
+    else imageMissing("高清正面图加载失败，请稍后重试；此图暂不显示标注。");
+  };
+  image.onerror = nextCandidate;
+  image.onload = () => { if (generation === imageLoadGeneration) clearTimeout(imageLoadTimer); };
+  if (imageUrl) loadCandidate();
   else { image.removeAttribute("src"); imageMissing("高清正面图尚未归档，此车型资料仍在补充。"); }
   image.alt = model.name + (evidence ? ` · ${evidence.label} · 防护分析画面` : authorDiagram ? "原文章作者正面防护示意图" : showRaw ? staticSource ? "原帖完整防护分析截图" : "原始防护分析视频帧" : model.mainViewKind === "protection-analysis" ? "正面防护分析原图" : "正面截图与区域说明");
   image.width = evidence?.sourceDimensions?.[0] || (showRaw ? (model.sourceDimensions?.[0] || 1920) : (model.crop?.[2] || 1100));
   image.height = evidence?.sourceDimensions?.[1] || (showRaw ? (model.sourceDimensions?.[1] || 1080) : (model.crop?.[3] || 690));
   $("toggle-original").hidden = !!evidence || !(model.imageUrl && model.rawUrl);
-  $("toggle-original").textContent = original ? "返回标注图" : "查看完整原始帧";
+  $("toggle-original").textContent = original ? "返回标注图" : "查看完整高清图";
   $("toggle-original").setAttribute("aria-pressed", String(original));
   $("evidence-full").hidden = !evidence;
   if (evidence) $("evidence-full").href = evidence.rawUrl || evidence.imageUrl;
   else $("evidence-full").removeAttribute("href");
-  const imageDescription = authorDiagram ? "原文章作者防护示意图，保留作者分区、数值和箭头；不是游戏绿色击穿分析或已核验的试射结果。" : showRaw ? "当前为完整原始画面。" : model.mainViewKind === "protection-analysis" ? `${staticSource ? "原帖截图" : "原视频"}防护分析，保留游戏原始着色。` : model.pins?.length ? "金色编号为讲解标注。" : "来源载具外观。";
+  const imageDescription = authorDiagram ? "原文章作者防护示意图，保留作者分区、数值和箭头；不是游戏绿色击穿分析或已核验的试射结果。" : showRaw ? "当前为完整高清画面。" : model.mainViewKind === "protection-analysis" ? `${staticSource ? "原帖截图" : "原视频"}防护分析，保留游戏原有防护分区。` : model.pins?.length ? "金色编号为讲解标注。" : "来源载具外观。";
   const versionDescription = staticSource && source.gameVersion ? `截图版本 ${source.gameVersion}。` : "";
   const analysisConditions = authorDiagram ? "" : "防护分析颜色对应当时的弹种与视角，条件见来源测试。";
   $("figure-caption").textContent = evidence ? evidence.caption : imageUrl ? `画面：${source.author || "来源见下方"} / 《战争雷霆》。${imageDescription}${versionDescription}${analysisConditions}` : "图像资料待补充，不以其他车型画面代替。";

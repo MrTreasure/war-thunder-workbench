@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "f9487aabc7f3320ab818071dd20c87b37d92c970",
+  "commit": "930c2dc80689497924e493d1f5d240bbe020e74e",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -914,12 +914,12 @@
         "commit": "f9487aabc7f3320ab818071dd20c87b37d92c970"
       },
       "photo": {
-        "path": "images/ITA/ITA-Ariete-PSO-author-frontal-layout-20251221-native4069x2880.webp",
-        "sha256": "1e13bbc2165cd2c9143339856ce20441835beac27751f0b6e80ac103bf73dd25",
-        "bytes": 7113936,
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@f9487aabc7f3320ab818071dd20c87b37d92c970/images/ITA/ITA-Ariete-PSO-author-frontal-layout-20251221-native4069x2880.webp",
-        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/f9487aabc7f3320ab818071dd20c87b37d92c970/images/ITA/ITA-Ariete-PSO-author-frontal-layout-20251221-native4069x2880.webp",
-        "commit": "f9487aabc7f3320ab818071dd20c87b37d92c970"
+        "path": "images/ITA/ITA-Ariete-PSO-author-frontal-layout-20251221-native4069x2880-q97.webp",
+        "sha256": "4bf285c9cddc0d4927fee3b3793fa45b5997f323ef37078568b3b1838f4abadc",
+        "bytes": 1853810,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@930c2dc80689497924e493d1f5d240bbe020e74e/images/ITA/ITA-Ariete-PSO-author-frontal-layout-20251221-native4069x2880-q97.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/930c2dc80689497924e493d1f5d240bbe020e74e/images/ITA/ITA-Ariete-PSO-author-frontal-layout-20251221-native4069x2880-q97.webp",
+        "commit": "930c2dc80689497924e493d1f5d240bbe020e74e"
       }
     }
   },
@@ -12485,6 +12485,100 @@
       "commit": "f9487aabc7f3320ab818071dd20c87b37d92c970",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@f9487aabc7f3320ab818071dd20c87b37d92c970/images/ITA/ITA-Ariete-PSO-author-side-kit-20251221-native3440x1441.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/f9487aabc7f3320ab818071dd20c87b37d92c970/images/ITA/ITA-Ariete-PSO-author-side-kit-20251221-native3440x1441.webp"
+    },
+    {
+      "path": "images/ITA/ITA-Ariete-PSO-author-frontal-layout-20251221-native4069x2880-q97.webp",
+      "sha256": "4bf285c9cddc0d4927fee3b3793fa45b5997f323ef37078568b3b1838f4abadc",
+      "bytes": 1853810,
+      "width": 4069,
+      "height": 2880,
+      "sourceDimensions": [
+        4069,
+        2880
+      ],
+      "nativeResized": false,
+      "vehicleId": "it_c1_ariete_pso",
+      "country": "ITA",
+      "source": {
+        "kind": "article-image",
+        "url": "https://wiki.warthunder.com/5045-ariete-pso-armor-not-included",
+        "imageUrl": "https://wiki.warthunder.com/images/02bf8bd46f905eda8930e018eb7227ed.png",
+        "title": "Ariete PSO: Armor not included | War Thunder Wiki",
+        "author": "nornfang058",
+        "publishedAt": "2025-12-21T21:35:53+00:00"
+      },
+      "sourceKind": "article-image",
+      "sourceTime": null,
+      "mediaTime": null,
+      "sourcePublishedAt": "2025-12-21T21:35:53+00:00",
+      "sourceImageUrl": "https://wiki.warthunder.com/images/02bf8bd46f905eda8930e018eb7227ed.png",
+      "sourceFrameSHA256": "7d2e9ce457d5f3cacdc9807e59b84b823d28f0d747422dfee3269857bbc7083e",
+      "sourceFrameHashKind": "source-original-png",
+      "sourceOriginalHashKind": "source-original-png",
+      "proofSnapshotSHA256": "3bc6a85dff8657529d52beb091b692c60ff693f633f98005e7d7a1e6a4df49d6",
+      "sourceGameVersion": null,
+      "caseId": null,
+      "kind": "author-diagram-display-webp",
+      "roles": [
+        "display-view"
+      ],
+      "purpose": "optimized-primary-view",
+      "sceneKind": "author-diagram",
+      "visibleView": "strict frontal author armor-layout diagram",
+      "mainImageUsable": true,
+      "mainViewKind": "author-diagram",
+      "hasGreenArmourMap": false,
+      "authorColourOverlay": true,
+      "sourceCaption": null,
+      "imageCreditOriginal": null,
+      "visibleAuthoredCredit": "@NORNFANG058 / WAR THUNDER WIKI",
+      "encoding": "webp-quality-cap-v1",
+      "pixelLossless": false,
+      "decodedComparison": {
+        "originalDimensions": {
+          "width": 4069,
+          "height": 2880
+        },
+        "webpDimensions": {
+          "width": 4069,
+          "height": 2880
+        },
+        "rgbEqual": false,
+        "differentChannels": 8638,
+        "maxAbsChannelDifference": 255,
+        "meanAbsChannelDifference": 0.044571875881780035,
+        "rgbSHA256Original": "b41ada5169f7ae01867863b43adb5751849e06b0d73a91b48258f705a21e28cc",
+        "rgbSHA256Webp": "5b2ee57b46fc793ed9e13c2a245884ebcb8618847d43be027cc76ec6bece8d2e",
+        "analysisSHA256": "f4811d1d19f4155e6fa361a2951a2d9e94030152c5883ba24c1f540c756a98e3",
+        "analysisBytes": 64662,
+        "analysisDimensions": {
+          "width": 1017,
+          "height": 720
+        },
+        "alphaEqual": true,
+        "originalTransparentPixels": 2880,
+        "changedRGBPixels": 2880,
+        "changedRGBPixelsOriginalFullyTransparent": 2880,
+        "changedRGBPixelsOriginalNontransparent": 0
+      },
+      "id": "4bf285c9cddc0d4927fee3b3793fa45b5997f323ef37078568b3b1838f4abadc",
+      "rgbPixelsIdentical": false,
+      "alphaIdentical": true,
+      "visiblePixelsIdentical": false,
+      "codecCaveat": "High quality same-resolution WebP delivery; original source retained and verified separately.",
+      "preCompressionSHA256": "1e13bbc2165cd2c9143339856ce20441835beac27751f0b6e80ac103bf73dd25",
+      "preCompressionBytes": 7113936,
+      "lossless": false,
+      "deliveryEncoding": {
+        "codec": "webp",
+        "lossless": false,
+        "quality": 97,
+        "maxBytes": 2000000,
+        "dimensionsUnchanged": true
+      },
+      "commit": "930c2dc80689497924e493d1f5d240bbe020e74e",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@930c2dc80689497924e493d1f5d240bbe020e74e/images/ITA/ITA-Ariete-PSO-author-frontal-layout-20251221-native4069x2880-q97.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/930c2dc80689497924e493d1f5d240bbe020e74e/images/ITA/ITA-Ariete-PSO-author-frontal-layout-20251221-native4069x2880-q97.webp"
     }
   ]
 }
