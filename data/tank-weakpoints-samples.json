@@ -8581,7 +8581,28 @@
       "eraBasis": "按已核对的具体技术改型形成时期归类。",
       "collectedAt": "2026-11-02T08:59:08.150Z",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v177-germ_mkpz_super_m48-author-opinion",
+          "label": "作者观点：炮塔颈部",
+          "text": "作者称超级M48的炮塔颈部约70毫米，可关注该处；仅为口述观点，未经独立实测。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1wpK16mEh7/",
+          "sourceTime": 75.064509,
+          "sourcePublishedAt": "2026-07-20",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-opinion-unverified-test",
+          "sourceGameVersion": null,
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV1wpK16mEh7/",
+            "sourceTime": 75.064509,
+            "originalPNG_SHA256": "840a5778cb4a5ad09f094dd52efb092b59480f5e9f09bdcf62c14576382ddbe1",
+            "kind": "author-opinion-not-test"
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/germ_mkpz_super_m48",
@@ -8605,6 +8626,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1wpK16mEh7/",
+          "title": "【战争雷霆】从夯到拉到你认识9.3所有主战",
+          "author": "UgandaFreeman",
+          "publishedAt": "2026-07-20",
+          "time": 75.064509,
+          "scopeNote": "作者评级与防护观点；非独立试射或当前官方装甲数据"
+        }
       ]
     },
     {
@@ -8662,7 +8694,28 @@
       "eraBasis": "按已核对的具体技术改型形成时期归类。",
       "collectedAt": "2026-11-02T08:59:32.776Z",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v177-jp_type_74_mod_g_kai-author-opinion",
+          "label": "作者观点：驾驶员观察窗",
+          "text": "作者将74式G的驾驶员观察窗列为薄弱处，并称受机炮威胁；未验证具体机炮或命中条件。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1wpK16mEh7/",
+          "sourceTime": 274.949167,
+          "sourcePublishedAt": "2026-07-20",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-opinion-unverified-test",
+          "sourceGameVersion": null,
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV1wpK16mEh7/",
+            "sourceTime": 274.949167,
+            "originalPNG_SHA256": "281b972109297a69d8a110521dc977d992240128e5795bb68f49ab6ea34fd861",
+            "kind": "author-opinion-not-test"
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/jp_type_74_mod_g_kai",
@@ -8686,6 +8739,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1wpK16mEh7/",
+          "title": "【战争雷霆】从夯到拉到你认识9.3所有主战",
+          "author": "UgandaFreeman",
+          "publishedAt": "2026-07-20",
+          "time": 274.949167,
+          "scopeNote": "作者评级与防护观点；非独立试射或当前官方装甲数据"
+        }
       ]
     },
     {
@@ -10493,7 +10557,28 @@
       "eraBasis": "豹A1A1 120毫米型在80年代初改装、1985年加装EMES18；Wiki提醒其装甲难挡许多步战车和自行高炮机关炮。",
       "collectedAt": "2026-11-02T09:05:31.400Z",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v177-germ_leopard_a1a1_120-author-opinion",
+          "label": "作者观点：炮盾防护",
+          "text": "作者称Leopard 1 MPI炮盾附加装甲已移除、最薄约60毫米等效；这是视频观点，并非当前官方厚度。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1wpK16mEh7/",
+          "sourceTime": 121.005615,
+          "sourcePublishedAt": "2026-07-20",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-opinion-unverified-test",
+          "sourceGameVersion": null,
+          "evidence": {
+            "sourceUrl": "https://www.bilibili.com/video/BV1wpK16mEh7/",
+            "sourceTime": 121.005615,
+            "originalPNG_SHA256": "ac57c2ae458a679902137a2526ff96d92e9d958c1ea44dd130704ae14b5d6e70",
+            "kind": "author-opinion-not-test"
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/germ_leopard_a1a1_120",
@@ -10518,6 +10603,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1wpK16mEh7/",
+          "title": "【战争雷霆】从夯到拉到你认识9.3所有主战",
+          "author": "UgandaFreeman",
+          "publishedAt": "2026-07-20",
+          "time": 121.005615,
+          "scopeNote": "作者评级与防护观点；非独立试射或当前官方装甲数据"
+        }
       ]
     },
     {
