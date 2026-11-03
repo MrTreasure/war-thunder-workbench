@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "930c2dc80689497924e493d1f5d240bbe020e74e",
+  "commit": "a387c2e47b0852516c015274cffe43b3cda4c88e",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -920,6 +920,24 @@
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@930c2dc80689497924e493d1f5d240bbe020e74e/images/ITA/ITA-Ariete-PSO-author-frontal-layout-20251221-native4069x2880-q97.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/930c2dc80689497924e493d1f5d240bbe020e74e/images/ITA/ITA-Ariete-PSO-author-frontal-layout-20251221-native4069x2880-q97.webp",
         "commit": "930c2dc80689497924e493d1f5d240bbe020e74e"
+      }
+    },
+    "ussr_t_90m_2020": {
+      "raw": {
+        "path": "images/USSR/USSR-T-90M-forum-post216-20260610-native1863x991.webp",
+        "sha256": "5d45679233e972d8bcb194a1463a9655a3f9d51df55c26fe02f3181bffe82055",
+        "bytes": 1254116,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a387c2e47b0852516c015274cffe43b3cda4c88e/images/USSR/USSR-T-90M-forum-post216-20260610-native1863x991.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a387c2e47b0852516c015274cffe43b3cda4c88e/images/USSR/USSR-T-90M-forum-post216-20260610-native1863x991.webp",
+        "commit": "a387c2e47b0852516c015274cffe43b3cda4c88e"
+      },
+      "photo": {
+        "path": "images/USSR/USSR-T-90M-forum-post216-20260610-front-crop720x470.webp",
+        "sha256": "90ac303d364c58d1ba428e8806431edd62cb04d0539b45a00f4949f3d67c3d1f",
+        "bytes": 307076,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a387c2e47b0852516c015274cffe43b3cda4c88e/images/USSR/USSR-T-90M-forum-post216-20260610-front-crop720x470.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a387c2e47b0852516c015274cffe43b3cda4c88e/images/USSR/USSR-T-90M-forum-post216-20260610-front-crop720x470.webp",
+        "commit": "a387c2e47b0852516c015274cffe43b3cda4c88e"
       }
     }
   },
@@ -12579,6 +12597,100 @@
       "commit": "930c2dc80689497924e493d1f5d240bbe020e74e",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@930c2dc80689497924e493d1f5d240bbe020e74e/images/ITA/ITA-Ariete-PSO-author-frontal-layout-20251221-native4069x2880-q97.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/930c2dc80689497924e493d1f5d240bbe020e74e/images/ITA/ITA-Ariete-PSO-author-frontal-layout-20251221-native4069x2880-q97.webp"
+    },
+    {
+      "path": "images/USSR/USSR-T-90M-forum-post216-20260610-native1863x991.webp",
+      "sha256": "5d45679233e972d8bcb194a1463a9655a3f9d51df55c26fe02f3181bffe82055",
+      "bytes": 1254116,
+      "width": 1863,
+      "height": 991,
+      "vehicleId": "ussr_t_90m_2020",
+      "country": "USSR",
+      "source": {
+        "kind": "forum-image",
+        "url": "https://forum.warthunder.com/t/relikt-armor-buff/332129/216",
+        "imageUrl": "https://forum-en-cdn.warthunder.com/original/4X/8/0/0/80038a8a7c480ba8871a69c8fc7a55c2f4e3d6f1.jpeg",
+        "title": "Relikt armor buff",
+        "author": "MiGoon Fox-3",
+        "publishedAt": "2026-06-10T12:58:40.945Z",
+        "gameVersion": null
+      },
+      "sourceKind": "forum-image",
+      "sourceTime": null,
+      "mediaTime": null,
+      "sourcePublishedAt": "2026-06-10T12:58:40.945Z",
+      "sourceImageUrl": "https://forum-en-cdn.warthunder.com/original/4X/8/0/0/80038a8a7c480ba8871a69c8fc7a55c2f4e3d6f1.jpeg",
+      "sourceFrameSHA256": "eaefc257d033abd61d3d1aee65429b172f9cfe1375bfc32f0801d4c09f16d1bc",
+      "sourceFrameHashKind": "source-original-jpeg",
+      "proofSnapshotSHA256": "14f4709f284c3716e1c0f1917d2420f33507438afab959e1727cc7774b8d89fa",
+      "sourceGameVersion": null,
+      "caseId": "ussr_t_90m_2020:forum332129:post216",
+      "kind": "source-static-image-webp",
+      "roles": [
+        "source-frame"
+      ],
+      "purpose": "source-evidence-only",
+      "mainImageUsable": false,
+      "hasGreenArmourMap": true,
+      "nativeResized": false,
+      "sceneKind": "protection-analysis",
+      "mainViewKind": "protection-analysis",
+      "id": "5d45679233e972d8bcb194a1463a9655a3f9d51df55c26fe02f3181bffe82055",
+      "actualTime": null,
+      "encoding": "source-webp-preserved",
+      "commit": "a387c2e47b0852516c015274cffe43b3cda4c88e",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a387c2e47b0852516c015274cffe43b3cda4c88e/images/USSR/USSR-T-90M-forum-post216-20260610-native1863x991.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a387c2e47b0852516c015274cffe43b3cda4c88e/images/USSR/USSR-T-90M-forum-post216-20260610-native1863x991.webp"
+    },
+    {
+      "path": "images/USSR/USSR-T-90M-forum-post216-20260610-front-crop720x470.webp",
+      "sha256": "90ac303d364c58d1ba428e8806431edd62cb04d0539b45a00f4949f3d67c3d1f",
+      "bytes": 307076,
+      "width": 720,
+      "height": 470,
+      "vehicleId": "ussr_t_90m_2020",
+      "country": "USSR",
+      "source": {
+        "kind": "forum-image",
+        "url": "https://forum.warthunder.com/t/relikt-armor-buff/332129/216",
+        "imageUrl": "https://forum-en-cdn.warthunder.com/original/4X/8/0/0/80038a8a7c480ba8871a69c8fc7a55c2f4e3d6f1.jpeg",
+        "title": "Relikt armor buff",
+        "author": "MiGoon Fox-3",
+        "publishedAt": "2026-06-10T12:58:40.945Z",
+        "gameVersion": null
+      },
+      "sourceKind": "forum-image",
+      "sourceTime": null,
+      "mediaTime": null,
+      "sourcePublishedAt": "2026-06-10T12:58:40.945Z",
+      "sourceImageUrl": "https://forum-en-cdn.warthunder.com/original/4X/8/0/0/80038a8a7c480ba8871a69c8fc7a55c2f4e3d6f1.jpeg",
+      "sourceFrameSHA256": "eaefc257d033abd61d3d1aee65429b172f9cfe1375bfc32f0801d4c09f16d1bc",
+      "sourceFrameHashKind": "source-original-jpeg",
+      "proofSnapshotSHA256": "14f4709f284c3716e1c0f1917d2420f33507438afab959e1727cc7774b8d89fa",
+      "sourceGameVersion": null,
+      "caseId": "ussr_t_90m_2020:forum332129:post216",
+      "kind": "front-view-crop-webp",
+      "roles": [
+        "primary-crop"
+      ],
+      "purpose": "primary-protection-analysis",
+      "mainImageUsable": true,
+      "hasGreenArmourMap": true,
+      "nativeResized": false,
+      "sceneKind": "protection-analysis",
+      "mainViewKind": "protection-analysis",
+      "crop": [
+        930,
+        230,
+        720,
+        470
+      ],
+      "id": "90ac303d364c58d1ba428e8806431edd62cb04d0539b45a00f4949f3d67c3d1f",
+      "actualTime": null,
+      "encoding": "lossless-webp",
+      "commit": "a387c2e47b0852516c015274cffe43b3cda4c88e",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a387c2e47b0852516c015274cffe43b3cda4c88e/images/USSR/USSR-T-90M-forum-post216-20260610-front-crop720x470.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a387c2e47b0852516c015274cffe43b3cda4c88e/images/USSR/USSR-T-90M-forum-post216-20260610-front-crop720x470.webp"
     }
   ]
 }

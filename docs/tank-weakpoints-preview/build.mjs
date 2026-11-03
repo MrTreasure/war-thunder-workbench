@@ -73,6 +73,10 @@ const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
 // One original video is encoded at 1920×1078; retain its native size.
 const isHdSource = (width, height) => (width >= 1920 && height >= 1080)
   || (width === 1920 && height === 1078);
+// Public still attachments retain their actual native resolution. Smaller forum
+// originals require verified original bytes and dimensions; video rules stay HD.
+const isQualifiedSource = (width, height, source, geometry) => isHdSource(width, height)
+  || (source?.kind === "forum-image" && geometry.nativeOriginalVerified === true && width >= 1600 && height >= 900);
 function privatePath(path) {
   const target = resolve(project, path);
   if (!target.startsWith(resolve(project, "artifacts") + sep)) throw Error("Source proof must stay in local artifacts");
@@ -130,7 +134,16 @@ async function validateStaticFrame(proof, source, digest) {
     || record.accessBlocked !== false || record.mediaTime !== null
     || record.parentDOMProofSHA256 !== proof.sourcePageProof.sha256
     || record.dimensions?.width !== proof.image.width || record.dimensions?.height !== proof.image.height) throw Error("Static screenshot differs from the public attachment record");
-  return proof.image;
+  let nativeOriginalVerified = false;
+  if (record.nativeResized === false && record.sourceOriginalFile && record.sourceOriginalSHA256
+    && proof.originalImageSHA256 === record.sourceOriginalSHA256) {
+    const originalPath = privatePath(record.sourceOriginalFile), original = await readFile(originalPath);
+    if (hash(original) !== record.sourceOriginalSHA256 || original.length !== record.sourceOriginalBytes) throw Error("Original forum attachment bytes changed");
+    const dimensions = JSON.parse(execFileSync("ffprobe", ["-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "json", originalPath], { encoding: "utf8" })).streams[0];
+    if (dimensions.width !== proof.image.width || dimensions.height !== proof.image.height) throw Error("Original forum attachment dimensions changed");
+    nativeOriginalVerified = true;
+  }
+  return { ...proof.image, nativeOriginalVerified };
 }
 function validateShellTypeReference(item, originalCase) {
   const reference = item?.shellTypeReference;
@@ -225,7 +238,7 @@ for (const model of data.models) {
     if (!isPng && !isWebp) throw Error("Capture must be PNG or WebP");
     const dimensions = isPng ? { width: raw.readUInt32BE(16), height: raw.readUInt32BE(20) } : JSON.parse(execFileSync("ffprobe", ["-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "json", framePath], { encoding: "utf8" })).streams[0];
     const { width, height } = dimensions;
-    if (!isHdSource(width, height) || model.imageView !== "front") throw Error("Verified HD front view required: " + model.id);
+    if (!isQualifiedSource(width, height, source, geometry) || model.imageView !== "front") throw Error("Verified native front view required: " + model.id);
     if (geometry.width !== width || geometry.height !== height) {
       const transform = model.frameCaptureTransform;
       const scale = width / geometry.width;
@@ -280,7 +293,7 @@ for (const model of data.models) {
     if (proof.error || proof.blocked || proof.challenge) throw Error("Protection screenshot source was blocked");
     const geometry = staticEvidence ? await validateStaticFrame(proof, { url: testCase.sourceUrl, imageUrl: testCase.sourceImageUrl, publishedAt: testCase.sourcePublishedAt }, hash(body)) : proof.decode;
     if (!staticEvidence && (!proof.url?.startsWith(testCase.sourceUrl) || !geometry || Math.abs(geometry.mediaTime - evidence.sourceTime) > .000001)) throw Error("Protection screenshot source/time mismatch");
-    if (original.width !== geometry.width || original.height !== geometry.height || !isHdSource(original.width, original.height)) throw Error("Native HD protection screenshot required");
+    if (original.width !== geometry.width || original.height !== geometry.height || !isQualifiedSource(original.width, original.height, staticEvidence ? { kind: "forum-image" } : null, geometry)) throw Error("Qualified native protection screenshot required");
     if (evidence.crop) {
       const [x, y, w, h] = evidence.crop;
       if (evidence.crop.length !== 4 || !evidence.crop.every(Number.isInteger) || x < 0 || y < 0 || w <= 0 || h <= 0 || x + w > original.width || y + h > original.height || hosted.width !== w || hosted.height !== h) throw Error("Invalid protection screenshot crop");

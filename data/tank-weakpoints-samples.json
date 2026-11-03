@@ -7853,7 +7853,34 @@
       "eraBasis": "按已核对的具体技术改型形成时期归类。",
       "collectedAt": "2026-11-02T08:57:54.367Z",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v70-author-ussr_t_55_amd_1",
+          "label": "炮闩附近参考",
+          "text": "作者提醒炮塔装甲厚度不均，可留意炮闩附近；此处仅转述其部位建议，未验证特定弹药的击穿或后效。",
+          "kind": "author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1bEp16TErM/",
+          "sourceTitle": "\"曾经8.7最强轮椅，如今9.0平庸之辈\"—T-55AMD-1简评",
+          "sourceAuthor": "卡特少将Official",
+          "sourcePublishedAt": "2026-10-16 17:00:00",
+          "sourceTime": 202.53254,
+          "sourceTimeRange": [
+            202.53254,
+            207.599327
+          ],
+          "sourceClaimNotCanonicalFact": true,
+          "sourceGameVersion": null,
+          "sourceKind": "video-author-advice",
+          "evidence": {
+            "privateQC": {
+              "file": "artifacts/weakpoints-t55amd1-video-qc-v64-20261103/records.json",
+              "sha256": "c189fd26e6f173a82e30eedf5cb915c248a0b1b37ccfa7ba57c1cccf1af79e3b"
+            },
+            "verifiedShot": false
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_55_amd_1",
@@ -7883,6 +7910,17 @@
       ],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1bEp16TErM/",
+          "title": "\"曾经8.7最强轮椅，如今9.0平庸之辈\"—T-55AMD-1简评",
+          "author": "卡特少将Official",
+          "publishedAt": "2026-10-16 17:00:00",
+          "time": 202.53254,
+          "scopeNote": "作者部位建议；非独立试射结论"
+        }
       ]
     },
     {
@@ -14226,7 +14264,37 @@
       "eraStatus": "reviewed-unit-prose",
       "eraBasis": "M1艾布拉姆斯的XM1方案于1976年选定，采用105毫米M68A1，防护与机动较M60改善。",
       "collectedAt": "2026-11-02T09:54:00.944Z",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.413,
+          "y": 0.653,
+          "detail": "347秒主图首下中央有可见绿色区，标点避开右侧提示框。参考条件为90式战车、JM33尾翼稳定脱壳穿甲弹、实际UI300米/476毫米；烧字500米与UI冲突，分别保留。370秒作者“如果非要打裆的话，瞄准中间比较稳妥”只作跨时间条件建议，未将该时刻后效迁移到本点。绿色预览不等于独立实射成功。",
+          "kind": "conditional",
+          "adviceId": null,
+          "caseId": "us_m1_abrams:BV1CueU6cECo:347000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 347,
+          "label": "首下中央",
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested",
+          "adviceSourceTime": 370,
+          "mainImageTime": 347
+        },
+        {
+          "x": 0.287,
+          "y": 0.376,
+          "detail": "347秒主图画面左侧炮塔正面内侧可见绿色区域，点位位于绿色区内部，避开边缘及准星。仅反映本帧90式战车、JM33尾翼稳定脱壳穿甲弹、实际UI300米/476毫米的防护分析显示；烧字500米冲突保留。不是整块炮塔都可击穿的结论，没有该点独立实射与后效证明；下方准星的80°、205毫米及预期损伤提示不移用于此处。",
+          "kind": "conditional",
+          "adviceId": null,
+          "caseId": "us_m1_abrams:BV1CueU6cECo:347000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 347,
+          "label": "炮塔正面",
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested",
+          "mainImageTime": 347
+        }
+      ],
       "videoAdvice": [
         {
           "caseId": "us_m1_abrams:BV1CueU6cECo:370000",
@@ -14560,7 +14628,7 @@
       "mainViewNote": "正面防护分析；右下提示框遮挡局部车体与履带，不推断遮挡区。",
       "imageQuality": "1080p",
       "coverageStatus": "partial-frontal-guide",
-      "coverageNotice": "正面防护分析 · 右下提示框局部遮挡"
+      "coverageNotice": "正面防护分析 · 2处条件性可见区域参考（非逐点实射）"
     },
     {
       "id": "ussr_t_72b_1989",
@@ -17163,7 +17231,34 @@
         "sourceFrameSHA256": "9b82a4a6b2ee29f210551032899e2fadc00b456d5543051e4369e0ba19462490",
         "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/"
       },
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.422,
+          "y": 0.695,
+          "detail": "745秒主图首下中央可见绿色矩形，坐标避开右侧提示框；作者745.232秒指出首下为应对位置。仅适用于本段90式B型富士教导团、JM33尾翼稳定脱壳穿甲弹、500米、面板472毫米条件的可见区域参考，绿色不保证击穿或后效；准星当前指向首上，其57°/494毫米/驾驶员提示不属于本标点。",
+          "kind": "conditional",
+          "adviceId": null,
+          "caseId": "uk_challenger_2_tes:BV1CueU6cECo:745000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 745.232,
+          "label": "首下中央",
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        },
+        {
+          "x": 0.396,
+          "y": 0.415,
+          "detail": "745秒主图炮口左侧可见绿色炮根外部区域；作者745.232秒建议炮闩区域，此点仅用于定位其外部瞄准参考，不是内部炮闩或乘员坐标，也不扩展为整块炮盾。参考条件为90式B型富士教导团、JM33尾翼稳定脱壳穿甲弹、500米、面板472毫米；没有本点独立实射或后效证明，主图首上准星提示不移用。",
+          "kind": "conditional",
+          "adviceId": null,
+          "caseId": "uk_challenger_2_tes:BV1CueU6cECo:745000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 745.232,
+          "label": "炮根外部",
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        }
+      ],
       "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/UK-enemy-target-proof-0745.webp",
       "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/emoi-enemies-next-20261102/012.json",
       "captureSHA256": "6cb7471411a8622202c6a17a3fe7f9ed434b40f03030bb1e1b3dff1cb262327f",
@@ -17185,7 +17280,7 @@
       "mainViewNote": "正面防护分析；画面右侧提示框局部遮挡，不推断不可见区域。",
       "imageQuality": "2160p",
       "coverageStatus": "partial-frontal-guide",
-      "coverageNotice": "正面防护分析 · 提示框局部遮挡"
+      "coverageNotice": "正面防护分析 · 2处条件性可见区域参考（非逐点实射）"
     },
     {
       "id": "germ_leopard_2a4m_can",
@@ -19385,7 +19480,42 @@
       "rank": 8,
       "era": null,
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.455,
+          "y": 0.38,
+          "detail": "774秒主图炮口右侧邻近的可见绿色外表区域，仅作寻找炮闩方向的外表参照，不表示看见内部炮闩或精确定位其中心。作者另在424.356887–450.113135秒比较视频中提出炮闩区域较大的观点，跨来源观点没有独立试射核验；本点不迁移该视频的姿态、条件或后效。主图当前为90式战车B型（富士教导团）JM33、500米防护分析，绿色不保证击穿或致毁。",
+          "kind": "conditional",
+          "adviceId": "v20-author-leclerc-azur",
+          "caseId": "fr_leclerc_azur:BV1CueU6cECo:774000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 774,
+          "label": "炮口旁外表",
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested",
+          "adviceSourceUrl": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "adviceSourceTime": 424.356887,
+          "adviceSourceTimeRange": [
+            424.356887,
+            450.113135
+          ],
+          "mainImageTime": 774
+        },
+        {
+          "x": 0.42,
+          "y": 0.66,
+          "detail": "774秒主图首下中央连续绿色着色的可见外表区域参考，位置避开前方黑色保险杠。仅对应该帧90式战车B型（富士教导团）JM33、500米防护分布；没有该点独立开火或穿透后效，不声称内部弹药、成员命中，不扩展到全部车体或其他勒克莱尔改型。该点不是将绿色十字解释为整块绿色装甲，也不是作者逐点实射建议。",
+          "kind": "conditional",
+          "adviceId": null,
+          "caseId": "fr_leclerc_azur:BV1CueU6cECo:774000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 774,
+          "label": "首下中央",
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested",
+          "mainImageTime": 774
+        }
+      ],
       "videoAdvice": [
         {
           "id": "fr_leclerc_azur:BV1CueU6cECo:author-family-guidance",
@@ -19626,7 +19756,7 @@
       "mainViewNote": "前视防护分析，车辆无遮挡；绿色仅为当前UI条件下的防护分布，不保证后效。",
       "imageQuality": "1080p",
       "coverageStatus": "partial-frontal-guide",
-      "coverageNotice": "正面防护分析 · 区域指引待补",
+      "coverageNotice": "正面防护分析 · 2处条件性外表参考（非逐点实射）",
       "testContext": {
         "attacker": "90 式战车 B 型（富士教导团）",
         "attackerVehicleId": "jp_type_90b_camo",
@@ -23501,7 +23631,38 @@
       "era": "modern",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v70-author-ussr_t_72b3_2011",
+          "label": "正面局部示意",
+          "text": "作者正面示意将首下、炮口周围及炮塔顶部局部标绿，可作观察部位的参考。该图为作者示意，未提供可核验的攻击车、弹种、距离或逐点试射后效，不能保证击穿。",
+          "kind": "author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV14C9YB6ENk/",
+          "sourceTitle": "大数据分房享受者—T72B3简评",
+          "sourceAuthor": "鸡蛋壳w",
+          "sourcePublishedAt": "2026-05-01T11:00:00+08:00",
+          "sourceTime": 70,
+          "sourceTimeRange": [
+            70,
+            70
+          ],
+          "sourceClaimNotCanonicalFact": true,
+          "sourceGameVersion": null,
+          "sourceKind": "video-author-advice",
+          "evidence": {
+            "privateQC": {
+              "file": "artifacts/weakpoints-t72b3-video-qc-v68-20261103/records.json",
+              "sha256": "f5e4fce8dff0c8996dd66a3b6622f97230825e1036ea35341a204875a6004cf1"
+            },
+            "verifiedShot": false,
+            "sourceCorrections": {
+              "file": "artifacts/tank-weakpoints-ingestion-20261102/batch-v70/source-corrections.json",
+              "sha256": "4346094eba702b87bd3f6ed347261a8cec01a0fb2e7e8902b5fa87b384ba0d4a"
+            }
+          }
+        }
+      ],
       "source": null,
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_72b3_2011",
@@ -23531,6 +23692,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV14C9YB6ENk/",
+          "title": "大数据分房享受者—T72B3简评",
+          "author": "鸡蛋壳w",
+          "publishedAt": "2026-05-01T11:00:00+08:00",
+          "time": 70,
+          "scopeNote": "作者部位建议；非独立试射结论"
+        }
       ]
     },
     {
@@ -25429,7 +25601,34 @@
       "rank": 8,
       "era": "modern",
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.49888333333333323,
+          "y": 0.41518936170212767,
+          "label": "炮盾中央与炮根周围",
+          "detail": "仅为该静态图M829A2、500米、面板621毫米条件下可见绿色区域参考，不代表独立实射、内部损伤或当前版本必穿；目标身份来自原帖第二图图注。",
+          "kind": "conditional",
+          "caseId": "ussr_t_90m_2020:forum332129:post216",
+          "adviceId": null,
+          "sourceKind": "forum-image",
+          "sourceTime": null,
+          "sourceUrl": "https://forum.warthunder.com/t/relikt-armor-buff/332129/216",
+          "actualShotObserved": false
+        },
+        {
+          "x": 0.49888333333333323,
+          "y": 0.737791489361702,
+          "label": "首下可见中央板",
+          "detail": "仅为该静态图M829A2、500米、面板621毫米条件下可见绿色区域参考，不代表独立实射、内部损伤或当前版本必穿；目标身份来自原帖第二图图注。",
+          "kind": "conditional",
+          "caseId": "ussr_t_90m_2020:forum332129:post216",
+          "adviceId": null,
+          "sourceKind": "forum-image",
+          "sourceTime": null,
+          "sourceUrl": "https://forum.warthunder.com/t/relikt-armor-buff/332129/216",
+          "actualShotObserved": false
+        }
+      ],
       "videoAdvice": [
         {
           "id": "v20-author-t90m",
@@ -25517,10 +25716,44 @@
             },
             "coverageBasis": "exact article subject"
           }
+        },
+        {
+          "id": "v70-author-ussr_t_90m_2020",
+          "label": "侧面角度提醒",
+          "text": "作者讨论T-90M侧面射击，并将部分未击穿归因于角度过大；可据此留意侧面机会的入射角。本次没有逐次核验其试射与统计，不能据此保证击穿或击毁。",
+          "kind": "author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1wftPzqEq3/",
+          "sourceTitle": "【战争雷霆】T90M航向角该打哪里？颗秒！",
+          "sourceAuthor": "一只小臭猪ソ",
+          "sourcePublishedAt": "2025-08-07",
+          "sourceTime": 36.4,
+          "sourceTimeRange": [
+            36.4,
+            45.1
+          ],
+          "sourceClaimNotCanonicalFact": true,
+          "sourceGameVersion": null,
+          "sourceKind": "video-author-advice",
+          "evidence": {
+            "privateQC": {
+              "file": "artifacts/weakpoints-t90m-video-qc-v69-20261103/records.json",
+              "sha256": "a46ac4b6636c67e51701bf3a8990a4f380c39a326a70df8e8fb0cc993cc0c45b"
+            },
+            "verifiedShot": false
+          }
         }
       ],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "kind": "forum-image",
+        "url": "https://forum.warthunder.com/t/relikt-armor-buff/332129/216",
+        "imageUrl": "https://forum-en-cdn.warthunder.com/original/4X/8/0/0/80038a8a7c480ba8871a69c8fc7a55c2f4e3d6f1.jpeg",
+        "title": "Relikt armor buff",
+        "author": "MiGoon Fox-3",
+        "publishedAt": "2026-06-10T12:58:40.945Z",
+        "gameVersion": null
+      },
+      "status": "static-conditional-guide",
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_90m_2020",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-005-20261103/snapshots/ussr_t_90m_2020.json",
@@ -25542,7 +25775,7 @@
       "collectedAt": "2026-11-02T18:28:36.222Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "原文明示重新设计炮塔、火控、动力及装填布局的T90M在2017年首次出现。",
       "qualitativeWeakpoints": [],
@@ -25576,8 +25809,156 @@
           "publishedAt": "2025-04-19T19:23:21+00:00",
           "time": null,
           "scopeNote": "Wiki投稿作者观点，非unit基础数据；测试条件未核验"
+        },
+        {
+          "kind": "forum-image",
+          "url": "https://forum.warthunder.com/t/relikt-armor-buff/332129/216",
+          "title": "Relikt armor buff",
+          "author": "MiGoon Fox-3",
+          "publishedAt": "2026-06-10T12:58:40.945Z",
+          "time": null,
+          "scopeNote": "原帖第二图图注明确T-90M；静态防护分析，非独立实射"
+        },
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1wftPzqEq3/",
+          "title": "【战争雷霆】T90M航向角该打哪里？颗秒！",
+          "author": "一只小臭猪ソ",
+          "publishedAt": "2025-08-07",
+          "time": 36.4,
+          "scopeNote": "作者部位建议；非独立试射结论"
         }
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/t90m-forum-evidence-v71/T-90M-front-original.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/t90m-forum-evidence-v71/frame-proof.json",
+      "captureSHA256": "5d45679233e972d8bcb194a1463a9655a3f9d51df55c26fe02f3181bffe82055",
+      "originalFrameSHA256": "eaefc257d033abd61d3d1aee65429b172f9cfe1375bfc32f0801d4c09f16d1bc",
+      "originalFrameHashKind": "source-original-jpeg",
+      "time": null,
+      "crop": [
+        930,
+        230,
+        720,
+        470
+      ],
+      "sourceDimensions": [
+        1863,
+        991
+      ],
+      "imageView": "front",
+      "imageViewDetail": "native-static-front-protection-analysis",
+      "imageQuality": "原帖原生1863×991（未放大）",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "目标依据原帖作者明确说明第二图为T-90M；本图无独立目标名牌。M1A2 SEP V2是攻击车。静态原件1863×991，未放大；版本与入射角未知。",
+      "testContext": {
+        "sourceKind": "forum-image",
+        "sourceTime": null,
+        "sourceUrl": "https://forum.warthunder.com/t/relikt-armor-buff/332129/216",
+        "sourceImageUrl": "https://forum-en-cdn.warthunder.com/original/4X/8/0/0/80038a8a7c480ba8871a69c8fc7a55c2f4e3d6f1.jpeg",
+        "sourcePublishedAt": "2026-06-10T12:58:40.945Z",
+        "attacker": "M1A2 SEP V2",
+        "attackerVisibleTitle": "[12.7] M1A2 SEP V2",
+        "attackerVehicleId": "us_m1a2_sep2_abrams",
+        "shell": "M829A2",
+        "sourceShellLabelOriginal": "M829A2",
+        "rawUIType": null,
+        "shellType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/us_m1a2_sep2_abrams",
+          "attackerVehicleId": "us_m1a2_sep2_abrams",
+          "mainGun": "120 mm M256 cannon",
+          "officialShellName": "M829A2",
+          "sourceShellLabelOriginal": "M829A2",
+          "checkedAt": "2026-11-02T09:51:05.914Z",
+          "gameVersion": "2.59.0.92"
+        },
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 621,
+        "sourceGameVersion": null,
+        "targetAngleDegrees": null,
+        "considerCameraVerticalAngle": false,
+        "actualShotObserved": false,
+        "sourceFrameSHA256": "eaefc257d033abd61d3d1aee65429b172f9cfe1375bfc32f0801d4c09f16d1bc",
+        "sourceFrameHashKind": "source-original-jpeg",
+        "targetIdentityBasis": "source-post-caption",
+        "observedTargetRawLabel": null,
+        "evidenceKind": "static-protection-analysis-not-observed-shot",
+        "note": "目标依据原帖作者明确说明第二图为T-90M；本图无独立目标名牌。M1A2 SEP V2是攻击车。静态原件1863×991，未放大；版本与入射角未知。",
+        "caseId": "ussr_t_90m_2020:forum332129:post216"
+      },
+      "testCases": [
+        {
+          "id": "ussr_t_90m_2020:forum332129:post216",
+          "vehicleId": "ussr_t_90m_2020",
+          "sourceKind": "forum-image",
+          "sourceTime": null,
+          "sourceUrl": "https://forum.warthunder.com/t/relikt-armor-buff/332129/216",
+          "sourceImageUrl": "https://forum-en-cdn.warthunder.com/original/4X/8/0/0/80038a8a7c480ba8871a69c8fc7a55c2f4e3d6f1.jpeg",
+          "sourcePublishedAt": "2026-06-10T12:58:40.945Z",
+          "attacker": "M1A2 SEP V2",
+          "attackerVisibleTitle": "[12.7] M1A2 SEP V2",
+          "attackerVehicleId": "us_m1a2_sep2_abrams",
+          "shell": "M829A2",
+          "sourceShellLabelOriginal": "M829A2",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/us_m1a2_sep2_abrams",
+            "attackerVehicleId": "us_m1a2_sep2_abrams",
+            "mainGun": "120 mm M256 cannon",
+            "officialShellName": "M829A2",
+            "sourceShellLabelOriginal": "M829A2",
+            "checkedAt": "2026-11-02T09:51:05.914Z",
+            "gameVersion": "2.59.0.92"
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 621,
+          "sourceGameVersion": null,
+          "targetAngleDegrees": null,
+          "considerCameraVerticalAngle": false,
+          "actualShotObserved": false,
+          "sourceFrameSHA256": "eaefc257d033abd61d3d1aee65429b172f9cfe1375bfc32f0801d4c09f16d1bc",
+          "sourceFrameHashKind": "source-original-jpeg",
+          "targetIdentityBasis": "source-post-caption",
+          "observedTargetRawLabel": null,
+          "evidenceKind": "static-protection-analysis-not-observed-shot",
+          "note": "目标依据原帖作者明确说明第二图为T-90M；本图无独立目标名牌。M1A2 SEP V2是攻击车。静态原件1863×991，未放大；版本与入射角未知。"
+        }
+      ],
+      "testCaseEvidence": {
+        "ussr_t_90m_2020:forum332129:post216": {
+          "derivedProof": {
+            "file": "artifacts/tank-weakpoints-expansion-20261102/sources/t90m-forum-evidence-v71/frame-proof.json",
+            "sha256": "14f4709f284c3716e1c0f1917d2420f33507438afab959e1727cc7774b8d89fa"
+          },
+          "sourcePostProof": {
+            "file": "artifacts/tank-weakpoints-expansion-20261102/sources/t90m-forum-evidence-v71/source-post-proof.json",
+            "sha256": "88fa832c12771a60c83ff79d0623c2101ca3e0ff9ddc2a55fe28d592a9bda3ab"
+          },
+          "sourcePacket": {
+            "file": "artifacts/tank-weakpoints-expansion-20261102/sources/t90m-forum-evidence-v71/public-attachment-records.json",
+            "sha256": "e143831a867fac6136a0fb149b9ceba4d985fa5f7370f3b488406e486db0e67c"
+          },
+          "officialAmmoProof": {
+            "url": "https://wiki.warthunder.com/unit/us_m1a2_sep2_abrams",
+            "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-008-20261102/snapshots/us_m1a2_sep2_abrams.html",
+            "snapshotSHA256": "30cb7c4a817e117d19a71057af4de9bbd885396862e02bf2f4fd73627751059e",
+            "shell": "M829A2",
+            "shellTypeCode": "APFSDS",
+            "basis": "official ammunition table exact M829A2 row; separate reference, not raw UI text"
+          },
+          "targetIdentityBasis": "source-post-caption",
+          "nativeTargetNameplateVisible": false
+        }
+      },
+      "coverageNotice": "正面静态防护分析 · 2处条件性绿色区域参考；版本、角度未知，非逐点实射",
+      "frameSnapshotSHA256": "14f4709f284c3716e1c0f1917d2420f33507438afab959e1727cc7774b8d89fa"
     },
     {
       "id": "ussr_t_90m_arena_m",
@@ -25712,7 +26093,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 51,
+    "illustratedCount": 52,
     "countries": [
       {
         "country": "usa",
@@ -25848,7 +26229,7 @@
     "lastUpdated": "2026-11-02",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 49,
+    "illustratedTargetCount": 50,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,
