@@ -9435,7 +9435,21 @@
       "eraBasis": "122MT三机样车为60年代末至70年代项目，装备120毫米71式炮与4枚302反坦克导弹；主炮装填12至9.2秒。",
       "collectedAt": "2026-11-02T09:06:04.249Z",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "cn_object_122tm:wiki-article:7752:author-guidance",
+          "label": "文章作者观点：防护与生存性",
+          "text": "作者认为Object122MT“MC”的炮塔相对较强，车体正面与侧面面对脱壳弹及破甲弹时风险较大；乘员排列和弹药位置使穿透后可能连带损伤。仅为作者概括，不代表特定弹药距离下的已验证试射。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourcePublishedAt": "2026-06-08T21:17:55+00:00",
+          "sourceUrl": "https://wiki.warthunder.com/7752-object-122mt-mc-china-s-unique-hybrid",
+          "caseId": null,
+          "conditionMatch": "article-author-guidance-unverified-test",
+          "sourceClaimNotCanonicalFact": true,
+          "sourceGameVersion": null
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/cn_object_122tm",
@@ -9460,6 +9474,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/7752-object-122mt-mc-china-s-unique-hybrid",
+          "title": "Object 122MT \"MC\": China's Unique Hybrid | War Thunder Wiki",
+          "author": "Desert Bulldog",
+          "publishedAt": "2026-06-08T21:17:55+00:00",
+          "time": null,
+          "scopeNote": "文章作者观点，非独立试射；原文和署名单独私有归档。"
+        }
       ]
     },
     {
@@ -9606,9 +9631,30 @@
       "eraBasis": "现有unit页面没有足够明确的具体技术改型形成日期；不以采购、改装交付或游戏引入日期推断。",
       "collectedAt": "2026-11-02T09:06:12.490Z",
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "videoAdvice": [
+        {
+          "id": "it_c1_ariete_pso:wiki-article:5045:author-guidance",
+          "label": "文章作者观点：防护与生存性",
+          "text": "作者认为Ariete PSO首下与整体动能弹防护较弱；附加侧面装甲主要改善部分化学弹与机关炮威胁，不能据此保证抵御现代穿甲弹或串联导弹。乘员和弹药布局可能放大后效，仅为本改型作者建议，不当作已观察试射。",
+          "sourceKind": "article-text",
+          "sourceTime": null,
+          "sourcePublishedAt": "2025-12-21T21:35:53+00:00",
+          "sourceUrl": "https://wiki.warthunder.com/5045-ariete-pso-armor-not-included",
+          "caseId": null,
+          "conditionMatch": "article-author-guidance-unverified-test",
+          "sourceClaimNotCanonicalFact": true,
+          "sourceGameVersion": null
+        }
+      ],
+      "source": {
+        "kind": "article-image",
+        "url": "https://wiki.warthunder.com/5045-ariete-pso-armor-not-included",
+        "imageUrl": "https://wiki.warthunder.com/images/02bf8bd46f905eda8930e018eb7227ed.png",
+        "title": "Ariete PSO: Armor not included | War Thunder Wiki",
+        "author": "nornfang058",
+        "publishedAt": "2025-12-21T21:35:53+00:00"
+      },
+      "status": "author-diagram-unverified-test",
       "wikiUrl": "https://wiki.warthunder.com/unit/it_c1_ariete_pso",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-005-20261102/snapshots/it_c1_ariete_pso.json",
@@ -9637,7 +9683,46 @@
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。",
         "具体改型年代待核实，era保留null。"
-      ]
+      ],
+      "relatedSources": [
+        {
+          "kind": "article",
+          "url": "https://wiki.warthunder.com/5045-ariete-pso-armor-not-included",
+          "title": "Ariete PSO: Armor not included | War Thunder Wiki",
+          "author": "nornfang058",
+          "publishedAt": "2025-12-21T21:35:53+00:00",
+          "time": null,
+          "scopeNote": "文章作者观点，非独立试射；原文和署名单独私有归档。"
+        }
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round11-20261103/02bf8bd46f905eda8930e018eb7227ed.source.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-ingestion-20261102/pso-object-v37/root-main-article-image-proof.json",
+      "frameSnapshotSHA256": "3bc6a85dff8657529d52beb091b692c60ff693f633f98005e7d7a1e6a4df49d6",
+      "captureSHA256": "1e13bbc2165cd2c9143339856ce20441835beac27751f0b6e80ac103bf73dd25",
+      "originalFrameSHA256": "7d2e9ce457d5f3cacdc9807e59b84b823d28f0d747422dfee3269857bbc7083e",
+      "originalFrameHashKind": "source-original-png",
+      "sourceOriginalHashKind": "source-original-png",
+      "time": null,
+      "crop": [
+        0,
+        0,
+        4069,
+        2880
+      ],
+      "sourceDimensions": [
+        4069,
+        2880
+      ],
+      "imageView": "front",
+      "imageViewDetail": "author-frontal-diagram",
+      "imageQuality": "原始作者图4069×2880",
+      "mainImageUsable": true,
+      "mainViewKind": "author-diagram",
+      "figureNote": "作者正面装甲布局示意图；颜色与数值为作者标注，非游戏绿色防护分析或已验证试射。",
+      "mainViewNote": "作者正面装甲布局示意图；颜色与数值为作者标注，非游戏绿色防护分析或已验证试射。",
+      "frontSummary": "作者正面装甲布局示意图；颜色与数值为作者标注，非游戏绿色防护分析或已验证试射。作者认为Ariete PSO首下与整体动能弹防护较弱；附加侧面装甲主要改善部分化学弹与机关炮威胁，不能据此保证抵御现代穿甲弹或串联导弹。乘员和弹药布局可能放大后效，仅为本改型作者建议，不当作已观察试射。",
+      "completeIllustration": false,
+      "testContext": null
     },
     {
       "id": "jp_type_10_prototype",
@@ -25226,7 +25311,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 50,
+    "illustratedCount": 51,
     "countries": [
       {
         "country": "usa",
@@ -25362,7 +25447,7 @@
     "lastUpdated": "2026-11-02",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 48,
+    "illustratedTargetCount": 49,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,

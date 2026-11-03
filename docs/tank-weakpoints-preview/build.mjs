@@ -54,7 +54,7 @@ async function validateStaticFrame(proof, source, digest) {
     if (hash(packetBytes) !== proof.sourcePacket.sha256 || hash(pageBytes) !== proof.sourcePageProof.sha256) throw Error("Article image source proof changed");
     const record = JSON.parse(packetBytes).records?.find((entry) => entry.webpSHA256 === digest);
     const page = JSON.parse(pageBytes);
-    if (!record || record.status !== 200 || record.sourceArticle !== source.url || record.url !== source.imageUrl
+    if (!record || record.status !== 200 || (record.sourceArticle ?? record.sourcePostProof?.URL) !== source.url || record.url !== source.imageUrl
       || record.articlePublishedAt !== source.publishedAt || record.capturedAt !== proof.capturedAt
       || record.sourceTime !== null || record.sourceguard?.challenge !== false || record.nativeResized !== false
       || record.sourceOriginalSHA256 !== proof.originalImageSHA256
