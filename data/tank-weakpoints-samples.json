@@ -20472,7 +20472,18 @@
       "imageQuality": "1080p",
       "mainImageUsable": true,
       "coverageStatus": "front-exterior-green-analysis-pending",
-      "coverageNotice": "已补外观主图 · 绿色防护分析待补"
+      "coverageNotice": "已补外观主图 · 绿色防护分析待补",
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1YvFQznEQj/",
+          "title": "【战争雷霆】升入9.7的梅卡瓦Mk1b和新晋9.3的Mk1，坏境还好吗？| 低权重梅卡瓦简评",
+          "author": "UgandaFreeman",
+          "publishedAt": "2026-02-10",
+          "time": null,
+          "scopeNote": "Mk.1/Mk.1B联合评测；仅来源索引，防护截图国别未核实，非局部弱点实测证明"
+        }
+      ]
     },
     {
       "id": "fr_leclerc_azur",
@@ -21658,6 +21669,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1YvFQznEQj/",
+          "title": "【战争雷霆】升入9.7的梅卡瓦Mk1b和新晋9.3的Mk1，坏境还好吗？| 低权重梅卡瓦简评",
+          "author": "UgandaFreeman",
+          "publishedAt": "2026-02-10",
+          "time": null,
+          "scopeNote": "Mk.1/Mk.1B联合评测；仅来源索引，防护截图国别未核实，非局部弱点实测证明"
+        }
       ]
     },
     {
