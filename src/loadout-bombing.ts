@@ -168,3 +168,42 @@ export function allocateBases(groups: BombGroup[], hp: number) {
   };
   return { ...solve(stock), optimal, groups: usable };
 }
+
+/** Automatic display estimates for the selected payload. Unverified zero is not a confirmed inability. */
+export function estimateBombingTiers(
+  payload: ReturnType<typeof loadoutBombs>,
+  rating: string | number | undefined,
+) {
+  const br = rating === undefined || rating === "" ? NaN : Number(rating);
+  const knownRating = Number.isFinite(br) && br >= 1;
+  const selected = payload.items.length > 0 || payload.unknown.length > 0;
+  const missingDamage =
+    payload.unknown.length > 0 || payload.items.some((item) => item.damage === null);
+  const hasDamage = payload.items.some((item) => item.damage !== null && item.damage > 0);
+  return rules.tiers.map((tier) => {
+    const allocation = allocateBases(payload.items, tier.hitPoints);
+    const status = !selected
+      ? "empty"
+      : !hasDamage
+        ? "unknown"
+        : allocation.count === 0 &&
+            (!rules.verifiedFullGameDamage || missingDamage || !allocation.optimal)
+          ? "unconfirmed"
+          : missingDamage
+            ? "partial"
+            : "estimated";
+    return {
+      ...tier,
+      relevant:
+        knownRating &&
+        tier.brMin <= br + 1.001 &&
+        (tier.brMax === null || tier.brMax >= br - 0.001),
+      allocation,
+      status,
+      count:
+        status === "empty" || status === "unknown" || status === "unconfirmed"
+          ? null
+          : allocation.count,
+    };
+  });
+}

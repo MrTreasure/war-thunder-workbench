@@ -4016,3 +4016,21 @@
   .wt-mount-card-actions { width: 100%; gap: 8px; }
   .wt-mount-page .wt-mount-card-actions > button, .wt-mount-card-actions > a { min-height: 44px; }
 }
+
+@media (max-width: 800px), (max-width: 1100px) and (pointer: coarse) {
+  .wt-mount-bombing-metrics { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+  .wt-mount-bombing-metrics strong { font-size: 16px; }
+  .wt-mount-bombing-payload { display: grid; gap: 8px; }
+  .wt-mount-bombing-payload > div { display: grid; gap: 3px; }
+  .wt-mount-bombing table, .wt-mount-bombing tbody { display: block; }
+  .wt-mount-bombing thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .wt-mount-bombing tbody { display: grid; gap: 8px; }
+  .wt-mount-bombing tr { display: grid; grid-template-columns: minmax(0,1fr) auto auto; align-items: start; gap: 10px 12px; padding: 12px; border: 1px solid var(--wt-line); }
+  .wt-mount-bombing th, .wt-mount-bombing td { width: auto; padding: 0; border: 0; min-width: 0; }
+  .wt-mount-bombing th:first-child { width: auto; }
+  .wt-mount-bombing-hp { font-size: 11px; color: var(--wt-muted); }
+  .wt-mount-bombing-count { text-align: right; }
+  .wt-mount-bombing-count strong { font-size: 14px; }
+  .wt-mount-bombing-packs { grid-column: 1 / -1; border-top: 1px solid var(--wt-line); padding-top: 8px; }
+  .wt-mount-bombing summary { min-height: 44px; box-sizing: border-box; padding-block: 12px; }
+}

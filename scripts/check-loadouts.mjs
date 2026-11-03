@@ -125,6 +125,7 @@ import {
   loadoutBombs,
   allocateBases,
   bombingRules,
+  estimateBombingTiers,
 } from "../src/loadout-bombing.ts";
 assert.equal(massGrams("1,500 kg"), 1_500_000);
 assert.equal(massGrams("675 g"), 675);
@@ -191,6 +192,43 @@ assert.equal(
   allocateBases([bombGroup(null, 10)], 1000).count,
   0,
   "unknown damage cannot create confirmed capacity",
+);
+
+const emptyBombing = { items: [], unknown: [], grams: 0 };
+assert(
+  estimateBombingTiers(emptyBombing, "8.0").every(
+    (row) => row.status === "empty" && row.count === null,
+  ),
+);
+assert.deepEqual(
+  estimateBombingTiers(emptyBombing, "3.3")
+    .filter((row) => row.relevant)
+    .map((row) => row.rankMin),
+  [4, 8],
+);
+assert(estimateBombingTiers(emptyBombing, undefined).every((row) => !row.relevant));
+const fabDamage = blastDamage(675_000);
+assert.equal(fabDamage, 12_187.5);
+const fabEstimate = estimateBombingTiers(
+  { items: [{ ...bombGroup(fabDamage, 2), grams: 675_000 }], unknown: [], grams: 1_350_000 },
+  "10.3",
+);
+assert.equal(fabEstimate.filter((row) => row.relevant).length, 1);
+assert.equal(fabEstimate.at(-1).status, "unconfirmed");
+assert.equal(
+  fabEstimate.at(-1).count,
+  null,
+  "an unverified zero must not become a real-game inability claim",
+);
+const partialEstimate = estimateBombingTiers(
+  { items: [bombGroup(30_000, 2)], unknown: ["missing bomb"], grams: 2000 },
+  "10.3",
+).at(-1);
+assert.equal(partialEstimate.count, 2);
+assert.equal(partialEstimate.status, "partial");
+assert.equal(
+  estimateBombingTiers({ ...emptyBombing, unknown: ["missing bomb"] }, "10.3").at(-1).status,
+  "unknown",
 );
 
 const catalog = JSON.parse(
@@ -277,6 +315,13 @@ assert(!hasConfigurableLoadout({ ...contested, status: "not_provided" }));
 assert(!hasConfigurableLoadout({ ...contested, compatibility: [] }));
 assert.equal(stationLoadoutOptions(contested, "t1-s2").length, 0);
 assert.equal(loadoutWeaponName("2000 lb LDGP Mk 84 bomb"), "2000 磅 LDGP Mk 84 炸弹");
+assert.equal(loadoutWeaponName("R-73E air-to-air missiles"), "R-73E 空对空导弹");
+assert.equal(loadoutWeaponName("PL-8B air-to-air missiles"), "PL-8B 空对空导弹");
+assert.equal(loadoutParameterValue("16 km"), "16 千米");
+const demoTerms = (source) => ({ 空对空导弹: "AAM", 千米: "km" })[source] || source;
+assert.equal(loadoutWeaponName("R-73E air-to-air missiles", demoTerms), "R-73E AAM");
+assert.equal(loadoutParameterValue("16 km", demoTerms), "16 km");
+assert(matchesLoadoutText("PL-8B air-to-air missiles", "AAM", demoTerms));
 assert.equal(loadoutParameterValue("IR+IOG+GNSS"), "红外 + 惯性制导 + 卫星导航");
 assert(matchesLoadoutText("GBU-12 Paveway II guided bomb", "制导炸弹"));
 assert.equal(

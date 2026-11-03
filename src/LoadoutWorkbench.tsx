@@ -869,6 +869,7 @@ function LoadoutPage({ owner }: { owner: string }) {
                     mounts={plan.mounts}
                     preset={plan.preset}
                     rating={unit?.br?.rb}
+                    category={unit?.category ?? undefined}
                     mode={mode}
                   />
                   <section className="wt-mount-provenance">
