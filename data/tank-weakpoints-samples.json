@@ -1792,7 +1792,36 @@
         "aceSeconds": 8.6,
         "note": "基础乘员→王牌乘员（Wiki主炮面板）"
       },
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.3380281690140845,
+          "y": 0.5428571428571428,
+          "label": "车体正面左侧",
+          "detail": "2.51.0.65版、M60A3 TTS使用M774尾翼稳定脱壳穿甲弹、0米（面板372毫米）时，车体正面中部偏画面左可见连续绿色覆盖；此点避开圆形准星线，仅记录该表面局部条件参考，不代表整块车体必穿，未观察逐点试射或内部后效。",
+          "kind": "conditional",
+          "caseId": "ussr_object_279:BV1SPmEBJE3y:1102033",
+          "adviceId": null,
+          "sourceTime": 1102.033,
+          "mainImageTime": 1102.033,
+          "actualShotObserved": false,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        },
+        {
+          "x": 0.352112676056338,
+          "y": 0.3333333333333333,
+          "label": "炮塔正面左侧",
+          "detail": "2.51.0.65版、M60A3 TTS使用M774尾翼稳定脱壳穿甲弹、0米（面板372毫米）时，炮塔正面偏画面左、炮管根部上方外表面可见绿色覆盖；仅指该帧该处局部条件参考，不推广到整座炮塔，不推断炮闩、乘员或弹药受损，未观察逐点试射。",
+          "kind": "conditional",
+          "caseId": "ussr_object_279:BV1SPmEBJE3y:1102033",
+          "adviceId": null,
+          "sourceTime": 1102.033,
+          "mainImageTime": 1102.033,
+          "actualShotObserved": false,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        }
+      ],
       "videoAdvice": [
         {
           "id": "ussr_object_279:BV1SPmEBJE3y:general-front-armour-guidance",
@@ -2164,7 +2193,7 @@
       "mainViewNote": "略俯正面防护分析，未见计算中提示；绿色不保证后效。",
       "completeIllustration": false,
       "coverageStatus": "partial-frontal-guide",
-      "coverageNotice": "正面防护分析 · 区域指引待补",
+      "coverageNotice": "正面防护分析 · 两处可见绿色表面条件参考 · 未逐点实射，非完整图解",
       "testContext": {
         "attacker": "M60A3 TTS",
         "attackerVehicleId": "us_m60a3_tts",
@@ -12662,7 +12691,50 @@
       "eraStatus": "pending-exact-variant-date-review",
       "eraBasis": "本页未明确具体技术改型形成日期；采购/服役/活动引入日期不足，不推断。",
       "collectedAt": "2026-11-02T09:48:21.775Z",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.37333333333333335,
+          "y": 0.30117647058823527,
+          "label": "炮塔正面上部绿带",
+          "detail": "炮塔正面上部、炮管上方的可见绿色带状区域。仅对应视频2.51.0.65版本、M1A1使用M829A1（APFSDS）、0米、界面600毫米穿深时的防护分析画面；不是逐点实射或整板必穿结论，不推断内部模块与后效。",
+          "kind": "conditional",
+          "caseId": "ussr_t_72b:BV1SPmEBJE3y:1184000",
+          "adviceId": null,
+          "sourceTime": 1184,
+          "mainImageTime": 1184,
+          "actualShotObserved": false,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        },
+        {
+          "x": 0.4866666666666667,
+          "y": 0.47058823529411764,
+          "label": "炮下横向绿带",
+          "detail": "炮管下方偏画面右侧的可见绿色横带；仅定位外表区域。仅对应视频2.51.0.65版本、M1A1使用M829A1（APFSDS）、0米、界面600毫米穿深时的防护分析画面；不是逐点实射或整板必穿结论，不推断内部模块与后效。",
+          "kind": "conditional",
+          "caseId": "ussr_t_72b:BV1SPmEBJE3y:1184000",
+          "adviceId": null,
+          "sourceTime": 1184,
+          "mainImageTime": 1184,
+          "actualShotObserved": false,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        },
+        {
+          "x": 0.36,
+          "y": 0.7011764705882353,
+          "label": "车体正面下部绿区",
+          "detail": "车体正面下部、履带之间偏画面左侧的可见绿色区域。仅对应视频2.51.0.65版本、M1A1使用M829A1（APFSDS）、0米、界面600毫米穿深时的防护分析画面；不是逐点实射或整板必穿结论，不推断内部模块与后效。",
+          "kind": "conditional",
+          "caseId": "ussr_t_72b:BV1SPmEBJE3y:1184000",
+          "adviceId": null,
+          "sourceTime": 1184,
+          "mainImageTime": 1184,
+          "actualShotObserved": false,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        }
+      ],
       "videoAdvice": [
         {
           "id": "ussr_t_72b:BV1SPmEBJE3y:general-front-armour-guidance",
@@ -13101,7 +13173,7 @@
       "mainViewNote": "正面防护分析；右缘车体及履带被提示框局部遮挡，不推断遮挡区。",
       "completeIllustration": false,
       "coverageStatus": "partial-frontal-guide",
-      "coverageNotice": "正面防护分析 · 右缘局部遮挡",
+      "coverageNotice": "正面防护分析 · 三处可见绿色表面条件参考 · 右缘局部遮挡，未逐点实射，非完整图解",
       "testContext": {
         "attacker": "M1A1",
         "attackerVehicleId": "us_m1a1_abrams",
