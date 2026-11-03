@@ -653,3 +653,6 @@ nav.wt-mount-tabs { overflow-x: auto; }
 .wt-mount-bombing-sources p { margin: 6px 0; color: var(--wt-muted); font-size: 12px; line-height: 1.6; }
 .wt-mount-bombing-sources a { display: block; margin: 6px 0; font-size: 12px; }
 @media (hover: hover) { .wt-mount-bombing summary:hover { color: var(--wt-ink); } }
+
+.wt-mount-bombing-metrics small { color: var(--wt-muted); font-size: 11px; }
+.wt-mount-bombing-threshold { display: block; margin-top: 4px; font-size: 11px; color: var(--wt-muted); }

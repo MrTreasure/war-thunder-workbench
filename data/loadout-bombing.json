@@ -2,21 +2,47 @@
   "schemaVersion": 1,
   "scope": "air-rb-four-respawning",
   "label": "空历 · 常见四战区（可刷新）",
-  "model": "blast-curve-reference",
+  "model": "conventional-base-damage-with-burnout",
   "verifiedFullGameDamage": false,
-  "modelNote": "配置爆炸曲线参考，不计燃烧、破片、落点损失及特殊地图修正，不作为保证摧毁数量。",
-  "checkedAt": "2026-11-02T15:50:35.747943+00:00",
+  "modelNote": "普通高爆炸弹全部有效命中；逐枚计算伤害并按战区10%剩余HP燃烧自毁门槛分配。燃烧弹、集束弹及缺失资料不套用。",
+  "checkedAt": "2026-11-03T03:00:58.522916+00:00",
   "sourceCommit": "45e481081dc29e89ae11485cc1bb252247c44c5d",
   "sources": [
     {
+      "label": "战区耐久与燃烧自毁参数",
       "url": "https://github.com/gszabi99/War-Thunder-Datamine/blob/45e481081dc29e89ae11485cc1bb252247c44c5d/mis.vromfs.bin_u/gamedata/missions/templates/enduring_confrontation/bdt_bases_destroy_template.blkx",
       "bytes": 155587,
       "sha256": "d378921c875c7ef37be78bd00b542c8df352e7ccc14386ec3798b65b9f18b8e0"
     },
     {
+      "label": "炸弹伤害与穿深曲线",
       "url": "https://github.com/gszabi99/War-Thunder-Datamine/blob/45e481081dc29e89ae11485cc1bb252247c44c5d/aces.vromfs.bin_u/gamedata/damage_model/explosive.blkx",
       "bytes": 49624,
       "sha256": "aed2f0892e4613324fb60a0da6acfb1f5678eeb6f2bac7e25be5ccf45fbb767d"
+    },
+    {
+      "label": "战区装甲参数",
+      "url": "https://github.com/gszabi99/War-Thunder-Datamine/blob/45e481081dc29e89ae11485cc1bb252247c44c5d/aces.vromfs.bin_u/gamedata/flightmodels/dm/armorclasses.blkx",
+      "bytes": 96082,
+      "sha256": "581c9377c189a83e4ce628ea5564e4d676c80792453a7b88e38355b2ab68eff6"
+    },
+    {
+      "label": "战区收益参数",
+      "url": "https://github.com/gszabi99/War-Thunder-Datamine/blob/45e481081dc29e89ae11485cc1bb252247c44c5d/char.vromfs.bin_u/config/warpoints.blkx",
+      "bytes": 38087,
+      "sha256": "9d1877cb252546b965ee1cbffbce2bb1cc6d13d4e7c1f772c8c1599ae73be120"
+    },
+    {
+      "label": "游戏收益系数算法",
+      "url": "https://github.com/gszabi99/War-Thunder-Datamine/blob/45e481081dc29e89ae11485cc1bb252247c44c5d/gui.vromfs.bin_u/globals/econweaponutils.nut",
+      "bytes": 2712,
+      "sha256": "a6bb7a5ba30ba7f9939a9a92a2946813ce903d215c39b7b7a04bf59d0f4045b9"
+    },
+    {
+      "label": "游戏系数显示口径",
+      "url": "https://github.com/gszabi99/War-Thunder-Datamine/blob/45e481081dc29e89ae11485cc1bb252247c44c5d/gui.vromfs.bin_u/scripts/weaponry/weaponrytooltippkg.nut",
+      "bytes": 39742,
+      "sha256": "9b3ca9cab4196f586d64c6f260a74f751121c809ea5cc6549acbfb9e6c26a375"
     }
   ],
   "referenceUrl": "https://forum.warthunder.com/t/261685",
@@ -161,5 +187,124 @@
       6000.0,
       31000.0
     ]
-  ]
+  ],
+  "verifiedConventionalBaseModel": true,
+  "baseBurnoutFraction": 0.1,
+  "tntToPenetration": [
+    [
+      0.005,
+      2.0
+    ],
+    [
+      0.1,
+      4.0
+    ],
+    [
+      0.2,
+      5.0
+    ],
+    [
+      2.0,
+      25.0
+    ],
+    [
+      3.0,
+      35.0
+    ],
+    [
+      5.0,
+      40.0
+    ],
+    [
+      6.0,
+      50.0
+    ],
+    [
+      8.0,
+      60.0
+    ],
+    [
+      9.0,
+      61.0
+    ],
+    [
+      10.0,
+      62.0
+    ],
+    [
+      11.0,
+      63.0
+    ],
+    [
+      25.0,
+      65.0
+    ],
+    [
+      40.0,
+      70.0
+    ],
+    [
+      120.0,
+      82.0
+    ],
+    [
+      300.0,
+      96.0
+    ],
+    [
+      500.0,
+      111.0
+    ],
+    [
+      700.0,
+      127.0
+    ],
+    [
+      1500.0,
+      191.0
+    ],
+    [
+      3500.0,
+      320.0
+    ],
+    [
+      5000.0,
+      350.0
+    ],
+    [
+      6000.0,
+      365.0
+    ]
+  ],
+  "baseArmor": {
+    "thicknessMm": 25.0,
+    "restrainExplosionDamage": 0.6
+  },
+  "reward": {
+    "presetDamageMin": 18000.0,
+    "presetDamageMax": 97500.0,
+    "bombingModifier": 2.0,
+    "fighterMultiplier": 0.8,
+    "premiumMultiplier": 1.2,
+    "uiDecoration": 10,
+    "piecewiseLinear": [
+      [
+        200000.0,
+        0.3
+      ],
+      [
+        1200000.0,
+        0.17
+      ],
+      [
+        50000000.0,
+        0.017
+      ]
+    ]
+  },
+  "crossCheck": {
+    "url": "https://github.com/Thankyou-Cheems/Bomana/blob/2cc9413bcac563d3135304d4d8e761f0271c1888/docs/api/v1/calculator/weapons.json",
+    "license": "MIT",
+    "note": "Cross-check only; runtime uses source-game configuration and existing Wiki parameters. No external weapon rows imported."
+  }
 }

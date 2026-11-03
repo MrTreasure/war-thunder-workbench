@@ -36,6 +36,55 @@ export function blastDamage(grams: number): number | null {
   }
   return null;
 }
+function interpolateCurve(points: number[][], value: number): number | null {
+  if (!Number.isFinite(value) || value < points[0][0] || value > points.at(-1)![0]) return null;
+  for (let index = 1; index < points.length; index++) {
+    const [left, low] = points[index - 1],
+      [right, high] = points[index];
+    if (value <= right) return low + ((value - left) * (high - low)) / (right - left);
+  }
+  return null;
+}
+/** Nominal conventional bomb damage, including the source game's bombing-zone armour gate. */
+export function baseBombDamage(grams: number) {
+  const damage = blastDamage(grams);
+  const penetration = interpolateCurve(rules.tntToPenetration, grams / 1000);
+  if (damage === null || penetration === null) return null;
+  const armor = rules.baseArmor;
+  return penetration >= armor.thicknessMm
+    ? damage
+    : (damage * armor.restrainExplosionDamage * penetration) / armor.thicknessMm;
+}
+/** Game tooltip display coefficient, not an estimate of actual RP or silver-lion income. */
+export function bombingRewardCoefficient(
+  damage: number | null,
+  premium: boolean | undefined,
+  role: string | null | undefined,
+) {
+  if (damage === null || !Number.isFinite(damage) || damage <= 0) return null;
+  const rule = rules.reward;
+  if (damage >= rule.piecewiseLinear[0][0]) {
+    const points = rule.piecewiseLinear;
+    const value =
+      damage >= points.at(-1)![0] ? points.at(-1)![1] : interpolateCurve(points, damage);
+    return value === null ? null : value * rule.uiDecoration;
+  }
+  if (
+    typeof premium !== "boolean" ||
+    !role ||
+    !["fighter", "bomber", "assault", "stormovik"].includes(role)
+  )
+    return null;
+  const scale =
+    1 +
+    ((rule.bombingModifier - 1) * (damage - rule.presetDamageMin)) /
+      (rule.presetDamageMax - rule.presetDamageMin);
+  const preset = ((scale * rule.presetDamageMin) / damage) * (premium ? rule.premiumMultiplier : 1);
+  return (
+    Math.min(preset, 1) * (role === "fighter" ? rule.fighterMultiplier : 1) * rule.uiDecoration
+  );
+}
+
 export type BombGroup = {
   key: string;
   name: string;
@@ -55,7 +104,7 @@ export function loadoutBombs(data: WikiLoadouts, mounts: Mount[], preset: string
       !Number.isSafeInteger(count) ||
       count < 0 ||
       grams === null ||
-      /\b(missiles?|rockets?|napalm|incendiary|cluster)\b/i.test(name)
+      /\b(missiles?|rockets?|napalm|incendiary|cluster|nuclear|atomic)\b/i.test(name)
     ) {
       unknown.push(name);
       return;
@@ -68,7 +117,7 @@ export function loadoutBombs(data: WikiLoadouts, mounts: Mount[], preset: string
       name,
       count: (old?.count || 0) + count,
       grams,
-      damage: blastDamage(grams),
+      damage: baseBombDamage(grams),
     });
   };
   if (preset !== null) {
@@ -104,6 +153,8 @@ export function loadoutBombs(data: WikiLoadouts, mounts: Mount[], preset: string
     items,
     unknown: [...new Set(unknown)],
     grams: items.reduce((total, item) => total + item.grams * item.count, 0),
+    damage: items.reduce((total, item) => total + (item.damage ?? 0) * item.count, 0),
+    completeDamage: unknown.length === 0 && items.every((item) => item.damage !== null),
   };
 }
 
@@ -181,13 +232,15 @@ export function estimateBombingTiers(
     payload.unknown.length > 0 || payload.items.some((item) => item.damage === null);
   const hasDamage = payload.items.some((item) => item.damage !== null && item.damage > 0);
   return rules.tiers.map((tier) => {
-    const allocation = allocateBases(payload.items, tier.hitPoints);
+    const burnoutHitPoints = tier.hitPoints * (1 - rules.baseBurnoutFraction);
+    const allocation = allocateBases(payload.items, burnoutHitPoints);
+    const directAllocation = allocateBases(payload.items, tier.hitPoints);
     const status = !selected
       ? "empty"
       : !hasDamage
         ? "unknown"
         : allocation.count === 0 &&
-            (!rules.verifiedFullGameDamage || missingDamage || !allocation.optimal)
+            (!rules.verifiedConventionalBaseModel || missingDamage || !allocation.optimal)
           ? "unconfirmed"
           : missingDamage
             ? "partial"
@@ -199,6 +252,8 @@ export function estimateBombingTiers(
         tier.brMin <= br + 1.001 &&
         (tier.brMax === null || tier.brMax >= br - 0.001),
       allocation,
+      directAllocation,
+      burnoutHitPoints,
       status,
       count:
         status === "empty" || status === "unknown" || status === "unconfirmed"

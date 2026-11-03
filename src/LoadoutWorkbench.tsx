@@ -1,3 +1,4 @@
+import { rating as vehicleRating } from "./vehicle-labels";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useRouterState } from "@tanstack/react-router";
 import { VehicleTile, type VehicleTileUnit } from "./VehicleTile";
@@ -830,8 +831,10 @@ function LoadoutPage({ owner }: { owner: string }) {
                     data={data}
                     mounts={plan.mounts}
                     preset={plan.preset}
-                    rating={unit?.br?.rb}
+                    airRbRating={unit ? vehicleRating(unit, "rb") : undefined}
                     category={unit?.category ?? undefined}
+                    premium={unit?.premium}
+                    role={unit?.role}
                     mode={mode}
                   />
                   <section className="wt-mount-provenance">
