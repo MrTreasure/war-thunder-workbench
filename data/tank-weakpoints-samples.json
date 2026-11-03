@@ -5659,7 +5659,50 @@
       "rank": 6,
       "era": "cold-war",
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.4328125,
+          "y": 0.6,
+          "label": "首上中央",
+          "detail": "397秒主图首上中央绿色外表，避开灯具、履带和炮管遮挡；对应美系M60A3 TTS、M735、500米/284毫米静态分析。入射角与游戏版本未知，未见本点独立实射后效。",
+          "kind": "conditional",
+          "adviceId": null,
+          "caseId": "us_m60a3_tts:BV1SPmEBJE3y:397017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "sourceTime": 397.017,
+          "mainImageTime": 397.017,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        },
+        {
+          "x": 0.4296875,
+          "y": 0.7473684210526316,
+          "label": "首下中央",
+          "detail": "397秒主图首下中央绿色外表，避开履带和底部阴影；对应美系M60A3 TTS、M735、500米/284毫米静态分析。入射角与游戏版本未知，不把绿色区扩展为整板可穿。",
+          "kind": "conditional",
+          "adviceId": null,
+          "caseId": "us_m60a3_tts:BV1SPmEBJE3y:397017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "sourceTime": 397.017,
+          "mainImageTime": 397.017,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        },
+        {
+          "x": 0.43125,
+          "y": 0.24421052631578946,
+          "label": "炮塔左侧",
+          "detail": "397秒主图画面左侧炮塔正面绿色外表，位于炮管上方、车长塔下方；对应M735、500米/284毫米静态分析。此点不是内部炮闩定位，车族及ERA口述不移用为本帧结论。",
+          "kind": "conditional",
+          "adviceId": null,
+          "caseId": "us_m60a3_tts:BV1SPmEBJE3y:397017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "sourceTime": 397.017,
+          "mainImageTime": 397.017,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        }
+      ],
       "videoAdvice": [
         {
           "id": "BV1SPmEBJE3y:head:7:author",
@@ -6203,7 +6246,8 @@
           "time": null,
           "scopeNote": "作者归因文字；非独立试射，原文私有归档。"
         }
-      ]
+      ],
+      "coverageNotice": "正面防护分析 · 3处条件性外表参考（非逐点实射）"
     },
     {
       "id": "germ_pzkpfw_vi_ausf_b_tiger_iih",
@@ -8097,7 +8141,36 @@
       "eraStatus": "reviewed-unit-prose",
       "eraBasis": "按已核对的具体技术改型形成时期归类。",
       "collectedAt": "2026-11-02T08:59:24.617Z",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.3656565656565657,
+          "y": 0.5878048780487805,
+          "label": "首上外表",
+          "detail": "首上炮管左侧可见绿色外表，避开灯具与炮管遮挡。仅供本帧M774、0米静态分析参考；绿色不代表整板必穿，未见此点实射。炮塔Stillbrew覆盖区与未覆盖外表有别，不能把车体颜色推广至炮塔。",
+          "kind": "conditional",
+          "adviceId": null,
+          "caseId": "uk_chieftain_mk_10:BV1SPmEBJE3y:1524033",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "sourceTime": 1524.033,
+          "mainImageTime": 1524.033,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        },
+        {
+          "x": 0.5898989898989899,
+          "y": 0.7707317073170732,
+          "label": "首下外表",
+          "detail": "首下炮管右侧可见绿色外表，标点避开履带、炮口及板边。仅限本帧M774、0米条件，距离与角度变化需重判；这是静态颜色参考，未见逐点穿透后效，作者“车体好打”也不等于任意落点稳定击穿。",
+          "kind": "conditional",
+          "adviceId": null,
+          "caseId": "uk_chieftain_mk_10:BV1SPmEBJE3y:1524033",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "sourceTime": 1524.033,
+          "mainImageTime": 1524.033,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        }
+      ],
       "videoAdvice": [
         {
           "id": "BV1SPmEBJE3y:end:11:author:second",
@@ -8368,7 +8441,8 @@
       "imageViewDetail": "front",
       "mainViewKind": "protection-analysis",
       "mainViewNote": "无UI面板覆盖目标；炮管等原生实体保留",
-      "mainImageUsable": true
+      "mainImageUsable": true,
+      "coverageNotice": "正面防护分析 · 2处车体条件性外表参考（非逐点实射）"
     },
     {
       "id": "us_m60a2",
@@ -9250,7 +9324,48 @@
       "eraStatus": "reviewed-unit-prose",
       "eraBasis": "按已核对的具体技术改型形成时期归类。",
       "collectedAt": "2026-11-02T09:04:03.455Z",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.35074626865671643,
+          "y": 0.4973214285714286,
+          "label": "炮塔左侧外表",
+          "detail": "画面左侧炮塔正面可见绿色外表，避开炮管与附件遮挡。仅为本帧3BM8、0米条件下的位置参考；作者另有优先炮塔建议。防护预览不是实射，不能推及整板或保证致毁，内部乘员与炮闩未定位。",
+          "kind": "conditional",
+          "adviceId": "BV1SPmEBJE3y:head:10:author",
+          "caseId": "us_xm_803:BV1SPmEBJE3y:459033",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "sourceTime": 459.033,
+          "mainImageTime": 459.033,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested",
+          "adviceSourceTime": 447.898517,
+          "adviceSourceTimeRange": [
+            447.898517,
+            469.425326
+          ],
+          "adviceSourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/"
+        },
+        {
+          "x": 0.585820895522388,
+          "y": 0.5482142857142858,
+          "label": "炮塔右侧外表",
+          "detail": "画面右侧炮塔下缘可见的小块绿色外表，位于炮管右旁、外凸附件左下方。仅供本帧条件下定位，不延伸至附件或整片炮塔；作者偏好炮塔不等于此点已实射验证，不推断内部弹药、乘员或命中后效。",
+          "kind": "conditional",
+          "adviceId": "BV1SPmEBJE3y:head:10:author",
+          "caseId": "us_xm_803:BV1SPmEBJE3y:459033",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/",
+          "sourceTime": 459.033,
+          "mainImageTime": 459.033,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested",
+          "adviceSourceTime": 447.898517,
+          "adviceSourceTimeRange": [
+            447.898517,
+            469.425326
+          ],
+          "adviceSourceUrl": "https://www.bilibili.com/video/BV1SPmEBJE3y/"
+        }
+      ],
       "videoAdvice": [
         {
           "id": "BV1SPmEBJE3y:head:10:author",
@@ -9648,7 +9763,8 @@
           "time": null,
           "scopeNote": "作者归因文字；非独立试射，原文私有归档。"
         }
-      ]
+      ],
+      "coverageNotice": "正面防护分析 · 2处条件性炮塔外表参考（非逐点实射）"
     },
     {
       "id": "ussr_t_64a_1971",
@@ -11163,7 +11279,36 @@
       "eraStatus": "reviewed-unit-prose",
       "eraBasis": "MBT2000于2000年定型、2001年展示，具7秒自动装填、较强倒车与原地转向；Wiki称防护不及配FY4的ZTZ96A。",
       "collectedAt": "2026-11-02T09:48:46.431Z",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.37142857142857144,
+          "y": 0.6425,
+          "label": "首下中央",
+          "detail": "主图首下中央的连续绿色外表，避开右侧提示框；对应90式B型（富士教导团）JM33、500米静态分析。参考依据是可见着色区域，作者规避炮塔两侧的建议另列；未见本点实射后效。",
+          "kind": "conditional",
+          "adviceId": null,
+          "caseId": "cn_mbt2000:BV1CueU6cECo:878000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 878,
+          "mainImageTime": 878,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        },
+        {
+          "x": 0.42857142857142855,
+          "y": 0.3425,
+          "label": "炮口旁外表",
+          "detail": "主图炮口画面右侧邻近的绿色外表，避开提示框；对应90式B型（富士教导团）JM33、500米静态分析。此处仅为外表参照，不定位内部炮闩、乘员或弹药；未见本点独立实射。",
+          "kind": "conditional",
+          "adviceId": null,
+          "caseId": "cn_mbt2000:BV1CueU6cECo:878000",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 878,
+          "mainImageTime": 878,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        }
+      ],
       "videoAdvice": [
         {
           "id": "cn_mbt2000:BV1CueU6cECo:author-family-guidance",
@@ -11294,7 +11439,7 @@
       "mainImageUsable": true,
       "completeIllustration": false,
       "coverageStatus": "partial-frontal-guide",
-      "coverageNotice": "正面防护分析 · 右侧遮挡",
+      "coverageNotice": "正面防护分析 · 右侧遮挡 · 2处条件性外表参考（非逐点实射）",
       "testContext": {
         "attacker": "90 式战车 B 型（富士教导团）",
         "attackerVehicleId": "jp_type_90b_camo",
@@ -16152,7 +16297,36 @@
         "headingDistanceMeters": 500,
         "conditionConflict": null
       },
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.28,
+          "y": 0.37,
+          "label": "炮塔内侧",
+          "detail": "380秒主图画面左侧炮塔正面内侧的可见绿色区，避开准星及提示框；对应JM33、500米/472毫米静态分析。作者右脸难穿是独立负向提醒，不能反推此处必穿；未见逐点实射。",
+          "kind": "conditional",
+          "adviceId": null,
+          "caseId": "us_m1_ip_abrams:BV1CueU6cECo:380017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 380.016687,
+          "mainImageTime": 380.016687,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        },
+        {
+          "x": 0.4,
+          "y": 0.65,
+          "label": "首下中央",
+          "detail": "380秒主图首下中央可见绿色区，避开提示框；对应JM33、500米/472毫米静态分析。390秒车体与脖子的说法属于另一案例的比较，不移用其姿态或后效；未见本点独立实射。",
+          "kind": "conditional",
+          "adviceId": null,
+          "caseId": "us_m1_ip_abrams:BV1CueU6cECo:380017",
+          "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "sourceTime": 380.016687,
+          "mainImageTime": 380.016687,
+          "actualShotObserved": false,
+          "annotationSemantics": "current-frame-visible-exterior-reference-not-pointwise-tested"
+        }
+      ],
       "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/USA-Abrams-identity-evidence-0380.webp",
       "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/sources/high-signal-next-20261102/029.json",
       "captureSHA256": "fbabcc6532753663d8f9d002ab4296fc2ad53fed3807128bfed485e8dfd33a05",
@@ -16174,7 +16348,7 @@
       "mainViewNote": "正面防护分析；画面右侧提示框局部遮挡，不推断不可见区域。",
       "imageQuality": "1080p",
       "coverageStatus": "partial-frontal-guide",
-      "coverageNotice": "正面防护分析 · 提示框局部遮挡"
+      "coverageNotice": "正面防护分析 · 2处条件性可见区域参考（非逐点实射）"
     },
     {
       "id": "us_m1a1_aim_abrams",
