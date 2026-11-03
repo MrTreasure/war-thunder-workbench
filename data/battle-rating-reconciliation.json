@@ -1,0 +1,2690 @@
+{
+  "schemaVersion": 1,
+  "kind": "implemented-br-and-current-wiki-reconciliation",
+  "checkedAt": "2026-11-03T05:05:30.587Z",
+  "baselineSha256": "c2f796b7f80400f21cbeb390872339a2cfabd3c9ff60c21193cfcfc7daf03586",
+  "official": {
+    "announcement": "https://warthunder.com/en/game/changelog/current/1913",
+    "correction": "https://warthunder.com/en/game/changelog/current/1914",
+    "finalTableVerifiedFields": 1296,
+    "finalTableSources": [
+      {
+        "key": "workbook",
+        "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml",
+        "sha256": "b1d2197383ed31b1c0846c48272d5cf82f55c74b322e5d53106603e2de8e1ecb",
+        "bytes": 61445,
+        "checkedAt": "2026-11-03T05:01:38.488Z"
+      },
+      {
+        "key": "aircraft",
+        "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=380741279",
+        "sha256": "39b778c31d96df04b6c9aa977f8752007654c9a2f145fd17246c99695e18d204",
+        "bytes": 194637,
+        "checkedAt": "2026-11-03T05:01:48.698Z"
+      },
+      {
+        "key": "ground",
+        "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=0",
+        "sha256": "f8783c77d2b2ce15220b9f32d877c5bf0728cb24cfcb5e6a451af43b7f2eb4e2",
+        "bytes": 131725,
+        "checkedAt": "2026-11-03T05:01:58.160Z"
+      },
+      {
+        "key": "naval",
+        "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbCUv1lRwM_7YoWmiYLJkPIMUndL50-9-kIpQu2ctg6GfysVC-IW4YyzDgLaGVvlyYq1bZBhvspD9/pubhtml/sheet?headers=false&gid=325518906",
+        "sha256": "ba0ca50db8fa105b282d4dde9d02c36acfd93df4daa9d8ae87fbef59dd249121",
+        "bytes": 65043,
+        "checkedAt": "2026-11-03T05:02:07.440Z"
+      }
+    ],
+    "preservedOfficialFieldsWithWikiConflict": 235
+  },
+  "wikiSources": {
+    "aviation": {
+      "url": "https://wiki.warthunder.com/aviation",
+      "checkedAt": "2026-11-03T04:53:25.592Z",
+      "sha256": "7afb7c96ffc7d7dd67e13bdcac2a4235327176a1b193d7f6ec1669f9e8d76a15",
+      "bytes": 1478771
+    },
+    "ground": {
+      "url": "https://wiki.warthunder.com/ground",
+      "checkedAt": "2026-11-03T04:53:28.080Z",
+      "sha256": "36970e861c4102488a96777fd519088508cd976b8cb3ba8ccdcfcb29e77182df",
+      "bytes": 1336258
+    }
+  },
+  "changedVehicles": 261,
+  "changedFields": 263,
+  "changes": [
+    {
+      "vehicleId": "ia_58a_pucara",
+      "name": "IA.58A Pucara",
+      "country": "germany",
+      "category": "aviation",
+      "mode": "trb",
+      "before": 10,
+      "after": 11,
+      "source": "aviation"
+    },
+    {
+      "vehicleId": "mirage_2000c_s5",
+      "name": "Mirage 2000C-S5",
+      "country": "france",
+      "category": "aviation",
+      "mode": "sb",
+      "before": 35,
+      "after": 34,
+      "source": "aviation"
+    },
+    {
+      "vehicleId": "fokker_d21_mod20",
+      "name": "▄Fokker D.XXI",
+      "country": "sweden",
+      "category": "aviation",
+      "mode": "trb",
+      "before": 3,
+      "after": 4,
+      "source": "aviation"
+    },
+    {
+      "vehicleId": "us_t58",
+      "name": "T58",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 23,
+      "after": 24,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_xm_800t",
+      "name": "XM800T",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 23,
+      "after": 24,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_xm246",
+      "name": "XM246",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 23,
+      "after": 24,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_stingray",
+      "name": "Stingray",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_mbt_70",
+      "name": "MBT-70",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_m247",
+      "name": "M247",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 27,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_merkava_mk_1",
+      "name": "▃Merkava Mk.1",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_xm1_chrysler",
+      "name": "XM1 (Chrysler)",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_merkava_mk_2b_late",
+      "name": "▃Merkava Mk.2B",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 26,
+      "after": 27,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_xm1_gm",
+      "name": "XM1 (GM)",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_xm_8",
+      "name": "XM8",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 26,
+      "after": 27,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_m1_abrams",
+      "name": "M1 Abrams",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 29,
+      "after": 30,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_m10_booker_late",
+      "name": "M10 Booker",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 29,
+      "after": 30,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_m1a1_hc_abrams",
+      "name": "M1A1 HC",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_m1a1_abrams",
+      "name": "M1A1",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_m1_ip_abrams",
+      "name": "IPM1",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 31,
+      "after": 32,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_xm_975_roland",
+      "name": "XM975",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 27,
+      "after": 28,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_hstv_l",
+      "name": "HSTV-L",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_m1a2_abrams",
+      "name": "M1A2 Abrams",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_ccvl",
+      "name": "CCVL",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 27,
+      "after": 28,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_m1_abrams_kvt",
+      "name": "M1 KVT",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 29,
+      "after": 30,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_m60a3_slep",
+      "name": "M60 AMBT",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 27,
+      "after": 28,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_m1a1_abrams_yt_cup_2019",
+      "name": "␙M1A1",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_m1a1_aim_abrams",
+      "name": "M1A1 SA",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_ags_teledyne",
+      "name": "AGS",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_m1a1_hc_usmc",
+      "name": "M1A1 Click-Bait",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_merkava_mk_3d",
+      "name": "▃Merkava Mk.3D",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 31,
+      "after": 32,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_m1a1_hc_usmc_sm",
+      "name": "◍M1A1 HC",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_rdf_lt",
+      "name": "RDF/LT",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_m1a2_sep_abrams",
+      "name": "M1A2 SEP",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_m1a2_sep2_abrams",
+      "name": "M1A2 SEPv2",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_adats_bradley",
+      "name": "ADATS",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_m1a2_sep2_abrams_trophy",
+      "name": "M1A2 (Trophy-HV)",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_sl_amraam_fcs",
+      "name": "CLAWS (TADS)",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 34,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_m1a2_sep3_abrams",
+      "name": "M1A2 SEPv3",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "us_nasams_fcs",
+      "name": "NASAMS 3 (TADS)",
+      "country": "usa",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 36,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_bmp_1_ddr",
+      "name": "SPz BMP-1",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 21,
+      "after": 20,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_sk105_a2",
+      "name": "JaPz.K A2",
+      "country": "germany",
+      "category": "ground",
+      "mode": "ab",
+      "before": 23,
+      "after": 24,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_sk105_a2",
+      "name": "JaPz.K A2",
+      "country": "germany",
+      "category": "ground",
+      "mode": "rb",
+      "before": 23,
+      "after": 24,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_sk105_a2",
+      "name": "JaPz.K A2",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 23,
+      "after": 24,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_flakpz_i_gepard",
+      "name": "Gepard",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 22,
+      "after": 23,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_kpz_70",
+      "name": "KPz-70",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_wiesel_2_adwc",
+      "name": "Ozelot",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 26,
+      "after": 27,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_flakpz_1a2_gepard",
+      "name": "Gepard 1A2",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 26,
+      "after": 27,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_kpz_t72m1",
+      "name": "◊T-72M1",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_th_800_bismark",
+      "name": "Class 3 (P)",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 24,
+      "after": 25,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_radpanzer_90",
+      "name": "Radkampfwagen 90",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 27,
+      "after": 28,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_leopard_2k",
+      "name": "Leopard 2K",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 27,
+      "after": 28,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_leopard_2a4",
+      "name": "Leopard 2A4",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 29,
+      "after": 30,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_flarakpz_1",
+      "name": "FlaRakPz 1",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 27,
+      "after": 28,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_9a33bm3",
+      "name": "◊Osa-AK",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 28,
+      "after": 29,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_9a35_m",
+      "name": "◊Strela-10M",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 28,
+      "after": 29,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_leopard_2_pt14",
+      "name": "PT-16/T14 mod.",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 30,
+      "after": 31,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_leopard_2a4m_can",
+      "name": "Leopard 2A4M",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 34,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_leopard_2a4_pzbtl_123",
+      "name": "Leopard 2 (PzBtl 123)",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 29,
+      "after": 30,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_leopard_2a4m_can_sm",
+      "name": "◍Leopard 2A4M",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 34,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_embt",
+      "name": "◄EMBT",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_leopard_2a5",
+      "name": "Leopard 2A5",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 34,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_leopard_2a6",
+      "name": "Leopard 2A6",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 36,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_flarakrad",
+      "name": "FlaRakRad",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_leopard_2a5_pso",
+      "name": "Leopard 2 PSO",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 36,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_iris_slm_fcs",
+      "name": "IRIS-T SLM (TADS)",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_leopard_2a7v",
+      "name": "Leopard 2A7V",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_leopard_2pl",
+      "name": "Leopard 2PL",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 34,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "germ_leopard_2a5_yt_cup_2019",
+      "name": "␙Leopard 2A5",
+      "country": "germany",
+      "category": "ground",
+      "mode": "sb",
+      "before": 34,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_bmp_1",
+      "name": "BMP-1",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 21,
+      "after": 20,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_object_906",
+      "name": "Object 906",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 21,
+      "after": 22,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_to_55",
+      "name": "TO-55",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 21,
+      "after": 22,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_pt_76_57",
+      "name": "PT-76-57",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 22,
+      "after": 23,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_t_55a",
+      "name": "T-55A",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 22,
+      "after": 23,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_t_72a",
+      "name": "T-72A",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_t_64a_1971",
+      "name": "T-64A (1971)",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_t_80b",
+      "name": "T-80B",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 29,
+      "after": 30,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_bmpt",
+      "name": "BMPT",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_9a33bm3",
+      "name": "Osa-AKM",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 28,
+      "after": 29,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_9a35_m2",
+      "name": "Strela-10M2",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 28,
+      "after": 29,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_t_80u",
+      "name": "T-80U",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_zprk_2s6",
+      "name": "2S6",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 30,
+      "after": 31,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_tor_m1",
+      "name": "Tor-M1",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 31,
+      "after": 32,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_object_292",
+      "name": "Object 292",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 29,
+      "after": 30,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_bmpt_72",
+      "name": "BMPT-72",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_t_80ue1",
+      "name": "T-80U-E1",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 34,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_t_80u_yt_cup_2019",
+      "name": "␙T-80U",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_t_80ue1_sm",
+      "name": "◍Т-80U-Е1",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 34,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_t_80um2",
+      "name": "T-80UM2",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_t_80uk",
+      "name": "T-80UK",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_t_80bvm",
+      "name": "T-80BVM",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_pantsyr_s1",
+      "name": "Pantsir-S1",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 34,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_t_90m_2020",
+      "name": "T-90M",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 36,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_t_90m_arena_m",
+      "name": "T-90M (Arena-M)",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "ussr_pantsyr_sm_sv",
+      "name": "Pantsir SM-SV",
+      "country": "ussr",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_olifant_mk_1a",
+      "name": "Olifant Mk.1A",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 22,
+      "after": 23,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_ratel_zt3",
+      "name": "ZT3A2",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 22,
+      "after": 23,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_chieftain_marksman",
+      "name": "Chieftain Marksman",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 22,
+      "after": 23,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_rooikat_76",
+      "name": "Rooikat Mk.1D",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 23,
+      "after": 24,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_tracked_rapier",
+      "name": "Rapier",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 26,
+      "after": 28,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_vfm_5",
+      "name": "VFM5",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_rooikat_mttd",
+      "name": "Rooikat MTTD",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_khalid",
+      "name": "Khalid",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_rooikat_105_td",
+      "name": "Rooikat 105",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 26,
+      "after": 27,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_shir_2",
+      "name": "FV4030/3",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 27,
+      "after": 28,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_challenger_1",
+      "name": "Challenger Mk.2",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 28,
+      "after": 29,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_challenger_mk_3",
+      "name": "Challenger Mk.3",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 29,
+      "after": 30,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_ttd",
+      "name": "TTD",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 27,
+      "after": 28,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_9a33bm2",
+      "name": "▄Osa-AK",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 28,
+      "after": 29,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_ajax",
+      "name": "Ajax",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 28,
+      "after": 29,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_challenger_ii",
+      "name": "Challenger 2",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_challenger_2_dorchester",
+      "name": "Challenger 2 (2F)",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_challenger_2_tes",
+      "name": "Challenger 2 TES",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_vickers_mk7",
+      "name": "Vickers Mk.7",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 29,
+      "after": 30,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_stormer_hvm",
+      "name": "Stormer HVM",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 28,
+      "after": 29,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_9a35_m",
+      "name": "▄Strela-10M",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 28,
+      "after": 29,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_arjun_mk1",
+      "name": "Arjun Mk 1",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 29,
+      "after": 30,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_challenger_1_mk_3_gulf",
+      "name": "Challenger DS",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 29,
+      "after": 30,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_challenger_2_megatron",
+      "name": "Challenger 2 OES",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_challenger_2_megatron_sm",
+      "name": "◍Challenger 2 OES",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_challenger_ii_yt_cup_2019",
+      "name": "␙Challenger 2",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_m1a1_aim_abrams",
+      "name": "▄M1A1 SA",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_challenger_2_lep",
+      "name": "Challenger 3 TD",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 34,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_m1a2_sep3_abrams",
+      "name": "M1A2",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_adats_m113a3",
+      "name": "ADATS (M113)",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_challenger_2_bn",
+      "name": "Black Night",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 36,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_challenger_2e",
+      "name": "Challenger 2E",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 36,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "uk_sky_sabre_fcs",
+      "name": "Sky Sabre (TADS)",
+      "country": "britain",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "jp_st_b1",
+      "name": "STB-2",
+      "country": "japan",
+      "category": "ground",
+      "mode": "sb",
+      "before": 22,
+      "after": 23,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "jp_type_74_c",
+      "name": "Type 74 (C)",
+      "country": "japan",
+      "category": "ground",
+      "mode": "sb",
+      "before": 22,
+      "after": 23,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "jp_type_74_red_star",
+      "name": "Type 74 Red Star",
+      "country": "japan",
+      "category": "ground",
+      "mode": "sb",
+      "before": 22,
+      "after": 23,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "jp_type_87_rcv",
+      "name": "Type 87 RCV",
+      "country": "japan",
+      "category": "ground",
+      "mode": "sb",
+      "before": 24,
+      "after": 25,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "jp_type_16_mcv_prot",
+      "name": "Type 16 (P)",
+      "country": "japan",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "jp_type_87",
+      "name": "Type 87",
+      "country": "japan",
+      "category": "ground",
+      "mode": "sb",
+      "before": 22,
+      "after": 23,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "jp_stingray",
+      "name": "▄Stingray",
+      "country": "japan",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "jp_type_16_mod",
+      "name": "Type 16 (FPS)",
+      "country": "japan",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "jp_type_90",
+      "name": "Type 90",
+      "country": "japan",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "jp_type_90b",
+      "name": "Type 90 (B)",
+      "country": "japan",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "jp_type_16",
+      "name": "Type 16",
+      "country": "japan",
+      "category": "ground",
+      "mode": "sb",
+      "before": 26,
+      "after": 27,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "jp_type_93",
+      "name": "Type 93",
+      "country": "japan",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "jp_type_10_prototype",
+      "name": "TKX (P)",
+      "country": "japan",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 34,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "jp_type_90b_camo",
+      "name": "Type 90 (B) \"Fuji\"",
+      "country": "japan",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "jp_type_90b_sm",
+      "name": "◍Type 90 (B)",
+      "country": "japan",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "jp_leopard_2ri",
+      "name": "Leopard 2RI",
+      "country": "japan",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "jp_type_10",
+      "name": "Type 10",
+      "country": "japan",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "jp_tkx_prot",
+      "name": "TKX",
+      "country": "japan",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "jp_oplot_t",
+      "name": "BM Oplot-T",
+      "country": "japan",
+      "category": "ground",
+      "mode": "sb",
+      "before": 34,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_type_86",
+      "name": "ZBD86",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 21,
+      "after": 20,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_pgz_88",
+      "name": "PGZ88",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 21,
+      "after": 23,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_type_69",
+      "name": "Type 69",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 21,
+      "after": 22,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_wz_305",
+      "name": "WZ305",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 21,
+      "after": 22,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_ztz_59a",
+      "name": "ZTZ59A",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 21,
+      "after": 22,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_type_69_2a",
+      "name": "Type 69-IIa",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 22,
+      "after": 23,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_m_41d",
+      "name": "M41D",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 22,
+      "after": 23,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_type_59d",
+      "name": "ZTZ59D1",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 22,
+      "after": 23,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_pgz_09",
+      "name": "PGZ09",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 27,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_pgz_04a",
+      "name": "PGZ04A",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_ptl_02",
+      "name": "PTL02",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 24,
+      "after": 25,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_ztz_96",
+      "name": "ZTZ96",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_wma_301",
+      "name": "WMA301",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 24,
+      "after": 25,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_type_69_2g",
+      "name": "T-69 II G",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 24,
+      "after": 25,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_tor_m1",
+      "name": "Tor-M1",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 31,
+      "after": 32,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_hq_17",
+      "name": "HQ17",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_qn506",
+      "name": "QN506",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 27,
+      "after": 28,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_ztz_96b",
+      "name": "ZTZ96B",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_vt_4",
+      "name": "VT4",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 34,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_wz_1001",
+      "name": "WZ1001(E) LCT",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 34,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_pgz_625_fb10",
+      "name": "CS/SA5",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 34,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_vt_4b",
+      "name": "VT4A1",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 36,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_ztz_99a",
+      "name": "ZTZ99A",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 34,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_fk_2000",
+      "name": "FK-2000",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 34,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_m1a2t",
+      "name": "M1A2T",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 36,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_hq_11",
+      "name": "HQ11",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "cn_oplot_t",
+      "name": "Oplot-M",
+      "country": "china",
+      "category": "ground",
+      "mode": "sb",
+      "before": 34,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_oto_r3_106sr",
+      "name": "R3 T106 FA",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 21,
+      "after": 22,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_aubl_74_60_70m",
+      "name": "AUBL/74 HVG",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 21,
+      "after": 22,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_t_72m1",
+      "name": "◔T-72M1",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_b1_centauro",
+      "name": "Centauro I 105",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_b1_centauro_romor",
+      "name": "Centauro I 105 R",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 26,
+      "after": 27,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_otobreda_sidam_25_mistral",
+      "name": "SIDAM 25 (Mistral)",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 26,
+      "after": 27,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_of_40_mtca",
+      "name": "OF-40 (MTCA)",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_vrcc_centauro",
+      "name": "VRCC",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 26,
+      "after": 27,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_centauro_mgs_120",
+      "name": "Centauro I 120",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_9a33bm3",
+      "name": "▄Osa-AKM",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 28,
+      "after": 29,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_9a35_m",
+      "name": "◔Strela-10M",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 28,
+      "after": 29,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_leopard_2a4",
+      "name": "◔Leopard 2A4",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 29,
+      "after": 30,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_c1_ariete_pso",
+      "name": "Ariete PSO",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_c1_ariete",
+      "name": "Ariete",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_otomatic",
+      "name": "OTOMATIC",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 31,
+      "after": 32,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_freccia",
+      "name": "Freccia",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 30,
+      "after": 31,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_centauro_rgo_120",
+      "name": "Centauro RGO",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_c1_ariete_certezza",
+      "name": "Ariete Certezza",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 32,
+      "after": 33,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_centauro_2",
+      "name": "Centauro II (P)",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 34,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_ariete_amv_pt1",
+      "name": "Ariete AMV",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 34,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_samp_t_fcs",
+      "name": "FSAF SAMP/T (TADS)",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "it_leopard_2a7_hungary",
+      "name": "Leopard 2A7HU",
+      "country": "italy",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_mars_15",
+      "name": "MARS 15",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 22,
+      "after": 23,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_amx_30_dca",
+      "name": "AMX-30 S DCA",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 23,
+      "after": 22,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_amx_10rc",
+      "name": "AMX-10RC",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 22,
+      "after": 23,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_sk105_a2",
+      "name": "SK-105A2",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 23,
+      "after": 24,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_vab_santal",
+      "name": "SANTAL",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_vbci",
+      "name": "VBCI",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_vbci2_mct30",
+      "name": "VBCI-2 (MCT30)",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 26,
+      "after": 27,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_msc",
+      "name": "MSC",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 30,
+      "after": 31,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_amx_40",
+      "name": "AMX-40",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 27,
+      "after": 28,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_amx_30_roland",
+      "name": "Roland 1",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 26,
+      "after": 28,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_jaguar_ebrc",
+      "name": "EBRC Jaguar",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 30,
+      "after": 31,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_leopard_2a4nl",
+      "name": "Leopard 2A4NL",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 29,
+      "after": 30,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_cv_9035_nl",
+      "name": "CV 9035NL",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 26,
+      "after": 27,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_leopard_2a4nl_les",
+      "name": "Leopard 2 (OTCo)",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 29,
+      "after": 30,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_leclerc_s1",
+      "name": "Leclerc",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 36,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_leclerc_s2",
+      "name": "Leclerc S2",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 36,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_leopard_2a5nl",
+      "name": "Leopard 2A5NL",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 34,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_crotale_ng",
+      "name": "▄ItO 90M",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 34,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_leclerc_sxxi",
+      "name": "Leclerc SXXI",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 36,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_leopard_2a6nl",
+      "name": "Leopard 2A6NL",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 36,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_samp_t_fcs",
+      "name": "FSAF SAMP/T (Mamba) (TADS)",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_leclerc_azur",
+      "name": "Leclerc AZUR",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 36,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "fr_embt",
+      "name": "▄EMBT",
+      "country": "france",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_landsverk_ush_405",
+      "name": "U-SH 405",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 21,
+      "after": 22,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_strv_103a",
+      "name": "Strv 103A",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 21,
+      "after": 22,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_strv_103_0",
+      "name": "Strv 103-0",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 21,
+      "after": 22,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_cv_90105",
+      "name": "CV 90105 TML",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 23,
+      "after": 24,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_itpsv_90",
+      "name": "ItPsV Leopard",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 23,
+      "after": 24,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_t_72m1",
+      "name": "▄T-72M1",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_strf_90b",
+      "name": "Strf 9040B",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 26,
+      "after": 27,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_cv_9035_dk",
+      "name": "CV 9035DK",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 26,
+      "after": 27,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_strf_90c",
+      "name": "Strf 9040C",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 28,
+      "after": 29,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_strv_121",
+      "name": "Strv 121",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 29,
+      "after": 30,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_lvkv_90c",
+      "name": "Lvkv 9040C",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 28,
+      "after": 29,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_asrad_r",
+      "name": "ASRAD-R",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 28,
+      "after": 29,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_leopard_2a4_fin",
+      "name": "▄Leopard 2A4",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 29,
+      "after": 30,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_cv_90105_tml",
+      "name": "CV 90105",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 28,
+      "after": 29,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_strv121b_christian2",
+      "name": "Christian II",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 29,
+      "after": 30,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_cv_90120",
+      "name": "CV90120-T",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 34,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_strv_122",
+      "name": "Strv 122A",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_strv_122b_plss",
+      "name": "Strv 122B PLSS",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_crotale_ng",
+      "name": "ItO 90M",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 34,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_leopard_2a6nl",
+      "name": "▄Leopard 2A6",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 36,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_strv_122b_plus",
+      "name": "Strv 122B+",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_eldenhet_98",
+      "name": "EldE 98",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 34,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_nomads",
+      "name": "NOMADS",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 33,
+      "after": 34,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_nasams_fcs",
+      "name": "NASAMS 3 (TADS)",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 36,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "sw_t_80u",
+      "name": "T 80 U",
+      "country": "sweden",
+      "category": "ground",
+      "mode": "sb",
+      "before": 31,
+      "after": 32,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_magach_6b",
+      "name": "Magach 6B",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 23,
+      "after": 24,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_magach_6_rocket",
+      "name": "Magach Hydra",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 23,
+      "after": 24,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_merkava_mk_1",
+      "name": "Merkava Mk.1",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 25,
+      "after": 26,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_merkava_mk_1b",
+      "name": "Merkava Mk.1B",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 26,
+      "after": 27,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_merkava_mk_2b_early",
+      "name": "Merkava Mk.2B",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 26,
+      "after": 27,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_merkava_mk_2d",
+      "name": "Merkava Mk.2D",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 27,
+      "after": 28,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_sabra_mk1",
+      "name": "Sabra Mk.I",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 27,
+      "after": 28,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_merkava_mk_3b",
+      "name": "Merkava Mk.3B",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 31,
+      "after": 32,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_merkava_mk_3c",
+      "name": "Merkava Mk.3C",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 31,
+      "after": 32,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_9a33bm3",
+      "name": "◐Osa-AKM",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 28,
+      "after": 29,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_tor_m1",
+      "name": "◐Tor-M1",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 31,
+      "after": 32,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_eitan",
+      "name": "Eitan (P)",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 31,
+      "after": 32,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_namer_rcws_30",
+      "name": "Namer 30",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 31,
+      "after": 32,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_namer_tsrikhon",
+      "name": "Namer Tsrikhon",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 31,
+      "after": 32,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_merkava_mk_3_raam_segol",
+      "name": "Ra'am Sagol",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 31,
+      "after": 32,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_leopard_2a6_hel",
+      "name": "◐Leopard 2HEL",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_merkava_mk_4b",
+      "name": "Merkava Mk.4B",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 34,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_merkava_mk_4_lic",
+      "name": "Merkava Mk.4 LIC",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 34,
+      "after": 35,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_spyder_aio",
+      "name": "SPYDER",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 36,
+      "source": "ground"
+    },
+    {
+      "vehicleId": "il_merkava_mk_4m",
+      "name": "Merkava Mk.4M",
+      "country": "israel",
+      "category": "ground",
+      "mode": "sb",
+      "before": 35,
+      "after": 37,
+      "source": "ground"
+    }
+  ]
+}
