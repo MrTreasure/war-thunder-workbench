@@ -178,6 +178,14 @@ function render() {
   const records = [];
   if (source.url) records.push(sourceLink(source.title || (staticSource ? "原帖来源" : "视频来源"), videoUrl(source, model.time), [source.author, source.publishedAt, source.gameVersion ? `游戏版本 ${source.gameVersion}` : null, Number.isFinite(model.time) ? `${Math.floor(model.time / 60)}:${String(Math.floor(model.time % 60)).padStart(2, "0")}` : null, model.imageQuality].filter(Boolean).join(" · ")));
   if (staticSource && source.imageUrl) records.push(sourceLink("原帖公开图片", source.imageUrl, "原始附件；高清归档保留同一截图的原生尺寸。"));
+  const sourceUrls = new Set([source.url].filter(Boolean));
+  for (const related of model.relatedSources || []) {
+    if (!related.url || sourceUrls.has(related.url)) continue;
+    const href = videoUrl(related, related.time);
+    if (!href) continue;
+    sourceUrls.add(related.url);
+    records.push(sourceLink(related.title || "关联攻略", href, [related.author, related.publishedAt, related.scopeNote].filter(Boolean).join(" · ")));
+  }
   if (model.wikiUrl) records.push(sourceLink("官方 Wiki · " + model.name, model.wikiUrl, `核对日期 ${model.collectedAt || SAMPLE.collectedAt || "待补充"} · 车型、装甲与主炮装填资料${model.wikiGameVersion ? ` · 游戏版本 ${model.wikiGameVersion}` : ""}`));
   const ammoReferences = new Map();
   for (const item of [test, ...(model.testCases || [])]) {

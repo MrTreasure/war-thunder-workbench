@@ -2483,7 +2483,54 @@
         "note": "自动装填；Wiki 主炮面板。"
       },
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v20-author-leclerc-s1",
+          "label": "作者观点：炮闩区域",
+          "text": "作者认为炮闩区域较大，交战时可关注该处；两侧炮塔装甲比较属于作者观点。",
+          "kind": "author-comparison-opinion",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "sourceTime": 424.356887,
+          "sourceTimeRange": [
+            424.356887,
+            450.113135
+          ],
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-comparison-unverified-test",
+          "sourceGameVersion": null,
+          "evidence": {
+            "sourceManifest": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/private-armor-comparison-v20/sealed-source-manifest.json",
+              "sha256": "9a3f52f9a2ac05e80f21759e321a51ec91c288c9cac2cae87fc89e3a22934361"
+            },
+            "independentQC": {
+              "file": "artifacts/weakpoints-private-video-qc-v5-20261103/v20-final-public-text-proposals.json",
+              "sha256": "a7ff675e391b90fb905d5423fc48e49445b93af6716cabcd678e87332d923cd1"
+            },
+            "authorCoverageEvidence": {
+              "type": "author-claimed-model-coverage",
+              "label": "S1",
+              "actualMediaTime": 440.033312,
+              "analysisSHA256": "e4d9948d4ff3f111e08dd124da2c898008d0e0225142c3ec1bf3f6d94e56c428",
+              "proofSHA256": "02c18006ff01bfa7d2a3cddc7333f69f371a920f572ad6748c0429060215ea8b",
+              "privateOnly": true
+            },
+            "sealedSubtitleProofs": [
+              {
+                "manifest": "sealed-segment-002.json",
+                "sha256": "7f4f7d4510923afdbfe0abdd8568bc2766028d175799a655db2edd1f88632b6c",
+                "actualObservedRange": [
+                  374.926647,
+                  478.455087
+                ]
+              }
+            ],
+            "privacy": "raw-images-and-full-transcript-private-never-public",
+            "notActualTest": true
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-video",
       "collectedAt": "2026-11-02",
@@ -2492,7 +2539,18 @@
       "countryName": "法国",
       "rank": 8,
       "era": "modern",
-      "scopeRole": "medium_tank"
+      "scopeRole": "medium_tank",
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "title": "【战争雷霆】主战坦克--正面装甲排行",
+          "author": "一只小臭猪ソ",
+          "publishedAt": "2025-06-21T20:24:27+08:00",
+          "time": 424.356887,
+          "scopeNote": "作者对比观点；测试条件未核验"
+        }
+      ]
     },
     {
       "id": "sw_strv_122",
@@ -2513,7 +2571,54 @@
         "note": "基础乘员→王牌乘员（Wiki主炮面板）"
       },
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v20-author-strv122-122a",
+          "label": "作者观点：炮闩区域、首下、首上",
+          "text": "作者提示注意炮闩及首下，并认为高低差可能改变首上防护；不能将平地表现套用于高位射击。",
+          "kind": "author-comparison-opinion",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "sourceTime": 40.032891,
+          "sourceTimeRange": [
+            40.032891,
+            77.072875
+          ],
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-comparison-unverified-test",
+          "sourceGameVersion": null,
+          "evidence": {
+            "sourceManifest": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/private-armor-comparison-v20/sealed-source-manifest.json",
+              "sha256": "9a3f52f9a2ac05e80f21759e321a51ec91c288c9cac2cae87fc89e3a22934361"
+            },
+            "independentQC": {
+              "file": "artifacts/weakpoints-private-video-qc-v5-20261103/v20-final-public-text-proposals.json",
+              "sha256": "a7ff675e391b90fb905d5423fc48e49445b93af6716cabcd678e87332d923cd1"
+            },
+            "authorCoverageEvidence": {
+              "type": "author-claimed-model-coverage",
+              "label": "122A",
+              "actualMediaTime": 60,
+              "analysisSHA256": "3dbed54d563c7230273d0af977eeeea58b5db976baf3f373280635c956da73ba",
+              "proofSHA256": "6c59e7f7f3d7f8a6b382d35d9035c10e3fcdece17aa6c1767910f807ea4c9c9d",
+              "privateOnly": true
+            },
+            "sealedSubtitleProofs": [
+              {
+                "manifest": "sealed-segment-001.json",
+                "sha256": "98b254e0fb386367e6b80833c4c0720e1a33606b78045ab86dcbd257f5116c9a",
+                "actualObservedRange": [
+                  0.420142,
+                  107.422289
+                ]
+              }
+            ],
+            "privacy": "raw-images-and-full-transcript-private-never-public",
+            "notActualTest": true
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-video",
       "collectedAt": "2026-11-02",
@@ -2522,7 +2627,18 @@
       "countryName": "瑞典",
       "rank": 8,
       "era": "modern",
-      "scopeRole": "medium_tank"
+      "scopeRole": "medium_tank",
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "title": "【战争雷霆】主战坦克--正面装甲排行",
+          "author": "一只小臭猪ソ",
+          "publishedAt": "2025-06-21T20:24:27+08:00",
+          "time": 40.032891,
+          "scopeNote": "作者对比观点；测试条件未核验"
+        }
+      ]
     },
     {
       "id": "il_merkava_mk_4m",
@@ -11868,7 +11984,54 @@
       "eraBasis": "勒克莱尔S2在1997年替代S1生产，具5秒自动装填；Wiki明确指出车体多处弱点，隐蔽车体后炮闩仍暴露。",
       "collectedAt": "2026-11-02T09:52:00.451Z",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v20-author-leclerc-s2",
+          "label": "作者观点：炮闩区域",
+          "text": "作者认为炮闩区域较大，交战时可关注该处；两侧炮塔装甲比较属于作者观点。",
+          "kind": "author-comparison-opinion",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "sourceTime": 424.356887,
+          "sourceTimeRange": [
+            424.356887,
+            450.113135
+          ],
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-comparison-unverified-test",
+          "sourceGameVersion": null,
+          "evidence": {
+            "sourceManifest": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/private-armor-comparison-v20/sealed-source-manifest.json",
+              "sha256": "9a3f52f9a2ac05e80f21759e321a51ec91c288c9cac2cae87fc89e3a22934361"
+            },
+            "independentQC": {
+              "file": "artifacts/weakpoints-private-video-qc-v5-20261103/v20-final-public-text-proposals.json",
+              "sha256": "a7ff675e391b90fb905d5423fc48e49445b93af6716cabcd678e87332d923cd1"
+            },
+            "authorCoverageEvidence": {
+              "type": "author-claimed-model-coverage",
+              "label": "S2",
+              "actualMediaTime": 440.033312,
+              "analysisSHA256": "e4d9948d4ff3f111e08dd124da2c898008d0e0225142c3ec1bf3f6d94e56c428",
+              "proofSHA256": "02c18006ff01bfa7d2a3cddc7333f69f371a920f572ad6748c0429060215ea8b",
+              "privateOnly": true
+            },
+            "sealedSubtitleProofs": [
+              {
+                "manifest": "sealed-segment-002.json",
+                "sha256": "7f4f7d4510923afdbfe0abdd8568bc2766028d175799a655db2edd1f88632b6c",
+                "actualObservedRange": [
+                  374.926647,
+                  478.455087
+                ]
+              }
+            ],
+            "privacy": "raw-images-and-full-transcript-private-never-public",
+            "notActualTest": true
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/fr_leclerc_s2",
@@ -11902,6 +12065,17 @@
       ],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "title": "【战争雷霆】主战坦克--正面装甲排行",
+          "author": "一只小臭猪ソ",
+          "publishedAt": "2025-06-21T20:24:27+08:00",
+          "time": 424.356887,
+          "scopeNote": "作者对比观点；测试条件未核验"
+        }
       ]
     },
     {
@@ -12335,7 +12509,54 @@
       "eraBasis": "Strv122BPLSS为2005至06年试验的桅杆观瞄改型，Wiki直接指出炮盾和炮塔座圈仍脆弱，但面积较小。",
       "collectedAt": "2026-11-02T09:52:08.598Z",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v20-author-strv122-122plss",
+          "label": "作者观点：炮闩区域、首下、首上",
+          "text": "作者提示注意炮闩及首下，并认为高低差可能改变首上防护；不能将平地表现套用于高位射击。",
+          "kind": "author-comparison-opinion",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "sourceTime": 40.032891,
+          "sourceTimeRange": [
+            40.032891,
+            77.072875
+          ],
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-comparison-unverified-test",
+          "sourceGameVersion": null,
+          "evidence": {
+            "sourceManifest": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/private-armor-comparison-v20/sealed-source-manifest.json",
+              "sha256": "9a3f52f9a2ac05e80f21759e321a51ec91c288c9cac2cae87fc89e3a22934361"
+            },
+            "independentQC": {
+              "file": "artifacts/weakpoints-private-video-qc-v5-20261103/v20-final-public-text-proposals.json",
+              "sha256": "a7ff675e391b90fb905d5423fc48e49445b93af6716cabcd678e87332d923cd1"
+            },
+            "authorCoverageEvidence": {
+              "type": "author-claimed-model-coverage",
+              "label": "122PLSS",
+              "actualMediaTime": 60,
+              "analysisSHA256": "3dbed54d563c7230273d0af977eeeea58b5db976baf3f373280635c956da73ba",
+              "proofSHA256": "6c59e7f7f3d7f8a6b382d35d9035c10e3fcdece17aa6c1767910f807ea4c9c9d",
+              "privateOnly": true
+            },
+            "sealedSubtitleProofs": [
+              {
+                "manifest": "sealed-segment-001.json",
+                "sha256": "98b254e0fb386367e6b80833c4c0720e1a33606b78045ab86dcbd257f5116c9a",
+                "actualObservedRange": [
+                  0.420142,
+                  107.422289
+                ]
+              }
+            ],
+            "privacy": "raw-images-and-full-transcript-private-never-public",
+            "notActualTest": true
+          }
+        }
+      ],
       "source": {},
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/sw_strv_122b_plss",
@@ -12369,6 +12590,17 @@
       ],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "title": "【战争雷霆】主战坦克--正面装甲排行",
+          "author": "一只小臭猪ソ",
+          "publishedAt": "2025-06-21T20:24:27+08:00",
+          "time": 40.032891,
+          "scopeNote": "作者对比观点；测试条件未核验"
+        }
       ]
     },
     {
@@ -14325,6 +14557,45 @@
           "time": 560.016687,
           "sourceUrl": "https://www.bilibili.com/video/BV1CueU6cECo/",
           "label": "内衬／前部：负向后效提醒"
+        },
+        {
+          "id": "v20-author-a7v",
+          "label": "作者观点：首上",
+          "text": "作者在与匈牙利A7的比较中认为A7V首上更可靠；不能把该比较视为所有弹药及角度下的防护保证。",
+          "kind": "author-comparison-opinion",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "sourceTime": 156.806748,
+          "sourceTimeRange": [
+            156.806748,
+            184.657555
+          ],
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-comparison-unverified-test",
+          "sourceGameVersion": null,
+          "evidence": {
+            "sourceManifest": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/private-armor-comparison-v20/sealed-source-manifest.json",
+              "sha256": "9a3f52f9a2ac05e80f21759e321a51ec91c288c9cac2cae87fc89e3a22934361"
+            },
+            "independentQC": {
+              "file": "artifacts/weakpoints-private-video-qc-v5-20261103/v20-final-public-text-proposals.json",
+              "sha256": "a7ff675e391b90fb905d5423fc48e49445b93af6716cabcd678e87332d923cd1"
+            },
+            "authorCoverageEvidence": null,
+            "sealedSubtitleProofs": [
+              {
+                "manifest": "identity-tail/sealed-segment-004.json",
+                "sha256": "4cb6f403f82dfbce539860c0dbedcac33b00c809e5d4cf1c946a7b368d470116",
+                "actualObservedRange": [
+                  106.913279,
+                  197.277416
+                ]
+              }
+            ],
+            "privacy": "raw-images-and-full-transcript-private-never-public",
+            "notActualTest": true
+          }
         }
       ],
       "source": {
@@ -14510,7 +14781,18 @@
         1080
       ],
       "completeIllustration": true,
-      "limits": "主图540秒，正向建议分别来自543/546秒；各自测试case同帧，但与主图不同片段，字段已分开。；炮闩标点表示炮根对应方向，不保证JM33命中任何炮盾位置都能伤及炮闩。；未沿用到2A4/2A4M/2A5；不同改型各自归档。；源版本未独立读取留null，不能泛化所有弹药距离。"
+      "limits": "主图540秒，正向建议分别来自543/546秒；各自测试case同帧，但与主图不同片段，字段已分开。；炮闩标点表示炮根对应方向，不保证JM33命中任何炮盾位置都能伤及炮闩。；未沿用到2A4/2A4M/2A5；不同改型各自归档。；源版本未独立读取留null，不能泛化所有弹药距离。",
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "title": "【战争雷霆】主战坦克--正面装甲排行",
+          "author": "一只小臭猪ソ",
+          "publishedAt": "2025-06-21T20:24:27+08:00",
+          "time": 156.806748,
+          "scopeNote": "作者对比观点；测试条件未核验"
+        }
+      ]
     },
     {
       "id": "us_m1_ip_abrams",
@@ -18056,6 +18338,52 @@
           "conditionMatch": "family-author-context-not-independent-same-frame-test",
           "mainImageMatch": "same-source-different-observation",
           "kind": "author-general-family-recommendation"
+        },
+        {
+          "id": "v20-author-leclerc-azur",
+          "label": "作者观点：炮闩区域",
+          "text": "作者认为炮闩区域较大，交战时可关注该处；两侧炮塔装甲比较属于作者观点。",
+          "kind": "author-comparison-opinion",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "sourceTime": 424.356887,
+          "sourceTimeRange": [
+            424.356887,
+            450.113135
+          ],
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-comparison-unverified-test",
+          "sourceGameVersion": null,
+          "evidence": {
+            "sourceManifest": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/private-armor-comparison-v20/sealed-source-manifest.json",
+              "sha256": "9a3f52f9a2ac05e80f21759e321a51ec91c288c9cac2cae87fc89e3a22934361"
+            },
+            "independentQC": {
+              "file": "artifacts/weakpoints-private-video-qc-v5-20261103/v20-final-public-text-proposals.json",
+              "sha256": "a7ff675e391b90fb905d5423fc48e49445b93af6716cabcd678e87332d923cd1"
+            },
+            "authorCoverageEvidence": {
+              "type": "author-claimed-model-coverage",
+              "label": "AZUR",
+              "actualMediaTime": 440.033312,
+              "analysisSHA256": "e4d9948d4ff3f111e08dd124da2c898008d0e0225142c3ec1bf3f6d94e56c428",
+              "proofSHA256": "02c18006ff01bfa7d2a3cddc7333f69f371a920f572ad6748c0429060215ea8b",
+              "privateOnly": true
+            },
+            "sealedSubtitleProofs": [
+              {
+                "manifest": "sealed-segment-002.json",
+                "sha256": "7f4f7d4510923afdbfe0abdd8568bc2766028d175799a655db2edd1f88632b6c",
+                "actualObservedRange": [
+                  374.926647,
+                  478.455087
+                ]
+              }
+            ],
+            "privacy": "raw-images-and-full-transcript-private-never-public",
+            "notActualTest": true
+          }
         }
       ],
       "source": {
@@ -18266,7 +18594,18 @@
         "note": "主图同帧静态UI条件；作者的一般建议另列，绿色不保证实战后效。",
         "sourceGameVersionPartial": "2.59.0.9… (right edge clipped)"
       },
-      "frontSummary": "作者对勒克莱尔家族的建议是避开车体前方保险杠及炮塔两侧；这是家族范围建议，并非每个改型独立试射。"
+      "frontSummary": "作者对勒克莱尔家族的建议是避开车体前方保险杠及炮塔两侧；这是家族范围建议，并非每个改型独立试射。",
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "title": "【战争雷霆】主战坦克--正面装甲排行",
+          "author": "一只小臭猪ソ",
+          "publishedAt": "2025-06-21T20:24:27+08:00",
+          "time": 424.356887,
+          "scopeNote": "作者对比观点；测试条件未核验"
+        }
+      ]
     },
     {
       "id": "sw_strv_122b_plus",
@@ -18278,7 +18617,54 @@
       "era": "modern",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v20-author-strv122-122bplus",
+          "label": "作者观点：炮闩区域、首下、首上",
+          "text": "作者提示注意炮闩及首下，并认为高低差可能改变首上防护；不能将平地表现套用于高位射击。",
+          "kind": "author-comparison-opinion",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "sourceTime": 40.032891,
+          "sourceTimeRange": [
+            40.032891,
+            77.072875
+          ],
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-comparison-unverified-test",
+          "sourceGameVersion": null,
+          "evidence": {
+            "sourceManifest": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/private-armor-comparison-v20/sealed-source-manifest.json",
+              "sha256": "9a3f52f9a2ac05e80f21759e321a51ec91c288c9cac2cae87fc89e3a22934361"
+            },
+            "independentQC": {
+              "file": "artifacts/weakpoints-private-video-qc-v5-20261103/v20-final-public-text-proposals.json",
+              "sha256": "a7ff675e391b90fb905d5423fc48e49445b93af6716cabcd678e87332d923cd1"
+            },
+            "authorCoverageEvidence": {
+              "type": "author-claimed-model-coverage",
+              "label": "122B+",
+              "actualMediaTime": 60,
+              "analysisSHA256": "3dbed54d563c7230273d0af977eeeea58b5db976baf3f373280635c956da73ba",
+              "proofSHA256": "6c59e7f7f3d7f8a6b382d35d9035c10e3fcdece17aa6c1767910f807ea4c9c9d",
+              "privateOnly": true
+            },
+            "sealedSubtitleProofs": [
+              {
+                "manifest": "sealed-segment-001.json",
+                "sha256": "98b254e0fb386367e6b80833c4c0720e1a33606b78045ab86dcbd257f5116c9a",
+                "actualObservedRange": [
+                  0.420142,
+                  107.422289
+                ]
+              }
+            ],
+            "privacy": "raw-images-and-full-transcript-private-never-public",
+            "notActualTest": true
+          }
+        }
+      ],
       "source": {
         "title": "瑞典坚果墙Strv 122B+《战争雷霆》〔载具简评〕",
         "author": "克虏伯kluub",
@@ -18336,7 +18722,18 @@
       "mainViewKind": "exterior",
       "mainViewNote": "略俯近正面外观，车辆无遮挡；原生1920×1078未补边、未缩放，非绿色防护图。",
       "coverageStatus": "front-exterior-green-analysis-pending",
-      "coverageNotice": "近正面外观 · 绿色防护分析待补"
+      "coverageNotice": "近正面外观 · 绿色防护分析待补",
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "title": "【战争雷霆】主战坦克--正面装甲排行",
+          "author": "一只小臭猪ソ",
+          "publishedAt": "2025-06-21T20:24:27+08:00",
+          "time": 40.032891,
+          "scopeNote": "作者对比观点；测试条件未核验"
+        }
+      ]
     },
     {
       "id": "fr_amx_30_super",
@@ -18475,7 +18872,54 @@
       "era": null,
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v20-author-leclerc-s21",
+          "label": "作者观点：炮闩区域",
+          "text": "作者认为炮闩区域较大，交战时可关注该处；两侧炮塔装甲比较属于作者观点。",
+          "kind": "author-comparison-opinion",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "sourceTime": 424.356887,
+          "sourceTimeRange": [
+            424.356887,
+            450.113135
+          ],
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-comparison-unverified-test",
+          "sourceGameVersion": null,
+          "evidence": {
+            "sourceManifest": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/private-armor-comparison-v20/sealed-source-manifest.json",
+              "sha256": "9a3f52f9a2ac05e80f21759e321a51ec91c288c9cac2cae87fc89e3a22934361"
+            },
+            "independentQC": {
+              "file": "artifacts/weakpoints-private-video-qc-v5-20261103/v20-final-public-text-proposals.json",
+              "sha256": "a7ff675e391b90fb905d5423fc48e49445b93af6716cabcd678e87332d923cd1"
+            },
+            "authorCoverageEvidence": {
+              "type": "author-claimed-model-coverage",
+              "label": "S21",
+              "actualMediaTime": 440.033312,
+              "analysisSHA256": "e4d9948d4ff3f111e08dd124da2c898008d0e0225142c3ec1bf3f6d94e56c428",
+              "proofSHA256": "02c18006ff01bfa7d2a3cddc7333f69f371a920f572ad6748c0429060215ea8b",
+              "privateOnly": true
+            },
+            "sealedSubtitleProofs": [
+              {
+                "manifest": "sealed-segment-002.json",
+                "sha256": "7f4f7d4510923afdbfe0abdd8568bc2766028d175799a655db2edd1f88632b6c",
+                "actualObservedRange": [
+                  374.926647,
+                  478.455087
+                ]
+              }
+            ],
+            "privacy": "raw-images-and-full-transcript-private-never-public",
+            "notActualTest": true
+          }
+        }
+      ],
       "source": null,
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/fr_leclerc_sxxi",
@@ -18505,6 +18949,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "title": "【战争雷霆】主战坦克--正面装甲排行",
+          "author": "一只小臭猪ソ",
+          "publishedAt": "2025-06-21T20:24:27+08:00",
+          "time": 424.356887,
+          "scopeNote": "作者对比观点；测试条件未核验"
+        }
       ]
     },
     {
@@ -20538,7 +20993,47 @@
       "era": null,
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v20-author-a7hu",
+          "label": "作者观点：首上",
+          "text": "作者认为匈牙利A7的首上存在异常薄弱区域，可关注该处；影片所述击穿表现及距离尚未由完整测试UI核验。",
+          "kind": "author-comparison-opinion",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "sourceTime": 114.61183,
+          "sourceTimeRange": [
+            114.61183,
+            155.779072
+          ],
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-comparison-unverified-test",
+          "sourceGameVersion": null,
+          "evidence": {
+            "sourceManifest": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/private-armor-comparison-v20/sealed-source-manifest.json",
+              "sha256": "9a3f52f9a2ac05e80f21759e321a51ec91c288c9cac2cae87fc89e3a22934361"
+            },
+            "independentQC": {
+              "file": "artifacts/weakpoints-private-video-qc-v5-20261103/v20-final-public-text-proposals.json",
+              "sha256": "a7ff675e391b90fb905d5423fc48e49445b93af6716cabcd678e87332d923cd1"
+            },
+            "authorCoverageEvidence": null,
+            "sealedSubtitleProofs": [
+              {
+                "manifest": "identity-tail/sealed-segment-004.json",
+                "sha256": "4cb6f403f82dfbce539860c0dbedcac33b00c809e5d4cf1c946a7b368d470116",
+                "actualObservedRange": [
+                  106.913279,
+                  197.277416
+                ]
+              }
+            ],
+            "privacy": "raw-images-and-full-transcript-private-never-public",
+            "notActualTest": true
+          }
+        }
+      ],
       "source": null,
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/it_leopard_2a7_hungary",
@@ -20568,6 +21063,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "title": "【战争雷霆】主战坦克--正面装甲排行",
+          "author": "一只小臭猪ソ",
+          "publishedAt": "2025-06-21T20:24:27+08:00",
+          "time": 114.61183,
+          "scopeNote": "作者对比观点；测试条件未核验"
+        }
       ]
     },
     {
@@ -22450,6 +22956,53 @@
               "boundary": "observed samples, not exact cue bounds"
             }
           }
+        },
+        {
+          "id": "v20-author-bvm",
+          "label": "作者观点：首下、炮塔未覆盖区域、顶部",
+          "text": "作者认为BVM首下、炮塔未被反应装甲覆盖区域及顶部存在可关注的弱区；具体弹药与角度条件未核验。",
+          "kind": "author-comparison-opinion",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "sourceTime": 185.156283,
+          "sourceTimeRange": [
+            185.156283,
+            205.038104
+          ],
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-comparison-unverified-test",
+          "sourceGameVersion": null,
+          "evidence": {
+            "sourceManifest": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/private-armor-comparison-v20/sealed-source-manifest.json",
+              "sha256": "9a3f52f9a2ac05e80f21759e321a51ec91c288c9cac2cae87fc89e3a22934361"
+            },
+            "independentQC": {
+              "file": "artifacts/weakpoints-private-video-qc-v5-20261103/v20-final-public-text-proposals.json",
+              "sha256": "a7ff675e391b90fb905d5423fc48e49445b93af6716cabcd678e87332d923cd1"
+            },
+            "authorCoverageEvidence": null,
+            "sealedSubtitleProofs": [
+              {
+                "manifest": "identity-tail/sealed-segment-004.json",
+                "sha256": "4cb6f403f82dfbce539860c0dbedcac33b00c809e5d4cf1c946a7b368d470116",
+                "actualObservedRange": [
+                  106.913279,
+                  197.277416
+                ]
+              },
+              {
+                "manifest": "identity-tail/sealed-segment-005.json",
+                "sha256": "a87e012dc9c09cc8482fcfa6be716a107341b4b709e9e75e69efc36cfc619bd9",
+                "actualObservedRange": [
+                  196.939365,
+                  287.487447
+                ]
+              }
+            ],
+            "privacy": "raw-images-and-full-transcript-private-never-public",
+            "notActualTest": true
+          }
         }
       ],
       "source": {
@@ -22707,7 +23260,18 @@
           "typeReferenceBasis": "Reused exact jp_type_90b_camo JM33 official reference"
         }
       },
-      "frontSummary": "作者在本段概括苏系锅盖头常见打法为“裤裆和三角区”；这是家族一般建议，不能视为逐点成功实测。"
+      "frontSummary": "作者在本段概括苏系锅盖头常见打法为“裤裆和三角区”；这是家族一般建议，不能视为逐点成功实测。",
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "title": "【战争雷霆】主战坦克--正面装甲排行",
+          "author": "一只小臭猪ソ",
+          "publishedAt": "2025-06-21T20:24:27+08:00",
+          "time": 185.156283,
+          "scopeNote": "作者对比观点；测试条件未核验"
+        }
+      ]
     },
     {
       "id": "us_m1a2_sep3_abrams",
@@ -23700,7 +24264,47 @@
       "era": "modern",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "v20-author-t90m",
+          "label": "作者观点：炮闩区域、首下",
+          "text": "作者将炮闩区域及首下列为较小的正面弱区，并提醒车身较低使首下较难瞄准。",
+          "kind": "author-comparison-opinion",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "sourceTime": 80.575727,
+          "sourceTimeRange": [
+            80.575727,
+            94.271107
+          ],
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "author-comparison-unverified-test",
+          "sourceGameVersion": null,
+          "evidence": {
+            "sourceManifest": {
+              "file": "artifacts/tank-weakpoints-expansion-20261102/sources/private-armor-comparison-v20/sealed-source-manifest.json",
+              "sha256": "9a3f52f9a2ac05e80f21759e321a51ec91c288c9cac2cae87fc89e3a22934361"
+            },
+            "independentQC": {
+              "file": "artifacts/weakpoints-private-video-qc-v5-20261103/v20-final-public-text-proposals.json",
+              "sha256": "a7ff675e391b90fb905d5423fc48e49445b93af6716cabcd678e87332d923cd1"
+            },
+            "authorCoverageEvidence": null,
+            "sealedSubtitleProofs": [
+              {
+                "manifest": "sealed-segment-001.json",
+                "sha256": "98b254e0fb386367e6b80833c4c0720e1a33606b78045ab86dcbd257f5116c9a",
+                "actualObservedRange": [
+                  0.420142,
+                  107.422289
+                ]
+              }
+            ],
+            "privacy": "raw-images-and-full-transcript-private-never-public",
+            "notActualTest": true
+          }
+        }
+      ],
       "source": null,
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_90m_2020",
@@ -23730,6 +24334,17 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV1zvN1z9Ea2/",
+          "title": "【战争雷霆】主战坦克--正面装甲排行",
+          "author": "一只小臭猪ソ",
+          "publishedAt": "2025-06-21T20:24:27+08:00",
+          "time": 80.575727,
+          "scopeNote": "作者对比观点；测试条件未核验"
+        }
       ]
     },
     {
