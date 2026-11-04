@@ -1,92 +1,96 @@
 [简体中文](README.md) · [English](README.en.md) · [Русский](README.ru.md) · [日本語](README.ja.md)
 
-# WarThunder Research Workbench
+# War Thunder Research Workbench
 
-Explore tech trees, plan research and build lineups. Check player stats, draw map routes and track sales in the same workbench.
+Explore vehicles, plan research, configure loadouts, save lineups, review statistics and draw map routes.
 
-**[Main site · QMuse](https://wt.app.qmuse.pub/)** · **[International site](https://wt.mrtreasure.cc/en/)** · [User guide](docs/usage.en.md)
+**[Main site](https://wt.app.qmuse.pub/)** · **[International site](https://wt.mrtreasure.cc/en/)** · [User guide](docs/usage.en.md) · [Report an issue](https://github.com/MrTreasure/war-thunder-workbench/issues)
 
-## Tech trees and vehicle details
+## Modules
 
-Explore ten nations across ground, aviation, helicopters, bluewater and coastal fleets. Search vehicle names, switch AB / RB / SB ratings, open folders and follow prerequisite links.
+| Module | What it offers |
+| --- | --- |
+| Research trees | Ten nations, five branches, research planning, modifications and vehicle comparison |
+| Lineups | Saved rosters, mode-specific battle ratings, sharing and the community lobby |
+| Loadout simulator | Hardpoint configuration, missile comparison, aircraft search and bombing estimates |
+| Statistics and reports | Career/recent statistics, official rankings, garage, reference valuation and share cards |
+| Ground maps | Mission layouts, contours, tactical annotations and image export |
+| Sale calendar | Official events, estimated windows and a vehicle watchlist |
 
-Vehicle details include official artwork, acquisition and prices, RP/Silver Lion reward multipliers by mode, and prerequisite routes. RP uses locale-aware abbreviations, and your zoom preference is saved in the browser.
+## Research trees and planning
 
-![Updated Chinese ground tech tree](docs/screenshots/tree.png)
+Browse ground vehicles, aircraft, helicopters, bluewater and coastal fleets across ten nations. Search by name, filter by rank/type, switch battle-rating modes, expand groups and follow research links.
 
-## Vehicle research
+![Research tree and nation, branch and mode controls](docs/screenshots/readme-tree.png)
 
-Choose a target and enter owned vehicles, the unlocked rank and current progress. Review prerequisites and rank fillers. Shared prerequisites are counted once when targets are combined.
+Vehicle details include acquisition methods, verified whole-pack prices, RP/SL multipliers, performance and prerequisites. Compare up to **five vehicles of the same branch** using fully upgraded values, change the baseline and remove entries directly.
 
-![Vehicle research and prerequisite list](docs/screenshots/vehicle-research.png)
+Ground vehicles show nominal armour and ammunition, with penetration at **500, 1,000 and 2,000 m**. Selecting ammunition opens its original game AVIF diagram in the detail area. Equipment includes sourced radar, optics and modules; ammunition modules use matching shell icons. Aircraft and helicopter details also list supported weapons.
 
-## Modification research
+![Selected ammunition and its original game diagram](docs/screenshots/readme-ammunition.png)
 
-View modifications in their actual tiers and groups. Mark completed items and enter partial progress on unfinished items. Premium vehicles, including GE and pack vehicles, default to all modifications unlocked.
+![Fully upgraded vehicle comparison](docs/screenshots/readme-comparison.png)
 
-![Modification tiers, completion state and remaining RP](docs/screenshots/modifications.png)
+Research planning accounts for owned vehicles, unlocked ranks and existing progress. Modifications retain their actual tiers and groups; premium modifications default to unlocked. A combined research cart counts shared prerequisites once. User-entered RP prices are reference conversions; unknown costs are not treated as zero.
 
-**Estimate = remaining RP ÷ 10,000 × your rate.** This is a custom conversion, not an official game price or a transaction quote. Unknown data is never treated as zero.
+![Research planning and remaining RP](docs/screenshots/readme-research.png)
 
 ## Lineups
 
-Save multiple presets per nation, reorder crew slots and check the lineup for the selected mode and battle rating. Copy a share code beside the title; importing preserves nation, vehicle and slot order. New and edited lineups take effect only when saved.
+Save multiple rosters per nation, reorder crew slots, filter configurations and sort by battle rating. Nation selectors include flags and counts. Ratings follow the selected battle type and mode.
 
-![Saved vehicle lineups](docs/screenshots/lineups-germany.png)
+Browse community lineups, recommend or downvote, save a copy, add tags and export a share image. Lineup codes preserve the nation and slot order. Draft changes take effect only when saved.
 
-## Player stats and official rankings
+![Community lineups, nation filters and tags](docs/screenshots/readme-lineups.png)
 
-Look up public profiles by game nickname. Review career and official recent statistics, the six-axis chart, category K/D, vehicle classes and time played. Official metrics and positions have a dedicated rankings tab.
+## Loadout simulator
 
-Filter, sort and paginate vehicle records, switching between tables and four-column cards. Display preferences stay local. Valid cached data is reused; the page shows the applicable allowances and collection time.
+Sign in to open saved configurations or add an aircraft. Use default presets or configure individual hardpoints, review left-wing/fuselage/right-wing loads and hover weapons for details.
 
-![Career stats, recent results and ability chart](docs/screenshots/player-stats-overview.png)
+Compare up to **six missiles**, filter by weapon family/type and search for aircraft that can carry a specified quantity. Saved loadouts can be recommended in the lobby and linked to the aircraft's detail page.
 
-## Full collection and reference account valuation
+For supported high-explosive bombs, Air RB ratings and common respawning four-base rules provide damage, bombing reward multipliers and estimated bases destroyed across matchmaking ranges. Loadouts use in-app records and associations, without loadout share codes.
 
-After signing in and linking a game account, open Lineups → My collection to see owned vehicles, including those never used in battle. Spades on the tree mean owned, so vehicle RP calculations skip them; they do not imply that modifications are complete.
+![Hardpoints and selected weapons](docs/screenshots/readme-loadouts.png)
 
-Valuation separates research RP, GE vehicles and packs under the selected method. Items without verified prices remain separate. Reference amounts are not official prices or transaction prices.
+## Statistics and personal reports
 
-![Reference valuation and its components](docs/screenshots/player-account-valuation.png)
+Read public profiles, career and official recent statistics, branch K/D, capability charts, vehicle usage and official rankings. Vehicle records support filters, sorting, pagination and card/table views.
 
-## Personal reports and vehicle cards
+![A real cached public profile](docs/screenshots/readme-stats.png)
 
-Generate a report with your Top 5 vehicles, selected nation, category and mode, a War Thunder background and avatar. Choose a commander’s address, battle analysis, sharp commentary or a custom tone for the AI text.
+Create personal reports or individual vehicle cards with selectable backgrounds and commentary styles. Vehicle flags follow verified national markings, distinguishing modern Germany, the Russian Federation and historical flags independently of background style.
 
-Create separate vehicle-stat cards with WWII, Cold War or modern backgrounds, then copy or download them. Exported images are composed in the browser and are not uploaded for server storage.
+![Vehicle card exported by the application](docs/screenshots/readme-vehicle-card.png)
 
-![Personal report with Top 5 vehicles](docs/screenshots/player-report.png)
+A linked account can display the full garage, including vehicles never used in battle. The spade marks ownership, not completed modifications. Reference valuation lists verified components and unpriced items separately; it is not an official price or a transaction quote.
 
 ## Ground maps and tactical drawing
 
-Search maps, switch mission layouts and teams, and inspect contours, spawns and capture points. Guide links retain the original posts so you can compare map versions.
+Search maps, select a mission layout and team, and view contours, spawns, capture points and original guides. Draw lines, curves, arrows, defensive lines, areas, symbols and text, with undo/redo and multiple local plans. Export **2K/4K PNGs** or editable drawing files.
 
-Draw arrows, curves, defensive lines, danger areas, tactical markers and text. Save multiple plans, undo or redo edits, and export 2K / 4K images or editable drawing files.
+![Ground-map layout and drawing workspace](docs/screenshots/readme-maps.png)
 
-![Map routes, danger areas and tactical markers](docs/screenshots/tactical-drawing.png)
+## Sale calendar
 
-## Sale calendar and watchlists
+Review official events and sources in calendar or timeline views. Watch GE vehicles and store packs, including verified regular prices, whole-pack CNY quotes and price history. Official announcements and historically estimated windows remain distinct.
 
-Watch GE and store-pack vehicles while keeping their currencies and whole-pack prices separate. Use the calendar or timeline to review event ranges, announcements and forecast start windows that have not expired.
+![Sale calendar with official events and estimated windows](docs/screenshots/readme-sales.png)
 
-Announced events and historical forecasts are distinguished, with relative confidence labels for candidate dates. Check each official announcement for actual dates, eligible vehicles and exclusions.
+## Languages, storage and privacy
 
-![Sale calendar with official events and forecast windows](docs/screenshots/sales-month.png)
+The international site supports Simplified Chinese, English, Russian and Japanese on desktop and mobile. Guest plans stay in the current browser; signed-in research plans, carts, lineups and watch settings can sync through the account workspace. The loadout simulator requires sign-in.
 
-## Languages and storage
+Map plans remain local. Completing a drawing records vector data, retaining only the latest valid snapshot per user/device, map, layout and team; no screenshot or image is uploaded. Reports, cards and map exports are generated in the browser. Public profile lookup does not require a Gaijin password.
 
-- The international site supports Simplified Chinese, English, Russian and Japanese. QMuse primarily uses Chinese. Screenshots show Chinese UI; capture dates are recorded in the [screenshot index](docs/screenshots/README.md).
-- Guests keep progress, carts, lineups and sale watchlists in their browser. Signed-in research plans, research carts, lineups and sale watchlists can sync across devices.
-- Map plans stay local; export backups when needed. Public game-data queries do not require your Gaijin password.
+Screenshots show the newly published Chinese production UI. Versions, capture times and provenance are listed in the [screenshot index](docs/screenshots/README.md).
 
-## Guides and feedback
+## Documentation and credits
 
-[Full user guide](docs/usage.en.md) · [Screenshot sources](docs/screenshots/README.md) · [Development and contributions](docs/contributing.md) · [Report an issue](https://github.com/MrTreasure/war-thunder-workbench/issues)
+[User guide](docs/usage.en.md) · [Documentation](docs/README.md) · [Contributing](docs/contributing.md)
 
-## Data sources and copyright
+Game data and assets come from the [official War Thunder Wiki](https://wiki.warthunder.com/), [Gaijin Store](https://store.gaijin.net/) and official public sources. Community material retains its attribution.
 
-- **Sources:** Basic game information for tech trees, vehicles, modifications, stats, store prices and maps is compiled from the [official War Thunder Wiki](https://wiki.warthunder.com/) and official public channels, including public game information, statistics services, the [Gaijin Store](https://store.gaijin.net/) and publicly available game resources. Supplementary community guides and historical sale compilations retain their own source attribution.
-- **Unofficial project:** This independently developed fan tool is not affiliated with, partnered with or endorsed by Gaijin Entertainment. Data may change with game updates; the game and official announcements take precedence. Valuations, forecasts and workbench scores are reference results produced by this tool.
-- **Ownership:** War Thunder names, trademarks, logos, artwork, maps, original game resources and third-party materials belong to Gaijin Entertainment or their respective rights holders. This project claims no ownership of them. The repository’s [MIT license](LICENSE) covers original code and does not grant a sublicense to third-party content.
-- **Rights-holder contact:** If content affects your rights, use [GitHub Issues](https://github.com/MrTreasure/war-thunder-workbench/issues) to identify the page or file, explain your rights and specify the requested action. Verified concerns will be addressed by correcting, replacing or removing the relevant content.
+This is an independent, unofficial player project with no Gaijin endorsement. Game information may change; in-game information and official announcements take precedence. Scores, valuations and predictions are reference outputs.
+
+War Thunder names, trademarks, images, maps and original assets belong to Gaijin Entertainment or their respective owners. The [MIT licence](LICENSE) covers original project code, not a relicensing of third-party content. Rights holders may contact us through [GitHub Issues](https://github.com/MrTreasure/war-thunder-workbench/issues) with the affected material and ownership details.

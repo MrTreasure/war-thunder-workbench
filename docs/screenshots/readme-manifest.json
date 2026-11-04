@@ -1,0 +1,121 @@
+{
+  "updatedAt": "2026-11-04T15:05:39.160517+00:00",
+  "source": "https://wt.mrtreasure.cc/zh/",
+  "sourceCommit": "a0fa39c",
+  "workerVersion": "ba081ef3-a34c-4210-b1e0-88e4d9afa5ef",
+  "mainSite": "https://wt.app.qmuse.pub/",
+  "mainVersion": "92800577",
+  "method": "Real production UI and application PNG export; dedicated README demo session; cached public profile. No mocked responses, DOM content changes or new official player lookup.",
+  "screenshots": [
+    {
+      "file": "readme-tree.png",
+      "caption": "中国陆军科技树、国家军种选择与研发连线",
+      "source": "https://wt.mrtreasure.cc/zh/?category=ground&mode=rb&country=china#/tree",
+      "capturedAt": "2026-11-04T14:58:22.897Z",
+      "kind": "screenshot",
+      "width": 1680,
+      "height": 1080,
+      "bytes": 1765529,
+      "sha256": "1acfc85b2d6d500f983efaca0a0e57a7805209276388d6cda2b94d9805941e6c"
+    },
+    {
+      "file": "readme-ammunition.png",
+      "caption": "当前弹药详情的原始游戏 AVIF 原理图与穿深",
+      "source": "https://wt.mrtreasure.cc/zh/?category=ground&mode=rb&country=china#/tree",
+      "capturedAt": "2026-11-04T14:58:26.761Z",
+      "kind": "screenshot",
+      "width": 1040,
+      "height": 880,
+      "bytes": 226331,
+      "sha256": "80ccc151a7cb81d0c3b5e71fd739e54bdc34e6ca0a7d15607d3b2a076b37b4b4"
+    },
+    {
+      "file": "readme-comparison.png",
+      "caption": "两辆同军种载具的完全体性能、基准与数值差异",
+      "source": "https://wt.mrtreasure.cc/zh/?category=ground&mode=rb&country=china#/tree",
+      "capturedAt": "2026-11-04T14:58:28.224Z",
+      "kind": "screenshot",
+      "width": 770,
+      "height": 900,
+      "bytes": 119738,
+      "sha256": "985cd761ea4ae453302fecb6f337f1e14a61944f7d627278348bc3d996baf047"
+    },
+    {
+      "file": "readme-research.png",
+      "caption": "研发规划界面的目标选择、前置路线与剩余研发点",
+      "source": "https://wt.mrtreasure.cc/zh/?category=ground&mode=rb&country=china#/tree",
+      "capturedAt": "2026-11-04T14:58:29.203Z",
+      "kind": "screenshot",
+      "width": 1320,
+      "height": 880,
+      "bytes": 122929,
+      "sha256": "a09a1cfe29fad3de57bc3d577ccae2ea72477a648b48760363e96cbbbc24e02b"
+    },
+    {
+      "file": "readme-lineups.png",
+      "caption": "正式队列大厅的国家数量、模式、标签和队列卡片",
+      "source": "https://wt.mrtreasure.cc/zh/?country=china&category=ground&mode=rb#/lineups/lobby",
+      "capturedAt": "2026-11-04T14:58:36.043Z",
+      "kind": "screenshot",
+      "width": 1680,
+      "height": 1080,
+      "bytes": 523787,
+      "sha256": "113e7dc453c22682345c4d9f9509bf729c910208093e9703f17ecd526cdf5000"
+    },
+    {
+      "file": "readme-loadouts.png",
+      "caption": "已保存演示方案的完整挂点与武器摘要",
+      "source": "https://wt.mrtreasure.cc/zh/?country=china&category=ground&mode=rb#/loadouts",
+      "capturedAt": "2026-11-04T14:58:40.930Z",
+      "kind": "screenshot",
+      "width": 1680,
+      "height": 1080,
+      "bytes": 867011,
+      "sha256": "ccf8763ca0185e4169db5425deebaccf362c00196a53ea69b68b1cebe0791680"
+    },
+    {
+      "file": "readme-stats.png",
+      "caption": "既有公开角色的真实缓存生涯数据；没有发起新的官方查询",
+      "source": "https://wt.mrtreasure.cc/zh/?category=ground&mode=rb#/stats?snapshot=snap_sBxNSLMpJd0QbP7U4Quz&uid=%22129393650%22",
+      "capturedAt": "2026-11-04T15:03:16.834Z",
+      "kind": "screenshot",
+      "width": 1680,
+      "height": 1080,
+      "bytes": 1111784,
+      "sha256": "62ac4c0426f3bf152f72b9814184639363027ae13c799648eeb621a368334709"
+    },
+    {
+      "file": "readme-vehicle-card.png",
+      "caption": "应用实际导出的豹 2A4 战绩卡；按载具实际国别使用现代德国国旗",
+      "source": "https://wt.mrtreasure.cc/zh/?category=ground&mode=rb#/stats?snapshot=snap_sBxNSLMpJd0QbP7U4Quz&uid=%22129393650%22",
+      "capturedAt": "2026-11-04T15:03:20.136Z",
+      "kind": "application-export",
+      "width": 1080,
+      "height": 1620,
+      "bytes": 1635751,
+      "sha256": "6fa1c1b11a8db5a60a137c372e8d056b8a225d14859fb1dfbe9bcb1bf7d6bb89"
+    },
+    {
+      "file": "readme-maps.png",
+      "caption": "正式地图编辑界面与布局控件；未点击完成、未上报演示绘图",
+      "source": "https://wt.mrtreasure.cc/zh/?category=ground&mode=rb#/maps/avg_berlin?side=berlin_dom&q=%E6%9F%8F%E6%9E%97",
+      "capturedAt": "2026-11-04T15:04:40.792Z",
+      "kind": "screenshot",
+      "width": 1680,
+      "height": 1080,
+      "bytes": 1113835,
+      "sha256": "c3611b30de6d1ec0abe0ef5afa93f0b90989edcd3cc6739eeab80d6379215606"
+    },
+    {
+      "file": "readme-sales.png",
+      "caption": "真实官方活动和预计窗口的折扣月历",
+      "source": "https://wt.mrtreasure.cc/zh/?category=ground&mode=rb#/sales",
+      "capturedAt": "2026-11-04T15:03:29.775Z",
+      "kind": "screenshot",
+      "width": 1680,
+      "height": 1080,
+      "bytes": 988210,
+      "sha256": "bfbfc9870a464c42032439e82474c44e8ad87ddbe2296bfd3e1fd9477fd4e10a"
+    }
+  ]
+}
