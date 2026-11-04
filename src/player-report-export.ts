@@ -3,7 +3,6 @@ import { t, localize, vehicleName } from "./i18n/core";
 import reportAssets from "../data/player-report-assets.json";
 import { loadVehicleSymbols } from "./vehicle-symbol-font";
 import { vehicleDisplayName } from "./vehicle-display-name";
-import { statsCountryFlag } from "./stats-country";
 import { reportStyle } from "./player-report-style";
 import { stampExportWatermark } from "./export-watermark";
 import {
@@ -35,6 +34,7 @@ export async function createStatsReportImage(
   signal: AbortSignal,
 ) {
   const p = report.payload;
+  const { reportVehicleFlag } = await import("./report-vehicle-flag");
   const efficiencyMaximum = reportEfficiencyMaximum(p);
   const voice = reportStyle(p.analysis?.style);
   const silver = await reportImage("currency", "sl", signal);
@@ -52,7 +52,7 @@ export async function createStatsReportImage(
   const flagIds = [
     ...new Set(
       p.top5.flatMap((v) => {
-        const flag = statsCountryFlag(v.country);
+        const flag = reportVehicleFlag(v);
         return flag ? [flag.id] : [];
       }),
     ),
@@ -301,7 +301,7 @@ export async function createStatsReportImage(
     const y = vehicleStart + i * vehicleHeight;
     text(String(i + 1).padStart(2, "0"), 64, y + 48, 29, gold, 700);
     fit(vehicles[i], 107, y + 4, 160, 94);
-    const flagId = statsCountryFlag(v.country)?.id;
+    const flagId = reportVehicleFlag(v)?.id;
     const flag = flagId ? flags.get(flagId) : undefined;
     const nameOffset = flag ? 42 : 0;
     if (flag) fit(flag, 292, y + 7, 30, 20);

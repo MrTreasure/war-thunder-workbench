@@ -3,7 +3,7 @@ import { vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { localize, t } from "./i18n/core";
 import { vehicleDisplayName } from "./vehicle-display-name";
-import { statsCountryFlag } from "./stats-country";
+import { lazy, Suspense } from "react";
 import type { CSSProperties } from "react";
 import { reportStyle } from "./player-report-style";
 import type { Background, StatsReport } from "./player-stats-api";
@@ -26,6 +26,7 @@ import {
   reportSiteWatermark,
 } from "./player-report-design";
 import type { ReportTheme } from "./player-report-design";
+const ReportVehicleFlag = lazy(() => import("./ReportVehicleFlag"));
 export function PlayerReport({
   report,
   background,
@@ -212,6 +213,7 @@ export function PlayerReport({
         </h3>
         <span>{localize(statsReportScopeLabel(p))}</span>
       </div>
+
       {localize(
         p.top5.map((v, i) => (
           <section className="wt-poster-vehicle" key={v.id}>
@@ -220,14 +222,9 @@ export function PlayerReport({
             <div className="wt-poster-vehicle-info">
               <div className="wt-poster-vehicle-title">
                 <h3>
-                  {statsCountryFlag(v.country) && (
-                    <img
-                      className="wt-poster-country-flag"
-                      src={statsCountryFlag(v.country)!.url}
-                      alt={localize(statsCountryFlag(v.country)!.name)}
-                      loading="lazy"
-                    />
-                  )}
+                  <Suspense fallback={null}>
+                    <ReportVehicleFlag vehicle={v} />
+                  </Suspense>
                   <span>{vehicleDisplayName(vehicleName(v))}</span>
                 </h3>
                 <span>

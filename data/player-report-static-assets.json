@@ -217,74 +217,580 @@
     },
     "flag": {
       "usa": {
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/usa-2b4758da31016d0f.svg",
-        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/usa-2b4758da31016d0f.svg",
-        "source": "https://wiki.warthunder.com/static/country_svg/country_usa.svg",
-        "bytes": 5945,
-        "sha256": "2b4758da31016d0f9741bc16027f1488584496d9db6d1d96f9dea4abd28a0376"
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_usa.png",
+        "bytes": 168518,
+        "sha256": "6698e63a119b23e2d83e3707083f360c2356ba2ec409db802e80f438c0b13476",
+        "name": "美国",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/usa.6698e63a119b23e2.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/usa.6698e63a119b23e2.png"
       },
       "germany": {
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/germany-b8879a7ecbeb73fb.svg",
-        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/germany-b8879a7ecbeb73fb.svg",
-        "source": "https://wiki.warthunder.com/static/country_svg/country_germany.svg",
-        "bytes": 1150,
-        "sha256": "b8879a7ecbeb73fb991e5f19f1bfed3d69fe618ceed2555dff3a957accc4a7da"
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_germany.png",
+        "bytes": 152749,
+        "sha256": "0e69ae004844ac446cdc5bbac969b6b83972f8fd0960e03d1e177af6ed8319aa",
+        "name": "德国",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/germany.0e69ae004844ac44.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/germany.0e69ae004844ac44.png"
       },
       "ussr": {
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/ussr-376539bb8364c0f5.svg",
-        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/ussr-376539bb8364c0f5.svg",
-        "source": "https://wiki.warthunder.com/static/country_svg/country_ussr.svg",
-        "bytes": 1346,
-        "sha256": "376539bb8364c0f59d22e0b748219668a836fe65addd1b66ad109ae47bdc970d"
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_ussr.png",
+        "bytes": 141338,
+        "sha256": "8345c3f24c43541dc24a705b468a4d5d73a50eb67a955ccd70cd4b70af10b4e1",
+        "name": "苏联",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/ussr.8345c3f24c43541d.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/ussr.8345c3f24c43541d.png"
       },
       "britain": {
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/britain-025a52f65e742eb7.svg",
-        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/britain-025a52f65e742eb7.svg",
-        "source": "https://wiki.warthunder.com/static/country_svg/country_britain.svg",
-        "bytes": 884,
-        "sha256": "025a52f65e742eb7a45a4cafd0edeb4b3a00089a7fee10105d5e55d9120ff6be"
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_britain.png",
+        "bytes": 155351,
+        "sha256": "3e43d34078d7baabed70b41cff51cd14a62027b81cf8cf7f75742041c3caa1d2",
+        "name": "英国",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/britain.3e43d34078d7baab.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/britain.3e43d34078d7baab.png"
       },
       "japan": {
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/japan-e2fff67ce883dcc1.svg",
-        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/japan-e2fff67ce883dcc1.svg",
-        "source": "https://wiki.warthunder.com/static/country_svg/country_japan.svg",
-        "bytes": 377,
-        "sha256": "e2fff67ce883dcc15badd02d0e9796ba1a4343e94f4811cf86127c547708708f"
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_japan.png",
+        "bytes": 127674,
+        "sha256": "7a006b6b0b4f0ada4e4754c92176108e91922e417eb2327cca0d87586cd96cb4",
+        "name": "日本",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/japan.7a006b6b0b4f0ada.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/japan.7a006b6b0b4f0ada.png"
       },
       "china": {
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/china-99f16bb5710fffe8.svg",
-        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/china-99f16bb5710fffe8.svg",
-        "source": "https://wiki.warthunder.com/static/country_svg/country_china.svg",
-        "bytes": 1028,
-        "sha256": "99f16bb5710fffe88b4e331c4dd09e3a441722b957d022e291322a80e8a60069"
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_china.png",
+        "bytes": 140068,
+        "sha256": "e64052916965c41aaad6e5588de7254bb8dcf26976a5fe93b80ba4f9f0f718ac",
+        "name": "中国",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/china.e64052916965c41a.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/china.e64052916965c41a.png"
       },
       "italy": {
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/italy-ca5c47c9f899f91b.svg",
-        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/italy-ca5c47c9f899f91b.svg",
-        "source": "https://wiki.warthunder.com/static/country_svg/country_italy.svg",
-        "bytes": 509,
-        "sha256": "ca5c47c9f899f91ba053889bfd9f29015f586eb2a2045630a22bc1bed2d9d751"
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_italy.png",
+        "bytes": 131739,
+        "sha256": "194dbc6d9018dedb44ecd0cc69b6096f62b786de1a540e0b9987f5854fabd723",
+        "name": "意大利",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/italy.194dbc6d9018dedb.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/italy.194dbc6d9018dedb.png"
       },
       "france": {
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/france-641fbc3f038789e2.svg",
-        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/france-641fbc3f038789e2.svg",
-        "source": "https://wiki.warthunder.com/static/country_svg/country_france.svg",
-        "bytes": 500,
-        "sha256": "641fbc3f038789e2b37dbe576891b492a844934cf3f3cce188b0ccb8c8e3513e"
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_france.png",
+        "bytes": 132330,
+        "sha256": "423d07f3f79e1723de3d28f17743da19c2a392487086125fc3cd498a4dde6d46",
+        "name": "法国",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/france.423d07f3f79e1723.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/france.423d07f3f79e1723.png"
       },
       "sweden": {
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/sweden-a297424887d65937.svg",
-        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/sweden-a297424887d65937.svg",
-        "source": "https://wiki.warthunder.com/static/country_svg/country_sweden.svg",
-        "bytes": 446,
-        "sha256": "a297424887d659377cc4a1e7c93244ff3ba76ba49fda032731c35ce934d662b0"
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_sweden.png",
+        "bytes": 178542,
+        "sha256": "afe2c993a40bf8101ee94aa23b1ba882e65088f7205d93fc805085b26595f11c",
+        "name": "瑞典",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/sweden.afe2c993a40bf810.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/sweden.afe2c993a40bf810.png"
       },
       "israel": {
-        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/israel-c369ddfc0cfe3c52.svg",
-        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/11fc6edc9c281300c70f93b31f1f2c794bcc5d38/war-thunder/report-static/israel-c369ddfc0cfe3c52.svg",
-        "source": "https://wiki.warthunder.com/static/country_svg/country_israel.svg",
-        "bytes": 754,
-        "sha256": "c369ddfc0cfe3c52e3a5328d97bea8b42599f480562b026a7e78bd8a8b7adf32"
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_israel.png",
+        "bytes": 134955,
+        "sha256": "cc0b10ed0a0e835bca122fceb87122e8a1c954d275ca114b38d8fd2999baea58",
+        "name": "以色列",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/israel.cc0b10ed0a0e835b.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/israel.cc0b10ed0a0e835b.png"
+      },
+      "argentina": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_argentina.png",
+        "bytes": 131597,
+        "sha256": "dd6f0f2f4a1799763271ab68bcb85e7ab344dc1e706182c22a0556da172e4869",
+        "name": "阿根廷",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/argentina.dd6f0f2f4a179976.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/argentina.dd6f0f2f4a179976.png"
+      },
+      "australia": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_australia.png",
+        "bytes": 146528,
+        "sha256": "75ddda61c86dc56edd3cc78cc88e4abff29e44d22df6e5ff6fa2c72167527bc7",
+        "name": "澳大利亚",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/australia.75ddda61c86dc56e.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/australia.75ddda61c86dc56e.png"
+      },
+      "austria": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_austria.png",
+        "bytes": 133912,
+        "sha256": "9b91c1fc1dc92a9d8556da323bbcd8b61e8d9f88027480797dfab6573e260010",
+        "name": "奥地利",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/austria.9b91c1fc1dc92a9d.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/austria.9b91c1fc1dc92a9d.png"
+      },
+      "bangladesh": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_bangladesh.png",
+        "bytes": 128760,
+        "sha256": "bf939dcdc2d0c840ee6bb2669b78ac6d22068f20320d82b3f0a975bf05db2413",
+        "name": "孟加拉国",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/bangladesh.bf939dcdc2d0c840.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/bangladesh.bf939dcdc2d0c840.png"
+      },
+      "belgium": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_belgium.png",
+        "bytes": 135776,
+        "sha256": "2cd747214223650cc3c6fafb47e6f3cea767ad79ca96a364f2200a9c04c041ed",
+        "name": "比利时",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/belgium.2cd747214223650c.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/belgium.2cd747214223650c.png"
+      },
+      "brazil": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_brazil.png",
+        "bytes": 217845,
+        "sha256": "42ffddbc12bd0364ce01e999e5dd5605e996e11243fb98165694e0594bf97ff3",
+        "name": "巴西",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/brazil.42ffddbc12bd0364.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/brazil.42ffddbc12bd0364.png"
+      },
+      "canada": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_canada.png",
+        "bytes": 154684,
+        "sha256": "939486db546d54367659e8eccda26483ef7ef1070f38085883cf463eba32182d",
+        "name": "加拿大",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/canada.939486db546d5436.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/canada.939486db546d5436.png"
+      },
+      "canada_modern": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_canada_modern.png",
+        "bytes": 139207,
+        "sha256": "852473a48a6467cede98a15307380308bcec8652c46f5bf8ccc2835f3b052368",
+        "name": "加拿大",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/canada_modern.852473a48a6467ce.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/canada_modern.852473a48a6467ce.png"
+      },
+      "colombia": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_colombia.png",
+        "bytes": 143573,
+        "sha256": "a6ed22bdd7aa5de78d0a8becd9ecb521fb4f086730866f412bdcde28662e07af",
+        "name": "哥伦比亚",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/colombia.a6ed22bdd7aa5de7.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/colombia.a6ed22bdd7aa5de7.png"
+      },
+      "cuba": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_cuba.png",
+        "bytes": 134372,
+        "sha256": "dbfc7ad4115d4ad019d725179efbf5f5a9a766b3cbdf75aed06fd166bc6702ed",
+        "name": "古巴",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/cuba.dbfc7ad4115d4ad0.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/cuba.dbfc7ad4115d4ad0.png"
+      },
+      "czech": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_czech.png",
+        "bytes": 128999,
+        "sha256": "bde920a180595c85dc874f227d4bd8bdefa87d54e75413382a6ea21b91e2b271",
+        "name": "捷克斯洛伐克",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/czech.bde920a180595c85.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/czech.bde920a180595c85.png"
+      },
+      "denmark": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_denmark.png",
+        "bytes": 167173,
+        "sha256": "bf2a82a0f7b7ea47c0e130423451b3cee5a37ca5a223709597accf8c55f2a1dc",
+        "name": "丹麦",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/denmark.bf2a82a0f7b7ea47.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/denmark.bf2a82a0f7b7ea47.png"
+      },
+      "egypt": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_egypt.png",
+        "bytes": 131056,
+        "sha256": "a1ed20335a207c9f22f336416e7ecc8b545488bd34887ea78dd5b91e606d725e",
+        "name": "埃及",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/egypt.a1ed20335a207c9f.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/egypt.a1ed20335a207c9f.png"
+      },
+      "finland": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_finland.png",
+        "bytes": 158434,
+        "sha256": "3efddb8208cde7215fa19c332ceaa0e85769d73ebf8056a3d410e96b6ea2497a",
+        "name": "芬兰",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/finland.3efddb8208cde721.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/finland.3efddb8208cde721.png"
+      },
+      "gdr": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_gdr.png",
+        "bytes": 154028,
+        "sha256": "fa41f9ee0d2a85206f237d6cfcf28d0880d7e1bb37cfbd1f03ec99dcabab0179",
+        "name": "东德",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/gdr.fa41f9ee0d2a8520.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/gdr.fa41f9ee0d2a8520.png"
+      },
+      "germany_empire": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_germany_empire.png",
+        "bytes": 129434,
+        "sha256": "f57bf80dc5759bb4699683ce7d899e49a6d91b16e47cfa61de501d7d904a75ef",
+        "name": "德意志帝国",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/germany_empire.f57bf80dc5759bb4.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/germany_empire.f57bf80dc5759bb4.png"
+      },
+      "germany_modern": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_germany_modern.png",
+        "bytes": 143159,
+        "sha256": "e9ecedd84691bcbd4c75fbbc9fece1b3da4f8f636af00e15f031325b395e251b",
+        "name": "德国",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/germany_modern.e9ecedd84691bcbd.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/germany_modern.e9ecedd84691bcbd.png"
+      },
+      "germany_weimar_republic": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_germany_weimar_republic.png",
+        "bytes": 138816,
+        "sha256": "968990140f19b3d77e249531e4351f74288b63d8cc03ea579cc3286cf11f5296",
+        "name": "魏玛德国",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/germany_weimar_republic.968990140f19b3d7.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/germany_weimar_republic.968990140f19b3d7.png"
+      },
+      "greece_early": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_greece_early.png",
+        "bytes": 152245,
+        "sha256": "815bf27142fa750fd6c8fb23fe0033c3dc9f5b00fbc2cb670c37d85e7196f964",
+        "name": "希腊",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/greece_early.815bf27142fa750f.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/greece_early.815bf27142fa750f.png"
+      },
+      "greece_modern": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_greece_modern.png",
+        "bytes": 145312,
+        "sha256": "4172c5278f038efa7a4d7299b4b4c58a5221c37a6a723f46bf456b8a51c1e127",
+        "name": "希腊",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/greece_modern.4172c5278f038efa.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/greece_modern.4172c5278f038efa.png"
+      },
+      "hungary": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_hungary.png",
+        "bytes": 138950,
+        "sha256": "b085f36a42d6e3d226f599c07ff8f0380e8cba522605a63c97e7c4f5300cd4b4",
+        "name": "匈牙利",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/hungary.b085f36a42d6e3d2.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/hungary.b085f36a42d6e3d2.png"
+      },
+      "hungary_modern": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_hungary_modern.png",
+        "bytes": 127031,
+        "sha256": "b4bc72ba152ce4c93cd608e864aaf544ebd57bc39d851e14ba97405b57270f53",
+        "name": "匈牙利",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/hungary_modern.b4bc72ba152ce4c9.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/hungary_modern.b4bc72ba152ce4c9.png"
+      },
+      "india": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_india.png",
+        "bytes": 134704,
+        "sha256": "08b8a90a37b1b87856f144bd7aa6cd1f59877fac3fa309b8c94fde0971af3926",
+        "name": "印度",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/india.08b8a90a37b1b878.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/india.08b8a90a37b1b878.png"
+      },
+      "indonesia": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_indonesia.png",
+        "bytes": 131584,
+        "sha256": "b495d57c559e1fe4a9c9b43bce4bc94f6c39ae19ad04e0b5c59b1f5f17d6ead1",
+        "name": "印度尼西亚",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/indonesia.b495d57c559e1fe4.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/indonesia.b495d57c559e1fe4.png"
+      },
+      "iran": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_iran.png",
+        "bytes": 184045,
+        "sha256": "6fc75d9c93df6a2c6ff272536583d4fa4e2c9b6a7170a3d48dca347d4eca0524",
+        "name": "伊朗",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/iran.6fc75d9c93df6a2c.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/iran.6fc75d9c93df6a2c.png"
+      },
+      "ireland": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_ireland.png",
+        "bytes": 130122,
+        "sha256": "ec0d732dac8c6b0c667fad2f898bf016ebfba6d0c698064c2ba3e929b2bebfcd",
+        "name": "爱尔兰",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/ireland.ec0d732dac8c6b0c.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/ireland.ec0d732dac8c6b0c.png"
+      },
+      "italy_kingdom": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_italy_kingdom.png",
+        "bytes": 146123,
+        "sha256": "c9a34b369af3993fa4d66371ccea3da297377fa970512bd1100a184068e13f61",
+        "name": "意大利王国",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/italy_kingdom.c9a34b369af3993f.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/italy_kingdom.c9a34b369af3993f.png"
+      },
+      "jordan": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_jordan.png",
+        "bytes": 130799,
+        "sha256": "b2152a23ec3d9ba883230b24d155864a47c5e4c751c18c59697fdabffb979dc0",
+        "name": "约旦",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/jordan.b2152a23ec3d9ba8.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/jordan.b2152a23ec3d9ba8.png"
+      },
+      "kazakhstan": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_kazakhstan.png",
+        "bytes": 172857,
+        "sha256": "5a818b4b6415f36d46f3abee7212e326eac41a543d53337a999602339c4e88ab",
+        "name": "哈萨克斯坦",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/kazakhstan.5a818b4b6415f36d.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/kazakhstan.5a818b4b6415f36d.png"
+      },
+      "kuwait": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_kuwait.png",
+        "bytes": 219945,
+        "sha256": "522b13924ac45528e103f8d204f68f9bcebdcc6c385e31a5269f09919d487d23",
+        "name": "科威特",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/kuwait.522b13924ac45528.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/kuwait.522b13924ac45528.png"
+      },
+      "lithuania": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_lithuania.png",
+        "bytes": 138237,
+        "sha256": "da1b58c326db8c064d175e53807a0920df70f34a37cd7abc250e40dbf2a426eb",
+        "name": "立陶宛",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/lithuania.da1b58c326db8c06.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/lithuania.da1b58c326db8c06.png"
+      },
+      "malaysia": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_malaysia.png",
+        "bytes": 170293,
+        "sha256": "4864fd8af62a0b71ae5a985dcb744e912cba6b0b67c012324277077a74b65b82",
+        "name": "马来西亚",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/malaysia.4864fd8af62a0b71.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/malaysia.4864fd8af62a0b71.png"
+      },
+      "netherlands": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_netherlands.png",
+        "bytes": 125610,
+        "sha256": "04a71509701cdd125e973194b40054e2c1a6d7bb8a398edbbb1f06a69a08b3f2",
+        "name": "荷兰",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/netherlands.04a71509701cdd12.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/netherlands.04a71509701cdd12.png"
+      },
+      "new_zealand": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_new_zealand.png",
+        "bytes": 144465,
+        "sha256": "0444bb644fbc7f182fbaaff6d05b67d3691bea11b5a8bf8b95b3c78ddd2046b6",
+        "name": "新西兰",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/new_zealand.0444bb644fbc7f18.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/new_zealand.0444bb644fbc7f18.png"
+      },
+      "north_korea": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_north_korea.png",
+        "bytes": 142663,
+        "sha256": "b787da50e66cff47f38bd347e833bac84197634a0a5eca22fe9b3197eb1552a5",
+        "name": "朝鲜",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/north_korea.b787da50e66cff47.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/north_korea.b787da50e66cff47.png"
+      },
+      "norway": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_norway.png",
+        "bytes": 186086,
+        "sha256": "b47161518c02eee5192e82d96851540a17339e086892bfbf4741fbc9c23bd66a",
+        "name": "挪威",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/norway.b47161518c02eee5.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/norway.b47161518c02eee5.png"
+      },
+      "oman": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_oman.png",
+        "bytes": 177404,
+        "sha256": "0cc486785fc223aa6c1c313f4ac00ea41a54e85e3b1a8a5f9f8548bfcf41342a",
+        "name": "阿曼",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/oman.0cc486785fc223aa.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/oman.0cc486785fc223aa.png"
+      },
+      "pakistan": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_pakistan.png",
+        "bytes": 119720,
+        "sha256": "06c0368281cc40bed8ca73799c773b701a49616a1eb3405f7f4332d92c0c7eb2",
+        "name": "巴基斯坦",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/pakistan.06c0368281cc40be.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/pakistan.06c0368281cc40be.png"
+      },
+      "philippines": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_philippines.png",
+        "bytes": 154166,
+        "sha256": "ea89317eb4a5d3d93449435142d5004220344e5b6ff41737f1a6fdc40800e24d",
+        "name": "菲律宾",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/philippines.ea89317eb4a5d3d9.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/philippines.ea89317eb4a5d3d9.png"
+      },
+      "poland": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_poland.png",
+        "bytes": 125358,
+        "sha256": "2b109362433b009305dd0713d44c629ced3b292126045e277611540a8df0031d",
+        "name": "波兰",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/poland.2b109362433b0093.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/poland.2b109362433b0093.png"
+      },
+      "portugal": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_portugal.png",
+        "bytes": 148516,
+        "sha256": "0444ff2e3df526ad25f6fa66aa5c3f64788902e44e01105b9a5cd4403962e56e",
+        "name": "葡萄牙",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/portugal.0444ff2e3df526ad.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/portugal.0444ff2e3df526ad.png"
+      },
+      "republic_china": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_republic_china.png",
+        "bytes": 149922,
+        "sha256": "630d3a32d42f3270224fba386ca9d14806aaec7e2cc1aa8134c04905e127c842",
+        "name": "中国（中华民国）",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/republic_china.630d3a32d42f3270.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/republic_china.630d3a32d42f3270.png"
+      },
+      "romania": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_romania.png",
+        "bytes": 144710,
+        "sha256": "08704e0f19cf5d03e70ab79daf1cac8da5e93037d9891a4517e7961e9576f8b1",
+        "name": "罗马尼亚",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/romania.08704e0f19cf5d03.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/romania.08704e0f19cf5d03.png"
+      },
+      "russia": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_russia.png",
+        "bytes": 133189,
+        "sha256": "b5390e70be63def487637979190a8c907028ee3c849e82f6aaaee35f7d9923ea",
+        "name": "俄联邦",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/russia.b5390e70be63def4.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/russia.b5390e70be63def4.png"
+      },
+      "russia_empire": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_russia_empire.png",
+        "bytes": 179265,
+        "sha256": "8ceada4dee64947affd783aed6e0a6cdbb327aae1c2eebef944caa3ad0386287",
+        "name": "俄罗斯帝国",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/russia_empire.8ceada4dee64947a.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/russia_empire.8ceada4dee64947a.png"
+      },
+      "saudi_arabia": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_saudi_arabia.png",
+        "bytes": 141746,
+        "sha256": "53480706f9a813012919596fffacb1df0ef895c77c51913aa2a98ef0a9012798",
+        "name": "沙特阿拉伯",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/saudi_arabia.53480706f9a81301.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/saudi_arabia.53480706f9a81301.png"
+      },
+      "serbia": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_serbia.png",
+        "bytes": 186476,
+        "sha256": "ec0e5036099ae85ae56983d1964096944fca85976f3ad01a87cdaacd004ba290",
+        "name": "塞尔维亚",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/serbia.ec0e5036099ae85a.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/serbia.ec0e5036099ae85a.png"
+      },
+      "singapore": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_singapore.png",
+        "bytes": 148955,
+        "sha256": "d55f25db24355d2018c57478b9a47345f7dfa9e9ee5745a93b5ff6708b6b49ef",
+        "name": "新加坡",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/singapore.d55f25db24355d20.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/singapore.d55f25db24355d20.png"
+      },
+      "slovakia": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_slovakia.png",
+        "bytes": 143542,
+        "sha256": "ef2e17675928cb6757fa25a8817dc8bcb9a29917bcc749e35a980db4bf34c153",
+        "name": "斯洛伐克",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/slovakia.ef2e17675928cb67.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/slovakia.ef2e17675928cb67.png"
+      },
+      "somalia": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_somalia.png",
+        "bytes": 155684,
+        "sha256": "49fc8e4e0388b5f8ff99fa92b915224dd043ad94c7764fff9b92b5e0d7f4fdee",
+        "name": "索马里",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/somalia.49fc8e4e0388b5f8.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/somalia.49fc8e4e0388b5f8.png"
+      },
+      "south_africa": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_south_africa.png",
+        "bytes": 135908,
+        "sha256": "8a9518ed580dbacf6fe3d6b6d2f58e45151fc639d1d0e2aeaeadf52526107b78",
+        "name": "南非",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/south_africa.8a9518ed580dbacf.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/south_africa.8a9518ed580dbacf.png"
+      },
+      "south_africa_modern": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_south_africa_modern.png",
+        "bytes": 138769,
+        "sha256": "ca45a0fe0b688a98b91476b642e9a34c192dba1ce71be5655e8b5ad0aba5d021",
+        "name": "南非",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/south_africa_modern.ca45a0fe0b688a98.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/south_africa_modern.ca45a0fe0b688a98.png"
+      },
+      "south_vietnam": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_south_vietnam.png",
+        "bytes": 157734,
+        "sha256": "9ad133d8d86fce4cf36597361ad8f4f07a20ccf22674bf3586f6e3c6c890286b",
+        "name": "南越",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/south_vietnam.9ad133d8d86fce4c.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/south_vietnam.9ad133d8d86fce4c.png"
+      },
+      "spain": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_spain.png",
+        "bytes": 156554,
+        "sha256": "2e0d8e9c98404b03ca27de6cf1b5bc889c78c0b8378d5a6368f8cc8010c6aeac",
+        "name": "西班牙",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/spain.2e0d8e9c98404b03.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/spain.2e0d8e9c98404b03.png"
+      },
+      "switzerland": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_switzerland.png",
+        "bytes": 137437,
+        "sha256": "dfa3bc643d46f391072e9abf887661fc2b0a0a8b893b2c249794a5c48a190f57",
+        "name": "瑞士",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/switzerland.dfa3bc643d46f391.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/switzerland.dfa3bc643d46f391.png"
+      },
+      "syria": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_syria.png",
+        "bytes": 123181,
+        "sha256": "9e23b10c84cb41fa498d434f8fb91f40d663942ea4c986c89b17395638699907",
+        "name": "叙利亚",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/syria.9e23b10c84cb41fa.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/syria.9e23b10c84cb41fa.png"
+      },
+      "thailand": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_thailand.png",
+        "bytes": 178515,
+        "sha256": "baeac7a573dc4e5874ceaf56b0d388041829252ccc7ca9b2f4c953307876a262",
+        "name": "泰国",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/thailand.baeac7a573dc4e58.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/thailand.baeac7a573dc4e58.png"
+      },
+      "turkey": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_turkey.png",
+        "bytes": 146101,
+        "sha256": "42e9f1dc874529b7159be0a2c161045a96caefdc527ba48b9fab55dbde34b218",
+        "name": "土耳其",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/turkey.42e9f1dc874529b7.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/turkey.42e9f1dc874529b7.png"
+      },
+      "uae": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_uae.png",
+        "bytes": 139856,
+        "sha256": "877a65d5f6459c6ae027bc0cbbfca33f7bbca0f9fc645ccb98ba2124499c3feb",
+        "name": "阿联酋",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/uae.877a65d5f6459c6a.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/uae.877a65d5f6459c6a.png"
+      },
+      "usa_modern": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_usa_modern.png",
+        "bytes": 170237,
+        "sha256": "f1e9bf2337df6e1dea9519ba24c5bfc03e2a1b33700d009f64143ce9234004d1",
+        "name": "美国",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/usa_modern.f1e9bf2337df6e1d.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/usa_modern.f1e9bf2337df6e1d.png"
+      },
+      "venezuela": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_venezuela.png",
+        "bytes": 151217,
+        "sha256": "e77084f75783d5327d9587a0dbff7c087f5c6d09dd57d34d0a3cce8b82f6c03f",
+        "name": "委内瑞拉",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/venezuela.e77084f75783d532.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/venezuela.e77084f75783d532.png"
+      },
+      "vietnam": {
+        "source": "https://static.encyclopedia.warthunder.com/unit_tooltip/country_vietnam.png",
+        "bytes": 140657,
+        "sha256": "812da87167cb2253dfc3387234b815519dbba1b8f682c63f72ef9a0b94057cf1",
+        "name": "越南",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/vietnam.812da87167cb2253.png",
+        "fallbackUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/01bbf837eba464f3de3a6d4b61d1d917d7018173/war-thunder/report-static/flags/vietnam.812da87167cb2253.png"
       }
     }
   }

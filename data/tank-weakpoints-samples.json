@@ -26203,6 +26203,84 @@
           },
           "sourceTimeBasis": "sampled-frame",
           "timePrecision": "参考已核样本帧36.033秒，并非整条建议的精确字幕cue时间。"
+        },
+        {
+          "id": "il_merkava_mk_2d:BV1sovaemEYj:author-guidance-1",
+          "label": "视频作者观点：前视炮塔局部建议",
+          "text": "nameless_hh建议关注车长镜下方的前视炮塔脸侧部及炮根下部；位置来自作者示意，不是已核实的纯侧向装甲或游戏照片瞄准点。",
+          "sourceKind": "video-author-advice",
+          "sourceUrl": "https://www.bilibili.com/video/BV1sovaemEYj/",
+          "sourceAuthor": "nameless_hh",
+          "sourcePublishedAt": "2024-08-01T19:24:44+08:00",
+          "sourceTime": 159.769938,
+          "sourceGameVersion": null,
+          "caseId": null,
+          "verificationStatus": "author-labeled",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "sourceTimeBasis": "sampled-author-composite-frame",
+          "evidence": {
+            "report.json": {
+              "path": "artifacts/weakpoints-merkava2d-author-qa-v541-20261104/report.json",
+              "sha256": "0b57cd3c388285df60645391e52e31e10a0516feabc9b1dffb8ceb1f932c0634"
+            },
+            "supplement-report.json": {
+              "path": "artifacts/weakpoints-merkava2d-author-qa-v541-20261104/supplement-report.json",
+              "sha256": "e8d86d6e0f18c611d20532e33f55b0c2f58a8931a56d8a3f8757d010b79dcdcd"
+            }
+          }
+        },
+        {
+          "id": "il_merkava_mk_2d:BV1sovaemEYj:author-guidance-2",
+          "label": "视频作者观点：角度与车体前部提醒",
+          "text": "作者讨论航向角超过20度及车体左前的瞄准机会，并提醒避开发动机盖、履带前部和可能跳弹的首上；这些建议未实测验证。",
+          "sourceKind": "video-author-advice",
+          "sourceUrl": "https://www.bilibili.com/video/BV1sovaemEYj/",
+          "sourceAuthor": "nameless_hh",
+          "sourcePublishedAt": "2024-08-01T19:24:44+08:00",
+          "sourceTime": 159.769938,
+          "sourceGameVersion": null,
+          "caseId": null,
+          "verificationStatus": "author-labeled",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "sourceTimeBasis": "sampled-author-composite-frame",
+          "evidence": {
+            "report.json": {
+              "path": "artifacts/weakpoints-merkava2d-author-qa-v541-20261104/report.json",
+              "sha256": "0b57cd3c388285df60645391e52e31e10a0516feabc9b1dffb8ceb1f932c0634"
+            },
+            "supplement-report.json": {
+              "path": "artifacts/weakpoints-merkava2d-author-qa-v541-20261104/supplement-report.json",
+              "sha256": "e8d86d6e0f18c611d20532e33f55b0c2f58a8931a56d8a3f8757d010b79dcdcd"
+            }
+          }
+        },
+        {
+          "id": "il_merkava_mk_2d:BV1sovaemEYj:author-guidance-3",
+          "label": "视频作者观点：DM23与损伤说法的限制",
+          "text": "作者提及DM23及“一击瘫痪”等效果，但攻击车型、距离、游戏版本及测试条件均未核实，不据此建立测试案例或保证击杀。",
+          "sourceKind": "video-author-advice",
+          "sourceUrl": "https://www.bilibili.com/video/BV1sovaemEYj/",
+          "sourceAuthor": "nameless_hh",
+          "sourcePublishedAt": "2024-08-01T19:24:44+08:00",
+          "sourceTime": 159.769938,
+          "sourceGameVersion": null,
+          "caseId": null,
+          "verificationStatus": "author-labeled",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "sourceTimeBasis": "sampled-author-composite-frame",
+          "evidence": {
+            "report.json": {
+              "path": "artifacts/weakpoints-merkava2d-author-qa-v541-20261104/report.json",
+              "sha256": "0b57cd3c388285df60645391e52e31e10a0516feabc9b1dffb8ceb1f932c0634"
+            },
+            "supplement-report.json": {
+              "path": "artifacts/weakpoints-merkava2d-author-qa-v541-20261104/supplement-report.json",
+              "sha256": "e8d86d6e0f18c611d20532e33f55b0c2f58a8931a56d8a3f8757d010b79dcdcd"
+            }
+          }
         }
       ],
       "source": null,
@@ -26244,6 +26322,16 @@
           "publishedAt": "2025-08-18T22:21:54+08:00",
           "time": 36.033,
           "scopeNote": "作者归属转述，非实测击穿或当前版本基础数据"
+        },
+        {
+          "kind": "video",
+          "sourceKind": "video-author-advice",
+          "url": "https://www.bilibili.com/video/BV1sovaemEYj/",
+          "author": "nameless_hh",
+          "publishedAt": "2024-08-01T19:24:44+08:00",
+          "time": 159.769938,
+          "sourceGameVersion": null,
+          "scopeNote": "作者示意讲解，非实测；嵌入截图不满足主图要求，不提供照片坐标标点。"
         }
       ]
     },
@@ -27232,7 +27320,77 @@
       "era": "modern",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "cn_ztz_99_w:BV1SM4y1g7mC:turret-roof",
+          "label": "视频作者观点：炮塔顶部",
+          "text": "院长今天又划水：作者称炮塔顶部在水平入射时较易跳弹；近战中对手车身高度不同，仍可能被击穿。 仅为2021年作者观点，非经核准测试，不推广到99-II或99A。",
+          "sourceKind": "video-author-advice",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SM4y1g7mC/",
+          "sourceAuthor": "院长今天又划水",
+          "sourcePublishedAt": "2021-09-20T12:00:19+08:00",
+          "sourceTime": 427.02,
+          "sourceTimeEnd": 436.289,
+          "sourceGameVersion": null,
+          "caseId": null,
+          "verificationStatus": "author-labeled",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "evidence": {
+            "handoffPath": "artifacts/tank-weakpoints-expansion-20261102/sources/china-9699-new-sources-v546-20261104/BV1SM4y1g7mC/author-advice-handoff.json",
+            "handoffSHA256": "54e43b2a31ce4e9aa09166ddae2e6912548cc28b71eb731b19a8cd97b5693c82",
+            "captionSHA256": "a6210bad9ba98b1311e7fdf71492805b6d0b6e83445c36c29bbb8f414cfb2d66",
+            "captionFrom": 427.02,
+            "captionTo": 436.289
+          }
+        },
+        {
+          "id": "cn_ztz_99_w:BV1SM4y1g7mC:commander-cupola",
+          "label": "视频作者观点：车长指挥塔",
+          "text": "院长今天又划水：作者指出车长指挥塔也存在防护短板，但未在这句话中说明弹种、距离或角度。 仅为2021年作者观点，非经核准测试，不推广到99-II或99A。",
+          "sourceKind": "video-author-advice",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SM4y1g7mC/",
+          "sourceAuthor": "院长今天又划水",
+          "sourcePublishedAt": "2021-09-20T12:00:19+08:00",
+          "sourceTime": 436.529,
+          "sourceTimeEnd": 439.59,
+          "sourceGameVersion": null,
+          "caseId": null,
+          "verificationStatus": "author-labeled",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "evidence": {
+            "handoffPath": "artifacts/tank-weakpoints-expansion-20261102/sources/china-9699-new-sources-v546-20261104/BV1SM4y1g7mC/author-advice-handoff.json",
+            "handoffSHA256": "54e43b2a31ce4e9aa09166ddae2e6912548cc28b71eb731b19a8cd97b5693c82",
+            "captionSHA256": "a6210bad9ba98b1311e7fdf71492805b6d0b6e83445c36c29bbb8f414cfb2d66",
+            "captionFrom": 436.529,
+            "captionTo": 439.59
+          }
+        },
+        {
+          "id": "cn_ztz_99_w:BV1SM4y1g7mC:triangle-dm53",
+          "label": "视频作者观点：三角区（口述及其紧随的挡泥板对比段）",
+          "text": "院长今天又划水：作者称三角区相较前型有所改善，但总体仍难以有效抵御DM53；该说法没有经完整原生试射条件复核。 仅为2021年作者观点，非经核准测试，不推广到99-II或99A。",
+          "sourceKind": "video-author-advice",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SM4y1g7mC/",
+          "sourceAuthor": "院长今天又划水",
+          "sourcePublishedAt": "2021-09-20T12:00:19+08:00",
+          "sourceTime": 443.07,
+          "sourceTimeEnd": 461.57,
+          "sourceGameVersion": null,
+          "caseId": null,
+          "verificationStatus": "author-labeled",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "evidence": {
+            "handoffPath": "artifacts/tank-weakpoints-expansion-20261102/sources/china-9699-new-sources-v546-20261104/BV1SM4y1g7mC/author-advice-handoff.json",
+            "handoffSHA256": "54e43b2a31ce4e9aa09166ddae2e6912548cc28b71eb731b19a8cd97b5693c82",
+            "captionSHA256": "a6210bad9ba98b1311e7fdf71492805b6d0b6e83445c36c29bbb8f414cfb2d66",
+            "captionFrom": 443.07,
+            "captionTo": 461.57
+          }
+        }
+      ],
       "source": null,
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/cn_ztz_99_w",
@@ -27272,6 +27430,17 @@
           "publishedAt": "2025-11-08",
           "time": null,
           "scopeNote": "二期/三期联合评测资料；单帧改型未核实；未作为本页局部弱点实测证据"
+        },
+        {
+          "kind": "video",
+          "sourceKind": "video-author-advice",
+          "url": "https://www.bilibili.com/video/BV1SM4y1g7mC/",
+          "title": "【战争雷霆】继往开来——ZTZ99式主战坦克（Ⅲ类）深度解析",
+          "author": "院长今天又划水",
+          "publishedAt": "2021-09-20T12:00:19+08:00",
+          "time": 427.02,
+          "sourceGameVersion": null,
+          "scopeNote": "仅99-III历史作者观点，未核实完整试射条件；1921×804原件不作合格主图。"
         }
       ]
     },
@@ -28542,7 +28711,60 @@
       "era": null,
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "uk_challenger_1_mk_3_gulf:BV1sovaemEYj:author-guidance-1",
+          "label": "视频作者观点：炮管上方与交界部位",
+          "text": "nameless_hh建议留意炮管上方及炮塔与车体交界；这是作者示意讲解，未核实本型原生游戏标题或测试条件，不扩展至其他挑战者型号。",
+          "sourceKind": "video-author-advice",
+          "sourceUrl": "https://www.bilibili.com/video/BV1sovaemEYj/",
+          "sourceAuthor": "nameless_hh",
+          "sourcePublishedAt": "2024-08-01T19:24:44+08:00",
+          "sourceTime": 80.023879,
+          "sourceGameVersion": null,
+          "caseId": null,
+          "verificationStatus": "author-labeled",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "sourceTimeBasis": "sampled-author-composite-frame",
+          "evidence": {
+            "report.json": {
+              "path": "artifacts/weakpoints-challenger-ds-author-qa-v540-20261104/report.json",
+              "sha256": "763f895e5ce77cd814960fdfa89002384fa6cdfd8f7163502a5a0db28d9ac325"
+            },
+            "supplement-report.json": {
+              "path": "artifacts/weakpoints-challenger-ds-author-qa-v540-20261104/supplement-report.json",
+              "sha256": "4b352f0c301f5434e7515e373d2cbe02fd387c18e48d1b7ec6802f9a846d0dd9"
+            }
+          }
+        },
+        {
+          "id": "uk_challenger_1_mk_3_gulf:BV1sovaemEYj:author-guidance-2",
+          "label": "视频作者观点：首下建议的适用范围",
+          "text": "作者将首下描述为“首下全绿”；此为历史视频作者原话，未验证弹药、距离、角度及游戏版本，不作为整区可穿或击杀保证。",
+          "sourceKind": "video-author-advice",
+          "sourceUrl": "https://www.bilibili.com/video/BV1sovaemEYj/",
+          "sourceAuthor": "nameless_hh",
+          "sourcePublishedAt": "2024-08-01T19:24:44+08:00",
+          "sourceTime": 80.023879,
+          "sourceGameVersion": null,
+          "caseId": null,
+          "verificationStatus": "author-labeled",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "sourceTimeBasis": "sampled-author-composite-frame",
+          "evidence": {
+            "report.json": {
+              "path": "artifacts/weakpoints-challenger-ds-author-qa-v540-20261104/report.json",
+              "sha256": "763f895e5ce77cd814960fdfa89002384fa6cdfd8f7163502a5a0db28d9ac325"
+            },
+            "supplement-report.json": {
+              "path": "artifacts/weakpoints-challenger-ds-author-qa-v540-20261104/supplement-report.json",
+              "sha256": "4b352f0c301f5434e7515e373d2cbe02fd387c18e48d1b7ec6802f9a846d0dd9"
+            }
+          }
+        }
+      ],
       "source": null,
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/uk_challenger_1_mk_3_gulf",
@@ -28572,6 +28794,18 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "sourceKind": "video-author-advice",
+          "url": "https://www.bilibili.com/video/BV1sovaemEYj/",
+          "author": "nameless_hh",
+          "publishedAt": "2024-08-01T19:24:44+08:00",
+          "time": 80.023879,
+          "sourceGameVersion": null,
+          "scopeNote": "作者示意讲解，非实测；嵌入截图不满足主图要求，不提供照片坐标标点。"
+        }
       ]
     },
     {
@@ -30938,10 +31172,44 @@
       "rank": 4,
       "era": "ww2",
       "scopeRole": "heavy_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.4197916666666667,
+          "y": 0.5442857142857143,
+          "label": "首下单点预测",
+          "detail": "虎式坦克 H1 型 / PzGr. 39 / 100米：UI穿深162毫米，目标等效157毫米，入射35°、方位0°；显示能够击穿。仅当前准星单点静态预测，未观察实射；目标等效厚度与炮弹UI穿深分别保留，不推整区必穿、击杀或其他型号。游戏版本未知。",
+          "kind": "conditional",
+          "caseId": "ussr_is_2_1944:BV1tr4y1W75P:187895829:preview",
+          "sourceUrl": "https://www.bilibili.com/video/BV1tr4y1W75P/",
+          "sourceTime": 187.895829,
+          "evidence": {
+            "frameSHA256": "d4709c1c62380078650613d6512ff3b78a2bf593abf60aff5875795d889c1bf9",
+            "nativeXY": [
+              1003,
+              531
+            ],
+            "crop": [
+              600,
+              150,
+              960,
+              700
+            ],
+            "coordinateToleranceNativePx": 4,
+            "singlePointPrediction": true,
+            "actualShotObserved": false
+          }
+        }
+      ],
       "videoAdvice": [],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1tr4y1W75P/",
+        "date": "2022-03-23",
+        "gameVersion": null,
+        "author": "爱吃西瓜的恶小魂",
+        "kind": "video",
+        "title": "【战雷干货教学】慈父（IS）系列重型坦克的应对方法"
+      },
+      "status": "partial-native-point-predictions",
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_is_2_1944",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/ussr_is_2_1944.json",
@@ -30963,7 +31231,7 @@
       "collectedAt": "2026-11-02T18:23:48.488Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "原页明确1944改型在1945年5月前制造。",
       "qualitativeWeakpoints": [],
@@ -30980,8 +31248,405 @@
           "publishedAt": "2025-04-01",
           "time": null,
           "scopeNote": "1944型教学来源；视频分辨率未达到图解采集标准，未转用测试数据。"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1tr4y1W75P/",
+          "date": "2022-03-23",
+          "gameVersion": null,
+          "author": "爱吃西瓜的恶小魂",
+          "kind": "video",
+          "time": 187.895829,
+          "scopeNote": "2022历史视频三独立单点静态预测；游戏版本未知，非完整弱点图解。",
+          "title": "【战雷干货教学】慈父（IS）系列重型坦克的应对方法"
         }
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/is1944-new-sources-v544-20261104/BV1tr4y1W75P/cued-prefilter/chapter-188.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v548-20261104/is2-1944-lower-glacis-preview-frame-proof.json",
+      "frameSnapshotSHA256": "d222e5f044ff442af1b0a9565c0944448d50ff32a54685cdf49374eb9d77d03e",
+      "captureSHA256": "d4709c1c62380078650613d6512ff3b78a2bf593abf60aff5875795d889c1bf9",
+      "originalFrameSHA256": "d4709c1c62380078650613d6512ff3b78a2bf593abf60aff5875795d889c1bf9",
+      "assetPath": "images/USSR/USSR-IS-2-1944-lower-glacis-protection-preview.webp",
+      "crop": [
+        600,
+        150,
+        960,
+        700
+      ],
+      "time": 187.895829,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "native-1080p-analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceGameVersion": null,
+      "sourceNoRepost": true,
+      "testCases": [
+        {
+          "id": "ussr_is_2_1944:BV1tr4y1W75P:187895829:preview",
+          "vehicleId": "ussr_is_2_1944",
+          "sourceUrl": "https://www.bilibili.com/video/BV1tr4y1W75P/",
+          "sourceTime": 187.895829,
+          "sourceGameVersion": null,
+          "attacker": "虎式坦克 H1 型",
+          "attackerVisibleTitle": "虎式坦克 H1 型",
+          "attackerVehicleId": "germ_pzkpfw_vi_ausf_h1_tiger",
+          "shell": "PzGr. 39",
+          "sourceShellLabelOriginal": "PzGr. 39",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APCBC",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "germ_pzkpfw_vi_ausf_h1_tiger",
+            "officialWikiUnitId": "germ_pzkpfw_VI_ausf_h1_tiger",
+            "wikiUnitId": "germ_pzkpfw_VI_ausf_h1_tiger",
+            "url": "https://wiki.warthunder.com/unit/germ_pzkpfw_VI_ausf_h1_tiger",
+            "checkedAt": "2026-11-04T14:15:38.941Z",
+            "sourceHtml": "artifacts/weakpoints-tigerh1-jagdpanther-ammo-wiki-v547-20261104/germ_pzkpfw_vi_ausf_h1_tiger.html",
+            "sourceHtmlSHA256": "15023dfe156ef97e252862edebfd0be48f89e4b38efd7ebe4588b12b5f0c6721",
+            "sourceSha256": "15023dfe156ef97e252862edebfd0be48f89e4b38efd7ebe4588b12b5f0c6721",
+            "mainGun": "88 mm KwK36 cannon",
+            "officialShellName": "PzGr 39",
+            "sourceShellLabelOriginal": "PzGr. 39",
+            "shellType": "APCBC",
+            "rawUIType": null,
+            "gameVersion": "2.59.0.92",
+            "referenceOnly": true,
+            "referencePenetration": {
+              "distanceM": [
+                10,
+                100,
+                500,
+                1000,
+                1500,
+                2000
+              ],
+              "penetrationMm": [
+                165,
+                162,
+                151,
+                139,
+                127,
+                117
+              ],
+              "impactAngleDeg": null,
+              "angleNote": "Official visible table gives distance only; angle not explicitly present, kept unknown."
+            },
+            "videoUIValuePreserved": true
+          },
+          "distanceMeters": 100,
+          "displayedPenetrationMm": 162,
+          "effectiveArmorMm": 157,
+          "impactAngleDegrees": 35,
+          "attackAzimuthDegrees": 0,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "油箱",
+            "炮手",
+            "驾驶员",
+            "车长",
+            "高低机",
+            "装填手"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "d4709c1c62380078650613d6512ff3b78a2bf593abf60aff5875795d889c1bf9",
+          "evidenceKind": "single-point-protection-preview",
+          "conditionNote": "仅当前准星单点静态预测，未观察实射；目标等效厚度与炮弹UI穿深分别保留，不推整区必穿、击杀或其他型号。游戏版本未知。",
+          "shellTypeLabel": "被帽风帽穿甲弹"
+        },
+        {
+          "id": "ussr_is_2_1944:BV1tr4y1W75P:204615033:preview",
+          "vehicleId": "ussr_is_2_1944",
+          "sourceUrl": "https://www.bilibili.com/video/BV1tr4y1W75P/",
+          "sourceTime": 204.615033,
+          "sourceGameVersion": null,
+          "attacker": "虎式坦克 H1 型",
+          "attackerVisibleTitle": "虎式坦克 H1 型",
+          "attackerVehicleId": "germ_pzkpfw_vi_ausf_h1_tiger",
+          "shell": "PzGr. 39",
+          "sourceShellLabelOriginal": "PzGr. 39",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APCBC",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "germ_pzkpfw_vi_ausf_h1_tiger",
+            "officialWikiUnitId": "germ_pzkpfw_VI_ausf_h1_tiger",
+            "wikiUnitId": "germ_pzkpfw_VI_ausf_h1_tiger",
+            "url": "https://wiki.warthunder.com/unit/germ_pzkpfw_VI_ausf_h1_tiger",
+            "checkedAt": "2026-11-04T14:15:38.941Z",
+            "sourceHtml": "artifacts/weakpoints-tigerh1-jagdpanther-ammo-wiki-v547-20261104/germ_pzkpfw_vi_ausf_h1_tiger.html",
+            "sourceHtmlSHA256": "15023dfe156ef97e252862edebfd0be48f89e4b38efd7ebe4588b12b5f0c6721",
+            "sourceSha256": "15023dfe156ef97e252862edebfd0be48f89e4b38efd7ebe4588b12b5f0c6721",
+            "mainGun": "88 mm KwK36 cannon",
+            "officialShellName": "PzGr 39",
+            "sourceShellLabelOriginal": "PzGr. 39",
+            "shellType": "APCBC",
+            "rawUIType": null,
+            "gameVersion": "2.59.0.92",
+            "referenceOnly": true,
+            "referencePenetration": {
+              "distanceM": [
+                10,
+                100,
+                500,
+                1000,
+                1500,
+                2000
+              ],
+              "penetrationMm": [
+                165,
+                162,
+                151,
+                139,
+                127,
+                117
+              ],
+              "impactAngleDeg": null,
+              "angleNote": "Official visible table gives distance only; angle not explicitly present, kept unknown."
+            },
+            "videoUIValuePreserved": true
+          },
+          "distanceMeters": 100,
+          "displayedPenetrationMm": 162,
+          "effectiveArmorMm": 146,
+          "impactAngleDegrees": 6,
+          "attackAzimuthDegrees": 0,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "油箱",
+            "炮闩",
+            "高低机",
+            "弹药架",
+            "炮手",
+            "车长",
+            "驾驶员",
+            "散热器",
+            "装填手",
+            "方向机",
+            "发动机"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "9d68b02a19aaf85749214674e3aa84d0c3d2e33281d6604b16d8b2fda5bd2aa6",
+          "evidenceKind": "single-point-protection-preview",
+          "conditionNote": "仅当前准星单点静态预测，未观察实射；目标等效厚度与炮弹UI穿深分别保留，不推整区必穿、击杀或其他型号。游戏版本未知。",
+          "shellTypeLabel": "被帽风帽穿甲弹"
+        },
+        {
+          "id": "ussr_is_2_1944:BV1tr4y1W75P:267890821:preview",
+          "vehicleId": "ussr_is_2_1944",
+          "sourceUrl": "https://www.bilibili.com/video/BV1tr4y1W75P/",
+          "sourceTime": 267.890821,
+          "sourceGameVersion": null,
+          "attacker": "猎豹坦克歼击车",
+          "attackerVisibleTitle": "猎豹坦克歼击车",
+          "attackerVehicleId": "germ_panzerjager_panther",
+          "shell": "PzGr. 39/43",
+          "sourceShellLabelOriginal": "PzGr. 39/43",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APCBC",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "germ_panzerjager_panther",
+            "officialWikiUnitId": "germ_panzerjager_panther",
+            "wikiUnitId": "germ_panzerjager_panther",
+            "url": "https://wiki.warthunder.com/unit/germ_panzerjager_panther",
+            "checkedAt": "2026-11-04T10:19:48.008Z",
+            "sourceHtml": "artifacts/weakpoints-tigerh1-jagdpanther-ammo-wiki-v547-20261104/germ_panzerjager_panther.html",
+            "sourceHtmlSHA256": "065a9606235f6e0dce0d6054399cf02fb7a885f44d6b4cf4067e113eed784a6a",
+            "sourceSha256": "065a9606235f6e0dce0d6054399cf02fb7a885f44d6b4cf4067e113eed784a6a",
+            "mainGun": "88 mm PaK43 cannon",
+            "officialShellName": "PzGr 39/43",
+            "sourceShellLabelOriginal": "PzGr. 39/43",
+            "shellType": "APCBC",
+            "rawUIType": null,
+            "gameVersion": "2.59.0.92",
+            "referenceOnly": true,
+            "referencePenetration": {
+              "distanceM": [
+                10,
+                100,
+                500,
+                1000,
+                1500,
+                2000
+              ],
+              "penetrationMm": [
+                237,
+                234,
+                222,
+                207,
+                193,
+                180
+              ],
+              "impactAngleDeg": null,
+              "angleNote": "Official visible table gives distance only; angle not explicitly present, kept unknown."
+            },
+            "videoUIValuePreserved": true
+          },
+          "distanceMeters": 100,
+          "displayedPenetrationMm": 234,
+          "effectiveArmorMm": 180,
+          "impactAngleDegrees": 18,
+          "attackAzimuthDegrees": 0,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "弹药架",
+            "炮手",
+            "方向机"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "71875585cacf71ba9a395cebfbc9196cef8bd37476c240dd792a87774510619c",
+          "evidenceKind": "single-point-protection-preview",
+          "conditionNote": "仅当前准星单点静态预测，未观察实射；目标等效厚度与炮弹UI穿深分别保留，不推整区必穿、击杀或其他型号。游戏版本未知。",
+          "shellTypeLabel": "被帽风帽穿甲弹"
+        }
+      ],
+      "testContext": {
+        "sourceUrl": "https://www.bilibili.com/video/BV1tr4y1W75P/",
+        "sourceTime": 187.895829,
+        "sourceGameVersion": null,
+        "attacker": "虎式坦克 H1 型",
+        "attackerVisibleTitle": "虎式坦克 H1 型",
+        "attackerVehicleId": "germ_pzkpfw_vi_ausf_h1_tiger",
+        "shell": "PzGr. 39",
+        "sourceShellLabelOriginal": "PzGr. 39",
+        "rawUIType": null,
+        "shellType": null,
+        "shellTypeCode": "APCBC",
+        "distanceMeters": 100,
+        "displayedPenetrationMm": 162,
+        "effectiveArmorMm": 157,
+        "impactAngleDegrees": 35,
+        "attackAzimuthDegrees": 0,
+        "pointPrediction": "能够击穿",
+        "predictedDamage": [
+          "油箱",
+          "炮手",
+          "驾驶员",
+          "车长",
+          "高低机",
+          "装填手"
+        ],
+        "actualShotObserved": false,
+        "outcome": null,
+        "sourceFrameSHA256": "d4709c1c62380078650613d6512ff3b78a2bf593abf60aff5875795d889c1bf9",
+        "evidenceKind": "single-point-protection-preview",
+        "conditionNote": "仅当前准星单点静态预测，未观察实射；目标等效厚度与炮弹UI穿深分别保留，不推整区必穿、击杀或其他型号。游戏版本未知。",
+        "shellTypeLabel": "被帽风帽穿甲弹",
+        "caseId": "ussr_is_2_1944:BV1tr4y1W75P:187895829:preview"
+      },
+      "protectionEvidence": [
+        {
+          "id": "is2-1944-coaxial-port-preview",
+          "label": "炮塔右侧同轴口邻近单点预测",
+          "description": "虎式坦克 H1 型 / PzGr. 39 / 100米：UI穿深162毫米，目标等效146毫米，入射6°、方位0°；显示能够击穿。仅当前准星单点静态预测，未观察实射；目标等效厚度与炮弹UI穿深分别保留，不推整区必穿、击杀或其他型号。游戏版本未知。",
+          "caption": "爱吃西瓜的恶小魂｜2022-03-23｜IS-2（1944）正面单点预测，游戏版本未知，未实射。",
+          "conditionNote": "仅当前准星单点静态预测，未观察实射；目标等效厚度与炮弹UI穿深分别保留，不推整区必穿、击杀或其他型号。游戏版本未知。",
+          "caseId": "ussr_is_2_1944:BV1tr4y1W75P:204615033:preview",
+          "sourceUrl": "https://www.bilibili.com/video/BV1tr4y1W75P/",
+          "sourceTime": 204.615033,
+          "sourceGameVersion": null,
+          "displayImagePolicy": "analysis-excerpt",
+          "assetPath": "images/USSR/USSR-IS-2-1944-coaxial-port-protection-preview.webp",
+          "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/is1944-new-sources-v544-20261104/BV1tr4y1W75P/cued-prefilter/chapter-205.png",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v548-20261104/is2-1944-coaxial-port-preview-frame-proof.json",
+          "frameSnapshotSHA256": "19708ac0def94c751288280dd083538a795597310a1f70648150f75c4a24933c",
+          "crop": [
+            600,
+            150,
+            960,
+            700
+          ],
+          "pins": [
+            {
+              "x": 0.425,
+              "y": 0.3357142857142857,
+              "label": "炮塔右侧同轴口邻近单点预测",
+              "detail": "虎式坦克 H1 型 / PzGr. 39 / 100米：UI穿深162毫米，目标等效146毫米，入射6°、方位0°；显示能够击穿。仅当前准星单点静态预测，未观察实射；目标等效厚度与炮弹UI穿深分别保留，不推整区必穿、击杀或其他型号。游戏版本未知。",
+              "kind": "conditional",
+              "caseId": "ussr_is_2_1944:BV1tr4y1W75P:204615033:preview",
+              "sourceUrl": "https://www.bilibili.com/video/BV1tr4y1W75P/",
+              "sourceTime": 204.615033,
+              "evidence": {
+                "frameSHA256": "9d68b02a19aaf85749214674e3aa84d0c3d2e33281d6604b16d8b2fda5bd2aa6",
+                "nativeXY": [
+                  1008,
+                  385
+                ],
+                "crop": [
+                  600,
+                  150,
+                  960,
+                  700
+                ],
+                "coordinateToleranceNativePx": 4,
+                "singlePointPrediction": true,
+                "actualShotObserved": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "is2-1944-right-turret-front-preview",
+          "label": "炮塔前右单点预测",
+          "description": "猎豹坦克歼击车 / PzGr. 39/43 / 100米：UI穿深234毫米，目标等效180毫米，入射18°、方位0°；显示能够击穿。仅当前准星单点静态预测，未观察实射；目标等效厚度与炮弹UI穿深分别保留，不推整区必穿、击杀或其他型号。游戏版本未知。",
+          "caption": "爱吃西瓜的恶小魂｜2022-03-23｜IS-2（1944）正面单点预测，游戏版本未知，未实射。",
+          "conditionNote": "仅当前准星单点静态预测，未观察实射；目标等效厚度与炮弹UI穿深分别保留，不推整区必穿、击杀或其他型号。游戏版本未知。",
+          "caseId": "ussr_is_2_1944:BV1tr4y1W75P:267890821:preview",
+          "sourceUrl": "https://www.bilibili.com/video/BV1tr4y1W75P/",
+          "sourceTime": 267.890821,
+          "sourceGameVersion": null,
+          "displayImagePolicy": "analysis-excerpt",
+          "assetPath": "images/USSR/USSR-IS-2-1944-right-turret-front-protection-preview.webp",
+          "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/is1944-new-sources-v544-20261104/BV1tr4y1W75P/cued-prefilter/chapter-268.png",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v548-20261104/is2-1944-right-turret-front-preview-frame-proof.json",
+          "frameSnapshotSHA256": "bfbdbaaf8bd353ae69e9307cb40ae83ce8ea10b742ba63139d280d02a4976b5e",
+          "crop": [
+            600,
+            150,
+            960,
+            700
+          ],
+          "pins": [
+            {
+              "x": 0.41458333333333336,
+              "y": 0.3442857142857143,
+              "label": "炮塔前右单点预测",
+              "detail": "猎豹坦克歼击车 / PzGr. 39/43 / 100米：UI穿深234毫米，目标等效180毫米，入射18°、方位0°；显示能够击穿。仅当前准星单点静态预测，未观察实射；目标等效厚度与炮弹UI穿深分别保留，不推整区必穿、击杀或其他型号。游戏版本未知。",
+              "kind": "conditional",
+              "caseId": "ussr_is_2_1944:BV1tr4y1W75P:267890821:preview",
+              "sourceUrl": "https://www.bilibili.com/video/BV1tr4y1W75P/",
+              "sourceTime": 267.890821,
+              "evidence": {
+                "frameSHA256": "71875585cacf71ba9a395cebfbc9196cef8bd37476c240dd792a87774510619c",
+                "nativeXY": [
+                  998,
+                  391
+                ],
+                "crop": [
+                  600,
+                  150,
+                  960,
+                  700
+                ],
+                "coordinateToleranceNativePx": 4,
+                "singlePointPrediction": true,
+                "actualShotObserved": false
+              }
+            }
+          ]
+        }
+      ],
+      "coverageStatus": "partial-native-point-predictions",
+      "coverageNotice": "仅IS-2（1944）三处单点防护预测，非完整弱点图解；游戏版本未知。"
     },
     {
       "id": "ussr_is_2_1944_321",
@@ -34003,7 +34668,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 73,
+    "illustratedCount": 74,
     "countries": [
       {
         "country": "usa",
@@ -34139,7 +34804,7 @@
     "lastUpdated": "2026-11-04",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 71,
+    "illustratedTargetCount": 72,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,

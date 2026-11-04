@@ -153,7 +153,7 @@ function render() {
   $("reload-gun").textContent = model.reload?.gun || "";
   $("reload-note").textContent = model.reload?.note || "";
   const test = evidence ? model.testCases?.find((item) => item.id === evidence.caseId) : model.testContext;
-  const hasVideoTest = !!test || (!articleImage && !armorLayout && !!(model.frame || (source.url && model.videoAdvice?.some((advice) => advice.sourceKind !== "article-text"))));
+  const hasVideoTest = !!test || (!articleImage && !armorLayout && !authorDiagram && !!model.imageUrl && !!model.videoAdvice?.some((advice) => advice.sourceKind !== "article-text"));
   $("test-section").hidden = !hasVideoTest;
   $("test-attacker").textContent = (test?.attackerDisplayName || test?.attacker)?.trim() || "来源未显示／待核对";
   $("test-shell").textContent = test?.shell?.trim() || "来源未显示／待核对";

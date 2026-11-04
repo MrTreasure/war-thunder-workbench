@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "45eb05b099af40882eaffa17d8c42c79a73947da",
+  "commit": "5b8b63bdb4e55f4be1d728d43dd15150d95b0175",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -1358,6 +1358,24 @@
         "commit": "45eb05b099af40882eaffa17d8c42c79a73947da",
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@45eb05b099af40882eaffa17d8c42c79a73947da/images/CHN/CHN-WZ1001E-LCT-mantlet-protection-preview.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/45eb05b099af40882eaffa17d8c42c79a73947da/images/CHN/CHN-WZ1001E-LCT-mantlet-protection-preview.webp"
+      }
+    },
+    "ussr_is_2_1944": {
+      "photo": {
+        "path": "images/USSR/USSR-IS-2-1944-lower-glacis-protection-preview.webp",
+        "sha256": "f71a83484918fd2388ca5dfc01a1066caa73837c3497b98506cf6a7bfa4b08ab",
+        "bytes": 441282,
+        "commit": "5b8b63bdb4e55f4be1d728d43dd15150d95b0175",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@5b8b63bdb4e55f4be1d728d43dd15150d95b0175/images/USSR/USSR-IS-2-1944-lower-glacis-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/5b8b63bdb4e55f4be1d728d43dd15150d95b0175/images/USSR/USSR-IS-2-1944-lower-glacis-protection-preview.webp"
+      },
+      "raw": {
+        "path": "images/USSR/USSR-IS-2-1944-lower-glacis-protection-preview.webp",
+        "sha256": "f71a83484918fd2388ca5dfc01a1066caa73837c3497b98506cf6a7bfa4b08ab",
+        "bytes": 441282,
+        "commit": "5b8b63bdb4e55f4be1d728d43dd15150d95b0175",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@5b8b63bdb4e55f4be1d728d43dd15150d95b0175/images/USSR/USSR-IS-2-1944-lower-glacis-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/5b8b63bdb4e55f4be1d728d43dd15150d95b0175/images/USSR/USSR-IS-2-1944-lower-glacis-protection-preview.webp"
       }
     }
   },
@@ -16413,6 +16431,198 @@
       "commit": "45eb05b099af40882eaffa17d8c42c79a73947da",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@45eb05b099af40882eaffa17d8c42c79a73947da/images/CHN/CHN-WZ1001E-LCT-upper-glacis-edge-protection-preview.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/45eb05b099af40882eaffa17d8c42c79a73947da/images/CHN/CHN-WZ1001E-LCT-upper-glacis-edge-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "vehicleId": "ussr_is_2_1944",
+      "filename": "USSR-IS-2-1944-lower-glacis-protection-preview.webp",
+      "path": "images/USSR/USSR-IS-2-1944-lower-glacis-protection-preview.webp",
+      "country": "USSR",
+      "kind": "photo",
+      "evidenceId": "is2-1944-lower-glacis-preview",
+      "width": 960,
+      "height": 700,
+      "bytes": 441282,
+      "sha256": "f71a83484918fd2388ca5dfc01a1066caa73837c3497b98506cf6a7bfa4b08ab",
+      "preCompressionBytes": 441282,
+      "preCompressionSHA256": "f71a83484918fd2388ca5dfc01a1066caa73837c3497b98506cf6a7bfa4b08ab",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/is1944-new-sources-v544-20261104/BV1tr4y1W75P/cued-prefilter/chapter-188.png",
+        "sha256": "d4709c1c62380078650613d6512ff3b78a2bf593abf60aff5875795d889c1bf9",
+        "bytes": 2545753,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "d4709c1c62380078650613d6512ff3b78a2bf593abf60aff5875795d889c1bf9",
+      "sourceTime": 187.895829,
+      "crop": [
+        600,
+        150,
+        960,
+        700
+      ],
+      "nativeXY": [
+        1003,
+        531
+      ],
+      "pointUV": [
+        0.4197916666666667,
+        0.5442857142857143
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v548-20261104/is2-1944-lower-glacis-preview-frame-proof.json",
+        "sha256": "d222e5f044ff442af1b0a9565c0944448d50ff32a54685cdf49374eb9d77d03e"
+      },
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "lossless": true,
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1tr4y1W75P/",
+        "date": "2022-03-23",
+        "gameVersion": null,
+        "author": "爱吃西瓜的恶小魂",
+        "title": "【战雷干货教学】慈父（IS）系列重型坦克的应对方法"
+      },
+      "commit": "5b8b63bdb4e55f4be1d728d43dd15150d95b0175",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@5b8b63bdb4e55f4be1d728d43dd15150d95b0175/images/USSR/USSR-IS-2-1944-lower-glacis-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/5b8b63bdb4e55f4be1d728d43dd15150d95b0175/images/USSR/USSR-IS-2-1944-lower-glacis-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "vehicleId": "ussr_is_2_1944",
+      "filename": "USSR-IS-2-1944-coaxial-port-protection-preview.webp",
+      "path": "images/USSR/USSR-IS-2-1944-coaxial-port-protection-preview.webp",
+      "country": "USSR",
+      "kind": "protection-evidence",
+      "evidenceId": "is2-1944-coaxial-port-preview",
+      "width": 960,
+      "height": 700,
+      "bytes": 378240,
+      "sha256": "28ac98a0b02b519673782da88226fc82d5d8c1593170969ead9b2cdbf19726e6",
+      "preCompressionBytes": 378240,
+      "preCompressionSHA256": "28ac98a0b02b519673782da88226fc82d5d8c1593170969ead9b2cdbf19726e6",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/is1944-new-sources-v544-20261104/BV1tr4y1W75P/cued-prefilter/chapter-205.png",
+        "sha256": "9d68b02a19aaf85749214674e3aa84d0c3d2e33281d6604b16d8b2fda5bd2aa6",
+        "bytes": 2466777,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "9d68b02a19aaf85749214674e3aa84d0c3d2e33281d6604b16d8b2fda5bd2aa6",
+      "sourceTime": 204.615033,
+      "crop": [
+        600,
+        150,
+        960,
+        700
+      ],
+      "nativeXY": [
+        1008,
+        385
+      ],
+      "pointUV": [
+        0.425,
+        0.3357142857142857
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v548-20261104/is2-1944-coaxial-port-preview-frame-proof.json",
+        "sha256": "19708ac0def94c751288280dd083538a795597310a1f70648150f75c4a24933c"
+      },
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "lossless": true,
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1tr4y1W75P/",
+        "date": "2022-03-23",
+        "gameVersion": null,
+        "author": "爱吃西瓜的恶小魂",
+        "title": "【战雷干货教学】慈父（IS）系列重型坦克的应对方法"
+      },
+      "commit": "5b8b63bdb4e55f4be1d728d43dd15150d95b0175",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@5b8b63bdb4e55f4be1d728d43dd15150d95b0175/images/USSR/USSR-IS-2-1944-coaxial-port-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/5b8b63bdb4e55f4be1d728d43dd15150d95b0175/images/USSR/USSR-IS-2-1944-coaxial-port-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "vehicleId": "ussr_is_2_1944",
+      "filename": "USSR-IS-2-1944-right-turret-front-protection-preview.webp",
+      "path": "images/USSR/USSR-IS-2-1944-right-turret-front-protection-preview.webp",
+      "country": "USSR",
+      "kind": "protection-evidence",
+      "evidenceId": "is2-1944-right-turret-front-preview",
+      "width": 960,
+      "height": 700,
+      "bytes": 432944,
+      "sha256": "73cbc8bd14fb76b3138662128eb367d9abed8728355649eb3dc8004df392e53f",
+      "preCompressionBytes": 432944,
+      "preCompressionSHA256": "73cbc8bd14fb76b3138662128eb367d9abed8728355649eb3dc8004df392e53f",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/is1944-new-sources-v544-20261104/BV1tr4y1W75P/cued-prefilter/chapter-268.png",
+        "sha256": "71875585cacf71ba9a395cebfbc9196cef8bd37476c240dd792a87774510619c",
+        "bytes": 2546375,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "71875585cacf71ba9a395cebfbc9196cef8bd37476c240dd792a87774510619c",
+      "sourceTime": 267.890821,
+      "crop": [
+        600,
+        150,
+        960,
+        700
+      ],
+      "nativeXY": [
+        998,
+        391
+      ],
+      "pointUV": [
+        0.41458333333333336,
+        0.3442857142857143
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v548-20261104/is2-1944-right-turret-front-preview-frame-proof.json",
+        "sha256": "bfbdbaaf8bd353ae69e9307cb40ae83ce8ea10b742ba63139d280d02a4976b5e"
+      },
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "lossless": true,
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1tr4y1W75P/",
+        "date": "2022-03-23",
+        "gameVersion": null,
+        "author": "爱吃西瓜的恶小魂",
+        "title": "【战雷干货教学】慈父（IS）系列重型坦克的应对方法"
+      },
+      "commit": "5b8b63bdb4e55f4be1d728d43dd15150d95b0175",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@5b8b63bdb4e55f4be1d728d43dd15150d95b0175/images/USSR/USSR-IS-2-1944-right-turret-front-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/5b8b63bdb4e55f4be1d728d43dd15150d95b0175/images/USSR/USSR-IS-2-1944-right-turret-front-protection-preview.webp",
       "rootApproval": true
     }
   ]

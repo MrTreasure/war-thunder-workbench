@@ -1,7 +1,6 @@
 import { loadVehicleSymbols } from "./vehicle-symbol-font";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import fontUrl from "./assets/RobotoCondensed-Bold.ttf?url";
-import { statsCountryFlag } from "./stats-country";
 import layout from "../data/player-vehicle-card.json";
 import { reportImage } from "./player-stats-api";
 import type { PlayerProfile, PlayerVehicle } from "./player-stats-api";
@@ -108,15 +107,14 @@ export async function createVehicleCard(
   signal: AbortSignal,
   era: VehicleCardEra = defaultVehicleCardEra(vehicle),
 ) {
-  const countryFlag = statsCountryFlag(vehicle.country);
+  const { reportVehicleFlag } = await import("./report-vehicle-flag");
+  const countryFlag = reportVehicleFlag(vehicle);
   const [background, unit, logo, silver, flag] = await Promise.all([
     readImage(vehicleCardBackgroundUrls[era], signal, layout.backgrounds[era]),
     reportImage("vehicle", vehicle.id, signal),
     reportImage("logo", "wt", signal),
     reportImage("currency", "sl", signal),
-    countryFlag
-      ? reportImage("flag", countryFlag.id, signal)
-      : Promise.resolve(null),
+    countryFlag ? reportImage("flag", countryFlag.id, signal) : Promise.resolve(null),
     loadFont(),
   ]);
   signal.throwIfAborted();
@@ -131,6 +129,7 @@ export async function createVehicleCard(
     logo: lightLogo(logo),
     silver: asset(silver),
     flag: flag ? asset(flag) : null,
+    flagName: countryFlag?.name,
   });
   await stampExportWatermark(canvas, signal);
   signal.throwIfAborted();
