@@ -1,3 +1,4 @@
+import { createPortal } from "react-dom";
 import { useLineupCounts } from "./use-lineup-counts";
 import { filterSavedLineups, savedLineupEntries } from "./lineup-list";
 import type { LineupSort } from "./lineup-list";
@@ -89,6 +90,7 @@ export function Lineups({
       if (routeCountry !== country) chooseCountry(routeCountry);
     }
   }, [routeCountry, catalog.countries, country, chooseCountry]);
+  const [filterHost, setFilterHost] = useState<HTMLDivElement | null>(null);
   const [importText, setImportText] = useState("");
   const [importOpen, setImportOpen] = useState(false);
   const importInput = useRef<HTMLInputElement>(null);
@@ -146,6 +148,7 @@ export function Lineups({
               )}
             </GameSelect>
           </label>
+          <div className="lineup-toolbar-filters" ref={setFilterHost} />
           <button
             className="quiet-button lineup-import-action"
             onClick={() => {
@@ -253,6 +256,7 @@ export function Lineups({
               {...{ catalog, country, payload, mode, defaultBattle }}
               imported={pending?.country === country ? pending.code : null}
               dismissImport={() => setPending(null)}
+              filterHost={filterHost}
               onSavedCountChange={reportCount}
               editImport={() => {
                 setPending(null);
@@ -276,6 +280,7 @@ function CountryLineups({
   editImport,
   defaultBattle,
   onSavedCountChange,
+  filterHost,
 }: {
   catalog: CatalogIndex;
   country: string;
@@ -283,6 +288,7 @@ function CountryLineups({
   mode: Mode;
   defaultBattle: BattleType;
   imported: string | null;
+  filterHost: HTMLDivElement | null;
   onSavedCountChange: (country: string, count: number) => void;
   dismissImport: () => void;
   editImport: () => void;
@@ -694,50 +700,56 @@ function CountryLineups({
                   ),
                 )}
               </div>
-              {saved.length > 0 && (
-                <div className="lineup-saved-filters" aria-label={t("筛选我的队列")}>
-                  <label className="calc-field lineup-saved-search">
-                    {t("搜索")}
-                    <input
-                      type="search"
-                      value={listSearch}
-                      onChange={(event) => setListSearch(event.target.value)}
-                      placeholder={t("队列名称或载具")}
-                    />
-                  </label>
-                  <label className="calc-field">
-                    {t("战斗类型")}
-                    <GameSelect
-                      value={listBattle}
-                      onValueChange={(value) => setListBattle(value as BattleType | "")}
-                    >
-                      <option value="">{t("全部类型")}</option>
-                      {Object.entries(battleNames).map(([id, name]) => (
-                        <option key={id} value={id}>
-                          {localize(name)}
-                        </option>
-                      ))}
-                    </GameSelect>
-                  </label>
+              {filterHost &&
+                saved.length > 0 &&
+                createPortal(
+                  <div className="lineup-saved-filters" aria-label={t("筛选我的队列")}>
+                    <label className="calc-field lineup-saved-search">
+                      {t("搜索")}
+                      <input
+                        type="search"
+                        value={listSearch}
+                        onChange={(event) => setListSearch(event.target.value)}
+                        placeholder={t("队列名称或载具")}
+                      />
+                    </label>
+                    <label className="calc-field">
+                      {t("战斗类型")}
+                      <GameSelect
+                        value={listBattle}
+                        onValueChange={(value) => setListBattle(value as BattleType | "")}
+                      >
+                        <option value="">{t("全部类型")}</option>
+                        {Object.entries(battleNames).map(([id, name]) => (
+                          <option key={id} value={id}>
+                            {localize(name)}
+                          </option>
+                        ))}
+                      </GameSelect>
+                    </label>
 
-                  <label className="calc-field">
-                    {t("排序")}
-                    <GameSelect
-                      value={listSort}
-                      onValueChange={(value) => setListSort(value as LineupSort)}
-                    >
-                      <option value="saved">{t("保存顺序")}</option>
-                      <option value="br-asc">{t("权重从低到高")}</option>
-                      <option value="br-desc">{t("权重从高到低")}</option>
-                    </GameSelect>
-                  </label>
-                  {listFiltered && (
-                    <button className="quiet-button lineup-filter-clear" onClick={resetListFilters}>
-                      {t("清除筛选")}
-                    </button>
-                  )}
-                </div>
-              )}
+                    <label className="calc-field">
+                      {t("排序")}
+                      <GameSelect
+                        value={listSort}
+                        onValueChange={(value) => setListSort(value as LineupSort)}
+                      >
+                        <option value="saved">{t("保存顺序")}</option>
+                        <option value="br-asc">{t("权重从低到高")}</option>
+                        <option value="br-desc">{t("权重从高到低")}</option>
+                      </GameSelect>
+                    </label>
+                    {listFiltered && (
+                      <button
+                        className="quiet-button lineup-filter-clear"
+                        onClick={resetListFilters}
+                      >
+                        {t("清除筛选")}
+                      </button>
+                    )}
+                  </div>,
+                  filterHost,
+                )}
               {saved.length > 0 && visibleLineups.length === 0 && (
                 <div className="lineup-saved-empty">
                   <h3>{t("没有符合条件的队列")}</h3>

@@ -1,4 +1,4 @@
-import { t, getLocale } from "./i18n/core";
+import { localize, t, getLocale } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 // Fetch status and identity reset synchronize the current request/account with the UI.
 /* oxlint-disable react/set-state-in-effect */
@@ -45,6 +45,28 @@ export function LineupLobby() {
   const [working, setWorking] = useState("");
   const [message, setMessage] = useState("");
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const countryLabel = (id: string) => (
+    <span className={`lineup-country-option ${id ? "" : "is-all-countries"}`}>
+      {id && (
+        <img
+          src={bootstrap.flags[id as keyof typeof bootstrap.flags]}
+          alt=""
+          width={24}
+          height={18}
+        />
+      )}
+      <span>
+        {id ? localize(bootstrap.countries[id as keyof typeof bootstrap.countries]) : t("全部国家")}
+      </span>
+      <small title={t("公开队列数")}>
+        {(id
+          ? result.countryCounts
+            ? (result.countryCounts[id] ?? 0)
+            : undefined
+          : result.total) ?? "—"}
+      </small>
+    </span>
+  );
   const query = new URLSearchParams(
     Object.entries(search)
       .filter(([key, value]) => key !== "post" && value !== undefined)
@@ -171,6 +193,10 @@ export function LineupLobby() {
               <label className="calc-field">
                 {t("国家")}
                 <GameSelect
+                  className="lineup-country-picker"
+                  menuClassName="lineup-country-menu"
+                  renderValue={countryLabel}
+                  renderOption={(option) => countryLabel(option.value)}
                   value={search.country || ""}
                   onValueChange={(value) => filter("country", value)}
                 >

@@ -26,7 +26,13 @@ export type CommunityPost = {
   vote: number;
   mine: boolean;
 };
-export type CommunityPage = { items: CommunityPost[]; page: number; hasMore: boolean };
+export type CommunityPage = {
+  items: CommunityPost[];
+  page: number;
+  hasMore: boolean;
+  countryCounts?: Record<string, number>;
+  total?: number;
+};
 export type CommunityDraft = {
   includeComposition?: boolean;
   code: string;
