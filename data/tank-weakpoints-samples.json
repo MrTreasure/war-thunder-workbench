@@ -9541,8 +9541,43 @@
       "eraBasis": "具体改型技术形成时期证据尚未核实；不按采购、交付或游戏加入日期补年代。",
       "collectedAt": "2026-11-02T08:59:16.373Z",
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
+      "videoAdvice": [
+        {
+          "id": "v360-object435-author-lower-side",
+          "label": "作者观点：侧下部防护与乘员区",
+          "text": "作者提示侧下部防护较薄，攻击侧面时应注意乘员区；示例的攻击车辆、距离及完整弹药条件不可读，不能当作必穿或必杀保证。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1iYdrYoEPR/",
+          "sourceTime": 144.88,
+          "sourcePublishedAt": "2025-04-14",
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "kind": "attributed-author-commentary-not-tested-result",
+            "timeRanges": [
+              {
+                "start": 144.88,
+                "end": 149.54
+              },
+              {
+                "start": 161.13,
+                "end": 168.829
+              }
+            ],
+            "actualShotObserved": false
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1iYdrYoEPR/",
+        "title": "【战争雷霆】“从115滑入门到14.5精通”——435工程 测评/集锦",
+        "author": "广寒宫主_Official",
+        "publishedAt": "2025-04-14",
+        "kind": "video",
+        "gameVersion": null
+      },
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_object_435",
       "wikiGameVersion": "2.59.0.92",
@@ -9566,6 +9601,16 @@
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。",
         "具体改型年代待核实，era保留null。"
+      ],
+      "relatedSources": [
+        {
+          "url": "https://www.bilibili.com/video/BV1iYdrYoEPR/",
+          "title": "【战争雷霆】“从115滑入门到14.5精通”——435工程 测评/集锦",
+          "author": "广寒宫主_Official",
+          "publishedAt": "2025-04-14",
+          "kind": "video",
+          "gameVersion": null
+        }
       ]
     },
     {
@@ -26494,7 +26539,14 @@
       "scopeRole": "medium_tank",
       "pins": [],
       "videoAdvice": [],
-      "source": null,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV14mMxzREDe/",
+        "title": "【战争雷霆】谁家主战坦克用152炮啊？——292工程深度解析",
+        "author": "院长今天又划水",
+        "publishedAt": "2025-06-15",
+        "kind": "video",
+        "gameVersion": null
+      },
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_object_292",
       "wikiGameVersion": "2.59.0.92",
@@ -26523,6 +26575,16 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "url": "https://www.bilibili.com/video/BV14mMxzREDe/",
+          "title": "【战争雷霆】谁家主战坦克用152炮啊？——292工程深度解析",
+          "author": "院长今天又划水",
+          "publishedAt": "2025-06-15",
+          "kind": "video",
+          "gameVersion": null
+        }
       ]
     },
     {
