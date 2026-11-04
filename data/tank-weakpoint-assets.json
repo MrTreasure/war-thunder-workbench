@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "6ff5e95ed96702017ced716d704807f6290e3d03",
+  "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -1232,6 +1232,78 @@
         "commit": "6ff5e95ed96702017ced716d704807f6290e3d03",
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@6ff5e95ed96702017ced716d704807f6290e3d03/images/GBR/GBR-Chieftain-Mk-5-front-Wiki-lower-glacis-reference.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/6ff5e95ed96702017ced716d704807f6290e3d03/images/GBR/GBR-Chieftain-Mk-5-front-Wiki-lower-glacis-reference.webp"
+      }
+    },
+    "uk_challenger_2_bn": {
+      "photo": {
+        "path": "images/GBR/GBR-Challenger-2-Black-Night-mantlet-protection-preview.webp",
+        "sha256": "8a0bc84e6bf066af6fe0236d33619d01ed023e3108af6afe9fe9d716d883688c",
+        "bytes": 221126,
+        "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/GBR/GBR-Challenger-2-Black-Night-mantlet-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/GBR/GBR-Challenger-2-Black-Night-mantlet-protection-preview.webp"
+      },
+      "raw": {
+        "path": "images/GBR/GBR-Challenger-2-Black-Night-mantlet-protection-preview.webp",
+        "sha256": "8a0bc84e6bf066af6fe0236d33619d01ed023e3108af6afe9fe9d716d883688c",
+        "bytes": 221126,
+        "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/GBR/GBR-Challenger-2-Black-Night-mantlet-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/GBR/GBR-Challenger-2-Black-Night-mantlet-protection-preview.webp"
+      }
+    },
+    "us_m1a2_abrams": {
+      "photo": {
+        "path": "images/USA/USA-M1A2-Abrams-turret-neck-protection-preview.webp",
+        "sha256": "dc8901ad6462f8c61024eb65e3b434a5206bd64a7fcac74d6968e1aaa02b6ac9",
+        "bytes": 303260,
+        "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/USA/USA-M1A2-Abrams-turret-neck-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/USA/USA-M1A2-Abrams-turret-neck-protection-preview.webp"
+      },
+      "raw": {
+        "path": "images/USA/USA-M1A2-Abrams-turret-neck-protection-preview.webp",
+        "sha256": "dc8901ad6462f8c61024eb65e3b434a5206bd64a7fcac74d6968e1aaa02b6ac9",
+        "bytes": 303260,
+        "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/USA/USA-M1A2-Abrams-turret-neck-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/USA/USA-M1A2-Abrams-turret-neck-protection-preview.webp"
+      }
+    },
+    "sw_strv_122": {
+      "photo": {
+        "path": "images/SWE/SWE-Strv-122A-lower-glacis-protection-preview.webp",
+        "sha256": "8148e839e19ef8e9d2f3983c856ed7780c3af53984ebe2e9c9081f9787de6584",
+        "bytes": 295092,
+        "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122A-lower-glacis-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122A-lower-glacis-protection-preview.webp"
+      },
+      "raw": {
+        "path": "images/SWE/SWE-Strv-122A-lower-glacis-protection-preview.webp",
+        "sha256": "8148e839e19ef8e9d2f3983c856ed7780c3af53984ebe2e9c9081f9787de6584",
+        "bytes": 295092,
+        "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122A-lower-glacis-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122A-lower-glacis-protection-preview.webp"
+      }
+    },
+    "sw_strv_122b_plss": {
+      "photo": {
+        "path": "images/SWE/SWE-Strv-122B-PLSS-driver-port-protection-preview.webp",
+        "sha256": "c1af1904008b098cd1e49432dceb3e9c72edbfb71352c5553a97d434299e6d7a",
+        "bytes": 341640,
+        "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122B-PLSS-driver-port-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122B-PLSS-driver-port-protection-preview.webp"
+      },
+      "raw": {
+        "path": "images/SWE/SWE-Strv-122B-PLSS-driver-port-protection-preview.webp",
+        "sha256": "c1af1904008b098cd1e49432dceb3e9c72edbfb71352c5553a97d434299e6d7a",
+        "bytes": 341640,
+        "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122B-PLSS-driver-port-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122B-PLSS-driver-port-protection-preview.webp"
       }
     }
   },
@@ -15200,6 +15272,676 @@
       "commit": "6ff5e95ed96702017ced716d704807f6290e3d03",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@6ff5e95ed96702017ced716d704807f6290e3d03/images/GBR/GBR-Chieftain-Mk-5-front-Wiki-lower-glacis-reference.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/6ff5e95ed96702017ced716d704807f6290e3d03/images/GBR/GBR-Chieftain-Mk-5-front-Wiki-lower-glacis-reference.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "GBR-Challenger-2-Black-Night-mantlet-protection-preview.webp",
+      "path": "images/GBR/GBR-Challenger-2-Black-Night-mantlet-protection-preview.webp",
+      "vehicleId": "uk_challenger_2_bn",
+      "country": "GBR",
+      "kind": "photo",
+      "evidenceId": null,
+      "width": 700,
+      "height": 520,
+      "bytes": 221126,
+      "sha256": "8a0bc84e6bf066af6fe0236d33619d01ed023e3108af6afe9fe9d716d883688c",
+      "preCompressionBytes": 221126,
+      "preCompressionSHA256": "8a0bc84e6bf066af6fe0236d33619d01ed023e3108af6afe9fe9d716d883688c",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/challenger2-front-v481-20261104/challenger-driver-preview/challenger-tiny-2/raw.png",
+        "bytes": 2560236,
+        "sha256": "f3e25e24c8c7723909e10bd5ec4340bf66247dc7681f4b6cd9a891f35fdcf0bb",
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "f3e25e24c8c7723909e10bd5ec4340bf66247dc7681f4b6cd9a891f35fdcf0bb",
+      "sourceTime": 182.088422,
+      "crop": [
+        720,
+        250,
+        700,
+        520
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v495-20261104/uk_challenger_2_bn-mantlet-frame-proof.json",
+        "sha256": "2e8c9910a6617aa774025f014d77ea02a338c7f97dd1e531569100e23d5c2f80"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "completeIllustration": false,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PE4m1d7z2/",
+        "title": "【战雷干货】顶级主战防护分析-挑战者系列",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": "2.37.0.96"
+      },
+      "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/GBR/GBR-Challenger-2-Black-Night-mantlet-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/GBR/GBR-Challenger-2-Black-Night-mantlet-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "GBR-Challenger-2-Black-Night-driver-hatch-protection-preview.webp",
+      "path": "images/GBR/GBR-Challenger-2-Black-Night-driver-hatch-protection-preview.webp",
+      "vehicleId": "uk_challenger_2_bn",
+      "country": "GBR",
+      "kind": "protection-evidence",
+      "evidenceId": "black-night-driver-hatch-preview",
+      "width": 700,
+      "height": 520,
+      "bytes": 225212,
+      "sha256": "85862cf5124dae783a311272c0971c130763de8ba58c63a925a220d43da1b7e2",
+      "preCompressionBytes": 225212,
+      "preCompressionSHA256": "85862cf5124dae783a311272c0971c130763de8ba58c63a925a220d43da1b7e2",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/challenger2-front-v481-20261104/challenger-driver-preview/challenger-tiny-4/raw.png",
+        "bytes": 2550941,
+        "sha256": "4acbbe42e6ce30cbde22f8740e57549f1353bdbd2d5dafa1decab7360c4234e2",
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "4acbbe42e6ce30cbde22f8740e57549f1353bdbd2d5dafa1decab7360c4234e2",
+      "sourceTime": 215.026402,
+      "crop": [
+        720,
+        250,
+        700,
+        520
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v495-20261104/uk_challenger_2_bn-driver-hatch-frame-proof.json",
+        "sha256": "e816db7d01ce657822bf1097123685f819e57024a5fbbf08fa90064047ce91df"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "completeIllustration": false,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PE4m1d7z2/",
+        "title": "【战雷干货】顶级主战防护分析-挑战者系列",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": "2.37.0.96"
+      },
+      "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/GBR/GBR-Challenger-2-Black-Night-driver-hatch-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/GBR/GBR-Challenger-2-Black-Night-driver-hatch-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "GBR-Challenger-2-Black-Night-lower-glacis-protection-preview.webp",
+      "path": "images/GBR/GBR-Challenger-2-Black-Night-lower-glacis-protection-preview.webp",
+      "vehicleId": "uk_challenger_2_bn",
+      "country": "GBR",
+      "kind": "protection-evidence",
+      "evidenceId": "black-night-lower-glacis-preview",
+      "width": 700,
+      "height": 520,
+      "bytes": 230358,
+      "sha256": "c9c4548dc6f80b28f97ef5bf6d5b069197b427ce90c58648564fab79acbcb710",
+      "preCompressionBytes": 230358,
+      "preCompressionSHA256": "c9c4548dc6f80b28f97ef5bf6d5b069197b427ce90c58648564fab79acbcb710",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/challenger2-front-v481-20261104/challenger-driver-preview/challenger-tiny-6/raw.png",
+        "bytes": 2549026,
+        "sha256": "e98b3c4ca4f74e78e9e9bba998fca27a8b8223dba76668217b3143d0f690943f",
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "e98b3c4ca4f74e78e9e9bba998fca27a8b8223dba76668217b3143d0f690943f",
+      "sourceTime": 260.113436,
+      "crop": [
+        720,
+        250,
+        700,
+        520
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v495-20261104/uk_challenger_2_bn-lower-glacis-frame-proof.json",
+        "sha256": "bfd03b35f61029b605e1f635ad447886d097f60f2406f641170e8ea2a9274e70"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "completeIllustration": false,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1PE4m1d7z2/",
+        "title": "【战雷干货】顶级主战防护分析-挑战者系列",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": "2.37.0.96"
+      },
+      "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/GBR/GBR-Challenger-2-Black-Night-lower-glacis-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/GBR/GBR-Challenger-2-Black-Night-lower-glacis-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "USA-M1A2-Abrams-turret-neck-protection-preview.webp",
+      "path": "images/USA/USA-M1A2-Abrams-turret-neck-protection-preview.webp",
+      "vehicleId": "us_m1a2_abrams",
+      "country": "USA",
+      "kind": "photo",
+      "evidenceId": null,
+      "width": 900,
+      "height": 480,
+      "bytes": 303260,
+      "sha256": "dc8901ad6462f8c61024eb65e3b434a5206bd64a7fcac74d6968e1aaa02b6ac9",
+      "preCompressionBytes": 303260,
+      "preCompressionSHA256": "dc8901ad6462f8c61024eb65e3b434a5206bd64a7fcac74d6968e1aaa02b6ac9",
+      "sourcePNG": {
+        "file": "artifacts/weakpoints-m1a2-native-qa-v489-20261104/frame-1/raw.png",
+        "bytes": 2906022,
+        "sha256": "5caaec15087653312eee3a44447d60db53d72a900f0d54c09227f9e3c5e1b361",
+        "width": 1920,
+        "height": 1080,
+        "native": true,
+        "path": "artifacts/weakpoints-m1a2-native-qa-v489-20261104/frame-1/raw.png"
+      },
+      "sourceFrameSHA256": "5caaec15087653312eee3a44447d60db53d72a900f0d54c09227f9e3c5e1b361",
+      "sourceTime": 251.597805,
+      "crop": [
+        700,
+        300,
+        900,
+        480
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v495-20261104/us_m1a2_abrams-turret-neck-frame-proof.json",
+        "sha256": "fcd3a2d87eda3cde4e6dd45938f6b13fa524b5c819991b7c5819ba8556bc4c52"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "completeIllustration": false,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1hx4y1s73b/",
+        "title": "【战雷干货】顶级主战防护分析-艾布拉姆斯",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": "2.37.0.91"
+      },
+      "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/USA/USA-M1A2-Abrams-turret-neck-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/USA/USA-M1A2-Abrams-turret-neck-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "USA-M1A2-Abrams-upper-glacis-protection-preview.webp",
+      "path": "images/USA/USA-M1A2-Abrams-upper-glacis-protection-preview.webp",
+      "vehicleId": "us_m1a2_abrams",
+      "country": "USA",
+      "kind": "protection-evidence",
+      "evidenceId": "m1a2-upper-glacis-preview",
+      "width": 900,
+      "height": 480,
+      "bytes": 322244,
+      "sha256": "bc2711962c2fb73d6e1021a66626536cbcc4a09f0a3b042e905c7d22762b164d",
+      "preCompressionBytes": 322244,
+      "preCompressionSHA256": "bc2711962c2fb73d6e1021a66626536cbcc4a09f0a3b042e905c7d22762b164d",
+      "sourcePNG": {
+        "file": "artifacts/weakpoints-m1a2-native-qa-v489-20261104/frame-3/raw.png",
+        "bytes": 3275197,
+        "sha256": "ac8a68a00fea87a8ec6322d2fc4ab8fc56a882ed975f0e4d74af78561a557cd8",
+        "width": 1920,
+        "height": 1080,
+        "native": true,
+        "path": "artifacts/weakpoints-m1a2-native-qa-v489-20261104/frame-3/raw.png"
+      },
+      "sourceFrameSHA256": "ac8a68a00fea87a8ec6322d2fc4ab8fc56a882ed975f0e4d74af78561a557cd8",
+      "sourceTime": 316.534406,
+      "crop": [
+        700,
+        300,
+        900,
+        480
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v495-20261104/us_m1a2_abrams-upper-glacis-frame-proof.json",
+        "sha256": "740f26e0fc064691b21bee0b6a11f11ff26d14e00931a5243ecf67f17cb3ac55"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "completeIllustration": false,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1hx4y1s73b/",
+        "title": "【战雷干货】顶级主战防护分析-艾布拉姆斯",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": "2.37.0.91"
+      },
+      "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/USA/USA-M1A2-Abrams-upper-glacis-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/USA/USA-M1A2-Abrams-upper-glacis-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "USA-M1A2-Abrams-lower-glacis-protection-preview.webp",
+      "path": "images/USA/USA-M1A2-Abrams-lower-glacis-protection-preview.webp",
+      "vehicleId": "us_m1a2_abrams",
+      "country": "USA",
+      "kind": "protection-evidence",
+      "evidenceId": "m1a2-lower-glacis-preview",
+      "width": 900,
+      "height": 480,
+      "bytes": 262776,
+      "sha256": "dc3173ee959bcf5174a1d5254bca5c3831e6525bafc404d7668bc328d649ff66",
+      "preCompressionBytes": 262776,
+      "preCompressionSHA256": "dc3173ee959bcf5174a1d5254bca5c3831e6525bafc404d7668bc328d649ff66",
+      "sourcePNG": {
+        "file": "artifacts/weakpoints-m1a2-native-qa-v489-20261104/frame-5/raw.png",
+        "bytes": 2480854,
+        "sha256": "2168f22d4d11c3098bf4e34677c65489c473e4b366df37479f5a8bf367185bb0",
+        "width": 1920,
+        "height": 1080,
+        "native": true,
+        "path": "artifacts/weakpoints-m1a2-native-qa-v489-20261104/frame-5/raw.png"
+      },
+      "sourceFrameSHA256": "2168f22d4d11c3098bf4e34677c65489c473e4b366df37479f5a8bf367185bb0",
+      "sourceTime": 353.384034,
+      "crop": [
+        700,
+        300,
+        900,
+        480
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v495-20261104/us_m1a2_abrams-lower-glacis-frame-proof.json",
+        "sha256": "7e5869198789904a254493b070a4b3cb513832387132e9632283a8132765cd4f"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "completeIllustration": false,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1hx4y1s73b/",
+        "title": "【战雷干货】顶级主战防护分析-艾布拉姆斯",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": "2.37.0.91"
+      },
+      "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/USA/USA-M1A2-Abrams-lower-glacis-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/USA/USA-M1A2-Abrams-lower-glacis-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "SWE-Strv-122A-lower-glacis-protection-preview.webp",
+      "path": "images/SWE/SWE-Strv-122A-lower-glacis-protection-preview.webp",
+      "vehicleId": "sw_strv_122",
+      "country": "SWE",
+      "kind": "photo",
+      "evidenceId": null,
+      "width": 960,
+      "height": 540,
+      "bytes": 295092,
+      "sha256": "8148e839e19ef8e9d2f3983c856ed7780c3af53984ebe2e9c9081f9787de6584",
+      "preCompressionBytes": 295092,
+      "preCompressionSHA256": "8148e839e19ef8e9d2f3983c856ed7780c3af53984ebe2e9c9081f9787de6584",
+      "sourcePNG": {
+        "file": "raw.png",
+        "sha256": "6c704bd4b8a08298d60feb2710c7ee7cbe250a47ecfb99ef5e6de90e410b9d59",
+        "bytes": 2548859,
+        "width": 1920,
+        "height": 1080,
+        "native": true,
+        "path": "artifacts/weakpoints-swedish122-native-qa-v491-20261104/frame-5/raw.png"
+      },
+      "sourceFrameSHA256": "6c704bd4b8a08298d60feb2710c7ee7cbe250a47ecfb99ef5e6de90e410b9d59",
+      "sourceTime": 929.872584,
+      "crop": [
+        600,
+        150,
+        960,
+        540
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v495-20261104/sw_strv_122-lower-glacis-frame-proof.json",
+        "sha256": "11db9334243e64d20f0d2efffe448eaca966af8dbd4ebc585082280e43a2e4d8"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "completeIllustration": false,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1uy411v7ss/",
+        "title": "【战雷干货】顶级主战防护分析-豹二系列",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": "2.37.0.91"
+      },
+      "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122A-lower-glacis-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122A-lower-glacis-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "SWE-Strv-122A-frontal-joint-protection-preview.webp",
+      "path": "images/SWE/SWE-Strv-122A-frontal-joint-protection-preview.webp",
+      "vehicleId": "sw_strv_122",
+      "country": "SWE",
+      "kind": "protection-evidence",
+      "evidenceId": "strv-122a-frontal-joint-preview",
+      "width": 960,
+      "height": 540,
+      "bytes": 370236,
+      "sha256": "ff4d5361188c637eafaeb53f549d1e879f443044eef18200fc05cb140258297b",
+      "preCompressionBytes": 370236,
+      "preCompressionSHA256": "ff4d5361188c637eafaeb53f549d1e879f443044eef18200fc05cb140258297b",
+      "sourcePNG": {
+        "file": "raw.png",
+        "sha256": "e3d5575fae94c88e4f6418edc2f8aa8b25a3d5ab83de46db7e18ea22d2973d85",
+        "bytes": 2570959,
+        "width": 1920,
+        "height": 1080,
+        "native": true,
+        "path": "artifacts/weakpoints-swedish122-native-qa-v491-20261104/frame-1/raw.png"
+      },
+      "sourceFrameSHA256": "e3d5575fae94c88e4f6418edc2f8aa8b25a3d5ab83de46db7e18ea22d2973d85",
+      "sourceTime": 874.061064,
+      "crop": [
+        600,
+        180,
+        960,
+        540
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v495-20261104/sw_strv_122-frontal-joint-frame-proof.json",
+        "sha256": "00ff767cdb786163e4ef75e8b0692065078a43dc68bc0ed3eeeeceec9f77d112"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "completeIllustration": false,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1uy411v7ss/",
+        "title": "【战雷干货】顶级主战防护分析-豹二系列",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": "2.37.0.91"
+      },
+      "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122A-frontal-joint-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122A-frontal-joint-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "SWE-Strv-122B-PLSS-driver-port-protection-preview.webp",
+      "path": "images/SWE/SWE-Strv-122B-PLSS-driver-port-protection-preview.webp",
+      "vehicleId": "sw_strv_122b_plss",
+      "country": "SWE",
+      "kind": "photo",
+      "evidenceId": null,
+      "width": 950,
+      "height": 600,
+      "bytes": 341640,
+      "sha256": "c1af1904008b098cd1e49432dceb3e9c72edbfb71352c5553a97d434299e6d7a",
+      "preCompressionBytes": 341640,
+      "preCompressionSHA256": "c1af1904008b098cd1e49432dceb3e9c72edbfb71352c5553a97d434299e6d7a",
+      "sourcePNG": {
+        "path": "artifacts/weakpoints-swedish122b-native-qa-v494-20261104/frame-1/raw.png",
+        "sha256": "6c2c2ad1a23c592292d09fe67c6dfbf5f1aa2ae301983cd1d2e0189517fa25ea",
+        "bytes": 2692540,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "6c2c2ad1a23c592292d09fe67c6dfbf5f1aa2ae301983cd1d2e0189517fa25ea",
+      "sourceTime": 1022.280591,
+      "crop": [
+        550,
+        190,
+        950,
+        600
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v495-20261104/sw_strv_122b_plss-driver-port-frame-proof.json",
+        "sha256": "0e3361f31797adad9b31809c93b9338538995012e0e3bfa8134bcfb5b0c63605"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "completeIllustration": false,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1uy411v7ss/",
+        "title": "【战雷干货】顶级主战防护分析-豹二系列",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": "2.37.0.91"
+      },
+      "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122B-PLSS-driver-port-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122B-PLSS-driver-port-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "SWE-Strv-122B-PLSS-gun-mantlet-protection-preview.webp",
+      "path": "images/SWE/SWE-Strv-122B-PLSS-gun-mantlet-protection-preview.webp",
+      "vehicleId": "sw_strv_122b_plss",
+      "country": "SWE",
+      "kind": "protection-evidence",
+      "evidenceId": "strv-122b-plss-gun-mantlet-preview",
+      "width": 950,
+      "height": 600,
+      "bytes": 354720,
+      "sha256": "495c92f068c076284e939ed926c0a0f4c3757fe0936c93bb7b317d45a4a27f48",
+      "preCompressionBytes": 354720,
+      "preCompressionSHA256": "495c92f068c076284e939ed926c0a0f4c3757fe0936c93bb7b317d45a4a27f48",
+      "sourcePNG": {
+        "path": "artifacts/weakpoints-swedish122b-native-qa-v494-20261104/frame-4/raw.png",
+        "sha256": "0e40aa2c1dbd85bdda5eb911069943ca1815a9cada4d177026fadbcca4f0cfb0",
+        "bytes": 2793977,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "0e40aa2c1dbd85bdda5eb911069943ca1815a9cada4d177026fadbcca4f0cfb0",
+      "sourceTime": 1032.519483,
+      "crop": [
+        550,
+        190,
+        950,
+        600
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v495-20261104/sw_strv_122b_plss-gun-mantlet-frame-proof.json",
+        "sha256": "787c3a8ef2692a540a92e4a483bc3a4af6c9eb5087d9792f8fa3cb47dee381fd"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "completeIllustration": false,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1uy411v7ss/",
+        "title": "【战雷干货】顶级主战防护分析-豹二系列",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": "2.37.0.91"
+      },
+      "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122B-PLSS-gun-mantlet-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122B-PLSS-gun-mantlet-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "SWE-Strv-122B-PLSS-lower-glacis-protection-preview.webp",
+      "path": "images/SWE/SWE-Strv-122B-PLSS-lower-glacis-protection-preview.webp",
+      "vehicleId": "sw_strv_122b_plss",
+      "country": "SWE",
+      "kind": "protection-evidence",
+      "evidenceId": "strv-122b-plss-lower-glacis-preview",
+      "width": 950,
+      "height": 600,
+      "bytes": 344260,
+      "sha256": "937d847723ed2624518d5b44e060f3027aaae5e9bd956f4ddef5d71a9ecdb1a4",
+      "preCompressionBytes": 344260,
+      "preCompressionSHA256": "937d847723ed2624518d5b44e060f3027aaae5e9bd956f4ddef5d71a9ecdb1a4",
+      "sourcePNG": {
+        "path": "artifacts/weakpoints-swedish122b-native-qa-v494-20261104/frame-5/raw.png",
+        "sha256": "fccc0782ea308e50d89a06ab6a45fedc64c7fbcb2abfbd48048cf2659080e45c",
+        "bytes": 2615092,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "fccc0782ea308e50d89a06ab6a45fedc64c7fbcb2abfbd48048cf2659080e45c",
+      "sourceTime": 1035.269699,
+      "crop": [
+        550,
+        190,
+        950,
+        600
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v495-20261104/sw_strv_122b_plss-lower-glacis-frame-proof.json",
+        "sha256": "61b029728f61d0478513da430c5546dbfb206809f049ce83d00132a5ade76236"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "completeIllustration": false,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1uy411v7ss/",
+        "title": "【战雷干货】顶级主战防护分析-豹二系列",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": "2.37.0.91"
+      },
+      "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122B-PLSS-lower-glacis-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122B-PLSS-lower-glacis-protection-preview.webp",
       "rootApproval": true
     }
   ]

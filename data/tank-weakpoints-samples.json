@@ -3246,7 +3246,35 @@
         "aceSeconds": 6,
         "note": "基础乘员→王牌乘员（Wiki主炮面板）"
       },
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.4166666666666667,
+          "y": 0.6333333333333333,
+          "label": "车体首下画面右半部单点",
+          "detail": "目标Strv122A、攻击方挑战者2黑夜使用L27A1、500米条件下，仅此准星点预测能够击穿，目标等效393毫米；面板炮弹穿深557毫米。非实射、非击杀，不代表整区必穿。",
+          "kind": "conditional",
+          "caseId": "sw_strv_122:BV1uy411v7ss:929872584:preview",
+          "sourceUrl": "https://www.bilibili.com/video/BV1uy411v7ss/",
+          "sourceTime": 929.872584,
+          "evidence": {
+            "frameSHA256": "6c704bd4b8a08298d60feb2710c7ee7cbe250a47ecfb99ef5e6de90e410b9d59",
+            "nativeXY": [
+              1000,
+              492
+            ],
+            "crop": [
+              600,
+              150,
+              960,
+              540
+            ],
+            "singlePointPrediction": true,
+            "actualShotObserved": false,
+            "QAReportPath": "artifacts/weakpoints-swedish122-native-qa-v491-20261104/final-native-qa.json",
+            "QAReportSHA256": "a4c530c6ac08ee3cb529024d2644297a96dba560e6cb1c28de3dbb69e8a0db63"
+          }
+        }
+      ],
       "videoAdvice": [
         {
           "id": "v20-author-strv122-122a",
@@ -3295,8 +3323,15 @@
           }
         }
       ],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-video",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1uy411v7ss/",
+        "kind": "video",
+        "title": "【战雷干货】顶级主战防护分析-豹二系列",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": "2.37.0.91"
+      },
+      "status": "partial-native-point-predictions",
       "collectedAt": "2026-11-02",
       "weaknessEvidenceStatus": "explicit-protection-context",
       "country": "sweden",
@@ -3313,8 +3348,246 @@
           "publishedAt": "2025-06-21T20:24:27+08:00",
           "time": 40.032891,
           "scopeNote": "作者对比观点；测试条件未核验"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1uy411v7ss/",
+          "kind": "video",
+          "title": "【战雷干货】顶级主战防护分析-豹二系列",
+          "author": "成吉思汉不爱学习",
+          "publishedAt": "2024-07-29 18:00:00",
+          "gameVersion": "2.37.0.91",
+          "time": 929.872584,
+          "scopeNote": "仅原生标题确认的Strv122A本车三个单点预测；作者全系概括不作为其他Strv122子型的独立位置证据"
         }
-      ]
+      ],
+      "framePath": "artifacts/weakpoints-swedish122-native-qa-v491-20261104/frame-5/raw.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v495-20261104/sw_strv_122-lower-glacis-frame-proof.json",
+      "frameSnapshotSHA256": "11db9334243e64d20f0d2efffe448eaca966af8dbd4ebc585082280e43a2e4d8",
+      "captureSHA256": "6c704bd4b8a08298d60feb2710c7ee7cbe250a47ecfb99ef5e6de90e410b9d59",
+      "originalFrameSHA256": "6c704bd4b8a08298d60feb2710c7ee7cbe250a47ecfb99ef5e6de90e410b9d59",
+      "assetPath": "images/SWE/SWE-Strv-122A-lower-glacis-protection-preview.webp",
+      "crop": [
+        600,
+        150,
+        960,
+        540
+      ],
+      "time": 929.872584,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "native-1080p-analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "displayImagePolicy": "analysis-excerpt",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "sourceGameVersion": "2.37.0.91",
+      "sourceNoRepost": true,
+      "testCases": [
+        {
+          "id": "sw_strv_122:BV1uy411v7ss:929872584:preview",
+          "vehicleId": "sw_strv_122",
+          "sourceUrl": "https://www.bilibili.com/video/BV1uy411v7ss/",
+          "sourceTime": 929.872584,
+          "sourceGameVersion": "2.37.0.91",
+          "attacker": "挑战者 2 黑夜",
+          "attackerVisibleTitle": "挑战者 2 黑夜",
+          "attackerVehicleId": "uk_challenger_2_bn",
+          "attackerCountry": "britain",
+          "shell": "L27A1",
+          "sourceShellLabelOriginal": "L27A1",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "uk_challenger_2_bn",
+            "officialWikiUnitId": "uk_challenger_2_bn",
+            "wikiUnitId": "uk_challenger_2_bn",
+            "url": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "sourceUrl": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "checkedAt": "2026-11-04T11:41:05.600Z",
+            "sourceHtml": "artifacts/weakpoints-challenger2f-wiki-positions-v485-20261104/uk_challenger_2_bn.html",
+            "sourceHtmlSHA256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "sourceSha256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "officialShellName": "L27A1",
+            "sourceShellLabelOriginal": "L27A1",
+            "shellType": "APFSDS",
+            "mainGun": "120 mm L30A1 cannon",
+            "gameVersion": "2.59.0.92",
+            "rawUIType": null,
+            "referenceOnly": {
+              "distanceMeters": 500,
+              "penetrationMm": 558,
+              "mustNotReplaceVideo557": true
+            },
+            "videoNative557Unchanged": true
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 557,
+          "impactAngleDegrees": 55,
+          "attackAzimuthDegrees": 1,
+          "effectiveArmorMm": 393,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "发动机",
+            "油箱"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "6c704bd4b8a08298d60feb2710c7ee7cbe250a47ecfb99ef5e6de90e410b9d59",
+          "evidenceKind": "single-point-protection-preview"
+        },
+        {
+          "id": "sw_strv_122:BV1uy411v7ss:874061064:preview",
+          "vehicleId": "sw_strv_122",
+          "sourceUrl": "https://www.bilibili.com/video/BV1uy411v7ss/",
+          "sourceTime": 874.061064,
+          "sourceGameVersion": "2.37.0.91",
+          "attacker": "挑战者 2 黑夜",
+          "attackerVisibleTitle": "挑战者 2 黑夜",
+          "attackerVehicleId": "uk_challenger_2_bn",
+          "attackerCountry": "britain",
+          "shell": "L27A1",
+          "sourceShellLabelOriginal": "L27A1",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "uk_challenger_2_bn",
+            "officialWikiUnitId": "uk_challenger_2_bn",
+            "wikiUnitId": "uk_challenger_2_bn",
+            "url": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "sourceUrl": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "checkedAt": "2026-11-04T11:41:05.600Z",
+            "sourceHtml": "artifacts/weakpoints-challenger2f-wiki-positions-v485-20261104/uk_challenger_2_bn.html",
+            "sourceHtmlSHA256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "sourceSha256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "officialShellName": "L27A1",
+            "sourceShellLabelOriginal": "L27A1",
+            "shellType": "APFSDS",
+            "mainGun": "120 mm L30A1 cannon",
+            "gameVersion": "2.59.0.92",
+            "rawUIType": null,
+            "referenceOnly": {
+              "distanceMeters": 500,
+              "penetrationMm": 558,
+              "mustNotReplaceVideo557": true
+            },
+            "videoNative557Unchanged": true
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 557,
+          "impactAngleDegrees": 76,
+          "attackAzimuthDegrees": 22,
+          "effectiveArmorMm": 599,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "弹药架"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "e3d5575fae94c88e4f6418edc2f8aa8b25a3d5ab83de46db7e18ea22d2973d85",
+          "evidenceKind": "single-point-protection-preview",
+          "conditionNote": "原生UI同时显示炮弹穿深557毫米、目标等效防护599毫米及“能够击穿”。三项关系未知（unknown/not-recomputed），保留原值，不重算、不以数字比较保证命中，不推测游戏物理；此帧为22°偏正面单点。",
+          "rawUIRelation": "unknown/not-recomputed"
+        }
+      ],
+      "testContext": {
+        "sourceUrl": "https://www.bilibili.com/video/BV1uy411v7ss/",
+        "sourceTime": 929.872584,
+        "sourceGameVersion": "2.37.0.91",
+        "attacker": "挑战者 2 黑夜",
+        "attackerVisibleTitle": "挑战者 2 黑夜",
+        "attackerVehicleId": "uk_challenger_2_bn",
+        "attackerCountry": "britain",
+        "shell": "L27A1",
+        "sourceShellLabelOriginal": "L27A1",
+        "rawUIType": null,
+        "shellType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 557,
+        "impactAngleDegrees": 55,
+        "attackAzimuthDegrees": 1,
+        "effectiveArmorMm": 393,
+        "pointPrediction": "能够击穿",
+        "predictedDamage": [
+          "发动机",
+          "油箱"
+        ],
+        "actualShotObserved": false,
+        "outcome": null,
+        "actualUIObserved": true,
+        "sourceFrameSHA256": "6c704bd4b8a08298d60feb2710c7ee7cbe250a47ecfb99ef5e6de90e410b9d59",
+        "evidenceKind": "single-point-protection-preview",
+        "caseId": "sw_strv_122:BV1uy411v7ss:929872584:preview"
+      },
+      "protectionEvidence": [
+        {
+          "id": "strv-122a-frontal-joint-preview",
+          "label": "炮根下方车体首上接合处单点·单点预测",
+          "description": "Strv122A本车22°偏正面炮根/首上接合处的独立单点预测；原生557/599/能够击穿的关系未知、不重算，非整区或命中保证。",
+          "caption": "成吉思汉不爱学习《【战雷干货】顶级主战防护分析-豹二系列》，2024-07-29 18:00:00，874.061064秒；历史版本2.37.0.91，攻击方挑战者2黑夜使用L27A1、500米。仅当前点预测，非实射或整区结论。 此帧为22°偏正面，提示框遮挡右侧局部车体。",
+          "conditionNote": "原生UI557毫米；目标本点等效599毫米，入射角76°、方位22°。Wiki500米558毫米仅作独立参考，未替换原生557。 原生UI同时显示炮弹穿深557毫米、目标等效防护599毫米及“能够击穿”。三项关系未知（unknown/not-recomputed），保留原值，不重算、不以数字比较保证命中，不推测游戏物理；此帧为22°偏正面单点。",
+          "caseId": "sw_strv_122:BV1uy411v7ss:874061064:preview",
+          "sourceTime": 874.061064,
+          "sourceUrl": "https://www.bilibili.com/video/BV1uy411v7ss/",
+          "sourceGameVersion": "2.37.0.91",
+          "assetPath": "images/SWE/SWE-Strv-122A-frontal-joint-protection-preview.webp",
+          "framePath": "artifacts/weakpoints-swedish122-native-qa-v491-20261104/frame-1/raw.png",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v495-20261104/sw_strv_122-frontal-joint-frame-proof.json",
+          "frameSnapshotSHA256": "00ff767cdb786163e4ef75e8b0692065078a43dc68bc0ed3eeeeceec9f77d112",
+          "crop": [
+            600,
+            180,
+            960,
+            540
+          ],
+          "view": "single-cursor-protection-preview",
+          "displayImagePolicy": "analysis-excerpt",
+          "pins": [
+            {
+              "x": 0.546875,
+              "y": 0.4425925925925926,
+              "label": "炮根下方车体首上接合处单点",
+              "detail": "目标Strv122A、攻击方挑战者2黑夜使用L27A1、500米条件下，仅此准星点预测能够击穿，目标等效599毫米；面板炮弹穿深557毫米。非实射、非击杀，不代表整区必穿。 原生557/599与能够击穿三项原样保留，关系未知，不作数字比较或重算。",
+              "kind": "conditional",
+              "caseId": "sw_strv_122:BV1uy411v7ss:874061064:preview",
+              "sourceUrl": "https://www.bilibili.com/video/BV1uy411v7ss/",
+              "sourceTime": 874.061064,
+              "evidence": {
+                "frameSHA256": "e3d5575fae94c88e4f6418edc2f8aa8b25a3d5ab83de46db7e18ea22d2973d85",
+                "nativeXY": [
+                  1125,
+                  419
+                ],
+                "crop": [
+                  600,
+                  180,
+                  960,
+                  540
+                ],
+                "singlePointPrediction": true,
+                "actualShotObserved": false,
+                "QAReportPath": "artifacts/weakpoints-swedish122-native-qa-v491-20261104/final-native-qa.json",
+                "QAReportSHA256": "a4c530c6ac08ee3cb529024d2644297a96dba560e6cb1c28de3dbb69e8a0db63"
+              }
+            }
+          ]
+        }
+      ],
+      "coverageStatus": "partial-native-point-predictions",
+      "coverageNotice": "仅Strv122A本车三处单点防护预测，非完整弱点图解；不套用其他Strv122改型。",
+      "mainViewNote": "历史2.37.0.91版本Strv122A本车的低机位近正面首下单点预测，未等同水平直正面；目标等效393毫米、原生炮弹穿深557毫米分开保存。副视图为22°偏正面独立单点，不推广整区或其他Strv122子型。"
     },
     {
       "id": "il_merkava_mk_4m",
@@ -16750,7 +17023,42 @@
       "eraStatus": "reviewed-unit-prose",
       "eraBasis": "Strv122BPLSS为2005至06年试验的桅杆观瞄改型，Wiki直接指出炮盾和炮塔座圈仍脆弱，但面积较小。",
       "collectedAt": "2026-11-02T09:52:08.598Z",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.3063157894736842,
+          "y": 0.38333333333333336,
+          "label": "驾驶员观察窗上缘车体接缝",
+          "detail": "目标Strv122B PLSS、攻击方挑战者2黑夜使用L27A1、500米条件下，仅此准星点预测能够击穿，目标等效460毫米；面板炮弹穿深557毫米。非实射、非击杀，不代表整区必穿。",
+          "kind": "conditional",
+          "caseId": "sw_strv_122b_plss:BV1uy411v7ss:1022280591:preview",
+          "sourceUrl": "https://www.bilibili.com/video/BV1uy411v7ss/",
+          "sourceTime": 1022.280591,
+          "evidence": {
+            "frameSHA256": "6c2c2ad1a23c592292d09fe67c6dfbf5f1aa2ae301983cd1d2e0189517fa25ea",
+            "nativeXY": [
+              841,
+              420
+            ],
+            "crop": [
+              550,
+              190,
+              950,
+              600
+            ],
+            "singlePointPrediction": true,
+            "actualShotObserved": false,
+            "QAReportPath": "artifacts/weakpoints-swedish122b-native-qa-v494-20261104/final-native-qa.json",
+            "QAReportSHA256": "620a824acd2ff4a2e9a5e252b17b2ad71f973902fabd00158b69bc33961e43e1",
+            "originalQACropBoundsUV": [
+              0.2864583333333333,
+              0.17592592592592593,
+              0.78125,
+              0.7314814814814815
+            ],
+            "coordinateDerivation": "pointUV=(nativeXY-cropOrigin)/cropSize; original QA four-value cropUV describes crop bounds, not point"
+          }
+        }
+      ],
       "videoAdvice": [
         {
           "id": "v20-author-strv122-122plss",
@@ -16799,8 +17107,15 @@
           }
         }
       ],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1uy411v7ss/",
+        "kind": "video",
+        "title": "【战雷干货】顶级主战防护分析-豹二系列",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": "2.37.0.91"
+      },
+      "status": "partial-native-point-predictions",
       "wikiUrl": "https://wiki.warthunder.com/unit/sw_strv_122b_plss",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-008-20261102/snapshots/sw_strv_122b_plss.json",
@@ -16842,8 +17157,372 @@
           "publishedAt": "2025-06-21T20:24:27+08:00",
           "time": 40.032891,
           "scopeNote": "作者对比观点；测试条件未核验"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1uy411v7ss/",
+          "kind": "video",
+          "title": "【战雷干货】顶级主战防护分析-豹二系列",
+          "author": "成吉思汉不爱学习",
+          "publishedAt": "2024-07-29 18:00:00",
+          "gameVersion": "2.37.0.91",
+          "time": 1022.280591,
+          "scopeNote": "仅原生标题确认的Strv122B PLSS本车三个单点预测；作者全系概括不作为其他Strv122子型的独立位置证据"
         }
-      ]
+      ],
+      "framePath": "artifacts/weakpoints-swedish122b-native-qa-v494-20261104/frame-1/raw.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v495-20261104/sw_strv_122b_plss-driver-port-frame-proof.json",
+      "frameSnapshotSHA256": "0e3361f31797adad9b31809c93b9338538995012e0e3bfa8134bcfb5b0c63605",
+      "captureSHA256": "6c2c2ad1a23c592292d09fe67c6dfbf5f1aa2ae301983cd1d2e0189517fa25ea",
+      "originalFrameSHA256": "6c2c2ad1a23c592292d09fe67c6dfbf5f1aa2ae301983cd1d2e0189517fa25ea",
+      "assetPath": "images/SWE/SWE-Strv-122B-PLSS-driver-port-protection-preview.webp",
+      "crop": [
+        550,
+        190,
+        950,
+        600
+      ],
+      "time": 1022.280591,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "native-1080p-analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "displayImagePolicy": "analysis-excerpt",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "sourceGameVersion": "2.37.0.91",
+      "sourceNoRepost": true,
+      "testCases": [
+        {
+          "id": "sw_strv_122b_plss:BV1uy411v7ss:1022280591:preview",
+          "vehicleId": "sw_strv_122b_plss",
+          "sourceUrl": "https://www.bilibili.com/video/BV1uy411v7ss/",
+          "sourceTime": 1022.280591,
+          "sourceGameVersion": "2.37.0.91",
+          "attacker": "挑战者 2 黑夜",
+          "attackerVisibleTitle": "挑战者 2 黑夜",
+          "attackerVehicleId": "uk_challenger_2_bn",
+          "attackerCountry": "britain",
+          "shell": "L27A1",
+          "sourceShellLabelOriginal": "L27A1",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "uk_challenger_2_bn",
+            "officialWikiUnitId": "uk_challenger_2_bn",
+            "wikiUnitId": "uk_challenger_2_bn",
+            "url": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "sourceUrl": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "checkedAt": "2026-11-04T11:41:05.600Z",
+            "sourceHtml": "artifacts/weakpoints-challenger2f-wiki-positions-v485-20261104/uk_challenger_2_bn.html",
+            "sourceHtmlSHA256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "sourceSha256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "officialShellName": "L27A1",
+            "sourceShellLabelOriginal": "L27A1",
+            "shellType": "APFSDS",
+            "mainGun": "120 mm L30A1 cannon",
+            "gameVersion": "2.59.0.92",
+            "rawUIType": null,
+            "referenceOnly": {
+              "distanceMeters": 500,
+              "penetrationMm": 558,
+              "mustNotReplaceVideo557": true
+            },
+            "videoNative557Unchanged": true
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 557,
+          "impactAngleDegrees": 81,
+          "attackAzimuthDegrees": 0,
+          "effectiveArmorMm": 460,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "驾驶员",
+            "车长",
+            "炮手",
+            "方向机"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "6c2c2ad1a23c592292d09fe67c6dfbf5f1aa2ae301983cd1d2e0189517fa25ea",
+          "evidenceKind": "single-point-protection-preview"
+        },
+        {
+          "id": "sw_strv_122b_plss:BV1uy411v7ss:1032519483:preview",
+          "vehicleId": "sw_strv_122b_plss",
+          "sourceUrl": "https://www.bilibili.com/video/BV1uy411v7ss/",
+          "sourceTime": 1032.519483,
+          "sourceGameVersion": "2.37.0.91",
+          "attacker": "挑战者 2 黑夜",
+          "attackerVisibleTitle": "挑战者 2 黑夜",
+          "attackerVehicleId": "uk_challenger_2_bn",
+          "attackerCountry": "britain",
+          "shell": "L27A1",
+          "sourceShellLabelOriginal": "L27A1",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "uk_challenger_2_bn",
+            "officialWikiUnitId": "uk_challenger_2_bn",
+            "wikiUnitId": "uk_challenger_2_bn",
+            "url": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "sourceUrl": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "checkedAt": "2026-11-04T11:41:05.600Z",
+            "sourceHtml": "artifacts/weakpoints-challenger2f-wiki-positions-v485-20261104/uk_challenger_2_bn.html",
+            "sourceHtmlSHA256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "sourceSha256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "officialShellName": "L27A1",
+            "sourceShellLabelOriginal": "L27A1",
+            "shellType": "APFSDS",
+            "mainGun": "120 mm L30A1 cannon",
+            "gameVersion": "2.59.0.92",
+            "rawUIType": null,
+            "referenceOnly": {
+              "distanceMeters": 500,
+              "penetrationMm": 558,
+              "mustNotReplaceVideo557": true
+            },
+            "videoNative557Unchanged": true
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 557,
+          "impactAngleDegrees": 60,
+          "attackAzimuthDegrees": 3,
+          "effectiveArmorMm": 422,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "炮闩"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "0e40aa2c1dbd85bdda5eb911069943ca1815a9cada4d177026fadbcca4f0cfb0",
+          "evidenceKind": "single-point-protection-preview",
+          "conditionNote": "本帧只定位炮盾左下部可见外表面。预计损伤列表中的炮闩仅为UI预测模块，不表示内部炮闩在外部画面的投影位置。"
+        },
+        {
+          "id": "sw_strv_122b_plss:BV1uy411v7ss:1035269699:preview",
+          "vehicleId": "sw_strv_122b_plss",
+          "sourceUrl": "https://www.bilibili.com/video/BV1uy411v7ss/",
+          "sourceTime": 1035.269699,
+          "sourceGameVersion": "2.37.0.91",
+          "attacker": "挑战者 2 黑夜",
+          "attackerVisibleTitle": "挑战者 2 黑夜",
+          "attackerVehicleId": "uk_challenger_2_bn",
+          "attackerCountry": "britain",
+          "shell": "L27A1",
+          "sourceShellLabelOriginal": "L27A1",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "uk_challenger_2_bn",
+            "officialWikiUnitId": "uk_challenger_2_bn",
+            "wikiUnitId": "uk_challenger_2_bn",
+            "url": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "sourceUrl": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "checkedAt": "2026-11-04T11:41:05.600Z",
+            "sourceHtml": "artifacts/weakpoints-challenger2f-wiki-positions-v485-20261104/uk_challenger_2_bn.html",
+            "sourceHtmlSHA256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "sourceSha256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "officialShellName": "L27A1",
+            "sourceShellLabelOriginal": "L27A1",
+            "shellType": "APFSDS",
+            "mainGun": "120 mm L30A1 cannon",
+            "gameVersion": "2.59.0.92",
+            "rawUIType": null,
+            "referenceOnly": {
+              "distanceMeters": 500,
+              "penetrationMm": 558,
+              "mustNotReplaceVideo557": true
+            },
+            "videoNative557Unchanged": true
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 557,
+          "impactAngleDegrees": 56,
+          "attackAzimuthDegrees": 3,
+          "effectiveArmorMm": 474,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "弹药架",
+            "炮手",
+            "驾驶员"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "fccc0782ea308e50d89a06ab6a45fedc64c7fbcb2abfbd48048cf2659080e45c",
+          "evidenceKind": "single-point-protection-preview"
+        }
+      ],
+      "testContext": {
+        "sourceUrl": "https://www.bilibili.com/video/BV1uy411v7ss/",
+        "sourceTime": 1022.280591,
+        "sourceGameVersion": "2.37.0.91",
+        "attacker": "挑战者 2 黑夜",
+        "attackerVisibleTitle": "挑战者 2 黑夜",
+        "attackerVehicleId": "uk_challenger_2_bn",
+        "attackerCountry": "britain",
+        "shell": "L27A1",
+        "sourceShellLabelOriginal": "L27A1",
+        "rawUIType": null,
+        "shellType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 557,
+        "impactAngleDegrees": 81,
+        "attackAzimuthDegrees": 0,
+        "effectiveArmorMm": 460,
+        "pointPrediction": "能够击穿",
+        "predictedDamage": [
+          "驾驶员",
+          "车长",
+          "炮手",
+          "方向机"
+        ],
+        "actualShotObserved": false,
+        "outcome": null,
+        "actualUIObserved": true,
+        "sourceFrameSHA256": "6c2c2ad1a23c592292d09fe67c6dfbf5f1aa2ae301983cd1d2e0189517fa25ea",
+        "evidenceKind": "single-point-protection-preview",
+        "caseId": "sw_strv_122b_plss:BV1uy411v7ss:1022280591:preview"
+      },
+      "protectionEvidence": [
+        {
+          "id": "strv-122b-plss-gun-mantlet-preview",
+          "label": "炮盾左下部可见正面（画面左侧、主炮下方）·单点预测",
+          "description": "准星在主炮根部画面左下侧的深色外露正面，属于炮盾下部可见表面；不将该准星解释为内部炮闩的实物位置。",
+          "caption": "成吉思汉不爱学习《【战雷干货】顶级主战防护分析-豹二系列》，2024-07-29 18:00:00，1032.519483秒；历史版本2.37.0.91，攻击方挑战者2黑夜使用L27A1、500米。仅当前点预测，非实射或整区结论。",
+          "conditionNote": "原生UI557毫米；目标本点等效422毫米，入射角60°、方位3°。Wiki500米558毫米仅作独立参考，未替换原生557。 炮闩仅为预计损伤模块，不作为外部炮闩投影定位。",
+          "caseId": "sw_strv_122b_plss:BV1uy411v7ss:1032519483:preview",
+          "sourceTime": 1032.519483,
+          "sourceUrl": "https://www.bilibili.com/video/BV1uy411v7ss/",
+          "sourceGameVersion": "2.37.0.91",
+          "assetPath": "images/SWE/SWE-Strv-122B-PLSS-gun-mantlet-protection-preview.webp",
+          "framePath": "artifacts/weakpoints-swedish122b-native-qa-v494-20261104/frame-4/raw.png",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v495-20261104/sw_strv_122b_plss-gun-mantlet-frame-proof.json",
+          "frameSnapshotSHA256": "787c3a8ef2692a540a92e4a483bc3a4af6c9eb5087d9792f8fa3cb47dee381fd",
+          "crop": [
+            550,
+            190,
+            950,
+            600
+          ],
+          "view": "single-cursor-protection-preview",
+          "displayImagePolicy": "analysis-excerpt",
+          "pins": [
+            {
+              "x": 0.3957894736842105,
+              "y": 0.3283333333333333,
+              "label": "炮盾左下部可见正面（画面左侧、主炮下方）",
+              "detail": "目标Strv122B PLSS、攻击方挑战者2黑夜使用L27A1、500米条件下，仅此准星点预测能够击穿，目标等效422毫米；面板炮弹穿深557毫米。非实射、非击杀，不代表整区必穿。 当前外部点是炮盾左下部可见表面，预计炮闩损伤不等同内部模块的外部投影位置。",
+              "kind": "conditional",
+              "caseId": "sw_strv_122b_plss:BV1uy411v7ss:1032519483:preview",
+              "sourceUrl": "https://www.bilibili.com/video/BV1uy411v7ss/",
+              "sourceTime": 1032.519483,
+              "evidence": {
+                "frameSHA256": "0e40aa2c1dbd85bdda5eb911069943ca1815a9cada4d177026fadbcca4f0cfb0",
+                "nativeXY": [
+                  926,
+                  387
+                ],
+                "crop": [
+                  550,
+                  190,
+                  950,
+                  600
+                ],
+                "singlePointPrediction": true,
+                "actualShotObserved": false,
+                "QAReportPath": "artifacts/weakpoints-swedish122b-native-qa-v494-20261104/final-native-qa.json",
+                "QAReportSHA256": "620a824acd2ff4a2e9a5e252b17b2ad71f973902fabd00158b69bc33961e43e1",
+                "originalQACropBoundsUV": [
+                  0.2864583333333333,
+                  0.17592592592592593,
+                  0.78125,
+                  0.7314814814814815
+                ],
+                "coordinateDerivation": "pointUV=(nativeXY-cropOrigin)/cropSize; original QA four-value cropUV describes crop bounds, not point"
+              }
+            }
+          ]
+        },
+        {
+          "id": "strv-122b-plss-lower-glacis-preview",
+          "label": "画面左侧车体首下边缘（车辆右侧）·单点预测",
+          "description": "仅挑战者2Strv122B PLSS本车该帧的单点防护预测，不向其他Strv122改型套用。",
+          "caption": "成吉思汉不爱学习《【战雷干货】顶级主战防护分析-豹二系列》，2024-07-29 18:00:00，1035.269699秒；历史版本2.37.0.91，攻击方挑战者2黑夜使用L27A1、500米。仅当前点预测，非实射或整区结论。",
+          "conditionNote": "原生UI557毫米；目标本点等效474毫米，入射角56°、方位3°。Wiki500米558毫米仅作独立参考，未替换原生557。",
+          "caseId": "sw_strv_122b_plss:BV1uy411v7ss:1035269699:preview",
+          "sourceTime": 1035.269699,
+          "sourceUrl": "https://www.bilibili.com/video/BV1uy411v7ss/",
+          "sourceGameVersion": "2.37.0.91",
+          "assetPath": "images/SWE/SWE-Strv-122B-PLSS-lower-glacis-protection-preview.webp",
+          "framePath": "artifacts/weakpoints-swedish122b-native-qa-v494-20261104/frame-5/raw.png",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v495-20261104/sw_strv_122b_plss-lower-glacis-frame-proof.json",
+          "frameSnapshotSHA256": "61b029728f61d0478513da430c5546dbfb206809f049ce83d00132a5ade76236",
+          "crop": [
+            550,
+            190,
+            950,
+            600
+          ],
+          "view": "single-cursor-protection-preview",
+          "displayImagePolicy": "analysis-excerpt",
+          "pins": [
+            {
+              "x": 0.37473684210526315,
+              "y": 0.5066666666666667,
+              "label": "画面左侧车体首下边缘（车辆右侧）",
+              "detail": "目标Strv122B PLSS、攻击方挑战者2黑夜使用L27A1、500米条件下，仅此准星点预测能够击穿，目标等效474毫米；面板炮弹穿深557毫米。非实射、非击杀，不代表整区必穿。",
+              "kind": "conditional",
+              "caseId": "sw_strv_122b_plss:BV1uy411v7ss:1035269699:preview",
+              "sourceUrl": "https://www.bilibili.com/video/BV1uy411v7ss/",
+              "sourceTime": 1035.269699,
+              "evidence": {
+                "frameSHA256": "fccc0782ea308e50d89a06ab6a45fedc64c7fbcb2abfbd48048cf2659080e45c",
+                "nativeXY": [
+                  906,
+                  494
+                ],
+                "crop": [
+                  550,
+                  190,
+                  950,
+                  600
+                ],
+                "singlePointPrediction": true,
+                "actualShotObserved": false,
+                "QAReportPath": "artifacts/weakpoints-swedish122b-native-qa-v494-20261104/final-native-qa.json",
+                "QAReportSHA256": "620a824acd2ff4a2e9a5e252b17b2ad71f973902fabd00158b69bc33961e43e1",
+                "originalQACropBoundsUV": [
+                  0.2864583333333333,
+                  0.17592592592592593,
+                  0.78125,
+                  0.7314814814814815
+                ],
+                "coordinateDerivation": "pointUV=(nativeXY-cropOrigin)/cropSize; original QA four-value cropUV describes crop bounds, not point"
+              }
+            }
+          ]
+        }
+      ],
+      "coverageStatus": "partial-native-point-predictions",
+      "coverageNotice": "仅Strv122B PLSS本车三处单点防护预测，非完整弱点图解；不套用其他Strv122改型。",
+      "mainViewNote": "采用已核准frame1观察窗上缘单点作为主视图，原生950×600主体裁框；近正面且局部受炮管/提示框遮挡。仅历史2.37.0.91版本该点防护预测，不代表整区必穿或其他Strv122改型。"
     },
     {
       "id": "uk_challenger_2_lep",
@@ -26949,7 +27628,35 @@
       "rank": 8,
       "era": "modern",
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.3057142857142857,
+          "y": 0.2923076923076923,
+          "label": "炮盾中央偏画面左侧",
+          "detail": "黑夜本车L27A1、500米条件下，仅此准星点预测能够击穿，目标等效239毫米；面板炮弹穿深557毫米。非实射、非击杀，不代表整区必穿。",
+          "kind": "conditional",
+          "caseId": "uk_challenger_2_bn:BV1PE4m1d7z2:182088422:preview",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PE4m1d7z2/",
+          "sourceTime": 182.088422,
+          "evidence": {
+            "frameSHA256": "f3e25e24c8c7723909e10bd5ec4340bf66247dc7681f4b6cd9a891f35fdcf0bb",
+            "nativeXY": [
+              934,
+              402
+            ],
+            "crop": [
+              720,
+              250,
+              700,
+              520
+            ],
+            "singlePointPrediction": true,
+            "actualShotObserved": false,
+            "QAReportPath": "artifacts/weakpoints-challenger-series-native-qa-v483-20261104/final-native-qa.json",
+            "QAReportSHA256": "3d8bd78052965209babcf4429b570255d4ec7c9b7245bdd551146c7d7276cde6"
+          }
+        }
+      ],
       "videoAdvice": [
         {
           "id": "v401-uk_challenger_2_bn-author-structure",
@@ -26976,14 +27683,14 @@
         }
       ],
       "source": {
-        "url": "https://www.bilibili.com/video/BV19ZJhzkEhU/",
-        "title": "低成本延寿计划挑战者 2 黑夜《战争雷霆》〔载具简评〕",
-        "author": "克虏伯kluub",
-        "publishedAt": "2025-05-25",
+        "url": "https://www.bilibili.com/video/BV1PE4m1d7z2/",
         "kind": "video",
-        "gameVersion": null
+        "title": "【战雷干货】顶级主战防护分析-挑战者系列",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": "2.37.0.96"
       },
-      "status": "wiki-reviewed-awaiting-front-image",
+      "status": "partial-native-point-predictions",
       "wikiUrl": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-003-20261103/snapshots/uk_challenger_2_bn.json",
@@ -27005,7 +27712,7 @@
       "collectedAt": "2026-11-02T18:15:48.935Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "原文明确2018年9月首次展示Black Night技术验证车。",
       "qualitativeWeakpoints": [],
@@ -27020,8 +27727,339 @@
           "publishedAt": "2025-05-25",
           "kind": "video",
           "gameVersion": null
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1PE4m1d7z2/",
+          "kind": "video",
+          "title": "【战雷干货】顶级主战防护分析-挑战者系列",
+          "author": "成吉思汉不爱学习",
+          "publishedAt": "2024-07-29 18:00:00",
+          "gameVersion": "2.37.0.96",
+          "time": 182.088422,
+          "scopeNote": "仅原生标题确认的黑夜本车三个单点预测；作者全系概括不作为其他子型的独立位置证据"
         }
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/challenger2-front-v481-20261104/challenger-driver-preview/challenger-tiny-2/raw.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v495-20261104/uk_challenger_2_bn-mantlet-frame-proof.json",
+      "frameSnapshotSHA256": "2e8c9910a6617aa774025f014d77ea02a338c7f97dd1e531569100e23d5c2f80",
+      "captureSHA256": "f3e25e24c8c7723909e10bd5ec4340bf66247dc7681f4b6cd9a891f35fdcf0bb",
+      "originalFrameSHA256": "f3e25e24c8c7723909e10bd5ec4340bf66247dc7681f4b6cd9a891f35fdcf0bb",
+      "assetPath": "images/GBR/GBR-Challenger-2-Black-Night-mantlet-protection-preview.webp",
+      "crop": [
+        720,
+        250,
+        700,
+        520
+      ],
+      "time": 182.088422,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "native-1080p-analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceGameVersion": "2.37.0.96",
+      "sourceNoRepost": true,
+      "testCases": [
+        {
+          "id": "uk_challenger_2_bn:BV1PE4m1d7z2:182088422:preview",
+          "vehicleId": "uk_challenger_2_bn",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PE4m1d7z2/",
+          "sourceTime": 182.088422,
+          "sourceGameVersion": "2.37.0.96",
+          "attacker": "挑战者 2 黑夜",
+          "attackerVisibleTitle": "挑战者 2 黑夜",
+          "attackerVehicleId": "uk_challenger_2_bn",
+          "attackerCountry": "britain",
+          "shell": "L27A1",
+          "sourceShellLabelOriginal": "L27A1",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "uk_challenger_2_bn",
+            "officialWikiUnitId": "uk_challenger_2_bn",
+            "wikiUnitId": "uk_challenger_2_bn",
+            "url": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "sourceUrl": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "checkedAt": "2026-11-04T11:41:05.600Z",
+            "sourceHtml": "artifacts/weakpoints-challenger2f-wiki-positions-v485-20261104/uk_challenger_2_bn.html",
+            "sourceHtmlSHA256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "sourceSha256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "officialShellName": "L27A1",
+            "sourceShellLabelOriginal": "L27A1",
+            "shellType": "APFSDS",
+            "mainGun": "120 mm L30A1 cannon",
+            "gameVersion": "2.59.0.92",
+            "rawUIType": null,
+            "referenceOnly": {
+              "distanceMeters": 500,
+              "penetrationMm": 558,
+              "mustNotReplaceVideo557": true
+            },
+            "videoNative557Unchanged": true
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 557,
+          "impactAngleDegrees": 55,
+          "attackAzimuthDegrees": 0,
+          "effectiveArmorMm": 239,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "f3e25e24c8c7723909e10bd5ec4340bf66247dc7681f4b6cd9a891f35fdcf0bb",
+          "evidenceKind": "single-point-protection-preview"
+        },
+        {
+          "id": "uk_challenger_2_bn:BV1PE4m1d7z2:215026402:preview",
+          "vehicleId": "uk_challenger_2_bn",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PE4m1d7z2/",
+          "sourceTime": 215.026402,
+          "sourceGameVersion": "2.37.0.96",
+          "attacker": "挑战者 2 黑夜",
+          "attackerVisibleTitle": "挑战者 2 黑夜",
+          "attackerVehicleId": "uk_challenger_2_bn",
+          "attackerCountry": "britain",
+          "shell": "L27A1",
+          "sourceShellLabelOriginal": "L27A1",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "uk_challenger_2_bn",
+            "officialWikiUnitId": "uk_challenger_2_bn",
+            "wikiUnitId": "uk_challenger_2_bn",
+            "url": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "sourceUrl": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "checkedAt": "2026-11-04T11:41:05.600Z",
+            "sourceHtml": "artifacts/weakpoints-challenger2f-wiki-positions-v485-20261104/uk_challenger_2_bn.html",
+            "sourceHtmlSHA256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "sourceSha256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "officialShellName": "L27A1",
+            "sourceShellLabelOriginal": "L27A1",
+            "shellType": "APFSDS",
+            "mainGun": "120 mm L30A1 cannon",
+            "gameVersion": "2.59.0.92",
+            "rawUIType": null,
+            "referenceOnly": {
+              "distanceMeters": 500,
+              "penetrationMm": 558,
+              "mustNotReplaceVideo557": true
+            },
+            "videoNative557Unchanged": true
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 557,
+          "impactAngleDegrees": 79,
+          "attackAzimuthDegrees": 0,
+          "effectiveArmorMm": 132,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "4acbbe42e6ce30cbde22f8740e57549f1353bdbd2d5dafa1decab7360c4234e2",
+          "evidenceKind": "single-point-protection-preview"
+        },
+        {
+          "id": "uk_challenger_2_bn:BV1PE4m1d7z2:260113436:preview",
+          "vehicleId": "uk_challenger_2_bn",
+          "sourceUrl": "https://www.bilibili.com/video/BV1PE4m1d7z2/",
+          "sourceTime": 260.113436,
+          "sourceGameVersion": "2.37.0.96",
+          "attacker": "挑战者 2 黑夜",
+          "attackerVisibleTitle": "挑战者 2 黑夜",
+          "attackerVehicleId": "uk_challenger_2_bn",
+          "attackerCountry": "britain",
+          "shell": "L27A1",
+          "sourceShellLabelOriginal": "L27A1",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "uk_challenger_2_bn",
+            "officialWikiUnitId": "uk_challenger_2_bn",
+            "wikiUnitId": "uk_challenger_2_bn",
+            "url": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "sourceUrl": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "checkedAt": "2026-11-04T11:41:05.600Z",
+            "sourceHtml": "artifacts/weakpoints-challenger2f-wiki-positions-v485-20261104/uk_challenger_2_bn.html",
+            "sourceHtmlSHA256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "sourceSha256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "officialShellName": "L27A1",
+            "sourceShellLabelOriginal": "L27A1",
+            "shellType": "APFSDS",
+            "mainGun": "120 mm L30A1 cannon",
+            "gameVersion": "2.59.0.92",
+            "rawUIType": null,
+            "referenceOnly": {
+              "distanceMeters": 500,
+              "penetrationMm": 558,
+              "mustNotReplaceVideo557": true
+            },
+            "videoNative557Unchanged": true
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 557,
+          "impactAngleDegrees": 32,
+          "attackAzimuthDegrees": 0,
+          "effectiveArmorMm": 85,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "e98b3c4ca4f74e78e9e9bba998fca27a8b8223dba76668217b3143d0f690943f",
+          "evidenceKind": "single-point-protection-preview"
+        }
+      ],
+      "testContext": {
+        "sourceUrl": "https://www.bilibili.com/video/BV1PE4m1d7z2/",
+        "sourceTime": 182.088422,
+        "sourceGameVersion": "2.37.0.96",
+        "attacker": "挑战者 2 黑夜",
+        "attackerVisibleTitle": "挑战者 2 黑夜",
+        "attackerVehicleId": "uk_challenger_2_bn",
+        "attackerCountry": "britain",
+        "shell": "L27A1",
+        "sourceShellLabelOriginal": "L27A1",
+        "rawUIType": null,
+        "shellType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 557,
+        "impactAngleDegrees": 55,
+        "attackAzimuthDegrees": 0,
+        "effectiveArmorMm": 239,
+        "pointPrediction": "能够击穿",
+        "predictedDamage": null,
+        "actualShotObserved": false,
+        "outcome": null,
+        "actualUIObserved": true,
+        "sourceFrameSHA256": "f3e25e24c8c7723909e10bd5ec4340bf66247dc7681f4b6cd9a891f35fdcf0bb",
+        "evidenceKind": "single-point-protection-preview",
+        "caseId": "uk_challenger_2_bn:BV1PE4m1d7z2:182088422:preview"
+      },
+      "protectionEvidence": [
+        {
+          "id": "black-night-driver-hatch-preview",
+          "label": "驾驶员观察口下方车体中央·单点预测",
+          "description": "仅挑战者2黑夜本车该帧的单点防护预测，不向其他挑战者改型套用。",
+          "caption": "成吉思汉不爱学习《【战雷干货】顶级主战防护分析-挑战者系列》，2024-07-29 18:00:00，215.026402秒；历史版本2.37.0.96，挑战者2黑夜使用L27A1、500米。仅当前点预测，非实射或整区结论。",
+          "conditionNote": "原生UI557毫米；目标本点等效132毫米，入射角79°、方位0°。Wiki500米558毫米仅作独立参考，未替换原生557。",
+          "caseId": "uk_challenger_2_bn:BV1PE4m1d7z2:215026402:preview",
+          "sourceTime": 215.026402,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PE4m1d7z2/",
+          "sourceGameVersion": "2.37.0.96",
+          "assetPath": "images/GBR/GBR-Challenger-2-Black-Night-driver-hatch-protection-preview.webp",
+          "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/challenger2-front-v481-20261104/challenger-driver-preview/challenger-tiny-4/raw.png",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v495-20261104/uk_challenger_2_bn-driver-hatch-frame-proof.json",
+          "frameSnapshotSHA256": "e816db7d01ce657822bf1097123685f819e57024a5fbbf08fa90064047ce91df",
+          "crop": [
+            720,
+            250,
+            700,
+            520
+          ],
+          "view": "single-cursor-protection-preview",
+          "displayImagePolicy": "analysis-excerpt",
+          "pins": [
+            {
+              "x": 0.34285714285714286,
+              "y": 0.36730769230769234,
+              "label": "驾驶员观察口下方车体中央",
+              "detail": "黑夜本车L27A1、500米条件下，仅此准星点预测能够击穿，目标等效132毫米；面板炮弹穿深557毫米。非实射、非击杀，不代表整区必穿。",
+              "kind": "conditional",
+              "caseId": "uk_challenger_2_bn:BV1PE4m1d7z2:215026402:preview",
+              "sourceUrl": "https://www.bilibili.com/video/BV1PE4m1d7z2/",
+              "sourceTime": 215.026402,
+              "evidence": {
+                "frameSHA256": "4acbbe42e6ce30cbde22f8740e57549f1353bdbd2d5dafa1decab7360c4234e2",
+                "nativeXY": [
+                  960,
+                  441
+                ],
+                "crop": [
+                  720,
+                  250,
+                  700,
+                  520
+                ],
+                "singlePointPrediction": true,
+                "actualShotObserved": false,
+                "QAReportPath": "artifacts/weakpoints-challenger-series-native-qa-v483-20261104/final-native-qa.json",
+                "QAReportSHA256": "3d8bd78052965209babcf4429b570255d4ec7c9b7245bdd551146c7d7276cde6"
+              }
+            }
+          ]
+        },
+        {
+          "id": "black-night-lower-glacis-preview",
+          "label": "车体首下中央·单点预测",
+          "description": "仅挑战者2黑夜本车该帧的单点防护预测，不向其他挑战者改型套用。",
+          "caption": "成吉思汉不爱学习《【战雷干货】顶级主战防护分析-挑战者系列》，2024-07-29 18:00:00，260.113436秒；历史版本2.37.0.96，挑战者2黑夜使用L27A1、500米。仅当前点预测，非实射或整区结论。",
+          "conditionNote": "原生UI557毫米；目标本点等效85毫米，入射角32°、方位0°。Wiki500米558毫米仅作独立参考，未替换原生557。",
+          "caseId": "uk_challenger_2_bn:BV1PE4m1d7z2:260113436:preview",
+          "sourceTime": 260.113436,
+          "sourceUrl": "https://www.bilibili.com/video/BV1PE4m1d7z2/",
+          "sourceGameVersion": "2.37.0.96",
+          "assetPath": "images/GBR/GBR-Challenger-2-Black-Night-lower-glacis-protection-preview.webp",
+          "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/challenger2-front-v481-20261104/challenger-driver-preview/challenger-tiny-6/raw.png",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v495-20261104/uk_challenger_2_bn-lower-glacis-frame-proof.json",
+          "frameSnapshotSHA256": "bfd03b35f61029b605e1f635ad447886d097f60f2406f641170e8ea2a9274e70",
+          "crop": [
+            720,
+            250,
+            700,
+            520
+          ],
+          "view": "single-cursor-protection-preview",
+          "displayImagePolicy": "analysis-excerpt",
+          "pins": [
+            {
+              "x": 0.3457142857142857,
+              "y": 0.49423076923076925,
+              "label": "车体首下中央",
+              "detail": "黑夜本车L27A1、500米条件下，仅此准星点预测能够击穿，目标等效85毫米；面板炮弹穿深557毫米。非实射、非击杀，不代表整区必穿。",
+              "kind": "conditional",
+              "caseId": "uk_challenger_2_bn:BV1PE4m1d7z2:260113436:preview",
+              "sourceUrl": "https://www.bilibili.com/video/BV1PE4m1d7z2/",
+              "sourceTime": 260.113436,
+              "evidence": {
+                "frameSHA256": "e98b3c4ca4f74e78e9e9bba998fca27a8b8223dba76668217b3143d0f690943f",
+                "nativeXY": [
+                  962,
+                  507
+                ],
+                "crop": [
+                  720,
+                  250,
+                  700,
+                  520
+                ],
+                "singlePointPrediction": true,
+                "actualShotObserved": false,
+                "QAReportPath": "artifacts/weakpoints-challenger-series-native-qa-v483-20261104/final-native-qa.json",
+                "QAReportSHA256": "3d8bd78052965209babcf4429b570255d4ec7c9b7245bdd551146c7d7276cde6"
+              }
+            }
+          ]
+        }
+      ],
+      "coverageStatus": "partial-native-point-predictions",
+      "coverageNotice": "仅黑夜本车三处单点防护预测，非完整弱点图解；不套用其他挑战者改型。",
+      "mainViewNote": "历史2.37.0.96版本黑夜本车单点防护预测；配图参考点只对应各自当前帧，未观察实际射击或整面防御分布完成结果。"
     },
     {
       "id": "uk_challenger_2_dorchester",
@@ -27880,10 +28918,45 @@
       "rank": 7,
       "era": "modern",
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.28444444444444444,
+          "y": 0.2375,
+          "label": "炮塔座圈／炮颈中央",
+          "detail": "目标M1A2、攻击方挑战者2黑夜使用L27A1、500米条件下，仅此准星点预测能够击穿，目标等效70毫米；面板炮弹穿深557毫米。非实射、非击杀，不代表整区必穿。",
+          "kind": "conditional",
+          "caseId": "us_m1a2_abrams:BV1hx4y1s73b:251597805:preview",
+          "sourceUrl": "https://www.bilibili.com/video/BV1hx4y1s73b/",
+          "sourceTime": 251.597805,
+          "evidence": {
+            "frameSHA256": "5caaec15087653312eee3a44447d60db53d72a900f0d54c09227f9e3c5e1b361",
+            "nativeXY": [
+              956,
+              414
+            ],
+            "crop": [
+              700,
+              300,
+              900,
+              480
+            ],
+            "singlePointPrediction": true,
+            "actualShotObserved": false,
+            "QAReportPath": "artifacts/weakpoints-m1a2-native-qa-v489-20261104/final-native-qa.json",
+            "QAReportSHA256": "a0ddeaa7428443b90444963d5b2429f63773af2878cc2a7b8d456b37df07290e"
+          }
+        }
+      ],
       "videoAdvice": [],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1hx4y1s73b/",
+        "kind": "video",
+        "title": "【战雷干货】顶级主战防护分析-艾布拉姆斯",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": "2.37.0.91"
+      },
+      "status": "partial-native-point-predictions",
       "wikiUrl": "https://wiki.warthunder.com/unit/us_m1a2_abrams",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/us_m1a2_abrams.json",
@@ -27905,12 +28978,376 @@
       "collectedAt": "2026-11-02T18:22:44.797Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "原文明示1992年开始生产该改型。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "framePath": "artifacts/weakpoints-m1a2-native-qa-v489-20261104/frame-1/raw.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v495-20261104/us_m1a2_abrams-turret-neck-frame-proof.json",
+      "frameSnapshotSHA256": "fcd3a2d87eda3cde4e6dd45938f6b13fa524b5c819991b7c5819ba8556bc4c52",
+      "captureSHA256": "5caaec15087653312eee3a44447d60db53d72a900f0d54c09227f9e3c5e1b361",
+      "originalFrameSHA256": "5caaec15087653312eee3a44447d60db53d72a900f0d54c09227f9e3c5e1b361",
+      "assetPath": "images/USA/USA-M1A2-Abrams-turret-neck-protection-preview.webp",
+      "crop": [
+        700,
+        300,
+        900,
+        480
+      ],
+      "time": 251.597805,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "native-1080p-analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceGameVersion": "2.37.0.91",
+      "sourceNoRepost": true,
+      "testCases": [
+        {
+          "id": "us_m1a2_abrams:BV1hx4y1s73b:251597805:preview",
+          "vehicleId": "us_m1a2_abrams",
+          "sourceUrl": "https://www.bilibili.com/video/BV1hx4y1s73b/",
+          "sourceTime": 251.597805,
+          "sourceGameVersion": "2.37.0.91",
+          "attacker": "[11.7] 挑战者 2 黑夜",
+          "attackerVisibleTitle": "[11.7] 挑战者 2 黑夜",
+          "attackerVehicleId": "uk_challenger_2_bn",
+          "attackerCountry": "britain",
+          "shell": "L27A1",
+          "sourceShellLabelOriginal": "L27A1",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "uk_challenger_2_bn",
+            "officialWikiUnitId": "uk_challenger_2_bn",
+            "wikiUnitId": "uk_challenger_2_bn",
+            "url": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "sourceUrl": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "checkedAt": "2026-11-04T11:41:05.600Z",
+            "sourceHtml": "artifacts/weakpoints-challenger2f-wiki-positions-v485-20261104/uk_challenger_2_bn.html",
+            "sourceHtmlSHA256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "sourceSha256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "officialShellName": "L27A1",
+            "sourceShellLabelOriginal": "L27A1",
+            "shellType": "APFSDS",
+            "mainGun": "120 mm L30A1 cannon",
+            "gameVersion": "2.59.0.92",
+            "rawUIType": null,
+            "referenceOnly": {
+              "distanceMeters": 500,
+              "penetrationMm": 558,
+              "mustNotReplaceVideo557": true
+            },
+            "videoNative557Unchanged": true
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 557,
+          "impactAngleDegrees": 3,
+          "attackAzimuthDegrees": 0,
+          "effectiveArmorMm": 70,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "油箱",
+            "炮闩",
+            "车长",
+            "高低机",
+            "发动机",
+            "装填手",
+            "方向机",
+            "炮手"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "5caaec15087653312eee3a44447d60db53d72a900f0d54c09227f9e3c5e1b361",
+          "evidenceKind": "single-point-protection-preview"
+        },
+        {
+          "id": "us_m1a2_abrams:BV1hx4y1s73b:316534406:preview",
+          "vehicleId": "us_m1a2_abrams",
+          "sourceUrl": "https://www.bilibili.com/video/BV1hx4y1s73b/",
+          "sourceTime": 316.534406,
+          "sourceGameVersion": "2.37.0.91",
+          "attacker": "[11.7] 挑战者 2 黑夜",
+          "attackerVisibleTitle": "[11.7] 挑战者 2 黑夜",
+          "attackerVehicleId": "uk_challenger_2_bn",
+          "attackerCountry": "britain",
+          "shell": "L27A1",
+          "sourceShellLabelOriginal": "L27A1",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "uk_challenger_2_bn",
+            "officialWikiUnitId": "uk_challenger_2_bn",
+            "wikiUnitId": "uk_challenger_2_bn",
+            "url": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "sourceUrl": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "checkedAt": "2026-11-04T11:41:05.600Z",
+            "sourceHtml": "artifacts/weakpoints-challenger2f-wiki-positions-v485-20261104/uk_challenger_2_bn.html",
+            "sourceHtmlSHA256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "sourceSha256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "officialShellName": "L27A1",
+            "sourceShellLabelOriginal": "L27A1",
+            "shellType": "APFSDS",
+            "mainGun": "120 mm L30A1 cannon",
+            "gameVersion": "2.59.0.92",
+            "rawUIType": null,
+            "referenceOnly": {
+              "distanceMeters": 500,
+              "penetrationMm": 558,
+              "mustNotReplaceVideo557": true
+            },
+            "videoNative557Unchanged": true
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 557,
+          "impactAngleDegrees": 76,
+          "attackAzimuthDegrees": 0,
+          "effectiveArmorMm": 247,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "炮手",
+            "方向机",
+            "履带"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "ac8a68a00fea87a8ec6322d2fc4ab8fc56a882ed975f0e4d74af78561a557cd8",
+          "evidenceKind": "single-point-protection-preview"
+        },
+        {
+          "id": "us_m1a2_abrams:BV1hx4y1s73b:353384034:preview",
+          "vehicleId": "us_m1a2_abrams",
+          "sourceUrl": "https://www.bilibili.com/video/BV1hx4y1s73b/",
+          "sourceTime": 353.384034,
+          "sourceGameVersion": "2.37.0.91",
+          "attacker": "[11.7] 挑战者 2 黑夜",
+          "attackerVisibleTitle": "[11.7] 挑战者 2 黑夜",
+          "attackerVehicleId": "uk_challenger_2_bn",
+          "attackerCountry": "britain",
+          "shell": "L27A1",
+          "sourceShellLabelOriginal": "L27A1",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "uk_challenger_2_bn",
+            "officialWikiUnitId": "uk_challenger_2_bn",
+            "wikiUnitId": "uk_challenger_2_bn",
+            "url": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "sourceUrl": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "checkedAt": "2026-11-04T11:41:05.600Z",
+            "sourceHtml": "artifacts/weakpoints-challenger2f-wiki-positions-v485-20261104/uk_challenger_2_bn.html",
+            "sourceHtmlSHA256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "sourceSha256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "officialShellName": "L27A1",
+            "sourceShellLabelOriginal": "L27A1",
+            "shellType": "APFSDS",
+            "mainGun": "120 mm L30A1 cannon",
+            "gameVersion": "2.59.0.92",
+            "rawUIType": null,
+            "referenceOnly": {
+              "distanceMeters": 500,
+              "penetrationMm": 558,
+              "mustNotReplaceVideo557": true
+            },
+            "videoNative557Unchanged": true
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 557,
+          "impactAngleDegrees": 42,
+          "attackAzimuthDegrees": 1,
+          "effectiveArmorMm": 412,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "履带",
+            "油箱",
+            "车长观瞄设备",
+            "传动机构",
+            "发动机",
+            "装填手",
+            "方向机",
+            "高低机"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "2168f22d4d11c3098bf4e34677c65489c473e4b366df37479f5a8bf367185bb0",
+          "evidenceKind": "single-point-protection-preview"
+        }
+      ],
+      "testContext": {
+        "sourceUrl": "https://www.bilibili.com/video/BV1hx4y1s73b/",
+        "sourceTime": 251.597805,
+        "sourceGameVersion": "2.37.0.91",
+        "attacker": "[11.7] 挑战者 2 黑夜",
+        "attackerVisibleTitle": "[11.7] 挑战者 2 黑夜",
+        "attackerVehicleId": "uk_challenger_2_bn",
+        "attackerCountry": "britain",
+        "shell": "L27A1",
+        "sourceShellLabelOriginal": "L27A1",
+        "rawUIType": null,
+        "shellType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 557,
+        "impactAngleDegrees": 3,
+        "attackAzimuthDegrees": 0,
+        "effectiveArmorMm": 70,
+        "pointPrediction": "能够击穿",
+        "predictedDamage": [
+          "油箱",
+          "炮闩",
+          "车长",
+          "高低机",
+          "发动机",
+          "装填手",
+          "方向机",
+          "炮手"
+        ],
+        "actualShotObserved": false,
+        "outcome": null,
+        "actualUIObserved": true,
+        "sourceFrameSHA256": "5caaec15087653312eee3a44447d60db53d72a900f0d54c09227f9e3c5e1b361",
+        "evidenceKind": "single-point-protection-preview",
+        "caseId": "us_m1a2_abrams:BV1hx4y1s73b:251597805:preview"
+      },
+      "protectionEvidence": [
+        {
+          "id": "m1a2-upper-glacis-preview",
+          "label": "车体首上靠画面左侧炮塔下方·单点预测",
+          "description": "仅挑战者2M1A2本车该帧的单点防护预测，不向其他M1改型套用。",
+          "caption": "成吉思汉不爱学习《【战雷干货】顶级主战防护分析-艾布拉姆斯》，2024-07-29 18:00:00，316.534406秒；历史版本2.37.0.91，攻击方挑战者2黑夜使用L27A1、500米。仅当前点预测，非实射或整区结论。",
+          "conditionNote": "原生UI557毫米；目标本点等效247毫米，入射角76°、方位0°。Wiki500米558毫米仅作独立参考，未替换原生557。",
+          "caseId": "us_m1a2_abrams:BV1hx4y1s73b:316534406:preview",
+          "sourceTime": 316.534406,
+          "sourceUrl": "https://www.bilibili.com/video/BV1hx4y1s73b/",
+          "sourceGameVersion": "2.37.0.91",
+          "assetPath": "images/USA/USA-M1A2-Abrams-upper-glacis-protection-preview.webp",
+          "framePath": "artifacts/weakpoints-m1a2-native-qa-v489-20261104/frame-3/raw.png",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v495-20261104/us_m1a2_abrams-upper-glacis-frame-proof.json",
+          "frameSnapshotSHA256": "740f26e0fc064691b21bee0b6a11f11ff26d14e00931a5243ecf67f17cb3ac55",
+          "crop": [
+            700,
+            300,
+            900,
+            480
+          ],
+          "view": "single-cursor-protection-preview",
+          "displayImagePolicy": "analysis-excerpt",
+          "pins": [
+            {
+              "x": 0.14555555555555555,
+              "y": 0.275,
+              "label": "车体首上靠画面左侧炮塔下方",
+              "detail": "目标M1A2、攻击方挑战者2黑夜使用L27A1、500米条件下，仅此准星点预测能够击穿，目标等效247毫米；面板炮弹穿深557毫米。非实射、非击杀，不代表整区必穿。",
+              "kind": "conditional",
+              "caseId": "us_m1a2_abrams:BV1hx4y1s73b:316534406:preview",
+              "sourceUrl": "https://www.bilibili.com/video/BV1hx4y1s73b/",
+              "sourceTime": 316.534406,
+              "evidence": {
+                "frameSHA256": "ac8a68a00fea87a8ec6322d2fc4ab8fc56a882ed975f0e4d74af78561a557cd8",
+                "nativeXY": [
+                  831,
+                  432
+                ],
+                "crop": [
+                  700,
+                  300,
+                  900,
+                  480
+                ],
+                "singlePointPrediction": true,
+                "actualShotObserved": false,
+                "QAReportPath": "artifacts/weakpoints-m1a2-native-qa-v489-20261104/final-native-qa.json",
+                "QAReportSHA256": "a0ddeaa7428443b90444963d5b2429f63773af2878cc2a7b8d456b37df07290e"
+              }
+            }
+          ]
+        },
+        {
+          "id": "m1a2-lower-glacis-preview",
+          "label": "车体首下画面右侧单点·单点预测",
+          "description": "仅挑战者2M1A2本车该帧的单点防护预测，不向其他M1改型套用。",
+          "caption": "成吉思汉不爱学习《【战雷干货】顶级主战防护分析-艾布拉姆斯》，2024-07-29 18:00:00，353.384034秒；历史版本2.37.0.91，攻击方挑战者2黑夜使用L27A1、500米。仅当前点预测，非实射或整区结论。",
+          "conditionNote": "原生UI557毫米；目标本点等效412毫米，入射角42°、方位1°。Wiki500米558毫米仅作独立参考，未替换原生557。",
+          "caseId": "us_m1a2_abrams:BV1hx4y1s73b:353384034:preview",
+          "sourceTime": 353.384034,
+          "sourceUrl": "https://www.bilibili.com/video/BV1hx4y1s73b/",
+          "sourceGameVersion": "2.37.0.91",
+          "assetPath": "images/USA/USA-M1A2-Abrams-lower-glacis-protection-preview.webp",
+          "framePath": "artifacts/weakpoints-m1a2-native-qa-v489-20261104/frame-5/raw.png",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v495-20261104/us_m1a2_abrams-lower-glacis-frame-proof.json",
+          "frameSnapshotSHA256": "7e5869198789904a254493b070a4b3cb513832387132e9632283a8132765cd4f",
+          "crop": [
+            700,
+            300,
+            900,
+            480
+          ],
+          "view": "single-cursor-protection-preview",
+          "displayImagePolicy": "analysis-excerpt",
+          "pins": [
+            {
+              "x": 0.37444444444444447,
+              "y": 0.38125,
+              "label": "车体首下画面右侧单点",
+              "detail": "目标M1A2、攻击方挑战者2黑夜使用L27A1、500米条件下，仅此准星点预测能够击穿，目标等效412毫米；面板炮弹穿深557毫米。非实射、非击杀，不代表整区必穿。",
+              "kind": "conditional",
+              "caseId": "us_m1a2_abrams:BV1hx4y1s73b:353384034:preview",
+              "sourceUrl": "https://www.bilibili.com/video/BV1hx4y1s73b/",
+              "sourceTime": 353.384034,
+              "evidence": {
+                "frameSHA256": "2168f22d4d11c3098bf4e34677c65489c473e4b366df37479f5a8bf367185bb0",
+                "nativeXY": [
+                  1037,
+                  483
+                ],
+                "crop": [
+                  700,
+                  300,
+                  900,
+                  480
+                ],
+                "singlePointPrediction": true,
+                "actualShotObserved": false,
+                "QAReportPath": "artifacts/weakpoints-m1a2-native-qa-v489-20261104/final-native-qa.json",
+                "QAReportSHA256": "a0ddeaa7428443b90444963d5b2429f63773af2878cc2a7b8d456b37df07290e"
+              }
+            }
+          ]
+        }
+      ],
+      "coverageStatus": "partial-native-point-predictions",
+      "coverageNotice": "仅M1A2本车三处单点防护预测，非完整弱点图解；不套用其他M1改型。",
+      "mainViewNote": "历史2.37.0.91版本M1A2本车单点防护预测；配图参考点只对应各自当前帧，未观察实际射击或整面防御分布完成结果。",
+      "relatedSources": [
+        {
+          "url": "https://www.bilibili.com/video/BV1hx4y1s73b/",
+          "kind": "video",
+          "title": "【战雷干货】顶级主战防护分析-艾布拉姆斯",
+          "author": "成吉思汉不爱学习",
+          "publishedAt": "2024-07-29 18:00:00",
+          "gameVersion": "2.37.0.91",
+          "time": 251.597805,
+          "scopeNote": "仅原生标题确认的M1A2本车三个单点预测；作者全系概括不作为其他M1子型的独立位置证据"
+        }
       ]
     },
     {
@@ -31611,7 +33048,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 66,
+    "illustratedCount": 70,
     "countries": [
       {
         "country": "usa",
@@ -31747,14 +33184,14 @@
     "lastUpdated": "2026-11-04",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 64,
+    "illustratedTargetCount": 68,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,
     "supplementalWikiReviewedCount": 4,
     "supplementalIllustratedCount": 1,
     "completeSupplementalIllustratedCount": 1,
-    "lastUpdatedAt": "2026-11-04T11:17:39.818907+00:00"
+    "lastUpdatedAt": "2026-11-04T12:22:07.644797+00:00"
   },
   "countries": [
     {
