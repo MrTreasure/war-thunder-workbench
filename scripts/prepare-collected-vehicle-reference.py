@@ -59,7 +59,8 @@ def main():
         try:
             cached = parsed_dir / (uid + '.json')
             value = json.loads(cached.read_text()) if cached.exists() else None
-            if not value or any(value.get(field,{}).get('parserVersion') != reference.PARSER_VERSION or value.get(field,{}).get('htmlSha256') != proof['sha256'] for field in ('performance','loadouts')):
+            combat_missing = category == 'ground' and value and value.get('performance',{}).get('groundCombat',{}).get('parserVersion') != reference.GROUND_COMBAT_VERSION
+            if not value or combat_missing or any(value.get(field,{}).get('parserVersion') != reference.PARSER_VERSION or value.get(field,{}).get('htmlSha256') != proof['sha256'] for field in ('performance','loadouts')):
                 value = reference.parse_reference(raw,uid,category,proof)
                 atomic(cached,value)
             patch[uid] = value

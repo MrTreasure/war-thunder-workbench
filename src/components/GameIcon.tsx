@@ -8,6 +8,7 @@ export type GameIconName =
   | "route"
   | "store"
   | "external"
+  | "compare"
   | "close";
 /** Game symbols retain their original official CDN source. Navigation glyphs are structural UI. */
 export function GameIcon({ name, className = "" }: { name: GameIconName; className?: string }) {
@@ -48,7 +49,11 @@ export function GameIcon({ name, className = "" }: { name: GameIconName; classNa
       aria-hidden="true"
       focusable="false"
     >
-      {name === "close" ? (
+      {name === "compare" ? (
+        <>
+          <path d="M4 5h4v11H4zM12 3h4v13h-4zM2 18h16" />
+        </>
+      ) : name === "close" ? (
         <path d="m5 5 10 10M15 5 5 15" />
       ) : name === "external" ? (
         <>

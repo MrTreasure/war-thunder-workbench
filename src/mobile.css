@@ -3411,6 +3411,29 @@
 }
 
 /* Vehicle performance and loadout dossier: one vertical scroller, contained horizontal tables. */
+@media (max-height: 620px) {
+  .wt-vehicle-compare-table thead th { position: static; top: auto; }
+  .wt-vehicle-compare-table thead th:first-child { position: sticky; left: 0; top: auto; }
+}
+@media (max-width: 800px) {
+  .calculator.wt-vehicle-compare-modal { width: calc(100vw - 16px); height: calc(100dvh - 16px); max-height: calc(100dvh - 16px); }
+  .wt-vehicle-compare-toolbar { gap: 10px; padding: 12px; }
+  .wt-vehicle-compare-toolbar > div:first-child { flex-basis: 100%; }
+  .wt-vehicle-compare-toolbar .wt-game-tabs { margin-right: auto; }
+  .wt-vehicle-compare-toolbar .wt-game-tabs > button, .wt-vehicle-compare-toolbar .wt-game-button { min-height: 44px; padding-inline: 12px; font-size: 12px; }
+  .wt-vehicle-compare-note { padding: 0 12px 10px; font-size: 11px; }
+  .wt-vehicle-compare-table th:first-child { width: 130px; }
+  .wt-vehicle-compare-table th, .wt-vehicle-compare-table td { padding: 10px; }
+  .wt-vehicle-compare-check { min-height: 44px; }
+  .wt-vehicle-compare-body > .calc-note { padding: 8px 12px; font-size: 11px; }
+  .wt-ground-combat { margin-top: 20px; padding-top: 18px; }
+  .wt-ground-shell-select { display: grid; gap: 8px; }
+  .wt-ground-shell-select .wt-select { width: 100%; max-width: none; min-width: 0; }
+  .wt-ground-shell-select .wt-select, .wt-ground-shell-button { min-height: 44px; }
+  .wt-ground-shell-parameters { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+  .wt-ground-shell-detail { padding: 12px; }
+  .wt-vehicle-compare-trigger { min-height: 44px; }
+}
 @media (max-width: 800px) {
   .calculator.vehicle-detail-dialog[open] {
     display: grid;

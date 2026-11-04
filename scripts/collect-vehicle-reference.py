@@ -130,6 +130,9 @@ def main():
             return (value.get('parserVersion') == 'wiki-performance-loadouts-v3' and value.get('status') in ('available', 'none', 'not_provided', 'not_applicable') and value.get('checkedAt') and value.get('htmlSha256'))
         category = categories[uid]
         complete_reference = reference_complete(performance) and (category not in ('aviation','helicopters') or reference_complete(loadouts))
+        if category == 'ground':
+            combat = performance.get('groundCombat', {})
+            complete_reference = complete_reference and combat.get('parserVersion') == 'wiki-ground-combat-v1' and combat.get('status') in ('available','not_provided')
         if complete_reference and complete_layout and reward.get('rp') and reward.get('sl') and (row.get('itemCostsComplete') or row.get('status') == 'unavailable'):
             complete_ids.add(uid)
     priority = ['ussr_buk_m3_fcs' , 'germ_pzkpfw_iv_ausf_e', 'germ_pzkpfw_maus', 'germ_leopard_2a7v', 'ussr_t_80ud']
@@ -169,7 +172,7 @@ def main():
             state['sources'][key] = proof
             reused += 1
     state['reusedVerifiedSnapshots'] = state.get('reusedVerifiedSnapshots', 0) + reused
-    state['includes'] = ['modifications','modificationPresentation','rpRewards','slRewards','stockSpadedPerformanceABRB','crewEndpoints','aircraftLoadouts']
+    state['includes'] = ['modifications','modificationPresentation','rpRewards','slRewards','stockSpadedPerformanceABRB','crewEndpoints','aircraftLoadouts','groundArmor','groundAmmunition']
     pending = []
     for entry in queue:
         kind, uid, _ = entry

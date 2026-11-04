@@ -1,4 +1,12 @@
 import { vehicleStore } from "./vehicle-store";
+import { VehicleComparison } from "./VehicleComparison";
+import {
+  addComparedVehicle,
+  comparedVehicleKey,
+  removeComparedVehicles,
+  VEHICLE_COMPARE_LIMIT,
+} from "./vehicle-compare";
+import type { ComparedVehicle } from "./vehicle-compare";
 import { Chevron } from "./components/Chevron";
 import { useAccountWorkspace } from "./workspace-context";
 import { vehicleDisplayName } from "./vehicle-display-name";
@@ -195,10 +203,20 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   }, [zoom, autoZoom]);
   const [locate, setLocate] = useState(0);
   const [modal, setModal] = useState<"parts" | "vehicle" | "cart" | "image" | null>(null);
+  const [comparedVehicles, setComparedVehicles] = useState<ComparedVehicle[]>([]);
+  const [comparisonOpen, setComparisonOpen] = useState(false);
+  const comparisonEntries = comparedVehicles.map((entry) => {
+    const payload = vehicleStore.getCountry(entry.country)?.value;
+    const fresh = payload
+      ? indexTree(payload.trees[entry.category] || null).units.get(entry.unit.id)
+      : null;
+    return fresh && fresh !== entry.unit ? { ...entry, unit: fresh } : entry;
+  });
   const preferenceSearch = useRef(location.search);
   useEffect(() => {
     function restoreRoute() {
       setModal(null);
+      setComparisonOpen(false);
       setMobileToolsOpen(false);
       const next = initialSelection(
         bootstrap.countries,
@@ -212,6 +230,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
     }
     const routeChange = () => {
       setModal(null);
+      setComparisonOpen(false);
       setMobileToolsOpen(false);
       if (location.search !== preferenceSearch.current) {
         preferenceSearch.current = location.search;
@@ -614,6 +633,16 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
               >
                 {allOpen ? "收起折叠组" : "展开折叠组"}
               </button>
+              <button
+                className="quiet-button wt-vehicle-compare-trigger"
+                onClick={() => setComparisonOpen(true)}
+                aria-haspopup="dialog"
+              >
+                载具对比{" "}
+                <span className="cart-badge">
+                  {comparedVehicles.length} / {VEHICLE_COMPARE_LIMIT}
+                </span>
+              </button>
               <div className="zoom-control">
                 <button
                   aria-label="缩小"
@@ -828,6 +857,18 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
               onVehicle={() => setModal("vehicle")}
               onParts={openParts}
               onSelect={setSelected}
+              onCompare={
+                !comparedVehicles.length || comparedVehicles[0].category === category
+                  ? () =>
+                      setComparedVehicles((old) =>
+                        addComparedVehicle(old, { unit, country, category }),
+                      )
+                  : undefined
+              }
+              comparisonAdded={comparedVehicles.some(
+                (entry) => comparedVehicleKey(entry) === `${country}:${unit.id}`,
+              )}
+              comparisonFull={comparedVehicles.length >= VEHICLE_COMPARE_LIMIT}
             />
           </Modal>
         )}
@@ -873,6 +914,15 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
           remove={remove}
           error={cartError || cartStorageError}
           close={() => setModal(null)}
+        />
+      )}
+      {comparisonOpen && (
+        <VehicleComparison
+          entries={comparisonEntries}
+          catalog={P}
+          initialMode={mode === "ab" ? "ab" : "rb"}
+          close={() => setComparisonOpen(false)}
+          onRemove={(keys) => setComparedVehicles((old) => removeComparedVehicles(old, keys))}
         />
       )}
     </div>

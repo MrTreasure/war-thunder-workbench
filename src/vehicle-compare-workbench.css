@@ -1,0 +1,390 @@
+/* finesse · component: vehicle-compare-workbench · register=product
+ * states: default · hover · focus-visible · active · disabled · empty · unknown · selected
+ * tokens: inherited --wt hangar surfaces, typography and semantic colors */
+.wt-ground-combat {
+  margin-top: 28px;
+  border-top: 1px solid var(--wt-line);
+  padding-top: 22px;
+}
+.wt-ground-section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 0 0 12px;
+}
+.wt-ground-section-heading h3,
+.wt-ground-section-heading h4 {
+  margin: 0;
+  color: var(--wt-ink);
+  font-size: 15px;
+}
+.wt-ground-section-heading > span {
+  font-size: 12px;
+  color: var(--wt-muted);
+}
+.wt-ground-weapon {
+  margin: 18px 0 24px;
+  min-width: 0;
+}
+.wt-ground-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--wt-line);
+  scrollbar-width: thin;
+}
+.wt-ground-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--wt-body);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.wt-ground-table th,
+.wt-ground-table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--wt-line);
+  text-align: right;
+  vertical-align: middle;
+}
+.wt-ground-table thead th {
+  background: var(--wt-panel);
+  font-weight: 500;
+  color: var(--wt-muted);
+}
+.wt-ground-table th:first-child {
+  text-align: left;
+}
+.wt-ground-table tbody th {
+  font-weight: 500;
+  color: var(--wt-ink);
+}
+.wt-ground-table small {
+  display: block;
+  color: var(--wt-muted);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+.wt-ground-ammunition-table {
+  min-width: 1100px;
+}
+.wt-ground-ammunition-table th:first-child {
+  width: 180px;
+}
+.wt-ground-ammunition-table td:nth-child(2) {
+  width: 165px;
+  text-align: left;
+}
+.wt-ground-armor-table {
+  min-width: 360px;
+}
+.wt-ground-table tr[data-selected] {
+  background: var(--wt-gold-soft);
+}
+.wt-ground-shell-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  text-align: left;
+}
+.wt-ground-shell-label > img {
+  flex: 0 0 28px;
+  object-fit: contain;
+}
+.wt-ground-shell-label > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.wt-ground-shell-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 40px;
+  padding: 4px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--wt-ink);
+  text-align: left;
+}
+.wt-ground-shell-button[aria-pressed="true"] {
+  color: var(--wt-gold);
+}
+.wt-ground-shell-button:active {
+  background: var(--wt-raised);
+}
+.wt-ground-shell-button:focus-visible,
+.wt-ground-table-scroll:focus-visible,
+.wt-vehicle-compare-scroll:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 2px;
+}
+.wt-ground-shell-detail {
+  padding: 14px;
+  border: 1px solid var(--wt-line);
+  border-top: 0;
+  background: var(--wt-panel);
+}
+.wt-ground-shell-select {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+}
+.wt-ground-shell-select .wt-select {
+  min-width: 220px;
+  max-width: 400px;
+}
+.wt-ground-shell-parameters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px 20px;
+  margin: 20px 0;
+}
+.wt-ground-shell-parameters > div {
+  min-width: 0;
+}
+.wt-ground-shell-parameters dt {
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-ground-shell-parameters dd {
+  margin: 5px 0 0;
+  color: var(--wt-ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.wt-ground-angle-table {
+  min-width: 350px;
+}
+.wt-ground-angle-table caption {
+  padding: 10px;
+  text-align: left;
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-ground-source {
+  margin-top: 20px;
+}
+.wt-ground-source a {
+  color: var(--wt-gold);
+  margin-inline-start: 6px;
+}
+.wt-vehicle-compare-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.calculator.wt-vehicle-compare-modal {
+  width: min(1560px, calc(100vw - 32px));
+  height: min(900px, calc(100dvh - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+}
+.calculator.wt-vehicle-compare-modal[open] {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+.wt-vehicle-compare-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+.wt-vehicle-compare-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+  padding: 16px 22px 10px;
+}
+.wt-vehicle-compare-toolbar > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-right: auto;
+  font-size: 13px;
+}
+.wt-vehicle-compare-toolbar > div:first-child > span {
+  color: var(--wt-muted);
+  font-family: var(--wt-mono);
+}
+.wt-vehicle-compare-toolbar .wt-game-button {
+  min-height: 40px;
+}
+.wt-vehicle-compare-note {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0 22px 14px;
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--wt-muted);
+}
+.wt-vehicle-compare-scroll {
+  min-height: 0;
+  min-width: 0;
+  flex: 1;
+  overflow: auto;
+  scrollbar-width: thin;
+  border-top: 1px solid var(--wt-line);
+}
+.wt-vehicle-compare-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.wt-vehicle-compare-table th,
+.wt-vehicle-compare-table td {
+  padding: 12px 16px;
+  border-right: 1px solid var(--wt-line);
+  border-bottom: 1px solid var(--wt-line);
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+.wt-vehicle-compare-table th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  width: 180px;
+  background: var(--wt-surface);
+  text-align: left;
+  color: var(--wt-body);
+  font-weight: 500;
+}
+.wt-vehicle-compare-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: var(--wt-panel);
+}
+.wt-vehicle-compare-table thead th:first-child {
+  z-index: 4;
+}
+.wt-vehicle-compare-table td {
+  background: var(--wt-surface);
+  color: var(--wt-ink);
+}
+.wt-vehicle-compare-table td[data-baseline] {
+  background: var(--wt-gold-soft);
+}
+.wt-vehicle-compare-table td strong {
+  font-weight: 500;
+}
+.wt-vehicle-compare-table td small,
+.wt-vehicle-compare-table th > small {
+  display: block;
+  color: var(--wt-muted);
+  font-size: 11px;
+  margin-top: 5px;
+  line-height: 1.5;
+}
+.wt-vehicle-compare-table td[data-trend="better"] .wt-vehicle-compare-delta {
+  color: var(--wt-accent);
+}
+.wt-vehicle-compare-table td[data-trend="worse"] .wt-vehicle-compare-delta {
+  color: var(--wt-gold);
+}
+.wt-vehicle-compare-table .wt-vehicle-compare-section th {
+  position: static;
+  width: auto;
+  background: var(--wt-panel);
+  padding: 12px 16px;
+  color: var(--wt-gold);
+}
+.wt-vehicle-compare-section th > span {
+  display: inline-block;
+  margin-right: 24px;
+}
+.wt-vehicle-compare-column-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.wt-vehicle-compare-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 4px 0;
+  cursor: pointer;
+  color: var(--wt-body);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.wt-vehicle-compare-check input {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--wt-gold);
+}
+.wt-vehicle-compare-baseline {
+  display: inline-block;
+  padding: 4px 9px;
+  background: var(--wt-gold-soft);
+  color: var(--wt-gold);
+  border: 1px solid var(--wt-gold-line);
+  font-size: 11px;
+  font-weight: 500;
+}
+.wt-vehicle-compare-country {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--wt-muted);
+}
+.wt-vehicle-compare-country img {
+  object-fit: contain;
+}
+.wt-vehicle-compare-angle {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--wt-muted);
+  font-size: 12px;
+  font-weight: 400;
+  vertical-align: middle;
+}
+.wt-vehicle-compare-angle .wt-select {
+  width: 150px;
+}
+.wt-vehicle-compare-table .wt-select {
+  min-width: 0;
+  max-width: 100%;
+}
+.wt-vehicle-compare-empty {
+  padding: 48px 24px;
+  margin: auto;
+  max-width: 560px;
+  text-align: center;
+  color: var(--wt-muted);
+  line-height: 1.8;
+}
+.wt-vehicle-compare-empty h3 {
+  margin-top: 0;
+  color: var(--wt-ink);
+  font-size: 20px;
+}
+.wt-vehicle-compare-body > .calc-note {
+  padding: 10px 22px;
+  margin: 0;
+  flex-shrink: 0;
+}
+@media (hover: hover) and (pointer: fine) {
+  .wt-ground-shell-button:hover {
+    background: var(--wt-raised);
+  }
+  .wt-vehicle-compare-check:hover {
+    color: var(--wt-gold);
+  }
+}

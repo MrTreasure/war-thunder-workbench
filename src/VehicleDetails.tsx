@@ -14,6 +14,7 @@ import { GameTabs, type GameTab } from "./components/GameTabs";
 import { VehicleSaleCartAction } from "./VehicleSaleCartAction";
 import { LoadoutRecommendations } from "./LoadoutRecommendations";
 import { hasConfigurableLoadout } from "./loadouts";
+import { VehicleGroundCombat } from "./VehicleGroundCombat";
 type DetailTab =
   | "tags"
   | "performance"
@@ -33,6 +34,9 @@ export function VehicleDetails({
   onVehicle,
   onParts,
   onSelect,
+  onCompare,
+  comparisonAdded = false,
+  comparisonFull = false,
 }: {
   unit: Vehicle;
   catalog: Catalog;
@@ -44,6 +48,9 @@ export function VehicleDetails({
   onVehicle: () => void;
   onParts: () => void;
   onSelect: (id: string) => void;
+  onCompare?: () => void;
+  comparisonAdded?: boolean;
+  comparisonFull?: boolean;
 }) {
   const [choice, setChoice] = useState<{ id: string; tab: DetailTab } | null>(null);
   const [resolved, setResolved] = useState<{ id: string; count: number } | null>(null);
@@ -129,6 +136,15 @@ export function VehicleDetails({
             <GameButton icon="performance" onClick={onParts}>
               研发配件
             </GameButton>
+            {onCompare && (
+              <GameButton
+                icon="compare"
+                onClick={onCompare}
+                disabled={comparisonAdded || comparisonFull}
+              >
+                {comparisonAdded ? "已加入对比" : comparisonFull ? "对比已满（5辆）" : "加入对比"}
+              </GameButton>
+            )}
             <VehicleSaleCartAction
               key={`${country}:${category}:${unit.id}`}
               unit={unit}
@@ -185,14 +201,19 @@ export function VehicleDetails({
             (!ready ? (
               <output className="wt-detail-pending">正在读取载具标签…</output>
             ) : ["performance", "statistics"].includes(item.value) ? (
-              <VehiclePerformance
-                key={unit.id}
-                unit={unit}
-                category={category}
-                view={item.value === "statistics" ? "table" : "chart"}
-                comparisonMode={performanceMode}
-                onModeChange={setPerformanceMode}
-              />
+              <>
+                <VehiclePerformance
+                  key={unit.id}
+                  unit={unit}
+                  category={category}
+                  view={item.value === "statistics" ? "table" : "chart"}
+                  comparisonMode={performanceMode}
+                  onModeChange={setPerformanceMode}
+                />
+                {item.value === "statistics" && category === "ground" && (
+                  <VehicleGroundCombat key={unit.id} unit={unit} />
+                )}
+              </>
             ) : item.value === "loadouts" ? (
               <VehicleLoadouts unit={unit} />
             ) : item.value === "recommendations" ? (

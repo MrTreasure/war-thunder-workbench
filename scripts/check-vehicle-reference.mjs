@@ -77,6 +77,54 @@ export function checkVehicleReference(vehicles) {
           }
         }
       }
+      if (data.groundCombat) {
+        const combat = data.groundCombat;
+        source(combat, id);
+        assert.equal(combat.parserVersion, "wiki-ground-combat-v1");
+        assert(statuses.includes(combat.armorStatus));
+        assert(statuses.includes(combat.weaponsStatus));
+        unique(combat.armor, "id");
+        unique(combat.weapons, "id");
+        for (const row of combat.armor) {
+          assert(["hull", "turret"].includes(row.id));
+          for (const field of ["label", "front", "side", "rear"]) text(row[field]);
+        }
+        for (const weapon of combat.weapons) {
+          text(weapon.id);
+          text(weapon.name);
+          nonnegativeOrNull(weapon.ammunition);
+          unique(weapon.shells, "id");
+          for (const shell of weapon.shells) {
+            text(shell.id);
+            text(shell.name);
+            text(shell.type);
+            for (const field of ["caliberMm", "velocityMps", "massKg", "tntKg"])
+              nonnegativeOrNull(shell[field]);
+            if (shell.imageUrl)
+              assert.match(
+                shell.imageUrl,
+                /^https:\/\/static\.encyclopedia\.warthunder\.com\/gui_skin\/[a-zA-Z0-9_.-]+$/,
+              );
+            unique(shell.parameters, "id");
+            for (const parameter of shell.parameters) {
+              text(parameter.id);
+              text(parameter.label);
+              text(parameter.value);
+            }
+            for (const point of [...shell.penetration, ...shell.penetrationAngles]) {
+              assert(Number.isFinite(point.distanceM) && point.distanceM >= 0);
+              nonnegativeOrNull(point.mm);
+              if ("angleDeg" in point)
+                assert(
+                  Number.isFinite(point.angleDeg) && point.angleDeg >= 0 && point.angleDeg <= 90,
+                );
+            }
+          }
+        }
+        if (combat.armorStatus === "available") assert(combat.armor.length > 0);
+        if (combat.weaponsStatus === "available")
+          assert(combat.weapons.some((weapon) => weapon.shells.length > 0));
+      }
       performance++;
     }
     if (details.loadouts) {
