@@ -3959,7 +3959,7 @@
         "publishedAt": "2025-12-12T18:28:48+08:00",
         "gameVersion": "2.51.0.65"
       },
-      "status": "pending-specific-recommendation",
+      "status": "partial-native-point-predictions",
       "collectedAt": "2026-11-02",
       "weaknessEvidenceStatus": "pending-specific-recommendation",
       "country": "ussr",
@@ -4044,6 +4044,17 @@
           "publishedAt": "2025-05-28T15:15:00+00:00",
           "time": null,
           "scopeNote": "作者归因文字；非独立试射，原文私有归档。"
+        },
+        {
+          "kind": "video",
+          "url": "https://www.bilibili.com/video/BV12w411P7LL/",
+          "title": "各类IS的装甲弱点",
+          "author": "爱吃西瓜的恶小魂",
+          "publishedAt": "2023-11-25 10:00:00",
+          "time": 935.520832,
+          "gameVersion": "2.31.1.50",
+          "scopeNote": "仅本帧M431单点预测；同源DM502负例显示无法造成致命伤害，不支持口述HESH超压或必杀",
+          "sourceNoRepost": true
         }
       ],
       "testCases": [
@@ -4075,6 +4086,60 @@
           "shellTypeCode": "APCBC",
           "shellTypeLabel": "被帽风帽穿甲弹",
           "shellTypeBasis": "existing-accepted-same-vehicle-same-shell-testContext; native UI type absent"
+        },
+        {
+          "id": "ussr_is_6:BV12w411P7LL:935520832:m431-preview",
+          "vehicleId": "ussr_is_6",
+          "sourceUrl": "https://www.bilibili.com/video/BV12w411P7LL/",
+          "sourceTime": 935.520832,
+          "sourceGameVersion": "2.31.1.50",
+          "attacker": "M48A2 C",
+          "attackerVisibleTitle": "M48A2 C",
+          "attackerVehicleId": "germ_mkpz_m48a2c",
+          "attackerCountry": "germany",
+          "shell": "M431",
+          "sourceShellLabelOriginal": "M431",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "HEATFS",
+          "shellTypeLabel": "尾翼稳定破甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "germ_mkpz_m48a2c",
+            "exactAttackerID": "germ_mkpz_m48a2c",
+            "url": "https://wiki.warthunder.com/unit/germ_mkpz_m48a2c",
+            "checkedAt": "2026-11-04T10:55:56.322Z",
+            "sourceSha256": "a0dfd3a346e3494303e4ffe8b48c62a9c0387cf3e5bd6e3554ed6f141f6218b5",
+            "sourceHtml": "artifacts/weakpoints-is6-m431-wiki-v470-20261104/germ_mkpz_m48a2c.html",
+            "sourceHtmlSHA256": "a0dfd3a346e3494303e4ffe8b48c62a9c0387cf3e5bd6e3554ed6f141f6218b5",
+            "mainGun": "90 mm M41 cannon",
+            "officialShellName": "M431 shell",
+            "sourceShellLabelOriginal": "M431",
+            "shellType": "HEATFS",
+            "gameVersion": "2.59.0.92",
+            "rawUIType": null,
+            "basis": "Exact native attacker official Wiki unit; M431 native label mapped to official M431 shell; Wiki version does not replace historical video conditions"
+          },
+          "distanceMeters": 300,
+          "displayedPenetrationMm": 320,
+          "impactAngleDegrees": 63,
+          "attackAzimuthDegrees": 0,
+          "effectiveArmorMm": 222,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "弹药架",
+            "炮管",
+            "车长",
+            "高低机",
+            "炮手",
+            "方向机",
+            "装填手"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "5483c3f8c42eb1c122a3d9e5e9243aeff878b0fc1e7912b7bedb3784c8e13255",
+          "evidenceKind": "single-point-protection-preview"
         }
       ],
       "testCaseEvidence": {
@@ -4114,8 +4179,62 @@
             520,
             330
           ]
+        },
+        {
+          "id": "is6-m431-front-preview",
+          "label": "M431·正面炮塔单点预测",
+          "description": "历史2.31.1.50版本的这一落点预测可穿；不推广整片装甲，不视为实际模拟射击、HESH超压或击杀。",
+          "caption": "爱吃西瓜的恶小魂《各类IS的装甲弱点》，2023-11-25 10:00:00，15:35.520832；历史版本2.31.1.50，M48A2 C使用M431（HEATFS）、300米条件下的单点预测。仅此落点，不代表整面防护、实射或击杀。",
+          "conditionNote": "视频2.31.1.50：M48A2 C，M431，300米，面板320毫米，入射角63°，方位0°，单点等效222毫米；Wiki2.59.0.92仅核对精确攻击车和弹种，不替换视频条件。",
+          "caseId": "ussr_is_6:BV12w411P7LL:935520832:m431-preview",
+          "sourceTime": 935.520832,
+          "sourceUrl": "https://www.bilibili.com/video/BV12w411P7LL/",
+          "sourceGameVersion": "2.31.1.50",
+          "assetPath": "images/USSR/USSR-IS-6-M431-front-turret-protection-preview.webp",
+          "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/multination-compilation-v466-20261104/IS6-opportunistic/IS6-tiny-3/raw.png",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v476-20261104/ussr_is_6-m431-frame-proof.json",
+          "frameSnapshotSHA256": "e9c699d735c6c2811e40144768eaa45e1598cd4958f26031c3712be1b9c5d64f",
+          "crop": [
+            690,
+            110,
+            425,
+            525
+          ],
+          "view": "single-cursor-protection-preview",
+          "displayImagePolicy": "analysis-excerpt",
+          "pins": [
+            {
+              "x": 0.7529411764705882,
+              "y": 0.579047619047619,
+              "label": "正面画面右侧炮塔下缘单点",
+              "detail": "M431、300米、入射角63°和方位0°时，仅此准星点显示能够击穿；目标等效222毫米，面板炮弹穿深320毫米。预期模块/乘员损伤仅为UI预测，非实射或必杀。",
+              "kind": "conditional",
+              "caseId": "ussr_is_6:BV12w411P7LL:935520832:m431-preview",
+              "sourceUrl": "https://www.bilibili.com/video/BV12w411P7LL/",
+              "sourceTime": 935.520832,
+              "evidence": {
+                "frameSHA256": "5483c3f8c42eb1c122a3d9e5e9243aeff878b0fc1e7912b7bedb3784c8e13255",
+                "nativeXY": [
+                  1010,
+                  414
+                ],
+                "crop": [
+                  690,
+                  110,
+                  425,
+                  525
+                ],
+                "coordinateToleranceNativePx": 4,
+                "singlePointPrediction": true,
+                "actualShotObserved": false
+              }
+            }
+          ]
         }
-      ]
+      ],
+      "coverageNotice": "含M431单点防护预测，非完整弱点图解",
+      "defaultEvidenceId": "is6-m431-front-preview",
+      "coverageStatus": "partial-native-point-predictions"
     },
     {
       "id": "uk_challenger_ii",
@@ -6871,7 +6990,47 @@
       "rank": 6,
       "era": "cold-war",
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.43333333333333335,
+          "y": 0.7541666666666667,
+          "label": "首下（Wiki部位参考）",
+          "detail": "该精确车型官方Wiki定性指出首下较脆弱；此图仅定位该部位。具体攻击车、炮弹、距离及角度未验证，不代表该点必穿、绿色可穿区域或实射结果。",
+          "kind": "wiki-position-reference",
+          "annotationSemantics": "official-Wiki-qualitative-location-not-test",
+          "sourceUrl": "https://wiki.warthunder.com/unit/uk_chieftain_mk_5",
+          "sourceTime": null,
+          "imageSourceTime": 137.263651,
+          "caseId": null,
+          "evidence": {
+            "sourceBasis": "official-Wiki-exact-model-location",
+            "vehicleId": "uk_chieftain_mk_5",
+            "reportPath": "artifacts/weakpoints-chieftain-wiki-positions-v474-20261104/report.json",
+            "reportSHA256": "77b72f3a1a414516f0249a00e9f4dd03c5883460e1e7bd9dac30d53cf20540df",
+            "snapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-western-20261102/snapshots/uk_chieftain_mk_5.json",
+            "snapshotSHA256": "156824a313fb84c106108a8df4a4b1c7b064a005a24ba5eee68a1a469ca7184c",
+            "sourceHTMLpath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-western-20261102/snapshots/uk_chieftain_mk_5.html",
+            "sourceHTMLsha256": "7f57f09c356ba314846b0862397cfb3c37fd0688f4936d70b173502a82a834ff",
+            "checkedAt": "2026-11-02T08:22:26.649Z",
+            "sourceGameVersion": "2.59.0.92",
+            "statementZh": "本车型官方页明确首下较脆弱、可被许多坦克击穿；未给具体攻击车、弹药或试射条件。",
+            "frameSHA256": "3b7f024f4785b0b5a96ff517693e1409e48b22c392891ef349ad4309ce1ff77f",
+            "nativeXY": [
+              955,
+              542
+            ],
+            "crop": [
+              630,
+              180,
+              750,
+              480
+            ],
+            "imageSourceTime": 137.263651,
+            "officialLocationOnly": true,
+            "protectionPredictionObserved": false
+          }
+        }
+      ],
       "videoAdvice": [
         {
           "id": "v336-chieftain-mk5-author-lower-hull",
@@ -6898,14 +7057,14 @@
         }
       ],
       "source": {
-        "url": "https://www.bilibili.com/video/BV1Fnu86CEG6/",
-        "title": "冷战房里的原始人，后效很好的大英肥猪—酋长MK5简评与实战",
-        "author": "鸡蛋壳w",
-        "publishedAt": "2026-08-08",
+        "url": "https://www.bilibili.com/video/BV11p421R7kb/",
         "kind": "video",
-        "gameVersion": null
+        "title": "发动机改良酋长 Mk 5《战争雷霆》〔载具简评〕",
+        "author": "克虏伯kluub",
+        "publishedAt": "2024-02-19 12:00:00",
+        "gameVersion": "2.33.0.117"
       },
-      "status": "wiki-reviewed-awaiting-front-image",
+      "status": "partial-wiki-frontal-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/uk_chieftain_mk_5",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-western-20261102/snapshots/uk_chieftain_mk_5.json",
@@ -6945,8 +7104,48 @@
           "kind": "video",
           "gameVersion": null,
           "time": 212.87
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV11p421R7kb/",
+          "kind": "video",
+          "title": "发动机改良酋长 Mk 5《战争雷霆》〔载具简评〕",
+          "author": "克虏伯kluub",
+          "publishedAt": "2024-02-19 12:00:00",
+          "gameVersion": "2.33.0.117",
+          "time": 137.263651,
+          "scopeNote": "原生酋长Mk5材质显示正面图，仅用于独立Wiki首下部位定位；配色不是可穿概率，试射条件未验证"
         }
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/chieftain-family-v472-20261104/Mk5-armor-context-preview/Mk5-armor-tiny-1/raw.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v476-20261104/uk_chieftain_mk_5-frame-proof.json",
+      "frameSnapshotSHA256": "47531cf95481d8226a63cb5741b240169288dd648cf3f25ab1eb46e1f981dc5c",
+      "captureSHA256": "3b7f024f4785b0b5a96ff517693e1409e48b22c392891ef349ad4309ce1ff77f",
+      "originalFrameSHA256": "3b7f024f4785b0b5a96ff517693e1409e48b22c392891ef349ad4309ce1ff77f",
+      "assetPath": "images/GBR/GBR-Chieftain-Mk-5-front-Wiki-lower-glacis-reference.webp",
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "crop": [
+        630,
+        180,
+        750,
+        480
+      ],
+      "time": 137.263651,
+      "imageSourceTime": 137.263651,
+      "imageView": "front",
+      "imageQuality": "native-1080p-analysis-excerpt",
+      "mainViewKind": "armor-layout",
+      "displayImagePolicy": "analysis-excerpt",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "sourceGameVersion": "2.33.0.117",
+      "sourceNoRepost": null,
+      "annotationSemantics": "official-Wiki-qualitative-location-not-test",
+      "coverageStatus": "partial-wiki-frontal-reference",
+      "coverageNotice": "首下Wiki部位参考，试射条件未验证",
+      "mainViewNote": "原生2.33.0.117版本酋长Mk5正面材质显示图；颜色仅表示装甲材质和部件。Wiki2.59.0.92仅提供该精确车型首下的定性部位依据，无测试车、弹药、距离或防护预测。"
     },
     {
       "id": "us_m60a1",
@@ -31412,7 +31611,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 65,
+    "illustratedCount": 66,
     "countries": [
       {
         "country": "usa",
@@ -31548,14 +31747,14 @@
     "lastUpdated": "2026-11-04",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 63,
+    "illustratedTargetCount": 64,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,
     "supplementalWikiReviewedCount": 4,
     "supplementalIllustratedCount": 1,
     "completeSupplementalIllustratedCount": 1,
-    "lastUpdatedAt": "2026-11-04T10:30:01.238023+00:00"
+    "lastUpdatedAt": "2026-11-04T11:17:39.818907+00:00"
   },
   "countries": [
     {

@@ -67,7 +67,7 @@ function renderPoint() {
   $("point-kind").textContent = evidence ? "防护分析证据" : "选中标注";
   if (evidence && !evidence.pins?.length) {
     $("point-title").textContent = evidence.label;
-    $("point-detail").textContent = evidence.description;
+    $("point-detail").textContent = evidence.description || evidence.caption || "该视图的条件见来源测试。";
     return;
   }
   const pin = (evidence ? evidence.pins : SAMPLE.models[selected]?.pins)?.[point];
