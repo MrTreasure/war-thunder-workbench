@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "a7a0eea3c83562df031a6346b365921aac085d69",
+  "commit": "753b2f60ba016b68f180482e63d4fe490b9baa37",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -1137,6 +1137,84 @@
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a7a0eea3c83562df031a6346b365921aac085d69/images/JPN/JPN-Type-90-front-analysis-SJ2.webp",
         "commit": "a7a0eea3c83562df031a6346b365921aac085d69"
       }
+    },
+    "us_m60a2": {
+      "photo": {
+        "path": "images/USA/USA-M60A2-cupola-protection-preview.webp",
+        "sha256": "ece4c4ead571e458c42101a115f35132a988ab77ebed8942c563e2cb488b9613",
+        "bytes": 85554,
+        "commit": "753b2f60ba016b68f180482e63d4fe490b9baa37",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A2-cupola-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A2-cupola-protection-preview.webp"
+      },
+      "raw": {
+        "path": "images/USA/USA-M60A2-cupola-protection-preview.webp",
+        "sha256": "ece4c4ead571e458c42101a115f35132a988ab77ebed8942c563e2cb488b9613",
+        "bytes": 85554,
+        "commit": "753b2f60ba016b68f180482e63d4fe490b9baa37",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A2-cupola-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A2-cupola-protection-preview.webp"
+      },
+      "protectionEvidence": [
+        {
+          "id": "turret-ring-preview",
+          "photo": {
+            "path": "images/USA/USA-M60A2-turret-ring-protection-preview.webp",
+            "sha256": "6ee137184353ce363a6ea95c75b9e0837b73f3742ac12f84ca0a7548b16bf023",
+            "bytes": 101552,
+            "commit": "753b2f60ba016b68f180482e63d4fe490b9baa37",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A2-turret-ring-protection-preview.webp",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A2-turret-ring-protection-preview.webp"
+          },
+          "raw": {
+            "path": "images/USA/USA-M60A2-turret-ring-protection-preview.webp",
+            "sha256": "6ee137184353ce363a6ea95c75b9e0837b73f3742ac12f84ca0a7548b16bf023",
+            "bytes": 101552,
+            "commit": "753b2f60ba016b68f180482e63d4fe490b9baa37",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A2-turret-ring-protection-preview.webp",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A2-turret-ring-protection-preview.webp"
+          }
+        }
+      ]
+    },
+    "us_m60a1": {
+      "photo": {
+        "path": "images/USA/USA-M60A1-AOS-mantlet-protection-preview.webp",
+        "sha256": "c3b26d07da64965a4a5ec72c9252cc245349d1f61afb96dbd2f966e58af99338",
+        "bytes": 174384,
+        "commit": "753b2f60ba016b68f180482e63d4fe490b9baa37",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A1-AOS-mantlet-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A1-AOS-mantlet-protection-preview.webp"
+      },
+      "raw": {
+        "path": "images/USA/USA-M60A1-AOS-mantlet-protection-preview.webp",
+        "sha256": "c3b26d07da64965a4a5ec72c9252cc245349d1f61afb96dbd2f966e58af99338",
+        "bytes": 174384,
+        "commit": "753b2f60ba016b68f180482e63d4fe490b9baa37",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A1-AOS-mantlet-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A1-AOS-mantlet-protection-preview.webp"
+      },
+      "protectionEvidence": [
+        {
+          "id": "cupola-preview",
+          "photo": {
+            "path": "images/USA/USA-M60A1-AOS-cupola-protection-preview.webp",
+            "sha256": "e58671250fc286aa5749901ac532ee3dedf5e9fc4b044f41c26856da52401067",
+            "bytes": 175608,
+            "commit": "753b2f60ba016b68f180482e63d4fe490b9baa37",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A1-AOS-cupola-protection-preview.webp",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A1-AOS-cupola-protection-preview.webp"
+          },
+          "raw": {
+            "path": "images/USA/USA-M60A1-AOS-cupola-protection-preview.webp",
+            "sha256": "e58671250fc286aa5749901ac532ee3dedf5e9fc4b044f41c26856da52401067",
+            "bytes": 175608,
+            "commit": "753b2f60ba016b68f180482e63d4fe490b9baa37",
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A1-AOS-cupola-protection-preview.webp",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A1-AOS-cupola-protection-preview.webp"
+          }
+        }
+      ]
     }
   },
   "assets": [
@@ -14618,6 +14696,372 @@
       "commit": "a7a0eea3c83562df031a6346b365921aac085d69",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a7a0eea3c83562df031a6346b365921aac085d69/images/JPN/JPN-Type-90-front-analysis-SJ2.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a7a0eea3c83562df031a6346b365921aac085d69/images/JPN/JPN-Type-90-front-analysis-SJ2.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "USA-M60A2-cupola-protection-preview.webp",
+      "path": "images/USA/USA-M60A2-cupola-protection-preview.webp",
+      "vehicleId": "us_m60a2",
+      "country": "USA",
+      "kind": "photo",
+      "caseId": "us_m60a2:CupolaPrediction",
+      "width": 300,
+      "height": 340,
+      "bytes": 85554,
+      "sha256": "ece4c4ead571e458c42101a115f35132a988ab77ebed8942c563e2cb488b9613",
+      "preCompressionBytes": 85554,
+      "preCompressionSHA256": "ece4c4ead571e458c42101a115f35132a988ab77ebed8942c563e2cb488b9613",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/source-family-discovery-v451-20261104/BV1Ru4y1F7ju-analysis-targets/M60A2-final/CupolaPrediction/raw.png",
+        "sha256": "104329c03da0012d7a6067ba26380c11a20fec9eaad12703df072fc49ebd284c",
+        "bytes": 2943231,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "104329c03da0012d7a6067ba26380c11a20fec9eaad12703df072fc49ebd284c",
+      "sourceTime": 451.131156,
+      "crop": [
+        750,
+        280,
+        300,
+        340
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v460-20261104/us_m60a2-main-frame-proof.json",
+        "sha256": "803d164ab7cc2fac224be9478ef6a2b30c38ce01d25e3aabdc0722e1520beb8e"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "completeIllustration": false,
+      "distributionProgressPercent": null,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1Ru4y1F7ju/",
+        "title": "各类M48、M60的装甲弱点",
+        "author": "爱吃西瓜的恶小魂",
+        "publishedAt": "2023-12-01 19:35:09",
+        "gameVersion": "2.31.1.59"
+      },
+      "sourceConditions": {
+        "gameVersion": "2.31.1.59",
+        "attackerVehicleNative": "[6.3] 猎豹坦歼 G1 型",
+        "attackerVehicleId": null,
+        "shellNative": "PzGr. 39/43",
+        "distanceM": 500,
+        "panelPenetrationMm": 222,
+        "predictionNative": "能够击穿",
+        "incidenceDeg": 7,
+        "attackAzimuthDeg": 1,
+        "effectiveArmorAgainstSelectedShellMm": 88,
+        "predictedDamage": [
+          "车长观瞄设备",
+          "车长",
+          "方向机"
+        ],
+        "distribution": null,
+        "distributionPercent": null
+      },
+      "pins": [
+        {
+          "labelZh": "车长塔正面下部绿色准星处",
+          "nativeXY": [
+            955,
+            347
+          ],
+          "cropUV": [
+            0.6833333333333333,
+            0.19705882352941176
+          ],
+          "coordinateToleranceNativePx": 2,
+          "descriptionZh": "仅该绿色准星单点显示“能够击穿”；入射角7°、攻击方位角1°，对指定弹种等效装甲厚度88毫米。预期伤害：车长观瞄设备、车长、方向机。"
+        }
+      ],
+      "commit": "753b2f60ba016b68f180482e63d4fe490b9baa37",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A2-cupola-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A2-cupola-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "USA-M60A2-turret-ring-protection-preview.webp",
+      "path": "images/USA/USA-M60A2-turret-ring-protection-preview.webp",
+      "vehicleId": "us_m60a2",
+      "country": "USA",
+      "kind": "protection-evidence",
+      "caseId": "us_m60a2:HullUpperPrediction",
+      "width": 370,
+      "height": 340,
+      "bytes": 101552,
+      "sha256": "6ee137184353ce363a6ea95c75b9e0837b73f3742ac12f84ca0a7548b16bf023",
+      "preCompressionBytes": 101552,
+      "preCompressionSHA256": "6ee137184353ce363a6ea95c75b9e0837b73f3742ac12f84ca0a7548b16bf023",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/source-family-discovery-v451-20261104/BV1Ru4y1F7ju-analysis-targets/M60A2-final/HullUpperPrediction/raw.png",
+        "sha256": "6ffb640a79e2939b30841c22271c0449bf49f67f2ce999a3ba0119a0fc71464d",
+        "bytes": 2996596,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "6ffb640a79e2939b30841c22271c0449bf49f67f2ce999a3ba0119a0fc71464d",
+      "sourceTime": 461.731149,
+      "crop": [
+        750,
+        280,
+        370,
+        340
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v460-20261104/us_m60a2-secondary-frame-proof.json",
+        "sha256": "2499f8a999542942a38a682d3cbd810a743ae1bcb3d27d654e2b8eac2f6cf6b7"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "completeIllustration": false,
+      "distributionProgressPercent": null,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1Ru4y1F7ju/",
+        "title": "各类M48、M60的装甲弱点",
+        "author": "爱吃西瓜的恶小魂",
+        "publishedAt": "2023-12-01 19:35:09",
+        "gameVersion": "2.31.1.59"
+      },
+      "sourceConditions": {
+        "gameVersion": "2.31.1.59",
+        "attackerVehicleNative": "[6.3] 猎豹坦歼 G1 型",
+        "attackerVehicleId": null,
+        "shellNative": "PzGr. 39/43",
+        "distanceM": 500,
+        "panelPenetrationMm": 222,
+        "predictionNative": "能够击穿",
+        "incidenceDeg": 59,
+        "attackAzimuthDeg": 0,
+        "effectiveArmorAgainstSelectedShellMm": 312,
+        "predictedDamage": [
+          "方向机"
+        ],
+        "distribution": null,
+        "distributionPercent": null
+      },
+      "pins": [
+        {
+          "labelZh": "炮塔下缘与车体首上交界，画面右侧绿色准星处",
+          "nativeXY": [
+            1019,
+            439
+          ],
+          "cropUV": [
+            0.727027027027027,
+            0.4676470588235294
+          ],
+          "coordinateToleranceNativePx": 2,
+          "descriptionZh": "仅该绿色准星单点显示“能够击穿”；入射角59°、攻击方位角0°，对指定弹种等效装甲厚度312毫米。预期伤害：方向机。"
+        }
+      ],
+      "commit": "753b2f60ba016b68f180482e63d4fe490b9baa37",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A2-turret-ring-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A2-turret-ring-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "USA-M60A1-AOS-mantlet-protection-preview.webp",
+      "path": "images/USA/USA-M60A1-AOS-mantlet-protection-preview.webp",
+      "vehicleId": "us_m60a1",
+      "country": "USA",
+      "kind": "photo",
+      "caseId": "us_m60a1:MantletPrediction",
+      "width": 630,
+      "height": 450,
+      "bytes": 174384,
+      "sha256": "c3b26d07da64965a4a5ec72c9252cc245349d1f61afb96dbd2f966e58af99338",
+      "preCompressionBytes": 174384,
+      "preCompressionSHA256": "c3b26d07da64965a4a5ec72c9252cc245349d1f61afb96dbd2f966e58af99338",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/source-family-discovery-v451-20261104/BV1Ru4y1F7ju-analysis-targets/M60A1-AOS-final/MantletPrediction/raw.png",
+        "sha256": "3e6c8e6787073adb018970408e82eb123bfe6273d74daf9eeb17ce4b31cd9743",
+        "bytes": 2859920,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "3e6c8e6787073adb018970408e82eb123bfe6273d74daf9eeb17ce4b31cd9743",
+      "sourceTime": 387.950932,
+      "crop": [
+        780,
+        300,
+        630,
+        450
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v460-20261104/us_m60a1-main-frame-proof.json",
+        "sha256": "da16be053c6091565ae99f07b5f3e2f2edccfc364dccbff2d0a165643ad7f262"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "completeIllustration": false,
+      "distributionProgressPercent": null,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1Ru4y1F7ju/",
+        "title": "各类M48、M60的装甲弱点",
+        "author": "爱吃西瓜的恶小魂",
+        "publishedAt": "2023-12-01 19:35:09",
+        "gameVersion": "2.31.1.59"
+      },
+      "sourceConditions": {
+        "attacker": "豹1",
+        "attackerId": "germ_leopard_i",
+        "shell": "DM13",
+        "shellType": "APDS",
+        "gun": "105mm L7A3",
+        "shellTypeAndGunBasis": "parent-provided Wiki459 auxiliary identity verification; not read from current UI",
+        "distanceM": 500,
+        "uiPenetrationMm": 333,
+        "gameVersion": "2.31.1.59",
+        "distribution": null
+      },
+      "pins": [
+        {
+          "nativeXY": [
+            919,
+            411
+          ],
+          "cropUV": [
+            0.22063492063492063,
+            0.24666666666666667
+          ],
+          "locationZh": "炮盾上炮管画面左侧的可见表面，绿色准星中心；不是炮口或整个炮盾",
+          "resultZh": "此帧防护分析提示该单点能够击穿，针对当前炮弹等效装甲211毫米；预期伤害仅为UI预测。",
+          "provenance": "green-crosshair-and-readable-hover",
+          "scope": "single-point-only"
+        }
+      ],
+      "commit": "753b2f60ba016b68f180482e63d4fe490b9baa37",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A1-AOS-mantlet-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A1-AOS-mantlet-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "USA-M60A1-AOS-cupola-protection-preview.webp",
+      "path": "images/USA/USA-M60A1-AOS-cupola-protection-preview.webp",
+      "vehicleId": "us_m60a1",
+      "country": "USA",
+      "kind": "protection-evidence",
+      "caseId": "us_m60a1:CupolaPrediction",
+      "width": 630,
+      "height": 450,
+      "bytes": 175608,
+      "sha256": "e58671250fc286aa5749901ac532ee3dedf5e9fc4b044f41c26856da52401067",
+      "preCompressionBytes": 175608,
+      "preCompressionSHA256": "e58671250fc286aa5749901ac532ee3dedf5e9fc4b044f41c26856da52401067",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/source-family-discovery-v451-20261104/BV1Ru4y1F7ju-analysis-targets/M60A1-AOS-final/CupolaPrediction/raw.png",
+        "sha256": "38dfdf9e39aea3f220492f47899d6ca93c40349349fd032c8fdcc6c17fc55c4c",
+        "bytes": 2921429,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "38dfdf9e39aea3f220492f47899d6ca93c40349349fd032c8fdcc6c17fc55c4c",
+      "sourceTime": 394.548402,
+      "crop": [
+        780,
+        300,
+        630,
+        450
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v460-20261104/us_m60a1-secondary-frame-proof.json",
+        "sha256": "a5ba0b595049c267257b451ec67b8fab87ceb9c9b4a946b57fdae44319c08139"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "completeIllustration": false,
+      "distributionProgressPercent": null,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1Ru4y1F7ju/",
+        "title": "各类M48、M60的装甲弱点",
+        "author": "爱吃西瓜的恶小魂",
+        "publishedAt": "2023-12-01 19:35:09",
+        "gameVersion": "2.31.1.59"
+      },
+      "sourceConditions": {
+        "attacker": "豹1",
+        "attackerId": "germ_leopard_i",
+        "shell": "DM13",
+        "shellType": "APDS",
+        "gun": "105mm L7A3",
+        "shellTypeAndGunBasis": "parent-provided Wiki459 auxiliary identity verification; not read from current UI",
+        "distanceM": 500,
+        "uiPenetrationMm": 333,
+        "gameVersion": "2.31.1.59",
+        "distribution": null
+      },
+      "pins": [
+        {
+          "nativeXY": [
+            907,
+            382
+          ],
+          "cropUV": [
+            0.2015873015873016,
+            0.18222222222222223
+          ],
+          "locationZh": "车长塔前方附近绿色准星中心；炮塔被黑色选择高亮遮盖，只保留该单点预测",
+          "resultZh": "此帧防护分析提示该单点能够击穿，针对当前炮弹等效装甲178毫米；预期伤害仅为UI预测。",
+          "provenance": "green-crosshair-and-readable-hover",
+          "scope": "single-point-only"
+        }
+      ],
+      "commit": "753b2f60ba016b68f180482e63d4fe490b9baa37",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A1-AOS-cupola-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/753b2f60ba016b68f180482e63d4fe490b9baa37/images/USA/USA-M60A1-AOS-cupola-protection-preview.webp",
       "rootApproval": true
     }
   ]

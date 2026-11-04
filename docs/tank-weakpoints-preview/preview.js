@@ -65,12 +65,12 @@ function sourceLink(title, href, detail) {
 function renderPoint() {
   const evidence = selectedEvidence(SAMPLE.models[selected]);
   $("point-kind").textContent = evidence ? "防护分析证据" : "选中标注";
-  if (evidence) {
+  if (evidence && !evidence.pins?.length) {
     $("point-title").textContent = evidence.label;
     $("point-detail").textContent = evidence.description;
     return;
   }
-  const pin = SAMPLE.models[selected]?.pins?.[point];
+  const pin = (evidence ? evidence.pins : SAMPLE.models[selected]?.pins)?.[point];
   const model = SAMPLE.models[selected];
   const summary = model?.frontSummary || model?.videoAdvice?.[0]?.text;
   const preview = model?.mainViewKind === "protection-preview";
@@ -141,7 +141,7 @@ function render() {
     const button = element("button", view.label);
     button.type = "button";
     button.setAttribute("aria-pressed", String(view.id === evidenceId));
-    button.addEventListener("click", () => { evidenceId = view.id; original = false; render(); });
+    button.addEventListener("click", () => { evidenceId = view.id; point = 0; original = false; render(); });
     return button;
   }));
   $("vehicle-name").replaceChildren(...[roleIcon(model), element("span", model.name)].filter(Boolean));
@@ -187,7 +187,7 @@ function render() {
     return article;
   }));
   const image = $("photo");
-  const analysisExcerpt = model.displayImagePolicy === "analysis-excerpt";
+  const analysisExcerpt = (evidence || model).displayImagePolicy === "analysis-excerpt";
   const rawOnly = !model.imageUrl && !!model.rawUrl;
   const showRaw = !analysisExcerpt && (original || rawOnly);
   const imageUrl = evidence?.imageUrl || (showRaw ? model.rawUrl : model.imageUrl);
@@ -222,17 +222,19 @@ function render() {
   $("toggle-original").textContent = original ? "返回标注图" : "查看完整高清图";
   $("toggle-original").setAttribute("aria-pressed", String(original));
   $("evidence-full").hidden = !evidence;
+  $("evidence-full").textContent = analysisExcerpt ? "打开高清节选 ↗" : "打开高清原帧 ↗";
   if (evidence) $("evidence-full").href = evidence.rawUrl || evidence.imageUrl;
   else $("evidence-full").removeAttribute("href");
   const imageDescription = authorDiagram ? "原文章作者防护示意图，保留作者分区、数值和箭头；不是游戏绿色击穿分析或已核验的试射结果。" : armorLayout ? `${showRaw ? "当前为完整高清画面。" : ""}原游戏装甲布局，配色仅区分装甲构件或厚度，不表示可击穿或不可击穿。` : protectionPreview ? `${showRaw ? "当前为完整高清画面。" : ""}原视频单点防护预览，准星与提示仅对应当次位置；不是整片装甲着色或实射结果。` : showRaw ? "当前为完整高清画面。" : model.mainViewKind === "protection-analysis" ? `${staticSource ? "原帖截图" : "原视频"}防护分析，保留游戏原有防护分区。` : model.pins?.length ? "金色编号为讲解标注。" : "来源载具外观。";
   const versionDescription = `${analysisExcerpt ? "画面为局部分析引用，完整内容见来源视频。" : ""}${source.gameVersion ? `画面版本 ${source.gameVersion}。` : ""}`;
   const analysisConditions = authorDiagram || armorLayout ? "" : protectionPreview ? "该点条件见来源测试。" : "防护分析颜色对应当时的弹种与视角，条件见来源测试。";
   $("figure-caption").textContent = evidence ? evidence.caption : imageUrl ? `画面：${source.author || "来源见下方"} / 《战争雷霆》。${imageDescription}${versionDescription}${analysisConditions}${["unknown", "in-progress", "incomplete"].includes(model.distributionCompletionStatus) && model.mainViewNote ? ` ${model.mainViewNote}` : ""}` : "图像资料待补充，不以其他车型画面代替。";
-  $("pins").hidden = !!evidence || showRaw || !imageUrl;
+  $("pins").hidden = showRaw || !imageUrl;
   $("pins").replaceChildren();
   $("pin-buttons").replaceChildren();
-  $("pin-buttons").hidden = !!evidence;
-  (model.pins || []).forEach((pin, index) => {
+  const viewPins = (evidence ? evidence.pins : model.pins) || [];
+  $("pin-buttons").hidden = !viewPins.length;
+  viewPins.forEach((pin, index) => {
     const marker = element("button", undefined, "pin");
     marker.type = "button";
     marker.style.setProperty("--x", String(pin.x)); marker.style.setProperty("--y", String(pin.y));
