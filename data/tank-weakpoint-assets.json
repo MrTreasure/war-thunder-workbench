@@ -1431,6 +1431,24 @@
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1/images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1/images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp"
       }
+    },
+    "us_xm1_chrysler": {
+      "photo": {
+        "path": "images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp",
+        "sha256": "8fb631929a21e86e6694ea58dd5dd9b74d580b3966772f3a7419d3d2d96992e6",
+        "bytes": 397978,
+        "commit": "2c1723e5f2068226d96cda0c49c055ab06f03257",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp"
+      },
+      "raw": {
+        "path": "images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp",
+        "sha256": "8fb631929a21e86e6694ea58dd5dd9b74d580b3966772f3a7419d3d2d96992e6",
+        "bytes": 397978,
+        "commit": "2c1723e5f2068226d96cda0c49c055ab06f03257",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp"
+      }
     }
   },
   "assets": [
@@ -16933,6 +16951,171 @@
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1/images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1/images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp",
       "status": "published"
+    },
+    {
+      "vehicleId": "us_xm1_chrysler",
+      "filename": "USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp",
+      "path": "images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp",
+      "country": "USA",
+      "kind": "photo",
+      "evidenceId": "xm1-chrysler-mantlet-front-prediction",
+      "width": 800,
+      "height": 530,
+      "sha256": "8fb631929a21e86e6694ea58dd5dd9b74d580b3966772f3a7419d3d2d96992e6",
+      "bytes": 397978,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/us-uk-bili-v645-20261105/us_xm1_chrysler/native-1.png",
+        "sha256": "b3f9e25cf9ed35f08975e1fb4e194883206cd6a5c85a86d90aa94ca1524ab7fc",
+        "bytes": 3558136,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "b3f9e25cf9ed35f08975e1fb4e194883206cd6a5c85a86d90aa94ca1524ab7fc",
+      "sourceTime": 224.45,
+      "crop": [
+        620,
+        330,
+        800,
+        530
+      ],
+      "nativeXY": [
+        998,
+        466
+      ],
+      "pointUV": [
+        0.4725,
+        0.25660377358490566
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v649b/xm1-chrysler-mantlet-front-prediction-frame-proof.json",
+        "sha256": "606c13737a41fd0175e3d18049f5868149896a19071249a69f07b76893d672e1",
+        "bytes": 7006
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "2c1723e5f2068226d96cda0c49c055ab06f03257",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp"
+    },
+    {
+      "vehicleId": "us_xm1_chrysler",
+      "filename": "USA-XM1-Chrysler-upper-front-recess-prediction-20200529.webp",
+      "path": "images/USA/USA-XM1-Chrysler-upper-front-recess-prediction-20200529.webp",
+      "country": "USA",
+      "kind": "protection-evidence",
+      "evidenceId": "xm1-chrysler-upper-front-recess-prediction",
+      "width": 800,
+      "height": 530,
+      "sha256": "b9644486008e3789cf55b8ccc12ee69cdaca64ec223f17f0bf3eb025433c91a5",
+      "bytes": 405882,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/us-uk-bili-v645-20261105/us_xm1_chrysler/native-2.png",
+        "sha256": "3e8dfc783eb1137d8fd108224c42426a42901fba7fb1093a8048e6038baecfbc",
+        "bytes": 3610411,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "3e8dfc783eb1137d8fd108224c42426a42901fba7fb1093a8048e6038baecfbc",
+      "sourceTime": 239.45,
+      "crop": [
+        620,
+        330,
+        800,
+        530
+      ],
+      "nativeXY": [
+        856,
+        451
+      ],
+      "pointUV": [
+        0.295,
+        0.22830188679245284
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v649b/xm1-chrysler-upper-front-recess-prediction-frame-proof.json",
+        "sha256": "c39d9c6d2c1c1aef03def2f5fca77fc349f55b8f3ad3a4d4031c67c379fe5534",
+        "bytes": 7005
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "2c1723e5f2068226d96cda0c49c055ab06f03257",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-upper-front-recess-prediction-20200529.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-upper-front-recess-prediction-20200529.webp"
+    },
+    {
+      "vehicleId": "us_xm1_chrysler",
+      "filename": "USA-XM1-Chrysler-turret-front-nonpenetration-reference-20200529.webp",
+      "path": "images/USA/USA-XM1-Chrysler-turret-front-nonpenetration-reference-20200529.webp",
+      "country": "USA",
+      "kind": "protection-evidence",
+      "evidenceId": "xm1-chrysler-turret-front-nonpenetration-reference",
+      "width": 800,
+      "height": 530,
+      "sha256": "e38644befb38a4bc08647f5927138ecf03838cb096552962bb3b1f0ad35690e0",
+      "bytes": 395644,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/us-uk-bili-v645-20261105/us_xm1_chrysler/native-0.png",
+        "sha256": "f454bffe4922eb7ffddc33070e5cc7cd5c9aa27e55c190b9092485174e365202",
+        "bytes": 3596118,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "f454bffe4922eb7ffddc33070e5cc7cd5c9aa27e55c190b9092485174e365202",
+      "sourceTime": 207.767,
+      "crop": [
+        620,
+        330,
+        800,
+        530
+      ],
+      "nativeXY": [
+        839,
+        484
+      ],
+      "pointUV": [
+        0.27375,
+        0.29056603773584905
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v649b/xm1-chrysler-turret-front-nonpenetration-reference-frame-proof.json",
+        "sha256": "df572ca3100a76103557424e4b450da2e29ac737b1c88443e7d29f67ef1d1d82",
+        "bytes": 7009
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "2c1723e5f2068226d96cda0c49c055ab06f03257",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-turret-front-nonpenetration-reference-20200529.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-turret-front-nonpenetration-reference-20200529.webp"
     }
   ]
 }

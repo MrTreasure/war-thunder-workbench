@@ -35078,10 +35078,44 @@
       "rank": 6,
       "era": "cold-war",
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.4725,
+          "y": 0.25660377358490566,
+          "label": "炮口右侧前向面：本帧可击穿",
+          "detail": "M456 / 500米、原面板穿深400毫米：明亮前景准星绿提示能够击穿，目标等效213毫米、入射21°。仅此点，淡残影不是第二弱点。",
+          "kind": "conditional",
+          "caseId": "us_xm1_chrysler:BV1eA411q72h:224450000:preview",
+          "sourceUrl": "https://www.bilibili.com/video/BV1eA411q72h/",
+          "sourceTime": 224.45,
+          "evidence": {
+            "frameSHA256": "b3f9e25cf9ed35f08975e1fb4e194883206cd6a5c85a86d90aa94ca1524ab7fc",
+            "nativeXY": [
+              998,
+              466
+            ],
+            "crop": [
+              620,
+              330,
+              800,
+              530
+            ],
+            "singlePointPrediction": true,
+            "actualShotObserved": false
+          }
+        }
+      ],
       "videoAdvice": [],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1eA411q72h/",
+        "author": "克拉拉_伊万诺维奇",
+        "date": "2020-05-29",
+        "gameVersion": "1.97.2.11",
+        "kind": "video",
+        "title": "【战争雷霆】“最稀有的M1原型车”XM1-C”克莱斯勒“评测&实战",
+        "publishedAt": "2020-05-29 21:59:29"
+      },
+      "status": "partial-protection-preview",
       "wikiUrl": "https://wiki.warthunder.com/unit/us_xm1_chrysler",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-005-20261103/snapshots/us_xm1_chrysler.json",
@@ -35103,13 +35137,290 @@
       "collectedAt": "2026-11-02T18:28:52.670Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "原文明确1971后研发并在1976年2月提交克莱斯勒原型试验。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无已验证的主图及对应局部标点。"
-      ]
+        "非完整弱点图；仅历史三个单点（两个可击穿预测，一个不可击穿对照）。"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/us-uk-bili-v645-20261105/us_xm1_chrysler/native-1.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v649b/xm1-chrysler-mantlet-front-prediction-frame-proof.json",
+      "frameSnapshotSHA256": "606c13737a41fd0175e3d18049f5868149896a19071249a69f07b76893d672e1",
+      "assetPath": "images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp",
+      "crop": [
+        620,
+        330,
+        800,
+        530
+      ],
+      "captureSHA256": "b3f9e25cf9ed35f08975e1fb4e194883206cd6a5c85a86d90aa94ca1524ab7fc",
+      "originalFrameSHA256": "b3f9e25cf9ed35f08975e1fb4e194883206cd6a5c85a86d90aa94ca1524ab7fc",
+      "time": 224.45,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "native-1080p-analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceGameVersion": "1.97.2.11",
+      "sourceNoRepost": true,
+      "testCases": [
+        {
+          "id": "us_xm1_chrysler:BV1eA411q72h:224450000:preview",
+          "vehicleId": "us_xm1_chrysler",
+          "sourceUrl": "https://www.bilibili.com/video/BV1eA411q72h/",
+          "sourceTime": 224.45,
+          "sourceGameVersion": "1.97.2.11",
+          "attacker": "[9.0] XM1（克莱斯勒）",
+          "attackerVisibleTitle": "[9.0] XM1（克莱斯勒）",
+          "attackerVehicleId": "us_xm1_chrysler",
+          "attackerCountry": "usa",
+          "shell": "M456",
+          "sourceShellLabelOriginal": "M456",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "HEATFS",
+          "shellTypeLabel": "尾翼稳定破甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/us_xm1_chrysler",
+            "attackerVehicleId": "us_xm1_chrysler",
+            "wikiUnitId": "us_xm1_chrysler",
+            "mainGun": "105 mm M68 cannon",
+            "officialShellName": "M456",
+            "sourceShellLabelOriginal": "M456",
+            "shellTypeCode": "HEATFS",
+            "shellTypeLabel": "High explosive anti-tank fin stabilized shell",
+            "checkedAt": "2026-11-02T18:28:52.670Z",
+            "gameVersion": "2.59.0.92"
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 400,
+          "effectiveArmorMm": 213,
+          "impactAngleDegrees": 21,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "弹药架",
+            "装填手",
+            "方向机"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "b3f9e25cf9ed35f08975e1fb4e194883206cd6a5c85a86d90aa94ca1524ab7fc",
+          "evidenceKind": "single-point-protection-preview",
+          "conditionNote": "2020-05-29 / 1.97.2.11历史防护预览；原画面有中等转场叠影，明亮前景准星仅对应本帧面板，淡残影不构成第二弱点。仅单点静态预测，非实射、整面可穿或击杀保证；不代表当前版本。"
+        },
+        {
+          "id": "us_xm1_chrysler:BV1eA411q72h:239450000:preview",
+          "vehicleId": "us_xm1_chrysler",
+          "sourceUrl": "https://www.bilibili.com/video/BV1eA411q72h/",
+          "sourceTime": 239.45,
+          "sourceGameVersion": "1.97.2.11",
+          "attacker": "[9.0] XM1（克莱斯勒）",
+          "attackerVisibleTitle": "[9.0] XM1（克莱斯勒）",
+          "attackerVehicleId": "us_xm1_chrysler",
+          "attackerCountry": "usa",
+          "shell": "M456",
+          "sourceShellLabelOriginal": "M456",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "HEATFS",
+          "shellTypeLabel": "尾翼稳定破甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/us_xm1_chrysler",
+            "attackerVehicleId": "us_xm1_chrysler",
+            "wikiUnitId": "us_xm1_chrysler",
+            "mainGun": "105 mm M68 cannon",
+            "officialShellName": "M456",
+            "sourceShellLabelOriginal": "M456",
+            "shellTypeCode": "HEATFS",
+            "shellTypeLabel": "High explosive anti-tank fin stabilized shell",
+            "checkedAt": "2026-11-02T18:28:52.670Z",
+            "gameVersion": "2.59.0.92"
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 400,
+          "effectiveArmorMm": 89,
+          "impactAngleDegrees": 3,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "炮手",
+            "车长",
+            "方向机"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "3e8dfc783eb1137d8fd108224c42426a42901fba7fb1093a8048e6038baecfbc",
+          "evidenceKind": "single-point-protection-preview",
+          "conditionNote": "2020-05-29 / 1.97.2.11历史防护预览；原画面有中等转场叠影，明亮前景准星仅对应本帧面板，淡残影不构成第二弱点。仅单点静态预测，非实射、整面可穿或击杀保证；不代表当前版本。"
+        },
+        {
+          "id": "us_xm1_chrysler:BV1eA411q72h:207767000:preview",
+          "vehicleId": "us_xm1_chrysler",
+          "sourceUrl": "https://www.bilibili.com/video/BV1eA411q72h/",
+          "sourceTime": 207.767,
+          "sourceGameVersion": "1.97.2.11",
+          "attacker": "[9.0] XM1（克莱斯勒）",
+          "attackerVisibleTitle": "[9.0] XM1（克莱斯勒）",
+          "attackerVehicleId": "us_xm1_chrysler",
+          "attackerCountry": "usa",
+          "shell": "M456",
+          "sourceShellLabelOriginal": "M456",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "HEATFS",
+          "shellTypeLabel": "尾翼稳定破甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "url": "https://wiki.warthunder.com/unit/us_xm1_chrysler",
+            "attackerVehicleId": "us_xm1_chrysler",
+            "wikiUnitId": "us_xm1_chrysler",
+            "mainGun": "105 mm M68 cannon",
+            "officialShellName": "M456",
+            "sourceShellLabelOriginal": "M456",
+            "shellTypeCode": "HEATFS",
+            "shellTypeLabel": "High explosive anti-tank fin stabilized shell",
+            "checkedAt": "2026-11-02T18:28:52.670Z",
+            "gameVersion": "2.59.0.92"
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 400,
+          "effectiveArmorMm": 551,
+          "impactAngleDegrees": 36,
+          "pointPrediction": "无法击穿",
+          "predictedDamage": null,
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "f454bffe4922eb7ffddc33070e5cc7cd5c9aa27e55c190b9092485174e365202",
+          "evidenceKind": "single-point-protection-preview",
+          "conditionNote": "2020-05-29 / 1.97.2.11历史防护预览；原画面有中等转场叠影，明亮前景准星仅对应本帧面板，淡残影不构成第二弱点。仅单点静态预测，非实射、整面可穿或击杀保证；不代表当前版本。"
+        }
+      ],
+      "testContext": {
+        "sourceUrl": "https://www.bilibili.com/video/BV1eA411q72h/",
+        "sourceTime": 224.45,
+        "sourceGameVersion": "1.97.2.11",
+        "attacker": "[9.0] XM1（克莱斯勒）",
+        "attackerVisibleTitle": "[9.0] XM1（克莱斯勒）",
+        "attackerVehicleId": "us_xm1_chrysler",
+        "attackerCountry": "usa",
+        "shell": "M456",
+        "sourceShellLabelOriginal": "M456",
+        "rawUIType": null,
+        "shellType": null,
+        "shellTypeCode": "HEATFS",
+        "shellTypeLabel": "尾翼稳定破甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/us_xm1_chrysler",
+          "attackerVehicleId": "us_xm1_chrysler",
+          "wikiUnitId": "us_xm1_chrysler",
+          "mainGun": "105 mm M68 cannon",
+          "officialShellName": "M456",
+          "sourceShellLabelOriginal": "M456",
+          "shellTypeCode": "HEATFS",
+          "shellTypeLabel": "High explosive anti-tank fin stabilized shell",
+          "checkedAt": "2026-11-02T18:28:52.670Z",
+          "gameVersion": "2.59.0.92"
+        },
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 400,
+        "effectiveArmorMm": 213,
+        "impactAngleDegrees": 21,
+        "pointPrediction": "能够击穿",
+        "predictedDamage": [
+          "弹药架",
+          "装填手",
+          "方向机"
+        ],
+        "actualShotObserved": false,
+        "outcome": null,
+        "sourceFrameSHA256": "b3f9e25cf9ed35f08975e1fb4e194883206cd6a5c85a86d90aa94ca1524ab7fc",
+        "evidenceKind": "single-point-protection-preview",
+        "conditionNote": "2020-05-29 / 1.97.2.11历史防护预览；原画面有中等转场叠影，明亮前景准星仅对应本帧面板，淡残影不构成第二弱点。仅单点静态预测，非实射、整面可穿或击杀保证；不代表当前版本。",
+        "caseId": "us_xm1_chrysler:BV1eA411q72h:224450000:preview",
+        "note": "2020历史1.97.2.11预览，源有叠影；只采明亮前景准星，非实射。"
+      },
+      "coverageStatus": "partial-single-point-preview",
+      "coverageNotice": "2020历史单点预览，源有叠影；全车图解未完成。",
+      "frontSummary": "历史1.97.2.11的3个单点：2处提示可击穿，1处无法击穿。源有叠影，仅采明亮前景准星；非现行版本实射或整面防护结论。",
+      "protectionEvidence": [
+        {
+          "id": "xm1-chrysler-upper-front-recess-prediction",
+          "label": "画面左上凹口前向面：本帧可击穿",
+          "description": "M456 / 500米、原面板穿深400毫米：绿提示能够击穿，目标等效89毫米、入射3°。具体部件未核，仅凹口内此点，不延伸至周边装甲。",
+          "caption": "等效89毫米 / 入射3° / 能够击穿｜2020-05-29 / 1.97.2.11；源有叠影，具体部件未核。",
+          "conditionNote": "2020-05-29 / 1.97.2.11历史防护预览；原画面有中等转场叠影，明亮前景准星仅对应本帧面板，淡残影不构成第二弱点。仅单点静态预测，非实射、整面可穿或击杀保证；不代表当前版本。",
+          "caseId": "us_xm1_chrysler:BV1eA411q72h:239450000:preview",
+          "sourceUrl": "https://www.bilibili.com/video/BV1eA411q72h/",
+          "sourceTime": 239.45,
+          "displayImagePolicy": "analysis-excerpt",
+          "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/us-uk-bili-v645-20261105/us_xm1_chrysler/native-2.png",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v649b/xm1-chrysler-upper-front-recess-prediction-frame-proof.json",
+          "frameSnapshotSHA256": "c39d9c6d2c1c1aef03def2f5fca77fc349f55b8f3ad3a4d4031c67c379fe5534",
+          "assetPath": "images/USA/USA-XM1-Chrysler-upper-front-recess-prediction-20200529.webp",
+          "crop": [
+            620,
+            330,
+            800,
+            530
+          ],
+          "pins": [
+            {
+              "x": 0.295,
+              "y": 0.22830188679245284,
+              "label": "画面左上凹口前向面：本帧可击穿",
+              "detail": "M456 / 500米、原面板穿深400毫米：绿提示能够击穿，目标等效89毫米、入射3°。具体部件未核，仅凹口内此点，不延伸至周边装甲。",
+              "kind": "conditional",
+              "caseId": "us_xm1_chrysler:BV1eA411q72h:239450000:preview",
+              "sourceUrl": "https://www.bilibili.com/video/BV1eA411q72h/",
+              "sourceTime": 239.45,
+              "evidence": {
+                "frameSHA256": "3e8dfc783eb1137d8fd108224c42426a42901fba7fb1093a8048e6038baecfbc",
+                "nativeXY": [
+                  856,
+                  451
+                ],
+                "crop": [
+                  620,
+                  330,
+                  800,
+                  530
+                ],
+                "singlePointPrediction": true,
+                "actualShotObserved": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "xm1-chrysler-turret-front-nonpenetration-reference",
+          "label": "画面左侧炮塔正面倾斜装甲面",
+          "description": "M456 / 500米、原面板穿深400毫米：红提示无法击穿，目标等效551毫米、入射36°。仅不可击穿对照，不作攻击推荐。",
+          "caption": "等效551毫米 / 入射36° / 无法击穿｜2020-05-29 / 1.97.2.11；源有叠影，仅作不可击穿对照。",
+          "conditionNote": "2020-05-29 / 1.97.2.11历史防护预览；原画面有中等转场叠影，明亮前景准星仅对应本帧面板，淡残影不构成第二弱点。仅单点静态预测，非实射、整面可穿或击杀保证；不代表当前版本。",
+          "caseId": "us_xm1_chrysler:BV1eA411q72h:207767000:preview",
+          "sourceUrl": "https://www.bilibili.com/video/BV1eA411q72h/",
+          "sourceTime": 207.767,
+          "displayImagePolicy": "analysis-excerpt",
+          "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/us-uk-bili-v645-20261105/us_xm1_chrysler/native-0.png",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v649b/xm1-chrysler-turret-front-nonpenetration-reference-frame-proof.json",
+          "frameSnapshotSHA256": "df572ca3100a76103557424e4b450da2e29ac737b1c88443e7d29f67ef1d1d82",
+          "assetPath": "images/USA/USA-XM1-Chrysler-turret-front-nonpenetration-reference-20200529.webp",
+          "crop": [
+            620,
+            330,
+            800,
+            530
+          ],
+          "pins": []
+        }
+      ],
+      "caption": "等效213毫米 / 入射21° / 能够击穿｜2020-05-29 / 1.97.2.11；源有叠影，仅认明亮前景准星。"
     },
     {
       "id": "us_xm1_gm",
@@ -35211,7 +35522,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 77,
+    "illustratedCount": 78,
     "countries": [
       {
         "country": "usa",
@@ -35347,7 +35658,7 @@
     "lastUpdated": "2026-11-04",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 75,
+    "illustratedTargetCount": 76,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,
