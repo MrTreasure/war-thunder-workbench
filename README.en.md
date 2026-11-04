@@ -59,7 +59,7 @@ Read public profiles, career and official recent statistics, branch K/D, capabil
 
 ![A real cached public profile](docs/screenshots/readme-stats.png)
 
-Create personal reports or individual vehicle cards with selectable backgrounds and commentary styles. Vehicle flags follow verified national markings, distinguishing modern Germany, the Russian Federation and historical flags independently of background style.
+Create personal reports or individual vehicle cards with selectable backgrounds and commentary styles. Vehicle flags follow verified national markings, distinguishing modern Germany, the Russian Federation and historical flags independently of background style. Chinese vehicles always use the five-star red flag.
 
 ![Vehicle card exported by the application](docs/screenshots/readme-vehicle-card.png)
 
