@@ -4,7 +4,7 @@
 
 Explore tech trees, plan research and build lineups. Check player stats, draw map routes and track sales in the same workbench.
 
-**[Main site · QMuse](https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB&chInfo=junliang)** · **[International site](https://wt.mrtreasure.cc/en/)** · [User guide](docs/usage.en.md)
+**[Main site · QMuse](https://wt.app.qmuse.pub/)** · **[International site](https://wt.mrtreasure.cc/en/)** · [User guide](docs/usage.en.md)
 
 ## Tech trees and vehicle details
 

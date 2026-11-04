@@ -4,7 +4,7 @@
 
 ## Player stats, rankings, complete collection and account valuation
 
-[Open player lookup](https://render.qmuse.pub/p/muse/8645013411493394#/stats), enter an in-game nickname and confirm the player, or select a player from the official leaderboard on the home screen. Public lookup does not need a game password. The tool's account and your game account are separate.
+[Open player lookup](https://wt.app.qmuse.pub/#/stats), enter an in-game nickname and confirm the player, or select a player from the official leaderboard on the home screen. Public lookup does not need a game password. The tool's account and your game account are separate.
 
 On **2026-10-24**, the live site was used to refresh the stats, hangar, squadron-vehicle and leaderboard screenshots. The account-linking example uses public records for `starfall21740`. Report, share-card and valuation images retain their earlier captures; see the [per-image dates and sources](screenshots/README.md). Nicknames, UIDs and avatars are retained, and values reflect the capture time.
 
@@ -198,7 +198,7 @@ The calculation is **remaining RP ÷ 10,000 × your rate**, rounded to cents. Pa
 
 ### 6. Ground maps: study the terrain before battle
 
-**[Open ground maps →](https://render.qmuse.pub/p/muse/8645013411493394#/maps)**
+**[Open ground maps →](https://wt.app.qmuse.pub/#/maps)**
 
 The collection currently covers **55 ground maps and 309 mission layouts**. Search by Chinese or English name and see capture-point thumbnails directly in the list. You can also filter for maps with linked guides.
 
@@ -244,7 +244,7 @@ Save **2K / 4K images** to share with teammates, or export an editable drawing f
 
 ### 8. Sales calendar: keep a wishlist and wait for the right price
 
-**[Open the sales calendar →](https://render.qmuse.pub/p/muse/8645013411493394#/sales)**
+**[Open the sales calendar →](https://wt.app.qmuse.pub/#/sales)**
 
 Follow Golden Eagle and store-pack vehicles to see their regular prices, the next possible sale window and a countdown together. Golden Eagle and CNY pack prices are displayed separately. Packs show the full pack price and verification date; missing quotes are clearly identified.
 
