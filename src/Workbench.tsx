@@ -4,6 +4,7 @@ import {
   addComparedVehicle,
   comparedVehicleKey,
   removeComparedVehicles,
+  setComparedVehicleBaseline,
   VEHICLE_COMPARE_LIMIT,
 } from "./vehicle-compare";
 import type { ComparedVehicle } from "./vehicle-compare";
@@ -924,6 +925,9 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
           initialMode={mode === "ab" ? "ab" : "rb"}
           close={() => setComparisonOpen(false)}
           onRemove={(keys) => setComparedVehicles((old) => removeComparedVehicles(old, keys))}
+          onSetBaseline={(key) =>
+            setComparedVehicles((old) => setComparedVehicleBaseline(old, key))
+          }
         />
       )}
     </div>

@@ -26,6 +26,8 @@ import {
 import type { ComparedVehicle } from "./vehicle-compare";
 import display from "../data/ground-combat-display.json";
 import { equipmentLabel, equipmentValue, equipmentParameter } from "./vehicle-equipment";
+import { SupportedLoadoutWeapons } from "./SupportedLoadoutWeapons";
+import { VehicleArmorEstimate } from "./VehicleArmorEstimate";
 
 function ComparisonRow({
   label,
@@ -80,12 +82,14 @@ export function VehicleComparison({
   catalog,
   initialMode,
   onRemove,
+  onSetBaseline,
   close,
 }: {
   entries: ComparedVehicle[];
   catalog: Catalog;
   initialMode: "ab" | "rb";
   onRemove: (keys: ReadonlySet<string>) => void;
+  onSetBaseline: (key: string) => void;
   close: () => void;
 }) {
   const [mode, setMode] = useState(initialMode);
@@ -118,7 +122,7 @@ export function VehicleComparison({
         width: `min(${entries.length ? 170 + entries.length * 300 : 640}px, calc(100vw - 24px))`,
       }}
       title="载具对比"
-      subtitle="完全体数据 · 首辆为基准 · 最多 5 辆"
+      subtitle="完全体数据 · 可切换基准 · 最多 5 辆"
       close={close}
     >
       <div className="wt-vehicle-compare-body">
@@ -158,7 +162,7 @@ export function VehicleComparison({
                 <thead>
                   <tr>
                     <th scope="col">
-                      对比载具<small>首辆为基准</small>
+                      对比载具<small>卡片旁可设基准</small>
                     </th>
                     {entries.map((entry, index) => (
                       <th scope="col" key={comparedVehicleKey(entry)}>
@@ -173,9 +177,20 @@ export function VehicleComparison({
                             href={`https://wiki.warthunder.com/unit/${encodeURIComponent(entry.unit.id)}`}
                           />
                           <div className="wt-vehicle-compare-card-actions">
-                            {index === 0 && (
-                              <span className="wt-vehicle-compare-baseline">基准</span>
-                            )}
+                            <button
+                              type="button"
+                              className="wt-vehicle-compare-set-baseline"
+                              disabled={index === 0}
+                              aria-pressed={index === 0}
+                              aria-label={
+                                index === 0
+                                  ? `${entry.unit.name} 是当前基准`
+                                  : `设 ${entry.unit.name} 为基准`
+                              }
+                              onClick={() => onSetBaseline(comparedVehicleKey(entry))}
+                            >
+                              {index === 0 ? "基准" : "设基准"}
+                            </button>
                             <button
                               type="button"
                               className="wt-vehicle-compare-remove"
@@ -233,6 +248,21 @@ export function VehicleComparison({
                         entry.unit.wikiDetails?.performance?.checkedAt.slice(0, 10) || null,
                     )}
                   />
+                  {(category === "aviation" || category === "helicopters") && (
+                    <>
+                      {section("挂载能力")}
+                      <tr>
+                        <th scope="row">
+                          支持挂载<small>按型号列出，非同时装配量</small>
+                        </th>
+                        {entries.map((entry) => (
+                          <td key={comparedVehicleKey(entry)}>
+                            <SupportedLoadoutWeapons unit={entry.unit} compact />
+                          </td>
+                        ))}
+                      </tr>
+                    </>
+                  )}
                   {entries.some((entry) =>
                     entry.unit.wikiDetails?.performance?.equipment?.features.some(
                       (feature) => feature.kind === "radar" || feature.kind === "radar_warning",
@@ -273,10 +303,16 @@ export function VehicleComparison({
                               .join("、") || "来源未标明",
                         )}
                       />
-                      <ComparisonRow
-                        label="等效装甲"
-                        values={entries.map(() => "来源未提供可核验数值")}
-                      />
+                      <tr>
+                        <th scope="row">
+                          正面等效装甲估算<small>车体／炮塔 · 被动层参考</small>
+                        </th>
+                        {entries.map((entry) => (
+                          <td key={comparedVehicleKey(entry)}>
+                            <VehicleArmorEstimate unit={entry.unit} compact />
+                          </td>
+                        ))}
+                      </tr>
                       {(
                         [
                           ["hull", "车体"],

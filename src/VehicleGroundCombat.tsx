@@ -5,6 +5,7 @@ import { GameSelect } from "./components/GameSelect";
 import { loadoutWeaponName, loadoutParameterValue } from "./loadout-presentation";
 import display from "../data/ground-combat-display.json";
 import { equipmentLabel } from "./vehicle-equipment";
+import { VehicleArmorEstimate } from "./VehicleArmorEstimate";
 
 const weaponTerms = Object.entries(display.weaponTerms).sort(([a], [b]) => b.length - a.length);
 const weaponPattern = new RegExp(`\\b(?:${weaponTerms.map(([term]) => term).join("|")})\\b`, "gi");
@@ -246,9 +247,7 @@ export function VehicleGroundCombat({ unit }: { unit: Vehicle }) {
               </tbody>
             </table>
           </div>
-          <p className="calc-note">
-            等效装甲：现有原件未提供可核验的分部位、弹种和入射角防护数值。上表为标称厚度，不作为等效装甲展示。
-          </p>
+          <VehicleArmorEstimate unit={unit} />
         </>
       ) : (
         <p className="wt-dossier-empty">

@@ -423,6 +423,272 @@
 .wt-equipment {
   min-width: 0;
 }
+
+/* finesse · component: comparison capabilities · register=product · tokens: inherited --wt-* */
+.wt-vehicle-compare-set-baseline {
+  width: 44px;
+  min-height: 36px;
+  padding: 3px 1px;
+  border: 1px solid var(--wt-line);
+  background: transparent;
+  color: var(--wt-body);
+  font: 400 10px/1.4 var(--wt-sans);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.wt-vehicle-compare-set-baseline:disabled {
+  border-color: var(--wt-gold-line);
+  color: var(--wt-gold);
+  background: var(--wt-gold-soft);
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.wt-vehicle-compare-set-baseline:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 2px;
+}
+.wt-vehicle-compare-set-baseline:active:not(:disabled) {
+  background: var(--wt-raised);
+}
+@media (hover: hover) and (pointer: fine) {
+  .wt-vehicle-compare-set-baseline:hover:not(:disabled) {
+    background: var(--wt-raised);
+    color: var(--wt-gold);
+  }
+}
+.wt-supported-weapons {
+  min-width: 0;
+  margin-bottom: 20px;
+}
+.wt-supported-weapon-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px 24px;
+}
+.wt-supported-weapon-group {
+  min-width: 0;
+}
+.wt-supported-weapon-group h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 6px;
+  color: var(--wt-gold);
+  font-size: 12px;
+  font-weight: 500;
+}
+.wt-supported-weapon-group h4 small {
+  display: inline;
+  margin: 0;
+  color: var(--wt-muted);
+  font-size: 11px;
+}
+.wt-supported-weapon-group ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.wt-supported-weapon-group li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 4px 0;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.wt-supported-weapon-group li > img {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  max-width: 28px;
+  min-height: 28px;
+  max-height: 28px;
+  object-fit: contain;
+  flex: none;
+}
+.wt-supported-weapon-group li > a {
+  color: var(--wt-ink);
+  text-underline-offset: 3px;
+}
+.wt-supported-weapons-source {
+  color: var(--wt-muted);
+  font-size: 11px;
+}
+.wt-supported-weapons.is-compact {
+  margin-bottom: 0;
+}
+.wt-supported-weapons.is-compact > .wt-ground-section-heading {
+  align-items: flex-start;
+  margin-top: 0;
+}
+.wt-supported-weapons.is-compact h3 {
+  font-size: 12px;
+}
+.wt-supported-weapons.is-compact .wt-supported-weapon-groups {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+.wt-armor-estimate {
+  margin: 18px 0;
+  min-width: 0;
+}
+.wt-armor-estimate-parts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  align-items: start;
+}
+.wt-armor-part-estimate {
+  padding: 12px;
+  border: 1px solid var(--wt-line);
+  min-width: 0;
+  background: var(--wt-panel);
+}
+.wt-armor-part-estimate > header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  justify-content: space-between;
+}
+.wt-armor-part-estimate h4 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--wt-ink);
+}
+.wt-armor-part-estimate > header > span {
+  font-size: 10px;
+  color: var(--wt-gold);
+}
+.wt-armor-estimate-values {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 12px 0 8px;
+}
+.wt-armor-estimate-values dt {
+  color: var(--wt-muted);
+  font-size: 11px;
+}
+.wt-armor-estimate-values dd {
+  margin: 4px 0 0;
+  font: 500 17px/1.5 var(--wt-sans);
+  font-variant-numeric: tabular-nums;
+  color: var(--wt-gold);
+}
+.wt-armor-estimate-values dd small {
+  display: inline-block;
+  margin: 0 0 0 4px;
+  font: 400 10px/1.4 var(--wt-sans);
+  color: var(--wt-muted);
+}
+.wt-armor-estimate-inputs {
+  margin: 0 0 8px;
+  color: var(--wt-muted);
+  font: 400 10px/1.6 var(--wt-sans);
+  overflow-wrap: anywhere;
+}
+.wt-armor-layer-editor > summary,
+.wt-armor-model-notes > summary {
+  color: var(--wt-body);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 6px 0;
+  min-height: 32px;
+}
+.wt-armor-layer-editor > summary:focus-visible,
+.wt-armor-model-notes > summary:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 2px;
+}
+.wt-armor-layer-editor fieldset {
+  min-width: 0;
+  padding: 10px 0;
+  margin: 8px 0;
+  border: 0;
+  border-top: 1px solid var(--wt-line);
+}
+.wt-armor-layer-editor legend {
+  padding: 0 6px 0 0;
+  color: var(--wt-muted);
+  font-size: 11px;
+}
+.wt-armor-layer-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.wt-armor-layer-fields label {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+  color: var(--wt-body);
+  font-size: 11px;
+}
+.wt-armor-layer-fields input {
+  width: 100%;
+  min-width: 0;
+  min-height: 38px;
+  border: 1px solid var(--wt-line);
+  padding: 5px 8px;
+  color: var(--wt-ink);
+  background: var(--wt-surface);
+  font: 400 14px/1.5 var(--wt-sans);
+}
+.wt-armor-layer-fields input:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 1px;
+}
+.wt-armor-layer-fields input:invalid {
+  border-color: var(--wt-gold);
+}
+.wt-armor-estimate-error {
+  display: block;
+  color: var(--wt-gold);
+  font-size: 11px;
+  line-height: 1.6;
+}
+.wt-armor-layer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.wt-armor-layer-editor .wt-game-button {
+  min-height: 36px;
+  margin-top: 8px;
+  padding: 5px 8px;
+  font-size: 11px;
+}
+.wt-armor-estimate .calc-note {
+  font-size: 11px;
+  margin: 8px 0;
+}
+.wt-armor-model-notes {
+  font-size: 12px;
+  color: var(--wt-muted);
+  line-height: 1.7;
+}
+.wt-armor-model-notes a {
+  display: block;
+  color: var(--wt-body);
+  margin-top: 6px;
+}
+.wt-armor-estimate.is-compact {
+  margin: 0;
+}
+.wt-armor-estimate.is-compact .wt-armor-estimate-parts {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+}
+.wt-armor-estimate.is-compact .wt-armor-part-estimate {
+  padding: 10px;
+}
+.wt-armor-estimate.is-compact .wt-armor-estimate-values dd {
+  font-size: 15px;
+}
 .wt-equipment-properties {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));

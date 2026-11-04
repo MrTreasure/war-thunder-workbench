@@ -10,7 +10,13 @@ import {
   spadedValue,
   comparisonMetrics,
   shellPenetration,
+  setComparedVehicleBaseline,
 } from "../src/vehicle-compare.ts";
+import { estimateArmor, referenceArmorLayer } from "../src/armor-estimation.ts";
+import {
+  supportedLoadoutWeapons,
+  supportedWeaponGroups,
+} from "../src/supported-loadout-weapons.ts";
 
 const entry = (id, category = "ground", country = "usa") => ({
   country,
@@ -27,6 +33,14 @@ const directRemoval = removeComparedVehicles(pool, new Set([comparedVehicleKey(p
 assert.equal(directRemoval.length, 4);
 assert.equal(directRemoval[0].unit.id, "unit-1", "Removing a card promotes the next baseline");
 assert.deepEqual(display.distancesM, [500, 1000, 2000]);
+const baseline = setComparedVehicleBaseline(pool, comparedVehicleKey(pool[3]));
+assert.deepEqual(
+  baseline.map((item) => item.unit.id),
+  ["unit-3", "unit-0", "unit-1", "unit-2", "unit-4"],
+);
+assert.strictEqual(setComparedVehicleBaseline(baseline, comparedVehicleKey(baseline[0])), baseline);
+assert.strictEqual(setComparedVehicleBaseline(baseline, "missing"), baseline);
+assert.strictEqual(baseline[0], pool[3], "Changing baseline preserves the selected unit snapshots");
 let smaller = removeComparedVehicles(
   pool,
   new Set([comparedVehicleKey(pool[0]), comparedVehicleKey(pool[3])]),
@@ -115,6 +129,122 @@ const equipmentUnit = {
 assert.equal(equipmentParameter(equipmentUnit, "radar", "tws"), "No");
 assert.equal(equipmentParameter(equipmentUnit, "radar", "model"), null);
 assert.equal(equipmentParameter(equipmentUnit, "radar_warning", "model"), null);
+const layer = { id: "a", thicknessMm: 100, angleDeg: 60, kineticFactor: 1, chemicalFactor: 2 };
+assert(Math.abs(estimateArmor([layer], "kinetic") - 200) < 1e-8);
+assert(Math.abs(estimateArmor([layer], "chemical") - 400) < 1e-8);
+assert.equal(
+  estimateArmor(
+    [
+      { ...layer, angleDeg: 0 },
+      { ...layer, id: "b", angleDeg: 0, kineticFactor: 0.5 },
+    ],
+    "kinetic",
+  ),
+  150,
+);
+assert.equal(estimateArmor([{ ...layer, kineticFactor: 0 }], "kinetic"), 0);
+assert.equal(estimateArmor([{ ...layer, thicknessMm: null }], "kinetic"), null);
+assert.equal(estimateArmor([{ ...layer, kineticFactor: null }], "kinetic"), null);
+assert(Math.abs(estimateArmor([{ ...layer, kineticFactor: null }], "chemical") - 400) < 1e-8);
+for (const value of [-1, 90, NaN, Infinity])
+  assert.equal(estimateArmor([{ ...layer, angleDeg: value }], "kinetic"), null);
+assert.equal(estimateArmor([], "kinetic"), null);
+assert.equal(estimateArmor(Array(13).fill(layer), "kinetic"), null);
+const armoredUnit = {
+  wikiDetails: {
+    performance: {
+      groundCombat: {
+        armorStatus: "available",
+        armor: [
+          { id: "hull", front: "100" },
+          { id: "turret", front: "150–200" },
+        ],
+      },
+    },
+  },
+};
+assert.equal(referenceArmorLayer(armoredUnit, "hull").thicknessMm, 100);
+assert.equal(
+  referenceArmorLayer(armoredUnit, "turret").thicknessMm,
+  null,
+  "Do not convert ranges to an invented thickness",
+);
+assert.equal(
+  referenceArmorLayer(
+    {
+      ...armoredUnit,
+      wikiDetails: {
+        performance: {
+          groundCombat: { armorStatus: "parse_failed", armor: [{ id: "hull", front: "100" }] },
+        },
+      },
+    },
+    "hull",
+  ).thicknessMm,
+  null,
+);
+const loadout = {
+  status: "available",
+  hardpoints: [{ id: "p1" }, { id: "p2" }],
+  compatibility: [
+    {
+      name: "2 × Example air-to-air missiles",
+      weaponId: "shared",
+      count: 2,
+      stations: [{ hardpointId: "p1", count: 2 }],
+      parameters: [],
+    },
+    {
+      name: "Example air-to-air missiles",
+      weaponId: "shared",
+      count: 1,
+      stations: [{ hardpointId: "p2", count: 1 }],
+      parameters: [],
+    },
+    {
+      name: "Example-B air-to-air missiles",
+      weaponId: "shared",
+      count: 1,
+      stations: [{ hardpointId: "p1", count: 1 }],
+      parameters: [],
+    },
+    {
+      name: "Unavailable bomb",
+      weaponId: "bad",
+      count: 1,
+      stations: [{ hardpointId: "unknown", count: 1 }],
+      parameters: [],
+    },
+    {
+      name: "Zero bomb",
+      weaponId: "zero",
+      count: 0,
+      stations: [{ hardpointId: "p1", count: 0 }],
+      parameters: [],
+    },
+  ],
+  presets: [
+    {
+      label: "Preset 1",
+      items: [
+        { name: "2 × Example air-to-air missiles", weaponId: "shared", count: 2 },
+        { name: "Example air-to-air missiles", weaponId: null, count: 1 },
+        { name: "Preset-only bomb", weaponId: "preset", count: 1 },
+      ],
+    },
+  ],
+};
+const supported = supportedLoadoutWeapons(loadout);
+assert.equal(
+  supported.length,
+  3,
+  "Deduplicate rack quantities without losing same-ID variants or preset-only weapons",
+);
+assert.deepEqual(supported[0].hardpoints, ["p1", "p2"]);
+assert.deepEqual(supported[0].presets, ["Preset 1"]);
+assert.equal(supportedWeaponGroups(supported).flatMap((group) => group.items).length, 3);
+assert.equal(supportedLoadoutWeapons({ ...loadout, status: "parse_failed" }).length, 0);
+assert.equal(supportedLoadoutWeapons(undefined).length, 0);
 console.log(
-  "Vehicle comparison verified: same-branch lock, five-vehicle cap, country-independent selection, duplicate rejection, direct deletion, baseline promotion, spaded-only values, three penetration distances, unknown/zero, sourced angles and explicit equipment capabilities.",
+  "Vehicle comparison verified: branch/cap/identity, direct deletion, baseline switching, spaded values, penetration angles, equipment, supported weapons and bounded passive-layer armour estimates.",
 );

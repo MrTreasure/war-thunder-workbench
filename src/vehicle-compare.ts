@@ -19,6 +19,12 @@ export function addComparedVehicle(entries: ComparedVehicle[], entry: ComparedVe
 export function removeComparedVehicles(entries: ComparedVehicle[], keys: ReadonlySet<string>) {
   return entries.filter((entry) => !keys.has(comparedVehicleKey(entry)));
 }
+/** Baseline is the first entry; preserve every other entry and its relative order. */
+export function setComparedVehicleBaseline(entries: ComparedVehicle[], key: string) {
+  const index = entries.findIndex((entry) => comparedVehicleKey(entry) === key);
+  if (index <= 0) return entries;
+  return [entries[index], ...entries.slice(0, index), ...entries.slice(index + 1)];
+}
 export function spadedValue(metric: WikiPerformanceMetric | undefined, mode: "ab" | "rb") {
   const value = metric?.modes[mode]?.spaded;
   return typeof value === "number" && Number.isFinite(value) ? value : null;

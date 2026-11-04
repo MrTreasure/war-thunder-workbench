@@ -4,6 +4,7 @@ import { ModificationGrid } from "./ModificationGrid";
 import { equipmentLabel, equipmentValue } from "./vehicle-equipment";
 import { groundWeaponName } from "./VehicleGroundCombat";
 import { loadoutWeaponName } from "./loadout-presentation";
+import { SupportedLoadoutWeapons } from "./SupportedLoadoutWeapons";
 function Feature({
   feature,
   category,
@@ -65,6 +66,9 @@ export function VehicleEquipment({
   );
   return (
     <section className="wt-equipment" aria-label="载具装备与模块资料">
+      {(category === "aviation" || category === "helicopters") && (
+        <SupportedLoadoutWeapons unit={unit} />
+      )}
       {data?.status === "available" ? (
         <>
           {data.properties.length > 0 && (

@@ -3425,6 +3425,12 @@
   .wt-vehicle-compare-table th:first-child { width: 130px; }
   .wt-vehicle-compare-table th, .wt-vehicle-compare-table td { padding: 10px; }
   .wt-vehicle-compare-remove { min-height:44px; }
+  .wt-vehicle-compare-set-baseline { min-height:44px; }
+  .wt-armor-estimate-parts { grid-template-columns:minmax(0,1fr); }
+  .wt-armor-layer-fields input { min-height:44px; font-size:16px; }
+  .wt-armor-layer-editor .wt-game-button { min-height:44px; }
+  .wt-armor-layer-editor > summary, .wt-armor-model-notes > summary { min-height:44px; padding:10px 0; }
+  .wt-supported-weapon-groups { grid-template-columns:minmax(0,1fr); }
   .wt-equipment-properties { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
   .wt-equipment-features { grid-template-columns:minmax(0,1fr); }
   .wt-vehicle-compare-body > .calc-note { padding: 8px 12px; font-size: 11px; }
