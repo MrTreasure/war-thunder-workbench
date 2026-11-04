@@ -1,14 +1,14 @@
 {
   "siteUrl": "https://wt.mrtreasure.cc/",
-  "qmuseUrl": "https://render.qmuse.pub/p/muse/8645013411493394",
+  "qmuseUrl": "https://wt.app.qmuse.pub/",
   "imageUrl": "https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_logo_eng_a98e2d250b72a68a4c6073f0d30db010.jpg",
   "locales": {
     "zh-CN": {
       "path": "zh",
       "name": "简体中文",
-      "title": "战雷工作台：战雷战绩查询、科技树、走线与账号价值",
-      "description": "战雷工作台提供战雷战绩查询、战雷科技树与研发规划、战雷走线绘制和战雷账号价值估算，支持出击队列与陆战地图。",
-      "intro": "为战争雷霆 PC 国际服玩家准备的独立工具合集。从查看科技树、规划研发，到查询玩家战绩和绘制地图走线，在一个工作台中完成。",
+      "title": "战雷工作台：战绩查询、科技树、模拟挂载与出击队列",
+      "description": "战雷工作台提供战绩查询、十国科技树与研发规划、飞机模拟挂载和导弹对比、出击队列大厅、陆战地图编辑、账号估值与折扣日历。",
+      "intro": "为战争雷霆 PC 国际服玩家准备的独立工具合集。查询战绩、规划研发、配置飞机挂载、交流出击队列，并在陆战地图上绘制战术走线。",
       "open": "打开工作台",
       "features": [
         {
@@ -46,7 +46,7 @@
         {
           "route": "lineups",
           "title": "出击队列与分享",
-          "text": "为不同国家保存出击队列，按游戏模式查看队列评级并分享队列码。研发计划、队列与地图方案保存在当前浏览器；可使用的导出功能用于自行备份，不会自动跨设备同步。",
+          "text": "按国家保存出击队列，查看不同模式的 BR，按名称或载具搜索、按战斗类型筛选并按 BR 排序。国家选项显示国旗和队列数量；可通过分享码导入或发布到队列大厅。游客队列保存在本机，登录后使用账号云端工作区保存和同步；公开发布与私人保存分别管理。",
           "slug": "lineups",
           "description": "为不同国家保存出击队列，按游戏模式查看队列评级并分享队列码。",
           "seoTitle": "出击队列与分享 | 战雷工作台"
@@ -58,11 +58,19 @@
           "slug": "sales",
           "description": "查看官方已公布的战争雷霆折扣活动与基于历史日期的预测窗口，按购买渠道和关注载具筛选。",
           "seoTitle": "战雷折扣日历与促销预测 | 战雷工作台"
+        },
+        {
+          "route": "loadouts",
+          "slug": "loadouts",
+          "title": "战雷模拟挂载与导弹对比",
+          "seoTitle": "战雷模拟挂载、导弹对比与炸区估算 | 战雷工作台",
+          "description": "选择有挂载资料的飞机或直升机，配置挂点、筛选武器、对比最多六种弹药，并保存或发布挂载方案。",
+          "text": "登录后选择有可用挂载资料的机型，查看默认方案或逐挂点配置武器、吊舱与副油箱；按武器类型、型号系列及名称筛选，也可按挂载反查适用机型。最多对比六种弹药参数，按来源资料核对挂点与载重限制；炸弹挂载提供空历常见四战区地图的分房差异和炸区估算。方案可保存到账号并在应用内发布、关联机型的挂载推荐；当前不提供挂载分享码。Wiki 未提供的组合限制不冒充完整游戏规则，估算适用范围与缺失参数以页面说明为准。"
         }
       ],
       "notes": "可不登录使用公开功能。需要登录或额度的操作会在使用时提示。无需提供战争雷霆游戏账号密码。本站为玩家制作的独立工具，与 Gaijin Entertainment 无隶属关系，游戏名称与图片归各自权利人所有。",
       "languageNote": "工作台支持简体中文、English、Русский 和日本語。首次访问按浏览器语言匹配；手动选择会保存。固定语言入口始终使用该入口的语言。",
-      "qmuseLabel": "QMuse 备用入口",
+      "qmuseLabel": "中文主站 · QMuse",
       "howToTitle": "如何开始使用",
       "faqTitle": "常见问题",
       "dataTitle": "数据来源与更新",
@@ -108,9 +116,9 @@
         {
           "title": "出击队列与分享",
           "steps": [
-            "打开出击队列，选择国家和模式，再新建阵容。",
-            "选择载具并核对当前模式的队列 BR；编辑完成后显式保存。",
-            "使用分享码分享或导入队列；不同域名的本地数据不会自动同步。"
+            "打开出击队列，按国家选择已有阵容，或新建队列并选择载具。",
+            "选择权重模式，按名称或载具搜索、战斗类型筛选及 BR 排序；编辑完成后显式保存。",
+            "游客方案保存在当前浏览器；登录后使用账号云端工作区。分享码用于导入，发布到大厅需确认分享标签。"
           ]
         },
         {
@@ -119,6 +127,14 @@
             "打开折扣日历，选择年份、月份和购买渠道。",
             "点击活动查看官方来源，并区分已公布活动与预测窗口。",
             "添加关注载具，核对参与条件；具体日期与力度以官方公告为准。"
+          ]
+        },
+        {
+          "title": "战雷模拟挂载与导弹对比",
+          "steps": [
+            "登录工作台，打开模拟挂载，从“添加挂载”选择有挂载资料的机型。",
+            "选择默认方案或逐挂点配置，按类型与型号系列筛选武器；勾选弹药后使用独立对比窗口，最多六种。",
+            "核对载重限制与炸区估算的适用规则，保存方案；需要分享时添加标签，发布到应用内大厅和机型挂载推荐。"
           ]
         }
       ],
@@ -144,21 +160,25 @@
           "answer": "明细区分研发点、金鹰、礼包、特殊载具及未计价项目。特殊载具单独展示，默认赠送和被排除项目按本站配置处理；缺少价格不代表免费，估值也不代表市场成交价。"
         },
         {
-          "question": "QMuse 和自有域名的队列与地图方案会同步吗？",
-          "answer": "不会自动同步。它们属于不同浏览器站点，本地存储相互独立；请使用已有的分享码、项目导出及导入功能迁移需要的内容。"
+          "question": "主站、国际站和不同设备之间如何保存方案？",
+          "answer": "登录同一个工作台账号后，研发计划、研发购物车、出击队列、挂载方案和关注列表使用账号云端工作区。游客资料与地图编辑方案仍保存在各自浏览器，不会因切换域名自动迁移；本机资料的导入以界面提示为准，地图方案可用项目文件备份。"
         },
         {
           "question": "如何切换中文、英文、俄文和日文？",
           "answer": "工作台支持简体中文、English、Русский 和日本語。首次访问按浏览器语言匹配；手动选择会保存。固定语言入口始终使用该入口的语言。"
+        },
+        {
+          "question": "模拟挂载是否等于游戏内完整挂载规则？",
+          "answer": "不等于。模拟器使用已采集的官方 Wiki 挂点、选项、重量与公开限制；缺失资料保持未知，不补造互斥关系。炸区估算当前面向空历常见四战区可刷新地图，不涵盖所有地图规则，具体数据与限制请看页面来源。"
         }
       ]
     },
     "en": {
       "path": "en",
       "name": "English",
-      "title": "War Thunder Workbench — Stats, Tech Trees & Maps",
-      "description": "War Thunder player stats lookup, research tech trees and RP planning, ground map route drawing, account value estimates and saved lineups in one independent workbench.",
-      "intro": "An independent toolkit for War Thunder PC international players. Explore research trees, plan vehicle progression, look up public player statistics and draw routes on ground battle maps.",
+      "title": "War Thunder Workbench — Stats, Loadouts, Tech Trees & Lineups",
+      "description": "War Thunder player stats, tech trees and RP planning, aircraft loadouts and missile comparison, community lineups, ground map routes, account estimates and sale dates.",
+      "intro": "An independent toolkit for War Thunder PC international players. Look up player statistics, plan research, configure aircraft loadouts, share lineups and draw routes on ground battle maps.",
       "open": "Open workbench",
       "features": [
         {
@@ -196,7 +216,7 @@
         {
           "route": "lineups",
           "title": "Vehicle lineups and sharing",
-          "text": "Save nation-specific lineups, check lineup ratings for the selected mode and share lineup codes. Research plans, lineups and map plans stay in the current browser. Use available exports for backups; local plans do not automatically synchronize between devices.",
+          "text": "Save nation-specific lineups and check mode-specific BR. Search lineup or vehicle names, filter by battle type and sort by BR. Nation options show flags and lineup counts. Import lineup codes or publish tagged snapshots to the community lobby. Guest lineups stay in the current browser; signed-in users save and sync through their account workspace. Private saves and public posts are managed separately.",
           "slug": "lineups",
           "description": "Save nation-specific lineups, check lineup ratings for the selected mode and share lineup codes.",
           "seoTitle": "Vehicle lineups and sharing | War Thunder"
@@ -208,11 +228,19 @@
           "slug": "sales",
           "description": "Browse announced War Thunder sales and forecast windows based on historical dates.",
           "seoTitle": "War Thunder sale calendar and forecasts"
+        },
+        {
+          "route": "loadouts",
+          "slug": "loadouts",
+          "title": "War Thunder loadout simulator and missile comparison",
+          "seoTitle": "War Thunder Aircraft Loadouts & Missile Comparison | Workbench",
+          "description": "Configure aircraft and helicopter hardpoints, filter weapons, compare up to six munitions and save or publish loadout plans.",
+          "text": "Sign in and choose an aircraft with available loadout data. View default presets or configure weapons, pods and drop tanks by hardpoint. Filter by weapon type, model family or name, or find aircraft compatible with a selected weapon. Compare up to six munitions using sourced parameters and check published hardpoint and weight limits. Bomb loadouts include matchmaking and base-destruction estimates for common Air RB maps with four respawning bases. Save plans to your account or publish them inside the app, including vehicle loadout recommendations; external loadout codes are not available. Missing Wiki restrictions are not presented as complete game compatibility rules. Check each estimate’s supported rules and missing parameters."
         }
       ],
       "notes": "Public features can be used without signing in. Operations that need an account or quota explain this when used. You do not need to provide your War Thunder game password. This fan-made toolkit is not affiliated with Gaijin Entertainment. Game names and artwork belong to their respective owners.",
       "languageNote": "The workbench supports Simplified Chinese, English, Russian and Japanese. Your first visit follows your browser language; manual choices are saved. Each language-specific URL always opens in its stated language.",
-      "qmuseLabel": "Alternative QMuse entry",
+      "qmuseLabel": "Chinese main site · QMuse",
       "howToTitle": "Getting started",
       "faqTitle": "Frequently asked questions",
       "dataTitle": "Sources and data freshness",
@@ -258,9 +286,9 @@
         {
           "title": "Vehicle lineups and sharing",
           "steps": [
-            "Open Lineups, choose a nation and battle mode, then create a lineup.",
-            "Choose vehicles and check the lineup BR for that mode; explicitly save when finished.",
-            "Share or import using lineup codes. Local data does not sync automatically between domains."
+            "Open Lineups, choose a nation and select a saved lineup or create one.",
+            "Choose the BR mode; search names or vehicles, filter by battle type and sort by BR. Explicitly save completed edits.",
+            "Guest saves stay in the browser; sign in to use your account workspace. Import lineup codes or confirm tags before publishing to the lobby."
           ]
         },
         {
@@ -269,6 +297,14 @@
             "Open the sale calendar and choose a year, month and purchase channel.",
             "Open an event to review official sources and distinguish announced sales from forecast windows.",
             "Track vehicles and check eligibility; official announcements determine dates and discounts."
+          ]
+        },
+        {
+          "title": "War Thunder loadout simulator and missile comparison",
+          "steps": [
+            "Sign in, open the loadout simulator and use Add loadout to choose an aircraft with available data.",
+            "Choose a preset or configure hardpoints. Filter weapons by type or model family and select up to six munitions for the independent comparison window.",
+            "Check weight limits and the supported bombing rules, then save. Add tags to publish to the in-app lobby and vehicle loadout recommendations."
           ]
         }
       ],
@@ -294,21 +330,25 @@
           "answer": "The detail view distinguishes RP, Golden Eagle vehicles, packs, special vehicles and unpriced items. Special vehicles are shown separately; starter gifts and excluded entries follow the configured valuation policy. Missing prices do not mean free, and estimates are not market transaction prices."
         },
         {
-          "question": "Do QMuse and the custom domain share local plans?",
-          "answer": "No automatic synchronization is provided. They are separate browser origins with independent local storage. Use existing share codes and project export/import tools to move the content you need."
+          "question": "How are plans saved across the main site, international site and devices?",
+          "answer": "When signed in with the same workbench account, research plans, the research cart, lineups, loadout plans and watchlists use the account cloud workspace. Guest data and map editor plans remain local to each browser and do not move automatically between domains. Follow the interface when importing local data; back up map plans with project files."
         },
         {
           "question": "How do I switch between Chinese, English, Russian and Japanese?",
           "answer": "The workbench supports Simplified Chinese, English, Russian and Japanese. Your first visit follows your browser language; manual choices are saved. Each language-specific URL always opens in its stated language."
+        },
+        {
+          "question": "Does the simulator reproduce every in-game loadout rule?",
+          "answer": "No. It uses collected official Wiki hardpoints, options, weights and published limits. Missing data stays unknown; unpublished incompatibilities are not invented. Base estimates currently target common Air RB maps with four respawning bases, not every map rule. Consult the displayed sources and limitations."
         }
       ]
     },
     "ru": {
       "path": "ru",
       "name": "Русский",
-      "title": "War Thunder — статистика, дерево техники и карты",
-      "description": "Статистика игроков War Thunder, дерево исследования техники, планирование очков исследования, маршруты на картах, оценка стоимости аккаунта и наборы техники.",
-      "intro": "Независимый набор инструментов для игроков международной версии War Thunder на ПК. Изучайте деревья техники, планируйте исследования, смотрите открытую статистику игроков и рисуйте маршруты на картах наземных боёв.",
+      "title": "War Thunder — статистика, подвесы, дерево техники и наборы",
+      "description": "Статистика War Thunder, дерево техники и планирование ОИ, настройка подвесов и сравнение ракет, наборы техники, маршруты на картах, оценка аккаунта и скидки.",
+      "intro": "Независимые инструменты для международной версии War Thunder на ПК: статистика игроков, планирование исследований, настройка подвесов, обмен наборами техники и маршруты на наземных картах.",
       "open": "Открыть инструменты",
       "features": [
         {
@@ -346,7 +386,7 @@
         {
           "route": "lineups",
           "title": "Составы техники и обмен",
-          "text": "Сохраняйте наборы для каждой страны, проверяйте рейтинг по выбранному режиму и делитесь кодами наборов. Планы исследования, наборы и схемы карт хранятся в текущем браузере. Используйте доступный экспорт для резервных копий: автоматической синхронизации между устройствами нет.",
+          "text": "Сохраняйте наборы по странам и проверяйте БР выбранного режима. Ищите по названию набора или машины, фильтруйте по типу боя и сортируйте по БР. В выборе страны показаны флаг и число наборов. Импортируйте коды или публикуйте наборы с метками в общем зале. Гостевые наборы хранятся в браузере; после входа сохранение и синхронизация выполняются через облачное рабочее пространство аккаунта. Личные сохранения и общие публикации управляются отдельно.",
           "slug": "lineups",
           "description": "Сохраняйте наборы для каждой страны, проверяйте рейтинг по выбранному режиму и делитесь кодами наборов.",
           "seoTitle": "Составы техники и обмен | War Thunder"
@@ -358,11 +398,19 @@
           "slug": "sales",
           "description": "Просматривайте объявленные скидки War Thunder и прогнозные окна по датам прошлых лет.",
           "seoTitle": "Календарь скидок и прогнозы War Thunder"
+        },
+        {
+          "route": "loadouts",
+          "slug": "loadouts",
+          "title": "Симулятор подвесов и сравнение ракет War Thunder",
+          "seoTitle": "Подвесы самолётов и сравнение ракет War Thunder | Workbench",
+          "description": "Настройка узлов подвески самолётов и вертолётов, фильтры оружия, сравнение до шести боеприпасов, сохранение и публикация конфигураций.",
+          "text": "Войдите и выберите машину с доступными данными подвесов. Просматривайте готовые варианты или выбирайте оружие, контейнеры и подвесные баки по узлам. Фильтруйте по типу, серии и названию оружия либо находите совместимые машины по подвесу. Сравнивайте до шести боеприпасов по параметрам источника и проверяйте опубликованные ограничения узлов и массы. Для бомб показаны варианты подбора боя и оценка уничтожения баз на распространённых картах воздушных РБ с четырьмя возобновляемыми базами. Сохраняйте планы в аккаунте и публикуйте внутри приложения, в том числе в рекомендациях для машины; внешних кодов подвесов пока нет. Неизвестные ограничения Wiki не выдаются за полные правила игры. Учитывайте область применимости расчёта и недостающие параметры."
         }
       ],
       "notes": "Открытыми функциями можно пользоваться без входа. Если операция требует аккаунта или лимита, об этом сообщается при использовании. Пароль игрового аккаунта War Thunder не нужен. Это фанатский проект, не связанный с Gaijin Entertainment. Названия игры и изображения принадлежат соответствующим правообладателям.",
       "languageNote": "Инструменты доступны на упрощённом китайском, английском, русском и японском языках. При первом посещении язык выбирается по настройкам браузера; ручной выбор сохраняется. Адрес с языковым префиксом всегда открывается на указанном языке.",
-      "qmuseLabel": "Дополнительный вход через QMuse",
+      "qmuseLabel": "Основной сайт на китайском · QMuse",
       "howToTitle": "Как начать работу",
       "faqTitle": "Частые вопросы",
       "dataTitle": "Источники и актуальность данных",
@@ -408,9 +456,9 @@
         {
           "title": "Наборы техники и обмен",
           "steps": [
-            "Откройте составы, выберите нацию и режим боя, затем создайте состав.",
-            "Выберите технику и проверьте БР состава для этого режима; сохраните изменения.",
-            "Используйте коды для обмена и импорта. Локальные данные разных доменов не синхронизируются автоматически."
+            "Откройте наборы техники, выберите страну и сохранённый набор или создайте новый.",
+            "Выберите режим БР, используйте поиск по набору или машине, фильтр типа боя и сортировку по БР. Сохраните изменения явно.",
+            "Гостевые данные остаются в браузере; войдите для доступа к облачному пространству аккаунта. Импортируйте коды или подтвердите метки перед публикацией в общем зале."
           ]
         },
         {
@@ -419,6 +467,14 @@
             "Откройте календарь скидок и выберите год, месяц и способ покупки.",
             "Откройте событие, проверьте источники и отличайте объявленные акции от прогнозов.",
             "Добавьте технику в избранное и проверьте условия; даты и скидки определяются официальными объявлениями."
+          ]
+        },
+        {
+          "title": "Симулятор подвесов и сравнение ракет War Thunder",
+          "steps": [
+            "Войдите, откройте симулятор подвесов и добавьте конфигурацию, выбрав машину с доступными данными.",
+            "Выберите готовый вариант или настройте узлы. Используйте фильтры типа и серии; отметьте до шести боеприпасов для отдельного окна сравнения.",
+            "Проверьте массу и применимые правила расчёта баз, сохраните план. Добавьте метки для публикации в общем зале и рекомендациях машины."
           ]
         }
       ],
@@ -444,21 +500,25 @@
           "answer": "Отдельно показаны ОИ, техника за Золотые орлы, наборы, особые машины и позиции без цены. Особая техника указана отдельно; подарочные и исключённые машины обрабатываются по заданной политике. Неизвестная цена не означает бесплатную машину, а оценка не равна цене сделки."
         },
         {
-          "question": "Синхронизируются ли планы между QMuse и собственным доменом?",
-          "answer": "Автоматической синхронизации нет. Это разные сайты с независимым локальным хранилищем браузера. Для переноса используйте существующие коды обмена и экспорт или импорт проектов."
+          "question": "Как сохраняются планы на разных сайтах и устройствах?",
+          "answer": "При входе в один аккаунт планы исследований, корзина исследования, наборы техники, подвесы и список отслеживания используют облачное пространство аккаунта. Гостевые данные и планы редактора карт остаются в конкретном браузере и не переносятся автоматически между доменами. Импортируйте локальные данные по подсказкам интерфейса; для резервной копии карт используйте файлы проектов."
         },
         {
           "question": "Как переключиться между китайским, английским, русским и японским языками?",
           "answer": "Инструменты доступны на упрощённом китайском, английском, русском и японском языках. При первом посещении язык выбирается по настройкам браузера; ручной выбор сохраняется. Адрес с языковым префиксом всегда открывается на указанном языке."
+        },
+        {
+          "question": "Симулятор повторяет все игровые ограничения подвесов?",
+          "answer": "Нет. Используются собранные из официальной Wiki узлы, варианты, масса и опубликованные ограничения. Неизвестные значения не заменяются догадками. Оценка баз относится к распространённым картам воздушных РБ с четырьмя возобновляемыми базами, а не ко всем картам. Проверяйте источники и ограничения в интерфейсе."
         }
       ]
     },
     "ja": {
       "path": "ja",
       "name": "日本語",
-      "title": "War Thunder Workbench — 戦績・研究ツリー・マップ",
-      "description": "War Thunderの戦績検索、研究ツリーとRP計算、陸戦マップのルート作成、アカウント評価額、編成管理をまとめた非公式ツール。",
-      "intro": "War Thunder PC国際版プレイヤー向けの非公式ツール集です。研究ツリーの確認、車両の研究計画、公開戦績の検索、陸戦マップのルート作成をひとつのワークベンチで行えます。",
+      "title": "War Thunder Workbench — 戦績検索・兵装・研究ツリー・編成",
+      "description": "War Thunderの戦績検索、研究ツリーとRP計画、航空機の兵装設定とミサイル比較、公開編成、陸戦マップ、アカウント評価とセール日程。",
+      "intro": "War Thunder PC国際版プレイヤー向けの非公式ツール集です。戦績検索、研究計画、航空機の兵装設定、編成の共有、陸戦マップのルート作成を利用できます。",
       "open": "ワークベンチを開く",
       "features": [
         {
@@ -496,7 +556,7 @@
         {
           "route": "lineups",
           "title": "車両の編成と共有",
-          "text": "国ごとの編成を保存し、選択したモードの編成BRを確認して共有コードで共有できます。研究計画、編成、マッププランは現在のブラウザーに保存されます。バックアップには利用可能なエクスポート機能をお使いください。端末間で自動同期はされません。",
+          "text": "国ごとの編成を保存し、モード別のBRを確認できます。編成名や車両名の検索、戦闘種類の絞り込み、BR順の並べ替えに対応し、国の選択欄には国旗と編成数を表示します。編成コードのインポートや、タグを付けた公開ロビーへの投稿もできます。ゲストの編成はブラウザーに保存され、ログイン後はアカウントのクラウドワークスペースで保存・同期します。個人の保存と公開投稿は別に管理します。",
           "slug": "lineups",
           "description": "国別の編成を保存し、モードごとのBR確認や共有コードでの共有ができます。",
           "seoTitle": "車両の編成と共有 | Workbench"
@@ -508,11 +568,19 @@
           "slug": "sales",
           "description": "公式セールと過去の日程に基づく予測期間を確認し、購入先や注目車両で絞り込めます。",
           "seoTitle": "War Thunderのセール日程と予測 | Workbench"
+        },
+        {
+          "route": "loadouts",
+          "slug": "loadouts",
+          "title": "War Thunderの兵装シミュレーターとミサイル比較",
+          "seoTitle": "War Thunderの兵装設定とミサイル比較 | Workbench",
+          "description": "航空機・ヘリコプターの搭載点設定、武器の絞り込み、最大6種類の弾薬比較、兵装プランの保存と公開に対応。",
+          "text": "ログイン後、兵装データのある機体を選択できます。標準プリセットを確認するか、搭載点ごとに武器、ポッド、増槽を設定します。武器の種類・系列・名前で絞り込み、指定した兵装を使える機体の検索も可能です。最大6種類の弾薬を比較し、出典にある搭載点と重量の制限を確認できます。爆弾を搭載した場合は、空戦RBの一般的な再出現する4基地マップを対象に、マッチング差と基地破壊数を推定します。プランはアカウントに保存し、アプリ内ロビーや機体別の推奨兵装に公開できます。外部共有用の兵装コードはありません。Wikiにない排他制限をゲーム全体の規則として補完せず、計算の対象ルールと不足データを画面に表示します。"
         }
       ],
       "notes": "公開機能はログインせずに利用できます。アカウントや利用回数枠が必要な操作は、利用時に案内します。War Thunderのゲームアカウントのパスワードは不要です。本サイトはプレイヤーが制作した非公式ツールであり、Gaijin Entertainmentとは関係ありません。ゲーム名や画像の権利は各権利者に帰属します。",
       "languageNote": "簡体字中国語、英語、ロシア語、日本語に対応しています。初回はブラウザーの言語設定に合わせ、手動で選択した言語は保存します。言語別URLでは、そのURLに対応する言語で表示します。",
-      "qmuseLabel": "QMuseの予備入口",
+      "qmuseLabel": "中国語メインサイト · QMuse",
       "howToTitle": "使い方",
       "faqTitle": "よくある質問",
       "dataTitle": "データの出典と更新",
@@ -558,9 +626,9 @@
         {
           "title": "編成を保存して共有する",
           "steps": [
-            "編成ページで国とモードを選び、新しい編成を作成します。",
-            "車両を選択し、現在のモードの編成BRを確認して、編集後に保存します。",
-            "共有コードで編成の共有やインポートができます。異なるドメインのローカルデータは自動同期されません。"
+            "編成ページで国を選び、保存済みの編成を開くか新規作成します。",
+            "BRモードを選び、編成名・車両名の検索、戦闘種類の絞り込み、BR順の並べ替えを利用します。編集後は保存してください。",
+            "ゲストのデータはブラウザー内に保存されます。ログインするとクラウドワークスペースを利用できます。編成コードのインポートや、タグを確認して公開ロビーへ投稿できます。"
           ]
         },
         {
@@ -569,6 +637,14 @@
             "セール日程で年・月・購入先を選択します。",
             "イベントを開いて公式の出典を確認し、発表済みのセールと予測期間を区別します。",
             "注目車両を追加し、対象条件を確認します。実際の日程と割引率は公式発表に従ってください。"
+          ]
+        },
+        {
+          "title": "War Thunderの兵装シミュレーターとミサイル比較",
+          "steps": [
+            "ログインして兵装シミュレーターを開き、追加ボタンからデータのある機体を選択します。",
+            "プリセットを選ぶか搭載点を設定します。武器の種類・系列で絞り込み、最大6種類の弾薬を独立した比較ウィンドウで確認します。",
+            "重量制限と基地計算の対象ルールを確認して保存します。タグを付けるとアプリ内ロビーや機体別の推奨兵装に公開できます。"
           ]
         }
       ],
@@ -594,17 +670,21 @@
           "answer": "RP、GE車両、パック、特殊車両、未評価項目を区別して表示します。特殊車両は別記し、初期配布車両や除外項目は本サイトの設定に従います。価格不明は無料を意味せず、評価額は市場の取引価格を示すものではありません。"
         },
         {
-          "question": "QMuseと独自ドメインで編成やマッププランは同期されますか？",
-          "answer": "自動同期されません。ブラウザーでは別のサイトとして扱われ、保存領域も独立しています。共有コードやプロジェクトのエクスポート・インポート機能で必要なデータを移してください。"
+          "question": "メインサイト・国際サイト・別の端末ではどのように保存されますか？",
+          "answer": "同じアカウントでログインすると、研究計画、研究カート、編成、兵装プラン、ウォッチリストはアカウントのクラウドワークスペースを利用します。ゲストのデータとマップ編集プランは各ブラウザー内に残り、ドメインを切り替えても自動移行しません。ローカルデータのインポートは画面の案内に従い、マップはプロジェクトファイルでバックアップしてください。"
         },
         {
           "question": "表示言語を変更するには？",
           "answer": "簡体字中国語、英語、ロシア語、日本語に対応しています。初回はブラウザーの言語設定に合わせ、手動で選択した言語は保存します。言語別URLでは、そのURLに対応する言語で表示します。"
+        },
+        {
+          "question": "ゲーム内の兵装制限をすべて再現していますか？",
+          "answer": "いいえ。公式Wikiから収集した搭載点、選択肢、重量、公開制限を使用します。不明なデータや排他関係を推測で補いません。基地計算は空戦RBの一般的な再出現する4基地マップが対象で、すべてのマップには対応していません。画面の出典と制限を確認してください。"
         }
       ]
     }
   },
-  "contentReviewedAt": "2026-10-23",
+  "contentReviewedAt": "2026-11-04",
   "sources": [
     {
       "url": "https://wiki.warthunder.com/",

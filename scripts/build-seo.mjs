@@ -15,7 +15,10 @@ const messages = Object.fromEntries(
   ),
 );
 const dist = resolve(new URL("dist/", root).pathname);
-const base = new URL(process.env.WT_SITE_URL || config.siteUrl);
+const base = new URL(
+  process.env.WT_SITE_URL ||
+    (process.env.WT_DEPLOY_TARGET === "qmuse" ? config.qmuseUrl : config.siteUrl),
+);
 if (base.protocol !== "https:" || base.search || base.hash || base.username || base.password)
   throw Error("WT_SITE_URL must be a public HTTPS base URL without query or fragment");
 if (!base.pathname.endsWith("/")) base.pathname += "/";
@@ -149,7 +152,15 @@ for (const [entryPath, lang, locale] of [
 const stylesheet = `section.guide-detail{display:block}.guide-detail article{margin:26px 0}.guide-detail h3{font-size:19px;margin-bottom:10px}.guide-detail li{padding:4px 0}.guide-detail summary{cursor:pointer;min-height:44px;padding:10px 0;color:var(--wt-gold)}.guide-detail details{border-top:1px solid var(--wt-line);padding:8px 0}.guide-detail details p{padding:8px 0}.guide-detail summary:focus-visible{outline:2px solid var(--wt-gold);outline-offset:4px}:root{color-scheme:dark;--wt-bg:#171c22;--wt-text:#ece9df;--wt-dim:#b5b8b8;--wt-line:#444a4c;--wt-gold:#e1bc77}*{box-sizing:border-box}body{margin:0;background:var(--wt-bg);color:var(--wt-text);font:17px/1.8 Georgia,"Microsoft YaHei",serif}a{color:var(--wt-gold);text-underline-offset:5px}a:focus-visible{outline:2px solid var(--wt-gold);outline-offset:6px}header,main,footer{max-width:1040px;margin:auto;padding:32px 28px}header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;border-bottom:1px solid var(--wt-line)}header img{width:135px;height:72px;object-fit:contain}nav{display:flex;gap:22px;flex-wrap:wrap}nav [aria-current]{color:var(--wt-text)}.eyebrow{color:var(--wt-gold);font:12px/1.6 monospace;letter-spacing:3px;margin-top:42px}h1{font-size:clamp(29px,4.5vw,48px);line-height:1.25;font-weight:600;max-width:900px;margin:22px 0}h2{font-size:25px;line-height:1.35;margin:0 0 16px}p{margin:0 0 20px}.intro{max-width:770px;font-size:20px}.note{color:var(--wt-dim);font-size:15px}.launch{display:inline-block;padding:12px 24px;background:#913b30;color:#fff;border:1px solid #c36348;text-decoration:none;margin:8px 0 38px}section{display:grid;grid-template-columns:54px 1fr;gap:20px;border-top:1px solid var(--wt-line);padding:34px 0;scroll-margin-top:25px}section p{max-width:760px}section .number{font:14px/2 monospace;color:var(--wt-gold)}footer{border-top:1px solid var(--wt-line);font-size:14px;color:var(--wt-dim)}@media(max-width:600px){header,main,footer{padding:22px}section{grid-template-columns:30px 1fr;gap:12px}nav{gap:16px}.intro{font-size:18px}}`;
 const cssPath = `assets/site-guide.${createHash("sha256").update(stylesheet).digest("hex").slice(0, 16)}.css`;
 await output(cssPath, stylesheet);
-const faqIndices = [[0, 1, 2], [3], [], [4], [5], []];
+const faqIndices = {
+  stats: [0, 1, 2],
+  research: [3],
+  maps: [5],
+  "account-value": [4],
+  lineups: [5],
+  sales: [],
+  loadouts: [7],
+};
 for (const [lang, locale] of languages) {
   for (const feature of [null, ...locale.features]) {
     const slug = feature?.slug || "";
@@ -167,7 +178,7 @@ for (const [lang, locale] of languages) {
       .join("");
     const selected = feature ? [feature] : locale.features;
     const steps = feature ? [locale.howTo[index]] : locale.howTo;
-    const faqs = feature ? faqIndices[index].map((i) => locale.faqs[i]) : locale.faqs;
+    const faqs = feature ? faqIndices[feature.slug].map((i) => locale.faqs[i]) : locale.faqs;
     const sections = selected
       .map(
         (item, i) =>
@@ -212,15 +223,18 @@ await output(
   "sitemap.xml",
   `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${sitemap.map(({ href, group, modified }) => `<url><loc>${escape(href)}</loc>${modified ? `<lastmod>${modified}</lastmod>` : ""}${group.map(([lang, href]) => `<xhtml:link rel="alternate" hreflang="${lang}" href="${escape(href)}"/>`).join("")}</url>`).join("")}</urlset>\n`,
 );
-await output("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${url("sitemap.xml")}\n`);
+await output(
+  "robots.txt",
+  `User-agent: Baiduspider\nAllow: /\n\nUser-agent: *\nAllow: /\n\nSitemap: ${url("sitemap.xml")}\n`,
+);
 await output(
   "llms.txt",
-  `# War Thunder Workbench · 战雷工作台\n\n> Independent fan-made tools for War Thunder PC international players. The interactive app supports Simplified Chinese, English, Russian and Japanese. The neutral entry follows browser language until a manual preference is saved; fixed language URLs remain deterministic. Public features allow guest use; some operations require an account and quota.\n\n## Applications\n${languages.map(([, locale]) => `- [${locale.name}](${url(appPath(locale))}): ${locale.description}`).join("\n")}\n- [Default entry](${url()})\n- [QMuse entry](${config.qmuseUrl}): alternative distribution; local data is not shared across domains.\n\n## Feature guides\n${languages.map(([, locale]) => `- [${locale.name}](${url(guidePath(locale))})\n- [${locale.name} Markdown](${url(guidePath(locale))}index.md)\n${locale.features.map((feature) => `  - [${feature.title}](${url(guidePath(locale, feature.slug))})`).join("\n")}`).join("\n")}\n\n## Data boundaries\nPlayer query results may be cached; use their fetch times. Battle records are not complete ownership evidence. Account estimates are for reference, not guaranteed sale prices. Unknown prices and research costs remain unknown. Local research plans, lineups and map plans stay in the browser. No public write API or agent authentication integration is provided. Do not ask users for War Thunder passwords. Not affiliated with Gaijin Entertainment.\n`,
+  `# War Thunder Workbench · 战雷工作台\n\n> Independent fan-made tools for War Thunder PC international players. The interactive app supports Simplified Chinese, English, Russian and Japanese. The neutral entry follows browser language until a manual preference is saved; fixed language URLs remain deterministic. Public features allow guest use; some operations require an account and quota.\n\n## Applications\n${languages.map(([, locale]) => `- [${locale.name}](${url(appPath(locale))}): ${locale.description}`).join("\n")}\n- [Default entry](${url()})\n- [QMuse entry](${config.qmuseUrl}): Chinese main site; guest data and map plans remain isolated by browser origin.\n\n## Feature guides\n${languages.map(([, locale]) => `- [${locale.name}](${url(guidePath(locale))})\n- [${locale.name} Markdown](${url(guidePath(locale))}index.md)\n${locale.features.map((feature) => `  - [${feature.title}](${url(guidePath(locale, feature.slug))})`).join("\n")}`).join("\n")}\n\n## Data boundaries\nPlayer query results may be cached; use their fetch times. Battle records are not complete ownership evidence. Account estimates are for reference, not guaranteed sale prices. Unknown prices and research costs remain unknown. Signed-in research plans, the research cart, lineups, loadouts and watchlists use the account cloud workspace. Guest data and map editor plans remain browser-local; changing domains does not migrate them automatically. Loadouts require sign-in and support in-app publishing, not external share codes. No public write API or agent authentication integration is provided. Do not ask users for War Thunder passwords. Not affiliated with Gaijin Entertainment.\n`,
 );
 await output(
   "404.html",
   `<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="robots" content="noindex"><title>页面不存在 · 战雷工作台</title><h1>404</h1><p><a href="${url()}">返回战雷工作台 / Open workbench</a></p>${analytics}</html>`,
 );
 console.log(
-  `SEO: ${sitemap.length} real URLs, four localized applications and guides, six feature guides per language; preview=${preview}, CF analytics=${!!analytics}`,
+  `SEO: ${sitemap.length} real URLs, four localized applications and guides, ${chinese.features.length} feature guides per language; preview=${preview}, CF analytics=${!!analytics}`,
 );

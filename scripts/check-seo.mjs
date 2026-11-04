@@ -4,7 +4,10 @@ import { parseHTML, DOMParser } from "linkedom";
 const root = new URL("../", import.meta.url);
 const config = JSON.parse(await readFile(new URL("data/site-seo.json", root), "utf8"));
 const japanese = JSON.parse(await readFile(new URL("data/i18n/ja.json", root), "utf8"));
-const base = new URL(process.env.WT_SITE_URL || config.siteUrl);
+const base = new URL(
+  process.env.WT_SITE_URL ||
+    (process.env.WT_DEPLOY_TARGET === "qmuse" ? config.qmuseUrl : config.siteUrl),
+);
 if (!base.pathname.endsWith("/")) base.pathname += "/";
 const url = (path = "") => new URL(path, base).href;
 const languages = Object.entries(config.locales);
@@ -166,6 +169,11 @@ for (const entry of entries) {
   if (!page.app) assert.equal(entry.querySelector("lastmod").textContent, config.contentReviewedAt);
 }
 assert((await readFile(new URL("dist/robots.txt", root), "utf8")).includes(url("sitemap.xml")));
+assert.match(
+  await readFile(new URL("dist/robots.txt", root), "utf8"),
+  /User-agent: Baiduspider\s+Allow: \//,
+  "Baidu needs an explicit allow alongside Cloudflare managed directives",
+);
 const llms = await readFile(new URL("dist/llms.txt", root), "utf8");
 assert(llms.includes(config.qmuseUrl) && !llms.includes("primarily Simplified Chinese"));
 for (const [canonical, page] of expected) if (page.app) assert(llms.includes(canonical));

@@ -11,11 +11,14 @@ export function updateSearchMetadata(page: string) {
     stats: "战雷战绩查询与战雷账号价值",
     maps: "战雷走线与陆战地图编辑",
     lineups: "战雷出击队列",
+    loadouts: "战雷模拟挂载与导弹对比",
     sales: "战雷折扣日历",
     decals: "战雷贴花查询与解锁条件",
   };
   document.title = `${t(titles[page] || "战争雷霆玩家工具")} · ${t("战雷工作台")} | War Thunder Workbench`;
-  const qmuse = location.origin === new URL(seo.qmuseUrl).origin;
+  const qmuse =
+    location.origin === new URL(seo.qmuseUrl).origin ||
+    location.origin === "https://render.qmuse.pub";
   const entryLocale = pathLocale(location.pathname);
   const canonical = qmuse
     ? seo.qmuseUrl

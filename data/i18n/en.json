@@ -3728,5 +3728,7 @@
   "没有符合条件的队列": "No matching lineups",
   "试试其他名称、战斗类型或权重。": "Try another name, battle type or BR.",
   "试试其他名称或战斗类型。": "Try another name or battle type.",
-  "公开队列数": "Public lineups"
+  "公开队列数": "Public lineups",
+  "战雷模拟挂载与导弹对比": "War Thunder loadouts and missile comparison",
+  "请启用 JavaScript 以使用工作台。游客资料与地图方案保留在当前浏览器；登录后的研发计划、队列与挂载使用账号云端工作区。": "Enable JavaScript to use the workbench. Guest data and map plans remain in this browser; signed-in research plans, lineups and loadouts use your account cloud workspace."
 }
