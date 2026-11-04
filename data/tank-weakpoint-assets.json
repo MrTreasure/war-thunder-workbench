@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "5b8b63bdb4e55f4be1d728d43dd15150d95b0175",
+  "commit": "3d89758510706c469ec645c1883e3c2a72ce1333",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -1376,6 +1376,42 @@
         "commit": "5b8b63bdb4e55f4be1d728d43dd15150d95b0175",
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@5b8b63bdb4e55f4be1d728d43dd15150d95b0175/images/USSR/USSR-IS-2-1944-lower-glacis-protection-preview.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/5b8b63bdb4e55f4be1d728d43dd15150d95b0175/images/USSR/USSR-IS-2-1944-lower-glacis-protection-preview.webp"
+      }
+    },
+    "ussr_t_55_am": {
+      "photo": {
+        "path": "images/USSR/USSR-T-55AM-1-turret-roof-bump-protection-preview.webp",
+        "sha256": "0dd65dd0ae8854a7f2e2d0c7a033d52bc0878bf36828aca7716ffbee83acc70b",
+        "bytes": 524078,
+        "commit": "3d89758510706c469ec645c1883e3c2a72ce1333",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@3d89758510706c469ec645c1883e3c2a72ce1333/images/USSR/USSR-T-55AM-1-turret-roof-bump-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/3d89758510706c469ec645c1883e3c2a72ce1333/images/USSR/USSR-T-55AM-1-turret-roof-bump-protection-preview.webp"
+      },
+      "raw": {
+        "path": "images/USSR/USSR-T-55AM-1-turret-roof-bump-protection-preview.webp",
+        "sha256": "0dd65dd0ae8854a7f2e2d0c7a033d52bc0878bf36828aca7716ffbee83acc70b",
+        "bytes": 524078,
+        "commit": "3d89758510706c469ec645c1883e3c2a72ce1333",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@3d89758510706c469ec645c1883e3c2a72ce1333/images/USSR/USSR-T-55AM-1-turret-roof-bump-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/3d89758510706c469ec645c1883e3c2a72ce1333/images/USSR/USSR-T-55AM-1-turret-roof-bump-protection-preview.webp"
+      }
+    },
+    "germ_leopard_a1a1_120": {
+      "photo": {
+        "path": "images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
+        "sha256": "8712f6edac3b12521e5097bb74eeef55f8106929176a16eacbaf0453c49772a2",
+        "bytes": 355186,
+        "commit": "3d89758510706c469ec645c1883e3c2a72ce1333",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@3d89758510706c469ec645c1883e3c2a72ce1333/images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/3d89758510706c469ec645c1883e3c2a72ce1333/images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp"
+      },
+      "raw": {
+        "path": "images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
+        "sha256": "8712f6edac3b12521e5097bb74eeef55f8106929176a16eacbaf0453c49772a2",
+        "bytes": 355186,
+        "commit": "3d89758510706c469ec645c1883e3c2a72ce1333",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@3d89758510706c469ec645c1883e3c2a72ce1333/images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/3d89758510706c469ec645c1883e3c2a72ce1333/images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp"
       }
     }
   },
@@ -16623,6 +16659,195 @@
       "commit": "5b8b63bdb4e55f4be1d728d43dd15150d95b0175",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@5b8b63bdb4e55f4be1d728d43dd15150d95b0175/images/USSR/USSR-IS-2-1944-right-turret-front-protection-preview.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/5b8b63bdb4e55f4be1d728d43dd15150d95b0175/images/USSR/USSR-IS-2-1944-right-turret-front-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "vehicleId": "ussr_t_55_am",
+      "filename": "USSR-T-55AM-1-turret-roof-bump-protection-preview.webp",
+      "path": "images/USSR/USSR-T-55AM-1-turret-roof-bump-protection-preview.webp",
+      "country": "USSR",
+      "kind": "photo",
+      "evidenceId": "t55am1-turret-roof-bump-preview",
+      "width": 960,
+      "height": 700,
+      "bytes": 524078,
+      "sha256": "0dd65dd0ae8854a7f2e2d0c7a033d52bc0878bf36828aca7716ffbee83acc70b",
+      "preCompressionBytes": 524078,
+      "preCompressionSHA256": "0dd65dd0ae8854a7f2e2d0c7a033d52bc0878bf36828aca7716ffbee83acc70b",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/T55-guarded-v582b/ussr_t_55_am/native-1119.png",
+        "sha256": "7cb7491a2bd284d825aaae19ce67cc26eff744c9b70c10e082414191ea974cc9",
+        "bytes": 3034612,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "7cb7491a2bd284d825aaae19ce67cc26eff744c9b70c10e082414191ea974cc9",
+      "sourceTime": 1117.939025,
+      "crop": [
+        600,
+        150,
+        960,
+        700
+      ],
+      "nativeXY": [
+        1031,
+        347
+      ],
+      "pointUV": [
+        0.44895833333333335,
+        0.2814285714285714
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v586-20261105/t55am1-turret-roof-bump-preview-frame-proof.json",
+        "sha256": "588526b193389de7f9ecc880641e7a23cf181b72f28dc45d176813e927476951"
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1Bg411b7U1/",
+        "author": "1RainZhang1",
+        "date": "2022-12-28T19:59:38+08:00",
+        "gameVersion": "2.23.0.29"
+      },
+      "commit": "3d89758510706c469ec645c1883e3c2a72ce1333",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@3d89758510706c469ec645c1883e3c2a72ce1333/images/USSR/USSR-T-55AM-1-turret-roof-bump-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/3d89758510706c469ec645c1883e3c2a72ce1333/images/USSR/USSR-T-55AM-1-turret-roof-bump-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "vehicleId": "ussr_t_55_am",
+      "filename": "USSR-T-55AM-1-mantlet-protection-preview.webp",
+      "path": "images/USSR/USSR-T-55AM-1-mantlet-protection-preview.webp",
+      "country": "USSR",
+      "kind": "protection-evidence",
+      "evidenceId": "t55am1-mantlet-preview",
+      "width": 960,
+      "height": 700,
+      "bytes": 500808,
+      "sha256": "558b63e1be86bd12130162034834ca9557c87daab9394d072b518eeb6dc6b876",
+      "preCompressionBytes": 500808,
+      "preCompressionSHA256": "558b63e1be86bd12130162034834ca9557c87daab9394d072b518eeb6dc6b876",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/T55-guarded-v582b/ussr_t_55_am/native-1131.png",
+        "sha256": "134929e59b7e0d7c0b95c29b5f45f13c4694b80994e2e2956ff8005be3c47bec",
+        "bytes": 2900620,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "134929e59b7e0d7c0b95c29b5f45f13c4694b80994e2e2956ff8005be3c47bec",
+      "sourceTime": 1129.944754,
+      "crop": [
+        600,
+        150,
+        960,
+        700
+      ],
+      "nativeXY": [
+        967,
+        362
+      ],
+      "pointUV": [
+        0.38229166666666664,
+        0.3028571428571429
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v586-20261105/t55am1-mantlet-preview-frame-proof.json",
+        "sha256": "a99b05ed9aef6e5454a177e9e30ad34357f47c628249d3e415d61ae2cd71b9fb"
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1Bg411b7U1/",
+        "author": "1RainZhang1",
+        "date": "2022-12-28T19:59:38+08:00",
+        "gameVersion": "2.23.0.29"
+      },
+      "commit": "3d89758510706c469ec645c1883e3c2a72ce1333",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@3d89758510706c469ec645c1883e3c2a72ce1333/images/USSR/USSR-T-55AM-1-mantlet-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/3d89758510706c469ec645c1883e3c2a72ce1333/images/USSR/USSR-T-55AM-1-mantlet-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "vehicleId": "germ_leopard_a1a1_120",
+      "filename": "GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
+      "path": "images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
+      "country": "GER",
+      "kind": "photo",
+      "evidenceId": "leopard-l44-turret-mount-preview",
+      "width": 960,
+      "height": 700,
+      "bytes": 355186,
+      "sha256": "8712f6edac3b12521e5097bb74eeef55f8106929176a16eacbaf0453c49772a2",
+      "preCompressionBytes": 355186,
+      "preCompressionSHA256": "8712f6edac3b12521e5097bb74eeef55f8106929176a16eacbaf0453c49772a2",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/LeopardL44-guarded-v582c/germ_leopard_a1a1_120/native-676.png",
+        "sha256": "658d406441da9af5521b02e307728a5b50afda77ba0220747f07b0625c5311c9",
+        "bytes": 2291635,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "658d406441da9af5521b02e307728a5b50afda77ba0220747f07b0625c5311c9",
+      "sourceTime": 675.081626,
+      "crop": [
+        600,
+        150,
+        960,
+        700
+      ],
+      "nativeXY": [
+        953,
+        448
+      ],
+      "pointUV": [
+        0.36770833333333336,
+        0.4257142857142857
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v586-20261105/leopard-l44-turret-mount-preview-frame-proof.json",
+        "sha256": "74ea4813f98a3bfb8a12ab9050b42004e6c117787a61b17b4fc8c971efcdcbb5"
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1Bg411b7U1/",
+        "author": "1RainZhang1",
+        "date": "2022-12-28T19:59:38+08:00",
+        "gameVersion": "2.23.0.29"
+      },
+      "commit": "3d89758510706c469ec645c1883e3c2a72ce1333",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@3d89758510706c469ec645c1883e3c2a72ce1333/images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/3d89758510706c469ec645c1883e3c2a72ce1333/images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
       "rootApproval": true
     }
   ]

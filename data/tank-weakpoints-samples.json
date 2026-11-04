@@ -12867,7 +12867,34 @@
       "eraStatus": "reviewed-unit-prose",
       "eraBasis": "豹A1A1 120毫米型在80年代初改装、1985年加装EMES18；Wiki提醒其装甲难挡许多步战车和自行高炮机关炮。",
       "collectedAt": "2026-11-02T09:05:31.400Z",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.36770833333333336,
+          "y": 0.4257142857142857,
+          "label": "炮管根部画面左侧炮塔安装区域（单点预测）",
+          "detail": "豹 1A1A1/120 / DM13 / 500米：原UI穿深384毫米；目标等效41毫米，入射13°、方位11°。仅本帧准星单点静态防护预测，非实射、整面可穿或击杀保证；2022年历史条件不代表当前版本装甲。",
+          "kind": "conditional",
+          "caseId": "germ_leopard_a1a1_120:BV1Bg411b7U1:675081626:preview",
+          "sourceUrl": "https://www.bilibili.com/video/BV1Bg411b7U1/",
+          "sourceTime": 675.081626,
+          "evidence": {
+            "frameSHA256": "658d406441da9af5521b02e307728a5b50afda77ba0220747f07b0625c5311c9",
+            "nativeXY": [
+              953,
+              448
+            ],
+            "crop": [
+              600,
+              150,
+              960,
+              700
+            ],
+            "coordinateToleranceNativePx": 4,
+            "singlePointPrediction": true,
+            "actualShotObserved": false
+          }
+        }
+      ],
       "videoAdvice": [
         {
           "id": "v177-germ_leopard_a1a1_120-author-opinion",
@@ -12890,8 +12917,14 @@
           }
         }
       ],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1Bg411b7U1/",
+        "author": "1RainZhang1",
+        "date": "2022-12-28T19:59:38+08:00",
+        "gameVersion": "2.23.0.29",
+        "kind": "video"
+      },
+      "status": "partial-native-point-predictions",
       "wikiUrl": "https://wiki.warthunder.com/unit/germ_leopard_a1a1_120",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-005-20261102/snapshots/germ_leopard_a1a1_120.json",
@@ -12924,8 +12957,131 @@
           "publishedAt": "2026-07-20",
           "time": 121.005615,
           "scopeNote": "作者评级与防护观点；非独立试射或当前官方装甲数据"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1Bg411b7U1/",
+          "author": "1RainZhang1",
+          "date": "2022-12-28T19:59:38+08:00",
+          "gameVersion": "2.23.0.29",
+          "kind": "video",
+          "time": 675.081626,
+          "scopeNote": "本精确型号历史版本单点预测，不外推其他子型或当前装甲。"
         }
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/LeopardL44-guarded-v582c/germ_leopard_a1a1_120/native-676.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v586-20261105/leopard-l44-turret-mount-preview-frame-proof.json",
+      "frameSnapshotSHA256": "74ea4813f98a3bfb8a12ab9050b42004e6c117787a61b17b4fc8c971efcdcbb5",
+      "captureSHA256": "658d406441da9af5521b02e307728a5b50afda77ba0220747f07b0625c5311c9",
+      "originalFrameSHA256": "658d406441da9af5521b02e307728a5b50afda77ba0220747f07b0625c5311c9",
+      "assetPath": "images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
+      "crop": [
+        600,
+        150,
+        960,
+        700
+      ],
+      "time": 675.081626,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "native-1080p-analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "displayImagePolicy": "analysis-excerpt",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "sourceGameVersion": "2.23.0.29",
+      "sourceNoRepost": true,
+      "testCases": [
+        {
+          "id": "germ_leopard_a1a1_120:BV1Bg411b7U1:675081626:preview",
+          "vehicleId": "germ_leopard_a1a1_120",
+          "sourceUrl": "https://www.bilibili.com/video/BV1Bg411b7U1/",
+          "sourceTime": 675.081626,
+          "sourceGameVersion": "2.23.0.29",
+          "attacker": "豹 1A1A1/120",
+          "attackerVisibleTitle": "豹 1A1A1/120",
+          "attackerVehicleId": "germ_leopard_a1a1_120",
+          "attackerCountry": "germany",
+          "shell": "DM13",
+          "sourceShellLabelOriginal": "DM13",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "germ_leopard_a1a1_120",
+            "wikiUnitId": "germ_leopard_a1a1_120",
+            "officialWikiUnitId": "germ_leopard_a1a1_120",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_a1a1_120",
+            "checkedAt": "2026-11-04T16:29:46.748Z",
+            "sourceHtml": "artifacts/weakpoints-leopard-mpi-alias-wiki-v583-20261105/supplement-official-redirect.html",
+            "sourceHtmlSHA256": "c95ad7a92f9afb577865a5c6d6a9c45f2769de46bf3de356f5d53d946db7c642",
+            "sourceSha256": "c95ad7a92f9afb577865a5c6d6a9c45f2769de46bf3de356f5d53d946db7c642",
+            "mainGun": "120 mm Rh120 L/44 cannon",
+            "officialShellName": "DM13",
+            "sourceShellLabelOriginal": "DM13",
+            "shellType": "APFSDS",
+            "rawUIType": null,
+            "gameVersion": "2.59.0.92",
+            "referenceOnly": true
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 384,
+          "effectiveArmorMm": 41,
+          "impactAngleDegrees": 13,
+          "attackAzimuthDegrees": 11,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "高低机",
+            "装填手",
+            "方向机",
+            "炮闩"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "658d406441da9af5521b02e307728a5b50afda77ba0220747f07b0625c5311c9",
+          "evidenceKind": "single-point-protection-preview",
+          "conditionNote": "仅本帧准星单点静态防护预测，非实射、整面可穿或击杀保证；2022年历史条件不代表当前版本装甲。"
+        }
+      ],
+      "testContext": {
+        "sourceUrl": "https://www.bilibili.com/video/BV1Bg411b7U1/",
+        "sourceTime": 675.081626,
+        "sourceGameVersion": "2.23.0.29",
+        "attacker": "豹 1A1A1/120",
+        "attackerVisibleTitle": "豹 1A1A1/120",
+        "attackerVehicleId": "germ_leopard_a1a1_120",
+        "attackerCountry": "germany",
+        "shell": "DM13",
+        "sourceShellLabelOriginal": "DM13",
+        "rawUIType": null,
+        "shellType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 384,
+        "effectiveArmorMm": 41,
+        "impactAngleDegrees": 13,
+        "attackAzimuthDegrees": 11,
+        "pointPrediction": "能够击穿",
+        "predictedDamage": [
+          "高低机",
+          "装填手",
+          "方向机",
+          "炮闩"
+        ],
+        "actualShotObserved": false,
+        "outcome": null,
+        "sourceFrameSHA256": "658d406441da9af5521b02e307728a5b50afda77ba0220747f07b0625c5311c9",
+        "evidenceKind": "single-point-protection-preview",
+        "conditionNote": "仅本帧准星单点静态防护预测，非实射、整面可穿或击杀保证；2022年历史条件不代表当前版本装甲。",
+        "caseId": "germ_leopard_a1a1_120:BV1Bg411b7U1:675081626:preview"
+      },
+      "coverageStatus": "partial-native-point-predictions",
+      "coverageNotice": "仅本型历史版本单点防护预测，非完整弱点图解。"
     },
     {
       "id": "il_magach_6m",
@@ -14288,10 +14444,43 @@
       "eraStatus": "reviewed-unit-prose",
       "eraBasis": "T55AM1源于70年代现代化计划，配附加装甲、Volna火控及新发动机；Wiki概述没有具体局部弱点。",
       "collectedAt": "2026-11-02T09:07:01.612Z",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.44895833333333335,
+          "y": 0.2814285714285714,
+          "label": "炮塔顶部小凸起前缘（单点预测）",
+          "detail": "[9.0] 豹 1A5 / DM33 / 500米：原UI穿深398毫米；目标等效132毫米，入射1°、方位2°。仅本帧准星单点静态防护预测，非实射、整面可穿或击杀保证；2022年历史条件不代表当前版本装甲。",
+          "kind": "conditional",
+          "caseId": "ussr_t_55_am:BV1Bg411b7U1:1117939025:preview",
+          "sourceUrl": "https://www.bilibili.com/video/BV1Bg411b7U1/",
+          "sourceTime": 1117.939025,
+          "evidence": {
+            "frameSHA256": "7cb7491a2bd284d825aaae19ce67cc26eff744c9b70c10e082414191ea974cc9",
+            "nativeXY": [
+              1031,
+              347
+            ],
+            "crop": [
+              600,
+              150,
+              960,
+              700
+            ],
+            "coordinateToleranceNativePx": 2,
+            "singlePointPrediction": true,
+            "actualShotObserved": false
+          }
+        }
+      ],
       "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1Bg411b7U1/",
+        "author": "1RainZhang1",
+        "date": "2022-12-28T19:59:38+08:00",
+        "gameVersion": "2.23.0.29",
+        "kind": "video"
+      },
+      "status": "partial-native-point-predictions",
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_55_am",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-006-20261102/snapshots/ussr_t_55_am.json",
@@ -14313,6 +14502,232 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/T55-guarded-v582b/ussr_t_55_am/native-1119.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v586-20261105/t55am1-turret-roof-bump-preview-frame-proof.json",
+      "frameSnapshotSHA256": "588526b193389de7f9ecc880641e7a23cf181b72f28dc45d176813e927476951",
+      "captureSHA256": "7cb7491a2bd284d825aaae19ce67cc26eff744c9b70c10e082414191ea974cc9",
+      "originalFrameSHA256": "7cb7491a2bd284d825aaae19ce67cc26eff744c9b70c10e082414191ea974cc9",
+      "assetPath": "images/USSR/USSR-T-55AM-1-turret-roof-bump-protection-preview.webp",
+      "crop": [
+        600,
+        150,
+        960,
+        700
+      ],
+      "time": 1117.939025,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "native-1080p-analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "displayImagePolicy": "analysis-excerpt",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "sourceGameVersion": "2.23.0.29",
+      "sourceNoRepost": true,
+      "testCases": [
+        {
+          "id": "ussr_t_55_am:BV1Bg411b7U1:1117939025:preview",
+          "vehicleId": "ussr_t_55_am",
+          "sourceUrl": "https://www.bilibili.com/video/BV1Bg411b7U1/",
+          "sourceTime": 1117.939025,
+          "sourceGameVersion": "2.23.0.29",
+          "attacker": "[9.0] 豹 1A5",
+          "attackerVisibleTitle": "[9.0] 豹 1A5",
+          "attackerVehicleId": "germ_leopard_1a5",
+          "attackerCountry": "germany",
+          "shell": "DM33",
+          "sourceShellLabelOriginal": "DM33",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "germ_leopard_1a5",
+            "wikiUnitId": "germ_leopard_1a5",
+            "officialWikiUnitId": "germ_leopard_1a5",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_1a5",
+            "checkedAt": "2026-11-03T05:28:30.923Z",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round5-20261103/germ_leopard_1a5.html",
+            "sourceHtmlSHA256": "4da68ef6876b24d6e0a91a695170dfce46e7bed2abe63825808b23898157a9a5",
+            "sourceSha256": "4da68ef6876b24d6e0a91a695170dfce46e7bed2abe63825808b23898157a9a5",
+            "mainGun": "105 mm L7A3 cannon",
+            "officialShellName": "DM33",
+            "sourceShellLabelOriginal": "DM33",
+            "shellType": "APFSDS",
+            "rawUIType": null,
+            "gameVersion": "2.59.0.92",
+            "referenceOnly": true
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 398,
+          "effectiveArmorMm": 132,
+          "impactAngleDegrees": 1,
+          "attackAzimuthDegrees": 2,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "弹药架",
+            "车长观瞄设备",
+            "车长",
+            "方向机"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "7cb7491a2bd284d825aaae19ce67cc26eff744c9b70c10e082414191ea974cc9",
+          "evidenceKind": "single-point-protection-preview",
+          "conditionNote": "仅本帧准星单点静态防护预测，非实射、整面可穿或击杀保证；2022年历史条件不代表当前版本装甲。"
+        },
+        {
+          "id": "ussr_t_55_am:BV1Bg411b7U1:1129944754:preview",
+          "vehicleId": "ussr_t_55_am",
+          "sourceUrl": "https://www.bilibili.com/video/BV1Bg411b7U1/",
+          "sourceTime": 1129.944754,
+          "sourceGameVersion": "2.23.0.29",
+          "attacker": "[9.0] 豹 1A5",
+          "attackerVisibleTitle": "[9.0] 豹 1A5",
+          "attackerVehicleId": "germ_leopard_1a5",
+          "attackerCountry": "germany",
+          "shell": "DM33",
+          "sourceShellLabelOriginal": "DM33",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "germ_leopard_1a5",
+            "wikiUnitId": "germ_leopard_1a5",
+            "officialWikiUnitId": "germ_leopard_1a5",
+            "url": "https://wiki.warthunder.com/unit/germ_leopard_1a5",
+            "checkedAt": "2026-11-03T05:28:30.923Z",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/wiki-article-navigation-round5-20261103/germ_leopard_1a5.html",
+            "sourceHtmlSHA256": "4da68ef6876b24d6e0a91a695170dfce46e7bed2abe63825808b23898157a9a5",
+            "sourceSha256": "4da68ef6876b24d6e0a91a695170dfce46e7bed2abe63825808b23898157a9a5",
+            "mainGun": "105 mm L7A3 cannon",
+            "officialShellName": "DM33",
+            "sourceShellLabelOriginal": "DM33",
+            "shellType": "APFSDS",
+            "rawUIType": null,
+            "gameVersion": "2.59.0.92",
+            "referenceOnly": true
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 398,
+          "effectiveArmorMm": 148,
+          "impactAngleDegrees": 16,
+          "attackAzimuthDegrees": 0,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "弹药架",
+            "炮闩"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "sourceFrameSHA256": "134929e59b7e0d7c0b95c29b5f45f13c4694b80994e2e2956ff8005be3c47bec",
+          "evidenceKind": "single-point-protection-preview",
+          "conditionNote": "仅本帧准星单点静态防护预测，非实射、整面可穿或击杀保证；2022年历史条件不代表当前版本装甲。"
+        }
+      ],
+      "testContext": {
+        "sourceUrl": "https://www.bilibili.com/video/BV1Bg411b7U1/",
+        "sourceTime": 1117.939025,
+        "sourceGameVersion": "2.23.0.29",
+        "attacker": "[9.0] 豹 1A5",
+        "attackerVisibleTitle": "[9.0] 豹 1A5",
+        "attackerVehicleId": "germ_leopard_1a5",
+        "attackerCountry": "germany",
+        "shell": "DM33",
+        "sourceShellLabelOriginal": "DM33",
+        "rawUIType": null,
+        "shellType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 398,
+        "effectiveArmorMm": 132,
+        "impactAngleDegrees": 1,
+        "attackAzimuthDegrees": 2,
+        "pointPrediction": "能够击穿",
+        "predictedDamage": [
+          "弹药架",
+          "车长观瞄设备",
+          "车长",
+          "方向机"
+        ],
+        "actualShotObserved": false,
+        "outcome": null,
+        "sourceFrameSHA256": "7cb7491a2bd284d825aaae19ce67cc26eff744c9b70c10e082414191ea974cc9",
+        "evidenceKind": "single-point-protection-preview",
+        "conditionNote": "仅本帧准星单点静态防护预测，非实射、整面可穿或击杀保证；2022年历史条件不代表当前版本装甲。",
+        "caseId": "ussr_t_55_am:BV1Bg411b7U1:1117939025:preview"
+      },
+      "coverageStatus": "partial-native-point-predictions",
+      "coverageNotice": "仅本型历史版本单点防护预测，非完整弱点图解。",
+      "relatedSources": [
+        {
+          "url": "https://www.bilibili.com/video/BV1Bg411b7U1/",
+          "author": "1RainZhang1",
+          "date": "2022-12-28T19:59:38+08:00",
+          "gameVersion": "2.23.0.29",
+          "kind": "video",
+          "time": 1117.939025,
+          "scopeNote": "本精确型号历史版本单点预测，不外推其他子型或当前装甲。"
+        }
+      ],
+      "protectionEvidence": [
+        {
+          "id": "t55am1-mantlet-preview",
+          "label": "炮盾中央单点预测",
+          "description": "[9.0] 豹 1A5 / DM33 / 500米：原UI穿深398毫米；目标等效148毫米，入射16°、方位0°。仅本帧准星单点静态防护预测，非实射、整面可穿或击杀保证；2022年历史条件不代表当前版本装甲。",
+          "caption": "1RainZhang1｜2022-12-28｜版本2.23.0.29，单点静态预测，非完整弱点图解。",
+          "conditionNote": "仅本帧准星单点静态防护预测，非实射、整面可穿或击杀保证；2022年历史条件不代表当前版本装甲。",
+          "caseId": "ussr_t_55_am:BV1Bg411b7U1:1129944754:preview",
+          "sourceUrl": "https://www.bilibili.com/video/BV1Bg411b7U1/",
+          "sourceTime": 1129.944754,
+          "displayImagePolicy": "analysis-excerpt",
+          "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/T55-guarded-v582b/ussr_t_55_am/native-1131.png",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v586-20261105/t55am1-mantlet-preview-frame-proof.json",
+          "frameSnapshotSHA256": "a99b05ed9aef6e5454a177e9e30ad34357f47c628249d3e415d61ae2cd71b9fb",
+          "assetPath": "images/USSR/USSR-T-55AM-1-mantlet-protection-preview.webp",
+          "crop": [
+            600,
+            150,
+            960,
+            700
+          ],
+          "pins": [
+            {
+              "x": 0.38229166666666664,
+              "y": 0.3028571428571429,
+              "label": "炮盾中央（单点预测）",
+              "detail": "[9.0] 豹 1A5 / DM33 / 500米：原UI穿深398毫米；目标等效148毫米，入射16°、方位0°。仅本帧准星单点静态防护预测，非实射、整面可穿或击杀保证；2022年历史条件不代表当前版本装甲。",
+              "kind": "conditional",
+              "caseId": "ussr_t_55_am:BV1Bg411b7U1:1129944754:preview",
+              "sourceUrl": "https://www.bilibili.com/video/BV1Bg411b7U1/",
+              "sourceTime": 1129.944754,
+              "evidence": {
+                "frameSHA256": "134929e59b7e0d7c0b95c29b5f45f13c4694b80994e2e2956ff8005be3c47bec",
+                "nativeXY": [
+                  967,
+                  362
+                ],
+                "crop": [
+                  600,
+                  150,
+                  960,
+                  700
+                ],
+                "coordinateToleranceNativePx": 2,
+                "singlePointPrediction": true,
+                "actualShotObserved": false
+              }
+            }
+          ]
+        }
       ]
     },
     {
@@ -34668,7 +35083,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 74,
+    "illustratedCount": 76,
     "countries": [
       {
         "country": "usa",
@@ -34804,7 +35219,7 @@
     "lastUpdated": "2026-11-04",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 72,
+    "illustratedTargetCount": 74,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,
