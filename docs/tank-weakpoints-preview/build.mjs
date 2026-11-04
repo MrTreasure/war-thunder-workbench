@@ -72,7 +72,7 @@ let registry;
 try { registry = JSON.parse(await readFile(resolve(project, "data/tank-weakpoint-assets.json"), "utf8")); }
 catch (error) { if (error.code !== "ENOENT") throw error; }
 if (data.models.some((model) => model.baseVehicleReference)) {
-  const audit = JSON.parse(await readFile(resolve(project, "artifacts/weakpoints-exact-clone-audit-v254-20261104/report.json"), "utf8"));
+  const audit = JSON.parse(await readFile(resolve(project, "data/tank-weakpoint-base-proofs.json"), "utf8"));
   await validateBaseReferences(data, registry, audit.candidates, (path) => readFile(privatePath(path)), hash);
 }
 const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");

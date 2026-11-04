@@ -7,7 +7,7 @@ const root = new URL('../../', import.meta.url);
 const read = (path) => readFile(new URL(path, root));
 const data = JSON.parse(await read('data/tank-weakpoints-samples.json'));
 const registry = JSON.parse(await read('data/tank-weakpoint-assets.json'));
-const audit = JSON.parse(await read('artifacts/weakpoints-exact-clone-audit-v254-20261104/report.json'));
+const audit = JSON.parse(await read('data/tank-weakpoint-base-proofs.json'));
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
 await validateBaseReferences(data, registry, audit.candidates, read, hash);
 // Execute actual UI functions against a small DOM, without loading images or a browser.
@@ -49,4 +49,4 @@ for (const mode of ['self', 'missing', 'cycle', 'hash', 'url', 'photo']) {
   if (mode === 'photo') delete assets.models[ref.vehicleId].photo;
   await assert.rejects(validateBaseReferences(changed, assets, audit.candidates, read, hash), undefined, mode);
 }
-console.log('Base references: 7 verified links, no model mutation, cross-country hash navigation, invalid proofs/cycles rejected.');
+console.log(`Base references: ${data.models.filter((model) => model.baseVehicleReference).length} verified links, no model mutation, cross-country hash navigation, invalid proofs/cycles rejected.`);

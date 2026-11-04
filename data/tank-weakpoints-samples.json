@@ -26202,7 +26202,16 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
-      ]
+      ],
+      "baseVehicleReference": {
+        "vehicleId": "us_m1a1_hc_abrams",
+        "basis": "official-wiki-identical-except-appearance",
+        "targetWikiURL": "https://wiki.warthunder.com/unit/us_m1a1_hc_usmc_sm",
+        "actualcheckedAt": "2026-11-02T18:17:27.380Z",
+        "gameVersion": "2.59.0.92",
+        "sourceHTMLSHA": "a1e8d3060a6a286a0f8b66c4be3db2a5969c646cb147eab9131b9acf466ddcf6",
+        "note": "官方Wiki明确链接科技树M1A1 HC，说明除主题外观外与基础车型相同；此处跳转基础车型自己的图解，不作为本车实拍或完成图解。"
+      }
     },
     {
       "id": "us_m1a2_abrams",
