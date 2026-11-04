@@ -89,7 +89,7 @@ for (let attempt = 0; attempt < 150; attempt++) {
   const status = await api("GET", `/api/deploy/query?id=${encodeURIComponent(id)}`);
   if (status.status === "DEPLOYED") {
     const response = await fetch(
-      `https://render.qmuse.pub/p/muse/${appId}?release=${versionId}-${Date.now()}`,
+      `https://wt.app.qmuse.pub/?release=${versionId}-${Date.now()}`,
       { cache: "no-store", signal: AbortSignal.timeout(20000) },
     );
     const html = await response.text();
@@ -97,7 +97,7 @@ for (let attempt = 0; attempt < 150; attempt++) {
       throw Error(
         "Deployment completed but the public version is not verified; check before retrying",
       );
-    console.log(`Verified QMuse version ${versionId}: https://render.qmuse.pub/p/muse/${appId}`);
+    console.log(`Verified QMuse version ${versionId}: https://wt.app.qmuse.pub/`);
     process.exit(0);
   }
   if (["FAILED", "DEPLOY_FAILED", "CANCELLED", "CANCELED"].includes(status.status))
