@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "c609ed270bdd900a7621bbbf093778e08852835f",
+  "commit": "4247424bcb6422cffbcfddf55d10a7b3bc99f86c",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -1028,6 +1028,24 @@
         "commit": "c609ed270bdd900a7621bbbf093778e08852835f",
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@c609ed270bdd900a7621bbbf093778e08852835f/images/FRA/FRA-AMX-30B2-full.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/c609ed270bdd900a7621bbbf093778e08852835f/images/FRA/FRA-AMX-30B2-full.webp"
+      }
+    },
+    "us_m1a1_hc_abrams": {
+      "photo": {
+        "path": "images/USA/USA-M1A1-HC-front.webp",
+        "sha256": "1d785fb3a5a190be6ee3c738e058c1475ff0497481daf81c90a7f39fda659bcc",
+        "bytes": 179770,
+        "commit": "4247424bcb6422cffbcfddf55d10a7b3bc99f86c",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4247424bcb6422cffbcfddf55d10a7b3bc99f86c/images/USA/USA-M1A1-HC-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4247424bcb6422cffbcfddf55d10a7b3bc99f86c/images/USA/USA-M1A1-HC-front.webp"
+      },
+      "raw": {
+        "path": "images/USA/USA-M1A1-HC-full.webp",
+        "sha256": "4abdb39aef2b1adce03db9ee2da99f1fb50264f2161303c886d8199a82384ef1",
+        "bytes": 1690138,
+        "commit": "4247424bcb6422cffbcfddf55d10a7b3bc99f86c",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4247424bcb6422cffbcfddf55d10a7b3bc99f86c/images/USA/USA-M1A1-HC-full.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4247424bcb6422cffbcfddf55d10a7b3bc99f86c/images/USA/USA-M1A1-HC-full.webp"
       }
     }
   },
@@ -13747,6 +13765,258 @@
       "sourceKind": "video",
       "proofSnapshotSHA256": "14fc411f72a3ae6682a67bee7352441faaf7ac605c6138bac8fd5be5fb459ee4",
       "id": "a220e2ed0dee40ba478eac84e50769bd408261c9c1a8a60e4d8f38f4156d0cc2"
+    },
+    {
+      "filename": "USA-M1A1-HC-source-46s.webp",
+      "path": "images/USA/USA-M1A1-HC-source-46s.webp",
+      "vehicleId": "us_m1a1_hc_abrams",
+      "country": "USA",
+      "kind": "source-evidence-native",
+      "width": 2844,
+      "height": 1600,
+      "bytes": 1793760,
+      "sha256": "02520d58f1a4e5afe17497666b5a64e318db143e4ad27e51084a060150782dff",
+      "optimizedSHA256": "02520d58f1a4e5afe17497666b5a64e318db143e4ad27e51084a060150782dff",
+      "preCompressionBytes": 1793760,
+      "preCompressionSHA256": "02520d58f1a4e5afe17497666b5a64e318db143e4ad27e51084a060150782dff",
+      "sourcePNG": {
+        "sha256": "197cf69509e8b9450b547b9c5318c18f75f3f9f520b3803e85a04a7d079bca52",
+        "bytes": 4515752,
+        "width": 2844,
+        "height": 1600
+      },
+      "sourceFrameSHA256": "197cf69509e8b9450b547b9c5318c18f75f3f9f520b3803e85a04a7d079bca52",
+      "sourceTime": 46,
+      "actualMediaTimeBefore": 46,
+      "actualMediaTimeAfter": 46,
+      "crop": [
+        0,
+        0,
+        2844,
+        1600
+      ],
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "sourceDerivationKey": "06595d3ced4668f6f03302fce70defc338fb707e1e4a3f9996795e88560661a5",
+      "derivationKey": "edb18f8129ce42d5897d5e5bbd5329c8598d385e8a5e20ba054dc2507545e054",
+      "nativeResized": false,
+      "mainImageUsable": false,
+      "completeIllustration": false,
+      "distributionProgress": null,
+      "distributionCompletion": "unknown",
+      "calculationCompletionStatus": "unknown",
+      "sceneKind": "single-point-protection-preview",
+      "purpose": "source-evidence-only",
+      "commit": "4247424bcb6422cffbcfddf55d10a7b3bc99f86c",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4247424bcb6422cffbcfddf55d10a7b3bc99f86c/images/USA/USA-M1A1-HC-source-46s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4247424bcb6422cffbcfddf55d10a7b3bc99f86c/images/USA/USA-M1A1-HC-source-46s.webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1hp336jECU/",
+        "kind": "video",
+        "bvid": "BV1hp336jECU",
+        "publishedAt": "2026-07-26",
+        "author": "没钱的抽屉",
+        "title": "战雷礼包夯九门——M1A1 标题党/HC",
+        "gameVersion": null
+      },
+      "sourceKind": "video",
+      "proofSnapshotSHA256": "4ec604534ff740bc12090a1baccbb0d73bc02adf93cf35f328310e9394304251",
+      "id": "02520d58f1a4e5afe17497666b5a64e318db143e4ad27e51084a060150782dff"
+    },
+    {
+      "filename": "USA-M1A1-HC-front.webp",
+      "path": "images/USA/USA-M1A1-HC-front.webp",
+      "vehicleId": "us_m1a1_hc_abrams",
+      "country": "USA",
+      "kind": "photo",
+      "width": 650,
+      "height": 480,
+      "bytes": 179770,
+      "sha256": "1d785fb3a5a190be6ee3c738e058c1475ff0497481daf81c90a7f39fda659bcc",
+      "optimizedSHA256": "1d785fb3a5a190be6ee3c738e058c1475ff0497481daf81c90a7f39fda659bcc",
+      "preCompressionBytes": 179770,
+      "preCompressionSHA256": "1d785fb3a5a190be6ee3c738e058c1475ff0497481daf81c90a7f39fda659bcc",
+      "sourcePNG": {
+        "sha256": "824146235883463f0f0eb7745c61fb0f34aace8fe26b6234d34db9021619faa8",
+        "bytes": 4292291,
+        "width": 2844,
+        "height": 1600
+      },
+      "sourceFrameSHA256": "824146235883463f0f0eb7745c61fb0f34aace8fe26b6234d34db9021619faa8",
+      "sourceTime": 50,
+      "actualMediaTimeBefore": 50,
+      "actualMediaTimeAfter": 50,
+      "crop": [
+        1110,
+        440,
+        650,
+        480
+      ],
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "sourceDerivationKey": "5028dfe909eaeae65d410c4f4ad5f2a0fd98f6e2b2d05acf1785bb7ad4029366",
+      "derivationKey": "b8565141bca89ab55ec4a271c12a0a3875d3f4eb3c2c6321eb5719d75523aea5",
+      "nativeResized": false,
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "distributionProgress": 59,
+      "distributionCompletion": "in-progress",
+      "calculationCompletionStatus": "in-progress",
+      "sceneKind": "single-point-protection-preview",
+      "purpose": "partial-reference",
+      "commit": "4247424bcb6422cffbcfddf55d10a7b3bc99f86c",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4247424bcb6422cffbcfddf55d10a7b3bc99f86c/images/USA/USA-M1A1-HC-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4247424bcb6422cffbcfddf55d10a7b3bc99f86c/images/USA/USA-M1A1-HC-front.webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1hp336jECU/",
+        "kind": "video",
+        "bvid": "BV1hp336jECU",
+        "publishedAt": "2026-07-26",
+        "author": "没钱的抽屉",
+        "title": "战雷礼包夯九门——M1A1 标题党/HC",
+        "gameVersion": null
+      },
+      "sourceKind": "video",
+      "proofSnapshotSHA256": "3d3385cfdf5644e60ba456c52fe642be9b0b30e9cd5b900af2e25cd5a3f87e87",
+      "id": "1d785fb3a5a190be6ee3c738e058c1475ff0497481daf81c90a7f39fda659bcc"
+    },
+    {
+      "filename": "USA-M1A1-HC-full.webp",
+      "path": "images/USA/USA-M1A1-HC-full.webp",
+      "vehicleId": "us_m1a1_hc_abrams",
+      "country": "USA",
+      "kind": "raw",
+      "width": 2844,
+      "height": 1600,
+      "bytes": 1690138,
+      "sha256": "4abdb39aef2b1adce03db9ee2da99f1fb50264f2161303c886d8199a82384ef1",
+      "optimizedSHA256": "4abdb39aef2b1adce03db9ee2da99f1fb50264f2161303c886d8199a82384ef1",
+      "preCompressionBytes": 1690138,
+      "preCompressionSHA256": "4abdb39aef2b1adce03db9ee2da99f1fb50264f2161303c886d8199a82384ef1",
+      "sourcePNG": {
+        "sha256": "824146235883463f0f0eb7745c61fb0f34aace8fe26b6234d34db9021619faa8",
+        "bytes": 4292291,
+        "width": 2844,
+        "height": 1600
+      },
+      "sourceFrameSHA256": "824146235883463f0f0eb7745c61fb0f34aace8fe26b6234d34db9021619faa8",
+      "sourceTime": 50,
+      "actualMediaTimeBefore": 50,
+      "actualMediaTimeAfter": 50,
+      "crop": [
+        0,
+        0,
+        2844,
+        1600
+      ],
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "sourceDerivationKey": "6c90092f7cadadd7f4539ad5e2ced8d7819165c964f6ec6762ef0259c0779d60",
+      "derivationKey": "886c19c1e0a7ea82ff3b1e83acc7c97e087f88f254ac51a7d55014d1a35feb3b",
+      "nativeResized": false,
+      "mainImageUsable": false,
+      "completeIllustration": false,
+      "distributionProgress": 59,
+      "distributionCompletion": "in-progress",
+      "calculationCompletionStatus": "in-progress",
+      "sceneKind": "single-point-protection-preview",
+      "purpose": "partial-reference",
+      "commit": "4247424bcb6422cffbcfddf55d10a7b3bc99f86c",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4247424bcb6422cffbcfddf55d10a7b3bc99f86c/images/USA/USA-M1A1-HC-full.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4247424bcb6422cffbcfddf55d10a7b3bc99f86c/images/USA/USA-M1A1-HC-full.webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1hp336jECU/",
+        "kind": "video",
+        "bvid": "BV1hp336jECU",
+        "publishedAt": "2026-07-26",
+        "author": "没钱的抽屉",
+        "title": "战雷礼包夯九门——M1A1 标题党/HC",
+        "gameVersion": null
+      },
+      "sourceKind": "video",
+      "proofSnapshotSHA256": "3d3385cfdf5644e60ba456c52fe642be9b0b30e9cd5b900af2e25cd5a3f87e87",
+      "id": "4abdb39aef2b1adce03db9ee2da99f1fb50264f2161303c886d8199a82384ef1"
+    },
+    {
+      "filename": "USA-M1A1-HC-source-53s.webp",
+      "path": "images/USA/USA-M1A1-HC-source-53s.webp",
+      "vehicleId": "us_m1a1_hc_abrams",
+      "country": "USA",
+      "kind": "source-evidence-native",
+      "width": 2844,
+      "height": 1600,
+      "bytes": 709674,
+      "sha256": "48a1c7479bc7853d4aba882fac004a353c4f749e53f243adcf86862ba6e98908",
+      "optimizedSHA256": "48a1c7479bc7853d4aba882fac004a353c4f749e53f243adcf86862ba6e98908",
+      "preCompressionBytes": 2365544,
+      "preCompressionSHA256": "5d03322e773d313de57b51c2fe3c0ab7c56c67dbf9b5e0f32b6b05c0547fd764",
+      "sourcePNG": {
+        "sha256": "867eb0f8a88bd245fd0788fa876e5289c1e58424f4b65316b1444baf881a3570",
+        "bytes": 5534113,
+        "width": 2844,
+        "height": 1600
+      },
+      "sourceFrameSHA256": "867eb0f8a88bd245fd0788fa876e5289c1e58424f4b65316b1444baf881a3570",
+      "sourceTime": 53,
+      "actualMediaTimeBefore": 53,
+      "actualMediaTimeAfter": 53,
+      "crop": [
+        0,
+        0,
+        2844,
+        1600
+      ],
+      "lossless": false,
+      "quality": 98,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": false,
+        "quality": 98,
+        "compression_level": 6
+      },
+      "sourceDerivationKey": "93cd67113fca5f95e7d16d605270e4da039d4bd2b7bd241dd11df4916393e78c",
+      "derivationKey": "094f579642ba36dd998d2aeca4583473027c9527476f39d2e81a31fa2cbc2ad6",
+      "nativeResized": false,
+      "mainImageUsable": false,
+      "completeIllustration": false,
+      "distributionProgress": null,
+      "distributionCompletion": "unknown",
+      "calculationCompletionStatus": "unknown",
+      "sceneKind": "xray",
+      "purpose": "source-evidence-only",
+      "commit": "4247424bcb6422cffbcfddf55d10a7b3bc99f86c",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4247424bcb6422cffbcfddf55d10a7b3bc99f86c/images/USA/USA-M1A1-HC-source-53s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4247424bcb6422cffbcfddf55d10a7b3bc99f86c/images/USA/USA-M1A1-HC-source-53s.webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1hp336jECU/",
+        "kind": "video",
+        "bvid": "BV1hp336jECU",
+        "publishedAt": "2026-07-26",
+        "author": "没钱的抽屉",
+        "title": "战雷礼包夯九门——M1A1 标题党/HC",
+        "gameVersion": null
+      },
+      "sourceKind": "video",
+      "proofSnapshotSHA256": "ee675260f50bf873be75a8a032eab47376d35b097ed78babbf39935e99db5651",
+      "id": "48a1c7479bc7853d4aba882fac004a353c4f749e53f243adcf86862ba6e98908"
     }
   ]
 }

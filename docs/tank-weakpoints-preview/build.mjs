@@ -327,6 +327,7 @@ for (const model of data.models) {
   report.models.push(item);
   for (const key of ["wikiSnapshot", "wikiSnapshotPath", "wikiSnapshotSHA256", "frameSnapshot", "frameSnapshotPath", "frame", "framePath", "testContextEvidence", "testCaseEvidence", "captureSHA256", "originalFrameSHA256", "overview", "comparison", "limits", "ammo", "evidenceFrames"]) delete model[key];
   for (const advice of model.videoAdvice || []) delete advice.evidence;
+  for (const pin of model.pins || []) delete pin.evidence;
 }
 if (data.coverage?.illustratedCount !== report.models.filter((model) => model.illustrated).length) throw Error("Illustration total must match the verified main images, including supplemental samples");
 if (report.publishedFiles.some((file) => file.bytes > imageByteLimit)) throw Error("Published image exceeds 2 MB");

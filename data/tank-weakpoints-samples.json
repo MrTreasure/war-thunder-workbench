@@ -6235,8 +6235,39 @@
       "era": "cold-war",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
+      "videoAdvice": [
+        {
+          "id": "v336-chieftain-mk5-author-lower-hull",
+          "label": "作者观点：下部车体防护偏弱",
+          "text": "作者在酋长Mk.5测评中提醒下部车体防护较弱，应留意高穿深机炮；所采画面未独立确认被测改型，也没有完整的炮弹、距离和击穿试射条件。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1Fnu86CEG6/",
+          "sourceTime": 212.87,
+          "sourcePublishedAt": "2026-08-08",
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "kind": "attributed-author-commentary",
+            "timeRanges": [
+              {
+                "start": 212.87,
+                "end": 219.91
+              }
+            ],
+            "actualShotObserved": false
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1Fnu86CEG6/",
+        "title": "冷战房里的原始人，后效很好的大英肥猪—酋长MK5简评与实战",
+        "author": "鸡蛋壳w",
+        "publishedAt": "2026-08-08",
+        "kind": "video",
+        "gameVersion": null
+      },
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/uk_chieftain_mk_5",
       "wikiGameVersion": "2.59.0.92",
@@ -6267,6 +6298,17 @@
       ],
       "missingEvidence": [
         "尚缺该精确车型的视频试射证据及弹种、距离、角度、版本上下文。"
+      ],
+      "relatedSources": [
+        {
+          "url": "https://www.bilibili.com/video/BV1Fnu86CEG6/",
+          "title": "冷战房里的原始人，后效很好的大英肥猪—酋长MK5简评与实战",
+          "author": "鸡蛋壳w",
+          "publishedAt": "2026-08-08",
+          "kind": "video",
+          "gameVersion": null,
+          "time": 212.87
+        }
       ]
     },
     {
@@ -25571,10 +25613,82 @@
       "rank": 7,
       "era": "cold-war",
       "scopeRole": "medium_tank",
-      "pins": [],
-      "videoAdvice": [],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "pins": [
+        {
+          "x": 0.4462,
+          "y": 0.5104,
+          "label": "炮塔颈部单点预测",
+          "detail": "当前BMPT、30毫米APDS、500米，准星点预测能够击穿；41°/方位2°/等效57毫米仅此点，预期影响装填手、方向机、炮闩。未观察实射，不代表整片绿色区域。",
+          "kind": "external-region-reference",
+          "caseId": "us_m1a1_hc_abrams:v340-point-50",
+          "sourceUrl": "https://www.bilibili.com/video/BV1hp336jECU/",
+          "sourceTime": 50,
+          "mainImageTime": 50,
+          "actualShotObserved": false,
+          "annotationSemantics": "exact-hover-prediction-locator-not-green-area",
+          "evidence": {
+            "originalPNG_SHA256": "824146235883463f0f0eb7745c61fb0f34aace8fe26b6234d34db9021619faa8",
+            "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v338-20261104/frame-proof-50s.json",
+            "frameSnapshotSHA256": "3d3385cfdf5644e60ba456c52fe642be9b0b30e9cd5b900af2e25cd5a3f87e87",
+            "QAReportPath": "artifacts/weakpoints-m1hc-review-v337-20261104/report.json",
+            "QAReportSHA256": "316fd71e0c124b7aff8ab6fa3dc94e3ca512575667634144662f5a4b90709eca",
+            "nativeUICrops": [
+              {
+                "file": "artifacts/weakpoints-m1hc-review-v337-20261104/attacker-ui.webp",
+                "sha256": "5b17c70f37d5ad70cf0dd366e6f9e98d889221f7af13397a2529c1b4494da049",
+                "bytes": 21846,
+                "processing": "ffmpeg native PNG crop, libwebp quality 85, no scaling; lossy UI-only derivative"
+              },
+              {
+                "file": "artifacts/weakpoints-m1hc-review-v337-20261104/identity.webp",
+                "sha256": "fcee4dad9da82e6d6e83d4a1f875375f9b3d2f9331dc8b0b04b2e32de4f9322b",
+                "bytes": 3082,
+                "processing": "ffmpeg native PNG crop, libwebp quality 85, no scaling; lossy UI-only derivative"
+              },
+              {
+                "file": "artifacts/weakpoints-m1hc-review-v337-20261104/prediction-ui.webp",
+                "sha256": "e1c9b3969e60210c8fb93c612b87afe7272c2bbd9577f1466d70e26c0e0d95f7",
+                "bytes": 14200,
+                "processing": "ffmpeg native PNG crop, libwebp quality 85, no scaling; lossy UI-only derivative"
+              }
+            ]
+          }
+        }
+      ],
+      "videoAdvice": [
+        {
+          "id": "v340-m1a1hc-author-neck",
+          "label": "作者观点：炮塔颈部较弱",
+          "text": "作者提示炮塔颈部弱，机炮可造成破坏；本次可复核资料仅为BMPT使用30毫米APDS、500米下的单点预测，未证明实际击穿或击毁。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": "us_m1a1_hc_abrams:v340-point-50",
+          "sourceUrl": "https://www.bilibili.com/video/BV1hp336jECU/",
+          "sourceTime": 44.51,
+          "sourcePublishedAt": "2026-07-26",
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "kind": "attributed-author-commentary-not-tested-result",
+            "timeRanges": [
+              {
+                "start": 44.51,
+                "end": 53.91
+              }
+            ],
+            "actualShotObserved": false
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1hp336jECU/",
+        "title": "战雷礼包夯九门——M1A1 标题党/HC",
+        "author": "没钱的抽屉",
+        "publishedAt": "2026-07-26",
+        "kind": "video",
+        "gameVersion": null
+      },
+      "status": "partial-frontal-guide",
       "wikiUrl": "https://wiki.warthunder.com/unit/us_m1a1_hc_abrams",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-003-20261103/snapshots/us_m1a1_hc_abrams.json",
@@ -25596,13 +25710,201 @@
       "collectedAt": "2026-11-02T18:17:19.148Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "本精确页明确1980年代中期提出改进、1990年11月开始生产。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无已验证的主图及对应局部标点。"
-      ]
+        "具体弹药型号及来源游戏版本未知；未观察实射，59%计算进行中。"
+      ],
+      "relatedSources": [
+        {
+          "url": "https://www.bilibili.com/video/BV1hp336jECU/",
+          "title": "战雷礼包夯九门——M1A1 标题党/HC",
+          "author": "没钱的抽屉",
+          "publishedAt": "2026-07-26",
+          "kind": "video",
+          "gameVersion": null,
+          "time": 50
+        }
+      ],
+      "sourceKind": "video",
+      "sourceVersion": null,
+      "sourceGameVersion": null,
+      "testCases": [
+        {
+          "id": "us_m1a1_hc_abrams:v340-point-50",
+          "label": "50秒悬停单点防护预测",
+          "vehicleId": "us_m1a1_hc_abrams",
+          "sourceKind": "video",
+          "sourceUrl": "https://www.bilibili.com/video/BV1hp336jECU/",
+          "sourceTime": 50,
+          "sourcePublishedAt": "2026-07-26",
+          "sourceGameVersion": null,
+          "attacker": "BMPT",
+          "attackerDisplayName": "BMPT",
+          "attackerVehicleId": null,
+          "attackerRawLabel": "[11.7] BMPT",
+          "shell": "30 毫米 APDS",
+          "exactDesignation": null,
+          "rawUIType": "APDS",
+          "shellTypeCode": "APDS",
+          "shellTypeLabel": "脱壳穿甲弹",
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 79,
+          "impactAngleDegrees": 41,
+          "attackAzimuthDegrees": 2,
+          "azimuthDegrees": 2,
+          "equivalentArmorMm": 57,
+          "predictionOnly": true,
+          "prediction": "能够击穿",
+          "predictedDamage": [
+            "装填手",
+            "方向机",
+            "炮闩"
+          ],
+          "actualShotObserved": false,
+          "actualDamage": null,
+          "actualPenetration": null,
+          "kill": null,
+          "outcome": null,
+          "sourceFrameSHA256": "824146235883463f0f0eb7745c61fb0f34aace8fe26b6234d34db9021619faa8",
+          "nativeTargetRawLabel": "M1A1 HC",
+          "targetIdentityStatus": "native-target-title",
+          "distributionProgressPercent": 59,
+          "distributionCompletionStatus": "in-progress",
+          "sceneKind": "protection-preview",
+          "evidenceKind": "protection-analysis-hover-prediction",
+          "note": "仅BMPT、30毫米APDS、500米下准星单点预测；59%计算进行中，不是完整正面分布或实射结果。"
+        }
+      ],
+      "testContext": {
+        "id": "us_m1a1_hc_abrams:v340-point-50",
+        "label": "50秒悬停单点防护预测",
+        "vehicleId": "us_m1a1_hc_abrams",
+        "sourceKind": "video",
+        "sourceUrl": "https://www.bilibili.com/video/BV1hp336jECU/",
+        "sourceTime": 50,
+        "sourcePublishedAt": "2026-07-26",
+        "sourceGameVersion": null,
+        "attacker": "BMPT",
+        "attackerDisplayName": "BMPT",
+        "attackerVehicleId": null,
+        "attackerRawLabel": "[11.7] BMPT",
+        "shell": "30 毫米 APDS",
+        "exactDesignation": null,
+        "rawUIType": "APDS",
+        "shellTypeCode": "APDS",
+        "shellTypeLabel": "脱壳穿甲弹",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 79,
+        "impactAngleDegrees": 41,
+        "attackAzimuthDegrees": 2,
+        "azimuthDegrees": 2,
+        "equivalentArmorMm": 57,
+        "predictionOnly": true,
+        "prediction": "能够击穿",
+        "predictedDamage": [
+          "装填手",
+          "方向机",
+          "炮闩"
+        ],
+        "actualShotObserved": false,
+        "actualDamage": null,
+        "actualPenetration": null,
+        "kill": null,
+        "outcome": null,
+        "sourceFrameSHA256": "824146235883463f0f0eb7745c61fb0f34aace8fe26b6234d34db9021619faa8",
+        "nativeTargetRawLabel": "M1A1 HC",
+        "targetIdentityStatus": "native-target-title",
+        "distributionProgressPercent": 59,
+        "distributionCompletionStatus": "in-progress",
+        "sceneKind": "protection-preview",
+        "evidenceKind": "protection-analysis-hover-prediction",
+        "note": "仅BMPT、30毫米APDS、500米下准星单点预测；59%计算进行中，不是完整正面分布或实射结果。",
+        "caseId": "us_m1a1_hc_abrams:v340-point-50"
+      },
+      "testContextEvidence": {
+        "originalPNG_SHA256": "824146235883463f0f0eb7745c61fb0f34aace8fe26b6234d34db9021619faa8",
+        "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v338-20261104/frame-proof-50s.json",
+        "frameSnapshotSHA256": "3d3385cfdf5644e60ba456c52fe642be9b0b30e9cd5b900af2e25cd5a3f87e87",
+        "QAReportPath": "artifacts/weakpoints-m1hc-review-v337-20261104/report.json",
+        "QAReportSHA256": "316fd71e0c124b7aff8ab6fa3dc94e3ca512575667634144662f5a4b90709eca",
+        "nativeUICrops": [
+          {
+            "file": "artifacts/weakpoints-m1hc-review-v337-20261104/attacker-ui.webp",
+            "sha256": "5b17c70f37d5ad70cf0dd366e6f9e98d889221f7af13397a2529c1b4494da049",
+            "bytes": 21846,
+            "processing": "ffmpeg native PNG crop, libwebp quality 85, no scaling; lossy UI-only derivative"
+          },
+          {
+            "file": "artifacts/weakpoints-m1hc-review-v337-20261104/identity.webp",
+            "sha256": "fcee4dad9da82e6d6e83d4a1f875375f9b3d2f9331dc8b0b04b2e32de4f9322b",
+            "bytes": 3082,
+            "processing": "ffmpeg native PNG crop, libwebp quality 85, no scaling; lossy UI-only derivative"
+          },
+          {
+            "file": "artifacts/weakpoints-m1hc-review-v337-20261104/prediction-ui.webp",
+            "sha256": "e1c9b3969e60210c8fb93c612b87afe7272c2bbd9577f1466d70e26c0e0d95f7",
+            "bytes": 14200,
+            "processing": "ffmpeg native PNG crop, libwebp quality 85, no scaling; lossy UI-only derivative"
+          }
+        ]
+      },
+      "testCaseEvidence": {
+        "us_m1a1_hc_abrams:v340-point-50": {
+          "originalPNG_SHA256": "824146235883463f0f0eb7745c61fb0f34aace8fe26b6234d34db9021619faa8",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v338-20261104/frame-proof-50s.json",
+          "frameSnapshotSHA256": "3d3385cfdf5644e60ba456c52fe642be9b0b30e9cd5b900af2e25cd5a3f87e87",
+          "QAReportPath": "artifacts/weakpoints-m1hc-review-v337-20261104/report.json",
+          "QAReportSHA256": "316fd71e0c124b7aff8ab6fa3dc94e3ca512575667634144662f5a4b90709eca",
+          "nativeUICrops": [
+            {
+              "file": "artifacts/weakpoints-m1hc-review-v337-20261104/attacker-ui.webp",
+              "sha256": "5b17c70f37d5ad70cf0dd366e6f9e98d889221f7af13397a2529c1b4494da049",
+              "bytes": 21846,
+              "processing": "ffmpeg native PNG crop, libwebp quality 85, no scaling; lossy UI-only derivative"
+            },
+            {
+              "file": "artifacts/weakpoints-m1hc-review-v337-20261104/identity.webp",
+              "sha256": "fcee4dad9da82e6d6e83d4a1f875375f9b3d2f9331dc8b0b04b2e32de4f9322b",
+              "bytes": 3082,
+              "processing": "ffmpeg native PNG crop, libwebp quality 85, no scaling; lossy UI-only derivative"
+            },
+            {
+              "file": "artifacts/weakpoints-m1hc-review-v337-20261104/prediction-ui.webp",
+              "sha256": "e1c9b3969e60210c8fb93c612b87afe7272c2bbd9577f1466d70e26c0e0d95f7",
+              "bytes": 14200,
+              "processing": "ffmpeg native PNG crop, libwebp quality 85, no scaling; lossy UI-only derivative"
+            }
+          ]
+        }
+      },
+      "distributionCompletionStatus": "in-progress",
+      "distributionProgressPercent": 59,
+      "coverageStatus": "single-point-protection-preview",
+      "coverageNotice": "单点防护预测 · 分布计算59%进行中",
+      "mainViewKind": "protection-preview",
+      "mainViewNote": "50秒为BMPT使用30毫米APDS、500米的单点悬停预测，准星显示能够击穿；分布计算59%进行中，非完整绿色弱点图。主体约510×350原生像素，未放大；原生提示框遮挡右履带及右侧车体，裁切右侧文字不完整，完整原帧可查看。53秒仅内部命中/损伤可视化来源画面，不证明实射或100%完成。",
+      "imageView": "front",
+      "imageViewDetail": "front",
+      "imageQuality": "native-small-subject",
+      "crop": [
+        1110,
+        440,
+        650,
+        480
+      ],
+      "sourceDimensions": [
+        2844,
+        1600
+      ],
+      "time": 50,
+      "originalFrameSHA256": "824146235883463f0f0eb7745c61fb0f34aace8fe26b6234d34db9021619faa8",
+      "captureSHA256": "824146235883463f0f0eb7745c61fb0f34aace8fe26b6234d34db9021619faa8",
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/abrams-front-v335-20261104/drawer/capture-2.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v338-20261104/frame-proof-50s.json",
+      "frameSnapshotSHA256": "3d3385cfdf5644e60ba456c52fe642be9b0b30e9cd5b900af2e25cd5a3f87e87"
     },
     {
       "id": "us_m1a1_hc_usmc_sm",
@@ -29044,7 +29346,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 57,
+    "illustratedCount": 58,
     "countries": [
       {
         "country": "usa",
@@ -29180,7 +29482,7 @@
     "lastUpdated": "2026-11-02",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 55,
+    "illustratedTargetCount": 56,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,
