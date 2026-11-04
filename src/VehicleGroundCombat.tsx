@@ -5,7 +5,6 @@ import { GameSelect } from "./components/GameSelect";
 import { loadoutWeaponName, loadoutParameterValue } from "./loadout-presentation";
 import display from "../data/ground-combat-display.json";
 import { equipmentLabel } from "./vehicle-equipment";
-import { VehicleArmorEstimate } from "./VehicleArmorEstimate";
 
 const weaponTerms = Object.entries(display.weaponTerms).sort(([a], [b]) => b.length - a.length);
 const weaponPattern = new RegExp(`\\b(?:${weaponTerms.map(([term]) => term).join("|")})\\b`, "gi");
@@ -247,7 +246,6 @@ export function VehicleGroundCombat({ unit }: { unit: Vehicle }) {
               </tbody>
             </table>
           </div>
-          <VehicleArmorEstimate unit={unit} />
         </>
       ) : (
         <p className="wt-dossier-empty">

@@ -80,7 +80,7 @@ export function checkVehicleReference(vehicles) {
       if (data.groundCombat) {
         const combat = data.groundCombat;
         source(combat, id);
-        assert.equal(combat.parserVersion, "wiki-ground-combat-v1");
+        assert(["wiki-ground-combat-v1", "wiki-ground-combat-v2"].includes(combat.parserVersion));
         assert(statuses.includes(combat.armorStatus));
         assert(statuses.includes(combat.weaponsStatus));
         for (const type of combat.armorTypes || []) text(type);
@@ -95,6 +95,15 @@ export function checkVehicleReference(vehicles) {
           text(weapon.id);
           text(weapon.name);
           nonnegativeOrNull(weapon.ammunition);
+          if (weapon.reload) {
+            assert.equal(weapon.reload.weaponName, weapon.name);
+            assert.equal(weapon.reload.unit, "s");
+            assert.match(weapon.reload.id, /^reload(?:-\d+)?$/);
+            for (const mode of Object.values(weapon.reload.modes)) {
+              assert.deepEqual(Object.keys(mode).sort(), [...stages].sort());
+              for (const value of Object.values(mode)) nonnegativeOrNull(value);
+            }
+          }
           unique(weapon.shells, "id");
           for (const shell of weapon.shells) {
             text(shell.id);
@@ -129,19 +138,31 @@ export function checkVehicleReference(vehicles) {
       }
       if (data.equipment) {
         const equipment = data.equipment;
-        source(equipment,id);
-        assert.equal(equipment.parserVersion,"wiki-vehicle-equipment-v1");
-        unique(equipment.features,"id");
-        unique(equipment.properties,"id");
-        unique(equipment.optics,"id");
+        source(equipment, id);
+        assert.equal(equipment.parserVersion, "wiki-vehicle-equipment-v1");
+        unique(equipment.features, "id");
+        unique(equipment.properties, "id");
+        unique(equipment.optics, "id");
         for (const feature of equipment.features) {
-          text(feature.id); text(feature.kind); text(feature.name);
-          if (feature.source) assert.match(feature.source,/^https:\/\/wiki\.warthunder\.com\/collections\/feature\/[A-Za-z0-9_-]+$/);
+          text(feature.id);
+          text(feature.kind);
+          text(feature.name);
+          if (feature.source)
+            assert.match(
+              feature.source,
+              /^https:\/\/wiki\.warthunder\.com\/collections\/feature\/[A-Za-z0-9_-]+$/,
+            );
           if (feature.weaponName) text(feature.weaponName);
-          unique(feature.parameters,"id");
+          unique(feature.parameters, "id");
         }
-        for (const parameter of [...equipment.properties,...equipment.optics,...equipment.features.flatMap((feature) => feature.parameters)]) {
-          text(parameter.id); text(parameter.label); text(parameter.value);
+        for (const parameter of [
+          ...equipment.properties,
+          ...equipment.optics,
+          ...equipment.features.flatMap((feature) => feature.parameters),
+        ]) {
+          text(parameter.id);
+          text(parameter.label);
+          text(parameter.value);
         }
       }
       performance++;

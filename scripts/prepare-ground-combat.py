@@ -26,7 +26,7 @@ def prepare(entry):
     if not doc.find(lambda n:n.cls('game-unit_card')): raise ValueError('Missing unit card: '+uid)
     performance = reference.performance(doc,uid,proof)
     performance['equipment'] = reference.vehicle_equipment(doc,uid,proof)
-    if category == 'ground': performance['groundCombat'] = reference.ground_combat(doc,uid,proof)
+    if category == 'ground': performance['groundCombat'] = reference.ground_combat(doc,uid,proof,performance['metrics'])
     return uid, performance
 
 def main():

@@ -1,6 +1,8 @@
 import type { Vehicle } from "./models";
 import { supportedLoadoutWeapons, supportedWeaponGroups } from "./supported-loadout-weapons";
 import { loadoutWeaponName } from "./loadout-presentation";
+import { GameTip } from "./components/GameTip";
+import { LoadoutWeaponDetails } from "./LoadoutWeaponDetails";
 
 export function SupportedLoadoutWeapons({
   unit,
@@ -32,25 +34,33 @@ export function SupportedLoadoutWeapons({
                 <ul>
                   {group.items.map((weapon) => (
                     <li key={weapon.key}>
-                      {weapon.imageUrl && (
-                        <img src={weapon.imageUrl} width={28} height={28} loading="lazy" alt="" />
-                      )}
-                      {weapon.source ? (
-                        <a href={weapon.source} target="_blank" rel="noreferrer">
-                          {loadoutWeaponName(weapon.name)}
-                        </a>
-                      ) : (
-                        <span>{loadoutWeaponName(weapon.name)}</span>
-                      )}
+                      <GameTip
+                        label={loadoutWeaponName(weapon.name)}
+                        triggerLabel={`查看 ${loadoutWeaponName(weapon.name)} 详细信息`}
+                        className="wt-supported-weapon-trigger"
+                        icon={
+                          <>
+                            {weapon.imageUrl && (
+                              <img
+                                src={weapon.imageUrl}
+                                width={28}
+                                height={28}
+                                loading="lazy"
+                                alt=""
+                              />
+                            )}
+                            <span>{loadoutWeaponName(weapon.name)}</span>
+                          </>
+                        }
+                      >
+                        <LoadoutWeaponDetails option={weapon} />
+                      </GameTip>
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
           </div>
-          <p className="calc-note">
-            按型号去重；组合挂架与不同型号分别保留。列出可选挂载，不代表能同时装配。
-          </p>
         </>
       ) : (
         <p className="wt-dossier-empty">
@@ -60,16 +70,6 @@ export function SupportedLoadoutWeapons({
               ? "挂载资料需要核对，暂不展示未验证选项。"
               : "来源未提供可核验的挂载武器清单。"}
         </p>
-      )}
-      {data && (
-        <a
-          className="wt-supported-weapons-source"
-          href={data.source}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Wiki · {data.checkedAt.slice(0, 10)} ↗
-        </a>
       )}
     </section>
   );

@@ -33,14 +33,6 @@ function Feature({
           ))}
         </dl>
       )}
-      {feature.kind === "radar" &&
-        !feature.parameters.some((parameter) =>
-          /(?:type|doppler|aesa|pesa)/i.test(parameter.label),
-        ) && (
-          <p className="calc-note">
-            来源已列型号与探测能力，未明确标注 AESA／PESA／脉冲多普勒体制。
-          </p>
-        )}
     </article>
   );
 }
@@ -64,6 +56,8 @@ export function VehicleEquipment({
   const systems = features.filter(
     (feature) => !sensors.includes(feature) && !engines.includes(feature),
   );
+  const capabilities = systems.filter((feature) => !feature.parameters.length);
+  const configuredSystems = systems.filter((feature) => feature.parameters.length);
   return (
     <section className="wt-equipment" aria-label="载具装备与模块资料">
       {(category === "aviation" || category === "helicopters") && (
@@ -115,11 +109,29 @@ export function VehicleEquipment({
               <div className="wt-ground-section-heading">
                 <h3>防护、火控与辅助系统</h3>
               </div>
-              <div className="wt-equipment-features">
-                {systems.map((feature) => (
-                  <Feature key={feature.id} feature={feature} category={category} />
-                ))}
-              </div>
+              {capabilities.length > 0 && (
+                <div className="wt-equipment-capabilities">
+                  {capabilities.map((feature) => (
+                    <span key={feature.id}>
+                      {equipmentLabel(feature.name)}
+                      {feature.weaponName && (
+                        <small>
+                          {category === "ground"
+                            ? groundWeaponName(feature.weaponName)
+                            : loadoutWeaponName(feature.weaponName)}
+                        </small>
+                      )}
+                    </span>
+                  ))}
+                </div>
+              )}
+              {configuredSystems.length > 0 && (
+                <div className="wt-equipment-features">
+                  {configuredSystems.map((feature) => (
+                    <Feature key={feature.id} feature={feature} category={category} />
+                  ))}
+                </div>
+              )}
             </>
           )}
           {data.optics.length > 0 && (
@@ -137,13 +149,6 @@ export function VehicleEquipment({
               </dl>
             </>
           )}
-          <p className="calc-note">
-            <a href={data.source} target="_blank" rel="noreferrer">
-              官方 Wiki 来源 ↗
-            </a>{" "}
-            · 采集于 {data.checkedAt.slice(0, 10)}
-            。模块参数沿用来源口径；没有明确列出的设备能力保持未知。
-          </p>
         </>
       ) : (
         <p className="wt-dossier-empty">暂未取得此载具的已核验装备资料。</p>
@@ -152,7 +157,6 @@ export function VehicleEquipment({
         <>
           <div className="wt-ground-section-heading">
             <h3>可用配件模块</h3>
-            <span>仅展示模块目录，不改变账号研发进度</span>
           </div>
           <div className="wt-equipment-parts" tabIndex={0} aria-label="可用配件模块，可横向滚动">
             <ModificationGrid

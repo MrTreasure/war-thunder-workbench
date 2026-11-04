@@ -248,7 +248,7 @@
 }
 .wt-vehicle-compare-table th,
 .wt-vehicle-compare-table td {
-  padding: 12px 16px;
+  padding: 7px 12px;
   border-right: 1px solid var(--wt-line);
   border-bottom: 1px solid var(--wt-line);
   vertical-align: top;
@@ -492,8 +492,8 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  min-height: 36px;
-  padding: 4px 0;
+  min-height: 32px;
+  padding: 0;
   font-size: 12px;
   line-height: 1.5;
   overflow-wrap: anywhere;
@@ -530,177 +530,26 @@
   grid-template-columns: minmax(0, 1fr);
   gap: 12px;
 }
-.wt-armor-estimate {
-  margin: 18px 0;
-  min-width: 0;
-}
-.wt-armor-estimate-parts {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  align-items: start;
-}
-.wt-armor-part-estimate {
-  padding: 12px;
-  border: 1px solid var(--wt-line);
-  min-width: 0;
-  background: var(--wt-panel);
-}
-.wt-armor-part-estimate > header {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 6px 12px;
-  justify-content: space-between;
-}
-.wt-armor-part-estimate h4 {
-  margin: 0;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--wt-ink);
-}
-.wt-armor-part-estimate > header > span {
-  font-size: 10px;
-  color: var(--wt-gold);
-}
-.wt-armor-estimate-values {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  margin: 12px 0 8px;
-}
-.wt-armor-estimate-values dt {
-  color: var(--wt-muted);
-  font-size: 11px;
-}
-.wt-armor-estimate-values dd {
-  margin: 4px 0 0;
-  font: 500 17px/1.5 var(--wt-sans);
-  font-variant-numeric: tabular-nums;
-  color: var(--wt-gold);
-}
-.wt-armor-estimate-values dd small {
-  display: inline-block;
-  margin: 0 0 0 4px;
-  font: 400 10px/1.4 var(--wt-sans);
-  color: var(--wt-muted);
-}
-.wt-armor-estimate-inputs {
-  margin: 0 0 8px;
-  color: var(--wt-muted);
-  font: 400 10px/1.6 var(--wt-sans);
-  overflow-wrap: anywhere;
-}
-.wt-armor-layer-editor > summary,
-.wt-armor-model-notes > summary {
-  color: var(--wt-body);
-  cursor: pointer;
-  font-size: 12px;
-  padding: 6px 0;
-  min-height: 32px;
-}
-.wt-armor-layer-editor > summary:focus-visible,
-.wt-armor-model-notes > summary:focus-visible {
-  outline: 2px solid var(--wt-gold);
-  outline-offset: 2px;
-}
-.wt-armor-layer-editor fieldset {
-  min-width: 0;
-  padding: 10px 0;
-  margin: 8px 0;
-  border: 0;
-  border-top: 1px solid var(--wt-line);
-}
-.wt-armor-layer-editor legend {
-  padding: 0 6px 0 0;
-  color: var(--wt-muted);
-  font-size: 11px;
-}
-.wt-armor-layer-fields {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
-.wt-armor-layer-fields label {
-  display: grid;
-  min-width: 0;
-  gap: 5px;
-  color: var(--wt-body);
-  font-size: 11px;
-}
-.wt-armor-layer-fields input {
-  width: 100%;
-  min-width: 0;
-  min-height: 38px;
-  border: 1px solid var(--wt-line);
-  padding: 5px 8px;
-  color: var(--wt-ink);
-  background: var(--wt-surface);
-  font: 400 14px/1.5 var(--wt-sans);
-}
-.wt-armor-layer-fields input:focus-visible {
-  outline: 2px solid var(--wt-gold);
-  outline-offset: 1px;
-}
-.wt-armor-layer-fields input:invalid {
-  border-color: var(--wt-gold);
-}
-.wt-armor-estimate-error {
-  display: block;
-  color: var(--wt-gold);
-  font-size: 11px;
-  line-height: 1.6;
-}
-.wt-armor-layer-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.wt-armor-layer-editor .wt-game-button {
-  min-height: 36px;
-  margin-top: 8px;
-  padding: 5px 8px;
-  font-size: 11px;
-}
-.wt-armor-estimate .calc-note {
-  font-size: 11px;
-  margin: 8px 0;
-}
-.wt-armor-model-notes {
-  font-size: 12px;
-  color: var(--wt-muted);
-  line-height: 1.7;
-}
-.wt-armor-model-notes a {
-  display: block;
-  color: var(--wt-body);
-  margin-top: 6px;
-}
-.wt-armor-estimate.is-compact {
-  margin: 0;
-}
-.wt-armor-estimate.is-compact .wt-armor-estimate-parts {
-  grid-template-columns: minmax(0, 1fr);
-  gap: 8px;
-}
-.wt-armor-estimate.is-compact .wt-armor-part-estimate {
-  padding: 10px;
-}
-.wt-armor-estimate.is-compact .wt-armor-estimate-values dd {
-  font-size: 15px;
-}
 .wt-equipment-properties {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 14px 22px;
-  margin: 14px 0 26px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 24px;
+  margin: 0 0 12px;
+}
+.wt-equipment-properties > div {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 150px;
+  max-width: 100%;
 }
 .wt-equipment-properties dt {
   color: var(--wt-muted);
   font-size: 12px;
 }
 .wt-equipment-properties dd {
-  margin: 4px 0 0;
+  margin: 0;
   color: var(--wt-ink);
   font-size: 13px;
   overflow-wrap: anywhere;
@@ -708,16 +557,17 @@
 .wt-equipment-features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px 24px;
-  margin: 16px 0 28px;
+  align-items: start;
+  gap: 8px 16px;
+  margin: 0 0 12px;
 }
 .wt-equipment-feature {
   min-width: 0;
-  padding-bottom: 12px;
+  padding: 8px 10px;
   border-bottom: 1px solid var(--wt-line);
 }
 .wt-equipment-feature h4 {
-  margin: 0 0 8px;
+  margin: 0 0 4px;
   color: var(--wt-ink);
   font-size: 14px;
 }
@@ -728,8 +578,8 @@
 .wt-equipment-feature dl {
   display: grid;
   grid-template-columns: minmax(90px, 0.9fr) minmax(0, 1.4fr);
-  gap: 7px 16px;
-  margin: 10px 0 0;
+  gap: 4px 12px;
+  margin: 6px 0 0;
   font-size: 13px;
 }
 .wt-equipment-feature dt {
@@ -750,4 +600,96 @@
 }
 .wt-equipment .wt-part-card {
   cursor: default;
+}
+.wt-equipment .wt-ground-section-heading {
+  margin: 12px 0 6px;
+}
+.wt-equipment > .wt-ground-section-heading:first-child {
+  margin-top: 0;
+}
+.wt-equipment .wt-ground-section-heading > h3,
+.wt-supported-weapons .wt-ground-section-heading > h3 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 13px;
+}
+.wt-equipment-capabilities {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-bottom: 12px;
+}
+.wt-equipment-capabilities > span {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 5px 8px;
+  border: 1px solid var(--wt-line);
+  color: var(--wt-body);
+  font-size: 12px;
+}
+.wt-equipment-capabilities small {
+  font-size: 11px;
+  color: var(--wt-muted);
+}
+.wt-supported-weapons .wt-game-tip-trigger.wt-supported-weapon-trigger {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 32px;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 2px 4px;
+  margin: 0;
+  text-align: left;
+  color: var(--wt-ink);
+  font: 400 12px/1.5 var(--wt-sans);
+}
+.wt-supported-weapon-trigger > img {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  max-width: 28px;
+  min-height: 28px;
+  max-height: 28px;
+  object-fit: contain;
+  flex: none;
+}
+.wt-supported-weapon-trigger > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.wt-supported-weapons .wt-game-tip-trigger.wt-supported-weapon-trigger:active {
+  background: var(--wt-raised);
+}
+.wt-supported-weapons .wt-game-tip-trigger.wt-supported-weapon-trigger:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 1px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .wt-supported-weapons .wt-game-tip-trigger.wt-supported-weapon-trigger:hover {
+    background: var(--wt-raised);
+    color: var(--wt-gold);
+  }
+}
+.wt-vehicle-compare-value {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 3px 8px;
+}
+.wt-vehicle-compare-value > .wt-vehicle-compare-delta {
+  display: inline;
+  margin: 0;
+  white-space: nowrap;
+}
+.wt-vehicle-compare-table .wt-vehicle-compare-metric-label > small {
+  display: inline;
+  margin: 0 0 0 6px;
+  font-size: 10px;
+  white-space: nowrap;
 }

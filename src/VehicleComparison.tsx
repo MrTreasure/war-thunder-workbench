@@ -17,8 +17,7 @@ import {
 } from "./VehicleGroundCombat";
 import {
   comparedVehicleKey,
-  comparisonMetricKey,
-  comparisonMetrics,
+  comparisonMetricRows,
   groundShells,
   shellPenetration,
   spadedValue,
@@ -27,7 +26,6 @@ import type { ComparedVehicle } from "./vehicle-compare";
 import display from "../data/ground-combat-display.json";
 import { equipmentLabel, equipmentValue, equipmentParameter } from "./vehicle-equipment";
 import { SupportedLoadoutWeapons } from "./SupportedLoadoutWeapons";
-import { VehicleArmorEstimate } from "./VehicleArmorEstimate";
 
 function ComparisonRow({
   label,
@@ -45,7 +43,7 @@ function ComparisonRow({
   const reference = values[0];
   return (
     <tr>
-      <th scope="row">
+      <th scope="row" className="wt-vehicle-compare-metric-label">
         {label}
         {unit && <small>{unit}</small>}
       </th>
@@ -62,14 +60,16 @@ function ComparisonRow({
             : undefined;
         return (
           <td key={index} data-baseline={index === 0 || undefined} data-trend={trend}>
-            <strong>{typeof value === "number" ? combatNumber(value) : value || "—"}</strong>
-            {delta !== null && delta !== 0 && (
-              <small className="wt-vehicle-compare-delta">
-                {delta > 0 ? "+" : ""}
-                {combatNumber(delta)}
-                {unit ? ` ${unit}` : ""}
-              </small>
-            )}
+            <span className="wt-vehicle-compare-value">
+              <strong>{typeof value === "number" ? combatNumber(value) : value || "—"}</strong>
+              {delta !== null && delta !== 0 && (
+                <small className="wt-vehicle-compare-delta">
+                  {delta > 0 ? "+" : ""}
+                  {combatNumber(delta)}
+                  {unit ? ` ${unit}` : ""}
+                </small>
+              )}
+            </span>
             {notes?.[index] && <small>{notes[index]}</small>}
           </td>
         );
@@ -142,12 +142,6 @@ export function VehicleComparison({
             ]}
           />
         </div>
-        <p className="wt-vehicle-compare-note">
-          仅使用完全改装后的参数，不叠加专家或王牌乘员加成。未知值显示“—”；数值差额相对首辆载具。
-          {category
-            ? ` 当前只接受${catalog.categories[category]}载具。`
-            : " 首辆加入后锁定军种，清空后可重新选择。"}
-        </p>
         {entries.length ? (
           <>
             <div
@@ -208,18 +202,11 @@ export function VehicleComparison({
                 </thead>
                 <tbody>
                   {section("完全体性能")}
-                  {comparisonMetrics(entries).map((metric) => {
-                    const metrics = entries.map((entry) => {
-                      const data = entry.unit.wikiDetails?.performance;
-                      return data?.status === "available"
-                        ? data.metrics.find(
-                            (item) => comparisonMetricKey(item) === comparisonMetricKey(metric),
-                          )
-                        : undefined;
-                    });
+                  {comparisonMetricRows(entries).map((metric) => {
+                    const metrics = metric.metrics;
                     return (
                       <ComparisonRow
-                        key={comparisonMetricKey(metric)}
+                        key={metric.key}
                         label={metric.label}
                         unit={metric.unit}
                         values={metrics.map((item) => spadedValue(item, mode))}
@@ -252,9 +239,7 @@ export function VehicleComparison({
                     <>
                       {section("挂载能力")}
                       <tr>
-                        <th scope="row">
-                          支持挂载<small>按型号列出，非同时装配量</small>
-                        </th>
+                        <th scope="row">支持挂载</th>
                         {entries.map((entry) => (
                           <td key={comparedVehicleKey(entry)}>
                             <SupportedLoadoutWeapons unit={entry.unit} compact />
@@ -303,16 +288,6 @@ export function VehicleComparison({
                               .join("、") || "来源未标明",
                         )}
                       />
-                      <tr>
-                        <th scope="row">
-                          正面等效装甲估算<small>车体／炮塔 · 被动层参考</small>
-                        </th>
-                        {entries.map((entry) => (
-                          <td key={comparedVehicleKey(entry)}>
-                            <VehicleArmorEstimate unit={entry.unit} compact />
-                          </td>
-                        ))}
-                      </tr>
                       {(
                         [
                           ["hull", "车体"],
@@ -471,12 +446,6 @@ export function VehicleComparison({
                 </tbody>
               </table>
             </div>
-            {category === "ground" && (
-              <p className="calc-note">
-                装甲为标称厚度，不等同于复合装甲或反应装甲等效防护。“来源表格”沿用 Wiki
-                默认穿深列；指定射角时仅展示来源明确提供的数据。
-              </p>
-            )}
           </>
         ) : (
           <div className="wt-vehicle-compare-empty">

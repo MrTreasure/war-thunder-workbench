@@ -14,7 +14,7 @@ import sys
 from pathlib import Path
 
 PARSER_VERSION = 'wiki-performance-loadouts-v3'
-GROUND_COMBAT_VERSION = 'wiki-ground-combat-v1'
+GROUND_COMBAT_VERSION = 'wiki-ground-combat-v2'
 EQUIPMENT_VERSION = 'wiki-vehicle-equipment-v1'
 VOID = {'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}
 NUM = re.compile(r'^[−-]?\d[\d,]*(?:\.\d+)?$')
@@ -315,7 +315,8 @@ def vehicle_equipment(doc, uid, proof):
     if result['features'] or result['properties'] or result['optics']: result['status']='available'
     return result
 
-def ground_combat(doc, uid, proof):
+def ground_combat(doc, uid, proof, metrics=None):
+    if metrics is None: metrics = performance(doc,uid,proof)['metrics']
     result = {**provenance(uid, proof), 'parserVersion': GROUND_COMBAT_VERSION,
               'status': 'not_provided', 'armorStatus': 'not_provided',
               'weaponsStatus': 'not_provided', 'armor': [], 'weapons': [],
@@ -345,7 +346,8 @@ def ground_combat(doc, uid, proof):
     for wi, weapon in enumerate(doc.all(lambda n:n.cls('game-unit_weapon'))):
         title = weapon.find(lambda n:n.cls('game-unit_weapon-title'))
         if not title: continue
-        current = {'id':f'weapon-{wi+1}', 'name':title.text, 'ammunition':None, 'shells':[]}
+        current = {'id':f'weapon-{wi+1}', 'name':title.text, 'ammunition':None, 'shells':[],
+                   'reload':next((m for m in metrics if m.get('weaponName') == title.text and re.fullmatch(r'reload(?:-\d+)?',m['id'])),None)}
         for line in weapon.all(lambda n:n.cls('game-unit_chars-line')):
             header = line.find(lambda n:n.cls('game-unit_chars-header'))
             value = line.find(lambda n:n.cls('game-unit_chars-value'))
@@ -514,7 +516,7 @@ def parse_reference(body, uid, category, proof):
     result = {'performance':performance(doc,uid,proof),'loadouts':loadouts(doc,uid,proof,category)}
     result['performance']['equipment'] = vehicle_equipment(doc,uid,proof)
     if category == 'ground':
-        result['performance']['groundCombat'] = ground_combat(doc,uid,proof)
+        result['performance']['groundCombat'] = ground_combat(doc,uid,proof,result['performance']['metrics'])
         if result['performance']['groundCombat']['status'] == 'parse_failed':
             result['performance']['status'] = 'parse_failed'
     return result

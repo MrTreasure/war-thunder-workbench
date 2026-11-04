@@ -8,11 +8,10 @@ import {
   removeComparedVehicles,
   VEHICLE_COMPARE_LIMIT,
   spadedValue,
-  comparisonMetrics,
+  comparisonMetricRows,
   shellPenetration,
   setComparedVehicleBaseline,
 } from "../src/vehicle-compare.ts";
-import { estimateArmor, referenceArmorLayer } from "../src/armor-estimation.ts";
 import {
   supportedLoadoutWeapons,
   supportedWeaponGroups,
@@ -67,6 +66,7 @@ for (const category of ["ground", "aviation", "helicopters", "ships", "boats"]) 
 
 const metric = {
   id: "speed",
+  label: "最大速度",
   unit: "km/h",
   modes: { rb: { stock: 100, spaded: 0, expert: 500, ace: 900 } },
 };
@@ -82,7 +82,7 @@ assert.equal(
 );
 assert.equal(spadedValue(undefined, "rb"), null);
 assert.equal(
-  comparisonMetrics([
+  comparisonMetricRows([
     {
       ...entry("a"),
       unit: { id: "a", wikiDetails: { performance: { status: "available", metrics: [metric] } } },
@@ -100,6 +100,102 @@ assert.equal(
   2,
   "Different units must not be aligned into the same row",
 );
+const weaponMetric = (id, weaponName, slot, value, label = "装填时间") => ({
+  id,
+  weaponName,
+  label: `${label} · 武器${slot}`,
+  unit: "s",
+  direction: "lower",
+  modes: {
+    ab: { stock: value, spaded: value, expert: null, ace: null },
+    rb: { stock: value, spaded: value, expert: null, ace: null },
+  },
+});
+const cannonA = weaponMetric("reload", "120 mm Example A cannon", 1, 7);
+const mgA = weaponMetric("reload-2", "12.7 mm Example A machine gun", 2, 10);
+const cannonB = weaponMetric("reload", "125 mm Example B cannon", 1, 6);
+// Legacy parsing omitted the fixed main-gun reload, so the first reload belongs to an MG.
+const mgB = weaponMetric("reload", "12.7 mm Example B machine gun", 2, 9);
+const armedEntry = (id, metrics, weapons = []) => ({
+  ...entry(id),
+  unit: {
+    id,
+    wikiDetails: {
+      performance: {
+        status: "available",
+        metrics,
+        groundCombat: { weaponsStatus: "available", weapons },
+      },
+    },
+  },
+});
+const armedRows = comparisonMetricRows([
+  armedEntry("first", [cannonA, mgA]),
+  armedEntry(
+    "second",
+    [mgB],
+    [
+      { name: cannonB.weaponName, reload: cannonB },
+      { name: mgB.weaponName, reload: mgB },
+    ],
+  ),
+]);
+assert.deepEqual(
+  armedRows
+    .find((row) => row.key.endsWith(":primary:cannon"))
+    .metrics.map((item) => spadedValue(item, "rb")),
+  [7, 6],
+);
+assert.deepEqual(
+  armedRows
+    .find((row) => row.key.endsWith(":machine-gun:12.7"))
+    .metrics.map((item) => spadedValue(item, "rb")),
+  [10, 9],
+);
+const missingMain = comparisonMetricRows([
+  armedEntry("first", [cannonA]),
+  armedEntry("second", [mgB]),
+]);
+assert.equal(
+  missingMain.find((row) => row.key.endsWith(":primary:cannon")).metrics[1],
+  undefined,
+  "An MG must never fill a missing main-gun value",
+);
+const mainMg = weaponMetric("reload", "12.7 mm Primary machine gun", 1, 5);
+assert.equal(
+  comparisonMetricRows([armedEntry("first", [cannonA]), armedEntry("second", [mainMg])]).length,
+  2,
+  "Primary cannons and primary MGs have different roles",
+);
+const nativeMissing = {
+  ...cannonB,
+  modes: {
+    ab: { stock: null, spaded: null, expert: null, ace: null },
+    rb: { stock: null, spaded: null, expert: null, ace: null },
+  },
+};
+const preserveNative = comparisonMetricRows([
+  armedEntry("native", [nativeMissing], [{ name: cannonB.weaponName, reload: cannonB }]),
+]);
+assert.equal(
+  spadedValue(preserveNative[0].metrics[0], "rb"),
+  null,
+  "Do not replace explicit current unknowns with an older extension",
+);
+const coaxA = weaponMetric("reload-3", "7.62 mm A machine gun (coaxial)", 3, 12);
+const coaxB = weaponMetric("reload-2", "7.62 mm B machine gun (coaxial)", 2, 11);
+assert.equal(
+  comparisonMetricRows([armedEntry("a", [coaxA]), armedEntry("b", [coaxB])]).length,
+  1,
+  "Coaxial role survives different source slot numbers",
+);
+for (const kind of ["fire-rate", "turret-rotation-horizontal", "turret-rotation-vertical"]) {
+  const sameType = comparisonMetricRows([
+    armedEntry("a", [{ ...cannonA, id: kind }]),
+    armedEntry("b", [{ ...cannonB, id: kind + "-2" }]),
+  ]);
+  assert.equal(sameType.length, 1, `${kind} aligns by role, not occurrence number`);
+}
 const shell = {
   penetration: [{ distanceM: 10, mm: 0 }],
   penetrationAngles: [{ distanceM: 10, angleDeg: 60, mm: 12 }],
@@ -129,60 +225,6 @@ const equipmentUnit = {
 assert.equal(equipmentParameter(equipmentUnit, "radar", "tws"), "No");
 assert.equal(equipmentParameter(equipmentUnit, "radar", "model"), null);
 assert.equal(equipmentParameter(equipmentUnit, "radar_warning", "model"), null);
-const layer = { id: "a", thicknessMm: 100, angleDeg: 60, kineticFactor: 1, chemicalFactor: 2 };
-assert(Math.abs(estimateArmor([layer], "kinetic") - 200) < 1e-8);
-assert(Math.abs(estimateArmor([layer], "chemical") - 400) < 1e-8);
-assert.equal(
-  estimateArmor(
-    [
-      { ...layer, angleDeg: 0 },
-      { ...layer, id: "b", angleDeg: 0, kineticFactor: 0.5 },
-    ],
-    "kinetic",
-  ),
-  150,
-);
-assert.equal(estimateArmor([{ ...layer, kineticFactor: 0 }], "kinetic"), 0);
-assert.equal(estimateArmor([{ ...layer, thicknessMm: null }], "kinetic"), null);
-assert.equal(estimateArmor([{ ...layer, kineticFactor: null }], "kinetic"), null);
-assert(Math.abs(estimateArmor([{ ...layer, kineticFactor: null }], "chemical") - 400) < 1e-8);
-for (const value of [-1, 90, NaN, Infinity])
-  assert.equal(estimateArmor([{ ...layer, angleDeg: value }], "kinetic"), null);
-assert.equal(estimateArmor([], "kinetic"), null);
-assert.equal(estimateArmor(Array(13).fill(layer), "kinetic"), null);
-const armoredUnit = {
-  wikiDetails: {
-    performance: {
-      groundCombat: {
-        armorStatus: "available",
-        armor: [
-          { id: "hull", front: "100" },
-          { id: "turret", front: "150–200" },
-        ],
-      },
-    },
-  },
-};
-assert.equal(referenceArmorLayer(armoredUnit, "hull").thicknessMm, 100);
-assert.equal(
-  referenceArmorLayer(armoredUnit, "turret").thicknessMm,
-  null,
-  "Do not convert ranges to an invented thickness",
-);
-assert.equal(
-  referenceArmorLayer(
-    {
-      ...armoredUnit,
-      wikiDetails: {
-        performance: {
-          groundCombat: { armorStatus: "parse_failed", armor: [{ id: "hull", front: "100" }] },
-        },
-      },
-    },
-    "hull",
-  ).thicknessMm,
-  null,
-);
 const loadout = {
   status: "available",
   hardpoints: [{ id: "p1" }, { id: "p2" }],
@@ -246,5 +288,5 @@ assert.equal(supportedWeaponGroups(supported).flatMap((group) => group.items).le
 assert.equal(supportedLoadoutWeapons({ ...loadout, status: "parse_failed" }).length, 0);
 assert.equal(supportedLoadoutWeapons(undefined).length, 0);
 console.log(
-  "Vehicle comparison verified: branch/cap/identity, direct deletion, baseline switching, spaded values, penetration angles, equipment, supported weapons and bounded passive-layer armour estimates.",
+  "Vehicle comparison verified: branch/cap/identity, direct deletion, baseline switching, spaded values, penetration angles, equipment, supported weapons and weapon-role metric alignment.",
 );

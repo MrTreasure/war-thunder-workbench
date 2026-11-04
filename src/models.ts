@@ -62,6 +62,7 @@ export interface WikiGroundWeapon {
   id: string;
   name: string;
   ammunition: number | null;
+  reload?: WikiPerformanceMetric | null;
   shells: WikiGroundShell[];
 }
 export interface WikiGroundCombat extends WikiReferenceSource {
