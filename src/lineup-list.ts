@@ -30,18 +30,13 @@ export function savedLineupEntries(
 }
 export function filterSavedLineups(
   entries: ReturnType<typeof savedLineupEntries>,
-  filters: { search: string; battle: BattleType | ""; step: string; sort: LineupSort },
+  filters: { search: string; battle: BattleType | ""; sort: LineupSort },
 ) {
   const needle = lineupSearchText(filters.search);
   return entries
     .filter(
-      ({ lineup, step, search }) =>
-        (!filters.battle || lineup.battleType === filters.battle) &&
-        (!filters.step ||
-          (filters.step === "unknown"
-            ? step === null
-            : step !== null && step === Number(filters.step))) &&
-        search.includes(needle),
+      ({ lineup, search }) =>
+        (!filters.battle || lineup.battleType === filters.battle) && search.includes(needle),
     )
     .sort((a, b) => {
       if (filters.sort === "saved") return a.index - b.index;
