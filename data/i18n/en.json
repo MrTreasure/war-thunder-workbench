@@ -3716,5 +3716,15 @@
   "战区装甲参数": "Base armour parameters",
   "战区收益参数": "Base reward parameters",
   "游戏收益系数算法": "Game reward-coefficient algorithm",
-  "游戏系数显示口径": "Game coefficient display scale"
+  "游戏系数显示口径": "Game coefficient display scale",
+  "已保存队列数": "Saved lineups",
+  "国家与权重模式": "Nation and BR mode",
+  "筛选我的队列": "Filter my lineups",
+  "队列名称或载具": "Lineup name or vehicle",
+  "队列权重": "Lineup BR",
+  "保存顺序": "Saved order",
+  "权重从低到高": "BR: low to high",
+  "权重从高到低": "BR: high to low",
+  "没有符合条件的队列": "No matching lineups",
+  "试试其他名称、战斗类型或权重。": "Try another name, battle type or BR."
 }

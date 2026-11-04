@@ -1,3 +1,6 @@
+import { useLineupCounts } from "./use-lineup-counts";
+import { filterSavedLineups, savedLineupEntries } from "./lineup-list";
+import type { LineupSort } from "./lineup-list";
 import { LineupShareTools } from "./LineupShareTools";
 import { useRouterState } from "@tanstack/react-router";
 import { t, localize, vehicleName } from "./i18n/core";
@@ -24,6 +27,7 @@ import { WarThunderLoading } from "./Loading";
 import { useStored } from "./storage";
 import { modes } from "./TreeCanvas";
 import {
+  brLabel,
   lineupCardRating,
   decodeLineup,
   encodeLineup,
@@ -60,6 +64,17 @@ export function Lineups({
   retry: () => void;
 }) {
   useLocale();
+  const { counts, reportCount } = useLineupCounts(catalog.countries, catalog.lineup.maxSlots);
+  const countryLabel = (id: string) =>
+    catalog.countries[id] ? (
+      <span className="lineup-country-option">
+        <img src={catalog.flags[id]} alt="" width={24} height={18} />
+        <span>{localize(catalog.countries[id])}</span>
+        <small title={t("已保存队列数")}>{counts[id] ?? "—"}</small>
+      </span>
+    ) : (
+      t("选择国家")
+    );
   const mode: Mode = selectedMode === "sb" ? "rb" : selectedMode;
   const routeCountry = useRouterState({
     select: (state) => (state.location.search as { country?: string }).country,
@@ -97,29 +112,29 @@ export function Lineups({
       <div className="lineup-content">
         <h2 className="sr-only">{t("出击队列")}</h2>
         <LineupNavigation />
-        <section className="lineup-toolbar" aria-label={t("国家与卡片权重")}>
+        <section className="lineup-toolbar" aria-label={t("国家与权重模式")}>
           <label className="calc-field lineup-country-field">
             {t("国家")}
-            <span className={`lineup-country-select ${country ? "has-flag" : ""}`}>
-              {localize(
-                country && <img src={catalog.flags[country]} alt="" width={24} height={18} />,
-              )}
-              <GameSelect value={country} onValueChange={(value) => chooseCountry(value)}>
-                <option value="" disabled>
-                  {t("选择国家")}
+            <GameSelect
+              className="lineup-country-picker"
+              menuClassName="lineup-country-menu"
+              value={country}
+              onValueChange={chooseCountry}
+              renderOption={countryLabel}
+              renderValue={countryLabel}
+            >
+              <option value="" disabled>
+                {t("选择国家")}
+              </option>
+              {Object.entries(catalog.countries).map(([id, name]) => (
+                <option key={id} value={id}>
+                  {localize(name)} · {counts[id] ?? "—"} {t("个")}
                 </option>
-                {localize(
-                  Object.entries(catalog.countries).map(([id, name]) => (
-                    <option key={id} value={id}>
-                      {localize(name)}
-                    </option>
-                  )),
-                )}
-              </GameSelect>
-            </span>
+              ))}
+            </GameSelect>
           </label>
           <label className="calc-field lineup-mode-field">
-            {t("卡片权重")}
+            {t("权重模式")}
             <GameSelect value={mode} onValueChange={(value) => setMode(value as Mode)}>
               {localize(
                 Object.entries(modes)
@@ -239,6 +254,7 @@ export function Lineups({
               {...{ catalog, country, payload, mode, defaultBattle }}
               imported={pending?.country === country ? pending.code : null}
               dismissImport={() => setPending(null)}
+              onSavedCountChange={reportCount}
               editImport={() => {
                 setPending(null);
                 setImportError("");
@@ -260,6 +276,7 @@ function CountryLineups({
   dismissImport,
   editImport,
   defaultBattle,
+  onSavedCountChange,
 }: {
   catalog: CatalogIndex;
   country: string;
@@ -267,6 +284,7 @@ function CountryLineups({
   mode: Mode;
   defaultBattle: BattleType;
   imported: string | null;
+  onSavedCountChange: (country: string, count: number) => void;
   dismissImport: () => void;
   editImport: () => void;
 }) {
@@ -276,6 +294,14 @@ function CountryLineups({
     [],
     (v): v is Lineup[] => validLineups(v, rules.maxSlots),
   );
+  useEffect(
+    () => onSavedCountChange(country, saved.length),
+    [country, saved.length, onSavedCountChange],
+  );
+  const [listSearch, setListSearch] = useState("");
+  const [listBattle, setListBattle] = useState<BattleType | "">("");
+  const [listStep, setListStep] = useState("");
+  const [listSort, setListSort] = useState<LineupSort>("saved");
   const [selectedId, setSelectedId] = useState(saved[0]?.id || "");
   const [draft, setDraft] = useState<Lineup | null>(null);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -318,6 +344,29 @@ function CountryLineups({
   const [copying, setCopying] = useState(false);
   const shareCode = useRef<HTMLElement>(null);
   const units = useMemo(() => lineupIndex(payload), [payload]);
+  const entries = useMemo(
+    () => savedLineupEntries(saved, units, rules, mode),
+    [saved, units, rules, mode],
+  );
+  const visibleLineups = useMemo(
+    () =>
+      filterSavedLineups(entries, {
+        search: listSearch,
+        battle: listBattle,
+        step: listStep,
+        sort: listSort,
+      }),
+    [entries, listSearch, listBattle, listStep, listSort],
+  );
+  const ratingSteps = [
+    ...new Set(entries.flatMap(({ step }) => (step === null ? [] : [step]))),
+  ].sort((a, b) => a - b);
+  const listFiltered = Boolean(listSearch || listBattle || listStep);
+  function resetListFilters() {
+    setListSearch("");
+    setListBattle("");
+    setListStep("");
+  }
   const all = [...units.values()];
   const ranks = useMemo(
     () =>
@@ -634,7 +683,7 @@ function CountryLineups({
                 <h3 ref={heading} tabIndex={-1}>
                   {t("我的队列")}
                   <small>
-                    {localize(saved.length)}
+                    {listFiltered ? `${visibleLineups.length} / ${saved.length}` : saved.length}
                     {t("个")}
                   </small>
                 </h3>
@@ -652,9 +701,80 @@ function CountryLineups({
                   ),
                 )}
               </div>
+              {saved.length > 0 && (
+                <div className="lineup-saved-filters" aria-label={t("筛选我的队列")}>
+                  <label className="calc-field lineup-saved-search">
+                    {t("搜索")}
+                    <input
+                      type="search"
+                      value={listSearch}
+                      onChange={(event) => setListSearch(event.target.value)}
+                      placeholder={t("队列名称或载具")}
+                    />
+                  </label>
+                  <label className="calc-field">
+                    {t("战斗类型")}
+                    <GameSelect
+                      value={listBattle}
+                      onValueChange={(value) => setListBattle(value as BattleType | "")}
+                    >
+                      <option value="">{t("全部类型")}</option>
+                      {Object.entries(battleNames).map(([id, name]) => (
+                        <option key={id} value={id}>
+                          {localize(name)}
+                        </option>
+                      ))}
+                    </GameSelect>
+                  </label>
+                  <label className="calc-field">
+                    {t("队列权重")}
+                    <GameSelect value={listStep} onValueChange={setListStep}>
+                      <option value="">{t("全部权重")}</option>
+                      {ratingSteps.map((step) => (
+                        <option key={step} value={String(step)}>
+                          {brLabel(step)}
+                        </option>
+                      ))}
+                      {listStep &&
+                        listStep !== "unknown" &&
+                        !ratingSteps.includes(Number(listStep)) && (
+                          <option value={listStep}>{brLabel(Number(listStep))}</option>
+                        )}
+                      {(listStep === "unknown" || entries.some(({ step }) => step === null)) && (
+                        <option value="unknown">{t("权重未知")}</option>
+                      )}
+                    </GameSelect>
+                  </label>
+                  <label className="calc-field">
+                    {t("排序")}
+                    <GameSelect
+                      value={listSort}
+                      onValueChange={(value) => setListSort(value as LineupSort)}
+                    >
+                      <option value="saved">{t("保存顺序")}</option>
+                      <option value="br-asc">{t("权重从低到高")}</option>
+                      <option value="br-desc">{t("权重从高到低")}</option>
+                    </GameSelect>
+                  </label>
+                  {listFiltered && (
+                    <button className="quiet-button lineup-filter-clear" onClick={resetListFilters}>
+                      {t("清除筛选")}
+                    </button>
+                  )}
+                </div>
+              )}
+              {saved.length > 0 && visibleLineups.length === 0 && (
+                <div className="lineup-saved-empty">
+                  <h3>{t("没有符合条件的队列")}</h3>
+                  <p>{t("试试其他名称、战斗类型或权重。")}</p>
+                  <button className="quiet-button" onClick={resetListFilters}>
+                    {t("清除筛选")}
+                  </button>
+                </div>
+              )}
               <div className="lineup-saved-list">
                 {localize(
-                  saved.map((row) => (
+                  visibleLineups.map(({ lineup: row }) => (
                     <article className="lineup-saved-row" key={row.id}>
                       <div className="lineup-card-heading">
                         <div className="lineup-card-info">
