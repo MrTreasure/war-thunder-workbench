@@ -1413,6 +1413,24 @@
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@3d89758510706c469ec645c1883e3c2a72ce1333/images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/3d89758510706c469ec645c1883e3c2a72ce1333/images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp"
       }
+    },
+    "jp_oplot_t": {
+      "photo": {
+        "path": "images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp",
+        "sha256": "060922bf4f4738eebd198bc39600f20c720667c97451a8e731cbf208491f8d8e",
+        "bytes": 258668,
+        "commit": "d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1/images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1/images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp"
+      },
+      "raw": {
+        "path": "images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp",
+        "sha256": "060922bf4f4738eebd198bc39600f20c720667c97451a8e731cbf208491f8d8e",
+        "bytes": 258668,
+        "commit": "d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1/images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1/images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp"
+      }
     }
   },
   "assets": [
@@ -16849,6 +16867,72 @@
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@3d89758510706c469ec645c1883e3c2a72ce1333/images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/3d89758510706c469ec645c1883e3c2a72ce1333/images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
       "rootApproval": true
+    },
+    {
+      "id": "060922bf4f4738eebd198bc39600f20c720667c97451a8e731cbf208491f8d8e",
+      "path": "images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp",
+      "sha256": "060922bf4f4738eebd198bc39600f20c720667c97451a8e731cbf208491f8d8e",
+      "bytes": 258668,
+      "width": 1920,
+      "height": 1080,
+      "vehicleId": "jp_oplot_t",
+      "country": "JPN",
+      "vehicleOperatorOrigin": "Thailand",
+      "vehicleEnglishName": "BM Oplot-T",
+      "source": {
+        "url": "https://forum.warthunder.com/t/why-oplot-t-2010s-have-less-armor-with-t-80u-1980s/283057/1",
+        "title": "Why oplot-t(2010s) have less armor with T-80U(1980s)?",
+        "author": "Misaka19802",
+        "publishedAt": "2025-11-11T09:36:57.628Z",
+        "kind": "forum-image",
+        "gameVersion": "2.51.0.16",
+        "license": null,
+        "imageUrl": "https://forum-en-cdn.warthunder.com/original/4X/f/8/c/f8cfda254b50e4c19e1bf63652021de44feb84c6.jpeg"
+      },
+      "sourceKind": "forum-image",
+      "sourceTime": null,
+      "mediaTime": null,
+      "actualTime": null,
+      "sourceFrameSHA256": "5af92efa2fb07c2edbb21e3d015808e2481adb91339f8a5b046ee048b600162e",
+      "sourceFrameHashBasis": "original-native-JPEG",
+      "proofSnapshotSHA256": "74add6b464401181e60b595560d07d25af068fb18fd8d5dd79af35c26d99ecd6",
+      "sourceGameVersion": "2.51.0.16",
+      "caseId": null,
+      "kind": "primary-protection-preview-full-frame",
+      "roles": [
+        "primary-protection-preview"
+      ],
+      "purpose": "primary-protection-preview",
+      "mainImageUsable": true,
+      "nativeResized": false,
+      "sceneKind": "protection-preview",
+      "encoding": "lossy-webp-quality90",
+      "encodingParameters": {
+        "codec": "libwebp",
+        "quality": 90,
+        "compression_level": 6,
+        "lossy": true,
+        "resize": false,
+        "crop": [
+          0,
+          0,
+          1920,
+          1080
+        ]
+      },
+      "crop": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "license": null,
+      "licenseEstablished": false,
+      "republicationBasis": "single full screenshot limited analytical reference with attribution; no license assertion",
+      "commit": "d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1/images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1/images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp",
+      "status": "published"
     }
   ]
 }

@@ -218,15 +218,17 @@ function render() {
   image.alt = model.name + (evidence ? ` · ${evidence.label} · 防护分析画面` : authorDiagram ? "原文章作者正面防护示意图" : armorLayout ? showRaw ? "完整原生装甲布局画面" : "正面装甲厚度视图" : showRaw ? staticSource ? "原帖完整防护分析截图" : protectionPreview ? "原始单点防护预览视频帧" : "原始防护分析视频帧" : protectionPreview ? "正面单点防护预览原图" : model.mainViewKind === "protection-analysis" ? "正面防护分析原图" : "正面截图与区域说明");
   image.width = evidence?.sourceDimensions?.[0] || (showRaw ? (model.sourceDimensions?.[0] || 1920) : (model.crop?.[2] || 1100));
   image.height = evidence?.sourceDimensions?.[1] || (showRaw ? (model.sourceDimensions?.[1] || 1080) : (model.crop?.[3] || 690));
-  $("toggle-original").hidden = analysisExcerpt || !!evidence || !(model.imageUrl && model.rawUrl);
+  const fullFrameView = model.crop?.[0] === 0 && model.crop?.[1] === 0
+    && model.crop?.[2] === model.sourceDimensions?.[0] && model.crop?.[3] === model.sourceDimensions?.[1];
+  $("toggle-original").hidden = analysisExcerpt || !!evidence || !(model.imageUrl && model.rawUrl) || model.imageUrl === model.rawUrl || fullFrameView;
   $("toggle-original").textContent = original ? "返回标注图" : "查看完整高清图";
   $("toggle-original").setAttribute("aria-pressed", String(original));
   $("evidence-full").hidden = !evidence;
   $("evidence-full").textContent = analysisExcerpt ? "打开高清节选 ↗" : "打开高清原帧 ↗";
   if (evidence) $("evidence-full").href = evidence.rawUrl || evidence.imageUrl;
   else $("evidence-full").removeAttribute("href");
-  const imageDescription = authorDiagram ? "原文章作者防护示意图，保留作者分区、数值和箭头；不是游戏绿色击穿分析或已核验的试射结果。" : armorLayout ? `${showRaw ? "当前为完整高清画面。" : ""}原游戏装甲布局，配色仅区分装甲构件或厚度，不表示可击穿或不可击穿。` : protectionPreview ? `${showRaw ? "当前为完整高清画面。" : ""}原视频单点防护预览，准星与提示仅对应当次位置；不是整片装甲着色或实射结果。` : showRaw ? "当前为完整高清画面。" : model.mainViewKind === "protection-analysis" ? `${staticSource ? "原帖截图" : "原视频"}防护分析，保留游戏原有防护分区。` : model.pins?.length ? "金色编号为讲解标注。" : "来源载具外观。";
-  const versionDescription = `${analysisExcerpt ? "画面为局部分析引用，完整内容见来源视频。" : ""}${source.gameVersion ? `画面版本 ${source.gameVersion}。` : ""}`;
+  const imageDescription = authorDiagram ? "原文章作者防护示意图，保留作者分区、数值和箭头；不是游戏绿色击穿分析或已核验的试射结果。" : armorLayout ? `${showRaw ? "当前为完整高清画面。" : ""}原游戏装甲布局，配色仅区分装甲构件或厚度，不表示可击穿或不可击穿。` : protectionPreview ? `${showRaw ? "当前为完整高清画面。" : ""}${staticSource ? "原帖截图" : "原视频"}单点防护预览，准星与提示仅对应当次位置；不是整片装甲着色或实射结果。` : showRaw ? "当前为完整高清画面。" : model.mainViewKind === "protection-analysis" ? `${staticSource ? "原帖截图" : "原视频"}防护分析，保留游戏原有防护分区。` : model.pins?.length ? "金色编号为讲解标注。" : "来源载具外观。";
+  const versionDescription = `${analysisExcerpt ? `画面为局部分析引用，完整内容见来源${staticSource ? "原帖" : "视频"}。` : ""}${source.gameVersion ? `画面版本 ${source.gameVersion}。` : ""}`;
   const analysisConditions = authorDiagram || armorLayout ? "" : protectionPreview ? "该点条件见来源测试。" : "防护分析颜色对应当时的弹种与视角，条件见来源测试。";
   $("figure-caption").textContent = evidence ? evidence.caption : imageUrl ? `画面：${source.author || "来源见下方"} / 《战争雷霆》。${imageDescription}${versionDescription}${analysisConditions}${["unknown", "in-progress", "incomplete"].includes(model.distributionCompletionStatus) && model.mainViewNote ? ` ${model.mainViewNote}` : ""}` : "图像资料待补充，不以其他车型画面代替。";
   $("pins").hidden = showRaw || !imageUrl;

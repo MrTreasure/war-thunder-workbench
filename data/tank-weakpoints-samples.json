@@ -16169,6 +16169,31 @@
             "QCManifestSHA256": "6c952f8419c6eff755ab619e1f8e89d43cc276030bb87f979a48503cc7567573",
             "QCProposalsSHA256": "7a542df1587ba69d366679721be164df49fb631b16c89a5aab3ec3fb990289ac"
           }
+        },
+        {
+          "id": "v612-120s-arcade-hull-cover-author-advice",
+          "label": "视频作者建议：避近战、遮蔽车体",
+          "text": "作者在街机实战中建议120S尽量避免近距离巷战，借地形遮住防护较弱的车体，利用炮塔争取防护。该段是作者打法建议，未提供可核对的正面受击试验或具体击穿点。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1zSrNBUEmX/",
+          "sourceTime": 249.919,
+          "sourcePublishedAt": "2026-01-09 20:58:53",
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "kind": "attributed-author-commentary",
+            "timeRanges": [
+              {
+                "start": 249.919,
+                "end": 273.38
+              }
+            ],
+            "actualShotObserved": false,
+            "sourceMode": "Ground Arcade",
+            "captionPayloadSHA256": "fc71d683e3bf180da79df4c8fca79e11b3138c1405ba7af3415d73427366f5f9"
+          }
         }
       ],
       "source": {},
@@ -16209,6 +16234,16 @@
           "publishedAt": "2025-04-18T11:26:03+00:00",
           "time": null,
           "scopeNote": "作者归因文字；非独立试射，原文私有归档。"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1zSrNBUEmX/",
+          "title": "【战争雷霆】终极接头霸王120S~交战规则508",
+          "author": "战雷街机导师",
+          "publishedAt": "2026-01-09 20:58:53",
+          "kind": "video",
+          "gameVersion": null,
+          "time": 249.919,
+          "scopeNote": "街机实战中的作者防护建议；没有120S正面受试图或经验证的局部击穿点。"
         }
       ]
     },
@@ -28728,8 +28763,17 @@
       "scopeRole": "medium_tank",
       "pins": [],
       "videoAdvice": [],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://forum.warthunder.com/t/why-oplot-t-2010s-have-less-armor-with-t-80u-1980s/283057/1",
+        "title": "Why oplot-t(2010s) have less armor with T-80U(1980s)?",
+        "author": "Misaka19802",
+        "publishedAt": "2025-11-11T09:36:57.628Z",
+        "kind": "forum-image",
+        "gameVersion": "2.51.0.16",
+        "license": null,
+        "imageUrl": "https://forum-en-cdn.warthunder.com/original/4X/f/8/c/f8cfda254b50e4c19e1bf63652021de44feb84c6.jpeg"
+      },
+      "status": "primary-protection-preview-no-pins",
       "wikiUrl": "https://wiki.warthunder.com/unit/jp_oplot_t",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-002-20261103/snapshots/jp_oplot_t.json",
@@ -28751,13 +28795,97 @@
       "collectedAt": "2026-11-02T18:08:36.293Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "1995为基础T84，2011与2018为泰国采购及交付，原文未给精确OplotT技术形成日期。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
-      ]
+      ],
+      "sourceKind": "forum-image",
+      "sourceGameVersion": "2.51.0.16",
+      "framePath": "artifacts/weakpoints-oplot-t-forum-qa-v613-20261105/THA-BM-Oplot-T-Front-3BM42-500m-Protection-Analysis.webp",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v616b/static-frame-proof.json",
+      "frameSnapshotSHA256": "74add6b464401181e60b595560d07d25af068fb18fd8d5dd79af35c26d99ecd6",
+      "captureSHA256": "060922bf4f4738eebd198bc39600f20c720667c97451a8e731cbf208491f8d8e",
+      "originalFrameSHA256": "5af92efa2fb07c2edbb21e3d015808e2481adb91339f8a5b046ee048b600162e",
+      "time": null,
+      "crop": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageQuality": "native-1920x1080-display-lossy-webp-q90",
+      "imageView": "front",
+      "mainViewKind": "protection-preview",
+      "mainViewNote": "高清正面条件性参考，仅单点无法击穿预测；非弱点图。",
+      "testContext": {
+        "vehicleId": "jp_oplot_t",
+        "attacker": "BM Oplot-T",
+        "attackerVehicleId": "jp_oplot_t",
+        "shell": "3BM42",
+        "sourceShellLabelOriginal": "3BM42",
+        "rawUIType": null,
+        "shellType": "APFSDS",
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeBasis": "independent exact official unit/main-gun ammunition reference; original image UI type not expanded",
+        "officialShellName": "3BM42",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 445,
+        "equivalentArmorMm": 612,
+        "impactAngleDegrees": 68,
+        "attackAzimuthDegrees": 0,
+        "sourceGameVersion": "2.51.0.16",
+        "sourceTime": null,
+        "sourceKind": "forum-image",
+        "sourceUrl": "https://forum.warthunder.com/t/why-oplot-t-2010s-have-less-armor-with-t-80u-1980s/283057/1",
+        "sourceFrameSHA256": "5af92efa2fb07c2edbb21e3d015808e2481adb91339f8a5b046ee048b600162e",
+        "actualUIObserved": true,
+        "actualShotObserved": false,
+        "outcome": null,
+        "sceneKind": "protection-preview",
+        "evidenceKind": "protection-analysis-hover-prediction",
+        "prediction": "penetration-not-possible",
+        "predictedDamage": null,
+        "calculationProgress": null,
+        "considerCameraVerticalAngle": false,
+        "caseId": null,
+        "note": "等效612毫米、68°、0°仅该准星单点；无法击穿预测，非整面防护、非实射或推荐弱点。",
+        "sourceImageUrl": "https://forum-en-cdn.warthunder.com/original/4X/f/8/c/f8cfda254b50e4c19e1bf63652021de44feb84c6.jpeg",
+        "sourcePublishedAt": "2025-11-11T09:36:57.628Z",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/jp_oplot_t",
+          "attackerVehicleId": "jp_oplot_t",
+          "wikiUnitId": "jp_oplot_t",
+          "mainGun": "125 mm KBA-3 cannon",
+          "officialShellName": "3BM42",
+          "sourceShellLabelOriginal": "3BM42",
+          "code": "APFSDS",
+          "label": "尾翼稳定脱壳穿甲弹",
+          "checkedAt": "2026-11-02T18:08:36.293Z",
+          "gameVersion": "2.59.0.92"
+        }
+      },
+      "testCases": [],
+      "coverageStatus": "single-point-protection-preview",
+      "coverageNotice": "仅单点无法击穿预测，暂无实射弱点标注",
+      "frontSummary": "3BM42、500米、面板445毫米；该点等效612毫米、攻击角68°、方向角0°，提示无法击穿。非整面等效或实射。",
+      "sourceFrameHashBasis": "source-original-jpeg",
+      "testContextEvidence": {
+        "privateQAFile": "artifacts/weakpoints-oplot-t-forum-qa-v613-20261105/report.json",
+        "privateQASHA256": "2bb2d7cd1b46a6a3a93b55fece37e6238351b3e9dfa0df3ed32277707230a5fc",
+        "wikiReportFile": "artifacts/weakpoints-oplot-t-ammo-wiki-v615-20261105/report.json",
+        "wikiReportSHA256": "dca1a1d621f15bb48fb1b342f84768057db82afc42d1a9b2835ecfec57f7e066",
+        "sourceOriginalFile": "artifacts/weakpoints-oplot-forum-native-v611-20261105/unknown-comparison-forum-1.jpg",
+        "sourceOriginalSHA256": "5af92efa2fb07c2edbb21e3d015808e2481adb91339f8a5b046ee048b600162e"
+      }
     },
     {
       "id": "jp_tkx_prot",
@@ -35083,7 +35211,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 76,
+    "illustratedCount": 77,
     "countries": [
       {
         "country": "usa",
@@ -35219,7 +35347,7 @@
     "lastUpdated": "2026-11-04",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 74,
+    "illustratedTargetCount": 75,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,
