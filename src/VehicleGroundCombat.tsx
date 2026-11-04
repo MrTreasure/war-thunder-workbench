@@ -7,6 +7,7 @@ import { GameSelect } from "./components/GameSelect";
 import { loadoutWeaponName, loadoutParameterValue } from "./intl-loadout-presentation";
 import display from "../data/ground-combat-display.json";
 import { equipmentLabel } from "./intl-vehicle-equipment";
+import { ShellAnimation } from "./ShellAnimation";
 const weaponTerms = Object.entries(display.weaponTerms).sort(([a], [b]) => b.length - a.length);
 const weaponPattern = new RegExp(`\\b(?:${weaponTerms.map(([term]) => term).join("|")})\\b`, "gi");
 const weaponTranslations = new Map(weaponTerms);
@@ -132,7 +133,7 @@ function GroundWeapon({ weapon }: { weapon: WikiGroundWeapon }) {
               aria-label={t("\u9009\u4E2D\u5F39\u836F\u8BE6\u7EC6\u53C2\u6570")}
             >
               <label className="wt-ground-shell-select">
-                {t("\u5F39\u836F\u8BE6\u60C5")}
+                <span>{t("弹药详情")}</span>
                 <GameSelect
                   value={shell.id}
                   onValueChange={setSelected}
@@ -152,6 +153,7 @@ function GroundWeapon({ weapon }: { weapon: WikiGroundWeapon }) {
                   ))}
                 </GameSelect>
               </label>
+              <ShellAnimation shell={shell} />
               <dl className="wt-ground-shell-parameters">
                 {shell.parameters.map((parameter) => (
                   <div key={parameter.id}>

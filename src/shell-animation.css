@@ -1,0 +1,78 @@
+/* finesse · component: ammunition-animation · register=product
+ * states: default · loading · error · success; retry: hover · focus-visible · active
+ * tokens: inherited --wt surfaces, type and accent */
+.wt-shell-animation {
+  margin-block: 14px;
+  min-width: 0;
+  width: 100%;
+}
+.wt-shell-animation-heading {
+  margin: 0 0 8px;
+  color: var(--wt-muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+.wt-shell-animation button {
+  min-height: 32px;
+  min-width: 48px;
+  padding: 4px 10px;
+  color: var(--wt-body);
+  background: var(--wt-surface);
+  border: 1px solid var(--wt-line);
+  font: inherit;
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.wt-shell-animation button:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 2px;
+}
+.wt-shell-animation button:active {
+  background: var(--wt-raised);
+}
+.wt-shell-animation-frame {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  overflow: hidden;
+  background: var(--wt-surface);
+}
+.wt-shell-animation-frame > img,
+.wt-shell-animation-frame > video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+}
+.wt-shell-animation-loading {
+  position: absolute;
+  inset: auto 8px 6px;
+  color: var(--wt-muted);
+  font-size: 11px;
+  pointer-events: none;
+}
+.wt-shell-animation-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  height: 100%;
+  min-height: 72px;
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+@media (hover: hover) {
+  .wt-shell-animation button:hover:enabled {
+    background: var(--wt-raised);
+    color: var(--wt-ink);
+  }
+}
+@media (max-width: 800px), (pointer: coarse) {
+  .wt-shell-animation button {
+    min-height: 44px;
+  }
+}

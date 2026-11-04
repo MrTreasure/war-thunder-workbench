@@ -156,8 +156,10 @@ function validateShellTypeReference(item, originalCase) {
   const reference = item?.shellTypeReference;
   if (!reference) return;
   const attacker = item.attackerVehicleId || originalCase?.attackerVehicleId;
+  const wikiUnitId = reference.wikiUnitId || attacker;
   if (reference.sourceBasis !== "official-Wiki-reference" || !attacker
-    || reference.attackerVehicleId !== attacker || reference.url !== `https://wiki.warthunder.com/unit/${attacker}`
+    || reference.attackerVehicleId !== attacker || typeof wikiUnitId !== "string" || wikiUnitId.toLowerCase() !== attacker
+    || reference.url !== `https://wiki.warthunder.com/unit/${wikiUnitId}`
     || reference.sourceShellLabelOriginal !== item.shell || item.rawUIType !== null
     || !item.shellTypeCode || !Number.isFinite(Date.parse(reference.checkedAt))
     || !reference.mainGun || !reference.officialShellName) throw Error("Ammunition reference must match the exact attacker and source shell");
@@ -171,7 +173,7 @@ function deliveryFallbacks(digest) {
 for (const model of data.models) {
   const analysisExcerpt = model.displayImagePolicy === "analysis-excerpt";
   if (model.displayImagePolicy && !analysisExcerpt) throw Error("Unknown image presentation policy");
-  if (analysisExcerpt && model.protectionEvidence?.length) throw Error("Excerpt evidence needs its own verified crop policy");
+  if (analysisExcerpt && model.protectionEvidence?.some((evidence) => evidence.displayImagePolicy !== "analysis-excerpt")) throw Error("Excerpt evidence needs its own verified crop policy");
   if (model.scopeRole === "light_tank" && model.specialistWeakpointVerified !== true) throw Error("Scout/light vehicle needs verified specialist weakpoint evidence");
   if (!/^[a-z0-9_]+$/.test(model.id)) throw Error("Unsafe model identity");
   const cases = new Map();
@@ -294,18 +296,23 @@ for (const model of data.models) {
   } else if (model.pins?.length) throw Error("Do not publish pins without their matching front image");
   const evidenceIds = new Set();
   for (const evidence of model.protectionEvidence || []) {
+    const evidenceExcerpt = evidence.displayImagePolicy === "analysis-excerpt";
+    if (evidence.displayImagePolicy && !evidenceExcerpt) throw Error("Unknown protection evidence presentation policy");
     if (!/^[a-z0-9-]+$/.test(evidence.id) || evidenceIds.has(evidence.id)) throw Error("Invalid protection evidence identity");
     evidenceIds.add(evidence.id);
     const testCase = cases.get(evidence.caseId);
     const staticEvidence = testCase?.sourceKind === "forum-image";
     const hosted = registry?.assets?.find((asset) => asset.path === evidence.assetPath);
-    const original = registry?.assets?.find((asset) => asset.path === (evidence.rawAssetPath || evidence.assetPath));
-    if (!testCase || !hosted || !original || hosted.vehicleId !== model.id || original.vehicleId !== model.id
+    const original = evidenceExcerpt ? hosted?.sourcePNG : registry?.assets?.find((asset) => asset.path === (evidence.rawAssetPath || evidence.assetPath));
+    if (!testCase || !hosted || !original || hosted.vehicleId !== model.id || (!evidenceExcerpt && original.vehicleId !== model.id)
       || (staticEvidence ? evidence.sourceTime !== null : !Number.isFinite(evidence.sourceTime) || Math.abs(testCase.sourceTime - evidence.sourceTime) > .000001)) throw Error("Protection screenshot and case mismatch");
     const framePath = privatePath(evidence.framePath);
     let body = await readFile(framePath);
     const proofBytes = await readFile(privatePath(evidence.frameSnapshotPath));
     const proof = JSON.parse(proofBytes);
+    if (evidenceExcerpt && (hosted.displayImagePolicy !== "analysis-excerpt" || proof.displayPolicy !== "analysis-excerpt"
+      || proof.originalFullFramePrivate !== true || proof.sourcePNG?.sha256 !== original.sha256
+      || !evidence.crop || JSON.stringify(evidence.crop) !== JSON.stringify(hosted.crop))) throw Error("Protection excerpt must retain its verified private original and crop");
     if (hash(body) !== (original.preCompressionSHA256 || original.sha256) || body.length !== (original.preCompressionBytes || original.bytes) || hash(proofBytes) !== evidence.frameSnapshotSHA256) throw Error("Protection screenshot byte/proof mismatch");
     if (proof.error || proof.blocked || proof.challenge) throw Error("Protection screenshot source was blocked");
     const geometry = staticEvidence ? await validateStaticFrame(proof, { url: testCase.sourceUrl, imageUrl: testCase.sourceImageUrl, publishedAt: testCase.sourcePublishedAt }, hash(body)) : proof.decode;
@@ -314,10 +321,16 @@ for (const model of data.models) {
     if (evidence.crop) {
       const [x, y, w, h] = evidence.crop;
       if (evidence.crop.length !== 4 || !evidence.crop.every(Number.isInteger) || x < 0 || y < 0 || w <= 0 || h <= 0 || x + w > original.width || y + h > original.height || hosted.width !== w || hosted.height !== h) throw Error("Invalid protection screenshot crop");
+      if (evidenceExcerpt && w * h > original.width * original.height / 2) throw Error("Protection excerpt must be a bounded native crop");
       body = await sourceImage(framePath, { modelId: model.id, kind: "protection-evidence", evidenceId: evidence.id, hosted, original }, `crop=${w}:${h}:${x}:${y}`);
     }
     if (hash(body) !== (hosted.preCompressionSHA256 || hosted.sha256) || body.length !== (hosted.preCompressionBytes || hosted.bytes)) throw Error("Protection crop differs from its pinned asset");
-    for (const asset of [hosted, original]) for (const url of [asset.url, asset.rawUrl]) if (!/^[a-f0-9]{40}$/.test(asset.commit) || !url?.startsWith("https://") || !url.includes(asset.commit)) throw Error("Unpinned protection screenshot");
+    for (const asset of evidenceExcerpt ? [hosted] : [hosted, original]) for (const url of [asset.url, asset.rawUrl]) if (!/^[a-f0-9]{40}$/.test(asset.commit) || !url?.startsWith("https://") || !url.includes(asset.commit)) throw Error("Unpinned protection screenshot");
+    for (const pin of evidence.pins || []) {
+      if (![pin.x, pin.y].every((n) => Number.isFinite(n) && n >= 0 && n <= 1)
+        || pin.caseId !== evidence.caseId || pin.sourceUrl !== testCase.sourceUrl || pin.sourceTime !== evidence.sourceTime) throw Error("Protection annotation must match its own frame and case");
+      delete pin.evidence;
+    }
     const sourceSHA256 = hash(body), temporary = resolve(assets, `${model.id}-evidence-${evidence.id}.next.webp`);
     await writeFile(temporary, body);const delivery = await optimizeDelivery(temporary);body = delivery.body;
     const digest = hash(body), file = `weakpoints-${model.id}-evidence-${evidence.id}.${digest.slice(0, 16)}.webp`;
@@ -325,12 +338,17 @@ for (const model of data.models) {
     report.publishedFiles.push({ file, bytes: body.length, sha256: digest, sourceSHA256, inputSHA256: hash(await readFile(framePath)), derivationKey: delivery.derivationKey, modelId: model.id, evidenceId: evidence.id, kind: "protection-evidence", lossless: delivery.lossless, quality: delivery.quality });
     evidence.imageUrl = `./assets/${file}`;
     evidence.imageFallbackUrls = deliveryFallbacks(digest);evidence.imageFallbackUrl = evidence.imageFallbackUrls[0] || null;
+    if (evidenceExcerpt) {
+      evidence.rawUrl = evidence.imageUrl;
+      evidence.rawFallbackUrls = [...evidence.imageFallbackUrls];evidence.rawFallbackUrl = evidence.imageFallbackUrl;
+    } else {
     const rawTemporary = resolve(assets, `${model.id}-evidence-${evidence.id}-raw.next.webp`);
     await copyFile(framePath, rawTemporary);const rawDelivery = await optimizeDelivery(rawTemporary), rawDigest = hash(rawDelivery.body), rawFile = `weakpoints-${model.id}-evidence-${evidence.id}-raw.${rawDigest.slice(0, 16)}.webp`;
     await writeFile(rawTemporary, rawDelivery.body);await rename(rawTemporary, resolve(assets, rawFile));
     report.publishedFiles.push({ file: rawFile, bytes: rawDelivery.body.length, sha256: rawDigest, modelId: model.id, evidenceId: evidence.id, kind: "protection-evidence-raw", sourceSHA256: rawDelivery.inputSHA256, derivationKey: rawDelivery.derivationKey, lossless: rawDelivery.lossless, quality: rawDelivery.quality });
     evidence.rawUrl = `./assets/${rawFile}`;
     evidence.rawFallbackUrls = deliveryFallbacks(rawDigest);evidence.rawFallbackUrl = evidence.rawFallbackUrls[0] || null;
+    }
     evidence.sourceDimensions = [hosted.width, hosted.height];
     for (const key of ["framePath", "frameSnapshotPath", "frameSnapshotSHA256"]) delete evidence[key];
   }
@@ -339,8 +357,14 @@ for (const model of data.models) {
   for (const key of ["wikiSnapshot", "wikiSnapshotPath", "wikiSnapshotSHA256", "frameSnapshot", "frameSnapshotPath", "frame", "framePath", "testContextEvidence", "testCaseEvidence", "captureSHA256", "originalFrameSHA256", "overview", "comparison", "limits", "ammo", "evidenceFrames"]) delete model[key];
   for (const advice of model.videoAdvice || []) delete advice.evidence;
   for (const pin of model.pins || []) delete pin.evidence;
+  for (const test of [model.testContext, ...(model.testCases || [])]) {
+    if (test?.shellTypeReference) delete test.shellTypeReference.sourceHtml;
+  }
 }
 if (data.coverage?.illustratedCount !== report.models.filter((model) => model.illustrated).length) throw Error("Illustration total must match the verified main images, including supplemental samples");
+const targetIds = new Set(data.models.filter((model) => (Number(model.rank) >= 6 && Number(model.rank) <= 8)
+  || (model.country === "ussr" && model.id.startsWith("ussr_is_"))).map((model) => model.id));
+if (targetIds.size !== data.coverage.targetCount || data.coverage.illustratedTargetCount !== report.models.filter((model) => model.illustrated && targetIds.has(model.id)).length) throw Error("Target illustration count must match the verified target frames");
 if (report.publishedFiles.some((file) => file.bytes > imageByteLimit)) throw Error("Published image exceeds 2 MB");
 // Use the same canonical vehicle names and localization match as prepare-data.mjs.
 // Apply presentation after source-title verification; original research names stay intact.
