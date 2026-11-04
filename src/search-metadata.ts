@@ -8,11 +8,14 @@ export function updateSearchMetadata(page: string) {
     stats: "战雷战绩查询与战雷账号价值",
     maps: "战雷走线与陆战地图编辑",
     lineups: "战雷出击队列",
+    loadouts: "战雷模拟挂载与导弹对比",
     sales: "战雷折扣日历",
     decals: "战雷贴花查询与解锁条件",
   };
   document.title = `${titles[page] || "战争雷霆玩家工具"} · 战雷工作台 | War Thunder Workbench`;
-  const qmuse = location.origin === new URL(seo.qmuseUrl).origin;
+  const qmuse =
+    location.origin === new URL(seo.qmuseUrl).origin ||
+    location.origin === "https://render.qmuse.pub";
   const canonical = qmuse ? seo.qmuseUrl : seo.siteUrl;
   const setMeta = (attribute: "name" | "property", name: string, content: string) => {
     let tag = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${name}"]`);
@@ -30,6 +33,9 @@ export function updateSearchMetadata(page: string) {
   setMeta("property", "og:url", canonical);
   setMeta("property", "og:image", seo.imageUrl);
   setMeta("name", "twitter:card", "summary_large_image");
+  setMeta("name", "twitter:title", document.title);
+  setMeta("name", "twitter:description", zh.description);
+  setMeta("name", "twitter:image", seo.imageUrl);
   let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
   if (!link) {
     link = document.createElement("link");

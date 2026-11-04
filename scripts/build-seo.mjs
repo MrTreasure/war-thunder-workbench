@@ -5,7 +5,10 @@ import { cloudflareAnalyticsSnippet } from "./site-analytics.mjs";
 const root = new URL("../", import.meta.url);
 const config = JSON.parse(await readFile(new URL("data/site-seo.json", root), "utf8"));
 const dist = resolve(new URL("dist/", root).pathname);
-const base = new URL(process.env.WT_SITE_URL || config.siteUrl);
+const base = new URL(
+  process.env.WT_SITE_URL ||
+    (process.env.WT_DEPLOY_TARGET === "qmuse" ? config.qmuseUrl : config.siteUrl),
+);
 if (base.protocol !== "https:" || base.search || base.hash || base.username || base.password)
   throw Error("WT_SITE_URL must be a public HTTPS base URL without query or fragment");
 if (!base.pathname.endsWith("/")) base.pathname += "/";
@@ -21,13 +24,13 @@ const languages = Object.entries(config.locales);
 const chinese = config.locales["zh-CN"];
 const analytics = await cloudflareAnalyticsSnippet();
 const preview = process.env.WT_DEPLOY_TARGET === "preview";
-const schema = (locale, canonical) => ({
+const schema = (locale, canonical, lang = "zh-CN") => ({
   "@context": "https://schema.org",
   "@type": "WebApplication",
   name: "War Thunder Workbench · 战雷工作台",
   url: canonical,
   description: locale.description,
-  inLanguage: "zh-CN",
+  inLanguage: lang,
   applicationCategory: "GameApplication",
   operatingSystem: "Web browser",
   isAccessibleForFree: true,
@@ -95,7 +98,7 @@ for (const [lang, locale] of languages) {
       { "@type": "ListItem", position: 2, name: locale.guideLabel, item: canonical },
     ],
   };
-  const html = `<!doctype html><html lang="${lang}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(locale.title)}</title>${metadata(locale, canonical)}${alternateLinks}<link rel="alternate" hreflang="x-default" href="${url("about/zh/")}"><link rel="icon" href="https://warthunder.com/i/favicons/favicon.ico"><link rel="stylesheet" href="../../${cssPath}"><script type="application/ld+json">${json({ "@context": "https://schema.org", "@type": "WebPage", inLanguage: lang, name: locale.title, description: locale.description, url: canonical, dateModified: config.contentReviewedAt, about: schema(locale, url()) })}</script><script type="application/ld+json">${json(breadcrumb)}</script><link rel="alternate" type="text/markdown" href="index.md"></head><body><header><a href="../../"><img src="https://warthunder.com/assets/img/svg/logo-wt.svg" alt="War Thunder" width="135" height="72"></a><nav aria-label="Language">${nav}</nav></header><main><p class="eyebrow">WAR THUNDER / WORKBENCH</p><h1>${escape(locale.title)}</h1><p class="intro">${escape(locale.intro)}</p><p class="note">${escape(locale.languageNote)}</p><a class="launch" href="../../">${escape(locale.open)} ↗</a>${sections}${howTo}${faq}${sources}</main><footer><p>${escape(locale.notes)}</p>${analytics ? `<p>${escape(locale.analyticsNote)}</p>` : ""}<a href="${config.qmuseUrl}">${escape(locale.qmuseLabel)}</a> · <a href="${url("llms.txt")}">llms.txt</a></footer>${analytics}</body></html>`;
+  const html = `<!doctype html><html lang="${lang}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(locale.title)}</title>${metadata(locale, canonical)}${alternateLinks}<link rel="alternate" hreflang="x-default" href="${url("about/zh/")}"><link rel="icon" href="https://warthunder.com/i/favicons/favicon.ico"><link rel="stylesheet" href="../../${cssPath}"><script type="application/ld+json">${json({ "@context": "https://schema.org", "@type": "WebPage", inLanguage: lang, name: locale.title, description: locale.description, url: canonical, dateModified: config.contentReviewedAt, about: schema(locale, url(), lang) })}</script><script type="application/ld+json">${json(breadcrumb)}</script><link rel="alternate" type="text/markdown" href="index.md"></head><body><header><a href="../../"><img src="https://warthunder.com/assets/img/svg/logo-wt.svg" alt="War Thunder" width="135" height="72"></a><nav aria-label="Language">${nav}</nav></header><main><p class="eyebrow">WAR THUNDER / WORKBENCH</p><h1>${escape(locale.title)}</h1><p class="intro">${escape(locale.intro)}</p><p class="note">${escape(locale.languageNote)}</p><a class="launch" href="../../">${escape(locale.open)} ↗</a>${sections}${howTo}${faq}${sources}</main><footer><p>${escape(locale.notes)}</p>${analytics ? `<p>${escape(locale.analyticsNote)}</p>` : ""}<a href="${config.qmuseUrl}">${escape(locale.qmuseLabel)}</a> · <a href="${url("llms.txt")}">llms.txt</a></footer>${analytics}</body></html>`;
   await mkdir(resolve(dist, `about/${locale.path}`), { recursive: true });
   await writeFile(resolve(dist, `about/${locale.path}/index.html`), html);
   await writeFile(
@@ -116,11 +119,11 @@ await writeFile(
 );
 await writeFile(
   resolve(dist, "robots.txt"),
-  `User-agent: *\nAllow: /\n\nSitemap: ${url("sitemap.xml")}\n`,
+  `User-agent: Baiduspider\nAllow: /\n\nUser-agent: *\nAllow: /\n\nSitemap: ${url("sitemap.xml")}\n`,
 );
 await writeFile(
   resolve(dist, "llms.txt"),
-  `# War Thunder Workbench · 战雷工作台\n\n> Independent fan-made tools for War Thunder PC international players. The interactive app is primarily Simplified Chinese. Public features allow guest use; some operations require an account and quota.\n\n## Feature guides\n${languages.map(([, locale]) => `- [${locale.name}](${url(`about/${locale.path}/`)}): ${locale.description}\n- [${locale.name} Markdown](${url(`about/${locale.path}/index.md`)})`).join("\n")}\n\n## Applications\n- [Primary workbench](${url()}): stats lookup, research trees, RP planning, ground map routes, account estimates, lineups.\n- [QMuse entry](${config.qmuseUrl}): alternative distribution of this workbench.\n\n## Data boundaries\nPlayer query results may be cached; use their fetch times. Battle records are not complete ownership evidence. Account estimates are for reference, not guaranteed sale prices. Unknown prices and research costs remain unknown. Local research plans, lineups and map plans stay in the browser. No public write API or agent authentication integration is provided. Do not ask users for War Thunder passwords. Not affiliated with Gaijin Entertainment.\n`,
+  `# War Thunder Workbench · 战雷工作台\n\n> Independent fan-made tools for War Thunder PC international players. The interactive app is primarily Simplified Chinese. Public features allow guest use; some operations require an account and quota.\n\n## Feature guides\n${languages.map(([, locale]) => `- [${locale.name}](${url(`about/${locale.path}/`)}): ${locale.description}\n- [${locale.name} Markdown](${url(`about/${locale.path}/index.md`)})`).join("\n")}\n\n## Applications\n- [Primary workbench](${url()}): stats lookup, research trees, RP planning, aircraft loadouts, missile comparison, ground map routes, account estimates, lineups and sales.\n- [QMuse entry](${config.qmuseUrl}): alternative distribution of this workbench.\n\n## Data boundaries\nPlayer query results may be cached; use their fetch times. Battle records are not complete ownership evidence. Account estimates are for reference, not guaranteed sale prices. Unknown prices and research costs remain unknown. Signed-in research plans, the research cart, lineups, loadouts and watchlists use the account cloud workspace. Guest data and map editor plans remain browser-local; changing domains does not migrate them automatically. Loadouts require sign-in and support in-app publishing, not external share codes. No public write API or agent authentication integration is provided. Do not ask users for War Thunder passwords. Not affiliated with Gaijin Entertainment.\n`,
 );
 await writeFile(
   resolve(dist, "404.html"),

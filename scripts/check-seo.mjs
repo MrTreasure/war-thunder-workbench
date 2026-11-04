@@ -4,7 +4,10 @@ import { parseHTML } from "linkedom";
 
 const root = new URL("../", import.meta.url);
 const config = JSON.parse(await readFile(new URL("data/site-seo.json", root), "utf8"));
-const base = new URL(process.env.WT_SITE_URL || config.siteUrl);
+const base = new URL(
+  process.env.WT_SITE_URL ||
+    (process.env.WT_DEPLOY_TARGET === "qmuse" ? config.qmuseUrl : config.siteUrl),
+);
 if (!base.pathname.endsWith("/")) base.pathname += "/";
 const urls = [];
 const expectsAnalytics = process.env.WT_DEPLOY_TARGET === "cf";
@@ -30,7 +33,10 @@ for (const [lang, locale] of Object.entries(config.locales)) {
   assert.equal(document.documentElement.lang, lang);
   assert.equal(document.querySelector('link[rel="canonical"]').href, canonical);
   assert.equal(document.querySelectorAll("h1").length, 1);
-  assert.equal(document.querySelectorAll("section:not(.guide-detail)").length, 5);
+  assert.equal(
+    document.querySelectorAll("section:not(.guide-detail)").length,
+    locale.features.length,
+  );
   assert.equal(document.querySelectorAll("details").length, locale.faqs.length);
   assert.equal(document.querySelectorAll("article ol").length, locale.howTo.length);
   assert.equal(document.querySelector("time").getAttribute("datetime"), config.contentReviewedAt);
@@ -39,7 +45,10 @@ for (const [lang, locale] of Object.entries(config.locales)) {
   const markdown = await readFile(new URL(`dist/about/${locale.path}/index.md`, root), "utf8");
   for (const faq of locale.faqs) assert(markdown.includes(faq.answer));
   checkAnalytics(document);
-  assert.equal(document.querySelectorAll('link[hreflang]:not([hreflang="x-default"])').length, 3);
+  assert.equal(
+    document.querySelectorAll('link[hreflang]:not([hreflang="x-default"])').length,
+    Object.keys(config.locales).length,
+  );
   assert.equal(
     document.querySelector('meta[name="robots"]').content.includes("noindex"),
     process.env.WT_DEPLOY_TARGET === "preview",
@@ -79,6 +88,11 @@ assert(
   (await readFile(new URL("dist/robots.txt", root), "utf8")).includes(
     new URL("sitemap.xml", base).href,
   ),
+);
+assert.match(
+  await readFile(new URL("dist/robots.txt", root), "utf8"),
+  /User-agent: Baiduspider\s+Allow: \//,
+  "Baidu needs an explicit allow alongside Cloudflare managed directives",
 );
 assert((await readFile(new URL("dist/llms.txt", root), "utf8")).includes(config.qmuseUrl));
 console.log(
