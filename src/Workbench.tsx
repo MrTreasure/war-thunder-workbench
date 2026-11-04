@@ -2,7 +2,6 @@ import { vehicleStore } from "./vehicle-store";
 import { Chevron } from "./components/Chevron";
 import { useAccountWorkspace } from "./workspace-context";
 import { vehicleDisplayName } from "./vehicle-display-name";
-import { updateSearchMetadata } from "./search-metadata";
 import { GameSelect } from "./components/GameSelect";
 import { Component, createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { useRouterState } from "@tanstack/react-router";
@@ -71,9 +70,6 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       state.location.pathname === "/lineups/lobby" ||
       state.location.pathname === "/tag-preview",
   });
-  useEffect(() => {
-    updateSearchMetadata(page);
-  }, [page]);
   const currentKey = country;
   const countryEntry = manifest.countries[country] || null;
   const [loadedCountry, setLoadedCountry] = useState<{
