@@ -16416,7 +16416,36 @@
       "eraStatus": "reviewed-unit-prose",
       "eraBasis": "勒克莱尔S2在1997年替代S1生产，具5秒自动装填；Wiki明确指出车体多处弱点，隐蔽车体后炮闩仍暴露。",
       "collectedAt": "2026-11-02T09:52:00.451Z",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.2625,
+          "y": 0.218,
+          "label": "车体正面上装甲板，画面左侧前灯内侧偏下单点",
+          "detail": "仅本帧此点预测能够击穿，目标等效409毫米；原生炮弹穿深557毫米，非实射、必杀或整区结论。预计内部损伤不作为外部部位投影。",
+          "kind": "conditional",
+          "caseId": "fr_leclerc_s2:BV13T421r7ZH:452905541:preview",
+          "sourceUrl": "https://www.bilibili.com/video/BV13T421r7ZH/",
+          "sourceTime": 452.905541,
+          "evidence": {
+            "frameSHA256": "0b7a137fb882a9b16162d7e51f720546969d780b3833787183de72e14a01e5de",
+            "nativeXY": [
+              860,
+              459
+            ],
+            "crop": [
+              650,
+              350,
+              800,
+              500
+            ],
+            "singlePointPrediction": true,
+            "actualShotObserved": false,
+            "QAReportPath": "artifacts/weakpoints-leclerc-s2-native-qa-v502-20261104/final-native-qa.json",
+            "QAReportSHA256": "2dbe30e46e678bcf370502b26b021a0d51e0fc22a806dff93d1eb90c2c1a43ba",
+            "criticalClarificationSHA256": "865b1614f8b042fb915fe968135fda148f4f596aebfaa61ce2293fce880d8abe"
+          }
+        }
+      ],
       "videoAdvice": [
         {
           "id": "v20-author-leclerc-s2",
@@ -16498,8 +16527,15 @@
           }
         }
       ],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV13T421r7ZH/",
+        "title": "【战雷干货】顶级主战防护分析-勒克莱尔系列",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": "2.37.0.96",
+        "kind": "video"
+      },
+      "status": "partial-native-point-predictions",
       "wikiUrl": "https://wiki.warthunder.com/unit/fr_leclerc_s2",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-008-20261102/snapshots/fr_leclerc_s2.json",
@@ -16550,8 +16586,136 @@
           "publishedAt": "2026-01-18 01:11:40",
           "time": 355.083,
           "scopeNote": "防护分析预览；355.083为参考样本时间而非精确字幕起点，非实射；原图及截图仅私有归档。"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV13T421r7ZH/",
+          "title": "【战雷干货】顶级主战防护分析-勒克莱尔系列",
+          "author": "成吉思汉不爱学习",
+          "publishedAt": "2024-07-29 18:00:00",
+          "gameVersion": "2.37.0.96",
+          "kind": "video",
+          "time": 452.905541,
+          "scopeNote": "仅本帧本车型单点预测，不推广同家族其他车型；预测并非实射"
         }
-      ]
+      ],
+      "testCases": [
+        {
+          "id": "fr_leclerc_s2:BV13T421r7ZH:452905541:preview",
+          "vehicleId": "fr_leclerc_s2",
+          "sourceUrl": "https://www.bilibili.com/video/BV13T421r7ZH/",
+          "sourceTime": 452.905541,
+          "sourceGameVersion": "2.37.0.96",
+          "attacker": "[11.3] 挑战者 2",
+          "attackerVisibleTitle": "[11.3] 挑战者 2",
+          "attackerVehicleId": "uk_challenger_ii",
+          "attackerCountry": "britain",
+          "shell": "L27A1",
+          "sourceShellLabelOriginal": "L27A1",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "uk_challenger_ii",
+            "actualWikiUnitId": "uk_challenger_II",
+            "officialWikiUnitId": "uk_challenger_II",
+            "wikiUnitId": "uk_challenger_II",
+            "url": "https://wiki.warthunder.com/unit/uk_challenger_II",
+            "checkedAt": "2026-11-02T06:17:22.141Z",
+            "sourceHtml": "artifacts/tank-weakpoints-expansion-20261102/verification/snapshots/uk_challenger_ii.html",
+            "sourceHtmlSHA256": "bd16993168ada5ddeaf924c2e08056b71c6451418c11104fbc4e1700df80e548",
+            "sourceSha256": "bd16993168ada5ddeaf924c2e08056b71c6451418c11104fbc4e1700df80e548",
+            "officialShellName": "L27A1",
+            "sourceShellLabelOriginal": "L27A1",
+            "shellType": "APFSDS",
+            "mainGun": "120 mm L30A1 cannon",
+            "gameVersion": "2.59.0.92",
+            "referenceOnly": {
+              "distanceMeters": 500,
+              "angleDeg": 0,
+              "penetrationMm": 558,
+              "mustNotReplaceVideo557": true
+            },
+            "video557NotReplacedBy558": true,
+            "rawUIType": null
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 557,
+          "impactAngleDegrees": 74,
+          "attackAzimuthDegrees": 0,
+          "effectiveArmorMm": 409,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "弹药架",
+            "油箱"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "0b7a137fb882a9b16162d7e51f720546969d780b3833787183de72e14a01e5de",
+          "evidenceKind": "single-point-protection-preview"
+        }
+      ],
+      "coverageStatus": "partial-native-point-predictions",
+      "coverageNotice": "仅本车一处单点防护预测，非完整弱点图解。",
+      "completeIllustration": false,
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/french-italian-family-v501-20261104/LeclercS2-preview/LeclercS2-tiny-4/raw.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v507-20261104/fr_leclerc_s2-frame-proof.json",
+      "frameSnapshotSHA256": "18e6e912e0fa96fcd78980da668203bcb95a98d7b98c39344dbed0b1ced701f7",
+      "captureSHA256": "0b7a137fb882a9b16162d7e51f720546969d780b3833787183de72e14a01e5de",
+      "originalFrameSHA256": "0b7a137fb882a9b16162d7e51f720546969d780b3833787183de72e14a01e5de",
+      "assetPath": "images/FRA/FRA-Leclerc-S2-upper-glacis-protection-preview.webp",
+      "crop": [
+        650,
+        350,
+        800,
+        500
+      ],
+      "time": 452.905541,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "native-1080p-analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "displayImagePolicy": "analysis-excerpt",
+      "mainImageUsable": true,
+      "sourceGameVersion": "2.37.0.96",
+      "sourceNoRepost": true,
+      "testContext": {
+        "sourceUrl": "https://www.bilibili.com/video/BV13T421r7ZH/",
+        "sourceTime": 452.905541,
+        "sourceGameVersion": "2.37.0.96",
+        "attacker": "[11.3] 挑战者 2",
+        "attackerVisibleTitle": "[11.3] 挑战者 2",
+        "attackerVehicleId": "uk_challenger_ii",
+        "attackerCountry": "britain",
+        "shell": "L27A1",
+        "sourceShellLabelOriginal": "L27A1",
+        "rawUIType": null,
+        "shellType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 557,
+        "impactAngleDegrees": 74,
+        "attackAzimuthDegrees": 0,
+        "effectiveArmorMm": 409,
+        "pointPrediction": "能够击穿",
+        "predictedDamage": [
+          "弹药架",
+          "油箱"
+        ],
+        "actualShotObserved": false,
+        "outcome": null,
+        "actualUIObserved": true,
+        "sourceFrameSHA256": "0b7a137fb882a9b16162d7e51f720546969d780b3833787183de72e14a01e5de",
+        "evidenceKind": "single-point-protection-preview",
+        "caseId": "fr_leclerc_s2:BV13T421r7ZH:452905541:preview"
+      },
+      "mainViewNote": "历史2.37.0.96版本Leclerc S2正面首上单点预测；原生攻击方为完整无后缀普通挑战者2，不是黑夜。仅此点，非整区、实射或必杀。"
     },
     {
       "id": "germ_embt",
@@ -16805,7 +16969,7 @@
         "author": "馒头Emoil",
         "publishedAt": "2026-09-18T17:56:17+08:00"
       },
-      "status": "native-front-protection-analysis-with-author-advice",
+      "status": "partial-native-point-predictions",
       "wikiUrl": "https://wiki.warthunder.com/unit/it_ariete_amv_pt1",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-008-20261102/snapshots/it_ariete_amv_pt1.json",
@@ -16864,6 +17028,67 @@
             "officialShellName": "JM33",
             "sourceShellLabelOriginal": "JM33"
           }
+        },
+        {
+          "id": "it_ariete_amv_pt1:BV1Yz421B7sj:121260154:preview",
+          "vehicleId": "it_ariete_amv_pt1",
+          "sourceUrl": "https://www.bilibili.com/video/BV1Yz421B7sj/",
+          "sourceTime": 121.260154,
+          "sourceGameVersion": "2.37.0.96",
+          "attacker": "挑战者 2 黑夜",
+          "attackerVisibleTitle": "挑战者 2 黑夜",
+          "attackerVehicleId": "uk_challenger_2_bn",
+          "attackerCountry": "britain",
+          "shell": "L27A1",
+          "sourceShellLabelOriginal": "L27A1",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "uk_challenger_2_bn",
+            "actualWikiUnitId": "uk_challenger_2_bn",
+            "officialWikiUnitId": "uk_challenger_2_bn",
+            "wikiUnitId": "uk_challenger_2_bn",
+            "url": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "checkedAt": "2026-11-04T11:41:05.600Z",
+            "sourceHtml": "artifacts/weakpoints-challenger2f-wiki-positions-v485-20261104/uk_challenger_2_bn.html",
+            "sourceHtmlSHA256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "sourceSha256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "officialShellName": "L27A1",
+            "sourceShellLabelOriginal": "L27A1",
+            "shellType": "APFSDS",
+            "mainGun": "120 mm L30A1 cannon",
+            "gameVersion": "2.59.0.92",
+            "referenceOnly": {
+              "distanceMeters": 500,
+              "penetrationMm": 558,
+              "mustNotReplaceVideo557": true
+            },
+            "video557NotReplacedBy558": true,
+            "rawUIType": null
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 557,
+          "impactAngleDegrees": 59,
+          "attackAzimuthDegrees": 1,
+          "effectiveArmorMm": 241,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "驾驶员",
+            "车长",
+            "油箱",
+            "发动机",
+            "炮手",
+            "方向机",
+            "散热器"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "5355fd1e0a2b77b1ea8b8debba95f1807438a4016292433edd2f8da785aeae6c",
+          "evidenceKind": "single-point-protection-preview"
         }
       ],
       "testCaseEvidence": {
@@ -16966,8 +17191,82 @@
       "mainViewKind": "protection-analysis",
       "mainImageUsable": true,
       "mainViewNote": "原视频实际绿色防护区域，保留原生像素；不添加或扩大游戏着色。",
-      "coverageStatus": "partial-front-analysis-no-verified-pins",
-      "coverageNotice": "已有绿色防护分析 · 3处本帧绿色区域参考；族级左侧与夹缝建议未唯一定位，未观察到独立实射后效。"
+      "coverageStatus": "partial-native-point-predictions",
+      "coverageNotice": "仅本车一处单点防护预测，非完整弱点图解。",
+      "relatedSources": [
+        {
+          "url": "https://www.bilibili.com/video/BV1CueU6cECo/",
+          "title": "平成大小姐2026の食用指南【雷批大学习/90式战车】",
+          "author": "馒头Emoil",
+          "publishedAt": "2026-09-18T17:56:17+08:00"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1Yz421B7sj/",
+          "title": "【战雷干货】顶级主战防护分析-公羊AMV",
+          "author": "成吉思汉不爱学习",
+          "publishedAt": "2024-07-29 18:00:00",
+          "gameVersion": "2.37.0.96",
+          "kind": "video",
+          "time": 121.260154,
+          "scopeNote": "仅本帧本车型单点预测，不推广同家族其他车型；预测并非实射"
+        }
+      ],
+      "protectionEvidence": [
+        {
+          "id": "ariete-amv-upper-glacis-preview",
+          "label": "首上装甲偏画面左侧（目标车体右侧）·单点预测",
+          "description": "仅该精确目标、该帧与当前弹药/距离/角度下的单点预测；不外推同家族其他改型或整个装甲区域。",
+          "caption": "成吉思汉不爱学习《【战雷干货】顶级主战防护分析-公羊AMV》，2024-07-29 18:00:00，121.260154秒；历史版本2.37.0.96，攻击方挑战者 2 黑夜使用L27A1、500米。仅此点预测，非实射或整区结论。",
+          "conditionNote": "原生穿深557毫米，目标本点等效241毫米，入射角59°、方位1°。当前Wiki500米558毫米仅作独立参考，不覆盖原生557。",
+          "caseId": "it_ariete_amv_pt1:BV1Yz421B7sj:121260154:preview",
+          "sourceTime": 121.260154,
+          "sourceUrl": "https://www.bilibili.com/video/BV1Yz421B7sj/",
+          "sourceGameVersion": "2.37.0.96",
+          "assetPath": "images/ITA/ITA-Ariete-AMV-upper-glacis-protection-preview.webp",
+          "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/french-italian-family-v501-20261104/ArieteAMV-preview/ArieteAMV-tiny-4/raw.png",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v507-20261104/it_ariete_amv_pt1-frame-proof.json",
+          "frameSnapshotSHA256": "73a431d366fe4c5bb473c26eced9f9d17e8fb1b33b73f9818e6c3442fff88298",
+          "crop": [
+            650,
+            200,
+            800,
+            500
+          ],
+          "displayImagePolicy": "analysis-excerpt",
+          "view": "single-cursor-protection-preview",
+          "pins": [
+            {
+              "x": 0.305,
+              "y": 0.462,
+              "label": "首上装甲偏画面左侧（目标车体右侧）",
+              "detail": "仅本帧此点预测能够击穿，目标等效241毫米；原生炮弹穿深557毫米，非实射、必杀或整区结论。预计内部损伤不作为外部部位投影。",
+              "kind": "conditional",
+              "caseId": "it_ariete_amv_pt1:BV1Yz421B7sj:121260154:preview",
+              "sourceUrl": "https://www.bilibili.com/video/BV1Yz421B7sj/",
+              "sourceTime": 121.260154,
+              "evidence": {
+                "frameSHA256": "5355fd1e0a2b77b1ea8b8debba95f1807438a4016292433edd2f8da785aeae6c",
+                "nativeXY": [
+                  894,
+                  431
+                ],
+                "crop": [
+                  650,
+                  200,
+                  800,
+                  500
+                ],
+                "singlePointPrediction": true,
+                "actualShotObserved": false,
+                "QAReportPath": "artifacts/weakpoints-ariete-amv-native-qa-v503-20261104/final-native-qa.json",
+                "QAReportSHA256": "e0a510df16d5734ffccff6d62e3c941ea74bc6d31fe56d50927b1d4f1d4b243d",
+                "criticalClarificationSHA256": null
+              }
+            }
+          ]
+        }
+      ],
+      "defaultEvidenceId": "ariete-amv-upper-glacis-preview"
     },
     {
       "id": "jp_leopard_2ri",
@@ -23962,7 +24261,7 @@
         "url": "https://www.bilibili.com/video/BV1idNJz5E46/",
         "sourceRestriction": "No explicit no-repost observed; licence unknown, absence is not permission."
       },
-      "status": "front-exterior-green-analysis-pending",
+      "status": "partial-native-point-predictions",
       "wikiUrl": "https://wiki.warthunder.com/unit/sw_strv_122b_plus",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/sw_strv_122b_plus.json",
@@ -24011,8 +24310,8 @@
       "imageQuality": "原生1920×1078",
       "mainViewKind": "exterior",
       "mainViewNote": "略俯近正面外观，车辆无遮挡；原生1920×1078未补边、未缩放，非绿色防护图。",
-      "coverageStatus": "front-exterior-green-analysis-pending",
-      "coverageNotice": "近正面外观 · 绿色防护分析待补",
+      "coverageStatus": "partial-native-point-predictions",
+      "coverageNotice": "仅新增Strv122B+本车一处单点防护预测，非完整弱点图解。",
       "relatedSources": [
         {
           "kind": "video",
@@ -24022,8 +24321,128 @@
           "publishedAt": "2025-06-21T20:24:27+08:00",
           "time": 40.032891,
           "scopeNote": "作者对比观点；测试条件未核验"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1uy411v7ss/",
+          "title": "【战雷干货】顶级主战防护分析-豹二系列",
+          "author": "成吉思汉不爱学习",
+          "publishedAt": "2024-07-29 18:00:00",
+          "gameVersion": "2.37.0.91",
+          "kind": "video",
+          "time": 1137.549252,
+          "scopeNote": "仅该Strv122B+驾驶员观察装置下沿单点预测；其他失败、非致命、不穿及内透帧不作为推荐"
         }
-      ]
+      ],
+      "testCases": [
+        {
+          "id": "sw_strv_122b_plus:BV1uy411v7ss:1137549252:preview",
+          "vehicleId": "sw_strv_122b_plus",
+          "sourceUrl": "https://www.bilibili.com/video/BV1uy411v7ss/",
+          "sourceTime": 1137.549252,
+          "sourceGameVersion": "2.37.0.91",
+          "attacker": "挑战者 2 黑夜",
+          "attackerVisibleTitle": "挑战者 2 黑夜",
+          "attackerVehicleId": "uk_challenger_2_bn",
+          "attackerCountry": "britain",
+          "shell": "L27A1",
+          "sourceShellLabelOriginal": "L27A1",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "uk_challenger_2_bn",
+            "officialWikiUnitId": "uk_challenger_2_bn",
+            "wikiUnitId": "uk_challenger_2_bn",
+            "url": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "checkedAt": "2026-11-04T11:41:05.600Z",
+            "sourceHtml": "artifacts/weakpoints-challenger2f-wiki-positions-v485-20261104/uk_challenger_2_bn.html",
+            "sourceHtmlSHA256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "sourceSha256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "mainGun": "120 mm L30A1 cannon",
+            "officialShellName": "L27A1",
+            "sourceShellLabelOriginal": "L27A1",
+            "shellType": "APFSDS",
+            "rawUIType": null,
+            "gameVersion": "2.59.0.92",
+            "referenceOnly": {
+              "distanceMeters": 500,
+              "penetrationMm": 558,
+              "mustNotReplaceVideo557": true
+            },
+            "video557NotReplacedByWiki558": true
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 557,
+          "impactAngleDegrees": 8,
+          "attackAzimuthDegrees": 2,
+          "effectiveArmorMm": 245,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "驾驶员"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "d73cf7a75120768d55b5cc7379c44f38ea98a6e70718c37e2676a99ee4e4d1d0",
+          "evidenceKind": "single-point-protection-preview"
+        }
+      ],
+      "protectionEvidence": [
+        {
+          "id": "strv-122b-plus-driver-port-preview",
+          "label": "驾驶员观察装置下沿·单点预测",
+          "description": "仅Strv122B+本车本帧取样点的防护预测；装置与炮塔下沿相邻遮挡，不能扩展为整窗可击穿或必杀。",
+          "caption": "成吉思汉不爱学习《【战雷干货】顶级主战防护分析-豹二系列》，2024-07-29 18:00:00，1137.549252秒；历史版本2.37.0.91，攻击方黑夜使用L27A1、500米。仅本点预测，非实射或整区结论。",
+          "conditionNote": "L27A1、500米，原生炮弹穿深557毫米；本点等效245毫米，入射角8°、方位2°，预计损伤驾驶员。Wiki500米558毫米仅作独立资料参考，不覆盖原生557。",
+          "caseId": "sw_strv_122b_plus:BV1uy411v7ss:1137549252:preview",
+          "sourceTime": 1137.549252,
+          "sourceUrl": "https://www.bilibili.com/video/BV1uy411v7ss/",
+          "sourceGameVersion": "2.37.0.91",
+          "assetPath": "images/SWE/SWE-Strv-122B-Plus-driver-port-protection-preview.webp",
+          "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/top-tier-family-v488-20261104/Swedish122BPlus-preview/Swedish122BPlus-tiny-3/raw.png",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v507-20261104/sw_strv_122b_plus-driver-port-frame-proof.json",
+          "frameSnapshotSHA256": "30c75b563d0dcc4a4eaeb3cf53b7d2e8c8e0f9687b37c63b646f308f0529c210",
+          "crop": [
+            570,
+            160,
+            800,
+            520
+          ],
+          "view": "single-cursor-protection-preview",
+          "displayImagePolicy": "analysis-excerpt",
+          "pins": [
+            {
+              "x": 0.39375,
+              "y": 0.47115384615384615,
+              "label": "驾驶员观察装置下沿",
+              "detail": "仅本帧驾驶员观察装置下沿单点预测能够击穿，目标等效245毫米；预计驾驶员损伤不是实射结果。邻点失败不支持把整个观察窗视为必穿区域。",
+              "kind": "conditional",
+              "caseId": "sw_strv_122b_plus:BV1uy411v7ss:1137549252:preview",
+              "sourceUrl": "https://www.bilibili.com/video/BV1uy411v7ss/",
+              "sourceTime": 1137.549252,
+              "evidence": {
+                "frameSHA256": "d73cf7a75120768d55b5cc7379c44f38ea98a6e70718c37e2676a99ee4e4d1d0",
+                "nativeXY": [
+                  885,
+                  405
+                ],
+                "crop": [
+                  570,
+                  160,
+                  800,
+                  520
+                ],
+                "coordinateToleranceNativePx": 3,
+                "singlePointPrediction": true,
+                "actualShotObserved": false
+              }
+            }
+          ]
+        }
+      ],
+      "defaultEvidenceId": "strv-122b-plus-driver-port-preview"
     },
     {
       "id": "fr_amx_30_super",
@@ -33048,7 +33467,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 70,
+    "illustratedCount": 71,
     "countries": [
       {
         "country": "usa",
@@ -33184,7 +33603,7 @@
     "lastUpdated": "2026-11-04",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 68,
+    "illustratedTargetCount": 69,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,

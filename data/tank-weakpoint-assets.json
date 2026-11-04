@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
+  "commit": "9bc190d2fec6effc705519ef84111373fce8273a",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -1304,6 +1304,24 @@
         "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122B-PLSS-driver-port-protection-preview.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122B-PLSS-driver-port-protection-preview.webp"
+      }
+    },
+    "fr_leclerc_s2": {
+      "photo": {
+        "path": "images/FRA/FRA-Leclerc-S2-upper-glacis-protection-preview.webp",
+        "sha256": "3c0744580a16f53f1e7858b728614b7a894e32f7db52731a09ca78d2b3d12166",
+        "bytes": 231352,
+        "commit": "9bc190d2fec6effc705519ef84111373fce8273a",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9bc190d2fec6effc705519ef84111373fce8273a/images/FRA/FRA-Leclerc-S2-upper-glacis-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9bc190d2fec6effc705519ef84111373fce8273a/images/FRA/FRA-Leclerc-S2-upper-glacis-protection-preview.webp"
+      },
+      "raw": {
+        "path": "images/FRA/FRA-Leclerc-S2-upper-glacis-protection-preview.webp",
+        "sha256": "3c0744580a16f53f1e7858b728614b7a894e32f7db52731a09ca78d2b3d12166",
+        "bytes": 231352,
+        "commit": "9bc190d2fec6effc705519ef84111373fce8273a",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9bc190d2fec6effc705519ef84111373fce8273a/images/FRA/FRA-Leclerc-S2-upper-glacis-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9bc190d2fec6effc705519ef84111373fce8273a/images/FRA/FRA-Leclerc-S2-upper-glacis-protection-preview.webp"
       }
     }
   },
@@ -15942,6 +15960,187 @@
       "commit": "58ff8a942db9e046f049f551480b6bc73edc4957",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122B-PLSS-lower-glacis-protection-preview.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/58ff8a942db9e046f049f551480b6bc73edc4957/images/SWE/SWE-Strv-122B-PLSS-lower-glacis-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "SWE-Strv-122B-Plus-driver-port-protection-preview.webp",
+      "path": "images/SWE/SWE-Strv-122B-Plus-driver-port-protection-preview.webp",
+      "vehicleId": "sw_strv_122b_plus",
+      "country": "SWE",
+      "kind": "protection-evidence",
+      "evidenceId": "strv-122b-plus-driver-port-preview",
+      "width": 800,
+      "height": 520,
+      "bytes": 264962,
+      "sha256": "41da5d6d3de94eb8e5db137c5d37ebfbec673cab899ab880129ce45f0110ba91",
+      "preCompressionBytes": 264962,
+      "preCompressionSHA256": "41da5d6d3de94eb8e5db137c5d37ebfbec673cab899ab880129ce45f0110ba91",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/top-tier-family-v488-20261104/Swedish122BPlus-preview/Swedish122BPlus-tiny-3/raw.png",
+        "file": "raw.png",
+        "sha256": "d73cf7a75120768d55b5cc7379c44f38ea98a6e70718c37e2676a99ee4e4d1d0",
+        "bytes": 2695869,
+        "width": 1920,
+        "height": 1080,
+        "native": true
+      },
+      "sourceFrameSHA256": "d73cf7a75120768d55b5cc7379c44f38ea98a6e70718c37e2676a99ee4e4d1d0",
+      "sourceTime": 1137.549252,
+      "crop": [
+        570,
+        160,
+        800,
+        520
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v507-20261104/sw_strv_122b_plus-driver-port-frame-proof.json",
+        "sha256": "30c75b563d0dcc4a4eaeb3cf53b7d2e8c8e0f9687b37c63b646f308f0529c210"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "completeIllustration": false,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1uy411v7ss/",
+        "title": "【战雷干货】顶级主战防护分析-豹二系列",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": "2.37.0.91"
+      },
+      "commit": "9bc190d2fec6effc705519ef84111373fce8273a",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9bc190d2fec6effc705519ef84111373fce8273a/images/SWE/SWE-Strv-122B-Plus-driver-port-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9bc190d2fec6effc705519ef84111373fce8273a/images/SWE/SWE-Strv-122B-Plus-driver-port-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "ITA-Ariete-AMV-upper-glacis-protection-preview.webp",
+      "path": "images/ITA/ITA-Ariete-AMV-upper-glacis-protection-preview.webp",
+      "vehicleId": "it_ariete_amv_pt1",
+      "country": "ITA",
+      "kind": "protection-evidence",
+      "evidenceId": "ariete-amv-upper-glacis-preview",
+      "width": 800,
+      "height": 500,
+      "bytes": 250394,
+      "sha256": "6c1d6f19b58f8e2941261103f5fdd6f35c4bee5b60b0ede481e39aa14bf93b96",
+      "preCompressionBytes": 250394,
+      "preCompressionSHA256": "6c1d6f19b58f8e2941261103f5fdd6f35c4bee5b60b0ede481e39aa14bf93b96",
+      "sourcePNG": {
+        "file": "raw.png",
+        "sha256": "5355fd1e0a2b77b1ea8b8debba95f1807438a4016292433edd2f8da785aeae6c",
+        "bytes": 2568167,
+        "width": 1920,
+        "height": 1080,
+        "native": true,
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/french-italian-family-v501-20261104/ArieteAMV-preview/ArieteAMV-tiny-4/raw.png"
+      },
+      "sourceFrameSHA256": "5355fd1e0a2b77b1ea8b8debba95f1807438a4016292433edd2f8da785aeae6c",
+      "sourceTime": 121.260154,
+      "crop": [
+        650,
+        200,
+        800,
+        500
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v507-20261104/it_ariete_amv_pt1-frame-proof.json",
+        "sha256": "73a431d366fe4c5bb473c26eced9f9d17e8fb1b33b73f9818e6c3442fff88298"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "completeIllustration": false,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1Yz421B7sj/",
+        "title": "【战雷干货】顶级主战防护分析-公羊AMV",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": "2.37.0.96"
+      },
+      "commit": "9bc190d2fec6effc705519ef84111373fce8273a",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9bc190d2fec6effc705519ef84111373fce8273a/images/ITA/ITA-Ariete-AMV-upper-glacis-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9bc190d2fec6effc705519ef84111373fce8273a/images/ITA/ITA-Ariete-AMV-upper-glacis-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "FRA-Leclerc-S2-upper-glacis-protection-preview.webp",
+      "path": "images/FRA/FRA-Leclerc-S2-upper-glacis-protection-preview.webp",
+      "vehicleId": "fr_leclerc_s2",
+      "country": "FRA",
+      "kind": "photo",
+      "evidenceId": "leclerc-s2-upper-glacis-preview",
+      "width": 800,
+      "height": 500,
+      "bytes": 231352,
+      "sha256": "3c0744580a16f53f1e7858b728614b7a894e32f7db52731a09ca78d2b3d12166",
+      "preCompressionBytes": 231352,
+      "preCompressionSHA256": "3c0744580a16f53f1e7858b728614b7a894e32f7db52731a09ca78d2b3d12166",
+      "sourcePNG": {
+        "file": "raw.png",
+        "sha256": "0b7a137fb882a9b16162d7e51f720546969d780b3833787183de72e14a01e5de",
+        "bytes": 2587395,
+        "width": 1920,
+        "height": 1080,
+        "native": true,
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/french-italian-family-v501-20261104/LeclercS2-preview/LeclercS2-tiny-4/raw.png"
+      },
+      "sourceFrameSHA256": "0b7a137fb882a9b16162d7e51f720546969d780b3833787183de72e14a01e5de",
+      "sourceTime": 452.905541,
+      "crop": [
+        650,
+        350,
+        800,
+        500
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v507-20261104/fr_leclerc_s2-frame-proof.json",
+        "sha256": "18e6e912e0fa96fcd78980da668203bcb95a98d7b98c39344dbed0b1ced701f7"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "completeIllustration": false,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV13T421r7ZH/",
+        "title": "【战雷干货】顶级主战防护分析-勒克莱尔系列",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": "2.37.0.96"
+      },
+      "commit": "9bc190d2fec6effc705519ef84111373fce8273a",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9bc190d2fec6effc705519ef84111373fce8273a/images/FRA/FRA-Leclerc-S2-upper-glacis-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9bc190d2fec6effc705519ef84111373fce8273a/images/FRA/FRA-Leclerc-S2-upper-glacis-protection-preview.webp",
       "rootApproval": true
     }
   ]
