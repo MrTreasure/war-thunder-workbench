@@ -1,6 +1,6 @@
 # 功能图片
 
-[正式站](https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB&chInfo=junliang) · [国际站](https://wt.mrtreasure.cc/)
+[主站](https://wt.app.qmuse.pub/) · [国际站](https://wt.mrtreasure.cc/)
 
 图片中的进度、单价与队列均为示例设置。五组队列及分享码见 [示例队列](../examples/lineups.json)。
 
@@ -95,3 +95,24 @@
 **2026-10-25** 从已发布正式站（QMuse 版本 `90800545`）重新拍摄首页、科技树、载具详情、载具研发和配件研发。所有图片均为真实页面截图；进度与单价为操作示例，未重绘界面或修改计算数值。其余图片保留原日期。
 
 历史批次：2026-10-24 补拍上述战绩、车库、Top 30 和联队载具；2026-10-23 的估值、战报、分享图片与折扣日历保留原图；出击队列、地图绘图等未补拍图片保留原采集时间。`manifest.json` 对每个文件单独记录拍摄时间、来源、尺寸和 SHA-256，`updatedAt` 表示清单更新时间，原始批次日期及旧图时间保留，不把旧图标成重新拍摄。
+
+## 当前功能模块（2026-11-04）
+
+本轮在双站更新后从[国际站中文页面](https://wt.mrtreasure.cc/zh/)重新拍摄，主站版本 `92800577`，国际站版本 `ba081ef3-a34c-4210-b1e0-88e4d9afa5ef`。使用专用演示会话和既有公开战绩缓存；没有模拟接口响应、改写页面内容或发起新的官方战绩查询。截图中的配置和进度仅用于展示功能。
+
+| 文件 | 内容 |
+| --- | --- |
+| [readme-tree.png](readme-tree.png) | 中国陆军科技树、国家军种选择与研发连线 |
+| [readme-ammunition.png](readme-ammunition.png) | 当前弹药详情的原始游戏 AVIF 原理图与穿深 |
+| [readme-comparison.png](readme-comparison.png) | 两辆同军种载具的完全体性能、基准与数值差异 |
+| [readme-research.png](readme-research.png) | 研发规划界面的目标选择、前置路线与剩余研发点 |
+| [readme-lineups.png](readme-lineups.png) | 正式队列大厅的国家数量、模式、标签和队列卡片 |
+| [readme-loadouts.png](readme-loadouts.png) | 已保存演示方案的完整挂点与武器摘要 |
+| [readme-stats.png](readme-stats.png) | 既有公开角色的真实缓存生涯数据；没有发起新的官方查询 |
+| [readme-vehicle-card.png](readme-vehicle-card.png) | 应用实际导出的豹 2A4 战绩卡；按载具实际国别使用现代德国国旗 |
+| [readme-maps.png](readme-maps.png) | 正式地图编辑界面与布局控件；未点击完成、未上报演示绘图 |
+| [readme-sales.png](readme-sales.png) | 真实官方活动和预计窗口的折扣月历 |
+
+`readme-vehicle-card.png` 是通过应用“下载 PNG”实际导出的卡片，其余九张为生产页面截图。豹 2A4 卡片使用按载具资料匹配的现代德国国旗。地图仅打开编辑器，未点击“完成”，未上报演示绘图。战绩采集时间和界面拍摄时间分别记录，不将截图日期当成数据刷新日期。
+
+本批每张图片的来源、实际拍摄时间、尺寸、字节数与 SHA-256 见 [README 配图记录](readme-manifest.json)。历史截图及原始来源记录保留。
