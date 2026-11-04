@@ -188,6 +188,7 @@
 }
 .wt-personal-lineups .lineup-toolbar {
   padding-block: 8px;
+  grid-template-columns: minmax(220px, 280px) minmax(160px, 220px) auto;
 }
 .wt-personal-lineups .lineup-toolbar .calc-field {
   flex-direction: row;
@@ -198,6 +199,66 @@
 .wt-personal-lineups .lineup-toolbar .wt-select {
   min-height: 36px;
   height: 36px;
+}
+/* finesse · component: saved-lineup filters · register=product · inherited hangar tokens */
+.lineup-country-picker .wt-select-label,
+.lineup-country-menu .wt-select-option > span:last-child {
+  flex: 1;
+}
+.lineup-country-option {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  width: 100%;
+}
+.lineup-country-option > img {
+  width: 24px;
+  height: 18px;
+  object-fit: contain;
+}
+.lineup-country-option > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.lineup-country-option > small {
+  min-width: 24px;
+  padding: 1px 5px;
+  border: 1px solid var(--wt-line);
+  color: var(--wt-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+.lineup-country-menu .wt-select-option[aria-selected="true"] small {
+  color: var(--wt-gold);
+}
+.lineup-saved-filters {
+  display: grid;
+  grid-template-columns: minmax(160px, 1.6fr) repeat(2, minmax(110px, 1fr)) minmax(
+      150px,
+      1.2fr
+    ) auto;
+  align-items: end;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid var(--wt-line);
+  background: var(--wt-surface);
+}
+.lineup-saved-filters > .calc-field {
+  min-width: 0;
+  gap: 6px;
+  font-size: 12px;
+}
+.lineup-saved-filters :is(input, .wt-select, .quiet-button) {
+  height: 36px;
+  min-height: 36px;
+}
+.lineup-saved-filters .quiet-button {
+  white-space: nowrap;
 }
 .wt-personal-lineups .lineup-saved {
   padding-top: 10px;
