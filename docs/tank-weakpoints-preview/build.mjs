@@ -168,6 +168,9 @@ function deliveryFallbacks(digest) {
   return asset ? [asset.url, asset.rawUrl] : [];
 }
 for (const model of data.models) {
+  const analysisExcerpt = model.displayImagePolicy === "analysis-excerpt";
+  if (model.displayImagePolicy && !analysisExcerpt) throw Error("Unknown image presentation policy");
+  if (analysisExcerpt && model.protectionEvidence?.length) throw Error("Excerpt evidence needs its own verified crop policy");
   if (model.scopeRole === "light_tank" && model.specialistWeakpointVerified !== true) throw Error("Scout/light vehicle needs verified specialist weakpoint evidence");
   if (!/^[a-z0-9_]+$/.test(model.id)) throw Error("Unsafe model identity");
   const cases = new Map();
@@ -258,7 +261,8 @@ for (const model of data.models) {
     if (!model.crop.every(Number.isInteger) || x < 0 || y < 0 || w <= 0 || h <= 0 || x + w > width || y + h > height) throw Error("Invalid crop");
     for (const pin of model.pins) if (![pin.x, pin.y].every((n) => Number.isFinite(n) && n >= 0 && n <= 1)) throw Error("Invalid annotation position");
     const photoFilter = x === 0 && y === 0 && w === width && h === height ? null : `crop=${w}:${h}:${x}:${y}`;
-    for (const [kind, filter] of [["photo", photoFilter], ["raw", null]]) {
+    if (analysisExcerpt && (!photoFilter || w * h > width * height / 2)) throw Error("Analysis excerpt must be a bounded native crop");
+    for (const [kind, filter] of analysisExcerpt ? [["photo", photoFilter]] : [["photo", photoFilter], ["raw", null]]) {
       const temporary = resolve(assets, `${model.id}-${kind}.next.webp`);
       const hosted = registry?.models?.[model.id]?.[kind];
       const sourceBody = await sourceImage(framePath, { modelId: model.id, kind, hosted, asset: registry?.assets?.find((entry) => entry.path === hosted?.path) }, filter);
@@ -277,6 +281,12 @@ for (const model of data.models) {
       model[kind === "photo" ? "imageFallbackUrls" : "rawFallbackUrls"] = fallbacks;
       model[kind === "photo" ? "imageFallbackUrl" : "rawFallbackUrl"] = fallbacks[0] || null;
       model[kind === "photo" ? "imageDelivery" : "rawDelivery"] = { bytes: body.length, sha256: digest, lossless: delivery.lossless, quality: delivery.quality, dimensionsUnchanged: true };
+    }
+    if (analysisExcerpt) {
+      model.rawUrl = model.imageUrl;
+      model.rawFallbackUrls = [...(model.imageFallbackUrls || [])];
+      model.rawFallbackUrl = model.imageFallbackUrl;
+      model.rawDelivery = { ...model.imageDelivery };
     }
     model.sourceFrameSHA256 = model.originalFrameSHA256 || hash(raw);
     Object.assign(item, { illustrated: true, sourceKind: staticImage ? source.kind : "video", frameTime: staticImage ? null : frame.decode.mediaTime, sourcePublishedAt: staticImage ? source.publishedAt : undefined, frameSHA256: hash(raw), sourceFrameSHA256: model.sourceFrameSHA256, frameSize: raw.length, imageQuality: model.imageQuality });

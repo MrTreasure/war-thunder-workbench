@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "4247424bcb6422cffbcfddf55d10a7b3bc99f86c",
+  "commit": "a7a0eea3c83562df031a6346b365921aac085d69",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -1064,6 +1064,78 @@
         "commit": "d2e54fd2f2315a430e163c3b571665baefa945c2",
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@d2e54fd2f2315a430e163c3b571665baefa945c2/images/USA/USA-M1A2-Trophy-HV-full.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/d2e54fd2f2315a430e163c3b571665baefa945c2/images/USA/USA-M1A2-Trophy-HV-full.webp"
+      }
+    },
+    "jp_type_10": {
+      "photo": {
+        "path": "images/JPN/JPN-Type-10-front-analysis-SJ2.webp",
+        "sha256": "d924e93cccb4640400a5e91b499fa529092648c72acfc3d6a3a1eeb940fb95ec",
+        "bytes": 157786,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a7a0eea3c83562df031a6346b365921aac085d69/images/JPN/JPN-Type-10-front-analysis-SJ2.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a7a0eea3c83562df031a6346b365921aac085d69/images/JPN/JPN-Type-10-front-analysis-SJ2.webp",
+        "commit": "a7a0eea3c83562df031a6346b365921aac085d69"
+      },
+      "raw": {
+        "path": "images/JPN/JPN-Type-10-front-analysis-SJ2.webp",
+        "sha256": "d924e93cccb4640400a5e91b499fa529092648c72acfc3d6a3a1eeb940fb95ec",
+        "bytes": 157786,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a7a0eea3c83562df031a6346b365921aac085d69/images/JPN/JPN-Type-10-front-analysis-SJ2.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a7a0eea3c83562df031a6346b365921aac085d69/images/JPN/JPN-Type-10-front-analysis-SJ2.webp",
+        "commit": "a7a0eea3c83562df031a6346b365921aac085d69"
+      }
+    },
+    "uk_challenger_1": {
+      "photo": {
+        "path": "images/GBR/GBR-Challenger-Mk-2-front-analysis-SJ2.webp",
+        "sha256": "a9dd6105a4fa7b06f061989b69a3125cc54dab232e04fd60c2db5ad6ef76aad8",
+        "bytes": 195074,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a7a0eea3c83562df031a6346b365921aac085d69/images/GBR/GBR-Challenger-Mk-2-front-analysis-SJ2.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a7a0eea3c83562df031a6346b365921aac085d69/images/GBR/GBR-Challenger-Mk-2-front-analysis-SJ2.webp",
+        "commit": "a7a0eea3c83562df031a6346b365921aac085d69"
+      },
+      "raw": {
+        "path": "images/GBR/GBR-Challenger-Mk-2-front-analysis-SJ2.webp",
+        "sha256": "a9dd6105a4fa7b06f061989b69a3125cc54dab232e04fd60c2db5ad6ef76aad8",
+        "bytes": 195074,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a7a0eea3c83562df031a6346b365921aac085d69/images/GBR/GBR-Challenger-Mk-2-front-analysis-SJ2.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a7a0eea3c83562df031a6346b365921aac085d69/images/GBR/GBR-Challenger-Mk-2-front-analysis-SJ2.webp",
+        "commit": "a7a0eea3c83562df031a6346b365921aac085d69"
+      }
+    },
+    "fr_leclerc_s1": {
+      "photo": {
+        "path": "images/FRA/FRA-Leclerc-front-analysis-SJ2.webp",
+        "sha256": "567ad4f7ab13327ab9d7b1746525987743afb3f47cf50a4e0a1e5d781c395c0b",
+        "bytes": 102104,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a7a0eea3c83562df031a6346b365921aac085d69/images/FRA/FRA-Leclerc-front-analysis-SJ2.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a7a0eea3c83562df031a6346b365921aac085d69/images/FRA/FRA-Leclerc-front-analysis-SJ2.webp",
+        "commit": "a7a0eea3c83562df031a6346b365921aac085d69"
+      },
+      "raw": {
+        "path": "images/FRA/FRA-Leclerc-front-analysis-SJ2.webp",
+        "sha256": "567ad4f7ab13327ab9d7b1746525987743afb3f47cf50a4e0a1e5d781c395c0b",
+        "bytes": 102104,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a7a0eea3c83562df031a6346b365921aac085d69/images/FRA/FRA-Leclerc-front-analysis-SJ2.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a7a0eea3c83562df031a6346b365921aac085d69/images/FRA/FRA-Leclerc-front-analysis-SJ2.webp",
+        "commit": "a7a0eea3c83562df031a6346b365921aac085d69"
+      }
+    },
+    "jp_type_90": {
+      "photo": {
+        "path": "images/JPN/JPN-Type-90-front-analysis-SJ2.webp",
+        "sha256": "e12bbb972f4892d894779d78b3484d66e436cb14756e0f49762b229a04827052",
+        "bytes": 204438,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a7a0eea3c83562df031a6346b365921aac085d69/images/JPN/JPN-Type-90-front-analysis-SJ2.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a7a0eea3c83562df031a6346b365921aac085d69/images/JPN/JPN-Type-90-front-analysis-SJ2.webp",
+        "commit": "a7a0eea3c83562df031a6346b365921aac085d69"
+      },
+      "raw": {
+        "path": "images/JPN/JPN-Type-90-front-analysis-SJ2.webp",
+        "sha256": "e12bbb972f4892d894779d78b3484d66e436cb14756e0f49762b229a04827052",
+        "bytes": 204438,
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a7a0eea3c83562df031a6346b365921aac085d69/images/JPN/JPN-Type-90-front-analysis-SJ2.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a7a0eea3c83562df031a6346b365921aac085d69/images/JPN/JPN-Type-90-front-analysis-SJ2.webp",
+        "commit": "a7a0eea3c83562df031a6346b365921aac085d69"
       }
     }
   },
@@ -14283,6 +14355,270 @@
       "sourceKind": "video",
       "proofSnapshotSHA256": "d1901302161d4e9ada24033a43221fc8d73839900a2b0eccce8c62618a5a305a",
       "id": "a9a32c3f91efef4697638d0f45d9571cd8b2504d955298b522b0d4c1648b0c1d"
+    },
+    {
+      "filename": "JPN-Type-10-front-analysis-SJ2.webp",
+      "path": "images/JPN/JPN-Type-10-front-analysis-SJ2.webp",
+      "vehicleId": "jp_type_10",
+      "country": "JPN",
+      "kind": "photo",
+      "width": 510,
+      "height": 420,
+      "bytes": 157786,
+      "sha256": "d924e93cccb4640400a5e91b499fa529092648c72acfc3d6a3a1eeb940fb95ec",
+      "preCompressionBytes": 157786,
+      "preCompressionSHA256": "d924e93cccb4640400a5e91b499fa529092648c72acfc3d6a3a1eeb940fb95ec",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/SJ2-whole-frame-batch-v417-20261104/Type10/raw.png",
+        "sha256": "7ff0e3e01578198ef450a5ce4614fb8855b09a929a075c864a5fd6e15e124d2c",
+        "bytes": 3161613,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "7ff0e3e01578198ef450a5ce4614fb8855b09a929a075c864a5fd6e15e124d2c",
+      "sourceTime": 243.443028,
+      "actualMediaTimeBefore": 243.443028,
+      "actualMediaTimeAfter": 243.443028,
+      "crop": [
+        705,
+        225,
+        510,
+        420
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v434-20261104/jp_type_10-frame-proof.json",
+        "sha256": "ab2dfff2ca37c09d522873e3349490b49376d8c67b5eed04e2438745f54f913b"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "distributionProgress": 44,
+      "distributionCompletion": "incomplete",
+      "sourceKind": "video",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+        "kind": "video",
+        "bvid": "BV1SJ2FBaEoC",
+        "title": "战争雷霆：各系的现代坦克弱点大盘点！学会了你也能做到一炮一个",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-11-06T18:53:29+08:00",
+        "gameVersion": "2.49.0.98"
+      },
+      "commit": "a7a0eea3c83562df031a6346b365921aac085d69",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a7a0eea3c83562df031a6346b365921aac085d69/images/JPN/JPN-Type-10-front-analysis-SJ2.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a7a0eea3c83562df031a6346b365921aac085d69/images/JPN/JPN-Type-10-front-analysis-SJ2.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "GBR-Challenger-Mk-2-front-analysis-SJ2.webp",
+      "path": "images/GBR/GBR-Challenger-Mk-2-front-analysis-SJ2.webp",
+      "vehicleId": "uk_challenger_1",
+      "country": "GBR",
+      "kind": "photo",
+      "width": 525,
+      "height": 510,
+      "bytes": 195074,
+      "sha256": "a9dd6105a4fa7b06f061989b69a3125cc54dab232e04fd60c2db5ad6ef76aad8",
+      "preCompressionBytes": 195074,
+      "preCompressionSHA256": "a9dd6105a4fa7b06f061989b69a3125cc54dab232e04fd60c2db5ad6ef76aad8",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/SJ2-whole-frame-batch-v417-20261104/Challenger/raw.png",
+        "sha256": "4d6ac805b4e4a0a22677d5c22b4af0af0e589e65df5412551884d2b08160d70b",
+        "bytes": 3061437,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "4d6ac805b4e4a0a22677d5c22b4af0af0e589e65df5412551884d2b08160d70b",
+      "sourceTime": 214.298387,
+      "actualMediaTimeBefore": 214.298387,
+      "actualMediaTimeAfter": 214.298387,
+      "crop": [
+        705,
+        210,
+        525,
+        510
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v434-20261104/uk_challenger_1-frame-proof.json",
+        "sha256": "fb4a069782a4105cf4849c67d625ef1272d01764f5c07c5dc024fb4c5f526e6c"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "distributionProgress": 91,
+      "distributionCompletion": "incomplete",
+      "sourceKind": "video",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+        "kind": "video",
+        "bvid": "BV1SJ2FBaEoC",
+        "title": "战争雷霆：各系的现代坦克弱点大盘点！学会了你也能做到一炮一个",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-11-06T18:53:29+08:00",
+        "gameVersion": "2.49.0.98"
+      },
+      "commit": "a7a0eea3c83562df031a6346b365921aac085d69",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a7a0eea3c83562df031a6346b365921aac085d69/images/GBR/GBR-Challenger-Mk-2-front-analysis-SJ2.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a7a0eea3c83562df031a6346b365921aac085d69/images/GBR/GBR-Challenger-Mk-2-front-analysis-SJ2.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "FRA-Leclerc-front-analysis-SJ2.webp",
+      "path": "images/FRA/FRA-Leclerc-front-analysis-SJ2.webp",
+      "vehicleId": "fr_leclerc_s1",
+      "country": "FRA",
+      "kind": "photo",
+      "width": 410,
+      "height": 310,
+      "bytes": 102104,
+      "sha256": "567ad4f7ab13327ab9d7b1746525987743afb3f47cf50a4e0a1e5d781c395c0b",
+      "preCompressionBytes": 102104,
+      "preCompressionSHA256": "567ad4f7ab13327ab9d7b1746525987743afb3f47cf50a4e0a1e5d781c395c0b",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/SJ2-exterior-completion-v428-20261104/Leclerc/raw.png",
+        "sha256": "d32da2e3bffb2111a526f57a22b4d7a88baad696dff1cb60803ebf8dc04363ea",
+        "bytes": 3498232,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "d32da2e3bffb2111a526f57a22b4d7a88baad696dff1cb60803ebf8dc04363ea",
+      "sourceTime": 285.351209,
+      "actualMediaTimeBefore": 285.351209,
+      "actualMediaTimeAfter": 285.351209,
+      "crop": [
+        750,
+        290,
+        410,
+        310
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v434-20261104/fr_leclerc_s1-frame-proof.json",
+        "sha256": "35cfd672d8798a401ee60847f8cb60c703802d7b42e72802ebd72fdbd43990eb"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "distributionProgress": 45,
+      "distributionCompletion": "incomplete",
+      "sourceKind": "video",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+        "kind": "video",
+        "bvid": "BV1SJ2FBaEoC",
+        "title": "战争雷霆：各系的现代坦克弱点大盘点！学会了你也能做到一炮一个",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-11-06T18:53:29+08:00",
+        "gameVersion": "2.49.0.98"
+      },
+      "commit": "a7a0eea3c83562df031a6346b365921aac085d69",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a7a0eea3c83562df031a6346b365921aac085d69/images/FRA/FRA-Leclerc-front-analysis-SJ2.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a7a0eea3c83562df031a6346b365921aac085d69/images/FRA/FRA-Leclerc-front-analysis-SJ2.webp",
+      "rootApproval": true
+    },
+    {
+      "filename": "JPN-Type-90-front-analysis-SJ2.webp",
+      "path": "images/JPN/JPN-Type-90-front-analysis-SJ2.webp",
+      "vehicleId": "jp_type_90",
+      "country": "JPN",
+      "kind": "photo",
+      "width": 570,
+      "height": 405,
+      "bytes": 204438,
+      "sha256": "e12bbb972f4892d894779d78b3484d66e436cb14756e0f49762b229a04827052",
+      "preCompressionBytes": 204438,
+      "preCompressionSHA256": "e12bbb972f4892d894779d78b3484d66e436cb14756e0f49762b229a04827052",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/SJ2-targeted-completion-v435-20261104/Type90/raw.png",
+        "sha256": "f92d9e856d848e3640cddeb8e7724c3074fdcd34f309b78817f7959286859538",
+        "bytes": 3482137,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "f92d9e856d848e3640cddeb8e7724c3074fdcd34f309b78817f7959286859538",
+      "sourceTime": 224.014981,
+      "actualMediaTimeBefore": 224.014981,
+      "actualMediaTimeAfter": 224.014981,
+      "crop": [
+        690,
+        255,
+        570,
+        405
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v434-20261104/jp_type_90-frame-proof.json",
+        "sha256": "752816539273612856d03632961077ac9302375828783964b69616f3d2331d8e"
+      },
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "originalFullFramePrivate": true,
+      "sourceLicenseEstablished": false,
+      "attributionRequired": true,
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "distributionProgress": 25,
+      "distributionCompletion": "incomplete",
+      "sourceKind": "video",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+        "kind": "video",
+        "bvid": "BV1SJ2FBaEoC",
+        "title": "战争雷霆：各系的现代坦克弱点大盘点！学会了你也能做到一炮一个",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-11-06T18:53:29+08:00",
+        "gameVersion": "2.49.0.98"
+      },
+      "commit": "a7a0eea3c83562df031a6346b365921aac085d69",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@a7a0eea3c83562df031a6346b365921aac085d69/images/JPN/JPN-Type-90-front-analysis-SJ2.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/a7a0eea3c83562df031a6346b365921aac085d69/images/JPN/JPN-Type-90-front-analysis-SJ2.webp",
+      "rootApproval": true
     }
   ]
 }
