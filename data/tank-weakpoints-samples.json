@@ -26203,6 +26203,84 @@
           },
           "sourceTimeBasis": "sampled-frame",
           "timePrecision": "参考已核样本帧36.033秒，并非整条建议的精确字幕cue时间。"
+        },
+        {
+          "id": "il_merkava_mk_2d:BV1sovaemEYj:author-guidance-1",
+          "label": "视频作者观点：前视炮塔局部建议",
+          "text": "nameless_hh建议关注车长镜下方的前视炮塔脸侧部及炮根下部；位置来自作者示意，不是已核实的纯侧向装甲或游戏照片瞄准点。",
+          "sourceKind": "video-author-advice",
+          "sourceUrl": "https://www.bilibili.com/video/BV1sovaemEYj/",
+          "sourceAuthor": "nameless_hh",
+          "sourcePublishedAt": "2024-08-01T19:24:44+08:00",
+          "sourceTime": 159.769938,
+          "sourceGameVersion": null,
+          "caseId": null,
+          "verificationStatus": "author-labeled",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "sourceTimeBasis": "sampled-author-composite-frame",
+          "evidence": {
+            "report.json": {
+              "path": "artifacts/weakpoints-merkava2d-author-qa-v541-20261104/report.json",
+              "sha256": "0b57cd3c388285df60645391e52e31e10a0516feabc9b1dffb8ceb1f932c0634"
+            },
+            "supplement-report.json": {
+              "path": "artifacts/weakpoints-merkava2d-author-qa-v541-20261104/supplement-report.json",
+              "sha256": "e8d86d6e0f18c611d20532e33f55b0c2f58a8931a56d8a3f8757d010b79dcdcd"
+            }
+          }
+        },
+        {
+          "id": "il_merkava_mk_2d:BV1sovaemEYj:author-guidance-2",
+          "label": "视频作者观点：角度与车体前部提醒",
+          "text": "作者讨论航向角超过20度及车体左前的瞄准机会，并提醒避开发动机盖、履带前部和可能跳弹的首上；这些建议未实测验证。",
+          "sourceKind": "video-author-advice",
+          "sourceUrl": "https://www.bilibili.com/video/BV1sovaemEYj/",
+          "sourceAuthor": "nameless_hh",
+          "sourcePublishedAt": "2024-08-01T19:24:44+08:00",
+          "sourceTime": 159.769938,
+          "sourceGameVersion": null,
+          "caseId": null,
+          "verificationStatus": "author-labeled",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "sourceTimeBasis": "sampled-author-composite-frame",
+          "evidence": {
+            "report.json": {
+              "path": "artifacts/weakpoints-merkava2d-author-qa-v541-20261104/report.json",
+              "sha256": "0b57cd3c388285df60645391e52e31e10a0516feabc9b1dffb8ceb1f932c0634"
+            },
+            "supplement-report.json": {
+              "path": "artifacts/weakpoints-merkava2d-author-qa-v541-20261104/supplement-report.json",
+              "sha256": "e8d86d6e0f18c611d20532e33f55b0c2f58a8931a56d8a3f8757d010b79dcdcd"
+            }
+          }
+        },
+        {
+          "id": "il_merkava_mk_2d:BV1sovaemEYj:author-guidance-3",
+          "label": "视频作者观点：DM23与损伤说法的限制",
+          "text": "作者提及DM23及“一击瘫痪”等效果，但攻击车型、距离、游戏版本及测试条件均未核实，不据此建立测试案例或保证击杀。",
+          "sourceKind": "video-author-advice",
+          "sourceUrl": "https://www.bilibili.com/video/BV1sovaemEYj/",
+          "sourceAuthor": "nameless_hh",
+          "sourcePublishedAt": "2024-08-01T19:24:44+08:00",
+          "sourceTime": 159.769938,
+          "sourceGameVersion": null,
+          "caseId": null,
+          "verificationStatus": "author-labeled",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "sourceTimeBasis": "sampled-author-composite-frame",
+          "evidence": {
+            "report.json": {
+              "path": "artifacts/weakpoints-merkava2d-author-qa-v541-20261104/report.json",
+              "sha256": "0b57cd3c388285df60645391e52e31e10a0516feabc9b1dffb8ceb1f932c0634"
+            },
+            "supplement-report.json": {
+              "path": "artifacts/weakpoints-merkava2d-author-qa-v541-20261104/supplement-report.json",
+              "sha256": "e8d86d6e0f18c611d20532e33f55b0c2f58a8931a56d8a3f8757d010b79dcdcd"
+            }
+          }
         }
       ],
       "source": null,
@@ -26244,6 +26322,16 @@
           "publishedAt": "2025-08-18T22:21:54+08:00",
           "time": 36.033,
           "scopeNote": "作者归属转述，非实测击穿或当前版本基础数据"
+        },
+        {
+          "kind": "video",
+          "sourceKind": "video-author-advice",
+          "url": "https://www.bilibili.com/video/BV1sovaemEYj/",
+          "author": "nameless_hh",
+          "publishedAt": "2024-08-01T19:24:44+08:00",
+          "time": 159.769938,
+          "sourceGameVersion": null,
+          "scopeNote": "作者示意讲解，非实测；嵌入截图不满足主图要求，不提供照片坐标标点。"
         }
       ]
     },
@@ -28542,7 +28630,60 @@
       "era": null,
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
+      "videoAdvice": [
+        {
+          "id": "uk_challenger_1_mk_3_gulf:BV1sovaemEYj:author-guidance-1",
+          "label": "视频作者观点：炮管上方与交界部位",
+          "text": "nameless_hh建议留意炮管上方及炮塔与车体交界；这是作者示意讲解，未核实本型原生游戏标题或测试条件，不扩展至其他挑战者型号。",
+          "sourceKind": "video-author-advice",
+          "sourceUrl": "https://www.bilibili.com/video/BV1sovaemEYj/",
+          "sourceAuthor": "nameless_hh",
+          "sourcePublishedAt": "2024-08-01T19:24:44+08:00",
+          "sourceTime": 80.023879,
+          "sourceGameVersion": null,
+          "caseId": null,
+          "verificationStatus": "author-labeled",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "sourceTimeBasis": "sampled-author-composite-frame",
+          "evidence": {
+            "report.json": {
+              "path": "artifacts/weakpoints-challenger-ds-author-qa-v540-20261104/report.json",
+              "sha256": "763f895e5ce77cd814960fdfa89002384fa6cdfd8f7163502a5a0db28d9ac325"
+            },
+            "supplement-report.json": {
+              "path": "artifacts/weakpoints-challenger-ds-author-qa-v540-20261104/supplement-report.json",
+              "sha256": "4b352f0c301f5434e7515e373d2cbe02fd387c18e48d1b7ec6802f9a846d0dd9"
+            }
+          }
+        },
+        {
+          "id": "uk_challenger_1_mk_3_gulf:BV1sovaemEYj:author-guidance-2",
+          "label": "视频作者观点：首下建议的适用范围",
+          "text": "作者将首下描述为“首下全绿”；此为历史视频作者原话，未验证弹药、距离、角度及游戏版本，不作为整区可穿或击杀保证。",
+          "sourceKind": "video-author-advice",
+          "sourceUrl": "https://www.bilibili.com/video/BV1sovaemEYj/",
+          "sourceAuthor": "nameless_hh",
+          "sourcePublishedAt": "2024-08-01T19:24:44+08:00",
+          "sourceTime": 80.023879,
+          "sourceGameVersion": null,
+          "caseId": null,
+          "verificationStatus": "author-labeled",
+          "sourceClaimNotCanonicalFact": true,
+          "conditionMatch": "source-attributed-author-guidance-unverified-test",
+          "sourceTimeBasis": "sampled-author-composite-frame",
+          "evidence": {
+            "report.json": {
+              "path": "artifacts/weakpoints-challenger-ds-author-qa-v540-20261104/report.json",
+              "sha256": "763f895e5ce77cd814960fdfa89002384fa6cdfd8f7163502a5a0db28d9ac325"
+            },
+            "supplement-report.json": {
+              "path": "artifacts/weakpoints-challenger-ds-author-qa-v540-20261104/supplement-report.json",
+              "sha256": "4b352f0c301f5434e7515e373d2cbe02fd387c18e48d1b7ec6802f9a846d0dd9"
+            }
+          }
+        }
+      ],
       "source": null,
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/uk_challenger_1_mk_3_gulf",
@@ -28572,6 +28713,18 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "kind": "video",
+          "sourceKind": "video-author-advice",
+          "url": "https://www.bilibili.com/video/BV1sovaemEYj/",
+          "author": "nameless_hh",
+          "publishedAt": "2024-08-01T19:24:44+08:00",
+          "time": 80.023879,
+          "sourceGameVersion": null,
+          "scopeNote": "作者示意讲解，非实测；嵌入截图不满足主图要求，不提供照片坐标标点。"
+        }
       ]
     },
     {
