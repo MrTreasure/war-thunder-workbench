@@ -137,9 +137,16 @@
   align-items: center;
   gap: 12px;
   font-size: 13px;
+  min-width: 0;
+}
+.wt-ground-shell-select > span {
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 .wt-ground-shell-select .wt-select {
-  min-width: 220px;
+  flex: 1 1 220px;
+  min-width: 0;
+  width: auto;
   max-width: 400px;
 }
 .wt-ground-shell-parameters {

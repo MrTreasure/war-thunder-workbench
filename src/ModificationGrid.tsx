@@ -18,6 +18,7 @@ export function ModificationGrid({
   completed,
   onChange,
   readOnly = false,
+  imageForItem,
 }: {
   data: ModificationData;
   included: boolean;
@@ -25,9 +26,11 @@ export function ModificationGrid({
   completed: string[];
   onChange: (id: string, checked: boolean) => void;
   readOnly?: boolean;
+  imageForItem?: (item: Modification) => string | undefined;
 }) {
   function card(item: Modification, positioned = false) {
     const Element = readOnly ? "div" : "label";
+    const imageUrl = imageForItem?.(item) || item.imageUrl;
     return (
       <Element
         key={item.id}
@@ -50,15 +53,23 @@ export function ModificationGrid({
           />
         )}
         <span className="wt-part-image">
-          {item.imageUrl && (
+          {imageUrl && (
             <img
-              src={item.imageUrl}
+              key={imageUrl}
+              src={imageUrl}
               width="72"
               height="56"
               alt=""
               loading="lazy"
               onError={(e) => {
-                e.currentTarget.hidden = true;
+                if (
+                  imageUrl !== item.imageUrl &&
+                  item.imageUrl &&
+                  !e.currentTarget.dataset.fallback
+                ) {
+                  e.currentTarget.dataset.fallback = "1";
+                  e.currentTarget.src = item.imageUrl;
+                } else e.currentTarget.hidden = true;
               }}
             />
           )}

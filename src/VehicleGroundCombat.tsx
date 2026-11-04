@@ -5,6 +5,7 @@ import { GameSelect } from "./components/GameSelect";
 import { loadoutWeaponName, loadoutParameterValue } from "./loadout-presentation";
 import display from "../data/ground-combat-display.json";
 import { equipmentLabel } from "./vehicle-equipment";
+import { ShellAnimation } from "./ShellAnimation";
 
 const weaponTerms = Object.entries(display.weaponTerms).sort(([a], [b]) => b.length - a.length);
 const weaponPattern = new RegExp(`\\b(?:${weaponTerms.map(([term]) => term).join("|")})\\b`, "gi");
@@ -121,7 +122,7 @@ function GroundWeapon({ weapon }: { weapon: WikiGroundWeapon }) {
           {shell && (
             <section className="wt-ground-shell-detail" aria-label="选中弹药详细参数">
               <label className="wt-ground-shell-select">
-                弹药详情
+                <span>弹药详情</span>
                 <GameSelect
                   value={shell.id}
                   onValueChange={setSelected}
@@ -141,6 +142,7 @@ function GroundWeapon({ weapon }: { weapon: WikiGroundWeapon }) {
                   ))}
                 </GameSelect>
               </label>
+              <ShellAnimation shell={shell} />
               <dl className="wt-ground-shell-parameters">
                 {shell.parameters.map((parameter) => (
                   <div key={parameter.id}>

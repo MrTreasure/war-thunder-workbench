@@ -5,6 +5,7 @@ import { equipmentLabel, equipmentValue } from "./vehicle-equipment";
 import { groundWeaponName } from "./VehicleGroundCombat";
 import { loadoutWeaponName } from "./loadout-presentation";
 import { SupportedLoadoutWeapons } from "./SupportedLoadoutWeapons";
+import { modificationAmmunitionImage } from "./modification-ammunition";
 function Feature({
   feature,
   category,
@@ -166,6 +167,7 @@ export function VehicleEquipment({
               completed={[]}
               onChange={() => {}}
               readOnly
+              imageForItem={(item) => modificationAmmunitionImage(unit, item)}
             />
           </div>
         </>
