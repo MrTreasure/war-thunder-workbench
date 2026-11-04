@@ -3,7 +3,7 @@ import { useLocale } from "./i18n/react";
 import { useCallback, useState } from "react";
 import { VehicleTags } from "./VehicleTags";
 import { VehicleTile } from "./VehicleTile";
-import type { Catalog, Mode, Vehicle } from "./models";
+import type { Catalog, Mode, Vehicle, ModificationData } from "./models";
 import { VehicleImage } from "./VehicleImage";
 import { VehicleWikiFacts } from "./VehicleWikiFacts";
 import { VehicleBattleRatings } from "./VehicleBattleRatings";
@@ -15,10 +15,13 @@ import { GameTabs, type GameTab } from "./components/GameTabs";
 import { VehicleSaleCartAction } from "./VehicleSaleCartAction";
 import { LoadoutRecommendations } from "./LoadoutRecommendations";
 import { hasConfigurableLoadout } from "./loadouts";
+import { VehicleGroundCombat } from "./VehicleGroundCombat";
+import { VehicleEquipment } from "./VehicleEquipment";
 type DetailTab =
   | "tags"
   | "performance"
   | "statistics"
+  | "equipment"
   | "loadouts"
   | "recommendations"
   | "information"
@@ -34,6 +37,10 @@ export function VehicleDetails({
   onVehicle,
   onParts,
   onSelect,
+  onCompare,
+  comparisonAdded = false,
+  comparisonFull = false,
+  modifications,
 }: {
   unit: Vehicle;
   catalog: Catalog;
@@ -45,6 +52,10 @@ export function VehicleDetails({
   onVehicle: () => void;
   onParts: () => void;
   onSelect: (id: string) => void;
+  onCompare?: () => void;
+  comparisonAdded?: boolean;
+  comparisonFull?: boolean;
+  modifications?: ModificationData;
 }) {
   useLocale();
   const [choice, setChoice] = useState<{
@@ -70,6 +81,7 @@ export function VehicleDetails({
     { value: "tags", label: t("载具标签"), icon: "details" },
     { value: "performance", label: t("性能对比"), icon: "performance" },
     { value: "statistics", label: t("性能数值"), icon: "details" },
+    { value: "equipment", label: t("装备与模块"), icon: "details" },
     ...(["aviation", "helicopters"].includes(category)
       ? [{ value: "loadouts" as const, label: t("武器挂载"), icon: "loadout" as const }]
       : []),
@@ -148,6 +160,19 @@ export function VehicleDetails({
             <GameButton icon="performance" onClick={onParts}>
               {t("研发配件")}
             </GameButton>
+            {onCompare && (
+              <GameButton
+                icon="compare"
+                onClick={onCompare}
+                disabled={comparisonAdded || comparisonFull}
+              >
+                {comparisonAdded
+                  ? t("\u5DF2\u52A0\u5165\u5BF9\u6BD4")
+                  : comparisonFull
+                    ? t("\u5BF9\u6BD4\u5DF2\u6EE1\uFF085\u8F86\uFF09")
+                    : t("\u52A0\u5165\u5BF9\u6BD4")}
+              </GameButton>
+            )}
             <VehicleSaleCartAction
               key={`${country}:${category}:${unit.id}`}
               unit={unit}
@@ -204,14 +229,21 @@ export function VehicleDetails({
             (!ready ? (
               <output className="wt-detail-pending">{t("正在读取载具标签…")}</output>
             ) : ["performance", "statistics"].includes(item.value) ? (
-              <VehiclePerformance
-                key={unit.id}
-                unit={unit}
-                category={category}
-                view={item.value === "statistics" ? "table" : "chart"}
-                comparisonMode={performanceMode}
-                onModeChange={setPerformanceMode}
-              />
+              <>
+                <VehiclePerformance
+                  key={unit.id}
+                  unit={unit}
+                  category={category}
+                  view={item.value === "statistics" ? "table" : "chart"}
+                  comparisonMode={performanceMode}
+                  onModeChange={setPerformanceMode}
+                />
+                {item.value === "statistics" && category === "ground" && (
+                  <VehicleGroundCombat key={unit.id} unit={unit} />
+                )}
+              </>
+            ) : item.value === "equipment" ? (
+              <VehicleEquipment unit={unit} category={category} modifications={modifications} />
             ) : item.value === "loadouts" ? (
               <VehicleLoadouts unit={unit} />
             ) : item.value === "recommendations" ? (

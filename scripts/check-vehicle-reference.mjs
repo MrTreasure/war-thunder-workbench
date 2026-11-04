@@ -77,6 +77,94 @@ export function checkVehicleReference(vehicles) {
           }
         }
       }
+      if (data.groundCombat) {
+        const combat = data.groundCombat;
+        source(combat, id);
+        assert(["wiki-ground-combat-v1", "wiki-ground-combat-v2"].includes(combat.parserVersion));
+        assert(statuses.includes(combat.armorStatus));
+        assert(statuses.includes(combat.weaponsStatus));
+        for (const type of combat.armorTypes || []) text(type);
+        if (combat.equivalentArmorStatus) assert(statuses.includes(combat.equivalentArmorStatus));
+        unique(combat.armor, "id");
+        unique(combat.weapons, "id");
+        for (const row of combat.armor) {
+          assert(["hull", "turret"].includes(row.id));
+          for (const field of ["label", "front", "side", "rear"]) text(row[field]);
+        }
+        for (const weapon of combat.weapons) {
+          text(weapon.id);
+          text(weapon.name);
+          nonnegativeOrNull(weapon.ammunition);
+          if (weapon.reload) {
+            assert.equal(weapon.reload.weaponName, weapon.name);
+            assert.equal(weapon.reload.unit, "s");
+            assert.match(weapon.reload.id, /^reload(?:-\d+)?$/);
+            for (const mode of Object.values(weapon.reload.modes)) {
+              assert.deepEqual(Object.keys(mode).sort(), [...stages].sort());
+              for (const value of Object.values(mode)) nonnegativeOrNull(value);
+            }
+          }
+          unique(weapon.shells, "id");
+          for (const shell of weapon.shells) {
+            text(shell.id);
+            text(shell.name);
+            text(shell.type);
+            for (const field of ["caliberMm", "velocityMps", "massKg", "tntKg"])
+              nonnegativeOrNull(shell[field]);
+            if (shell.imageUrl)
+              assert.match(
+                shell.imageUrl,
+                /^https:\/\/static\.encyclopedia\.warthunder\.com\/gui_skin\/[a-zA-Z0-9_.-]+$/,
+              );
+            unique(shell.parameters, "id");
+            for (const parameter of shell.parameters) {
+              text(parameter.id);
+              text(parameter.label);
+              text(parameter.value);
+            }
+            for (const point of [...shell.penetration, ...shell.penetrationAngles]) {
+              assert(Number.isFinite(point.distanceM) && point.distanceM >= 0);
+              nonnegativeOrNull(point.mm);
+              if ("angleDeg" in point)
+                assert(
+                  Number.isFinite(point.angleDeg) && point.angleDeg >= 0 && point.angleDeg <= 90,
+                );
+            }
+          }
+        }
+        if (combat.armorStatus === "available") assert(combat.armor.length > 0);
+        if (combat.weaponsStatus === "available")
+          assert(combat.weapons.some((weapon) => weapon.shells.length > 0));
+      }
+      if (data.equipment) {
+        const equipment = data.equipment;
+        source(equipment, id);
+        assert.equal(equipment.parserVersion, "wiki-vehicle-equipment-v1");
+        unique(equipment.features, "id");
+        unique(equipment.properties, "id");
+        unique(equipment.optics, "id");
+        for (const feature of equipment.features) {
+          text(feature.id);
+          text(feature.kind);
+          text(feature.name);
+          if (feature.source)
+            assert.match(
+              feature.source,
+              /^https:\/\/wiki\.warthunder\.com\/collections\/feature\/[A-Za-z0-9_-]+$/,
+            );
+          if (feature.weaponName) text(feature.weaponName);
+          unique(feature.parameters, "id");
+        }
+        for (const parameter of [
+          ...equipment.properties,
+          ...equipment.optics,
+          ...equipment.features.flatMap((feature) => feature.parameters),
+        ]) {
+          text(parameter.id);
+          text(parameter.label);
+          text(parameter.value);
+        }
+      }
       performance++;
     }
     if (details.loadouts) {

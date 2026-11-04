@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "distancesM": [
+    500,
+    1000,
+    2000
+  ],
+  "shellTypes": {
+    "AP": "穿甲弹",
+    "APC": "被帽穿甲弹",
+    "APBC": "风帽穿甲弹",
+    "APCBC": "被帽风帽穿甲弹",
+    "APHE": "穿甲榴弹",
+    "APHEBC": "风帽穿甲榴弹",
+    "APCR": "硬芯穿甲弹",
+    "APDS": "脱壳穿甲弹",
+    "APFSDS": "尾翼稳定脱壳穿甲弹",
+    "HE": "高爆弹",
+    "HE-VT": "近炸高爆弹",
+    "HE-TF": "定时高爆弹",
+    "HEAT": "破甲弹",
+    "HEATFS": "尾翼稳定破甲弹",
+    "HEAT MP": "多用途破甲弹",
+    "HESH": "碎甲弹",
+    "SAP": "半穿甲弹",
+    "SAPCBC": "被帽风帽半穿甲弹",
+    "SAPHEI": "半穿甲燃烧榴弹",
+    "Smoke": "烟雾弹",
+    "Shrapnel": "榴霰弹",
+    "ATGM": "反坦克导弹",
+    "ATGM (tandem)": "串联战斗部反坦克导弹",
+    "ATGM-HE": "高爆战斗部反坦克导弹",
+    "ATGM-VT": "近炸反坦克导弹",
+    "AAM": "空空导弹",
+    "SAM": "防空导弹",
+    "R": "火箭弹",
+    "belt": "弹链"
+  },
+  "parameterLabels": {
+    "Muzzle Velocity": "初速",
+    "Fuze Sensitivity": "引信灵敏度",
+    "Fuze Delay": "引信延迟",
+    "IRCCM": "抗红外干扰"
+  },
+  "shellNames": {
+    "Default": "默认弹链",
+    "Universal": "通用弹链"
+  },
+  "weaponTerms": {
+    "anti-tank guided missiles": "反坦克导弹",
+    "anti-tank guided missile": "反坦克导弹",
+    "recoilless rifle": "无后坐力炮",
+    "machine guns": "机枪",
+    "machine gun": "机枪",
+    "cannons": "火炮",
+    "cannon": "火炮",
+    "coaxial": "同轴",
+    "launcher": "发射器",
+    "mortars": "迫击炮",
+    "mortar": "迫击炮",
+    "guns": "火炮",
+    "gun": "火炮",
+    "mm": "毫米"
+  }
+}

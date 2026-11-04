@@ -3,10 +3,17 @@ import { localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { t, vehicleName } from "./i18n/core";
 import { vehicleStore } from "./vehicle-store";
+import { VehicleComparison } from "./VehicleComparison";
+import {
+  addComparedVehicle,
+  comparedVehicleKey,
+  removeComparedVehicles,
+  setComparedVehicleBaseline,
+  VEHICLE_COMPARE_LIMIT,
+} from "./vehicle-compare";
+import type { ComparedVehicle } from "./vehicle-compare";
 import { Chevron } from "./components/Chevron";
 import { useAccountWorkspace } from "./workspace-context";
-
-import { updateSearchMetadata } from "./search-metadata";
 import { GameSelect } from "./components/GameSelect";
 import { Component, createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { useRouterState } from "@tanstack/react-router";
@@ -32,7 +39,14 @@ const manifest = manifestData as DataManifest;
 import { readJson, useStored } from "./storage";
 import { validCart } from "./quotes";
 import bootstrapData from "./generated/bootstrap.json";
-export class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
+export class ErrorBoundary extends Component<
+  {
+    children: ReactNode;
+  },
+  {
+    failed: boolean;
+  }
+> {
   override state = { failed: false };
   static getDerivedStateFromError() {
     return { failed: true };
@@ -51,7 +65,10 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, { failed: 
   }
 }
 const CART_KEY = "wt-workbench-cart-v1";
-const WorkbenchPages = createContext<{ tree: ReactNode; lineups: ReactNode } | null>(null);
+const WorkbenchPages = createContext<{
+  tree: ReactNode;
+  lineups: ReactNode;
+} | null>(null);
 export function useWorkbenchPage(page: "tree" | "lineups") {
   const pages = useContext(WorkbenchPages);
   if (!pages) throw Error(t("工作台页面缺少共享状态。"));
@@ -59,7 +76,6 @@ export function useWorkbenchPage(page: "tree" | "lineups") {
 }
 export function WorkbenchProvider({ children }: { children: ReactNode }) {
   useLocale();
-
   const workspace = useAccountWorkspace();
   const bootstrap = bootstrapData as CatalogIndex;
   const [initial] = useState(() =>
@@ -77,9 +93,6 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       state.location.pathname === "/lineups/lobby" ||
       state.location.pathname === "/tag-preview",
   });
-  useEffect(() => {
-    updateSearchMetadata(page);
-  }, [page]);
   const currentKey = country;
   const countryEntry = manifest.countries[country] || null;
   const [loadedCountry, setLoadedCountry] = useState<{
@@ -92,7 +105,10 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
     received: number;
     total: number;
   } | null>(null);
-  const [countryError, setCountryError] = useState<{ key: string; message: string } | null>(null);
+  const [countryError, setCountryError] = useState<{
+    key: string;
+    message: string;
+  } | null>(null);
   const [countryRetry, setCountryRetry] = useState(0);
   const P = useMemo<Catalog>(
     () => ({
@@ -182,10 +198,18 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   const mobileToolsToggle = useRef<HTMLButtonElement>(null);
   const [filter, setFilter] = useState(initial.filter || "all");
   const [zoomPreference] = useState(() =>
-    readJson<{ zoom: number; autoZoom: boolean } | null>(
+    readJson<{
+      zoom: number;
+      autoZoom: boolean;
+    } | null>(
       "wt-planner-v1:tree-zoom",
       null,
-      (value): value is { zoom: number; autoZoom: boolean } =>
+      (
+        value,
+      ): value is {
+        zoom: number;
+        autoZoom: boolean;
+      } =>
         object(value) &&
         typeof value.zoom === "number" &&
         Number.isFinite(value.zoom) &&
@@ -205,10 +229,20 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   }, [zoom, autoZoom]);
   const [locate, setLocate] = useState(0);
   const [modal, setModal] = useState<"parts" | "vehicle" | "cart" | "image" | null>(null);
+  const [comparedVehicles, setComparedVehicles] = useState<ComparedVehicle[]>([]);
+  const [comparisonOpen, setComparisonOpen] = useState(false);
+  const comparisonEntries = comparedVehicles.map((entry) => {
+    const payload = vehicleStore.getCountry(entry.country)?.value;
+    const fresh = payload
+      ? indexTree(payload.trees[entry.category] || null).units.get(entry.unit.id)
+      : null;
+    return fresh && fresh !== entry.unit ? { ...entry, unit: fresh } : entry;
+  });
   const preferenceSearch = useRef(location.search);
   useEffect(() => {
     function restoreRoute() {
       setModal(null);
+      setComparisonOpen(false);
       setMobileToolsOpen(false);
       const next = initialSelection(
         bootstrap.countries,
@@ -222,6 +256,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
     }
     const routeChange = () => {
       setModal(null);
+      setComparisonOpen(false);
       setMobileToolsOpen(false);
       if (location.search !== preferenceSearch.current) {
         preferenceSearch.current = location.search;
@@ -643,6 +678,16 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
               >
                 {localize(allOpen ? t("收起折叠组") : t("展开折叠组"))}
               </button>
+              <button
+                className="quiet-button wt-vehicle-compare-trigger"
+                onClick={() => setComparisonOpen(true)}
+                aria-haspopup="dialog"
+              >
+                {t("\u8F7D\u5177\u5BF9\u6BD4")}{" "}
+                <span className="cart-badge">
+                  {comparedVehicles.length} / {VEHICLE_COMPARE_LIMIT}
+                </span>
+              </button>
               <div className="zoom-control">
                 <button
                   aria-label={t("缩小")}
@@ -878,6 +923,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
           >
             <VehicleDetails
               unit={unit}
+              modifications={modifications?.[unit.id]}
               catalog={P}
               country={country}
               category={category}
@@ -889,6 +935,18 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
               onVehicle={() => setModal("vehicle")}
               onParts={openParts}
               onSelect={setSelected}
+              onCompare={
+                !comparedVehicles.length || comparedVehicles[0].category === category
+                  ? () =>
+                      setComparedVehicles((old) =>
+                        addComparedVehicle(old, { unit, country, category }),
+                      )
+                  : undefined
+              }
+              comparisonAdded={comparedVehicles.some(
+                (entry) => comparedVehicleKey(entry) === `${country}:${unit.id}`,
+              )}
+              comparisonFull={comparedVehicles.length >= VEHICLE_COMPARE_LIMIT}
             />
           </Modal>
         )}
@@ -945,6 +1003,18 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
             close={() => setModal(null)}
           />
         ),
+      )}
+      {comparisonOpen && (
+        <VehicleComparison
+          entries={comparisonEntries}
+          catalog={P}
+          initialMode={mode === "ab" ? "ab" : "rb"}
+          close={() => setComparisonOpen(false)}
+          onRemove={(keys) => setComparedVehicles((old) => removeComparedVehicles(old, keys))}
+          onSetBaseline={(key) =>
+            setComparedVehicles((old) => setComparedVehicleBaseline(old, key))
+          }
+        />
       )}
     </div>
   );

@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "purpose": "Build-time verification of explicit official base guide relations; original HTML remains local",
+  "candidates": [
+    {
+      "targetUnitId": "uk_challenger_2_megatron_sm",
+      "baseUnitId": "uk_challenger_2_megatron",
+      "targetWikiURL": "https://wiki.warthunder.com/unit/uk_challenger_2_megatron_sm",
+      "htmlSha256": "e609eb12626b7609281749e138f1a3d82383bff119ae869dbb481bc79f69830e",
+      "recordedHtmlSha256": "e609eb12626b7609281749e138f1a3d82383bff119ae869dbb481bc79f69830e",
+      "actualcheckedAt": "2026-11-02T18:16:13.575Z",
+      "wikiGameVersion": "2.59.0.92",
+      "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-003-20261103/snapshots/uk_challenger_2_megatron_sm.html"
+    },
+    {
+      "targetUnitId": "germ_leopard_2a4m_can_sm",
+      "baseUnitId": "germ_leopard_2a4m_can",
+      "targetWikiURL": "https://wiki.warthunder.com/unit/germ_leopard_2a4m_can_sm",
+      "htmlSha256": "3ea9445c2b279b150a911d797039ff4b6a6aaec1c589dbaee83dec1ca16bdf56",
+      "recordedHtmlSha256": "3ea9445c2b279b150a911d797039ff4b6a6aaec1c589dbaee83dec1ca16bdf56",
+      "actualcheckedAt": "2026-11-02T18:07:46.965Z",
+      "wikiGameVersion": "2.59.0.92",
+      "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-002-20261103/snapshots/germ_leopard_2a4m_can_sm.html"
+    },
+    {
+      "targetUnitId": "cn_mbt2000_sm",
+      "baseUnitId": "cn_mbt2000",
+      "targetWikiURL": "https://wiki.warthunder.com/unit/cn_mbt2000_sm",
+      "htmlSha256": "0231082f7a1bbd60fee2ae1af5dee021fd8f7c173e06f4377f65e8d25d7d1028",
+      "recordedHtmlSha256": "0231082f7a1bbd60fee2ae1af5dee021fd8f7c173e06f4377f65e8d25d7d1028",
+      "actualcheckedAt": "2026-11-02T18:06:25.003Z",
+      "wikiGameVersion": "2.59.0.92",
+      "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-002-20261103/snapshots/cn_mbt2000_sm.html"
+    },
+    {
+      "targetUnitId": "ussr_t_80ue1_sm",
+      "baseUnitId": "ussr_t_80ue1",
+      "targetWikiURL": "https://wiki.warthunder.com/unit/ussr_t_80ue1_sm",
+      "htmlSha256": "9a592b2f609339f21dba4f59c62051acdf0d5ed9f4234e62a2c06df24af32358",
+      "recordedHtmlSha256": "9a592b2f609339f21dba4f59c62051acdf0d5ed9f4234e62a2c06df24af32358",
+      "actualcheckedAt": "2026-11-02T18:27:55.309Z",
+      "wikiGameVersion": "2.59.0.92",
+      "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-005-20261103/snapshots/ussr_t_80ue1_sm.html"
+    },
+    {
+      "targetUnitId": "uk_m1a1_aim_abrams",
+      "baseUnitId": "us_m1a1_aim_abrams",
+      "targetWikiURL": "https://wiki.warthunder.com/unit/uk_m1a1_aim_abrams",
+      "htmlSha256": "34dc0e40f3a3f9d51e468dc270c17295868489519577863507bec1abea9127d6",
+      "recordedHtmlSha256": "34dc0e40f3a3f9d51e468dc270c17295868489519577863507bec1abea9127d6",
+      "actualcheckedAt": "2026-11-02T18:16:30.002Z",
+      "wikiGameVersion": "2.59.0.92",
+      "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-003-20261103/snapshots/uk_m1a1_aim_abrams.html"
+    },
+    {
+      "targetUnitId": "it_leopard_2a4",
+      "baseUnitId": "germ_leopard_2a4",
+      "targetWikiURL": "https://wiki.warthunder.com/unit/it_leopard_2a4",
+      "htmlSha256": "ac1ac8a7db01b63d7541d0f947d80499357d2e456b4b4db86000ae311548150f",
+      "recordedHtmlSha256": "ac1ac8a7db01b63d7541d0f947d80499357d2e456b4b4db86000ae311548150f",
+      "actualcheckedAt": "2026-11-02T09:04:50.411Z",
+      "wikiGameVersion": "2.59.0.92",
+      "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-004-20261102/snapshots/it_leopard_2a4.html"
+    },
+    {
+      "targetUnitId": "cn_al_khalid_1",
+      "baseUnitId": "cn_mbt2000",
+      "targetWikiURL": "https://wiki.warthunder.com/unit/cn_al_khalid_1",
+      "htmlSha256": "c9928543456e04a7db51184329e614d7dc74065bf44c449edd21be75c3620fd4",
+      "recordedHtmlSha256": "c9928543456e04a7db51184329e614d7dc74065bf44c449edd21be75c3620fd4",
+      "actualcheckedAt": "2026-11-02T18:06:10.160Z",
+      "wikiGameVersion": "2.59.0.92",
+      "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-002-20261103/snapshots/cn_al_khalid_1.html"
+    },
+    {
+      "targetUnitId": "us_m1a1_hc_usmc_sm",
+      "baseUnitId": "us_m1a1_hc_abrams",
+      "targetWikiURL": "https://wiki.warthunder.com/unit/us_m1a1_hc_usmc_sm",
+      "htmlSha256": "a1e8d3060a6a286a0f8b66c4be3db2a5969c646cb147eab9131b9acf466ddcf6",
+      "recordedHtmlSha256": "a1e8d3060a6a286a0f8b66c4be3db2a5969c646cb147eab9131b9acf466ddcf6",
+      "actualcheckedAt": "2026-11-02T18:17:27.380Z",
+      "wikiGameVersion": "2.59.0.92",
+      "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-003-20261103/snapshots/us_m1a1_hc_usmc_sm.html"
+    }
+  ]
+}

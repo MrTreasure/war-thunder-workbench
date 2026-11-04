@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { bootAppearance } from "../../src/boot-appearance.mjs";
+import { buildVehicleCards } from "./vehicle-cards.mjs";
 
 process.umask(0o077);
 const project = fileURLToPath(new URL("../../", import.meta.url));
@@ -72,7 +73,7 @@ let registry;
 try { registry = JSON.parse(await readFile(resolve(project, "data/tank-weakpoint-assets.json"), "utf8")); }
 catch (error) { if (error.code !== "ENOENT") throw error; }
 if (data.models.some((model) => model.baseVehicleReference)) {
-  const audit = JSON.parse(await readFile(resolve(project, "artifacts/weakpoints-exact-clone-audit-v254-20261104/report.json"), "utf8"));
+  const audit = JSON.parse(await readFile(resolve(project, "data/tank-weakpoint-base-proofs.json"), "utf8"));
   await validateBaseReferences(data, registry, audit.candidates, (path) => readFile(privatePath(path)), hash);
 }
 const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -168,6 +169,9 @@ function deliveryFallbacks(digest) {
   return asset ? [asset.url, asset.rawUrl] : [];
 }
 for (const model of data.models) {
+  const analysisExcerpt = model.displayImagePolicy === "analysis-excerpt";
+  if (model.displayImagePolicy && !analysisExcerpt) throw Error("Unknown image presentation policy");
+  if (analysisExcerpt && model.protectionEvidence?.length) throw Error("Excerpt evidence needs its own verified crop policy");
   if (model.scopeRole === "light_tank" && model.specialistWeakpointVerified !== true) throw Error("Scout/light vehicle needs verified specialist weakpoint evidence");
   if (!/^[a-z0-9_]+$/.test(model.id)) throw Error("Unsafe model identity");
   const cases = new Map();
@@ -258,7 +262,8 @@ for (const model of data.models) {
     if (!model.crop.every(Number.isInteger) || x < 0 || y < 0 || w <= 0 || h <= 0 || x + w > width || y + h > height) throw Error("Invalid crop");
     for (const pin of model.pins) if (![pin.x, pin.y].every((n) => Number.isFinite(n) && n >= 0 && n <= 1)) throw Error("Invalid annotation position");
     const photoFilter = x === 0 && y === 0 && w === width && h === height ? null : `crop=${w}:${h}:${x}:${y}`;
-    for (const [kind, filter] of [["photo", photoFilter], ["raw", null]]) {
+    if (analysisExcerpt && (!photoFilter || w * h > width * height / 2)) throw Error("Analysis excerpt must be a bounded native crop");
+    for (const [kind, filter] of analysisExcerpt ? [["photo", photoFilter]] : [["photo", photoFilter], ["raw", null]]) {
       const temporary = resolve(assets, `${model.id}-${kind}.next.webp`);
       const hosted = registry?.models?.[model.id]?.[kind];
       const sourceBody = await sourceImage(framePath, { modelId: model.id, kind, hosted, asset: registry?.assets?.find((entry) => entry.path === hosted?.path) }, filter);
@@ -277,6 +282,12 @@ for (const model of data.models) {
       model[kind === "photo" ? "imageFallbackUrls" : "rawFallbackUrls"] = fallbacks;
       model[kind === "photo" ? "imageFallbackUrl" : "rawFallbackUrl"] = fallbacks[0] || null;
       model[kind === "photo" ? "imageDelivery" : "rawDelivery"] = { bytes: body.length, sha256: digest, lossless: delivery.lossless, quality: delivery.quality, dimensionsUnchanged: true };
+    }
+    if (analysisExcerpt) {
+      model.rawUrl = model.imageUrl;
+      model.rawFallbackUrls = [...(model.imageFallbackUrls || [])];
+      model.rawFallbackUrl = model.imageFallbackUrl;
+      model.rawDelivery = { ...model.imageDelivery };
     }
     model.sourceFrameSHA256 = model.originalFrameSHA256 || hash(raw);
     Object.assign(item, { illustrated: true, sourceKind: staticImage ? source.kind : "video", frameTime: staticImage ? null : frame.decode.mediaTime, sourcePublishedAt: staticImage ? source.publishedAt : undefined, frameSHA256: hash(raw), sourceFrameSHA256: model.sourceFrameSHA256, frameSize: raw.length, imageQuality: model.imageQuality });
@@ -343,7 +354,7 @@ for (const trees of Object.values(treeData.trees)) for (const [countryId, tree] 
   for (const tier of tree?.ranks || []) for (const node of [...tier.research, ...tier.special]) for (const unit of node.members) {
     const proof = localization.vehicles[unit.id];
     const name = cleanName(proof?.nameEn === unit.name && proof.nameZhCN ? proof.nameZhCN : unit.name);
-    const entry = { name, nameEn: cleanName(unit.name), role: unit.role, rank: rankNumbers[tier.rank], rankLabel: tier.rank, country: countryId, localized: !!(proof?.nameEn === unit.name && proof.nameZhCN) };
+    const entry = { unit, name, nameEn: cleanName(unit.name), role: unit.role, rank: rankNumbers[tier.rank], rankLabel: tier.rank, country: countryId, localized: !!(proof?.nameEn === unit.name && proof.nameZhCN) };
     vehicleNames.set(unit.id, entry);
     for (const raw of [unit.name, name]) {
       const key = aliasKey(raw), choices = aliases.get(key) || new Set();
@@ -371,16 +382,25 @@ for (const model of data.models) {
   localizeAttacker(model.testContext, model.testCases?.find((test) => test.id === model.testContext?.caseId));
 }
 report.presentation = { locale: "zh-CN", vehicleNamesMatched: data.models.length, roles: presentationRoles, ranks: [...new Set(data.models.map((model) => Number(model.rank)))].sort((a, b) => a - b) };
+await buildVehicleCards(project, data.models, vehicleNames);
+report.presentation.vehicleCards = data.models.length;
 if (/\/vol1\/|\/home\/|artifacts\//.test(JSON.stringify(data))) throw Error("Private evidence paths must not enter the public sample payload");
 const symbols = await readFile(resolve(project, "src/assets/WTSymbols.ttf"));
 const fontFile = `weakpoints-symbols.${hash(symbols).slice(0, 16)}.ttf`;
 await writeFile(resolve(assets, fontFile), symbols);
 report.supportFiles = [{ file: fontFile, bytes: symbols.length, sha256: hash(symbols), kind: "symbol-font" }];
+const cardFont = await readFile(resolve(project, "src/assets/FiraSansCondensed-Regular.ttf"));
+const cardFontFile = `weakpoints-card.${hash(cardFont).slice(0, 16)}.ttf`;
+await writeFile(resolve(assets, cardFontFile), cardFont);
+report.supportFiles.push({ file: cardFontFile, bytes: cardFont.length, sha256: hash(cardFont), kind: "card-font" });
+const cardCss = (await readFile(resolve(project, "src/research-tree-game.css"), "utf8"))
+  .replace('./assets/FiraSansCondensed-Regular.ttf', './' + cardFontFile)
+  + "\n" + await readFile(resolve(project, "src/vehicle-tile.css"), "utf8");
 const appearance = JSON.parse(await readFile(resolve(project, "data/workbench-appearance.json"), "utf8"));
 const { apiBaseUrl } = JSON.parse(await readFile(resolve(project, "src/config/player-stats.json"), "utf8"));
 const backgroundCss = await readFile(resolve(project, "src/workbench-background.css"), "utf8");
 const backgroundDefaults = `:root{--wt-loading-background-image:url(${JSON.stringify(appearance.backgroundUrl)});--wt-loading-background-position:${appearance.positionX}% ${appearance.positionY}%}`;
-const css = Buffer.from(backgroundDefaults + "\n" + (await readFile(new URL("preview.css", import.meta.url), "utf8")).replaceAll("__SYMBOL_FONT__", fontFile) + "\n" + backgroundCss);
+const css = Buffer.from(backgroundDefaults + "\n" + cardCss + "\n" + (await readFile(new URL("preview.css", import.meta.url), "utf8")).replaceAll("__SYMBOL_FONT__", fontFile) + "\n" + backgroundCss);
 const js = Buffer.from("const SAMPLE = " + JSON.stringify(data) + `;\n(${bootAppearance.toString()})(${JSON.stringify(appearance)},${JSON.stringify(apiBaseUrl)});\n` + await readFile(new URL("preview.js", import.meta.url), "utf8"));
 const cssFile = `weakpoints-preview.${hash(css).slice(0, 16)}.css`, jsFile = `weakpoints-preview.${hash(js).slice(0, 16)}.js`;
 await writeFile(resolve(assets, cssFile), css); await writeFile(resolve(assets, jsFile), js);

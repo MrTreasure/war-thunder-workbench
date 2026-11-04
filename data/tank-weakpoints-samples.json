@@ -2299,7 +2299,62 @@
         "seconds": 4,
         "note": "自动装填；Wiki 主炮面板。"
       },
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.38235294117647056,
+          "y": 0.8023809523809524,
+          "label": "首下（画面偏左）",
+          "detail": "本帧未完成的绿色分布区域参考；不是独立实射或单点预计伤害结论。",
+          "kind": "conditional",
+          "caseId": "jp_type_10:BV1SJ2FBaEoC:243443",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+          "sourceTime": 243.443028,
+          "mainImageTime": 243.443028,
+          "actualShotObserved": false,
+          "regionNotHoveredSample": true,
+          "annotationSemantics": "visible-green-region-reference-not-independent-shot",
+          "evidence": {
+            "nativeXY": [
+              900,
+              562
+            ],
+            "crop": [
+              705,
+              225,
+              510,
+              420
+            ],
+            "frameSHA256": "7ff0e3e01578198ef450a5ce4614fb8855b09a929a075c864a5fd6e15e124d2c"
+          }
+        },
+        {
+          "x": 0.5882352941176471,
+          "y": 0.4642857142857143,
+          "label": "炮塔正面（画面右侧）",
+          "detail": "本帧未完成的绿色分布区域参考；不是独立实射或单点预计伤害结论。",
+          "kind": "conditional",
+          "caseId": "jp_type_10:BV1SJ2FBaEoC:243443",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+          "sourceTime": 243.443028,
+          "mainImageTime": 243.443028,
+          "actualShotObserved": false,
+          "regionNotHoveredSample": true,
+          "annotationSemantics": "visible-green-region-reference-not-independent-shot",
+          "evidence": {
+            "nativeXY": [
+              1005,
+              420
+            ],
+            "crop": [
+              705,
+              225,
+              510,
+              420
+            ],
+            "frameSHA256": "7ff0e3e01578198ef450a5ce4614fb8855b09a929a075c864a5fd6e15e124d2c"
+          }
+        }
+      ],
       "videoAdvice": [
         {
           "id": "jp_type_10:wiki-article:7181:self",
@@ -2324,10 +2379,19 @@
           }
         }
       ],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-video",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+        "kind": "video",
+        "bvid": "BV1SJ2FBaEoC",
+        "title": "战争雷霆：各系的现代坦克弱点大盘点！学会了你也能做到一炮一个",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-11-06T18:53:29+08:00",
+        "gameVersion": "2.49.0.98",
+        "sourceNoRepost": true
+      },
+      "status": "partial-native-region-evidence",
       "collectedAt": "2026-11-02",
-      "weaknessEvidenceStatus": "general-context-only",
+      "weaknessEvidenceStatus": "partial-native-region-evidence",
       "country": "japan",
       "countryName": "日本",
       "rank": 8,
@@ -2352,7 +2416,137 @@
           "time": null,
           "scopeNote": "10式/TKX联合评测资料；未作为本页局部弱点实测证据"
         }
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/SJ2-whole-frame-batch-v417-20261104/Type10/raw.png",
+      "originalFrameSHA256": "7ff0e3e01578198ef450a5ce4614fb8855b09a929a075c864a5fd6e15e124d2c",
+      "captureSHA256": "7ff0e3e01578198ef450a5ce4614fb8855b09a929a075c864a5fd6e15e124d2c",
+      "time": 243.443028,
+      "crop": [
+        705,
+        225,
+        510,
+        420
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "native-1080p-analysis-excerpt",
+      "mainImageUsable": true,
+      "mainViewKind": "external",
+      "mainViewNote": "历史版本2.49.0.98；防御分布仅44%，未完成。仅为原生局部分析节选，不放大；绿色区域不代表实射击杀，未知区域不能推定防护。 原生裁切510×420像素，未放大。",
+      "completeIllustration": false,
+      "coverageStatus": "partial",
+      "coverageNotice": "历史版本2.49.0.98；防御分布仅44%，未完成。仅为原生局部分析节选，不放大；绿色区域不代表实射击杀，未知区域不能推定防护。",
+      "limits": "历史版本2.49.0.98；防御分布仅44%，未完成。仅为原生局部分析节选，不放大；绿色区域不代表实射击杀，未知区域不能推定防护。",
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "testContext": {
+        "id": "jp_type_10:BV1SJ2FBaEoC:243443",
+        "vehicleId": "jp_type_10",
+        "sourceTime": 243.443028,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+        "attacker": "M1A1HC",
+        "attackerVehicleId": "us_m1a1_hc_abrams",
+        "shell": "M829A2",
+        "sourceShellLabelOriginal": "M829A2",
+        "rawUIType": null,
+        "shellType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "attackerVehicleId": "us_m1a1_hc_abrams",
+          "url": "https://wiki.warthunder.com/unit/us_m1a1_hc_abrams",
+          "sourceShellLabelOriginal": "M829A2",
+          "checkedAt": "2026-11-02T18:17:19.148Z",
+          "extractedAt": "2026-11-04T08:45:05.246Z",
+          "mainGun": "120 mm M256 cannon",
+          "officialShellName": "M829A2",
+          "gameVersion": "2.59.0.92",
+          "sourceHTMLSHA256": "0d1742f1a7f2b2f099f9614d6bb2e2529b7c0291d7c1addb3694cc6765d06f19",
+          "extractionReportSHA256": "bebe40e363860bcb5e3a28b1b9d853c74cbbd0900a0b09ed0d7ff38bd78e982d",
+          "note": "仅补精确攻击车型官方弹种分类；视频0米原生穿深与Wiki参考距离分别保留。"
+        },
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 629,
+        "sourceGameVersion": "2.49.0.98",
+        "actualShotObserved": false,
+        "outcome": null,
+        "actualUIObserved": true,
+        "sourceFrameSHA256": "7ff0e3e01578198ef450a5ce4614fb8855b09a929a075c864a5fd6e15e124d2c",
+        "impactAngleDegrees": null,
+        "evidenceKind": "partial-protection-distribution-not-independent-shot",
+        "distributionProgressPercent": 44,
+        "sourceKind": "video",
+        "predictionOnly": true,
+        "actualPenetration": null,
+        "kill": null,
+        "distributionCompletionStatus": "in-progress",
+        "note": "历史版本2.49.0.98的未完成分布。标点只定位可见绿色表面，不是独立实射；单点悬停结果只用于该样点。",
+        "caseId": "jp_type_10:BV1SJ2FBaEoC:243443"
+      },
+      "testCases": [
+        {
+          "id": "jp_type_10:BV1SJ2FBaEoC:243443",
+          "vehicleId": "jp_type_10",
+          "sourceTime": 243.443028,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+          "attacker": "M1A1HC",
+          "attackerVehicleId": "us_m1a1_hc_abrams",
+          "shell": "M829A2",
+          "sourceShellLabelOriginal": "M829A2",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "us_m1a1_hc_abrams",
+            "url": "https://wiki.warthunder.com/unit/us_m1a1_hc_abrams",
+            "sourceShellLabelOriginal": "M829A2",
+            "checkedAt": "2026-11-02T18:17:19.148Z",
+            "extractedAt": "2026-11-04T08:45:05.246Z",
+            "mainGun": "120 mm M256 cannon",
+            "officialShellName": "M829A2",
+            "gameVersion": "2.59.0.92",
+            "sourceHTMLSHA256": "0d1742f1a7f2b2f099f9614d6bb2e2529b7c0291d7c1addb3694cc6765d06f19",
+            "extractionReportSHA256": "bebe40e363860bcb5e3a28b1b9d853c74cbbd0900a0b09ed0d7ff38bd78e982d",
+            "note": "仅补精确攻击车型官方弹种分类；视频0米原生穿深与Wiki参考距离分别保留。"
+          },
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 629,
+          "sourceGameVersion": "2.49.0.98",
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "7ff0e3e01578198ef450a5ce4614fb8855b09a929a075c864a5fd6e15e124d2c",
+          "impactAngleDegrees": null,
+          "evidenceKind": "partial-protection-distribution-not-independent-shot",
+          "distributionProgressPercent": 44,
+          "sourceKind": "video",
+          "predictionOnly": true,
+          "actualPenetration": null,
+          "kill": null,
+          "distributionCompletionStatus": "in-progress",
+          "note": "历史版本2.49.0.98的未完成分布。标点只定位可见绿色表面，不是独立实射；单点悬停结果只用于该样点。"
+        }
+      ],
+      "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v434-20261104/jp_type_10-frame-proof.json",
+      "testContextEvidence": {
+        "sourceFrameFile": "artifacts/tank-weakpoints-expansion-20261102/sources/SJ2-whole-frame-batch-v417-20261104/Type10/raw.png",
+        "sourceFrameSHA256": "7ff0e3e01578198ef450a5ce4614fb8855b09a929a075c864a5fd6e15e124d2c",
+        "proofSnapshot": "artifacts/tank-weakpoints-image-pack-v434-20261104/jp_type_10-frame-proof.json",
+        "proofSnapshotSHA256": "ab2dfff2ca37c09d522873e3349490b49376d8c67b5eed04e2438745f54f913b",
+        "readBasis": "vehicle-scoped native QA; attack-source selectors separate from target identity",
+        "sourceNoRepost": true,
+        "originalFullFramePrivate": true
+      },
+      "distributionProgressPercent": 44,
+      "distributionCompletionStatus": "in-progress",
+      "sourceGameVersion": "2.49.0.98",
+      "frameSnapshotSHA256": "ab2dfff2ca37c09d522873e3349490b49376d8c67b5eed04e2438745f54f913b"
     },
     {
       "id": "cn_ztz_99a",
@@ -2686,7 +2880,89 @@
         "seconds": 5,
         "note": "自动装填；Wiki 主炮面板。"
       },
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.329268,
+          "y": 0.322581,
+          "label": "炮塔正面（画面左侧）",
+          "detail": "本帧未完成的绿色分布区域参考；不是独立实射或单点预计伤害结论。",
+          "kind": "conditional",
+          "caseId": "fr_leclerc_s1:BV1SJ2FBaEoC:285351",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+          "sourceTime": 285.351209,
+          "mainImageTime": 285.351209,
+          "actualShotObserved": false,
+          "regionNotHoveredSample": true,
+          "annotationSemantics": "visible-green-region-reference-not-independent-shot",
+          "evidence": {
+            "nativeXY": [
+              885,
+              390
+            ],
+            "crop": [
+              750,
+              290,
+              410,
+              310
+            ],
+            "frameSHA256": "d32da2e3bffb2111a526f57a22b4d7a88baad696dff1cb60803ebf8dc04363ea"
+          }
+        },
+        {
+          "x": 0.439024,
+          "y": 0.509677,
+          "label": "车体前部",
+          "detail": "本帧未完成的绿色分布区域参考；不是独立实射或单点预计伤害结论。",
+          "kind": "conditional",
+          "caseId": "fr_leclerc_s1:BV1SJ2FBaEoC:285351",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+          "sourceTime": 285.351209,
+          "mainImageTime": 285.351209,
+          "actualShotObserved": false,
+          "regionNotHoveredSample": true,
+          "annotationSemantics": "visible-green-region-reference-not-independent-shot",
+          "evidence": {
+            "nativeXY": [
+              930,
+              448
+            ],
+            "crop": [
+              750,
+              290,
+              410,
+              310
+            ],
+            "frameSHA256": "d32da2e3bffb2111a526f57a22b4d7a88baad696dff1cb60803ebf8dc04363ea"
+          }
+        },
+        {
+          "x": 0.439024,
+          "y": 0.76129,
+          "label": "车体首下",
+          "detail": "本帧未完成的绿色分布区域参考；不是独立实射或单点预计伤害结论。",
+          "kind": "conditional",
+          "caseId": "fr_leclerc_s1:BV1SJ2FBaEoC:285351",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+          "sourceTime": 285.351209,
+          "mainImageTime": 285.351209,
+          "actualShotObserved": false,
+          "regionNotHoveredSample": true,
+          "annotationSemantics": "visible-green-region-reference-not-independent-shot",
+          "evidence": {
+            "nativeXY": [
+              930,
+              526
+            ],
+            "crop": [
+              750,
+              290,
+              410,
+              310
+            ],
+            "frameSHA256": "d32da2e3bffb2111a526f57a22b4d7a88baad696dff1cb60803ebf8dc04363ea"
+          }
+        }
+      ],
       "videoAdvice": [
         {
           "id": "v20-author-leclerc-s1",
@@ -2755,10 +3031,19 @@
           "sourceTimeNote": "防护段首次观察样本时间；不是精确字幕 cue。目标 S1 为视频来源归因，画面悬停结果为预估。"
         }
       ],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-video",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+        "kind": "video",
+        "bvid": "BV1SJ2FBaEoC",
+        "title": "战争雷霆：各系的现代坦克弱点大盘点！学会了你也能做到一炮一个",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-11-06T18:53:29+08:00",
+        "gameVersion": "2.49.0.98",
+        "sourceNoRepost": true
+      },
+      "status": "partial-native-region-evidence",
       "collectedAt": "2026-11-02",
-      "weaknessEvidenceStatus": "explicit-location",
+      "weaknessEvidenceStatus": "partial-native-region-evidence",
       "country": "france",
       "countryName": "法国",
       "rank": 8,
@@ -2783,7 +3068,165 @@
           "time": 328.548233,
           "scopeNote": "作者归因文字；非独立试射，原文私有归档。"
         }
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/SJ2-exterior-completion-v428-20261104/Leclerc/raw.png",
+      "originalFrameSHA256": "d32da2e3bffb2111a526f57a22b4d7a88baad696dff1cb60803ebf8dc04363ea",
+      "captureSHA256": "d32da2e3bffb2111a526f57a22b4d7a88baad696dff1cb60803ebf8dc04363ea",
+      "time": 285.351209,
+      "crop": [
+        750,
+        290,
+        410,
+        310
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "native-1080p-analysis-excerpt",
+      "mainImageUsable": true,
+      "mainViewKind": "external",
+      "mainViewNote": "历史版本2.49.0.98；防御分布仅45%，未完成。仅为原生局部分析节选，不放大；绿色区域不代表实射击杀，未知区域不能推定防护。右履带边缘受原生提示浮层遮挡，保留原状；单点559毫米/预测后效不推广到三个参考点。 原生裁切410×310像素，未放大。",
+      "completeIllustration": false,
+      "coverageStatus": "partial",
+      "coverageNotice": "历史版本2.49.0.98；防御分布仅45%，未完成。仅为原生局部分析节选，不放大；绿色区域不代表实射击杀，未知区域不能推定防护。右履带边缘受原生提示浮层遮挡，保留原状；单点559毫米/预测后效不推广到三个参考点。",
+      "limits": "历史版本2.49.0.98；防御分布仅45%，未完成。仅为原生局部分析节选，不放大；绿色区域不代表实射击杀，未知区域不能推定防护。右履带边缘受原生提示浮层遮挡，保留原状；单点559毫米/预测后效不推广到三个参考点。",
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "testContext": {
+        "id": "fr_leclerc_s1:BV1SJ2FBaEoC:285351",
+        "vehicleId": "fr_leclerc_s1",
+        "sourceTime": 285.351209,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+        "attacker": "M1A1HC",
+        "attackerVehicleId": "us_m1a1_hc_abrams",
+        "shell": "M829A2",
+        "sourceShellLabelOriginal": "M829A2",
+        "rawUIType": null,
+        "shellType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "attackerVehicleId": "us_m1a1_hc_abrams",
+          "url": "https://wiki.warthunder.com/unit/us_m1a1_hc_abrams",
+          "sourceShellLabelOriginal": "M829A2",
+          "checkedAt": "2026-11-02T18:17:19.148Z",
+          "extractedAt": "2026-11-04T08:45:05.246Z",
+          "mainGun": "120 mm M256 cannon",
+          "officialShellName": "M829A2",
+          "gameVersion": "2.59.0.92",
+          "sourceHTMLSHA256": "0d1742f1a7f2b2f099f9614d6bb2e2529b7c0291d7c1addb3694cc6765d06f19",
+          "extractionReportSHA256": "bebe40e363860bcb5e3a28b1b9d853c74cbbd0900a0b09ed0d7ff38bd78e982d",
+          "note": "仅补精确攻击车型官方弹种分类；视频0米原生穿深与Wiki参考距离分别保留。"
+        },
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 629,
+        "sourceGameVersion": "2.49.0.98",
+        "actualShotObserved": false,
+        "outcome": null,
+        "actualUIObserved": true,
+        "sourceFrameSHA256": "d32da2e3bffb2111a526f57a22b4d7a88baad696dff1cb60803ebf8dc04363ea",
+        "impactAngleDegrees": 18,
+        "evidenceKind": "partial-protection-distribution-not-independent-shot",
+        "distributionProgressPercent": 45,
+        "sourceKind": "video",
+        "predictionOnly": true,
+        "actualPenetration": null,
+        "kill": null,
+        "distributionCompletionStatus": "in-progress",
+        "equivalentArmorMm": 559,
+        "azimuthDegrees": 1,
+        "prediction": "能够击穿",
+        "predictedDamageComponents": [
+          "驾驶员",
+          "车长",
+          "油箱",
+          "炮手"
+        ],
+        "hoverSampleNativeXYApprox": [
+          1008,
+          488
+        ],
+        "hoverSampleIsNotRegionLocator": true,
+        "note": "历史版本2.49.0.98的未完成分布。标点只定位可见绿色表面，不是独立实射；单点悬停结果只用于该样点。",
+        "caseId": "fr_leclerc_s1:BV1SJ2FBaEoC:285351"
+      },
+      "testCases": [
+        {
+          "id": "fr_leclerc_s1:BV1SJ2FBaEoC:285351",
+          "vehicleId": "fr_leclerc_s1",
+          "sourceTime": 285.351209,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+          "attacker": "M1A1HC",
+          "attackerVehicleId": "us_m1a1_hc_abrams",
+          "shell": "M829A2",
+          "sourceShellLabelOriginal": "M829A2",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "us_m1a1_hc_abrams",
+            "url": "https://wiki.warthunder.com/unit/us_m1a1_hc_abrams",
+            "sourceShellLabelOriginal": "M829A2",
+            "checkedAt": "2026-11-02T18:17:19.148Z",
+            "extractedAt": "2026-11-04T08:45:05.246Z",
+            "mainGun": "120 mm M256 cannon",
+            "officialShellName": "M829A2",
+            "gameVersion": "2.59.0.92",
+            "sourceHTMLSHA256": "0d1742f1a7f2b2f099f9614d6bb2e2529b7c0291d7c1addb3694cc6765d06f19",
+            "extractionReportSHA256": "bebe40e363860bcb5e3a28b1b9d853c74cbbd0900a0b09ed0d7ff38bd78e982d",
+            "note": "仅补精确攻击车型官方弹种分类；视频0米原生穿深与Wiki参考距离分别保留。"
+          },
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 629,
+          "sourceGameVersion": "2.49.0.98",
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "d32da2e3bffb2111a526f57a22b4d7a88baad696dff1cb60803ebf8dc04363ea",
+          "impactAngleDegrees": 18,
+          "evidenceKind": "partial-protection-distribution-not-independent-shot",
+          "distributionProgressPercent": 45,
+          "sourceKind": "video",
+          "predictionOnly": true,
+          "actualPenetration": null,
+          "kill": null,
+          "distributionCompletionStatus": "in-progress",
+          "equivalentArmorMm": 559,
+          "azimuthDegrees": 1,
+          "prediction": "能够击穿",
+          "predictedDamageComponents": [
+            "驾驶员",
+            "车长",
+            "油箱",
+            "炮手"
+          ],
+          "hoverSampleNativeXYApprox": [
+            1008,
+            488
+          ],
+          "hoverSampleIsNotRegionLocator": true,
+          "note": "历史版本2.49.0.98的未完成分布。标点只定位可见绿色表面，不是独立实射；单点悬停结果只用于该样点。"
+        }
+      ],
+      "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v434-20261104/fr_leclerc_s1-frame-proof.json",
+      "testContextEvidence": {
+        "sourceFrameFile": "artifacts/tank-weakpoints-expansion-20261102/sources/SJ2-exterior-completion-v428-20261104/Leclerc/raw.png",
+        "sourceFrameSHA256": "d32da2e3bffb2111a526f57a22b4d7a88baad696dff1cb60803ebf8dc04363ea",
+        "proofSnapshot": "artifacts/tank-weakpoints-image-pack-v434-20261104/fr_leclerc_s1-frame-proof.json",
+        "proofSnapshotSHA256": "35cfd672d8798a401ee60847f8cb60c703802d7b42e72802ebd72fdbd43990eb",
+        "readBasis": "vehicle-scoped native QA; attack-source selectors separate from target identity",
+        "sourceNoRepost": true,
+        "originalFullFramePrivate": true
+      },
+      "distributionProgressPercent": 45,
+      "distributionCompletionStatus": "in-progress",
+      "sourceGameVersion": "2.49.0.98",
+      "frameSnapshotSHA256": "35cfd672d8798a401ee60847f8cb60c703802d7b42e72802ebd72fdbd43990eb"
     },
     {
       "id": "sw_strv_122",
@@ -5645,10 +6088,74 @@
       "rank": 7,
       "era": "modern",
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.289474,
+          "y": 0.333333,
+          "label": "炮塔正面（画面左侧）",
+          "detail": "本帧未完成的绿色分布区域参考；不是独立实射或单点预计伤害结论。",
+          "kind": "conditional",
+          "caseId": "jp_type_90:BV1SJ2FBaEoC:224015",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+          "sourceTime": 224.014981,
+          "mainImageTime": 224.014981,
+          "actualShotObserved": false,
+          "regionNotHoveredSample": true,
+          "annotationSemantics": "visible-green-region-reference-not-independent-shot",
+          "evidence": {
+            "nativeXY": [
+              855,
+              390
+            ],
+            "crop": [
+              690,
+              255,
+              570,
+              405
+            ],
+            "frameSHA256": "f92d9e856d848e3640cddeb8e7724c3074fdcd34f309b78817f7959286859538"
+          }
+        },
+        {
+          "x": 0.473684,
+          "y": 0.592593,
+          "label": "车体前部中央",
+          "detail": "本帧未完成的绿色分布区域参考；不是独立实射或单点预计伤害结论。",
+          "kind": "conditional",
+          "caseId": "jp_type_90:BV1SJ2FBaEoC:224015",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+          "sourceTime": 224.014981,
+          "mainImageTime": 224.014981,
+          "actualShotObserved": false,
+          "regionNotHoveredSample": true,
+          "annotationSemantics": "visible-green-region-reference-not-independent-shot",
+          "evidence": {
+            "nativeXY": [
+              960,
+              495
+            ],
+            "crop": [
+              690,
+              255,
+              570,
+              405
+            ],
+            "frameSHA256": "f92d9e856d848e3640cddeb8e7724c3074fdcd34f309b78817f7959286859538"
+          }
+        }
+      ],
       "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+        "kind": "video",
+        "bvid": "BV1SJ2FBaEoC",
+        "title": "战争雷霆：各系的现代坦克弱点大盘点！学会了你也能做到一炮一个",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-11-06T18:53:29+08:00",
+        "gameVersion": "2.49.0.98",
+        "sourceNoRepost": true
+      },
+      "status": "partial-native-region-evidence",
       "wikiUrl": "https://wiki.warthunder.com/unit/jp_type_90",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-20261102/snapshots/jp_type_90.json",
@@ -5668,7 +6175,137 @@
         "note": "仅主炮面板；待发弹耗尽后的持续装填不可套用自动装填标称值。"
       },
       "collectedAt": "2026-11-02",
-      "weaknessEvidenceStatus": "general-context-only"
+      "weaknessEvidenceStatus": "partial-native-region-evidence",
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/SJ2-targeted-completion-v435-20261104/Type90/raw.png",
+      "originalFrameSHA256": "f92d9e856d848e3640cddeb8e7724c3074fdcd34f309b78817f7959286859538",
+      "captureSHA256": "f92d9e856d848e3640cddeb8e7724c3074fdcd34f309b78817f7959286859538",
+      "time": 224.014981,
+      "crop": [
+        690,
+        255,
+        570,
+        405
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "native-1080p-analysis-excerpt",
+      "mainImageUsable": true,
+      "mainViewKind": "external",
+      "mainViewNote": "历史版本2.49.0.98；防御分布仅25%，未完成。仅为原生局部分析节选，不放大；绿色区域不代表实射击杀，未知区域不能推定防护。原生标题为标准90式；口播90B不作为实际型号。 原生裁切570×405像素，未放大。",
+      "completeIllustration": false,
+      "coverageStatus": "partial",
+      "coverageNotice": "历史版本2.49.0.98；防御分布仅25%，未完成。仅为原生局部分析节选，不放大；绿色区域不代表实射击杀，未知区域不能推定防护。原生标题为标准90式；口播90B不作为实际型号。",
+      "limits": "历史版本2.49.0.98；防御分布仅25%，未完成。仅为原生局部分析节选，不放大；绿色区域不代表实射击杀，未知区域不能推定防护。原生标题为标准90式；口播90B不作为实际型号。",
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "testContext": {
+        "id": "jp_type_90:BV1SJ2FBaEoC:224015",
+        "vehicleId": "jp_type_90",
+        "sourceTime": 224.014981,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+        "attacker": "M1A1HC",
+        "attackerVehicleId": "us_m1a1_hc_abrams",
+        "shell": "M829A2",
+        "sourceShellLabelOriginal": "M829A2",
+        "rawUIType": null,
+        "shellType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "attackerVehicleId": "us_m1a1_hc_abrams",
+          "url": "https://wiki.warthunder.com/unit/us_m1a1_hc_abrams",
+          "sourceShellLabelOriginal": "M829A2",
+          "checkedAt": "2026-11-02T18:17:19.148Z",
+          "extractedAt": "2026-11-04T08:45:05.246Z",
+          "mainGun": "120 mm M256 cannon",
+          "officialShellName": "M829A2",
+          "gameVersion": "2.59.0.92",
+          "sourceHTMLSHA256": "0d1742f1a7f2b2f099f9614d6bb2e2529b7c0291d7c1addb3694cc6765d06f19",
+          "extractionReportSHA256": "bebe40e363860bcb5e3a28b1b9d853c74cbbd0900a0b09ed0d7ff38bd78e982d",
+          "note": "仅补精确攻击车型官方弹种分类；视频0米原生穿深与Wiki参考距离分别保留。"
+        },
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 629,
+        "sourceGameVersion": "2.49.0.98",
+        "actualShotObserved": false,
+        "outcome": null,
+        "actualUIObserved": true,
+        "sourceFrameSHA256": "f92d9e856d848e3640cddeb8e7724c3074fdcd34f309b78817f7959286859538",
+        "impactAngleDegrees": null,
+        "evidenceKind": "partial-protection-distribution-not-independent-shot",
+        "distributionProgressPercent": 25,
+        "sourceKind": "video",
+        "predictionOnly": true,
+        "actualPenetration": null,
+        "kill": null,
+        "distributionCompletionStatus": "in-progress",
+        "note": "历史版本2.49.0.98的未完成分布。标点只定位可见绿色表面，不是独立实射；单点悬停结果只用于该样点。",
+        "caseId": "jp_type_90:BV1SJ2FBaEoC:224015"
+      },
+      "testCases": [
+        {
+          "id": "jp_type_90:BV1SJ2FBaEoC:224015",
+          "vehicleId": "jp_type_90",
+          "sourceTime": 224.014981,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+          "attacker": "M1A1HC",
+          "attackerVehicleId": "us_m1a1_hc_abrams",
+          "shell": "M829A2",
+          "sourceShellLabelOriginal": "M829A2",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "us_m1a1_hc_abrams",
+            "url": "https://wiki.warthunder.com/unit/us_m1a1_hc_abrams",
+            "sourceShellLabelOriginal": "M829A2",
+            "checkedAt": "2026-11-02T18:17:19.148Z",
+            "extractedAt": "2026-11-04T08:45:05.246Z",
+            "mainGun": "120 mm M256 cannon",
+            "officialShellName": "M829A2",
+            "gameVersion": "2.59.0.92",
+            "sourceHTMLSHA256": "0d1742f1a7f2b2f099f9614d6bb2e2529b7c0291d7c1addb3694cc6765d06f19",
+            "extractionReportSHA256": "bebe40e363860bcb5e3a28b1b9d853c74cbbd0900a0b09ed0d7ff38bd78e982d",
+            "note": "仅补精确攻击车型官方弹种分类；视频0米原生穿深与Wiki参考距离分别保留。"
+          },
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 629,
+          "sourceGameVersion": "2.49.0.98",
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "f92d9e856d848e3640cddeb8e7724c3074fdcd34f309b78817f7959286859538",
+          "impactAngleDegrees": null,
+          "evidenceKind": "partial-protection-distribution-not-independent-shot",
+          "distributionProgressPercent": 25,
+          "sourceKind": "video",
+          "predictionOnly": true,
+          "actualPenetration": null,
+          "kill": null,
+          "distributionCompletionStatus": "in-progress",
+          "note": "历史版本2.49.0.98的未完成分布。标点只定位可见绿色表面，不是独立实射；单点悬停结果只用于该样点。"
+        }
+      ],
+      "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v434-20261104/jp_type_90-frame-proof.json",
+      "testContextEvidence": {
+        "sourceFrameFile": "artifacts/tank-weakpoints-expansion-20261102/sources/SJ2-targeted-completion-v435-20261104/Type90/raw.png",
+        "sourceFrameSHA256": "f92d9e856d848e3640cddeb8e7724c3074fdcd34f309b78817f7959286859538",
+        "proofSnapshot": "artifacts/tank-weakpoints-image-pack-v434-20261104/jp_type_90-frame-proof.json",
+        "proofSnapshotSHA256": "752816539273612856d03632961077ac9302375828783964b69616f3d2331d8e",
+        "readBasis": "vehicle-scoped native QA; attack-source selectors separate from target identity",
+        "sourceNoRepost": true,
+        "originalFullFramePrivate": true
+      },
+      "distributionProgressPercent": 25,
+      "distributionCompletionStatus": "in-progress",
+      "sourceGameVersion": "2.49.0.98",
+      "frameSnapshotSHA256": "752816539273612856d03632961077ac9302375828783964b69616f3d2331d8e"
     },
     {
       "id": "sw_strv_103c",
@@ -9541,8 +10178,43 @@
       "eraBasis": "具体改型技术形成时期证据尚未核实；不按采购、交付或游戏加入日期补年代。",
       "collectedAt": "2026-11-02T08:59:16.373Z",
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
+      "videoAdvice": [
+        {
+          "id": "v360-object435-author-lower-side",
+          "label": "作者观点：侧下部防护与乘员区",
+          "text": "作者提示侧下部防护较薄，攻击侧面时应注意乘员区；示例的攻击车辆、距离及完整弹药条件不可读，不能当作必穿或必杀保证。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1iYdrYoEPR/",
+          "sourceTime": 144.88,
+          "sourcePublishedAt": "2025-04-14",
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "kind": "attributed-author-commentary-not-tested-result",
+            "timeRanges": [
+              {
+                "start": 144.88,
+                "end": 149.54
+              },
+              {
+                "start": 161.13,
+                "end": 168.829
+              }
+            ],
+            "actualShotObserved": false
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1iYdrYoEPR/",
+        "title": "【战争雷霆】“从115滑入门到14.5精通”——435工程 测评/集锦",
+        "author": "广寒宫主_Official",
+        "publishedAt": "2025-04-14",
+        "kind": "video",
+        "gameVersion": null
+      },
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_object_435",
       "wikiGameVersion": "2.59.0.92",
@@ -9566,6 +10238,16 @@
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。",
         "具体改型年代待核实，era保留null。"
+      ],
+      "relatedSources": [
+        {
+          "url": "https://www.bilibili.com/video/BV1iYdrYoEPR/",
+          "title": "【战争雷霆】“从115滑入门到14.5精通”——435工程 测评/集锦",
+          "author": "广寒宫主_Official",
+          "publishedAt": "2025-04-14",
+          "kind": "video",
+          "gameVersion": null
+        }
       ]
     },
     {
@@ -13712,10 +14394,74 @@
       "eraStatus": "reviewed-unit-prose",
       "eraBasis": "挑战者Mk2为1985至86年生产改型，Wiki明确称车体和首下脆弱，强炮塔宜利用地形隐蔽车体。",
       "collectedAt": "2026-11-02T09:48:29.982Z",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.34285714285714286,
+          "y": 0.5588235294117647,
+          "label": "车体前部（画面左侧）",
+          "detail": "本帧未完成的绿色分布区域参考；不是独立实射或单点预计伤害结论。",
+          "kind": "conditional",
+          "caseId": "uk_challenger_1:BV1SJ2FBaEoC:214298",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+          "sourceTime": 214.298387,
+          "mainImageTime": 214.298387,
+          "actualShotObserved": false,
+          "regionNotHoveredSample": true,
+          "annotationSemantics": "visible-green-region-reference-not-independent-shot",
+          "evidence": {
+            "nativeXY": [
+              885,
+              495
+            ],
+            "crop": [
+              705,
+              210,
+              525,
+              510
+            ],
+            "frameSHA256": "4d6ac805b4e4a0a22677d5c22b4af0af0e589e65df5412551884d2b08160d70b"
+          }
+        },
+        {
+          "x": 0.6285714285714286,
+          "y": 0.5882352941176471,
+          "label": "车体前部（画面右侧）",
+          "detail": "本帧未完成的绿色分布区域参考；不是独立实射或单点预计伤害结论。",
+          "kind": "conditional",
+          "caseId": "uk_challenger_1:BV1SJ2FBaEoC:214298",
+          "sourceUrl": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+          "sourceTime": 214.298387,
+          "mainImageTime": 214.298387,
+          "actualShotObserved": false,
+          "regionNotHoveredSample": true,
+          "annotationSemantics": "visible-green-region-reference-not-independent-shot",
+          "evidence": {
+            "nativeXY": [
+              1035,
+              510
+            ],
+            "crop": [
+              705,
+              210,
+              525,
+              510
+            ],
+            "frameSHA256": "4d6ac805b4e4a0a22677d5c22b4af0af0e589e65df5412551884d2b08160d70b"
+          }
+        }
+      ],
       "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+        "kind": "video",
+        "bvid": "BV1SJ2FBaEoC",
+        "title": "战争雷霆：各系的现代坦克弱点大盘点！学会了你也能做到一炮一个",
+        "author": "罗非鱼解说",
+        "publishedAt": "2025-11-06T18:53:29+08:00",
+        "gameVersion": "2.49.0.98",
+        "sourceNoRepost": true
+      },
+      "status": "partial-native-region-evidence",
       "wikiUrl": "https://wiki.warthunder.com/unit/uk_challenger_1",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-007-20261102/snapshots/uk_challenger_1.json",
@@ -13734,7 +14480,7 @@
         "mechanism": "manual",
         "note": "基础乘员→王牌乘员（Wiki主炮面板）"
       },
-      "weaknessEvidenceStatus": "explicit-location",
+      "weaknessEvidenceStatus": "partial-native-region-evidence",
       "qualitativeWeakpoints": [
         {
           "locationZh": "车体及首下装甲板",
@@ -13743,7 +14489,137 @@
       ],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/SJ2-whole-frame-batch-v417-20261104/Challenger/raw.png",
+      "originalFrameSHA256": "4d6ac805b4e4a0a22677d5c22b4af0af0e589e65df5412551884d2b08160d70b",
+      "captureSHA256": "4d6ac805b4e4a0a22677d5c22b4af0af0e589e65df5412551884d2b08160d70b",
+      "time": 214.298387,
+      "crop": [
+        705,
+        210,
+        525,
+        510
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "native-1080p-analysis-excerpt",
+      "mainImageUsable": true,
+      "mainViewKind": "external",
+      "mainViewNote": "历史版本2.49.0.98；防御分布仅91%，未完成。仅为原生局部分析节选，不放大；绿色区域不代表实射击杀，未知区域不能推定防护。 原生裁切525×510像素，未放大。",
+      "completeIllustration": false,
+      "coverageStatus": "partial",
+      "coverageNotice": "历史版本2.49.0.98；防御分布仅91%，未完成。仅为原生局部分析节选，不放大；绿色区域不代表实射击杀，未知区域不能推定防护。",
+      "limits": "历史版本2.49.0.98；防御分布仅91%，未完成。仅为原生局部分析节选，不放大；绿色区域不代表实射击杀，未知区域不能推定防护。",
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "testContext": {
+        "id": "uk_challenger_1:BV1SJ2FBaEoC:214298",
+        "vehicleId": "uk_challenger_1",
+        "sourceTime": 214.298387,
+        "sourceUrl": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+        "attacker": "M1128",
+        "attackerVehicleId": "us_m1128_mgs",
+        "shell": "M774",
+        "sourceShellLabelOriginal": "M774",
+        "rawUIType": null,
+        "shellType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "attackerVehicleId": "us_m1128_mgs",
+          "url": "https://wiki.warthunder.com/unit/us_m1128_mgs",
+          "sourceShellLabelOriginal": "M774",
+          "checkedAt": "2026-10-24T15:35:45.981055Z",
+          "extractedAt": "2026-11-04T08:45:05.314Z",
+          "mainGun": "105 mm M68A1E8 cannon",
+          "officialShellName": "M774",
+          "gameVersion": "2.59.0.49",
+          "sourceHTMLSHA256": "32b6bd435b46146ea1f9554b054e6cdf8a7a25cfbecba7a24812c95442bc93ef",
+          "extractionReportSHA256": "bebe40e363860bcb5e3a28b1b9d853c74cbbd0900a0b09ed0d7ff38bd78e982d",
+          "note": "仅补精确攻击车型官方弹种分类；视频0米原生穿深与Wiki参考距离分别保留。"
+        },
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 372,
+        "sourceGameVersion": "2.49.0.98",
+        "actualShotObserved": false,
+        "outcome": null,
+        "actualUIObserved": true,
+        "sourceFrameSHA256": "4d6ac805b4e4a0a22677d5c22b4af0af0e589e65df5412551884d2b08160d70b",
+        "impactAngleDegrees": null,
+        "evidenceKind": "partial-protection-distribution-not-independent-shot",
+        "distributionProgressPercent": 91,
+        "sourceKind": "video",
+        "predictionOnly": true,
+        "actualPenetration": null,
+        "kill": null,
+        "distributionCompletionStatus": "in-progress",
+        "note": "历史版本2.49.0.98的未完成分布。标点只定位可见绿色表面，不是独立实射；单点悬停结果只用于该样点。",
+        "caseId": "uk_challenger_1:BV1SJ2FBaEoC:214298"
+      },
+      "testCases": [
+        {
+          "id": "uk_challenger_1:BV1SJ2FBaEoC:214298",
+          "vehicleId": "uk_challenger_1",
+          "sourceTime": 214.298387,
+          "sourceUrl": "https://www.bilibili.com/video/BV1SJ2FBaEoC/",
+          "attacker": "M1128",
+          "attackerVehicleId": "us_m1128_mgs",
+          "shell": "M774",
+          "sourceShellLabelOriginal": "M774",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "us_m1128_mgs",
+            "url": "https://wiki.warthunder.com/unit/us_m1128_mgs",
+            "sourceShellLabelOriginal": "M774",
+            "checkedAt": "2026-10-24T15:35:45.981055Z",
+            "extractedAt": "2026-11-04T08:45:05.314Z",
+            "mainGun": "105 mm M68A1E8 cannon",
+            "officialShellName": "M774",
+            "gameVersion": "2.59.0.49",
+            "sourceHTMLSHA256": "32b6bd435b46146ea1f9554b054e6cdf8a7a25cfbecba7a24812c95442bc93ef",
+            "extractionReportSHA256": "bebe40e363860bcb5e3a28b1b9d853c74cbbd0900a0b09ed0d7ff38bd78e982d",
+            "note": "仅补精确攻击车型官方弹种分类；视频0米原生穿深与Wiki参考距离分别保留。"
+          },
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 372,
+          "sourceGameVersion": "2.49.0.98",
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "4d6ac805b4e4a0a22677d5c22b4af0af0e589e65df5412551884d2b08160d70b",
+          "impactAngleDegrees": null,
+          "evidenceKind": "partial-protection-distribution-not-independent-shot",
+          "distributionProgressPercent": 91,
+          "sourceKind": "video",
+          "predictionOnly": true,
+          "actualPenetration": null,
+          "kill": null,
+          "distributionCompletionStatus": "in-progress",
+          "note": "历史版本2.49.0.98的未完成分布。标点只定位可见绿色表面，不是独立实射；单点悬停结果只用于该样点。"
+        }
+      ],
+      "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v434-20261104/uk_challenger_1-frame-proof.json",
+      "testContextEvidence": {
+        "sourceFrameFile": "artifacts/tank-weakpoints-expansion-20261102/sources/SJ2-whole-frame-batch-v417-20261104/Challenger/raw.png",
+        "sourceFrameSHA256": "4d6ac805b4e4a0a22677d5c22b4af0af0e589e65df5412551884d2b08160d70b",
+        "proofSnapshot": "artifacts/tank-weakpoints-image-pack-v434-20261104/uk_challenger_1-frame-proof.json",
+        "proofSnapshotSHA256": "fb4a069782a4105cf4849c67d625ef1272d01764f5c07c5dc024fb4c5f526e6c",
+        "readBasis": "vehicle-scoped native QA; attack-source selectors separate from target identity",
+        "sourceNoRepost": true,
+        "originalFullFramePrivate": true
+      },
+      "distributionProgressPercent": 91,
+      "distributionCompletionStatus": "in-progress",
+      "sourceGameVersion": "2.49.0.98",
+      "frameSnapshotSHA256": "fb4a069782a4105cf4849c67d625ef1272d01764f5c07c5dc024fb4c5f526e6c"
     },
     {
       "id": "us_m60_120s",
@@ -14359,8 +15235,39 @@
       "eraBasis": "VT4在2012年展示概念、2014年展示完成车，主炮面板125毫米ZPT98自动装填6.7秒。",
       "collectedAt": "2026-11-02T09:51:44.039Z",
       "pins": [],
-      "videoAdvice": [],
-      "source": {},
+      "videoAdvice": [
+        {
+          "id": "v386-cn_vt_4-author-context",
+          "label": "作者观点：局部防护与布局",
+          "text": "作者认为VT4首下防护较弱、正面对敌容易被击穿。画面仅为装甲模块与内部布局展示，绿色是选中模块高亮，没有攻击配置或实射验证。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1C2kmByEmz/",
+          "sourceTime": 309.89,
+          "sourcePublishedAt": "2025-11-16",
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "kind": "attributed-author-commentary-not-tested-result",
+            "timeRanges": [
+              {
+                "start": 309.89,
+                "end": 320.98
+              }
+            ],
+            "actualShotObserved": false
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1C2kmByEmz/",
+        "title": "外贸性价比之王VT4《战争雷霆》〔载具简评〕",
+        "author": "克虏伯kluub",
+        "publishedAt": "2025-11-16",
+        "kind": "video",
+        "gameVersion": null
+      },
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/cn_vt_4",
       "wikiGameVersion": "2.59.0.92",
@@ -14384,6 +15291,16 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
+      ],
+      "relatedSources": [
+        {
+          "url": "https://www.bilibili.com/video/BV1C2kmByEmz/",
+          "title": "外贸性价比之王VT4《战争雷霆》〔载具简评〕",
+          "author": "克虏伯kluub",
+          "publishedAt": "2025-11-16",
+          "kind": "video",
+          "gameVersion": null
+        }
       ]
     },
     {
@@ -22125,9 +23042,43 @@
             "privacy": "raw-images-and-full-transcript-private-never-public",
             "notActualTest": true
           }
+        },
+        {
+          "id": "v386-leclerc-author-local-structure",
+          "label": "作者观点：局部结构差异",
+          "text": "据MJZCB视频介绍，勒克莱尔SXXI炮镜下方凸起需与周边位置分开评估，首下上方存在作者所称的长条装甲区域。本次未确认原生被测改型与攻击配置，不构成实射结论。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1aHnA67Ehh/",
+          "sourceTime": 86.52,
+          "sourcePublishedAt": "2026-10-23",
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "kind": "attributed-author-commentary-not-tested-result",
+            "timeRanges": [
+              {
+                "start": 86.52,
+                "end": 93.14
+              },
+              {
+                "start": 182.29,
+                "end": 190.81
+              }
+            ],
+            "actualShotObserved": false
+          }
         }
       ],
-      "source": null,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1aHnA67Ehh/",
+        "title": "勒克莱尔，现在还值得肝吗?",
+        "author": "MJZCB",
+        "publishedAt": "2026-10-23",
+        "kind": "video",
+        "gameVersion": null
+      },
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/fr_leclerc_sxxi",
       "wikiGameVersion": "2.59.0.92",
@@ -22166,6 +23117,14 @@
           "publishedAt": "2025-06-21T20:24:27+08:00",
           "time": 424.356887,
           "scopeNote": "作者对比观点；测试条件未核验"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1aHnA67Ehh/",
+          "title": "勒克莱尔，现在还值得肝吗?",
+          "author": "MJZCB",
+          "publishedAt": "2026-10-23",
+          "kind": "video",
+          "gameVersion": null
         }
       ]
     },
@@ -23265,8 +24224,43 @@
       "era": "modern",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
-      "source": null,
+      "videoAdvice": [
+        {
+          "id": "v386-cn_vt_4b-author-context",
+          "label": "作者观点：局部防护与布局",
+          "text": "作者认为VT4A1炮盾、车体下前部及炮闩区域应留意，侧面对机炮抵抗较弱；与99A的比较属于作者观点，未确认原生被测目标或可复现攻击条件，不保证击穿。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1TTtPzGEhV/",
+          "sourceTime": 113.03,
+          "sourcePublishedAt": "2025-08-06",
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "kind": "attributed-author-commentary-not-tested-result",
+            "timeRanges": [
+              {
+                "start": 113.03,
+                "end": 121.96
+              },
+              {
+                "start": 130,
+                "end": 139.28
+              }
+            ],
+            "actualShotObserved": false
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1TTtPzGEhV/",
+        "title": "你是顶级主战吗？我觉得我是。----VT4A1简评",
+        "author": "急急先让我急",
+        "publishedAt": "2025-08-06",
+        "kind": "video",
+        "gameVersion": null
+      },
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/cn_vt_4b",
       "wikiGameVersion": "2.59.0.92",
@@ -23295,6 +24289,16 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "url": "https://www.bilibili.com/video/BV1TTtPzGEhV/",
+          "title": "你是顶级主战吗？我觉得我是。----VT4A1简评",
+          "author": "急急先让我急",
+          "publishedAt": "2025-08-06",
+          "kind": "video",
+          "gameVersion": null
+        }
       ]
     },
     {
@@ -25119,8 +26123,39 @@
       "era": "modern",
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
-      "source": null,
+      "videoAdvice": [
+        {
+          "id": "v401-uk_challenger_2_bn-author-structure",
+          "label": "作者观点：防护与布局",
+          "text": "据克虏伯kluub视频解说，作者比较车体首上、炮塔前部复合装甲与侧后部防护差异；未给出可复现试射条件，不据局部悬停画面断言全部侧后部结构或击穿效果。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV19ZJhzkEhU/",
+          "sourceTime": 292.26,
+          "sourcePublishedAt": "2025-05-25",
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "kind": "attributed-author-commentary-not-tested-result",
+            "actualShotObserved": false,
+            "timeRanges": [
+              {
+                "start": 292.26,
+                "end": 310.56
+              }
+            ]
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV19ZJhzkEhU/",
+        "title": "低成本延寿计划挑战者 2 黑夜《战争雷霆》〔载具简评〕",
+        "author": "克虏伯kluub",
+        "publishedAt": "2025-05-25",
+        "kind": "video",
+        "gameVersion": null
+      },
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
       "wikiGameVersion": "2.59.0.92",
@@ -25149,6 +26184,16 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "url": "https://www.bilibili.com/video/BV19ZJhzkEhU/",
+          "title": "低成本延寿计划挑战者 2 黑夜《战争雷霆》〔载具简评〕",
+          "author": "克虏伯kluub",
+          "publishedAt": "2025-05-25",
+          "kind": "video",
+          "gameVersion": null
+        }
       ]
     },
     {
@@ -25161,8 +26206,39 @@
       "era": null,
       "scopeRole": "medium_tank",
       "pins": [],
-      "videoAdvice": [],
-      "source": null,
+      "videoAdvice": [
+        {
+          "id": "v401-uk_challenger_2_dorchester-author-structure",
+          "label": "作者观点：防护与布局",
+          "text": "据克虏伯kluub视频解说，作者提醒留意格栅装甲内部的弹药位置，属于其布局风险评价；未取得对应击穿后效，不能视为已验证弱点。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1dd6nY4EY8/",
+          "sourceTime": 198.41,
+          "sourcePublishedAt": "2025-01-03",
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "kind": "attributed-author-commentary-not-tested-result",
+            "actualShotObserved": false,
+            "timeRanges": [
+              {
+                "start": 198.41,
+                "end": 212.2
+              }
+            ]
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1dd6nY4EY8/",
+        "title": "城市防御套件挑战者 2 (2F)《战争雷霆》〔载具简评〕",
+        "author": "克虏伯kluub",
+        "publishedAt": "2025-01-03",
+        "kind": "video",
+        "gameVersion": null
+      },
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/uk_challenger_2_dorchester",
       "wikiGameVersion": "2.59.0.92",
@@ -25191,6 +26267,16 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "url": "https://www.bilibili.com/video/BV1dd6nY4EY8/",
+          "title": "城市防御套件挑战者 2 (2F)《战争雷霆》〔载具简评〕",
+          "author": "克虏伯kluub",
+          "publishedAt": "2025-01-03",
+          "kind": "video",
+          "gameVersion": null
+        }
       ]
     },
     {
@@ -25947,7 +27033,16 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
-      ]
+      ],
+      "baseVehicleReference": {
+        "vehicleId": "us_m1a1_hc_abrams",
+        "basis": "official-wiki-identical-except-appearance",
+        "targetWikiURL": "https://wiki.warthunder.com/unit/us_m1a1_hc_usmc_sm",
+        "actualcheckedAt": "2026-11-02T18:17:27.380Z",
+        "gameVersion": "2.59.0.92",
+        "sourceHTMLSHA": "a1e8d3060a6a286a0f8b66c4be3db2a5969c646cb147eab9131b9acf466ddcf6",
+        "note": "官方Wiki明确链接科技树M1A1 HC，说明除主题外观外与基础车型相同；此处跳转基础车型自己的图解，不作为本车实拍或完成图解。"
+      }
     },
     {
       "id": "us_m1a2_abrams",
@@ -26000,10 +27095,102 @@
       "rank": 8,
       "era": null,
       "scopeRole": "medium_tank",
-      "pins": [],
-      "videoAdvice": [],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "pins": [
+        {
+          "x": 0.4846153846153846,
+          "y": 0.6923913043478261,
+          "label": "首下中央正面板",
+          "detail": "344秒M829A2、0米条件下可见绿色分布区域；计算49%未完成，不是本点实射或保证击穿。 此引导点不是右侧炮塔脸颊白十字悬停样点，不承接该点“无法造成致命伤害”预测。",
+          "kind": "external-region-reference",
+          "caseId": "us_m1a2_sep2_abrams_trophy:v386-frame-344",
+          "sourceUrl": "https://www.bilibili.com/video/BV1sGKF6dEZY/",
+          "sourceTime": 344,
+          "mainImageTime": 344,
+          "actualShotObserved": false,
+          "annotationSemantics": "incomplete-green-distribution-locator-not-shot",
+          "evidence": {
+            "nativeXY": [
+              965,
+              518.5
+            ],
+            "crop": [
+              650,
+              200,
+              650,
+              460
+            ],
+            "QAReportSHA256": "d8c27f8ff963930b468c9b20be23f17860530db00dbd5a2543b0df0baed495a3",
+            "pinSupplementSHA256": "0cd04af0d81fdd2e4336369790c328287ae84d2cea00988072e35c94d27a3b76"
+          },
+          "regionNotHoveredSample": true
+        },
+        {
+          "x": 0.4153846153846154,
+          "y": 0.43478260869565216,
+          "label": "炮盾/炮根左侧可见绿色正面板（画面左侧）",
+          "detail": "344秒M829A2、0米条件下可见绿色分布区域；计算49%未完成，不是本点实射或保证击穿。 此引导点不是右侧炮塔脸颊白十字悬停样点，不承接该点“无法造成致命伤害”预测。",
+          "kind": "external-region-reference",
+          "caseId": "us_m1a2_sep2_abrams_trophy:v386-frame-344",
+          "sourceUrl": "https://www.bilibili.com/video/BV1sGKF6dEZY/",
+          "sourceTime": 344,
+          "mainImageTime": 344,
+          "actualShotObserved": false,
+          "annotationSemantics": "incomplete-green-distribution-locator-not-shot",
+          "evidence": {
+            "nativeXY": [
+              920,
+              400
+            ],
+            "crop": [
+              650,
+              200,
+              650,
+              460
+            ],
+            "QAReportSHA256": "d8c27f8ff963930b468c9b20be23f17860530db00dbd5a2543b0df0baed495a3",
+            "pinSupplementSHA256": "0cd04af0d81fdd2e4336369790c328287ae84d2cea00988072e35c94d27a3b76"
+          },
+          "regionNotHoveredSample": true
+        }
+      ],
+      "videoAdvice": [
+        {
+          "id": "v386-trophy-author-front",
+          "label": "作者观点：首下与炮塔颈部",
+          "text": "来源作者认为战利品首下存在较薄区域，远距离仍可能被苏系穿甲弹击穿；炮塔颈部较旧型加强。以上为作者说法，不是本次实射结论。",
+          "kind": "video-author-advice",
+          "sourceKind": "video-author-advice",
+          "caseId": null,
+          "sourceUrl": "https://www.bilibili.com/video/BV1sGKF6dEZY/",
+          "sourceTime": 370.62,
+          "sourcePublishedAt": "2026-07-18",
+          "sourceGameVersion": null,
+          "sourceClaimNotCanonicalFact": true,
+          "evidence": {
+            "kind": "attributed-author-commentary-not-tested-result",
+            "timeRanges": [
+              {
+                "start": 370.62,
+                "end": 378.88
+              },
+              {
+                "start": 379.7,
+                "end": 389.32
+              }
+            ],
+            "actualShotObserved": false
+          }
+        }
+      ],
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1sGKF6dEZY/",
+        "title": "战争雷霆：新版本的M1A2战利品和M1A2SEPv3实力到底有多离谱？这次真能让美系陆军站起来了吗？",
+        "author": "罗非鱼解说",
+        "publishedAt": "2026-07-18",
+        "kind": "video",
+        "gameVersion": null
+      },
+      "status": "partial-frontal-guide",
       "wikiUrl": "https://wiki.warthunder.com/unit/us_m1a2_sep2_abrams_trophy",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-004-20261103/snapshots/us_m1a2_sep2_abrams_trophy.json",
@@ -26025,13 +27212,247 @@
       "collectedAt": "2026-11-02T18:22:51.123Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "2018为供货合同、2020为部署演习，未给精确Trophy改型技术形成日期。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无已验证的主图及对应局部标点。"
-      ]
+        "缺完整分布、对应实射与后效验证；炮管遮挡炮盾局部。"
+      ],
+      "relatedSources": [
+        {
+          "url": "https://www.bilibili.com/video/BV1sGKF6dEZY/",
+          "title": "战争雷霆：新版本的M1A2战利品和M1A2SEPv3实力到底有多离谱？这次真能让美系陆军站起来了吗？",
+          "author": "罗非鱼解说",
+          "publishedAt": "2026-07-18",
+          "kind": "video",
+          "gameVersion": null
+        }
+      ],
+      "testCases": [
+        {
+          "id": "us_m1a2_sep2_abrams_trophy:v386-frame-344",
+          "label": "344秒未完成防御分布",
+          "vehicleId": "us_m1a2_sep2_abrams_trophy",
+          "sourceKind": "video",
+          "sourceUrl": "https://www.bilibili.com/video/BV1sGKF6dEZY/",
+          "sourceTime": 344,
+          "sourcePublishedAt": "2026-07-18",
+          "sourceGameVersion": "2.57.1.29",
+          "attacker": "M1A2 SEPv3",
+          "attackerRawLabel": "[12.7] M1A2 SEPv3",
+          "attackerVehicleId": "us_m1a2_sep3_abrams",
+          "shell": "M829A2",
+          "exactDesignation": "M829A2",
+          "rawUIType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "us_m1a2_sep3_abrams",
+            "url": "https://wiki.warthunder.com/unit/us_m1a2_sep3_abrams",
+            "sourceShellLabelOriginal": "M829A2",
+            "checkedAt": "2026-11-03T02:44:48.254Z",
+            "extractedAt": "2026-11-04T06:12:38.103Z",
+            "mainGun": "120 mm M256 cannon",
+            "officialShellName": "M829A2",
+            "gameVersion": "2.59.0.92",
+            "sourceHTMLSHA256": "ca0e7d907a94e09b94345c029e6fc974771a43ec503294c826c2616b354dcf65",
+            "extractionReportSHA256": "fc5eca13adaae2bb1e7ff86f97f29d0f0a619f22f64552eb712edc01a5865ff5",
+            "note": "精确攻击车型官方弹表仅补弹种分类；原生界面未显示类型，视频距离、穿深和版本独立保留。"
+          },
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 629,
+          "distributionProgressPercent": 49,
+          "distributionCompletionStatus": "in-progress",
+          "sceneKind": "incomplete-protection-distribution",
+          "predictionOnly": true,
+          "prediction": "无法造成致命伤害",
+          "impactAngleDegrees": 49,
+          "azimuthDegrees": 0,
+          "actualShotObserved": false,
+          "actualPenetration": null,
+          "actualDamage": null,
+          "kill": null,
+          "outcome": null,
+          "sourceFrameSHA256": "a732ae1e4aba318a42eb352a082b56c410606ee0ade0d19e92d88c590a2cadbd",
+          "nativeTargetRawLabel": "防护分析 - M1A2/战利品-HV",
+          "targetIdentityStatus": "native-target-title",
+          "note": "独立帧条件；无实射或后效证明。下首大面积绿色；炮盾/炮根、炮塔顶部及炮塔下沿局部绿色。绿色为正在生成的防御分布覆盖，49%未完成；不等于全表面可靠击穿概率。 悬停白十字位于画面右侧炮塔脸颊；“无法造成致命伤害”只针对该样点，两个绿色区域引导点不是该悬停样点。",
+          "hoverSampleLocation": "画面右侧炮塔脸颊附近白色十字",
+          "hoverPredictionScope": "无法造成致命伤害仅为该白色十字悬停样点预测，不适用于两个绿色区域引导点。",
+          "greenRegionLocatorsAreNotHoverSample": true
+        },
+        {
+          "id": "us_m1a2_sep2_abrams_trophy:v386-frame-374",
+          "label": "374秒未完成防御分布",
+          "vehicleId": "us_m1a2_sep2_abrams_trophy",
+          "sourceKind": "video",
+          "sourceUrl": "https://www.bilibili.com/video/BV1sGKF6dEZY/",
+          "sourceTime": 374,
+          "sourcePublishedAt": "2026-07-18",
+          "sourceGameVersion": "2.57.1.26",
+          "attacker": "T-72B3",
+          "attackerRawLabel": "[11.3] T-72B3",
+          "attackerVehicleId": "ussr_t_72b3_2011",
+          "shell": "3BM42",
+          "exactDesignation": "3BM42",
+          "rawUIType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "ussr_t_72b3_2011",
+            "url": "https://wiki.warthunder.com/unit/ussr_t_72b3_2011",
+            "sourceShellLabelOriginal": "3BM42",
+            "checkedAt": "2026-11-02T18:24:45.981Z",
+            "extractedAt": "2026-11-04T06:12:38.173Z",
+            "mainGun": "125 mm 2A46M-5 cannon",
+            "officialShellName": "3BM42",
+            "gameVersion": "2.59.0.92",
+            "sourceHTMLSHA256": "9bb961a470a6107a0ecd24327ea9cdf71d558874d8742ec99b040771f3951478",
+            "extractionReportSHA256": "fc5eca13adaae2bb1e7ff86f97f29d0f0a619f22f64552eb712edc01a5865ff5",
+            "note": "精确攻击车型官方弹表仅补弹种分类；原生界面未显示类型，视频距离、穿深和版本独立保留。"
+          },
+          "distanceMeters": 1000,
+          "displayedPenetrationMm": 431,
+          "distributionProgressPercent": 7,
+          "distributionCompletionStatus": "in-progress",
+          "sceneKind": "incomplete-protection-distribution",
+          "predictionOnly": true,
+          "prediction": null,
+          "impactAngleDegrees": null,
+          "azimuthDegrees": null,
+          "actualShotObserved": false,
+          "actualPenetration": null,
+          "actualDamage": null,
+          "kill": null,
+          "outcome": null,
+          "sourceFrameSHA256": "7d9f73d77679ba85096bbfaa542facc2262af9459a4b06e433125a10066a842f",
+          "nativeTargetRawLabel": "防护分析 - M1A2/战利品-HV",
+          "targetIdentityStatus": "native-target-title",
+          "note": "独立帧条件；无实射或后效证明。首下与炮根/顶部局部绿色，首下混有黄色/非绿色条块；进度7%不能视为完整测试。"
+        },
+        {
+          "id": "us_m1a2_sep2_abrams_trophy:v386-frame-383.5",
+          "label": "383.5秒X光来源画面",
+          "vehicleId": "us_m1a2_sep2_abrams_trophy",
+          "sourceKind": "video",
+          "sourceUrl": "https://www.bilibili.com/video/BV1sGKF6dEZY/",
+          "sourceTime": 383.5,
+          "sourcePublishedAt": "2026-07-18",
+          "sourceGameVersion": "2.57.1.13",
+          "attacker": "BMPT",
+          "attackerRawLabel": "[11.7] BMPT",
+          "attackerVehicleId": null,
+          "shell": "30 毫米 APDS",
+          "exactDesignation": null,
+          "rawUIType": "APDS",
+          "shellTypeCode": "APDS",
+          "shellTypeLabel": "脱壳穿甲弹",
+          "shellTypeReference": null,
+          "distanceMeters": 0,
+          "displayedPenetrationMm": 82,
+          "distributionProgressPercent": null,
+          "distributionCompletionStatus": "not-shown",
+          "sceneKind": "xray",
+          "predictionOnly": true,
+          "prediction": null,
+          "impactAngleDegrees": null,
+          "azimuthDegrees": null,
+          "actualShotObserved": false,
+          "actualPenetration": null,
+          "actualDamage": null,
+          "kill": null,
+          "outcome": null,
+          "sourceFrameSHA256": "a38b64a9cf00806dab9e01e08ca02fbfff38c0f056ca8d79fe68f17d8f3692c8",
+          "nativeTargetRawLabel": "防护分析 - M1A2/战利品-HV",
+          "targetIdentityStatus": "native-target-title",
+          "note": "独立帧条件；无实射或后效证明。未见分布绿色覆盖；炮根附近小青色十字/轨迹类元素不能当作绿色装甲区域。"
+        }
+      ],
+      "testContext": {
+        "id": "us_m1a2_sep2_abrams_trophy:v386-frame-344",
+        "label": "344秒未完成防御分布",
+        "vehicleId": "us_m1a2_sep2_abrams_trophy",
+        "sourceKind": "video",
+        "sourceUrl": "https://www.bilibili.com/video/BV1sGKF6dEZY/",
+        "sourceTime": 344,
+        "sourcePublishedAt": "2026-07-18",
+        "sourceGameVersion": "2.57.1.29",
+        "attacker": "M1A2 SEPv3",
+        "attackerRawLabel": "[12.7] M1A2 SEPv3",
+        "attackerVehicleId": "us_m1a2_sep3_abrams",
+        "shell": "M829A2",
+        "exactDesignation": "M829A2",
+        "rawUIType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "attackerVehicleId": "us_m1a2_sep3_abrams",
+          "url": "https://wiki.warthunder.com/unit/us_m1a2_sep3_abrams",
+          "sourceShellLabelOriginal": "M829A2",
+          "checkedAt": "2026-11-03T02:44:48.254Z",
+          "extractedAt": "2026-11-04T06:12:38.103Z",
+          "mainGun": "120 mm M256 cannon",
+          "officialShellName": "M829A2",
+          "gameVersion": "2.59.0.92",
+          "sourceHTMLSHA256": "ca0e7d907a94e09b94345c029e6fc974771a43ec503294c826c2616b354dcf65",
+          "extractionReportSHA256": "fc5eca13adaae2bb1e7ff86f97f29d0f0a619f22f64552eb712edc01a5865ff5",
+          "note": "精确攻击车型官方弹表仅补弹种分类；原生界面未显示类型，视频距离、穿深和版本独立保留。"
+        },
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 629,
+        "distributionProgressPercent": 49,
+        "distributionCompletionStatus": "in-progress",
+        "sceneKind": "incomplete-protection-distribution",
+        "predictionOnly": true,
+        "prediction": "无法造成致命伤害",
+        "impactAngleDegrees": 49,
+        "azimuthDegrees": 0,
+        "actualShotObserved": false,
+        "actualPenetration": null,
+        "actualDamage": null,
+        "kill": null,
+        "outcome": null,
+        "sourceFrameSHA256": "a732ae1e4aba318a42eb352a082b56c410606ee0ade0d19e92d88c590a2cadbd",
+        "nativeTargetRawLabel": "防护分析 - M1A2/战利品-HV",
+        "targetIdentityStatus": "native-target-title",
+        "note": "独立帧条件；无实射或后效证明。下首大面积绿色；炮盾/炮根、炮塔顶部及炮塔下沿局部绿色。绿色为正在生成的防御分布覆盖，49%未完成；不等于全表面可靠击穿概率。 悬停白十字位于画面右侧炮塔脸颊；“无法造成致命伤害”只针对该样点，两个绿色区域引导点不是该悬停样点。",
+        "hoverSampleLocation": "画面右侧炮塔脸颊附近白色十字",
+        "hoverPredictionScope": "无法造成致命伤害仅为该白色十字悬停样点预测，不适用于两个绿色区域引导点。",
+        "greenRegionLocatorsAreNotHoverSample": true,
+        "caseId": "us_m1a2_sep2_abrams_trophy:v386-frame-344"
+      },
+      "sourceKind": "video",
+      "sourceGameVersion": "2.57.1.29",
+      "sourceVersion": "2.57.1.29",
+      "distributionProgressPercent": 49,
+      "distributionCompletionStatus": "in-progress",
+      "coverageStatus": "partial",
+      "coverageNotice": "绿色分布49%未完成 · 非实射",
+      "mainViewKind": "protection-analysis",
+      "mainViewNote": "344秒绿色防御分布仅完成49%，炮管遮挡炮盾局部；仅为局部引导，不是完整弱点图或实射结果。374秒7%与383.5秒X光分别采用不同版本、攻击方及弹药，不合并测试。",
+      "imageView": "front",
+      "imageViewDetail": "near-front",
+      "imageQuality": "native-small-subject",
+      "crop": [
+        650,
+        200,
+        650,
+        460
+      ],
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "time": 344,
+      "originalFrameSHA256": "a732ae1e4aba318a42eb352a082b56c410606ee0ade0d19e92d88c590a2cadbd",
+      "captureSHA256": "a732ae1e4aba318a42eb352a082b56c410606ee0ade0d19e92d88c590a2cadbd",
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-acquisition-v381-20261104/abrams/capture-1.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v390-20261104/frame-proof-344s.json",
+      "frameSnapshotSHA256": "d7d5bd9bb8f635c860131f17e4ebe2a8828e93547d595f970ec190022d0befa7"
     },
     {
       "id": "us_m1_abrams_kvt",
@@ -26494,7 +27915,14 @@
       "scopeRole": "medium_tank",
       "pins": [],
       "videoAdvice": [],
-      "source": null,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV14mMxzREDe/",
+        "title": "【战争雷霆】谁家主战坦克用152炮啊？——292工程深度解析",
+        "author": "院长今天又划水",
+        "publishedAt": "2025-06-15",
+        "kind": "video",
+        "gameVersion": null
+      },
       "status": "wiki-reviewed-awaiting-front-image",
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_object_292",
       "wikiGameVersion": "2.59.0.92",
@@ -26523,6 +27951,16 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "暂无已验证的主图及对应局部标点。"
+      ],
+      "relatedSources": [
+        {
+          "url": "https://www.bilibili.com/video/BV14mMxzREDe/",
+          "title": "【战争雷霆】谁家主战坦克用152炮啊？——292工程深度解析",
+          "author": "院长今天又划水",
+          "publishedAt": "2025-06-15",
+          "kind": "video",
+          "gameVersion": null
+        }
       ]
     },
     {
@@ -29346,7 +30784,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 58,
+    "illustratedCount": 63,
     "countries": [
       {
         "country": "usa",
@@ -29482,7 +30920,7 @@
     "lastUpdated": "2026-11-02",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 56,
+    "illustratedTargetCount": 61,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,

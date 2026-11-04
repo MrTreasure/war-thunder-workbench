@@ -24,6 +24,8 @@
 
 主站现为 `https://wt.app.qmuse.pub/`，仍更新既有 QMuse 应用 `8645013411493394`，不迁移绑定。运行时 canonical、OG、Twitter 与 WebApplication 资料指向这个独立域名；旧平台入口也规范到新主站。QMuse 目标的本地构建使用新域名，国际站仍使用 wt.mrtreasure.cc，两个站点不互相误标 canonical。
 
+主站基础元信息在共享路由初始化时同步写入，覆盖 QMuse App 与 Vite 两个入口，不等待账号、载具资料或 React 页面加载；路由完成切换后更新功能页标题和描述。重复的受管标签会去重，平台其它结构化资料及预览 noindex 保留。canonical 与分享资料不包含 Hash、查询条件或玩家身份。
+
 2026-11-04 实际 HTTP 检查：主站返回 200，首次 HTML 的 title 为“战争雷霆研发工作台”、description 为“QMuse Generated Project”，root 为空，没有 canonical。`/robots.txt`、`/sitemap.xml`、`/about/zh/` 返回平台 404。独立域名没有自动取消平台对入口 HTML 和资源路由的控制。
 
 因此可以补齐应用启动后的基础 SEO，但完整的首次 HTML SEO、可抓取说明页、站点地图与验证文件，需要 QMuse 平台支持自定义 head／首屏正文及静态路径映射。不能把本地 dist 中的文件当成主站已经提供，也不能因独立域名就宣称 sitemap 或服务端渲染已生效。主站的运行时元信息不保证所有抓取器或社交预览执行 JavaScript。

@@ -5,6 +5,7 @@ import { useVehicleFacts } from "./vehicle-catalog";
 import type { Vehicle } from "./models";
 import { WeaponParameters } from "./components/WeaponParameters";
 import { GameIcon } from "./components/GameIcon";
+import { SupportedLoadoutWeapons } from "./SupportedLoadoutWeapons";
 const amount = (value: number | null | undefined) =>
   value === null || value === undefined
     ? "—"
@@ -41,6 +42,7 @@ export function VehicleLoadouts({ unit }: { unit: Vehicle }) {
         </p>
       ) : (
         <>
+          <SupportedLoadoutWeapons unit={unit} />
           {!!data.limits.length && (
             <dl className="wt-loadout-limits">
               {data.limits.map((limit) => (

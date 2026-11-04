@@ -58,6 +58,8 @@ h1 { font-size:clamp(24px,3vw,34px); letter-spacing:.01em; line-height:1.3; marg
 .evidence { display:grid; gap:18px; }
 .evidence > section { border-top:1px solid var(--wt-line); padding-top:14px; }
 .evidence h3 { font-size:15px; margin-bottom:9px; }
+.current-vehicle-panel { --wt-sans:WTSymbols,"Droid Sans Fallback","Noto Sans CJK SC",system-ui,sans-serif; }
+#current-vehicle-card { padding-top:8px; }
 .evidence section:first-child h3 { font-size:18px; line-height:1.6; font-weight:550; }
 .evidence p { font-size:13px; color:var(--wt-muted); margin-bottom:10px; }
 .sources { margin-top:34px; border-top:1px solid var(--wt-line); padding-top:20px; }

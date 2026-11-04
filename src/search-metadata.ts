@@ -6,6 +6,8 @@ import seo from "../data/site-seo.json";
 export function updateSearchMetadata(page: string) {
   const locale = getLocale();
   const zh = seo.locales[locale];
+  const description =
+    zh.features.find((feature) => feature.route === page)?.description || zh.description;
   const titles: Record<string, string> = {
     tree: "战雷科技树与研发规划",
     stats: "战雷战绩查询与战雷账号价值",
@@ -24,7 +26,11 @@ export function updateSearchMetadata(page: string) {
     ? seo.qmuseUrl
     : new URL(entryLocale ? localeAppPath("/", entryLocale).slice(1) : "", seo.siteUrl).href;
   const setMeta = (attribute: "name" | "property", name: string, content: string) => {
-    let tag = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${name}"]`);
+    const [existing, ...duplicates] = document.head.querySelectorAll<HTMLMetaElement>(
+      `meta[${attribute}="${name}"]`,
+    );
+    for (const duplicate of duplicates) duplicate.remove();
+    let tag = existing;
     if (!tag) {
       tag = document.createElement("meta");
       tag.setAttribute(attribute, name);
@@ -32,15 +38,15 @@ export function updateSearchMetadata(page: string) {
     }
     tag.content = content;
   };
-  setMeta("name", "description", zh.description);
+  setMeta("name", "description", description);
   setMeta("property", "og:title", document.title);
-  setMeta("property", "og:description", zh.description);
+  setMeta("property", "og:description", description);
   setMeta("property", "og:type", "website");
   setMeta("property", "og:url", canonical);
   setMeta("property", "og:image", seo.imageUrl);
   setMeta("name", "twitter:card", "summary_large_image");
   setMeta("name", "twitter:title", document.title);
-  setMeta("name", "twitter:description", zh.description);
+  setMeta("name", "twitter:description", description);
   setMeta("name", "twitter:image", seo.imageUrl);
   if (!qmuse) {
     for (const lang of ["zh-CN", "en", "ru", "ja", "x-default"] as const) {
@@ -59,7 +65,10 @@ export function updateSearchMetadata(page: string) {
           : new URL(localeAppPath("/", lang).slice(1), seo.siteUrl).href;
     }
   }
-  let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+  const [existingLink, ...duplicates] =
+    document.head.querySelectorAll<HTMLLinkElement>('link[rel="canonical"]');
+  for (const duplicate of duplicates) duplicate.remove();
+  let link = existingLink;
   if (!link) {
     link = document.createElement("link");
     link.rel = "canonical";
@@ -78,7 +87,7 @@ export function updateSearchMetadata(page: string) {
     "@type": "WebApplication",
     name: t("战雷工作台"),
     url: canonical,
-    description: zh.description,
+    description,
     inLanguage: locale,
     applicationCategory: "GameApplication",
     operatingSystem: "Web browser",

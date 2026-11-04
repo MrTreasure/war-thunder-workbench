@@ -1,6 +1,8 @@
 import { QueryClient } from "@tanstack/react-query";
 import { createBrowserHistory, createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
+import { workbenchPage } from "./features";
+import { updateSearchMetadata } from "./search-metadata";
 
 export const getRouter = () => {
   const queryClient = new QueryClient();
@@ -43,6 +45,13 @@ export const getRouter = () => {
     scrollRestoration: true,
     scrollToTopSelectors: ["#workbench-content"],
     defaultPreloadStaleTime: 0,
+  });
+
+  // Both the QMuse App entry and Vite entry use this router. Write public
+  // metadata before rendering, independently of account or country loading.
+  updateSearchMetadata(workbenchPage(router.state.location.pathname));
+  router.subscribe("onResolved", ({ toLocation }) => {
+    updateSearchMetadata(workbenchPage(toLocation.pathname));
   });
 
   return router;

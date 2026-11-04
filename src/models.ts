@@ -29,6 +29,49 @@ export interface WikiPerformanceMetric {
 }
 export interface WikiPerformance extends WikiReferenceSource {
   metrics: WikiPerformanceMetric[];
+  groundCombat?: WikiGroundCombat;
+  equipment?: WikiVehicleEquipment;
+}
+export interface WikiVehicleEquipment extends WikiReferenceSource {
+  features: {
+    id: string;
+    kind: string;
+    name: string;
+    weaponName: string | null;
+    source: string | null;
+    parameters: WikiWeaponParameter[];
+  }[];
+  properties: WikiWeaponParameter[];
+  optics: WikiWeaponParameter[];
+}
+export interface WikiGroundShell {
+  id: string;
+  name: string;
+  type: string;
+  beltFilling: string | null;
+  imageUrl: string | null;
+  caliberMm: number | null;
+  velocityMps: number | null;
+  massKg: number | null;
+  tntKg: number | null;
+  parameters: WikiWeaponParameter[];
+  penetration: { distanceM: number; mm: number | null }[];
+  penetrationAngles: { distanceM: number; angleDeg: number; mm: number | null }[];
+}
+export interface WikiGroundWeapon {
+  id: string;
+  name: string;
+  ammunition: number | null;
+  reload?: WikiPerformanceMetric | null;
+  shells: WikiGroundShell[];
+}
+export interface WikiGroundCombat extends WikiReferenceSource {
+  armorTypes?: string[];
+  equivalentArmorStatus?: VehicleReferenceStatus;
+  armorStatus: VehicleReferenceStatus;
+  weaponsStatus: VehicleReferenceStatus;
+  armor: { id: string; label: string; front: string; side: string; rear: string }[];
+  weapons: WikiGroundWeapon[];
 }
 export interface WikiWeaponParameter {
   id: string;
