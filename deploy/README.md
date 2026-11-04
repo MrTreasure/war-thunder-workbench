@@ -23,10 +23,10 @@
 | 目标 | 地址 | 命令与边界 |
 | --- | --- | --- |
 | 独立预览 | `https://render.mrtreasure.cc/war-thunder-trees/` | `pnpm run deploy:preview`；代码检查后交用户人工确认 |
-| QMuse 正式站 | `https://render.qmuse.pub/p/muse/8645013411493394` | `pnpm run deploy:qmuse`；预览确认并明确授权后更新既有应用 |
+| QMuse 正式站 | `https://wt.app.qmuse.pub/` | `pnpm run deploy:qmuse`；预览确认并明确授权后更新既有应用 |
 | 国际站 | `https://wt.mrtreasure.cc/` | `pnpm run deploy:cf`；仅在多语言工作区、获授权后发布 |
 
-Render 的 `/muse/*` 与 `/_muse-index/*` 已停用并返回 404，不提供兼容跳转。QMuse 地址中的平台 `/p/muse/` 不受此规则影响。
+Render 的 `/muse/*` 与 `/_muse-index/*` 已停用并返回 404，不提供兼容跳转。主站使用独立域名，平台绑定的 QMuse 应用保持原样。
 
 国际站 Worker 保持 `war-thunder-workbench` 原名。预览使用既有共享 Render Worker，不新建部署项目；不能用中文主分支覆盖国际站的英／俄／日内容。
 
