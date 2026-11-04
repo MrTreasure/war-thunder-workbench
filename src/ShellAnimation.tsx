@@ -11,17 +11,17 @@ export function ShellAnimation({ shell }: { shell: AnimationShell }) {
 
 function Animation({ asset, type }: { asset: ShellAnimationAsset; type: string }) {
   const host = useRef<HTMLElement>(null);
-  const [playing, setPlaying] = useState(
-    () => !matchMedia("(prefers-reduced-motion: reduce)").matches,
+  const [reducedMotion, setReducedMotion] = useState(
+    () => matchMedia("(prefers-reduced-motion: reduce)").matches,
   );
   const [visible, setVisible] = useState(() => typeof IntersectionObserver === "undefined");
   const [foreground, setForeground] = useState(!document.hidden);
-  const [compatibility, setCompatibility] = useState(false);
+  const [videoFallback, setVideoFallback] = useState(false);
   const [fallback, setFallback] = useState(false);
   const [settled, setSettled] = useState<{ key: string; state: "ready" | "error" } | null>(null);
   const [attempt, setAttempt] = useState(0);
-  const active = playing && visible && foreground;
-  const file = !active ? asset.poster.file : compatibility ? asset.mp4.file : asset.avif.file;
+  const active = !reducedMotion && visible && foreground;
+  const file = !active ? asset.poster.file : videoFallback ? asset.mp4.file : asset.avif.file;
   const url = shellAnimationURL(file, fallback);
   const mediaKey = `${url}:${attempt}`;
   const status = settled?.key === mediaKey ? settled.state : "loading";
@@ -37,9 +37,7 @@ function Animation({ asset, type }: { asset: ShellAnimationAsset; type: string }
     const change = () => setForeground(!document.hidden);
     document.addEventListener("visibilitychange", change);
     const motion = matchMedia("(prefers-reduced-motion: reduce)");
-    const reduce = () => {
-      if (motion.matches) setPlaying(false);
-    };
+    const reduce = () => setReducedMotion(motion.matches);
     motion.addEventListener("change", reduce);
     return () => {
       document.removeEventListener("visibilitychange", change);
@@ -49,8 +47,8 @@ function Animation({ asset, type }: { asset: ShellAnimationAsset; type: string }
   function failed() {
     if (!fallback) {
       setFallback(true);
-    } else if (active && !compatibility) {
-      setCompatibility(true);
+    } else if (active && !videoFallback) {
+      setVideoFallback(true);
       setFallback(false);
     } else setSettled({ key: mediaKey, state: "error" });
   }
@@ -61,30 +59,7 @@ function Animation({ asset, type }: { asset: ShellAnimationAsset; type: string }
   }
   return (
     <section ref={host} className="wt-shell-animation" aria-label={`${type} 弹药作用原理`}>
-      <div className="wt-shell-animation-heading">
-        <h4>{type} · 作用原理</h4>
-        <div>
-          <button
-            type="button"
-            aria-pressed={playing}
-            disabled={status === "error"}
-            onClick={() => setPlaying(!playing)}
-          >
-            {playing ? "暂停" : "播放"}
-          </button>
-          <button
-            type="button"
-            aria-pressed={compatibility}
-            onClick={() => {
-              setCompatibility(!compatibility);
-              setFallback(false);
-              setSettled(null);
-            }}
-          >
-            兼容模式
-          </button>
-        </div>
-      </div>
+      <h4 className="wt-shell-animation-heading">{type} · 作用原理</h4>
       <div
         className="wt-shell-animation-frame"
         style={{ aspectRatio: `${asset.width}/${asset.height}` }}
@@ -96,7 +71,7 @@ function Animation({ asset, type }: { asset: ShellAnimationAsset; type: string }
               重试
             </button>
           </output>
-        ) : active && compatibility ? (
+        ) : active && videoFallback ? (
           <video
             key={mediaKey}
             src={url}

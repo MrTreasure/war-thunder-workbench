@@ -1,27 +1,16 @@
 /* finesse · component: ammunition-animation · register=product
- * states: default · hover · focus-visible · active · disabled · loading · error · success
+ * states: default · loading · error · success; retry: hover · focus-visible · active
  * tokens: inherited --wt surfaces, type and accent */
 .wt-shell-animation {
   margin-block: 14px;
   min-width: 0;
+  width: 100%;
 }
 .wt-shell-animation-heading {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 4px 12px;
-  margin-bottom: 8px;
-}
-.wt-shell-animation-heading h4 {
-  margin: 0;
+  margin: 0 0 8px;
   color: var(--wt-muted);
   font-size: 12px;
   font-weight: 500;
-}
-.wt-shell-animation-heading > div {
-  display: flex;
-  gap: 8px;
 }
 .wt-shell-animation button {
   min-height: 32px;
@@ -35,10 +24,6 @@
   white-space: nowrap;
   cursor: pointer;
 }
-.wt-shell-animation button[aria-pressed="true"] {
-  color: var(--wt-gold);
-  border-color: var(--wt-gold);
-}
 .wt-shell-animation button:focus-visible {
   outline: 2px solid var(--wt-gold);
   outline-offset: 2px;
@@ -46,14 +31,10 @@
 .wt-shell-animation button:active {
   background: var(--wt-raised);
 }
-.wt-shell-animation button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
 .wt-shell-animation-frame {
   position: relative;
   width: 100%;
-  max-width: 800px;
+  max-width: none;
   overflow: hidden;
   background: var(--wt-surface);
 }
@@ -61,7 +42,7 @@
 .wt-shell-animation-frame > video {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
   max-width: none;
   max-height: none;
   object-fit: contain;
