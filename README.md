@@ -4,7 +4,7 @@
 
 查科技树、规划研发、配置出击队列，也能查询战绩、绘制地图走线和关注折扣。
 
-**[正式站 · QMuse](https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB&chInfo=junliang)** · **[国际站](https://wt.mrtreasure.cc/)** · [完整使用说明](docs/usage.zh-CN.md)
+**[正式站 · QMuse](https://wt.app.qmuse.pub/)** · **[国际站](https://wt.mrtreasure.cc/)** · [完整使用说明](docs/usage.zh-CN.md)
 
 开发与维护：[文档索引](docs/README.md)。
 

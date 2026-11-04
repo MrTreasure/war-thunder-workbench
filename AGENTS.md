@@ -48,7 +48,7 @@
 ## 指令文件与站点约定（2026-10-29 整理）
 
 - 本文件 `AGENTS.md` 是 Codex 的唯一项目指令入口；原 `AGENT.md` 规则已合并到本文件，不再维护第二份指令。`AGENT.md` 不得提交或上传，必须保持 Git 忽略。
-- 正式站：`https://render.qmuse.pub/p/muse/8645013411493394`，只更新既有 QMuse 应用。
+- 正式站：`https://wt.app.qmuse.pub/`，只更新既有 QMuse 应用。
 - 国际站：`https://wt.mrtreasure.cc/`，部署独立 Workers Static Assets，Worker 保持 `war-thunder-workbench` 原名。
 - 独立 Render 预览由 Cloudflare Workers 托管，地址为 `https://render.mrtreasure.cc/war-thunder-trees/`；不得当作正式站或国际站。Render 的 `/muse/*` 和 `/_muse-index/*` 返回 404，不保留兼容跳转。
 - `deploy:qmuse` 用于正式站；`deploy:cf` 用于国际站。`deploy:preview` 仅发布独立 Render 预览；遵循 CF Workers 现行资源先于 HTML、哈希资源保留、鉴权及边缘校验流程，不恢复 NAS 对外托管。

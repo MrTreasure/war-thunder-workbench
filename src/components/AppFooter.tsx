@@ -6,7 +6,7 @@ export function AppFooter() {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
   if (pathname === "/tree" || pathname === "/") return null;
   const international = location.hostname === "wt.mrtreasure.cc";
-  const main = location.hostname === "render.qmuse.pub";
+  const main = ["wt.app.qmuse.pub", "render.qmuse.pub"].includes(location.hostname);
   return (
     <footer className="wt-app-footer" aria-label="站点信息">
       <div className="wt-app-footer-inner">
@@ -23,7 +23,7 @@ export function AppFooter() {
         </a>
         <nav aria-label="切换站点">
           <a
-            href="https://qmuse.cn/oauth-login?inviteCode=QMUSE-B0E123AB&chInfo=junliang"
+            href="https://wt.app.qmuse.pub/"
             aria-current={main ? "page" : undefined}
           >
             主站{main ? "（当前）" : " ↗"}
