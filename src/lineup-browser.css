@@ -237,7 +237,7 @@
 }
 .lineup-saved-filters {
   display: grid;
-  grid-template-columns: minmax(160px, 1.6fr) repeat(2, minmax(110px, 1fr)) minmax(
+  grid-template-columns: minmax(160px, 1.6fr) minmax(120px, 1fr) minmax(
       150px,
       1.2fr
     ) auto;

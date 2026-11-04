@@ -27,7 +27,6 @@ import { WarThunderLoading } from "./Loading";
 import { useStored } from "./storage";
 import { modes } from "./TreeCanvas";
 import {
-  brLabel,
   lineupCardRating,
   decodeLineup,
   encodeLineup,
@@ -120,7 +119,7 @@ export function Lineups({
               menuClassName="lineup-country-menu"
               value={country}
               onValueChange={chooseCountry}
-              renderOption={countryLabel}
+              renderOption={(option) => countryLabel(option.value)}
               renderValue={countryLabel}
             >
               <option value="" disabled>
@@ -300,7 +299,6 @@ function CountryLineups({
   );
   const [listSearch, setListSearch] = useState("");
   const [listBattle, setListBattle] = useState<BattleType | "">("");
-  const [listStep, setListStep] = useState("");
   const [listSort, setListSort] = useState<LineupSort>("saved");
   const [selectedId, setSelectedId] = useState(saved[0]?.id || "");
   const [draft, setDraft] = useState<Lineup | null>(null);
@@ -353,19 +351,14 @@ function CountryLineups({
       filterSavedLineups(entries, {
         search: listSearch,
         battle: listBattle,
-        step: listStep,
         sort: listSort,
       }),
-    [entries, listSearch, listBattle, listStep, listSort],
+    [entries, listSearch, listBattle, listSort],
   );
-  const ratingSteps = [
-    ...new Set(entries.flatMap(({ step }) => (step === null ? [] : [step]))),
-  ].sort((a, b) => a - b);
-  const listFiltered = Boolean(listSearch || listBattle || listStep);
+  const listFiltered = Boolean(listSearch || listBattle);
   function resetListFilters() {
     setListSearch("");
     setListBattle("");
-    setListStep("");
   }
   const all = [...units.values()];
   const ranks = useMemo(
@@ -726,25 +719,7 @@ function CountryLineups({
                       ))}
                     </GameSelect>
                   </label>
-                  <label className="calc-field">
-                    {t("队列权重")}
-                    <GameSelect value={listStep} onValueChange={setListStep}>
-                      <option value="">{t("全部权重")}</option>
-                      {ratingSteps.map((step) => (
-                        <option key={step} value={String(step)}>
-                          {brLabel(step)}
-                        </option>
-                      ))}
-                      {listStep &&
-                        listStep !== "unknown" &&
-                        !ratingSteps.includes(Number(listStep)) && (
-                          <option value={listStep}>{brLabel(Number(listStep))}</option>
-                        )}
-                      {(listStep === "unknown" || entries.some(({ step }) => step === null)) && (
-                        <option value="unknown">{t("权重未知")}</option>
-                      )}
-                    </GameSelect>
-                  </label>
+
                   <label className="calc-field">
                     {t("排序")}
                     <GameSelect
@@ -766,7 +741,7 @@ function CountryLineups({
               {saved.length > 0 && visibleLineups.length === 0 && (
                 <div className="lineup-saved-empty">
                   <h3>{t("没有符合条件的队列")}</h3>
-                  <p>{t("试试其他名称、战斗类型或权重。")}</p>
+                  <p>{t("试试其他名称或战斗类型。")}</p>
                   <button className="quiet-button" onClick={resetListFilters}>
                     {t("清除筛选")}
                   </button>
