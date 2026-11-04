@@ -3644,6 +3644,7 @@
     min-height: 44px;
   }
   .wt-personal-lineups .lineup-toolbar {
+    display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
   }
   .wt-personal-lineups .lineup-toolbar .calc-field {
@@ -3666,15 +3667,19 @@
     grid-column: 3;
     grid-row: 2;
   }
-  .lineup-saved-filters {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    padding: 10px;
+  .wt-personal-lineups .lineup-toolbar > .calc-field,
+  .wt-personal-lineups .lineup-toolbar .lineup-saved-filters > .calc-field {
+    min-width: 0;
+    max-width: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
   }
-  .lineup-saved-filters > .lineup-saved-search {
+  .wt-personal-lineups .lineup-toolbar .lineup-saved-search {
     grid-column: 1 / -1;
   }
-  .lineup-saved-filters :is(input, .wt-select, .quiet-button) {
+  .wt-personal-lineups .lineup-toolbar .calc-field > :is(input, .wt-select),
+  .wt-personal-lineups .lineup-toolbar .lineup-filter-clear {
     min-height: 44px;
     height: 44px;
     font-size: 16px;

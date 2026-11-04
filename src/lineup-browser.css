@@ -235,30 +235,48 @@
 .lineup-country-menu .wt-select-option[aria-selected="true"] small {
   color: var(--wt-gold);
 }
-.lineup-saved-filters {
-  display: grid;
-  grid-template-columns: minmax(160px, 1.6fr) minmax(120px, 1fr) minmax(
-      150px,
-      1.2fr
-    ) auto;
-  align-items: end;
-  gap: 12px;
-  margin-top: 12px;
-  padding: 12px;
+/* Personal and public lists share the same inline filter rhythm. */
+.wt-personal-lineups .lineup-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  padding: 10px 12px;
   border: 1px solid var(--wt-line);
   background: var(--wt-surface);
 }
-.lineup-saved-filters > .calc-field {
-  min-width: 0;
-  gap: 6px;
-  font-size: 12px;
+.lineup-toolbar-filters,
+.lineup-saved-filters {
+  display: contents;
 }
-.lineup-saved-filters :is(input, .wt-select, .quiet-button) {
+.wt-personal-lineups .lineup-toolbar > .calc-field,
+.wt-personal-lineups .lineup-toolbar .lineup-saved-filters > .calc-field {
+  display: flex;
+  flex: 1 1 180px;
+  min-width: 150px;
+  max-width: 260px;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.wt-personal-lineups .lineup-toolbar .lineup-saved-search {
+  flex-basis: 220px;
+  max-width: 360px;
+}
+.wt-personal-lineups .lineup-toolbar .calc-field > :is(.wt-select, input) {
+  flex: 1;
+  min-width: 0;
   height: 36px;
   min-height: 36px;
 }
-.lineup-saved-filters .quiet-button {
+.lineup-filter-clear {
   white-space: nowrap;
+  min-height: 36px;
+}
+.lineup-country-option.is-all-countries > span {
+  grid-column: 1 / 3;
 }
 .wt-personal-lineups .lineup-saved {
   padding-top: 10px;
