@@ -16,6 +16,7 @@ export type VehicleCardAssets = {
   logo: CardImage;
   silver: CardImage;
   flag: CardImage | null;
+  flagName?: string;
 };
 export const vehicleCardSize = { width: layout.width, height: layout.height };
 const number = (value: number | null | undefined) =>
@@ -125,7 +126,8 @@ export function drawVehicleShareCard(
     text(chars.slice(split).join("").trim(), 74, 365, 70, cream, 930);
   } else text(title, 74, 353, 128, cream, 930);
   if (assets.flag) fit(assets.flag, 78, 389, 64, 42);
-  const country = vehicle.country ? statsCountryLabel(vehicle.country) : "国家待匹配";
+  const country =
+    assets.flagName || (vehicle.country ? statsCountryLabel(vehicle.country) : "国家待匹配");
   text(
     `${country}${vehicle.rank ? ` · ${vehicle.rank} 级` : ""}`,
     assets.flag ? 162 : 78,
