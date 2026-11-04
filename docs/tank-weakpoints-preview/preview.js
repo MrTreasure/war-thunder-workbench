@@ -108,6 +108,24 @@ function renderBaseReference(model) {
 function render() {
   const model = SAMPLE.models[selected];
   if (!model) return;
+  const cardHost = $("current-vehicle-card");
+  if (cardHost.dataset.vehicle !== model.id) {
+    // This markup is produced by the shared VehicleTile from canonical data at build time.
+    const template = document.createElement("template");
+    template.innerHTML = model.vehicleCard.html;
+    cardHost.replaceChildren(template.content.cloneNode(true));
+    cardHost.dataset.vehicle = model.id;
+    const art = cardHost.querySelector(".unit-art");
+    art?.addEventListener("error", () => {
+      const fallback = model.vehicleCard.imageFallback;
+      if (!art.dataset.fallback && fallback && art.getAttribute("src") !== fallback) {
+        art.dataset.fallback = "true";
+        art.src = fallback;
+      } else {
+        art.replaceWith(element("span", "—", "unit-art-unavailable"));
+      }
+    });
+  }
   renderBaseReference(model);
   const source = sourceOf(model);
   const articleImage = source.kind === "article-image";

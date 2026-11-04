@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { bootAppearance } from "../../src/boot-appearance.mjs";
+import { buildVehicleCards } from "./vehicle-cards.mjs";
 
 process.umask(0o077);
 const project = fileURLToPath(new URL("../../", import.meta.url));
@@ -353,7 +354,7 @@ for (const trees of Object.values(treeData.trees)) for (const [countryId, tree] 
   for (const tier of tree?.ranks || []) for (const node of [...tier.research, ...tier.special]) for (const unit of node.members) {
     const proof = localization.vehicles[unit.id];
     const name = cleanName(proof?.nameEn === unit.name && proof.nameZhCN ? proof.nameZhCN : unit.name);
-    const entry = { name, nameEn: cleanName(unit.name), role: unit.role, rank: rankNumbers[tier.rank], rankLabel: tier.rank, country: countryId, localized: !!(proof?.nameEn === unit.name && proof.nameZhCN) };
+    const entry = { unit, name, nameEn: cleanName(unit.name), role: unit.role, rank: rankNumbers[tier.rank], rankLabel: tier.rank, country: countryId, localized: !!(proof?.nameEn === unit.name && proof.nameZhCN) };
     vehicleNames.set(unit.id, entry);
     for (const raw of [unit.name, name]) {
       const key = aliasKey(raw), choices = aliases.get(key) || new Set();
@@ -381,16 +382,25 @@ for (const model of data.models) {
   localizeAttacker(model.testContext, model.testCases?.find((test) => test.id === model.testContext?.caseId));
 }
 report.presentation = { locale: "zh-CN", vehicleNamesMatched: data.models.length, roles: presentationRoles, ranks: [...new Set(data.models.map((model) => Number(model.rank)))].sort((a, b) => a - b) };
+await buildVehicleCards(project, data.models, vehicleNames);
+report.presentation.vehicleCards = data.models.length;
 if (/\/vol1\/|\/home\/|artifacts\//.test(JSON.stringify(data))) throw Error("Private evidence paths must not enter the public sample payload");
 const symbols = await readFile(resolve(project, "src/assets/WTSymbols.ttf"));
 const fontFile = `weakpoints-symbols.${hash(symbols).slice(0, 16)}.ttf`;
 await writeFile(resolve(assets, fontFile), symbols);
 report.supportFiles = [{ file: fontFile, bytes: symbols.length, sha256: hash(symbols), kind: "symbol-font" }];
+const cardFont = await readFile(resolve(project, "src/assets/FiraSansCondensed-Regular.ttf"));
+const cardFontFile = `weakpoints-card.${hash(cardFont).slice(0, 16)}.ttf`;
+await writeFile(resolve(assets, cardFontFile), cardFont);
+report.supportFiles.push({ file: cardFontFile, bytes: cardFont.length, sha256: hash(cardFont), kind: "card-font" });
+const cardCss = (await readFile(resolve(project, "src/research-tree-game.css"), "utf8"))
+  .replace('./assets/FiraSansCondensed-Regular.ttf', './' + cardFontFile)
+  + "\n" + await readFile(resolve(project, "src/vehicle-tile.css"), "utf8");
 const appearance = JSON.parse(await readFile(resolve(project, "data/workbench-appearance.json"), "utf8"));
 const { apiBaseUrl } = JSON.parse(await readFile(resolve(project, "src/config/player-stats.json"), "utf8"));
 const backgroundCss = await readFile(resolve(project, "src/workbench-background.css"), "utf8");
 const backgroundDefaults = `:root{--wt-loading-background-image:url(${JSON.stringify(appearance.backgroundUrl)});--wt-loading-background-position:${appearance.positionX}% ${appearance.positionY}%}`;
-const css = Buffer.from(backgroundDefaults + "\n" + (await readFile(new URL("preview.css", import.meta.url), "utf8")).replaceAll("__SYMBOL_FONT__", fontFile) + "\n" + backgroundCss);
+const css = Buffer.from(backgroundDefaults + "\n" + cardCss + "\n" + (await readFile(new URL("preview.css", import.meta.url), "utf8")).replaceAll("__SYMBOL_FONT__", fontFile) + "\n" + backgroundCss);
 const js = Buffer.from("const SAMPLE = " + JSON.stringify(data) + `;\n(${bootAppearance.toString()})(${JSON.stringify(appearance)},${JSON.stringify(apiBaseUrl)});\n` + await readFile(new URL("preview.js", import.meta.url), "utf8"));
 const cssFile = `weakpoints-preview.${hash(css).slice(0, 16)}.css`, jsFile = `weakpoints-preview.${hash(js).slice(0, 16)}.js`;
 await writeFile(resolve(assets, cssFile), css); await writeFile(resolve(assets, jsFile), js);
