@@ -362,6 +362,9 @@ for (const model of data.models) {
   }
 }
 if (data.coverage?.illustratedCount !== report.models.filter((model) => model.illustrated).length) throw Error("Illustration total must match the verified main images, including supplemental samples");
+const targetIds = new Set(data.models.filter((model) => (Number(model.rank) >= 6 && Number(model.rank) <= 8)
+  || (model.country === "ussr" && model.id.startsWith("ussr_is_"))).map((model) => model.id));
+if (targetIds.size !== data.coverage.targetCount || data.coverage.illustratedTargetCount !== report.models.filter((model) => model.illustrated && targetIds.has(model.id)).length) throw Error("Target illustration count must match the verified target frames");
 if (report.publishedFiles.some((file) => file.bytes > imageByteLimit)) throw Error("Published image exceeds 2 MB");
 // Use the same canonical vehicle names and localization match as prepare-data.mjs.
 // Apply presentation after source-title verification; original research names stay intact.
