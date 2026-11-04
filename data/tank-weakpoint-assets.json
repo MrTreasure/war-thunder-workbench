@@ -1047,6 +1047,24 @@
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@4247424bcb6422cffbcfddf55d10a7b3bc99f86c/images/USA/USA-M1A1-HC-full.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/4247424bcb6422cffbcfddf55d10a7b3bc99f86c/images/USA/USA-M1A1-HC-full.webp"
       }
+    },
+    "us_m1a2_sep2_abrams_trophy": {
+      "photo": {
+        "path": "images/USA/USA-M1A2-Trophy-HV-front.webp",
+        "sha256": "8911ad79f31eb31afada879d672d82ef56209c61e17095ad52bb68c3e53d1a68",
+        "bytes": 196574,
+        "commit": "d2e54fd2f2315a430e163c3b571665baefa945c2",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@d2e54fd2f2315a430e163c3b571665baefa945c2/images/USA/USA-M1A2-Trophy-HV-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/d2e54fd2f2315a430e163c3b571665baefa945c2/images/USA/USA-M1A2-Trophy-HV-front.webp"
+      },
+      "raw": {
+        "path": "images/USA/USA-M1A2-Trophy-HV-full.webp",
+        "sha256": "dded23819258783f308f001031d349eb93cd76b96bf532b4a454e65f19904582",
+        "bytes": 1130290,
+        "commit": "d2e54fd2f2315a430e163c3b571665baefa945c2",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@d2e54fd2f2315a430e163c3b571665baefa945c2/images/USA/USA-M1A2-Trophy-HV-full.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/d2e54fd2f2315a430e163c3b571665baefa945c2/images/USA/USA-M1A2-Trophy-HV-full.webp"
+      }
     }
   },
   "assets": [
@@ -14017,6 +14035,254 @@
       "sourceKind": "video",
       "proofSnapshotSHA256": "ee675260f50bf873be75a8a032eab47376d35b097ed78babbf39935e99db5651",
       "id": "48a1c7479bc7853d4aba882fac004a353c4f749e53f243adcf86862ba6e98908"
+    },
+    {
+      "filename": "USA-M1A2-Trophy-HV-front.webp",
+      "path": "images/USA/USA-M1A2-Trophy-HV-front.webp",
+      "vehicleId": "us_m1a2_sep2_abrams_trophy",
+      "country": "USA",
+      "kind": "photo",
+      "width": 650,
+      "height": 460,
+      "bytes": 196574,
+      "sha256": "8911ad79f31eb31afada879d672d82ef56209c61e17095ad52bb68c3e53d1a68",
+      "optimizedSHA256": "8911ad79f31eb31afada879d672d82ef56209c61e17095ad52bb68c3e53d1a68",
+      "preCompressionBytes": 196574,
+      "preCompressionSHA256": "8911ad79f31eb31afada879d672d82ef56209c61e17095ad52bb68c3e53d1a68",
+      "sourcePNG": {
+        "sha256": "a732ae1e4aba318a42eb352a082b56c410606ee0ade0d19e92d88c590a2cadbd",
+        "bytes": 2608620,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "a732ae1e4aba318a42eb352a082b56c410606ee0ade0d19e92d88c590a2cadbd",
+      "sourceTime": 344,
+      "actualMediaTimeBefore": 344,
+      "actualMediaTimeAfter": 344,
+      "crop": [
+        650,
+        200,
+        650,
+        460
+      ],
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "derivationKey": "3c6674e7c6da938a1f6d1dc5001162d8f73e5eaa4f76538ee5aab496cbb9102d",
+      "nativeResized": false,
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "distributionProgress": 49,
+      "distributionCompletion": "incomplete",
+      "calculationCompletionStatus": "incomplete",
+      "sceneKind": "incomplete-protection-distribution",
+      "purpose": "partial-reference",
+      "commit": "d2e54fd2f2315a430e163c3b571665baefa945c2",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@d2e54fd2f2315a430e163c3b571665baefa945c2/images/USA/USA-M1A2-Trophy-HV-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/d2e54fd2f2315a430e163c3b571665baefa945c2/images/USA/USA-M1A2-Trophy-HV-front.webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1sGKF6dEZY/",
+        "kind": "video",
+        "bvid": "BV1sGKF6dEZY",
+        "publishedAt": "2026-07-18 11:51:56",
+        "author": "罗非鱼解说",
+        "title": "战争雷霆：新版本的M1A2战利品和M1A2SEPv3实力到底有多离谱？这次真能让美系陆军站起来了吗？",
+        "gameVersion": "2.57.1.29"
+      },
+      "sourceKind": "video",
+      "proofSnapshotSHA256": "d7d5bd9bb8f635c860131f17e4ebe2a8828e93547d595f970ec190022d0befa7",
+      "id": "8911ad79f31eb31afada879d672d82ef56209c61e17095ad52bb68c3e53d1a68"
+    },
+    {
+      "filename": "USA-M1A2-Trophy-HV-full.webp",
+      "path": "images/USA/USA-M1A2-Trophy-HV-full.webp",
+      "vehicleId": "us_m1a2_sep2_abrams_trophy",
+      "country": "USA",
+      "kind": "raw",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1130290,
+      "sha256": "dded23819258783f308f001031d349eb93cd76b96bf532b4a454e65f19904582",
+      "optimizedSHA256": "dded23819258783f308f001031d349eb93cd76b96bf532b4a454e65f19904582",
+      "preCompressionBytes": 1130290,
+      "preCompressionSHA256": "dded23819258783f308f001031d349eb93cd76b96bf532b4a454e65f19904582",
+      "sourcePNG": {
+        "sha256": "a732ae1e4aba318a42eb352a082b56c410606ee0ade0d19e92d88c590a2cadbd",
+        "bytes": 2608620,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "a732ae1e4aba318a42eb352a082b56c410606ee0ade0d19e92d88c590a2cadbd",
+      "sourceTime": 344,
+      "actualMediaTimeBefore": 344,
+      "actualMediaTimeAfter": 344,
+      "crop": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "derivationKey": "71d762b70e784d4e205983381a5808f846863287cddde2ba5d4f533c2cf5e9af",
+      "nativeResized": false,
+      "mainImageUsable": false,
+      "completeIllustration": false,
+      "distributionProgress": 49,
+      "distributionCompletion": "incomplete",
+      "calculationCompletionStatus": "incomplete",
+      "sceneKind": "incomplete-protection-distribution",
+      "purpose": "partial-reference",
+      "commit": "d2e54fd2f2315a430e163c3b571665baefa945c2",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@d2e54fd2f2315a430e163c3b571665baefa945c2/images/USA/USA-M1A2-Trophy-HV-full.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/d2e54fd2f2315a430e163c3b571665baefa945c2/images/USA/USA-M1A2-Trophy-HV-full.webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1sGKF6dEZY/",
+        "kind": "video",
+        "bvid": "BV1sGKF6dEZY",
+        "publishedAt": "2026-07-18 11:51:56",
+        "author": "罗非鱼解说",
+        "title": "战争雷霆：新版本的M1A2战利品和M1A2SEPv3实力到底有多离谱？这次真能让美系陆军站起来了吗？",
+        "gameVersion": "2.57.1.29"
+      },
+      "sourceKind": "video",
+      "proofSnapshotSHA256": "d7d5bd9bb8f635c860131f17e4ebe2a8828e93547d595f970ec190022d0befa7",
+      "id": "dded23819258783f308f001031d349eb93cd76b96bf532b4a454e65f19904582"
+    },
+    {
+      "filename": "USA-M1A2-Trophy-HV-source-374s.webp",
+      "path": "images/USA/USA-M1A2-Trophy-HV-source-374s.webp",
+      "vehicleId": "us_m1a2_sep2_abrams_trophy",
+      "country": "USA",
+      "kind": "source-evidence-native",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1228654,
+      "sha256": "d9162bce047e6bfbc4c82cbd7084dc1ca991c1e414a35883d7647f91cdbe2cb1",
+      "optimizedSHA256": "d9162bce047e6bfbc4c82cbd7084dc1ca991c1e414a35883d7647f91cdbe2cb1",
+      "preCompressionBytes": 1228654,
+      "preCompressionSHA256": "d9162bce047e6bfbc4c82cbd7084dc1ca991c1e414a35883d7647f91cdbe2cb1",
+      "sourcePNG": {
+        "sha256": "7d9f73d77679ba85096bbfaa542facc2262af9459a4b06e433125a10066a842f",
+        "bytes": 2756581,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "7d9f73d77679ba85096bbfaa542facc2262af9459a4b06e433125a10066a842f",
+      "sourceTime": 374,
+      "actualMediaTimeBefore": 374,
+      "actualMediaTimeAfter": 374,
+      "crop": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "derivationKey": "bfbc4dab4551fdb1569541a9d59a71d3a0f9828a1166e0affa4766b17da797c5",
+      "nativeResized": false,
+      "mainImageUsable": false,
+      "completeIllustration": false,
+      "distributionProgress": 7,
+      "distributionCompletion": "incomplete",
+      "calculationCompletionStatus": "incomplete",
+      "sceneKind": "incomplete-protection-distribution",
+      "purpose": "source-evidence-only",
+      "commit": "d2e54fd2f2315a430e163c3b571665baefa945c2",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@d2e54fd2f2315a430e163c3b571665baefa945c2/images/USA/USA-M1A2-Trophy-HV-source-374s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/d2e54fd2f2315a430e163c3b571665baefa945c2/images/USA/USA-M1A2-Trophy-HV-source-374s.webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1sGKF6dEZY/",
+        "kind": "video",
+        "bvid": "BV1sGKF6dEZY",
+        "publishedAt": "2026-07-18 11:51:56",
+        "author": "罗非鱼解说",
+        "title": "战争雷霆：新版本的M1A2战利品和M1A2SEPv3实力到底有多离谱？这次真能让美系陆军站起来了吗？",
+        "gameVersion": "2.57.1.26"
+      },
+      "sourceKind": "video",
+      "proofSnapshotSHA256": "77f1426cc0281c43ab2c078e79b26d00c8aa2980081b0fb44574874237ece946",
+      "id": "d9162bce047e6bfbc4c82cbd7084dc1ca991c1e414a35883d7647f91cdbe2cb1"
+    },
+    {
+      "filename": "USA-M1A2-Trophy-HV-source-383-5s.webp",
+      "path": "images/USA/USA-M1A2-Trophy-HV-source-383-5s.webp",
+      "vehicleId": "us_m1a2_sep2_abrams_trophy",
+      "country": "USA",
+      "kind": "source-evidence-native",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1278522,
+      "sha256": "a9a32c3f91efef4697638d0f45d9571cd8b2504d955298b522b0d4c1648b0c1d",
+      "optimizedSHA256": "a9a32c3f91efef4697638d0f45d9571cd8b2504d955298b522b0d4c1648b0c1d",
+      "preCompressionBytes": 1278522,
+      "preCompressionSHA256": "a9a32c3f91efef4697638d0f45d9571cd8b2504d955298b522b0d4c1648b0c1d",
+      "sourcePNG": {
+        "sha256": "a38b64a9cf00806dab9e01e08ca02fbfff38c0f056ca8d79fe68f17d8f3692c8",
+        "bytes": 2854591,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "a38b64a9cf00806dab9e01e08ca02fbfff38c0f056ca8d79fe68f17d8f3692c8",
+      "sourceTime": 383.5,
+      "actualMediaTimeBefore": 383.5,
+      "actualMediaTimeAfter": 383.5,
+      "crop": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "lossless": true,
+      "quality": null,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "derivationKey": "2b25b3081caefa3075e58a251759d95c3aeeb80d02ab83def6ba39df1c78e4b8",
+      "nativeResized": false,
+      "mainImageUsable": false,
+      "completeIllustration": false,
+      "distributionProgress": null,
+      "distributionCompletion": "not-shown",
+      "calculationCompletionStatus": "not-shown",
+      "sceneKind": "xray",
+      "purpose": "source-evidence-only",
+      "commit": "d2e54fd2f2315a430e163c3b571665baefa945c2",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@d2e54fd2f2315a430e163c3b571665baefa945c2/images/USA/USA-M1A2-Trophy-HV-source-383-5s.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/d2e54fd2f2315a430e163c3b571665baefa945c2/images/USA/USA-M1A2-Trophy-HV-source-383-5s.webp",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1sGKF6dEZY/",
+        "kind": "video",
+        "bvid": "BV1sGKF6dEZY",
+        "publishedAt": "2026-07-18 11:51:56",
+        "author": "罗非鱼解说",
+        "title": "战争雷霆：新版本的M1A2战利品和M1A2SEPv3实力到底有多离谱？这次真能让美系陆军站起来了吗？",
+        "gameVersion": "2.57.1.13"
+      },
+      "sourceKind": "video",
+      "proofSnapshotSHA256": "d1901302161d4e9ada24033a43221fc8d73839900a2b0eccce8c62618a5a305a",
+      "id": "a9a32c3f91efef4697638d0f45d9571cd8b2504d955298b522b0d4c1648b0c1d"
     }
   ]
 }
