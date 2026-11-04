@@ -1,5 +1,7 @@
 /** Comparison-pool and sourced-value invariants; no network or browser. */
 import assert from "node:assert/strict";
+import display from "../data/ground-combat-display.json" with { type: "json" };
+import { equipmentLabel, equipmentValue, equipmentParameter } from "../src/vehicle-equipment.ts";
 import {
   addComparedVehicle,
   comparedVehicleKey,
@@ -21,6 +23,10 @@ assert.equal(pool.length, VEHICLE_COMPARE_LIMIT);
 assert.strictEqual(addComparedVehicle(pool, entry("overflow")), pool);
 assert.strictEqual(addComparedVehicle(pool, pool[0]), pool);
 assert.strictEqual(addComparedVehicle(pool, entry("plane", "aviation")), pool);
+const directRemoval = removeComparedVehicles(pool, new Set([comparedVehicleKey(pool[0])]));
+assert.equal(directRemoval.length, 4);
+assert.equal(directRemoval[0].unit.id, "unit-1", "Removing a card promotes the next baseline");
+assert.deepEqual(display.distancesM, [500, 1000, 2000]);
 let smaller = removeComparedVehicles(
   pool,
   new Set([comparedVehicleKey(pool[0]), comparedVehicleKey(pool[3])]),
@@ -93,6 +99,22 @@ assert.equal(
 );
 assert.equal(shellPenetration(shell, 500, "source"), null);
 assert.equal(shellPenetration(undefined, 10, "source"), null);
+assert.equal(equipmentLabel("Radar · Band"), "雷达 · 频段");
+assert.equal(equipmentValue("No"), "否", "Explicit absence must not appear as a capability");
+assert.equal(equipmentValue("Yes · Separate antennas"), "是 · 独立天线");
+const equipmentUnit = {
+  wikiDetails: {
+    performance: {
+      equipment: {
+        status: "available",
+        features: [{ kind: "radar", parameters: [{ id: "tws", value: "No" }] }],
+      },
+    },
+  },
+};
+assert.equal(equipmentParameter(equipmentUnit, "radar", "tws"), "No");
+assert.equal(equipmentParameter(equipmentUnit, "radar", "model"), null);
+assert.equal(equipmentParameter(equipmentUnit, "radar_warning", "model"), null);
 console.log(
-  "Vehicle comparison verified: same-branch lock, five-vehicle cap, country-independent selection, duplicate rejection, ordered bulk deletion, baseline promotion, spaded-only values, unknown/zero and sourced penetration angles.",
+  "Vehicle comparison verified: same-branch lock, five-vehicle cap, country-independent selection, duplicate rejection, direct deletion, baseline promotion, spaded-only values, three penetration distances, unknown/zero, sourced angles and explicit equipment capabilities.",
 );

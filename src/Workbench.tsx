@@ -846,6 +846,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
           >
             <VehicleDetails
               unit={unit}
+              modifications={modifications?.[unit.id]}
               catalog={P}
               country={country}
               category={category}

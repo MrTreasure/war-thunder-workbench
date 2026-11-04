@@ -15,6 +15,7 @@ from pathlib import Path
 
 PARSER_VERSION = 'wiki-performance-loadouts-v3'
 GROUND_COMBAT_VERSION = 'wiki-ground-combat-v1'
+EQUIPMENT_VERSION = 'wiki-vehicle-equipment-v1'
 VOID = {'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}
 NUM = re.compile(r'^[−-]?\d[\d,]*(?:\.\d+)?$')
 
@@ -211,10 +212,119 @@ def weapon_parameters(popover):
                                'label':PARAM_LABELS.get(h.text,h.text),'value':v.text})
     return weapon_id,source,parameters
 
+def explicit_value(node):
+    yes = bool(node.find(lambda n:n.cls('bi-check-circle-fill') or n.cls('bi-check-lg')))
+    no = bool(node.find(lambda n:n.cls('bi-x-circle-fill') or n.cls('bi-x-lg')))
+    if node.text: return ('Yes · ' if yes else 'No · ' if no else '')+node.text
+    if yes: return 'Yes'
+    if no: return 'No'
+    return None
+
+def vehicle_equipment(doc, uid, proof):
+    result = {**provenance(uid,proof), 'parserVersion':EQUIPMENT_VERSION,
+              'status':'not_provided','features':[],'properties':[],'optics':[]}
+    seen = set()
+    for node in doc.all(lambda n:'data-feature-popover' in n.attrs and
+                        (n.cls('game-unit_feature') or n.cls('gunit_specs-table_btn'))):
+        pop = Document(node.attrs['data-feature-popover']).root
+        header = pop.find(lambda n:n.cls('game-unit_popover-header'))
+        if not header: continue
+        weapon = node.ancestor('game-unit_weapon')
+        weapon_title = weapon.find(lambda n:n.cls('game-unit_weapon-title')) if weapon else None
+        # Optics cells are represented with explicit crew positions below.
+        if node.ancestor('gunit_specs-table'): continue
+        link = pop.find(lambda n:n.tag=='a' and n.attrs.get('href','').startswith('/collections/feature/'))
+        source = official_url(link.attrs['href']) if link else None
+        kind = source.rsplit('/',1)[-1] if source else re.sub(r'[^a-z0-9]+','-',header.text.lower()).strip('-')
+        context = weapon_title.text if weapon_title else None
+        identity = header.text+'\0'+(context or '')
+        if identity in seen: continue
+        seen.add(identity)
+        parameters, scope = [], ''
+        for row in pop.all(lambda n:n.cls('game-unit_chars-line') or n.cls('game-unit_chars-subline')):
+            value = row.find(lambda n:n.cls('game-unit_chars-value'))
+            cells = [c for c in row.children if isinstance(c,Node)]
+            if not value or not cells: continue
+            label = cells[0].text
+            if label in ('Radar','Optical Detection'): scope = label
+            local_scope = ''
+            for sibling in row.parent.children:
+                if sibling is row: break
+                if isinstance(sibling,Node):
+                    if sibling.tag=='hr': local_scope=''
+                    elif sibling.cls('form-text') and sibling.text in ('Cannons','Rockets','Bombs','Missiles'):
+                        local_scope=sibling.text
+            current_scope = local_scope or scope
+            content = explicit_value(value)
+            if not content: continue
+            ident = re.sub(r'[^a-z0-9]+','-',(current_scope+' '+label if current_scope and label!=current_scope else label).lower()).strip('-')
+            if any(p['id']==ident for p in parameters): ident += '-'+str(len(parameters))
+            parameters.append({'id':ident,'label':current_scope+' · '+label if current_scope and label!=current_scope else label,'value':content})
+        # Features often put a compact value grid in the popup (thermal optics).
+        grids = {id(row.parent):row.parent for row in pop.all(lambda n:n.cls('gunit_specs-table_row'))}
+        for grid in grids.values():
+            rows = [c for c in grid.children if isinstance(c,Node) and c.cls('gunit_specs-table_row')]
+            if len(rows)<2: continue
+            columns = [c.text for c in rows[0].children if isinstance(c,Node)]
+            for row in rows[1:]:
+                cells = [c for c in row.children if isinstance(c,Node)]
+                if len(cells)!=len(columns): continue
+                for title,cell in zip(columns,cells):
+                    if title and cell.text and cell.text not in ('—','-'):
+                        parameters.append({'id':'grid-'+str(len(parameters)), 'label':title, 'value':cell.text})
+        result['features'].append({'id':hashlib.sha256(identity.encode()).hexdigest()[:16],
+                                   'kind':kind,'name':header.text,'weaponName':context,'source':source,'parameters':parameters})
+    fixed = {'Crew','Engine','Length','Wingspan','Wing Loading','Fuel in main tanks','Fuel in drop tanks',
+             'Max Speed Limit (IAS)','Mach Number Limit','G limit','Flap Speed Limit (IAS)',
+             'Gear Speed Limit (IAS)','Visibility','First-order','Vertical guidance'}
+    for row in doc.all(lambda n:n.cls('game-unit_chars-line')):
+        if row.ancestor('game-unit_weapon'): continue
+        header = row.find(lambda n:n.cls('game-unit_chars-header'))
+        value = row.find(lambda n:n.cls('game-unit_chars-value'))
+        if not header or header.text not in fixed or not value or not value.text: continue
+        if value.find(lambda n:any(c.startswith('show-char-') for c in n.attrs.get('class','').split())): continue
+        ident = re.sub(r'[^a-z0-9]+','-',header.text.lower()).strip('-')
+        if any(p['id']==ident for p in result['properties']): continue
+        result['properties'].append({'id':ident,'label':header.text,'value':value.text})
+    for grid in doc.all(lambda n:n.cls('gunit_specs-table')):
+        rows = grid.all(lambda n:n.cls('gunit_specs-table_row'))
+        if not rows: continue
+        headings = [c.text for c in rows[0].children if isinstance(c,Node)]
+        if not any(h in ('Gunner','Commander','Driver') for h in headings): continue
+        for index,title in enumerate(headings):
+            values = []
+            for row in rows[1:]:
+                cells = [c for c in row.children if isinstance(c,Node)]
+                if index < len(cells) and cells[index].text not in ('','—','-'): values.append(cells[index].text)
+                if index < len(cells):
+                    for popup in cells[index].all(lambda n:'data-feature-popover' in n.attrs):
+                        inner = Document(popup.attrs['data-feature-popover']).root
+                        content = inner.find(lambda n:n.cls('game-unit_popover-content'))
+                        if not content: continue
+                        subgrids = {id(line.parent):line.parent for line in content.all(lambda n:n.cls('gunit_specs-table_row'))}
+                        for subgrid in subgrids.values():
+                            subrows = [c for c in subgrid.children if isinstance(c,Node) and c.cls('gunit_specs-table_row')]
+                            if len(subrows)<2: continue
+                            headers = [c.text for c in subrows[0].children if isinstance(c,Node)]
+                            if title not in headers: continue
+                            pos = headers.index(title)
+                            for line in subrows[1:]:
+                                parts = [c for c in line.children if isinstance(c,Node)]
+                                if pos<len(parts) and parts[pos].text not in ('','—','-'): values.append('Optics resolution '+parts[pos].text)
+            if title and values: result['optics'].append({'id':title.lower(),'label':title,'value':' · '.join(dict.fromkeys(values))})
+    if result['features'] or result['properties'] or result['optics']: result['status']='available'
+    return result
+
 def ground_combat(doc, uid, proof):
     result = {**provenance(uid, proof), 'parserVersion': GROUND_COMBAT_VERSION,
               'status': 'not_provided', 'armorStatus': 'not_provided',
-              'weaponsStatus': 'not_provided', 'armor': [], 'weapons': []}
+              'weaponsStatus': 'not_provided', 'armor': [], 'weapons': [],
+              'armorTypes': [], 'equivalentArmorStatus': 'not_provided'}
+    for node in doc.all(lambda n:n.cls('game-unit_feature') and 'data-feature-popover' in n.attrs):
+        pop = Document(node.attrs['data-feature-popover']).root
+        header = pop.find(lambda n:n.cls('game-unit_popover-header'))
+        if header and re.search(r'armou?r',header.text,re.I) and header.text not in result['armorTypes']:
+            result['armorTypes'].append(header.text)
     for block in doc.all(lambda n:n.cls('game-unit_chars-block')):
         header = block.find(lambda n:n.cls('game-unit_chars-header'))
         if not header or header.text not in ('Armour', 'Armor'): continue
@@ -402,6 +512,7 @@ def parse_reference(body, uid, category, proof):
     doc=Document(body).root
     if not doc.find(lambda n:n.cls('game-unit_card')):raise ValueError('Missing vehicle card')
     result = {'performance':performance(doc,uid,proof),'loadouts':loadouts(doc,uid,proof,category)}
+    result['performance']['equipment'] = vehicle_equipment(doc,uid,proof)
     if category == 'ground':
         result['performance']['groundCombat'] = ground_combat(doc,uid,proof)
         if result['performance']['groundCombat']['status'] == 'parse_failed':

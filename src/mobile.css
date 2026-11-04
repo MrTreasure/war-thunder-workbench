@@ -3424,7 +3424,9 @@
   .wt-vehicle-compare-note { padding: 0 12px 10px; font-size: 11px; }
   .wt-vehicle-compare-table th:first-child { width: 130px; }
   .wt-vehicle-compare-table th, .wt-vehicle-compare-table td { padding: 10px; }
-  .wt-vehicle-compare-check { min-height: 44px; }
+  .wt-vehicle-compare-remove { min-height:44px; }
+  .wt-equipment-properties { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+  .wt-equipment-features { grid-template-columns:minmax(0,1fr); }
   .wt-vehicle-compare-body > .calc-note { padding: 8px 12px; font-size: 11px; }
   .wt-ground-combat { margin-top: 20px; padding-top: 18px; }
   .wt-ground-shell-select { display: grid; gap: 8px; }

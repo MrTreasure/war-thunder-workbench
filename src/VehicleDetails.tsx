@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { VehicleTags } from "./VehicleTags";
 import { VehicleTile } from "./VehicleTile";
-import type { Catalog, Mode, Vehicle } from "./models";
+import type { Catalog, Mode, Vehicle, ModificationData } from "./models";
 import { VehicleImage } from "./VehicleImage";
 import { VehicleWikiFacts } from "./VehicleWikiFacts";
 import { vehicleDisplayName } from "./vehicle-display-name";
@@ -15,10 +15,12 @@ import { VehicleSaleCartAction } from "./VehicleSaleCartAction";
 import { LoadoutRecommendations } from "./LoadoutRecommendations";
 import { hasConfigurableLoadout } from "./loadouts";
 import { VehicleGroundCombat } from "./VehicleGroundCombat";
+import { VehicleEquipment } from "./VehicleEquipment";
 type DetailTab =
   | "tags"
   | "performance"
   | "statistics"
+  | "equipment"
   | "loadouts"
   | "recommendations"
   | "information"
@@ -37,6 +39,7 @@ export function VehicleDetails({
   onCompare,
   comparisonAdded = false,
   comparisonFull = false,
+  modifications,
 }: {
   unit: Vehicle;
   catalog: Catalog;
@@ -51,6 +54,7 @@ export function VehicleDetails({
   onCompare?: () => void;
   comparisonAdded?: boolean;
   comparisonFull?: boolean;
+  modifications?: ModificationData;
 }) {
   const [choice, setChoice] = useState<{ id: string; tab: DetailTab } | null>(null);
   const [resolved, setResolved] = useState<{ id: string; count: number } | null>(null);
@@ -69,6 +73,7 @@ export function VehicleDetails({
     { value: "tags", label: "载具标签", icon: "details" },
     { value: "performance", label: "性能对比", icon: "performance" },
     { value: "statistics", label: "性能数值", icon: "details" },
+    { value: "equipment", label: "装备与模块", icon: "details" },
     ...(["aviation", "helicopters"].includes(category)
       ? [{ value: "loadouts" as const, label: "武器挂载", icon: "loadout" as const }]
       : []),
@@ -214,6 +219,8 @@ export function VehicleDetails({
                   <VehicleGroundCombat key={unit.id} unit={unit} />
                 )}
               </>
+            ) : item.value === "equipment" ? (
+              <VehicleEquipment unit={unit} category={category} modifications={modifications} />
             ) : item.value === "loadouts" ? (
               <VehicleLoadouts unit={unit} />
             ) : item.value === "recommendations" ? (

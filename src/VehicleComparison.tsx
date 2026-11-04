@@ -6,7 +6,7 @@ import { Modal } from "./Modal";
 import { VehicleTile } from "./VehicleTile";
 import { GameSelect } from "./components/GameSelect";
 import { GameTabs } from "./components/GameTabs";
-import { GameButton } from "./components/GameButton";
+import { GameIcon } from "./components/GameIcon";
 import { loadoutWeaponName } from "./loadout-presentation";
 import {
   combatNumber,
@@ -24,8 +24,8 @@ import {
   spadedValue,
 } from "./vehicle-compare";
 import type { ComparedVehicle } from "./vehicle-compare";
-import flags from "../data/flags.json";
 import display from "../data/ground-combat-display.json";
+import { equipmentLabel, equipmentValue, equipmentParameter } from "./vehicle-equipment";
 
 function ComparisonRow({
   label,
@@ -89,31 +89,19 @@ export function VehicleComparison({
   close: () => void;
 }) {
   const [mode, setMode] = useState(initialMode);
-  const [selected, setSelected] = useState<Set<string>>(new Set());
   const [choices, setChoices] = useState<Record<string, string>>({});
   const [angle, setAngle] = useState("source");
   const category = entries[0]?.category;
   const keys = entries.map(comparedVehicleKey);
-  const selectedCount = keys.filter((key) => selected.has(key)).length;
   const shells = entries.map((entry) => {
     const available = groundShells(entry.unit);
     return (
       available.find((item) => item.key === choices[comparedVehicleKey(entry)]) || available[0]
     );
   });
-  const select = (key: string, checked: boolean) =>
-    setSelected((old) => {
-      const next = new Set(old);
-      if (checked) next.add(key);
-      else next.delete(key);
-      return next;
-    });
-  function removeSelected() {
-    onRemove(selected);
-    setChoices((old) =>
-      Object.fromEntries(Object.entries(old).filter(([key]) => !selected.has(key))),
-    );
-    setSelected(new Set());
+  function removeEntry(key: string) {
+    onRemove(new Set([key]));
+    setChoices((old) => Object.fromEntries(Object.entries(old).filter(([value]) => value !== key)));
   }
   const section = (title: string, control?: ReactNode) => (
     <tr className="wt-vehicle-compare-section">
@@ -126,6 +114,9 @@ export function VehicleComparison({
   return (
     <Modal
       className="wt-vehicle-compare-modal"
+      style={{
+        width: `min(${entries.length ? 170 + entries.length * 300 : 640}px, calc(100vw - 24px))`,
+      }}
       title="载具对比"
       subtitle="完全体数据 · 首辆为基准 · 最多 5 辆"
       close={close}
@@ -146,9 +137,6 @@ export function VehicleComparison({
               { value: "rb", label: "历史 RB" },
             ]}
           />
-          <GameButton tone="ghost" disabled={!selectedCount} onClick={removeSelected}>
-            删除勾选（{selectedCount}）
-          </GameButton>
         </div>
         <p className="wt-vehicle-compare-note">
           仅使用完全改装后的参数，不叠加专家或王牌乘员加成。未知值显示“—”；数值差额相对首辆载具。
@@ -165,60 +153,40 @@ export function VehicleComparison({
             >
               <table
                 className="wt-vehicle-compare-table"
-                style={{ minWidth: 180 + entries.length * 225 }}
+                style={{ minWidth: 148 + entries.length * 300, width: 148 + entries.length * 300 }}
               >
                 <thead>
                   <tr>
                     <th scope="col">
-                      <label className="wt-vehicle-compare-check">
-                        <input
-                          type="checkbox"
-                          checked={selectedCount === entries.length}
-                          onChange={(event) =>
-                            setSelected(event.target.checked ? new Set(keys) : new Set())
-                          }
-                        />
-                        全选
-                      </label>
-                      <small>勾选后可批量删除</small>
+                      对比载具<small>首辆为基准</small>
                     </th>
                     {entries.map((entry, index) => (
                       <th scope="col" key={comparedVehicleKey(entry)}>
-                        <div className="wt-vehicle-compare-column-tools">
-                          <label className="wt-vehicle-compare-check">
-                            <input
-                              type="checkbox"
-                              checked={selected.has(comparedVehicleKey(entry))}
-                              onChange={(event) =>
-                                select(comparedVehicleKey(entry), event.target.checked)
-                              }
-                              aria-label={`勾选 ${entry.unit.name}`}
-                            />
-                            选择
-                          </label>
-                          {index === 0 && <span className="wt-vehicle-compare-baseline">基准</span>}
-                        </div>
-                        <VehicleTile
-                          unit={entry.unit}
-                          catalog={catalog}
-                          mode={mode}
-                          showRank
-                          showPackPrice={false}
-                          href={`https://wiki.warthunder.com/unit/${encodeURIComponent(entry.unit.id)}`}
-                        />
-                        <div className="wt-vehicle-compare-country">
-                          <img
-                            src={(flags as Record<string, string>)[entry.country]}
-                            width={24}
-                            height={16}
-                            alt=""
+                        <div className="wt-vehicle-compare-card">
+                          <VehicleTile
+                            unit={entry.unit}
+                            catalog={catalog}
+                            mode={mode}
+                            showRank
+                            country={entry.country}
+                            countryLabel={catalog.countries[entry.country]}
+                            href={`https://wiki.warthunder.com/unit/${encodeURIComponent(entry.unit.id)}`}
                           />
-                          {catalog.countries[entry.country]}
+                          <div className="wt-vehicle-compare-card-actions">
+                            {index === 0 && (
+                              <span className="wt-vehicle-compare-baseline">基准</span>
+                            )}
+                            <button
+                              type="button"
+                              className="wt-vehicle-compare-remove"
+                              onClick={() => removeEntry(comparedVehicleKey(entry))}
+                              aria-label={`移除 ${entry.unit.name}`}
+                              title="移除载具"
+                            >
+                              <GameIcon name="close" />
+                            </button>
+                          </div>
                         </div>
-                        <small>
-                          性能资料{" "}
-                          {entry.unit.wikiDetails?.performance?.checkedAt.slice(0, 10) || "未采集"}
-                        </small>
                       </th>
                     ))}
                   </tr>
@@ -258,9 +226,57 @@ export function VehicleComparison({
                       />
                     );
                   })}
+                  <ComparisonRow
+                    label="性能资料采集"
+                    values={entries.map(
+                      (entry) =>
+                        entry.unit.wikiDetails?.performance?.checkedAt.slice(0, 10) || null,
+                    )}
+                  />
+                  {entries.some((entry) =>
+                    entry.unit.wikiDetails?.performance?.equipment?.features.some(
+                      (feature) => feature.kind === "radar" || feature.kind === "radar_warning",
+                    ),
+                  ) && (
+                    <>
+                      {section("雷达与探测设备")}
+                      {(
+                        [
+                          ["radar", "model", "雷达／光电型号"],
+                          ["radar", "radar-band", "雷达频段"],
+                          ["radar", "radar-tws", "边扫边跟踪（TWS）"],
+                          ["radar", "radar-iff", "敌我识别"],
+                          ["radar_warning", "model", "雷达告警接收机"],
+                          ["radar_warning", "range", "告警探测距离"],
+                        ] as const
+                      ).map(([kind, parameter, label]) => (
+                        <ComparisonRow
+                          key={`${kind}:${parameter}`}
+                          label={label}
+                          values={entries.map((entry) => {
+                            const value = equipmentParameter(entry.unit, kind, parameter);
+                            return value ? equipmentValue(value) : null;
+                          })}
+                        />
+                      ))}
+                    </>
+                  )}
                   {category === "ground" && (
                     <>
-                      {section("标称装甲厚度")}
+                      {section("装甲与防护")}
+                      <ComparisonRow
+                        label="装甲类型"
+                        values={entries.map(
+                          (entry) =>
+                            entry.unit.wikiDetails?.performance?.groundCombat?.armorTypes
+                              ?.map(equipmentLabel)
+                              .join("、") || "来源未标明",
+                        )}
+                      />
+                      <ComparisonRow
+                        label="等效装甲"
+                        values={entries.map(() => "来源未提供可核验数值")}
+                      />
                       {(
                         [
                           ["hull", "车体"],

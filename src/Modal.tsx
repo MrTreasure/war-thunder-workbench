@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef } from "react";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { GameButton } from "./components/GameButton";
 import { ResearchPoints } from "./ResearchPoints";
 export function Modal({
@@ -8,12 +8,14 @@ export function Modal({
   close,
   children,
   className = "",
+  style,
 }: {
   title: ReactNode;
   subtitle?: string;
   close: () => void;
   children: ReactNode;
   className?: string;
+  style?: CSSProperties;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   const titleId = useId();
@@ -27,6 +29,7 @@ export function Modal({
     <dialog
       ref={ref}
       className={`calculator ${className}`}
+      style={style}
       aria-labelledby={titleId}
       onCancel={(event) => {
         event.stopPropagation();

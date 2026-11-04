@@ -83,6 +83,8 @@ export function checkVehicleReference(vehicles) {
         assert.equal(combat.parserVersion, "wiki-ground-combat-v1");
         assert(statuses.includes(combat.armorStatus));
         assert(statuses.includes(combat.weaponsStatus));
+        for (const type of combat.armorTypes || []) text(type);
+        if (combat.equivalentArmorStatus) assert(statuses.includes(combat.equivalentArmorStatus));
         unique(combat.armor, "id");
         unique(combat.weapons, "id");
         for (const row of combat.armor) {
@@ -124,6 +126,23 @@ export function checkVehicleReference(vehicles) {
         if (combat.armorStatus === "available") assert(combat.armor.length > 0);
         if (combat.weaponsStatus === "available")
           assert(combat.weapons.some((weapon) => weapon.shells.length > 0));
+      }
+      if (data.equipment) {
+        const equipment = data.equipment;
+        source(equipment,id);
+        assert.equal(equipment.parserVersion,"wiki-vehicle-equipment-v1");
+        unique(equipment.features,"id");
+        unique(equipment.properties,"id");
+        unique(equipment.optics,"id");
+        for (const feature of equipment.features) {
+          text(feature.id); text(feature.kind); text(feature.name);
+          if (feature.source) assert.match(feature.source,/^https:\/\/wiki\.warthunder\.com\/collections\/feature\/[A-Za-z0-9_-]+$/);
+          if (feature.weaponName) text(feature.weaponName);
+          unique(feature.parameters,"id");
+        }
+        for (const parameter of [...equipment.properties,...equipment.optics,...equipment.features.flatMap((feature) => feature.parameters)]) {
+          text(parameter.id); text(parameter.label); text(parameter.value);
+        }
       }
       performance++;
     }

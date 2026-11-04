@@ -67,10 +67,10 @@
   overflow-wrap: anywhere;
 }
 .wt-ground-ammunition-table {
-  min-width: 1100px;
+  min-width: 860px;
 }
 .wt-ground-ammunition-table th:first-child {
-  width: 180px;
+  width: 148px;
 }
 .wt-ground-ammunition-table td:nth-child(2) {
   width: 165px;
@@ -89,7 +89,13 @@
   min-width: 0;
   text-align: left;
 }
-.wt-ground-shell-label > img {
+.wt-ground-shell-label > .wt-ground-shell-icon {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  max-width: 28px;
+  min-height: 28px;
+  max-height: 28px;
   flex: 0 0 28px;
   object-fit: contain;
 }
@@ -199,8 +205,8 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px 22px;
-  padding: 16px 22px 10px;
+  gap: 8px 16px;
+  padding: 10px 14px 6px;
 }
 .wt-vehicle-compare-toolbar > div:first-child {
   display: flex;
@@ -219,7 +225,7 @@
 .wt-vehicle-compare-note {
   flex-shrink: 0;
   margin: 0;
-  padding: 0 22px 14px;
+  padding: 0 14px 10px;
   font-size: 12px;
   line-height: 1.65;
   color: var(--wt-muted);
@@ -252,7 +258,7 @@
   position: sticky;
   left: 0;
   z-index: 2;
-  width: 180px;
+  width: 148px;
   background: var(--wt-surface);
   text-align: left;
   color: var(--wt-body);
@@ -302,29 +308,6 @@
   display: inline-block;
   margin-right: 24px;
 }
-.wt-vehicle-compare-column-tools {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 8px;
-}
-.wt-vehicle-compare-check {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 36px;
-  padding: 4px 0;
-  cursor: pointer;
-  color: var(--wt-body);
-  font-size: 12px;
-  white-space: nowrap;
-}
-.wt-vehicle-compare-check input {
-  width: 17px;
-  height: 17px;
-  accent-color: var(--wt-gold);
-}
 .wt-vehicle-compare-baseline {
   display: inline-block;
   padding: 4px 9px;
@@ -333,18 +316,6 @@
   border: 1px solid var(--wt-gold-line);
   font-size: 11px;
   font-weight: 500;
-}
-.wt-vehicle-compare-country {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 10px;
-  font-size: 12px;
-  font-weight: 400;
-  color: var(--wt-muted);
-}
-.wt-vehicle-compare-country img {
-  object-fit: contain;
 }
 .wt-vehicle-compare-angle {
   display: inline-flex;
@@ -384,7 +355,133 @@
   .wt-ground-shell-button:hover {
     background: var(--wt-raised);
   }
-  .wt-vehicle-compare-check:hover {
+  .wt-vehicle-compare-remove:hover {
     color: var(--wt-gold);
+    background: var(--wt-raised);
   }
+}
+
+.wt-vehicle-compare-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding-top: 8px;
+}
+.wt-vehicle-compare-card > .wt-game-card {
+  flex: 0 0 228px;
+  text-align: left;
+}
+.wt-vehicle-compare-card-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 28px;
+}
+.wt-vehicle-compare-card-actions .wt-vehicle-compare-baseline {
+  font-size: 10px;
+  padding: 3px 5px;
+}
+.wt-vehicle-compare-remove {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  min-height: 44px;
+  padding: 3px;
+  border: 1px solid var(--wt-line);
+  background: transparent;
+  color: var(--wt-muted);
+}
+.wt-vehicle-compare-remove:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 2px;
+}
+.wt-vehicle-compare-remove:active {
+  background: var(--wt-raised);
+}
+.wt-vehicle-compare-table thead th {
+  padding: 8px;
+}
+.wt-vehicle-compare-table thead th:first-child {
+  padding: 16px 12px;
+}
+.wt-ground-armor-types {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0 14px;
+  font-size: 13px;
+  color: var(--wt-body);
+}
+.wt-ground-armor-type {
+  padding: 4px 8px;
+  border: 1px solid var(--wt-gold-line);
+  color: var(--wt-gold);
+  background: var(--wt-gold-soft);
+}
+.wt-equipment {
+  min-width: 0;
+}
+.wt-equipment-properties {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px 22px;
+  margin: 14px 0 26px;
+}
+.wt-equipment-properties dt {
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-equipment-properties dd {
+  margin: 4px 0 0;
+  color: var(--wt-ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.wt-equipment-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px 24px;
+  margin: 16px 0 28px;
+}
+.wt-equipment-feature {
+  min-width: 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--wt-line);
+}
+.wt-equipment-feature h4 {
+  margin: 0 0 8px;
+  color: var(--wt-ink);
+  font-size: 14px;
+}
+.wt-equipment-feature > small {
+  color: var(--wt-muted);
+  font-size: 12px;
+}
+.wt-equipment-feature dl {
+  display: grid;
+  grid-template-columns: minmax(90px, 0.9fr) minmax(0, 1.4fr);
+  gap: 7px 16px;
+  margin: 10px 0 0;
+  font-size: 13px;
+}
+.wt-equipment-feature dt {
+  color: var(--wt-muted);
+}
+.wt-equipment-feature dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: var(--wt-body);
+}
+.wt-equipment-parameter {
+  display: contents;
+}
+.wt-equipment-parts {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+}
+.wt-equipment .wt-part-card {
+  cursor: default;
 }

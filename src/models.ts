@@ -30,6 +30,19 @@ export interface WikiPerformanceMetric {
 export interface WikiPerformance extends WikiReferenceSource {
   metrics: WikiPerformanceMetric[];
   groundCombat?: WikiGroundCombat;
+  equipment?: WikiVehicleEquipment;
+}
+export interface WikiVehicleEquipment extends WikiReferenceSource {
+  features: {
+    id: string;
+    kind: string;
+    name: string;
+    weaponName: string | null;
+    source: string | null;
+    parameters: WikiWeaponParameter[];
+  }[];
+  properties: WikiWeaponParameter[];
+  optics: WikiWeaponParameter[];
 }
 export interface WikiGroundShell {
   id: string;
@@ -52,6 +65,8 @@ export interface WikiGroundWeapon {
   shells: WikiGroundShell[];
 }
 export interface WikiGroundCombat extends WikiReferenceSource {
+  armorTypes?: string[];
+  equivalentArmorStatus?: VehicleReferenceStatus;
   armorStatus: VehicleReferenceStatus;
   weaponsStatus: VehicleReferenceStatus;
   armor: { id: string; label: string; front: string; side: string; rear: string }[];

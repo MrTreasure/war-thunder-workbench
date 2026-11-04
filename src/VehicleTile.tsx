@@ -11,6 +11,7 @@ import { compactResearchPoints } from "./research-number-format";
 import { format } from "./quotes";
 import { cnyPrice } from "./PackPrice";
 import { rating } from "./vehicle-labels";
+import flags from "../data/flags.json";
 
 /** A display adapter accepts only known facts; no country data is fetched by a tile. */
 export type VehicleTileUnit = Pick<Vehicle, "id" | "name"> & {
@@ -52,6 +53,7 @@ export function VehicleTile({
   showAcquisition = true,
   showPackPrice = true,
   countryLabel,
+  country,
 }: {
   unit: VehicleTileUnit;
   catalog?: Pick<Catalog, "kinds" | "roles">;
@@ -74,6 +76,8 @@ export function VehicleTile({
   showPackPrice?: boolean;
   /** Omit when the surrounding page already identifies the country. */
   countryLabel?: string;
+  /** Optional in-card country identity; does not load another country payload. */
+  country?: string;
 }) {
   const facts = useVehicleFacts();
   const unit =
@@ -126,7 +130,11 @@ export function VehicleTile({
         ? "暂无报价"
         : `${format(unit.price ?? unit.ge!)} GE`
       : catalog.kinds[unit.kind || ""] || "特殊载具";
-  const caption = [countryLabel, footerLabel, showRank && unit.rank ? `Rank ${unit.rank}` : null]
+  const caption = [
+    !country && countryLabel,
+    footerLabel,
+    showRank && unit.rank ? `Rank ${unit.rank}` : null,
+  ]
     .filter(Boolean)
     .join(" · ");
   const Element = onSelect ? "button" : href ? "a" : "span";
@@ -143,6 +151,7 @@ export function VehicleTile({
       target={!onSelect && href ? "_blank" : undefined}
       rel={!onSelect && href ? "noreferrer" : undefined}
       data-kind={unit.kind || "unknown"}
+      data-country={country || undefined}
       data-owned={owned || undefined}
       disabled={onSelect ? disabled : undefined}
       type={onSelect ? "button" : undefined}
@@ -150,7 +159,7 @@ export function VehicleTile({
       onClick={onSelect}
       aria-label={
         showAcquisition
-          ? `${name}，Rank ${unit.rank || "—"}${owned ? "，已拥有" : ""}，${exact}${onSelect ? "，查看载具详情" : ""}`
+          ? `${name}，${country ? (countryLabel || bootstrap.countries[country as keyof typeof bootstrap.countries] || country) + "，" : ""}Rank ${unit.rank || "—"}${owned ? "，已拥有" : ""}，${exact}${onSelect ? "，查看载具详情" : ""}`
           : `${name}${owned ? "，已拥有" : ""}${onSelect ? "，查看载具详情" : ""}`
       }
       title={showAcquisition ? `${name} · ${exact}` : name}
@@ -163,6 +172,18 @@ export function VehicleTile({
         />
       )}
       <VehicleThumbnail unit={mediaUnit} />
+      {country && (
+        <span className="wt-game-card-country">
+          {(flags as Record<string, string>)[country] && (
+            <img src={(flags as Record<string, string>)[country]} width={20} height={14} alt="" />
+          )}
+          <span>
+            {countryLabel ||
+              bootstrap.countries[country as keyof typeof bootstrap.countries] ||
+              country}
+          </span>
+        </span>
+      )}
       <span className={`unit-name ${name.length > 17 ? "is-long" : ""}`} title={name}>
         {name}
       </span>
@@ -233,9 +254,9 @@ export function VehicleTile({
       )}
       {caption && (
         <span className="wt-game-card-caption" title={caption}>
-          {(countryLabel || footerLabel) && (
+          {((!country && countryLabel) || footerLabel) && (
             <span className="wt-game-card-caption-context">
-              {[countryLabel, footerLabel].filter(Boolean).join(" · ")}
+              {[!country && countryLabel, footerLabel].filter(Boolean).join(" · ")}
             </span>
           )}
           {showRank && unit.rank && (

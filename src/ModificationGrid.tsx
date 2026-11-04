@@ -17,16 +17,19 @@ export function ModificationGrid({
   allUnlockedByDefault,
   completed,
   onChange,
+  readOnly = false,
 }: {
   data: ModificationData;
   included: boolean;
   allUnlockedByDefault: boolean;
   completed: string[];
   onChange: (id: string, checked: boolean) => void;
+  readOnly?: boolean;
 }) {
   function card(item: Modification, positioned = false) {
+    const Element = readOnly ? "div" : "label";
     return (
-      <label
+      <Element
         key={item.id}
         className={`wt-part-card ${included || completed.includes(item.id) ? "is-complete" : ""}`}
         style={
@@ -38,12 +41,14 @@ export function ModificationGrid({
             : undefined
         }
       >
-        <input
-          type="checkbox"
-          disabled={!data.itemCostsComplete || included}
-          checked={included || (data.itemCostsComplete && completed.includes(item.id))}
-          onChange={(e) => onChange(item.id, e.target.checked)}
-        />
+        {!readOnly && (
+          <input
+            type="checkbox"
+            disabled={!data.itemCostsComplete || included}
+            checked={included || (data.itemCostsComplete && completed.includes(item.id))}
+            onChange={(e) => onChange(item.id, e.target.checked)}
+          />
+        )}
         <span className="wt-part-image">
           {item.imageUrl && (
             <img
@@ -61,7 +66,7 @@ export function ModificationGrid({
         <span className="wt-part-name" title={item.name}>
           {item.name}
         </span>
-        {!allUnlockedByDefault && (
+        {!readOnly && !allUnlockedByDefault && (
           <strong title={item.rp === null ? undefined : `${format(item.rp)} 研发点`}>
             {item.rp === null ? (
               "官方未提供"
@@ -70,7 +75,7 @@ export function ModificationGrid({
             )}
           </strong>
         )}
-      </label>
+      </Element>
     );
   }
   const located = data.items.filter((item) => item.position);

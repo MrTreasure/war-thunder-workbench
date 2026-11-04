@@ -4,6 +4,7 @@ import type { Vehicle, WikiGroundShell, WikiGroundWeapon } from "./models";
 import { GameSelect } from "./components/GameSelect";
 import { loadoutWeaponName, loadoutParameterValue } from "./loadout-presentation";
 import display from "../data/ground-combat-display.json";
+import { equipmentLabel } from "./vehicle-equipment";
 
 const weaponTerms = Object.entries(display.weaponTerms).sort(([a], [b]) => b.length - a.length);
 const weaponPattern = new RegExp(`\\b(?:${weaponTerms.map(([term]) => term).join("|")})\\b`, "gi");
@@ -22,7 +23,16 @@ export const shellTypeName = (type: string) =>
 export function GroundShellLabel({ shell }: { shell: WikiGroundShell }) {
   return (
     <span className="wt-ground-shell-label">
-      {shell.imageUrl && <img src={shell.imageUrl} alt="" width={28} height={28} loading="lazy" />}
+      {shell.imageUrl && (
+        <img
+          className="wt-ground-shell-icon"
+          src={shell.imageUrl}
+          alt=""
+          width={28}
+          height={28}
+          loading="lazy"
+        />
+      )}
       <span>{groundShellName(shell.name)}</span>
     </span>
   );
@@ -32,7 +42,7 @@ function GroundWeapon({ weapon }: { weapon: WikiGroundWeapon }) {
   const shell = weapon.shells.find((item) => item.id === selected) || weapon.shells[0];
   const labels = display.parameterLabels as Record<string, string>;
   const angles = [...new Set(shell?.penetrationAngles.map((point) => point.angleDeg) || [])];
-  const distances = [...new Set(shell?.penetrationAngles.map((point) => point.distanceM) || [])];
+  const distances = display.distancesM;
   return (
     <article className="wt-ground-weapon">
       <div className="wt-ground-section-heading">
@@ -200,6 +210,18 @@ export function VehicleGroundCombat({ unit }: { unit: Vehicle }) {
         <h3>装甲防护</h3>
         <span>标称厚度 · mm</span>
       </div>
+      <div className="wt-ground-armor-types">
+        <span>装甲类型</span>
+        {data?.armorTypes?.length ? (
+          data.armorTypes.map((type) => (
+            <span className="wt-ground-armor-type" key={type}>
+              {equipmentLabel(type)}
+            </span>
+          ))
+        ) : (
+          <span>Wiki 未明确标注材质类型</span>
+        )}
+      </div>
       {data?.armorStatus === "available" && data.armor.length ? (
         <>
           <div className="wt-ground-table-scroll" tabIndex={0} aria-label="装甲厚度">
@@ -225,7 +247,7 @@ export function VehicleGroundCombat({ unit }: { unit: Vehicle }) {
             </table>
           </div>
           <p className="calc-note">
-            此处为 Wiki 标称装甲厚度，不代表复合装甲或反应装甲的等效防护。
+            等效装甲：现有原件未提供可核验的分部位、弹种和入射角防护数值。上表为标称厚度，不作为等效装甲展示。
           </p>
         </>
       ) : (
