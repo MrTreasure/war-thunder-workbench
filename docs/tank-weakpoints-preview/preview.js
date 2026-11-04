@@ -1,24 +1,29 @@
-// This standalone review uses the built data literal. It makes no API or account requests.
+// Weakpoint data comes from the built literal; only the shared public appearance bootstrap uses an API.
 const $ = (id) => document.getElementById(id);
 const countries = { usa: "美国", germany: "德国", ussr: "苏联", britain: "英国", japan: "日本", china: "中国", italy: "意大利", france: "法国", sweden: "瑞典", israel: "以色列" };
 const countryEntries = SAMPLE.countries || [];
 const filterSelects = [];
-const eras = [["all", "全部年代"], ["ww2", "二战"], ["cold-war", "冷战"], ["modern", "现代"]];
 let selected = -1;
 let point = 0;
 let original = false;
 let evidenceId = null;
 let country = "all";
 let rank = "all";
-let era = "all";
-let includeIs = false;
+let searchQuery = "";
+let composing = false;
+let imageLoadTimer;
+let imageLoadGeneration = 0;
 function element(tag, text, className) {
   const node = document.createElement(tag);
   if (text !== undefined) node.textContent = text;
   if (className) node.className = className;
   return node;
 }
-function sourceOf(model) { return model.source || SAMPLE.source || {}; }
+function sourceOf(model) {
+  if (model.source) return model.source;
+  if (model.source === null || (!model.imageUrl && !model.rawUrl && !model.frame)) return {};
+  return SAMPLE.source || {};
+}
 function selectedEvidence(model) { return model?.protectionEvidence?.find((item) => item.id === evidenceId) || null; }
 function shellTypeLabel(test) {
   const code = test?.shellTypeCode?.trim();
@@ -32,12 +37,19 @@ function penetrationLabel(test) {
     ? `${penetration} 毫米${Number.isFinite(distance) ? `（${distance} 米）` : "（距离待核对）"}`
     : `来源未显示／待核对${Number.isFinite(distance) ? `（${distance} 米）` : ""}`;
 }
-function isSupplement(model) { return String(model.family || "").toLowerCase() === "is" && !(Number(model.rank) >= 6); }
+function roleIcon(model) {
+  if (!["heavy", "medium", "light", "td", "aa"].includes(model?.roleIconKey)) return null;
+  const icon = element("span", undefined, `wt-game-role ${model.roleIconKey}`);
+  icon.setAttribute("aria-hidden", "true");
+  if (model.roleLabel) icon.title = model.roleLabel;
+  return icon;
+}
+function searchKey(value) { return String(value || "").normalize("NFKC").toLocaleLowerCase().replace(/[\s\p{P}\p{S}]/gu, ""); }
 function matches(model) {
   if (country !== "all" && (model.country || "unknown") !== country) return false;
-  if (era !== "all" && model.era !== era) return false;
-  if (isSupplement(model)) return includeIs;
-  return rank === "all" || Number(model.rank) === Number(rank);
+  if (rank !== "all" && Number(model.rank) !== Number(rank)) return false;
+  const needle = searchKey(searchQuery);
+  return !needle || [model.name, model.englishName, model.nameEn, model.nameZhCN, model.id, model.modelId].some((value) => searchKey(value).includes(needle));
 }
 function videoUrl(source, time) {
   if (!source.url) return null;
@@ -59,8 +71,14 @@ function renderPoint() {
     return;
   }
   const pin = SAMPLE.models[selected]?.pins?.[point];
-  $("point-title").textContent = pin?.label || "尚无标注";
-  $("point-detail").textContent = pin?.detail || "该车型的攻击位置说明尚未补充。";
+  const model = SAMPLE.models[selected];
+  const summary = model?.frontSummary || model?.videoAdvice?.[0]?.text;
+  const preview = model?.mainViewKind === "protection-preview";
+  const layout = model?.mainViewKind === "armor-layout";
+  const summaryTitle = !model?.frontSummary && model?.videoAdvice?.[0]?.sourceKind === "article-text" ? "文章打法摘要" : ["forum-image", "article-image"].includes(sourceOf(model || {}).kind) ? "来源打法摘要" : "视频打法摘要";
+  if (!pin && summary) $("point-kind").textContent = preview ? "单点防护预览" : layout ? "装甲布局" : "整体打法";
+  $("point-title").textContent = pin?.label || (preview ? "当前准星结果" : layout ? "装甲厚度视图" : summary ? summaryTitle : "尚无标注");
+  $("point-detail").textContent = pin?.detail || summary || "该车型的攻击位置说明尚未补充。";
   for (const host of [$("pins"), $("pin-buttons")])
     [...host.children].forEach((button, index) => button.setAttribute("aria-pressed", String(index === point)));
 }
@@ -70,13 +88,36 @@ function imageMissing(message) {
   $("image-status").textContent = message;
   $("image-status").hidden = false;
 }
+function renderBaseReference(model) {
+  const host = $("base-reference");
+  const ref = model.baseVehicleReference;
+  const base = ref && SAMPLE.models.find((entry) => entry.id === ref.vehicleId);
+  host.hidden = !!(model.imageUrl || model.rawUrl) || !base;
+  host.replaceChildren();
+  if (host.hidden) return;
+  const title = element("h3", "基础车型图解");
+  const note = element("p", `${ref.note} 参考图解属于${base.name}，不等同本车实拍。`);
+  const link = element("a", `查看${base.name}图解 →`);
+  link.href = "#vehicle=" + encodeURIComponent(base.id);
+  const official = element("a", "官方依据 ↗");
+  official.href = ref.targetWikiURL;
+  official.target = "_blank";
+  official.rel = "noopener noreferrer";
+  host.replaceChildren(title, note, link, official);
+}
 function render() {
   const model = SAMPLE.models[selected];
   if (!model) return;
+  renderBaseReference(model);
   const source = sourceOf(model);
+  const articleImage = source.kind === "article-image";
+  const staticSource = source.kind === "forum-image" || articleImage;
+  const authorDiagram = model.mainViewKind === "author-diagram";
+  const protectionPreview = model.mainViewKind === "protection-preview";
+  const armorLayout = model.mainViewKind === "armor-layout";
   const evidence = selectedEvidence(model);
   const imageViews = $("image-views");
-  const views = [{ id: null, label: "外观与标注" }, ...(model.protectionEvidence || [])];
+  const views = [{ id: null, label: authorDiagram ? "作者防护示意" : protectionPreview ? "单点防护预览" : armorLayout ? "装甲布局" : model.mainViewKind === "protection-analysis" ? "防护分析" : "外观与标注" }, ...(model.protectionEvidence || [])];
   imageViews.hidden = views.length < 2;
   imageViews.replaceChildren(...views.map((view) => {
     const button = element("button", view.label);
@@ -85,8 +126,8 @@ function render() {
     button.addEventListener("click", () => { evidenceId = view.id; original = false; render(); });
     return button;
   }));
-  $("vehicle-name").textContent = model.name;
-  const metadata = [model.role, model.countryName || countries[model.country], model.rank ? `Rank ${model.rank}` : null, isSupplement(model) ? "IS 系列补充" : null, model.coverageNotice].filter(Boolean);
+  $("vehicle-name").replaceChildren(...[roleIcon(model), element("span", model.name)].filter(Boolean));
+  const metadata = [model.roleLabel || model.role, model.countryName || countries[model.country], model.rank ? `${model.rankLabel || model.rank} 级` : null, model.coverageNotice].filter(Boolean);
   $("vehicle-role").textContent = metadata.join(" · ");
   $("wiki-summary").textContent = model.wikiSummary || "Wiki 要点待核对。";
   $("wiki-points").replaceChildren(...(model.wikiPoints || []).map((text) => element("li", text)));
@@ -94,31 +135,34 @@ function render() {
   $("reload-gun").textContent = model.reload?.gun || "";
   $("reload-note").textContent = model.reload?.note || "";
   const test = evidence ? model.testCases?.find((item) => item.id === evidence.caseId) : model.testContext;
-  const hasVideoTest = !!(model.frame || test || (source.url && model.videoAdvice?.length));
+  const hasVideoTest = !!test || (!articleImage && !armorLayout && !!(model.frame || (source.url && model.videoAdvice?.some((advice) => advice.sourceKind !== "article-text"))));
   $("test-section").hidden = !hasVideoTest;
-  $("test-attacker").textContent = test?.attacker?.trim() || "来源未显示／待核对";
+  $("test-attacker").textContent = (test?.attackerDisplayName || test?.attacker)?.trim() || "来源未显示／待核对";
   $("test-shell").textContent = test?.shell?.trim() || "来源未显示／待核对";
   $("test-shell-type").textContent = shellTypeLabel(test);
   $("test-penetration").textContent = penetrationLabel(test);
   const testNote = evidence ? evidence.conditionNote : test?.note;
   $("test-note").textContent = testNote || "";
   $("test-note").hidden = !testNote;
-  const testHref = Number.isFinite(test?.sourceTime) ? videoUrl({ url: test.sourceUrl || source.url }, test.sourceTime) : null;
+  const staticTest = test?.sourceKind === "forum-image";
+  const testHref = staticTest ? videoUrl({ url: test.sourceUrl || source.url }) : Number.isFinite(test?.sourceTime) ? videoUrl({ url: test.sourceUrl || source.url }, test.sourceTime) : null;
   $("test-link").hidden = !testHref;
   if (testHref) {
     $("test-link").href = testHref;
-    $("test-link").textContent = `查看测试片段 ${Math.floor(test.sourceTime / 60)}:${String(Math.floor(test.sourceTime % 60)).padStart(2, "0")} ↗`;
+    $("test-link").textContent = staticTest ? "查看原帖证据 ↗" : `查看测试片段 ${Math.floor(test.sourceTime / 60)}:${String(Math.floor(test.sourceTime % 60)).padStart(2, "0")} ↗`;
   } else $("test-link").removeAttribute("href");
   $("video-section").hidden = !model.videoAdvice?.length;
   $("video-advice").replaceChildren(...(model.videoAdvice || []).map((advice) => {
     const article = element("article", undefined, "advice");
     article.append(element("h4", advice.label), element("p", advice.text));
     const testCase = model.testCases?.find((item) => item.id === advice.caseId);
-    if (testCase) article.append(element("p", [testCase.attacker || "攻击车辆待核对", testCase.shell || "炮弹待核对", testCase.shellTypeCode || "弹种待核对", penetrationLabel(testCase)].join(" · "), "case-summary"));
-    const adviceTime = Number.isFinite(advice.sourceTime) ? advice.sourceTime : advice.time;
+    if (testCase) article.append(element("p", [testCase.attackerDisplayName || testCase.attacker || "攻击车辆待核对", testCase.shell || "炮弹待核对", testCase.shellTypeCode || "弹种待核对", penetrationLabel(testCase)].join(" · "), "case-summary"));
+    const articleAdvice = advice.sourceKind === "article-text";
+    const staticAdvice = articleAdvice || advice.sourceKind === "forum-image";
+    const adviceTime = staticAdvice ? null : Number.isFinite(advice.sourceTime) ? advice.sourceTime : advice.time;
     const href = videoUrl({ url: advice.sourceUrl || testCase?.sourceUrl || source.url }, adviceTime);
     if (href) {
-      const link = element("a", Number.isFinite(adviceTime) ? `${Math.floor(adviceTime / 60)}:${String(Math.floor(adviceTime % 60)).padStart(2, "0")} ↗` : "查看视频 ↗");
+      const link = element("a", Number.isFinite(adviceTime) ? `${Math.floor(adviceTime / 60)}:${String(Math.floor(adviceTime % 60)).padStart(2, "0")} ↗` : articleAdvice ? "查看原文 ↗" : advice.sourceKind === "forum-image" || staticSource ? "查看原帖 ↗" : "查看视频 ↗");
       link.href = href; link.target = "_blank"; link.rel = "noopener noreferrer";
       article.append(link);
     }
@@ -130,24 +174,41 @@ function render() {
   const imageUrl = evidence?.imageUrl || (showRaw ? model.rawUrl : model.imageUrl);
   image.hidden = !imageUrl;
   $("image-status").hidden = !!imageUrl;
-  const fallbackUrl = evidence?.imageFallbackUrl || (showRaw ? model.rawFallbackUrl : model.imageFallbackUrl);
-  let triedFallback = false;
-  image.onerror = () => {
-    if (fallbackUrl && !triedFallback) { triedFallback = true; image.src = fallbackUrl; return; }
-    imageMissing("高清正面图加载失败，请稍后重试；此图暂不显示标注。");
+  const fallbacks = evidence?.imageFallbackUrls || (showRaw ? model.rawFallbackUrls : model.imageFallbackUrls)
+    || [evidence?.imageFallbackUrl || (showRaw ? model.rawFallbackUrl : model.imageFallbackUrl)];
+  const candidates = [...new Set([imageUrl, ...fallbacks].filter(Boolean))];
+  const generation = ++imageLoadGeneration;
+  clearTimeout(imageLoadTimer);
+  let candidateIndex = 0;
+  const loadCandidate = () => {
+    if (generation !== imageLoadGeneration) return;
+    clearTimeout(imageLoadTimer);
+    image.src = candidates[candidateIndex];
+    imageLoadTimer = setTimeout(() => { if (generation === imageLoadGeneration) nextCandidate(); }, 12000);
   };
-  if (imageUrl) image.src = imageUrl;
+  const nextCandidate = () => {
+    if (generation !== imageLoadGeneration) return;
+    clearTimeout(imageLoadTimer);
+    if (++candidateIndex < candidates.length) loadCandidate();
+    else imageMissing("高清正面图加载失败，请稍后重试；此图暂不显示标注。");
+  };
+  image.onerror = nextCandidate;
+  image.onload = () => { if (generation === imageLoadGeneration) clearTimeout(imageLoadTimer); };
+  if (imageUrl) loadCandidate();
   else { image.removeAttribute("src"); imageMissing("高清正面图尚未归档，此车型资料仍在补充。"); }
-  image.alt = model.name + (evidence ? ` · ${evidence.label} · 原视频防护分析画面` : showRaw ? "原始防护分析视频帧" : "正面防护分析截图与区域标注");
+  image.alt = model.name + (evidence ? ` · ${evidence.label} · 防护分析画面` : authorDiagram ? "原文章作者正面防护示意图" : armorLayout ? showRaw ? "完整原生装甲布局画面" : "正面装甲厚度视图" : showRaw ? staticSource ? "原帖完整防护分析截图" : protectionPreview ? "原始单点防护预览视频帧" : "原始防护分析视频帧" : protectionPreview ? "正面单点防护预览原图" : model.mainViewKind === "protection-analysis" ? "正面防护分析原图" : "正面截图与区域说明");
   image.width = evidence?.sourceDimensions?.[0] || (showRaw ? (model.sourceDimensions?.[0] || 1920) : (model.crop?.[2] || 1100));
   image.height = evidence?.sourceDimensions?.[1] || (showRaw ? (model.sourceDimensions?.[1] || 1080) : (model.crop?.[3] || 690));
   $("toggle-original").hidden = !!evidence || !(model.imageUrl && model.rawUrl);
-  $("toggle-original").textContent = original ? "返回标注图" : "查看完整原始帧";
+  $("toggle-original").textContent = original ? "返回标注图" : "查看完整高清图";
   $("toggle-original").setAttribute("aria-pressed", String(original));
   $("evidence-full").hidden = !evidence;
   if (evidence) $("evidence-full").href = evidence.rawUrl || evidence.imageUrl;
   else $("evidence-full").removeAttribute("href");
-  $("figure-caption").textContent = evidence ? evidence.caption : imageUrl ? `画面：${source.author || "来源见下方"} / 《战争雷霆》。${showRaw ? "当前为完整原始帧。" : "金色编号为讲解标注。"}原始游戏热图颜色取决于当时的弹种与视角。` : "图像资料待补充，不以其他车型画面代替。";
+  const imageDescription = authorDiagram ? "原文章作者防护示意图，保留作者分区、数值和箭头；不是游戏绿色击穿分析或已核验的试射结果。" : armorLayout ? `${showRaw ? "当前为完整高清画面。" : ""}原游戏装甲布局，配色仅区分装甲构件或厚度，不表示可击穿或不可击穿。` : protectionPreview ? `${showRaw ? "当前为完整高清画面。" : ""}原视频单点防护预览，准星与提示仅对应当次位置；不是整片装甲着色或实射结果。` : showRaw ? "当前为完整高清画面。" : model.mainViewKind === "protection-analysis" ? `${staticSource ? "原帖截图" : "原视频"}防护分析，保留游戏原有防护分区。` : model.pins?.length ? "金色编号为讲解标注。" : "来源载具外观。";
+  const versionDescription = source.gameVersion ? `画面版本 ${source.gameVersion}。` : "";
+  const analysisConditions = authorDiagram || armorLayout ? "" : protectionPreview ? "该点条件见来源测试。" : "防护分析颜色对应当时的弹种与视角，条件见来源测试。";
+  $("figure-caption").textContent = evidence ? evidence.caption : imageUrl ? `画面：${source.author || "来源见下方"} / 《战争雷霆》。${imageDescription}${versionDescription}${analysisConditions}${["unknown", "in-progress", "incomplete"].includes(model.distributionCompletionStatus) && model.mainViewNote ? ` ${model.mainViewNote}` : ""}` : "图像资料待补充，不以其他车型画面代替。";
   $("pins").hidden = !!evidence || showRaw || !imageUrl;
   $("pins").replaceChildren();
   $("pin-buttons").replaceChildren();
@@ -165,8 +226,23 @@ function render() {
     $("pins").append(marker); $("pin-buttons").append(alternative);
   });
   const records = [];
-  if (source.url) records.push(sourceLink(source.title || "视频来源", videoUrl(source, model.time), [source.author, source.publishedAt, source.gameVersion ? `游戏版本 ${source.gameVersion}` : null, Number.isFinite(model.time) ? `${Math.floor(model.time / 60)}:${String(Math.floor(model.time % 60)).padStart(2, "0")}` : null, model.imageQuality].filter(Boolean).join(" · ")));
+  if (source.url) records.push(sourceLink(source.title || (articleImage ? "文章来源" : staticSource ? "原帖来源" : "视频来源"), videoUrl(source, staticSource ? null : model.time), [source.author, source.publishedAt, source.gameVersion ? `游戏版本 ${source.gameVersion}` : null, !staticSource && Number.isFinite(model.time) ? `${Math.floor(model.time / 60)}:${String(Math.floor(model.time % 60)).padStart(2, "0")}` : null, model.imageQuality].filter(Boolean).join(" · ")));
+  if (staticSource && source.imageUrl) records.push(sourceLink(articleImage ? "文章原始图片" : "原帖公开图片", source.imageUrl, articleImage ? "保留作者原始图片尺寸与标注；图中数值不作为Wiki基础数据或弹药实测穿深。" : "原始附件；高清归档保留同一截图的原生尺寸。"));
+  const sourceUrls = new Set([source.url].filter(Boolean));
+  for (const related of model.relatedSources || []) {
+    if (!related.url || sourceUrls.has(related.url)) continue;
+    const href = videoUrl(related, related.time);
+    if (!href) continue;
+    sourceUrls.add(related.url);
+    records.push(sourceLink(related.title || "关联攻略", href, [related.author, related.publishedAt, related.scopeNote].filter(Boolean).join(" · ")));
+  }
   if (model.wikiUrl) records.push(sourceLink("官方 Wiki · " + model.name, model.wikiUrl, `核对日期 ${model.collectedAt || SAMPLE.collectedAt || "待补充"} · 车型、装甲与主炮装填资料${model.wikiGameVersion ? ` · 游戏版本 ${model.wikiGameVersion}` : ""}`));
+  const ammoReferences = new Map();
+  for (const item of [test, ...(model.testCases || [])]) {
+    const reference = item?.shellTypeReference;
+    if (reference?.url) ammoReferences.set(reference.url + ":" + reference.officialShellName, reference);
+  }
+  for (const reference of ammoReferences.values()) records.push(sourceLink("测试弹种资料 · " + (reference.sourceShellLabelOriginal || reference.officialShellName), reference.url, ["官方 Wiki", reference.mainGun, reference.gameVersion ? `游戏版本 ${reference.gameVersion}` : null].filter(Boolean).join(" · ")));
   if (evidence) records.push(sourceLink("防护分析截图 · " + evidence.label, videoUrl({ url: test?.sourceUrl }, evidence.sourceTime), [evidence.caption, Number.isFinite(evidence.sourceTime) ? `${Math.floor(evidence.sourceTime / 60)}:${String(Math.floor(evidence.sourceTime % 60)).padStart(2, "0")}` : null].filter(Boolean).join(" · ")));
   $("sources").replaceChildren(...records);
   renderPoint();
@@ -177,11 +253,15 @@ function updateList(preferredId) {
   for (const id of ["study", "source-section"]) $(id).hidden = !visible.length;
   $("empty-state").hidden = !!visible.length;
   const illustrated = visible.filter((model) => model.imageUrl).length;
-  $("result-count").textContent = `${visible.length} 辆资料 · ${illustrated} 辆已配正面图 · ${visible.length - illustrated} 辆待补图${includeIs ? " · 已包含 IS 系列补充" : ""}`;
+  $("result-count").textContent = `${visible.length} 辆资料 · ${illustrated} 辆已配正面图 · ${visible.length - illustrated} 辆待补图`;
   const currentId = preferredId || SAMPLE.models[selected]?.id;
   const next = visible.find((model) => model.id === currentId) || visible[0];
-  select(next ? SAMPLE.models.indexOf(next) : -1);
-  vehicleSelect.setOptions(visible.map((model) => ({ value: model.id, label: model.name + (!model.imageUrl && !model.rawUrl ? " · 待补图" : "") })));
+  const nextIndex = next ? SAMPLE.models.indexOf(next) : -1;
+  if (nextIndex !== selected) {
+    if (next) select(nextIndex);
+    else { selected = -1; clearTimeout(imageLoadTimer); ++imageLoadGeneration; }
+  }
+  vehicleSelect.setOptions(visible.map((model) => ({ value: model.id, roleIconKey: model.roleIconKey, roleLabel: model.roleLabel, label: model.name + (!model.imageUrl && !model.rawUrl ? " · 待补图" : "") })));
   filterSelects.forEach((control) => control.sync());
 }
 // Standalone equivalent of components/GameSelect: trigger focus + top-layer listbox.
@@ -203,7 +283,7 @@ function createFilter(host, kind, entries, labelledBy) {
   menu.setAttribute("aria-labelledby", trigger.id); menu.hidden = true;
   $(host).append(trigger, menu);
   let open = false, active = 0, search = "", searchAt = 0;
-  const current = () => kind === "vehicle" ? SAMPLE.models[selected]?.id || "" : ({ country, rank, era }[kind]);
+  const current = () => kind === "vehicle" ? SAMPLE.models[selected]?.id || "" : ({ country, rank }[kind]);
   function content(entry) {
     const row = element("span", undefined, "select-option-label");
     const flags = entry.flagUrl ? [entry.flagUrl] : [];
@@ -213,6 +293,8 @@ function createFilter(host, kind, entries, labelledBy) {
       flags.forEach((url) => { const image = element("img"); image.src = url; image.alt = ""; image.width = 24; image.height = 18; icons.append(image); });
       row.append(icons);
     }
+    const icon = roleIcon(entry);
+    if (icon) row.append(icon);
     row.append(element("span", entry.label)); return row;
   }
   let options = [];
@@ -272,7 +354,6 @@ function createFilter(host, kind, entries, labelledBy) {
     const value = entries[index].value;
     if (kind === "country") country = value;
     if (kind === "rank") rank = value;
-    if (kind === "era") era = value;
     if (kind === "vehicle") location.hash = `vehicle=${value}`;
     close(); updateList(kind === "vehicle" ? value : undefined); trigger.focus({ preventScroll: true });
   }
@@ -309,20 +390,29 @@ function createFilter(host, kind, entries, labelledBy) {
   filterSelects.push(control); setOptions(entries); return control;
 }
 createFilter("countries", "country", [{ value: "all", label: "全部国家" }, ...countryEntries.map((entry) => ({ value: entry.id, label: entry.name, flagUrl: entry.flagUrl }))], "country-label");
-createFilter("ranks", "rank", [["all", "全部等级"], ["6", "VI 级"], ["7", "VII 级"], ["8", "VIII 级"]].map(([value, label]) => ({ value, label })), "rank-label");
-createFilter("eras", "era", eras.map(([value, label]) => ({ value, label })), "era-label");
+const romanRanks = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
+const ranks = [...new Set(SAMPLE.models.map((model) => Number(model.rank)).filter((value) => Number.isInteger(value) && value > 0))].sort((a, b) => a - b);
+createFilter("ranks", "rank", [{ value: "all", label: "全部等级" }, ...ranks.map((value) => ({ value: String(value), label: `${romanRanks[value] || value} 级` }))], "rank-label");
 const vehicleSelect = createFilter("vehicles", "vehicle", [], "vehicle-label");
 function fromHash() {
   const id = new URLSearchParams(location.hash.slice(1)).get("vehicle");
   const model = SAMPLE.models.find((entry) => entry.id === id);
   if (model && !matches(model)) {
-    country = "all"; rank = "all"; era = "all";
-    if (isSupplement(model)) { includeIs = true; $("include-is").checked = true; }
+    country = "all"; rank = "all"; searchQuery = "";
+    $("vehicle-search").value = "";
   }
   updateList(id);
 }
-$("include-is").addEventListener("change", () => { includeIs = $("include-is").checked; updateList(); });
-$("reset-filters").addEventListener("click", () => { country = "all"; rank = "all"; era = "all"; includeIs = false; $("include-is").checked = false; updateList(); });
+const searchInput = $("vehicle-search");
+searchInput.addEventListener("compositionstart", () => { composing = true; });
+searchInput.addEventListener("compositionend", () => {
+  composing = false; searchQuery = searchInput.value; updateList();
+});
+searchInput.addEventListener("input", (event) => {
+  if (composing || event.isComposing) return;
+  searchQuery = searchInput.value; updateList();
+});
+$("reset-filters").addEventListener("click", () => { country = "all"; rank = "all"; searchQuery = ""; searchInput.value = ""; updateList(); });
 $("toggle-original").addEventListener("click", () => { original = !original; render(); });
 window.addEventListener("hashchange", fromHash);
 fromHash();
