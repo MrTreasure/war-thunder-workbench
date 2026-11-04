@@ -17996,10 +17996,44 @@
       "eraStatus": "reviewed-unit-prose",
       "eraBasis": "WZ1001(E)LCT是2000年代ZTZ99A前身原型，装L/54长身管125毫米炮及混合车体/炮塔。",
       "collectedAt": "2026-11-02T09:54:31.849Z",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.37238095238095237,
+          "y": 0.29833333333333334,
+          "label": "炮盾右侧（画面右侧）近炮管根部",
+          "detail": "仅本点在L27A1、500米条件下预测能够击穿；目标等效296毫米与原生炮弹穿深557毫米分开记录。内部模块损伤仅UI预测，非实射或整区必穿结论。",
+          "kind": "conditional",
+          "caseId": "cn_wz_1001:BV1bU411U7zj:485555731:preview",
+          "sourceUrl": "https://www.bilibili.com/video/BV1bU411U7zj/",
+          "sourceTime": 485.555731,
+          "evidence": {
+            "frameSHA256": "8ef46089ab6f22194a592ceb378f65cc138a757bb7f1709f2ba26c101e78b8d9",
+            "nativeXY": [
+              991,
+              379
+            ],
+            "crop": [
+              600,
+              200,
+              1050,
+              600
+            ],
+            "coordinateToleranceNativePx": 2,
+            "singlePointPrediction": true,
+            "actualShotObserved": false
+          }
+        }
+      ],
       "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1bU411U7zj/",
+        "title": "【战雷干货】顶级主战防护分析-中系主战坦克",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": null,
+        "kind": "video"
+      },
+      "status": "partial-native-point-predictions",
       "wikiUrl": "https://wiki.warthunder.com/unit/cn_wz_1001",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-009-20261102/snapshots/cn_wz_1001.json",
@@ -18031,8 +18065,353 @@
           "publishedAt": "2026-07-26",
           "time": null,
           "scopeNote": "单车评价资料；未作为本页局部弱点实测证据"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1bU411U7zj/",
+          "title": "【战雷干货】顶级主战防护分析-中系主战坦克",
+          "author": "成吉思汉不爱学习",
+          "publishedAt": "2024-07-29 18:00:00",
+          "gameVersion": null,
+          "kind": "video",
+          "time": 485.555731,
+          "scopeNote": "仅WZ1001(E)/长炮三帧各自单点预测，版本未知，非实射或整区结论"
         }
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/china-israel-family-v512-20261104/WZ1001E-preview/WZ1001E-tiny-1/raw.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v519-20261104/cn_wz_1001-wz1001e-lct-mantlet-preview-frame-proof.json",
+      "frameSnapshotSHA256": "580d999e087ed4ed9504a86f520fae89b45ce6cc3f3f076f084542af0b980bef",
+      "captureSHA256": "8ef46089ab6f22194a592ceb378f65cc138a757bb7f1709f2ba26c101e78b8d9",
+      "originalFrameSHA256": "8ef46089ab6f22194a592ceb378f65cc138a757bb7f1709f2ba26c101e78b8d9",
+      "assetPath": "images/CHN/CHN-WZ1001E-LCT-mantlet-protection-preview.webp",
+      "crop": [
+        600,
+        200,
+        1050,
+        600
+      ],
+      "time": 485.555731,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "native-1080p-analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "displayImagePolicy": "analysis-excerpt",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "sourceGameVersion": null,
+      "sourceNoRepost": true,
+      "testCases": [
+        {
+          "id": "cn_wz_1001:BV1bU411U7zj:485555731:preview",
+          "vehicleId": "cn_wz_1001",
+          "sourceUrl": "https://www.bilibili.com/video/BV1bU411U7zj/",
+          "sourceTime": 485.555731,
+          "sourceGameVersion": null,
+          "attacker": "挑战者 2 黑夜",
+          "attackerVisibleTitle": "挑战者 2 黑夜",
+          "attackerVehicleId": "uk_challenger_2_bn",
+          "attackerCountry": "britain",
+          "shell": "L27A1",
+          "sourceShellLabelOriginal": "L27A1",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "uk_challenger_2_bn",
+            "officialWikiUnitId": "uk_challenger_2_bn",
+            "wikiUnitId": "uk_challenger_2_bn",
+            "url": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "checkedAt": "2026-11-04T11:41:05.600Z",
+            "sourceHtml": "artifacts/weakpoints-challenger2f-wiki-positions-v485-20261104/uk_challenger_2_bn.html",
+            "sourceHtmlSHA256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "sourceSha256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "mainGun": "120 mm L30A1 cannon",
+            "officialShellName": "L27A1",
+            "sourceShellLabelOriginal": "L27A1",
+            "shellType": "APFSDS",
+            "rawUIType": null,
+            "gameVersion": "2.59.0.92",
+            "referenceOnly": {
+              "distanceMeters": 500,
+              "penetrationMm": 558,
+              "mustNotReplaceVideo557": true
+            },
+            "video557Unchanged": true
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 557,
+          "impactAngleDegrees": 89,
+          "attackAzimuthDegrees": 0,
+          "effectiveArmorMm": 296,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "弹药架",
+            "发动机",
+            "炮闩",
+            "方向机",
+            "炮手"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "8ef46089ab6f22194a592ceb378f65cc138a757bb7f1709f2ba26c101e78b8d9",
+          "evidenceKind": "single-point-protection-preview"
+        },
+        {
+          "id": "cn_wz_1001:BV1bU411U7zj:489969754:preview",
+          "vehicleId": "cn_wz_1001",
+          "sourceUrl": "https://www.bilibili.com/video/BV1bU411U7zj/",
+          "sourceTime": 489.969754,
+          "sourceGameVersion": null,
+          "attacker": "挑战者 2 黑夜",
+          "attackerVisibleTitle": "挑战者 2 黑夜",
+          "attackerVehicleId": "uk_challenger_2_bn",
+          "attackerCountry": "britain",
+          "shell": "L27A1",
+          "sourceShellLabelOriginal": "L27A1",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "uk_challenger_2_bn",
+            "officialWikiUnitId": "uk_challenger_2_bn",
+            "wikiUnitId": "uk_challenger_2_bn",
+            "url": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "checkedAt": "2026-11-04T11:41:05.600Z",
+            "sourceHtml": "artifacts/weakpoints-challenger2f-wiki-positions-v485-20261104/uk_challenger_2_bn.html",
+            "sourceHtmlSHA256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "sourceSha256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "mainGun": "120 mm L30A1 cannon",
+            "officialShellName": "L27A1",
+            "sourceShellLabelOriginal": "L27A1",
+            "shellType": "APFSDS",
+            "rawUIType": null,
+            "gameVersion": "2.59.0.92",
+            "referenceOnly": {
+              "distanceMeters": 500,
+              "penetrationMm": 558,
+              "mustNotReplaceVideo557": true
+            },
+            "video557Unchanged": true
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 557,
+          "impactAngleDegrees": 27,
+          "attackAzimuthDegrees": 1,
+          "effectiveArmorMm": 48,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "炮手",
+            "方向机"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "c66c995af432c31e26865bddc4d7cf5b6de59597ef26e1f408bd17a495d9fa0d",
+          "evidenceKind": "single-point-protection-preview"
+        },
+        {
+          "id": "cn_wz_1001:BV1bU411U7zj:507866551:preview",
+          "vehicleId": "cn_wz_1001",
+          "sourceUrl": "https://www.bilibili.com/video/BV1bU411U7zj/",
+          "sourceTime": 507.866551,
+          "sourceGameVersion": null,
+          "attacker": "挑战者 2 黑夜",
+          "attackerVisibleTitle": "挑战者 2 黑夜",
+          "attackerVehicleId": "uk_challenger_2_bn",
+          "attackerCountry": "britain",
+          "shell": "L27A1",
+          "sourceShellLabelOriginal": "L27A1",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "uk_challenger_2_bn",
+            "officialWikiUnitId": "uk_challenger_2_bn",
+            "wikiUnitId": "uk_challenger_2_bn",
+            "url": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "checkedAt": "2026-11-04T11:41:05.600Z",
+            "sourceHtml": "artifacts/weakpoints-challenger2f-wiki-positions-v485-20261104/uk_challenger_2_bn.html",
+            "sourceHtmlSHA256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "sourceSha256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "mainGun": "120 mm L30A1 cannon",
+            "officialShellName": "L27A1",
+            "sourceShellLabelOriginal": "L27A1",
+            "shellType": "APFSDS",
+            "rawUIType": null,
+            "gameVersion": "2.59.0.92",
+            "referenceOnly": {
+              "distanceMeters": 500,
+              "penetrationMm": 558,
+              "mustNotReplaceVideo557": true
+            },
+            "video557Unchanged": true
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 557,
+          "impactAngleDegrees": 66,
+          "attackAzimuthDegrees": 0,
+          "effectiveArmorMm": 485,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "油箱"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "3284caf257495442f0ba3402a06caa974171b3ee73c5730d99ed57bd4b8bba70",
+          "evidenceKind": "single-point-protection-preview"
+        }
+      ],
+      "testContext": {
+        "sourceUrl": "https://www.bilibili.com/video/BV1bU411U7zj/",
+        "sourceTime": 485.555731,
+        "sourceGameVersion": null,
+        "attacker": "挑战者 2 黑夜",
+        "attackerVisibleTitle": "挑战者 2 黑夜",
+        "attackerVehicleId": "uk_challenger_2_bn",
+        "attackerCountry": "britain",
+        "shell": "L27A1",
+        "sourceShellLabelOriginal": "L27A1",
+        "rawUIType": null,
+        "shellType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 557,
+        "impactAngleDegrees": 89,
+        "attackAzimuthDegrees": 0,
+        "effectiveArmorMm": 296,
+        "pointPrediction": "能够击穿",
+        "predictedDamage": [
+          "弹药架",
+          "发动机",
+          "炮闩",
+          "方向机",
+          "炮手"
+        ],
+        "actualShotObserved": false,
+        "outcome": null,
+        "actualUIObserved": true,
+        "sourceFrameSHA256": "8ef46089ab6f22194a592ceb378f65cc138a757bb7f1709f2ba26c101e78b8d9",
+        "evidenceKind": "single-point-protection-preview",
+        "caseId": "cn_wz_1001:BV1bU411U7zj:485555731:preview"
+      },
+      "protectionEvidence": [
+        {
+          "id": "wz1001e-lct-optic-area-preview",
+          "label": "画面右侧炮塔瞄具附近·单点预测",
+          "description": "WZ1001(E)/长炮本车该帧独立取样点预测；精确游戏版本未知，不向其他车型、整片绿色叠层或邻近位置推广。",
+          "caption": "成吉思汉不爱学习《【战雷干货】顶级主战防护分析-中系主战坦克》，2024-07-29 18:00:00，489.969754秒；精确游戏版本未知。黑夜使用L27A1、500米条件下的单点预测，非实射或击杀。",
+          "conditionNote": "原生穿深557毫米，本点等效48毫米，入射角27°、方位1°。Wiki500米558毫米仅为独立参考，不替换原生557；不按同UP日期推断版本。",
+          "caseId": "cn_wz_1001:BV1bU411U7zj:489969754:preview",
+          "sourceTime": 489.969754,
+          "sourceUrl": "https://www.bilibili.com/video/BV1bU411U7zj/",
+          "sourceGameVersion": null,
+          "assetPath": "images/CHN/CHN-WZ1001E-LCT-optic-area-protection-preview.webp",
+          "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/china-israel-family-v512-20261104/WZ1001E-preview/WZ1001E-tiny-2/raw.png",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v519-20261104/cn_wz_1001-wz1001e-lct-optic-area-preview-frame-proof.json",
+          "frameSnapshotSHA256": "54dfa3dbf02875a68dcb8584bf58b8fb3a5b927d15a74dd7afb36cb55943a6c6",
+          "crop": [
+            600,
+            200,
+            1050,
+            600
+          ],
+          "view": "single-cursor-protection-preview",
+          "displayImagePolicy": "analysis-excerpt",
+          "pins": [
+            {
+              "x": 0.39904761904761904,
+              "y": 0.20666666666666667,
+              "label": "画面右侧炮塔瞄具附近",
+              "detail": "仅本点在L27A1、500米条件下预测能够击穿；目标等效48毫米与原生炮弹穿深557毫米分开记录。内部模块损伤仅UI预测，非实射或整区必穿结论。",
+              "kind": "conditional",
+              "caseId": "cn_wz_1001:BV1bU411U7zj:489969754:preview",
+              "sourceUrl": "https://www.bilibili.com/video/BV1bU411U7zj/",
+              "sourceTime": 489.969754,
+              "evidence": {
+                "frameSHA256": "c66c995af432c31e26865bddc4d7cf5b6de59597ef26e1f408bd17a495d9fa0d",
+                "nativeXY": [
+                  1019,
+                  324
+                ],
+                "crop": [
+                  600,
+                  200,
+                  1050,
+                  600
+                ],
+                "coordinateToleranceNativePx": 2,
+                "singlePointPrediction": true,
+                "actualShotObserved": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "wz1001e-lct-upper-glacis-edge-preview",
+          "label": "车体正面画面左侧上缘·单点预测",
+          "description": "WZ1001(E)/长炮本车该帧独立取样点预测；精确游戏版本未知，不向其他车型、整片绿色叠层或邻近位置推广。",
+          "caption": "成吉思汉不爱学习《【战雷干货】顶级主战防护分析-中系主战坦克》，2024-07-29 18:00:00，507.866551秒；精确游戏版本未知。黑夜使用L27A1、500米条件下的单点预测，非实射或击杀。",
+          "conditionNote": "原生穿深557毫米，本点等效485毫米，入射角66°、方位0°。Wiki500米558毫米仅为独立参考，不替换原生557；不按同UP日期推断版本。",
+          "caseId": "cn_wz_1001:BV1bU411U7zj:507866551:preview",
+          "sourceTime": 507.866551,
+          "sourceUrl": "https://www.bilibili.com/video/BV1bU411U7zj/",
+          "sourceGameVersion": null,
+          "assetPath": "images/CHN/CHN-WZ1001E-LCT-upper-glacis-edge-protection-preview.webp",
+          "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/china-israel-family-v512-20261104/WZ1001E-preview/WZ1001E-tiny-3/raw.png",
+          "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v519-20261104/cn_wz_1001-wz1001e-lct-upper-glacis-edge-preview-frame-proof.json",
+          "frameSnapshotSHA256": "40dbaf2d8d3b438d9e5d5d2f6a153defa2b62a03a384d36130a3ec9df73a29bd",
+          "crop": [
+            600,
+            200,
+            1050,
+            600
+          ],
+          "view": "single-cursor-protection-preview",
+          "displayImagePolicy": "analysis-excerpt",
+          "pins": [
+            {
+              "x": 0.2523809523809524,
+              "y": 0.44666666666666666,
+              "label": "车体正面画面左侧上缘",
+              "detail": "仅本点在L27A1、500米条件下预测能够击穿；目标等效485毫米与原生炮弹穿深557毫米分开记录。内部模块损伤仅UI预测，非实射或整区必穿结论。",
+              "kind": "conditional",
+              "caseId": "cn_wz_1001:BV1bU411U7zj:507866551:preview",
+              "sourceUrl": "https://www.bilibili.com/video/BV1bU411U7zj/",
+              "sourceTime": 507.866551,
+              "evidence": {
+                "frameSHA256": "3284caf257495442f0ba3402a06caa974171b3ee73c5730d99ed57bd4b8bba70",
+                "nativeXY": [
+                  865,
+                  468
+                ],
+                "crop": [
+                  600,
+                  200,
+                  1050,
+                  600
+                ],
+                "coordinateToleranceNativePx": 2,
+                "singlePointPrediction": true,
+                "actualShotObserved": false
+              }
+            }
+          ]
+        }
+      ],
+      "coverageStatus": "partial-native-point-predictions",
+      "coverageNotice": "仅WZ1001(E)/长炮本车三处单点预测，非完整弱点图解；精确游戏版本未知。",
+      "mainViewNote": "历史2024-07-29来源三帧正面单点防护预测，精确游戏版本未知。各点对应自己的原帧、角度和预测值；非整片绿色区域可穿、实射或必杀。"
     },
     {
       "id": "fr_leopard_2a5nl",
@@ -26148,7 +26527,34 @@
       "rank": 8,
       "era": "modern",
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.29904761904761906,
+          "y": 0.2783333333333333,
+          "label": "正面炮盾画面左侧、炮管根部左缘",
+          "detail": "仅此炮盾准星点在L27A1、500米、入射角38°、方位1°条件下预测能够击穿；目标等效302毫米与原生炮弹穿深557毫米分开记录。预计损伤不是实射或必杀，不能推广整块炮盾。",
+          "kind": "conditional",
+          "caseId": "cn_vt_4b:BV1bU411U7zj:678044685:preview",
+          "sourceUrl": "https://www.bilibili.com/video/BV1bU411U7zj/",
+          "sourceTime": 678.044685,
+          "evidence": {
+            "frameSHA256": "e54a7cc3c1adf0878fe4e517141765dc660885653d5fe03d9751395b3aa82738",
+            "nativeXY": [
+              914,
+              367
+            ],
+            "crop": [
+              600,
+              200,
+              1050,
+              600
+            ],
+            "coordinateToleranceNativePx": 4,
+            "singlePointPrediction": true,
+            "actualShotObserved": false
+          }
+        }
+      ],
       "videoAdvice": [
         {
           "id": "v386-cn_vt_4b-author-context",
@@ -26179,14 +26585,14 @@
         }
       ],
       "source": {
-        "url": "https://www.bilibili.com/video/BV1TTtPzGEhV/",
-        "title": "你是顶级主战吗？我觉得我是。----VT4A1简评",
-        "author": "急急先让我急",
-        "publishedAt": "2025-08-06",
-        "kind": "video",
-        "gameVersion": null
+        "url": "https://www.bilibili.com/video/BV1bU411U7zj/",
+        "title": "【战雷干货】顶级主战防护分析-中系主战坦克",
+        "author": "成吉思汉不爱学习",
+        "publishedAt": "2024-07-29 18:00:00",
+        "gameVersion": null,
+        "kind": "video"
       },
-      "status": "wiki-reviewed-awaiting-front-image",
+      "status": "partial-native-point-predictions",
       "wikiUrl": "https://wiki.warthunder.com/unit/cn_vt_4b",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-002-20261103/snapshots/cn_vt_4b.json",
@@ -26208,7 +26614,7 @@
       "collectedAt": "2026-11-02T18:06:57.812Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "原文明示A1升级于2022年珠海航展展示。",
       "qualitativeWeakpoints": [],
@@ -26223,8 +26629,138 @@
           "publishedAt": "2025-08-06",
           "kind": "video",
           "gameVersion": null
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1bU411U7zj/",
+          "title": "【战雷干货】顶级主战防护分析-中系主战坦克",
+          "author": "成吉思汉不爱学习",
+          "publishedAt": "2024-07-29 18:00:00",
+          "gameVersion": null,
+          "kind": "video",
+          "time": 678.044685,
+          "scopeNote": "历史来源VT4A1本帧炮盾单点预测；精确游戏版本未知，不套用同作者其他视频版本或其他车型"
         }
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/china-israel-family-v512-20261104/VT4A1-preview/VT4A1-tiny-2/raw.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-image-pack-v519-20261104/cn_vt_4b-frame-proof.json",
+      "frameSnapshotSHA256": "824a826ed7a4a39403d43e5fa6bf7ff6f0c7c0f9f27e90028c4091a177fef796",
+      "captureSHA256": "e54a7cc3c1adf0878fe4e517141765dc660885653d5fe03d9751395b3aa82738",
+      "originalFrameSHA256": "e54a7cc3c1adf0878fe4e517141765dc660885653d5fe03d9751395b3aa82738",
+      "assetPath": "images/CHN/CHN-VT4A1-mantlet-protection-preview.webp",
+      "crop": [
+        600,
+        200,
+        1050,
+        600
+      ],
+      "time": 678.044685,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "native-1080p-analysis-excerpt",
+      "mainViewKind": "protection-preview",
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceGameVersion": null,
+      "sourceNoRepost": true,
+      "testCases": [
+        {
+          "id": "cn_vt_4b:BV1bU411U7zj:678044685:preview",
+          "vehicleId": "cn_vt_4b",
+          "sourceUrl": "https://www.bilibili.com/video/BV1bU411U7zj/",
+          "sourceTime": 678.044685,
+          "sourceGameVersion": null,
+          "attacker": "[11.7] 挑战者 2 黑夜",
+          "attackerVisibleTitle": "[11.7] 挑战者 2 黑夜",
+          "attackerVehicleId": "uk_challenger_2_bn",
+          "attackerCountry": "britain",
+          "shell": "L27A1",
+          "sourceShellLabelOriginal": "L27A1",
+          "rawUIType": null,
+          "shellType": null,
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+          "shellTypeReference": {
+            "sourceBasis": "official-Wiki-reference",
+            "attackerVehicleId": "uk_challenger_2_bn",
+            "officialWikiUnitId": "uk_challenger_2_bn",
+            "wikiUnitId": "uk_challenger_2_bn",
+            "url": "https://wiki.warthunder.com/unit/uk_challenger_2_bn",
+            "checkedAt": "2026-11-04T11:41:05.600Z",
+            "sourceHtml": "artifacts/weakpoints-challenger2f-wiki-positions-v485-20261104/uk_challenger_2_bn.html",
+            "sourceHtmlSHA256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "sourceSha256": "b10db58c929b5ed5cfa6a0ca79be08d37f2e397f071d10c5da2e74647b582122",
+            "mainGun": "120 mm L30A1 cannon",
+            "officialShellName": "L27A1",
+            "sourceShellLabelOriginal": "L27A1",
+            "shellType": "APFSDS",
+            "rawUIType": null,
+            "gameVersion": "2.59.0.92",
+            "referenceOnly": {
+              "distanceMeters": 500,
+              "penetrationMm": 558,
+              "mustNotReplaceVideo557": true
+            },
+            "video557Unchanged": true
+          },
+          "distanceMeters": 500,
+          "displayedPenetrationMm": 557,
+          "impactAngleDegrees": 38,
+          "attackAzimuthDegrees": 1,
+          "effectiveArmorMm": 302,
+          "pointPrediction": "能够击穿",
+          "predictedDamage": [
+            "车长",
+            "装填机",
+            "炮手",
+            "方向机",
+            "炮闩"
+          ],
+          "actualShotObserved": false,
+          "outcome": null,
+          "actualUIObserved": true,
+          "sourceFrameSHA256": "e54a7cc3c1adf0878fe4e517141765dc660885653d5fe03d9751395b3aa82738",
+          "evidenceKind": "single-point-protection-preview"
+        }
+      ],
+      "testContext": {
+        "sourceUrl": "https://www.bilibili.com/video/BV1bU411U7zj/",
+        "sourceTime": 678.044685,
+        "sourceGameVersion": null,
+        "attacker": "[11.7] 挑战者 2 黑夜",
+        "attackerVisibleTitle": "[11.7] 挑战者 2 黑夜",
+        "attackerVehicleId": "uk_challenger_2_bn",
+        "attackerCountry": "britain",
+        "shell": "L27A1",
+        "sourceShellLabelOriginal": "L27A1",
+        "rawUIType": null,
+        "shellType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "distanceMeters": 500,
+        "displayedPenetrationMm": 557,
+        "impactAngleDegrees": 38,
+        "attackAzimuthDegrees": 1,
+        "effectiveArmorMm": 302,
+        "pointPrediction": "能够击穿",
+        "predictedDamage": [
+          "车长",
+          "装填机",
+          "炮手",
+          "方向机",
+          "炮闩"
+        ],
+        "actualShotObserved": false,
+        "outcome": null,
+        "actualUIObserved": true,
+        "sourceFrameSHA256": "e54a7cc3c1adf0878fe4e517141765dc660885653d5fe03d9751395b3aa82738",
+        "evidenceKind": "single-point-protection-preview",
+        "caseId": "cn_vt_4b:BV1bU411U7zj:678044685:preview"
+      },
+      "coverageStatus": "partial-native-point-predictions",
+      "coverageNotice": "仅VT4A1本车炮盾单点防护预测，非完整弱点图解；精确游戏版本未知。",
+      "mainViewNote": "历史2024-07-29来源的原生正面单点预测；游戏版本未知，不按上传日期推测。小绿色准星不是整面可穿区域，未观察实际射击。"
     },
     {
       "id": "cn_ztz_96a",
@@ -33467,7 +34003,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 71,
+    "illustratedCount": 73,
     "countries": [
       {
         "country": "usa",
@@ -33603,7 +34139,7 @@
     "lastUpdated": "2026-11-04",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 69,
+    "illustratedTargetCount": 71,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,
