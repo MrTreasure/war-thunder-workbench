@@ -1,8 +1,8 @@
 import type { TagChoice } from "./components/TagSelector";
-import tagTheme from "../data/game-tag-theme.json";
+import tagTheme from "../data/game-tag-theme.json" with { type: "json" };
 import type { CountryPayload, LineupRules, Mode, Vehicle } from "./models";
-import { indexTree } from "./planner";
-import { object } from "./validation";
+import { indexTree } from "./planner.ts";
+import { object } from "./validation.ts";
 export type BattleType = "air" | "ground" | "naval";
 export interface Lineup {
   id: string;
