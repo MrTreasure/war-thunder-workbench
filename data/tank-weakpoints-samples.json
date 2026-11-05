@@ -7178,7 +7178,35 @@
       "rank": 6,
       "era": "cold-war",
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.3958333333333333,
+          "y": 0.68125,
+          "label": "车体首下",
+          "detail": "官方Wiki将本车型首下明确列为弱点；标记仅帮助对应位置，不代表特定炮弹必穿或必杀。",
+          "kind": "qualitative",
+          "sourceUrl": "https://wiki.warthunder.com/unit/uk_chieftain_mk_3",
+          "sourceTime": null,
+          "evidence": {
+            "frameSHA256": "554c986650db332bf7e6512309a95a3bc59607100dda8c3d93dec1c9f3393cde",
+            "nativeXY": [
+              885,
+              507
+            ],
+            "crop": [
+              600,
+              180,
+              720,
+              480
+            ],
+            "imageSourceUrl": "https://www.bilibili.com/video/BV1fU4y157hQ/?t=311",
+            "imageSourceTime": 311.376422,
+            "coordinateBasis": "qualitative visible part anchor; not a shot or exact reticle",
+            "singlePointPrediction": false,
+            "actualShotObserved": false
+          }
+        }
+      ],
       "videoAdvice": [
         {
           "id": "uk_chieftain_mk_3:wiki-article:2331:author-guidance",
@@ -7210,8 +7238,16 @@
           }
         }
       ],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1fU4y157hQ/?t=311",
+        "author": "克拉拉_伊万诺维奇",
+        "date": "2021-05-22",
+        "gameVersion": "2.5.1.138",
+        "kind": "video",
+        "title": "”落日余晖，英伦最强大小姐！“酋长MK.3简评&实战 【战争雷霆】",
+        "publishedAt": "2021-05-22 11:36:23"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/uk_chieftain_mk_3",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/next-batch-western-20261102/snapshots/uk_chieftain_mk_3.json",
@@ -7240,7 +7276,7 @@
         }
       ],
       "missingEvidence": [
-        "尚缺该精确车型的视频试射证据及弹种、距离、角度、版本上下文。"
+        "仅一个定性部位指引；未完成全车弱点图。"
       ],
       "relatedSources": [
         {
@@ -7252,7 +7288,37 @@
           "time": null,
           "scopeNote": "Wiki投稿作者观点；按原文弹种条件区分，非unit基础数据或已验证试射"
         }
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v676-20261105/BV1fU4y157hQ/native-311.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v681/proofs/uk_chieftain_mk_3-frame-proof.json",
+      "frameSnapshotSHA256": "6f0c87c63ffe37f7e0ba36cbca8a0e9e4dcc1486fccd7fe05d54a5873b93f4ed",
+      "assetPath": "images/GBR/GBR-Chieftain-Mk-3-lower-front-position-20210522.webp",
+      "crop": [
+        600,
+        180,
+        720,
+        480
+      ],
+      "captureSHA256": "554c986650db332bf7e6512309a95a3bc59607100dda8c3d93dec1c9f3393cde",
+      "originalFrameSHA256": "554c986650db332bf7e6512309a95a3bc59607100dda8c3d93dec1c9f3393cde",
+      "time": 311.376422,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front-oblique",
+      "imageQuality": "native-1080p-front-oblique-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "sourceGameVersion": "2.5.1.138",
+      "sourceNoRepost": true,
+      "coverageStatus": "partial-qualitative-position",
+      "coverageNotice": "官方Wiki定性部位说明与来源游戏图对应；未完成全车图解，不承诺整区必穿或当前版本结果。",
+      "frontSummary": "官方Wiki将本车型首下明确列为弱点；标记仅帮助对应位置，不代表特定炮弹必穿或必杀。 酋长Mk3，略斜正面局部示意。",
+      "caption": "克拉拉_伊万诺维奇｜2021-05-22｜311.376422秒｜游戏版本2.5.1.138；酋长Mk3，略斜正面局部示意。官方Wiki将本车型首下明确列为弱点；标记仅帮助对应位置，不代表特定炮弹必穿或必杀。"
     },
     {
       "id": "uk_chieftain_mk_5",
@@ -10253,7 +10319,35 @@
       "eraStatus": "reviewed-unit-prose",
       "eraBasis": "按已核对的具体技术改型形成时期归类。",
       "collectedAt": "2026-11-02T08:57:54.367Z",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.45217391304347826,
+          "y": 0.3622291021671827,
+          "label": "炮塔（定性部位）",
+          "detail": "以Drozd替代眉部附甲后，炮塔难以可靠抵挡同时代坦克炮。此标记只指示炮塔位置，不表示具体命中点或必穿区域。",
+          "kind": "qualitative",
+          "sourceUrl": "https://wiki.warthunder.com/unit/ussr_t_55_amd_1",
+          "sourceTime": null,
+          "evidence": {
+            "frameSHA256": "75e535a75ee7b9c022fab0c80b0fda9491b825a101d1b806fd53e7c26649f6b6",
+            "nativeXY": [
+              280,
+              302
+            ],
+            "crop": [
+              20,
+              185,
+              575,
+              323
+            ],
+            "imageSourceUrl": "https://www.bilibili.com/video/BV1bEp16TErM/",
+            "imageSourceTime": 185.016687,
+            "coordinateBasis": "qualitative visible part anchor; not a shot or exact reticle",
+            "singlePointPrediction": false,
+            "actualShotObserved": false
+          }
+        }
+      ],
       "videoAdvice": [
         {
           "id": "v70-author-ussr_t_55_amd_1",
@@ -10282,8 +10376,16 @@
           }
         }
       ],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1bEp16TErM/",
+        "author": "卡特少将Official",
+        "date": "2026-10-16",
+        "gameVersion": null,
+        "kind": "video",
+        "title": "\"曾经8.7最强轮椅，如今9.0平庸之辈\"—T-55AMD-1简评_哔哩哔哩bilibili_战争雷霆",
+        "publishedAt": "2026-10-16 17:00:00"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_55_amd_1",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-002-20261102/snapshots/ussr_t_55_amd_1.json",
@@ -10310,7 +10412,7 @@
         }
       ],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。"
+        "仅一个定性部位指引；未完成全车弱点图。"
       ],
       "relatedSources": [
         {
@@ -10322,7 +10424,37 @@
           "time": 202.53254,
           "scopeNote": "作者部位建议；非独立试射结论"
         }
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/video-exact-missing-v57/T-55AMD-1-0185.temporary.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v681/proofs/ussr_t_55_amd_1-frame-proof.json",
+      "frameSnapshotSHA256": "fd6a4dc2ce4f5caacfa9b835b49aff6b9cf014f9f9fcf867ae25e02621908fad",
+      "assetPath": "images/USSR/USSR-T-55AMD-1-turret-position-20261016.webp",
+      "crop": [
+        20,
+        185,
+        575,
+        323
+      ],
+      "captureSHA256": "75e535a75ee7b9c022fab0c80b0fda9491b825a101d1b806fd53e7c26649f6b6",
+      "originalFrameSHA256": "75e535a75ee7b9c022fab0c80b0fda9491b825a101d1b806fd53e7c26649f6b6",
+      "time": 185.016687,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front-inset",
+      "imageQuality": "native-gameplay-inset-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "sourceGameVersion": null,
+      "sourceNoRepost": null,
+      "coverageStatus": "partial-qualitative-position",
+      "coverageNotice": "官方Wiki定性部位说明与来源游戏图对应；未完成全车图解，不承诺整区必穿或当前版本结果。",
+      "frontSummary": "以Drozd替代眉部附甲后，炮塔难以可靠抵挡同时代坦克炮。此标记只指示炮塔位置，不表示具体命中点或必穿区域。 炮塔局部示意。车型据作者单车评测归属，原生铭牌不可独立核实。",
+      "caption": "卡特少将Official｜2026-10-16｜185.016687秒｜游戏版本未知；炮塔局部示意。车型据作者单车评测归属，原生铭牌不可独立核实。以Drozd替代眉部附甲后，炮塔难以可靠抵挡同时代坦克炮。此标记只指示炮塔位置，不表示具体命中点或必穿区域。"
     },
     {
       "id": "cn_ztz_88a",
@@ -19282,8 +19414,16 @@
       "collectedAt": "2026-11-02T09:54:48.041Z",
       "pins": [],
       "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV15b42177aT/",
+        "author": "克虏伯kluub",
+        "title": "芬兰防滑豹豹2A4FIN《战争雷霆》〔载具简评〕",
+        "publishedAt": "2024-07-21 12:00:00",
+        "date": "2024-07-21",
+        "gameVersion": "2.37.0.33",
+        "kind": "video"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/sw_leopard_2a4_fin",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-009-20261102/snapshots/sw_leopard_2a4_fin.json",
@@ -19310,8 +19450,38 @@
         }
       ],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。"
-      ]
+        "无可验证的精确外皮射击点；未完成全车弱点图。"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v676-20261105/BV15b42177aT/native-86.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v681/revision-1/proofs/sw_leopard_2a4_fin-frame-proof.json",
+      "frameSnapshotSHA256": "d2f02a9e4d04da2fc42b0ac23108dfdb73ca6d32e57eb84d48ae73bcb28462a5",
+      "assetPath": "images/SWE/SWE-Leopard-2A4-FIN-front-ammunition-context-20240721.webp",
+      "crop": [
+        560,
+        100,
+        905,
+        785
+      ],
+      "captureSHA256": "0d8bf49cedee93a7f20bfb5cf114f214b0faf243455f0243bbf9d695ee2a8892",
+      "originalFrameSHA256": "0d8bf49cedee93a7f20bfb5cf114f214b0faf243455f0243bbf9d695ee2a8892",
+      "time": 86.66163,
+      "sourceDimensions": [
+        1920,
+        1078
+      ],
+      "imageView": "front",
+      "imageViewDetail": "elevated-front-oblique-exterior",
+      "imageQuality": "native-1078p-front-oblique-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "sourceGameVersion": "2.37.0.33",
+      "sourceNoRepost": null,
+      "coverageStatus": "partial-conditional-internal-context",
+      "coverageNotice": "官方Wiki条件性内置储弹风险仅作外观上下文，零外皮标记；不是完整弱点图解。",
+      "frontSummary": "携弹超过16发时，车体前部储弹存在风险；仅作外观位置上下文，不给出外皮射击点，不表示必穿或必爆。 瑞典科技树芬兰豹2A4 FIN，略俯前斜外观位置示意。",
+      "caption": "克虏伯kluub｜2024-07-21｜86.66163秒｜游戏版本2.37.0.33；瑞典科技树芬兰豹2A4 FIN，略俯前斜外观位置示意。携弹超过16发时，车体前部储弹存在风险；仅作外观位置上下文，不给出外皮射击点，不表示必穿或必爆。"
     },
     {
       "id": "uk_m1a2_sep3_abrams",
@@ -26083,10 +26253,46 @@
       "rank": 8,
       "era": "modern",
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.4546875,
+          "y": 0.41818181818181815,
+          "label": "炮盾",
+          "detail": "官方Wiki明确称本车炮盾脆弱；标记只对应炮盾位置，不表示绿色击穿区域或特定弹药必穿。",
+          "kind": "qualitative",
+          "sourceUrl": "https://wiki.warthunder.com/unit/sw_leopard_2a6nl",
+          "sourceTime": null,
+          "evidence": {
+            "frameSHA256": "604c4a5e67cab1f34d4f2a7bcb4d6388a1d1d826cd676ec5f9f7aff4cb9708c6",
+            "nativeXY": [
+              951,
+              374
+            ],
+            "crop": [
+              660,
+              190,
+              640,
+              440
+            ],
+            "imageSourceUrl": "https://www.bilibili.com/video/BV1XCJFzQEsE/",
+            "imageSourceTime": 16.297342,
+            "coordinateBasis": "qualitative visible part anchor; not a shot or exact reticle",
+            "singlePointPrediction": false,
+            "actualShotObserved": false
+          }
+        }
+      ],
       "videoAdvice": [],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1XCJFzQEsE/",
+        "author": "克虏伯kluub",
+        "title": "过时的A6豹2A6 芬兰《战争雷霆》〔载具简评〕",
+        "publishedAt": "2025-05-24 12:00:00",
+        "date": "2025-05-24",
+        "gameVersion": "2.45.1.96",
+        "kind": "video"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/sw_leopard_2a6nl",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/sw_leopard_2a6nl.json",
@@ -26109,13 +26315,41 @@
       "weaknessEvidenceStatus": "general-context-only",
       "gameDisplayName": "▄Leopard 2A6",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "原文明示豹2A6在2000年代初开始生产，芬兰版本没有另述技术升级。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无已验证的主图及对应局部标点。"
-      ]
+        "仅一个定性部位指引；未完成全车弱点图。"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v676-20261105/BV1XCJFzQEsE/native-14.694498.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v681/revision-1/proofs/sw_leopard_2a6nl-frame-proof.json",
+      "frameSnapshotSHA256": "f3c78d2d617ef0de196da8d18ea05d64dddc1ff9f8822cb70d4350e5c9982c22",
+      "assetPath": "images/SWE/SWE-Leopard-2A6-Finland-mantlet-position-20250524.webp",
+      "crop": [
+        660,
+        190,
+        640,
+        440
+      ],
+      "captureSHA256": "604c4a5e67cab1f34d4f2a7bcb4d6388a1d1d826cd676ec5f9f7aff4cb9708c6",
+      "originalFrameSHA256": "604c4a5e67cab1f34d4f2a7bcb4d6388a1d1d826cd676ec5f9f7aff4cb9708c6",
+      "time": 16.297342,
+      "sourceDimensions": [
+        1920,
+        1078
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front-slightly-elevated",
+      "imageQuality": "native-1078p-front-oblique-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceGameVersion": "2.45.1.96",
+      "sourceNoRepost": true,
+      "coverageStatus": "partial-qualitative-position",
+      "coverageNotice": "官方Wiki定性部位说明与本车来源游戏图对应；非完整弱点图，不承诺必穿。",
+      "frontSummary": "官方Wiki明确称本车炮盾脆弱；标记只对应炮盾位置，不表示绿色击穿区域或特定弹药必穿。 瑞典科技树芬兰豹2A6，略斜正面炮盾局部示意。",
+      "caption": "克虏伯kluub｜2025-05-24｜16.297342秒｜游戏版本2.45.1.96；瑞典科技树芬兰豹2A6，略斜正面炮盾局部示意。官方Wiki明确称本车炮盾脆弱；标记只对应炮盾位置，不表示绿色击穿区域或特定弹药必穿。"
     },
     {
       "id": "sw_strv121b_christian2",
@@ -28327,10 +28561,46 @@
       "rank": 8,
       "era": "modern",
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.5307692307692308,
+          "y": 0.45,
+          "label": "炮盾",
+          "detail": "官方Wiki指出本车炮盾防护薄弱；此点仅标识正面炮盾位置，不表示绿色击穿区域或任何弹种必穿。",
+          "kind": "qualitative",
+          "sourceUrl": "https://wiki.warthunder.com/unit/germ_leopard_2a5_pso",
+          "sourceTime": null,
+          "evidence": {
+            "frameSHA256": "4c2c812aa6601e1490b4575e0d1a5de0ffca091a698ae783679d984402b926de",
+            "nativeXY": [
+              995,
+              405
+            ],
+            "crop": [
+              650,
+              180,
+              650,
+              500
+            ],
+            "imageSourceUrl": "https://www.bilibili.com/video/BV1FfeHekEdK/",
+            "imageSourceTime": 82.990294,
+            "coordinateBasis": "qualitative visible part anchor; not a shot or exact reticle",
+            "singlePointPrediction": false,
+            "actualShotObserved": false
+          }
+        }
+      ],
       "videoAdvice": [],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1FfeHekEdK/",
+        "author": "克虏伯kluub",
+        "title": "和平支援行动豹2/PSO《战争雷霆》〔载具简评〕",
+        "publishedAt": "2024-08-16 12:00:00",
+        "date": "2024-08-16",
+        "gameVersion": "2.37.0.81",
+        "kind": "video"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/germ_leopard_2a5_pso",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-002-20261103/snapshots/germ_leopard_2a5_pso.json",
@@ -28352,13 +28622,41 @@
       "collectedAt": "2026-11-02T18:07:55.252Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "原文明确2006年首次公开PSO。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无已验证的主图及对应局部标点。"
-      ]
+        "仅一个定性部位指引；未完成全车弱点图。"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v676-20261105/BV1FfeHekEdK/native-82.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v681/revision-1/proofs/germ_leopard_2a5_pso-frame-proof.json",
+      "frameSnapshotSHA256": "85d8d967f2d9ad48962012390bfa82b3e4ad1f0f6598f0cca0764116e9be6779",
+      "assetPath": "images/GER/GER-Leopard-2-PSO-mantlet-position-20240816.webp",
+      "crop": [
+        650,
+        180,
+        650,
+        500
+      ],
+      "captureSHA256": "4c2c812aa6601e1490b4575e0d1a5de0ffca091a698ae783679d984402b926de",
+      "originalFrameSHA256": "4c2c812aa6601e1490b4575e0d1a5de0ffca091a698ae783679d984402b926de",
+      "time": 82.990294,
+      "sourceDimensions": [
+        1920,
+        1078
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front-slightly-elevated",
+      "imageQuality": "native-1078p-front-oblique-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceGameVersion": "2.37.0.81",
+      "sourceNoRepost": null,
+      "coverageStatus": "partial-qualitative-position",
+      "coverageNotice": "官方Wiki定性部位说明与本车来源游戏图对应；非完整弱点图，不承诺必穿。",
+      "frontSummary": "官方Wiki指出本车炮盾防护薄弱；此点仅标识正面炮盾位置，不表示绿色击穿区域或任何弹种必穿。 德国豹2 PSO，略斜正面炮盾局部示意。",
+      "caption": "克虏伯kluub｜2024-08-16｜82.990294秒｜游戏版本2.37.0.81；德国豹2 PSO，略斜正面炮盾局部示意。官方Wiki指出本车炮盾防护薄弱；此点仅标识正面炮盾位置，不表示绿色击穿区域或任何弹种必穿。"
     },
     {
       "id": "germ_leopard_2a5_yt_cup_2019",
@@ -35708,7 +36006,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 80,
+    "illustratedCount": 85,
     "countries": [
       {
         "country": "usa",
@@ -35844,7 +36142,7 @@
     "lastUpdated": "2026-11-04",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 78,
+    "illustratedTargetCount": 83,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,
