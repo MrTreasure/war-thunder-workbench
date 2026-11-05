@@ -60,8 +60,8 @@ await writeFile(resolve(out, "weakpoints-preview.html"), html);
 const shell = resolve(project, "src/generated/weakpoint-shell");
 await mkdir(shell, { recursive: true });
 await Promise.all([
-  writeFile(resolve(shell, "shell.html"), await readFile(new URL("preview.html", import.meta.url), "utf8")),
-  writeFile(resolve(shell, "shell.css"), css.toString().replaceAll(fontFile, "__SYMBOL_FONT__").replaceAll(cardFontFile, "__CARD_FONT__")),
+  writeFile(resolve(shell, "shell.html"), (await readFile(new URL("preview.html", import.meta.url), "utf8")).replace("__STYLE__", "./shell.css").replace("__SCRIPT__", "./shell.js").replace("./assets/__SYMBOL_FONT__", "../../assets/WTSymbols.ttf")),
+  writeFile(resolve(shell, "shell.css"), css.toString().replaceAll("./" + fontFile, "../../assets/WTSymbols.ttf").replaceAll("./" + cardFontFile, "../../assets/FiraSansCondensed-Regular.ttf")),
   writeFile(resolve(shell, "shell.js"), js),
 ]);
 return supportFiles;
