@@ -1,0 +1,622 @@
+(async () => {
+  if (window.parent === window || new URLSearchParams(location.search).get("embedded") !== "1" && document.documentElement.dataset.wtEmbedded !== "true") {
+    const root = new URL("./", location.href);
+    const vehicle = new URLSearchParams(location.hash.slice(1)).get("vehicle");
+    root.hash = "/weakpoints" + (vehicle ? "?vehicle=" + encodeURIComponent(vehicle) : "");
+    location.replace(root.href);
+    return;
+  }
+  const parentOrigin = document.documentElement.dataset.wtParentOrigin || location.origin;
+  document.body.dataset.embedded = "true";
+  const SAMPLE = await new Promise((resolve) => {
+    const receive = (event) => {
+      if (event.origin !== parentOrigin || event.source !== window.parent || event.data?.type !== "wt-weakpoints-data") return;
+      const value = event.data.payload;
+      if (!value || !Array.isArray(value.models) || !value.models.length || value.models.length > 500 || !value.models.every((model) => typeof model.id === "string" && /^[a-z0-9_]+$/.test(model.id))) return;
+      window.removeEventListener("message", receive);
+      resolve(value);
+    };
+    window.addEventListener("message", receive);
+    window.parent.postMessage({ type: "wt-weakpoints-ready" }, parentOrigin);
+  });
+(function bootAppearance(defaults, api) {
+  if (document.documentElement.dataset.wtAppearanceReady === "1") return;
+  document.documentElement.dataset.wtAppearanceReady = "1";
+  var key = "wt-workbench-appearance-v1",
+    ttl = 300000;
+  function valid(value) {
+    if (
+      !value ||
+      typeof value.theme !== "string" ||
+      !Number.isInteger(value.positionX) ||
+      !Number.isInteger(value.positionY) ||
+      value.positionX < 0 ||
+      value.positionX > 100 ||
+      value.positionY < 0 ||
+      value.positionY > 100
+    )
+      return false;
+    try {
+      var url = new URL(value.backgroundUrl);
+      return (
+        url.protocol === "https:" &&
+        url.host === "staticfiles.warthunder.com" &&
+        !url.username &&
+        !url.password &&
+        !url.search &&
+        !url.hash &&
+        /^\/upload\/image\/(?:[A-Za-z0-9_./!()-]|%20)+\.(jpg|jpeg|png|webp)$/i.test(url.pathname)
+      );
+    } catch {
+      return false;
+    }
+  }
+  var appliedUrl;
+  function apply(value) {
+    appliedUrl = value.backgroundUrl;
+    document.documentElement.style.setProperty(
+      "--wt-loading-background-image",
+      "url(" + JSON.stringify(value.backgroundUrl) + ")",
+    );
+    document.documentElement.style.setProperty(
+      "--wt-loading-background-position",
+      value.positionX + "% " + value.positionY + "%",
+    );
+  }
+  apply(defaults);
+  var cached;
+  try {
+    cached = JSON.parse(localStorage.getItem(key) || "null");
+  } catch {}
+  if (cached && valid(cached.value)) {
+    apply(cached.value);
+    var previousImage = new Image();
+    previousImage.onerror = function () {
+      if (appliedUrl === cached.value.backgroundUrl) apply(defaults);
+    };
+    previousImage.src = cached.value.backgroundUrl;
+  }
+  if (
+    cached &&
+    valid(cached.value) &&
+    cached.savedAt <= Date.now() &&
+    Date.now() - cached.savedAt < ttl
+  )
+    return;
+  fetch(api + "/public-data/manifest/appearance", {
+    credentials: "omit",
+    signal: AbortSignal.timeout(5000),
+  })
+    .then(function (response) {
+      if (!response.ok) throw new Error("appearance");
+      return response.json();
+    })
+    .then(async function (manifest) {
+      if (
+        manifest.schemaVersion !== 1 ||
+        manifest.resource !== "appearance" ||
+        !/^[a-f0-9]{64}$/.test(manifest.sha256) ||
+        manifest.path !== "public-data/objects/" + manifest.sha256 ||
+        !Number.isSafeInteger(manifest.bytes) ||
+        manifest.bytes < 1 ||
+        manifest.bytes > 16384
+      )
+        throw new Error("appearance manifest");
+      var response = await fetch(api + "/" + manifest.path, {
+        credentials: "omit",
+        cache: "force-cache",
+        signal: AbortSignal.timeout(5000),
+      });
+      if (!response.ok) throw new Error("appearance object");
+      var bytes = await response.arrayBuffer();
+      var hash = Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", bytes)))
+        .map(function (v) {
+          return v.toString(16).padStart(2, "0");
+        })
+        .join("");
+      if (bytes.byteLength !== manifest.bytes || hash !== manifest.sha256)
+        throw new Error("appearance hash");
+      return JSON.parse(new TextDecoder().decode(bytes));
+    })
+    .then(function (value) {
+      if (!valid(value)) return;
+      var image = new Image();
+      image.onload = function () {
+        apply(value);
+        try {
+          localStorage.setItem(key, JSON.stringify({ value: value, savedAt: Date.now() }));
+        } catch {}
+      };
+      image.onerror = function () {
+        /* Preserve the previous artwork on a failed update. */
+      };
+      image.src = value.backgroundUrl;
+    })
+    .catch(function () {
+      /* The built-in or last saved theme remains available. */
+    });
+})({"theme":"Sky Odyssey","backgroundUrl":"https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_logo_eng_a98e2d250b72a68a4c6073f0d30db010.jpg","positionX":50,"positionY":50},"https://api.mrtreasure.cc/wt-stats/v1");
+// Weakpoint data comes from the built literal; only the shared public appearance bootstrap uses an API.
+const $ = (id) => document.getElementById(id);
+const countries = { usa: "美国", germany: "德国", ussr: "苏联", britain: "英国", japan: "日本", china: "中国", italy: "意大利", france: "法国", sweden: "瑞典", israel: "以色列" };
+const countryEntries = SAMPLE.countries || [];
+const filterSelects = [];
+let selected = -1;
+let point = 0;
+let original = false;
+let evidenceId = null;
+let country = "all";
+let rank = "all";
+let green = "all";
+let searchQuery = "";
+let composing = false;
+let imageLoadTimer;
+let imageLoadGeneration = 0;
+function element(tag, text, className) {
+  const node = document.createElement(tag);
+  if (text !== undefined) node.textContent = text;
+  if (className) node.className = className;
+  return node;
+}
+function sourceOf(model) {
+  if (model.source) return model.source;
+  if (model.source === null || (!model.imageUrl && !model.rawUrl && !model.frame)) return {};
+  return SAMPLE.source || {};
+}
+function selectedEvidence(model) { return model?.protectionEvidence?.find((item) => item.id === evidenceId) || null; }
+function shellTypeLabel(test) {
+  const code = test?.shellTypeCode?.trim();
+  const label = test?.shellTypeLabel?.trim();
+  return [code, label && label !== code ? label : null].filter(Boolean).join(" · ") || "来源未显示／待核对";
+}
+function penetrationLabel(test) {
+  const penetration = test?.displayedPenetrationMm;
+  const distance = test?.distanceMeters;
+  return Number.isFinite(penetration)
+    ? `${penetration} 毫米${Number.isFinite(distance) ? `（${distance} 米）` : "（距离待核对）"}`
+    : `来源未显示／待核对${Number.isFinite(distance) ? `（${distance} 米）` : ""}`;
+}
+function roleIcon(model) {
+  if (!["heavy", "medium", "light", "td", "aa"].includes(model?.roleIconKey)) return null;
+  const icon = element("span", undefined, `wt-game-role ${model.roleIconKey}`);
+  icon.setAttribute("aria-hidden", "true");
+  if (model.roleLabel) icon.title = model.roleLabel;
+  return icon;
+}
+function searchKey(value) { return String(value || "").normalize("NFKC").toLocaleLowerCase().replace(/[\s\p{P}\p{S}]/gu, ""); }
+function matchesScope(model) {
+  if (country !== "all" && (model.country || "unknown") !== country) return false;
+  if (rank !== "all" && Number(model.rank) !== Number(rank)) return false;
+  const needle = searchKey(searchQuery);
+  return !needle || [model.name, model.englishName, model.nameEn, model.nameZhCN, model.id, model.modelId].some((value) => searchKey(value).includes(needle));
+}
+function coverage(model) { return model.greenCoverage || { status: "pending", label: "待补绿区", note: "绿区待核实" }; }
+function matches(model) {
+  return matchesScope(model) && (green === "all" || (green === "pending" ? coverage(model).status !== "region" : coverage(model).status === green));
+}
+const missingColumns = ["中文车型", "国别", "等级", "当前证据状态", "有无正面图", "已有关联来源URL", "待补视频URL", "时间段"];
+function missingModels(all = false) { return SAMPLE.models.filter((model) => coverage(model).status !== "region" && (all || matchesScope(model))); }
+function missingRow(model) {
+  const urls = new Set([sourceOf(model).url, model.wikiUrl, ...(model.testCases || []).map((test) => test.sourceUrl), ...(model.relatedSources || []).map((source) => source.url)].filter(Boolean));
+  return [model.nameZhCN || model.name, model.countryName || countries[model.country] || model.country, model.rankLabel || String(model.rank || ""), coverage(model).label, model.imageUrl ? "有" : "无", [...urls].join(" "), "", ""];
+}
+function renderMissing() {
+  const models = missingModels();
+  $("missing-summary").textContent = `待补绿区清单 · 当前国家／等级／搜索 ${models.length} 辆`;
+  $("missing-body").replaceChildren(...models.map((model) => {
+    const tr = element("tr");
+    missingRow(model).forEach((value, index) => { const td = element("td"); if (index === 0) { const link = element("a", value); link.href = `#vehicle=${model.id}`; td.append(link); } else td.textContent = value; tr.append(td); });
+    return tr;
+  }));
+}
+function downloadMissing(format, all) {
+  const rows = [missingColumns, ...missingModels(all).map(missingRow)];
+  const csv = (value) => '"' + String(value).replaceAll('"', '""') + '"';
+  const md = (value) => String(value).replaceAll("|", "\\|").replaceAll(/\r?\n/g, " ");
+  const body = format === "csv" ? "\uFEFF" + rows.map((row) => row.map(csv).join(",")).join("\r\n") : "# 待补绿色装甲分区清单\n\n仅单点也列入待补；基础车型参考不计入。待补视频与时间段由人工填写。\n\n" + [rows[0], rows[0].map(() => "---"), ...rows.slice(1)].map((row) => "| " + row.map(md).join(" | ") + " |").join("\n");
+  const url = URL.createObjectURL(new Blob([body], { type: format === "csv" ? "text/csv;charset=utf-8" : "text/markdown;charset=utf-8" }));
+  const link = element("a"); link.href = url; link.download = `tank-weakpoints-missing-green-${all ? "all" : "filtered"}.${format === "csv" ? "csv" : "md"}`; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+function videoUrl(source, time) {
+  if (!source.url) return null;
+  try { const url = new URL(source.url); if (Number.isFinite(time)) url.searchParams.set("t", String(Math.floor(time))); return url.href; } catch { return null; }
+}
+function sourceLink(title, href, detail) {
+  const article = element("div", undefined, "source-card");
+  const link = element(href ? "a" : "span", title + (href ? " ↗" : ""));
+  if (href) { link.href = href; link.target = "_blank"; link.rel = "noopener noreferrer"; }
+  article.append(link, element("small", detail));
+  return article;
+}
+function renderPoint() {
+  const evidence = selectedEvidence(SAMPLE.models[selected]);
+  $("point-kind").textContent = evidence ? "防护分析证据" : "选中标注";
+  if (evidence && !evidence.pins?.length) {
+    $("point-title").textContent = evidence.label;
+    $("point-detail").textContent = evidence.description || evidence.caption || "该视图的条件见来源测试。";
+    return;
+  }
+  const pin = (evidence ? evidence.pins : SAMPLE.models[selected]?.pins)?.[point];
+  const model = SAMPLE.models[selected];
+  const summary = model?.frontSummary || model?.videoAdvice?.[0]?.text;
+  const preview = model?.mainViewKind === "protection-preview";
+  const layout = model?.mainViewKind === "armor-layout";
+  const summaryTitle = !model?.frontSummary && model?.videoAdvice?.[0]?.sourceKind === "article-text" ? "文章打法摘要" : ["forum-image", "article-image"].includes(sourceOf(model || {}).kind) ? "来源打法摘要" : "视频打法摘要";
+  if (!pin && summary) $("point-kind").textContent = preview ? "单点防护预览" : layout ? "装甲布局" : "整体打法";
+  $("point-title").textContent = pin?.label || (preview ? "当前准星结果" : layout ? "装甲厚度视图" : summary ? summaryTitle : "尚无标注");
+  $("point-detail").textContent = pin?.detail || summary || "该车型的攻击位置说明尚未补充。";
+  for (const host of [$("pins"), $("pin-buttons")])
+    [...host.children].forEach((button, index) => button.setAttribute("aria-pressed", String(index === point)));
+}
+function imageMissing(message) {
+  $("photo").hidden = true;
+  $("pins").hidden = true;
+  $("image-status").textContent = message;
+  $("image-status").hidden = false;
+}
+function renderBaseReference(model) {
+  const host = $("base-reference");
+  const ref = model.baseVehicleReference;
+  const base = ref && SAMPLE.models.find((entry) => entry.id === ref.vehicleId);
+  host.hidden = !!(model.imageUrl || model.rawUrl) || !base;
+  host.replaceChildren();
+  if (host.hidden) return;
+  const title = element("h3", "基础车型图解");
+  const note = element("p", `${ref.note} 参考图解属于${base.name}，不等同本车实拍。`);
+  const link = element("a", `查看${base.name}图解 →`);
+  link.href = "#vehicle=" + encodeURIComponent(base.id);
+  const official = element("a", "官方依据 ↗");
+  official.href = ref.targetWikiURL;
+  official.target = "_blank";
+  official.rel = "noopener noreferrer";
+  host.replaceChildren(title, note, link, official);
+}
+function render() {
+  const model = SAMPLE.models[selected];
+  if (!model) return;
+  const cardHost = $("current-vehicle-card");
+  if (cardHost.dataset.vehicle !== model.id) {
+    // This markup is produced by the shared VehicleTile from canonical data at build time.
+    const template = document.createElement("template");
+    template.innerHTML = model.vehicleCard.html;
+    cardHost.replaceChildren(template.content.cloneNode(true));
+    cardHost.dataset.vehicle = model.id;
+    const art = cardHost.querySelector(".unit-art");
+    art?.addEventListener("error", () => {
+      const fallback = model.vehicleCard.imageFallback;
+      if (!art.dataset.fallback && fallback && art.getAttribute("src") !== fallback) {
+        art.dataset.fallback = "true";
+        art.src = fallback;
+      } else {
+        art.replaceWith(element("span", "—", "unit-art-unavailable"));
+      }
+    });
+  }
+  renderBaseReference(model);
+  $("green-status").textContent = coverage(model).label;
+  $("green-status").dataset.status = coverage(model).status;
+  $("green-note").textContent = coverage(model).note;
+  const source = sourceOf(model);
+  const articleImage = source.kind === "article-image";
+  const staticSource = source.kind === "forum-image" || articleImage;
+  const authorDiagram = model.mainViewKind === "author-diagram";
+  const protectionPreview = model.mainViewKind === "protection-preview";
+  const armorLayout = model.mainViewKind === "armor-layout";
+  const evidence = selectedEvidence(model);
+  const imageViews = $("image-views");
+  const views = [{ id: null, label: authorDiagram ? "作者防护示意" : protectionPreview ? "单点防护预览" : armorLayout ? "装甲布局" : model.mainViewKind === "protection-analysis" ? "防护分析" : "外观与标注" }, ...(model.protectionEvidence || [])];
+  imageViews.hidden = views.length < 2;
+  imageViews.replaceChildren(...views.map((view) => {
+    const button = element("button", view.label);
+    button.type = "button";
+    button.setAttribute("aria-pressed", String(view.id === evidenceId));
+    button.addEventListener("click", () => { evidenceId = view.id; point = 0; original = false; render(); });
+    return button;
+  }));
+  $("vehicle-name").replaceChildren(...[roleIcon(model), element("span", model.name)].filter(Boolean));
+  const metadata = [model.roleLabel || model.role, model.countryName || countries[model.country], model.rank ? `${model.rankLabel || model.rank} 级` : null, model.coverageNotice].filter(Boolean);
+  $("vehicle-role").textContent = metadata.join(" · ");
+  $("wiki-summary").textContent = model.wikiSummary || "Wiki 要点待核对。";
+  $("wiki-points").replaceChildren(...(model.wikiPoints || []).map((text) => element("li", text)));
+  $("reload-time").textContent = model.reload?.display || "待核对";
+  $("reload-gun").textContent = model.reload?.gun || "";
+  $("reload-note").textContent = model.reload?.note || "";
+  const test = evidence ? model.testCases?.find((item) => item.id === evidence.caseId) : model.testContext;
+  const hasVideoTest = !!test || (model.mainViewKind !== "frontal-position-reference" && !articleImage && !armorLayout && !authorDiagram && !!model.imageUrl && !!model.videoAdvice?.some((advice) => advice.sourceKind !== "article-text"));
+  $("test-section").hidden = !hasVideoTest;
+  $("test-attacker").textContent = (test?.attackerDisplayName || test?.attacker)?.trim() || "来源未显示／待核对";
+  $("test-shell").textContent = test?.shell?.trim() || "来源未显示／待核对";
+  $("test-shell-type").textContent = shellTypeLabel(test);
+  $("test-penetration").textContent = penetrationLabel(test);
+  const testNote = evidence ? evidence.conditionNote : test?.note;
+  $("test-note").textContent = testNote || "";
+  $("test-note").hidden = !testNote;
+  const staticTest = test?.sourceKind === "forum-image";
+  const testHref = staticTest ? videoUrl({ url: test.sourceUrl || source.url }) : Number.isFinite(test?.sourceTime) ? videoUrl({ url: test.sourceUrl || source.url }, test.sourceTime) : null;
+  $("test-link").hidden = !testHref;
+  if (testHref) {
+    $("test-link").href = testHref;
+    $("test-link").textContent = staticTest ? "查看原帖证据 ↗" : `查看测试片段 ${Math.floor(test.sourceTime / 60)}:${String(Math.floor(test.sourceTime % 60)).padStart(2, "0")} ↗`;
+  } else $("test-link").removeAttribute("href");
+  $("video-section").hidden = !model.videoAdvice?.length;
+  $("video-advice").replaceChildren(...(model.videoAdvice || []).map((advice) => {
+    const article = element("article", undefined, "advice");
+    article.append(element("h4", advice.label), element("p", advice.text));
+    const testCase = model.testCases?.find((item) => item.id === advice.caseId);
+    if (testCase) article.append(element("p", [testCase.attackerDisplayName || testCase.attacker || "攻击车辆待核对", testCase.shell || "炮弹待核对", testCase.shellTypeCode || "弹种待核对", penetrationLabel(testCase)].join(" · "), "case-summary"));
+    const articleAdvice = advice.sourceKind === "article-text";
+    const staticAdvice = articleAdvice || advice.sourceKind === "forum-image";
+    const adviceTime = staticAdvice ? null : Number.isFinite(advice.sourceTime) ? advice.sourceTime : advice.time;
+    const href = videoUrl({ url: advice.sourceUrl || testCase?.sourceUrl || source.url }, adviceTime);
+    if (href) {
+      const link = element("a", Number.isFinite(adviceTime) ? `${Math.floor(adviceTime / 60)}:${String(Math.floor(adviceTime % 60)).padStart(2, "0")} ↗` : articleAdvice ? "查看原文 ↗" : advice.sourceKind === "forum-image" || staticSource ? "查看原帖 ↗" : "查看视频 ↗");
+      link.href = href; link.target = "_blank"; link.rel = "noopener noreferrer";
+      article.append(link);
+    }
+    return article;
+  }));
+  const image = $("photo");
+  const analysisExcerpt = (evidence || model).displayImagePolicy === "analysis-excerpt";
+  const rawOnly = !model.imageUrl && !!model.rawUrl;
+  const showRaw = !analysisExcerpt && (original || rawOnly);
+  const imageUrl = evidence?.imageUrl || (showRaw ? model.rawUrl : model.imageUrl);
+  image.hidden = !imageUrl;
+  $("image-status").hidden = !!imageUrl;
+  const fallbacks = evidence?.imageFallbackUrls || (showRaw ? model.rawFallbackUrls : model.imageFallbackUrls)
+    || [evidence?.imageFallbackUrl || (showRaw ? model.rawFallbackUrl : model.imageFallbackUrl)];
+  const candidates = [...new Set([imageUrl, ...fallbacks].filter(Boolean))];
+  const generation = ++imageLoadGeneration;
+  clearTimeout(imageLoadTimer);
+  let candidateIndex = 0;
+  const loadCandidate = () => {
+    if (generation !== imageLoadGeneration) return;
+    clearTimeout(imageLoadTimer);
+    image.src = candidates[candidateIndex];
+    imageLoadTimer = setTimeout(() => { if (generation === imageLoadGeneration) nextCandidate(); }, 12000);
+  };
+  const nextCandidate = () => {
+    if (generation !== imageLoadGeneration) return;
+    clearTimeout(imageLoadTimer);
+    if (++candidateIndex < candidates.length) loadCandidate();
+    else imageMissing("高清正面图加载失败，请稍后重试；此图暂不显示标注。");
+  };
+  image.onerror = nextCandidate;
+  image.onload = () => { if (generation === imageLoadGeneration) clearTimeout(imageLoadTimer); };
+  if (imageUrl) loadCandidate();
+  else { image.removeAttribute("src"); imageMissing("高清正面图尚未归档，此车型资料仍在补充。"); }
+  image.alt = model.name + (evidence ? ` · ${evidence.label} · 防护分析画面` : authorDiagram ? "原文章作者正面防护示意图" : armorLayout ? showRaw ? "完整原生装甲布局画面" : "正面装甲厚度视图" : showRaw ? staticSource ? "原帖完整防护分析截图" : protectionPreview ? "原始单点防护预览视频帧" : "原始防护分析视频帧" : protectionPreview ? "正面单点防护预览原图" : model.mainViewKind === "protection-analysis" ? "正面防护分析原图" : "正面截图与区域说明");
+  image.width = evidence?.sourceDimensions?.[0] || (showRaw ? (model.sourceDimensions?.[0] || 1920) : (model.crop?.[2] || 1100));
+  image.height = evidence?.sourceDimensions?.[1] || (showRaw ? (model.sourceDimensions?.[1] || 1080) : (model.crop?.[3] || 690));
+  const fullFrameView = model.crop?.[0] === 0 && model.crop?.[1] === 0
+    && model.crop?.[2] === model.sourceDimensions?.[0] && model.crop?.[3] === model.sourceDimensions?.[1];
+  $("toggle-original").hidden = analysisExcerpt || !!evidence || !(model.imageUrl && model.rawUrl) || model.imageUrl === model.rawUrl || fullFrameView;
+  $("toggle-original").textContent = original ? "返回标注图" : "查看完整高清图";
+  $("toggle-original").setAttribute("aria-pressed", String(original));
+  $("evidence-full").hidden = !evidence;
+  $("evidence-full").textContent = analysisExcerpt ? "打开高清节选 ↗" : "打开高清原帧 ↗";
+  if (evidence) $("evidence-full").href = evidence.rawUrl || evidence.imageUrl;
+  else $("evidence-full").removeAttribute("href");
+  const imageDescription = authorDiagram ? "原文章作者防护示意图，保留作者分区、数值和箭头；不是游戏绿色击穿分析或已核验的试射结果。" : armorLayout ? `${showRaw ? "当前为完整高清画面。" : ""}原游戏装甲布局，配色仅区分装甲构件或厚度，不表示可击穿或不可击穿。` : protectionPreview ? `${showRaw ? "当前为完整高清画面。" : ""}${staticSource ? "原帖截图" : "原视频"}单点防护预览，准星与提示仅对应当次位置；不是整片装甲着色或实射结果。` : showRaw ? "当前为完整高清画面。" : model.mainViewKind === "protection-analysis" ? `${staticSource ? "原帖截图" : "原视频"}防护分析，保留游戏原有防护分区。` : model.pins?.length ? "金色编号为讲解标注。" : "来源载具外观。";
+  const versionDescription = `${analysisExcerpt ? `画面为局部分析引用，完整内容见来源${staticSource ? "原帖" : "视频"}。` : ""}${source.gameVersion ? `画面版本 ${source.gameVersion}。` : ""}`;
+  const analysisConditions = authorDiagram || armorLayout ? "" : protectionPreview ? "该点条件见来源测试。" : "防护分析颜色对应当时的弹种与视角，条件见来源测试。";
+  $("figure-caption").textContent = evidence ? evidence.caption : imageUrl ? `画面：${source.author || "来源见下方"} / 《战争雷霆》。${imageDescription}${versionDescription}${analysisConditions}${["unknown", "in-progress", "incomplete"].includes(model.distributionCompletionStatus) && model.mainViewNote ? ` ${model.mainViewNote}` : ""}` : "图像资料待补充，不以其他车型画面代替。";
+  $("pins").hidden = showRaw || !imageUrl;
+  $("pins").replaceChildren();
+  $("pin-buttons").replaceChildren();
+  const viewPins = (evidence ? evidence.pins : model.pins) || [];
+  $("pin-buttons").hidden = !viewPins.length;
+  viewPins.forEach((pin, index) => {
+    const marker = element("button", undefined, "pin");
+    marker.type = "button";
+    marker.style.setProperty("--x", String(pin.x)); marker.style.setProperty("--y", String(pin.y));
+    marker.setAttribute("aria-label", `${index + 1} · ${pin.label}`);
+    marker.append(element("b", String(index + 1)), element("span", pin.label));
+    const alternative = element("button", `${index + 1} · ${pin.label}`);
+    alternative.type = "button";
+    const choose = () => { point = index; renderPoint(); };
+    marker.addEventListener("click", choose); alternative.addEventListener("click", choose);
+    $("pins").append(marker); $("pin-buttons").append(alternative);
+  });
+  const records = [];
+  if (source.url) records.push(sourceLink(source.title || (articleImage ? "文章来源" : staticSource ? "原帖来源" : "视频来源"), videoUrl(source, staticSource ? null : model.time), [source.author, source.publishedAt, source.gameVersion ? `游戏版本 ${source.gameVersion}` : null, !staticSource && Number.isFinite(model.time) ? `${Math.floor(model.time / 60)}:${String(Math.floor(model.time % 60)).padStart(2, "0")}` : null, model.imageQuality].filter(Boolean).join(" · ")));
+  if (staticSource && source.imageUrl) records.push(sourceLink(articleImage ? "文章原始图片" : "原帖公开图片", source.imageUrl, articleImage ? "保留作者原始图片尺寸与标注；图中数值不作为Wiki基础数据或弹药实测穿深。" : "原始附件；高清归档保留同一截图的原生尺寸。"));
+  const sourceUrls = new Set([source.url].filter(Boolean));
+  for (const related of model.relatedSources || []) {
+    if (!related.url || sourceUrls.has(related.url)) continue;
+    const href = videoUrl(related, related.time);
+    if (!href) continue;
+    sourceUrls.add(related.url);
+    records.push(sourceLink(related.title || "关联攻略", href, [related.author, related.publishedAt, related.scopeNote].filter(Boolean).join(" · ")));
+  }
+  if (model.wikiUrl) records.push(sourceLink("官方 Wiki · " + model.name, model.wikiUrl, `核对日期 ${model.collectedAt || SAMPLE.collectedAt || "待补充"} · 车型、装甲与主炮装填资料${model.wikiGameVersion ? ` · 游戏版本 ${model.wikiGameVersion}` : ""}`));
+  const ammoReferences = new Map();
+  for (const item of [test, ...(model.testCases || [])]) {
+    const reference = item?.shellTypeReference;
+    if (reference?.url) ammoReferences.set(reference.url + ":" + reference.officialShellName, reference);
+  }
+  for (const reference of ammoReferences.values()) records.push(sourceLink("测试弹种资料 · " + (reference.sourceShellLabelOriginal || reference.officialShellName), reference.url, ["官方 Wiki", reference.mainGun, reference.gameVersion ? `游戏版本 ${reference.gameVersion}` : null].filter(Boolean).join(" · ")));
+  if (evidence) records.push(sourceLink("防护分析截图 · " + evidence.label, videoUrl({ url: test?.sourceUrl }, evidence.sourceTime), [evidence.caption, Number.isFinite(evidence.sourceTime) ? `${Math.floor(evidence.sourceTime / 60)}:${String(Math.floor(evidence.sourceTime % 60)).padStart(2, "0")}` : null].filter(Boolean).join(" · ")));
+  $("sources").replaceChildren(...records);
+  renderPoint();
+}
+function select(index) { selected = index; point = 0; original = false; evidenceId = SAMPLE.models[index]?.defaultEvidenceId || null; render(); }
+function updateList(preferredId) {
+  const visible = SAMPLE.models.filter(matches);
+  for (const id of ["study", "source-section"]) $(id).hidden = !visible.length;
+  $("empty-state").hidden = !!visible.length;
+  const illustrated = visible.filter((model) => model.imageUrl).length;
+  $("result-count").textContent = `${visible.length} 辆资料 · ${illustrated} 辆已配正面图 · ${visible.length - illustrated} 辆待补图 · ${visible.filter((model) => coverage(model).status === "region").length} 辆有局部绿区 · ${visible.filter((model) => coverage(model).status === "point").length} 辆仅单点`;
+  const currentId = preferredId || SAMPLE.models[selected]?.id;
+  const next = visible.find((model) => model.id === currentId) || visible[0];
+  const nextIndex = next ? SAMPLE.models.indexOf(next) : -1;
+  if (nextIndex !== selected) {
+    if (next) select(nextIndex);
+    else { selected = -1; clearTimeout(imageLoadTimer); ++imageLoadGeneration; }
+  }
+  vehicleSelect.setOptions(visible.map((model) => ({ value: model.id, roleIconKey: model.roleIconKey, roleLabel: model.roleLabel, label: model.name, greenCoverage: coverage(model) })));
+  filterSelects.forEach((control) => control.sync());
+  renderMissing();
+}
+// Standalone equivalent of components/GameSelect: trigger focus + top-layer listbox.
+function createFilter(host, kind, entries, labelledBy) {
+  const trigger = element("button", undefined, "wt-select");
+  trigger.type = "button"; trigger.id = `${kind}-trigger`;
+  trigger.setAttribute("role", "combobox"); trigger.setAttribute("aria-haspopup", "listbox");
+  trigger.setAttribute("aria-labelledby", `${labelledBy} ${kind}-value`);
+  const valueLabel = element("span", undefined, "wt-select-label"); valueLabel.id = `${kind}-value`;
+  // Exact geometry and dimensions from src/components/Chevron.tsx.
+  const chevron = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  for (const [name, value] of Object.entries({ class: `wt-chevron wt-select-chevron${kind === "country" ? " country-chevron" : ""}`, width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", "aria-hidden": "true", focusable: "false" })) chevron.setAttribute(name, value);
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  for (const [name, value] of Object.entries({ d: "m4 6 4 4 4-4", stroke: "currentColor", "stroke-width": "1.75", "stroke-linecap": "round", "stroke-linejoin": "round" })) path.setAttribute(name, value);
+  chevron.append(path);
+  trigger.append(valueLabel, chevron);
+  const menu = element("div", undefined, "wt-select-menu"); menu.id = `${kind}-menu`;
+  menu.setAttribute("role", "listbox"); menu.setAttribute("popover", "auto");
+  menu.setAttribute("aria-labelledby", trigger.id); menu.hidden = true;
+  $(host).append(trigger, menu);
+  let open = false, active = 0, search = "", searchAt = 0;
+  const current = () => kind === "vehicle" ? SAMPLE.models[selected]?.id || "" : ({ country, rank, green }[kind]);
+  function content(entry) {
+    const row = element("span", undefined, "select-option-label");
+    const flags = entry.flagUrl ? [entry.flagUrl] : [];
+    if (flags.length) {
+      const icons = element("span", undefined, "country-icon");
+      icons.setAttribute("aria-hidden", "true");
+      flags.forEach((url) => { const image = element("img"); image.src = url; image.alt = ""; image.width = 24; image.height = 18; icons.append(image); });
+      row.append(icons);
+    }
+    const icon = roleIcon(entry);
+    if (icon) row.append(icon);
+    row.append(element("span", entry.label));
+    if (entry.greenCoverage) { const badge = element("span", entry.greenCoverage.label, "green-status"); badge.dataset.status = entry.greenCoverage.status; row.append(badge); }
+    return row;
+  }
+  let options = [];
+  function setOptions(nextEntries) {
+    close(); entries = nextEntries;
+    options = entries.map((entry, index) => {
+    const option = element("div", undefined, "wt-select-option"); option.id = `${menu.id}-${index}`;
+    option.setAttribute("role", "option"); option.tabIndex = -1;
+    option.append(element("span", "", "wt-select-check"), content(entry));
+    option.addEventListener("pointerdown", (event) => event.preventDefault());
+    option.addEventListener("pointermove", (event) => { if (event.pointerType === "mouse") setActive(index); });
+    option.addEventListener("click", () => choose(index));
+    return option;
+    });
+    menu.replaceChildren(...options); sync();
+  }
+  function setActive(index) {
+    active = index;
+    options.forEach((option, i) => option.setAttribute("data-active", String(i === active)));
+    trigger.setAttribute("aria-activedescendant", options[active].id);
+    options[active].scrollIntoView({ block: "nearest" });
+  }
+  function sync() {
+    const chosen = entries.findIndex((entry) => entry.value === current());
+    trigger.disabled = !entries.length;
+    valueLabel.replaceChildren(content(entries[Math.max(0, chosen)] || { label: "暂无符合条件的车型" }));
+    options.forEach((option, index) => {
+      option.setAttribute("aria-selected", String(index === chosen));
+      option.children[0].textContent = index === chosen ? "✓" : "";
+    });
+    trigger.setAttribute("aria-expanded", String(open));
+  }
+  function close() {
+    open = false;
+    if (menu.hidePopover && !menu.hidden) menu.hidePopover();
+    menu.hidden = true; trigger.setAttribute("aria-expanded", "false"); trigger.removeAttribute("aria-activedescendant");
+  }
+  function place() {
+    if (!open) return;
+    const rect = trigger.getBoundingClientRect(), viewport = window.visualViewport;
+    const left = viewport?.offsetLeft || 0, top = viewport?.offsetTop || 0;
+    const width = viewport?.width || document.documentElement.clientWidth, height = viewport?.height || window.innerHeight;
+    const below = top + height - rect.bottom - 12, above = rect.top - top - 12;
+    const up = below < Math.min(menu.scrollHeight, 240) && above > below;
+    const popupWidth = Math.min(Math.max(rect.width, kind === "country" ? 196 : 160), width - 16);
+    const maxHeight = Math.max(44, Math.min(344, up ? above : below));
+    Object.assign(menu.style, { width: `${popupWidth}px`, maxHeight: `${maxHeight}px`, left: `${Math.max(left + 8, Math.min(rect.left, left + width - popupWidth - 8))}px`, top: `${up ? Math.max(top + 8, rect.top - Math.min(menu.scrollHeight, maxHeight) - 4) : rect.bottom + 4}px` });
+  }
+  function show(index = entries.findIndex((entry) => entry.value === current())) {
+    if (!entries.length) return;
+    filterSelects.forEach((control) => control.close());
+    open = true; menu.hidden = false; menu.showPopover?.();
+    trigger.setAttribute("aria-expanded", "true"); place(); setActive(Math.max(0, index));
+  }
+  function choose(index) {
+    if (!entries[index]) return;
+    const value = entries[index].value;
+    if (kind === "country") country = value;
+    if (kind === "rank") rank = value;
+    if (kind === "green") green = value;
+    if (kind === "vehicle") location.hash = `vehicle=${value}`;
+    close(); updateList(kind === "vehicle" ? value : undefined); trigger.focus({ preventScroll: true });
+  }
+  trigger.addEventListener("click", () => open ? close() : show());
+  trigger.addEventListener("blur", close);
+  trigger.addEventListener("keydown", (event) => {
+    event.stopPropagation();
+    if (!entries.length) return;
+    const chosen = Math.max(0, entries.findIndex((entry) => entry.value === current()));
+    if (["ArrowDown", "ArrowUp", "Home", "End", "Enter", " ", "Escape"].includes(event.key)) {
+      event.preventDefault();
+      if (event.key === "Escape") close();
+      else if (event.key === "Enter" || event.key === " ") { if (open) choose(active); else show(); }
+      else {
+        const index = event.key === "Home" ? 0 : event.key === "End" ? entries.length - 1 : ((open ? active : chosen) + (event.key === "ArrowDown" ? 1 : -1) + entries.length) % entries.length;
+        if (open) setActive(index); else show(event.key === "Home" || event.key === "End" ? index : chosen);
+      }
+    } else if (event.key === "Tab") close();
+    else if (event.key.length === 1 && !event.ctrlKey && !event.metaKey && !event.altKey) {
+      const now = Date.now(); search = now - searchAt > 700 ? event.key : search + event.key; searchAt = now;
+      const repeated = [...search].every((char) => char === search[0]);
+      const needle = (repeated ? search[0] : search).toLocaleLowerCase();
+      const start = repeated ? (open ? active : chosen) + 1 : (open ? active : chosen);
+      const index = entries.map((_, offset) => (start + offset) % entries.length).find((i) => entries[i].label.toLocaleLowerCase().startsWith(needle));
+      if (index !== undefined) { event.preventDefault(); if (open) setActive(index); else show(index); }
+    }
+  });
+  menu.addEventListener("toggle", (event) => { if (event.newState === "closed" && open) close(); });
+  document.addEventListener("pointerdown", (event) => { if (open && !menu.contains(event.target) && !trigger.contains(event.target)) close(); });
+  window.addEventListener("resize", place);
+  window.addEventListener("scroll", (event) => { if (event.target !== menu) place(); }, true);
+  window.visualViewport?.addEventListener("resize", place); window.visualViewport?.addEventListener("scroll", place);
+  const control = { sync, close, setOptions };
+  filterSelects.push(control); setOptions(entries); return control;
+}
+createFilter("countries", "country", [{ value: "all", label: "全部国家" }, ...countryEntries.map((entry) => ({ value: entry.id, label: entry.name, flagUrl: entry.flagUrl }))], "country-label");
+const romanRanks = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
+const ranks = [...new Set(SAMPLE.models.map((model) => Number(model.rank)).filter((value) => Number.isInteger(value) && value > 0))].sort((a, b) => a - b);
+createFilter("ranks", "rank", [{ value: "all", label: "全部等级" }, ...ranks.map((value) => ({ value: String(value), label: `${romanRanks[value] || value} 级` }))], "rank-label");
+createFilter("green-filter", "green", [{ value: "all", label: "全部绿区状态" }, { value: "region", label: "有绿区" }, { value: "pending", label: "待补绿区" }, { value: "point", label: "仅单点" }], "green-label");
+const vehicleSelect = createFilter("vehicles", "vehicle", [], "vehicle-label");
+function fromHash() {
+  const id = new URLSearchParams(location.hash.slice(1)).get("vehicle") || document.documentElement.dataset.wtVehicle;
+  const model = SAMPLE.models.find((entry) => entry.id === id);
+  if (model && !matches(model)) {
+    country = "all"; rank = "all"; green = "all"; searchQuery = "";
+    $("vehicle-search").value = "";
+  }
+  updateList(id);
+}
+const searchInput = $("vehicle-search");
+searchInput.addEventListener("compositionstart", () => { composing = true; });
+searchInput.addEventListener("compositionend", () => {
+  composing = false; searchQuery = searchInput.value; updateList();
+});
+searchInput.addEventListener("input", (event) => {
+  if (composing || event.isComposing) return;
+  searchQuery = searchInput.value; updateList();
+});
+$("reset-filters").addEventListener("click", () => { country = "all"; rank = "all"; green = "all"; searchQuery = ""; searchInput.value = ""; updateList(); });
+$("toggle-original").addEventListener("click", () => { original = !original; render(); });
+window.addEventListener("hashchange", fromHash);
+document.querySelectorAll("[data-missing-download]").forEach((button) => button.addEventListener("click", () => downloadMissing(button.dataset.missingDownload, button.dataset.all === "true")));
+fromHash();
+
+  const resize = () => window.parent.postMessage({ type: "wt-weakpoints-height", height: Math.ceil(document.body.getBoundingClientRect().height) + 4 }, parentOrigin);
+  if (window.ResizeObserver) new ResizeObserver(resize).observe(document.body);
+  window.addEventListener("load", resize);
+  resize();
+})().catch(() => { document.body.textContent = "弱点资料加载失败，请返回工作台重新登录。"; });

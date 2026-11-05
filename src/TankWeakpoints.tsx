@@ -6,11 +6,12 @@ import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { canUseTestFeatures } from "./application-access";
 import { statsRequest } from "./player-stats-api";
 import "./tank-weakpoints.css";
+import { weakpointShellDocument, weakpointDisplayResources } from "./weakpoint-shell";
 import { VideoAnalysisLibrary } from "./VideoAnalysisLibrary";
 
 type Payload = { schema: number; models: { id: string }[] };
 export function TankWeakpoints() {
-  useLocale();
+  const locale = useLocale();
   const account = useWorkbenchAccount();
   const allowed = canUseTestFeatures(account.session);
   const { vehicle, video } = useSearch({ from: "/_workbench/weakpoints" });
@@ -34,7 +35,7 @@ export function TankWeakpoints() {
         if (controller.signal.aborted) return;
         if (!Array.isArray(value.models) || value.models.length > 500)
           throw Error(t("弱点资料格式不正确"));
-        setLoaded({ key: requestKey, payload: value, error: "" });
+        setLoaded({ key: requestKey, payload: weakpointDisplayResources(value), error: "" });
       })
       .catch((failure: unknown) => {
         if (!controller.signal.aborted)
@@ -99,18 +100,15 @@ export function TankWeakpoints() {
         <output className="weakpoints-access">{t("正在加载弱点资料…")}</output>
       </>
     );
-  const url = new URL("weakpoints-preview.html", location.href);
-  url.search = "embedded=1";
-  url.hash = vehicle ? "vehicle=" + vehicle : "";
   return (
     <>
       {library}
       <iframe
-        key={identity + ":" + attempt}
+        key={`${requestKey}:${locale}`}
         className="tank-weakpoints-frame"
         ref={frame}
         title={t("坦克弱点与绿色区域清单")}
-        src={url.href}
+        srcDoc={weakpointShellDocument(vehicle)}
         style={{ height }}
         onLoad={() =>
           frame.current?.contentWindow?.postMessage(

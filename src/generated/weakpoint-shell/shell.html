@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="description" content="各国坦克弱点图文资料：高清正面画面、Wiki 资料、主炮装填时间与有来源的攻击位置。">
+    <title>坦克弱点 · 图文资料</title>
+    <link rel="preload" href="./assets/__SYMBOL_FONT__" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="__STYLE__">
+    <script defer src="__SCRIPT__"></script>
+  </head>
+  <body class="workbench-layout">
+    <header class="shell-header">
+      <a href="./#/maps" class="back">← 返回工作台</a>
+      <span class="brand">坦克弱点<span>图文资料</span></span>
+      <span class="review-badge">测试功能</span>
+    </header>
+    <main>
+      <div class="intro">
+        <p class="eyebrow">WAR THUNDER / ARMOUR STUDY</p>
+        <h1>坦克正面弱点图解</h1>
+        <p>高清正面画面，搭配官方 Wiki 资料与来源攻略。点击编号查看说明。</p>
+      </div>
+      <section class="filters" aria-label="筛选弱点资料">
+        <div class="filter-control"><span id="country-label" class="sr-only">国家</span><div id="countries"></div></div>
+        <div class="filter-control"><span id="rank-label" class="sr-only">等级</span><div id="ranks"></div></div>
+        <div class="filter-control"><span id="green-label" class="sr-only">绿区状态</span><div id="green-filter"></div></div>
+        <div class="filter-control vehicle-filter"><span id="vehicle-label" class="sr-only">车型</span><div id="vehicles"></div></div>
+        <label for="vehicle-search" class="sr-only">搜索坦克名称或型号</label>
+        <input id="vehicle-search" class="vehicle-search" type="search" placeholder="搜索坦克名称或型号" autocomplete="off">
+      </section>
+      <p id="result-count" class="result-count" role="status"></p>
+      <details class="missing-list"><summary id="missing-summary">待补绿区清单</summary><p>按当前国家、等级、搜索列出全部尚未确认绿色装甲分区的车型，包含仅单点；绿区状态筛选不缩减清单。视频与时间段留空供人工补充。当前采集已暂停。</p><div class="missing-actions"><button type="button" data-missing-download="csv">下载当前清单 CSV</button><button type="button" data-missing-download="md">下载当前清单 Markdown</button><button type="button" data-missing-download="csv" data-all="true">下载全部待补 CSV</button><button type="button" data-missing-download="md" data-all="true">下载全部待补 Markdown</button></div><div class="missing-table-wrap"><table><thead><tr><th>中文车型</th><th>国别</th><th>等级</th><th>当前证据状态</th><th>有无正面图</th><th>已有关联来源URL</th><th>待补视频URL</th><th>时间段</th></tr></thead><tbody id="missing-body"></tbody></table></div></details>
+      <section id="empty-state" class="empty-state" hidden><h2>暂无匹配的坦克</h2><p>可调整名称、型号或筛选条件后继续查找。</p><button id="reset-filters" type="button">重置筛选</button></section>
+      <section id="study" class="study" aria-labelledby="vehicle-name">
+        <div class="figure-column">
+          <header class="figure-header">
+            <div><h2 id="vehicle-name"></h2><p id="vehicle-role"></p></div>
+            <div class="figure-actions"><div id="image-views" class="image-views" role="group" aria-label="图像视图" hidden></div><button id="toggle-original" type="button" aria-pressed="false">查看完整原始帧</button><a id="evidence-full" target="_blank" rel="noopener noreferrer" hidden>打开高清原帧 ↗</a></div>
+          </header>
+          <div class="photo-stage" id="photo-stage">
+            <img id="photo" alt="" width="1100" height="690"><p id="image-status" class="image-status" role="status" hidden></p>
+            <div id="pins" class="annotation-layer"></div>
+          </div>
+          <p><span id="green-status" class="green-status"></span> <span id="green-note"></span></p>
+          <p id="figure-caption" class="figure-caption"></p>
+          <section id="base-reference" class="base-reference" aria-label="基础车型图解参考" hidden></section>
+          <div id="pin-buttons" class="pin-buttons" aria-label="按区域查看说明"></div>
+          <section class="explanation" aria-live="polite" aria-atomic="true"><p id="point-kind" class="eyebrow">选中标注</p><h3 id="point-title"></h3><p id="point-detail"></p></section>
+        </div>
+        <aside class="evidence">
+          <section><p class="eyebrow">阅读要点 · 官方 Wiki</p><p id="wiki-summary"></p><ul id="wiki-points"></ul></section>
+          <section class="current-vehicle-panel" aria-labelledby="current-vehicle-heading"><h3 id="current-vehicle-heading">当前载具</h3><div id="current-vehicle-card"></div></section>
+          <section class="reload-panel"><h3>主炮装填</h3><p id="reload-time" class="reload-time"></p><p id="reload-gun"></p><p id="reload-note"></p></section>
+          <section id="test-section" hidden><h3>来源测试</h3><dl class="test-context"><dt>测试车辆</dt><dd id="test-attacker"></dd><dt>测试炮弹</dt><dd id="test-shell"></dd><dt>弹种类型</dt><dd id="test-shell-type"></dd><dt>演示穿深</dt><dd id="test-penetration"></dd></dl><p id="test-note" hidden></p><a id="test-link" hidden target="_blank" rel="noopener noreferrer"></a></section>
+          <section id="video-section"><h3>攻击位置与来源建议</h3><div id="video-advice"></div></section>
+        </aside>
+      </section>
+      <section id="source-section" class="sources" aria-labelledby="sources-heading"><h2 id="sources-heading">来源与核对记录</h2><div id="sources"></div><p>Wiki资料、投稿文章、视频与论坛分别标明来源；视频可按时间跳转，文章保留原文，论坛截图保留原帖与图片链接。</p></section>
+    </main>
+    <footer>《战争雷霆》游戏内资料 · 测试资料，具体来源与版本见各条目</footer>
+  </body>
+</html>

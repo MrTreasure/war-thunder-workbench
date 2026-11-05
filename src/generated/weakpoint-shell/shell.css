@@ -1,0 +1,1000 @@
+:root{--wt-loading-background-image:url("https://staticfiles.warthunder.com/upload/image/0_Wallpaper_Renders/Other/1920x1080_sky_odyssey_logo_eng_a98e2d250b72a68a4c6073f0d30db010.jpg");--wt-loading-background-position:50% 50%}
+/* Approved game card geometry; original official artwork and regular type. */
+@font-face {
+  font-family: WTCard;
+  src: url("./__CARD_FONT__") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --wt-game-card: #0b1e29b2;
+  --wt-game-border: #253940;
+  --wt-game-top: #4a5d5b;
+  /* Application treatment for unowned special vehicles, not a game asset. */
+  --wt-game-special-base: #210e10c9;
+  --wt-game-special-border: #49282b;
+  --wt-game-special-top: #75413e;
+}
+.canvas .node {
+  width: 228px;
+}
+.canvas .column-panel {
+  background: #10191c20;
+  border-color: #82949918;
+  box-shadow: none;
+  border-radius: 0;
+}
+.canvas .column-panel.is-special {
+  background: #10191c20;
+  border-color: #82949918;
+}
+.vehicle-card.wt-game-card {
+  position: relative;
+  display: block;
+  width: 228px;
+  height: 76px;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  border: 1px solid var(--wt-game-border);
+  border-top: 3px solid var(--wt-game-top);
+  border-radius: 0;
+  background: var(--wt-game-card);
+  color: #eef0ea;
+  text-align: right;
+  isolation: isolate;
+  box-shadow: 0 1px 1px #050b103d;
+  font-family: WTSymbols, WTCard, "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  font-synthesis: none;
+  font-weight: 400;
+}
+.vehicle-card.wt-game-card.is-owned {
+  background: #25333bb2;
+  border-color: #3e5159;
+  border-top-color: #57767e;
+}
+.vehicle-card.wt-game-card.is-premium {
+  background: #191107c9;
+  border-color: #3b2e19;
+  border-top-color: #735728;
+}
+.vehicle-card.wt-game-card.is-premium.is-owned {
+  background: #2d250fb2;
+  border-color: #5b471f;
+  border-top-color: #7b591f;
+}
+.vehicle-card.wt-game-card.is-squadron {
+  background: #18231ac9;
+  border-color: #374736;
+  border-top-color: #4c6045;
+  box-shadow: 0 1px 1px #050b103d;
+}
+.vehicle-card.wt-game-card.is-squadron.is-owned {
+  background: #263a1cb2;
+  border-color: #3e5c2c;
+  border-top-color: #4b712f;
+}
+/* finesse · component: vehicle-tile · register=product
+ * Unowned special state: premium-style matte plate in dark red; owned surfaces stay unchanged. */
+.vehicle-card.wt-game-card.is-special:not(.is-owned) {
+  background: var(--wt-game-special-base);
+  border-color: var(--wt-game-special-border);
+  border-top-color: var(--wt-game-special-top);
+}
+.vehicle-card.wt-game-card > .unit-name {
+  position: absolute;
+  right: 7px;
+  top: 8px;
+  max-width: 211px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-shadow: 0 1px 2px #050b10d9;
+  z-index: 3;
+}
+.vehicle-card.wt-game-card > .unit-name.is-long {
+  font-size: 17px;
+  top: 10px;
+}
+.vehicle-card.wt-game-card .unit-art {
+  position: absolute;
+  left: 0;
+  right: auto;
+  top: auto;
+  bottom: 3px;
+  width: 116px;
+  height: 68px;
+  object-fit: contain;
+  object-position: left bottom;
+  pointer-events: none;
+  filter: drop-shadow(1px 2px 1px #060a10a3);
+  z-index: 1;
+}
+.vehicle-card.wt-game-card > .unit-art-unavailable {
+  position: absolute;
+  left: 30px;
+  bottom: 20px;
+  color: #72838a;
+}
+.vehicle-card.wt-game-card > .wt-game-card-bottom {
+  position: absolute;
+  right: 7px;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 1;
+  white-space: nowrap;
+  z-index: 3;
+  text-shadow: 0 1px 2px #050b10d9;
+}
+.wt-game-card .wt-game-card-cost {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-right: 2px;
+  font-size: 21px;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+}
+.vehicle-card.wt-game-card .wt-game-currency {
+  position: static;
+  display: inline-block;
+  width: 18px;
+  height: 20px;
+  object-fit: contain;
+  vertical-align: middle;
+  filter: drop-shadow(0 1px 1px #050b10d9);
+}
+.vehicle-card.wt-game-card .wt-game-currency.is-ge {
+  width: 20px;
+  height: 22px;
+}
+.vehicle-card.wt-game-card .wt-game-currency.is-gjn {
+  width: 24px;
+  height: 24px;
+}
+.wt-game-card .wt-game-card-br {
+  font-size: 20px;
+  min-width: 29px;
+  text-align: right;
+}
+.wt-game-role {
+  display: inline-block;
+  position: relative;
+  flex: 0 0 auto;
+  width: 14px;
+  height: 12px;
+  color: #e0b8b2;
+}
+.wt-game-role.light::before {
+  content: "";
+  position: absolute;
+  inset: 5px 0 3px;
+  background: currentColor;
+}
+.wt-game-role.medium {
+  color: #df8d8c;
+}
+.wt-game-role.medium::before {
+  content: "";
+  position: absolute;
+  inset: 3px 0 2px;
+  background: currentColor;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 66% 100%, 66% 55%, 34% 55%, 34% 100%, 0 100%);
+}
+.wt-game-role.heavy {
+  color: #e7a698;
+}
+.wt-game-role.heavy::before {
+  content: "";
+  position: absolute;
+  inset: 2px 0 1px;
+  background: currentColor;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    74% 100%,
+    74% 55%,
+    58% 55%,
+    58% 100%,
+    42% 100%,
+    42% 55%,
+    26% 55%,
+    26% 100%,
+    0 100%
+  );
+}
+.wt-game-role.td {
+  color: #91c989;
+}
+.wt-game-role.td::before {
+  content: "";
+  position: absolute;
+  inset: 1px 0;
+  background: currentColor;
+  clip-path: polygon(100% 0, 100% 40%, 42% 74%, 100% 74%, 100% 100%, 0 100%, 0 72%);
+}
+.wt-game-role.aa {
+  color: #b29be1;
+}
+.wt-game-role.aa::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  clip-path: polygon(
+    0 82%,
+    14% 82%,
+    14% 26%,
+    30% 26%,
+    30% 82%,
+    46% 82%,
+    46% 0,
+    62% 0,
+    62% 82%,
+    78% 82%,
+    78% 26%,
+    94% 26%,
+    94% 82%,
+    100% 82%,
+    100% 100%,
+    0 100%
+  );
+}
+.vehicle-card.wt-game-card .wt-game-talisman {
+  position: absolute;
+  left: 50%;
+  right: auto;
+  top: -13px;
+  bottom: auto;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  z-index: 5;
+  filter: drop-shadow(0 1px 2px #100d08);
+  pointer-events: none;
+}
+.vehicle-card.wt-game-card > .wt-game-owned {
+  position: absolute;
+  right: 1px;
+  top: 0;
+  width: 71px;
+  height: 71px;
+  background: #364c5bab;
+  mask: var(--wt-game-owned-icon) center/contain no-repeat;
+  z-index: 0;
+  pointer-events: none;
+}
+.vehicle-card.wt-game-card.is-premium > .wt-game-owned {
+  background: #5b3416ab;
+}
+.vehicle-card.wt-game-card.is-squadron > .wt-game-owned {
+  background: #5d7144;
+}
+.vehicle-card.wt-game-card > .wt-game-pack-price {
+  position: absolute;
+  left: -1px;
+  bottom: -25px;
+  height: 24px;
+  padding: 3px 7px 4px;
+  background: #241d12dc;
+  border: 1px solid #5b471f80;
+  border-top: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #efd9a4;
+  white-space: nowrap;
+  z-index: 2;
+}
+.wt-game-pack-price small {
+  font: 10px/1 var(--wt-sans);
+  margin-right: 6px;
+  color: #b6a78b;
+}
+.canvas .node.is-group > .wt-game-card::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: -9px;
+  width: 65px;
+  height: 8px;
+  border-top: 3px solid var(--wt-game-top);
+  background: var(--wt-game-card);
+  clip-path: polygon(0 0, 75% 0, 86% 70%, 100% 70%, 100% 100%, 0 100%);
+}
+.canvas .folder-toggle {
+  height: 25px;
+  border-radius: 0;
+  background: #11232cd9;
+  border-color: #3c555f;
+  color: #9ab6bc;
+}
+.canvas .folder-members {
+  padding: 18px 0 12px;
+  border: 0;
+  border-radius: 0;
+  background: #101b23ad;
+}
+.canvas .folder-member {
+  margin-top: 30px;
+}
+.canvas .folder-member:first-child {
+  margin-top: 0;
+}
+.canvas .folder-link {
+  top: -23px;
+  height: 19px;
+}
+.canvas .node.is-route .wt-game-card {
+  outline: 1px solid #b5a37a88;
+  outline-offset: 1px;
+}
+.canvas .node .wt-game-card.is-selected {
+  outline: 2px solid #d4c293;
+  outline-offset: 2px;
+}
+.vehicle-card.wt-game-card:focus-visible {
+  outline: 2px solid #d6e4df;
+  outline-offset: 3px;
+}
+@media (hover: hover) {
+  .vehicle-card.wt-game-card:hover {
+    border-color: #99b9be;
+    box-shadow: 0 0 0 1px #91b2b72b;
+    filter: brightness(1.12);
+  }
+  .vehicle-card.wt-game-card.is-special:not(.is-owned):hover {
+    border-color: var(--wt-game-special-top);
+  }
+  .vehicle-card.wt-game-card.is-premium:hover {
+    border-color: #c1994c;
+  }
+}
+
+.wt-game-role.is-symbol {
+  width: 18px;
+  height: 18px;
+  background: currentColor;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+}
+
+/* Disclosure is feedback: one shared duration/easing for cards, ranks and wires. */
+.canvas-space {
+  transition: height 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.canvas .node {
+  transition:
+    transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 120ms;
+}
+.canvas :is(.rank-band, .rank-label, .rank-note) {
+  transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.canvas .edge {
+  transition:
+    d 300ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    stroke 120ms;
+}
+.wt-tree-folder {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 300ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 180ms;
+}
+.wt-tree-folder[data-open="true"] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.wt-tree-folder-clip {
+  min-height: 0;
+  overflow: clip;
+}
+.canvas .folder-toggle .wt-chevron {
+  transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  flex: 0 0 auto;
+}
+.canvas .folder-toggle[aria-expanded="true"] .wt-chevron {
+  transform: rotate(180deg);
+}
+.vehicle-card.wt-game-card.is-squadron:hover {
+  border-color: #68825c;
+}
+.vehicle-card.wt-game-card.is-squadron:focus-visible {
+  outline-color: #9ab784;
+}
+@media (prefers-reduced-motion: reduce) {
+  .canvas-space,
+  .canvas .node,
+  .canvas :is(.rank-band, .rank-label, .rank-note, .edge),
+  .wt-tree-folder,
+  .canvas .folder-toggle .wt-chevron {
+    transition: none;
+  }
+}
+
+.canvas {
+  --wt-game-wire: #4c686d;
+  --wt-game-wire-active: #8eb0ae;
+}
+.canvas .edge {
+  stroke: var(--wt-game-wire);
+  stroke-width: 9;
+  stroke-linecap: butt;
+  stroke-linejoin: miter;
+}
+.canvas .edge.is-route {
+  stroke: var(--wt-game-wire-active);
+  stroke-width: 9;
+}
+.canvas #arrow path {
+  fill: var(--wt-game-wire);
+}
+.canvas #arrow-active path {
+  fill: var(--wt-game-wire-active);
+}
+
+/* The approved tech-tree tile is the sole general vehicle surface. */
+.vehicle-card.wt-game-card {
+  flex: 0 0 auto;
+  max-width: 100%;
+  --wt-game-owned-icon: none;
+}
+.vehicle-card.wt-game-card[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.vehicle-card.wt-game-card.is-selected {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 2px;
+}
+.vehicle-card.wt-game-card:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 3px;
+}
+.wt-vehicle-tile-grid,
+.lineup-candidates {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 228px), 1fr));
+  align-items: start;
+  gap: 22px 14px;
+  padding-block: 16px;
+}
+.wt-vehicle-option {
+  display: grid;
+  justify-items: start;
+  align-content: start;
+  gap: 8px;
+  min-width: 0;
+}
+.wt-vehicle-option > small,
+.wt-research-tile-entry > small {
+  color: var(--wt-muted);
+  font: 400 11px/1.5 var(--wt-sans);
+}
+.wt-vehicle-text-action {
+  border: 0;
+  padding: 0;
+  color: var(--wt-gold);
+  background: transparent;
+  font: 400 12px/1.5 var(--wt-sans);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.wt-vehicle-text-action:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 3px;
+}
+:is(
+    .wt-vehicle-option,
+    .wt-valuation-product-media,
+    .calc-owned-row,
+    .wt-research-tile-entry,
+    .lineup-slot-select,
+    .wt-detail-route-list > li,
+    .lineup-summary-slots > li,
+    .wt-select-option > span,
+    .wt-sale-watch-row,
+    .wt-sale-vehicle-option
+  )
+  > .wt-game-card[data-kind="pack"] {
+  margin-bottom: 24px;
+}
+.lineup-summary-slots > li {
+  flex-basis: 246px;
+  min-width: 246px;
+  padding: 22px 8px 10px;
+  gap: 8px;
+}
+.lineup-summary-slots > li > small {
+  font: 400 11px/1.4 var(--wt-sans);
+}
+.lineup-slots > li {
+  flex-basis: 246px;
+  width: 246px;
+}
+.lineup-slot-select {
+  padding: 22px 8px 8px;
+  gap: 8px;
+}
+.lineup-slot-caption {
+  color: var(--wt-muted);
+  font: 400 11px/1.5 var(--wt-sans);
+}
+.calc-owned-row:has(> .wt-game-card) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding-block: 16px;
+}
+.calc-owned-row:has(> .wt-game-card) > input {
+  flex: 0 0 auto;
+}
+.wt-research-tile-entry {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  padding-block: 12px;
+}
+.vehicle-route-row:has(.wt-game-card) {
+  align-items: center;
+}
+.wt-detail-route-list {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 228px), 1fr));
+  gap: 22px 10px;
+  padding-top: 14px;
+}
+.wt-valuation-products {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 248px), 1fr));
+  gap: 16px;
+}
+/* Valuation rows retain the exact shared tile size beside their details. */
+.wt-valuation-products,
+.wt-valuation-research {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.wt-valuation-product,
+.wt-valuation-research > article {
+  display: grid;
+  grid-template-columns: 228px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  padding: 18px 12px 12px;
+  border-radius: 2px;
+  overflow: visible;
+}
+.wt-valuation-product-media {
+  grid-template-columns: 228px;
+  justify-items: start;
+  align-content: center;
+  gap: 22px 16px;
+  padding: 0;
+  min-height: 0;
+  background: transparent;
+}
+.wt-valuation-product-media > .wt-game-card {
+  width: 228px;
+}
+.wt-valuation-product-body {
+  min-width: 0;
+  padding: 0;
+}
+.wt-valuation-product h4 {
+  font-family: WTSymbols, WTCard, var(--wt-sans);
+  font-weight: 400;
+}
+.wt-valuation-product-pack,
+.wt-valuation-research > .wt-valuation-research-group {
+  grid-column: 1 / -1;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 20px;
+  padding: 18px 16px 12px;
+}
+.wt-valuation-product-pack > .wt-valuation-product-media,
+.wt-valuation-research-group > .wt-valuation-unpriced-art {
+  grid-template-columns: repeat(3, 228px);
+  justify-items: start;
+  gap: 22px 10px;
+}
+.wt-valuation-research > article > div {
+  min-width: 0;
+  max-width: 100%;
+}
+.wt-valuation-unpriced-art {
+  display: grid;
+  gap: 22px;
+  max-width: 100%;
+}
+.wt-valuation-research .wt-vehicle-name {
+  font-family: WTSymbols, WTCard, var(--wt-sans);
+}
+.wt-select-menu:has(.wt-game-card) {
+  min-width: min(266px, calc(100vw - 24px));
+}
+.wt-select-option:has(.wt-game-card) {
+  padding-block: 16px;
+  align-items: center;
+}
+.wt-sale-watch-row {
+  grid-template-columns: 228px minmax(120px, 1fr) minmax(200px, 1.6fr) minmax(160px, 1fr) 32px;
+  padding-block: 20px;
+}
+.wt-sale-vehicle-option {
+  padding-block: 20px;
+  flex-wrap: wrap;
+}
+.wt-sale-vehicle-option > .wt-game-card {
+  flex: 0 0 228px;
+}
+
+.vehicle-card.wt-game-card[role="group"] {
+  cursor: inherit;
+}
+
+/* Saved lineups use a single compact crew rail, without nested vehicle panels. */
+.lineup-saved-row { padding: 16px 18px 12px; background: color-mix(in srgb, var(--wt-surface) 65%, transparent); border-color: var(--wt-line); }
+.lineup-card-heading { align-items: center; }
+.lineup-card-heading h3 { margin: 0; font-size: 16px; font-weight: 500; }
+.lineup-summary-slots { gap: 12px; margin-top: 8px; padding: 18px 3px 10px; scrollbar-width: thin; scrollbar-color: var(--wt-line) transparent; }
+.lineup-summary-slots > li { flex-basis: 228px; min-width: 228px; padding: 0; gap: 6px; border: 0; background: transparent; align-items: flex-start; text-align: left; }
+.lineup-summary-slots > li > .wt-game-card[data-kind="pack"] { margin-bottom: 24px; }
+.lineup-summary-slots .lineup-summary-number { position: static; align-self: flex-start; line-height: 12px; font-size: 10px; }
+.lineup-summary-slots > li > small { color: var(--wt-muted); padding-left: 1px; }
+.lineup-summary-placeholder { width: 228px; height: 76px; border: 1px dashed var(--wt-line); font-size: 12px; }
+.lineup-summary-ratings { gap: 12px; margin-top: 8px; }
+.lineup-summary-ratings > span { padding: 0; border: 0; }
+.lineup-card-actions { margin-top: 8px; padding-top: 8px; }
+.lineup-card-actions button { padding: 4px 9px; min-height: 32px; font-size: 12px; }
+/* One scroll host for the sale picker; the result list never gets its own rail. */
+.wt-sale-picker.calculator { width: min(1040px, calc(100vw - 24px)); scrollbar-width: none; }
+.wt-sale-picker.calculator::-webkit-scrollbar { display: none; }
+.wt-sale-picker footer { flex-wrap: wrap; }
+.wt-sale-picker-pages { display: flex; align-items: center; gap: 10px; }
+.wt-garage-tiles { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 26px 14px; }
+.wt-garage-tiles .wt-vehicle-option { min-width: 0; }
+@media (max-width: 1500px) { .wt-garage-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 1080px) { .wt-garage-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* Rank and whole-pack price share one footer row, independent of acquisition type. */
+.vehicle-card.wt-game-card:has(> .wt-game-card-caption) { margin-bottom: 24px; }
+.vehicle-card.wt-game-card > .wt-game-card-caption { position: absolute; top: calc(100% + 1px); right: -1px; max-width: 100%; height: 24px; padding: 0 2px; color: var(--wt-muted); font: 400 11px/24px var(--wt-sans); white-space: nowrap; text-align: right; overflow: hidden; text-overflow: ellipsis; }
+.vehicle-card.wt-game-card[data-kind="pack"] > .wt-game-card-caption { max-width: calc(100% - 100px); }
+.lineup-summary-slots > li > .wt-game-card:has(> .wt-game-card-caption),
+.lineup-slot-select > .wt-game-card:has(> .wt-game-card-caption) { margin-bottom: 24px; }
+.wt-sale-follow-button:not(:disabled):hover { background: var(--wt-raised); border-color: var(--wt-gold); }
+.wt-sale-follow-button:focus-visible { outline: 2px solid var(--wt-gold); outline-offset: 3px; }
+.wt-sale-follow-button:disabled { opacity: .5; cursor: default; }
+
+/* Compact sale items: a game tile and one narrow action/date column. */
+.wt-sale-picker-results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); justify-items: center; align-items: start; gap: 0 20px; max-height: none; overflow: visible; }
+.wt-sale-vehicle-option { display: grid; position: relative; grid-template-columns: minmax(0, 228px) 76px; grid-template-rows: auto; align-items: start; align-content: start; column-gap: 12px; row-gap: 0; width: 100%; max-width: 316px; min-width: 0; padding: 18px 0 10px; }
+.wt-sale-vehicle-option > .wt-game-card { grid-column: 1; grid-row: 1; min-width: 0; }
+.wt-sale-vehicle-option > .wt-sale-follow-button { grid-column: 2; grid-row: 1; align-self: start; justify-self: stretch; min-height: 36px; padding: 6px; border: 1px solid var(--wt-gold-line); border-radius: 3px; color: var(--wt-gold); background: var(--wt-surface); font: 400 12px/1.5 var(--wt-sans); white-space: nowrap; }
+.wt-sale-vehicle-option > .wt-sale-original-price { grid-column: 2; grid-row: 1; align-self: end; justify-self: stretch; min-width: 0; margin: 0 0 24px; }
+.wt-sale-vehicle-option > .wt-sale-original-price > small { display: grid; gap: 1px; margin: 0; color: var(--wt-muted); font: 400 10px/1.35 var(--wt-sans); text-align: center; }
+.wt-sale-vehicle-option time { display: block; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* Context and rank share the price track; long country names never displace rank. */
+.vehicle-card.wt-game-card > .wt-game-card-caption {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+}
+.wt-game-card-caption-context {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wt-game-card-caption-rank { flex: 0 0 auto; }
+
+/* Read-only vehicle links retain the shared game tile appearance. */
+a.vehicle-card.wt-game-card { color: inherit; text-decoration: none; cursor: pointer; }
+
+/* Optional country identity inside the shared card, used by vehicle comparisons. */
+.vehicle-card.wt-game-card > .wt-game-card-country { position:absolute; left:5px; top:8px; z-index:4; display:flex; align-items:center; gap:4px; max-width:66px; padding:2px 3px; color:var(--wt-ink); background:var(--wt-panel); font:400 10px/1.2 var(--wt-sans); }
+.wt-game-card-country > img { width:20px; height:14px; min-width:20px; max-width:20px; min-height:14px; max-height:14px; object-fit:contain; flex:none; }
+.wt-game-card-country > span { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.vehicle-card.wt-game-card[data-country] > .unit-name { max-width:calc(100% - 78px); }
+
+:root { color-scheme: dark; --wt-page:#13191d; --wt-panel:#1a2329; --wt-raised:#222e36; --wt-ink:#f0eee6; --wt-muted:#a9b5bc; --wt-line:#37474f; --wt-strong-line:#59656b; --wt-gold:#e4c477; }
+@font-face {
+  font-family:WTSymbols;
+  src:url("./__SYMBOL_FONT__") format("truetype");
+  font-display:block;
+  unicode-range:U+22E0,U+2415-2419,U+241E-2420,U+2580,U+2582-2585,U+2587-2588,U+25C4,U+25CA-25CD,U+25D0,U+25D4,U+25D7-25D8,U+25E1-25E2,U+25E5,U+F059;
+}
+* { box-sizing:border-box; }
+body { margin:0; min-height:100dvh; background:var(--wt-page); background-attachment:fixed; color:var(--wt-ink); font:15px/1.6 WTSymbols,"Droid Sans Fallback","Noto Sans CJK SC",system-ui,sans-serif; }
+button,a { -webkit-tap-highlight-color:transparent; }
+button { font:inherit; cursor:pointer; color:inherit; border:1px solid var(--wt-line); background:var(--wt-panel); border-radius:3px; min-height:44px; }
+button:hover { background:var(--wt-raised); }
+button:focus-visible,a:focus-visible { outline:2px solid var(--wt-gold); outline-offset:4px; }
+button:disabled { cursor:default; color:#8b969e; }
+a { color:var(--wt-gold); text-decoration:none; }
+a:hover { text-decoration:underline; }
+.shell-header { min-height:62px; display:flex; align-items:center; gap:24px; background:#192121; border-bottom:1px solid var(--wt-line); padding:10px max(20px,calc((100vw - 1560px)/2)); }
+.back { font-size:13px; white-space:nowrap; }
+.brand { font-weight:650; font-size:19px; }
+.brand span { margin-left:12px; color:var(--wt-muted); font-size:12px; font-weight:400; }
+.review-badge { margin-left:auto; color:var(--wt-gold); font-size:12px; border:1px solid #756542; padding:3px 9px; white-space:nowrap; }
+main { max-width:1560px; margin:auto; padding:30px 20px 0; }
+.eyebrow { color:var(--wt-gold); font-size:11px; letter-spacing:.1em; margin:0 0 8px; }
+h1,h2,h3,p { margin-top:0; }
+h1 { font-size:clamp(24px,3vw,34px); letter-spacing:.01em; line-height:1.3; margin-bottom:10px; }
+.intro > p:last-child { color:var(--wt-muted); margin-bottom:24px; }
+
+.vehicle-nav { display:flex; gap:8px; flex-wrap:wrap; padding:18px 0; }
+.vehicle-nav button { padding:8px 18px; }
+.vehicle-nav button[aria-pressed=true] { border-color:var(--wt-gold); color:var(--wt-gold); background:#302d22; }
+.study { display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:24px; align-items:start; }
+.figure-column { min-width:0; }
+.figure-header { display:flex; gap:16px; align-items:center; justify-content:space-between; margin-bottom:14px; }
+.figure-header h2 { font-size:23px; margin-bottom:0; }
+.figure-header p { margin:0; color:var(--wt-muted); font-size:12px; }
+.figure-header button { font-size:12px; padding:6px 12px; flex-shrink:0; }
+.figure-actions { display:flex; align-items:center; justify-content:flex-end; gap:8px; flex-wrap:wrap; margin-left:auto; }
+.image-views { display:flex; flex-wrap:wrap; gap:4px; }
+.image-views button { min-height:36px; }
+.image-views button[aria-pressed=true] { color:var(--wt-gold); border-color:var(--wt-gold); background:#302d22; }
+#evidence-full { font-size:12px; padding:6px 0; }
+@media(max-width:600px) { .figure-header { flex-wrap:wrap; }.figure-actions { width:100%; justify-content:flex-start; }.figure-actions .image-views button { max-width:none; min-height:44px; }.figure-actions #evidence-full { display:flex; align-items:center; min-height:44px; } }
+.photo-stage { position:relative; width:100%; background:#090e11; border:1px solid var(--wt-line); }
+.photo-stage > img { display:block; width:100%; height:auto; }
+.annotation-layer { position:absolute; inset:0; pointer-events:none; }
+.pin { pointer-events:auto; position:absolute; left:calc(var(--x)*100%); top:calc(var(--y)*100%); transform:translate(-50%,-50%); width:44px; height:44px; min-height:44px; padding:0; display:grid; place-items:center; border:0; background:transparent; border-radius:50%; }
+.pin:hover { background:transparent; }
+.pin > b { display:flex; justify-content:center; align-items:center; width:18px; height:18px; border:1px solid var(--wt-gold); color:#161a1d; background:var(--wt-gold); border-radius:50%; font-size:10px; box-shadow:0 0 0 2px #10191fa6; }
+.pin[aria-pressed=true] > b { outline:1px solid white; outline-offset:2px; }
+.pin > span { display:block; position:absolute; top:36px; left:50%; transform:translateX(-50%); width:max-content; max-width:min(230px,40vw); background:#10191ff0; color:#fff2d3; border:1px solid #b59b64; padding:5px 9px; font-size:12px; line-height:1.45; text-align:center; white-space:normal; box-shadow:0 3px 12px #0006; }
+.figure-caption { font-size:11px; color:var(--wt-muted); margin:12px 0; }
+.pin-buttons { display:flex; gap:8px; flex-wrap:wrap; }
+.pin-buttons button { padding:7px 12px; font-size:12px; }
+.pin-buttons button[aria-pressed=true] { color:var(--wt-gold); border-color:var(--wt-gold); }
+.explanation { margin-top:14px; border-left:3px solid var(--wt-gold); background:var(--wt-panel); padding:18px 20px; }
+.explanation h3 { font-size:17px; margin-bottom:7px; }
+.explanation > p:last-child { margin:0; color:#d7dee1; }
+.evidence { display:grid; gap:18px; }
+.evidence > section { border-top:1px solid var(--wt-line); padding-top:14px; }
+.evidence h3 { font-size:15px; margin-bottom:9px; }
+.current-vehicle-panel { --wt-sans:WTSymbols,"Droid Sans Fallback","Noto Sans CJK SC",system-ui,sans-serif; }
+#current-vehicle-card { padding-top:8px; }
+.evidence section:first-child h3 { font-size:18px; line-height:1.6; font-weight:550; }
+.evidence p { font-size:13px; color:var(--wt-muted); margin-bottom:10px; }
+.sources { margin-top:34px; border-top:1px solid var(--wt-line); padding-top:20px; }
+.sources h2 { font-size:18px; }
+#sources { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.source-card { padding:14px 16px; border:1px solid var(--wt-line); background:var(--wt-panel); }
+.source-card small { display:block; color:var(--wt-muted); margin-top:5px; font-size:11px; }
+.sources > p,footer { color:var(--wt-muted); font-size:12px; }
+.sources > p { margin:14px 0 0; }
+footer { max-width:1560px; margin:24px auto 0; padding:20px; border-top:1px solid var(--wt-line); }
+@media (max-width:1050px) { .study { grid-template-columns:minmax(0,1fr); }.evidence { grid-template-columns:1fr 1fr; gap:20px; } }
+@media (max-width:600px) { main { padding:24px 12px 0; }.shell-header { gap:12px; padding:10px 12px; flex-wrap:wrap; }.brand { font-size:16px; }.brand span { display:none; }.back { font-size:12px; }.vehicle-nav { gap:6px; }.vehicle-nav button { padding:7px 10px; font-size:13px; }.figure-header { align-items:start; }.figure-header button { max-width:110px; }.figure-header h2 { font-size:21px; }.pin > b { width:16px; height:16px; font-size:9px; }.pin > span { top:34px; max-width:128px; font-size:10px; padding:4px 6px; }.explanation { padding:16px; }.evidence,#sources { grid-template-columns:1fr; } }
+
+@media (max-width:600px) { .pin:not([aria-pressed="true"]) > span { display:none; } }
+
+.pin:not([aria-pressed="true"]):not(:hover):not(:focus-visible) > span { display:none; }
+.evidence ul { margin:10px 0 0; padding-left:18px; color:var(--wt-muted); font-size:13px; }
+.evidence li + li { margin-top:8px; }
+.evidence .reload-time { color:var(--wt-gold); font-size:28px; font-weight:650; font-variant-numeric:tabular-nums; line-height:1.3; margin-bottom:8px; }
+.advice + .advice { margin-top:16px; }
+.advice h4 { margin:0 0 5px; font-size:14px; font-weight:550; }
+.advice p { margin:0 0 4px; }
+.advice a { font-size:12px; font-variant-numeric:tabular-nums; }
+.advice .case-summary { color:var(--wt-ink); font-size:12px; font-variant-numeric:tabular-nums; }
+
+[hidden] { display:none !important; }
+.filters { margin-top:24px; }
+.filter-row { display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; margin-bottom:12px; }
+.filter-label { flex:0 0 32px; font-size:12px; color:var(--wt-muted); }
+.filter-buttons { display:flex; flex-wrap:wrap; gap:6px; }
+.filter-buttons button { padding:7px 13px; font-size:13px; }
+.filter-buttons button[aria-pressed=true] { border-color:var(--wt-gold); color:var(--wt-gold); background:#302d22; }
+
+.result-count { margin:14px 0 0; font-size:12px; color:var(--wt-muted); }
+.empty-state { margin:20px 0; padding:30px 24px; border:1px solid var(--wt-line); background:var(--wt-panel); }
+.empty-state h2 { font-size:20px; }
+.empty-state p { color:var(--wt-muted); }
+.empty-state button { padding:8px 18px; }
+.image-status { min-height:260px; display:grid; place-items:center; margin:0; padding:24px; color:var(--wt-muted); text-align:center; }
+@media (max-width:600px) { .filter-row { gap:6px 10px; }.filter-label { flex-basis:28px; }.filter-buttons { flex:1; } }
+
+/* Compact standalone counterpart of the workbench GameSelect. */
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0; }
+.filters { display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:10px 0; border-top:1px solid var(--wt-line); border-bottom:1px solid var(--wt-line); }
+.filter-control { display:flex; align-items:center; gap:9px; min-width:0; }
+.filter-control .filter-label { flex:0 0 auto; }
+.filter-control > div { min-width:0; }
+.wt-select { position:relative; display:inline-flex; align-items:center; justify-content:space-between; gap:12px; width:120px; max-width:100%; min-height:32px; padding:5px 10px; border:1px solid var(--wt-strong-line); border-radius:0; background:var(--wt-panel); color:var(--wt-ink); box-shadow:inset 0 1px 0 var(--wt-line),inset 0 -1px 0 var(--wt-page); text-align:start; line-height:1.4; font-size:13px; }
+#countries .wt-select { width:130px; }
+.wt-select-label { min-width:0; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+.select-option-label { display:flex; align-items:center; gap:9px; min-width:0; }
+.select-option-label > span:last-child { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.country-icon,.country-flags { display:inline-flex; align-items:center; flex:none; }
+.country-icon img,.country-flags img { display:block; width:24px; height:18px; object-fit:contain; }
+.country-flags img + img { margin-left:-12px; }
+.wt-select-chevron { flex:0 0 16px; color:var(--wt-gold); text-align:center; font-size:20px; line-height:16px; }
+.wt-select[aria-expanded=true] { border-color:var(--wt-gold); background:var(--wt-raised); }
+.wt-select[aria-expanded=true] .wt-select-chevron { transform:rotate(180deg); }
+.wt-select:focus-visible { outline:2px solid var(--wt-gold); outline-offset:2px; }
+.wt-select-menu { position:fixed; inset:auto; width:max-content; max-width:calc(100vw - 16px); margin:0; padding:4px; overflow:auto; overscroll-behavior:contain; scrollbar-width:thin; border:1px solid var(--wt-line); border-radius:0; background:#1a2329; box-shadow:inset 0 1px 0 #ffffff10,0 10px 28px #0009; color:var(--wt-ink); font:13px/1.4 WTSymbols,"Droid Sans Fallback","Noto Sans CJK SC",system-ui,sans-serif; z-index:100; }
+.wt-select-menu::backdrop { background:transparent; }
+.wt-select-option { display:flex; align-items:center; gap:8px; min-height:34px; padding:6px 9px; border:1px solid transparent; border-bottom-color:var(--wt-line); cursor:pointer; user-select:none; }
+.wt-select-check { flex:0 0 13px; color:var(--wt-gold); }
+.wt-select-option[aria-selected=true] { color:var(--wt-gold); background:#302d22; }
+.wt-select-option[data-active=true] { border-color:#887345; background:#34372d; }
+
+@media (max-width:800px) { .filters { gap:10px; }.filter-control { flex:1 1 140px; }.filter-control:first-child { flex-basis:100%; }.filter-control > div { flex:1; }.wt-select,#countries .wt-select { width:100%; min-height:44px; font-size:16px; }.wt-select-option { min-height:44px; font-size:16px; } }
+
+.test-context { display:grid; grid-template-columns:auto minmax(0,1fr); gap:5px 14px; margin:0 0 8px; font-size:13px; }
+.test-context dt { color:var(--wt-muted); }
+.test-context dd { margin:0; overflow-wrap:anywhere; }
+#test-link { font-size:12px; font-variant-numeric:tabular-nums; }
+#test-note { margin-bottom:6px; }
+
+/* Match the shared Chevron SVG and the tree's country-chevron placement. */
+.wt-chevron { display:block; flex:none; width:16px; height:16px; overflow:visible; }
+.wt-select-chevron.country-chevron { flex:0 0 16px; margin-left:auto; color:var(--wt-muted); }
+.country-icon img { width:24px; height:16px; }
+#vehicles .wt-select { width:230px; }
+.wt-select:disabled { opacity:.55; cursor:not-allowed; }
+@media (max-width:800px) { #vehicles .wt-select { width:100%; }.vehicle-filter { flex-basis:100%; } }
+
+/* Ground vehicle markers share the research tree geometry and colors. */
+.wt-game-role {
+  display: inline-block;
+  position: relative;
+  flex: 0 0 auto;
+  width: 14px;
+  height: 12px;
+  color: #e0b8b2;
+}
+.wt-game-role.light::before {
+  content: "";
+  position: absolute;
+  inset: 5px 0 3px;
+  background: currentColor;
+}
+.wt-game-role.medium {
+  color: #df8d8c;
+}
+.wt-game-role.medium::before {
+  content: "";
+  position: absolute;
+  inset: 3px 0 2px;
+  background: currentColor;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 66% 100%, 66% 55%, 34% 55%, 34% 100%, 0 100%);
+}
+.wt-game-role.heavy {
+  color: #e7a698;
+}
+.wt-game-role.heavy::before {
+  content: "";
+  position: absolute;
+  inset: 2px 0 1px;
+  background: currentColor;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    74% 100%,
+    74% 55%,
+    58% 55%,
+    58% 100%,
+    42% 100%,
+    42% 55%,
+    26% 55%,
+    26% 100%,
+    0 100%
+  );
+}
+.wt-game-role.td {
+  color: #91c989;
+}
+.wt-game-role.td::before {
+  content: "";
+  position: absolute;
+  inset: 1px 0;
+  background: currentColor;
+  clip-path: polygon(100% 0, 100% 40%, 42% 74%, 100% 74%, 100% 100%, 0 100%, 0 72%);
+}
+.wt-game-role.aa {
+  color: #b29be1;
+}
+.wt-game-role.aa::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  clip-path: polygon(
+    0 82%,
+    14% 82%,
+    14% 26%,
+    30% 26%,
+    30% 82%,
+    46% 82%,
+    46% 0,
+    62% 0,
+    62% 82%,
+    78% 82%,
+    78% 26%,
+    94% 26%,
+    94% 82%,
+    100% 82%,
+    100% 100%,
+    0 100%
+  );
+}
+
+#vehicle-name { display:flex; align-items:center; gap:10px; }
+.vehicle-search { min-width:180px; flex:1 1 240px; min-height:34px; padding:5px 10px; border:1px solid var(--wt-strong-line); border-radius:0; background:var(--wt-panel); color:var(--wt-ink); font:inherit; font-size:16px; }
+.vehicle-search::placeholder { color:var(--wt-muted); }
+.vehicle-search:focus-visible { outline:2px solid var(--wt-gold); outline-offset:2px; }
+@media (max-width:800px) { .vehicle-search { width:100%; min-height:44px; } }
+
+.base-reference { border: 1px solid var(--wt-border, #69705b); padding: 12px 14px; border-radius: 6px; }
+.base-reference h3 { margin: 0 0 6px; font-size: 1rem; }
+.base-reference p { margin: 0 0 8px; font-size: .9rem; line-height: 1.6; }
+.base-reference a { display: inline-block; min-height: 44px; margin-inline-end: 16px; padding-block: 10px; }
+/* Reuse the workbench select and compact status treatment. */
+.green-status{display:inline-block;flex-shrink:0;font-size:12px;line-height:1.6;padding:1px 7px;border:1px solid var(--wt-border,#68705d);border-radius:3px;color:var(--wt-muted,#b9b9ac)}
+.green-status[data-status="region"]{color:#b7d990;border-color:#718653;background:#33432955}
+.green-status[data-status="point"]{color:#dcc990;border-color:#8c7950}
+.select-option-label .green-status{margin-inline-start:auto}
+#green-note{font-size:13px;color:var(--wt-muted,#b9b9ac)}
+.missing-list{margin:16px 0 24px;border:1px solid var(--wt-border,#55594e);padding:12px 16px;background:var(--wt-panel,#20231f)}
+.missing-list summary{cursor:pointer;font-weight:600;min-height:28px}
+.missing-list p{font-size:13px;color:var(--wt-muted,#b9b9ac)}
+.missing-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.missing-actions button{min-height:44px}
+.missing-table-wrap{overflow:auto;max-height:480px}
+.missing-list table{border-collapse:collapse;width:100%;font-size:13px;text-align:left}
+.missing-list th,.missing-list td{border-bottom:1px solid var(--wt-border,#55594e);padding:9px;vertical-align:top;min-width:80px}
+.missing-list td:nth-child(6){max-width:360px;overflow-wrap:anywhere}
+.missing-list th{position:sticky;top:0;background:var(--wt-panel,#20231f)}
+
+/* The shared workbench owns the header and the only page scroller. */
+body[data-embedded="true"] { min-height:0; background:transparent; }
+body[data-embedded="true"] > .shell-header, body[data-embedded="true"] > footer { display:none; }
+body[data-embedded="true"] main { padding-top:20px; }
+
+/* All routes reuse bootAppearance's verified image and crop position. */
+.workbench-layout {
+  --wt-workbench-background-image:
+    linear-gradient(#111a22c9, #111a22e0), var(--wt-loading-background-image);
+  --wt-workbench-background-position: center, var(--wt-loading-background-position, center);
+}
+.workbench-layout,
+.workbench-layout .tree-viewport,
+.workbench-layout .app-shell.fullscreen-fallback,
+.workbench-layout .ground-workspace[data-editing="true"] {
+  background-color: #191f26;
+  background-image: var(--wt-workbench-background-image);
+  background-position: var(--wt-workbench-background-position);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* Page shells reveal the shared artwork; cards and map layers keep their surfaces. */
+.workbench-content .app-shell:not(.fullscreen-fallback),
+.workbench-content .lineup-page {
+  background-color: transparent;
+}
