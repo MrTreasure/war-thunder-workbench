@@ -4,12 +4,13 @@ import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { canUseTestFeatures } from "./application-access";
 import { statsRequest } from "./player-stats-api";
 import "./tank-weakpoints.css";
+import { VideoAnalysisLibrary } from "./VideoAnalysisLibrary";
 
 type Payload = { schema: number; models: { id: string }[] };
 export function TankWeakpoints() {
   const account = useWorkbenchAccount();
   const allowed = canUseTestFeatures(account.session);
-  const { vehicle } = useSearch({ from: "/_workbench/weakpoints" });
+  const { vehicle, video } = useSearch({ from: "/_workbench/weakpoints" });
   const [loaded, setLoaded] = useState<{
     key: string;
     payload: Payload | null;
@@ -69,33 +70,51 @@ export function TankWeakpoints() {
         )}
       </section>
     );
+  const library = (
+    <VideoAnalysisLibrary
+      key={`${identity}:${account.identityVersion}:${video ?? ""}`}
+      video={video}
+    />
+  );
   if (error)
     return (
-      <section className="weakpoints-access" role="alert">
-        <p>{error}</p>
-        <button type="button" onClick={() => setAttempt((value) => value + 1)}>
-          重试加载
-        </button>
-      </section>
+      <>
+        {library}
+        <section className="weakpoints-access" role="alert">
+          <p>{error}</p>
+          <button type="button" onClick={() => setAttempt((value) => value + 1)}>
+            重试加载
+          </button>
+        </section>
+      </>
     );
-  if (!payload) return <output className="weakpoints-access">正在加载弱点资料…</output>;
+  if (!payload)
+    return (
+      <>
+        {library}
+        <output className="weakpoints-access">正在加载弱点资料…</output>
+      </>
+    );
   const url = new URL("weakpoints-preview.html", location.href);
   url.search = "embedded=1";
   url.hash = vehicle ? "vehicle=" + vehicle : "";
   return (
-    <iframe
-      key={identity + ":" + attempt}
-      className="tank-weakpoints-frame"
-      ref={frame}
-      title="坦克弱点与绿色区域清单"
-      src={url.href}
-      style={{ height }}
-      onLoad={() =>
-        frame.current?.contentWindow?.postMessage(
-          { type: "wt-weakpoints-data", payload },
-          location.origin,
-        )
-      }
-    />
+    <>
+      {library}
+      <iframe
+        key={identity + ":" + attempt}
+        className="tank-weakpoints-frame"
+        ref={frame}
+        title="坦克弱点与绿色区域清单"
+        src={url.href}
+        style={{ height }}
+        onLoad={() =>
+          frame.current?.contentWindow?.postMessage(
+            { type: "wt-weakpoints-data", payload },
+            location.origin,
+          )
+        }
+      />
+    </>
   );
 }
