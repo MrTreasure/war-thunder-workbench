@@ -454,7 +454,7 @@ createFilter("ranks", "rank", [{ value: "all", label: "全部等级" }, ...ranks
 createFilter("green-filter", "green", [{ value: "all", label: "全部绿区状态" }, { value: "region", label: "有绿区" }, { value: "pending", label: "待补绿区" }, { value: "point", label: "仅单点" }], "green-label");
 const vehicleSelect = createFilter("vehicles", "vehicle", [], "vehicle-label");
 function fromHash() {
-  const id = new URLSearchParams(location.hash.slice(1)).get("vehicle");
+  const id = new URLSearchParams(location.hash.slice(1)).get("vehicle") || document.documentElement.dataset.wtVehicle;
   const model = SAMPLE.models.find((entry) => entry.id === id);
   if (model && !matches(model)) {
     country = "all"; rank = "all"; green = "all"; searchQuery = "";
