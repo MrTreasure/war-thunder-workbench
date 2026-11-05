@@ -1,5 +1,6 @@
 import { useId, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { loadoutWeaponName, loadoutParameterValue } from "../loadout-presentation";
 import type { WikiWeaponParameter } from "../models";
 
 /** Read-only top-layer popup: hovering, keyboard focus and tapping never change table geometry. */
@@ -94,7 +95,7 @@ export function WeaponParameters({
         ref={trigger}
         type="button"
         className="wt-weapon-parameters-trigger"
-        aria-label={`查看 ${name} 武器参数`}
+        aria-label={`查看 ${loadoutWeaponName(name)} 武器参数`}
         aria-describedby={open ? id : undefined}
         aria-expanded={open}
         onPointerEnter={(event) => {
@@ -131,14 +132,16 @@ export function WeaponParameters({
             popover="auto"
             className="wt-weapon-parameters-popup"
             onPointerEnter={cancelLeave}
-            onPointerLeave={(event) => { if (event.pointerType === "mouse") leave(); }}
+            onPointerLeave={(event) => {
+              if (event.pointerType === "mouse") leave();
+            }}
           >
-            <h4>{name}</h4>
+            <h4 title={name}>{loadoutWeaponName(name)}</h4>
             <dl>
               {parameters.map((parameter) => (
                 <div key={parameter.id}>
                   <dt>{parameter.label}</dt>
-                  <dd>{parameter.value}</dd>
+                  <dd>{loadoutParameterValue(parameter.value)}</dd>
                 </div>
               ))}
             </dl>
