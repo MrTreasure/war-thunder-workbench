@@ -1881,6 +1881,42 @@
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b0e917f38d41cef05c8cd165a657e938a30bdea7/images/ITA/ITA-OF-40-MTCA-front-position.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b0e917f38d41cef05c8cd165a657e938a30bdea7/images/ITA/ITA-OF-40-MTCA-front-position.webp"
       }
+    },
+    "il_magach_7c": {
+      "photo": {
+        "path": "images/ISR/ISR-Magach-7C-front-position.webp",
+        "sha256": "859f600fe8414b1a5c8035602d2682aed522293ea6d1a821967a93f5f5a2eb8c",
+        "bytes": 212038,
+        "commit": "9e185e32f7282e25c2d44d69a773417b659a6d30",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9e185e32f7282e25c2d44d69a773417b659a6d30/images/ISR/ISR-Magach-7C-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9e185e32f7282e25c2d44d69a773417b659a6d30/images/ISR/ISR-Magach-7C-front-position.webp"
+      },
+      "raw": {
+        "path": "images/ISR/ISR-Magach-7C-front-position.webp",
+        "sha256": "859f600fe8414b1a5c8035602d2682aed522293ea6d1a821967a93f5f5a2eb8c",
+        "bytes": 212038,
+        "commit": "9e185e32f7282e25c2d44d69a773417b659a6d30",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9e185e32f7282e25c2d44d69a773417b659a6d30/images/ISR/ISR-Magach-7C-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9e185e32f7282e25c2d44d69a773417b659a6d30/images/ISR/ISR-Magach-7C-front-position.webp"
+      }
+    },
+    "cn_ztz_99": {
+      "photo": {
+        "path": "images/CHN/CHN-ZTZ99-II-lower-front-position.webp",
+        "sha256": "d2009f9c1be78367c36ca78ba38dfab6171fd97dd65a87e9e448eae7bb7d6aad",
+        "bytes": 151680,
+        "commit": "9e185e32f7282e25c2d44d69a773417b659a6d30",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9e185e32f7282e25c2d44d69a773417b659a6d30/images/CHN/CHN-ZTZ99-II-lower-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9e185e32f7282e25c2d44d69a773417b659a6d30/images/CHN/CHN-ZTZ99-II-lower-front-position.webp"
+      },
+      "raw": {
+        "path": "images/CHN/CHN-ZTZ99-II-lower-front-position.webp",
+        "sha256": "d2009f9c1be78367c36ca78ba38dfab6171fd97dd65a87e9e448eae7bb7d6aad",
+        "bytes": 151680,
+        "commit": "9e185e32f7282e25c2d44d69a773417b659a6d30",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9e185e32f7282e25c2d44d69a773417b659a6d30/images/CHN/CHN-ZTZ99-II-lower-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9e185e32f7282e25c2d44d69a773417b659a6d30/images/CHN/CHN-ZTZ99-II-lower-front-position.webp"
+      }
     }
   },
   "assets": [
@@ -18784,6 +18820,108 @@
       "commit": "b0e917f38d41cef05c8cd165a657e938a30bdea7",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b0e917f38d41cef05c8cd165a657e938a30bdea7/images/ITA/ITA-OF-40-MTCA-front-position.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b0e917f38d41cef05c8cd165a657e938a30bdea7/images/ITA/ITA-OF-40-MTCA-front-position.webp"
+    },
+    {
+      "vehicleId": "il_magach_7c",
+      "filename": "ISR-Magach-7C-front-position.webp",
+      "path": "images/ISR/ISR-Magach-7C-front-position.webp",
+      "country": "ISR",
+      "kind": "photo",
+      "width": 650,
+      "height": 450,
+      "sha256": "859f600fe8414b1a5c8035602d2682aed522293ea6d1a821967a93f5f5a2eb8c",
+      "bytes": 212038,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v733-20261105/il_magach_7c/BV1vP4y1C7mk/native-42.185.png",
+        "sha256": "0987c74a7f4e287a972e42369664a9b30a129f6fa3b94cf41e3d5472fcadecae",
+        "bytes": 2600992,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "0987c74a7f4e287a972e42369664a9b30a129f6fa3b94cf41e3d5472fcadecae",
+      "sourceTime": 42.667,
+      "crop": [
+        630,
+        180,
+        650,
+        450
+      ],
+      "nativeXY": null,
+      "pointUV": null,
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v754/proofs/il_magach_7c-frame-proof.json",
+        "sha256": "e97094ed02584a4c424e76faa830b2fdac6767c85eb403fe60cbbdab19f54f8e",
+        "bytes": 16619
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "9e185e32f7282e25c2d44d69a773417b659a6d30",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9e185e32f7282e25c2d44d69a773417b659a6d30/images/ISR/ISR-Magach-7C-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9e185e32f7282e25c2d44d69a773417b659a6d30/images/ISR/ISR-Magach-7C-front-position.webp"
+    },
+    {
+      "vehicleId": "cn_ztz_99",
+      "filename": "CHN-ZTZ99-II-lower-front-position.webp",
+      "path": "images/CHN/CHN-ZTZ99-II-lower-front-position.webp",
+      "country": "CHN",
+      "kind": "photo",
+      "width": 480,
+      "height": 340,
+      "sha256": "d2009f9c1be78367c36ca78ba38dfab6171fd97dd65a87e9e448eae7bb7d6aad",
+      "bytes": 151680,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v744-20261105/cn_ztz_99/BV1LpiRYVEv6/native-133.44.png",
+        "sha256": "600f5d9c1439341d6a181dac597afc601816a3efc0ac989b295194463449a315",
+        "bytes": 2376784,
+        "width": 1920,
+        "height": 1078
+      },
+      "sourceFrameSHA256": "600f5d9c1439341d6a181dac597afc601816a3efc0ac989b295194463449a315",
+      "sourceTime": 133.533312,
+      "crop": [
+        730,
+        280,
+        480,
+        340
+      ],
+      "nativeXY": [
+        890,
+        547
+      ],
+      "pointUV": [
+        0.3333333333333333,
+        0.7852941176470588
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v754/proofs/cn_ztz_99-frame-proof.json",
+        "sha256": "ef063adde0581d44b8ab8707c7eb96cf8ae82d6893cf4e16e1de67b6648f3d58",
+        "bytes": 5815
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": false,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "9e185e32f7282e25c2d44d69a773417b659a6d30",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9e185e32f7282e25c2d44d69a773417b659a6d30/images/CHN/CHN-ZTZ99-II-lower-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9e185e32f7282e25c2d44d69a773417b659a6d30/images/CHN/CHN-ZTZ99-II-lower-front-position.webp"
     }
   ]
 }

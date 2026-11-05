@@ -27715,8 +27715,16 @@
       "scopeRole": "medium_tank",
       "pins": [],
       "videoAdvice": [],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1vP4y1C7mk/",
+        "author": "异世界のOP",
+        "title": "【战争雷霆】“巴顿喜+1”终极魔改——马加赫7C主战坦克",
+        "publishedAt": "2023-01-08 12:00:00 (page displayed; timezone unasserted)",
+        "date": "2023-01-08",
+        "gameVersion": "2.23.0.42",
+        "kind": "video"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/il_magach_7c",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/il_magach_7c.json",
@@ -27738,12 +27746,12 @@
       "collectedAt": "2026-11-02T17:52:55.908Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "原文明确C型于1990年代研发；未给出更精确年份。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无已验证的主图及对应局部标点。"
+        "未完成全车弱点图；没有新增试射案例。"
       ],
       "relatedSources": [
         {
@@ -27757,7 +27765,35 @@
           "time": null,
           "scopeNote": "官方更新说明记载复合侧裙厚度40→90毫米；不代表等效防护或穿透阈值，未证明旧争议已修复"
         }
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v733-20261105/il_magach_7c/BV1vP4y1C7mk/native-42.185.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v754/proofs/il_magach_7c-frame-proof.json",
+      "frameSnapshotSHA256": "e97094ed02584a4c424e76faa830b2fdac6767c85eb403fe60cbbdab19f54f8e",
+      "assetPath": "images/ISR/ISR-Magach-7C-front-position.webp",
+      "crop": [
+        630,
+        180,
+        650,
+        450
+      ],
+      "captureSHA256": "0987c74a7f4e287a972e42369664a9b30a129f6fa3b94cf41e3d5472fcadecae",
+      "originalFrameSHA256": "0987c74a7f4e287a972e42369664a9b30a129f6fa3b94cf41e3d5472fcadecae",
+      "time": 42.667,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front-armour-exterior",
+      "imageQuality": "native-game-image-bounded-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceGameVersion": "2.23.0.42",
+      "sourceNoRepost": true,
+      "coverageStatus": "partial-general-frontal-context",
+      "coverageNotice": "仅定性位置参考，非完整全车弱点图；不承诺必穿或当前版本结果。",
+      "frontSummary": "作者在143.2–198.7秒认为，马加赫7C新增装甲主要改善抗破，面对坦克炮钢针仍普遍容易被穿；但同时明确指出2S38钢针对其车体正面受阻，不能泛化为所有钢针必穿。作者另称部分破甲弹及较差导弹受阻，并在1011.52–1029.8秒提到DM33穿透后附加装甲可能削弱后效。图为同源42.667秒本车正面装甲外观独立参照，不是上述钢针试射画面；不代表当前版本、任何弹种或角度的必穿结论。",
+      "caption": "异世界のOP｜2023-01-08｜42.667秒｜游戏版本2.23.0.42；正面局部。"
     },
     {
       "id": "il_merkava_mk_1",
@@ -28965,10 +29001,50 @@
       "rank": 7,
       "era": "modern",
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.3333333333333333,
+          "y": 0.7852941176470588,
+          "label": "首下局部（作者定性提示）",
+          "detail": "作者提示首下仍有问题；本点仅标记可见首下局部。黄色为装甲选择高亮，不代表击穿结果；来袭弹种、距离及角度未知。",
+          "kind": "qualitative",
+          "sourceUrl": "https://www.bilibili.com/video/BV1LpiRYVEv6/",
+          "sourceTime": 130.4,
+          "evidence": {
+            "frameSHA256": "600f5d9c1439341d6a181dac597afc601816a3efc0ac989b295194463449a315",
+            "nativeXY": [
+              890,
+              547
+            ],
+            "crop": [
+              730,
+              280,
+              480,
+              340
+            ],
+            "imageSourceUrl": "https://www.bilibili.com/video/BV1LpiRYVEv6/",
+            "imageSourceTime": 133.533312,
+            "coordinateBasis": "qualitative visible part anchor; not a shot",
+            "singlePointPrediction": false,
+            "actualShotObserved": false,
+            "statementTimeRange": [
+              130.4,
+              135.99
+            ]
+          }
+        }
+      ],
       "videoAdvice": [],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1LpiRYVEv6/",
+        "author": "克虏伯kluub",
+        "title": "批量生产型九九ZTZ99 （II类）《战争雷霆》〔载具简评〕",
+        "publishedAt": "2024-12-08 12:00:00 (saved page; timezone unasserted)",
+        "date": "2024-12-08",
+        "gameVersion": null,
+        "kind": "video"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/cn_ztz_99",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-002-20261103/snapshots/cn_ztz_99.json",
@@ -28990,13 +29066,41 @@
       "collectedAt": "2026-11-02T18:07:22.510Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "原文明示2004年增加FY4反应装甲形成所述配置。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无已验证的主图及对应局部标点。"
-      ]
+        "未完成全车弱点图；没有新增试射案例。"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v744-20261105/cn_ztz_99/BV1LpiRYVEv6/native-133.44.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v754/proofs/cn_ztz_99-frame-proof.json",
+      "frameSnapshotSHA256": "ef063adde0581d44b8ab8707c7eb96cf8ae82d6893cf4e16e1de67b6648f3d58",
+      "assetPath": "images/CHN/CHN-ZTZ99-II-lower-front-position.webp",
+      "crop": [
+        730,
+        280,
+        480,
+        340
+      ],
+      "captureSHA256": "600f5d9c1439341d6a181dac597afc601816a3efc0ac989b295194463449a315",
+      "originalFrameSHA256": "600f5d9c1439341d6a181dac597afc601816a3efc0ac989b295194463449a315",
+      "time": 133.533312,
+      "sourceDimensions": [
+        1920,
+        1078
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front-armour-exterior",
+      "imageQuality": "native-game-image-bounded-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceGameVersion": null,
+      "sourceNoRepost": false,
+      "coverageStatus": "partial-qualitative-position",
+      "coverageNotice": "仅定性位置参考，非完整全车弱点图；不承诺必穿或当前版本结果。",
+      "frontSummary": "作者在说明基础、附加及反应装甲带来的防御后，仍指出“铁裤裆”存在问题；图中标记仅提示本车可见首下的一小块位置。黄色为装甲选择高亮，不代表击穿结果。这是作者的定性评价，未提供该位置的完整试射条件，不构成当前版本或任意弹药、距离、角度的必穿结论。",
+      "caption": "克虏伯kluub｜2024-12-08｜133.533312秒｜游戏版本未知；正面局部。国别依据作者中系介绍；原生国旗未独立核实。"
     },
     {
       "id": "cn_ztz_99_w",
@@ -36944,7 +37048,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 102,
+    "illustratedCount": 104,
     "countries": [
       {
         "country": "usa",
@@ -37080,7 +37184,7 @@
     "lastUpdated": "2026-11-04",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 100,
+    "illustratedTargetCount": 102,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,
