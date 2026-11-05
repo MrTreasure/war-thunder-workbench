@@ -81,11 +81,14 @@ export function supportedLoadoutWeapons(data?: WikiLoadouts) {
   return [...inventory.values()];
 }
 export function supportedWeaponGroups(weapons: SupportedLoadoutWeapon[]) {
-  const groups = new Map<string, SupportedLoadoutWeapon[]>();
+  const groups = new Map<string, { id: string; label: string; items: SupportedLoadoutWeapon[] }>();
   for (const weapon of weapons) {
     const types = weaponTypes.filter((type) => type.matches.test(weapon.name));
+    const id = types.length > 1 ? "combined" : types[0]?.id || "other";
     const label = types.length > 1 ? "组合挂载" : types[0]?.label || "其他挂载";
-    groups.set(label, [...(groups.get(label) || []), weapon]);
+    const group = groups.get(id) || { id, label, items: [] };
+    group.items.push(weapon);
+    groups.set(id, group);
   }
-  return [...groups].map(([label, items]) => ({ label, items }));
+  return [...groups.values()];
 }

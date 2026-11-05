@@ -469,8 +469,34 @@
 }
 .wt-supported-weapon-groups {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 14px 24px;
+  gap: 20px;
+}
+.wt-supported-weapon-section {
+  display: grid;
+  align-items: start;
+  gap: 16px 24px;
+  min-width: 0;
+}
+.wt-supported-weapon-section.is-primary {
+  display: flex;
+  flex-wrap: wrap;
+}
+.wt-supported-weapon-section.is-primary > .wt-supported-weapon-group {
+  flex: var(--wt-weapon-group-weight, 1) 1 360px;
+  min-width: min(100%, 360px);
+}
+.wt-supported-weapon-section.is-secondary {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+}
+.wt-supported-weapon-section.is-primary + .wt-supported-weapon-section {
+  padding-top: 16px;
+  border-top: 1px solid var(--wt-line);
+}
+.wt-supported-weapon-section.is-primary .wt-supported-weapon-group ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  align-items: start;
+  gap: 4px 12px;
 }
 .wt-supported-weapon-group {
   min-width: 0;
@@ -536,6 +562,13 @@
 .wt-supported-weapons.is-compact .wt-supported-weapon-groups {
   grid-template-columns: minmax(0, 1fr);
   gap: 12px;
+}
+.wt-supported-weapons.is-compact .wt-supported-weapon-section.is-primary > .wt-supported-weapon-group {
+  flex-basis: 100%;
+}
+.wt-supported-weapons.is-compact .wt-supported-weapon-section,
+.wt-supported-weapons.is-compact .wt-supported-weapon-section.is-primary .wt-supported-weapon-group ul {
+  grid-template-columns: minmax(0, 1fr);
 }
 .wt-equipment-properties {
   display: flex;

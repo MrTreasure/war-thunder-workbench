@@ -3428,6 +3428,10 @@
   .wt-vehicle-compare-remove { min-height:44px; }
   .wt-vehicle-compare-set-baseline { min-height:44px; }
   .wt-supported-weapon-groups { grid-template-columns:minmax(0,1fr); }
+  .wt-supported-weapon-section.is-primary > .wt-supported-weapon-group { flex-basis:100%; }
+  .wt-supported-weapon-section.is-primary,
+  .wt-supported-weapon-section.is-secondary,
+  .wt-supported-weapon-section.is-primary .wt-supported-weapon-group ul { grid-template-columns:minmax(0,1fr); }
   .wt-equipment-properties { gap:8px 16px; }
   .wt-equipment-properties > div { min-width:140px; }
   .wt-supported-weapons .wt-game-tip-trigger.wt-supported-weapon-trigger { min-height:44px; }
