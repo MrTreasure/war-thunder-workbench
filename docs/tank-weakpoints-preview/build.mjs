@@ -1,3 +1,4 @@
+import { applyGreenCoverage } from "./green-coverage.mjs";
 import { validateBaseReferences } from "./base-reference-validation.mjs";
 import { readFile, writeFile, mkdir, rename, copyFile } from "node:fs/promises";
 import { resolve, basename, sep } from "node:path";
@@ -164,7 +165,9 @@ function validateShellTypeReference(item, originalCase) {
     || !item.shellTypeCode || !Number.isFinite(Date.parse(reference.checkedAt))
     || !reference.mainGun || !reference.officialShellName) throw Error("Ammunition reference must match the exact attacker and source shell");
 }
-const report = { models: [], publishedFiles: [], noRemoteRequests: true };
+const greenAudit = JSON.parse(await readFile(resolve(project, "data/tank-weakpoint-green-coverage.json"), "utf8"));
+const greenCoverageCounts = await applyGreenCoverage(data, greenAudit, (path, model, view) => readFile(view.viewId === "main" && !model.framePath ? resolve(captures, path) : privatePath(path)), hash);
+const report = { greenCoverageCounts, models: [], publishedFiles: [], noRemoteRequests: true };
 function deliveryFallbacks(digest) {
   const asset = registry?.assets?.find((entry) => entry.sha256 === digest && entry.bytes <= imageByteLimit);
   if (asset && (!/^[a-f0-9]{40}$/.test(asset.commit) || [asset.url, asset.rawUrl].some((url) => !url?.startsWith("https://") || !url.includes(asset.commit)))) throw Error("Unpinned image delivery fallback");
@@ -425,8 +428,40 @@ const { apiBaseUrl } = JSON.parse(await readFile(resolve(project, "src/config/pl
 const backgroundCss = await readFile(resolve(project, "src/workbench-background.css"), "utf8");
 const backgroundDefaults = `:root{--wt-loading-background-image:url(${JSON.stringify(appearance.backgroundUrl)});--wt-loading-background-position:${appearance.positionX}% ${appearance.positionY}%}`;
 const css = Buffer.from(backgroundDefaults + "\n" + cardCss + "\n" + (await readFile(new URL("preview.css", import.meta.url), "utf8")).replaceAll("__SYMBOL_FONT__", fontFile) + "\n" + backgroundCss);
-const js = Buffer.from("const SAMPLE = " + JSON.stringify(data) + `;\n(${bootAppearance.toString()})(${JSON.stringify(appearance)},${JSON.stringify(apiBaseUrl)});\n` + await readFile(new URL("preview.js", import.meta.url), "utf8"));
-const cssFile = `weakpoints-preview.${hash(css).slice(0, 16)}.css`, jsFile = `weakpoints-preview.${hash(js).slice(0, 16)}.js`;
+// The public script contains UI code only. Reviewed model data is served by the
+// authenticated application endpoint and supplied by the owning workbench frame.
+const privatePayload = Buffer.from(JSON.stringify(data));
+await writeFile(resolve(captures, "private-payload.json"), privatePayload);
+report.privatePayload = { file: "private-payload.json", bytes: privatePayload.length, sha256: hash(privatePayload), embeddedInPublicAssets: false };
+const loader = `(async () => {
+  if (window.parent === window || new URLSearchParams(location.search).get("embedded") !== "1") {
+    const root = new URL("./", location.href);
+    const vehicle = new URLSearchParams(location.hash.slice(1)).get("vehicle");
+    root.hash = "/weakpoints" + (vehicle ? "?vehicle=" + encodeURIComponent(vehicle) : "");
+    location.replace(root.href);
+    return;
+  }
+  document.body.dataset.embedded = "true";
+  const SAMPLE = await new Promise((resolve) => {
+    const receive = (event) => {
+      if (event.origin !== location.origin || event.source !== window.parent || event.data?.type !== "wt-weakpoints-data") return;
+      const value = event.data.payload;
+      if (!value || !Array.isArray(value.models) || !value.models.length || value.models.length > 500 || !value.models.every((model) => typeof model.id === "string" && /^[a-z0-9_]+$/.test(model.id))) return;
+      window.removeEventListener("message", receive);
+      resolve(value);
+    };
+    window.addEventListener("message", receive);
+    window.parent.postMessage({ type: "wt-weakpoints-ready" }, location.origin);
+  });
+`;
+const resize = `
+  const resize = () => window.parent.postMessage({ type: "wt-weakpoints-height", height: Math.ceil(document.body.getBoundingClientRect().height) + 4 }, location.origin);
+  if (window.ResizeObserver) new ResizeObserver(resize).observe(document.body);
+  window.addEventListener("load", resize);
+  resize();
+})().catch(() => { document.body.textContent = "弱点资料加载失败，请返回工作台重新登录。"; });`;
+const js = Buffer.from(loader + `(${bootAppearance.toString()})(${JSON.stringify(appearance)},${JSON.stringify(apiBaseUrl)});\n` + await readFile(new URL("preview.js", import.meta.url), "utf8") + resize);
+const cssFile = `weakpoints-preview.${hash(css).slice(0, 16)}.css`, jsFile = `weakpoints-workspace.${hash(js).slice(0, 16)}.js`;
 await writeFile(resolve(assets, cssFile), css); await writeFile(resolve(assets, jsFile), js);
 const html = (await readFile(new URL("preview.html", import.meta.url), "utf8")).replace("__STYLE__", "./assets/" + cssFile).replace("__SCRIPT__", "./assets/" + jsFile).replaceAll("__SYMBOL_FONT__", fontFile);
 if (/__STYLE__|__SCRIPT__|__SYMBOL_FONT__|<script(?![^>]*src=)/.test(html)) throw Error("Unresolved or inline script");

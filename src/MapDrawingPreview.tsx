@@ -1,7 +1,10 @@
 import { localize, t } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { useId, useState } from "react";
-import atlas from "../data/ground-maps.json";
+import bundledAtlas from "../data/ground-maps.json";
+import type { GroundAtlas } from "./map-data-api";
+import { displayMapMarks } from "./ground-map-marks";
+const atlas = bundledAtlas as GroundAtlas;
 import icons from "../data/map-editor-icons.json";
 import { AnnotationShape } from "./MapAnnotation";
 import { GroundSvgImage } from "./map-assets";
@@ -53,7 +56,10 @@ export function MapDrawingPreview({
         (extent[3] - extent[1]) * 1000,
       ]
     : [view.x, view.y, view.w, view.h];
-  const grid = referenceGrid(map.bounds, map.grid.default_reference);
+  const grid =
+    map.bounds && map.grid
+      ? referenceGrid(map.bounds, map.grid.default_reference)
+      : { vertical: [], horizontal: [] };
   return (
     <div style={{ height: "100%", display: "flex", flexDirection: "column", minHeight: 0 }}>
       {failed && (
@@ -88,7 +94,7 @@ export function MapDrawingPreview({
             height={1000}
             onFailure={() => setFailed(true)}
           />
-          {view.contours && (
+          {view.contours && map.contourImage && (
             <GroundSvgImage
               asset={{ url: map.contourImage.url }}
               x={0}
@@ -121,7 +127,7 @@ export function MapDrawingPreview({
             </g>
           )}
           {view.points &&
-            layout.marks.map((mark, i) => {
+            displayMapMarks(layout.marks).map((mark, i) => {
               const key =
                 mark.kind === "spawn"
                   ? mark.team === project.team

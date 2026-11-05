@@ -18,7 +18,7 @@ import { CONTOUR_IMAGE_MATRIX, referenceGrid } from "./ground-map-projection";
 export type MapExportScene = {
   recommendation?: { asset: GroundImageAsset; width: number; height: number; matrix: number[] };
   base: GroundImageAsset;
-  contourImage: GroundImageAsset;
+  contourImage: GroundImageAsset | null;
   view: { x: number; y: number; w: number; h: number };
   mapFrame: { x: number; y: number; w: number; h: number };
   markerScale: number;
@@ -27,8 +27,8 @@ export type MapExportScene = {
   grid: boolean;
   team: number;
   zoom: number;
-  bounds: number[][];
-  reference: { origin_xz_m: number[]; step_xz_m: number[] };
+  bounds: number[][] | null;
+  reference: { origin_xz_m: number[]; step_xz_m: number[] } | null;
   marks: { kind: string; label: string; team: number; x: number; y: number }[];
   builtinIcons: Record<string, GroundImageAsset>;
   editorIcons: Record<string, GroundImageAsset>;
@@ -136,7 +136,7 @@ export async function renderMapPng(
   const needed = new Map<string, GroundImageAsset>();
   const add = (asset: GroundImageAsset) => needed.set(asset.url, asset);
   add(scene.base);
-  if (scene.contours) add(scene.contourImage);
+  if (scene.contours && scene.contourImage) add(scene.contourImage);
   if (scene.recommendation) add(scene.recommendation.asset);
   if (scene.points)
     for (const mark of scene.marks) {
@@ -181,7 +181,7 @@ export async function renderMapPng(
   ctx.rect(scene.mapFrame.x, scene.mapFrame.y, scene.mapFrame.w, scene.mapFrame.h);
   ctx.clip();
   ctx.drawImage(images.get(scene.base.url)!, 0, 0, 1000, 1000);
-  if (scene.contours) {
+  if (scene.contours && scene.contourImage) {
     ctx.save();
     ctx.globalAlpha = 0.8;
     ctx.transform(...CONTOUR_IMAGE_MATRIX);
@@ -201,7 +201,7 @@ export async function renderMapPng(
   ctx.beginPath();
   ctx.rect(scene.mapFrame.x, scene.mapFrame.y, scene.mapFrame.w, scene.mapFrame.h);
   ctx.clip();
-  if (scene.grid) {
+  if (scene.grid && scene.bounds && scene.reference) {
     const lines = referenceGrid(scene.bounds, scene.reference);
     ctx.save();
     ctx.strokeStyle = "#f7edcb9c";

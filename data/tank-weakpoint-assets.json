@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "repository": "https://github.com/MrTreasure/war-thunder-weakpoint-images",
-  "commit": "5b8b63bdb4e55f4be1d728d43dd15150d95b0175",
+  "commit": "3d89758510706c469ec645c1883e3c2a72ce1333",
   "formatPolicy": "webp-only",
   "models": {
     "ussr_t_54_1947": {
@@ -1376,6 +1376,600 @@
         "commit": "5b8b63bdb4e55f4be1d728d43dd15150d95b0175",
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@5b8b63bdb4e55f4be1d728d43dd15150d95b0175/images/USSR/USSR-IS-2-1944-lower-glacis-protection-preview.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/5b8b63bdb4e55f4be1d728d43dd15150d95b0175/images/USSR/USSR-IS-2-1944-lower-glacis-protection-preview.webp"
+      }
+    },
+    "ussr_t_55_am": {
+      "photo": {
+        "path": "images/USSR/USSR-T-55AM-1-turret-roof-bump-protection-preview.webp",
+        "sha256": "0dd65dd0ae8854a7f2e2d0c7a033d52bc0878bf36828aca7716ffbee83acc70b",
+        "bytes": 524078,
+        "commit": "3d89758510706c469ec645c1883e3c2a72ce1333",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@3d89758510706c469ec645c1883e3c2a72ce1333/images/USSR/USSR-T-55AM-1-turret-roof-bump-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/3d89758510706c469ec645c1883e3c2a72ce1333/images/USSR/USSR-T-55AM-1-turret-roof-bump-protection-preview.webp"
+      },
+      "raw": {
+        "path": "images/USSR/USSR-T-55AM-1-turret-roof-bump-protection-preview.webp",
+        "sha256": "0dd65dd0ae8854a7f2e2d0c7a033d52bc0878bf36828aca7716ffbee83acc70b",
+        "bytes": 524078,
+        "commit": "3d89758510706c469ec645c1883e3c2a72ce1333",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@3d89758510706c469ec645c1883e3c2a72ce1333/images/USSR/USSR-T-55AM-1-turret-roof-bump-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/3d89758510706c469ec645c1883e3c2a72ce1333/images/USSR/USSR-T-55AM-1-turret-roof-bump-protection-preview.webp"
+      }
+    },
+    "germ_leopard_a1a1_120": {
+      "photo": {
+        "path": "images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
+        "sha256": "8712f6edac3b12521e5097bb74eeef55f8106929176a16eacbaf0453c49772a2",
+        "bytes": 355186,
+        "commit": "3d89758510706c469ec645c1883e3c2a72ce1333",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@3d89758510706c469ec645c1883e3c2a72ce1333/images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/3d89758510706c469ec645c1883e3c2a72ce1333/images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp"
+      },
+      "raw": {
+        "path": "images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
+        "sha256": "8712f6edac3b12521e5097bb74eeef55f8106929176a16eacbaf0453c49772a2",
+        "bytes": 355186,
+        "commit": "3d89758510706c469ec645c1883e3c2a72ce1333",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@3d89758510706c469ec645c1883e3c2a72ce1333/images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/3d89758510706c469ec645c1883e3c2a72ce1333/images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp"
+      }
+    },
+    "jp_oplot_t": {
+      "photo": {
+        "path": "images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp",
+        "sha256": "060922bf4f4738eebd198bc39600f20c720667c97451a8e731cbf208491f8d8e",
+        "bytes": 258668,
+        "commit": "d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1/images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1/images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp"
+      },
+      "raw": {
+        "path": "images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp",
+        "sha256": "060922bf4f4738eebd198bc39600f20c720667c97451a8e731cbf208491f8d8e",
+        "bytes": 258668,
+        "commit": "d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1/images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1/images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp"
+      }
+    },
+    "us_xm1_chrysler": {
+      "photo": {
+        "path": "images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp",
+        "sha256": "8fb631929a21e86e6694ea58dd5dd9b74d580b3966772f3a7419d3d2d96992e6",
+        "bytes": 397978,
+        "commit": "2c1723e5f2068226d96cda0c49c055ab06f03257",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp"
+      },
+      "raw": {
+        "path": "images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp",
+        "sha256": "8fb631929a21e86e6694ea58dd5dd9b74d580b3966772f3a7419d3d2d96992e6",
+        "bytes": 397978,
+        "commit": "2c1723e5f2068226d96cda0c49c055ab06f03257",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp"
+      }
+    },
+    "fr_amx_30_super": {
+      "photo": {
+        "path": "images/FRA/FRA-AMX-30-Super-commander-cupola-position-20260129.webp",
+        "sha256": "451465221e6e8b1b2e466247ad3b7ac881dc8cd8d1da5095b2aa227f736b0dd7",
+        "bytes": 116856,
+        "commit": "e40ef6ebddb47301176f4c97bd29468a73015169",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@e40ef6ebddb47301176f4c97bd29468a73015169/images/FRA/FRA-AMX-30-Super-commander-cupola-position-20260129.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/e40ef6ebddb47301176f4c97bd29468a73015169/images/FRA/FRA-AMX-30-Super-commander-cupola-position-20260129.webp"
+      },
+      "raw": {
+        "path": "images/FRA/FRA-AMX-30-Super-commander-cupola-position-20260129.webp",
+        "sha256": "451465221e6e8b1b2e466247ad3b7ac881dc8cd8d1da5095b2aa227f736b0dd7",
+        "bytes": 116856,
+        "commit": "e40ef6ebddb47301176f4c97bd29468a73015169",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@e40ef6ebddb47301176f4c97bd29468a73015169/images/FRA/FRA-AMX-30-Super-commander-cupola-position-20260129.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/e40ef6ebddb47301176f4c97bd29468a73015169/images/FRA/FRA-AMX-30-Super-commander-cupola-position-20260129.webp"
+      }
+    },
+    "germ_leopard_2pl": {
+      "photo": {
+        "path": "images/GER/GER-Leopard-2PL-lower-front-position-20260515.webp",
+        "sha256": "fb97af9df633dfd2c5556b5e573e8f674f4c4a3d9fbcf593176bf4912403a4b3",
+        "bytes": 133934,
+        "commit": "e40ef6ebddb47301176f4c97bd29468a73015169",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@e40ef6ebddb47301176f4c97bd29468a73015169/images/GER/GER-Leopard-2PL-lower-front-position-20260515.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/e40ef6ebddb47301176f4c97bd29468a73015169/images/GER/GER-Leopard-2PL-lower-front-position-20260515.webp"
+      },
+      "raw": {
+        "path": "images/GER/GER-Leopard-2PL-lower-front-position-20260515.webp",
+        "sha256": "fb97af9df633dfd2c5556b5e573e8f674f4c4a3d9fbcf593176bf4912403a4b3",
+        "bytes": 133934,
+        "commit": "e40ef6ebddb47301176f4c97bd29468a73015169",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@e40ef6ebddb47301176f4c97bd29468a73015169/images/GER/GER-Leopard-2PL-lower-front-position-20260515.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/e40ef6ebddb47301176f4c97bd29468a73015169/images/GER/GER-Leopard-2PL-lower-front-position-20260515.webp"
+      }
+    },
+    "ussr_t_55_amd_1": {
+      "photo": {
+        "path": "images/USSR/USSR-T-55AMD-1-turret-position-20261016.webp",
+        "sha256": "273f13c9dd17ddf0906844ed96424a98de6b237c1083e082ecd7a0b8720adcdb",
+        "bytes": 146512,
+        "commit": "2ee20709be5adcf751e9407eecc9fb2551a538c0",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2ee20709be5adcf751e9407eecc9fb2551a538c0/images/USSR/USSR-T-55AMD-1-turret-position-20261016.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2ee20709be5adcf751e9407eecc9fb2551a538c0/images/USSR/USSR-T-55AMD-1-turret-position-20261016.webp"
+      },
+      "raw": {
+        "path": "images/USSR/USSR-T-55AMD-1-turret-position-20261016.webp",
+        "sha256": "273f13c9dd17ddf0906844ed96424a98de6b237c1083e082ecd7a0b8720adcdb",
+        "bytes": 146512,
+        "commit": "2ee20709be5adcf751e9407eecc9fb2551a538c0",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2ee20709be5adcf751e9407eecc9fb2551a538c0/images/USSR/USSR-T-55AMD-1-turret-position-20261016.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2ee20709be5adcf751e9407eecc9fb2551a538c0/images/USSR/USSR-T-55AMD-1-turret-position-20261016.webp"
+      }
+    },
+    "uk_chieftain_mk_3": {
+      "photo": {
+        "path": "images/GBR/GBR-Chieftain-Mk-3-lower-front-position-20210522.webp",
+        "sha256": "33117cae5239e869ecbabfa2ca46e1bff304c93b75317621cf2132aa5778036f",
+        "bytes": 218930,
+        "commit": "2ee20709be5adcf751e9407eecc9fb2551a538c0",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2ee20709be5adcf751e9407eecc9fb2551a538c0/images/GBR/GBR-Chieftain-Mk-3-lower-front-position-20210522.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2ee20709be5adcf751e9407eecc9fb2551a538c0/images/GBR/GBR-Chieftain-Mk-3-lower-front-position-20210522.webp"
+      },
+      "raw": {
+        "path": "images/GBR/GBR-Chieftain-Mk-3-lower-front-position-20210522.webp",
+        "sha256": "33117cae5239e869ecbabfa2ca46e1bff304c93b75317621cf2132aa5778036f",
+        "bytes": 218930,
+        "commit": "2ee20709be5adcf751e9407eecc9fb2551a538c0",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2ee20709be5adcf751e9407eecc9fb2551a538c0/images/GBR/GBR-Chieftain-Mk-3-lower-front-position-20210522.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2ee20709be5adcf751e9407eecc9fb2551a538c0/images/GBR/GBR-Chieftain-Mk-3-lower-front-position-20210522.webp"
+      }
+    },
+    "sw_leopard_2a6nl": {
+      "photo": {
+        "path": "images/SWE/SWE-Leopard-2A6-Finland-mantlet-position-20250524.webp",
+        "sha256": "1e60d87619a373cf7ab91c740c246f83135e2dcc72c6254ed7356e0951da9b8b",
+        "bytes": 236854,
+        "commit": "2ee20709be5adcf751e9407eecc9fb2551a538c0",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2ee20709be5adcf751e9407eecc9fb2551a538c0/images/SWE/SWE-Leopard-2A6-Finland-mantlet-position-20250524.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2ee20709be5adcf751e9407eecc9fb2551a538c0/images/SWE/SWE-Leopard-2A6-Finland-mantlet-position-20250524.webp"
+      },
+      "raw": {
+        "path": "images/SWE/SWE-Leopard-2A6-Finland-mantlet-position-20250524.webp",
+        "sha256": "1e60d87619a373cf7ab91c740c246f83135e2dcc72c6254ed7356e0951da9b8b",
+        "bytes": 236854,
+        "commit": "2ee20709be5adcf751e9407eecc9fb2551a538c0",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2ee20709be5adcf751e9407eecc9fb2551a538c0/images/SWE/SWE-Leopard-2A6-Finland-mantlet-position-20250524.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2ee20709be5adcf751e9407eecc9fb2551a538c0/images/SWE/SWE-Leopard-2A6-Finland-mantlet-position-20250524.webp"
+      }
+    },
+    "germ_leopard_2a5_pso": {
+      "photo": {
+        "path": "images/GER/GER-Leopard-2-PSO-mantlet-position-20240816.webp",
+        "sha256": "994a5064798ef000cb3f085f8d907cc9eff0aac2ef0284f8f70224ab58fcb002",
+        "bytes": 283878,
+        "commit": "2ee20709be5adcf751e9407eecc9fb2551a538c0",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2ee20709be5adcf751e9407eecc9fb2551a538c0/images/GER/GER-Leopard-2-PSO-mantlet-position-20240816.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2ee20709be5adcf751e9407eecc9fb2551a538c0/images/GER/GER-Leopard-2-PSO-mantlet-position-20240816.webp"
+      },
+      "raw": {
+        "path": "images/GER/GER-Leopard-2-PSO-mantlet-position-20240816.webp",
+        "sha256": "994a5064798ef000cb3f085f8d907cc9eff0aac2ef0284f8f70224ab58fcb002",
+        "bytes": 283878,
+        "commit": "2ee20709be5adcf751e9407eecc9fb2551a538c0",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2ee20709be5adcf751e9407eecc9fb2551a538c0/images/GER/GER-Leopard-2-PSO-mantlet-position-20240816.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2ee20709be5adcf751e9407eecc9fb2551a538c0/images/GER/GER-Leopard-2-PSO-mantlet-position-20240816.webp"
+      }
+    },
+    "sw_leopard_2a4_fin": {
+      "photo": {
+        "path": "images/SWE/SWE-Leopard-2A4-FIN-front-ammunition-context-20240721.webp",
+        "sha256": "090806f629e2130e24531fcc37db041283f6270be798acfda9e193b64ed45208",
+        "bytes": 412252,
+        "commit": "2ee20709be5adcf751e9407eecc9fb2551a538c0",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2ee20709be5adcf751e9407eecc9fb2551a538c0/images/SWE/SWE-Leopard-2A4-FIN-front-ammunition-context-20240721.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2ee20709be5adcf751e9407eecc9fb2551a538c0/images/SWE/SWE-Leopard-2A4-FIN-front-ammunition-context-20240721.webp"
+      },
+      "raw": {
+        "path": "images/SWE/SWE-Leopard-2A4-FIN-front-ammunition-context-20240721.webp",
+        "sha256": "090806f629e2130e24531fcc37db041283f6270be798acfda9e193b64ed45208",
+        "bytes": 412252,
+        "commit": "2ee20709be5adcf751e9407eecc9fb2551a538c0",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2ee20709be5adcf751e9407eecc9fb2551a538c0/images/SWE/SWE-Leopard-2A4-FIN-front-ammunition-context-20240721.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2ee20709be5adcf751e9407eecc9fb2551a538c0/images/SWE/SWE-Leopard-2A4-FIN-front-ammunition-context-20240721.webp"
+      }
+    },
+    "germ_leopard_2a6": {
+      "photo": {
+        "path": "images/GER/GER-Leopard-2A6-front-turret.webp",
+        "sha256": "b91f842c987ad15ca1447e9269242b745108c967ebbd278988c6e1216dc8677d",
+        "bytes": 170068,
+        "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-Leopard-2A6-front-turret.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-Leopard-2A6-front-turret.webp"
+      },
+      "raw": {
+        "path": "images/GER/GER-Leopard-2A6-front-turret.webp",
+        "sha256": "b91f842c987ad15ca1447e9269242b745108c967ebbd278988c6e1216dc8677d",
+        "bytes": 170068,
+        "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-Leopard-2A6-front-turret.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-Leopard-2A6-front-turret.webp"
+      }
+    },
+    "it_c1_ariete": {
+      "photo": {
+        "path": "images/ITA/ITA-C1-Ariete-front-position.webp",
+        "sha256": "8e4a058d33b0119d9e49f6a9ea1adfa43b34ca0576dae5fade4462930dd314ed",
+        "bytes": 235854,
+        "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/ITA/ITA-C1-Ariete-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/ITA/ITA-C1-Ariete-front-position.webp"
+      },
+      "raw": {
+        "path": "images/ITA/ITA-C1-Ariete-front-position.webp",
+        "sha256": "8e4a058d33b0119d9e49f6a9ea1adfa43b34ca0576dae5fade4462930dd314ed",
+        "bytes": 235854,
+        "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/ITA/ITA-C1-Ariete-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/ITA/ITA-C1-Ariete-front-position.webp"
+      }
+    },
+    "ussr_t_64a_1971": {
+      "photo": {
+        "path": "images/USSR/USSR-T-64A-1971-front.webp",
+        "sha256": "685b782c9ecef856cd1363f2e1d7209e86369f26627e620d546dca8d8080838c",
+        "bytes": 104322,
+        "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/USSR/USSR-T-64A-1971-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/USSR/USSR-T-64A-1971-front.webp"
+      },
+      "raw": {
+        "path": "images/USSR/USSR-T-64A-1971-front.webp",
+        "sha256": "685b782c9ecef856cd1363f2e1d7209e86369f26627e620d546dca8d8080838c",
+        "bytes": 104322,
+        "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/USSR/USSR-T-64A-1971-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/USSR/USSR-T-64A-1971-front.webp"
+      }
+    },
+    "germ_mkpz_m48a2ga2": {
+      "photo": {
+        "path": "images/GER/GER-M48A2-G-A2-front.webp",
+        "sha256": "796f6d7e3b960482a5487f6e2aff11553d270ee1b103777dcad01ab3590a21c7",
+        "bytes": 120880,
+        "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-M48A2-G-A2-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-M48A2-G-A2-front.webp"
+      },
+      "raw": {
+        "path": "images/GER/GER-M48A2-G-A2-front.webp",
+        "sha256": "796f6d7e3b960482a5487f6e2aff11553d270ee1b103777dcad01ab3590a21c7",
+        "bytes": 120880,
+        "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-M48A2-G-A2-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-M48A2-G-A2-front.webp"
+      }
+    },
+    "il_magach_6b": {
+      "photo": {
+        "path": "images/ISR/ISR-Magach-6B-commander-cupola-position.webp",
+        "sha256": "cb303d1b3efc23f5c3957a72185d26656c7b9937d6fe4cee495a76d13615a415",
+        "bytes": 459896,
+        "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/ISR/ISR-Magach-6B-commander-cupola-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/ISR/ISR-Magach-6B-commander-cupola-position.webp"
+      },
+      "raw": {
+        "path": "images/ISR/ISR-Magach-6B-commander-cupola-position.webp",
+        "sha256": "cb303d1b3efc23f5c3957a72185d26656c7b9937d6fe4cee495a76d13615a415",
+        "bytes": 459896,
+        "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/ISR/ISR-Magach-6B-commander-cupola-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/ISR/ISR-Magach-6B-commander-cupola-position.webp"
+      }
+    },
+    "germ_leopard_i_a1": {
+      "photo": {
+        "path": "images/GER/GER-Leopard-A1A1-front-position.webp",
+        "sha256": "b9371adee56d3c932924435e5c99f08a9eb50139883452707247ceb1b211a2e5",
+        "bytes": 210930,
+        "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-Leopard-A1A1-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-Leopard-A1A1-front-position.webp"
+      },
+      "raw": {
+        "path": "images/GER/GER-Leopard-A1A1-front-position.webp",
+        "sha256": "b9371adee56d3c932924435e5c99f08a9eb50139883452707247ceb1b211a2e5",
+        "bytes": 210930,
+        "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-Leopard-A1A1-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-Leopard-A1A1-front-position.webp"
+      }
+    },
+    "germ_mkpz_super_m48": {
+      "photo": {
+        "path": "images/GER/GER-Super-M48-turret-neck.webp",
+        "sha256": "14b2dc21718266be0f3c98f8e6cb3871b6c5dfddabe8668935c9b9e7d8c75baf",
+        "bytes": 295610,
+        "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-Super-M48-turret-neck.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-Super-M48-turret-neck.webp"
+      },
+      "raw": {
+        "path": "images/GER/GER-Super-M48-turret-neck.webp",
+        "sha256": "14b2dc21718266be0f3c98f8e6cb3871b6c5dfddabe8668935c9b9e7d8c75baf",
+        "bytes": 295610,
+        "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-Super-M48-turret-neck.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-Super-M48-turret-neck.webp"
+      }
+    },
+    "us_t95e1": {
+      "photo": {
+        "path": "images/USA/USA-T95E1-front-position.webp",
+        "sha256": "d0e37a566ad9370862c012156f178259253af6789951c45803e188ec24dff5d2",
+        "bytes": 398032,
+        "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/USA/USA-T95E1-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/USA/USA-T95E1-front-position.webp"
+      },
+      "raw": {
+        "path": "images/USA/USA-T95E1-front-position.webp",
+        "sha256": "d0e37a566ad9370862c012156f178259253af6789951c45803e188ec24dff5d2",
+        "bytes": 398032,
+        "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/USA/USA-T95E1-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/USA/USA-T95E1-front-position.webp"
+      }
+    },
+    "fr_amx_32_105": {
+      "photo": {
+        "path": "images/FRA/FRA-AMX-32-105-front-position.webp",
+        "sha256": "0c2dc766cee100cafb1bfc1ffd16abf6905e88e9a4327c5be5374ac60f111ac2",
+        "bytes": 191624,
+        "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/FRA/FRA-AMX-32-105-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/FRA/FRA-AMX-32-105-front-position.webp"
+      },
+      "raw": {
+        "path": "images/FRA/FRA-AMX-32-105-front-position.webp",
+        "sha256": "0c2dc766cee100cafb1bfc1ffd16abf6905e88e9a4327c5be5374ac60f111ac2",
+        "bytes": 191624,
+        "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/FRA/FRA-AMX-32-105-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/FRA/FRA-AMX-32-105-front-position.webp"
+      }
+    },
+    "jp_type_74": {
+      "photo": {
+        "path": "images/JPN/JPN-Type-74-E-front-position.webp",
+        "sha256": "fc69242307ddae7d443577974f6a33bfa1b8e31b199767b5bb1198c598eb915b",
+        "bytes": 316630,
+        "commit": "577ed164c14b8268c2e436f40fe006026d02e65c",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/JPN/JPN-Type-74-E-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/JPN/JPN-Type-74-E-front-position.webp"
+      },
+      "raw": {
+        "path": "images/JPN/JPN-Type-74-E-front-position.webp",
+        "sha256": "fc69242307ddae7d443577974f6a33bfa1b8e31b199767b5bb1198c598eb915b",
+        "bytes": 316630,
+        "commit": "577ed164c14b8268c2e436f40fe006026d02e65c",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/JPN/JPN-Type-74-E-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/JPN/JPN-Type-74-E-front-position.webp"
+      }
+    },
+    "cn_cm11": {
+      "photo": {
+        "path": "images/CHN/CHN-CM11-front-position.webp",
+        "sha256": "7165406450d4cd84ca12ceb3b34dd587377a49632218ebc1413cc9f0717b1c05",
+        "bytes": 178646,
+        "commit": "577ed164c14b8268c2e436f40fe006026d02e65c",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/CHN/CHN-CM11-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/CHN/CHN-CM11-front-position.webp"
+      },
+      "raw": {
+        "path": "images/CHN/CHN-CM11-front-position.webp",
+        "sha256": "7165406450d4cd84ca12ceb3b34dd587377a49632218ebc1413cc9f0717b1c05",
+        "bytes": 178646,
+        "commit": "577ed164c14b8268c2e436f40fe006026d02e65c",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/CHN/CHN-CM11-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/CHN/CHN-CM11-front-position.webp"
+      }
+    },
+    "il_magach_6m": {
+      "photo": {
+        "path": "images/ISR/ISR-Magach-6M-front-position.webp",
+        "sha256": "c73a5932e004f3cdd4b82987bc04a1b1d7b60e7bddc969c1e49c90ebae1a4a80",
+        "bytes": 181966,
+        "commit": "577ed164c14b8268c2e436f40fe006026d02e65c",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/ISR/ISR-Magach-6M-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/ISR/ISR-Magach-6M-front-position.webp"
+      },
+      "raw": {
+        "path": "images/ISR/ISR-Magach-6M-front-position.webp",
+        "sha256": "c73a5932e004f3cdd4b82987bc04a1b1d7b60e7bddc969c1e49c90ebae1a4a80",
+        "bytes": 181966,
+        "commit": "577ed164c14b8268c2e436f40fe006026d02e65c",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/ISR/ISR-Magach-6M-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/ISR/ISR-Magach-6M-front-position.webp"
+      }
+    },
+    "us_m60a1_rise_passive_era": {
+      "photo": {
+        "path": "images/USA/USA-M60A1-RISE-Passive-front-position.webp",
+        "sha256": "543aded77121053c4a2e1821a0869b1b9a4d512d8272bca09b6b13124c4e048a",
+        "bytes": 196602,
+        "commit": "577ed164c14b8268c2e436f40fe006026d02e65c",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/USA/USA-M60A1-RISE-Passive-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/USA/USA-M60A1-RISE-Passive-front-position.webp"
+      },
+      "raw": {
+        "path": "images/USA/USA-M60A1-RISE-Passive-front-position.webp",
+        "sha256": "543aded77121053c4a2e1821a0869b1b9a4d512d8272bca09b6b13124c4e048a",
+        "bytes": 196602,
+        "commit": "577ed164c14b8268c2e436f40fe006026d02e65c",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/USA/USA-M60A1-RISE-Passive-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/USA/USA-M60A1-RISE-Passive-front-position.webp"
+      }
+    },
+    "sw_strv_105": {
+      "photo": {
+        "path": "images/SWE/SWE-Strv-105-front-position.webp",
+        "sha256": "8040aa6b813fc0c44d757ca0d3eeeb5cf78ae2cdf3adf6516ddfe0c55c86c9f8",
+        "bytes": 741252,
+        "commit": "577ed164c14b8268c2e436f40fe006026d02e65c",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/SWE/SWE-Strv-105-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/SWE/SWE-Strv-105-front-position.webp"
+      },
+      "raw": {
+        "path": "images/SWE/SWE-Strv-105-front-position.webp",
+        "sha256": "8040aa6b813fc0c44d757ca0d3eeeb5cf78ae2cdf3adf6516ddfe0c55c86c9f8",
+        "bytes": 741252,
+        "commit": "577ed164c14b8268c2e436f40fe006026d02e65c",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/SWE/SWE-Strv-105-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/SWE/SWE-Strv-105-front-position.webp"
+      }
+    },
+    "germ_embt": {
+      "photo": {
+        "path": "images/GER/GER-EMBT-front-mantlet-position.webp",
+        "sha256": "b12b72d97db1dc6934bf170eea314eb6842cbb52233b53d14fedb7e2a95b6f59",
+        "bytes": 210060,
+        "commit": "577ed164c14b8268c2e436f40fe006026d02e65c",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/GER/GER-EMBT-front-mantlet-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/GER/GER-EMBT-front-mantlet-position.webp"
+      },
+      "raw": {
+        "path": "images/GER/GER-EMBT-front-mantlet-position.webp",
+        "sha256": "b12b72d97db1dc6934bf170eea314eb6842cbb52233b53d14fedb7e2a95b6f59",
+        "bytes": 210060,
+        "commit": "577ed164c14b8268c2e436f40fe006026d02e65c",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/GER/GER-EMBT-front-mantlet-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/GER/GER-EMBT-front-mantlet-position.webp"
+      }
+    },
+    "ussr_t_55a": {
+      "photo": {
+        "path": "images/USSR/USSR-T-55A-front-position.webp",
+        "sha256": "a396b7f20c97992cc967b7f4c2796b21d76d829f8bbeaef9deff3287a06e368e",
+        "bytes": 210536,
+        "commit": "b0e917f38d41cef05c8cd165a657e938a30bdea7",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b0e917f38d41cef05c8cd165a657e938a30bdea7/images/USSR/USSR-T-55A-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b0e917f38d41cef05c8cd165a657e938a30bdea7/images/USSR/USSR-T-55A-front-position.webp"
+      },
+      "raw": {
+        "path": "images/USSR/USSR-T-55A-front-position.webp",
+        "sha256": "a396b7f20c97992cc967b7f4c2796b21d76d829f8bbeaef9deff3287a06e368e",
+        "bytes": 210536,
+        "commit": "b0e917f38d41cef05c8cd165a657e938a30bdea7",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b0e917f38d41cef05c8cd165a657e938a30bdea7/images/USSR/USSR-T-55A-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b0e917f38d41cef05c8cd165a657e938a30bdea7/images/USSR/USSR-T-55A-front-position.webp"
+      }
+    },
+    "it_of_40_mtca": {
+      "photo": {
+        "path": "images/ITA/ITA-OF-40-MTCA-front-position.webp",
+        "sha256": "fac2f2fa34015ad3c305a1d9c1d1701174308b2db343ad0759592e22f7a55622",
+        "bytes": 296042,
+        "commit": "b0e917f38d41cef05c8cd165a657e938a30bdea7",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b0e917f38d41cef05c8cd165a657e938a30bdea7/images/ITA/ITA-OF-40-MTCA-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b0e917f38d41cef05c8cd165a657e938a30bdea7/images/ITA/ITA-OF-40-MTCA-front-position.webp"
+      },
+      "raw": {
+        "path": "images/ITA/ITA-OF-40-MTCA-front-position.webp",
+        "sha256": "fac2f2fa34015ad3c305a1d9c1d1701174308b2db343ad0759592e22f7a55622",
+        "bytes": 296042,
+        "commit": "b0e917f38d41cef05c8cd165a657e938a30bdea7",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b0e917f38d41cef05c8cd165a657e938a30bdea7/images/ITA/ITA-OF-40-MTCA-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b0e917f38d41cef05c8cd165a657e938a30bdea7/images/ITA/ITA-OF-40-MTCA-front-position.webp"
+      }
+    },
+    "il_magach_7c": {
+      "photo": {
+        "path": "images/ISR/ISR-Magach-7C-front-position.webp",
+        "sha256": "859f600fe8414b1a5c8035602d2682aed522293ea6d1a821967a93f5f5a2eb8c",
+        "bytes": 212038,
+        "commit": "9e185e32f7282e25c2d44d69a773417b659a6d30",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9e185e32f7282e25c2d44d69a773417b659a6d30/images/ISR/ISR-Magach-7C-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9e185e32f7282e25c2d44d69a773417b659a6d30/images/ISR/ISR-Magach-7C-front-position.webp"
+      },
+      "raw": {
+        "path": "images/ISR/ISR-Magach-7C-front-position.webp",
+        "sha256": "859f600fe8414b1a5c8035602d2682aed522293ea6d1a821967a93f5f5a2eb8c",
+        "bytes": 212038,
+        "commit": "9e185e32f7282e25c2d44d69a773417b659a6d30",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9e185e32f7282e25c2d44d69a773417b659a6d30/images/ISR/ISR-Magach-7C-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9e185e32f7282e25c2d44d69a773417b659a6d30/images/ISR/ISR-Magach-7C-front-position.webp"
+      }
+    },
+    "cn_ztz_99": {
+      "photo": {
+        "path": "images/CHN/CHN-ZTZ99-II-lower-front-position.webp",
+        "sha256": "d2009f9c1be78367c36ca78ba38dfab6171fd97dd65a87e9e448eae7bb7d6aad",
+        "bytes": 151680,
+        "commit": "9e185e32f7282e25c2d44d69a773417b659a6d30",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9e185e32f7282e25c2d44d69a773417b659a6d30/images/CHN/CHN-ZTZ99-II-lower-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9e185e32f7282e25c2d44d69a773417b659a6d30/images/CHN/CHN-ZTZ99-II-lower-front-position.webp"
+      },
+      "raw": {
+        "path": "images/CHN/CHN-ZTZ99-II-lower-front-position.webp",
+        "sha256": "d2009f9c1be78367c36ca78ba38dfab6171fd97dd65a87e9e448eae7bb7d6aad",
+        "bytes": 151680,
+        "commit": "9e185e32f7282e25c2d44d69a773417b659a6d30",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9e185e32f7282e25c2d44d69a773417b659a6d30/images/CHN/CHN-ZTZ99-II-lower-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9e185e32f7282e25c2d44d69a773417b659a6d30/images/CHN/CHN-ZTZ99-II-lower-front-position.webp"
+      }
+    },
+    "uk_arjun_mk1": {
+      "photo": {
+        "path": "images/GBR/GBR-Arjun-Mk1-upper-front.webp",
+        "sha256": "f4622167b4f640bae76e4888888c891e00f1f08ea9431115a84f6b81e79243ee",
+        "bytes": 356370,
+        "commit": "697ec3206c3c74952dfb1ceda50b2887d6cd673e",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Arjun-Mk1-upper-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Arjun-Mk1-upper-front.webp"
+      },
+      "raw": {
+        "path": "images/GBR/GBR-Arjun-Mk1-upper-front.webp",
+        "sha256": "f4622167b4f640bae76e4888888c891e00f1f08ea9431115a84f6b81e79243ee",
+        "bytes": 356370,
+        "commit": "697ec3206c3c74952dfb1ceda50b2887d6cd673e",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Arjun-Mk1-upper-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Arjun-Mk1-upper-front.webp"
+      }
+    },
+    "uk_challenger_1_mk_3_gulf": {
+      "photo": {
+        "path": "images/GBR/GBR-Challenger-DS-front-position.webp",
+        "sha256": "a223e8a05edf2179d26f3851117fbd23b4c0dbca7483c6802514ab5d88b5f3b1",
+        "bytes": 207858,
+        "commit": "697ec3206c3c74952dfb1ceda50b2887d6cd673e",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-DS-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-DS-front-position.webp"
+      },
+      "raw": {
+        "path": "images/GBR/GBR-Challenger-DS-front-position.webp",
+        "sha256": "a223e8a05edf2179d26f3851117fbd23b4c0dbca7483c6802514ab5d88b5f3b1",
+        "bytes": 207858,
+        "commit": "697ec3206c3c74952dfb1ceda50b2887d6cd673e",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-DS-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-DS-front-position.webp"
+      }
+    },
+    "uk_challenger_2e": {
+      "photo": {
+        "path": "images/GBR/GBR-Challenger-2E-lower-front-position.webp",
+        "sha256": "108cdcd097ea7a48b5926a169951ca2ca4a010f0964f5a5759d88cd85e88447c",
+        "bytes": 257636,
+        "commit": "697ec3206c3c74952dfb1ceda50b2887d6cd673e",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-2E-lower-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-2E-lower-front-position.webp"
+      },
+      "raw": {
+        "path": "images/GBR/GBR-Challenger-2E-lower-front-position.webp",
+        "sha256": "108cdcd097ea7a48b5926a169951ca2ca4a010f0964f5a5759d88cd85e88447c",
+        "bytes": 257636,
+        "commit": "697ec3206c3c74952dfb1ceda50b2887d6cd673e",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-2E-lower-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-2E-lower-front-position.webp"
       }
     }
   },
@@ -16624,6 +17218,1926 @@
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@5b8b63bdb4e55f4be1d728d43dd15150d95b0175/images/USSR/USSR-IS-2-1944-right-turret-front-protection-preview.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/5b8b63bdb4e55f4be1d728d43dd15150d95b0175/images/USSR/USSR-IS-2-1944-right-turret-front-protection-preview.webp",
       "rootApproval": true
+    },
+    {
+      "vehicleId": "ussr_t_55_am",
+      "filename": "USSR-T-55AM-1-turret-roof-bump-protection-preview.webp",
+      "path": "images/USSR/USSR-T-55AM-1-turret-roof-bump-protection-preview.webp",
+      "country": "USSR",
+      "kind": "photo",
+      "evidenceId": "t55am1-turret-roof-bump-preview",
+      "width": 960,
+      "height": 700,
+      "bytes": 524078,
+      "sha256": "0dd65dd0ae8854a7f2e2d0c7a033d52bc0878bf36828aca7716ffbee83acc70b",
+      "preCompressionBytes": 524078,
+      "preCompressionSHA256": "0dd65dd0ae8854a7f2e2d0c7a033d52bc0878bf36828aca7716ffbee83acc70b",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/T55-guarded-v582b/ussr_t_55_am/native-1119.png",
+        "sha256": "7cb7491a2bd284d825aaae19ce67cc26eff744c9b70c10e082414191ea974cc9",
+        "bytes": 3034612,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "7cb7491a2bd284d825aaae19ce67cc26eff744c9b70c10e082414191ea974cc9",
+      "sourceTime": 1117.939025,
+      "crop": [
+        600,
+        150,
+        960,
+        700
+      ],
+      "nativeXY": [
+        1031,
+        347
+      ],
+      "pointUV": [
+        0.44895833333333335,
+        0.2814285714285714
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v586-20261105/t55am1-turret-roof-bump-preview-frame-proof.json",
+        "sha256": "588526b193389de7f9ecc880641e7a23cf181b72f28dc45d176813e927476951"
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1Bg411b7U1/",
+        "author": "1RainZhang1",
+        "date": "2022-12-28T19:59:38+08:00",
+        "gameVersion": "2.23.0.29"
+      },
+      "commit": "3d89758510706c469ec645c1883e3c2a72ce1333",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@3d89758510706c469ec645c1883e3c2a72ce1333/images/USSR/USSR-T-55AM-1-turret-roof-bump-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/3d89758510706c469ec645c1883e3c2a72ce1333/images/USSR/USSR-T-55AM-1-turret-roof-bump-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "vehicleId": "ussr_t_55_am",
+      "filename": "USSR-T-55AM-1-mantlet-protection-preview.webp",
+      "path": "images/USSR/USSR-T-55AM-1-mantlet-protection-preview.webp",
+      "country": "USSR",
+      "kind": "protection-evidence",
+      "evidenceId": "t55am1-mantlet-preview",
+      "width": 960,
+      "height": 700,
+      "bytes": 500808,
+      "sha256": "558b63e1be86bd12130162034834ca9557c87daab9394d072b518eeb6dc6b876",
+      "preCompressionBytes": 500808,
+      "preCompressionSHA256": "558b63e1be86bd12130162034834ca9557c87daab9394d072b518eeb6dc6b876",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/T55-guarded-v582b/ussr_t_55_am/native-1131.png",
+        "sha256": "134929e59b7e0d7c0b95c29b5f45f13c4694b80994e2e2956ff8005be3c47bec",
+        "bytes": 2900620,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "134929e59b7e0d7c0b95c29b5f45f13c4694b80994e2e2956ff8005be3c47bec",
+      "sourceTime": 1129.944754,
+      "crop": [
+        600,
+        150,
+        960,
+        700
+      ],
+      "nativeXY": [
+        967,
+        362
+      ],
+      "pointUV": [
+        0.38229166666666664,
+        0.3028571428571429
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v586-20261105/t55am1-mantlet-preview-frame-proof.json",
+        "sha256": "a99b05ed9aef6e5454a177e9e30ad34357f47c628249d3e415d61ae2cd71b9fb"
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1Bg411b7U1/",
+        "author": "1RainZhang1",
+        "date": "2022-12-28T19:59:38+08:00",
+        "gameVersion": "2.23.0.29"
+      },
+      "commit": "3d89758510706c469ec645c1883e3c2a72ce1333",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@3d89758510706c469ec645c1883e3c2a72ce1333/images/USSR/USSR-T-55AM-1-mantlet-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/3d89758510706c469ec645c1883e3c2a72ce1333/images/USSR/USSR-T-55AM-1-mantlet-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "vehicleId": "germ_leopard_a1a1_120",
+      "filename": "GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
+      "path": "images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
+      "country": "GER",
+      "kind": "photo",
+      "evidenceId": "leopard-l44-turret-mount-preview",
+      "width": 960,
+      "height": 700,
+      "bytes": 355186,
+      "sha256": "8712f6edac3b12521e5097bb74eeef55f8106929176a16eacbaf0453c49772a2",
+      "preCompressionBytes": 355186,
+      "preCompressionSHA256": "8712f6edac3b12521e5097bb74eeef55f8106929176a16eacbaf0453c49772a2",
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/LeopardL44-guarded-v582c/germ_leopard_a1a1_120/native-676.png",
+        "sha256": "658d406441da9af5521b02e307728a5b50afda77ba0220747f07b0625c5311c9",
+        "bytes": 2291635,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "658d406441da9af5521b02e307728a5b50afda77ba0220747f07b0625c5311c9",
+      "sourceTime": 675.081626,
+      "crop": [
+        600,
+        150,
+        960,
+        700
+      ],
+      "nativeXY": [
+        953,
+        448
+      ],
+      "pointUV": [
+        0.36770833333333336,
+        0.4257142857142857
+      ],
+      "proof": {
+        "path": "/vol1/1000/workspace/war-thunder-workbench/artifacts/tank-weakpoints-image-pack-v586-20261105/leopard-l44-turret-mount-preview-frame-proof.json",
+        "sha256": "74ea4813f98a3bfb8a12ab9050b42004e6c117787a61b17b4fc8c971efcdcbb5"
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1Bg411b7U1/",
+        "author": "1RainZhang1",
+        "date": "2022-12-28T19:59:38+08:00",
+        "gameVersion": "2.23.0.29"
+      },
+      "commit": "3d89758510706c469ec645c1883e3c2a72ce1333",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@3d89758510706c469ec645c1883e3c2a72ce1333/images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/3d89758510706c469ec645c1883e3c2a72ce1333/images/GER/GER-Leopard-A1A1-L44-turret-mount-protection-preview.webp",
+      "rootApproval": true
+    },
+    {
+      "id": "060922bf4f4738eebd198bc39600f20c720667c97451a8e731cbf208491f8d8e",
+      "path": "images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp",
+      "sha256": "060922bf4f4738eebd198bc39600f20c720667c97451a8e731cbf208491f8d8e",
+      "bytes": 258668,
+      "width": 1920,
+      "height": 1080,
+      "vehicleId": "jp_oplot_t",
+      "country": "JPN",
+      "vehicleOperatorOrigin": "Thailand",
+      "vehicleEnglishName": "BM Oplot-T",
+      "source": {
+        "url": "https://forum.warthunder.com/t/why-oplot-t-2010s-have-less-armor-with-t-80u-1980s/283057/1",
+        "title": "Why oplot-t(2010s) have less armor with T-80U(1980s)?",
+        "author": "Misaka19802",
+        "publishedAt": "2025-11-11T09:36:57.628Z",
+        "kind": "forum-image",
+        "gameVersion": "2.51.0.16",
+        "license": null,
+        "imageUrl": "https://forum-en-cdn.warthunder.com/original/4X/f/8/c/f8cfda254b50e4c19e1bf63652021de44feb84c6.jpeg"
+      },
+      "sourceKind": "forum-image",
+      "sourceTime": null,
+      "mediaTime": null,
+      "actualTime": null,
+      "sourceFrameSHA256": "5af92efa2fb07c2edbb21e3d015808e2481adb91339f8a5b046ee048b600162e",
+      "sourceFrameHashBasis": "original-native-JPEG",
+      "proofSnapshotSHA256": "74add6b464401181e60b595560d07d25af068fb18fd8d5dd79af35c26d99ecd6",
+      "sourceGameVersion": "2.51.0.16",
+      "caseId": null,
+      "kind": "primary-protection-preview-full-frame",
+      "roles": [
+        "primary-protection-preview"
+      ],
+      "purpose": "primary-protection-preview",
+      "mainImageUsable": true,
+      "nativeResized": false,
+      "sceneKind": "protection-preview",
+      "encoding": "lossy-webp-quality90",
+      "encodingParameters": {
+        "codec": "libwebp",
+        "quality": 90,
+        "compression_level": 6,
+        "lossy": true,
+        "resize": false,
+        "crop": [
+          0,
+          0,
+          1920,
+          1080
+        ]
+      },
+      "crop": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "license": null,
+      "licenseEstablished": false,
+      "republicationBasis": "single full screenshot limited analytical reference with attribution; no license assertion",
+      "commit": "d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1/images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/d8652ea420bfb3a2e0b59d4cef6028c4ee0cc2f1/images/JPN/JPN-BM-Oplot-T-frontal-protection-preview-20251111.webp",
+      "status": "published"
+    },
+    {
+      "vehicleId": "us_xm1_chrysler",
+      "filename": "USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp",
+      "path": "images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp",
+      "country": "USA",
+      "kind": "photo",
+      "evidenceId": "xm1-chrysler-mantlet-front-prediction",
+      "width": 800,
+      "height": 530,
+      "sha256": "8fb631929a21e86e6694ea58dd5dd9b74d580b3966772f3a7419d3d2d96992e6",
+      "bytes": 397978,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/us-uk-bili-v645-20261105/us_xm1_chrysler/native-1.png",
+        "sha256": "b3f9e25cf9ed35f08975e1fb4e194883206cd6a5c85a86d90aa94ca1524ab7fc",
+        "bytes": 3558136,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "b3f9e25cf9ed35f08975e1fb4e194883206cd6a5c85a86d90aa94ca1524ab7fc",
+      "sourceTime": 224.45,
+      "crop": [
+        620,
+        330,
+        800,
+        530
+      ],
+      "nativeXY": [
+        998,
+        466
+      ],
+      "pointUV": [
+        0.4725,
+        0.25660377358490566
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v649b/xm1-chrysler-mantlet-front-prediction-frame-proof.json",
+        "sha256": "606c13737a41fd0175e3d18049f5868149896a19071249a69f07b76893d672e1",
+        "bytes": 7006
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "2c1723e5f2068226d96cda0c49c055ab06f03257",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp"
+    },
+    {
+      "vehicleId": "us_xm1_chrysler",
+      "filename": "USA-XM1-Chrysler-upper-front-recess-prediction-20200529.webp",
+      "path": "images/USA/USA-XM1-Chrysler-upper-front-recess-prediction-20200529.webp",
+      "country": "USA",
+      "kind": "protection-evidence",
+      "evidenceId": "xm1-chrysler-upper-front-recess-prediction",
+      "width": 800,
+      "height": 530,
+      "sha256": "b9644486008e3789cf55b8ccc12ee69cdaca64ec223f17f0bf3eb025433c91a5",
+      "bytes": 405882,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/us-uk-bili-v645-20261105/us_xm1_chrysler/native-2.png",
+        "sha256": "3e8dfc783eb1137d8fd108224c42426a42901fba7fb1093a8048e6038baecfbc",
+        "bytes": 3610411,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "3e8dfc783eb1137d8fd108224c42426a42901fba7fb1093a8048e6038baecfbc",
+      "sourceTime": 239.45,
+      "crop": [
+        620,
+        330,
+        800,
+        530
+      ],
+      "nativeXY": [
+        856,
+        451
+      ],
+      "pointUV": [
+        0.295,
+        0.22830188679245284
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v649b/xm1-chrysler-upper-front-recess-prediction-frame-proof.json",
+        "sha256": "c39d9c6d2c1c1aef03def2f5fca77fc349f55b8f3ad3a4d4031c67c379fe5534",
+        "bytes": 7005
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "2c1723e5f2068226d96cda0c49c055ab06f03257",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-upper-front-recess-prediction-20200529.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-upper-front-recess-prediction-20200529.webp"
+    },
+    {
+      "vehicleId": "us_xm1_chrysler",
+      "filename": "USA-XM1-Chrysler-turret-front-nonpenetration-reference-20200529.webp",
+      "path": "images/USA/USA-XM1-Chrysler-turret-front-nonpenetration-reference-20200529.webp",
+      "country": "USA",
+      "kind": "protection-evidence",
+      "evidenceId": "xm1-chrysler-turret-front-nonpenetration-reference",
+      "width": 800,
+      "height": 530,
+      "sha256": "e38644befb38a4bc08647f5927138ecf03838cb096552962bb3b1f0ad35690e0",
+      "bytes": 395644,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/us-uk-bili-v645-20261105/us_xm1_chrysler/native-0.png",
+        "sha256": "f454bffe4922eb7ffddc33070e5cc7cd5c9aa27e55c190b9092485174e365202",
+        "bytes": 3596118,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "f454bffe4922eb7ffddc33070e5cc7cd5c9aa27e55c190b9092485174e365202",
+      "sourceTime": 207.767,
+      "crop": [
+        620,
+        330,
+        800,
+        530
+      ],
+      "nativeXY": [
+        839,
+        484
+      ],
+      "pointUV": [
+        0.27375,
+        0.29056603773584905
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v649b/xm1-chrysler-turret-front-nonpenetration-reference-frame-proof.json",
+        "sha256": "df572ca3100a76103557424e4b450da2e29ac737b1c88443e7d29f67ef1d1d82",
+        "bytes": 7009
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "2c1723e5f2068226d96cda0c49c055ab06f03257",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-turret-front-nonpenetration-reference-20200529.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-turret-front-nonpenetration-reference-20200529.webp"
+    },
+    {
+      "vehicleId": "fr_amx_30_super",
+      "filename": "FRA-AMX-30-Super-commander-cupola-position-20260129.webp",
+      "path": "images/FRA/FRA-AMX-30-Super-commander-cupola-position-20260129.webp",
+      "country": "FRA",
+      "kind": "photo",
+      "width": 420,
+      "height": 380,
+      "sha256": "451465221e6e8b1b2e466247ad3b7ac881dc8cd8d1da5095b2aa227f736b0dd7",
+      "bytes": 116856,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/shared-front-v234-20261104/amx30super/capture-2.png",
+        "sha256": "2014163c31fe92471cbb83450c126cad22c2fa819e4869a2424dbe00242bacc9",
+        "bytes": 1999106,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "2014163c31fe92471cbb83450c126cad22c2fa819e4869a2424dbe00242bacc9",
+      "sourceTime": 260,
+      "crop": [
+        750,
+        270,
+        420,
+        380
+      ],
+      "nativeXY": [
+        916,
+        348
+      ],
+      "pointUV": [
+        0.3952380952380952,
+        0.20526315789473684
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v668/revision-2/fr_amx_30_super-frame-proof.json",
+        "sha256": "a27fc73bcf5d102fb27d4366345e003e72601606b43f9df646c0f8d12e758b75",
+        "bytes": 5669
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "e40ef6ebddb47301176f4c97bd29468a73015169",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@e40ef6ebddb47301176f4c97bd29468a73015169/images/FRA/FRA-AMX-30-Super-commander-cupola-position-20260129.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/e40ef6ebddb47301176f4c97bd29468a73015169/images/FRA/FRA-AMX-30-Super-commander-cupola-position-20260129.webp"
+    },
+    {
+      "vehicleId": "germ_leopard_2pl",
+      "filename": "GER-Leopard-2PL-lower-front-position-20260515.webp",
+      "path": "images/GER/GER-Leopard-2PL-lower-front-position-20260515.webp",
+      "country": "GER",
+      "kind": "photo",
+      "width": 560,
+      "height": 420,
+      "sha256": "fb97af9df633dfd2c5556b5e573e8f674f4c4a3d9fbcf593176bf4912403a4b3",
+      "bytes": 133934,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/shared-front-v243-20261104/leopard2pl/capture-2.png",
+        "sha256": "c2a3014c9925ac92f36440a89ad3d6149c689fd28417bfc7e3b91a49450e59f9",
+        "bytes": 2809951,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "c2a3014c9925ac92f36440a89ad3d6149c689fd28417bfc7e3b91a49450e59f9",
+      "sourceTime": 112,
+      "crop": [
+        680,
+        240,
+        560,
+        420
+      ],
+      "nativeXY": [
+        950,
+        535
+      ],
+      "pointUV": [
+        0.48214285714285715,
+        0.7023809523809523
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v668/revision-2/germ_leopard_2pl-frame-proof.json",
+        "sha256": "34306db77a19ac45b6ae6400b8063fef5e97510f9c4c8d157ab210a891892181",
+        "bytes": 5426
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "e40ef6ebddb47301176f4c97bd29468a73015169",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@e40ef6ebddb47301176f4c97bd29468a73015169/images/GER/GER-Leopard-2PL-lower-front-position-20260515.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/e40ef6ebddb47301176f4c97bd29468a73015169/images/GER/GER-Leopard-2PL-lower-front-position-20260515.webp"
+    },
+    {
+      "vehicleId": "ussr_t_55_amd_1",
+      "filename": "USSR-T-55AMD-1-turret-position-20261016.webp",
+      "path": "images/USSR/USSR-T-55AMD-1-turret-position-20261016.webp",
+      "country": "USSR",
+      "kind": "photo",
+      "width": 575,
+      "height": 323,
+      "sha256": "273f13c9dd17ddf0906844ed96424a98de6b237c1083e082ecd7a0b8720adcdb",
+      "bytes": 146512,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/video-exact-missing-v57/T-55AMD-1-0185.temporary.png",
+        "sha256": "75e535a75ee7b9c022fab0c80b0fda9491b825a101d1b806fd53e7c26649f6b6",
+        "bytes": 2757569,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "75e535a75ee7b9c022fab0c80b0fda9491b825a101d1b806fd53e7c26649f6b6",
+      "sourceTime": 185.016687,
+      "crop": [
+        20,
+        185,
+        575,
+        323
+      ],
+      "nativeXY": [
+        280,
+        302
+      ],
+      "pointUV": [
+        0.45217391304347826,
+        0.3622291021671827
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v681/proofs/ussr_t_55_amd_1-frame-proof.json",
+        "sha256": "fd6a4dc2ce4f5caacfa9b835b49aff6b9cf014f9f9fcf867ae25e02621908fad",
+        "bytes": 6864
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": null,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "2ee20709be5adcf751e9407eecc9fb2551a538c0",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2ee20709be5adcf751e9407eecc9fb2551a538c0/images/USSR/USSR-T-55AMD-1-turret-position-20261016.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2ee20709be5adcf751e9407eecc9fb2551a538c0/images/USSR/USSR-T-55AMD-1-turret-position-20261016.webp"
+    },
+    {
+      "vehicleId": "uk_chieftain_mk_3",
+      "filename": "GBR-Chieftain-Mk-3-lower-front-position-20210522.webp",
+      "path": "images/GBR/GBR-Chieftain-Mk-3-lower-front-position-20210522.webp",
+      "country": "GBR",
+      "kind": "photo",
+      "width": 720,
+      "height": 480,
+      "sha256": "33117cae5239e869ecbabfa2ca46e1bff304c93b75317621cf2132aa5778036f",
+      "bytes": 218930,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v676-20261105/BV1fU4y157hQ/native-311.png",
+        "sha256": "554c986650db332bf7e6512309a95a3bc59607100dda8c3d93dec1c9f3393cde",
+        "bytes": 2620533,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "554c986650db332bf7e6512309a95a3bc59607100dda8c3d93dec1c9f3393cde",
+      "sourceTime": 311.376422,
+      "crop": [
+        600,
+        180,
+        720,
+        480
+      ],
+      "nativeXY": [
+        885,
+        507
+      ],
+      "pointUV": [
+        0.3958333333333333,
+        0.68125
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v681/proofs/uk_chieftain_mk_3-frame-proof.json",
+        "sha256": "6f0c87c63ffe37f7e0ba36cbca8a0e9e4dcc1486fccd7fe05d54a5873b93f4ed",
+        "bytes": 2889
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "2ee20709be5adcf751e9407eecc9fb2551a538c0",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2ee20709be5adcf751e9407eecc9fb2551a538c0/images/GBR/GBR-Chieftain-Mk-3-lower-front-position-20210522.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2ee20709be5adcf751e9407eecc9fb2551a538c0/images/GBR/GBR-Chieftain-Mk-3-lower-front-position-20210522.webp"
+    },
+    {
+      "vehicleId": "sw_leopard_2a6nl",
+      "filename": "SWE-Leopard-2A6-Finland-mantlet-position-20250524.webp",
+      "path": "images/SWE/SWE-Leopard-2A6-Finland-mantlet-position-20250524.webp",
+      "country": "SWE",
+      "kind": "photo",
+      "width": 640,
+      "height": 440,
+      "sha256": "1e60d87619a373cf7ab91c740c246f83135e2dcc72c6254ed7356e0951da9b8b",
+      "bytes": 236854,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v676-20261105/BV1XCJFzQEsE/native-14.694498.png",
+        "sha256": "604c4a5e67cab1f34d4f2a7bcb4d6388a1d1d826cd676ec5f9f7aff4cb9708c6",
+        "bytes": 2590593,
+        "width": 1920,
+        "height": 1078
+      },
+      "sourceFrameSHA256": "604c4a5e67cab1f34d4f2a7bcb4d6388a1d1d826cd676ec5f9f7aff4cb9708c6",
+      "sourceTime": 16.297342,
+      "crop": [
+        660,
+        190,
+        640,
+        440
+      ],
+      "nativeXY": [
+        951,
+        374
+      ],
+      "pointUV": [
+        0.4546875,
+        0.41818181818181815
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v681/revision-1/proofs/sw_leopard_2a6nl-frame-proof.json",
+        "sha256": "f3c78d2d617ef0de196da8d18ea05d64dddc1ff9f8822cb70d4350e5c9982c22",
+        "bytes": 3042
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "2ee20709be5adcf751e9407eecc9fb2551a538c0",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2ee20709be5adcf751e9407eecc9fb2551a538c0/images/SWE/SWE-Leopard-2A6-Finland-mantlet-position-20250524.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2ee20709be5adcf751e9407eecc9fb2551a538c0/images/SWE/SWE-Leopard-2A6-Finland-mantlet-position-20250524.webp"
+    },
+    {
+      "vehicleId": "germ_leopard_2a5_pso",
+      "filename": "GER-Leopard-2-PSO-mantlet-position-20240816.webp",
+      "path": "images/GER/GER-Leopard-2-PSO-mantlet-position-20240816.webp",
+      "country": "GER",
+      "kind": "photo",
+      "width": 650,
+      "height": 500,
+      "sha256": "994a5064798ef000cb3f085f8d907cc9eff0aac2ef0284f8f70224ab58fcb002",
+      "bytes": 283878,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v676-20261105/BV1FfeHekEdK/native-82.png",
+        "sha256": "4c2c812aa6601e1490b4575e0d1a5de0ffca091a698ae783679d984402b926de",
+        "bytes": 2425709,
+        "width": 1920,
+        "height": 1078
+      },
+      "sourceFrameSHA256": "4c2c812aa6601e1490b4575e0d1a5de0ffca091a698ae783679d984402b926de",
+      "sourceTime": 82.990294,
+      "crop": [
+        650,
+        180,
+        650,
+        500
+      ],
+      "nativeXY": [
+        995,
+        405
+      ],
+      "pointUV": [
+        0.5307692307692308,
+        0.45
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v681/revision-1/proofs/germ_leopard_2a5_pso-frame-proof.json",
+        "sha256": "85d8d967f2d9ad48962012390bfa82b3e4ad1f0f6598f0cca0764116e9be6779",
+        "bytes": 3186
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": null,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "2ee20709be5adcf751e9407eecc9fb2551a538c0",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2ee20709be5adcf751e9407eecc9fb2551a538c0/images/GER/GER-Leopard-2-PSO-mantlet-position-20240816.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2ee20709be5adcf751e9407eecc9fb2551a538c0/images/GER/GER-Leopard-2-PSO-mantlet-position-20240816.webp"
+    },
+    {
+      "vehicleId": "sw_leopard_2a4_fin",
+      "filename": "SWE-Leopard-2A4-FIN-front-ammunition-context-20240721.webp",
+      "path": "images/SWE/SWE-Leopard-2A4-FIN-front-ammunition-context-20240721.webp",
+      "country": "SWE",
+      "kind": "photo",
+      "width": 905,
+      "height": 785,
+      "sha256": "090806f629e2130e24531fcc37db041283f6270be798acfda9e193b64ed45208",
+      "bytes": 412252,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v676-20261105/BV15b42177aT/native-86.png",
+        "sha256": "0d8bf49cedee93a7f20bfb5cf114f214b0faf243455f0243bbf9d695ee2a8892",
+        "bytes": 2007331,
+        "width": 1920,
+        "height": 1078
+      },
+      "sourceFrameSHA256": "0d8bf49cedee93a7f20bfb5cf114f214b0faf243455f0243bbf9d695ee2a8892",
+      "sourceTime": 86.66163,
+      "crop": [
+        560,
+        100,
+        905,
+        785
+      ],
+      "nativeXY": null,
+      "pointUV": null,
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v681/revision-1/proofs/sw_leopard_2a4_fin-frame-proof.json",
+        "sha256": "d2f02a9e4d04da2fc42b0ac23108dfdb73ca6d32e57eb84d48ae73bcb28462a5",
+        "bytes": 2926
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": null,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "2ee20709be5adcf751e9407eecc9fb2551a538c0",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2ee20709be5adcf751e9407eecc9fb2551a538c0/images/SWE/SWE-Leopard-2A4-FIN-front-ammunition-context-20240721.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2ee20709be5adcf751e9407eecc9fb2551a538c0/images/SWE/SWE-Leopard-2A4-FIN-front-ammunition-context-20240721.webp"
+    },
+    {
+      "vehicleId": "germ_leopard_2a6",
+      "filename": "GER-Leopard-2A6-front-turret.webp",
+      "path": "images/GER/GER-Leopard-2A6-front-turret.webp",
+      "country": "GER",
+      "kind": "photo",
+      "width": 884,
+      "height": 374,
+      "sha256": "b91f842c987ad15ca1447e9269242b745108c967ebbd278988c6e1216dc8677d",
+      "bytes": 170068,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v689-20261105/germ_leopard_2a6/BV1wXta6NEMX/native-222.png",
+        "sha256": "40d6622891b1e65760b30164c4484dbeedecfdaf2be58fb9d04037115f07af6e",
+        "bytes": 3356260,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "40d6622891b1e65760b30164c4484dbeedecfdaf2be58fb9d04037115f07af6e",
+      "sourceTime": 222.566687,
+      "crop": [
+        518,
+        353,
+        884,
+        374
+      ],
+      "nativeXY": [
+        982,
+        600
+      ],
+      "pointUV": [
+        0.5248868778280543,
+        0.660427807486631
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v708/proofs/germ_leopard_2a6-frame-proof.json",
+        "sha256": "e2aca753c03cc0b7ded231b7d297f1be4832d8275e982ca0a4d03bbcb47e072b",
+        "bytes": 2512
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-Leopard-2A6-front-turret.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-Leopard-2A6-front-turret.webp"
+    },
+    {
+      "vehicleId": "it_c1_ariete",
+      "filename": "ITA-C1-Ariete-front-position.webp",
+      "path": "images/ITA/ITA-C1-Ariete-front-position.webp",
+      "country": "ITA",
+      "kind": "photo",
+      "width": 630,
+      "height": 400,
+      "sha256": "8e4a058d33b0119d9e49f6a9ea1adfa43b34ca0576dae5fade4462930dd314ed",
+      "bytes": 235854,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v689-20261105/it_c1_ariete/BV1KprCYGE35/native-128.png",
+        "sha256": "5cbb3ebb7b4ecb199c8021b1c0dbb03082e6295c34a283bb665b15f5ccb2a3ed",
+        "bytes": 2499005,
+        "width": 1920,
+        "height": 1078
+      },
+      "sourceFrameSHA256": "5cbb3ebb7b4ecb199c8021b1c0dbb03082e6295c34a283bb665b15f5ccb2a3ed",
+      "sourceTime": 127.6,
+      "crop": [
+        630,
+        250,
+        630,
+        400
+      ],
+      "nativeXY": null,
+      "pointUV": null,
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v708/proofs/it_c1_ariete-frame-proof.json",
+        "sha256": "5f2a490d672b5cfc0c2b408facc5a22f69b57736803301adbb96594f18964f11",
+        "bytes": 2164
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": null,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/ITA/ITA-C1-Ariete-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/ITA/ITA-C1-Ariete-front-position.webp"
+    },
+    {
+      "vehicleId": "ussr_t_64a_1971",
+      "filename": "USSR-T-64A-1971-front.webp",
+      "path": "images/USSR/USSR-T-64A-1971-front.webp",
+      "country": "USSR",
+      "kind": "photo",
+      "width": 410,
+      "height": 260,
+      "sha256": "685b782c9ecef856cd1363f2e1d7209e86369f26627e620d546dca8d8080838c",
+      "bytes": 104322,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/t64a-front-source-v222-20261104/capture-1.png",
+        "sha256": "6c5206e29b905c5a8a690e34fdd85e6f7bd252e46edb88bd26c518cf0b285c69",
+        "bytes": 2916840,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "6c5206e29b905c5a8a690e34fdd85e6f7bd252e46edb88bd26c518cf0b285c69",
+      "sourceTime": 107.5,
+      "crop": [
+        880,
+        380,
+        410,
+        260
+      ],
+      "nativeXY": [
+        1110,
+        540
+      ],
+      "pointUV": [
+        0.5609756097560976,
+        0.6153846153846154
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v708/proofs/ussr_t_64a_1971-frame-proof.json",
+        "sha256": "334c98bacf8163adeafbdc976a2ae159364075de30a81e3345a10e901cece2ab",
+        "bytes": 2874
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/USSR/USSR-T-64A-1971-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/USSR/USSR-T-64A-1971-front.webp"
+    },
+    {
+      "vehicleId": "germ_mkpz_m48a2ga2",
+      "filename": "GER-M48A2-G-A2-front.webp",
+      "path": "images/GER/GER-M48A2-G-A2-front.webp",
+      "country": "GER",
+      "kind": "photo",
+      "width": 440,
+      "height": 310,
+      "sha256": "796f6d7e3b960482a5487f6e2aff11553d270ee1b103777dcad01ab3590a21c7",
+      "bytes": 120880,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v700-20261105/germ_mkpz_m48a2ga2/BV1864y1N7q5/native-113.5.png",
+        "sha256": "3fb314b67d704ca0c84f96a088579d4c0b3ca0ac18883ec28fe77ec53e784c6b",
+        "bytes": 2302469,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "3fb314b67d704ca0c84f96a088579d4c0b3ca0ac18883ec28fe77ec53e784c6b",
+      "sourceTime": 113.6,
+      "crop": [
+        750,
+        295,
+        440,
+        310
+      ],
+      "nativeXY": [
+        930,
+        535
+      ],
+      "pointUV": [
+        0.4090909090909091,
+        0.7741935483870968
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v708/proofs/germ_mkpz_m48a2ga2-frame-proof.json",
+        "sha256": "26056791dcc90f9c7d7bd0e7d49be6b7bcc8d1f3bfd6b9eab231dd5fd62c551b",
+        "bytes": 2291
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": null,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-M48A2-G-A2-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-M48A2-G-A2-front.webp"
+    },
+    {
+      "vehicleId": "il_magach_6b",
+      "filename": "ISR-Magach-6B-commander-cupola-position.webp",
+      "path": "images/ISR/ISR-Magach-6B-commander-cupola-position.webp",
+      "country": "ISR",
+      "kind": "photo",
+      "width": 840,
+      "height": 640,
+      "sha256": "cb303d1b3efc23f5c3957a72185d26656c7b9937d6fe4cee495a76d13615a415",
+      "bytes": 459896,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v689-20261105/il_magach_6b/BV1uw4m1X7h3/native-114.png",
+        "sha256": "436f0445f9c1bd6d0c85b7e1c86119e8ab6fe4eeb34dd25a7f938695fde705c1",
+        "bytes": 2527471,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "436f0445f9c1bd6d0c85b7e1c86119e8ab6fe4eeb34dd25a7f938695fde705c1",
+      "sourceTime": 114.133312,
+      "crop": [
+        560,
+        90,
+        840,
+        640
+      ],
+      "nativeXY": [
+        865,
+        172
+      ],
+      "pointUV": [
+        0.3630952380952381,
+        0.128125
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v708/proofs/il_magach_6b-frame-proof.json",
+        "sha256": "e20c5cf167ad7cb689d1e4e6c0d96539ef4239bd19869a623d93a9232323a99f",
+        "bytes": 2231
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": null,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/ISR/ISR-Magach-6B-commander-cupola-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/ISR/ISR-Magach-6B-commander-cupola-position.webp"
+    },
+    {
+      "vehicleId": "germ_leopard_i_a1",
+      "filename": "GER-Leopard-A1A1-front-position.webp",
+      "path": "images/GER/GER-Leopard-A1A1-front-position.webp",
+      "country": "GER",
+      "kind": "photo",
+      "width": 660,
+      "height": 480,
+      "sha256": "b9371adee56d3c932924435e5c99f08a9eb50139883452707247ceb1b211a2e5",
+      "bytes": 210930,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v689-20261105/germ_leopard_i_a1/BV1JK411a7dY/native-164.png",
+        "sha256": "3207ef104bc888d7e33d6f5dcaf689e8ed9ceedc31809d3cf9db8d62e1580a8c",
+        "bytes": 2130786,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "3207ef104bc888d7e33d6f5dcaf689e8ed9ceedc31809d3cf9db8d62e1580a8c",
+      "sourceTime": 165.066687,
+      "crop": [
+        660,
+        210,
+        660,
+        480
+      ],
+      "nativeXY": null,
+      "pointUV": null,
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v708/proofs/germ_leopard_i_a1-frame-proof.json",
+        "sha256": "16745f8424b150cc52ad34e2f05a4b18fb4f562ba19f03507b3ea255a1512f7b",
+        "bytes": 2140
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-Leopard-A1A1-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-Leopard-A1A1-front-position.webp"
+    },
+    {
+      "vehicleId": "germ_mkpz_super_m48",
+      "filename": "GER-Super-M48-turret-neck.webp",
+      "path": "images/GER/GER-Super-M48-turret-neck.webp",
+      "country": "GER",
+      "kind": "photo",
+      "width": 720,
+      "height": 540,
+      "sha256": "14b2dc21718266be0f3c98f8e6cb3871b6c5dfddabe8668935c9b9e7d8c75baf",
+      "bytes": 295610,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v703-20261105/germ_mkpz_super_m48/BV19w41177dT/native-162.6.png",
+        "sha256": "75b02eae96e7f31eb49c26693debeff0366e9b45fc148f11807c3d1285b7967d",
+        "bytes": 2445826,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "75b02eae96e7f31eb49c26693debeff0366e9b45fc148f11807c3d1285b7967d",
+      "sourceTime": 162.833312,
+      "crop": [
+        600,
+        180,
+        720,
+        540
+      ],
+      "nativeXY": [
+        1006,
+        439
+      ],
+      "pointUV": [
+        0.5638888888888889,
+        0.47962962962962963
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v708/revision-1/proofs/germ_mkpz_super_m48-frame-proof.json",
+        "sha256": "0e75fd9b6a9bcb30ed345d2c8435769924e4e2e9c4c199e3862cad7d85456741",
+        "bytes": 2304
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": null,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-Super-M48-turret-neck.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/GER/GER-Super-M48-turret-neck.webp"
+    },
+    {
+      "vehicleId": "us_t95e1",
+      "filename": "USA-T95E1-front-position.webp",
+      "path": "images/USA/USA-T95E1-front-position.webp",
+      "country": "USA",
+      "kind": "photo",
+      "width": 820,
+      "height": 620,
+      "sha256": "d0e37a566ad9370862c012156f178259253af6789951c45803e188ec24dff5d2",
+      "bytes": 398032,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v703-20261105/us_t95e1/BV1Ge411D7Cy/native-151.669.png",
+        "sha256": "f3bd983fbe24a5ebe029c32f67a509f682c14cc06b1b8c597c6898893d0e11cf",
+        "bytes": 2599714,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "f3bd983fbe24a5ebe029c32f67a509f682c14cc06b1b8c597c6898893d0e11cf",
+      "sourceTime": 152,
+      "crop": [
+        600,
+        160,
+        820,
+        620
+      ],
+      "nativeXY": [
+        920,
+        490
+      ],
+      "pointUV": [
+        0.3902439024390244,
+        0.532258064516129
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v708/revision-1/proofs/us_t95e1-frame-proof.json",
+        "sha256": "105deae39ef5cceeb7744d228317a6ce41455fd886ce944995b730058bacca48",
+        "bytes": 1913
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": null,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/USA/USA-T95E1-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/USA/USA-T95E1-front-position.webp"
+    },
+    {
+      "vehicleId": "fr_amx_32_105",
+      "filename": "FRA-AMX-32-105-front-position.webp",
+      "path": "images/FRA/FRA-AMX-32-105-front-position.webp",
+      "country": "FRA",
+      "kind": "photo",
+      "width": 630,
+      "height": 420,
+      "sha256": "0c2dc766cee100cafb1bfc1ffd16abf6905e88e9a4327c5be5374ac60f111ac2",
+      "bytes": 191624,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v700-20261105/fr_amx_32_105/BV1LD421H732/native-71.24.png",
+        "sha256": "31da8ebd7e10636d7f38b06bbe89bddc37d867c72aceb765345c818265fd64ec",
+        "bytes": 1991791,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "31da8ebd7e10636d7f38b06bbe89bddc37d867c72aceb765345c818265fd64ec",
+      "sourceTime": 71.633312,
+      "crop": [
+        660,
+        240,
+        630,
+        420
+      ],
+      "nativeXY": null,
+      "pointUV": null,
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v708/revision-1/proofs/fr_amx_32_105-frame-proof.json",
+        "sha256": "67396ff54a8e4c4c24e387eb3199ee2e33a2a57a9f2a0e866f69d8583afebe28",
+        "bytes": 1697
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": null,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "db22c4c981debf2171fe78860c5e90e1459ed6e8",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@db22c4c981debf2171fe78860c5e90e1459ed6e8/images/FRA/FRA-AMX-32-105-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/db22c4c981debf2171fe78860c5e90e1459ed6e8/images/FRA/FRA-AMX-32-105-front-position.webp"
+    },
+    {
+      "vehicleId": "jp_type_74",
+      "filename": "JPN-Type-74-E-front-position.webp",
+      "path": "images/JPN/JPN-Type-74-E-front-position.webp",
+      "country": "JPN",
+      "kind": "photo",
+      "width": 660,
+      "height": 620,
+      "sha256": "fc69242307ddae7d443577974f6a33bfa1b8e31b199767b5bb1198c598eb915b",
+      "bytes": 316630,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v700-20261105/jp_type_74/BV11f421Z7Mk/native-115.749.png",
+        "sha256": "868fb3155b2713b2df0f1a9807a3f423427706bc0f953e26802ea0236e9ee424",
+        "bytes": 2287704,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "868fb3155b2713b2df0f1a9807a3f423427706bc0f953e26802ea0236e9ee424",
+      "sourceTime": 116.533312,
+      "crop": [
+        650,
+        130,
+        660,
+        620
+      ],
+      "nativeXY": null,
+      "pointUV": null,
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v732/proofs/jp_type_74-frame-proof.json",
+        "sha256": "bd2ecef02008d51a43c26e4c1e01fb31700e5035f91fec641eb9b64d65cb1090",
+        "bytes": 6362
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": false,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "577ed164c14b8268c2e436f40fe006026d02e65c",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/JPN/JPN-Type-74-E-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/JPN/JPN-Type-74-E-front-position.webp"
+    },
+    {
+      "vehicleId": "cn_cm11",
+      "filename": "CHN-CM11-front-position.webp",
+      "path": "images/CHN/CHN-CM11-front-position.webp",
+      "country": "CHN",
+      "kind": "photo",
+      "width": 540,
+      "height": 410,
+      "sha256": "7165406450d4cd84ca12ceb3b34dd587377a49632218ebc1413cc9f0717b1c05",
+      "bytes": 178646,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v703-20261105/cn_cm11/BV1w2421u7Vq/native-150.31.png",
+        "sha256": "13340f3720ece7bc59d86fdbcf04f7dca4d47e9da6018f594276670395c99c1b",
+        "bytes": 2173824,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "13340f3720ece7bc59d86fdbcf04f7dca4d47e9da6018f594276670395c99c1b",
+      "sourceTime": 150.833312,
+      "crop": [
+        690,
+        200,
+        540,
+        410
+      ],
+      "nativeXY": null,
+      "pointUV": null,
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v732/proofs/cn_cm11-frame-proof.json",
+        "sha256": "49fb76744a4edeb006c2bccade455726371f0df1ff1589b2286ad031ad336baa",
+        "bytes": 3836
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": false,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "577ed164c14b8268c2e436f40fe006026d02e65c",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/CHN/CHN-CM11-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/CHN/CHN-CM11-front-position.webp"
+    },
+    {
+      "vehicleId": "il_magach_6m",
+      "filename": "ISR-Magach-6M-front-position.webp",
+      "path": "images/ISR/ISR-Magach-6M-front-position.webp",
+      "country": "ISR",
+      "kind": "photo",
+      "width": 650,
+      "height": 440,
+      "sha256": "c73a5932e004f3cdd4b82987bc04a1b1d7b60e7bddc969c1e49c90ebae1a4a80",
+      "bytes": 181966,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v716-20261105/il_magach_6m/BV16T411T7TN/native-94.png",
+        "sha256": "d7f7a621597302804f65f1c26062c1da88ed0f1b4fbf7dba5e0c78422624a787",
+        "bytes": 2594391,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "d7f7a621597302804f65f1c26062c1da88ed0f1b4fbf7dba5e0c78422624a787",
+      "sourceTime": 94.25,
+      "crop": [
+        690,
+        190,
+        650,
+        440
+      ],
+      "nativeXY": [
+        1005,
+        390
+      ],
+      "pointUV": [
+        0.4846153846153846,
+        0.45454545454545453
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v732/proofs/il_magach_6m-frame-proof.json",
+        "sha256": "05ffd1a4adb6d8f1c17d8222b9828754b6a4f6501edc0b1945e63a13fd2ea457",
+        "bytes": 2037
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "577ed164c14b8268c2e436f40fe006026d02e65c",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/ISR/ISR-Magach-6M-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/ISR/ISR-Magach-6M-front-position.webp"
+    },
+    {
+      "vehicleId": "us_m60a1_rise_passive_era",
+      "filename": "USA-M60A1-RISE-Passive-front-position.webp",
+      "path": "images/USA/USA-M60A1-RISE-Passive-front-position.webp",
+      "country": "USA",
+      "kind": "photo",
+      "width": 550,
+      "height": 480,
+      "sha256": "543aded77121053c4a2e1821a0869b1b9a4d512d8272bca09b6b13124c4e048a",
+      "bytes": 196602,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v700-20261105/us_m60a1_rise_passive_era/BV1NC4y1K7Kj/native-166.15.png",
+        "sha256": "2e313f9e3dcd8e7600da4a46c269942032e2eb4d366681f4385e778d0b07362a",
+        "bytes": 2265773,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "2e313f9e3dcd8e7600da4a46c269942032e2eb4d366681f4385e778d0b07362a",
+      "sourceTime": 166.4,
+      "crop": [
+        660,
+        180,
+        550,
+        480
+      ],
+      "nativeXY": null,
+      "pointUV": null,
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v732/proofs/us_m60a1_rise_passive_era-frame-proof.json",
+        "sha256": "29be17c1d411628b934559fe3fb1c057b7df30621f118a3be3cbeb6fd8ba6598",
+        "bytes": 3109
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": null,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "577ed164c14b8268c2e436f40fe006026d02e65c",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/USA/USA-M60A1-RISE-Passive-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/USA/USA-M60A1-RISE-Passive-front-position.webp"
+    },
+    {
+      "vehicleId": "sw_strv_105",
+      "filename": "SWE-Strv-105-front-position.webp",
+      "path": "images/SWE/SWE-Strv-105-front-position.webp",
+      "country": "SWE",
+      "kind": "photo",
+      "width": 1440,
+      "height": 720,
+      "sha256": "8040aa6b813fc0c44d757ca0d3eeeb5cf78ae2cdf3adf6516ddfe0c55c86c9f8",
+      "bytes": 741252,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v703-20261105/sw_strv_105/BV13M4m1Z7uD/native-83.02.png",
+        "sha256": "1e1d36445cc66cf4cd262a1b170fa1c88063c5b5402f30fc06ba95d098a7d4e2",
+        "bytes": 2613991,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "1e1d36445cc66cf4cd262a1b170fa1c88063c5b5402f30fc06ba95d098a7d4e2",
+      "sourceTime": 83.233312,
+      "crop": [
+        0,
+        0,
+        1440,
+        720
+      ],
+      "nativeXY": null,
+      "pointUV": null,
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v732/proofs/sw_strv_105-frame-proof.json",
+        "sha256": "3fdbaa1cb035b336fc5c69f13683e1a1d5d0aba01c71905b28264e0fe2bc9251",
+        "bytes": 3058
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": false,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "577ed164c14b8268c2e436f40fe006026d02e65c",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/SWE/SWE-Strv-105-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/SWE/SWE-Strv-105-front-position.webp"
+    },
+    {
+      "vehicleId": "germ_embt",
+      "filename": "GER-EMBT-front-mantlet-position.webp",
+      "path": "images/GER/GER-EMBT-front-mantlet-position.webp",
+      "country": "GER",
+      "kind": "photo",
+      "width": 720,
+      "height": 490,
+      "sha256": "b12b72d97db1dc6934bf170eea314eb6842cbb52233b53d14fedb7e2a95b6f59",
+      "bytes": 210060,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v727-20261105/germ_embt/BV1bLHq6VE7d/native-157.8.png",
+        "sha256": "0eca717a48ad9e7abba6455a0b34ca8917d200accfcbede8aa0dfbe8e04cd8f7",
+        "bytes": 1913655,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "0eca717a48ad9e7abba6455a0b34ca8917d200accfcbede8aa0dfbe8e04cd8f7",
+      "sourceTime": 158.466687,
+      "crop": [
+        0,
+        0,
+        720,
+        490
+      ],
+      "nativeXY": [
+        283,
+        123
+      ],
+      "pointUV": [
+        0.39305555555555555,
+        0.2510204081632653
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v732/proofs/germ_embt-frame-proof.json",
+        "sha256": "1dcab7948e9a43e98748a91779062f7f44e9b8353aee0f01a22642d0c22e9bb9",
+        "bytes": 3420
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": null,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "577ed164c14b8268c2e436f40fe006026d02e65c",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/GER/GER-EMBT-front-mantlet-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/GER/GER-EMBT-front-mantlet-position.webp"
+    },
+    {
+      "vehicleId": "ussr_t_55a",
+      "filename": "USSR-T-55A-front-position.webp",
+      "path": "images/USSR/USSR-T-55A-front-position.webp",
+      "country": "USSR",
+      "kind": "photo",
+      "width": 520,
+      "height": 510,
+      "sha256": "a396b7f20c97992cc967b7f4c2796b21d76d829f8bbeaef9deff3287a06e368e",
+      "bytes": 210536,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v700-20261105/ussr_t_55a/BV1wk4y1S7ou/native-149.619.png",
+        "sha256": "02fee27e0c29839243faf395aa3ef74c03bc9c01e775a1fd4011214670ff994b",
+        "bytes": 2870334,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "02fee27e0c29839243faf395aa3ef74c03bc9c01e775a1fd4011214670ff994b",
+      "sourceTime": 149.833312,
+      "crop": [
+        700,
+        190,
+        520,
+        510
+      ],
+      "nativeXY": null,
+      "pointUV": null,
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v742/proofs/ussr_t_55a-frame-proof.json",
+        "sha256": "0e3b660505c11d130b4af3093985f659f7abdea365d290cb73e7d58760f61716",
+        "bytes": 4228
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": false,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "b0e917f38d41cef05c8cd165a657e938a30bdea7",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b0e917f38d41cef05c8cd165a657e938a30bdea7/images/USSR/USSR-T-55A-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b0e917f38d41cef05c8cd165a657e938a30bdea7/images/USSR/USSR-T-55A-front-position.webp"
+    },
+    {
+      "vehicleId": "it_of_40_mtca",
+      "filename": "ITA-OF-40-MTCA-front-position.webp",
+      "path": "images/ITA/ITA-OF-40-MTCA-front-position.webp",
+      "country": "ITA",
+      "kind": "photo",
+      "width": 790,
+      "height": 430,
+      "sha256": "fac2f2fa34015ad3c305a1d9c1d1701174308b2db343ad0759592e22f7a55622",
+      "bytes": 296042,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v703-20261105/it_of_40_mtca/BV1uL4y1P7BS/native-189.5.png",
+        "sha256": "f19bcd2f488f93b78a223b15f73fc642ff16b00992f19eeca09907d8c57af8df",
+        "bytes": 3553200,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "f19bcd2f488f93b78a223b15f73fc642ff16b00992f19eeca09907d8c57af8df",
+      "sourceTime": 188.733312,
+      "crop": [
+        535,
+        270,
+        790,
+        430
+      ],
+      "nativeXY": null,
+      "pointUV": null,
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v742/proofs/it_of_40_mtca-frame-proof.json",
+        "sha256": "bc6c14c38d528f797b9972e39e869a2221777642e6f6a6a85397b8c1bdd454c2",
+        "bytes": 5202
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "b0e917f38d41cef05c8cd165a657e938a30bdea7",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b0e917f38d41cef05c8cd165a657e938a30bdea7/images/ITA/ITA-OF-40-MTCA-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b0e917f38d41cef05c8cd165a657e938a30bdea7/images/ITA/ITA-OF-40-MTCA-front-position.webp"
+    },
+    {
+      "vehicleId": "il_magach_7c",
+      "filename": "ISR-Magach-7C-front-position.webp",
+      "path": "images/ISR/ISR-Magach-7C-front-position.webp",
+      "country": "ISR",
+      "kind": "photo",
+      "width": 650,
+      "height": 450,
+      "sha256": "859f600fe8414b1a5c8035602d2682aed522293ea6d1a821967a93f5f5a2eb8c",
+      "bytes": 212038,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v733-20261105/il_magach_7c/BV1vP4y1C7mk/native-42.185.png",
+        "sha256": "0987c74a7f4e287a972e42369664a9b30a129f6fa3b94cf41e3d5472fcadecae",
+        "bytes": 2600992,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "0987c74a7f4e287a972e42369664a9b30a129f6fa3b94cf41e3d5472fcadecae",
+      "sourceTime": 42.667,
+      "crop": [
+        630,
+        180,
+        650,
+        450
+      ],
+      "nativeXY": null,
+      "pointUV": null,
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v754/proofs/il_magach_7c-frame-proof.json",
+        "sha256": "e97094ed02584a4c424e76faa830b2fdac6767c85eb403fe60cbbdab19f54f8e",
+        "bytes": 16619
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "9e185e32f7282e25c2d44d69a773417b659a6d30",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9e185e32f7282e25c2d44d69a773417b659a6d30/images/ISR/ISR-Magach-7C-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9e185e32f7282e25c2d44d69a773417b659a6d30/images/ISR/ISR-Magach-7C-front-position.webp"
+    },
+    {
+      "vehicleId": "cn_ztz_99",
+      "filename": "CHN-ZTZ99-II-lower-front-position.webp",
+      "path": "images/CHN/CHN-ZTZ99-II-lower-front-position.webp",
+      "country": "CHN",
+      "kind": "photo",
+      "width": 480,
+      "height": 340,
+      "sha256": "d2009f9c1be78367c36ca78ba38dfab6171fd97dd65a87e9e448eae7bb7d6aad",
+      "bytes": 151680,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v744-20261105/cn_ztz_99/BV1LpiRYVEv6/native-133.44.png",
+        "sha256": "600f5d9c1439341d6a181dac597afc601816a3efc0ac989b295194463449a315",
+        "bytes": 2376784,
+        "width": 1920,
+        "height": 1078
+      },
+      "sourceFrameSHA256": "600f5d9c1439341d6a181dac597afc601816a3efc0ac989b295194463449a315",
+      "sourceTime": 133.533312,
+      "crop": [
+        730,
+        280,
+        480,
+        340
+      ],
+      "nativeXY": [
+        890,
+        547
+      ],
+      "pointUV": [
+        0.3333333333333333,
+        0.7852941176470588
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v754/proofs/cn_ztz_99-frame-proof.json",
+        "sha256": "ef063adde0581d44b8ab8707c7eb96cf8ae82d6893cf4e16e1de67b6648f3d58",
+        "bytes": 5815
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": false,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "9e185e32f7282e25c2d44d69a773417b659a6d30",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9e185e32f7282e25c2d44d69a773417b659a6d30/images/CHN/CHN-ZTZ99-II-lower-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9e185e32f7282e25c2d44d69a773417b659a6d30/images/CHN/CHN-ZTZ99-II-lower-front-position.webp"
+    },
+    {
+      "vehicleId": "uk_arjun_mk1",
+      "filename": "GBR-Arjun-Mk1-upper-front.webp",
+      "path": "images/GBR/GBR-Arjun-Mk1-upper-front.webp",
+      "country": "GBR",
+      "kind": "photo",
+      "width": 960,
+      "height": 460,
+      "sha256": "f4622167b4f640bae76e4888888c891e00f1f08ea9431115a84f6b81e79243ee",
+      "bytes": 356370,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v751-20261105/uk_arjun_mk1/BV1Rvhe6NEAR/native-289.png",
+        "sha256": "53837aec3b2273a38ad776a75f13f68b4ac907293f5316b7f4f79b77f6e5ec6a",
+        "bytes": 2764053,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "53837aec3b2273a38ad776a75f13f68b4ac907293f5316b7f4f79b77f6e5ec6a",
+      "sourceTime": 289.533312,
+      "crop": [
+        590,
+        300,
+        960,
+        460
+      ],
+      "nativeXY": [
+        1050,
+        535
+      ],
+      "pointUV": [
+        0.4791666666666667,
+        0.5108695652173914
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v764/proofs/uk_arjun_mk1-frame-proof.json",
+        "sha256": "dd5c48ec54647dc3aca0fc78f895cac35271de44c7b1238ccc975c4629230bf1",
+        "bytes": 5612
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "697ec3206c3c74952dfb1ceda50b2887d6cd673e",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Arjun-Mk1-upper-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Arjun-Mk1-upper-front.webp"
+    },
+    {
+      "vehicleId": "uk_challenger_1_mk_3_gulf",
+      "filename": "GBR-Challenger-DS-front-position.webp",
+      "path": "images/GBR/GBR-Challenger-DS-front-position.webp",
+      "country": "GBR",
+      "kind": "photo",
+      "width": 690,
+      "height": 400,
+      "sha256": "a223e8a05edf2179d26f3851117fbd23b4c0dbca7483c6802514ab5d88b5f3b1",
+      "bytes": 207858,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v751-20261105/uk_challenger_1_mk_3_gulf/BV1qG3LzSEAk/native-107.png",
+        "sha256": "f05e6977ab1a64d981a8425b8a0dd8cca317ce628899374de45e02daf0e628c1",
+        "bytes": 4008750,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "f05e6977ab1a64d981a8425b8a0dd8cca317ce628899374de45e02daf0e628c1",
+      "sourceTime": 107,
+      "crop": [
+        0,
+        0,
+        690,
+        400
+      ],
+      "nativeXY": [
+        290,
+        208
+      ],
+      "pointUV": [
+        0.42028985507246375,
+        0.52
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v764/proofs/uk_challenger_1_mk_3_gulf-frame-proof.json",
+        "sha256": "3861c2f781199b708978e9929892ffa17746a5f5bfe507c4f8f38ad8b0c46d92",
+        "bytes": 7655
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "697ec3206c3c74952dfb1ceda50b2887d6cd673e",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-DS-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-DS-front-position.webp"
+    },
+    {
+      "vehicleId": "uk_challenger_2e",
+      "filename": "GBR-Challenger-2E-lower-front-position.webp",
+      "path": "images/GBR/GBR-Challenger-2E-lower-front-position.webp",
+      "country": "GBR",
+      "kind": "photo",
+      "width": 600,
+      "height": 550,
+      "sha256": "108cdcd097ea7a48b5926a169951ca2ca4a010f0964f5a5759d88cd85e88447c",
+      "bytes": 257636,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v751-20261105/uk_challenger_2e/BV1S1jezqEwY/native-12.png",
+        "sha256": "385edd56b8e165a42bbe86d383f177c52b70c878768fb2e28a85cc2da08c18e3",
+        "bytes": 2560966,
+        "width": 1920,
+        "height": 1078
+      },
+      "sourceFrameSHA256": "385edd56b8e165a42bbe86d383f177c52b70c878768fb2e28a85cc2da08c18e3",
+      "sourceTime": 12.833312,
+      "crop": [
+        670,
+        140,
+        600,
+        550
+      ],
+      "nativeXY": [
+        910,
+        606
+      ],
+      "pointUV": [
+        0.4,
+        0.8472727272727273
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v764/proofs/uk_challenger_2e-frame-proof.json",
+        "sha256": "c8070dcb811b9b3043dfdb2587645a551b1efd92e7be1cab5ddc9f5ab1b34194",
+        "bytes": 3622
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": false,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "697ec3206c3c74952dfb1ceda50b2887d6cd673e",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-2E-lower-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-2E-lower-front-position.webp"
     }
   ]
 }

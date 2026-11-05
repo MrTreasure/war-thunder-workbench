@@ -238,3 +238,24 @@ footer { max-width:1560px; margin:24px auto 0; padding:20px; border-top:1px soli
 .base-reference h3 { margin: 0 0 6px; font-size: 1rem; }
 .base-reference p { margin: 0 0 8px; font-size: .9rem; line-height: 1.6; }
 .base-reference a { display: inline-block; min-height: 44px; margin-inline-end: 16px; padding-block: 10px; }
+/* Reuse the workbench select and compact status treatment. */
+.green-status{display:inline-block;flex-shrink:0;font-size:12px;line-height:1.6;padding:1px 7px;border:1px solid var(--wt-border,#68705d);border-radius:3px;color:var(--wt-muted,#b9b9ac)}
+.green-status[data-status="region"]{color:#b7d990;border-color:#718653;background:#33432955}
+.green-status[data-status="point"]{color:#dcc990;border-color:#8c7950}
+.select-option-label .green-status{margin-inline-start:auto}
+#green-note{font-size:13px;color:var(--wt-muted,#b9b9ac)}
+.missing-list{margin:16px 0 24px;border:1px solid var(--wt-border,#55594e);padding:12px 16px;background:var(--wt-panel,#20231f)}
+.missing-list summary{cursor:pointer;font-weight:600;min-height:28px}
+.missing-list p{font-size:13px;color:var(--wt-muted,#b9b9ac)}
+.missing-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.missing-actions button{min-height:44px}
+.missing-table-wrap{overflow:auto;max-height:480px}
+.missing-list table{border-collapse:collapse;width:100%;font-size:13px;text-align:left}
+.missing-list th,.missing-list td{border-bottom:1px solid var(--wt-border,#55594e);padding:9px;vertical-align:top;min-width:80px}
+.missing-list td:nth-child(6){max-width:360px;overflow-wrap:anywhere}
+.missing-list th{position:sticky;top:0;background:var(--wt-panel,#20231f)}
+
+/* The shared workbench owns the header and the only page scroller. */
+body[data-embedded="true"] { min-height:0; background:transparent; }
+body[data-embedded="true"] > .shell-header, body[data-embedded="true"] > footer { display:none; }
+body[data-embedded="true"] main { padding-top:20px; }

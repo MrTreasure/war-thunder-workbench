@@ -25,11 +25,13 @@
       <section class="filters" aria-label="筛选弱点资料">
         <div class="filter-control"><span id="country-label" class="sr-only">国家</span><div id="countries"></div></div>
         <div class="filter-control"><span id="rank-label" class="sr-only">等级</span><div id="ranks"></div></div>
+        <div class="filter-control"><span id="green-label" class="sr-only">绿区状态</span><div id="green-filter"></div></div>
         <div class="filter-control vehicle-filter"><span id="vehicle-label" class="sr-only">车型</span><div id="vehicles"></div></div>
         <label for="vehicle-search" class="sr-only">搜索坦克名称或型号</label>
         <input id="vehicle-search" class="vehicle-search" type="search" placeholder="搜索坦克名称或型号" autocomplete="off">
       </section>
       <p id="result-count" class="result-count" role="status"></p>
+      <details class="missing-list"><summary id="missing-summary">待补绿区清单</summary><p>按当前国家、等级、搜索列出全部尚未确认绿色装甲分区的车型，包含仅单点；绿区状态筛选不缩减清单。视频与时间段留空供人工补充。当前采集已暂停。</p><div class="missing-actions"><button type="button" data-missing-download="csv">下载当前清单 CSV</button><button type="button" data-missing-download="md">下载当前清单 Markdown</button><button type="button" data-missing-download="csv" data-all="true">下载全部待补 CSV</button><button type="button" data-missing-download="md" data-all="true">下载全部待补 Markdown</button></div><div class="missing-table-wrap"><table><thead><tr><th>中文车型</th><th>国别</th><th>等级</th><th>当前证据状态</th><th>有无正面图</th><th>已有关联来源URL</th><th>待补视频URL</th><th>时间段</th></tr></thead><tbody id="missing-body"></tbody></table></div></details>
       <section id="empty-state" class="empty-state" hidden><h2>暂无匹配的坦克</h2><p>可调整名称、型号或筛选条件后继续查找。</p><button id="reset-filters" type="button">重置筛选</button></section>
       <section id="study" class="study" aria-labelledby="vehicle-name">
         <div class="figure-column">
@@ -41,6 +43,7 @@
             <img id="photo" alt="" width="1100" height="690"><p id="image-status" class="image-status" role="status" hidden></p>
             <div id="pins" class="annotation-layer"></div>
           </div>
+          <p><span id="green-status" class="green-status"></span> <span id="green-note"></span></p>
           <p id="figure-caption" class="figure-caption"></p>
           <section id="base-reference" class="base-reference" aria-label="基础车型图解参考" hidden></section>
           <div id="pin-buttons" class="pin-buttons" aria-label="按区域查看说明"></div>

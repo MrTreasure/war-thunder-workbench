@@ -7,15 +7,12 @@ export function availableRouteLayouts(
   team: number,
 ) {
   const variant = atlas.seasonalVariants.find((item) => item.mapId === map.id);
-  return map.layouts.filter((layout) =>
-    routes.some(
-      (route) =>
-        route.mapId === (variant?.sourceMapId || map.id) &&
-        route.layoutId ===
-          ((variant?.layouts as Record<string, string> | undefined)?.[layout.id] || layout.id) &&
-        route.team === team,
-    ),
-  );
+  return map.layouts.filter((layout) => {
+    const sharedLayout = (variant?.layouts as Record<string, string> | undefined)?.[layout.id];
+    return routesForContext(routes, map.id, layout.id, team,
+      variant && sharedLayout ? { mapId: variant.sourceMapId, layoutId: sharedLayout } : undefined,
+    ).length > 0;
+  });
 }
 
 export function routesForContext(
@@ -23,11 +20,14 @@ export function routesForContext(
   mapId: string,
   layoutId: string,
   team: number,
+  shared?: { mapId: string; layoutId: string },
 ) {
   const seen = new Set<string>();
   return routes
     .filter((route) => {
-      if (route.mapId !== mapId || route.layoutId !== layoutId || route.team !== team) return false;
+      const direct = route.mapId === mapId && route.layoutId === layoutId;
+      const inherited = shared && route.mapId === shared.mapId && route.layoutId === shared.layoutId;
+      if ((!direct && !inherited) || route.team !== team) return false;
       if (seen.has(route.id)) return false;
       seen.add(route.id);
       return true;

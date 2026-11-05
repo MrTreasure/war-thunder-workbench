@@ -5,6 +5,8 @@ import {
   fetchMapRouteSVG,
   validateMapSnapshot,
   mapAPIBase,
+  getMapReviewRelease,
+  isMapReviewMode,
 } from "./map-data-api";
 import type { MapSnapshot, MapRoute } from "./map-data-api";
 import { statsHeaders } from "./player-stats-api";
@@ -30,6 +32,7 @@ type State = { snapshot: MapSnapshot | null; loading: boolean; error: string };
 let state: State = { snapshot: null, loading: true, error: "" };
 let pending: Promise<void> | null = null;
 let lastCheck = 0;
+let catalogOwner = "";
 const listeners = new Set<() => void>();
 function emit(next: State) {
   state = next;
@@ -43,6 +46,7 @@ const subscribe = (listener: () => void) => {
 };
 const snapshot = () => state;
 function cache(mode: "read" | "write", value?: MapSnapshot): Promise<MapSnapshot | null> {
+  if (isMapReviewMode()) return Promise.resolve(null);
   return new Promise((resolve) => {
     let done = false;
     const finish = (v: MapSnapshot | null) => {
@@ -90,6 +94,13 @@ function cache(mode: "read" | "write", value?: MapSnapshot): Promise<MapSnapshot
   });
 }
 export function refreshMapCatalog(force = false): Promise<void> {
+  const owner = getMapReviewRelease() ? `${getMapReviewRelease()}:${statsHeaders().Authorization || ""}` : "public";
+  if (catalogOwner !== owner) {
+    catalogOwner = owner;
+    state = { snapshot: null, loading: true, error: "" };
+    lastCheck = 0;
+    pending = null;
+  }
   if (pending) return pending;
   if (!force && state.snapshot && Date.now() - lastCheck < 60000) return Promise.resolve();
   lastCheck = Date.now();
@@ -101,9 +112,11 @@ export function refreshMapCatalog(force = false): Promise<void> {
     emit({ ...state, loading: !state.snapshot, error: "" });
     try {
       const fresh = await fetchMapSnapshot(AbortSignal.timeout(20000));
+      if (catalogOwner !== owner) return;
       emit({ snapshot: fresh, loading: false, error: "" });
       void cache("write", fresh);
     } catch (e) {
+      if (catalogOwner !== owner) return;
       emit({
         ...state,
         loading: false,
@@ -111,12 +124,13 @@ export function refreshMapCatalog(force = false): Promise<void> {
       });
     }
   })().finally(() => {
-    pending = null;
+    if (catalogOwner === owner) pending = null;
   });
   return pending;
 }
 export function useMapCatalog() {
   const current = useSyncExternalStore(subscribe, snapshot, snapshot);
+  const reviewOwner = getMapReviewRelease() ? statsHeaders().Authorization || "" : "";
   useEffect(() => {
     void refreshMapCatalog();
     const focus = () => {
@@ -128,7 +142,7 @@ export function useMapCatalog() {
       window.removeEventListener("focus", focus);
       document.removeEventListener("visibilitychange", focus);
     };
-  }, []);
+  }, [reviewOwner]);
   return {
     ...current,
     retry: () => {

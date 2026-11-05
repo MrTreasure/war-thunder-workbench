@@ -3,6 +3,7 @@ import { useLocale } from "./i18n/react";
 import { localize, t } from "./i18n/core";
 /* Interactive SVG map owns arrow-key pan and Home reset; native HTML has no map widget. */
 /* oxlint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex */
+import { canUseTestFeatures } from "./application-access";
 import { GameSelect } from "./components/GameSelect";
 import { MapLayerMenu } from "./components/MapLayerMenu";
 import { useEffect, useId, useRef, useState } from "react";
@@ -118,7 +119,11 @@ export function MapAtlas() {
 }
 function hasRoute(atlas: GroundAtlas, routes: MapRoute[], mapId: string, layoutId: string) {
   const identity = routeIdentity(atlas, mapId, layoutId);
-  return routes.some((r) => r.mapId === identity.mapId && r.layoutId === identity.layoutId);
+  return routes.some(
+    (r) =>
+      (r.mapId === mapId && r.layoutId === layoutId) ||
+      (r.mapId === identity.mapId && r.layoutId === identity.layoutId),
+  );
 }
 const normalize = (s: string) =>
   s.normalize("NFKC").toLowerCase().replaceAll("日曜", "日耀").replaceAll("马奇诺", "马其诺");
@@ -127,8 +132,8 @@ function MapAtlasContent({ snapshot }: { snapshot: MapSnapshot }) {
 
   const atlas = snapshot.atlas;
   const { session } = useWorkbenchAccount();
-  const isSuperAdmin = session?.role === "superadmin";
-  const coverage = useMapRouteCoverage(snapshot.releaseId, isSuperAdmin);
+  const hasTestAccess = canUseTestFeatures(session);
+  const coverage = useMapRouteCoverage(snapshot.releaseId, hasTestAccess);
   const search = Route.useSearch();
   const navigate = useNavigate({ from: "/maps" });
   const routeQuery = search.q || "";
@@ -190,7 +195,7 @@ function MapAtlasContent({ snapshot }: { snapshot: MapSnapshot }) {
         ).includes(normalize(query)) &&
         (!onlyGuides ||
           guides.length ||
-          (isSuperAdmin && hasRoute(atlas, coverage.routes, map.id, thumb.layoutId))),
+          (hasTestAccess && hasRoute(atlas, coverage.routes, map.id, thumb.layoutId))),
     );
   if (selected)
     return (
@@ -265,7 +270,7 @@ function MapAtlasContent({ snapshot }: { snapshot: MapSnapshot }) {
                 loading="lazy"
                 decoding="async"
               />
-              {isSuperAdmin && hasRoute(atlas, coverage.routes, map.id, thumb.layoutId) ? (
+              {hasTestAccess && hasRoute(atlas, coverage.routes, map.id, thumb.layoutId) ? (
                 <span className="ground-guide-badge">{t("推荐走线")}</span>
               ) : guides.length > 0 ? (
                 <span className="ground-guide-badge">
@@ -420,7 +425,7 @@ function GroundDetail({
   useLocale();
 
   const { session } = useWorkbenchAccount();
-  const isSuperAdmin = session?.role === "superadmin";
+  const hasTestAccess = canUseTestFeatures(session);
   const layout = map.layouts.find((l) => l.id === layoutId) || map.layouts[0];
   const marks = displayMapMarks(layout.marks);
   const routeContext = routeIdentity(atlas, map.id, layout.id);
@@ -432,16 +437,11 @@ function GroundDetail({
   const [routeChoice, setRouteChoice] = useState({ context: "", id: "" });
   const [routeState, setRouteState] = useState({ id: "", status: "loading" });
   const [routeRetry, setRouteRetry] = useState(0);
-  const routeContextKey = `${releaseId}:${routeContext.mapId}:${routeContext.layoutId}:${team}`;
-  const coverage = useMapRouteCoverage(releaseId, isSuperAdmin);
+  const routeContextKey = `${releaseId}:${map.id}:${layout.id}:${team}`;
+  const coverage = useMapRouteCoverage(releaseId, hasTestAccess);
   const guideLayouts = availableRouteLayouts(atlas, map, coverage.routes, team);
   const guides = relatedMapGuides(atlas, map.id, coverage.routes);
-  const routeOptions = routesForContext(
-    coverage.routes,
-    routeContext.mapId,
-    routeContext.layoutId,
-    team,
-  );
+  const routeOptions = routesForContext(coverage.routes, map.id, layout.id, team, routeContext);
   const selectedRoute = selectedMapRoute(
     routeOptions,
     routeChoice.context === routeContextKey ? routeChoice.id : "",
@@ -451,10 +451,10 @@ function GroundDetail({
   const routeData = useMapRoute(
     releaseId,
     selectedRoute?.id || "",
-    isSuperAdmin && recommendations,
+    hasTestAccess && recommendations,
     routeRetry,
   );
-  const route = routeData.route;
+  const route = hasTestAccess ? routeData.route : undefined;
   const routeKey = `${route?.url || "none"}:${routeRetry}`;
   const routeStatus =
     coverage.status === "loading" || coverage.status === "error"
@@ -514,7 +514,7 @@ function GroundDetail({
   };
   const markerScale = mapFrame.w / zoom;
   const gridLines = [];
-  if (grid) {
+  if (grid && map.bounds && map.grid) {
     const lines = referenceGrid(map.bounds, map.grid.default_reference);
     for (const { position, label } of lines.vertical)
       gridLines.push(
@@ -586,7 +586,7 @@ function GroundDetail({
         </GameSelect>
       </label>
       <div className="ground-layer-toggles">
-        {isSuperAdmin &&
+        {hasTestAccess &&
           coverage.status === "loaded" &&
           routeOptions.length === 0 &&
           guideLayouts.length > 0 && (
@@ -600,7 +600,7 @@ function GroundDetail({
               {t("当前布局暂无走线，查看已收录布局：{0}", [localize(guideLayouts[0].name)])}
             </button>
           )}
-        {isSuperAdmin && routeOptions.length > 0 && (
+        {hasTestAccess && routeOptions.length > 0 && (
           <label className="ground-guide-choice">
             <span>{t("攻略方案")}</span>
             <GameSelect
@@ -621,7 +621,7 @@ function GroundDetail({
             </GameSelect>
           </label>
         )}
-        {isSuperAdmin && sourceRoutes.length > 1 && (
+        {hasTestAccess && sourceRoutes.length > 1 && (
           <label className="ground-route-choice">
             <span>{t("走法")}</span>
             <GameSelect
@@ -637,7 +637,7 @@ function GroundDetail({
             </GameSelect>
           </label>
         )}
-        {isSuperAdmin && (
+        {hasTestAccess && (
           <button
             aria-pressed={recommendations && !!route}
             aria-busy={recommendations && routeStatus === "loading"}
@@ -701,7 +701,12 @@ function GroundDetail({
                 setCropped(!cropped);
               },
             },
-          ]}
+          ].filter(
+            (layer) =>
+              (layer.label !== "等高线" || !!map.contourImage) &&
+              (layer.label !== "参考网格" || !!map.grid) &&
+              (layer.label !== "点位" || marks.length > 0),
+          )}
         />
       </div>
     </div>
@@ -729,6 +734,9 @@ function GroundDetail({
             >
               {localize(editing ? t("完成编辑") : t("编辑走线"))}
             </button>
+            {!hasTestAccess && (
+              <output>{t("推荐走线仅向测试员及管理员开放，请登录有测试权限的账号。")}</output>
+            )}
             <a
               className="ground-original"
               href={map.base.url}
@@ -802,7 +810,7 @@ function GroundDetail({
                   onFailure={() => setFailed(true)}
                 />
                 {localize(
-                  contours && (
+                  contours && map.contourImage && (
                     <GroundSvgImage
                       key={`contours-${retryVersion}`}
                       asset={rotateAsset(map.contourImage, sourceChoice)}
@@ -855,46 +863,6 @@ function GroundDetail({
                 )}
                 {localize(
                   points &&
-                    layout.marks.map((mark, i) => {
-                      const size = markerScale * (mark.kind === "spawn" ? 0.047 : 0.029);
-                      const key =
-                        mark.kind === "spawn"
-                          ? mark.team === team
-                            ? "spawn_ally"
-                            : "spawn_enemy"
-                          : `capture_${localize(mark.label.toLowerCase())}`;
-                      const icon = atlas.icons[key as keyof typeof atlas.icons];
-                      return icon ? (
-                        <GroundSvgImage
-                          key={`${i}-${retryVersion}`}
-                          asset={rotateAsset(icon, sourceChoice)}
-                          onFailure={() => setFailed(true)}
-                          x={mark.x * 1000 - size / 2}
-                          y={mark.y * 1000 - size / 2}
-                          width={size}
-                          height={size}
-                        >
-                          <title>
-                            {localize(mark.label)}
-                            {localize(mark.team ? t(" · 队伍 {0}", [localize(mark.team)]) : "")}
-                          </title>
-                        </GroundSvgImage>
-                      ) : (
-                        <text
-                          key={i}
-                          x={mark.x * 1000}
-                          y={mark.y * 1000}
-                          fill="#efede5"
-                          textAnchor="middle"
-                          fontSize={size}
-                        >
-                          {localize(mark.label)}
-                        </text>
-                      );
-                    }),
-                )}
-                {localize(
-                  points &&
                     marks.map((mark, i) => {
                       const size = markerScale * (mark.kind === "spawn" ? 0.047 : 0.029);
                       const key =
@@ -937,7 +905,7 @@ function GroundDetail({
               <g ref={setEditorHost} />
             </svg>
             {localize(
-              (!loaded || (contours && !contourLoaded)) && !failed && (
+              (!loaded || (contours && map.contourImage && !contourLoaded)) && !failed && (
                 <p className="ground-map-status">
                   {localize(loaded ? t("正在加载地形图层…") : t("正在加载高清地图…"))}
                   <button onClick={alternateSource}>{t("尝试备用线路")}</button>
@@ -1010,7 +978,9 @@ function GroundDetail({
                           }
                         : undefined,
                     base: rotateAsset(map.base, sourceChoice),
-                    contourImage: rotateAsset(map.contourImage, sourceChoice),
+                    contourImage: map.contourImage
+                      ? rotateAsset(map.contourImage, sourceChoice)
+                      : null,
                     view: { x, y, w, h },
                     mapFrame,
                     markerScale,
@@ -1020,7 +990,7 @@ function GroundDetail({
                     team,
                     zoom,
                     bounds: map.bounds,
-                    reference: map.grid.default_reference,
+                    reference: map.grid?.default_reference ?? null,
                     marks,
                     builtinIcons: atlas.icons,
                     editorIcons: editorIconAssets,
@@ -1054,33 +1024,43 @@ function GroundDetail({
         </div>
         <div className="ground-map-meta">
           <span>
-            <i className="ground-ally" /> {t("己方出生点")}
+            <i className="ground-ally" />{" "}
+            {map.coordinateSpace === "image" ? t("原图上方出生点") : t("己方出生点")}
           </span>
           <span>
-            <i className="ground-enemy" /> {t("敌方出生点")}
+            <i className="ground-enemy" />{" "}
+            {map.coordinateSpace === "image" ? t("原图下方出生点") : t("敌方出生点")}
           </span>
           <span>{t("◇ 占领点")}</span>
-          <span>{t("等高距 5 m · 主等高距 25 m")}</span>
+          {map.contours && <span>{t("等高距 5 m · 主等高距 25 m")}</span>}
         </div>
-        <details className="ground-notes">
-          <summary>{t("地形与坐标说明")}</summary>
-          <p>
-            {t("地形高度")}
-            {localize(map.contours.height_range_m.map((n) => n.toFixed(1)).join(" ~ "))}
-            {localize(" ")}
-            {t(
-              "m，为世界坐标 Y，并非已校准海拔。等高线仅表示地形，不包含建筑、桥梁或通行性判断。点位为任务简报参考位置，并非精确出生范围。",
-            )}
+        {map.contours ? (
+          <details className="ground-notes">
+            <summary>{t("地形与坐标说明")}</summary>
+            <p>
+              {t("地形高度")}
+              {localize(
+                map.contours?.height_range_m.map((n) => n.toFixed(1)).join(" ~ ") ?? t("未知"),
+              )}
+              {localize(" ")}
+              {t(
+                "m，为世界坐标 Y，并非已校准海拔。等高线仅表示地形，不包含建筑、桥梁或通行性判断。点位为任务简报参考位置，并非精确出生范围。",
+              )}
+            </p>
+            <p>
+              {t(
+                "参考网格使用地图文件中的间距，字母自上向下、数字自左向右；未与实际对局校准，切换布局不会重置编号。原始地形采样间距",
+              )}
+              {localize(" ")}
+              {localize(map.contours?.native_sample_m ?? t("未知"))} m。
+            </p>
+          </details>
+        ) : (
+          <p className="ground-notes">
+            {t("原图出生点颜色固定；所选走线仍以绿线表示己方。原图未提供比例尺与等高线。")}
           </p>
-          <p>
-            {t(
-              "参考网格使用地图文件中的间距，字母自上向下、数字自左向右；未与实际对局校准，切换布局不会重置编号。原始地形采样间距",
-            )}
-            {localize(" ")}
-            {localize(map.contours.native_sample_m)} m。
-          </p>
-        </details>
-        {isSuperAdmin && selectedRoute && (
+        )}
+        {hasTestAccess && selectedRoute && (
           <section className="ground-route-guide" aria-label={t("所选推荐走线文字攻略")}>
             <h3>{selectedRoute.title}</h3>
             <p className="ground-route-source">

@@ -8,9 +8,20 @@ import { isMapGuideSourceURL } from "./map-route-sources";
 import { relatedMapGuides } from "./map-related-guides";
 
 export type MapGuideSource = { title: string; source: string; edition: string };
-export type GroundMap = (typeof bundledAtlas)["maps"][number] & {
-  guideSources?: MapGuideSource[];
+type BundledGroundMap = (typeof bundledAtlas)["maps"][number];
+type MapLayout = Omit<BundledGroundMap["layouts"][number], "marks"> & {
+  marks: (Omit<BundledGroundMap["layouts"][number]["marks"][number], "world"> & {
+    world: number[] | null;
+    bakedIntoBase?: boolean;
+  })[];
 };
+export type GroundMap = Omit<BundledGroundMap, "bounds" | "grid" | "contours" | "contourImage" | "layouts" | "coordinateSpace"> & {
+  guideSources?: MapGuideSource[];
+  layouts: MapLayout[];
+} & (
+  | { coordinateSpace?: "world"; bounds: number[][]; grid: NonNullable<BundledGroundMap["grid"]>; contours: NonNullable<BundledGroundMap["contours"]>; contourImage: NonNullable<BundledGroundMap["contourImage"]> }
+  | { coordinateSpace: "image"; bounds: null; grid: null; contours: null; contourImage: null }
+);
 export type GroundAtlas = Omit<typeof bundledAtlas, "maps"> & { maps: GroundMap[] };
 export type MapSnapshot = { releaseId: string; atlas: GroundAtlas };
 export type MapRoute = {
@@ -41,6 +52,25 @@ export type MapRoute = {
 };
 // Maps use the deployed versioned endpoint independently of the vehicle catalog channel.
 export const mapAPIBase = `${settings.apiBaseUrl}/map-data-preview`;
+/** Explicit draft review is confined to the independent Render preview. */
+export function getMapReviewRelease(): string | null {
+  if (typeof window === "undefined") return null;
+  const { hostname, pathname, search } = window.location;
+  if (hostname !== "render.mrtreasure.cc" || pathname !== "/war-thunder-trees/") return null;
+  const release = new URLSearchParams(search).get("mapReview");
+  return release && /^map_[a-f0-9]{32}$/.test(release) ? release : null;
+}
+export const isMapReviewMode = () => getMapReviewRelease() !== null;
+function reviewQuery(query: URLSearchParams) {
+  const release = getMapReviewRelease();
+  if (release) {
+    if (query.has("releaseId") && query.get("releaseId") !== release)
+      throw new Error("地图测试版本不一致");
+    query.set("releaseId", release);
+    query.set("review", "1");
+  }
+  return query;
+}
 const hash = (bytes: Uint8Array) => bytesToHex(sha256(bytes));
 const record = (v: unknown): v is Record<string, unknown> =>
   !!v && typeof v === "object" && !Array.isArray(v);
@@ -102,27 +132,30 @@ export function validateMapSnapshot(v: unknown): v is MapSnapshot {
       !finite(m.height) ||
       m.height <= 0 ||
       !validAsset(m.base) ||
-      !validAsset(m.contourImage) ||
       !Array.isArray(m.layouts) ||
       !m.layouts.length ||
       !Array.isArray(m.thumbnails) ||
       !Array.isArray(m.guides) ||
       !Array.isArray(m.legacyGuideIds) ||
-      !Array.isArray(m.bounds) ||
-      m.bounds.length !== 2 ||
-      !m.bounds.every((b) => Array.isArray(b) && b.length === 2 && b.every(finite)) ||
-      !record(m.grid) ||
-      !record(m.grid.default_reference) ||
-      !Array.isArray(m.grid.default_reference.origin_xz_m) ||
-      m.grid.default_reference.origin_xz_m.length !== 2 ||
-      !m.grid.default_reference.origin_xz_m.every(finite) ||
-      !Array.isArray(m.grid.default_reference.step_xz_m) ||
-      m.grid.default_reference.step_xz_m.length !== 2 ||
-      !m.grid.default_reference.step_xz_m.every((n) => finite(n) && n > 0) ||
-      !record(m.contours) ||
-      !Array.isArray(m.contours.height_range_m) ||
-      m.contours.height_range_m.length !== 2 ||
-      !m.contours.height_range_m.every(finite)
+      (m.coordinateSpace === "image"
+        ? !(m.bounds === null && m.grid === null && m.contours === null && m.contourImage === null)
+        : (m.coordinateSpace !== undefined && m.coordinateSpace !== "world") ||
+          !validAsset(m.contourImage) ||
+          !Array.isArray(m.bounds) ||
+          m.bounds.length !== 2 ||
+          !m.bounds.every((b) => Array.isArray(b) && b.length === 2 && b.every(finite)) ||
+          !record(m.grid) ||
+          !record(m.grid.default_reference) ||
+          !Array.isArray(m.grid.default_reference.origin_xz_m) ||
+          m.grid.default_reference.origin_xz_m.length !== 2 ||
+          !m.grid.default_reference.origin_xz_m.every(finite) ||
+          !Array.isArray(m.grid.default_reference.step_xz_m) ||
+          m.grid.default_reference.step_xz_m.length !== 2 ||
+          !m.grid.default_reference.step_xz_m.every((n) => finite(n) && n > 0) ||
+          !record(m.contours) ||
+          !Array.isArray(m.contours.height_range_m) ||
+          m.contours.height_range_m.length !== 2 ||
+          !m.contours.height_range_m.every(finite))
     )
       return false;
     seen.add(m.id);
@@ -145,7 +178,9 @@ export function validateMapSnapshot(v: unknown): v is MapSnapshot {
             finite(p.x) &&
             finite(p.y) &&
             finite(p.team) &&
-            typeof p.label === "string",
+            typeof p.label === "string" &&
+            (p.bakedIntoBase === undefined || typeof p.bakedIntoBase === "boolean") &&
+            (m.coordinateSpace !== "image" || (p.world === null && p.x >= 0 && p.x <= 1 && p.y >= 0 && p.y <= 1)),
         )
       )
         return false;
@@ -217,12 +252,16 @@ async function readJSON(path: string, signal: AbortSignal, authorization?: strin
   return value;
 }
 export async function fetchMapSnapshot(signal: AbortSignal): Promise<MapSnapshot> {
+  const reviewRelease = getMapReviewRelease();
+  const authorization = reviewRelease ? statsHeaders().Authorization : undefined;
+  if (reviewRelease && !authorization) throw new Error("请登录测试账号");
   const maps: GroundMap[] = [];
   let cursor: string | null = null;
   let first: Record<string, unknown> | null = null;
   do {
-    const query = new URLSearchParams({ limit: "100", ...(cursor ? { cursor } : {}) });
-    const page = await readJSON(`maps?${query}`, signal);
+    const query = reviewQuery(new URLSearchParams({ limit: "100", ...(cursor ? { cursor } : {}) }));
+    const page = await readJSON(`maps?${query}`, signal, authorization);
+    if (reviewRelease && statsHeaders().Authorization !== authorization) throw new Error("登录身份已变化");
     if (
       !record(page) ||
       page.schemaVersion !== 1 ||
@@ -231,7 +270,7 @@ export async function fetchMapSnapshot(signal: AbortSignal): Promise<MapSnapshot
       !(page.nextCursor === null || typeof page.nextCursor === "string")
     )
       throw new Error("地图清单格式无效");
-    if (first && page.releaseId !== first.releaseId) throw new Error("地图清单版本不一致");
+    if ((reviewRelease && page.releaseId !== reviewRelease) || (first && page.releaseId !== first.releaseId)) throw new Error("地图清单版本不一致");
     first ||= page;
     maps.push(...(page.items as GroundMap[]));
     if (maps.length > 1000 || (page.nextCursor && page.nextCursor === cursor))
@@ -259,14 +298,14 @@ export async function fetchMapRoutes(
   team?: number,
 ): Promise<MapRoute[]> {
   const authorization = statsHeaders().Authorization;
-  if (!authorization) throw new Error("请登录后读取推荐走线");
+  if (!authorization) throw new Error(isMapReviewMode() ? "请登录测试账号" : "请登录后读取推荐走线");
   const q = new URLSearchParams({
     releaseId,
     guideSchema: "2",
     ...(mapId && layoutId ? { mapId, layoutId } : {}),
     ...(team ? { team: String(team) } : {}),
   });
-  const value = await readJSON(`map-guides/routes?${q}`, signal, authorization);
+  const value = await readJSON(`map-guides/routes?${reviewQuery(q)}`, signal, authorization);
   if (statsHeaders().Authorization !== authorization) throw new Error("登录身份已变化");
   if (
     !record(value) ||
@@ -286,9 +325,9 @@ export async function fetchMapRouteSVG(
   signal: AbortSignal,
 ): Promise<Blob> {
   const authorization = statsHeaders().Authorization;
-  if (!authorization) throw new Error("请登录后读取推荐走线");
+  if (!authorization) throw new Error(isMapReviewMode() ? "请登录测试账号" : "请登录后读取推荐走线");
   const response = await fetch(
-    `${mapAPIBase}/${route.svg.path}?releaseId=${encodeURIComponent(releaseId)}`,
+    `${mapAPIBase}/${route.svg.path}?${reviewQuery(new URLSearchParams({ releaseId }))}`,
     {
       credentials: "omit",
       cache: "no-store",

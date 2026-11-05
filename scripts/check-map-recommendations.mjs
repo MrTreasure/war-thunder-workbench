@@ -366,6 +366,21 @@ assert.equal(
   "Other layout",
   "Layout changes cannot retain another layout's text",
 );
+// Winter-specific guides remain selectable alongside explicitly shared normal guides.
+const winterVariant = atlas.seasonalVariants.find(item => item.mapId === "avg_soviet_suburban_snow");
+assert(winterVariant);
+const winterMap = atlas.maps.find(item => item.id === winterVariant.mapId);
+const winterLayout = winterMap.layouts.find(item => winterVariant.layouts[item.id]);
+const normalIdentity = { mapId: winterVariant.sourceMapId, layoutId: winterVariant.layouts[winterLayout.id] };
+const normalRoute = { ...routeA, ...normalIdentity, id: "selection-normal", team: 1 };
+const winterRoute = { ...routeA, mapId: winterMap.id, layoutId: winterLayout.id, id: "selection-winter", team: 1, sourceVersion: "winter-specific" };
+const winterOptions = routesForContext([normalRoute, winterRoute, winterRoute], winterMap.id, winterLayout.id, 1, normalIdentity);
+assert.deepEqual(new Set(winterOptions.map(item => item.id)), new Set([normalRoute.id, winterRoute.id]));
+assert.equal(selectedMapRoute(winterOptions, winterRoute.id).sourceVersion, "winter-specific");
+assert.deepEqual(routesForContext([normalRoute, winterRoute], normalIdentity.mapId, normalIdentity.layoutId, 1).map(item => item.id), [normalRoute.id]);
+assert(availableRouteLayouts(atlas, winterMap, [winterRoute], 1).some(item => item.id === winterLayout.id));
+assert(availableRouteLayouts(atlas, winterMap, [normalRoute], 1).some(item => item.id === winterLayout.id));
+assert.equal(routesForContext([normalRoute, winterRoute], winterMap.id, winterLayout.id, 2, normalIdentity).length, 0);
 const selectedDownloads = [];
 const selectionCache = new MapRouteCache({
   index: async () => [r, alternate],

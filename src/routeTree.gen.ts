@@ -20,6 +20,7 @@ import { Route as WorkbenchSalesRouteImport } from './routes/_workbench.sales'
 import { Route as WorkbenchStatsRouteImport } from './routes/_workbench.stats'
 import { Route as WorkbenchTagPreviewRouteImport } from './routes/_workbench.tag-preview'
 import { Route as WorkbenchTreeRouteImport } from './routes/_workbench.tree'
+import { Route as WorkbenchWeakpointsRouteImport } from './routes/_workbench.weakpoints'
 import { Route as WorkbenchLineupsGarageRouteImport } from './routes/_workbench.lineups_.garage'
 import { Route as WorkbenchLineupsLobbyRouteImport } from './routes/_workbench.lineups_.lobby'
 import { Route as WorkbenchMapsMapIdRouteImport } from './routes/_workbench.maps_.$mapId'
@@ -79,6 +80,11 @@ const WorkbenchTreeRoute = WorkbenchTreeRouteImport.update({
   path: '/tree',
   getParentRoute: () => WorkbenchRoute,
 } as any)
+const WorkbenchWeakpointsRoute = WorkbenchWeakpointsRouteImport.update({
+  id: '/weakpoints',
+  path: '/weakpoints',
+  getParentRoute: () => WorkbenchRoute,
+} as any)
 const WorkbenchLineupsGarageRoute = WorkbenchLineupsGarageRouteImport.update({
   id: '/lineups_/garage',
   path: '/lineups/garage',
@@ -111,6 +117,7 @@ export interface FileRoutesByFullPath {
   '/stats': typeof WorkbenchStatsRoute
   '/tag-preview': typeof WorkbenchTagPreviewRoute
   '/tree': typeof WorkbenchTreeRoute
+  '/weakpoints': typeof WorkbenchWeakpointsRoute
   '/lineups/garage': typeof WorkbenchLineupsGarageRoute
   '/lineups/lobby': typeof WorkbenchLineupsLobbyRoute
   '/maps/$mapId': typeof WorkbenchMapsMapIdRoute
@@ -127,6 +134,7 @@ export interface FileRoutesByTo {
   '/stats': typeof WorkbenchStatsRoute
   '/tag-preview': typeof WorkbenchTagPreviewRoute
   '/tree': typeof WorkbenchTreeRoute
+  '/weakpoints': typeof WorkbenchWeakpointsRoute
   '/lineups/garage': typeof WorkbenchLineupsGarageRoute
   '/lineups/lobby': typeof WorkbenchLineupsLobbyRoute
   '/maps/$mapId': typeof WorkbenchMapsMapIdRoute
@@ -145,6 +153,7 @@ export interface FileRoutesById {
   '/_workbench/stats': typeof WorkbenchStatsRoute
   '/_workbench/tag-preview': typeof WorkbenchTagPreviewRoute
   '/_workbench/tree': typeof WorkbenchTreeRoute
+  '/_workbench/weakpoints': typeof WorkbenchWeakpointsRoute
   '/_workbench/lineups_/garage': typeof WorkbenchLineupsGarageRoute
   '/_workbench/lineups_/lobby': typeof WorkbenchLineupsLobbyRoute
   '/_workbench/maps_/$mapId': typeof WorkbenchMapsMapIdRoute
@@ -163,6 +172,7 @@ export interface FileRouteTypes {
     | '/stats'
     | '/tag-preview'
     | '/tree'
+    | '/weakpoints'
     | '/lineups/garage'
     | '/lineups/lobby'
     | '/maps/$mapId'
@@ -179,6 +189,7 @@ export interface FileRouteTypes {
     | '/stats'
     | '/tag-preview'
     | '/tree'
+    | '/weakpoints'
     | '/lineups/garage'
     | '/lineups/lobby'
     | '/maps/$mapId'
@@ -196,6 +207,7 @@ export interface FileRouteTypes {
     | '/_workbench/stats'
     | '/_workbench/tag-preview'
     | '/_workbench/tree'
+    | '/_workbench/weakpoints'
     | '/_workbench/lineups_/garage'
     | '/_workbench/lineups_/lobby'
     | '/_workbench/maps_/$mapId'
@@ -286,6 +298,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkbenchTreeRouteImport
       parentRoute: typeof WorkbenchRoute
     }
+    '/_workbench/weakpoints': {
+      id: '/_workbench/weakpoints'
+      path: '/weakpoints'
+      fullPath: '/weakpoints'
+      preLoaderRoute: typeof WorkbenchWeakpointsRouteImport
+      parentRoute: typeof WorkbenchRoute
+    }
     '/_workbench/lineups_/garage': {
       id: '/_workbench/lineups_/garage'
       path: '/lineups/garage'
@@ -327,6 +346,7 @@ interface WorkbenchRouteChildren {
   WorkbenchStatsRoute: typeof WorkbenchStatsRoute
   WorkbenchTagPreviewRoute: typeof WorkbenchTagPreviewRoute
   WorkbenchTreeRoute: typeof WorkbenchTreeRoute
+  WorkbenchWeakpointsRoute: typeof WorkbenchWeakpointsRoute
   WorkbenchLineupsGarageRoute: typeof WorkbenchLineupsGarageRoute
   WorkbenchLineupsLobbyRoute: typeof WorkbenchLineupsLobbyRoute
   WorkbenchMapsMapIdRoute: typeof WorkbenchMapsMapIdRoute
@@ -343,6 +363,7 @@ const WorkbenchRouteChildren: WorkbenchRouteChildren = {
   WorkbenchStatsRoute: WorkbenchStatsRoute,
   WorkbenchTagPreviewRoute: WorkbenchTagPreviewRoute,
   WorkbenchTreeRoute: WorkbenchTreeRoute,
+  WorkbenchWeakpointsRoute: WorkbenchWeakpointsRoute,
   WorkbenchLineupsGarageRoute: WorkbenchLineupsGarageRoute,
   WorkbenchLineupsLobbyRoute: WorkbenchLineupsLobbyRoute,
   WorkbenchMapsMapIdRoute: WorkbenchMapsMapIdRoute,

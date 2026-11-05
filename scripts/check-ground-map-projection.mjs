@@ -38,6 +38,14 @@ assert(Math.abs(capture(berlinDom, "A").y - 0.4537597894668579) < 1e-12);
 
 // Cropping preserves the point's world-relative location. It is not a second flip.
 for (const m of atlas.maps) {
+  if (m.coordinateSpace === "image") {
+    assert.equal(m.bounds, null);
+    assert.equal(m.grid, null);
+    assert.equal(m.contourImage, null);
+    for (const layout of m.layouts)
+      for (const point of layout.marks) assert.equal(point.world, null);
+    continue;
+  }
   for (const l of m.layouts) {
     for (const p of l.marks) {
       const expected = worldToMap(m.bounds, p.world);
