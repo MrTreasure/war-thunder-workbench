@@ -23,12 +23,15 @@ function run(args) {
 run(["run", "check"]);
 run(["run", "build"]);
 run(["exec", "node", "scripts/build-preview-catalog.mjs"]);
+run(["exec", "node", "docs/tank-weakpoints-preview/build.mjs"]);
+run(["exec", "node", "scripts/stage-weakpoints-preview.mjs"]);
 if (args.includes("--dry-run")) {
   console.log(
     "Preview checked; no upload. Target: https://render.mrtreasure.cc/war-thunder-trees/",
   );
 } else {
   run(["run", "publish"]);
+  run(["exec", "node", "scripts/stage-weakpoints-preview.mjs", "/vol1/1000/appdata/nginx/public/resume/muse/war-thunder-trees"]);
   run([
     "--dir",
     "/vol1/1000/workspace/cloudflare-sites",

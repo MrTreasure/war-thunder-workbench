@@ -9,6 +9,7 @@ let original = false;
 let evidenceId = null;
 let country = "all";
 let rank = "all";
+let green = "all";
 let searchQuery = "";
 let composing = false;
 let imageLoadTimer;
@@ -45,11 +46,38 @@ function roleIcon(model) {
   return icon;
 }
 function searchKey(value) { return String(value || "").normalize("NFKC").toLocaleLowerCase().replace(/[\s\p{P}\p{S}]/gu, ""); }
-function matches(model) {
+function matchesScope(model) {
   if (country !== "all" && (model.country || "unknown") !== country) return false;
   if (rank !== "all" && Number(model.rank) !== Number(rank)) return false;
   const needle = searchKey(searchQuery);
   return !needle || [model.name, model.englishName, model.nameEn, model.nameZhCN, model.id, model.modelId].some((value) => searchKey(value).includes(needle));
+}
+function coverage(model) { return model.greenCoverage || { status: "pending", label: "待补绿区", note: "绿区待核实" }; }
+function matches(model) {
+  return matchesScope(model) && (green === "all" || (green === "pending" ? coverage(model).status !== "region" : coverage(model).status === green));
+}
+const missingColumns = ["中文车型", "国别", "等级", "当前证据状态", "有无正面图", "已有关联来源URL", "待补视频URL", "时间段"];
+function missingModels(all = false) { return SAMPLE.models.filter((model) => coverage(model).status !== "region" && (all || matchesScope(model))); }
+function missingRow(model) {
+  const urls = new Set([sourceOf(model).url, model.wikiUrl, ...(model.testCases || []).map((test) => test.sourceUrl), ...(model.relatedSources || []).map((source) => source.url)].filter(Boolean));
+  return [model.nameZhCN || model.name, model.countryName || countries[model.country] || model.country, model.rankLabel || String(model.rank || ""), coverage(model).label, model.imageUrl ? "有" : "无", [...urls].join(" "), "", ""];
+}
+function renderMissing() {
+  const models = missingModels();
+  $("missing-summary").textContent = `待补绿区清单 · 当前国家／等级／搜索 ${models.length} 辆`;
+  $("missing-body").replaceChildren(...models.map((model) => {
+    const tr = element("tr");
+    missingRow(model).forEach((value, index) => { const td = element("td"); if (index === 0) { const link = element("a", value); link.href = `#vehicle=${model.id}`; td.append(link); } else td.textContent = value; tr.append(td); });
+    return tr;
+  }));
+}
+function downloadMissing(format, all) {
+  const rows = [missingColumns, ...missingModels(all).map(missingRow)];
+  const csv = (value) => '"' + String(value).replaceAll('"', '""') + '"';
+  const md = (value) => String(value).replaceAll("|", "\\|").replaceAll(/\r?\n/g, " ");
+  const body = format === "csv" ? "\uFEFF" + rows.map((row) => row.map(csv).join(",")).join("\r\n") : "# 待补绿色装甲分区清单\n\n仅单点也列入待补；基础车型参考不计入。待补视频与时间段由人工填写。\n\n" + [rows[0], rows[0].map(() => "---"), ...rows.slice(1)].map((row) => "| " + row.map(md).join(" | ") + " |").join("\n");
+  const url = URL.createObjectURL(new Blob([body], { type: format === "csv" ? "text/csv;charset=utf-8" : "text/markdown;charset=utf-8" }));
+  const link = element("a"); link.href = url; link.download = `tank-weakpoints-missing-green-${all ? "all" : "filtered"}.${format === "csv" ? "csv" : "md"}`; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 function videoUrl(source, time) {
   if (!source.url) return null;
@@ -127,6 +155,9 @@ function render() {
     });
   }
   renderBaseReference(model);
+  $("green-status").textContent = coverage(model).label;
+  $("green-status").dataset.status = coverage(model).status;
+  $("green-note").textContent = coverage(model).note;
   const source = sourceOf(model);
   const articleImage = source.kind === "article-image";
   const staticSource = source.kind === "forum-image" || articleImage;
@@ -276,7 +307,7 @@ function updateList(preferredId) {
   for (const id of ["study", "source-section"]) $(id).hidden = !visible.length;
   $("empty-state").hidden = !!visible.length;
   const illustrated = visible.filter((model) => model.imageUrl).length;
-  $("result-count").textContent = `${visible.length} 辆资料 · ${illustrated} 辆已配正面图 · ${visible.length - illustrated} 辆待补图`;
+  $("result-count").textContent = `${visible.length} 辆资料 · ${illustrated} 辆已配正面图 · ${visible.length - illustrated} 辆待补图 · ${visible.filter((model) => coverage(model).status === "region").length} 辆有局部绿区 · ${visible.filter((model) => coverage(model).status === "point").length} 辆仅单点`;
   const currentId = preferredId || SAMPLE.models[selected]?.id;
   const next = visible.find((model) => model.id === currentId) || visible[0];
   const nextIndex = next ? SAMPLE.models.indexOf(next) : -1;
@@ -284,8 +315,9 @@ function updateList(preferredId) {
     if (next) select(nextIndex);
     else { selected = -1; clearTimeout(imageLoadTimer); ++imageLoadGeneration; }
   }
-  vehicleSelect.setOptions(visible.map((model) => ({ value: model.id, roleIconKey: model.roleIconKey, roleLabel: model.roleLabel, label: model.name + (!model.imageUrl && !model.rawUrl ? " · 待补图" : "") })));
+  vehicleSelect.setOptions(visible.map((model) => ({ value: model.id, roleIconKey: model.roleIconKey, roleLabel: model.roleLabel, label: model.name, greenCoverage: coverage(model) })));
   filterSelects.forEach((control) => control.sync());
+  renderMissing();
 }
 // Standalone equivalent of components/GameSelect: trigger focus + top-layer listbox.
 function createFilter(host, kind, entries, labelledBy) {
@@ -306,7 +338,7 @@ function createFilter(host, kind, entries, labelledBy) {
   menu.setAttribute("aria-labelledby", trigger.id); menu.hidden = true;
   $(host).append(trigger, menu);
   let open = false, active = 0, search = "", searchAt = 0;
-  const current = () => kind === "vehicle" ? SAMPLE.models[selected]?.id || "" : ({ country, rank }[kind]);
+  const current = () => kind === "vehicle" ? SAMPLE.models[selected]?.id || "" : ({ country, rank, green }[kind]);
   function content(entry) {
     const row = element("span", undefined, "select-option-label");
     const flags = entry.flagUrl ? [entry.flagUrl] : [];
@@ -318,7 +350,9 @@ function createFilter(host, kind, entries, labelledBy) {
     }
     const icon = roleIcon(entry);
     if (icon) row.append(icon);
-    row.append(element("span", entry.label)); return row;
+    row.append(element("span", entry.label));
+    if (entry.greenCoverage) { const badge = element("span", entry.greenCoverage.label, "green-status"); badge.dataset.status = entry.greenCoverage.status; row.append(badge); }
+    return row;
   }
   let options = [];
   function setOptions(nextEntries) {
@@ -377,6 +411,7 @@ function createFilter(host, kind, entries, labelledBy) {
     const value = entries[index].value;
     if (kind === "country") country = value;
     if (kind === "rank") rank = value;
+    if (kind === "green") green = value;
     if (kind === "vehicle") location.hash = `vehicle=${value}`;
     close(); updateList(kind === "vehicle" ? value : undefined); trigger.focus({ preventScroll: true });
   }
@@ -416,12 +451,13 @@ createFilter("countries", "country", [{ value: "all", label: "全部国家" }, .
 const romanRanks = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
 const ranks = [...new Set(SAMPLE.models.map((model) => Number(model.rank)).filter((value) => Number.isInteger(value) && value > 0))].sort((a, b) => a - b);
 createFilter("ranks", "rank", [{ value: "all", label: "全部等级" }, ...ranks.map((value) => ({ value: String(value), label: `${romanRanks[value] || value} 级` }))], "rank-label");
+createFilter("green-filter", "green", [{ value: "all", label: "全部绿区状态" }, { value: "region", label: "有绿区" }, { value: "pending", label: "待补绿区" }, { value: "point", label: "仅单点" }], "green-label");
 const vehicleSelect = createFilter("vehicles", "vehicle", [], "vehicle-label");
 function fromHash() {
   const id = new URLSearchParams(location.hash.slice(1)).get("vehicle");
   const model = SAMPLE.models.find((entry) => entry.id === id);
   if (model && !matches(model)) {
-    country = "all"; rank = "all"; searchQuery = "";
+    country = "all"; rank = "all"; green = "all"; searchQuery = "";
     $("vehicle-search").value = "";
   }
   updateList(id);
@@ -435,7 +471,8 @@ searchInput.addEventListener("input", (event) => {
   if (composing || event.isComposing) return;
   searchQuery = searchInput.value; updateList();
 });
-$("reset-filters").addEventListener("click", () => { country = "all"; rank = "all"; searchQuery = ""; searchInput.value = ""; updateList(); });
+$("reset-filters").addEventListener("click", () => { country = "all"; rank = "all"; green = "all"; searchQuery = ""; searchInput.value = ""; updateList(); });
 $("toggle-original").addEventListener("click", () => { original = !original; render(); });
 window.addEventListener("hashchange", fromHash);
+document.querySelectorAll("[data-missing-download]").forEach((button) => button.addEventListener("click", () => downloadMissing(button.dataset.missingDownload, button.dataset.all === "true")));
 fromHash();

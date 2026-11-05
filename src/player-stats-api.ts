@@ -120,7 +120,7 @@ export type StatsSession = {
     displayName?: string;
     email?: string;
     isSuperAdmin?: boolean;
-    applicationRole?: "user" | "admin";
+    applicationRole?: "user" | "tester" | "admin";
     avatarUrl?: string | null;
     avatarFallbackUrl?: string | null;
     avatarId?: string | null;

@@ -1,11 +1,24 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { GameSelect } from "./GameSelect";
+import { useWorkbenchAccount } from "../WorkbenchAccount";
+import { canUseTestFeatures } from "../application-access";
 export function PageNavigation({
   page,
 }: {
-  page: "tree" | "lineups" | "maps" | "stats" | "sales" | "decals" | "disclaimer" | "loadouts";
+  page:
+    | "tree"
+    | "lineups"
+    | "maps"
+    | "stats"
+    | "sales"
+    | "decals"
+    | "disclaimer"
+    | "loadouts"
+    | "weakpoints";
 }) {
   const navigate = useNavigate();
+  const { session } = useWorkbenchAccount();
+  const testAccess = canUseTestFeatures(session);
   return (
     <>
       <nav className="page-navigation" aria-label="工具页面">
@@ -35,6 +48,15 @@ export function PageNavigation({
         >
           模拟挂载
         </Link>
+        {testAccess && (
+          <Link
+            to="/weakpoints"
+            preload={false}
+            aria-current={page === "weakpoints" ? "page" : undefined}
+          >
+            坦克弱点
+          </Link>
+        )}
       </nav>
       <nav className="mobile-page-navigation" aria-label="工具页面">
         <GameSelect
@@ -48,7 +70,8 @@ export function PageNavigation({
                 next === "maps" ||
                 next === "stats" ||
                 next === "sales" ||
-                next === "loadouts") &&
+                next === "loadouts" ||
+                (next === "weakpoints" && testAccess)) &&
               next !== page
             )
               void navigate({ to: next === "lineups" ? "/lineups/lobby" : `/${next}` });
@@ -65,6 +88,12 @@ export function PageNavigation({
           <option value="stats">战绩查询</option>
           <option value="sales">折扣日历</option>
           <option value="loadouts">模拟挂载</option>
+          {testAccess && <option value="weakpoints">坦克弱点</option>}
+          {!testAccess && page === "weakpoints" && (
+            <option value="weakpoints" disabled>
+              坦克弱点（测试权限）
+            </option>
+          )}
         </GameSelect>
       </nav>
     </>

@@ -1,5 +1,6 @@
 /* Interactive SVG map owns arrow-key pan and Home reset; native HTML has no map widget. */
 /* oxlint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex */
+import { canUseTestFeatures } from "./application-access";
 import { GameSelect } from "./components/GameSelect";
 import { MapLayerMenu } from "./components/MapLayerMenu";
 import { useEffect, useId, useRef, useState } from "react";
@@ -113,8 +114,8 @@ const normalize = (s: string) =>
 function MapAtlasContent({ snapshot }: { snapshot: MapSnapshot }) {
   const atlas = snapshot.atlas;
   const { session } = useWorkbenchAccount();
-  const isSuperAdmin = session?.role === "superadmin";
-  const coverage = useMapRouteCoverage(snapshot.releaseId, isSuperAdmin);
+  const hasTestAccess = canUseTestFeatures(session);
+  const coverage = useMapRouteCoverage(snapshot.releaseId, hasTestAccess);
   const search = Route.useSearch();
   const navigate = useNavigate({ from: "/maps" });
   const routeQuery = search.q || "";
@@ -168,7 +169,7 @@ function MapAtlasContent({ snapshot }: { snapshot: MapSnapshot }) {
         ).includes(normalize(query)) &&
         (!onlyGuides ||
           guides.length ||
-          (isSuperAdmin && hasRoute(atlas, coverage.routes, map.id, thumb.layoutId))),
+          (hasTestAccess && hasRoute(atlas, coverage.routes, map.id, thumb.layoutId))),
     );
   if (selected)
     return (
@@ -232,7 +233,7 @@ function MapAtlasContent({ snapshot }: { snapshot: MapSnapshot }) {
                 loading="lazy"
                 decoding="async"
               />
-              {isSuperAdmin && hasRoute(atlas, coverage.routes, map.id, thumb.layoutId) ? (
+              {hasTestAccess && hasRoute(atlas, coverage.routes, map.id, thumb.layoutId) ? (
                 <span className="ground-guide-badge">推荐走线</span>
               ) : guides.length > 0 ? (
                 <span className="ground-guide-badge">攻略 {guides.length}</span>
@@ -366,7 +367,7 @@ function GroundDetail({
   choose: (id: string) => void;
 }) {
   const { session } = useWorkbenchAccount();
-  const isSuperAdmin = session?.role === "superadmin";
+  const hasTestAccess = canUseTestFeatures(session);
   const layout = map.layouts.find((l) => l.id === layoutId) || map.layouts[0];
   const marks = displayMapMarks(layout.marks);
   const routeContext = routeIdentity(atlas, map.id, layout.id);
@@ -379,7 +380,7 @@ function GroundDetail({
   const [routeState, setRouteState] = useState({ id: "", status: "loading" });
   const [routeRetry, setRouteRetry] = useState(0);
   const routeContextKey = `${releaseId}:${routeContext.mapId}:${routeContext.layoutId}:${team}`;
-  const coverage = useMapRouteCoverage(releaseId, isSuperAdmin);
+  const coverage = useMapRouteCoverage(releaseId, hasTestAccess);
   const guideLayouts = availableRouteLayouts(atlas, map, coverage.routes, team);
   const guides = relatedMapGuides(atlas, map.id, coverage.routes);
   const routeOptions = routesForContext(
@@ -397,10 +398,10 @@ function GroundDetail({
   const routeData = useMapRoute(
     releaseId,
     selectedRoute?.id || "",
-    isSuperAdmin && recommendations,
+    hasTestAccess && recommendations,
     routeRetry,
   );
-  const route = routeData.route;
+  const route = hasTestAccess ? routeData.route : undefined;
   const routeKey = `${route?.url || "none"}:${routeRetry}`;
   const routeStatus =
     coverage.status === "loading" || coverage.status === "error"
@@ -520,7 +521,7 @@ function GroundDetail({
         </GameSelect>
       </label>
       <div className="ground-layer-toggles">
-        {isSuperAdmin &&
+        {hasTestAccess &&
           coverage.status === "loaded" &&
           routeOptions.length === 0 &&
           guideLayouts.length > 0 && (
@@ -534,7 +535,7 @@ function GroundDetail({
               当前布局暂无走线，查看已收录布局：{guideLayouts[0].name}
             </button>
           )}
-        {isSuperAdmin && routeOptions.length > 0 && (
+        {hasTestAccess && routeOptions.length > 0 && (
           <label className="ground-guide-choice">
             <span>攻略方案</span>
             <GameSelect
@@ -555,7 +556,7 @@ function GroundDetail({
             </GameSelect>
           </label>
         )}
-        {isSuperAdmin && sourceRoutes.length > 1 && (
+        {hasTestAccess && sourceRoutes.length > 1 && (
           <label className="ground-route-choice">
             <span>走法</span>
             <GameSelect
@@ -571,7 +572,7 @@ function GroundDetail({
             </GameSelect>
           </label>
         )}
-        {isSuperAdmin && (
+        {hasTestAccess && (
           <button
             aria-pressed={recommendations && !!route}
             aria-busy={recommendations && routeStatus === "loading"}
@@ -663,6 +664,9 @@ function GroundDetail({
             >
               {editing ? "完成编辑" : "编辑走线"}
             </button>
+            {!hasTestAccess && (
+              <output>推荐走线仅向测试员及管理员开放，请登录有测试权限的账号。</output>
+            )}
             <a
               className="ground-original"
               href={map.base.url}
@@ -950,7 +954,7 @@ function GroundDetail({
             {map.contours.native_sample_m} m。
           </p>
         </details>
-        {isSuperAdmin && selectedRoute && (
+        {hasTestAccess && selectedRoute && (
           <section className="ground-route-guide" aria-label="所选推荐走线文字攻略">
             <h3>{selectedRoute.title}</h3>
             <p className="ground-route-source">

@@ -121,7 +121,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (
       garagePage ||
-      ["maps", "stats", "sales", "decals", "disclaimer", "loadouts"].includes(page) ||
+      ["maps", "stats", "sales", "decals", "disclaimer", "loadouts", "weakpoints"].includes(page) ||
       !country ||
       !countryEntry
     )

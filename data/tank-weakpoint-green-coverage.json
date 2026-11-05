@@ -1,0 +1,579 @@
+{
+  "schema": 1,
+  "reviewedAt": "2026-11-05",
+  "basis": "人工核对现有展示原图；绿色装甲分区与单准星预测分开；不代表完整攻略或整面可击穿。",
+  "models": [
+    {
+      "modelId": "ussr_t_54_1947",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "9bac3df0f60bf74ee9818fbbb8eb1b521de6f8fad036c75c8abf8e1117786a3a"
+        }
+      ]
+    },
+    {
+      "modelId": "ussr_t_62m1",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "aad74445c9c20313bb4f7bddc1601132b39548e24b50269b57c4d465fb966493"
+        }
+      ]
+    },
+    {
+      "modelId": "ussr_t_72a",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "c0e2fdcbfaa2d49e7a9088b969cb0ad552e0734cb967264458de01f42da0f5b4"
+        }
+      ]
+    },
+    {
+      "modelId": "ussr_t_62",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "3110d4021d2726f2668574bf1433d2dbecc61a3e0cd26681f289c72cf21e76fe"
+        }
+      ]
+    },
+    {
+      "modelId": "ussr_is_4m",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "t14e3-1029",
+          "sourceSHA256": "8bbb94bfbe9eae8cd89b58d99ca28ada71d761d7ca3b8215b25e46936854cdf2"
+        }
+      ]
+    },
+    {
+      "modelId": "ussr_is_7",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "d54-1070",
+          "sourceSHA256": "7e53e7f892b3c4309c2b473a09e8f8a31d8a1088805d506bece5eac60a0f23c6"
+        }
+      ]
+    },
+    {
+      "modelId": "ussr_object_279",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "58431f916db027f7ee59ab777190e4473f28fc8e25946d53d5099d805b201190"
+        }
+      ]
+    },
+    {
+      "modelId": "jp_type_10",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "7ff0e3e01578198ef450a5ce4614fb8855b09a929a075c864a5fd6e15e124d2c"
+        }
+      ]
+    },
+    {
+      "modelId": "cn_ztz_99a",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "dc1eb11562ae0cbcad4d1d968939dea042c729e9b372705ac92c639f7d4a9d63"
+        }
+      ]
+    },
+    {
+      "modelId": "fr_leclerc_s1",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "d32da2e3bffb2111a526f57a22b4d7a88baad696dff1cb60803ebf8dc04363ea"
+        }
+      ]
+    },
+    {
+      "modelId": "ussr_is_1",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "c37e03e02f30ff4e9a184a16917347caf693556093f901f26af9b704cd09aeb9"
+        }
+      ]
+    },
+    {
+      "modelId": "ussr_is_2_1943",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "3fbebb36e7a25c12c01629d373aea893e3150e618312a5af943244d038ea7f51"
+        }
+      ]
+    },
+    {
+      "modelId": "ussr_is_3",
+      "status": "point",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "ba1e068c3ae7fa30c0de8aecdb5161d37ff9d95cbc9ee3f4a15131938d447e90"
+        }
+      ]
+    },
+    {
+      "modelId": "ussr_is_6",
+      "status": "point",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "is6-v97-1055017-preview",
+          "sourceSHA256": "61463a1307d6556933c7b26ddc3ade68b839450bb907d9602c409e8ca4ff55a0"
+        }
+      ]
+    },
+    {
+      "modelId": "us_m1a1_hc_usmc",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "53f317eefc5c32275a7e748d2674dfd0751c552a479a0cf6ae975f5ee3e8035c"
+        }
+      ]
+    },
+    {
+      "modelId": "germ_leopard_2a4_pzbtl_123",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "b27be669e4c3480ff5689e8798909f2e6a9bb7415b74653a84e4d934358c5c25"
+        }
+      ]
+    },
+    {
+      "modelId": "ussr_t_80ue1",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "5bc823ff2b65a21d698af09297ccc3532a55b966556ca5659baa8ecfeec353a1"
+        }
+      ]
+    },
+    {
+      "modelId": "fr_amx_30_b2",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "48d37cb5907ed8ee4f9c3c90a733255b9f35c5ad3233026ba3006528181b4751"
+        }
+      ]
+    },
+    {
+      "modelId": "jp_type_90",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "f92d9e856d848e3640cddeb8e7724c3074fdcd34f309b78817f7959286859538"
+        }
+      ]
+    },
+    {
+      "modelId": "sw_strv_103c",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "2638cecdf4f73ca3f3dcfc5d7b5cc16bbb29bcca856e4b4e1fa7dbbe62245773"
+        }
+      ]
+    },
+    {
+      "modelId": "us_m60a3_tts",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "d884903e3fa5b179c3d262205c960bd1073ee9b5f81e45ba992dd49585961a53"
+        }
+      ]
+    },
+    {
+      "modelId": "uk_chieftain_mk_10",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "52a98ae2038e793ae9b1f370b3a1fff1f21bae9586891a21617d85b924bcc17f"
+        }
+      ]
+    },
+    {
+      "modelId": "jp_type_90b",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "3ec9ac4abc65742c3fb3b62280f4d05970068c68e469272aa09d9c77db92a339"
+        }
+      ]
+    },
+    {
+      "modelId": "us_xm_803",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "23ef0a056dba35d2ee4195da3cf8d3df983f1c0b79fb96a0ddefae2320f0fbc8"
+        }
+      ]
+    },
+    {
+      "modelId": "jp_type_10_prototype",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "15412a934cd6a50d325241f72ee3ed00ef246a789154cd31cd5af7c730fc2cb7"
+        }
+      ]
+    },
+    {
+      "modelId": "uk_olifant_mk_2",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "65f797ec831074d9585b80e7348455bb6f0dab7273a69bee8e326d3bd86ff393"
+        }
+      ]
+    },
+    {
+      "modelId": "cn_mbt2000",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "c7540b1c67d4a63cf2d7c505078215e6c8d4cf6ec4c47a4f0318a31c1ccdfdde"
+        }
+      ]
+    },
+    {
+      "modelId": "fr_msc",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "d0653c5f62d1c52d7a98486f7c49b0891c0d3bc7ff546e6f6a31584df02e8b31"
+        }
+      ]
+    },
+    {
+      "modelId": "uk_challenger_1",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "4d6ac805b4e4a0a22677d5c22b4af0af0e589e65df5412551884d2b08160d70b"
+        }
+      ]
+    },
+    {
+      "modelId": "ussr_t_72b",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "a9d4541f5b02d03bc31d9bd71089db92defd5ed5fc54dcab7271c5310e5f4ba8"
+        }
+      ]
+    },
+    {
+      "modelId": "it_ariete_amv_pt1",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "1aec4ff871d70100a8ee233a85755971e2b85a52065a0e241abe90a682d1acb8"
+        }
+      ]
+    },
+    {
+      "modelId": "germ_leopard_2a5",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "f0c9c3549acfaf3cb43a0971976beee2b236940028cbc6b6851cf0a399af6ae3"
+        }
+      ]
+    },
+    {
+      "modelId": "us_m1_abrams",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "235b129ae468b844657fee4a7268fe1e7a05d0c244d6cb3aaf735a1c3617dbb7"
+        }
+      ]
+    },
+    {
+      "modelId": "cn_ztz_96b",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "b35923446e84fd39df5260c41faa994a2c7e3514e0708027731a2714d7c54749"
+        }
+      ]
+    },
+    {
+      "modelId": "germ_leopard_2a7v",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "5ba5df2a95557de8f85705b47ea81cbb6f125a34ce8382b2c9541266366b1a3d"
+        }
+      ]
+    },
+    {
+      "modelId": "us_m1_ip_abrams",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "fbabcc6532753663d8f9d002ab4296fc2ad53fed3807128bfed485e8dfd33a05"
+        }
+      ]
+    },
+    {
+      "modelId": "us_m1a1_aim_abrams",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "b60f36485984402674ef2d075780abaed638200acec5bdc18ff225f3670fe33c"
+        }
+      ]
+    },
+    {
+      "modelId": "uk_ttd",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "16d48ed3377fa416de2116504b5fbd926da78bd5eac615c8c610a7b48c648826"
+        }
+      ]
+    },
+    {
+      "modelId": "uk_challenger_mk_3",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "jm33-727",
+          "sourceSHA256": "eb7539fee03807f6b2e7f59d60b89a9a77b22ebb181a3ea99da685363c44e95c"
+        }
+      ]
+    },
+    {
+      "modelId": "uk_challenger_2_tes",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "6cb7471411a8622202c6a17a3fe7f9ed434b40f03030bb1e1b3dff1cb262327f"
+        }
+      ]
+    },
+    {
+      "modelId": "germ_leopard_2a4m_can",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "61c21743957c62effd2e55ea678ed24aecaf7a2fba4712cb36a453501fee6abd"
+        }
+      ]
+    },
+    {
+      "modelId": "uk_challenger_2_megatron",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "61d07b3720e934e7559c163cdd9aff7a05f15b617c2b799311087d2124ce4172"
+        }
+      ]
+    },
+    {
+      "modelId": "uk_khalid",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "2e322f6aad196f4c2b2292bbbfc504a258897bb8c47d3ed93dcb657a83b414d4"
+        }
+      ]
+    },
+    {
+      "modelId": "fr_leclerc_azur",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "a3ee6eb21d67be058be266575a95cf7a6b4e53539352aa08f828a883d0d34156"
+        }
+      ]
+    },
+    {
+      "modelId": "cn_ztz_96a_prot",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "6c375edb4f9c601e3eac232e904efcac6bec2a1b24b4ddc89cead329b31f2a83"
+        }
+      ]
+    },
+    {
+      "modelId": "germ_leopard_2a4",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "d12fc858fbfed840236a897d1ee4bc0ae581bc358d0f9bcb54b97165f40bc4e1"
+        }
+      ]
+    },
+    {
+      "modelId": "germ_leopard_2av",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "ff1b2929679040c0135e723504008670a3eafb109bafa78812e9f886d8da2cc8"
+        }
+      ]
+    },
+    {
+      "modelId": "us_m1a2_sep2_abrams_trophy",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "a732ae1e4aba318a42eb352a082b56c410606ee0ade0d19e92d88c590a2cadbd"
+        }
+      ]
+    },
+    {
+      "modelId": "ussr_t_80b",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "459e4ea795a83a657a6e0497d44ed140eeb0f126b46aed579ec4e543edc6eb9e"
+        }
+      ]
+    },
+    {
+      "modelId": "ussr_t_80bvm",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "b7ba293ea08393fd97e919a59d473ea96d237be7ab6819668877680656155d5d"
+        }
+      ]
+    },
+    {
+      "modelId": "ussr_t_90a",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "1951bfc3066b7c95d27f398d18e31e3555d8b7e64048288c2aa587bda20bbfea"
+        }
+      ]
+    },
+    {
+      "modelId": "ussr_t_90m_2020",
+      "status": "region",
+      "partial": true,
+      "views": [
+        {
+          "viewId": "main",
+          "sourceSHA256": "5d45679233e972d8bcb194a1463a9655a3f9d51df55c26fe02f3181bffe82055"
+        }
+      ]
+    }
+  ]
+}
