@@ -25282,7 +25282,38 @@
       "rank": 6,
       "era": "cold-war",
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.3952380952380952,
+          "y": 0.20526315789473684,
+          "label": "车长观察塔（局部位置示意）",
+          "detail": "作者在超级AMX 30自身防护段指出车长观察塔较大，有被机炮射入的风险。图中仅标示观察塔部位；260秒防护分析界面在塔上一个瞄准点预测能够击穿并伤及车长，不能推广为整座观察塔必穿或实射结果。",
+          "kind": "qualitative",
+          "sourceUrl": "https://www.bilibili.com/video/BV15C6wBAEdx/",
+          "sourceTime": 260,
+          "evidence": {
+            "frameSHA256": "2014163c31fe92471cbb83450c126cad22c2fa819e4869a2424dbe00242bacc9",
+            "nativeXY": [
+              916,
+              348
+            ],
+            "crop": [
+              750,
+              270,
+              420,
+              380
+            ],
+            "coordinateBasis": "qualitative visible part anchor; not exact UI reticle",
+            "singlePointPrediction": false,
+            "actualShotObserved": false,
+            "qa": {
+              "path": "artifacts/weakpoints-amx30super-position-qa-v666-20261105/revision-1/public-data-candidates.json",
+              "sha256": "1301d7b0b08a7e661178ff2a0fe80ac7b2837caee427902ee21108dd922ca7e9",
+              "bytes": 5030
+            }
+          }
+        }
+      ],
       "videoAdvice": [
         {
           "id": "v239-amx30super-point-244",
@@ -25354,8 +25385,16 @@
           }
         }
       ],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV15C6wBAEdx/",
+        "author": "早試",
+        "date": "2026-01-29",
+        "gameVersion": null,
+        "kind": "video",
+        "title": "高卢龙骑兵：超级AMX 30 评测与实战思路",
+        "publishedAt": "2026-01-29 19:20:42"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/fr_amx_30_super",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-001-20261103/snapshots/fr_amx_30_super.json",
@@ -25377,12 +25416,12 @@
       "collectedAt": "2026-11-02T17:51:02.607Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "原文明确现代化套件形成于1980年代末。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无已验证的主图及对应局部标点。"
+        "仅一个定性部位指引；未完成全车弱点图。"
       ],
       "relatedSources": [
         {
@@ -25546,7 +25585,34 @@
         "nativeTargetRawLabel": null,
         "note": "单点防护分析预测，非实射；目标由视频标题和片段识别，原生目标名未显示。数值仅适用于本帧所选点，入射角不是车体摆角。",
         "caseId": "fr_amx_30_super:v239-point-260"
-      }
+      },
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/shared-front-v234-20261104/amx30super/capture-2.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v668/revision-2/fr_amx_30_super-frame-proof.json",
+      "frameSnapshotSHA256": "a27fc73bcf5d102fb27d4366345e003e72601606b43f9df646c0f8d12e758b75",
+      "assetPath": "images/FRA/FRA-AMX-30-Super-commander-cupola-position-20260129.webp",
+      "crop": [
+        750,
+        270,
+        420,
+        380
+      ],
+      "captureSHA256": "2014163c31fe92471cbb83450c126cad22c2fa819e4869a2424dbe00242bacc9",
+      "originalFrameSHA256": "2014163c31fe92471cbb83450c126cad22c2fa819e4869a2424dbe00242bacc9",
+      "time": 260,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "native-1080p-analysis-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceGameVersion": null,
+      "sourceNoRepost": true,
+      "coverageStatus": "partial-qualitative-position",
+      "coverageNotice": "作者部位指引与正面位置示意，非绿色试射弱点图；不承诺整区必穿或当前版本结果，完整图解未完成。",
+      "frontSummary": "作者在超级AMX 30自身防护段指出车长观察塔较大，有被机炮射入的风险。图中仅标示观察塔部位；260秒防护分析界面在塔上一个瞄准点预测能够击穿并伤及车长，不能推广为整座观察塔必穿或实射结果。 车型据作者评测归属，原生铭牌部分遮挡。",
+      "caption": "早試｜2026-01-29｜260秒；仅部位示意，非整区可穿或实射结论。 车型据作者评测归属，原生铭牌部分遮挡。"
     },
     {
       "id": "fr_amx_40",
@@ -28645,7 +28711,38 @@
       "rank": 8,
       "era": "modern",
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.48214285714285715,
+          "y": 0.7023809523809523,
+          "label": "首下局部（定性位置）",
+          "detail": "作者讨论车体防护时展示首下局部，可用于识别首下位置；仅定性参考，不承诺整片必穿、弹药阈值或击穿结果。",
+          "kind": "qualitative",
+          "sourceUrl": "https://www.bilibili.com/video/BV1nQ5e6iEPP/",
+          "sourceTime": 112,
+          "evidence": {
+            "frameSHA256": "c2a3014c9925ac92f36440a89ad3d6149c689fd28417bfc7e3b91a49450e59f9",
+            "nativeXY": [
+              950,
+              535
+            ],
+            "crop": [
+              680,
+              240,
+              560,
+              420
+            ],
+            "coordinateBasis": "qualitative visible part anchor; not exact UI reticle",
+            "singlePointPrediction": false,
+            "actualShotObserved": false,
+            "qa": {
+              "path": "artifacts/weakpoints-leopard2pl-position-qa-v667-20261105/public-data-candidates.json",
+              "sha256": "2861902788da864d5a7e198c9abe74ecad11dc5e40cd66be4030ef2dcc3b6d96",
+              "bytes": 3312
+            }
+          }
+        }
+      ],
       "videoAdvice": [
         {
           "id": "v247-germ_leopard_2pl-120",
@@ -28668,8 +28765,16 @@
           }
         }
       ],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1nQ5e6iEPP/",
+        "author": "罗非鱼解说",
+        "date": "2026-05-15",
+        "gameVersion": "2.55.1.102",
+        "kind": "video",
+        "title": "战争雷霆：德系开线机豹2A4M的难兄难弟！来自波兰的联队坦克豹2PL实力到底咋样？和豹2A4M有什么区别？要不要研发？",
+        "publishedAt": "2026-05-15 18:49:42"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/germ_leopard_2pl",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-002-20261103/snapshots/germ_leopard_2pl.json",
@@ -28691,12 +28796,12 @@
       "collectedAt": "2026-11-02T18:08:19.886Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "原文明示精确现代化方案规划在2012年中开始。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无已验证的主图及对应局部标点。"
+        "仅一个定性部位指引；未完成全车弱点图。"
       ],
       "relatedSources": [
         {
@@ -28708,7 +28813,88 @@
           "time": 120,
           "scopeNote": "仅归属作者观点与局部模拟观察；未确认实射，不构成全域结论。"
         }
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/shared-front-v243-20261104/leopard2pl/capture-2.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v668/revision-2/germ_leopard_2pl-frame-proof.json",
+      "frameSnapshotSHA256": "34306db77a19ac45b6ae6400b8063fef5e97510f9c4c8d157ab210a891892181",
+      "assetPath": "images/GER/GER-Leopard-2PL-lower-front-position-20260515.webp",
+      "crop": [
+        680,
+        240,
+        560,
+        420
+      ],
+      "captureSHA256": "c2a3014c9925ac92f36440a89ad3d6149c689fd28417bfc7e3b91a49450e59f9",
+      "originalFrameSHA256": "c2a3014c9925ac92f36440a89ad3d6149c689fd28417bfc7e3b91a49450e59f9",
+      "time": 112,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageQuality": "native-1080p-analysis-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceGameVersion": "2.55.1.102",
+      "sourceNoRepost": true,
+      "coverageStatus": "partial-qualitative-position",
+      "coverageNotice": "作者部位指引与正面位置示意，非绿色试射弱点图；不承诺整区必穿或当前版本结果，完整图解未完成。",
+      "frontSummary": "作者讨论车体防护时展示首下局部，可用于识别首下位置；仅定性参考，不承诺整片必穿、弹药阈值或击穿结果。",
+      "caption": "罗非鱼解说｜2026-05-15｜112秒；仅部位示意，非整区可穿或实射结论。",
+      "testContext": {
+        "label": "112秒首下位置示意的原生防护分析面板条件（非测试结果）",
+        "sourceKind": "video",
+        "sourceUrl": "https://www.bilibili.com/video/BV1nQ5e6iEPP/",
+        "sourceTime": 112,
+        "sourcePublishedAt": "2026-05-15",
+        "sourceGameVersion": "2.55.1.102",
+        "attacker": "[12.3] 豹 2PL",
+        "attackerVehicleId": "germ_leopard_2pl",
+        "shell": "DM53",
+        "sourceShellLabelOriginal": "DM53",
+        "rawUIType": null,
+        "sourceUIrawType": null,
+        "shellTypeCode": "APFSDS",
+        "shellTypeLabel": "尾翼稳定脱壳穿甲弹",
+        "shellTypeReference": {
+          "sourceBasis": "official-Wiki-reference",
+          "url": "https://wiki.warthunder.com/unit/germ_leopard_2pl",
+          "attackerVehicleId": "germ_leopard_2pl",
+          "wikiUnitId": "germ_leopard_2pl",
+          "mainGun": "120 mm Rh120 L/44 cannon",
+          "officialShellName": "DM53",
+          "sourceShellLabelOriginal": "DM53",
+          "shellTypeCode": "APFSDS",
+          "shellTypeLabel": "Armor-Piercing Fin-Stabilized Discarding Sabot shot",
+          "checkedAt": "2026-11-02T18:08:19.886Z",
+          "gameVersion": "2.59.0.92",
+          "conditionNote": "仅用于弹种分类；Wiki最低表列10米，非视频0米穿深验证。"
+        },
+        "distanceMeters": 0,
+        "displayedPenetrationMm": 623,
+        "targetAngleDegrees": null,
+        "impactAngleDegrees": null,
+        "azimuthDegrees": null,
+        "effectiveArmorMm": null,
+        "equivalentArmorMm": null,
+        "pointPrediction": null,
+        "prediction": null,
+        "outcome": null,
+        "actualShotObserved": false,
+        "actualPenetration": null,
+        "kill": null,
+        "sourceFrameSHA256": "c2a3014c9925ac92f36440a89ad3d6149c689fd28417bfc7e3b91a49450e59f9",
+        "nativeTargetRawLabel": "豹 2PL",
+        "targetIdentityBasis": "video-title-and-segment with native label corroboration per QA",
+        "note": "作者部位示意，仅记录原生面板车辆/DM53/0米/623毫米条件；623是弹丸穿甲威力而非目标等效。无精确点预测结果，不验证整片首下或当前版本。Wiki仅补充弹种分类，其10米表列不能验证视频0米条件。"
+      },
+      "testContextEvidence": {
+        "shellTypeReferenceProof": {
+          "path": "artifacts/weakpoints-leopard2pl-wiki-v246-20261104/supplement-dm53-v248/report.json",
+          "sha256": "86d87fd8f22a8e13d96119079c5e5c20f2d0c8531c27f0ed3c91222e8773c2bb",
+          "bytes": 3140
+        }
+      }
     },
     {
       "id": "germ_leopard_2_pt14",
@@ -35522,7 +35708,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 78,
+    "illustratedCount": 80,
     "countries": [
       {
         "country": "usa",
@@ -35658,7 +35844,7 @@
     "lastUpdated": "2026-11-04",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 76,
+    "illustratedTargetCount": 78,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,

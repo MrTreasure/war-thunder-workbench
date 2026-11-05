@@ -1449,6 +1449,42 @@
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-mantlet-front-prediction-20200529.webp"
       }
+    },
+    "fr_amx_30_super": {
+      "photo": {
+        "path": "images/FRA/FRA-AMX-30-Super-commander-cupola-position-20260129.webp",
+        "sha256": "451465221e6e8b1b2e466247ad3b7ac881dc8cd8d1da5095b2aa227f736b0dd7",
+        "bytes": 116856,
+        "commit": "e40ef6ebddb47301176f4c97bd29468a73015169",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@e40ef6ebddb47301176f4c97bd29468a73015169/images/FRA/FRA-AMX-30-Super-commander-cupola-position-20260129.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/e40ef6ebddb47301176f4c97bd29468a73015169/images/FRA/FRA-AMX-30-Super-commander-cupola-position-20260129.webp"
+      },
+      "raw": {
+        "path": "images/FRA/FRA-AMX-30-Super-commander-cupola-position-20260129.webp",
+        "sha256": "451465221e6e8b1b2e466247ad3b7ac881dc8cd8d1da5095b2aa227f736b0dd7",
+        "bytes": 116856,
+        "commit": "e40ef6ebddb47301176f4c97bd29468a73015169",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@e40ef6ebddb47301176f4c97bd29468a73015169/images/FRA/FRA-AMX-30-Super-commander-cupola-position-20260129.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/e40ef6ebddb47301176f4c97bd29468a73015169/images/FRA/FRA-AMX-30-Super-commander-cupola-position-20260129.webp"
+      }
+    },
+    "germ_leopard_2pl": {
+      "photo": {
+        "path": "images/GER/GER-Leopard-2PL-lower-front-position-20260515.webp",
+        "sha256": "fb97af9df633dfd2c5556b5e573e8f674f4c4a3d9fbcf593176bf4912403a4b3",
+        "bytes": 133934,
+        "commit": "e40ef6ebddb47301176f4c97bd29468a73015169",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@e40ef6ebddb47301176f4c97bd29468a73015169/images/GER/GER-Leopard-2PL-lower-front-position-20260515.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/e40ef6ebddb47301176f4c97bd29468a73015169/images/GER/GER-Leopard-2PL-lower-front-position-20260515.webp"
+      },
+      "raw": {
+        "path": "images/GER/GER-Leopard-2PL-lower-front-position-20260515.webp",
+        "sha256": "fb97af9df633dfd2c5556b5e573e8f674f4c4a3d9fbcf593176bf4912403a4b3",
+        "bytes": 133934,
+        "commit": "e40ef6ebddb47301176f4c97bd29468a73015169",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@e40ef6ebddb47301176f4c97bd29468a73015169/images/GER/GER-Leopard-2PL-lower-front-position-20260515.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/e40ef6ebddb47301176f4c97bd29468a73015169/images/GER/GER-Leopard-2PL-lower-front-position-20260515.webp"
+      }
     }
   },
   "assets": [
@@ -17116,6 +17152,114 @@
       "commit": "2c1723e5f2068226d96cda0c49c055ab06f03257",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-turret-front-nonpenetration-reference-20200529.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/2c1723e5f2068226d96cda0c49c055ab06f03257/images/USA/USA-XM1-Chrysler-turret-front-nonpenetration-reference-20200529.webp"
+    },
+    {
+      "vehicleId": "fr_amx_30_super",
+      "filename": "FRA-AMX-30-Super-commander-cupola-position-20260129.webp",
+      "path": "images/FRA/FRA-AMX-30-Super-commander-cupola-position-20260129.webp",
+      "country": "FRA",
+      "kind": "photo",
+      "width": 420,
+      "height": 380,
+      "sha256": "451465221e6e8b1b2e466247ad3b7ac881dc8cd8d1da5095b2aa227f736b0dd7",
+      "bytes": 116856,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/shared-front-v234-20261104/amx30super/capture-2.png",
+        "sha256": "2014163c31fe92471cbb83450c126cad22c2fa819e4869a2424dbe00242bacc9",
+        "bytes": 1999106,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "2014163c31fe92471cbb83450c126cad22c2fa819e4869a2424dbe00242bacc9",
+      "sourceTime": 260,
+      "crop": [
+        750,
+        270,
+        420,
+        380
+      ],
+      "nativeXY": [
+        916,
+        348
+      ],
+      "pointUV": [
+        0.3952380952380952,
+        0.20526315789473684
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v668/revision-2/fr_amx_30_super-frame-proof.json",
+        "sha256": "a27fc73bcf5d102fb27d4366345e003e72601606b43f9df646c0f8d12e758b75",
+        "bytes": 5669
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "e40ef6ebddb47301176f4c97bd29468a73015169",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@e40ef6ebddb47301176f4c97bd29468a73015169/images/FRA/FRA-AMX-30-Super-commander-cupola-position-20260129.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/e40ef6ebddb47301176f4c97bd29468a73015169/images/FRA/FRA-AMX-30-Super-commander-cupola-position-20260129.webp"
+    },
+    {
+      "vehicleId": "germ_leopard_2pl",
+      "filename": "GER-Leopard-2PL-lower-front-position-20260515.webp",
+      "path": "images/GER/GER-Leopard-2PL-lower-front-position-20260515.webp",
+      "country": "GER",
+      "kind": "photo",
+      "width": 560,
+      "height": 420,
+      "sha256": "fb97af9df633dfd2c5556b5e573e8f674f4c4a3d9fbcf593176bf4912403a4b3",
+      "bytes": 133934,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/shared-front-v243-20261104/leopard2pl/capture-2.png",
+        "sha256": "c2a3014c9925ac92f36440a89ad3d6149c689fd28417bfc7e3b91a49450e59f9",
+        "bytes": 2809951,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "c2a3014c9925ac92f36440a89ad3d6149c689fd28417bfc7e3b91a49450e59f9",
+      "sourceTime": 112,
+      "crop": [
+        680,
+        240,
+        560,
+        420
+      ],
+      "nativeXY": [
+        950,
+        535
+      ],
+      "pointUV": [
+        0.48214285714285715,
+        0.7023809523809523
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v668/revision-2/germ_leopard_2pl-frame-proof.json",
+        "sha256": "34306db77a19ac45b6ae6400b8063fef5e97510f9c4c8d157ab210a891892181",
+        "bytes": 5426
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "e40ef6ebddb47301176f4c97bd29468a73015169",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@e40ef6ebddb47301176f4c97bd29468a73015169/images/GER/GER-Leopard-2PL-lower-front-position-20260515.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/e40ef6ebddb47301176f4c97bd29468a73015169/images/GER/GER-Leopard-2PL-lower-front-position-20260515.webp"
     }
   ]
 }
