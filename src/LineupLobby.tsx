@@ -18,7 +18,6 @@ import {
 import type { CommunityPost, CommunityPage } from "./lineup-community-api";
 import bootstrap from "./generated/bootstrap.json";
 import { useVehicleCatalog } from "./vehicle-catalog";
-import { currentCommunityRating } from "./lineup-community-rating";
 import { lineupCardRating, validLineups } from "./lineups";
 import type { Lineup, LineupVehicle } from "./lineups";
 import { useStored } from "./storage";
@@ -45,14 +44,7 @@ export function LineupLobby() {
   const [filtersOpen, setFiltersOpen] = useState(false);
   const countryLabel = (id: string) => (
     <span className={`lineup-country-option ${id ? "" : "is-all-countries"}`}>
-      {id && (
-        <img
-          src={bootstrap.flags[id as keyof typeof bootstrap.flags]}
-          alt=""
-          width={24}
-          height={18}
-        />
-      )}
+      {id && <img src={bootstrap.flags[id as keyof typeof bootstrap.flags]} alt="" width={24} height={18} />}
       <span>{id ? bootstrap.countries[id as keyof typeof bootstrap.countries] : "全部国家"}</span>
       <small title={"公开队列数"}>
         {(id
@@ -98,16 +90,12 @@ export function LineupLobby() {
       });
     return () => abort.abort();
   }, [search.post, query, revision, userId, account.identityVersion, search.mine]);
-  const sourcePosts = search.post ? (detail ? [detail] : []) : result.items;
-  const facts = useVehicleCatalog(sourcePosts.map((p) => p.country));
+  const posts = search.post ? (detail ? [detail] : []) : result.items;
+  const facts = useVehicleCatalog(posts.map((p) => p.country));
   const units = useMemo(
     () => new Map([...facts].map(([id, value]) => [id, value as LineupVehicle])),
     [facts],
   );
-  const posts = sourcePosts.map((post) => {
-    const rating = currentCommunityRating(post, units, bootstrap.lineup);
-    return { ...post, step: rating.step, rating: rating.label };
-  });
   function filter(key: string, value: string) {
     void navigate({
       search: (previous: typeof search) => ({
@@ -227,7 +215,7 @@ export function LineupLobby() {
                 </GameSelect>
               </label>
               <label className="calc-field">
-                发布时权重
+                权重
                 <GameSelect
                   value={search.step || ""}
                   onValueChange={(value) => filter("step", value)}
@@ -339,7 +327,7 @@ export function LineupLobby() {
           <summary>权重规则与来源</summary>
           <p className="wt-community-notice">
             队列标签来自分享者的使用体验。权重按所选模式计算，可能分房范围为队列 BR
-            ±1.0；单场房间跨度不超过 1.0。标题和分享图片按当前载具资料重算，权重筛选按发布时记录。
+            ±1.0；单场房间跨度不超过 1.0。
           </p>
         </details>
         {!search.post && !busy && !error && (result.hasMore || (search.page || 1) > 1) && (

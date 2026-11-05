@@ -18,7 +18,6 @@ import {
   approveLineupCaption,
 } from "./lineup-community-api";
 import type { CommunityPost } from "./lineup-community-api";
-import { currentCommunityRating } from "./lineup-community-rating";
 import { lineupCardRating, lineupRatings, lineupMatchmakingWindow } from "./lineups";
 import type { Lineup, LineupVehicle } from "./lineups";
 import type { Mode } from "./models";
@@ -40,8 +39,7 @@ export function LineupShareImage({
     activeAircraft: post.activeAircraft || null,
   };
   const country = bootstrap.countries[post.country as keyof typeof bootstrap.countries];
-  const rating = currentCommunityRating(post, units, bootstrap.lineup);
-  const window = lineupMatchmakingWindow(rating.step, post.mode, bootstrap.lineup);
+  const window = lineupMatchmakingWindow(post.step, post.mode, bootstrap.lineup);
   const gameMode = communityMode(post.battle, post.mode)
     .replace(/街机$/, " · 街机娱乐")
     .replace(/历史$/, " · 历史性能")
@@ -62,8 +60,8 @@ export function LineupShareImage({
         </p>
         <p>
           <span className="wt-share-heading-label">分房范围</span>
-          <strong>{window ? `${window.minimum} – ${window.maximum}` : rating.label}</strong>
-          {window && <small>队列 {rating.label}</small>}
+          <strong>{window ? `${window.minimum} – ${window.maximum}` : post.rating}</strong>
+          {window && <small>队列 {post.rating}</small>}
         </p>
         <p>
           <span className="wt-share-heading-label">游戏模式</span>
