@@ -2,7 +2,7 @@
 /* Approved game card geometry; original official artwork and regular type. */
 @font-face {
   font-family: WTCard;
-  src: url("./__CARD_FONT__") format("truetype");
+  src: url("../../assets/FiraSansCondensed-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -718,7 +718,7 @@ a.vehicle-card.wt-game-card { color: inherit; text-decoration: none; cursor: poi
 :root { color-scheme: dark; --wt-page:#13191d; --wt-panel:#1a2329; --wt-raised:#222e36; --wt-ink:#f0eee6; --wt-muted:#a9b5bc; --wt-line:#37474f; --wt-strong-line:#59656b; --wt-gold:#e4c477; }
 @font-face {
   font-family:WTSymbols;
-  src:url("./__SYMBOL_FONT__") format("truetype");
+  src:url("../../assets/WTSymbols.ttf") format("truetype");
   font-display:block;
   unicode-range:U+22E0,U+2415-2419,U+241E-2420,U+2580,U+2582-2585,U+2587-2588,U+25C4,U+25CA-25CD,U+25D0,U+25D4,U+25D7-25D8,U+25E1-25E2,U+25E5,U+F059;
 }

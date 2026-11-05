@@ -17,16 +17,16 @@ export function weakpointShellDocument(vehicle?: string) {
   const messages = Object.fromEntries(weakpointUiKeys.map((key) => [key, t(key)]));
   const selected = vehicle && /^[a-z0-9_]+$/.test(vehicle) ? vehicle : "";
   const styles = css
-    .replaceAll("./__SYMBOL_FONT__", absolute(symbols))
-    .replaceAll("./__CARD_FONT__", absolute(cardFont));
+    .replaceAll("../../assets/WTSymbols.ttf", absolute(symbols))
+    .replaceAll("../../assets/FiraSansCondensed-Regular.ttf", absolute(cardFont));
   return html
     .replace(
       '<html lang="zh-CN">',
       `<html lang="${locale}" data-wt-messages="${escapeAttribute(JSON.stringify(messages))}" data-wt-embedded="true" data-wt-parent-origin="${escapeAttribute(location.origin)}" data-wt-vehicle="${selected}">`,
     )
-    .replace('<link rel="stylesheet" href="__STYLE__">', `<style>${styles}</style>`)
-    .replace("./assets/__SYMBOL_FONT__", escapeAttribute(absolute(symbols)))
-    .replace("__SCRIPT__", escapeAttribute(absolute(script)))
+    .replace('<link rel="stylesheet" href="./shell.css">', `<style>${styles}</style>`)
+    .replace("../../assets/WTSymbols.ttf", escapeAttribute(absolute(symbols)))
+    .replace("./shell.js", escapeAttribute(absolute(script)))
     .replace(
       "</head>",
       `<script defer src="${escapeAttribute(absolute(localeScript))}"></script></head>`,
