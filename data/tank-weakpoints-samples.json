@@ -9931,8 +9931,16 @@
           }
         }
       ],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV11f421Z7Mk/",
+        "author": "克虏伯kluub",
+        "title": "没有防御的防御型坦克74式战车E型《战争雷霆》〔载具简评〕",
+        "publishedAt": "2024-03-28 12:00:00 (page displayed; timezone unasserted)",
+        "date": "2024-03-28",
+        "gameVersion": "2.33.0.145",
+        "kind": "video"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/jp_type_74",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-001-20261102/snapshots/jp_type_74.json",
@@ -9954,8 +9962,7 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。",
-        "具体改型年代待核实，era保留null。"
+        "未完成全车弱点图；没有新增试射案例。"
       ],
       "relatedSources": [
         {
@@ -9967,7 +9974,37 @@
           "time": null,
           "scopeNote": "Wiki投稿作者观点，仅Type74(E)，非基础数据或已验证试射"
         }
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v700-20261105/jp_type_74/BV11f421Z7Mk/native-115.749.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v732/proofs/jp_type_74-frame-proof.json",
+      "frameSnapshotSHA256": "bd2ecef02008d51a43c26e4c1e01fb31700e5035f91fec641eb9b64d65cb1090",
+      "assetPath": "images/JPN/JPN-Type-74-E-front-position.webp",
+      "crop": [
+        650,
+        130,
+        660,
+        620
+      ],
+      "captureSHA256": "868fb3155b2713b2df0f1a9807a3f423427706bc0f953e26802ea0236e9ee424",
+      "originalFrameSHA256": "868fb3155b2713b2df0f1a9807a3f423427706bc0f953e26802ea0236e9ee424",
+      "time": 116.533312,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front-slightly-elevated",
+      "imageQuality": "native-game-image-bounded-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "sourceGameVersion": "2.33.0.145",
+      "sourceNoRepost": false,
+      "coverageStatus": "partial-general-frontal-context",
+      "coverageNotice": "仅定性位置参考，非完整全车弱点图；不承诺必穿或当前版本结果。",
+      "frontSummary": "OddPhenomena（2025-05-22）文章观点：文章作者认为74式(E)装甲较弱；正面偶发跳弹不应依赖。仅作泛正面防护说明，不代表特定炮弹、距离或角度下必穿。",
+      "caption": "克虏伯kluub｜2024-03-28｜116.533312秒｜游戏版本2.33.0.145；正面局部。"
     },
     {
       "id": "sw_t_55m",
@@ -10067,8 +10104,16 @@
       "collectedAt": "2026-11-02T08:56:17.919Z",
       "pins": [],
       "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1NC4y1K7Kj/",
+        "author": "克虏伯kluub",
+        "title": "生存性提升M60A1 RISE (P)《战争雷霆》〔载具简评〕",
+        "publishedAt": "2024-01-04 12:00:00",
+        "date": "2024-01-04",
+        "gameVersion": "2.33.0.41",
+        "kind": "video"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/us_m60a1_rise_passive_era",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-001-20261102/snapshots/us_m60a1_rise_passive_era.json",
@@ -10090,8 +10135,38 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。"
-      ]
+        "未完成全车弱点图；没有新增试射案例。"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v700-20261105/us_m60a1_rise_passive_era/BV1NC4y1K7Kj/native-166.15.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v732/proofs/us_m60a1_rise_passive_era-frame-proof.json",
+      "frameSnapshotSHA256": "29be17c1d411628b934559fe3fb1c057b7df30621f118a3be3cbeb6fd8ba6598",
+      "assetPath": "images/USA/USA-M60A1-RISE-Passive-front-position.webp",
+      "crop": [
+        660,
+        180,
+        550,
+        480
+      ],
+      "captureSHA256": "2e313f9e3dcd8e7600da4a46c269942032e2eb4d366681f4385e778d0b07362a",
+      "originalFrameSHA256": "2e313f9e3dcd8e7600da4a46c269942032e2eb4d366681f4385e778d0b07362a",
+      "time": 166.4,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front-slightly-elevated",
+      "imageQuality": "native-game-image-bounded-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "sourceGameVersion": "2.33.0.41",
+      "sourceNoRepost": null,
+      "coverageStatus": "partial-general-frontal-context",
+      "coverageNotice": "仅定性位置参考，非完整全车弱点图；不承诺必穿或当前版本结果。",
+      "frontSummary": "M60A1 RISE (P) 正面装甲示意。来源评价其整体防护仍有风险；ERA不代表全面免疫。具体效果取决于来弹、角度和命中部位，本图未作试射验证。",
+      "caption": "克虏伯kluub｜2024-01-04｜166.4秒｜游戏版本2.33.0.41；正面局部。"
     },
     {
       "id": "ussr_t_55a",
@@ -10472,8 +10547,16 @@
       "collectedAt": "2026-11-02T08:58:43.570Z",
       "pins": [],
       "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV13M4m1Z7uD/",
+        "author": "克虏伯kluub",
+        "title": "瑞典百夫长的绝唱Strv 105《战争雷霆》〔载具简评〕",
+        "publishedAt": "2024-05-06 12:00:00",
+        "date": "2024-05-06",
+        "gameVersion": "2.35.1.47",
+        "kind": "video"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/sw_strv_105",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-002-20261102/snapshots/sw_strv_105.json",
@@ -10494,8 +10577,38 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。"
-      ]
+        "未完成全车弱点图；没有新增试射案例。"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v703-20261105/sw_strv_105/BV13M4m1Z7uD/native-83.02.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v732/proofs/sw_strv_105-frame-proof.json",
+      "frameSnapshotSHA256": "3fdbaa1cb035b336fc5c69f13683e1a1d5d0aba01c71905b28264e0fe2bc9251",
+      "assetPath": "images/SWE/SWE-Strv-105-front-position.webp",
+      "crop": [
+        0,
+        0,
+        1440,
+        720
+      ],
+      "captureSHA256": "1e1d36445cc66cf4cd262a1b170fa1c88063c5b5402f30fc06ba95d098a7d4e2",
+      "originalFrameSHA256": "1e1d36445cc66cf4cd262a1b170fa1c88063c5b5402f30fc06ba95d098a7d4e2",
+      "time": 83.233312,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front-slightly-elevated",
+      "imageQuality": "native-game-image-bounded-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "sourceGameVersion": "2.35.1.47",
+      "sourceNoRepost": false,
+      "coverageStatus": "partial-general-frontal-context",
+      "coverageNotice": "仅定性位置参考，非完整全车弱点图；不承诺必穿或当前版本结果。",
+      "frontSummary": "正面外观示意。官方 Wiki 对本车提示：爆反可改善对 HEAT-FS/HESH 的防护，但面对 APFSDS 仍较脆弱。此图无试射条件，不表示整面必穿，也不提供精确瞄点。",
+      "caption": "克虏伯kluub｜2024-05-06｜83.233312秒｜游戏版本2.35.1.47；正面局部。"
     },
     {
       "id": "uk_olifant_mk_1a",
@@ -11965,8 +12078,16 @@
       "collectedAt": "2026-11-02T09:04:42.214Z",
       "pins": [],
       "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1w2421u7Vq/",
+        "author": "克虏伯kluub",
+        "title": "勇虎战车CM11《战争雷霆》〔载具简评〕",
+        "publishedAt": "2024-03-09 12:00:00",
+        "date": "2024-03-09",
+        "gameVersion": "2.33.0.159",
+        "kind": "video"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/cn_cm11",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-004-20261102/snapshots/cn_cm11.json",
@@ -11987,9 +12108,38 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。",
-        "具体改型年代待核实，era保留null。"
-      ]
+        "未完成全车弱点图；没有新增试射案例。"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v703-20261105/cn_cm11/BV1w2421u7Vq/native-150.31.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v732/proofs/cn_cm11-frame-proof.json",
+      "frameSnapshotSHA256": "49fb76744a4edeb006c2bccade455726371f0df1ff1589b2286ad031ad336baa",
+      "assetPath": "images/CHN/CHN-CM11-front-position.webp",
+      "crop": [
+        690,
+        200,
+        540,
+        410
+      ],
+      "captureSHA256": "13340f3720ece7bc59d86fdbcf04f7dca4d47e9da6018f594276670395c99c1b",
+      "originalFrameSHA256": "13340f3720ece7bc59d86fdbcf04f7dca4d47e9da6018f594276670395c99c1b",
+      "time": 150.833312,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front-slightly-elevated",
+      "imageQuality": "native-game-image-bounded-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "sourceGameVersion": "2.33.0.159",
+      "sourceNoRepost": false,
+      "coverageStatus": "partial-general-frontal-context",
+      "coverageNotice": "仅定性位置参考，非完整全车弱点图；不承诺必穿或当前版本结果。",
+      "frontSummary": "克虏伯kluub在本车装甲介绍中称，正面及炮塔侧面爆反提升了化学能弹防护，但动能弹防护仍较差。本图仅提供CM11正面外表定位，不指示精确瞄点，不代表任何炮弹必穿或必杀。",
+      "caption": "克虏伯kluub｜2024-03-09｜150.833312秒｜游戏版本2.33.0.159；正面局部。"
     },
     {
       "id": "fr_amx_30_acra",
@@ -13762,10 +13912,81 @@
       "eraStatus": "pending-exact-variant-date-review",
       "eraBasis": "现有unit页面没有足够明确的具体技术改型形成日期；不以采购、改装交付或游戏引入日期推断。",
       "collectedAt": "2026-11-02T09:06:37.042Z",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.4846153846153846,
+          "y": 0.45454545454545453,
+          "label": "炮塔下缘／脖子",
+          "detail": "作者讨论高于车体爆反的脖子位置；图中对应炮塔下缘与车体上表面之间。仅定位可见接合区域，不认定某弹必穿。",
+          "kind": "qualitative",
+          "sourceUrl": "https://www.bilibili.com/video/BV16T411T7TN/",
+          "sourceTime": 955.59,
+          "evidence": {
+            "frameSHA256": "d7f7a621597302804f65f1c26062c1da88ed0f1b4fbf7dba5e0c78422624a787",
+            "nativeXY": [
+              1005,
+              390
+            ],
+            "crop": [
+              690,
+              190,
+              650,
+              440
+            ],
+            "imageSourceUrl": "https://www.bilibili.com/video/BV16T411T7TN/",
+            "imageSourceTime": 94.25,
+            "coordinateBasis": "qualitative visible part anchor; not a shot",
+            "singlePointPrediction": false,
+            "actualShotObserved": false,
+            "statementTimeRange": [
+              955.59,
+              968.24
+            ]
+          }
+        },
+        {
+          "x": 0.6307692307692307,
+          "y": 0.6363636363636364,
+          "label": "首下前方推土铲",
+          "detail": "作者称首下铲子为结构钢，对穿甲弹的强化作用有限。标记的是可见铲子表面；实际首下装甲被遮挡，不能将本点当作裸露首下或已验证击穿点。",
+          "kind": "qualitative",
+          "sourceUrl": "https://www.bilibili.com/video/BV16T411T7TN/",
+          "sourceTime": 267.62,
+          "evidence": {
+            "frameSHA256": "d7f7a621597302804f65f1c26062c1da88ed0f1b4fbf7dba5e0c78422624a787",
+            "nativeXY": [
+              1100,
+              470
+            ],
+            "crop": [
+              690,
+              190,
+              650,
+              440
+            ],
+            "imageSourceUrl": "https://www.bilibili.com/video/BV16T411T7TN/",
+            "imageSourceTime": 94.25,
+            "coordinateBasis": "qualitative visible part anchor; not a shot",
+            "singlePointPrediction": false,
+            "actualShotObserved": false,
+            "statementTimeRange": [
+              267.62,
+              284.97
+            ]
+          }
+        }
+      ],
       "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV16T411T7TN/",
+        "author": "异世界のOP",
+        "title": "【战争雷霆】中东的大眼魔改巴顿——马加赫6M",
+        "publishedAt": "2022-09-26",
+        "date": "2022-09-26",
+        "gameVersion": null,
+        "kind": "video"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/il_magach_6m",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-005-20261102/snapshots/il_magach_6m.json",
@@ -13792,9 +14013,38 @@
         }
       ],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。",
-        "具体改型年代待核实，era保留null。"
-      ]
+        "未完成全车弱点图；没有新增试射案例。"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v716-20261105/il_magach_6m/BV16T411T7TN/native-94.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v732/proofs/il_magach_6m-frame-proof.json",
+      "frameSnapshotSHA256": "05ffd1a4adb6d8f1c17d8222b9828754b6a4f6501edc0b1945e63a13fd2ea457",
+      "assetPath": "images/ISR/ISR-Magach-6M-front-position.webp",
+      "crop": [
+        690,
+        190,
+        650,
+        440
+      ],
+      "captureSHA256": "d7f7a621597302804f65f1c26062c1da88ed0f1b4fbf7dba5e0c78422624a787",
+      "originalFrameSHA256": "d7f7a621597302804f65f1c26062c1da88ed0f1b4fbf7dba5e0c78422624a787",
+      "time": 94.25,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front-oblique",
+      "imageQuality": "native-game-image-bounded-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "sourceGameVersion": null,
+      "sourceNoRepost": true,
+      "coverageStatus": "partial-qualitative-position",
+      "coverageNotice": "仅定性位置参考，非完整全车弱点图；不承诺必穿或当前版本结果。",
+      "frontSummary": "作者讨论炮塔下缘脖子与首下前方推土铲；仅作可见位置参考，铲子遮挡实际首下装甲，不代表必穿。",
+      "caption": "异世界のOP｜2022-09-26｜94.25秒｜游戏版本未知；略斜正面。"
     },
     {
       "id": "it_c1_ariete_pso",
@@ -17846,10 +18096,50 @@
       "eraStatus": "reviewed-unit-prose",
       "eraBasis": "德系EMBT为2017至18年将勒克莱尔S1炮塔与豹2底盘结合的验证车，自动装填5秒。",
       "collectedAt": "2026-11-02T09:51:11.209Z",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.39305555555555555,
+          "y": 0.2510204081632653,
+          "label": "炮盾局部（作者称左侧）",
+          "detail": "正面炮盾局部为作者提示的弱点，定性位置引用。 不把86毫米单点预测解释为整个炮盾防护；攻击车、具体弹种与距离未知，未验证实射。",
+          "kind": "qualitative",
+          "sourceUrl": "https://www.bilibili.com/video/BV1bLHq6VE7d/",
+          "sourceTime": 152.59,
+          "evidence": {
+            "frameSHA256": "0eca717a48ad9e7abba6455a0b34ca8917d200accfcbede8aa0dfbe8e04cd8f7",
+            "nativeXY": [
+              283,
+              123
+            ],
+            "crop": [
+              0,
+              0,
+              720,
+              490
+            ],
+            "imageSourceUrl": "https://www.bilibili.com/video/BV1bLHq6VE7d/",
+            "imageSourceTime": 158.466687,
+            "coordinateBasis": "qualitative visible part anchor; not a shot",
+            "singlePointPrediction": false,
+            "actualShotObserved": false,
+            "statementTimeRange": [
+              152.59,
+              164.81
+            ]
+          }
+        }
+      ],
       "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1bLHq6VE7d/",
+        "author": "游走的卧龙",
+        "title": "【战争雷霆】德系顶级人上人：EMBT",
+        "publishedAt": "2026-10-03 22:17:37",
+        "date": "2026-10-03",
+        "gameVersion": null,
+        "kind": "video"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/germ_embt",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-008-20261102/snapshots/germ_embt.json",
@@ -17871,8 +18161,38 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。"
-      ]
+        "未完成全车弱点图；没有新增试射案例。"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v727-20261105/germ_embt/BV1bLHq6VE7d/native-157.8.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v732/proofs/germ_embt-frame-proof.json",
+      "frameSnapshotSHA256": "1dcab7948e9a43e98748a91779062f7f44e9b8353aee0f01a22642d0c22e9bb9",
+      "assetPath": "images/GER/GER-EMBT-front-mantlet-position.webp",
+      "crop": [
+        0,
+        0,
+        720,
+        490
+      ],
+      "captureSHA256": "0eca717a48ad9e7abba6455a0b34ca8917d200accfcbede8aa0dfbe8e04cd8f7",
+      "originalFrameSHA256": "0eca717a48ad9e7abba6455a0b34ca8917d200accfcbede8aa0dfbe8e04cd8f7",
+      "time": 158.466687,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front-inset",
+      "imageQuality": "native-game-image-bounded-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "sourceGameVersion": null,
+      "sourceNoRepost": null,
+      "coverageStatus": "partial-qualitative-position",
+      "coverageNotice": "仅定性位置参考，非完整全车弱点图；不承诺必穿或当前版本结果。",
+      "frontSummary": "据游走的卧龙《德系顶级人上人：EMBT》单车介绍，正面炮盾局部弱点位置。车型归属依作者标题及连续讲解，原生国旗/铭牌未独立核实；图中86毫米为缺少完整攻击条件的单点预测。",
+      "caption": "游走的卧龙｜2026-10-03｜158.466687秒｜游戏版本未知；正面局部。车型依据作者德系EMBT单车介绍；原生国旗及铭牌未独立核实。"
     },
     {
       "id": "il_leopard_2a6_hel",
@@ -36540,7 +36860,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 94,
+    "illustratedCount": 100,
     "countries": [
       {
         "country": "usa",
@@ -36676,7 +36996,7 @@
     "lastUpdated": "2026-11-04",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 92,
+    "illustratedTargetCount": 98,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,
