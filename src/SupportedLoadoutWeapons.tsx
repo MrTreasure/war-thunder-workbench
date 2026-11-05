@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { Vehicle } from "./models";
 import { supportedLoadoutWeapons, supportedWeaponGroups } from "./supported-loadout-weapons";
 import { loadoutWeaponName } from "./loadout-presentation";
@@ -13,6 +14,14 @@ export function SupportedLoadoutWeapons({
 }) {
   const data = unit.wikiDetails?.loadouts;
   const weapons = supportedLoadoutWeapons(data);
+  const groups = supportedWeaponGroups(weapons);
+  const primary = ["missile", "bomb"].flatMap((id) => groups.filter((group) => group.id === id));
+  const secondary = groups.filter((group) => !["missile", "bomb"].includes(group.id));
+  const sections = [
+    { id: "primary", groups: primary },
+    { id: "secondary", groups: secondary },
+  ].filter((section) => section.groups.length);
+
   return (
     <section
       className={`wt-supported-weapons ${compact ? "is-compact" : ""}`}
@@ -25,39 +34,51 @@ export function SupportedLoadoutWeapons({
       {weapons.length ? (
         <>
           <div className="wt-supported-weapon-groups">
-            {supportedWeaponGroups(weapons).map((group) => (
-              <div className="wt-supported-weapon-group" key={group.label}>
-                <h4>
-                  {group.label}
-                  <small>{group.items.length}</small>
-                </h4>
-                <ul>
-                  {group.items.map((weapon) => (
-                    <li key={weapon.key}>
-                      <GameTip
-                        label={loadoutWeaponName(weapon.name)}
-                        triggerLabel={`查看 ${loadoutWeaponName(weapon.name)} 详细信息`}
-                        className="wt-supported-weapon-trigger"
-                        icon={
-                          <>
-                            {weapon.imageUrl && (
-                              <img
-                                src={weapon.imageUrl}
-                                width={28}
-                                height={28}
-                                loading="lazy"
-                                alt=""
-                              />
-                            )}
-                            <span>{loadoutWeaponName(weapon.name)}</span>
-                          </>
-                        }
-                      >
-                        <LoadoutWeaponDetails option={weapon} />
-                      </GameTip>
-                    </li>
-                  ))}
-                </ul>
+            {sections.map((section) => (
+              <div className={`wt-supported-weapon-section is-${section.id}`} key={section.id}>
+                {section.groups.map((group) => (
+                  <div
+                    className="wt-supported-weapon-group"
+                    key={group.id}
+                    style={
+                      {
+                        "--wt-weapon-group-weight": Math.max(1, Math.ceil(group.items.length / 6)),
+                      } as CSSProperties
+                    }
+                  >
+                    <h4>
+                      {group.label}
+                      <small>{group.items.length}</small>
+                    </h4>
+                    <ul>
+                      {group.items.map((weapon) => (
+                        <li key={weapon.key}>
+                          <GameTip
+                            label={loadoutWeaponName(weapon.name)}
+                            triggerLabel={`查看 ${loadoutWeaponName(weapon.name)} 详细信息`}
+                            className="wt-supported-weapon-trigger"
+                            icon={
+                              <>
+                                {weapon.imageUrl && (
+                                  <img
+                                    src={weapon.imageUrl}
+                                    width={28}
+                                    height={28}
+                                    loading="lazy"
+                                    alt=""
+                                  />
+                                )}
+                                <span>{loadoutWeaponName(weapon.name)}</span>
+                              </>
+                            }
+                          >
+                            <LoadoutWeaponDetails option={weapon} />
+                          </GameTip>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             ))}
           </div>
