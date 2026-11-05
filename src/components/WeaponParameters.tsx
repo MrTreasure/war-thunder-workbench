@@ -2,6 +2,7 @@ import { t, localize } from "../i18n/core";
 import { useLocale } from "../i18n/react";
 import { useId, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { loadoutWeaponName, loadoutParameterValue } from "../intl-loadout-presentation";
 import type { WikiWeaponParameter } from "../models";
 
 /** Read-only top-layer popup: hovering, keyboard focus and tapping never change table geometry. */
@@ -97,7 +98,7 @@ export function WeaponParameters({
         ref={trigger}
         type="button"
         className="wt-weapon-parameters-trigger"
-        aria-label={t("查看 {0} 武器参数", [name])}
+        aria-label={t("查看 {0} 武器参数", [loadoutWeaponName(name)])}
         aria-describedby={open ? id : undefined}
         aria-expanded={open}
         onPointerEnter={(event) => {
@@ -138,12 +139,12 @@ export function WeaponParameters({
               if (event.pointerType === "mouse") leave();
             }}
           >
-            <h4>{name}</h4>
+            <h4 title={name}>{loadoutWeaponName(name)}</h4>
             <dl>
               {parameters.map((parameter) => (
                 <div key={parameter.id}>
                   <dt>{localize(parameter.label)}</dt>
-                  <dd>{parameter.value}</dd>
+                  <dd>{loadoutParameterValue(parameter.value)}</dd>
                 </div>
               ))}
             </dl>

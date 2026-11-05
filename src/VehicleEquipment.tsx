@@ -6,7 +6,6 @@ import { ModificationGrid } from "./ModificationGrid";
 import { equipmentLabel, equipmentValue } from "./intl-vehicle-equipment";
 import { groundWeaponName } from "./VehicleGroundCombat";
 import { loadoutWeaponName } from "./intl-loadout-presentation";
-import { SupportedLoadoutWeapons } from "./SupportedLoadoutWeapons";
 import { modificationAmmunitionImage } from "./modification-ammunition";
 function Feature({
   feature,
@@ -70,9 +69,6 @@ export function VehicleEquipment({
       className="wt-equipment"
       aria-label={t("\u8F7D\u5177\u88C5\u5907\u4E0E\u6A21\u5757\u8D44\u6599")}
     >
-      {(category === "aviation" || category === "helicopters") && (
-        <SupportedLoadoutWeapons unit={unit} />
-      )}
       {data?.status === "available" ? (
         <>
           {data.properties.length > 0 && (

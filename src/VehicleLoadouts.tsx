@@ -5,6 +5,7 @@ import { useVehicleFacts } from "./vehicle-catalog";
 import type { Vehicle } from "./models";
 import { WeaponParameters } from "./components/WeaponParameters";
 import { GameIcon } from "./components/GameIcon";
+import { loadoutWeaponName } from "./intl-loadout-presentation";
 import { SupportedLoadoutWeapons } from "./SupportedLoadoutWeapons";
 const amount = (value: number | null | undefined) =>
   value === null || value === undefined
@@ -114,11 +115,11 @@ export function VehicleLoadouts({ unit }: { unit: Vehicle }) {
                                 rel="noreferrer"
                                 title={option.name}
                               >
-                                {option.name} ↗
+                                {loadoutWeaponName(option.name)} ↗
                               </a>
                             ) : (
                               <span className="wt-loadout-name" title={option.name}>
-                                {option.name}
+                                {loadoutWeaponName(option.name)}
                               </span>
                             )}
                             {option.parameters.length > 0 && (
@@ -151,16 +152,16 @@ export function VehicleLoadouts({ unit }: { unit: Vehicle }) {
               <h4>{t("Wiki 预设组合")}</h4>
               {data.presets.map((preset) => (
                 <details key={preset.id}>
-                  <summary>{preset.label}</summary>
+                  <summary>{loadoutWeaponName(preset.label)}</summary>
                   <ul>
                     {preset.items.map((item, index) => (
                       <li key={`${item.weaponId}-${index}`}>
                         {item.source ? (
                           <a href={item.source} target="_blank" rel="noreferrer">
-                            {item.name} ↗
+                            {loadoutWeaponName(item.name)} ↗
                           </a>
                         ) : (
-                          item.name
+                          loadoutWeaponName(item.name)
                         )}
                         {item.count !== null ? ` × ${item.count}` : ""}
                         {!!item.parameters?.length && (
