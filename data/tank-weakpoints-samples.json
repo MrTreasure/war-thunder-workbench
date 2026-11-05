@@ -10183,8 +10183,16 @@
       "collectedAt": "2026-11-02T08:56:32.391Z",
       "pins": [],
       "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1wk4y1S7ou/",
+        "author": "克虏伯kluub",
+        "title": "核战预备队T-55A《战争雷霆》〔载具简评〕",
+        "publishedAt": "2024-01-28 12:00:00 (page displayed; timezone unasserted)",
+        "date": "2024-01-28",
+        "gameVersion": "2.33.0.65",
+        "kind": "video"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/ussr_t_55a",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-001-20261102/snapshots/ussr_t_55a.json",
@@ -10206,8 +10214,38 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。"
-      ]
+        "未完成全车弱点图；没有新增试射案例。"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v700-20261105/ussr_t_55a/BV1wk4y1S7ou/native-149.619.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v742/proofs/ussr_t_55a-frame-proof.json",
+      "frameSnapshotSHA256": "0e3b660505c11d130b4af3093985f659f7abdea365d290cb73e7d58760f61716",
+      "assetPath": "images/USSR/USSR-T-55A-front-position.webp",
+      "crop": [
+        700,
+        190,
+        520,
+        510
+      ],
+      "captureSHA256": "02fee27e0c29839243faf395aa3ef74c03bc9c01e775a1fd4011214670ff994b",
+      "originalFrameSHA256": "02fee27e0c29839243faf395aa3ef74c03bc9c01e775a1fd4011214670ff994b",
+      "time": 149.833312,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front-slightly-elevated",
+      "imageQuality": "native-game-image-bounded-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "sourceGameVersion": "2.33.0.65",
+      "sourceNoRepost": false,
+      "coverageStatus": "partial-general-frontal-context",
+      "coverageNotice": "仅定性位置参考，非完整全车弱点图；不承诺必穿或当前版本结果。",
+      "frontSummary": "克虏伯kluub在该视频188.03–192.78秒认为，T-55A装甲在其当时分房中稍显薄弱。图为同一视频的本车正面外观参照，未标注具体弱点；不代表任何弹种、距离或角度下必穿。",
+      "caption": "克虏伯kluub｜2024-01-28｜149.833312秒｜游戏版本2.33.0.65；正面局部。"
     },
     {
       "id": "cn_m60a3_tts",
@@ -11164,8 +11202,16 @@
       "collectedAt": "2026-11-02T08:59:49.176Z",
       "pins": [],
       "videoAdvice": [],
-      "source": {},
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1uL4y1P7BS/",
+        "author": "克拉拉_伊万诺维奇",
+        "title": "【战争雷霆】“菠萝披萨毁灭者”OF-40（MTCA） 简评&实战",
+        "publishedAt": "2022-06-26 12:05:00 (page displayed; timezone unasserted)",
+        "date": "2022-06-26",
+        "gameVersion": "2.17.0.32",
+        "kind": "video"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/it_of_40_mtca",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-003-20261102/snapshots/it_of_40_mtca.json",
@@ -11186,9 +11232,38 @@
       "weaknessEvidenceStatus": "general-context-only",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "缺精确视频试射上下文及可验证局部坐标。",
-        "具体改型年代待核实，era保留null。"
-      ]
+        "未完成全车弱点图；没有新增试射案例。"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v703-20261105/it_of_40_mtca/BV1uL4y1P7BS/native-189.5.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v742/proofs/it_of_40_mtca-frame-proof.json",
+      "frameSnapshotSHA256": "bc6c14c38d528f797b9972e39e869a2221777642e6f6a6a85397b8c1bdd454c2",
+      "assetPath": "images/ITA/ITA-OF-40-MTCA-front-position.webp",
+      "crop": [
+        535,
+        270,
+        790,
+        430
+      ],
+      "captureSHA256": "f19bcd2f488f93b78a223b15f73fc642ff16b00992f19eeca09907d8c57af8df",
+      "originalFrameSHA256": "f19bcd2f488f93b78a223b15f73fc642ff16b00992f19eeca09907d8c57af8df",
+      "time": 188.733312,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front-oblique",
+      "imageQuality": "native-game-image-bounded-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "mainImageUsable": true,
+      "completeIllustration": false,
+      "sourceGameVersion": "2.17.0.32",
+      "sourceNoRepost": true,
+      "coverageStatus": "partial-general-frontal-context",
+      "coverageNotice": "仅定性位置参考，非完整全车弱点图；不承诺必穿或当前版本结果。",
+      "frontSummary": "作者在该视频188.06–193.4秒认为，OF-40（MTCA）装甲防护较弱，不适合在前线与敌方对峙。图为同时段本车正面斜视外观参照，未标注具体弱点；不代表任何弹种、距离或角度下必穿。",
+      "caption": "克拉拉_伊万诺维奇｜2022-06-26｜188.733312秒｜游戏版本2.17.0.32；正面斜视，非正迎角或完整攻略。"
     },
     {
       "id": "jp_type_74_mod_g_kai",
@@ -15345,7 +15420,16 @@
       "qualitativeWeakpoints": [],
       "missingEvidence": [
         "缺精确视频试射上下文及可验证局部坐标。"
-      ]
+      ],
+      "baseVehicleReference": {
+        "vehicleId": "us_m60a1_rise_passive_era",
+        "basis": "official-wiki-identical-except-appearance",
+        "targetWikiURL": "https://wiki.warthunder.com/unit/us_m60a1_rise_mod",
+        "actualcheckedAt": "2026-11-02T09:06:45.267Z",
+        "gameVersion": "2.59.0.92",
+        "sourceHTMLSHA": "6110b0ba1ae001085a34ec2cc93806bd3fdaa1733c4b39846667b2dc809085ec",
+        "note": "官方Wiki说明M60A1 Predator与标准M60A1 RISE (P)的差异为外观，正文链接指向该基础型号；仅引用基础型号指南，不继承试射条件。"
+      }
     },
     {
       "id": "ussr_t_55_am",
@@ -36860,7 +36944,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 100,
+    "illustratedCount": 102,
     "countries": [
       {
         "country": "usa",
@@ -36996,7 +37080,7 @@
     "lastUpdated": "2026-11-04",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 98,
+    "illustratedTargetCount": 100,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,

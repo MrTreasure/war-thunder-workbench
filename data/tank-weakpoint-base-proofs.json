@@ -81,6 +81,16 @@
       "actualcheckedAt": "2026-11-02T18:17:27.380Z",
       "wikiGameVersion": "2.59.0.92",
       "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-003-20261103/snapshots/us_m1a1_hc_usmc_sm.html"
+    },
+    {
+      "targetUnitId": "us_m60a1_rise_mod",
+      "baseUnitId": "us_m60a1_rise_passive_era",
+      "targetWikiURL": "https://wiki.warthunder.com/unit/us_m60a1_rise_mod",
+      "htmlSha256": "6110b0ba1ae001085a34ec2cc93806bd3fdaa1733c4b39846667b2dc809085ec",
+      "recordedHtmlSha256": "6110b0ba1ae001085a34ec2cc93806bd3fdaa1733c4b39846667b2dc809085ec",
+      "actualcheckedAt": "2026-11-02T09:06:45.267Z",
+      "wikiGameVersion": "2.59.0.92",
+      "htmlPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuous-006-20261102/snapshots/us_m60a1_rise_mod.html"
     }
   ]
 }

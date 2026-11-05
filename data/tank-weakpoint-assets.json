@@ -1845,6 +1845,42 @@
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/GER/GER-EMBT-front-mantlet-position.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/GER/GER-EMBT-front-mantlet-position.webp"
       }
+    },
+    "ussr_t_55a": {
+      "photo": {
+        "path": "images/USSR/USSR-T-55A-front-position.webp",
+        "sha256": "a396b7f20c97992cc967b7f4c2796b21d76d829f8bbeaef9deff3287a06e368e",
+        "bytes": 210536,
+        "commit": "b0e917f38d41cef05c8cd165a657e938a30bdea7",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b0e917f38d41cef05c8cd165a657e938a30bdea7/images/USSR/USSR-T-55A-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b0e917f38d41cef05c8cd165a657e938a30bdea7/images/USSR/USSR-T-55A-front-position.webp"
+      },
+      "raw": {
+        "path": "images/USSR/USSR-T-55A-front-position.webp",
+        "sha256": "a396b7f20c97992cc967b7f4c2796b21d76d829f8bbeaef9deff3287a06e368e",
+        "bytes": 210536,
+        "commit": "b0e917f38d41cef05c8cd165a657e938a30bdea7",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b0e917f38d41cef05c8cd165a657e938a30bdea7/images/USSR/USSR-T-55A-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b0e917f38d41cef05c8cd165a657e938a30bdea7/images/USSR/USSR-T-55A-front-position.webp"
+      }
+    },
+    "it_of_40_mtca": {
+      "photo": {
+        "path": "images/ITA/ITA-OF-40-MTCA-front-position.webp",
+        "sha256": "fac2f2fa34015ad3c305a1d9c1d1701174308b2db343ad0759592e22f7a55622",
+        "bytes": 296042,
+        "commit": "b0e917f38d41cef05c8cd165a657e938a30bdea7",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b0e917f38d41cef05c8cd165a657e938a30bdea7/images/ITA/ITA-OF-40-MTCA-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b0e917f38d41cef05c8cd165a657e938a30bdea7/images/ITA/ITA-OF-40-MTCA-front-position.webp"
+      },
+      "raw": {
+        "path": "images/ITA/ITA-OF-40-MTCA-front-position.webp",
+        "sha256": "fac2f2fa34015ad3c305a1d9c1d1701174308b2db343ad0759592e22f7a55622",
+        "bytes": 296042,
+        "commit": "b0e917f38d41cef05c8cd165a657e938a30bdea7",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b0e917f38d41cef05c8cd165a657e938a30bdea7/images/ITA/ITA-OF-40-MTCA-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b0e917f38d41cef05c8cd165a657e938a30bdea7/images/ITA/ITA-OF-40-MTCA-front-position.webp"
+      }
     }
   },
   "assets": [
@@ -18652,6 +18688,102 @@
       "commit": "577ed164c14b8268c2e436f40fe006026d02e65c",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@577ed164c14b8268c2e436f40fe006026d02e65c/images/GER/GER-EMBT-front-mantlet-position.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/577ed164c14b8268c2e436f40fe006026d02e65c/images/GER/GER-EMBT-front-mantlet-position.webp"
+    },
+    {
+      "vehicleId": "ussr_t_55a",
+      "filename": "USSR-T-55A-front-position.webp",
+      "path": "images/USSR/USSR-T-55A-front-position.webp",
+      "country": "USSR",
+      "kind": "photo",
+      "width": 520,
+      "height": 510,
+      "sha256": "a396b7f20c97992cc967b7f4c2796b21d76d829f8bbeaef9deff3287a06e368e",
+      "bytes": 210536,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v700-20261105/ussr_t_55a/BV1wk4y1S7ou/native-149.619.png",
+        "sha256": "02fee27e0c29839243faf395aa3ef74c03bc9c01e775a1fd4011214670ff994b",
+        "bytes": 2870334,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "02fee27e0c29839243faf395aa3ef74c03bc9c01e775a1fd4011214670ff994b",
+      "sourceTime": 149.833312,
+      "crop": [
+        700,
+        190,
+        520,
+        510
+      ],
+      "nativeXY": null,
+      "pointUV": null,
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v742/proofs/ussr_t_55a-frame-proof.json",
+        "sha256": "0e3b660505c11d130b4af3093985f659f7abdea365d290cb73e7d58760f61716",
+        "bytes": 4228
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": false,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "b0e917f38d41cef05c8cd165a657e938a30bdea7",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b0e917f38d41cef05c8cd165a657e938a30bdea7/images/USSR/USSR-T-55A-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b0e917f38d41cef05c8cd165a657e938a30bdea7/images/USSR/USSR-T-55A-front-position.webp"
+    },
+    {
+      "vehicleId": "it_of_40_mtca",
+      "filename": "ITA-OF-40-MTCA-front-position.webp",
+      "path": "images/ITA/ITA-OF-40-MTCA-front-position.webp",
+      "country": "ITA",
+      "kind": "photo",
+      "width": 790,
+      "height": 430,
+      "sha256": "fac2f2fa34015ad3c305a1d9c1d1701174308b2db343ad0759592e22f7a55622",
+      "bytes": 296042,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v703-20261105/it_of_40_mtca/BV1uL4y1P7BS/native-189.5.png",
+        "sha256": "f19bcd2f488f93b78a223b15f73fc642ff16b00992f19eeca09907d8c57af8df",
+        "bytes": 3553200,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "f19bcd2f488f93b78a223b15f73fc642ff16b00992f19eeca09907d8c57af8df",
+      "sourceTime": 188.733312,
+      "crop": [
+        535,
+        270,
+        790,
+        430
+      ],
+      "nativeXY": null,
+      "pointUV": null,
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v742/proofs/it_of_40_mtca-frame-proof.json",
+        "sha256": "bc6c14c38d528f797b9972e39e869a2221777642e6f6a6a85397b8c1bdd454c2",
+        "bytes": 5202
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "b0e917f38d41cef05c8cd165a657e938a30bdea7",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@b0e917f38d41cef05c8cd165a657e938a30bdea7/images/ITA/ITA-OF-40-MTCA-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/b0e917f38d41cef05c8cd165a657e938a30bdea7/images/ITA/ITA-OF-40-MTCA-front-position.webp"
     }
   ]
 }
