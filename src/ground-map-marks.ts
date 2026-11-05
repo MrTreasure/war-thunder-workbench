@@ -1,4 +1,4 @@
-type Mark = { kind: string; team: number; label: string; x: number; y: number };
+type Mark = { kind: string; team: number; label: string; x: number; y: number; bakedIntoBase?: boolean };
 
 // Some mission exports concatenate AB/RB/SB briefing points. Keep the first
 // supplied capture per team/label as the default set, preserving raw API data.
@@ -6,6 +6,7 @@ type Mark = { kind: string; team: number; label: string; x: number; y: number };
 export function displayMapMarks<T extends Mark>(marks: readonly T[]): T[] {
   const seen = new Set<string>();
   return marks.filter((mark) => {
+    if (mark.bakedIntoBase) return false;
     const key = JSON.stringify([
       mark.kind,
       mark.team,

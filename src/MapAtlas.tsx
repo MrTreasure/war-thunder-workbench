@@ -461,7 +461,7 @@ function GroundDetail({
   };
   const markerScale = mapFrame.w / zoom;
   const gridLines = [];
-  if (grid) {
+  if (grid && map.bounds && map.grid) {
     const lines = referenceGrid(map.bounds, map.grid.default_reference);
     for (const { position, label } of lines.vertical)
       gridLines.push(
@@ -636,7 +636,7 @@ function GroundDetail({
                 setCropped(!cropped);
               },
             },
-          ]}
+          ].filter(layer => (layer.label !== "等高线" || !!map.contourImage) && (layer.label !== "参考网格" || !!map.grid) && (layer.label !== "点位" || marks.length > 0))}
         />
       </div>
     </div>
@@ -737,7 +737,7 @@ function GroundDetail({
                   onLoad={() => setLoaded(true)}
                   onFailure={() => setFailed(true)}
                 />
-                {contours && (
+                {contours && map.contourImage && (
                   <GroundSvgImage
                     key={`contours-${retryVersion}`}
                     asset={rotateAsset(map.contourImage, sourceChoice)}
@@ -824,7 +824,7 @@ function GroundDetail({
               </g>
               <g ref={setEditorHost} />
             </svg>
-            {(!loaded || (contours && !contourLoaded)) && !failed && (
+            {(!loaded || (contours && map.contourImage && !contourLoaded)) && !failed && (
               <p className="ground-map-status">
                 {loaded ? "正在加载地形图层…" : "正在加载高清地图…"}
                 <button onClick={alternateSource}>尝试备用线路</button>
@@ -890,7 +890,7 @@ function GroundDetail({
                           }
                         : undefined,
                     base: rotateAsset(map.base, sourceChoice),
-                    contourImage: rotateAsset(map.contourImage, sourceChoice),
+                    contourImage: map.contourImage ? rotateAsset(map.contourImage, sourceChoice) : null,
                     view: { x, y, w, h },
                     mapFrame,
                     markerScale,
@@ -900,7 +900,7 @@ function GroundDetail({
                     team,
                     zoom,
                     bounds: map.bounds,
-                    reference: map.grid.default_reference,
+                    reference: map.grid?.default_reference ?? null,
                     marks,
                     builtinIcons: atlas.icons,
                     editorIcons: editorIconAssets,
@@ -934,15 +934,15 @@ function GroundDetail({
         </div>
         <div className="ground-map-meta">
           <span>
-            <i className="ground-ally" /> 己方出生点
+            <i className="ground-ally" /> {map.coordinateSpace === "image" ? "原图上方出生点" : "己方出生点"}
           </span>
           <span>
-            <i className="ground-enemy" /> 敌方出生点
+            <i className="ground-enemy" /> {map.coordinateSpace === "image" ? "原图下方出生点" : "敌方出生点"}
           </span>
           <span>◇ 占领点</span>
-          <span>等高距 5 m · 主等高距 25 m</span>
+          {map.contours && <span>等高距 5 m · 主等高距 25 m</span>}
         </div>
-        <details className="ground-notes">
+        {map.contours ? <details className="ground-notes">
           <summary>地形与坐标说明</summary>
           <p>
             地形高度 {map.contours.height_range_m.map((n) => n.toFixed(1)).join(" ~ ")}{" "}
@@ -953,7 +953,7 @@ function GroundDetail({
             参考网格使用地图文件中的间距，字母自上向下、数字自左向右；未与实际对局校准，切换布局不会重置编号。原始地形采样间距{" "}
             {map.contours.native_sample_m} m。
           </p>
-        </details>
+        </details> : <p className="ground-notes">原图出生点颜色固定；所选走线仍以绿线表示己方。原图未提供比例尺与等高线。</p>}
         {hasTestAccess && selectedRoute && (
           <section className="ground-route-guide" aria-label="所选推荐走线文字攻略">
             <h3>{selectedRoute.title}</h3>

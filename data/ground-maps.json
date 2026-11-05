@@ -40001,6 +40001,168 @@
         }
       ],
       "legacyGuideIds": []
+    },
+    {
+      "id": "atlas_2271",
+      "name": "2271号测试基地",
+      "english": "Test Site-2271",
+      "width": 4612,
+      "height": 4612,
+      "level_source": null,
+      "texture": null,
+      "coordinateSpace": "image",
+      "bounds": null,
+      "grid": null,
+      "contours": null,
+      "contourImage": null,
+      "base": {
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@49aececf08115ad3de5b8b7aa8d76666d90320f2/war-thunder/ground-maps/v1/a1b316a51c159a9f42c3f871.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/49aececf08115ad3de5b8b7aa8d76666d90320f2/war-thunder/ground-maps/v1/a1b316a51c159a9f42c3f871.webp",
+        "sha256": "a1b316a51c159a9f42c3f871a9076776148ae2015a21237594a5820300f2bd5a",
+        "sourceSha256": "1b5c0f2417e92a125dad4980d6afa3827b7edced2c2a1abf98a1398a9b531f05",
+        "bytes": 1451662,
+        "fallbackUrl": "https://wtmaps.mrtreasure.cc/wt-map-atlas/v1/images/924e4330c652aa.png?rev=20261016",
+        "fallbackSha256": "1b5c0f2417e92a125dad4980d6afa3827b7edced2c2a1abf98a1398a9b531f05",
+        "fallbackBytes": 29074712
+      },
+      "layouts": [
+        {
+          "id": "atlas_2271_reference_dom",
+          "name": "三点占领 · 历史原图",
+          "postfix": "_reference",
+          "source": "legacy-atlas-original/924e4330c652aa",
+          "source_sha256": "1b5c0f2417e92a125dad4980d6afa3827b7edced2c2a1abf98a1398a9b531f05",
+          "locName": null,
+          "marks": [
+            {
+              "kind": "capture",
+              "team": 0,
+              "label": "A",
+              "x": 0.22539028620988724,
+              "y": 0.49251951431049434,
+              "world": null,
+              "area": "raster_reference_capture_a",
+              "bakedIntoBase": true,
+              "imagePixelUncertainty": 2
+            },
+            {
+              "kind": "capture",
+              "team": 0,
+              "label": "B",
+              "x": 0.49251951431049434,
+              "y": 0.491652211621856,
+              "world": null,
+              "area": "raster_reference_capture_b",
+              "bakedIntoBase": true,
+              "imagePixelUncertainty": 2
+            },
+            {
+              "kind": "capture",
+              "team": 0,
+              "label": "C",
+              "x": 0.7492411101474414,
+              "y": 0.5088898525585429,
+              "world": null,
+              "area": "raster_reference_capture_c",
+              "bakedIntoBase": true,
+              "imagePixelUncertainty": 2
+            },
+            {
+              "kind": "spawn",
+              "team": 1,
+              "label": "上方出生点",
+              "x": 0.2444709453599306,
+              "y": 0.11611014744145706,
+              "world": null,
+              "area": "raster_reference_north_1",
+              "bakedIntoBase": true,
+              "imagePixelUncertainty": 4
+            },
+            {
+              "kind": "spawn",
+              "team": 1,
+              "label": "上方出生点",
+              "x": 0.7498915871639202,
+              "y": 0.11513443191673894,
+              "world": null,
+              "area": "raster_reference_north_2",
+              "bakedIntoBase": true,
+              "imagePixelUncertainty": 4
+            },
+            {
+              "kind": "spawn",
+              "team": 2,
+              "label": "下方出生点",
+              "x": 0.21487424111014744,
+              "y": 0.8948395490026019,
+              "world": null,
+              "area": "raster_reference_south_1",
+              "bakedIntoBase": true,
+              "imagePixelUncertainty": 4
+            },
+            {
+              "kind": "spawn",
+              "team": 2,
+              "label": "下方出生点",
+              "x": 0.7205117085862967,
+              "y": 0.9131613183000867,
+              "world": null,
+              "area": "raster_reference_south_2",
+              "bakedIntoBase": true,
+              "imagePixelUncertainty": 4
+            }
+          ],
+          "crop": null,
+          "gameMissionId": null,
+          "teamIdentityBasis": "local reference: team1 north / team2 south; native game team IDs not independently verified",
+          "historicalOnly": true
+        }
+      ],
+      "thumbnails": [
+        {
+          "layoutId": "atlas_2271_reference_dom",
+          "name": "三点占领 · 历史原图",
+          "image": {
+            "url": "https://cdn.jsdelivr.net/gh/MrTreasure/oss-files@49aececf08115ad3de5b8b7aa8d76666d90320f2/war-thunder/ground-maps/v1/10af80f63b1a3e30e2cb8b5b.webp",
+            "rawUrl": "https://raw.githubusercontent.com/MrTreasure/oss-files/49aececf08115ad3de5b8b7aa8d76666d90320f2/war-thunder/ground-maps/v1/10af80f63b1a3e30e2cb8b5b.webp",
+            "sha256": "10af80f63b1a3e30e2cb8b5baab6e70e93f128c35a86d5dbe05e22b91bb514bf",
+            "sourceSha256": "1b5c0f2417e92a125dad4980d6afa3827b7edced2c2a1abf98a1398a9b531f05",
+            "bytes": 69846
+          },
+          "width": 512,
+          "height": 512,
+          "sourceSha256": "1b5c0f2417e92a125dad4980d6afa3827b7edced2c2a1abf98a1398a9b531f05",
+          "sourcePath": "原图/2271号测试基地.png",
+          "sourceArchive": null,
+          "projectionRevision": 2
+        }
+      ],
+      "guides": [],
+      "legacyGuideIds": [
+        "167818639"
+      ],
+      "guideSources": [
+        {
+          "title": "2271号测试基地走线教程，带你统治巷战节奏！【战争雷霆】",
+          "source": "https://www.bilibili.com/video/BV1FW59zqEHU/",
+          "edition": "2025-04-23 · 历史参考布局"
+        },
+        {
+          "title": "New Locations: Rocky Pillars and Test Site-2271",
+          "source": "https://forum.warthunder.com/t/new-locations-rocky-pillars-and-test-site-2271/21922",
+          "edition": "官方开发公告 · 2023-09"
+        }
+      ],
+      "identityBasis": {
+        "kind": "user-registered-historical-raster-and-independent-video-texture-match",
+        "registeredImageId": "924e4330c652aa",
+        "originalWidth": 4612,
+        "originalHeight": 4612,
+        "originalSHA256": "1b5c0f2417e92a125dad4980d6afa3827b7edced2c2a1abf98a1398a9b531f05",
+        "gameLocationId": null,
+        "currentVersionPassabilityVerified": false,
+        "nativeMarksBakedIntoBase": true
+      }
     }
   ],
   "assetRepository": {
