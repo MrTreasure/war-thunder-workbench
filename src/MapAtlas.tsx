@@ -107,7 +107,10 @@ export function MapAtlas() {
 }
 function hasRoute(atlas: GroundAtlas, routes: MapRoute[], mapId: string, layoutId: string) {
   const identity = routeIdentity(atlas, mapId, layoutId);
-  return routes.some((r) => r.mapId === identity.mapId && r.layoutId === identity.layoutId);
+  return routes.some((r) =>
+    (r.mapId === mapId && r.layoutId === layoutId) ||
+    (r.mapId === identity.mapId && r.layoutId === identity.layoutId),
+  );
 }
 const normalize = (s: string) =>
   s.normalize("NFKC").toLowerCase().replaceAll("日曜", "日耀").replaceAll("马奇诺", "马其诺");
@@ -379,15 +382,16 @@ function GroundDetail({
   const [routeChoice, setRouteChoice] = useState({ context: "", id: "" });
   const [routeState, setRouteState] = useState({ id: "", status: "loading" });
   const [routeRetry, setRouteRetry] = useState(0);
-  const routeContextKey = `${releaseId}:${routeContext.mapId}:${routeContext.layoutId}:${team}`;
+  const routeContextKey = `${releaseId}:${map.id}:${layout.id}:${team}`;
   const coverage = useMapRouteCoverage(releaseId, hasTestAccess);
   const guideLayouts = availableRouteLayouts(atlas, map, coverage.routes, team);
   const guides = relatedMapGuides(atlas, map.id, coverage.routes);
   const routeOptions = routesForContext(
     coverage.routes,
-    routeContext.mapId,
-    routeContext.layoutId,
+    map.id,
+    layout.id,
     team,
+    routeContext,
   );
   const selectedRoute = selectedMapRoute(
     routeOptions,
