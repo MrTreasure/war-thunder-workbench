@@ -30694,10 +30694,50 @@
       "rank": 7,
       "era": "cold-war",
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.4791666666666667,
+          "y": 0.5108695652173914,
+          "label": "首上局部（作者定性提示）",
+          "detail": "作者认为车体首上薄弱、主要依靠倾斜角度防御，并提醒首下面积大；同时认为当时权重下炮塔正面与顶部较难被击穿，建议利用卖头点位并隐藏车体。图仅在可见首上一小块位置作定性提示，浅蓝为装甲选择高亮，不是击穿结果。未提供该位置的完整试射条件，不构成当前版本或任意弹药、距离、角度的必穿结论。",
+          "kind": "qualitative",
+          "sourceUrl": "https://www.bilibili.com/video/BV1Rvhe6NEAR/",
+          "sourceTime": 288.36,
+          "evidence": {
+            "frameSHA256": "53837aec3b2273a38ad776a75f13f68b4ac907293f5316b7f4f79b77f6e5ec6a",
+            "nativeXY": [
+              1050,
+              535
+            ],
+            "crop": [
+              590,
+              300,
+              960,
+              460
+            ],
+            "imageSourceUrl": "https://www.bilibili.com/video/BV1Rvhe6NEAR/",
+            "imageSourceTime": 289.533312,
+            "coordinateBasis": "qualitative visible part anchor; not a shot",
+            "singlePointPrediction": false,
+            "actualShotObserved": false,
+            "statementTimeRange": [
+              288.36,
+              294.56
+            ]
+          }
+        }
+      ],
       "videoAdvice": [],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1Rvhe6NEAR/",
+        "author": "伊莫ImorV",
+        "title": "印度人自己都不要的神车，游戏里是怎样的体验？阿琼坦克超详细解析",
+        "publishedAt": "2026-09-21 11:16:41 (saved page; timezone unasserted)",
+        "date": "2026-09-21",
+        "gameVersion": null,
+        "kind": "video"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/uk_arjun_mk1",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-003-20261103/snapshots/uk_arjun_mk1.json",
@@ -30719,13 +30759,41 @@
       "collectedAt": "2026-11-02T18:15:24.343Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "原文明确1976年开始研发、1984–1987年构建原型；不按2004服役年分类。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无已验证的主图及对应局部标点。"
-      ]
+        "未完成全车弱点图；没有新增试射案例。"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v751-20261105/uk_arjun_mk1/BV1Rvhe6NEAR/native-289.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v764/proofs/uk_arjun_mk1-frame-proof.json",
+      "frameSnapshotSHA256": "dd5c48ec54647dc3aca0fc78f895cac35271de44c7b1238ccc975c4629230bf1",
+      "assetPath": "images/GBR/GBR-Arjun-Mk1-upper-front.webp",
+      "crop": [
+        590,
+        300,
+        960,
+        460
+      ],
+      "captureSHA256": "53837aec3b2273a38ad776a75f13f68b4ac907293f5316b7f4f79b77f6e5ec6a",
+      "originalFrameSHA256": "53837aec3b2273a38ad776a75f13f68b4ac907293f5316b7f4f79b77f6e5ec6a",
+      "time": 289.533312,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front-slightly-elevated",
+      "imageQuality": "native-game-image-bounded-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceGameVersion": null,
+      "sourceNoRepost": true,
+      "coverageStatus": "partial-qualitative-position",
+      "coverageNotice": "仅定性位置参考，非完整全车弱点图；不承诺必穿或当前版本结果。",
+      "frontSummary": "作者认为车体首上薄弱、主要依靠倾斜角度防御，并提醒首下面积大；同时认为当时权重下炮塔正面与顶部较难被击穿，建议利用卖头点位并隐藏车体。图仅在可见首上一小块位置作定性提示，浅蓝为装甲选择高亮，不是击穿结果。未提供该位置的完整试射条件，不构成当前版本或任意弹药、距离、角度的必穿结论。",
+      "caption": "伊莫ImorV｜2026-09-21｜289.533312秒｜游戏版本未知；正面局部。本图车型据同源连续介绍；本帧铭牌未独立读出。"
     },
     {
       "id": "uk_centurion_shot_kal_d",
@@ -30779,7 +30847,39 @@
       "rank": 7,
       "era": null,
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.42028985507246375,
+          "y": 0.52,
+          "label": "车体前部局部（作者定性提示）",
+          "detail": "作者认为挑战者DS车体防护薄弱，并称驾驶员位置容易被机炮车击穿；原文没有给出具体机炮弹种、距离等完整条件。图仅标示可见车体前部的一小块泛位置。作者同时认为炮塔脸部具备一定防护：左脸面对芒果近距离仍可能被穿，距离增大更有利；右脸表现依赖命中位置，并认为隐藏车体卖头面对非顶级钢针较舒适。驾驶员后方发射药与携弹过多的殉爆风险仅为内部风险描述，不作为外部瞄准点；作者建议携带17发，属于当时版本个人建议。绿色字样、单点等效值及装甲显示不是整面防护或必穿证明。",
+          "kind": "qualitative",
+          "sourceUrl": "https://www.bilibili.com/video/BV1qG3LzSEAk/",
+          "sourceTime": 100.64,
+          "evidence": {
+            "frameSHA256": "f05e6977ab1a64d981a8425b8a0dd8cca317ce628899374de45e02daf0e628c1",
+            "nativeXY": [
+              290,
+              208
+            ],
+            "crop": [
+              0,
+              0,
+              690,
+              400
+            ],
+            "imageSourceUrl": "https://www.bilibili.com/video/BV1qG3LzSEAk/",
+            "imageSourceTime": 107,
+            "coordinateBasis": "qualitative visible part anchor; not a shot",
+            "singlePointPrediction": false,
+            "actualShotObserved": false,
+            "statementTimeRange": [
+              100.64,
+              135.6
+            ]
+          }
+        }
+      ],
       "videoAdvice": [
         {
           "id": "uk_challenger_1_mk_3_gulf:BV1sovaemEYj:author-guidance-1",
@@ -30834,8 +30934,16 @@
           }
         }
       ],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1qG3LzSEAk/",
+        "author": "鸡蛋壳w",
+        "title": "[战争雷霆]大英狙击手——挑战者DS简评与实战",
+        "publishedAt": "2025-07-05 10:00:00 (saved page; timezone unasserted)",
+        "date": "2025-07-05",
+        "gameVersion": null,
+        "kind": "video"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/uk_challenger_1_mk_3_gulf",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-003-20261103/snapshots/uk_challenger_1_mk_3_gulf.json",
@@ -30857,12 +30965,12 @@
       "collectedAt": "2026-11-02T18:15:40.770Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "1983为挑战者基础型，1991为海湾作战记录，未给本精确沙漠风暴型技术形成时间。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无已验证的主图及对应局部标点。"
+        "未完成全车弱点图；没有新增试射案例。"
       ],
       "relatedSources": [
         {
@@ -30875,7 +30983,35 @@
           "sourceGameVersion": null,
           "scopeNote": "作者示意讲解，非实测；嵌入截图不满足主图要求，不提供照片坐标标点。"
         }
-      ]
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v751-20261105/uk_challenger_1_mk_3_gulf/BV1qG3LzSEAk/native-107.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v764/proofs/uk_challenger_1_mk_3_gulf-frame-proof.json",
+      "frameSnapshotSHA256": "3861c2f781199b708978e9929892ffa17746a5f5bfe507c4f8f38ad8b0c46d92",
+      "assetPath": "images/GBR/GBR-Challenger-DS-front-position.webp",
+      "crop": [
+        0,
+        0,
+        690,
+        400
+      ],
+      "captureSHA256": "f05e6977ab1a64d981a8425b8a0dd8cca317ce628899374de45e02daf0e628c1",
+      "originalFrameSHA256": "f05e6977ab1a64d981a8425b8a0dd8cca317ce628899374de45e02daf0e628c1",
+      "time": 107,
+      "sourceDimensions": [
+        1920,
+        1080
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front-inset",
+      "imageQuality": "native-game-image-bounded-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceGameVersion": null,
+      "sourceNoRepost": true,
+      "coverageStatus": "partial-qualitative-position",
+      "coverageNotice": "仅定性位置参考，非完整全车弱点图；不承诺必穿或当前版本结果。",
+      "frontSummary": "作者认为挑战者DS车体防护薄弱，并称驾驶员位置容易被机炮车击穿；原文没有给出具体机炮弹种、距离等完整条件。图仅标示可见车体前部的一小块泛位置。作者同时认为炮塔脸部具备一定防护：左脸面对芒果近距离仍可能被穿，距离增大更有利；右脸表现依赖命中位置，并认为隐藏车体卖头面对非顶级钢针较舒适。驾驶员后方发射药与携弹过多的殉爆风险仅为内部风险描述，不作为外部瞄准点；作者建议携带17发，属于当时版本个人建议。绿色字样、单点等效值及装甲显示不是整面防护或必穿证明。",
+      "caption": "鸡蛋壳w｜2025-07-05｜107秒｜游戏版本未知；正面局部。车型据同源10秒身份说明，本局部无可读铭牌。"
     },
     {
       "id": "uk_challenger_2_bn",
@@ -31411,10 +31547,50 @@
       "rank": 8,
       "era": null,
       "scopeRole": "medium_tank",
-      "pins": [],
+      "pins": [
+        {
+          "x": 0.4,
+          "y": 0.8472727272727273,
+          "label": "首下外露位置参考（未证实可穿）",
+          "detail": "作者称“裤裆还是露着的”；本图仅标示挑战者2E可见首下的外露位置，未证实可穿。炮管遮挡中部，标记不代表整个首下或精确内部部件。陈述在226.69–230.34秒，外观参考画面在12.833312秒，不是同帧试射。",
+          "kind": "qualitative",
+          "sourceUrl": "https://www.bilibili.com/video/BV1S1jezqEwY/",
+          "sourceTime": 226.69,
+          "evidence": {
+            "frameSHA256": "385edd56b8e165a42bbe86d383f177c52b70c878768fb2e28a85cc2da08c18e3",
+            "nativeXY": [
+              910,
+              606
+            ],
+            "crop": [
+              670,
+              140,
+              600,
+              550
+            ],
+            "imageSourceUrl": "https://www.bilibili.com/video/BV1S1jezqEwY/",
+            "imageSourceTime": 12.833312,
+            "coordinateBasis": "qualitative visible part anchor; not a shot",
+            "singlePointPrediction": false,
+            "actualShotObserved": false,
+            "statementTimeRange": [
+              226.69,
+              230.34
+            ]
+          }
+        }
+      ],
       "videoAdvice": [],
-      "source": null,
-      "status": "wiki-reviewed-awaiting-front-image",
+      "source": {
+        "url": "https://www.bilibili.com/video/BV1S1jezqEwY/",
+        "author": "克虏伯kluub",
+        "title": "出口型大英主战挑战者 2E《战争雷霆》〔载具简评〕",
+        "publishedAt": "2025-06-01 12:00:00 (saved page; timezone unasserted)",
+        "date": "2025-06-01",
+        "gameVersion": "2.45.1.100 (visible frame HUD)",
+        "kind": "video"
+      },
+      "status": "partial-frontal-position-reference",
       "wikiUrl": "https://wiki.warthunder.com/unit/uk_challenger_2e",
       "wikiGameVersion": "2.59.0.92",
       "wikiSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/verification/continuation-batch-003-20261103/snapshots/uk_challenger_2e.json",
@@ -31436,13 +31612,41 @@
       "collectedAt": "2026-11-02T18:16:05.473Z",
       "weaknessEvidenceStatus": "general-context-only",
       "completeIllustration": false,
-      "mainImageUsable": false,
+      "mainImageUsable": true,
       "scopeStatus": "in-requested-scope",
       "eraBasis": "2002为出口竞标、2005为项目取消，原文未给精确研发形成日期。",
       "qualitativeWeakpoints": [],
       "missingEvidence": [
-        "暂无已验证的主图及对应局部标点。"
-      ]
+        "未完成全车弱点图；没有新增试射案例。"
+      ],
+      "framePath": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v751-20261105/uk_challenger_2e/BV1S1jezqEwY/native-12.png",
+      "frameSnapshotPath": "artifacts/tank-weakpoints-expansion-20261102/pack-v764/proofs/uk_challenger_2e-frame-proof.json",
+      "frameSnapshotSHA256": "c8070dcb811b9b3043dfdb2587645a551b1efd92e7be1cab5ddc9f5ab1b34194",
+      "assetPath": "images/GBR/GBR-Challenger-2E-lower-front-position.webp",
+      "crop": [
+        670,
+        140,
+        600,
+        550
+      ],
+      "captureSHA256": "385edd56b8e165a42bbe86d383f177c52b70c878768fb2e28a85cc2da08c18e3",
+      "originalFrameSHA256": "385edd56b8e165a42bbe86d383f177c52b70c878768fb2e28a85cc2da08c18e3",
+      "time": 12.833312,
+      "sourceDimensions": [
+        1920,
+        1078
+      ],
+      "imageView": "front",
+      "imageViewDetail": "front-slightly-elevated",
+      "imageQuality": "native-game-image-bounded-excerpt",
+      "mainViewKind": "frontal-position-reference",
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceGameVersion": "2.45.1.100 (visible frame HUD)",
+      "sourceNoRepost": false,
+      "coverageStatus": "partial-qualitative-position",
+      "coverageNotice": "仅定性位置参考，非完整全车弱点图；不承诺必穿或当前版本结果。",
+      "frontSummary": "作者称“裤裆还是露着的”；本图仅标示挑战者2E可见首下的外露位置，未证实可穿。炮管遮挡中部，标记不代表整个首下或精确内部部件。陈述在226.69–230.34秒，外观参考画面在12.833312秒，不是同帧试射。",
+      "caption": "克虏伯kluub｜2025-06-01｜12.833312秒｜游戏版本2.45.1.100 (visible frame HUD)；正面局部。仅首下外露位置参考，未证实可穿。"
     },
     {
       "id": "uk_challenger_2_megatron_sm",
@@ -37048,7 +37252,7 @@
     "rankTankCount": 216,
     "isSupplementCount": 10,
     "wikiReviewedCount": 226,
-    "illustratedCount": 104,
+    "illustratedCount": 107,
     "countries": [
       {
         "country": "usa",
@@ -37184,7 +37388,7 @@
     "lastUpdated": "2026-11-04",
     "definition": "Game Rank VI/VII/VIII medium and heavy tanks plus USSR IS series. Scout/light vehicles only with verified dedicated weakness videos, not routine country-by-country collection.",
     "optionalSpecialistReconCount": 107,
-    "illustratedTargetCount": 102,
+    "illustratedTargetCount": 105,
     "legacyIllustratedCount": 1,
     "completeIllustratedTargetCount": 9,
     "supplementalRequestedCount": 4,

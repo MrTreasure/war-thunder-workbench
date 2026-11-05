@@ -1917,6 +1917,60 @@
         "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9e185e32f7282e25c2d44d69a773417b659a6d30/images/CHN/CHN-ZTZ99-II-lower-front-position.webp",
         "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9e185e32f7282e25c2d44d69a773417b659a6d30/images/CHN/CHN-ZTZ99-II-lower-front-position.webp"
       }
+    },
+    "uk_arjun_mk1": {
+      "photo": {
+        "path": "images/GBR/GBR-Arjun-Mk1-upper-front.webp",
+        "sha256": "f4622167b4f640bae76e4888888c891e00f1f08ea9431115a84f6b81e79243ee",
+        "bytes": 356370,
+        "commit": "697ec3206c3c74952dfb1ceda50b2887d6cd673e",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Arjun-Mk1-upper-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Arjun-Mk1-upper-front.webp"
+      },
+      "raw": {
+        "path": "images/GBR/GBR-Arjun-Mk1-upper-front.webp",
+        "sha256": "f4622167b4f640bae76e4888888c891e00f1f08ea9431115a84f6b81e79243ee",
+        "bytes": 356370,
+        "commit": "697ec3206c3c74952dfb1ceda50b2887d6cd673e",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Arjun-Mk1-upper-front.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Arjun-Mk1-upper-front.webp"
+      }
+    },
+    "uk_challenger_1_mk_3_gulf": {
+      "photo": {
+        "path": "images/GBR/GBR-Challenger-DS-front-position.webp",
+        "sha256": "a223e8a05edf2179d26f3851117fbd23b4c0dbca7483c6802514ab5d88b5f3b1",
+        "bytes": 207858,
+        "commit": "697ec3206c3c74952dfb1ceda50b2887d6cd673e",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-DS-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-DS-front-position.webp"
+      },
+      "raw": {
+        "path": "images/GBR/GBR-Challenger-DS-front-position.webp",
+        "sha256": "a223e8a05edf2179d26f3851117fbd23b4c0dbca7483c6802514ab5d88b5f3b1",
+        "bytes": 207858,
+        "commit": "697ec3206c3c74952dfb1ceda50b2887d6cd673e",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-DS-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-DS-front-position.webp"
+      }
+    },
+    "uk_challenger_2e": {
+      "photo": {
+        "path": "images/GBR/GBR-Challenger-2E-lower-front-position.webp",
+        "sha256": "108cdcd097ea7a48b5926a169951ca2ca4a010f0964f5a5759d88cd85e88447c",
+        "bytes": 257636,
+        "commit": "697ec3206c3c74952dfb1ceda50b2887d6cd673e",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-2E-lower-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-2E-lower-front-position.webp"
+      },
+      "raw": {
+        "path": "images/GBR/GBR-Challenger-2E-lower-front-position.webp",
+        "sha256": "108cdcd097ea7a48b5926a169951ca2ca4a010f0964f5a5759d88cd85e88447c",
+        "bytes": 257636,
+        "commit": "697ec3206c3c74952dfb1ceda50b2887d6cd673e",
+        "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-2E-lower-front-position.webp",
+        "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-2E-lower-front-position.webp"
+      }
     }
   },
   "assets": [
@@ -18922,6 +18976,168 @@
       "commit": "9e185e32f7282e25c2d44d69a773417b659a6d30",
       "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@9e185e32f7282e25c2d44d69a773417b659a6d30/images/CHN/CHN-ZTZ99-II-lower-front-position.webp",
       "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/9e185e32f7282e25c2d44d69a773417b659a6d30/images/CHN/CHN-ZTZ99-II-lower-front-position.webp"
+    },
+    {
+      "vehicleId": "uk_arjun_mk1",
+      "filename": "GBR-Arjun-Mk1-upper-front.webp",
+      "path": "images/GBR/GBR-Arjun-Mk1-upper-front.webp",
+      "country": "GBR",
+      "kind": "photo",
+      "width": 960,
+      "height": 460,
+      "sha256": "f4622167b4f640bae76e4888888c891e00f1f08ea9431115a84f6b81e79243ee",
+      "bytes": 356370,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v751-20261105/uk_arjun_mk1/BV1Rvhe6NEAR/native-289.png",
+        "sha256": "53837aec3b2273a38ad776a75f13f68b4ac907293f5316b7f4f79b77f6e5ec6a",
+        "bytes": 2764053,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "53837aec3b2273a38ad776a75f13f68b4ac907293f5316b7f4f79b77f6e5ec6a",
+      "sourceTime": 289.533312,
+      "crop": [
+        590,
+        300,
+        960,
+        460
+      ],
+      "nativeXY": [
+        1050,
+        535
+      ],
+      "pointUV": [
+        0.4791666666666667,
+        0.5108695652173914
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v764/proofs/uk_arjun_mk1-frame-proof.json",
+        "sha256": "dd5c48ec54647dc3aca0fc78f895cac35271de44c7b1238ccc975c4629230bf1",
+        "bytes": 5612
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "697ec3206c3c74952dfb1ceda50b2887d6cd673e",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Arjun-Mk1-upper-front.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Arjun-Mk1-upper-front.webp"
+    },
+    {
+      "vehicleId": "uk_challenger_1_mk_3_gulf",
+      "filename": "GBR-Challenger-DS-front-position.webp",
+      "path": "images/GBR/GBR-Challenger-DS-front-position.webp",
+      "country": "GBR",
+      "kind": "photo",
+      "width": 690,
+      "height": 400,
+      "sha256": "a223e8a05edf2179d26f3851117fbd23b4c0dbca7483c6802514ab5d88b5f3b1",
+      "bytes": 207858,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v751-20261105/uk_challenger_1_mk_3_gulf/BV1qG3LzSEAk/native-107.png",
+        "sha256": "f05e6977ab1a64d981a8425b8a0dd8cca317ce628899374de45e02daf0e628c1",
+        "bytes": 4008750,
+        "width": 1920,
+        "height": 1080
+      },
+      "sourceFrameSHA256": "f05e6977ab1a64d981a8425b8a0dd8cca317ce628899374de45e02daf0e628c1",
+      "sourceTime": 107,
+      "crop": [
+        0,
+        0,
+        690,
+        400
+      ],
+      "nativeXY": [
+        290,
+        208
+      ],
+      "pointUV": [
+        0.42028985507246375,
+        0.52
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v764/proofs/uk_challenger_1_mk_3_gulf-frame-proof.json",
+        "sha256": "3861c2f781199b708978e9929892ffa17746a5f5bfe507c4f8f38ad8b0c46d92",
+        "bytes": 7655
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": true,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "697ec3206c3c74952dfb1ceda50b2887d6cd673e",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-DS-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-DS-front-position.webp"
+    },
+    {
+      "vehicleId": "uk_challenger_2e",
+      "filename": "GBR-Challenger-2E-lower-front-position.webp",
+      "path": "images/GBR/GBR-Challenger-2E-lower-front-position.webp",
+      "country": "GBR",
+      "kind": "photo",
+      "width": 600,
+      "height": 550,
+      "sha256": "108cdcd097ea7a48b5926a169951ca2ca4a010f0964f5a5759d88cd85e88447c",
+      "bytes": 257636,
+      "sourcePNG": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/sources/remaining148-v751-20261105/uk_challenger_2e/BV1S1jezqEwY/native-12.png",
+        "sha256": "385edd56b8e165a42bbe86d383f177c52b70c878768fb2e28a85cc2da08c18e3",
+        "bytes": 2560966,
+        "width": 1920,
+        "height": 1078
+      },
+      "sourceFrameSHA256": "385edd56b8e165a42bbe86d383f177c52b70c878768fb2e28a85cc2da08c18e3",
+      "sourceTime": 12.833312,
+      "crop": [
+        670,
+        140,
+        600,
+        550
+      ],
+      "nativeXY": [
+        910,
+        606
+      ],
+      "pointUV": [
+        0.4,
+        0.8472727272727273
+      ],
+      "proof": {
+        "path": "artifacts/tank-weakpoints-expansion-20261102/pack-v764/proofs/uk_challenger_2e-frame-proof.json",
+        "sha256": "c8070dcb811b9b3043dfdb2587645a551b1efd92e7be1cab5ddc9f5ab1b34194",
+        "bytes": 3622
+      },
+      "lossless": true,
+      "compression": {
+        "codec": "libwebp",
+        "lossless": true,
+        "quality": null,
+        "compression_level": 6
+      },
+      "nativeResized": false,
+      "displayImagePolicy": "analysis-excerpt",
+      "sourceNoRepost": false,
+      "sourceLicenseEstablished": false,
+      "originalFullFramePrivate": true,
+      "commit": "697ec3206c3c74952dfb1ceda50b2887d6cd673e",
+      "url": "https://cdn.jsdelivr.net/gh/MrTreasure/war-thunder-weakpoint-images@697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-2E-lower-front-position.webp",
+      "rawUrl": "https://raw.githubusercontent.com/MrTreasure/war-thunder-weakpoint-images/697ec3206c3c74952dfb1ceda50b2887d6cd673e/images/GBR/GBR-Challenger-2E-lower-front-position.webp"
     }
   ]
 }
