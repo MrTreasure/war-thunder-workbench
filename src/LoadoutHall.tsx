@@ -5,7 +5,11 @@ import type { LoadoutShare } from "./loadout-shares";
 import type { LoadoutPlan } from "./loadouts";
 import { LoadoutPlanCard } from "./LoadoutPlanCard";
 import { GameSelect } from "./components/GameSelect";
+import { LoadoutVoteButtons } from "./LoadoutVoteButtons";
+import { useWorkbenchAccount } from "./WorkbenchAccount";
 export function LoadoutHall({ onUse }: { onUse: (plan: LoadoutPlan) => void }) {
+  const account = useWorkbenchAccount();
+  const viewerId = account.session?.user?.id || "";
   const [items, setItems] = useState<LoadoutShare[]>([]),
     [country, setCountry] = useState(""),
     [loading, setLoading] = useState(true),
@@ -14,6 +18,8 @@ export function LoadoutHall({ onUse }: { onUse: (plan: LoadoutPlan) => void }) {
     [revision, setRevision] = useState(0);
   useEffect(() => {
     const controller = new AbortController();
+    setLoading(true);
+    setError("");
     void loadoutRequest<{ items: LoadoutShare[] }>(
       `recommendations?country=${country}&offset=${offset}`,
       undefined,
@@ -32,7 +38,7 @@ export function LoadoutHall({ onUse }: { onUse: (plan: LoadoutPlan) => void }) {
         if (!controller.signal.aborted) setLoading(false);
       });
     return () => controller.abort();
-  }, [country, offset, revision]);
+  }, [country, offset, revision, viewerId]);
   const nation = (value: string) =>
     value ? (
       <span className="wt-mount-country">
@@ -102,6 +108,14 @@ export function LoadoutHall({ onUse }: { onUse: (plan: LoadoutPlan) => void }) {
               </>
             }
           >
+            <LoadoutVoteButtons
+              item={item}
+              onChange={(value) =>
+                setItems((rows) =>
+                  rows.map((row) => (row.id === item.id ? { ...row, ...value } : row)),
+                )
+              }
+            />
             <button onClick={() => onUse(item.plan)}>查看并使用</button>
           </LoadoutPlanCard>
         ))}

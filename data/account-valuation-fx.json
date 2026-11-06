@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "pair": "USD/CNY",
+  "baseCurrency": "USD",
+  "quoteCurrency": "CNY",
+  "baseUnits": 1,
+  "cnyPerUsd": "6.7168",
+  "rateNumerator": 67168,
+  "rateDenominator": 10000,
+  "rateType": "CFETS_PBOC_AUTHORIZED_CENTRAL_PARITY",
+  "publicationDate": "2026-11-06",
+  "publishedAt": "2026-11-06T09:15:00+08:00",
+  "sourceDateText": "2026-11-06 9:15",
+  "sourceName": "中国外汇交易中心 / 中国货币网",
+  "sourceUrl": "https://www.chinamoney.com.cn/chinese/bkccpr/",
+  "dataSourceUrl": "https://www.chinamoney.com.cn/r/cms/www/chinamoney/data/fx/ccpr.json",
+  "checkedAt": "2026-11-06T13:43:13.612805+00:00",
+  "sourceSha256": "14a682cf3eb862a2da78dd95560b3b84655285a91094ed0f3fc24717736dec6f",
+  "referenceOnly": true,
+  "notice": "人民币汇率中间价；用于历史美元报价折人民币参考值，不是银行实际结售汇/银行卡结算汇率。GJN按1GJN≈1USD是独立用户指定参考假设，不是本汇率接口提供的GJN报价。",
+  "gjnUsdRatio": {
+    "numerator": 1,
+    "denominator": 1,
+    "basis": "user_reference"
+  },
+  "rounding": "half-up-whole-CNY"
+}

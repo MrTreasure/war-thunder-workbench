@@ -24,6 +24,34 @@ applyValuationPriceReferences(
   { units: valuationUnits },
   await read("data/account-valuation-price-references.json"),
 );
+const marketPrices = await read("data/market-prices.json");
+assert.equal(marketPrices.schemaVersion, 1);
+const marketFxDenominator = 100n * BigInt(marketPrices.fx.rateDenominator);
+for (const [id, quote] of Object.entries(marketPrices.quotes)) {
+  assert(valuationUnits[id], `Unknown market vehicle ${id}`);
+  assert.equal(quote.currency, "GJN");
+  assert.match(quote.source, /^https:\/\/trade\.gaijin\.net\/market\/1067\//);
+  assert(Number.isFinite(Date.parse(quote.checkedAt)));
+  if (quote.amountGjnCents == null) {
+    assert.equal(quote.referenceCnyCents, null);
+    assert.equal(quote.quoteKind, "no-sell-orders");
+  } else {
+    assert(Number.isSafeInteger(quote.amountGjnCents) && quote.amountGjnCents > 0);
+    const wholeYuan =
+      (BigInt(quote.amountGjnCents) * BigInt(marketPrices.fx.rateNumerator) +
+        marketFxDenominator / 2n) /
+      marketFxDenominator;
+    assert.equal(BigInt(quote.referenceCnyCents), wholeYuan * 100n);
+    if (quote.referenceLimitGjnCents != null)
+      assert(quote.amountGjnCents <= quote.referenceLimitGjnCents);
+    if (quote.quoteKind === "lowest-ask")
+      assert.equal(quote.amountGjnCents, quote.lowestAskGjnCents);
+    else {
+      assert.equal(quote.quoteKind, "user-reference-limit");
+      assert.equal(quote.amountGjnCents, quote.referenceLimitGjnCents);
+    }
+  }
+}
 const settings = await read("data/catalog-settings.json");
 const modificationPresentation = await read("data/modification-presentation.json");
 const modificationTiers = await read("data/modification-tiers.json");

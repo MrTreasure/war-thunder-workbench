@@ -3,7 +3,7 @@ import bootstrap from "./generated/bootstrap.json";
 import cardTheme from "../data/vehicle-card-theme.json";
 import roleIcons from "../data/vehicle-role-icons.json";
 import type { CSSProperties } from "react";
-import type { Catalog, Mode, PackPrice, Vehicle } from "./models";
+import type { Catalog, Mode, PackPrice, MarketPrice, Vehicle } from "./models";
 import { useAccountWorkspace } from "./workspace-context";
 import { vehicleDisplayName } from "./vehicle-display-name";
 import { VehicleThumbnail } from "./VehicleThumbnail";
@@ -12,6 +12,7 @@ import { format } from "./quotes";
 import { cnyPrice } from "./PackPrice";
 import { rating } from "./vehicle-labels";
 import flags from "../data/flags.json";
+import { marketPriceLabel } from "./MarketPrice";
 
 /** A display adapter accepts only known facts; no country data is fetched by a tile. */
 export type VehicleTileUnit = Pick<Vehicle, "id" | "name"> & {
@@ -28,6 +29,7 @@ export type VehicleTileUnit = Pick<Vehicle, "id" | "name"> & {
   price?: number | null;
   ge?: number | null;
   packPrice?: PackPrice;
+  marketPrice?: MarketPrice;
   imageUrl?: string;
   thumbnailUrl?: string;
   image?: string;
@@ -145,7 +147,7 @@ export function VehicleTile({
   };
   return (
     <Element
-      className={`vehicle-card wt-game-card ${premium ? "is-premium" : ""} ${special ? "is-special" : ""} ${owned ? "is-owned" : ""} ${unit.kind === "squadron" ? "is-squadron" : ""} ${selected ? "is-selected" : ""} ${className}`}
+      className={`vehicle-card wt-game-card ${premium ? "is-premium" : ""} ${special ? "is-special" : ""} ${market ? "is-market" : ""} ${owned ? "is-owned" : ""} ${unit.kind === "squadron" ? "is-squadron" : ""} ${selected ? "is-selected" : ""} ${className}`}
       role={onSelect || href ? undefined : "group"}
       href={onSelect ? undefined : href}
       target={!onSelect && href ? "_blank" : undefined}
@@ -155,7 +157,23 @@ export function VehicleTile({
       data-owned={owned || undefined}
       disabled={onSelect ? disabled : undefined}
       type={onSelect ? "button" : undefined}
-      style={{ "--wt-game-owned-icon": `url("${cardTheme.icons.owned}")` } as CSSProperties}
+      style={
+        {
+          "--wt-game-owned-icon": `url("${cardTheme.icons.owned}")`,
+          ...(market
+            ? {
+                "--wt-market-background": owned
+                  ? cardTheme.market.ownedBackground
+                  : cardTheme.market.background,
+                "--wt-market-crown": cardTheme.market.crown,
+                "--wt-market-bottom": cardTheme.market.bottom,
+                "--wt-market-border": cardTheme.market.border,
+                "--wt-market-top": cardTheme.market.topLine,
+                "--wt-market-highlight": cardTheme.market.highlight,
+              }
+            : {}),
+        } as CSSProperties
+      }
       onClick={onSelect}
       aria-label={
         showAcquisition
@@ -271,6 +289,17 @@ export function VehicleTile({
         >
           <small>整包</small>
           {packCents != null ? cnyPrice(packCents) : "暂无报价"}
+        </span>
+      )}
+      {showAcquisition && showPackPrice && market && unit.kind !== "pack" && (
+        <span
+          className="wt-game-pack-price"
+          title={`${unit.marketPrice?.quoteKind === "user-reference-limit" ? "估值参考上限" : "最低挂售价"} · 核对于 ${unit.marketPrice?.checkedAt.slice(0, 10) || "—"}`}
+        >
+          <small>
+            {unit.marketPrice?.quoteKind === "user-reference-limit" ? "参考上限" : "交易所"}
+          </small>
+          {marketPriceLabel(unit.marketPrice)}
         </span>
       )}
     </Element>

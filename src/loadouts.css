@@ -617,6 +617,10 @@ nav.wt-mount-tabs { overflow-x: auto; }
 
 .wt-mount-card-identity { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; min-width: 0; }
 .wt-mount-recommended-state { flex: none; padding: 2px 7px; border: 1px solid var(--wt-gold); color: var(--wt-gold); background: var(--wt-panel); font-size: 11px; line-height: 1.5; white-space: nowrap; }
+.wt-mount-voting { display: grid; gap: 6px; }
+.wt-mount-vote-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; border: 0; margin: 0; padding: 0; min-inline-size: 0; }
+.wt-mount-vote-actions button { min-height: 44px; }
+.wt-mount-vote-actions button[aria-pressed="true"] { color: var(--wt-gold); border-color: var(--wt-gold); background: var(--wt-panel); }
 
 /* finesse · component: bombing estimate · existing product tokens · automatic results */
 .wt-mount-summary > .wt-mount-bombing { grid-column: 1 / -1; min-width: 0; margin-top: 2px; padding-top: 16px; border-top: 1px solid var(--wt-line); }

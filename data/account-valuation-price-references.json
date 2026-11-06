@@ -76,6 +76,57 @@
       "priceBasis": "official_exact_vehicle_market_link"
     },
     {
+      "id": "cn_t_62",
+      "channel": "pack",
+      "source": "https://warthunder.com/en/news/6353-development-new-war-thunder-nation-china-en",
+      "sha256": "6096eb860bf156abf6059d7dc5b619c0a052b1df39766df67192b4056fc908f8",
+      "checkedAt": "2026-11-06T10:04:13.930448+00:00",
+      "priceBasis": "historical_usd_cny_reference",
+      "fx": {
+        "schemaVersion": 1,
+        "pair": "USD/CNY",
+        "baseCurrency": "USD",
+        "quoteCurrency": "CNY",
+        "baseUnits": 1,
+        "cnyPerUsd": "6.7168",
+        "rateNumerator": 67168,
+        "rateDenominator": 10000,
+        "rateType": "CFETS_PBOC_AUTHORIZED_CENTRAL_PARITY",
+        "publicationDate": "2026-11-06",
+        "publishedAt": "2026-11-06T09:15:00+08:00",
+        "sourceDateText": "2026-11-06 9:15",
+        "sourceName": "中国外汇交易中心 / 中国货币网",
+        "sourceUrl": "https://www.chinamoney.com.cn/chinese/bkccpr/",
+        "dataSourceUrl": "https://www.chinamoney.com.cn/r/cms/www/chinamoney/data/fx/ccpr.json",
+        "checkedAt": "2026-11-06T13:43:13.612805+00:00",
+        "sourceSha256": "14a682cf3eb862a2da78dd95560b3b84655285a91094ed0f3fc24717736dec6f",
+        "referenceOnly": true,
+        "notice": "人民币汇率中间价；用于历史美元报价折人民币参考值，不是银行实际结售汇/银行卡结算汇率。GJN按1GJN≈1USD是独立用户指定参考假设，不是本汇率接口提供的GJN报价。",
+        "gjnUsdRatio": {
+          "numerator": 1,
+          "denominator": 1,
+          "basis": "user_reference"
+        },
+        "rounding": "half-up-whole-CNY"
+      },
+      "originalPrice": {
+        "currency": "USD",
+        "amountCents": 5499,
+        "regularAmountCents": null,
+        "currencyBasis": {
+          "kind": "user_confirmation",
+          "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+          "statement": "这些币种都是美元"
+        }
+      },
+      "pack": {
+        "productId": "7002",
+        "title": "Pre-order - T-62 Pack",
+        "currency": "CNY",
+        "regularAmountCents": 36900
+      }
+    },
+    {
       "id": "cn_t_80ud_478be",
       "channel": "market",
       "source": "https://trade.gaijin.net/market/1067/id50292_t_80ud_be_china?from=wiki",
@@ -83,6 +134,57 @@
       "sha256": "006f5d0212f64cc36ee2e89c69b485c5edea932101b48150e7939754d0eb39c1",
       "checkedAt": "2026-11-06T09:38:23.908207+00:00",
       "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "cn_type_69_2a",
+      "channel": "pack",
+      "source": "https://warthunder.com/en/news/7891-special-national-day-of-the-people-s-republic-of-china-en",
+      "sha256": "15955bec6a33390afeeec6fcf431ac8a1900de0f9d3addda3d0868280858349b",
+      "checkedAt": "2026-11-06T10:03:53.144163+00:00",
+      "priceBasis": "historical_usd_cny_reference",
+      "fx": {
+        "schemaVersion": 1,
+        "pair": "USD/CNY",
+        "baseCurrency": "USD",
+        "quoteCurrency": "CNY",
+        "baseUnits": 1,
+        "cnyPerUsd": "6.7168",
+        "rateNumerator": 67168,
+        "rateDenominator": 10000,
+        "rateType": "CFETS_PBOC_AUTHORIZED_CENTRAL_PARITY",
+        "publicationDate": "2026-11-06",
+        "publishedAt": "2026-11-06T09:15:00+08:00",
+        "sourceDateText": "2026-11-06 9:15",
+        "sourceName": "中国外汇交易中心 / 中国货币网",
+        "sourceUrl": "https://www.chinamoney.com.cn/chinese/bkccpr/",
+        "dataSourceUrl": "https://www.chinamoney.com.cn/r/cms/www/chinamoney/data/fx/ccpr.json",
+        "checkedAt": "2026-11-06T13:43:13.612805+00:00",
+        "sourceSha256": "14a682cf3eb862a2da78dd95560b3b84655285a91094ed0f3fc24717736dec6f",
+        "referenceOnly": true,
+        "notice": "人民币汇率中间价；用于历史美元报价折人民币参考值，不是银行实际结售汇/银行卡结算汇率。GJN按1GJN≈1USD是独立用户指定参考假设，不是本汇率接口提供的GJN报价。",
+        "gjnUsdRatio": {
+          "numerator": 1,
+          "denominator": 1,
+          "basis": "user_reference"
+        },
+        "rounding": "half-up-whole-CNY"
+      },
+      "originalPrice": {
+        "currency": "USD",
+        "amountCents": 4999,
+        "regularAmountCents": null,
+        "currencyBasis": {
+          "kind": "user_confirmation",
+          "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+          "statement": "这些币种都是美元"
+        }
+      },
+      "pack": {
+        "productId": "11469",
+        "title": "Type 69-IIa Pack",
+        "currency": "CNY",
+        "regularAmountCents": 33600
+      }
     },
     {
       "id": "f-4f",
@@ -296,6 +398,108 @@
       "priceBasis": "official_exact_vehicle_market_link"
     },
     {
+      "id": "germ_pzkpfw_ii_ausf_h",
+      "channel": "pack",
+      "source": "https://warthunder.com/en/news/6488-shop-black-friday-sale-en",
+      "sha256": "adf0b0d6b47a7a741254e0f80e78c59d932f35bdab874acdeaa64d93e5e94e08",
+      "checkedAt": "2026-11-06T10:03:04.989882+00:00",
+      "priceBasis": "historical_usd_cny_reference",
+      "fx": {
+        "schemaVersion": 1,
+        "pair": "USD/CNY",
+        "baseCurrency": "USD",
+        "quoteCurrency": "CNY",
+        "baseUnits": 1,
+        "cnyPerUsd": "6.7168",
+        "rateNumerator": 67168,
+        "rateDenominator": 10000,
+        "rateType": "CFETS_PBOC_AUTHORIZED_CENTRAL_PARITY",
+        "publicationDate": "2026-11-06",
+        "publishedAt": "2026-11-06T09:15:00+08:00",
+        "sourceDateText": "2026-11-06 9:15",
+        "sourceName": "中国外汇交易中心 / 中国货币网",
+        "sourceUrl": "https://www.chinamoney.com.cn/chinese/bkccpr/",
+        "dataSourceUrl": "https://www.chinamoney.com.cn/r/cms/www/chinamoney/data/fx/ccpr.json",
+        "checkedAt": "2026-11-06T13:43:13.612805+00:00",
+        "sourceSha256": "14a682cf3eb862a2da78dd95560b3b84655285a91094ed0f3fc24717736dec6f",
+        "referenceOnly": true,
+        "notice": "人民币汇率中间价；用于历史美元报价折人民币参考值，不是银行实际结售汇/银行卡结算汇率。GJN按1GJN≈1USD是独立用户指定参考假设，不是本汇率接口提供的GJN报价。",
+        "gjnUsdRatio": {
+          "numerator": 1,
+          "denominator": 1,
+          "basis": "user_reference"
+        },
+        "rounding": "half-up-whole-CNY"
+      },
+      "originalPrice": {
+        "currency": "USD",
+        "amountCents": 700,
+        "regularAmountCents": 1499,
+        "currencyBasis": {
+          "kind": "user_confirmation",
+          "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+          "statement": "这些币种都是美元"
+        }
+      },
+      "pack": {
+        "productId": "4634",
+        "title": "Scout Pack",
+        "currency": "CNY",
+        "regularAmountCents": 10100
+      }
+    },
+    {
+      "id": "germ_s_100_s204_lang",
+      "channel": "pack",
+      "source": "https://warthunder.com/en/news/5585-final-fleet-testing-before-beginning-cbt-en",
+      "sha256": "1f86dca52c3bd6843f5fa33e9c15df2ba59dcea7fa52ecbc0df56c267d2aa54a",
+      "checkedAt": "2026-11-06T09:38:39.518889+00:00",
+      "priceBasis": "historical_usd_cny_reference",
+      "fx": {
+        "schemaVersion": 1,
+        "pair": "USD/CNY",
+        "baseCurrency": "USD",
+        "quoteCurrency": "CNY",
+        "baseUnits": 1,
+        "cnyPerUsd": "6.7168",
+        "rateNumerator": 67168,
+        "rateDenominator": 10000,
+        "rateType": "CFETS_PBOC_AUTHORIZED_CENTRAL_PARITY",
+        "publicationDate": "2026-11-06",
+        "publishedAt": "2026-11-06T09:15:00+08:00",
+        "sourceDateText": "2026-11-06 9:15",
+        "sourceName": "中国外汇交易中心 / 中国货币网",
+        "sourceUrl": "https://www.chinamoney.com.cn/chinese/bkccpr/",
+        "dataSourceUrl": "https://www.chinamoney.com.cn/r/cms/www/chinamoney/data/fx/ccpr.json",
+        "checkedAt": "2026-11-06T13:43:13.612805+00:00",
+        "sourceSha256": "14a682cf3eb862a2da78dd95560b3b84655285a91094ed0f3fc24717736dec6f",
+        "referenceOnly": true,
+        "notice": "人民币汇率中间价；用于历史美元报价折人民币参考值，不是银行实际结售汇/银行卡结算汇率。GJN按1GJN≈1USD是独立用户指定参考假设，不是本汇率接口提供的GJN报价。",
+        "gjnUsdRatio": {
+          "numerator": 1,
+          "denominator": 1,
+          "basis": "user_reference"
+        },
+        "rounding": "half-up-whole-CNY"
+      },
+      "originalPrice": {
+        "currency": "USD",
+        "amountCents": 3999,
+        "regularAmountCents": null,
+        "currencyBasis": {
+          "kind": "user_confirmation",
+          "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+          "statement": "这些币种都是美元"
+        }
+      },
+      "pack": {
+        "productId": "5391",
+        "title": "Naval Pack S-204",
+        "currency": "CNY",
+        "regularAmountCents": 26900
+      }
+    },
+    {
       "id": "germ_th_400",
       "channel": "market",
       "source": "https://trade.gaijin.net/market/1067/id50340_r400_germany?from=wiki",
@@ -403,6 +607,57 @@
       "sha256": "4f8bea3a9aafbcfb54adbd941dee5018b7c8b968fb829592bc3558031caa91bf",
       "checkedAt": "2026-11-06T09:38:40.512324+00:00",
       "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "it_p_26_40",
+      "channel": "pack",
+      "source": "https://warthunder.com/en/news/6488-shop-black-friday-sale-en",
+      "sha256": "adf0b0d6b47a7a741254e0f80e78c59d932f35bdab874acdeaa64d93e5e94e08",
+      "checkedAt": "2026-11-06T10:03:04.989882+00:00",
+      "priceBasis": "historical_usd_cny_reference",
+      "fx": {
+        "schemaVersion": 1,
+        "pair": "USD/CNY",
+        "baseCurrency": "USD",
+        "quoteCurrency": "CNY",
+        "baseUnits": 1,
+        "cnyPerUsd": "6.7168",
+        "rateNumerator": 67168,
+        "rateDenominator": 10000,
+        "rateType": "CFETS_PBOC_AUTHORIZED_CENTRAL_PARITY",
+        "publicationDate": "2026-11-06",
+        "publishedAt": "2026-11-06T09:15:00+08:00",
+        "sourceDateText": "2026-11-06 9:15",
+        "sourceName": "中国外汇交易中心 / 中国货币网",
+        "sourceUrl": "https://www.chinamoney.com.cn/chinese/bkccpr/",
+        "dataSourceUrl": "https://www.chinamoney.com.cn/r/cms/www/chinamoney/data/fx/ccpr.json",
+        "checkedAt": "2026-11-06T13:43:13.612805+00:00",
+        "sourceSha256": "14a682cf3eb862a2da78dd95560b3b84655285a91094ed0f3fc24717736dec6f",
+        "referenceOnly": true,
+        "notice": "人民币汇率中间价；用于历史美元报价折人民币参考值，不是银行实际结售汇/银行卡结算汇率。GJN按1GJN≈1USD是独立用户指定参考假设，不是本汇率接口提供的GJN报价。",
+        "gjnUsdRatio": {
+          "numerator": 1,
+          "denominator": 1,
+          "basis": "user_reference"
+        },
+        "rounding": "half-up-whole-CNY"
+      },
+      "originalPrice": {
+        "currency": "USD",
+        "amountCents": 1000,
+        "regularAmountCents": 1999,
+        "currencyBasis": {
+          "kind": "user_confirmation",
+          "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+          "statement": "这些币种都是美元"
+        }
+      },
+      "pack": {
+        "productId": "5785",
+        "title": "P40 Leoncello Pack",
+        "currency": "CNY",
+        "regularAmountCents": 13400
+      }
     },
     {
       "id": "jaguar_e",
@@ -559,6 +814,57 @@
       "priceBasis": "official_exact_vehicle_market_link"
     },
     {
+      "id": "mi_24d",
+      "channel": "pack",
+      "source": "https://warthunder.com/en/news/5712-shop-pre-order-bundles-and-packs-for-major-update-1-81-en",
+      "sha256": "dfe6600123cc20070fe47dcbda4e7e1a22db000d15f33cf1f782d46c6b6f77e9",
+      "checkedAt": "2026-11-06T09:38:34.070907+00:00",
+      "priceBasis": "historical_usd_cny_reference",
+      "fx": {
+        "schemaVersion": 1,
+        "pair": "USD/CNY",
+        "baseCurrency": "USD",
+        "quoteCurrency": "CNY",
+        "baseUnits": 1,
+        "cnyPerUsd": "6.7168",
+        "rateNumerator": 67168,
+        "rateDenominator": 10000,
+        "rateType": "CFETS_PBOC_AUTHORIZED_CENTRAL_PARITY",
+        "publicationDate": "2026-11-06",
+        "publishedAt": "2026-11-06T09:15:00+08:00",
+        "sourceDateText": "2026-11-06 9:15",
+        "sourceName": "中国外汇交易中心 / 中国货币网",
+        "sourceUrl": "https://www.chinamoney.com.cn/chinese/bkccpr/",
+        "dataSourceUrl": "https://www.chinamoney.com.cn/r/cms/www/chinamoney/data/fx/ccpr.json",
+        "checkedAt": "2026-11-06T13:43:13.612805+00:00",
+        "sourceSha256": "14a682cf3eb862a2da78dd95560b3b84655285a91094ed0f3fc24717736dec6f",
+        "referenceOnly": true,
+        "notice": "人民币汇率中间价；用于历史美元报价折人民币参考值，不是银行实际结售汇/银行卡结算汇率。GJN按1GJN≈1USD是独立用户指定参考假设，不是本汇率接口提供的GJN报价。",
+        "gjnUsdRatio": {
+          "numerator": 1,
+          "denominator": 1,
+          "basis": "user_reference"
+        },
+        "rounding": "half-up-whole-CNY"
+      },
+      "originalPrice": {
+        "currency": "USD",
+        "amountCents": 3999,
+        "regularAmountCents": null,
+        "currencyBasis": {
+          "kind": "user_confirmation",
+          "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+          "statement": "这些币种都是美元"
+        }
+      },
+      "pack": {
+        "productId": "6364",
+        "title": "Pre-order - Hind Pack",
+        "currency": "CNY",
+        "regularAmountCents": 26900
+      }
+    },
+    {
       "id": "mig-21_pfm",
       "channel": "market",
       "source": "https://trade.gaijin.net/market/1067/items_MiG-21PFM (USSR)?from=wiki",
@@ -593,6 +899,57 @@
       "sha256": "962292a8e8e39e7729f1c11b463bf3ff829329f48e68d6fa246d177875e21697",
       "checkedAt": "2026-11-06T09:55:31.631249+00:00",
       "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "p-38k",
+      "channel": "pack",
+      "source": "https://warthunder.com/en/news/5976-special-shop-war-thunder-winter-sale-en",
+      "sha256": "0ba0d50c0a2b0fdc401f46cdaefed898e96888414267bf05500b7cffd25b5dd2",
+      "checkedAt": "2026-11-06T10:01:44.606979+00:00",
+      "priceBasis": "historical_usd_cny_reference",
+      "fx": {
+        "schemaVersion": 1,
+        "pair": "USD/CNY",
+        "baseCurrency": "USD",
+        "quoteCurrency": "CNY",
+        "baseUnits": 1,
+        "cnyPerUsd": "6.7168",
+        "rateNumerator": 67168,
+        "rateDenominator": 10000,
+        "rateType": "CFETS_PBOC_AUTHORIZED_CENTRAL_PARITY",
+        "publicationDate": "2026-11-06",
+        "publishedAt": "2026-11-06T09:15:00+08:00",
+        "sourceDateText": "2026-11-06 9:15",
+        "sourceName": "中国外汇交易中心 / 中国货币网",
+        "sourceUrl": "https://www.chinamoney.com.cn/chinese/bkccpr/",
+        "dataSourceUrl": "https://www.chinamoney.com.cn/r/cms/www/chinamoney/data/fx/ccpr.json",
+        "checkedAt": "2026-11-06T13:43:13.612805+00:00",
+        "sourceSha256": "14a682cf3eb862a2da78dd95560b3b84655285a91094ed0f3fc24717736dec6f",
+        "referenceOnly": true,
+        "notice": "人民币汇率中间价；用于历史美元报价折人民币参考值，不是银行实际结售汇/银行卡结算汇率。GJN按1GJN≈1USD是独立用户指定参考假设，不是本汇率接口提供的GJN报价。",
+        "gjnUsdRatio": {
+          "numerator": 1,
+          "denominator": 1,
+          "basis": "user_reference"
+        },
+        "rounding": "half-up-whole-CNY"
+      },
+      "originalPrice": {
+        "currency": "USD",
+        "amountCents": 2999,
+        "regularAmountCents": null,
+        "currencyBasis": {
+          "kind": "user_confirmation",
+          "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+          "statement": "这些币种都是美元"
+        }
+      },
+      "pack": {
+        "productId": "5124",
+        "title": "P-38K Pack",
+        "currency": "CNY",
+        "regularAmountCents": 20100
+      }
     },
     {
       "id": "p-39n_su",
@@ -772,6 +1129,57 @@
       "priceBasis": "official_exact_vehicle_market_link"
     },
     {
+      "id": "uh_1c_xm_30",
+      "channel": "pack",
+      "source": "https://warthunder.com/en/news/5712-shop-pre-order-bundles-and-packs-for-major-update-1-81-en",
+      "sha256": "dfe6600123cc20070fe47dcbda4e7e1a22db000d15f33cf1f782d46c6b6f77e9",
+      "checkedAt": "2026-11-06T09:38:34.070907+00:00",
+      "priceBasis": "historical_usd_cny_reference",
+      "fx": {
+        "schemaVersion": 1,
+        "pair": "USD/CNY",
+        "baseCurrency": "USD",
+        "quoteCurrency": "CNY",
+        "baseUnits": 1,
+        "cnyPerUsd": "6.7168",
+        "rateNumerator": 67168,
+        "rateDenominator": 10000,
+        "rateType": "CFETS_PBOC_AUTHORIZED_CENTRAL_PARITY",
+        "publicationDate": "2026-11-06",
+        "publishedAt": "2026-11-06T09:15:00+08:00",
+        "sourceDateText": "2026-11-06 9:15",
+        "sourceName": "中国外汇交易中心 / 中国货币网",
+        "sourceUrl": "https://www.chinamoney.com.cn/chinese/bkccpr/",
+        "dataSourceUrl": "https://www.chinamoney.com.cn/r/cms/www/chinamoney/data/fx/ccpr.json",
+        "checkedAt": "2026-11-06T13:43:13.612805+00:00",
+        "sourceSha256": "14a682cf3eb862a2da78dd95560b3b84655285a91094ed0f3fc24717736dec6f",
+        "referenceOnly": true,
+        "notice": "人民币汇率中间价；用于历史美元报价折人民币参考值，不是银行实际结售汇/银行卡结算汇率。GJN按1GJN≈1USD是独立用户指定参考假设，不是本汇率接口提供的GJN报价。",
+        "gjnUsdRatio": {
+          "numerator": 1,
+          "denominator": 1,
+          "basis": "user_reference"
+        },
+        "rounding": "half-up-whole-CNY"
+      },
+      "originalPrice": {
+        "currency": "USD",
+        "amountCents": 3999,
+        "regularAmountCents": null,
+        "currencyBasis": {
+          "kind": "user_confirmation",
+          "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+          "statement": "这些币种都是美元"
+        }
+      },
+      "pack": {
+        "productId": "6370",
+        "title": "Pre-order - Huey Hog Pack",
+        "currency": "CNY",
+        "regularAmountCents": 26900
+      }
+    },
+    {
       "id": "uk_battlecruiser_renown",
       "channel": "market",
       "source": "https://trade.gaijin.net/market/1067/id50234_hms_renown_great_britain?from=wiki",
@@ -880,6 +1288,57 @@
       "priceBasis": "official_exact_vehicle_market_link"
     },
     {
+      "id": "us_destroyer_fletcher_cowell",
+      "channel": "pack",
+      "source": "https://warthunder.com/en/news/5585-final-fleet-testing-before-beginning-cbt-en",
+      "sha256": "1f86dca52c3bd6843f5fa33e9c15df2ba59dcea7fa52ecbc0df56c267d2aa54a",
+      "checkedAt": "2026-11-06T09:38:39.518889+00:00",
+      "priceBasis": "historical_usd_cny_reference",
+      "fx": {
+        "schemaVersion": 1,
+        "pair": "USD/CNY",
+        "baseCurrency": "USD",
+        "quoteCurrency": "CNY",
+        "baseUnits": 1,
+        "cnyPerUsd": "6.7168",
+        "rateNumerator": 67168,
+        "rateDenominator": 10000,
+        "rateType": "CFETS_PBOC_AUTHORIZED_CENTRAL_PARITY",
+        "publicationDate": "2026-11-06",
+        "publishedAt": "2026-11-06T09:15:00+08:00",
+        "sourceDateText": "2026-11-06 9:15",
+        "sourceName": "中国外汇交易中心 / 中国货币网",
+        "sourceUrl": "https://www.chinamoney.com.cn/chinese/bkccpr/",
+        "dataSourceUrl": "https://www.chinamoney.com.cn/r/cms/www/chinamoney/data/fx/ccpr.json",
+        "checkedAt": "2026-11-06T13:43:13.612805+00:00",
+        "sourceSha256": "14a682cf3eb862a2da78dd95560b3b84655285a91094ed0f3fc24717736dec6f",
+        "referenceOnly": true,
+        "notice": "人民币汇率中间价；用于历史美元报价折人民币参考值，不是银行实际结售汇/银行卡结算汇率。GJN按1GJN≈1USD是独立用户指定参考假设，不是本汇率接口提供的GJN报价。",
+        "gjnUsdRatio": {
+          "numerator": 1,
+          "denominator": 1,
+          "basis": "user_reference"
+        },
+        "rounding": "half-up-whole-CNY"
+      },
+      "originalPrice": {
+        "currency": "USD",
+        "amountCents": 4999,
+        "regularAmountCents": null,
+        "currencyBasis": {
+          "kind": "user_confirmation",
+          "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+          "statement": "这些币种都是美元"
+        }
+      },
+      "pack": {
+        "productId": "6048",
+        "title": "Pre-order - Naval Pack USS Cowell DD-547",
+        "currency": "CNY",
+        "regularAmountCents": 33600
+      }
+    },
+    {
       "id": "us_efv_p1",
       "channel": "market",
       "source": "https://trade.gaijin.net/market/1067/id50334_efv_usa?from=wiki",
@@ -887,6 +1346,57 @@
       "sha256": "a84496e661f2d8aef8759b0d3682650415a72bf81ccad734a2d33247988351fe",
       "checkedAt": "2026-11-06T09:53:16.853682+00:00",
       "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "us_elco_80ft_pt109_boat",
+      "channel": "pack",
+      "source": "https://warthunder.com/en/news/5585-final-fleet-testing-before-beginning-cbt-en",
+      "sha256": "1f86dca52c3bd6843f5fa33e9c15df2ba59dcea7fa52ecbc0df56c267d2aa54a",
+      "checkedAt": "2026-11-06T09:38:39.518889+00:00",
+      "priceBasis": "historical_usd_cny_reference",
+      "fx": {
+        "schemaVersion": 1,
+        "pair": "USD/CNY",
+        "baseCurrency": "USD",
+        "quoteCurrency": "CNY",
+        "baseUnits": 1,
+        "cnyPerUsd": "6.7168",
+        "rateNumerator": 67168,
+        "rateDenominator": 10000,
+        "rateType": "CFETS_PBOC_AUTHORIZED_CENTRAL_PARITY",
+        "publicationDate": "2026-11-06",
+        "publishedAt": "2026-11-06T09:15:00+08:00",
+        "sourceDateText": "2026-11-06 9:15",
+        "sourceName": "中国外汇交易中心 / 中国货币网",
+        "sourceUrl": "https://www.chinamoney.com.cn/chinese/bkccpr/",
+        "dataSourceUrl": "https://www.chinamoney.com.cn/r/cms/www/chinamoney/data/fx/ccpr.json",
+        "checkedAt": "2026-11-06T13:43:13.612805+00:00",
+        "sourceSha256": "14a682cf3eb862a2da78dd95560b3b84655285a91094ed0f3fc24717736dec6f",
+        "referenceOnly": true,
+        "notice": "人民币汇率中间价；用于历史美元报价折人民币参考值，不是银行实际结售汇/银行卡结算汇率。GJN按1GJN≈1USD是独立用户指定参考假设，不是本汇率接口提供的GJN报价。",
+        "gjnUsdRatio": {
+          "numerator": 1,
+          "denominator": 1,
+          "basis": "user_reference"
+        },
+        "rounding": "half-up-whole-CNY"
+      },
+      "originalPrice": {
+        "currency": "USD",
+        "amountCents": 4499,
+        "regularAmountCents": null,
+        "currencyBasis": {
+          "kind": "user_confirmation",
+          "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+          "statement": "这些币种都是美元"
+        }
+      },
+      "pack": {
+        "productId": "5390",
+        "title": "Naval Pack John F. Kennedy’s PT-109",
+        "currency": "CNY",
+        "regularAmountCents": 30200
+      }
     },
     {
       "id": "us_losat_ccv",
@@ -914,6 +1424,57 @@
       "sha256": "8e94ce954010f43bf417fb704c6bcbf05710cab7b7b9e6aa320e81ead3542444",
       "checkedAt": "2026-11-06T09:39:48.165924+00:00",
       "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "us_magach_3",
+      "channel": "pack",
+      "source": "https://warthunder.com/en/news/5329-development-magach-3-chariot-of-war-en",
+      "sha256": "905743636227528f36bbae52fa998ed68de83e4265e13cd02ff2cbd0ae845522",
+      "checkedAt": "2026-11-06T10:01:13.705861+00:00",
+      "priceBasis": "historical_usd_cny_reference",
+      "fx": {
+        "schemaVersion": 1,
+        "pair": "USD/CNY",
+        "baseCurrency": "USD",
+        "quoteCurrency": "CNY",
+        "baseUnits": 1,
+        "cnyPerUsd": "6.7168",
+        "rateNumerator": 67168,
+        "rateDenominator": 10000,
+        "rateType": "CFETS_PBOC_AUTHORIZED_CENTRAL_PARITY",
+        "publicationDate": "2026-11-06",
+        "publishedAt": "2026-11-06T09:15:00+08:00",
+        "sourceDateText": "2026-11-06 9:15",
+        "sourceName": "中国外汇交易中心 / 中国货币网",
+        "sourceUrl": "https://www.chinamoney.com.cn/chinese/bkccpr/",
+        "dataSourceUrl": "https://www.chinamoney.com.cn/r/cms/www/chinamoney/data/fx/ccpr.json",
+        "checkedAt": "2026-11-06T13:43:13.612805+00:00",
+        "sourceSha256": "14a682cf3eb862a2da78dd95560b3b84655285a91094ed0f3fc24717736dec6f",
+        "referenceOnly": true,
+        "notice": "人民币汇率中间价；用于历史美元报价折人民币参考值，不是银行实际结售汇/银行卡结算汇率。GJN按1GJN≈1USD是独立用户指定参考假设，不是本汇率接口提供的GJN报价。",
+        "gjnUsdRatio": {
+          "numerator": 1,
+          "denominator": 1,
+          "basis": "user_reference"
+        },
+        "rounding": "half-up-whole-CNY"
+      },
+      "originalPrice": {
+        "currency": "USD",
+        "amountCents": 4999,
+        "regularAmountCents": null,
+        "currencyBasis": {
+          "kind": "user_confirmation",
+          "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+          "statement": "这些币种都是美元"
+        }
+      },
+      "pack": {
+        "productId": "6056",
+        "title": "Pre-order - Magach",
+        "currency": "CNY",
+        "regularAmountCents": 33600
+      }
     },
     {
       "id": "us_merkava_mk_1",
@@ -986,6 +1547,57 @@
       "sha256": "40842ee746833b03901a488c7ec836e1a6843522f217ad7fec0c4477c98c07e6",
       "checkedAt": "2026-11-06T09:55:49.890644+00:00",
       "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "ussr_is_2_1944_revenge",
+      "channel": "pack",
+      "source": "https://warthunder.com/en/news/5976-special-shop-war-thunder-winter-sale-en",
+      "sha256": "0ba0d50c0a2b0fdc401f46cdaefed898e96888414267bf05500b7cffd25b5dd2",
+      "checkedAt": "2026-11-06T10:01:44.606979+00:00",
+      "priceBasis": "historical_usd_cny_reference",
+      "fx": {
+        "schemaVersion": 1,
+        "pair": "USD/CNY",
+        "baseCurrency": "USD",
+        "quoteCurrency": "CNY",
+        "baseUnits": 1,
+        "cnyPerUsd": "6.7168",
+        "rateNumerator": 67168,
+        "rateDenominator": 10000,
+        "rateType": "CFETS_PBOC_AUTHORIZED_CENTRAL_PARITY",
+        "publicationDate": "2026-11-06",
+        "publishedAt": "2026-11-06T09:15:00+08:00",
+        "sourceDateText": "2026-11-06 9:15",
+        "sourceName": "中国外汇交易中心 / 中国货币网",
+        "sourceUrl": "https://www.chinamoney.com.cn/chinese/bkccpr/",
+        "dataSourceUrl": "https://www.chinamoney.com.cn/r/cms/www/chinamoney/data/fx/ccpr.json",
+        "checkedAt": "2026-11-06T13:43:13.612805+00:00",
+        "sourceSha256": "14a682cf3eb862a2da78dd95560b3b84655285a91094ed0f3fc24717736dec6f",
+        "referenceOnly": true,
+        "notice": "人民币汇率中间价；用于历史美元报价折人民币参考值，不是银行实际结售汇/银行卡结算汇率。GJN按1GJN≈1USD是独立用户指定参考假设，不是本汇率接口提供的GJN报价。",
+        "gjnUsdRatio": {
+          "numerator": 1,
+          "denominator": 1,
+          "basis": "user_reference"
+        },
+        "rounding": "half-up-whole-CNY"
+      },
+      "originalPrice": {
+        "currency": "USD",
+        "amountCents": 3999,
+        "regularAmountCents": null,
+        "currencyBasis": {
+          "kind": "user_confirmation",
+          "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+          "statement": "这些币种都是美元"
+        }
+      },
+      "pack": {
+        "productId": "4847",
+        "title": "IS-2 Revenge for the Hero brother Pack",
+        "currency": "CNY",
+        "regularAmountCents": 26900
+      }
     },
     {
       "id": "ussr_is_7",
@@ -1626,7 +2238,14 @@
       "sha256": "8c3a4d8e8ff6efe15d9d02d2f3d6a5eee1eb99c81976c505fa3fe63b2f50735c",
       "checkedAt": "2026-11-06T09:34:23.559829+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "us_magach_3",
@@ -1639,7 +2258,14 @@
       "sha256": "5b054f80eb426cdbddcc1b30bd8ed640536e12bc8f6a227d36cd26989cec9354",
       "checkedAt": "2026-11-06T09:34:26.025124+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "germ_pzkpfw_ii_ausf_h",
@@ -1651,7 +2277,14 @@
       "sha256": "7f51fe2fc77e21577f687d392bab3bbfd9b123c883cee964bd8798f232803ef8",
       "checkedAt": "2026-11-06T09:34:21.586453+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "germ_pz_iv_l70_a",
@@ -1673,7 +2306,14 @@
       "sha256": "0b2c10271d97960cfe5e5070c751ed9e30b6e9ae7dadbf1dbc846427436965b8",
       "checkedAt": "2026-11-06T09:34:30.939898+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "ussr_kv_1e",
@@ -1685,7 +2325,14 @@
       "sha256": "25ac99eaa2444c6a8b493e2dae148ec7ad00338bf4e44c23400ca7ba8c5ecf2a",
       "checkedAt": "2026-11-06T09:34:38.184123+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "ussr_t_34_85e",
@@ -1699,7 +2346,14 @@
       "sha256": "f6bc576d25427f7559850bc5787bfe0f58cdec667507a6b1c940583a699255a4",
       "checkedAt": "2026-11-06T09:34:40.889407+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "ussr_is_2_1944_revenge",
@@ -1715,7 +2369,14 @@
       "sha256": "5d9d8c5d1412e5456611c883a45b9b06ef816e4a1a36fcbcb5263a32ebfb80e7",
       "checkedAt": "2026-11-06T09:34:42.471793+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "uk_17_pdr_m10_achilles_norfolk_yeomanry",
@@ -1730,7 +2391,14 @@
       "sha256": "e991fff6fa423fd6fc1cab3a3daa5a40480c43d8ebcc5eff2e135181027fc076",
       "checkedAt": "2026-11-06T09:34:45.644539+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "uk_a_43_black_prince",
@@ -1748,7 +2416,14 @@
       "sha256": "2b2bd94deb17ec18c3a5b7789516de60be52cec3cfc293b4d0692eafe76f0a84",
       "checkedAt": "2026-11-06T09:34:48.258303+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "uk_centurion_mk_3_ss11",
@@ -1761,7 +2436,14 @@
       "sha256": "505e04e8a115269d9af7fee3fe90726ffa0007fde7b1543856550003e3eda6ff",
       "checkedAt": "2026-11-06T09:34:46.479829+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "cn_type_69_2a",
@@ -1773,7 +2455,14 @@
       "sha256": "14f0dff5ac523c6ab9cb84a4a3a43bd3b00f033dd15eba6f4f717a8860aaf9b8",
       "checkedAt": "2026-11-06T09:34:55.273605+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "cn_t_62",
@@ -1786,7 +2475,14 @@
       "sha256": "240bf7bc1b69d1b661a17a176e386ee2ec75a0f69359be79e5a064cdb53cfd7d",
       "checkedAt": "2026-11-06T09:34:54.157859+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "it_p_26_40",
@@ -1800,7 +2496,14 @@
       "sha256": "6bb8f2af8a3bcc4e7d13c254811177005f349f899667414e5818168b62778957",
       "checkedAt": "2026-11-06T09:34:56.373706+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "sw_sav_fm48",
@@ -1812,7 +2515,14 @@
       "sha256": "c876ab84d2dd9b274eabcba9bb56e542556d7b9cc1c2af8f4d1b0a212cdbd273",
       "checkedAt": "2026-11-06T09:35:06.897294+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "yp-38",
@@ -1836,7 +2546,14 @@
       "sha256": "aafc6bd04fe8384e091a71503e5a7b8a852cf0888d7f065d033bda1177619014",
       "checkedAt": "2026-11-06T09:35:13.021958+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "p-38k",
@@ -1850,7 +2567,14 @@
       "sha256": "9a99035d01fd4921b35a0db14e4d7127dd919e3a3debc2fd680b0d49682df2d4",
       "checkedAt": "2026-11-06T09:35:11.769457+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "p-51d-10",
@@ -1863,7 +2587,14 @@
       "sha256": "03bd6e946d4cf470a842da4ae496251ebe74e8410180dad5500bee1e5f56a19c",
       "checkedAt": "2026-11-06T09:35:14.914914+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "p-47m-1-re",
@@ -1880,7 +2611,14 @@
       "sha256": "81cc15afa75adc2fcb4268171557cfe7d9e66aa08133017c49777db7b91df648",
       "checkedAt": "2026-11-06T09:35:17.134146+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "a-26c-45-dt",
@@ -1922,7 +2660,14 @@
       "sha256": "3ce34ddf3e3d9a693cdf016ced854feded63285d3c74a4b6c6360014e2ff6681",
       "checkedAt": "2026-11-06T09:35:24.091065+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "bf-109z",
@@ -1934,7 +2679,14 @@
       "sha256": "c6ae852d59f403ae2a7a48d9c574003e362c9f49b1e79bcf477d73b26e608a9e",
       "checkedAt": "2026-11-06T09:35:32.623966+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "sea_hawk_mk100",
@@ -1956,7 +2708,14 @@
       "sha256": "72e4a2a11f78b33c81ca6aaadee1107bae5b7800169b17778048fdb7f35eaee2",
       "checkedAt": "2026-11-06T09:35:41.641987+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "p-39n_su",
@@ -1982,7 +2741,14 @@
       "sha256": "d216ae78836b9dd145b757852a2737ba1e23a2e4fbbbc3c815b3864512f3bae7",
       "checkedAt": "2026-11-06T09:35:44.747513+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "pe-2-205",
@@ -2007,7 +2773,14 @@
       "sha256": "b20d616711b1d47c10917ea31cb43c306f322466c2704e9f70ad570f7ba4c80d",
       "checkedAt": "2026-11-06T09:35:48.926017+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "la-11",
@@ -2019,7 +2792,14 @@
       "sha256": "3a558613bb8324e6c49cf9eb80d128538b2555d012c6741328e6af9dfa4a0045",
       "checkedAt": "2026-11-06T09:35:49.866878+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "mig-17_cuba",
@@ -2053,7 +2833,14 @@
       "sha256": "74616e2e181c34f894fbf2aaf01629fa302c3c9cc7741de354e5ae5058557181",
       "checkedAt": "2026-11-06T09:36:04.816569+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "spitfire_ix_plagis",
@@ -2067,7 +2854,14 @@
       "sha256": "1fbf6dc6556e5f7038bad7534f69c37ed4dc45e9acc33a2cef8ad898fc9211d3",
       "checkedAt": "2026-11-06T09:36:03.608098+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "spitfire_fr_mk14e",
@@ -2080,7 +2874,14 @@
       "sha256": "a1cc8d816b3e43129dc13338d5e8871426ac34647640e5b69e06f34871d604ec",
       "checkedAt": "2026-11-06T09:36:05.755852+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "lightning_f53",
@@ -2176,7 +2977,14 @@
       "sha256": "5ea6d41766042fc8e42cec8666e7066cc6038ec647b7805feedeaa99111e272d",
       "checkedAt": "2026-11-06T09:36:34.265988+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "us_destroyer_fletcher_bennion",
@@ -2199,7 +3007,14 @@
       "sha256": "902837f2d7f5e57625abeaad300024082ddcf90ed6b55a629f19e31c4394104c",
       "checkedAt": "2026-11-06T09:36:39.325570+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "ussr_destroyer_7y_stroyny",
@@ -2211,7 +3026,14 @@
       "sha256": "3b127e7c7729338f7b404050c0182e90c84b271a7f359377d3c2558ece863b32",
       "checkedAt": "2026-11-06T09:36:37.377076+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "uk_destroyer_haida",
@@ -2253,7 +3075,14 @@
       "sha256": "23e373d557f46f206bbbb3c97f7637117c0426f5d14b68a897a99ec6d394d2b2",
       "checkedAt": "2026-11-06T09:36:49.885559+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "germ_s_100_s204_lang",
@@ -2265,7 +3094,14 @@
       "sha256": "fdf16923a44113544fc784f5bb6d0d1fb6d0104afb8883dc2a8dcf6525081357",
       "checkedAt": "2026-11-06T09:36:54.848784+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "uh_1c_xm_30",
@@ -2280,7 +3116,14 @@
       "sha256": "f5e5ab6839894c5493e50a958438f72805914c3788f7c8eb847b919f1d122849",
       "checkedAt": "2026-11-06T09:37:07.204591+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "bo_105cb2",
@@ -2293,7 +3136,14 @@
       "sha256": "e691299b971ca22c748f61b969ebaa44813d2e81ab5b8c3b35d6f9ebc3a13e08",
       "checkedAt": "2026-11-06T09:37:08.261422+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "mi_24d",
@@ -2307,7 +3157,14 @@
       "sha256": "79754faba8889157da12dc8c420a79f0426fd0d1fc19bfab260565ff0790eae1",
       "checkedAt": "2026-11-06T09:37:11.338691+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "ah_1s",
@@ -2319,7 +3176,14 @@
       "sha256": "32cd21be3f00cfbd2e55e6c924780f318019108c59a61c1c553781f3ab60364d",
       "checkedAt": "2026-11-06T09:37:10.349222+00:00",
       "regularAmountCents": null,
-      "status": "amount_with_currency_unresolved"
+      "status": "historical_usd_cny_reference",
+      "currency": "USD",
+      "currencyBasis": {
+        "kind": "user_confirmation",
+        "confirmedAt": "2026-11-06T13:53:42.006480+00:00",
+        "statement": "这些币种都是美元"
+      },
+      "fxDate": "2026-11-06"
     },
     {
       "id": "iar_316b",

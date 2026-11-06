@@ -1862,5 +1862,557 @@
   "iar_316b": {
     "source": "https://wiki.warthunder.com/unit/iar_316b",
     "checkedAt": "2026-10-20T09:16:57.717820+00:00"
+  },
+  "cn_t_80ud_478be": {
+    "market": "https://trade.gaijin.net/market/1067/id50292_t_80ud_be_china?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/cn_t_80ud_478be",
+    "checkedAt": "2026-11-06T09:38:23.908207+00:00",
+    "marketProofSha256": "006f5d0212f64cc36ee2e89c69b485c5edea932101b48150e7939754d0eb39c1"
+  },
+  "f-5ag_norway": {
+    "market": "https://trade.gaijin.net/market/1067/id50304_◢f_5ag_sweden?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/f-5ag_norway",
+    "checkedAt": "2026-11-06T09:38:24.868391+00:00",
+    "marketProofSha256": "63c7bc581c1f457687eb5177f3eccce534a88c7fa0f565feeda37b0895008352"
+  },
+  "f_106a_1972": {
+    "market": "https://trade.gaijin.net/market/1067/id50330_f_106a_usa?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/f_106a_1972",
+    "checkedAt": "2026-11-06T09:38:25.712862+00:00",
+    "marketProofSha256": "f8c3b5d82dfff5beda58166cfd054d695db11472d60e509814a17f2e5b81dc16"
+  },
+  "f_14a_iriaf": {
+    "market": "https://trade.gaijin.net/market/1067/id50280_f_14a_iriaf_usa?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/f_14a_iriaf",
+    "checkedAt": "2026-11-06T09:38:31.174673+00:00",
+    "marketProofSha256": "e241265f871a767423836fc5a762c8c34c3d2755bff30fd813b252fe7f4536cc"
+  },
+  "f_16xl": {
+    "market": "https://trade.gaijin.net/market/1067/id50381_f_16xl_usa?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/f_16xl",
+    "checkedAt": "2026-11-06T09:38:32.237314+00:00",
+    "marketProofSha256": "8ba73bc1cd1d4ba2704d0ab817ba89193b3a14b55ecbeec03cd67fd035213c51"
+  },
+  "f_6c_pakistan": {
+    "market": "https://trade.gaijin.net/market/1067/id50361_f_6c_china?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/f_6c_pakistan",
+    "checkedAt": "2026-11-06T09:38:33.091885+00:00",
+    "marketProofSha256": "ec411d5ab0f00e67ea687ab5b2e438976c1569ab0d2adf129339ee97390b9aee"
+  },
+  "iar_93b": {
+    "market": "https://trade.gaijin.net/market/1067/id50290_iar_93b_italy?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/iar_93b",
+    "checkedAt": "2026-11-06T09:38:39.476046+00:00",
+    "marketProofSha256": "1fcaf876cb3c6b3483d6ea22c9cdf06cd5da362fc45daeb382b64f3702ca9ab6"
+  },
+  "it_fiat_6614_firos": {
+    "market": "https://trade.gaijin.net/market/1067/id50308_firos_6_italy?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/it_fiat_6614_firos",
+    "checkedAt": "2026-11-06T09:38:40.512324+00:00",
+    "marketProofSha256": "4f8bea3a9aafbcfb54adbd941dee5018b7c8b968fb829592bc3558031caa91bf"
+  },
+  "marut_mk1": {
+    "market": "https://trade.gaijin.net/market/1067/id50318_hf_24_great_britain?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/marut_mk1",
+    "checkedAt": "2026-11-06T09:38:43.021066+00:00",
+    "marketProofSha256": "e0dde1cca26ed2ae5d1b79c030bca6255d8b6e020f69581fd2694ce67ea69121"
+  },
+  "meteor_frmk9_iaf": {
+    "market": "https://trade.gaijin.net/market/1067/id50310_meteor_f_9_israel?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/meteor_frmk9_iaf",
+    "checkedAt": "2026-11-06T09:38:47.822363+00:00",
+    "marketProofSha256": "0d97a2aa3047c375785a64571d4cbaf23b94d293450c36ad2962cf1cd8265ba1"
+  },
+  "sw_patria_amv_ctcv_105": {
+    "market": "https://trade.gaijin.net/market/1067/id50230_ct_cv_105hp_sweden?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/sw_patria_amv_ctcv_105",
+    "checkedAt": "2026-11-06T09:38:58.182711+00:00",
+    "marketProofSha256": "e78fa658f1167635c032b7928a81c0d203bd7cb0ab1e09da8195ec737bc53aa5"
+  },
+  "uk_boxer_crv_block2": {
+    "market": "https://trade.gaijin.net/market/1067/id50345_crv_block_2_great_britain?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/uk_boxer_crv_block2",
+    "checkedAt": "2026-11-06T09:39:05.478105+00:00",
+    "marketProofSha256": "c51f3bcd356d8a2a76a8ba4bed542882bc781e7ac7f673aa91bb4463435690c6"
+  },
+  "uk_fv107_scimitar_mk2": {
+    "market": "https://trade.gaijin.net/market/1067/id50373_scimitar_mk_2_great_britain?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/uk_fv107_scimitar_mk2",
+    "checkedAt": "2026-11-06T09:39:06.481320+00:00",
+    "marketProofSha256": "26340c1e982d9c340268206696fd0d0bbf5f64d609c66ba37d153ecdb443244f"
+  },
+  "uk_shir_2": {
+    "market": "https://trade.gaijin.net/market/1067/id50298_fv4030_3_great_britain?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/uk_shir_2",
+    "checkedAt": "2026-11-06T09:39:07.699901+00:00",
+    "marketProofSha256": "d4dc57a759fd4d1ce121aa0d668952548408b71385ab304550faebaf3327a04e"
+  },
+  "ussr_battleship_oktyabrskaya_revolutsiya": {
+    "market": "https://trade.gaijin.net/market/1067/id50379_oktyabrskaya_revolutsiya_ussr?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/ussr_battleship_oktyabrskaya_revolutsiya",
+    "checkedAt": "2026-11-06T09:39:15.041471+00:00",
+    "marketProofSha256": "a88a0db0ee8322e2eef3dab1331a6a41522d47a19c9d77bec2ee6c0caf3218f8"
+  },
+  "ussr_pr_205pe_k225": {
+    "market": "https://trade.gaijin.net/market/1067/id50342_ak_225_ussr?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/ussr_pr_205pe_k225",
+    "checkedAt": "2026-11-06T09:39:15.920618+00:00",
+    "marketProofSha256": "9a2e0328073e60d6466f884a67ba0a0a637208a7748e68dfc6afdf6f57447faf"
+  },
+  "ussr_t_72b3_arena": {
+    "market": "https://trade.gaijin.net/market/1067/id50355_t_72b3_arena_ussr?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/ussr_t_72b3_arena",
+    "checkedAt": "2026-11-06T09:39:20.932191+00:00",
+    "marketProofSha256": "0432fbccbe719e529fd13c87be3bd61b405b02d6ac77e1bced5a8320de27edb3"
+  },
+  "ussr_t_72m2_moderna": {
+    "market": "https://trade.gaijin.net/market/1067/id50176_t_72m2_moderna_ussr?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/ussr_t_72m2_moderna",
+    "checkedAt": "2026-11-06T09:39:22.070839+00:00",
+    "marketProofSha256": "65b2583d34a098ad0d3803fcaaee3761b35ee13f5a50051c916cd7de278838b8"
+  },
+  "f-4f": {
+    "market": "https://trade.gaijin.net/market/1067/items_F-4F Early (Germany)?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/f-4f",
+    "checkedAt": "2026-11-06T09:39:23.501173+00:00",
+    "marketProofSha256": "e92400ba12eed832cd6f6ff30c7be68ec6d52cfc40a1ad2aecc8caf211391b70"
+  },
+  "f4d_1": {
+    "market": "https://trade.gaijin.net/market/1067/id50188_f4d_1_usa?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/f4d_1",
+    "checkedAt": "2026-11-06T09:39:24.322335+00:00",
+    "marketProofSha256": "b6a790f6b31dbc6f895db14ab3107e67c40ab6d3a7534c1d7887f78b1093a07e"
+  },
+  "germ_leopard_2av": {
+    "market": "https://trade.gaijin.net/market/1067/id50190_leopard_2av_germany?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/germ_leopard_2av",
+    "checkedAt": "2026-11-06T09:39:30.352189+00:00",
+    "marketProofSha256": "4a9dfb8d37ec0fb902a964a39c9cc84ab334cdf3f90c04bf5857825ea43ab4c7"
+  },
+  "germ_leopard_c2_mexas": {
+    "market": "https://trade.gaijin.net/market/1067/items_Leopard C2A1 MEXAS (Germany)?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/germ_leopard_c2_mexas",
+    "checkedAt": "2026-11-06T09:39:31.861130+00:00",
+    "marketProofSha256": "bcc606a0dceb355a8aef562392ce6774d07147ba9755a7154e605b59d8eee552"
+  },
+  "jp_battlecruiser_haruna": {
+    "market": "https://trade.gaijin.net/market/1067/id50192_ijn_haruna_japan?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/jp_battlecruiser_haruna",
+    "checkedAt": "2026-11-06T09:39:40.175156+00:00",
+    "marketProofSha256": "eef61b867670692af641b5e12c35c42538c0fd43e3d2177c7053167f0fc21340"
+  },
+  "mig-21_pfm": {
+    "market": "https://trade.gaijin.net/market/1067/items_MiG-21PFM (USSR)?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/mig-21_pfm",
+    "checkedAt": "2026-11-06T09:39:41.752651+00:00",
+    "marketProofSha256": "3cf95f4346179a0ddbf6c8ec159ab0226c4f965e8cf60377e3b52dde252399e9"
+  },
+  "us_cruiser_baltimore_class": {
+    "market": "https://trade.gaijin.net/market/1067/items_USS Baltimore (CA-68) (USA)?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/us_cruiser_baltimore_class",
+    "checkedAt": "2026-11-06T09:39:47.096302+00:00",
+    "marketProofSha256": "caf32b4b4d2425537f6dcde30e931a62acd52ece60cf125f4ea30768148b3fcc"
+  },
+  "us_m60a3_slep": {
+    "market": "https://trade.gaijin.net/market/1067/items_M60 AMBT (USA)?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/us_m60a3_slep",
+    "checkedAt": "2026-11-06T09:39:48.165924+00:00",
+    "marketProofSha256": "8e94ce954010f43bf417fb704c6bcbf05710cab7b7b9e6aa320e81ead3542444"
+  },
+  "ussr_cruiser_maxim_gorky": {
+    "market": "https://trade.gaijin.net/market/1067/items_Maxim Gorky (USSR)?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/ussr_cruiser_maxim_gorky",
+    "checkedAt": "2026-11-06T09:39:49.125852+00:00",
+    "marketProofSha256": "305ab90951be4bf1143a618f5ca9d1c8d42114da7c7695d3940831f54d6dca3e"
+  },
+  "ussr_object_279": {
+    "market": "https://trade.gaijin.net/market/1067/Object 279 (USSR)?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/ussr_object_279",
+    "checkedAt": "2026-11-06T09:39:50.172364+00:00",
+    "marketProofSha256": "6920b602fd81bdca04308d8b12abcb98a613e3b4dee5f97c9498e8d31a7a8cb1"
+  },
+  "ussr_object_292": {
+    "market": "https://trade.gaijin.net/market/1067/id50257_object_292_ussr?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/ussr_object_292",
+    "checkedAt": "2026-11-06T09:39:55.455559+00:00",
+    "marketProofSha256": "410a189cf8e1f3700769afaeb90582c14c5292668120564e40cae8c515846693"
+  },
+  "us_ags_teledyne": {
+    "market": "https://trade.gaijin.net/market/1067/id50163_ags_usa?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/us_ags_teledyne",
+    "checkedAt": "2026-11-06T09:39:56.529972+00:00",
+    "marketProofSha256": "0474d492df69bedd938a51b04518a72961c96eaa0f0ae20ed68804a17380cf37"
+  },
+  "cn_plz_83_130": {
+    "market": "https://trade.gaijin.net/market/1067/id50263_plz83_130_china?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/cn_plz_83_130",
+    "checkedAt": "2026-11-06T09:39:58.467698+00:00",
+    "marketProofSha256": "e7656aafbada7e64158b912e0cdb528cc3e102c518c16feb9ad25dae33a5d7f8"
+  },
+  "cn_qn506": {
+    "market": "https://trade.gaijin.net/market/1067/id50218_qn506_china?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/cn_qn506",
+    "checkedAt": "2026-11-06T09:40:03.818971+00:00",
+    "marketProofSha256": "d4b506878650e73508e8c81b82d3f96693b0719142a693b4b639c01e63501528"
+  },
+  "jp_escort_hiburi_class_shisaka": {
+    "market": "https://trade.gaijin.net/market/1067/id50326_shisaka_japan?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/jp_escort_hiburi_class_shisaka",
+    "checkedAt": "2026-11-06T09:40:04.933475+00:00",
+    "marketProofSha256": "2d9110e6200b97183ccee212e500dd8fff722e9f90ec2a6ccce75dc7c76a4545"
+  },
+  "f11f_1_late": {
+    "market": "https://trade.gaijin.net/market/1067/items_F11F-1 (USA)?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/f11f_1_late",
+    "checkedAt": "2026-11-06T09:40:05.682678+00:00",
+    "marketProofSha256": "93aa1cf1083da4c715768380528d3a323dc0401730ba08e3e04d215d748d9491"
+  },
+  "germ_vilkas": {
+    "market": "https://trade.gaijin.net/market/1067/id50248_vilkas_germany?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/germ_vilkas",
+    "checkedAt": "2026-11-06T09:40:06.909256+00:00",
+    "marketProofSha256": "1c463ce9f9f9cb3f12670a435281f22425b329e49821c11f0262d449e4f8a9f7"
+  },
+  "uk_cruiser_tiger": {
+    "market": "https://trade.gaijin.net/market/1067/HMS Tiger (Britain)?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/uk_cruiser_tiger",
+    "checkedAt": "2026-11-06T09:40:11.983247+00:00",
+    "marketProofSha256": "ab06e0ecac121fd425801271f1c14206ce96bbe90e887a27b172746ec126c128"
+  },
+  "sw_patria_bmp_3": {
+    "market": "https://trade.gaijin.net/market/1067/id50383_amv_bmp_3_sweden?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/sw_patria_bmp_3",
+    "checkedAt": "2026-11-06T09:40:13.296439+00:00",
+    "marketProofSha256": "e56a62e4d298b73534dbc660735af64bd9f9172e216519d4c32df39e045778c1"
+  },
+  "us_lvt_4_zis_2": {
+    "market": "https://trade.gaijin.net/market/1067/LVT(A)(4) ZIS-2?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/us_lvt_4_zis_2",
+    "checkedAt": "2026-11-06T09:53:14.653018+00:00",
+    "marketProofSha256": "2d54ab61dfa1aef1b2fef81eb38df799b92ae97efb3267a728c41a003e8e89d9"
+  },
+  "us_efv_p1": {
+    "market": "https://trade.gaijin.net/market/1067/id50334_efv_usa?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/us_efv_p1",
+    "checkedAt": "2026-11-06T09:53:16.853682+00:00",
+    "marketProofSha256": "a84496e661f2d8aef8759b0d3682650415a72bf81ccad734a2d33247988351fe"
+  },
+  "us_merkava_mk_1": {
+    "market": "https://trade.gaijin.net/market/1067/Merkava Mk.1 (USA)?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/us_merkava_mk_1",
+    "checkedAt": "2026-11-06T09:53:22.311826+00:00",
+    "marketProofSha256": "299797a9b4b0dece55566b7ce9c541875274999d54f45250f9706828ec1d73c2"
+  },
+  "us_merkava_mk_2b_late": {
+    "market": "https://trade.gaijin.net/market/1067/Merkava Mk.2B (USA)?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/us_merkava_mk_2b_late",
+    "checkedAt": "2026-11-06T09:53:23.251371+00:00",
+    "marketProofSha256": "b2c0db879a32259d1a17cefcfa1c2a2674b170c69738ea96c8d37ea6f49ce03a"
+  },
+  "us_xm_8": {
+    "market": "https://trade.gaijin.net/market/1067/items_XM8 (USA)?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/us_xm_8",
+    "checkedAt": "2026-11-06T09:53:24.224140+00:00",
+    "marketProofSha256": "2fa651ffd1dc0a0af2f99a844b07927a845e36d98395dfabc5aaf3dc446587c9"
+  },
+  "us_ccvl": {
+    "market": "https://trade.gaijin.net/market/1067/id50197_ccvl_usa?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/us_ccvl",
+    "checkedAt": "2026-11-06T09:53:25.399482+00:00",
+    "marketProofSha256": "a211fedc470fdfb76d242b04036ddcdcb314f703612a62be5a6fa48d716666ff"
+  },
+  "us_losat_ccv": {
+    "market": "https://trade.gaijin.net/market/1067/id50239_losat_usa?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/us_losat_ccv",
+    "checkedAt": "2026-11-06T09:53:31.911614+00:00",
+    "marketProofSha256": "c2281c8bc1db48637b2e2bef959d39cf5007fe98e7028a1938ef1a77a1c33b3c"
+  },
+  "us_merkava_mk_3d": {
+    "market": "https://trade.gaijin.net/market/1067/items_Merkava Mk.3D (USA)?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/us_merkava_mk_3d",
+    "checkedAt": "2026-11-06T09:53:33.073277+00:00",
+    "marketProofSha256": "01cf4043f5f5c20df705fe5c64f3557d1e1aedb738745c33a15ba5f8b22b1e20"
+  },
+  "germ_pzkpfw_e_100": {
+    "market": "https://trade.gaijin.net/market/1067/E-100?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_e_100",
+    "checkedAt": "2026-11-06T09:53:40.589670+00:00",
+    "marketProofSha256": "f43ffcd78614d8a6538de23eb89ab4f634d7594deccd65220378896ebe9e32f1"
+  },
+  "germ_vt_1_2": {
+    "market": "https://trade.gaijin.net/market/1067/VT1-2 (Germany)?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/germ_vt_1_2",
+    "checkedAt": "2026-11-06T09:53:41.600449+00:00",
+    "marketProofSha256": "397478bc65b42342d15194c6d332b61ee9e94faf9a371169b285b7558149b096"
+  },
+  "germ_th_800_bismark": {
+    "market": "https://trade.gaijin.net/market/1067/items_Class 3 (P) (Germany)?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/germ_th_800_bismark",
+    "checkedAt": "2026-11-06T09:53:43.602584+00:00",
+    "marketProofSha256": "d535d695e39cdecc9a18fffc063d6c4cb25cca6f10754507992617f2f5feb16e"
+  },
+  "germ_th_400": {
+    "market": "https://trade.gaijin.net/market/1067/id50340_r400_germany?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/germ_th_400",
+    "checkedAt": "2026-11-06T09:53:48.205018+00:00",
+    "marketProofSha256": "a62e82166e2a98ceb8e4b9a727e798c82d40ae9d330338ee38f151377dafd5d1"
+  },
+  "germ_boxer_3105": {
+    "market": "https://trade.gaijin.net/market/1067/id50284_boxer_mgs_germany?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/germ_boxer_3105",
+    "checkedAt": "2026-11-06T09:53:49.213911+00:00",
+    "marketProofSha256": "fbff02fc188c0030126b28642b16d97fd1c8c325d40f3d0d7d0e8cafd7b83c8a"
+  },
+  "germ_leopard_2_pt14": {
+    "market": "https://trade.gaijin.net/market/1067/id50154_pt_16_t14_mod__germany?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/germ_leopard_2_pt14",
+    "checkedAt": "2026-11-06T09:53:50.079352+00:00",
+    "marketProofSha256": "4ef23df28a923a4edcdf7360900d8a60f1e6c370808291b64425ecf47d0118de"
+  },
+  "ussr_type_62": {
+    "market": "https://trade.gaijin.net/market/1067/Type-62?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/ussr_type_62",
+    "checkedAt": "2026-11-06T09:53:57.732620+00:00",
+    "marketProofSha256": "7b19aaa2a6231ea0fbd4fdb8183418a2b78a57f991cb7140a289b1400f7e3ecd"
+  },
+  "ussr_is_7": {
+    "market": "https://trade.gaijin.net/market/1067/IS-7?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/ussr_is_7",
+    "checkedAt": "2026-11-06T09:53:58.776941+00:00",
+    "marketProofSha256": "56d6aaae54845b2bd2b472acb833d09f1f00f80274f1c840e1d415bec2380b23"
+  },
+  "ussr_bmd_4": {
+    "market": "https://trade.gaijin.net/market/1067/id50148_bmd_4_ussr?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/ussr_bmd_4",
+    "checkedAt": "2026-11-06T09:54:00.895494+00:00",
+    "marketProofSha256": "db1bdce697d0382085ab9094dc5f50e93260dc796e1e14b8868c61097b7af8dc"
+  },
+  "ussr_t_80um2": {
+    "market": "https://trade.gaijin.net/market/1067/id50206_t_80um2_ussr?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/ussr_t_80um2",
+    "checkedAt": "2026-11-06T09:54:06.454408+00:00",
+    "marketProofSha256": "2eb8e036946c370bdc622e4e222551f125e76b72ceebb65269bfe38d11f50bed"
+  },
+  "fr_amx_50_surblinde": {
+    "market": "https://trade.gaijin.net/market/1067/AMX 50 Surblindé (France)?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/fr_amx_50_surblinde",
+    "checkedAt": "2026-11-06T09:54:14.102480+00:00",
+    "marketProofSha256": "8c506e18dd6f1cc0661f9584223c58eefb5555228e7036c75f603598a0da58aa"
+  },
+  "fj_4b_agm_12b": {
+    "market": "https://trade.gaijin.net/market/1067/FJ-4B VMF-232 (USA)?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/fj_4b_agm_12b",
+    "checkedAt": "2026-11-06T09:54:17.014444+00:00",
+    "marketProofSha256": "04995c775600343f408dc088bef276c4865208c79a15657752cec7532677d3b3"
+  },
+  "f-5a": {
+    "market": "https://trade.gaijin.net/market/1067/id50153_f_5a_usa?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/f-5a",
+    "checkedAt": "2026-11-06T09:54:18.088245+00:00",
+    "marketProofSha256": "cd8d3706942f2dae4ef075f2e8f63cbe4d5a3578855e1df9b2df3257d6bb2351"
+  },
+  "a_7k": {
+    "market": "https://trade.gaijin.net/market/1067/id50217_a_7k_usa?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/a_7k",
+    "checkedAt": "2026-11-06T09:54:23.103527+00:00",
+    "marketProofSha256": "218d5a49f2724aa4e20656787c5449d99db11231f1167ceae1fdc03c3bee21c4"
+  },
+  "he-162a-1": {
+    "market": "https://trade.gaijin.net/market/1067/He 162 A-1?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/he-162a-1",
+    "checkedAt": "2026-11-06T09:54:52.194738+00:00",
+    "marketProofSha256": "43fb070446ad0255afc8d7b4a557f9d79bb84c653bd554d43a77f56ea11fe637"
+  },
+  "me-262a-2a": {
+    "market": "https://trade.gaijin.net/market/1067/Me.262A-2a Sturmvogel?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/me-262a-2a",
+    "checkedAt": "2026-11-06T09:54:57.362446+00:00",
+    "marketProofSha256": "3831f77513a6ca366399f05706fbe46a01fab08dae50a01065a2b2c8d1b77e00"
+  },
+  "mig_23mf_germany": {
+    "market": "https://trade.gaijin.net/market/1067/id50161_mig_23mf_germany?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/mig_23mf_germany",
+    "checkedAt": "2026-11-06T09:54:58.108773+00:00",
+    "marketProofSha256": "81525f8b26a41bc12131c3412bf2cc1eea246ad7f541b5b2c317268959c191be"
+  },
+  "tornado_ids_de_mfg": {
+    "market": "https://trade.gaijin.net/market/1067/id50204_◄tornado_ids_germany?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/tornado_ids_de_mfg",
+    "checkedAt": "2026-11-06T09:54:59.840276+00:00",
+    "marketProofSha256": "3571068ce6ad40d3b219c82bb50ee08a77e6b09acb6bb01a1d90ebfe2397a5e7"
+  },
+  "bi": {
+    "market": "https://trade.gaijin.net/market/1067/items_BI (USSR)?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/bi",
+    "checkedAt": "2026-11-06T09:55:05.874939+00:00",
+    "marketProofSha256": "69ebb8e2814419c690a3269537f39f87c0f5321f44cad491d127b9180c85a328"
+  },
+  "la_174": {
+    "market": "https://trade.gaijin.net/market/1067/La-174?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/la_174",
+    "checkedAt": "2026-11-06T09:55:06.842266+00:00",
+    "marketProofSha256": "f8eed05b995150707e8dca2530313f8e009846f0882908e2775bc2dbc90519f7"
+  },
+  "su_25_558arz": {
+    "market": "https://trade.gaijin.net/market/1067/id50232_su_25bm_ussr?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/su_25_558arz",
+    "checkedAt": "2026-11-06T09:55:08.362475+00:00",
+    "marketProofSha256": "424c078cadb75e83d7c8ef9355466b8dc0f6912d8b2066a0e2fffdf781e97f0c"
+  },
+  "mig_25pd": {
+    "market": "https://trade.gaijin.net/market/1067/id50347_mig_25pd_ussr?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/mig_25pd",
+    "checkedAt": "2026-11-06T09:55:09.350169+00:00",
+    "marketProofSha256": "1b719ff28ff19fd50d428e114756ee95acd086a0a2e899bb4eba1b65a243fa2f"
+  },
+  "buccaneer_s1": {
+    "market": "https://trade.gaijin.net/market/1067/id50146_buccaneer_s_1_great_britain?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/buccaneer_s1",
+    "checkedAt": "2026-11-06T09:55:15.414003+00:00",
+    "marketProofSha256": "cb9d1a5ef8202ebe3af3070b20fada59be93fd9a192a847843370f7900bf0894"
+  },
+  "jaguar_is": {
+    "market": "https://trade.gaijin.net/market/1067/id50259_jaguar_is_great_britain?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/jaguar_is",
+    "checkedAt": "2026-11-06T09:55:16.983417+00:00",
+    "marketProofSha256": "beef3fc1a10ef2c3a28701fb72cd8a7bffc13aca2344e7795fb661148e751f50"
+  },
+  "ki_94_2": {
+    "market": "https://trade.gaijin.net/market/1067/Ki-94-II?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/ki_94_2",
+    "checkedAt": "2026-11-06T09:55:17.978595+00:00",
+    "marketProofSha256": "d74b4a456603b1e003242228772cb6ce428ce316cd5bff5f25f6d8b83cd70b72"
+  },
+  "f_100f_china": {
+    "market": "https://trade.gaijin.net/market/1067/id50238_f_100f_china?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/f_100f_china",
+    "checkedAt": "2026-11-06T09:55:23.088813+00:00",
+    "marketProofSha256": "8a24d9258db2e6abd7a2573b75f6a601109fcd47c95717e22622841d50fd350a"
+  },
+  "jaguar_e": {
+    "market": "https://trade.gaijin.net/market/1067/id50196_jaguar_e_france?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/jaguar_e",
+    "checkedAt": "2026-11-06T09:55:25.790881+00:00",
+    "marketProofSha256": "29f185fb1710a3568f23805bd111d6259561d5c9f93b5d029e8a9c434b968d8b"
+  },
+  "f_16a_block_5_netherlands": {
+    "market": "https://trade.gaijin.net/market/1067/id50357_f_16a_france?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/f_16a_block_5_netherlands",
+    "checkedAt": "2026-11-06T09:55:26.640821+00:00",
+    "marketProofSha256": "2326c95d8af8cc740d308d78b7341300ceec82c4840aa949b7059b9b9a10f629"
+  },
+  "mirage_2000c_s4": {
+    "market": "https://trade.gaijin.net/market/1067/id50246_mirage_2000c_s4_france?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/mirage_2000c_s4",
+    "checkedAt": "2026-11-06T09:55:31.631249+00:00",
+    "marketProofSha256": "962292a8e8e39e7729f1c11b463bf3ff829329f48e68d6fa246d177875e21697"
+  },
+  "kfir_c2": {
+    "market": "https://trade.gaijin.net/market/1067/id50175_kfir_c_2?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/kfir_c2",
+    "checkedAt": "2026-11-06T09:55:32.702083+00:00",
+    "marketProofSha256": "f81ff75cf9bdc631dfb72a287edcd1369ee9de67193c2471d3ee2d1f6a58f9a2"
+  },
+  "kfir_c10_colombia": {
+    "market": "https://trade.gaijin.net/market/1067/id50294_◡kfir_c_10_israel?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/kfir_c10_colombia",
+    "checkedAt": "2026-11-06T09:55:34.252728+00:00",
+    "marketProofSha256": "dcb99b84cf3a953fbfcfd9b9c7767b00cdecb50ebd302b285ba433057d416c0e"
+  },
+  "us_cruiser_des_moines_class_newport_news": {
+    "market": "https://trade.gaijin.net/market/1067/id50208_uss_newport_news_usa?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/us_cruiser_des_moines_class_newport_news",
+    "checkedAt": "2026-11-06T09:55:35.402630+00:00",
+    "marketProofSha256": "b6e12d8276ab1268846691f6204ca9fc7f1ffb4e3239297e82fcc3560b36bfc9"
+  },
+  "us_battleship_mississippi": {
+    "market": "https://trade.gaijin.net/market/1067/id50250_uss_mississippi_usa?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/us_battleship_mississippi",
+    "checkedAt": "2026-11-06T09:55:40.185155+00:00",
+    "marketProofSha256": "1840b93594b5b8726a4bf4b2f6808c10ef375b94aa2fb2ddb5c27653a1f7581a"
+  },
+  "us_battleship_oklahoma": {
+    "market": "https://trade.gaijin.net/market/1067/id50359_uss_oklahoma_usa?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/us_battleship_oklahoma",
+    "checkedAt": "2026-11-06T09:55:41.360066+00:00",
+    "marketProofSha256": "7287406c2b99641dca323d8181c41fca02e8b8604d0e5cd9930877966f155527"
+  },
+  "germ_battleship_ostfriesland": {
+    "market": "https://trade.gaijin.net/market/1067/id50195_sms_ostfriesland_germany?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/germ_battleship_ostfriesland",
+    "checkedAt": "2026-11-06T09:55:42.794832+00:00",
+    "marketProofSha256": "03e3fa3bdc6376a67d5a772945e9c3e348a907660ee9eb26fbf6a674bfac659e"
+  },
+  "germ_battlecruiser_mackensen_class": {
+    "market": "https://trade.gaijin.net/market/1067/id50332_mackensen_germany?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/germ_battlecruiser_mackensen_class",
+    "checkedAt": "2026-11-06T09:55:44.048996+00:00",
+    "marketProofSha256": "2fe8cb0eb7d58f1e4d3a53063b46e6085b05fd19cfce0ead37e0ea6fb8e37691"
+  },
+  "germ_battleship_baden": {
+    "market": "https://trade.gaijin.net/market/1067/id50261_sms_baden_germany?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/germ_battleship_baden",
+    "checkedAt": "2026-11-06T09:55:48.753948+00:00",
+    "marketProofSha256": "4c4d83f2dc51ae1b42d04a9d2855b7c44e78cfafe292c46979af308e1fe6df29"
+  },
+  "ussr_cruiser_shcherbakov": {
+    "market": "https://trade.gaijin.net/market/1067/id50216_scherbakov_ussr?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/ussr_cruiser_shcherbakov",
+    "checkedAt": "2026-11-06T09:55:49.890644+00:00",
+    "marketProofSha256": "40842ee746833b03901a488c7ec836e1a6843522f217ad7fec0c4477c98c07e6"
+  },
+  "uk_battlecruiser_renown": {
+    "market": "https://trade.gaijin.net/market/1067/id50234_hms_renown_great_britain?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/uk_battlecruiser_renown",
+    "checkedAt": "2026-11-06T09:55:51.340510+00:00",
+    "marketProofSha256": "768a306e3ab9b07a2081882f645bd71e241346bab6c07a2af39f5c7534dba069"
+  },
+  "uk_battleship_q_elizabet_class_barham": {
+    "market": "https://trade.gaijin.net/market/1067/id50282_hms_barham_great_britain?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/uk_battleship_q_elizabet_class_barham",
+    "checkedAt": "2026-11-06T09:55:52.585066+00:00",
+    "marketProofSha256": "8ac62e3109d937932747fdb4bd0632c214a07152bb7cb1f0387bada3913a69f0"
+  },
+  "jp_armoredcruiser_kurama": {
+    "market": "https://trade.gaijin.net/market/1067/id50237_ijn_kurama_japan?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/jp_armoredcruiser_kurama",
+    "checkedAt": "2026-11-06T09:55:58.416665+00:00",
+    "marketProofSha256": "3a100415b479cdfc8af485863eefeb87ce7081c9c36994f8c4cf2fc69600e3f3"
+  },
+  "jp_battlecruiser_kirishima": {
+    "market": "https://trade.gaijin.net/market/1067/id50296_ijn_kirishima_japan?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/jp_battlecruiser_kirishima",
+    "checkedAt": "2026-11-06T09:55:59.752191+00:00",
+    "marketProofSha256": "32ad03ced3dcb5d770818b7c374463c08ea2ba7023f45c652689b948719e8af0"
+  },
+  "jp_battleship_tosa": {
+    "market": "https://trade.gaijin.net/market/1067/id50349_ijn_tosa_japan?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/jp_battleship_tosa",
+    "checkedAt": "2026-11-06T09:56:01.136143+00:00",
+    "marketProofSha256": "f99881fa972fb5a5d439a373f8bca0e7f819d954ed64d5094062c3312c77ce7c"
+  },
+  "fr_battleship_strasbourg": {
+    "market": "https://trade.gaijin.net/market/1067/id50306_strasbourg_france?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/fr_battleship_strasbourg",
+    "checkedAt": "2026-11-06T09:56:06.141765+00:00",
+    "marketProofSha256": "36377e184e560d8546e166a203e9a8b2a16e8b0a17303a1092274cf3c4bf9f60"
+  },
+  "germ_type143_bussard": {
+    "market": "https://trade.gaijin.net/market/1067/id50147_bussard_germany?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/germ_type143_bussard",
+    "checkedAt": "2026-11-06T09:56:06.889733+00:00",
+    "marketProofSha256": "737562f4d5e72b0b38d7aa4a942eee786cee11dd60d0370d5446142b0b259294"
+  },
+  "ussr_mpk_201k": {
+    "market": "https://trade.gaijin.net/market/1067/id50162_mpk_pr_201k_ussr?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/ussr_mpk_201k",
+    "checkedAt": "2026-11-06T09:56:08.175357+00:00",
+    "marketProofSha256": "00cf7ed72310e7c2138ac585fe060b80d83698f09365abe229f8f62499ece94d"
+  },
+  "it_albatros_class_f544": {
+    "market": "https://trade.gaijin.net/market/1067/id50274_alcione_italy?from=wiki",
+    "source": "https://wiki.warthunder.com/unit/it_albatros_class_f544",
+    "checkedAt": "2026-11-06T09:56:14.937529+00:00",
+    "marketProofSha256": "4e613d27be676f2b595df60b175698400a873bcad401b73e9433910c569b0ae4"
   }
 }

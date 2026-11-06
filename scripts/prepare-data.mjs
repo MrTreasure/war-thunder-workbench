@@ -26,6 +26,7 @@ try {
   if (e.code !== "ENOENT") throw e;
 }
 const localization = await json("localization.json");
+const marketPrices = await json("market-prices.json");
 const settings = await json("catalog-settings.json");
 const lineup = await json("lineup-rules.json");
 const lineupCodebook = await json("lineup-codebook.json");
@@ -114,6 +115,8 @@ for (const [category, values] of Object.entries(catalog.trees))
             if (!price) throw Error(`Missing pack price check: ${unit.id}/${productId}`);
             unit.packPrice = price;
           }
+          if (unit.market && marketPrices.quotes[unit.id])
+            unit.marketPrice = marketPrices.quotes[unit.id];
         }
   }
 for (const countries of Object.values(catalog.trees))

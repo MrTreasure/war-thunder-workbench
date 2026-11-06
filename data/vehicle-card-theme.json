@@ -101,5 +101,15 @@
     "path": "M14 9V1H5v8H1l8.5 8.5L18 9h-4z",
     "bodyWidth": 9,
     "basis": "Original game shopArrow[type=vertical] uses arrow_simple.svg with a nine-pixel shaft in its 19-pixel source box."
+  },
+  "market": {
+    "background": "#251c30",
+    "ownedBackground": "#332440",
+    "crown": "#583362",
+    "bottom": "#191821",
+    "border": "#70527f",
+    "topLine": "#bd83cf",
+    "highlight": "#e4c4f4",
+    "basis": "用户2026-11-06交易所紫色参考图；本应用的紫色金属面板处理，不冒充游戏原始材质。"
   }
 }

@@ -6,7 +6,11 @@ import { loadoutRevision } from "./loadouts";
 import { LoadoutPlanCard } from "./LoadoutPlanCard";
 import { LoadoutPresets } from "./LoadoutPresets";
 import "./loadouts.css";
+import { LoadoutVoteButtons } from "./LoadoutVoteButtons";
+import { useWorkbenchAccount } from "./WorkbenchAccount";
 export function LoadoutRecommendations({ unit, country }: { unit: Vehicle; country: string }) {
+  const account = useWorkbenchAccount();
+  const viewerId = account.session?.user?.id || "";
   const [items, setItems] = useState<LoadoutShare[]>([]),
     [loading, setLoading] = useState(true),
     [error, setError] = useState("");
@@ -14,6 +18,8 @@ export function LoadoutRecommendations({ unit, country }: { unit: Vehicle; count
   const data = unit.wikiDetails?.loadouts;
   useEffect(() => {
     const controller = new AbortController();
+    setLoading(true);
+    setError("");
     void loadoutRequest<{ items: LoadoutShare[] }>(
       `recommendations?country=${encodeURIComponent(country)}&vehicle=${encodeURIComponent(unit.id)}`,
       undefined,
@@ -32,7 +38,7 @@ export function LoadoutRecommendations({ unit, country }: { unit: Vehicle; count
         if (!controller.signal.aborted) setLoading(false);
       });
     return () => controller.abort();
-  }, [country, unit.id, revision]);
+  }, [country, unit.id, revision, viewerId]);
   if (!data) return null;
   return (
     <section className="wt-mount-recommendations">
@@ -75,6 +81,14 @@ export function LoadoutRecommendations({ unit, country }: { unit: Vehicle; count
               tags={item.tags}
               meta={`资料 ${item.plan.sourceDate.slice(0, 10)}`}
             >
+              <LoadoutVoteButtons
+                item={item}
+                onChange={(value) =>
+                  setItems((rows) =>
+                    rows.map((row) => (row.id === item.id ? { ...row, ...value } : row)),
+                  )
+                }
+              />
               {!item.preview?.sourceChanged && item.plan.sourceHash !== loadoutRevision(data) && (
                 <p className="wt-mount-warning">来源版本已更新，打开后需重新核对。</p>
               )}

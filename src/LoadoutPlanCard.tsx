@@ -27,7 +27,7 @@ export function LoadoutPlanCard({
       <header className="wt-mount-card-heading">
         <div className="wt-mount-card-identity">
           <h4>{title}</h4>
-          {recommended && <span className="wt-mount-recommended-state">已推荐</span>}
+          {recommended && <span className="wt-mount-recommended-state">已发布</span>}
         </div>
         {!!tags?.length && <LoadoutTags tags={tags} />}
       </header>

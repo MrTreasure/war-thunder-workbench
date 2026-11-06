@@ -10,6 +10,7 @@ import { useEffect, useId, useMemo, useRef, useState, useSyncExternalStore } fro
 import type { ReactNode } from "react";
 import { GameSelect } from "./components/GameSelect";
 import valuationRules from "../data/account-valuation-rules.json";
+import valuationFx from "../data/account-valuation-fx.json";
 import vehiclePolicies from "../data/account-vehicle-policies.json";
 import {
   cacheValuation,
@@ -148,7 +149,14 @@ function valuationUnitPrice(cents: number) {
 }
 function marketQuoteBasis(method: string | null) {
   if (method?.startsWith("official-order-book:lowest-ask;")) return "当前最低挂售价";
+  if (method?.startsWith("user-reference:market-cap;")) return "用户设定参考上限";
   return null;
+}
+function marketCnyReference(gjnCents: number) {
+  const denominator = 100n * BigInt(valuationFx.rateDenominator);
+  const yuan =
+    (BigInt(gjnCents) * BigInt(valuationFx.rateNumerator) + denominator / 2n) / denominator;
+  return `¥${yuan.toLocaleString("zh-CN")}`;
 }
 function ValuationVehicle({
   item,
@@ -971,7 +979,7 @@ export function AccountValuation({
                             title={p.title}
                             source={p.source}
                             items={p.vehicles}
-                            kind={`整包原价 · 已识别 ${p.vehicles.length} 辆`}
+                            kind={`${p.source.startsWith("https://warthunder.com/") ? "历史礼包折算参考" : "整包原价"} · 已识别 ${p.vehicles.length} 辆`}
                             price={valuationMoney(p.amountCents)}
                           >
                             <small>
@@ -1020,6 +1028,12 @@ export function AccountValuation({
                           {marketQuoteBasis(v.method) && v.checkedAt && (
                             <small>
                               报价核验 <RelativeTime value={v.checkedAt} />
+                            </small>
+                          )}
+                          {marketQuoteBasis(v.method) && v.averageGjnCents != null && (
+                            <small>
+                              人民币参考 {marketCnyReference(v.averageGjnCents)} · 汇率{" "}
+                              {valuationFx.publicationDate}
                             </small>
                           )}
                           <a

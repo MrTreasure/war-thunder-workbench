@@ -1,5 +1,6 @@
 import type { Vehicle, WikiVehicleDetails } from "./models";
 import { PackPriceDetails } from "./PackPrice";
+import { MarketPriceDetails } from "./MarketPrice";
 import { rpText } from "./TreeCanvas";
 import { ResearchPoints } from "./ResearchPoints";
 import { compactResearchPoints } from "./research-number-format";
@@ -59,6 +60,7 @@ export function VehicleWikiFacts({ unit }: { unit: Vehicle }) {
           </div>
         )}
         <PackPriceDetails unit={unit} />
+        <MarketPriceDetails unit={unit} />
         {purchase && (
           <small className="wt-vehicle-facts-source">
             购车价核对：{purchase.checkedAt.slice(0, 10)}
