@@ -174,12 +174,42 @@ export interface Vehicle {
   thumbnailUrl: string;
   price: number | null;
   packPrice?: PackPrice;
+  marketPrice?: MarketPrice;
+  acquisition?: {
+    kind: string;
+    label: string;
+    reason: string;
+    source: string;
+    checkedAt: string;
+    sha256: string;
+    availabilityLabel?: string;
+    availabilityReason?: string;
+  };
+  gePrice?: {
+    regularGe: number;
+    historicalSaleGe: number;
+    promotionPercent: number;
+    source: string;
+    checkedAt: string;
+    priceBasis: string;
+  };
   store: string | null;
   market: string | null;
   side: "research" | "special";
   rank: string;
   rp?: number;
   rpCheckedAt?: string;
+}
+export interface MarketPrice {
+  currency: "GJN";
+  amountGjnCents: number | null;
+  lowestAskGjnCents: number | null;
+  referenceCnyCents: number | null;
+  referenceLimitGjnCents: number | null;
+  quoteKind: "lowest-ask" | "user-reference-limit" | "no-sell-orders";
+  source: string;
+  checkedAt: string;
+  fxDate: string;
 }
 export interface TreeNode {
   id: string;

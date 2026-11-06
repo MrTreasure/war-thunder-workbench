@@ -1,18 +1,22 @@
-import { t, getLocale, localize, vehicleName } from "./i18n/core";
+import { t, localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { useVehicleFacts, withVehicleFacts } from "./vehicle-catalog";
 import bootstrap from "./generated/bootstrap.json";
 import cardTheme from "../data/vehicle-card-theme.json";
+import acquisitionRegistry from "../data/vehicle-acquisition.json";
 import roleIcons from "../data/vehicle-role-icons.json";
 import type { CSSProperties } from "react";
-import type { Catalog, Mode, PackPrice, Vehicle } from "./models";
+import type { Catalog, Mode, PackPrice, MarketPrice, Vehicle } from "./models";
 import { useAccountWorkspace } from "./workspace-context";
+import { vehicleName } from "./i18n/core";
 import { VehicleThumbnail } from "./VehicleThumbnail";
 import { compactResearchPoints } from "./research-number-format";
 import { format } from "./quotes";
 import { cnyPrice } from "./PackPrice";
 import { rating } from "./vehicle-labels";
 import flags from "../data/flags.json";
+import { marketPriceLabel } from "./MarketPrice";
+
 /** A display adapter accepts only known facts; no country data is fetched by a tile. */
 export type VehicleTileUnit = Pick<Vehicle, "id" | "name"> & {
   nameEn?: string;
@@ -28,6 +32,9 @@ export type VehicleTileUnit = Pick<Vehicle, "id" | "name"> & {
   price?: number | null;
   ge?: number | null;
   packPrice?: PackPrice;
+  marketPrice?: MarketPrice;
+  acquisition?: Vehicle["acquisition"];
+  gePrice?: Vehicle["gePrice"];
   imageUrl?: string;
   thumbnailUrl?: string;
   image?: string;
@@ -66,10 +73,7 @@ export function VehicleTile({
   disabled?: boolean;
   className?: string;
   modeRating?: string;
-  packQuote?: {
-    amountCents: number | null;
-    checkedAt: string | null;
-  };
+  packQuote?: { amountCents: number | null; checkedAt: string | null };
   footerLabel?: string;
   /** Adds rank to the shared right caption; tree rank bands can leave it hidden. */
   showRank?: boolean;
@@ -101,6 +105,15 @@ export function VehicleTile({
     (unit.side === "special" || unit.kind === "special" || unit.kind === "market");
   const market =
     unit.kind === "market" || !!unit.market || cardTheme.marketIconIds.includes(unit.id);
+  // Acquisition identity must also work with saved country snapshots that
+  // predate this metadata. Keep the verified registry authoritative for awards.
+  const registeredAcquisition = (
+    acquisitionRegistry.vehicles as Record<string, Vehicle["acquisition"]>
+  )[unit.id];
+  const acquisition = registeredAcquisition ?? unit.acquisition;
+  const tournament = !market && acquisition?.kind === "tournament";
+  const acquisitionLabel = tournament ? "赛事" : acquisition?.label || (premium ? "高级" : "特殊");
+  const availability = !market && unit.kind !== "pack" ? acquisition?.availabilityLabel : undefined;
   const name = vehicleName(unit);
   const price = unit.packPrice;
   const quotedCents =
@@ -127,13 +140,19 @@ export function VehicleTile({
     : null;
   const exact = research
     ? unit.rp == null
-      ? t("研发点 —")
+      ? "研发点 —"
       : `${format(unit.rp)} RP`
     : unit.kind === "gold"
       ? unit.price == null && unit.ge == null
-        ? t("暂无报价")
+        ? "暂无报价"
         : `${format(unit.price ?? unit.ge!)} GE`
-      : catalog.kinds[unit.kind || ""] || t("特殊载具");
+      : tournament
+        ? `${t(acquisition!.label)} · ${t(acquisition!.reason)}`
+        : acquisition?.label
+          ? `${t(acquisition.label)} · ${t(acquisition.reason)}`
+          : premium
+            ? "高级载具"
+            : catalog.kinds[unit.kind || ""] || "特殊载具";
   const caption = [
     !country && countryLabel,
     footerLabel,
@@ -149,7 +168,7 @@ export function VehicleTile({
   };
   return (
     <Element
-      className={`vehicle-card wt-game-card ${premium ? "is-premium" : ""} ${special ? "is-special" : ""} ${owned ? "is-owned" : ""} ${unit.kind === "squadron" ? "is-squadron" : ""} ${selected ? "is-selected" : ""} ${className}`}
+      className={`vehicle-card wt-game-card ${premium ? "is-premium" : ""} ${special ? "is-special" : ""} ${market ? "is-market" : ""} ${tournament ? "is-tournament" : ""} ${owned ? "is-owned" : ""} ${unit.kind === "squadron" ? "is-squadron" : ""} ${selected ? "is-selected" : ""} ${className}`}
       role={onSelect || href ? undefined : "group"}
       href={onSelect ? undefined : href}
       target={!onSelect && href ? "_blank" : undefined}
@@ -159,14 +178,39 @@ export function VehicleTile({
       data-owned={owned || undefined}
       disabled={onSelect ? disabled : undefined}
       type={onSelect ? "button" : undefined}
-      style={{ "--wt-game-owned-icon": `url("${cardTheme.icons.owned}")` } as CSSProperties}
-      onClick={onSelect}
-      aria-label={
-        showAcquisition
-          ? `${name}，${country ? (countryLabel || bootstrap.countries[country as keyof typeof bootstrap.countries] || country) + "，" : ""}Rank ${unit.rank || "—"}${owned ? t("，已拥有") : ""}，${exact}${onSelect ? t("，查看载具详情") : ""}`
-          : `${name}${owned ? t("，已拥有") : ""}${onSelect ? t("，查看载具详情") : ""}`
+      style={
+        {
+          "--wt-game-owned-icon": `url("${cardTheme.icons.owned}")`,
+          ...(tournament
+            ? {
+                "--wt-tournament-background": owned
+                  ? cardTheme.championship.ownedBackground
+                  : cardTheme.championship.background,
+                "--wt-tournament-border": cardTheme.championship.border,
+                "--wt-tournament-top": cardTheme.championship.topLine,
+              }
+            : {}),
+          ...(market
+            ? {
+                "--wt-market-background": owned
+                  ? cardTheme.market.ownedBackground
+                  : cardTheme.market.background,
+                "--wt-market-crown": cardTheme.market.crown,
+                "--wt-market-bottom": cardTheme.market.bottom,
+                "--wt-market-border": cardTheme.market.border,
+                "--wt-market-top": cardTheme.market.topLine,
+                "--wt-market-highlight": cardTheme.market.highlight,
+              }
+            : {}),
+        } as CSSProperties
       }
-      title={showAcquisition ? `${name} · ${exact}` : name}
+      onClick={onSelect}
+      aria-label={localize(
+        showAcquisition
+          ? `${name}，${country ? (countryLabel || bootstrap.countries[country as keyof typeof bootstrap.countries] || country) + "，" : ""}Rank ${unit.rank || "—"}${owned ? "，已拥有" : ""}，${exact}${onSelect ? "，查看载具详情" : ""}`
+          : `${name}${owned ? "，已拥有" : ""}${onSelect ? "，查看载具详情" : ""}`,
+      )}
+      title={localize(showAcquisition ? `${name} · ${exact}` : name)}
     >
       {localize(
         owned && (
@@ -178,87 +222,106 @@ export function VehicleTile({
         ),
       )}
       <VehicleThumbnail unit={mediaUnit} />
-      {country && (
-        <span className="wt-game-card-country">
-          {(flags as Record<string, string>)[country] && (
-            <img src={(flags as Record<string, string>)[country]} width={20} height={14} alt="" />
-          )}
-          <span>
-            {countryLabel ||
-              bootstrap.countries[country as keyof typeof bootstrap.countries] ||
-              country}
+      {localize(
+        country && (
+          <span className="wt-game-card-country">
+            {localize(
+              (flags as Record<string, string>)[country] && (
+                <img
+                  src={(flags as Record<string, string>)[country]}
+                  width={20}
+                  height={14}
+                  alt=""
+                />
+              ),
+            )}
+            <span>
+              {localize(
+                countryLabel ||
+                  bootstrap.countries[country as keyof typeof bootstrap.countries] ||
+                  country,
+              )}
+            </span>
           </span>
-        </span>
+        ),
       )}
-      <span className={`unit-name ${name.length > 17 ? "is-long" : ""}`} title={name}>
+      <span className={`unit-name ${name.length > 17 ? "is-long" : ""}`} title={localize(name)}>
         {localize(name)}
       </span>
       <span className="wt-game-card-bottom">
-        {showAcquisition && (
-          <span className="wt-game-card-cost" title={exact}>
-            {localize(
-              research ? (
-                <>
-                  {localize(
-                    unit.rp == null
-                      ? "—"
-                      : unit.rp === 0
-                        ? t("初始")
-                        : compactResearchPoints(unit.rp, getLocale()),
-                  )}
-                  {localize(
-                    unit.rp !== 0 && (
-                      <img
-                        className="wt-game-currency"
-                        src={cardTheme.icons.rp}
-                        width={18}
-                        height={18}
-                        alt={t("研发点")}
-                      />
-                    ),
-                  )}
-                </>
-              ) : unit.kind === "gold" ? (
-                <>
-                  {localize(
-                    unit.price == null && unit.ge == null ? "—" : format((unit.price ?? unit.ge)!),
-                  )}
+        {localize(
+          showAcquisition && (
+            <span className="wt-game-card-cost" title={localize(exact)}>
+              {localize(
+                research ? (
+                  <>
+                    {localize(
+                      unit.rp == null
+                        ? "—"
+                        : unit.rp === 0
+                          ? "初始"
+                          : compactResearchPoints(unit.rp),
+                    )}
+                    {localize(
+                      unit.rp !== 0 && (
+                        <img
+                          className="wt-game-currency"
+                          src={cardTheme.icons.rp}
+                          width={18}
+                          height={18}
+                          alt={t("研发点")}
+                        />
+                      ),
+                    )}
+                  </>
+                ) : unit.kind === "gold" ? (
+                  <>
+                    {localize(
+                      unit.price == null && unit.ge == null
+                        ? "—"
+                        : format((unit.price ?? unit.ge)!),
+                    )}
+                    <img
+                      className="wt-game-currency is-ge"
+                      src={cardTheme.icons.ge}
+                      width={20}
+                      height={20}
+                      alt={t("金鹰")}
+                    />
+                  </>
+                ) : unit.kind === "pack" ? (
+                  "礼包"
+                ) : market ? (
                   <img
-                    className="wt-game-currency is-ge"
-                    src={cardTheme.icons.ge}
-                    width={20}
-                    height={20}
-                    alt={t("金鹰")}
+                    className="wt-game-currency is-gjn"
+                    src={cardTheme.icons.gjn}
+                    width={24}
+                    height={24}
+                    alt="Gaijin Coin"
                   />
-                </>
-              ) : unit.kind === "pack" ? (
-                t("礼包")
-              ) : market ? (
-                <img
-                  className="wt-game-currency is-gjn"
-                  src={cardTheme.icons.gjn}
-                  width={24}
-                  height={24}
-                  alt="Gaijin Coin"
-                />
-              ) : (
-                t("特殊")
-              ),
-            )}
-          </span>
+                ) : tournament ? (
+                  "赛事"
+                ) : (
+                  acquisitionLabel
+                ),
+              )}
+            </span>
+          ),
         )}
         <span className="wt-game-card-br">{localize(modeRating ?? rating(unit, mode))}</span>
-        {(roleIcon || role !== "other") && (
-          <span
-            className={`wt-game-role ${roleIcon ? "is-symbol" : role}`}
-            style={
-              roleIcon
-                ? { maskImage: `url("${roleIcon}")`, WebkitMaskImage: `url("${roleIcon}")` }
-                : undefined
-            }
-            title={catalog.roles[unit.role || ""] || t("常规载具")}
-            aria-label={catalog.roles[unit.role || ""] || t("常规载具")}
-          />
+        {localize(
+          (roleIcon || role !== "other") && (
+            <span
+              className={`wt-game-role ${roleIcon ? "is-symbol" : role}`}
+              style={
+                roleIcon
+                  ? { maskImage: `url("${roleIcon}")`, WebkitMaskImage: `url("${roleIcon}")` }
+                  : undefined
+              }
+              title={localize(catalog.roles[unit.role || ""] || "常规载具")}
+              aria-label={localize(catalog.roles[unit.role || ""] || "常规载具")}
+            />
+          ),
         )}
       </span>
       {localize(
@@ -272,26 +335,63 @@ export function VehicleTile({
           />
         ),
       )}
-      {caption && (
-        <span className="wt-game-card-caption" title={caption}>
-          {((!country && countryLabel) || footerLabel) && (
-            <span className="wt-game-card-caption-context">
-              {[!country && countryLabel, footerLabel].filter(Boolean).join(" · ")}
-            </span>
-          )}
-          {showRank && unit.rank && (
-            <span className="wt-game-card-caption-rank">Rank {unit.rank}</span>
-          )}
-        </span>
+      {localize(
+        caption && (
+          <span className="wt-game-card-caption" title={localize(caption)}>
+            {localize(
+              ((!country && countryLabel) || footerLabel) && (
+                <span className="wt-game-card-caption-context">
+                  {localize([!country && countryLabel, footerLabel].filter(Boolean).join(" · "))}
+                </span>
+              ),
+            )}
+            {localize(
+              showRank && unit.rank && (
+                <span className="wt-game-card-caption-rank">Rank {localize(unit.rank)}</span>
+              ),
+            )}
+          </span>
+        ),
       )}
-      {showAcquisition && showPackPrice && unit.kind === "pack" && (
-        <span
-          className="wt-game-pack-price"
-          title={t("{0} · 价格核对于 {1}", price?.title || name, packDate?.slice(0, 10) || "—")}
-        >
-          <small>{t("整包")}</small>
-          {packCents != null ? cnyPrice(packCents) : t("暂无报价")}
-        </span>
+      {localize(
+        showAcquisition && showPackPrice && unit.kind === "pack" && (
+          <span
+            className="wt-game-pack-price"
+            title={localize(
+              `${price?.title || name} · 价格核对于 ${packDate?.slice(0, 10) || "—"}`,
+            )}
+          >
+            <small>{t("整包")}</small>
+            {localize(packCents != null ? cnyPrice(packCents) : "暂无报价")}
+          </span>
+        ),
+      )}
+      {localize(
+        showAcquisition && showPackPrice && market && unit.kind !== "pack" && (
+          <span
+            className="wt-game-pack-price"
+            title={localize(
+              `${unit.marketPrice?.quoteKind === "user-reference-limit" ? "估值参考上限" : "最低挂售价"} · 核对于 ${unit.marketPrice?.checkedAt.slice(0, 10) || "—"}`,
+            )}
+          >
+            <small>
+              {localize(
+                unit.marketPrice?.quoteKind === "user-reference-limit" ? "参考上限" : "交易所",
+              )}
+            </small>
+            {localize(marketPriceLabel(unit.marketPrice))}
+          </span>
+        ),
+      )}
+      {localize(
+        showAcquisition && showPackPrice && availability && (
+          <span
+            className="wt-game-pack-price is-availability"
+            title={localize(acquisition?.availabilityReason || acquisition?.reason)}
+          >
+            <small>{localize(availability)}</small>
+          </span>
+        ),
       )}
     </Element>
   );

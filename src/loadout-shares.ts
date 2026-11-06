@@ -22,6 +22,10 @@ export type LoadoutShare = {
   tags: TagChoice[];
   vehicle?: LoadoutVehicle;
   preview?: LoadoutPreview;
+  up?: number;
+  down?: number;
+  vote?: number;
+  mine?: boolean;
 };
 export type LoadoutVehicle = VehicleTileUnit & { country: string };
 export async function readRemoteLoadout(id: string, signal?: AbortSignal) {

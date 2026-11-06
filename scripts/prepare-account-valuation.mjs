@@ -1,4 +1,5 @@
 import { readFile, writeFile } from "node:fs/promises";
+import { applyValuationPriceReferences } from "./valuation-price-references.mjs";
 const read = async (p) => JSON.parse(await readFile(new URL("../" + p, import.meta.url), "utf8"));
 const catalog = await read("data/generated/catalog.json");
 const research = await read("data/research.json");
@@ -55,10 +56,25 @@ for (const [category, countries] of Object.entries(catalog.trees)) {
   }
 }
 const output = new URL("../../war-thunder-stats-service/data/", import.meta.url);
-await writeFile(
-  new URL("valuation-catalog.json", output),
-  JSON.stringify({ schemaVersion: 1, units, aliases }),
+const valuationCatalog = applyValuationPriceReferences(
+  { schemaVersion: 1, units, aliases },
+  await read("data/account-valuation-price-references.json"),
 );
+// Include reviewed historical market associations without changing purchase
+// availability in the public research tree. Maintained DB quotes remain intact.
+for (const unit of Object.values(units)) {
+  if (unit.market && !markets.some((entry) => entry.vehicleId === unit.id))
+    markets.push({
+      vehicleId: unit.id,
+      name: unit.name,
+      source: unit.market,
+      averageGjnCents: null,
+      checkedAt: null,
+      sampleCount: null,
+      method: null,
+    });
+}
+await writeFile(new URL("valuation-catalog.json", output), JSON.stringify(valuationCatalog));
 await writeFile(
   new URL("valuation-rules.json", output),
   JSON.stringify(await read("data/account-valuation-rules.json")),

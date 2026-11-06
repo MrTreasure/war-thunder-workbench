@@ -290,14 +290,19 @@
       "rank": "I",
       "side": "special",
       "classification": "review",
-      "defaultMode": "unpriced",
+      "defaultMode": "auto",
       "reason": "赠送／活动载具候选，获取条件待管理员确认",
       "source": "https://wiki.warthunder.com/unit/p-36a_rasmussen",
       "checkedAt": "2026-10-22T05:47:03.628Z",
       "sha256": "79edce90089369ef6419250df65279795ebd69aa276a3f3babb0c058595e87fd",
       "evidence": "Aviation Rasmussen's P-36A I Rank AB 1.3 RB 1.3 SB 1.7 Battle rating USA Research country Fighter Main role Premium vehicle Status",
       "freeResearch": null,
-      "freePurchase": null
+      "freePurchase": null,
+      "pricingReview": {
+        "checkedAt": "2026-11-06T09:46:58.509566+00:00",
+        "basis": "verified-existing-catalog-price-or-official-market-average",
+        "previousDefaultMode": "unpriced"
+      }
     },
     {
       "id": "f2a-1_thach",
@@ -469,14 +474,19 @@
       "rank": "I",
       "side": "special",
       "classification": "review",
-      "defaultMode": "unpriced",
+      "defaultMode": "auto",
       "reason": "赠送／活动载具候选，获取条件待管理员确认",
       "source": "https://wiki.warthunder.com/unit/hawk_iii",
       "checkedAt": "2026-10-22T05:47:18.598Z",
       "sha256": "87ffdc58b2df1b620f4be4b71c6430136c6af546bdc3d44affc7edff99f1fe54",
       "evidence": "Aviation Hawk III I Rank AB 1.0 RB 1.0 SB 1.3 Battle rating China Research country Fighter Main role 250 Purchase Premium",
       "freeResearch": null,
-      "freePurchase": false
+      "freePurchase": false,
+      "pricingReview": {
+        "checkedAt": "2026-11-06T09:46:58.509595+00:00",
+        "basis": "verified-existing-catalog-price-or-official-market-average",
+        "previousDefaultMode": "unpriced"
+      }
     },
     {
       "id": "tb_3_m17_32",
@@ -504,7 +514,7 @@
       "rank": "II",
       "side": "special",
       "classification": "event",
-      "defaultMode": "unpriced",
+      "defaultMode": "auto",
       "reason": "官方百科收录于2014年冬季活动，非默认赠送，待管理员定价",
       "source": "https://wiki.warthunder.com/unit/lagg-i-301",
       "checkedAt": "2026-10-22T05:47:23.061Z",
@@ -512,7 +522,12 @@
       "evidence": "Vehicles by events Winter Holiday (2014)",
       "freeResearch": null,
       "freePurchase": null,
-      "curated": true
+      "curated": true,
+      "pricingReview": {
+        "checkedAt": "2026-11-06T09:46:58.509601+00:00",
+        "basis": "verified-existing-catalog-price-or-official-market-average",
+        "previousDefaultMode": "unpriced"
+      }
     },
     {
       "id": "us_m8_greyhound",
@@ -522,14 +537,19 @@
       "rank": "I",
       "side": "special",
       "classification": "conditional_gift",
-      "defaultMode": "unpriced",
+      "defaultMode": "auto",
       "reason": "可通过任务／活动／新手奖励获得，默认等待管理员定价",
       "source": "https://wiki.warthunder.com/unit/us_m8_greyhound",
       "checkedAt": "2026-10-22T05:47:25.299Z",
       "sha256": "3115b21db4391f5d63a0902446c7e55b682d91540ae7083a1feb6a6e3157d77b",
       "evidence": "ary event. It was also a reward of the \"10 rare vehicles\" event during War Thunder's 10th Anniversary in 2022. It is",
       "freeResearch": null,
-      "freePurchase": null
+      "freePurchase": null,
+      "pricingReview": {
+        "checkedAt": "2026-11-06T09:46:58.509607+00:00",
+        "basis": "verified-existing-catalog-price-or-official-market-average",
+        "previousDefaultMode": "unpriced"
+      }
     },
     {
       "id": "po-2m",
@@ -539,14 +559,19 @@
       "rank": "I",
       "side": "special",
       "classification": "conditional_gift",
-      "defaultMode": "unpriced",
+      "defaultMode": "auto",
       "reason": "可通过任务／活动／新手奖励获得，默认等待管理员定价",
       "source": "https://wiki.warthunder.com/unit/po-2m",
       "checkedAt": "2026-10-22T05:47:27.522Z",
       "sha256": "93a621c828e87bd2bad121aa9c6237be4941da512e374f2d5f7204b4759c5d88",
       "evidence": "Update \"Drone Age\" as a reward for the 2022 Project \"Overpowered\" event. It essentially plays the same as the Po-2 but with",
       "freeResearch": null,
-      "freePurchase": null
+      "freePurchase": null,
+      "pricingReview": {
+        "checkedAt": "2026-11-06T09:46:58.509611+00:00",
+        "basis": "verified-existing-catalog-price-or-official-market-average",
+        "previousDefaultMode": "unpriced"
+      }
     },
     {
       "id": "uk_a_13_mk2_1939",
@@ -556,14 +581,19 @@
       "rank": "I",
       "side": "special",
       "classification": "conditional_gift",
-      "defaultMode": "unpriced",
+      "defaultMode": "auto",
       "reason": "可通过任务／活动／新手奖励获得，默认等待管理员定价",
       "source": "https://wiki.warthunder.com/unit/uk_a_13_mk2_1939",
       "checkedAt": "2026-10-22T05:47:29.759Z",
       "sha256": "b649c184f5a2fb02f0b2970501e893fe4a9c502350c114a5a182183eaf6b1bf1",
       "evidence": "ilable for purchase as a reward vehicle for War Thunder's 7th Anniversary Event and during the 2017 \"April Fools\" Sale. It was",
       "freeResearch": null,
-      "freePurchase": null
+      "freePurchase": null,
+      "pricingReview": {
+        "checkedAt": "2026-11-06T09:46:58.509615+00:00",
+        "basis": "verified-existing-catalog-price-or-official-market-average",
+        "previousDefaultMode": "unpriced"
+      }
     },
     {
       "id": "us_m2a4",

@@ -8,11 +8,50 @@ import "./check-map-atlas.mjs";
 import "./check-ground-maps.mjs";
 import "./check-player-medal-details.mjs";
 import { checkVehicleReference } from "./check-vehicle-reference.mjs";
+import { applyValuationPriceReferences } from "./valuation-price-references.mjs";
 const root = fileURLToPath(new URL("../", import.meta.url));
 const read = async (path) => JSON.parse(await readFile(resolve(root, path), "utf8"));
 const manifest = await read("src/generated/manifest.json");
 const catalog = await read("data/generated/catalog.json"),
   mods = await read("data/modifications.json");
+const valuationUnits = {};
+for (const countries of Object.values(catalog.trees))
+  for (const tree of Object.values(countries))
+    for (const rank of tree?.ranks || [])
+      for (const node of [...rank.research, ...rank.special])
+        for (const vehicle of node.members) valuationUnits[vehicle.id] = { id: vehicle.id };
+applyValuationPriceReferences(
+  { units: valuationUnits },
+  await read("data/account-valuation-price-references.json"),
+);
+const marketPrices = await read("data/market-prices.json");
+assert.equal(marketPrices.schemaVersion, 1);
+const marketFxDenominator = 100n * BigInt(marketPrices.fx.rateDenominator);
+for (const [id, quote] of Object.entries(marketPrices.quotes)) {
+  assert(valuationUnits[id], `Unknown market vehicle ${id}`);
+  assert.equal(quote.currency, "GJN");
+  assert.match(quote.source, /^https:\/\/trade\.gaijin\.net\/market\/1067\//);
+  assert(Number.isFinite(Date.parse(quote.checkedAt)));
+  if (quote.amountGjnCents == null) {
+    assert.equal(quote.referenceCnyCents, null);
+    assert.equal(quote.quoteKind, "no-sell-orders");
+  } else {
+    assert(Number.isSafeInteger(quote.amountGjnCents) && quote.amountGjnCents > 0);
+    const wholeYuan =
+      (BigInt(quote.amountGjnCents) * BigInt(marketPrices.fx.rateNumerator) +
+        marketFxDenominator / 2n) /
+      marketFxDenominator;
+    assert.equal(BigInt(quote.referenceCnyCents), wholeYuan * 100n);
+    if (quote.referenceLimitGjnCents != null)
+      assert(quote.amountGjnCents <= quote.referenceLimitGjnCents);
+    if (quote.quoteKind === "lowest-ask")
+      assert.equal(quote.amountGjnCents, quote.lowestAskGjnCents);
+    else {
+      assert.equal(quote.quoteKind, "user-reference-limit");
+      assert.equal(quote.amountGjnCents, quote.referenceLimitGjnCents);
+    }
+  }
+}
 const settings = await read("data/catalog-settings.json");
 const modificationPresentation = await read("data/modification-presentation.json");
 const modificationTiers = await read("data/modification-tiers.json");
@@ -181,7 +220,14 @@ for (const purchase of Object.values(purchases)) {
   assert(price, `Missing store price record for ${id}`);
   assert.equal(price.productId, id);
   assert.equal(price.currency, "CNY");
-  assert.equal(price.source, `https://store.gaijin.net/story.php?id=${id}&skin_lang=zh`);
+  const priceSource = new URL(price.source);
+  assert.equal(priceSource.origin, "https://store.gaijin.net");
+  assert.equal(priceSource.pathname, "/story.php");
+  assert(
+    priceSource.searchParams.get("id") === id ||
+      (priceSource.searchParams.has("title") && price.source === price.finalUrl),
+    `Store evidence must identify its product: ${id}`,
+  );
   assert.equal(new URL(price.finalUrl).hostname, "store.gaijin.net");
   assert.equal(new URL(price.finalUrl).protocol, "https:");
   assert.match(price.sha256, /^[a-f0-9]{64}$/);

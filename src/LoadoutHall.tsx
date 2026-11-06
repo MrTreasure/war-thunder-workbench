@@ -1,5 +1,5 @@
+import { t, localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
-import { t } from "./i18n/core";
 import { useEffect, useState } from "react";
 import bootstrap from "./generated/bootstrap.json";
 import { loadoutRequest } from "./loadout-api";
@@ -7,8 +7,14 @@ import type { LoadoutShare } from "./loadout-shares";
 import type { LoadoutPlan } from "./loadouts";
 import { LoadoutPlanCard } from "./LoadoutPlanCard";
 import { GameSelect } from "./components/GameSelect";
+import { LoadoutVoteButtons } from "./LoadoutVoteButtons";
+import { useWorkbenchAccount } from "./WorkbenchAccount";
 export function LoadoutHall({ onUse }: { onUse: (plan: LoadoutPlan) => void }) {
   useLocale();
+  const account = useWorkbenchAccount();
+  return <LoadoutHallView key={account.session?.user?.id || "guest"} onUse={onUse} />;
+}
+function LoadoutHallView({ onUse }: { onUse: (plan: LoadoutPlan) => void }) {
   const [items, setItems] = useState<LoadoutShare[]>([]),
     [country, setCountry] = useState(""),
     [loading, setLoading] = useState(true),
@@ -17,16 +23,18 @@ export function LoadoutHall({ onUse }: { onUse: (plan: LoadoutPlan) => void }) {
     [revision, setRevision] = useState(0);
   useEffect(() => {
     const controller = new AbortController();
-    void loadoutRequest<{
-      items: LoadoutShare[];
-    }>(`recommendations?country=${country}&offset=${offset}`, undefined, controller.signal)
+    void loadoutRequest<{ items: LoadoutShare[] }>(
+      `recommendations?country=${country}&offset=${offset}`,
+      undefined,
+      controller.signal,
+    )
       .then(
         (value) => {
           if (!controller.signal.aborted) setItems(value.items);
         },
         (e: unknown) => {
           if (!controller.signal.aborted)
-            setError(e instanceof Error ? e.message : t("大厅读取失败。"));
+            setError(e instanceof Error ? e.message : "大厅读取失败。");
         },
       )
       .finally(() => {
@@ -43,7 +51,7 @@ export function LoadoutHall({ onUse }: { onUse: (plan: LoadoutPlan) => void }) {
           width={24}
           height={18}
         />
-        {t(bootstrap.countries[value as keyof typeof bootstrap.countries])}
+        {localize(bootstrap.countries[value as keyof typeof bootstrap.countries])}
       </span>
     ) : null;
   return (
@@ -63,51 +71,69 @@ export function LoadoutHall({ onUse }: { onUse: (plan: LoadoutPlan) => void }) {
           }}
         >
           <option value="">{t("全部国家")}</option>
-          {Object.entries(bootstrap.countries).map(([id, name]) => (
-            <option key={id} value={id}>
-              {name}
-            </option>
-          ))}
+          {localize(
+            Object.entries(bootstrap.countries).map(([id, name]) => (
+              <option key={id} value={id}>
+                {localize(name)}
+              </option>
+            )),
+          )}
         </GameSelect>
       </div>
-      {loading && <p aria-live="polite">{t("正在读取大厅\u2026")}</p>}
-      {error && (
-        <p role="alert">
-          {error}
-          <button
-            onClick={() => {
-              setLoading(true);
-              setError("");
-              setRevision((n) => n + 1);
-            }}
-          >
-            {t("重试")}
-          </button>
-        </p>
+      {localize(loading && <p aria-live="polite">{t("正在读取大厅…")}</p>)}
+      {localize(
+        error && (
+          <p role="alert">
+            {localize(error)}
+            <button
+              onClick={() => {
+                setLoading(true);
+                setError("");
+                setRevision((n) => n + 1);
+              }}
+            >
+              {t("重试")}
+            </button>
+          </p>
+        ),
       )}
-      {!loading && !error && !items.length && (
-        <p className="wt-mount-empty">
-          {t("暂无挂载推荐。保存配置后，可打上用途标签并发布到大厅。")}
-        </p>
+      {localize(
+        !loading && !error && !items.length && (
+          <p className="wt-mount-empty">
+            {t("暂无挂载推荐。保存配置后，可打上用途标签并发布到大厅。")}
+          </p>
+        ),
       )}
       <div className="wt-mount-recommendation-list">
-        {items.map((item) => (
-          <LoadoutPlanCard
-            key={item.id}
-            title={item.plan.name}
-            vehicle={item.vehicle}
-            preview={item.preview}
-            tags={item.tags}
-            meta={
-              <>
-                {item.plan.preset ? t("来源预设") : t("{0} 个挂点", [item.plan.mounts.length])}
-                {t("\u00B7 资料")} {item.plan.sourceDate.slice(0, 10)}
-              </>
-            }
-          >
-            <button onClick={() => onUse(item.plan)}>{t("查看并使用")}</button>
-          </LoadoutPlanCard>
-        ))}
+        {localize(
+          items.map((item) => (
+            <LoadoutPlanCard
+              key={item.id}
+              title={localize(item.plan.name)}
+              vehicle={item.vehicle}
+              preview={item.preview}
+              tags={item.tags}
+              meta={localize(
+                <>
+                  {localize(item.plan.preset ? "来源预设" : `${item.plan.mounts.length} 个挂点`)}
+                  {t("· 资料")}
+                  {localize(" ")}
+                  {localize(item.plan.sourceDate.slice(0, 10))}
+                </>,
+              )}
+            >
+              <LoadoutVoteButtons
+                item={item}
+                onChange={(value) =>
+                  setItems((rows) =>
+                    rows.map((row) => (row.id === item.id ? { ...row, ...value } : row)),
+                  )
+                }
+              />
+              <button onClick={() => onUse(item.plan)}>{t("查看并使用")}</button>
+            </LoadoutPlanCard>
+          )),
+        )}
       </div>
       <div className="wt-mount-pagination">
         <button disabled={!offset || loading} onClick={() => setOffset((n) => Math.max(0, n - 24))}>

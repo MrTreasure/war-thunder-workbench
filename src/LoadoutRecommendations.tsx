@@ -1,5 +1,5 @@
+import { t, localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
-import { t } from "./i18n/core";
 import { useEffect, useState } from "react";
 import type { Vehicle } from "./models";
 import { loadoutRequest } from "./loadout-api";
@@ -8,8 +8,20 @@ import { loadoutRevision } from "./loadouts";
 import { LoadoutPlanCard } from "./LoadoutPlanCard";
 import { LoadoutPresets } from "./LoadoutPresets";
 import "./loadouts.css";
+import { LoadoutVoteButtons } from "./LoadoutVoteButtons";
+import { useWorkbenchAccount } from "./WorkbenchAccount";
 export function LoadoutRecommendations({ unit, country }: { unit: Vehicle; country: string }) {
   useLocale();
+  const account = useWorkbenchAccount();
+  return (
+    <LoadoutRecommendationsView
+      key={`${account.session?.user?.id || "guest"}:${country}:${unit.id}`}
+      unit={unit}
+      country={country}
+    />
+  );
+}
+function LoadoutRecommendationsView({ unit, country }: { unit: Vehicle; country: string }) {
   const [items, setItems] = useState<LoadoutShare[]>([]),
     [loading, setLoading] = useState(true),
     [error, setError] = useState("");
@@ -17,9 +29,7 @@ export function LoadoutRecommendations({ unit, country }: { unit: Vehicle; count
   const data = unit.wikiDetails?.loadouts;
   useEffect(() => {
     const controller = new AbortController();
-    void loadoutRequest<{
-      items: LoadoutShare[];
-    }>(
+    void loadoutRequest<{ items: LoadoutShare[] }>(
       `recommendations?country=${encodeURIComponent(country)}&vehicle=${encodeURIComponent(unit.id)}`,
       undefined,
       controller.signal,
@@ -30,7 +40,7 @@ export function LoadoutRecommendations({ unit, country }: { unit: Vehicle; count
         },
         (e: unknown) => {
           if (!controller.signal.aborted)
-            setError(e instanceof Error ? e.message : t("推荐方案读取失败。"));
+            setError(e instanceof Error ? e.message : "推荐方案读取失败。");
         },
       )
       .finally(() => {
@@ -52,43 +62,60 @@ export function LoadoutRecommendations({ unit, country }: { unit: Vehicle; count
       </div>
       <LoadoutPresets data={data} />
       <h3>{t("玩家分享")}</h3>
-      {loading && <p aria-live="polite">{t("正在读取分享方案\u2026")}</p>}
-      {error && (
-        <p role="alert">
-          {error}
-          <button
-            onClick={() => {
-              setLoading(true);
-              setError("");
-              setRevision((n) => n + 1);
-            }}
-          >
-            {t("重试")}
-          </button>
-        </p>
+      {localize(loading && <p aria-live="polite">{t("正在读取分享方案…")}</p>)}
+      {localize(
+        error && (
+          <p role="alert">
+            {localize(error)}
+            <button
+              onClick={() => {
+                setLoading(true);
+                setError("");
+                setRevision((n) => n + 1);
+              }}
+            >
+              {t("重试")}
+            </button>
+          </p>
+        ),
       )}
-      {!loading && !error && !items.length && (
-        <p>{t("暂时没有该机型的玩家分享。配置后可将方案发布到这里。")}</p>
+      {localize(
+        !loading && !error && !items.length && (
+          <p>{t("暂时没有该机型的玩家分享。配置后可将方案发布到这里。")}</p>
+        ),
       )}
       <div className="wt-mount-recommendation-list">
-        {items.map((item) => {
-          return (
-            <LoadoutPlanCard
-              key={item.id}
-              title={item.plan.name}
-              preview={item.preview}
-              tags={item.tags}
-              meta={t("资料 {0}", [item.plan.sourceDate.slice(0, 10)])}
-            >
-              {!item.preview?.sourceChanged && item.plan.sourceHash !== loadoutRevision(data) && (
-                <p className="wt-mount-warning">{t("来源版本已更新，打开后需重新核对。")}</p>
-              )}
-              <a className="quiet-button" href={`#/loadouts?recommendation=${item.id}`}>
-                {t("查看并使用")}
-              </a>
-            </LoadoutPlanCard>
-          );
-        })}
+        {localize(
+          items.map((item) => {
+            return (
+              <LoadoutPlanCard
+                key={item.id}
+                title={localize(item.plan.name)}
+                preview={item.preview}
+                tags={item.tags}
+                meta={localize(`资料 ${item.plan.sourceDate.slice(0, 10)}`)}
+              >
+                <LoadoutVoteButtons
+                  item={item}
+                  onChange={(value) =>
+                    setItems((rows) =>
+                      rows.map((row) => (row.id === item.id ? { ...row, ...value } : row)),
+                    )
+                  }
+                />
+                {localize(
+                  !item.preview?.sourceChanged &&
+                    item.plan.sourceHash !== loadoutRevision(data) && (
+                      <p className="wt-mount-warning">{t("来源版本已更新，打开后需重新核对。")}</p>
+                    ),
+                )}
+                <a className="quiet-button" href={`#/loadouts?recommendation=${item.id}`}>
+                  {t("查看并使用")}
+                </a>
+              </LoadoutPlanCard>
+            );
+          }),
+        )}
       </div>
     </section>
   );

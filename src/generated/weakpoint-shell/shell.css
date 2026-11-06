@@ -449,6 +449,41 @@
   fill: var(--wt-game-wire-active);
 }
 
+/* Same matte plate treatment as regular/premium cards; market uses violet. */
+.vehicle-card.wt-game-card.is-market,
+.vehicle-card.wt-game-card.is-market:is(.is-premium, .is-special, .is-owned, .is-squadron) {
+  --wt-game-card: var(--wt-market-background, #1d1324c9);
+  --wt-game-top: var(--wt-market-top, #775181);
+  border-color: var(--wt-market-border, #3d294b);
+  border-top-color: var(--wt-market-top, #775181);
+  background: var(--wt-market-background, #1d1324c9);
+  box-shadow: 0 1px 1px #050b103d;
+}
+.vehicle-card.wt-game-card.is-market > .wt-game-pack-price {
+  border-color: #62447380;
+  background: #251b2fdc;
+  color: var(--wt-market-highlight, #d1c2db);
+}
+.vehicle-card.wt-game-card.is-market > .wt-game-pack-price small { color: #ad9cb8; }
+.vehicle-card.wt-game-card.is-market:focus-visible { outline-color: var(--wt-market-highlight, #d1c2db); }
+@media (hover: hover) {
+  .vehicle-card.wt-game-card.is-market:hover { border-color: #9c7bad; }
+}
+
+/* Tournament awards use a separate matte champagne-gold plate. Market identity wins. */
+.vehicle-card.wt-game-card.is-tournament:not(.is-market),
+.vehicle-card.wt-game-card.is-tournament:not(.is-market):is(.is-premium,.is-special,.is-owned) {
+  --wt-game-card: var(--wt-tournament-background, #272211c9);
+  --wt-game-top: var(--wt-tournament-top, #bda060);
+  background: var(--wt-tournament-background, #272211c9);
+  border-color: var(--wt-tournament-border, #655536);
+  border-top-color: var(--wt-tournament-top, #bda060);
+  box-shadow: 0 1px 1px #050b103d;
+}
+@media (hover: hover) {
+  .vehicle-card.wt-game-card.is-tournament:not(.is-market):hover { border-color: #bda060; }
+}
+
 /* The approved tech-tree tile is the sole general vehicle surface. */
 .vehicle-card.wt-game-card {
   flex: 0 0 auto;
