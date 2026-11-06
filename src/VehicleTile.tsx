@@ -1,6 +1,7 @@
 import { useVehicleFacts, withVehicleFacts } from "./vehicle-catalog";
 import bootstrap from "./generated/bootstrap.json";
 import cardTheme from "../data/vehicle-card-theme.json";
+import acquisitionRegistry from "../data/vehicle-acquisition.json";
 import roleIcons from "../data/vehicle-role-icons.json";
 import type { CSSProperties } from "react";
 import type { Catalog, Mode, PackPrice, MarketPrice, Vehicle } from "./models";
@@ -101,15 +102,18 @@ export function VehicleTile({
     (unit.side === "special" || unit.kind === "special" || unit.kind === "market");
   const market =
     unit.kind === "market" || !!unit.market || cardTheme.marketIconIds.includes(unit.id);
-  const tournament = !market && unit.acquisition?.kind === "tournament";
-  const acquisitionLabel = tournament
-    ? "赛事"
-    : unit.acquisition?.label || (premium ? "高级" : "特殊");
+  // Acquisition identity must also work with saved country snapshots that
+  // predate this metadata. Keep the verified registry authoritative for awards.
+  const registeredAcquisition = (
+    acquisitionRegistry.vehicles as Record<string, Vehicle["acquisition"]>
+  )[unit.id];
+  const acquisition =
+    registeredAcquisition?.kind === "tournament" ? registeredAcquisition : unit.acquisition;
+  const tournament = !market && acquisition?.kind === "tournament";
+  const acquisitionLabel = tournament ? "赛事" : acquisition?.label || (premium ? "高级" : "特殊");
   const historicalGe = !market && unit.kind === "gold" && unit.gePrice != null;
   const availability =
-    !market && unit.kind !== "pack" && !historicalGe
-      ? unit.acquisition?.availabilityLabel
-      : undefined;
+    !market && unit.kind !== "pack" && !historicalGe ? acquisition?.availabilityLabel : undefined;
   const name = vehicleDisplayName(unit.name);
   const price = unit.packPrice;
   const quotedCents =
@@ -143,9 +147,9 @@ export function VehicleTile({
         ? "暂无报价"
         : `${format(unit.price ?? unit.ge!)} GE`
       : tournament
-        ? `${unit.acquisition!.label} · ${unit.acquisition!.reason}`
-        : unit.acquisition?.label
-          ? `${unit.acquisition.label} · ${unit.acquisition.reason}`
+        ? `${acquisition!.label} · ${acquisition!.reason}`
+        : acquisition?.label
+          ? `${acquisition.label} · ${acquisition.reason}`
           : premium
             ? "高级载具"
             : catalog.kinds[unit.kind || ""] || "特殊载具";
@@ -333,7 +337,7 @@ export function VehicleTile({
       {showAcquisition && showPackPrice && historicalGe && (
         <span
           className="wt-game-pack-price"
-          title={`仅对应来源公告中的过去活动期间：${unit.gePrice!.promotionPercent}%优惠，活动价 ${format(unit.gePrice!.historicalSaleGe)} GE；核对于 ${unit.gePrice!.checkedAt.slice(0, 10)}。${unit.acquisition?.availabilityLabel || ""} ${unit.acquisition?.availabilityReason || ""}`}
+          title={`仅对应来源公告中的过去活动期间：${unit.gePrice!.promotionPercent}%优惠，活动价 ${format(unit.gePrice!.historicalSaleGe)} GE；核对于 ${unit.gePrice!.checkedAt.slice(0, 10)}。${acquisition?.availabilityLabel || ""} ${acquisition?.availabilityReason || ""}`}
         >
           <small>历史活动</small>
           {format(unit.gePrice!.historicalSaleGe)} GE
@@ -342,7 +346,7 @@ export function VehicleTile({
       {showAcquisition && showPackPrice && availability && (
         <span
           className="wt-game-pack-price"
-          title={unit.acquisition?.availabilityReason || unit.acquisition?.reason}
+          title={acquisition?.availabilityReason || acquisition?.reason}
         >
           <small>获取状态</small>
           {availability}
