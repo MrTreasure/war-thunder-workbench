@@ -27,6 +27,7 @@ try {
 }
 const localization = await json("localization.json");
 const marketPrices = await json("market-prices.json");
+const acquisition = await json("vehicle-acquisition.json");
 const settings = await json("catalog-settings.json");
 const lineup = await json("lineup-rules.json");
 const lineupCodebook = await json("lineup-codebook.json");
@@ -81,6 +82,7 @@ for (const [category, values] of Object.entries(catalog.trees))
       for (const node of [...rank.research, ...rank.special])
         for (const unit of node.members) {
           localized(unit, localization.vehicles[unit.id]);
+          if (acquisition.vehicles[unit.id]) unit.acquisition = acquisition.vehicles[unit.id];
           if (vehicleDetails.vehicles[unit.id]) unit.wikiDetails = vehicleDetails.vehicles[unit.id];
           unit.imageUrl =
             settings.vehicleMediaOverrides?.[unit.id]?.imageUrl ||
@@ -95,6 +97,11 @@ for (const [category, values] of Object.entries(catalog.trees))
           }
           const proof = purchases[unit.id];
           if (proof) {
+            if (proof.gePrice && !proof.store && !proof.market) {
+              unit.kind = "gold";
+              unit.price = proof.gePrice.regularGe;
+              unit.gePrice = proof.gePrice;
+            }
             unit.store = proof.store || null;
             unit.market = proof.market || null;
             if (unit.kind !== "gold" && unit.kind !== "squadron") {

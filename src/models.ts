@@ -175,6 +175,24 @@ export interface Vehicle {
   price: number | null;
   packPrice?: PackPrice;
   marketPrice?: MarketPrice;
+  acquisition?: {
+    kind: string;
+    label: string;
+    reason: string;
+    source: string;
+    checkedAt: string;
+    sha256: string;
+    availabilityLabel?: string;
+    availabilityReason?: string;
+  };
+  gePrice?: {
+    regularGe: number;
+    historicalSaleGe: number;
+    promotionPercent: number;
+    source: string;
+    checkedAt: string;
+    priceBasis: string;
+  };
   store: string | null;
   market: string | null;
   side: "research" | "special";

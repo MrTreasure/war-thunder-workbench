@@ -220,7 +220,14 @@ for (const purchase of Object.values(purchases)) {
   assert(price, `Missing store price record for ${id}`);
   assert.equal(price.productId, id);
   assert.equal(price.currency, "CNY");
-  assert.equal(price.source, `https://store.gaijin.net/story.php?id=${id}&skin_lang=zh`);
+  const priceSource = new URL(price.source);
+  assert.equal(priceSource.origin, "https://store.gaijin.net");
+  assert.equal(priceSource.pathname, "/story.php");
+  assert(
+    priceSource.searchParams.get("id") === id ||
+      (priceSource.searchParams.has("title") && price.source === price.finalUrl),
+    `Store evidence must identify its product: ${id}`,
+  );
   assert.equal(new URL(price.finalUrl).hostname, "store.gaijin.net");
   assert.equal(new URL(price.finalUrl).protocol, "https:");
   assert.match(price.sha256, /^[a-f0-9]{64}$/);

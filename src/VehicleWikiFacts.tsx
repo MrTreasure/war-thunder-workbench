@@ -45,11 +45,31 @@ export function VehicleWikiFacts({ unit }: { unit: Vehicle }) {
         )}
         {unit.kind === "gold" && (
           <div className="wt-vehicle-price-line">
-            <span>金鹰原价</span>
+            <span>
+              {unit.gePrice?.priceBasis === "derived_from_explicit_discount"
+                ? "金鹰常规参考价"
+                : "金鹰原价"}
+            </span>
             <strong>
               {unit.price === null ? "暂无报价" : `${unit.price.toLocaleString("zh-CN")} GE`}
             </strong>
           </div>
+        )}
+        {unit.gePrice && (
+          <p className="wt-vehicle-facts-source">
+            <a href={unit.gePrice.source} target="_blank" rel="noreferrer">
+              历史活动价 {unit.gePrice.historicalSaleGe.toLocaleString("zh-CN")} GE · 优惠{" "}
+              {unit.gePrice.promotionPercent}%
+            </a>
+            {unit.gePrice.priceBasis === "derived_from_explicit_discount" &&
+              "；常规参考价依据同一官方公告的活动价与明确折扣推算，不是官方直接标价。"}
+          </p>
+        )}
+        {unit.acquisition?.availabilityLabel && (
+          <p className="wt-vehicle-facts-source" title={unit.acquisition.availabilityReason}>
+            {unit.acquisition.availabilityLabel}
+            {unit.acquisition.availabilityReason ? ` · ${unit.acquisition.availabilityReason}` : ""}
+          </p>
         )}
         {purchase?.currency === "SL" && (
           <div className="wt-vehicle-price-line">

@@ -1,0 +1,891 @@
+{
+  "schemaVersion": 1,
+  "vehicles": {
+    "us_m1a1_abrams_yt_cup_2019": {
+      "kind": "tournament",
+      "label": "赛事奖励",
+      "reason": "2019 YouTube Cup 赛事奖励专属版本。",
+      "source": "https://wiki.warthunder.com/unit/us_m1a1_abrams_yt_cup_2019",
+      "checkedAt": "2026-11-06T09:53:31.038122+00:00",
+      "sha256": "32959d8f8433479e878dfd52555bad5da386c73e68ebacd2efd8829a1869fdb6",
+      "evidence": "ades , foreign sales , and the improved M1A2 Abrams . This special version of the M1A1 , created for the winners of the 2019 YouTube Cup tournament , was introduced in Update 1.89 “Imperial Navy” . Its main difference from the standard M1A1 is a unique camouflage pattern. Otherwise, it retains all characteristics of the base vehicle: high survivability, excellent mobility, and effective ammunition, making it one of t"
+    },
+    "germ_leopard_2a5_yt_cup_2019": {
+      "kind": "tournament",
+      "label": "赛事奖励",
+      "reason": "2019 YouTube Cup 赛事奖励专属版本。",
+      "source": "https://wiki.warthunder.com/unit/germ_leopard_2a5_yt_cup_2019",
+      "checkedAt": "2026-11-06T09:53:52.191503+00:00",
+      "sha256": "3eae4cb947607efa96c2829fe6116c6f831dccef43acbdcb392ba475f43e2d8d",
+      "evidence": "he Leopard 2A5's enduring legacy, making it a symbol of armoured supremacy well into the 21st century. The Leopard 2A5 (YouTube Cup) was introduced during Update 1.89 \"Imperial Navy\" as a grand prize for the 2019 YouTube Cup . The Leopard 2A5's exceptional mobility and robust powerplant further enhance its capability to swiftly manoeuvre on the battlefield, enabling it to quickly identify and engage enemy targets. Wh"
+    },
+    "ussr_t_80u_yt_cup_2019": {
+      "kind": "tournament",
+      "label": "赛事奖励",
+      "reason": "2019 YouTube Cup 赛事奖励专属版本。",
+      "source": "https://wiki.warthunder.com/unit/ussr_t_80u_yt_cup_2019",
+      "checkedAt": "2026-11-06T09:54:05.318388+00:00",
+      "sha256": "3dd85e1e8c9ad193ac3c2a3354be47eec2b7b7b024270f9d0eb639bb589adf48",
+      "evidence": "n service in Ukraine, Russia, Cyprus, and South Korea. The T-80U was introduced as special award for the winners of the YouTube Cup 2019 tournament . Its only difference from the standard T-80U is a unique camouflage. With its combination of high mobility, powerful armament, and extremely strong armor, the T-80U is one of the best tanks in the game. Despite the presence of more modern armored vehicles, the T-80U can "
+    },
+    "uk_challenger_ii_yt_cup_2019": {
+      "kind": "tournament",
+      "label": "赛事奖励",
+      "reason": "2019 YouTube Cup 赛事奖励专属版本。",
+      "source": "https://wiki.warthunder.com/unit/uk_challenger_ii_yt_cup_2019",
+      "checkedAt": "2026-11-06T09:54:08.312441+00:00",
+      "sha256": "9b613e55189fd12697a87bdf08ac85202423d4435ba383ead40d627ecee333ec",
+      "evidence": "and upgrades to the electronic equipment. It was introduced during Update 1.89 \"Imperial Navy\" as a grand prize for the 2019 YouTube Cup . The Challenger 2 is a very special top-rank main battle tank. It has access to a powerful cannon, but compared to other nations, it does not have access to HEAT ammunition, which makes it a little harder dealing with verylightly armoured vehicles that are more easily destroyed wit"
+    },
+    "arado_234b_2_mt": {
+      "kind": "pack",
+      "label": "礼包",
+      "reason": "官方商店当前在售礼包，展示整包价格。",
+      "source": "https://store.gaijin.net/story.php?id=15800",
+      "checkedAt": "2026-11-06T15:46:31.124426+00:00",
+      "sha256": "f0841d7e41e61bd54f926d7ce9c370c4048e68177306d35af14da27338c36a42",
+      "availabilityLabel": "当前在售",
+      "availabilityReason": "已核对官方商店目录及商品详情。"
+    },
+    "hawk_t1a": {
+      "kind": "pack",
+      "label": "礼包",
+      "reason": "官方商店当前在售礼包，展示整包价格。",
+      "source": "https://store.gaijin.net/story.php?id=15801",
+      "checkedAt": "2026-11-06T15:46:43.027377+00:00",
+      "sha256": "92fa24028cad1454a2d137c7dd70565ddd0ffc6a405d6c0bf1759311c62065e4",
+      "availabilityLabel": "当前在售",
+      "availabilityReason": "已核对官方商店目录及商品详情。"
+    },
+    "a_7e_greece": {
+      "kind": "pack",
+      "label": "礼包",
+      "reason": "官方商店当前在售礼包，展示整包价格。",
+      "source": "https://store.gaijin.net/story.php?id=15802",
+      "checkedAt": "2026-11-06T15:46:59.289278+00:00",
+      "sha256": "e2621dbc828f2418b39dcb5a5b1673dc22e58cb58263c7af92f454c66ef8535f",
+      "availabilityLabel": "当前在售",
+      "availabilityReason": "已核对官方商店目录及商品详情。"
+    },
+    "it_battleship_giulio_cesare": {
+      "kind": "pack",
+      "label": "礼包",
+      "reason": "官方商店当前在售礼包，展示整包价格。",
+      "source": "https://store.gaijin.net/story.php?id=15803",
+      "checkedAt": "2026-11-06T15:47:09.902994+00:00",
+      "sha256": "274a1f98f7d48b22c44456081e6ecee7f93fbe38e565463361fbd33f9c93889d",
+      "availabilityLabel": "当前在售",
+      "availabilityReason": "已核对官方商店目录及商品详情。"
+    },
+    "ussr_t_44_kit_4rank": {
+      "kind": "pack",
+      "label": "礼包",
+      "reason": "官方商店当前在售礼包，展示整包价格。",
+      "source": "https://store.gaijin.net/story.php?id=15804",
+      "checkedAt": "2026-11-06T15:47:20.360745+00:00",
+      "sha256": "721ea60bd7126880350ab55ca1aba66ace19779750ded5d1987d46f8348caecd",
+      "availabilityLabel": "当前在售",
+      "availabilityReason": "已核对官方商店目录及商品详情。"
+    },
+    "ussr_is_2m_kit_4rank": {
+      "kind": "pack",
+      "label": "礼包",
+      "reason": "官方商店当前在售礼包，展示整包价格。",
+      "source": "https://store.gaijin.net/story.php?id=15804",
+      "checkedAt": "2026-11-06T15:47:20.360745+00:00",
+      "sha256": "721ea60bd7126880350ab55ca1aba66ace19779750ded5d1987d46f8348caecd",
+      "availabilityLabel": "当前在售",
+      "availabilityReason": "已核对官方商店目录及商品详情。"
+    },
+    "ussr_m53_59_kit_4rank": {
+      "kind": "pack",
+      "label": "礼包",
+      "reason": "官方商店当前在售礼包，展示整包价格。",
+      "source": "https://store.gaijin.net/story.php?id=15804",
+      "checkedAt": "2026-11-06T15:47:20.360745+00:00",
+      "sha256": "721ea60bd7126880350ab55ca1aba66ace19779750ded5d1987d46f8348caecd",
+      "availabilityLabel": "当前在售",
+      "availabilityReason": "已核对官方商店目录及商品详情。"
+    },
+    "cn_plz_45": {
+      "kind": "pack",
+      "label": "礼包",
+      "reason": "官方商店当前在售礼包，展示整包价格。",
+      "source": "https://store.gaijin.net/story.php?id=15805",
+      "checkedAt": "2026-11-06T15:36:05.586073+00:00",
+      "sha256": "e2a3cb4f53cd5b3d4bb701b8cc337dcbd73b91535a535ab28bda403bec11a883",
+      "availabilityLabel": "当前在售",
+      "availabilityReason": "已核对官方商店目录及商品详情。"
+    },
+    "a6m5ko": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/a6m5ko",
+      "checkedAt": "2026-11-06T09:36:11.115355+00:00",
+      "sha256": "b1d767a2c2c0ad5d2d914ae4f5ba39952f19d7ed3cd87cc02574df4dc720baf5",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "a_129_a": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://warthunder.com/en/news/9977-special-shop-enjoy-a-decal-and-discounts-on-three-vehicles-for-italian-air-force-day-en",
+      "checkedAt": "2026-10-22T02:48:46.724Z",
+      "sha256": "ee5eaac5c1b9c116146f8d6aa0c31395b7da415255b7f0cdff7cb2637c23db64",
+      "availabilityLabel": "限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "ah_1s": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/ah_1s",
+      "checkedAt": "2026-11-06T09:37:10.349222+00:00",
+      "sha256": "32cd21be3f00cfbd2e55e6c924780f318019108c59a61c1c553781f3ab60364d",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "attaker_fb2": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://warthunder.com/en/news/9982-special-shop-discounts-on-rare-aircraft-and-a-royal-air-force-decal-for-the-rafs-birthday-en",
+      "checkedAt": "2026-10-26T07:32:55.437960+00:00",
+      "sha256": "3d82d0b3d1605a54a889243b20fd44880b35b9ef49994183c2e6896c7be3ab68",
+      "availabilityLabel": "限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "bf-109z": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/bf-109z",
+      "checkedAt": "2026-11-06T09:35:32.623966+00:00",
+      "sha256": "c6ae852d59f403ae2a7a48d9c574003e362c9f49b1e79bcf477d73b26e608a9e",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "bo_105cb2": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/bo_105cb2",
+      "checkedAt": "2026-11-06T09:37:08.261422+00:00",
+      "sha256": "e691299b971ca22c748f61b969ebaa44813d2e81ab5b8c3b35d6f9ebc3a13e08",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "cn_t_62": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/cn_t_62",
+      "checkedAt": "2026-11-06T09:34:54.157859+00:00",
+      "sha256": "240bf7bc1b69d1b661a17a176e386ee2ec75a0f69359be79e5a064cdb53cfd7d",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "cn_type_69_2a": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://wiki.warthunder.com/unit/cn_type_69_2a",
+      "checkedAt": "2026-11-06T09:34:55.273605+00:00",
+      "sha256": "14f0dff5ac523c6ab9cb84a4a3a43bd3b00f033dd15eba6f4f717a8860aaf9b8",
+      "availabilityLabel": "限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "d_371_hs9": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/d_371_hs9",
+      "checkedAt": "2026-11-06T09:36:21.644742+00:00",
+      "sha256": "171b03633ad38efba427b70b4ea193827c6a7633ee103fff26f684f160bd05b5",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "f-86f-35": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/f-86f-35",
+      "checkedAt": "2026-11-06T09:35:21.123873+00:00",
+      "sha256": "6e84c0ad55b0c74587b1cb011b7642b8af82992e8870878dcd2720d2255b832f",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "f-89d": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://warthunder.com/en/news/10162-shop-the-f-89d-is-temporarily-available-to-mark-the-anniversary-of-its-first-flight-en",
+      "checkedAt": "2026-10-26T07:34:38.800982+00:00",
+      "sha256": "a5caa5ae704885a8d5a956d4d3b8c2a742e9efd027e5014b15c374f3ed6221de",
+      "availabilityLabel": "限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "fw-190a-5_japan": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://warthunder.com/en/news/10042-shop-the-bf-109-z-1-discounts-on-bf-109-and-fw-190-variants-en",
+      "checkedAt": "2026-10-26T07:33:33.575010+00:00",
+      "sha256": "c2c3f05656caf89c221ca840b7e50e22185f0554b978bf3b27a956b727afb495",
+      "availabilityLabel": "限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "fw-190d-9_ussr": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://wiki.warthunder.com/unit/fw-190d-9_ussr",
+      "checkedAt": "2026-11-06T09:35:51.955436+00:00",
+      "sha256": "8a68366492dd5a8635fb9e178d5bdcdbdf3b392288a713a25e1e2c8873f1697b",
+      "availabilityLabel": "历史下架 / 限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "germ_destroyer_class1936_z20_karlgalster": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/germ_destroyer_class1936_z20_karlgalster",
+      "checkedAt": "2026-11-06T09:36:39.325570+00:00",
+      "sha256": "902837f2d7f5e57625abeaad300024082ddcf90ed6b55a629f19e31c4394104c",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "germ_destroyer_class1939_t31": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://warthunder.com/en/news/10094-shop-special-a-decal-and-discounts-on-rare-german-ships-for-german-navy-day-en",
+      "checkedAt": "2026-10-26T07:34:06.134902+00:00",
+      "sha256": "528b324d10eab37368393e21041bfee59eec97ffdf6daf7834fefdea7ab514e0",
+      "availabilityLabel": "限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "germ_pz_iv_l70_a": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/germ_pz_iv_l70_a",
+      "checkedAt": "2026-11-06T09:34:28.423068+00:00",
+      "sha256": "8f9737d78a93eb75fac28d2e897fb50a1ad9ad6f32f16ec33c0bfbae9933c7f9",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "germ_pzkpfw_ii_ausf_h": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_ii_ausf_h",
+      "checkedAt": "2026-11-06T09:34:21.586453+00:00",
+      "sha256": "7f51fe2fc77e21577f687d392bab3bbfd9b123c883cee964bd8798f232803ef8",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "germ_pzkpfw_maus": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_maus",
+      "checkedAt": "2026-11-06T10:04:39.890651+00:00",
+      "sha256": "f2893397823785abb7606b8df6028da8ee857f492dacccbd792750ec3d675e0a",
+      "availabilityLabel": "限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "germ_s_100_s204_lang": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/germ_s_100_s204_lang",
+      "checkedAt": "2026-11-06T09:36:54.848784+00:00",
+      "sha256": "fdf16923a44113544fc784f5bb6d0d1fb6d0104afb8883dc2a8dcf6525081357",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "he_112b_1": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/he_112b_1",
+      "checkedAt": "2026-11-06T09:35:24.091065+00:00",
+      "sha256": "3ce34ddf3e3d9a693cdf016ced854feded63285d3c74a4b6c6360014e2ff6681",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "hunter_f9_rhodesia": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/hunter_f9_rhodesia",
+      "checkedAt": "2026-11-06T09:36:12.130602+00:00",
+      "sha256": "ac2698c6689aaf893a4df5b0a00016deb136477de5cf1dd606c9051f216e8d57",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "hurricane_mk1_late_ep": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://warthunder.com/en/news/10231-shop-special-a-decal-discounts-for-battle-of-britain-day-en",
+      "checkedAt": "2026-10-22T02:49:15.541851+00:00",
+      "sha256": "60675f9d39d93a86164bdc32d40741f576c76a30d4547c6c17d7007d4ffcf8ed",
+      "availabilityLabel": "限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "iar_316b": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/iar_316b",
+      "checkedAt": "2026-11-06T09:37:12.227615+00:00",
+      "sha256": "e2716e298db1ae9749055936e3c1b8191f514dddb5f6982a16003c1852ca1a8a",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "il-2m_mstitel": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/il-2m_mstitel",
+      "checkedAt": "2026-11-06T09:35:41.641987+00:00",
+      "sha256": "72e4a2a11f78b33c81ca6aaadee1107bae5b7800169b17778048fdb7f35eaee2",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "it_destroyer_soldati_serie1_geniere": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/it_destroyer_soldati_serie1_geniere",
+      "checkedAt": "2026-11-06T09:36:47.043356+00:00",
+      "sha256": "75f39b181013fc41e47592ee65a545a2f8d423d1cf00c18ed46a5b951d65c58a",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "it_p_26_40": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/it_p_26_40",
+      "checkedAt": "2026-11-06T09:34:56.373706+00:00",
+      "sha256": "6bb8f2af8a3bcc4e7d13c254811177005f349f899667414e5818168b62778957",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "it_semovente_m43_105_leoncello": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://warthunder.com/en/news/10308-shop-special-a-decal-trophy-and-discounts-for-italys-national-unity-and-armed-forces-day-en",
+      "checkedAt": "2026-11-05T22:19:49.056850977Z",
+      "sha256": "c95b35558bc1dbcc18aa54a3189e18f0d5aa58ccca8c1309c6899ce6379d4a6a",
+      "availabilityLabel": "限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "j2m4_kai": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://wiki.warthunder.com/unit/j2m4_kai",
+      "checkedAt": "2026-11-06T09:36:14.232639+00:00",
+      "sha256": "f1c38d22a953c26ef2fd1b6ec238f6b1a84f1f4e82adacaa099c5a85b3a93f82",
+      "availabilityLabel": "历史下架 / 限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "jp_destroyer_kiyoshimo": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/jp_destroyer_kiyoshimo",
+      "checkedAt": "2026-11-06T09:36:44.431336+00:00",
+      "sha256": "1ccf8f89dd2044e51f2ce311e5d43e34bb1e783f5bae1d3c1cd564f4bba0e485",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "la-11": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/la-11",
+      "checkedAt": "2026-11-06T09:35:49.866878+00:00",
+      "sha256": "3a558613bb8324e6c49cf9eb80d128538b2555d012c6741328e6af9dfa4a0045",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "la-5fn_luftwaffe": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://wiki.warthunder.com/unit/la-5fn_luftwaffe",
+      "checkedAt": "2026-11-06T09:35:28.273103+00:00",
+      "sha256": "50202a044850a03bf37eee5e083c95890e194c76461a60b8bd1a67e73ca30912",
+      "availabilityLabel": "历史下架 / 限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "la-7_dolgushin": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/la-7_dolgushin",
+      "checkedAt": "2026-11-06T09:35:48.926017+00:00",
+      "sha256": "b20d616711b1d47c10917ea31cb43c306f322466c2704e9f70ad570f7ba4c80d",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "la_174": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://wiki.warthunder.com/unit/la_174",
+      "checkedAt": "2026-11-06T10:05:51.645680+00:00",
+      "sha256": "be27e8e4b93db174271774a63853c0d78406712a50289b957fdd5bbb7552d61b",
+      "availabilityLabel": "限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "lightning_f53": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/lightning_f53",
+      "checkedAt": "2026-11-06T09:36:08.411896+00:00",
+      "sha256": "b8732ff133931f857eef6c774affbcbe840314c8b68eb61adaf796328e823b82",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "mi_24d": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/mi_24d",
+      "checkedAt": "2026-11-06T09:37:11.338691+00:00",
+      "sha256": "79754faba8889157da12dc8c420a79f0426fd0d1fc19bfab260565ff0790eae1",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "mig-17_cuba": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/mig-17_cuba",
+      "checkedAt": "2026-11-06T09:35:52.939421+00:00",
+      "sha256": "16f1508e3263df0aab73143f16950793aa5e9f5421f11f6962ded2a35d71059e",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "p-39n_su": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://warthunder.com/en/news/9946-shop-the-p-39n-0-is-temporarily-available-for-alexander-pokryshkins-birthday-en",
+      "checkedAt": "2026-10-26T07:32:25.271128+00:00",
+      "sha256": "9e2861dca636b6f453cf3fcc71e609f3a33174c9a9c58d8772942ecb45c441a6",
+      "availabilityLabel": "限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "p-47m-1-re": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/p-47m-1-re",
+      "checkedAt": "2026-11-06T09:35:17.134146+00:00",
+      "sha256": "81cc15afa75adc2fcb4268171557cfe7d9e66aa08133017c49777db7b91df648",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "p-47m-1-re_boxted": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://warthunder.com/en/news/10166-special-shop-polish-vehicles-and-a-trophy-with-decals-commemorating-polish-armed-forces-day-en",
+      "checkedAt": "2026-10-26T07:34:50.210565+00:00",
+      "sha256": "f8b45876710a91b297e527bdfe2abce0725b3a3e04966e634f9e7337fe670945",
+      "availabilityLabel": "限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "p-51d-10": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/p-51d-10",
+      "checkedAt": "2026-11-06T09:35:14.914914+00:00",
+      "sha256": "03bd6e946d4cf470a842da4ae496251ebe74e8410180dad5500bee1e5f56a19c",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "p-61a_1": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://wiki.warthunder.com/unit/p-61a_1",
+      "checkedAt": "2026-11-06T09:35:13.021958+00:00",
+      "sha256": "aafc6bd04fe8384e091a71503e5a7b8a852cf0888d7f065d033bda1177619014",
+      "availabilityLabel": "历史下架",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "pe-2-205": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/pe-2-205",
+      "checkedAt": "2026-11-06T09:35:48.008602+00:00",
+      "sha256": "b3bd7188a07bcf9adb6646066324a6532cb34377a52cafbdd79c74ec7de3a860",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "saab_j29d": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/saab_j29d",
+      "checkedAt": "2026-11-06T09:36:27.497362+00:00",
+      "sha256": "da32cb0fdabf4adfdbe5af5502f1a89f550ee0d65a41d480f3ca345f0a820379",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "saab_j35a": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://wiki.warthunder.com/unit/saab_j35a",
+      "checkedAt": "2026-11-06T09:36:30.992826+00:00",
+      "sha256": "df92f49f4951f41fc5afc48078c39006dff02ff78b10bbb45fa579ccb9cea9b2",
+      "availabilityLabel": "历史下架 / 限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "sea_hawk_mk100": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/sea_hawk_mk100",
+      "checkedAt": "2026-11-06T09:35:35.595237+00:00",
+      "sha256": "99eab5c5624d99f65480a0884e2235bcb52859c8ff27899669a040f1cb07e109",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "so_4050_vautour_2a_iaf": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/so_4050_vautour_2a_iaf",
+      "checkedAt": "2026-11-06T09:36:28.449180+00:00",
+      "sha256": "bcd0c33f5dcd834a0ad64b6f22e0e059fdec3d7596b43d71815c564c4664394d",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "so_4050_vautour_2n": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/so_4050_vautour_2n",
+      "checkedAt": "2026-11-06T09:36:23.478791+00:00",
+      "sha256": "aba58679562ac1d747b8337dec2c9df1ea841511327087dd3b6ba77390dbffc3",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "spitfire_fr_mk14e": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/spitfire_fr_mk14e",
+      "checkedAt": "2026-11-06T09:36:05.755852+00:00",
+      "sha256": "a1cc8d816b3e43129dc13338d5e8871426ac34647640e5b69e06f34871d604ec",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "spitfire_ix_plagis": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/spitfire_ix_plagis",
+      "checkedAt": "2026-11-06T09:36:03.608098+00:00",
+      "sha256": "1fbf6dc6556e5f7038bad7534f69c37ed4dc45e9acc33a2cef8ad898fc9211d3",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "spitfire_ix_ussr": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://wiki.warthunder.com/unit/spitfire_ix_ussr",
+      "checkedAt": "2026-11-06T09:35:53.893429+00:00",
+      "sha256": "5c74352d002419239a72db8bbf66a1ed02ff83166500f08783ccc518af71875b",
+      "availabilityLabel": "限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "su-7bmk": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/su-7bmk",
+      "checkedAt": "2026-11-06T09:35:56.360734+00:00",
+      "sha256": "4c463023c6ab32eaca968c6df33d77de118d1668d7b06ae373ab9fa23bbfa8c3",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "sw_sav_fm48": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/sw_sav_fm48",
+      "checkedAt": "2026-11-06T09:35:06.897294+00:00",
+      "sha256": "c876ab84d2dd9b274eabcba9bb56e542556d7b9cc1c2af8f4d1b0a212cdbd273",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "t2_early": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/t2_early",
+      "checkedAt": "2026-11-06T09:36:16.345964+00:00",
+      "sha256": "9414c20841e6af5d77c2e3de0894cf771ccbb0d5aeaf8a2e165c63819fa0800c",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "tempest_mkv_luftwaffe": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://warthunder.com/en/news/10196-shop-the-german-tempest-mk-v-is-available-at-a-discount-to-mark-the-anniversary-of-its-first-flight-en",
+      "checkedAt": "2026-10-26T07:35:05.132117+00:00",
+      "sha256": "dcaeceba5195561dbd8a664eafc21239b9ee3816b3bc55f4be97502d5b8cd275",
+      "availabilityLabel": "限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "typhoon_mk1b": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/typhoon_mk1b",
+      "checkedAt": "2026-11-06T09:36:04.816569+00:00",
+      "sha256": "74616e2e181c34f894fbf2aaf01629fa302c3c9cc7741de354e5ae5058557181",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "uh_1c_xm_30": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/uh_1c_xm_30",
+      "checkedAt": "2026-11-06T09:37:07.204591+00:00",
+      "sha256": "f5e5ab6839894c5493e50a958438f72805914c3788f7c8eb847b919f1d122849",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "uk_17_pdr_m10_achilles_norfolk_yeomanry": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/uk_17_pdr_m10_achilles_norfolk_yeomanry",
+      "checkedAt": "2026-11-06T09:34:45.644539+00:00",
+      "sha256": "e991fff6fa423fd6fc1cab3a3daa5a40480c43d8ebcc5eff2e135181027fc076",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "uk_a_43_black_prince": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/uk_a_43_black_prince",
+      "checkedAt": "2026-11-06T09:34:48.258303+00:00",
+      "sha256": "2b2bd94deb17ec18c3a5b7789516de60be52cec3cfc293b4d0692eafe76f0a84",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "uk_centurion_mk_3_ss11": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/uk_centurion_mk_3_ss11",
+      "checkedAt": "2026-11-06T09:34:46.479829+00:00",
+      "sha256": "505e04e8a115269d9af7fee3fe90726ffa0007fde7b1543856550003e3eda6ff",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "uk_destroyer_haida": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/uk_destroyer_haida",
+      "checkedAt": "2026-11-06T09:36:41.210696+00:00",
+      "sha256": "a68d628caf8da17fd83283faf2ab8ee2eb84c70b86189d3a2dd4c420ce185805",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "uk_vijayanta": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://warthunder.com/en/news/9975-shop-discounts-on-two-rare-tanks-for-bangladeshs-55th-anniversary-of-independence-en",
+      "checkedAt": "2026-10-26T07:32:44.932002+00:00",
+      "sha256": "1c72a94b7f38a48a537f452e27425e2a3955222525c71027f31916a514f697e1",
+      "availabilityLabel": "限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "us_destroyer_fletcher_cowell": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/us_destroyer_fletcher_cowell",
+      "checkedAt": "2026-11-06T09:36:34.265988+00:00",
+      "sha256": "5ea6d41766042fc8e42cec8666e7066cc6038ec647b7805feedeaa99111e272d",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "us_elco_80ft_pt109_boat": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/us_elco_80ft_pt109_boat",
+      "checkedAt": "2026-11-06T09:36:49.885559+00:00",
+      "sha256": "23e373d557f46f206bbbb3c97f7637117c0426f5d14b68a897a99ec6d394d2b2",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "us_m26e1_pershing": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://wiki.warthunder.com/unit/us_m26e1_pershing",
+      "checkedAt": "2026-11-06T09:34:26.731285+00:00",
+      "sha256": "259002bd894d312229cbe53bc7a1b6b77e2054988911ff263022192515b6e35d",
+      "availabilityLabel": "历史下架 / 限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "us_m5a1_stuart_canadian_5st_arm": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://wiki.warthunder.com/unit/us_m5a1_stuart_canadian_5st_arm",
+      "checkedAt": "2026-11-06T09:34:23.559829+00:00",
+      "sha256": "8c3a4d8e8ff6efe15d9d02d2f3d6a5eee1eb99c81976c505fa3fe63b2f50735c",
+      "availabilityLabel": "历史下架 / 限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "us_magach_3": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/us_magach_3",
+      "checkedAt": "2026-11-06T09:34:26.025124+00:00",
+      "sha256": "5b054f80eb426cdbddcc1b30bd8ed640536e12bc8f6a227d36cd26989cec9354",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "ussr_destroyer_7y_stroyny": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/ussr_destroyer_7y_stroyny",
+      "checkedAt": "2026-11-06T09:36:37.377076+00:00",
+      "sha256": "3b127e7c7729338f7b404050c0182e90c84b271a7f359377d3c2558ece863b32",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "ussr_destroyer_pr41_neustrashimy": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://wiki.warthunder.com/unit/ussr_destroyer_pr41_neustrashimy",
+      "checkedAt": "2026-11-06T09:36:40.131488+00:00",
+      "sha256": "ba35931831d0c12cef048fd0bb366eea7f43c46b596952322abc7af3835d0a8d",
+      "availabilityLabel": "历史下架 / 限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "ussr_is_2_1944_revenge": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/ussr_is_2_1944_revenge",
+      "checkedAt": "2026-11-06T09:34:42.471793+00:00",
+      "sha256": "5d9d8c5d1412e5456611c883a45b9b06ef816e4a1a36fcbcb5263a32ebfb80e7",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "ussr_kv_1e": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://wiki.warthunder.com/unit/ussr_kv_1e",
+      "checkedAt": "2026-11-06T09:34:38.184123+00:00",
+      "sha256": "25ac99eaa2444c6a8b493e2dae148ec7ad00338bf4e44c23400ca7ba8c5ecf2a",
+      "availabilityLabel": "历史下架 / 限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "ussr_t_34_1940_l_11": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://wiki.warthunder.com/unit/ussr_t_34_1940_l_11",
+      "checkedAt": "2026-11-06T09:34:31.962978+00:00",
+      "sha256": "6262401645cfa029cdb373da578f77d06f1ab79172d2898ba09faf36bc924531",
+      "availabilityLabel": "历史下架",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "ussr_t_34_1941_cast_turret": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/ussr_t_34_1941_cast_turret",
+      "checkedAt": "2026-11-06T09:34:30.939898+00:00",
+      "sha256": "0b2c10271d97960cfe5e5070c751ed9e30b6e9ae7dadbf1dbc846427436965b8",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "ussr_t_34_85e": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://wiki.warthunder.com/unit/ussr_t_34_85e",
+      "checkedAt": "2026-11-06T09:34:40.889407+00:00",
+      "sha256": "f6bc576d25427f7559850bc5787bfe0f58cdec667507a6b1c940583a699255a4",
+      "availabilityLabel": "历史下架",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "ussr_valentine_mk_9": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://warthunder.com/en/news/9895-shop-special-celebrate-valentines-day-with-a-decal-and-the-return-of-a-rare-tank-en",
+      "checkedAt": "2026-10-26T07:32:09.963562+00:00",
+      "sha256": "211ebe2c6c5523add2ac759220d808788ec3aa63fbd62401e58c65bb3263476b",
+      "availabilityLabel": "限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "wellington_mk1c_luftwaffe": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "官方资料记录的历史获取渠道，当前销售状态未确认。",
+      "source": "https://warthunder.com/en/news/10097-shop-discount-on-the-german-wellington-mk-ic-for-the-90th-anniversary-of-the-wellingtons-first-flight-en",
+      "checkedAt": "2026-10-26T07:34:09.306543+00:00",
+      "sha256": "ad0660b20ff5da94d228839f1d0e77977596c2a3195e31271182863ce904472f",
+      "availabilityLabel": "限时返场",
+      "availabilityReason": "历史曾下架或限时返场；不代表当前全部渠道均不可获取。"
+    },
+    "yak-9m": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/yak-9m",
+      "checkedAt": "2026-11-06T09:35:44.747513+00:00",
+      "sha256": "d216ae78836b9dd145b757852a2737ba1e23a2e4fbbbc3c815b3864512f3bae7",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    },
+    "yp-38": {
+      "kind": "historical",
+      "label": "高级",
+      "reason": "旧礼包销售渠道下架，其他渠道需另行核对。",
+      "source": "https://wiki.warthunder.com/unit/yp-38",
+      "checkedAt": "2026-11-06T09:35:06.063435+00:00",
+      "sha256": "13daef9671fced8e6c514afe0b9d171d827713130e8e76a4eee76ccc951aa2d1",
+      "availabilityLabel": "旧礼包下架",
+      "availabilityReason": "旧礼包已下架，不等于该载具在所有渠道永久不可获取。"
+    }
+  }
+}

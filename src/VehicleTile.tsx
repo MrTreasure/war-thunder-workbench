@@ -30,6 +30,8 @@ export type VehicleTileUnit = Pick<Vehicle, "id" | "name"> & {
   ge?: number | null;
   packPrice?: PackPrice;
   marketPrice?: MarketPrice;
+  acquisition?: Vehicle["acquisition"];
+  gePrice?: Vehicle["gePrice"];
   imageUrl?: string;
   thumbnailUrl?: string;
   image?: string;
@@ -99,6 +101,15 @@ export function VehicleTile({
     (unit.side === "special" || unit.kind === "special" || unit.kind === "market");
   const market =
     unit.kind === "market" || !!unit.market || cardTheme.marketIconIds.includes(unit.id);
+  const tournament = !market && unit.acquisition?.kind === "tournament";
+  const acquisitionLabel = tournament
+    ? "赛事"
+    : unit.acquisition?.label || (premium ? "高级" : "特殊");
+  const historicalGe = !market && unit.kind === "gold" && unit.gePrice != null;
+  const availability =
+    !market && unit.kind !== "pack" && !historicalGe
+      ? unit.acquisition?.availabilityLabel
+      : undefined;
   const name = vehicleDisplayName(unit.name);
   const price = unit.packPrice;
   const quotedCents =
@@ -131,7 +142,13 @@ export function VehicleTile({
       ? unit.price == null && unit.ge == null
         ? "暂无报价"
         : `${format(unit.price ?? unit.ge!)} GE`
-      : catalog.kinds[unit.kind || ""] || "特殊载具";
+      : tournament
+        ? `${unit.acquisition!.label} · ${unit.acquisition!.reason}`
+        : unit.acquisition?.label
+          ? `${unit.acquisition.label} · ${unit.acquisition.reason}`
+          : premium
+            ? "高级载具"
+            : catalog.kinds[unit.kind || ""] || "特殊载具";
   const caption = [
     !country && countryLabel,
     footerLabel,
@@ -147,7 +164,7 @@ export function VehicleTile({
   };
   return (
     <Element
-      className={`vehicle-card wt-game-card ${premium ? "is-premium" : ""} ${special ? "is-special" : ""} ${market ? "is-market" : ""} ${owned ? "is-owned" : ""} ${unit.kind === "squadron" ? "is-squadron" : ""} ${selected ? "is-selected" : ""} ${className}`}
+      className={`vehicle-card wt-game-card ${premium ? "is-premium" : ""} ${special ? "is-special" : ""} ${market ? "is-market" : ""} ${tournament ? "is-tournament" : ""} ${owned ? "is-owned" : ""} ${unit.kind === "squadron" ? "is-squadron" : ""} ${selected ? "is-selected" : ""} ${className}`}
       role={onSelect || href ? undefined : "group"}
       href={onSelect ? undefined : href}
       target={!onSelect && href ? "_blank" : undefined}
@@ -160,6 +177,15 @@ export function VehicleTile({
       style={
         {
           "--wt-game-owned-icon": `url("${cardTheme.icons.owned}")`,
+          ...(tournament
+            ? {
+                "--wt-tournament-background": owned
+                  ? cardTheme.championship.ownedBackground
+                  : cardTheme.championship.background,
+                "--wt-tournament-border": cardTheme.championship.border,
+                "--wt-tournament-top": cardTheme.championship.topLine,
+              }
+            : {}),
           ...(market
             ? {
                 "--wt-market-background": owned
@@ -242,8 +268,10 @@ export function VehicleTile({
                 height={24}
                 alt="Gaijin Coin"
               />
+            ) : tournament ? (
+              "赛事"
             ) : (
-              "特殊"
+              acquisitionLabel
             )}
           </span>
         )}
@@ -300,6 +328,24 @@ export function VehicleTile({
             {unit.marketPrice?.quoteKind === "user-reference-limit" ? "参考上限" : "交易所"}
           </small>
           {marketPriceLabel(unit.marketPrice)}
+        </span>
+      )}
+      {showAcquisition && showPackPrice && historicalGe && (
+        <span
+          className="wt-game-pack-price"
+          title={`仅对应来源公告中的过去活动期间：${unit.gePrice!.promotionPercent}%优惠，活动价 ${format(unit.gePrice!.historicalSaleGe)} GE；核对于 ${unit.gePrice!.checkedAt.slice(0, 10)}。${unit.acquisition?.availabilityLabel || ""} ${unit.acquisition?.availabilityReason || ""}`}
+        >
+          <small>历史活动</small>
+          {format(unit.gePrice!.historicalSaleGe)} GE
+        </span>
+      )}
+      {showAcquisition && showPackPrice && availability && (
+        <span
+          className="wt-game-pack-price"
+          title={unit.acquisition?.availabilityReason || unit.acquisition?.reason}
+        >
+          <small>获取状态</small>
+          {availability}
         </span>
       )}
     </Element>

@@ -1034,6 +1034,78 @@
       "finalUrl": "https://store.gaijin.net/story.php?title=AJS37-Viggen-%28Early%29-Pack-1",
       "checkedAt": "2026-10-20T11:16:47.544Z",
       "sha256": "ce424228e79758167da59c52b7a4266b382b3d6ffa6eac2bb73531a611871d4a"
+    },
+    "15800": {
+      "title": "Arado 234 B-2 (WB 151) Pack",
+      "currency": "CNY",
+      "amountCents": 34900,
+      "regularAmountCents": 34900,
+      "status": "priced",
+      "productId": "15800",
+      "source": "https://store.gaijin.net/story.php?id=15800&skin_lang=en",
+      "finalUrl": "https://store.gaijin.net/story.php?title=Arado-234-B-2-%28WB-151%29-Pack",
+      "checkedAt": "2026-11-06T15:46:31.124426+00:00",
+      "sha256": "f0841d7e41e61bd54f926d7ce9c370c4048e68177306d35af14da27338c36a42"
+    },
+    "15801": {
+      "title": "Hawk T Mk 1A (FRP) Pack",
+      "currency": "CNY",
+      "amountCents": 34900,
+      "regularAmountCents": 34900,
+      "status": "priced",
+      "productId": "15801",
+      "source": "https://store.gaijin.net/story.php?id=15801&skin_lang=en",
+      "finalUrl": "https://store.gaijin.net/story.php?title=Hawk-T-Mk-1A-%28FRP%29-Pack",
+      "checkedAt": "2026-11-06T15:46:43.027377+00:00",
+      "sha256": "92fa24028cad1454a2d137c7dd70565ddd0ffc6a405d6c0bf1759311c62065e4"
+    },
+    "15802": {
+      "title": "A-7E Greece Pack",
+      "currency": "CNY",
+      "amountCents": 49900,
+      "regularAmountCents": 49900,
+      "status": "priced",
+      "productId": "15802",
+      "source": "https://store.gaijin.net/story.php?id=15802&skin_lang=en",
+      "finalUrl": "https://store.gaijin.net/story.php?title=-7E-Greece-Pack",
+      "checkedAt": "2026-11-06T15:46:59.289278+00:00",
+      "sha256": "e2621dbc828f2418b39dcb5a5b1673dc22e58cb58263c7af92f454c66ef8535f"
+    },
+    "15803": {
+      "title": "Giulio Cesare Pack",
+      "currency": "CNY",
+      "amountCents": 58500,
+      "regularAmountCents": 58500,
+      "status": "priced",
+      "productId": "15803",
+      "source": "https://store.gaijin.net/story.php?id=15803&skin_lang=en",
+      "finalUrl": "https://store.gaijin.net/story.php?title=Giulio-Cesare-Pack",
+      "checkedAt": "2026-11-06T15:47:09.902994+00:00",
+      "sha256": "274a1f98f7d48b22c44456081e6ecee7f93fbe38e565463361fbd33f9c93889d"
+    },
+    "15804": {
+      "title": "\"Be Prepared!\" Pack",
+      "currency": "CNY",
+      "amountCents": 44900,
+      "regularAmountCents": 44900,
+      "status": "priced",
+      "productId": "15804",
+      "source": "https://store.gaijin.net/story.php?id=15804&skin_lang=en",
+      "finalUrl": "https://store.gaijin.net/story.php?title=Be-Prepared%21-Pack",
+      "checkedAt": "2026-11-06T15:47:20.360745+00:00",
+      "sha256": "721ea60bd7126880350ab55ca1aba66ace19779750ded5d1987d46f8348caecd"
+    },
+    "15805": {
+      "title": "PLZ45 Pack",
+      "currency": "CNY",
+      "amountCents": 29900,
+      "regularAmountCents": 29900,
+      "status": "priced",
+      "productId": "15805",
+      "source": "https://store.gaijin.net/story.php?title=PLZ45-Pack&skin_lang=en",
+      "finalUrl": "https://store.gaijin.net/story.php?title=PLZ45-Pack&skin_lang=en",
+      "checkedAt": "2026-11-06T15:36:05.586073+00:00",
+      "sha256": "e2a3cb4f53cd5b3d4bb701b8cc337dcbd73b91535a535ab28bda403bec11a883"
     }
   }
 }

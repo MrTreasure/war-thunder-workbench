@@ -111,5 +111,12 @@
     "topLine": "#775181",
     "highlight": "#d1c2db",
     "basis": "用户2026-11-06交易所紫色参考；后续要求与普通及金鹰卡片一致的低高光哑光紫色金属面板。"
+  },
+  "championship": {
+    "background": "#272211c9",
+    "ownedBackground": "#39301bb2",
+    "border": "#655536",
+    "topLine": "#bda060",
+    "basis": "本应用赛事奖励哑光香槟金配色，区别礼包与金鹰暗褐金。"
   }
 }

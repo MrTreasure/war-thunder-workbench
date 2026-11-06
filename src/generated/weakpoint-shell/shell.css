@@ -449,30 +449,25 @@
   fill: var(--wt-game-wire-active);
 }
 
-/* Application metal finish, keyed to verified market acquisition identity. */
+/* Same matte plate treatment as regular/premium cards; market uses violet. */
 .vehicle-card.wt-game-card.is-market,
 .vehicle-card.wt-game-card.is-market:is(.is-premium, .is-special, .is-owned, .is-squadron) {
-  --wt-game-card: var(--wt-market-background, #251c30);
-  --wt-game-top: var(--wt-market-top, #bd83cf);
-  border-color: var(--wt-market-border, #70527f);
-  border-top-color: var(--wt-market-top, #bd83cf);
-  background:
-    linear-gradient(112deg, transparent 4%, #e7d1ff0e 23%, transparent 46%, #dcc2fa13 76%, transparent 100%),
-    repeating-linear-gradient(0deg, #f0dfff05 0 1px, #100b1808 1px 2px, transparent 2px 4px),
-    linear-gradient(180deg, var(--wt-market-crown, #583362), var(--wt-market-background, #251c30) 68%, var(--wt-market-bottom, #191821));
-  box-shadow: inset 0 1px 0 #ead0ff40, inset 0 -1px 0 #0d0913c9, 0 2px 3px #06050a50;
+  --wt-game-card: var(--wt-market-background, #1d1324c9);
+  --wt-game-top: var(--wt-market-top, #775181);
+  border-color: var(--wt-market-border, #3d294b);
+  border-top-color: var(--wt-market-top, #775181);
+  background: var(--wt-market-background, #1d1324c9);
+  box-shadow: 0 1px 1px #050b103d;
 }
 .vehicle-card.wt-game-card.is-market > .wt-game-pack-price {
-  border-color: var(--wt-market-border, #70527f);
-  background: linear-gradient(180deg, #392a44ed, #241d2ded);
-  color: var(--wt-market-highlight, #e4c4f4);
+  border-color: #62447380;
+  background: #251b2fdc;
+  color: var(--wt-market-highlight, #d1c2db);
 }
-.vehicle-card.wt-game-card.is-market > .wt-game-pack-price small { color: #c3accf; }
-.vehicle-card.wt-game-card.is-market .wt-game-role { color: #dfc5ed; }
-.vehicle-card.wt-game-card.is-market > .wt-game-owned { background-color: var(--wt-market-crown, #583362); }
-.vehicle-card.wt-game-card.is-market:focus-visible { outline-color: var(--wt-market-highlight, #e4c4f4); }
+.vehicle-card.wt-game-card.is-market > .wt-game-pack-price small { color: #ad9cb8; }
+.vehicle-card.wt-game-card.is-market:focus-visible { outline-color: var(--wt-market-highlight, #d1c2db); }
 @media (hover: hover) {
-  .vehicle-card.wt-game-card.is-market:hover { border-color: var(--wt-market-highlight, #e4c4f4); }
+  .vehicle-card.wt-game-card.is-market:hover { border-color: #9c7bad; }
 }
 
 /* The approved tech-tree tile is the sole general vehicle surface. */
