@@ -10,7 +10,15 @@ import { LoadoutVoteButtons } from "./LoadoutVoteButtons";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
 export function LoadoutRecommendations({ unit, country }: { unit: Vehicle; country: string }) {
   const account = useWorkbenchAccount();
-  const viewerId = account.session?.user?.id || "";
+  return (
+    <LoadoutRecommendationsView
+      key={`${account.session?.user?.id || "guest"}:${country}:${unit.id}`}
+      unit={unit}
+      country={country}
+    />
+  );
+}
+function LoadoutRecommendationsView({ unit, country }: { unit: Vehicle; country: string }) {
   const [items, setItems] = useState<LoadoutShare[]>([]),
     [loading, setLoading] = useState(true),
     [error, setError] = useState("");
@@ -18,8 +26,6 @@ export function LoadoutRecommendations({ unit, country }: { unit: Vehicle; count
   const data = unit.wikiDetails?.loadouts;
   useEffect(() => {
     const controller = new AbortController();
-    setLoading(true);
-    setError("");
     void loadoutRequest<{ items: LoadoutShare[] }>(
       `recommendations?country=${encodeURIComponent(country)}&vehicle=${encodeURIComponent(unit.id)}`,
       undefined,
@@ -38,7 +44,7 @@ export function LoadoutRecommendations({ unit, country }: { unit: Vehicle; count
         if (!controller.signal.aborted) setLoading(false);
       });
     return () => controller.abort();
-  }, [country, unit.id, revision, viewerId]);
+  }, [country, unit.id, revision]);
   if (!data) return null;
   return (
     <section className="wt-mount-recommendations">
