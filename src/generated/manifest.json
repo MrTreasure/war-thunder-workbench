@@ -664,11 +664,11 @@
     "china": {
       "key": "country-china",
       "format": "csv-js-v1",
-      "file": "country-china.0c7a1e5314bd8c7a.js",
-      "sha256": "8d819cddd7fe79cd830d7a43619dbeb073f07f6c3df268c22b2145e652e35939",
-      "bytes": 1626758,
-      "transportSha256": "0c7a1e5314bd8c7af6fd92e80dde0f28fcfa64c0ef791fa73e1baa5a41154bb9",
-      "transportBytes": 1661712,
+      "file": "country-china.97b3dcde5eb2465d.js",
+      "sha256": "5ad60440d86b7e95a46c513d50d972ce03db53a82d2d757f3f599c1f9deaa2be",
+      "bytes": 1626773,
+      "transportSha256": "97b3dcde5eb2465d1fac52c2bed018b9e6497d0eb2bd176b44a6dd5a3daa937b",
+      "transportBytes": 1661727,
       "checkedAt": "2026-10-20T09:15:28.530Z",
       "sources": {
         "ground": {

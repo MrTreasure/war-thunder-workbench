@@ -107,13 +107,10 @@ export function VehicleTile({
   const registeredAcquisition = (
     acquisitionRegistry.vehicles as Record<string, Vehicle["acquisition"]>
   )[unit.id];
-  const acquisition =
-    registeredAcquisition?.kind === "tournament" ? registeredAcquisition : unit.acquisition;
+  const acquisition = registeredAcquisition ?? unit.acquisition;
   const tournament = !market && acquisition?.kind === "tournament";
   const acquisitionLabel = tournament ? "赛事" : acquisition?.label || (premium ? "高级" : "特殊");
-  const historicalGe = !market && unit.kind === "gold" && unit.gePrice != null;
-  const availability =
-    !market && unit.kind !== "pack" && !historicalGe ? acquisition?.availabilityLabel : undefined;
+  const availability = !market && unit.kind !== "pack" ? acquisition?.availabilityLabel : undefined;
   const name = vehicleDisplayName(unit.name);
   const price = unit.packPrice;
   const quotedCents =
@@ -332,15 +329,6 @@ export function VehicleTile({
             {unit.marketPrice?.quoteKind === "user-reference-limit" ? "参考上限" : "交易所"}
           </small>
           {marketPriceLabel(unit.marketPrice)}
-        </span>
-      )}
-      {showAcquisition && showPackPrice && historicalGe && (
-        <span
-          className="wt-game-pack-price"
-          title={`仅对应来源公告中的过去活动期间：${unit.gePrice!.promotionPercent}%优惠，活动价 ${format(unit.gePrice!.historicalSaleGe)} GE；核对于 ${unit.gePrice!.checkedAt.slice(0, 10)}。${acquisition?.availabilityLabel || ""} ${acquisition?.availabilityReason || ""}`}
-        >
-          <small>历史活动</small>
-          {format(unit.gePrice!.historicalSaleGe)} GE
         </span>
       )}
       {showAcquisition && showPackPrice && availability && (
