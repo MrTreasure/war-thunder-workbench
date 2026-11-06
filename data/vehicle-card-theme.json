@@ -103,13 +103,13 @@
     "basis": "Original game shopArrow[type=vertical] uses arrow_simple.svg with a nine-pixel shaft in its 19-pixel source box."
   },
   "market": {
-    "background": "#251c30",
-    "ownedBackground": "#332440",
-    "crown": "#583362",
-    "bottom": "#191821",
-    "border": "#70527f",
-    "topLine": "#bd83cf",
-    "highlight": "#e4c4f4",
-    "basis": "用户2026-11-06交易所紫色参考图；本应用的紫色金属面板处理，不冒充游戏原始材质。"
+    "background": "#1d1324c9",
+    "ownedBackground": "#2a2033b2",
+    "crown": "#302039",
+    "bottom": "#17121cc9",
+    "border": "#3d294b",
+    "topLine": "#775181",
+    "highlight": "#d1c2db",
+    "basis": "用户2026-11-06交易所紫色参考；后续要求与普通及金鹰卡片一致的低高光哑光紫色金属面板。"
   }
 }
