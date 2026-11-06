@@ -1,0 +1,621 @@
+{
+  "schemaVersion": 1,
+  "notice": "仅用于账号估值的已核实历史价格或市场关联；不修改当前销售资格。历史金鹰售价不声称为现售原价；仅有促销报价的项目不二次推算原价。GJN均价由后端独立维护。",
+  "vehicles": [
+    {
+      "id": "a6m5ko",
+      "channel": "ge",
+      "ge": 3850,
+      "source": "https://warthunder.com/en/news/9891-shop-special-dont-miss-out-on-decals-discounts-and-rare-vehicles-for-japans-national-foundation-day-en",
+      "sha256": "0028d190021c0495ebcd180b34087ced6dc7824bd70c2971eb825f53da640bbf",
+      "checkedAt": "2026-10-22T02:48:37.053Z",
+      "salePeriod": {
+        "start": "2026-02-11T07:00:00Z",
+        "end": "2026-02-18T07:00:00Z"
+      },
+      "priceBasis": "historical_return_price_no_discount_stated",
+      "promotionPercent": null
+    },
+    {
+      "id": "cn_plz_83_130",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50263_plz83_130_china?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/cn_plz_83_130",
+      "sha256": "e7656aafbada7e64158b912e0cdb528cc3e102c518c16feb9ad25dae33a5d7f8",
+      "checkedAt": "2026-11-06T09:39:58.467698+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "cn_qn506",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50218_qn506_china?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/cn_qn506",
+      "sha256": "d4b506878650e73508e8c81b82d3f96693b0719142a693b4b639c01e63501528",
+      "checkedAt": "2026-11-06T09:40:03.818971+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "cn_t_80ud_478be",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50292_t_80ud_be_china?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/cn_t_80ud_478be",
+      "sha256": "006f5d0212f64cc36ee2e89c69b485c5edea932101b48150e7939754d0eb39c1",
+      "checkedAt": "2026-11-06T09:38:23.908207+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "f-4f",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/items_F-4F Early (Germany)?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/f-4f",
+      "sha256": "e92400ba12eed832cd6f6ff30c7be68ec6d52cfc40a1ad2aecc8caf211391b70",
+      "checkedAt": "2026-11-06T09:39:23.501173+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "f-5ag_norway",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50304_◢f_5ag_sweden?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/f-5ag_norway",
+      "sha256": "63c7bc581c1f457687eb5177f3eccce534a88c7fa0f565feeda37b0895008352",
+      "checkedAt": "2026-11-06T09:38:24.868391+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "f11f_1_late",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/items_F11F-1 (USA)?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/f11f_1_late",
+      "sha256": "93aa1cf1083da4c715768380528d3a323dc0401730ba08e3e04d215d748d9491",
+      "checkedAt": "2026-11-06T09:40:05.682678+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "f4d_1",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50188_f4d_1_usa?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/f4d_1",
+      "sha256": "b6a790f6b31dbc6f895db14ab3107e67c40ab6d3a7534c1d7887f78b1093a07e",
+      "checkedAt": "2026-11-06T09:39:24.322335+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "f_106a_1972",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50330_f_106a_usa?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/f_106a_1972",
+      "sha256": "f8c3b5d82dfff5beda58166cfd054d695db11472d60e509814a17f2e5b81dc16",
+      "checkedAt": "2026-11-06T09:38:25.712862+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "f_14a_iriaf",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50280_f_14a_iriaf_usa?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/f_14a_iriaf",
+      "sha256": "e241265f871a767423836fc5a762c8c34c3d2755bff30fd813b252fe7f4536cc",
+      "checkedAt": "2026-11-06T09:38:31.174673+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "f_16xl",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50381_f_16xl_usa?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/f_16xl",
+      "sha256": "8ba73bc1cd1d4ba2704d0ab817ba89193b3a14b55ecbeec03cd67fd035213c51",
+      "checkedAt": "2026-11-06T09:38:32.237314+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "f_6c_pakistan",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50361_f_6c_china?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/f_6c_pakistan",
+      "sha256": "ec411d5ab0f00e67ea687ab5b2e438976c1569ab0d2adf129339ee97390b9aee",
+      "checkedAt": "2026-11-06T09:38:33.091885+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "germ_destroyer_class1936_z20_karlgalster",
+      "channel": "ge",
+      "ge": 6090,
+      "source": "https://wiki.warthunder.com/unit/germ_destroyer_class1936_z20_karlgalster",
+      "sha256": "902837f2d7f5e57625abeaad300024082ddcf90ed6b55a629f19e31c4394104c",
+      "checkedAt": "2026-11-06T09:36:39.325570+00:00",
+      "salePeriod": {
+        "description": "2020 May Sale"
+      },
+      "priceBasis": "historical_2020_may_return_ge_reference_no_discount_explicit",
+      "promotionPercent": 0
+    },
+    {
+      "id": "germ_leopard_2av",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50190_leopard_2av_germany?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/germ_leopard_2av",
+      "sha256": "4a9dfb8d37ec0fb902a964a39c9cc84ab334cdf3f90c04bf5857825ea43ab4c7",
+      "checkedAt": "2026-11-06T09:39:30.352189+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "germ_leopard_c2_mexas",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/items_Leopard C2A1 MEXAS (Germany)?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/germ_leopard_c2_mexas",
+      "sha256": "bcc606a0dceb355a8aef562392ce6774d07147ba9755a7154e605b59d8eee552",
+      "checkedAt": "2026-11-06T09:39:31.861130+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "germ_vilkas",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50248_vilkas_germany?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/germ_vilkas",
+      "sha256": "1c463ce9f9f9cb3f12670a435281f22425b329e49821c11f0262d449e4f8a9f7",
+      "checkedAt": "2026-11-06T09:40:06.909256+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "iar_93b",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50290_iar_93b_italy?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/iar_93b",
+      "sha256": "1fcaf876cb3c6b3483d6ea22c9cdf06cd5da362fc45daeb382b64f3702ca9ab6",
+      "checkedAt": "2026-11-06T09:38:39.476046+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "il-2m_mstitel",
+      "channel": "ge",
+      "ge": 1300,
+      "source": "https://warthunder.com/en/news/9913-shop-special-a-decal-decoration-the-object-140-and-discounts-on-soviet-vehicles-en",
+      "sha256": "d30d8c16bf8b0a9be3768784cc933ce32a04565f9103c94dc99588650f6009b2",
+      "checkedAt": "2026-10-22T02:48:41.892Z",
+      "salePeriod": {
+        "start": "2026-02-20T09:00:00Z",
+        "end": "2026-02-25T09:00:00Z"
+      },
+      "priceBasis": "historical_return_price_no_discount_stated",
+      "promotionPercent": null
+    },
+    {
+      "id": "it_fiat_6614_firos",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50308_firos_6_italy?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/it_fiat_6614_firos",
+      "sha256": "4f8bea3a9aafbcfb54adbd941dee5018b7c8b968fb829592bc3558031caa91bf",
+      "checkedAt": "2026-11-06T09:38:40.512324+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "jp_battlecruiser_haruna",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50192_ijn_haruna_japan?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/jp_battlecruiser_haruna",
+      "sha256": "eef61b867670692af641b5e12c35c42538c0fd43e3d2177c7053167f0fc21340",
+      "checkedAt": "2026-11-06T09:39:40.175156+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "jp_escort_hiburi_class_shisaka",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50326_shisaka_japan?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/jp_escort_hiburi_class_shisaka",
+      "sha256": "2d9110e6200b97183ccee212e500dd8fff722e9f90ec2a6ccce75dc7c76a4545",
+      "checkedAt": "2026-11-06T09:40:04.933475+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "marut_mk1",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50318_hf_24_great_britain?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/marut_mk1",
+      "sha256": "e0dde1cca26ed2ae5d1b79c030bca6255d8b6e020f69581fd2694ce67ea69121",
+      "checkedAt": "2026-11-06T09:38:43.021066+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "meteor_frmk9_iaf",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50310_meteor_f_9_israel?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/meteor_frmk9_iaf",
+      "sha256": "0d97a2aa3047c375785a64571d4cbaf23b94d293450c36ad2962cf1cd8265ba1",
+      "checkedAt": "2026-11-06T09:38:47.822363+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "mig-21_pfm",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/items_MiG-21PFM (USSR)?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/mig-21_pfm",
+      "sha256": "3cf95f4346179a0ddbf6c8ec159ab0226c4f965e8cf60377e3b52dde252399e9",
+      "checkedAt": "2026-11-06T09:39:41.752651+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "pe-2-205",
+      "channel": "ge",
+      "ge": 1500,
+      "source": "https://warthunder.com/en/news/9913-shop-special-a-decal-decoration-the-object-140-and-discounts-on-soviet-vehicles-en",
+      "sha256": "d30d8c16bf8b0a9be3768784cc933ce32a04565f9103c94dc99588650f6009b2",
+      "checkedAt": "2026-10-22T02:48:41.892Z",
+      "salePeriod": {
+        "start": "2026-02-20T09:00:00Z",
+        "end": "2026-02-25T09:00:00Z"
+      },
+      "priceBasis": "historical_return_price_no_discount_stated",
+      "promotionPercent": null
+    },
+    {
+      "id": "sw_patria_amv_ctcv_105",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50230_ct_cv_105hp_sweden?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/sw_patria_amv_ctcv_105",
+      "sha256": "e78fa658f1167635c032b7928a81c0d203bd7cb0ab1e09da8195ec737bc53aa5",
+      "checkedAt": "2026-11-06T09:38:58.182711+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "sw_patria_bmp_3",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50383_amv_bmp_3_sweden?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/sw_patria_bmp_3",
+      "sha256": "e56a62e4d298b73534dbc660735af64bd9f9172e216519d4c32df39e045778c1",
+      "checkedAt": "2026-11-06T09:40:13.296439+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "sw_sav_fm48",
+      "channel": "ge",
+      "ge": 1300,
+      "source": "https://warthunder.com/en/news/10039-shop-special-a-decal-and-the-sav-201248-for-swedish-national-security-forces-day-en",
+      "sha256": "241771d7be3e4b1b08a7061932e61b322e0c3b586442aafdf3b8fffb32c997d6",
+      "checkedAt": "2026-10-26T07:33:29.895260+00:00",
+      "salePeriod": {
+        "start": "2026-05-27T11:00:00Z",
+        "end": "2026-06-01T11:00:00Z"
+      },
+      "priceBasis": "historical_return_price_no_discount_stated",
+      "promotionPercent": null
+    },
+    {
+      "id": "uk_boxer_crv_block2",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50345_crv_block_2_great_britain?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/uk_boxer_crv_block2",
+      "sha256": "c51f3bcd356d8a2a76a8ba4bed542882bc781e7ac7f673aa91bb4463435690c6",
+      "checkedAt": "2026-11-06T09:39:05.478105+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "uk_cruiser_tiger",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/HMS Tiger (Britain)?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/uk_cruiser_tiger",
+      "sha256": "ab06e0ecac121fd425801271f1c14206ce96bbe90e887a27b172746ec126c128",
+      "checkedAt": "2026-11-06T09:40:11.983247+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "uk_fv107_scimitar_mk2",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50373_scimitar_mk_2_great_britain?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/uk_fv107_scimitar_mk2",
+      "sha256": "26340c1e982d9c340268206696fd0d0bbf5f64d609c66ba37d153ecdb443244f",
+      "checkedAt": "2026-11-06T09:39:06.481320+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "uk_shir_2",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50298_fv4030_3_great_britain?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/uk_shir_2",
+      "sha256": "d4dc57a759fd4d1ce121aa0d668952548408b71385ab304550faebaf3327a04e",
+      "checkedAt": "2026-11-06T09:39:07.699901+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "us_ags_teledyne",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50163_ags_usa?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/us_ags_teledyne",
+      "sha256": "0474d492df69bedd938a51b04518a72961c96eaa0f0ae20ed68804a17380cf37",
+      "checkedAt": "2026-11-06T09:39:56.529972+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "us_cruiser_baltimore_class",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/items_USS Baltimore (CA-68) (USA)?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/us_cruiser_baltimore_class",
+      "sha256": "caf32b4b4d2425537f6dcde30e931a62acd52ece60cf125f4ea30768148b3fcc",
+      "checkedAt": "2026-11-06T09:39:47.096302+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "us_m60a3_slep",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/items_M60 AMBT (USA)?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/us_m60a3_slep",
+      "sha256": "8e94ce954010f43bf417fb704c6bcbf05710cab7b7b9e6aa320e81ead3542444",
+      "checkedAt": "2026-11-06T09:39:48.165924+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "ussr_battleship_oktyabrskaya_revolutsiya",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50379_oktyabrskaya_revolutsiya_ussr?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/ussr_battleship_oktyabrskaya_revolutsiya",
+      "sha256": "a88a0db0ee8322e2eef3dab1331a6a41522d47a19c9d77bec2ee6c0caf3218f8",
+      "checkedAt": "2026-11-06T09:39:15.041471+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "ussr_cruiser_maxim_gorky",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/items_Maxim Gorky (USSR)?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/ussr_cruiser_maxim_gorky",
+      "sha256": "305ab90951be4bf1143a618f5ca9d1c8d42114da7c7695d3940831f54d6dca3e",
+      "checkedAt": "2026-11-06T09:39:49.125852+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "ussr_kv_1e",
+      "channel": "ge",
+      "ge": 3200,
+      "source": "https://warthunder.com/en/news/9913-shop-special-a-decal-decoration-the-object-140-and-discounts-on-soviet-vehicles-en",
+      "sha256": "d30d8c16bf8b0a9be3768784cc933ce32a04565f9103c94dc99588650f6009b2",
+      "checkedAt": "2026-10-22T02:48:41.892Z",
+      "salePeriod": {
+        "start": "2026-02-20T09:00:00Z",
+        "end": "2026-02-25T09:00:00Z"
+      },
+      "priceBasis": "historical_return_price_no_discount_stated",
+      "promotionPercent": null
+    },
+    {
+      "id": "ussr_object_279",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/Object 279 (USSR)?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/ussr_object_279",
+      "sha256": "6920b602fd81bdca04308d8b12abcb98a613e3b4dee5f97c9498e8d31a7a8cb1",
+      "checkedAt": "2026-11-06T09:39:50.172364+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "ussr_object_292",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50257_object_292_ussr?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/ussr_object_292",
+      "sha256": "410a189cf8e1f3700769afaeb90582c14c5292668120564e40cae8c515846693",
+      "checkedAt": "2026-11-06T09:39:55.455559+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "ussr_pr_205pe_k225",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50342_ak_225_ussr?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/ussr_pr_205pe_k225",
+      "sha256": "9a2e0328073e60d6466f884a67ba0a0a637208a7748e68dfc6afdf6f57447faf",
+      "checkedAt": "2026-11-06T09:39:15.920618+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "ussr_t_34_1941_cast_turret",
+      "channel": "ge",
+      "ge": 1300,
+      "source": "https://warthunder.com/en/news/9913-shop-special-a-decal-decoration-the-object-140-and-discounts-on-soviet-vehicles-en",
+      "sha256": "d30d8c16bf8b0a9be3768784cc933ce32a04565f9103c94dc99588650f6009b2",
+      "checkedAt": "2026-10-22T02:48:41.892Z",
+      "salePeriod": {
+        "start": "2026-02-20T09:00:00Z",
+        "end": "2026-02-25T09:00:00Z"
+      },
+      "priceBasis": "historical_return_price_no_discount_stated",
+      "promotionPercent": null
+    },
+    {
+      "id": "ussr_t_72b3_arena",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50355_t_72b3_arena_ussr?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/ussr_t_72b3_arena",
+      "sha256": "0432fbccbe719e529fd13c87be3bd61b405b02d6ac77e1bced5a8320de27edb3",
+      "checkedAt": "2026-11-06T09:39:20.932191+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "ussr_t_72m2_moderna",
+      "channel": "market",
+      "source": "https://trade.gaijin.net/market/1067/id50176_t_72m2_moderna_ussr?from=wiki",
+      "evidenceSource": "https://wiki.warthunder.com/unit/ussr_t_72m2_moderna",
+      "sha256": "65b2583d34a098ad0d3803fcaaee3761b35ee13f5a50051c916cd7de278838b8",
+      "checkedAt": "2026-11-06T09:39:22.070839+00:00",
+      "priceBasis": "official_exact_vehicle_market_link"
+    },
+    {
+      "id": "wellington_mk1c_luftwaffe",
+      "channel": "ge",
+      "ge": 1000,
+      "source": "https://wiki.warthunder.com/unit/wellington_mk1c_luftwaffe",
+      "sha256": "20c0ab2595cf00f55cbc2693a6edd9cf443e4d24dbe25e8f524d831280aa1dc0",
+      "checkedAt": "2026-11-06T09:35:26.282695+00:00",
+      "salePeriod": {
+        "description": "Wiki正文称出售价格，未给限定历史销售日期"
+      },
+      "priceBasis": "historical_wiki_ge_reference",
+      "promotionPercent": null
+    }
+  ],
+  "pending": [
+    {
+      "id": "us_m26e1_pershing",
+      "channel": "ge",
+      "ge": 3740,
+      "source": "https://warthunder.com/en/news/10123-shop-special-july-4th-discounts-rewards-rare-vehicles-for-the-us-250th-anniversary-en",
+      "sha256": "5204f12615582ab7574eb6e871c27c355a7353b07a677bceeeac55579e85126f",
+      "checkedAt": "2026-10-22T02:49:06.009Z",
+      "salePeriod": {
+        "start": "2026-07-03T11:00:00Z",
+        "end": "2026-07-10T11:00:00Z"
+      },
+      "priceBasis": "historical_promotional_price",
+      "promotionPercent": 50,
+      "status": "promotion_only",
+      "reason": "仅核实促销实际售价；不作为原价再次应用折扣情景系数。"
+    },
+    {
+      "id": "uh_1c_xm_30",
+      "channel": "ge",
+      "ge": 6237,
+      "source": "https://warthunder.com/en/news/10273-shop-discount-on-the-uh-1c-xm-30-on-the-first-flight-anniversary-en",
+      "sha256": "557adc28db11c947c74a6db4fd26e44bd76ac4eef199350b56de5de23bb01c1b",
+      "checkedAt": "2026-10-26T07:35:53.885950+00:00",
+      "salePeriod": {
+        "start": "2026-10-22T11:00:00Z",
+        "end": "2026-10-26T11:00:00Z"
+      },
+      "priceBasis": "historical_promotional_price",
+      "promotionPercent": 30,
+      "status": "promotion_only",
+      "reason": "仅核实促销实际售价；不作为原价再次应用折扣情景系数。"
+    },
+    {
+      "id": "germ_pzkpfw_ii_ausf_h",
+      "channel": "ge",
+      "ge": 700,
+      "source": "https://warthunder.com/en/news/10252-special-shop-a-decal-discounts-and-rare-vehicles-for-german-unity-day-en",
+      "sha256": "4c0ca9a5d2f48662767fdf4e8f06bb681d2aee0f33d8e941116b6c0e254f5586",
+      "checkedAt": "2026-10-26T07:35:37.621645+00:00",
+      "salePeriod": {
+        "start": "2026-10-02T11:00:00Z",
+        "end": "2026-10-05T11:00:00Z"
+      },
+      "priceBasis": "historical_promotional_price",
+      "promotionPercent": 30,
+      "status": "promotion_only",
+      "reason": "仅核实促销实际售价；不作为原价再次应用折扣情景系数。"
+    },
+    {
+      "id": "us_destroyer_fletcher_cowell",
+      "channel": "ge",
+      "ge": 3416,
+      "source": "https://warthunder.com/en/news/10257-shop-special-a-decal-and-discounts-on-american-ships-for-the-us-navys-birthday-en",
+      "sha256": "82d18ac6426720aee88a7e56c4b096cfce72f22d576a473cb71c959497a94a06",
+      "checkedAt": "2026-10-26T07:35:41.418517+00:00",
+      "salePeriod": {
+        "start": "2026-10-13T11:00:00Z",
+        "end": "2026-10-16T11:00:00Z"
+      },
+      "priceBasis": "historical_promotional_price",
+      "promotionPercent": 30,
+      "status": "promotion_only",
+      "reason": "仅核实促销实际售价；不作为原价再次应用折扣情景系数。"
+    },
+    {
+      "id": "it_semovente_m43_105_leoncello",
+      "channel": "ge",
+      "ge": 650,
+      "source": "https://warthunder.com/en/news/10308-shop-special-a-decal-trophy-and-discounts-for-italys-national-unity-and-armed-forces-day-en",
+      "sha256": "56f1b887dc7b6246dfba612292b6e3489a254bb292941169245be55a790249cb",
+      "checkedAt": "2026-11-05T04:18:49.084367546Z",
+      "salePeriod": {
+        "start": null,
+        "end": "2026-11-07T11:00:00Z"
+      },
+      "priceBasis": "historical_promotional_price",
+      "promotionPercent": 50,
+      "status": "promotion_only",
+      "reason": "仅核实促销实际售价；不作为原价再次应用折扣情景系数。"
+    },
+    {
+      "id": "us_magach_3",
+      "channel": "pack",
+      "productId": null,
+      "source": "https://wiki.warthunder.com/unit/us_magach_3",
+      "sha256": "5b054f80eb426cdbddcc1b30bd8ed640536e12bc8f6a227d36cd26989cec9354",
+      "checkedAt": "2026-11-06T09:34:26.025124+00:00",
+      "regularAmountCents": null,
+      "status": "historical_cny_unverified"
+    },
+    {
+      "id": "germ_pzkpfw_ii_ausf_h",
+      "channel": "pack",
+      "productId": "4524",
+      "source": "https://wiki.warthunder.com/unit/germ_pzkpfw_ii_ausf_h",
+      "sha256": "7f51fe2fc77e21577f687d392bab3bbfd9b123c883cee964bd8798f232803ef8",
+      "checkedAt": "2026-11-06T09:34:21.586453+00:00",
+      "regularAmountCents": null,
+      "status": "historical_cny_unverified"
+    },
+    {
+      "id": "germ_pz_iv_l70_a",
+      "channel": "pack",
+      "productId": null,
+      "source": "https://wiki.warthunder.com/unit/germ_pz_iv_l70_a",
+      "sha256": "8f9737d78a93eb75fac28d2e897fb50a1ad9ad6f32f16ec33c0bfbae9933c7f9",
+      "checkedAt": "2026-11-06T09:34:28.423068+00:00",
+      "regularAmountCents": null,
+      "status": "historical_cny_unverified"
+    },
+    {
+      "id": "uk_17_pdr_m10_achilles_norfolk_yeomanry",
+      "channel": "pack",
+      "productId": null,
+      "source": "https://wiki.warthunder.com/unit/uk_17_pdr_m10_achilles_norfolk_yeomanry",
+      "sha256": "e991fff6fa423fd6fc1cab3a3daa5a40480c43d8ebcc5eff2e135181027fc076",
+      "checkedAt": "2026-11-06T09:34:45.644539+00:00",
+      "regularAmountCents": null,
+      "status": "historical_cny_unverified"
+    },
+    {
+      "id": "d_371_hs9",
+      "channel": "pack",
+      "productId": null,
+      "source": "https://wiki.warthunder.com/unit/d_371_hs9",
+      "sha256": "171b03633ad38efba427b70b4ea193827c6a7633ee103fff26f684f160bd05b5",
+      "checkedAt": "2026-11-06T09:36:21.644742+00:00",
+      "regularAmountCents": null,
+      "status": "historical_cny_unverified"
+    },
+    {
+      "id": "us_destroyer_fletcher_cowell",
+      "channel": "pack",
+      "productId": null,
+      "source": "https://wiki.warthunder.com/unit/us_destroyer_fletcher_cowell",
+      "sha256": "5ea6d41766042fc8e42cec8666e7066cc6038ec647b7805feedeaa99111e272d",
+      "checkedAt": "2026-11-06T09:36:34.265988+00:00",
+      "regularAmountCents": null,
+      "status": "historical_cny_unverified"
+    },
+    {
+      "id": "uh_1c_xm_30",
+      "channel": "pack",
+      "productId": null,
+      "source": "https://wiki.warthunder.com/unit/uh_1c_xm_30",
+      "sha256": "f5e5ab6839894c5493e50a958438f72805914c3788f7c8eb847b919f1d122849",
+      "checkedAt": "2026-11-06T09:37:07.204591+00:00",
+      "regularAmountCents": null,
+      "status": "historical_cny_unverified"
+    },
+    {
+      "id": "jh_7a_prototype",
+      "channel": "pack",
+      "productId": "14837",
+      "source": "https://store.gaijin.net/story.php?id=14837&skin_lang=zh",
+      "sha256": "6d847744f4db18dd1a4b21d375f098467e7b6bf3e32622c6e612f8fd13ab9d51",
+      "checkedAt": "2026-11-06T09:40:17.148815+00:00",
+      "regularAmountCents": null,
+      "status": "historical_cny_unverified"
+    },
+    {
+      "id": "ah_64a_greece_usa",
+      "channel": "pack",
+      "productId": "11587",
+      "source": "https://store.gaijin.net/story.php?id=11587&skin_lang=zh",
+      "sha256": "6d847744f4db18dd1a4b21d375f098467e7b6bf3e32622c6e612f8fd13ab9d51",
+      "checkedAt": "2026-11-06T09:40:20.188455+00:00",
+      "regularAmountCents": null,
+      "status": "historical_cny_unverified"
+    }
+  ]
+}

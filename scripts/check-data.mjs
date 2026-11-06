@@ -8,11 +8,22 @@ import "./check-map-atlas.mjs";
 import "./check-ground-maps.mjs";
 import "./check-player-medal-details.mjs";
 import { checkVehicleReference } from "./check-vehicle-reference.mjs";
+import { applyValuationPriceReferences } from "./valuation-price-references.mjs";
 const root = fileURLToPath(new URL("../", import.meta.url));
 const read = async (path) => JSON.parse(await readFile(resolve(root, path), "utf8"));
 const manifest = await read("src/generated/manifest.json");
 const catalog = await read("data/generated/catalog.json"),
   mods = await read("data/modifications.json");
+const valuationUnits = {};
+for (const countries of Object.values(catalog.trees))
+  for (const tree of Object.values(countries))
+    for (const rank of tree?.ranks || [])
+      for (const node of [...rank.research, ...rank.special])
+        for (const vehicle of node.members) valuationUnits[vehicle.id] = { id: vehicle.id };
+applyValuationPriceReferences(
+  { units: valuationUnits },
+  await read("data/account-valuation-price-references.json"),
+);
 const settings = await read("data/catalog-settings.json");
 const modificationPresentation = await read("data/modification-presentation.json");
 const modificationTiers = await read("data/modification-tiers.json");
