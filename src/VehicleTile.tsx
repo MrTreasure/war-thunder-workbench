@@ -333,11 +333,10 @@ export function VehicleTile({
       )}
       {showAcquisition && showPackPrice && availability && (
         <span
-          className="wt-game-pack-price"
+          className="wt-game-pack-price is-availability"
           title={acquisition?.availabilityReason || acquisition?.reason}
         >
-          <small>获取状态</small>
-          {availability}
+          <small>{availability}</small>
         </span>
       )}
     </Element>

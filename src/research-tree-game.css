@@ -299,6 +299,10 @@
   margin-right: 6px;
   color: #b6a78b;
 }
+.wt-game-pack-price.is-availability small {
+  font-size: 12px;
+  margin-right: 0;
+}
 .canvas .node.is-group > .wt-game-card::before {
   content: "";
   position: absolute;
