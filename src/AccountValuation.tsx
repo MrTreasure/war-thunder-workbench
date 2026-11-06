@@ -61,7 +61,7 @@ type Scenario = {
   totalCents: number | null;
 };
 export type Valuation = {
-  calculationVersion: "market-cny-v1";
+  calculationVersion: "market-cny-v1" | "market-cny-v2";
   marketTotalCnyCents: number;
   id: string;
   snapshotId: string;
@@ -550,12 +550,14 @@ export function AccountValuation({
     setError("");
     try {
       const current = await statsRequest<Valuation>(
-        "valuations/" + encodeURIComponent(value.id) + "?valuation_basis=market-cny-v2",
+        "players/" +
+          encodeURIComponent(profile.snapshotId) +
+          "/valuation?valuation_basis=market-cny-v2",
         undefined,
         c.signal,
       );
       if (!c.signal.aborted) {
-        if (current.calculationVersion !== "market-cny-v1")
+        if (current.calculationVersion !== "market-cny-v2")
           throw Error("估值计价规则已更新，请刷新估值。旧结果不会当作新版金额展示。");
         if (current.player.uid !== profile.uid) throw Error("估值玩家身份不一致，请重新查询。");
         setValue(current);
@@ -608,7 +610,7 @@ export function AccountValuation({
         c.signal,
       );
       if (!c.signal.aborted) {
-        if (result.calculationVersion !== "market-cny-v1")
+        if (result.calculationVersion !== "market-cny-v2")
           throw Error("服务端尚未提供新版市场人民币估值，请稍后重试。");
         setValue(result);
         if (!cacheValuation(cacheScope, profile, result))

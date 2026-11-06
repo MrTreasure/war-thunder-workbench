@@ -21,7 +21,7 @@ function valid(value: unknown): value is Valuation {
   if (
     !object(value) ||
     value.contentSafetyVersion !== "content-safety-v3" ||
-    value.calculationVersion !== "market-cny-v1" ||
+    !["market-cny-v1", "market-cny-v2"].includes(String(value.calculationVersion)) ||
     !integer(value.marketTotalCnyCents) ||
     !text(value.id) ||
     !text(value.snapshotId) ||
