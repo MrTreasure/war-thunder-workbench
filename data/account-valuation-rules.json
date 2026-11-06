@@ -46,5 +46,10 @@
     "VII",
     "VIII",
     "IX"
-  ]
+  ],
+  "marketPurchasePercent": {
+    "normal": 100,
+    "discount": 100,
+    "secondHand": 50
+  }
 }

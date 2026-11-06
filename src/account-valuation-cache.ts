@@ -224,6 +224,7 @@ function signature(value: Valuation["rules"]) {
     value.ge.cents,
     value.ge.units,
     value.rpUnit,
+    ...scenarioKeys.map((key) => value.marketPurchasePercent?.[key] ?? null),
     ...scenarioKeys.map((key) => [
       value.scenarios[key].purchasePercent,
       Object.entries(value.scenarios[key].rpCents).sort(([a], [b]) => a.localeCompare(b)),

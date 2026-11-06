@@ -128,6 +128,7 @@ export type Valuation = {
   })[];
   unpriced: UnpricedItem[];
   rules: {
+    marketPurchasePercent?: Record<string, number>;
     ge: { cents: number; units: number };
     rpUnit: number;
     scenarios: Record<string, { rpCents: Record<string, number>; purchasePercent: number }>;
@@ -347,6 +348,7 @@ function VehicleDetailFilters({
   onPageChange,
   label,
   unit,
+  orderLabel = "研发点降序",
 }: {
   items: Partial<Item>[];
   filters: VehicleFilters;
@@ -358,6 +360,7 @@ function VehicleDetailFilters({
   onPageChange: (page: number) => void;
   label: string;
   unit: string;
+  orderLabel?: string;
 }) {
   return (
     <div className="wt-valuation-filters">
@@ -396,7 +399,7 @@ function VehicleDetailFilters({
         </GameSelect>
       </label>
       <output>
-        筛选 {count} / {total} {unit} · 每页 10 {unit} · 研发点降序
+        筛选 {count} / {total} {unit} · 每页 10 {unit} · {orderLabel}
       </output>
       <VehicleDetailPagination page={page} pages={pages} onChange={onPageChange} label={label} />
     </div>
@@ -493,6 +496,21 @@ export function AccountValuation({
     storedValue?.localStale ? "正在展示此前保存的估值，点击刷新估值。" : "",
   );
   const [researchPage, setResearchPage] = useState(1);
+  const [purchaseFilters, setPurchaseFilters] = useState<VehicleFilters>({
+    country: "all",
+    category: "all",
+    rank: "all",
+  });
+  const [goldPage, setGoldPage] = useState(1);
+  const [packPage, setPackPage] = useState(1);
+  const [marketPage, setMarketPage] = useState(1);
+  function changePurchaseFilter(field: keyof VehicleFilters, selected: string) {
+    setPurchaseFilters((old) => ({ ...old, [field]: selected }));
+    setGoldPage(1);
+    setPackPage(1);
+    setMarketPage(1);
+  }
+
   const [checking, setChecking] = useState(false);
   const [open, setOpen] = useState(false),
     [busy, setBusy] = useState(false),
@@ -532,7 +550,7 @@ export function AccountValuation({
     setError("");
     try {
       const current = await statsRequest<Valuation>(
-        "valuations/" + encodeURIComponent(value.id) + "?valuation_basis=market-cny-v1",
+        "valuations/" + encodeURIComponent(value.id) + "?valuation_basis=market-cny-v2",
         undefined,
         c.signal,
       );
@@ -585,7 +603,7 @@ export function AccountValuation({
     setError("");
     try {
       const result = await statsRequest<Valuation>(
-        "valuations?valuation_basis=market-cny-v1",
+        "valuations?valuation_basis=market-cny-v2",
         { snapshotId: profile.snapshotId, requestId: "value_" + crypto.randomUUID() },
         c.signal,
       );
@@ -626,6 +644,35 @@ export function AccountValuation({
     (currentResearchPage - 1) * 10,
     currentResearchPage * 10,
   );
+  const purchaseVehicles: Partial<Item>[] = value
+    ? [
+        ...value.gold,
+        ...value.market,
+        ...value.packs.flatMap((p) => (p.vehicles.length ? p.vehicles : [{}])),
+      ]
+    : [];
+  const filteredGold = sortValuationPrices(value?.gold || []).filter((v) =>
+    matchesVehicleFilters(v, purchaseFilters),
+  );
+  const filteredPacks = sortValuationPrices(value?.packs || [])
+    .sort((a, b) => Number(a.vehicles.length > 1) - Number(b.vehicles.length > 1))
+    .filter((p) =>
+      p.vehicles.length
+        ? p.vehicles.some((v) => matchesVehicleFilters(v, purchaseFilters))
+        : matchesVehicleFilters({}, purchaseFilters),
+    );
+  const filteredMarket = (value?.market || []).filter((v) =>
+    matchesVehicleFilters(v, purchaseFilters),
+  );
+  const goldPages = Math.max(1, Math.ceil(filteredGold.length / 10)),
+    currentGoldPage = Math.min(goldPage, goldPages);
+  const packPages = Math.max(1, Math.ceil(filteredPacks.length / 10)),
+    currentPackPage = Math.min(packPage, packPages);
+  const marketPages = Math.max(1, Math.ceil(filteredMarket.length / 10)),
+    currentMarketPage = Math.min(marketPage, marketPages);
+  const visibleGold = filteredGold.slice((currentGoldPage - 1) * 10, currentGoldPage * 10);
+  const visiblePacks = filteredPacks.slice((currentPackPage - 1) * 10, currentPackPage * 10);
+  const visibleMarket = filteredMarket.slice((currentMarketPage - 1) * 10, currentMarketPage * 10);
   const selectedScenario = value?.scenarios[scenarioKey];
   const selectedRule = value?.rules.scenarios[scenarioKey];
   const knownItems = new Map<
@@ -845,11 +892,20 @@ export function AccountValuation({
                           <dd>{valuationUnitPrice(selectedRule.rpCents.aviation)} / 万 RP</dd>
                         </div>
                         <div>
-                          <dt>金鹰 / 礼包 / 交易所</dt>
+                          <dt>金鹰 / 礼包</dt>
                           <dd>
                             {selectedRule.purchasePercent === 100
                               ? "按原价"
                               : `按原价 ${selectedRule.purchasePercent / 10} 折`}
+                          </dd>
+                        </div>
+                        <div>
+                          <dt>交易所</dt>
+                          <dd>
+                            {(value.rules.marketPurchasePercent?.[scenarioKey] ??
+                              selectedRule.purchasePercent) === 100
+                              ? "按参考价"
+                              : `按参考价 ${(value.rules.marketPurchasePercent?.[scenarioKey] ?? selectedRule.purchasePercent) / 10} 折`}
                           </dd>
                         </div>
                       </dl>
@@ -942,9 +998,22 @@ export function AccountValuation({
               {(detailKind === "all" || detailKind === "gold") && (
                 <section className="wt-valuation-section">
                   <h3>金鹰载具 · {value.gold.length}</h3>
-                  {value.gold.length ? (
+                  <VehicleDetailFilters
+                    items={purchaseVehicles}
+                    filters={purchaseFilters}
+                    onChange={changePurchaseFilter}
+                    count={filteredGold.length}
+                    total={value.gold.length}
+                    page={currentGoldPage}
+                    pages={goldPages}
+                    onPageChange={setGoldPage}
+                    label="金鹰明细"
+                    unit="辆"
+                    orderLabel="价格降序"
+                  />
+                  {filteredGold.length ? (
                     <ProductShelf>
-                      {sortValuationPrices(value.gold).map((v) => (
+                      {visibleGold.map((v) => (
                         <ProductCard
                           key={v.id}
                           owned={!!value.ownership?.verified}
@@ -964,44 +1033,53 @@ export function AccountValuation({
                       ))}
                     </ProductShelf>
                   ) : (
-                    <p>出战记录中未识别到金鹰载具。</p>
+                    <p>没有符合筛选条件的金鹰载具。</p>
                   )}
                 </section>
               )}
               {(detailKind === "all" || detailKind === "pack") && (
                 <section className="wt-valuation-section">
                   <h3>礼包载具 · {value.packs.length} 个礼包</h3>
-                  {value.packs.length ? (
+                  <VehicleDetailFilters
+                    items={purchaseVehicles}
+                    filters={purchaseFilters}
+                    onChange={changePurchaseFilter}
+                    count={filteredPacks.length}
+                    total={value.packs.length}
+                    page={currentPackPage}
+                    pages={packPages}
+                    onPageChange={setPackPage}
+                    label="礼包明细"
+                    unit="个礼包"
+                    orderLabel="单车礼包优先 · 价格降序"
+                  />
+                  {filteredPacks.length ? (
                     <ProductShelf>
-                      {sortValuationPrices(value.packs)
-                        .sort(
-                          (a, b) => Number(a.vehicles.length > 1) - Number(b.vehicles.length > 1),
-                        )
-                        .map((p) => (
-                          <ProductCard
-                            key={p.productId}
-                            owned={!!value.ownership?.verified}
-                            vehicleKind="pack"
-                            title={p.title}
-                            source={p.source}
-                            items={p.vehicles}
-                            kind={`${p.source.startsWith("https://warthunder.com/") ? "历史礼包折算参考" : "整包原价"} · 已识别 ${p.vehicles.length} 辆`}
-                            price={valuationMoney(p.amountCents)}
-                          >
-                            <small>
-                              {p.checkedAt ? (
-                                <>
-                                  核验 <RelativeTime value={p.checkedAt} />
-                                </>
-                              ) : (
-                                "尚无有效报价"
-                              )}
-                            </small>
-                          </ProductCard>
-                        ))}
+                      {visiblePacks.map((p) => (
+                        <ProductCard
+                          key={p.productId}
+                          owned={!!value.ownership?.verified}
+                          vehicleKind="pack"
+                          title={p.title}
+                          source={p.source}
+                          items={p.vehicles}
+                          kind={`${p.source.startsWith("https://warthunder.com/") ? "历史礼包折算参考" : "整包原价"} · 已识别 ${p.vehicles.length} 辆`}
+                          price={valuationMoney(p.amountCents)}
+                        >
+                          <small>
+                            {p.checkedAt ? (
+                              <>
+                                核验 <RelativeTime value={p.checkedAt} />
+                              </>
+                            ) : (
+                              "尚无有效报价"
+                            )}
+                          </small>
+                        </ProductCard>
+                      ))}
                     </ProductShelf>
                   ) : (
-                    <p>出战记录中未识别到礼包载具。</p>
+                    <p>没有符合筛选条件的礼包；筛选不拆分整包金额或内容。</p>
                   )}
                 </section>
               )}
@@ -1014,9 +1092,22 @@ export function AccountValuation({
                   <p>
                     按本次计算保存的最低挂售价、用户参考上限及汇率快照折成人民币参与估值。历史成交均价不作为当前挂售价；点击详情可查看最新市场订单。
                   </p>
-                  {value.market.length ? (
+                  <VehicleDetailFilters
+                    items={purchaseVehicles}
+                    filters={purchaseFilters}
+                    onChange={changePurchaseFilter}
+                    count={filteredMarket.length}
+                    total={value.market.length}
+                    page={currentMarketPage}
+                    pages={marketPages}
+                    onPageChange={setMarketPage}
+                    label="市场明细"
+                    unit="辆"
+                    orderLabel="原顺序"
+                  />
+                  {filteredMarket.length ? (
                     <ProductShelf>
-                      {value.market.map((v) => (
+                      {visibleMarket.map((v) => (
                         <ProductCard
                           key={v.id}
                           owned={!!value.ownership?.verified}
@@ -1055,7 +1146,7 @@ export function AccountValuation({
                       ))}
                     </ProductShelf>
                   ) : (
-                    <p>未识别到市场特殊载具。</p>
+                    <p>没有符合筛选条件的市场载具。</p>
                   )}
                 </section>
               )}
