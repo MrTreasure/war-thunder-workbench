@@ -27,8 +27,9 @@ export function applyValuationPriceReferences(catalog, references) {
     // historical fallback. Explicit administrator policies are applied later
     // by the service and remain authoritative as well.
     if (
-      (unit.kind === "gold" && Number.isSafeInteger(unit.ge) && unit.ge > 0) ||
-      (unit.pack?.status === "priced" && unit.pack.regularAmountCents > 0)
+      !unit.valuationPriceReference &&
+      ((unit.kind === "gold" && Number.isSafeInteger(unit.ge) && unit.ge > 0) ||
+        (unit.pack?.status === "priced" && unit.pack.regularAmountCents > 0))
     )
       continue;
     if (channel === "ge") {

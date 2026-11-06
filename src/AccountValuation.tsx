@@ -146,6 +146,10 @@ function valuationUnitPrice(cents: number) {
     .replace(/0+$/, "");
   return `¥${(value / 100n).toLocaleString("zh-CN")}${fraction ? "." + fraction : ""}`;
 }
+function marketQuoteBasis(method: string | null) {
+  if (method?.startsWith("official-order-book:lowest-ask;")) return "当前最低挂售价";
+  return null;
+}
 function ValuationVehicle({
   item,
   showCountry = true,
@@ -994,7 +998,7 @@ export function AccountValuation({
                     <span>GJN 报价单列</span>
                   </div>
                   <p>
-                    点击详情到官方市场查看当前买卖报价，沿用浏览器已有的市场登录状态。本站不自动查询或轮询，市场报价不计入人民币参考金额。
+                    展示最近核对的官方市场买卖订单报价，历史成交均价不作为可出售价格。报价不计入人民币参考金额；点击详情可查看最新市场订单。
                   </p>
                   {value.market.length ? (
                     <ProductShelf>
@@ -1006,9 +1010,18 @@ export function AccountValuation({
                           title={v.name}
                           source={v.source}
                           items={[v]}
-                          kind="Gaijin 官方市场"
-                          price="查看官方市场报价"
+                          kind={marketQuoteBasis(v.method) || "官方市场 · 出售报价待核验"}
+                          price={
+                            marketQuoteBasis(v.method) && v.averageGjnCents != null
+                              ? `${valuationMoney(v.averageGjnCents, "")} GJN`
+                              : "暂无已核实挂售价"
+                          }
                         >
+                          {marketQuoteBasis(v.method) && v.checkedAt && (
+                            <small>
+                              报价核验 <RelativeTime value={v.checkedAt} />
+                            </small>
+                          )}
                           <a
                             className="wt-valuation-market-link"
                             href={v.source}
