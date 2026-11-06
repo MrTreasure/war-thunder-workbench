@@ -10,7 +10,6 @@ import { useEffect, useId, useMemo, useRef, useState, useSyncExternalStore } fro
 import type { ReactNode } from "react";
 import { GameSelect } from "./components/GameSelect";
 import valuationRules from "../data/account-valuation-rules.json";
-import valuationFx from "../data/account-valuation-fx.json";
 import vehiclePolicies from "../data/account-vehicle-policies.json";
 import {
   cacheValuation,
@@ -57,10 +56,13 @@ type Scenario = {
   geCents: number;
   packCents: number;
   manualCents?: number;
+  marketCents: number;
   knownCents: number;
   totalCents: number | null;
 };
 export type Valuation = {
+  calculationVersion: "market-cny-v1";
+  marketTotalCnyCents: number;
   id: string;
   snapshotId: string;
   player: { uid: string; nickname: string };
@@ -107,6 +109,11 @@ export type Valuation = {
   marketUnpricedCount: number;
   market: (Item & {
     averageGjnCents: number | null;
+    referenceCnyCents: number | null;
+    quoteBasis: string | null;
+    lowestAskGjnCents: number | null;
+    referenceLimitGjnCents: number | null;
+    fx: { publicationDate?: string; publishedAt?: string; cnyPerUsd?: string };
     checkedAt: string | null;
     sampleCount: number | null;
     method: string | null;
@@ -151,12 +158,6 @@ function marketQuoteBasis(method: string | null) {
   if (method?.startsWith("official-order-book:lowest-ask;")) return "当前最低挂售价";
   if (method?.startsWith("user-reference:market-cap;")) return "用户设定参考上限";
   return null;
-}
-function marketCnyReference(gjnCents: number) {
-  const denominator = 100n * BigInt(valuationFx.rateDenominator);
-  const yuan =
-    (BigInt(gjnCents) * BigInt(valuationFx.rateNumerator) + denominator / 2n) / denominator;
-  return `¥${yuan.toLocaleString("zh-CN")}`;
 }
 function ValuationVehicle({
   item,
@@ -406,6 +407,7 @@ function ValueComposition({ scenario, label }: { scenario: Scenario; label: stri
     { name: "研发点", cents: scenario.rpCents, color: "#d9b868" },
     { name: "金鹰载具", cents: scenario.geCents, color: "#78aba8" },
     { name: "礼包", cents: scenario.packCents, color: "#a28cba" },
+    { name: "交易所参考", cents: scenario.marketCents, color: "#9975af" },
     ...((scenario.manualCents || 0) > 0
       ? [{ name: "自定义", cents: scenario.manualCents!, color: "#c58c62" }]
       : []),
@@ -469,7 +471,7 @@ function ValueComposition({ scenario, label }: { scenario: Scenario; label: stri
           ))}
         </dl>
       </div>
-      <small>仅统计已核价人民币金额；特殊载具 GJN 单列。</small>
+      <small>已核价交易所人民币参考值计入合计，原始 GJN 数量在明细中保留。</small>
     </aside>
   );
 }
@@ -530,11 +532,13 @@ export function AccountValuation({
     setError("");
     try {
       const current = await statsRequest<Valuation>(
-        "valuations/" + encodeURIComponent(value.id),
+        "valuations/" + encodeURIComponent(value.id) + "?valuation_basis=market-cny-v1",
         undefined,
         c.signal,
       );
       if (!c.signal.aborted) {
+        if (current.calculationVersion !== "market-cny-v1")
+          throw Error("估值计价规则已更新，请刷新估值。旧结果不会当作新版金额展示。");
         if (current.player.uid !== profile.uid) throw Error("估值玩家身份不一致，请重新查询。");
         setValue(current);
         cacheValuation(cacheScope, { uid: profile.uid, snapshotId: current.snapshotId }, current);
@@ -581,11 +585,13 @@ export function AccountValuation({
     setError("");
     try {
       const result = await statsRequest<Valuation>(
-        "valuations",
+        "valuations?valuation_basis=market-cny-v1",
         { snapshotId: profile.snapshotId, requestId: "value_" + crypto.randomUUID() },
         c.signal,
       );
       if (!c.signal.aborted) {
+        if (result.calculationVersion !== "market-cny-v1")
+          throw Error("服务端尚未提供新版市场人民币估值，请稍后重试。");
         setValue(result);
         if (!cacheValuation(cacheScope, profile, result))
           setCacheNotice("估值已计算，本地缓存未能保存。");
@@ -839,7 +845,7 @@ export function AccountValuation({
                           <dd>{valuationUnitPrice(selectedRule.rpCents.aviation)} / 万 RP</dd>
                         </div>
                         <div>
-                          <dt>金鹰 / 礼包</dt>
+                          <dt>金鹰 / 礼包 / 交易所</dt>
                           <dd>
                             {selectedRule.purchasePercent === 100
                               ? "按原价"
@@ -879,7 +885,7 @@ export function AccountValuation({
                 </p>
                 <p>
                   金鹰按 ¥189／5000 GE 换算，共 {statsNumber(value.geTotal)}{" "}
-                  GE。礼包采用已核验人民币整包原价，保留查价日期；特殊载具优先单列，不重复计入金鹰或礼包。金额按各分项汇总后四舍五入到分。
+                  GE。礼包采用已核验整包参考价，历史美元报价保留折算依据。交易所采用本次计算保存的人民币参考值，不与金鹰或礼包重复计价；未知价格不按零处理。
                 </p>
               </details>
               <div className="wt-valuation-overview-counts">
@@ -897,12 +903,12 @@ export function AccountValuation({
                 </div>
                 <div>
                   <span>待核价项目</span>
-                  <strong>{value.unpriced.length}</strong>
+                  <strong>{value.unpriced.length + value.marketUnpricedCount}</strong>
                 </div>
               </div>
               <p className="wt-valuation-overview-note">
-                人民币参考金额与 GJN 市场报价分别展示。已核实的低门槛赠送载具参考价值为
-                0；未核验的市场价格不参与合计。
+                交易所的已核价人民币参考值已参与合计，GJN 数量另列。已核实的低门槛赠送载具参考价值为
+                0；未核验价格保留为待核价。
               </p>
               <button
                 className="wt-valuation-view-details"
@@ -1003,10 +1009,10 @@ export function AccountValuation({
                 <section className="wt-valuation-section">
                   <div className="wt-valuation-section-heading">
                     <h3>市场特殊载具 · {value.market.length}</h3>
-                    <span>GJN 报价单列</span>
+                    <span>人民币参考已计入合计 · GJN 数量保留</span>
                   </div>
                   <p>
-                    展示最近核对的官方市场买卖订单报价，历史成交均价不作为可出售价格。报价不计入人民币参考金额；点击详情可查看最新市场订单。
+                    按本次计算保存的最低挂售价、用户参考上限及汇率快照折成人民币参与估值。历史成交均价不作为当前挂售价；点击详情可查看最新市场订单。
                   </p>
                   {value.market.length ? (
                     <ProductShelf>
@@ -1030,10 +1036,10 @@ export function AccountValuation({
                               报价核验 <RelativeTime value={v.checkedAt} />
                             </small>
                           )}
-                          {marketQuoteBasis(v.method) && v.averageGjnCents != null && (
+                          {v.referenceCnyCents != null && (
                             <small>
-                              人民币参考 {marketCnyReference(v.averageGjnCents)} · 汇率{" "}
-                              {valuationFx.publicationDate}
+                              本次计算人民币基准 {valuationMoney(v.referenceCnyCents)} · 汇率快照{" "}
+                              {v.fx?.publicationDate || "日期未提供"}
                             </small>
                           )}
                           <a

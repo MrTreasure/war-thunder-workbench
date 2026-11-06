@@ -3,7 +3,7 @@ import type { PlayerProfile, StatsSession } from "./player-stats-api";
 import rules from "../data/account-valuation-rules.json";
 import { object } from "./validation";
 
-const CACHE = "wt-stats-valuations-v1";
+const CACHE = "wt-stats-valuations-market-cny-v1";
 const TTL = 2 * 60 * 60 * 1000;
 const MAX_BYTES = 2_000_000;
 const scenarioKeys = ["normal", "discount", "secondHand"] as const;
@@ -21,6 +21,8 @@ function valid(value: unknown): value is Valuation {
   if (
     !object(value) ||
     value.contentSafetyVersion !== "content-safety-v3" ||
+    value.calculationVersion !== "market-cny-v1" ||
+    !integer(value.marketTotalCnyCents) ||
     !text(value.id) ||
     !text(value.snapshotId) ||
     !object(value.player) ||
@@ -64,6 +66,7 @@ function valid(value: unknown): value is Valuation {
       !integer(s.rpCents) ||
       !integer(s.geCents) ||
       !integer(s.packCents) ||
+      !integer(s.marketCents) ||
       !integer(s.knownCents) ||
       (s.manualCents !== undefined && !integer(s.manualCents)) ||
       !nullableInteger(s.totalCents)
@@ -73,6 +76,7 @@ function valid(value: unknown): value is Valuation {
       BigInt(s.rpCents) +
         BigInt(s.geCents) +
         BigInt(s.packCents) +
+        BigInt(s.marketCents) +
         BigInt((s.manualCents as number | undefined) || 0) !==
         BigInt(s.knownCents) ||
       (s.totalCents !== null && s.totalCents !== s.knownCents)
@@ -127,6 +131,19 @@ function valid(value: unknown): value is Valuation {
       if (total !== BigInt(scenario.manualCents || 0)) return false;
     }
   }
+  if (!Array.isArray(value.market)) return false;
+  let marketTotal = 0n;
+  let marketUnknown = 0;
+  for (const entry of value.market) {
+    if (!object(entry) || !nullableInteger(entry.referenceCnyCents)) return false;
+    if (entry.referenceCnyCents === null) marketUnknown++;
+    else marketTotal += BigInt(entry.referenceCnyCents);
+  }
+  if (
+    marketTotal !== BigInt(value.marketTotalCnyCents) ||
+    marketUnknown !== value.marketUnpricedCount
+  )
+    return false;
   return (
     list(
       value.gold,
@@ -155,6 +172,11 @@ function valid(value: unknown): value is Valuation {
         item(v) &&
         object(v) &&
         nullableInteger(v.averageGjnCents) &&
+        nullableInteger(v.referenceCnyCents) &&
+        optionalText(v.quoteBasis) &&
+        nullableInteger(v.lowestAskGjnCents) &&
+        nullableInteger(v.referenceLimitGjnCents) &&
+        object(v.fx) &&
         nullableInteger(v.sampleCount) &&
         optionalText(v.checkedAt) &&
         optionalText(v.method) &&
