@@ -211,7 +211,7 @@ export function priceText(value: number | bigint | null, currency: "CNY" | "GE")
   const amount = BigInt(value);
   return currency === "GE"
     ? `${amount.toLocaleString(getLocale())} GE`
-    : `¥${(amount / 100n).toLocaleString(getLocale())}.${String(amount % 100n).padStart(2, "0")}`;
+    : `${(amount / 100n).toLocaleString(getLocale())}.${String(amount % 100n).padStart(2, "0")}`;
 }
 export const priceDate = (value: string | null) =>
   value

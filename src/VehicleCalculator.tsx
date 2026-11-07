@@ -208,8 +208,8 @@ export function VehicleCalculator({
   const report = [
     `${catalog.countries[country]} / ${catalog.categories[category]} · ${result.target?.name}`,
     t("待研：{0} RP", [localize(total === null ? "待核对" : format(total))]),
-    t("每万 RP：{0}", [localize(rate === null ? "未填" : (rate / 100).toFixed(2) + " 元")]),
-    t("价格：{0}", [localize(cents === null ? "待核对" : (cents / 100).toFixed(2) + " 元")]),
+    t("每万 RP：{0}", [localize(rate === null ? "未填" : (rate / 100).toFixed(2))]),
+    t("价格：{0}", [localize(cents === null ? "待核对" : (cents / 100).toFixed(2))]),
     t("目标已研：{0} RP", [localize(state.progress)]),
     t("本线已拥有至：{0}；等级已开放至：{1}", [
       localize(reached?.name || "未记录"),
@@ -290,7 +290,7 @@ export function VehicleCalculator({
               </GameSelect>
             </label>
             <label className="calc-field">
-              {t("每万研发点单价（元）")}
+              {t("每万研发点单价")}
               <input
                 type="number"
                 min="0"
@@ -720,7 +720,7 @@ export function VehicleCalculator({
             <p className="calc-formula">
               {localize(
                 total !== null && rate !== null
-                  ? `${format(total)} RP ÷ 10,000 × ¥ ${(rate / 100).toFixed(2)}`
+                  ? `${format(total)} RP ÷ 10,000 ×  ${(rate / 100).toFixed(2)}`
                   : t("按实际研发点计价，不凑整万。"),
               )}
             </p>

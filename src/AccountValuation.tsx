@@ -137,7 +137,7 @@ export type Valuation = {
   };
   notice: string;
 };
-export function valuationMoney(cents: number | null, symbol = "¥") {
+export function valuationMoney(cents: number | null, symbol = "") {
   if (cents == null || !Number.isSafeInteger(cents)) return "待核价";
   const value = BigInt(cents);
   const absolute = value < 0n ? -value : value;
@@ -147,7 +147,7 @@ function valuationTotal(cents: number | null) {
   if (cents == null || !Number.isSafeInteger(cents)) return "待核价";
   const value = BigInt(cents);
   const rounded = value < 0n ? -((-value + 50n) / 100n) : (value + 50n) / 100n;
-  return `¥${rounded.toLocaleString(getLocale())}`;
+  return `${rounded.toLocaleString(getLocale())}`;
 }
 function valuationUnitPrice(cents: number) {
   if (!Number.isSafeInteger(cents) || cents < 0) return "待核价";
@@ -155,7 +155,7 @@ function valuationUnitPrice(cents: number) {
   const fraction = String(value % 100n)
     .padStart(2, "0")
     .replace(/0+$/, "");
-  return `¥${(value / 100n).toLocaleString(getLocale())}${fraction ? "." + fraction : ""}`;
+  return `${(value / 100n).toLocaleString(getLocale())}${fraction ? "." + fraction : ""}`;
 }
 function marketQuoteBasis(method: string | null) {
   if (method?.startsWith("official-order-book:lowest-ask;")) return "当前最低挂售价";
@@ -490,9 +490,6 @@ function ValueComposition({ scenario, label }: { scenario: Scenario; label: stri
           <text x="50" y="48" textAnchor="middle">
             {t("已核价")}
           </text>
-          <text x="50" y="62" textAnchor="middle">
-            CNY
-          </text>
         </svg>
         <dl>
           {localize(
@@ -515,7 +512,7 @@ function ValueComposition({ scenario, label }: { scenario: Scenario; label: stri
           )}
         </dl>
       </div>
-      <small>{t("已核价交易所人民币参考值计入合计，原始 GJN 数量在明细中保留。")}</small>
+      <small>{t("已核价交易所参考值计入合计，原始 GJN 数量在明细中保留。")}</small>
     </aside>
   );
 }
@@ -653,7 +650,7 @@ export function AccountValuation({
       );
       if (!c.signal.aborted) {
         if (result.calculationVersion !== "market-cny-v2")
-          throw Error("服务端尚未提供新版市场人民币估值，请稍后重试。");
+          throw Error("服务端尚未提供新版市场估值，请稍后重试。");
         setValue(result);
         if (!cacheValuation(cacheScope, profile, result))
           setCacheNotice("估值已计算，本地缓存未能保存。");
@@ -953,7 +950,7 @@ export function AccountValuation({
                             aria-atomic="true"
                           >
                             <span className="wt-valuation-eyebrow">
-                              {localize(valuationRules.scenarios[scenarioKey].label)} · CNY
+                              {localize(valuationRules.scenarios[scenarioKey].label)}
                             </span>
                             <strong className="wt-valuation-amount">
                               {localize(valuationTotal(selectedScenario.knownCents))}
@@ -1043,14 +1040,6 @@ export function AccountValuation({
                         "各价值口径的研发点单价与购入价比例见总览，按当前已保存规则计算。正常价值、折扣价值与参考价值分别展示，不代表实际成交价。",
                       )}
                     </p>
-                    <p>
-                      {t("金鹰按 ¥189／5000 GE 换算，共")}
-                      {localize(statsNumber(value.geTotal))}
-                      {localize(" ")}
-                      {t(
-                        "GE。礼包采用已核验整包参考价，历史美元报价保留折算依据。交易所采用本次计算保存的人民币参考值，不与金鹰或礼包重复计价；未知价格不按零处理。",
-                      )}
-                    </p>
                   </details>
                   <div className="wt-valuation-overview-counts">
                     <div>
@@ -1074,7 +1063,7 @@ export function AccountValuation({
                   </div>
                   <p className="wt-valuation-overview-note">
                     {t(
-                      "交易所的已核价人民币参考值已参与合计，GJN 数量另列。已核实的低门槛赠送载具参考价值为 0；未核验价格保留为待核价。",
+                      "交易所的已核价参考值已参与合计，GJN 数量另列。已核实的低门槛赠送载具参考价值为 0；未核验价格保留为待核价。",
                     )}
                   </p>
                   <button
@@ -1198,7 +1187,7 @@ export function AccountValuation({
                                     source={p.source}
                                     items={p.vehicles}
                                     kind={localize(
-                                      `${p.source.startsWith("https://warthunder.com/") ? "历史礼包折算参考" : "整包原价"} · 已识别 ${p.vehicles.length} 辆`,
+                                      `${p.source.startsWith("https://warthunder.com/") ? "历史礼包参考" : "整包原价"} · 已识别 ${p.vehicles.length} 辆`,
                                     )}
                                     price={localize(valuationMoney(p.amountCents))}
                                   >
@@ -1233,11 +1222,11 @@ export function AccountValuation({
                             {t("市场特殊载具 ·")}
                             {localize(value.market.length)}
                           </h3>
-                          <span>{t("人民币参考已计入合计 · GJN 数量保留")}</span>
+                          <span>{t("参考值已计入合计 · GJN 数量保留")}</span>
                         </div>
                         <p>
                           {t(
-                            "按本次计算保存的最低挂售价、用户参考上限及汇率快照折成人民币参与估值。历史成交均价不作为当前挂售价；点击详情可查看最新市场订单。",
+                            "按本次计算保存的市场参考值参与估值。历史成交均价不作为当前挂售价；点击详情可查看最新市场订单。",
                           )}
                         </p>
                         <VehicleDetailFilters
@@ -1279,17 +1268,6 @@ export function AccountValuation({
                                         <small>
                                           {t("报价核验")}
                                           <RelativeTime value={v.checkedAt} />
-                                        </small>
-                                      ),
-                                    )}
-                                    {localize(
-                                      v.referenceCnyCents != null && (
-                                        <small>
-                                          {t("本次计算人民币基准")}
-                                          {localize(valuationMoney(v.referenceCnyCents))}
-                                          {t("· 汇率快照")}
-                                          {localize(" ")}
-                                          {localize(v.fx?.publicationDate || "日期未提供")}
                                         </small>
                                       ),
                                     )}
@@ -1500,7 +1478,7 @@ export function AccountValuation({
                             {t("未计价项目 ·")}
                             {localize(value.unpriced.length)}
                           </summary>
-                          <p>{t("以下项目资料或价格尚未核实，未按零元计入估值。")}</p>
+                          <p>{t("以下项目资料或价格尚未核实，未按零计入估值。")}</p>
                           {localize(
                             showUnpriced && (
                               <VehicleDetailFilters
@@ -1638,7 +1616,7 @@ export function AccountValuation({
               >
                 {localize(busy ? "正在重新估值…" : "重新估值")}
               </button>
-              <p>{localize(valuationRules.notice)}</p>
+              <p>{t("结果仅供参考，不代表实际投入或成交价格。未知价格不按零处理。")}</p>
               <small>
                 {t("资料采集")}
                 <RelativeTime value={value.fetchedAt} />

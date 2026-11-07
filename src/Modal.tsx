@@ -71,7 +71,7 @@ export function Metrics({ rp, cents }: { rp: number | null; cents: number | null
         <strong>
           {cents === null
             ? t("待估算")
-            : `¥ ${(cents / 100).toLocaleString(getLocale(), { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+            : ` ${(cents / 100).toLocaleString(getLocale(), { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
         </strong>
       </div>
     </div>

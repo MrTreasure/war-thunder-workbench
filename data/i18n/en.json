@@ -4198,5 +4198,17 @@
   "官方公告中的限时金鹰购买活动已结束，历史活动价仅作价格来源参考。": "The limited-time GE offer announced officially has ended; the historical sale price is retained only as a pricing reference.",
   "历史下架 / 限时返场": "Past discontinuation / Limited return",
   "历史下架": "Previously discontinued",
-  "；常规参考价依据同一官方公告的活动价与明确折扣推算，不是官方直接标价。": "; the regular reference price is derived from the sale price and explicit discount in the same official announcement, not a directly quoted official regular price."
+  "；常规参考价依据同一官方公告的活动价与明确折扣推算，不是官方直接标价。": "; the regular reference price is derived from the sale price and explicit discount in the same official announcement, not a directly quoted official regular price.",
+  "已核价交易所参考值计入合计，原始 GJN 数量在明细中保留。": "Verified marketplace reference values are included in the total; original GJN amounts remain in the details.",
+  "交易所的已核价参考值已参与合计，GJN 数量另列。已核实的低门槛赠送载具参考价值为 0；未核验价格保留为待核价。": "Verified marketplace reference values are included in the total, with GJN amounts listed separately. Verified low-threshold giveaway vehicles have a reference value of 0; unverified prices remain pending.",
+  "参考值已计入合计 · GJN 数量保留": "Reference values included in total · GJN amounts retained",
+  "按本次计算保存的市场参考值参与估值。历史成交均价不作为当前挂售价；点击详情可查看最新市场订单。": "Valuation uses the marketplace reference values saved with this calculation. Historical average sale prices are not current asking prices; open details for the latest market orders.",
+  "结果仅供参考，不代表实际投入或成交价格。未知价格不按零处理。": "For reference only; not actual spending or a transaction price. Unknown prices are not treated as zero.",
+  "礼包价格": "Pack price",
+  "官方礼包价格": "Official pack price",
+  "当前未查到可核实的价格，是否在售请查看官方商店。": "No verifiable price is currently available; check the official store for availability.",
+  "游客清单保存在本浏览器。按原价分别合计整包与金鹰价格。": "Guest lists are stored in this browser. Whole-pack and GE prices are totaled separately at regular prices.",
+  "每万研发点单价": "Price per 10,000 RP",
+  "每万配件 RP 单价": "Price per 10,000 modification RP",
+  "以下项目资料或价格尚未核实，未按零计入估值。": "The following items have unverified data or prices and are not valued at zero."
 }

@@ -6,7 +6,7 @@ import type { Vehicle } from "./models";
 export function cnyPrice(cents: number) {
   const value = BigInt(cents);
   const fraction = value % 100n;
-  return `¥${(value / 100n).toLocaleString(getLocale())}${fraction ? `.${fraction.toString().padStart(2, "0")}` : ""}`;
+  return `${(value / 100n).toLocaleString(getLocale())}${fraction ? `.${fraction.toString().padStart(2, "0")}` : ""}`;
 }
 export function packPriceLabel(unit: Vehicle) {
   const price = unit.packPrice;
@@ -21,9 +21,9 @@ export function PackPriceDetails({ unit }: { unit: Vehicle }) {
   const price = unit.packPrice;
   const priced = price?.status === "priced" && price.amountCents !== null;
   return (
-    <section className="pack-price-details" aria-label={t("礼包人民币价格")}>
+    <section className="pack-price-details" aria-label={t("礼包价格")}>
       <div className="pack-price-heading">
-        <span>{t("官方礼包价格 · 人民币")}</span>
+        <span>{t("官方礼包价格")}</span>
         <strong>{localize(priced ? cnyPrice(price.amountCents!) : "暂无报价")}</strong>
         {localize(
           priced &&
@@ -40,7 +40,7 @@ export function PackPriceDetails({ unit }: { unit: Vehicle }) {
         {localize(
           priced
             ? "整包售价，包含商店列出的载具及附赠内容；实际支付以商店结算为准。"
-            : "当前未查到可核实的人民币价格，是否在售请查看官方商店。",
+            : "当前未查到可核实的价格，是否在售请查看官方商店。",
         )}
       </p>
       {localize(

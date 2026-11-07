@@ -37,7 +37,7 @@ export function SaleActivityChart({
       className={compact ? "wt-price-mini" : undefined}
       aria-label={t("{0}活动价格面积图；横轴为活动开始日期，纵轴为{1}。每次活动一个实心点。", [
         title,
-        currency === "CNY" ? t("整包人民币价格") : t("金鹰价格"),
+        currency === "CNY" ? t("整包价格") : t("金鹰价格"),
       ])}
     >
       {localize(

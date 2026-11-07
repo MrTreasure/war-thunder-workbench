@@ -135,8 +135,19 @@ const caches = {
   ru: new Map<string, string>(),
   ja: new Map<string, string>(),
 };
+function cleanPriceDisplay(value: string): string {
+  return value
+    .replace(/[¥￥]/g, "")
+    .replace(/人民币|人民元|\b(?:CNY|RMB|yuan|renminbi)\b|юан(?:ях|ей|и|ь)?/giu, "");
+}
 function translated(source: string): string {
-  if (locale === "zh-CN") return source;
+  if (
+    /人民币|人民元|\b(?:CNY|RMB|USD)\b|美元|汇率|GJN按|金鹰按.*GE|exchange[ -]rate|為替|курс(?:а|ы|ов)? валют/iu.test(
+      source,
+    )
+  )
+    return "";
+  if (locale === "zh-CN") return cleanPriceDisplay(source);
   const column = locale === "en" ? 0 : locale === "ru" ? 1 : 2;
   const cache = caches[locale];
   const cached = cache.get(source);
@@ -145,7 +156,7 @@ function translated(source: string): string {
   let result =
     dictionary[trimmed]?.[column] ??
     (locale !== "en" ? (englishLabels[locale].get(trimmed) ?? undefined) : undefined);
-  if (result === undefined && !/\p{Script=Han}/u.test(source)) return source;
+  if (result === undefined && !/\p{Script=Han}/u.test(source)) return cleanPriceDisplay(source);
   if (result === undefined) {
     for (const pattern of patterns) {
       const match = pattern.expression.exec(trimmed);
@@ -158,10 +169,10 @@ function translated(source: string): string {
       break;
     }
   }
-  if (result === undefined) return source;
+  if (result === undefined) return cleanPriceDisplay(source);
   const leading = source.match(/^\s*/)?.[0] || "";
   const trailing = source.match(/\s*$/)?.[0] || "";
-  const value = leading + result + trailing;
+  const value = cleanPriceDisplay(leading + result + trailing);
   if (cache.size >= 12000) cache.clear();
   cache.set(source, value);
   return value;
@@ -175,7 +186,9 @@ export function t(
   const values = input === undefined ? undefined : Array.isArray(input) ? input : [input, ...rest];
   const value = translated(source);
   return values
-    ? value.replace(/\{(\d+)\}/g, (_, index: string) => String(values[Number(index)] ?? ""))
+    ? cleanPriceDisplay(
+        value.replace(/\{(\d+)\}/g, (_, index: string) => String(values[Number(index)] ?? "")),
+      )
     : value;
 }
 /** Display-only localization: never changes form values, IDs, saved data or React elements. */

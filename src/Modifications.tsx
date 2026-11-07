@@ -179,8 +179,8 @@ function PartsForm({
     t("已完成配件 RP：{0}", [localize(format(completed))]),
     t("其他已投入 RP：{0}", [localize(progress === null ? "无效" : format(progress))]),
     t("待研：{0} RP", [localize(rp === null ? "未知" : format(rp))]),
-    t("每万 RP：{0}", [localize(rate === null ? "未填" : (rate / 100).toFixed(2) + " 元")]),
-    t("价格：{0}", [localize(cents === null ? "待核对" : (cents / 100).toFixed(2) + " 元")]),
+    t("每万 RP：{0}", [localize(rate === null ? "未填" : (rate / 100).toFixed(2))]),
+    t("价格：{0}", [localize(cents === null ? "待核对" : (cents / 100).toFixed(2))]),
     t("已完成配件：{0}", [
       localize(
         data?.items
@@ -215,7 +215,7 @@ function PartsForm({
           ),
         )}
         <label className="calc-field">
-          {t("每万配件 RP 单价（元）")}
+          {t("每万配件 RP 单价")}
           <input
             type="number"
             min="0"

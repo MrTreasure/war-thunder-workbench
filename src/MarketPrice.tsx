@@ -1,7 +1,6 @@
 import { t, getLocale, localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import type { MarketPrice, Vehicle } from "./models";
-import { cnyPrice } from "./PackPrice";
 
 export function gjnPrice(cents: number) {
   const value = BigInt(cents);
@@ -22,16 +21,6 @@ export function MarketPriceDetails({ unit }: { unit: Vehicle }) {
         <span>{localize(reference ? "交易所参考上限" : "交易所最低挂售价")}</span>
         <strong>{localize(marketPriceLabel(price))}</strong>
       </div>
-      {localize(
-        price?.referenceCnyCents != null && (
-          <p>
-            {t("折合人民币参考")}
-            {localize(cnyPrice(price.referenceCnyCents))}
-            {t("· 汇率日期")}
-            {localize(price.fxDate)}
-          </p>
-        ),
-      )}
       <p>
         {localize(
           reference
