@@ -165,8 +165,8 @@ function PartsForm({
     `已完成配件 RP：${format(completed)}`,
     `其他已投入 RP：${progress === null ? "无效" : format(progress)}`,
     `待研：${rp === null ? "未知" : format(rp)} RP`,
-    `每万 RP：${rate === null ? "未填" : (rate / 100).toFixed(2) + " 元"}`,
-    `价格：${cents === null ? "待核对" : (cents / 100).toFixed(2) + " 元"}`,
+    `每万 RP：${rate === null ? "未填" : (rate / 100).toFixed(2)}`,
+    `价格：${cents === null ? "待核对" : (cents / 100).toFixed(2)}`,
     `已完成配件：${
       data?.items
         .filter((item) => state.completed.includes(item.id))
@@ -194,7 +194,7 @@ function PartsForm({
           </label>
         )}
         <label className="calc-field">
-          每万配件 RP 单价（元）
+          每万配件 RP 单价
           <input
             type="number"
             min="0"

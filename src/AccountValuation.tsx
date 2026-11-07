@@ -1280,7 +1280,7 @@ export function AccountValuation({
                   onToggle={(event) => setShowUnpriced(event.currentTarget.open)}
                 >
                   <summary>未计价项目 · {value.unpriced.length}</summary>
-                  <p>以下项目资料或价格尚未核实，未按零元计入估值。</p>
+                  <p>以下项目资料或价格尚未核实，未按零计入估值。</p>
                   {showUnpriced && (
                     <VehicleDetailFilters
                       items={unpricedVehicles}

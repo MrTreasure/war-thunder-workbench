@@ -206,8 +206,8 @@ export function VehicleCalculator({
   const report = [
     `${catalog.countries[country]} / ${catalog.categories[category]} · ${result.target?.name}`,
     `待研：${total === null ? "待核对" : format(total)} RP`,
-    `每万 RP：${rate === null ? "未填" : (rate / 100).toFixed(2) + " 元"}`,
-    `价格：${cents === null ? "待核对" : (cents / 100).toFixed(2) + " 元"}`,
+    `每万 RP：${rate === null ? "未填" : (rate / 100).toFixed(2)}`,
+    `价格：${cents === null ? "待核对" : (cents / 100).toFixed(2)}`,
     `目标已研：${state.progress} RP`,
     `本线已拥有至：${reached?.name || "未记录"}；等级已开放至：${result.unlocked}`,
     `计价起点：${state.unlocked ? `Rank ${tree.ranks.find((rank) => rankNumber(rank.rank) === state.unlocked)?.rank}，低于该等级的载具不计价（不代表实际拥有）` : "自动，按真实已有记录计算"}`,
@@ -262,7 +262,7 @@ export function VehicleCalculator({
               </GameSelect>
             </label>
             <label className="calc-field">
-              每万研发点单价（元）
+              每万研发点单价
               <input
                 type="number"
                 min="0"
