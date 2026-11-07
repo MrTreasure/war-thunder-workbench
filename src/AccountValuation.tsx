@@ -24,6 +24,7 @@ import { StatsError, statsRequest, statsNumber, statsCategoryNames } from "./pla
 import type { PlayerProfile, StatsSession } from "./player-stats-api";
 import { sortValuationPrices } from "./account-valuation-sort";
 import { statsCountryId, statsCountryMatches, statsCountryLabel } from "./stats-country";
+import { reportVehicleFlag } from "./report-vehicle-flag";
 
 // Hide only the initial vehicles whose free research AND purchase were verified.
 // Keep exclusions for promotional, hidden and other special vehicles visible.
@@ -162,6 +163,13 @@ function marketQuoteBasis(method: string | null) {
   if (method?.startsWith("user-reference:market-cap;")) return "用户设定参考上限";
   return null;
 }
+function valuationVehicleCountry(item: Item) {
+  const verified = reportVehicleFlag({ id: item.id, country: item.country });
+  return (
+    verified?.name ||
+    t(statsCountryId(item.country) === "ussr" ? "国别待核验" : statsCountryLabel(item.country))
+  );
+}
 function ValuationVehicle({
   item,
   showCountry = true,
@@ -177,7 +185,7 @@ function ValuationVehicle({
       href={"https://wiki.warthunder.com/unit/" + encodeURIComponent(item.id)}
       owned={item.owned ?? false}
       showRank={showRank}
-      countryLabel={showCountry ? statsCountryLabel(item.country) : undefined}
+      countryLabel={showCountry ? valuationVehicleCountry(item) : undefined}
     />
   );
 }
@@ -217,7 +225,7 @@ function ProductCard({
               }}
               owned={owned}
               showRank
-              countryLabel={statsCountryLabel(item.country)}
+              countryLabel={valuationVehicleCountry(item)}
             />
           )),
         )}
@@ -1279,11 +1287,6 @@ export function AccountValuation({
                                     >
                                       {t("查看市场详情 ↗")}
                                     </a>
-                                    <small>
-                                      {t(
-                                        "报价对应可交易载具券，已激活载具不等同于可出售的载具券。",
-                                      )}
-                                    </small>
                                   </ProductCard>
                                 )),
                               )}
