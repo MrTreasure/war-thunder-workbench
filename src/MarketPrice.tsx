@@ -1,5 +1,4 @@
 import type { MarketPrice, Vehicle } from "./models";
-import { cnyPrice } from "./PackPrice";
 
 export function gjnPrice(cents: number) {
   const value = BigInt(cents);
@@ -19,11 +18,6 @@ export function MarketPriceDetails({ unit }: { unit: Vehicle }) {
         <span>{reference ? "交易所参考上限" : "交易所最低挂售价"}</span>
         <strong>{marketPriceLabel(price)}</strong>
       </div>
-      {price?.referenceCnyCents != null && (
-        <p>
-          折合人民币参考 {cnyPrice(price.referenceCnyCents)} · 汇率日期 {price.fxDate}
-        </p>
-      )}
       <p>
         {reference
           ? "按已设定上限作估值参考，不是当前实际挂售订单。"

@@ -1,3 +1,4 @@
+import { priceDisplayNote } from "./price-display-note";
 import { useEffect, useMemo, useState } from "react";
 import { Modal } from "./Modal";
 import { GameSelect } from "./components/GameSelect";
@@ -141,7 +142,8 @@ export function SalePriceHistory({
                 >
                   {(offers.length ? offers : [offer]).map((o) => (
                     <option key={o.id} value={o.id}>
-                      {o.title} · {o.currency} · {o.conditions}
+                      {priceDisplayNote(o.title)} · {o.currency === "GE" ? "GE" : "整包"} ·{" "}
+                      {priceDisplayNote(o.conditions)}
                     </option>
                   ))}
                 </GameSelect>
@@ -158,8 +160,8 @@ export function SalePriceHistory({
             </div>
             <p className="wt-price-provenance">
               Gaijin PC · {offer.region === "unknown" ? "地区未核验" : offer.region} ·{" "}
-              {offer.conditions} · 自 {priceDate(offer.firstObservedAt)} 起，共 {offer.sampleCount}{" "}
-              次观测
+              {priceDisplayNote(offer.conditions)} · 自 {priceDate(offer.firstObservedAt)} 起，共{" "}
+              {offer.sampleCount} 次观测
             </p>
             <div className="wt-price-metrics">
               <div>
@@ -197,7 +199,7 @@ export function SalePriceHistory({
                 {data.discountEvidence.map((e) => (
                   <article key={e.sourceUrl + e.purchaseCondition + e.productId}>
                     <a href={e.sourceUrl} target="_blank" rel="noreferrer">
-                      {e.title} ↗
+                      {priceDisplayNote(e.title)} ↗
                     </a>
                     <span>
                       {priceDate(e.startAt || null)} — {priceDate(e.endAt || null)} · 优惠{" "}
@@ -226,7 +228,11 @@ export function SalePriceHistory({
                 ；采样尚未覆盖完整促销历史。
               </p>
             )}
-            <SaleActivityChart points={rows} currency={offer.currency} title={offer.title} />
+            <SaleActivityChart
+              points={rows}
+              currency={offer.currency}
+              title={priceDisplayNote(offer.title)}
+            />
             <details className="wt-price-records" open>
               <summary>活动价格与来源（{rows.length}）</summary>
               {offer.truncated && <p>活动价格由已保存的最近4096次观测及官方公告整理。</p>}

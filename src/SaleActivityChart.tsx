@@ -31,7 +31,7 @@ export function SaleActivityChart({
       viewBox={`0 0 ${g.width} ${g.height}`}
       preserveAspectRatio={compact ? "none" : "xMidYMid meet"}
       className={compact ? "wt-price-mini" : undefined}
-      aria-label={`${title}活动价格面积图；横轴为活动开始日期，纵轴为${currency === "CNY" ? "整包人民币价格" : "金鹰价格"}。每次活动一个实心点。`}
+      aria-label={`${title}活动价格面积图；横轴为活动开始日期，纵轴为${currency === "CNY" ? "整包价格" : "金鹰价格"}。每次活动一个实心点。`}
     >
       {!compact &&
         [0, 0.5, 1].map((r) => (

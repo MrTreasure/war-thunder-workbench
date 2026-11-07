@@ -641,7 +641,7 @@ export function VehicleCalculator({
             </div>
             <p className="calc-formula">
               {total !== null && rate !== null
-                ? `${format(total)} RP ÷ 10,000 × ¥ ${(rate / 100).toFixed(2)}`
+                ? `${format(total)} RP ÷ 10,000 ×  ${(rate / 100).toFixed(2)}`
                 : "按实际研发点计价，不凑整万。"}
             </p>
             {message && <output className="vehicle-feedback">{message}</output>}

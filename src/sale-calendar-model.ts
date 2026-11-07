@@ -301,7 +301,7 @@ export function saleOriginalPrice(vehicle: SaleVehicle): string {
     return vehicle.channel === "ge" ? "金鹰原价待报价" : "礼包原价待报价";
   if (price.currency === "GE") return `原价 ${price.amount.toLocaleString("zh-CN")} 金鹰`;
   const cents = BigInt(price.amount);
-  return `礼包原价 ¥ ${(cents / 100n).toLocaleString("zh-CN")}.${(cents % 100n).toString().padStart(2, "0")} · 整包`;
+  return `礼包原价  ${(cents / 100n).toLocaleString("zh-CN")}.${(cents % 100n).toString().padStart(2, "0")} · 整包`;
 }
 
 /** Omit only known shared boilerplate; keep event-specific conditions verbatim. */

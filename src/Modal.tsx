@@ -63,7 +63,7 @@ export function Metrics({ rp, cents }: { rp: number | null; cents: number | null
         <strong>
           {cents === null
             ? "待估算"
-            : `¥ ${(cents / 100).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+            : `${(cents / 100).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
         </strong>
       </div>
     </div>
