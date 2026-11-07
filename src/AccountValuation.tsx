@@ -1,3 +1,4 @@
+import { reportVehicleFlag } from "./report-vehicle-flag";
 import { priceDisplayNote } from "./price-display-note";
 import { visibleValuation } from "./valuation-visibility";
 import { RelativeTime } from "./RelativeTime";
@@ -161,6 +162,12 @@ function marketQuoteBasis(method: string | null) {
   if (method?.startsWith("user-reference:market-cap;")) return "用户设定参考上限";
   return null;
 }
+function valuationVehicleCountryLabel(item: Item) {
+  return (
+    reportVehicleFlag({ id: item.id, country: item.country })?.name ||
+    (statsCountryId(item.country) === "ussr" ? "国别待核验" : statsCountryLabel(item.country))
+  );
+}
 function ValuationVehicle({
   item,
   showCountry = true,
@@ -176,7 +183,7 @@ function ValuationVehicle({
       href={"https://wiki.warthunder.com/unit/" + encodeURIComponent(item.id)}
       owned={item.owned ?? false}
       showRank={showRank}
-      countryLabel={showCountry ? statsCountryLabel(item.country) : undefined}
+      countryLabel={showCountry ? valuationVehicleCountryLabel(item) : undefined}
     />
   );
 }
@@ -215,7 +222,7 @@ function ProductCard({
             }}
             owned={owned}
             showRank
-            countryLabel={statsCountryLabel(item.country)}
+            countryLabel={valuationVehicleCountryLabel(item)}
           />
         ))}
       </div>
@@ -1138,7 +1145,6 @@ export function AccountValuation({
                           >
                             查看市场详情 ↗
                           </a>
-                          <small>报价对应可交易载具券，已激活载具不等同于可出售的载具券。</small>
                         </ProductCard>
                       ))}
                     </ProductShelf>
