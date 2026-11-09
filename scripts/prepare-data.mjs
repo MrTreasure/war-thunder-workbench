@@ -151,6 +151,22 @@ await rm(resolve(root, "src/generated/csv"), { recursive: true, force: true });
 await rm(resolve(root, "src/generated/csv-resource-urls.ts"), { force: true });
 await rm(resolve(root, "src/generated/vehicle-facts"), { recursive: true, force: true });
 await rm(resolve(root, "src/generated/vehicle-fact-modules.ts"), { force: true });
+// Homepage labels are lightweight UI metadata; no nation payload is needed to name a saved target.
+const homeNames = {};
+for (const [category, countries] of Object.entries(catalog.trees))
+  for (const [country, tree] of Object.entries(countries))
+    for (const rank of tree?.ranks || [])
+      for (const node of [...rank.research, ...rank.special])
+        for (const unit of node.members)
+          homeNames[unit.id] = { country, category, name: unit.nameZhCN || unit.name };
+await writeFile(
+  resolve(root, "data/home-vehicle-names.json"),
+  JSON.stringify({
+    schemaVersion: 1,
+    source: "localization.json and trees.json",
+    vehicles: homeNames,
+  }) + "\n",
+);
 // The complete snapshot is for build-time checks only; it is never published.
 await writeFile(resolve(root, "data/generated/catalog.json"), JSON.stringify(catalog) + "\n");
 const { trees: allTrees, audit, ...metadata } = catalog;

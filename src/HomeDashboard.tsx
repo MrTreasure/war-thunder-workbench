@@ -1,3 +1,5 @@
+import { GameIcon, type GameIconName } from "./components/GameIcon";
+import mapIcons from "../data/map-editor-icons.json";
 import { useLoadoutPlans } from "./loadout-storage";
 import { useEffect, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
@@ -29,6 +31,13 @@ const countryName = (id: string) =>
   bootstrap.countries[id as keyof typeof bootstrap.countries] || "国家未知";
 const categoryName = (id: string) =>
   bootstrap.categories[id as keyof typeof bootstrap.categories] || "军种未知";
+const homeSectionIcons: Record<string, GameIconName> = {
+  研发计划: "research",
+  出击队列: "crew",
+  模拟挂载: "loadout",
+  载具关注: "details",
+};
+const mapShortcutIcon = mapIcons.icons.find((icon) => icon.id === "capturezone_small")!;
 function Section({
   title,
   count,
@@ -44,6 +53,7 @@ function Section({
     <section className="wt-home-section">
       <header>
         <h3>
+          <GameIcon name={homeSectionIcons[title] || "details"} />
           {title}
           <span>{count}</span>
         </h3>
@@ -128,7 +138,7 @@ export function HomeDashboard() {
       <header className="wt-home-heading">
         <div>
           <p>研发 · 配置 · 出击</p>
-          <h2>我的工作台</h2>
+          <h2 className="sr-only">我的工作台</h2>
           <span>接着完善你的计划，或从一项工具开始。</span>
         </div>
         <div className="wt-home-account">
@@ -151,19 +161,38 @@ export function HomeDashboard() {
       )}
       <nav className="wt-home-shortcuts" aria-label="快速开始">
         <Link to="/tree" preload={false}>
-          <strong>科技树</strong>
+          <strong>
+            <GameIcon name="research" />
+            科技树
+          </strong>
           <span>查看载具与规划研发 →</span>
         </Link>
         <Link to="/lineups" preload={false}>
-          <strong>出击队列</strong>
+          <strong>
+            <GameIcon name="crew" />
+            出击队列
+          </strong>
           <span>管理乘员槽位与配置 →</span>
         </Link>
         <Link to="/loadouts" preload={false}>
-          <strong>模拟挂载</strong>
+          <strong>
+            <GameIcon name="loadout" />
+            模拟挂载
+          </strong>
           <span>为机型配置武器挂载 →</span>
         </Link>
         <Link to="/maps" preload={false}>
-          <strong>陆战地图</strong>
+          <strong>
+            <img
+              className="wt-control-icon"
+              src={mapShortcutIcon.asset.url}
+              width={20}
+              height={20}
+              alt=""
+              aria-hidden="true"
+            />
+            陆战地图
+          </strong>
           <span>查看地图与编辑战术 →</span>
         </Link>
       </nav>
@@ -185,7 +214,7 @@ export function HomeDashboard() {
                     <strong>
                       {countryName(plan.country)} · {categoryName(plan.category)}
                     </strong>
-                    <span>目标：{plan.targetName || plan.targetId}</span>
+                    <span>目标：{plan.targetName || "名称待核验"}</span>
                     <span>当前目标已投入 {plan.progress.toLocaleString()} RP</span>
                   </div>
                   <Link

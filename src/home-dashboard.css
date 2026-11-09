@@ -144,3 +144,11 @@
   outline: 2px solid var(--wt-gold);
   outline-offset: 3px;
 }
+
+.wt-home-shortcuts strong {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.wt-home-section h3 { align-items: center; }
+.wt-home .wt-control-icon { flex-shrink: 0; object-fit: contain; }

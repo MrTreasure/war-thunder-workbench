@@ -1,3 +1,4 @@
+import homeNames from "../data/home-vehicle-names.json";
 import bootstrap from "./generated/bootstrap.json";
 import { validLineups } from "./lineups";
 import { validLoadoutPlans } from "./loadouts";
@@ -54,6 +55,13 @@ export function homeDashboardSummary(documents: Record<string, unknown>) {
       strings(value.pins) &&
       strings(value.banned)
     ) {
+      const translated = (
+        homeNames.vehicles as Record<string, { country: string; category: string; name: string }>
+      )[value.target];
+      const localizedName =
+        translated?.country === match[2] && translated.category === match[1]
+          ? vehicleDisplayName(translated.name)
+          : null;
       plans.push({
         key,
         country: match[2],
@@ -61,9 +69,10 @@ export function homeDashboardSummary(documents: Record<string, unknown>) {
         progress: value.progress,
         targetId: value.target,
         targetName:
-          typeof value.targetName === "string" && value.targetName.trim()
+          localizedName ||
+          (typeof value.targetName === "string" && value.targetName.trim()
             ? vehicleDisplayName(value.targetName)
-            : savedNames.get(`${match[2]}:${match[1]}:${value.target}`) || null,
+            : savedNames.get(`${match[2]}:${match[1]}:${value.target}`) || null),
       });
     }
     const country = key.startsWith("wt-lineups-v1:") ? key.slice("wt-lineups-v1:".length) : "";

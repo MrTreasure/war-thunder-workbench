@@ -41,3 +41,10 @@
 .mobile-page-navigation {
   display: none;
 }
+
+/* Keep a single active indicator while making keyboard focus distinguishable. */
+.page-navigation > a[aria-current="page"]:focus-visible {
+  outline: none;
+  border-bottom-color: var(--wt-gold);
+  box-shadow: inset 0 -2px 0 var(--wt-gold);
+}

@@ -62,6 +62,23 @@ assert.equal(
   homeDashboardSummary({ "wt-planner-v1:ground:usa": { ...plan, progress: -1 } }).plans.length,
   0,
 );
+assert.equal(
+  homeDashboardSummary({
+    "wt-planner-v1:ground:usa": {
+      ...plan,
+      target: "us_m1a2_sep2_abrams_trophy",
+      targetName: "us_m1a2_sep2_abrams_trophy",
+    },
+  }).plans[0].targetName,
+  "M1A2/战利品-HV",
+  "verified Chinese names override legacy internal IDs",
+);
+assert.equal(
+  homeDashboardSummary({ "wt-planner-v1:ground:china": { ...plan, target: "cn_ztz_99a" } }).plans[0]
+    .targetName,
+  "ZTZ99A",
+  "retain the game's verified Chinese model designation",
+);
 console.log(
   "Home summary checks passed: valid scopes, empty state, exact saved names, unknown names, counts, and read-only behavior.",
 );
