@@ -6,6 +6,7 @@ export function PageNavigation({
   page,
 }: {
   page:
+    | "home"
     | "tree"
     | "lineups"
     | "maps"
@@ -22,6 +23,9 @@ export function PageNavigation({
   return (
     <>
       <nav className="page-navigation" aria-label="工具页面">
+        <Link to="/home" preload={false} aria-current={page === "home" ? "page" : undefined}>
+          我的工作台
+        </Link>
         <Link to="/tree" preload={false} aria-current={page === "tree" ? "page" : undefined}>
           科技树
         </Link>
@@ -65,7 +69,8 @@ export function PageNavigation({
           onValueChange={(value) => {
             const next = value;
             if (
-              (next === "tree" ||
+              (next === "home" ||
+                next === "tree" ||
                 next === "lineups" ||
                 next === "maps" ||
                 next === "stats" ||
@@ -82,6 +87,7 @@ export function PageNavigation({
               免责声明
             </option>
           )}
+          <option value="home">我的工作台</option>
           <option value="tree">科技树</option>
           <option value="lineups">出击队列</option>
           <option value="maps">陆战地图</option>

@@ -25,6 +25,8 @@ import {
 import type { ComparedVehicle } from "./vehicle-compare";
 import display from "../data/ground-combat-display.json";
 import { equipmentLabel, equipmentValue, equipmentParameter } from "./vehicle-equipment";
+import { purposeMetric, vehiclePurposes, vehiclePurposeSummary } from "./comparison-purpose";
+import "./comparison-purpose.css";
 import { SupportedLoadoutWeapons } from "./SupportedLoadoutWeapons";
 
 function ComparisonRow({
@@ -33,7 +35,9 @@ function ComparisonRow({
   values,
   direction,
   notes,
+  focused,
 }: {
+  focused?: boolean;
   label: string;
   unit?: string;
   values: (number | string | null)[];
@@ -42,7 +46,7 @@ function ComparisonRow({
 }) {
   const reference = values[0];
   return (
-    <tr>
+    <tr className={focused ? "wt-purpose-row" : undefined}>
       <th scope="row" className="wt-vehicle-compare-metric-label">
         {label}
         {unit && <small>{unit}</small>}
@@ -96,6 +100,24 @@ export function VehicleComparison({
   const [choices, setChoices] = useState<Record<string, string>>({});
   const [angle, setAngle] = useState("source");
   const category = entries[0]?.category;
+  const [purposeId, setPurposeId] = useState("");
+  const metricRows = comparisonMetricRows(entries);
+  const purposes = vehiclePurposes.filter(
+    (item) =>
+      item.categories.includes(category || "") &&
+      metricRows.some(
+        (row) =>
+          purposeMetric(row, item.metrics) &&
+          row.metrics.some((metric) => spadedValue(metric, mode) !== null),
+      ),
+  );
+  const purpose = purposes.find((item) => item.id === purposeId);
+  const focusedRows = purpose
+    ? metricRows.filter((row) => purposeMetric(row, purpose.metrics))
+    : [];
+  const orderedRows = purpose
+    ? [...focusedRows, ...metricRows.filter((row) => !purposeMetric(row, purpose.metrics))]
+    : metricRows;
   const keys = entries.map(comparedVehicleKey);
   const shells = entries.map((entry) => {
     const available = groundShells(entry.unit);
@@ -142,6 +164,34 @@ export function VehicleComparison({
             ]}
           />
         </div>
+        {!!entries.length && !!purposes.length && (
+          <section className="wt-purpose-panel" aria-label="按用途比较载具">
+            <label>
+              比较用途
+              <GameSelect value={purpose?.id || ""} onValueChange={setPurposeId}>
+                <option value="">全部指标</option>
+                {purposes.map((item) => (
+                  <option key={item.id} value={item.id}>
+                    {item.label}
+                  </option>
+                ))}
+              </GameSelect>
+            </label>
+            {purpose && (
+              <>
+                <p>{purpose.note} 相关指标已移至性能表前列。</p>
+                <div className="wt-purpose-summaries">
+                  {entries.map((entry, index) => (
+                    <article key={comparedVehicleKey(entry)}>
+                      <strong>{entry.unit.name}</strong>
+                      <p>{vehiclePurposeSummary(focusedRows, index, mode)}</p>
+                    </article>
+                  ))}
+                </div>
+              </>
+            )}
+          </section>
+        )}
         {entries.length ? (
           <>
             <div
@@ -202,11 +252,12 @@ export function VehicleComparison({
                 </thead>
                 <tbody>
                   {section("完全体性能")}
-                  {comparisonMetricRows(entries).map((metric) => {
+                  {orderedRows.map((metric) => {
                     const metrics = metric.metrics;
                     return (
                       <ComparisonRow
                         key={metric.key}
+                        focused={!!purpose && purposeMetric(metric, purpose.metrics)}
                         label={metric.label}
                         unit={metric.unit}
                         values={metrics.map((item) => spadedValue(item, mode))}

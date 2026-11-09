@@ -4359,3 +4359,33 @@
     padding-block: 12px;
   }
 }
+
+/* My workbench dashboard. Higher specificity preserves these rules after lazy page CSS. */
+@media (max-width: 800px) {
+  .workbench-content .wt-home {
+    padding: 20px 16px;
+  }
+  .workbench-content .wt-home-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .workbench-content .wt-home-shortcuts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .workbench-content .wt-home-shortcuts a {
+    padding: 14px;
+  }
+  .workbench-content .wt-home-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  .workbench-content .wt-home-section {
+    padding: 16px;
+  }
+  .workbench-content .wt-home-section > header a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}

@@ -1,3 +1,4 @@
+import { useAppUpdateGuard } from "./app-update-react";
 import { rating as vehicleRating } from "./vehicle-labels";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useRouterState } from "@tanstack/react-router";
@@ -18,6 +19,7 @@ import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { useAccountWorkspace } from "./workspace-context";
 import { loadoutRequest } from "./loadout-api";
 import { useLoadoutPlans } from "./loadout-storage";
+import { LoadoutPlanComparison } from "./LoadoutPlanComparison";
 import { LoadoutPresets } from "./LoadoutPresets";
 import { loadoutLibrary } from "./loadout-library";
 import { LoadoutBombing } from "./LoadoutBombing";
@@ -176,6 +178,15 @@ function LoadoutPage({ owner }: { owner: string }) {
     true,
   );
   const [saved, savePlans, storageError, storageStatus] = useLoadoutPlans(owner);
+  useAppUpdateGuard(
+    "挂载方案尚未保存",
+    storageStatus.sending ||
+      (!!plan &&
+        (!saved.some(
+          (item) => item.id === plan.id && JSON.stringify(item) === JSON.stringify(plan),
+        ) ||
+          !!storageError)),
+  );
   const [history, setHistory] = useState<LoadoutPlan[]>([]);
   const [future, setFuture] = useState<LoadoutPlan[]>([]);
   const [station, setStation] = useState("");
@@ -187,6 +198,7 @@ function LoadoutPage({ owner }: { owner: string }) {
   const [picker, setPicker] = useState(false);
   const [compared, setCompared] = useState<ComparedMissile[]>([]);
   const [comparisonOpen, setComparisonOpen] = useState(false);
+  const [planComparisonOpen, setPlanComparisonOpen] = useState(false);
   const [importing, setImporting] = useState(false);
   const [share, setShare] = useState("");
   const [sharePlan, setSharePlan] = useState<LoadoutPlan | null>(null);
@@ -1129,6 +1141,9 @@ function LoadoutPage({ owner }: { owner: string }) {
         <section>
           <div className="wt-mount-heading">
             <h3>我的挂载方案</h3>
+            <button disabled={library.length < 2} onClick={() => setPlanComparisonOpen(true)}>
+              按用途比较方案
+            </button>
             <button disabled={sharesLoading || busy} onClick={() => void refreshShares()}>
               {sharesLoading ? "刷新中…" : "刷新推荐状态"}
             </button>
@@ -1223,6 +1238,12 @@ function LoadoutPage({ owner }: { owner: string }) {
             )}
           </div>
         </section>
+      )}
+      {planComparisonOpen && (
+        <LoadoutPlanComparison
+          plans={library.map((item) => item.plan)}
+          close={() => setPlanComparisonOpen(false)}
+        />
       )}
       {selecting && (
         <Modal

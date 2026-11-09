@@ -1,3 +1,4 @@
+import { useAppUpdateGuard } from "./app-update-react";
 import { recordMapCompletion, flushMapDrawingLogs } from "./map-drawing-log";
 import type { DrawingView } from "./map-drawing-log";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
@@ -150,10 +151,15 @@ export function MapEditor({
   const { session } = useWorkbenchAccount();
   useEffect(() => {
     void flushMapDrawingLogs();
-    const flush = () => { void flushMapDrawingLogs(); };
+    const flush = () => {
+      void flushMapDrawingLogs();
+    };
     window.addEventListener("online", flush);
     const timer = window.setInterval(flush, 60000);
-    return () => { window.removeEventListener("online", flush); window.clearInterval(timer); };
+    return () => {
+      window.removeEventListener("online", flush);
+      window.clearInterval(timer);
+    };
   }, [session?.user?.id]);
   const [initial] = useState(() => readProject(context, iconIds));
   const [coarsePointer] = useState(() => window.matchMedia("(pointer:coarse)").matches);
@@ -226,6 +232,7 @@ export function MapEditor({
   const abort = useRef<AbortController | null>(null),
     file = useRef<HTMLInputElement>(null),
     textField = useRef<HTMLTextAreaElement>(null);
+  useAppUpdateGuard("地图编辑尚未完成", active || plans.hasUnsaved() || storageError);
   const visible = preview || history.present;
   const selected = history.present.find((a) => a.id === selectedId);
   const setPending = (p: GeometryAnnotation | null) => {

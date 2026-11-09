@@ -1,0 +1,68 @@
+.wt-purpose-panel {
+  padding: 12px 14px;
+  margin-block: 10px 14px;
+  border: 1px solid var(--wt-line);
+  border-inline-start: 3px solid var(--wt-accent);
+  border-radius: 6px;
+  background: var(--wt-panel);
+}
+.wt-purpose-panel label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-weight: 600;
+}
+.wt-purpose-panel p {
+  margin: 8px 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--wt-muted);
+}
+.wt-purpose-summaries {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 10px;
+}
+.wt-purpose-summaries article {
+  padding: 10px;
+  border: 1px solid var(--wt-line);
+  border-radius: 4px;
+}
+.wt-purpose-summaries article strong {
+  font-size: 13px;
+}
+.wt-purpose-row > th {
+  border-inline-start: 3px solid var(--wt-accent);
+}
+.wt-plan-compare-selection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-block: 10px;
+}
+.wt-plan-compare-selection label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 44px;
+}
+.wt-plan-compare-selection input {
+  width: 18px;
+  height: 18px;
+}
+.wt-plan-compare-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.wt-plan-compare-table th,
+.wt-plan-compare-table td {
+  padding: 12px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--wt-line);
+  text-align: start;
+  min-width: 160px;
+}
+.wt-plan-compare-table p {
+  margin: 4px 0;
+}

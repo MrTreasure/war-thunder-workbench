@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as WorkbenchRouteImport } from './routes/_workbench'
 import { Route as WorkbenchDecalsRouteImport } from './routes/_workbench.decals'
 import { Route as WorkbenchDisclaimerRouteImport } from './routes/_workbench.disclaimer'
+import { Route as WorkbenchHomeRouteImport } from './routes/_workbench.home'
 import { Route as WorkbenchLineupsRouteImport } from './routes/_workbench.lineups'
 import { Route as WorkbenchLoadoutsRouteImport } from './routes/_workbench.loadouts'
 import { Route as WorkbenchMapsRouteImport } from './routes/_workbench.maps'
@@ -43,6 +44,11 @@ const WorkbenchDecalsRoute = WorkbenchDecalsRouteImport.update({
 const WorkbenchDisclaimerRoute = WorkbenchDisclaimerRouteImport.update({
   id: '/disclaimer',
   path: '/disclaimer',
+  getParentRoute: () => WorkbenchRoute,
+} as any)
+const WorkbenchHomeRoute = WorkbenchHomeRouteImport.update({
+  id: '/home',
+  path: '/home',
   getParentRoute: () => WorkbenchRoute,
 } as any)
 const WorkbenchLineupsRoute = WorkbenchLineupsRouteImport.update({
@@ -110,6 +116,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/decals': typeof WorkbenchDecalsRoute
   '/disclaimer': typeof WorkbenchDisclaimerRoute
+  '/home': typeof WorkbenchHomeRoute
   '/lineups': typeof WorkbenchLineupsRoute
   '/loadouts': typeof WorkbenchLoadoutsRoute
   '/maps': typeof WorkbenchMapsRoute
@@ -127,6 +134,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/decals': typeof WorkbenchDecalsRoute
   '/disclaimer': typeof WorkbenchDisclaimerRoute
+  '/home': typeof WorkbenchHomeRoute
   '/lineups': typeof WorkbenchLineupsRoute
   '/loadouts': typeof WorkbenchLoadoutsRoute
   '/maps': typeof WorkbenchMapsRoute
@@ -146,6 +154,7 @@ export interface FileRoutesById {
   '/_workbench': typeof WorkbenchRouteWithChildren
   '/_workbench/decals': typeof WorkbenchDecalsRoute
   '/_workbench/disclaimer': typeof WorkbenchDisclaimerRoute
+  '/_workbench/home': typeof WorkbenchHomeRoute
   '/_workbench/lineups': typeof WorkbenchLineupsRoute
   '/_workbench/loadouts': typeof WorkbenchLoadoutsRoute
   '/_workbench/maps': typeof WorkbenchMapsRoute
@@ -165,6 +174,7 @@ export interface FileRouteTypes {
     | '/'
     | '/decals'
     | '/disclaimer'
+    | '/home'
     | '/lineups'
     | '/loadouts'
     | '/maps'
@@ -182,6 +192,7 @@ export interface FileRouteTypes {
     | '/'
     | '/decals'
     | '/disclaimer'
+    | '/home'
     | '/lineups'
     | '/loadouts'
     | '/maps'
@@ -200,6 +211,7 @@ export interface FileRouteTypes {
     | '/_workbench'
     | '/_workbench/decals'
     | '/_workbench/disclaimer'
+    | '/_workbench/home'
     | '/_workbench/lineups'
     | '/_workbench/loadouts'
     | '/_workbench/maps'
@@ -247,6 +259,13 @@ declare module '@tanstack/react-router' {
       path: '/disclaimer'
       fullPath: '/disclaimer'
       preLoaderRoute: typeof WorkbenchDisclaimerRouteImport
+      parentRoute: typeof WorkbenchRoute
+    }
+    '/_workbench/home': {
+      id: '/_workbench/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof WorkbenchHomeRouteImport
       parentRoute: typeof WorkbenchRoute
     }
     '/_workbench/lineups': {
@@ -339,6 +358,7 @@ declare module '@tanstack/react-router' {
 interface WorkbenchRouteChildren {
   WorkbenchDecalsRoute: typeof WorkbenchDecalsRoute
   WorkbenchDisclaimerRoute: typeof WorkbenchDisclaimerRoute
+  WorkbenchHomeRoute: typeof WorkbenchHomeRoute
   WorkbenchLineupsRoute: typeof WorkbenchLineupsRoute
   WorkbenchLoadoutsRoute: typeof WorkbenchLoadoutsRoute
   WorkbenchMapsRoute: typeof WorkbenchMapsRoute
@@ -356,6 +376,7 @@ interface WorkbenchRouteChildren {
 const WorkbenchRouteChildren: WorkbenchRouteChildren = {
   WorkbenchDecalsRoute: WorkbenchDecalsRoute,
   WorkbenchDisclaimerRoute: WorkbenchDisclaimerRoute,
+  WorkbenchHomeRoute: WorkbenchHomeRoute,
   WorkbenchLineupsRoute: WorkbenchLineupsRoute,
   WorkbenchLoadoutsRoute: WorkbenchLoadoutsRoute,
   WorkbenchMapsRoute: WorkbenchMapsRoute,

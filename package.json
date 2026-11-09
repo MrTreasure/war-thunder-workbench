@@ -23,7 +23,7 @@
     "refresh:prices": "node scripts/store-prices.mjs",
     "refresh:guides": "node scripts/extract-map-atlas.mjs",
     "refresh:collections": "node scripts/extract-map-collections.mjs",
-    "check": "pnpm run typecheck && pnpm run lint && pnpm run check:data && pnpm run check:map-editor && pnpm run check:map-routes && pnpm run check:platform-bootstrap && pnpm run check:image-cache && pnpm run check:sale-cart && pnpm run check:loadouts && pnpm run check:vehicle-compare && pnpm run check:video-library",
+    "check": "pnpm run typecheck && pnpm run lint && pnpm run check:data && pnpm run check:map-editor && pnpm run check:map-routes && pnpm run check:platform-bootstrap && pnpm run check:image-cache && pnpm run check:sale-cart && pnpm run check:loadouts && pnpm run check:vehicle-compare && pnpm run check:video-library && pnpm run check:app-update && pnpm run check:comparison-purpose && pnpm run check:home",
     "check:vehicle-compare": "node --experimental-strip-types scripts/check-vehicle-compare.mjs",
     "benchmark:toolchain": "node scripts/benchmark-toolchain.mjs",
     "check:sale-cart": "node --experimental-strip-types scripts/check-sale-cart.mjs",
@@ -43,7 +43,10 @@
     "refresh:wallpapers": "node scripts/collect-wallpapers.mjs",
     "check:map-routes": "node --experimental-strip-types scripts/check-map-recommendations.mjs",
     "check:loadouts": "node --experimental-strip-types scripts/check-loadouts.mjs",
-    "check:video-library": "node --experimental-strip-types scripts/check-video-analysis-library.mjs"
+    "check:video-library": "node --experimental-strip-types scripts/check-video-analysis-library.mjs",
+    "check:app-update": "node --experimental-strip-types scripts/check-app-update.mjs",
+    "check:comparison-purpose": "node --experimental-strip-types scripts/check-comparison-purpose.mjs",
+    "check:home": "node scripts/check-home-dashboard.mjs"
   },
   "dependencies": {
     "@noble/hashes": "2.4.0",

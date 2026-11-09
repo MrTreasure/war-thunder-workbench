@@ -1,5 +1,8 @@
 /* oxlint-disable jsx-a11y/no-noninteractive-tabindex -- Named table scroller supports keyboard scrolling. */
 import { useLayoutEffect, useState } from "react";
+import { GameSelect } from "./components/GameSelect";
+import { missilePurposes } from "./comparison-purpose";
+import "./comparison-purpose.css";
 import { Modal } from "./Modal";
 import { loadoutWeaponName, loadoutParameterValue } from "./loadout-presentation";
 import {
@@ -43,7 +46,18 @@ export function LoadoutWeaponComparison({
   onClear: () => void;
   close: () => void;
 }) {
-  const rows = missileComparisonRows(items);
+  const allRows = missileComparisonRows(items);
+  const [purposeId, setPurposeId] = useState("");
+  const purposes = missilePurposes.filter((purpose) =>
+    allRows.some((row) => purpose.fields.includes(row.id) && row.values.some(Boolean)),
+  );
+  const purpose = purposes.find((item) => item.id === purposeId);
+  const rows = purpose
+    ? [
+        ...allRows.filter((row) => purpose.fields.includes(row.id)),
+        ...allRows.filter((row) => !purpose.fields.includes(row.id)),
+      ]
+    : allRows;
   return (
     <Modal
       title={`导弹对比 · ${items.length}/${missileComparisonLimit}`}
@@ -55,6 +69,24 @@ export function LoadoutWeaponComparison({
         <span>最多对比6个型号，可跨机型选择。</span>
         <button onClick={onClear}>清空对比</button>
       </div>
+      {!!items.length && (
+        <section className="wt-purpose-panel" aria-label="导弹比较用途">
+          <label>
+            比较用途
+            <GameSelect value={purpose?.id || ""} onValueChange={setPurposeId}>
+              <option value="">全部参数</option>
+              {purposes.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.label}
+                </option>
+              ))}
+            </GameSelect>
+          </label>
+          {purpose && (
+            <p>{purpose.note} 相关行已移至前列，未知值保留未知，不提供总分或最佳型号。</p>
+          )}
+        </section>
+      )}
       {!items.length ? (
         <p className="wt-mount-note">对比列表已清空，在挂载选项中重新勾选导弹。</p>
       ) : (
@@ -79,7 +111,10 @@ export function LoadoutWeaponComparison({
             </thead>
             <tbody>
               {rows.map((row) => (
-                <tr key={row.id}>
+                <tr
+                  key={row.id}
+                  className={purpose?.fields.includes(row.id) ? "wt-purpose-row" : undefined}
+                >
                   <th scope="row">{row.label}</th>
                   {row.values.map((value, index) => (
                     <td key={items[index].key}>{value ? loadoutParameterValue(value) : "未知"}</td>

@@ -59,6 +59,7 @@ export function VehicleTile({
   showPackPrice = true,
   countryLabel,
   country,
+  countryFlag,
 }: {
   unit: VehicleTileUnit;
   catalog?: Pick<Catalog, "kinds" | "roles">;
@@ -83,6 +84,8 @@ export function VehicleTile({
   countryLabel?: string;
   /** Optional in-card country identity; does not load another country payload. */
   country?: string;
+  /** Verified display identity supplied by a caller that already has flag evidence. */
+  countryFlag?: { id: string; url: string; name: string };
 }) {
   const facts = useVehicleFacts();
   const unit =
@@ -172,6 +175,7 @@ export function VehicleTile({
       rel={!onSelect && href ? "noreferrer" : undefined}
       data-kind={unit.kind || "unknown"}
       data-country={country || undefined}
+      data-flag={countryFlag?.id}
       data-owned={owned || undefined}
       disabled={onSelect ? disabled : undefined}
       type={onSelect ? "button" : undefined}
@@ -204,7 +208,7 @@ export function VehicleTile({
       onClick={onSelect}
       aria-label={
         showAcquisition
-          ? `${name}，${country ? (countryLabel || bootstrap.countries[country as keyof typeof bootstrap.countries] || country) + "，" : ""}Rank ${unit.rank || "—"}${owned ? "，已拥有" : ""}，${exact}${onSelect ? "，查看载具详情" : ""}`
+          ? `${name}，${country ? (countryFlag?.name || countryLabel || bootstrap.countries[country as keyof typeof bootstrap.countries] || country) + "，" : ""}Rank ${unit.rank || "—"}${owned ? "，已拥有" : ""}，${exact}${onSelect ? "，查看载具详情" : ""}`
           : `${name}${owned ? "，已拥有" : ""}${onSelect ? "，查看载具详情" : ""}`
       }
       title={showAcquisition ? `${name} · ${exact}` : name}
@@ -219,11 +223,17 @@ export function VehicleTile({
       <VehicleThumbnail unit={mediaUnit} />
       {country && (
         <span className="wt-game-card-country">
-          {(flags as Record<string, string>)[country] && (
-            <img src={(flags as Record<string, string>)[country]} width={20} height={14} alt="" />
+          {(countryFlag?.url || (flags as Record<string, string>)[country]) && (
+            <img
+              src={countryFlag?.url || (flags as Record<string, string>)[country]}
+              width={20}
+              height={14}
+              alt=""
+            />
           )}
           <span>
-            {countryLabel ||
+            {countryFlag?.name ||
+              countryLabel ||
               bootstrap.countries[country as keyof typeof bootstrap.countries] ||
               country}
           </span>

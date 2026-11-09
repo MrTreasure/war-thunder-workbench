@@ -1,4 +1,6 @@
 import { useCallback, useState } from "react";
+import { useAccountWorkspace } from "./workspace-context";
+import { VehicleActions } from "./components/VehicleActions";
 import { VehicleTags } from "./VehicleTags";
 import { VehicleTile } from "./VehicleTile";
 import type { Catalog, Mode, Vehicle, ModificationData } from "./models";
@@ -9,7 +11,7 @@ import { VehicleBattleRatings } from "./VehicleBattleRatings";
 import { VehiclePerformance } from "./VehiclePerformance";
 import { VehicleLoadouts } from "./VehicleLoadouts";
 import { GameIcon } from "./components/GameIcon";
-import { GameButton, GameLinkButton } from "./components/GameButton";
+import { GameLinkButton } from "./components/GameButton";
 import { GameTabs, type GameTab } from "./components/GameTabs";
 import { VehicleSaleCartAction } from "./VehicleSaleCartAction";
 import { LoadoutRecommendations } from "./LoadoutRecommendations";
@@ -56,6 +58,21 @@ export function VehicleDetails({
   comparisonFull?: boolean;
   modifications?: ModificationData;
 }) {
+  const workspace = useAccountWorkspace();
+  const owned = workspace?.ownedVehicleIds.has(unit.id) || false;
+  const performance = unit.wikiDetails?.performance;
+  const checkedDate = (value: string | undefined) =>
+    value && Number.isFinite(Date.parse(value)) ? value.slice(0, 10) : "时间未知";
+  const performanceState =
+    performance?.status === "available"
+      ? "已采集公开性能资料"
+      : performance?.status === "not_provided"
+        ? "Wiki 未提供"
+        : performance?.status === "parse_failed"
+          ? "解析失败"
+          : performance?.status === "none" || performance?.status === "not_applicable"
+            ? "来源无适用性能数据"
+            : "尚未采集";
   const [choice, setChoice] = useState<{ id: string; tab: DetailTab } | null>(null);
   const [resolved, setResolved] = useState<{ id: string; count: number } | null>(null);
   const onTagsResolved = useCallback(
@@ -126,30 +143,76 @@ export function VehicleDetails({
                 {unit.side === "research" ? "常规研发" : catalog.kinds[unit.kind] || "特殊载具"}
               </dd>
             </div>
+            <div>
+              <dt>拥有状态</dt>
+              <dd
+                title={
+                  workspace?.binding
+                    ? `来自关联账号公开车库 · ${checkedDate(workspace.binding.fetchedAt)}`
+                    : undefined
+                }
+              >
+                {owned
+                  ? "已拥有 · 公开车库记录"
+                  : workspace?.binding
+                    ? "公开车库未记录拥有"
+                    : workspace?.ready
+                      ? "尚未关联游戏账号"
+                      : "拥有状态未确认"}
+              </dd>
+            </div>
+            <div>
+              <dt>配件资料</dt>
+              <dd>
+                {modifications?.status === "verified"
+                  ? `已核对 · ${checkedDate(modifications.checkedAt)}`
+                  : "暂无已核对资料"}
+                {modifications?.status === "verified" &&
+                  modifications.source.startsWith("https://") && (
+                    <>
+                      {" "}
+                      ·{" "}
+                      <a href={modifications.source} target="_blank" rel="noopener noreferrer">
+                        来源 ↗
+                      </a>
+                    </>
+                  )}
+              </dd>
+            </div>
+            <div>
+              <dt>性能资料</dt>
+              <dd>
+                {performanceState}
+                {performance && ` · ${checkedDate(performance.checkedAt)}`}
+                {performance?.source.startsWith("https://") && (
+                  <>
+                    {" "}
+                    ·{" "}
+                    <a href={performance.source} target="_blank" rel="noopener noreferrer">
+                      来源 ↗
+                    </a>
+                  </>
+                )}
+              </dd>
+            </div>
           </dl>
           <VehicleBattleRatings unit={unit} category={category} mode={mode} />
           <div className="wt-detail-actions">
-            <GameButton
-              tone="primary"
-              icon="research"
-              disabled={unit.side !== "research"}
-              title={unit.side !== "research" ? "独立获取载具不接入常规研发路线" : undefined}
-              onClick={onVehicle}
-            >
-              研发载具
-            </GameButton>
-            <GameButton icon="performance" onClick={onParts}>
-              研发配件
-            </GameButton>
-            {onCompare && (
-              <GameButton
-                icon="compare"
-                onClick={onCompare}
-                disabled={comparisonAdded || comparisonFull}
-              >
-                {comparisonAdded ? "已加入对比" : comparisonFull ? "对比已满（5辆）" : "加入对比"}
-              </GameButton>
-            )}
+            <VehicleActions
+              onResearch={onVehicle}
+              researchDisabled={unit.side !== "research"}
+              onParts={onParts}
+              compare={
+                onCompare
+                  ? { run: onCompare, added: comparisonAdded, full: comparisonFull }
+                  : undefined
+              }
+              loadoutHref={
+                hasConfigurableLoadout(unit.wikiDetails?.loadouts)
+                  ? `#/loadouts?country=${encodeURIComponent(country)}&vehicle=${encodeURIComponent(unit.id)}`
+                  : undefined
+              }
+            />
             <VehicleSaleCartAction
               key={`${country}:${category}:${unit.id}`}
               unit={unit}

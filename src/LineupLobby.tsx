@@ -1,6 +1,6 @@
 // Fetch status and identity reset synchronize the current request/account with the UI.
 /* oxlint-disable react/set-state-in-effect */
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Route } from "./routes/_workbench.lineups_.lobby";
 import { LineupNavigation } from "./components/LineupNavigation";
@@ -24,11 +24,26 @@ import { useStored } from "./storage";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { useAccountWorkspace } from "./workspace-context";
 
+import { assertQualitySort, qualityExplanation, qualitySummary } from "./hall-quality";
+
 export function LineupLobby() {
+  const account = useWorkbenchAccount();
+  return (
+    <LineupLobbyView key={`${account.session?.user?.id || "guest"}:${account.identityVersion}`} />
+  );
+}
+function LineupLobbyView() {
   const search = Route.useSearch();
   const navigate = Route.useNavigate();
   const account = useWorkbenchAccount();
   const userId = account.session?.user?.id;
+  const alive = useRef(true);
+  useEffect(() => {
+    alive.current = true;
+    return () => {
+      alive.current = false;
+    };
+  }, []);
   const [result, setResult] = useState<CommunityPage>({ items: [], page: 1, hasMore: false });
   const [detail, setDetail] = useState<CommunityPost | null>(null);
   const [busy, setBusy] = useState(true);
@@ -44,7 +59,14 @@ export function LineupLobby() {
   const [filtersOpen, setFiltersOpen] = useState(false);
   const countryLabel = (id: string) => (
     <span className={`lineup-country-option ${id ? "" : "is-all-countries"}`}>
-      {id && <img src={bootstrap.flags[id as keyof typeof bootstrap.flags]} alt="" width={24} height={18} />}
+      {id && (
+        <img
+          src={bootstrap.flags[id as keyof typeof bootstrap.flags]}
+          alt=""
+          width={24}
+          height={18}
+        />
+      )}
       <span>{id ? bootstrap.countries[id as keyof typeof bootstrap.countries] : "全部国家"}</span>
       <small title={"公开队列数"}>
         {(id
@@ -79,7 +101,10 @@ export function LineupLobby() {
           if (!abort.signal.aborted) setDetail(value);
         })
       : communityRequest<CommunityPage>(`posts?${query}`, undefined, abort.signal).then((value) => {
-          if (!abort.signal.aborted) setResult(value);
+          if (!abort.signal.aborted) {
+            assertQualitySort(value.items, search.sort || "", value.sort);
+            setResult(value);
+          }
         });
     void request
       .catch((cause) => {
@@ -89,7 +114,7 @@ export function LineupLobby() {
         if (!abort.signal.aborted) setBusy(false);
       });
     return () => abort.abort();
-  }, [search.post, query, revision, userId, account.identityVersion, search.mine]);
+  }, [search.post, query, revision, userId, account.identityVersion, search.mine, search.sort]);
   const posts = search.post ? (detail ? [detail] : []) : result.items;
   const facts = useVehicleCatalog(posts.map((p) => p.country));
   const units = useMemo(
@@ -121,15 +146,17 @@ export function LineupLobby() {
     setWorking(post.id);
     setMessage("");
     try {
-      update(
-        await communityRequest<CommunityPost>(`posts/${post.id}/vote`, {
-          value: post.vote === value ? 0 : value,
-        }),
-      );
+      const updated = await communityRequest<CommunityPost>(`posts/${post.id}/vote`, {
+        value: post.vote === value ? 0 : value,
+      });
+      if (alive.current) {
+        update(updated);
+        setRevision((v) => v + 1);
+      }
     } catch (cause) {
-      setMessage(cause instanceof Error ? cause.message : "评价失败，请重试。");
+      if (alive.current) setMessage(cause instanceof Error ? cause.message : "评价失败，请重试。");
     } finally {
-      setWorking("");
+      if (alive.current) setWorking("");
     }
   }
   async function copy(value: string) {
@@ -250,6 +277,7 @@ export function LineupLobby() {
                 >
                   <option value="">最新发布</option>
                   <option value="popular">最多推荐</option>
+                  <option value="quality-v1">质量排序</option>
                 </GameSelect>
               </label>
               <button
@@ -272,6 +300,9 @@ export function LineupLobby() {
               )}
             </div>
           </section>
+        )}
+        {!search.post && search.sort === "quality-v1" && (
+          <p className="wt-community-notice">{qualityExplanation}</p>
         )}
         {message && <output className="lineup-feedback">{message}</output>}
         {error ? (
@@ -509,6 +540,7 @@ function CommunityCard({
         )}
       </section>
       <footer>
+        <small>{qualitySummary(post.quality, post.up, post.down)}</small>
         <div className="wt-community-votes">
           <button
             disabled={working || post.mine}

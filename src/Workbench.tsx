@@ -1,3 +1,4 @@
+import { AppUpdateNotice } from "./components/AppUpdateNotice";
 import { vehicleStore } from "./vehicle-store";
 import { VehicleComparison } from "./VehicleComparison";
 import {
@@ -121,7 +122,9 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (
       garagePage ||
-      ["maps", "stats", "sales", "decals", "disclaimer", "loadouts", "weakpoints"].includes(page) ||
+      ["home", "maps", "stats", "sales", "decals", "disclaimer", "loadouts", "weakpoints"].includes(
+        page,
+      ) ||
       !country ||
       !countryEntry
     )
@@ -213,6 +216,31 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       : null;
     return fresh && fresh !== entry.unit ? { ...entry, unit: fresh } : entry;
   });
+  const treeSearch = useRouterState({
+    select: (state) =>
+      state.location.search as { country?: string; category?: string; plan?: boolean },
+  });
+  useEffect(() => {
+    if (
+      page !== "tree" ||
+      !treeSearch.plan ||
+      !treeSearch.country ||
+      !treeSearch.category ||
+      !Object.hasOwn(bootstrap.countries, treeSearch.country) ||
+      !Object.hasOwn(bootstrap.categories, treeSearch.category)
+    )
+      return;
+    // Apply explicit route intent after the legacy hash listener has restored its state.
+    const requestedCountry = treeSearch.country;
+    const requestedCategory = treeSearch.category;
+    const frame = requestAnimationFrame(() => {
+      setCountry(requestedCountry);
+      setCategory(requestedCategory);
+      setSelected(null);
+      setModal("vehicle");
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [page, treeSearch.country, treeSearch.category, treeSearch.plan, bootstrap]);
   const preferenceSearch = useRef(location.search);
   useEffect(() => {
     function restoreRoute() {
@@ -934,6 +962,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   );
   return (
     <WorkbenchPages.Provider value={{ tree: treePage, lineups: lineupsPage }}>
+      <AppUpdateNotice country={page === "tree" || page === "lineups" ? country : undefined} />
       {children}
     </WorkbenchPages.Provider>
   );
