@@ -1,7 +1,10 @@
 import { t, localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
+// Request state follows the current filters and account identity.
+/* oxlint-disable react/set-state-in-effect */
 import { useEffect, useState } from "react";
 import bootstrap from "./generated/bootstrap.json";
+import { assertQualitySort, qualityExplanation, qualitySummary } from "./hall-quality";
 import { loadoutRequest } from "./loadout-api";
 import type { LoadoutShare } from "./loadout-shares";
 import type { LoadoutPlan } from "./loadouts";
@@ -12,36 +15,48 @@ import { useWorkbenchAccount } from "./WorkbenchAccount";
 export function LoadoutHall({ onUse }: { onUse: (plan: LoadoutPlan) => void }) {
   useLocale();
   const account = useWorkbenchAccount();
-  return <LoadoutHallView key={account.session?.user?.id || "guest"} onUse={onUse} />;
+  return (
+    <LoadoutHallView
+      key={`${account.session?.user?.id || "guest"}:${account.identityVersion}`}
+      onUse={onUse}
+    />
+  );
 }
 function LoadoutHallView({ onUse }: { onUse: (plan: LoadoutPlan) => void }) {
+  useLocale();
   const [items, setItems] = useState<LoadoutShare[]>([]),
     [country, setCountry] = useState(""),
+    [sort, setSort] = useState(""),
+    [hasMore, setHasMore] = useState(false),
     [loading, setLoading] = useState(true),
     [error, setError] = useState(""),
     [offset, setOffset] = useState(0),
     [revision, setRevision] = useState(0);
   useEffect(() => {
     const controller = new AbortController();
-    void loadoutRequest<{ items: LoadoutShare[] }>(
-      `recommendations?country=${country}&offset=${offset}`,
+    setLoading(true);
+    setError("");
+    setItems([]);
+    void loadoutRequest<{ items: LoadoutShare[]; sort?: string; hasMore?: boolean }>(
+      `recommendations?country=${country}&offset=${offset}&sort=${sort}`,
       undefined,
       controller.signal,
     )
-      .then(
-        (value) => {
-          if (!controller.signal.aborted) setItems(value.items);
-        },
-        (e: unknown) => {
-          if (!controller.signal.aborted)
-            setError(e instanceof Error ? e.message : "大厅读取失败。");
-        },
-      )
+      .then((value) => {
+        if (!controller.signal.aborted) {
+          assertQualitySort(value.items, sort, value.sort);
+          setItems(value.items);
+          setHasMore(value.hasMore ?? value.items.length === 24);
+        }
+      })
+      .catch((e: unknown) => {
+        if (!controller.signal.aborted) setError(e instanceof Error ? e.message : "大厅读取失败。");
+      })
       .finally(() => {
         if (!controller.signal.aborted) setLoading(false);
       });
     return () => controller.abort();
-  }, [country, offset, revision]);
+  }, [country, offset, revision, sort]);
   const nation = (value: string) =>
     value ? (
       <span className="wt-mount-country">
@@ -79,7 +94,22 @@ function LoadoutHallView({ onUse }: { onUse: (plan: LoadoutPlan) => void }) {
             )),
           )}
         </GameSelect>
+        <GameSelect
+          aria-label={t("挂载排序")}
+          value={sort}
+          onValueChange={(value) => {
+            setSort(value);
+            setOffset(0);
+          }}
+        >
+          <option value="">{t("最新发布")}</option>
+          <option value="quality-v1">{t("质量排序")}</option>
+          <option value="popular">{t("最多推荐")}</option>
+        </GameSelect>
       </div>
+      {localize(
+        sort === "quality-v1" && <p className="calc-note">{localize(qualityExplanation)}</p>,
+      )}
       {localize(loading && <p aria-live="polite">{t("正在读取大厅…")}</p>)}
       {localize(
         error && (
@@ -118,17 +148,18 @@ function LoadoutHallView({ onUse }: { onUse: (plan: LoadoutPlan) => void }) {
                   {localize(item.plan.preset ? "来源预设" : `${item.plan.mounts.length} 个挂点`)}
                   {t("· 资料")}
                   {localize(" ")}
-                  {localize(item.plan.sourceDate.slice(0, 10))}
+                  {localize(item.plan.sourceDate?.slice(0, 10) || "未知")}
+                  <br />
+                  {localize(qualitySummary(item.quality, item.up, item.down))}
                 </>,
               )}
             >
               <LoadoutVoteButtons
                 item={item}
-                onChange={(value) =>
-                  setItems((rows) =>
-                    rows.map((row) => (row.id === item.id ? { ...row, ...value } : row)),
-                  )
-                }
+                onChange={() => {
+                  setOffset(0);
+                  setRevision((v) => v + 1);
+                }}
               />
               <button onClick={() => onUse(item.plan)}>{t("查看并使用")}</button>
             </LoadoutPlanCard>
@@ -139,7 +170,7 @@ function LoadoutHallView({ onUse }: { onUse: (plan: LoadoutPlan) => void }) {
         <button disabled={!offset || loading} onClick={() => setOffset((n) => Math.max(0, n - 24))}>
           {t("上一页")}
         </button>
-        <button disabled={loading || items.length < 24} onClick={() => setOffset((n) => n + 24)}>
+        <button disabled={loading || !hasMore} onClick={() => setOffset((n) => n + 24)}>
           {t("下一页")}
         </button>
       </div>

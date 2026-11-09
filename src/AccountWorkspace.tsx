@@ -1,5 +1,6 @@
 import { useLocale } from "./i18n/react";
 import { t, localize } from "./i18n/core";
+import { useAppUpdateGuard } from "./app-update-react";
 import { readPricePreferences } from "./sale-price-api";
 import { saleWatchKey } from "./sale-watch-storage";
 import {
@@ -131,10 +132,11 @@ const AccountWorkspace = memo(function AccountWorkspace({
   const [agreed, setAgreed] = useState(false);
   const [busy, setBusy] = useState(false);
   const [sending, setSending] = useState(false);
-  const [conflict, setConflict] = useState<{
-    key: string;
-    remote: WorkspaceDocument;
-  } | null>(null);
+  const [conflict, setConflict] = useState<{ key: string; remote: WorkspaceDocument } | null>(null);
+  useAppUpdateGuard(
+    "账号数据正在同步或等待处理",
+    !!userId && (Object.keys(pending).length > 0 || sending || !!conflict),
+  );
   const [importKeys, setImportKeys] = useState<string[]>([]);
   const [selectedImports, setSelectedImports] = useState<string[]>([]);
   const controller = useRef(new AbortController());
@@ -520,7 +522,7 @@ const AccountWorkspace = memo(function AccountWorkspace({
         open && userId && (
           <Modal
             title={t("云端数据")}
-            subtitle={error ? t("同步需要处理") : undefined}
+            subtitle={localize(error ? t("同步需要处理") : undefined)}
             close={() => setOpen(false)}
             className="wt-account-dialog"
           >

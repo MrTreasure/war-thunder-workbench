@@ -30,7 +30,7 @@ export const Route = createFileRoute("/_workbench/lineups_/lobby")({
     step: search.step !== undefined ? String(search.step) : undefined,
     tag:
       typeof search.tag === "string" && /^[a-z-]{1,24}$/.test(search.tag) ? search.tag : undefined,
-    sort: search.sort === "popular" ? "popular" : undefined,
+    sort: search.sort === "popular" || search.sort === "quality-v1" ? search.sort : undefined,
     mine: String(search.mine) === "1" ? "1" : undefined,
     page:
       Number.isInteger(Number(search.page)) && Number(search.page) > 0

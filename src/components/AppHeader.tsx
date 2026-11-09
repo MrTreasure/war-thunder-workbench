@@ -10,6 +10,7 @@ import { PageNavigation } from "./PageNavigation";
 import { workbenchPage } from "../features";
 
 export function AppHeader() {
+  useLocale();
   const locale = useLocale();
 
   const page = useRouterState({
@@ -26,11 +27,11 @@ export function AppHeader() {
       <div className="app-header-inner">
         <div className="app-identity">
           <Link
-            to="/tree"
+            to="/home"
             preload={false}
             className="wt-home-link"
-            aria-label={t("返回研发科技树")}
-            title={t("返回研发科技树")}
+            aria-label={t("返回我的工作台")}
+            title={t("返回我的工作台")}
           >
             <img
               className="wt-brand-logo"

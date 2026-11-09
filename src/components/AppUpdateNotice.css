@@ -1,0 +1,42 @@
+.wt-app-update {
+  position: fixed;
+  z-index: 120;
+  inset: auto 16px max(76px, env(safe-area-inset-bottom)) auto;
+  width: min(440px, calc(100vw - 32px));
+  padding: 14px 16px;
+  color: var(--wt-ink);
+  background: var(--wt-panel);
+  border: 1px solid var(--wt-accent);
+  border-radius: 6px;
+  box-shadow: 0 8px 28px #0005;
+  font-size: 13px;
+}
+.wt-app-update-copy {
+  display: grid;
+  gap: 5px;
+}
+.wt-app-update-copy strong {
+  color: var(--wt-accent);
+}
+.wt-app-update-copy span,
+.wt-app-update-data {
+  color: var(--wt-muted);
+  line-height: 1.5;
+}
+.wt-app-update-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.wt-app-update-actions button {
+  min-height: 44px;
+  padding: 8px 12px;
+}
+.wt-app-update-data {
+  display: block;
+  margin: 8px 0 0;
+}
+.wt-app-update-data:first-child {
+  margin: 0;
+}

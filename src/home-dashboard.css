@@ -1,0 +1,188 @@
+.wt-home {
+  width: min(1560px, 100%);
+  margin-inline: auto;
+  padding: 28px 24px 40px;
+  color: var(--wt-ink);
+}
+.wt-home-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.wt-home-heading h2 {
+  margin: 4px 0 8px;
+  font-size: 26px;
+  font-weight: 500;
+}
+.wt-home-heading p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--wt-gold);
+  letter-spacing: 0.12em;
+}
+.wt-home-heading span,
+.wt-home-empty,
+.wt-home-shortcuts span,
+.wt-home-section li span {
+  color: var(--wt-muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+.wt-home-account {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.wt-home-shortcuts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.wt-home-shortcuts a {
+  display: grid;
+  gap: 6px;
+  padding: 18px;
+  border: 1px solid var(--wt-line);
+  background: var(--wt-surface);
+  color: inherit;
+  text-decoration: none;
+}
+.wt-home-shortcuts a:hover {
+  border-color: var(--wt-gold);
+}
+.wt-home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.wt-home-section {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--wt-line);
+  background: var(--wt-surface);
+}
+.wt-home-section > header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--wt-line);
+}
+.wt-home-section h3 {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+.wt-home-section h3 span {
+  color: var(--wt-muted);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+.wt-home-section a {
+  color: var(--wt-gold);
+  font-size: 13px;
+  text-decoration: none;
+}
+.wt-home-section a:hover {
+  text-decoration: underline;
+}
+.wt-home-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 320px;
+  overflow-y: auto;
+}
+.wt-home-section li {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--wt-line);
+}
+.wt-home-section li:last-child {
+  border-bottom: 0;
+}
+.wt-home-section li > div {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.wt-home-section li strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+.wt-home-section li a {
+  flex-shrink: 0;
+  padding-block: 10px;
+}
+.wt-home-empty {
+  padding: 24px 0 8px;
+  margin: 0;
+}
+.wt-home-watch-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 20px;
+}
+.wt-home-notice {
+  border: 1px solid var(--wt-line);
+  padding: 12px;
+  font-size: 13px;
+}
+.wt-home a:focus-visible {
+  outline: 2px solid var(--wt-gold);
+  outline-offset: 3px;
+}
+
+.wt-home-shortcuts strong {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.wt-home-section h3 { align-items: center; }
+.wt-home .wt-control-icon { flex-shrink: 0; object-fit: contain; }
+
+.wt-home-watch-list > .wt-game-card:has(> .wt-game-pack-price) { margin-bottom: 25px; }
+
+.wt-home-section-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+.wt-home-research-list { display: grid; gap: 20px; padding-top: 20px; }
+.wt-home-research-item { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+.wt-home-research-actions { display: grid; gap: 8px; justify-items: start; flex: 1; min-width: 180px; }
+.wt-home-research-actions button { min-height: 44px; }
+.wt-home-research-actions span { font-size: 12px; color: var(--wt-muted); }
+.wt-home-prerequisites-modal { width: min(960px, calc(100vw - 24px)); }
+.wt-home-prerequisites-content { padding: 20px; overflow-y: auto; }
+.wt-home-prerequisites-content > p { font-size: 13px; color: var(--wt-muted); margin-bottom: 20px; }
+.wt-home-prerequisites-grid { display: flex; gap: 24px; flex-wrap: wrap; }
+.wt-home-prerequisite { display: grid; gap: 8px; }
+.wt-home-prerequisite > span { font-size: 12px; color: var(--wt-muted); }
+.wt-home-prerequisites-modal[open] { display: flex; flex-direction: column; }
+.wt-home-prerequisites-modal > .calc-header { flex: none; }
+.wt-home-prerequisites-content { min-height: 0; flex: 1; }
+
+.wt-home-message { position: fixed; inset: 50% auto auto 50%; transform: translate(-50%, -50%); z-index: 10000; max-width: min(420px, calc(100vw - 32px)); padding: 16px 24px; border: 1px solid var(--wt-strong-line); border-radius: 8px; background: var(--wt-panel); color: var(--wt-ink); box-shadow: var(--wt-shadow); font-size: 14px; line-height: 1.6; text-align: center; pointer-events: none; overflow-wrap: anywhere; }
+.wt-home-research-progress { width: min(260px, 100%); min-width: 180px; display: grid; gap: 6px; }
+.wt-home-research-progress > div { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.wt-home-research-progress strong { color: var(--wt-gold); font-size: 13px; font-variant-numeric: tabular-nums; }
+.wt-home-research-progress progress { appearance: none; display: block; width: 100%; height: 7px; border: 0; border-radius: 4px; overflow: hidden; background: var(--wt-line); }
+.wt-home-research-progress progress::-webkit-progress-bar { background: var(--wt-line); }
+.wt-home-research-progress progress::-webkit-progress-value { background: var(--wt-gold); border-radius: 4px; }
+.wt-home-research-progress progress::-moz-progress-bar { background: var(--wt-gold); border-radius: 4px; }
+
+.wt-home-research-links { display: flex; align-items: center; justify-content: flex-end; gap: 20px; width: 100%; white-space: nowrap; }
+.wt-home-research-links .wt-home-text-action { border: 0; background: transparent; box-shadow: none; padding: 0; color: var(--wt-gold); font: inherit; font-size: 13px; cursor: pointer; }
+.wt-home-research-links > a { display: inline-flex; align-items: center; min-height: 44px; }
+.wt-home-text-action:hover { text-decoration: underline; }
+.wt-home-text-action:focus-visible { outline: 2px solid var(--wt-gold); outline-offset: 3px; }

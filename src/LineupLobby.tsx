@@ -2,7 +2,7 @@ import { localize, t, getLocale } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 // Fetch status and identity reset synchronize the current request/account with the UI.
 /* oxlint-disable react/set-state-in-effect */
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Route } from "./routes/_workbench.lineups_.lobby";
 import { LineupNavigation } from "./components/LineupNavigation";
@@ -26,12 +26,28 @@ import { useStored } from "./storage";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { useAccountWorkspace } from "./workspace-context";
 
+import { assertQualitySort, qualityExplanation, qualitySummary } from "./hall-quality";
+
 export function LineupLobby() {
   useLocale();
+  const account = useWorkbenchAccount();
+  return (
+    <LineupLobbyView key={`${account.session?.user?.id || "guest"}:${account.identityVersion}`} />
+  );
+}
+function LineupLobbyView() {
+ useLocale();
   const search = Route.useSearch();
   const navigate = Route.useNavigate();
   const account = useWorkbenchAccount();
   const userId = account.session?.user?.id;
+  const alive = useRef(true);
+  useEffect(() => {
+    alive.current = true;
+    return () => {
+      alive.current = false;
+    };
+  }, []);
   const [result, setResult] = useState<CommunityPage>({ items: [], page: 1, hasMore: false });
   const [detail, setDetail] = useState<CommunityPost | null>(null);
   const [busy, setBusy] = useState(true);
@@ -47,23 +63,23 @@ export function LineupLobby() {
   const [filtersOpen, setFiltersOpen] = useState(false);
   const countryLabel = (id: string) => (
     <span className={`lineup-country-option ${id ? "" : "is-all-countries"}`}>
-      {id && (
+      {localize(id && (
         <img
           src={bootstrap.flags[id as keyof typeof bootstrap.flags]}
           alt=""
           width={24}
           height={18}
         />
-      )}
+      ))}
       <span>
-        {id ? localize(bootstrap.countries[id as keyof typeof bootstrap.countries]) : t("全部国家")}
+        {localize(id ? localize(bootstrap.countries[id as keyof typeof bootstrap.countries]) : t("全部国家"))}
       </span>
       <small title={t("公开队列数")}>
-        {(id
+        {localize((id
           ? result.countryCounts
             ? (result.countryCounts[id] ?? 0)
             : undefined
-          : result.total) ?? "—"}
+          : result.total) ?? "—")}
       </small>
     </span>
   );
@@ -91,7 +107,10 @@ export function LineupLobby() {
           if (!abort.signal.aborted) setDetail(value);
         })
       : communityRequest<CommunityPage>(`posts?${query}`, undefined, abort.signal).then((value) => {
-          if (!abort.signal.aborted) setResult(value);
+          if (!abort.signal.aborted) {
+            assertQualitySort(value.items, search.sort || "", value.sort);
+            setResult(value);
+          }
         });
     void request
       .catch((cause) => {
@@ -101,7 +120,7 @@ export function LineupLobby() {
         if (!abort.signal.aborted) setBusy(false);
       });
     return () => abort.abort();
-  }, [search.post, query, revision, userId, account.identityVersion, search.mine]);
+  }, [search.post, query, revision, userId, account.identityVersion, search.mine, search.sort]);
   const posts = search.post ? (detail ? [detail] : []) : result.items;
   const facts = useVehicleCatalog(posts.map((p) => p.country));
   const units = useMemo(
@@ -133,15 +152,17 @@ export function LineupLobby() {
     setWorking(post.id);
     setMessage("");
     try {
-      update(
-        await communityRequest<CommunityPost>(`posts/${post.id}/vote`, {
-          value: post.vote === value ? 0 : value,
-        }),
-      );
+      const updated = await communityRequest<CommunityPost>(`posts/${post.id}/vote`, {
+        value: post.vote === value ? 0 : value,
+      });
+      if (alive.current) {
+        update(updated);
+        setRevision((v) => v + 1);
+      }
     } catch (cause) {
-      setMessage(cause instanceof Error ? cause.message : t("评价失败，请重试。"));
+      if (alive.current) setMessage(cause instanceof Error ? cause.message : "评价失败，请重试。");
     } finally {
-      setWorking("");
+      if (alive.current) setWorking("");
     }
   }
   async function copy(value: string) {
@@ -165,7 +186,7 @@ export function LineupLobby() {
           </Link>
         </header>
         <h2 className="sr-only">{t("队列大厅")}</h2>
-        {search.post ? (
+        {localize(search.post ? (
           <Link
             className="wt-community-back"
             to="/lineups/lobby"
@@ -183,7 +204,7 @@ export function LineupLobby() {
               onClick={() => setFiltersOpen((v) => !v)}
             >
               {t("筛选队列")}
-              <span aria-hidden="true">{filtersOpen ? "−" : "+"}</span>
+              <span aria-hidden="true">{localize(filtersOpen ? "−" : "+")}</span>
             </button>
             <div
               id="lineup-lobby-filters"
@@ -201,11 +222,11 @@ export function LineupLobby() {
                   onValueChange={(value) => filter("country", value)}
                 >
                   <option value="">{t("全部国家")}</option>
-                  {Object.entries(bootstrap.countries).map(([id, label]) => (
+                  {localize(Object.entries(bootstrap.countries).map(([id, label]) => (
                     <option key={id} value={id}>
                       {t(label)}
                     </option>
-                  ))}
+                  )))}
                 </GameSelect>
               </label>
               <label className="calc-field">
@@ -238,11 +259,11 @@ export function LineupLobby() {
                   onValueChange={(value) => filter("step", value)}
                 >
                   <option value="">{t("全部权重")}</option>
-                  {Array.from({ length: 43 }, (_, i) => (
+                  {localize(Array.from({ length: 43 }, (_, i) => (
                     <option key={i} value={String(i)}>
-                      {(1 + i / 3).toFixed(1)}
+                      {localize((1 + i / 3).toFixed(1))}
                     </option>
-                  ))}
+                  )))}
                 </GameSelect>
               </label>
               <label className="calc-field">
@@ -252,11 +273,11 @@ export function LineupLobby() {
                   onValueChange={(value) => filter("tag", value)}
                 >
                   <option value="">{t("全部标签")}</option>
-                  {communityTags.map((tag) => (
+                  {localize(communityTags.map((tag) => (
                     <option key={tag.id} value={tag.id}>
                       {t(tag.label)}
                     </option>
-                  ))}
+                  )))}
                 </GameSelect>
               </label>
               <label className="calc-field">
@@ -267,6 +288,7 @@ export function LineupLobby() {
                 >
                   <option value="">{t("最新发布")}</option>
                   <option value="popular">{t("最多推荐")}</option>
+                  <option value="quality-v1">{t("质量排序")}</option>
                 </GameSelect>
               </label>
               <button
@@ -279,22 +301,25 @@ export function LineupLobby() {
               >
                 {t("我的发布")}
               </button>
-              {query && (
+              {localize(query && (
                 <button
                   className="wt-vehicle-text-action"
                   onClick={() => void navigate({ search: {} })}
                 >
                   {t("清除筛选")}
                 </button>
-              )}
+              ))}
             </div>
           </section>
-        )}
-        {message && <output className="lineup-feedback">{message}</output>}
-        {error ? (
+        ))}
+        {localize(!search.post && search.sort === "quality-v1" && (
+          <p className="wt-community-notice">{localize(qualityExplanation)}</p>
+        ))}
+        {localize(message && <output className="lineup-feedback">{localize(message)}</output>)}
+        {localize(error ? (
           <div className="lineup-empty">
             <h3>{t("暂时无法读取队列")}</h3>
-            <p role="alert">{error}</p>
+            <p role="alert">{localize(error)}</p>
             <button className="quiet-button" onClick={() => setRevision((v) => v + 1)}>
               {t("重新加载")}
             </button>
@@ -303,7 +328,7 @@ export function LineupLobby() {
           <output className="lineup-feedback">{t("正在读取队列…")}</output>
         ) : posts.length ? (
           <div className={`wt-community-list ${search.post ? "is-detail" : ""}`}>
-            {posts.map((post) => (
+            {localize(posts.map((post) => (
               <CommunityCard
                 key={post.id}
                 post={post}
@@ -319,27 +344,27 @@ export function LineupLobby() {
                 }}
                 onCopy={(value) => void copy(value)}
               />
-            ))}
+            )))}
           </div>
         ) : (
           <div className="lineup-empty">
             <h3>
-              {search.mine
+              {localize(search.mine
                 ? t("还没有分享过队列")
                 : query
                   ? t("这个组合暂时没有队列")
-                  : t("第一支队列，等你出击")}
+                  : t("第一支队列，等你出击"))}
             </h3>
             <p>
-              {query
+              {localize(query
                 ? t("调整国家、模式或权重，看看其他方案。")
-                : t("在我的队列中选择一个方案，贴上标签后分享。")}
+                : t("在我的队列中选择一个方案，贴上标签后分享。"))}
             </p>
             <Link className="quiet-button" to="/lineups">
               {t("前往我的队列")}
             </Link>
           </div>
-        )}
+        ))}
         <details className="wt-community-rules">
           <summary>{t("权重规则与来源")}</summary>
           <p className="wt-community-notice">
@@ -348,7 +373,7 @@ export function LineupLobby() {
             )}
           </p>
         </details>
-        {!search.post && !busy && !error && (result.hasMore || (search.page || 1) > 1) && (
+        {localize(!search.post && !busy && !error && (result.hasMore || (search.page || 1) > 1) && (
           <nav className="wt-community-pagination" aria-label={t("队列分页")}>
             <button
               className="quiet-button"
@@ -366,7 +391,7 @@ export function LineupLobby() {
             </button>
             <span>
               {t("第")}
-              {search.page || 1}
+              {localize(search.page || 1)}
               {t("页 · 每页 24 个")}
             </span>
             <button
@@ -384,10 +409,10 @@ export function LineupLobby() {
               {t("下一页")}
             </button>
           </nav>
-        )}
-        {save && <SaveCommunityLineup key={save.id} post={save} close={() => setSave(null)} />}
-        {image && <LineupImageDialog post={image} units={units} close={() => setImage(null)} />}
-        {withdraw && (
+        ))}
+        {localize(save && <SaveCommunityLineup key={save.id} post={save} close={() => setSave(null)} />)}
+        {localize(image && <LineupImageDialog post={image} units={units} close={() => setImage(null)} />)}
+        {localize(withdraw && (
           <Modal
             title={t("下架队列")}
             subtitle={t("下架后大厅和公开链接将不再展示。你的私人队列不会删除。")}
@@ -415,8 +440,8 @@ export function LineupLobby() {
               {t("确认下架")}
             </button>
           </Modal>
-        )}
-        {report && (
+        ))}
+        {localize(report && (
           <Modal
             title={t("举报队列")}
             subtitle={t("请选择原因。举报不会扣除查询额度。")}
@@ -450,7 +475,7 @@ export function LineupLobby() {
               {t("提交举报")}
             </button>
           </Modal>
-        )}
+        ))}
       </div>
     </main>
   );
@@ -478,6 +503,7 @@ function CommunityCard({
   onReport: () => void;
   onCopy: (value: string) => void;
 }) {
+ useLocale();
   const workspace = useAccountWorkspace();
   const currentSearch = Route.useSearch();
   const ids = post.slots.filter((id): id is string => !!id);
@@ -495,25 +521,25 @@ function CommunityCard({
           />
           <h3>
             <Link to="/lineups/lobby" search={{ ...currentSearch, post: post.id }}>
-              {t(bootstrap.countries[post.country as keyof typeof bootstrap.countries])}{" "}
-              <b>{post.rating}</b> <span>{communityMode(post.battle, post.mode)}</span>
+              {t(bootstrap.countries[post.country as keyof typeof bootstrap.countries])}{localize(" ")}
+              <b>{localize(post.rating)}</b> <span>{localize(communityMode(post.battle, post.mode))}</span>
             </Link>
           </h3>
         </div>
         <div className="wt-community-card-tags">
-          {post.tags.map((id) => (
+          {localize(post.tags.map((id) => (
             <LineupTag key={id} id={id} tone={post.tagTones?.[id] || "original"} />
-          ))}
+          )))}
         </div>
         <div className="wt-community-author">
-          <strong>{post.author}</strong>
+          <strong>{localize(post.author)}</strong>
           <time dateTime={post.createdAt}>
-            {new Date(post.createdAt).toLocaleDateString(getLocale())}
+            {localize(new Date(post.createdAt).toLocaleDateString(getLocale()))}
           </time>
         </div>
       </header>
       <section className="wt-community-crew" aria-label={t("载具列表，可横向滚动")} tabIndex={0}>
-        {ids.map((id) =>
+        {localize(ids.map((id) =>
           units.has(id) ? (
             <VehicleTile
               key={id}
@@ -528,9 +554,10 @@ function CommunityCard({
               {t("正在读取载具资料…")}
             </span>
           ),
-        )}
+        ))}
       </section>
       <footer>
+        <small>{localize(qualitySummary(post.quality, post.up, post.down))}</small>
         <div className="wt-community-votes">
           <button
             disabled={working || post.mine}
@@ -539,7 +566,7 @@ function CommunityCard({
             onClick={() => onVote(1)}
           >
             {t("↑ 推荐")}
-            {post.up}
+            {localize(post.up)}
           </button>
           <button
             disabled={working || post.mine}
@@ -548,15 +575,15 @@ function CommunityCard({
             onClick={() => onVote(-1)}
           >
             {t("↓ 不推荐")}
-            {post.down}
+            {localize(post.down)}
           </button>
         </div>
-        {workspace?.binding && (
+        {localize(workspace?.binding && (
           <small>
             {t("我的车库")}
-            {owned}/{ids.length}
+            {localize(owned)}/{localize(ids.length)}
           </small>
-        )}
+        ))}
         <div className="wt-community-actions">
           <button className="quiet-button" onClick={onSave}>
             {t("保存到我的队列")}
@@ -575,14 +602,14 @@ function CommunityCard({
             <summary>{t("更多")}</summary>
             <div>
               <button onClick={() => onCopy(communityLink(post.id))}>{t("复制队列链接")}</button>
-              {post.mine ? (
+              {localize(post.mine ? (
                 <button onClick={onWithdraw}>{t("下架队列")}</button>
               ) : (
                 <button onClick={onReport}>{t("举报队列")}</button>
-              )}
+              ))}
               <div className="wt-community-code">
-                <span>{post.id}</span>
-                <code>{post.code}</code>
+                <span>{localize(post.id)}</span>
+                <code>{localize(post.code)}</code>
               </div>
             </div>
           </details>
@@ -592,6 +619,7 @@ function CommunityCard({
   );
 }
 function SaveCommunityLineup({ post, close }: { post: CommunityPost; close: () => void }) {
+ useLocale();
   const account = useWorkbenchAccount();
   const workspace = useAccountWorkspace();
   const [saved, save, error] = useStored<Lineup[]>(
@@ -608,16 +636,16 @@ function SaveCommunityLineup({ post, close }: { post: CommunityPost; close: () =
   const blocked = !!account.session?.user && (!workspace?.ready || !workspace?.consented);
   return (
     <Modal
-      title={done ? t("已保存到我的队列") : t("保存队列方案")}
+      title={localize(done ? t("已保存到我的队列") : t("保存队列方案"))}
       subtitle={
-        account.session?.user
+        localize(account.session?.user
           ? t("保存为你账号中的新队列，不会覆盖已有方案。")
-          : t("将保存到当前浏览器；登录后可使用账号云端队列。")
+          : t("将保存到当前浏览器；登录后可使用账号云端队列。"))
       }
       close={close}
       className="wt-community-dialog"
     >
-      {done ? (
+      {localize(done ? (
         <Link className="quiet-button calc-open" to="/lineups" search={{ country: post.country }}>
           {t("打开我的队列 ↗")}
         </Link>
@@ -628,14 +656,14 @@ function SaveCommunityLineup({ post, close }: { post: CommunityPost; close: () =
             <input maxLength={80} value={name} onChange={(e) => setName(e.target.value)} />
           </label>
           <p className="calc-note">
-            {post.slots.filter(Boolean).length}
+            {localize(post.slots.filter(Boolean).length)}
             {t("辆 ·")}
-            {communityMode(post.battle, post.mode)}
+            {localize(communityMode(post.battle, post.mode))}
             {t("· 原始槽位和出击选择会保留。")}
           </p>
-          {blocked && (
+          {localize(blocked && (
             <p className="calc-note">{t("请先在账号菜单中启用云端数据，再保存到账号。")}</p>
-          )}
+          ))}
           <button
             className="quiet-button calc-open"
             disabled={blocked || !name.trim()}
@@ -661,13 +689,13 @@ function SaveCommunityLineup({ post, close }: { post: CommunityPost; close: () =
           >
             {t("确认保存")}
           </button>
-          {error && (
+          {localize(error && (
             <p role="alert" className="lineup-feedback is-error">
-              {error}
+              {localize(error)}
             </p>
-          )}
+          ))}
         </>
-      )}
+      ))}
     </Modal>
   );
 }

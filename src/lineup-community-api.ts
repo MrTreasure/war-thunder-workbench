@@ -7,6 +7,7 @@ import type { Mode } from "./models";
 export const communityTags = registry.tags;
 export const communityRules = registry;
 export type CommunityPost = {
+  quality?: import("./hall-quality").HallQuality;
   id: string;
   country: string;
   code: string;
@@ -27,6 +28,7 @@ export type CommunityPost = {
   mine: boolean;
 };
 export type CommunityPage = {
+  sort?: string;
   items: CommunityPost[];
   page: number;
   hasMore: boolean;

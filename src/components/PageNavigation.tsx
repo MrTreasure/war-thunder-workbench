@@ -1,3 +1,4 @@
+import { localize } from "../i18n/core";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useLocale } from "../i18n/react";
 import { t } from "../i18n/core";
@@ -8,6 +9,7 @@ export function PageNavigation({
   page,
 }: {
   page:
+    | "home"
     | "tree"
     | "lineups"
     | "maps"
@@ -25,6 +27,9 @@ export function PageNavigation({
   return (
     <>
       <nav className="page-navigation" aria-label={t("工具页面")}>
+        <Link to="/home" preload={false} aria-current={page === "home" ? "page" : undefined}>
+          {t("我的")}
+        </Link>
         <Link to="/tree" preload={false} aria-current={page === "tree" ? "page" : undefined}>
           {t("科技树")}
         </Link>
@@ -51,14 +56,16 @@ export function PageNavigation({
         >
           {t("模拟挂载")}
         </Link>
-        {testAccess && (
-          <Link
-            to="/weakpoints"
-            preload={false}
-            aria-current={page === "weakpoints" ? "page" : undefined}
-          >
-            {t("坦克弱点")}
-          </Link>
+        {localize(
+          testAccess && (
+            <Link
+              to="/weakpoints"
+              preload={false}
+              aria-current={page === "weakpoints" ? "page" : undefined}
+            >
+              {t("坦克弱点")}
+            </Link>
+          ),
         )}
       </nav>
       <nav className="mobile-page-navigation" aria-label={t("工具页面")}>
@@ -68,7 +75,8 @@ export function PageNavigation({
           onValueChange={(value) => {
             const next = value;
             if (
-              (next === "tree" ||
+              (next === "home" ||
+                next === "tree" ||
                 next === "lineups" ||
                 next === "maps" ||
                 next === "stats" ||
@@ -80,22 +88,27 @@ export function PageNavigation({
               void navigate({ to: next === "lineups" ? "/lineups/lobby" : `/${next}` });
           }}
         >
-          {page === "disclaimer" && (
-            <option value="disclaimer" disabled>
-              {t("免责声明")}
-            </option>
+          {localize(
+            page === "disclaimer" && (
+              <option value="disclaimer" disabled>
+                {t("免责声明")}
+              </option>
+            ),
           )}
+          <option value="home">{t("我的")}</option>
           <option value="tree">{t("科技树")}</option>
           <option value="lineups">{t("出击队列")}</option>
           <option value="maps">{t("陆战地图")}</option>
           <option value="stats">{t("战绩查询")}</option>
           <option value="sales">{t("折扣日历")}</option>
           <option value="loadouts">{t("模拟挂载")}</option>
-          {testAccess && <option value="weakpoints">{t("坦克弱点")}</option>}
-          {!testAccess && page === "weakpoints" && (
-            <option value="weakpoints" disabled>
-              {t("坦克弱点（测试权限）")}
-            </option>
+          {localize(testAccess && <option value="weakpoints">{t("坦克弱点")}</option>)}
+          {localize(
+            !testAccess && page === "weakpoints" && (
+              <option value="weakpoints" disabled>
+                {t("坦克弱点（测试权限）")}
+              </option>
+            ),
           )}
         </GameSelect>
       </nav>

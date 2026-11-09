@@ -2,6 +2,7 @@ import { vehicleSearchText } from "./i18n/core";
 import { localize } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { t, vehicleName } from "./i18n/core";
+import { AppUpdateNotice } from "./components/AppUpdateNotice";
 import { vehicleStore } from "./vehicle-store";
 import { VehicleComparison } from "./VehicleComparison";
 import {
@@ -138,7 +139,9 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (
       garagePage ||
-      ["maps", "stats", "sales", "decals", "disclaimer", "loadouts", "weakpoints"].includes(page) ||
+      ["home", "maps", "stats", "sales", "decals", "disclaimer", "loadouts", "weakpoints"].includes(
+        page,
+      ) ||
       !country ||
       !countryEntry
     )
@@ -238,6 +241,31 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
       : null;
     return fresh && fresh !== entry.unit ? { ...entry, unit: fresh } : entry;
   });
+  const treeSearch = useRouterState({
+    select: (state) =>
+      state.location.search as { country?: string; category?: string; plan?: boolean },
+  });
+  useEffect(() => {
+    if (
+      page !== "tree" ||
+      !treeSearch.plan ||
+      !treeSearch.country ||
+      !treeSearch.category ||
+      !Object.hasOwn(bootstrap.countries, treeSearch.country) ||
+      !Object.hasOwn(bootstrap.categories, treeSearch.category)
+    )
+      return;
+    // Apply explicit route intent after the legacy hash listener has restored its state.
+    const requestedCountry = treeSearch.country;
+    const requestedCategory = treeSearch.category;
+    const frame = requestAnimationFrame(() => {
+      setCountry(requestedCountry);
+      setCategory(requestedCategory);
+      setSelected(null);
+      setModal("vehicle");
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [page, treeSearch.country, treeSearch.category, treeSearch.plan, bootstrap]);
   const preferenceSearch = useRef(location.search);
   useEffect(() => {
     function restoreRoute() {
@@ -524,8 +552,8 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
           <span>
             <strong>{t("筛选与操作")}</strong>
             <small>
-              {localize(P.countries[country] || t("选择国家"))} · {localize(P.categories[category])}{" "}
-              · {localize(mode.toUpperCase())}
+              {localize(P.countries[country] || t("选择国家"))} · {localize(P.categories[category])}
+              {localize(" ")}· {localize(mode.toUpperCase())}
               {localize(
                 query ? t(" · 搜索：{0}", [query]) : filter !== "all" ? t(" · 已筛选") : "",
               )}
@@ -615,18 +643,22 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                   />
                   <kbd>/</kbd>
                 </label>
-                {showResults && query && (
-                  <div className="search-results">
-                    {matches.slice(0, 9).map((unit) => (
-                      <button key={unit.id} onClick={() => select(unit.id, true)}>
-                        <span>{vehicleName(unit)}</span>
-                        <small>Rank {localize(unit.rank)}</small>
-                      </button>
-                    ))}
-                    <p>
-                      {localize(matches.length)} {t("个匹配；点击定位并高亮路线。")}
-                    </p>
-                  </div>
+                {localize(
+                  showResults && query && (
+                    <div className="search-results">
+                      {localize(
+                        matches.slice(0, 9).map((unit) => (
+                          <button key={unit.id} onClick={() => select(unit.id, true)}>
+                            <span>{vehicleName(unit)}</span>
+                            <small>Rank {localize(unit.rank)}</small>
+                          </button>
+                        )),
+                      )}
+                      <p>
+                        {localize(matches.length)} {t("个匹配；点击定位并高亮路线。")}
+                      </p>
+                    </div>
+                  ),
                 )}
               </div>
               <label className="compact-field">
@@ -683,9 +715,10 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                 onClick={() => setComparisonOpen(true)}
                 aria-haspopup="dialog"
               >
-                {t("\u8F7D\u5177\u5BF9\u6BD4")}{" "}
+                {t("\u8F7D\u5177\u5BF9\u6BD4")}
+                {localize(" ")}
                 <span className="cart-badge">
-                  {comparedVehicles.length} / {VEHICLE_COMPARE_LIMIT}
+                  {localize(comparedVehicles.length)} / {localize(VEHICLE_COMPARE_LIMIT)}
                 </span>
               </button>
               <div className="zoom-control">
@@ -699,7 +732,7 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
                 >
                   −
                 </button>
-                <output>{Math.round(zoom * 100)}%</output>
+                <output>{localize(Math.round(zoom * 100))}%</output>
                 <button
                   onClick={() => setAutoZoom(true)}
                   aria-pressed={autoZoom}
@@ -905,50 +938,52 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
             </span>
           </div>
         </footer>
-        {unit && (
-          <Modal
-            className="vehicle-detail-dialog"
-            close={() => setSelected(null)}
-            subtitle={t("性能、武器与研发资料")}
-            title={
-              <a
-                className="detail-title-link"
-                href={`https://wiki.warthunder.com/unit/${encodeURIComponent(unit.id)}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {vehicleName(unit)} <span aria-hidden="true">↗</span>
-              </a>
-            }
-          >
-            <VehicleDetails
-              unit={unit}
-              modifications={modifications?.[unit.id]}
-              catalog={P}
-              country={country}
-              category={category}
-              mode={mode}
-              path={path
-                .map((id) => indexed.units.get(id))
-                .filter((value): value is NonNullable<typeof value> => !!value)}
-              onImage={() => setModal("image")}
-              onVehicle={() => setModal("vehicle")}
-              onParts={openParts}
-              onSelect={setSelected}
-              onCompare={
-                !comparedVehicles.length || comparedVehicles[0].category === category
-                  ? () =>
-                      setComparedVehicles((old) =>
-                        addComparedVehicle(old, { unit, country, category }),
-                      )
-                  : undefined
-              }
-              comparisonAdded={comparedVehicles.some(
-                (entry) => comparedVehicleKey(entry) === `${country}:${unit.id}`,
+        {localize(
+          unit && (
+            <Modal
+              className="vehicle-detail-dialog"
+              close={() => setSelected(null)}
+              subtitle={t("性能、武器与研发资料")}
+              title={localize(
+                <a
+                  className="detail-title-link"
+                  href={`https://wiki.warthunder.com/unit/${encodeURIComponent(unit.id)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {vehicleName(unit)} <span aria-hidden="true">↗</span>
+                </a>,
               )}
-              comparisonFull={comparedVehicles.length >= VEHICLE_COMPARE_LIMIT}
-            />
-          </Modal>
+            >
+              <VehicleDetails
+                unit={unit}
+                modifications={modifications?.[unit.id]}
+                catalog={P}
+                country={country}
+                category={category}
+                mode={mode}
+                path={path
+                  .map((id) => indexed.units.get(id))
+                  .filter((value): value is NonNullable<typeof value> => !!value)}
+                onImage={() => setModal("image")}
+                onVehicle={() => setModal("vehicle")}
+                onParts={openParts}
+                onSelect={setSelected}
+                onCompare={
+                  !comparedVehicles.length || comparedVehicles[0].category === category
+                    ? () =>
+                        setComparedVehicles((old) =>
+                          addComparedVehicle(old, { unit, country, category }),
+                        )
+                    : undefined
+                }
+                comparisonAdded={comparedVehicles.some(
+                  (entry) => comparedVehicleKey(entry) === `${country}:${unit.id}`,
+                )}
+                comparisonFull={comparedVehicles.length >= VEHICLE_COMPARE_LIMIT}
+              />
+            </Modal>
+          ),
         )}
       </main>
       {localize(
@@ -958,15 +993,17 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
           </p>
         ),
       )}
-      {modal === "image" && unit && (
-        <Modal
-          className="vehicle-image-modal"
-          title={vehicleName(unit)}
-          subtitle={t("官方载具大图")}
-          close={() => setModal(null)}
-        >
-          <VehicleImage key={unit.id} unit={unit} />
-        </Modal>
+      {localize(
+        modal === "image" && unit && (
+          <Modal
+            className="vehicle-image-modal"
+            title={vehicleName(unit)}
+            subtitle={t("官方载具大图")}
+            close={() => setModal(null)}
+          >
+            <VehicleImage key={unit.id} unit={unit} />
+          </Modal>
+        ),
       )}
       {localize(
         modal === "parts" && tree && modifications && (
@@ -1004,22 +1041,25 @@ export function WorkbenchProvider({ children }: { children: ReactNode }) {
           />
         ),
       )}
-      {comparisonOpen && (
-        <VehicleComparison
-          entries={comparisonEntries}
-          catalog={P}
-          initialMode={mode === "ab" ? "ab" : "rb"}
-          close={() => setComparisonOpen(false)}
-          onRemove={(keys) => setComparedVehicles((old) => removeComparedVehicles(old, keys))}
-          onSetBaseline={(key) =>
-            setComparedVehicles((old) => setComparedVehicleBaseline(old, key))
-          }
-        />
+      {localize(
+        comparisonOpen && (
+          <VehicleComparison
+            entries={comparisonEntries}
+            catalog={P}
+            initialMode={mode === "ab" ? "ab" : "rb"}
+            close={() => setComparisonOpen(false)}
+            onRemove={(keys) => setComparedVehicles((old) => removeComparedVehicles(old, keys))}
+            onSetBaseline={(key) =>
+              setComparedVehicles((old) => setComparedVehicleBaseline(old, key))
+            }
+          />
+        ),
       )}
     </div>
   );
   return (
     <WorkbenchPages.Provider value={{ tree: treePage, lineups: lineupsPage }}>
+      <AppUpdateNotice country={page === "tree" || page === "lineups" ? country : undefined} />
       {localize(children)}
     </WorkbenchPages.Provider>
   );

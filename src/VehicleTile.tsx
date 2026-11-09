@@ -14,7 +14,6 @@ import { compactResearchPoints } from "./research-number-format";
 import { format } from "./quotes";
 import { cnyPrice } from "./PackPrice";
 import { rating } from "./vehicle-labels";
-import flags from "../data/flags.json";
 import { marketPriceLabel } from "./MarketPrice";
 
 /** A display adapter accepts only known facts; no country data is fetched by a tile. */
@@ -61,6 +60,7 @@ export function VehicleTile({
   showPackPrice = true,
   countryLabel,
   country,
+  countryFlag,
 }: {
   unit: VehicleTileUnit;
   catalog?: Pick<Catalog, "kinds" | "roles">;
@@ -85,6 +85,8 @@ export function VehicleTile({
   countryLabel?: string;
   /** Optional in-card country identity; does not load another country payload. */
   country?: string;
+  /** Verified display identity supplied by a caller that already has flag evidence. */
+  countryFlag?: { id: string; url: string; name: string };
 }) {
   useLocale();
   const facts = useVehicleFacts();
@@ -153,11 +155,11 @@ export function VehicleTile({
           : premium
             ? "高级载具"
             : catalog.kinds[unit.kind || ""] || "特殊载具";
-  const caption = [
-    !country && countryLabel,
-    footerLabel,
-    showRank && unit.rank ? `Rank ${unit.rank}` : null,
-  ]
+  const displayCountry =
+    countryFlag?.name ||
+    countryLabel ||
+    (country ? bootstrap.countries[country as keyof typeof bootstrap.countries] || country : "");
+  const caption = [displayCountry, footerLabel, showRank && unit.rank ? `Rank ${unit.rank}` : null]
     .filter(Boolean)
     .join(" · ");
   const Element = onSelect ? "button" : href ? "a" : "span";
@@ -175,6 +177,7 @@ export function VehicleTile({
       rel={!onSelect && href ? "noreferrer" : undefined}
       data-kind={unit.kind || "unknown"}
       data-country={country || undefined}
+      data-flag={countryFlag?.id}
       data-owned={owned || undefined}
       disabled={onSelect ? disabled : undefined}
       type={onSelect ? "button" : undefined}
@@ -207,7 +210,7 @@ export function VehicleTile({
       onClick={onSelect}
       aria-label={localize(
         showAcquisition
-          ? `${name}，${country ? (countryLabel || bootstrap.countries[country as keyof typeof bootstrap.countries] || country) + "，" : ""}Rank ${unit.rank || "—"}${owned ? "，已拥有" : ""}，${exact}${onSelect ? "，查看载具详情" : ""}`
+          ? `${name}，${country ? (countryFlag?.name || countryLabel || bootstrap.countries[country as keyof typeof bootstrap.countries] || country) + "，" : ""}Rank ${unit.rank || "—"}${owned ? "，已拥有" : ""}，${exact}${onSelect ? "，查看载具详情" : ""}`
           : `${name}${owned ? "，已拥有" : ""}${onSelect ? "，查看载具详情" : ""}`,
       )}
       title={localize(showAcquisition ? `${name} · ${exact}` : name)}
@@ -222,29 +225,6 @@ export function VehicleTile({
         ),
       )}
       <VehicleThumbnail unit={mediaUnit} />
-      {localize(
-        country && (
-          <span className="wt-game-card-country">
-            {localize(
-              (flags as Record<string, string>)[country] && (
-                <img
-                  src={(flags as Record<string, string>)[country]}
-                  width={20}
-                  height={14}
-                  alt=""
-                />
-              ),
-            )}
-            <span>
-              {localize(
-                countryLabel ||
-                  bootstrap.countries[country as keyof typeof bootstrap.countries] ||
-                  country,
-              )}
-            </span>
-          </span>
-        ),
-      )}
       <span className={`unit-name ${name.length > 17 ? "is-long" : ""}`} title={localize(name)}>
         {localize(name)}
       </span>
@@ -339,9 +319,9 @@ export function VehicleTile({
         caption && (
           <span className="wt-game-card-caption" title={localize(caption)}>
             {localize(
-              ((!country && countryLabel) || footerLabel) && (
+              (displayCountry || footerLabel) && (
                 <span className="wt-game-card-caption-context">
-                  {localize([!country && countryLabel, footerLabel].filter(Boolean).join(" · "))}
+                  {localize([displayCountry, footerLabel].filter(Boolean).join(" · "))}
                 </span>
               ),
             )}

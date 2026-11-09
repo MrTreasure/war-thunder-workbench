@@ -1,6 +1,8 @@
 import { t, localize, vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { useCallback, useState } from "react";
+import { useAccountWorkspace } from "./workspace-context";
+import { VehicleActions } from "./components/VehicleActions";
 import { VehicleTags } from "./VehicleTags";
 import { VehicleTile } from "./VehicleTile";
 import type { Catalog, Mode, Vehicle, ModificationData } from "./models";
@@ -10,7 +12,7 @@ import { VehicleBattleRatings } from "./VehicleBattleRatings";
 import { VehiclePerformance } from "./VehiclePerformance";
 import { VehicleLoadouts } from "./VehicleLoadouts";
 import { GameIcon } from "./components/GameIcon";
-import { GameButton, GameLinkButton } from "./components/GameButton";
+import { GameLinkButton } from "./components/GameButton";
 import { GameTabs, type GameTab } from "./components/GameTabs";
 import { VehicleSaleCartAction } from "./VehicleSaleCartAction";
 import { LoadoutRecommendations } from "./LoadoutRecommendations";
@@ -58,14 +60,23 @@ export function VehicleDetails({
   modifications?: ModificationData;
 }) {
   useLocale();
-  const [choice, setChoice] = useState<{
-    id: string;
-    tab: DetailTab;
-  } | null>(null);
-  const [resolved, setResolved] = useState<{
-    id: string;
-    count: number;
-  } | null>(null);
+  const workspace = useAccountWorkspace();
+  const owned = workspace?.ownedVehicleIds.has(unit.id) || false;
+  const performance = unit.wikiDetails?.performance;
+  const checkedDate = (value: string | undefined) =>
+    value && Number.isFinite(Date.parse(value)) ? value.slice(0, 10) : "时间未知";
+  const performanceState =
+    performance?.status === "available"
+      ? "已采集公开性能资料"
+      : performance?.status === "not_provided"
+        ? "Wiki 未提供"
+        : performance?.status === "parse_failed"
+          ? "解析失败"
+          : performance?.status === "none" || performance?.status === "not_applicable"
+            ? "来源无适用性能数据"
+            : "尚未采集";
+  const [choice, setChoice] = useState<{ id: string; tab: DetailTab } | null>(null);
+  const [resolved, setResolved] = useState<{ id: string; count: number } | null>(null);
   const onTagsResolved = useCallback(
     (count: number) => {
       setResolved((previous) =>
@@ -131,7 +142,7 @@ export function VehicleDetails({
             <div>
               <dt>{t("阶级 / 类型")}</dt>
               <dd>
-                Rank {localize(unit.rank)} ·{" "}
+                Rank {localize(unit.rank)} ·{localize(" ")}
                 {localize(unit.role ? catalog.roles[unit.role] || unit.role : t("暂无资料"))}
               </dd>
             </div>
@@ -145,34 +156,82 @@ export function VehicleDetails({
                 )}
               </dd>
             </div>
+            <div>
+              <dt>{t("拥有状态")}</dt>
+              <dd
+                title={localize(
+                  workspace?.binding
+                    ? `来自关联账号公开车库 · ${checkedDate(workspace.binding.fetchedAt)}`
+                    : undefined,
+                )}
+              >
+                {localize(
+                  owned
+                    ? "已拥有 · 公开车库记录"
+                    : workspace?.binding
+                      ? "公开车库未记录拥有"
+                      : workspace?.ready
+                        ? "尚未关联游戏账号"
+                        : "拥有状态未确认",
+                )}
+              </dd>
+            </div>
+            <div>
+              <dt>{t("配件资料")}</dt>
+              <dd>
+                {localize(
+                  modifications?.status === "verified"
+                    ? `已核对 · ${checkedDate(modifications.checkedAt)}`
+                    : "暂无已核对资料",
+                )}
+                {localize(
+                  modifications?.status === "verified" &&
+                    modifications.source.startsWith("https://") && (
+                      <>
+                        {localize(" ")}·{localize(" ")}
+                        <a href={modifications.source} target="_blank" rel="noopener noreferrer">
+                          {t("来源 ↗")}
+                        </a>
+                      </>
+                    ),
+                )}
+              </dd>
+            </div>
+            <div>
+              <dt>{t("性能资料")}</dt>
+              <dd>
+                {localize(performanceState)}
+                {localize(performance && ` · ${checkedDate(performance.checkedAt)}`)}
+                {localize(
+                  performance?.source.startsWith("https://") && (
+                    <>
+                      {localize(" ")}·{localize(" ")}
+                      <a href={performance.source} target="_blank" rel="noopener noreferrer">
+                        {t("来源 ↗")}
+                      </a>
+                    </>
+                  ),
+                )}
+              </dd>
+            </div>
           </dl>
           <VehicleBattleRatings unit={unit} category={category} mode={mode} />
           <div className="wt-detail-actions">
-            <GameButton
-              tone="primary"
-              icon="research"
-              disabled={unit.side !== "research"}
-              title={unit.side !== "research" ? t("独立获取载具不接入常规研发路线") : undefined}
-              onClick={onVehicle}
-            >
-              {t("研发载具")}
-            </GameButton>
-            <GameButton icon="performance" onClick={onParts}>
-              {t("研发配件")}
-            </GameButton>
-            {onCompare && (
-              <GameButton
-                icon="compare"
-                onClick={onCompare}
-                disabled={comparisonAdded || comparisonFull}
-              >
-                {comparisonAdded
-                  ? t("\u5DF2\u52A0\u5165\u5BF9\u6BD4")
-                  : comparisonFull
-                    ? t("\u5BF9\u6BD4\u5DF2\u6EE1\uFF085\u8F86\uFF09")
-                    : t("\u52A0\u5165\u5BF9\u6BD4")}
-              </GameButton>
-            )}
+            <VehicleActions
+              onResearch={onVehicle}
+              researchDisabled={unit.side !== "research"}
+              onParts={onParts}
+              compare={
+                onCompare
+                  ? { run: onCompare, added: comparisonAdded, full: comparisonFull }
+                  : undefined
+              }
+              loadoutHref={
+                hasConfigurableLoadout(unit.wikiDetails?.loadouts)
+                  ? `#/loadouts?country=${encodeURIComponent(country)}&vehicle=${encodeURIComponent(unit.id)}`
+                  : undefined
+              }
+            />
             <VehicleSaleCartAction
               key={`${country}:${category}:${unit.id}`}
               unit={unit}
@@ -180,27 +239,31 @@ export function VehicleDetails({
               country={country}
               category={category}
             />
-            {unit.store && (
-              <GameLinkButton
-                tone="ghost"
-                icon="store"
-                href={unit.store}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {t("官方礼包 ↗")}
-              </GameLinkButton>
+            {localize(
+              unit.store && (
+                <GameLinkButton
+                  tone="ghost"
+                  icon="store"
+                  href={unit.store}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {t("官方礼包 ↗")}
+                </GameLinkButton>
+              ),
             )}
-            {unit.market && (
-              <GameLinkButton
-                tone="ghost"
-                icon="external"
-                href={unit.market}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {t("市场 ↗")}
-              </GameLinkButton>
+            {localize(
+              unit.market && (
+                <GameLinkButton
+                  tone="ghost"
+                  icon="external"
+                  href={unit.market}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {t("市场 ↗")}
+                </GameLinkButton>
+              ),
             )}
           </div>
         </div>
@@ -213,70 +276,85 @@ export function VehicleDetails({
         onValueChange={setTab}
         className="wt-detail-tabs"
       />
-      {items.map((item) => (
-        <section
-          key={item.value}
-          role="tabpanel"
-          id={`${id}-${item.value}-panel`}
-          aria-labelledby={`${id}-${item.value}-tab`}
-          hidden={active !== item.value}
-          className="wt-detail-panel"
-        >
-          {item.value === "tags" ? (
-            <VehicleTags key={unit.id} vehicleId={unit.id} onResolved={onTagsResolved} />
-          ) : (
-            active === item.value &&
-            (!ready ? (
-              <output className="wt-detail-pending">{t("正在读取载具标签…")}</output>
-            ) : ["performance", "statistics"].includes(item.value) ? (
-              <>
-                <VehiclePerformance
-                  key={unit.id}
-                  unit={unit}
-                  category={category}
-                  view={item.value === "statistics" ? "table" : "chart"}
-                  comparisonMode={performanceMode}
-                  onModeChange={setPerformanceMode}
-                />
-                {item.value === "statistics" && category === "ground" && (
-                  <VehicleGroundCombat key={unit.id} unit={unit} />
-                )}
-              </>
-            ) : item.value === "equipment" ? (
-              <VehicleEquipment unit={unit} category={category} modifications={modifications} />
-            ) : item.value === "loadouts" ? (
-              <VehicleLoadouts unit={unit} />
-            ) : item.value === "recommendations" ? (
-              <LoadoutRecommendations key={unit.id} unit={unit} country={country} />
-            ) : item.value === "information" ? (
-              <VehicleWikiFacts unit={unit} />
-            ) : (
-              <section className="wt-detail-route" aria-labelledby="wt-detail-route-title">
-                <div className="wt-detail-section-heading">
-                  <h3 id="wt-detail-route-title">{t("必要前置路线")}</h3>
-                  <span>
-                    {Math.max(0, path.length - 1)}
-                    {t("辆前置")}
-                  </span>
-                </div>
-                <ol className="wt-detail-route-list">
-                  {path.map((previous) => (
-                    <li key={previous.id} className={previous.id === unit.id ? "is-target" : ""}>
-                      <VehicleTile
-                        unit={previous}
-                        catalog={catalog}
-                        mode={mode}
-                        selected={previous.id === unit.id}
-                        onSelect={() => onSelect(previous.id)}
+      {localize(
+        items.map((item) => (
+          <section
+            key={item.value}
+            role="tabpanel"
+            id={`${id}-${item.value}-panel`}
+            aria-labelledby={`${id}-${item.value}-tab`}
+            hidden={active !== item.value}
+            className="wt-detail-panel"
+          >
+            {localize(
+              item.value === "tags" ? (
+                <VehicleTags key={unit.id} vehicleId={unit.id} onResolved={onTagsResolved} />
+              ) : (
+                active === item.value &&
+                  (!ready ? (
+                    <output className="wt-detail-pending">{t("正在读取载具标签…")}</output>
+                  ) : ["performance", "statistics"].includes(item.value) ? (
+                    <>
+                      <VehiclePerformance
+                        key={unit.id}
+                        unit={unit}
+                        category={category}
+                        view={item.value === "statistics" ? "table" : "chart"}
+                        comparisonMode={performanceMode}
+                        onModeChange={setPerformanceMode}
                       />
-                    </li>
-                  ))}
-                </ol>
-              </section>
-            ))
-          )}
-        </section>
-      ))}
+                      {localize(
+                        item.value === "statistics" && category === "ground" && (
+                          <VehicleGroundCombat key={unit.id} unit={unit} />
+                        ),
+                      )}
+                    </>
+                  ) : item.value === "equipment" ? (
+                    <VehicleEquipment
+                      unit={unit}
+                      category={category}
+                      modifications={modifications}
+                    />
+                  ) : item.value === "loadouts" ? (
+                    <VehicleLoadouts unit={unit} />
+                  ) : item.value === "recommendations" ? (
+                    <LoadoutRecommendations key={unit.id} unit={unit} country={country} />
+                  ) : item.value === "information" ? (
+                    <VehicleWikiFacts unit={unit} />
+                  ) : (
+                    <section className="wt-detail-route" aria-labelledby="wt-detail-route-title">
+                      <div className="wt-detail-section-heading">
+                        <h3 id="wt-detail-route-title">{t("必要前置路线")}</h3>
+                        <span>
+                          {localize(Math.max(0, path.length - 1))}
+                          {t("辆前置")}
+                        </span>
+                      </div>
+                      <ol className="wt-detail-route-list">
+                        {localize(
+                          path.map((previous) => (
+                            <li
+                              key={previous.id}
+                              className={previous.id === unit.id ? "is-target" : ""}
+                            >
+                              <VehicleTile
+                                unit={previous}
+                                catalog={catalog}
+                                mode={mode}
+                                selected={previous.id === unit.id}
+                                onSelect={() => onSelect(previous.id)}
+                              />
+                            </li>
+                          )),
+                        )}
+                      </ol>
+                    </section>
+                  ))
+              ),
+            )}
+          </section>
+        )),
+      )}
     </article>
   );
 }

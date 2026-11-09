@@ -1,8 +1,10 @@
 import { defineConfig } from "@qmuse/vite-config";
+import { appUpdateBuildPlugin } from "./scripts/app-update-build.mjs";
 // The QMuse preset supplies Vite 8's native TS paths, React, Router and Tailwind.
 // Keep optimizer caches isolated from other Git worktrees sharing node_modules.
 export default defineConfig({
   base: "./",
+  plugins: [appUpdateBuildPlugin()],
   cacheDir: "artifacts/cache/vite",
   build: {
     target: "es2022",

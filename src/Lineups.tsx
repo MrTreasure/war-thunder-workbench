@@ -1,3 +1,4 @@
+import { useAppUpdateGuard } from "./app-update-react";
 import { createPortal } from "react-dom";
 import { useLineupCounts } from "./use-lineup-counts";
 import { filterSavedLineups, savedLineupEntries } from "./lineup-list";
@@ -308,6 +309,7 @@ function CountryLineups({
   const [listSort, setListSort] = useState<LineupSort>("saved");
   const [selectedId, setSelectedId] = useState(saved[0]?.id || "");
   const [draft, setDraft] = useState<Lineup | null>(null);
+  useAppUpdateGuard("队列编辑尚未保存", draft !== null);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [shareOpen, setShareOpen] = useState(false);
   const heading = useRef<HTMLHeadingElement>(null);

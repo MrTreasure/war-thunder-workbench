@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "vehicle": [
+    {"id":"mobility","label":"机动转场","categories":["ground","ships","boats"],"metrics":["max-speed-forward","max-speed-backward","power-to-weight","engine-power"],"note":"极速与功重比帮助判断转场取舍；地形、加速曲线和玩家操作未计入。"},
+    {"id":"firepower","label":"火力操作","categories":["ground","ships","boats"],"metrics":["reload","turret-rotation-horizontal","turret-rotation-vertical","fire-rate"],"note":"关注装填和瞄准速度；地面弹种穿深仍按下方所选弹种和射角对照，不代表命中或击毁概率。"},
+    {"id":"air-combat","label":"制空飞行性能","categories":["aviation","helicopters"],"metrics":["max-speed","climb-rate","turn-time","burst-mass","fire-rate"],"note":"速度、爬升与盘旋存在取舍；完全体端点不能代表所有高度、速度下的能量表现，挂载阻力及导弹能力需另看。"},
+    {"id":"air-ground","label":"对地进出场","categories":["aviation","helicopters"],"metrics":["max-speed","climb-rate","burst-mass"],"note":"仅对照进出场飞行指标与已公开挂载目录；目录数量不是可同时携带量，请在模拟挂载中比较实际方案。"}
+  ],
+  "missile": [
+    {"id":"engagement","label":"制导与交战条件","fields":["guidance","lock-range-in-rear-aspect","lock-range","lock-range-in-all-aspect","launch-range","aspect"],"note":"锁定与发射距离是来源条件值，不等于不可逃逸区；不同制导方式需要结合目标与载机设备判断。"},
+    {"id":"maneuver","label":"动力与机动","fields":["maximum-speed","max-speed","maximum-overload","maximum-lateral-g","missile-guidance-time","projectile-mass"],"note":"逐项查看来源参数；峰值过载、速度和弹体质量不能单独推导实际命中率或射程。"}
+  ]
+}

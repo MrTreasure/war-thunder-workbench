@@ -8,6 +8,6 @@ function Index() {
   return new URLSearchParams(location.search).get("guides") === "1" ? (
     <Navigate to="/maps" search={{ map: undefined, side: undefined }} replace />
   ) : (
-    <Navigate to="/tree" replace />
+    <Navigate to="/home" replace />
   );
 }

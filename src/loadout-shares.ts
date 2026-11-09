@@ -15,6 +15,7 @@ export type LoadoutPreviewItem = {
 };
 export type LoadoutPreview = { sourceChanged: boolean; items: LoadoutPreviewItem[] };
 export type LoadoutShare = {
+  quality?: import("./hall-quality").HallQuality;
   id: string;
   plan: LoadoutPlan;
   listed: boolean;

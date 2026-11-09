@@ -1,3 +1,4 @@
+import { indexTree } from "../src/planner.ts";
 import { prepareAppearance } from "./prepare-appearance.mjs";
 import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
 import { createHash } from "node:crypto";
@@ -151,6 +152,75 @@ await rm(resolve(root, "src/generated/csv"), { recursive: true, force: true });
 await rm(resolve(root, "src/generated/csv-resource-urls.ts"), { force: true });
 await rm(resolve(root, "src/generated/vehicle-facts"), { recursive: true, force: true });
 await rm(resolve(root, "src/generated/vehicle-fact-modules.ts"), { force: true });
+// Homepage labels are lightweight UI metadata; no nation payload is needed to name a saved target.
+const homeNames = {};
+const homeFlags = await json("player-vehicle-flags.json");
+const homeFlagPolicy = await json("report-flag-policy.json");
+const homeCardFields = [
+  "id",
+  "name",
+  "nameZhCN",
+  "nameEn",
+  "kind",
+  "premium",
+  "role",
+  "br",
+  "rank",
+  "price",
+  "rp",
+  "side",
+  "store",
+  "market",
+  "packPrice",
+  "marketPrice",
+  "gePrice",
+  "imageUrl",
+  "thumbnailUrl",
+];
+
+for (const [category, countries] of Object.entries(catalog.trees))
+  for (const [country, tree] of Object.entries(countries)) {
+    const ancestry = indexTree(tree);
+    for (const rank of tree?.ranks || [])
+      for (const node of [...rank.research, ...rank.special])
+        for (const unit of node.members) {
+          const name = unit.nameZhCN || unit.name;
+          const canonicalId = ancestry.aliases.get(unit.id) || unit.id;
+          const entry = {
+            country,
+            category,
+            name,
+            canonicalId,
+            parentId: ancestry.parents.get(canonicalId) || null,
+            research: unit.side === "research",
+          };
+          // Shared compact card facts for targets, prerequisites and purchase watches.
+          // Performance, modifications and loadouts remain in lazy country payloads.
+          {
+            const flagId =
+              homeFlagPolicy.countryOverrides[country] ||
+              homeFlagPolicy.sourceFlagOverrides[homeFlags.vehicles[unit.id]?.flagId] ||
+              homeFlags.vehicles[unit.id]?.flagId;
+            const flag = homeFlags.flags[flagId];
+            entry.card = Object.fromEntries(
+              homeCardFields
+                .filter((key) => unit[key] !== undefined)
+                .map((key) => [key, unit[key]]),
+            );
+            entry.card.name = name;
+            if (flag) entry.flag = { id: flagId, name: flag.name, url: flag.source };
+          }
+          homeNames[unit.id] = entry;
+        }
+  }
+await writeFile(
+  resolve(root, "data/home-vehicle-names.json"),
+  JSON.stringify({
+    schemaVersion: 1,
+    source: "localization.json and trees.json",
+    vehicles: homeNames,
+  }) + "\n",
+);
 // The complete snapshot is for build-time checks only; it is never published.
 await writeFile(resolve(root, "data/generated/catalog.json"), JSON.stringify(catalog) + "\n");
 const { trees: allTrees, audit, ...metadata } = catalog;

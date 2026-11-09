@@ -2,6 +2,7 @@ import { getLocale } from "./i18n/core";
 import { vehicleName } from "./i18n/core";
 import { useLocale } from "./i18n/react";
 import { localize, t } from "./i18n/core";
+import { useAppUpdateGuard } from "./app-update-react";
 import { recordMapCompletion, flushMapDrawingLogs } from "./map-drawing-log";
 import type { DrawingView } from "./map-drawing-log";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
@@ -237,6 +238,7 @@ export function MapEditor({
   const abort = useRef<AbortController | null>(null),
     file = useRef<HTMLInputElement>(null),
     textField = useRef<HTMLTextAreaElement>(null);
+  useAppUpdateGuard("地图编辑尚未完成", active || plans.hasUnsaved() || storageError);
   const visible = preview || history.present;
   const selected = history.present.find((a) => a.id === selectedId);
   const setPending = (p: GeometryAnnotation | null) => {
@@ -1073,7 +1075,7 @@ export function MapEditor({
             title={localize(`${localize(mapName)} · 队伍 ${localize(context.team)}`)}
           >
             {localize(mapName)}
-            <small>{plans.active?.name || t("走线编辑")}</small>
+            <small>{localize(plans.active?.name || t("走线编辑"))}</small>
           </strong>
           <button
             title={t("撤销 Ctrl+Z")}
@@ -1158,906 +1160,949 @@ export function MapEditor({
             if (chosen) void importFile(chosen);
           }}
         />
-        {panel && (
-          <aside
-            id="map-editor-inspector"
-            className="map-editor-inspector"
-            data-panel={panel}
-            aria-label={t("标注编辑面板")}
-          >
-            <header>
-              <strong>
-                {localize(
-                  panel === "icons"
-                    ? "地图标记"
-                    : panel === "lines"
-                      ? "军事战术线"
-                      : panel === "layers"
-                        ? "标注图层"
-                        : panel === "plans"
-                          ? "走线方案"
-                          : panel === "files"
-                            ? "导入与导出"
-                            : panel === "map"
-                              ? "底图与布局"
-                              : selected
-                                ? annotationName(selected)
-                                : "绘制样式",
-                )}
-              </strong>
-              <button
-                className="map-editor-panel-close"
-                aria-label={t("收起编辑面板")}
-                onClick={() => {
-                  setPanel(null);
-                  svg?.focus();
-                }}
-              >
-                ×
-              </button>
-            </header>
-            {panel === "lines" ? (
-              <>
-                <div className="map-editor-draw-mode" role="toolbar" aria-label={t("线条绘制方式")}>
+        {localize(
+          panel && (
+            <aside
+              id="map-editor-inspector"
+              className="map-editor-inspector"
+              data-panel={panel}
+              aria-label={t("标注编辑面板")}
+            >
+              <header>
+                <strong>
                   {localize(
-                    (
-                      [
-                        [false, "直线 / 折线"],
-                        [true, "平滑曲线"],
-                      ] as const
-                    ).map(([curve, label]) => (
-                      <button
-                        key={label}
-                        disabled={selected?.locked}
-                        aria-pressed={
-                          (selected?.kind === "path" ? !!selected.curve : settings.curve) === curve
-                        }
-                        onClick={() => chooseLineCurve(curve)}
-                      >
-                        {localize(label)}
-                      </button>
-                    )),
+                    panel === "icons"
+                      ? "地图标记"
+                      : panel === "lines"
+                        ? "军事战术线"
+                        : panel === "layers"
+                          ? "标注图层"
+                          : panel === "plans"
+                            ? "走线方案"
+                            : panel === "files"
+                              ? "导入与导出"
+                              : panel === "map"
+                                ? "底图与布局"
+                                : selected
+                                  ? annotationName(selected)
+                                  : "绘制样式",
                   )}
-                </div>
-                <p>{t("选择线型后拖动绘制；选中现有线条时直接替换样式。")}</p>
-                <div className="map-editor-tactical-presets">
-                  {localize(
-                    lineCatalog.presets.map((preset) => (
-                      <button
-                        key={preset.id}
-                        disabled={selected?.locked}
-                        aria-pressed={
-                          selected?.kind === "path"
-                            ? selected.lineStyle === preset.style &&
-                              selected.color.toLowerCase() === preset.color
-                            : settings.lineStyle === preset.style &&
-                              settings.color.toLowerCase() === preset.color
-                        }
-                        onClick={() => chooseLinePreset(preset.id)}
-                      >
-                        <svg
-                          className="map-editor-line-preview"
-                          viewBox="0 -30 1000 200"
-                          aria-hidden="true"
-                        >
-                          <RouteInk
-                            item={{
-                              id: "preview",
-                              kind: "path",
-                              hidden: false,
-                              locked: false,
-                              color: preset.color,
-                              width: 0.008,
-                              points: [
-                                { x: 0.04, y: 0.08 },
-                                { x: 0.48, y: 0.065 },
-                                { x: 0.95, y: 0.08 },
-                              ],
-                              dashed: preset.style === "dashed",
-                              arrow: preset.arrow,
-                              arrowHead: preset.arrowHead as "filled" | "open",
-                              lineStyle: preset.style as NonNullable<RouteAnnotation["lineStyle"]>,
-                              curve: true,
-                            }}
-                          />
-                        </svg>
-                        <strong>{localize(vehicleName(preset))}</strong>
-                        <small>{localize(preset.detail)}</small>
-                      </button>
-                    )),
-                  )}
-                </div>
-              </>
-            ) : panel === "plans" ? (
-              <MapPlansPanel
-                library={plans.library}
-                disabled={plans.loading || plans.working}
-                saving={plans.saving}
-                error={localize(plans.error)}
-                choose={async (id) => {
-                  finish();
-                  await plans.select(id);
-                }}
-                action={async (kind, name) => {
-                  const items = finish();
-                  if (kind === "rename") await plans.rename(name);
-                  else await plans.create(name, kind === "copy" ? items : []);
-                }}
-                save={async () => {
-                  persist(finish());
-                  await plans.flush();
-                }}
-                remove={() => setDeletePlan(plans.active?.id || null)}
-              />
-            ) : panel === "files" ? (
-              <div className="map-editor-fields">
-                <p>{t("当前方案的修改自动保存到此浏览器。导出编辑文件可在其他设备继续修改。")}</p>
+                </strong>
                 <button
+                  className="map-editor-panel-close"
+                  aria-label={t("收起编辑面板")}
                   onClick={() => {
-                    persist(finish());
+                    setPanel(null);
+                    svg?.focus();
                   }}
                 >
-                  {t("保存当前方案")}
+                  ×
                 </button>
-                <button
-                  onClick={() => {
-                    finish();
-                    file.current?.click();
-                  }}
-                >
-                  {t("导入编辑文件")}
-                </button>
-                <button onClick={exportFile}>{t("导出编辑文件")}</button>
-                <label>
-                  {t("图片尺寸")}
-                  <GameSelect
-                    value={resolution}
-                    onValueChange={(value) => setResolution(Number(value))}
-                  >
-                    <option value={2048}>{t("2K 图片")}</option>
-                    <option value={4096}>{t("4K 图片")}</option>
-                  </GameSelect>
-                </label>
-                <button disabled={!!busy} onClick={() => void exportPng()}>
-                  {t("导出图片")}
-                </button>
-              </div>
-            ) : panel === "map" ? (
-              mapControls
-            ) : panel === "icons" ? (
-              <>
-                <div className="map-editor-library-tabs" role="toolbar" aria-label={t("标记图库")}>
-                  {localize(
-                    (
-                      [
-                        ["tactical", "战术符号"],
-                        ["original", "战雷原生"],
-                      ] as const
-                    ).map(([value, label]) => (
-                      <button
-                        key={value}
-                        aria-pressed={markerLibrary === value}
-                        onClick={() => {
-                          setMarkerLibrary(value);
-                          setIconGroup(
-                            value === "tactical"
-                              ? tacticalSymbols[0].group
-                              : catalog.icons[0].group,
-                          );
-                          setMarkerQuery("");
-                        }}
-                      >
-                        {localize(label)}
-                      </button>
-                    )),
-                  )}
-                </div>
-                <input
-                  className="map-editor-marker-search"
-                  type="search"
-                  aria-label={t("搜索地图标记")}
-                  placeholder={t("搜索标记")}
-                  value={markerQuery}
-                  onChange={(e) => setMarkerQuery(e.target.value)}
-                />
-                <div className="map-editor-icon-tabs">
-                  {localize(
-                    [...new Set(markerEntries.map((i) => i.group))].map((group) => (
-                      <button
-                        key={group}
-                        aria-pressed={iconGroup === group}
-                        onClick={() => setIconGroup(group)}
-                      >
-                        {localize(group)}
-                      </button>
-                    )),
-                  )}
-                </div>
-                <p>
-                  {localize(replaceIcon ? "选择标记替换当前标注。" : "选择标记后，点击地图放置。")}
-                </p>
-                <div className="map-editor-icon-grid">
-                  {localize(
-                    markerEntries
-                      .filter((i) =>
-                        markerQuery ? i.label.includes(markerQuery.trim()) : i.group === iconGroup,
-                      )
-                      .map((icon) => (
-                        <button
-                          key={icon.id}
-                          title={localize(icon.label)}
-                          aria-label={localize(icon.label)}
-                          aria-pressed={iconId === icon.id}
-                          onClick={() => {
-                            setIconId(icon.id);
-                            if (replaceIcon && selected?.kind === "icon") {
-                              patch({ iconId: icon.id });
-                              setReplaceIcon(false);
-                              setPanel("style");
-                              setTool("select");
-                            } else setTool("icon");
-                          }}
-                        >
-                          {localize(
-                            "asset" in icon ? (
-                              <GroundThumbnail
-                                asset={icon.asset}
-                                alt=""
-                                width={32}
-                                height={32}
-                                loading="lazy"
-                              />
-                            ) : (
-                              <svg
-                                className="map-editor-symbol-preview"
-                                viewBox="0 0 32 32"
-                                aria-hidden="true"
-                              >
-                                <TacticalSymbol id={icon.id} />
-                              </svg>
-                            ),
-                          )}
-                          <span>{localize(icon.label)}</span>
-                        </button>
-                      )),
-                  )}
-                </div>
-                {localize(
-                  !markerEntries.some((i) =>
-                    markerQuery ? i.label.includes(markerQuery.trim()) : i.group === iconGroup,
-                  ) && <p>{t("没有找到匹配标记。")}</p>,
-                )}
-              </>
-            ) : panel === "layers" ? (
-              <>
-                <p>{t("点击图层选择；锁定后可避免误拖动。")}</p>
-                <ol className="map-editor-layer-list">
-                  {localize(
-                    history.present.map((a) => (
-                      <li key={a.id}>
-                        <button
-                          aria-pressed={a.id === selectedId}
-                          onClick={() => {
-                            select(a);
-                            setTool("select");
-                          }}
-                        >
-                          {localize(annotationName(a))}
-                        </button>
-                        <button
-                          aria-label={localize(
-                            `${localize(a.hidden ? "显示" : "隐藏")}${localize(annotationName(a))}`,
-                          )}
-                          onClick={() =>
-                            apply(
-                              historyRef.current.present.map((v) =>
-                                v.id === a.id ? { ...v, hidden: !v.hidden } : v,
-                              ),
-                            )
-                          }
-                        >
-                          {localize(a.hidden ? "显示" : "隐藏")}
-                        </button>
-                        <button
-                          aria-label={localize(
-                            `${localize(a.locked ? "解锁" : "锁定")}${localize(annotationName(a))}`,
-                          )}
-                          onClick={() =>
-                            apply(
-                              historyRef.current.present.map((v) =>
-                                v.id === a.id ? { ...v, locked: !v.locked } : v,
-                              ),
-                            )
-                          }
-                        >
-                          {localize(a.locked ? "解锁" : "锁定")}
-                        </button>
-                      </li>
-                    )),
-                  )}
-                </ol>
-                <button disabled={!history.present.length} onClick={clearAll}>
-                  {t("清空标注")}
-                </button>
-              </>
-            ) : (
-              <div className="map-editor-fields">
-                {localize(
-                  !selected && (tool === "shape" || tool === "danger") && (
-                    <label>
-                      {t("形状")}
-                      <GameSelect
-                        value={tool === "danger" ? "danger" : shapeKind}
-                        onValueChange={(value) => {
-                          if (value === "danger") {
-                            chooseTool("danger");
-                            return;
-                          }
-                          finish();
-                          setShapeKind(value as ShapeAnnotation["shape"]);
-                          setTool("shape");
-                        }}
-                      >
-                        <option value="rectangle">{t("矩形")}</option>
-                        <option value="ellipse">{t("椭圆 / 圆")}</option>
-                        <option value="polygon">{t("可编辑多边形")}</option>
-                        <option value="danger">{t("危险区域（多边形）")}</option>
-                      </GameSelect>
-                      <small>{t("拖出范围后，拖动控制点调整形状。")}</small>
-                    </label>
-                  ),
-                )}
-                {localize(
-                  selected && (
-                    <label className="map-editor-check">
-                      <input
-                        type="checkbox"
-                        checked={selected.locked}
-                        onChange={(e) =>
-                          apply(
-                            historyRef.current.present.map((a) =>
-                              a.id === selected.id ? { ...a, locked: e.target.checked } : a,
-                            ),
-                          )
-                        }
-                      />
-                      {t("锁定当前标注")}
-                    </label>
-                  ),
-                )}
-                <fieldset className="map-editor-color-presets" aria-label={t("战雷常用颜色")}>
-                  {localize(
-                    palette.colors.map((color) => (
-                      <button
-                        key={color.value}
-                        aria-label={localize(vehicleName(color))}
-                        title={localize(vehicleName(color))}
-                        aria-pressed={
-                          (selected?.color || settings.color).toLowerCase() === color.value
-                        }
-                        disabled={selected?.locked}
-                        style={{ "--wt-swatch": color.value } as CSSProperties}
-                        onClick={() => changeStyle("color", color.value)}
-                      >
-                        <i />
-                        <span>{localize(vehicleName(color))}</span>
-                      </button>
-                    )),
-                  )}
-                </fieldset>
-                <label>
-                  {t("自定义颜色")}
-                  <input
-                    type="color"
-                    value={selected?.color || settings.color}
-                    disabled={selected?.locked}
-                    onChange={(e) => changeStyle("color", e.target.value)}
-                    onBlur={() => change({ type: "endGroup" })}
-                  />
-                </label>
-                {localize(
-                  (!selected || selected.kind === "path" || selected.kind === "shape") && (
-                    <>
+              </header>
+              {localize(
+                panel === "lines" ? (
+                  <>
+                    <div
+                      className="map-editor-draw-mode"
+                      role="toolbar"
+                      aria-label={t("线条绘制方式")}
+                    >
                       {localize(
-                        (selected?.kind === "path" || selected?.kind === "shape") && (
-                          <>
-                            <p>{t("拖实心点调整，拖空心中点加拐点。双击拐点可删除。")}</p>
-                            <label>
-                              {t("编辑端点 / 拐点")}
-                              <GameSelect
-                                value={selectedPoint ?? ""}
-                                disabled={selected.locked}
-                                onValueChange={(value) =>
-                                  setSelectedPoint(value === "" ? null : Number(value))
-                                }
-                              >
-                                <option value="">{t("整体移动")}</option>
-                                {localize(
-                                  selected.points.map((_, i) => (
-                                    <option key={i} value={i}>
-                                      {localize(
-                                        selected.kind === "shape"
-                                          ? `控制点 ${localize(i + 1)}`
-                                          : i === 0
-                                            ? "起点"
-                                            : i === selected.points.length - 1
-                                              ? "终点"
-                                              : `拐点 ${localize(i)}`,
-                                      )}
-                                    </option>
-                                  )),
-                                )}
-                              </GameSelect>
-                            </label>
-                            <div className="map-editor-selection-actions">
-                              <button
-                                disabled={
-                                  selected.locked ||
-                                  (selected.kind === "shape" && selected.shape !== "polygon") ||
-                                  selected.points.length >= (selected.kind === "shape" ? 128 : 3000)
-                                }
-                                onClick={insertPoint}
-                              >
-                                {t("添加拐点")}
-                              </button>
-                              <button
-                                disabled={
-                                  selected.locked ||
-                                  selectedPoint === null ||
-                                  selected.points.length <= (selected.kind === "shape" ? 3 : 2)
-                                }
-                                onClick={deletePoint}
-                              >
-                                {t("删除拐点")}
-                              </button>
-                            </div>
-                          </>
-                        ),
+                        (
+                          [
+                            [false, "直线 / 折线"],
+                            [true, "平滑曲线"],
+                          ] as const
+                        ).map(([curve, label]) => (
+                          <button
+                            key={label}
+                            disabled={selected?.locked}
+                            aria-pressed={
+                              (selected?.kind === "path" ? !!selected.curve : settings.curve) ===
+                              curve
+                            }
+                            onClick={() => chooseLineCurve(curve)}
+                          >
+                            {localize(label)}
+                          </button>
+                        )),
                       )}
-                      <label>
-                        {t("线条粗细")}
-                        <input
-                          type="range"
-                          min={1}
-                          max={30}
-                          value={
-                            (selected?.kind === "path" || selected?.kind === "shape"
-                              ? selected.width
-                              : settings.width) * 1000
-                          }
-                          disabled={selected?.locked}
-                          onChange={(e) => changeStyle("width", Number(e.target.value) / 1000)}
-                          onBlur={() => change({ type: "endGroup" })}
-                        />
-                      </label>
+                    </div>
+                    <p>{t("选择线型后拖动绘制；选中现有线条时直接替换样式。")}</p>
+                    <div className="map-editor-tactical-presets">
                       {localize(
-                        (!selected || selected.kind === "path") && (
-                          <>
-                            <label>
-                              {t("战术线样式")}
-                              <GameSelect
-                                value={
-                                  selected?.kind === "path"
-                                    ? selected.lineStyle || (selected.dashed ? "dashed" : "solid")
-                                    : settings.lineStyle
-                                }
-                                disabled={selected?.locked}
-                                onValueChange={(value) => {
-                                  const lineStyle = value as NonNullable<
+                        lineCatalog.presets.map((preset) => (
+                          <button
+                            key={preset.id}
+                            disabled={selected?.locked}
+                            aria-pressed={
+                              selected?.kind === "path"
+                                ? selected.lineStyle === preset.style &&
+                                  selected.color.toLowerCase() === preset.color
+                                : settings.lineStyle === preset.style &&
+                                  settings.color.toLowerCase() === preset.color
+                            }
+                            onClick={() => chooseLinePreset(preset.id)}
+                          >
+                            <svg
+                              className="map-editor-line-preview"
+                              viewBox="0 -30 1000 200"
+                              aria-hidden="true"
+                            >
+                              <RouteInk
+                                item={{
+                                  id: "preview",
+                                  kind: "path",
+                                  hidden: false,
+                                  locked: false,
+                                  color: preset.color,
+                                  width: 0.008,
+                                  points: [
+                                    { x: 0.04, y: 0.08 },
+                                    { x: 0.48, y: 0.065 },
+                                    { x: 0.95, y: 0.08 },
+                                  ],
+                                  dashed: preset.style === "dashed",
+                                  arrow: preset.arrow,
+                                  arrowHead: preset.arrowHead as "filled" | "open",
+                                  lineStyle: preset.style as NonNullable<
                                     RouteAnnotation["lineStyle"]
-                                  >;
-                                  setSettings((s) => ({ ...s, lineStyle }));
-                                  if (selected?.kind === "path")
-                                    patch({ lineStyle, dashed: lineStyle === "dashed" });
+                                  >,
+                                  curve: true,
                                 }}
-                              >
-                                <option value="solid">{t("实线")}</option>
-                                <option value="dashed">{t("虚线")}</option>
-                                <option value="dotted">{t("点线 / 射界")}</option>
-                                <option value="dashdot">{t("点划线 / 补给")}</option>
-                                <option value="defense">{t("折齿 / 工事防御线")}</option>
-                                <option value="front">{t("弧齿 / 前沿阵线")}</option>
-                                <option value="antitank">{t("三角齿 / 反坦克壕线")}</option>
-                                <option value="advance">{t("中空宽箭头 / 进攻轴线")}</option>
-                                <option value="barrier">{t("交叉 / 障碍封锁线")}</option>
-                              </GameSelect>
-                            </label>
-                            <button onClick={() => setPanel("lines")}>
-                              {t("查看全部战术线型")}
-                            </button>
-                            {localize(
-                              selected?.kind === "path" && (
-                                <label className="map-editor-check">
-                                  <input
-                                    type="checkbox"
-                                    checked={!!selected.curve}
-                                    disabled={selected.locked}
-                                    onChange={(e) =>
-                                      patch({
-                                        curve: e.target.checked,
-                                        ...(e.target.checked && selected.points.length === 2
-                                          ? {
-                                              points: bendPoints(
-                                                selected.points[0],
-                                                selected.points[1],
-                                              ),
-                                            }
-                                          : {}),
-                                      })
-                                    }
-                                  />
-                                  {t("平滑曲线")}
-                                </label>
-                              ),
-                            )}
-                          </>
-                        ),
+                              />
+                            </svg>
+                            <strong>{localize(vehicleName(preset))}</strong>
+                            <small>{localize(preset.detail)}</small>
+                          </button>
+                        )),
                       )}
+                    </div>
+                  </>
+                ) : panel === "plans" ? (
+                  <MapPlansPanel
+                    library={plans.library}
+                    disabled={plans.loading || plans.working}
+                    saving={plans.saving}
+                    error={localize(plans.error)}
+                    choose={async (id) => {
+                      finish();
+                      await plans.select(id);
+                    }}
+                    action={async (kind, name) => {
+                      const items = finish();
+                      if (kind === "rename") await plans.rename(name);
+                      else await plans.create(name, kind === "copy" ? items : []);
+                    }}
+                    save={async () => {
+                      persist(finish());
+                      await plans.flush();
+                    }}
+                    remove={() => setDeletePlan(plans.active?.id || null)}
+                  />
+                ) : panel === "files" ? (
+                  <div className="map-editor-fields">
+                    <p>
+                      {t("当前方案的修改自动保存到此浏览器。导出编辑文件可在其他设备继续修改。")}
+                    </p>
+                    <button
+                      onClick={() => {
+                        persist(finish());
+                      }}
+                    >
+                      {t("保存当前方案")}
+                    </button>
+                    <button
+                      onClick={() => {
+                        finish();
+                        file.current?.click();
+                      }}
+                    >
+                      {t("导入编辑文件")}
+                    </button>
+                    <button onClick={exportFile}>{t("导出编辑文件")}</button>
+                    <label>
+                      {t("图片尺寸")}
+                      <GameSelect
+                        value={resolution}
+                        onValueChange={(value) => setResolution(Number(value))}
+                      >
+                        <option value={2048}>{t("2K 图片")}</option>
+                        <option value={4096}>{t("4K 图片")}</option>
+                      </GameSelect>
+                    </label>
+                    <button disabled={!!busy} onClick={() => void exportPng()}>
+                      {t("导出图片")}
+                    </button>
+                  </div>
+                ) : panel === "map" ? (
+                  mapControls
+                ) : panel === "icons" ? (
+                  <>
+                    <div
+                      className="map-editor-library-tabs"
+                      role="toolbar"
+                      aria-label={t("标记图库")}
+                    >
                       {localize(
-                        selected?.kind === "path" && (
-                          <>
-                            {localize(
-                              ["defense", "front", "antitank"].includes(
-                                selected.lineStyle || "",
-                              ) && (
-                                <label className="map-editor-check">
-                                  <input
-                                    type="checkbox"
-                                    checked={!!selected.flip}
-                                    disabled={selected.locked}
-                                    onChange={(e) => patch({ flip: e.target.checked })}
+                        (
+                          [
+                            ["tactical", "战术符号"],
+                            ["original", "战雷原生"],
+                          ] as const
+                        ).map(([value, label]) => (
+                          <button
+                            key={value}
+                            aria-pressed={markerLibrary === value}
+                            onClick={() => {
+                              setMarkerLibrary(value);
+                              setIconGroup(
+                                value === "tactical"
+                                  ? tacticalSymbols[0].group
+                                  : catalog.icons[0].group,
+                              );
+                              setMarkerQuery("");
+                            }}
+                          >
+                            {localize(label)}
+                          </button>
+                        )),
+                      )}
+                    </div>
+                    <input
+                      className="map-editor-marker-search"
+                      type="search"
+                      aria-label={t("搜索地图标记")}
+                      placeholder={t("搜索标记")}
+                      value={markerQuery}
+                      onChange={(e) => setMarkerQuery(e.target.value)}
+                    />
+                    <div className="map-editor-icon-tabs">
+                      {localize(
+                        [...new Set(markerEntries.map((i) => i.group))].map((group) => (
+                          <button
+                            key={group}
+                            aria-pressed={iconGroup === group}
+                            onClick={() => setIconGroup(group)}
+                          >
+                            {localize(group)}
+                          </button>
+                        )),
+                      )}
+                    </div>
+                    <p>
+                      {localize(
+                        replaceIcon ? "选择标记替换当前标注。" : "选择标记后，点击地图放置。",
+                      )}
+                    </p>
+                    <div className="map-editor-icon-grid">
+                      {localize(
+                        markerEntries
+                          .filter((i) =>
+                            markerQuery
+                              ? i.label.includes(markerQuery.trim())
+                              : i.group === iconGroup,
+                          )
+                          .map((icon) => (
+                            <button
+                              key={icon.id}
+                              title={localize(icon.label)}
+                              aria-label={localize(icon.label)}
+                              aria-pressed={iconId === icon.id}
+                              onClick={() => {
+                                setIconId(icon.id);
+                                if (replaceIcon && selected?.kind === "icon") {
+                                  patch({ iconId: icon.id });
+                                  setReplaceIcon(false);
+                                  setPanel("style");
+                                  setTool("select");
+                                } else setTool("icon");
+                              }}
+                            >
+                              {localize(
+                                "asset" in icon ? (
+                                  <GroundThumbnail
+                                    asset={icon.asset}
+                                    alt=""
+                                    width={32}
+                                    height={32}
+                                    loading="lazy"
                                   />
-                                  {t("翻转阵线朝向")}
-                                </label>
-                              ),
-                            )}
-                            {localize(
-                              selected.arrow && selected.lineStyle !== "advance" && (
-                                <label>
-                                  {t("箭头形式")}
-                                  <GameSelect
-                                    value={selected.arrowHead || "filled"}
-                                    disabled={selected.locked}
-                                    onValueChange={(value) => patch({ arrowHead: value })}
+                                ) : (
+                                  <svg
+                                    className="map-editor-symbol-preview"
+                                    viewBox="0 0 32 32"
+                                    aria-hidden="true"
                                   >
-                                    <option value="open">{t("军事方向箭头（开口）")}</option>
-                                    <option value="filled">{t("实心箭头")}</option>
+                                    <TacticalSymbol id={icon.id} />
+                                  </svg>
+                                ),
+                              )}
+                              <span>{localize(icon.label)}</span>
+                            </button>
+                          )),
+                      )}
+                    </div>
+                    {localize(
+                      !markerEntries.some((i) =>
+                        markerQuery ? i.label.includes(markerQuery.trim()) : i.group === iconGroup,
+                      ) && <p>{t("没有找到匹配标记。")}</p>,
+                    )}
+                  </>
+                ) : panel === "layers" ? (
+                  <>
+                    <p>{t("点击图层选择；锁定后可避免误拖动。")}</p>
+                    <ol className="map-editor-layer-list">
+                      {localize(
+                        history.present.map((a) => (
+                          <li key={a.id}>
+                            <button
+                              aria-pressed={a.id === selectedId}
+                              onClick={() => {
+                                select(a);
+                                setTool("select");
+                              }}
+                            >
+                              {localize(annotationName(a))}
+                            </button>
+                            <button
+                              aria-label={localize(
+                                `${localize(a.hidden ? "显示" : "隐藏")}${localize(annotationName(a))}`,
+                              )}
+                              onClick={() =>
+                                apply(
+                                  historyRef.current.present.map((v) =>
+                                    v.id === a.id ? { ...v, hidden: !v.hidden } : v,
+                                  ),
+                                )
+                              }
+                            >
+                              {localize(a.hidden ? "显示" : "隐藏")}
+                            </button>
+                            <button
+                              aria-label={localize(
+                                `${localize(a.locked ? "解锁" : "锁定")}${localize(annotationName(a))}`,
+                              )}
+                              onClick={() =>
+                                apply(
+                                  historyRef.current.present.map((v) =>
+                                    v.id === a.id ? { ...v, locked: !v.locked } : v,
+                                  ),
+                                )
+                              }
+                            >
+                              {localize(a.locked ? "解锁" : "锁定")}
+                            </button>
+                          </li>
+                        )),
+                      )}
+                    </ol>
+                    <button disabled={!history.present.length} onClick={clearAll}>
+                      {t("清空标注")}
+                    </button>
+                  </>
+                ) : (
+                  <div className="map-editor-fields">
+                    {localize(
+                      !selected && (tool === "shape" || tool === "danger") && (
+                        <label>
+                          {t("形状")}
+                          <GameSelect
+                            value={tool === "danger" ? "danger" : shapeKind}
+                            onValueChange={(value) => {
+                              if (value === "danger") {
+                                chooseTool("danger");
+                                return;
+                              }
+                              finish();
+                              setShapeKind(value as ShapeAnnotation["shape"]);
+                              setTool("shape");
+                            }}
+                          >
+                            <option value="rectangle">{t("矩形")}</option>
+                            <option value="ellipse">{t("椭圆 / 圆")}</option>
+                            <option value="polygon">{t("可编辑多边形")}</option>
+                            <option value="danger">{t("危险区域（多边形）")}</option>
+                          </GameSelect>
+                          <small>{t("拖出范围后，拖动控制点调整形状。")}</small>
+                        </label>
+                      ),
+                    )}
+                    {localize(
+                      selected && (
+                        <label className="map-editor-check">
+                          <input
+                            type="checkbox"
+                            checked={selected.locked}
+                            onChange={(e) =>
+                              apply(
+                                historyRef.current.present.map((a) =>
+                                  a.id === selected.id ? { ...a, locked: e.target.checked } : a,
+                                ),
+                              )
+                            }
+                          />
+                          {t("锁定当前标注")}
+                        </label>
+                      ),
+                    )}
+                    <fieldset className="map-editor-color-presets" aria-label={t("战雷常用颜色")}>
+                      {localize(
+                        palette.colors.map((color) => (
+                          <button
+                            key={color.value}
+                            aria-label={localize(vehicleName(color))}
+                            title={localize(vehicleName(color))}
+                            aria-pressed={
+                              (selected?.color || settings.color).toLowerCase() === color.value
+                            }
+                            disabled={selected?.locked}
+                            style={{ "--wt-swatch": color.value } as CSSProperties}
+                            onClick={() => changeStyle("color", color.value)}
+                          >
+                            <i />
+                            <span>{localize(vehicleName(color))}</span>
+                          </button>
+                        )),
+                      )}
+                    </fieldset>
+                    <label>
+                      {t("自定义颜色")}
+                      <input
+                        type="color"
+                        value={selected?.color || settings.color}
+                        disabled={selected?.locked}
+                        onChange={(e) => changeStyle("color", e.target.value)}
+                        onBlur={() => change({ type: "endGroup" })}
+                      />
+                    </label>
+                    {localize(
+                      (!selected || selected.kind === "path" || selected.kind === "shape") && (
+                        <>
+                          {localize(
+                            (selected?.kind === "path" || selected?.kind === "shape") && (
+                              <>
+                                <p>{t("拖实心点调整，拖空心中点加拐点。双击拐点可删除。")}</p>
+                                <label>
+                                  {t("编辑端点 / 拐点")}
+                                  <GameSelect
+                                    value={selectedPoint ?? ""}
+                                    disabled={selected.locked}
+                                    onValueChange={(value) =>
+                                      setSelectedPoint(value === "" ? null : Number(value))
+                                    }
+                                  >
+                                    <option value="">{t("整体移动")}</option>
+                                    {localize(
+                                      selected.points.map((_, i) => (
+                                        <option key={i} value={i}>
+                                          {localize(
+                                            selected.kind === "shape"
+                                              ? `控制点 ${localize(i + 1)}`
+                                              : i === 0
+                                                ? "起点"
+                                                : i === selected.points.length - 1
+                                                  ? "终点"
+                                                  : `拐点 ${localize(i)}`,
+                                          )}
+                                        </option>
+                                      )),
+                                    )}
                                   </GameSelect>
                                 </label>
-                              ),
-                            )}
-                          </>
-                        ),
-                      )}
-                      {localize(
-                        selected?.kind === "path" && selected.lineStyle !== "advance" && (
+                                <div className="map-editor-selection-actions">
+                                  <button
+                                    disabled={
+                                      selected.locked ||
+                                      (selected.kind === "shape" && selected.shape !== "polygon") ||
+                                      selected.points.length >=
+                                        (selected.kind === "shape" ? 128 : 3000)
+                                    }
+                                    onClick={insertPoint}
+                                  >
+                                    {t("添加拐点")}
+                                  </button>
+                                  <button
+                                    disabled={
+                                      selected.locked ||
+                                      selectedPoint === null ||
+                                      selected.points.length <= (selected.kind === "shape" ? 3 : 2)
+                                    }
+                                    onClick={deletePoint}
+                                  >
+                                    {t("删除拐点")}
+                                  </button>
+                                </div>
+                              </>
+                            ),
+                          )}
+                          <label>
+                            {t("线条粗细")}
+                            <input
+                              type="range"
+                              min={1}
+                              max={30}
+                              value={
+                                (selected?.kind === "path" || selected?.kind === "shape"
+                                  ? selected.width
+                                  : settings.width) * 1000
+                              }
+                              disabled={selected?.locked}
+                              onChange={(e) => changeStyle("width", Number(e.target.value) / 1000)}
+                              onBlur={() => change({ type: "endGroup" })}
+                            />
+                          </label>
+                          {localize(
+                            (!selected || selected.kind === "path") && (
+                              <>
+                                <label>
+                                  {t("战术线样式")}
+                                  <GameSelect
+                                    value={
+                                      selected?.kind === "path"
+                                        ? selected.lineStyle ||
+                                          (selected.dashed ? "dashed" : "solid")
+                                        : settings.lineStyle
+                                    }
+                                    disabled={selected?.locked}
+                                    onValueChange={(value) => {
+                                      const lineStyle = value as NonNullable<
+                                        RouteAnnotation["lineStyle"]
+                                      >;
+                                      setSettings((s) => ({ ...s, lineStyle }));
+                                      if (selected?.kind === "path")
+                                        patch({ lineStyle, dashed: lineStyle === "dashed" });
+                                    }}
+                                  >
+                                    <option value="solid">{t("实线")}</option>
+                                    <option value="dashed">{t("虚线")}</option>
+                                    <option value="dotted">{t("点线 / 射界")}</option>
+                                    <option value="dashdot">{t("点划线 / 补给")}</option>
+                                    <option value="defense">{t("折齿 / 工事防御线")}</option>
+                                    <option value="front">{t("弧齿 / 前沿阵线")}</option>
+                                    <option value="antitank">{t("三角齿 / 反坦克壕线")}</option>
+                                    <option value="advance">{t("中空宽箭头 / 进攻轴线")}</option>
+                                    <option value="barrier">{t("交叉 / 障碍封锁线")}</option>
+                                  </GameSelect>
+                                </label>
+                                <button onClick={() => setPanel("lines")}>
+                                  {t("查看全部战术线型")}
+                                </button>
+                                {localize(
+                                  selected?.kind === "path" && (
+                                    <label className="map-editor-check">
+                                      <input
+                                        type="checkbox"
+                                        checked={!!selected.curve}
+                                        disabled={selected.locked}
+                                        onChange={(e) =>
+                                          patch({
+                                            curve: e.target.checked,
+                                            ...(e.target.checked && selected.points.length === 2
+                                              ? {
+                                                  points: bendPoints(
+                                                    selected.points[0],
+                                                    selected.points[1],
+                                                  ),
+                                                }
+                                              : {}),
+                                          })
+                                        }
+                                      />
+                                      {t("平滑曲线")}
+                                    </label>
+                                  ),
+                                )}
+                              </>
+                            ),
+                          )}
+                          {localize(
+                            selected?.kind === "path" && (
+                              <>
+                                {localize(
+                                  ["defense", "front", "antitank"].includes(
+                                    selected.lineStyle || "",
+                                  ) && (
+                                    <label className="map-editor-check">
+                                      <input
+                                        type="checkbox"
+                                        checked={!!selected.flip}
+                                        disabled={selected.locked}
+                                        onChange={(e) => patch({ flip: e.target.checked })}
+                                      />
+                                      {t("翻转阵线朝向")}
+                                    </label>
+                                  ),
+                                )}
+                                {localize(
+                                  selected.arrow && selected.lineStyle !== "advance" && (
+                                    <label>
+                                      {t("箭头形式")}
+                                      <GameSelect
+                                        value={selected.arrowHead || "filled"}
+                                        disabled={selected.locked}
+                                        onValueChange={(value) => patch({ arrowHead: value })}
+                                      >
+                                        <option value="open">{t("军事方向箭头（开口）")}</option>
+                                        <option value="filled">{t("实心箭头")}</option>
+                                      </GameSelect>
+                                    </label>
+                                  ),
+                                )}
+                              </>
+                            ),
+                          )}
+                          {localize(
+                            selected?.kind === "path" && selected.lineStyle !== "advance" && (
+                              <label className="map-editor-check">
+                                <input
+                                  type="checkbox"
+                                  checked={selected.arrow}
+                                  disabled={selected.locked}
+                                  onChange={(e) => patch({ arrow: e.target.checked })}
+                                />
+                                {t("末端箭头")}
+                              </label>
+                            ),
+                          )}
+                        </>
+                      ),
+                    )}
+                    {localize(
+                      selected?.kind === "shape" && (
+                        <>
+                          <label>
+                            {t("区域说明")}
+                            <textarea
+                              value={selected.caption}
+                              maxLength={300}
+                              disabled={selected.locked}
+                              onChange={(e) =>
+                                patch({ caption: e.target.value }, `${selected.id}:caption`)
+                              }
+                              onBlur={() => change({ type: "endGroup" })}
+                            />
+                          </label>
+                          <label>
+                            {t("填充透明度")}
+                            <input
+                              type="range"
+                              min={0}
+                              max={60}
+                              value={selected.fillOpacity * 100}
+                              disabled={selected.locked}
+                              onChange={(e) =>
+                                patch(
+                                  { fillOpacity: Number(e.target.value) / 100 },
+                                  `${selected.id}:fillOpacity`,
+                                )
+                              }
+                              onBlur={() => change({ type: "endGroup" })}
+                            />
+                          </label>
                           <label className="map-editor-check">
                             <input
                               type="checkbox"
-                              checked={selected.arrow}
+                              checked={selected.hatch}
                               disabled={selected.locked}
-                              onChange={(e) => patch({ arrow: e.target.checked })}
+                              onChange={(e) => patch({ hatch: e.target.checked })}
                             />
-                            {t("末端箭头")}
+                            {t("危险区斜线填充")}
                           </label>
-                        ),
-                      )}
-                    </>
-                  ),
-                )}
-                {selected?.kind === "shape" && (
-                  <>
-                    <label>
-                      {t("区域说明")}
-                      <textarea
-                        value={selected.caption}
-                        maxLength={300}
-                        disabled={selected.locked}
-                        onChange={(e) =>
-                          patch({ caption: e.target.value }, `${selected.id}:caption`)
-                        }
-                        onBlur={() => change({ type: "endGroup" })}
-                      />
-                    </label>
-                    <label>
-                      {t("填充透明度")}
-                      <input
-                        type="range"
-                        min={0}
-                        max={60}
-                        value={selected.fillOpacity * 100}
-                        disabled={selected.locked}
-                        onChange={(e) =>
-                          patch(
-                            { fillOpacity: Number(e.target.value) / 100 },
-                            `${selected.id}:fillOpacity`,
-                          )
-                        }
-                        onBlur={() => change({ type: "endGroup" })}
-                      />
-                    </label>
-                    <label className="map-editor-check">
-                      <input
-                        type="checkbox"
-                        checked={selected.hatch}
-                        disabled={selected.locked}
-                        onChange={(e) => patch({ hatch: e.target.checked })}
-                      />
-                      {t("危险区斜线填充")}
-                    </label>
-                  </>
-                )}
-                {selected?.kind === "icon" && (
-                  <>
-                    <label>
-                      {t("图标大小")}
-                      <input
-                        type="range"
-                        min={8}
-                        max={200}
-                        value={selected.size * 1000}
-                        disabled={selected.locked}
-                        onChange={(e) =>
-                          patch({ size: Number(e.target.value) / 1000 }, `${selected.id}:size`)
-                        }
-                        onBlur={() => change({ type: "endGroup" })}
-                      />
-                    </label>
-                    <label>
-                      {t("文字说明")}
-                      <textarea
-                        value={selected.caption}
-                        maxLength={300}
-                        disabled={selected.locked}
-                        onChange={(e) =>
-                          patch({ caption: e.target.value }, `${selected.id}:caption`)
-                        }
-                        onBlur={() => change({ type: "endGroup" })}
-                      />
-                    </label>
-                    <button
-                      disabled={selected.locked}
-                      onClick={() => {
-                        setIconId(selected.iconId);
-                        const original = icons.get(selected.iconId),
-                          tactical = tacticalSymbol(selected.iconId);
-                        setMarkerLibrary(tactical ? "tactical" : "original");
-                        setIconGroup(tactical?.group || original?.group || "单位与队伍");
-                        setMarkerQuery("");
-                        setReplaceIcon(true);
-                        setPanel("icons");
-                      }}
-                    >
-                      {t("更换图标")}
-                    </button>
-                  </>
-                )}
-                {selected?.kind === "text" && (
-                  <>
-                    <label>
-                      {t("文字说明")}
-                      <textarea
-                        ref={textField}
-                        value={selected.text}
-                        maxLength={1000}
-                        disabled={selected.locked}
-                        onChange={(e) => patch({ text: e.target.value }, `${selected.id}:text`)}
-                        onBlur={() => change({ type: "endGroup" })}
-                      />
-                    </label>
-                    <label>
-                      {t("字体")}
-                      <GameSelect
-                        value={selected.font || "sans"}
-                        disabled={selected.locked}
-                        onValueChange={(font) => {
-                          setSettings((value) => ({ ...value, font: font as MapFont }));
-                          patch({ font });
-                        }}
-                      >
-                        {localize(
-                          mapFonts.map((font) => (
-                            <option key={font.id} value={font.id}>
-                              {localize(vehicleName(font))}
-                            </option>
-                          )),
-                        )}
-                      </GameSelect>
-                    </label>
-                    <label>
-                      {t("字重")}
-                      <GameSelect
-                        value={selected.fontWeight ?? 600}
-                        disabled={selected.locked}
-                        onValueChange={(weight) => {
-                          const fontWeight = Number(weight) as 400 | 600 | 700;
-                          setSettings((value) => ({ ...value, fontWeight }));
-                          patch({ fontWeight });
-                        }}
-                      >
-                        <option value={400}>{t("常规")}</option>
-                        <option value={600}>{t("半粗")}</option>
-                        <option value={700}>{t("加粗")}</option>
-                      </GameSelect>
-                    </label>
-                    <label className="map-editor-check">
-                      <input
-                        type="checkbox"
-                        checked={!!selected.italic}
-                        disabled={selected.locked}
-                        onChange={(event) => {
-                          setSettings((value) => ({ ...value, italic: event.target.checked }));
-                          patch({ italic: event.target.checked });
-                        }}
-                      />
-                      {t("斜体")}
-                    </label>
-                    <small>{t("字体显示取决于设备中可用的字体，导出图片沿用当前设置。")}</small>
-                    <label>
-                      {t("字号")}
-                      <input
-                        type="range"
-                        min={8}
-                        max={100}
-                        value={selected.fontSize * 1000}
-                        disabled={selected.locked}
-                        onChange={(e) =>
-                          patch(
-                            { fontSize: Number(e.target.value) / 1000 },
-                            `${selected.id}:fontSize`,
-                          )
-                        }
-                        onBlur={() => change({ type: "endGroup" })}
-                      />
-                    </label>
-                  </>
-                )}
-                {localize(
-                  selected && selected.kind !== "path" && selected.kind !== "shape" && (
-                    <label>
-                      {t("旋转角度")}
-                      <input
-                        type="range"
-                        min={-180}
-                        max={180}
-                        value={selected.rotation}
-                        disabled={selected.locked}
-                        onChange={(e) =>
-                          patch({ rotation: Number(e.target.value) }, `${selected.id}:rotation`)
-                        }
-                        onBlur={() => change({ type: "endGroup" })}
-                      />
-                    </label>
-                  ),
-                )}
-                {localize(
-                  selected && (
-                    <>
-                      <div className="map-editor-coordinate-fields">
-                        {localize(
-                          (["x", "y"] as const).map((axis) => (
-                            <label key={axis}>
-                              {localize(axis.toUpperCase())} %
-                              <input
-                                type="number"
-                                min={CANVAS_MIN * 100}
-                                max={CANVAS_MAX * 100}
-                                step={0.1}
-                                value={Number(
-                                  (
-                                    (((selected.kind === "path" || selected.kind === "shape") &&
-                                    selectedPoint !== null
-                                      ? selected.points[selectedPoint]
-                                      : null) || anchorPoint(selected))[axis] * 100
-                                  ).toFixed(2),
-                                )}
-                                disabled={selected.locked}
-                                onChange={(e) => {
-                                  if (
-                                    (selected.kind === "path" || selected.kind === "shape") &&
-                                    selectedPoint !== null
-                                  ) {
-                                    patch(
-                                      {
-                                        points: selected.points.map((p, i) =>
-                                          i === selectedPoint
-                                            ? {
-                                                ...p,
-                                                [axis]: canvasCoordinate(
-                                                  Number(e.target.value) / 100,
-                                                ),
-                                              }
-                                            : p,
+                        </>
+                      ),
+                    )}
+                    {localize(
+                      selected?.kind === "icon" && (
+                        <>
+                          <label>
+                            {t("图标大小")}
+                            <input
+                              type="range"
+                              min={8}
+                              max={200}
+                              value={selected.size * 1000}
+                              disabled={selected.locked}
+                              onChange={(e) =>
+                                patch(
+                                  { size: Number(e.target.value) / 1000 },
+                                  `${selected.id}:size`,
+                                )
+                              }
+                              onBlur={() => change({ type: "endGroup" })}
+                            />
+                          </label>
+                          <label>
+                            {t("文字说明")}
+                            <textarea
+                              value={selected.caption}
+                              maxLength={300}
+                              disabled={selected.locked}
+                              onChange={(e) =>
+                                patch({ caption: e.target.value }, `${selected.id}:caption`)
+                              }
+                              onBlur={() => change({ type: "endGroup" })}
+                            />
+                          </label>
+                          <button
+                            disabled={selected.locked}
+                            onClick={() => {
+                              setIconId(selected.iconId);
+                              const original = icons.get(selected.iconId),
+                                tactical = tacticalSymbol(selected.iconId);
+                              setMarkerLibrary(tactical ? "tactical" : "original");
+                              setIconGroup(tactical?.group || original?.group || "单位与队伍");
+                              setMarkerQuery("");
+                              setReplaceIcon(true);
+                              setPanel("icons");
+                            }}
+                          >
+                            {t("更换图标")}
+                          </button>
+                        </>
+                      ),
+                    )}
+                    {localize(
+                      selected?.kind === "text" && (
+                        <>
+                          <label>
+                            {t("文字说明")}
+                            <textarea
+                              ref={textField}
+                              value={selected.text}
+                              maxLength={1000}
+                              disabled={selected.locked}
+                              onChange={(e) =>
+                                patch({ text: e.target.value }, `${selected.id}:text`)
+                              }
+                              onBlur={() => change({ type: "endGroup" })}
+                            />
+                          </label>
+                          <label>
+                            {t("字体")}
+                            <GameSelect
+                              value={selected.font || "sans"}
+                              disabled={selected.locked}
+                              onValueChange={(font) => {
+                                setSettings((value) => ({ ...value, font: font as MapFont }));
+                                patch({ font });
+                              }}
+                            >
+                              {localize(
+                                mapFonts.map((font) => (
+                                  <option key={font.id} value={font.id}>
+                                    {localize(vehicleName(font))}
+                                  </option>
+                                )),
+                              )}
+                            </GameSelect>
+                          </label>
+                          <label>
+                            {t("字重")}
+                            <GameSelect
+                              value={selected.fontWeight ?? 600}
+                              disabled={selected.locked}
+                              onValueChange={(weight) => {
+                                const fontWeight = Number(weight) as 400 | 600 | 700;
+                                setSettings((value) => ({ ...value, fontWeight }));
+                                patch({ fontWeight });
+                              }}
+                            >
+                              <option value={400}>{t("常规")}</option>
+                              <option value={600}>{t("半粗")}</option>
+                              <option value={700}>{t("加粗")}</option>
+                            </GameSelect>
+                          </label>
+                          <label className="map-editor-check">
+                            <input
+                              type="checkbox"
+                              checked={!!selected.italic}
+                              disabled={selected.locked}
+                              onChange={(event) => {
+                                setSettings((value) => ({
+                                  ...value,
+                                  italic: event.target.checked,
+                                }));
+                                patch({ italic: event.target.checked });
+                              }}
+                            />
+                            {t("斜体")}
+                          </label>
+                          <small>
+                            {t("字体显示取决于设备中可用的字体，导出图片沿用当前设置。")}
+                          </small>
+                          <label>
+                            {t("字号")}
+                            <input
+                              type="range"
+                              min={8}
+                              max={100}
+                              value={selected.fontSize * 1000}
+                              disabled={selected.locked}
+                              onChange={(e) =>
+                                patch(
+                                  { fontSize: Number(e.target.value) / 1000 },
+                                  `${selected.id}:fontSize`,
+                                )
+                              }
+                              onBlur={() => change({ type: "endGroup" })}
+                            />
+                          </label>
+                        </>
+                      ),
+                    )}
+                    {localize(
+                      selected && selected.kind !== "path" && selected.kind !== "shape" && (
+                        <label>
+                          {t("旋转角度")}
+                          <input
+                            type="range"
+                            min={-180}
+                            max={180}
+                            value={selected.rotation}
+                            disabled={selected.locked}
+                            onChange={(e) =>
+                              patch({ rotation: Number(e.target.value) }, `${selected.id}:rotation`)
+                            }
+                            onBlur={() => change({ type: "endGroup" })}
+                          />
+                        </label>
+                      ),
+                    )}
+                    {localize(
+                      selected && (
+                        <>
+                          <div className="map-editor-coordinate-fields">
+                            {localize(
+                              (["x", "y"] as const).map((axis) => (
+                                <label key={axis}>
+                                  {localize(axis.toUpperCase())} %
+                                  <input
+                                    type="number"
+                                    min={CANVAS_MIN * 100}
+                                    max={CANVAS_MAX * 100}
+                                    step={0.1}
+                                    value={Number(
+                                      (
+                                        (((selected.kind === "path" || selected.kind === "shape") &&
+                                        selectedPoint !== null
+                                          ? selected.points[selectedPoint]
+                                          : null) || anchorPoint(selected))[axis] * 100
+                                      ).toFixed(2),
+                                    )}
+                                    disabled={selected.locked}
+                                    onChange={(e) => {
+                                      if (
+                                        (selected.kind === "path" || selected.kind === "shape") &&
+                                        selectedPoint !== null
+                                      ) {
+                                        patch(
+                                          {
+                                            points: selected.points.map((p, i) =>
+                                              i === selectedPoint
+                                                ? {
+                                                    ...p,
+                                                    [axis]: canvasCoordinate(
+                                                      Number(e.target.value) / 100,
+                                                    ),
+                                                  }
+                                                : p,
+                                            ),
+                                          },
+                                          `${selected.id}:point:${selectedPoint}:${axis}`,
+                                        );
+                                        return;
+                                      }
+                                      const delta =
+                                        canvasCoordinate(Number(e.target.value) / 100) -
+                                        anchorPoint(selected)[axis];
+                                      apply(
+                                        historyRef.current.present.map((a) =>
+                                          a.id === selected.id
+                                            ? moveAnnotation(
+                                                a,
+                                                axis === "x" ? delta : 0,
+                                                axis === "y" ? delta : 0,
+                                              )
+                                            : a,
                                         ),
-                                      },
-                                      `${selected.id}:point:${selectedPoint}:${axis}`,
-                                    );
-                                    return;
-                                  }
-                                  const delta =
-                                    canvasCoordinate(Number(e.target.value) / 100) -
-                                    anchorPoint(selected)[axis];
-                                  apply(
-                                    historyRef.current.present.map((a) =>
-                                      a.id === selected.id
-                                        ? moveAnnotation(
-                                            a,
-                                            axis === "x" ? delta : 0,
-                                            axis === "y" ? delta : 0,
-                                          )
-                                        : a,
-                                    ),
-                                    `${selected.id}:${axis}`,
-                                  );
-                                }}
-                                onBlur={() => change({ type: "endGroup" })}
-                              />
-                            </label>
-                          )),
-                        )}
-                      </div>
-                      <div className="map-editor-selection-actions">
-                        <button disabled={selected.locked} onClick={() => reorder(1)}>
-                          {t("上移一层")}
-                        </button>
-                        <button disabled={selected.locked} onClick={() => reorder(-1)}>
-                          {t("下移一层")}
-                        </button>
-                        <button onClick={duplicate}>{t("复制")}</button>
-                        <button disabled={selected.locked} onClick={remove}>
-                          {t("删除")}
-                        </button>
-                      </div>
-                      <p>{t("也可选中标注后使用方向键微调；Shift 加速。")}</p>
-                    </>
-                  ),
-                )}
-              </div>
-            )}
-          </aside>
+                                        `${selected.id}:${axis}`,
+                                      );
+                                    }}
+                                    onBlur={() => change({ type: "endGroup" })}
+                                  />
+                                </label>
+                              )),
+                            )}
+                          </div>
+                          <div className="map-editor-selection-actions">
+                            <button disabled={selected.locked} onClick={() => reorder(1)}>
+                              {t("上移一层")}
+                            </button>
+                            <button disabled={selected.locked} onClick={() => reorder(-1)}>
+                              {t("下移一层")}
+                            </button>
+                            <button onClick={duplicate}>{t("复制")}</button>
+                            <button disabled={selected.locked} onClick={remove}>
+                              {t("删除")}
+                            </button>
+                          </div>
+                          <p>{t("也可选中标注后使用方向键微调；Shift 加速。")}</p>
+                        </>
+                      ),
+                    )}
+                  </div>
+                ),
+              )}
+            </aside>
+          ),
         )}
         <output className={`map-editor-status${storageError || plans.error ? " is-error" : ""}`}>
-          {busy ? (
-            <>
-              {localize(busy)}
-              <button onClick={() => abort.current?.abort()}>{t("取消导出")}</button>
-            </>
-          ) : (
-            <>
-              <span>
-                {localize(
-                  pending
-                    ? tool === "pen"
-                      ? "松开完成画笔"
-                      : "松开完成线条；也可点击起点、终点"
-                    : tool === "arrow" || tool === "route" || tool === "curve"
-                      ? "拖出线条，松开后直接编辑端点"
-                      : tool === "danger" || tool === "shape"
-                        ? "拖出区域，松开后调整形状"
-                        : tool === "sniper"
-                          ? "点击地图添加狙击点"
-                          : tool === "icon"
-                            ? "点击地图放置原生图标"
-                            : tool === "text"
-                              ? "点击地图添加文字"
-                              : selectedGeometry
-                                ? "拖实心点调整 · 拖空心点加拐点 · 拖线移动"
-                                : "选择标注编辑；按 Esc 取消选择",
-                )}
-              </span>
-              <span className="map-editor-save-state" aria-live="polite">
-                {plans.loading
-                  ? t("正在读取本地方案…")
-                  : plans.error ||
-                    (plans.working
-                      ? t("正在切换方案…")
-                      : plans.saving
-                        ? t("正在保存方案…")
-                        : plans.active
-                          ? `${plans.active.name} · ${localize(notice)}`
-                          : notice)}
-              </span>
-            </>
+          {localize(
+            busy ? (
+              <>
+                {localize(busy)}
+                <button onClick={() => abort.current?.abort()}>{t("取消导出")}</button>
+              </>
+            ) : (
+              <>
+                <span>
+                  {localize(
+                    pending
+                      ? tool === "pen"
+                        ? "松开完成画笔"
+                        : "松开完成线条；也可点击起点、终点"
+                      : tool === "arrow" || tool === "route" || tool === "curve"
+                        ? "拖出线条，松开后直接编辑端点"
+                        : tool === "danger" || tool === "shape"
+                          ? "拖出区域，松开后调整形状"
+                          : tool === "sniper"
+                            ? "点击地图添加狙击点"
+                            : tool === "icon"
+                              ? "点击地图放置原生图标"
+                              : tool === "text"
+                                ? "点击地图添加文字"
+                                : selectedGeometry
+                                  ? "拖实心点调整 · 拖空心点加拐点 · 拖线移动"
+                                  : "选择标注编辑；按 Esc 取消选择",
+                  )}
+                </span>
+                <span className="map-editor-save-state" aria-live="polite">
+                  {localize(
+                    plans.loading
+                      ? t("正在读取本地方案…")
+                      : plans.error ||
+                          (plans.working
+                            ? t("正在切换方案…")
+                            : plans.saving
+                              ? t("正在保存方案…")
+                              : plans.active
+                                ? `${plans.active.name} · ${localize(notice)}`
+                                : notice),
+                  )}
+                </span>
+              </>
+            ),
           )}
         </output>
       </div>
@@ -2091,42 +2136,44 @@ export function MapEditor({
           </Modal>
         ),
       )}
-      {deletePlan && (
-        <Modal
-          title={t("删除走线方案")}
-          close={() => setDeletePlan(null)}
-          className="map-editor-import-dialog"
-        >
-          <p>
-            {t("确认删除“")}
-            {plans.active?.name}
-            {t("”？其他方案不受影响。需要保留时，请先导出编辑文件。")}
-          </p>
-          <div className="map-editor-dialog-actions">
-            <button disabled={plans.working} onClick={() => setDeletePlan(null)}>
-              {t("取消")}
-            </button>
-            <button
-              disabled={plans.working}
-              onClick={() => {
-                if (deletePlan !== plans.active?.id) {
-                  setDeletePlan(null);
-                  return;
-                }
-                finish();
-                void plans
-                  .remove()
-                  .then(() => {
-                    planHistories.current.delete(deletePlan);
+      {localize(
+        deletePlan && (
+          <Modal
+            title={t("删除走线方案")}
+            close={() => setDeletePlan(null)}
+            className="map-editor-import-dialog"
+          >
+            <p>
+              {t("确认删除“")}
+              {localize(plans.active?.name)}
+              {t("”？其他方案不受影响。需要保留时，请先导出编辑文件。")}
+            </p>
+            <div className="map-editor-dialog-actions">
+              <button disabled={plans.working} onClick={() => setDeletePlan(null)}>
+                {t("取消")}
+              </button>
+              <button
+                disabled={plans.working}
+                onClick={() => {
+                  if (deletePlan !== plans.active?.id) {
                     setDeletePlan(null);
-                  })
-                  .catch(() => {});
-              }}
-            >
-              {t("删除方案")}
-            </button>
-          </div>
-        </Modal>
+                    return;
+                  }
+                  finish();
+                  void plans
+                    .remove()
+                    .then(() => {
+                      planHistories.current.delete(deletePlan);
+                      setDeletePlan(null);
+                    })
+                    .catch(() => {});
+                }}
+              >
+                {t("删除方案")}
+              </button>
+            </div>
+          </Modal>
+        ),
       )}
     </>
   );
