@@ -260,4 +260,3 @@ a.vehicle-card.wt-game-card { color: inherit; text-decoration: none; cursor: poi
 
 /* Country identity shares the bottom-right caption with rank. */
 
-.vehicle-card.wt-game-card .wt-game-caption-flag { position:static; width:20px; height:14px; min-width:20px; max-width:20px; object-fit:contain; flex:none; }

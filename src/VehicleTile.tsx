@@ -12,7 +12,6 @@ import { compactResearchPoints } from "./research-number-format";
 import { format } from "./quotes";
 import { cnyPrice } from "./PackPrice";
 import { rating } from "./vehicle-labels";
-import flags from "../data/flags.json";
 import { marketPriceLabel } from "./MarketPrice";
 
 /** A display adapter accepts only known facts; no country data is fetched by a tile. */
@@ -157,8 +156,6 @@ export function VehicleTile({
     countryFlag?.name ||
     countryLabel ||
     (country ? bootstrap.countries[country as keyof typeof bootstrap.countries] || country : "");
-  const flagUrl =
-    countryFlag?.url || (country ? (flags as Record<string, string>)[country] : undefined);
   const caption = [displayCountry, footerLabel, showRank && unit.rank ? `Rank ${unit.rank}` : null]
     .filter(Boolean)
     .join(" · ");
@@ -295,9 +292,6 @@ export function VehicleTile({
       )}
       {caption && (
         <span className="wt-game-card-caption" title={caption}>
-          {flagUrl && displayCountry && (
-            <img className="wt-game-caption-flag" src={flagUrl} width={20} height={14} alt="" />
-          )}
           {(displayCountry || footerLabel) && (
             <span className="wt-game-card-caption-context">
               {[displayCountry, footerLabel].filter(Boolean).join(" · ")}
