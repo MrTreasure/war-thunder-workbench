@@ -18,6 +18,7 @@ const {
   HOME_SUMMARY_LIMIT,
   homeWatchPresentation,
   homeResearchStatus,
+  homeResearchProgress,
   homeResearchPrerequisites,
   homeVehiclePresentation,
 } = await import("data:text/javascript;base64," + Buffer.from(code).toString("base64"));
@@ -170,3 +171,21 @@ console.log(
 
 assert.deepEqual(homeResearchPrerequisites("cn_ztz_99a"), [...chain].reverse());
 for (const id of ["cn_ztz_99a", ...chain]) assert.equal(homeVehiclePresentation(id).card.id, id);
+
+assert.equal(homeResearchProgress("cn_ztz_99a", null), null);
+assert.equal(homeResearchProgress("unknown", []), null);
+assert.deepEqual(homeResearchProgress("cn_ztz_99a", []), {
+  completed: 0,
+  total: chain.length,
+  percent: 0,
+});
+assert.deepEqual(homeResearchProgress("cn_ztz_99a", chain), {
+  completed: chain.length,
+  total: chain.length,
+  percent: 100,
+});
+assert.equal(
+  homeResearchProgress("cn_ztz_99a", chain.slice(1)).percent,
+  Math.floor(((chain.length - 1) * 100) / chain.length),
+);
+assert.equal(homeResearchProgress(chain.at(-1), []).percent, 100);

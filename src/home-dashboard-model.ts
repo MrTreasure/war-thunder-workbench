@@ -174,3 +174,17 @@ export function homeResearchStatus(targetId: string, ownedIds: Iterable<string> 
   const remaining = path.filter((id) => !owned.has(id)).length;
   return { state: remaining ? ("prerequisites" as const) : ("researching" as const), remaining };
 }
+
+/** Counts garage-owned prerequisites only, never estimates target research points. */
+export function homeResearchProgress(targetId: string, ownedIds: Iterable<string> | null) {
+  if (ownedIds === null) return null;
+  const path = homeResearchPrerequisites(targetId);
+  if (path === null) return null;
+  const owned = homeCanonicalOwned(ownedIds);
+  const completed = path.filter((id) => owned.has(id)).length;
+  return {
+    completed,
+    total: path.length,
+    percent: path.length ? Math.floor((completed * 100) / path.length) : 100,
+  };
+}

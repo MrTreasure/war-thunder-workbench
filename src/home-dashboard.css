@@ -173,3 +173,10 @@
 .wt-home-prerequisites-content { min-height: 0; flex: 1; }
 
 .wt-home-message { position: fixed; inset: 50% auto auto 50%; transform: translate(-50%, -50%); z-index: 10000; max-width: min(420px, calc(100vw - 32px)); padding: 16px 24px; border: 1px solid var(--wt-strong-line); border-radius: 8px; background: var(--wt-panel); color: var(--wt-ink); box-shadow: var(--wt-shadow); font-size: 14px; line-height: 1.6; text-align: center; pointer-events: none; overflow-wrap: anywhere; }
+.wt-home-research-progress { width: min(260px, 100%); min-width: 180px; display: grid; gap: 6px; }
+.wt-home-research-progress > div { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.wt-home-research-progress strong { color: var(--wt-gold); font-size: 13px; font-variant-numeric: tabular-nums; }
+.wt-home-research-progress progress { appearance: none; display: block; width: 100%; height: 7px; border: 0; border-radius: 4px; overflow: hidden; background: var(--wt-line); }
+.wt-home-research-progress progress::-webkit-progress-bar { background: var(--wt-line); }
+.wt-home-research-progress progress::-webkit-progress-value { background: var(--wt-gold); border-radius: 4px; }
+.wt-home-research-progress progress::-moz-progress-bar { background: var(--wt-gold); border-radius: 4px; }

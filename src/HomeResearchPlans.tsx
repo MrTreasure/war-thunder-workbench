@@ -7,6 +7,7 @@ import {
   homeCanonicalOwned,
   homeResearchPrerequisites,
   homeResearchStatus,
+  homeResearchProgress,
   homeVehiclePresentation,
   type homeDashboardSummary,
 } from "./home-dashboard-model";
@@ -29,6 +30,7 @@ export function HomeResearchPlans({
         {plans.slice(0, HOME_SUMMARY_LIMIT).map((plan) => {
           const entry = homeVehiclePresentation(plan.targetId);
           const status = homeResearchStatus(plan.targetId, ownedIds);
+          const progress = homeResearchProgress(plan.targetId, ownedIds);
           return (
             <article className="wt-home-research-item" key={plan.key}>
               {entry?.card ? (
@@ -43,6 +45,24 @@ export function HomeResearchPlans({
                 <strong>{plan.targetName || "名称待核验"}</strong>
               )}
               <div className="wt-home-research-actions">
+                {progress ? (
+                  <div className="wt-home-research-progress">
+                    <div>
+                      <span>前置完成度</span>
+                      <strong>{progress.percent}%</strong>
+                    </div>
+                    <progress
+                      max={100}
+                      value={progress.percent}
+                      aria-label={`${plan.targetName || "研发目标"}前置完成度`}
+                    />
+                    <span>
+                      已拥有 {progress.completed} / {progress.total} 辆前置车辆
+                    </span>
+                  </div>
+                ) : (
+                  <span>前置完成度：未知</span>
+                )}
                 <button className="quiet-button" onClick={() => setSelected(plan.key)}>
                   {status.state === "prerequisites"
                     ? `还剩 ${status.remaining} 辆前置车辆`
