@@ -15,7 +15,15 @@ export function vehiclePurposeSummary(rows: VehicleMetricRow[], column: number, 
     const metric = row.metrics[column];
     const a = spadedValue(baseline, mode),
       b = spadedValue(metric, mode);
-    if (a === null || b === null || baseline?.altitudeM !== metric?.altitudeM) {
+    const needsAltitude = ["max-speed", "climb-rate", "turn-time"].includes(
+      metric?.id.replace(/-\d+$/, "") || "",
+    );
+    if (
+      a === null ||
+      b === null ||
+      baseline?.altitudeM !== metric?.altitudeM ||
+      (needsAltitude && (baseline?.altitudeM == null || metric?.altitudeM == null))
+    ) {
       missing++;
       continue;
     }
@@ -27,7 +35,7 @@ export function vehiclePurposeSummary(rows: VehicleMetricRow[], column: number, 
   }
   return [
     known.length ? known.join("；") : "已知同条件指标无差异或不足以比较",
-    missing ? `${missing} 项缺值或测定高度不同，未作摘要判断` : "",
+    missing ? `${missing} 项缺值或测定条件未确认，未作摘要判断` : "",
     "没有综合评分，结合下表判断取舍。",
   ]
     .filter(Boolean)
