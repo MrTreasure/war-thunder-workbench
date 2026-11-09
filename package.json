@@ -46,7 +46,7 @@
     "check:video-library": "node --experimental-strip-types scripts/check-video-analysis-library.mjs",
     "check:app-update": "node --experimental-strip-types scripts/check-app-update.mjs",
     "check:comparison-purpose": "node --experimental-strip-types scripts/check-comparison-purpose.mjs",
-    "check:home": "node scripts/check-home-dashboard.mjs"
+    "check:home": "node scripts/check-home-dashboard.mjs && node scripts/check-home-watch.mjs"
   },
   "dependencies": {
     "@noble/hashes": "2.4.0",

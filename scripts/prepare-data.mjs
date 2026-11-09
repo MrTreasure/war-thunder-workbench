@@ -194,9 +194,9 @@ for (const [category, countries] of Object.entries(catalog.trees))
             parentId: ancestry.parents.get(canonicalId) || null,
             research: unit.side === "research",
           };
-          // Only watchable purchase categories need card presentation; no performance,
-          // modification or loadout payload is included in this homepage metadata.
-          if (["gold", "pack"].includes(unit.kind)) {
+          // Shared compact card facts for targets, prerequisites and purchase watches.
+          // Performance, modifications and loadouts remain in lazy country payloads.
+          {
             const flagId =
               homeFlagPolicy.countryOverrides[country] ||
               homeFlagPolicy.sourceFlagOverrides[homeFlags.vehicles[unit.id]?.flagId] ||

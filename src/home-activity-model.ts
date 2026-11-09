@@ -21,6 +21,8 @@ export function homeRecentQueries(profiles: PlayerProfile[]) {
   return profiles.slice(0, 4).map((profile) => ({
     uid: profile.uid,
     nickname: profile.nickname,
+    avatar: profile.avatar || null,
+    avatarFrameKey: profile.avatarFrameKey || null,
     collectedAt: Number.isFinite(Date.parse(profile.fetchedAt)) ? profile.fetchedAt : null,
     restore:
       /^snap_[A-Za-z0-9_-]{10,60}$/.test(profile.snapshotId) && /^[0-9]{1,20}$/.test(profile.uid)

@@ -75,3 +75,13 @@
     gap: 16px;
   }
 }
+
+.wt-home-activity .wt-player-avatar {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+}
+.wt-home-activity li > .wt-home-recent-identity {
+  flex: 1;
+  min-width: 0;
+}

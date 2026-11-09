@@ -13,8 +13,14 @@ const bundled = await build({
 const code = (Array.isArray(bundled) ? bundled[0] : bundled).output.find(
   (item) => item.type === "chunk",
 ).code;
-const { homeDashboardSummary, HOME_SUMMARY_LIMIT, homeWatchPresentation, homeResearchStatus } =
-  await import("data:text/javascript;base64," + Buffer.from(code).toString("base64"));
+const {
+  homeDashboardSummary,
+  HOME_SUMMARY_LIMIT,
+  homeWatchPresentation,
+  homeResearchStatus,
+  homeResearchPrerequisites,
+  homeVehiclePresentation,
+} = await import("data:text/javascript;base64," + Buffer.from(code).toString("base64"));
 assert.equal(HOME_SUMMARY_LIMIT, 4);
 assert.deepEqual(homeDashboardSummary({}), { plans: [], lineups: [], loadouts: [], watches: [] });
 const plan = { target: "test_target", progress: 0, owned: [], pins: [], banned: [] };
@@ -161,3 +167,6 @@ assert(!Object.hasOwn(recent[0].restore, "player"));
 console.log(
   "Home query checks passed: reserved quota, separate credit balance and restore-only history links.",
 );
+
+assert.deepEqual(homeResearchPrerequisites("cn_ztz_99a"), [...chain].reverse());
+for (const id of ["cn_ztz_99a", ...chain]) assert.equal(homeVehiclePresentation(id).card.id, id);

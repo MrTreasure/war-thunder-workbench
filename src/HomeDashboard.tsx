@@ -1,5 +1,6 @@
+import { HomeResearchPlans } from "./HomeResearchPlans";
 import { HomeActivity } from "./HomeActivity";
-import { useVehicleFacts } from "./vehicle-catalog";
+import { HomeWatchSection } from "./HomeWatchSection";
 import { GameIcon, type GameIconName } from "./components/GameIcon";
 import mapIcons from "../data/map-editor-icons.json";
 import { useLoadoutPlans } from "./loadout-storage";
@@ -8,13 +9,7 @@ import { Link } from "@tanstack/react-router";
 import bootstrap from "./generated/bootstrap.json";
 import { useAccountWorkspace, workspaceKey } from "./workspace-context";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
-import {
-  HOME_SUMMARY_LIMIT,
-  homeDashboardSummary,
-  homeWatchPresentation,
-  homeResearchStatus,
-} from "./home-dashboard-model";
-import { VehicleTile } from "./VehicleTile";
+import { HOME_SUMMARY_LIMIT, homeDashboardSummary } from "./home-dashboard-model";
 import "./home-dashboard.css";
 
 function readGuestDocuments() {
@@ -36,8 +31,6 @@ function readGuestDocuments() {
 }
 const countryName = (id: string) =>
   bootstrap.countries[id as keyof typeof bootstrap.countries] || "国家未知";
-const categoryName = (id: string) =>
-  bootstrap.categories[id as keyof typeof bootstrap.categories] || "军种未知";
 const homeSectionIcons: Record<string, GameIconName> = {
   研发计划: "research",
   出击队列: "crew",
@@ -118,7 +111,6 @@ function HomeLoadoutSection({ owner }: { owner: string }) {
   );
 }
 export function HomeDashboard() {
-  const facts = useVehicleFacts();
   const { session } = useWorkbenchAccount();
   const workspace = useAccountWorkspace();
   const userId = session?.user?.id || "";
@@ -257,42 +249,11 @@ export function HomeDashboard() {
         >
           {garageMessage && <output className="wt-home-notice">{garageMessage}</output>}
           {summary.plans.length ? (
-            <ul>
-              {summary.plans.slice(0, HOME_SUMMARY_LIMIT).map((plan) => {
-                const status = homeResearchStatus(
-                  plan.targetId,
-                  currentWorkspace?.binding ? currentWorkspace.ownedVehicleIds : null,
-                );
-                return (
-                  <li key={plan.key}>
-                    <div>
-                      <strong>
-                        {countryName(plan.country)} · {categoryName(plan.category)}
-                      </strong>
-                      <span>目标：{plan.targetName || "名称待核验"}</span>
-                      <span>
-                        {status.state === "prerequisites"
-                          ? `还剩 ${status.remaining} 辆前置车辆`
-                          : status.state === "researching"
-                            ? "正在研发"
-                            : status.state === "owned"
-                              ? "已拥有"
-                              : status.state === "garage-required"
-                                ? "绑定角色并同步车库后查看前置进度"
-                                : "前置资料待核验"}
-                      </span>
-                    </div>
-                    <Link
-                      to="/tree"
-                      search={{ country: plan.country, category: plan.category, plan: true }}
-                      preload={false}
-                    >
-                      继续研发
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+            <HomeResearchPlans
+              key={userId || "guest"}
+              plans={summary.plans}
+              ownedIds={currentWorkspace?.binding ? currentWorkspace.ownedVehicleIds : null}
+            />
           ) : (
             <p className="wt-home-empty">
               {pending
@@ -349,39 +310,7 @@ export function HomeDashboard() {
             <p className="wt-home-empty">登录后可保存挂载方案，并在这里查看。</p>
           </Section>
         )}
-        <Section
-          title="载具关注"
-          count={summary.watches.length}
-          action={
-            <Link to="/sales" preload={false}>
-              查看全部关注 →
-            </Link>
-          }
-        >
-          {summary.watches.length ? (
-            <div className="wt-home-watch-list">
-              {summary.watches.slice(0, HOME_SUMMARY_LIMIT).map((watch) => {
-                const presentation = homeWatchPresentation(watch);
-                return (
-                  <VehicleTile
-                    key={watch.id}
-                    unit={facts.get(watch.id) || presentation.unit}
-                    country={watch.country}
-                    countryFlag={presentation.flag}
-                    showRank
-                    showAcquisition={presentation.known}
-                  />
-                );
-              })}
-            </div>
-          ) : (
-            <p className="wt-home-empty">
-              {pending
-                ? "关注列表正在恢复。"
-                : "还没有关注的载具。在折扣日历添加关注，方便下次查看。"}
-            </p>
-          )}
-        </Section>
+        <HomeWatchSection key={userId || "guest"} watches={summary.watches} pending={pending} />
       </div>
     </main>
   );

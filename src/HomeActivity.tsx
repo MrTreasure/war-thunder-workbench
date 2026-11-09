@@ -4,6 +4,7 @@ import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { statsQueryHistory } from "./player-stats-api";
 import { homeQueryQuota, homeRecentQueries } from "./home-activity-model";
 import { GameIcon } from "./components/GameIcon";
+import { PlayerAvatar } from "./PlayerAvatar";
 import { Modal } from "./Modal";
 import "./home-activity.css";
 
@@ -52,7 +53,12 @@ function HomeActivityContent({ initializing }: { initializing: boolean }) {
           <ul>
             {recent.map((item) => (
               <li key={item.uid}>
-                <div>
+                <PlayerAvatar
+                  url={item.avatar}
+                  name={item.nickname}
+                  frameKey={item.avatarFrameKey}
+                />
+                <div className="wt-home-recent-identity">
                   <strong>{item.nickname}</strong>
                   <span>
                     UID {item.uid} ·{" "}
@@ -62,7 +68,7 @@ function HomeActivityContent({ initializing }: { initializing: boolean }) {
                   </span>
                 </div>
                 <Link to="/stats" search={item.restore || {}} preload={false}>
-                  {item.restore ? "恢复记录" : "前往查询"}
+                  {item.restore ? "查看详情" : "前往查询"}
                 </Link>
               </li>
             ))}
@@ -73,7 +79,7 @@ function HomeActivityContent({ initializing }: { initializing: boolean }) {
           </p>
         )}
         <p className="wt-home-activity-note">
-          最多展示本机最近4条记录；恢复已有记录不发起新查询，记录失效后请手动查询。
+          最多展示本机最近4条记录；查看已有记录不发起新查询，记录失效后请手动查询。
         </p>
       </section>
       <section className="wt-home-section" aria-labelledby="wt-home-quota-title">

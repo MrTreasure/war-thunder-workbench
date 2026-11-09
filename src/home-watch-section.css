@@ -1,0 +1,38 @@
+.wt-home-watch-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  max-width: 100%;
+}
+.wt-home-watch-section .wt-home-watch-sale {
+  align-self: flex-start;
+  border: 1px solid color-mix(in srgb, var(--wt-gold) 45%, transparent);
+  padding: 4px 8px;
+  background: color-mix(in srgb, var(--wt-gold) 10%, transparent);
+  color: var(--wt-gold);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.wt-home-watch-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--wt-line);
+}
+.wt-home-watch-pagination span {
+  color: var(--wt-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.wt-home-watch-pagination button {
+  min-height: 44px;
+}
+
+.wt-home-watch-entry > .wt-game-card:has(> .wt-game-pack-price) {
+  margin-bottom: 25px;
+}

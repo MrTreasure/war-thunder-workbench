@@ -129,27 +129,48 @@ export function homeWatchPresentation(watch: SaleVehicle) {
   };
 }
 
-export function homeResearchStatus(targetId: string, ownedIds: Iterable<string> | null) {
-  if (ownedIds === null) return { state: "garage-required" as const, remaining: null };
-  const records = homeNames.vehicles as Record<
-    string,
-    { canonicalId: string; parentId: string | null; research: boolean }
-  >;
-  const target = records[targetId];
-  if (!target) return { state: "unknown" as const, remaining: null };
-  const owned = new Set([...ownedIds].map((id) => records[id]?.canonicalId || id));
-  if (owned.has(target.canonicalId)) return { state: "owned" as const, remaining: 0 };
-  let current = records[target.canonicalId],
-    remaining = 0;
-  const visited = new Set([target.canonicalId]);
+type HomeVehicleEntry = {
+  country: string;
+  category: string;
+  name: string;
+  canonicalId: string;
+  parentId: string | null;
+  research: boolean;
+  card?: VehicleTileUnit;
+  flag?: { id: string; name: string; url: string };
+};
+const homeVehicleEntries = homeNames.vehicles as Record<string, HomeVehicleEntry>;
+export function homeVehiclePresentation(id: string) {
+  return homeVehicleEntries[id] || null;
+}
+export function homeResearchPrerequisites(targetId: string) {
+  const target = homeVehicleEntries[targetId];
+  if (!target) return null;
+  let current = homeVehicleEntries[target.canonicalId];
+  const path: string[] = [],
+    visited = new Set([target.canonicalId]);
   while (current?.parentId) {
-    if (visited.has(current.parentId)) return { state: "unknown" as const, remaining: null };
+    if (visited.has(current.parentId)) return null;
     visited.add(current.parentId);
-    const next = records[current.parentId];
-    if (!next) return { state: "unknown" as const, remaining: null };
+    const next = homeVehicleEntries[current.parentId];
+    if (!next) return null;
     if (!next.research) break;
-    if (!owned.has(next.canonicalId)) remaining++;
+    path.unshift(next.canonicalId);
     current = next;
   }
+  return path;
+}
+export function homeCanonicalOwned(ownedIds: Iterable<string>) {
+  return new Set([...ownedIds].map((id) => homeVehicleEntries[id]?.canonicalId || id));
+}
+export function homeResearchStatus(targetId: string, ownedIds: Iterable<string> | null) {
+  if (ownedIds === null) return { state: "garage-required" as const, remaining: null };
+  const target = homeVehicleEntries[targetId];
+  if (!target) return { state: "unknown" as const, remaining: null };
+  const owned = homeCanonicalOwned(ownedIds);
+  if (owned.has(target.canonicalId)) return { state: "owned" as const, remaining: 0 };
+  const path = homeResearchPrerequisites(targetId);
+  if (path === null) return { state: "unknown" as const, remaining: null };
+  const remaining = path.filter((id) => !owned.has(id)).length;
   return { state: remaining ? ("prerequisites" as const) : ("researching" as const), remaining };
 }
