@@ -159,7 +159,7 @@
 
 .wt-home-research-list { display: grid; gap: 20px; padding-top: 20px; }
 .wt-home-research-item { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
-.wt-home-research-actions { display: grid; gap: 8px; justify-items: start; }
+.wt-home-research-actions { display: grid; gap: 8px; justify-items: start; flex: 1; min-width: 180px; }
 .wt-home-research-actions button { min-height: 44px; }
 .wt-home-research-actions span { font-size: 12px; color: var(--wt-muted); }
 .wt-home-prerequisites-modal { width: min(960px, calc(100vw - 24px)); }
@@ -180,3 +180,9 @@
 .wt-home-research-progress progress::-webkit-progress-bar { background: var(--wt-line); }
 .wt-home-research-progress progress::-webkit-progress-value { background: var(--wt-gold); border-radius: 4px; }
 .wt-home-research-progress progress::-moz-progress-bar { background: var(--wt-gold); border-radius: 4px; }
+
+.wt-home-research-links { display: flex; align-items: center; justify-content: flex-end; gap: 20px; width: 100%; white-space: nowrap; }
+.wt-home-research-links .wt-home-text-action { border: 0; background: transparent; box-shadow: none; padding: 0; color: var(--wt-gold); font: inherit; font-size: 13px; cursor: pointer; }
+.wt-home-research-links > a { display: inline-flex; align-items: center; min-height: 44px; }
+.wt-home-text-action:hover { text-decoration: underline; }
+.wt-home-text-action:focus-visible { outline: 2px solid var(--wt-gold); outline-offset: 3px; }

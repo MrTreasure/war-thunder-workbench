@@ -63,25 +63,25 @@ export function HomeResearchPlans({
                 ) : (
                   <span>前置完成度：未知</span>
                 )}
-                <button className="quiet-button" onClick={() => setSelected(plan.key)}>
-                  {status.state === "prerequisites"
-                    ? `还剩 ${status.remaining} 辆前置车辆`
-                    : status.state === "researching"
-                      ? "正在研发 · 查看前置"
-                      : status.state === "owned"
-                        ? "已拥有 · 查看前置"
-                        : status.state === "garage-required"
-                          ? "查看前置车辆"
-                          : "前置资料待核验"}
-                </button>
+                {status.state === "researching" && <span>正在研发</span>}
+                {status.state === "owned" && <span>已拥有</span>}
                 {owned === null && <span>绑定角色并同步车库后查看前置进度</span>}
-                <Link
-                  to="/tree"
-                  search={{ country: plan.country, category: plan.category, plan: true }}
-                  preload={false}
-                >
-                  继续研发 →
-                </Link>
+                <div className="wt-home-research-links">
+                  <button
+                    type="button"
+                    className="wt-home-text-action"
+                    onClick={() => setSelected(plan.key)}
+                  >
+                    查看详情
+                  </button>
+                  <Link
+                    to="/tree"
+                    search={{ country: plan.country, category: plan.category, plan: true }}
+                    preload={false}
+                  >
+                    继续研发 →
+                  </Link>
+                </div>
               </div>
             </article>
           );
