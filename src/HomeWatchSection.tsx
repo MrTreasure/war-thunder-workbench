@@ -1,3 +1,4 @@
+import { HomeWatchTotals } from "./HomeWatchTotals";
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { GameIcon } from "./components/GameIcon";
@@ -72,6 +73,7 @@ export function HomeWatchSection({
       </header>
       {watches.length ? (
         <>
+          <HomeWatchTotals watches={watches} events={calendar?.events || []} now={now} />
           <div className="wt-home-watch-list" aria-live="polite">
             {watches.slice(offset, offset + HOME_WATCH_PAGE_SIZE).map((watch) => {
               const presentation = homeWatchPresentation(watch);

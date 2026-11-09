@@ -296,6 +296,22 @@ export function HomeDashboard() {
             </p>
           )}
         </Section>
+        <HomeWatchSection key={userId || "guest"} watches={summary.watches} pending={pending} />
+        {userId ? (
+          <HomeLoadoutSection key={userId} owner={userId} />
+        ) : (
+          <Section
+            title="模拟挂载"
+            count={0}
+            action={
+              <Link to="/loadouts" preload={false}>
+                打开模拟挂载 →
+              </Link>
+            }
+          >
+            <p className="wt-home-empty">登录后可保存挂载方案，并在这里查看。</p>
+          </Section>
+        )}
         <Section
           title="出击队列"
           count={summary.lineups.length}
@@ -329,22 +345,6 @@ export function HomeDashboard() {
             </p>
           )}
         </Section>
-        {userId ? (
-          <HomeLoadoutSection key={userId} owner={userId} />
-        ) : (
-          <Section
-            title="模拟挂载"
-            count={0}
-            action={
-              <Link to="/loadouts" preload={false}>
-                打开模拟挂载 →
-              </Link>
-            }
-          >
-            <p className="wt-home-empty">登录后可保存挂载方案，并在这里查看。</p>
-          </Section>
-        )}
-        <HomeWatchSection key={userId || "guest"} watches={summary.watches} pending={pending} />
       </div>
     </main>
   );

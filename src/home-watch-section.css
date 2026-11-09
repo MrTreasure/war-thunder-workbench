@@ -36,3 +36,9 @@
 .wt-home-watch-entry > .wt-game-card:has(> .wt-game-pack-price) {
   margin-bottom: 25px;
 }
+.wt-home-watch-totals { padding-top: 16px; }
+.wt-home-watch-totals dl { display: flex; flex-wrap: wrap; gap: 32px; margin: 0; }
+.wt-home-watch-totals dt { font-size: 12px; color: var(--wt-muted); }
+.wt-home-watch-totals dd { margin: 6px 0 0; font-size: 20px; color: var(--wt-gold); font-variant-numeric: tabular-nums; }
+.wt-home-watch-totals small, .wt-home-watch-totals p { font-size: 12px; color: var(--wt-muted); line-height: 1.6; }
+.wt-home-watch-totals p { margin: 10px 0 0; }
