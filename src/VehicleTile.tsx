@@ -153,11 +153,13 @@ export function VehicleTile({
           : premium
             ? "高级载具"
             : catalog.kinds[unit.kind || ""] || "特殊载具";
-  const caption = [
-    !country && countryLabel,
-    footerLabel,
-    showRank && unit.rank ? `Rank ${unit.rank}` : null,
-  ]
+  const displayCountry =
+    countryFlag?.name ||
+    countryLabel ||
+    (country ? bootstrap.countries[country as keyof typeof bootstrap.countries] || country : "");
+  const flagUrl =
+    countryFlag?.url || (country ? (flags as Record<string, string>)[country] : undefined);
+  const caption = [displayCountry, footerLabel, showRank && unit.rank ? `Rank ${unit.rank}` : null]
     .filter(Boolean)
     .join(" · ");
   const Element = onSelect ? "button" : href ? "a" : "span";
@@ -221,24 +223,6 @@ export function VehicleTile({
         />
       )}
       <VehicleThumbnail unit={mediaUnit} />
-      {country && (
-        <span className="wt-game-card-country">
-          {(countryFlag?.url || (flags as Record<string, string>)[country]) && (
-            <img
-              src={countryFlag?.url || (flags as Record<string, string>)[country]}
-              width={20}
-              height={14}
-              alt=""
-            />
-          )}
-          <span>
-            {countryFlag?.name ||
-              countryLabel ||
-              bootstrap.countries[country as keyof typeof bootstrap.countries] ||
-              country}
-          </span>
-        </span>
-      )}
       <span className={`unit-name ${name.length > 17 ? "is-long" : ""}`} title={name}>
         {name}
       </span>
@@ -311,9 +295,12 @@ export function VehicleTile({
       )}
       {caption && (
         <span className="wt-game-card-caption" title={caption}>
-          {((!country && countryLabel) || footerLabel) && (
+          {flagUrl && displayCountry && (
+            <img className="wt-game-caption-flag" src={flagUrl} width={20} height={14} alt="" />
+          )}
+          {(displayCountry || footerLabel) && (
             <span className="wt-game-card-caption-context">
-              {[!country && countryLabel, footerLabel].filter(Boolean).join(" · ")}
+              {[displayCountry, footerLabel].filter(Boolean).join(" · ")}
             </span>
           )}
           {showRank && unit.rank && (

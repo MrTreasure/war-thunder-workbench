@@ -258,8 +258,6 @@
 /* Read-only vehicle links retain the shared game tile appearance. */
 a.vehicle-card.wt-game-card { color: inherit; text-decoration: none; cursor: pointer; }
 
-/* Optional country identity inside the shared card, used by vehicle comparisons. */
-.vehicle-card.wt-game-card > .wt-game-card-country { position:absolute; left:5px; top:8px; z-index:4; display:flex; align-items:center; gap:4px; max-width:66px; padding:2px 3px; color:var(--wt-ink); background:var(--wt-panel); font:400 10px/1.2 var(--wt-sans); }
-.wt-game-card-country > img { width:20px; height:14px; min-width:20px; max-width:20px; min-height:14px; max-height:14px; object-fit:contain; flex:none; }
-.wt-game-card-country > span { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.vehicle-card.wt-game-card[data-country] > .unit-name { max-width:calc(100% - 78px); }
+/* Country identity shares the bottom-right caption with rank. */
+
+.vehicle-card.wt-game-card .wt-game-caption-flag { position:static; width:20px; height:14px; min-width:20px; max-width:20px; object-fit:contain; flex:none; }

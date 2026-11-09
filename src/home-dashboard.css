@@ -171,3 +171,5 @@
 .wt-home-prerequisites-modal[open] { display: flex; flex-direction: column; }
 .wt-home-prerequisites-modal > .calc-header { flex: none; }
 .wt-home-prerequisites-content { min-height: 0; flex: 1; }
+
+.wt-home-message { position: fixed; inset: 50% auto auto 50%; transform: translate(-50%, -50%); z-index: 10000; max-width: min(420px, calc(100vw - 32px)); padding: 16px 24px; border: 1px solid var(--wt-strong-line); border-radius: 8px; background: var(--wt-panel); color: var(--wt-ink); box-shadow: var(--wt-shadow); font-size: 14px; line-height: 1.6; text-align: center; pointer-events: none; overflow-wrap: anywhere; }

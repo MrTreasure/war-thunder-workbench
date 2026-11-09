@@ -1,3 +1,4 @@
+import { createPortal } from "react-dom";
 import { HomeResearchPlans } from "./HomeResearchPlans";
 import { HomeActivity } from "./HomeActivity";
 import { HomeWatchSection } from "./HomeWatchSection";
@@ -143,6 +144,14 @@ export function HomeDashboard() {
   }, [userId]);
   const syncBusy = garageSync.owner === userId && garageSync.busy;
   const garageMessage = garageSync.owner === userId ? garageSync.message : "";
+  useEffect(() => {
+    if (!garageMessage) return;
+    const timer = window.setTimeout(
+      () => setGarageSync((previous) => ({ ...previous, message: "" })),
+      3000,
+    );
+    return () => window.clearTimeout(timer);
+  }, [garageMessage]);
   async function refreshGarage() {
     if (!currentWorkspace?.binding || syncBusy) {
       currentWorkspace?.open();
@@ -166,6 +175,13 @@ export function HomeDashboard() {
   }
   return (
     <main className="wt-home">
+      {garageMessage &&
+        createPortal(
+          <output className="wt-home-message" aria-live="polite">
+            {garageMessage}
+          </output>,
+          document.body,
+        )}
       <header className="wt-home-heading">
         <div>
           <p>研发 · 配置 · 出击</p>
@@ -247,7 +263,6 @@ export function HomeDashboard() {
             </div>
           }
         >
-          {garageMessage && <output className="wt-home-notice">{garageMessage}</output>}
           {summary.plans.length ? (
             <HomeResearchPlans
               key={userId || "guest"}
