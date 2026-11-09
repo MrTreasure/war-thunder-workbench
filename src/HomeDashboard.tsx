@@ -5,13 +5,15 @@ import { HomeWatchSection } from "./HomeWatchSection";
 import { GameIcon, type GameIconName } from "./components/GameIcon";
 import mapIcons from "../data/map-editor-icons.json";
 import { useLoadoutPlans } from "./loadout-storage";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import bootstrap from "./generated/bootstrap.json";
 import { useAccountWorkspace, workspaceKey } from "./workspace-context";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
 import { HOME_SUMMARY_LIMIT, homeDashboardSummary } from "./home-dashboard-model";
 import "./home-dashboard.css";
+
+const HomeLoadoutDetails = lazy(() => import("./HomeLoadoutDetails"));
 
 function readGuestDocuments() {
   const documents: Record<string, unknown> = {};
@@ -71,44 +73,61 @@ function Section({
 }
 function HomeLoadoutSection({ owner }: { owner: string }) {
   const [plans, , error, status] = useLoadoutPlans(owner);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const selected = plans.find((plan) => plan.id === selectedId);
   const recent = [...plans].sort((a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt));
   return (
-    <Section
-      title="模拟挂载"
-      count={plans.length}
-      action={
-        <Link to="/loadouts" preload={false}>
-          查看全部挂载 →
-        </Link>
-      }
-    >
-      {error ? (
-        <p className="wt-home-notice" role="alert">
-          {error}{" "}
-          <button className="quiet-button" onClick={() => void status.reload()}>
-            重试
-          </button>
-        </p>
-      ) : status.loading ? (
-        <output className="wt-home-notice">正在读取挂载方案…</output>
-      ) : recent.length ? (
-        <ul>
-          {recent.slice(0, HOME_SUMMARY_LIMIT).map((plan) => (
-            <li key={plan.id}>
-              <div>
-                <strong>{plan.name || "未命名挂载"}</strong>
-                <span>
-                  {countryName(plan.country)} · 更新于{" "}
-                  {new Date(plan.updatedAt).toLocaleDateString("zh-CN")}
-                </span>
-              </div>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="wt-home-empty">还没有保存的挂载方案。进入模拟挂载，添加机型后开始配置。</p>
+    <>
+      <Section
+        title="模拟挂载"
+        count={plans.length}
+        action={
+          <Link to="/loadouts" preload={false}>
+            查看全部挂载 →
+          </Link>
+        }
+      >
+        {error ? (
+          <p className="wt-home-notice" role="alert">
+            {error}{" "}
+            <button className="quiet-button" onClick={() => void status.reload()}>
+              重试
+            </button>
+          </p>
+        ) : status.loading ? (
+          <output className="wt-home-notice">正在读取挂载方案…</output>
+        ) : recent.length ? (
+          <ul>
+            {recent.slice(0, HOME_SUMMARY_LIMIT).map((plan) => (
+              <li key={plan.id}>
+                <div>
+                  <strong>{plan.name || "未命名挂载"}</strong>
+                  <span>
+                    {countryName(plan.country)} · 更新于{" "}
+                    {new Date(plan.updatedAt).toLocaleDateString("zh-CN")}
+                  </span>
+                </div>
+                <button className="quiet-button" onClick={() => setSelectedId(plan.id)}>
+                  查看详情
+                </button>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="wt-home-empty">还没有保存的挂载方案。进入模拟挂载，添加机型后开始配置。</p>
+        )}
+      </Section>
+      {selected && (
+        <Suspense fallback={<output className="wt-home-notice">正在打开挂载详情…</output>}>
+          <HomeLoadoutDetails
+            plan={selected}
+            summary={status.summaries[selected.id]}
+            error={status.previewError}
+            close={() => setSelectedId(null)}
+          />
+        </Suspense>
       )}
-    </Section>
+    </>
   );
 }
 export function HomeDashboard() {
