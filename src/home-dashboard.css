@@ -152,3 +152,7 @@
 }
 .wt-home-section h3 { align-items: center; }
 .wt-home .wt-control-icon { flex-shrink: 0; object-fit: contain; }
+
+.wt-home-watch-list > .wt-game-card:has(> .wt-game-pack-price) { margin-bottom: 25px; }
+
+.wt-home-section-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }

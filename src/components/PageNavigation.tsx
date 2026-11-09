@@ -24,7 +24,7 @@ export function PageNavigation({
     <>
       <nav className="page-navigation" aria-label="工具页面">
         <Link to="/home" preload={false} aria-current={page === "home" ? "page" : undefined}>
-          我的工作台
+          我的
         </Link>
         <Link to="/tree" preload={false} aria-current={page === "tree" ? "page" : undefined}>
           科技树
@@ -87,7 +87,7 @@ export function PageNavigation({
               免责声明
             </option>
           )}
-          <option value="home">我的工作台</option>
+          <option value="home">我的</option>
           <option value="tree">科技树</option>
           <option value="lineups">出击队列</option>
           <option value="maps">陆战地图</option>

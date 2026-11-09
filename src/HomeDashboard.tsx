@@ -1,12 +1,19 @@
+import { HomeActivity } from "./HomeActivity";
+import { useVehicleFacts } from "./vehicle-catalog";
 import { GameIcon, type GameIconName } from "./components/GameIcon";
 import mapIcons from "../data/map-editor-icons.json";
 import { useLoadoutPlans } from "./loadout-storage";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import bootstrap from "./generated/bootstrap.json";
 import { useAccountWorkspace, workspaceKey } from "./workspace-context";
 import { useWorkbenchAccount } from "./WorkbenchAccount";
-import { HOME_SUMMARY_LIMIT, homeDashboardSummary } from "./home-dashboard-model";
+import {
+  HOME_SUMMARY_LIMIT,
+  homeDashboardSummary,
+  homeWatchPresentation,
+  homeResearchStatus,
+} from "./home-dashboard-model";
 import { VehicleTile } from "./VehicleTile";
 import "./home-dashboard.css";
 
@@ -111,6 +118,7 @@ function HomeLoadoutSection({ owner }: { owner: string }) {
   );
 }
 export function HomeDashboard() {
+  const facts = useVehicleFacts();
   const { session } = useWorkbenchAccount();
   const workspace = useAccountWorkspace();
   const userId = session?.user?.id || "";
@@ -133,6 +141,37 @@ export function HomeDashboard() {
     : guest;
   const summary = homeDashboardSummary(documents);
   const pending = !!userId && !currentWorkspace?.ready;
+  const [garageSync, setGarageSync] = useState({ owner: "", busy: false, message: "" });
+  const ownerRef = useRef(userId);
+  useEffect(() => {
+    ownerRef.current = userId;
+    return () => {
+      ownerRef.current = "";
+    };
+  }, [userId]);
+  const syncBusy = garageSync.owner === userId && garageSync.busy;
+  const garageMessage = garageSync.owner === userId ? garageSync.message : "";
+  async function refreshGarage() {
+    if (!currentWorkspace?.binding || syncBusy) {
+      currentWorkspace?.open();
+      return;
+    }
+    const owner = userId;
+    setGarageSync({ owner, busy: true, message: "" });
+    try {
+      await currentWorkspace.refreshOwnedGarage();
+      await currentWorkspace.reload();
+      if (ownerRef.current === owner)
+        setGarageSync({ owner, busy: false, message: "车库信息已同步。" });
+    } catch (error) {
+      if (ownerRef.current === owner)
+        setGarageSync({
+          owner,
+          busy: false,
+          message: error instanceof Error ? error.message : "车库同步失败，请重试。",
+        });
+    }
+  }
   return (
     <main className="wt-home">
       <header className="wt-home-heading">
@@ -196,36 +235,63 @@ export function HomeDashboard() {
           <span>查看地图与编辑战术 →</span>
         </Link>
       </nav>
+      <HomeActivity />
       <div className="wt-home-grid" aria-busy={pending}>
         <Section
           title="研发计划"
           count={summary.plans.length}
           action={
-            <Link to="/tree" preload={false}>
-              查看全部 · 科技树 →
-            </Link>
+            <div className="wt-home-section-actions">
+              <button
+                className="quiet-button"
+                disabled={!currentWorkspace?.binding || syncBusy}
+                onClick={() => void refreshGarage()}
+              >
+                {syncBusy ? "正在同步…" : "刷新同步车库"}
+              </button>
+              <Link to="/tree" preload={false}>
+                查看全部 · 科技树 →
+              </Link>
+            </div>
           }
         >
+          {garageMessage && <output className="wt-home-notice">{garageMessage}</output>}
           {summary.plans.length ? (
             <ul>
-              {summary.plans.slice(0, HOME_SUMMARY_LIMIT).map((plan) => (
-                <li key={plan.key}>
-                  <div>
-                    <strong>
-                      {countryName(plan.country)} · {categoryName(plan.category)}
-                    </strong>
-                    <span>目标：{plan.targetName || "名称待核验"}</span>
-                    <span>当前目标已投入 {plan.progress.toLocaleString()} RP</span>
-                  </div>
-                  <Link
-                    to="/tree"
-                    search={{ country: plan.country, category: plan.category, plan: true }}
-                    preload={false}
-                  >
-                    继续研发
-                  </Link>
-                </li>
-              ))}
+              {summary.plans.slice(0, HOME_SUMMARY_LIMIT).map((plan) => {
+                const status = homeResearchStatus(
+                  plan.targetId,
+                  currentWorkspace?.binding ? currentWorkspace.ownedVehicleIds : null,
+                );
+                return (
+                  <li key={plan.key}>
+                    <div>
+                      <strong>
+                        {countryName(plan.country)} · {categoryName(plan.category)}
+                      </strong>
+                      <span>目标：{plan.targetName || "名称待核验"}</span>
+                      <span>
+                        {status.state === "prerequisites"
+                          ? `还剩 ${status.remaining} 辆前置车辆`
+                          : status.state === "researching"
+                            ? "正在研发"
+                            : status.state === "owned"
+                              ? "已拥有"
+                              : status.state === "garage-required"
+                                ? "绑定角色并同步车库后查看前置进度"
+                                : "前置资料待核验"}
+                      </span>
+                    </div>
+                    <Link
+                      to="/tree"
+                      search={{ country: plan.country, category: plan.category, plan: true }}
+                      preload={false}
+                    >
+                      继续研发
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           ) : (
             <p className="wt-home-empty">
@@ -294,15 +360,19 @@ export function HomeDashboard() {
         >
           {summary.watches.length ? (
             <div className="wt-home-watch-list">
-              {summary.watches.slice(0, HOME_SUMMARY_LIMIT).map((unit) => (
-                <VehicleTile
-                  key={unit.id}
-                  unit={unit}
-                  country={unit.country}
-                  showRank
-                  showAcquisition={false}
-                />
-              ))}
+              {summary.watches.slice(0, HOME_SUMMARY_LIMIT).map((watch) => {
+                const presentation = homeWatchPresentation(watch);
+                return (
+                  <VehicleTile
+                    key={watch.id}
+                    unit={facts.get(watch.id) || presentation.unit}
+                    country={watch.country}
+                    countryFlag={presentation.flag}
+                    showRank
+                    showAcquisition={presentation.known}
+                  />
+                );
+              })}
             </div>
           ) : (
             <p className="wt-home-empty">

@@ -1,3 +1,5 @@
+import type { VehicleTileUnit } from "./VehicleTile";
+import type { SaleVehicle } from "./sale-calendar-model";
 import homeNames from "../data/home-vehicle-names.json";
 import bootstrap from "./generated/bootstrap.json";
 import { validLineups } from "./lineups";
@@ -14,7 +16,6 @@ export function homeDashboardSummary(documents: Record<string, unknown>) {
     key: string;
     country: string;
     category: string;
-    progress: number;
     targetId: string;
     targetName: string | null;
   }[] = [];
@@ -66,7 +67,6 @@ export function homeDashboardSummary(documents: Record<string, unknown>) {
         key,
         country: match[2],
         category: match[1],
-        progress: value.progress,
         targetId: value.target,
         targetName:
           localizedName ||
@@ -99,4 +99,57 @@ export function homeDashboardSummary(documents: Record<string, unknown>) {
       : [],
     watches: normalizeSaleWatch(documents[saleWatchKey]),
   };
+}
+
+/** Purchase snapshots retain their saved quotes; cards use canonical presentation facts. */
+export function homeWatchPresentation(watch: SaleVehicle) {
+  const entry = (
+    homeNames.vehicles as Record<
+      string,
+      {
+        country: string;
+        category: string;
+        name: string;
+        card?: VehicleTileUnit;
+        flag?: { id: string; name: string; url: string };
+      }
+    >
+  )[watch.id];
+  if (entry?.country === watch.country && entry.category === watch.category && entry.card)
+    return { unit: entry.card, flag: entry.flag, known: true };
+  return {
+    unit: {
+      id: watch.id,
+      name: entry?.name || watch.name,
+      rank: watch.rank,
+      imageUrl: watch.image,
+    },
+    flag: undefined,
+    known: false,
+  };
+}
+
+export function homeResearchStatus(targetId: string, ownedIds: Iterable<string> | null) {
+  if (ownedIds === null) return { state: "garage-required" as const, remaining: null };
+  const records = homeNames.vehicles as Record<
+    string,
+    { canonicalId: string; parentId: string | null; research: boolean }
+  >;
+  const target = records[targetId];
+  if (!target) return { state: "unknown" as const, remaining: null };
+  const owned = new Set([...ownedIds].map((id) => records[id]?.canonicalId || id));
+  if (owned.has(target.canonicalId)) return { state: "owned" as const, remaining: 0 };
+  let current = records[target.canonicalId],
+    remaining = 0;
+  const visited = new Set([target.canonicalId]);
+  while (current?.parentId) {
+    if (visited.has(current.parentId)) return { state: "unknown" as const, remaining: null };
+    visited.add(current.parentId);
+    const next = records[current.parentId];
+    if (!next) return { state: "unknown" as const, remaining: null };
+    if (!next.research) break;
+    if (!owned.has(next.canonicalId)) remaining++;
+    current = next;
+  }
+  return { state: remaining ? ("prerequisites" as const) : ("researching" as const), remaining };
 }
